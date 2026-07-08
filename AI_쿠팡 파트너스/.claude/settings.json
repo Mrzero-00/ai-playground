@@ -1,0 +1,14 @@
+{
+  "hooks": {
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node \"/Users/sonsang-il/Desktop/ai/scripts/update-readme.mjs\""
+          }
+        ]
+      }
+    ]
+  }
+}

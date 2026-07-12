@@ -271,5 +271,5 @@ Phase 0 Repository Bootstrap이 완료되었습니다.
 - GitHub Actions CI 추가
 - 기존 단일 실행형 프로토타입을 `legacy/initial-prototype`으로 이동
 
-Phase 1 Database and Domain까지 키 없이 구현되어 있습니다. SQL Migration을 실제 Supabase 프로젝트에
-적용하는 작업은 연결 정보가 준비된 후 수행합니다. 다음 작업은 Phase 2 Affiliate Provider입니다.
+Phase 2 Affiliate Provider까지 Mock 기반으로 구현되어 있습니다. 실제 Supabase Migration 적용과 Coupang
+Adapter 활성화는 키와 공식 명세가 준비된 후 수행합니다. 다음 작업은 Phase 3 Market Context입니다.

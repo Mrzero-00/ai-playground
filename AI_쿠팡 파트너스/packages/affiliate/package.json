@@ -1,1 +1,9 @@
-{"name":"@affiliate-automation/affiliate","version":"0.1.0","private":true,"type":"module","exports":{".":"./src/index.ts"},"scripts":{"build":"tsc --outDir dist --noEmit false","lint":"eslint .","typecheck":"tsc --noEmit","test":"vitest run --passWithNoTests"}}
+{
+  "name": "@affiliate-automation/affiliate",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "exports": { ".": "./src/index.ts" },
+  "scripts": { "build": "tsc --outDir dist --noEmit false", "lint": "eslint .", "typecheck": "tsc --noEmit", "test": "vitest run" },
+  "dependencies": { "@affiliate-automation/database": "workspace:*", "zod": "^4.1.0" }
+}

@@ -1,1 +1,17 @@
-{"name":"@affiliate-automation/database","version":"0.1.0","private":true,"type":"module","exports":{".":"./src/index.ts"},"scripts":{"build":"tsc --outDir dist --noEmit false","lint":"eslint .","typecheck":"tsc --noEmit","test":"vitest run --passWithNoTests"}}
+{
+  "name": "@affiliate-automation/database",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "exports": { ".": "./src/index.ts" },
+  "scripts": {
+    "build": "tsc --outDir dist --noEmit false",
+    "lint": "eslint .",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "^2.76.0",
+    "zod": "^4.1.0"
+  }
+}

@@ -1,22 +1,27 @@
 {
-  "name": "aaos-mvp",
+  "name": "affiliate-automation-platform",
   "version": "0.1.0",
   "private": true,
-  "type": "module",
-  "description": "쿠팡 파트너스 아이템 분석 → 소개글/인스타 캡션 생성 → 인스타 자동 게시 (MVP)",
+  "packageManager": "pnpm@10.11.0",
+  "engines": { "node": ">=20" },
   "scripts": {
-    "start": "tsx src/index.ts",
-    "dry": "DRY_RUN=1 tsx src/index.ts",
-    "typecheck": "tsc --noEmit"
-  },
-  "dependencies": {
-    "@anthropic-ai/sdk": "^0.110.0",
-    "dotenv": "^16.4.5",
-    "zod": "^4.4.3"
+    "dev": "turbo dev",
+    "build": "turbo build",
+    "lint": "turbo lint",
+    "typecheck": "turbo typecheck",
+    "test": "turbo test",
+    "format": "prettier --write .",
+    "format:check": "prettier --check ."
   },
   "devDependencies": {
-    "@types/node": "^26.1.0",
-    "tsx": "^4.19.2",
-    "typescript": "^5.6.3"
+    "@eslint/js": "^9.39.0",
+    "@types/node": "^22.0.0",
+    "eslint": "^9.39.0",
+    "eslint-config-next": "^16.0.0",
+    "prettier": "^3.6.0",
+    "turbo": "^2.5.0",
+    "typescript": "^5.9.0",
+    "typescript-eslint": "^8.46.0",
+    "vitest": "^3.2.0"
   }
 }

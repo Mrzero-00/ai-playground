@@ -1,3 +1,8 @@
+# Environment Variables
+
+`.env.example`에 아래 변수를 정의합니다.
+
+```bash
 # Application
 NODE_ENV=development
 APP_URL=http://localhost:3000
@@ -41,3 +46,27 @@ LANGFUSE_BASE_URL=
 # Security
 AFFILIATE_REDIRECT_SIGNING_SECRET=
 CRON_SIGNING_SECRET=
+```
+
+---
+
+## Validation
+
+환경변수는 앱 시작 시 Zod로 검증합니다.
+
+```ts
+import { z } from 'zod';
+
+export const serverEnvSchema = z.object({
+  NODE_ENV: z.enum(['development', 'test', 'production']),
+  DATABASE_URL: z.string().min(1),
+  SUPABASE_SERVICE_ROLE_KEY: z.string().min(1),
+  OPENAI_API_KEY: z.string().min(1),
+});
+
+export type ServerEnv = z.infer<typeof serverEnvSchema>;
+```
+
+Client 환경변수와 Server 환경변수를 분리합니다.
+
+`SUPABASE_SERVICE_ROLE_KEY`, API Secret, Access Token은 절대 Client Bundle에 포함하지 않습니다.

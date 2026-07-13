@@ -271,5 +271,5 @@ Phase 0 Repository Bootstrap이 완료되었습니다.
 - GitHub Actions CI 추가
 - 기존 단일 실행형 프로토타입을 `legacy/initial-prototype`으로 이동
 
-Phase 7 Review Dashboard까지 Mock review queue 기반으로 구현되어 있습니다. 실제 인증과 DB 상태
-변경은 Supabase 설정 후 연결합니다. 다음 작업은 Phase 8 Publishing입니다.
+Phase 8 Publishing까지 승인 전용 Mock Adapter로 구현되어 있습니다. 실제 Content Site 저장과 Instagram
+게시 활성화는 배포 및 공식 권한 설정 후 연결합니다. 다음 작업은 Phase 9 Analytics입니다.

@@ -152,7 +152,14 @@ importers:
         specifier: ^4.1.0
         version: 4.4.3
 
-  packages/publishing: {}
+  packages/publishing:
+    dependencies:
+      '@affiliate-automation/shared':
+        specifier: workspace:*
+        version: link:../shared
+      zod:
+        specifier: ^4.1.0
+        version: 4.4.3
 
   packages/scoring:
     dependencies:

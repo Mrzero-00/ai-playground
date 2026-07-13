@@ -115,6 +115,9 @@ importers:
       '@affiliate-automation/shared':
         specifier: workspace:*
         version: link:../../packages/shared
+      zod:
+        specifier: ^4.1.0
+        version: 4.4.3
     devDependencies:
       tsx:
         specifier: ^4.20.0

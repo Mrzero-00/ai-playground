@@ -8,8 +8,8 @@
     "build": "tsc --outDir dist --noEmit false",
     "lint": "eslint .",
     "typecheck": "tsc --noEmit",
-    "test": "vitest run --passWithNoTests"
+    "test": "vitest run"
   },
-  "dependencies": { "@affiliate-automation/shared": "workspace:*" },
+  "dependencies": { "@affiliate-automation/shared": "workspace:*", "zod": "^4.1.0" },
   "devDependencies": { "tsx": "^4.20.0" }
 }

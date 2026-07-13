@@ -150,7 +150,11 @@ importers:
 
   packages/publishing: {}
 
-  packages/scoring: {}
+  packages/scoring:
+    dependencies:
+      zod:
+        specifier: ^4.1.0
+        version: 4.4.3
 
   packages/shared:
     dependencies:

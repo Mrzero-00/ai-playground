@@ -135,7 +135,11 @@ importers:
         specifier: ^4.1.0
         version: 4.4.3
 
-  packages/analytics: {}
+  packages/analytics:
+    dependencies:
+      zod:
+        specifier: ^4.1.0
+        version: 4.4.3
 
   packages/compliance:
     dependencies:

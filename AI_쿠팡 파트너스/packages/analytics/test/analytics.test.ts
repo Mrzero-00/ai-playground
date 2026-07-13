@@ -1,0 +1,6 @@
+import { describe, expect, it } from "vitest";
+import { buildTrackedUrl, normalizeConversions, performanceEventSchema, summarizePerformance } from "../src";
+describe("analytics", () => {
+  it("builds UTM links and aggregates performance", () => { const event = performanceEventSchema.parse({ id: "e1", publicationId: "p1", affiliateLinkId: "l1", eventType: "CLICK", eventAt: "2026-07-13T00:00:00+00:00", sessionId: null, anonymousUserId: null, metadata: {} }); const conversions = normalizeConversions([{ externalConversionId: "c1", affiliateLinkId: "l1", productId: "p", amount: 10000, commission: 300, currency: "KRW", convertedAt: "2026-07-13T01:00:00+00:00", rawPayload: {} }]); expect(buildTrackedUrl("https://example.com/product", "daily", "content-1")).toContain("utm_campaign=daily"); expect(summarizePerformance([event], conversions)).toMatchObject({ clicks: 1, conversions: 1, commission: 300 }); });
+  it("deduplicates provider conversions", () => { const fixture = { externalConversionId: "c1", affiliateLinkId: null, productId: null, amount: null, commission: null, currency: "KRW", convertedAt: "2026-07-13T01:00:00+00:00", rawPayload: {} }; expect(normalizeConversions([fixture, fixture])).toHaveLength(1); });
+});

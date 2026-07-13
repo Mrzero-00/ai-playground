@@ -271,5 +271,5 @@ Phase 0 Repository Bootstrap이 완료되었습니다.
 - GitHub Actions CI 추가
 - 기존 단일 실행형 프로토타입을 `legacy/initial-prototype`으로 이동
 
-Phase 8 Publishing까지 승인 전용 Mock Adapter로 구현되어 있습니다. 실제 Content Site 저장과 Instagram
-게시 활성화는 배포 및 공식 권한 설정 후 연결합니다. 다음 작업은 Phase 9 Analytics입니다.
+Phase 9 Analytics까지 fixture 기반으로 구현되어 있습니다. 실제 전환 리포트 import는 Provider 권한
+설정 후 연결합니다. 다음 작업은 Phase 10 Scheduler입니다.

@@ -129,7 +129,11 @@ importers:
         specifier: ^4.1.0
         version: 4.4.3
 
-  packages/ai: {}
+  packages/ai:
+    dependencies:
+      zod:
+        specifier: ^4.1.0
+        version: 4.4.3
 
   packages/analytics: {}
 

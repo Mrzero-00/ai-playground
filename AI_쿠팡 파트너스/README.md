@@ -271,5 +271,5 @@ Phase 0 Repository Bootstrap이 완료되었습니다.
 - GitHub Actions CI 추가
 - 기존 단일 실행형 프로토타입을 `legacy/initial-prototype`으로 이동
 
-Phase 2 Affiliate Provider까지 Mock 기반으로 구현되어 있습니다. 실제 Supabase Migration 적용과 Coupang
-Adapter 활성화는 키와 공식 명세가 준비된 후 수행합니다. 다음 작업은 Phase 3 Market Context입니다.
+Phase 3 Market Context까지 fixture 기반으로 구현되어 있습니다. 실제 Supabase Migration 적용과 외부
+데이터 Provider 활성화는 키와 공식 명세가 준비된 후 수행합니다. 다음 작업은 Phase 4 Product Scoring입니다.

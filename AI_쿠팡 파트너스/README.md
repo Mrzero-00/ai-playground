@@ -271,5 +271,5 @@ Phase 0 Repository Bootstrap이 완료되었습니다.
 - GitHub Actions CI 추가
 - 기존 단일 실행형 프로토타입을 `legacy/initial-prototype`으로 이동
 
-Phase 6 Compliance까지 규칙 기반으로 구현되어 있습니다. 실제 AI 보조 검증은 키와 모델 설정이
-준비된 후 활성화합니다. 다음 작업은 Phase 7 Review Dashboard입니다.
+Phase 7 Review Dashboard까지 Mock review queue 기반으로 구현되어 있습니다. 실제 인증과 DB 상태
+변경은 Supabase 설정 후 연결합니다. 다음 작업은 Phase 8 Publishing입니다.

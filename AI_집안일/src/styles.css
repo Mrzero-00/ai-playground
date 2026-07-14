@@ -47,6 +47,30 @@ h2 { font-size:20px; letter-spacing:-.3px; }
 .reminder-card strong { display:block; margin-bottom:3px; font-size:14px; }
 .reminder-card p { margin:0; color:#4e5968; font-size:12px; }
 .reminder-card button { flex:0 0 auto; padding:8px 12px; border:0; border-radius:10px; color:#1b64da; background:#fff; font-weight:700; }
+.calendar-card { padding:16px 10px 12px; border:1px solid #eceef1; border-radius:22px; background:#fff; box-shadow:0 8px 24px #252a340d; }
+.calendar-toolbar { display:flex; align-items:center; justify-content:space-between; padding:0 4px 16px; }
+.calendar-toolbar strong { font-size:18px; }
+.calendar-toolbar button { width:38px; height:38px; border:0; border-radius:12px; background:#f5f6f8; font-size:26px; line-height:1; }
+.calendar-weekdays,.calendar-grid { display:grid; grid-template-columns:repeat(7,1fr); }
+.calendar-weekdays span { padding:6px 0 10px; color:#8b95a1; text-align:center; font-size:12px; font-weight:700; }
+.calendar-weekdays span:first-child { color:#f04452; }
+.calendar-grid button { position:relative; display:flex; min-width:0; min-height:58px; flex-direction:column; align-items:center; gap:5px; padding:7px 2px 5px; border:0; border-radius:12px; background:transparent; }
+.calendar-grid button>span { display:grid; width:25px; height:25px; place-items:center; border-radius:50%; font-size:13px; }
+.calendar-grid button small { padding:2px 4px; border-radius:5px; color:#7359df; background:#f2efff; font-size:9px; font-weight:800; white-space:nowrap; }
+.calendar-grid button small.is-complete { color:#16865c; background:#e9f8f1; }
+.calendar-grid button i { width:4px; height:4px; border-radius:50%; background:#d1d6db; }
+.calendar-grid button.is-outside { opacity:.28; }
+.calendar-grid button.is-today>span { color:#fff; background:#7359df; font-weight:800; }
+.calendar-grid button.is-selected { background:#f7f4ff; box-shadow:0 0 0 1.5px #7359df inset; }
+.selected-schedule { margin-top:28px; }
+.schedule-list { margin:0; padding:0; list-style:none; }
+.schedule-list li { display:flex; align-items:center; gap:12px; min-height:68px; border-bottom:1px solid #f0f1f3; }
+.schedule-list li>div { min-width:0; }
+.schedule-list strong,.schedule-list small { display:block; }
+.schedule-list small { margin-top:4px; color:#8b95a1; font-size:12px; }
+.schedule-status { display:grid; flex:0 0 auto; width:30px; height:30px; place-items:center; border-radius:50%; color:#7359df; background:#f2efff; font-size:18px; font-weight:800; }
+.schedule-status.is-complete { color:#fff; background:#20a474; font-size:13px; }
+.empty-state.compact { padding:32px 16px; }
 .progress-card div:first-child span,.progress-card div:first-child strong { display:block; }
 .progress-card div:first-child span { margin-bottom:8px; font-size:14px; opacity:.82; }
 .progress-card div:first-child strong { font-size:24px; }

@@ -4,6 +4,7 @@ import {
   ChoreManager,
   CustomChoreModal,
   ProfileSetup,
+  ScheduleCalendar,
   SharedHomeUI,
   TodayTasks,
   type Chore as ChoreView,
@@ -152,6 +153,7 @@ function App() {
           onDelete={removeCustomChore}
         />
       )}
+      {activeTab === 'schedule' && <ScheduleCalendar chores={activeHome.chores} history={activeHome.history} />}
       {activeTab === 'profile' && <ProfileSetup initialValue={initialProfile} onSubmit={submitProfile} />}
       <BottomNavigation active={activeTab} onChange={setActiveTab} />
       <CustomChoreModal

@@ -104,7 +104,7 @@ export function useAppData() {
       return {
         ...home,
         chores: home.chores.map((item) => item.id === choreId ? { ...item, nextDueDate: addRecurrence(todayKey(), item.recurrence) } : item),
-        history: [{ id: makeId('history'), choreId, choreTitle: chore.title, action: 'completed', performedAt: new Date().toISOString(), performedByUserId: data.user.id, performedByName: data.user.displayName }, ...home.history],
+        history: [{ id: makeId('history'), choreId, choreTitle: chore.title, action: 'completed', performedAt: new Date().toISOString(), scheduledFor: chore.nextDueDate, performedByUserId: data.user.id, performedByName: data.user.displayName }, ...home.history],
       };
     });
   }

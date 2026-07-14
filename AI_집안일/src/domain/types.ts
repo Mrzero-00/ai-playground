@@ -50,6 +50,7 @@ export interface ChoreHistory {
   choreTitle: string;
   action: 'completed' | 'skipped';
   performedAt: string;
+  scheduledFor?: string;
   performedByUserId: string;
   performedByName: string;
 }

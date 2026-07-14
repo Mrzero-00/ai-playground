@@ -17,10 +17,32 @@ export function addRecurrence(from: string, recurrence: Recurrence): string {
 
   if (unit === 'day') date.setDate(date.getDate() + interval);
   if (unit === 'week') date.setDate(date.getDate() + interval * 7);
-  if (unit === 'month') date.setMonth(date.getMonth() + interval);
-  if (unit === 'year') date.setFullYear(date.getFullYear() + interval);
+  if (unit === 'month') {
+    const originalDay = date.getDate();
+    date.setDate(1);
+    date.setMonth(date.getMonth() + interval);
+    const lastDay = new Date(date.getFullYear(), date.getMonth() + 1, 0).getDate();
+    date.setDate(Math.min(originalDay, lastDay));
+  }
+  if (unit === 'year') {
+    const originalMonth = date.getMonth();
+    const originalDay = date.getDate();
+    date.setDate(1);
+    date.setFullYear(date.getFullYear() + interval);
+    date.setMonth(originalMonth);
+    const lastDay = new Date(date.getFullYear(), originalMonth + 1, 0).getDate();
+    date.setDate(Math.min(originalDay, lastDay));
+  }
 
   return toDateKey(date);
+}
+
+export function startOfMonthKey(date: Date): string {
+  return toDateKey(new Date(date.getFullYear(), date.getMonth(), 1));
+}
+
+export function endOfMonthKey(date: Date): string {
+  return toDateKey(new Date(date.getFullYear(), date.getMonth() + 1, 0));
 }
 
 export function isDue(dateKey: string, today = todayKey()): boolean {

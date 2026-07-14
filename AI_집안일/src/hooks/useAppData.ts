@@ -8,6 +8,15 @@ function makeId(prefix: string): string {
   return `${prefix}-${Date.now()}-${Math.random().toString(36).slice(2, 8)}`;
 }
 
+function syncRecommendedChores(existing: Chore[], profile: HomeProfile): Chore[] {
+  const recommended = recommendedChores(profile);
+  const recommendedIds = new Set(recommended.map((chore) => chore.id));
+  const retained = existing.filter((chore) => chore.isCustom || recommendedIds.has(chore.id));
+  const retainedIds = new Set(retained.map((chore) => chore.id));
+  const additions = recommended.filter((chore) => !retainedIds.has(chore.id));
+  return [...retained, ...additions];
+}
+
 export function useAppData() {
   const [data, setData] = useState<AppData>(loadAppData);
 
@@ -24,13 +33,14 @@ export function useAppData() {
 
   useEffect(() => {
     if (!activeHome?.profile) return;
-    const existingIds = new Set(activeHome.chores.map((chore) => chore.id));
-    const additions = recommendedChores(activeHome.profile).filter((chore) => !existingIds.has(chore.id));
-    if (!additions.length) return;
+    const synchronized = syncRecommendedChores(activeHome.chores, activeHome.profile);
+    const currentIds = activeHome.chores.map((chore) => chore.id).join('|');
+    const synchronizedIds = synchronized.map((chore) => chore.id).join('|');
+    if (currentIds === synchronizedIds) return;
     setData((current) => ({
       ...current,
       homes: current.homes.map((home) =>
-        home.id === activeHome.id ? { ...home, chores: [...home.chores, ...additions] } : home,
+        home.id === activeHome.id ? { ...home, chores: synchronized } : home,
       ),
     }));
   }, [activeHome]);
@@ -99,22 +109,18 @@ export function useAppData() {
 
   function saveProfile(profile: HomeProfile) {
     updateActiveHome((home) => {
-      const existingIds = new Set(home.chores.map((chore) => chore.id));
-      const additions = recommendedChores(profile).filter((chore) => !existingIds.has(chore.id));
-      return { ...home, profile, chores: [...home.chores, ...additions] };
+      return { ...home, profile, chores: syncRecommendedChores(home.chores, profile) };
     });
   }
 
   function updateHomeSettings(name: string, emoji: string, profile: HomeProfile) {
     updateActiveHome((home) => {
-      const existingIds = new Set(home.chores.map((chore) => chore.id));
-      const additions = recommendedChores(profile).filter((chore) => !existingIds.has(chore.id));
       return {
         ...home,
         name: name.trim() || home.name,
         emoji,
         profile,
-        chores: [...home.chores, ...additions],
+        chores: syncRecommendedChores(home.chores, profile),
       };
     });
   }

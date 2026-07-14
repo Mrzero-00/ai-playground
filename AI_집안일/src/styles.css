@@ -204,16 +204,17 @@ h2 { font-size:20px; letter-spacing:-.3px; }
 .quest-victory span { margin-bottom:12px; font-size:44px; }
 .quest-victory strong { font-size:18px; }
 .quest-victory p { margin-top:7px; color:#6b7684; font-size:12px; }
-.completion-fanfare { position:fixed; z-index:60; top:18%; left:50%; width:min(calc(100% - 40px),400px); pointer-events:none; transform:translateX(-50%); }
-.completion-fanfare>section { position:relative; z-index:2; display:flex; align-items:center; gap:12px; padding:16px 18px; border:1px solid #eadfff; border-radius:18px; color:#fff; background:linear-gradient(135deg,#5b43c8,#956ce8); box-shadow:0 18px 44px #45309655; animation:fanfare-pop 1.5s ease both; }
+.completion-fanfare { position:fixed; z-index:60; inset:0; display:grid; width:100%; padding:20px; pointer-events:none; place-items:center; background:#11182766; animation:fanfare-dim 1.5s ease both; }
+.completion-fanfare>section { position:relative; z-index:2; display:flex; width:min(100%,400px); align-items:center; gap:12px; padding:16px 18px; border:1px solid #eadfff; border-radius:18px; color:#fff; background:linear-gradient(135deg,#5b43c8,#956ce8); box-shadow:0 18px 44px #19132d66; animation:fanfare-pop 1.38s .08s ease both; }
 .completion-fanfare>section>span { font-size:32px; animation:fanfare-wiggle .55s ease 2; }
 .completion-fanfare strong,.completion-fanfare small { display:block; }
 .completion-fanfare strong { font-size:15px; }
 .completion-fanfare small { max-width:250px; margin-top:4px; overflow:hidden; opacity:.8; font-size:11px; text-overflow:ellipsis; white-space:nowrap; }
 .fanfare-burst { position:absolute; z-index:1; top:50%; left:50%; color:#ffd43b; font-size:110px; opacity:0; transform:translate(-50%,-50%); animation:fanfare-burst 1s ease-out; }
-.confetti { position:absolute; z-index:3; inset:-50px -10px; overflow:hidden; }
+.confetti { position:absolute; z-index:3; top:50%; left:50%; width:min(calc(100% - 20px),440px); height:220px; overflow:hidden; transform:translate(-50%,-50%); }
 .confetti i { --confetti-drift:0px; --confetti-rotation:0deg; position:absolute; top:40%; width:7px; height:12px; border-radius:2px; transform:rotate(var(--confetti-rotation)); animation:confetti-fly 1.2s cubic-bezier(.2,.8,.2,1) both; }
 @keyframes fanfare-pop { 0% { opacity:0; transform:translateY(18px) scale(.88); } 16% { opacity:1; transform:translateY(0) scale(1.04); } 24%,78% { opacity:1; transform:scale(1); } 100% { opacity:0; transform:translateY(-12px) scale(.96); } }
+@keyframes fanfare-dim { 0% { background:#11182700; } 12%,78% { background:#11182766; } 100% { background:#11182700; } }
 @keyframes fanfare-wiggle { 0%,100% { transform:rotate(0); } 35% { transform:rotate(-12deg) scale(1.12); } 70% { transform:rotate(10deg); } }
 @keyframes fanfare-burst { 0% { opacity:.9; transform:translate(-50%,-50%) scale(.1) rotate(0); } 100% { opacity:0; transform:translate(-50%,-50%) scale(1.5) rotate(40deg); } }
 @keyframes confetti-fly { 0% { opacity:0; translate:0 35px; } 15% { opacity:1; } 100% { opacity:0; translate:var(--confetti-drift) 105px; rotate:240deg; } }

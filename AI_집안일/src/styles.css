@@ -63,6 +63,7 @@ h2 { font-size:20px; letter-spacing:-.3px; }
 .calendar-grid button.is-today>span { color:#fff; background:#7359df; font-weight:800; }
 .calendar-grid button.is-selected { background:#f7f4ff; box-shadow:0 0 0 1.5px #7359df inset; }
 .selected-schedule { margin-top:28px; }
+.schedule-group summary>small { color:#6b7684; }
 .schedule-list { margin:0; padding:0; list-style:none; }
 .schedule-list li { display:flex; align-items:center; gap:12px; min-height:68px; border-bottom:1px solid #f0f1f3; }
 .schedule-list li>div { min-width:0; }
@@ -168,7 +169,18 @@ h2 { font-size:20px; letter-spacing:-.3px; }
 .section-heading { display:flex; align-items:center; justify-content:space-between; margin:0 0 14px; }
 .section-heading span { color:#8a909a; font-size:13px; }
 .task-list,.manage-list { margin:0; padding:0; list-style:none; }
+.task-groups,.schedule-groups { display:grid; gap:10px; }
+.task-group { overflow:hidden; border:1px solid #eceef1; border-radius:17px; background:#fff; }
+.task-group summary { display:flex; min-height:58px; align-items:center; gap:10px; padding:12px 14px; cursor:pointer; list-style:none; background:#fafbfc; }
+.task-group summary::-webkit-details-marker { display:none; }
+.task-group summary>span { font-size:18px; }
+.task-group summary>strong { min-width:0; flex:1; font-size:14px; }
+.task-group summary>small { color:#7359df; font-size:11px; font-weight:800; }
+.task-group summary>i { color:#8b95a1; font-size:13px; font-style:normal; transition:transform .2s ease; }
+.task-group[open] summary>i { transform:rotate(180deg); }
+.task-group .task-list,.task-group .schedule-list { padding:0 14px; }
 .task-list li,.manage-list li { display:flex; align-items:center; min-height:76px; border-bottom:1px solid #f0f1f3; }
+.task-group li:last-child { border-bottom:0; }
 .task-check { flex:0 0 auto; width:25px; height:25px; margin-right:12px; padding:0; border:2px solid #d5d8de; border-radius:50%; color:#fff; background:#fff; font-size:14px; }
 .is-completed .task-check { border-color:#7359df; background:#7359df; }
 .task-icon { display:grid; flex:0 0 auto; width:42px; height:42px; margin-right:12px; place-items:center; border-radius:13px; background:#f5f3fb; font-size:20px; }

@@ -40,6 +40,7 @@ function toView(chore: Chore): ChoreView {
     icon: categoryMeta[chore.category].icon,
     frequency,
     frequencyLabel: formatRecurrence(chore.recurrence),
+    recurrenceGroup: ({ day: 'daily', week: 'weekly', month: 'monthly', year: 'yearly' } as const)[chore.recurrence.unit],
     dueLabel: formatDueDate(chore.nextDueDate),
     completed: false,
     isCustom: chore.isCustom,

@@ -107,6 +107,7 @@ export interface Chore {
   icon: string;
   frequency: ChoreFrequency;
   frequencyLabel: string;
+  recurrenceGroup?: "daily" | "weekly" | "monthly" | "yearly";
   dueLabel?: string;
   completed: boolean;
   isCustom?: boolean;
@@ -140,21 +141,28 @@ export function TodayTasks({ chores, householdName = "우리 집", onAdd, onTogg
       </section>
       <section className="task-section">
         <div className="section-heading"><h2>할 일</h2><span>{chores.length - completed}개 남았어요</span></div>
-        {chores.length === 0 ? <EmptyTasks onAdd={onAdd} /> : (
-          <ul className="task-list">
-            {chores.map((chore) => (
-              <li className={chore.completed ? "is-completed" : ""} key={chore.id}>
-                <button className="task-check" aria-label={`${chore.title} ${chore.completed ? "완료 취소" : "완료"}`} aria-pressed={chore.completed} onClick={() => onToggle(chore.id)} type="button">{chore.completed ? "✓" : ""}</button>
-                <span className="task-icon" aria-hidden="true">{chore.icon}</span>
-                <div className="task-copy"><strong>{chore.title}</strong><small>{chore.dueLabel ?? chore.frequencyLabel} · {chore.category}</small></div>
-                <span className="task-chevron" aria-hidden="true">›</span>
-              </li>
-            ))}
-          </ul>
-        )}
+        {chores.length === 0 ? <EmptyTasks onAdd={onAdd} /> : <GroupedTodayTasks chores={chores} onToggle={onToggle} />}
       </section>
     </main>
   );
+}
+
+const recurrenceGroupMeta = {
+  daily: { label: "매일·일 단위", icon: "☀️" },
+  weekly: { label: "매주·주 단위", icon: "🗓️" },
+  monthly: { label: "매월·월 단위", icon: "🌙" },
+  yearly: { label: "매년 관리", icon: "🌿" },
+} as const;
+
+function GroupedTodayTasks({ chores, onToggle }: { chores: Chore[]; onToggle: (id: string) => void }) {
+  const groups = (Object.keys(recurrenceGroupMeta) as Array<keyof typeof recurrenceGroupMeta>)
+    .map((group) => ({ group, chores: chores.filter((chore) => (chore.recurrenceGroup ?? chore.frequency) === group) }))
+    .filter(({ chores: groupChores }) => groupChores.length > 0);
+  return <div className="task-groups">{groups.map(({ group, chores: groupChores }, index) => {
+    const completed = groupChores.filter((chore) => chore.completed).length;
+    const meta = recurrenceGroupMeta[group];
+    return <details className="task-group" key={group} open={index === 0}><summary><span aria-hidden="true">{meta.icon}</span><strong>{meta.label}</strong><small>{completed} / {groupChores.length} 완료</small><i aria-hidden="true">⌄</i></summary><ul className="task-list">{groupChores.map((chore) => <li className={chore.completed ? "is-completed" : ""} key={chore.id}><button className="task-check" aria-label={`${chore.title} ${chore.completed ? "완료 취소" : "완료"}`} aria-pressed={chore.completed} onClick={() => onToggle(chore.id)} type="button">{chore.completed ? "✓" : ""}</button><span className="task-icon" aria-hidden="true">{chore.icon}</span><div className="task-copy"><strong>{chore.title}</strong><small>{chore.dueLabel ?? chore.frequencyLabel} · {chore.category}</small></div></li>)}</ul></details>;
+  })}</div>;
 }
 
 function EmptyTasks({ onAdd }: { onAdd?: () => void }) {

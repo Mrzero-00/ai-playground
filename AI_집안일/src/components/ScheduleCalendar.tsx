@@ -1,6 +1,6 @@
 import { useMemo, useState } from 'react';
 import { startOfMonthKey, toDateKey, todayKey } from '../domain/date';
-import { buildSchedule } from '../domain/schedule';
+import { buildSchedule, type ScheduledChore } from '../domain/schedule';
 import type { Chore, ChoreHistory } from '../domain/types';
 import { formatRecurrence } from '../domain/date';
 
@@ -10,6 +10,12 @@ interface ScheduleCalendarProps {
 }
 
 const weekDays = ['일', '월', '화', '수', '목', '금', '토'];
+const scheduleGroupMeta = {
+  day: { label: '매일·일 단위', icon: '☀️' },
+  week: { label: '매주·주 단위', icon: '🗓️' },
+  month: { label: '매월·월 단위', icon: '🌙' },
+  year: { label: '매년 관리', icon: '🌿' },
+} as const;
 
 function monthGrid(month: Date): Date[] {
   const first = new Date(month.getFullYear(), month.getMonth(), 1);
@@ -97,17 +103,19 @@ export function ScheduleCalendar({ chores, history }: ScheduleCalendarProps) {
         </div>
         {!selected?.items.length ? (
           <div className="empty-state compact"><span aria-hidden="true">🌿</span><strong>예정된 집안일이 없어요</strong><p>잠시 쉬어가는 날이에요.</p></div>
-        ) : (
-          <ul className="schedule-list">
-            {selected.items.map(({ chore, completed }) => (
-              <li key={`${selectedDate}-${chore.id}`}>
-                <span className={`schedule-status ${completed ? 'is-complete' : ''}`} aria-hidden="true">{completed ? '✓' : '·'}</span>
-                <div><strong>{chore.title}</strong><small>{formatRecurrence(chore.recurrence)} · {selectedDate < today ? completed ? '완료' : '미완료' : selectedDate === today ? '오늘' : '예정'}</small></div>
-              </li>
-            ))}
-          </ul>
-        )}
+        ) : <GroupedScheduleItems items={selected.items} selectedDate={selectedDate} today={today} />}
       </section>
     </main>
   );
+}
+
+function GroupedScheduleItems({ items, selectedDate, today }: { items: ScheduledChore[]; selectedDate: string; today: string }) {
+  const groups = (Object.keys(scheduleGroupMeta) as Array<keyof typeof scheduleGroupMeta>)
+    .map((unit) => ({ unit, items: items.filter(({ chore }) => chore.recurrence.unit === unit) }))
+    .filter((group) => group.items.length > 0);
+  return <div className="schedule-groups">{groups.map(({ unit, items: groupItems }, index) => {
+    const completedCount = groupItems.filter((item) => item.completed).length;
+    const meta = scheduleGroupMeta[unit];
+    return <details className="task-group schedule-group" key={unit} open={index === 0}><summary><span aria-hidden="true">{meta.icon}</span><strong>{meta.label}</strong><small>{selectedDate <= today ? `${completedCount} / ${groupItems.length} 완료` : `${groupItems.length}개 예정`}</small><i aria-hidden="true">⌄</i></summary><ul className="schedule-list">{groupItems.map(({ chore, completed }) => <li key={`${selectedDate}-${chore.id}`}><span className={`schedule-status ${completed ? 'is-complete' : ''}`} aria-hidden="true">{completed ? '✓' : '·'}</span><div><strong>{chore.title}</strong><small>{formatRecurrence(chore.recurrence)} · {selectedDate < today ? completed ? '완료' : '미완료' : selectedDate === today ? '오늘' : '예정'}</small></div></li>)}</ul></details>;
+  })}</div>;
 }

@@ -117,9 +117,13 @@ export interface TodayTasksProps {
   householdName?: string;
   onToggle: (id: string) => void;
   onAdd?: () => void;
+  reminderEnabled?: boolean;
+  reminderHour?: number;
+  onReminderToggle?: () => void;
 }
 
-export function TodayTasks({ chores, householdName = "우리 집", onAdd, onToggle }: TodayTasksProps) {
+export function TodayTasks({ chores, householdName = "우리 집", onAdd, onToggle, reminderEnabled = false, reminderHour = 9, onReminderToggle }: TodayTasksProps) {
+  const [showReminder, setShowReminder] = useState(false);
   const completed = chores.filter((chore) => chore.completed).length;
   const progress = chores.length ? Math.round((completed / chores.length) * 100) : 0;
 
@@ -127,8 +131,9 @@ export function TodayTasks({ chores, householdName = "우리 집", onAdd, onTogg
     <main className="screen today-screen">
       <header className="home-header">
         <div><span className="eyebrow">{householdName}</span><h1>오늘도 산뜻하게!</h1></div>
-        <button className="icon-button" aria-label="알림 보기" type="button">🔔</button>
+        <button className="icon-button" aria-label="알림 설정 보기" aria-expanded={showReminder} onClick={() => setShowReminder((visible) => !visible)} type="button">🔔</button>
       </header>
+      {showReminder && <section className="reminder-card" aria-label="알림 설정"><div><strong>{reminderEnabled ? `매일 ${String(reminderHour).padStart(2, "0")}:00에 확인해요` : "집안일 리마인더가 꺼져 있어요"}</strong><p>현재는 앱에 들어왔을 때 해야 할 일을 안내해요.</p></div>{onReminderToggle && <button onClick={onReminderToggle} type="button">{reminderEnabled ? "끄기" : "켜기"}</button>}</section>}
       <section className="progress-card" aria-label={`오늘 집안일 ${progress}% 완료`}>
         <div><span>오늘의 집안일</span><strong>{completed}<small> / {chores.length}개 완료</small></strong></div>
         <div className="progress-ring" style={{ "--progress": `${progress * 3.6}deg` } as React.CSSProperties}><span>{progress}%</span></div>
@@ -170,7 +175,7 @@ export function ChoreManager({ chores, onAdd, onDelete, onEdit }: ChoreManagerPr
       <button className="add-card" onClick={onAdd} type="button"><span aria-hidden="true">＋</span><div><strong>새 집안일 추가</strong><small>반복 주기와 알림을 설정할 수 있어요</small></div><i aria-hidden="true">›</i></button>
       <div className="section-heading"><h2>등록된 집안일</h2><span>총 {chores.length}개</span></div>
       <ul className="manage-list">
-        {chores.map((chore) => <li key={chore.id}><span className="task-icon" aria-hidden="true">{chore.icon}</span><button className="manage-copy" onClick={() => onEdit?.(chore)} type="button"><strong>{chore.title}{chore.isCustom && <em>직접 추가</em>}</strong><small>{chore.frequencyLabel} · {chore.category}</small></button>{onDelete && <button className="more-button" aria-label={`${chore.title} 삭제`} onClick={() => onDelete(chore.id)} type="button">×</button>}</li>)}
+        {chores.map((chore) => <li key={chore.id}><span className="task-icon" aria-hidden="true">{chore.icon}</span><button className="manage-copy" onClick={() => onEdit?.(chore)} type="button"><strong>{chore.title}{chore.isCustom && <em>직접 추가</em>}</strong><small>{chore.frequencyLabel} · {chore.category}</small></button>{onDelete && chore.isCustom && <button className="more-button" aria-label={`${chore.title} 삭제`} onClick={() => onDelete(chore.id)} type="button">×</button>}</li>)}
       </ul>
     </main>
   );

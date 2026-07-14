@@ -107,7 +107,10 @@ function App() {
         <TodayTasks
           chores={dueViews}
           onAdd={() => setIsAddingChore(true)}
+          onReminderToggle={() => updateNotifications({ ...data.notifications, enabled: !data.notifications.enabled })}
           onToggle={completeChore}
+          reminderEnabled={data.notifications.enabled}
+          reminderHour={data.notifications.reminderHour}
         />
       )}
       {activeTab === 'manage' && (

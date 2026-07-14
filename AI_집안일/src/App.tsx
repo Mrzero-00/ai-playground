@@ -154,7 +154,7 @@ function App() {
   }
 
   if (isEditingHome) {
-    return <div className="app-shell">{homeSwitcher}<HomeSettings home={activeHome} onCancel={() => setIsEditingHome(false)} onSave={(name, emoji, profile) => { updateHomeSettings(name, emoji, profile); setIsEditingHome(false); }} /></div>;
+    return <div className="app-shell">{homeSwitcher}<HomeSettings home={activeHome} onCancel={() => setIsEditingHome(false)} onSave={(name, emoji, profile, taskViewMode) => { updateHomeSettings(name, emoji, profile, taskViewMode); setIsEditingHome(false); }} /></div>;
   }
 
   return (
@@ -169,6 +169,7 @@ function App() {
           onToggle={toggleTodayChore}
           reminderEnabled={data.notifications.enabled}
           reminderHour={data.notifications.reminderHour}
+          viewMode={activeHome.taskViewMode ?? 'todo'}
         />
       )}
       {activeTab === 'manage' && (

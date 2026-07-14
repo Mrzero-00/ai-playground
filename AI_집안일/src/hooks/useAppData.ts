@@ -60,6 +60,7 @@ export function useAppData() {
         id: homeId,
         name: name.trim() || '우리 집',
         emoji,
+        taskViewMode: 'todo',
         inviteCode: makeInviteCode(),
         members: [{ id: makeId('member'), userId: current.user.id, displayName: current.user.displayName, role: 'owner', joinedAt: now }],
         profile: null,
@@ -95,6 +96,7 @@ export function useAppData() {
         id: homeId,
         name: '초대받은 집',
         emoji: '🏡',
+        taskViewMode: 'todo',
         inviteCode: normalized,
         members: [{ id: makeId('member'), userId: current.user.id, displayName: current.user.displayName, role: 'member', joinedAt: now }],
         profile: null,
@@ -113,12 +115,13 @@ export function useAppData() {
     });
   }
 
-  function updateHomeSettings(name: string, emoji: string, profile: HomeProfile) {
+  function updateHomeSettings(name: string, emoji: string, profile: HomeProfile, taskViewMode: 'todo' | 'quest') {
     updateActiveHome((home) => {
       return {
         ...home,
         name: name.trim() || home.name,
         emoji,
+        taskViewMode,
         profile,
         chores: syncRecommendedChores(home.chores, profile),
       };

@@ -60,6 +60,7 @@ export interface Home {
   id: string;
   name: string;
   emoji: string;
+  taskViewMode?: 'todo' | 'quest';
   inviteCode: string;
   members: HomeMember[];
   profile: HomeProfile | null;

@@ -4,7 +4,7 @@ import type { Home, HomeProfile, HouseholdType, LocalUser, PetType } from '../do
 interface HomeSettingsProps {
   home: Home;
   onCancel: () => void;
-  onSave: (name: string, emoji: string, profile: HomeProfile) => void;
+  onSave: (name: string, emoji: string, profile: HomeProfile, taskViewMode: 'todo' | 'quest') => void;
 }
 
 const householdLabels: Record<HouseholdType, string> = {
@@ -23,6 +23,7 @@ export function HomeSettings({ home, onCancel, onSave }: HomeSettingsProps) {
   const [roomCount, setRoomCount] = useState(current?.roomCount ?? 1);
   const [bathroomCount, setBathroomCount] = useState(current?.bathroomCount ?? 1);
   const [petTypes, setPetTypes] = useState<PetType[]>(current?.petTypes ?? []);
+  const [taskViewMode, setTaskViewMode] = useState<'todo' | 'quest'>(home.taskViewMode ?? 'todo');
 
   function togglePet(pet: PetType) {
     setPetTypes((types) => types.includes(pet) ? types.filter((type) => type !== pet) : [...types, pet]);
@@ -38,7 +39,7 @@ export function HomeSettings({ home, onCancel, onSave }: HomeSettingsProps) {
       hasPets: petTypes.length > 0,
       petTypes,
       completed: true,
-    });
+    }, taskViewMode);
   }
 
   return (
@@ -48,6 +49,10 @@ export function HomeSettings({ home, onCancel, onSave }: HomeSettingsProps) {
         <section className="settings-card">
           <h2>기본 정보</h2>
           <div className="form-row"><label className="form-field"><span>집 이름</span><input maxLength={20} required value={name} onChange={(event) => setName(event.target.value)} /></label><label className="form-field icon-field"><span>아이콘</span><select value={emoji} onChange={(event) => setEmoji(event.target.value)}><option>🏠</option><option>🏡</option><option>🏢</option><option>🏘️</option></select></label></div>
+        </section>
+        <section className="settings-card">
+          <h2>집안일 표시 방식</h2>
+          <div className="view-mode-grid"><label className={taskViewMode === 'todo' ? 'is-selected' : ''}><input checked={taskViewMode === 'todo'} name="viewMode" onChange={() => setTaskViewMode('todo')} type="radio" /><span aria-hidden="true">☑️</span><strong>Todo형</strong><small>목록에서 빠르게 확인해요</small></label><label className={taskViewMode === 'quest' ? 'is-selected' : ''}><input checked={taskViewMode === 'quest'} name="viewMode" onChange={() => setTaskViewMode('quest')} type="radio" /><span aria-hidden="true">🎯</span><strong>퀘스트형</strong><small>티켓을 단계별로 완료해요</small></label></div>
         </section>
         <section className="settings-card">
           <h2>가구 형태</h2>

@@ -32,6 +32,7 @@ function migrateLegacyData(legacy: Partial<LegacyAppData>): AppData {
     id: homeId,
     name: '우리 집',
     emoji: '🏠',
+    taskViewMode: 'todo',
     inviteCode: makeInviteCode(),
     members: [{
       id: memberId,

@@ -105,7 +105,7 @@ h2 { font-size:20px; letter-spacing:-.3px; }
 .notification-box small { margin-top:4px; color:#90959e; font-size:12px; }
 .notification-box input[role=switch] { width:46px; height:26px; accent-color:#7359df; }
 .notification-box>input[type=time] { width:100%; height:44px; margin-top:14px; padding:0 12px; border:1px solid #e0e2e5; border-radius:11px; background:#fff; }
-.bottom-nav { position:fixed; z-index:10; right:0; bottom:0; left:0; display:flex; max-width:480px; height:76px; margin:auto; padding:8px 18px calc(8px + env(safe-area-inset-bottom)); border-top:1px solid #eceef1; background:#ffffffef; backdrop-filter:blur(16px); }
+.bottom-nav { position:fixed; z-index:10; right:16px; bottom:max(12px,env(safe-area-inset-bottom)); left:16px; display:flex; width:calc(100% - 32px); max-width:448px; height:68px; margin:auto; padding:7px 14px; border:1px solid #eceef1; border-radius:24px; background:#ffffffef; box-shadow:0 10px 32px #252a3420; backdrop-filter:blur(16px); }
 .bottom-nav button { flex:1; border:0; color:#9ca1aa; background:none; font-size:11px; }
 .bottom-nav button span { display:block; margin-bottom:4px; font-size:22px; font-weight:600; }
 .bottom-nav button.is-active { color:#7359df; font-weight:800; }

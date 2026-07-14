@@ -4,6 +4,8 @@
 
 앱인토스 WebView SDK 2.x 기반의 React + TypeScript 미니앱입니다.
 
+개발과 출시 검수에는 [AI 집안일 앱인토스 개발 정책](./docs/apps-in-toss-policy.md)을 필수 기준으로 적용합니다.
+
 ## 개발
 
 ```bash

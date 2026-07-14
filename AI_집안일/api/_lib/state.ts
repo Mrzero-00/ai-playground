@@ -1,5 +1,5 @@
 import { randomUUID } from 'node:crypto';
-import type { AppData, Chore, ChoreHistory, Home, HomeMember, HomeProfile, LocalUser, NotificationSettings } from '../../src/domain/types';
+import type { AppData, Chore, ChoreHistory, Home, HomeMember, HomeProfile, LaborAssessment, LocalUser, NotificationSettings } from '../../src/domain/types';
 import { getSupabaseAdmin } from './supabase';
 
 type SupabaseAdmin = ReturnType<typeof getSupabaseAdmin>;
@@ -22,20 +22,22 @@ export async function loadState(userId: string): Promise<AppData> {
 
   if (!homeIds.length) return { version: 2, user, homes: [], activeHomeId: null, notifications };
 
-  const [homesResult, membersResult, profilesResult, choresResult, historyResult] = await Promise.all([
+  const [homesResult, membersResult, profilesResult, choresResult, historyResult, assessmentsResult] = await Promise.all([
     db.from('homes').select('*').in('id', homeIds),
     db.from('home_members').select('*').in('home_id', homeIds),
     db.from('home_profiles').select('*').in('home_id', homeIds),
     db.from('chores').select('*').in('home_id', homeIds),
     db.from('chore_history').select('*').in('home_id', homeIds).order('performed_at', { ascending: false }),
+    db.from('labor_assessments').select('*').in('home_id', homeIds),
   ]);
-  for (const result of [homesResult, membersResult, profilesResult, choresResult, historyResult]) if (result.error) throw result.error;
+  for (const result of [homesResult, membersResult, profilesResult, choresResult, historyResult, assessmentsResult]) if (result.error) throw result.error;
 
   const storedHomes = homesResult.data ?? [];
   const storedMembers = membersResult.data ?? [];
   const storedProfiles = profilesResult.data ?? [];
   const storedChores = choresResult.data ?? [];
   const storedHistory = historyResult.data ?? [];
+  const storedAssessments = assessmentsResult.data ?? [];
 
   const memberUserIds = [...new Set(storedMembers.map((member) => member.user_id))];
   const { data: memberUsers, error: memberUsersError } = await db.from('app_users').select('id,display_name').in('id', memberUserIds);
@@ -48,12 +50,14 @@ export async function loadState(userId: string): Promise<AppData> {
     name: home.name,
     emoji: home.emoji,
     taskViewMode: home.task_view_mode,
+    assignmentMode: home.assignment_mode ?? 'shared',
     inviteCode: home.invite_code,
     createdAt: home.created_at,
     profile: profiles.get(home.id) ?? null,
     members: storedMembers.filter((member) => member.home_id === home.id).map((member): HomeMember => ({ id: member.id, userId: member.user_id, displayName: userNames.get(member.user_id) ?? '구성원', role: member.role, joinedAt: member.joined_at })),
-    chores: storedChores.filter((chore) => chore.home_id === home.id).map((chore): Chore => ({ id: chore.id, title: chore.title, category: chore.category, recurrence: chore.recurrence, createdAt: chore.created_at, scheduleAnchorDate: chore.schedule_anchor_date ?? undefined, nextDueDate: chore.next_due_date, isCustom: chore.is_custom, enabled: chore.enabled, assignedMemberId: chore.assigned_member_id ?? undefined })),
+    chores: storedChores.filter((chore) => chore.home_id === home.id).map((chore): Chore => ({ id: chore.id, title: chore.title, category: chore.category, recurrence: chore.recurrence, createdAt: chore.created_at, scheduleAnchorDate: chore.schedule_anchor_date ?? undefined, nextDueDate: chore.next_due_date, isCustom: chore.is_custom, enabled: chore.enabled, assignedMemberId: chore.assigned_member_id ?? undefined, plannerMemberId: chore.planner_member_id ?? undefined, executorMemberId: chore.executor_member_id ?? undefined })),
     history: storedHistory.filter((entry) => entry.home_id === home.id).map((entry): ChoreHistory => ({ id: entry.id, choreId: entry.chore_id, choreTitle: entry.chore_title, action: entry.action, performedAt: entry.performed_at, scheduledFor: entry.scheduled_for ?? undefined, performedByUserId: entry.performed_by_user_id, performedByName: entry.performed_by_name })),
+    laborAssessments: storedAssessments.filter((item) => item.home_id === home.id).map((item): LaborAssessment => ({ userId: item.user_id, planningScore: item.planning_score, executionScore: item.execution_score, answers: item.answers, updatedAt: item.updated_at })),
   }));
   const activeHomeId = homes.some((home) => home.id === settings?.active_home_id) ? settings.active_home_id : homes[0]?.id ?? null;
   return { version: 2, user, homes, activeHomeId, notifications };
@@ -80,14 +84,14 @@ export async function saveState(userId: string, incoming: AppData): Promise<AppD
 
   for (const home of incoming.homes ?? []) {
     await assertOrCreateMembership(db, userId, home);
-    const { error: homeError } = await db.from('homes').update({ name: home.name, emoji: home.emoji, task_view_mode: home.taskViewMode ?? 'todo', updated_at: new Date().toISOString() }).eq('id', home.id);
+    const { error: homeError } = await db.from('homes').update({ name: home.name, emoji: home.emoji, task_view_mode: home.taskViewMode ?? 'todo', assignment_mode: home.assignmentMode ?? 'shared', updated_at: new Date().toISOString() }).eq('id', home.id);
     if (homeError) throw homeError;
     if (home.profile) {
       const { error } = await db.from('home_profiles').upsert({ home_id: home.id, profile: home.profile, updated_at: new Date().toISOString() });
       if (error) throw error;
     }
 
-    const choreRows = home.chores.map((chore) => ({ home_id: home.id, id: chore.id, title: chore.title, category: chore.category, recurrence: chore.recurrence, created_at: chore.createdAt, schedule_anchor_date: chore.scheduleAnchorDate ?? null, next_due_date: chore.nextDueDate, is_custom: chore.isCustom, enabled: chore.enabled, assigned_member_id: chore.assignedMemberId ?? null, updated_at: new Date().toISOString() }));
+    const choreRows = home.chores.map((chore) => ({ home_id: home.id, id: chore.id, title: chore.title, category: chore.category, recurrence: chore.recurrence, created_at: chore.createdAt, schedule_anchor_date: chore.scheduleAnchorDate ?? null, next_due_date: chore.nextDueDate, is_custom: chore.isCustom, enabled: chore.enabled, assigned_member_id: chore.assignedMemberId ?? null, planner_member_id: chore.plannerMemberId ?? null, executor_member_id: chore.executorMemberId ?? null, updated_at: new Date().toISOString() }));
     if (choreRows.length) {
       const { error } = await db.from('chores').upsert(choreRows, { onConflict: 'home_id,id' });
       if (error) throw error;
@@ -104,6 +108,12 @@ export async function saveState(userId: string, incoming: AppData): Promise<AppD
     const historyRows = home.history.map((entry) => ({ home_id: home.id, id: entry.id, chore_id: entry.choreId, chore_title: entry.choreTitle, action: entry.action, performed_at: entry.performedAt, scheduled_for: entry.scheduledFor ?? null, performed_by_user_id: entry.performedByUserId === incoming.user.id ? userId : entry.performedByUserId, performed_by_name: entry.performedByName }));
     if (historyRows.length) {
       const { error } = await db.from('chore_history').upsert(historyRows, { onConflict: 'home_id,id' });
+      if (error) throw error;
+    }
+
+    const ownAssessment = (home.laborAssessments ?? []).find((item) => item.userId === incoming.user.id || item.userId === userId);
+    if (ownAssessment) {
+      const { error } = await db.from('labor_assessments').upsert({ home_id: home.id, user_id: userId, planning_score: ownAssessment.planningScore, execution_score: ownAssessment.executionScore, answers: ownAssessment.answers, updated_at: ownAssessment.updatedAt }, { onConflict: 'home_id,user_id' });
       if (error) throw error;
     }
   }

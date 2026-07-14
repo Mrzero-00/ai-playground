@@ -33,6 +33,7 @@ function migrateLegacyData(legacy: Partial<LegacyAppData>): AppData {
     name: '우리 집',
     emoji: '🏠',
     taskViewMode: 'todo',
+    assignmentMode: 'shared',
     inviteCode: makeInviteCode(),
     members: [{
       id: memberId,
@@ -48,6 +49,7 @@ function migrateLegacyData(legacy: Partial<LegacyAppData>): AppData {
       performedByUserId: data.user.id,
       performedByName: data.user.displayName,
     })),
+    laborAssessments: [],
     createdAt: now,
   };
   return {

@@ -1,9 +1,10 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { addRecurrence, isDue, todayKey, toDateKey } from '../domain/date';
 import { recommendedChores } from '../domain/recommendations';
-import type { AppData, Chore, Home, HomeProfile, NotificationSettings, Recurrence } from '../domain/types';
+import type { AppData, Chore, Home, HomeProfile, LaborAssessment, NotificationSettings, Recurrence } from '../domain/types';
 import { loadAppData, makeInviteCode, saveAppData } from '../data/storage';
 import { joinRemoteHome, loadRemoteState, saveRemoteState } from '../data/remote';
+import { automaticallyAllocateChores } from '../domain/laborAllocation';
 
 export type SyncStatus = 'loading' | 'synced' | 'saving' | 'offline' | 'error';
 
@@ -114,11 +115,13 @@ export function useAppData() {
         name: name.trim() || '우리 집',
         emoji,
         taskViewMode: 'todo',
+        assignmentMode: 'shared',
         inviteCode: makeInviteCode(),
         members: [{ id: makeId('member'), userId: current.user.id, displayName: current.user.displayName, role: 'owner', joinedAt: now }],
         profile: null,
         chores: [],
         history: [],
+        laborAssessments: [],
         createdAt: now,
       };
       return { ...current, homes: [...current.homes, home], activeHomeId: homeId };
@@ -233,5 +236,36 @@ export function useAppData() {
     setData((current) => ({ ...current, notifications }));
   }
 
-  return { data, activeHome, dueChores, syncStatus, syncError, createHome, selectHome, joinHomeByInviteCode, saveProfile, updateHomeSettings, updateUserName, addCustomChore, completeChore, undoTodayCompletion, toggleChore, removeCustomChore, updateNotifications };
+  function saveLaborAssessment(assessment: Omit<LaborAssessment, 'userId' | 'updatedAt'>) {
+    updateActiveHome((home) => ({
+      ...home,
+      laborAssessments: [
+        ...(home.laborAssessments ?? []).filter((item) => item.userId !== data.user.id),
+        { ...assessment, userId: data.user.id, updatedAt: new Date().toISOString() },
+      ],
+    }));
+  }
+
+  function assignChoreRoles(choreId: string, plannerMemberId?: string, executorMemberId?: string) {
+    updateActiveHome((home) => ({
+      ...home,
+      chores: home.chores.map((chore) => chore.id === choreId
+        ? { ...chore, plannerMemberId: plannerMemberId || undefined, executorMemberId: executorMemberId || undefined }
+        : chore),
+    }));
+  }
+
+  function setSharedAssignmentMode() {
+    updateActiveHome((home) => ({ ...home, assignmentMode: 'shared' }));
+  }
+
+  function autoAssignChores() {
+    updateActiveHome((home) => ({
+      ...home,
+      assignmentMode: 'auto',
+      chores: automaticallyAllocateChores(home.chores, home.members, home.laborAssessments ?? []),
+    }));
+  }
+
+  return { data, activeHome, dueChores, syncStatus, syncError, createHome, selectHome, joinHomeByInviteCode, saveProfile, updateHomeSettings, updateUserName, addCustomChore, completeChore, undoTodayCompletion, toggleChore, removeCustomChore, updateNotifications, saveLaborAssessment, assignChoreRoles, setSharedAssignmentMode, autoAssignChores };
 }

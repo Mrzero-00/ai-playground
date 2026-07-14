@@ -1,12 +1,21 @@
 import { useMemo } from 'react';
 import { calculateHomeAnalytics } from '../domain/analytics';
 import type { Chore, ChoreCategory, ChoreHistory, HomeMember } from '../domain/types';
+import type { LaborAssessment } from '../domain/types';
+import { LaborBalance } from './LaborBalance';
 
 interface HouseholdReportProps {
   homeName: string;
   chores: Chore[];
   history: ChoreHistory[];
   members: HomeMember[];
+  assessments: LaborAssessment[];
+  currentUserId: string;
+  onAssign: (choreId: string, plannerMemberId?: string, executorMemberId?: string) => void;
+  onSaveAssessment: (assessment: { planningScore: number; executionScore: number; answers: number[] }) => void;
+  assignmentMode: 'shared' | 'auto';
+  onAutoAssign: () => void;
+  onUseSharedList: () => void;
 }
 
 const categoryLabels: Record<ChoreCategory, { label: string; icon: string }> = {
@@ -18,7 +27,7 @@ const categoryLabels: Record<ChoreCategory, { label: string; icon: string }> = {
   etc: { label: '기타', icon: '✨' },
 };
 
-export function HouseholdReport({ homeName, chores, history, members }: HouseholdReportProps) {
+export function HouseholdReport({ homeName, chores, history, members, assessments, currentUserId, onAssign, onSaveAssessment, assignmentMode, onAutoAssign, onUseSharedList }: HouseholdReportProps) {
   const analytics = useMemo(
     () => calculateHomeAnalytics(chores, history, members),
     [chores, history, members],
@@ -52,6 +61,8 @@ export function HouseholdReport({ homeName, chores, history, members }: Househol
         )}
         <p className="report-note">수행 건수는 역할이나 관계의 기여도를 평가하는 순위가 아니에요.</p>
       </section>
+
+      <LaborBalance assessments={assessments} assignmentMode={assignmentMode} chores={chores} currentUserId={currentUserId} members={members} onAssign={onAssign} onAutoAssign={onAutoAssign} onSaveAssessment={onSaveAssessment} onUseSharedList={onUseSharedList} />
 
       <section className="report-section">
         <div className="section-heading"><h2>어떤 일을 했나요?</h2><span>카테고리별</span></div>

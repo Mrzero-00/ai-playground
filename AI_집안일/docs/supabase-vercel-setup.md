@@ -7,6 +7,9 @@
 Supabase 대시보드의 **SQL Editor**에서 아래 파일 전체를 실행합니다.
 
 - `supabase/migrations/202607140001_initial_schema.sql`
+- `supabase/migrations/202607140002_labor_balance.sql`
+
+파일명 순서대로 실행합니다. 두 번째 마이그레이션은 기획노동 진단과 계획/실행 담당자 필드를 추가합니다.
 
 이 스키마는 사용자, 집, 집 구성원, 집 프로필, 집안일, 수행 기록, 개인 설정을 분리해 저장합니다. 모든 테이블은 RLS를 켜고 브라우저용 `anon`/`authenticated` 권한을 제거했습니다. 데이터 접근은 서버의 Secret Key로만 수행합니다.
 

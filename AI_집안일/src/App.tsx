@@ -73,13 +73,22 @@ function App() {
     undoTodayCompletion,
     removeCustomChore,
     updateNotifications,
+    saveLaborAssessment,
+    assignChoreRoles,
+    setSharedAssignmentMode,
+    autoAssignChores,
   } = useAppData();
   const [activeTab, setActiveTab] = useState<NavigationTab>('today');
   const [isAddingChore, setIsAddingChore] = useState(false);
   const [isEditingHome, setIsEditingHome] = useState(false);
 
   const todayViews = useMemo(() => {
-    const due = dueChores.map(toView);
+    const currentMember = activeHome?.members.find((member) => member.userId === data.user.id);
+    const isVisibleForCurrentMember = (chore: Chore) => activeHome?.assignmentMode !== 'auto' || !currentMember || !chore.executorMemberId || chore.executorMemberId === currentMember.id;
+    const visibleDue = activeHome?.assignmentMode === 'auto' && currentMember
+      ? dueChores.filter(isVisibleForCurrentMember)
+      : dueChores;
+    const due = visibleDue.map(toView);
     if (!activeHome) return due;
     const completedIds = new Set(
       activeHome.history
@@ -87,7 +96,7 @@ function App() {
         .map((entry) => entry.choreId),
     );
     const completed = activeHome.chores
-      .filter((chore) => completedIds.has(chore.id))
+      .filter((chore) => completedIds.has(chore.id) && isVisibleForCurrentMember(chore))
       .map((chore) => ({ ...toView(chore), completed: true, dueLabel: '오늘 완료' }));
     const completedChoreIds = new Set(completed.map((chore) => chore.id));
     const combined = [...due.filter((chore) => !completedChoreIds.has(chore.id)), ...completed];
@@ -184,7 +193,7 @@ function App() {
         />
       )}
       {activeTab === 'schedule' && <ScheduleCalendar chores={activeHome.chores} history={activeHome.history} />}
-      {activeTab === 'report' && <HouseholdReport chores={activeHome.chores} history={activeHome.history} homeName={activeHome.name} members={activeHome.members} />}
+      {activeTab === 'report' && <HouseholdReport assessments={activeHome.laborAssessments ?? []} assignmentMode={activeHome.assignmentMode ?? 'shared'} chores={activeHome.chores} currentUserId={data.user.id} history={activeHome.history} homeName={activeHome.name} members={activeHome.members} onAssign={assignChoreRoles} onAutoAssign={autoAssignChores} onSaveAssessment={saveLaborAssessment} onUseSharedList={setSharedAssignmentMode} />}
       {activeTab === 'profile' && <PersonalProfile homes={data.homes} onSaveName={updateUserName} user={data.user} />}
       <BottomNavigation active={activeTab} onChange={setActiveTab} />
       <CustomChoreModal

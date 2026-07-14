@@ -17,6 +17,14 @@ export interface HomeMember {
   joinedAt: string;
 }
 
+export interface LaborAssessment {
+  userId: string;
+  planningScore: number;
+  executionScore: number;
+  answers: number[];
+  updatedAt: string;
+}
+
 export interface HomeProfile {
   householdType: HouseholdType;
   memberCount: number;
@@ -43,6 +51,8 @@ export interface Chore {
   isCustom: boolean;
   enabled: boolean;
   assignedMemberId?: string;
+  plannerMemberId?: string;
+  executorMemberId?: string;
 }
 
 export interface ChoreHistory {
@@ -61,11 +71,13 @@ export interface Home {
   name: string;
   emoji: string;
   taskViewMode?: 'todo' | 'quest';
+  assignmentMode?: 'shared' | 'auto';
   inviteCode: string;
   members: HomeMember[];
   profile: HomeProfile | null;
   chores: Chore[];
   history: ChoreHistory[];
+  laborAssessments: LaborAssessment[];
   createdAt: string;
 }
 

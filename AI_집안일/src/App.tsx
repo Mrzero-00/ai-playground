@@ -12,7 +12,7 @@ import {
   type HouseholdProfile,
   type NavigationTab,
 } from './components';
-import { formatDueDate, formatRecurrence } from './domain/date';
+import { formatDueDate, formatRecurrence, todayKey, toDateKey } from './domain/date';
 import type { Chore, ChoreCategory, Recurrence } from './domain/types';
 import { useAppData } from './hooks/useAppData';
 
@@ -62,13 +62,27 @@ function App() {
     saveProfile,
     addCustomChore,
     completeChore,
+    undoTodayCompletion,
     removeCustomChore,
     updateNotifications,
   } = useAppData();
   const [activeTab, setActiveTab] = useState<NavigationTab>('today');
   const [isAddingChore, setIsAddingChore] = useState(false);
 
-  const dueViews = useMemo(() => dueChores.map(toView), [dueChores]);
+  const todayViews = useMemo(() => {
+    const due = dueChores.map(toView);
+    if (!activeHome) return due;
+    const completedIds = new Set(
+      activeHome.history
+        .filter((entry) => entry.action === 'completed' && toDateKey(new Date(entry.performedAt)) === todayKey())
+        .map((entry) => entry.choreId),
+    );
+    const completed = activeHome.chores
+      .filter((chore) => completedIds.has(chore.id))
+      .map((chore) => ({ ...toView(chore), completed: true, dueLabel: '오늘 완료' }));
+    const completedChoreIds = new Set(completed.map((chore) => chore.id));
+    return [...due.filter((chore) => !completedChoreIds.has(chore.id)), ...completed];
+  }, [activeHome, dueChores]);
   const allViews = useMemo(() => activeHome?.chores.map(toView) ?? [], [activeHome]);
   const homeViews = useMemo(() => data.homes.map((home) => ({
     id: home.id,
@@ -109,6 +123,12 @@ function App() {
     setActiveTab('manage');
   }
 
+  function toggleTodayChore(choreId: string) {
+    const chore = todayViews.find((item) => item.id === choreId);
+    if (chore?.completed) undoTodayCompletion(choreId);
+    else completeChore(choreId);
+  }
+
   const homeSwitcher = <div className="home-switcher-wrap"><SharedHomeUI
     activeHomeId={data.activeHomeId ?? ''}
     homes={homeViews}
@@ -137,11 +157,11 @@ function App() {
       {homeSwitcher}
       {activeTab === 'today' && (
         <TodayTasks
-          chores={dueViews}
+          chores={todayViews}
           householdName={activeHome.name}
           onAdd={() => setIsAddingChore(true)}
           onReminderToggle={() => updateNotifications({ ...data.notifications, enabled: !data.notifications.enabled })}
-          onToggle={completeChore}
+          onToggle={toggleTodayChore}
           reminderEnabled={data.notifications.enabled}
           reminderHour={data.notifications.reminderHour}
         />

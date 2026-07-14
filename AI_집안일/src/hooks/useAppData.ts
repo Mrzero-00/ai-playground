@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState } from 'react';
-import { addRecurrence, isDue, todayKey } from '../domain/date';
+import { addRecurrence, isDue, todayKey, toDateKey } from '../domain/date';
 import { recommendedChores } from '../domain/recommendations';
 import type { AppData, Chore, Home, HomeProfile, NotificationSettings, Recurrence } from '../domain/types';
 import { loadAppData, makeInviteCode, saveAppData } from '../data/storage';
@@ -109,6 +109,27 @@ export function useAppData() {
     });
   }
 
+  function undoTodayCompletion(choreId: string) {
+    updateActiveHome((home) => {
+      const completion = home.history.find((entry) =>
+        entry.choreId === choreId &&
+        entry.action === 'completed' &&
+        entry.performedByUserId === data.user.id &&
+        toDateKey(new Date(entry.performedAt)) === todayKey(),
+      );
+      if (!completion) return home;
+      return {
+        ...home,
+        chores: home.chores.map((chore) =>
+          chore.id === choreId
+            ? { ...chore, nextDueDate: completion.scheduledFor ?? todayKey() }
+            : chore,
+        ),
+        history: home.history.filter((entry) => entry.id !== completion.id),
+      };
+    });
+  }
+
   function toggleChore(choreId: string) {
     updateActiveHome((home) => ({ ...home, chores: home.chores.map((chore) => chore.id === choreId ? { ...chore, enabled: !chore.enabled } : chore) }));
   }
@@ -121,5 +142,5 @@ export function useAppData() {
     setData((current) => ({ ...current, notifications }));
   }
 
-  return { data, activeHome, dueChores, createHome, selectHome, joinHomeByInviteCode, saveProfile, addCustomChore, completeChore, toggleChore, removeCustomChore, updateNotifications };
+  return { data, activeHome, dueChores, createHome, selectHome, joinHomeByInviteCode, saveProfile, addCustomChore, completeChore, undoTodayCompletion, toggleChore, removeCustomChore, updateNotifications };
 }

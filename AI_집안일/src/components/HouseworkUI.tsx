@@ -1,4 +1,4 @@
-import { useId, useState, type FormEvent } from "react";
+import { useEffect, useId, useState, type FormEvent } from "react";
 
 export type HouseholdType = "single" | "couple" | "family" | "shared";
 
@@ -126,8 +126,25 @@ export interface TodayTasksProps {
 
 export function TodayTasks({ chores, householdName = "우리 집", onAdd, onToggle, reminderEnabled = false, reminderHour = 9, onReminderToggle, viewMode = "todo" }: TodayTasksProps) {
   const [showReminder, setShowReminder] = useState(false);
+  const [celebration, setCelebration] = useState<{ title: string; xp?: number } | null>(null);
   const completed = chores.filter((chore) => chore.completed).length;
   const progress = chores.length ? Math.round((completed / chores.length) * 100) : 0;
+
+  useEffect(() => {
+    if (!celebration) return;
+    const timer = window.setTimeout(() => setCelebration(null), 1500);
+    return () => window.clearTimeout(timer);
+  }, [celebration]);
+
+  function toggleWithFeedback(chore: Chore) {
+    if (!chore.completed) {
+      const xpByGroup = { daily: 10, weekly: 30, monthly: 60, yearly: 100 } as const;
+      const group = chore.recurrenceGroup ?? 'daily';
+      setCelebration({ title: chore.title, xp: viewMode === 'quest' ? xpByGroup[group] : undefined });
+      navigator.vibrate?.(35);
+    }
+    onToggle(chore.id);
+  }
 
   return (
     <main className="screen today-screen">
@@ -142,8 +159,9 @@ export function TodayTasks({ chores, householdName = "우리 집", onAdd, onTogg
       </section>
       <section className="task-section">
         <div className="section-heading"><h2>할 일</h2><span>{chores.length - completed}개 남았어요</span></div>
-        {chores.length === 0 ? <EmptyTasks onAdd={onAdd} /> : viewMode === "quest" ? <QuestBoard chores={chores} onToggle={onToggle} /> : <GroupedTodayTasks chores={chores} onToggle={onToggle} />}
+        {chores.length === 0 ? <EmptyTasks onAdd={onAdd} /> : viewMode === "quest" ? <QuestBoard chores={chores} onToggle={toggleWithFeedback} /> : <GroupedTodayTasks chores={chores} onToggle={toggleWithFeedback} />}
       </section>
+      {celebration && <CompletionFanfare title={celebration.title} xp={celebration.xp} />}
     </main>
   );
 }
@@ -155,18 +173,18 @@ const recurrenceGroupMeta = {
   yearly: { label: "매년 관리", icon: "🌿" },
 } as const;
 
-function GroupedTodayTasks({ chores, onToggle }: { chores: Chore[]; onToggle: (id: string) => void }) {
+function GroupedTodayTasks({ chores, onToggle }: { chores: Chore[]; onToggle: (chore: Chore) => void }) {
   const groups = (Object.keys(recurrenceGroupMeta) as Array<keyof typeof recurrenceGroupMeta>)
     .map((group) => ({ group, chores: chores.filter((chore) => (chore.recurrenceGroup ?? chore.frequency) === group) }))
     .filter(({ chores: groupChores }) => groupChores.length > 0);
   return <div className="task-groups">{groups.map(({ group, chores: groupChores }, index) => {
     const completed = groupChores.filter((chore) => chore.completed).length;
     const meta = recurrenceGroupMeta[group];
-    return <details className="task-group" key={group} open={index === 0}><summary><span aria-hidden="true">{meta.icon}</span><strong>{meta.label}</strong><small>{completed} / {groupChores.length} 완료</small><i aria-hidden="true">⌄</i></summary><ul className="task-list">{groupChores.map((chore) => <li className={chore.completed ? "is-completed" : ""} key={chore.id}><button className="task-check" aria-label={`${chore.title} ${chore.completed ? "완료 취소" : "완료"}`} aria-pressed={chore.completed} onClick={() => onToggle(chore.id)} type="button">{chore.completed ? "✓" : ""}</button><span className="task-icon" aria-hidden="true">{chore.icon}</span><div className="task-copy"><strong>{chore.title}</strong><small>{chore.dueLabel ?? chore.frequencyLabel} · {chore.category}</small></div></li>)}</ul></details>;
+    return <details className="task-group" key={group} open={index === 0}><summary><span aria-hidden="true">{meta.icon}</span><strong>{meta.label}</strong><small>{completed} / {groupChores.length} 완료</small><i aria-hidden="true">⌄</i></summary><ul className="task-list">{groupChores.map((chore) => <li className={chore.completed ? "is-completed" : ""} key={chore.id}><button className="task-check" aria-label={`${chore.title} ${chore.completed ? "완료 취소" : "완료"}`} aria-pressed={chore.completed} onClick={() => onToggle(chore)} type="button">{chore.completed ? "✓" : ""}</button><span className="task-icon" aria-hidden="true">{chore.icon}</span><div className="task-copy"><strong>{chore.title}</strong><small>{chore.dueLabel ?? chore.frequencyLabel} · {chore.category}</small></div></li>)}</ul></details>;
   })}</div>;
 }
 
-function QuestBoard({ chores, onToggle }: { chores: Chore[]; onToggle: (id: string) => void }) {
+function QuestBoard({ chores, onToggle }: { chores: Chore[]; onToggle: (chore: Chore) => void }) {
   const order = Object.keys(recurrenceGroupMeta) as Array<keyof typeof recurrenceGroupMeta>;
   const groups = order.map((group) => ({
     group,
@@ -186,10 +204,14 @@ function QuestBoard({ chores, onToggle }: { chores: Chore[]; onToggle: (id: stri
     })}</div>
     {!active ? <section className="quest-victory"><span aria-hidden="true">🏆</span><strong>오늘의 모든 퀘스트 완료!</strong><p>우리 집을 위한 멋진 하루였어요.</p></section> : <>
       <header className="quest-chapter"><div><span>CHAPTER {activeIndex + 1}</span><h3>{recurrenceGroupMeta[active.group].icon} {recurrenceGroupMeta[active.group].label} 퀘스트</h3></div><small>{active.chores.filter((chore) => chore.completed).length}/{active.chores.length}</small></header>
-      <div className="quest-cards">{active.chores.map((chore, index) => <article className={`quest-ticket ${chore.completed ? 'is-completed' : ''}`} key={chore.id}><header><span>{prefix[active.group]}-{String(index + 1).padStart(2, '0')}</span><b>{chore.completed ? '완료' : '진행 가능'}</b></header><div className="quest-ticket-body"><span className="quest-ticket-icon" aria-hidden="true">{chore.icon}</span><div><strong>{chore.title}</strong><p>{chore.category} · {chore.frequencyLabel}</p></div></div><footer><span>보상 <b>+{questXp[active.group]} XP</b></span><button aria-pressed={chore.completed} onClick={() => onToggle(chore.id)} type="button">{chore.completed ? '완료 취소' : '퀘스트 완료'}</button></footer></article>)}</div>
+      <div className="quest-cards">{active.chores.map((chore, index) => <article className={`quest-ticket ${chore.completed ? 'is-completed' : ''}`} key={chore.id}><header><span>{prefix[active.group]}-{String(index + 1).padStart(2, '0')}</span><b>{chore.completed ? '완료' : '진행 가능'}</b></header><div className="quest-ticket-body"><span className="quest-ticket-icon" aria-hidden="true">{chore.icon}</span><div><strong>{chore.title}</strong><p>{chore.category} · {chore.frequencyLabel}</p></div></div><footer><span>보상 <b>+{questXp[active.group]} XP</b></span><button aria-pressed={chore.completed} onClick={() => onToggle(chore)} type="button">{chore.completed ? '완료 취소' : '퀘스트 완료'}</button></footer></article>)}</div>
       {activeIndex < groups.length - 1 && <p className="quest-unlock-note">🔒 현재 퀘스트를 모두 완료하면 다음 단계가 열려요.</p>}
     </>}
   </div>;
+}
+
+function CompletionFanfare({ title, xp }: { title: string; xp?: number }) {
+  return <div className="completion-fanfare" role="status" aria-live="polite"><div className="confetti" aria-hidden="true">{Array.from({ length: 14 }, (_, index) => <i key={index} style={{ '--confetti-drift': `${(index - 7) * 7}px`, '--confetti-rotation': `${index * 29}deg`, animationDelay: `${index * 18}ms`, backgroundColor: `hsl(${index * 47} 85% 60%)`, left: `${4 + index * 7}%` } as React.CSSProperties} />)}</div><div className="fanfare-burst" aria-hidden="true">✦</div><section><span aria-hidden="true">🎉</span><div><strong>{xp ? `퀘스트 완료! +${xp} XP` : '오늘의 집안일 완료!'}</strong><small>{title}</small></div></section></div>;
 }
 
 function EmptyTasks({ onAdd }: { onAdd?: () => void }) {

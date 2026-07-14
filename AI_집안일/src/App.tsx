@@ -63,6 +63,8 @@ function App() {
     createHome,
     selectHome,
     joinHomeByInviteCode,
+    syncStatus,
+    syncError,
     saveProfile,
     updateHomeSettings,
     updateUserName,
@@ -137,14 +139,15 @@ function App() {
     else completeChore(choreId);
   }
 
+  const syncLabel = ({ loading: '서버 확인 중', saving: '저장 중', synced: '동기화됨', offline: '로컬 저장 중', error: '동기화 오류' } as const)[syncStatus];
   const homeSwitcher = <div className="home-switcher-wrap"><SharedHomeUI
     activeHomeId={data.activeHomeId ?? ''}
     homes={homeViews}
     onCreateHome={({ name, emoji }) => { createHome(name, emoji); }}
-    onJoinHome={(code) => { joinHomeByInviteCode(code); }}
+    onJoinHome={async (code) => { await joinHomeByInviteCode(code); }}
     onOpenSettings={() => setIsEditingHome(true)}
     onSelectHome={selectHome}
-  /></div>;
+  /><small className={`sync-status sync-status--${syncStatus}`} title={syncError ?? undefined}>{syncLabel}</small></div>;
 
   if (!activeHome) {
     return <div className="app-shell">{homeSwitcher}<main className="screen home-empty-screen"><span aria-hidden="true">🏘️</span><h1>관리할 집을 추가해 주세요</h1><p>새 집을 만들거나 받은 초대 코드로 참여할 수 있어요.</p></main></div>;

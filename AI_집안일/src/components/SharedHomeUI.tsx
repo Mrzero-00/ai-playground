@@ -103,7 +103,7 @@ function CreateHomeForm({ onSubmit }: { onSubmit: (input: CreateSharedHomeInput)
 }
 
 function JoinHomeForm({ onSubmit }: { onSubmit: (code: string) => void | Promise<void> }) {
-  const [code, setCode] = useState(""); const [busy, setBusy] = useState(false);
-  async function submit(event: FormEvent) { event.preventDefault(); setBusy(true); try { await onSubmit(code.trim().toUpperCase()); } finally { setBusy(false); } }
-  return <form onSubmit={submit}><p>집을 만든 사람에게 받은 초대 코드를 입력해주세요.</p><label style={ui.field}>초대 코드<input style={{ ...ui.input, textTransform: "uppercase", letterSpacing: 2 }} value={code} minLength={4} maxLength={20} required autoFocus autoCapitalize="characters" autoComplete="off" placeholder="예: HOME1234" onChange={(e) => setCode(e.target.value)} /></label><button style={ui.action} disabled={busy || code.trim().length < 4} type="submit">{busy ? "참여하는 중…" : "집에 참여하기"}</button></form>;
+  const [code, setCode] = useState(""); const [busy, setBusy] = useState(false); const [error, setError] = useState("");
+  async function submit(event: FormEvent) { event.preventDefault(); setBusy(true); setError(""); try { await onSubmit(code.trim().toUpperCase()); } catch (cause) { setError(cause instanceof Error ? cause.message : "집에 참여하지 못했어요."); } finally { setBusy(false); } }
+  return <form onSubmit={submit}><p>집을 만든 사람에게 받은 초대 코드를 입력해주세요.</p><label style={ui.field}>초대 코드<input style={{ ...ui.input, textTransform: "uppercase", letterSpacing: 2 }} value={code} minLength={4} maxLength={20} required autoFocus autoCapitalize="characters" autoComplete="off" placeholder="예: HOME1234" onChange={(e) => setCode(e.target.value)} /></label>{error && <p role="alert" style={{ color: "#e42939" }}>{error}</p>}<button style={ui.action} disabled={busy || code.trim().length < 4} type="submit">{busy ? "참여하는 중…" : "집에 참여하기"}</button></form>;
 }

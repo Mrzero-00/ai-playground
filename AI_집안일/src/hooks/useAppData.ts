@@ -1,8 +1,11 @@
-import { useEffect, useMemo, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import { addRecurrence, isDue, todayKey, toDateKey } from '../domain/date';
 import { recommendedChores } from '../domain/recommendations';
 import type { AppData, Chore, Home, HomeProfile, NotificationSettings, Recurrence } from '../domain/types';
 import { loadAppData, makeInviteCode, saveAppData } from '../data/storage';
+import { joinRemoteHome, loadRemoteState, saveRemoteState } from '../data/remote';
+
+export type SyncStatus = 'loading' | 'synced' | 'saving' | 'offline' | 'error';
 
 function makeId(prefix: string): string {
   return `${prefix}-${Date.now()}-${Math.random().toString(36).slice(2, 8)}`;
@@ -20,8 +23,57 @@ function syncRecommendedChores(existing: Chore[], profile: HomeProfile): Chore[]
 
 export function useAppData() {
   const [data, setData] = useState<AppData>(loadAppData);
+  const [syncStatus, setSyncStatus] = useState<SyncStatus>('loading');
+  const [syncError, setSyncError] = useState<string | null>(null);
+  const remoteReady = useRef(false);
+  const skipNextRemoteSave = useRef(false);
 
   useEffect(() => saveAppData(data), [data]);
+
+  useEffect(() => {
+    let cancelled = false;
+    const local = data;
+    loadRemoteState()
+      .then(async (remote) => {
+        if (cancelled) return;
+        const resolved = remote.homes.length === 0 && local.homes.length > 0
+          ? await saveRemoteState(local)
+          : remote;
+        if (cancelled) return;
+        skipNextRemoteSave.current = true;
+        setData(resolved);
+        remoteReady.current = true;
+        setSyncStatus('synced');
+        setSyncError(null);
+      })
+      .catch((error: unknown) => {
+        if (cancelled) return;
+        remoteReady.current = false;
+        setSyncStatus('offline');
+        setSyncError(error instanceof Error ? error.message : '동기화 서버에 연결하지 못했어요.');
+      });
+    return () => { cancelled = true; };
+    // 최초 로컬 스냅샷만 서버와 병합한다.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  useEffect(() => {
+    if (!remoteReady.current) return;
+    if (skipNextRemoteSave.current) {
+      skipNextRemoteSave.current = false;
+      return;
+    }
+    setSyncStatus('saving');
+    const timer = window.setTimeout(() => {
+      saveRemoteState(data)
+        .then(() => { setSyncStatus('synced'); setSyncError(null); })
+        .catch((error: unknown) => {
+          setSyncStatus('error');
+          setSyncError(error instanceof Error ? error.message : '변경 내용을 저장하지 못했어요.');
+        });
+    }, 500);
+    return () => window.clearTimeout(timer);
+  }, [data]);
 
   const activeHome = useMemo(
     () => data.homes.find((home) => home.id === data.activeHomeId) ?? null,
@@ -80,7 +132,7 @@ export function useAppData() {
       : current);
   }
 
-  function joinHomeByInviteCode(inviteCode: string): string | null {
+  async function joinHomeByInviteCode(inviteCode: string): Promise<string | null> {
     const normalized = inviteCode.trim().toUpperCase();
     if (!normalized) return null;
     const existing = data.homes.find((home) => home.inviteCode === normalized);
@@ -88,26 +140,13 @@ export function useAppData() {
       selectHome(existing.id);
       return existing.id;
     }
-
-    // 서버가 없는 MVP에서는 초대 코드를 받은 집을 이 기기에 로컬 방으로 생성한다.
-    const homeId = makeId('home');
-    setData((current) => {
-      const now = new Date().toISOString();
-      const home: Home = {
-        id: homeId,
-        name: '초대받은 집',
-        emoji: '🏡',
-        taskViewMode: 'todo',
-        inviteCode: normalized,
-        members: [{ id: makeId('member'), userId: current.user.id, displayName: current.user.displayName, role: 'member', joinedAt: now }],
-        profile: null,
-        chores: [],
-        history: [],
-        createdAt: now,
-      };
-      return { ...current, homes: [...current.homes, home], activeHomeId: homeId };
-    });
-    return homeId;
+    const joined = await joinRemoteHome(normalized);
+    skipNextRemoteSave.current = true;
+    remoteReady.current = true;
+    setData(joined);
+    setSyncStatus('synced');
+    setSyncError(null);
+    return joined.activeHomeId;
   }
 
   function saveProfile(profile: HomeProfile) {
@@ -194,5 +233,5 @@ export function useAppData() {
     setData((current) => ({ ...current, notifications }));
   }
 
-  return { data, activeHome, dueChores, createHome, selectHome, joinHomeByInviteCode, saveProfile, updateHomeSettings, updateUserName, addCustomChore, completeChore, undoTodayCompletion, toggleChore, removeCustomChore, updateNotifications };
+  return { data, activeHome, dueChores, syncStatus, syncError, createHome, selectHome, joinHomeByInviteCode, saveProfile, updateHomeSettings, updateUserName, addCustomChore, completeChore, undoTodayCompletion, toggleChore, removeCustomChore, updateNotifications };
 }

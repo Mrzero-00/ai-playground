@@ -5,6 +5,9 @@ button,input,textarea,select { font:inherit; }
 button { color:inherit; }
 .screen { width:100%; max-width:480px; min-height:100vh; margin:0 auto; padding:28px 20px 112px; background:#fff; }
 .home-switcher-wrap { position:relative; z-index:12; width:100%; max-width:480px; margin:0 auto; padding:16px 20px 0; background:#fff; }
+.sync-status { display:block; margin:5px 6px 0; color:#6b7684; font-size:11px; text-align:right; }
+.sync-status--synced { color:#00a878; }
+.sync-status--error { color:#e42939; }
 .home-empty-screen { display:flex; min-height:calc(100dvh - 80px); flex-direction:column; align-items:center; justify-content:center; padding-bottom:120px; text-align:center; }
 .home-empty-screen>span { margin-bottom:16px; font-size:54px; }
 .home-empty-screen h1 { margin:0 0 8px; font-size:23px; }

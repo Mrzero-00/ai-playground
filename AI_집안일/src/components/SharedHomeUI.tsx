@@ -25,6 +25,7 @@ export interface SharedHomeUIProps {
   onSelectHome: (homeId: string) => void;
   onCreateHome: (input: CreateSharedHomeInput) => void | Promise<void>;
   onJoinHome: (inviteCode: string) => void | Promise<void>;
+  onOpenSettings?: () => void;
   disabled?: boolean;
 }
 
@@ -43,7 +44,7 @@ const ui: Record<string, CSSProperties> = {
   input: { boxSizing: "border-box", width: "100%", minHeight: 50, padding: "0 14px", border: "1px solid #d1d6db", borderRadius: 12, font: "inherit" },
 };
 
-export function SharedHomeUI({ homes, activeHomeId, onSelectHome, onCreateHome, onJoinHome, disabled = false }: SharedHomeUIProps) {
+export function SharedHomeUI({ homes, activeHomeId, onSelectHome, onCreateHome, onJoinHome, onOpenSettings, disabled = false }: SharedHomeUIProps) {
   const titleId = useId();
   const [open, setOpen] = useState(false);
   const [panel, setPanel] = useState<Panel>("list");
@@ -65,7 +66,7 @@ export function SharedHomeUI({ homes, activeHomeId, onSelectHome, onCreateHome, 
           <h2 id={titleId} style={{ margin: 0, fontSize: 20 }}>{panel === "list" ? "집 선택" : panel === "create" ? "새 집 만들기" : "초대 코드로 참여"}</h2>
           <button type="button" aria-label="닫기" onClick={close}>✕</button>
         </header>
-        {panel === "list" && <HomeList homes={homes} activeHomeId={activeHomeId} onSelect={select} onCreate={() => setPanel("create")} onJoin={() => setPanel("join")} />}
+        {panel === "list" && <HomeList homes={homes} activeHomeId={activeHomeId} onSelect={select} onCreate={() => setPanel("create")} onJoin={() => setPanel("join")} onSettings={onOpenSettings ? () => { close(); onOpenSettings(); } : undefined} />}
         {panel === "create" && <CreateHomeForm onSubmit={async (input) => { await onCreateHome(input); close(); }} />}
         {panel === "join" && <JoinHomeForm onSubmit={async (code) => { await onJoinHome(code); close(); }} />}
       </section>
@@ -73,7 +74,7 @@ export function SharedHomeUI({ homes, activeHomeId, onSelectHome, onCreateHome, 
   </section>;
 }
 
-function HomeList({ homes, activeHomeId, onSelect, onCreate, onJoin }: { homes: SharedHome[]; activeHomeId: string; onSelect: (id: string) => void; onCreate: () => void; onJoin: () => void }) {
+function HomeList({ homes, activeHomeId, onSelect, onCreate, onJoin, onSettings }: { homes: SharedHome[]; activeHomeId: string; onSelect: (id: string) => void; onCreate: () => void; onJoin: () => void; onSettings?: () => void }) {
   return <>
     {homes.length === 0 ? <p role="status">아직 참여한 집이 없어요. 첫 번째 집을 만들어보세요.</p> : <ul style={ui.list}>
       {homes.map((home) => <li key={home.id}><button style={{ ...ui.home, borderColor: home.id === activeHomeId ? "#3182f6" : "#e5e8eb" }} type="button" aria-pressed={home.id === activeHomeId} onClick={() => onSelect(home.id)}>
@@ -82,7 +83,7 @@ function HomeList({ homes, activeHomeId, onSelect, onCreate, onJoin }: { homes: 
     </ul>}
     <MemberAvatars members={homes.find((home) => home.id === activeHomeId)?.members ?? []} />
     {homes.find((home) => home.id === activeHomeId)?.inviteCode && <div style={{ marginTop: 16, padding: 14, borderRadius: 14, background: "#f4f6f8", textAlign: "center" }}><small style={{ display: "block", marginBottom: 5, color: "#6b7684" }}>함께 살 사람에게 알려줄 초대 코드</small><strong style={{ letterSpacing: 2 }}>{homes.find((home) => home.id === activeHomeId)?.inviteCode}</strong></div>}
-    <div style={{ display: "grid", gap: 10, marginTop: 18 }}><button style={ui.action} type="button" onClick={onCreate}>＋ 새 집 만들기</button><button style={ui.secondary} type="button" onClick={onJoin}>초대 코드로 참여하기</button></div>
+    <div style={{ display: "grid", gap: 10, marginTop: 18 }}>{onSettings && homes.length > 0 && <button style={ui.secondary} type="button" onClick={onSettings}>⚙ 현재 집 설정 변경</button>}<button style={ui.action} type="button" onClick={onCreate}>＋ 새 집 만들기</button><button style={ui.secondary} type="button" onClick={onJoin}>초대 코드로 참여하기</button></div>
   </>;
 }
 

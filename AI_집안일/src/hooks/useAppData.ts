@@ -105,6 +105,35 @@ export function useAppData() {
     });
   }
 
+  function updateHomeSettings(name: string, emoji: string, profile: HomeProfile) {
+    updateActiveHome((home) => {
+      const existingIds = new Set(home.chores.map((chore) => chore.id));
+      const additions = recommendedChores(profile).filter((chore) => !existingIds.has(chore.id));
+      return {
+        ...home,
+        name: name.trim() || home.name,
+        emoji,
+        profile,
+        chores: [...home.chores, ...additions],
+      };
+    });
+  }
+
+  function updateUserName(displayName: string) {
+    const normalized = displayName.trim();
+    if (!normalized) return;
+    setData((current) => ({
+      ...current,
+      user: { ...current.user, displayName: normalized },
+      homes: current.homes.map((home) => ({
+        ...home,
+        members: home.members.map((member) =>
+          member.userId === current.user.id ? { ...member, displayName: normalized } : member,
+        ),
+      })),
+    }));
+  }
+
   function addCustomChore(title: string, recurrence: Recurrence) {
     const chore: Chore = { id: makeId('custom'), title: title.trim(), category: 'etc', recurrence, createdAt: new Date().toISOString(), scheduleAnchorDate: todayKey(), nextDueDate: todayKey(), isCustom: true, enabled: true };
     updateActiveHome((home) => ({ ...home, chores: [...home.chores, chore] }));
@@ -155,5 +184,5 @@ export function useAppData() {
     setData((current) => ({ ...current, notifications }));
   }
 
-  return { data, activeHome, dueChores, createHome, selectHome, joinHomeByInviteCode, saveProfile, addCustomChore, completeChore, undoTodayCompletion, toggleChore, removeCustomChore, updateNotifications };
+  return { data, activeHome, dueChores, createHome, selectHome, joinHomeByInviteCode, saveProfile, updateHomeSettings, updateUserName, addCustomChore, completeChore, undoTodayCompletion, toggleChore, removeCustomChore, updateNotifications };
 }

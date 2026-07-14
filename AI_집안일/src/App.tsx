@@ -4,6 +4,8 @@ import {
   ChoreManager,
   CustomChoreModal,
   HouseholdReport,
+  HomeSettings,
+  PersonalProfile,
   ProfileSetup,
   ScheduleCalendar,
   SharedHomeUI,
@@ -61,6 +63,8 @@ function App() {
     selectHome,
     joinHomeByInviteCode,
     saveProfile,
+    updateHomeSettings,
+    updateUserName,
     addCustomChore,
     completeChore,
     undoTodayCompletion,
@@ -69,6 +73,7 @@ function App() {
   } = useAppData();
   const [activeTab, setActiveTab] = useState<NavigationTab>('today');
   const [isAddingChore, setIsAddingChore] = useState(false);
+  const [isEditingHome, setIsEditingHome] = useState(false);
 
   const todayViews = useMemo(() => {
     const due = dueChores.map(toView);
@@ -135,6 +140,7 @@ function App() {
     homes={homeViews}
     onCreateHome={({ name, emoji }) => { createHome(name, emoji); }}
     onJoinHome={(code) => { joinHomeByInviteCode(code); }}
+    onOpenSettings={() => setIsEditingHome(true)}
     onSelectHome={selectHome}
   /></div>;
 
@@ -146,12 +152,9 @@ function App() {
     return <div className="app-shell">{homeSwitcher}<ProfileSetup onSubmit={submitProfile} /></div>;
   }
 
-  const initialProfile: Partial<HouseholdProfile> = {
-    householdType: activeHome.profile.householdType,
-    memberCount: activeHome.profile.memberCount,
-    hasDog: activeHome.profile.petTypes.includes('dog'),
-    hasCat: activeHome.profile.petTypes.includes('cat'),
-  };
+  if (isEditingHome) {
+    return <div className="app-shell">{homeSwitcher}<HomeSettings home={activeHome} onCancel={() => setIsEditingHome(false)} onSave={(name, emoji, profile) => { updateHomeSettings(name, emoji, profile); setIsEditingHome(false); }} /></div>;
+  }
 
   return (
     <div className="app-shell">
@@ -176,7 +179,7 @@ function App() {
       )}
       {activeTab === 'schedule' && <ScheduleCalendar chores={activeHome.chores} history={activeHome.history} />}
       {activeTab === 'report' && <HouseholdReport chores={activeHome.chores} history={activeHome.history} homeName={activeHome.name} members={activeHome.members} />}
-      {activeTab === 'profile' && <ProfileSetup initialValue={initialProfile} onSubmit={submitProfile} />}
+      {activeTab === 'profile' && <PersonalProfile homes={data.homes} onSaveName={updateUserName} user={data.user} />}
       <BottomNavigation active={activeTab} onChange={setActiveTab} />
       <CustomChoreModal
         key={isAddingChore ? 'open' : 'closed'}

@@ -106,6 +106,57 @@ h2 { font-size:20px; letter-spacing:-.3px; }
 .history-list strong { font-size:14px; }
 .history-list small { margin-top:4px; color:#8b95a1; font-size:11px; }
 .report-empty { padding:26px 14px; border-radius:14px; color:#8b95a1; text-align:center; background:#f7f8fa; font-size:13px; }
+.settings-header { display:grid; grid-template-columns:44px 1fr 44px; align-items:center; margin-bottom:26px; }
+.settings-header>button { width:40px; height:40px; border:0; border-radius:12px; background:#f5f6f8; font-size:28px; }
+.settings-header h1 { margin-top:2px; font-size:24px; }
+.home-settings-screen form { display:grid; gap:16px; }
+.settings-card { padding:20px; border:1px solid #eceef1; border-radius:20px; background:#fff; }
+.settings-card h2 { margin-bottom:18px; font-size:17px; }
+.settings-choice-grid { display:grid; grid-template-columns:1fr 1fr; gap:8px; margin-bottom:20px; }
+.settings-choice-grid label { position:relative; }
+.settings-choice-grid input { position:absolute; opacity:0; }
+.settings-choice-grid label>span { display:grid; min-height:46px; place-items:center; border:1px solid #e1e3e7; border-radius:12px; color:#6b7684; font-size:13px; }
+.settings-choice-grid label.is-selected>span { border-color:#7359df; color:#7359df; background:#f5f1ff; font-weight:800; }
+.pet-grid { grid-template-columns:repeat(3,1fr); margin-bottom:0; }
+.number-setting { display:flex; align-items:center; justify-content:space-between; min-height:58px; border-top:1px solid #f0f1f3; }
+.number-setting>span { font-size:14px; font-weight:700; }
+.number-setting>div { display:flex; align-items:center; gap:8px; }
+.number-setting button { width:34px; height:34px; padding:0; border:0; border-radius:10px; background:#f5f6f8; font-size:18px; }
+.number-setting output { min-width:36px; text-align:center; font-size:14px; font-weight:800; }
+.settings-number-row { display:grid; grid-template-columns:1fr 1fr; gap:14px; }
+.settings-number-row .number-setting { display:block; padding-top:14px; }
+.settings-number-row .number-setting>div { margin-top:9px; justify-content:space-between; }
+.settings-help { padding:0 4px; color:#8b95a1; font-size:12px; line-height:1.5; }
+.profile-identity { display:flex; align-items:center; gap:16px; padding:20px; border:1px solid #eceef1; border-radius:20px; }
+.profile-identity>span { display:grid; flex:0 0 auto; width:58px; height:58px; place-items:center; border-radius:50%; background:#e8f3ff; font-size:30px; }
+.profile-identity form { min-width:0; flex:1; }
+.profile-identity label { display:block; margin-bottom:7px; color:#8b95a1; font-size:11px; }
+.profile-identity form>div { display:flex; gap:7px; }
+.profile-identity input { min-width:0; height:40px; flex:1; padding:0 11px; border:1px solid #e1e3e7; border-radius:10px; }
+.profile-identity button { padding:0 13px; border:0; border-radius:10px; color:#fff; background:#7359df; font-size:12px; font-weight:800; }
+.level-card { display:flex; gap:18px; align-items:center; margin-top:16px; padding:22px; border-radius:22px; color:#fff; background:linear-gradient(135deg,#5b43c8,#8a63df); }
+.level-badge { display:grid; flex:0 0 auto; width:76px; height:76px; place-items:center; align-content:center; border-radius:22px; background:#ffffff20; }
+.level-badge span { font-size:11px; opacity:.75; }
+.level-badge strong { font-size:28px; line-height:1; }
+.level-copy { min-width:0; flex:1; }
+.level-copy>span { font-size:11px; opacity:.75; }
+.level-copy>strong { display:block; margin:3px 0 11px; font-size:17px; }
+.level-copy>div { height:7px; overflow:hidden; border-radius:999px; background:#ffffff30; }
+.level-copy>div i { display:block; height:100%; border-radius:inherit; background:#fff; }
+.level-copy small { display:block; margin-top:6px; font-size:10px; opacity:.8; }
+.personal-summary { display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-top:14px; }
+.personal-summary article { padding:18px; border:1px solid #eceef1; border-radius:17px; text-align:center; }
+.personal-summary strong,.personal-summary span { display:block; }
+.personal-summary strong { font-size:24px; }
+.personal-summary span { margin-top:4px; color:#8b95a1; font-size:11px; }
+.my-homes { margin-top:32px; }
+.my-homes ul { margin:0; padding:0; list-style:none; }
+.my-homes li { display:flex; align-items:center; gap:12px; min-height:66px; border-bottom:1px solid #f0f1f3; }
+.my-homes li>span { display:grid; width:42px; height:42px; place-items:center; border-radius:13px; background:#f5f3fb; font-size:21px; }
+.my-homes strong,.my-homes small { display:block; }
+.my-homes strong { font-size:14px; }
+.my-homes small { margin-top:4px; color:#8b95a1; font-size:11px; }
+.level-policy { margin-top:24px; padding:13px; border-radius:12px; color:#6b7684; background:#f7f8fa; font-size:11px; line-height:1.55; }
 .progress-card div:first-child span,.progress-card div:first-child strong { display:block; }
 .progress-card div:first-child span { margin-bottom:8px; font-size:14px; opacity:.82; }
 .progress-card div:first-child strong { font-size:24px; }

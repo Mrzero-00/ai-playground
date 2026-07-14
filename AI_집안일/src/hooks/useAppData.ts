@@ -9,9 +9,10 @@ function makeId(prefix: string): string {
 }
 
 function syncRecommendedChores(existing: Chore[], profile: HomeProfile): Chore[] {
+  const uniqueExisting = [...new Map(existing.map((chore) => [chore.id, chore])).values()];
   const recommended = recommendedChores(profile);
   const recommendedIds = new Set(recommended.map((chore) => chore.id));
-  const retained = existing.filter((chore) => chore.isCustom || recommendedIds.has(chore.id));
+  const retained = uniqueExisting.filter((chore) => chore.isCustom || recommendedIds.has(chore.id));
   const retainedIds = new Set(retained.map((chore) => chore.id));
   const additions = recommended.filter((chore) => !retainedIds.has(chore.id));
   return [...retained, ...additions];

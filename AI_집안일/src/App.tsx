@@ -88,7 +88,8 @@ function App() {
       .filter((chore) => completedIds.has(chore.id))
       .map((chore) => ({ ...toView(chore), completed: true, dueLabel: '오늘 완료' }));
     const completedChoreIds = new Set(completed.map((chore) => chore.id));
-    return [...due.filter((chore) => !completedChoreIds.has(chore.id)), ...completed];
+    const combined = [...due.filter((chore) => !completedChoreIds.has(chore.id)), ...completed];
+    return [...new Map(combined.map((chore) => [chore.id, chore])).values()];
   }, [activeHome, dueChores]);
   const allViews = useMemo(() => activeHome?.chores.map(toView) ?? [], [activeHome]);
   const homeViews = useMemo(() => data.homes.map((home) => ({

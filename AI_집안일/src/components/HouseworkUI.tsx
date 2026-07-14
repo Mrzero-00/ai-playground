@@ -190,7 +190,21 @@ function QuestBoard({ chores, onToggle }: { chores: Chore[]; onToggle: (chore: C
     group,
     chores: chores.filter((chore) => (chore.recurrenceGroup ?? chore.frequency) === group),
   }));
-  const activeIndex = groups.findIndex(({ chores: groupChores }) => groupChores.some((chore) => !chore.completed));
+  const nextIncompleteGroup = groups.find(({ chores: groupChores }) => groupChores.some((chore) => !chore.completed))?.group ?? null;
+  const [visibleGroup, setVisibleGroup] = useState<keyof typeof recurrenceGroupMeta | null>(nextIncompleteGroup);
+  const visibleGroupData = groups.find(({ group }) => group === visibleGroup);
+
+  useEffect(() => {
+    if (!visibleGroupData) {
+      if (visibleGroup !== nextIncompleteGroup) setVisibleGroup(nextIncompleteGroup);
+      return;
+    }
+    if (visibleGroupData.chores.some((chore) => !chore.completed)) return;
+    const timer = window.setTimeout(() => setVisibleGroup(nextIncompleteGroup), 1350);
+    return () => window.clearTimeout(timer);
+  }, [nextIncompleteGroup, visibleGroup, visibleGroupData]);
+
+  const activeIndex = groups.findIndex(({ group }) => group === visibleGroup);
   const active = activeIndex >= 0 ? groups[activeIndex] : null;
   const questXp = { daily: 10, weekly: 30, monthly: 60, yearly: 100 } as const;
   const prefix = { daily: 'DAY', weekly: 'WEEK', monthly: 'MONTH', yearly: 'YEAR' } as const;

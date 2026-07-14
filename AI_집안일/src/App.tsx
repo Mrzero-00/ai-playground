@@ -74,9 +74,12 @@ function App() {
     removeCustomChore,
     updateNotifications,
     saveLaborAssessment,
-    assignChoreRoles,
+    assignChoreExecutor,
     setSharedAssignmentMode,
     autoAssignChores,
+    addSupplyItem,
+    recordSupplyPurchase,
+    removeSupplyItem,
   } = useAppData();
   const [activeTab, setActiveTab] = useState<NavigationTab>('today');
   const [isAddingChore, setIsAddingChore] = useState(false);
@@ -193,7 +196,7 @@ function App() {
         />
       )}
       {activeTab === 'schedule' && <ScheduleCalendar chores={activeHome.chores} history={activeHome.history} />}
-      {activeTab === 'report' && <HouseholdReport assessments={activeHome.laborAssessments ?? []} assignmentMode={activeHome.assignmentMode ?? 'shared'} chores={activeHome.chores} currentUserId={data.user.id} history={activeHome.history} homeName={activeHome.name} members={activeHome.members} onAssign={assignChoreRoles} onAutoAssign={autoAssignChores} onSaveAssessment={saveLaborAssessment} onUseSharedList={setSharedAssignmentMode} />}
+      {activeTab === 'report' && <HouseholdReport assessments={activeHome.laborAssessments ?? []} assignmentMode={activeHome.assignmentMode ?? 'shared'} chores={activeHome.chores} currentUserId={data.user.id} history={activeHome.history} homeName={activeHome.name} members={activeHome.members} onAddSupply={addSupplyItem} onAssign={assignChoreExecutor} onAutoAssign={autoAssignChores} onPurchaseSupply={recordSupplyPurchase} onRemoveSupply={removeSupplyItem} onSaveAssessment={saveLaborAssessment} onUseSharedList={setSharedAssignmentMode} supplies={activeHome.supplies ?? []} />}
       {activeTab === 'profile' && <PersonalProfile homes={data.homes} onSaveName={updateUserName} user={data.user} />}
       <BottomNavigation active={activeTab} onChange={setActiveTab} />
       <CustomChoreModal

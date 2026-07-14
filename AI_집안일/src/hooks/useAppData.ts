@@ -1,10 +1,11 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { addRecurrence, isDue, todayKey, toDateKey } from '../domain/date';
 import { recommendedChores } from '../domain/recommendations';
-import type { AppData, Chore, Home, HomeProfile, LaborAssessment, NotificationSettings, Recurrence } from '../domain/types';
+import type { AppData, Chore, Home, HomeProfile, LaborAssessment, NotificationSettings, Recurrence, SupplyItem } from '../domain/types';
 import { loadAppData, makeInviteCode, saveAppData } from '../data/storage';
 import { joinRemoteHome, loadRemoteState, saveRemoteState } from '../data/remote';
 import { automaticallyAllocateChores } from '../domain/laborAllocation';
+import { supplyProjection } from '../domain/supplies';
 
 export type SyncStatus = 'loading' | 'synced' | 'saving' | 'offline' | 'error';
 
@@ -122,6 +123,7 @@ export function useAppData() {
         chores: [],
         history: [],
         laborAssessments: [],
+        supplies: [],
         createdAt: now,
       };
       return { ...current, homes: [...current.homes, home], activeHomeId: homeId };
@@ -246,13 +248,34 @@ export function useAppData() {
     }));
   }
 
-  function assignChoreRoles(choreId: string, plannerMemberId?: string, executorMemberId?: string) {
+  function assignChoreExecutor(choreId: string, executorMemberId?: string) {
     updateActiveHome((home) => ({
       ...home,
       chores: home.chores.map((chore) => chore.id === choreId
-        ? { ...chore, plannerMemberId: plannerMemberId || undefined, executorMemberId: executorMemberId || undefined }
+        ? { ...chore, executorMemberId: executorMemberId || undefined }
         : chore),
     }));
+  }
+
+  function addSupplyItem(input: Omit<SupplyItem, 'id' | 'updatedAt'>) {
+    const item: SupplyItem = { ...input, id: makeId('supply'), updatedAt: new Date().toISOString() };
+    const projection = supplyProjection(item);
+    const chore: Chore = { id: `supply-chore-${item.id}`, title: `${item.name} 구매하기`, category: 'living', recurrence: { interval: projection.daysUntilSafetyStock, unit: 'day' }, createdAt: new Date().toISOString(), scheduleAnchorDate: item.purchaseDate, nextDueDate: projection.checkDate, isCustom: true, enabled: true };
+    updateActiveHome((home) => ({ ...home, supplies: [...(home.supplies ?? []), item], chores: [...home.chores, chore] }));
+  }
+
+  function recordSupplyPurchase(itemId: string, purchaseDate: string, purchaseQuantity: number) {
+    updateActiveHome((home) => {
+      const supplies = (home.supplies ?? []).map((item) => item.id === itemId ? { ...item, purchaseDate, purchaseQuantity, updatedAt: new Date().toISOString() } : item);
+      const item = supplies.find((supply) => supply.id === itemId);
+      if (!item) return home;
+      const projection = supplyProjection(item);
+      return { ...home, supplies, chores: home.chores.map((chore) => chore.id === `supply-chore-${item.id}` ? { ...chore, recurrence: { interval: projection.daysUntilSafetyStock, unit: 'day' }, scheduleAnchorDate: purchaseDate, nextDueDate: projection.checkDate } : chore) };
+    });
+  }
+
+  function removeSupplyItem(itemId: string) {
+    updateActiveHome((home) => ({ ...home, supplies: (home.supplies ?? []).filter((item) => item.id !== itemId), chores: home.chores.filter((chore) => chore.id !== `supply-chore-${itemId}`) }));
   }
 
   function setSharedAssignmentMode() {
@@ -267,5 +290,5 @@ export function useAppData() {
     }));
   }
 
-  return { data, activeHome, dueChores, syncStatus, syncError, createHome, selectHome, joinHomeByInviteCode, saveProfile, updateHomeSettings, updateUserName, addCustomChore, completeChore, undoTodayCompletion, toggleChore, removeCustomChore, updateNotifications, saveLaborAssessment, assignChoreRoles, setSharedAssignmentMode, autoAssignChores };
+  return { data, activeHome, dueChores, syncStatus, syncError, createHome, selectHome, joinHomeByInviteCode, saveProfile, updateHomeSettings, updateUserName, addCustomChore, completeChore, undoTodayCompletion, toggleChore, removeCustomChore, updateNotifications, saveLaborAssessment, assignChoreExecutor, setSharedAssignmentMode, autoAssignChores, addSupplyItem, recordSupplyPurchase, removeSupplyItem };
 }

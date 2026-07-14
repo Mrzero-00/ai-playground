@@ -50,6 +50,7 @@ function migrateLegacyData(legacy: Partial<LegacyAppData>): AppData {
       performedByName: data.user.displayName,
     })),
     laborAssessments: [],
+    supplies: [],
     createdAt: now,
   };
   return {

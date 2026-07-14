@@ -23,7 +23,6 @@ const templates: ChoreTemplate[] = [
   { key: 'drain', title: '배수구 점검과 청소', category: 'cleaning', recurrence: { interval: 1, unit: 'month' } },
   { key: 'washer', title: '세탁기 통 청소', category: 'laundry', recurrence: { interval: 1, unit: 'month' } },
   { key: 'fridge-deep', title: '냉장고 선반 청소', category: 'kitchen', recurrence: { interval: 1, unit: 'month' } },
-  { key: 'supplies', title: '생활용품 재고 확인', category: 'living', recurrence: { interval: 1, unit: 'month' } },
   { key: 'seasonal', title: '계절 가전 필터 점검', category: 'living', recurrence: { interval: 3, unit: 'month' } },
   { key: 'detector', title: '화재감지기와 비상용품 점검', category: 'living', recurrence: { interval: 6, unit: 'month' } },
   {
@@ -45,13 +44,6 @@ const templates: ChoreTemplate[] = [
     title: '함께 쓰는 공간 정리',
     category: 'living',
     recurrence: { interval: 3, unit: 'day' },
-    matches: (profile) => profile.householdType === 'couple',
-  },
-  {
-    key: 'couple-supplies',
-    title: '공용 생필품 채우기',
-    category: 'living',
-    recurrence: { interval: 1, unit: 'week' },
     matches: (profile) => profile.householdType === 'couple',
   },
   {

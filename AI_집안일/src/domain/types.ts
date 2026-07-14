@@ -51,8 +51,19 @@ export interface Chore {
   isCustom: boolean;
   enabled: boolean;
   assignedMemberId?: string;
-  plannerMemberId?: string;
   executorMemberId?: string;
+}
+
+export interface SupplyItem {
+  id: string;
+  name: string;
+  unit: string;
+  purchaseDate: string;
+  purchaseQuantity: number;
+  weeklyUsage: number;
+  safetyStock: number;
+  reminderDaysBefore: number;
+  updatedAt: string;
 }
 
 export interface ChoreHistory {
@@ -78,6 +89,7 @@ export interface Home {
   chores: Chore[];
   history: ChoreHistory[];
   laborAssessments: LaborAssessment[];
+  supplies: SupplyItem[];
   createdAt: string;
 }
 

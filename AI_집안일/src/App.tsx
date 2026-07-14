@@ -4,6 +4,7 @@ import {
   ChoreManager,
   CustomChoreModal,
   ProfileSetup,
+  SharedHomeUI,
   TodayTasks,
   type Chore as ChoreView,
   type CustomChoreInput,
@@ -52,7 +53,11 @@ function recurrenceFromInput(input: CustomChoreInput): Recurrence {
 function App() {
   const {
     data,
+    activeHome,
     dueChores,
+    createHome,
+    selectHome,
+    joinHomeByInviteCode,
     saveProfile,
     addCustomChore,
     completeChore,
@@ -63,7 +68,20 @@ function App() {
   const [isAddingChore, setIsAddingChore] = useState(false);
 
   const dueViews = useMemo(() => dueChores.map(toView), [dueChores]);
-  const allViews = useMemo(() => data.chores.map(toView), [data.chores]);
+  const allViews = useMemo(() => activeHome?.chores.map(toView) ?? [], [activeHome]);
+  const homeViews = useMemo(() => data.homes.map((home) => ({
+    id: home.id,
+    name: home.name,
+    emoji: home.emoji,
+    inviteCode: home.inviteCode,
+    memberCount: home.members.length,
+    members: home.members.map((member) => ({
+      id: member.id,
+      name: member.displayName,
+      avatarEmoji: member.role === 'owner' ? '👑' : '🙂',
+      isCurrentUser: member.userId === data.user.id,
+    })),
+  })), [data.homes, data.user.id]);
 
   function submitProfile(profile: HouseholdProfile) {
     saveProfile({
@@ -90,22 +108,36 @@ function App() {
     setActiveTab('manage');
   }
 
-  if (!data.profile) {
-    return <ProfileSetup onSubmit={submitProfile} />;
+  const homeSwitcher = <div className="home-switcher-wrap"><SharedHomeUI
+    activeHomeId={data.activeHomeId ?? ''}
+    homes={homeViews}
+    onCreateHome={({ name, emoji }) => { createHome(name, emoji); }}
+    onJoinHome={(code) => { joinHomeByInviteCode(code); }}
+    onSelectHome={selectHome}
+  /></div>;
+
+  if (!activeHome) {
+    return <div className="app-shell">{homeSwitcher}<main className="screen home-empty-screen"><span aria-hidden="true">🏘️</span><h1>관리할 집을 추가해 주세요</h1><p>새 집을 만들거나 받은 초대 코드로 참여할 수 있어요.</p></main></div>;
+  }
+
+  if (!activeHome.profile) {
+    return <div className="app-shell">{homeSwitcher}<ProfileSetup onSubmit={submitProfile} /></div>;
   }
 
   const initialProfile: Partial<HouseholdProfile> = {
-    householdType: data.profile.householdType,
-    memberCount: data.profile.memberCount,
-    hasDog: data.profile.petTypes.includes('dog'),
-    hasCat: data.profile.petTypes.includes('cat'),
+    householdType: activeHome.profile.householdType,
+    memberCount: activeHome.profile.memberCount,
+    hasDog: activeHome.profile.petTypes.includes('dog'),
+    hasCat: activeHome.profile.petTypes.includes('cat'),
   };
 
   return (
     <div className="app-shell">
+      {homeSwitcher}
       {activeTab === 'today' && (
         <TodayTasks
           chores={dueViews}
+          householdName={activeHome.name}
           onAdd={() => setIsAddingChore(true)}
           onReminderToggle={() => updateNotifications({ ...data.notifications, enabled: !data.notifications.enabled })}
           onToggle={completeChore}

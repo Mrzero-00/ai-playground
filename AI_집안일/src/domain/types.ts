@@ -3,6 +3,20 @@ export type PetType = 'dog' | 'cat' | 'other';
 export type ChoreCategory = 'cleaning' | 'kitchen' | 'laundry' | 'pet' | 'living' | 'etc';
 export type RecurrenceUnit = 'day' | 'week' | 'month' | 'year';
 
+export interface LocalUser {
+  id: string;
+  displayName: string;
+  createdAt: string;
+}
+
+export interface HomeMember {
+  id: string;
+  userId: string;
+  displayName: string;
+  role: 'owner' | 'member';
+  joinedAt: string;
+}
+
 export interface HomeProfile {
   householdType: HouseholdType;
   memberCount: number;
@@ -27,6 +41,7 @@ export interface Chore {
   nextDueDate: string;
   isCustom: boolean;
   enabled: boolean;
+  assignedMemberId?: string;
 }
 
 export interface ChoreHistory {
@@ -35,6 +50,20 @@ export interface ChoreHistory {
   choreTitle: string;
   action: 'completed' | 'skipped';
   performedAt: string;
+  performedByUserId: string;
+  performedByName: string;
+}
+
+export interface Home {
+  id: string;
+  name: string;
+  emoji: string;
+  inviteCode: string;
+  members: HomeMember[];
+  profile: HomeProfile | null;
+  chores: Chore[];
+  history: ChoreHistory[];
+  createdAt: string;
 }
 
 export interface NotificationSettings {
@@ -43,8 +72,17 @@ export interface NotificationSettings {
 }
 
 export interface AppData {
+  version: 2;
+  user: LocalUser;
+  homes: Home[];
+  activeHomeId: string | null;
+  notifications: NotificationSettings;
+}
+
+/** 저장소 v1 마이그레이션 입력 전용 타입 */
+export interface LegacyAppData {
   profile: HomeProfile | null;
   chores: Chore[];
-  history: ChoreHistory[];
+  history: Omit<ChoreHistory, 'performedByUserId' | 'performedByName'>[];
   notifications: NotificationSettings;
 }

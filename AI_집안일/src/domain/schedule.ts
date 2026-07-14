@@ -16,7 +16,7 @@ export interface DaySchedule {
 }
 
 function createdDate(chore: Chore): string {
-  return toDateKey(new Date(chore.createdAt));
+  return chore.scheduleAnchorDate ?? toDateKey(new Date(chore.createdAt));
 }
 
 function completedOn(history: ChoreHistory[], choreId: string, date: string): boolean {

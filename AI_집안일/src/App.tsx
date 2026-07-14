@@ -3,6 +3,7 @@ import {
   BottomNavigation,
   ChoreManager,
   CustomChoreModal,
+  HouseholdReport,
   ProfileSetup,
   ScheduleCalendar,
   SharedHomeUI,
@@ -174,6 +175,7 @@ function App() {
         />
       )}
       {activeTab === 'schedule' && <ScheduleCalendar chores={activeHome.chores} history={activeHome.history} />}
+      {activeTab === 'report' && <HouseholdReport chores={activeHome.chores} history={activeHome.history} homeName={activeHome.name} members={activeHome.members} />}
       {activeTab === 'profile' && <ProfileSetup initialValue={initialProfile} onSubmit={submitProfile} />}
       <BottomNavigation active={activeTab} onChange={setActiveTab} />
       <CustomChoreModal

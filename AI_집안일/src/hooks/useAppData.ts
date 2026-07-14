@@ -22,6 +22,19 @@ export function useAppData() {
     [activeHome],
   );
 
+  useEffect(() => {
+    if (!activeHome?.profile) return;
+    const existingIds = new Set(activeHome.chores.map((chore) => chore.id));
+    const additions = recommendedChores(activeHome.profile).filter((chore) => !existingIds.has(chore.id));
+    if (!additions.length) return;
+    setData((current) => ({
+      ...current,
+      homes: current.homes.map((home) =>
+        home.id === activeHome.id ? { ...home, chores: [...home.chores, ...additions] } : home,
+      ),
+    }));
+  }, [activeHome]);
+
   function updateActiveHome(update: (home: Home) => Home) {
     setData((current) => ({
       ...current,
@@ -93,7 +106,7 @@ export function useAppData() {
   }
 
   function addCustomChore(title: string, recurrence: Recurrence) {
-    const chore: Chore = { id: makeId('custom'), title: title.trim(), category: 'etc', recurrence, createdAt: new Date().toISOString(), nextDueDate: todayKey(), isCustom: true, enabled: true };
+    const chore: Chore = { id: makeId('custom'), title: title.trim(), category: 'etc', recurrence, createdAt: new Date().toISOString(), scheduleAnchorDate: todayKey(), nextDueDate: todayKey(), isCustom: true, enabled: true };
     updateActiveHome((home) => ({ ...home, chores: [...home.chores, chore] }));
   }
 

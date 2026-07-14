@@ -220,8 +220,8 @@ export function CustomChoreModal({ open, onClose, onSubmit }: CustomChoreModalPr
   );
 }
 
-export type NavigationTab = "today" | "schedule" | "manage" | "profile";
+export type NavigationTab = "today" | "schedule" | "manage" | "report" | "profile";
 export function BottomNavigation({ active, onChange }: { active: NavigationTab; onChange: (tab: NavigationTab) => void }) {
-  const tabs: Array<{ id: NavigationTab; icon: string; label: string }> = [{ id: "today", icon: "✓", label: "오늘" }, { id: "schedule", icon: "▦", label: "일정" }, { id: "manage", icon: "☷", label: "집안일" }, { id: "profile", icon: "♙", label: "내 정보" }];
+  const tabs: Array<{ id: NavigationTab; icon: string; label: string }> = [{ id: "today", icon: "✓", label: "오늘" }, { id: "schedule", icon: "▦", label: "일정" }, { id: "manage", icon: "☷", label: "집안일" }, { id: "report", icon: "▥", label: "리포트" }, { id: "profile", icon: "♙", label: "내 정보" }];
   return <nav className="bottom-nav" aria-label="주요 메뉴">{tabs.map((tab) => <button className={active === tab.id ? "is-active" : ""} aria-current={active === tab.id ? "page" : undefined} key={tab.id} onClick={() => onChange(tab.id)} type="button"><span aria-hidden="true">{tab.icon}</span>{tab.label}</button>)}</nav>;
 }

@@ -38,6 +38,7 @@ export interface Chore {
   category: ChoreCategory;
   recurrence: Recurrence;
   createdAt: string;
+  scheduleAnchorDate?: string;
   nextDueDate: string;
   isCustom: boolean;
   enabled: boolean;

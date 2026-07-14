@@ -71,6 +71,41 @@ h2 { font-size:20px; letter-spacing:-.3px; }
 .schedule-status { display:grid; flex:0 0 auto; width:30px; height:30px; place-items:center; border-radius:50%; color:#7359df; background:#f2efff; font-size:18px; font-weight:800; }
 .schedule-status.is-complete { color:#fff; background:#20a474; font-size:13px; }
 .empty-state.compact { padding:32px 16px; }
+.report-hero { display:grid; grid-template-columns:1fr 86px; gap:20px; align-items:center; padding:22px; border-radius:22px; color:#fff; background:linear-gradient(135deg,#5b43c8,#8a63df); box-shadow:0 12px 28px #7359df32; }
+.report-hero span,.report-hero strong,.report-hero small { display:block; }
+.report-hero span { font-size:13px; opacity:.8; }
+.report-hero strong { margin:6px 0 3px; font-size:34px; }
+.report-hero small { font-size:12px; opacity:.82; }
+.report-progress { --report-progress:0%; display:flex; height:8px; align-items:center; border-radius:999px; background:#ffffff38; }
+.report-progress i { display:block; width:var(--report-progress); height:100%; border-radius:inherit; background:#fff; transition:width .3s ease; }
+.report-metrics { display:grid; grid-template-columns:repeat(3,1fr); gap:8px; margin-top:14px; }
+.report-metrics article { padding:15px 6px; border:1px solid #eceef1; border-radius:16px; text-align:center; background:#fff; }
+.report-metrics span,.report-metrics strong,.report-metrics small { display:block; }
+.report-metrics span { margin-bottom:7px; font-size:20px; }
+.report-metrics strong { font-size:18px; }
+.report-metrics small { margin-top:3px; color:#8b95a1; font-size:10px; }
+.report-section { margin-top:32px; }
+.contribution-list,.history-list { margin:0; padding:0; list-style:none; }
+.contribution-list li { display:flex; align-items:center; gap:11px; min-height:64px; }
+.member-avatar { display:grid; flex:0 0 auto; width:40px; height:40px; place-items:center; border-radius:50%; background:#e8f3ff; }
+.contribution-list li>div { min-width:0; flex:1; }
+.contribution-list li>div>strong { display:block; margin-bottom:7px; font-size:14px; }
+.contribution-list li>div>span { display:block; height:6px; overflow:hidden; border-radius:999px; background:#f0f1f3; }
+.contribution-list li>div>span i { display:block; height:100%; border-radius:inherit; background:#7359df; }
+.contribution-list b { min-width:38px; text-align:right; font-size:13px; }
+.report-note { margin-top:10px; padding:10px 12px; border-radius:10px; color:#6b7684; background:#f7f8fa; font-size:11px; line-height:1.5; }
+.category-stats { display:grid; grid-template-columns:1fr 1fr; gap:9px; }
+.category-stats article { display:flex; align-items:center; gap:10px; padding:14px; border:1px solid #eceef1; border-radius:15px; }
+.category-stats article>span { font-size:22px; }
+.category-stats strong,.category-stats small { display:block; }
+.category-stats strong { font-size:13px; }
+.category-stats small { margin-top:3px; color:#8b95a1; font-size:11px; }
+.history-list li { display:flex; align-items:center; gap:12px; min-height:68px; border-bottom:1px solid #f0f1f3; }
+.history-list li>span { display:grid; flex:0 0 auto; width:30px; height:30px; place-items:center; border-radius:50%; color:#fff; background:#20a474; font-size:12px; font-weight:800; }
+.history-list strong,.history-list small { display:block; }
+.history-list strong { font-size:14px; }
+.history-list small { margin-top:4px; color:#8b95a1; font-size:11px; }
+.report-empty { padding:26px 14px; border-radius:14px; color:#8b95a1; text-align:center; background:#f7f8fa; font-size:13px; }
 .progress-card div:first-child span,.progress-card div:first-child strong { display:block; }
 .progress-card div:first-child span { margin-bottom:8px; font-size:14px; opacity:.82; }
 .progress-card div:first-child strong { font-size:24px; }

@@ -2,6 +2,7 @@ import { useEffect, useMemo, useRef, useState } from 'react';
 import {
   BottomNavigation,
   ChoreManager,
+  ChoreGuideModal,
   CustomChoreModal,
   HouseholdReport,
   HomeSettings,
@@ -18,6 +19,7 @@ import {
   type NavigationTab,
 } from './components';
 import { formatDueDate, formatRecurrence, todayKey, toDateKey } from './domain/date';
+import { choreGuideById, guideForChore } from './domain/choreGuides';
 import type { Chore, ChoreCategory, Recurrence } from './domain/types';
 import { useAppData } from './hooks/useAppData';
 
@@ -47,6 +49,7 @@ function toView(chore: Chore): ChoreView {
     completed: false,
     isCustom: chore.isCustom,
     taskKind: chore.id.startsWith('supply-chore-') ? 'supply-purchase' : 'housework',
+    guideId: guideForChore(chore.title)?.id,
   };
 }
 
@@ -89,18 +92,21 @@ function App() {
     recordSupplyPurchase,
     removeSupplyItem,
     ensureDemoSupply,
+    ensureDemoGuideChores,
   } = useAppData();
   const [activeTab, setActiveTab] = useState<NavigationTab>('today');
   const [isAddingChore, setIsAddingChore] = useState(false);
   const [isEditingHome, setIsEditingHome] = useState(false);
   const [purchasingSupplyId, setPurchasingSupplyId] = useState<string | null>(null);
+  const [openGuideId, setOpenGuideId] = useState<string | null>(null);
   const demoSupplySeeded = useRef(false);
 
   useEffect(() => {
     if (demoSupplySeeded.current || !activeHome?.profile || !['localhost', '127.0.0.1'].includes(window.location.hostname)) return;
     demoSupplySeeded.current = true;
     ensureDemoSupply();
-  }, [activeHome, ensureDemoSupply]);
+    ensureDemoGuideChores();
+  }, [activeHome, ensureDemoSupply, ensureDemoGuideChores]);
 
   const todayViews = useMemo(() => {
     const currentMember = activeHome?.members.find((member) => member.userId === data.user.id);
@@ -205,6 +211,7 @@ function App() {
           householdName={activeHome.name}
           onAdd={() => setIsAddingChore(true)}
           onReminderToggle={() => updateNotifications({ ...data.notifications, enabled: !data.notifications.enabled })}
+          onOpenGuide={setOpenGuideId}
           onToggle={toggleTodayChore}
           reminderEnabled={data.notifications.enabled}
           reminderHour={data.notifications.reminderHour}
@@ -223,6 +230,7 @@ function App() {
             onChangeFrequency={(id, frequency) => updateChoreRecurrence(id, { interval: 1, unit: ({ daily: 'day', weekly: 'week', monthly: 'month', yearly: 'year', custom: 'week' } as const)[frequency] })}
             onDelete={removeCustomChore}
             onDismissRecommendation={dismissRecommendation}
+            onOpenGuide={setOpenGuideId}
           />
         </main>
       )}
@@ -237,6 +245,7 @@ function App() {
         onSubmit={submitCustomChore}
       />
       {purchasingSupply && <SupplyPurchaseModal initialQuantity={purchasingSupply.purchaseQuantity} itemName={purchasingSupply.name} key={purchasingSupply.id} onClose={() => setPurchasingSupplyId(null)} onSubmit={(quantity) => { recordSupplyPurchase(purchasingSupply.id, todayKey(), quantity); completeChore(`supply-chore-${purchasingSupply.id}`); setPurchasingSupplyId(null); }} open unit={purchasingSupply.unit} />}
+      {openGuideId && choreGuideById(openGuideId) && <ChoreGuideModal guide={choreGuideById(openGuideId)!} onClose={() => setOpenGuideId(null)} />}
     </div>
   );
 }

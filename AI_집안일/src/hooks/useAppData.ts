@@ -1,11 +1,12 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { addRecurrence, isDue, todayKey, toDateKey } from '../domain/date';
-import { isCoreRecommendation, recommendedChores } from '../domain/recommendations';
+import { isCoreRecommendation, previewAllRecommendedChores, recommendedChores } from '../domain/recommendations';
 import type { AppData, Chore, Home, HomeProfile, LaborAssessment, NotificationSettings, Recurrence, SupplyItem } from '../domain/types';
 import { loadAppData, makeInviteCode, saveAppData } from '../data/storage';
 import { joinRemoteHome, loadRemoteState, saveRemoteState } from '../data/remote';
 import { automaticallyAllocateChores } from '../domain/laborAllocation';
 import { supplyProjection } from '../domain/supplies';
+import { guideForChore } from '../domain/choreGuides';
 
 export type SyncStatus = 'loading' | 'synced' | 'saving' | 'offline' | 'error';
 
@@ -27,7 +28,7 @@ function synchronizeRecommendations(home: Pick<Home, 'chores' | 'profile' | 'rec
   const activeIds = new Set((home.recommendationPreferences ?? [])
     .filter((preference) => preference.status === 'active')
     .map((preference) => preference.templateId));
-  const retained = uniqueExisting.filter((chore) => chore.isCustom || (recommendedIds.has(chore.id) && (isCoreRecommendation(chore.id) || activeIds.has(chore.id))));
+  const retained = uniqueExisting.filter((chore) => chore.isCustom || activeIds.has(chore.id) || (recommendedIds.has(chore.id) && isCoreRecommendation(chore.id)));
   const retainedIds = new Set(retained.map((chore) => chore.id));
   const hiddenIds = new Set((home.recommendationPreferences ?? [])
     .filter((preference) => preference.status === 'dismissed' || (preference.snoozedUntil ?? '') > todayKey())
@@ -374,6 +375,22 @@ export function useAppData() {
     });
   }
 
+  function ensureDemoGuideChores() {
+    updateActiveHome((home) => {
+      if (!home.profile) return home;
+      const candidates = previewAllRecommendedChores().filter((chore) => guideForChore(chore.title));
+      const demoIds = new Set(candidates.map((chore) => chore.id));
+      const existingIds = new Set(home.chores.map((chore) => chore.id));
+      const chores = home.chores.map((chore) => demoIds.has(chore.id) ? { ...chore, nextDueDate: todayKey(), enabled: true } : chore);
+      for (const candidate of candidates) if (!existingIds.has(candidate.id)) chores.push({ ...candidate, nextDueDate: todayKey(), scheduleAnchorDate: todayKey() });
+      const recommendationPreferences = [
+        ...(home.recommendationPreferences ?? []).filter((item) => !demoIds.has(item.templateId)),
+        ...candidates.map((chore) => ({ templateId: chore.id, status: 'active' as const, updatedAt: new Date().toISOString() })),
+      ];
+      return { ...home, chores, recommendationPreferences };
+    });
+  }
+
   function setSharedAssignmentMode() {
     updateActiveHome((home) => ({ ...home, assignmentMode: 'shared' }));
   }
@@ -386,5 +403,5 @@ export function useAppData() {
     }));
   }
 
-  return { data, activeHome, dueChores, recommendationCandidates, syncStatus, syncError, createHome, selectHome, joinHomeByInviteCode, saveProfile, updateHomeSettings, updateUserName, addCustomChore, completeChore, undoTodayCompletion, toggleChore, removeCustomChore, acceptRecommendation, dismissRecommendation, snoozeRecommendation, updateChoreRecurrence, updateNotifications, saveLaborAssessment, assignChoreExecutor, setSharedAssignmentMode, autoAssignChores, addSupplyItem, recordSupplyPurchase, removeSupplyItem, ensureDemoSupply };
+  return { data, activeHome, dueChores, recommendationCandidates, syncStatus, syncError, createHome, selectHome, joinHomeByInviteCode, saveProfile, updateHomeSettings, updateUserName, addCustomChore, completeChore, undoTodayCompletion, toggleChore, removeCustomChore, acceptRecommendation, dismissRecommendation, snoozeRecommendation, updateChoreRecurrence, updateNotifications, saveLaborAssessment, assignChoreExecutor, setSharedAssignmentMode, autoAssignChores, addSupplyItem, recordSupplyPurchase, removeSupplyItem, ensureDemoSupply, ensureDemoGuideChores };
 }

@@ -22,6 +22,7 @@ const templates: ChoreTemplate[] = [
   { key: 'microwave', title: '전자레인지 내부 청소', category: 'kitchen', recurrence: { interval: 2, unit: 'week' } },
   { key: 'drain', title: '배수구 점검과 청소', category: 'cleaning', recurrence: { interval: 1, unit: 'month' } },
   { key: 'washer', title: '세탁기 통 청소', category: 'laundry', recurrence: { interval: 1, unit: 'month' } },
+  { key: 'dryer-filter', title: '건조기 필터 청소', category: 'laundry', recurrence: { interval: 1, unit: 'week' } },
   { key: 'fridge-deep', title: '냉장고 선반 청소', category: 'kitchen', recurrence: { interval: 1, unit: 'month' } },
   { key: 'seasonal', title: '계절 가전 필터 점검', category: 'living', recurrence: { interval: 3, unit: 'month' } },
   { key: 'detector', title: '화재감지기와 비상용품 점검', category: 'living', recurrence: { interval: 6, unit: 'month' } },
@@ -230,6 +231,24 @@ export function recommendedChores(profile: HomeProfile): Chore[] {
       enabled: true,
       });
     });
+}
+
+/** 로컬 가이드 QA에서 프로필 조건과 무관하게 전체 템플릿을 확인한다. */
+export function previewAllRecommendedChores(): Chore[] {
+  const createdAt = new Date();
+  const now = createdAt.toISOString();
+  const dueDate = toDateKey(createdAt);
+  return templates.map((template) => ({
+    id: `recommended-${template.key}`,
+    title: template.title,
+    category: template.category,
+    recurrence: template.recurrence,
+    createdAt: now,
+    scheduleAnchorDate: dueDate,
+    nextDueDate: dueDate,
+    isCustom: false,
+    enabled: true,
+  }));
 }
 
 export function isCoreRecommendation(choreId: string): boolean {

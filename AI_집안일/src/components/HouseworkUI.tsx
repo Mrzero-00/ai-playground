@@ -1,4 +1,5 @@
 import { useEffect, useId, useState, type FormEvent } from "react";
+import type { ChoreGuide } from '../domain/choreGuides';
 
 export type HouseholdType = "single" | "couple" | "family" | "shared";
 
@@ -121,6 +122,7 @@ export interface Chore {
   completed: boolean;
   isCustom?: boolean;
   taskKind?: "housework" | "supply-purchase";
+  guideId?: string;
 }
 
 export interface TodayTasksProps {
@@ -132,9 +134,10 @@ export interface TodayTasksProps {
   reminderHour?: number;
   onReminderToggle?: () => void;
   viewMode?: "todo" | "quest";
+  onOpenGuide?: (guideId: string) => void;
 }
 
-export function TodayTasks({ chores, householdName = "우리 집", onAdd, onToggle, reminderEnabled = false, reminderHour = 9, onReminderToggle, viewMode = "todo" }: TodayTasksProps) {
+export function TodayTasks({ chores, householdName = "우리 집", onAdd, onToggle, reminderEnabled = false, reminderHour = 9, onReminderToggle, viewMode = "todo", onOpenGuide }: TodayTasksProps) {
   const [showReminder, setShowReminder] = useState(false);
   const [celebration, setCelebration] = useState<{ title: string; xp?: number } | null>(null);
   const completed = chores.filter((chore) => chore.completed).length;
@@ -169,7 +172,7 @@ export function TodayTasks({ chores, householdName = "우리 집", onAdd, onTogg
       </section>
       <section className="task-section">
         <div className="section-heading"><h2>할 일</h2><span>{chores.length - completed}개 남았어요</span></div>
-        {chores.length === 0 ? <EmptyTasks onAdd={onAdd} /> : viewMode === "quest" ? <QuestBoard chores={chores} onToggle={toggleWithFeedback} /> : <GroupedTodayTasks chores={chores} onToggle={toggleWithFeedback} />}
+        {chores.length === 0 ? <EmptyTasks onAdd={onAdd} /> : viewMode === "quest" ? <QuestBoard chores={chores} onOpenGuide={onOpenGuide} onToggle={toggleWithFeedback} /> : <GroupedTodayTasks chores={chores} onOpenGuide={onOpenGuide} onToggle={toggleWithFeedback} />}
       </section>
       {celebration && <CompletionFanfare title={celebration.title} xp={celebration.xp} />}
     </main>
@@ -183,18 +186,18 @@ const recurrenceGroupMeta = {
   yearly: { label: "매년 관리", icon: "🌿" },
 } as const;
 
-function GroupedTodayTasks({ chores, onToggle }: { chores: Chore[]; onToggle: (chore: Chore) => void }) {
+function GroupedTodayTasks({ chores, onToggle, onOpenGuide }: { chores: Chore[]; onToggle: (chore: Chore) => void; onOpenGuide?: (guideId: string) => void }) {
   const groups = (Object.keys(recurrenceGroupMeta) as Array<keyof typeof recurrenceGroupMeta>)
     .map((group) => ({ group, chores: chores.filter((chore) => (chore.recurrenceGroup ?? chore.frequency) === group) }))
     .filter(({ chores: groupChores }) => groupChores.length > 0);
   return <div className="task-groups">{groups.map(({ group, chores: groupChores }, index) => {
     const completed = groupChores.filter((chore) => chore.completed).length;
     const meta = recurrenceGroupMeta[group];
-    return <details className="task-group" key={group} open={index === 0}><summary><span aria-hidden="true">{meta.icon}</span><strong>{meta.label}</strong><small>{completed} / {groupChores.length} 완료</small><i aria-hidden="true">⌄</i></summary><ul className="task-list">{groupChores.map((chore) => chore.taskKind === 'supply-purchase' ? <li className={`supply-purchase-task ${chore.completed ? "is-completed" : ""}`} key={chore.id}><span className="supply-purchase-icon" aria-hidden="true">🛒</span><div className="task-copy"><span className="supply-purchase-badge">생활용품 · 구매 필요</span><strong>{chore.title.replace(/ 구매하기$/, '')}</strong><small>{chore.dueLabel ?? '구매할 시기예요'}</small></div><button aria-pressed={chore.completed} onClick={() => onToggle(chore)} type="button">{chore.completed ? '완료 취소' : '구매 완료'}</button></li> : <li className={chore.completed ? "is-completed" : ""} key={chore.id}><button className="task-check" aria-label={`${chore.title} ${chore.completed ? "완료 취소" : "완료"}`} aria-pressed={chore.completed} onClick={() => onToggle(chore)} type="button">{chore.completed ? "✓" : ""}</button><span className="task-icon" aria-hidden="true">{chore.icon}</span><div className="task-copy"><strong>{chore.title}</strong><small>{chore.dueLabel ?? chore.frequencyLabel} · {chore.category}</small></div></li>)}</ul></details>;
+    return <details className="task-group" key={group} open={index === 0}><summary><span aria-hidden="true">{meta.icon}</span><strong>{meta.label}</strong><small>{completed} / {groupChores.length} 완료</small><i aria-hidden="true">⌄</i></summary><ul className="task-list">{groupChores.map((chore) => chore.taskKind === 'supply-purchase' ? <li className={`supply-purchase-task ${chore.completed ? "is-completed" : ""}`} key={chore.id}><span className="supply-purchase-icon" aria-hidden="true">🛒</span><div className="task-copy"><span className="supply-purchase-badge">생활용품 · 구매 필요</span><strong>{chore.title.replace(/ 구매하기$/, '')}</strong><small>{chore.dueLabel ?? '구매할 시기예요'}</small></div><button aria-pressed={chore.completed} onClick={() => onToggle(chore)} type="button">{chore.completed ? '완료 취소' : '구매 완료'}</button></li> : <li className={chore.completed ? "is-completed" : ""} key={chore.id}><button className="task-check" aria-label={`${chore.title} ${chore.completed ? "완료 취소" : "완료"}`} aria-pressed={chore.completed} onClick={() => onToggle(chore)} type="button">{chore.completed ? "✓" : ""}</button><span className="task-icon" aria-hidden="true">{chore.icon}</span><div className="task-copy"><strong>{chore.title}</strong><small>{chore.dueLabel ?? chore.frequencyLabel} · {chore.category}</small>{chore.guideId && <button className="chore-guide-link" onClick={() => onOpenGuide?.(chore.guideId!)} type="button">📖 집안일 가이드 보기</button>}</div></li>)}</ul></details>;
   })}</div>;
 }
 
-function QuestBoard({ chores, onToggle }: { chores: Chore[]; onToggle: (chore: Chore) => void }) {
+function QuestBoard({ chores, onToggle, onOpenGuide }: { chores: Chore[]; onToggle: (chore: Chore) => void; onOpenGuide?: (guideId: string) => void }) {
   const order = Object.keys(recurrenceGroupMeta) as Array<keyof typeof recurrenceGroupMeta>;
   const groups = order.map((group) => ({
     group,
@@ -228,7 +231,7 @@ function QuestBoard({ chores, onToggle }: { chores: Chore[]; onToggle: (chore: C
     })}</div>
     {!active ? <section className="quest-victory"><span aria-hidden="true">🏆</span><strong>오늘의 모든 퀘스트 완료!</strong><p>우리 집을 위한 멋진 하루였어요.</p></section> : <>
       <header className="quest-chapter"><div><span>CHAPTER {activeIndex + 1}</span><h3>{recurrenceGroupMeta[active.group].icon} {recurrenceGroupMeta[active.group].label} 퀘스트</h3></div><small>{active.chores.filter((chore) => chore.completed).length}/{active.chores.length}</small></header>
-      <div className="quest-cards">{active.chores.map((chore, index) => <article className={`quest-ticket ${chore.taskKind === 'supply-purchase' ? 'is-supply-purchase' : ''} ${chore.completed ? 'is-completed' : ''}`} key={chore.id}><header><span>{chore.taskKind === 'supply-purchase' ? 'SHOPPING' : `${prefix[active.group]}-${String(index + 1).padStart(2, '0')}`}</span><b>{chore.completed ? '완료' : chore.taskKind === 'supply-purchase' ? '구매 필요' : '진행 가능'}</b></header><div className="quest-ticket-body"><span className="quest-ticket-icon" aria-hidden="true">{chore.taskKind === 'supply-purchase' ? '🛒' : chore.icon}</span><div><strong>{chore.taskKind === 'supply-purchase' ? chore.title.replace(/ 구매하기$/, '') : chore.title}</strong><p>{chore.taskKind === 'supply-purchase' ? '생활용품 구매 업무' : `${chore.category} · ${chore.frequencyLabel}`}</p></div></div><footer><span>{chore.taskKind === 'supply-purchase' ? '구매하면 다음 시기를 계산해요' : <>보상 <b>+{questXp[active.group]} XP</b></>}</span><button aria-pressed={chore.completed} onClick={() => onToggle(chore)} type="button">{chore.completed ? '완료 취소' : chore.taskKind === 'supply-purchase' ? '구매 완료' : '퀘스트 완료'}</button></footer></article>)}</div>
+      <div className="quest-cards">{active.chores.map((chore, index) => <article className={`quest-ticket ${chore.taskKind === 'supply-purchase' ? 'is-supply-purchase' : ''} ${chore.completed ? 'is-completed' : ''}`} key={chore.id}><header><span>{chore.taskKind === 'supply-purchase' ? 'SHOPPING' : `${prefix[active.group]}-${String(index + 1).padStart(2, '0')}`}</span><b>{chore.completed ? '완료' : chore.taskKind === 'supply-purchase' ? '구매 필요' : '진행 가능'}</b></header><div className="quest-ticket-body"><span className="quest-ticket-icon" aria-hidden="true">{chore.taskKind === 'supply-purchase' ? '🛒' : chore.icon}</span><div><strong>{chore.taskKind === 'supply-purchase' ? chore.title.replace(/ 구매하기$/, '') : chore.title}</strong><p>{chore.taskKind === 'supply-purchase' ? '생활용품 구매 업무' : `${chore.category} · ${chore.frequencyLabel}`}</p>{chore.guideId && <button className="chore-guide-link" onClick={() => onOpenGuide?.(chore.guideId!)} type="button">📖 집안일 가이드 보기</button>}</div></div><footer><span>{chore.taskKind === 'supply-purchase' ? '구매하면 다음 시기를 계산해요' : <>보상 <b>+{questXp[active.group]} XP</b></>}</span><button aria-pressed={chore.completed} onClick={() => onToggle(chore)} type="button">{chore.completed ? '완료 취소' : chore.taskKind === 'supply-purchase' ? '구매 완료' : '퀘스트 완료'}</button></footer></article>)}</div>
       {activeIndex < groups.length - 1 && <p className="quest-unlock-note">🔒 현재 퀘스트를 모두 완료하면 다음 단계가 열려요.</p>}
     </>}
   </div>;
@@ -250,9 +253,10 @@ export interface ChoreManagerProps {
   onDismissRecommendation?: (id: string) => void;
   onChangeFrequency?: (id: string, frequency: ChoreFrequency) => void;
   embedded?: boolean;
+  onOpenGuide?: (guideId: string) => void;
 }
 
-export function ChoreManager({ chores, onAdd, onDelete, onEdit, onDismissRecommendation, onChangeFrequency, embedded = false }: ChoreManagerProps) {
+export function ChoreManager({ chores, onAdd, onDelete, onEdit, onDismissRecommendation, onChangeFrequency, embedded = false, onOpenGuide }: ChoreManagerProps) {
   const [filter, setFilter] = useState<'all' | 'daily' | 'weekly' | 'monthly' | 'yearly'>('all');
   const [openChoreId, setOpenChoreId] = useState<string | null>(null);
   const visibleChores = filter === 'all' ? chores : chores.filter((chore) => chore.recurrenceGroup === filter);
@@ -261,7 +265,7 @@ export function ChoreManager({ chores, onAdd, onDelete, onEdit, onDismissRecomme
       <div className="section-heading chore-list-heading"><div><h2>사용 중인 집안일</h2><p>항목을 누르면 주기와 사용 여부를 관리할 수 있어요.</p></div><span>총 {chores.length}개</span></div>
       <div className="chore-filter-tabs">{([['all', '전체'], ['daily', '매일'], ['weekly', '매주'], ['monthly', '매월'], ['yearly', '매년']] as const).map(([value, label]) => <button aria-pressed={filter === value} className={filter === value ? 'is-active' : ''} key={value} onClick={() => setFilter(value)} type="button">{label}</button>)}</div>
       <ul className="manage-list">
-        {visibleChores.map((chore) => <li className={openChoreId === chore.id ? 'is-open' : ''} key={chore.id}><div className="manage-row"><span className="task-icon" aria-hidden="true">{chore.icon}</span><button aria-expanded={openChoreId === chore.id} className="manage-copy" onClick={() => { setOpenChoreId((id) => id === chore.id ? null : chore.id); onEdit?.(chore); }} type="button"><strong>{chore.title}{chore.isCustom && <em>직접 추가</em>}</strong><small><b>{chore.frequencyLabel}</b> · {chore.category}</small></button><span className="manage-chevron" aria-hidden="true">⌄</span></div>{openChoreId === chore.id && <div className="manage-panel"><label><span>반복 주기</span>{!chore.isCustom && onChangeFrequency ? <select aria-label={`${chore.title} 주기 변경`} onChange={(event) => onChangeFrequency(chore.id, event.target.value as ChoreFrequency)} value={chore.frequency === 'custom' ? 'weekly' : chore.frequency}><option value="daily">매일</option><option value="weekly">매주</option><option value="monthly">매월</option><option value="yearly">매년</option></select> : <strong>{chore.frequencyLabel}</strong>}</label>{!chore.isCustom && onDismissRecommendation && <button onClick={() => onDismissRecommendation(chore.id)} type="button">이 집안일 사용하지 않기</button>}{onDelete && chore.isCustom && <button className="is-danger" onClick={() => onDelete(chore.id)} type="button">직접 추가한 집안일 삭제</button>}</div>}</li>)}
+        {visibleChores.map((chore) => <li className={openChoreId === chore.id ? 'is-open' : ''} key={chore.id}><div className="manage-row"><span className="task-icon" aria-hidden="true">{chore.icon}</span><button aria-expanded={openChoreId === chore.id} className="manage-copy" onClick={() => { setOpenChoreId((id) => id === chore.id ? null : chore.id); onEdit?.(chore); }} type="button"><strong>{chore.title}{chore.isCustom && <em>직접 추가</em>}</strong><small><b>{chore.frequencyLabel}</b> · {chore.category}{chore.guideId && <em className="guide-available-badge">가이드</em>}</small></button>{chore.guideId && <button className="manage-guide-button" aria-label={`${chore.title} 집안일 가이드 보기`} onClick={() => onOpenGuide?.(chore.guideId!)} type="button">가이드 보기</button>}<span className="manage-chevron" aria-hidden="true">⌄</span></div>{openChoreId === chore.id && <div className="manage-panel"><label><span>반복 주기</span>{!chore.isCustom && onChangeFrequency ? <select aria-label={`${chore.title} 주기 변경`} onChange={(event) => onChangeFrequency(chore.id, event.target.value as ChoreFrequency)} value={chore.frequency === 'custom' ? 'weekly' : chore.frequency}><option value="daily">매일</option><option value="weekly">매주</option><option value="monthly">매월</option><option value="yearly">매년</option></select> : <strong>{chore.frequencyLabel}</strong>}</label>{!chore.isCustom && onDismissRecommendation && <button onClick={() => onDismissRecommendation(chore.id)} type="button">이 집안일 사용하지 않기</button>}{onDelete && chore.isCustom && <button className="is-danger" onClick={() => onDelete(chore.id)} type="button">직접 추가한 집안일 삭제</button>}</div>}</li>)}
       </ul>
       {!visibleChores.length && <div className="report-empty">이 주기에 등록된 집안일이 없어요.</div>}
     </>;
@@ -289,6 +293,11 @@ export function SupplyPurchaseModal({ open, itemName, unit, initialQuantity, onC
   const [quantity, setQuantity] = useState(String(initialQuantity));
   if (!open) return null;
   return <div className="modal-backdrop" role="presentation" onMouseDown={(event) => { if (event.currentTarget === event.target) onClose(); }}><section className="bottom-sheet supply-purchase-sheet" aria-labelledby={titleId} aria-modal="true" role="dialog"><header><button aria-label="구매 입력 닫기" onClick={onClose} type="button">×</button><h2 id={titleId}>구매 완료 기록</h2><span /></header><form onSubmit={(event) => { event.preventDefault(); onSubmit(Math.max(1, Number(quantity))); }}><div className="purchase-product-summary"><span aria-hidden="true">🛒</span><div><small>구매한 생활용품</small><strong>{itemName}</strong></div></div><label className="purchase-quantity-field"><span>실제로 몇 {unit} 구매했나요?</span><div><input autoFocus inputMode="numeric" min="1" onChange={(event) => setQuantity(event.target.value)} onFocus={(event) => event.currentTarget.select()} required step="1" type="number" value={quantity} /><strong>{unit}</strong></div><small>입력한 수량을 기준으로 다음 구매 시기를 계산해요.</small></label><div className="purchase-modal-actions"><button onClick={onClose} type="button">취소</button><button type="submit">구매 완료</button></div></form></section></div>;
+}
+
+export function ChoreGuideModal({ guide, onClose }: { guide: ChoreGuide; onClose: () => void }) {
+  const titleId = useId();
+  return <div className="modal-backdrop" role="presentation" onMouseDown={(event) => { if (event.currentTarget === event.target) onClose(); }}><section className="bottom-sheet chore-guide-sheet" aria-labelledby={titleId} aria-modal="true" role="dialog"><header><button aria-label="청소 가이드 닫기" onClick={onClose} type="button">×</button><h2 id={titleId}>{guide.title}</h2><span /></header><div className="guide-duration">⏱ {guide.duration}</div><section><h3>준비물</h3><div className="guide-supplies">{guide.supplies.map((supply) => <span key={supply}>{supply}</span>)}</div><button className="shopping-ready-button" disabled type="button">토스쇼핑 연동 준비 중</button></section><section><h3>좋은 순서</h3><ol>{guide.steps.map((step) => <li key={step}>{step}</li>)}</ol></section><section className="guide-cautions"><h3>꼭 주의하세요</h3><ul>{guide.cautions.map((caution) => <li key={caution}>{caution}</li>)}</ul></section>{guide.modelNote && <p className="guide-model-note">💡 {guide.modelNote}</p>}</section></div>;
 }
 
 export function CustomChoreModal({ open, onClose, onSubmit }: CustomChoreModalProps) {

@@ -50,9 +50,11 @@ interface LaborBalanceProps {
   assignmentMode: 'shared' | 'auto';
   onAutoAssign: () => void;
   onUseSharedList: () => void;
+  view?: 'summary' | 'assignments';
+  onOpenAssignments?: () => void;
 }
 
-export function LaborBalance({ assessments, chores, currentUserId, members, onAssign, onSaveAssessment, assignmentMode, onAutoAssign, onUseSharedList }: LaborBalanceProps) {
+export function LaborBalance({ assessments, chores, currentUserId, members, onAssign, onSaveAssessment, assignmentMode, onAutoAssign, onUseSharedList, view = 'summary', onOpenAssignments }: LaborBalanceProps) {
   const previous = assessments.find((item) => item.userId === currentUserId);
   const [testing, setTesting] = useState(false);
   const [answers, setAnswers] = useState<number[]>(previous?.answers.length === questions.length ? previous.answers : Array(questions.length).fill(3));
@@ -66,22 +68,31 @@ export function LaborBalance({ assessments, chores, currentUserId, members, onAs
     setTesting(false);
   }
 
+  if (view === 'assignments') return <section className="labor-assignments labor-detail-section">
+    <div className="assignment-mode-card"><div><strong>{assignmentMode === 'auto' ? '✨ 자동 분배 사용 중' : '👥 전체 목록 함께 보기'}</strong><small>{assignmentMode === 'auto' ? '각자 오늘 화면에서 담당 업무를 확인해요.' : '모든 구성원에게 같은 목록이 보여요.'}</small></div><button type="button" onClick={assignmentMode === 'auto' ? onUseSharedList : onAutoAssign}>{assignmentMode === 'auto' ? '함께 보기로 변경' : '스타일로 자동 분배'}</button>{assignmentMode === 'auto' && <button className="text-button" type="button" onClick={onAutoAssign}>다시 자동 분배</button>}</div>
+    <div className="detail-list-heading"><strong>등록된 실행 업무</strong><span>{chores.length}개</span></div>
+    <ul>{chores.map((chore) => <li key={chore.id}><strong>{chore.title}</strong><div><label>실행 담당<select aria-label={`${chore.title} 실행 담당`} value={chore.executorMemberId ?? ''} onChange={(event) => onAssign(chore.id, event.target.value || undefined)}><option value="">모두에게 표시</option>{members.map((member) => <option key={member.id} value={member.id}>{member.displayName}</option>)}</select></label></div></li>)}</ul>
+  </section>;
+
   return <>
     <section className="report-section labor-balance">
       <div className="section-heading"><h2>기획노동 균형</h2><span>{assessments.length}/{members.length}명 참여</span></div>
       <div className="labor-score-card"><div><span>우리 집 기획 부담 지수</span><strong>{homePlanningLoad}</strong><small>진단 참여자의 체감 평균</small></div><div className="labor-score-ring" style={{ '--labor-score': `${homePlanningLoad * 3.6}deg` } as React.CSSProperties} aria-label={`100점 중 ${homePlanningLoad}점`} /></div>
       {!assessments.length ? <p className="report-empty">각자 진단하면 보이지 않던 계획·확인 부담을 함께 볼 수 있어요.</p> : <ul className="labor-member-list">{assessedMembers.map((item) => <li key={item.userId}><span aria-hidden="true">{item.userId === currentUserId ? '🙂' : '👤'}</span><div><strong>{item.member?.displayName ?? '구성원'}</strong><small>{tendency(item)}</small></div><b>기획 {item.planningScore} · 실행 {item.executionScore}</b></li>)}</ul>}
-      <button className="secondary-button labor-test-button" type="button" onClick={() => { setQuestionIndex(0); setTesting(true); }}>{previous ? '내 진단 다시 하기' : '24문항 기획노동 테스트'}</button>
+      <button className="secondary-button labor-test-button" type="button" onClick={() => { setQuestionIndex(0); setTesting(true); }}><span aria-hidden="true">🧭</span>{previous ? '내 진단 다시 하기' : '24문항 기획노동 테스트'}<i aria-hidden="true">›</i></button>
       <p className="report-note">이 수치는 능력이나 기여도의 순위가 아니라, 현재 누가 어떤 부담을 체감하는지 대화하기 위한 지표예요.</p>
     </section>
 
-    <section className="report-section labor-assignments">
-      <div className="section-heading"><h2>실행 업무 나누기</h2><span>가사노동</span></div>
-      <p className="labor-intro">기억과 일정 계산은 앱이 맡고, 실제로 움직여야 하는 업무만 구성원에게 나눠요.</p>
-      <div className="assignment-mode-card"><div><strong>{assignmentMode === 'auto' ? '✨ 자동 분배 사용 중' : '👥 전체 목록 함께 보기'}</strong><small>{assignmentMode === 'auto' ? '각자 오늘 화면에서 담당 업무를 확인해요.' : '모든 구성원에게 같은 목록이 보여요.'}</small></div><button type="button" onClick={assignmentMode === 'auto' ? onUseSharedList : onAutoAssign}>{assignmentMode === 'auto' ? '함께 보기로 변경' : '스타일로 자동 분배'}</button>{assignmentMode === 'auto' && <button className="text-button" type="button" onClick={onAutoAssign}>다시 자동 분배</button>}</div>
-      <ul>{chores.map((chore) => <li key={chore.id}><strong>{chore.title}</strong><div><label>🧹 실행 담당<select aria-label={`${chore.title} 실행 담당`} value={chore.executorMemberId ?? ''} onChange={(event) => onAssign(chore.id, event.target.value || undefined)}><option value="">모두에게 표시</option>{members.map((member) => <option key={member.id} value={member.id}>{member.displayName}</option>)}</select></label></div></li>)}</ul>
-    </section>
+    <button className="report-link-card" type="button" onClick={onOpenAssignments}><span aria-hidden="true">🧹</span><div><strong>실행 업무 나누기</strong><small>{assignmentMode === 'auto' ? `자동 분배 중 · ${chores.length}개 업무` : `${chores.length}개 업무의 담당자를 관리해요`}</small></div><i aria-hidden="true">›</i></button>
 
-    {testing && <div className="modal-backdrop" role="presentation"><section className="bottom-sheet labor-test-sheet" role="dialog" aria-modal="true" aria-labelledby="labor-test-title"><header><button type="button" aria-label="닫기" onClick={() => setTesting(false)}>×</button><h2 id="labor-test-title">보이지 않는 노동 테스트</h2><span>{questionIndex + 1}/24</span></header><form onSubmit={submit}><div className="labor-test-progress"><i style={{ width: `${((questionIndex + 1) / questions.length) * 100}%` }} /></div><p>최근 한 달의 우리 집 생활을 떠올리며 답해주세요.</p><fieldset><legend>{questionIndex + 1}. {questions[questionIndex].text}</legend><div>{[1, 2, 3, 4, 5].map((value) => <label key={value}><input checked={answers[questionIndex] === value} name={`labor-${questionIndex}`} onChange={() => setAnswers((current) => current.map((answer, answerIndex) => answerIndex === questionIndex ? value : answer))} type="radio" /><span>{value}</span></label>)}</div><small><span>전혀 아님</span><span>매우 그럼</span></small></fieldset><div className="labor-test-actions"><button disabled={questionIndex === 0} type="button" onClick={() => setQuestionIndex((value) => value - 1)}>이전</button>{questionIndex < questions.length - 1 ? <button type="button" onClick={() => setQuestionIndex((value) => value + 1)}>다음</button> : <button type="submit">결과 저장</button>}</div></form></section></div>}
+    {testing && <div className="modal-backdrop" role="presentation"><section className="bottom-sheet labor-test-sheet" role="dialog" aria-modal="true" aria-labelledby="labor-test-title">
+      <header><button type="button" aria-label="테스트 닫기" onClick={() => setTesting(false)}>×</button><div><small>24문항 진단</small><h2 id="labor-test-title">보이지 않는 노동 테스트</h2></div><span>{questionIndex + 1}<small> / {questions.length}</small></span></header>
+      <form onSubmit={submit}>
+        <div className="labor-test-progress" aria-label={`${questions.length}문항 중 ${questionIndex + 1}번째`}><i style={{ width: `${((questionIndex + 1) / questions.length) * 100}%` }} /></div>
+        <p>최근 한 달의 우리 집 생활을 떠올리며 답해주세요. 정답은 없어요.</p>
+        <fieldset><div className="labor-question-meta"><span>{questions[questionIndex].kind === 'planning' ? '생각하고 챙기는 일' : '직접 실행하는 일'}</span><small>문항 {String(questionIndex + 1).padStart(2, '0')}</small></div><legend>{questions[questionIndex].text}</legend><div className="labor-scale">{[1, 2, 3, 4, 5].map((value) => <label key={value}><input checked={answers[questionIndex] === value} name={`labor-${questionIndex}`} onChange={() => setAnswers((current) => current.map((answer, answerIndex) => answerIndex === questionIndex ? value : answer))} type="radio" /><span>{value}</span></label>)}</div><div className="labor-scale-labels"><span>전혀<br />그렇지 않다</span><span>보통이다</span><span>매우<br />그렇다</span></div></fieldset>
+        <div className="labor-test-actions"><button className="labor-back-button" disabled={questionIndex === 0} type="button" onClick={() => setQuestionIndex((value) => value - 1)}>‹ 이전</button>{questionIndex < questions.length - 1 ? <button className="labor-next-button" type="button" onClick={() => setQuestionIndex((value) => value + 1)}>다음 문항 <span aria-hidden="true">›</span></button> : <button className="labor-next-button" type="submit">결과 확인하기</button>}</div>
+      </form>
+    </section></div>}
   </>;
 }

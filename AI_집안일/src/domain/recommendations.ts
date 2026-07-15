@@ -25,6 +25,12 @@ const templates: ChoreTemplate[] = [
   { key: 'fridge-deep', title: '냉장고 선반 청소', category: 'kitchen', recurrence: { interval: 1, unit: 'month' } },
   { key: 'seasonal', title: '계절 가전 필터 점검', category: 'living', recurrence: { interval: 3, unit: 'month' } },
   { key: 'detector', title: '화재감지기와 비상용품 점검', category: 'living', recurrence: { interval: 6, unit: 'month' } },
+  { key: 'rent-condition-log', title: '집 상태와 수리 필요 항목 기록', category: 'living', recurrence: { interval: 3, unit: 'month' }, matches: (p) => p.housingTenure === 'monthly-rent' || p.housingTenure === 'jeonse' },
+  { key: 'rent-contract-check', title: '임대차 계약·보증 관련 일정 확인', category: 'living', recurrence: { interval: 3, unit: 'month' }, matches: (p) => p.housingTenure === 'monthly-rent' || p.housingTenure === 'jeonse' },
+  { key: 'monthly-rent-payment', title: '월세 납부와 관리비 내역 확인', category: 'living', recurrence: { interval: 1, unit: 'month' }, matches: (p) => p.housingTenure === 'monthly-rent' },
+  { key: 'jeonse-rights-check', title: '전세 보증과 계약 갱신 일정 확인', category: 'living', recurrence: { interval: 3, unit: 'month' }, matches: (p) => p.housingTenure === 'jeonse' },
+  { key: 'owned-maintenance-budget', title: '주택 수선 항목과 관리 예산 점검', category: 'living', recurrence: { interval: 3, unit: 'month' }, matches: (p) => p.housingTenure === 'owned' },
+  { key: 'owned-exterior-check', title: '창호·벽면·누수 흔적 점검', category: 'living', recurrence: { interval: 6, unit: 'month' }, matches: (p) => p.housingTenure === 'owned' },
   {
     key: 'single-food-plan',
     title: '남은 식재료와 식사 계획 확인',
@@ -32,6 +38,14 @@ const templates: ChoreTemplate[] = [
     recurrence: { interval: 1, unit: 'week' },
     matches: (profile) => profile.householdType === 'single',
   },
+  { key: 'baby-feeding-items', title: '아기 수유용품 세척과 건조', category: 'kitchen', recurrence: { interval: 1, unit: 'day' }, matches: (p) => (p.childAges ?? []).some((age) => age < 2) },
+  { key: 'baby-changing-area', title: '기저귀 교환 공간 정리와 소독', category: 'cleaning', recurrence: { interval: 1, unit: 'day' }, matches: (p) => (p.childAges ?? []).some((age) => age < 3) },
+  { key: 'baby-laundry', title: '영유아 의류와 침구 세탁', category: 'laundry', recurrence: { interval: 2, unit: 'day' }, matches: (p) => (p.childAges ?? []).some((age) => age < 3) },
+  { key: 'baby-floor-safety', title: '바닥 이물질과 삼킴 위험 물건 확인', category: 'living', recurrence: { interval: 1, unit: 'day' }, matches: (p) => (p.childAges ?? []).some((age) => age < 4) },
+  { key: 'toddler-toys', title: '유아 장난감 세척과 파손 확인', category: 'living', recurrence: { interval: 1, unit: 'week' }, matches: (p) => (p.childAges ?? []).some((age) => age >= 2 && age < 7) },
+  { key: 'child-bag', title: '아이 가방·준비물과 알림장 확인', category: 'living', recurrence: { interval: 1, unit: 'day' }, matches: (p) => (p.childAges ?? []).some((age) => age >= 5 && age < 14) },
+  { key: 'child-desk', title: '아이 책상과 학용품 정리', category: 'living', recurrence: { interval: 1, unit: 'week' }, matches: (p) => (p.childAges ?? []).some((age) => age >= 7 && age < 19) },
+  { key: 'child-clothes-size', title: '아이 옷·신발 사이즈와 계절옷 점검', category: 'laundry', recurrence: { interval: 3, unit: 'month' }, matches: (p) => (p.childAges ?? []).some((age) => age < 19) },
   {
     key: 'single-mail',
     title: '우편물과 택배 상자 정리',
@@ -79,7 +93,7 @@ const templates: ChoreTemplate[] = [
     title: '아이 장난감과 학용품 정리',
     category: 'living',
     recurrence: { interval: 1, unit: 'day' },
-    matches: (profile) => profile.householdType === 'family',
+    matches: (profile) => (profile.childAges ?? []).length > 0,
   },
   {
     key: 'family-bedding',
@@ -109,6 +123,7 @@ const templates: ChoreTemplate[] = [
     recurrence: { interval: 1, unit: 'week' },
     matches: (profile) => profile.petTypes.includes('dog'),
   },
+  { key: 'dog-walk', title: '강아지 산책과 배변 봉투 챙기기', category: 'pet', recurrence: { interval: 1, unit: 'day' }, matches: (profile) => profile.petTypes.includes('dog') },
   {
     key: 'dog-bedding',
     title: '강아지 방석과 담요 세탁',
@@ -130,6 +145,7 @@ const templates: ChoreTemplate[] = [
     recurrence: { interval: 1, unit: 'day' },
     matches: (profile) => profile.petTypes.includes('cat'),
   },
+  { key: 'cat-water', title: '고양이 물그릇 세척과 물 교체', category: 'pet', recurrence: { interval: 1, unit: 'day' }, matches: (profile) => profile.petTypes.includes('cat') },
   {
     key: 'cat-tower',
     title: '캣타워와 스크래처 털 청소',
@@ -158,6 +174,15 @@ const templates: ChoreTemplate[] = [
     recurrence: { interval: 3, unit: 'day' },
     matches: (profile) => profile.hasPets,
   },
+  { key: 'multi-pet-supplies', title: '반려동물별 사료와 소모품 재고 확인', category: 'pet', recurrence: { interval: 1, unit: 'week' }, matches: (p) => Object.values(p.petCounts ?? {}).reduce<number>((sum, count) => sum + (count ?? 0), 0) >= 2 },
+  { key: 'fish-water', title: '어항 수질과 수온 확인', category: 'pet', recurrence: { interval: 1, unit: 'day' }, matches: (p) => p.petTypes.includes('fish') },
+  { key: 'fish-tank', title: '어항 부분 환수와 여과기 점검', category: 'pet', recurrence: { interval: 1, unit: 'week' }, matches: (p) => p.petTypes.includes('fish') },
+  { key: 'bird-cage', title: '새장 바닥과 모이통 청소', category: 'pet', recurrence: { interval: 2, unit: 'day' }, matches: (p) => p.petTypes.includes('bird') },
+  { key: 'bird-enrichment', title: '횃대와 장난감 상태 확인', category: 'pet', recurrence: { interval: 1, unit: 'week' }, matches: (p) => p.petTypes.includes('bird') },
+  { key: 'small-animal-bedding', title: '소동물 깔짚 오염 구역 정리', category: 'pet', recurrence: { interval: 2, unit: 'day' }, matches: (p) => p.petTypes.includes('small-animal') },
+  { key: 'small-animal-cage', title: '소동물 케이지 전체 청소', category: 'pet', recurrence: { interval: 1, unit: 'week' }, matches: (p) => p.petTypes.includes('small-animal') },
+  { key: 'reptile-enclosure', title: '파충류 사육장 온도·습도 확인', category: 'pet', recurrence: { interval: 1, unit: 'day' }, matches: (p) => p.petTypes.includes('reptile') },
+  { key: 'reptile-deep-clean', title: '파충류 사육장과 급수 용기 청소', category: 'pet', recurrence: { interval: 1, unit: 'week' }, matches: (p) => p.petTypes.includes('reptile') },
   {
     key: 'family-laundry',
     title: '가족 빨래 정리',
@@ -166,6 +191,17 @@ const templates: ChoreTemplate[] = [
     matches: (profile) => profile.memberCount >= 3,
   },
 ];
+
+const coreTemplateIds = new Set([
+  'recommended-dishes',
+  'recommended-ventilation',
+  'recommended-waste',
+  'recommended-bathroom',
+  'recommended-floor',
+  'recommended-towels',
+  'recommended-bedding',
+  'recommended-fridge-expiry',
+]);
 
 export function recommendedChores(profile: HomeProfile): Chore[] {
   const createdAt = new Date();
@@ -194,4 +230,8 @@ export function recommendedChores(profile: HomeProfile): Chore[] {
       enabled: true,
       });
     });
+}
+
+export function isCoreRecommendation(choreId: string): boolean {
+  return coreTemplateIds.has(choreId);
 }

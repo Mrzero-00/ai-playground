@@ -1,4 +1,4 @@
-import { useMemo, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import {
   BottomNavigation,
   ChoreManager,
@@ -7,8 +7,10 @@ import {
   HomeSettings,
   PersonalProfile,
   ProfileSetup,
+  RecommendationReview,
   ScheduleCalendar,
   SharedHomeUI,
+  SupplyPurchaseModal,
   TodayTasks,
   type Chore as ChoreView,
   type CustomChoreInput,
@@ -44,6 +46,7 @@ function toView(chore: Chore): ChoreView {
     dueLabel: formatDueDate(chore.nextDueDate),
     completed: false,
     isCustom: chore.isCustom,
+    taskKind: chore.id.startsWith('supply-chore-') ? 'supply-purchase' : 'housework',
   };
 }
 
@@ -60,6 +63,7 @@ function App() {
     data,
     activeHome,
     dueChores,
+    recommendationCandidates,
     createHome,
     selectHome,
     joinHomeByInviteCode,
@@ -72,6 +76,10 @@ function App() {
     completeChore,
     undoTodayCompletion,
     removeCustomChore,
+    acceptRecommendation,
+    dismissRecommendation,
+    snoozeRecommendation,
+    updateChoreRecurrence,
     updateNotifications,
     saveLaborAssessment,
     assignChoreExecutor,
@@ -80,10 +88,19 @@ function App() {
     addSupplyItem,
     recordSupplyPurchase,
     removeSupplyItem,
+    ensureDemoSupply,
   } = useAppData();
   const [activeTab, setActiveTab] = useState<NavigationTab>('today');
   const [isAddingChore, setIsAddingChore] = useState(false);
   const [isEditingHome, setIsEditingHome] = useState(false);
+  const [purchasingSupplyId, setPurchasingSupplyId] = useState<string | null>(null);
+  const demoSupplySeeded = useRef(false);
+
+  useEffect(() => {
+    if (demoSupplySeeded.current || !activeHome?.profile || !['localhost', '127.0.0.1'].includes(window.location.hostname)) return;
+    demoSupplySeeded.current = true;
+    ensureDemoSupply();
+  }, [activeHome, ensureDemoSupply]);
 
   const todayViews = useMemo(() => {
     const currentMember = activeHome?.members.find((member) => member.userId === data.user.id);
@@ -123,17 +140,20 @@ function App() {
   function submitProfile(profile: HouseholdProfile) {
     saveProfile({
       householdType: profile.householdType,
+      housingTenure: profile.housingTenure,
       memberCount: profile.memberCount,
       hasPets: profile.hasDog || profile.hasCat,
       petTypes: [
         ...(profile.hasDog ? (['dog'] as const) : []),
         ...(profile.hasCat ? (['cat'] as const) : []),
       ],
+      petCounts: { dog: profile.hasDog ? 1 : 0, cat: profile.hasCat ? 1 : 0 },
+      childAges: [],
       roomCount: 1,
       bathroomCount: 1,
       completed: true,
     });
-    setActiveTab('today');
+    setActiveTab('manage');
   }
 
   function submitCustomChore(input: CustomChoreInput) {
@@ -148,8 +168,11 @@ function App() {
   function toggleTodayChore(choreId: string) {
     const chore = todayViews.find((item) => item.id === choreId);
     if (chore?.completed) undoTodayCompletion(choreId);
+    else if (chore?.taskKind === 'supply-purchase') setPurchasingSupplyId(choreId.slice('supply-chore-'.length));
     else completeChore(choreId);
   }
+
+  const purchasingSupply = activeHome?.supplies.find((item) => item.id === purchasingSupplyId) ?? null;
 
   const syncLabel = ({ loading: '서버 확인 중', saving: '저장 중', synced: '동기화됨', offline: '로컬 저장 중', error: '동기화 오류' } as const)[syncStatus];
   const homeSwitcher = <div className="home-switcher-wrap"><SharedHomeUI
@@ -189,11 +212,19 @@ function App() {
         />
       )}
       {activeTab === 'manage' && (
-        <ChoreManager
-          chores={allViews}
-          onAdd={() => setIsAddingChore(true)}
-          onDelete={removeCustomChore}
-        />
+        <main className="screen chores-hub-screen">
+          <header className="screen-header compact"><span className="step-label">우리 집 루틴</span><h1>집안일</h1><p>필요한 일은 추가하고, 사용 중인 루틴은 한곳에서 관리하세요.</p></header>
+          <section className="chore-hub-summary"><article><span aria-hidden="true">✓</span><div><strong>{allViews.length}</strong><small>사용 중</small></div></article><article><span aria-hidden="true">✨</span><div><strong>{recommendationCandidates.length}</strong><small>새 추천</small></div></article><article><span aria-hidden="true">🗓️</span><div><strong>{dueChores.length}</strong><small>오늘 할 일</small></div></article></section>
+          <RecommendationReview candidates={recommendationCandidates} onAccept={acceptRecommendation} onDismiss={dismissRecommendation} onSnooze={snoozeRecommendation} />
+          <ChoreManager
+            chores={allViews}
+            embedded
+            onAdd={() => setIsAddingChore(true)}
+            onChangeFrequency={(id, frequency) => updateChoreRecurrence(id, { interval: 1, unit: ({ daily: 'day', weekly: 'week', monthly: 'month', yearly: 'year', custom: 'week' } as const)[frequency] })}
+            onDelete={removeCustomChore}
+            onDismissRecommendation={dismissRecommendation}
+          />
+        </main>
       )}
       {activeTab === 'schedule' && <ScheduleCalendar chores={activeHome.chores} history={activeHome.history} />}
       {activeTab === 'report' && <HouseholdReport assessments={activeHome.laborAssessments ?? []} assignmentMode={activeHome.assignmentMode ?? 'shared'} chores={activeHome.chores} currentUserId={data.user.id} history={activeHome.history} homeName={activeHome.name} members={activeHome.members} onAddSupply={addSupplyItem} onAssign={assignChoreExecutor} onAutoAssign={autoAssignChores} onPurchaseSupply={recordSupplyPurchase} onRemoveSupply={removeSupplyItem} onSaveAssessment={saveLaborAssessment} onUseSharedList={setSharedAssignmentMode} supplies={activeHome.supplies ?? []} />}
@@ -205,6 +236,7 @@ function App() {
         onClose={() => setIsAddingChore(false)}
         onSubmit={submitCustomChore}
       />
+      {purchasingSupply && <SupplyPurchaseModal initialQuantity={purchasingSupply.purchaseQuantity} itemName={purchasingSupply.name} key={purchasingSupply.id} onClose={() => setPurchasingSupplyId(null)} onSubmit={(quantity) => { recordSupplyPurchase(purchasingSupply.id, todayKey(), quantity); completeChore(`supply-chore-${purchasingSupply.id}`); setPurchasingSupplyId(null); }} open unit={purchasingSupply.unit} />}
     </div>
   );
 }

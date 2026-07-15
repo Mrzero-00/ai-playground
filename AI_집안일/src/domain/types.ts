@@ -1,5 +1,6 @@
 export type HouseholdType = 'single' | 'couple' | 'family' | 'shared';
-export type PetType = 'dog' | 'cat' | 'other';
+export type HousingTenure = 'monthly-rent' | 'jeonse' | 'owned';
+export type PetType = 'dog' | 'cat' | 'fish' | 'bird' | 'small-animal' | 'reptile' | 'other';
 export type ChoreCategory = 'cleaning' | 'kitchen' | 'laundry' | 'pet' | 'living' | 'etc';
 export type RecurrenceUnit = 'day' | 'week' | 'month' | 'year';
 
@@ -27,9 +28,12 @@ export interface LaborAssessment {
 
 export interface HomeProfile {
   householdType: HouseholdType;
+  housingTenure?: HousingTenure;
   memberCount: number;
   hasPets: boolean;
   petTypes: PetType[];
+  petCounts?: Partial<Record<PetType, number>>;
+  childAges?: number[];
   roomCount: number;
   bathroomCount: number;
   completed: boolean;
@@ -87,10 +91,19 @@ export interface Home {
   members: HomeMember[];
   profile: HomeProfile | null;
   chores: Chore[];
+  recommendationPreferences?: RecommendationPreference[];
   history: ChoreHistory[];
   laborAssessments: LaborAssessment[];
   supplies: SupplyItem[];
   createdAt: string;
+}
+
+export interface RecommendationPreference {
+  templateId: string;
+  status: 'active' | 'dismissed' | 'snoozed';
+  reason?: 'not-applicable' | 'duplicate' | 'not-now';
+  snoozedUntil?: string;
+  updatedAt: string;
 }
 
 export interface NotificationSettings {

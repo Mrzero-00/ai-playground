@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { addRecurrence, isDue, todayKey, toDateKey } from '../domain/date';
-import { recommendedChores } from '../domain/recommendations';
+import { isCoreRecommendation, recommendedChores } from '../domain/recommendations';
 import type { AppData, Chore, Home, HomeProfile, LaborAssessment, NotificationSettings, Recurrence, SupplyItem } from '../domain/types';
 import { loadAppData, makeInviteCode, saveAppData } from '../data/storage';
 import { joinRemoteHome, loadRemoteState, saveRemoteState } from '../data/remote';
@@ -13,13 +13,26 @@ function makeId(prefix: string): string {
   return `${prefix}-${Date.now()}-${Math.random().toString(36).slice(2, 8)}`;
 }
 
-function syncRecommendedChores(existing: Chore[], profile: HomeProfile): Chore[] {
+function synchronizeRecommendations(home: Pick<Home, 'chores' | 'profile' | 'recommendationPreferences' | 'supplies'>): Chore[] {
+  if (!home.profile) return home.chores;
+  const supplyByChoreId = new Map((home.supplies ?? []).map((item) => [`supply-chore-${item.id}`, item]));
+  const existing = home.chores.map((chore) => {
+    const supply = supplyByChoreId.get(chore.id);
+    return supply ? { ...chore, title: `${supply.name} ${supply.purchaseQuantity}${supply.unit} 구매하기` } : chore;
+  });
+  const profile = home.profile;
   const uniqueExisting = [...new Map(existing.map((chore) => [chore.id, chore])).values()];
   const recommended = recommendedChores(profile);
   const recommendedIds = new Set(recommended.map((chore) => chore.id));
-  const retained = uniqueExisting.filter((chore) => chore.isCustom || recommendedIds.has(chore.id));
+  const activeIds = new Set((home.recommendationPreferences ?? [])
+    .filter((preference) => preference.status === 'active')
+    .map((preference) => preference.templateId));
+  const retained = uniqueExisting.filter((chore) => chore.isCustom || (recommendedIds.has(chore.id) && (isCoreRecommendation(chore.id) || activeIds.has(chore.id))));
   const retainedIds = new Set(retained.map((chore) => chore.id));
-  const additions = recommended.filter((chore) => !retainedIds.has(chore.id));
+  const hiddenIds = new Set((home.recommendationPreferences ?? [])
+    .filter((preference) => preference.status === 'dismissed' || (preference.snoozedUntil ?? '') > todayKey())
+    .map((preference) => preference.templateId));
+  const additions = recommended.filter((chore) => isCoreRecommendation(chore.id) && !retainedIds.has(chore.id) && !hiddenIds.has(chore.id));
   return [...retained, ...additions];
 }
 
@@ -88,7 +101,7 @@ export function useAppData() {
 
   useEffect(() => {
     if (!activeHome?.profile) return;
-    const synchronized = syncRecommendedChores(activeHome.chores, activeHome.profile);
+    const synchronized = synchronizeRecommendations(activeHome);
     const currentIds = activeHome.chores.map((chore) => chore.id).join('|');
     const synchronizedIds = synchronized.map((chore) => chore.id).join('|');
     if (currentIds === synchronizedIds) return;
@@ -98,6 +111,17 @@ export function useAppData() {
         home.id === activeHome.id ? { ...home, chores: synchronized } : home,
       ),
     }));
+  }, [activeHome]);
+
+  const recommendationCandidates = useMemo(() => {
+    if (!activeHome?.profile) return [];
+    const existingIds = new Set(activeHome.chores.map((chore) => chore.id));
+    const hiddenIds = new Set((activeHome.recommendationPreferences ?? [])
+      .filter((preference) => preference.status === 'dismissed' || (preference.snoozedUntil ?? '') > todayKey())
+      .map((preference) => preference.templateId));
+    return recommendedChores(activeHome.profile)
+      .filter((chore) => !isCoreRecommendation(chore.id) && !existingIds.has(chore.id) && !hiddenIds.has(chore.id))
+      .slice(0, 6);
   }, [activeHome]);
 
   function updateActiveHome(update: (home: Home) => Home) {
@@ -156,20 +180,21 @@ export function useAppData() {
 
   function saveProfile(profile: HomeProfile) {
     updateActiveHome((home) => {
-      return { ...home, profile, chores: syncRecommendedChores(home.chores, profile) };
+      const updated = { ...home, profile };
+      return { ...updated, chores: synchronizeRecommendations(updated) };
     });
   }
 
   function updateHomeSettings(name: string, emoji: string, profile: HomeProfile, taskViewMode: 'todo' | 'quest') {
     updateActiveHome((home) => {
-      return {
+      const updated = {
         ...home,
         name: name.trim() || home.name,
         emoji,
         taskViewMode,
         profile,
-        chores: syncRecommendedChores(home.chores, profile),
       };
+      return { ...updated, chores: synchronizeRecommendations(updated) };
     });
   }
 
@@ -197,9 +222,14 @@ export function useAppData() {
     updateActiveHome((home) => {
       const chore = home.chores.find((item) => item.id === choreId);
       if (!chore) return home;
+      const supplyId = choreId.startsWith('supply-chore-') ? choreId.slice('supply-chore-'.length) : null;
+      const purchasedSupply = supplyId ? (home.supplies ?? []).find((item) => item.id === supplyId) : null;
+      const updatedSupply = purchasedSupply ? { ...purchasedSupply, purchaseDate: todayKey(), updatedAt: new Date().toISOString() } : null;
+      const nextSupplyCheck = updatedSupply ? supplyProjection(updatedSupply).checkDate : null;
       return {
         ...home,
-        chores: home.chores.map((item) => item.id === choreId ? { ...item, nextDueDate: addRecurrence(todayKey(), item.recurrence) } : item),
+        supplies: updatedSupply ? (home.supplies ?? []).map((item) => item.id === updatedSupply.id ? updatedSupply : item) : home.supplies,
+        chores: home.chores.map((item) => item.id === choreId ? { ...item, nextDueDate: nextSupplyCheck ?? addRecurrence(todayKey(), item.recurrence) } : item),
         history: [{ id: makeId('history'), choreId, choreTitle: chore.title, action: 'completed', performedAt: new Date().toISOString(), scheduledFor: chore.nextDueDate, performedByUserId: data.user.id, performedByName: data.user.displayName }, ...home.history],
       };
     });
@@ -234,6 +264,49 @@ export function useAppData() {
     updateActiveHome((home) => ({ ...home, chores: home.chores.filter((chore) => !(chore.id === choreId && chore.isCustom)) }));
   }
 
+  function acceptRecommendation(choreId: string, recurrence?: Recurrence) {
+    updateActiveHome((home) => {
+      if (!home.profile || home.chores.some((chore) => chore.id === choreId)) return home;
+      const candidate = recommendedChores(home.profile).find((chore) => chore.id === choreId);
+      if (!candidate) return home;
+      return {
+        ...home,
+        chores: [...home.chores, { ...candidate, recurrence: recurrence ?? candidate.recurrence }],
+        recommendationPreferences: [
+          ...(home.recommendationPreferences ?? []).filter((item) => item.templateId !== choreId),
+          { templateId: choreId, status: 'active', updatedAt: new Date().toISOString() },
+        ],
+      };
+    });
+  }
+
+  function dismissRecommendation(choreId: string, reason: 'not-applicable' | 'duplicate' = 'not-applicable') {
+    updateActiveHome((home) => ({
+      ...home,
+      chores: home.chores.filter((chore) => chore.id !== choreId || chore.isCustom),
+      recommendationPreferences: [
+        ...(home.recommendationPreferences ?? []).filter((item) => item.templateId !== choreId),
+        { templateId: choreId, status: 'dismissed', reason, updatedAt: new Date().toISOString() },
+      ],
+    }));
+  }
+
+  function snoozeRecommendation(choreId: string) {
+    const until = new Date();
+    until.setDate(until.getDate() + 30);
+    updateActiveHome((home) => ({
+      ...home,
+      recommendationPreferences: [
+        ...(home.recommendationPreferences ?? []).filter((item) => item.templateId !== choreId),
+        { templateId: choreId, status: 'snoozed', reason: 'not-now', snoozedUntil: toDateKey(until), updatedAt: new Date().toISOString() },
+      ],
+    }));
+  }
+
+  function updateChoreRecurrence(choreId: string, recurrence: Recurrence) {
+    updateActiveHome((home) => ({ ...home, chores: home.chores.map((chore) => chore.id === choreId ? { ...chore, recurrence } : chore) }));
+  }
+
   function updateNotifications(notifications: NotificationSettings) {
     setData((current) => ({ ...current, notifications }));
   }
@@ -260,7 +333,7 @@ export function useAppData() {
   function addSupplyItem(input: Omit<SupplyItem, 'id' | 'updatedAt'>) {
     const item: SupplyItem = { ...input, id: makeId('supply'), updatedAt: new Date().toISOString() };
     const projection = supplyProjection(item);
-    const chore: Chore = { id: `supply-chore-${item.id}`, title: `${item.name} 구매하기`, category: 'living', recurrence: { interval: projection.daysUntilSafetyStock, unit: 'day' }, createdAt: new Date().toISOString(), scheduleAnchorDate: item.purchaseDate, nextDueDate: projection.checkDate, isCustom: true, enabled: true };
+    const chore: Chore = { id: `supply-chore-${item.id}`, title: `${item.name} ${item.purchaseQuantity}${item.unit} 구매하기`, category: 'living', recurrence: { interval: projection.daysUntilSafetyStock, unit: 'day' }, createdAt: new Date().toISOString(), scheduleAnchorDate: item.purchaseDate, nextDueDate: projection.checkDate, isCustom: true, enabled: true };
     updateActiveHome((home) => ({ ...home, supplies: [...(home.supplies ?? []), item], chores: [...home.chores, chore] }));
   }
 
@@ -270,12 +343,35 @@ export function useAppData() {
       const item = supplies.find((supply) => supply.id === itemId);
       if (!item) return home;
       const projection = supplyProjection(item);
-      return { ...home, supplies, chores: home.chores.map((chore) => chore.id === `supply-chore-${item.id}` ? { ...chore, recurrence: { interval: projection.daysUntilSafetyStock, unit: 'day' }, scheduleAnchorDate: purchaseDate, nextDueDate: projection.checkDate } : chore) };
+      return { ...home, supplies, chores: home.chores.map((chore) => chore.id === `supply-chore-${item.id}` ? { ...chore, title: `${item.name} ${item.purchaseQuantity}${item.unit} 구매하기`, recurrence: { interval: projection.daysUntilSafetyStock, unit: 'day' }, scheduleAnchorDate: purchaseDate, nextDueDate: projection.checkDate } : chore) };
     });
   }
 
   function removeSupplyItem(itemId: string) {
     updateActiveHome((home) => ({ ...home, supplies: (home.supplies ?? []).filter((item) => item.id !== itemId), chores: home.chores.filter((chore) => chore.id !== `supply-chore-${itemId}`) }));
+  }
+
+  function ensureDemoSupply() {
+    updateActiveHome((home) => {
+      const existing = (home.supplies ?? []).find((item) => item.name === '테스트 휴지');
+      const item: SupplyItem = existing ?? {
+        id: 'demo-supply-toilet-paper',
+        name: '테스트 휴지',
+        unit: '롤',
+        purchaseDate: toDateKey(new Date(Date.now() - 14 * 24 * 60 * 60 * 1000)),
+        purchaseQuantity: 12,
+        weeklyUsage: 3,
+        safetyStock: 3,
+        reminderDaysBefore: 7,
+        updatedAt: new Date().toISOString(),
+      };
+      const choreId = `supply-chore-${item.id}`;
+      const choreExists = home.chores.some((chore) => chore.id === choreId);
+      const demoCompleted = home.history.some((entry) => entry.choreId === choreId && entry.action === 'completed');
+      if (existing && choreExists) return { ...home, chores: home.chores.map((chore) => chore.id === choreId ? { ...chore, title: `${item.name} ${item.purchaseQuantity}${item.unit} 구매하기`, nextDueDate: demoCompleted ? chore.nextDueDate : todayKey(), enabled: true } : chore) };
+      const chore: Chore = { id: choreId, title: `${item.name} ${item.purchaseQuantity}${item.unit} 구매하기`, category: 'living', recurrence: { interval: supplyProjection(item).daysUntilSafetyStock, unit: 'day' }, createdAt: new Date().toISOString(), scheduleAnchorDate: item.purchaseDate, nextDueDate: todayKey(), isCustom: true, enabled: true };
+      return { ...home, supplies: existing ? home.supplies : [...(home.supplies ?? []), item], chores: choreExists ? home.chores : [...home.chores, chore] };
+    });
   }
 
   function setSharedAssignmentMode() {
@@ -290,5 +386,5 @@ export function useAppData() {
     }));
   }
 
-  return { data, activeHome, dueChores, syncStatus, syncError, createHome, selectHome, joinHomeByInviteCode, saveProfile, updateHomeSettings, updateUserName, addCustomChore, completeChore, undoTodayCompletion, toggleChore, removeCustomChore, updateNotifications, saveLaborAssessment, assignChoreExecutor, setSharedAssignmentMode, autoAssignChores, addSupplyItem, recordSupplyPurchase, removeSupplyItem };
+  return { data, activeHome, dueChores, recommendationCandidates, syncStatus, syncError, createHome, selectHome, joinHomeByInviteCode, saveProfile, updateHomeSettings, updateUserName, addCustomChore, completeChore, undoTodayCompletion, toggleChore, removeCustomChore, acceptRecommendation, dismissRecommendation, snoozeRecommendation, updateChoreRecurrence, updateNotifications, saveLaborAssessment, assignChoreExecutor, setSharedAssignmentMode, autoAssignChores, addSupplyItem, recordSupplyPurchase, removeSupplyItem, ensureDemoSupply };
 }

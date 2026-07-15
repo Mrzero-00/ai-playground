@@ -1,6 +1,13 @@
 import { useEffect, useId, useState, type FormEvent } from "react";
 import type { ChoreGuide } from '../domain/choreGuides';
 
+function tossShoppingUrl(itemName: string) {
+  const template = import.meta.env.VITE_TOSS_SHOPPING_URL_TEMPLATE?.trim();
+  if (!template) return null;
+  const url = template.replace('{query}', encodeURIComponent(itemName));
+  return /^https:\/\//.test(url) ? url : null;
+}
+
 export type HouseholdType = "single" | "couple" | "family" | "shared";
 
 export interface HouseholdProfile {
@@ -162,13 +169,13 @@ export function TodayTasks({ chores, householdName = "우리 집", onAdd, onTogg
   return (
     <main className="screen today-screen">
       <header className="home-header">
-        <div><span className="eyebrow">{householdName}</span><h1>오늘도 산뜻하게!</h1></div>
+        <div><span className="eyebrow">{householdName}</span><h1>오늘의 집안일</h1><p>우리 집에 맞춘 오늘 할 일이에요</p></div>
         <button className="icon-button" aria-label="알림 설정 보기" aria-expanded={showReminder} onClick={() => setShowReminder((visible) => !visible)} type="button">🔔</button>
       </header>
       {showReminder && <section className="reminder-card" aria-label="알림 설정"><div><strong>{reminderEnabled ? `매일 ${String(reminderHour).padStart(2, "0")}:00에 확인해요` : "집안일 리마인더가 꺼져 있어요"}</strong><p>현재는 앱에 들어왔을 때 해야 할 일을 안내해요.</p></div>{onReminderToggle && <button onClick={onReminderToggle} type="button">{reminderEnabled ? "끄기" : "켜기"}</button>}</section>}
       <section className="progress-card" aria-label={`오늘 집안일 ${progress}% 완료`}>
-        <div><span>오늘의 집안일</span><strong>{completed}<small> / {chores.length}개 완료</small></strong></div>
         <div className="progress-ring" style={{ "--progress": `${progress * 3.6}deg` } as React.CSSProperties}><span>{progress}%</span></div>
+        <div><span>오늘의 집안일 진행률</span><strong>{completed}<small> / {chores.length}개 완료</small></strong><div className="progress-segments" aria-hidden="true">{chores.map((chore, index) => <i className={index < completed ? 'is-complete' : ''} key={chore.id} />)}</div></div>
       </section>
       <section className="task-section">
         <div className="section-heading"><h2>할 일</h2><span>{chores.length - completed}개 남았어요</span></div>
@@ -193,7 +200,7 @@ function GroupedTodayTasks({ chores, onToggle, onOpenGuide }: { chores: Chore[];
   return <div className="task-groups">{groups.map(({ group, chores: groupChores }, index) => {
     const completed = groupChores.filter((chore) => chore.completed).length;
     const meta = recurrenceGroupMeta[group];
-    return <details className="task-group" key={group} open={index === 0}><summary><span aria-hidden="true">{meta.icon}</span><strong>{meta.label}</strong><small>{completed} / {groupChores.length} 완료</small><i aria-hidden="true">⌄</i></summary><ul className="task-list">{groupChores.map((chore) => chore.taskKind === 'supply-purchase' ? <li className={`supply-purchase-task ${chore.completed ? "is-completed" : ""}`} key={chore.id}><span className="supply-purchase-icon" aria-hidden="true">🛒</span><div className="task-copy"><span className="supply-purchase-badge">생활용품 · 구매 필요</span><strong>{chore.title.replace(/ 구매하기$/, '')}</strong><small>{chore.dueLabel ?? '구매할 시기예요'}</small></div><button aria-pressed={chore.completed} onClick={() => onToggle(chore)} type="button">{chore.completed ? '완료 취소' : '구매 완료'}</button></li> : <li className={chore.completed ? "is-completed" : ""} key={chore.id}><button className="task-check" aria-label={`${chore.title} ${chore.completed ? "완료 취소" : "완료"}`} aria-pressed={chore.completed} onClick={() => onToggle(chore)} type="button">{chore.completed ? "✓" : ""}</button><span className="task-icon" aria-hidden="true">{chore.icon}</span><div className="task-copy"><strong>{chore.title}</strong><small>{chore.dueLabel ?? chore.frequencyLabel} · {chore.category}</small>{chore.guideId && <button className="chore-guide-link" onClick={() => onOpenGuide?.(chore.guideId!)} type="button">📖 집안일 가이드 보기</button>}</div></li>)}</ul></details>;
+    return <details className="task-group" key={group} open={index === 0}><summary><span aria-hidden="true">{meta.icon}</span><strong>{meta.label}</strong><small>{completed} / {groupChores.length} 완료</small><i aria-hidden="true">⌄</i></summary><ul className="task-list">{groupChores.map((chore) => chore.taskKind === 'supply-purchase' ? <li className={`supply-purchase-task ${chore.completed ? "is-completed" : ""}`} key={chore.id}><span className="supply-purchase-icon" aria-hidden="true">🛒</span><div className="task-copy"><span className="supply-purchase-badge">생활용품 · 구매 필요</span><strong>{chore.title.replace(/ 구매하기$/, '')}</strong><small>{chore.dueLabel ?? '구매할 시기예요'}</small></div><button aria-label={`${chore.title.replace(/ 구매하기$/, '')} 구매 수량 입력`} aria-pressed={chore.completed} onClick={() => onToggle(chore)} type="button">{chore.completed ? '완료 취소' : '구매'}</button></li> : <li className={chore.completed ? "is-completed" : ""} key={chore.id}><button className="task-check" aria-label={`${chore.title} ${chore.completed ? "완료 취소" : "완료"}`} aria-pressed={chore.completed} onClick={() => onToggle(chore)} type="button">{chore.completed ? "✓" : ""}</button><span className="task-icon" aria-hidden="true">{chore.icon}</span><div className="task-copy"><strong>{chore.title}</strong><small>{chore.dueLabel ?? chore.frequencyLabel} · {chore.category}</small>{chore.guideId && <button className="chore-guide-link" onClick={() => onOpenGuide?.(chore.guideId!)} type="button">📖 집안일 가이드 보기</button>}</div></li>)}</ul></details>;
   })}</div>;
 }
 
@@ -231,7 +238,7 @@ function QuestBoard({ chores, onToggle, onOpenGuide }: { chores: Chore[]; onTogg
     })}</div>
     {!active ? <section className="quest-victory"><span aria-hidden="true">🏆</span><strong>오늘의 모든 퀘스트 완료!</strong><p>우리 집을 위한 멋진 하루였어요.</p></section> : <>
       <header className="quest-chapter"><div><span>CHAPTER {activeIndex + 1}</span><h3>{recurrenceGroupMeta[active.group].icon} {recurrenceGroupMeta[active.group].label} 퀘스트</h3></div><small>{active.chores.filter((chore) => chore.completed).length}/{active.chores.length}</small></header>
-      <div className="quest-cards">{active.chores.map((chore, index) => <article className={`quest-ticket ${chore.taskKind === 'supply-purchase' ? 'is-supply-purchase' : ''} ${chore.completed ? 'is-completed' : ''}`} key={chore.id}><header><span>{chore.taskKind === 'supply-purchase' ? 'SHOPPING' : `${prefix[active.group]}-${String(index + 1).padStart(2, '0')}`}</span><b>{chore.completed ? '완료' : chore.taskKind === 'supply-purchase' ? '구매 필요' : '진행 가능'}</b></header><div className="quest-ticket-body"><span className="quest-ticket-icon" aria-hidden="true">{chore.taskKind === 'supply-purchase' ? '🛒' : chore.icon}</span><div><strong>{chore.taskKind === 'supply-purchase' ? chore.title.replace(/ 구매하기$/, '') : chore.title}</strong><p>{chore.taskKind === 'supply-purchase' ? '생활용품 구매 업무' : `${chore.category} · ${chore.frequencyLabel}`}</p>{chore.guideId && <button className="chore-guide-link" onClick={() => onOpenGuide?.(chore.guideId!)} type="button">📖 집안일 가이드 보기</button>}</div></div><footer><span>{chore.taskKind === 'supply-purchase' ? '구매하면 다음 시기를 계산해요' : <>보상 <b>+{questXp[active.group]} XP</b></>}</span><button aria-pressed={chore.completed} onClick={() => onToggle(chore)} type="button">{chore.completed ? '완료 취소' : chore.taskKind === 'supply-purchase' ? '구매 완료' : '퀘스트 완료'}</button></footer></article>)}</div>
+      <div className="quest-cards">{active.chores.map((chore, index) => <article className={`quest-ticket ${chore.taskKind === 'supply-purchase' ? 'is-supply-purchase' : ''} ${chore.completed ? 'is-completed' : ''}`} key={chore.id}><header><span>{chore.taskKind === 'supply-purchase' ? 'SHOPPING' : `${prefix[active.group]}-${String(index + 1).padStart(2, '0')}`}</span><b>{chore.completed ? '완료' : chore.taskKind === 'supply-purchase' ? '구매 필요' : '진행 가능'}</b></header><div className="quest-ticket-body"><span className="quest-ticket-icon" aria-hidden="true">{chore.taskKind === 'supply-purchase' ? '🛒' : chore.icon}</span><div><strong>{chore.taskKind === 'supply-purchase' ? chore.title.replace(/ 구매하기$/, '') : chore.title}</strong><p>{chore.taskKind === 'supply-purchase' ? '생활용품 구매 업무' : `${chore.category} · ${chore.frequencyLabel}`}</p>{chore.guideId && <button className="chore-guide-link" onClick={() => onOpenGuide?.(chore.guideId!)} type="button">📖 집안일 가이드 보기</button>}</div></div><footer><span>{chore.taskKind === 'supply-purchase' ? '수량을 입력하면 다음 시기를 계산해요' : <>보상 <b>+{questXp[active.group]} XP</b></>}</span><button aria-pressed={chore.completed} onClick={() => onToggle(chore)} type="button">{chore.completed ? '완료 취소' : chore.taskKind === 'supply-purchase' ? '구매' : '퀘스트 완료'}</button></footer></article>)}</div>
       {activeIndex < groups.length - 1 && <p className="quest-unlock-note">🔒 현재 퀘스트를 모두 완료하면 다음 단계가 열려요.</p>}
     </>}
   </div>;
@@ -291,13 +298,33 @@ export interface CustomChoreModalProps {
 export function SupplyPurchaseModal({ open, itemName, unit, initialQuantity, onClose, onSubmit }: { open: boolean; itemName: string; unit: string; initialQuantity: number; onClose: () => void; onSubmit: (quantity: number) => void }) {
   const titleId = useId();
   const [quantity, setQuantity] = useState(String(initialQuantity));
+  const shoppingUrl = tossShoppingUrl(itemName);
   if (!open) return null;
-  return <div className="modal-backdrop" role="presentation" onMouseDown={(event) => { if (event.currentTarget === event.target) onClose(); }}><section className="bottom-sheet supply-purchase-sheet" aria-labelledby={titleId} aria-modal="true" role="dialog"><header><button aria-label="구매 입력 닫기" onClick={onClose} type="button">×</button><h2 id={titleId}>구매 완료 기록</h2><span /></header><form onSubmit={(event) => { event.preventDefault(); onSubmit(Math.max(1, Number(quantity))); }}><div className="purchase-product-summary"><span aria-hidden="true">🛒</span><div><small>구매한 생활용품</small><strong>{itemName}</strong></div></div><label className="purchase-quantity-field"><span>실제로 몇 {unit} 구매했나요?</span><div><input autoFocus inputMode="numeric" min="1" onChange={(event) => setQuantity(event.target.value)} onFocus={(event) => event.currentTarget.select()} required step="1" type="number" value={quantity} /><strong>{unit}</strong></div><small>입력한 수량을 기준으로 다음 구매 시기를 계산해요.</small></label><div className="purchase-modal-actions"><button onClick={onClose} type="button">취소</button><button type="submit">구매 완료</button></div></form></section></div>;
+  return <div className="modal-backdrop" role="presentation" onMouseDown={(event) => { if (event.currentTarget === event.target) onClose(); }}><section className="bottom-sheet supply-purchase-sheet" aria-labelledby={titleId} aria-modal="true" role="dialog"><header><button aria-label="구매 입력 닫기" onClick={onClose} type="button">×</button><h2 id={titleId}>구매 내용 입력</h2><span /></header><form onSubmit={(event) => { event.preventDefault(); onSubmit(Math.max(1, Number(quantity))); }}><div className="purchase-product-summary"><span aria-hidden="true">🛒</span><div><small>구매할 생활용품</small><strong>{itemName}</strong></div></div>{shoppingUrl ? <a className="toss-shopping-button" href={shoppingUrl} rel="noopener noreferrer" target="_blank">토스쇼핑에서 구매하기 <span aria-hidden="true">↗</span></a> : <button className="toss-shopping-button is-disabled" disabled type="button">토스쇼핑 연동 준비 중</button>}<label className="purchase-quantity-field"><span>구매한 수량을 입력해주세요</span><div><input autoFocus inputMode="numeric" min="1" onChange={(event) => setQuantity(event.target.value)} onFocus={(event) => event.currentTarget.select()} required step="1" type="number" value={quantity} /><strong>{unit}</strong></div><small>구매 후 입력한 수량을 기준으로 다음 구매 시기를 계산해요.</small></label><div className="purchase-modal-actions"><button onClick={onClose} type="button">취소</button><button type="submit">입력 완료</button></div></form></section></div>;
 }
 
 export function ChoreGuideModal({ guide, onClose }: { guide: ChoreGuide; onClose: () => void }) {
   const titleId = useId();
-  return <div className="modal-backdrop" role="presentation" onMouseDown={(event) => { if (event.currentTarget === event.target) onClose(); }}><section className="bottom-sheet chore-guide-sheet" aria-labelledby={titleId} aria-modal="true" role="dialog"><header><button aria-label="청소 가이드 닫기" onClick={onClose} type="button">×</button><h2 id={titleId}>{guide.title}</h2><span /></header><div className="guide-duration">⏱ {guide.duration}</div><section><h3>준비물</h3><div className="guide-supplies">{guide.supplies.map((supply) => <span key={supply}>{supply}</span>)}</div><button className="shopping-ready-button" disabled type="button">토스쇼핑 연동 준비 중</button></section><section><h3>좋은 순서</h3><ol>{guide.steps.map((step) => <li key={step}>{step}</li>)}</ol></section><section className="guide-cautions"><h3>꼭 주의하세요</h3><ul>{guide.cautions.map((caution) => <li key={caution}>{caution}</li>)}</ul></section>{guide.modelNote && <p className="guide-model-note">💡 {guide.modelNote}</p>}</section></div>;
+  return <div className="modal-backdrop" role="presentation" onMouseDown={(event) => { if (event.currentTarget === event.target) onClose(); }}><section className="bottom-sheet chore-guide-sheet" aria-labelledby={titleId} aria-modal="true" role="dialog"><header><button aria-label="집안일 가이드 닫기" onClick={onClose} type="button">×</button><span /><span /></header><div className="guide-hero"><div><span>집토리 가이드</span><h2 id={titleId}>{guide.title}</h2><p>필요한 준비물과 안전한 순서를 한 번에 확인하세요.</p><small>⏱ {guide.duration}</small></div><span className="guide-hero-visual" aria-hidden="true">{guideHeroIcon(guide.title)}</span></div><section className="guide-card"><h3>준비물</h3><div className="guide-supplies">{guide.supplies.map((supply) => <article key={supply}><span aria-hidden="true">{supplyIcon(supply)}</span><strong>{supply}</strong></article>)}</div><div className="guide-shopping-row"><div><strong>준비물을 한 번에 챙겨보세요</strong><small>필요한 제품을 연결할 예정이에요.</small></div><button disabled type="button">쇼핑 연동 준비 중</button></div></section><section className="guide-card guide-steps"><h3>좋은 순서</h3><ol>{guide.steps.map((step, index) => <li key={step}><span>{index + 1}</span><p>{step}</p></li>)}</ol></section><section className="guide-cautions"><h3>꼭 주의하세요</h3><ul>{guide.cautions.map((caution) => <li key={caution}><span aria-hidden="true">!</span><p>{caution}</p></li>)}</ul></section>{guide.modelNote && <p className="guide-model-note">💡 {guide.modelNote}</p>}</section></div>;
+}
+
+function guideHeroIcon(title: string) {
+  if (title.includes('세탁기')) return '🫧';
+  if (title.includes('화장실') || title.includes('변기')) return '🚿';
+  if (title.includes('고양이')) return '🐈';
+  if (title.includes('강아지')) return '🐕';
+  if (title.includes('주방') || title.includes('전자레인지')) return '🧽';
+  return '✨';
+}
+
+function supplyIcon(supply: string) {
+  if (/장갑/.test(supply)) return '🧤';
+  if (/수건|천|걸레/.test(supply)) return '🧺';
+  if (/솔|브러시/.test(supply)) return '🪥';
+  if (/물|식초|세제|소독/.test(supply)) return '🧴';
+  if (/봉투|쓰레기/.test(supply)) return '🗑️';
+  if (/모래/.test(supply)) return '🏖️';
+  return '🧼';
 }
 
 export function CustomChoreModal({ open, onClose, onSubmit }: CustomChoreModalProps) {

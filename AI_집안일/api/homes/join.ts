@@ -1,6 +1,6 @@
 import type { VercelRequest, VercelResponse } from '@vercel/node';
-import { getOrCreateAnonymousUserId } from '../_lib/session';
-import { joinHome } from '../_lib/state';
+import { getOrCreateAnonymousUserId } from '../_lib/session.js';
+import { joinHome } from '../_lib/state.js';
 
 export default async function handler(req: VercelRequest, res: VercelResponse) {
   if (req.method !== 'POST') return res.status(405).json({ error: 'Method not allowed' });

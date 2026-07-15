@@ -1,6 +1,6 @@
 import { randomUUID } from 'node:crypto';
-import type { AppData, Chore, ChoreHistory, Home, HomeMember, HomeProfile, LaborAssessment, LocalUser, NotificationSettings, SupplyItem } from '../../src/domain/types';
-import { getSupabaseAdmin } from './supabase';
+import type { AppData, Chore, ChoreHistory, Home, HomeMember, HomeProfile, LaborAssessment, LocalUser, NotificationSettings, SupplyItem } from '../../src/domain/types.js';
+import { getSupabaseAdmin } from './supabase.js';
 
 type SupabaseAdmin = ReturnType<typeof getSupabaseAdmin>;
 
@@ -56,7 +56,7 @@ export async function loadState(userId: string): Promise<AppData> {
     inviteCode: home.invite_code,
     createdAt: home.created_at,
     profile: profiles.get(home.id) ?? null,
-    members: storedMembers.filter((member) => member.home_id === home.id).map((member): HomeMember => ({ id: member.id, userId: member.user_id, displayName: userNames.get(member.user_id) ?? '구성원', role: member.role, joinedAt: member.joined_at })),
+    members: storedMembers.filter((member) => member.home_id === home.id).map((member): HomeMember => ({ id: member.id, userId: member.user_id, displayName: String(userNames.get(member.user_id) ?? '구성원'), role: member.role, joinedAt: member.joined_at })),
     chores: storedChores.filter((chore) => chore.home_id === home.id).map((chore): Chore => ({ id: chore.id, title: chore.title, category: chore.category, recurrence: chore.recurrence, createdAt: chore.created_at, scheduleAnchorDate: chore.schedule_anchor_date ?? undefined, nextDueDate: chore.next_due_date, isCustom: chore.is_custom, enabled: chore.enabled, assignedMemberId: chore.assigned_member_id ?? undefined, executorMemberId: chore.executor_member_id ?? undefined })),
     history: storedHistory.filter((entry) => entry.home_id === home.id).map((entry): ChoreHistory => ({ id: entry.id, choreId: entry.chore_id, choreTitle: entry.chore_title, action: entry.action, performedAt: entry.performed_at, scheduledFor: entry.scheduled_for ?? undefined, performedByUserId: entry.performed_by_user_id, performedByName: entry.performed_by_name })),
     laborAssessments: storedAssessments.filter((item) => item.home_id === home.id).map((item): LaborAssessment => ({ userId: item.user_id, planningScore: item.planning_score, executionScore: item.execution_score, answers: item.answers, updatedAt: item.updated_at })),

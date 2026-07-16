@@ -1,0 +1,1 @@
+{"name":"@investment-os/research-evaluator","version":"0.3.0","type":"module","exports":"./src/index.ts","scripts":{"build":"tsc -p tsconfig.json","typecheck":"tsc -p tsconfig.json --noEmit","lint":"tsc -p tsconfig.json --noEmit"},"dependencies":{"@investment-os/contracts":"workspace:*","zod":"^3.25.76"}}

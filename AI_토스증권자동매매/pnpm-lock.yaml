@@ -164,6 +164,15 @@ importers:
         specifier: ^3.25.76
         version: 3.25.76
 
+  packages/research-evaluator:
+    dependencies:
+      '@investment-os/contracts':
+        specifier: workspace:*
+        version: link:../contracts
+      zod:
+        specifier: ^3.25.76
+        version: 3.25.76
+
   packages/risk-gate:
     dependencies:
       '@investment-os/contracts':

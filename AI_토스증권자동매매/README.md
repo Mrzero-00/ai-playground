@@ -68,3 +68,9 @@ pnpm build
 - 운영 알림 인터페이스
 
 토스 Provider는 `TOSS_INVEST_CLIENT_ID`, `TOSS_INVEST_CLIENT_SECRET`을 서버에서만 사용하며 현재 Phase에서는 주문 API를 호출하지 않습니다.
+
+## Phase 3 — Research Committee and Evaluator
+
+- `packages/research-evaluator`: Bull/Bear/Market/Skeptic 독립 분석과 의견 분산·충돌·누락 증거 통합
+- MAE/MFE, 슬리피지, 보유 시간, 시장 국면별 성과 집계
+- 자동 적용이 금지된 Strategy Proposal 초안과 기본 Counterfactual 시나리오

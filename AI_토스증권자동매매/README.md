@@ -77,7 +77,7 @@ pnpm build
 
 ## Phase 4 — ML and Memory
 
-- `packages/ml-memory`: 시간 정합성·누락률 선행 검증, Logistic Regression baseline, gradient-boosted decision stumps
+- `packages/ml-memory`: 시간 정합성·누락률 선행 검증, Logistic Regression baseline, XGBoost-style gradient-boosted decision stumps
 - 목표가가 손절가보다 먼저 도달할 확률, 모델 버전 Registry, Risk Gate에 영향이 없는 Shadow Prediction
 - 미래 정보 조회를 차단하는 Episodic/Semantic/Regime Memory
 

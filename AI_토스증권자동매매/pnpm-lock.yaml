@@ -158,6 +158,12 @@ importers:
         specifier: workspace:*
         version: link:../contracts
 
+  packages/realtime-data:
+    dependencies:
+      zod:
+        specifier: ^3.25.76
+        version: 3.25.76
+
   packages/risk-gate:
     dependencies:
       '@investment-os/contracts':

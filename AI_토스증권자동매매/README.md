@@ -1,6 +1,6 @@
 > 미국 시장 후보를 발견하고 증거 기반 가설과 결정론적 리스크 승인을 거쳐 Paper Trade를 재현하는 AI Investment OS Phase 1 MVP입니다.
 
-# AI Investment OS — Phase 1 MVP
+# AI Investment OS
 
 기준 문서는 [`ai-investment-os-docs`](./ai-investment-os-docs/README.md)입니다. Mock 이벤트 한 건이 `Discovery → Evidence Bundle → Thesis → Decision → Risk Gate → Paper Broker → Evaluation → Repository → Dashboard` 전체 흐름을 통과합니다.
 
@@ -60,3 +60,11 @@ pnpm build
 - OpenAI 호출 없음(분석 인터페이스만 유지하고 Seed는 Mock 사용)
 - 다중 LLM 위원회, ML, Evidence Graph DB, 전략 자동 승격 없음
 - 실거래 Broker 및 유료 데이터 Provider 없음
+
+## Phase 2 — Realtime Data
+
+- `packages/realtime-data`: 토스증권 OAuth2 읽기 전용 현재가, 시세 신선도, SEC submissions, RSS 뉴스 Provider
+- 복구 가능한 포지션 상태 머신, 시간 손절, 1차 부분 익절, 최종 익절
+- 운영 알림 인터페이스
+
+토스 Provider는 `TOSS_INVEST_CLIENT_ID`, `TOSS_INVEST_CLIENT_SECRET`을 서버에서만 사용하며 현재 Phase에서는 주문 API를 호출하지 않습니다.

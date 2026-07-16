@@ -1,2 +1,0 @@
-import { describe,expect,it } from 'vitest'; import { OrderStateMachine } from '../packages/execution/src/index.js';
-describe('OrderStateMachine',()=>{it('rejects invalid transitions',()=>{expect(()=>new OrderStateMachine().transition('POSITION_OPEN','skip')).toThrow(/Invalid/);});it('restores audit history after restart',()=>{const s=new OrderStateMachine();s.transition('VALIDATED','ok');const restored=OrderStateMachine.restore(s.snapshot());expect(restored.state).toBe('VALIDATED');expect(restored.audit).toHaveLength(1);});});

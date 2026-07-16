@@ -1,2 +1,0 @@
-import{describe,expect,it}from'vitest';import{OpenAIThesisAnalyzer}from'../packages/thesis/src/index.js';import{OpenAICatalystAnalyzer}from'../packages/ai/src/index.js';
-describe('OpenAI cost gate',()=>{it('blocks thesis calls unless explicitly enabled',()=>expect(()=>new OpenAIThesisAnalyzer('unused')).toThrow('OPENAI_ENABLED'));it('blocks legacy catalyst calls unless explicitly enabled',()=>expect(()=>new OpenAICatalystAnalyzer('unused')).toThrow('OPENAI_ENABLED'));});

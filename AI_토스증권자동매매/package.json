@@ -9,8 +9,9 @@
     "test": "vitest run",
     "typecheck": "turbo typecheck",
     "lint": "turbo lint",
-    "shadow": "pnpm --filter @trading/shadow start"
-    ,"paper": "pnpm --filter @trading/paper start"
+    "mvp": "pnpm --filter @investment-os/mvp dev",
+    "mvp:api": "pnpm --filter @trading/api dev",
+    "mvp:web": "pnpm --filter @trading/web dev"
   },
   "devDependencies": {
     "@types/node": "^22.15.0",

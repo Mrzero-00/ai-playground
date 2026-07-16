@@ -1,4 +1,5 @@
 node_modules
+.DS_Store
 .turbo
 .next
 dist
@@ -8,6 +9,8 @@ coverage
 pnpm-debug.log*
 var/shadow/
 var/paper/
+var/mvp/
 **/var/shadow/
 **/var/paper/
+**/var/mvp/
 *.tsbuildinfo

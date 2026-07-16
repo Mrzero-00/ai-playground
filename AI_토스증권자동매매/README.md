@@ -1,49 +1,59 @@
-> 현재 시장 상태와 미래가치 가설을 검증한 뒤에만 진입하는 안전 우선 미국 주식 페이퍼 자동매매 MVP입니다.
+> 미국 시장 후보를 발견하고 증거 기반 가설과 결정론적 리스크 승인을 거쳐 Paper Trade를 재현하는 AI Investment OS Phase 1 MVP입니다.
 
-# AI 토스증권 자동매매
+# AI Investment OS — Phase 1 MVP
 
-실제 주문 없이 `뉴스 출처 검증 → 시장 상태 → 미래가치 가설 → 가격 반영도 → 진입 계획 → 리스크 검증 → PaperBroker → 가설/실행 분리 평가` 흐름을 검증합니다. 기준 명세는 [v3](./ai-trading-bot-codex-spec-v3.md)입니다.
+기준 문서는 [`ai-investment-os-docs`](./ai-investment-os-docs/README.md)입니다. Mock 이벤트 한 건이 `Discovery → Evidence Bundle → Thesis → Decision → Risk Gate → Paper Broker → Evaluation → Repository → Dashboard` 전체 흐름을 통과합니다.
 
-## 안전 범위
-
-- 실제 증권사 API와 실거래 주문은 포함하지 않습니다.
-- LLM은 사실과 추론을 분리하며 주문 수량과 손실 한도를 결정하지 않습니다.
-- 오래됐거나 검증되지 않은 데이터와 `panic`, `low_liquidity`, `unknown` 시장 상태는 NO_TRADE입니다.
-- 예상 이점이 스프레드와 슬리피지 비용을 넘지 못하면 거래하지 않습니다.
-- 거래당 위험 0.25%, 일간 1%, 주간 3%, 연속 손실 3회와 손실 후 60분 쿨다운을 기본값으로 사용합니다.
-
-## 시작하기
+## 빠른 실행
 
 Node.js 22+와 pnpm이 필요합니다.
 
 ```bash
+nvm use
 pnpm install
+pnpm mvp
+```
+
+성공하면 `var/mvp/latest.json`이 생성됩니다. 외부 시세·뉴스·OpenAI·실제 주문은 호출하지 않습니다.
+
+Dashboard는 Seed 실행 후 별도 터미널에서 실행합니다.
+
+```bash
+pnpm mvp:api
+pnpm mvp:web
+```
+
+브라우저에서 `http://localhost:3100`을 엽니다. 이 프로젝트의 웹 포트는 다른 개발 프로젝트와 충돌하지 않도록 `3100`으로 고정되어 있습니다. API는 `4000`을 사용합니다.
+
+## 검증
+
+```bash
 pnpm test
 pnpm typecheck
 pnpm build
 ```
 
-웹은 기본 `http://localhost:3000`, API는 `http://localhost:4000`을 사용합니다. 환경값은 `.env.example`을 참고하세요.
+## Phase 1 패키지
 
-## 구성
-
-- `apps/web`, `apps/api`, `apps/worker`: 대시보드, Fastify API, BullMQ 워크플로
-- `packages/thesis`: 사실/추론 분리 Zod 및 OpenAI Structured Output
-- `packages/market-regime`, `packages/price-reflection`: 현재 시장 위험과 가격 반영도
-- `packages/strategy`, `packages/risk`: 진입 계획과 결정론적 위험 통제
-- `packages/execution`: 주문 상태 머신, 가격·시간·가설 손절, PaperBroker
-- `packages/broker`: 토스증권 OAuth·시세·계좌 사전검증·멱등 지정가 주문 어댑터
-- `packages/evaluator`: 수익과 별도로 가설·실행·리스크 품질 평가
-- `packages/db`: 인메모리/Supabase 저장소와 v3 journal migration
+- `packages/contracts`: 문서 계약의 TypeScript 타입과 Zod 검증
+- `packages/discovery`: Mock 후보 탐색과 정량 필터
+- `packages/evidence`: as-of Evidence Bundle 및 look-ahead 차단
+- `packages/decision-engine`: Mock Thesis, Committee 요약, Entry Plan
+- `packages/risk-gate`: LLM과 분리된 결정론적 승인/거부
+- `packages/paper-broker`: Risk Gate 승인 필수 상태 머신
+- `packages/os-evaluator`: 손익과 가설·실행·리스크 품질 분리 평가
+- `packages/os-repository`: In-memory 테스트 및 Supabase 저장소
+- `apps/mvp`: 한 명령 Seed Vertical Slice
+- `apps/api`, `apps/web`: 결과 API와 Dashboard
 
 ## Supabase
 
-`packages/db/migrations/001_initial.sql`, `002_v3_thesis_pipeline.sql` 순서로 적용합니다. `SUPABASE_SERVICE_ROLE_KEY`는 브라우저에 노출하지 마세요. 기본 로컬 API는 인메모리 저장소를 사용합니다.
+`001_initial.sql`, `002_v3_thesis_pipeline.sql`, `003_phase1_vertical_slice.sql` 순서로 적용합니다. `SUPABASE_URL`과 `SUPABASE_SERVICE_ROLE_KEY`가 설정되면 `pnpm mvp`가 단계 이벤트와 최종 Run을 Supabase에 저장하고, 없으면 로컬 Seed 저장소를 사용합니다.
 
-## 운영 전 조건
+## Phase 1 경계
 
-현재는 Mock 기반 페이퍼 MVP입니다. 실시간 provider, 데이터 지연 감지, 브로커 대조, Kill Switch 운영 UI, 워크포워드 검증과 충분한 Shadow Mode가 끝나기 전에는 Live Broker를 연결하지 않습니다.
-
-토스증권 API 자격증명과 읽기 전용 연결 절차는 [토스증권 Open API 연결](./docs/toss-invest-setup.md)을 참고하세요.
-
-2~3주간 실시간 시세를 읽고 주문 없이 연결 안정성을 기록하려면 [Shadow Mode 운영](./docs/shadow-operations.md)을 참고하세요.
+- 실제 증권 주문 없음
+- 실시간 WebSocket 없음
+- OpenAI 호출 없음(분석 인터페이스만 유지하고 Seed는 Mock 사용)
+- 다중 LLM 위원회, ML, Evidence Graph DB, 전략 자동 승격 없음
+- 기존 Toss/Finnhub 실험 코드는 `pnpm mvp` 실행 경로에서 호출되지 않음

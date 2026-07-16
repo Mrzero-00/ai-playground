@@ -80,3 +80,12 @@ pnpm build
 - `packages/ml-memory`: 시간 정합성·누락률 선행 검증, Logistic Regression baseline, gradient-boosted decision stumps
 - 목표가가 손절가보다 먼저 도달할 확률, 모델 버전 Registry, Risk Gate에 영향이 없는 Shadow Prediction
 - 미래 정보 조회를 차단하는 Episodic/Semantic/Regime Memory
+
+## Phase 5 — Small Live Trading
+
+- `packages/live-broker`: Paper Broker와 동형인 Broker 인터페이스, 토스 주문 Adapter, 멱등키, 수동 Kill Switch
+- Paper·Shadow 성과, 복구훈련, Kill Switch 시험, 보안검토, 샌드박스 주문 검증, Paper 병행이 모두 증명되어야 주문 가능
+- 거래당 0.25%, Event 0.1%, 일간 손실 0.5%, 최대 2포지션, 무레버리지 제한
+- `packages/db/migrations/004_live_trading_audit.sql`: RLS가 활성화된 서비스 전용 주문 감사 로그
+
+`LIVE_TRADING_ENABLED=false`가 기본값이며 Kill Switch도 시작 시 활성화됩니다. Production은 코드 설정 외에 `LIVE_PRODUCTION_ACK=I_ACCEPT_REAL_MONEY_RISK`가 추가로 필요합니다. 이 저장소의 자동 테스트와 기본 명령은 실제 주문을 전송하지 않습니다.

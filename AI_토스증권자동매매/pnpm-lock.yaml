@@ -137,6 +137,12 @@ importers:
         specifier: workspace:*
         version: link:../contracts
 
+  packages/ml-memory:
+    dependencies:
+      zod:
+        specifier: ^3.25.76
+        version: 3.25.76
+
   packages/os-evaluator:
     dependencies:
       '@investment-os/contracts':

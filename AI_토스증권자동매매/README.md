@@ -74,3 +74,9 @@ pnpm build
 - `packages/research-evaluator`: Bull/Bear/Market/Skeptic 독립 분석과 의견 분산·충돌·누락 증거 통합
 - MAE/MFE, 슬리피지, 보유 시간, 시장 국면별 성과 집계
 - 자동 적용이 금지된 Strategy Proposal 초안과 기본 Counterfactual 시나리오
+
+## Phase 4 — ML and Memory
+
+- `packages/ml-memory`: 시간 정합성·누락률 선행 검증, Logistic Regression baseline, gradient-boosted decision stumps
+- 목표가가 손절가보다 먼저 도달할 확률, 모델 버전 Registry, Risk Gate에 영향이 없는 Shadow Prediction
+- 미래 정보 조회를 차단하는 Episodic/Semantic/Regime Memory

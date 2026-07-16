@@ -1,0 +1,21 @@
+{
+  "name": "ai-toss-securities-trading",
+  "private": true,
+  "engines": { "node": ">=22" },
+  "packageManager": "pnpm@10.12.1",
+  "scripts": {
+    "build": "turbo build",
+    "dev": "turbo dev --parallel",
+    "test": "vitest run",
+    "typecheck": "turbo typecheck",
+    "lint": "turbo lint",
+    "shadow": "pnpm --filter @trading/shadow start"
+    ,"paper": "pnpm --filter @trading/paper start"
+  },
+  "devDependencies": {
+    "@types/node": "^22.15.0",
+    "turbo": "^2.5.0",
+    "typescript": "^5.8.3",
+    "vitest": "^3.1.1"
+  }
+}

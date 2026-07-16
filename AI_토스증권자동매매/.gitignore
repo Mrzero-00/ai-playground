@@ -1,0 +1,13 @@
+node_modules
+.turbo
+.next
+dist
+coverage
+.env
+.env.local
+pnpm-debug.log*
+var/shadow/
+var/paper/
+**/var/shadow/
+**/var/paper/
+*.tsbuildinfo

@@ -1,0 +1,1 @@
+{"name":"@trading/ml-service","version":"0.1.0","private":true,"scripts":{"build":"node -e \"console.log('ML service placeholder: Phase 4')\"","typecheck":"node -e \"console.log('No ML types yet')\"","lint":"node -e \"console.log('No ML code yet')\""}}

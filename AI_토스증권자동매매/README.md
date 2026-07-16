@@ -11,10 +11,10 @@ Node.js 22+와 pnpm이 필요합니다.
 ```bash
 nvm use
 pnpm install
-pnpm mvp
+pnpm dev
 ```
 
-성공하면 `var/mvp/latest.json`이 생성됩니다. 외부 시세·뉴스·OpenAI·실제 주문은 호출하지 않습니다.
+이 명령은 Seed, API, Dashboard를 함께 실행합니다. 성공하면 최종 결과 `var/mvp/latest.json`과 단계별 감사 로그 `var/mvp/stages.jsonl`이 생성됩니다. 외부 시세·뉴스·OpenAI·실제 주문은 호출하지 않습니다.
 
 Dashboard는 Seed 실행 후 별도 터미널에서 실행합니다.
 
@@ -22,6 +22,8 @@ Dashboard는 Seed 실행 후 별도 터미널에서 실행합니다.
 pnpm mvp:api
 pnpm mvp:web
 ```
+
+BullMQ Worker는 `pnpm mvp:worker`로 실행합니다. `REDIS_URL`이 없으면 로컬 인라인 모드로 한 번 실행하고, 설정되어 있으면 `investment-os` Queue를 사용합니다.
 
 브라우저에서 `http://localhost:3100`을 엽니다. 이 프로젝트의 웹 포트는 다른 개발 프로젝트와 충돌하지 않도록 `3100`으로 고정되어 있습니다. API는 `4000`을 사용합니다.
 
@@ -42,13 +44,14 @@ pnpm build
 - `packages/risk-gate`: LLM과 분리된 결정론적 승인/거부
 - `packages/paper-broker`: Risk Gate 승인 필수 상태 머신
 - `packages/os-evaluator`: 손익과 가설·실행·리스크 품질 분리 평가
-- `packages/os-repository`: In-memory 테스트 및 Supabase 저장소
+- `packages/os-repository`: 로컬 JSON 감사 로그, In-memory 테스트 및 Supabase 저장소
 - `apps/mvp`: 한 명령 Seed Vertical Slice
 - `apps/api`, `apps/web`: 결과 API와 Dashboard
+- `apps/worker`: BullMQ 또는 로컬 인라인 Worker
 
 ## Supabase
 
-`001_initial.sql`, `002_v3_thesis_pipeline.sql`, `003_phase1_vertical_slice.sql` 순서로 적용합니다. `SUPABASE_URL`과 `SUPABASE_SERVICE_ROLE_KEY`가 설정되면 `pnpm mvp`가 단계 이벤트와 최종 Run을 Supabase에 저장하고, 없으면 로컬 Seed 저장소를 사용합니다.
+`packages/db/migrations/003_phase1_vertical_slice.sql`을 적용합니다. `SUPABASE_URL`과 `SUPABASE_SERVICE_ROLE_KEY`가 설정되면 `pnpm mvp`가 단계 이벤트와 최종 Run을 Supabase에 저장하고, 없으면 로컬 JSON 저장소를 사용합니다.
 
 ## Phase 1 경계
 
@@ -56,4 +59,4 @@ pnpm build
 - 실시간 WebSocket 없음
 - OpenAI 호출 없음(분석 인터페이스만 유지하고 Seed는 Mock 사용)
 - 다중 LLM 위원회, ML, Evidence Graph DB, 전략 자동 승격 없음
-- 기존 Toss/Finnhub 실험 코드는 `pnpm mvp` 실행 경로에서 호출되지 않음
+- 실거래 Broker 및 유료 데이터 Provider 없음

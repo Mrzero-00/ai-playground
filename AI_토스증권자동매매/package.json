@@ -5,16 +5,18 @@
   "packageManager": "pnpm@10.12.1",
   "scripts": {
     "build": "turbo build",
-    "dev": "turbo dev --parallel",
+    "dev": "concurrently --names seed,api,web --prefix-colors cyan,yellow,green \"pnpm mvp\" \"pnpm mvp:api\" \"pnpm mvp:web\"",
     "test": "vitest run",
     "typecheck": "turbo typecheck",
     "lint": "turbo lint",
     "mvp": "pnpm --filter @investment-os/mvp dev",
-    "mvp:api": "pnpm --filter @trading/api dev",
-    "mvp:web": "pnpm --filter @trading/web dev"
+    "mvp:api": "pnpm --filter @investment-os/api dev",
+    "mvp:web": "pnpm --filter @investment-os/web dev",
+    "mvp:worker": "pnpm --filter @investment-os/worker dev"
   },
   "devDependencies": {
     "@types/node": "^22.15.0",
+    "concurrently": "^9.2.1",
     "turbo": "^2.5.0",
     "typescript": "^5.8.3",
     "vitest": "^3.1.1"

@@ -1,0 +1,1 @@
+{"name":"@investment-os/worker","version":"0.1.0","private":true,"type":"module","scripts":{"dev":"pnpm build && pnpm start","build":"tsc -p tsconfig.json","start":"node dist/index.js","typecheck":"tsc -p tsconfig.json --noEmit","lint":"tsc -p tsconfig.json --noEmit"},"dependencies":{"@investment-os/mvp":"workspace:*","@investment-os/repository":"workspace:*","bullmq":"^5.61.0"}}

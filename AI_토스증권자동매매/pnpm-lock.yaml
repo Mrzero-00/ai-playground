@@ -37,6 +37,15 @@ importers:
         specifier: ^4.23.1
         version: 4.23.1
 
+  apps/forward-paper:
+    dependencies:
+      '@investment-os/forward-paper':
+        specifier: workspace:*
+        version: link:../../packages/forward-paper
+      '@investment-os/realtime-data':
+        specifier: workspace:*
+        version: link:../../packages/realtime-data
+
   apps/mvp:
     dependencies:
       '@investment-os/contracts':
@@ -136,6 +145,15 @@ importers:
       '@investment-os/contracts':
         specifier: workspace:*
         version: link:../contracts
+
+  packages/forward-paper:
+    dependencies:
+      '@investment-os/realtime-data':
+        specifier: workspace:*
+        version: link:../realtime-data
+      zod:
+        specifier: ^3.25.76
+        version: 3.25.76
 
   packages/live-broker:
     dependencies:

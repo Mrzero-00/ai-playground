@@ -10,7 +10,9 @@ pnpm-debug.log*
 var/shadow/
 var/paper/
 var/mvp/
+var/forward-paper/
 **/var/shadow/
 **/var/paper/
 **/var/mvp/
+**/var/forward-paper/
 *.tsbuildinfo

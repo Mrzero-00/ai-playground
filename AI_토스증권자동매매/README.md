@@ -89,3 +89,28 @@ pnpm build
 - `packages/db/migrations/004_live_trading_audit.sql`: RLS가 활성화된 서비스 전용 주문 감사 로그
 
 `LIVE_TRADING_ENABLED=false`가 기본값이며 Kill Switch도 시작 시 활성화됩니다. Production은 코드 설정 외에 `LIVE_PRODUCTION_ACK=I_ACCEPT_REAL_MONEY_RISK`가 추가로 필요합니다. 이 저장소의 자동 테스트와 기본 명령은 실제 주문을 전송하지 않습니다.
+
+## 21일 Forward Paper 검증
+
+토스 실시간 랭킹과 현재가를 이용해 실제 주문 없이 전략 실효성을 측정합니다.
+
+```bash
+nvm use
+pnpm install
+pnpm paper:forward
+```
+
+Runner는 미국 시장 거래대금 상위와 1일 급등 랭킹의 교집합을 찾고, 거래대금·등락률·시세 신선도와 2회 연속 상승 관측을 통과한 종목만 가상 진입합니다. 진입과 청산에는 슬리피지와 주문별 수수료를 반영하며 1차 부분 익절, 2차 익절, 가격 손절, 시간 손절을 처리합니다.
+
+- 상태: `var/forward-paper/state.json`
+- 요약 리포트: `var/forward-paper/report.json`
+- API: `GET /forward-paper/state`, `GET /forward-paper/report`
+- Dashboard: `http://localhost:3100`
+
+재시작하면 기존 상태를 복구해 계속 실행합니다. 21일이 지나면 자동 종료합니다. 단일 사이클 점검은 다음처럼 실행합니다.
+
+```bash
+FORWARD_PAPER_ONCE=true pnpm paper:forward
+```
+
+실행 중에도 `LIVE_TRADING_ENABLED=false`를 유지해야 합니다. Forward Runner는 Live Broker 패키지를 의존하지 않으며 실제 주문 API 호출 코드가 없습니다.

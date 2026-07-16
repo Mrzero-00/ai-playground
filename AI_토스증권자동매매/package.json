@@ -13,6 +13,7 @@
     "mvp:api": "pnpm --filter @investment-os/api dev",
     "mvp:web": "pnpm --filter @investment-os/web dev",
     "mvp:worker": "pnpm --filter @investment-os/worker dev"
+    ,"paper:forward": "pnpm --filter @investment-os/forward-paper-runner dev"
   },
   "devDependencies": {
     "@types/node": "^22.15.0",

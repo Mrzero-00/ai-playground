@@ -1,0 +1,1 @@
+{"name":"@investment-os/forward-paper","version":"0.1.0","type":"module","exports":"./src/index.ts","scripts":{"build":"tsc -p tsconfig.json","typecheck":"tsc -p tsconfig.json --noEmit","lint":"tsc -p tsconfig.json --noEmit"},"dependencies":{"@investment-os/realtime-data":"workspace:*","zod":"^3.25.76"}}

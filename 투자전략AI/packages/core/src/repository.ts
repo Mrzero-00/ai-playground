@@ -4,6 +4,7 @@ import type { DomainEvent, OutboxRecord } from "./event.js";
 import type { ModelVersion } from "./model-version.js";
 import type { PositionLot } from "./position-lot.js";
 import type { DataSnapshot } from "./snapshot.js";
+import type { LongTermEvaluationResult } from "./long-term-v1/types.js";
 
 export interface InvestmentOsRepository {
   saveDecision(value: DecisionProposal): Promise<void>;
@@ -21,6 +22,10 @@ export interface InvestmentOsRepository {
   appendAuditWithOutbox(audit: AuditRecord, outbox?: OutboxRecord): Promise<void>;
   saveDecisionAuditWithOutbox(decision: DecisionProposal, audit: AuditRecord, outbox?: OutboxRecord): Promise<void>;
   saveModelAuditWithOutbox(model: ModelVersion, audit: AuditRecord, outbox?: OutboxRecord): Promise<void>;
+  saveLongTermEvaluationWithOutbox(value: LongTermEvaluationResult, audit: AuditRecord, outbox: OutboxRecord): Promise<void>;
+  findLongTermEvaluation(id: string): Promise<LongTermEvaluationResult | undefined>;
+  findLatestLongTermEvaluation(companyId: string): Promise<LongTermEvaluationResult | undefined>;
+  listLongTermEvaluations(): Promise<LongTermEvaluationResult[]>;
   listPendingOutbox(): Promise<OutboxRecord[]>;
   markOutboxPublished(id: string, at: string): Promise<void>;
 }
@@ -33,6 +38,7 @@ export class InMemoryInvestmentOsRepository implements InvestmentOsRepository {
   readonly audit: AuditRecord[] = [];
   readonly events: DomainEvent[] = [];
   readonly outbox = new Map<string, OutboxRecord>();
+  readonly longTermEvaluations = new Map<string, LongTermEvaluationResult>();
 
   async saveDecision(value: DecisionProposal): Promise<void> { this.decisions.set(value.id, structuredClone(value)); }
   async findDecision(id: string): Promise<DecisionProposal | undefined> { return this.clone(this.decisions.get(id)); }
@@ -77,6 +83,23 @@ export class InMemoryInvestmentOsRepository implements InvestmentOsRepository {
     await this.saveModelVersion(model);
     this.audit.push(structuredClone(audit));
     if (outbox) this.outbox.set(outbox.id, structuredClone(outbox));
+  }
+  async saveLongTermEvaluationWithOutbox(value: LongTermEvaluationResult, audit: AuditRecord, outbox: OutboxRecord): Promise<void> {
+    if (this.longTermEvaluations.has(value.id)) throw new Error("long-term evaluation already exists and is immutable");
+    this.longTermEvaluations.set(value.id, structuredClone(value));
+    this.audit.push(structuredClone(audit));
+    this.outbox.set(outbox.id, structuredClone(outbox));
+  }
+  async findLongTermEvaluation(id: string): Promise<LongTermEvaluationResult | undefined> {
+    return this.clone(this.longTermEvaluations.get(id));
+  }
+  async findLatestLongTermEvaluation(companyId: string): Promise<LongTermEvaluationResult | undefined> {
+    return this.values(this.longTermEvaluations)
+      .filter((evaluation) => evaluation.companyId === companyId)
+      .sort((left, right) => right.evaluatedAt.localeCompare(left.evaluatedAt))[0];
+  }
+  async listLongTermEvaluations(): Promise<LongTermEvaluationResult[]> {
+    return this.values(this.longTermEvaluations).sort((left, right) => right.evaluatedAt.localeCompare(left.evaluatedAt));
   }
   async listPendingOutbox(): Promise<OutboxRecord[]> {
     return this.values(this.outbox).filter((record) => record.status === "PENDING");

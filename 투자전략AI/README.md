@@ -31,6 +31,9 @@ See docs/ for detailed specifications.
 ## Detailed specifications
 
 - [Architecture](docs/01_Architecture.md)
+- [Investment Philosophy](docs/02_Investment_Philosophy.md)
+- [Investment Philosophy Part Index](docs/02_Investment_Philosophy/README.md)
+- [Long-term Engine](docs/03_LongTerm_Engine.md)
 
 ## 시작하기
 
@@ -44,11 +47,27 @@ API 기본 주소는 `http://localhost:4000`입니다.
 
 - `GET /health`: 상태 확인
 - `POST /v1/evaluations/long-term`: 장기 점수 Preview용 Legacy API
+- `POST /api/v1/long-term/evaluations`: Core/Future Core Profile·Gate·Thesis·가치평가 기반 불변 평가 생성
+- `GET /api/v1/long-term/evaluations/:id`: Long-term 평가와 근거 계보 조회
+- `GET /api/v1/companies/:companyId/long-term`: 기업의 최신 Long-term 평가 조회
+- `GET /api/v1/long-term/rankings?profile=CORE|FUTURE_CORE`: 동일 모델 버전의 투자 가능 후보 순위
+- `GET /api/v1/long-term/reviews/due`: 기준시각까지 도래한 Long-term 정기·사건 리뷰 조회
+- `POST /api/v1/long-term/replays`: 운영 상태를 변경하지 않는 Historical Replay
 - `POST /v1/evaluations/momentum`: 모멘텀 점수 Preview용 Legacy API
 - `POST /v1/portfolio/allocate`: 단순 85/15 Preview용 Legacy API
 - `POST /api/v1/cross-signals`: 장기·모멘텀 교차 신호 해석
 - `POST /api/v1/allocations/propose`: Bucket/종목 한도를 적용한 Decimal 배분 제안
+- `POST /api/v1/portfolio/allocate`: 85/15 정책을 적용한 Decimal 자금 배분
+- `POST /api/v1/philosophy/policies/validate`: 02 투자 철학 정책과 Hard Safety 검증
+- `POST /api/v1/evidence/validate`: Evidence 유형·출처 등급·기준일 검증
+- `POST /api/v1/evidence/sets/validate`: 평가 Evidence와 점수 반영 가능 출처 검증
+- `POST /api/v1/theses/validate`: Long-term Thesis·반대 근거·Review 계약 검증
+- `POST /api/v1/momentum/plans/validate`: Entry·Stop·Chase·Time Stop 계획 검증
+- `POST /api/v1/decisions/journal/validate`: 원본 보존형 Decision Journal 검증
+- `POST /api/v1/decisions/modifications/request`: 수정 승인을 새 Proposal 요청으로 변환
+- `POST /api/v1/allocations/monthly`: 월급날 자금 배분과 Cash 유지액 계산
 - `POST /api/v1/risk/evaluate`: 데이터·유동성·손실·만료 위험 검증
+- `POST /api/v1/risk/manual-review/resolve`: `REQUIRE_MANUAL_REVIEW`를 새 Risk Decision으로 해소
 - `POST /api/v1/decisions`: Proposal과 Risk 판정을 승인 대기 상태로 기록
 - `POST /api/v1/decisions/:id/approve`: 재검증 후 사용자 승인과 감사 기록
 - `POST /api/v1/decisions/:id/reject`: 사용자 거부와 감사 기록
@@ -58,6 +77,10 @@ API 기본 주소는 `http://localhost:4000`입니다.
 - `POST /api/v1/operations/outbox/publish`: 대기 중인 Outbox Event 발행
 - `POST /api/v1/snapshots/inspect`: 데이터 Snapshot 품질·신선도 검사
 - `POST /api/v1/reports/generate`: 근거 링크가 포함된 Markdown 보고서 생성
+- `POST /api/v1/reports/decision`: Fact·Interpretation·반대 근거·최우선 선택을 분리한 보고서 생성
+- `POST /api/v1/reviews/assess`: 결과와 과정 품질을 분리한 Decision Review
+- `POST /api/v1/lessons/validate`: 표본·근거를 포함한 Investment Lesson 검증
+- `POST /api/v1/performance/attribute`: Core·Future Core·Momentum Lot별 손익 Attribution
 
 상태 변경 API는 `Idempotency-Key` Header가 필수이며 모든 응답은 `X-Request-Id`와 `X-Correlation-Id`를 반환합니다. 금액·가격·수량은 JSON 문자열 Decimal, 통화는 ISO 4217 3자리 코드로 전달합니다.
 
@@ -68,9 +91,15 @@ API 기본 주소는 `http://localhost:4000`입니다.
 ```text
 apps/api                 HTTP 진입점
 packages/core            순수 도메인 로직
-  long-term              장기 투자 점수
+  long-term              Legacy 장기 투자 점수 Preview
+  long-term-v1           Core/Future Core Profile, Gate, Confidence, Valuation, Thesis·Stage 정책
   momentum               모멘텀 점수
   portfolio              전략 배분 및 위험 한도
+  philosophy-policy      02 투자 철학, 안전 정책과 변경 거버넌스
+  evidence / thesis      출처 계층, 장기 논지와 Point-in-time 계보
+  momentum-plan          Entry·Stop·Target·Time Stop 계약
+  decision-journal       원본 보존, 수정 승인 재검증 계약
+  performance-attribution 전략 Lot별 Decimal 손익 분리
   learning               결정/결과 기록 계약
 supabase/migrations      PostgreSQL Schema, Index, RLS
 docs                     제품·아키텍처 명세

@@ -3,19 +3,40 @@ import { createServer, type IncomingMessage, type ServerResponse } from "node:ht
 import { pathToFileURL } from "node:url";
 import {
   allocateCapital,
+  allocateCapitalDecimal,
+  assessDecisionReview,
+  attributePerformance,
   composeDecision,
+  createCapitalAllocationDecision,
+  createAuditRecord,
+  createDecisionJournalEntry,
+  createInvestmentLesson,
+  createDomainEvent,
+  createOutboxRecord,
   evaluateLongTerm,
+  evaluateLongTermV1,
   evaluateMomentum,
   evaluateRisk,
   interpretCrossSignal,
   inspectSnapshot,
   generateMarkdownReport,
+  generateDecisionReport,
   InMemoryInvestmentOsRepository,
   OutboxPublisher,
   proposeAllocation,
+  requestDecisionModification,
+  resolveManualRiskReview,
+  replayLongTermEvaluation,
+  validateEvidence,
+  validateEvaluationEvidence,
+  validateLongTermThesis,
+  validateMomentumTradePlan,
+  validatePhilosophyPolicy,
   DecisionWorkflow,
   type AllocationProposal,
   type RiskDecision,
+  type LongTermEvaluationInput,
+  type LongTermEvaluationResult,
 } from "@investment-os/core";
 
 const port = Number(process.env.PORT ?? 4000);
@@ -85,11 +106,106 @@ export const server = createServer(async (request, response) => {
       const id = decodeURIComponent(path.slice("/api/events/".length));
       return json(response, 200, await repository.listEvents(id));
     }
+    if (request.method === "GET" && path.startsWith("/api/long-term/evaluations/")) {
+      const id = decodeURIComponent(path.slice("/api/long-term/evaluations/".length));
+      const evaluation = await repository.findLongTermEvaluation(id);
+      return evaluation ? json(response, 200, evaluation) : json(response, 404, { requestId, error: { code: "EVALUATION_NOT_FOUND", message: "long-term evaluation not found", retryable: false } });
+    }
+    const companyLongTerm = request.method === "GET" ? path.match(/^\/api\/companies\/([^/]+)\/long-term$/) : null;
+    if (companyLongTerm) {
+      const evaluation = await repository.findLatestLongTermEvaluation(decodeURIComponent(companyLongTerm[1] ?? ""));
+      return evaluation ? json(response, 200, evaluation) : json(response, 404, { requestId, error: { code: "EVALUATION_NOT_FOUND", message: "company long-term evaluation not found", retryable: false } });
+    }
+    if (request.method === "GET" && path === "/api/long-term/rankings") {
+      const profile = url.searchParams.get("profile");
+      if (profile !== "CORE" && profile !== "FUTURE_CORE") throw new Error("profile must be CORE or FUTURE_CORE");
+      const allEvaluations = await repository.listLongTermEvaluations();
+      const modelVersionId = url.searchParams.get("modelVersionId") ?? allEvaluations[0]?.modelVersionId;
+      const evaluations = allEvaluations.filter((evaluation) => evaluation.modelVersionId === modelVersionId);
+      const latestByCompany = new Map<string, LongTermEvaluationResult>();
+      for (const evaluation of evaluations) if (!latestByCompany.has(evaluation.companyId)) latestByCompany.set(evaluation.companyId, evaluation);
+      const ranked = [...latestByCompany.values()]
+        .map((evaluation) => ({
+          evaluationId: evaluation.id,
+          companyId: evaluation.companyId,
+          profile,
+          result: profile === "CORE" ? evaluation.profiles.core : evaluation.profiles.futureCore,
+          action: evaluation.action,
+          proposedStage: evaluation.proposedStage,
+        }))
+        .filter((item) => item.result?.eligibility === "ELIGIBLE")
+        .sort((left, right) => (right.result?.score.point ?? 0) - (left.result?.score.point ?? 0)
+          || (right.result?.confidence.score ?? 0) - (left.result?.confidence.score ?? 0)
+          || left.companyId.localeCompare(right.companyId));
+      return json(response, 200, { profile, modelVersionId, items: ranked });
+    }
+    if (request.method === "GET" && path === "/api/long-term/reviews/due") {
+      const asOf = url.searchParams.get("asOf") ?? new Date().toISOString();
+      const asOfTime = new Date(asOf).getTime();
+      if (!Number.isFinite(asOfTime)) throw new Error("asOf must be a valid date");
+      const evaluations = await repository.listLongTermEvaluations();
+      const due = evaluations
+        .filter((evaluation) => evaluation.mode !== "HISTORICAL_REPLAY" && new Date(evaluation.nextReviewAt).getTime() <= asOfTime)
+        .sort((left, right) => left.nextReviewAt.localeCompare(right.nextReviewAt));
+      return json(response, 200, { asOf, items: due });
+    }
     if (request.method !== "POST") return json(response, 404, { error: "not_found" });
 
     const body = await readBody(request);
     if (path === "/v1/evaluations/long-term") {
       return json(response, 200, evaluateLongTerm(body as Parameters<typeof evaluateLongTerm>[0]));
+    }
+    if (path === "/api/long-term/evaluations") {
+      return idempotentJson(request, response, path, body, async () => {
+        const result = evaluateLongTermV1(body as LongTermEvaluationInput);
+        const event = createDomainEvent({
+          id: randomUUID(),
+          type: "LongTermEvaluationCompleted",
+          occurredAt: result.evaluatedAt,
+          aggregateId: result.id,
+          correlationId,
+          schemaVersion: "1",
+          modelVersionId: result.modelVersionId,
+          payload: {
+            evaluationId: result.id,
+            companyId: result.companyId,
+            primaryProfile: result.primaryProfile,
+            stageBefore: result.stageBefore,
+            proposedStage: result.proposedStage,
+            action: result.action,
+            coreScore: result.profiles.core?.score.point,
+            futureCoreScore: result.profiles.futureCore?.score.point,
+            confidenceScore: result.confidence.score,
+            thesisStatus: result.thesisAssessment.status,
+            hardRisk: result.gateResults.some((gate) => gate.gateId === "HARD_RISK_CLEAR" && gate.status !== "PASSED"),
+            nextReviewAt: result.nextReviewAt,
+          },
+        });
+        const audit = createAuditRecord({
+          id: randomUUID(),
+          occurredAt: result.evaluatedAt,
+          actorId: "long-term-engine",
+          action: "LONG_TERM_EVALUATED",
+          entityType: "LongTermEvaluation",
+          entityId: result.id,
+          reason: `Long-term ${result.mode} completed`,
+          after: result,
+          metadata: {
+            modelVersionId: result.modelVersionId,
+            philosophyVersionId: result.philosophyVersionId,
+            resultHash: result.resultHash,
+            correlationId,
+          },
+        });
+        await repository.saveLongTermEvaluationWithOutbox(result, audit, createOutboxRecord(event));
+        return { status: 201, body: result };
+      });
+    }
+    if (path === "/api/long-term/replays") {
+      return idempotentJson(request, response, path, body, async () => ({
+        status: 200,
+        body: replayLongTermEvaluation(body as LongTermEvaluationInput),
+      }));
     }
     if (path === "/v1/evaluations/momentum") {
       return json(response, 200, evaluateMomentum(body as Parameters<typeof evaluateMomentum>[0]));
@@ -97,6 +213,63 @@ export const server = createServer(async (request, response) => {
     if (path === "/v1/portfolio/allocate") {
       const { capital } = body as { capital: number };
       return json(response, 200, allocateCapital(capital));
+    }
+    if (path === "/api/portfolio/allocate") {
+      const input = body as { capital: string; currency: string };
+      return json(response, 200, allocateCapitalDecimal(input.capital, input.currency));
+    }
+    if (path === "/api/philosophy/policies/validate") {
+      return json(response, 200, validatePhilosophyPolicy(body as Parameters<typeof validatePhilosophyPolicy>[0]));
+    }
+    if (path === "/api/evidence/validate") {
+      return json(response, 200, validateEvidence(body as Parameters<typeof validateEvidence>[0]));
+    }
+    if (path === "/api/evidence/sets/validate") {
+      return json(response, 200, validateEvaluationEvidence(body as Parameters<typeof validateEvaluationEvidence>[0]));
+    }
+    if (path === "/api/theses/validate") {
+      return json(response, 200, validateLongTermThesis(body as Parameters<typeof validateLongTermThesis>[0]));
+    }
+    if (path === "/api/momentum/plans/validate") {
+      return json(response, 200, validateMomentumTradePlan(body as Parameters<typeof validateMomentumTradePlan>[0]));
+    }
+    if (path === "/api/decisions/journal/validate") {
+      return json(response, 200, createDecisionJournalEntry(body as Parameters<typeof createDecisionJournalEntry>[0]));
+    }
+    if (path === "/api/decisions/modifications/request") {
+      return idempotentJson(request, response, path, body, async () => ({
+        status: 201,
+        body: requestDecisionModification(body as Parameters<typeof requestDecisionModification>[0]),
+      }));
+    }
+    if (path === "/api/allocations/monthly") {
+      return idempotentJson(request, response, path, body, async () => ({
+        status: 201,
+        body: createCapitalAllocationDecision(body as Parameters<typeof createCapitalAllocationDecision>[0]),
+      }));
+    }
+    if (path === "/api/risk/manual-review/resolve") {
+      const input = body as {
+        original: Parameters<typeof resolveManualRiskReview>[0];
+        proposal: Parameters<typeof resolveManualRiskReview>[1];
+        resolution: Parameters<typeof resolveManualRiskReview>[2];
+      };
+      return idempotentJson(request, response, path, body, async () => ({
+        status: 201,
+        body: resolveManualRiskReview(input.original, input.proposal, input.resolution),
+      }));
+    }
+    if (path === "/api/reviews/assess") {
+      return idempotentJson(request, response, path, body, async () => ({
+        status: 201,
+        body: assessDecisionReview(body as Parameters<typeof assessDecisionReview>[0]),
+      }));
+    }
+    if (path === "/api/lessons/validate") {
+      return json(response, 200, createInvestmentLesson(body as Parameters<typeof createInvestmentLesson>[0]));
+    }
+    if (path === "/api/performance/attribute") {
+      return json(response, 200, attributePerformance(body as Parameters<typeof attributePerformance>[0]));
     }
     if (path === "/api/cross-signals") {
       return json(response, 200, interpretCrossSignal(body as Parameters<typeof interpretCrossSignal>[0]));
@@ -152,13 +325,28 @@ export const server = createServer(async (request, response) => {
     if (path === "/api/reports/generate") {
       return json(response, 201, generateMarkdownReport(body as Parameters<typeof generateMarkdownReport>[0]));
     }
+    if (path === "/api/reports/decision") {
+      return json(response, 201, generateDecisionReport(body as Parameters<typeof generateDecisionReport>[0]));
+    }
     return json(response, 404, { error: "not_found" });
   } catch (error) {
     const message = error instanceof Error ? error.message : "unknown error";
     const requestId = response.getHeader("x-request-id") ?? "unknown";
-    return json(response, 400, { requestId, error: { code: "INVALID_REQUEST", message, retryable: false } });
+    const correlationId = response.getHeader("x-correlation-id") ?? requestId;
+    const mapped = mapApiError(message);
+    return json(response, mapped.status, { requestId, correlationId, error: { code: mapped.code, message, retryable: mapped.retryable } });
   }
 });
+
+function mapApiError(message: string): { status: number; code: string; retryable: boolean } {
+  if (/already exists|immutable/i.test(message)) return { status: 409, code: "EVALUATION_ALREADY_EXISTS", retryable: false };
+  if (/policy version|POLICY_VERSION/i.test(message)) return { status: 409, code: "POLICY_VERSION_CONFLICT", retryable: false };
+  if (/newer than evaluatedAt|point.in.time|future information/i.test(message)) return { status: 422, code: "POINT_IN_TIME_VIOLATION", retryable: false };
+  if (/industry profile|industry factor/i.test(message)) return { status: 422, code: "INDUSTRY_PROFILE_NOT_SUPPORTED", retryable: false };
+  if (/valuation|scenario|marketPrice/i.test(message)) return { status: 422, code: "VALUATION_INPUT_INCOMPLETE", retryable: false };
+  if (/evidence|thesis|factor|confidence|score/i.test(message)) return { status: 422, code: "INSUFFICIENT_EVALUATION_INPUT", retryable: false };
+  return { status: 400, code: "INVALID_REQUEST", retryable: false };
+}
 
 if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
   server.listen(port, () => {

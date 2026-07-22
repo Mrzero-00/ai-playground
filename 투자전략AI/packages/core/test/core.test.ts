@@ -85,7 +85,7 @@ test("cross signal never merges the two strategy scores", () => {
 test("portfolio reduces an allocation at strategy and company limits", () => {
   const proposal = proposeAllocation({
     ...allocationContext, id: "allocation-1", strategy: "MOMENTUM", companyId: "ORCL",
-    requestedAmount: "100000", portfolioValue: "1000000", currentStrategyValue: "100000", currentCompanyValue: "70000",
+    requestedAmount: "120000", portfolioValue: "1000000", currentStrategyValue: "100000", currentCompanyValue: "70000",
   });
   assert.equal(proposal.status, "REDUCED");
   assert.equal(proposal.approvedAmount, "30000");

@@ -1,3 +1,5 @@
+import { assertCurrency, assertDecimal, compareDecimal, type CurrencyCode, type DecimalString } from "./decimal.js";
+
 export type LotStrategy = "CORE" | "FUTURE_CORE" | "MOMENTUM";
 export type ExitPolicy = "THESIS_BREAK" | "VALUATION" | "STOP_LOSS" | "TARGET" | "TIME_STOP";
 
@@ -31,4 +33,3 @@ export function validatePositionLot(lot: PositionLot): PositionLot {
   }
   return lot;
 }
-import { assertCurrency, assertDecimal, compareDecimal, type CurrencyCode, type DecimalString } from "./decimal.js";

@@ -34,16 +34,23 @@ test("model versions require controlled forward transitions", () => {
 test("candidate and setup states cannot skip required gates", () => {
   assert.equal(transitionLongTermCandidate("WATCH", "CANDIDATE"), "CANDIDATE");
   assert.throws(() => transitionLongTermCandidate("WATCH", "CORE"), /invalid long-term transition/);
+  assert.throws(() => transitionLongTermCandidate("CORE", "ARCHIVED"), /invalid long-term transition/);
+  assert.equal(transitionLongTermCandidate("CORE", "REMOVED"), "REMOVED");
+  assert.equal(transitionLongTermCandidate("REMOVED", "ARCHIVED"), "ARCHIVED");
   assert.equal(transitionMomentumSetup("PLANNED", "APPROVED"), "APPROVED");
   assert.throws(() => transitionMomentumSetup("PLANNED", "ENTERED"), /invalid momentum transition/);
 });
 
 test("Momentum ENTER requires entry, stop and time-stop controls", () => {
   assert.throws(() => validateMomentumEvaluation({
-    id: "evaluation-1", companyId: "company-1", evaluatedAt: "2026-07-22T00:00:00Z", modelVersionId: "model-1", snapshotIds: ["snapshot-1"],
+    id: "evaluation-1", companyId: "company-1", evaluatedAt: "2026-07-22T00:00:00Z",
+    dataAsOf: "2026-07-21T00:00:00Z", marketPriceAsOf: "2026-07-21T20:00:00Z",
+    modelVersionId: "model-1", snapshotIds: ["snapshot-1"],
     momentumScore: 90, relativeStrengthScore: 90, volumeScore: 90, catalystScore: 90,
     liquidityScore: 90, setupQualityScore: 90, riskScore: 10, setupType: "BREAKOUT", action: "ENTER",
-    invalidationConditions: [], catalystSummary: "earnings", evidenceIds: ["snapshot-1"],
+    invalidationConditions: [], catalystSummary: "earnings", evidenceIds: ["evidence-1", "evidence-bear"],
+    scoringEvidenceIds: ["evidence-1"], counterEvidenceIds: ["evidence-bear"],
+    confidence: { score: 80, evidenceCoverage: 75, sourceQuality: 90, modelFit: 80, disagreement: 20 },
   }), /entry zone/);
 });
 
@@ -104,7 +111,7 @@ test("snapshots are point-in-time and report staleness", () => {
 
 test("execution records preserve partial fills and slippage", () => {
   const execution = recordExecution({
-    id: "decision-1", allocationProposalId: "allocation-1", riskDecisionId: "risk-1", status: "APPROVED",
+    id: "decision-1", allocationProposalId: "allocation-1", riskDecisionId: "risk-1", action: "BUY", status: "APPROVED",
     approvedAmount: "1000", currency: "USD", expiresAt: "2026-07-22T01:00:00Z", reasons: [],
     modelVersionIds: ["portfolio-policy-1", "risk-policy-1"], snapshotIds: ["snapshot-1"],
     userDecision: { approved: true, decidedAt: "2026-07-22T00:00:00Z", userId: "user-1" },
@@ -118,7 +125,7 @@ test("execution records preserve partial fills and slippage", () => {
 
 test("execution cannot bypass user approval", () => {
   assert.throws(() => recordExecution({
-    id: "decision-pending", allocationProposalId: "allocation-1", riskDecisionId: "risk-1", status: "PENDING_APPROVAL",
+    id: "decision-pending", allocationProposalId: "allocation-1", riskDecisionId: "risk-1", action: "BUY", status: "PENDING_APPROVAL",
     approvedAmount: "1000", currency: "USD", expiresAt: "2026-07-22T01:00:00Z", reasons: [],
     modelVersionIds: [], snapshotIds: [],
   }, {
@@ -152,7 +159,7 @@ test("decision workflow persists approval audit and domain event", async () => {
     correlationId: "correlation-1",
     allocation: {
       id: "allocation-1", portfolioId: "portfolio-1", generatedAt: "2026-07-22T00:00:00Z", expiresAt: "2026-07-22T01:00:00Z",
-      strategy: "LONG_TERM", requestedAmount: "100", approvedAmount: "100", currency: "USD",
+      strategy: "LONG_TERM", action: "BUY", requestedAmount: "100", approvedAmount: "100", currency: "USD",
       currentStrategyWeight: 0, projectedStrategyWeight: 0.01, currentCompanyWeight: 0, projectedCompanyWeight: 0.01,
       status: "APPROVED", reasons: [], constraintsTriggered: [], inputEvaluationIds: ["evaluation-1"],
       snapshotIds: ["snapshot-1"], policyVersionId: "portfolio-policy-1",

@@ -1,13 +1,21 @@
 export type DecimalString = string;
+export type SignedDecimalString = string;
 export type CurrencyCode = string;
 
 type DecimalParts = { coefficient: bigint; scale: number };
 
 const DECIMAL_PATTERN = /^(0|[1-9]\d*)(?:\.(\d+))?$/;
+const SIGNED_DECIMAL_PATTERN = /^-?(0|[1-9]\d*)(?:\.(\d+))?$/;
 const CURRENCY_PATTERN = /^[A-Z]{3}$/;
 
 export function assertDecimal(value: string, name = "value"): asserts value is DecimalString {
   if (!DECIMAL_PATTERN.test(value)) throw new RangeError(`${name} must be a non-negative plain decimal string`);
+}
+
+export function assertSignedDecimal(value: string, name = "value"): asserts value is SignedDecimalString {
+  if (!SIGNED_DECIMAL_PATTERN.test(value) || value.startsWith("-0") && compareSignedDecimal(value, "0") === 0) {
+    throw new RangeError(`${name} must be a signed plain decimal string`);
+  }
 }
 
 export function assertCurrency(value: string): asserts value is CurrencyCode {
@@ -22,6 +30,21 @@ export function compareDecimal(left: DecimalString, right: DecimalString): numbe
 export function addDecimal(left: DecimalString, right: DecimalString): DecimalString {
   const [a, b] = align(parse(left), parse(right));
   return format({ coefficient: a.coefficient + b.coefficient, scale: a.scale });
+}
+
+export function compareSignedDecimal(left: SignedDecimalString, right: SignedDecimalString): number {
+  const [a, b] = align(parseSigned(left), parseSigned(right));
+  return a.coefficient < b.coefficient ? -1 : a.coefficient > b.coefficient ? 1 : 0;
+}
+
+export function addSignedDecimal(left: SignedDecimalString, right: SignedDecimalString): SignedDecimalString {
+  const [a, b] = align(parseSigned(left), parseSigned(right));
+  return formatSigned({ coefficient: a.coefficient + b.coefficient, scale: a.scale });
+}
+
+export function subtractDecimal(left: DecimalString, right: DecimalString): SignedDecimalString {
+  const [a, b] = align(parse(left), parse(right));
+  return formatSigned({ coefficient: a.coefficient - b.coefficient, scale: a.scale });
 }
 
 export function subtractDecimalFloorZero(left: DecimalString, right: DecimalString): DecimalString {
@@ -57,6 +80,15 @@ function parse(value: string): DecimalParts {
   return normalize({ coefficient: BigInt(`${whole}${fraction}`), scale: fraction.length });
 }
 
+function parseSigned(value: string): DecimalParts {
+  if (!SIGNED_DECIMAL_PATTERN.test(value)) throw new RangeError("value must be a signed plain decimal string");
+  const negative = value.startsWith("-");
+  const unsigned = negative ? value.slice(1) : value;
+  const [whole = "0", fraction = ""] = unsigned.split(".");
+  const coefficient = BigInt(`${whole}${fraction}`) * (negative ? -1n : 1n);
+  return normalize({ coefficient, scale: fraction.length });
+}
+
 function align(left: DecimalParts, right: DecimalParts): [DecimalParts, DecimalParts] {
   const scale = Math.max(left.scale, right.scale);
   return [
@@ -75,9 +107,15 @@ function normalize(parts: DecimalParts): DecimalParts {
 }
 
 function format(parts: DecimalParts): DecimalString {
+  if (parts.coefficient < 0n) throw new RangeError("unsigned decimal cannot be negative");
+  return formatSigned(parts);
+}
+
+function formatSigned(parts: DecimalParts): SignedDecimalString {
   const normalized = normalize(parts);
-  const digits = normalized.coefficient.toString();
-  if (normalized.scale === 0) return digits;
+  const negative = normalized.coefficient < 0n;
+  const digits = (negative ? -normalized.coefficient : normalized.coefficient).toString();
+  if (normalized.scale === 0) return `${negative ? "-" : ""}${digits}`;
   const padded = digits.padStart(normalized.scale + 1, "0");
-  return `${padded.slice(0, -normalized.scale)}.${padded.slice(-normalized.scale)}`;
+  return `${negative ? "-" : ""}${padded.slice(0, -normalized.scale)}.${padded.slice(-normalized.scale)}`;
 }

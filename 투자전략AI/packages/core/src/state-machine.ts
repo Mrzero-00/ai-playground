@@ -7,17 +7,20 @@ export type MomentumSetupState =
   | "REJECTED" | "EXPIRED" | "INVALIDATED" | "CANCELLED";
 
 const longTermProgression: LongTermCandidateState[] = ["UNIVERSE", "WATCH", "CANDIDATE", "STRONG_CANDIDATE", "FUTURE_CORE", "CORE"];
-const longTermTerminal: LongTermCandidateState[] = ["WEAKENED", "REMOVED", "ARCHIVED"];
+const longTermExceptional: LongTermCandidateState[] = ["WEAKENED", "REMOVED"];
 const momentumProgression: MomentumSetupState[] = ["DETECTED", "VALIDATED", "PLANNED", "APPROVED", "ENTERED", "MANAGING", "CLOSED", "REVIEWED"];
 const momentumTerminal: MomentumSetupState[] = ["REJECTED", "EXPIRED", "INVALIDATED", "CANCELLED"];
 
 export function transitionLongTermCandidate(current: LongTermCandidateState, next: LongTermCandidateState): LongTermCandidateState {
   if (current === "ARCHIVED") throw new Error("archived candidate cannot transition");
-  if (longTermTerminal.includes(next)) return next;
+  if (next === "ARCHIVED") {
+    if (current === "REMOVED") return next;
+    throw new Error(`invalid long-term transition: ${current} -> ${next}`);
+  }
+  if (longTermExceptional.includes(next)) return next;
   const currentIndex = longTermProgression.indexOf(current);
   const nextIndex = longTermProgression.indexOf(next);
   if (current === "WEAKENED" && next === "WATCH") return next;
-  if (current === "REMOVED" && next === "ARCHIVED") return next;
   if (currentIndex < 0 || nextIndex !== currentIndex + 1) throw new Error(`invalid long-term transition: ${current} -> ${next}`);
   return next;
 }

@@ -1,4 +1,5 @@
 import { minDecimal, type CurrencyCode, type DecimalString } from "./decimal.js";
+import type { DecisionAction } from "./philosophy-policy.js";
 import type { AllocationProposal } from "./portfolio.js";
 import type { RiskDecision } from "./risk.js";
 
@@ -6,6 +7,7 @@ export type DecisionProposal = {
   id: string;
   allocationProposalId: string;
   riskDecisionId: string;
+  action: DecisionAction;
   status: "PENDING_APPROVAL" | "MANUAL_REVIEW" | "BLOCKED" | "APPROVED" | "REJECTED" | "EXPIRED";
   approvedAmount: DecimalString;
   currency: CurrencyCode;
@@ -35,6 +37,7 @@ export function composeDecision(
     id,
     allocationProposalId: allocation.id,
     riskDecisionId: risk.id,
+    action: allocation.action,
     currency: allocation.currency,
     expiresAt: allocation.expiresAt,
     modelVersionIds: [allocation.policyVersionId, risk.riskPolicyVersionId],

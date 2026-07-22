@@ -41,6 +41,7 @@ See docs/ for detailed specifications.
 - [Database](docs/08_Database.md)
 - [Scoring System](docs/09_Scoring_System.md)
 - [Report System](docs/10_Report_System.md)
+- [UI / UX](docs/11_UI_UX.md)
 
 ## 시작하기
 

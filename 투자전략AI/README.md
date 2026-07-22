@@ -36,6 +36,7 @@ See docs/ for detailed specifications.
 - [Long-term Engine](docs/03_LongTerm_Engine.md)
 - [Momentum Engine](docs/04_Momentum_Engine.md)
 - [Portfolio Engine](docs/05_Portfolio_Engine.md)
+- [Learning Engine](docs/06_Learning_Engine.md)
 
 ## 시작하기
 

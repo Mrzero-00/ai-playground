@@ -68,6 +68,19 @@ API 기본 주소는 `http://localhost:4000`입니다.
 - `GET /api/v1/momentum/reviews/due`: 기준시각까지 도래한 Momentum 리뷰 조회
 - `POST /api/v1/momentum/replays`: 운영 상태를 변경하지 않는 Historical Replay
 - `POST /v1/portfolio/allocate`: 단순 85/15 Preview용 Legacy API
+- `POST /api/v1/portfolio/policies/validate`: Portfolio v1 Target·Soft·Hard·Open Risk·외화 정책 검증
+- `POST /api/v1/allocations/proposals`: Snapshot·Capacity·수량·Risk Handoff 기반 불변 배분안 생성
+- `GET /api/v1/allocations/proposals/:id`: 저장된 Portfolio v1 배분안 조회
+- `POST /api/v1/allocations/new-capital`: 동일 Snapshot의 후보를 안정 정렬해 공동 Capacity 내 신규 자금 배분
+- `GET /api/v1/allocations/new-capital/:id`: 불변 신규 자금 배분 결정 조회
+- `POST /api/v1/portfolios/:id/rebalance`: Hard/Soft Drift·노출·Open Risk 리밸런싱 검토
+- `GET /api/v1/portfolio/rebalance-reviews/:id`: 불변 Rebalance 검토 결과 조회
+- `POST /api/v1/portfolios/:id/stress-tests`: 시장·Sector·Theme·FX·Gap Stress 실행
+- `GET /api/v1/portfolio/stress-results/:id`: 불변 Stress 결과 조회
+- `GET /api/v1/portfolios/:id`: 최신 Portfolio Snapshot과 Ledger 조회
+- `GET /api/v1/portfolios/:id/exposures`: Company·Sector·Industry·Theme·Currency 노출 조회
+- `GET /api/v1/portfolios/:id/open-risk`: Momentum Open Risk 조회
+- `POST /api/v1/allocations/replays`: 운영 상태를 바꾸지 않는 Portfolio Historical Replay
 - `POST /api/v1/cross-signals`: 장기·모멘텀 교차 신호 해석
 - `POST /api/v1/allocations/propose`: Bucket/종목 한도를 적용한 Decimal 배분 제안
 - `POST /api/v1/portfolio/allocate`: 85/15 정책을 적용한 Decimal 자금 배분
@@ -109,6 +122,7 @@ packages/core            순수 도메인 로직
   momentum               Legacy 모멘텀 점수 Preview
   momentum-v1            Universe, Regime, 7 Factor, Setup, Trade Plan, Gate, Lifecycle 정책
   portfolio              전략 배분 및 위험 한도
+  portfolio-v1           Snapshot Ledger, Exposure, Open Risk, Sizing, Batch, Rebalance, Stress
   philosophy-policy      02 투자 철학, 안전 정책과 변경 거버넌스
   evidence / thesis      출처 계층, 장기 논지와 Point-in-time 계보
   momentum-plan          Entry·Stop·Target·Time Stop 계약

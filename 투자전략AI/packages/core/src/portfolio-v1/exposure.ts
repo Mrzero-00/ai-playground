@@ -7,6 +7,7 @@ export function projectExposureChanges(input: {
   sectorCode: string;
   industryCode: string;
   themeKeys: string[];
+  assetCurrency: string;
   additionalAmountBase: DecimalString;
 }): ExposureChangeV1[] {
   const changes: ExposureChangeV1[] = [];
@@ -16,6 +17,7 @@ export function projectExposureChanges(input: {
   for (const theme of [...new Set(input.themeKeys)].sort()) {
     addChange(changes, input.ledger, "THEME", theme, input.ledger.exposures.theme[theme] ?? "0", input.additionalAmountBase);
   }
+  addChange(changes, input.ledger, "CURRENCY", input.assetCurrency, input.ledger.exposures.currency[input.assetCurrency] ?? "0", input.additionalAmountBase);
   return changes;
 }
 

@@ -4,13 +4,12 @@ import {
   assertDecimal,
   compareDecimal,
   decimalRatio,
-  maxDecimal,
   multiplyDecimal,
   multiplyDecimalByRatio,
-  subtractDecimal,
   subtractDecimalFloorZero,
   type DecimalString,
 } from "../decimal.js";
+import { calculatePositionOpenRisk } from "./open-risk.js";
 import type {
   ExposureSnapshotV1,
   PortfolioLedgerV1,
@@ -26,6 +25,8 @@ export function buildPortfolioLedger(snapshot: PortfolioSnapshotV1): PortfolioLe
   let momentumPositionValueBase: DecimalString = "0";
   let futureCorePositionValueBase: DecimalString = "0";
   let momentumOpenRiskBase: DecimalString = "0";
+  const momentumOpenRiskBySector: Record<string, DecimalString> = {};
+  const momentumOpenRiskByTheme: Record<string, DecimalString> = {};
   const exposures: ExposureSnapshotV1 = { company: {}, sector: {}, industry: {}, theme: {}, currency: {} };
 
   for (const position of snapshot.positions) {
@@ -43,7 +44,13 @@ export function buildPortfolioLedger(snapshot: PortfolioSnapshotV1): PortfolioLe
     }
     if (position.strategy === "MOMENTUM") {
       momentumPositionValueBase = addDecimal(momentumPositionValueBase, position.marketValueBase);
-      momentumOpenRiskBase = addDecimal(momentumOpenRiskBase, calculatePositionOpenRisk(position));
+      const positionOpenRisk = calculatePositionOpenRisk(position);
+      momentumOpenRiskBase = addDecimal(momentumOpenRiskBase, positionOpenRisk);
+      addExposure(momentumOpenRiskBySector, position.sectorCode, positionOpenRisk);
+      for (const tag of position.exposureTags.filter((item) => item.dimension === "THEME")) {
+        const lookThroughRisk = multiplyDecimalByRatio(multiplyDecimalByRatio(positionOpenRisk, tag.sensitivity), tag.confidence);
+        addExposure(momentumOpenRiskByTheme, tag.key, lookThroughRisk);
+      }
     } else {
       longTermPositionValueBase = addDecimal(longTermPositionValueBase, position.marketValueBase);
       if (position.strategy === "FUTURE_CORE") futureCorePositionValueBase = addDecimal(futureCorePositionValueBase, position.marketValueBase);
@@ -99,6 +106,8 @@ export function buildPortfolioLedger(snapshot: PortfolioSnapshotV1): PortfolioLe
     momentumPositionValueBase,
     futureCorePositionValueBase,
     momentumOpenRiskBase,
+    momentumOpenRiskBySector,
+    momentumOpenRiskByTheme,
     weights,
     exposures,
     warnings: [...snapshot.anomalyFlags],
@@ -132,20 +141,6 @@ export function validatePortfolioSnapshot(snapshot: PortfolioSnapshotV1): Portfo
     if (cash.settlementDate !== undefined && !Number.isFinite(new Date(cash.settlementDate).getTime())) throw new Error("cash settlementDate must be valid");
   }
   return structuredClone(snapshot);
-}
-
-export function calculatePositionOpenRisk(position: PositionSnapshotV1): DecimalString {
-  if (position.strategy !== "MOMENTUM") return "0";
-  if (position.stopPrice === undefined) throw new Error("Momentum position requires an active stop price");
-  assertDecimal(position.stopPrice, "stopPrice");
-  if (compareDecimal(position.stopPrice, "0") <= 0) throw new Error("Momentum stopPrice must be positive");
-  const priceRiskAsset = compareDecimal(position.marketPrice, position.stopPrice) > 0
-    ? subtractDecimal(position.marketPrice, position.stopPrice) : "0";
-  assertDecimal(priceRiskAsset, "position price risk");
-  const priceRiskBase = multiplyDecimal(priceRiskAsset, position.fxRateToBase);
-  const scenarioRisk = position.gapScenarioLossPerUnitBase ?? "0";
-  assertDecimal(scenarioRisk, "gapScenarioLossPerUnitBase");
-  return multiplyDecimal(position.quantity, maxDecimal(priceRiskBase, scenarioRisk));
 }
 
 function validatePosition(position: PositionSnapshotV1, baseCurrency: string): void {

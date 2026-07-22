@@ -116,6 +116,8 @@ test("Portfolio v1 reconciles NAV, 85/15 buckets, look-through exposure and open
   assert.equal(ledger.weights.momentum, 0.15);
   assert.equal(ledger.weights.invested, 0.12);
   assert.equal(ledger.momentumOpenRiskBase, "500");
+  assert.equal(ledger.momentumOpenRiskBySector.SEMICONDUCTOR, "500");
+  assert.equal(ledger.momentumOpenRiskByTheme.AI_CAPEX, "400");
   assert.equal(ledger.exposures.theme.AI_CAPEX, "7500");
 });
 
@@ -149,6 +151,46 @@ test("Momentum quantity is derived from gap loss instead of requested notional",
   assert.equal(result.projectedOpenRisk, "1000");
 });
 
+test("Momentum sector and theme open-risk budgets reduce correlated new risk", () => {
+  const result = proposeAllocationV1(momentumRequest({
+    companyId: "company-c",
+    securityId: "security-c",
+    sectorCode: "SEMICONDUCTOR",
+    industryCode: "CHIP_DESIGN",
+    themeKeys: ["AI_CAPEX"],
+  }));
+  assert.equal(result.status, "REDUCED");
+  assert.equal(result.allowedRiskAmount, "250");
+  assert.equal(result.approvedAmount, "2500");
+  assert.ok(result.constraintsTriggered.includes("MOMENTUM_SECTOR_OPEN_RISK_LIMIT"));
+});
+
+test("foreign-currency hard capacity is enforced without capping base currency", () => {
+  const portfolio = snapshot();
+  portfolio.positions[0] = {
+    ...portfolio.positions[0]!,
+    quantity: "600",
+    marketPrice: "50",
+    assetCurrency: "EUR",
+    fxRateToBase: "2",
+    marketValueBase: "60000",
+    costBasisBase: "55000",
+  };
+  portfolio.cashBalances[0]!.amount = "25000";
+  portfolio.cashBalances[0]!.amountBase = "25000";
+  const result = proposeAllocationV1(longTermRequest({
+    requestedAmountBase: "10000",
+    currentPrice: "50",
+    assetCurrency: "EUR",
+    fxRateToBase: "2",
+    portfolioSnapshot: portfolio,
+  }));
+  assert.equal(result.status, "REDUCED");
+  assert.equal(result.approvedAmount, "5000");
+  assert.ok(result.constraintsTriggered.includes("CURRENCY_GROSS_LIMIT"));
+  assert.equal(result.riskHandoff.requiresManualReview, true);
+});
+
 test("Crisis or drawdown pause creates zero new Momentum risk without changing score", () => {
   const request = momentumRequest();
   if (request.sizingSignal.kind !== "MOMENTUM") throw new Error("fixture mismatch");
@@ -157,7 +199,7 @@ test("Crisis or drawdown pause creates zero new Momentum risk without changing s
   assert.equal(request.sizingSignal.score, 90);
   assert.equal(result.approvedAmount, "0");
   assert.equal(result.status, "REJECTED");
-  assert.ok(result.constraintsTriggered.includes("MOMENTUM_OPEN_RISK_LIMIT"));
+  assert.ok(result.constraintsTriggered.includes("MOMENTUM_TRADE_RISK_LIMIT"));
 });
 
 test("Future Core position and sub-bucket hard limits reduce an otherwise eligible request", () => {

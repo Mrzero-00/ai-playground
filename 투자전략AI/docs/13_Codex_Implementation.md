@@ -1,6 +1,6 @@
 # 13. Implementation Status
 
-기준 문서: `01_Architecture.md` v2.3, `02_Investment_Philosophy.md` v2.2.1, `03_LongTerm_Engine.md` v1.0.0-draft, `04_Momentum_Engine.md` v1.0.0-draft
+기준 문서: `01_Architecture.md` v2.3, `02_Investment_Philosophy.md` v2.2.1, `03_LongTerm_Engine.md` v1.0.0-draft, `04_Momentum_Engine.md` v1.0.0-draft, `05_Portfolio_Engine.md` v1.0.0
 
 ## 구현 완료
 
@@ -61,6 +61,12 @@
 - Momentum Scan·평가·기업 최신 평가·동일 버전 Ranking·Plan Revision·가격 재검증·Due Review API
 - Momentum Evaluation/Scan/Plan + Audit + Transactional Outbox 원자 저장 계약
 - Supabase `005_momentum_engine_v1.sql` Universe·Regime·Factor·Gate·Setup·Plan·Catalyst·Event·Review Schema와 RLS
+- Portfolio Snapshot 기반 NAV·전략별 Cash·85/15 Target/Soft/Hard·Future Core 하위 Bucket Ledger
+- Company·Sector·Industry·Theme·Currency Look-through와 외화 50% Review·65% Hard Capacity
+- Momentum Stop/Gap 기반 Risk 수량, Total·Sector·Theme Open Risk Budget, Liquidity·Round Lot
+- 단건 Proposal, 안정 정렬 New Capital Batch, Rebalance Review, Stress Test, Historical Replay와 결정론적 Hash
+- Portfolio Proposal·Batch·Rebalance·Stress 조회/생성 API와 Audit·Transactional Outbox 원자 저장 계약
+- Supabase `006_portfolio_engine_v1.sql` Policy·Snapshot·Exposure·Open Risk·Capacity·Batch·Rebalance·Stress Schema와 RLS
 
 ## 런타임 경계
 

@@ -26,10 +26,13 @@ type RunningCapacity = {
   sector: Record<string, DecimalString>;
   industry: Record<string, DecimalString>;
   theme: Record<string, DecimalString>;
+  currency: Record<string, DecimalString>;
   position: Record<string, DecimalString>;
   strategy: Record<"LONG_TERM" | "MOMENTUM", DecimalString>;
   futureCore: DecimalString;
   momentumRisk: DecimalString;
+  momentumRiskBySector: Record<string, DecimalString>;
+  momentumRiskByTheme: Record<string, DecimalString>;
 };
 
 export function allocateNewCapitalV1(input: CapitalAllocationBatchInputV1): CapitalAllocationDecisionV1 {
@@ -63,8 +66,23 @@ export function allocateNewCapitalV1(input: CapitalAllocationBatchInputV1): Capi
         subtractDecimalFloorZero(openRiskHard, ledger.momentumOpenRiskBase),
         running.momentumRisk,
       );
+      const remainingSectorRisk = subtractDecimalFloorZero(
+        subtractDecimalFloorZero(
+          multiplyDecimalByRatio(ledger.investableNavBase, policy.momentumSectorOpenRiskHardMax),
+          ledger.momentumOpenRiskBySector[request.sectorCode] ?? "0",
+        ),
+        running.momentumRiskBySector[request.sectorCode] ?? "0",
+      );
+      const remainingThemeRisk = request.themeKeys.map((theme) => subtractDecimalFloorZero(
+        subtractDecimalFloorZero(
+          multiplyDecimalByRatio(ledger.investableNavBase, policy.momentumThemeOpenRiskHardMax),
+          ledger.momentumOpenRiskByTheme[theme] ?? "0",
+        ),
+        running.momentumRiskByTheme[theme] ?? "0",
+      ));
+      const sharedRiskCapacity = minDecimal(remainingRisk, remainingSectorRisk, ...remainingThemeRisk);
       request.requestedRiskAmountBase = request.requestedRiskAmountBase === undefined
-        ? remainingRisk : minDecimal(request.requestedRiskAmountBase, remainingRisk);
+        ? sharedRiskCapacity : minDecimal(request.requestedRiskAmountBase, sharedRiskCapacity);
       if (compareDecimal(request.requestedRiskAmountBase, "0") === 0) {
         constraints.add("MOMENTUM_OPEN_RISK_LIMIT");
         continue;
@@ -167,6 +185,9 @@ function globalNotionalCapacity(
   capacities.push(residualRatio(nav, policy.companyGrossHardMax, ledger.exposures.company[request.companyId] ?? "0", running.company[request.companyId] ?? "0"));
   capacities.push(residualRatio(nav, policy.sectorGrossHardMax, ledger.exposures.sector[request.sectorCode] ?? "0", running.sector[request.sectorCode] ?? "0"));
   capacities.push(residualRatio(nav, policy.industryGrossHardMax, ledger.exposures.industry[request.industryCode] ?? "0", running.industry[request.industryCode] ?? "0"));
+  if (request.assetCurrency !== ledger.baseCurrency) {
+    capacities.push(residualRatio(nav, policy.currencyGrossHardMax, ledger.exposures.currency[request.assetCurrency] ?? "0", running.currency[request.assetCurrency] ?? "0"));
+  }
   const positionKey = `${request.companyId}:${request.lotStrategy}`;
   const positionCurrent = request.portfolioSnapshot.positions
     .filter((position) => position.companyId === request.companyId && position.strategy === request.lotStrategy)
@@ -191,11 +212,17 @@ function applyApprovedCapacity(
   addTo(running.company, request.companyId, approved);
   addTo(running.sector, request.sectorCode, approved);
   addTo(running.industry, request.industryCode, approved);
+  addTo(running.currency, request.assetCurrency, approved);
   for (const theme of request.themeKeys) addTo(running.theme, theme, approved);
   addTo(running.position, `${request.companyId}:${request.lotStrategy}`, approved);
   running.strategy[request.strategy] = addDecimal(running.strategy[request.strategy], approved);
   if (request.lotStrategy === "FUTURE_CORE") running.futureCore = addDecimal(running.futureCore, approved);
-  if (projectedOpenRisk !== undefined) running.momentumRisk = addDecimal(running.momentumRisk, subtractDecimalFloorZero(projectedOpenRisk, initialOpenRisk));
+  if (projectedOpenRisk !== undefined) {
+    const incrementalRisk = subtractDecimalFloorZero(projectedOpenRisk, initialOpenRisk);
+    running.momentumRisk = addDecimal(running.momentumRisk, incrementalRisk);
+    addTo(running.momentumRiskBySector, request.sectorCode, incrementalRisk);
+    for (const theme of request.themeKeys) addTo(running.momentumRiskByTheme, theme, incrementalRisk);
+  }
 }
 
 function projectBatchWeights(
@@ -230,7 +257,11 @@ function targetWeights(policy: AllocationRequestV1["policy"]): PortfolioWeightsV
 }
 
 function emptyRunningCapacity(): RunningCapacity {
-  return { company: {}, sector: {}, industry: {}, theme: {}, position: {}, strategy: { LONG_TERM: "0", MOMENTUM: "0" }, futureCore: "0", momentumRisk: "0" };
+  return {
+    company: {}, sector: {}, industry: {}, theme: {}, currency: {}, position: {},
+    strategy: { LONG_TERM: "0", MOMENTUM: "0" }, futureCore: "0", momentumRisk: "0",
+    momentumRiskBySector: {}, momentumRiskByTheme: {},
+  };
 }
 
 function addTo(target: Record<string, DecimalString>, key: string, value: DecimalString): void {

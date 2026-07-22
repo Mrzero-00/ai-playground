@@ -67,6 +67,7 @@ export function proposeAllocationV1(request: AllocationRequestV1): AllocationPro
     sectorCode: request.sectorCode,
     industryCode: request.industryCode,
     themeKeys: request.themeKeys,
+    assetCurrency: request.assetCurrency,
     additionalAmountBase: effectiveAmount,
   });
   const projectedWeights = calculateProjectedWeights(request, ledger, effectiveAmount);
@@ -111,7 +112,7 @@ export function proposeAllocationV1(request: AllocationRequestV1): AllocationPro
       projectedMomentumOpenRiskBase: projectedOpenRisk,
       drawdownState,
       stressResultIds: [],
-      requiresManualReview: eligibility.review || exposureChanges.some((change) => change.projectedWeight >= 0.9 * hardLimitFor(change.dimension, policy)),
+      requiresManualReview: eligibility.review || exposureChanges.some((change) => change.projectedWeight >= reviewThresholdFor(change.dimension, policy)),
       flags: [...new Set(constraintsTriggered)],
     },
     evaluationId: request.sizingSignal.evaluationId,
@@ -183,8 +184,8 @@ function evaluateEligibility(request: AllocationRequestV1): { eligible: boolean;
 
 function calculateRequestedAmount(request: AllocationRequestV1, momentum?: MomentumSizingResultV1): DecimalString {
   if (request.strategy === "LONG_TERM") return request.requestedAmountBase ?? fail("Long-term allocation requires requestedAmountBase");
-  const riskAmount = momentum?.riskNotionalBase ?? "0";
-  return request.requestedAmountBase === undefined ? riskAmount : minDecimal(request.requestedAmountBase, riskAmount);
+  const riskAmount = momentum?.requestedRiskNotionalBase ?? "0";
+  return request.requestedAmountBase ?? riskAmount;
 }
 
 function buildCapacities(
@@ -201,6 +202,7 @@ function buildCapacities(
   const currentCompany = ledger.exposures.company[request.companyId] ?? "0";
   const currentSector = ledger.exposures.sector[request.sectorCode] ?? "0";
   const currentIndustry = ledger.exposures.industry[request.industryCode] ?? "0";
+  const currentCurrency = ledger.exposures.currency[request.assetCurrency] ?? "0";
   const sameLotStrategyValue = request.portfolioSnapshot.positions
     .filter((position) => position.companyId === request.companyId && position.strategy === request.lotStrategy)
     .reduce((sum, position) => addDecimal(sum, position.marketValueBase), "0" as DecimalString);
@@ -215,6 +217,9 @@ function buildCapacities(
     ratioCapacity("POSITION", nav, positionLimitRatio, sameLotStrategyValue, requested, "POSITION_LIMIT"),
     capacity("LIQUIDITY", liquidityNotionalCapacity(request.liquidity, policy), "0", liquidityNotionalCapacity(request.liquidity, policy), requested, "LIQUIDITY_CAPACITY"),
   ];
+  if (request.assetCurrency !== ledger.baseCurrency) {
+    capacities.push(ratioCapacity("CURRENCY_GROSS", nav, policy.currencyGrossHardMax, currentCurrency, requested, "CURRENCY_GROSS_LIMIT"));
+  }
   if (request.lotStrategy === "FUTURE_CORE") {
     capacities.push(ratioCapacity("FUTURE_CORE", nav, policy.futureCore.hardMax, ledger.futureCorePositionValueBase, requested, "FUTURE_CORE_LIMIT"));
   }
@@ -222,14 +227,16 @@ function buildCapacities(
     capacities.push(ratioCapacity(`THEME:${theme}`, nav, policy.themeGrossHardMax, ledger.exposures.theme[theme] ?? "0", requested, `THEME_LIMIT:${theme}`));
   }
   if (request.strategy === "MOMENTUM") {
-    capacities.push(capacity(
-      "MOMENTUM_RISK_NOTIONAL",
-      momentum?.riskNotionalBase ?? "0",
-      "0",
-      momentum?.riskNotionalBase ?? "0",
-      requested,
-      "MOMENTUM_OPEN_RISK_LIMIT",
-    ));
+    for (const riskCapacity of momentum?.riskCapacities ?? []) {
+      capacities.push(capacity(
+        riskCapacity.capacityId,
+        riskCapacity.maximumNotionalAmountBase,
+        "0",
+        riskCapacity.maximumNotionalAmountBase,
+        requested,
+        riskCapacity.reasonCode,
+      ));
+    }
   }
   return capacities;
 }
@@ -316,10 +323,15 @@ function inferDrawdownState(multiplier: number | undefined): DrawdownState {
   return "PAUSE";
 }
 
-function hardLimitFor(dimension: "COMPANY" | "SECTOR" | "INDUSTRY" | "THEME", policy: AllocationRequestV1["policy"]): number {
+function hardLimitFor(dimension: "COMPANY" | "SECTOR" | "INDUSTRY" | "THEME" | "CURRENCY", policy: AllocationRequestV1["policy"]): number {
   return dimension === "COMPANY" ? policy.companyGrossHardMax
     : dimension === "SECTOR" ? policy.sectorGrossHardMax
-      : dimension === "INDUSTRY" ? policy.industryGrossHardMax : policy.themeGrossHardMax;
+      : dimension === "INDUSTRY" ? policy.industryGrossHardMax
+        : dimension === "THEME" ? policy.themeGrossHardMax : policy.currencyGrossHardMax;
+}
+
+function reviewThresholdFor(dimension: "COMPANY" | "SECTOR" | "INDUSTRY" | "THEME" | "CURRENCY", policy: AllocationRequestV1["policy"]): number {
+  return dimension === "CURRENCY" ? policy.currencyGrossReviewThreshold : 0.9 * hardLimitFor(dimension, policy);
 }
 
 function stableHash(value: unknown): string { return createHash("sha256").update(stableStringify(value)).digest("hex"); }

@@ -22,11 +22,21 @@ export function assessPortfolioRebalanceV1(input: PortfolioRebalanceInputV1): Po
   addExposureBreaches(actions, "SECTOR", ledger.exposures.sector, policy.sectorGrossHardMax, ledger.investableNavBase);
   addExposureBreaches(actions, "INDUSTRY", ledger.exposures.industry, policy.industryGrossHardMax, ledger.investableNavBase);
   addExposureBreaches(actions, "THEME", ledger.exposures.theme, policy.themeGrossHardMax, ledger.investableNavBase);
+  addExposureBreaches(actions, "CURRENCY", ledger.exposures.currency, policy.currencyGrossHardMax, ledger.investableNavBase, ledger.baseCurrency);
+  const currencyReview = multiplyDecimalByRatio(ledger.investableNavBase, policy.currencyGrossReviewThreshold);
+  const currencyHard = multiplyDecimalByRatio(ledger.investableNavBase, policy.currencyGrossHardMax);
+  for (const [currency, current] of Object.entries(ledger.exposures.currency).sort(([left], [right]) => left.localeCompare(right))) {
+    if (currency !== ledger.baseCurrency && compareDecimal(current, currencyReview) >= 0 && compareDecimal(current, currencyHard) <= 0) {
+      actions.push(action("REVIEW_REQUIRED", "CURRENCY", currency, 6, current, currencyReview, "FOREIGN_CURRENCY_REVIEW_THRESHOLD_REACHED"));
+    }
+  }
   const momentumRiskHard = multiplyDecimalByRatio(ledger.investableNavBase, policy.momentumOpenRiskHardMax);
   if (compareDecimal(ledger.momentumOpenRiskBase, momentumRiskHard) > 0) {
     actions.push(action("FREEZE_NEW_RISK", "MOMENTUM_RISK", "OPEN_RISK", 1, ledger.momentumOpenRiskBase, momentumRiskHard, "MOMENTUM_OPEN_RISK_HARD_LIMIT_EXCEEDED"));
     actions.push(action("REVIEW_REQUIRED", "MOMENTUM_RISK", "OPEN_RISK", 2, ledger.momentumOpenRiskBase, momentumRiskHard, "MOMENTUM_POSITION_REVIEW_REQUIRED"));
   }
+  addMomentumRiskBreaches(actions, "SECTOR", ledger.momentumOpenRiskBySector, policy.momentumSectorOpenRiskHardMax, ledger.investableNavBase);
+  addMomentumRiskBreaches(actions, "THEME", ledger.momentumOpenRiskByTheme, policy.momentumThemeOpenRiskHardMax, ledger.investableNavBase);
   if (actions.length === 0) actions.push(action("NO_ACTION", "PORTFOLIO", input.portfolioId, 99, ledger.investableNavBase, undefined, "PORTFOLIO_WITHIN_POLICY"));
   actions.sort((left, right) => left.priority - right.priority || left.scope.localeCompare(right.scope) || left.key.localeCompare(right.key) || left.action.localeCompare(right.action));
   const requiresManualReview = actions.some((item) => item.action === "REDUCE_POSITION" || item.action === "REVIEW_REQUIRED" || item.action === "FREEZE_NEW_RISK");
@@ -78,13 +88,15 @@ function addBucketActions(
 
 function addExposureBreaches(
   actions: RebalanceActionItemV1[],
-  scope: "COMPANY" | "SECTOR" | "INDUSTRY" | "THEME",
+  scope: "COMPANY" | "SECTOR" | "INDUSTRY" | "THEME" | "CURRENCY",
   exposures: Record<string, DecimalString>,
   limitRatio: number,
   nav: DecimalString,
+  excludedKey?: string,
 ): void {
   const hard = multiplyDecimalByRatio(nav, limitRatio);
   for (const [key, current] of Object.entries(exposures).sort(([left], [right]) => left.localeCompare(right))) {
+    if (key === excludedKey) continue;
     if (compareDecimal(current, hard) <= 0) continue;
     actions.push(action("FREEZE_NEW_RISK", scope, key, 1, current, hard, `${scope}_HARD_LIMIT_EXCEEDED`));
     actions.push(action("REDUCE_POSITION", scope, key, 3, current, hard, `${scope}_REDUCTION_REVIEW_REQUIRED`));
@@ -101,6 +113,21 @@ function action(
   reasonCode: string,
 ): RebalanceActionItemV1 {
   return { action: actionName, scope, key, priority, currentValue, ...(limitValue === undefined ? {} : { limitValue }), reasonCode, automaticExecutionAllowed: false };
+}
+
+function addMomentumRiskBreaches(
+  actions: RebalanceActionItemV1[],
+  dimension: "SECTOR" | "THEME",
+  risks: Record<string, DecimalString>,
+  limitRatio: number,
+  nav: DecimalString,
+): void {
+  const hard = multiplyDecimalByRatio(nav, limitRatio);
+  for (const [key, current] of Object.entries(risks).sort(([left], [right]) => left.localeCompare(right))) {
+    if (compareDecimal(current, hard) <= 0) continue;
+    actions.push(action("FREEZE_NEW_RISK", "MOMENTUM_RISK", `${dimension}:${key}`, 1, current, hard, `MOMENTUM_${dimension}_OPEN_RISK_HARD_LIMIT_EXCEEDED`));
+    actions.push(action("REVIEW_REQUIRED", "MOMENTUM_RISK", `${dimension}:${key}`, 2, current, hard, `MOMENTUM_${dimension}_POSITION_REVIEW_REQUIRED`));
+  }
 }
 
 function stableHash(value: unknown): string { return createHash("sha256").update(stableStringify(value)).digest("hex"); }

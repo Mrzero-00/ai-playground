@@ -17,6 +17,8 @@ export const DEFAULT_PORTFOLIO_POLICY_V1: Readonly<PortfolioPolicyV1> = {
   sectorGrossHardMax: 0.3,
   industryGrossHardMax: 0.2,
   themeGrossHardMax: 0.25,
+  currencyGrossReviewThreshold: 0.5,
+  currencyGrossHardMax: 0.65,
   momentumBaseRiskPerTrade: 0.005,
   momentumMaxRiskPerTrade: 0.0075,
   momentumOpenRiskHardMax: 0.02,
@@ -46,6 +48,8 @@ export function validatePortfolioPolicyV1(policy: PortfolioPolicyV1): PortfolioP
     sectorGrossHardMax: policy.sectorGrossHardMax,
     industryGrossHardMax: policy.industryGrossHardMax,
     themeGrossHardMax: policy.themeGrossHardMax,
+    currencyGrossReviewThreshold: policy.currencyGrossReviewThreshold,
+    currencyGrossHardMax: policy.currencyGrossHardMax,
     momentumBaseRiskPerTrade: policy.momentumBaseRiskPerTrade,
     momentumMaxRiskPerTrade: policy.momentumMaxRiskPerTrade,
     momentumOpenRiskHardMax: policy.momentumOpenRiskHardMax,
@@ -62,6 +66,7 @@ export function validatePortfolioPolicyV1(policy: PortfolioPolicyV1): PortfolioP
   if (policy.futureCore.hardMax > policy.longTerm.hardMax) throw new Error("Future Core hard max cannot exceed Long-term hard max");
   if (policy.futureCorePositionHardMax > policy.companyGrossHardMax) throw new Error("Future Core position max cannot exceed company gross max");
   if (policy.corePositionHardMax > policy.companyGrossHardMax) throw new Error("Core position max cannot exceed company gross max");
+  if (policy.currencyGrossReviewThreshold > policy.currencyGrossHardMax) throw new Error("Currency review threshold cannot exceed hard max");
   if (policy.momentumBaseRiskPerTrade > policy.momentumMaxRiskPerTrade
     || policy.momentumMaxRiskPerTrade > policy.momentumOpenRiskHardMax) {
     throw new Error("Momentum risk limits must be ordered base <= max trade <= open risk");

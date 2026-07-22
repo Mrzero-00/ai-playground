@@ -204,9 +204,11 @@ export class InMemoryInvestmentOsRepository implements InvestmentOsRepository {
   }
   async saveCapitalAllocationWithOutbox(value: CapitalAllocationDecisionV1, snapshot: PortfolioSnapshotV1, audit: AuditRecord, outbox: OutboxRecord): Promise<void> {
     if (this.capitalAllocationsV1.has(value.id)) throw new Error("Capital allocation decision already exists and is immutable");
+    if (value.proposals.some((proposal) => this.portfolioProposalsV1.has(proposal.id))) {
+      throw new Error("Portfolio allocation proposal already exists and is immutable");
+    }
     this.savePortfolioSnapshot(snapshot);
     for (const proposal of value.proposals) {
-      if (this.portfolioProposalsV1.has(proposal.id)) throw new Error("Portfolio allocation proposal already exists and is immutable");
       this.portfolioProposalsV1.set(proposal.id, structuredClone(proposal));
     }
     this.capitalAllocationsV1.set(value.id, structuredClone(value));

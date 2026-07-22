@@ -24,6 +24,8 @@ export type PortfolioPolicyV1 = {
   sectorGrossHardMax: number;
   industryGrossHardMax: number;
   themeGrossHardMax: number;
+  currencyGrossReviewThreshold: number;
+  currencyGrossHardMax: number;
   momentumBaseRiskPerTrade: number;
   momentumMaxRiskPerTrade: number;
   momentumOpenRiskHardMax: number;
@@ -122,6 +124,8 @@ export type PortfolioLedgerV1 = {
   momentumPositionValueBase: DecimalString;
   futureCorePositionValueBase: DecimalString;
   momentumOpenRiskBase: DecimalString;
+  momentumOpenRiskBySector: Record<string, DecimalString>;
+  momentumOpenRiskByTheme: Record<string, DecimalString>;
   weights: PortfolioWeightsV1;
   exposures: ExposureSnapshotV1;
   warnings: string[];
@@ -212,7 +216,7 @@ export type CapacityResultV1 = {
 };
 
 export type ExposureChangeV1 = {
-  dimension: "COMPANY" | "SECTOR" | "INDUSTRY" | "THEME";
+  dimension: "COMPANY" | "SECTOR" | "INDUSTRY" | "THEME" | "CURRENCY";
   key: string;
   currentAmountBase: DecimalString;
   projectedAmountBase: DecimalString;
@@ -352,7 +356,7 @@ export type RebalanceActionV1 =
 
 export type RebalanceActionItemV1 = {
   action: RebalanceActionV1;
-  scope: "PORTFOLIO" | "BUCKET" | "COMPANY" | "SECTOR" | "INDUSTRY" | "THEME" | "MOMENTUM_RISK";
+  scope: "PORTFOLIO" | "BUCKET" | "COMPANY" | "SECTOR" | "INDUSTRY" | "THEME" | "CURRENCY" | "MOMENTUM_RISK";
   key: string;
   priority: number;
   currentValue: DecimalString;

@@ -293,6 +293,8 @@ export const server = createServer(async (request, response) => {
       return json(response, 200, {
         portfolioId, portfolioSnapshotId: snapshot.id, asOf: snapshot.asOf,
         momentumOpenRiskBase: ledger.momentumOpenRiskBase,
+        momentumOpenRiskBySector: ledger.momentumOpenRiskBySector,
+        momentumOpenRiskByTheme: ledger.momentumOpenRiskByTheme,
         portfolioValueBase: ledger.investableNavBase,
         openRiskWeight: decimalRatio(ledger.momentumOpenRiskBase, ledger.investableNavBase),
       });

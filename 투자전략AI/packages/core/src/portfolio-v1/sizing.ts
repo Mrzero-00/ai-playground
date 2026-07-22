@@ -29,7 +29,14 @@ export type MomentumSizingResultV1 = {
   rawQuantity: DecimalString;
   executableRiskQuantity: DecimalString;
   riskNotionalBase: DecimalString;
+  requestedRiskNotionalBase: DecimalString;
   projectedOpenRiskBase: DecimalString;
+  riskCapacities: Array<{
+    capacityId: string;
+    maximumRiskAmountBase: DecimalString;
+    maximumNotionalAmountBase: DecimalString;
+    reasonCode: string;
+  }>;
 };
 
 export function calculateMomentumSizingV1(input: {
@@ -66,22 +73,36 @@ export function calculateMomentumSizingV1(input: {
   const scenarioLossPerUnitBase = maxDecimal(costAdjustedStopRisk, gapRisk);
   if (compareDecimal(scenarioLossPerUnitBase, "0") <= 0) throw new Error("Momentum scenario loss per unit must be positive");
 
-  let allowedRiskAmountBase = multiplyDecimalByRatio(ledger.investableNavBase, policy.momentumBaseRiskPerTrade);
-  allowedRiskAmountBase = multiplyDecimalByRatio(allowedRiskAmountBase, qualityMultiplier(signal.score, signal.confidence));
-  allowedRiskAmountBase = multiplyDecimalByRatio(allowedRiskAmountBase, signal.marketRegimeMultiplier);
-  allowedRiskAmountBase = multiplyDecimalByRatio(allowedRiskAmountBase, plan.drawdownMultiplier);
-  allowedRiskAmountBase = multiplyDecimalByRatio(allowedRiskAmountBase, liquidityRiskMultiplier(signal.liquidityTier));
+  let qualityRiskAmountBase = multiplyDecimalByRatio(ledger.investableNavBase, policy.momentumBaseRiskPerTrade);
+  qualityRiskAmountBase = multiplyDecimalByRatio(qualityRiskAmountBase, qualityMultiplier(signal.score, signal.confidence));
+  qualityRiskAmountBase = multiplyDecimalByRatio(qualityRiskAmountBase, signal.marketRegimeMultiplier);
+  qualityRiskAmountBase = multiplyDecimalByRatio(qualityRiskAmountBase, plan.drawdownMultiplier);
+  qualityRiskAmountBase = multiplyDecimalByRatio(qualityRiskAmountBase, liquidityRiskMultiplier(signal.liquidityTier));
   const maxTradeRisk = multiplyDecimalByRatio(ledger.investableNavBase, policy.momentumMaxRiskPerTrade);
   const openRiskHardMax = multiplyDecimalByRatio(ledger.investableNavBase, policy.momentumOpenRiskHardMax);
   const openRiskRemainingBase = subtractDecimalFloorZero(openRiskHardMax, ledger.momentumOpenRiskBase);
-  const requestedRisk = request.requestedRiskAmountBase ?? allowedRiskAmountBase;
+  const sectorRiskRemainingBase = subtractDecimalFloorZero(
+    multiplyDecimalByRatio(ledger.investableNavBase, policy.momentumSectorOpenRiskHardMax),
+    ledger.momentumOpenRiskBySector[request.sectorCode] ?? "0",
+  );
+  const themeRiskRemaining = request.themeKeys.map((theme) => ({
+    theme,
+    remaining: subtractDecimalFloorZero(
+      multiplyDecimalByRatio(ledger.investableNavBase, policy.momentumThemeOpenRiskHardMax),
+      ledger.momentumOpenRiskByTheme[theme] ?? "0",
+    ),
+  }));
+  const requestedRisk = request.requestedRiskAmountBase ?? qualityRiskAmountBase;
   assertDecimal(requestedRisk, "requestedRiskAmountBase");
-  allowedRiskAmountBase = minDecimal(allowedRiskAmountBase, maxTradeRisk, openRiskRemainingBase, requestedRisk);
+  const riskLimits = [qualityRiskAmountBase, maxTradeRisk, openRiskRemainingBase, sectorRiskRemainingBase, ...themeRiskRemaining.map((item) => item.remaining)];
+  const allowedRiskAmountBase = minDecimal(...riskLimits, requestedRisk);
 
   const rawQuantity = divideDecimalFloor(allowedRiskAmountBase, scenarioLossPerUnitBase, 6);
   const executableRiskQuantity = floorToLot(rawQuantity, request.liquidity);
   const referencePriceBase = multiplyDecimal(plan.referenceEntry, request.fxRateToBase);
   const riskNotionalBase = multiplyDecimal(executableRiskQuantity, referencePriceBase);
+  const requestedRiskQuantity = floorToLot(divideDecimalFloor(requestedRisk, scenarioLossPerUnitBase, 6), request.liquidity);
+  const requestedRiskNotionalBase = multiplyDecimal(requestedRiskQuantity, referencePriceBase);
   const projectedOpenRiskBase = addNonNegative(
     ledger.momentumOpenRiskBase,
     multiplyDecimal(executableRiskQuantity, scenarioLossPerUnitBase),
@@ -94,7 +115,15 @@ export function calculateMomentumSizingV1(input: {
     rawQuantity,
     executableRiskQuantity,
     riskNotionalBase,
+    requestedRiskNotionalBase,
     projectedOpenRiskBase,
+    riskCapacities: [
+      riskCapacity("MOMENTUM_TRADE_RISK", qualityRiskAmountBase, "MOMENTUM_TRADE_RISK_LIMIT", scenarioLossPerUnitBase, referencePriceBase, request.liquidity),
+      riskCapacity("MOMENTUM_MAX_TRADE_RISK", maxTradeRisk, "MOMENTUM_MAX_TRADE_RISK_LIMIT", scenarioLossPerUnitBase, referencePriceBase, request.liquidity),
+      riskCapacity("MOMENTUM_OPEN_RISK", openRiskRemainingBase, "MOMENTUM_OPEN_RISK_LIMIT", scenarioLossPerUnitBase, referencePriceBase, request.liquidity),
+      riskCapacity("MOMENTUM_SECTOR_OPEN_RISK", sectorRiskRemainingBase, "MOMENTUM_SECTOR_OPEN_RISK_LIMIT", scenarioLossPerUnitBase, referencePriceBase, request.liquidity),
+      ...themeRiskRemaining.map((item) => riskCapacity(`MOMENTUM_THEME_OPEN_RISK:${item.theme}`, item.remaining, `MOMENTUM_THEME_OPEN_RISK_LIMIT:${item.theme}`, scenarioLossPerUnitBase, referencePriceBase, request.liquidity)),
+    ],
   };
 }
 
@@ -134,4 +163,21 @@ function validateMultiplier(name: string, value: number): void {
 
 function addNonNegative(left: DecimalString, right: DecimalString): DecimalString {
   return addDecimal(left, right);
+}
+
+function riskCapacity(
+  capacityId: string,
+  maximumRiskAmountBase: DecimalString,
+  reasonCode: string,
+  scenarioLossPerUnitBase: DecimalString,
+  referencePriceBase: DecimalString,
+  liquidity: LiquidityCapacityInputV1,
+): MomentumSizingResultV1["riskCapacities"][number] {
+  const quantity = floorToLot(divideDecimalFloor(maximumRiskAmountBase, scenarioLossPerUnitBase, 6), liquidity);
+  return {
+    capacityId,
+    maximumRiskAmountBase,
+    maximumNotionalAmountBase: multiplyDecimal(quantity, referencePriceBase),
+    reasonCode,
+  };
 }

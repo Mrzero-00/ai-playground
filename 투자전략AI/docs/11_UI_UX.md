@@ -888,6 +888,13 @@ Analytics 실패는 제품 행동에 영향을 주지 않는다.
 
 ## 29. 운영 전 추가 필요사항
 
+### 구현 품질 리뷰 반영
+
+- 잘못된 `now`/`expiresAt` 계약은 승인·거부 모두 Fail-closed한다.
+- 승인 또는 거부 Endpoint가 연결되지 않은 Preview Control은 활성화하지 않는다.
+- Desktop/Mobile Navigation의 구현된 Section Anchor를 실제 DOM과 일치시킨다.
+- 390px Mobile·Desktop Production 화면, 콘솔 오류, 승인 확인 안전장치를 Browser에서 검증했다.
+
 - 실제 사용자 Research와 Usability Test
 - 브랜드·법무 Disclaimer 확정
 - Supabase Auth/RLS 연결

@@ -4,7 +4,7 @@ import { StatusBadge } from "./status-badge";
 export function ScoreCard({ title, score, strategy }: { title: string; score: ScoreContract; strategy: "long-term" | "momentum" }) {
   const view = toScoreViewModel(score);
   const tone = view.status === "SCORED" ? "positive" : view.status === "BLOCKED" ? "critical" : "caution";
-  return <article className={`score-card strategy-${strategy}`}>
+  return <article className={`score-card strategy-${strategy}`} id={strategy}>
     <div className="card-heading"><div><p className="eyebrow">{strategy === "long-term" ? "LONG-TERM" : "MOMENTUM"}</p><h3>{title}</h3></div><StatusBadge status={view.status} tone={tone} /></div>
     <div className="score-grid">
       <div><span className="metric-label">Score</span><strong>{view.scoreLabel}</strong>{view.rangeLabel && <small>Range {view.rangeLabel}</small>}</div>

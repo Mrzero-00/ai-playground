@@ -24,6 +24,8 @@ test("approval fails closed for DENY, stale, manual review and expiry", () => {
   assert.equal(deriveApprovalViewModel({ ...base, stale: true }).canApprove, false);
   assert.equal(deriveApprovalViewModel({ ...base, riskStatus: "REQUIRE_MANUAL_REVIEW" }).canApprove, false);
   assert.equal(deriveApprovalViewModel({ ...base, now: "2026-07-24T00:00:00Z" }).status, "EXPIRED");
+  assert.equal(deriveApprovalViewModel({ ...base, expiresAt: "not-a-date" }).status, "BLOCKED");
+  assert.equal(deriveApprovalViewModel({ ...base, now: "not-a-date" }).canReject, false);
 });
 
 test("Decimal formatting does not coerce through floating point", () => {

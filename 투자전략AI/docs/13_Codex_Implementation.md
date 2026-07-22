@@ -108,6 +108,7 @@
 - Decimal 문자열 정밀도를 보존하는 금액 Formatter와 API Error→안전 복구 View Model
 - Canonical Report 순서·Source를 보존하는 Report Renderer와 Snapshot·Model·Hash Lineage Panel
 - Risk DENY·Stale·Manual Review·만료를 Fail-closed하는 승인 상태와 중복 제출 방지 Client Boundary
+- 잘못된 결정 시각과 미연결 승인·거부 Endpoint를 Fail-closed하고 실제 Section Anchor를 연결한 UI 품질 보완
 - Keyboard Focus·Skip Link·Text+Icon 상태·Reduced Motion·Touch Target을 포함한 접근성 Foundation
 - Web View Model Unit Test와 Next Production Static Build
 

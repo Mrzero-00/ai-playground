@@ -53,7 +53,10 @@ export type ApprovalViewModel = {
 
 export function deriveApprovalViewModel(input: DecisionContract): ApprovalViewModel {
   if (input.status === "APPROVED" || input.status === "REJECTED") return { canApprove: false, canReject: false, status: "FINAL", reason: "이미 최종 처리된 결정입니다." };
-  if (input.status === "EXPIRED" || new Date(input.expiresAt).getTime() <= new Date(input.now).getTime()) return { canApprove: false, canReject: false, status: "EXPIRED", reason: "제안이 만료되어 새 Proposal이 필요합니다." };
+  const expiresAt = Date.parse(input.expiresAt);
+  const now = Date.parse(input.now);
+  if (!Number.isFinite(expiresAt) || !Number.isFinite(now)) return { canApprove: false, canReject: false, status: "BLOCKED", reason: "결정 시각 계약이 유효하지 않아 처리할 수 없습니다." };
+  if (input.status === "EXPIRED" || expiresAt <= now) return { canApprove: false, canReject: false, status: "EXPIRED", reason: "제안이 만료되어 새 Proposal이 필요합니다." };
   if (input.riskStatus === "DENY" || input.status === "BLOCKED") return { canApprove: false, canReject: false, status: "BLOCKED", reason: "Risk 또는 Hard Safety가 행동을 차단했습니다." };
   if (input.stale) return { canApprove: false, canReject: true, status: "BLOCKED", reason: "필수 데이터가 오래되어 승인할 수 없습니다." };
   if (input.riskStatus === "REQUIRE_MANUAL_REVIEW") return { canApprove: false, canReject: true, status: "REVIEW", reason: "추가 근거 검토와 새 Risk Decision이 필요합니다." };

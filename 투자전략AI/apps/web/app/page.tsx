@@ -6,6 +6,7 @@ import { StatusBadge } from "../components/status-badge";
 import { formatDecimalString } from "../lib/decimal-format";
 
 const nav = ["Home", "Long-term", "Momentum", "Portfolio", "Decisions", "Reports", "Learning", "Operations"];
+const mobileNav = [{ label: "Home", href: "#home" }, { label: "Strategies", href: "#long-term" }, { label: "Portfolio", href: "#portfolio" }, { label: "Decisions", href: "#decisions" }, { label: "Reports", href: "#reports" }];
 
 export default function Home() {
   return <div className="app-shell">
@@ -19,7 +20,7 @@ export default function Home() {
         <section className="strategy-section" aria-labelledby="strategy-title"><div className="section-title"><div><p className="eyebrow">STRATEGIES · INDEPENDENT</p><h2 id="strategy-title">전략별 판단</h2></div><span>점수는 합산하지 않습니다</span></div><div className="score-cards"><ScoreCard title="Core · Hanul Systems" strategy="long-term" score={{ status: "SCORED", score: { point: 82, low: 76, high: 87 }, confidence: { score: 71, grade: "MEDIUM" }, blockerCodes: [], warningCodes: ["THESIS_ASSUMPTION_WEAKENED"] }} /><ScoreCard title="Breakout · Mirae Robotics" strategy="momentum" score={{ status: "BLOCKED", blockerCodes: ["EVENT_GAP_SCENARIO_REQUIRED"], warningCodes: [] }} /></div></section>
         <div className="content-grid"><ReportView title="Weekly Investment OS" status="READY" recommendation="Core Thesis 변화의 근거를 검토하고 신규 자금은 현금으로 유지" dataAsOf="2026-07-22 18:00 KST" sections={[{ kind: "CONCLUSION", heading: "Conclusion", statements: [{ id: "s1", kind: "INTERPRETATION", text: "Portfolio Hard Limit 위반은 없지만 Core 가정 변화가 우선 검토 대상입니다.", sourceIds: ["score-change-21", "portfolio-snapshot-77"] }] }, { kind: "COUNTER_EVIDENCE", heading: "Counter evidence", statements: [{ id: "s2", kind: "FACT", text: "최근 현금흐름과 산업 수요 지표는 기존 가정을 지지합니다.", sourceIds: ["evidence-184"] }] }, { kind: "RISKS", heading: "Risks", statements: [{ id: "s3", kind: "INTERPRETATION", text: "다음 실적 전까지 불확실성 범위가 넓습니다.", sourceIds: ["long-term-evaluation-9"] }] }]} /><div className="right-column"><DecisionPanel decisionId="DEC-2026-0722" contract={{ status: "PENDING_APPROVAL", riskStatus: "ALLOW", stale: false, expiresAt: "2026-07-23T12:00:00Z", now: "2026-07-22T12:00:00Z" }} /><LineagePanel dataAsOf="2026-07-22T09:00:00Z" snapshots={["portfolio-77", "market-219", "fx-31"]} models={["long-term-1.4", "scoring-core-1.2"]} resultHash="79af10e6…d2c9" /></div></div>
       </main>
-      <nav className="mobile-nav" aria-label="모바일 주요 메뉴">{["Home", "Strategies", "Portfolio", "Decisions", "Reports"].map((item) => <a href={`#${item.toLowerCase()}`} key={item}>{item}</a>)}</nav>
+      <nav className="mobile-nav" aria-label="모바일 주요 메뉴">{mobileNav.map((item) => <a href={item.href} key={item.label}>{item.label}</a>)}</nav>
     </div>
   </div>;
 }

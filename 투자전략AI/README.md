@@ -96,6 +96,15 @@ API 기본 주소는 `http://localhost:4000`입니다.
 - `GET /api/v1/learning/validations/:id`: Model Validation 결과 조회
 - `POST /api/v1/learning/model-changes/:id/approve`: 검증 완료 변경 가설의 Human Approval
 - `GET /api/v1/learning/model-changes/:id`: Model Change Revision 조회
+- `GET /api/v1/agents/definitions`: 활성 Agent Definition과 최소 권한 Capability 조회
+- `POST /api/v1/agents/definitions/validate`: Agent Version·Timeout·Token·Capability 계약 검증
+- `POST /api/v1/agents/plans/validate`: Workflow Scope와 Dependency Cycle을 검사한 결정론적 DAG 생성
+- `POST /api/v1/agents/runs`: Agent/Prompt/Provider/Snapshot/Evidence를 고정한 불변 Run Manifest 생성
+- `GET /api/v1/agents/runs/:id`: Agent Run·검증 결과·Result Hash 조회
+- `GET /api/v1/agents/runs/:id/attempts`: Run Attempt 상태 조회
+- `POST /api/v1/agents/outputs/validate`: 비신뢰 Output의 Schema·Evidence·소유권·시각·결정론·Injection 검증
+- `POST /api/v1/agents/replays`: 입력 `asOf`와 Context를 보존하는 비운영 Replay 생성
+- `POST /api/v1/agents/runs/:id/cancel`: 비종료 Run 취소
 - `POST /api/v1/cross-signals`: 장기·모멘텀 교차 신호 해석
 - `POST /api/v1/allocations/propose`: Bucket/종목 한도를 적용한 Decimal 배분 제안
 - `POST /api/v1/portfolio/allocate`: 85/15 정책을 적용한 Decimal 자금 배분
@@ -145,6 +154,7 @@ packages/core            순수 도메인 로직
   performance-attribution 전략 Lot별 Decimal 손익 분리
   learning               Legacy 결정/결과 기록 계약
   learning-v1            Review Maturity, Process/Outcome, Cohort, Lesson, Model Change 검증
+  agent-v1               Definition/Prompt, Manifest, Evidence Claim, DAG, 보안 검증, Provider 경계
 supabase/migrations      PostgreSQL Schema, Index, RLS
 docs                     제품·아키텍처 명세
 ```

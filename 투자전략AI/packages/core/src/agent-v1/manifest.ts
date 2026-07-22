@@ -89,9 +89,11 @@ export function failAgentRunV1(run: AgentRunV1, input: { status: "FAILED" | "TIM
 export function finishAgentRunV1(run: AgentRunV1, input: { output: AgentRunV1["output"]; validation: NonNullable<AgentRunV1["validation"]>; finishedAt: string }): AgentRunV1 {
   if (!input.output || input.output.runId !== run.id || input.validation.runId !== run.id) throw new Error("Agent Run output lineage conflict");
   const output = normalizeAgentOutputV1(input.output);
-  const status: AgentRunV1["status"] = input.validation.verdict === "REJECTED" || input.output.status === "BLOCKED"
+  const status: AgentRunV1["status"] = input.validation.verdict === "REJECTED" || output.status === "BLOCKED"
     ? "BLOCKED" : input.validation.verdict === "ACCEPTED_WITH_WARNINGS" || output.status === "PARTIAL" ? "PARTIAL" : "SUCCEEDED";
   const failureCodes = input.validation.findings.filter((finding) => finding.severity === "ERROR" || finding.severity === "CRITICAL").map((finding) => finding.code);
+  if (status === "BLOCKED" && failureCodes.length === 0) failureCodes.push("OUTPUT_SELF_BLOCKED");
+  if (new Date(input.finishedAt).getTime() < new Date(input.validation.validatedAt).getTime()) throw new Error("Agent Run finishedAt cannot precede validation");
   const base = run.status === "PENDING" ? startAgentRunV1(run, run.createdAt) : run;
   return finish(base, status, input.finishedAt, failureCodes, output, input.validation);
 }

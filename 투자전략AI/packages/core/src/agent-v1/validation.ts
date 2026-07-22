@@ -65,8 +65,16 @@ export function normalizeAgentOutputV1(value: unknown): AgentOutputValidationInp
   if (output.schemaVersion !== "1" || typeof output.runId !== "string" || typeof output.summary !== "string" || !["COMPLETED", "PARTIAL", "BLOCKED"].includes(output.status)) throw new Error("Agent Output Schema metadata is invalid");
   if (![output.claims, output.counterarguments, output.missingInformation, output.qualityFlags, output.proposedActions].every(Array.isArray)) throw new Error("Agent Output Schema collections must be arrays");
   for (const claim of [...output.claims, ...output.counterarguments]) {
-    if (claim === null || typeof claim !== "object" || !Array.isArray(claim.evidenceRefs) || !Array.isArray(claim.uncertaintyReasons)) throw new Error("Agent Output Schema Claim is invalid");
+    if (claim === null || typeof claim !== "object" || typeof claim.id !== "string" || typeof claim.subject !== "string" || typeof claim.predicate !== "string"
+      || !["string", "number", "boolean"].includes(typeof claim.value) || !["FACT_CANDIDATE", "ESTIMATE", "INTERPRETATION", "HYPOTHESIS", "COUNTERARGUMENT"].includes(claim.kind)
+      || !["HIGH", "MEDIUM", "LOW", "UNVERIFIED"].includes(claim.confidence) || !Array.isArray(claim.evidenceRefs) || !Array.isArray(claim.uncertaintyReasons)
+      || claim.uncertaintyReasons.some((reason) => typeof reason !== "string")) throw new Error("Agent Output Schema Claim is invalid");
+    for (const ref of claim.evidenceRefs) if (ref === null || typeof ref !== "object" || typeof ref.evidenceId !== "string"
+      || !["SUPPORTS", "CONTRADICTS", "CONTEXT_ONLY"].includes(ref.support) || ref.location === null || typeof ref.location !== "object" || Array.isArray(ref.location)) throw new Error("Agent Output Schema Evidence Reference is invalid");
   }
+  for (const item of output.missingInformation) if (item === null || typeof item !== "object" || typeof item.code !== "string" || typeof item.description !== "string" || typeof item.critical !== "boolean" || !Array.isArray(item.suggestedEvidenceKinds) || item.suggestedEvidenceKinds.some((kind) => typeof kind !== "string")) throw new Error("Agent Output Schema Missing Information is invalid");
+  if (output.qualityFlags.some((flag) => typeof flag !== "string")) throw new Error("Agent Output Schema Quality Flags are invalid");
+  for (const item of output.proposedActions) if (item === null || typeof item !== "object" || !["REQUEST_EVIDENCE", "REQUEST_REVIEW", "RERUN_DETERMINISTIC_ENGINE", "NO_CHANGE"].includes(item.action) || !Array.isArray(item.reasonCodes) || item.reasonCodes.some((code) => typeof code !== "string")) throw new Error("Agent Output Schema Proposed Action is invalid");
   const normalizeClaim = (claim: AgentClaimV1): AgentClaimV1 => ({
     ...structuredClone(claim),
     evidenceRefs: [...claim.evidenceRefs].sort((left, right) => left.evidenceId.localeCompare(right.evidenceId) || left.support.localeCompare(right.support) || JSON.stringify(left.location).localeCompare(JSON.stringify(right.location))),

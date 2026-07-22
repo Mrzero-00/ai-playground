@@ -1,6 +1,6 @@
 # 13. Implementation Status
 
-기준 문서: `01_Architecture.md` v2.3, `02_Investment_Philosophy.md` v2.2.1, `03_LongTerm_Engine.md` v1.0.0-draft, `04_Momentum_Engine.md` v1.0.0-draft, `05_Portfolio_Engine.md` v1.0.0, `06_Learning_Engine.md` v1.0.0
+기준 문서: `01_Architecture.md` v2.3, `02_Investment_Philosophy.md` v2.2.1, `03_LongTerm_Engine.md` v1.0.0-draft, `04_Momentum_Engine.md` v1.0.0-draft, `05_Portfolio_Engine.md` v1.0.0, `06_Learning_Engine.md` v1.0.0, `07_AI_Agents.md` v1.0.0
 
 ## 구현 완료
 
@@ -73,6 +73,12 @@
 - 승인 Lesson 기반 Champion/Challenger Model Change 불변 Revision과 Replay→Walk-forward→Shadow Guardrail 검증
 - Learning Review·Cohort·Lesson·Model Change·Validation API, Audit·Transactional Outbox와 클라이언트 계산값 재검증
 - Supabase `007_learning_engine_v1.sql` Review·Attribution·Cohort·Lesson·Model Change·Validation·Shadow·Drift Schema와 RLS
+- Agent Definition·Prompt·Provider·Schema Version, 읽기 전용 Capability와 최소 권한 검증
+- Run Request·Manifest·DAG Plan·Attempt·Replay·Cancel 상태와 결정론적 Stable Hash
+- Evidence-bound Claim, 사용자 소유권·Point-in-time·출처 등급·인용 위치·결정론 결과 일치 검증
+- Prompt Injection·금지 권한·Secret 형태 필드·과도한 Context/Output을 차단하는 비신뢰 Output 경계
+- 외부 SDK에 독립적인 Provider Interface와 Scripted Provider, Agent Run/Validation API·Audit·Transactional Outbox
+- Supabase `008_agent_orchestration_v1.sql` Prompt·Definition·Capability·Plan·Run·Attempt·Tool·Output·Claim·Validation Schema와 RLS
 
 ## 런타임 경계
 

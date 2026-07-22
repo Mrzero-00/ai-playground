@@ -345,7 +345,12 @@ export const server = createServer(async (request, response) => {
     const promptVersions = request.method === "GET" ? path.match(/^\/api\/agents\/prompts\/([^/]+)\/versions$/) : null;
     if (promptVersions) {
       const id = decodeURIComponent(promptVersions[1] ?? "");
-      return json(response, 200, { items: DEFAULT_PROMPT_TEMPLATES_V1.filter((prompt) => prompt.id === id) });
+      return json(response, 200, { items: DEFAULT_PROMPT_TEMPLATES_V1.filter((prompt) => prompt.id === id).map((prompt) => ({
+        id: prompt.id, version: prompt.version, strategyScope: prompt.strategyScope,
+        outputSchemaVersion: prompt.outputSchemaVersion, status: prompt.status,
+        effectiveFrom: prompt.effectiveFrom, approvedBy: prompt.approvedBy, approvedAt: prompt.approvedAt,
+        templateHash: prompt.templateHash,
+      })) });
     }
     const agentRunAttempts = request.method === "GET" ? path.match(/^\/api\/agents\/runs\/([^/]+)\/attempts$/) : null;
     if (agentRunAttempts) {

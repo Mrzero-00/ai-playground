@@ -187,6 +187,14 @@ test("Agent Context rejects secret-shaped fields before Prompt rendering", () =>
   }), /forbidden sensitive field/);
 });
 
+test("malformed runtime JSON is rejected before normalization", () => {
+  const malformed = { ...output(), claims: null } as unknown as AgentOutputV1;
+  assert.throws(() => validateAgentOutputV1({
+    id: "validation-malformed", run: run(), output: malformed, evidence: [evidence()],
+    deterministicFacts: {}, validatedAt: "2026-07-22T10:02:00Z", policyVersion: "agent-validation-v1",
+  }), /Schema collections/);
+});
+
 test("Agent Plans are deterministic DAGs and reject dependency cycles", () => {
   const plan = {
     id: "agent-plan-1", userId: "user-1", workflow: "LONG_TERM_REVIEW" as const,

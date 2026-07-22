@@ -6,7 +6,8 @@ export type InvestmentDecision = {
   strategy: Strategy;
   score: number;
   rationale: string;
-  modelVersion: string;
+  modelVersionId: string;
+  snapshotIds: string[];
   decidedAt: string;
 };
 
@@ -22,4 +23,3 @@ export interface LearningRepository {
   saveOutcome(outcome: DecisionOutcome): Promise<void>;
   findDecision(id: string): Promise<InvestmentDecision | undefined>;
 }
-

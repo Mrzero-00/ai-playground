@@ -5,7 +5,7 @@
   "scripts": {
     "build": "pnpm -r build",
     "dev": "pnpm --filter @investment-os/api dev",
-    "test": "pnpm -r test",
+    "test": "pnpm --filter @investment-os/core build && pnpm -r test",
     "typecheck": "pnpm -r typecheck"
   },
   "devDependencies": {
@@ -14,4 +14,3 @@
     "typescript": "^5.8.0"
   }
 }
-

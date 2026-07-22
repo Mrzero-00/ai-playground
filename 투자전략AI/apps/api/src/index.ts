@@ -965,10 +965,13 @@ function mapApiError(message: string): { status: number; code: string; retryable
   if (/already exists|immutable/i.test(message)) return { status: 409, code: "EVALUATION_ALREADY_EXISTS", retryable: false };
   if (/Learning.*ownership|Lesson.*ownership|Model.*ownership/i.test(message)) return { status: 403, code: "LEARNING_OWNERSHIP_MISMATCH", retryable: false };
   if (/Learning Review not found|Learning Cohort not found|Lesson Candidate not found|Investment Lesson not found|Model Change Proposal not found|Model Validation Result not found/i.test(message)) return { status: 404, code: "LEARNING_RESOURCE_NOT_FOUND", retryable: false };
+  if (/Learning.*lineage conflict|Lesson.*lineage conflict|Model.*lineage conflict/i.test(message)) return { status: 409, code: "LEARNING_LINEAGE_CONFLICT", retryable: false };
   if (/maturity|immature|minimumMaturityAt/i.test(message)) return { status: 422, code: "OUTCOME_NOT_MATURE", retryable: false };
-  if (/cohort|sampleSize|evidence coverage|regime count|company concentration|censored/i.test(message)) return { status: 422, code: "COHORT_NOT_ELIGIBLE", retryable: false };
-  if (/Lesson|contradicting|alternative explanation|recommended action/i.test(message)) return { status: 422, code: "LESSON_EVIDENCE_INSUFFICIENT", retryable: false };
-  if (/validation|guardrail|Historical Replay|Walk-forward|Shadow stage/i.test(message)) return { status: 422, code: "MODEL_VALIDATION_BLOCKED", retryable: false };
+  if (/newer than evaluatedAt|point.in.time|future information/i.test(message)) return { status: 422, code: "POINT_IN_TIME_VIOLATION", retryable: false };
+  if (/guardrail.*fail|Failed validation cannot/i.test(message)) return { status: 423, code: "MODEL_CHANGE_BLOCKED", retryable: false };
+  if (/cohort|sampleSize|evidence coverage|regime count|company concentration|censored/i.test(message)) return { status: 422, code: "INSUFFICIENT_LEARNING_EVIDENCE", retryable: false };
+  if (/Lesson|contradicting|alternative explanation|recommended action/i.test(message)) return { status: 422, code: "INSUFFICIENT_LEARNING_EVIDENCE", retryable: false };
+  if (/validation|Historical Replay|Walk-forward|Shadow stage/i.test(message)) return { status: 422, code: "INSUFFICIENT_MODEL_VALIDATION", retryable: false };
   if (/Portfolio ownership/i.test(message)) return { status: 403, code: "PORTFOLIO_OWNERSHIP_MISMATCH", retryable: false };
   if (/Portfolio snapshot id already exists|snapshot.*conflict/i.test(message)) return { status: 409, code: "PORTFOLIO_SNAPSHOT_CONFLICT", retryable: false };
   if (/Portfolio snapshot is incomplete|market snapshots|active stop|FX rate|marketValueBase|amountBase/i.test(message)) return { status: 422, code: "PORTFOLIO_SNAPSHOT_INCOMPLETE", retryable: false };
@@ -977,7 +980,6 @@ function mapApiError(message: string): { status: number; code: string; retryable
   if (/Momentum trade plan not found|superseded Momentum trade plan not found/i.test(message)) return { status: 404, code: "MOMENTUM_PLAN_NOT_FOUND", retryable: false };
   if (/market regime permission|trade plan model|model or setup version/i.test(message)) return { status: 409, code: "MODEL_VERSION_CONFLICT", retryable: false };
   if (/policy version|POLICY_VERSION/i.test(message)) return { status: 409, code: "POLICY_VERSION_CONFLICT", retryable: false };
-  if (/newer than evaluatedAt|point.in.time|future information/i.test(message)) return { status: 422, code: "POINT_IN_TIME_VIOLATION", retryable: false };
   if (/Universe|security halted|listingSessions|medianSpreadBps/i.test(message)) return { status: 422, code: "UNIVERSE_INELIGIBLE", retryable: false };
   if (/trade plan|entryZone|initial stop|chaseLimit|reward\/risk|unitRisk|target/i.test(message)) return { status: 422, code: "TRADE_PLAN_INVALID", retryable: false };
   if (/Momentum setup|setup definition|setupId|catalyst|event risk|gap risk/i.test(message)) return { status: 422, code: "SETUP_INPUT_INCOMPLETE", retryable: false };

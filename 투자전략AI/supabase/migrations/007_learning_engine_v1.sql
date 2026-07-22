@@ -152,6 +152,7 @@ create table public.learning_cohort_analyses (
   unique (id, user_id),
   foreign key (model_version_id, user_id) references public.model_versions(id, user_id),
   check (jsonb_typeof(cohort_key) = 'object'),
+  check (((cohort_key ->> 'periodEnd')::timestamptz) <= analyzed_at),
   check (cardinality(policy_version_ids) > 0 and cardinality(review_ids) = sample_size),
   check (mature_count <= sample_size and censored_count <= sample_size),
   check (eligible_for_lesson = (cardinality(blocker_codes) = 0))

@@ -36,10 +36,15 @@ export function createModelChangeProposalV1(input: ModelChangeProposalInputV1): 
 export function evaluateModelValidationV1(input: ModelValidationInputV1): ModelValidationResultV1 {
   if (!input.id.trim() || !input.codeVersion.trim()) throw new Error("Model validation id and codeVersion are required");
   if (!Number.isFinite(new Date(input.evaluatedAt).getTime())) throw new Error("Model validation evaluatedAt must be valid");
+  if (input.proposal.status !== "VALIDATING") throw new Error("Model validation requires a VALIDATING Proposal revision");
+  if (new Date(input.evaluatedAt).getTime() < new Date(input.proposal.createdAt).getTime()) throw new Error("Model validation evaluatedAt cannot precede its Proposal");
   if (!Number.isInteger(input.minimumSampleSize) || input.minimumSampleSize <= 0) throw new Error("minimumSampleSize must be positive");
   const requiredStages: ValidationStageResultV1["stage"][] = ["HISTORICAL_REPLAY", "WALK_FORWARD", "SHADOW"];
   if (input.stages.length !== requiredStages.length || new Set(input.stages.map((stage) => stage.stage)).size !== requiredStages.length) {
     throw new Error("Model validation requires one Historical Replay, Walk-forward and Shadow stage");
+  }
+  if (new Set(input.stages.map((stage) => stage.datasetManifestId)).size !== input.stages.length) {
+    throw new Error("Model validation stages require distinct Dataset Manifests");
   }
   const blockerCodes: string[] = [];
   let warning = false;

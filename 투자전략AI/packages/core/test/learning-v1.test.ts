@@ -139,7 +139,7 @@ test("cohort gates control Lesson eligibility and preserve strategy/model lineag
     id: "cohort-1",
     key: {
       strategy: "MOMENTUM", modelVersionId: "momentum-model-v1", policyVersionIds: ["portfolio-v1", "risk-v1"],
-      periodStart: "2026-07-01T00:00:00Z", periodEnd: "2026-07-31T23:59:59Z",
+      periodStart: "2026-07-01T00:00:00Z", periodEnd: "2026-07-22T09:00:00Z",
     },
     policy: {
       minimumSampleSize: 2, minimumMaturityRatio: 1, minimumEvidenceCoverage: 0.8,
@@ -159,7 +159,7 @@ test("cohort gates control Lesson eligibility and preserve strategy/model lineag
 test("No-change Lesson requires counter-review and cannot recommend model mutation", () => {
   const manifest2 = manifest({ id: "manifest-2", decisionId: "decision-2", companyId: "company-2", regime: "NEUTRAL_RANGE" });
   const analysis = analyzeLearningCohortV1({
-    id: "cohort-lesson", key: { strategy: "MOMENTUM", modelVersionId: "momentum-model-v1", policyVersionIds: ["portfolio-v1", "risk-v1"], periodStart: "2026-07-01T00:00:00Z", periodEnd: "2026-07-31T23:59:59Z" },
+    id: "cohort-lesson", key: { strategy: "MOMENTUM", modelVersionId: "momentum-model-v1", policyVersionIds: ["portfolio-v1", "risk-v1"], periodStart: "2026-07-01T00:00:00Z", periodEnd: "2026-07-22T09:00:00Z" },
     policy: { minimumSampleSize: 2, minimumMaturityRatio: 1, minimumEvidenceCoverage: 0.8, minimumRegimeCount: 2, maximumCompanyConcentration: 0.5, maximumCensoredRatio: 0 },
     records: [{ review: review(), manifest: manifest(), evidenceCoverage: 1 }, { review: review("review-2", manifest2, true), manifest: manifest2, evidenceCoverage: 1 }],
     analyzedAt: "2026-07-22T10:00:00Z",
@@ -172,6 +172,12 @@ test("No-change Lesson requires counter-review and cannot recommend model mutati
     cohort: analysis, confidence: 80, generatedAt: "2026-07-22T11:00:00Z",
   });
   assert.equal(candidate.status, "READY_FOR_REVIEW");
+  assert.throws(() => createLessonCandidateV1({
+    id: "lesson-candidate-outside", userId: "user-1", type: "MODEL", strategy: "MOMENTUM",
+    title: "Outside cohort", originalAssumption: "x", observedPattern: "x", alternativeExplanations: ["noise"],
+    supportingReviewIds: ["review-outside"], contradictingReviewIds: ["review-2"], evidenceIds: ["lesson-evidence-2"],
+    cohort: analysis, confidence: 80, generatedAt: "2026-07-22T11:00:00Z",
+  }), /belong to its Cohort/);
   const lesson = approveInvestmentLessonV1({
     id: "lesson-1", candidate, status: "APPROVED", processAssessment: "Compliant",
     outcomeAssessment: "Within expected distribution", modelAssessment: "No defect found",
@@ -200,6 +206,10 @@ test("model changes require all validation stages and a separate human approval 
     possibleSideEffects: ["Fewer candidates"], rollbackPlan: "Reactivate model-v1", primaryMetric: "expectancyR",
     primaryMetricDirection: "HIGHER_IS_BETTER", guardrailMetrics: ["maxDrawdown"], createdAt: "2026-07-22T10:00:00Z",
   });
+  assert.throws(() => evaluateModelValidationV1({
+    id: "validation-before-transition", proposal: hypothesis, evaluatedAt: "2026-07-22T10:30:00Z",
+    codeVersion: "git-sha-2", minimumSampleSize: 50, stages: stages(),
+  }), /VALIDATING/);
   const validating = transitionModelChangeProposalV1({ id: "model-change-2", previous: hypothesis, nextStatus: "VALIDATING", transitionedAt: "2026-07-22T11:00:00Z" });
   const validation = evaluateModelValidationV1({
     id: "validation-1", proposal: validating, evaluatedAt: "2026-07-22T12:00:00Z", codeVersion: "git-sha-2", minimumSampleSize: 50, stages: stages(),
@@ -213,12 +223,15 @@ test("model changes require all validation stages and a separate human approval 
 });
 
 test("point-in-time or tail guardrail failures block an otherwise better Challenger", () => {
-  const proposal = createModelChangeProposalV1({
+  const hypothesis = createModelChangeProposalV1({
     id: "model-change-tail", userId: "user-1", lessonIds: ["lesson-1"], targetModelFamily: "RISK",
     championModelVersionId: "risk-v1", challengerModelVersionId: "risk-v2", problem: "False positives",
     hypothesis: "New rule helps", proposedChange: "Adjust warning", expectedBenefit: "Fewer reviews",
     possibleSideEffects: ["Tail loss"], rollbackPlan: "Restore risk-v1", primaryMetric: "precision",
     primaryMetricDirection: "HIGHER_IS_BETTER", guardrailMetrics: ["maxDrawdown"], createdAt: "2026-07-22T10:00:00Z",
+  });
+  const proposal = transitionModelChangeProposalV1({
+    id: "model-change-tail-validating", previous: hypothesis, nextStatus: "VALIDATING", transitionedAt: "2026-07-22T11:00:00Z",
   });
   const result = evaluateModelValidationV1({
     id: "validation-tail", proposal, evaluatedAt: "2026-07-22T12:00:00Z", codeVersion: "git-sha-2", minimumSampleSize: 50,

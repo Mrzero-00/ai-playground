@@ -134,7 +134,7 @@ test("Learning v1 API preserves Review-to-Lesson-to-approved-Model-Change lineag
       modelVersionId: "api-learning-model-v1",
       policyVersionIds: ["portfolio-policy-v1", "risk-policy-v1"],
       periodStart: "2026-07-01T00:00:00Z",
-      periodEnd: "2026-07-31T23:59:59Z",
+      periodEnd: "2026-07-22T09:00:00Z",
     },
     policy: {
       minimumSampleSize: 2,

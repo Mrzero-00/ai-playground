@@ -13,7 +13,9 @@ export function analyzeLearningCohortV1(input: CohortAnalysisInputV1): CohortAna
   if (!userId) throw new Error("Learning cohort owner is required");
   const periodStart = new Date(input.key.periodStart).getTime();
   const periodEnd = new Date(input.key.periodEnd).getTime();
+  const analyzedAt = new Date(input.analyzedAt).getTime();
   if (!Number.isFinite(periodStart) || !Number.isFinite(periodEnd) || periodStart > periodEnd) throw new Error("Learning cohort period is invalid");
+  if (periodEnd > analyzedAt) throw new Error("Learning cohort period cannot extend beyond analyzedAt");
   const companyCounts = new Map<string, number>();
   const regimes = new Set<string>();
   let matureCount = 0;

@@ -1,6 +1,6 @@
 # 13. Implementation Status
 
-기준 문서: `01_Architecture.md` v2.3, `02_Investment_Philosophy.md` v2.2.1, `03_LongTerm_Engine.md` v1.0.0-draft, `04_Momentum_Engine.md` v1.0.0-draft, `05_Portfolio_Engine.md` v1.0.0
+기준 문서: `01_Architecture.md` v2.3, `02_Investment_Philosophy.md` v2.2.1, `03_LongTerm_Engine.md` v1.0.0-draft, `04_Momentum_Engine.md` v1.0.0-draft, `05_Portfolio_Engine.md` v1.0.0, `06_Learning_Engine.md` v1.0.0
 
 ## 구현 완료
 
@@ -67,6 +67,12 @@
 - 단건 Proposal, 안정 정렬 New Capital Batch, Rebalance Review, Stress Test, Historical Replay와 결정론적 Hash
 - Portfolio Proposal·Batch·Rebalance·Stress 조회/생성 API와 Audit·Transactional Outbox 원자 저장 계약
 - Supabase `006_portfolio_engine_v1.sql` Policy·Snapshot·Exposure·Open Risk·Capacity·Batch·Rebalance·Stress Schema와 RLS
+- 과정 품질과 결과를 독립 분류하는 Learning Review Manifest·Maturity·Process Dimension·Signed Decimal Outcome Attribution
+- 저장된 Review만 사용하는 Cohort 표본·성숙도·근거 Coverage·Regime·종목 집중도·Censoring Gate
+- 반대 사례와 No-change를 보존하는 Lesson Candidate 및 Human Reviewer 승인/거부
+- 승인 Lesson 기반 Champion/Challenger Model Change 불변 Revision과 Replay→Walk-forward→Shadow Guardrail 검증
+- Learning Review·Cohort·Lesson·Model Change·Validation API, Audit·Transactional Outbox와 클라이언트 계산값 재검증
+- Supabase `007_learning_engine_v1.sql` Review·Attribution·Cohort·Lesson·Model Change·Validation·Shadow·Drift Schema와 RLS
 
 ## 런타임 경계
 

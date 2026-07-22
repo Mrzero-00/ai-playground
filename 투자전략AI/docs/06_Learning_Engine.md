@@ -2,11 +2,11 @@
 
 > 불변 의사결정·실행·성과 기록을 과정과 결과로 분해하고, 우연·과적합·사후편향을 통제한 Lesson과 검증 가능한 변경 가설로 변환하되 운영 모델을 자동 변경하지 않는 학습 계층 명세
 
-- 문서 버전: `v1.0.0-draft`
+- 문서 버전: `v1.0.0`
 - 작성일: `2026-07-22`
-- 상태: `IMPLEMENTATION-READY DRAFT`
+- 상태: `CORE/API/SCHEMA IMPLEMENTED`
 - 선행 문서: `01_Architecture.md` v2.3, `02_Investment_Philosophy.md` v2.2.1, `03_LongTerm_Engine.md`, `04_Momentum_Engine.md`, `05_Portfolio_Engine.md`
-- 후속 문서: `08_Database.md`, `09_Scoring_System.md`, `10_Report_System.md`, `12_Roadmap.md`
+- 후속 문서: `07_AI_Agents.md`, `08_Database.md`, `09_Scoring_System.md`, `10_Report_System.md`, `12_Roadmap.md`
 - 구현 기준 경로: `packages/core`, `apps/api`, `supabase/migrations`
 
 ---
@@ -751,17 +751,19 @@ Critical 데이터 Drift는 신규 평가를 Fail-closed할 수 있지만 Learni
 POST /api/v1/learning/reviews
 GET  /api/v1/learning/reviews/:id
 POST /api/v1/learning/cohorts/analyze
+GET  /api/v1/learning/cohorts/:id
 POST /api/v1/learning/lessons/candidates
-POST /api/v1/learning/lessons/:id/approve
+POST /api/v1/learning/lessons/:candidateId/approve
 GET  /api/v1/learning/lessons/:id
 POST /api/v1/learning/model-changes
 GET  /api/v1/learning/model-changes/:id
-POST /api/v1/learning/validations/replays
-POST /api/v1/learning/validations/walk-forward
-POST /api/v1/learning/validations/shadow-results
+POST /api/v1/learning/model-changes/:id/transitions
+POST /api/v1/learning/validations
+GET  /api/v1/learning/validations/:id
 POST /api/v1/learning/model-changes/:id/approve
-GET  /api/v1/learning/drift-alerts
 ```
+
+`POST /learning/validations`는 Replay·Walk-forward·Shadow 결과를 하나의 불변 Validation Result로 원자 저장한다. Dataset Builder·Scheduler·Shadow Runner와 Drift Alert 조회/해소 API는 운영 연결 단계에서 추가한다.
 
 모든 상태 변경 POST는 `Idempotency-Key`가 필수다.
 
@@ -997,34 +999,34 @@ Validation Hash = hash(Proposal + Dataset Manifest + Parameters + Metrics + Guar
 
 ### 도메인
 
-- [ ] Process/Outcome 독립 분류
-- [ ] Strategy별 Maturity/Cohort 분리
-- [ ] Decimal Outcome Attribution
-- [ ] SKIP/거부 포함 Selection Bias 통제
-- [ ] Lesson Candidate/No-change/Gate
-- [ ] Model Change 검증 상태 전이
-- [ ] Replay/Walk-forward/Shadow 계약
+- [x] Process/Outcome 독립 분류
+- [x] Strategy별 Maturity/Cohort 분리
+- [x] Decimal Outcome Attribution
+- [x] SKIP/거부 포함 Selection Bias 데이터 계약
+- [x] Lesson Candidate/No-change/Gate
+- [x] Model Change 검증 상태 전이
+- [x] Replay/Walk-forward/Shadow 계약
 
 ### 안전
 
-- [ ] 원본 Decision/Model/Policy 수정 0건
-- [ ] 미래 정보 Replay 유입 0건
-- [ ] 승인 없는 Model 활성화 0건
-- [ ] Hard Safety 자동 완화 0건
-- [ ] Shadow 운영 상태 변경 0건
+- [x] 원본 Decision/Model/Policy 수정 0건
+- [x] 미래 정보 Replay 유입 0건
+- [x] 승인 없는 Model 활성화 0건
+- [x] Hard Safety 자동 완화 0건
+- [x] Shadow 운영 상태 변경 0건
 
 ### API/DB
 
-- [ ] Review/Lesson/Model Change/Validation API
-- [ ] Audit/Outbox/Idempotency
-- [ ] Composite FK/RLS/Immutable Trigger
-- [ ] Result Hash/Replay
+- [x] Review/Lesson/Model Change/Validation API
+- [x] Audit/Outbox/Idempotency
+- [x] Composite FK/RLS/Immutable Trigger
+- [x] Result Hash/Replay 계약
 
 ### 검증
 
-- [ ] Unit/Invariant/Golden/Integration
-- [ ] 동일 입력 Hash 일치
-- [ ] `pnpm typecheck`, `pnpm test`, `pnpm build`
+- [x] Unit/Invariant/Golden/Integration
+- [x] 동일 입력 Hash 일치
+- [x] `pnpm typecheck`, `pnpm test`, `pnpm build`
 
 실제 Dataset Builder·Scheduler·Shadow 운영·승인 UI는 외부 운영 연결 단계다.
 

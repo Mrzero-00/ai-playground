@@ -8,6 +8,7 @@ Migration은 번호 순서대로 적용합니다.
 - `004_long_term_engine_v1.sql`: Industry Profile, Core/Future Core 결과, Factor·Gate, 가치평가 Scenario, Stage Transition, Review Schedule
 - `005_momentum_engine_v1.sql`: Momentum Universe·Regime·7 Factor·Gate·Setup·Plan Revision·Catalyst·Event Risk·Trade Review
 - `006_portfolio_engine_v1.sql`: Portfolio Policy·Snapshot·Exposure·Open Risk·Capacity·Batch·Rebalance·Stress 결과
+- `007_learning_engine_v1.sql`: Review Manifest·과정/성과 귀속·Cohort·Lesson·Model Change·Replay/Walk-forward/Shadow 검증·Drift Alert
 
 - 사용자별 RLS
 - 전략별 Position Lot
@@ -20,5 +21,6 @@ Migration은 번호 순서대로 적용합니다.
 - Long-term Profile별 점수·Confidence·Gate·가치평가·승격 계보
 - Momentum Signal·Plan의 불변 Revision, 동일 세션 Ranking, Event/Gap Risk와 Review 계보
 - Portfolio Snapshot·경제적 노출·Total/Sector/Theme Open Risk·배분 Proposal·Stress 결과의 불변 계보
+- Learning Review→Cohort→Lesson→Model Change의 사용자·Model·Policy 계보와 승인 경계
 
 Migration은 Supabase CLI 또는 SQL Editor에서 적용합니다. 서비스 역할 키는 서버 환경에서만 사용해야 하며 클라이언트 번들에 노출하면 안 됩니다.

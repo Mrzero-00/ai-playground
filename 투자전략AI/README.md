@@ -82,6 +82,19 @@ API 기본 주소는 `http://localhost:4000`입니다.
 - `GET /api/v1/portfolios/:id/exposures`: Company·Sector·Industry·Theme·Currency 노출 조회
 - `GET /api/v1/portfolios/:id/open-risk`: Momentum Open Risk 조회
 - `POST /api/v1/allocations/replays`: 운영 상태를 바꾸지 않는 Portfolio Historical Replay
+- `POST /api/v1/learning/reviews`: 원시 Outcome을 서버에서 재계산하고 과정·결과를 분리한 불변 Review 생성
+- `GET /api/v1/learning/reviews/:id`: Review·Manifest·Model/Policy 계보 조회
+- `POST /api/v1/learning/cohorts/analyze`: 저장된 Review만으로 표본·성숙도·근거·집중도 Gate 분석
+- `GET /api/v1/learning/cohorts/:id`: 불변 Cohort 분석 조회
+- `POST /api/v1/learning/lessons/candidates`: 반대 사례를 포함한 Lesson Candidate 생성
+- `POST /api/v1/learning/lessons/:candidateId/approve`: Human Reviewer의 Lesson 승인·거부
+- `GET /api/v1/learning/lessons/:id`: 확정 Lesson과 근거 Review 조회
+- `POST /api/v1/learning/model-changes`: 승인된 Lesson 기반 Champion/Challenger 변경 가설 생성
+- `POST /api/v1/learning/model-changes/:id/transitions`: 불변 Model Change 상태 Revision 생성
+- `POST /api/v1/learning/validations`: Replay·Walk-forward·Shadow 3단계 Guardrail 검증
+- `GET /api/v1/learning/validations/:id`: Model Validation 결과 조회
+- `POST /api/v1/learning/model-changes/:id/approve`: 검증 완료 변경 가설의 Human Approval
+- `GET /api/v1/learning/model-changes/:id`: Model Change Revision 조회
 - `POST /api/v1/cross-signals`: 장기·모멘텀 교차 신호 해석
 - `POST /api/v1/allocations/propose`: Bucket/종목 한도를 적용한 Decimal 배분 제안
 - `POST /api/v1/portfolio/allocate`: 85/15 정책을 적용한 Decimal 자금 배분
@@ -129,7 +142,8 @@ packages/core            순수 도메인 로직
   momentum-plan          Entry·Stop·Target·Time Stop 계약
   decision-journal       원본 보존, 수정 승인 재검증 계약
   performance-attribution 전략 Lot별 Decimal 손익 분리
-  learning               결정/결과 기록 계약
+  learning               Legacy 결정/결과 기록 계약
+  learning-v1            Review Maturity, Process/Outcome, Cohort, Lesson, Model Change 검증
 supabase/migrations      PostgreSQL Schema, Index, RLS
 docs                     제품·아키텍처 명세
 ```

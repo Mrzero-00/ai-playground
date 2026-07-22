@@ -16,6 +16,9 @@ import {
   createCapitalAllocationDecision,
   createAuditRecord,
   createDecisionJournalEntry,
+  createDataDeletionRequestV1,
+  createDataLineageEdgeV1,
+  createDataRetentionPolicyV1,
   createInvestmentLesson,
   createLearningReviewV1,
   createLessonCandidateV1,
@@ -44,8 +47,11 @@ import {
   replayMomentumEvaluation,
   replayAllocationV1,
   runPortfolioStressTestV1,
+  runDatabaseReconciliationV1,
   runMomentumScan,
   transitionModelChangeProposalV1,
+  transitionDataDeletionRequestV1,
+  validateDataLineageGraphV1,
   cancelAgentRunV1,
   validateAgentDefinitionV1,
   validateAgentOutputV1,
@@ -79,6 +85,11 @@ import {
   type ApproveLessonInputV1,
   type CapitalAllocationBatchInputV1,
   type CohortAnalysisInputV1,
+  type DataDeletionRequestInputV1,
+  type DataDeletionTransitionInputV1,
+  type DataLineageEdgeInputV1,
+  type DataRetentionPolicyInputV1,
+  type DatabaseReconciliationInputV1,
   type LearningReviewInputV1,
   type LessonCandidateInputV1,
   type ModelChangeProposalInputV1,
@@ -365,6 +376,29 @@ export const server = createServer(async (request, response) => {
         requestId, error: { code: "AGENT_RUN_NOT_FOUND", message: "Agent Run not found", retryable: false },
       });
     }
+    if (request.method === "GET" && path === "/api/database/health") {
+      return json(response, 200, {
+        requestId, status: "ok", adapter: "IN_MEMORY", contractVersion: "database-v1",
+        latestMigration: "009_database_hardening_v1.sql", operationalChecksRequired: ["SUPABASE_CONNECTIVITY", "RLS_E2E", "PITR", "RESTORE_DRILL"],
+      });
+    }
+    if (request.method === "GET" && path === "/api/database/migrations") {
+      return json(response, 200, { latest: "009_database_hardening_v1.sql", items: [
+        "001_investment_os_mvp.sql", "002_architecture_v2_2.sql", "003_investment_philosophy_v2_2_1.sql",
+        "004_long_term_engine_v1.sql", "005_momentum_engine_v1.sql", "006_portfolio_engine_v1.sql",
+        "007_learning_engine_v1.sql", "008_agent_orchestration_v1.sql", "009_database_hardening_v1.sql",
+      ] });
+    }
+    if (request.method === "GET" && path.startsWith("/api/database/deletion-requests/")) {
+      const id = decodeURIComponent(path.slice("/api/database/deletion-requests/".length));
+      const deletionRequest = await repository.findDataDeletionRequest(id);
+      return deletionRequest ? json(response, 200, deletionRequest) : json(response, 404, { requestId, error: { code: "DATABASE_RESOURCE_NOT_FOUND", message: "Data Deletion Request not found", retryable: false } });
+    }
+    if (request.method === "GET" && path.startsWith("/api/database/reconciliations/")) {
+      const id = decodeURIComponent(path.slice("/api/database/reconciliations/".length));
+      const result = await repository.findDatabaseReconciliation(id);
+      return result ? json(response, 200, result) : json(response, 404, { requestId, error: { code: "DATABASE_RESOURCE_NOT_FOUND", message: "Database Reconciliation not found", retryable: false } });
+    }
     const portfolioExposure = request.method === "GET" ? path.match(/^\/api\/portfolios\/([^/]+)\/exposures$/) : null;
     if (portfolioExposure) {
       const portfolioId = decodeURIComponent(portfolioExposure[1] ?? "");
@@ -398,6 +432,71 @@ export const server = createServer(async (request, response) => {
     if (request.method !== "POST") return json(response, 404, { error: "not_found" });
 
     const body = await readBody(request);
+    if (path === "/api/database/lineage/validate") {
+      const input = body as { edges: DataLineageEdgeInputV1[] };
+      if (!Array.isArray(input.edges)) throw new Error("Data Lineage edges must be an array");
+      return json(response, 200, { edges: validateDataLineageGraphV1(input.edges.map(createDataLineageEdgeV1)) });
+    }
+    if (path === "/api/database/retention/policies/validate") {
+      return json(response, 200, createDataRetentionPolicyV1(body as DataRetentionPolicyInputV1));
+    }
+    if (path === "/api/database/reconciliations/validate") {
+      return idempotentJson(request, response, path, body, async () => {
+        const result = runDatabaseReconciliationV1(body as DatabaseReconciliationInputV1);
+        const event = createDomainEvent({
+          id: randomUUID(), type: "DatabaseReconciliationCompleted", occurredAt: result.executedAt,
+          aggregateId: result.id, correlationId, schemaVersion: "1",
+          payload: { reconciliationId: result.id, scope: result.scope, status: result.status, findingCount: result.findings.length, resultHash: result.resultHash },
+        });
+        const audit = createAuditRecord({
+          id: randomUUID(), occurredAt: result.executedAt, actorId: "database-reconciler-v1",
+          action: "DATABASE_RECONCILIATION_COMPLETED", entityType: "DatabaseReconciliationResultV1", entityId: result.id,
+          reason: result.status, after: result, metadata: { scope: result.scope, findingCount: result.findings.length, resultHash: result.resultHash, correlationId },
+        });
+        await repository.saveDatabaseReconciliationWithOutbox(result, audit, createOutboxRecord(event));
+        return { status: 201, body: result };
+      });
+    }
+    if (path === "/api/database/deletion-requests") {
+      return idempotentJson(request, response, path, body, async () => {
+        const deletionRequest = createDataDeletionRequestV1(body as DataDeletionRequestInputV1);
+        const event = createDomainEvent({
+          id: randomUUID(), type: "DataDeletionRequested", occurredAt: deletionRequest.requestedAt,
+          aggregateId: deletionRequest.id, correlationId, schemaVersion: "1",
+          payload: { deletionRequestId: deletionRequest.id, status: deletionRequest.status, targetCount: deletionRequest.targets.length, blockerCodes: deletionRequest.blockerCodes, resultHash: deletionRequest.resultHash },
+        });
+        const audit = createAuditRecord({
+          id: randomUUID(), occurredAt: deletionRequest.requestedAt, actorId: deletionRequest.requestedBy,
+          action: "DATA_DELETION_REQUESTED", entityType: "DataDeletionRequestV1", entityId: deletionRequest.id,
+          reason: deletionRequest.reason, after: deletionRequest,
+          metadata: { status: deletionRequest.status, targetCount: deletionRequest.targets.length, resultHash: deletionRequest.resultHash, correlationId },
+        });
+        await repository.saveDataDeletionRequestWithOutbox(deletionRequest, audit, createOutboxRecord(event));
+        return { status: 201, body: deletionRequest };
+      });
+    }
+    const deletionTransition = path.match(/^\/api\/database\/deletion-requests\/([^/]+)\/transitions$/);
+    if (deletionTransition) {
+      return idempotentJson(request, response, path, body, async () => {
+        const previous = await repository.findDataDeletionRequest(decodeURIComponent(deletionTransition[1] ?? ""));
+        if (!previous) throw new Error("Data Deletion Request not found");
+        const raw = body as Omit<DataDeletionTransitionInputV1, "previous">;
+        const transitioned = transitionDataDeletionRequestV1({ ...raw, previous });
+        const event = createDomainEvent({
+          id: randomUUID(), type: "DataDeletionTransitioned", occurredAt: transitioned.transitionedAt,
+          aggregateId: transitioned.id, correlationId, schemaVersion: "1",
+          payload: { deletionRequestId: transitioned.id, supersedesRequestId: previous.id, status: transitioned.status, blockerCodes: transitioned.blockerCodes, resultHash: transitioned.resultHash },
+        });
+        const audit = createAuditRecord({
+          id: randomUUID(), occurredAt: transitioned.transitionedAt, actorId: transitioned.reviewedBy ?? "database-operator",
+          action: "DATA_DELETION_TRANSITIONED", entityType: "DataDeletionRequestV1", entityId: transitioned.id,
+          reason: `${previous.status} -> ${transitioned.status}`, before: previous, after: transitioned,
+          metadata: { previousId: previous.id, from: previous.status, to: transitioned.status, resultHash: transitioned.resultHash, correlationId },
+        });
+        await repository.saveDataDeletionRequestWithOutbox(transitioned, audit, createOutboxRecord(event));
+        return { status: 201, body: transitioned };
+      });
+    }
     if (path === "/api/agents/definitions/validate") {
       return json(response, 200, validateAgentDefinitionV1(body as AgentDefinitionV1, DEFAULT_AGENT_DEFINITIONS_V1));
     }
@@ -1085,6 +1184,10 @@ export const server = createServer(async (request, response) => {
 });
 
 function mapApiError(message: string): { status: number; code: string; retryable: boolean } {
+  if (/Data Deletion Request ownership|Database.*ownership|Data Lineage.*ownership/i.test(message)) return { status: 403, code: "DATABASE_OWNERSHIP_MISMATCH", retryable: false };
+  if (/Data Deletion Request not found|previous revision not found|Database Reconciliation not found/i.test(message)) return { status: 404, code: "DATABASE_RESOURCE_NOT_FOUND", retryable: false };
+  if (/Data Lineage.*cycle|Data Lineage.*self-reference|Data Deletion Request.*already exists/i.test(message)) return { status: 409, code: "DATABASE_LINEAGE_CONFLICT", retryable: false };
+  if (/Database Reconciliation.*immutable|Data Deletion Request.*immutable/i.test(message)) return { status: 409, code: "DATABASE_RECORD_IMMUTABLE", retryable: false };
   if (/Agent Run idempotency conflict|Agent Run already exists for idempotency key/i.test(message)) return { status: 409, code: "AGENT_IDEMPOTENCY_CONFLICT", retryable: false };
   if (/Agent.*ownership/i.test(message)) return { status: 403, code: "AGENT_OWNERSHIP_MISMATCH", retryable: false };
   if (/Agent Definition not found|Agent Prompt not found|Agent Run not found|Agent Replay source Run not found/i.test(message)) return { status: 404, code: "AGENT_RESOURCE_NOT_FOUND", retryable: false };

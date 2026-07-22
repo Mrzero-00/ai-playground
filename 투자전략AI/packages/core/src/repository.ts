@@ -7,6 +7,7 @@ import type { DataSnapshot } from "./snapshot.js";
 import type { LongTermEvaluationResult } from "./long-term-v1/types.js";
 import type { MomentumEvaluationResultV1, MomentumScanResult, MomentumTradePlanV1 } from "./momentum-v1/types.js";
 import type { AgentRunV1, AgentValidationResultV1 } from "./agent-v1/types.js";
+import type { DataDeletionRequestV1, DatabaseReconciliationResultV1 } from "./database-v1/types.js";
 import type {
   InvestmentLessonV1,
   LearningReviewV1,
@@ -80,6 +81,10 @@ export interface InvestmentOsRepository {
   findAgentRun(id: string): Promise<AgentRunV1 | undefined>;
   findAgentRunByIdempotencyKey(userId: string, key: string): Promise<AgentRunV1 | undefined>;
   findAgentValidation(id: string): Promise<AgentValidationResultV1 | undefined>;
+  saveDataDeletionRequestWithOutbox(value: DataDeletionRequestV1, audit: AuditRecord, outbox: OutboxRecord): Promise<void>;
+  findDataDeletionRequest(id: string): Promise<DataDeletionRequestV1 | undefined>;
+  saveDatabaseReconciliationWithOutbox(value: DatabaseReconciliationResultV1, audit: AuditRecord, outbox: OutboxRecord): Promise<void>;
+  findDatabaseReconciliation(id: string): Promise<DatabaseReconciliationResultV1 | undefined>;
   listPendingOutbox(): Promise<OutboxRecord[]>;
   markOutboxPublished(id: string, at: string): Promise<void>;
 }
@@ -111,6 +116,8 @@ export class InMemoryInvestmentOsRepository implements InvestmentOsRepository {
   readonly modelValidationsV1 = new Map<string, ModelValidationResultV1>();
   readonly agentRunsV1 = new Map<string, AgentRunV1>();
   readonly agentValidationsV1 = new Map<string, AgentValidationResultV1>();
+  readonly dataDeletionRequestsV1 = new Map<string, DataDeletionRequestV1>();
+  readonly databaseReconciliationsV1 = new Map<string, DatabaseReconciliationResultV1>();
 
   async saveDecision(value: DecisionProposal): Promise<void> { this.decisions.set(value.id, structuredClone(value)); }
   async findDecision(id: string): Promise<DecisionProposal | undefined> { return this.clone(this.decisions.get(id)); }
@@ -339,6 +346,25 @@ export class InMemoryInvestmentOsRepository implements InvestmentOsRepository {
     return this.clone([...this.agentRunsV1.values()].find((run) => run.userId === userId && run.request.idempotencyKey === key));
   }
   async findAgentValidation(id: string): Promise<AgentValidationResultV1 | undefined> { return this.clone(this.agentValidationsV1.get(id)); }
+  async saveDataDeletionRequestWithOutbox(value: DataDeletionRequestV1, audit: AuditRecord, outbox: OutboxRecord): Promise<void> {
+    if (this.dataDeletionRequestsV1.has(value.id)) throw new Error("Data Deletion Request already exists and is immutable");
+    if (value.supersedesRequestId) {
+      const previous = this.dataDeletionRequestsV1.get(value.supersedesRequestId);
+      if (!previous) throw new Error("Data Deletion Request previous revision not found");
+      if (previous.userId !== value.userId) throw new Error("Data Deletion Request ownership conflict");
+    }
+    this.dataDeletionRequestsV1.set(value.id, structuredClone(value));
+    this.audit.push(structuredClone(audit));
+    this.outbox.set(outbox.id, structuredClone(outbox));
+  }
+  async findDataDeletionRequest(id: string): Promise<DataDeletionRequestV1 | undefined> { return this.clone(this.dataDeletionRequestsV1.get(id)); }
+  async saveDatabaseReconciliationWithOutbox(value: DatabaseReconciliationResultV1, audit: AuditRecord, outbox: OutboxRecord): Promise<void> {
+    if (this.databaseReconciliationsV1.has(value.id)) throw new Error("Database Reconciliation already exists and is immutable");
+    this.databaseReconciliationsV1.set(value.id, structuredClone(value));
+    this.audit.push(structuredClone(audit));
+    this.outbox.set(outbox.id, structuredClone(outbox));
+  }
+  async findDatabaseReconciliation(id: string): Promise<DatabaseReconciliationResultV1 | undefined> { return this.clone(this.databaseReconciliationsV1.get(id)); }
   async listPendingOutbox(): Promise<OutboxRecord[]> {
     return this.values(this.outbox).filter((record) => record.status === "PENDING");
   }

@@ -140,6 +140,13 @@ Web 기본 주소는 `http://localhost:3000`입니다.
 - `GET /api/v1/reports/:id/artifacts/:format`: Format별 불변 Artifact 조회
 - `POST /api/v1/reports/:id/revisions`: 기존 발행본을 변경하지 않는 정정 Revision 생성
 - `POST /api/v1/reports/:id/replays`: 원본 Manifest를 유지한 결정론적 Report Replay
+- `POST /api/v1/roadmap/gates/evaluate`: 필수 증거·Waiver 유효기간·비 Waivable 항목 기반 Release Gate 판정
+- `POST /api/v1/roadmap/plans/validate`: Milestone Dependency DAG·Readiness·필수 Gate를 검증한 불변 Plan 생성
+- `GET /api/v1/roadmap/plans/:id`: Roadmap Plan·Gate·Blocker·Result Hash 조회
+- `POST /api/v1/roadmap/plans/:id/revisions`: 기존 Plan을 변경하지 않는 선형 Revision 생성
+- `POST /api/v1/roadmap/release-evidence`: Build·Contract·Test·Migration·Security·Operations Release Evidence Bundle 생성
+- `GET /api/v1/roadmap/release-evidence/:id`: 불변 Release Evidence와 누락 그룹 조회
+- `POST /api/v1/roadmap/plans/:id/replays`: 운영 상태를 바꾸지 않는 결정론적 Roadmap Replay
 - `POST /api/v1/cross-signals`: 장기·모멘텀 교차 신호 해석
 - `POST /api/v1/allocations/propose`: Bucket/종목 한도를 적용한 Decimal 배분 제안
 - `POST /api/v1/portfolio/allocate`: 85/15 정책을 적용한 Decimal 자금 배분
@@ -194,6 +201,7 @@ packages/core            순수 도메인 로직
   database-v1            Lineage, Retention, Deletion Revision, Decimal Reconciliation 계약
   scoring-v1             Model Lifecycle, Normalization, N/A, Range, Confidence, Ranking, Change 계약
   report-v1              Canonical Report, Source Manifest, Quality Gate, Revision, Artifact, Replay 계약
+  planning-v1            R0~R6 Readiness, Milestone DAG, Gate, Release Evidence, Revision, Replay 계약
 supabase/migrations      PostgreSQL Schema, Index, RLS
 docs                     제품·아키텍처 명세
 ```

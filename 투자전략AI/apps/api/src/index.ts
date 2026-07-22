@@ -40,6 +40,11 @@ import {
   createReportRevisionV1,
   renderReportArtifactV1,
   replayReportV1,
+  evaluateRoadmapGateV1,
+  validateRoadmapPlanV1,
+  createRoadmapPlanRevisionV1,
+  createReleaseEvidenceBundleV1,
+  replayRoadmapPlanV1,
   validateReportTemplateV1,
   transitionReportTemplateV1,
   InMemoryInvestmentOsRepository,
@@ -116,6 +121,9 @@ import {
   type ReportGenerationInputV1,
   type ReportTemplateInputV1,
   type ReportTemplateV1,
+  type RoadmapGateInputV1,
+  type RoadmapPlanInputV1,
+  type ReleaseEvidenceBundleInputV1,
 } from "@investment-os/core";
 
 const port = Number(process.env.PORT ?? 4000);
@@ -397,15 +405,15 @@ export const server = createServer(async (request, response) => {
     if (request.method === "GET" && path === "/api/database/health") {
       return json(response, 200, {
         requestId, status: "ok", adapter: "IN_MEMORY", contractVersion: "database-v1",
-        latestMigration: "011_report_system_v1.sql", operationalChecksRequired: ["SUPABASE_CONNECTIVITY", "RLS_E2E", "PITR", "RESTORE_DRILL"],
+        latestMigration: "012_roadmap_planning_v1.sql", operationalChecksRequired: ["SUPABASE_CONNECTIVITY", "RLS_E2E", "PITR", "RESTORE_DRILL"],
       });
     }
     if (request.method === "GET" && path === "/api/database/migrations") {
-      return json(response, 200, { latest: "011_report_system_v1.sql", items: [
+      return json(response, 200, { latest: "012_roadmap_planning_v1.sql", items: [
         "001_investment_os_mvp.sql", "002_architecture_v2_2.sql", "003_investment_philosophy_v2_2_1.sql",
         "004_long_term_engine_v1.sql", "005_momentum_engine_v1.sql", "006_portfolio_engine_v1.sql",
         "007_learning_engine_v1.sql", "008_agent_orchestration_v1.sql", "009_database_hardening_v1.sql",
-        "010_scoring_system_v1.sql", "011_report_system_v1.sql",
+        "010_scoring_system_v1.sql", "011_report_system_v1.sql", "012_roadmap_planning_v1.sql",
       ] });
     }
     if (request.method === "GET" && path.startsWith("/api/database/deletion-requests/")) {
@@ -456,6 +464,16 @@ export const server = createServer(async (request, response) => {
       const report = await repository.findReport(decodeURIComponent(reportView[1] ?? ""));
       return report ? json(response, 200, report) : json(response, 404, { requestId, error: { code: "REPORT_RESOURCE_NOT_FOUND", message: "Report not found", retryable: false } });
     }
+    const roadmapPlanView = request.method === "GET" ? path.match(/^\/api\/roadmap\/plans\/([^/]+)$/) : null;
+    if (roadmapPlanView) {
+      const plan = await repository.findRoadmapPlan(decodeURIComponent(roadmapPlanView[1] ?? ""));
+      return plan ? json(response, 200, plan) : json(response, 404, { requestId, error: { code: "ROADMAP_RESOURCE_NOT_FOUND", message: "Roadmap Plan not found", retryable: false } });
+    }
+    const releaseEvidenceView = request.method === "GET" ? path.match(/^\/api\/roadmap\/release-evidence\/([^/]+)$/) : null;
+    if (releaseEvidenceView) {
+      const evidence = await repository.findReleaseEvidence(decodeURIComponent(releaseEvidenceView[1] ?? ""));
+      return evidence ? json(response, 200, evidence) : json(response, 404, { requestId, error: { code: "ROADMAP_RESOURCE_NOT_FOUND", message: "Release Evidence not found", retryable: false } });
+    }
     const portfolioExposure = request.method === "GET" ? path.match(/^\/api\/portfolios\/([^/]+)\/exposures$/) : null;
     if (portfolioExposure) {
       const portfolioId = decodeURIComponent(portfolioExposure[1] ?? "");
@@ -489,6 +507,63 @@ export const server = createServer(async (request, response) => {
     if (request.method !== "POST") return json(response, 404, { error: "not_found" });
 
     const body = await readBody(request);
+    if (path === "/api/roadmap/gates/evaluate") {
+      return await idempotentJson(request, response, path, body, async () => ({ status: 200, body: evaluateRoadmapGateV1(body as RoadmapGateInputV1) }));
+    }
+    if (path === "/api/roadmap/plans/validate") {
+      return await idempotentJson(request, response, path, body, async () => {
+        const plan = validateRoadmapPlanV1(body as RoadmapPlanInputV1);
+        const event = createDomainEvent({ id: randomUUID(), type: "RoadmapPlanValidated", occurredAt: plan.asOf, aggregateId: plan.id, correlationId, schemaVersion: "1",
+          payload: { planId: plan.id, version: plan.version, readiness: plan.readiness, blockerCodes: plan.blockerCodes, resultHash: plan.resultHash } });
+        const audit = createAuditRecord({ id: randomUUID(), occurredAt: plan.asOf, actorId: plan.userId, action: "ROADMAP_PLAN_VALIDATED", entityType: "RoadmapPlanV1", entityId: plan.id,
+          reason: plan.blockerCodes.length === 0 ? plan.readiness : "BLOCKED", after: plan, metadata: { version: plan.version, readiness: plan.readiness, resultHash: plan.resultHash, correlationId } });
+        await repository.saveRoadmapPlanWithOutbox(plan, audit, createOutboxRecord(event));
+        return { status: 201, body: plan };
+      });
+    }
+    const roadmapRevision = path.match(/^\/api\/roadmap\/plans\/([^/]+)\/revisions$/);
+    if (roadmapRevision) {
+      return await idempotentJson(request, response, path, body, async () => {
+        const previous = await repository.findRoadmapPlan(decodeURIComponent(roadmapRevision[1] ?? ""));
+        if (!previous) throw new Error("Roadmap previous Revision not found");
+        const plan = createRoadmapPlanRevisionV1(previous, body as RoadmapPlanInputV1);
+        const event = createDomainEvent({ id: randomUUID(), type: "RoadmapPlanRevised", occurredAt: plan.asOf, aggregateId: plan.id, correlationId, schemaVersion: "1",
+          payload: { planId: plan.id, version: plan.version, supersedesPlanId: previous.id, readiness: plan.readiness, resultHash: plan.resultHash } });
+        const audit = createAuditRecord({ id: randomUUID(), occurredAt: plan.asOf, actorId: plan.userId, action: "ROADMAP_PLAN_REVISED", entityType: "RoadmapPlanV1", entityId: plan.id,
+          reason: `Revision ${previous.version} -> ${plan.version}`, before: previous, after: plan, metadata: { supersedesPlanId: previous.id, resultHash: plan.resultHash, correlationId } });
+        await repository.saveRoadmapPlanWithOutbox(plan, audit, createOutboxRecord(event));
+        return { status: 201, body: plan };
+      });
+    }
+    if (path === "/api/roadmap/release-evidence") {
+      return await idempotentJson(request, response, path, body, async () => {
+        const input = body as ReleaseEvidenceBundleInputV1;
+        const plan = await repository.findRoadmapPlan(input.planId);
+        if (!plan) throw new Error("Release Evidence Roadmap Plan not found");
+        const evidence = createReleaseEvidenceBundleV1(input, plan);
+        const event = createDomainEvent({ id: randomUUID(), type: "ReleaseEvidenceCreated", occurredAt: evidence.createdAt, aggregateId: evidence.id, correlationId, schemaVersion: "1",
+          payload: { evidenceId: evidence.id, planId: evidence.planId, milestoneId: evidence.milestoneId, status: evidence.status, resultHash: evidence.resultHash } });
+        const audit = createAuditRecord({ id: randomUUID(), occurredAt: evidence.createdAt, actorId: evidence.userId, action: "RELEASE_EVIDENCE_CREATED", entityType: "ReleaseEvidenceBundleV1", entityId: evidence.id,
+          reason: evidence.status, after: evidence, metadata: { planId: evidence.planId, milestoneId: evidence.milestoneId, resultHash: evidence.resultHash, correlationId } });
+        await repository.saveReleaseEvidenceWithOutbox(evidence, audit, createOutboxRecord(event));
+        return { status: 201, body: evidence };
+      });
+    }
+    const roadmapReplay = path.match(/^\/api\/roadmap\/plans\/([^/]+)\/replays$/);
+    if (roadmapReplay) {
+      return await idempotentJson(request, response, path, body, async () => {
+        const plan = await repository.findRoadmapPlan(decodeURIComponent(roadmapReplay[1] ?? ""));
+        if (!plan) throw new Error("Roadmap Plan not found");
+        const input = body as { id: string; userId: string; replayedAt: string };
+        const replay = replayRoadmapPlanV1({ ...input, plan });
+        const event = createDomainEvent({ id: randomUUID(), type: "RoadmapReplayCompleted", occurredAt: replay.replayedAt, aggregateId: replay.id, correlationId, schemaVersion: "1",
+          payload: { replayId: replay.id, planId: replay.planId, matches: replay.matches, resultHash: replay.resultHash } });
+        const audit = createAuditRecord({ id: randomUUID(), occurredAt: replay.replayedAt, actorId: replay.userId, action: "ROADMAP_REPLAY_COMPLETED", entityType: "RoadmapReplayV1", entityId: replay.id,
+          reason: replay.matches ? "MATCH" : "MISMATCH", after: replay, metadata: { planId: replay.planId, resultHash: replay.resultHash, correlationId } });
+        await repository.saveRoadmapReplayWithOutbox(replay, audit, createOutboxRecord(event));
+        return { status: 201, body: replay };
+      });
+    }
     if (path === "/api/reports/templates/validate") {
       return await idempotentJson(request, response, path, body, async () => {
         const template = validateReportTemplateV1(body as ReportTemplateInputV1);

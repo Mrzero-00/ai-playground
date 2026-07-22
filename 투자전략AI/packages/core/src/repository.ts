@@ -10,6 +10,7 @@ import type { AgentRunV1, AgentValidationResultV1 } from "./agent-v1/types.js";
 import type { DataDeletionRequestV1, DatabaseReconciliationResultV1 } from "./database-v1/types.js";
 import type { ScorecardResultV1, ScoreChangeExplanationV1, ScoreModelV1 } from "./scoring-v1/types.js";
 import type { CanonicalReportV1, ReportArtifactV1, ReportReplayResultV1, ReportTemplateV1 } from "./report-v1/types.js";
+import type { ReleaseEvidenceBundleV1, RoadmapPlanV1, RoadmapReplayV1 } from "./planning-v1/types.js";
 import type {
   InvestmentLessonV1,
   LearningReviewV1,
@@ -102,6 +103,12 @@ export interface InvestmentOsRepository {
   listReportArtifacts(reportId: string): Promise<ReportArtifactV1[]>;
   saveReportReplayWithOutbox(value: ReportReplayResultV1, audit: AuditRecord, outbox: OutboxRecord): Promise<void>;
   findReportReplay(id: string): Promise<ReportReplayResultV1 | undefined>;
+  saveRoadmapPlanWithOutbox(value: RoadmapPlanV1, audit: AuditRecord, outbox: OutboxRecord): Promise<void>;
+  findRoadmapPlan(id: string): Promise<RoadmapPlanV1 | undefined>;
+  saveReleaseEvidenceWithOutbox(value: ReleaseEvidenceBundleV1, audit: AuditRecord, outbox: OutboxRecord): Promise<void>;
+  findReleaseEvidence(id: string): Promise<ReleaseEvidenceBundleV1 | undefined>;
+  saveRoadmapReplayWithOutbox(value: RoadmapReplayV1, audit: AuditRecord, outbox: OutboxRecord): Promise<void>;
+  findRoadmapReplay(id: string): Promise<RoadmapReplayV1 | undefined>;
   listPendingOutbox(): Promise<OutboxRecord[]>;
   markOutboxPublished(id: string, at: string): Promise<void>;
 }
@@ -142,6 +149,9 @@ export class InMemoryInvestmentOsRepository implements InvestmentOsRepository {
   readonly reportsV1 = new Map<string, CanonicalReportV1>();
   readonly reportArtifactsV1 = new Map<string, ReportArtifactV1>();
   readonly reportReplaysV1 = new Map<string, ReportReplayResultV1>();
+  readonly roadmapPlansV1 = new Map<string, RoadmapPlanV1>();
+  readonly releaseEvidenceV1 = new Map<string, ReleaseEvidenceBundleV1>();
+  readonly roadmapReplaysV1 = new Map<string, RoadmapReplayV1>();
 
   async saveDecision(value: DecisionProposal): Promise<void> { this.decisions.set(value.id, structuredClone(value)); }
   async findDecision(id: string): Promise<DecisionProposal | undefined> { return this.clone(this.decisions.get(id)); }
@@ -490,6 +500,36 @@ export class InMemoryInvestmentOsRepository implements InvestmentOsRepository {
     this.outbox.set(outbox.id, structuredClone(outbox));
   }
   async findReportReplay(id: string): Promise<ReportReplayResultV1 | undefined> { return this.clone(this.reportReplaysV1.get(id)); }
+  async saveRoadmapPlanWithOutbox(value: RoadmapPlanV1, audit: AuditRecord, outbox: OutboxRecord): Promise<void> {
+    if (this.roadmapPlansV1.has(value.id)) throw new Error("Roadmap Plan already exists and is immutable");
+    if (value.supersedesPlanId) {
+      const previous = this.roadmapPlansV1.get(value.supersedesPlanId);
+      if (!previous) throw new Error("Roadmap previous Revision not found");
+      if (previous.userId !== value.userId || value.version !== previous.version + 1) throw new Error("Roadmap Revision lineage conflict");
+      if ([...this.roadmapPlansV1.values()].some((plan) => plan.supersedesPlanId === previous.id)) throw new Error("Roadmap Revision branch conflict");
+    } else if (value.version !== 1) throw new Error("Initial Roadmap Plan version must be 1");
+    this.roadmapPlansV1.set(value.id, structuredClone(value));
+    this.audit.push(structuredClone(audit));
+    this.outbox.set(outbox.id, structuredClone(outbox));
+  }
+  async findRoadmapPlan(id: string): Promise<RoadmapPlanV1 | undefined> { return this.clone(this.roadmapPlansV1.get(id)); }
+  async saveReleaseEvidenceWithOutbox(value: ReleaseEvidenceBundleV1, audit: AuditRecord, outbox: OutboxRecord): Promise<void> {
+    if (this.releaseEvidenceV1.has(value.id)) throw new Error("Release Evidence already exists and is immutable");
+    const plan = this.roadmapPlansV1.get(value.planId);
+    if (!plan || plan.userId !== value.userId) throw new Error("Release Evidence Roadmap lineage conflict");
+    this.releaseEvidenceV1.set(value.id, structuredClone(value));
+    this.audit.push(structuredClone(audit));
+    this.outbox.set(outbox.id, structuredClone(outbox));
+  }
+  async findReleaseEvidence(id: string): Promise<ReleaseEvidenceBundleV1 | undefined> { return this.clone(this.releaseEvidenceV1.get(id)); }
+  async saveRoadmapReplayWithOutbox(value: RoadmapReplayV1, audit: AuditRecord, outbox: OutboxRecord): Promise<void> {
+    if (this.roadmapReplaysV1.has(value.id)) throw new Error("Roadmap Replay already exists and is immutable");
+    if (!this.roadmapPlansV1.has(value.planId)) throw new Error("Roadmap Replay source Plan not found");
+    this.roadmapReplaysV1.set(value.id, structuredClone(value));
+    this.audit.push(structuredClone(audit));
+    this.outbox.set(outbox.id, structuredClone(outbox));
+  }
+  async findRoadmapReplay(id: string): Promise<RoadmapReplayV1 | undefined> { return this.clone(this.roadmapReplaysV1.get(id)); }
   async listPendingOutbox(): Promise<OutboxRecord[]> {
     return this.values(this.outbox).filter((record) => record.status === "PENDING");
   }

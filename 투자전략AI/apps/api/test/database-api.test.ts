@@ -28,7 +28,7 @@ test("Database v1 API preserves governance, reconciliation, audit and outbox lin
   assert.equal(healthResponse.status, 200);
   const health = await healthResponse.json() as { contractVersion: string; latestMigration: string; operationalChecksRequired: string[] };
   assert.equal(health.contractVersion, "database-v1");
-  assert.equal(health.latestMigration, "011_report_system_v1.sql");
+  assert.equal(health.latestMigration, "012_roadmap_planning_v1.sql");
   assert.ok(health.operationalChecksRequired.includes("RESTORE_DRILL"));
 
   const migrationsResponse = await fetch(`${origin}/api/v1/database/migrations`);

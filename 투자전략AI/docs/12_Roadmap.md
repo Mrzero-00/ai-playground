@@ -631,7 +631,7 @@ Roadmap 수정은 과거 결과를 덮어쓰지 않고 Revision과 변경 사유
 - [x] Milestone·Dependency·Gate·Evidence 계약이 결정론적으로 정의되어 있다.
 - [x] Rollback 불가 Record에 Forward Fix 원칙이 있다.
 - [x] Risk·Metric·운영 Cadence가 있다.
-- [ ] Roadmap 계약의 실행 코드와 테스트가 있다.
+- [x] Roadmap 계약의 실행 코드와 테스트가 있다.
 - [ ] Preview Supabase·Auth/RLS·Provider 환경 증거가 있다.
 - [ ] Shadow/Pilot/Production Gate가 실제로 통과되었다.
 
@@ -645,6 +645,16 @@ Roadmap 수정은 과거 결과를 덮어쓰지 않고 Revision과 변경 사유
 - Fail-closed Readiness 판정과 Stable Result Hash
 - 상태 전이·Revision·Replay 계약
 - Unit Test와 012 Migration
+
+구현 완료 항목:
+
+- `planning-v1` Gate·Check·Milestone·Dependency DAG·Readiness 판정
+- 비순환·소유권·필수 Gate·Target Window·Linear Revision 검증
+- 비 Waivable/만료 Waiver·필수 Evidence를 Fail-closed하는 Gate
+- Build·Contract·Test·Migration·Security·Operations·Gate를 묶는 Release Evidence Bundle
+- 입력 순서와 무관한 Stable Hash 및 Historical Replay
+- Roadmap Plan·Revision·Gate·Evidence·Replay API와 Audit/Transactional Outbox
+- `012_roadmap_planning_v1.sql` Plan·Gate·Check·Milestone·Dependency·Evidence·Replay Schema, RLS, Index, 불변 Trigger
 
 외부 연결 없이는 완료할 수 없는 범위:
 

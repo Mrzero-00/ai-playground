@@ -4,7 +4,9 @@
 
 - 문서 버전: `v1.0.0-draft`
 - 작성일: `2026-07-22`
-- 상태: `IMPLEMENTATION-READY DRAFT`
+- 최종 검토일: `2026-07-23`
+- 명세 상태: `IMPLEMENTATION-READY DRAFT / POLICY APPROVAL OPEN`
+- 구현 준비도: `R1 FOUNDATION IMPLEMENTED / R2+ OPEN`
 - 선행 문서: `01_Architecture.md` v2.3, `02_Investment_Philosophy.md` v2.2.1
 - 후속 문서: `05_Portfolio_Engine.md`, `08_Database.md`, `09_Scoring_System.md`
 - 구현 기준 경로: `packages/core`, `apps/api`, `supabase/migrations`
@@ -1589,19 +1591,20 @@ Legacy `businessQualityScore`는 Core/Future Core의 서로 다른 Factor를 요
 
 ### 20.1 엔드포인트
 
-```text
-POST /api/v1/long-term/evaluations
-GET  /api/v1/long-term/evaluations/:id
-GET  /api/v1/companies/:companyId/long-term
-GET  /api/v1/long-term/rankings?profile=CORE
-GET  /api/v1/long-term/rankings?profile=FUTURE_CORE
-POST /api/v1/long-term/theses
-POST /api/v1/long-term/theses/:id/revisions
-POST /api/v1/long-term/theses/:id/reviews
-POST /api/v1/long-term/stage-transitions/:id/approve
-GET  /api/v1/long-term/reviews/due
-POST /api/v1/long-term/replays
-```
+| Method | Path | 구현 상태 |
+|---|---|---|
+| POST | `/api/v1/long-term/evaluations` | R1 IMPLEMENTED |
+| GET | `/api/v1/long-term/evaluations/:id` | R1 IMPLEMENTED |
+| GET | `/api/v1/companies/:companyId/long-term` | R1 IMPLEMENTED |
+| GET | `/api/v1/long-term/rankings?profile=CORE\|FUTURE_CORE` | R1 IMPLEMENTED |
+| GET | `/api/v1/long-term/reviews/due` | R1 IMPLEMENTED |
+| POST | `/api/v1/long-term/replays` | R1 IMPLEMENTED |
+| POST | `/api/v1/long-term/theses` | R2+ TARGET — Thesis 영속 Workflow 필요 |
+| POST | `/api/v1/long-term/theses/:id/revisions` | R2+ TARGET |
+| POST | `/api/v1/long-term/theses/:id/reviews` | R2+ TARGET |
+| POST | `/api/v1/long-term/stage-transitions/:id/approve` | R2+ TARGET — Human Approval UI/API 필요 |
+
+위 표에서 `R1 IMPLEMENTED`만 현재 공개 API 계약이다. `R2+ TARGET`은 목표 명세이며 현재 호출 가능하다는 뜻이 아니다.
 
 상태 변경 POST는 `Idempotency-Key`가 필수다.
 
@@ -1627,7 +1630,7 @@ POST /api/v1/long-term/replays
 }
 ```
 
-응답은 비동기 Full Review면 `202 Accepted`와 `jobId`, 동기 Preview/조회면 `200 OK`를 사용한다. 동일 멱등 키와 동일 Body는 같은 결과를 반환한다. 같은 키에 다른 Body면 `409 IDEMPOTENCY_CONFLICT`다.
+현재 R1 동기 생성은 `201 Created`, 조회는 `200 OK`를 사용한다. 비동기 Full Review가 도입되면 `202 Accepted`와 `jobId`를 사용한다. 동일 멱등 키와 동일 Body는 같은 결과를 반환하고, 같은 키에 다른 Body면 `409 IDEMPOTENCY_CONFLICT`다.
 
 ### 20.3 오류 코드
 
@@ -1661,7 +1664,7 @@ POST /api/v1/long-term/replays
 
 ### 21.1 신규 Migration
 
-구현 시 `004_long_term_engine_v1.sql`을 추가한다. 기존 Migration을 수정하지 않는다.
+R1에서 `004_long_term_engine_v1.sql`을 추가했다. 적용된 기존 Migration은 수정하지 않고 후속 변경은 새 Migration으로 추가한다.
 
 ### 21.2 권장 Table
 
@@ -2095,21 +2098,21 @@ Change Proposal
 
 ## 28. 구현 계획
 
-### 28.1 현행 구현 Gap
+### 28.1 R1 구현 현황과 남은 Gap
 
-이 문서를 작성한 시점의 코드는 01·02 기반 계약 일부를 이미 제공하지만, Long-term Engine 본체가 완료된 상태는 아니다.
+R1은 Legacy Preview를 유지하면서 `long-term-v1`을 독립 도입했다. 문서의 목표 계약 전체와 R1 Repository Foundation, 외부 운영 준비를 같은 상태로 해석하지 않는다.
 
-| 현재 자산 | 재사용할 부분 | 추가·교체할 부분 |
+| 영역 | R1 현재 상태 | 남은 R2+ 작업 |
 |---|---|---|
-| `packages/core/src/long-term.ts` | 순수 함수 형태, 공통 Score Primitive | 6개 Legacy Factor, 단일 임계치 분류, `portfolioFit`·`opportunityCost` 제거 |
-| `packages/core/src/contracts.ts` | Point-in-time, Evidence, Confidence 필드 | Profile/Factor/Gate/Industry/Review 세부 결과와 `REVIEW_REQUIRED` 행동 추가 |
-| `packages/core/src/thesis.ts` | 불변 Revision, 가정·Break·가치범위 | Evaluation 비교, Thesis 상태 판정, Diff와 Drift 탐지 |
-| `packages/core/src/state-machine.ts` | 단계 이름과 순차 승격 | 최소 관찰 기간, Evidence Gate, 승인, Active→ARCHIVED 직접 전이 차단 |
-| `packages/core/src/evidence.ts` | 출처 등급과 Score Eligibility | Factor별 Coverage, 상충 근거, Confidence 계산 연결 |
-| `supabase/migrations/003_*` | Evidence, Thesis, 공통 Evaluation 계보 | Long-term Profile/Factor/Gate/Valuation/Transition Table |
-| `apps/api` Legacy Preview | 기존 소비자 호환 기준 | Snapshot 기반 Full Review, Job, 조회, Ranking API |
+| `packages/core/src/long-term.ts` | Legacy Preview로 격리 | 소비자 전환 후 폐기 일정 확정 |
+| `packages/core/src/long-term-v1` | Core/Future Core Profile, Factor, Gate, Valuation, Thesis Assessment, Stage 제안, Replay 구현 | 실제 Provider·Walk-forward·Calibration |
+| `packages/core/src/contracts.ts` | Point-in-time, Evidence, Confidence 공통 계약 구현 | 외부 Provider 계약 검증 |
+| `packages/core/src/thesis.ts` | 불변 Thesis 기본 계약 구현 | Thesis 생성·Revision·Review 공개 API |
+| `packages/core/src/state-machine.ts` | 자동 상태 건너뛰기 차단 | Human Stage Approval 공개 Workflow |
+| `supabase/migrations/004_*` | Long-term v1 Schema·RLS·불변 계보 정의 | Preview Supabase 적용과 Auth/RLS E2E |
+| `apps/api` | 평가·조회·Ranking·Due Review·Replay 구현 | 비동기 Job, Thesis Lifecycle, Stage Approval API |
 
-특히 현재 상태 머신은 Terminal 상태를 넓게 허용하고, 현재 Long-term 함수는 높은 단일 점수를 Core로 분류한다. 새 구현은 기존 함수를 조용히 확장하지 않고 새 계약을 병행 도입한 뒤 명시적으로 전환한다.
+R1 구현의 상세 증거와 열린 Gate는 `13_Codex_Implementation.md`와 `implementation/status.manifest.json`을 기준으로 한다.
 
 ### 28.2 Phase 0 — Legacy 격리
 
@@ -2211,46 +2214,49 @@ Change Proposal
 
 ## 29. Definition of Done
 
-03 Long-term Engine 구현은 다음 조건을 모두 만족해야 완료다.
+체크 표시는 Repository R1 범위를 기준으로 한다. 미체크 항목은 명세 실패가 아니라 R2+ 통합 또는 운영 증거가 필요한 열린 Gate다.
 
 ### 도메인
 
-- [ ] Core와 Future Core가 독립 Profile로 구현됨
-- [ ] 기업 매력도와 포트폴리오 배분이 분리됨
-- [ ] Factor·Gate·Confidence·Thesis·Stage·Action 계약 구현
-- [ ] Industry Profile과 N/A 정책 구현
-- [ ] 위험 방향이 명시됨
+- [x] Core와 Future Core가 독립 Profile로 구현됨
+- [x] 기업 매력도와 포트폴리오 배분이 분리됨
+- [x] Factor·Gate·Confidence·Thesis Assessment·Stage Proposal·Action 계약 구현
+- [x] Industry Profile과 N/A 정책 구현
+- [x] 위험 방향이 명시됨
 
 ### 데이터
 
-- [ ] 모든 결과에 Snapshot, Evidence, Model Version 연결
-- [ ] Point-in-time 검증과 Restatement 보존
-- [ ] Critical Missing/Stale/Conflict Fail-closed
-- [ ] Decimal 가치평가
+- [x] 모든 결과에 Snapshot, Evidence, Model Version 연결
+- [x] Point-in-time 검증과 Restatement 보존 계약
+- [x] Critical Missing/Stale/Conflict Fail-closed
+- [x] Decimal 가치평가 계약
 
 ### 안전
 
-- [ ] Thesis BROKEN과 Hard Risk가 확대 행동을 차단
-- [ ] 사용자 승인 없이 Future Core/Core 확정 전이 불가
-- [ ] 주문·실제 비중 결정 없음
-- [ ] Momentum 내부 의존 없음
+- [x] Thesis BROKEN과 Hard Risk가 확대 행동을 차단
+- [x] 사용자 승인 없이 Future Core/Core 확정 전이 불가
+- [x] 주문·실제 비중 결정 없음
+- [x] Momentum 내부 의존 없음
 
 ### API/DB
 
-- [ ] v1 API와 오류 계약 구현
-- [ ] 멱등성, Audit, Transactional Outbox
-- [ ] Revision 불변성과 RLS
-- [ ] Ranking의 Model Version 격리
+- [x] 평가·조회·Ranking·Due Review·Replay R1 API
+- [x] 평가 API의 멱등성, Audit, Transactional Outbox
+- [x] Revision 불변성과 RLS Schema 계약
+- [x] Ranking의 Model Version 격리
+- [ ] Thesis 생성·Revision·Review와 Stage Approval 공개 API
+- [ ] 실제 Supabase Auth/RLS E2E
 
 ### 검증
 
-- [ ] Unit/Property/Golden/Integration Test 통과
-- [ ] Historical Replay의 미래 정보 차단
-- [ ] 동일 입력 재현율 100%
-- [ ] `pnpm test`, `pnpm typecheck`, `pnpm build` 통과
+- [x] Unit/Invariant/Golden/API Integration Test 통과
+- [x] Historical Replay의 미래 정보 차단
+- [x] 동일 입력 Result Hash 재현
+- [x] `pnpm test`, `pnpm typecheck`, `pnpm build` 통과
+- [ ] 실제 Historical Walk-forward·Calibration 승인
 - [ ] 운영 Metric·Alert·Runbook 준비
 
-문서가 완성된 상태와 Engine이 구현 완료된 상태를 혼동하지 않는다. 이 체크리스트의 코드·DB·운영 항목이 모두 충족돼야 런타임 완료다.
+R1 Foundation 완료와 전체 목표 API·운영 완료를 혼동하지 않는다. 모든 미체크 항목과 `13_Codex_Implementation.md`의 외부 Gate가 충족돼야 통합·운영 완료로 승격할 수 있다.
 
 ---
 

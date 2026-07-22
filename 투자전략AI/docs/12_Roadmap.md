@@ -1,14 +1,12 @@
 # 12. Investment OS Roadmap
 
-> **Version**: 1.0.0
->
-> **Status**: APPROVED FOR IMPLEMENTATION
->
-> **Last updated**: 2026-07-22
->
-> **Audience**: Product, Engineering, Data, Security, Operations
->
-> **Authoritative scope**: 01~11의 제품·도메인 계약을 변경하지 않고 배포 가능한 Increment로 배열한다.
+- 문서 버전: `v1.0.0`
+- 작성일: `2026-07-22`
+- 최종 검토일: `2026-07-23`
+- 명세 상태: `APPROVED FOR R1 IMPLEMENTATION` — Draft 투자 정책의 운영 승인을 의미하지 않는다.
+- 구현 준비도: `R1 IMPLEMENTED / R2+ OPEN`
+- 독자: Product, Engineering, Data, Security, Operations
+- 권위 범위: 01~11의 제품·도메인 계약을 변경하지 않고 배포 가능한 Increment로 배열한다.
 
 ---
 
@@ -607,17 +605,18 @@ Roadmap 수정은 과거 결과를 덮어쓰지 않고 Revision과 변경 사유
 - 01~11 Specification 작성 및 Foundation 구현: R1
 - Core/API/Web Unit·Build 검증: R1
 - Supabase Migration 파일: R1, 실제 적용 미검증
+- Roadmap Gate·Dependency·Release Evidence 계약 코드화: R1
+- Implementation Manifest와 Verifier 코드화: R1
 - 실제 Auth/RLS/Provider/Backup/Observability: R0~R1
 - 실데이터 Shadow/Pilot/Production: 미진입
 
 ### 다음 실행 순서
 
-1. Roadmap Gate·Dependency·Release Evidence 계약을 코드화한다.
-2. 전체 Fixture Walking Skeleton을 하나의 Replay Test로 묶는다.
-3. Supabase Preview에 Migration을 적용하고 Auth/RLS E2E를 수행한다.
-4. Backup/PITR·Restore와 Reconciliation을 검증한다.
-5. Provider 하나를 Read-only로 연결해 Point-in-time Shadow를 시작한다.
-6. 최소 표본·기간을 사전 등록하고 Shadow Validation을 수행한다.
+1. 전체 Fixture Walking Skeleton을 하나의 Replay Test로 묶는다.
+2. Supabase Preview에 Migration을 적용하고 Auth/RLS E2E를 수행한다.
+3. Backup/PITR·Restore와 Reconciliation을 검증한다.
+4. Provider 하나를 Read-only로 연결해 Point-in-time Shadow를 시작한다.
+5. 최소 표본·기간을 사전 등록하고 Shadow Validation을 수행한다.
 
 ---
 

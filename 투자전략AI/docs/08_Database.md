@@ -4,11 +4,14 @@
 
 - 문서 버전: `v1.0.0`
 - 작성일: `2026-07-22`
-- 상태: `CORE/API/SCHEMA IMPLEMENTED`
+- 최종 검토일: `2026-07-23`
+- 명세 상태: `SPECIFICATION BASELINE`
+- 구현 준비도: `R1 CORE/API/SCHEMA IMPLEMENTED / R2+ OPEN`
 - 선행 문서: `01_Architecture.md` v2.3, `02_Investment_Philosophy.md` v2.2.1, `03`~`07` Engine/Agent 명세
 - 후속 문서: `09_Scoring_System.md`, `10_Report_System.md`, `11_UI_UX.md`, `12_Roadmap.md`
 - 기준 DB: PostgreSQL 15+ / Supabase
-- 기준 Migration: `001`~`009`
+- 문서 소유 Migration: `001`~`009`
+- Repository 최신 Migration: `012_roadmap_planning_v1.sql` — 전체 순서는 `13_Codex_Implementation.md`와 Manifest가 검증한다.
 
 ---
 

@@ -3,10 +3,13 @@
 > Long-term Investing과 Momentum Investing을 하나의 포트폴리오 안에서 운영하되, 목적·분석·자금·위험·청산·성과·학습 규칙을 분리하기 위한 Investment OS의 최상위 투자 정책
 
 - 문서 버전: v2.2.1
-- 작성일: 2026-07-22
-- 문서 상태: Detailed Specification Draft
+- 명세 상태: `DETAILED SPECIFICATION DRAFT / POLICY APPROVAL OPEN`
+- 구현 준비도: `R1 FOUNDATION IMPLEMENTED / R2+ OPEN`
+- 작성일: `2026-07-22`
+- 최종 검토일: `2026-07-23`
 - 상위 문서: `01_Architecture.md`
 - Part 문서: `docs/02_Investment_Philosophy/`
+- 정본: `docs/02_Investment_Philosophy.md` — Part 문서는 읽기 편의를 위한 동기화 사본이며 독립 수정하지 않는다.
 
 ## 문서 구성
 
@@ -35,7 +38,10 @@
 - Part: 1 / 5
 - 문서 버전: v2.2.1
 - 작성일: 2026-07-22
-- 문서 상태: Draft for Review
+- 최종 검토일: 2026-07-23
+- 명세 상태: Draft for Review
+- 구현 준비도: R1 Foundation Implemented / Policy Approval Open
+- 정본: `docs/02_Investment_Philosophy.md`
 - 상위 문서: `01_Architecture.md`
 - 적용 범위: Long-term, Future Core, Momentum, Portfolio, Risk, Learning Engine
 
@@ -670,6 +676,10 @@ Investment OS는 다음 제품이 아니다.
 - Part: 2 / 5
 - 문서 버전: v2.2.1
 - 작성일: 2026-07-22
+- 최종 검토일: 2026-07-23
+- 명세 상태: Draft for Review
+- 구현 준비도: R1 Foundation Implemented / Policy Approval Open
+- 정본: `docs/02_Investment_Philosophy.md`
 - 관련 Engine: Long-term Engine, Core Engine, Future Core Engine
 - 관련 후속 문서: `03_LongTerm_Engine.md`, `09_Scoring_System.md`
 
@@ -1820,6 +1830,10 @@ Long-term Engine의 최종 출력은 다음 질문에 명확히 답해야 한다
 - Part: 3 / 5
 - 문서 버전: v2.2.1
 - 작성일: 2026-07-22
+- 최종 검토일: 2026-07-23
+- 명세 상태: Draft for Review
+- 구현 준비도: R1 Foundation Implemented / Policy Approval Open
+- 정본: `docs/02_Investment_Philosophy.md`
 - 관련 Engine: Momentum Engine, Risk Engine, Portfolio Engine
 - 관련 후속 문서: `04_Momentum_Engine.md`, `09_Scoring_System.md`
 
@@ -2778,6 +2792,10 @@ Momentum Engine의 최종 제안은 다음에 답해야 한다.
 - Part: 4 / 5
 - 문서 버전: v2.2.1
 - 작성일: 2026-07-22
+- 최종 검토일: 2026-07-23
+- 명세 상태: Draft for Review
+- 구현 준비도: R1 Foundation Implemented / Policy Approval Open
+- 정본: `docs/02_Investment_Philosophy.md`
 - 관련 Engine: Portfolio Engine, Risk Engine, Cross Signal Engine
 - 관련 후속 문서: `05_Portfolio_Engine.md`, `09_Scoring_System.md`
 
@@ -3770,6 +3788,10 @@ interface CapitalAllocationDecision {
 - Part: 5 / 5
 - 문서 버전: v2.2.1
 - 작성일: 2026-07-22
+- 최종 검토일: 2026-07-23
+- 명세 상태: Draft for Review
+- 구현 준비도: R1 Foundation Implemented / Policy Approval Open
+- 정본: `docs/02_Investment_Philosophy.md`
 - 관련 Engine: Decision Engine, Learning Engine, Report Engine
 - 관련 후속 문서: `06_Learning_Engine.md`, `10_Report_System.md`, `13_Codex_Implementation.md`
 
@@ -5087,7 +5109,7 @@ Learning:
 
 ---
 
-### 27. Chapter 완료와 다음 단계
+### 27. Chapter 완료와 하위 문서 소유권
 
 `02_Investment_Philosophy`는 다음 다섯 Part로 구성된다.
 
@@ -5097,7 +5119,7 @@ Learning:
 4. Capital Allocation, Portfolio, and Risk
 5. Decision Process, Psychology, Learning, and Templates
 
-다음 상세 설계 순서는 Architecture에서 정한 대로 진행한다.
+다음 문서는 이미 작성된 하위 계약이며 Philosophy 변경 시 영향 분석과 재검토 순서로 사용한다.
 
 1. `05_Portfolio_Engine.md`
 2. `03_LongTerm_Engine.md`
@@ -5105,4 +5127,4 @@ Learning:
 4. `09_Scoring_System.md`
 5. `06_Learning_Engine.md`
 
-Philosophy 변경이 필요하면 하위 Engine을 임의로 수정하기 전에 이 Chapter의 버전을 먼저 올린다.
+Philosophy 변경이 필요하면 하위 Engine을 임의로 수정하기 전에 이 Chapter의 버전을 먼저 올리고, `13_Codex_Implementation.md`의 구현·검증 영향도 함께 갱신한다.

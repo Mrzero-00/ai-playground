@@ -4,7 +4,9 @@
 
 - 문서 버전: `v1.0.0`
 - 작성일: `2026-07-22`
-- 상태: `CORE/API/SCHEMA IMPLEMENTED`
+- 최종 검토일: `2026-07-23`
+- 명세 상태: `SPECIFICATION BASELINE`
+- 구현 준비도: `R1 CORE/API/SCHEMA IMPLEMENTED / R2+ OPEN`
 - 선행 문서: `01_Architecture.md` v2.3, `02_Investment_Philosophy.md` v2.2.1, `03_LongTerm_Engine.md`, `04_Momentum_Engine.md`, `05_Portfolio_Engine.md`
 - 후속 문서: `07_AI_Agents.md`, `08_Database.md`, `09_Scoring_System.md`, `10_Report_System.md`, `12_Roadmap.md`
 - 구현 기준 경로: `packages/core`, `apps/api`, `supabase/migrations`
@@ -785,7 +787,7 @@ POST /api/v1/learning/model-changes/:id/approve
 
 ## 16. 저장 모델
 
-구현 시 `007_learning_engine_v1.sql`을 추가하고 기존 Migration을 수정하지 않는다.
+R1에서 `007_learning_engine_v1.sql`을 추가했다. 적용된 기존 Migration은 수정하지 않고 후속 변경은 새 Migration으로 추가한다.
 
 ```text
 learning_review_manifests

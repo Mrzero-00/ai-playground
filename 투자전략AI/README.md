@@ -4,8 +4,6 @@
 
 장기 복리 투자와 모멘텀 투자를 독립적으로 평가하고, 포트폴리오 엔진에서만 결합하는 의사결정 시스템입니다.
 
-# Investment OS v2 Specification
-
 ## Goal
 
 Build an Investment Operating System supporting BOTH:
@@ -30,6 +28,7 @@ See docs/ for detailed specifications.
 
 ## Detailed specifications
 
+- [Vision](docs/00_Vision.md)
 - [Architecture](docs/01_Architecture.md)
 - [Investment Philosophy](docs/02_Investment_Philosophy.md)
 - [Investment Philosophy Part Index](docs/02_Investment_Philosophy/README.md)

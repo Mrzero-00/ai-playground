@@ -1,7 +1,10 @@
 # 10. Report System
 
 - 문서 버전: v1.0.0
-- 상태: CORE / API / SCHEMA IMPLEMENTED
+- 작성일: 2026-07-22
+- 최종 검토일: 2026-07-23
+- 명세 상태: SPECIFICATION BASELINE
+- 구현 준비도: R1 CORE / API / SCHEMA IMPLEMENTED / R2+ OPEN
 - 기준 문서: `01_Architecture.md` v2.3, `02_Investment_Philosophy.md` v2.2.1, `03_LongTerm_Engine.md`~`09_Scoring_System.md`
 - 후속 문서: `11_UI_UX.md`, `12_Roadmap.md`, `13_Codex_Implementation.md`
 
@@ -706,7 +709,7 @@ interface ReportArtifactV1 {
 
 ## 13. API 계약
 
-### 13.1 Template
+### 13.1 Template — R1 IMPLEMENTED
 
 ```http
 POST /api/v1/reports/templates/validate
@@ -714,7 +717,7 @@ POST /api/v1/reports/templates/:id/transitions
 GET  /api/v1/reports/templates/:id
 ```
 
-### 13.2 생성
+### 13.2 생성 — R1 IMPLEMENTED
 
 ```http
 POST /api/v1/reports
@@ -725,20 +728,22 @@ POST /api/v1/reports/:id/revisions
 POST /api/v1/reports/:id/replays
 ```
 
-### 13.3 목록과 비교
+### 13.3 목록과 비교 — R2+ TARGET
 
 ```http
 GET  /api/v1/reports?type=&status=&periodStart=&periodEnd=&cursor=
 POST /api/v1/reports/changes/explain
 ```
 
-### 13.4 Delivery
+### 13.4 Delivery — R2+ TARGET
 
 ```http
 POST /api/v1/reports/:id/deliveries
 GET  /api/v1/reports/:id/deliveries
 POST /api/v1/report-deliveries/:id/retry
 ```
+
+`R1 IMPLEMENTED`는 현재 공개 API 계약이고 `R2+ TARGET`은 목표 명세다. 목록·변화 비교·Delivery API는 Object Storage, Delivery Provider, Redaction과 운영 재시도 정책을 연결한 뒤 공개한다.
 
 ### 13.5 상태 코드
 

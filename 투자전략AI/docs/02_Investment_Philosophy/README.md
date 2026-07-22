@@ -4,8 +4,15 @@
 
 - 문서 버전: v2.2.1
 - 작성일: 2026-07-22
+- 최종 검토일: 2026-07-23
+- 명세 상태: Draft for Review
+- 구현 준비도: R1 Foundation Implemented / Policy Approval Open
 - 상위 문서: [`../01_Architecture.md`](../01_Architecture.md)
 - 통합본: [`../02_Investment_Philosophy.md`](../02_Investment_Philosophy.md)
+
+## Canonical source policy
+
+`docs/02_Investment_Philosophy.md`가 유일한 정본이다. 이 디렉터리의 5개 Part는 읽기 편의를 위한 동기화 사본이며 독립적으로 수정하지 않는다. 문서 품질 검증기는 제목 수준과 Part 사이 구분선을 정규화한 뒤 통합본과 각 Part가 정확히 같은지 검사한다.
 
 ## Parts
 

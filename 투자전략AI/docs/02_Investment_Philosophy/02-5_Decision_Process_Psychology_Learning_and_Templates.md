@@ -6,6 +6,10 @@
 - Part: 5 / 5
 - 문서 버전: v2.2.1
 - 작성일: 2026-07-22
+- 최종 검토일: 2026-07-23
+- 명세 상태: Draft for Review
+- 구현 준비도: R1 Foundation Implemented / Policy Approval Open
+- 정본: `docs/02_Investment_Philosophy.md`
 - 관련 Engine: Decision Engine, Learning Engine, Report Engine
 - 관련 후속 문서: `06_Learning_Engine.md`, `10_Report_System.md`, `13_Codex_Implementation.md`
 
@@ -1323,7 +1327,7 @@ Learning:
 
 ---
 
-## 27. Chapter 완료와 다음 단계
+## 27. Chapter 완료와 하위 문서 소유권
 
 `02_Investment_Philosophy`는 다음 다섯 Part로 구성된다.
 
@@ -1333,7 +1337,7 @@ Learning:
 4. Capital Allocation, Portfolio, and Risk
 5. Decision Process, Psychology, Learning, and Templates
 
-다음 상세 설계 순서는 Architecture에서 정한 대로 진행한다.
+다음 문서는 이미 작성된 하위 계약이며 Philosophy 변경 시 영향 분석과 재검토 순서로 사용한다.
 
 1. `05_Portfolio_Engine.md`
 2. `03_LongTerm_Engine.md`
@@ -1341,4 +1345,4 @@ Learning:
 4. `09_Scoring_System.md`
 5. `06_Learning_Engine.md`
 
-Philosophy 변경이 필요하면 하위 Engine을 임의로 수정하기 전에 이 Chapter의 버전을 먼저 올린다.
+Philosophy 변경이 필요하면 하위 Engine을 임의로 수정하기 전에 이 Chapter의 버전을 먼저 올리고, `13_Codex_Implementation.md`의 구현·검증 영향도 함께 갱신한다.

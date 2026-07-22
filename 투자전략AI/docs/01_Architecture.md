@@ -3,8 +3,10 @@
 > Long-term Investing과 Momentum Investing을 하나의 포트폴리오 안에서 운영하되, 분석 논리·자금·위험·성과·학습을 분리하는 Investment OS의 기준 아키텍처
 
 - 문서 버전: v2.3
-- 작성일: 2026-07-22
-- 문서 상태: Architecture Baseline
+- 명세 상태: `ARCHITECTURE BASELINE`
+- 구현 준비도: `R1 FOUNDATION IMPLEMENTED / R2+ OPEN`
+- 작성일: `2026-07-22`
+- 최종 검토일: `2026-07-23`
 - 상위 문서: `00_Vision.md`
 - 후속 문서:
   - `02_Investment_Philosophy.md`
@@ -2026,9 +2028,9 @@ MVP에서는 모든 실제 투자 실행에 사용자 승인을 요구한다.
 
 ---
 
-## 22. 미결정 사항
+## 22. 하위 문서 소유권과 확정 위치
 
-다음 내용은 후속 문서에서 확정한다.
+아래 항목은 Architecture가 경계를 소유하고, 세부 정책·공식·Schema는 지정된 하위 문서가 소유한다. 모든 하위 문서는 현재 존재하며 구현 준비도와 열린 운영 Gate는 `13_Codex_Implementation.md`에서 추적한다.
 
 ### `02_Investment_Philosophy.md`
 
@@ -2156,9 +2158,9 @@ MVP에서는 모든 실제 투자 실행에 사용자 승인을 요구한다.
 
 ---
 
-## 25. 다음 문서
+## 25. 문서 의존성과 변경 순서
 
-Architecture 승인 후 다음 순서로 상세화한다.
+상세 문서는 다음 의존 순서로 관리한다. 이 목록은 앞으로 작성할 문서 목록이 아니라 변경 영향 분석과 검토 순서를 뜻한다.
 
 1. `02_Investment_Philosophy.md`
 2. `05_Portfolio_Engine.md`
@@ -2173,4 +2175,4 @@ Architecture 승인 후 다음 순서로 상세화한다.
 11. `12_Roadmap.md`
 12. `13_Codex_Implementation.md`
 
-Architecture의 변경이 필요한 경우, 하위 문서를 먼저 수정하지 않고 이 문서의 버전을 먼저 올린다.
+Architecture의 변경이 필요한 경우 하위 문서를 먼저 수정하지 않고 이 문서의 버전과 관련 ADR을 먼저 갱신한다. 문서별 구현 상태와 다음 실행 단계는 `13_Codex_Implementation.md`를 기준으로 판단한다.

@@ -6,7 +6,10 @@
 - Part: 1 / 5
 - 문서 버전: v2.2.1
 - 작성일: 2026-07-22
-- 문서 상태: Draft for Review
+- 최종 검토일: 2026-07-23
+- 명세 상태: Draft for Review
+- 구현 준비도: R1 Foundation Implemented / Policy Approval Open
+- 정본: `docs/02_Investment_Philosophy.md`
 - 상위 문서: `01_Architecture.md`
 - 적용 범위: Long-term, Future Core, Momentum, Portfolio, Risk, Learning Engine
 

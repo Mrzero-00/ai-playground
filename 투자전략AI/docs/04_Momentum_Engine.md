@@ -4,7 +4,9 @@
 
 - 문서 버전: `v1.0.0-draft`
 - 작성일: `2026-07-22`
-- 상태: `IMPLEMENTATION-READY DRAFT`
+- 최종 검토일: `2026-07-23`
+- 명세 상태: `IMPLEMENTATION-READY DRAFT / POLICY APPROVAL OPEN`
+- 구현 준비도: `R1 FOUNDATION IMPLEMENTED / R2+ OPEN`
 - 선행 문서: `01_Architecture.md` v2.3, `02_Investment_Philosophy.md` v2.2.1, `03_LongTerm_Engine.md` v1.0.0-draft
 - 후속 문서: `05_Portfolio_Engine.md`, `08_Database.md`, `09_Scoring_System.md`
 - 구현 기준 경로: `packages/core`, `apps/api`, `supabase/migrations`
@@ -1687,19 +1689,23 @@ Legacy 총점은 호환 Preview로만 유지한다.
 
 ### 24.1 엔드포인트
 
+다음 API는 모두 R1 Repository 범위에서 구현되어 있다.
+
 ```text
-POST /api/v1/momentum/scans
-GET  /api/v1/momentum/scans/:id
-POST /api/v1/momentum/evaluations
-GET  /api/v1/momentum/evaluations/:id
-GET  /api/v1/companies/:companyId/momentum
-GET  /api/v1/momentum/rankings
-POST /api/v1/momentum/plans
-POST /api/v1/momentum/plans/:id/revisions
-POST /api/v1/momentum/plans/:id/validate-price
-GET  /api/v1/momentum/reviews/due
-POST /api/v1/momentum/replays
+POST /api/v1/momentum/scans                              [R1]
+GET  /api/v1/momentum/scans/:id                          [R1]
+POST /api/v1/momentum/evaluations                        [R1]
+GET  /api/v1/momentum/evaluations/:id                    [R1]
+GET  /api/v1/companies/:companyId/momentum               [R1]
+GET  /api/v1/momentum/rankings                           [R1]
+POST /api/v1/momentum/plans                              [R1]
+POST /api/v1/momentum/plans/:id/revisions                [R1]
+POST /api/v1/momentum/plans/:id/validate-price           [R1]
+GET  /api/v1/momentum/reviews/due                        [R1]
+POST /api/v1/momentum/replays                            [R1]
 ```
+
+실제 Market Data Provider, 거래소 Calendar, 완료 Bar와 Scheduler 연결은 R2+ 운영 Gate다.
 
 상태 변경 POST는 `Idempotency-Key` 필수다.
 
@@ -1753,7 +1759,7 @@ POST /api/v1/momentum/replays
 
 ### 25.1 신규 Migration
 
-구현 시 `005_momentum_engine_v1.sql`을 추가한다. 기존 Migration을 수정하지 않는다.
+R1에서 `005_momentum_engine_v1.sql`을 추가했다. 적용된 기존 Migration은 수정하지 않고 후속 변경은 새 Migration으로 추가한다.
 
 ### 25.2 Table
 
@@ -2142,20 +2148,19 @@ Change Proposal
 
 ---
 
-## 32. 현재 구현 Gap
+## 32. R1 구현 현황과 남은 Gap
 
-| 현재 자산 | 재사용 | 추가·교체 |
+| 영역 | R1 현재 상태 | 남은 R2+ 작업 |
 |---|---|---|
-| `momentum.ts` | 순수 Weighted Score 패턴 | Legacy 5 Factor와 단일 임계치, Regime/Liquidity/Setup Gate 분리 |
-| `momentum-plan.ts` | Entry·Stop·Chase·Target·Time Stop, Regime Gate, Stop 확대 통제 | Revision·R/R·현재가격 검증·Event Policy·만료 Lifecycle |
-| `contracts.ts` | Evaluation Lineage와 ENTER 기본 검증 | Factor/Gate/Universe/Regime/Chase/Gap/Hash 확장 |
-| `state-machine.ts` | 순차 Momentum Setup State | Transition Evidence·만료·승인 메타데이터 |
-| `risk.ts` | Stop 필수, Regime·Event·Behavioral Gate | Gap Scenario·Signal/Plan 만료·Open Risk Handoff |
-| `portfolio.ts` | Momentum Bucket·종목 한도 | 주당 위험·유동성 Capacity 기반 수량은 05에서 연결 |
-| `evidence.ts` | 출처 등급·점수 가능 출처 | Catalyst Half-life·Market Source Conflict |
-| DB 001~004 | Evaluation·Plan·Lot·Event·Outbox 기반 | Momentum v1 세부 Table과 Revision |
+| `momentum.ts` | Legacy 5 Factor Preview로 격리 | 소비자 전환 후 폐기 일정 확정 |
+| `momentum-v1` | Universe·Regime·7 Factor·Setup·Trade Plan·Lifecycle·Replay 구현 | 실데이터 Walk-forward·Calibration |
+| `momentum-plan.ts` | Legacy Plan 호환 계약 유지 | v1으로 소비자 전환 |
+| `contracts.ts` | Evaluation Lineage와 공통 안전 계약 | Provider 입력 Schema 검증 |
+| `risk.ts` / `portfolio-v1` | Stop·Gap·만료·Open Risk Handoff 구현 | 실제 계좌·Quote Reconciliation |
+| `supabase/migrations/005_*` | Momentum 세부 Table·Revision·RLS 정의 | Preview Supabase 적용과 Auth/RLS E2E |
+| `apps/api` | Scan·평가·Ranking·Plan·Review·Replay 구현 | Scheduler·Event Consumer·운영 Alert |
 
-Legacy `evaluateMomentum`은 기존 소비자를 위해 유지하되 `legacy: true` 또는 폐기 일정으로 격리한다.
+Legacy `evaluateMomentum`은 기존 소비자를 위해 유지한다. R1 구현 증거와 열린 Gate는 `13_Codex_Implementation.md`와 `implementation/status.manifest.json`에서 추적한다.
 
 ---
 
@@ -2220,48 +2225,53 @@ Legacy `evaluateMomentum`은 기존 소비자를 위해 유지하되 `legacy: tr
 
 ## 34. Definition of Done
 
+체크 표시는 Repository R1 범위를 기준으로 한다. 미체크 항목은 R2+ 통합 또는 운영 증거가 필요한 열린 Gate다.
+
 ### 도메인
 
-- [ ] Setup Score와 Regime/Portfolio/Risk가 분리됨
-- [ ] Universe·Regime·7 Factor·Confidence·Gate 구현
-- [ ] 5개 MVP Setup 구현
-- [ ] Entry·Stop·Chase·Target/Trailing·Time Stop 구현
-- [ ] Event/Gap Risk와 Catalyst Half-life 구현
-- [ ] Lifecycle과 Plan Revision 구현
+- [x] Setup Score와 Regime/Portfolio/Risk가 분리됨
+- [x] Universe·Regime·7 Factor·Confidence·Gate 구현
+- [x] 5개 MVP Setup 구현
+- [x] Entry·Stop·Chase·Target/Trailing·Time Stop 구현
+- [x] Event/Gap Risk와 Catalyst Half-life 구현
+- [x] Lifecycle과 Plan Revision 구현
 
 ### 데이터
 
-- [ ] Bar·Quote·Corporate Action Point-in-time
-- [ ] Snapshot·Evidence·Model 계보
-- [ ] Missing/Stale/Conflict Fail-closed
-- [ ] Decimal 가격·금액·수량
+- [x] Bar·Quote·Corporate Action Point-in-time 계약
+- [x] Snapshot·Evidence·Model 계보
+- [x] Missing/Stale/Conflict Fail-closed
+- [x] Decimal 가격·금액·수량 계약
+- [ ] 실제 거래소 Calendar·완료 Bar·Corporate Action Provider 연결
 
 ### 안전
 
-- [ ] Stop 없는 ENTER 0
-- [ ] Chase 초과 ENTER 0
-- [ ] Crisis 신규 Long 0
-- [ ] Binary Event 무계획 ENTER 0
-- [ ] Long-term 자동 전환 0
-- [ ] 실제 금액·주문 승인 없음
+- [x] Stop 없는 ENTER 0
+- [x] Chase 초과 ENTER 0
+- [x] Crisis 신규 Long 0
+- [x] Binary Event 무계획 ENTER 0
+- [x] Long-term 자동 전환 0
+- [x] 실제 금액·주문 승인 없음
 
 ### API/DB
 
-- [ ] v1 API·오류 계약
-- [ ] 멱등성·Audit·Outbox
-- [ ] 불변 Signal/Plan Revision·RLS
-- [ ] 동일 Version Ranking
-- [ ] Due Review·만료
+- [x] v1 API·오류 계약
+- [x] 멱등성·Audit·Outbox
+- [x] 불변 Signal/Plan Revision·RLS Schema 계약
+- [x] 동일 Version Ranking
+- [x] Due Review·만료
+- [ ] 실제 Supabase Auth/RLS E2E
 
 ### 검증
 
-- [ ] Unit/Property/Golden/Integration
-- [ ] Point-in-time Replay
-- [ ] 비용·Slippage·Gap 포함
-- [ ] 동일 입력 재현 100%
-- [ ] `pnpm typecheck`, `pnpm test`, `pnpm build`
+- [x] Unit/Invariant/Golden/API Integration
+- [x] Point-in-time Replay
+- [x] 비용·Slippage·Gap 계약 포함
+- [x] 동일 입력 Result Hash 재현
+- [x] `pnpm typecheck`, `pnpm test`, `pnpm build`
+- [ ] 실제 비용·Slippage Walk-forward와 Shadow 검증
 
-문서 완료와 운영 완료를 혼동하지 않는다. 실제 Provider·DB·인증·Scheduler 연결까지 끝나야 운영 준비 완료다.
+R1 Foundation 완료와 운영 완료를 혼동하지 않는다. 실제 Provider·DB·인증·Scheduler 연결과 Shadow 검증이 끝나야 통합·운영 완료로 승격할 수 있다.
 
 ---
 

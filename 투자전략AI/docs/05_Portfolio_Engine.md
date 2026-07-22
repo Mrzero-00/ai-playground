@@ -4,7 +4,9 @@
 
 - 문서 버전: `v1.0.0`
 - 작성일: `2026-07-22`
-- 상태: `CORE IMPLEMENTED` — Provider·실제 Supabase·인증·Scheduler·Broker 연결은 운영 단계
+- 최종 검토일: `2026-07-23`
+- 명세 상태: `SPECIFICATION BASELINE`
+- 구현 준비도: `R1 CORE IMPLEMENTED / R2+ OPEN` — Provider·실제 Supabase·인증·Scheduler·Broker 연결은 운영 단계
 - 선행 문서: `01_Architecture.md` v2.3, `02_Investment_Philosophy.md` v2.2.1, `03_LongTerm_Engine.md` v1.0.0-draft, `04_Momentum_Engine.md` v1.0.0-draft
 - 후속 문서: `08_Database.md`, `09_Scoring_System.md`
 - 구현 기준 경로: `packages/core`, `apps/api`, `supabase/migrations`
@@ -1298,7 +1300,7 @@ Portfolio 응답은 다음을 분리한다.
 
 ## 24. 저장 모델
 
-구현 시 `006_portfolio_engine_v1.sql`을 추가하고 기존 Migration을 수정하지 않는다.
+R1에서 `006_portfolio_engine_v1.sql`을 추가했다. 적용된 기존 Migration은 수정하지 않고 후속 변경은 새 Migration으로 추가한다.
 
 ### 24.1 Table
 

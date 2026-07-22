@@ -4,7 +4,9 @@
 
 - 문서 버전: `v1.0.0`
 - 작성일: `2026-07-22`
-- 상태: `CORE/API/SCHEMA IMPLEMENTED`
+- 최종 검토일: `2026-07-23`
+- 명세 상태: `SPECIFICATION BASELINE`
+- 구현 준비도: `R1 CORE/API/SCHEMA IMPLEMENTED / R2+ OPEN`
 - 선행 문서: `01_Architecture.md` v2.3, `02_Investment_Philosophy.md` v2.2.1, `03`~`08` 명세
 - 후속 문서: `10_Report_System.md`, `11_UI_UX.md`, `12_Roadmap.md`
 - 구현 기준: TypeScript 순수 함수 / PostgreSQL·Supabase `010_scoring_system_v1.sql`

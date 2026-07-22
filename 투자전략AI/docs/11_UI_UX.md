@@ -1,7 +1,10 @@
 # 11. UI / UX
 
 - 문서 버전: v1.0.0
-- 상태: FOUNDATION / REVIEW MVP IMPLEMENTED
+- 작성일: 2026-07-22
+- 최종 검토일: 2026-07-23
+- 명세 상태: SPECIFICATION BASELINE
+- 구현 준비도: R1 FOUNDATION / REVIEW MVP IMPLEMENTED / R2+ OPEN
 - 기준 문서: `01_Architecture.md` v2.3, `02_Investment_Philosophy.md` v2.2.1, `03_LongTerm_Engine.md`~`10_Report_System.md`
 - 후속 문서: `12_Roadmap.md`, `13_Codex_Implementation.md`
 

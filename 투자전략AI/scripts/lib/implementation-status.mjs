@@ -1,6 +1,7 @@
 import { createHash } from "node:crypto";
 import { readFile, readdir, stat } from "node:fs/promises";
 import path from "node:path";
+import { verifyDocumentQuality } from "./document-quality.mjs";
 
 const READINESS = ["R0", "R1", "R2", "R3", "R4", "R5", "R6"];
 const EXPECTED_CAPABILITIES = Array.from({ length: 12 }, (_, index) => String(index + 1).padStart(2, "0"));
@@ -82,10 +83,15 @@ export async function verifyImplementationStatus({ root, manifestPath = "impleme
   for (const capability of capabilities) { check(readme.includes(capability.document), `README_DOCUMENT_LINK_MISSING:${capability.id}`, errors); checks += 1; }
   check(readme.includes("docs/13_Codex_Implementation.md"), "README_IMPLEMENTATION_STATUS_LINK_MISSING", errors); checks += 1;
 
-  const requiredCommands = ["pnpm test", "pnpm typecheck", "pnpm build", "pnpm verify:implementation"];
+  const requiredCommands = ["pnpm test", "pnpm typecheck", "pnpm build", "pnpm verify:docs", "pnpm verify:implementation"];
   for (const command of requiredCommands) { check(manifest.verificationCommands?.includes(command), `VERIFICATION_COMMAND_MISSING:${command}`, errors); checks += 1; }
 
-  return result({ errors, warnings, manifest, checks, migrations, actualTestCounts });
+  const documentQuality = await verifyDocumentQuality({ root });
+  errors.push(...documentQuality.errors.map((error) => `DOCUMENT_QUALITY:${error}`));
+  warnings.push(...documentQuality.warnings.map((warning) => `DOCUMENT_QUALITY:${warning}`));
+  checks += documentQuality.checks;
+
+  return result({ errors, warnings, manifest, checks, migrations, actualTestCounts, documentQuality });
 }
 
 function safePath(root, relativePath, errors) {
@@ -119,7 +125,15 @@ async function countDeclaredTests(directory, errors) {
 
 function check(condition, code, errors) { if (!condition) errors.push(code); }
 
-function result({ errors, warnings, manifest, checks, migrations = [], actualTestCounts = {} }) {
-  const canonical = { status: errors.length === 0 ? "PASSED" : "FAILED", checks, errors: [...new Set(errors)].sort(), warnings: [...new Set(warnings)].sort(), migrations, actualTestCounts };
+function result({ errors, warnings, manifest, checks, migrations = [], actualTestCounts = {}, documentQuality }) {
+  const canonical = {
+    status: errors.length === 0 ? "PASSED" : "FAILED",
+    checks,
+    errors: [...new Set(errors)].sort(),
+    warnings: [...new Set(warnings)].sort(),
+    migrations,
+    actualTestCounts,
+    documentQuality: documentQuality ? { status: documentQuality.status, checks: documentQuality.checks, files: documentQuality.files, resultHash: documentQuality.resultHash } : undefined,
+  };
   return { ...canonical, manifest, resultHash: createHash("sha256").update(JSON.stringify(canonical)).digest("hex") };
 }

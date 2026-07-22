@@ -5,6 +5,7 @@ import type { ModelVersion } from "./model-version.js";
 import type { PositionLot } from "./position-lot.js";
 import type { DataSnapshot } from "./snapshot.js";
 import type { LongTermEvaluationResult } from "./long-term-v1/types.js";
+import type { MomentumEvaluationResultV1, MomentumTradePlanV1 } from "./momentum-v1/types.js";
 
 export interface InvestmentOsRepository {
   saveDecision(value: DecisionProposal): Promise<void>;
@@ -26,6 +27,12 @@ export interface InvestmentOsRepository {
   findLongTermEvaluation(id: string): Promise<LongTermEvaluationResult | undefined>;
   findLatestLongTermEvaluation(companyId: string): Promise<LongTermEvaluationResult | undefined>;
   listLongTermEvaluations(): Promise<LongTermEvaluationResult[]>;
+  saveMomentumEvaluationWithOutbox(value: MomentumEvaluationResultV1, audit: AuditRecord, outbox: OutboxRecord): Promise<void>;
+  findMomentumEvaluation(id: string): Promise<MomentumEvaluationResultV1 | undefined>;
+  findLatestMomentumEvaluation(companyId: string): Promise<MomentumEvaluationResultV1 | undefined>;
+  listMomentumEvaluations(): Promise<MomentumEvaluationResultV1[]>;
+  saveMomentumTradePlanWithOutbox(value: MomentumTradePlanV1, audit: AuditRecord, outbox: OutboxRecord): Promise<void>;
+  findMomentumTradePlan(id: string): Promise<MomentumTradePlanV1 | undefined>;
   listPendingOutbox(): Promise<OutboxRecord[]>;
   markOutboxPublished(id: string, at: string): Promise<void>;
 }
@@ -39,6 +46,8 @@ export class InMemoryInvestmentOsRepository implements InvestmentOsRepository {
   readonly events: DomainEvent[] = [];
   readonly outbox = new Map<string, OutboxRecord>();
   readonly longTermEvaluations = new Map<string, LongTermEvaluationResult>();
+  readonly momentumEvaluations = new Map<string, MomentumEvaluationResultV1>();
+  readonly momentumTradePlans = new Map<string, MomentumTradePlanV1>();
 
   async saveDecision(value: DecisionProposal): Promise<void> { this.decisions.set(value.id, structuredClone(value)); }
   async findDecision(id: string): Promise<DecisionProposal | undefined> { return this.clone(this.decisions.get(id)); }
@@ -100,6 +109,39 @@ export class InMemoryInvestmentOsRepository implements InvestmentOsRepository {
   }
   async listLongTermEvaluations(): Promise<LongTermEvaluationResult[]> {
     return this.values(this.longTermEvaluations).sort((left, right) => right.evaluatedAt.localeCompare(left.evaluatedAt));
+  }
+  async saveMomentumEvaluationWithOutbox(value: MomentumEvaluationResultV1, audit: AuditRecord, outbox: OutboxRecord): Promise<void> {
+    if (this.momentumEvaluations.has(value.id)) throw new Error("Momentum evaluation already exists and is immutable");
+    this.momentumEvaluations.set(value.id, structuredClone(value));
+    this.audit.push(structuredClone(audit));
+    this.outbox.set(outbox.id, structuredClone(outbox));
+  }
+  async findMomentumEvaluation(id: string): Promise<MomentumEvaluationResultV1 | undefined> {
+    return this.clone(this.momentumEvaluations.get(id));
+  }
+  async findLatestMomentumEvaluation(companyId: string): Promise<MomentumEvaluationResultV1 | undefined> {
+    return this.values(this.momentumEvaluations)
+      .filter((evaluation) => evaluation.companyId === companyId)
+      .sort((left, right) => right.evaluatedAt.localeCompare(left.evaluatedAt))[0];
+  }
+  async listMomentumEvaluations(): Promise<MomentumEvaluationResultV1[]> {
+    return this.values(this.momentumEvaluations).sort((left, right) => right.evaluatedAt.localeCompare(left.evaluatedAt));
+  }
+  async saveMomentumTradePlanWithOutbox(value: MomentumTradePlanV1, audit: AuditRecord, outbox: OutboxRecord): Promise<void> {
+    if (this.momentumTradePlans.has(value.id)) throw new Error("Momentum trade plan already exists and is immutable");
+    if (value.supersedesPlanId) {
+      const previous = this.momentumTradePlans.get(value.supersedesPlanId);
+      if (!previous) throw new Error("superseded Momentum trade plan not found");
+      if (previous.setupId !== value.setupId || value.revision !== previous.revision + 1) throw new Error("Momentum trade plan revision chain is invalid");
+    } else if (value.revision !== 1) {
+      throw new Error("initial Momentum trade plan revision must be 1");
+    }
+    this.momentumTradePlans.set(value.id, structuredClone(value));
+    this.audit.push(structuredClone(audit));
+    this.outbox.set(outbox.id, structuredClone(outbox));
+  }
+  async findMomentumTradePlan(id: string): Promise<MomentumTradePlanV1 | undefined> {
+    return this.clone(this.momentumTradePlans.get(id));
   }
   async listPendingOutbox(): Promise<OutboxRecord[]> {
     return this.values(this.outbox).filter((record) => record.status === "PENDING");

@@ -16,6 +16,7 @@ import {
   evaluateLongTerm,
   evaluateLongTermV1,
   evaluateMomentum,
+  evaluateMomentumV1,
   evaluateRisk,
   interpretCrossSignal,
   inspectSnapshot,
@@ -27,16 +28,22 @@ import {
   requestDecisionModification,
   resolveManualRiskReview,
   replayLongTermEvaluation,
+  replayMomentumEvaluation,
   validateEvidence,
   validateEvaluationEvidence,
   validateLongTermThesis,
   validateMomentumTradePlan,
+  validateMomentumTradePlanV1,
+  classifyMomentumPrice,
   validatePhilosophyPolicy,
   DecisionWorkflow,
   type AllocationProposal,
   type RiskDecision,
   type LongTermEvaluationInput,
   type LongTermEvaluationResult,
+  type MomentumEvaluationInput,
+  type MomentumEvaluationResultV1,
+  type MomentumTradePlanV1,
 } from "@investment-os/core";
 
 const port = Number(process.env.PORT ?? 4000);
@@ -149,6 +156,71 @@ export const server = createServer(async (request, response) => {
         .sort((left, right) => left.nextReviewAt.localeCompare(right.nextReviewAt));
       return json(response, 200, { asOf, items: due });
     }
+    if (request.method === "GET" && path.startsWith("/api/momentum/evaluations/")) {
+      const id = decodeURIComponent(path.slice("/api/momentum/evaluations/".length));
+      const evaluation = await repository.findMomentumEvaluation(id);
+      return evaluation ? json(response, 200, evaluation) : json(response, 404, {
+        requestId,
+        error: { code: "MOMENTUM_EVALUATION_NOT_FOUND", message: "Momentum evaluation not found", retryable: false },
+      });
+    }
+    const companyMomentum = request.method === "GET" ? path.match(/^\/api\/companies\/([^/]+)\/momentum$/) : null;
+    if (companyMomentum) {
+      const evaluation = await repository.findLatestMomentumEvaluation(decodeURIComponent(companyMomentum[1] ?? ""));
+      return evaluation ? json(response, 200, evaluation) : json(response, 404, {
+        requestId,
+        error: { code: "MOMENTUM_EVALUATION_NOT_FOUND", message: "company Momentum evaluation not found", retryable: false },
+      });
+    }
+    if (request.method === "GET" && path === "/api/momentum/rankings") {
+      const allEvaluations = await repository.listMomentumEvaluations();
+      const modelVersionId = url.searchParams.get("modelVersionId") ?? allEvaluations[0]?.modelVersionId;
+      const universePolicyVersionId = url.searchParams.get("universePolicyVersionId") ?? allEvaluations[0]?.universePolicyVersionId;
+      const session = url.searchParams.get("session") ?? allEvaluations[0]?.marketPriceAsOf.slice(0, 10);
+      const latestBySecurity = new Map<string, MomentumEvaluationResultV1>();
+      for (const evaluation of allEvaluations) {
+        if (evaluation.modelVersionId !== modelVersionId
+          || evaluation.universePolicyVersionId !== universePolicyVersionId
+          || evaluation.marketPriceAsOf.slice(0, 10) !== session
+          || (evaluation.action !== "ENTER" && evaluation.action !== "WAIT")) continue;
+        if (!latestBySecurity.has(evaluation.securityId)) latestBySecurity.set(evaluation.securityId, evaluation);
+      }
+      const items = [...latestBySecurity.values()]
+        .sort((left, right) => right.score.point - left.score.point
+          || right.confidence.score - left.confidence.score
+          || left.securityId.localeCompare(right.securityId))
+        .map((evaluation) => ({
+          evaluationId: evaluation.id,
+          companyId: evaluation.companyId,
+          securityId: evaluation.securityId,
+          setupId: evaluation.setup.setupId,
+          setupType: evaluation.setup.setupType,
+          action: evaluation.action,
+          score: evaluation.score,
+          confidence: evaluation.confidence,
+          marketRegime: evaluation.marketRegime.regime,
+          expiresAt: evaluation.expiresAt,
+        }));
+      return json(response, 200, { modelVersionId, universePolicyVersionId, session, items });
+    }
+    if (request.method === "GET" && path === "/api/momentum/reviews/due") {
+      const asOf = url.searchParams.get("asOf") ?? new Date().toISOString();
+      const asOfTime = new Date(asOf).getTime();
+      if (!Number.isFinite(asOfTime)) throw new Error("asOf must be a valid date");
+      const evaluations = await repository.listMomentumEvaluations();
+      const items = evaluations
+        .filter((evaluation) => evaluation.mode !== "HISTORICAL_REPLAY" && new Date(evaluation.nextReviewAt).getTime() <= asOfTime)
+        .sort((left, right) => left.nextReviewAt.localeCompare(right.nextReviewAt));
+      return json(response, 200, { asOf, items });
+    }
+    if (request.method === "GET" && path.startsWith("/api/momentum/plans/")) {
+      const id = decodeURIComponent(path.slice("/api/momentum/plans/".length));
+      const plan = await repository.findMomentumTradePlan(id);
+      return plan ? json(response, 200, plan) : json(response, 404, {
+        requestId,
+        error: { code: "MOMENTUM_PLAN_NOT_FOUND", message: "Momentum trade plan not found", retryable: false },
+      });
+    }
     if (request.method !== "POST") return json(response, 404, { error: "not_found" });
 
     const body = await readBody(request);
@@ -206,6 +278,111 @@ export const server = createServer(async (request, response) => {
         status: 200,
         body: replayLongTermEvaluation(body as LongTermEvaluationInput),
       }));
+    }
+    if (path === "/api/momentum/evaluations") {
+      return idempotentJson(request, response, path, body, async () => {
+        const result = evaluateMomentumV1(body as MomentumEvaluationInput);
+        const event = createDomainEvent({
+          id: randomUUID(),
+          type: "MomentumEvaluationCompleted",
+          occurredAt: result.evaluatedAt,
+          aggregateId: result.id,
+          correlationId,
+          schemaVersion: "1",
+          modelVersionId: result.modelVersionId,
+          payload: {
+            evaluationId: result.id,
+            companyId: result.companyId,
+            securityId: result.securityId,
+            setupId: result.setup.setupId,
+            setupType: result.setup.setupType,
+            score: result.score,
+            confidence: result.confidence.score,
+            regime: result.marketRegime.regime,
+            action: result.action,
+            planId: result.tradePlan?.id,
+            expiresAt: result.expiresAt,
+            universePolicyVersionId: result.universePolicyVersionId,
+            setupDefinitionVersion: result.setupDefinitionVersion,
+            nextReviewAt: result.nextReviewAt,
+          },
+        });
+        const audit = createAuditRecord({
+          id: randomUUID(),
+          occurredAt: result.evaluatedAt,
+          actorId: "momentum-engine-v1",
+          action: "MOMENTUM_EVALUATED",
+          entityType: "MomentumEvaluation",
+          entityId: result.id,
+          reason: `Momentum ${result.mode} completed with action ${result.action}`,
+          after: result,
+          metadata: {
+            modelVersionId: result.modelVersionId,
+            philosophyVersionId: result.philosophyVersionId,
+            universePolicyVersionId: result.universePolicyVersionId,
+            setupDefinitionVersion: result.setupDefinitionVersion,
+            resultHash: result.resultHash,
+            correlationId,
+          },
+        });
+        await repository.saveMomentumEvaluationWithOutbox(result, audit, createOutboxRecord(event));
+        return { status: 201, body: result };
+      });
+    }
+    if (path === "/api/momentum/replays") {
+      return idempotentJson(request, response, path, body, async () => ({
+        status: 200,
+        body: replayMomentumEvaluation(body as MomentumEvaluationInput),
+      }));
+    }
+    if (path === "/api/momentum/plans") {
+      return idempotentJson(request, response, path, body, async () => {
+        const plan = validateMomentumTradePlanV1(body as MomentumTradePlanV1);
+        const event = createDomainEvent({
+          id: randomUUID(), type: "MomentumTradePlanCreated", occurredAt: plan.generatedAt,
+          aggregateId: plan.id, correlationId, schemaVersion: "1", modelVersionId: plan.modelVersionId,
+          payload: { planId: plan.id, setupId: plan.setupId, evaluationId: plan.evaluationId, revision: plan.revision, expiresAt: plan.expiresAt },
+        });
+        const audit = createAuditRecord({
+          id: randomUUID(), occurredAt: plan.generatedAt, actorId: "momentum-engine-v1",
+          action: "MOMENTUM_PLAN_CREATED", entityType: "MomentumTradePlan", entityId: plan.id,
+          reason: `Momentum plan revision ${plan.revision} created`, after: plan,
+          metadata: { modelVersionId: plan.modelVersionId, correlationId },
+        });
+        await repository.saveMomentumTradePlanWithOutbox(plan, audit, createOutboxRecord(event));
+        return { status: 201, body: plan };
+      });
+    }
+    const planRevision = path.match(/^\/api\/momentum\/plans\/([^/]+)\/revisions$/);
+    if (planRevision) {
+      const previousId = decodeURIComponent(planRevision[1] ?? "");
+      return idempotentJson(request, response, path, body, async () => {
+        const plan = validateMomentumTradePlanV1(body as MomentumTradePlanV1);
+        if (plan.supersedesPlanId !== previousId) throw new Error("plan revision supersedesPlanId must match path");
+        const event = createDomainEvent({
+          id: randomUUID(), type: "MomentumTradePlanCreated", occurredAt: plan.generatedAt,
+          aggregateId: plan.id, correlationId, schemaVersion: "1", modelVersionId: plan.modelVersionId,
+          payload: { planId: plan.id, setupId: plan.setupId, evaluationId: plan.evaluationId, revision: plan.revision, supersedesPlanId: previousId },
+        });
+        const audit = createAuditRecord({
+          id: randomUUID(), occurredAt: plan.generatedAt, actorId: "momentum-engine-v1",
+          action: "MOMENTUM_PLAN_REVISED", entityType: "MomentumTradePlan", entityId: plan.id,
+          reason: `Momentum plan revision ${plan.revision} supersedes ${previousId}`, after: plan,
+          metadata: { modelVersionId: plan.modelVersionId, correlationId, supersedesPlanId: previousId },
+        });
+        await repository.saveMomentumTradePlanWithOutbox(plan, audit, createOutboxRecord(event));
+        return { status: 201, body: plan };
+      });
+    }
+    const planPriceValidation = path.match(/^\/api\/momentum\/plans\/([^/]+)\/validate-price$/);
+    if (planPriceValidation) {
+      return idempotentJson(request, response, path, body, async () => {
+        const planId = decodeURIComponent(planPriceValidation[1] ?? "");
+        const plan = await repository.findMomentumTradePlan(planId);
+        if (!plan) throw new Error("Momentum trade plan not found");
+        const { currentPrice } = body as { currentPrice: string };
+        return { status: 200, body: { planId, currentPrice, position: classifyMomentumPrice(plan, currentPrice), expiresAt: plan.expiresAt } };
+      });
     }
     if (path === "/v1/evaluations/momentum") {
       return json(response, 200, evaluateMomentum(body as Parameters<typeof evaluateMomentum>[0]));
@@ -340,8 +517,13 @@ export const server = createServer(async (request, response) => {
 
 function mapApiError(message: string): { status: number; code: string; retryable: boolean } {
   if (/already exists|immutable/i.test(message)) return { status: 409, code: "EVALUATION_ALREADY_EXISTS", retryable: false };
+  if (/Momentum trade plan not found|superseded Momentum trade plan not found/i.test(message)) return { status: 404, code: "MOMENTUM_PLAN_NOT_FOUND", retryable: false };
+  if (/market regime permission|trade plan model|model or setup version/i.test(message)) return { status: 409, code: "MODEL_VERSION_CONFLICT", retryable: false };
   if (/policy version|POLICY_VERSION/i.test(message)) return { status: 409, code: "POLICY_VERSION_CONFLICT", retryable: false };
   if (/newer than evaluatedAt|point.in.time|future information/i.test(message)) return { status: 422, code: "POINT_IN_TIME_VIOLATION", retryable: false };
+  if (/Universe|security halted|listingSessions|medianSpreadBps/i.test(message)) return { status: 422, code: "UNIVERSE_INELIGIBLE", retryable: false };
+  if (/trade plan|entryZone|initial stop|chaseLimit|reward\/risk|unitRisk|target/i.test(message)) return { status: 422, code: "TRADE_PLAN_INVALID", retryable: false };
+  if (/Momentum setup|setup definition|setupId|catalyst|event risk|gap risk/i.test(message)) return { status: 422, code: "SETUP_INPUT_INCOMPLETE", retryable: false };
   if (/industry profile|industry factor/i.test(message)) return { status: 422, code: "INDUSTRY_PROFILE_NOT_SUPPORTED", retryable: false };
   if (/valuation|scenario|marketPrice/i.test(message)) return { status: 422, code: "VALUATION_INPUT_INCOMPLETE", retryable: false };
   if (/evidence|thesis|factor|confidence|score/i.test(message)) return { status: 422, code: "INSUFFICIENT_EVALUATION_INPUT", retryable: false };

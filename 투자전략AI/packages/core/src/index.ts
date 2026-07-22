@@ -13,6 +13,7 @@ export * from "./learning.js";
 export * from "./long-term.js";
 export * from "./long-term-v1/index.js";
 export * from "./momentum.js";
+export * from "./momentum-v1/index.js";
 export * from "./portfolio.js";
 export * from "./position-lot.js";
 export * from "./model-version.js";

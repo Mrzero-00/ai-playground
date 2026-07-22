@@ -313,9 +313,9 @@ Migration 파일의 존재는 실제 DB 운영 검증을 뜻하지 않는다.
 | Core Unit/Contract | 128 passed |
 | API Contract | 11 passed |
 | Web View Model | 5 passed |
-| Implementation Verifier | 4 passed |
+| Implementation Verifier | 5 passed |
 | Domain/API/Web Total | 144 passed |
-| Including Verifier | 148 passed |
+| Including Verifier | 149 passed |
 | TypeScript | Core/API/Web passed |
 | Production Build | Core/API/Next passed |
 | Browser Review | Desktop + 390px Mobile passed |
@@ -468,14 +468,21 @@ Verifier 요구사항:
 - Specification 기반 Domain/API/UI/Migration Foundation이 존재한다.
 - 결정론, Fail-closed, 소유권, Point-in-time, Revision, Audit/Outbox를 자동 테스트한다.
 - 전체 Typecheck와 Production Build가 통과한다.
-- Manifest의 192개 문서·코드·테스트·Migration 연결 검사가 통과한다.
+- Manifest의 213개 문서·코드·실제 테스트 선언·Migration 연결 검사가 통과한다.
 
 ### 13 구현 완료 항목
 
 - `implementation/status.manifest.json`에 01~12 Capability·Readiness·구현·테스트·Migration·Open Gate를 고정했다.
 - `pnpm verify:implementation`이 Capability 누락, 경로 누락, Migration 순서·최신 Marker, Test Snapshot, README Link를 검사한다.
 - R2 이상을 주장하면서 External Evidence가 없거나 자동 주문 활성화를 주장하면 Fail-closed한다.
-- 정상 Manifest, 자동 주문 위조, 구현 증거 누락/R2 과장, Migration/Test 불일치 회귀 테스트를 추가했다.
+- 정상 Manifest, 자동 주문 위조, 구현 증거 누락/R2 과장, Migration/실제 Test 불일치, Repository 외부 경로 회귀 테스트를 추가했다.
+
+### 13 품질 리뷰 반영
+
+- Manifest와 Capability 경로가 Repository 밖을 가리키면 읽기 전에 거부한다.
+- Core/API/Web/Verifier 테스트 선언 수를 실제 파일에서 계산해 Snapshot 과장을 차단한다.
+- Migration·README를 읽을 수 없는 상황도 예외 종료 대신 구조화된 실패 결과로 반환한다.
+- 필수 검증 명령과 중복 없는 Open Gate Code를 Manifest 계약으로 검사한다.
 
 다음은 완료를 의미하지 않는다.
 

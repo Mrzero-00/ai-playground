@@ -5,7 +5,7 @@
   "autoTradingEnabled": false,
   "latestMigration": "supabase/migrations/012_roadmap_planning_v1.sql",
   "verificationCommands": ["pnpm test", "pnpm typecheck", "pnpm build", "pnpm verify:implementation"],
-  "testSnapshot": { "core": 128, "api": 11, "web": 5, "total": 144 },
+  "testSnapshot": { "core": 128, "api": 11, "web": 5, "verifier": 5, "total": 149 },
   "capabilities": [
     {
       "id": "01",

@@ -49,9 +49,11 @@ See docs/ for detailed specifications.
 pnpm install
 pnpm test
 pnpm dev
+pnpm dev:web
 ```
 
 API 기본 주소는 `http://localhost:4000`입니다.
+Web 기본 주소는 `http://localhost:3000`입니다.
 
 - `GET /health`: 상태 확인
 - `POST /v1/evaluations/long-term`: 장기 점수 Preview용 Legacy API
@@ -171,6 +173,7 @@ API 기본 주소는 `http://localhost:4000`입니다.
 
 ```text
 apps/api                 HTTP 진입점
+apps/web                 Next.js 검토 Dashboard, Report, Score/Confidence, 안전 승인 UI
 packages/core            순수 도메인 로직
   long-term              Legacy 장기 투자 점수 Preview
   long-term-v1           Core/Future Core Profile, Gate, Confidence, Valuation, Thesis·Stage 정책

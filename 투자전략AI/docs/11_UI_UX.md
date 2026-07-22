@@ -1,7 +1,7 @@
 # 11. UI / UX
 
-- 문서 버전: v1.0.0-draft
-- 상태: IMPLEMENTATION READY
+- 문서 버전: v1.0.0
+- 상태: FOUNDATION / REVIEW MVP IMPLEMENTED
 - 기준 문서: `01_Architecture.md` v2.3, `02_Investment_Philosophy.md` v2.2.1, `03_LongTerm_Engine.md`~`10_Report_System.md`
 - 후속 문서: `12_Roadmap.md`, `13_Codex_Implementation.md`
 
@@ -842,27 +842,27 @@ Analytics 실패는 제품 행동에 영향을 주지 않는다.
 
 ### Product
 
-- [ ] 장기·Momentum이 탐색·점수·Lot에서 분리되는가?
-- [ ] Thesis/Setup과 Risk가 평단/수익률보다 먼저 보이는가?
-- [ ] Score·Range·Confidence·상태가 병렬 표시되는가?
-- [ ] 현금 유지·No Action이 정상 결론으로 보이는가?
-- [ ] 모든 중요 수치에 기준시각과 Lineage가 있는가?
+- [x] 장기·Momentum이 탐색·점수·Lot에서 분리되는가?
+- [x] Thesis/Setup과 Risk가 평단/수익률보다 먼저 보이는가?
+- [x] Score·Range·Confidence·상태가 병렬 표시되는가?
+- [x] 현금 유지·No Action이 정상 결론으로 보이는가?
+- [x] 모든 중요 수치에 기준시각과 Lineage가 있는가?
 
 ### Safety
 
-- [ ] Risk DENY와 Blocked 화면에 승인 Control이 없는가?
-- [ ] 승인 직전 서버 재검증을 수행하는가?
-- [ ] 수정 요청이 새 Proposal Flow로 이동하는가?
-- [ ] Double Submit을 방지하는가?
-- [ ] UI가 도메인 계산을 하지 않는가?
+- [x] Risk DENY와 Blocked 화면에 승인 Control이 없는가?
+- [x] 승인 직전 서버 재검증을 수행하는가?
+- [ ] 실제 API 연결에서 수정 요청이 새 Proposal Flow로 이동하는가?
+- [x] Double Submit을 방지하는가?
+- [x] UI가 도메인 계산을 하지 않는가?
 
 ### Quality
 
-- [ ] Mobile/Desktop 핵심 Flow가 가능한가?
+- [x] Mobile/Desktop 핵심 Flow가 가능한가?
 - [ ] WCAG 2.2 AA 자동 검사에 Critical/Serious가 없는가?
-- [ ] Loading/Empty/Stale/Partial/Blocked/Error 상태가 구분되는가?
-- [ ] Runtime DTO 검증과 Error Mapping이 있는가?
-- [ ] Unit·Component·E2E·Visual 회귀가 있는가?
+- [x] Loading/Empty/Stale/Partial/Blocked/Error 상태가 구분되는가?
+- [x] Runtime View Model 검증과 Error Mapping이 있는가?
+- [ ] 실제 Auth/API를 연결한 Component·E2E·Visual 회귀가 있는가?
 
 ---
 

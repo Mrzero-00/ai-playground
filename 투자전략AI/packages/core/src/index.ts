@@ -10,6 +10,7 @@ export * from "./event.js";
 export * from "./execution.js";
 export * from "./job.js";
 export * from "./learning.js";
+export * from "./learning-v1/index.js";
 export * from "./long-term.js";
 export * from "./long-term-v1/index.js";
 export * from "./momentum.js";

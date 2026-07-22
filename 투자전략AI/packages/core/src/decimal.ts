@@ -97,6 +97,13 @@ export function decimalRatio(numerator: DecimalString, denominator: DecimalStrin
   return Number((a.coefficient * precision) / b.coefficient) / Number(precision);
 }
 
+export function signedDecimalRatio(numerator: SignedDecimalString, denominator: DecimalString): number {
+  if (compareDecimal(denominator, "0") === 0) throw new RangeError("denominator must be positive");
+  const [a, b] = align(parseSigned(numerator), parse(denominator));
+  const precision = 1_000_000_000n;
+  return Number((a.coefficient * precision) / b.coefficient) / Number(precision);
+}
+
 function parse(value: string): DecimalParts {
   assertDecimal(value);
   const [whole = "0", fraction = ""] = value.split(".");

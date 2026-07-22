@@ -620,7 +620,7 @@ interface InvestmentLessonV1 extends LessonCandidateV1 {
 interface ModelChangeProposalV1 {
   id: string;
   lessonIds: string[];
-  targetModelFamily: 'LONG_TERM' | 'MOMENTUM' | 'PORTFOLIO' | 'RISK' | 'CROSS_SIGNAL';
+  targetModelFamily: 'LONG_TERM' | 'MOMENTUM' | 'PORTFOLIO' | 'RISK';
   championModelVersionId: string;
   challengerModelVersionId: string;
   problem: string;

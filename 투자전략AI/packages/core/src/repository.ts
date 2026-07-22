@@ -7,6 +7,16 @@ import type { DataSnapshot } from "./snapshot.js";
 import type { LongTermEvaluationResult } from "./long-term-v1/types.js";
 import type { MomentumEvaluationResultV1, MomentumScanResult, MomentumTradePlanV1 } from "./momentum-v1/types.js";
 import type {
+  InvestmentLessonV1,
+  LearningReviewV1,
+  CohortAnalysisV1,
+  LessonCandidateV1,
+  ModelChangeProposalV1,
+  ModelValidationResultV1,
+  OutcomeAttributionV1,
+  ReviewManifestV1,
+} from "./learning-v1/types.js";
+import type {
   AllocationProposalV1,
   CapitalAllocationDecisionV1,
   PortfolioRebalanceReviewV1,
@@ -51,6 +61,19 @@ export interface InvestmentOsRepository {
   findCapitalAllocation(id: string): Promise<CapitalAllocationDecisionV1 | undefined>;
   savePortfolioRebalanceWithOutbox(value: PortfolioRebalanceReviewV1, snapshot: PortfolioSnapshotV1, audit: AuditRecord, outbox: OutboxRecord): Promise<void>;
   findPortfolioRebalance(id: string): Promise<PortfolioRebalanceReviewV1 | undefined>;
+  saveLearningReviewWithOutbox(value: LearningReviewV1, manifest: ReviewManifestV1, outcome: OutcomeAttributionV1 | undefined, audit: AuditRecord, outbox: OutboxRecord): Promise<void>;
+  findLearningReview(id: string): Promise<LearningReviewV1 | undefined>;
+  findLearningManifest(id: string): Promise<ReviewManifestV1 | undefined>;
+  saveLearningCohortWithOutbox(value: CohortAnalysisV1, audit: AuditRecord, outbox: OutboxRecord): Promise<void>;
+  findLearningCohort(id: string): Promise<CohortAnalysisV1 | undefined>;
+  saveLessonCandidateWithOutbox(value: LessonCandidateV1, audit: AuditRecord, outbox: OutboxRecord): Promise<void>;
+  findLessonCandidate(id: string): Promise<LessonCandidateV1 | undefined>;
+  saveInvestmentLessonWithOutbox(value: InvestmentLessonV1, audit: AuditRecord, outbox: OutboxRecord): Promise<void>;
+  findInvestmentLesson(id: string): Promise<InvestmentLessonV1 | undefined>;
+  saveModelChangeWithOutbox(value: ModelChangeProposalV1, audit: AuditRecord, outbox: OutboxRecord): Promise<void>;
+  findModelChange(id: string): Promise<ModelChangeProposalV1 | undefined>;
+  saveModelValidationWithOutbox(value: ModelValidationResultV1, audit: AuditRecord, outbox: OutboxRecord): Promise<void>;
+  findModelValidation(id: string): Promise<ModelValidationResultV1 | undefined>;
   listPendingOutbox(): Promise<OutboxRecord[]>;
   markOutboxPublished(id: string, at: string): Promise<void>;
 }
@@ -72,6 +95,14 @@ export class InMemoryInvestmentOsRepository implements InvestmentOsRepository {
   readonly portfolioStressResultsV1 = new Map<string, PortfolioStressResultV1>();
   readonly capitalAllocationsV1 = new Map<string, CapitalAllocationDecisionV1>();
   readonly portfolioRebalancesV1 = new Map<string, PortfolioRebalanceReviewV1>();
+  readonly learningReviewsV1 = new Map<string, LearningReviewV1>();
+  readonly learningCohortsV1 = new Map<string, CohortAnalysisV1>();
+  readonly learningManifestsV1 = new Map<string, ReviewManifestV1>();
+  readonly learningOutcomesV1 = new Map<string, OutcomeAttributionV1>();
+  readonly lessonCandidatesV1 = new Map<string, LessonCandidateV1>();
+  readonly investmentLessonsV1 = new Map<string, InvestmentLessonV1>();
+  readonly modelChangesV1 = new Map<string, ModelChangeProposalV1>();
+  readonly modelValidationsV1 = new Map<string, ModelValidationResultV1>();
 
   async saveDecision(value: DecisionProposal): Promise<void> { this.decisions.set(value.id, structuredClone(value)); }
   async findDecision(id: string): Promise<DecisionProposal | undefined> { return this.clone(this.decisions.get(id)); }
@@ -228,6 +259,52 @@ export class InMemoryInvestmentOsRepository implements InvestmentOsRepository {
   async findPortfolioRebalance(id: string): Promise<PortfolioRebalanceReviewV1 | undefined> {
     return this.clone(this.portfolioRebalancesV1.get(id));
   }
+  async saveLearningReviewWithOutbox(value: LearningReviewV1, manifest: ReviewManifestV1, outcome: OutcomeAttributionV1 | undefined, audit: AuditRecord, outbox: OutboxRecord): Promise<void> {
+    if (this.learningReviewsV1.has(value.id) || this.learningManifestsV1.has(manifest.id)) throw new Error("Learning Review or Manifest already exists and is immutable");
+    if (outcome && this.learningOutcomesV1.has(outcome.id)) throw new Error("Learning Outcome already exists and is immutable");
+    this.learningManifestsV1.set(manifest.id, structuredClone(manifest));
+    if (outcome) this.learningOutcomesV1.set(outcome.id, structuredClone(outcome));
+    this.learningReviewsV1.set(value.id, structuredClone(value));
+    this.audit.push(structuredClone(audit));
+    this.outbox.set(outbox.id, structuredClone(outbox));
+  }
+  async findLearningReview(id: string): Promise<LearningReviewV1 | undefined> { return this.clone(this.learningReviewsV1.get(id)); }
+  async findLearningManifest(id: string): Promise<ReviewManifestV1 | undefined> { return this.clone(this.learningManifestsV1.get(id)); }
+  async saveLearningCohortWithOutbox(value: CohortAnalysisV1, audit: AuditRecord, outbox: OutboxRecord): Promise<void> {
+    if (this.learningCohortsV1.has(value.id)) throw new Error("Learning Cohort already exists and is immutable");
+    this.learningCohortsV1.set(value.id, structuredClone(value));
+    this.audit.push(structuredClone(audit));
+    this.outbox.set(outbox.id, structuredClone(outbox));
+  }
+  async findLearningCohort(id: string): Promise<CohortAnalysisV1 | undefined> { return this.clone(this.learningCohortsV1.get(id)); }
+  async saveLessonCandidateWithOutbox(value: LessonCandidateV1, audit: AuditRecord, outbox: OutboxRecord): Promise<void> {
+    if (this.lessonCandidatesV1.has(value.id)) throw new Error("Lesson Candidate already exists and is immutable");
+    this.lessonCandidatesV1.set(value.id, structuredClone(value));
+    this.audit.push(structuredClone(audit));
+    this.outbox.set(outbox.id, structuredClone(outbox));
+  }
+  async findLessonCandidate(id: string): Promise<LessonCandidateV1 | undefined> { return this.clone(this.lessonCandidatesV1.get(id)); }
+  async saveInvestmentLessonWithOutbox(value: InvestmentLessonV1, audit: AuditRecord, outbox: OutboxRecord): Promise<void> {
+    if (this.investmentLessonsV1.has(value.id)) throw new Error("Investment Lesson already exists and is immutable");
+    this.investmentLessonsV1.set(value.id, structuredClone(value));
+    this.audit.push(structuredClone(audit));
+    this.outbox.set(outbox.id, structuredClone(outbox));
+  }
+  async findInvestmentLesson(id: string): Promise<InvestmentLessonV1 | undefined> { return this.clone(this.investmentLessonsV1.get(id)); }
+  async saveModelChangeWithOutbox(value: ModelChangeProposalV1, audit: AuditRecord, outbox: OutboxRecord): Promise<void> {
+    if (this.modelChangesV1.has(value.id)) throw new Error("Model Change Proposal already exists and is immutable");
+    this.modelChangesV1.set(value.id, structuredClone(value));
+    this.audit.push(structuredClone(audit));
+    this.outbox.set(outbox.id, structuredClone(outbox));
+  }
+  async findModelChange(id: string): Promise<ModelChangeProposalV1 | undefined> { return this.clone(this.modelChangesV1.get(id)); }
+  async saveModelValidationWithOutbox(value: ModelValidationResultV1, audit: AuditRecord, outbox: OutboxRecord): Promise<void> {
+    if (this.modelValidationsV1.has(value.id)) throw new Error("Model Validation Result already exists and is immutable");
+    this.modelValidationsV1.set(value.id, structuredClone(value));
+    this.audit.push(structuredClone(audit));
+    this.outbox.set(outbox.id, structuredClone(outbox));
+  }
+  async findModelValidation(id: string): Promise<ModelValidationResultV1 | undefined> { return this.clone(this.modelValidationsV1.get(id)); }
   async listPendingOutbox(): Promise<OutboxRecord[]> {
     return this.values(this.outbox).filter((record) => record.status === "PENDING");
   }

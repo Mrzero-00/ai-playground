@@ -5,6 +5,8 @@ import {
   allocateCapital,
   allocateCapitalDecimal,
   allocateNewCapitalV1,
+  analyzeLearningCohortV1,
+  approveInvestmentLessonV1,
   assessPortfolioRebalanceV1,
   buildPortfolioLedger,
   assessDecisionReview,
@@ -14,12 +16,16 @@ import {
   createAuditRecord,
   createDecisionJournalEntry,
   createInvestmentLesson,
+  createLearningReviewV1,
+  createLessonCandidateV1,
+  createModelChangeProposalV1,
   createDomainEvent,
   createOutboxRecord,
   evaluateLongTerm,
   evaluateLongTermV1,
   evaluateMomentum,
   evaluateMomentumV1,
+  evaluateModelValidationV1,
   evaluateRisk,
   interpretCrossSignal,
   inspectSnapshot,
@@ -36,6 +42,7 @@ import {
   replayAllocationV1,
   runPortfolioStressTestV1,
   runMomentumScan,
+  transitionModelChangeProposalV1,
   validateEvidence,
   validateEvaluationEvidence,
   validateLongTermThesis,
@@ -55,7 +62,14 @@ import {
   type MomentumScanInput,
   type MomentumTradePlanV1,
   type AllocationRequestV1,
+  type ApproveLessonInputV1,
   type CapitalAllocationBatchInputV1,
+  type CohortAnalysisInputV1,
+  type LearningReviewInputV1,
+  type LessonCandidateInputV1,
+  type ModelChangeProposalInputV1,
+  type ModelChangeTransitionInputV1,
+  type ModelValidationInputV1,
   type PortfolioRebalanceInputV1,
   type PortfolioPolicyV1,
   type PortfolioStressScenarioV1,
@@ -274,6 +288,41 @@ export const server = createServer(async (request, response) => {
       return review ? json(response, 200, review) : json(response, 404, {
         requestId,
         error: { code: "PORTFOLIO_REBALANCE_NOT_FOUND", message: "Portfolio rebalance review not found", retryable: false },
+      });
+    }
+    if (request.method === "GET" && path.startsWith("/api/learning/reviews/")) {
+      const id = decodeURIComponent(path.slice("/api/learning/reviews/".length));
+      const review = await repository.findLearningReview(id);
+      return review ? json(response, 200, review) : json(response, 404, {
+        requestId, error: { code: "LEARNING_REVIEW_NOT_FOUND", message: "Learning Review not found", retryable: false },
+      });
+    }
+    if (request.method === "GET" && path.startsWith("/api/learning/lessons/")) {
+      const id = decodeURIComponent(path.slice("/api/learning/lessons/".length));
+      const lesson = await repository.findInvestmentLesson(id);
+      return lesson ? json(response, 200, lesson) : json(response, 404, {
+        requestId, error: { code: "LEARNING_LESSON_NOT_FOUND", message: "Investment Lesson not found", retryable: false },
+      });
+    }
+    if (request.method === "GET" && path.startsWith("/api/learning/cohorts/")) {
+      const id = decodeURIComponent(path.slice("/api/learning/cohorts/".length));
+      const cohort = await repository.findLearningCohort(id);
+      return cohort ? json(response, 200, cohort) : json(response, 404, {
+        requestId, error: { code: "LEARNING_COHORT_NOT_FOUND", message: "Learning Cohort not found", retryable: false },
+      });
+    }
+    if (request.method === "GET" && path.startsWith("/api/learning/model-changes/")) {
+      const id = decodeURIComponent(path.slice("/api/learning/model-changes/".length));
+      const modelChange = await repository.findModelChange(id);
+      return modelChange ? json(response, 200, modelChange) : json(response, 404, {
+        requestId, error: { code: "MODEL_CHANGE_NOT_FOUND", message: "Model Change Proposal not found", retryable: false },
+      });
+    }
+    if (request.method === "GET" && path.startsWith("/api/learning/validations/")) {
+      const id = decodeURIComponent(path.slice("/api/learning/validations/".length));
+      const validation = await repository.findModelValidation(id);
+      return validation ? json(response, 200, validation) : json(response, 404, {
+        requestId, error: { code: "MODEL_VALIDATION_NOT_FOUND", message: "Model Validation Result not found", retryable: false },
       });
     }
     const portfolioExposure = request.method === "GET" ? path.match(/^\/api\/portfolios\/([^/]+)\/exposures$/) : null;
@@ -622,6 +671,176 @@ export const server = createServer(async (request, response) => {
         return { status: 201, body: result };
       });
     }
+    if (path === "/api/learning/reviews") {
+      return idempotentJson(request, response, path, body, async () => {
+        const input = body as LearningReviewInputV1;
+        const review = createLearningReviewV1(input);
+        const event = createDomainEvent({
+          id: randomUUID(), type: "LearningReviewCompleted", occurredAt: review.reviewedAt,
+          aggregateId: review.id, correlationId, schemaVersion: "1", modelVersionId: review.modelVersionId,
+          payload: {
+            reviewId: review.id, manifestId: review.manifestId, strategy: review.strategy,
+            classification: review.classification, maturity: review.maturity, resultHash: review.resultHash,
+          },
+        });
+        const audit = createAuditRecord({
+          id: randomUUID(), occurredAt: review.reviewedAt, actorId: review.reviewerId,
+          action: "LEARNING_REVIEW_CREATED", entityType: "LearningReviewV1", entityId: review.id,
+          reason: review.classification, after: review,
+          metadata: { manifestId: review.manifestId, modelVersionId: review.modelVersionId, resultHash: review.resultHash, correlationId },
+        });
+        await repository.saveLearningReviewWithOutbox(review, input.manifest, review.outcome, audit, createOutboxRecord(event));
+        return { status: 201, body: review };
+      });
+    }
+    if (path === "/api/learning/cohorts/analyze") {
+      return idempotentJson(request, response, path, body, async () => {
+        const input = body as CohortAnalysisInputV1;
+        const records = await Promise.all(input.records.map(async (record) => {
+          const [review, manifest] = await Promise.all([
+            repository.findLearningReview(record.review.id),
+            repository.findLearningManifest(record.manifest.id),
+          ]);
+          if (!review || !manifest || review.manifestId !== manifest.id) throw new Error("Learning Cohort source Review or Manifest not found");
+          if (review.resultHash !== record.review.resultHash) throw new Error("Learning Cohort Review lineage conflict");
+          return { review, manifest, evidenceCoverage: record.evidenceCoverage };
+        }));
+        const cohort = analyzeLearningCohortV1({ ...input, records });
+        const event = createDomainEvent({
+          id: randomUUID(), type: "LearningCohortAnalyzed", occurredAt: cohort.analyzedAt,
+          aggregateId: cohort.id, correlationId, schemaVersion: "1", modelVersionId: cohort.key.modelVersionId,
+          payload: { cohortId: cohort.id, strategy: cohort.key.strategy, sampleSize: cohort.sampleSize, eligibleForLesson: cohort.eligibleForLesson, blockerCodes: cohort.blockerCodes, resultHash: cohort.resultHash },
+        });
+        const audit = createAuditRecord({
+          id: randomUUID(), occurredAt: cohort.analyzedAt, actorId: "learning-engine-v1",
+          action: "LEARNING_COHORT_ANALYZED", entityType: "CohortAnalysisV1", entityId: cohort.id,
+          reason: cohort.eligibleForLesson ? "ELIGIBLE_FOR_LESSON" : "BLOCKED",
+          after: cohort, metadata: { sampleSize: cohort.sampleSize, resultHash: cohort.resultHash, correlationId },
+        });
+        await repository.saveLearningCohortWithOutbox(cohort, audit, createOutboxRecord(event));
+        return { status: 201, body: cohort };
+      });
+    }
+    if (path === "/api/learning/lessons/candidates") {
+      return idempotentJson(request, response, path, body, async () => {
+        const input = body as LessonCandidateInputV1;
+        const storedCohort = await repository.findLearningCohort(input.cohort.id);
+        if (!storedCohort || storedCohort.resultHash !== input.cohort.resultHash) throw new Error("Lesson Candidate Cohort lineage conflict");
+        const candidate = createLessonCandidateV1({ ...input, cohort: storedCohort });
+        const event = createDomainEvent({
+          id: randomUUID(), type: "LessonCandidateCreated", occurredAt: candidate.generatedAt,
+          aggregateId: candidate.id, correlationId, schemaVersion: "1",
+          payload: { candidateId: candidate.id, strategy: candidate.strategy, type: candidate.type, status: candidate.status, sampleSize: candidate.sampleSize, resultHash: candidate.resultHash },
+        });
+        const audit = createAuditRecord({
+          id: randomUUID(), occurredAt: candidate.generatedAt, actorId: "learning-engine-v1",
+          action: "LESSON_CANDIDATE_CREATED", entityType: "LessonCandidateV1", entityId: candidate.id,
+          reason: candidate.status, after: candidate,
+          metadata: { cohortAnalysisId: candidate.cohortAnalysisId, sampleSize: candidate.sampleSize, resultHash: candidate.resultHash, correlationId },
+        });
+        await repository.saveLessonCandidateWithOutbox(candidate, audit, createOutboxRecord(event));
+        return { status: 201, body: candidate };
+      });
+    }
+    const lessonApproval = path.match(/^\/api\/learning\/lessons\/([^/]+)\/approve$/);
+    if (lessonApproval) {
+      return idempotentJson(request, response, path, body, async () => {
+        const candidateId = decodeURIComponent(lessonApproval[1] ?? "");
+        const candidate = await repository.findLessonCandidate(candidateId);
+        if (!candidate) throw new Error("Lesson Candidate not found");
+        const input = body as Omit<ApproveLessonInputV1, "candidate">;
+        const lesson = approveInvestmentLessonV1({ ...input, candidate });
+        const event = createDomainEvent({
+          id: randomUUID(), type: lesson.status === "APPROVED" ? "LessonApproved" : "LessonRejected",
+          occurredAt: lesson.approvedAt, aggregateId: lesson.id, correlationId, schemaVersion: "1",
+          payload: { lessonId: lesson.id, candidateId, status: lesson.status, recommendedAction: lesson.recommendedAction, resultHash: lesson.resultHash },
+        });
+        const audit = createAuditRecord({
+          id: randomUUID(), occurredAt: lesson.approvedAt, actorId: lesson.approvedBy,
+          action: "INVESTMENT_LESSON_REVIEWED", entityType: "InvestmentLessonV1", entityId: lesson.id,
+          reason: lesson.status, after: lesson,
+          metadata: { candidateId, recommendedAction: lesson.recommendedAction, resultHash: lesson.resultHash, correlationId },
+        });
+        await repository.saveInvestmentLessonWithOutbox(lesson, audit, createOutboxRecord(event));
+        return { status: 201, body: lesson };
+      });
+    }
+    if (path === "/api/learning/model-changes") {
+      return idempotentJson(request, response, path, body, async () => {
+        const input = body as ModelChangeProposalInputV1;
+        const lessons = await Promise.all(input.lessonIds.map((id) => repository.findInvestmentLesson(id)));
+        if (lessons.some((lesson) => !lesson || lesson.status !== "APPROVED")) throw new Error("Model Change requires approved Investment Lessons");
+        if (lessons.some((lesson) => lesson?.userId !== input.userId)) throw new Error("Model Change Lesson ownership conflict");
+        const proposal = createModelChangeProposalV1(input);
+        const event = createDomainEvent({
+          id: randomUUID(), type: "ModelChangeProposed", occurredAt: proposal.createdAt,
+          aggregateId: proposal.id, correlationId, schemaVersion: "1", modelVersionId: proposal.challengerModelVersionId,
+          payload: { proposalId: proposal.id, targetModelFamily: proposal.targetModelFamily, championModelVersionId: proposal.championModelVersionId, challengerModelVersionId: proposal.challengerModelVersionId, status: proposal.status, resultHash: proposal.resultHash },
+        });
+        const audit = createAuditRecord({
+          id: randomUUID(), occurredAt: proposal.createdAt, actorId: "learning-engine-v1",
+          action: "MODEL_CHANGE_PROPOSED", entityType: "ModelChangeProposalV1", entityId: proposal.id,
+          reason: proposal.hypothesis, after: proposal,
+          metadata: { championModelVersionId: proposal.championModelVersionId, challengerModelVersionId: proposal.challengerModelVersionId, resultHash: proposal.resultHash, correlationId },
+        });
+        await repository.saveModelChangeWithOutbox(proposal, audit, createOutboxRecord(event));
+        return { status: 201, body: proposal };
+      });
+    }
+    if (path === "/api/learning/validations") {
+      return idempotentJson(request, response, path, body, async () => {
+        const input = body as ModelValidationInputV1;
+        const storedProposal = await repository.findModelChange(input.proposal.id);
+        if (!storedProposal || storedProposal.resultHash !== input.proposal.resultHash) throw new Error("Model validation Proposal lineage conflict");
+        const validation = evaluateModelValidationV1({ ...input, proposal: storedProposal });
+        const event = createDomainEvent({
+          id: randomUUID(), type: validation.verdict === "PASS" || validation.verdict === "PASS_WITH_GUARDRAILS" ? "ModelValidationCompleted" : "ModelValidationFailed",
+          occurredAt: validation.evaluatedAt, aggregateId: validation.id, correlationId, schemaVersion: "1",
+          payload: { validationId: validation.id, proposalId: validation.proposalId, verdict: validation.verdict, blockerCodes: validation.blockerCodes, resultHash: validation.resultHash },
+        });
+        const audit = createAuditRecord({
+          id: randomUUID(), occurredAt: validation.evaluatedAt, actorId: "learning-engine-v1",
+          action: "MODEL_VALIDATION_COMPLETED", entityType: "ModelValidationResultV1", entityId: validation.id,
+          reason: validation.verdict, after: validation,
+          metadata: { proposalId: validation.proposalId, verdict: validation.verdict, resultHash: validation.resultHash, correlationId },
+        });
+        await repository.saveModelValidationWithOutbox(validation, audit, createOutboxRecord(event));
+        return { status: 201, body: validation };
+      });
+    }
+    const modelChangeTransition = path.match(/^\/api\/learning\/model-changes\/([^/]+)\/transitions$/);
+    const modelChangeApproval = path.match(/^\/api\/learning\/model-changes\/([^/]+)\/approve$/);
+    if (modelChangeTransition || modelChangeApproval) {
+      return idempotentJson(request, response, path, body, async () => {
+        const previousId = decodeURIComponent((modelChangeTransition ?? modelChangeApproval)?.[1] ?? "");
+        const previous = await repository.findModelChange(previousId);
+        if (!previous) throw new Error("Model Change Proposal not found");
+        const raw = body as Omit<ModelChangeTransitionInputV1, "previous" | "validationResult"> & { validationResultId?: string };
+        const nextStatus = modelChangeApproval ? "APPROVED" as const : raw.nextStatus;
+        const validationResult = raw.validationResultId ? await repository.findModelValidation(raw.validationResultId) : undefined;
+        const transitioned = transitionModelChangeProposalV1({
+          id: raw.id, previous, nextStatus, transitionedAt: raw.transitionedAt,
+          ...(validationResult === undefined ? {} : { validationResult }),
+          ...(raw.approvedBy === undefined ? {} : { approvedBy: raw.approvedBy }),
+        });
+        const eventType = transitioned.status === "READY_FOR_APPROVAL" ? "ModelChangeReadyForApproval"
+          : transitioned.status === "APPROVED" ? "ModelChangeApproved"
+            : transitioned.status === "REJECTED" ? "ModelChangeRejected" : "ModelValidationStarted";
+        const event = createDomainEvent({
+          id: randomUUID(), type: eventType, occurredAt: transitioned.createdAt,
+          aggregateId: transitioned.id, correlationId, schemaVersion: "1", modelVersionId: transitioned.challengerModelVersionId,
+          payload: { proposalId: transitioned.id, supersedesProposalId: previous.id, status: transitioned.status, validationResultId: transitioned.validationResultId, resultHash: transitioned.resultHash },
+        });
+        const audit = createAuditRecord({
+          id: randomUUID(), occurredAt: transitioned.createdAt, actorId: transitioned.approvedBy ?? "learning-engine-v1",
+          action: "MODEL_CHANGE_TRANSITIONED", entityType: "ModelChangeProposalV1", entityId: transitioned.id,
+          reason: `${previous.status} -> ${transitioned.status}`, before: previous, after: transitioned,
+          metadata: { previousId: previous.id, from: previous.status, to: transitioned.status, resultHash: transitioned.resultHash, correlationId },
+        });
+        await repository.saveModelChangeWithOutbox(transitioned, audit, createOutboxRecord(event));
+        return { status: 201, body: transitioned };
+      });
+    }
     if (path === "/api/philosophy/policies/validate") {
       return json(response, 200, validatePhilosophyPolicy(body as Parameters<typeof validatePhilosophyPolicy>[0]));
     }
@@ -744,6 +963,12 @@ export const server = createServer(async (request, response) => {
 
 function mapApiError(message: string): { status: number; code: string; retryable: boolean } {
   if (/already exists|immutable/i.test(message)) return { status: 409, code: "EVALUATION_ALREADY_EXISTS", retryable: false };
+  if (/Learning.*ownership|Lesson.*ownership|Model.*ownership/i.test(message)) return { status: 403, code: "LEARNING_OWNERSHIP_MISMATCH", retryable: false };
+  if (/Learning Review not found|Learning Cohort not found|Lesson Candidate not found|Investment Lesson not found|Model Change Proposal not found|Model Validation Result not found/i.test(message)) return { status: 404, code: "LEARNING_RESOURCE_NOT_FOUND", retryable: false };
+  if (/maturity|immature|minimumMaturityAt/i.test(message)) return { status: 422, code: "OUTCOME_NOT_MATURE", retryable: false };
+  if (/cohort|sampleSize|evidence coverage|regime count|company concentration|censored/i.test(message)) return { status: 422, code: "COHORT_NOT_ELIGIBLE", retryable: false };
+  if (/Lesson|contradicting|alternative explanation|recommended action/i.test(message)) return { status: 422, code: "LESSON_EVIDENCE_INSUFFICIENT", retryable: false };
+  if (/validation|guardrail|Historical Replay|Walk-forward|Shadow stage/i.test(message)) return { status: 422, code: "MODEL_VALIDATION_BLOCKED", retryable: false };
   if (/Portfolio ownership/i.test(message)) return { status: 403, code: "PORTFOLIO_OWNERSHIP_MISMATCH", retryable: false };
   if (/Portfolio snapshot id already exists|snapshot.*conflict/i.test(message)) return { status: 409, code: "PORTFOLIO_SNAPSHOT_CONFLICT", retryable: false };
   if (/Portfolio snapshot is incomplete|market snapshots|active stop|FX rate|marketValueBase|amountBase/i.test(message)) return { status: 422, code: "PORTFOLIO_SNAPSHOT_INCOMPLETE", retryable: false };

@@ -50,6 +50,7 @@ See docs/ for detailed specifications.
 ```bash
 pnpm install
 pnpm test
+pnpm verify:implementation
 pnpm dev
 pnpm dev:web
 ```
@@ -204,6 +205,8 @@ packages/core            순수 도메인 로직
   planning-v1            R0~R6 Readiness, Milestone DAG, Gate, Release Evidence, Revision, Replay 계약
 supabase/migrations      PostgreSQL Schema, Index, RLS
 docs                     제품·아키텍처 명세
+implementation           01~12 구현·검증·Open Gate Machine-readable Manifest
+scripts                   구현 상태 Manifest 검증 CLI와 회귀 테스트
 ```
 
 점수와 정책 함수는 입력이 같으면 결과도 같은 순수 함수입니다. 외부 데이터 수집기는 Provider 경계로 연결하며, 자동 주문은 MVP 범위에서 제외합니다. 구현 범위는 [Implementation Status](docs/13_Codex_Implementation.md)에 정리되어 있습니다.

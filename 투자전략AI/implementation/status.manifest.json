@@ -1,0 +1,142 @@
+{
+  "schemaVersion": "1.0.0",
+  "asOf": "2026-07-22T00:00:00Z",
+  "readiness": "R1",
+  "autoTradingEnabled": false,
+  "latestMigration": "supabase/migrations/012_roadmap_planning_v1.sql",
+  "verificationCommands": ["pnpm test", "pnpm typecheck", "pnpm build", "pnpm verify:implementation"],
+  "testSnapshot": { "core": 128, "api": 11, "web": 5, "total": 144 },
+  "capabilities": [
+    {
+      "id": "01",
+      "name": "Architecture",
+      "document": "docs/01_Architecture.md",
+      "readiness": "R1",
+      "implementationPaths": ["packages/core/src/contracts.ts", "packages/core/src/repository.ts", "packages/core/src/workflow.ts"],
+      "testPaths": ["packages/core/test/architecture.test.ts", "apps/api/test/api.test.ts"],
+      "migration": "supabase/migrations/002_architecture_v2_2.sql",
+      "externalEvidenceRefs": [],
+      "openGateCodes": ["SUPABASE_CONNECTIVITY", "RLS_E2E", "OPERATIONS_OBSERVABILITY"]
+    },
+    {
+      "id": "02",
+      "name": "Investment Philosophy",
+      "document": "docs/02_Investment_Philosophy.md",
+      "readiness": "R1",
+      "implementationPaths": ["packages/core/src/philosophy-policy.ts", "packages/core/src/evidence.ts", "packages/core/src/thesis.ts"],
+      "testPaths": ["packages/core/test/philosophy.test.ts"],
+      "migration": "supabase/migrations/003_investment_philosophy_v2_2_1.sql",
+      "externalEvidenceRefs": [],
+      "openGateCodes": ["INVESTMENT_POLICY_APPROVAL", "LEGAL_REVIEW"]
+    },
+    {
+      "id": "03",
+      "name": "Long-term Engine",
+      "document": "docs/03_LongTerm_Engine.md",
+      "readiness": "R1",
+      "implementationPaths": ["packages/core/src/long-term-v1", "apps/api/src/index.ts"],
+      "testPaths": ["packages/core/test/long-term-v1.test.ts", "apps/api/test/long-term-api.test.ts"],
+      "migration": "supabase/migrations/004_long_term_engine_v1.sql",
+      "externalEvidenceRefs": [],
+      "openGateCodes": ["LONG_TERM_PROVIDER", "LONG_TERM_WALK_FORWARD", "LONG_TERM_POLICY_CALIBRATION"]
+    },
+    {
+      "id": "04",
+      "name": "Momentum Engine",
+      "document": "docs/04_Momentum_Engine.md",
+      "readiness": "R1",
+      "implementationPaths": ["packages/core/src/momentum-v1", "apps/api/src/index.ts"],
+      "testPaths": ["packages/core/test/momentum-v1.test.ts", "apps/api/test/momentum-api.test.ts"],
+      "migration": "supabase/migrations/005_momentum_engine_v1.sql",
+      "externalEvidenceRefs": [],
+      "openGateCodes": ["MARKET_DATA_PROVIDER", "EXCHANGE_CALENDAR", "MOMENTUM_SCHEDULER"]
+    },
+    {
+      "id": "05",
+      "name": "Portfolio Engine",
+      "document": "docs/05_Portfolio_Engine.md",
+      "readiness": "R1",
+      "implementationPaths": ["packages/core/src/portfolio-v1", "apps/api/src/index.ts"],
+      "testPaths": ["packages/core/test/portfolio-v1.test.ts", "apps/api/test/portfolio-api.test.ts"],
+      "migration": "supabase/migrations/006_portfolio_engine_v1.sql",
+      "externalEvidenceRefs": [],
+      "openGateCodes": ["PORTFOLIO_SOURCE", "FX_PROVIDER", "BROKER_RECONCILIATION"]
+    },
+    {
+      "id": "06",
+      "name": "Learning Engine",
+      "document": "docs/06_Learning_Engine.md",
+      "readiness": "R1",
+      "implementationPaths": ["packages/core/src/learning-v1", "apps/api/src/index.ts"],
+      "testPaths": ["packages/core/test/learning-v1.test.ts", "apps/api/test/learning-api.test.ts"],
+      "migration": "supabase/migrations/007_learning_engine_v1.sql",
+      "externalEvidenceRefs": [],
+      "openGateCodes": ["LEARNING_MINIMUM_SAMPLE", "SHADOW_VALIDATION", "MODEL_RISK_APPROVAL"]
+    },
+    {
+      "id": "07",
+      "name": "AI Agents",
+      "document": "docs/07_AI_Agents.md",
+      "readiness": "R1",
+      "implementationPaths": ["packages/core/src/agent-v1", "apps/api/src/index.ts"],
+      "testPaths": ["packages/core/test/agent-v1.test.ts", "apps/api/test/agent-api.test.ts"],
+      "migration": "supabase/migrations/008_agent_orchestration_v1.sql",
+      "externalEvidenceRefs": [],
+      "openGateCodes": ["AI_PROVIDER", "PROMPT_RED_TEAM", "AGENT_COST_QUOTA", "AGENT_KILL_SWITCH"]
+    },
+    {
+      "id": "08",
+      "name": "Database",
+      "document": "docs/08_Database.md",
+      "readiness": "R1",
+      "implementationPaths": ["packages/core/src/database-v1", "supabase/migrations"],
+      "testPaths": ["packages/core/test/database-v1.test.ts", "apps/api/test/database-api.test.ts"],
+      "migration": "supabase/migrations/009_database_hardening_v1.sql",
+      "externalEvidenceRefs": [],
+      "openGateCodes": ["SUPABASE_CONNECTIVITY", "RLS_E2E", "PITR", "RESTORE_DRILL", "QUERY_PLAN_LOAD"]
+    },
+    {
+      "id": "09",
+      "name": "Scoring System",
+      "document": "docs/09_Scoring_System.md",
+      "readiness": "R1",
+      "implementationPaths": ["packages/core/src/scoring-v1", "apps/api/src/index.ts"],
+      "testPaths": ["packages/core/test/scoring-v1.test.ts", "apps/api/test/scoring-api.test.ts"],
+      "migration": "supabase/migrations/010_scoring_system_v1.sql",
+      "externalEvidenceRefs": [],
+      "openGateCodes": ["SCORING_REPLAY_DATASET", "SCORING_WALK_FORWARD", "SCORING_SHADOW_APPROVAL"]
+    },
+    {
+      "id": "10",
+      "name": "Report System",
+      "document": "docs/10_Report_System.md",
+      "readiness": "R1",
+      "implementationPaths": ["packages/core/src/report-v1", "apps/api/src/index.ts"],
+      "testPaths": ["packages/core/test/report-v1.test.ts", "apps/api/test/report-api.test.ts"],
+      "migration": "supabase/migrations/011_report_system_v1.sql",
+      "externalEvidenceRefs": [],
+      "openGateCodes": ["PDF_RENDERER", "OBJECT_STORAGE", "DELIVERY_PROVIDER", "REDACTION_REVIEW"]
+    },
+    {
+      "id": "11",
+      "name": "UI UX",
+      "document": "docs/11_UI_UX.md",
+      "readiness": "R1",
+      "implementationPaths": ["apps/web/app", "apps/web/components", "apps/web/lib"],
+      "testPaths": ["apps/web/test/view-model.test.ts"],
+      "externalEvidenceRefs": [],
+      "openGateCodes": ["WEB_AUTH_API", "ACCESSIBILITY_AA", "SCREEN_READER", "VISUAL_REGRESSION", "RUM"]
+    },
+    {
+      "id": "12",
+      "name": "Roadmap",
+      "document": "docs/12_Roadmap.md",
+      "readiness": "R1",
+      "implementationPaths": ["packages/core/src/planning-v1", "apps/api/src/index.ts"],
+      "testPaths": ["packages/core/test/planning-v1.test.ts", "apps/api/test/planning-api.test.ts"],
+      "migration": "supabase/migrations/012_roadmap_planning_v1.sql",
+      "externalEvidenceRefs": [],
+      "openGateCodes": ["R2_RELEASE_EVIDENCE", "PREVIEW_ENVIRONMENT"]
+    }
+  ]
+}

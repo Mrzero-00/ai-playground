@@ -6,8 +6,9 @@
     "build": "pnpm -r build",
     "dev": "pnpm --filter @investment-os/api dev",
     "dev:web": "pnpm --filter @investment-os/web dev",
-    "test": "pnpm --filter @investment-os/core build && pnpm -r test",
-    "typecheck": "pnpm -r typecheck"
+    "test": "pnpm --filter @investment-os/core build && pnpm -r test && node --test scripts/test/*.test.mjs",
+    "typecheck": "pnpm -r typecheck",
+    "verify:implementation": "node scripts/verify-implementation-status.mjs"
   },
   "devDependencies": {
     "@types/node": "^22.15.0",

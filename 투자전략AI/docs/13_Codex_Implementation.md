@@ -313,7 +313,9 @@ Migration 파일의 존재는 실제 DB 운영 검증을 뜻하지 않는다.
 | Core Unit/Contract | 128 passed |
 | API Contract | 11 passed |
 | Web View Model | 5 passed |
-| Total | 144 passed |
+| Implementation Verifier | 4 passed |
+| Domain/API/Web Total | 144 passed |
+| Including Verifier | 148 passed |
 | TypeScript | Core/API/Web passed |
 | Production Build | Core/API/Next passed |
 | Browser Review | Desktop + 390px Mobile passed |
@@ -325,6 +327,7 @@ Migration 파일의 존재는 실제 DB 운영 검증을 뜻하지 않는다.
 pnpm test
 pnpm typecheck
 pnpm build
+pnpm verify:implementation
 ```
 
 이 Snapshot은 Commit과 함께 갱신되어야 하며 최신 실행 없이 영구 보증으로 사용하지 않는다.
@@ -451,8 +454,8 @@ Verifier 요구사항:
 - [x] 실제 Supabase·Provider·Auth 미검증 상태를 명시한다.
 - [x] 자동 주문 금지와 Human Approval 경계를 재확인한다.
 - [x] 현재 Test/Typecheck/Build·Browser Evidence가 기록되어 있다.
-- [ ] Machine-readable Implementation Manifest가 있다.
-- [ ] Manifest Verifier와 자동 테스트가 있다.
+- [x] Machine-readable Implementation Manifest가 있다.
+- [x] Manifest Verifier와 자동 테스트가 있다.
 - [ ] R2 Preview Evidence Bundle이 있다.
 - [ ] R3~R6 Gate가 실제로 통과되었다.
 
@@ -465,6 +468,14 @@ Verifier 요구사항:
 - Specification 기반 Domain/API/UI/Migration Foundation이 존재한다.
 - 결정론, Fail-closed, 소유권, Point-in-time, Revision, Audit/Outbox를 자동 테스트한다.
 - 전체 Typecheck와 Production Build가 통과한다.
+- Manifest의 192개 문서·코드·테스트·Migration 연결 검사가 통과한다.
+
+### 13 구현 완료 항목
+
+- `implementation/status.manifest.json`에 01~12 Capability·Readiness·구현·테스트·Migration·Open Gate를 고정했다.
+- `pnpm verify:implementation`이 Capability 누락, 경로 누락, Migration 순서·최신 Marker, Test Snapshot, README Link를 검사한다.
+- R2 이상을 주장하면서 External Evidence가 없거나 자동 주문 활성화를 주장하면 Fail-closed한다.
+- 정상 Manifest, 자동 주문 위조, 구현 증거 누락/R2 과장, Migration/Test 불일치 회귀 테스트를 추가했다.
 
 다음은 완료를 의미하지 않는다.
 

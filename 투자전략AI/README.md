@@ -42,6 +42,8 @@ See docs/ for detailed specifications.
 - [Scoring System](docs/09_Scoring_System.md)
 - [Report System](docs/10_Report_System.md)
 - [UI / UX](docs/11_UI_UX.md)
+- [Roadmap](docs/12_Roadmap.md)
+- [Codex Implementation Status](docs/13_Codex_Implementation.md)
 
 ## 시작하기
 

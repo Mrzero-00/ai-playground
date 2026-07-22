@@ -116,6 +116,15 @@ API 기본 주소는 `http://localhost:4000`입니다.
 - `GET /api/v1/database/deletion-requests/:id`: 삭제 요청 Revision 조회
 - `POST /api/v1/database/reconciliations/validate`: Decimal 기반 정합성 검사와 Critical 차단 결과 저장
 - `GET /api/v1/database/reconciliations/:id`: 불변 정합성 검사 결과 조회
+- `POST /api/v1/scoring/models/validate`: Basis Point Weight·정규화·Evidence·Confidence 정책을 검증한 DRAFT Model 등록
+- `POST /api/v1/scoring/models/:id/transitions`: DRAFT→VALIDATING→SHADOW→APPROVED→ACTIVE 생명주기 전이
+- `GET /api/v1/scoring/models/:id`: Scoring Model·설정 Hash·상태 조회
+- `POST /api/v1/scoring/scorecards/evaluate`: 방향·N/A·Evidence·Range·Confidence 기반 불변 Scorecard 생성
+- `GET /api/v1/scoring/scorecards/:id`: Scorecard·Factor Contribution·Blocker 조회
+- `POST /api/v1/scoring/rankings/validate`: 동일 Scope·Model·Philosophy 결과만 안정 정렬
+- `POST /api/v1/scoring/changes/explain`: 동일 Model 점수 변화의 Factor Contribution 분해
+- `GET /api/v1/scoring/changes/:id`: 불변 Score Change 설명 조회
+- `POST /api/v1/scoring/replays`: 운영 상태를 바꾸지 않는 Historical Replay Scorecard 생성
 - `POST /api/v1/cross-signals`: 장기·모멘텀 교차 신호 해석
 - `POST /api/v1/allocations/propose`: Bucket/종목 한도를 적용한 Decimal 배분 제안
 - `POST /api/v1/portfolio/allocate`: 85/15 정책을 적용한 Decimal 자금 배분
@@ -167,6 +176,7 @@ packages/core            순수 도메인 로직
   learning-v1            Review Maturity, Process/Outcome, Cohort, Lesson, Model Change 검증
   agent-v1               Definition/Prompt, Manifest, Evidence Claim, DAG, 보안 검증, Provider 경계
   database-v1            Lineage, Retention, Deletion Revision, Decimal Reconciliation 계약
+  scoring-v1             Model Lifecycle, Normalization, N/A, Range, Confidence, Ranking, Change 계약
 supabase/migrations      PostgreSQL Schema, Index, RLS
 docs                     제품·아키텍처 명세
 ```

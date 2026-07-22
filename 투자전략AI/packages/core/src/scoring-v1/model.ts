@@ -3,6 +3,11 @@ import { scoringStableHash } from "./hash.js";
 import { normalizeScoreV1 } from "./normalization.js";
 import type { FactorDefinitionV1, ScoreModelInputV1, ScoreModelV1 } from "./types.js";
 
+const TRANSITIONS: Record<ScoreModelV1["status"], ScoreModelV1["status"][]> = {
+  DRAFT: ["VALIDATING", "REJECTED"], VALIDATING: ["SHADOW", "REJECTED"], SHADOW: ["APPROVED", "REJECTED"],
+  APPROVED: ["ACTIVE", "REJECTED"], ACTIVE: ["DEPRECATED"], DEPRECATED: [], REJECTED: [],
+};
+
 export function validateScoreModelV1(input: ScoreModelInputV1): ScoreModelV1 {
   for (const [name, value] of Object.entries({ id: input.id, userId: input.userId, version: input.version, changeReason: input.changeReason })) if (!value.trim()) throw new Error(`Scoring Model ${name} is required`);
   parseDate(input.effectiveFrom, "Scoring Model effectiveFrom");
@@ -45,7 +50,22 @@ export function validateScoreModelV1(input: ScoreModelInputV1): ScoreModelV1 {
     ...(input.supersedesModelVersionId === undefined ? {} : { supersedesModelVersionId: input.supersedesModelVersionId }),
     changeReason: input.changeReason,
   };
-  return { ...withoutHash, modelHash: scoringStableHash(withoutHash) };
+  return { ...withoutHash, modelHash: scoringStableHash(hashPayload(withoutHash)) };
+}
+
+export function transitionScoreModelV1(input: { previous: ScoreModelV1; nextStatus: ScoreModelV1["status"]; actorId: string; transitionedAt: string }): ScoreModelV1 {
+  if (!input.actorId.trim()) throw new Error("Scoring Model transition actor is required");
+  parseDate(input.transitionedAt, "Scoring Model transitionedAt");
+  const validated = validateScoreModelV1(stripHash(input.previous));
+  if (validated.modelHash !== input.previous.modelHash) throw new Error("Scoring Model hash is invalid");
+  if (!TRANSITIONS[input.previous.status].includes(input.nextStatus)) throw new Error(`Scoring Model invalid transition ${input.previous.status} -> ${input.nextStatus}`);
+  const nextInput: ScoreModelInputV1 = {
+    ...stripHash(input.previous), status: input.nextStatus,
+    ...(input.nextStatus === "APPROVED" ? { approvedBy: input.actorId, approvedAt: input.transitionedAt } : {}),
+  };
+  const next = validateScoreModelV1(nextInput);
+  if (next.modelHash !== input.previous.modelHash) throw new Error("Scoring Model transition changed immutable configuration");
+  return next;
 }
 
 function validateFactor(factor: FactorDefinitionV1): FactorDefinitionV1 {
@@ -79,3 +99,13 @@ function validateFactor(factor: FactorDefinitionV1): FactorDefinitionV1 {
 }
 
 function parseDate(value: string, name: string): number { const parsed = new Date(value).getTime(); if (!Number.isFinite(parsed)) throw new Error(`${name} must be valid`); return parsed; }
+function stripHash(model: ScoreModelV1): ScoreModelInputV1 { const { modelHash: _modelHash, ...withoutHash } = model; return withoutHash; }
+function hashPayload(model: Omit<ScoreModelV1, "modelHash">): unknown {
+  return {
+    id: model.id, userId: model.userId, version: model.version, scope: model.scope,
+    factorDefinitions: model.factorDefinitions, minimumApplicableWeightBasisPoints: model.minimumApplicableWeightBasisPoints,
+    thresholds: model.thresholds, confidencePolicy: model.confidencePolicy, effectiveFrom: model.effectiveFrom,
+    ...(model.supersedesModelVersionId === undefined ? {} : { supersedesModelVersionId: model.supersedesModelVersionId }),
+    changeReason: model.changeReason,
+  };
+}

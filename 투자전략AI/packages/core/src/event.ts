@@ -76,6 +76,7 @@ export type DomainEventType =
   | "DataDeletionTransitioned"
   | "DatabaseReconciliationCompleted"
   | "ScoringModelValidated"
+  | "ScoringModelTransitioned"
   | "ScorecardEvaluated"
   | "ScorecardBlocked"
   | "ScoreChangeExplained"

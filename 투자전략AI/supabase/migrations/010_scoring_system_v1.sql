@@ -254,7 +254,30 @@ create policy scoring_deltas_owner_select on public.scoring_factor_deltas for se
 create policy scoring_calibration_owner_select on public.scoring_calibration_runs for select using (user_id = auth.uid());
 create policy scoring_calibration_buckets_owner_select on public.scoring_calibration_buckets for select using (user_id = auth.uid());
 
-create trigger scoring_models_immutable before update or delete on public.scoring_models for each row execute function public.prevent_immutable_investment_record_update();
+create or replace function public.validate_scoring_model_transition()
+returns trigger language plpgsql as $$
+begin
+  if old.id <> new.id or old.user_id <> new.user_id or old.version <> new.version or old.scope <> new.scope
+     or old.minimum_applicable_weight_basis_points <> new.minimum_applicable_weight_basis_points
+     or old.confidence_policy <> new.confidence_policy or old.effective_from <> new.effective_from
+     or old.supersedes_model_id is distinct from new.supersedes_model_id or old.change_reason <> new.change_reason
+     or old.model_hash <> new.model_hash or old.created_at <> new.created_at then
+    raise exception 'scoring model immutable configuration cannot change';
+  end if;
+  if old.status = 'DRAFT' and new.status not in ('VALIDATING', 'REJECTED') then raise exception 'invalid scoring model transition'; end if;
+  if old.status = 'VALIDATING' and new.status not in ('SHADOW', 'REJECTED') then raise exception 'invalid scoring model transition'; end if;
+  if old.status = 'SHADOW' and new.status not in ('APPROVED', 'REJECTED') then raise exception 'invalid scoring model transition'; end if;
+  if old.status = 'APPROVED' and new.status not in ('ACTIVE', 'REJECTED') then raise exception 'invalid scoring model transition'; end if;
+  if old.status = 'ACTIVE' and new.status <> 'DEPRECATED' then raise exception 'invalid scoring model transition'; end if;
+  if old.status in ('DEPRECATED', 'REJECTED') then raise exception 'terminal scoring model is immutable'; end if;
+  if new.status = 'APPROVED' and (new.approved_by is null or new.approved_at is null) then raise exception 'approved scoring model requires reviewer'; end if;
+  if old.approved_by is not null and (old.approved_by is distinct from new.approved_by or old.approved_at is distinct from new.approved_at) then raise exception 'scoring model approval is immutable'; end if;
+  return new;
+end;
+$$;
+
+create trigger scoring_models_controlled_transition before update on public.scoring_models for each row execute function public.validate_scoring_model_transition();
+create trigger scoring_models_immutable_delete before delete on public.scoring_models for each row execute function public.prevent_immutable_investment_record_update();
 create trigger scoring_factors_immutable before update or delete on public.scoring_factor_definitions for each row execute function public.prevent_immutable_investment_record_update();
 create trigger scoring_thresholds_immutable before update or delete on public.scoring_thresholds for each row execute function public.prevent_immutable_investment_record_update();
 create trigger scoring_scorecards_immutable before update or delete on public.scoring_scorecards for each row execute function public.prevent_immutable_investment_record_update();

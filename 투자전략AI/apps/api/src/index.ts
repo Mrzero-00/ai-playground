@@ -52,6 +52,7 @@ import {
   explainScoreChangeV1,
   rankScorecardsV1,
   validateScoreModelV1,
+  transitionScoreModelV1,
   runMomentumScan,
   transitionModelChangeProposalV1,
   transitionDataDeletionRequestV1,
@@ -96,6 +97,7 @@ import {
   type DatabaseReconciliationInputV1,
   type ScorecardInputV1,
   type ScoreModelInputV1,
+  type ScoreModelV1,
   type LearningReviewInputV1,
   type LessonCandidateInputV1,
   type ModelChangeProposalInputV1,
@@ -468,6 +470,22 @@ export const server = createServer(async (request, response) => {
           reason: model.changeReason, after: model, metadata: { scope: model.scope, version: model.version, status: model.status, modelHash: model.modelHash, correlationId },
         });
         await repository.saveScoreModelWithOutbox(model, audit, createOutboxRecord(event));
+        return { status: 201, body: model };
+      });
+    }
+    const scoreModelTransition = path.match(/^\/api\/scoring\/models\/([^/]+)\/transitions$/);
+    if (scoreModelTransition) {
+      return await idempotentJson(request, response, path, body, async () => {
+        const previous = await repository.findScoreModel(decodeURIComponent(scoreModelTransition[1] ?? ""));
+        if (!previous) throw new Error("Scoring Model not found");
+        const input = body as { nextStatus: ScoreModelV1["status"]; actorId: string; transitionedAt: string };
+        const model = transitionScoreModelV1({ previous, nextStatus: input.nextStatus, actorId: input.actorId, transitionedAt: input.transitionedAt });
+        const event = createDomainEvent({ id: randomUUID(), type: "ScoringModelTransitioned", occurredAt: input.transitionedAt, aggregateId: model.id, correlationId, schemaVersion: "1", modelVersionId: model.version,
+          payload: { modelId: model.id, version: model.version, scope: model.scope, from: previous.status, to: model.status, modelHash: model.modelHash } });
+        const audit = createAuditRecord({ id: randomUUID(), occurredAt: input.transitionedAt, actorId: input.actorId,
+          action: "SCORING_MODEL_TRANSITIONED", entityType: "ScoreModelV1", entityId: model.id, reason: `${previous.status} -> ${model.status}`, before: previous, after: model,
+          metadata: { scope: model.scope, version: model.version, from: previous.status, to: model.status, modelHash: model.modelHash, correlationId } });
+        await repository.updateScoreModelWithOutbox(model, audit, createOutboxRecord(event));
         return { status: 201, body: model };
       });
     }
@@ -1265,7 +1283,7 @@ export const server = createServer(async (request, response) => {
 
 function mapApiError(message: string): { status: number; code: string; retryable: boolean } {
   if (/Scoring.*ownership/i.test(message)) return { status: 403, code: "SCORING_OWNERSHIP_MISMATCH", retryable: false };
-  if (/Scoring (Model|Scorecard|Change) not found/i.test(message)) return { status: 404, code: "SCORING_RESOURCE_NOT_FOUND", retryable: false };
+  if (/Scoring (Model|Scorecard|Change).*not found/i.test(message)) return { status: 404, code: "SCORING_RESOURCE_NOT_FOUND", retryable: false };
   if (/Scoring.*already exists.*immutable/i.test(message)) return { status: 409, code: "SCORING_RECORD_IMMUTABLE", retryable: false };
   if (/Scoring.*(version conflict|same scope and model)/i.test(message)) return { status: 409, code: "SCORING_VERSION_CONFLICT", retryable: false };
   if (/Scoring Model is not (ACTIVE|eligible)/i.test(message)) return { status: 423, code: "SCORING_MODEL_NOT_ACTIVE", retryable: false };

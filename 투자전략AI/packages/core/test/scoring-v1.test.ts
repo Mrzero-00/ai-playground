@@ -5,6 +5,7 @@ import {
   explainScoreChangeV1,
   normalizeScoreV1,
   rankScorecardsV1,
+  transitionScoreModelV1,
   validateScoreModelV1,
   type FactorObservationV1,
   type ScoreModelInputV1,
@@ -68,6 +69,18 @@ test("Score Model validates exact basis-point weights, approval and deterministi
   assert.deepEqual(model.factorDefinitions.map((factor) => factor.id), ["QUALITY", "RISK"]);
   assert.throws(() => validateScoreModelV1(modelInput({ factorDefinitions: modelInput().factorDefinitions.map((factor) => ({ ...factor, weightBasisPoints: 4000 })) })), /10000/);
   assert.throws(() => validateScoreModelV1(modelInput({ factorDefinitions: modelInput().factorDefinitions.map((factor) => factor.id === "RISK" ? { ...factor, critical: true, allowedNotApplicable: true } : factor) })), /critical Factor/);
+});
+
+test("Score Model follows controlled lifecycle without changing immutable configuration hash", () => {
+  let model = validateScoreModelV1(modelInput({ status: "DRAFT", approvedBy: undefined, approvedAt: undefined }));
+  const modelHash = model.modelHash;
+  for (const [nextStatus, transitionedAt] of [
+    ["VALIDATING", "2026-07-22T10:01:00Z"], ["SHADOW", "2026-07-22T10:02:00Z"],
+    ["APPROVED", "2026-07-22T10:03:00Z"], ["ACTIVE", "2026-07-22T10:04:00Z"],
+  ] as const) model = transitionScoreModelV1({ previous: model, nextStatus, actorId: "score-reviewer", transitionedAt });
+  assert.equal(model.status, "ACTIVE");
+  assert.equal(model.modelHash, modelHash);
+  assert.throws(() => transitionScoreModelV1({ previous: model, nextStatus: "SHADOW", actorId: "score-reviewer", transitionedAt: "2026-07-22T10:05:00Z" }), /invalid transition/);
 });
 
 test("Normalization makes direction explicit and preserves target-band semantics", () => {

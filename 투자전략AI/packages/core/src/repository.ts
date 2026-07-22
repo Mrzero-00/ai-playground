@@ -87,6 +87,7 @@ export interface InvestmentOsRepository {
   saveDatabaseReconciliationWithOutbox(value: DatabaseReconciliationResultV1, audit: AuditRecord, outbox: OutboxRecord): Promise<void>;
   findDatabaseReconciliation(id: string): Promise<DatabaseReconciliationResultV1 | undefined>;
   saveScoreModelWithOutbox(value: ScoreModelV1, audit: AuditRecord, outbox: OutboxRecord): Promise<void>;
+  updateScoreModelWithOutbox(value: ScoreModelV1, audit: AuditRecord, outbox: OutboxRecord): Promise<void>;
   findScoreModel(id: string): Promise<ScoreModelV1 | undefined>;
   saveScorecardWithOutbox(value: ScorecardResultV1, audit: AuditRecord, outbox: OutboxRecord): Promise<void>;
   findScorecard(id: string): Promise<ScorecardResultV1 | undefined>;
@@ -380,7 +381,26 @@ export class InMemoryInvestmentOsRepository implements InvestmentOsRepository {
   async findDatabaseReconciliation(id: string): Promise<DatabaseReconciliationResultV1 | undefined> { return this.clone(this.databaseReconciliationsV1.get(id)); }
   async saveScoreModelWithOutbox(value: ScoreModelV1, audit: AuditRecord, outbox: OutboxRecord): Promise<void> {
     if (this.scoreModelsV1.has(value.id)) throw new Error("Scoring Model already exists and is immutable");
-    if (value.status === "ACTIVE" && [...this.scoreModelsV1.values()].some((model) => model.userId === value.userId && model.scope === value.scope && model.status === "ACTIVE")) throw new Error("Scoring active Model version conflict");
+    if (value.status !== "DRAFT") throw new Error("Scoring Model registration must start as DRAFT");
+    if (value.supersedesModelVersionId) {
+      const previous = this.scoreModelsV1.get(value.supersedesModelVersionId);
+      if (!previous) throw new Error("Scoring Model superseded version not found");
+      if (previous.userId !== value.userId || previous.scope !== value.scope) throw new Error("Scoring Model superseded ownership or scope mismatch");
+    }
+    this.scoreModelsV1.set(value.id, structuredClone(value));
+    this.audit.push(structuredClone(audit));
+    this.outbox.set(outbox.id, structuredClone(outbox));
+  }
+  async updateScoreModelWithOutbox(value: ScoreModelV1, audit: AuditRecord, outbox: OutboxRecord): Promise<void> {
+    const previous = this.scoreModelsV1.get(value.id);
+    if (!previous) throw new Error("Scoring Model not found");
+    if (previous.userId !== value.userId) throw new Error("Scoring Model ownership mismatch");
+    if (previous.modelHash !== value.modelHash || previous.version !== value.version || previous.scope !== value.scope) throw new Error("Scoring Model immutable configuration conflict");
+    if (value.status === "ACTIVE") {
+      for (const [id, model] of this.scoreModelsV1.entries()) {
+        if (id !== value.id && model.userId === value.userId && model.scope === value.scope && model.status === "ACTIVE") this.scoreModelsV1.set(id, { ...model, status: "DEPRECATED" });
+      }
+    }
     this.scoreModelsV1.set(value.id, structuredClone(value));
     this.audit.push(structuredClone(audit));
     this.outbox.set(outbox.id, structuredClone(outbox));

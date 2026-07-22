@@ -8,9 +8,9 @@ function post(origin: string, path: string, body: unknown, key: string): Promise
   return fetch(`${origin}${path}`, { method: "POST", headers: { "content-type": "application/json", "idempotency-key": key, "x-correlation-id": `scoring-${key}` }, body: JSON.stringify(body) });
 }
 
-function model(): ScoreModelInputV1 {
+function model(overrides: Partial<ScoreModelInputV1> = {}): ScoreModelInputV1 {
   return {
-    id: "api-score-model-1", userId: "api-score-user", version: "core-1.0.0", scope: "LONG_TERM_CORE", status: "ACTIVE",
+    id: "api-score-model-1", userId: "api-score-user", version: "core-1.0.0", scope: "LONG_TERM_CORE", status: "DRAFT",
     factorDefinitions: [
       { id: "QUALITY", label: "Quality", direction: "HIGHER_IS_BETTER", weightBasisPoints: 6000, critical: true, allowedNotApplicable: false,
         normalization: { kind: "LINEAR", floor: 0, ceiling: 10 }, evidencePolicy: { minimumSourceTier: "A", minimumDistinctSources: 1, counterEvidenceRequired: true, pointInTimeRequired: true }, effectiveFrom: "2026-07-22T00:00:00Z" },
@@ -20,7 +20,7 @@ function model(): ScoreModelInputV1 {
     minimumApplicableWeightBasisPoints: 6000,
     thresholds: [{ id: "CORE_ENTRY", minimumScore: 78, minimumConfidence: 75, purpose: "new Core entry" }],
     confidencePolicy: { weightsBasisPoints: { EVIDENCE_COVERAGE: 3500, SOURCE_QUALITY: 2500, FRESHNESS: 0, MODEL_FIT: 2500, AGREEMENT: 1500 }, grades: { high: 80, medium: 65, low: 50 } },
-    effectiveFrom: "2026-07-23T00:00:00Z", approvedBy: "api-score-reviewer", approvedAt: "2026-07-22T10:00:00Z", changeReason: "API scoring fixture",
+    effectiveFrom: "2026-07-23T00:00:00Z", changeReason: "API scoring fixture", ...overrides,
   };
 }
 
@@ -52,8 +52,19 @@ test("Scoring v1 API preserves Model, Scorecard, Ranking, Change, Audit and Outb
 
   const modelResponse = await post(origin, "/api/v1/scoring/models/validate", model(), "model-1");
   assert.equal(modelResponse.status, 201);
-  const storedModel = await modelResponse.json() as ScoreModelV1;
+  let storedModel = await modelResponse.json() as ScoreModelV1;
   assert.equal(storedModel.modelHash.length, 64);
+  const initialHash = storedModel.modelHash;
+  for (const [nextStatus, transitionedAt] of [
+    ["VALIDATING", "2026-07-22T10:01:00Z"], ["SHADOW", "2026-07-22T10:02:00Z"],
+    ["APPROVED", "2026-07-22T10:03:00Z"], ["ACTIVE", "2026-07-22T10:04:00Z"],
+  ] as const) {
+    const transitionResponse = await post(origin, `/api/v1/scoring/models/${storedModel.id}/transitions`, { nextStatus, actorId: "api-score-reviewer", transitionedAt }, `model-${nextStatus}`);
+    assert.equal(transitionResponse.status, 201);
+    storedModel = await transitionResponse.json() as ScoreModelV1;
+    assert.equal(storedModel.status, nextStatus);
+    assert.equal(storedModel.modelHash, initialHash);
+  }
   assert.deepEqual(await (await fetch(`${origin}/api/v1/scoring/models/${storedModel.id}`)).json(), storedModel);
 
   const previousResponse = await post(origin, "/api/v1/scoring/scorecards/evaluate", scorecard("api-scorecard-1", 7, 3), "scorecard-1");
@@ -86,6 +97,22 @@ test("Scoring v1 API preserves Model, Scorecard, Ranking, Change, Audit and Outb
   const replayResponse = await post(origin, "/api/v1/scoring/replays", { ...scorecard("api-scorecard-replay", 9, 1), mode: "OPERATIONAL" }, "replay-1");
   assert.equal(replayResponse.status, 201);
   assert.equal(((await replayResponse.json()) as ScorecardResultV1).mode, "HISTORICAL_REPLAY");
+
+  const nextModelResponse = await post(origin, "/api/v1/scoring/models/validate", model({
+    id: "api-score-model-2", version: "core-1.1.0", supersedesModelVersionId: storedModel.id, effectiveFrom: "2026-07-24T00:00:00Z", changeReason: "validated successor",
+  }), "model-2");
+  assert.equal(nextModelResponse.status, 201);
+  let nextModel = await nextModelResponse.json() as ScoreModelV1;
+  for (const [nextStatus, transitionedAt] of [
+    ["VALIDATING", "2026-07-22T14:01:00Z"], ["SHADOW", "2026-07-22T14:02:00Z"],
+    ["APPROVED", "2026-07-22T14:03:00Z"], ["ACTIVE", "2026-07-22T14:04:00Z"],
+  ] as const) {
+    const transitionResponse = await post(origin, `/api/v1/scoring/models/${nextModel.id}/transitions`, { nextStatus, actorId: "api-score-reviewer", transitionedAt }, `model-2-${nextStatus}`);
+    assert.equal(transitionResponse.status, 201);
+    nextModel = await transitionResponse.json() as ScoreModelV1;
+  }
+  const deprecatedPrevious = await (await fetch(`${origin}/api/v1/scoring/models/${storedModel.id}`)).json() as ScoreModelV1;
+  assert.equal(deprecatedPrevious.status, "DEPRECATED");
 
   const publishResponse = await post(origin, "/api/v1/operations/outbox/publish", {}, "score-publish-1");
   assert.equal(publishResponse.status, 200);

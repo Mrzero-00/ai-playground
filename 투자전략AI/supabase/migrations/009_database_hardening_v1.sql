@@ -60,6 +60,7 @@ create table public.data_deletion_requests (
   unique (id, user_id),
   foreign key (supersedes_request_id, user_id) references public.data_deletion_requests(id, user_id),
   check (requested_by = user_id),
+  check (supersedes_request_id is null or supersedes_request_id <> id),
   check (transitioned_at >= requested_at),
   check ((status = 'BLOCKED') = (cardinality(blocker_codes) > 0)),
   check (status in ('REQUESTED', 'BLOCKED') or reviewed_by is not null),
@@ -156,6 +157,7 @@ create index lineage_from on public.data_lineage_edges(user_id, from_entity_type
 create index lineage_to on public.data_lineage_edges(user_id, to_entity_type, to_entity_id, created_at desc);
 create index retention_entity_effective on public.data_retention_policies(user_id, entity_type, effective_from desc);
 create index deletion_requests_open on public.data_deletion_requests(user_id, status, transitioned_at desc) where status not in ('COMPLETED', 'REJECTED', 'BLOCKED');
+create unique index deletion_requests_linear_revision on public.data_deletion_requests(supersedes_request_id) where supersedes_request_id is not null;
 create index quality_incidents_open on public.data_quality_incidents(user_id, severity, detected_at desc) where status <> 'RESOLVED';
 create index reconciliation_scope_time on public.database_reconciliation_runs(user_id, scope, executed_at desc);
 create index migration_verification_time on public.migration_verification_runs(environment, verified_at desc);
@@ -178,15 +180,15 @@ create policy reconciliation_runs_owner_select on public.database_reconciliation
 create policy reconciliation_findings_owner_select on public.database_reconciliation_findings for select using (user_id = auth.uid());
 create policy migration_verification_owner_select on public.migration_verification_runs for select using (user_id = auth.uid());
 
-create trigger audit_logs_immutable before update on public.audit_logs for each row execute function public.prevent_immutable_investment_record_update();
-create trigger domain_events_immutable before update on public.domain_events for each row execute function public.prevent_immutable_investment_record_update();
-create trigger lineage_edges_immutable before update on public.data_lineage_edges for each row execute function public.prevent_immutable_investment_record_update();
-create trigger retention_policies_immutable before update on public.data_retention_policies for each row execute function public.prevent_immutable_investment_record_update();
-create trigger deletion_requests_immutable before update on public.data_deletion_requests for each row execute function public.prevent_immutable_investment_record_update();
-create trigger deletion_items_immutable before update on public.data_deletion_request_items for each row execute function public.prevent_immutable_investment_record_update();
-create trigger reconciliation_runs_immutable before update on public.database_reconciliation_runs for each row execute function public.prevent_immutable_investment_record_update();
-create trigger reconciliation_findings_immutable before update on public.database_reconciliation_findings for each row execute function public.prevent_immutable_investment_record_update();
-create trigger migration_verification_immutable before update on public.migration_verification_runs for each row execute function public.prevent_immutable_investment_record_update();
+create trigger audit_logs_immutable before update or delete on public.audit_logs for each row execute function public.prevent_immutable_investment_record_update();
+create trigger domain_events_immutable before update or delete on public.domain_events for each row execute function public.prevent_immutable_investment_record_update();
+create trigger lineage_edges_immutable before update or delete on public.data_lineage_edges for each row execute function public.prevent_immutable_investment_record_update();
+create trigger retention_policies_immutable before update or delete on public.data_retention_policies for each row execute function public.prevent_immutable_investment_record_update();
+create trigger deletion_requests_immutable before update or delete on public.data_deletion_requests for each row execute function public.prevent_immutable_investment_record_update();
+create trigger deletion_items_immutable before update or delete on public.data_deletion_request_items for each row execute function public.prevent_immutable_investment_record_update();
+create trigger reconciliation_runs_immutable before update or delete on public.database_reconciliation_runs for each row execute function public.prevent_immutable_investment_record_update();
+create trigger reconciliation_findings_immutable before update or delete on public.database_reconciliation_findings for each row execute function public.prevent_immutable_investment_record_update();
+create trigger migration_verification_immutable before update or delete on public.migration_verification_runs for each row execute function public.prevent_immutable_investment_record_update();
 
 create or replace function public.validate_data_quality_incident_transition()
 returns trigger language plpgsql as $$
@@ -204,5 +206,7 @@ $$;
 
 create trigger data_quality_incidents_controlled_transition before update on public.data_quality_incidents
 for each row execute function public.validate_data_quality_incident_transition();
+create trigger data_quality_incidents_immutable_delete before delete on public.data_quality_incidents
+for each row execute function public.prevent_immutable_investment_record_update();
 
 commit;

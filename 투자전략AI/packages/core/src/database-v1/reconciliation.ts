@@ -10,7 +10,9 @@ export function runDatabaseReconciliationV1(input: DatabaseReconciliationInputV1
   if (input.checks.length === 0) throw new Error("Database Reconciliation requires checks");
   if (new Set(input.checks.map((check) => check.id)).size !== input.checks.length) throw new Error("Database Reconciliation check ids must be unique");
   const findings: DatabaseReconciliationResultV1["findings"] = [];
-  const checks = [...input.checks].sort((left, right) => left.id.localeCompare(right.id));
+  const checks = input.checks
+    .map((check) => ({ ...structuredClone(check), evidenceIds: [...check.evidenceIds].sort() }))
+    .sort((left, right) => left.id.localeCompare(right.id));
   for (const check of checks) {
     if (!check.id.trim() || !check.entityType.trim() || !check.entityId.trim()) throw new Error("Reconciliation Check identity is required");
     assertSignedDecimal(check.actual, "Reconciliation actual");
@@ -21,11 +23,20 @@ export function runDatabaseReconciliationV1(input: DatabaseReconciliationInputV1
     if (!passed) findings.push({
       checkId: check.id, code: `RECONCILIATION_${check.comparator}_FAILED`, severity: check.critical ? "CRITICAL" : "WARNING",
       actual: check.actual, expected: check.expected, entityType: check.entityType, entityId: check.entityId,
-      evidenceIds: [...check.evidenceIds].sort(),
+      evidenceIds: [...check.evidenceIds],
     });
   }
   const status: DatabaseReconciliationResultV1["status"] = findings.some((finding) => finding.severity === "CRITICAL") ? "BLOCKED" : findings.length > 0 ? "FAILED" : "PASSED";
-  const withoutHash: Omit<DatabaseReconciliationResultV1, "resultHash"> = { ...structuredClone(input), checks, status, findings };
+  const withoutHash: Omit<DatabaseReconciliationResultV1, "resultHash"> = {
+    id: input.id,
+    userId: input.userId,
+    scope: input.scope,
+    asOf: input.asOf,
+    executedAt: input.executedAt,
+    checks,
+    status,
+    findings,
+  };
   return { ...withoutHash, resultHash: databaseStableHash(withoutHash) };
 }
 

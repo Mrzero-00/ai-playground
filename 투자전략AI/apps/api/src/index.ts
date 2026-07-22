@@ -441,7 +441,7 @@ export const server = createServer(async (request, response) => {
       return json(response, 200, createDataRetentionPolicyV1(body as DataRetentionPolicyInputV1));
     }
     if (path === "/api/database/reconciliations/validate") {
-      return idempotentJson(request, response, path, body, async () => {
+      return await idempotentJson(request, response, path, body, async () => {
         const result = runDatabaseReconciliationV1(body as DatabaseReconciliationInputV1);
         const event = createDomainEvent({
           id: randomUUID(), type: "DatabaseReconciliationCompleted", occurredAt: result.executedAt,
@@ -458,7 +458,7 @@ export const server = createServer(async (request, response) => {
       });
     }
     if (path === "/api/database/deletion-requests") {
-      return idempotentJson(request, response, path, body, async () => {
+      return await idempotentJson(request, response, path, body, async () => {
         const deletionRequest = createDataDeletionRequestV1(body as DataDeletionRequestInputV1);
         const event = createDomainEvent({
           id: randomUUID(), type: "DataDeletionRequested", occurredAt: deletionRequest.requestedAt,
@@ -477,7 +477,7 @@ export const server = createServer(async (request, response) => {
     }
     const deletionTransition = path.match(/^\/api\/database\/deletion-requests\/([^/]+)\/transitions$/);
     if (deletionTransition) {
-      return idempotentJson(request, response, path, body, async () => {
+      return await idempotentJson(request, response, path, body, async () => {
         const previous = await repository.findDataDeletionRequest(decodeURIComponent(deletionTransition[1] ?? ""));
         if (!previous) throw new Error("Data Deletion Request not found");
         const raw = body as Omit<DataDeletionTransitionInputV1, "previous">;
@@ -504,7 +504,7 @@ export const server = createServer(async (request, response) => {
       return json(response, 200, validateAgentPlanV1(body as AgentPlanV1, DEFAULT_AGENT_DEFINITIONS_V1));
     }
     if (path === "/api/agents/runs" || path === "/api/agents/replays") {
-      return idempotentJson(request, response, path, body, async () => {
+      return await idempotentJson(request, response, path, body, async () => {
         const input = body as { runId: string; manifestId: string; request: AgentRunRequestV1; provider: AgentProviderSelectionV1; codeVersion: string };
         if (input.provider.providerId !== "scripted" || input.provider.providerVersion !== "1") throw new Error("Agent Provider is not enabled in MVP runtime");
         const definition = DEFAULT_AGENT_DEFINITIONS_V1.find((item) => item.id === input.request.agentDefinitionId && item.version === input.request.agentDefinitionVersion);
@@ -542,7 +542,7 @@ export const server = createServer(async (request, response) => {
       });
     }
     if (path === "/api/agents/outputs/validate") {
-      return idempotentJson(request, response, path, body, async () => {
+      return await idempotentJson(request, response, path, body, async () => {
         const raw = body as Omit<AgentOutputValidationInputV1, "run"> & { runId: string; finishedAt: string };
         const run = await repository.findAgentRun(raw.runId);
         if (!run) throw new Error("Agent Run not found");
@@ -568,7 +568,7 @@ export const server = createServer(async (request, response) => {
     }
     const agentRunCancel = path.match(/^\/api\/agents\/runs\/([^/]+)\/cancel$/);
     if (agentRunCancel) {
-      return idempotentJson(request, response, path, body, async () => {
+      return await idempotentJson(request, response, path, body, async () => {
         const run = await repository.findAgentRun(decodeURIComponent(agentRunCancel[1] ?? ""));
         if (!run) throw new Error("Agent Run not found");
         const input = body as { finishedAt: string; actorId: string };
@@ -584,7 +584,7 @@ export const server = createServer(async (request, response) => {
       return json(response, 200, evaluateLongTerm(body as Parameters<typeof evaluateLongTerm>[0]));
     }
     if (path === "/api/long-term/evaluations") {
-      return idempotentJson(request, response, path, body, async () => {
+      return await idempotentJson(request, response, path, body, async () => {
         const result = evaluateLongTermV1(body as LongTermEvaluationInput);
         const event = createDomainEvent({
           id: randomUUID(),
@@ -630,13 +630,13 @@ export const server = createServer(async (request, response) => {
       });
     }
     if (path === "/api/long-term/replays") {
-      return idempotentJson(request, response, path, body, async () => ({
+      return await idempotentJson(request, response, path, body, async () => ({
         status: 200,
         body: replayLongTermEvaluation(body as LongTermEvaluationInput),
       }));
     }
     if (path === "/api/momentum/scans") {
-      return idempotentJson(request, response, path, body, async () => {
+      return await idempotentJson(request, response, path, body, async () => {
         const scan = runMomentumScan(body as MomentumScanInput);
         const event = createDomainEvent({
           id: randomUUID(), type: "MomentumUniverseUpdated", occurredAt: scan.createdAt,
@@ -661,7 +661,7 @@ export const server = createServer(async (request, response) => {
       });
     }
     if (path === "/api/momentum/evaluations") {
-      return idempotentJson(request, response, path, body, async () => {
+      return await idempotentJson(request, response, path, body, async () => {
         const result = evaluateMomentumV1(body as MomentumEvaluationInput);
         const event = createDomainEvent({
           id: randomUUID(),
@@ -711,13 +711,13 @@ export const server = createServer(async (request, response) => {
       });
     }
     if (path === "/api/momentum/replays") {
-      return idempotentJson(request, response, path, body, async () => ({
+      return await idempotentJson(request, response, path, body, async () => ({
         status: 200,
         body: replayMomentumEvaluation(body as MomentumEvaluationInput),
       }));
     }
     if (path === "/api/momentum/plans") {
-      return idempotentJson(request, response, path, body, async () => {
+      return await idempotentJson(request, response, path, body, async () => {
         const plan = validateMomentumTradePlanV1(body as MomentumTradePlanV1);
         const event = createDomainEvent({
           id: randomUUID(), type: "MomentumTradePlanCreated", occurredAt: plan.generatedAt,
@@ -737,7 +737,7 @@ export const server = createServer(async (request, response) => {
     const planRevision = path.match(/^\/api\/momentum\/plans\/([^/]+)\/revisions$/);
     if (planRevision) {
       const previousId = decodeURIComponent(planRevision[1] ?? "");
-      return idempotentJson(request, response, path, body, async () => {
+      return await idempotentJson(request, response, path, body, async () => {
         const plan = validateMomentumTradePlanV1(body as MomentumTradePlanV1);
         if (plan.supersedesPlanId !== previousId) throw new Error("plan revision supersedesPlanId must match path");
         const event = createDomainEvent({
@@ -757,7 +757,7 @@ export const server = createServer(async (request, response) => {
     }
     const planPriceValidation = path.match(/^\/api\/momentum\/plans\/([^/]+)\/validate-price$/);
     if (planPriceValidation) {
-      return idempotentJson(request, response, path, body, async () => {
+      return await idempotentJson(request, response, path, body, async () => {
         const planId = decodeURIComponent(planPriceValidation[1] ?? "");
         const plan = await repository.findMomentumTradePlan(planId);
         if (!plan) throw new Error("Momentum trade plan not found");
@@ -780,7 +780,7 @@ export const server = createServer(async (request, response) => {
       return json(response, 200, validatePortfolioPolicyV1(body as PortfolioPolicyV1));
     }
     if (path === "/api/allocations/proposals") {
-      return idempotentJson(request, response, path, body, async () => {
+      return await idempotentJson(request, response, path, body, async () => {
         const input = body as AllocationRequestV1;
         const proposal = proposeAllocationV1(input);
         const eventType = proposal.status === "REDUCED" ? "AllocationProposalReduced"
@@ -810,10 +810,10 @@ export const server = createServer(async (request, response) => {
       });
     }
     if (path === "/api/allocations/replays") {
-      return idempotentJson(request, response, path, body, async () => ({ status: 200, body: replayAllocationV1(body as AllocationRequestV1) }));
+      return await idempotentJson(request, response, path, body, async () => ({ status: 200, body: replayAllocationV1(body as AllocationRequestV1) }));
     }
     if (path === "/api/allocations/new-capital") {
-      return idempotentJson(request, response, path, body, async () => {
+      return await idempotentJson(request, response, path, body, async () => {
         const input = body as CapitalAllocationBatchInputV1;
         const decision = allocateNewCapitalV1(input);
         const event = createDomainEvent({
@@ -838,7 +838,7 @@ export const server = createServer(async (request, response) => {
     }
     const portfolioRebalance = path.match(/^\/api\/portfolios\/([^/]+)\/rebalance$/);
     if (portfolioRebalance) {
-      return idempotentJson(request, response, path, body, async () => {
+      return await idempotentJson(request, response, path, body, async () => {
         const input = body as PortfolioRebalanceInputV1;
         const portfolioId = decodeURIComponent(portfolioRebalance[1] ?? "");
         if (input.portfolioId !== portfolioId || input.snapshot.portfolioId !== portfolioId) throw new Error("Portfolio rebalance path and body do not match");
@@ -864,7 +864,7 @@ export const server = createServer(async (request, response) => {
     }
     const portfolioStress = path.match(/^\/api\/portfolios\/([^/]+)\/stress-tests$/);
     if (portfolioStress) {
-      return idempotentJson(request, response, path, body, async () => {
+      return await idempotentJson(request, response, path, body, async () => {
         const input = body as {
           id: string;
           snapshot: AllocationRequestV1["portfolioSnapshot"];
@@ -894,7 +894,7 @@ export const server = createServer(async (request, response) => {
       });
     }
     if (path === "/api/learning/reviews") {
-      return idempotentJson(request, response, path, body, async () => {
+      return await idempotentJson(request, response, path, body, async () => {
         const input = body as LearningReviewInputV1;
         const review = createLearningReviewV1(input);
         const event = createDomainEvent({
@@ -916,7 +916,7 @@ export const server = createServer(async (request, response) => {
       });
     }
     if (path === "/api/learning/cohorts/analyze") {
-      return idempotentJson(request, response, path, body, async () => {
+      return await idempotentJson(request, response, path, body, async () => {
         const input = body as CohortAnalysisInputV1;
         const records = await Promise.all(input.records.map(async (record) => {
           const [review, manifest] = await Promise.all([
@@ -944,7 +944,7 @@ export const server = createServer(async (request, response) => {
       });
     }
     if (path === "/api/learning/lessons/candidates") {
-      return idempotentJson(request, response, path, body, async () => {
+      return await idempotentJson(request, response, path, body, async () => {
         const input = body as LessonCandidateInputV1;
         const storedCohort = await repository.findLearningCohort(input.cohort.id);
         if (!storedCohort || storedCohort.resultHash !== input.cohort.resultHash) throw new Error("Lesson Candidate Cohort lineage conflict");
@@ -966,7 +966,7 @@ export const server = createServer(async (request, response) => {
     }
     const lessonApproval = path.match(/^\/api\/learning\/lessons\/([^/]+)\/approve$/);
     if (lessonApproval) {
-      return idempotentJson(request, response, path, body, async () => {
+      return await idempotentJson(request, response, path, body, async () => {
         const candidateId = decodeURIComponent(lessonApproval[1] ?? "");
         const candidate = await repository.findLessonCandidate(candidateId);
         if (!candidate) throw new Error("Lesson Candidate not found");
@@ -988,7 +988,7 @@ export const server = createServer(async (request, response) => {
       });
     }
     if (path === "/api/learning/model-changes") {
-      return idempotentJson(request, response, path, body, async () => {
+      return await idempotentJson(request, response, path, body, async () => {
         const input = body as ModelChangeProposalInputV1;
         const lessons = await Promise.all(input.lessonIds.map((id) => repository.findInvestmentLesson(id)));
         if (lessons.some((lesson) => !lesson || lesson.status !== "APPROVED")) throw new Error("Model Change requires approved Investment Lessons");
@@ -1010,7 +1010,7 @@ export const server = createServer(async (request, response) => {
       });
     }
     if (path === "/api/learning/validations") {
-      return idempotentJson(request, response, path, body, async () => {
+      return await idempotentJson(request, response, path, body, async () => {
         const input = body as ModelValidationInputV1;
         const storedProposal = await repository.findModelChange(input.proposal.id);
         if (!storedProposal || storedProposal.resultHash !== input.proposal.resultHash) throw new Error("Model validation Proposal lineage conflict");
@@ -1033,7 +1033,7 @@ export const server = createServer(async (request, response) => {
     const modelChangeTransition = path.match(/^\/api\/learning\/model-changes\/([^/]+)\/transitions$/);
     const modelChangeApproval = path.match(/^\/api\/learning\/model-changes\/([^/]+)\/approve$/);
     if (modelChangeTransition || modelChangeApproval) {
-      return idempotentJson(request, response, path, body, async () => {
+      return await idempotentJson(request, response, path, body, async () => {
         const previousId = decodeURIComponent((modelChangeTransition ?? modelChangeApproval)?.[1] ?? "");
         const previous = await repository.findModelChange(previousId);
         if (!previous) throw new Error("Model Change Proposal not found");
@@ -1082,13 +1082,13 @@ export const server = createServer(async (request, response) => {
       return json(response, 200, createDecisionJournalEntry(body as Parameters<typeof createDecisionJournalEntry>[0]));
     }
     if (path === "/api/decisions/modifications/request") {
-      return idempotentJson(request, response, path, body, async () => ({
+      return await idempotentJson(request, response, path, body, async () => ({
         status: 201,
         body: requestDecisionModification(body as Parameters<typeof requestDecisionModification>[0]),
       }));
     }
     if (path === "/api/allocations/monthly") {
-      return idempotentJson(request, response, path, body, async () => ({
+      return await idempotentJson(request, response, path, body, async () => ({
         status: 201,
         body: createCapitalAllocationDecision(body as Parameters<typeof createCapitalAllocationDecision>[0]),
       }));
@@ -1099,13 +1099,13 @@ export const server = createServer(async (request, response) => {
         proposal: Parameters<typeof resolveManualRiskReview>[1];
         resolution: Parameters<typeof resolveManualRiskReview>[2];
       };
-      return idempotentJson(request, response, path, body, async () => ({
+      return await idempotentJson(request, response, path, body, async () => ({
         status: 201,
         body: resolveManualRiskReview(input.original, input.proposal, input.resolution),
       }));
     }
     if (path === "/api/reviews/assess") {
-      return idempotentJson(request, response, path, body, async () => ({
+      return await idempotentJson(request, response, path, body, async () => ({
         status: 201,
         body: assessDecisionReview(body as Parameters<typeof assessDecisionReview>[0]),
       }));
@@ -1132,14 +1132,14 @@ export const server = createServer(async (request, response) => {
     }
     if (path === "/api/decisions" || path === "/api/workflows/decisions/create") {
       const input = body as { decisionId: string; allocation: AllocationProposal; risk: RiskDecision };
-      return idempotentJson(request, response, path, body, async () => ({
+      return await idempotentJson(request, response, path, body, async () => ({
         status: 201,
         body: await decisionWorkflow.create({ ...input, correlationId }),
       }));
     }
     if (path === "/api/workflows/decisions/decide") {
       const input = body as Omit<Parameters<DecisionWorkflow["decide"]>[0], "correlationId">;
-      return idempotentJson(request, response, path, body, async () => ({
+      return await idempotentJson(request, response, path, body, async () => ({
         status: 200,
         body: await decisionWorkflow.decide({ ...input, correlationId }),
       }));
@@ -1147,7 +1147,7 @@ export const server = createServer(async (request, response) => {
     const decisionAction = path.match(/^\/api\/decisions\/([^/]+)\/(approve|reject)$/);
     if (decisionAction) {
       const input = body as Omit<Parameters<DecisionWorkflow["decide"]>[0], "decisionId" | "approved" | "correlationId">;
-      return idempotentJson(request, response, path, body, async () => ({
+      return await idempotentJson(request, response, path, body, async () => ({
         status: 200,
         body: await decisionWorkflow.decide({
           ...input,
@@ -1158,7 +1158,7 @@ export const server = createServer(async (request, response) => {
       }));
     }
     if (path === "/api/operations/outbox/publish") {
-      return idempotentJson(request, response, path, body, async () => ({
+      return await idempotentJson(request, response, path, body, async () => ({
         status: 200,
         body: { published: await outboxPublisher.publishPending(new Date().toISOString()) },
       }));
@@ -1186,8 +1186,9 @@ export const server = createServer(async (request, response) => {
 function mapApiError(message: string): { status: number; code: string; retryable: boolean } {
   if (/Data Deletion Request ownership|Database.*ownership|Data Lineage.*ownership/i.test(message)) return { status: 403, code: "DATABASE_OWNERSHIP_MISMATCH", retryable: false };
   if (/Data Deletion Request not found|previous revision not found|Database Reconciliation not found/i.test(message)) return { status: 404, code: "DATABASE_RESOURCE_NOT_FOUND", retryable: false };
-  if (/Data Lineage.*cycle|Data Lineage.*self-reference|Data Deletion Request.*already exists/i.test(message)) return { status: 409, code: "DATABASE_LINEAGE_CONFLICT", retryable: false };
-  if (/Database Reconciliation.*immutable|Data Deletion Request.*immutable/i.test(message)) return { status: 409, code: "DATABASE_RECORD_IMMUTABLE", retryable: false };
+  if (/Data Lineage.*cycle|Data Lineage.*self-reference|Data Deletion Request.*branch conflict/i.test(message)) return { status: 409, code: "DATABASE_LINEAGE_CONFLICT", retryable: false };
+  if (/Database Reconciliation.*(immutable|already exists)|Data Deletion Request.*(immutable|already exists)/i.test(message)) return { status: 409, code: "DATABASE_RECORD_IMMUTABLE", retryable: false };
+  if (/Data Lineage|Retention Policy|Data Deletion|Database Reconciliation|Reconciliation Check/i.test(message)) return { status: 400, code: "INVALID_DATABASE_CONTRACT", retryable: false };
   if (/Agent Run idempotency conflict|Agent Run already exists for idempotency key/i.test(message)) return { status: 409, code: "AGENT_IDEMPOTENCY_CONFLICT", retryable: false };
   if (/Agent.*ownership/i.test(message)) return { status: 403, code: "AGENT_OWNERSHIP_MISMATCH", retryable: false };
   if (/Agent Definition not found|Agent Prompt not found|Agent Run not found|Agent Replay source Run not found/i.test(message)) return { status: 404, code: "AGENT_RESOURCE_NOT_FOUND", retryable: false };

@@ -106,6 +106,15 @@ API 기본 주소는 `http://localhost:4000`입니다.
 - `POST /api/v1/agents/outputs/validate`: 비신뢰 Output의 Schema·Evidence·소유권·시각·결정론·Injection 검증
 - `POST /api/v1/agents/replays`: 입력 `asOf`와 Context를 보존하는 비운영 Replay 생성
 - `POST /api/v1/agents/runs/:id/cancel`: 비종료 Run 취소
+- `GET /api/v1/database/health`: Database v1 계약과 운영 환경 추가 점검 항목 조회
+- `GET /api/v1/database/migrations`: 적용 순서 기준 Migration Manifest 조회
+- `POST /api/v1/database/lineage/validate`: Point-in-time·순환·Evidence 계보 검증
+- `POST /api/v1/database/retention/policies/validate`: 보존·Archive·Hard Delete 정책 검증
+- `POST /api/v1/database/deletion-requests`: Legal Hold·재현성 보호를 적용한 삭제 요청 생성
+- `POST /api/v1/database/deletion-requests/:id/transitions`: 기존 Row를 변경하지 않는 삭제 요청 Revision 생성
+- `GET /api/v1/database/deletion-requests/:id`: 삭제 요청 Revision 조회
+- `POST /api/v1/database/reconciliations/validate`: Decimal 기반 정합성 검사와 Critical 차단 결과 저장
+- `GET /api/v1/database/reconciliations/:id`: 불변 정합성 검사 결과 조회
 - `POST /api/v1/cross-signals`: 장기·모멘텀 교차 신호 해석
 - `POST /api/v1/allocations/propose`: Bucket/종목 한도를 적용한 Decimal 배분 제안
 - `POST /api/v1/portfolio/allocate`: 85/15 정책을 적용한 Decimal 자금 배분
@@ -156,6 +165,7 @@ packages/core            순수 도메인 로직
   learning               Legacy 결정/결과 기록 계약
   learning-v1            Review Maturity, Process/Outcome, Cohort, Lesson, Model Change 검증
   agent-v1               Definition/Prompt, Manifest, Evidence Claim, DAG, 보안 검증, Provider 경계
+  database-v1            Lineage, Retention, Deletion Revision, Decimal Reconciliation 계약
 supabase/migrations      PostgreSQL Schema, Index, RLS
 docs                     제품·아키텍처 명세
 ```

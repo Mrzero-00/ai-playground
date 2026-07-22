@@ -352,6 +352,9 @@ export class InMemoryInvestmentOsRepository implements InvestmentOsRepository {
       const previous = this.dataDeletionRequestsV1.get(value.supersedesRequestId);
       if (!previous) throw new Error("Data Deletion Request previous revision not found");
       if (previous.userId !== value.userId) throw new Error("Data Deletion Request ownership conflict");
+      if ([...this.dataDeletionRequestsV1.values()].some((request) => request.supersedesRequestId === previous.id)) {
+        throw new Error("Data Deletion Request revision branch conflict");
+      }
     }
     this.dataDeletionRequestsV1.set(value.id, structuredClone(value));
     this.audit.push(structuredClone(audit));

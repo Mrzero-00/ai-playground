@@ -10,7 +10,18 @@ export function createDataLineageEdgeV1(input: DataLineageEdgeInputV1): DataLine
   const createdAt = parseDate(input.createdAt, "Data Lineage createdAt");
   if (asOf > createdAt) throw new Error("Data Lineage asOf cannot be after createdAt");
   validateIds(input.evidenceIds, "Data Lineage evidenceIds", input.relation === "EXPLAINS" || input.relation === "VALIDATES");
-  const withoutHash = { ...structuredClone(input), evidenceIds: [...input.evidenceIds].sort() };
+  const withoutHash: Omit<DataLineageEdgeV1, "resultHash"> = {
+    id: input.id,
+    userId: input.userId,
+    fromEntityType: input.fromEntityType,
+    fromEntityId: input.fromEntityId,
+    toEntityType: input.toEntityType,
+    toEntityId: input.toEntityId,
+    relation: input.relation,
+    asOf: input.asOf,
+    createdAt: input.createdAt,
+    evidenceIds: [...input.evidenceIds].sort(),
+  };
   return { ...withoutHash, resultHash: databaseStableHash(withoutHash) };
 }
 

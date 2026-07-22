@@ -49,8 +49,10 @@ test("Database v1 API preserves governance, reconciliation, audit and outbox lin
     classification: "CACHE", retentionDays: 30, archiveAfterDays: 7, legalHoldSupported: false,
     hardDeleteAllowed: true, encrypted: true, approvedBy: "privacy-officer",
     approvedAt: "2026-07-22T10:00:00Z", effectiveFrom: "2026-07-23T00:00:00Z",
+    secret: "must-not-cross-the-contract-boundary",
   }, "retention-1");
   assert.equal(retentionResponse.status, 200);
+  assert.equal("secret" in ((await retentionResponse.json()) as Record<string, unknown>), false);
 
   const createResponse = await post(origin, "/api/v1/database/deletion-requests", {
     id: "api-deletion-1", userId: "api-database-user", requestedBy: "api-database-user",
@@ -59,10 +61,12 @@ test("Database v1 API preserves governance, reconciliation, audit and outbox lin
       entityType: "REPORT_CACHE", entityId: "cache-1", classification: "CACHE",
       legalHold: false, reproducibilityRequired: false, requestedAction: "DELETE",
     }],
+    secret: "must-not-be-persisted",
   }, "deletion-create-1");
   assert.equal(createResponse.status, 201);
   let deletion = await createResponse.json() as DataDeletionRequestV1;
   assert.equal(deletion.status, "REQUESTED");
+  assert.equal("secret" in deletion, false);
 
   for (const transition of [
     { id: "api-deletion-2", nextStatus: "VERIFIED", transitionedAt: "2026-07-22T12:00:00Z", reviewedBy: "privacy-reviewer" },
@@ -79,6 +83,12 @@ test("Database v1 API preserves governance, reconciliation, audit and outbox lin
   assert.equal(deletion.status, "COMPLETED");
   assert.deepEqual(deletion.completedCounts, { report_cache: 1 });
   assert.deepEqual(await (await fetch(`${origin}/api/v1/database/deletion-requests/${deletion.id}`)).json(), deletion);
+
+  const branchResponse = await post(origin, "/api/v1/database/deletion-requests/api-deletion-1/transitions", {
+    id: "api-deletion-branch", nextStatus: "REJECTED", transitionedAt: "2026-07-22T12:30:00Z", reviewedBy: "privacy-reviewer",
+  }, "deletion-branch-1");
+  assert.equal(branchResponse.status, 409);
+  assert.equal(((await branchResponse.json()) as { error: { code: string } }).error.code, "DATABASE_LINEAGE_CONFLICT");
 
   const reconciliationResponse = await post(origin, "/api/v1/database/reconciliations/validate", {
     id: "api-reconciliation-1", userId: "api-database-user", scope: "PORTFOLIO",

@@ -11,7 +11,21 @@ export function createDataRetentionPolicyV1(input: DataRetentionPolicyInputV1): 
   if ((input.classification === "LEGAL_AUDIT" || input.classification === "REPRODUCIBILITY") && input.hardDeleteAllowed) throw new Error("Legal/Audit or Reproducibility data cannot allow hard delete");
   if (input.classification === "SENSITIVE_RAW" && (!input.encrypted || input.retentionDays > 365)) throw new Error("Sensitive Raw data must be encrypted and retained for at most 365 days");
   if (input.classification === "CACHE" && input.legalHoldSupported) throw new Error("Cache Retention Policy cannot claim legal hold support");
-  const withoutHash = structuredClone(input);
+  const withoutHash: Omit<DataRetentionPolicyV1, "resultHash"> = {
+    id: input.id,
+    userId: input.userId,
+    version: input.version,
+    entityType: input.entityType,
+    classification: input.classification,
+    retentionDays: input.retentionDays,
+    ...(input.archiveAfterDays === undefined ? {} : { archiveAfterDays: input.archiveAfterDays }),
+    legalHoldSupported: input.legalHoldSupported,
+    hardDeleteAllowed: input.hardDeleteAllowed,
+    encrypted: input.encrypted,
+    approvedBy: input.approvedBy,
+    approvedAt: input.approvedAt,
+    effectiveFrom: input.effectiveFrom,
+  };
   return { ...withoutHash, resultHash: databaseStableHash(withoutHash) };
 }
 

@@ -16,10 +16,21 @@ export function createDataDeletionRequestV1(input: DataDeletionRequestInputV1): 
     if (target.classification === "LEGAL_AUDIT" && target.requestedAction === "DELETE") blockerCodes.push(`LEGAL_AUDIT_DELETE_FORBIDDEN:${target.entityType}:${target.entityId}`);
   }
   const withoutHash: Omit<DataDeletionRequestV1, "resultHash"> = {
-    ...structuredClone(input),
-    targets: [...input.targets].sort((left, right) => `${left.entityType}:${left.entityId}`.localeCompare(`${right.entityType}:${right.entityId}`)),
+    id: input.id,
+    userId: input.userId,
+    requestedBy: input.requestedBy,
+    reason: input.reason,
+    targets: input.targets.map((target) => ({
+      entityType: target.entityType,
+      entityId: target.entityId,
+      classification: target.classification,
+      legalHold: target.legalHold,
+      reproducibilityRequired: target.reproducibilityRequired,
+      requestedAction: target.requestedAction,
+    })).sort((left, right) => `${left.entityType}:${left.entityId}`.localeCompare(`${right.entityType}:${right.entityId}`)),
     status: blockerCodes.length > 0 ? "BLOCKED" : "REQUESTED",
     blockerCodes: [...new Set(blockerCodes)].sort(),
+    requestedAt: input.requestedAt,
     transitionedAt: input.requestedAt,
   };
   return { ...withoutHash, resultHash: databaseStableHash(withoutHash) };
@@ -27,8 +38,10 @@ export function createDataDeletionRequestV1(input: DataDeletionRequestInputV1): 
 
 export function transitionDataDeletionRequestV1(input: DataDeletionTransitionInputV1): DataDeletionRequestV1 {
   if (!input.id.trim() || input.id === input.previous.id || !input.reviewedBy.trim()) throw new Error("Deletion Request transition requires new id and reviewer");
+  const { resultHash: previousHash, ...previousWithoutHash } = input.previous;
+  if (previousHash !== databaseStableHash(previousWithoutHash)) throw new Error("Deletion Request previous revision hash is invalid");
   const transitionedAt = parseDate(input.transitionedAt, "Deletion Request transitionedAt");
-  if (transitionedAt < parseDate(input.previous.transitionedAt, "previous transitionedAt")) throw new Error("Deletion Request transition time must be monotonic");
+  if (transitionedAt <= parseDate(input.previous.transitionedAt, "previous transitionedAt")) throw new Error("Deletion Request transition time must be after the previous revision");
   if (!allowed[input.previous.status].includes(input.nextStatus)) throw new Error(`Invalid Deletion Request transition ${input.previous.status} -> ${input.nextStatus}`);
   const blockerCodes = [...new Set(input.blockerCodes ?? [])].sort();
   if (input.nextStatus === "BLOCKED" && blockerCodes.length === 0) throw new Error("Blocked Deletion Request requires blocker codes");
@@ -37,8 +50,9 @@ export function transitionDataDeletionRequestV1(input: DataDeletionTransitionInp
     if (!input.completedCounts || Object.keys(input.completedCounts).length === 0) throw new Error("Completed Deletion Request requires counts");
     for (const value of Object.values(input.completedCounts)) if (!Number.isInteger(value) || value < 0) throw new Error("Deletion completion counts must be non-negative integers");
   }
+  const { resultHash: _previousResultHash, ...previousData } = structuredClone(input.previous);
   const withoutHash: Omit<DataDeletionRequestV1, "resultHash"> = {
-    ...structuredClone(input.previous), id: input.id, status: input.nextStatus, blockerCodes,
+    ...previousData, id: input.id, status: input.nextStatus, blockerCodes,
     transitionedAt: input.transitionedAt, supersedesRequestId: input.previous.id, reviewedBy: input.reviewedBy,
     ...(input.completedCounts === undefined ? {} : { completedCounts: Object.fromEntries(Object.entries(input.completedCounts).sort(([left], [right]) => left.localeCompare(right))) }),
   };

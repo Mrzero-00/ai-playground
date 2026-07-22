@@ -10,6 +10,7 @@ Migration은 번호 순서대로 적용합니다.
 - `006_portfolio_engine_v1.sql`: Portfolio Policy·Snapshot·Exposure·Open Risk·Capacity·Batch·Rebalance·Stress 결과
 - `007_learning_engine_v1.sql`: Review Manifest·과정/성과 귀속·Cohort·Lesson·Model Change·Replay/Walk-forward/Shadow 검증·Drift Alert
 - `008_agent_orchestration_v1.sql`: Agent/Prompt/Capability Version·Run Plan·Manifest·Attempt·Tool Call·Claim·Validation·Provider Circuit
+- `009_database_hardening_v1.sql`: 공통 Lineage·Retention·삭제 Revision·정합성·Migration 검증·Audit/Event 불변성
 
 - 사용자별 RLS
 - 전략별 Position Lot
@@ -24,5 +25,6 @@ Migration은 번호 순서대로 적용합니다.
 - Portfolio Snapshot·경제적 노출·Total/Sector/Theme Open Risk·배분 Proposal·Stress 결과의 불변 계보
 - Learning Review→Cohort→Lesson→Model Change의 사용자·Model·Policy 계보와 승인 경계
 - Agent Prompt·Provider·Evidence의 Point-in-time 계보, 읽기 전용 Capability와 비신뢰 Output 검증 이력
+- Database 공통 Lineage·Retention·삭제 요청·정합성 Incident와 단선형 불변 Revision
 
 Migration은 Supabase CLI 또는 SQL Editor에서 적용합니다. 서비스 역할 키는 서버 환경에서만 사용해야 하며 클라이언트 번들에 노출하면 안 됩니다.

@@ -68,6 +68,14 @@ test("Deletion Workflow uses immutable revisions and requires completion counts"
     }],
   });
   const verified = transitionDataDeletionRequestV1({ id: "deletion-2", previous: requested, nextStatus: "VERIFIED", transitionedAt: "2026-07-22T11:00:00Z", reviewedBy: "privacy-reviewer" });
+  assert.throws(() => transitionDataDeletionRequestV1({
+    id: "deletion-tampered", previous: { ...requested, reason: "changed after hashing" }, nextStatus: "VERIFIED",
+    transitionedAt: "2026-07-22T11:00:00Z", reviewedBy: "privacy-reviewer",
+  }), /hash is invalid/);
+  assert.throws(() => transitionDataDeletionRequestV1({
+    id: "deletion-same-time", previous: requested, nextStatus: "VERIFIED",
+    transitionedAt: requested.transitionedAt, reviewedBy: "privacy-reviewer",
+  }), /after the previous revision/);
   const planned = transitionDataDeletionRequestV1({ id: "deletion-3", previous: verified, nextStatus: "PLANNED", transitionedAt: "2026-07-22T12:00:00Z", reviewedBy: "operator" });
   const executing = transitionDataDeletionRequestV1({ id: "deletion-4", previous: planned, nextStatus: "EXECUTING", transitionedAt: "2026-07-22T13:00:00Z", reviewedBy: "operator" });
   assert.throws(() => transitionDataDeletionRequestV1({ id: "deletion-5", previous: executing, nextStatus: "COMPLETED", transitionedAt: "2026-07-22T14:00:00Z", reviewedBy: "operator" }), /counts/);
@@ -88,4 +96,9 @@ test("Decimal Reconciliation blocks critical mismatches without floating-point a
   assert.equal(result.status, "BLOCKED");
   assert.equal(result.findings[0]?.checkId, "fill");
   assert.equal(result.resultHash.length, 64);
+  const reordered = runDatabaseReconciliationV1({
+    id: result.id, userId: result.userId, scope: result.scope, asOf: result.asOf, executedAt: result.executedAt,
+    checks: [...result.checks].reverse().map((check) => ({ ...check, evidenceIds: [...check.evidenceIds].reverse() })),
+  });
+  assert.equal(reordered.resultHash, result.resultHash);
 });

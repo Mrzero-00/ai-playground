@@ -2,13 +2,13 @@
 
 > Investment OS의 의사결정·근거·모델·실행·학습 계보를 사용자별로 격리하고, 과거를 덮어쓰지 않으며, 장애 후에도 재현 가능한 PostgreSQL/Supabase 저장 계층 명세
 
-- 문서 버전: `v1.0.0-draft`
+- 문서 버전: `v1.0.0`
 - 작성일: `2026-07-22`
-- 상태: `IMPLEMENTATION-READY DRAFT`
+- 상태: `CORE/API/SCHEMA IMPLEMENTED`
 - 선행 문서: `01_Architecture.md` v2.3, `02_Investment_Philosophy.md` v2.2.1, `03`~`07` Engine/Agent 명세
 - 후속 문서: `09_Scoring_System.md`, `10_Report_System.md`, `11_UI_UX.md`, `12_Roadmap.md`
 - 기준 DB: PostgreSQL 15+ / Supabase
-- 기준 Migration: `001`~`008`
+- 기준 Migration: `001`~`009`
 
 ---
 
@@ -733,6 +733,7 @@ Audit은 Owner 읽기 또는 운영 Role로 제한한다. `before_data/after_dat
 ```text
 POST /api/v1/database/lineage/validate
 POST /api/v1/database/reconciliations/validate
+GET  /api/v1/database/reconciliations/:id
 POST /api/v1/database/retention/policies/validate
 POST /api/v1/database/deletion-requests
 GET  /api/v1/database/deletion-requests/:id
@@ -741,18 +742,16 @@ GET  /api/v1/database/health
 GET  /api/v1/database/migrations
 ```
 
-MVP 코드는 Lineage·Retention·Deletion State·Reconciliation 계약과 In-memory/API 검증을 제공한다. 실제 Backup/PITR·Migration 적용·Connection Metric은 배포 환경에서 검증한다.
+MVP 코드는 Lineage·Retention·Deletion State·Reconciliation 계약과 In-memory/API 검증을 제공한다. Reconciliation 불일치와 Legal Hold는 요청 오류로 손실시키지 않고 `201` 결과의 `FAILED`/`BLOCKED`로 저장한다. 실제 Backup/PITR·Migration 적용·Connection Metric은 배포 환경에서 검증한다.
 
 ### 20.1 오류
 
 | HTTP | Code | 의미 |
 |---:|---|---|
-| 400 | `INVALID_DATABASE_CONTRACT` | Schema·시간·상태 오류 |
+| 400 | `INVALID_DATABASE_CONTRACT` | Schema·시간·상태·Hash 오류 |
 | 403 | `DATABASE_OWNERSHIP_MISMATCH` | Cross-user 참조 |
 | 409 | `DATABASE_LINEAGE_CONFLICT` | 계보·Revision 충돌 |
 | 409 | `DATABASE_RECORD_IMMUTABLE` | Terminal 수정 |
-| 422 | `DATABASE_RECONCILIATION_FAILED` | 금액·수량·Event 불일치 |
-| 423 | `DATABASE_OPERATION_BLOCKED` | Legal Hold·Critical Incident |
 | 404 | `DATABASE_RESOURCE_NOT_FOUND` | 요청·정책 없음 |
 
 ---
@@ -775,6 +774,7 @@ migration_verification_runs
 추가 보강:
 
 - `audit_logs`, `domain_events` 불변 Trigger
+- 불변 공통 Table의 UPDATE·DELETE 차단과 삭제 Revision 분기 금지
 - 사용자 소유 핵심 Table의 Composite Unique/FK 누락 보강
 - 상태·시간·Hash Check
 - 사용자별 RLS와 서버 전용 쓰기
@@ -895,33 +895,35 @@ migration_verification_runs
 
 ### 계약
 
-- [ ] Ownership·Composite FK
-- [ ] 불변 Revision·상태 전이
-- [ ] Point-in-time·Lineage
-- [ ] Decimal·시간·Enum Check
-- [ ] Outbox·Idempotency
-- [ ] Retention·삭제 Workflow
-- [ ] Reconciliation
+- [x] Ownership·Composite FK Schema
+- [x] 불변 Revision·상태 전이·분기 차단
+- [x] Point-in-time·Lineage·순환 차단
+- [x] Decimal·시간·Enum Check
+- [x] Outbox·Idempotency
+- [x] Retention·삭제 Workflow
+- [x] Reconciliation
 
 ### 보안
 
-- [ ] Cross-user 참조 0건
-- [ ] Service Role Client 노출 0건
-- [ ] Secret Domain/Audit/Prompt 저장 0건
-- [ ] Raw Agent Output 일반 접근 0건
+- [x] Composite FK·RLS로 Cross-user 참조 차단 계약
+- [x] Service Role Client 미사용 구조
+- [x] Database v1 허용 필드 경계로 임의 Secret 저장 차단
+- [x] Raw Agent Output Owner Select·Service Write RLS 계약
+- [ ] 실제 Supabase Auth/RLS 교차 사용자 E2E
 
 ### API/DB
 
-- [ ] `009_database_hardening_v1.sql`
-- [ ] Lineage/Retention/Deletion/Reconciliation API
-- [ ] RLS/Trigger/Index
-- [ ] Audit/Outbox/Idempotency
+- [x] `009_database_hardening_v1.sql`
+- [x] Lineage/Retention/Deletion/Reconciliation API
+- [x] RLS/Trigger/Index
+- [x] Audit/Outbox/Idempotency
 
 ### 검증
 
-- [ ] Unit/Invariant/Integration
-- [ ] Migration 정적 검토
-- [ ] `pnpm typecheck`, `pnpm test`, `pnpm build`
+- [x] Unit/Invariant/API Integration
+- [x] Migration 정적 검토
+- [x] `pnpm typecheck`, `pnpm test`, `pnpm build`
+- [ ] Supabase Migration 실제 적용·Restore·Load Test
 
 운영 완료에는 Supabase 실제 적용, RLS E2E, PITR/Restore Drill, Load/Query Plan 검증이 추가로 필요하다.
 

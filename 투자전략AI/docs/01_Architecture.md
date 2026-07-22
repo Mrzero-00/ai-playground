@@ -2,7 +2,7 @@
 
 > Long-term Investing과 Momentum Investing을 하나의 포트폴리오 안에서 운영하되, 분석 논리·자금·위험·성과·학습을 분리하는 Investment OS의 기준 아키텍처
 
-- 문서 버전: v2.2
+- 문서 버전: v2.3
 - 작성일: 2026-07-22
 - 문서 상태: Architecture Baseline
 - 상위 문서: `00_Vision.md`
@@ -26,6 +26,7 @@
 |---|---|---|
 | v2.1 | 2026-07-22 | Long-term·Momentum 통합 운영 기준 아키텍처 수립 |
 | v2.2 | 2026-07-22 | 안전 불변식, 시간·금액 계약, Decision 승인 경계, Point-in-time, Outbox, Fail Closed, 완료 정의 보강 |
+| v2.3 | 2026-07-22 | 02 철학 정합성: Decision Action·Lot subtype·Manual Review 계보·Signed P&L·수정 승인 재검증 계약 추가 |
 
 ---
 
@@ -222,8 +223,11 @@ New Model Version
 
 ```ts
 type DecimalString = string;
+type SignedDecimalString = string; // P&L·FX Attribution처럼 음수가 가능한 값 전용
 type CurrencyCode = string;
 ```
+
+`DecimalString`은 금액·가격·수량처럼 음수가 될 수 없는 값에, `SignedDecimalString`은 손익과 Attribution처럼 음수가 가능한 값에 사용한다. 두 타입 모두 지수 표기와 부동소수점 연산을 금지한다.
 
 ---
 
@@ -740,6 +744,8 @@ interface AllocationProposal {
   expiresAt: string;
 
   strategy: 'LONG_TERM' | 'MOMENTUM';
+  action: 'BUY' | 'ACCUMULATE' | 'ENTER';
+  lotStrategy?: 'CORE' | 'FUTURE_CORE' | 'MOMENTUM';
   companyId?: string;
 
   requestedAmount: DecimalString;
@@ -761,6 +767,7 @@ interface AllocationProposal {
   reasons: string[];
   constraintsTriggered: string[];
   inputEvaluationIds: string[];
+  snapshotIds: string[];
   policyVersionId: string;
 }
 ```
@@ -837,6 +844,9 @@ interface RiskDecision {
   maxApprovedAmount?: DecimalString;
   riskFlags: string[];
   rationale: string;
+  supersedesRiskDecisionId?: string;
+  reviewedBy?: string;
+  manualReviewEvidenceIds?: string[];
 }
 ```
 
@@ -883,6 +893,16 @@ interface DecisionProposal {
   id: string;
   allocationProposalId: string;
   riskDecisionId: string;
+  action:
+    | 'BUY'
+    | 'ACCUMULATE'
+    | 'ENTER'
+    | 'HOLD'
+    | 'WAIT'
+    | 'REDUCE'
+    | 'EXIT'
+    | 'SKIP'
+    | 'CASH';
   status:
     | 'PENDING_APPROVAL'
     | 'MANUAL_REVIEW'
@@ -905,6 +925,8 @@ interface DecisionProposal {
 ```
 
 사용자는 `PENDING_APPROVAL` 제안을 승인하거나 거부할 수 있지만 금액을 상향하거나 Risk 결과를 완화할 수 없다. 승인 시점에 Proposal 만료, 가격 변동, Portfolio 잔여 용량을 다시 확인한다. `BLOCKED`, `REJECTED`, `EXPIRED`는 실행 상태로 전이할 수 없다.
+
+금액·Stop·전략 수정은 기존 Decision의 승인으로 처리하지 않는다. 수정 요청과 원본을 함께 저장한 뒤 새 Allocation Proposal과 Risk Decision을 생성한다. 전략 변경은 독립 Evaluation부터 새 Lifecycle을 시작한다. `REQUIRE_MANUAL_REVIEW` 역시 원 Risk Decision을 덮어쓰지 않고 계보를 가진 새 Risk Decision으로만 해소하며, Portfolio 승인 금액을 늘릴 수 없다.
 
 ---
 

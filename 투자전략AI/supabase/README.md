@@ -12,6 +12,7 @@ Migration은 번호 순서대로 적용합니다.
 - `008_agent_orchestration_v1.sql`: Agent/Prompt/Capability Version·Run Plan·Manifest·Attempt·Tool Call·Claim·Validation·Provider Circuit
 - `009_database_hardening_v1.sql`: 공통 Lineage·Retention·삭제 Revision·정합성·Migration 검증·Audit/Event 불변성
 - `010_scoring_system_v1.sql`: Scoring Model·Factor·Threshold·Scorecard·Confidence·Change·Calibration 계약
+- `011_report_system_v1.sql`: Canonical Report·Source Manifest·Revision·Artifact·Replay·Delivery 계약
 
 - 사용자별 RLS
 - 전략별 Position Lot
@@ -28,5 +29,6 @@ Migration은 번호 순서대로 적용합니다.
 - Agent Prompt·Provider·Evidence의 Point-in-time 계보, 읽기 전용 Capability와 비신뢰 Output 검증 이력
 - Database 공통 Lineage·Retention·삭제 요청·정합성 Incident와 단선형 불변 Revision
 - Scoring 방향·Basis Point Weight·Model 생명주기·Factor Contribution·Calibration 계보
+- Report Template·Point-in-time Source·Canonical JSON·파생 Artifact·Delivery 상태 분리
 
 Migration은 Supabase CLI 또는 SQL Editor에서 적용합니다. 서비스 역할 키는 서버 환경에서만 사용해야 하며 클라이언트 번들에 노출하면 안 됩니다.

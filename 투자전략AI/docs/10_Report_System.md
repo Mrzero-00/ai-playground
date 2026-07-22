@@ -1,7 +1,7 @@
 # 10. Report System
 
-- 문서 버전: v1.0.0-draft
-- 상태: IMPLEMENTATION READY
+- 문서 버전: v1.0.0
+- 상태: CORE / API / SCHEMA IMPLEMENTED
 - 기준 문서: `01_Architecture.md` v2.3, `02_Investment_Philosophy.md` v2.2.1, `03_LongTerm_Engine.md`~`09_Scoring_System.md`
 - 후속 문서: `11_UI_UX.md`, `12_Roadmap.md`, `13_Codex_Implementation.md`
 
@@ -1046,29 +1046,29 @@ Source 본문, Portfolio 절대 금액, Secret, Token은 로그에 남기지 않
 
 ### 22.1 Core
 
-- [ ] Canonical Report와 Source Manifest가 불변인가?
-- [ ] Point-in-time·소유권·Hash를 검증하는가?
-- [ ] 결론→변화→근거→반대 근거→위험→행동 순서를 강제하는가?
-- [ ] Fact·Estimate·Interpretation·Recommendation이 분리되는가?
-- [ ] 최우선 Recommendation이 정확히 하나인가?
-- [ ] `BLOCKED/UNAVAILABLE`를 0점으로 표현하지 않는가?
-- [ ] 같은 입력이 같은 Result Hash를 만드는가?
+- [x] Canonical Report와 Source Manifest가 불변인가?
+- [x] Point-in-time·소유권·Hash를 검증하는가?
+- [x] 결론→변화→근거→반대 근거→위험→행동 순서를 강제하는가?
+- [x] Fact·Estimate·Interpretation·Recommendation이 분리되는가?
+- [x] 최우선 Recommendation이 정확히 하나인가?
+- [x] `BLOCKED/UNAVAILABLE`를 0점으로 표현하지 않는가?
+- [x] 같은 입력이 같은 Result Hash를 만드는가?
 
 ### 22.2 API/DB
 
-- [ ] 쓰기 멱등성과 Revision 단선 계보가 있는가?
-- [ ] Report + Audit + Outbox가 원자 저장되는가?
-- [ ] Published Report·Artifact Update/Delete가 차단되는가?
-- [ ] 사용자별 RLS가 적용되는가?
-- [ ] Artifact 부분 실패와 Delivery 실패가 분리되는가?
+- [x] 쓰기 멱등성과 Revision 단선 계보가 있는가?
+- [x] Report + Audit + Outbox가 원자 저장되는가?
+- [x] Published Report·Artifact Update/Delete가 차단되는가?
+- [x] 사용자별 RLS가 적용되는가?
+- [x] Artifact 부분 실패와 Delivery 실패가 분리되는가?
 
 ### 22.3 Security/Operations
 
-- [ ] Report Composer가 원본 Domain을 수정할 권한이 없는가?
-- [ ] 외부·사용자·Agent 문자열을 Escape하는가?
-- [ ] Secret과 민감 금액이 Log/Notification에 노출되지 않는가?
-- [ ] Replay Hash와 Artifact Hash를 감시하는가?
-- [ ] Artifact Cache 삭제 후 재현 가능한가?
+- [x] Report Composer가 원본 Domain을 수정할 권한이 없는가?
+- [x] 외부·사용자·Agent 문자열을 Escape하는가?
+- [ ] 운영 Adapter에서 Secret과 민감 금액이 Log/Notification에 노출되지 않는가?
+- [ ] 운영 Metric에서 Replay Hash와 Artifact Hash를 감시하는가?
+- [x] Artifact Cache 삭제 후 재현 가능한가?
 
 ---
 

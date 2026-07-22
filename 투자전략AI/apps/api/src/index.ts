@@ -36,6 +36,11 @@ import {
   inspectSnapshot,
   generateMarkdownReport,
   generateDecisionReport,
+  createCanonicalReportV1,
+  createReportRevisionV1,
+  renderReportArtifactV1,
+  replayReportV1,
+  validateReportTemplateV1,
   InMemoryInvestmentOsRepository,
   OutboxPublisher,
   prepareAgentRunV1,
@@ -106,6 +111,9 @@ import {
   type PortfolioRebalanceInputV1,
   type PortfolioPolicyV1,
   type PortfolioStressScenarioV1,
+  type ReportFormatV1,
+  type ReportGenerationInputV1,
+  type ReportTemplateInputV1,
 } from "@investment-os/core";
 
 const port = Number(process.env.PORT ?? 4000);
@@ -387,14 +395,15 @@ export const server = createServer(async (request, response) => {
     if (request.method === "GET" && path === "/api/database/health") {
       return json(response, 200, {
         requestId, status: "ok", adapter: "IN_MEMORY", contractVersion: "database-v1",
-        latestMigration: "009_database_hardening_v1.sql", operationalChecksRequired: ["SUPABASE_CONNECTIVITY", "RLS_E2E", "PITR", "RESTORE_DRILL"],
+        latestMigration: "011_report_system_v1.sql", operationalChecksRequired: ["SUPABASE_CONNECTIVITY", "RLS_E2E", "PITR", "RESTORE_DRILL"],
       });
     }
     if (request.method === "GET" && path === "/api/database/migrations") {
-      return json(response, 200, { latest: "009_database_hardening_v1.sql", items: [
+      return json(response, 200, { latest: "011_report_system_v1.sql", items: [
         "001_investment_os_mvp.sql", "002_architecture_v2_2.sql", "003_investment_philosophy_v2_2_1.sql",
         "004_long_term_engine_v1.sql", "005_momentum_engine_v1.sql", "006_portfolio_engine_v1.sql",
         "007_learning_engine_v1.sql", "008_agent_orchestration_v1.sql", "009_database_hardening_v1.sql",
+        "010_scoring_system_v1.sql", "011_report_system_v1.sql",
       ] });
     }
     if (request.method === "GET" && path.startsWith("/api/database/deletion-requests/")) {
@@ -421,6 +430,29 @@ export const server = createServer(async (request, response) => {
       const id = decodeURIComponent(path.slice("/api/scoring/changes/".length));
       const change = await repository.findScoreChange(id);
       return change ? json(response, 200, change) : json(response, 404, { requestId, error: { code: "SCORING_RESOURCE_NOT_FOUND", message: "Scoring Change not found", retryable: false } });
+    }
+    if (request.method === "GET" && path.startsWith("/api/reports/templates/")) {
+      const id = decodeURIComponent(path.slice("/api/reports/templates/".length));
+      const template = await repository.findReportTemplate(id);
+      return template ? json(response, 200, template) : json(response, 404, { requestId, error: { code: "REPORT_RESOURCE_NOT_FOUND", message: "Report Template not found", retryable: false } });
+    }
+    const reportArtifact = request.method === "GET" ? path.match(/^\/api\/reports\/([^/]+)\/artifacts\/([^/]+)$/) : null;
+    if (reportArtifact) {
+      const reportId = decodeURIComponent(reportArtifact[1] ?? "");
+      const format = decodeURIComponent(reportArtifact[2] ?? "").toUpperCase();
+      const artifact = (await repository.listReportArtifacts(reportId)).find((item) => item.format === format);
+      return artifact ? json(response, 200, artifact) : json(response, 404, { requestId, error: { code: "REPORT_RESOURCE_NOT_FOUND", message: "Report Artifact not found", retryable: false } });
+    }
+    const reportArtifacts = request.method === "GET" ? path.match(/^\/api\/reports\/([^/]+)\/artifacts$/) : null;
+    if (reportArtifacts) {
+      const reportId = decodeURIComponent(reportArtifacts[1] ?? "");
+      const report = await repository.findReport(reportId);
+      return report ? json(response, 200, { items: await repository.listReportArtifacts(reportId) }) : json(response, 404, { requestId, error: { code: "REPORT_RESOURCE_NOT_FOUND", message: "Report not found", retryable: false } });
+    }
+    const reportView = request.method === "GET" ? path.match(/^\/api\/reports\/([^/]+)$/) : null;
+    if (reportView) {
+      const report = await repository.findReport(decodeURIComponent(reportView[1] ?? ""));
+      return report ? json(response, 200, report) : json(response, 404, { requestId, error: { code: "REPORT_RESOURCE_NOT_FOUND", message: "Report not found", retryable: false } });
     }
     const portfolioExposure = request.method === "GET" ? path.match(/^\/api\/portfolios\/([^/]+)\/exposures$/) : null;
     if (portfolioExposure) {
@@ -455,6 +487,77 @@ export const server = createServer(async (request, response) => {
     if (request.method !== "POST") return json(response, 404, { error: "not_found" });
 
     const body = await readBody(request);
+    if (path === "/api/reports/templates/validate") {
+      return await idempotentJson(request, response, path, body, async () => {
+        const template = validateReportTemplateV1(body as ReportTemplateInputV1);
+        const occurredAt = new Date().toISOString();
+        const event = createDomainEvent({ id: randomUUID(), type: "ReportTemplateValidated", occurredAt, aggregateId: template.id, correlationId, schemaVersion: "1",
+          payload: { templateId: template.id, reportType: template.reportType, version: template.version, status: template.status, contentHash: template.contentHash } });
+        const audit = createAuditRecord({ id: randomUUID(), occurredAt, actorId: "report-template-validator-v1", action: "REPORT_TEMPLATE_VALIDATED",
+          entityType: "ReportTemplateV1", entityId: template.id, reason: template.status, after: template,
+          metadata: { reportType: template.reportType, version: template.version, status: template.status, contentHash: template.contentHash, correlationId } });
+        await repository.saveReportTemplateWithOutbox(template, audit, createOutboxRecord(event));
+        return { status: 201, body: template };
+      });
+    }
+    if (path === "/api/reports") {
+      return await idempotentJson(request, response, path, body, async () => {
+        const raw = body as Omit<ReportGenerationInputV1, "template"> & { templateId: string };
+        const template = await repository.findReportTemplate(raw.templateId);
+        if (!template) throw new Error("Report Template not found");
+        const report = createCanonicalReportV1({ ...raw, template });
+        const artifacts = [];
+        const failedFormats: Array<{ format: ReportFormatV1; code: string }> = [];
+        for (const format of raw.request.requestedFormats) {
+          try { artifacts.push(renderReportArtifactV1(report, format)); }
+          catch { failedFormats.push({ format, code: `REPORT_${format}_RENDERER_UNAVAILABLE` }); }
+        }
+        const eventType = report.status === "BLOCKED" ? "ReportGenerationBlocked" : "ReportGenerated";
+        const event = createDomainEvent({ id: randomUUID(), type: eventType, occurredAt: report.generatedAt, aggregateId: report.id, correlationId, schemaVersion: "1",
+          payload: { reportId: report.id, reportType: report.reportType, status: report.status, revision: report.revision, artifactFormats: artifacts.map((artifact) => artifact.format), failedFormats, resultHash: report.resultHash } });
+        const audit = createAuditRecord({ id: randomUUID(), occurredAt: report.generatedAt, actorId: report.userId, action: "REPORT_GENERATED",
+          entityType: "CanonicalReportV1", entityId: report.id, reason: report.status, after: report,
+          metadata: { reportType: report.reportType, status: report.status, revision: report.revision, artifactCount: artifacts.length, resultHash: report.resultHash, correlationId } });
+        await repository.saveReportWithArtifactsWithOutbox(report, artifacts, audit, createOutboxRecord(event));
+        return { status: 201, body: { report, artifacts, failedFormats } };
+      });
+    }
+    const reportRevision = path.match(/^\/api\/reports\/([^/]+)\/revisions$/);
+    if (reportRevision) {
+      return await idempotentJson(request, response, path, body, async () => {
+        const previous = await repository.findReport(decodeURIComponent(reportRevision[1] ?? ""));
+        if (!previous) throw new Error("Report previous Revision not found");
+        const raw = body as Omit<ReportGenerationInputV1, "template" | "revision" | "supersedesReportId"> & { templateId: string };
+        const template = await repository.findReportTemplate(raw.templateId);
+        if (!template) throw new Error("Report Template not found");
+        const report = createReportRevisionV1(previous, { ...raw, template, revision: previous.revision + 1, supersedesReportId: previous.id });
+        const artifacts = raw.request.requestedFormats.filter((format) => format !== "PDF").map((format) => renderReportArtifactV1(report, format));
+        const event = createDomainEvent({ id: randomUUID(), type: "ReportSuperseded", occurredAt: report.generatedAt, aggregateId: report.id, correlationId, schemaVersion: "1",
+          payload: { reportId: report.id, supersedesReportId: previous.id, revision: report.revision, status: report.status, resultHash: report.resultHash } });
+        const audit = createAuditRecord({ id: randomUUID(), occurredAt: report.generatedAt, actorId: report.userId, action: "REPORT_REVISED",
+          entityType: "CanonicalReportV1", entityId: report.id, reason: `Revision ${previous.revision} -> ${report.revision}`, before: previous, after: report,
+          metadata: { reportType: report.reportType, revision: report.revision, previousId: previous.id, resultHash: report.resultHash, correlationId } });
+        await repository.saveReportWithArtifactsWithOutbox(report, artifacts, audit, createOutboxRecord(event));
+        return { status: 201, body: { report, artifacts } };
+      });
+    }
+    const reportReplay = path.match(/^\/api\/reports\/([^/]+)\/replays$/);
+    if (reportReplay) {
+      return await idempotentJson(request, response, path, body, async () => {
+        const report = await repository.findReport(decodeURIComponent(reportReplay[1] ?? ""));
+        if (!report) throw new Error("Report not found");
+        const input = body as { id: string; userId: string; formats: ReportFormatV1[]; replayedAt: string };
+        if (input.userId !== report.userId) throw new Error("Report ownership mismatch");
+        const replay = replayReportV1({ id: input.id, report, formats: input.formats, replayedAt: input.replayedAt });
+        const event = createDomainEvent({ id: randomUUID(), type: "ReportGenerated", occurredAt: replay.replayedAt, aggregateId: replay.id, correlationId, schemaVersion: "1",
+          payload: { replayId: replay.id, replayOfReportId: replay.replayOfReportId, matches: replay.matches, resultHash: replay.resultHash } });
+        const audit = createAuditRecord({ id: randomUUID(), occurredAt: replay.replayedAt, actorId: replay.userId, action: "REPORT_REPLAY_COMPLETED",
+          entityType: "ReportReplayResultV1", entityId: replay.id, reason: replay.matches ? "MATCH" : "MISMATCH", after: replay,
+          metadata: { replayOfReportId: replay.replayOfReportId, matches: replay.matches, resultHash: replay.resultHash, correlationId } });
+        await repository.saveReportReplayWithOutbox(replay, audit, createOutboxRecord(event));
+        return { status: 201, body: replay };
+      });
+    }
     if (path === "/api/scoring/models/validate") {
       return await idempotentJson(request, response, path, body, async () => {
         const model = validateScoreModelV1(body as ScoreModelInputV1);

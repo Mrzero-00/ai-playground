@@ -126,6 +126,14 @@ API 기본 주소는 `http://localhost:4000`입니다.
 - `POST /api/v1/scoring/changes/explain`: 동일 Model 점수 변화의 Factor Contribution 분해
 - `GET /api/v1/scoring/changes/:id`: 불변 Score Change 설명 조회
 - `POST /api/v1/scoring/replays`: 운영 상태를 바꾸지 않는 Historical Replay Scorecard 생성
+- `POST /api/v1/reports/templates/validate`: Source·Section·Format·승인 계약을 검증한 Report Template 등록
+- `GET /api/v1/reports/templates/:id`: Report Template·설정 Hash 조회
+- `POST /api/v1/reports`: Point-in-time Source Manifest 기반 Canonical Report와 Artifact 생성
+- `GET /api/v1/reports/:id`: 불변 Canonical Report·Quality·Blocker·계보 조회
+- `GET /api/v1/reports/:id/artifacts`: 생성에 성공한 JSON·Markdown·Notification Artifact 목록
+- `GET /api/v1/reports/:id/artifacts/:format`: Format별 불변 Artifact 조회
+- `POST /api/v1/reports/:id/revisions`: 기존 발행본을 변경하지 않는 정정 Revision 생성
+- `POST /api/v1/reports/:id/replays`: 원본 Manifest를 유지한 결정론적 Report Replay
 - `POST /api/v1/cross-signals`: 장기·모멘텀 교차 신호 해석
 - `POST /api/v1/allocations/propose`: Bucket/종목 한도를 적용한 Decimal 배분 제안
 - `POST /api/v1/portfolio/allocate`: 85/15 정책을 적용한 Decimal 자금 배분
@@ -178,6 +186,7 @@ packages/core            순수 도메인 로직
   agent-v1               Definition/Prompt, Manifest, Evidence Claim, DAG, 보안 검증, Provider 경계
   database-v1            Lineage, Retention, Deletion Revision, Decimal Reconciliation 계약
   scoring-v1             Model Lifecycle, Normalization, N/A, Range, Confidence, Ranking, Change 계약
+  report-v1              Canonical Report, Source Manifest, Quality Gate, Revision, Artifact, Replay 계약
 supabase/migrations      PostgreSQL Schema, Index, RLS
 docs                     제품·아키텍처 명세
 ```

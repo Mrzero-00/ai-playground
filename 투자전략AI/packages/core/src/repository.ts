@@ -9,6 +9,7 @@ import type { MomentumEvaluationResultV1, MomentumScanResult, MomentumTradePlanV
 import type { AgentRunV1, AgentValidationResultV1 } from "./agent-v1/types.js";
 import type { DataDeletionRequestV1, DatabaseReconciliationResultV1 } from "./database-v1/types.js";
 import type { ScorecardResultV1, ScoreChangeExplanationV1, ScoreModelV1 } from "./scoring-v1/types.js";
+import type { CanonicalReportV1, ReportArtifactV1, ReportReplayResultV1, ReportTemplateV1 } from "./report-v1/types.js";
 import type {
   InvestmentLessonV1,
   LearningReviewV1,
@@ -93,6 +94,13 @@ export interface InvestmentOsRepository {
   findScorecard(id: string): Promise<ScorecardResultV1 | undefined>;
   saveScoreChangeWithOutbox(value: ScoreChangeExplanationV1, audit: AuditRecord, outbox: OutboxRecord): Promise<void>;
   findScoreChange(id: string): Promise<ScoreChangeExplanationV1 | undefined>;
+  saveReportTemplateWithOutbox(value: ReportTemplateV1, audit: AuditRecord, outbox: OutboxRecord): Promise<void>;
+  findReportTemplate(id: string): Promise<ReportTemplateV1 | undefined>;
+  saveReportWithArtifactsWithOutbox(value: CanonicalReportV1, artifacts: ReportArtifactV1[], audit: AuditRecord, outbox: OutboxRecord): Promise<void>;
+  findReport(id: string): Promise<CanonicalReportV1 | undefined>;
+  listReportArtifacts(reportId: string): Promise<ReportArtifactV1[]>;
+  saveReportReplayWithOutbox(value: ReportReplayResultV1, audit: AuditRecord, outbox: OutboxRecord): Promise<void>;
+  findReportReplay(id: string): Promise<ReportReplayResultV1 | undefined>;
   listPendingOutbox(): Promise<OutboxRecord[]>;
   markOutboxPublished(id: string, at: string): Promise<void>;
 }
@@ -129,6 +137,10 @@ export class InMemoryInvestmentOsRepository implements InvestmentOsRepository {
   readonly scoreModelsV1 = new Map<string, ScoreModelV1>();
   readonly scorecardsV1 = new Map<string, ScorecardResultV1>();
   readonly scoreChangesV1 = new Map<string, ScoreChangeExplanationV1>();
+  readonly reportTemplatesV1 = new Map<string, ReportTemplateV1>();
+  readonly reportsV1 = new Map<string, CanonicalReportV1>();
+  readonly reportArtifactsV1 = new Map<string, ReportArtifactV1>();
+  readonly reportReplaysV1 = new Map<string, ReportReplayResultV1>();
 
   async saveDecision(value: DecisionProposal): Promise<void> { this.decisions.set(value.id, structuredClone(value)); }
   async findDecision(id: string): Promise<DecisionProposal | undefined> { return this.clone(this.decisions.get(id)); }
@@ -420,6 +432,45 @@ export class InMemoryInvestmentOsRepository implements InvestmentOsRepository {
     this.outbox.set(outbox.id, structuredClone(outbox));
   }
   async findScoreChange(id: string): Promise<ScoreChangeExplanationV1 | undefined> { return this.clone(this.scoreChangesV1.get(id)); }
+  async saveReportTemplateWithOutbox(value: ReportTemplateV1, audit: AuditRecord, outbox: OutboxRecord): Promise<void> {
+    const previous = this.reportTemplatesV1.get(value.id);
+    if (previous && previous.contentHash !== value.contentHash) throw new Error("Report Template already exists and is immutable");
+    this.reportTemplatesV1.set(value.id, structuredClone(value));
+    this.audit.push(structuredClone(audit));
+    this.outbox.set(outbox.id, structuredClone(outbox));
+  }
+  async findReportTemplate(id: string): Promise<ReportTemplateV1 | undefined> { return this.clone(this.reportTemplatesV1.get(id)); }
+  async saveReportWithArtifactsWithOutbox(value: CanonicalReportV1, artifacts: ReportArtifactV1[], audit: AuditRecord, outbox: OutboxRecord): Promise<void> {
+    if (this.reportsV1.has(value.id)) throw new Error("Report already exists and is immutable");
+    if (value.supersedesReportId) {
+      const previous = this.reportsV1.get(value.supersedesReportId);
+      if (!previous) throw new Error("Report previous Revision not found");
+      if (previous.userId !== value.userId || previous.reportType !== value.reportType) throw new Error("Report Revision ownership or type conflict");
+      if (value.revision !== previous.revision + 1) throw new Error("Report Revision lineage conflict");
+      if ([...this.reportsV1.values()].some((report) => report.supersedesReportId === previous.id)) throw new Error("Report Revision branch conflict");
+    } else if (value.revision !== 1) {
+      throw new Error("Initial Report revision must be 1");
+    }
+    for (const artifact of artifacts) {
+      if (artifact.reportId !== value.id || artifact.userId !== value.userId || artifact.reportRevision !== value.revision) throw new Error("Report Artifact lineage conflict");
+      if (this.reportArtifactsV1.has(artifact.id)) throw new Error("Report Artifact already exists and is immutable");
+    }
+    this.reportsV1.set(value.id, structuredClone(value));
+    for (const artifact of artifacts) this.reportArtifactsV1.set(artifact.id, structuredClone(artifact));
+    this.audit.push(structuredClone(audit));
+    this.outbox.set(outbox.id, structuredClone(outbox));
+  }
+  async findReport(id: string): Promise<CanonicalReportV1 | undefined> { return this.clone(this.reportsV1.get(id)); }
+  async listReportArtifacts(reportId: string): Promise<ReportArtifactV1[]> {
+    return this.values(this.reportArtifactsV1).filter((artifact) => artifact.reportId === reportId).sort((left, right) => left.format.localeCompare(right.format));
+  }
+  async saveReportReplayWithOutbox(value: ReportReplayResultV1, audit: AuditRecord, outbox: OutboxRecord): Promise<void> {
+    if (this.reportReplaysV1.has(value.id)) throw new Error("Report Replay already exists and is immutable");
+    this.reportReplaysV1.set(value.id, structuredClone(value));
+    this.audit.push(structuredClone(audit));
+    this.outbox.set(outbox.id, structuredClone(outbox));
+  }
+  async findReportReplay(id: string): Promise<ReportReplayResultV1 | undefined> { return this.clone(this.reportReplaysV1.get(id)); }
   async listPendingOutbox(): Promise<OutboxRecord[]> {
     return this.values(this.outbox).filter((record) => record.status === "PENDING");
   }

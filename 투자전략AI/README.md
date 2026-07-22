@@ -39,6 +39,7 @@ See docs/ for detailed specifications.
 - [Learning Engine](docs/06_Learning_Engine.md)
 - [AI Agents](docs/07_AI_Agents.md)
 - [Database](docs/08_Database.md)
+- [Scoring System](docs/09_Scoring_System.md)
 
 ## 시작하기
 

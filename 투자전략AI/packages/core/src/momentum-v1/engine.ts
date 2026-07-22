@@ -75,6 +75,7 @@ export function evaluateMomentumV1(input: MomentumEvaluationInput): MomentumEval
     marketRegime,
     universeDecision,
     setup,
+    scoreStatus: factorsBlocked ? "BLOCKED" : "SCORED",
     score,
     factorResults,
     confidence,

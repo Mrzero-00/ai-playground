@@ -190,6 +190,7 @@ export type ScoreRange = {
 
 export type ProfileEvaluation = {
   profile: LongTermProfile;
+  scoreStatus: "SCORED" | "BLOCKED";
   score: ScoreRange;
   factorResults: FactorResult[];
   eligibility: "ELIGIBLE" | "INELIGIBLE" | "REVIEW_REQUIRED";

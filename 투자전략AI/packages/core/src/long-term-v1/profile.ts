@@ -116,6 +116,7 @@ export function evaluateProfile(input: {
   const eligibility = calculateEligibility({ ...input, factorResults, score, blocked: blocked.length > 0 });
   return {
     profile: input.profile,
+    scoreStatus: blocked.length > 0 ? "BLOCKED" : "SCORED",
     score,
     factorResults,
     ...eligibility,

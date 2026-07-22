@@ -8,6 +8,7 @@ import type { LongTermEvaluationResult } from "./long-term-v1/types.js";
 import type { MomentumEvaluationResultV1, MomentumScanResult, MomentumTradePlanV1 } from "./momentum-v1/types.js";
 import type { AgentRunV1, AgentValidationResultV1 } from "./agent-v1/types.js";
 import type { DataDeletionRequestV1, DatabaseReconciliationResultV1 } from "./database-v1/types.js";
+import type { ScorecardResultV1, ScoreChangeExplanationV1, ScoreModelV1 } from "./scoring-v1/types.js";
 import type {
   InvestmentLessonV1,
   LearningReviewV1,
@@ -85,6 +86,12 @@ export interface InvestmentOsRepository {
   findDataDeletionRequest(id: string): Promise<DataDeletionRequestV1 | undefined>;
   saveDatabaseReconciliationWithOutbox(value: DatabaseReconciliationResultV1, audit: AuditRecord, outbox: OutboxRecord): Promise<void>;
   findDatabaseReconciliation(id: string): Promise<DatabaseReconciliationResultV1 | undefined>;
+  saveScoreModelWithOutbox(value: ScoreModelV1, audit: AuditRecord, outbox: OutboxRecord): Promise<void>;
+  findScoreModel(id: string): Promise<ScoreModelV1 | undefined>;
+  saveScorecardWithOutbox(value: ScorecardResultV1, audit: AuditRecord, outbox: OutboxRecord): Promise<void>;
+  findScorecard(id: string): Promise<ScorecardResultV1 | undefined>;
+  saveScoreChangeWithOutbox(value: ScoreChangeExplanationV1, audit: AuditRecord, outbox: OutboxRecord): Promise<void>;
+  findScoreChange(id: string): Promise<ScoreChangeExplanationV1 | undefined>;
   listPendingOutbox(): Promise<OutboxRecord[]>;
   markOutboxPublished(id: string, at: string): Promise<void>;
 }
@@ -118,6 +125,9 @@ export class InMemoryInvestmentOsRepository implements InvestmentOsRepository {
   readonly agentValidationsV1 = new Map<string, AgentValidationResultV1>();
   readonly dataDeletionRequestsV1 = new Map<string, DataDeletionRequestV1>();
   readonly databaseReconciliationsV1 = new Map<string, DatabaseReconciliationResultV1>();
+  readonly scoreModelsV1 = new Map<string, ScoreModelV1>();
+  readonly scorecardsV1 = new Map<string, ScorecardResultV1>();
+  readonly scoreChangesV1 = new Map<string, ScoreChangeExplanationV1>();
 
   async saveDecision(value: DecisionProposal): Promise<void> { this.decisions.set(value.id, structuredClone(value)); }
   async findDecision(id: string): Promise<DecisionProposal | undefined> { return this.clone(this.decisions.get(id)); }
@@ -368,6 +378,28 @@ export class InMemoryInvestmentOsRepository implements InvestmentOsRepository {
     this.outbox.set(outbox.id, structuredClone(outbox));
   }
   async findDatabaseReconciliation(id: string): Promise<DatabaseReconciliationResultV1 | undefined> { return this.clone(this.databaseReconciliationsV1.get(id)); }
+  async saveScoreModelWithOutbox(value: ScoreModelV1, audit: AuditRecord, outbox: OutboxRecord): Promise<void> {
+    if (this.scoreModelsV1.has(value.id)) throw new Error("Scoring Model already exists and is immutable");
+    if (value.status === "ACTIVE" && [...this.scoreModelsV1.values()].some((model) => model.userId === value.userId && model.scope === value.scope && model.status === "ACTIVE")) throw new Error("Scoring active Model version conflict");
+    this.scoreModelsV1.set(value.id, structuredClone(value));
+    this.audit.push(structuredClone(audit));
+    this.outbox.set(outbox.id, structuredClone(outbox));
+  }
+  async findScoreModel(id: string): Promise<ScoreModelV1 | undefined> { return this.clone(this.scoreModelsV1.get(id)); }
+  async saveScorecardWithOutbox(value: ScorecardResultV1, audit: AuditRecord, outbox: OutboxRecord): Promise<void> {
+    if (this.scorecardsV1.has(value.id)) throw new Error("Scoring Scorecard already exists and is immutable");
+    this.scorecardsV1.set(value.id, structuredClone(value));
+    this.audit.push(structuredClone(audit));
+    this.outbox.set(outbox.id, structuredClone(outbox));
+  }
+  async findScorecard(id: string): Promise<ScorecardResultV1 | undefined> { return this.clone(this.scorecardsV1.get(id)); }
+  async saveScoreChangeWithOutbox(value: ScoreChangeExplanationV1, audit: AuditRecord, outbox: OutboxRecord): Promise<void> {
+    if (this.scoreChangesV1.has(value.id)) throw new Error("Scoring Change already exists and is immutable");
+    this.scoreChangesV1.set(value.id, structuredClone(value));
+    this.audit.push(structuredClone(audit));
+    this.outbox.set(outbox.id, structuredClone(outbox));
+  }
+  async findScoreChange(id: string): Promise<ScoreChangeExplanationV1 | undefined> { return this.clone(this.scoreChangesV1.get(id)); }
   async listPendingOutbox(): Promise<OutboxRecord[]> {
     return this.values(this.outbox).filter((record) => record.status === "PENDING");
   }

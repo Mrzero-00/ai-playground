@@ -48,6 +48,10 @@ import {
   replayAllocationV1,
   runPortfolioStressTestV1,
   runDatabaseReconciliationV1,
+  evaluateScorecardV1,
+  explainScoreChangeV1,
+  rankScorecardsV1,
+  validateScoreModelV1,
   runMomentumScan,
   transitionModelChangeProposalV1,
   transitionDataDeletionRequestV1,
@@ -90,6 +94,8 @@ import {
   type DataLineageEdgeInputV1,
   type DataRetentionPolicyInputV1,
   type DatabaseReconciliationInputV1,
+  type ScorecardInputV1,
+  type ScoreModelInputV1,
   type LearningReviewInputV1,
   type LessonCandidateInputV1,
   type ModelChangeProposalInputV1,
@@ -399,6 +405,21 @@ export const server = createServer(async (request, response) => {
       const result = await repository.findDatabaseReconciliation(id);
       return result ? json(response, 200, result) : json(response, 404, { requestId, error: { code: "DATABASE_RESOURCE_NOT_FOUND", message: "Database Reconciliation not found", retryable: false } });
     }
+    if (request.method === "GET" && path.startsWith("/api/scoring/models/")) {
+      const id = decodeURIComponent(path.slice("/api/scoring/models/".length));
+      const model = await repository.findScoreModel(id);
+      return model ? json(response, 200, model) : json(response, 404, { requestId, error: { code: "SCORING_RESOURCE_NOT_FOUND", message: "Scoring Model not found", retryable: false } });
+    }
+    if (request.method === "GET" && path.startsWith("/api/scoring/scorecards/")) {
+      const id = decodeURIComponent(path.slice("/api/scoring/scorecards/".length));
+      const scorecard = await repository.findScorecard(id);
+      return scorecard ? json(response, 200, scorecard) : json(response, 404, { requestId, error: { code: "SCORING_RESOURCE_NOT_FOUND", message: "Scoring Scorecard not found", retryable: false } });
+    }
+    if (request.method === "GET" && path.startsWith("/api/scoring/changes/")) {
+      const id = decodeURIComponent(path.slice("/api/scoring/changes/".length));
+      const change = await repository.findScoreChange(id);
+      return change ? json(response, 200, change) : json(response, 404, { requestId, error: { code: "SCORING_RESOURCE_NOT_FOUND", message: "Scoring Change not found", retryable: false } });
+    }
     const portfolioExposure = request.method === "GET" ? path.match(/^\/api\/portfolios\/([^/]+)\/exposures$/) : null;
     if (portfolioExposure) {
       const portfolioId = decodeURIComponent(portfolioExposure[1] ?? "");
@@ -432,6 +453,65 @@ export const server = createServer(async (request, response) => {
     if (request.method !== "POST") return json(response, 404, { error: "not_found" });
 
     const body = await readBody(request);
+    if (path === "/api/scoring/models/validate") {
+      return await idempotentJson(request, response, path, body, async () => {
+        const model = validateScoreModelV1(body as ScoreModelInputV1);
+        const occurredAt = model.approvedAt ?? model.effectiveFrom;
+        const event = createDomainEvent({
+          id: randomUUID(), type: "ScoringModelValidated", occurredAt, aggregateId: model.id,
+          correlationId, schemaVersion: "1", modelVersionId: model.version,
+          payload: { modelId: model.id, version: model.version, scope: model.scope, status: model.status, factorCount: model.factorDefinitions.length, modelHash: model.modelHash },
+        });
+        const audit = createAuditRecord({
+          id: randomUUID(), occurredAt, actorId: model.approvedBy ?? model.userId,
+          action: "SCORING_MODEL_VALIDATED", entityType: "ScoreModelV1", entityId: model.id,
+          reason: model.changeReason, after: model, metadata: { scope: model.scope, version: model.version, status: model.status, modelHash: model.modelHash, correlationId },
+        });
+        await repository.saveScoreModelWithOutbox(model, audit, createOutboxRecord(event));
+        return { status: 201, body: model };
+      });
+    }
+    if (path === "/api/scoring/scorecards/evaluate" || path === "/api/scoring/replays") {
+      return await idempotentJson(request, response, path, body, async () => {
+        const raw = body as Omit<ScorecardInputV1, "model"> & { modelId: string };
+        const model = await repository.findScoreModel(raw.modelId);
+        if (!model) throw new Error("Scoring Model not found");
+        const { modelId: _modelId, ...scorecardInput } = raw;
+        const result = evaluateScorecardV1({ ...scorecardInput, model, mode: path === "/api/scoring/replays" ? "HISTORICAL_REPLAY" : scorecardInput.mode });
+        const replay = path === "/api/scoring/replays";
+        const event = createDomainEvent({
+          id: randomUUID(), type: replay ? "ScoringReplayCompleted" : result.status === "SCORED" ? "ScorecardEvaluated" : "ScorecardBlocked",
+          occurredAt: result.evaluatedAt, aggregateId: result.id, correlationId, schemaVersion: "1", modelVersionId: result.modelVersionId,
+          payload: { scorecardId: result.id, scope: result.scope, status: result.status, score: result.score?.point, confidence: result.confidence.score, blockerCodes: result.blockerCodes, resultHash: result.resultHash },
+        });
+        const audit = createAuditRecord({
+          id: randomUUID(), occurredAt: result.evaluatedAt, actorId: result.userId,
+          action: replay ? "SCORING_REPLAY_COMPLETED" : "SCORING_SCORECARD_EVALUATED", entityType: "ScorecardResultV1", entityId: result.id,
+          reason: result.status, after: result, metadata: { scope: result.scope, modelVersionId: result.modelVersionId, status: result.status, resultHash: result.resultHash, correlationId },
+        });
+        await repository.saveScorecardWithOutbox(result, audit, createOutboxRecord(event));
+        return { status: 201, body: result };
+      });
+    }
+    if (path === "/api/scoring/rankings/validate") {
+      const input = body as { scorecardIds: string[] };
+      if (!Array.isArray(input.scorecardIds) || input.scorecardIds.length === 0) throw new Error("Scoring Ranking requires scorecardIds");
+      const scorecards = await Promise.all(input.scorecardIds.map((id) => repository.findScorecard(id)));
+      if (scorecards.some((item) => !item)) throw new Error("Scoring Scorecard not found");
+      return json(response, 200, rankScorecardsV1(scorecards as NonNullable<(typeof scorecards)[number]>[]));
+    }
+    if (path === "/api/scoring/changes/explain") {
+      return await idempotentJson(request, response, path, body, async () => {
+        const input = body as { id: string; userId: string; previousScorecardId: string; currentScorecardId: string; explainedAt: string };
+        const [previous, current] = await Promise.all([repository.findScorecard(input.previousScorecardId), repository.findScorecard(input.currentScorecardId)]);
+        if (!previous || !current) throw new Error("Scoring Scorecard not found");
+        const result = explainScoreChangeV1({ id: input.id, userId: input.userId, previous, current, explainedAt: input.explainedAt });
+        const event = createDomainEvent({ id: randomUUID(), type: "ScoreChangeExplained", occurredAt: result.explainedAt, aggregateId: result.id, correlationId, schemaVersion: "1", payload: { changeId: result.id, comparisonStatus: result.comparisonStatus, pointDelta: result.pointDelta, confidenceDelta: result.confidenceDelta, resultHash: result.resultHash } });
+        const audit = createAuditRecord({ id: randomUUID(), occurredAt: result.explainedAt, actorId: result.userId, action: "SCORING_CHANGE_EXPLAINED", entityType: "ScoreChangeExplanationV1", entityId: result.id, reason: result.comparisonStatus, after: result, metadata: { previousScorecardId: result.previousScorecardId, currentScorecardId: result.currentScorecardId, comparisonStatus: result.comparisonStatus, resultHash: result.resultHash, correlationId } });
+        await repository.saveScoreChangeWithOutbox(result, audit, createOutboxRecord(event));
+        return { status: 201, body: result };
+      });
+    }
     if (path === "/api/database/lineage/validate") {
       const input = body as { edges: DataLineageEdgeInputV1[] };
       if (!Array.isArray(input.edges)) throw new Error("Data Lineage edges must be an array");
@@ -1184,6 +1264,12 @@ export const server = createServer(async (request, response) => {
 });
 
 function mapApiError(message: string): { status: number; code: string; retryable: boolean } {
+  if (/Scoring.*ownership/i.test(message)) return { status: 403, code: "SCORING_OWNERSHIP_MISMATCH", retryable: false };
+  if (/Scoring (Model|Scorecard|Change) not found/i.test(message)) return { status: 404, code: "SCORING_RESOURCE_NOT_FOUND", retryable: false };
+  if (/Scoring.*already exists.*immutable/i.test(message)) return { status: 409, code: "SCORING_RECORD_IMMUTABLE", retryable: false };
+  if (/Scoring.*(version conflict|same scope and model)/i.test(message)) return { status: 409, code: "SCORING_VERSION_CONFLICT", retryable: false };
+  if (/Scoring Model is not (ACTIVE|eligible)/i.test(message)) return { status: 423, code: "SCORING_MODEL_NOT_ACTIVE", retryable: false };
+  if (/Scoring/i.test(message)) return { status: 400, code: "INVALID_SCORING_CONTRACT", retryable: false };
   if (/Data Deletion Request ownership|Database.*ownership|Data Lineage.*ownership/i.test(message)) return { status: 403, code: "DATABASE_OWNERSHIP_MISMATCH", retryable: false };
   if (/Data Deletion Request not found|previous revision not found|Database Reconciliation not found/i.test(message)) return { status: 404, code: "DATABASE_RESOURCE_NOT_FOUND", retryable: false };
   if (/Data Lineage.*cycle|Data Lineage.*self-reference|Data Deletion Request.*branch conflict/i.test(message)) return { status: 409, code: "DATABASE_LINEAGE_CONFLICT", retryable: false };

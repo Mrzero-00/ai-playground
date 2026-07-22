@@ -354,6 +354,7 @@ export type MomentumEvaluationResultV1 = {
   marketRegime: MarketRegimeEvaluation;
   universeDecision: UniverseDecision;
   setup: MomentumSetupEvaluation;
+  scoreStatus: "SCORED" | "BLOCKED";
   score: MomentumScoreRange;
   factorResults: MomentumFactorResult[];
   confidence: EvaluationConfidence;

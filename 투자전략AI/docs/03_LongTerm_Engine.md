@@ -6,7 +6,7 @@
 - 작성일: `2026-07-22`
 - 상태: `IMPLEMENTATION-READY DRAFT`
 - 선행 문서: `01_Architecture.md` v2.3, `02_Investment_Philosophy.md` v2.2.1
-- 후속 문서: `05_Portfolio_Engine.md`, `08_Database.md`, `09_Scoring_System.md`, `10_Risk_Engine.md`
+- 후속 문서: `05_Portfolio_Engine.md`, `08_Database.md`, `09_Scoring_System.md`
 - 구현 기준 경로: `packages/core`, `apps/api`, `supabase/migrations`
 
 ---
@@ -2277,7 +2277,7 @@ Change Proposal
 - Calibration과 Drift 통계
 - Cross-engine Score Explainability 표준
 
-### `10_Risk_Engine.md`
+### Risk 계층 후속 상세화 (`01_Architecture.md`·`05_Portfolio_Engine.md` 연계)
 
 - Portfolio Risk Limit
 - 유동성·집중·Drawdown 제한

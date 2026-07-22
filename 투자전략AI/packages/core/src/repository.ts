@@ -5,7 +5,7 @@ import type { ModelVersion } from "./model-version.js";
 import type { PositionLot } from "./position-lot.js";
 import type { DataSnapshot } from "./snapshot.js";
 import type { LongTermEvaluationResult } from "./long-term-v1/types.js";
-import type { MomentumEvaluationResultV1, MomentumTradePlanV1 } from "./momentum-v1/types.js";
+import type { MomentumEvaluationResultV1, MomentumScanResult, MomentumTradePlanV1 } from "./momentum-v1/types.js";
 
 export interface InvestmentOsRepository {
   saveDecision(value: DecisionProposal): Promise<void>;
@@ -33,6 +33,8 @@ export interface InvestmentOsRepository {
   listMomentumEvaluations(): Promise<MomentumEvaluationResultV1[]>;
   saveMomentumTradePlanWithOutbox(value: MomentumTradePlanV1, audit: AuditRecord, outbox: OutboxRecord): Promise<void>;
   findMomentumTradePlan(id: string): Promise<MomentumTradePlanV1 | undefined>;
+  saveMomentumScanWithOutbox(value: MomentumScanResult, audit: AuditRecord, outbox: OutboxRecord): Promise<void>;
+  findMomentumScan(id: string): Promise<MomentumScanResult | undefined>;
   listPendingOutbox(): Promise<OutboxRecord[]>;
   markOutboxPublished(id: string, at: string): Promise<void>;
 }
@@ -48,6 +50,7 @@ export class InMemoryInvestmentOsRepository implements InvestmentOsRepository {
   readonly longTermEvaluations = new Map<string, LongTermEvaluationResult>();
   readonly momentumEvaluations = new Map<string, MomentumEvaluationResultV1>();
   readonly momentumTradePlans = new Map<string, MomentumTradePlanV1>();
+  readonly momentumScans = new Map<string, MomentumScanResult>();
 
   async saveDecision(value: DecisionProposal): Promise<void> { this.decisions.set(value.id, structuredClone(value)); }
   async findDecision(id: string): Promise<DecisionProposal | undefined> { return this.clone(this.decisions.get(id)); }
@@ -142,6 +145,15 @@ export class InMemoryInvestmentOsRepository implements InvestmentOsRepository {
   }
   async findMomentumTradePlan(id: string): Promise<MomentumTradePlanV1 | undefined> {
     return this.clone(this.momentumTradePlans.get(id));
+  }
+  async saveMomentumScanWithOutbox(value: MomentumScanResult, audit: AuditRecord, outbox: OutboxRecord): Promise<void> {
+    if (this.momentumScans.has(value.id)) throw new Error("Momentum scan already exists and is immutable");
+    this.momentumScans.set(value.id, structuredClone(value));
+    this.audit.push(structuredClone(audit));
+    this.outbox.set(outbox.id, structuredClone(outbox));
+  }
+  async findMomentumScan(id: string): Promise<MomentumScanResult | undefined> {
+    return this.clone(this.momentumScans.get(id));
   }
   async listPendingOutbox(): Promise<OutboxRecord[]> {
     return this.values(this.outbox).filter((record) => record.status === "PENDING");

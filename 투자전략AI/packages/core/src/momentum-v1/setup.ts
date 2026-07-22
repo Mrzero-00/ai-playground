@@ -69,7 +69,7 @@ function validateRules(type: MomentumSetupDefinition["type"], metrics: MomentumS
       if (!metrics.gapHeld) reasons.push("EARNINGS_GAP_NOT_HELD");
       break;
     case "GAP_CONTINUATION":
-      if (!metrics.officialEarningsCatalyst) reasons.push("GAP_CATALYST_NOT_OFFICIAL");
+      if (!metrics.officialCatalyst && !metrics.officialEarningsCatalyst) reasons.push("GAP_CATALYST_NOT_OFFICIAL");
       if ((metrics.gapPercent ?? 0) < 2) reasons.push("GAP_TOO_SMALL");
       if (!metrics.openingRangeHeld) reasons.push("OPENING_RANGE_NOT_HELD");
       if ((metrics.gapSizeAtr ?? Number.POSITIVE_INFINITY) > 3) reasons.push("GAP_OVEREXTENDED");

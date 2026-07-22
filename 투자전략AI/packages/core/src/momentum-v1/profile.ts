@@ -108,9 +108,6 @@ function evaluateFactor(
       explanation: factor.explanation, warnings: [...(factor.warnings ?? [])],
     };
   }
-  if (definition.allowedNotApplicableFactorIds.includes(factorId)) {
-    throw new Error(`${factorId} must be NOT_APPLICABLE for the selected setup definition`);
-  }
   if (BLOCKING_AVAILABILITY.has(factor.availability)) {
     if (factor.score !== undefined || factor.bearScore !== undefined || factor.bullScore !== undefined) {
       throw new Error(`${factorId} ${factor.availability} cannot have scores`);

@@ -55,6 +55,17 @@ API 기본 주소는 `http://localhost:4000`입니다.
 - `GET /api/v1/long-term/reviews/due`: 기준시각까지 도래한 Long-term 정기·사건 리뷰 조회
 - `POST /api/v1/long-term/replays`: 운영 상태를 변경하지 않는 Historical Replay
 - `POST /v1/evaluations/momentum`: 모멘텀 점수 Preview용 Legacy API
+- `POST /api/v1/momentum/scans`: 동일 세션·모델·Universe 정책으로 Momentum 후보 일괄 평가
+- `GET /api/v1/momentum/scans/:id`: 불변 Scan 결과와 후보별 실패 원인 조회
+- `POST /api/v1/momentum/evaluations`: Universe·Regime·7 Factor·Setup·Trade Plan Gate 기반 불변 평가 생성
+- `GET /api/v1/momentum/evaluations/:id`: Momentum 평가·Gate·근거·Plan 계보 조회
+- `GET /api/v1/companies/:companyId/momentum`: 기업의 최신 Momentum 평가 조회
+- `GET /api/v1/momentum/rankings`: 동일 모델·Universe 정책·세션의 `ENTER`/`WAIT` 후보 순위
+- `POST /api/v1/momentum/plans`: 불변 Momentum Trade Plan Revision 생성
+- `POST /api/v1/momentum/plans/:id/revisions`: 기존 Plan을 수정하지 않는 다음 Revision 생성
+- `POST /api/v1/momentum/plans/:id/validate-price`: 현재가의 Entry Zone·Chase 상태 재검증
+- `GET /api/v1/momentum/reviews/due`: 기준시각까지 도래한 Momentum 리뷰 조회
+- `POST /api/v1/momentum/replays`: 운영 상태를 변경하지 않는 Historical Replay
 - `POST /v1/portfolio/allocate`: 단순 85/15 Preview용 Legacy API
 - `POST /api/v1/cross-signals`: 장기·모멘텀 교차 신호 해석
 - `POST /api/v1/allocations/propose`: Bucket/종목 한도를 적용한 Decimal 배분 제안
@@ -94,7 +105,8 @@ apps/api                 HTTP 진입점
 packages/core            순수 도메인 로직
   long-term              Legacy 장기 투자 점수 Preview
   long-term-v1           Core/Future Core Profile, Gate, Confidence, Valuation, Thesis·Stage 정책
-  momentum               모멘텀 점수
+  momentum               Legacy 모멘텀 점수 Preview
+  momentum-v1            Universe, Regime, 7 Factor, Setup, Trade Plan, Gate, Lifecycle 정책
   portfolio              전략 배분 및 위험 한도
   philosophy-policy      02 투자 철학, 안전 정책과 변경 거버넌스
   evidence / thesis      출처 계층, 장기 논지와 Point-in-time 계보

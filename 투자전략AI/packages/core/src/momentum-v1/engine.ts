@@ -13,6 +13,9 @@ import type {
   MomentumFactorId,
   MomentumFactorResult,
   MomentumGateResult,
+  MomentumScanFailure,
+  MomentumScanInput,
+  MomentumScanResult,
   MomentumTradePlanV1,
 } from "./types.js";
 
@@ -110,6 +113,58 @@ export function replayMomentumEvaluation(input: MomentumEvaluationInput): Moment
   return evaluateMomentumV1({ ...structuredClone(input), mode: "HISTORICAL_REPLAY" });
 }
 
+export function runMomentumScan(input: MomentumScanInput): MomentumScanResult {
+  if (!input.id.trim() || !input.modelVersionId.trim() || !input.universePolicyVersionId.trim()) {
+    throw new Error("Momentum scan identity and versions are required");
+  }
+  if (!/^\d{4}-\d{2}-\d{2}$/.test(input.session) || !Number.isFinite(new Date(`${input.session}T00:00:00Z`).getTime())) {
+    throw new Error("Momentum scan session must be YYYY-MM-DD");
+  }
+  parseDate(input.createdAt, "scan.createdAt");
+  if (input.evaluations.length === 0) throw new Error("Momentum scan requires evaluation candidates");
+  const ids = input.evaluations.map((evaluation) => evaluation.id);
+  if (new Set(ids).size !== ids.length) throw new Error("Momentum scan evaluation ids must be unique");
+
+  const items: MomentumEvaluationResultV1[] = [];
+  const failures: MomentumScanFailure[] = [];
+  for (const evaluation of input.evaluations) {
+    try {
+      if (evaluation.modelVersionId !== input.modelVersionId || evaluation.universePolicy.version !== input.universePolicyVersionId) {
+        throw new Error("scan candidate version conflicts with scan version");
+      }
+      if (evaluation.marketPriceAsOf.slice(0, 10) !== input.session) throw new Error("scan candidate session conflicts with scan session");
+      items.push(evaluateMomentumV1(evaluation));
+    } catch (error) {
+      const message = error instanceof Error ? error.message : "unknown scan error";
+      failures.push({
+        evaluationId: evaluation.id,
+        companyId: evaluation.companyId,
+        securityId: evaluation.securityId,
+        code: /version|session/i.test(message) ? "VERSION_CONFLICT"
+          : /newer than|future information|point.in.time/i.test(message) ? "POINT_IN_TIME_VIOLATION" : "INVALID_INPUT",
+        message,
+      });
+    }
+  }
+  items.sort((left, right) => right.score.point - left.score.point
+    || right.confidence.score - left.confidence.score
+    || left.securityId.localeCompare(right.securityId));
+  const resultWithoutHash: Omit<MomentumScanResult, "resultHash"> = {
+    id: input.id,
+    session: input.session,
+    modelVersionId: input.modelVersionId,
+    universePolicyVersionId: input.universePolicyVersionId,
+    createdAt: input.createdAt,
+    status: failures.length === 0 ? "COMPLETED" : items.length === 0 ? "FAILED" : "PARTIAL",
+    requestedCount: input.evaluations.length,
+    succeededCount: items.length,
+    failedCount: failures.length,
+    items,
+    failures,
+  };
+  return { ...resultWithoutHash, resultHash: stableHash(resultWithoutHash) };
+}
+
 function validateEvaluationIdentity(input: MomentumEvaluationInput): void {
   for (const [name, value] of Object.entries({
     id: input.id, companyId: input.companyId, securityId: input.securityId, modelVersionId: input.modelVersionId,
@@ -193,6 +248,9 @@ function validateEventRisk(input: MomentumEvaluationInput): boolean {
       if (compareDecimal(value, "0") <= 0) throw new Error(`eventRisk.gapScenario.${name} must be positive`);
     }
     if (!event.gapScenario.source.trim()) throw new Error("gap risk scenario source is required");
+    if (compareDecimal(event.gapScenario.baseStopLoss, event.gapScenario.adverseGapPrice) <= 0) {
+      throw new Error("gap risk adverseGapPrice must be below baseStopLoss for a Long setup");
+    }
   }
   if (!event.calendarKnown || !event.officialScheduleConsistent) return false;
   if (event.binaryEvent && !event.gapScenario) return false;
@@ -230,6 +288,7 @@ function buildGates(context: {
     gate("SCORE_ELIGIBLE", context.score >= 75 && context.confidence >= 70, "SOFT", context.score >= 75 && context.confidence >= 70 ? "SCORE_CONFIDENCE_ELIGIBLE" : "SCORE_OR_CONFIDENCE_BELOW_GATE", "score and confidence must meet entry thresholds"),
     gate("LIQUIDITY_SUFFICIENT", factor("MOM_LIQUIDITY_EXECUTION") >= 65, "HARD", factor("MOM_LIQUIDITY_EXECUTION") >= 65 ? "LIQUIDITY_SUFFICIENT" : "LIQUIDITY_INSUFFICIENT", "liquidity score must be at least 65"),
     gate("SETUP_VALID", context.setupStatus === "ELIGIBLE" && factor("MOM_PRICE_STRUCTURE") >= 70, "HARD", context.setupStatus === "ELIGIBLE" && factor("MOM_PRICE_STRUCTURE") >= 70 ? "SETUP_VALID" : "SETUP_INVALID_OR_CONDITIONAL", "setup and price structure must be eligible"),
+    gate("SETUP_REGIME_ALLOWED", input.marketRegime.regime !== "UNKNOWN" && input.setupDefinition.allowedRegimes.includes(input.marketRegime.regime), "HARD", input.marketRegime.regime !== "UNKNOWN" && input.setupDefinition.allowedRegimes.includes(input.marketRegime.regime) ? "SETUP_REGIME_ALLOWED" : "SETUP_REGIME_NOT_ALLOWED", "setup definition must allow the evaluated regime"),
     gate("CATALYST_VALID", context.catalystValid, "SOFT", context.catalystValid ? "CATALYST_VALID" : "CATALYST_INVALID", "required catalyst must be official and fresh"),
     gate("TRADE_PLAN_COMPLETE", context.tradePlan !== undefined, "HARD", context.tradePlan ? "TRADE_PLAN_COMPLETE" : "TRADE_PLAN_MISSING", "entry requires a complete immutable trade plan"),
     gate("REWARD_RISK_SUFFICIENT", factor("MOM_REWARD_RISK_TIMING") >= 65, "HARD", factor("MOM_REWARD_RISK_TIMING") >= 65 ? "REWARD_RISK_SUFFICIENT" : "REWARD_RISK_INSUFFICIENT", "reward/risk timing score must be at least 65"),
@@ -249,11 +308,12 @@ function decideAction(context: {
   pricePosition: MomentumPricePosition | undefined;
   tradePlan: MomentumTradePlanV1 | undefined;
 }): MomentumAction {
-  if (context.input.signalContext.activePosition && context.input.signalContext.stopOrInvalidationTriggered) return "EXIT";
+  if (context.input.signalContext.activePosition
+    && (context.input.signalContext.stopOrInvalidationTriggered || context.input.triggerStatus === "INVALIDATED")) return "EXIT";
   if (context.input.setupDefinition.type === "SPECIAL_SITUATION" && !context.input.eventRisk.manualReviewApproved) return "REVIEW_REQUIRED";
   if (context.input.marketRegime.permission === "REQUIRE_MANUAL_REVIEW" || !context.input.signalContext.behavioralPolicyClear) return "REVIEW_REQUIRED";
   const hardFailed = context.gateResults.some((gate) => gate.severity === "HARD" && gate.status === "FAILED");
-  if (hardFailed || context.pricePosition === "CHASED" || context.setupStatus === "INELIGIBLE") return "AVOID";
+  if (hardFailed || context.pricePosition === "CHASED" || context.input.triggerStatus === "CHASED" || context.setupStatus === "INELIGIBLE") return "AVOID";
   if (context.score < 65 || context.confidence < 50) return "AVOID";
   if (context.score < 75 || context.confidence < 70 || context.setupStatus !== "ELIGIBLE" || context.tradePlan === undefined) return "WAIT";
   if (context.pricePosition !== "IN_ENTRY_ZONE" || context.input.triggerStatus !== "TRIGGERED") return "WAIT";

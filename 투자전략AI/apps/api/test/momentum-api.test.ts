@@ -103,6 +103,22 @@ test("Momentum v1 API persists immutable evaluations, plans, rankings and outbox
     "x-correlation-id": "momentum-correlation-1",
   };
   const body = JSON.stringify(input);
+  const scan = await fetch(`${origin}/api/v1/momentum/scans`, {
+    method: "POST",
+    headers: { "content-type": "application/json", "idempotency-key": "momentum-scan-1" },
+    body: JSON.stringify({
+      id: "api-scan-1", session: "2026-07-22", modelVersionId: input.modelVersionId,
+      universePolicyVersionId: input.universePolicy.version, createdAt: "2026-07-22T21:15:00Z",
+      evaluations: [input],
+    }),
+  });
+  assert.equal(scan.status, 201);
+  const scanBody = await scan.json() as { id: string; status: string; succeededCount: number };
+  assert.equal(scanBody.status, "COMPLETED");
+  assert.equal(scanBody.succeededCount, 1);
+  const scanGet = await fetch(`${origin}/api/v1/momentum/scans/${scanBody.id}`);
+  assert.equal(scanGet.status, 200);
+
   const first = await fetch(`${origin}/api/v1/momentum/evaluations`, { method: "POST", headers, body });
   const second = await fetch(`${origin}/api/v1/momentum/evaluations`, { method: "POST", headers, body });
   assert.equal(first.status, 201);

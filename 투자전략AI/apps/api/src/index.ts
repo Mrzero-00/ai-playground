@@ -29,6 +29,7 @@ import {
   resolveManualRiskReview,
   replayLongTermEvaluation,
   replayMomentumEvaluation,
+  runMomentumScan,
   validateEvidence,
   validateEvaluationEvidence,
   validateLongTermThesis,
@@ -43,6 +44,7 @@ import {
   type LongTermEvaluationResult,
   type MomentumEvaluationInput,
   type MomentumEvaluationResultV1,
+  type MomentumScanInput,
   type MomentumTradePlanV1,
 } from "@investment-os/core";
 
@@ -155,6 +157,14 @@ export const server = createServer(async (request, response) => {
         .filter((evaluation) => evaluation.mode !== "HISTORICAL_REPLAY" && new Date(evaluation.nextReviewAt).getTime() <= asOfTime)
         .sort((left, right) => left.nextReviewAt.localeCompare(right.nextReviewAt));
       return json(response, 200, { asOf, items: due });
+    }
+    if (request.method === "GET" && path.startsWith("/api/momentum/scans/")) {
+      const id = decodeURIComponent(path.slice("/api/momentum/scans/".length));
+      const scan = await repository.findMomentumScan(id);
+      return scan ? json(response, 200, scan) : json(response, 404, {
+        requestId,
+        error: { code: "MOMENTUM_SCAN_NOT_FOUND", message: "Momentum scan not found", retryable: false },
+      });
     }
     if (request.method === "GET" && path.startsWith("/api/momentum/evaluations/")) {
       const id = decodeURIComponent(path.slice("/api/momentum/evaluations/".length));
@@ -278,6 +288,31 @@ export const server = createServer(async (request, response) => {
         status: 200,
         body: replayLongTermEvaluation(body as LongTermEvaluationInput),
       }));
+    }
+    if (path === "/api/momentum/scans") {
+      return idempotentJson(request, response, path, body, async () => {
+        const scan = runMomentumScan(body as MomentumScanInput);
+        const event = createDomainEvent({
+          id: randomUUID(), type: "MomentumUniverseUpdated", occurredAt: scan.createdAt,
+          aggregateId: scan.id, correlationId, schemaVersion: "1", modelVersionId: scan.modelVersionId,
+          payload: {
+            scanId: scan.id, session: scan.session, status: scan.status,
+            requestedCount: scan.requestedCount, succeededCount: scan.succeededCount,
+            failedCount: scan.failedCount, universePolicyVersionId: scan.universePolicyVersionId,
+          },
+        });
+        const audit = createAuditRecord({
+          id: randomUUID(), occurredAt: scan.createdAt, actorId: "momentum-scanner-v1",
+          action: "MOMENTUM_SCAN_COMPLETED", entityType: "MomentumScan", entityId: scan.id,
+          reason: `Momentum scan ${scan.status.toLowerCase()} for ${scan.session}`, after: scan,
+          metadata: {
+            modelVersionId: scan.modelVersionId, universePolicyVersionId: scan.universePolicyVersionId,
+            resultHash: scan.resultHash, correlationId,
+          },
+        });
+        await repository.saveMomentumScanWithOutbox(scan, audit, createOutboxRecord(event));
+        return { status: 201, body: scan };
+      });
     }
     if (path === "/api/momentum/evaluations") {
       return idempotentJson(request, response, path, body, async () => {

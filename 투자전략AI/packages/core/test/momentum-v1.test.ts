@@ -9,6 +9,7 @@ import {
   createMomentumTradeReview,
   evaluateMomentumV1,
   replayMomentumEvaluation,
+  runMomentumScan,
   validateMomentumSetupTransition,
   validateMomentumTradePlanV1,
   type MomentumEvaluationInput,
@@ -193,6 +194,10 @@ test("NOT_APPLICABLE reweights only when predeclared while UNKNOWN fails closed"
   };
   assert.equal(evaluateMomentumV1(allowed).score.point, 80);
 
+  const availableDespitePermission = fixture();
+  availableDespitePermission.setupDefinition.allowedNotApplicableFactorIds = ["MOM_SECTOR_LEADERSHIP"];
+  assert.equal(evaluateMomentumV1(availableDespitePermission).score.point, 80);
+
   const unknown = fixture();
   unknown.factors.MOM_VOLUME_CONFIRMATION = {
     availability: "UNKNOWN", evidenceIds: [], explanation: "volume feed unavailable",
@@ -201,6 +206,23 @@ test("NOT_APPLICABLE reweights only when predeclared while UNKNOWN fails closed"
   assert.equal(blocked.score.point, 0);
   assert.equal(blocked.action, "AVOID");
   assert.ok(blocked.explanation.failedGates.includes("FACTOR_INPUT_BLOCKED"));
+});
+
+test("Momentum scan isolates invalid candidates and compares only one version and session", () => {
+  const valid = fixture();
+  const invalid = fixture({ id: "momentum-v1-invalid", companyId: "company-2", securityId: "security-2" });
+  invalid.tradePlan = { ...invalid.tradePlan!, id: "plan-invalid", evaluationId: invalid.id, companyId: invalid.companyId, securityId: invalid.securityId };
+  invalid.marketPriceAsOf = "2026-07-21T21:00:00Z";
+  const result = runMomentumScan({
+    id: "scan-1", session: "2026-07-22", modelVersionId: "momentum-model-v1",
+    universePolicyVersionId: "momentum-us-v1", createdAt: "2026-07-22T21:15:00Z",
+    evaluations: [valid, invalid],
+  });
+  assert.equal(result.status, "PARTIAL");
+  assert.equal(result.succeededCount, 1);
+  assert.equal(result.failedCount, 1);
+  assert.equal(result.failures[0]?.code, "VERSION_CONFLICT");
+  assert.equal(result.resultHash.length, 64);
 });
 
 test("Universe and corporate-action failures cannot be overridden by high scores", () => {

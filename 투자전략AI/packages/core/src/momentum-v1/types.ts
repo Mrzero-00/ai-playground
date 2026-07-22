@@ -142,6 +142,7 @@ export type MomentumSetupMetrics = {
   pullbackVolumeContracted?: boolean;
   supportReactionConfirmed?: boolean;
   officialEarningsCatalyst?: boolean;
+  officialCatalyst?: boolean;
   earningsQualityVerified?: boolean;
   estimateRevisionConfirmed?: boolean;
   gapPercent?: number;
@@ -378,4 +379,36 @@ export type MomentumEvaluationResultV1 = {
   liquidityScore: number;
   setupQualityScore: number;
   riskScore: number;
+};
+
+export type MomentumScanInput = {
+  id: string;
+  session: string;
+  modelVersionId: string;
+  universePolicyVersionId: string;
+  createdAt: string;
+  evaluations: MomentumEvaluationInput[];
+};
+
+export type MomentumScanFailure = {
+  evaluationId: string;
+  companyId: string;
+  securityId: string;
+  code: "INVALID_INPUT" | "POINT_IN_TIME_VIOLATION" | "VERSION_CONFLICT";
+  message: string;
+};
+
+export type MomentumScanResult = {
+  id: string;
+  session: string;
+  modelVersionId: string;
+  universePolicyVersionId: string;
+  createdAt: string;
+  status: "COMPLETED" | "PARTIAL" | "FAILED";
+  requestedCount: number;
+  succeededCount: number;
+  failedCount: number;
+  items: MomentumEvaluationResultV1[];
+  failures: MomentumScanFailure[];
+  resultHash: string;
 };

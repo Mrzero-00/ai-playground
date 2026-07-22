@@ -34,6 +34,7 @@ See docs/ for detailed specifications.
 - [Investment Philosophy](docs/02_Investment_Philosophy.md)
 - [Investment Philosophy Part Index](docs/02_Investment_Philosophy/README.md)
 - [Long-term Engine](docs/03_LongTerm_Engine.md)
+- [Momentum Engine](docs/04_Momentum_Engine.md)
 
 ## 시작하기
 

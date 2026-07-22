@@ -14,6 +14,7 @@ const RISK_INCREASING_ACTIONS = new Set(["APPROVE_EXISTING_PROPOSAL", "CREATE_NE
 export function createCanonicalReportV1(input: ReportGenerationInputV1): CanonicalReportV1 {
   validateIdentityAndTime(input);
   if (input.template.status !== "ACTIVE") throw new Error("Report Template is not ACTIVE");
+  if (input.template.userId !== input.request.userId) throw new Error("Report Template ownership mismatch");
   if (input.template.reportType !== input.request.reportType || input.template.version !== input.request.templateVersion) {
     throw new Error("Report Template version conflict");
   }
@@ -23,15 +24,16 @@ export function createCanonicalReportV1(input: ReportGenerationInputV1): Canonic
 
   const sourceManifest = normalizeSources(input.request.sourceRefs, input.request.userId, input.request.dataAsOf);
   const sourceIds = new Set(sourceManifest.map((source) => source.sourceId));
-  const sections = normalizeSections(input.sections, sourceIds, input.template.maxStatementCount);
+  const evidenceIds = new Set(sourceManifest.flatMap((source) => source.evidenceIds));
+  const sections = normalizeSections(input.sections, sourceIds, evidenceIds, input.template.maxStatementCount);
   const presentSourceTypes = new Set(sourceManifest.map((source) => source.sourceType));
   const missingSourceTypes = input.template.requiredSourceTypes.filter((type) => !presentSourceTypes.has(type));
-  const presentSectionTypes = new Set(sections.map((section) => section.kind));
+  const presentSectionTypes = new Set(sections.filter((section) => section.statements.length > 0).map((section) => section.kind));
   const missingSections = input.template.requiredSections.filter((kind) => !presentSectionTypes.has(kind));
   const staleIds = new Set(input.staleSourceIds ?? []);
   for (const id of staleIds) if (!sourceIds.has(id)) throw new Error("Report stale Source is not in manifest");
 
-  validateRecommendation(input.primaryRecommendation, sourceIds, input.generatedAt);
+  const normalizedRecommendation = normalizeRecommendation(input.primaryRecommendation, sourceIds, input.generatedAt);
   const counterEvidencePresent = (sections.find((section) => section.kind === "COUNTER_EVIDENCE")?.statements.length ?? 0) > 0;
   const sourceCoverageBps = Math.round((input.template.requiredSourceTypes.length - missingSourceTypes.length)
     / input.template.requiredSourceTypes.length * 10_000);
@@ -40,6 +42,8 @@ export function createCanonicalReportV1(input: ReportGenerationInputV1): Canonic
     ...missingSections.map((kind) => `REPORT_REQUIRED_SECTION_MISSING:${kind}`),
   ];
   if (sourceCoverageBps < input.template.minimumCoverageBps) blockerCodes.push("REPORT_SOURCE_COVERAGE_INSUFFICIENT");
+  const requiredStaleIds = sourceManifest.filter((source) => source.required && staleIds.has(source.sourceId)).map((source) => source.sourceId);
+  if (requiredStaleIds.length > 0) blockerCodes.push(...requiredStaleIds.map((id) => `REPORT_REQUIRED_SOURCE_STALE:${id}`));
   if (RISK_INCREASING_ACTIONS.has(input.primaryRecommendation.action) && !counterEvidencePresent) blockerCodes.push("REPORT_COUNTER_EVIDENCE_REQUIRED");
   const status = blockerCodes.length === 0 ? "READY" as const : "BLOCKED" as const;
   const quality: ReportQualityV1 = {
@@ -53,8 +57,8 @@ export function createCanonicalReportV1(input: ReportGenerationInputV1): Canonic
     pointInTimeValid: true,
   };
   const recommendation = status === "BLOCKED"
-    ? { ...structuredClone(input.primaryRecommendation), executable: false }
-    : structuredClone(input.primaryRecommendation);
+    ? { ...normalizedRecommendation, executable: false }
+    : normalizedRecommendation;
   const warningCodes = [...new Set([
     ...(staleIds.size > 0 ? ["REPORT_SOURCE_STALE"] : []),
     ...sections.flatMap((section) => section.statements.flatMap((statement) => statement.warningCodes)),
@@ -137,7 +141,7 @@ function normalizeSources(sources: ReportSourceRefV1[], userId: string, dataAsOf
   if (sources.length === 0) throw new Error("Report requires Source Manifest");
   const ids = new Set<string>();
   return sources.map((source) => {
-    if (!source.sourceId.trim() || !source.resultHash.trim()) throw new Error("Report Source identity and resultHash are required");
+    if (!source.sourceId.trim() || !/^[0-9a-f]{64}$/.test(source.resultHash)) throw new Error("Report Source identity and 64-character resultHash are required");
     if (ids.has(source.sourceId)) throw new Error("Report Source ids must be unique");
     ids.add(source.sourceId);
     if (source.userId !== userId) throw new Error("Report Source ownership mismatch");
@@ -157,7 +161,7 @@ function normalizeSources(sources: ReportSourceRefV1[], userId: string, dataAsOf
   }).sort((left, right) => left.sourceType.localeCompare(right.sourceType) || left.sourceId.localeCompare(right.sourceId));
 }
 
-function normalizeSections(sections: ReportSectionV1[], sourceIds: Set<string>, maxStatementCount: number): ReportSectionV1[] {
+function normalizeSections(sections: ReportSectionV1[], sourceIds: Set<string>, evidenceIds: Set<string>, maxStatementCount: number): ReportSectionV1[] {
   const kinds = new Set<string>();
   const statementIds = new Set<string>();
   let statementCount = 0;
@@ -165,7 +169,7 @@ function normalizeSections(sections: ReportSectionV1[], sourceIds: Set<string>, 
     if (kinds.has(section.kind)) throw new Error("Report Section kinds must be unique");
     kinds.add(section.kind);
     if (!section.heading.trim() || !Number.isInteger(section.order) || section.order < 1) throw new Error("Report Section heading and positive order are required");
-    const statements = section.statements.map((statement) => normalizeStatement(statement, sourceIds, statementIds))
+    const statements = section.statements.map((statement) => normalizeStatement(statement, sourceIds, evidenceIds, statementIds))
       .sort((left, right) => MATERIALITY_ORDER[left.materiality] - MATERIALITY_ORDER[right.materiality] || left.id.localeCompare(right.id));
     statementCount += statements.length;
     return { ...structuredClone(section), heading: section.heading.trim(), statements };
@@ -175,23 +179,25 @@ function normalizeSections(sections: ReportSectionV1[], sourceIds: Set<string>, 
   return normalized;
 }
 
-function normalizeStatement(statement: ReportStatementV1, sourceIds: Set<string>, ids: Set<string>): ReportStatementV1 {
+function normalizeStatement(statement: ReportStatementV1, sourceIds: Set<string>, evidenceManifestIds: Set<string>, ids: Set<string>): ReportStatementV1 {
   if (!statement.id.trim() || !statement.text.trim()) throw new Error("Report Statement identity and text are required");
   if (ids.has(statement.id)) throw new Error("Report Statement ids must be unique");
   ids.add(statement.id);
   const normalizedSourceIds = uniqueSorted(statement.sourceIds, "Report Statement sourceIds");
   if (statement.kind === "FACT" && normalizedSourceIds.length === 0) throw new Error("Report FACT requires Source");
   if (normalizedSourceIds.some((id) => !sourceIds.has(id))) throw new Error("Report Statement references Source outside manifest");
+  const normalizedEvidenceIds = uniqueSorted(statement.evidenceIds, "Report Statement evidenceIds");
+  if (normalizedEvidenceIds.some((id) => !evidenceManifestIds.has(id))) throw new Error("Report Statement references Evidence outside manifest");
   return {
     ...structuredClone(statement),
     text: statement.text.trim(),
     sourceIds: normalizedSourceIds,
-    evidenceIds: uniqueSorted(statement.evidenceIds, "Report Statement evidenceIds"),
+    evidenceIds: normalizedEvidenceIds,
     warningCodes: uniqueSorted(statement.warningCodes, "Report Statement warningCodes"),
   };
 }
 
-function validateRecommendation(recommendation: ReportGenerationInputV1["primaryRecommendation"], sourceIds: Set<string>, generatedAt: string): void {
+function normalizeRecommendation(recommendation: ReportGenerationInputV1["primaryRecommendation"], sourceIds: Set<string>, generatedAt: string): ReportGenerationInputV1["primaryRecommendation"] {
   if (!recommendation.summary.trim()) throw new Error("Report primary Recommendation summary is required");
   const rationale = uniqueSorted(recommendation.rationaleSourceIds, "Report Recommendation rationaleSourceIds");
   if (rationale.length === 0 || rationale.some((id) => !sourceIds.has(id))) throw new Error("Report Recommendation requires manifest Sources");
@@ -202,6 +208,12 @@ function validateRecommendation(recommendation: ReportGenerationInputV1["primary
   if (recommendation.expiresAt && timestamp(recommendation.expiresAt, "Report Recommendation expiresAt") <= timestamp(generatedAt, "Report generatedAt")) {
     throw new Error("Report Recommendation Source expired");
   }
+  return {
+    ...structuredClone(recommendation),
+    summary: recommendation.summary.trim(),
+    rationaleSourceIds: rationale,
+    conditions: uniqueSorted(recommendation.conditions, "Report Recommendation conditions"),
+  };
 }
 
 function uniqueSorted<T extends string>(values: T[], label: string): T[] {

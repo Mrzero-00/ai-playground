@@ -95,6 +95,7 @@ export interface InvestmentOsRepository {
   saveScoreChangeWithOutbox(value: ScoreChangeExplanationV1, audit: AuditRecord, outbox: OutboxRecord): Promise<void>;
   findScoreChange(id: string): Promise<ScoreChangeExplanationV1 | undefined>;
   saveReportTemplateWithOutbox(value: ReportTemplateV1, audit: AuditRecord, outbox: OutboxRecord): Promise<void>;
+  updateReportTemplateWithOutbox(value: ReportTemplateV1, audit: AuditRecord, outbox: OutboxRecord): Promise<void>;
   findReportTemplate(id: string): Promise<ReportTemplateV1 | undefined>;
   saveReportWithArtifactsWithOutbox(value: CanonicalReportV1, artifacts: ReportArtifactV1[], audit: AuditRecord, outbox: OutboxRecord): Promise<void>;
   findReport(id: string): Promise<CanonicalReportV1 | undefined>;
@@ -433,8 +434,26 @@ export class InMemoryInvestmentOsRepository implements InvestmentOsRepository {
   }
   async findScoreChange(id: string): Promise<ScoreChangeExplanationV1 | undefined> { return this.clone(this.scoreChangesV1.get(id)); }
   async saveReportTemplateWithOutbox(value: ReportTemplateV1, audit: AuditRecord, outbox: OutboxRecord): Promise<void> {
+    if (this.reportTemplatesV1.has(value.id)) throw new Error("Report Template already exists and is immutable");
+    if (value.status !== "DRAFT") throw new Error("Report Template registration must start as DRAFT");
+    this.reportTemplatesV1.set(value.id, structuredClone(value));
+    this.audit.push(structuredClone(audit));
+    this.outbox.set(outbox.id, structuredClone(outbox));
+  }
+  async updateReportTemplateWithOutbox(value: ReportTemplateV1, audit: AuditRecord, outbox: OutboxRecord): Promise<void> {
     const previous = this.reportTemplatesV1.get(value.id);
-    if (previous && previous.contentHash !== value.contentHash) throw new Error("Report Template already exists and is immutable");
+    if (!previous) throw new Error("Report Template not found");
+    if (previous.userId !== value.userId) throw new Error("Report Template ownership mismatch");
+    if (previous.contentHash !== value.contentHash || previous.version !== value.version || previous.reportType !== value.reportType || previous.locale !== value.locale) {
+      throw new Error("Report Template immutable configuration conflict");
+    }
+    if (value.status === "ACTIVE") {
+      for (const [id, template] of this.reportTemplatesV1.entries()) {
+        if (id !== value.id && template.userId === value.userId && template.reportType === value.reportType && template.locale === value.locale && template.status === "ACTIVE") {
+          this.reportTemplatesV1.set(id, { ...template, status: "DEPRECATED" });
+        }
+      }
+    }
     this.reportTemplatesV1.set(value.id, structuredClone(value));
     this.audit.push(structuredClone(audit));
     this.outbox.set(outbox.id, structuredClone(outbox));

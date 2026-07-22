@@ -41,6 +41,7 @@ import {
   renderReportArtifactV1,
   replayReportV1,
   validateReportTemplateV1,
+  transitionReportTemplateV1,
   InMemoryInvestmentOsRepository,
   OutboxPublisher,
   prepareAgentRunV1,
@@ -114,6 +115,7 @@ import {
   type ReportFormatV1,
   type ReportGenerationInputV1,
   type ReportTemplateInputV1,
+  type ReportTemplateV1,
 } from "@investment-os/core";
 
 const port = Number(process.env.PORT ?? 4000);
@@ -497,6 +499,22 @@ export const server = createServer(async (request, response) => {
           entityType: "ReportTemplateV1", entityId: template.id, reason: template.status, after: template,
           metadata: { reportType: template.reportType, version: template.version, status: template.status, contentHash: template.contentHash, correlationId } });
         await repository.saveReportTemplateWithOutbox(template, audit, createOutboxRecord(event));
+        return { status: 201, body: template };
+      });
+    }
+    const reportTemplateTransition = path.match(/^\/api\/reports\/templates\/([^/]+)\/transitions$/);
+    if (reportTemplateTransition) {
+      return await idempotentJson(request, response, path, body, async () => {
+        const previous = await repository.findReportTemplate(decodeURIComponent(reportTemplateTransition[1] ?? ""));
+        if (!previous) throw new Error("Report Template not found");
+        const input = body as { nextStatus: ReportTemplateV1["status"]; actorId: string; transitionedAt: string };
+        const template = transitionReportTemplateV1({ previous, nextStatus: input.nextStatus, actorId: input.actorId, transitionedAt: input.transitionedAt });
+        const event = createDomainEvent({ id: randomUUID(), type: "ReportTemplateTransitioned", occurredAt: input.transitionedAt, aggregateId: template.id, correlationId, schemaVersion: "1",
+          payload: { templateId: template.id, reportType: template.reportType, version: template.version, from: previous.status, to: template.status, contentHash: template.contentHash } });
+        const audit = createAuditRecord({ id: randomUUID(), occurredAt: input.transitionedAt, actorId: input.actorId, action: "REPORT_TEMPLATE_TRANSITIONED",
+          entityType: "ReportTemplateV1", entityId: template.id, reason: `${previous.status} -> ${template.status}`, before: previous, after: template,
+          metadata: { reportType: template.reportType, version: template.version, from: previous.status, to: template.status, contentHash: template.contentHash, correlationId } });
+        await repository.updateReportTemplateWithOutbox(template, audit, createOutboxRecord(event));
         return { status: 201, body: template };
       });
     }
@@ -1385,6 +1403,13 @@ export const server = createServer(async (request, response) => {
 });
 
 function mapApiError(message: string): { status: number; code: string; retryable: boolean } {
+  if (/Report.*ownership/i.test(message)) return { status: 403, code: "REPORT_OWNERSHIP_MISMATCH", retryable: false };
+  if (/Report (Template|Artifact|previous Revision)? ?not found/i.test(message)) return { status: 404, code: "REPORT_RESOURCE_NOT_FOUND", retryable: false };
+  if (/Report Recommendation Source expired/i.test(message)) return { status: 410, code: "REPORT_SOURCE_EXPIRED", retryable: false };
+  if (/Report.*(Revision.*conflict|branch conflict|version conflict|already exists.*immutable|immutable configuration)/i.test(message)) return { status: 409, code: "REPORT_REVISION_CONFLICT", retryable: false };
+  if (/Report Template is not ACTIVE/i.test(message)) return { status: 423, code: "REPORT_BLOCKED", retryable: false };
+  if (/Report (Source|Statement).*(Point.in.time|outside manifest)|Report.*(required|coverage|counter evidence)/i.test(message)) return { status: 422, code: "REPORT_SOURCE_INCOMPLETE", retryable: false };
+  if (/Report/i.test(message)) return { status: 400, code: "INVALID_REPORT_CONTRACT", retryable: false };
   if (/Scoring.*ownership/i.test(message)) return { status: 403, code: "SCORING_OWNERSHIP_MISMATCH", retryable: false };
   if (/Scoring (Model|Scorecard|Change).*not found/i.test(message)) return { status: 404, code: "SCORING_RESOURCE_NOT_FOUND", retryable: false };
   if (/Scoring.*already exists.*immutable/i.test(message)) return { status: 409, code: "SCORING_RECORD_IMMUTABLE", retryable: false };

@@ -9,10 +9,9 @@ function post(origin: string, path: string, body: unknown, key: string): Promise
 }
 
 const template: ReportTemplateInputV1 = {
-  id: "api-report-template-1", reportType: "WEEKLY_INVESTMENT_OS", version: "1.0.0", status: "ACTIVE", locale: "ko-KR",
+  id: "api-report-template-1", userId: "api-report-user", reportType: "WEEKLY_INVESTMENT_OS", version: "1.0.0", status: "DRAFT", locale: "ko-KR",
   requiredSourceTypes: ["PORTFOLIO_SNAPSHOT"], requiredSections: ["CONCLUSION", "COUNTER_EVIDENCE", "RISKS", "ACTIONS", "NEXT_REVIEW", "SOURCES"],
   minimumCoverageBps: 10_000, allowedFormats: ["JSON", "MARKDOWN", "NOTIFICATION", "PDF"], maxStatementCount: 20,
-  approvedBy: "api-report-reviewer", approvedAt: "2026-07-12T00:00:00Z",
 };
 
 function generation(id: string): Omit<ReportGenerationInputV1, "template"> & { templateId: string } {
@@ -44,8 +43,14 @@ test("Report v1 API persists Template, Canonical Report, partial Artifacts, Repl
 
   const templateResponse = await post(origin, "/api/v1/reports/templates/validate", template, "template-1");
   assert.equal(templateResponse.status, 201);
-  const storedTemplate = await templateResponse.json() as ReportTemplateV1;
+  let storedTemplate = await templateResponse.json() as ReportTemplateV1;
   assert.equal(storedTemplate.contentHash.length, 64);
+  for (const [nextStatus, transitionedAt] of [["APPROVED", "2026-07-12T01:00:00Z"], ["ACTIVE", "2026-07-12T02:00:00Z"]] as const) {
+    const transitionResponse = await post(origin, `/api/v1/reports/templates/${template.id}/transitions`, { nextStatus, actorId: "api-report-reviewer", transitionedAt }, `template-${nextStatus}`);
+    assert.equal(transitionResponse.status, 201);
+    storedTemplate = await transitionResponse.json() as ReportTemplateV1;
+  }
+  assert.equal(storedTemplate.status, "ACTIVE");
   assert.deepEqual(await (await fetch(`${origin}/api/v1/reports/templates/${template.id}`)).json(), storedTemplate);
 
   const createResponse = await post(origin, "/api/v1/reports", generation("api-report-1"), "report-1");
@@ -69,4 +74,16 @@ test("Report v1 API persists Template, Canonical Report, partial Artifacts, Repl
   assert.ok(events.some((event) => event.type === "ReportGenerated"));
   const audit = await (await fetch(`${origin}/api/v1/audit/${created.report.id}`)).json() as Array<{ action: string }>;
   assert.ok(audit.some((record) => record.action === "REPORT_GENERATED"));
+
+  const crossOwner = generation("api-report-cross-owner");
+  crossOwner.request.userId = "other-user";
+  const crossOwnerResponse = await post(origin, "/api/v1/reports", crossOwner, "report-cross-owner");
+  assert.equal(crossOwnerResponse.status, 403);
+  assert.equal(((await crossOwnerResponse.json()) as { error: { code: string } }).error.code, "REPORT_OWNERSHIP_MISMATCH");
+
+  const futureSource = generation("api-report-future-source");
+  futureSource.request.sourceRefs[0] = { ...futureSource.request.sourceRefs[0]!, availableAt: "2026-07-21T00:00:00Z" };
+  const futureResponse = await post(origin, "/api/v1/reports", futureSource, "report-future-source");
+  assert.equal(futureResponse.status, 422);
+  assert.equal(((await futureResponse.json()) as { error: { code: string } }).error.code, "REPORT_SOURCE_INCOMPLETE");
 });

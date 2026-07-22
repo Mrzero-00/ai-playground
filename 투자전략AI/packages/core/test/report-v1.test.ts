@@ -5,6 +5,7 @@ import {
   createReportRevisionV1,
   renderReportArtifactV1,
   replayReportV1,
+  transitionReportTemplateV1,
   validateReportTemplateV1,
   type ReportGenerationInputV1,
   type ReportTemplateInputV1,
@@ -12,10 +13,10 @@ import {
 
 function templateInput(overrides: Partial<ReportTemplateInputV1> = {}): ReportTemplateInputV1 {
   return {
-    id: "report-template-weekly-1", reportType: "WEEKLY_INVESTMENT_OS", version: "1.0.0", status: "ACTIVE", locale: "ko-KR",
+    id: "report-template-weekly-1", userId: "report-user-1", reportType: "WEEKLY_INVESTMENT_OS", version: "1.0.0", status: "ACTIVE", locale: "ko-KR",
     requiredSourceTypes: ["PORTFOLIO_SNAPSHOT", "SCORE_CHANGE"], requiredSections: ["CONCLUSION", "COUNTER_EVIDENCE", "RISKS", "ACTIONS", "NEXT_REVIEW", "SOURCES"],
-    minimumCoverageBps: 10_000, allowedFormats: ["JSON", "MARKDOWN", "NOTIFICATION", "PDF"], maxStatementCount: 30, ...overrides,
-    approvedBy: "report-template-reviewer", approvedAt: "2026-07-12T00:00:00Z",
+    minimumCoverageBps: 10_000, allowedFormats: ["JSON", "MARKDOWN", "NOTIFICATION", "PDF"], maxStatementCount: 30,
+    approvedBy: "report-template-reviewer", approvedAt: "2026-07-12T00:00:00Z", ...overrides,
   };
 }
 
@@ -56,6 +57,19 @@ test("Report Template validates immutable configuration and stable hash", () => 
   assert.throws(() => validateReportTemplateV1(templateInput({ requiredSections: ["RISKS", "RISKS"] })), /unique/);
 });
 
+test("Report Template follows DRAFT to APPROVED to ACTIVE lifecycle with a stable content hash", () => {
+  const draftInput = templateInput({ status: "DRAFT" });
+  delete draftInput.approvedBy;
+  delete draftInput.approvedAt;
+  let template = validateReportTemplateV1(draftInput);
+  const contentHash = template.contentHash;
+  template = transitionReportTemplateV1({ previous: template, nextStatus: "APPROVED", actorId: "template-reviewer", transitionedAt: "2026-07-12T01:00:00Z" });
+  template = transitionReportTemplateV1({ previous: template, nextStatus: "ACTIVE", actorId: "template-reviewer", transitionedAt: "2026-07-12T02:00:00Z" });
+  assert.equal(template.contentHash, contentHash);
+  assert.equal(template.status, "ACTIVE");
+  assert.throws(() => transitionReportTemplateV1({ previous: template, nextStatus: "DRAFT", actorId: "template-reviewer", transitionedAt: "2026-07-12T03:00:00Z" }), /invalid transition/);
+});
+
 test("Canonical Report freezes lineage, normalizes order and is deterministic", () => {
   const input = generation();
   const report = createCanonicalReportV1(input);
@@ -64,6 +78,9 @@ test("Canonical Report freezes lineage, normalizes order and is deterministic", 
   assert.deepEqual(report.sections.map((section) => section.kind), ["CONCLUSION", "COUNTER_EVIDENCE", "RISKS", "ACTIONS", "NEXT_REVIEW", "SOURCES"]);
   const reordered = createCanonicalReportV1({ ...input, request: { ...input.request, sourceRefs: [...input.request.sourceRefs].reverse(), requestedFormats: [...input.request.requestedFormats].reverse() }, sections: [...input.sections].reverse() });
   assert.equal(reordered.resultHash, report.resultHash);
+  const recommendationReordered = createCanonicalReportV1({ ...input, primaryRecommendation: { ...input.primaryRecommendation, rationaleSourceIds: [...input.primaryRecommendation.rationaleSourceIds].reverse(), conditions: ["Z condition", "A condition"] } });
+  const recommendationSorted = createCanonicalReportV1({ ...input, primaryRecommendation: { ...input.primaryRecommendation, rationaleSourceIds: [...input.primaryRecommendation.rationaleSourceIds].sort(), conditions: ["A condition", "Z condition"] } });
+  assert.equal(recommendationReordered.resultHash, recommendationSorted.resultHash);
 });
 
 test("Report rejects cross-owner and future Sources", () => {
@@ -79,7 +96,7 @@ test("Missing required Source creates a non-executable BLOCKED Report instead of
   const input = generation();
   input.request.sourceRefs = input.request.sourceRefs.filter((source) => source.sourceType !== "SCORE_CHANGE");
   input.primaryRecommendation = { ...input.primaryRecommendation, rationaleSourceIds: ["portfolio-snapshot-1"], executable: true, action: "APPROVE_EXISTING_PROPOSAL", proposalId: "proposal-1" };
-  input.sections = input.sections.map((section) => ({ ...section, statements: section.statements.map((statement) => ({ ...statement, sourceIds: ["portfolio-snapshot-1"] })) }));
+  input.sections = input.sections.map((section) => ({ ...section, statements: section.statements.map((statement) => ({ ...statement, sourceIds: ["portfolio-snapshot-1"], evidenceIds: [] })) }));
   const report = createCanonicalReportV1(input);
   assert.equal(report.status, "BLOCKED");
   assert.equal(report.primaryRecommendation.executable, false);
@@ -93,6 +110,22 @@ test("Risk-increasing Recommendation requires counter evidence", () => {
   const report = createCanonicalReportV1(input);
   assert.equal(report.status, "BLOCKED");
   assert.ok(report.blockerCodes.includes("REPORT_COUNTER_EVIDENCE_REQUIRED"));
+});
+
+test("Required stale Sources and empty required Sections block actionable output", () => {
+  const stale = createCanonicalReportV1(generation({ staleSourceIds: ["portfolio-snapshot-1"] }));
+  assert.equal(stale.status, "BLOCKED");
+  assert.ok(stale.blockerCodes.includes("REPORT_REQUIRED_SOURCE_STALE:portfolio-snapshot-1"));
+  const empty = generation();
+  empty.sections = empty.sections.map((section) => section.kind === "RISKS" ? { ...section, statements: [] } : section);
+  const emptyReport = createCanonicalReportV1(empty);
+  assert.ok(emptyReport.blockerCodes.includes("REPORT_REQUIRED_SECTION_MISSING:RISKS"));
+});
+
+test("Statements cannot cite Evidence outside the frozen Source Manifest", () => {
+  const input = generation();
+  input.sections[0]!.statements[0] = { ...input.sections[0]!.statements[0]!, evidenceIds: ["fabricated-evidence"] };
+  assert.throws(() => createCanonicalReportV1(input), /Evidence outside manifest/);
 });
 
 test("Published Report revisions form a linear immutable chain", () => {

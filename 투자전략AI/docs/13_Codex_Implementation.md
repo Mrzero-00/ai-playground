@@ -95,7 +95,7 @@
 - Scoring Model/Scorecard/Ranking/Change/Replay API, Audit·Transactional Outbox·Idempotency
 - Supabase `010_scoring_system_v1.sql` Model·Factor·Threshold·Scorecard·Confidence·Change·Calibration Schema, RLS, Index, 상태 Trigger
 - JSON을 진실 원본으로 사용하는 Canonical Report와 Markdown·Notification·Web Artifact 분리
-- Report Template 승인·Content Hash, 유형별 필수 Source·Section·Coverage Gate
+- Report Template DRAFT→APPROVED→ACTIVE→DEPRECATED 생명주기·Content Hash, 유형별 필수 Source·Section·Coverage Gate
 - 사용자 소유·Point-in-time·Source Result Hash를 고정하는 Source Manifest
 - Fact·Estimate·Interpretation·Recommendation 분리와 결론·반대 근거·위험·행동 순서
 - 하나의 최우선 Recommendation, 신규 위험의 반대 근거 의무와 `BLOCKED` 실행 차단

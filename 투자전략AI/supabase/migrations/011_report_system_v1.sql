@@ -28,6 +28,7 @@ create table public.report_templates (
   check (cardinality(required_source_types) > 0),
   check (cardinality(required_sections) > 0),
   check (cardinality(allowed_formats) > 0),
+  check (status <> 'DRAFT' or (approved_by is null and approved_at is null)),
   check (status not in ('APPROVED', 'ACTIVE', 'DEPRECATED') or (approved_by is not null and approved_at is not null))
 );
 
@@ -299,6 +300,32 @@ $$;
 create trigger report_runs_controlled_transition before update on public.report_runs
 for each row execute function public.validate_report_run_transition();
 
+create or replace function public.validate_report_template_transition()
+returns trigger language plpgsql as $$
+begin
+  if old.id <> new.id or old.user_id <> new.user_id or old.report_type <> new.report_type
+     or old.version <> new.version or old.locale <> new.locale
+     or old.required_source_types <> new.required_source_types or old.required_sections <> new.required_sections
+     or old.minimum_coverage_basis_points <> new.minimum_coverage_basis_points
+     or old.allowed_formats <> new.allowed_formats or old.max_statement_count <> new.max_statement_count
+     or old.content_hash <> new.content_hash or old.created_at <> new.created_at then
+    raise exception 'report template immutable configuration cannot change';
+  end if;
+  if old.status = 'DRAFT' and new.status <> 'APPROVED' then raise exception 'invalid report template transition'; end if;
+  if old.status = 'APPROVED' and new.status <> 'ACTIVE' then raise exception 'invalid report template transition'; end if;
+  if old.status = 'ACTIVE' and new.status <> 'DEPRECATED' then raise exception 'invalid report template transition'; end if;
+  if old.status = 'DEPRECATED' then raise exception 'deprecated report template is immutable'; end if;
+  if new.status = 'APPROVED' and (new.approved_by is null or new.approved_at is null) then raise exception 'approved report template requires reviewer'; end if;
+  if old.approved_by is not null and (old.approved_by is distinct from new.approved_by or old.approved_at is distinct from new.approved_at) then
+    raise exception 'report template approval is immutable';
+  end if;
+  return new;
+end;
+$$;
+
+create trigger report_templates_controlled_transition before update on public.report_templates
+for each row execute function public.validate_report_template_transition();
+
 create index report_requests_type_period on public.report_requests(user_id, report_type, period_end desc);
 create index report_runs_request_status on public.report_runs(user_id, request_id, status, created_at desc);
 create index canonical_reports_type_period on public.canonical_reports(user_id, report_type, period_end desc, revision desc);
@@ -329,7 +356,7 @@ create policy report_artifacts_owner_select on public.report_artifacts for selec
 create policy report_replays_owner_select on public.report_replays for select using (user_id = auth.uid());
 create policy report_deliveries_owner_select on public.report_deliveries for select using (user_id = auth.uid());
 
-create trigger report_templates_immutable before update or delete on public.report_templates for each row execute function public.prevent_immutable_investment_record_update();
+create trigger report_templates_immutable_delete before delete on public.report_templates for each row execute function public.prevent_immutable_investment_record_update();
 create trigger report_requests_immutable before update or delete on public.report_requests for each row execute function public.prevent_immutable_investment_record_update();
 create trigger report_runs_immutable_delete before delete on public.report_runs for each row execute function public.prevent_immutable_investment_record_update();
 create trigger canonical_reports_immutable before update or delete on public.canonical_reports for each row execute function public.prevent_immutable_investment_record_update();

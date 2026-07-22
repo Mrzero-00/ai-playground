@@ -80,6 +80,7 @@ export type ReportRequestV1 = {
 
 export type ReportTemplateInputV1 = {
   id: string;
+  userId: string;
   reportType: ReportTypeV1;
   version: string;
   status: "DRAFT" | "APPROVED" | "ACTIVE" | "DEPRECATED";
@@ -94,6 +95,13 @@ export type ReportTemplateInputV1 = {
 };
 
 export type ReportTemplateV1 = ReportTemplateInputV1 & { contentHash: string };
+
+export type ReportTemplateTransitionInputV1 = {
+  previous: ReportTemplateV1;
+  nextStatus: ReportTemplateV1["status"];
+  actorId: string;
+  transitionedAt: string;
+};
 
 export type ReportStatementV1 = {
   id: string;

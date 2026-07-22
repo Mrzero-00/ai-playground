@@ -566,6 +566,7 @@ Blocked 보고서에 실행 가능한 Recommendation을 포함하지 않는다.
 ```ts
 interface ReportTemplateV1 {
   id: string;
+  userId: string;
   reportType: ReportType;
   version: string;
   status: "DRAFT" | "APPROVED" | "ACTIVE" | "DEPRECATED";
@@ -709,6 +710,7 @@ interface ReportArtifactV1 {
 
 ```http
 POST /api/v1/reports/templates/validate
+POST /api/v1/reports/templates/:id/transitions
 GET  /api/v1/reports/templates/:id
 ```
 

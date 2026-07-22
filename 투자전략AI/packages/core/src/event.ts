@@ -82,6 +82,7 @@ export type DomainEventType =
   | "ScoreChangeExplained"
   | "ScoringReplayCompleted"
   | "ReportTemplateValidated"
+  | "ReportTemplateTransitioned"
   | "ReportGenerationRequested"
   | "ReportGenerationBlocked"
   | "ReportArtifactGenerated"

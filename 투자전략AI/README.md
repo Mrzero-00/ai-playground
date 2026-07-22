@@ -126,7 +126,8 @@ API 기본 주소는 `http://localhost:4000`입니다.
 - `POST /api/v1/scoring/changes/explain`: 동일 Model 점수 변화의 Factor Contribution 분해
 - `GET /api/v1/scoring/changes/:id`: 불변 Score Change 설명 조회
 - `POST /api/v1/scoring/replays`: 운영 상태를 바꾸지 않는 Historical Replay Scorecard 생성
-- `POST /api/v1/reports/templates/validate`: Source·Section·Format·승인 계약을 검증한 Report Template 등록
+- `POST /api/v1/reports/templates/validate`: Source·Section·Format 계약을 검증한 DRAFT Report Template 등록
+- `POST /api/v1/reports/templates/:id/transitions`: DRAFT→APPROVED→ACTIVE→DEPRECATED Template 생명주기 전이
 - `GET /api/v1/reports/templates/:id`: Report Template·설정 Hash 조회
 - `POST /api/v1/reports`: Point-in-time Source Manifest 기반 Canonical Report와 Artifact 생성
 - `GET /api/v1/reports/:id`: 불변 Canonical Report·Quality·Blocker·계보 조회

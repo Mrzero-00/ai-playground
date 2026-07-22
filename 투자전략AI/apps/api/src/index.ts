@@ -5,6 +5,7 @@ import {
   allocateCapital,
   allocateCapitalDecimal,
   allocateNewCapitalV1,
+  agentStableHash,
   analyzeLearningCohortV1,
   approveInvestmentLessonV1,
   assessPortfolioRebalanceV1,
@@ -26,6 +27,7 @@ import {
   evaluateMomentum,
   evaluateMomentumV1,
   evaluateModelValidationV1,
+  finishAgentRunV1,
   evaluateRisk,
   interpretCrossSignal,
   inspectSnapshot,
@@ -33,6 +35,7 @@ import {
   generateDecisionReport,
   InMemoryInvestmentOsRepository,
   OutboxPublisher,
+  prepareAgentRunV1,
   proposeAllocation,
   proposeAllocationV1,
   requestDecisionModification,
@@ -43,6 +46,10 @@ import {
   runPortfolioStressTestV1,
   runMomentumScan,
   transitionModelChangeProposalV1,
+  cancelAgentRunV1,
+  validateAgentDefinitionV1,
+  validateAgentOutputV1,
+  validateAgentPlanV1,
   validateEvidence,
   validateEvaluationEvidence,
   validateLongTermThesis,
@@ -51,9 +58,16 @@ import {
   classifyMomentumPrice,
   validatePhilosophyPolicy,
   validatePortfolioPolicyV1,
+  DEFAULT_AGENT_DEFINITIONS_V1,
+  DEFAULT_PROMPT_TEMPLATES_V1,
   DecisionWorkflow,
   decimalRatio,
   type AllocationProposal,
+  type AgentDefinitionV1,
+  type AgentOutputValidationInputV1,
+  type AgentPlanV1,
+  type AgentProviderSelectionV1,
+  type AgentRunRequestV1,
   type RiskDecision,
   type LongTermEvaluationInput,
   type LongTermEvaluationResult,
@@ -325,6 +339,27 @@ export const server = createServer(async (request, response) => {
         requestId, error: { code: "MODEL_VALIDATION_NOT_FOUND", message: "Model Validation Result not found", retryable: false },
       });
     }
+    if (request.method === "GET" && path === "/api/agents/definitions") {
+      return json(response, 200, { items: DEFAULT_AGENT_DEFINITIONS_V1 });
+    }
+    const promptVersions = request.method === "GET" ? path.match(/^\/api\/agents\/prompts\/([^/]+)\/versions$/) : null;
+    if (promptVersions) {
+      const id = decodeURIComponent(promptVersions[1] ?? "");
+      return json(response, 200, { items: DEFAULT_PROMPT_TEMPLATES_V1.filter((prompt) => prompt.id === id) });
+    }
+    const agentRunAttempts = request.method === "GET" ? path.match(/^\/api\/agents\/runs\/([^/]+)\/attempts$/) : null;
+    if (agentRunAttempts) {
+      const run = await repository.findAgentRun(decodeURIComponent(agentRunAttempts[1] ?? ""));
+      return run ? json(response, 200, { items: [{ attempt: run.attempt, status: run.status, startedAt: run.startedAt, finishedAt: run.finishedAt, failureCodes: run.failureCodes }] })
+        : json(response, 404, { requestId, error: { code: "AGENT_RUN_NOT_FOUND", message: "Agent Run not found", retryable: false } });
+    }
+    if (request.method === "GET" && path.startsWith("/api/agents/runs/")) {
+      const id = decodeURIComponent(path.slice("/api/agents/runs/".length));
+      const run = await repository.findAgentRun(id);
+      return run ? json(response, 200, run) : json(response, 404, {
+        requestId, error: { code: "AGENT_RUN_NOT_FOUND", message: "Agent Run not found", retryable: false },
+      });
+    }
     const portfolioExposure = request.method === "GET" ? path.match(/^\/api\/portfolios\/([^/]+)\/exposures$/) : null;
     if (portfolioExposure) {
       const portfolioId = decodeURIComponent(portfolioExposure[1] ?? "");
@@ -358,6 +393,89 @@ export const server = createServer(async (request, response) => {
     if (request.method !== "POST") return json(response, 404, { error: "not_found" });
 
     const body = await readBody(request);
+    if (path === "/api/agents/definitions/validate") {
+      return json(response, 200, validateAgentDefinitionV1(body as AgentDefinitionV1, DEFAULT_AGENT_DEFINITIONS_V1));
+    }
+    if (path === "/api/agents/plans/validate") {
+      return json(response, 200, validateAgentPlanV1(body as AgentPlanV1, DEFAULT_AGENT_DEFINITIONS_V1));
+    }
+    if (path === "/api/agents/runs" || path === "/api/agents/replays") {
+      return idempotentJson(request, response, path, body, async () => {
+        const input = body as { runId: string; manifestId: string; request: AgentRunRequestV1; provider: AgentProviderSelectionV1; codeVersion: string };
+        if (input.provider.providerId !== "scripted" || input.provider.providerVersion !== "1") throw new Error("Agent Provider is not enabled in MVP runtime");
+        const definition = DEFAULT_AGENT_DEFINITIONS_V1.find((item) => item.id === input.request.agentDefinitionId && item.version === input.request.agentDefinitionVersion);
+        if (!definition) throw new Error("Agent Definition not found");
+        const prompt = DEFAULT_PROMPT_TEMPLATES_V1.find((item) => item.id === definition.promptTemplateId && item.version === definition.promptVersion);
+        if (!prompt) throw new Error("Agent Prompt not found");
+        if (path === "/api/agents/replays") {
+          if (!input.request.replayOfRunId) throw new Error("Agent Replay requires replayOfRunId");
+          const previous = await repository.findAgentRun(input.request.replayOfRunId);
+          if (!previous) throw new Error("Agent Replay source Run not found");
+          if (previous.userId !== input.request.userId) throw new Error("Agent Replay ownership conflict");
+          const previousInputs = { strategyScope: previous.request.strategyScope, asOf: previous.request.asOf, inputSnapshotIds: previous.request.inputSnapshotIds, evidenceIds: previous.request.evidenceIds, context: previous.request.context };
+          const replayInputs = { strategyScope: input.request.strategyScope, asOf: input.request.asOf, inputSnapshotIds: input.request.inputSnapshotIds, evidenceIds: input.request.evidenceIds, context: input.request.context };
+          if (agentStableHash(previousInputs) !== agentStableHash(replayInputs)) throw new Error("Agent Replay input lineage conflict");
+        } else if (input.request.replayOfRunId) throw new Error("Agent Run replayOfRunId is only allowed on Replay API");
+        const run = prepareAgentRunV1({ ...input, definition, prompt });
+        const existing = await repository.findAgentRunByIdempotencyKey(run.userId, run.request.idempotencyKey);
+        if (existing) {
+          if (existing.request.id !== run.request.id || existing.manifest.manifestHash !== run.manifest.manifestHash) throw new Error("Agent Run idempotency conflict");
+          return { status: 201, body: existing };
+        }
+        const event = createDomainEvent({
+          id: randomUUID(), type: "AgentRunRequested", occurredAt: run.createdAt,
+          aggregateId: run.id, correlationId, schemaVersion: "1",
+          payload: { runId: run.id, agentDefinitionId: run.manifest.agentDefinitionId, agentDefinitionVersion: run.manifest.agentDefinitionVersion, strategyScope: run.request.strategyScope, manifestHash: run.manifest.manifestHash, replayOfRunId: run.request.replayOfRunId },
+        });
+        const audit = createAuditRecord({
+          id: randomUUID(), occurredAt: run.createdAt, actorId: run.request.requestedBy.actorId,
+          action: "AGENT_RUN_REQUESTED", entityType: "AgentRunV1", entityId: run.id,
+          reason: run.request.purpose, after: run,
+          metadata: { agentDefinitionId: run.manifest.agentDefinitionId, agentDefinitionVersion: run.manifest.agentDefinitionVersion, providerId: run.manifest.providerId, modelId: run.manifest.modelId, manifestHash: run.manifest.manifestHash, correlationId },
+        });
+        await repository.saveAgentRunWithOutbox(run, audit, createOutboxRecord(event));
+        return { status: 201, body: run };
+      });
+    }
+    if (path === "/api/agents/outputs/validate") {
+      return idempotentJson(request, response, path, body, async () => {
+        const raw = body as Omit<AgentOutputValidationInputV1, "run"> & { runId: string; finishedAt: string };
+        const run = await repository.findAgentRun(raw.runId);
+        if (!run) throw new Error("Agent Run not found");
+        const validation = validateAgentOutputV1({
+          id: raw.id, run, output: raw.output, evidence: raw.evidence,
+          deterministicFacts: raw.deterministicFacts, validatedAt: raw.validatedAt, policyVersion: raw.policyVersion,
+        });
+        const completed = finishAgentRunV1(run, { output: raw.output, validation, finishedAt: raw.finishedAt });
+        const event = createDomainEvent({
+          id: randomUUID(), type: validation.verdict === "REJECTED" ? "AgentOutputRejected" : "AgentOutputValidated",
+          occurredAt: raw.finishedAt, aggregateId: completed.id, correlationId, schemaVersion: "1",
+          payload: { runId: completed.id, status: completed.status, validationId: validation.id, verdict: validation.verdict, acceptedClaimIds: validation.acceptedClaimIds, rejectedClaimIds: validation.rejectedClaimIds, resultHash: completed.resultHash },
+        });
+        const audit = createAuditRecord({
+          id: randomUUID(), occurredAt: raw.finishedAt, actorId: "agent-orchestrator-v1",
+          action: "AGENT_OUTPUT_VALIDATED", entityType: "AgentRunV1", entityId: completed.id,
+          reason: validation.verdict, before: run, after: completed,
+          metadata: { validationId: validation.id, verdict: validation.verdict, resultHash: validation.resultHash, manifestHash: run.manifest.manifestHash, correlationId },
+        });
+        await repository.updateAgentRunWithOutbox(completed, audit, createOutboxRecord(event));
+        return { status: 201, body: completed };
+      });
+    }
+    const agentRunCancel = path.match(/^\/api\/agents\/runs\/([^/]+)\/cancel$/);
+    if (agentRunCancel) {
+      return idempotentJson(request, response, path, body, async () => {
+        const run = await repository.findAgentRun(decodeURIComponent(agentRunCancel[1] ?? ""));
+        if (!run) throw new Error("Agent Run not found");
+        const input = body as { finishedAt: string; actorId: string };
+        if (!input.actorId.trim()) throw new Error("Agent Run cancellation actor is required");
+        const cancelled = cancelAgentRunV1(run, input.finishedAt);
+        const event = createDomainEvent({ id: randomUUID(), type: "AgentRunCancelled", occurredAt: input.finishedAt, aggregateId: run.id, correlationId, schemaVersion: "1", payload: { runId: run.id, status: cancelled.status, resultHash: cancelled.resultHash } });
+        const audit = createAuditRecord({ id: randomUUID(), occurredAt: input.finishedAt, actorId: input.actorId, action: "AGENT_RUN_CANCELLED", entityType: "AgentRunV1", entityId: run.id, reason: "CANCELLED", before: run, after: cancelled, metadata: { resultHash: cancelled.resultHash, correlationId } });
+        await repository.updateAgentRunWithOutbox(cancelled, audit, createOutboxRecord(event));
+        return { status: 201, body: cancelled };
+      });
+    }
     if (path === "/v1/evaluations/long-term") {
       return json(response, 200, evaluateLongTerm(body as Parameters<typeof evaluateLongTerm>[0]));
     }
@@ -962,6 +1080,14 @@ export const server = createServer(async (request, response) => {
 });
 
 function mapApiError(message: string): { status: number; code: string; retryable: boolean } {
+  if (/Agent Run idempotency conflict|Agent Run already exists for idempotency key/i.test(message)) return { status: 409, code: "AGENT_IDEMPOTENCY_CONFLICT", retryable: false };
+  if (/Agent.*ownership/i.test(message)) return { status: 403, code: "AGENT_OWNERSHIP_MISMATCH", retryable: false };
+  if (/Agent Definition not found|Agent Prompt not found|Agent Run not found|Agent Replay source Run not found/i.test(message)) return { status: 404, code: "AGENT_RESOURCE_NOT_FOUND", retryable: false };
+  if (/Agent.*version conflict|Agent Prompt.*conflict|Agent Provider is not enabled/i.test(message)) return { status: 409, code: "AGENT_VERSION_CONFLICT", retryable: false };
+  if (/Agent Context.*too large|maximum depth|maximum bytes/i.test(message)) return { status: 413, code: "AGENT_CONTEXT_TOO_LARGE", retryable: false };
+  if (/Terminal Agent Run|Agent Run already exists|Agent Run lineage/i.test(message)) return { status: 409, code: "AGENT_RUN_IMMUTABLE", retryable: false };
+  if (/Agent Replay input lineage|Agent.*Point.in.time|Agent Run asOf/i.test(message)) return { status: 422, code: "AGENT_OUTPUT_REJECTED", retryable: false };
+  if (/Agent Output Schema/i.test(message)) return { status: 422, code: "AGENT_OUTPUT_REJECTED", retryable: false };
   if (/already exists|immutable/i.test(message)) return { status: 409, code: "EVALUATION_ALREADY_EXISTS", retryable: false };
   if (/Learning.*ownership|Lesson.*ownership|Model.*ownership/i.test(message)) return { status: 403, code: "LEARNING_OWNERSHIP_MISMATCH", retryable: false };
   if (/Learning Review not found|Learning Cohort not found|Lesson Candidate not found|Investment Lesson not found|Model Change Proposal not found|Model Validation Result not found/i.test(message)) return { status: 404, code: "LEARNING_RESOURCE_NOT_FOUND", retryable: false };

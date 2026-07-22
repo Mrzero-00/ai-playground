@@ -6,6 +6,7 @@ import type { PositionLot } from "./position-lot.js";
 import type { DataSnapshot } from "./snapshot.js";
 import type { LongTermEvaluationResult } from "./long-term-v1/types.js";
 import type { MomentumEvaluationResultV1, MomentumScanResult, MomentumTradePlanV1 } from "./momentum-v1/types.js";
+import type { AgentRunV1, AgentValidationResultV1 } from "./agent-v1/types.js";
 import type {
   InvestmentLessonV1,
   LearningReviewV1,
@@ -74,6 +75,11 @@ export interface InvestmentOsRepository {
   findModelChange(id: string): Promise<ModelChangeProposalV1 | undefined>;
   saveModelValidationWithOutbox(value: ModelValidationResultV1, audit: AuditRecord, outbox: OutboxRecord): Promise<void>;
   findModelValidation(id: string): Promise<ModelValidationResultV1 | undefined>;
+  saveAgentRunWithOutbox(value: AgentRunV1, audit: AuditRecord, outbox: OutboxRecord): Promise<void>;
+  updateAgentRunWithOutbox(value: AgentRunV1, audit: AuditRecord, outbox: OutboxRecord): Promise<void>;
+  findAgentRun(id: string): Promise<AgentRunV1 | undefined>;
+  findAgentRunByIdempotencyKey(userId: string, key: string): Promise<AgentRunV1 | undefined>;
+  findAgentValidation(id: string): Promise<AgentValidationResultV1 | undefined>;
   listPendingOutbox(): Promise<OutboxRecord[]>;
   markOutboxPublished(id: string, at: string): Promise<void>;
 }
@@ -103,6 +109,8 @@ export class InMemoryInvestmentOsRepository implements InvestmentOsRepository {
   readonly investmentLessonsV1 = new Map<string, InvestmentLessonV1>();
   readonly modelChangesV1 = new Map<string, ModelChangeProposalV1>();
   readonly modelValidationsV1 = new Map<string, ModelValidationResultV1>();
+  readonly agentRunsV1 = new Map<string, AgentRunV1>();
+  readonly agentValidationsV1 = new Map<string, AgentValidationResultV1>();
 
   async saveDecision(value: DecisionProposal): Promise<void> { this.decisions.set(value.id, structuredClone(value)); }
   async findDecision(id: string): Promise<DecisionProposal | undefined> { return this.clone(this.decisions.get(id)); }
@@ -305,6 +313,32 @@ export class InMemoryInvestmentOsRepository implements InvestmentOsRepository {
     this.outbox.set(outbox.id, structuredClone(outbox));
   }
   async findModelValidation(id: string): Promise<ModelValidationResultV1 | undefined> { return this.clone(this.modelValidationsV1.get(id)); }
+  async saveAgentRunWithOutbox(value: AgentRunV1, audit: AuditRecord, outbox: OutboxRecord): Promise<void> {
+    if (this.agentRunsV1.has(value.id)) throw new Error("Agent Run already exists");
+    const existing = await this.findAgentRunByIdempotencyKey(value.userId, value.request.idempotencyKey);
+    if (existing) {
+      if (existing.request.id !== value.request.id || existing.manifest.manifestHash !== value.manifest.manifestHash) throw new Error("Agent Run idempotency conflict");
+      throw new Error("Agent Run already exists for idempotency key");
+    }
+    this.agentRunsV1.set(value.id, structuredClone(value));
+    this.audit.push(structuredClone(audit));
+    this.outbox.set(outbox.id, structuredClone(outbox));
+  }
+  async updateAgentRunWithOutbox(value: AgentRunV1, audit: AuditRecord, outbox: OutboxRecord): Promise<void> {
+    const existing = this.agentRunsV1.get(value.id);
+    if (!existing) throw new Error("Agent Run not found");
+    if (["SUCCEEDED", "PARTIAL", "BLOCKED", "FAILED", "TIMED_OUT", "CANCELLED"].includes(existing.status)) throw new Error("Terminal Agent Run is immutable");
+    if (existing.userId !== value.userId || existing.manifest.manifestHash !== value.manifest.manifestHash || existing.request.id !== value.request.id) throw new Error("Agent Run lineage or ownership conflict");
+    this.agentRunsV1.set(value.id, structuredClone(value));
+    if (value.validation) this.agentValidationsV1.set(value.validation.id, structuredClone(value.validation));
+    this.audit.push(structuredClone(audit));
+    this.outbox.set(outbox.id, structuredClone(outbox));
+  }
+  async findAgentRun(id: string): Promise<AgentRunV1 | undefined> { return this.clone(this.agentRunsV1.get(id)); }
+  async findAgentRunByIdempotencyKey(userId: string, key: string): Promise<AgentRunV1 | undefined> {
+    return this.clone([...this.agentRunsV1.values()].find((run) => run.userId === userId && run.request.idempotencyKey === key));
+  }
+  async findAgentValidation(id: string): Promise<AgentValidationResultV1 | undefined> { return this.clone(this.agentValidationsV1.get(id)); }
   async listPendingOutbox(): Promise<OutboxRecord[]> {
     return this.values(this.outbox).filter((record) => record.status === "PENDING");
   }

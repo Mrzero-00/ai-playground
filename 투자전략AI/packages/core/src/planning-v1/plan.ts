@@ -1,4 +1,5 @@
 import { planningStableHash } from "./hash.js";
+import { evaluateRoadmapGateV1 } from "./gate.js";
 import type { ReadinessLevelV1, RoadmapMilestoneInputV1, RoadmapPlanInputV1, RoadmapPlanV1 } from "./types.js";
 
 const READINESS: ReadinessLevelV1[] = ["R0", "R1", "R2", "R3", "R4", "R5", "R6"];
@@ -11,10 +12,18 @@ export function validateRoadmapPlanV1(input: RoadmapPlanInputV1): RoadmapPlanV1 
   if (input.milestones.length === 0) throw new Error("Roadmap plan requires at least one milestone");
   requireUnique(input.milestones.map((item) => item.id), "Roadmap milestone ids");
   requireUnique(input.gates.map((item) => item.id), "Roadmap gate ids");
-  if (input.gates.some((gate) => gate.userId !== input.userId)) throw new Error("Roadmap gate ownership mismatch");
+  const planTime = Date.parse(input.asOf);
+  const gates = input.gates.map((gate) => {
+    if (gate.userId !== input.userId) throw new Error("Roadmap gate ownership mismatch");
+    if (Date.parse(gate.evaluatedAt) > planTime) throw new Error(`Roadmap gate ${gate.id} was evaluated after plan asOf`);
+    const { status: _status, blockerCodes: _blockerCodes, resultHash: _resultHash, ...raw } = gate;
+    const evaluated = evaluateRoadmapGateV1(raw);
+    if (evaluated.resultHash !== gate.resultHash || evaluated.status !== gate.status) throw new Error(`Roadmap gate ${gate.id} integrity conflict`);
+    return evaluated;
+  });
 
   const milestoneById = new Map(input.milestones.map((item) => [item.id, item]));
-  const gateById = new Map(input.gates.map((item) => [item.id, item]));
+  const gateById = new Map(gates.map((item) => [item.id, item]));
   const milestones = input.milestones.map((milestone) => validateMilestone(milestone, milestoneById, gateById));
   assertAcyclic(milestones);
 
@@ -33,10 +42,10 @@ export function validateRoadmapPlanV1(input: RoadmapPlanInputV1): RoadmapPlanV1 
   const achieved = active.filter((item) => item.status === "READY" || item.status === "RELEASED");
   const readiness = achieved.length === 0 ? "R0" : READINESS[Math.max(...achieved.map((item) => READINESS.indexOf(item.readinessTarget)))]!;
   const blockerCodes = [...new Set([
-    ...input.gates.flatMap((gate) => gate.blockerCodes),
+    ...gates.flatMap((gate) => gate.blockerCodes),
     ...milestones.filter((item) => item.status === "BLOCKED").map((item) => `MILESTONE_BLOCKED:${item.id}`),
   ])].sort();
-  const canonical = { ...input, milestones: [...milestones].sort((a, b) => a.id.localeCompare(b.id)), gates: [...input.gates].sort((a, b) => a.id.localeCompare(b.id)), readiness, blockerCodes };
+  const canonical = { ...input, milestones: [...milestones].sort((a, b) => a.id.localeCompare(b.id)), gates: [...gates].sort((a, b) => a.id.localeCompare(b.id)), readiness, blockerCodes };
   return { ...canonical, resultHash: planningStableHash(canonical) };
 }
 

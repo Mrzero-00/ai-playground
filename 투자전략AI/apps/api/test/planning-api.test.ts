@@ -1,6 +1,7 @@
 import assert from "node:assert/strict";
 import { once } from "node:events";
 import test from "node:test";
+import { evaluateRoadmapGateV1 } from "@investment-os/core";
 import { server } from "../src/index.js";
 
 test("Roadmap API persists an immutable plan, release evidence and deterministic replay", async (context) => {
@@ -59,10 +60,14 @@ test("Roadmap API rejects a released milestone when a required gate failed", asy
   context.after(() => server.close());
   const address = server.address();
   if (!address || typeof address === "string") throw new Error("server address unavailable");
+  const failedGate = evaluateRoadmapGateV1({
+    id: "failed-gate", userId: "blocked-user", name: "Failed", environment: "CI", evaluatedAt: "2026-07-22T01:00:00Z",
+    checks: [{ id: "ci", category: "QUALITY", required: true, waivable: false, status: "FAILED", evidenceRefs: [], evaluatedAt: "2026-07-22T00:30:00Z", evaluatorId: "ci", blockerCode: "CI_RED" }],
+  });
   const response = await fetch(`http://127.0.0.1:${address.port}/api/v1/roadmap/plans/validate`, {
     method: "POST", headers: { "content-type": "application/json", "idempotency-key": "blocked-plan-api-1" }, body: JSON.stringify({
       id: "blocked-plan-api", userId: "blocked-user", version: 1, asOf: "2026-07-22T02:00:00Z",
-      gates: [{ id: "failed-gate", userId: "blocked-user", name: "Failed", environment: "CI", evaluatedAt: "2026-07-22T01:00:00Z", status: "FAILED", blockerCodes: ["CI_RED"], resultHash: "a".repeat(64), checks: [] }],
+      gates: [failedGate],
       milestones: [{ id: "blocked", version: 1, title: "Blocked", readinessTarget: "R1", status: "RELEASED", dependencyIds: [], requiredGateIds: ["failed-gate"], ownerIds: ["engineering"], scopeRefs: ["docs/12"] }],
     }),
   });

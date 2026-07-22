@@ -656,6 +656,13 @@ Roadmap 수정은 과거 결과를 덮어쓰지 않고 Revision과 변경 사유
 - Roadmap Plan·Revision·Gate·Evidence·Replay API와 Audit/Transactional Outbox
 - `012_roadmap_planning_v1.sql` Plan·Gate·Check·Milestone·Dependency·Evidence·Replay Schema, RLS, Index, 불변 Trigger
 
+### 구현 품질 리뷰 반영
+
+- API가 받은 Gate의 상태·Blocker·Result Hash를 서버가 원본 Check에서 다시 계산해 위조된 `PASSED`를 거부한다.
+- Plan `asOf` 이후 평가된 Gate와 Gate 이후 평가된 Check를 Point-in-time 위반으로 차단한다.
+- Release Evidence는 `READY/RELEASED` Milestone에만 연결하고 모든 Required Gate 포함·통과를 재검증한다.
+- Database Trigger가 Cross-plan Dependency, Dependency Cycle, Cross-plan Evidence와 미통과 Gate 직접 삽입을 차단한다.
+
 외부 연결 없이는 완료할 수 없는 범위:
 
 - Preview Supabase 실제 Migration/RLS E2E

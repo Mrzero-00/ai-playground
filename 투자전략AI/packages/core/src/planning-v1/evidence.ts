@@ -3,10 +3,14 @@ import type { ReleaseEvidenceBundleInputV1, ReleaseEvidenceBundleV1, RoadmapPlan
 
 export function createReleaseEvidenceBundleV1(input: ReleaseEvidenceBundleInputV1, plan: RoadmapPlanV1): ReleaseEvidenceBundleV1 {
   if (input.userId !== plan.userId || input.planId !== plan.id) throw new Error("Release evidence ownership or plan mismatch");
-  if (!plan.milestones.some((item) => item.id === input.milestoneId)) throw new Error("Release evidence milestone does not exist");
+  const milestone = plan.milestones.find((item) => item.id === input.milestoneId);
+  if (!milestone) throw new Error("Release evidence milestone does not exist");
+  if (milestone.status !== "READY" && milestone.status !== "RELEASED") throw new Error("Release evidence milestone is not ready");
   if (!/^[0-9a-f]{7,64}$/i.test(input.commitSha)) throw new Error("Release evidence commitSha is invalid");
   if (!Number.isInteger(input.openCriticalRiskCount) || input.openCriticalRiskCount < 0) throw new Error("openCriticalRiskCount must be a non-negative integer");
-  if (!Number.isFinite(Date.parse(input.createdAt))) throw new Error("Release evidence createdAt must be a valid timestamp");
+  const createdAt = Date.parse(input.createdAt);
+  if (!Number.isFinite(createdAt)) throw new Error("Release evidence createdAt must be a valid timestamp");
+  if (createdAt < Date.parse(plan.asOf)) throw new Error("Release evidence cannot predate the plan");
   const groups: Array<[string, string[]]> = [
     ["BUILD", input.buildArtifactRefs], ["CONTRACT", input.contractRefs], ["TEST", input.testEvidenceRefs],
     ["MIGRATION", input.migrationEvidenceRefs], ["SECURITY", input.securityEvidenceRefs], ["OPERATIONS", input.operationsEvidenceRefs], ["GATE", input.gateIds],
@@ -17,6 +21,8 @@ export function createReleaseEvidenceBundleV1(input: ReleaseEvidenceBundleInputV
   if (unknownGate) throw new Error(`Release evidence gate ${unknownGate} does not exist`);
   const failedGate = input.gateIds.find((id) => plan.gates.find((gate) => gate.id === id)?.status !== "PASSED");
   if (failedGate) missingEvidenceGroups.push(`GATE_NOT_PASSED:${failedGate}`);
+  const omittedGate = milestone.requiredGateIds.find((id) => !input.gateIds.includes(id));
+  if (omittedGate) missingEvidenceGroups.push(`REQUIRED_GATE_MISSING:${omittedGate}`);
   const canonical = {
     ...input,
     buildArtifactRefs: sorted(input.buildArtifactRefs), contractRefs: sorted(input.contractRefs), testEvidenceRefs: sorted(input.testEvidenceRefs),

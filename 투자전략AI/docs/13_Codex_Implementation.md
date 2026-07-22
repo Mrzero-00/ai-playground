@@ -114,6 +114,7 @@
 - R0~R6 Readiness, Milestone Dependency DAG, 필수 Gate와 Waiver 만료를 검증하는 Planning v1
 - Build·Contract·Test·Migration·Security·Operations 증거와 Critical Risk를 Fail-closed하는 Release Evidence Bundle
 - Roadmap Plan 불변 Revision·Replay·Stable Hash, API·Audit·Transactional Outbox
+- Gate Result 재계산, Plan/Check Point-in-time, Cross-plan Dependency/Evidence를 차단하는 Planning 품질 경계
 - Supabase `012_roadmap_planning_v1.sql` Plan·Gate·Check·Milestone·Dependency·Evidence·Replay Schema와 RLS
 
 ## 런타임 경계

@@ -62,6 +62,12 @@ test("roadmap plan validates dependencies, required gates and stable hash", () =
   assert.equal(first.readiness, "R1");
   assert.equal(first.resultHash, second.resultHash);
   assert.throws(() => validateRoadmapPlanV1({ ...planInput(), milestones: [{ ...planInput().milestones[0]!, dependencyIds: ["missing"] }] }), /does not exist/);
+  const forged = planInput();
+  forged.gates[0] = { ...forged.gates[0]!, status: "FAILED" };
+  assert.throws(() => validateRoadmapPlanV1(forged), /integrity conflict/);
+  const futureGate = planInput();
+  futureGate.gates[0] = evaluateRoadmapGateV1({ id: "gate-ci", userId: "user-1", name: "future", environment: "CI", evaluatedAt: "2026-07-23T01:00:00Z", checks: [check({ evaluatedAt: "2026-07-23T00:00:00Z" })] });
+  assert.throws(() => validateRoadmapPlanV1(futureGate), /after plan asOf/);
 });
 
 test("dependency cycles and premature release are rejected", () => {
@@ -94,6 +100,9 @@ test("release evidence is ready only with all evidence groups, passed gates and 
   const blocked = createReleaseEvidenceBundleV1({ ...base, id: "bundle-2", operationsEvidenceRefs: [], openCriticalRiskCount: 1 }, plan);
   assert.equal(blocked.status, "BLOCKED");
   assert.deepEqual(blocked.missingEvidenceGroups, ["CRITICAL_RISK_CLEARANCE", "OPERATIONS"]);
+  assert.throws(() => createReleaseEvidenceBundleV1({ ...base, milestoneId: "preview" }, plan), /not ready/);
+  const omitted = createReleaseEvidenceBundleV1({ ...base, id: "bundle-3", gateIds: [] }, plan);
+  assert.ok(omitted.missingEvidenceGroups.includes("REQUIRED_GATE_MISSING:gate-ci"));
 });
 
 test("roadmap replay recomputes the frozen result hash", () => {

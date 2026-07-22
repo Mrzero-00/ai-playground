@@ -120,7 +120,11 @@ create table public.release_evidence_bundles (
   unique (id, user_id),
   foreign key (plan_id, user_id) references public.roadmap_plans(id, user_id),
   foreign key (milestone_id, user_id) references public.roadmap_milestones(id, user_id),
-  check ((status = 'READY' and cardinality(missing_evidence_groups) = 0 and open_critical_risk_count = 0)
+  check ((status = 'READY' and cardinality(missing_evidence_groups) = 0 and open_critical_risk_count = 0
+      and cardinality(build_artifact_refs) > 0 and cardinality(contract_refs) > 0
+      and cardinality(test_evidence_refs) > 0 and cardinality(migration_evidence_refs) > 0
+      and cardinality(security_evidence_refs) > 0 and cardinality(operations_evidence_refs) > 0
+      and cardinality(gate_keys) > 0)
     or (status = 'BLOCKED' and cardinality(missing_evidence_groups) > 0))
 );
 
@@ -158,6 +162,82 @@ $$;
 
 create trigger roadmap_plan_revision before insert on public.roadmap_plans
 for each row execute function public.validate_roadmap_plan_revision();
+
+create or replace function public.validate_roadmap_gate_boundary()
+returns trigger language plpgsql as $$
+declare plan_as_of timestamptz;
+begin
+  select as_of into plan_as_of from public.roadmap_plans where id = new.plan_id and user_id = new.user_id;
+  if plan_as_of is null then raise exception 'roadmap gate parent plan not found'; end if;
+  if new.evaluated_at > plan_as_of then raise exception 'roadmap gate evaluated after plan as_of'; end if;
+  return new;
+end;
+$$;
+
+create trigger roadmap_gate_boundary before insert on public.roadmap_gates
+for each row execute function public.validate_roadmap_gate_boundary();
+
+create or replace function public.validate_roadmap_check_boundary()
+returns trigger language plpgsql as $$
+declare gate_evaluated_at timestamptz;
+begin
+  select evaluated_at into gate_evaluated_at from public.roadmap_gates where id = new.gate_id and user_id = new.user_id;
+  if gate_evaluated_at is null then raise exception 'roadmap check parent gate not found'; end if;
+  if new.evaluated_at > gate_evaluated_at then raise exception 'roadmap check evaluated after parent gate'; end if;
+  return new;
+end;
+$$;
+
+create trigger roadmap_check_boundary before insert on public.roadmap_gate_checks
+for each row execute function public.validate_roadmap_check_boundary();
+
+create or replace function public.validate_roadmap_dependency()
+returns trigger language plpgsql as $$
+declare milestone_plan uuid;
+declare dependency_plan uuid;
+declare creates_cycle boolean;
+begin
+  select plan_id into milestone_plan from public.roadmap_milestones where id = new.milestone_id and user_id = new.user_id;
+  select plan_id into dependency_plan from public.roadmap_milestones where id = new.dependency_milestone_id and user_id = new.user_id;
+  if milestone_plan is null or dependency_plan is null or milestone_plan <> new.plan_id or dependency_plan <> new.plan_id then
+    raise exception 'roadmap dependency crosses plan boundary';
+  end if;
+  with recursive ancestors(id) as (
+    select dependency_milestone_id from public.roadmap_milestone_dependencies where milestone_id = new.dependency_milestone_id
+    union
+    select d.dependency_milestone_id from public.roadmap_milestone_dependencies d join ancestors a on d.milestone_id = a.id
+  ) select exists(select 1 from ancestors where id = new.milestone_id) into creates_cycle;
+  if creates_cycle then raise exception 'roadmap dependency cycle detected'; end if;
+  return new;
+end;
+$$;
+
+create trigger roadmap_dependency_boundary before insert on public.roadmap_milestone_dependencies
+for each row execute function public.validate_roadmap_dependency();
+
+create or replace function public.validate_release_evidence_boundary()
+returns trigger language plpgsql as $$
+declare milestone_record public.roadmap_milestones%rowtype;
+declare plan_as_of timestamptz;
+declare matched_gate_count integer;
+begin
+  select * into milestone_record from public.roadmap_milestones where id = new.milestone_id and user_id = new.user_id;
+  select as_of into plan_as_of from public.roadmap_plans where id = new.plan_id and user_id = new.user_id;
+  if milestone_record.id is null or plan_as_of is null or milestone_record.plan_id <> new.plan_id then
+    raise exception 'release evidence crosses roadmap plan boundary';
+  end if;
+  if milestone_record.status not in ('READY', 'RELEASED') then raise exception 'release evidence milestone is not ready'; end if;
+  if new.created_at < plan_as_of then raise exception 'release evidence predates roadmap plan'; end if;
+  if not (milestone_record.required_gate_keys <@ new.gate_keys) then raise exception 'release evidence omits required gate'; end if;
+  select count(distinct gate_key) into matched_gate_count from public.roadmap_gates
+    where plan_id = new.plan_id and user_id = new.user_id and gate_key = any(new.gate_keys) and status = 'PASSED';
+  if matched_gate_count <> cardinality(new.gate_keys) then raise exception 'release evidence gate is missing, duplicated, or not passed'; end if;
+  return new;
+end;
+$$;
+
+create trigger release_evidence_boundary before insert on public.release_evidence_bundles
+for each row execute function public.validate_release_evidence_boundary();
 
 create index roadmap_plans_user_as_of on public.roadmap_plans(user_id, as_of desc);
 create index roadmap_gates_plan_status on public.roadmap_gates(user_id, plan_id, status);

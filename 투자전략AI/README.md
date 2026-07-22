@@ -40,6 +40,7 @@ See docs/ for detailed specifications.
 - [AI Agents](docs/07_AI_Agents.md)
 - [Database](docs/08_Database.md)
 - [Scoring System](docs/09_Scoring_System.md)
+- [Report System](docs/10_Report_System.md)
 
 ## 시작하기
 

@@ -57,6 +57,11 @@ export function minDecimal(...values: DecimalString[]): DecimalString {
   return values.reduce((minimum, value) => compareDecimal(value, minimum) < 0 ? value : minimum);
 }
 
+export function maxDecimal(...values: DecimalString[]): DecimalString {
+  if (values.length === 0) throw new Error("maxDecimal requires a value");
+  return values.reduce((maximum, value) => compareDecimal(value, maximum) > 0 ? value : maximum);
+}
+
 export function multiplyDecimalByRatio(value: DecimalString, ratio: number): DecimalString {
   if (!Number.isFinite(ratio) || ratio < 0 || ratio > 1) throw new RangeError("ratio must be between 0 and 1");
   const valueParts = parse(value);
@@ -65,6 +70,24 @@ export function multiplyDecimalByRatio(value: DecimalString, ratio: number): Dec
     coefficient: valueParts.coefficient * ratioParts.coefficient,
     scale: valueParts.scale + ratioParts.scale,
   });
+}
+
+export function multiplyDecimal(left: DecimalString, right: DecimalString): DecimalString {
+  const a = parse(left);
+  const b = parse(right);
+  return format({ coefficient: a.coefficient * b.coefficient, scale: a.scale + b.scale });
+}
+
+export function divideDecimalFloor(numerator: DecimalString, denominator: DecimalString, decimalPlaces = 0): DecimalString {
+  if (!Number.isInteger(decimalPlaces) || decimalPlaces < 0 || decimalPlaces > 18) {
+    throw new RangeError("decimalPlaces must be an integer between 0 and 18");
+  }
+  const a = parse(numerator);
+  const b = parse(denominator);
+  if (b.coefficient === 0n) throw new RangeError("denominator must be positive");
+  const scaledNumerator = a.coefficient * 10n ** BigInt(b.scale + decimalPlaces);
+  const scaledDenominator = b.coefficient * 10n ** BigInt(a.scale);
+  return format({ coefficient: scaledNumerator / scaledDenominator, scale: decimalPlaces });
 }
 
 export function decimalRatio(numerator: DecimalString, denominator: DecimalString): number {

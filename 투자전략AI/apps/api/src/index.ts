@@ -4,6 +4,9 @@ import { pathToFileURL } from "node:url";
 import {
   allocateCapital,
   allocateCapitalDecimal,
+  allocateNewCapitalV1,
+  assessPortfolioRebalanceV1,
+  buildPortfolioLedger,
   assessDecisionReview,
   attributePerformance,
   composeDecision,
@@ -25,10 +28,13 @@ import {
   InMemoryInvestmentOsRepository,
   OutboxPublisher,
   proposeAllocation,
+  proposeAllocationV1,
   requestDecisionModification,
   resolveManualRiskReview,
   replayLongTermEvaluation,
   replayMomentumEvaluation,
+  replayAllocationV1,
+  runPortfolioStressTestV1,
   runMomentumScan,
   validateEvidence,
   validateEvaluationEvidence,
@@ -37,7 +43,9 @@ import {
   validateMomentumTradePlanV1,
   classifyMomentumPrice,
   validatePhilosophyPolicy,
+  validatePortfolioPolicyV1,
   DecisionWorkflow,
+  decimalRatio,
   type AllocationProposal,
   type RiskDecision,
   type LongTermEvaluationInput,
@@ -46,6 +54,11 @@ import {
   type MomentumEvaluationResultV1,
   type MomentumScanInput,
   type MomentumTradePlanV1,
+  type AllocationRequestV1,
+  type CapitalAllocationBatchInputV1,
+  type PortfolioRebalanceInputV1,
+  type PortfolioPolicyV1,
+  type PortfolioStressScenarioV1,
 } from "@investment-os/core";
 
 const port = Number(process.env.PORT ?? 4000);
@@ -230,6 +243,66 @@ export const server = createServer(async (request, response) => {
         requestId,
         error: { code: "MOMENTUM_PLAN_NOT_FOUND", message: "Momentum trade plan not found", retryable: false },
       });
+    }
+    if (request.method === "GET" && path.startsWith("/api/allocations/proposals/")) {
+      const id = decodeURIComponent(path.slice("/api/allocations/proposals/".length));
+      const proposal = await repository.findPortfolioProposal(id);
+      return proposal ? json(response, 200, proposal) : json(response, 404, {
+        requestId,
+        error: { code: "ALLOCATION_PROPOSAL_NOT_FOUND", message: "allocation proposal not found", retryable: false },
+      });
+    }
+    if (request.method === "GET" && path.startsWith("/api/portfolio/stress-results/")) {
+      const id = decodeURIComponent(path.slice("/api/portfolio/stress-results/".length));
+      const result = await repository.findPortfolioStress(id);
+      return result ? json(response, 200, result) : json(response, 404, {
+        requestId,
+        error: { code: "PORTFOLIO_STRESS_NOT_FOUND", message: "Portfolio stress result not found", retryable: false },
+      });
+    }
+    if (request.method === "GET" && path.startsWith("/api/allocations/new-capital/")) {
+      const id = decodeURIComponent(path.slice("/api/allocations/new-capital/".length));
+      const decision = await repository.findCapitalAllocation(id);
+      return decision ? json(response, 200, decision) : json(response, 404, {
+        requestId,
+        error: { code: "CAPITAL_ALLOCATION_NOT_FOUND", message: "Capital allocation decision not found", retryable: false },
+      });
+    }
+    if (request.method === "GET" && path.startsWith("/api/portfolio/rebalance-reviews/")) {
+      const id = decodeURIComponent(path.slice("/api/portfolio/rebalance-reviews/".length));
+      const review = await repository.findPortfolioRebalance(id);
+      return review ? json(response, 200, review) : json(response, 404, {
+        requestId,
+        error: { code: "PORTFOLIO_REBALANCE_NOT_FOUND", message: "Portfolio rebalance review not found", retryable: false },
+      });
+    }
+    const portfolioExposure = request.method === "GET" ? path.match(/^\/api\/portfolios\/([^/]+)\/exposures$/) : null;
+    if (portfolioExposure) {
+      const portfolioId = decodeURIComponent(portfolioExposure[1] ?? "");
+      const snapshot = await repository.findLatestPortfolioSnapshot(portfolioId);
+      if (!snapshot) return json(response, 404, { requestId, error: { code: "PORTFOLIO_NOT_FOUND", message: "Portfolio snapshot not found", retryable: false } });
+      const ledger = buildPortfolioLedger(snapshot);
+      return json(response, 200, { portfolioId, portfolioSnapshotId: snapshot.id, asOf: snapshot.asOf, exposures: ledger.exposures, weights: ledger.weights });
+    }
+    const portfolioOpenRisk = request.method === "GET" ? path.match(/^\/api\/portfolios\/([^/]+)\/open-risk$/) : null;
+    if (portfolioOpenRisk) {
+      const portfolioId = decodeURIComponent(portfolioOpenRisk[1] ?? "");
+      const snapshot = await repository.findLatestPortfolioSnapshot(portfolioId);
+      if (!snapshot) return json(response, 404, { requestId, error: { code: "PORTFOLIO_NOT_FOUND", message: "Portfolio snapshot not found", retryable: false } });
+      const ledger = buildPortfolioLedger(snapshot);
+      return json(response, 200, {
+        portfolioId, portfolioSnapshotId: snapshot.id, asOf: snapshot.asOf,
+        momentumOpenRiskBase: ledger.momentumOpenRiskBase,
+        portfolioValueBase: ledger.investableNavBase,
+        openRiskWeight: decimalRatio(ledger.momentumOpenRiskBase, ledger.investableNavBase),
+      });
+    }
+    const portfolioView = request.method === "GET" ? path.match(/^\/api\/portfolios\/([^/]+)$/) : null;
+    if (portfolioView) {
+      const portfolioId = decodeURIComponent(portfolioView[1] ?? "");
+      const snapshot = await repository.findLatestPortfolioSnapshot(portfolioId);
+      if (!snapshot) return json(response, 404, { requestId, error: { code: "PORTFOLIO_NOT_FOUND", message: "Portfolio snapshot not found", retryable: false } });
+      return json(response, 200, { snapshot, ledger: buildPortfolioLedger(snapshot) });
     }
     if (request.method !== "POST") return json(response, 404, { error: "not_found" });
 
@@ -430,6 +503,123 @@ export const server = createServer(async (request, response) => {
       const input = body as { capital: string; currency: string };
       return json(response, 200, allocateCapitalDecimal(input.capital, input.currency));
     }
+    if (path === "/api/portfolio/policies/validate") {
+      return json(response, 200, validatePortfolioPolicyV1(body as PortfolioPolicyV1));
+    }
+    if (path === "/api/allocations/proposals") {
+      return idempotentJson(request, response, path, body, async () => {
+        const input = body as AllocationRequestV1;
+        const proposal = proposeAllocationV1(input);
+        const eventType = proposal.status === "REDUCED" ? "AllocationProposalReduced"
+          : proposal.status === "REJECTED" ? "AllocationProposalRejected" : "AllocationProposalCreated";
+        const event = createDomainEvent({
+          id: randomUUID(), type: eventType, occurredAt: proposal.generatedAt,
+          aggregateId: proposal.id, correlationId, schemaVersion: "1",
+          payload: {
+            proposalId: proposal.id, portfolioId: proposal.portfolioId, companyId: proposal.companyId,
+            strategy: proposal.strategy, lotStrategy: proposal.lotStrategy, status: proposal.status,
+            requestedAmount: proposal.requestedAmount, approvedAmount: proposal.approvedAmount,
+            constraintsTriggered: proposal.constraintsTriggered, policyVersionId: proposal.policyVersionId,
+            expiresAt: proposal.expiresAt,
+          },
+        });
+        const audit = createAuditRecord({
+          id: randomUUID(), occurredAt: proposal.generatedAt, actorId: "portfolio-engine-v1",
+          action: "PORTFOLIO_PROPOSAL_CREATED", entityType: "AllocationProposalV1", entityId: proposal.id,
+          reason: `Portfolio proposal ${proposal.status.toLowerCase()}`, after: proposal,
+          metadata: {
+            portfolioId: proposal.portfolioId, policyVersionId: proposal.policyVersionId,
+            portfolioSnapshotId: proposal.portfolioSnapshotId, resultHash: proposal.resultHash, correlationId,
+          },
+        });
+        await repository.savePortfolioProposalWithOutbox(proposal, input.portfolioSnapshot, audit, createOutboxRecord(event));
+        return { status: 201, body: proposal };
+      });
+    }
+    if (path === "/api/allocations/replays") {
+      return idempotentJson(request, response, path, body, async () => ({ status: 200, body: replayAllocationV1(body as AllocationRequestV1) }));
+    }
+    if (path === "/api/allocations/new-capital") {
+      return idempotentJson(request, response, path, body, async () => {
+        const input = body as CapitalAllocationBatchInputV1;
+        const decision = allocateNewCapitalV1(input);
+        const event = createDomainEvent({
+          id: randomUUID(), type: "CapitalAllocationDecisionCreated", occurredAt: decision.generatedAt,
+          aggregateId: decision.id, correlationId, schemaVersion: "1",
+          payload: {
+            decisionId: decision.id, portfolioId: decision.portfolioId,
+            availableAmount: decision.availableAmount, cashRetained: decision.cashRetained,
+            proposalIds: decision.proposals.map((proposal) => proposal.id),
+            policyVersionId: decision.policyVersionId, resultHash: decision.resultHash,
+          },
+        });
+        const audit = createAuditRecord({
+          id: randomUUID(), occurredAt: decision.generatedAt, actorId: "portfolio-engine-v1",
+          action: "PORTFOLIO_CAPITAL_ALLOCATED", entityType: "CapitalAllocationDecisionV1", entityId: decision.id,
+          reason: decision.finalRecommendation, after: decision,
+          metadata: { portfolioId: decision.portfolioId, policyVersionId: decision.policyVersionId, portfolioSnapshotId: decision.portfolioSnapshotId, resultHash: decision.resultHash, correlationId },
+        });
+        await repository.saveCapitalAllocationWithOutbox(decision, input.requests[0]!.portfolioSnapshot, audit, createOutboxRecord(event));
+        return { status: 201, body: decision };
+      });
+    }
+    const portfolioRebalance = path.match(/^\/api\/portfolios\/([^/]+)\/rebalance$/);
+    if (portfolioRebalance) {
+      return idempotentJson(request, response, path, body, async () => {
+        const input = body as PortfolioRebalanceInputV1;
+        const portfolioId = decodeURIComponent(portfolioRebalance[1] ?? "");
+        if (input.portfolioId !== portfolioId || input.snapshot.portfolioId !== portfolioId) throw new Error("Portfolio rebalance path and body do not match");
+        const review = assessPortfolioRebalanceV1(input);
+        const event = createDomainEvent({
+          id: randomUUID(), type: review.requiresManualReview ? "PortfolioReviewRequired" : "PortfolioRebalanceReviewed",
+          occurredAt: review.generatedAt, aggregateId: review.id, correlationId, schemaVersion: "1",
+          payload: {
+            reviewId: review.id, portfolioId, trigger: review.trigger,
+            requiresManualReview: review.requiresManualReview,
+            reasonCodes: review.actions.map((action) => action.reasonCode), resultHash: review.resultHash,
+          },
+        });
+        const audit = createAuditRecord({
+          id: randomUUID(), occurredAt: review.generatedAt, actorId: "portfolio-engine-v1",
+          action: "PORTFOLIO_REBALANCE_REVIEWED", entityType: "PortfolioRebalanceReviewV1", entityId: review.id,
+          reason: review.summary, after: review,
+          metadata: { portfolioId, policyVersionId: review.policyVersionId, portfolioSnapshotId: review.portfolioSnapshotId, resultHash: review.resultHash, correlationId },
+        });
+        await repository.savePortfolioRebalanceWithOutbox(review, input.snapshot, audit, createOutboxRecord(event));
+        return { status: 201, body: review };
+      });
+    }
+    const portfolioStress = path.match(/^\/api\/portfolios\/([^/]+)\/stress-tests$/);
+    if (portfolioStress) {
+      return idempotentJson(request, response, path, body, async () => {
+        const input = body as {
+          id: string;
+          snapshot: AllocationRequestV1["portfolioSnapshot"];
+          scenario: PortfolioStressScenarioV1;
+          evaluatedAt: string;
+        };
+        const portfolioId = decodeURIComponent(portfolioStress[1] ?? "");
+        if (input.snapshot.portfolioId !== portfolioId) throw new Error("Portfolio stress path and snapshot do not match");
+        const result = runPortfolioStressTestV1(input);
+        const event = createDomainEvent({
+          id: randomUUID(), type: "PortfolioStressCompleted", occurredAt: result.evaluatedAt,
+          aggregateId: result.id, correlationId, schemaVersion: "1",
+          payload: {
+            stressResultId: result.id, portfolioId, scenarioId: result.scenarioId,
+            estimatedLossPercent: result.estimatedLossPercent, breachedLimitIds: result.breachedLimitIds,
+            forcedSaleRisk: result.forcedSaleRisk,
+          },
+        });
+        const audit = createAuditRecord({
+          id: randomUUID(), occurredAt: result.evaluatedAt, actorId: "portfolio-engine-v1",
+          action: "PORTFOLIO_STRESS_COMPLETED", entityType: "PortfolioStressResult", entityId: result.id,
+          reason: `Portfolio stress scenario ${result.scenarioId} completed`, after: result,
+          metadata: { portfolioId, scenarioVersion: result.scenarioVersion, resultHash: result.resultHash, correlationId },
+        });
+        await repository.savePortfolioStressWithOutbox(result, audit, createOutboxRecord(event));
+        return { status: 201, body: result };
+      });
+    }
     if (path === "/api/philosophy/policies/validate") {
       return json(response, 200, validatePhilosophyPolicy(body as Parameters<typeof validatePhilosophyPolicy>[0]));
     }
@@ -552,6 +742,11 @@ export const server = createServer(async (request, response) => {
 
 function mapApiError(message: string): { status: number; code: string; retryable: boolean } {
   if (/already exists|immutable/i.test(message)) return { status: 409, code: "EVALUATION_ALREADY_EXISTS", retryable: false };
+  if (/Portfolio ownership/i.test(message)) return { status: 403, code: "PORTFOLIO_OWNERSHIP_MISMATCH", retryable: false };
+  if (/Portfolio snapshot id already exists|snapshot.*conflict/i.test(message)) return { status: 409, code: "PORTFOLIO_SNAPSHOT_CONFLICT", retryable: false };
+  if (/Portfolio snapshot is incomplete|market snapshots|active stop|FX rate|marketValueBase|amountBase/i.test(message)) return { status: 422, code: "PORTFOLIO_SNAPSHOT_INCOMPLETE", retryable: false };
+  if (/Allocation proposal must expire|proposal.*expired/i.test(message)) return { status: 410, code: "ALLOCATION_PROPOSAL_EXPIRED", retryable: false };
+  if (/Portfolio policy|targets plus common reserve|hard max|risk limits/i.test(message)) return { status: 409, code: "POLICY_VERSION_CONFLICT", retryable: false };
   if (/Momentum trade plan not found|superseded Momentum trade plan not found/i.test(message)) return { status: 404, code: "MOMENTUM_PLAN_NOT_FOUND", retryable: false };
   if (/market regime permission|trade plan model|model or setup version/i.test(message)) return { status: 409, code: "MODEL_VERSION_CONFLICT", retryable: false };
   if (/policy version|POLICY_VERSION/i.test(message)) return { status: 409, code: "POLICY_VERSION_CONFLICT", retryable: false };

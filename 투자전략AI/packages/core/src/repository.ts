@@ -6,6 +6,13 @@ import type { PositionLot } from "./position-lot.js";
 import type { DataSnapshot } from "./snapshot.js";
 import type { LongTermEvaluationResult } from "./long-term-v1/types.js";
 import type { MomentumEvaluationResultV1, MomentumScanResult, MomentumTradePlanV1 } from "./momentum-v1/types.js";
+import type {
+  AllocationProposalV1,
+  CapitalAllocationDecisionV1,
+  PortfolioRebalanceReviewV1,
+  PortfolioSnapshotV1,
+  PortfolioStressResultV1,
+} from "./portfolio-v1/types.js";
 
 export interface InvestmentOsRepository {
   saveDecision(value: DecisionProposal): Promise<void>;
@@ -35,6 +42,15 @@ export interface InvestmentOsRepository {
   findMomentumTradePlan(id: string): Promise<MomentumTradePlanV1 | undefined>;
   saveMomentumScanWithOutbox(value: MomentumScanResult, audit: AuditRecord, outbox: OutboxRecord): Promise<void>;
   findMomentumScan(id: string): Promise<MomentumScanResult | undefined>;
+  savePortfolioProposalWithOutbox(value: AllocationProposalV1, snapshot: PortfolioSnapshotV1, audit: AuditRecord, outbox: OutboxRecord): Promise<void>;
+  findPortfolioProposal(id: string): Promise<AllocationProposalV1 | undefined>;
+  findLatestPortfolioSnapshot(portfolioId: string): Promise<PortfolioSnapshotV1 | undefined>;
+  savePortfolioStressWithOutbox(value: PortfolioStressResultV1, audit: AuditRecord, outbox: OutboxRecord): Promise<void>;
+  findPortfolioStress(id: string): Promise<PortfolioStressResultV1 | undefined>;
+  saveCapitalAllocationWithOutbox(value: CapitalAllocationDecisionV1, snapshot: PortfolioSnapshotV1, audit: AuditRecord, outbox: OutboxRecord): Promise<void>;
+  findCapitalAllocation(id: string): Promise<CapitalAllocationDecisionV1 | undefined>;
+  savePortfolioRebalanceWithOutbox(value: PortfolioRebalanceReviewV1, snapshot: PortfolioSnapshotV1, audit: AuditRecord, outbox: OutboxRecord): Promise<void>;
+  findPortfolioRebalance(id: string): Promise<PortfolioRebalanceReviewV1 | undefined>;
   listPendingOutbox(): Promise<OutboxRecord[]>;
   markOutboxPublished(id: string, at: string): Promise<void>;
 }
@@ -51,6 +67,11 @@ export class InMemoryInvestmentOsRepository implements InvestmentOsRepository {
   readonly momentumEvaluations = new Map<string, MomentumEvaluationResultV1>();
   readonly momentumTradePlans = new Map<string, MomentumTradePlanV1>();
   readonly momentumScans = new Map<string, MomentumScanResult>();
+  readonly portfolioProposalsV1 = new Map<string, AllocationProposalV1>();
+  readonly portfolioSnapshotsV1 = new Map<string, PortfolioSnapshotV1>();
+  readonly portfolioStressResultsV1 = new Map<string, PortfolioStressResultV1>();
+  readonly capitalAllocationsV1 = new Map<string, CapitalAllocationDecisionV1>();
+  readonly portfolioRebalancesV1 = new Map<string, PortfolioRebalanceReviewV1>();
 
   async saveDecision(value: DecisionProposal): Promise<void> { this.decisions.set(value.id, structuredClone(value)); }
   async findDecision(id: string): Promise<DecisionProposal | undefined> { return this.clone(this.decisions.get(id)); }
@@ -155,6 +176,56 @@ export class InMemoryInvestmentOsRepository implements InvestmentOsRepository {
   async findMomentumScan(id: string): Promise<MomentumScanResult | undefined> {
     return this.clone(this.momentumScans.get(id));
   }
+  async savePortfolioProposalWithOutbox(value: AllocationProposalV1, snapshot: PortfolioSnapshotV1, audit: AuditRecord, outbox: OutboxRecord): Promise<void> {
+    if (this.portfolioProposalsV1.has(value.id)) throw new Error("Portfolio allocation proposal already exists and is immutable");
+    const existingSnapshot = this.portfolioSnapshotsV1.get(snapshot.id);
+    if (existingSnapshot && JSON.stringify(existingSnapshot) !== JSON.stringify(snapshot)) throw new Error("Portfolio snapshot id already exists with different content");
+    this.portfolioSnapshotsV1.set(snapshot.id, structuredClone(snapshot));
+    this.portfolioProposalsV1.set(value.id, structuredClone(value));
+    this.audit.push(structuredClone(audit));
+    this.outbox.set(outbox.id, structuredClone(outbox));
+  }
+  async findPortfolioProposal(id: string): Promise<AllocationProposalV1 | undefined> {
+    return this.clone(this.portfolioProposalsV1.get(id));
+  }
+  async findLatestPortfolioSnapshot(portfolioId: string): Promise<PortfolioSnapshotV1 | undefined> {
+    return this.values(this.portfolioSnapshotsV1)
+      .filter((snapshot) => snapshot.portfolioId === portfolioId)
+      .sort((left, right) => right.asOf.localeCompare(left.asOf))[0];
+  }
+  async savePortfolioStressWithOutbox(value: PortfolioStressResultV1, audit: AuditRecord, outbox: OutboxRecord): Promise<void> {
+    if (this.portfolioStressResultsV1.has(value.id)) throw new Error("Portfolio stress result already exists and is immutable");
+    this.portfolioStressResultsV1.set(value.id, structuredClone(value));
+    this.audit.push(structuredClone(audit));
+    this.outbox.set(outbox.id, structuredClone(outbox));
+  }
+  async findPortfolioStress(id: string): Promise<PortfolioStressResultV1 | undefined> {
+    return this.clone(this.portfolioStressResultsV1.get(id));
+  }
+  async saveCapitalAllocationWithOutbox(value: CapitalAllocationDecisionV1, snapshot: PortfolioSnapshotV1, audit: AuditRecord, outbox: OutboxRecord): Promise<void> {
+    if (this.capitalAllocationsV1.has(value.id)) throw new Error("Capital allocation decision already exists and is immutable");
+    this.savePortfolioSnapshot(snapshot);
+    for (const proposal of value.proposals) {
+      if (this.portfolioProposalsV1.has(proposal.id)) throw new Error("Portfolio allocation proposal already exists and is immutable");
+      this.portfolioProposalsV1.set(proposal.id, structuredClone(proposal));
+    }
+    this.capitalAllocationsV1.set(value.id, structuredClone(value));
+    this.audit.push(structuredClone(audit));
+    this.outbox.set(outbox.id, structuredClone(outbox));
+  }
+  async findCapitalAllocation(id: string): Promise<CapitalAllocationDecisionV1 | undefined> {
+    return this.clone(this.capitalAllocationsV1.get(id));
+  }
+  async savePortfolioRebalanceWithOutbox(value: PortfolioRebalanceReviewV1, snapshot: PortfolioSnapshotV1, audit: AuditRecord, outbox: OutboxRecord): Promise<void> {
+    if (this.portfolioRebalancesV1.has(value.id)) throw new Error("Portfolio rebalance review already exists and is immutable");
+    this.savePortfolioSnapshot(snapshot);
+    this.portfolioRebalancesV1.set(value.id, structuredClone(value));
+    this.audit.push(structuredClone(audit));
+    this.outbox.set(outbox.id, structuredClone(outbox));
+  }
+  async findPortfolioRebalance(id: string): Promise<PortfolioRebalanceReviewV1 | undefined> {
+    return this.clone(this.portfolioRebalancesV1.get(id));
+  }
   async listPendingOutbox(): Promise<OutboxRecord[]> {
     return this.values(this.outbox).filter((record) => record.status === "PENDING");
   }
@@ -168,4 +239,9 @@ export class InMemoryInvestmentOsRepository implements InvestmentOsRepository {
 
   private clone<T>(value: T | undefined): T | undefined { return value === undefined ? undefined : structuredClone(value); }
   private values<T>(map: Map<string, T>): T[] { return [...map.values()].map((value) => structuredClone(value)); }
+  private savePortfolioSnapshot(snapshot: PortfolioSnapshotV1): void {
+    const existing = this.portfolioSnapshotsV1.get(snapshot.id);
+    if (existing && JSON.stringify(existing) !== JSON.stringify(snapshot)) throw new Error("Portfolio snapshot id already exists with different content");
+    this.portfolioSnapshotsV1.set(snapshot.id, structuredClone(snapshot));
+  }
 }

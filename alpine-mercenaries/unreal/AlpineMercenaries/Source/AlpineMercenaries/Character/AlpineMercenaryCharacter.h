@@ -33,6 +33,13 @@ public:
 
 	virtual void Tick(float DeltaSeconds) override;
 	virtual void SetupPlayerInputComponent(UInputComponent* PlayerInputComponent) override;
+	virtual float TakeDamage(
+		float DamageAmount,
+		const FDamageEvent& DamageEvent,
+		AController* EventInstigator,
+		AActor* DamageCauser) override;
+	virtual void GetLifetimeReplicatedProps(
+		TArray<FLifetimeProperty>& OutLifetimeProps) const override;
 
 	UFUNCTION(BlueprintPure, Category = "Alpine|Camera")
 	USpringArmComponent* GetCameraBoom() const { return CameraBoom; }
@@ -66,6 +73,12 @@ public:
 
 	UFUNCTION(BlueprintPure, Category = "Alpine|Weapon")
 	UAlpineWeaponComponent* GetWeaponComponent() const { return WeaponComponent; }
+
+	UFUNCTION(BlueprintPure, Category = "Alpine|Defense")
+	int32 GetBlockedPointHitCount() const { return BlockedPointHitCount; }
+
+	UFUNCTION(BlueprintPure, Category = "Alpine|Defense")
+	float GetLastBlockedDamage() const { return LastBlockedDamage; }
 
 protected:
 	virtual void BeginPlay() override;
@@ -167,6 +180,18 @@ private:
 
 	UPROPERTY(VisibleInstanceOnly, Category = "Alpine|Movement")
 	EAlpineLocomotionMode LocomotionMode = EAlpineLocomotionMode::Jogging;
+
+	UPROPERTY(
+		VisibleInstanceOnly,
+		Replicated,
+		Category = "Alpine|Defense")
+	int32 BlockedPointHitCount = 0;
+
+	UPROPERTY(
+		VisibleInstanceOnly,
+		Replicated,
+		Category = "Alpine|Defense")
+	float LastBlockedDamage = 0.0f;
 
 	void Move(const FInputActionValue& Value);
 	void Look(const FInputActionValue& Value);

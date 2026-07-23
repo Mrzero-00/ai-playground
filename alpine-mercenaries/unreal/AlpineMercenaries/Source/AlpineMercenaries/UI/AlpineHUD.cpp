@@ -101,6 +101,22 @@ void AAlpineHUD::DrawHUD()
 			0.85f,
 			false);
 
+		if (Character->GetBlockedPointHitCount() > 0)
+		{
+			const FString BlockLabel = FString::Printf(
+				TEXT("SHIELD BLOCKED  %d  |  LAST %.0f DAMAGE"),
+				Character->GetBlockedPointHitCount(),
+				Character->GetLastBlockedDamage());
+			DrawText(
+				BlockLabel,
+				FLinearColor(0.2f, 0.82f, 1.0f, 1.0f),
+				X,
+				Y - 116.0f,
+				GEngine ? GEngine->GetSmallFont() : nullptr,
+				0.9f,
+				false);
+		}
+
 #if !UE_BUILD_SHIPPING
 		DrawDevelopmentWeaponSelector(*Weapon);
 #endif

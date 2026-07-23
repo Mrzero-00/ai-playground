@@ -176,3 +176,11 @@ ALPINEMERCENARIES_API bool IsLocationProtectedByAlpineGuard(
 	const FVector& TargetLocation,
 	float MaximumDistance = 250.0f,
 	float HalfAngleDegrees = 60.0f);
+
+ALPINEMERCENARIES_API bool IsAlpinePointDamageBlocked(
+	bool bIsGuarding,
+	const FVector& GuardOrigin,
+	const FVector& GuardForward,
+	const FVector& DamageSourceLocation,
+	float MaximumDistance = 250.0f,
+	float HalfAngleDegrees = 60.0f);

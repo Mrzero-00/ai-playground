@@ -56,7 +56,8 @@ for EXPECTED_TEST in \
   "AlpineMercenaries.Locomotion.Configuration" \
   "AlpineMercenaries.Vitals.Resources" \
   "AlpineMercenaries.Weapons.Foundation" \
-  "AlpineMercenaries.Combat.TrainingTarget"; do
+  "AlpineMercenaries.Combat.TrainingTarget" \
+  "AlpineMercenaries.Combat.ProjectileDefense"; do
   if ! grep -Fq "${EXPECTED_TEST}" "${LOG_PATH}"; then
     echo "예상한 자동화 테스트를 찾지 못했습니다: ${EXPECTED_TEST}" >&2
     exit 1

@@ -8,12 +8,14 @@
 #include "Components/CapsuleComponent.h"
 #include "Components/InputComponent.h"
 #include "EnhancedInputComponent.h"
+#include "Engine/DamageEvents.h"
 #include "GameFramework/CharacterMovementComponent.h"
 #include "GameFramework/Controller.h"
 #include "GameFramework/SpringArmComponent.h"
 #include "InputAction.h"
 #include "InputActionValue.h"
 #include "InputCoreTypes.h"
+#include "Net/UnrealNetwork.h"
 #include "UObject/ConstructorHelpers.h"
 #include "Weapon/AlpineWeaponComponent.h"
 #include "Weapon/AlpineWeaponTypes.h"
@@ -21,6 +23,7 @@
 AAlpineMercenaryCharacter::AAlpineMercenaryCharacter()
 {
 	PrimaryActorTick.bCanEverTick = true;
+	SetCanBeDamaged(true);
 
 	VitalsComponent = CreateDefaultSubobject<UAlpineVitalsComponent>(TEXT("VitalsComponent"));
 	WeaponComponent = CreateDefaultSubobject<UAlpineWeaponComponent>(TEXT("WeaponComponent"));
@@ -175,6 +178,51 @@ void AAlpineMercenaryCharacter::SetupPlayerInputComponent(UInputComponent* Playe
 	PlayerInputComponent->BindKey(EKeys::Gamepad_FaceButton_Left, IE_Pressed, this, &AAlpineMercenaryCharacter::UseWeaponSkillSlot1);
 	PlayerInputComponent->BindKey(EKeys::Gamepad_FaceButton_Top, IE_Pressed, this, &AAlpineMercenaryCharacter::UseWeaponSkillSlot2);
 	PlayerInputComponent->BindKey(EKeys::Gamepad_RightShoulder, IE_Pressed, this, &AAlpineMercenaryCharacter::UseWeaponSkillSlot3);
+}
+
+float AAlpineMercenaryCharacter::TakeDamage(
+	float DamageAmount,
+	const FDamageEvent& DamageEvent,
+	AController* EventInstigator,
+	AActor* DamageCauser)
+{
+	if (!HasAuthority() ||
+		!VitalsComponent ||
+		!CanBeDamaged() ||
+		DamageAmount <= 0.0f)
+	{
+		return 0.0f;
+	}
+
+	const bool bIsPointDamage =
+		DamageEvent.IsOfType(FPointDamageEvent::ClassID);
+	if (bIsPointDamage &&
+		DamageCauser &&
+		WeaponComponent &&
+		WeaponComponent->IsLocationProtectedByGuard(
+			DamageCauser->GetActorLocation()))
+	{
+		LastBlockedDamage = DamageAmount;
+		++BlockedPointHitCount;
+		ForceNetUpdate();
+		return 0.0f;
+	}
+
+	const float AuthorizedDamage = Super::TakeDamage(
+		DamageAmount,
+		DamageEvent,
+		EventInstigator,
+		DamageCauser);
+	return VitalsComponent->ApplyHealthDamage(AuthorizedDamage);
+}
+
+void AAlpineMercenaryCharacter::GetLifetimeReplicatedProps(
+	TArray<FLifetimeProperty>& OutLifetimeProps) const
+{
+	Super::GetLifetimeReplicatedProps(OutLifetimeProps);
+
+	DOREPLIFETIME(AAlpineMercenaryCharacter, BlockedPointHitCount);
+	DOREPLIFETIME(AAlpineMercenaryCharacter, LastBlockedDamage);
 }
 
 void AAlpineMercenaryCharacter::Move(const FInputActionValue& Value)

@@ -473,3 +473,20 @@ bool IsLocationProtectedByAlpineGuard(
 	const float MinimumDot = FMath::Cos(FMath::DegreesToRadians(ClampedHalfAngle));
 	return FVector::DotProduct(Forward, ToTarget / Distance) >= MinimumDot;
 }
+
+bool IsAlpinePointDamageBlocked(
+	bool bIsGuarding,
+	const FVector& GuardOrigin,
+	const FVector& GuardForward,
+	const FVector& DamageSourceLocation,
+	float MaximumDistance,
+	float HalfAngleDegrees)
+{
+	return bIsGuarding &&
+		IsLocationProtectedByAlpineGuard(
+			GuardOrigin,
+			GuardForward,
+			DamageSourceLocation,
+			MaximumDistance,
+			HalfAngleDegrees);
+}

@@ -271,7 +271,8 @@ bool UAlpineWeaponComponent::IsLocationProtectedByGuard(
 		}
 	}
 
-	return IsLocationProtectedByAlpineGuard(
+	return IsAlpinePointDamageBlocked(
+		IsGuarding(),
 		OwnerActor->GetActorLocation(),
 		GuardForward,
 		TargetLocation);

@@ -56,6 +56,7 @@ Steam 인증/로비
 - Character Vitals: HP, 모든 물리 행동의 스태미너 소비·회복, 무기 조건부 MP
 - Weapon Actions: `AlpineWeaponComponent`의 입장 시 고정 무기 정의, 무기별 3단 콤보, 숫자키 특수공격 슬롯, 근접 스윕·원거리 라인 트레이스, 자원과 우클릭 고유 행동
 - Training Target: 재사용 가능한 `AlpineTargetHealthComponent`, 정지형 충돌 캡슐, 서버 피해·자동 회복과 월드 공간 HP 표시
+- Projectile Defense Test: 서버에서 반복 생성하는 직선 투사체, 캐릭터 HP 피해, 검방의 카메라 방향 전방 가드와 방어 성공 복제·HUD 피드백
 - Directional Defense: 방패 평면, 보호 볼륨, 완벽 방어와 쳐내기
 - Target Anatomy: 몬스터 부위, 피해 분배, 파괴 후 행동 변경
 - Encounter State: 보스 패턴, 예고, 목표, 실패와 완료

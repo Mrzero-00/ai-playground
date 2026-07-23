@@ -1,6 +1,7 @@
 #include "Game/AlpineGameMode.h"
 
 #include "Character/AlpineMercenaryCharacter.h"
+#include "Combat/AlpineProjectileLauncher.h"
 #include "Combat/AlpineTrainingTarget.h"
 #include "Engine/World.h"
 #include "GameFramework/Controller.h"
@@ -20,6 +21,7 @@ void AAlpineGameMode::RestartPlayer(AController* NewPlayer)
 {
 	Super::RestartPlayer(NewPlayer);
 	EnsureTrainingTarget(NewPlayer);
+	EnsureProjectileLauncher(NewPlayer);
 }
 
 void AAlpineGameMode::EnsureTrainingTarget(AController* PlayerController)
@@ -90,4 +92,78 @@ void AAlpineGameMode::EnsureTrainingTarget(AController* PlayerController)
 		SpawnLocation,
 		SpawnRotation,
 		SpawnParameters);
+}
+
+void AAlpineGameMode::EnsureProjectileLauncher(
+	AController* PlayerController)
+{
+	if (!bSpawnProjectileLauncher ||
+		!HasAuthority() ||
+		!PlayerController ||
+		!PlayerController->GetPawn())
+	{
+		return;
+	}
+
+	APawn* PlayerPawn = PlayerController->GetPawn();
+	if (IsValid(ProjectileLauncher))
+	{
+		ProjectileLauncher->SetTargetActor(PlayerPawn);
+		return;
+	}
+
+	if (AActor* ExistingLauncher = UGameplayStatics::GetActorOfClass(
+			this,
+			AAlpineProjectileLauncher::StaticClass()))
+	{
+		ProjectileLauncher =
+			Cast<AAlpineProjectileLauncher>(ExistingLauncher);
+		ProjectileLauncher->SetTargetActor(PlayerPawn);
+		return;
+	}
+
+	FVector Forward = PlayerPawn->GetActorForwardVector();
+	Forward.Z = 0.0f;
+	if (!Forward.Normalize())
+	{
+		Forward = FVector::ForwardVector;
+	}
+	const FVector Right = FVector::CrossProduct(FVector::UpVector, Forward);
+	FVector SpawnLocation =
+		PlayerPawn->GetActorLocation() +
+		Forward * ProjectileLauncherSpawnDistance +
+		Right * ProjectileLauncherLateralOffset;
+
+	FCollisionQueryParams FloorQuery(
+		SCENE_QUERY_STAT(AlpineProjectileLauncherFloor),
+		false,
+		PlayerPawn);
+	FHitResult FloorHit;
+	if (GetWorld()->LineTraceSingleByChannel(
+			FloorHit,
+			SpawnLocation + FVector::UpVector * 250.0f,
+			SpawnLocation - FVector::UpVector * 600.0f,
+			ECC_Visibility,
+			FloorQuery))
+	{
+		SpawnLocation.Z = FloorHit.ImpactPoint.Z;
+	}
+
+	FRotator SpawnRotation =
+		(PlayerPawn->GetActorLocation() - SpawnLocation).Rotation();
+	SpawnRotation.Pitch = 0.0f;
+	SpawnRotation.Roll = 0.0f;
+
+	FActorSpawnParameters SpawnParameters;
+	SpawnParameters.SpawnCollisionHandlingOverride =
+		ESpawnActorCollisionHandlingMethod::AlwaysSpawn;
+	ProjectileLauncher =
+		GetWorld()->SpawnActor<AAlpineProjectileLauncher>(
+			SpawnLocation,
+			SpawnRotation,
+			SpawnParameters);
+	if (ProjectileLauncher)
+	{
+		ProjectileLauncher->SetTargetActor(PlayerPawn);
+	}
 }

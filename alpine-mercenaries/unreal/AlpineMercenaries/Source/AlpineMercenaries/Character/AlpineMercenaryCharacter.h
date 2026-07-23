@@ -4,9 +4,11 @@
 #include "GameFramework/Character.h"
 #include "AlpineMercenaryCharacter.generated.h"
 
+class UAlpineVitalsComponent;
+class UAnimInstance;
+class UAnimSequence;
 class UCameraComponent;
 class UInputAction;
-class UAlpineVitalsComponent;
 class USpringArmComponent;
 struct FInputActionValue;
 
@@ -51,6 +53,12 @@ public:
 
 	UFUNCTION(BlueprintPure, Category = "Alpine|Movement")
 	float GetCrouchingSpeed() const { return CrouchingSpeed; }
+
+	UFUNCTION(BlueprintPure, Category = "Alpine|Animation")
+	UAnimSequence* GetCrouchIdleAnimation() const { return CrouchIdleAnimation; }
+
+	UFUNCTION(BlueprintPure, Category = "Alpine|Animation")
+	UAnimSequence* GetCrouchWalkAnimation() const { return CrouchWalkAnimation; }
 
 	UFUNCTION(BlueprintPure, Category = "Alpine|Vitals")
 	UAlpineVitalsComponent* GetVitalsComponent() const { return VitalsComponent; }
@@ -128,9 +136,18 @@ private:
 	UPROPERTY(EditDefaultsOnly, Category = "Alpine|Camera")
 	float SprintFieldOfView = 96.0f;
 
+	UPROPERTY()
+	TObjectPtr<UAnimSequence> CrouchIdleAnimation;
+
+	UPROPERTY()
+	TObjectPtr<UAnimSequence> CrouchWalkAnimation;
+
 	bool bSprintRequested = false;
 	bool bWalkRequested = false;
+	bool bOverrideAnimationActive = false;
 	float ShoulderSide = 1.0f;
+	TSubclassOf<UAnimInstance> DefaultAnimationClass;
+	TObjectPtr<UAnimSequence> ActiveOverrideAnimation;
 
 	UPROPERTY(VisibleInstanceOnly, Category = "Alpine|Movement")
 	EAlpineLocomotionMode LocomotionMode = EAlpineLocomotionMode::Jogging;
@@ -147,5 +164,8 @@ private:
 	void RefreshLocomotionMode();
 	void ConsumeMovementStamina(float DeltaSeconds);
 	void UpdateCamera(float DeltaSeconds);
+	void UpdateCharacterAnimation();
+	void PlayOverrideAnimation(UAnimSequence* Animation, bool bLooping, float PlayRate = 1.0f);
+	void RestoreDefaultAnimation();
 	void SetLocomotionMode(EAlpineLocomotionMode NewMode, float NewMaxSpeed);
 };

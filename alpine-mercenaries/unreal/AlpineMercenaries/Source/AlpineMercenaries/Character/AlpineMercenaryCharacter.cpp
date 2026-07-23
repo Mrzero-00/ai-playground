@@ -1,6 +1,8 @@
 #include "Character/AlpineMercenaryCharacter.h"
 
 #include "AlpineMercenaries.h"
+#include "Animation/AnimSequence.h"
+#include "Animation/AnimSingleNodeInstance.h"
 #include "Camera/CameraComponent.h"
 #include "Character/AlpineVitalsComponent.h"
 #include "Components/CapsuleComponent.h"
@@ -71,7 +73,16 @@ AAlpineMercenaryCharacter::AAlpineMercenaryCharacter()
 	if (CharacterAnimation.Succeeded())
 	{
 		GetMesh()->SetAnimInstanceClass(CharacterAnimation.Class);
+		DefaultAnimationClass = CharacterAnimation.Class;
 	}
+
+	static ConstructorHelpers::FObjectFinder<UAnimSequence> CrouchIdleAnimationAsset(
+		TEXT("/Game/Alpine/Animations/AM_Crouch_Idle.AM_Crouch_Idle"));
+	static ConstructorHelpers::FObjectFinder<UAnimSequence> CrouchWalkAnimationAsset(
+		TEXT("/Game/Alpine/Animations/AM_Crouch_Walk_Fwd.AM_Crouch_Walk_Fwd"));
+
+	CrouchIdleAnimation = CrouchIdleAnimationAsset.Object;
+	CrouchWalkAnimation = CrouchWalkAnimationAsset.Object;
 
 	static ConstructorHelpers::FObjectFinder<UInputAction> JumpInput(
 		TEXT("/Game/Input/Actions/IA_Jump.IA_Jump"));
@@ -102,6 +113,7 @@ void AAlpineMercenaryCharacter::Tick(float DeltaSeconds)
 	RefreshLocomotionMode();
 	ConsumeMovementStamina(DeltaSeconds);
 	UpdateCamera(DeltaSeconds);
+	UpdateCharacterAnimation();
 }
 
 void AAlpineMercenaryCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
@@ -343,6 +355,78 @@ void AAlpineMercenaryCharacter::UpdateCamera(float DeltaSeconds)
 	const float NewFieldOfView =
 		FMath::FInterpTo(FollowCamera->FieldOfView, TargetFov, DeltaSeconds, 8.0f);
 	FollowCamera->SetFieldOfView(NewFieldOfView);
+}
+
+void AAlpineMercenaryCharacter::UpdateCharacterAnimation()
+{
+	if (bIsCrouched && CrouchIdleAnimation && CrouchWalkAnimation)
+	{
+		const float HorizontalSpeed = GetVelocity().Size2D();
+		const bool bMoving = HorizontalSpeed > 5.0f;
+		UAnimSequence* DesiredAnimation =
+			bMoving ? CrouchWalkAnimation.Get() : CrouchIdleAnimation.Get();
+		if (!bOverrideAnimationActive || ActiveOverrideAnimation != DesiredAnimation)
+		{
+			PlayOverrideAnimation(DesiredAnimation, true);
+		}
+
+		if (UAnimSingleNodeInstance* SingleNode = GetMesh()->GetSingleNodeInstance())
+		{
+			if (bMoving)
+			{
+				SingleNode->SetPlayRate(
+					FMath::Clamp(HorizontalSpeed / CrouchingSpeed, 0.55f, 1.2f));
+				SingleNode->SetPlaying(true);
+			}
+			else
+			{
+				SingleNode->SetPlaying(false);
+				SingleNode->SetPosition(0.0f, false);
+			}
+		}
+		return;
+	}
+
+	if (bOverrideAnimationActive)
+	{
+		RestoreDefaultAnimation();
+	}
+}
+
+void AAlpineMercenaryCharacter::PlayOverrideAnimation(
+	UAnimSequence* Animation,
+	bool bLooping,
+	float PlayRate)
+{
+	if (!Animation)
+	{
+		return;
+	}
+
+	GetMesh()->PlayAnimation(Animation, bLooping);
+	if (UAnimSingleNodeInstance* SingleNode = GetMesh()->GetSingleNodeInstance())
+	{
+		SingleNode->SetPlayRate(PlayRate);
+		SingleNode->SetPlaying(true);
+	}
+	bOverrideAnimationActive = true;
+	ActiveOverrideAnimation = Animation;
+}
+
+void AAlpineMercenaryCharacter::RestoreDefaultAnimation()
+{
+	if (!bOverrideAnimationActive)
+	{
+		return;
+	}
+
+	GetMesh()->SetAnimationMode(EAnimationMode::AnimationBlueprint);
+	if (DefaultAnimationClass)
+	{
+		GetMesh()->SetAnimInstanceClass(DefaultAnimationClass);
+	}
+	bOverrideAnimationActive = false;
+	ActiveOverrideAnimation = nullptr;
 }
 
 void AAlpineMercenaryCharacter::SetLocomotionMode(

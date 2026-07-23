@@ -43,11 +43,21 @@ bool FAlpineLocomotionConfigurationTest::RunTest(const FString& Parameters)
 		TEXT("Crouching is enabled"),
 		Character->GetCharacterMovement()->GetNavAgentPropertiesRef().bCanCrouch);
 	TestNotNull(
+		TEXT("Crouch idle animation"),
+		Character->GetCrouchIdleAnimation());
+	TestNotNull(
+		TEXT("Crouch walk animation"),
+		Character->GetCrouchWalkAnimation());
+	TestNotNull(
 		TEXT("Default input mapping context"),
 		PlayerController->GetDefaultMappingContext());
 	TestNotNull(
 		TEXT("Mouse look mapping context"),
 		PlayerController->GetMouseLookMappingContext());
+	TestEqual(
+		TEXT("Default camera uses a third-person shoulder pitch"),
+		PlayerController->GetDefaultViewPitch(),
+		-12.0f);
 	TestTrue(
 		TEXT("Game mode uses Alpine character"),
 		GameMode->DefaultPawnClass == AAlpineMercenaryCharacter::StaticClass());

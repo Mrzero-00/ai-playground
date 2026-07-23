@@ -6,6 +6,27 @@
 #include "Engine/Engine.h"
 #include "GameFramework/PlayerController.h"
 
+namespace
+{
+FString GetMovementStateLabel(const AAlpineMercenaryCharacter& Character)
+{
+	switch (Character.GetLocomotionMode())
+	{
+	case EAlpineLocomotionMode::Walking:
+		return TEXT("WALK");
+	case EAlpineLocomotionMode::Sprinting:
+		return TEXT("SPRINT");
+	case EAlpineLocomotionMode::Crouching:
+		return TEXT("CROUCH");
+	case EAlpineLocomotionMode::Airborne:
+		return TEXT("AIRBORNE");
+	case EAlpineLocomotionMode::Jogging:
+	default:
+		return TEXT("JOG");
+	}
+}
+}
+
 void AAlpineHUD::DrawHUD()
 {
 	Super::DrawHUD();
@@ -31,6 +52,15 @@ void AAlpineHUD::DrawHUD()
 	const int32 BarCount = Vitals->IsManaEnabled() ? 3 : 2;
 	const float TotalHeight = BarCount * BarHeight + (BarCount - 1) * BarGap;
 	float Y = Canvas->ClipY - TotalHeight - 42.0f;
+
+	DrawText(
+		GetMovementStateLabel(*Character),
+		FLinearColor(0.78f, 0.9f, 1.0f, 1.0f),
+		X,
+		Y - 28.0f,
+		GEngine ? GEngine->GetSmallFont() : nullptr,
+		1.0f,
+		false);
 
 	DrawResourceBar(
 		TEXT("HP"),

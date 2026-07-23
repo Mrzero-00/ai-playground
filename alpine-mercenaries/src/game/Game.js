@@ -40,6 +40,7 @@ export class Game {
     this.boss = null;
     this.effects = [];
     this.missionComplete = false;
+    this.encounterStarted = false;
     this.allyAttackTimer = 1.3;
 
     const hemisphere = new THREE.HemisphereLight(0xd9eff1, 0x25362f, 2.25);
@@ -61,7 +62,7 @@ export class Game {
 
   start() {
     if (this.mode === "hub") this.hud.showToast("의뢰판으로 이동해 [E]를 누르십시오.", 4);
-    else this.hud.showToast("전투 검증 장면 · 방패와 활을 시험하십시오.", 4);
+    else this.hud.showToast("전투 검증 장면 · 준비가 끝나면 [E]로 전투를 시작하십시오.", 5);
     this.animate();
   }
 
@@ -82,6 +83,7 @@ export class Game {
     this.clearWorld();
     this.mode = "hub";
     this.missionComplete = false;
+    this.encounterStarted = false;
     this.boss = null;
     this.world = createHubWorld();
     this.player = new Player(this.world.spawn);
@@ -100,6 +102,7 @@ export class Game {
     this.clearWorld();
     this.mode = "mission";
     this.missionComplete = false;
+    this.encounterStarted = false;
     this.world = createMissionWorld();
     this.player = new Player(this.world.spawn);
     this.world.root.add(this.player.group);
@@ -169,7 +172,7 @@ export class Game {
       this.player,
       this.boss,
       this.world.allies,
-      this.boss ? this.boss.getStateLabel() : "",
+      this.boss ? (this.encounterStarted ? this.boss.getStateLabel() : "교전 대기 · [E] 시작") : "",
     );
   }
 
@@ -202,11 +205,14 @@ export class Game {
       if (this.input.wasPressed("KeyR")) this.loadMission();
     } else if (this.missionComplete) {
       this.hud.setPrompt("의뢰 완료 · [H] 용병 사무실로 복귀");
+    } else if (!this.encounterStarted) {
+      this.hud.setPrompt("전투 준비 상태 · [E] 전투 시작");
+      if (this.input.wasPressed("KeyE")) this.startEncounter();
     } else {
       this.hud.setPrompt(this.player.guarding ? "방패 방향으로 동료를 보호하는 중 · [F] 완벽 쳐내기" : "[1] 검방 · [2] 활 · [H] 사무실 복귀");
     }
 
-    if (this.boss && !this.boss.dead) {
+    if (this.encounterStarted && this.boss && !this.boss.dead) {
       this.boss.update(dt, this.time, this.player, this.world.allies);
       this.allyAttackTimer -= dt;
       if (this.allyAttackTimer <= 0) {
@@ -217,7 +223,7 @@ export class Game {
           this.spawnTracer(living[0].group.position.clone().add(new THREE.Vector3(0, 1.5, 0)), this.boss.weakPoint.getWorldPosition(new THREE.Vector3()), 0xa7d6c8);
         }
       }
-    } else if (this.boss) {
+    } else if (this.encounterStarted && this.boss) {
       this.boss.update(dt, this.time, this.player, this.world.allies);
     }
 
@@ -232,6 +238,8 @@ export class Game {
       this.spawnPulse(this.player.group.position, 0xc8b47b, 0.7);
       return;
     }
+
+    if (!this.encounterStarted) this.startEncounter();
 
     if (this.player.weapon === "shield") {
       const distance = this.boss.horizontalDistance(this.player.group.position);
@@ -266,6 +274,13 @@ export class Game {
       this.boss.takeDamage(damage, hitPart);
       if (hitPart === "frostCore") this.hud.showToast("냉기 기관 정밀 명중!", 1.15);
     }
+  }
+
+  startEncounter() {
+    if (this.mode !== "mission" || this.encounterStarted || this.missionComplete) return;
+    this.encounterStarted = true;
+    this.allyAttackTimer = 1.2;
+    this.hud.showToast("교전 시작 · 서리뿔 와이번", 2.2);
   }
 
   onPlayerHit(kind, position) {

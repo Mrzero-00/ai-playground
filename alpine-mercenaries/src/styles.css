@@ -1,0 +1,88 @@
+:root {
+  color-scheme: dark;
+  font-family: Inter, Pretendard, "Noto Sans KR", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background: #0d1413;
+  color: #f2f0e7;
+  font-synthesis: none;
+}
+
+* { box-sizing: border-box; }
+
+html, body, #game, #hud { width: 100%; height: 100%; margin: 0; overflow: hidden; }
+body { user-select: none; }
+canvas { display: block; width: 100%; height: 100%; }
+
+#hud { position: fixed; inset: 0; pointer-events: none; }
+
+.topbar {
+  position: absolute;
+  inset: 26px 30px auto;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 24px;
+  text-shadow: 0 2px 12px rgba(0,0,0,.75);
+}
+
+.eyebrow { margin: 0 0 4px; color: #d5b877; font-size: 10px; font-weight: 800; letter-spacing: .24em; }
+h1 { margin: 0; font-family: Georgia, "Noto Serif KR", serif; font-size: clamp(20px, 2.2vw, 32px); font-weight: 600; }
+.objective { max-width: 390px; padding: 11px 14px; border: 1px solid rgba(217,194,143,.28); background: rgba(13,20,19,.72); backdrop-filter: blur(12px); color: #ded9ca; font-size: 13px; }
+
+.boss-panel { position: absolute; top: 26px; left: 50%; width: min(520px, 43vw); transform: translateX(-50%); transition: opacity .2s; }
+.boss-copy { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 7px; text-shadow: 0 2px 8px #000; }
+.boss-copy strong { font-family: Georgia, "Noto Serif KR", serif; font-size: 17px; }
+.boss-copy span { color: #c5c9c6; font-size: 11px; }
+
+.bar { position: relative; overflow: hidden; height: 9px; border: 1px solid rgba(255,255,255,.18); background: rgba(0,0,0,.58); box-shadow: inset 0 0 12px rgba(0,0,0,.8); }
+.bar i { display: block; width: 100%; height: 100%; transition: width .18s ease-out; }
+.bar b { position: absolute; inset: 0; display: grid; place-items: center; font-size: 9px; font-weight: 700; text-shadow: 0 1px 2px #000; }
+.bar.boss { height: 12px; border-color: rgba(226,190,139,.45); }
+.bar.boss i { background: linear-gradient(90deg, #6f1523, #bf3345); }
+.bar.health { height: 13px; }
+.bar.health i { background: linear-gradient(90deg, #7b1d2a, #b83a42); }
+.bar.stamina { height: 7px; margin-top: 5px; }
+.bar.stamina i { background: linear-gradient(90deg, #947536, #d0b25f); }
+
+.status-panel { position: absolute; left: 28px; bottom: 28px; display: flex; width: 310px; gap: 12px; align-items: center; }
+.portrait { width: 57px; height: 57px; padding: 4px; border: 1px solid rgba(214,191,139,.6); background: rgba(8,13,12,.82); transform: rotate(45deg); }
+.portrait span { display: grid; width: 100%; height: 100%; place-items: center; background: linear-gradient(145deg, #475952, #17231f); color: #d5b877; font-family: Georgia, serif; font-size: 13px; transform: rotate(-45deg); }
+.status-copy { flex: 1; }
+.status-label { display: flex; justify-content: space-between; margin-bottom: 6px; align-items: baseline; }
+.status-label strong { font-size: 13px; }
+.status-label span { color: #c7c2b3; font-size: 10px; }
+
+.weapon-panel { position: absolute; left: 50%; bottom: 28px; display: flex; gap: 8px; transform: translateX(-50%); }
+.slot { display: flex; min-width: 135px; align-items: center; gap: 10px; padding: 9px 12px; border: 1px solid rgba(255,255,255,.16); background: rgba(10,17,16,.78); color: #c8c5bb; opacity: .64; }
+.slot.is-active { border-color: rgba(217,184,119,.72); background: linear-gradient(180deg, rgba(79,69,43,.84), rgba(14,22,20,.9)); color: #fff4d3; opacity: 1; }
+kbd { display: inline-grid; min-width: 23px; height: 23px; place-items: center; border: 1px solid rgba(255,255,255,.28); border-radius: 2px; background: rgba(0,0,0,.35); box-shadow: inset 0 -2px rgba(0,0,0,.4); color: inherit; font: 700 11px inherit; }
+
+.ally-panel { position: absolute; top: 102px; right: 30px; width: 180px; padding: 10px 12px; border-left: 1px solid rgba(217,184,119,.45); background: linear-gradient(90deg, rgba(12,18,17,.72), transparent); }
+.ally-panel p { margin: 0 0 7px; color: #d5b877; font-size: 10px; font-weight: 800; letter-spacing: .12em; }
+.ally-panel div div { position: relative; overflow: hidden; height: 20px; margin-top: 5px; background: rgba(0,0,0,.42); }
+.ally-panel span { position: absolute; z-index: 1; inset: 0; display: flex; align-items: center; padding-left: 7px; font-size: 10px; }
+.ally-panel i { display: block; height: 100%; background: rgba(56,122,104,.7); transition: width .2s; }
+
+.prompt { position: absolute; left: 50%; bottom: 122px; padding: 10px 15px; border: 1px solid rgba(231,207,151,.5); background: rgba(8,14,13,.85); transform: translateX(-50%); font-size: 13px; box-shadow: 0 8px 28px rgba(0,0,0,.35); }
+.toast { position: absolute; top: 115px; left: 50%; padding: 12px 20px; border-top: 1px solid rgba(223,195,128,.6); border-bottom: 1px solid rgba(223,195,128,.3); background: rgba(10,16,15,.76); transform: translateX(-50%); color: #fff0c7; font-family: Georgia, "Noto Serif KR", serif; font-size: 15px; text-shadow: 0 2px 7px #000; }
+
+.crosshair { position: absolute; left: 50%; top: 50%; width: 10px; height: 10px; transform: translate(-50%, -50%); opacity: 0; transition: opacity .15s; }
+.crosshair::before, .crosshair::after { content: ""; position: absolute; background: #e3ca89; box-shadow: 0 0 4px #000; }
+.crosshair::before { left: 4px; top: -4px; width: 1px; height: 18px; }
+.crosshair::after { left: -4px; top: 4px; width: 18px; height: 1px; }
+.crosshair.is-aiming { opacity: 1; }
+
+.controls { position: absolute; right: 28px; bottom: 28px; width: 280px; padding: 8px 10px; border: 1px solid rgba(255,255,255,.12); background: rgba(8,13,12,.68); color: #c7c5bc; pointer-events: auto; font-size: 10px; }
+.controls summary { cursor: pointer; color: #e4d9bc; font-size: 11px; }
+.controls p { margin: 8px 0 0; line-height: 1.6; }
+.controls kbd { display: inline-grid; min-width: 18px; height: 18px; font-size: 9px; }
+
+.is-hidden { opacity: 0 !important; visibility: hidden; }
+
+@media (max-width: 820px) {
+  .objective, .ally-panel, .controls { display: none; }
+  .boss-panel { top: 82px; width: calc(100vw - 48px); }
+  .status-panel { left: 18px; bottom: 18px; width: 245px; }
+  .weapon-panel { right: 18px; left: auto; bottom: 18px; transform: none; }
+  .slot { min-width: auto; }
+  .slot span { display: none; }
+}

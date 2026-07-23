@@ -216,4 +216,4 @@ implementation           01~12·14 구현·검증·Open Gate Machine-readable Ma
 scripts                   구현 상태 Manifest 검증 CLI와 회귀 테스트
 ```
 
-점수와 정책 함수는 입력이 같으면 결과도 같은 순수 함수입니다. 외부 데이터 수집기는 Provider 경계로 연결합니다. 기존 MVP의 자동 주문은 계속 비활성이며, 14번 Execution Foundation은 승인된 Decision 이후의 주문 경계를 별도 서비스로 구현합니다. LIVE는 외부 증거와 승격 Gate 통과 전까지 비활성입니다. 구현 범위는 [Implementation Status](docs/13_Codex_Implementation.md)에 정리되어 있습니다.
+점수와 정책 함수는 입력이 같으면 결과도 같은 순수 함수입니다. 외부 데이터 수집기는 Provider 경계로 연결합니다. 기존 MVP의 자동 주문은 계속 비활성이며, 14번 Execution Foundation은 승인된 Decision 이후의 주문 경계를 별도 서비스로 구현합니다. 토스 계약은 [공식 Open API 가이드](https://developers.tossinvest.com/docs)와 Canonical OpenAPI JSON을 기준으로 하며, R1은 Broker 조건주문 생성·수정·취소를 노출하지 않습니다. LIVE는 외부 증거와 승격 Gate 통과 전까지 비활성입니다. 구현 범위는 [Implementation Status](docs/13_Codex_Implementation.md)에 정리되어 있습니다.

@@ -147,7 +147,7 @@
       "testPaths": ["packages/core/test/automated-execution-v1.test.ts", "apps/execution/test"],
       "migration": "supabase/migrations/013_automated_trading_execution_v1.sql",
       "externalEvidenceRefs": [],
-      "openGateCodes": ["MAIN_API_EXECUTION_HANDOFF", "PERSISTENT_IDEMPOTENCY_LEDGER", "TOSS_CREDENTIALS", "READ_ONLY_RECONCILIATION", "PAPER_FORWARD_RUN", "LIVE_CANARY", "EXECUTION_SECURITY_REVIEW"]
+      "openGateCodes": ["MAIN_API_EXECUTION_HANDOFF", "PERSISTENT_IDEMPOTENCY_LEDGER", "TOSS_CREDENTIALS", "TOSS_TOKEN_COORDINATION", "READ_ONLY_RECONCILIATION", "CONDITIONAL_ORDER_RECONCILIATION", "PAPER_FORWARD_RUN", "LIVE_CANARY", "EXECUTION_SECURITY_REVIEW"]
     }
   ]
 }

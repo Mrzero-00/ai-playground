@@ -1,6 +1,6 @@
 # 14. Automated Trading Execution
 
-- 문서 버전: `v1.2.0`
+- 문서 버전: `v1.3.0`
 - 작성일: `2026-07-23`
 - 최종 검토일: `2026-07-23`
 - 명세 상태: `R1 FOUNDATION IMPLEMENTED`
@@ -93,7 +93,8 @@
 - Secret을 Client, Database, Log, Error Message에 저장
 - 외부 API 가용성을 우회하기 위한 공격적 무한 재시도
 - Broker별 차이를 Core Domain에 노출
-- 조건주문을 사용한 무승인 전략 생성
+- R1에서 Broker 조건주문을 생성·수정해 Execution Service 밖에 장기 실행 권한을 남기는 것
+- 조건주문을 사용한 무승인 전략·Exit·Rebalance 생성
 
 ---
 
@@ -116,6 +117,7 @@
 | EXE-INV-013 | 모든 외부 요청은 Account·Decision·Intent·Attempt 계보를 가진다. | Audit/Outbox | Lineage Test |
 | EXE-INV-014 | Decimal 금액·가격·수량을 부동소수점으로 변환하지 않는다. | Contract/Adapter | Precision Test |
 | EXE-INV-015 | Broker Error Message는 행동 결정에 사용하지 않고 Error Code를 사용한다. | Error Mapper | Error Contract Test |
+| EXE-INV-016 | 내부 원장에 없는 일반·조건주문을 발견하면 해당 Account의 신규 주문을 차단한다. | Reconciliation, Account Kill | Unknown Order Test |
 
 ---
 
@@ -143,6 +145,8 @@
 - Credential Provider가 Client Secret을 안전하게 제공
 - Reconciliation Lag가 Policy 한도 이내
 - 실제 Auth/RLS와 승인 E2E가 통과
+- 허용 IP·`BROKERAGE` Account·단일 활성 Token 운영 방식이 검증됨
+- 일반 주문뿐 아니라 다른 채널의 일반·조건주문까지 Read-only 대사가 완료됨
 
 환경변수 하나만 변경해 LIVE가 되는 설계는 허용하지 않는다.
 
@@ -435,26 +439,47 @@ SELL drift bps = max(0, approvedReference / current - 1) * 10,000
 
 ### 11.1 공식 Source of Truth
 
+- [토스증권 Open API 가이드](https://developers.tossinvest.com/docs)
+- [AI/Agent 문서 인덱스](https://developers.tossinvest.com/llms.txt)
 - [OpenAPI Overview](https://openapi.tossinvest.com/openapi-docs/overview.md)
 - [OpenAPI JSON](https://openapi.tossinvest.com/openapi-docs/latest/openapi.json)
 - [API Reference](https://openapi.tossinvest.com/openapi-docs/latest/api-reference/README.md)
 - [Order API](https://openapi.tossinvest.com/openapi-docs/latest/api-reference/Apis/OrderApi.md)
 - [OrderCreateRequest](https://openapi.tossinvest.com/openapi-docs/latest/api-reference/Models/OrderCreateRequest.md)
+- [Conditional Order API](https://openapi.tossinvest.com/openapi-docs/latest/api-reference/Apis/ConditionalOrderApi.md)
 
-OpenAPI JSON을 Canonical Source로 사용하며 Markdown은 설계 검토와 구현 설명에 사용한다.
+OpenAPI JSON을 Canonical Source로 사용하며 Markdown은 설계 검토와 구현 설명에 사용한다. Interactive Guide와 Markdown 사이에 차이가 있으면 `latest/openapi.json`을 우선하고 문서 조회일과 Schema Hash를 Release Evidence에 기록한다. 토스증권 Open API는 현재 REST만 제공하므로 주문 상태 확인과 대사는 Polling을 전제로 한다.
 
-### 11.2 인증
+### 11.2 등록·허용 IP·인증
 
-- `POST /oauth2/token`
-- OAuth 2.0 Client Credentials Grant
+- 토스증권 WTS의 `설정 > Open API`에서 `client_id`, `client_secret` 발급
+- 같은 메뉴의 허용 IP 관리에 Execution Service의 고정 Egress IP 등록
+- `POST /oauth2/token`, OAuth 2.0 Client Credentials Grant
+- Token 요청은 `application/x-www-form-urlencoded`, `grant_type=client_credentials`
 - 모든 요청: `Authorization: Bearer {access_token}`
 - 계좌·자산·주문 요청: `X-Tossinvest-Account: {accountSeq}`
 - API Server: `https://openapi.tossinvest.com`
-- 허용 IP에 Execution Service의 고정 Egress IP 등록
 
-Access Token은 만료 전에 단일 Flight로 갱신하고 Process Memory에만 보관한다. Client Secret과 Token을 Database·Audit·Application Log에 기록하지 않는다.
+허용 IP가 아니면 403으로 차단된다. Access Token 응답은 OAuth 표준 형식의 `access_token`, `token_type=Bearer`, `expires_in`이며 Refresh Token은 없다. 만료 전에 단일 Flight로 갱신하고 Process Memory에만 보관한다. Client Secret과 Token을 Database·Audit·Application Log에 기록하지 않는다.
 
-### 11.3 Endpoint Mapping
+토스는 **Client당 유효 Access Token을 하나만 유지**하며 새 Token 발급 즉시 이전 Token을 무효화한다. 따라서 동일 Client Credential을 여러 Instance가 독립 갱신하면 서로의 Token을 폐기할 수 있다. LIVE 전 다음 중 하나를 강제한다.
+
+- Account/Client별 Token Leader 한 개와 분산 Lease
+- Token Issuer 전용 내부 Service와 짧은 Cache
+- Instance별로 분리 발급된 Client Credential
+
+R1 In-memory Token Cache는 단일 Process Contract 검증용이며 다중 Instance LIVE 증거로 사용할 수 없다.
+
+### 11.3 Account 식별과 허용 범위
+
+- `GET /api/v1/accounts`는 Token만 사용하며 현재 `BROKERAGE` 종합매매 계좌만 반환한다.
+- 자녀계좌는 사용할 수 없다.
+- 응답 `accountSeq`를 계좌·자산·주문·조건주문의 `X-Tossinvest-Account`에 사용한다.
+- `accountNo`는 표시·감사·로그·멱등 키에 사용하지 않고 암호화된 제한 Store 밖으로 내보내지 않는다.
+- 내부 `broker_accounts.id`와 외부 `accountSeq`를 분리하고 `(broker, accountSeq)`를 Allowlist로 관리한다.
+- 향후 알 수 없는 `accountType`이 추가되면 Parser는 값을 보존하되 주문 권한은 Fail-closed한다.
+
+### 11.4 Endpoint Mapping
 
 | Broker Port | Toss Endpoint | 용도 |
 |---|---|---|
@@ -471,8 +496,10 @@ Access Token은 만료 전에 단일 Flight로 갱신하고 Process Memory에만
 | Price | `GET /api/v1/prices` | 제출 직전 가격 검증 |
 | Warning | `GET /api/v1/stocks/{symbol}/warnings` | 제한종목 검증 |
 | Calendar | `GET /api/v1/market-calendar/KR|US` | 시장 Session 검증 |
+| Conditional List | `GET /api/v1/conditional-orders` | 다른 채널을 포함한 Broker 상주 주문 탐지 |
+| Conditional Detail | `GET /api/v1/conditional-orders/{conditionalOrderId}` | 발동 주문·상태 대사 |
 
-### 11.4 주문 생성 Mapping
+### 11.5 일반 주문의 시장별 계약
 
 토스 주문은 `quantity`와 `orderAmount` 중 정확히 하나만 사용한다.
 
@@ -490,9 +517,67 @@ Access Token은 만료 전에 단일 Flight로 갱신하고 Process Memory에만
 
 `clientOrderId`는 최대 36자이며 토스증권의 멱등 보장 시간이 제한되어 있으므로 내부 영구 Idempotency Ledger를 함께 사용한다.
 
-### 11.5 Rate Limit
+| 항목 | 토스 공식 제약 | Execution 정책 |
+|---|---|---|
+| KR 수량 | 양의 정수 | 소수 수량 Intent 거부 |
+| US 소수 매도 | `MARKET + SELL`, 최대 소수점 6자리, 정규장만 | Calendar·Quantity Scale 사전 검증 |
+| US 금액 매수 | `orderAmount + MARKET + BUY`, 정규장만 | 수량과 동시 사용 금지, 승인 금액과 일치 |
+| LIMIT 가격 | 필수 | 가격 누락·0 이하 거부 |
+| MARKET 가격 | 전달 금지 | DTO에서 `price` 제거 |
+| KR 가격 | 원 단위 정수와 유효 호가 단위 | Price Limit·Tick 검증 실패 시 새 Intent 요구 |
+| US 가격 | 1달러 미만 최대 4자리, 1달러 이상 최대 2자리 | 제출 전 Decimal Scale 검증 |
+| `CLS` | 미국 LIMIT만 지원 | 다른 시장·호가 조합 거부 |
+| 고액 주문 | 1억원 이상 `confirmHighValueOrder=true` 필요 | 별도 사용자 인지 Evidence 없으면 항상 `false`로 Fail-closed |
+| 정정 | KR은 수량 필수·정수, US는 수량 변경 불가 | 원 승인 범위 내 새 Revision만 허용 |
 
-공식 문서 기준 주문 그룹은 일반 시간 초당 최대 6회, 09:00~09:10 KST는 초당 최대 3회다. 수치는 변경될 수 있으므로 다음 응답 Header를 Runtime 기준으로 사용한다.
+같은 `clientOrderId`와 같은 주문을 10분 안에 재전송하면 이전 결과가 반환된다. 같은 키에 다른 내용을 보내면 `422 idempotency-key-conflict`이므로 주문 재시도가 아니라 Client 버그·보안 Incident로 처리한다. 토스의 10분 보존은 Process 재시작과 장기 장애를 보호하지 않으므로 내부 Ledger 보존 기간을 대신할 수 없다.
+
+정정·취소 응답의 `orderId`는 원주문 ID와 다를 수 있으므로 이전 ID를 덮어쓰지 않고 Order Revision Edge로 연결한다. 미국 주문 정정에는 `quantity`를 보내지 않으며 국내 주문 정정에는 정수 `quantity`를 반드시 보낸다.
+
+### 11.6 주문 조회와 Polling 계약
+
+- `GET /api/v1/orders?status=OPEN`은 `PENDING`, `PARTIAL_FILLED`, `PENDING_CANCEL`, `PENDING_REPLACE`를 반환한다.
+- `OPEN` 조회는 전량 반환하며 `cursor`, `limit`을 무시한다. `from`, `to`는 KST 주문일 기준 필터다.
+- `CLOSED`는 Cursor Pagination을 사용하며 `limit`은 최대 100이다.
+- 응답의 개별 `orders[].status`와 조회 Filter `OPEN|CLOSED`는 서로 다른 값 체계다.
+- 새 Broker Status는 원문을 보존하고 주문 가능 상태로 추정하지 않는다.
+- REST만 제공되므로 Open Order는 적응형 Polling하고, 2xx 제출 응답을 체결로 간주하지 않는다.
+
+### 11.7 조건주문 정책
+
+토스 조건주문은 Broker가 가격을 감시하다 조건 충족 시 일반 주문을 생성한다.
+
+| 타입 | 공식 동작 | 주요 제약 |
+|---|---|---|
+| `SINGLE` | `first` 한 조건 감시 | LIMIT 또는 MARKET |
+| `OCO` | 두 매도 조건 동시 감시, 하나 발동 시 다른 조건 취소 | 두 Leg 모두 SELL, LIMIT, `first trigger > current > second trigger` |
+| `OTO` | 첫 매수 체결 후 두 번째 매도 조건 감시 | first BUY, second SELL, LIMIT |
+
+생성 계약은 `symbol`, `type`, 공통 `quantity`, 공통 `orderType`, `expireDate`, `first`, 필요 시 `second`, 선택적 `clientOrderId`와 고액 확인을 가진다. 각 조건은 `orderSide`, `triggerPrice`, LIMIT일 때 `orderPrice`를 가진다. 수정은 기존 조건주문을 취소하고 새 조건주문을 생성하므로 **새 `conditionalOrderId`** 를 Revision으로 저장해야 한다.
+
+조건주문 목록은 Open API뿐 아니라 토스증권 앱 등 다른 채널에서 만든 조건주문도 포함한다. 따라서 Read-only Reconciliation은 `OPEN` 조건주문 전체를 조회하고 내부 Intent에 없는 항목을 `UNKNOWN_CONDITIONAL_ORDER_PRESENT` Critical Drift로 처리한다.
+
+R1은 조건주문 생성·수정·취소를 Broker Port에 노출하지 않는다. Broker 측에 장기 실행 권한이 남고 Execution Service Kill Switch와 가격·Portfolio Snapshot이 즉시 반영되지 않기 때문이다. 향후 도입하려면 별도 `ConditionalOrderIntentV1`, 모든 Leg의 사용자 승인, 만료·수량·Trigger·Order Price 상한, 발동 일반주문 계보, Broker-side Cancel Drill이 필요하다.
+
+### 11.8 Rate Limit
+
+모든 제한은 `Client × API Group` 기준이다. 자동매매에 직접 관련된 현재 공식 값은 다음과 같다.
+
+| Group | 기본 TPS | 피크시간 |
+|---|---:|---|
+| `AUTH` | 5 | 없음 |
+| `ACCOUNT` | 1 | 없음 |
+| `ASSET` | 5 | 없음 |
+| `STOCK` | 5 | 없음 |
+| `MARKET_INFO` | 3 | 없음 |
+| `MARKET_DATA` | 10 | 없음 |
+| `ORDER` | 6 | 09:00~09:10 KST: 3 |
+| `ORDER_HISTORY` | 5 | 없음 |
+| `ORDER_INFO` | 6 | 09:00~09:10 KST: 3 |
+| `CONDITIONAL_ORDER` | 5 | 없음 |
+| `CONDITIONAL_ORDER_HISTORY` | 10 | 없음 |
+
+수치는 사전 공지 없이 바뀔 수 있으므로 정적 설정은 상한이 아니라 초기값이다. 다음 응답 Header를 Runtime Source로 사용한다.
 
 - `X-RateLimit-Limit`
 - `X-RateLimit-Remaining`
@@ -500,6 +585,21 @@ Access Token은 만료 전에 단일 Flight로 갱신하고 Process Memory에만
 - `Retry-After`
 
 주문보다 조회·대사를 우선하는 별도 Token Bucket을 유지한다. Rate Limit 부족을 이유로 Preflight 검증을 생략하지 않는다.
+
+### 11.9 Error Envelope와 추적
+
+일반 API 오류는 `error.requestId`, `error.code`, `error.message`, 선택적 `error.data` Envelope로 반환된다. 행동 결정은 `message`가 아니라 `HTTP status + code`로 수행한다. `requestId`는 응답의 `X-Request-Id`와 함께 Audit에 저장하되 Secret·Account Header는 저장하지 않는다.
+
+- `401 invalid-token|expired-token`: Token 1회 재발급. 다중 Instance Token 충돌 여부 확인
+- `403 edge-blocked|forbidden`: 허용 IP·권한 점검, 신규 주문 Account Kill
+- `409 request-in-progress`: 같은 키로 새 주문 금지, 기존 결과 조회
+- `409 already-filled|already-canceled|already-modified|already-processing`: 상세 조회 후 Revision 대사
+- `422 prerequisite-required|account-restricted|investor-exchange-not-integrated`: 운영자·사용자 사전 요건 해결 전 차단
+- `422 opposite-pending-order-exists|insufficient-buying-power|insufficient-sellable-quantity`: Snapshot 갱신 후 새 승인
+- `422 order-hours-closed|stock-restricted|price-out-of-range`: 다음 Session 또는 새 가격으로 재승인
+- `422 idempotency-key-conflict`: Critical Incident, 자동 재시도 금지
+- `429 edge-rate-limit-exceeded|rate-limit-exceeded`: `Retry-After`와 Jitter 적용
+- `500 internal-error|maintenance`: 주문 변경 결과 UNKNOWN, 조회·대사 우선
 
 ---
 
@@ -824,8 +924,11 @@ Audit에는 Actor·Service Identity·Mode·Decision·Intent·Policy·Account Ali
 ### 20.2 Contract
 
 - Toss OAuth Request와 Token Cache
+- Client당 단일 활성 Token 재발급·다중 Instance 충돌
+- `BROKERAGE` Account·`accountSeq` Allowlist와 unknown Account Type
 - `Authorization`, `X-Tossinvest-Account` Header
 - Create/Modify/Cancel/List/Detail DTO Mapping
+- 일반·조건주문 Open 목록의 다른 채널 주문 탐지
 - Error Envelope와 Request ID
 - 429 Header와 `Retry-After`
 - Timeout을 UNKNOWN으로 분류
@@ -877,8 +980,10 @@ Audit에는 Actor·Service Identity·Mode·Decision·Intent·Policy·Account Ali
 ### 21.3 Read-only Broker Gate
 
 - [ ] 토스증권 Client 등록·허용 IP·약관 확인
-- [ ] 계좌·Holdings·Order 조회 연결
+- [ ] 계좌·Holdings·일반 Order·Conditional Order 조회 연결
 - [ ] Account Allowlist·Credential Rotation
+- [ ] Client당 단일 활성 Token의 Leader/Lease 또는 Credential 분리 검증
+- [ ] 다른 채널의 미확인 일반·조건주문 탐지와 Account Kill 검증
 - [ ] 실계좌 Snapshot과 내부 원장 대사
 - [ ] Security·Privacy Review
 
@@ -889,6 +994,7 @@ Audit에는 Actor·Service Identity·Mode·Decision·Intent·Policy·Account Ali
 - [ ] Operator On-call·Runbook·Kill Drill
 - [ ] Broker 장애·UNKNOWN 복구 Drill
 - [ ] 사용자 명시 승인과 고액주문 확인 정책
+- [ ] 조건주문 생성·수정·취소 Endpoint가 R1 Runtime에서 접근 불가함을 검증
 - [ ] 다중 승인 Release Evidence
 
 ### 21.5 Production Gate
@@ -948,6 +1054,8 @@ Audit에는 Actor·Service Identity·Mode·Decision·Intent·Policy·Account Ali
 - [ ] Cancel-only Incident Mode가 검증되었는가?
 - [ ] Secret·Token·Account Header가 Log와 Artifact에 없는가?
 - [ ] Rate Limit·Broker 장애·Process Crash Runbook이 검증되었는가?
+- [ ] 다중 Instance Token 재발급이 다른 Instance Token을 무효화하지 않는가?
+- [ ] 다른 채널의 일반·조건주문이 Read-only Reconciliation에서 누락되지 않는가?
 - [ ] LIVE 승격·해제·Rollback이 Audit와 Evidence Bundle로 남는가?
 
 ---

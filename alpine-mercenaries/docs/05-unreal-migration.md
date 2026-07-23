@@ -59,10 +59,11 @@ Xcode 버전 기준은 [Epic의 UE 5.8 macOS 개발 요구사항](https://dev.ep
 - 기본 게임 흐름: `AlpineGameMode`, `AlpinePlayerController`, `AlpineMercenaryCharacter`를 기본 맵에 연결
 - 카메라: 오른쪽 어깨 기본값, Q 좌·우 전환, 충돌·위치·회전 지연과 질주 FOV 적용
 - 이동: 카메라 기준 WASD, 걷기 220cm/s, 조깅 450cm/s, 질주 650cm/s, 앉기 200cm/s와 점프 적용
-- 자동화: `AlpineMercenaries.Locomotion.Configuration` 테스트 통과
+- 자원: 복제 가능한 HP·스태미너·조건부 MP 컴포넌트, 행동별 소비·지연 회복과 네이티브 HUD 적용
+- 자동화: `AlpineMercenaries.Locomotion.Configuration`, `AlpineMercenaries.Vitals.Resources` 테스트 통과
 - 에셋: 171개 Data Validation 오류 0건·경고 0건
 - 패키지: Mac Development 전체 BuildCookRun과 코드 서명 검증 통과
-- 네이티브 실행: Metal/Apple M4 렌더러 초기화, 기본 맵 로드, 똑바로 선 캐릭터, W 전진과 Q 어깨 전환을 실제 창에서 확인
+- 네이티브 실행: Metal/Apple M4 렌더러 초기화, 기본 맵 로드, HP·스태미너 HUD와 W 이동 중 스태미너 100→67 감소를 실제 창에서 확인
 - 남은 작업: 전용 앉기 애니메이션, 낮은 장애물 넘기·파쿠르, 게임패드 실기기와 Play-In-Editor 수동 검증
 
 반복 게임플레이 설정 검증 명령은 `scripts/test-unreal-gameplay.sh`다.

@@ -1,8 +1,10 @@
 #if WITH_DEV_AUTOMATION_TESTS
 
 #include "Character/AlpineMercenaryCharacter.h"
+#include "Character/AlpineVitalsComponent.h"
 #include "Game/AlpineGameMode.h"
 #include "Player/AlpinePlayerController.h"
+#include "UI/AlpineHUD.h"
 
 #include "Camera/CameraComponent.h"
 #include "GameFramework/CharacterMovementComponent.h"
@@ -24,6 +26,7 @@ bool FAlpineLocomotionConfigurationTest::RunTest(const FString& Parameters)
 		GetDefault<AAlpineGameMode>();
 
 	TestNotNull(TEXT("Character CDO"), Character);
+	TestNotNull(TEXT("Vitals component"), Character->GetVitalsComponent());
 	TestNotNull(TEXT("Shoulder camera boom"), Character->GetCameraBoom());
 	TestNotNull(TEXT("Follow camera"), Character->GetFollowCamera());
 	TestTrue(
@@ -51,6 +54,9 @@ bool FAlpineLocomotionConfigurationTest::RunTest(const FString& Parameters)
 	TestTrue(
 		TEXT("Game mode uses Alpine player controller"),
 		GameMode->PlayerControllerClass == AAlpinePlayerController::StaticClass());
+	TestTrue(
+		TEXT("Game mode uses Alpine HUD"),
+		GameMode->HUDClass == AAlpineHUD::StaticClass());
 
 	return true;
 }

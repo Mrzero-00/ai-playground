@@ -2,6 +2,7 @@
 
 #include "AlpineMercenaries.h"
 #include "Camera/CameraComponent.h"
+#include "Character/AlpineVitalsComponent.h"
 #include "Components/CapsuleComponent.h"
 #include "Components/InputComponent.h"
 #include "EnhancedInputComponent.h"
@@ -16,6 +17,8 @@
 AAlpineMercenaryCharacter::AAlpineMercenaryCharacter()
 {
 	PrimaryActorTick.bCanEverTick = true;
+
+	VitalsComponent = CreateDefaultSubobject<UAlpineVitalsComponent>(TEXT("VitalsComponent"));
 
 	GetCapsuleComponent()->InitCapsuleSize(42.0f, 96.0f);
 
@@ -97,6 +100,7 @@ void AAlpineMercenaryCharacter::Tick(float DeltaSeconds)
 	Super::Tick(DeltaSeconds);
 
 	RefreshLocomotionMode();
+	ConsumeMovementStamina(DeltaSeconds);
 	UpdateCamera(DeltaSeconds);
 }
 
@@ -113,7 +117,7 @@ void AAlpineMercenaryCharacter::SetupPlayerInputComponent(UInputComponent* Playe
 
 	if (JumpAction)
 	{
-		EnhancedInput->BindAction(JumpAction, ETriggerEvent::Started, this, &ACharacter::Jump);
+		EnhancedInput->BindAction(JumpAction, ETriggerEvent::Started, this, &AAlpineMercenaryCharacter::AttemptJump);
 		EnhancedInput->BindAction(JumpAction, ETriggerEvent::Completed, this, &ACharacter::StopJumping);
 	}
 	if (MoveAction)
@@ -168,8 +172,23 @@ void AAlpineMercenaryCharacter::Look(const FInputActionValue& Value)
 	AddControllerPitchInput(LookVector.Y);
 }
 
+void AAlpineMercenaryCharacter::AttemptJump()
+{
+	if (!CanJump() || (VitalsComponent && !VitalsComponent->TryConsumeStamina(JumpStaminaCost)))
+	{
+		return;
+	}
+
+	Jump();
+}
+
 void AAlpineMercenaryCharacter::StartSprint()
 {
+	if (VitalsComponent && VitalsComponent->GetStamina() < MinimumStaminaToSprint)
+	{
+		return;
+	}
+
 	bSprintRequested = true;
 	bWalkRequested = false;
 	if (bIsCrouched)
@@ -201,6 +220,11 @@ void AAlpineMercenaryCharacter::StopWalk()
 void AAlpineMercenaryCharacter::ToggleCrouch()
 {
 	if (GetCharacterMovement()->IsFalling())
+	{
+		return;
+	}
+
+	if (VitalsComponent && !VitalsComponent->TryConsumeStamina(CrouchTransitionStaminaCost))
 	{
 		return;
 	}
@@ -253,6 +277,52 @@ void AAlpineMercenaryCharacter::RefreshLocomotionMode()
 	}
 
 	SetLocomotionMode(EAlpineLocomotionMode::Jogging, JoggingSpeed);
+}
+
+void AAlpineMercenaryCharacter::ConsumeMovementStamina(float DeltaSeconds)
+{
+	if (!VitalsComponent)
+	{
+		return;
+	}
+
+	const bool bHasMovementIntent =
+		GetVelocity().SizeSquared2D() > FMath::Square(10.0f) ||
+		GetLastMovementInputVector().SizeSquared2D() > KINDA_SMALL_NUMBER;
+	const bool bPhysicalActionActive =
+		bHasMovementIntent || GetCharacterMovement()->IsFalling();
+	VitalsComponent->SetStaminaRegenerationPaused(bPhysicalActionActive);
+
+	if (!bHasMovementIntent)
+	{
+		return;
+	}
+
+	float StaminaPerSecond = JoggingStaminaPerSecond;
+	switch (LocomotionMode)
+	{
+	case EAlpineLocomotionMode::Walking:
+		StaminaPerSecond = WalkingStaminaPerSecond;
+		break;
+	case EAlpineLocomotionMode::Sprinting:
+		StaminaPerSecond = SprintingStaminaPerSecond;
+		break;
+	case EAlpineLocomotionMode::Crouching:
+		StaminaPerSecond = CrouchingStaminaPerSecond;
+		break;
+	case EAlpineLocomotionMode::Jogging:
+	case EAlpineLocomotionMode::Airborne:
+	default:
+		break;
+	}
+
+	VitalsComponent->ConsumeStamina(StaminaPerSecond * DeltaSeconds);
+	if (LocomotionMode == EAlpineLocomotionMode::Sprinting &&
+		VitalsComponent->GetStamina() <= KINDA_SMALL_NUMBER)
+	{
+		bSprintRequested = false;
+		RefreshLocomotionMode();
+	}
 }
 
 void AAlpineMercenaryCharacter::UpdateCamera(float DeltaSeconds)

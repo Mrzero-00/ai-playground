@@ -6,6 +6,7 @@
 
 class UCameraComponent;
 class UInputAction;
+class UAlpineVitalsComponent;
 class USpringArmComponent;
 struct FInputActionValue;
 
@@ -51,10 +52,16 @@ public:
 	UFUNCTION(BlueprintPure, Category = "Alpine|Movement")
 	float GetCrouchingSpeed() const { return CrouchingSpeed; }
 
+	UFUNCTION(BlueprintPure, Category = "Alpine|Vitals")
+	UAlpineVitalsComponent* GetVitalsComponent() const { return VitalsComponent; }
+
 protected:
 	virtual void BeginPlay() override;
 
 private:
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Alpine|Vitals", meta = (AllowPrivateAccess = "true"))
+	TObjectPtr<UAlpineVitalsComponent> VitalsComponent;
+
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Alpine|Camera", meta = (AllowPrivateAccess = "true"))
 	TObjectPtr<USpringArmComponent> CameraBoom;
 
@@ -85,6 +92,27 @@ private:
 	UPROPERTY(EditDefaultsOnly, Category = "Alpine|Movement")
 	float CrouchingSpeed = 200.0f;
 
+	UPROPERTY(EditDefaultsOnly, Category = "Alpine|Vitals", meta = (ClampMin = "0.0"))
+	float WalkingStaminaPerSecond = 0.75f;
+
+	UPROPERTY(EditDefaultsOnly, Category = "Alpine|Vitals", meta = (ClampMin = "0.0"))
+	float JoggingStaminaPerSecond = 2.5f;
+
+	UPROPERTY(EditDefaultsOnly, Category = "Alpine|Vitals", meta = (ClampMin = "0.0"))
+	float SprintingStaminaPerSecond = 12.0f;
+
+	UPROPERTY(EditDefaultsOnly, Category = "Alpine|Vitals", meta = (ClampMin = "0.0"))
+	float CrouchingStaminaPerSecond = 1.5f;
+
+	UPROPERTY(EditDefaultsOnly, Category = "Alpine|Vitals", meta = (ClampMin = "0.0"))
+	float JumpStaminaCost = 15.0f;
+
+	UPROPERTY(EditDefaultsOnly, Category = "Alpine|Vitals", meta = (ClampMin = "0.0"))
+	float CrouchTransitionStaminaCost = 3.0f;
+
+	UPROPERTY(EditDefaultsOnly, Category = "Alpine|Vitals", meta = (ClampMin = "0.0"))
+	float MinimumStaminaToSprint = 10.0f;
+
 	UPROPERTY(EditDefaultsOnly, Category = "Alpine|Camera")
 	float StandingCameraHeight = 76.0f;
 
@@ -109,6 +137,7 @@ private:
 
 	void Move(const FInputActionValue& Value);
 	void Look(const FInputActionValue& Value);
+	void AttemptJump();
 	void StartSprint();
 	void StopSprint();
 	void StartWalk();
@@ -116,6 +145,7 @@ private:
 	void ToggleCrouch();
 	void ToggleShoulder();
 	void RefreshLocomotionMode();
+	void ConsumeMovementStamina(float DeltaSeconds);
 	void UpdateCamera(float DeltaSeconds);
 	void SetLocomotionMode(EAlpineLocomotionMode NewMode, float NewMaxSpeed);
 };

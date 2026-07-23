@@ -5,6 +5,7 @@
 #include "AlpineMercenaryCharacter.generated.h"
 
 class UAlpineVitalsComponent;
+class UAlpineWeaponComponent;
 class UAnimInstance;
 class UAnimSequence;
 class UCameraComponent;
@@ -63,12 +64,18 @@ public:
 	UFUNCTION(BlueprintPure, Category = "Alpine|Vitals")
 	UAlpineVitalsComponent* GetVitalsComponent() const { return VitalsComponent; }
 
+	UFUNCTION(BlueprintPure, Category = "Alpine|Weapon")
+	UAlpineWeaponComponent* GetWeaponComponent() const { return WeaponComponent; }
+
 protected:
 	virtual void BeginPlay() override;
 
 private:
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Alpine|Vitals", meta = (AllowPrivateAccess = "true"))
 	TObjectPtr<UAlpineVitalsComponent> VitalsComponent;
+
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Alpine|Weapon", meta = (AllowPrivateAccess = "true"))
+	TObjectPtr<UAlpineWeaponComponent> WeaponComponent;
 
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Alpine|Camera", meta = (AllowPrivateAccess = "true"))
 	TObjectPtr<USpringArmComponent> CameraBoom;
@@ -136,6 +143,15 @@ private:
 	UPROPERTY(EditDefaultsOnly, Category = "Alpine|Camera")
 	float SprintFieldOfView = 96.0f;
 
+	UPROPERTY(EditDefaultsOnly, Category = "Alpine|Camera")
+	float PrecisionAimFieldOfView = 68.0f;
+
+	UPROPERTY(EditDefaultsOnly, Category = "Alpine|Camera")
+	float DefaultCameraArmLength = 340.0f;
+
+	UPROPERTY(EditDefaultsOnly, Category = "Alpine|Camera")
+	float PrecisionAimArmLength = 260.0f;
+
 	UPROPERTY()
 	TObjectPtr<UAnimSequence> CrouchIdleAnimation;
 
@@ -161,6 +177,12 @@ private:
 	void StopWalk();
 	void ToggleCrouch();
 	void ToggleShoulder();
+	void UsePrimaryWeaponAction();
+	void StartWeaponRoleAction();
+	void StopWeaponRoleAction();
+	void EquipSwordAndShield();
+	void EquipBow();
+	void EquipGreatsword();
 	void RefreshLocomotionMode();
 	void ConsumeMovementStamina(float DeltaSeconds);
 	void UpdateCamera(float DeltaSeconds);

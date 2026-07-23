@@ -5,6 +5,7 @@
 #include "Engine/Canvas.h"
 #include "Engine/Engine.h"
 #include "GameFramework/PlayerController.h"
+#include "Weapon/AlpineWeaponComponent.h"
 
 namespace
 {
@@ -40,6 +41,8 @@ void AAlpineHUD::DrawHUD()
 		Cast<AAlpineMercenaryCharacter>(PlayerOwner->GetPawn());
 	const UAlpineVitalsComponent* Vitals =
 		Character ? Character->GetVitalsComponent() : nullptr;
+	const UAlpineWeaponComponent* Weapon =
+		Character ? Character->GetWeaponComponent() : nullptr;
 	if (!Vitals)
 	{
 		return;
@@ -52,6 +55,23 @@ void AAlpineHUD::DrawHUD()
 	const int32 BarCount = Vitals->IsManaEnabled() ? 3 : 2;
 	const float TotalHeight = BarCount * BarHeight + (BarCount - 1) * BarGap;
 	float Y = Canvas->ClipY - TotalHeight - 42.0f;
+
+	if (Weapon)
+	{
+		const FString WeaponLabel = FString::Printf(
+			TEXT("%s  |  %s  |  %s"),
+			*Weapon->GetWeaponDisplayName().ToString(),
+			*Weapon->GetRoleName().ToString(),
+			*Weapon->GetActionStateLabel().ToString());
+		DrawText(
+			WeaponLabel,
+			FLinearColor(0.95f, 0.82f, 0.34f, 1.0f),
+			X,
+			Y - 52.0f,
+			GEngine ? GEngine->GetSmallFont() : nullptr,
+			1.0f,
+			false);
+	}
 
 	DrawText(
 		GetMovementStateLabel(*Character),

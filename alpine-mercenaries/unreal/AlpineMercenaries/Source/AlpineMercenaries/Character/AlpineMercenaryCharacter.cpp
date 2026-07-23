@@ -15,12 +15,15 @@
 #include "InputActionValue.h"
 #include "InputCoreTypes.h"
 #include "UObject/ConstructorHelpers.h"
+#include "Weapon/AlpineWeaponComponent.h"
+#include "Weapon/AlpineWeaponTypes.h"
 
 AAlpineMercenaryCharacter::AAlpineMercenaryCharacter()
 {
 	PrimaryActorTick.bCanEverTick = true;
 
 	VitalsComponent = CreateDefaultSubobject<UAlpineVitalsComponent>(TEXT("VitalsComponent"));
+	WeaponComponent = CreateDefaultSubobject<UAlpineWeaponComponent>(TEXT("WeaponComponent"));
 
 	GetCapsuleComponent()->InitCapsuleSize(42.0f, 96.0f);
 
@@ -42,7 +45,7 @@ AAlpineMercenaryCharacter::AAlpineMercenaryCharacter()
 
 	CameraBoom = CreateDefaultSubobject<USpringArmComponent>(TEXT("CameraBoom"));
 	CameraBoom->SetupAttachment(RootComponent);
-	CameraBoom->TargetArmLength = 340.0f;
+	CameraBoom->TargetArmLength = DefaultCameraArmLength;
 	CameraBoom->TargetOffset = FVector(0.0f, 0.0f, StandingCameraHeight);
 	CameraBoom->SocketOffset = FVector(0.0f, ShoulderOffset, 0.0f);
 	CameraBoom->bUsePawnControlRotation = true;
@@ -158,6 +161,20 @@ void AAlpineMercenaryCharacter::SetupPlayerInputComponent(UInputComponent* Playe
 
 	PlayerInputComponent->BindKey(EKeys::Q, IE_Pressed, this, &AAlpineMercenaryCharacter::ToggleShoulder);
 	PlayerInputComponent->BindKey(EKeys::Gamepad_RightThumbstick, IE_Pressed, this, &AAlpineMercenaryCharacter::ToggleShoulder);
+
+	PlayerInputComponent->BindKey(EKeys::LeftMouseButton, IE_Pressed, this, &AAlpineMercenaryCharacter::UsePrimaryWeaponAction);
+	PlayerInputComponent->BindKey(EKeys::Gamepad_RightTrigger, IE_Pressed, this, &AAlpineMercenaryCharacter::UsePrimaryWeaponAction);
+	PlayerInputComponent->BindKey(EKeys::RightMouseButton, IE_Pressed, this, &AAlpineMercenaryCharacter::StartWeaponRoleAction);
+	PlayerInputComponent->BindKey(EKeys::RightMouseButton, IE_Released, this, &AAlpineMercenaryCharacter::StopWeaponRoleAction);
+	PlayerInputComponent->BindKey(EKeys::Gamepad_LeftTrigger, IE_Pressed, this, &AAlpineMercenaryCharacter::StartWeaponRoleAction);
+	PlayerInputComponent->BindKey(EKeys::Gamepad_LeftTrigger, IE_Released, this, &AAlpineMercenaryCharacter::StopWeaponRoleAction);
+
+	PlayerInputComponent->BindKey(EKeys::One, IE_Pressed, this, &AAlpineMercenaryCharacter::EquipSwordAndShield);
+	PlayerInputComponent->BindKey(EKeys::Two, IE_Pressed, this, &AAlpineMercenaryCharacter::EquipBow);
+	PlayerInputComponent->BindKey(EKeys::Three, IE_Pressed, this, &AAlpineMercenaryCharacter::EquipGreatsword);
+	PlayerInputComponent->BindKey(EKeys::Gamepad_DPad_Up, IE_Pressed, this, &AAlpineMercenaryCharacter::EquipSwordAndShield);
+	PlayerInputComponent->BindKey(EKeys::Gamepad_DPad_Right, IE_Pressed, this, &AAlpineMercenaryCharacter::EquipBow);
+	PlayerInputComponent->BindKey(EKeys::Gamepad_DPad_Down, IE_Pressed, this, &AAlpineMercenaryCharacter::EquipGreatsword);
 }
 
 void AAlpineMercenaryCharacter::Move(const FInputActionValue& Value)
@@ -258,6 +275,58 @@ void AAlpineMercenaryCharacter::ToggleShoulder()
 	ShoulderSide *= -1.0f;
 }
 
+void AAlpineMercenaryCharacter::UsePrimaryWeaponAction()
+{
+	bSprintRequested = false;
+	if (WeaponComponent)
+	{
+		WeaponComponent->TryUsePrimaryAction();
+	}
+	RefreshLocomotionMode();
+}
+
+void AAlpineMercenaryCharacter::StartWeaponRoleAction()
+{
+	bSprintRequested = false;
+	if (WeaponComponent)
+	{
+		WeaponComponent->StartRoleAction();
+	}
+	RefreshLocomotionMode();
+}
+
+void AAlpineMercenaryCharacter::StopWeaponRoleAction()
+{
+	if (WeaponComponent)
+	{
+		WeaponComponent->StopRoleAction();
+	}
+}
+
+void AAlpineMercenaryCharacter::EquipSwordAndShield()
+{
+	if (WeaponComponent)
+	{
+		WeaponComponent->EquipWeapon(EAlpineWeaponType::SwordAndShield);
+	}
+}
+
+void AAlpineMercenaryCharacter::EquipBow()
+{
+	if (WeaponComponent)
+	{
+		WeaponComponent->EquipWeapon(EAlpineWeaponType::Bow);
+	}
+}
+
+void AAlpineMercenaryCharacter::EquipGreatsword()
+{
+	if (WeaponComponent)
+	{
+		WeaponComponent->EquipWeapon(EAlpineWeaponType::Greatsword);
+	}
+}
+
 void AAlpineMercenaryCharacter::RefreshLocomotionMode()
 {
 	UCharacterMovementComponent* Movement = GetCharacterMovement();
@@ -341,8 +410,15 @@ void AAlpineMercenaryCharacter::UpdateCamera(float DeltaSeconds)
 {
 	const float TargetShoulderY = ShoulderOffset * ShoulderSide;
 	const float TargetHeight = bIsCrouched ? CrouchingCameraHeight : StandingCameraHeight;
-	const float TargetFov =
-		LocomotionMode == EAlpineLocomotionMode::Sprinting ? SprintFieldOfView : DefaultFieldOfView;
+	const bool bPrecisionAiming =
+		WeaponComponent && WeaponComponent->IsPrecisionAiming();
+	const float TargetFov = bPrecisionAiming
+		? PrecisionAimFieldOfView
+		: (LocomotionMode == EAlpineLocomotionMode::Sprinting
+			? SprintFieldOfView
+			: DefaultFieldOfView);
+	const float TargetArmLength =
+		bPrecisionAiming ? PrecisionAimArmLength : DefaultCameraArmLength;
 
 	FVector SocketOffset = CameraBoom->SocketOffset;
 	SocketOffset.Y = FMath::FInterpTo(SocketOffset.Y, TargetShoulderY, DeltaSeconds, 12.0f);
@@ -351,6 +427,12 @@ void AAlpineMercenaryCharacter::UpdateCamera(float DeltaSeconds)
 	FVector TargetOffset = CameraBoom->TargetOffset;
 	TargetOffset.Z = FMath::FInterpTo(TargetOffset.Z, TargetHeight, DeltaSeconds, 10.0f);
 	CameraBoom->TargetOffset = TargetOffset;
+
+	CameraBoom->TargetArmLength = FMath::FInterpTo(
+		CameraBoom->TargetArmLength,
+		TargetArmLength,
+		DeltaSeconds,
+		10.0f);
 
 	const float NewFieldOfView =
 		FMath::FInterpTo(FollowCamera->FieldOfView, TargetFov, DeltaSeconds, 8.0f);

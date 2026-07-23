@@ -180,9 +180,9 @@ private:
 	void UsePrimaryWeaponAction();
 	void StartWeaponRoleAction();
 	void StopWeaponRoleAction();
-	void EquipSwordAndShield();
-	void EquipBow();
-	void EquipGreatsword();
+	void UseWeaponSkillSlot1();
+	void UseWeaponSkillSlot2();
+	void UseWeaponSkillSlot3();
 	void RefreshLocomotionMode();
 	void ConsumeMovementStamina(float DeltaSeconds);
 	void UpdateCamera(float DeltaSeconds);

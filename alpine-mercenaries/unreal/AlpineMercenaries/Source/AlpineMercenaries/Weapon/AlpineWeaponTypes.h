@@ -24,7 +24,18 @@ enum class EAlpineWeaponActionState : uint8
 {
 	Ready,
 	PrimaryAttack,
-	RoleAction
+	RoleAction,
+	SpecialAttack,
+	WeaponSpecial
+};
+
+UENUM(BlueprintType)
+enum class EAlpineSpecialAttackSlot : uint8
+{
+	None = 0,
+	Slot1 = 1,
+	Slot2 = 2,
+	Slot3 = 3
 };
 
 USTRUCT(BlueprintType)
@@ -75,11 +86,88 @@ struct FAlpineWeaponDefinition
 	bool bHasOffhandVisual = true;
 };
 
+USTRUCT(BlueprintType)
+struct FAlpinePrimaryComboStepDefinition
+{
+	GENERATED_BODY()
+
+	UPROPERTY(BlueprintReadOnly, Category = "Alpine|Weapon|Combo")
+	EAlpineWeaponType WeaponType = EAlpineWeaponType::SwordAndShield;
+
+	UPROPERTY(BlueprintReadOnly, Category = "Alpine|Weapon|Combo")
+	int32 ComboStep = 1;
+
+	UPROPERTY(BlueprintReadOnly, Category = "Alpine|Weapon|Combo")
+	FName MotionName = TEXT("Primary Attack");
+
+	UPROPERTY(BlueprintReadOnly, Category = "Alpine|Weapon|Combo")
+	float DamageMultiplier = 1.0f;
+
+	UPROPERTY(BlueprintReadOnly, Category = "Alpine|Weapon|Combo")
+	float Range = 185.0f;
+
+	UPROPERTY(BlueprintReadOnly, Category = "Alpine|Weapon|Combo")
+	float TraceRadius = 50.0f;
+};
+
+USTRUCT(BlueprintType)
+struct FAlpineSpecialAttackDefinition
+{
+	GENERATED_BODY()
+
+	UPROPERTY(BlueprintReadOnly, Category = "Alpine|Weapon|Special Attack")
+	EAlpineWeaponType WeaponType = EAlpineWeaponType::SwordAndShield;
+
+	UPROPERTY(BlueprintReadOnly, Category = "Alpine|Weapon|Special Attack")
+	EAlpineSpecialAttackSlot Slot = EAlpineSpecialAttackSlot::Slot1;
+
+	UPROPERTY(BlueprintReadOnly, Category = "Alpine|Weapon|Special Attack")
+	FName DisplayName = TEXT("Special Attack");
+
+	UPROPERTY(BlueprintReadOnly, Category = "Alpine|Weapon|Special Attack")
+	float DamageMultiplier = 1.0f;
+
+	UPROPERTY(BlueprintReadOnly, Category = "Alpine|Weapon|Special Attack")
+	float Range = 200.0f;
+
+	UPROPERTY(BlueprintReadOnly, Category = "Alpine|Weapon|Special Attack")
+	float TraceRadius = 50.0f;
+
+	UPROPERTY(BlueprintReadOnly, Category = "Alpine|Weapon|Special Attack")
+	float StaminaCost = 12.0f;
+
+	UPROPERTY(BlueprintReadOnly, Category = "Alpine|Weapon|Special Attack")
+	float Cooldown = 1.0f;
+
+	UPROPERTY(BlueprintReadOnly, Category = "Alpine|Weapon|Special Attack")
+	bool bRanged = false;
+};
+
 ALPINEMERCENARIES_API const FAlpineWeaponDefinition& GetAlpineWeaponDefinition(
 	EAlpineWeaponType WeaponType);
 
+ALPINEMERCENARIES_API const FAlpinePrimaryComboStepDefinition*
+	FindAlpinePrimaryComboStepDefinition(
+		EAlpineWeaponType WeaponType,
+		int32 ComboStep);
+
+ALPINEMERCENARIES_API const FAlpineSpecialAttackDefinition*
+	FindAlpineSpecialAttackDefinition(
+		EAlpineWeaponType WeaponType,
+		EAlpineSpecialAttackSlot Slot);
+
 ALPINEMERCENARIES_API float CalculateAlpineWeaponDamage(
 	EAlpineWeaponType WeaponType,
+	bool bRoleActionActive);
+
+ALPINEMERCENARIES_API float CalculateAlpinePrimaryComboDamage(
+	EAlpineWeaponType WeaponType,
+	int32 ComboStep,
+	bool bRoleActionActive);
+
+ALPINEMERCENARIES_API float CalculateAlpineSpecialAttackDamage(
+	EAlpineWeaponType WeaponType,
+	EAlpineSpecialAttackSlot Slot,
 	bool bRoleActionActive);
 
 ALPINEMERCENARIES_API bool IsLocationProtectedByAlpineGuard(

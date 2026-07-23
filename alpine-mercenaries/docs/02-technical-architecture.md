@@ -40,7 +40,7 @@ Steam 인증/로비
 
 - 피해, 회복, 상태이상과 사망
 - HP·스태미너·조건부 MP의 소비와 회복
-- 무기 장착·교체, 공격 시점, 히트 판정과 역할 행동 상태
+- 던전 입장 무기 장착 확정, 공격 시점, 콤보·특수공격 히트 판정과 고유 행동 상태
 - 방패의 공격 차단과 뒤쪽 아군 보호
 - 부위 피해, 파괴와 보스 상태 전환
 - 드롭 생성, 아이템 고유 ID와 소유권
@@ -54,7 +54,7 @@ Steam 인증/로비
 
 - Character Locomotion: 걷기, 질주, 앉기와 점프
 - Character Vitals: HP, 모든 물리 행동의 스태미너 소비·회복, 무기 조건부 MP
-- Weapon Actions: `AlpineWeaponComponent`의 무기 정의, 3종 교체, 근접 스윕·원거리 라인 트레이스, 자원과 역할 행동
+- Weapon Actions: `AlpineWeaponComponent`의 입장 시 고정 무기 정의, 무기별 3단 콤보, 숫자키 특수공격 슬롯, 근접 스윕·원거리 라인 트레이스, 자원과 우클릭 고유 행동
 - Directional Defense: 방패 평면, 보호 볼륨, 완벽 방어와 쳐내기
 - Target Anatomy: 몬스터 부위, 피해 분배, 파괴 후 행동 변경
 - Encounter State: 보스 패턴, 예고, 목표, 실패와 완료

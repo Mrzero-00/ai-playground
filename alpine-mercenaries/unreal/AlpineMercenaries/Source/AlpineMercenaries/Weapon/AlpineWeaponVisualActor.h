@@ -17,7 +17,13 @@ class ALPINEMERCENARIES_API AAlpineWeaponVisualActor : public AActor
 public:
 	AAlpineWeaponVisualActor();
 
+	virtual void Tick(float DeltaSeconds) override;
+
 	void ConfigureForWeapon(EAlpineWeaponType WeaponType, bool bOffhand);
+	void PlayPrimaryComboMotion(
+		EAlpineWeaponType WeaponType,
+		int32 ComboStep,
+		float Duration);
 
 private:
 	UPROPERTY(VisibleAnywhere, Category = "Alpine|Weapon")
@@ -43,6 +49,13 @@ private:
 
 	UPROPERTY()
 	TObjectPtr<UMaterialInterface> BaseMaterial;
+
+	FTransform RestRelativeTransform;
+	FTransform MotionStartTransform;
+	FTransform MotionEndTransform;
+	float MotionElapsed = 0.0f;
+	float MotionDuration = 0.25f;
+	bool bMotionActive = false;
 
 	void ResetParts();
 	void ConfigurePart(

@@ -11,8 +11,11 @@ class ALPINEMERCENARIES_API AAlpineHUD : public AHUD
 
 public:
 	virtual void DrawHUD() override;
+	virtual void NotifyHitBoxClick(FName BoxName) override;
 
 private:
+	void DrawDevelopmentWeaponSelector(
+		const class UAlpineWeaponComponent& Weapon);
 	void DrawResourceBar(
 		const FString& Label,
 		float CurrentValue,

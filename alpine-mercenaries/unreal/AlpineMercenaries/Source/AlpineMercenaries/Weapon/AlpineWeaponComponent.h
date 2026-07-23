@@ -47,6 +47,27 @@ public:
 	UFUNCTION(BlueprintPure, Category = "Alpine|Weapon")
 	FName GetActionStateLabel() const;
 
+	UFUNCTION(BlueprintPure, Category = "Alpine|Weapon|Combo")
+	FName GetNextPrimaryAttackLabel() const;
+
+	UFUNCTION(BlueprintPure, Category = "Alpine|Weapon|Combo")
+	int32 GetNextPrimaryComboStep() const { return NextPrimaryComboStep; }
+
+	UFUNCTION(BlueprintPure, Category = "Alpine|Weapon|Combo")
+	int32 GetLastPrimaryComboStep() const { return LastPrimaryComboStep; }
+
+	UFUNCTION(BlueprintPure, Category = "Alpine|Weapon|Combo")
+	float GetPrimaryComboResetDelay() const { return PrimaryComboResetDelay; }
+
+	UFUNCTION(BlueprintPure, Category = "Alpine|Weapon|Special Attack")
+	FName GetSpecialAttackLabel(int32 SlotNumber) const;
+
+	UFUNCTION(BlueprintPure, Category = "Alpine|Weapon|Special Attack")
+	EAlpineSpecialAttackSlot GetLastSpecialAttackSlot() const
+	{
+		return LastSpecialAttackSlot;
+	}
+
 	UFUNCTION(BlueprintPure, Category = "Alpine|Weapon")
 	bool IsRoleActionActive() const { return bRoleActionActive; }
 
@@ -71,11 +92,17 @@ public:
 	UFUNCTION(BlueprintCallable, Category = "Alpine|Weapon")
 	bool TryUsePrimaryAction();
 
+	UFUNCTION(BlueprintCallable, Category = "Alpine|Weapon|Special Attack")
+	bool TryUseSpecialAttack(int32 SlotNumber);
+
 	UFUNCTION(BlueprintCallable, Category = "Alpine|Weapon")
 	bool StartRoleAction();
 
 	UFUNCTION(BlueprintCallable, Category = "Alpine|Weapon")
 	void StopRoleAction();
+
+	UFUNCTION(BlueprintCallable, Category = "Alpine|Weapon")
+	bool ReleaseRoleAction();
 
 	UFUNCTION(BlueprintPure, Category = "Alpine|Weapon")
 	bool IsLocationProtectedByGuard(const FVector& TargetLocation) const;
@@ -107,6 +134,25 @@ private:
 		Category = "Alpine|Weapon")
 	bool bRoleActionActive = false;
 
+	UPROPERTY(
+		VisibleInstanceOnly,
+		ReplicatedUsing = OnRep_WeaponState,
+		Category = "Alpine|Weapon|Special Attack")
+	EAlpineSpecialAttackSlot ActiveSpecialAttackSlot =
+		EAlpineSpecialAttackSlot::None;
+
+	UPROPERTY(
+		VisibleInstanceOnly,
+		ReplicatedUsing = OnRep_WeaponState,
+		Category = "Alpine|Weapon|Combo")
+	int32 ActivePrimaryComboStep = 0;
+
+	UPROPERTY(
+		VisibleInstanceOnly,
+		ReplicatedUsing = OnRep_WeaponState,
+		Category = "Alpine|Weapon|Combo")
+	int32 NextPrimaryComboStep = 1;
+
 	UPROPERTY(Transient)
 	TObjectPtr<AAlpineWeaponVisualActor> MainHandVisual;
 
@@ -119,8 +165,20 @@ private:
 	UPROPERTY(VisibleInstanceOnly, Category = "Alpine|Weapon")
 	float LastActionDamage = 0.0f;
 
+	UPROPERTY(VisibleInstanceOnly, Category = "Alpine|Weapon|Special Attack")
+	EAlpineSpecialAttackSlot LastSpecialAttackSlot =
+		EAlpineSpecialAttackSlot::None;
+
+	UPROPERTY(VisibleInstanceOnly, Category = "Alpine|Weapon|Combo")
+	int32 LastPrimaryComboStep = 0;
+
+	UPROPERTY(EditDefaultsOnly, Category = "Alpine|Weapon|Combo", meta = (ClampMin = "0.1"))
+	float PrimaryComboResetDelay = 1.25f;
+
 	float NextPrimaryActionTime = 0.0f;
-	FTimerHandle ActionResetTimer;
+	float NextSpecialActionTimes[3] = {0.0f, 0.0f, 0.0f};
+	FTimerHandle WeaponActionResetTimer;
+	FTimerHandle PrimaryComboResetTimer;
 
 	UFUNCTION()
 	void OnRep_EquippedWeapon();
@@ -135,15 +193,24 @@ private:
 	void ServerUsePrimaryAction();
 
 	UFUNCTION(Server, Reliable)
+	void ServerUseSpecialAttack(int32 SlotNumber);
+
+	UFUNCTION(Server, Reliable)
 	void ServerSetRoleAction(bool bActive);
+
+	UFUNCTION(Server, Reliable)
+	void ServerReleaseRoleAction();
 
 	bool ApplyEquippedWeapon(EAlpineWeaponType NewWeaponType);
 	bool ExecutePrimaryAction();
+	bool ExecuteSpecialAttack(int32 SlotNumber);
 	bool ExecuteStartRoleAction();
+	bool ExecuteReleaseRoleAction();
 	void ExecuteStopRoleAction();
-	int32 PerformMeleeTrace(float Damage);
-	int32 PerformRangedTrace(float Damage);
-	void FinishPrimaryAction();
+	int32 PerformMeleeTrace(float Damage, float Range, float TraceRadius);
+	int32 PerformRangedTrace(float Damage, float Range);
+	void FinishWeaponAction();
+	void ResetPrimaryCombo();
 	void SetActionState(EAlpineWeaponActionState NewState);
 	void RebuildWeaponVisuals();
 	void DestroyWeaponVisuals();

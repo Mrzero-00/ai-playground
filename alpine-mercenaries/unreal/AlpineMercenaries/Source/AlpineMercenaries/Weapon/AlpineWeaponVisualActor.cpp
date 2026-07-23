@@ -8,7 +8,8 @@
 
 AAlpineWeaponVisualActor::AAlpineWeaponVisualActor()
 {
-	PrimaryActorTick.bCanEverTick = false;
+	PrimaryActorTick.bCanEverTick = true;
+	PrimaryActorTick.bStartWithTickEnabled = false;
 	SetReplicates(false);
 	SetCanBeDamaged(false);
 
@@ -35,6 +36,35 @@ AAlpineWeaponVisualActor::AAlpineWeaponVisualActor()
 	CubeMesh = CubeAsset.Object;
 	CylinderMesh = CylinderAsset.Object;
 	BaseMaterial = MaterialAsset.Object;
+}
+
+void AAlpineWeaponVisualActor::Tick(float DeltaSeconds)
+{
+	Super::Tick(DeltaSeconds);
+
+	if (!bMotionActive)
+	{
+		return;
+	}
+
+	MotionElapsed += FMath::Max(DeltaSeconds, 0.0f);
+	const float Alpha = FMath::Clamp(
+		MotionElapsed / FMath::Max(MotionDuration, KINDA_SMALL_NUMBER),
+		0.0f,
+		1.0f);
+	FTransform BlendedTransform;
+	BlendedTransform.Blend(
+		MotionStartTransform,
+		MotionEndTransform,
+		FMath::InterpEaseInOut(0.0f, 1.0f, Alpha, 2.0f));
+	SetActorRelativeTransform(BlendedTransform);
+
+	if (Alpha >= 1.0f)
+	{
+		bMotionActive = false;
+		SetActorRelativeTransform(RestRelativeTransform);
+		SetActorTickEnabled(false);
+	}
 }
 
 void AAlpineWeaponVisualActor::ConfigureForWeapon(
@@ -66,6 +96,7 @@ void AAlpineWeaponVisualActor::ConfigureForWeapon(
 			Steel);
 		SetActorRelativeLocation(FVector(4.0f, 0.0f, 2.0f));
 		SetActorRelativeRotation(FRotator(0.0f, 90.0f, 0.0f));
+		RestRelativeTransform = VisualRoot->GetRelativeTransform();
 		return;
 	}
 
@@ -162,6 +193,91 @@ void AAlpineWeaponVisualActor::ConfigureForWeapon(
 		SetActorRelativeRotation(FRotator::ZeroRotator);
 		break;
 	}
+
+	RestRelativeTransform = VisualRoot->GetRelativeTransform();
+}
+
+void AAlpineWeaponVisualActor::PlayPrimaryComboMotion(
+	EAlpineWeaponType WeaponType,
+	int32 ComboStep,
+	float Duration)
+{
+	const FRotator RestRotation = RestRelativeTransform.Rotator();
+	const FVector RestLocation = RestRelativeTransform.GetLocation();
+	FRotator StartOffset = FRotator::ZeroRotator;
+	FRotator EndOffset = FRotator::ZeroRotator;
+	FVector StartLocationOffset = FVector::ZeroVector;
+	FVector EndLocationOffset = FVector::ZeroVector;
+
+	switch (WeaponType)
+	{
+	case EAlpineWeaponType::SwordAndShield:
+		if (ComboStep == 1)
+		{
+			StartOffset = FRotator(-55.0f, -22.0f, 48.0f);
+			EndOffset = FRotator(42.0f, 25.0f, -58.0f);
+		}
+		else if (ComboStep == 2)
+		{
+			StartOffset = FRotator(0.0f, -85.0f, 0.0f);
+			EndOffset = FRotator(0.0f, 85.0f, 0.0f);
+		}
+		else
+		{
+			StartLocationOffset = FVector(-18.0f, 0.0f, 0.0f);
+			EndLocationOffset = FVector(58.0f, 0.0f, 0.0f);
+		}
+		break;
+	case EAlpineWeaponType::Bow:
+		if (ComboStep == 1)
+		{
+			StartLocationOffset = FVector(-6.0f, 0.0f, 0.0f);
+			EndLocationOffset = FVector(10.0f, 0.0f, 0.0f);
+		}
+		else if (ComboStep == 2)
+		{
+			StartOffset = FRotator(0.0f, -12.0f, -6.0f);
+			EndOffset = FRotator(0.0f, 12.0f, 6.0f);
+		}
+		else
+		{
+			StartLocationOffset = FVector(-14.0f, 0.0f, 0.0f);
+			EndLocationOffset = FVector(20.0f, 0.0f, 0.0f);
+		}
+		break;
+	case EAlpineWeaponType::Greatsword:
+	default:
+		if (ComboStep == 1)
+		{
+			StartOffset = FRotator(-75.0f, 0.0f, 0.0f);
+			EndOffset = FRotator(58.0f, 0.0f, 0.0f);
+		}
+		else if (ComboStep == 2)
+		{
+			StartOffset = FRotator(0.0f, -105.0f, 0.0f);
+			EndOffset = FRotator(0.0f, 105.0f, 0.0f);
+		}
+		else
+		{
+			StartOffset = FRotator(-95.0f, 0.0f, 0.0f);
+			EndOffset = FRotator(78.0f, 0.0f, 0.0f);
+		}
+		break;
+	}
+
+	MotionStartTransform = FTransform(
+		RestRotation + StartOffset,
+		RestLocation + StartLocationOffset,
+		RestRelativeTransform.GetScale3D());
+	MotionEndTransform = FTransform(
+		RestRotation + EndOffset,
+		RestLocation + EndLocationOffset,
+		RestRelativeTransform.GetScale3D());
+	MotionElapsed = 0.0f;
+	MotionDuration = FMath::Max(Duration, 0.05f);
+	bMotionActive = true;
+	SetActorRelativeTransform(MotionStartTransform);
+	SetActorTickEnabled(true);
 }
 
 void AAlpineWeaponVisualActor::ResetParts()
@@ -173,6 +289,9 @@ void AAlpineWeaponVisualActor::ResetParts()
 		Part->SetRelativeTransform(FTransform::Identity);
 	}
 	SetActorRelativeTransform(FTransform::Identity);
+	RestRelativeTransform = FTransform::Identity;
+	bMotionActive = false;
+	SetActorTickEnabled(false);
 }
 
 void AAlpineWeaponVisualActor::ConfigurePart(

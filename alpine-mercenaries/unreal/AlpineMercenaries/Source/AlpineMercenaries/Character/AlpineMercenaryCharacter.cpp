@@ -169,12 +169,12 @@ void AAlpineMercenaryCharacter::SetupPlayerInputComponent(UInputComponent* Playe
 	PlayerInputComponent->BindKey(EKeys::Gamepad_LeftTrigger, IE_Pressed, this, &AAlpineMercenaryCharacter::StartWeaponRoleAction);
 	PlayerInputComponent->BindKey(EKeys::Gamepad_LeftTrigger, IE_Released, this, &AAlpineMercenaryCharacter::StopWeaponRoleAction);
 
-	PlayerInputComponent->BindKey(EKeys::One, IE_Pressed, this, &AAlpineMercenaryCharacter::EquipSwordAndShield);
-	PlayerInputComponent->BindKey(EKeys::Two, IE_Pressed, this, &AAlpineMercenaryCharacter::EquipBow);
-	PlayerInputComponent->BindKey(EKeys::Three, IE_Pressed, this, &AAlpineMercenaryCharacter::EquipGreatsword);
-	PlayerInputComponent->BindKey(EKeys::Gamepad_DPad_Up, IE_Pressed, this, &AAlpineMercenaryCharacter::EquipSwordAndShield);
-	PlayerInputComponent->BindKey(EKeys::Gamepad_DPad_Right, IE_Pressed, this, &AAlpineMercenaryCharacter::EquipBow);
-	PlayerInputComponent->BindKey(EKeys::Gamepad_DPad_Down, IE_Pressed, this, &AAlpineMercenaryCharacter::EquipGreatsword);
+	PlayerInputComponent->BindKey(EKeys::One, IE_Pressed, this, &AAlpineMercenaryCharacter::UseWeaponSkillSlot1);
+	PlayerInputComponent->BindKey(EKeys::Two, IE_Pressed, this, &AAlpineMercenaryCharacter::UseWeaponSkillSlot2);
+	PlayerInputComponent->BindKey(EKeys::Three, IE_Pressed, this, &AAlpineMercenaryCharacter::UseWeaponSkillSlot3);
+	PlayerInputComponent->BindKey(EKeys::Gamepad_FaceButton_Left, IE_Pressed, this, &AAlpineMercenaryCharacter::UseWeaponSkillSlot1);
+	PlayerInputComponent->BindKey(EKeys::Gamepad_FaceButton_Top, IE_Pressed, this, &AAlpineMercenaryCharacter::UseWeaponSkillSlot2);
+	PlayerInputComponent->BindKey(EKeys::Gamepad_RightShoulder, IE_Pressed, this, &AAlpineMercenaryCharacter::UseWeaponSkillSlot3);
 }
 
 void AAlpineMercenaryCharacter::Move(const FInputActionValue& Value)
@@ -299,32 +299,38 @@ void AAlpineMercenaryCharacter::StopWeaponRoleAction()
 {
 	if (WeaponComponent)
 	{
-		WeaponComponent->StopRoleAction();
+		WeaponComponent->ReleaseRoleAction();
 	}
 }
 
-void AAlpineMercenaryCharacter::EquipSwordAndShield()
+void AAlpineMercenaryCharacter::UseWeaponSkillSlot1()
 {
+	bSprintRequested = false;
 	if (WeaponComponent)
 	{
-		WeaponComponent->EquipWeapon(EAlpineWeaponType::SwordAndShield);
+		WeaponComponent->TryUseSpecialAttack(1);
 	}
+	RefreshLocomotionMode();
 }
 
-void AAlpineMercenaryCharacter::EquipBow()
+void AAlpineMercenaryCharacter::UseWeaponSkillSlot2()
 {
+	bSprintRequested = false;
 	if (WeaponComponent)
 	{
-		WeaponComponent->EquipWeapon(EAlpineWeaponType::Bow);
+		WeaponComponent->TryUseSpecialAttack(2);
 	}
+	RefreshLocomotionMode();
 }
 
-void AAlpineMercenaryCharacter::EquipGreatsword()
+void AAlpineMercenaryCharacter::UseWeaponSkillSlot3()
 {
+	bSprintRequested = false;
 	if (WeaponComponent)
 	{
-		WeaponComponent->EquipWeapon(EAlpineWeaponType::Greatsword);
+		WeaponComponent->TryUseSpecialAttack(3);
 	}
+	RefreshLocomotionMode();
 }
 
 void AAlpineMercenaryCharacter::RefreshLocomotionMode()

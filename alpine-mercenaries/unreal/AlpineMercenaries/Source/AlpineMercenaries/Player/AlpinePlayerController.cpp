@@ -25,6 +25,8 @@ void AAlpinePlayerController::BeginPlay()
 	Super::BeginPlay();
 
 	bShowMouseCursor = false;
+	bEnableClickEvents = true;
+	bEnableMouseOverEvents = true;
 	SetInputMode(FInputModeGameOnly());
 
 	if (PlayerCameraManager)
@@ -53,6 +55,13 @@ void AAlpinePlayerController::SetupInputComponent()
 		IE_Pressed,
 		this,
 		&AAlpinePlayerController::ApplyDefaultViewRotation);
+#if !UE_BUILD_SHIPPING
+	InputComponent->BindKey(
+		EKeys::Tab,
+		IE_Pressed,
+		this,
+		&AAlpinePlayerController::ToggleDevelopmentWeaponSelector);
+#endif
 
 	if (!IsLocalPlayerController())
 	{
@@ -98,4 +107,27 @@ void AAlpinePlayerController::ScheduleDefaultViewRotation()
 		&AAlpinePlayerController::ApplyDefaultViewRotation,
 		0.2f,
 		false);
+}
+
+void AAlpinePlayerController::ToggleDevelopmentWeaponSelector()
+{
+	SetDevelopmentWeaponSelectorOpen(!bDevelopmentWeaponSelectorOpen);
+}
+
+void AAlpinePlayerController::SetDevelopmentWeaponSelectorOpen(bool bOpen)
+{
+	bDevelopmentWeaponSelectorOpen = bOpen;
+	bShowMouseCursor = bOpen;
+
+	if (bOpen)
+	{
+		FInputModeGameAndUI InputMode;
+		InputMode.SetHideCursorDuringCapture(false);
+		InputMode.SetLockMouseToViewportBehavior(
+			EMouseLockMode::DoNotLock);
+		SetInputMode(InputMode);
+		return;
+	}
+
+	SetInputMode(FInputModeGameOnly());
 }

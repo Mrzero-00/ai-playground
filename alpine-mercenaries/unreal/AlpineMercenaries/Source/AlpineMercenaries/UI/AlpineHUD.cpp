@@ -5,7 +5,9 @@
 #include "Engine/Canvas.h"
 #include "Engine/Engine.h"
 #include "GameFramework/PlayerController.h"
+#include "Player/AlpinePlayerController.h"
 #include "Weapon/AlpineWeaponComponent.h"
+#include "Weapon/AlpineWeaponTypes.h"
 
 namespace
 {
@@ -71,6 +73,37 @@ void AAlpineHUD::DrawHUD()
 			GEngine ? GEngine->GetSmallFont() : nullptr,
 			1.0f,
 			false);
+
+		const FString ComboLabel = FString::Printf(
+			TEXT("LMB COMBO NEXT %d: %s"),
+			Weapon->GetNextPrimaryComboStep(),
+			*Weapon->GetNextPrimaryAttackLabel().ToString());
+		DrawText(
+			ComboLabel,
+			FLinearColor(0.76f, 0.85f, 0.92f, 1.0f),
+			X,
+			Y - 74.0f,
+			GEngine ? GEngine->GetSmallFont() : nullptr,
+			0.9f,
+			false);
+
+		const FString SkillLabel = FString::Printf(
+			TEXT("1 %s  |  2 %s  |  3 %s"),
+			*Weapon->GetSpecialAttackLabel(1).ToString(),
+			*Weapon->GetSpecialAttackLabel(2).ToString(),
+			*Weapon->GetSpecialAttackLabel(3).ToString());
+		DrawText(
+			SkillLabel,
+			FLinearColor(0.65f, 0.78f, 1.0f, 1.0f),
+			X,
+			Y - 94.0f,
+			GEngine ? GEngine->GetSmallFont() : nullptr,
+			0.85f,
+			false);
+
+#if !UE_BUILD_SHIPPING
+		DrawDevelopmentWeaponSelector(*Weapon);
+#endif
 	}
 
 	DrawText(
@@ -115,6 +148,134 @@ void AAlpineHUD::DrawHUD()
 			Y,
 			BarWidth,
 			BarHeight);
+	}
+}
+
+void AAlpineHUD::NotifyHitBoxClick(FName BoxName)
+{
+	Super::NotifyHitBoxClick(BoxName);
+
+#if UE_BUILD_SHIPPING
+	return;
+#else
+	const AAlpineMercenaryCharacter* Character =
+		PlayerOwner
+			? Cast<AAlpineMercenaryCharacter>(PlayerOwner->GetPawn())
+			: nullptr;
+	UAlpineWeaponComponent* Weapon =
+		Character ? Character->GetWeaponComponent() : nullptr;
+	if (!Weapon)
+	{
+		return;
+	}
+
+	if (BoxName == TEXT("DevWeaponSwordShield"))
+	{
+		Weapon->EquipWeapon(EAlpineWeaponType::SwordAndShield);
+	}
+	else if (BoxName == TEXT("DevWeaponBow"))
+	{
+		Weapon->EquipWeapon(EAlpineWeaponType::Bow);
+	}
+	else if (BoxName == TEXT("DevWeaponGreatsword"))
+	{
+		Weapon->EquipWeapon(EAlpineWeaponType::Greatsword);
+	}
+#endif
+}
+
+void AAlpineHUD::DrawDevelopmentWeaponSelector(
+	const UAlpineWeaponComponent& Weapon)
+{
+	const AAlpinePlayerController* AlpineController =
+		Cast<AAlpinePlayerController>(PlayerOwner);
+	const bool bSelectorOpen =
+		AlpineController &&
+		AlpineController->IsDevelopmentWeaponSelectorOpen();
+
+	const float ButtonWidth = 150.0f;
+	const float ButtonHeight = 38.0f;
+	const float ButtonGap = 10.0f;
+	const float TotalWidth = ButtonWidth * 3.0f + ButtonGap * 2.0f;
+	const float StartX = (Canvas->ClipX - TotalWidth) * 0.5f;
+	const float ButtonY = Canvas->ClipY - ButtonHeight - 18.0f;
+
+	DrawText(
+		bSelectorOpen
+			? TEXT("[DEV] CLICK A WEAPON - TAB TO CLOSE")
+			: TEXT("[DEV] TAB: OPEN TEMPORARY WEAPON SELECTOR"),
+		FLinearColor(0.72f, 0.76f, 0.8f, 1.0f),
+		StartX,
+		ButtonY - 22.0f,
+		GEngine ? GEngine->GetSmallFont() : nullptr,
+		0.8f,
+		false);
+
+	struct FWeaponButton
+	{
+		EAlpineWeaponType WeaponType;
+		FName HitBoxName;
+		const TCHAR* Label;
+	};
+	const FWeaponButton Buttons[] = {
+		{
+			EAlpineWeaponType::SwordAndShield,
+			TEXT("DevWeaponSwordShield"),
+			TEXT("SWORD & SHIELD")
+		},
+		{
+			EAlpineWeaponType::Bow,
+			TEXT("DevWeaponBow"),
+			TEXT("LONGBOW")
+		},
+		{
+			EAlpineWeaponType::Greatsword,
+			TEXT("DevWeaponGreatsword"),
+			TEXT("GREATSWORD")
+		}
+	};
+
+	for (int32 ButtonIndex = 0; ButtonIndex < 3; ++ButtonIndex)
+	{
+		const FWeaponButton& Button = Buttons[ButtonIndex];
+		const float ButtonX =
+			StartX + ButtonIndex * (ButtonWidth + ButtonGap);
+		const bool bEquipped =
+			Weapon.GetEquippedWeaponType() == Button.WeaponType;
+		const FLinearColor FillColor = bEquipped
+			? FLinearColor(0.72f, 0.48f, 0.08f, 0.94f)
+			: FLinearColor(0.08f, 0.1f, 0.13f, 0.9f);
+
+		DrawRect(
+			FLinearColor(0.02f, 0.025f, 0.03f, 0.95f),
+			ButtonX - 2.0f,
+			ButtonY - 2.0f,
+			ButtonWidth + 4.0f,
+			ButtonHeight + 4.0f);
+		DrawRect(
+			FillColor,
+			ButtonX,
+			ButtonY,
+			ButtonWidth,
+			ButtonHeight);
+		DrawText(
+			Button.Label,
+			FLinearColor::White,
+			ButtonX + 14.0f,
+			ButtonY + 10.0f,
+			GEngine ? GEngine->GetSmallFont() : nullptr,
+			0.85f,
+			false);
+
+		if (bSelectorOpen)
+		{
+			AddHitBox(
+				FVector2D(ButtonX, ButtonY),
+				FVector2D(ButtonWidth, ButtonHeight),
+				Button.HitBoxName,
+				true,
+				100);
+		}
 	}
 }
 

@@ -17,6 +17,10 @@ public:
 	UInputMappingContext* GetDefaultMappingContext() const { return DefaultMappingContext; }
 	UInputMappingContext* GetMouseLookMappingContext() const { return MouseLookMappingContext; }
 	float GetDefaultViewPitch() const { return DefaultViewPitch; }
+	bool IsDevelopmentWeaponSelectorOpen() const
+	{
+		return bDevelopmentWeaponSelectorOpen;
+	}
 
 protected:
 	virtual void BeginPlay() override;
@@ -26,6 +30,8 @@ protected:
 private:
 	void ApplyDefaultViewRotation();
 	void ScheduleDefaultViewRotation();
+	void ToggleDevelopmentWeaponSelector();
+	void SetDevelopmentWeaponSelectorOpen(bool bOpen);
 
 	UPROPERTY()
 	TObjectPtr<UInputMappingContext> DefaultMappingContext;
@@ -36,5 +42,6 @@ private:
 	UPROPERTY(EditDefaultsOnly, Category = "Alpine|Camera")
 	float DefaultViewPitch = -12.0f;
 
+	bool bDevelopmentWeaponSelectorOpen = false;
 	FTimerHandle InitialViewResetTimer;
 };

@@ -14,7 +14,7 @@
 - 레거시 웹 코드를 실행해 기능, 조작감, 그래픽 또는 단계 완료 여부를 검증하지 않는다.
 - 모든 새 게임플레이 코드는 `unreal/` 아래의 Unreal Engine 프로젝트에서 처음부터 구현한다.
 - 제작 단계의 완료 판정은 Unreal Editor Play-In-Editor, Unreal 자동화 테스트와 네이티브 패키징 빌드만 사용한다.
-- Unreal 안정 정식 버전을 고정하기 전에는 `.uproject`를 임의 버전으로 생성하지 않는다.
+- 현재 프로젝트 엔진 버전은 Unreal Engine 5.8.0 정식 버전으로 고정한다.
 
 ## 네이티브 개발 기준
 
@@ -22,6 +22,8 @@
 - 초기 프로젝트는 Third Person 템플릿으로 만들되 전투·게임 규칙은 프로젝트 고유 코드와 Blueprint로 작성한다.
 - macOS 에디터 검증과 Windows Shipping 빌드를 분리하고 Steam 출시는 Windows 실기기에서 최종 검증한다.
 - C++ 모듈을 도입하기 전에 호환되는 Xcode 전체 설치와 Command Line Tools 선택 상태를 확인한다.
+- 프로젝트 에셋 또는 경로를 바꾼 뒤 `./scripts/verify-unreal-project.sh`를 실행한다.
+- 기본 Third Person 템플릿 기능을 프로젝트 고유 숄더 카메라, 질주, 앉기 또는 파쿠르의 완료로 계산하지 않는다.
 
 ## 단계 완료와 GitHub
 

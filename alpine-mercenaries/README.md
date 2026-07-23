@@ -8,19 +8,37 @@
 
 - 대화에서 확정한 게임 비전과 시스템 문서
 - Steam 출시를 염두에 둔 기술·제작 로드맵
-- Unreal Engine 제작 전환 계획과 네이티브 검증 기준
+- Unreal Engine 5.8 Third Person 네이티브 프로젝트
+- Unreal 에셋 검증 스크립트와 네이티브 수용 기준
 - 이전 브라우저 메커니즘 프로토타입(기록·참고 전용)
 
 ## 현재 개발 상태
 
 2026년 7월 23일부터 브라우저 프로토타입의 기능 개발과 플레이 검증을 중단했습니다. 새 게임은 Unreal Engine에서 처음부터 다시 만들며, 브라우저 결과물을 제작판 코드로 이식하지 않습니다.
 
-- 엔진: Unreal Engine 안정 정식 버전(Preview 제외)
+- 엔진: Unreal Engine 5.8.0 정식 버전
+- 프로젝트: `unreal/AlpineMercenaries/AlpineMercenaries.uproject`
 - 기본 시점: 배틀그라운드 계열의 3인칭 숄더뷰
 - 첫 검증: Third Person 네이티브 프로젝트에서 이동·카메라·충돌·애니메이션 확인
 - 완료 판정: Unreal Editor Play-In-Editor, 자동화 테스트, 패키징 빌드만 사용
 
-현재 Epic Games Launcher 설치까지 완료되었으며, Unreal Engine 다운로드를 위해 런처에서 Epic 계정 로그인이 필요합니다. 자세한 전환 절차는 [Unreal 전환 계획](docs/05-unreal-migration.md)을 참고합니다.
+Epic Games Launcher 로그인과 Unreal Engine 5.8 설치, 공식 Third Person Blueprint 템플릿 기반 프로젝트 생성까지 완료했다. 엔진 커맨드릿으로 171개 프로젝트 에셋을 검사해 오류 0건을 확인했고, 기본 맵 검사도 오류 0건·경고 0건을 확인했다. 현재 남은 경고는 전체 Xcode와 Mac Metal 툴체인이 없다는 1건이며 C++ 개발과 Mac 패키징 전에 해결한다.
+
+이 단계는 엔진 부트스트랩 검증이다. 배틀그라운드형 숄더 카메라, 질주, 앉기와 파쿠르는 아직 프로젝트 고유 기능으로 구현되지 않았으므로 기본 템플릿 플레이를 해당 기능의 완료로 간주하지 않는다. 자세한 상태는 [Unreal 전환 계획](docs/05-unreal-migration.md)을 참고한다.
+
+## Unreal 프로젝트 실행과 검증
+
+Epic Games Launcher의 라이브러리에서 프로젝트를 열거나 다음 파일을 Unreal Editor 5.8로 연다.
+
+```text
+unreal/AlpineMercenaries/AlpineMercenaries.uproject
+```
+
+에셋과 참조 경로를 커맨드라인에서 다시 검사하려면 다음을 실행한다.
+
+```bash
+./scripts/verify-unreal-project.sh
+```
 
 ## 이전 웹 프로토타입
 

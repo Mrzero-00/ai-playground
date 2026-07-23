@@ -43,7 +43,7 @@
 - [x] Epic Games Launcher 설치
 - [x] Epic Games Launcher 계정 로그인
 - [x] Unreal Engine 5.8.0 정식 버전 설치 및 고정
-- [ ] 프로젝트용 전체 Xcode 설치와 개발자 경로 확인
+- [ ] Xcode 26.1.1 전체 설치와 개발자 경로 확인(26.4 사용 금지)
 - [x] `unreal/AlpineMercenaries` Third Person Blueprint 프로젝트 생성
 - [x] 기본 맵 검사 오류 0건·경고 0건 확인
 - [x] Data Validation으로 프로젝트 에셋 171개 검사, 오류 0건 확인

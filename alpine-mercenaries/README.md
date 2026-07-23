@@ -22,7 +22,7 @@
 - 첫 검증: Third Person 네이티브 프로젝트에서 이동·카메라·충돌·애니메이션 확인
 - 완료 판정: Unreal Editor Play-In-Editor, 자동화 테스트, 패키징 빌드만 사용
 
-Epic Games Launcher 로그인과 Unreal Engine 5.8 설치, 공식 Third Person Blueprint 템플릿 기반 프로젝트 생성까지 완료했다. 엔진 커맨드릿으로 171개 프로젝트 에셋을 검사해 오류 0건을 확인했고, 기본 맵 검사도 오류 0건·경고 0건을 확인했다. 현재 남은 경고는 전체 Xcode와 Mac Metal 툴체인이 없다는 1건이며 C++ 개발과 Mac 패키징 전에 해결한다.
+Epic Games Launcher 로그인과 Unreal Engine 5.8 설치, 공식 Third Person Blueprint 템플릿 기반 프로젝트 생성까지 완료했다. 엔진 커맨드릿으로 171개 프로젝트 에셋을 검사해 오류 0건을 확인했고, 기본 맵 검사도 오류 0건·경고 0건을 확인했다. 현재 남은 경고는 전체 Xcode와 Mac Metal 툴체인이 없다는 1건이며 C++ 개발과 Mac 패키징 전에 해결한다. UE 5.8 공식 권장 버전은 Xcode 26.1.1이고 26.4는 호환되지 않으므로 버전을 확인한 뒤 설치해야 한다.
 
 이 단계는 엔진 부트스트랩 검증이다. 배틀그라운드형 숄더 카메라, 질주, 앉기와 파쿠르는 아직 프로젝트 고유 기능으로 구현되지 않았으므로 기본 템플릿 플레이를 해당 기능의 완료로 간주하지 않는다. 자세한 상태는 [Unreal 전환 계획](docs/05-unreal-migration.md)을 참고한다.
 

@@ -17,6 +17,7 @@ const PRIMARY_DOCUMENTS = [
   "docs/11_UI_UX.md",
   "docs/12_Roadmap.md",
   "docs/13_Codex_Implementation.md",
+  "docs/14_Automated_Trading_Execution.md",
 ];
 
 const PHILOSOPHY_PARTS = [

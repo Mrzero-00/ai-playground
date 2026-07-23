@@ -43,6 +43,7 @@ See docs/ for detailed specifications.
 - [UI / UX](docs/11_UI_UX.md)
 - [Roadmap](docs/12_Roadmap.md)
 - [Codex Implementation Status](docs/13_Codex_Implementation.md)
+- [Automated Trading Execution](docs/14_Automated_Trading_Execution.md)
 
 ## 시작하기
 

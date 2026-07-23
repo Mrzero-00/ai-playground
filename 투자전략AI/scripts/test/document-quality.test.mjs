@@ -10,7 +10,7 @@ const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "../..")
 test("repository documents pass metadata, structure, links, timeline and canonical checks", async () => {
   const result = await verifyDocumentQuality({ root });
   assert.equal(result.status, "PASSED", result.errors.join("\n"));
-  assert.equal(result.files, 20);
+  assert.equal(result.files, 21);
   assert.equal(result.resultHash.length, 64);
 });
 

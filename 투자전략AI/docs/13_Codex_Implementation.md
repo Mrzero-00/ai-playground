@@ -8,6 +8,7 @@
 - 증거 기준시각: `2026-07-23`
 - Domain/API/UI 기준 Revision: `c673508`
 - 문서 품질 기준 Revision: `7b8e8f3`
+- 자동매매 R1 Foundation 기준 Revision: `88f558a`
 - 범위: 01~12·14 명세의 코드 구현 상태, 검증 증거, 운영 전제와 다음 실행 순서
 
 ---

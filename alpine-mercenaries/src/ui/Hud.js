@@ -7,6 +7,7 @@ export class Hud {
         <div>
           <p class="eyebrow">ALPINE MERCENARIES</p>
           <h1 id="location">백은 용병 사무실</h1>
+          <p class="view-mode" id="view-mode">3인칭 숄더뷰 · V 시점 전환</p>
         </div>
         <div class="objective" id="objective">의뢰판에서 첫 의뢰를 확인하십시오.</div>
       </section>
@@ -42,11 +43,13 @@ export class Hud {
       <details class="controls">
         <summary>조작 보기</summary>
         <p><kbd>WASD</kbd> 이동 · <kbd>Shift</kbd> 질주 · <kbd>Ctrl</kbd> 앉기 · <kbd>Space</kbd> 점프/넘기</p>
+        <p><kbd>마우스</kbd> 카메라 · <kbd>V</kbd> 3인칭/쿼터뷰 비교</p>
         <p><kbd>우클릭</kbd> 방어/정밀조준 · <kbd>좌클릭</kbd> 공격 · <kbd>F</kbd> 완벽 쳐내기</p>
       </details>
     `;
 
     this.location = root.querySelector("#location");
+    this.viewMode = root.querySelector("#view-mode");
     this.objective = root.querySelector("#objective");
     this.weapon = root.querySelector("#weapon");
     this.health = root.querySelector("#health");
@@ -80,6 +83,10 @@ export class Hud {
     this.weapon.textContent = bow ? "장궁 · 후위 정밀 공격" : "검과 방패 · 전위 보호";
     this.shieldSlot.classList.toggle("is-active", !bow);
     this.bowSlot.classList.toggle("is-active", bow);
+  }
+
+  setCameraMode(mode) {
+    this.viewMode.textContent = mode === "thirdPerson" ? "3인칭 숄더뷰 · V 시점 전환" : "쿼터뷰 비교 모드 · V 시점 전환";
   }
 
   setPrompt(message) {

@@ -27,6 +27,10 @@ export class Game {
 
     this.camera = new THREE.PerspectiveCamera(42, window.innerWidth / window.innerHeight, 0.1, 160);
     this.camera.position.set(14, 17, 16);
+    this.cameraMode = "thirdPerson";
+    this.cameraYaw = Math.PI;
+    this.cameraPitch = -0.06;
+    this.aimPointer = new THREE.Vector2();
 
     this.input = new Input(this.renderer.domElement);
     this.hud = new Hud(hudRoot);
@@ -94,6 +98,7 @@ export class Game {
     this.scene.fog.density = 0.021;
     this.hud.setScene("hub");
     this.hud.setWeapon(this.player.weapon);
+    this.hud.setCameraMode(this.cameraMode);
     this.hud.setPrompt("");
     this.snapCamera();
   }
@@ -134,6 +139,7 @@ export class Game {
     this.scene.fog.density = 0.013;
     this.hud.setScene("mission");
     this.hud.setWeapon(this.player.weapon);
+    this.hud.setCameraMode(this.cameraMode);
     this.hud.setPrompt("");
     this.allyAttackTimer = 1.2;
     this.snapCamera();
@@ -150,6 +156,8 @@ export class Game {
   };
 
   update(dt) {
+    if (this.input.wasPressed("KeyV")) this.toggleCameraMode();
+    this.updateCameraLook();
     this.updateAimTarget();
     const previousWeapon = this.player.weapon;
     this.player.update(dt, this.time, this.input, this.camera, tempTarget, this.world.obstacles);
@@ -166,7 +174,7 @@ export class Game {
 
     this.updateEffects(dt);
     this.updateCamera(dt);
-    this.hud.setAimPointer(this.input.pointer.x, this.input.pointer.y);
+    this.hud.setAimPointer(this.cameraMode === "thirdPerson" ? 0 : this.input.pointer.x, this.cameraMode === "thirdPerson" ? 0 : this.input.pointer.y);
     this.hud.update(
       dt,
       this.player,
@@ -177,10 +185,28 @@ export class Game {
   }
 
   updateAimTarget() {
+    if (this.cameraMode === "thirdPerson") {
+      tempTarget.set(Math.sin(this.cameraYaw), 0, Math.cos(this.cameraYaw)).multiplyScalar(30).add(this.player.group.position);
+      return;
+    }
+
     this.raycaster.setFromCamera(this.input.pointer, this.camera);
     if (!this.raycaster.ray.intersectPlane(groundPlane, tempTarget)) {
       tempTarget.copy(this.player.group.position).add(this.player.forward);
     }
+  }
+
+  updateCameraLook() {
+    if (this.cameraMode !== "thirdPerson") return;
+    this.cameraYaw -= this.input.lookDelta.x * 0.0024;
+    this.cameraPitch = THREE.MathUtils.clamp(this.cameraPitch - this.input.lookDelta.y * 0.0018, -0.42, 0.34);
+  }
+
+  toggleCameraMode() {
+    this.cameraMode = this.cameraMode === "thirdPerson" ? "quarter" : "thirdPerson";
+    this.hud.setCameraMode(this.cameraMode);
+    this.hud.showToast(this.cameraMode === "thirdPerson" ? "3인칭 숄더뷰" : "쿼터뷰 비교 모드", 1.5);
+    this.snapCamera();
   }
 
   updateHub() {
@@ -251,7 +277,11 @@ export class Game {
       return;
     }
 
-    this.raycaster.setFromCamera(this.input.pointer, this.camera);
+    this.aimPointer.set(
+      this.cameraMode === "thirdPerson" ? 0 : this.input.pointer.x,
+      this.cameraMode === "thirdPerson" ? 0 : this.input.pointer.y,
+    );
+    this.raycaster.setFromCamera(this.aimPointer, this.camera);
     let targetPoint = this.boss.body.getWorldPosition(new THREE.Vector3());
     let hitPart = "body";
     let damage = 12;
@@ -329,13 +359,32 @@ export class Game {
 
   updateCamera(dt) {
     const target = this.player.group.position;
+    if (this.cameraMode === "thirdPerson") {
+      const forward = new THREE.Vector3(Math.sin(this.cameraYaw), 0, Math.cos(this.cameraYaw));
+      const right = new THREE.Vector3(-forward.z, 0, forward.x);
+      const head = target.clone().add(new THREE.Vector3(0, 1.5, 0));
+      const desired = head.clone().addScaledVector(forward, -6.4).addScaledVector(right, 0.75).add(new THREE.Vector3(0, 2.55, 0));
+      const lookAt = head.clone().addScaledVector(forward, 5.2).add(new THREE.Vector3(0, this.cameraPitch * 5.2, 0));
+      this.camera.position.lerp(desired, 1 - Math.exp(-dt * 8.5));
+      this.camera.lookAt(lookAt);
+      return;
+    }
+
     const desired = target.clone().add(new THREE.Vector3(13.5, 16.5, 15.5));
     this.camera.position.lerp(desired, 1 - Math.exp(-dt * 4.2));
-    const lookAt = target.clone().add(new THREE.Vector3(0, 1.1, 0));
-    this.camera.lookAt(lookAt);
+    this.camera.lookAt(target.clone().add(new THREE.Vector3(0, 1.1, 0)));
   }
 
   snapCamera() {
+    if (this.cameraMode === "thirdPerson") {
+      const forward = new THREE.Vector3(Math.sin(this.cameraYaw), 0, Math.cos(this.cameraYaw));
+      const right = new THREE.Vector3(-forward.z, 0, forward.x);
+      const head = this.player.group.position.clone().add(new THREE.Vector3(0, 1.5, 0));
+      this.camera.position.copy(head).addScaledVector(forward, -6.4).addScaledVector(right, 0.75).add(new THREE.Vector3(0, 2.55, 0));
+      this.camera.lookAt(head.clone().addScaledVector(forward, 5.2).add(new THREE.Vector3(0, this.cameraPitch * 5.2, 0)));
+      return;
+    }
+
     this.camera.position.copy(this.player.group.position).add(new THREE.Vector3(13.5, 16.5, 15.5));
     this.camera.lookAt(this.player.group.position.clone().add(new THREE.Vector3(0, 1.1, 0)));
   }

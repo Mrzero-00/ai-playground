@@ -1,11 +1,11 @@
 {
   "schemaVersion": "1.0.0",
-  "asOf": "2026-07-22T00:00:00Z",
+  "asOf": "2026-07-23T00:00:00Z",
   "readiness": "R1",
   "autoTradingEnabled": false,
-  "latestMigration": "supabase/migrations/012_roadmap_planning_v1.sql",
-  "verificationCommands": ["pnpm test", "pnpm typecheck", "pnpm build", "pnpm verify:docs", "pnpm verify:implementation"],
-  "testSnapshot": { "core": 128, "api": 11, "web": 5, "verifier": 10, "total": 154 },
+  "latestMigration": "supabase/migrations/013_automated_trading_execution_v1.sql",
+  "verificationCommands": ["pnpm test", "pnpm typecheck", "pnpm build", "pnpm verify:docs", "pnpm verify:implementation", "pnpm --filter @investment-os/execution test"],
+  "testSnapshot": { "core": 136, "api": 11, "web": 5, "execution": 14, "verifier": 10, "total": 176 },
   "capabilities": [
     {
       "id": "01",
@@ -137,6 +137,17 @@
       "migration": "supabase/migrations/012_roadmap_planning_v1.sql",
       "externalEvidenceRefs": [],
       "openGateCodes": ["R2_RELEASE_EVIDENCE", "PREVIEW_ENVIRONMENT"]
+    },
+    {
+      "id": "14",
+      "name": "Automated Trading Execution",
+      "document": "docs/14_Automated_Trading_Execution.md",
+      "readiness": "R1",
+      "implementationPaths": ["packages/core/src/automated-execution-v1", "apps/execution/src"],
+      "testPaths": ["packages/core/test/automated-execution-v1.test.ts", "apps/execution/test"],
+      "migration": "supabase/migrations/013_automated_trading_execution_v1.sql",
+      "externalEvidenceRefs": [],
+      "openGateCodes": ["MAIN_API_EXECUTION_HANDOFF", "PERSISTENT_IDEMPOTENCY_LEDGER", "TOSS_CREDENTIALS", "READ_ONLY_RECONCILIATION", "PAPER_FORWARD_RUN", "LIVE_CANARY", "EXECUTION_SECURITY_REVIEW"]
     }
   ]
 }

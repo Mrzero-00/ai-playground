@@ -10,8 +10,8 @@ const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "../..")
 test("repository implementation manifest matches documents, code, tests and migrations", async () => {
   const result = await verifyImplementationStatus({ root });
   assert.equal(result.status, "PASSED", result.errors.join("\n"));
-  assert.equal(result.manifest.capabilities.length, 12);
-  assert.equal(result.migrations.length, 12);
+  assert.equal(result.manifest.capabilities.length, 13);
+  assert.equal(result.migrations.length, 13);
   assert.equal(result.resultHash.length, 64);
 });
 

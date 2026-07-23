@@ -6,6 +6,7 @@
     "build": "pnpm -r build",
     "dev": "pnpm --filter @investment-os/api dev",
     "dev:web": "pnpm --filter @investment-os/web dev",
+    "dev:execution": "pnpm --filter @investment-os/execution dev",
     "test": "pnpm --filter @investment-os/core build && pnpm -r test && node --test scripts/test/*.test.mjs",
     "typecheck": "pnpm -r typecheck",
     "verify:docs": "node scripts/verify-document-quality.mjs",

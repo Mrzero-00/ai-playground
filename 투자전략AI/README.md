@@ -53,10 +53,15 @@ pnpm test
 pnpm verify:implementation
 pnpm dev
 pnpm dev:web
+pnpm dev:execution
 ```
 
 API 기본 주소는 `http://localhost:4000`입니다.
 Web 기본 주소는 `http://localhost:3000`입니다.
+Execution Service 기본 주소는 `http://127.0.0.1:4100`이며 `DRY_RUN`이 기본값입니다. R1 Foundation은 서버의 `LIVE` 시작을 코드로 차단합니다. 영속 Intent·멱등성 원장과 Broker 대사를 연결한 후 별도 Release에서만 이 Hard Block을 해제합니다.
+
+- `GET /health`: 실행 모드·LIVE 활성 여부·Kill Switch 상태
+- `POST /internal/v1/execution/intents/:id/submit`: Service Token으로 보호된 승인 Intent 제출; 현재는 DRY_RUN/PAPER만 허용
 
 - `GET /health`: 상태 확인
 - `POST /v1/evaluations/long-term`: 장기 점수 Preview용 Legacy API
@@ -203,10 +208,12 @@ packages/core            순수 도메인 로직
   scoring-v1             Model Lifecycle, Normalization, N/A, Range, Confidence, Ranking, Change 계약
   report-v1              Canonical Report, Source Manifest, Quality Gate, Revision, Artifact, Replay 계약
   planning-v1            R0~R6 Readiness, Milestone DAG, Gate, Release Evidence, Revision, Replay 계약
+  automated-execution-v1 승인 Intent, Preflight, 멱등성, 실행 상태기계 계약
+apps/execution            분리된 DRY_RUN/PAPER/LIVE Runtime과 토스증권 OpenAPI Adapter
 supabase/migrations      PostgreSQL Schema, Index, RLS
 docs                     제품·아키텍처 명세
-implementation           01~12 구현·검증·Open Gate Machine-readable Manifest
+implementation           01~12·14 구현·검증·Open Gate Machine-readable Manifest
 scripts                   구현 상태 Manifest 검증 CLI와 회귀 테스트
 ```
 
-점수와 정책 함수는 입력이 같으면 결과도 같은 순수 함수입니다. 외부 데이터 수집기는 Provider 경계로 연결하며, 자동 주문은 MVP 범위에서 제외합니다. 구현 범위는 [Implementation Status](docs/13_Codex_Implementation.md)에 정리되어 있습니다.
+점수와 정책 함수는 입력이 같으면 결과도 같은 순수 함수입니다. 외부 데이터 수집기는 Provider 경계로 연결합니다. 기존 MVP의 자동 주문은 계속 비활성이며, 14번 Execution Foundation은 승인된 Decision 이후의 주문 경계를 별도 서비스로 구현합니다. LIVE는 외부 증거와 승격 Gate 통과 전까지 비활성입니다. 구현 범위는 [Implementation Status](docs/13_Codex_Implementation.md)에 정리되어 있습니다.

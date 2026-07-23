@@ -1,0 +1,17 @@
+{
+  "name": "@investment-os/execution",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "dev": "tsx watch src/index.ts",
+    "start": "node dist/index.js",
+    "pretest": "pnpm --filter @investment-os/core build",
+    "test": "tsx --test test/**/*.test.ts",
+    "typecheck": "tsc -p tsconfig.json --noEmit"
+  },
+  "dependencies": {
+    "@investment-os/core": "workspace:*"
+  }
+}

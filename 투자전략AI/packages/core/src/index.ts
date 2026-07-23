@@ -12,6 +12,7 @@ export * from "./job.js";
 export * from "./learning.js";
 export * from "./learning-v1/index.js";
 export * from "./agent-v1/index.js";
+export * from "./automated-execution-v1/index.js";
 export * from "./database-v1/index.js";
 export * from "./scoring-v1/index.js";
 export * from "./long-term.js";

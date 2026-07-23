@@ -4,7 +4,7 @@ import path from "node:path";
 import { verifyDocumentQuality } from "./document-quality.mjs";
 
 const READINESS = ["R0", "R1", "R2", "R3", "R4", "R5", "R6"];
-const EXPECTED_CAPABILITIES = Array.from({ length: 12 }, (_, index) => String(index + 1).padStart(2, "0"));
+const EXPECTED_CAPABILITIES = [...Array.from({ length: 12 }, (_, index) => String(index + 1).padStart(2, "0")), "14"];
 
 export async function verifyImplementationStatus({ root, manifestPath = "implementation/status.manifest.json", manifest: suppliedManifest }) {
   const errors = [];
@@ -69,6 +69,7 @@ export async function verifyImplementationStatus({ root, manifestPath = "impleme
     core: await countDeclaredTests(path.join(root, "packages/core/test"), errors),
     api: await countDeclaredTests(path.join(root, "apps/api/test"), errors),
     web: await countDeclaredTests(path.join(root, "apps/web/test"), errors),
+    execution: await countDeclaredTests(path.join(root, "apps/execution/test"), errors),
     verifier: await countDeclaredTests(path.join(root, "scripts/test"), errors),
   };
   for (const [suite, actual] of Object.entries(actualTestCounts)) {

@@ -1,10 +1,10 @@
 # 14. Automated Trading Execution
 
-- 문서 버전: `v1.0.0-draft`
+- 문서 버전: `v1.2.0`
 - 작성일: `2026-07-23`
 - 최종 검토일: `2026-07-23`
-- 명세 상태: `IMPLEMENTATION-READY DRAFT`
-- 구현 준비도: `R2+ DESIGN APPROVED / IMPLEMENTATION PENDING / LIVE DISABLED`
+- 명세 상태: `R1 FOUNDATION IMPLEMENTED`
+- 구현 준비도: `DRY_RUN/PAPER VERIFIED / TOSS ADAPTER CONTRACT VERIFIED / LIVE DISABLED`
 - 선행 문서: `01_Architecture.md`, `02_Investment_Philosophy.md`, `05_Portfolio_Engine.md`, `08_Database.md`, `11_UI_UX.md`, `12_Roadmap.md`, `13_Codex_Implementation.md`
 - 외부 기준: 토스증권 OpenAPI 공식 문서 `latest`, 조회 기준 `2026-07-23`
 - 소유 경계: Investment OS와 분리된 Execution Service·Broker Adapter·Reconciliation Worker
@@ -279,6 +279,7 @@ interface AutomatedExecutionIntentV1 {
   quantity?: string;
   orderAmount?: string;
   limitPrice?: string;
+  approvedReferencePrice: string;
   approvedNotional: string;
   currency: "KRW" | "USD";
   approvedAt: string;
@@ -296,6 +297,7 @@ interface AutomatedExecutionIntentV1 {
 interface ExecutionPreflightV1 {
   intentId: string;
   checkedAt: string;
+  priceAsOf: string;
   mode: ExecutionMode;
   killSwitchOpen: boolean;
   decisionApproved: boolean;
@@ -303,6 +305,7 @@ interface ExecutionPreflightV1 {
   stale: boolean;
   marketOpen: boolean;
   priceDriftBps: number;
+  orderNotional: string;
   buyingPower?: string;
   sellableQuantity?: string;
   existingOppositeOrder: boolean;
@@ -392,7 +395,7 @@ HTTP Timeout은 실패가 아니라 **결과 불명**이다. `UNKNOWN` 상태에
 | Cash | 매수가능금액 부족 | Buying Power Snapshot |
 | Quantity | 매도가능수량 부족 | Sellable Quantity Snapshot |
 | Pending | 반대 방향 미체결 주문 존재 | Broker Open Orders |
-| Limit | 주문·종목·일간 Notional 초과 | Execution Policy |
+| Limit | 실제 제출 Notional이 승인액 또는 주문·종목·일간 한도 초과 | Execution Policy |
 | Reconcile | 미확인 주문·잔고 Drift 존재 | Reconciliation Run |
 | Kill | Global·Account·Portfolio·Symbol Switch Open | Kill Switch Revision |
 
@@ -420,6 +423,11 @@ SELL drift bps = max(0, approvedReference / current - 1) * 10,000
 - Broker Buying Power
 
 최종 허용 금액은 모든 한도의 최솟값이며 원 승인 금액을 넘을 수 없다.
+
+- 금액 주문은 `orderAmount = approvedNotional`을 강제한다.
+- 수량 주문은 `quantity × approvedReferencePrice <= approvedNotional`을 강제한다.
+- 지정가는 `quantity × limitPrice`, 시장가는 제출 직전 `quantity × currentPrice`로 최종 Notional을 다시 계산한다.
+- 재계산된 Notional이 승인액·단일주문 한도·Buying Power 중 하나라도 넘으면 수량을 임의 조정하지 않고 차단한다.
 
 ---
 
@@ -546,7 +554,7 @@ Worker Crash를 고려해 Lease를 사용하되 Lease 만료가 재주문 허가
 | Market | 장 종료·가격 범위·거래 제한 | BLOCKED 또는 다음 Session 재승인 |
 | Conflict | 이미 체결·취소·처리 중 | 주문 상세 대사 |
 | Rate Limit | HTTP 429 | `Retry-After`와 Jitter |
-| Transient | HTTP 500·점검 | 제한 재시도 후 UNKNOWN/Reconcile |
+| Transient | 주문 변경 HTTP 408·5xx·해석 불가 2xx | 즉시 UNKNOWN/Reconcile, 자동 재주문 금지 |
 | Network Unknown | Timeout·Connection Reset | 즉시 UNKNOWN, 재주문 금지 |
 
 ### 13.2 재시도 Budget
@@ -737,13 +745,13 @@ execution_reconciliation_items
 
 ### 18.2 핵심 제약
 
-- `(broker, broker_account_id)` Unique
-- `execution_intents.result_hash` Unique per Revision
+- `(broker, broker_account_seq)` Unique, 내부 `broker_accounts.id`와 분리
 - `execution_idempotency_keys.internal_key` Unique
 - `(broker, broker_order_id)` Unique
-- `(broker, broker_execution_id)` Unique
-- Intent는 승인된 Decision과 Composite Ownership FK
-- Fill 수량 합은 주문 수량을 초과할 수 없음
+- `(broker_order_id, broker_execution_id)` Unique
+- Intent는 승인된 Decision·Proposal·Risk와 Composite Lineage FK
+- Intent의 승인액·수량·가격·Portfolio·Policy·Account 관계는 Insert Trigger와 Check Constraint로 재검증
+- Fill 수량 합의 주문 수량 초과는 Reconciliation 단계에서 Critical Drift로 차단
 - 종료 상태 Order는 원본 Row Update 금지, Revision만 추가
 - LIVE Intent는 유효한 Policy·Release Evidence·Account Allowlist 필요
 
@@ -851,11 +859,12 @@ Audit에는 Actor·Service Identity·Mode·Decision·Intent·Policy·Account Ali
 
 ### 21.1 Foundation Gate
 
-- [ ] Execution Domain·Broker Port·Mode Gate 구현
-- [ ] Toss Adapter Contract Test
-- [ ] Idempotency·UNKNOWN·Kill Switch Test
-- [ ] Migration·RLS·불변 Trigger 검증
-- [ ] DRY_RUN 전체 Replay
+- [x] Execution Domain·Broker Port·Mode Gate 구현
+- [x] Toss Adapter Contract Test
+- [x] Idempotency·UNKNOWN·Kill Switch Test
+- [x] Migration·RLS·불변 Trigger 정의와 Manifest 연결
+- [x] DRY_RUN·PAPER Service Flow 회귀 테스트
+- [ ] Preview Supabase에 013 Migration 실제 적용
 
 ### 21.2 PAPER Gate
 
@@ -916,13 +925,14 @@ Audit에는 Actor·Service Identity·Mode·Decision·Intent·Policy·Account Ali
 
 ### 23.1 Foundation
 
-- [ ] Investment OS와 Execution Service가 Process·Credential 수준에서 분리되었는가?
-- [ ] `LIVE`가 기본 비활성이고 다중 Gate 없이는 시작되지 않는가?
-- [ ] 승인된 Decision 외 입력이 Broker Port에 도달하지 않는가?
-- [ ] 동일 Intent의 동시·반복 요청이 중복 주문을 만들지 않는가?
-- [ ] Timeout이 재주문이 아니라 UNKNOWN·대사로 이어지는가?
-- [ ] 토스 API DTO와 Error가 Adapter 밖으로 누출되지 않는가?
-- [ ] 모든 Order·Fill이 Decision·Risk·Snapshot·Policy 계보를 가지는가?
+- [x] Investment OS와 Execution Service가 Process·Credential 수준에서 분리되었는가?
+- [x] `LIVE`가 기본 비활성이고 다중 Gate 없이는 시작되지 않는가?
+- [x] 승인된 Decision 외 입력이 Broker Port에 도달하지 않는가?
+- [x] 동일 Process에서 동일 Intent의 동시·반복 요청이 중복 주문을 만들지 않는가?
+- [ ] Process 재시작·다중 Instance에서도 영속 Idempotency Reservation이 중복 주문을 막는가?
+- [x] Timeout이 재주문이 아니라 UNKNOWN·대사로 이어지는가?
+- [x] 토스 API DTO와 Error가 Adapter 밖으로 누출되지 않는가?
+- [x] Order·Fill Schema가 Decision·Risk·Snapshot·Policy 계보를 강제하는가?
 
 ### 23.2 Portfolio Automation
 
@@ -944,12 +954,14 @@ Audit에는 Actor·Service Identity·Mode·Decision·Intent·Policy·Account Ali
 
 ## 24. 현재 판정과 다음 단계
 
-현재 이 문서는 구현 가능한 계약을 확정한 상태이며 실제 자동주문은 활성화하지 않는다.
+현재 Repository에는 실행 Foundation과 토스증권 Adapter 계약이 구현되었으며 실제 자동주문은 활성화하지 않는다.
 
-- 설계: `IMPLEMENTATION-READY DRAFT`
-- 실행 모드: `LIVE DISABLED`
+- 설계·Foundation: `R1 VERIFIED`
+- 실행 모드: `DRY_RUN DEFAULT / PAPER AVAILABLE / LIVE DISABLED`
 - 토스 Credential: Repository에 없음
 - 실제 주문 증거: 없음
-- 다음 단계: Foundation·Toss Adapter·Execution Service·Migration·회귀 테스트 구현
+- 구현 증거: Core 8개, Execution Service·Runtime·Toss Adapter 14개 테스트와 013 Migration
+- 다음 단계: Preview Migration 적용 → PAPER Forward Run → 토스 Read-only 계좌 대사 → LIVE Canary 승인
 
 Foundation 구현 완료 후에도 상태는 `DRY_RUN/PAPER READY`다. 실제 토스 계좌 연결과 LIVE는 Read-only Broker Gate와 LIVE Canary Gate를 별도로 통과해야 한다.
+R1 Runtime은 환경변수가 모두 충족되어도 `R1_AUTHORITATIVE_EXECUTION_LEDGER_NOT_AVAILABLE` Hard Block으로 `LIVE` 시작을 거부한다. Main API의 승인 Handoff, 영속 Intent·Idempotency Repository, Reconciliation Worker가 구현·검증된 후 별도 Release에서만 이 상수를 제거한다.

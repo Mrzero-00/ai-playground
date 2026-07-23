@@ -43,18 +43,19 @@
 - [x] Epic Games Launcher 설치
 - [x] Epic Games Launcher 계정 로그인
 - [x] Unreal Engine 5.8.0 정식 버전 설치 및 고정
-- [ ] Xcode 26.1.1 전체 설치와 개발자 경로 확인(26.4 사용 금지)
+- [x] Xcode 26.1.1 전체 설치와 `DEVELOPER_DIR` 개발자 경로 확인(26.4 사용 금지)
 - [x] `unreal/AlpineMercenaries` Third Person Blueprint 프로젝트 생성
 - [x] 기본 맵 검사 오류 0건·경고 0건 확인
-- [x] Data Validation으로 프로젝트 에셋 171개 검사, 오류 0건 확인
+- [x] Data Validation으로 프로젝트 에셋 171개 검사, 오류 0건·경고 0건 확인
 - [ ] Unreal Editor에서 기본 맵 Play-In-Editor 실행
+- [x] Mac Development 빌드·쿠킹·스테이징·패키징과 네이티브 실행
 - [ ] 배틀그라운드형 숄더 카메라와 이동 기능 구현
-- [ ] 네이티브 개발 빌드와 게임플레이 자동화 테스트 실행
-- [ ] 전환 단계 커밋을 GitHub에 푸시
+- [ ] 게임플레이 자동화 테스트 실행
+- [x] 네이티브 부트스트랩과 패키징 단계 커밋을 GitHub에 푸시
 
 완료 기준: 웹 서버 없이 Unreal Editor에서 3인칭 캐릭터가 정상 자세로 생성되고, WASD 이동·마우스 숄더 카메라·달리기·앉기·점프·기본 충돌이 검증된다.
 
-현재 공식 Third Person 템플릿의 프로젝트·맵·에셋 참조만 검증했다. 템플릿의 기본 카메라와 이동을 게임 고유 수용 기준의 완료로 계산하지 않는다. 전체 Xcode가 설치되기 전까지 Mac Metal 셰이더 컴파일과 패키징 검증은 보류한다.
+공식 Third Person 템플릿의 프로젝트·맵·에셋 참조와 Mac Metal 네이티브 패키징을 검증했다. 패키지 실행 화면에서 캐릭터가 똑바로 서고 기본 3인칭 카메라가 동작하는 것도 확인했다. 템플릿의 기본 카메라와 이동을 게임 고유 수용 기준의 완료로 계산하지 않는다.
 
 ## 단계 1: Unreal 전투 버티컬 슬라이스
 

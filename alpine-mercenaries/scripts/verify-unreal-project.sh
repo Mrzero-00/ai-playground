@@ -8,6 +8,11 @@ UPROJECT="${PROJECT_ROOT}/unreal/AlpineMercenaries/AlpineMercenaries.uproject"
 DEFAULT_EDITOR="/Users/Shared/Epic Games/UE_5.8/Engine/Binaries/Mac/UnrealEditor-Cmd"
 EDITOR_CMD="${AM_UNREAL_EDITOR_CMD:-${DEFAULT_EDITOR}}"
 LOG_PATH="${TMPDIR:-/tmp}/alpine-mercenaries-data-validation.log"
+DEFAULT_XCODE_DEVELOPER_DIR="/Applications/Xcode.app/Contents/Developer"
+
+if [[ -z "${DEVELOPER_DIR:-}" && -d "${DEFAULT_XCODE_DEVELOPER_DIR}" ]]; then
+  export DEVELOPER_DIR="${DEFAULT_XCODE_DEVELOPER_DIR}"
+fi
 
 if [[ ! -x "${EDITOR_CMD}" ]]; then
   echo "UnrealEditor-Cmd를 찾을 수 없습니다: ${EDITOR_CMD}" >&2

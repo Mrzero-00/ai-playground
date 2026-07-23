@@ -55,12 +55,13 @@ fi
 for EXPECTED_TEST in \
   "AlpineMercenaries.Locomotion.Configuration" \
   "AlpineMercenaries.Vitals.Resources" \
-  "AlpineMercenaries.Weapons.Foundation"; do
+  "AlpineMercenaries.Weapons.Foundation" \
+  "AlpineMercenaries.Combat.TrainingTarget"; do
   if ! grep -Fq "${EXPECTED_TEST}" "${LOG_PATH}"; then
     echo "예상한 자동화 테스트를 찾지 못했습니다: ${EXPECTED_TEST}" >&2
     exit 1
   fi
 done
 
-grep -E "AlpineMercenaries\\.(Locomotion|Vitals|Weapons)|Test Completed|Automation Test Succeeded" "${LOG_PATH}" || true
+grep -E "AlpineMercenaries\\.(Locomotion|Vitals|Weapons|Combat)|Test Completed|Automation Test Succeeded" "${LOG_PATH}" || true
 echo "Unreal 게임플레이 자동화 테스트 통과: ${LOG_PATH}"

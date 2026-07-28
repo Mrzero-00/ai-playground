@@ -313,13 +313,31 @@
 
       .primary {
         background: var(--brand);
+        border: 0;
         border-radius: 15px;
         color: #fff;
+        cursor: pointer;
+        display: block;
         font-size: 13px;
         font-weight: 900;
         margin-top: 14px;
         padding: 13px;
         text-align: center;
+        width: 100%;
+      }
+
+      .primary:active,
+      .nav-item:active,
+      .control:active,
+      .attack-button:active {
+        transform: scale(0.97);
+      }
+
+      .primary:disabled,
+      .attack-button:disabled {
+        cursor: not-allowed;
+        filter: grayscale(0.6);
+        opacity: 0.55;
       }
 
       .nav {
@@ -339,9 +357,13 @@
 
       .nav-item {
         align-items: center;
+        background: transparent;
+        border: 0;
         color: var(--faint);
+        cursor: pointer;
         display: flex;
         flex-direction: column;
+        font-family: inherit;
         font-size: 9px;
         font-weight: 800;
         gap: 4px;
@@ -381,8 +403,12 @@
       .close {
         align-items: center;
         background: rgba(255, 255, 255, 0.1);
+        border: 0;
         border-radius: 50%;
+        color: #fff;
+        cursor: pointer;
         display: flex;
+        font-family: inherit;
         font-size: 24px;
         height: 38px;
         justify-content: center;
@@ -609,6 +635,7 @@
         align-items: center;
         bottom: 22px;
         display: flex;
+        gap: 48px;
         justify-content: center;
         left: 0;
         position: absolute;
@@ -618,8 +645,13 @@
 
       .control {
         align-items: center;
+        background: transparent;
+        border: 0;
+        color: #fff;
+        cursor: pointer;
         display: flex;
         flex-direction: column;
+        font-family: inherit;
         font-size: 9px;
         font-weight: 800;
         gap: 5px;
@@ -635,6 +667,18 @@
         height: 72px;
         justify-content: center;
         width: 72px;
+      }
+
+      .control.finish .control-circle {
+        background: var(--orange);
+        color: #fff;
+      }
+
+      .finish-square {
+        background: currentColor;
+        border-radius: 3px;
+        height: 18px;
+        width: 18px;
       }
 
       .summary-scroll {
@@ -810,6 +854,324 @@
         margin-top: 2px;
       }
 
+      .app-scroll {
+        height: 100%;
+        overflow: hidden;
+        padding: 35px 18px 112px;
+      }
+
+      .app-header {
+        align-items: flex-start;
+        display: flex;
+        justify-content: space-between;
+        margin: 6px 2px 16px;
+      }
+
+      .app-header h2 {
+        font-size: 25px;
+        letter-spacing: -0.05em;
+        margin: 0;
+      }
+
+      .app-header p {
+        color: var(--muted);
+        font-size: 10px;
+        margin-top: 5px;
+      }
+
+      .stat-pill {
+        background: var(--brand-soft);
+        border-radius: 999px;
+        color: var(--brand-dark);
+        font-size: 10px;
+        font-weight: 900;
+        padding: 8px 10px;
+      }
+
+      .quest-list {
+        display: grid;
+        gap: 10px;
+      }
+
+      .quest-item {
+        background: #fff;
+        border-radius: 20px;
+        box-shadow: 0 7px 22px rgba(7, 36, 26, 0.05);
+        display: grid;
+        gap: 12px;
+        grid-template-columns: 42px 1fr;
+        padding: 15px;
+      }
+
+      .quest-icon {
+        align-items: center;
+        background: var(--brand-soft);
+        border-radius: 14px;
+        display: flex;
+        font-size: 20px;
+        height: 42px;
+        justify-content: center;
+        width: 42px;
+      }
+
+      .quest-copy h3 {
+        font-size: 14px;
+        margin: 0;
+      }
+
+      .quest-copy p {
+        color: var(--muted);
+        font-size: 9px;
+        margin: 4px 0 10px;
+      }
+
+      .quest-copy .progress {
+        background: var(--line);
+      }
+
+      .quest-copy .progress span {
+        background: var(--brand);
+      }
+
+      .quest-footer {
+        align-items: center;
+        display: flex;
+        grid-column: 1 / -1;
+        justify-content: space-between;
+      }
+
+      .quest-reward {
+        color: var(--orange);
+        font-size: 9px;
+        font-weight: 900;
+      }
+
+      .small-button {
+        background: var(--navy);
+        border: 0;
+        border-radius: 12px;
+        color: #fff;
+        cursor: pointer;
+        font-family: inherit;
+        font-size: 9px;
+        font-weight: 900;
+        padding: 9px 12px;
+      }
+
+      .small-button:disabled {
+        background: var(--line);
+        color: var(--faint);
+      }
+
+      .battle-card {
+        background: linear-gradient(150deg, #173c43, var(--navy));
+        border-radius: 28px;
+        color: #fff;
+        overflow: hidden;
+        padding: 22px 18px 18px;
+        position: relative;
+        text-align: center;
+      }
+
+      .battle-zone {
+        color: #8ed6bc;
+        font-size: 9px;
+        font-weight: 900;
+        letter-spacing: 0.12em;
+      }
+
+      .monster {
+        font-size: 84px;
+        filter: drop-shadow(0 13px 10px rgba(0, 0, 0, 0.25));
+        margin: 10px 0 4px;
+      }
+
+      .monster-name {
+        font-size: 22px;
+        font-weight: 900;
+      }
+
+      .hp-label {
+        display: flex;
+        font-size: 9px;
+        font-weight: 800;
+        justify-content: space-between;
+        margin: 17px 0 7px;
+      }
+
+      .hp-bar {
+        background: rgba(255, 255, 255, 0.12);
+        border-radius: 999px;
+        height: 10px;
+        overflow: hidden;
+      }
+
+      .hp-bar span {
+        background: linear-gradient(90deg, var(--orange), #ffca57);
+        display: block;
+        height: 100%;
+        transition: width 0.25s ease;
+        width: 100%;
+      }
+
+      .attack-button {
+        background: var(--orange);
+        border: 0;
+        border-radius: 15px;
+        color: #fff;
+        cursor: pointer;
+        font-family: inherit;
+        font-size: 12px;
+        font-weight: 900;
+        margin-top: 17px;
+        padding: 13px;
+        width: 100%;
+      }
+
+      .loot-card {
+        align-items: center;
+        display: flex;
+        gap: 12px;
+        text-align: left;
+      }
+
+      .loot-icon {
+        align-items: center;
+        background: #eef9f4;
+        border-radius: 16px;
+        display: flex;
+        font-size: 26px;
+        height: 54px;
+        justify-content: center;
+        width: 54px;
+      }
+
+      .loot-card h3 {
+        font-size: 14px;
+        margin: 0;
+      }
+
+      .loot-card p {
+        color: var(--muted);
+        font-size: 9px;
+        margin-top: 5px;
+      }
+
+      .character-panel {
+        background: var(--navy);
+        border-radius: 28px;
+        color: #fff;
+        height: 365px;
+        overflow: hidden;
+        position: relative;
+      }
+
+      .character-panel::before {
+        background: #0d8c7c;
+        border-radius: 50%;
+        content: "";
+        height: 270px;
+        opacity: 0.32;
+        position: absolute;
+        right: -55px;
+        top: -35px;
+        width: 270px;
+      }
+
+      .character-panel img {
+        bottom: 42px;
+        image-rendering: pixelated;
+        position: absolute;
+        right: -12px;
+        width: 290px;
+      }
+
+      .character-level {
+        left: 19px;
+        position: absolute;
+        top: 21px;
+        z-index: 2;
+      }
+
+      .character-level strong {
+        display: block;
+        font-size: 26px;
+        margin-top: 10px;
+      }
+
+      .character-level span {
+        color: #bcd9d3;
+        font-size: 10px;
+      }
+
+      .character-stats {
+        background: rgba(5, 18, 27, 0.78);
+        bottom: 0;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        left: 0;
+        padding: 13px;
+        position: absolute;
+        right: 0;
+        z-index: 3;
+      }
+
+      .character-stat {
+        border-right: 1px solid rgba(255, 255, 255, 0.11);
+        text-align: center;
+      }
+
+      .character-stat:last-child {
+        border: 0;
+      }
+
+      .character-stat strong {
+        display: block;
+        font-size: 12px;
+      }
+
+      .character-stat span {
+        color: #91b3b1;
+        display: block;
+        font-size: 8px;
+        margin-top: 3px;
+      }
+
+      .toast {
+        background: var(--navy);
+        border-radius: 14px;
+        bottom: 94px;
+        box-shadow: 0 12px 32px rgba(7, 36, 26, 0.2);
+        color: #fff;
+        font-size: 10px;
+        font-weight: 800;
+        left: 50%;
+        opacity: 0;
+        padding: 12px 16px;
+        pointer-events: none;
+        position: absolute;
+        transform: translate(-50%, 10px);
+        transition: 0.2s ease;
+        white-space: nowrap;
+        z-index: 30;
+      }
+
+      .toast.show {
+        opacity: 1;
+        transform: translate(-50%, 0);
+      }
+
+      .reset-button {
+        background: #fff;
+        border: 0;
+        border-radius: 17px;
+        box-shadow: 0 5px 16px rgba(7, 36, 26, 0.08);
+        cursor: pointer;
+        font-size: 18px;
+        height: 42px;
+        width: 42px;
+      }
+
       .preview-note {
         color: var(--muted);
         font-size: 11px;
@@ -854,9 +1216,9 @@
   </head>
   <body>
     <main class="preview-shell">
-      <h1 class="preview-title">퀘스트런 실행 미리보기</h1>
-      <p class="preview-caption">달릴수록 성장하는 나만의 러닝 RPG</p>
-      <nav aria-label="미리보기 화면 선택" class="switcher">
+      <h1 class="preview-title">퀘스트런 브라우저 데모</h1>
+      <p class="preview-caption">앱 안의 버튼을 직접 누르면 기록과 캐릭터 상태가 바뀝니다.</p>
+      <nav aria-label="개발 화면 바로가기" class="switcher">
         <button class="active" data-target="home">홈</button>
         <button data-target="running">실시간 러닝</button>
         <button data-target="summary">러닝 완료</button>
@@ -872,21 +1234,21 @@
                   <div class="eyebrow">QUESTRUN</div>
                   <h2>오늘도 한 걸음!</h2>
                 </div>
-                <div class="gear">⚙</div>
+                <button aria-label="데모 데이터 초기화" class="reset-button" id="reset-demo">↻</button>
               </div>
               <section class="hero">
                 <div class="hero-copy">
-                  <span class="pill">Lv. 7 · 새싹 러너</span>
+                  <span class="pill" id="home-level-pill">Lv. 7 · 새싹 러너</span>
                   <div class="hero-name">루미</div>
-                  <p class="hero-message">오늘 350 XP만 더 모으면<br />레벨이 올라요.</p>
+                  <p class="hero-message">오늘 <span id="remaining-xp">350</span> XP만 더 모으면<br />레벨이 올라요.</p>
                 </div>
                 <img src="../assets/quest-run-hero.png" alt="민트색 픽셀 여우 캐릭터" />
                 <div class="hero-bottom">
                   <div class="level-labels">
-                    <span>LEVEL 7</span>
-                    <span>650 / 1,000 XP</span>
+                    <span id="home-level-label">LEVEL 7</span>
+                    <span id="home-xp-label">650 / 1,000 XP</span>
                   </div>
-                  <div class="progress"><span></span></div>
+                  <div class="progress"><span id="home-xp-progress"></span></div>
                 </div>
               </section>
               <section class="card">
@@ -898,62 +1260,60 @@
                   </div>
                   <div class="route-icon">⌁</div>
                 </div>
-                <div class="primary">▶ &nbsp;러닝 시작</div>
+                <button class="primary" id="start-run">▶ &nbsp;러닝 시작</button>
               </section>
             </div>
-            <nav class="nav">
-              <div class="nav-item active"><b>⌂</b><span>홈</span></div>
-              <div class="nav-item"><b>✓</b><span>퀘스트</span></div>
-              <div class="nav-item"><b>⚔</b><span>모험</span></div>
-              <div class="nav-item"><b>♙</b><span>캐릭터</span></div>
-            </nav>
           </article>
 
           <article class="view run-view" id="running">
             <header class="run-header">
-              <div class="close">×</div>
-              <span class="pill">실시간 GPS 기록</span>
-              <span class="gps">GPS 좋음</span>
+              <button aria-label="러닝 취소" class="close" id="cancel-run">×</button>
+              <span class="pill">브라우저 데모 GPS</span>
+              <span class="gps" id="gps-label">GPS 좋음</span>
             </header>
             <div class="run-center">
-              <p class="run-status">안전하게 달리는 중</p>
-              <div class="distance">1.42</div>
+              <p class="run-status" id="run-status">안전하게 달리는 중</p>
+              <div class="distance" id="run-distance">0.00</div>
               <div class="distance-unit">km</div>
-              <div class="pace">평균 페이스 06'31"</div>
+              <div class="pace" id="run-pace">평균 페이스 --</div>
               <section class="metrics">
-                <div class="metric"><strong>09:16</strong><span>시간</span></div>
-                <div class="metric"><strong>9.5</strong><span>현재 km/h</span></div>
-                <div class="metric"><strong>9.2</strong><span>평균 km/h</span></div>
-                <div class="metric"><strong>10.9</strong><span>최고 km/h</span></div>
+                <div class="metric"><strong id="run-time">00:00</strong><span>시간</span></div>
+                <div class="metric"><strong id="current-speed">--</strong><span>현재 km/h</span></div>
+                <div class="metric"><strong id="average-speed">--</strong><span>평균 km/h</span></div>
+                <div class="metric"><strong id="max-speed">--</strong><span>최고 km/h</span></div>
               </section>
               <section class="map">
                 <div class="map-road"></div>
                 <div class="map-river"></div>
                 <div class="map-title">운동 경로</div>
-                <div class="map-caption">GPS 37개 지점 기록 중</div>
+                <div class="map-caption" id="live-map-caption">첫 번째 위치를 기다리고 있어요</div>
                 <div class="privacy">좌표 비저장</div>
                 <svg viewBox="0 0 350 176" role="img" aria-label="러닝 경로">
-                  <polyline class="route" points="35,137 72,120 89,88 132,99 170,66 203,78 228,51 274,70 316,46" />
+                  <polyline class="route" id="live-route" points="35,137" />
                   <circle cx="35" cy="137" fill="#16b87a" r="8" />
-                  <circle cx="316" cy="46" fill="#ff8a3d" r="8" />
+                  <circle cx="35" cy="137" fill="#ff8a3d" id="live-finish" r="8" />
                 </svg>
               </section>
               <section class="run-quest">
                 <div class="run-quest-top">
                   <span class="run-quest-icon">✦</span>
                   <div>
-                    <h4>일일 퀘스트 달성!</h4>
-                    <p>1km 러닝 · 120 XP 받을 준비 완료</p>
+                    <h4 id="run-quest-title">1km 퀘스트 진행 중</h4>
+                    <p id="run-quest-caption">0.00 / 1km · 계속 달려보세요</p>
                   </div>
                 </div>
-                <div class="progress"><span style="width: 100%"></span></div>
+                <div class="progress"><span id="run-quest-progress" style="width: 0"></span></div>
               </section>
             </div>
             <div class="run-controls">
-              <div class="control">
-                <div class="control-circle">Ⅱ</div>
-                <span>일시정지</span>
-              </div>
+              <button class="control" id="pause-run">
+                <span class="control-circle" id="pause-icon">Ⅱ</span>
+                <span id="pause-label">일시정지</span>
+              </button>
+              <button class="control finish" id="finish-run">
+                <span class="control-circle"><span class="finish-square"></span></span>
+                <span>종료</span>
+              </button>
             </div>
           </article>
 
@@ -964,11 +1324,11 @@
               <h2 class="summary-title">멋진 러닝이었어요!</h2>
               <p class="summary-caption">오늘의 발걸음이 루미를 더 강하게 만들었어요.</p>
               <section class="card summary-record">
-                <div class="summary-distance"><strong>2.00</strong><span>km</span></div>
+                <div class="summary-distance"><strong id="summary-distance">0.00</strong><span>km</span></div>
                 <div class="summary-metrics">
-                  <div class="summary-metric"><strong>13:02</strong><span>시간</span></div>
-                  <div class="summary-metric"><strong>06'31"</strong><span>평균 페이스</span></div>
-                  <div class="summary-metric"><strong>9.2 km/h</strong><span>평균 속도</span></div>
+                  <div class="summary-metric"><strong id="summary-time">00:00</strong><span>시간</span></div>
+                  <div class="summary-metric"><strong id="summary-pace">--</strong><span>평균 페이스</span></div>
+                  <div class="summary-metric"><strong id="summary-average-speed">--</strong><span>평균 속도</span></div>
                 </div>
               </section>
               <section class="map light summary-map">
@@ -984,35 +1344,501 @@
                 </svg>
               </section>
               <section class="card details">
-                <div class="detail"><i>⚡</i><div><strong>10.9 km/h</strong><span>최고 속도</span></div></div>
-                <div class="detail"><i>🔥</i><div><strong>130 kcal</strong><span>예상 칼로리</span></div></div>
-                <div class="detail"><i>◷</i><div><strong>13:02</strong><span>이동 시간</span></div></div>
-                <div class="detail"><i>⌁</i><div><strong>48개</strong><span>경로 지점</span></div></div>
+                <div class="detail"><i>⚡</i><div><strong id="summary-max-speed">--</strong><span>최고 속도</span></div></div>
+                <div class="detail"><i>🔥</i><div><strong id="summary-calories">0 kcal</strong><span>예상 칼로리</span></div></div>
+                <div class="detail"><i>◷</i><div><strong id="summary-moving-time">00:00</strong><span>이동 시간</span></div></div>
+                <div class="detail"><i>⌁</i><div><strong id="summary-points">0개</strong><span>경로 지점</span></div></div>
               </section>
               <div class="reward-title">획득한 성장 보상</div>
               <section class="rewards">
-                <div class="reward"><strong>✦ +200</strong><span>경험치</span></div>
-                <div class="reward"><strong>⚡ +240</strong><span>전투 에너지</span></div>
+                <div class="reward"><strong id="summary-xp-reward">✦ +20</strong><span>경험치</span></div>
+                <div class="reward"><strong id="summary-energy-reward">⚡ +24</strong><span>전투 에너지</span></div>
+              </section>
+              <button class="primary" id="claim-run-reward">✓ &nbsp;보상 받고 계속하기</button>
+            </div>
+          </article>
+
+          <article class="view" id="quest">
+            <div class="app-scroll">
+              <header class="app-header">
+                <div>
+                  <div class="eyebrow">DAILY & WEEKLY</div>
+                  <h2>오늘의 퀘스트</h2>
+                  <p>실제 러닝 기록으로 진행도가 올라가요.</p>
+                </div>
+                <span class="stat-pill" id="quest-streak">🔥 3일</span>
+              </header>
+              <section class="quest-list">
+                <article class="quest-item">
+                  <div class="quest-icon">🏃</div>
+                  <div class="quest-copy">
+                    <h3>가볍게 몸풀기</h3>
+                    <p id="daily-quest-caption">오늘 0.00 / 1km 달리기</p>
+                    <div class="progress"><span id="daily-quest-progress" style="width: 0"></span></div>
+                  </div>
+                  <div class="quest-footer">
+                    <span class="quest-reward">✦ 120 XP</span>
+                    <button class="small-button" disabled id="claim-daily-quest">보상 받기</button>
+                  </div>
+                </article>
+                <article class="quest-item">
+                  <div class="quest-icon">🗺️</div>
+                  <div class="quest-copy">
+                    <h3>주간 탐험가</h3>
+                    <p id="weekly-quest-caption">이번 주 3.2 / 10km</p>
+                    <div class="progress"><span id="weekly-quest-progress" style="width: 32%"></span></div>
+                  </div>
+                  <div class="quest-footer">
+                    <span class="quest-reward">🎁 숲빛 장비 상자</span>
+                    <span class="stat-pill">주간</span>
+                  </div>
+                </article>
+                <article class="quest-item">
+                  <div class="quest-icon">❔</div>
+                  <div class="quest-copy">
+                    <h3>숨겨진 지역 업적</h3>
+                    <p>특별한 지역에서 일정 거리 이상 달리면 꾸미기 아이템이 열려요.</p>
+                  </div>
+                  <div class="quest-footer">
+                    <span class="quest-reward">성능과 무관한 한정 코스튬</span>
+                    <span class="stat-pill">SECRET</span>
+                  </div>
+                </article>
               </section>
             </div>
           </article>
+
+          <article class="view" id="adventure">
+            <div class="app-scroll">
+              <header class="app-header">
+                <div>
+                  <div class="eyebrow">ADVENTURE</div>
+                  <h2>초록숨 숲</h2>
+                  <p>러닝으로 모은 에너지로 몬스터를 공격해요.</p>
+                </div>
+                <span class="stat-pill" id="battle-energy">⚡ 240</span>
+              </header>
+              <section class="battle-card">
+                <div class="battle-zone">STAGE 2-3 · BOSS</div>
+                <div class="monster" id="monster-art">🗿</div>
+                <div class="monster-name" id="monster-name">이끼 골렘</div>
+                <div class="hp-label">
+                  <span>MONSTER HP</span>
+                  <span id="monster-hp-label">100 / 100</span>
+                </div>
+                <div class="hp-bar"><span id="monster-hp-bar"></span></div>
+                <button class="attack-button" id="attack-monster">⚔ 공격하기 · 에너지 30</button>
+              </section>
+              <section class="card loot-card">
+                <div class="loot-icon" id="loot-icon">🎁</div>
+                <div>
+                  <h3 id="loot-title">첫 처치 보상</h3>
+                  <p id="loot-caption">이끼 골렘을 쓰러뜨리면 숲빛 장갑을 획득해요.</p>
+                </div>
+              </section>
+            </div>
+          </article>
+
+          <article class="view" id="character">
+            <div class="app-scroll">
+              <header class="app-header">
+                <div>
+                  <div class="eyebrow">MY CHARACTER</div>
+                  <h2>캐릭터</h2>
+                  <p>러닝과 퀘스트로 성장한 나의 동료예요.</p>
+                </div>
+                <span class="stat-pill" id="character-energy">⚡ 240</span>
+              </header>
+              <section class="character-panel">
+                <div class="character-level">
+                  <span class="pill" id="character-level-pill">Lv. 7 · 새싹 러너</span>
+                  <strong>루미</strong>
+                  <span id="character-xp">650 / 1,000 XP</span>
+                </div>
+                <img src="../assets/quest-run-hero.png" alt="민트색 픽셀 여우 캐릭터" />
+                <div class="character-stats">
+                  <div class="character-stat"><strong id="character-total-km">8.6km</strong><span>누적 거리</span></div>
+                  <div class="character-stat"><strong id="character-runs">2회</strong><span>완료 러닝</span></div>
+                  <div class="character-stat"><strong id="character-streak">3일</strong><span>연속 달성</span></div>
+                </div>
+              </section>
+              <section class="card loot-card">
+                <div class="loot-icon">🧤</div>
+                <div>
+                  <h3>보유 아이템</h3>
+                  <p id="inventory-label">아직 획득한 장비가 없어요. 모험에 도전해 보세요.</p>
+                </div>
+              </section>
+            </div>
+          </article>
+
+          <nav class="nav" id="app-nav">
+            <button class="nav-item active" data-nav="home"><b>⌂</b><span>홈</span></button>
+            <button class="nav-item" data-nav="quest"><b>✓</b><span>퀘스트</span></button>
+            <button class="nav-item" data-nav="adventure"><b>⚔</b><span>모험</span></button>
+            <button class="nav-item" data-nav="character"><b>♙</b><span>캐릭터</span></button>
+          </nav>
+          <div aria-live="polite" class="toast" id="toast"></div>
         </div>
       </section>
-      <p class="preview-note">현재 React Native 구현을 브라우저에서 확인할 수 있도록 재현한 화면입니다.</p>
+      <p class="preview-note">브라우저 데모는 GPS를 빠르게 재현하며, 상태는 이 브라우저에 자동 저장됩니다.</p>
     </main>
 
     <script>
-      const buttons = document.querySelectorAll(".switcher button");
-      const views = document.querySelectorAll(".view");
+      const STORAGE_KEY = "quest-run-browser-demo-v1";
+      const defaultState = {
+        level: 7,
+        xp: 650,
+        xpToNext: 1000,
+        energy: 240,
+        totalKm: 8.6,
+        weeklyKm: 3.2,
+        runs: 2,
+        streak: 3,
+        dailyDistance: 0,
+        dailyClaimed: false,
+        monsterHp: 100,
+        inventory: [],
+      };
+      const routePoints = [
+        [35, 137],
+        [72, 120],
+        [89, 88],
+        [132, 99],
+        [170, 66],
+        [203, 78],
+        [228, 51],
+        [274, 70],
+        [316, 46],
+      ];
 
-      buttons.forEach((button) => {
+      let state = loadState();
+      let run = createEmptyRun();
+      let runTimer = null;
+      let pendingReward = null;
+      let toastTimer = null;
+
+      const $ = (id) => document.getElementById(id);
+      const views = document.querySelectorAll(".view");
+      const shortcutButtons = document.querySelectorAll(".switcher button");
+      const navButtons = document.querySelectorAll("[data-nav]");
+
+      function loadState() {
+        try {
+          return { ...defaultState, ...JSON.parse(localStorage.getItem(STORAGE_KEY) || "{}") };
+        } catch {
+          return { ...defaultState };
+        }
+      }
+
+      function saveState() {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+      }
+
+      function createEmptyRun() {
+        return {
+          active: false,
+          paused: false,
+          seconds: 0,
+          distance: 0,
+          currentSpeed: 0,
+          averageSpeed: 0,
+          maxSpeed: 0,
+          routeCount: 1,
+        };
+      }
+
+      function showView(viewId) {
+        views.forEach((view) => view.classList.toggle("active", view.id === viewId));
+        shortcutButtons.forEach((button) => button.classList.toggle("active", button.dataset.target === viewId));
+        navButtons.forEach((button) => button.classList.toggle("active", button.dataset.nav === viewId));
+        $("app-nav").style.display = ["home", "quest", "adventure", "character"].includes(viewId) ? "flex" : "none";
+      }
+
+      function startRun() {
+        clearInterval(runTimer);
+        run = createEmptyRun();
+        run.active = true;
+        pendingReward = null;
+        renderRun();
+        showView("running");
+        runTimer = setInterval(tickRun, 500);
+      }
+
+      function tickRun() {
+        if (!run.active || run.paused) return;
+
+        run.seconds += 5;
+        run.currentSpeed = 8.7 + Math.sin(run.seconds / 9) * 1.35 + (run.seconds % 20 === 0 ? 0.6 : 0);
+        run.distance += (run.currentSpeed * 5) / 3600;
+        run.averageSpeed = run.seconds > 0 ? (run.distance / run.seconds) * 3600 : 0;
+        run.maxSpeed = Math.max(run.maxSpeed, run.currentSpeed);
+        run.routeCount = Math.min(routePoints.length, Math.max(2, Math.ceil(run.distance * 10) + 1));
+        renderRun();
+      }
+
+      function pauseRun() {
+        if (!run.active) return;
+        run.paused = !run.paused;
+        renderRun();
+      }
+
+      function cancelRun() {
+        clearInterval(runTimer);
+        run = createEmptyRun();
+        showView("home");
+        showToast("러닝 기록을 취소했어요.");
+      }
+
+      function finishRun() {
+        if (!run.active) return;
+        clearInterval(runTimer);
+        run.active = false;
+
+        const distance = Math.max(0.01, run.distance);
+        const xp = Math.max(20, Math.round(distance * 100));
+        const energy = Math.max(24, Math.round(distance * 120));
+        pendingReward = { distance, xp, energy, ...run };
+        renderSummary();
+        showView("summary");
+      }
+
+      function openSampleSummary() {
+        clearInterval(runTimer);
+        run = {
+          active: false,
+          paused: false,
+          seconds: 782,
+          distance: 2,
+          currentSpeed: 9.5,
+          averageSpeed: 9.2,
+          maxSpeed: 10.9,
+          routeCount: routePoints.length,
+        };
+        pendingReward = { distance: 2, xp: 200, energy: 240, ...run };
+        renderSummary();
+        showView("summary");
+      }
+
+      function claimRunReward() {
+        if (!pendingReward) {
+          showView("home");
+          return;
+        }
+
+        state.xp += pendingReward.xp;
+        state.energy += pendingReward.energy;
+        state.totalKm += pendingReward.distance;
+        state.weeklyKm += pendingReward.distance;
+        state.dailyDistance += pendingReward.distance;
+        state.runs += 1;
+
+        while (state.xp >= state.xpToNext) {
+          state.xp -= state.xpToNext;
+          state.level += 1;
+          state.xpToNext = Math.round(state.xpToNext * 1.12);
+        }
+
+        pendingReward = null;
+        saveState();
+        renderState();
+        showView("home");
+        showToast("러닝 보상과 퀘스트 진행도가 반영됐어요!");
+      }
+
+      function claimDailyQuest() {
+        if (state.dailyDistance < 1 || state.dailyClaimed) return;
+        state.dailyClaimed = true;
+        state.xp += 120;
+        if (state.xp >= state.xpToNext) {
+          state.xp -= state.xpToNext;
+          state.level += 1;
+          state.xpToNext = Math.round(state.xpToNext * 1.12);
+        }
+        saveState();
+        renderState();
+        showToast("일일 퀘스트 보상 120 XP를 받았어요!");
+      }
+
+      function attackMonster() {
+        if (state.monsterHp <= 0) {
+          showToast("이미 이끼 골렘을 처치했어요.");
+          return;
+        }
+        if (state.energy < 30) {
+          showToast("전투 에너지가 부족해요. 먼저 달려보세요!");
+          return;
+        }
+
+        state.energy -= 30;
+        state.monsterHp = Math.max(0, state.monsterHp - 34);
+        if (state.monsterHp === 0 && !state.inventory.includes("숲빛 장갑")) {
+          state.inventory.push("숲빛 장갑");
+          showToast("이끼 골렘 처치! 숲빛 장갑을 획득했어요.");
+        } else {
+          showToast("이끼 골렘에게 강한 일격을 가했어요!");
+        }
+        saveState();
+        renderState();
+      }
+
+      function resetDemo() {
+        clearInterval(runTimer);
+        state = { ...defaultState, inventory: [] };
+        run = createEmptyRun();
+        pendingReward = null;
+        saveState();
+        renderState();
+        showView("home");
+        showToast("데모 데이터를 처음 상태로 초기화했어요.");
+      }
+
+      function renderState() {
+        const progress = Math.min(100, (state.xp / state.xpToNext) * 100);
+        const remaining = Math.max(0, state.xpToNext - state.xp);
+        const dailyProgress = Math.min(100, state.dailyDistance * 100);
+        const weeklyProgress = Math.min(100, (state.weeklyKm / 10) * 100);
+        const defeated = state.monsterHp <= 0;
+
+        $("home-level-pill").textContent = `Lv. ${state.level} · 새싹 러너`;
+        $("home-level-label").textContent = `LEVEL ${state.level}`;
+        $("home-xp-label").textContent = `${formatNumber(state.xp)} / ${formatNumber(state.xpToNext)} XP`;
+        $("home-xp-progress").style.width = `${progress}%`;
+        $("remaining-xp").textContent = formatNumber(remaining);
+
+        $("quest-streak").textContent = `🔥 ${state.streak}일`;
+        $("daily-quest-caption").textContent = `오늘 ${state.dailyDistance.toFixed(2)} / 1km 달리기`;
+        $("daily-quest-progress").style.width = `${dailyProgress}%`;
+        $("claim-daily-quest").disabled = state.dailyDistance < 1 || state.dailyClaimed;
+        $("claim-daily-quest").textContent = state.dailyClaimed ? "완료" : "보상 받기";
+        $("weekly-quest-caption").textContent = `이번 주 ${state.weeklyKm.toFixed(1)} / 10km`;
+        $("weekly-quest-progress").style.width = `${weeklyProgress}%`;
+
+        $("battle-energy").textContent = `⚡ ${state.energy}`;
+        $("monster-hp-label").textContent = `${state.monsterHp} / 100`;
+        $("monster-hp-bar").style.width = `${state.monsterHp}%`;
+        $("monster-art").textContent = defeated ? "💥" : "🗿";
+        $("monster-name").textContent = defeated ? "이끼 골렘 처치 완료" : "이끼 골렘";
+        $("attack-monster").disabled = defeated || state.energy < 30;
+        $("attack-monster").textContent = defeated ? "✓ 처치 완료" : "⚔ 공격하기 · 에너지 30";
+        $("loot-icon").textContent = defeated ? "🧤" : "🎁";
+        $("loot-title").textContent = defeated ? "숲빛 장갑 획득!" : "첫 처치 보상";
+        $("loot-caption").textContent = defeated
+          ? "캐릭터의 보유 아이템에 추가됐어요."
+          : "이끼 골렘을 쓰러뜨리면 숲빛 장갑을 획득해요.";
+
+        $("character-energy").textContent = `⚡ ${state.energy}`;
+        $("character-level-pill").textContent = `Lv. ${state.level} · 새싹 러너`;
+        $("character-xp").textContent = `${formatNumber(state.xp)} / ${formatNumber(state.xpToNext)} XP`;
+        $("character-total-km").textContent = `${state.totalKm.toFixed(1)}km`;
+        $("character-runs").textContent = `${state.runs}회`;
+        $("character-streak").textContent = `${state.streak}일`;
+        $("inventory-label").textContent = state.inventory.length
+          ? state.inventory.join(", ")
+          : "아직 획득한 장비가 없어요. 모험에 도전해 보세요.";
+      }
+
+      function renderRun() {
+        const speed = run.currentSpeed > 0 ? run.currentSpeed.toFixed(1) : "--";
+        const average = run.averageSpeed > 0 ? run.averageSpeed.toFixed(1) : "--";
+        const max = run.maxSpeed > 0 ? run.maxSpeed.toFixed(1) : "--";
+        const paceSeconds = run.averageSpeed > 0 ? 3600 / run.averageSpeed : 0;
+        const visiblePoints = routePoints.slice(0, run.routeCount);
+        const lastPoint = visiblePoints[visiblePoints.length - 1] || routePoints[0];
+        const questProgress = Math.min(100, run.distance * 100);
+        const questDone = run.distance >= 1;
+
+        $("run-status").textContent = run.paused ? "잠시 쉬는 중" : "안전하게 달리는 중";
+        $("run-distance").textContent = run.distance.toFixed(2);
+        $("run-time").textContent = formatTime(run.seconds);
+        $("current-speed").textContent = speed;
+        $("average-speed").textContent = average;
+        $("max-speed").textContent = max;
+        $("run-pace").textContent = paceSeconds ? `평균 페이스 ${formatPace(paceSeconds)}` : "평균 페이스 --";
+        $("pause-icon").textContent = run.paused ? "▶" : "Ⅱ";
+        $("pause-label").textContent = run.paused ? "계속하기" : "일시정지";
+        $("live-map-caption").textContent = `데모 GPS ${visiblePoints.length}개 지점 기록 중`;
+        $("live-route").setAttribute("points", visiblePoints.map((point) => point.join(",")).join(" "));
+        $("live-finish").setAttribute("cx", lastPoint[0]);
+        $("live-finish").setAttribute("cy", lastPoint[1]);
+        $("run-quest-title").textContent = questDone ? "일일 퀘스트 달성!" : "1km 퀘스트 진행 중";
+        $("run-quest-caption").textContent = questDone
+          ? "1km 러닝 · 120 XP 받을 준비 완료"
+          : `${run.distance.toFixed(2)} / 1km · 계속 달려보세요`;
+        $("run-quest-progress").style.width = `${questProgress}%`;
+      }
+
+      function renderSummary() {
+        if (!pendingReward) return;
+        const averageSpeed = pendingReward.averageSpeed || 9.2;
+        const maxSpeed = pendingReward.maxSpeed || averageSpeed;
+        const pace = averageSpeed > 0 ? 3600 / averageSpeed : 0;
+        const calories = Math.max(1, Math.round(pendingReward.distance * 65));
+
+        $("summary-distance").textContent = pendingReward.distance.toFixed(2);
+        $("summary-time").textContent = formatTime(pendingReward.seconds);
+        $("summary-pace").textContent = formatPace(pace);
+        $("summary-average-speed").textContent = `${averageSpeed.toFixed(1)} km/h`;
+        $("summary-max-speed").textContent = `${maxSpeed.toFixed(1)} km/h`;
+        $("summary-calories").textContent = `${calories} kcal`;
+        $("summary-moving-time").textContent = formatTime(pendingReward.seconds);
+        $("summary-points").textContent = `${pendingReward.routeCount}개`;
+        $("summary-xp-reward").textContent = `✦ +${pendingReward.xp}`;
+        $("summary-energy-reward").textContent = `⚡ +${pendingReward.energy}`;
+      }
+
+      function formatTime(totalSeconds) {
+        const minutes = Math.floor(totalSeconds / 60);
+        const seconds = Math.floor(totalSeconds % 60);
+        return `${String(minutes).padStart(2, "0")}:${String(seconds).padStart(2, "0")}`;
+      }
+
+      function formatPace(totalSeconds) {
+        if (!Number.isFinite(totalSeconds) || totalSeconds <= 0) return "--";
+        const minutes = Math.floor(totalSeconds / 60);
+        const seconds = Math.round(totalSeconds % 60);
+        return `${String(minutes).padStart(2, "0")}'${String(seconds).padStart(2, "0")}"`;
+      }
+
+      function formatNumber(value) {
+        return Number(value).toLocaleString("ko-KR");
+      }
+
+      function showToast(message) {
+        clearTimeout(toastTimer);
+        $("toast").textContent = message;
+        $("toast").classList.add("show");
+        toastTimer = setTimeout(() => $("toast").classList.remove("show"), 2200);
+      }
+
+      $("start-run").addEventListener("click", startRun);
+      $("pause-run").addEventListener("click", pauseRun);
+      $("finish-run").addEventListener("click", finishRun);
+      $("cancel-run").addEventListener("click", cancelRun);
+      $("claim-run-reward").addEventListener("click", claimRunReward);
+      $("claim-daily-quest").addEventListener("click", claimDailyQuest);
+      $("attack-monster").addEventListener("click", attackMonster);
+      $("reset-demo").addEventListener("click", resetDemo);
+
+      navButtons.forEach((button) => {
+        button.addEventListener("click", () => showView(button.dataset.nav));
+      });
+
+      shortcutButtons.forEach((button) => {
         button.addEventListener("click", () => {
-          buttons.forEach((item) => item.classList.remove("active"));
-          views.forEach((view) => view.classList.remove("active"));
-          button.classList.add("active");
-          document.getElementById(button.dataset.target).classList.add("active");
+          if (button.dataset.target === "running") {
+            startRun();
+          } else if (button.dataset.target === "summary") {
+            openSampleSummary();
+          } else {
+            showView("home");
+          }
         });
       });
+
+      renderState();
+      renderRun();
+      showView("home");
     </script>
   </body>
 </html>

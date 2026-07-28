@@ -6,7 +6,9 @@
 
 웹 빌드, 자동 테스트와 `.ait` 생성은 가능하다. 앱인토스 익명 사용자 식별, 외부 API CORS, 동기화 충돌 방지, 데이터 삭제 코드도 준비됐다.
 
-그러나 운영 Supabase가 연결되지 않아 Vercel `/api/state`가 500을 반환했고, 최종 `appName`·아이콘·정책 URL·실기기 검증이 확정되지 않았다. 따라서 현재 상태는 **코드 후보 준비 / 출시 검수 요청 불가**다.
+2026-07-28 현재 운영 Vercel의 `/api/session`은 초기화 실패, `/api/state`는 500을 반환한다. 로컬 소스에는 공개 오류 메시지 보정과 상태 확인 API가 있지만 아직 운영 배포에 반영되지 않았다.
+
+`appName`은 `jiptori`로 확정해 코드와 CORS 예시를 반영했다. 콘솔 아이콘 URL·정책 URL·운영 DB·실기기 검증은 아직 확정되지 않았다. 따라서 현재 상태는 **코드 후보 준비 / 출시 검수 요청 불가**다.
 
 ## 완료된 개발 항목
 
@@ -26,6 +28,11 @@
 - [x] 320~480px 모바일과 600~1024px 태블릿 반응형 UI
 - [x] 추천 업무 전체 가이드 자동 검사
 - [x] `pnpm test`, `pnpm typecheck`, `pnpm build`, `pnpm ait:build` 스크립트
+- [x] 앱 내 기능용 `/today`, `/schedule`, `/chores`, `/report`, `/profile` 진입 경로
+- [x] `.ait` 압축 해제 용량 100MB 자동 검사
+- [x] OG 전용 폰트를 서버 자산으로 분리
+- [x] 최상위 화면 오류 복구 UI
+- [x] 운영 DB·세션·초기 상태를 확인하는 `pnpm ops:check`
 
 ## 사용자 담당
 
@@ -34,7 +41,7 @@
 - [ ] Supabase 프로젝트를 복구하거나 새 운영 프로젝트를 만든다.
 - [ ] 네 개 SQL 마이그레이션을 파일명 순서대로 실행한다.
 - [ ] Vercel에 `SUPABASE_URL`, `SUPABASE_SECRET_KEY`, `SESSION_SECRET`을 다시 설정한다.
-- [ ] 앱인토스 콘솔의 최종 `appName`을 전달한다.
+- [ ] 앱인토스 콘솔의 `appName`이 `jiptori`인지 확인한다.
 - [ ] 콘솔에 600×600 아이콘을 등록하고 `brand.icon`에 사용할 URL을 전달한다.
 - [ ] 운영 주체와 고객 문의 이메일을 확정한다.
 - [ ] 이용약관·개인정보처리방침·고객 문의 HTTPS URL을 전달한다.
@@ -51,6 +58,7 @@
 - [ ] 앱 소개, 카테고리, 검색 키워드, 썸네일과 스크린샷을 등록한다.
 - [ ] 새 `.ait`를 콘솔에 업로드한다.
 - [ ] iOS와 Android 토스 샌드박스에서 QR 또는 스킴 테스트를 한다.
+- [ ] 토스앱 QR 테스트를 최소 1회 완료한다.
 - [ ] 집 생성, 초대 참여, 동시 수정 충돌, 탈퇴 후 데이터 삭제를 실제 운영 DB에서 검증한다.
 - [ ] 앱 정보 검수와 출시 검수를 요청한다.
 
@@ -58,10 +66,12 @@
 
 ### P0
 
-- [ ] 전달받은 최종 `appName`과 아이콘 URL을 `granite.config.ts`에 반영한다.
+- [x] 최종 `appName` `jiptori`를 `granite.config.ts`에 반영한다.
+- [ ] 콘솔에서 복사한 아이콘 URL을 `granite.config.ts`에 반영한다.
 - [ ] 정책·문의 URL을 운영 환경변수에 반영하고 실제 링크를 확인한다.
 - [ ] 앱인토스 비게임 내비게이션과 뒤로가기 종료 흐름을 샌드박스에서 확정한다.
-- [ ] 콘솔 ‘앱 내 기능’ 경로와 딥링크 라우팅을 구현한다.
+- [x] 콘솔 ‘앱 내 기능’에서 사용할 경로 라우팅을 구현한다.
+- [ ] 콘솔에 앱 내 기능을 등록하고 테스트 스킴으로 검증한다.
 
 ### P1
 
@@ -90,13 +100,15 @@
 
 앱인토스 Origin:
 
-- `https://<appName>.apps.tossmini.com`
-- `https://<appName>.private-apps.tossmini.com`
+- `https://jiptori.apps.tossmini.com`
+- `https://jiptori.private-apps.tossmini.com`
 
 ## 출시 후보 검증 명령
 
 ```bash
 pnpm verify
+pnpm ait:check
+pnpm ops:check
 ```
 
 성공 후 다음을 별도로 확인한다.
@@ -108,6 +120,7 @@ pnpm verify
 5. 탈퇴 후 개인 기록 삭제와 공유 집 유지
 6. 앱인토스 안에서 같은 사용자가 재진입해 동일 데이터 조회
 7. 정책 링크와 승인된 외부 링크 정상 이동
+8. 앱 내 기능 5개 경로와 최초 화면 종료 동작
 
 ## 출시 판정
 

@@ -18,6 +18,7 @@ import {
   type HouseholdProfile,
   type NavigationTab,
 } from './components';
+import { appFeatureTabFromPath } from './domain/appRoutes';
 import { formatDueDate, formatRecurrence, todayKey, toDateKey } from './domain/date';
 import { choreGuideById, guideForChore } from './domain/choreGuides';
 import type { Chore, ChoreCategory, Recurrence } from './domain/types';
@@ -110,7 +111,7 @@ function App() {
     ensureDemoSupply,
     ensureDemoGuideChores,
   } = useAppData();
-  const [activeTab, setActiveTab] = useState<NavigationTab>('today');
+  const [activeTab, setActiveTab] = useState<NavigationTab>(() => appFeatureTabFromPath(window.location.pathname));
   const [isAddingChore, setIsAddingChore] = useState(false);
   const [editingChoreId, setEditingChoreId] = useState<string | null>(null);
   const [isEditingHome, setIsEditingHome] = useState(false);

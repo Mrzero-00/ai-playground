@@ -9,6 +9,7 @@
 앱인토스 WebView SDK 2.x 기반의 React + TypeScript 미니앱입니다.
 
 개발과 출시 검수에는 [AI 집안일 앱인토스 개발 정책](./docs/apps-in-toss-policy.md)을 필수 기준으로 적용합니다.
+토스앱 QR 테스트와 업로드 순서는 [집토리 토스앱 최종 테스트 실행서](./docs/apps-in-toss-toss-app-test.md)를 따릅니다.
 
 ## 개발
 
@@ -41,5 +42,7 @@ pnpm test        # 핵심 계산, API 검증, 전체 가이드 검사
 pnpm typecheck   # 웹/API 타입 검사
 pnpm build       # 웹 빌드 확인
 pnpm ait:build   # 콘솔에 업로드할 .ait 번들 생성
-pnpm verify      # 위 검사를 순서대로 모두 실행
+pnpm ait:check   # 브랜드·CORS·로고·AIT 100MB 제한 검사
+pnpm ops:check   # 배포된 운영 DB·세션·상태 API 확인
+pnpm verify      # 테스트·타입·웹 빌드·AIT 생성을 순서대로 실행
 ```

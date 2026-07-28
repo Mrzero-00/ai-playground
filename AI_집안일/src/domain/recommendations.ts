@@ -5,12 +5,16 @@ interface ChoreTemplate {
   key: string;
   title: string;
   category: ChoreCategory;
+  icon?: string;
   recurrence: Recurrence;
   matches?: (profile: HomeProfile) => boolean;
 }
 
 const templates: ChoreTemplate[] = [
   { key: 'dishes', title: '설거지와 싱크대 정리', category: 'kitchen', recurrence: { interval: 1, unit: 'day' } },
+  { key: 'cook-meal', title: '한 끼 요리하고 식탁 차리기', category: 'kitchen', icon: '🍳', recurrence: { interval: 1, unit: 'day' } },
+  { key: 'ingredient-prep', title: '식재료 손질·소분하기', category: 'kitchen', icon: '🥕', recurrence: { interval: 1, unit: 'week' } },
+  { key: 'leftover-storage', title: '남은 음식 정리하고 보관하기', category: 'kitchen', icon: '🥡', recurrence: { interval: 3, unit: 'day' } },
   { key: 'ventilation', title: '집 안 환기하기', category: 'living', recurrence: { interval: 1, unit: 'day' } },
   { key: 'waste', title: '분리수거 확인하기', category: 'living', recurrence: { interval: 3, unit: 'day' } },
   { key: 'bathroom', title: '화장실 청소', category: 'cleaning', recurrence: { interval: 1, unit: 'week' } },
@@ -19,10 +23,21 @@ const templates: ChoreTemplate[] = [
   { key: 'towels', title: '수건 교체와 세탁', category: 'laundry', recurrence: { interval: 3, unit: 'day' } },
   { key: 'bedding', title: '침구 세탁', category: 'laundry', recurrence: { interval: 2, unit: 'week' } },
   { key: 'fridge-expiry', title: '냉장고 유통기한 확인', category: 'kitchen', recurrence: { interval: 1, unit: 'week' } },
-  { key: 'microwave', title: '전자레인지 내부 청소', category: 'kitchen', recurrence: { interval: 2, unit: 'week' } },
+  { key: 'microwave', title: '전자레인지 내부 청소', category: 'kitchen', icon: '📻', recurrence: { interval: 2, unit: 'week' } },
   { key: 'drain', title: '배수구 점검과 청소', category: 'cleaning', recurrence: { interval: 1, unit: 'month' } },
-  { key: 'washer', title: '세탁기 통 청소', category: 'laundry', recurrence: { interval: 1, unit: 'month' } },
-  { key: 'dryer-filter', title: '건조기 필터 청소', category: 'laundry', recurrence: { interval: 1, unit: 'week' } },
+  { key: 'washer', title: '세탁기 통 청소', category: 'laundry', icon: '🫧', recurrence: { interval: 1, unit: 'month' } },
+  { key: 'washer-drawer-gasket', title: '세탁기 세제함·고무패킹 청소', category: 'laundry', icon: '🧼', recurrence: { interval: 2, unit: 'week' } },
+  { key: 'washer-drain-filter', title: '세탁기 배수필터 청소', category: 'laundry', icon: '🌀', recurrence: { interval: 1, unit: 'month' } },
+  { key: 'dryer-filter', title: '건조기 필터 청소', category: 'laundry', icon: '🧺', recurrence: { interval: 1, unit: 'week' } },
+  { key: 'dryer-drum-sensor', title: '건조기 드럼·습도센서 닦기', category: 'laundry', icon: '♨️', recurrence: { interval: 1, unit: 'month' } },
+  { key: 'dryer-condenser', title: '건조기 열교환기 점검', category: 'laundry', icon: '🌬️', recurrence: { interval: 1, unit: 'month' } },
+  { key: 'dishwasher-filter', title: '식기세척기 필터·분사구 청소', category: 'kitchen', icon: '🍽️', recurrence: { interval: 1, unit: 'month' } },
+  { key: 'range-hood-filter', title: '주방 후드 기름필터 청소', category: 'kitchen', icon: '🍳', recurrence: { interval: 1, unit: 'month' } },
+  { key: 'vacuum-filter', title: '청소기 먼지통·필터 청소', category: 'cleaning', icon: '🧹', recurrence: { interval: 2, unit: 'week' } },
+  { key: 'robot-vacuum', title: '로봇청소기 브러시·센서 청소', category: 'cleaning', icon: '🤖', recurrence: { interval: 1, unit: 'week' } },
+  { key: 'air-purifier-filter', title: '공기청정기 프리필터 청소', category: 'living', icon: '🌿', recurrence: { interval: 2, unit: 'week' } },
+  { key: 'air-conditioner-filter', title: '에어컨 필터 청소', category: 'living', icon: '❄️', recurrence: { interval: 1, unit: 'month' } },
+  { key: 'dehumidifier-care', title: '제습기 물통·필터 청소', category: 'living', icon: '💧', recurrence: { interval: 1, unit: 'week' } },
   { key: 'fridge-deep', title: '냉장고 선반 청소', category: 'kitchen', recurrence: { interval: 1, unit: 'month' } },
   { key: 'seasonal', title: '계절 가전 필터 점검', category: 'living', recurrence: { interval: 3, unit: 'month' } },
   { key: 'detector', title: '화재감지기와 비상용품 점검', category: 'living', recurrence: { interval: 6, unit: 'month' } },
@@ -195,6 +210,7 @@ const templates: ChoreTemplate[] = [
 
 const coreTemplateIds = new Set([
   'recommended-dishes',
+  'recommended-cook-meal',
   'recommended-ventilation',
   'recommended-waste',
   'recommended-bathroom',
@@ -223,6 +239,7 @@ export function recommendedChores(profile: HomeProfile): Chore[] {
       id: `recommended-${template.key}`,
       title: template.title,
       category: template.category,
+      icon: template.icon,
       recurrence: template.recurrence,
       createdAt: now,
       scheduleAnchorDate: toDateKey(dueDate),
@@ -242,6 +259,7 @@ export function previewAllRecommendedChores(): Chore[] {
     id: `recommended-${template.key}`,
     title: template.title,
     category: template.category,
+    icon: template.icon,
     recurrence: template.recurrence,
     createdAt: now,
     scheduleAnchorDate: dueDate,
@@ -253,4 +271,17 @@ export function previewAllRecommendedChores(): Chore[] {
 
 export function isCoreRecommendation(choreId: string): boolean {
   return coreTemplateIds.has(choreId);
+}
+
+export function recommendationPriority(chore: Chore, profile: HomeProfile): number {
+  const id = chore.id;
+  if ((profile.childAges ?? []).length && /(baby|child|toddler|family-toys)/.test(id)) return 0;
+  if (profile.hasPets && /(pet|dog|cat|fish|bird|animal|reptile)/.test(id)) return 0;
+  if (profile.housingTenure === 'monthly-rent' && /(rent-condition|rent-contract|monthly-rent)/.test(id)) return 1;
+  if (profile.housingTenure === 'jeonse' && /(rent-condition|rent-contract|jeonse)/.test(id)) return 1;
+  if (profile.housingTenure === 'owned' && /owned/.test(id)) return 1;
+  if (/(washer|dryer|dishwasher|range-hood|vacuum|air-purifier|air-conditioner|dehumidifier|microwave|fridge-deep|seasonal)/.test(id)) return 1;
+  if (/(ingredient-prep|leftover-storage)/.test(id)) return 1;
+  if (id.includes(profile.householdType)) return 3;
+  return 4;
 }

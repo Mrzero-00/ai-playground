@@ -1,8 +1,16 @@
 import type { AppData } from '../domain/types';
 import { getTossAnonymousKey } from './tossIdentity';
 
+const DEFAULT_PRODUCTION_API_URL = 'https://jiptori.vercel.app';
+
+function apiBaseUrl(): string {
+  const configured = import.meta.env.VITE_API_BASE_URL?.trim().replace(/\/+$/, '');
+  if (configured) return configured;
+  return import.meta.env.PROD ? DEFAULT_PRODUCTION_API_URL : '';
+}
+
 async function requestState(path: string, init?: RequestInit): Promise<AppData> {
-  const configuredBaseUrl = import.meta.env.VITE_API_BASE_URL?.trim().replace(/\/+$/, '');
+  const configuredBaseUrl = apiBaseUrl();
   if (import.meta.env.DEV && !configuredBaseUrl) {
     throw new Error('로컬 모드로 사용 중이에요. 공유 동기화가 필요하면 VITE_API_BASE_URL을 설정해 주세요.');
   }
@@ -45,7 +53,7 @@ export function joinRemoteHome(inviteCode: string): Promise<AppData> {
 }
 
 export async function deleteRemoteAccount(): Promise<void> {
-  const configuredBaseUrl = import.meta.env.VITE_API_BASE_URL?.trim().replace(/\/+$/, '');
+  const configuredBaseUrl = apiBaseUrl();
   if (import.meta.env.DEV && !configuredBaseUrl) {
     throw new Error('서버에 연결된 상태에서만 전체 데이터를 삭제할 수 있어요.');
   }

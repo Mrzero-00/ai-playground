@@ -1,8 +1,7 @@
 import { defineConfig } from '@apps-in-toss/web-framework/config';
 
 export default defineConfig({
-  // 앱인토스 콘솔에서 미니앱을 만든 뒤 콘솔의 appName과 동일하게 변경하세요.
-  appName: 'ai-housework',
+  appName: 'jiptori',
   brand: {
     displayName: '집토리',
     primaryColor: '#3182F6',
@@ -16,6 +15,16 @@ export default defineConfig({
       dev: 'vite',
       build: 'tsc -b && vite build',
     },
+  },
+  webViewProps: {
+    type: 'partner',
+  },
+  navigationBar: {
+    withBackButton: true,
+    withHomeButton: true,
+    withTitle: true,
+    transparentBackground: false,
+    theme: 'light',
   },
   permissions: [],
   outdir: 'dist',

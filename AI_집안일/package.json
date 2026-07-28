@@ -13,11 +13,15 @@
     "test": "vitest run",
     "typecheck": "tsc -b && tsc -p tsconfig.api.json",
     "ait:build": "ait build",
+    "ait:check": "node scripts/check-apps-in-toss-release.mjs",
+    "ait:deploy": "ait deploy",
+    "ops:check": "node scripts/check-production.mjs",
     "verify": "pnpm test && pnpm typecheck && pnpm build && pnpm ait:build"
   },
   "dependencies": {
     "@apps-in-toss/web-framework": "^2.10.6",
     "@supabase/supabase-js": "^2.110.3",
+    "@vercel/og": "^0.11.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },

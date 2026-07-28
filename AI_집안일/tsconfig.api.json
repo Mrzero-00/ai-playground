@@ -3,10 +3,11 @@
     "target": "ES2022",
     "module": "ESNext",
     "moduleResolution": "Bundler",
+    "jsx": "react-jsx",
     "strict": true,
     "noEmit": true,
     "skipLibCheck": true,
-    "types": ["node"]
+    "types": ["node", "react"]
   },
-  "include": ["api/**/*.ts", "src/domain/types.ts"]
+  "include": ["api/**/*.ts", "api/**/*.tsx", "src/domain/types.ts", "src/domain/profileInsights.ts", "src/domain/profileShare.ts"]
 }

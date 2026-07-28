@@ -54,7 +54,7 @@ export function SupplyPlanner({ items, onAdd, onPurchase, onRemove, compact = fa
   if (compact) return <button className="report-link-card" type="button" onClick={onOpen}><span aria-hidden="true">🧴</span><div><strong>생활용품 관리</strong><small>{items.length ? `${items.length}개 품목의 구매 시점을 관리 중이에요` : '자주 사는 생활용품을 미리 챙겨요'}</small></div><i aria-hidden="true">›</i></button>;
 
   return <section className="supply-planner detail-section">
-    <div className="section-heading supply-heading"><div><h2>생활용품 관리</h2><p>사용 속도에 맞춰 다음 구매 시기를 알려드려요.</p></div><span>앱이 기억해요</span></div>
+    <div className="section-heading supply-heading"><div><h2>{items.length ? '구매 시기 한눈에' : '생활용품을 등록해보세요'}</h2><p>사용 속도에 맞춰 다음 구매 시기를 알려드려요.</p></div><span>앱이 기억해요</span></div>
     {!items.length ? <div className="report-empty">샴푸, 휴지, 세제처럼 미리 챙겨야 하는 품목을 등록해보세요.</div> : <>
       <div className="supply-item-tabs" aria-label="관리할 생활용품 선택">{items.map((item) => <button aria-pressed={selectedItem?.id === item.id} className={selectedItem?.id === item.id ? 'is-active' : ''} key={item.id} onClick={() => setSelectedItemId(item.id)} type="button"><span aria-hidden="true">{item.unit === '롤' ? '🧻' : '🧴'}</span><strong>{item.name}</strong></button>)}</div>
       {selectedItem && dashboard && <div className="supply-dashboard">

@@ -1,5 +1,16 @@
 {
   "buildCommand": "pnpm build",
   "outputDirectory": "dist",
-  "framework": "vite"
+  "framework": "vite",
+  "functions": {
+    "api/profile-og.tsx": {
+      "includeFiles": "api/assets/Pretendard-*.woff"
+    }
+  },
+  "rewrites": [
+    {
+      "source": "/share/profile",
+      "destination": "/api/profile-share"
+    }
+  ]
 }

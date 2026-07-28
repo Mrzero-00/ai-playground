@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { addRecurrence, isDue, todayKey, toDateKey } from '../domain/date';
-import { isCoreRecommendation, previewAllRecommendedChores, recommendedChores } from '../domain/recommendations';
+import { isCoreRecommendation, previewAllRecommendedChores, recommendationPriority, recommendedChores } from '../domain/recommendations';
 import type { AppData, Chore, Home, HomeProfile, LaborAssessment, NotificationSettings, Recurrence, SupplyItem } from '../domain/types';
 import { createInitialAppData, loadAppData, makeInviteCode, saveAppData } from '../data/storage';
 import { deleteRemoteAccount, joinRemoteHome, loadRemoteState, saveRemoteState } from '../data/remote';
@@ -34,18 +34,15 @@ function synchronizeRecommendations(home: Pick<Home, 'chores' | 'profile' | 'rec
     .filter((preference) => preference.status === 'dismissed' || (preference.snoozedUntil ?? '') > todayKey())
     .map((preference) => preference.templateId));
   const additions = recommended.filter((chore) => isCoreRecommendation(chore.id) && !retainedIds.has(chore.id) && !hiddenIds.has(chore.id));
-  return [...retained, ...additions];
-}
-
-function recommendationPriority(chore: Chore, profile: HomeProfile): number {
-  const id = chore.id;
-  if ((profile.childAges ?? []).length && /(baby|child|toddler|family-toys)/.test(id)) return 0;
-  if (profile.hasPets && /(pet|dog|cat|fish|bird|animal|reptile)/.test(id)) return 0;
-  if (profile.housingTenure === 'monthly-rent' && /(rent-condition|rent-contract|monthly-rent)/.test(id)) return 1;
-  if (profile.housingTenure === 'jeonse' && /(rent-condition|rent-contract|jeonse)/.test(id)) return 1;
-  if (profile.housingTenure === 'owned' && /owned/.test(id)) return 1;
-  if (id.includes(profile.householdType)) return 2;
-  return 3;
+  const synchronized = [...retained, ...additions];
+  const cookingIndex = synchronized.findIndex((chore) => chore.id === 'recommended-cook-meal');
+  const dishesIndex = synchronized.findIndex((chore) => chore.id === 'recommended-dishes');
+  if (cookingIndex >= 0 && dishesIndex >= 0 && cookingIndex !== dishesIndex + 1) {
+    const [cooking] = synchronized.splice(cookingIndex, 1);
+    const nextDishesIndex = synchronized.findIndex((chore) => chore.id === 'recommended-dishes');
+    synchronized.splice(nextDishesIndex + 1, 0, cooking);
+  }
+  return synchronized;
 }
 
 export function useAppData() {
@@ -183,7 +180,7 @@ export function useAppData() {
     return recommendedChores(activeHome.profile)
       .filter((chore) => !isCoreRecommendation(chore.id) && !existingIds.has(chore.id) && !hiddenIds.has(chore.id))
       .sort((a, b) => recommendationPriority(a, activeHome.profile!) - recommendationPriority(b, activeHome.profile!))
-      .slice(0, 6);
+      .slice(0, 8);
   }, [activeHome]);
 
   function updateActiveHome(update: (home: Home) => Home) {

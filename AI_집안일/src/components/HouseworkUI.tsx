@@ -360,7 +360,16 @@ export function ChoreGuideModal({ guide, onClose }: { guide: ChoreGuide; onClose
 }
 
 function guideHeroIcon(title: string) {
+  if (title.includes('요리') || title.includes('식재료') || title.includes('남은 음식')) return '🍳';
   if (title.includes('세탁기')) return '🫧';
+  if (title.includes('건조기')) return '🌬️';
+  if (title.includes('식기세척기')) return '🍽️';
+  if (title.includes('후드')) return '🍳';
+  if (title.includes('로봇청소기')) return '🤖';
+  if (title.includes('청소기')) return '🧹';
+  if (title.includes('공기청정기')) return '🌿';
+  if (title.includes('에어컨')) return '❄️';
+  if (title.includes('제습기')) return '💧';
   if (title.includes('화장실') || title.includes('변기')) return '🚿';
   if (title.includes('고양이')) return '🐈';
   if (title.includes('강아지')) return '🐕';
@@ -369,6 +378,11 @@ function guideHeroIcon(title: string) {
 }
 
 function supplyIcon(supply: string) {
+  if (/식재료|채소|육류|생선/.test(supply)) return '🥕';
+  if (/도마|칼|조리도구/.test(supply)) return '🔪';
+  if (/보관 용기|용기/.test(supply)) return '🥡';
+  if (/라벨|메모|목록/.test(supply)) return '🏷️';
+  if (/키친타월/.test(supply)) return '🧻';
   if (/장갑/.test(supply)) return '🧤';
   if (/수건|천|걸레/.test(supply)) return '🧺';
   if (/솔|브러시/.test(supply)) return '🪥';

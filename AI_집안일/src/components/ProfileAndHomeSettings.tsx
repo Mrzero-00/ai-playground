@@ -1,4 +1,7 @@
 import { useMemo, useState, type FormEvent } from 'react';
+import { getTossShareLink, share } from '@apps-in-toss/web-framework';
+import { buildProfileShareMessage, getProfileLevel, getProfileTendency } from '../domain/profileInsights';
+import { buildProfileShareUrls, DEFAULT_PROFILE_SHARE_ORIGIN } from '../domain/profileShare';
 import type { Home, HomeProfile, HouseholdType, HousingTenure, LocalUser, PetType } from '../domain/types';
 
 interface HomeSettingsProps {
@@ -104,13 +107,15 @@ export function PersonalProfile({ user, homes, onSaveName, onDeleteAccount }: Pe
   const [name, setName] = useState(user.displayName);
   const [deleteError, setDeleteError] = useState<string | null>(null);
   const [deleting, setDeleting] = useState(false);
+  const [shareStatus, setShareStatus] = useState<string | null>(null);
   const personalCompletions = useMemo(
     () => homes.flatMap((home) => home.history).filter((entry) => entry.action === 'completed' && entry.performedByUserId === user.id).length,
     [homes, user.id],
   );
-  const level = Math.floor(personalCompletions / 10) + 1;
-  const progress = (personalCompletions % 10) * 10;
-  const levelName = level >= 10 ? '살림 마스터' : level >= 5 ? '생활 루틴 전문가' : level >= 3 ? '부지런한 살림러' : '집안일 새싹';
+  const tendency = useMemo(() => getProfileTendency(homes, user.id), [homes, user.id]);
+  const { level, progress, levelName, remaining } = getProfileLevel(personalCompletions);
+  const displayName = name.trim() || user.displayName;
+  const profileOwnerLabel = displayName === '나' ? '나의' : `${displayName}님의`;
 
   function submit(event: FormEvent) {
     event.preventDefault();
@@ -129,6 +134,62 @@ export function PersonalProfile({ user, homes, onSaveName, onDeleteAccount }: Pe
     }
   }
 
+  async function shareProfile() {
+    const shareBaseUrl = safePublicUrl(import.meta.env.VITE_PROFILE_SHARE_URL)
+      ?? (window.location.protocol === 'https:' ? window.location.origin : DEFAULT_PROFILE_SHARE_ORIGIN);
+    const shareUrls = buildProfileShareUrls(shareBaseUrl, {
+      displayName,
+      completedCount: personalCompletions,
+      tendency,
+    });
+    let profileShareUrl = shareUrls.pageUrl;
+    const tossDeepLink = import.meta.env.VITE_TOSS_SHARE_DEEPLINK;
+    if (tossDeepLink?.startsWith('intoss://')) {
+      try {
+        profileShareUrl = await getTossShareLink(tossDeepLink, shareUrls.ogImageUrl);
+      } catch {
+        // 토스 앱 밖에서는 OG 태그가 포함된 웹 공유 페이지를 사용해요.
+      }
+    }
+    const message = buildProfileShareMessage({
+      displayName,
+      level,
+      levelName,
+      tendency,
+      completedCount: personalCompletions,
+      shareUrl: profileShareUrl,
+    });
+    setShareStatus(null);
+
+    try {
+      await share({ message });
+      setShareStatus('프로필 공유창을 열었어요.');
+      return;
+    } catch {
+      // 일반 브라우저에서는 웹 표준 공유 또는 클립보드 복사로 이어져요.
+    }
+
+    if (navigator.share) {
+      try {
+        await navigator.share({ title: '집토리 살림 프로필', text: message });
+        setShareStatus('프로필 공유창을 열었어요.');
+        return;
+      } catch (error) {
+        if (error instanceof DOMException && error.name === 'AbortError') {
+          setShareStatus('공유를 취소했어요.');
+          return;
+        }
+      }
+    }
+
+    try {
+      await navigator.clipboard.writeText(message);
+      setShareStatus('프로필 문구를 복사했어요.');
+    } catch {
+      setShareStatus('공유 기능을 사용할 수 없어요. 잠시 후 다시 시도해 주세요.');
+    }
+  }
+
   const policyLinks = [
     ['이용약관', safePublicUrl(import.meta.env.VITE_TERMS_URL)],
     ['개인정보처리방침', safePublicUrl(import.meta.env.VITE_PRIVACY_URL)],
@@ -139,8 +200,27 @@ export function PersonalProfile({ user, homes, onSaveName, onDeleteAccount }: Pe
     <main className="screen personal-profile-screen">
       <header className="screen-header compact"><span className="step-label">개인 계정</span><h1>내 정보</h1><p>내 활동과 집안일 성장을 확인하세요.</p></header>
       <section className="profile-identity"><span aria-hidden="true">🙂</span><form onSubmit={submit}><label htmlFor="profile-name">표시 이름</label><div><input id="profile-name" maxLength={15} required value={name} onChange={(event) => setName(event.target.value)} /><button type="submit">저장</button></div></form></section>
-      <section className="level-card"><div className="level-badge"><span>LV.</span><strong>{level}</strong></div><div className="level-copy"><span>{levelName}</span><strong>나의 집안일 레벨</strong><div><i style={{ width: `${progress}%` }} /></div><small>다음 레벨까지 {10 - (personalCompletions % 10)}번 남았어요</small></div></section>
+      <section className="level-card"><div className="level-badge"><span>LV.</span><strong>{level}</strong></div><div className="level-copy"><span>{levelName}</span><strong>나의 집안일 레벨</strong><div><i style={{ width: `${progress}%` }} /></div><small>다음 레벨까지 {remaining}번 남았어요</small></div></section>
       <section className="personal-summary"><article><strong>{homes.length}</strong><span>참여 중인 집</span></article><article><strong>{personalCompletions}</strong><span>완료한 집안일</span></article></section>
+      <section className="profile-share-section">
+        <div className="section-heading"><div><span className="step-label">공유 프로필</span><h2>나의 살림 캐릭터</h2></div><span aria-hidden="true">↗</span></div>
+        <article className="profile-share-card">
+          <header><span>JIPTORI HOUSEKEEPING PROFILE</span><span aria-hidden="true">🏠</span></header>
+          <div className="profile-share-main">
+            <div className="profile-share-level"><small>LEVEL</small><strong>{level}</strong></div>
+            <div><small>{profileOwnerLabel} 살림 성향</small><h3><span aria-hidden="true">{tendency.icon}</span> {tendency.name}</h3><p>{tendency.description}</p>{tendency.basis && <span className="profile-share-basis">주특기 · {tendency.basis}</span>}</div>
+          </div>
+          <div className="profile-share-stats">
+            <div><strong>{personalCompletions}</strong><span>완료한 집안일</span></div>
+            <div><strong>{levelName}</strong><span>현재 칭호</span></div>
+          </div>
+          <footer><span>집토리와 만드는 우리 집 루틴</span><strong>#집토리</strong></footer>
+        </article>
+        <button className="profile-share-button" onClick={shareProfile} type="button"><span aria-hidden="true">↗</span> 내 프로필 공유하기</button>
+        <p className="profile-share-type-note">완료 기록이 쌓이면 살림 유형도 자연스럽게 바뀌어요.</p>
+        <p className="profile-share-note"><span aria-hidden="true">🔒</span> 집 이름, 구성원, 주소 같은 정보는 공유하지 않아요.</p>
+        <p className="profile-share-status" aria-live="polite">{shareStatus}</p>
+      </section>
       <section className="my-homes"><div className="section-heading"><h2>내가 참여한 집</h2><span>{homes.length}개</span></div>{homes.length ? <ul>{homes.map((home) => <li key={home.id}><span aria-hidden="true">{home.emoji}</span><div><strong>{home.name}</strong><small>{home.members.length}명 · {home.members.find((member) => member.userId === user.id)?.role === 'owner' ? '소유자' : '구성원'}</small></div></li>)}</ul> : <div className="report-empty">아직 참여한 집이 없어요.</div>}</section>
       <section className="account-policy-section">
         <h2>서비스 안내</h2>

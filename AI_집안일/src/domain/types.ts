@@ -48,6 +48,7 @@ export interface Chore {
   id: string;
   title: string;
   category: ChoreCategory;
+  icon?: string;
   recurrence: Recurrence;
   createdAt: string;
   scheduleAnchorDate?: string;
@@ -56,6 +57,8 @@ export interface Chore {
   enabled: boolean;
   assignedMemberId?: string;
   executorMemberId?: string;
+  notificationEnabled?: boolean;
+  notificationTime?: string;
 }
 
 export interface SupplyItem {
@@ -83,6 +86,7 @@ export interface ChoreHistory {
 
 export interface Home {
   id: string;
+  syncRevision?: number;
   name: string;
   emoji: string;
   taskViewMode?: 'todo' | 'quest';

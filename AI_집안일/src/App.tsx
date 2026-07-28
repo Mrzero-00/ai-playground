@@ -72,6 +72,7 @@ function App() {
     joinHomeByInviteCode,
     syncStatus,
     syncError,
+    refreshRemoteState,
     saveProfile,
     updateHomeSettings,
     updateUserName,
@@ -188,7 +189,7 @@ function App() {
     onJoinHome={async (code) => { await joinHomeByInviteCode(code); }}
     onOpenSettings={() => setIsEditingHome(true)}
     onSelectHome={selectHome}
-  /><small className={`sync-status sync-status--${syncStatus}`} title={syncError ?? undefined}>{syncLabel}</small></div>;
+  /><button className={`sync-status sync-status--${syncStatus}`} onClick={refreshRemoteState} title={syncError ?? '눌러서 최신 내용 확인'} type="button">{syncLabel}</button></div>;
 
   if (!activeHome) {
     return <div className="app-shell">{homeSwitcher}<main className="screen home-empty-screen"><span aria-hidden="true">🏘️</span><h1>관리할 집을 추가해 주세요</h1><p>새 집을 만들거나 받은 초대 코드로 참여할 수 있어요.</p></main></div>;

@@ -1,5 +1,5 @@
 import { randomUUID } from 'node:crypto';
-import type { AppData, Chore, ChoreHistory, Home, HomeMember, HomeProfile, LaborAssessment, LocalUser, NotificationSettings, SupplyItem } from '../../src/domain/types.js';
+import type { AppData, Chore, ChoreHistory, Home, HomeMember, HomeProfile, LaborAssessment, LocalUser, NotificationSettings, RecommendationPreference, SupplyItem } from '../../src/domain/types.js';
 import { getSupabaseAdmin } from './supabase.js';
 
 type SupabaseAdmin = ReturnType<typeof getSupabaseAdmin>;
@@ -22,7 +22,7 @@ export async function loadState(userId: string): Promise<AppData> {
 
   if (!homeIds.length) return { version: 2, user, homes: [], activeHomeId: null, notifications };
 
-  const [homesResult, membersResult, profilesResult, choresResult, historyResult, assessmentsResult, suppliesResult] = await Promise.all([
+  const [homesResult, membersResult, profilesResult, choresResult, historyResult, assessmentsResult, suppliesResult, preferencesResult] = await Promise.all([
     db.from('homes').select('*').in('id', homeIds),
     db.from('home_members').select('*').in('home_id', homeIds),
     db.from('home_profiles').select('*').in('home_id', homeIds),
@@ -30,8 +30,9 @@ export async function loadState(userId: string): Promise<AppData> {
     db.from('chore_history').select('*').in('home_id', homeIds).order('performed_at', { ascending: false }),
     db.from('labor_assessments').select('*').in('home_id', homeIds),
     db.from('supply_items').select('*').in('home_id', homeIds),
+    db.from('recommendation_preferences').select('*').in('home_id', homeIds),
   ]);
-  for (const result of [homesResult, membersResult, profilesResult, choresResult, historyResult, assessmentsResult, suppliesResult]) if (result.error) throw result.error;
+  for (const result of [homesResult, membersResult, profilesResult, choresResult, historyResult, assessmentsResult, suppliesResult, preferencesResult]) if (result.error) throw result.error;
 
   const storedHomes = homesResult.data ?? [];
   const storedMembers = membersResult.data ?? [];
@@ -40,6 +41,7 @@ export async function loadState(userId: string): Promise<AppData> {
   const storedHistory = historyResult.data ?? [];
   const storedAssessments = assessmentsResult.data ?? [];
   const storedSupplies = suppliesResult.data ?? [];
+  const storedPreferences = preferencesResult.data ?? [];
 
   const memberUserIds = [...new Set(storedMembers.map((member) => member.user_id))];
   const { data: memberUsers, error: memberUsersError } = await db.from('app_users').select('id,display_name').in('id', memberUserIds);
@@ -49,6 +51,7 @@ export async function loadState(userId: string): Promise<AppData> {
 
   const homes: Home[] = storedHomes.map((home) => ({
     id: home.id,
+    syncRevision: Number(home.sync_revision ?? 0),
     name: home.name,
     emoji: home.emoji,
     taskViewMode: home.task_view_mode,
@@ -57,7 +60,8 @@ export async function loadState(userId: string): Promise<AppData> {
     createdAt: home.created_at,
     profile: profiles.get(home.id) ?? null,
     members: storedMembers.filter((member) => member.home_id === home.id).map((member): HomeMember => ({ id: member.id, userId: member.user_id, displayName: String(userNames.get(member.user_id) ?? '구성원'), role: member.role, joinedAt: member.joined_at })),
-    chores: storedChores.filter((chore) => chore.home_id === home.id).map((chore): Chore => ({ id: chore.id, title: chore.title, category: chore.category, recurrence: chore.recurrence, createdAt: chore.created_at, scheduleAnchorDate: chore.schedule_anchor_date ?? undefined, nextDueDate: chore.next_due_date, isCustom: chore.is_custom, enabled: chore.enabled, assignedMemberId: chore.assigned_member_id ?? undefined, executorMemberId: chore.executor_member_id ?? undefined })),
+    chores: storedChores.filter((chore) => chore.home_id === home.id).map((chore): Chore => ({ id: chore.id, title: chore.title, category: chore.category, recurrence: chore.recurrence, createdAt: chore.created_at, scheduleAnchorDate: chore.schedule_anchor_date ?? undefined, nextDueDate: chore.next_due_date, isCustom: chore.is_custom, enabled: chore.enabled, assignedMemberId: chore.assigned_member_id ?? undefined, executorMemberId: chore.executor_member_id ?? undefined, icon: chore.icon ?? undefined, notificationEnabled: chore.notification_enabled ?? false, notificationTime: chore.notification_time?.slice(0, 5) ?? undefined })),
+    recommendationPreferences: storedPreferences.filter((item) => item.home_id === home.id).map((item): RecommendationPreference => ({ templateId: item.template_id, status: item.status, reason: item.reason ?? undefined, snoozedUntil: item.snoozed_until ?? undefined, updatedAt: item.updated_at })),
     history: storedHistory.filter((entry) => entry.home_id === home.id).map((entry): ChoreHistory => ({ id: entry.id, choreId: entry.chore_id, choreTitle: entry.chore_title, action: entry.action, performedAt: entry.performed_at, scheduledFor: entry.scheduled_for ?? undefined, performedByUserId: entry.performed_by_user_id, performedByName: entry.performed_by_name })),
     laborAssessments: storedAssessments.filter((item) => item.home_id === home.id).map((item): LaborAssessment => ({ userId: item.user_id, planningScore: item.planning_score, executionScore: item.execution_score, answers: item.answers, updatedAt: item.updated_at })),
     supplies: storedSupplies.filter((item) => item.home_id === home.id).map((item): SupplyItem => ({ id: item.id, name: item.name, unit: item.unit, purchaseDate: item.purchase_date, purchaseQuantity: Number(item.purchase_quantity), weeklyUsage: Number(item.weekly_usage), safetyStock: Number(item.safety_stock), reminderDaysBefore: item.reminder_days_before, updatedAt: item.updated_at })),
@@ -66,72 +70,28 @@ export async function loadState(userId: string): Promise<AppData> {
   return { version: 2, user, homes, activeHomeId, notifications };
 }
 
-async function assertOrCreateMembership(db: SupabaseAdmin, userId: string, home: Home): Promise<void> {
-  const { data: storedHome, error: homeLookupError } = await db.from('homes').select('id').eq('id', home.id).maybeSingle();
-  if (homeLookupError) throw homeLookupError;
-  if (storedHome) {
-    const { data: membership, error } = await db.from('home_members').select('id').eq('home_id', home.id).eq('user_id', userId).maybeSingle();
-    if (error) throw error;
-    if (!membership) throw new Error('You are not a member of this home.');
-    return;
-  }
-  const { error: createError } = await db.from('homes').insert({ id: home.id, name: home.name, emoji: home.emoji, task_view_mode: home.taskViewMode ?? 'todo', invite_code: home.inviteCode, created_at: home.createdAt });
-  if (createError) throw createError;
-  const { error: memberError } = await db.from('home_members').insert({ id: `member-${randomUUID()}`, home_id: home.id, user_id: userId, role: 'owner' });
-  if (memberError) throw memberError;
-}
-
 export async function saveState(userId: string, incoming: AppData): Promise<AppData> {
   const db = getSupabaseAdmin();
   await ensureUser(db, userId, incoming.user?.displayName || '나');
 
-  for (const home of incoming.homes ?? []) {
-    await assertOrCreateMembership(db, userId, home);
-    const { error: homeError } = await db.from('homes').update({ name: home.name, emoji: home.emoji, task_view_mode: home.taskViewMode ?? 'todo', assignment_mode: home.assignmentMode ?? 'shared', updated_at: new Date().toISOString() }).eq('id', home.id);
-    if (homeError) throw homeError;
-    if (home.profile) {
-      const { error } = await db.from('home_profiles').upsert({ home_id: home.id, profile: home.profile, updated_at: new Date().toISOString() });
-      if (error) throw error;
-    }
-
-    const choreRows = home.chores.map((chore) => ({ home_id: home.id, id: chore.id, title: chore.title, category: chore.category, recurrence: chore.recurrence, created_at: chore.createdAt, schedule_anchor_date: chore.scheduleAnchorDate ?? null, next_due_date: chore.nextDueDate, is_custom: chore.isCustom, enabled: chore.enabled, assigned_member_id: chore.assignedMemberId ?? null, executor_member_id: chore.executorMemberId ?? null, updated_at: new Date().toISOString() }));
-    if (choreRows.length) {
-      const { error } = await db.from('chores').upsert(choreRows, { onConflict: 'home_id,id' });
-      if (error) throw error;
-    }
-    const { data: storedChores, error: storedChoresError } = await db.from('chores').select('id').eq('home_id', home.id);
-    if (storedChoresError) throw storedChoresError;
-    const incomingChoreIds = new Set(home.chores.map((chore) => chore.id));
-    const deleteIds = storedChores.filter((chore) => !incomingChoreIds.has(chore.id)).map((chore) => chore.id);
-    if (deleteIds.length) {
-      const { error } = await db.from('chores').delete().eq('home_id', home.id).in('id', deleteIds);
-      if (error) throw error;
-    }
-
-    const historyRows = home.history.map((entry) => ({ home_id: home.id, id: entry.id, chore_id: entry.choreId, chore_title: entry.choreTitle, action: entry.action, performed_at: entry.performedAt, scheduled_for: entry.scheduledFor ?? null, performed_by_user_id: entry.performedByUserId === incoming.user.id ? userId : entry.performedByUserId, performed_by_name: entry.performedByName }));
-    if (historyRows.length) {
-      const { error } = await db.from('chore_history').upsert(historyRows, { onConflict: 'home_id,id' });
-      if (error) throw error;
-    }
-
-    const ownAssessment = (home.laborAssessments ?? []).find((item) => item.userId === incoming.user.id || item.userId === userId);
-    if (ownAssessment) {
-      const { error } = await db.from('labor_assessments').upsert({ home_id: home.id, user_id: userId, planning_score: ownAssessment.planningScore, execution_score: ownAssessment.executionScore, answers: ownAssessment.answers, updated_at: ownAssessment.updatedAt }, { onConflict: 'home_id,user_id' });
-      if (error) throw error;
-    }
-
-    const supplyRows = (home.supplies ?? []).map((item) => ({ home_id: home.id, id: item.id, name: item.name, unit: item.unit, purchase_date: item.purchaseDate, purchase_quantity: item.purchaseQuantity, weekly_usage: item.weeklyUsage, safety_stock: item.safetyStock, reminder_days_before: item.reminderDaysBefore, updated_at: item.updatedAt }));
-    if (supplyRows.length) {
-      const { error } = await db.from('supply_items').upsert(supplyRows, { onConflict: 'home_id,id' });
-      if (error) throw error;
-    }
-    const { data: storedSupplyRows, error: storedSupplyError } = await db.from('supply_items').select('id').eq('home_id', home.id);
-    if (storedSupplyError) throw storedSupplyError;
-    const incomingSupplyIds = new Set((home.supplies ?? []).map((item) => item.id));
-    const removedSupplyIds = storedSupplyRows.filter((item) => !incomingSupplyIds.has(item.id)).map((item) => item.id);
-    if (removedSupplyIds.length) {
-      const { error } = await db.from('supply_items').delete().eq('home_id', home.id).in('id', removedSupplyIds);
-      if (error) throw error;
+  const activeHome = incoming.homes.find((home) => home.id === incoming.activeHomeId);
+  if (activeHome) {
+    const { error } = await db.rpc('save_home_snapshot', {
+      p_user_id: userId,
+      p_client_user_id: incoming.user.id,
+      p_home: activeHome,
+      p_expected_revision: activeHome.syncRevision ?? 0,
+    });
+    if (error) {
+      if (error.code === '40001' || error.message.includes('SYNC_CONFLICT')) {
+        const conflict = new Error('다른 구성원이 먼저 변경했어요. 최신 내용을 다시 불러와 주세요.');
+        conflict.name = 'SYNC_CONFLICT';
+        throw conflict;
+      }
+      if (error.code === '42501' || error.message.includes('HOME_FORBIDDEN')) {
+        throw new Error('You are not a member of this home.');
+      }
+      throw error;
     }
   }
 

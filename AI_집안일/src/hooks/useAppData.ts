@@ -43,8 +43,12 @@ export function useAppData() {
   const [syncError, setSyncError] = useState<string | null>(null);
   const remoteReady = useRef(false);
   const skipNextRemoteSave = useRef(false);
+  const latestData = useRef(data);
 
-  useEffect(() => saveAppData(data), [data]);
+  useEffect(() => {
+    latestData.current = data;
+    saveAppData(data);
+  }, [data]);
 
   useEffect(() => {
     let cancelled = false;
@@ -80,16 +84,61 @@ export function useAppData() {
       return;
     }
     setSyncStatus('saving');
+    const snapshot = data;
     const timer = window.setTimeout(() => {
-      saveRemoteState(data)
-        .then(() => { setSyncStatus('synced'); setSyncError(null); })
+      saveRemoteState(snapshot)
+        .then((saved) => {
+          if (latestData.current === snapshot) {
+            skipNextRemoteSave.current = true;
+            latestData.current = saved;
+            setData(saved);
+          } else {
+            const revisions = new Map(saved.homes.map((home) => [home.id, home.syncRevision]));
+            setData((current) => ({
+              ...current,
+              homes: current.homes.map((home) => revisions.has(home.id)
+                ? { ...home, syncRevision: revisions.get(home.id) }
+                : home),
+            }));
+          }
+          setSyncStatus('synced');
+          setSyncError(null);
+        })
         .catch((error: unknown) => {
           setSyncStatus('error');
-          setSyncError(error instanceof Error ? error.message : '변경 내용을 저장하지 못했어요.');
+          setSyncError(error instanceof Error
+            ? error.message
+            : '변경 내용을 저장하지 못했어요.');
         });
     }, 500);
     return () => window.clearTimeout(timer);
   }, [data]);
+
+  useEffect(() => {
+    if (syncStatus !== 'synced' || !remoteReady.current) return;
+    let cancelled = false;
+    const refresh = () => {
+      if (document.hidden || latestData.current !== data) return;
+      loadRemoteState()
+        .then((remote) => {
+          if (cancelled || latestData.current !== data) return;
+          skipNextRemoteSave.current = true;
+          latestData.current = remote;
+          setData(remote);
+          setSyncError(null);
+        })
+        .catch(() => {
+          if (!cancelled) setSyncStatus('offline');
+        });
+    };
+    const interval = window.setInterval(refresh, 30_000);
+    window.addEventListener('focus', refresh);
+    return () => {
+      cancelled = true;
+      window.clearInterval(interval);
+      window.removeEventListener('focus', refresh);
+    };
+  }, [data, syncStatus]);
 
   const activeHome = useMemo(
     () => data.homes.find((home) => home.id === data.activeHomeId) ?? null,
@@ -177,6 +226,23 @@ export function useAppData() {
     setSyncStatus('synced');
     setSyncError(null);
     return joined.activeHomeId;
+  }
+
+  async function refreshRemoteState() {
+    setSyncStatus('loading');
+    try {
+      const remote = await loadRemoteState();
+      skipNextRemoteSave.current = true;
+      remoteReady.current = true;
+      latestData.current = remote;
+      setData(remote);
+      setSyncStatus('synced');
+      setSyncError(null);
+    } catch (error) {
+      remoteReady.current = false;
+      setSyncStatus('offline');
+      setSyncError(error instanceof Error ? error.message : '동기화 서버에 연결하지 못했어요.');
+    }
   }
 
   function saveProfile(profile: HomeProfile) {
@@ -403,5 +469,5 @@ export function useAppData() {
     }));
   }
 
-  return { data, activeHome, dueChores, recommendationCandidates, syncStatus, syncError, createHome, selectHome, joinHomeByInviteCode, saveProfile, updateHomeSettings, updateUserName, addCustomChore, completeChore, undoTodayCompletion, toggleChore, removeCustomChore, acceptRecommendation, dismissRecommendation, snoozeRecommendation, updateChoreRecurrence, updateNotifications, saveLaborAssessment, assignChoreExecutor, setSharedAssignmentMode, autoAssignChores, addSupplyItem, recordSupplyPurchase, removeSupplyItem, ensureDemoSupply, ensureDemoGuideChores };
+  return { data, activeHome, dueChores, recommendationCandidates, syncStatus, syncError, refreshRemoteState, createHome, selectHome, joinHomeByInviteCode, saveProfile, updateHomeSettings, updateUserName, addCustomChore, completeChore, undoTodayCompletion, toggleChore, removeCustomChore, acceptRecommendation, dismissRecommendation, snoozeRecommendation, updateChoreRecurrence, updateNotifications, saveLaborAssessment, assignChoreExecutor, setSharedAssignmentMode, autoAssignChores, addSupplyItem, recordSupplyPurchase, removeSupplyItem, ensureDemoSupply, ensureDemoGuideChores };
 }

@@ -1,14 +1,30 @@
 import type { AppData } from '../domain/types';
+import { getTossAnonymousKey } from './tossIdentity';
 
 async function requestState(path: string, init?: RequestInit): Promise<AppData> {
-  const response = await fetch(path, {
+  const configuredBaseUrl = import.meta.env.VITE_API_BASE_URL?.trim().replace(/\/+$/, '');
+  if (import.meta.env.DEV && !configuredBaseUrl) {
+    throw new Error('로컬 모드로 사용 중이에요. 공유 동기화가 필요하면 VITE_API_BASE_URL을 설정해 주세요.');
+  }
+  const tossUserKey = await getTossAnonymousKey();
+  const response = await fetch(`${configuredBaseUrl ?? ''}${path}`, {
     ...init,
     credentials: 'include',
-    headers: { 'Content-Type': 'application/json', ...init?.headers },
+    headers: {
+      'Content-Type': 'application/json',
+      ...(tossUserKey ? { 'X-Jiptori-User-Key': tossUserKey } : {}),
+      ...init?.headers,
+    },
   });
-  const payload = await response.json().catch(() => ({})) as AppData | { error?: string };
+  const contentType = response.headers.get('content-type') ?? '';
+  if (!contentType.includes('application/json')) {
+    throw new Error('동기화 서버 응답 형식이 올바르지 않아요.');
+  }
+  const payload = await response.json().catch(() => ({})) as AppData | { error?: string; code?: string };
   if (!response.ok) {
-    throw new Error('error' in payload && payload.error ? payload.error : '서버 데이터를 불러오지 못했어요.');
+    const error = new Error('error' in payload && payload.error ? payload.error : '서버 데이터를 불러오지 못했어요.');
+    if ('code' in payload && payload.code) error.name = payload.code;
+    throw error;
   }
   return payload as AppData;
 }

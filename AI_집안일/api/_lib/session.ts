@@ -14,6 +14,12 @@ function sign(value: string): string {
   return createHmac('sha256', sessionSecret()).update(value).digest('base64url');
 }
 
+function userIdFromTossKey(key: string): string {
+  const hex = createHmac('sha256', sessionSecret()).update(`toss:${key}`).digest('hex');
+  const versioned = `${hex.slice(0, 12)}4${hex.slice(13, 16)}a${hex.slice(17, 32)}`;
+  return `${versioned.slice(0, 8)}-${versioned.slice(8, 12)}-${versioned.slice(12, 16)}-${versioned.slice(16, 20)}-${versioned.slice(20, 32)}`;
+}
+
 function parseCookies(header?: string): Record<string, string> {
   return Object.fromEntries((header ?? '').split(';').map((part) => part.trim()).filter((part) => part.includes('=')).map((part) => {
     const separator = part.indexOf('=');
@@ -32,6 +38,15 @@ function verify(cookieValue?: string): string | null {
 }
 
 export function getOrCreateAnonymousUserId(req: VercelRequest, res: VercelResponse): string {
+  const tossUserKey = req.headers['x-jiptori-user-key'];
+  if (tossUserKey !== undefined) {
+    if (typeof tossUserKey !== 'string' || !/^[A-Za-z0-9_-]{20,512}$/.test(tossUserKey)) {
+      const error = new Error('INVALID_TOSS_KEY');
+      error.name = 'INVALID_TOSS_KEY';
+      throw error;
+    }
+    return userIdFromTossKey(tossUserKey);
+  }
   const existing = verify(parseCookies(req.headers.cookie)[COOKIE_NAME]);
   if (existing) return existing;
   const userId = randomUUID();

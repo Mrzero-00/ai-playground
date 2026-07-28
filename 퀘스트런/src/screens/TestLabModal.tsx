@@ -137,8 +137,8 @@ export function TestLabModal({ gameState, onClose, onReset, onStartDemoRun, visi
             <Text style={styles.guideText}>
               1. 서울 2km 러닝 완료{'\n'}
               2. 퀘스트에서 거리·러닝 보상 수령{'\n'}
-              3. 모험에서 이끼 골렘 두 번 공격{'\n'}
-              4. 전투 퀘스트 보상과 장비 확인
+              3. 모험 3단계에서 자동사냥 시작{'\n'}
+              4. 다음 스테이지 해금과 전투 장비 확인
             </Text>
           </Card>
 

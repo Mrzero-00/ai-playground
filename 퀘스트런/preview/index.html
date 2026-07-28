@@ -8,8 +8,12 @@
       :root {
         color-scheme: light;
         font-family:
-          Pretendard, -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo",
-          "Noto Sans KR", sans-serif;
+          Pretendard,
+          -apple-system,
+          BlinkMacSystemFont,
+          'Apple SD Gothic Neo',
+          'Noto Sans KR',
+          sans-serif;
         --ink: #102a2e;
         --muted: #5f7074;
         --faint: #91a0a3;
@@ -30,10 +34,8 @@
 
       body {
         align-items: center;
-        background:
-          radial-gradient(circle at 10% 10%, rgba(22, 184, 122, 0.15), transparent 28rem),
-          radial-gradient(circle at 90% 80%, rgba(255, 138, 61, 0.12), transparent 28rem),
-          #e8f0ec;
+        background: radial-gradient(circle at 10% 10%, rgba(22, 184, 122, 0.15), transparent 28rem),
+          radial-gradient(circle at 90% 80%, rgba(255, 138, 61, 0.12), transparent 28rem), #e8f0ec;
         color: var(--ink);
         display: flex;
         justify-content: center;
@@ -184,7 +186,7 @@
       .hero::before {
         background: #0d8c7c;
         border-radius: 50%;
-        content: "";
+        content: '';
         height: 260px;
         opacity: 0.34;
         position: absolute;
@@ -427,7 +429,7 @@
       .gps::before {
         background: #35df91;
         border-radius: 50%;
-        content: "";
+        content: '';
         height: 7px;
         width: 7px;
       }
@@ -856,8 +858,14 @@
 
       .app-scroll {
         height: 100%;
-        overflow: hidden;
+        overflow-x: hidden;
+        overflow-y: auto;
         padding: 35px 18px 112px;
+        scrollbar-width: none;
+      }
+
+      .app-scroll::-webkit-scrollbar {
+        display: none;
       }
 
       .app-header {
@@ -967,10 +975,184 @@
         background: linear-gradient(150deg, #173c43, var(--navy));
         border-radius: 28px;
         color: #fff;
+        margin-top: 13px;
         overflow: hidden;
         padding: 22px 18px 18px;
         position: relative;
         text-align: center;
+      }
+
+      .stage-map-web {
+        background: radial-gradient(circle at 15% 25%, rgba(255, 255, 255, 0.7), transparent 50px),
+          radial-gradient(circle at 85% 75%, rgba(255, 255, 255, 0.5), transparent 65px), #dff3e8;
+        border-radius: 26px;
+        height: 360px;
+        margin-bottom: 13px;
+        overflow: hidden;
+        position: relative;
+      }
+
+      .stage-map-title {
+        left: 15px;
+        position: absolute;
+        top: 14px;
+        z-index: 4;
+      }
+
+      .stage-map-title strong {
+        display: block;
+        font-size: 12px;
+      }
+
+      .stage-map-title span {
+        color: var(--muted);
+        display: block;
+        font-size: 8px;
+        margin-top: 3px;
+      }
+
+      .stage-map-web svg {
+        height: 100%;
+        left: 0;
+        position: absolute;
+        top: 0;
+        width: 100%;
+      }
+
+      .stage-path-base,
+      .stage-path-progress {
+        fill: none;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        stroke-width: 9;
+      }
+
+      .stage-path-base {
+        stroke: rgba(58, 101, 82, 0.16);
+      }
+
+      .stage-path-progress {
+        stroke: var(--brand);
+        stroke-dasharray: 1500;
+        stroke-dashoffset: 1500;
+        transition: stroke-dashoffset 0.45s ease;
+      }
+
+      .stage-node-web {
+        align-items: center;
+        background: #bdcbc5;
+        border: 4px solid #d8e2dd;
+        border-radius: 50%;
+        box-shadow: 0 7px 12px rgba(23, 75, 57, 0.16);
+        color: #fff;
+        cursor: pointer;
+        display: flex;
+        flex-direction: column;
+        font-family: inherit;
+        height: 48px;
+        justify-content: center;
+        padding: 0;
+        position: absolute;
+        transform: translate(-50%, -50%);
+        transition: 0.2s ease;
+        width: 48px;
+        z-index: 3;
+      }
+
+      .stage-node-web strong {
+        font-size: 12px;
+        line-height: 1;
+      }
+
+      .stage-node-web span {
+        font-size: 8px;
+        line-height: 1;
+        margin-top: 3px;
+      }
+
+      .stage-node-web.cleared {
+        background: var(--brand);
+        border-color: #91e5c1;
+      }
+
+      .stage-node-web.current {
+        animation: stage-pulse 1.5s ease-in-out infinite;
+        background: var(--orange);
+        border-color: #ffd0b1;
+      }
+
+      .stage-node-web.selected {
+        box-shadow:
+          0 0 0 5px var(--yellow),
+          0 9px 16px rgba(23, 75, 57, 0.22);
+        transform: translate(-50%, -50%) scale(1.08);
+      }
+
+      .stage-node-web:disabled {
+        cursor: not-allowed;
+        opacity: 0.72;
+      }
+
+      .stage-boss-crown {
+        color: var(--orange);
+        font-size: 14px;
+        left: 50%;
+        position: absolute;
+        top: -18px;
+        transform: translateX(-50%);
+      }
+
+      .stage-decoration {
+        font-size: 29px;
+        opacity: 0.35;
+        position: absolute;
+      }
+
+      .stage-decoration.tree-one {
+        left: 17px;
+        top: 135px;
+      }
+
+      .stage-decoration.tree-two {
+        bottom: 60px;
+        right: 15px;
+      }
+
+      .stage-decoration.rock {
+        right: 25px;
+        top: 110px;
+      }
+
+      .selected-stage-bar {
+        align-items: center;
+        background: #fff;
+        border-radius: 18px;
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 11px;
+        padding: 12px 14px;
+      }
+
+      .selected-stage-bar strong {
+        display: block;
+        font-size: 12px;
+      }
+
+      .selected-stage-bar span {
+        color: var(--muted);
+        display: block;
+        font-size: 8px;
+        margin-top: 3px;
+      }
+
+      .stage-state-badge {
+        background: var(--orange);
+        border-radius: 999px;
+        color: #fff !important;
+        font-size: 8px !important;
+        font-weight: 900;
+        margin: 0 !important;
+        padding: 6px 8px;
       }
 
       .battle-zone {
@@ -984,6 +1166,12 @@
         font-size: 84px;
         filter: drop-shadow(0 13px 10px rgba(0, 0, 0, 0.25));
         margin: 10px 0 4px;
+        transition: 0.2s ease;
+      }
+
+      .monster.hit {
+        opacity: 0.55;
+        transform: scale(0.9);
       }
 
       .monster-name {
@@ -1028,6 +1216,26 @@
         width: 100%;
       }
 
+      .auto-message {
+        background: rgba(255, 255, 255, 0.09);
+        border-radius: 12px;
+        color: #a8c8c6;
+        font-size: 9px;
+        line-height: 1.5;
+        margin-top: 11px;
+        padding: 9px 10px;
+      }
+
+      @keyframes stage-pulse {
+        0%,
+        100% {
+          box-shadow: 0 0 0 0 rgba(255, 138, 61, 0.35);
+        }
+        50% {
+          box-shadow: 0 0 0 8px rgba(255, 138, 61, 0);
+        }
+      }
+
       .loot-card {
         align-items: center;
         display: flex;
@@ -1069,7 +1277,7 @@
       .character-panel::before {
         background: #0d8c7c;
         border-radius: 50%;
-        content: "";
+        content: '';
         height: 270px;
         opacity: 0.32;
         position: absolute;
@@ -1344,10 +1552,22 @@
                 </svg>
               </section>
               <section class="card details">
-                <div class="detail"><i>⚡</i><div><strong id="summary-max-speed">--</strong><span>최고 속도</span></div></div>
-                <div class="detail"><i>🔥</i><div><strong id="summary-calories">0 kcal</strong><span>예상 칼로리</span></div></div>
-                <div class="detail"><i>◷</i><div><strong id="summary-moving-time">00:00</strong><span>이동 시간</span></div></div>
-                <div class="detail"><i>⌁</i><div><strong id="summary-points">0개</strong><span>경로 지점</span></div></div>
+                <div class="detail">
+                  <i>⚡</i>
+                  <div><strong id="summary-max-speed">--</strong><span>최고 속도</span></div>
+                </div>
+                <div class="detail">
+                  <i>🔥</i>
+                  <div><strong id="summary-calories">0 kcal</strong><span>예상 칼로리</span></div>
+                </div>
+                <div class="detail">
+                  <i>◷</i>
+                  <div><strong id="summary-moving-time">00:00</strong><span>이동 시간</span></div>
+                </div>
+                <div class="detail">
+                  <i>⌁</i>
+                  <div><strong id="summary-points">0개</strong><span>경로 지점</span></div>
+                </div>
               </section>
               <div class="reward-title">획득한 성장 보상</div>
               <section class="rewards">
@@ -1414,26 +1634,81 @@
                 <div>
                   <div class="eyebrow">ADVENTURE</div>
                   <h2>초록숨 숲</h2>
-                  <p>러닝으로 모은 에너지로 몬스터를 공격해요.</p>
+                  <p id="stage-progress-label">완료 2 / 9 · 다음 3단계</p>
                 </div>
                 <span class="stat-pill" id="battle-energy">⚡ 240</span>
               </header>
+              <section class="stage-map-web" aria-label="초록숨 숲 단계 지도">
+                <div class="stage-map-title">
+                  <strong>단계별 모험 지도</strong>
+                  <span>클리어하면 다음 길이 열려요.</span>
+                </div>
+                <span class="stage-decoration tree-one">🌲</span>
+                <span class="stage-decoration tree-two">🌳</span>
+                <span class="stage-decoration rock">🪨</span>
+                <svg viewBox="0 0 350 360" aria-hidden="true">
+                  <polyline
+                    class="stage-path-base"
+                    points="77,320 186,285 276,242 172,205 67,168 155,132 276,98 200,67 96,45"
+                  />
+                  <polyline
+                    class="stage-path-progress"
+                    id="stage-path-progress"
+                    points="77,320 186,285 276,242 172,205 67,168 155,132 276,98 200,67 96,45"
+                  />
+                </svg>
+                <button class="stage-node-web" data-stage="1" style="left: 22%; top: 320px">
+                  <strong>1</strong><span>★</span>
+                </button>
+                <button class="stage-node-web" data-stage="2" style="left: 53%; top: 285px">
+                  <strong>2</strong><span>★</span>
+                </button>
+                <button class="stage-node-web" data-stage="3" style="left: 79%; top: 242px">
+                  <strong>3</strong><span>🐺</span>
+                </button>
+                <button class="stage-node-web" data-stage="4" style="left: 49%; top: 205px">
+                  <strong>4</strong><span>🔒</span>
+                </button>
+                <button class="stage-node-web" data-stage="5" style="left: 19%; top: 168px">
+                  <i class="stage-boss-crown">♛</i><strong>5</strong><span>🔒</span>
+                </button>
+                <button class="stage-node-web" data-stage="6" style="left: 44%; top: 132px">
+                  <strong>6</strong><span>🔒</span>
+                </button>
+                <button class="stage-node-web" data-stage="7" style="left: 79%; top: 98px">
+                  <strong>7</strong><span>🔒</span>
+                </button>
+                <button class="stage-node-web" data-stage="8" style="left: 57%; top: 67px">
+                  <strong>8</strong><span>🔒</span>
+                </button>
+                <button class="stage-node-web" data-stage="9" style="left: 27%; top: 45px">
+                  <i class="stage-boss-crown">♛</i><strong>9</strong><span>🔒</span>
+                </button>
+              </section>
+              <section class="selected-stage-bar">
+                <div>
+                  <strong id="selected-stage-title">3단계 · 야생의 길</strong>
+                  <span id="selected-stage-caption">숲 그림자 늑대 · 에너지 84</span>
+                </div>
+                <span class="stage-state-badge" id="selected-stage-state">현재 단계</span>
+              </section>
               <section class="battle-card">
-                <div class="battle-zone">STAGE 2-3 · BOSS</div>
-                <div class="monster" id="monster-art">🗿</div>
-                <div class="monster-name" id="monster-name">이끼 골렘</div>
+                <div class="battle-zone" id="battle-zone">STAGE 3 · AUTO HUNT</div>
+                <div class="monster" id="monster-art">🐺</div>
+                <div class="monster-name" id="monster-name">숲 그림자 늑대</div>
                 <div class="hp-label">
                   <span>MONSTER HP</span>
-                  <span id="monster-hp-label">100 / 100</span>
+                  <span id="monster-hp-label">150 / 150</span>
                 </div>
                 <div class="hp-bar"><span id="monster-hp-bar"></span></div>
-                <button class="attack-button" id="attack-monster">⚔ 공격하기 · 에너지 30</button>
+                <div class="auto-message" id="auto-message">버튼을 한 번 누르면 루미가 끝까지 자동으로 사냥해요.</div>
+                <button class="attack-button" id="start-auto-hunt">▶ 자동사냥 시작 · 에너지 84</button>
               </section>
               <section class="card loot-card">
                 <div class="loot-icon" id="loot-icon">🎁</div>
                 <div>
-                  <h3 id="loot-title">첫 처치 보상</h3>
-                  <p id="loot-caption">이끼 골렘을 쓰러뜨리면 숲빛 장갑을 획득해요.</p>
+                  <h3 id="loot-title">3단계 클리어 보상</h3>
+                  <p id="loot-caption">그림자 늑대 머리띠 · 55 골드 · 다음 길 해금</p>
                 </div>
               </section>
             </div>
@@ -1485,19 +1760,20 @@
     </main>
 
     <script>
-      const STORAGE_KEY = "quest-run-browser-demo-v1";
+      const STORAGE_KEY = 'quest-run-browser-demo-v2';
       const defaultState = {
         level: 7,
         xp: 650,
         xpToNext: 1000,
-        energy: 240,
+        energy: 840,
+        gold: 1240,
         totalKm: 8.6,
         weeklyKm: 3.2,
         runs: 2,
         streak: 3,
         dailyDistance: 0,
         dailyClaimed: false,
-        monsterHp: 100,
+        clearedStages: [1, 2],
         inventory: [],
       };
       const routePoints = [
@@ -1511,21 +1787,129 @@
         [274, 70],
         [316, 46],
       ];
+      const adventureStages = [
+        {
+          number: 1,
+          name: '새싹 오솔길',
+          monster: '초록 슬라임',
+          icon: '🟢',
+          hp: 90,
+          damage: 30,
+          energy: 60,
+          gold: 35,
+        },
+        {
+          number: 2,
+          name: '버섯 언덕',
+          monster: '버섯 도적',
+          icon: '🍄',
+          hp: 120,
+          damage: 30,
+          energy: 72,
+          gold: 45,
+        },
+        {
+          number: 3,
+          name: '야생의 길',
+          monster: '숲 그림자 늑대',
+          icon: '🐺',
+          hp: 150,
+          damage: 30,
+          energy: 84,
+          gold: 55,
+          item: '그림자 늑대 머리띠',
+          itemIcon: '🐺',
+        },
+        {
+          number: 4,
+          name: '휘감긴 뿌리',
+          monster: '뿌리 정령',
+          icon: '🌱',
+          hp: 180,
+          damage: 36,
+          energy: 96,
+          gold: 65,
+        },
+        {
+          number: 5,
+          name: '이끼 바위터',
+          monster: '이끼 골렘',
+          icon: '🗿',
+          hp: 240,
+          damage: 40,
+          energy: 120,
+          gold: 90,
+          item: '숲빛 장갑',
+          itemIcon: '🧤',
+          boss: true,
+        },
+        {
+          number: 6,
+          name: '달빛 동굴',
+          monster: '밤날개 박쥐',
+          icon: '🦇',
+          hp: 270,
+          damage: 45,
+          energy: 132,
+          gold: 100,
+        },
+        {
+          number: 7,
+          name: '독안개 늪',
+          monster: '독안개 마녀',
+          icon: '🧙',
+          hp: 300,
+          damage: 50,
+          energy: 144,
+          gold: 120,
+          item: '이끼빛 망토',
+          itemIcon: '🧥',
+        },
+        {
+          number: 8,
+          name: '고대 나무길',
+          monster: '고대 나무정령',
+          icon: '🌳',
+          hp: 360,
+          damage: 60,
+          energy: 156,
+          gold: 140,
+        },
+        {
+          number: 9,
+          name: '수호자의 둥지',
+          monster: '숲의 수호룡',
+          icon: '🐉',
+          hp: 480,
+          damage: 60,
+          energy: 180,
+          gold: 250,
+          item: '숲의 수호관',
+          itemIcon: '👑',
+          boss: true,
+        },
+      ];
 
       let state = loadState();
       let run = createEmptyRun();
       let runTimer = null;
       let pendingReward = null;
       let toastTimer = null;
+      let selectedAdventureStage = 3;
+      let battleHp = adventureStages[2].hp;
+      let battleTurn = 0;
+      let autoHunting = false;
+      let autoHuntTimer = null;
+      let lastClearedStage = null;
 
       const $ = (id) => document.getElementById(id);
-      const views = document.querySelectorAll(".view");
-      const shortcutButtons = document.querySelectorAll(".switcher button");
-      const navButtons = document.querySelectorAll("[data-nav]");
+      const views = document.querySelectorAll('.view');
+      const shortcutButtons = document.querySelectorAll('.switcher button');
+      const navButtons = document.querySelectorAll('[data-nav]');
 
       function loadState() {
         try {
-          return { ...defaultState, ...JSON.parse(localStorage.getItem(STORAGE_KEY) || "{}") };
+          return { ...defaultState, ...JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}') };
         } catch {
           return { ...defaultState };
         }
@@ -1549,10 +1933,10 @@
       }
 
       function showView(viewId) {
-        views.forEach((view) => view.classList.toggle("active", view.id === viewId));
-        shortcutButtons.forEach((button) => button.classList.toggle("active", button.dataset.target === viewId));
-        navButtons.forEach((button) => button.classList.toggle("active", button.dataset.nav === viewId));
-        $("app-nav").style.display = ["home", "quest", "adventure", "character"].includes(viewId) ? "flex" : "none";
+        views.forEach((view) => view.classList.toggle('active', view.id === viewId));
+        shortcutButtons.forEach((button) => button.classList.toggle('active', button.dataset.target === viewId));
+        navButtons.forEach((button) => button.classList.toggle('active', button.dataset.nav === viewId));
+        $('app-nav').style.display = ['home', 'quest', 'adventure', 'character'].includes(viewId) ? 'flex' : 'none';
       }
 
       function startRun() {
@@ -1561,7 +1945,7 @@
         run.active = true;
         pendingReward = null;
         renderRun();
-        showView("running");
+        showView('running');
         runTimer = setInterval(tickRun, 500);
       }
 
@@ -1586,8 +1970,8 @@
       function cancelRun() {
         clearInterval(runTimer);
         run = createEmptyRun();
-        showView("home");
-        showToast("러닝 기록을 취소했어요.");
+        showView('home');
+        showToast('러닝 기록을 취소했어요.');
       }
 
       function finishRun() {
@@ -1600,7 +1984,7 @@
         const energy = Math.max(24, Math.round(distance * 120));
         pendingReward = { distance, xp, energy, ...run };
         renderSummary();
-        showView("summary");
+        showView('summary');
       }
 
       function openSampleSummary() {
@@ -1617,12 +2001,12 @@
         };
         pendingReward = { distance: 2, xp: 200, energy: 240, ...run };
         renderSummary();
-        showView("summary");
+        showView('summary');
       }
 
       function claimRunReward() {
         if (!pendingReward) {
-          showView("home");
+          showView('home');
           return;
         }
 
@@ -1642,8 +2026,8 @@
         pendingReward = null;
         saveState();
         renderState();
-        showView("home");
-        showToast("러닝 보상과 퀘스트 진행도가 반영됐어요!");
+        showView('home');
+        showToast('러닝 보상과 퀘스트 진행도가 반영됐어요!');
       }
 
       function claimDailyQuest() {
@@ -1657,40 +2041,91 @@
         }
         saveState();
         renderState();
-        showToast("일일 퀘스트 보상 120 XP를 받았어요!");
+        showToast('일일 퀘스트 보상 120 XP를 받았어요!');
       }
 
-      function attackMonster() {
-        if (state.monsterHp <= 0) {
-          showToast("이미 이끼 골렘을 처치했어요.");
-          return;
-        }
-        if (state.energy < 30) {
-          showToast("전투 에너지가 부족해요. 먼저 달려보세요!");
+      function getAdventureStage(number) {
+        return adventureStages.find((stage) => stage.number === number);
+      }
+
+      function getAdventureStageStatus(number) {
+        if (state.clearedStages.includes(number)) return 'cleared';
+        const nextNumber = adventureStages.find((stage) => !state.clearedStages.includes(stage.number))?.number;
+        return number === nextNumber ? 'current' : 'locked';
+      }
+
+      function selectAdventureStage(number) {
+        if (autoHunting || getAdventureStageStatus(number) === 'locked') return;
+        const stage = getAdventureStage(number);
+        if (!stage) return;
+
+        selectedAdventureStage = number;
+        battleHp = stage.hp;
+        battleTurn = 0;
+        lastClearedStage = null;
+        renderAdventure();
+      }
+
+      function handleAdventureAction() {
+        const stage = getAdventureStage(selectedAdventureStage);
+        if (!stage || autoHunting) return;
+        const status = getAdventureStageStatus(stage.number);
+
+        if (status === 'cleared') {
+          const nextStage = adventureStages.find((candidate) => !state.clearedStages.includes(candidate.number));
+          if (nextStage) selectAdventureStage(nextStage.number);
           return;
         }
 
-        state.energy -= 30;
-        state.monsterHp = Math.max(0, state.monsterHp - 34);
-        if (state.monsterHp === 0 && !state.inventory.includes("숲빛 장갑")) {
-          state.inventory.push("숲빛 장갑");
-          showToast("이끼 골렘 처치! 숲빛 장갑을 획득했어요.");
-        } else {
-          showToast("이끼 골렘에게 강한 일격을 가했어요!");
-        }
-        saveState();
-        renderState();
+        if (status !== 'current' || state.energy < stage.energy) return;
+
+        battleHp = stage.hp;
+        battleTurn = 0;
+        autoHunting = true;
+        lastClearedStage = null;
+        renderAdventure();
+
+        autoHuntTimer = setInterval(() => {
+          battleTurn += 1;
+          battleHp = Math.max(0, battleHp - stage.damage);
+
+          if (battleHp === 0) {
+            clearInterval(autoHuntTimer);
+            autoHunting = false;
+            state.energy -= stage.energy;
+            state.gold += stage.gold;
+            state.clearedStages = [...new Set([...state.clearedStages, stage.number])];
+            if (stage.item && !state.inventory.includes(stage.item)) {
+              state.inventory.push(stage.item);
+            }
+            lastClearedStage = stage.number;
+            saveState();
+            renderState();
+            showToast(
+              `${stage.monster} 처치! ${stage.number + 1 <= adventureStages.length ? '다음 단계가 열렸어요.' : '챕터를 정복했어요!'}`
+            );
+            return;
+          }
+
+          renderAdventure();
+        }, 620);
       }
 
       function resetDemo() {
         clearInterval(runTimer);
-        state = { ...defaultState, inventory: [] };
+        clearInterval(autoHuntTimer);
+        state = { ...defaultState, clearedStages: [...defaultState.clearedStages], inventory: [] };
         run = createEmptyRun();
         pendingReward = null;
+        selectedAdventureStage = 3;
+        battleHp = adventureStages[2].hp;
+        battleTurn = 0;
+        autoHunting = false;
+        lastClearedStage = null;
         saveState();
         renderState();
-        showView("home");
-        showToast("데모 데이터를 처음 상태로 초기화했어요.");
+        showView('home');
+        showToast('데모 데이터를 처음 상태로 초기화했어요.');
       }
 
       function renderState() {
@@ -1698,74 +2133,149 @@
         const remaining = Math.max(0, state.xpToNext - state.xp);
         const dailyProgress = Math.min(100, state.dailyDistance * 100);
         const weeklyProgress = Math.min(100, (state.weeklyKm / 10) * 100);
-        const defeated = state.monsterHp <= 0;
 
-        $("home-level-pill").textContent = `Lv. ${state.level} · 새싹 러너`;
-        $("home-level-label").textContent = `LEVEL ${state.level}`;
-        $("home-xp-label").textContent = `${formatNumber(state.xp)} / ${formatNumber(state.xpToNext)} XP`;
-        $("home-xp-progress").style.width = `${progress}%`;
-        $("remaining-xp").textContent = formatNumber(remaining);
+        $('home-level-pill').textContent = `Lv. ${state.level} · 새싹 러너`;
+        $('home-level-label').textContent = `LEVEL ${state.level}`;
+        $('home-xp-label').textContent = `${formatNumber(state.xp)} / ${formatNumber(state.xpToNext)} XP`;
+        $('home-xp-progress').style.width = `${progress}%`;
+        $('remaining-xp').textContent = formatNumber(remaining);
 
-        $("quest-streak").textContent = `🔥 ${state.streak}일`;
-        $("daily-quest-caption").textContent = `오늘 ${state.dailyDistance.toFixed(2)} / 1km 달리기`;
-        $("daily-quest-progress").style.width = `${dailyProgress}%`;
-        $("claim-daily-quest").disabled = state.dailyDistance < 1 || state.dailyClaimed;
-        $("claim-daily-quest").textContent = state.dailyClaimed ? "완료" : "보상 받기";
-        $("weekly-quest-caption").textContent = `이번 주 ${state.weeklyKm.toFixed(1)} / 10km`;
-        $("weekly-quest-progress").style.width = `${weeklyProgress}%`;
+        $('quest-streak').textContent = `🔥 ${state.streak}일`;
+        $('daily-quest-caption').textContent = `오늘 ${state.dailyDistance.toFixed(2)} / 1km 달리기`;
+        $('daily-quest-progress').style.width = `${dailyProgress}%`;
+        $('claim-daily-quest').disabled = state.dailyDistance < 1 || state.dailyClaimed;
+        $('claim-daily-quest').textContent = state.dailyClaimed ? '완료' : '보상 받기';
+        $('weekly-quest-caption').textContent = `이번 주 ${state.weeklyKm.toFixed(1)} / 10km`;
+        $('weekly-quest-progress').style.width = `${weeklyProgress}%`;
 
-        $("battle-energy").textContent = `⚡ ${state.energy}`;
-        $("monster-hp-label").textContent = `${state.monsterHp} / 100`;
-        $("monster-hp-bar").style.width = `${state.monsterHp}%`;
-        $("monster-art").textContent = defeated ? "💥" : "🗿";
-        $("monster-name").textContent = defeated ? "이끼 골렘 처치 완료" : "이끼 골렘";
-        $("attack-monster").disabled = defeated || state.energy < 30;
-        $("attack-monster").textContent = defeated ? "✓ 처치 완료" : "⚔ 공격하기 · 에너지 30";
-        $("loot-icon").textContent = defeated ? "🧤" : "🎁";
-        $("loot-title").textContent = defeated ? "숲빛 장갑 획득!" : "첫 처치 보상";
-        $("loot-caption").textContent = defeated
-          ? "캐릭터의 보유 아이템에 추가됐어요."
-          : "이끼 골렘을 쓰러뜨리면 숲빛 장갑을 획득해요.";
+        renderAdventure();
 
-        $("character-energy").textContent = `⚡ ${state.energy}`;
-        $("character-level-pill").textContent = `Lv. ${state.level} · 새싹 러너`;
-        $("character-xp").textContent = `${formatNumber(state.xp)} / ${formatNumber(state.xpToNext)} XP`;
-        $("character-total-km").textContent = `${state.totalKm.toFixed(1)}km`;
-        $("character-runs").textContent = `${state.runs}회`;
-        $("character-streak").textContent = `${state.streak}일`;
-        $("inventory-label").textContent = state.inventory.length
-          ? state.inventory.join(", ")
-          : "아직 획득한 장비가 없어요. 모험에 도전해 보세요.";
+        $('character-energy').textContent = `⚡ ${state.energy}`;
+        $('character-level-pill').textContent = `Lv. ${state.level} · 새싹 러너`;
+        $('character-xp').textContent = `${formatNumber(state.xp)} / ${formatNumber(state.xpToNext)} XP`;
+        $('character-total-km').textContent = `${state.totalKm.toFixed(1)}km`;
+        $('character-runs').textContent = `${state.runs}회`;
+        $('character-streak').textContent = `${state.streak}일`;
+        $('inventory-label').textContent = state.inventory.length
+          ? state.inventory.join(', ')
+          : '아직 획득한 장비가 없어요. 모험에 도전해 보세요.';
+      }
+
+      function renderAdventure() {
+        const stage = getAdventureStage(selectedAdventureStage);
+        if (!stage) return;
+
+        const status = getAdventureStageStatus(stage.number);
+        const clearedCount = state.clearedStages.length;
+        const nextStage = adventureStages.find((candidate) => !state.clearedStages.includes(candidate.number));
+        const hpProgress = Math.max(0, (battleHp / stage.hp) * 100);
+        const progressRatio = Math.max(0, Math.min(1, (clearedCount - 1) / (adventureStages.length - 1)));
+
+        $('battle-energy').textContent = `⚡ ${state.energy}`;
+        $('stage-progress-label').textContent =
+          clearedCount === adventureStages.length
+            ? `완료 ${clearedCount} / ${adventureStages.length} · 챕터 정복`
+            : `완료 ${clearedCount} / ${adventureStages.length} · 다음 ${nextStage?.number}단계`;
+        $('stage-path-progress').style.strokeDashoffset = String(1500 - 1500 * progressRatio);
+
+        document.querySelectorAll('[data-stage]').forEach((button) => {
+          const number = Number(button.dataset.stage);
+          const nodeStage = getAdventureStage(number);
+          const nodeStatus = getAdventureStageStatus(number);
+          const icon = button.querySelector('span');
+          button.classList.toggle('cleared', nodeStatus === 'cleared');
+          button.classList.toggle('current', nodeStatus === 'current');
+          button.classList.toggle('selected', number === selectedAdventureStage);
+          button.disabled = nodeStatus === 'locked' || autoHunting;
+          button.setAttribute(
+            'aria-label',
+            `${number}단계 ${nodeStage?.name} · ${nodeStatus === 'cleared' ? '완료' : nodeStatus === 'current' ? '도전 가능' : '잠김'}`
+          );
+          if (icon) {
+            icon.textContent = nodeStatus === 'cleared' ? '★' : nodeStatus === 'current' ? nodeStage?.icon : '🔒';
+          }
+        });
+
+        $('selected-stage-title').textContent = `${stage.number}단계 · ${stage.name}`;
+        $('selected-stage-caption').textContent = `${stage.monster} · 에너지 ${stage.energy}`;
+        $('selected-stage-state').textContent =
+          status === 'cleared' ? '클리어' : status === 'current' ? '현재 단계' : '잠김';
+        $('battle-zone').textContent = `STAGE ${stage.number} · ${stage.boss ? 'BOSS' : 'AUTO HUNT'}`;
+        $('monster-art').textContent = battleHp === 0 ? '💥' : stage.icon;
+        $('monster-art').classList.toggle('hit', autoHunting && battleTurn % 2 === 1);
+        $('monster-name').textContent = stage.monster;
+        $('monster-hp-label').textContent = battleHp === 0 ? '처치 완료' : `${battleHp} / ${stage.hp}`;
+        $('monster-hp-bar').style.width = `${hpProgress}%`;
+
+        if (autoHunting) {
+          $('auto-message').textContent = `${battleTurn}번째 자동 공격 · ${stage.damage} 피해 · 남은 HP ${battleHp}`;
+        } else if (lastClearedStage === stage.number) {
+          $('auto-message').textContent = `${stage.monster} 처치 완료! 골드와 전리품을 획득했어요.`;
+        } else if (status === 'cleared') {
+          $('auto-message').textContent = '이미 클리어한 단계예요. 다음 단계로 이동할 수 있어요.';
+        } else if (status === 'locked') {
+          $('auto-message').textContent = '앞 단계를 클리어하면 길이 열려요.';
+        } else {
+          $('auto-message').textContent = '버튼을 한 번 누르면 루미가 끝까지 자동으로 사냥해요.';
+        }
+
+        const actionButton = $('start-auto-hunt');
+        if (autoHunting) {
+          actionButton.disabled = true;
+          actionButton.textContent = `◌ 자동사냥 중 · ${battleTurn}회 공격`;
+        } else if (status === 'cleared') {
+          actionButton.disabled = !nextStage;
+          actionButton.textContent = nextStage ? `› 다음 ${nextStage.number}단계로 이동` : '✓ 초록숨 숲 모든 단계 완료';
+        } else if (status === 'locked') {
+          actionButton.disabled = true;
+          actionButton.textContent = '🔒 이전 단계를 먼저 클리어하세요';
+        } else if (state.energy < stage.energy) {
+          actionButton.disabled = true;
+          actionButton.textContent = `에너지 ${stage.energy - state.energy} 부족`;
+        } else {
+          actionButton.disabled = false;
+          actionButton.textContent = `▶ 자동사냥 시작 · 에너지 ${stage.energy}`;
+        }
+
+        $('loot-icon').textContent = lastClearedStage === stage.number ? stage.itemIcon || '●' : '🎁';
+        $('loot-title').textContent =
+          lastClearedStage === stage.number
+            ? `${stage.item || `${stage.gold} 골드`} 획득!`
+            : `${stage.number}단계 클리어 보상`;
+        $('loot-caption').textContent =
+          lastClearedStage === stage.number
+            ? `${stage.gold} 골드 · 다음 길 해금 완료`
+            : `${stage.item || `${stage.gold} 골드`} · 다음 길 해금`;
       }
 
       function renderRun() {
-        const speed = run.currentSpeed > 0 ? run.currentSpeed.toFixed(1) : "--";
-        const average = run.averageSpeed > 0 ? run.averageSpeed.toFixed(1) : "--";
-        const max = run.maxSpeed > 0 ? run.maxSpeed.toFixed(1) : "--";
+        const speed = run.currentSpeed > 0 ? run.currentSpeed.toFixed(1) : '--';
+        const average = run.averageSpeed > 0 ? run.averageSpeed.toFixed(1) : '--';
+        const max = run.maxSpeed > 0 ? run.maxSpeed.toFixed(1) : '--';
         const paceSeconds = run.averageSpeed > 0 ? 3600 / run.averageSpeed : 0;
         const visiblePoints = routePoints.slice(0, run.routeCount);
         const lastPoint = visiblePoints[visiblePoints.length - 1] || routePoints[0];
         const questProgress = Math.min(100, run.distance * 100);
         const questDone = run.distance >= 1;
 
-        $("run-status").textContent = run.paused ? "잠시 쉬는 중" : "안전하게 달리는 중";
-        $("run-distance").textContent = run.distance.toFixed(2);
-        $("run-time").textContent = formatTime(run.seconds);
-        $("current-speed").textContent = speed;
-        $("average-speed").textContent = average;
-        $("max-speed").textContent = max;
-        $("run-pace").textContent = paceSeconds ? `평균 페이스 ${formatPace(paceSeconds)}` : "평균 페이스 --";
-        $("pause-icon").textContent = run.paused ? "▶" : "Ⅱ";
-        $("pause-label").textContent = run.paused ? "계속하기" : "일시정지";
-        $("live-map-caption").textContent = `데모 GPS ${visiblePoints.length}개 지점 기록 중`;
-        $("live-route").setAttribute("points", visiblePoints.map((point) => point.join(",")).join(" "));
-        $("live-finish").setAttribute("cx", lastPoint[0]);
-        $("live-finish").setAttribute("cy", lastPoint[1]);
-        $("run-quest-title").textContent = questDone ? "일일 퀘스트 달성!" : "1km 퀘스트 진행 중";
-        $("run-quest-caption").textContent = questDone
-          ? "1km 러닝 · 120 XP 받을 준비 완료"
+        $('run-status').textContent = run.paused ? '잠시 쉬는 중' : '안전하게 달리는 중';
+        $('run-distance').textContent = run.distance.toFixed(2);
+        $('run-time').textContent = formatTime(run.seconds);
+        $('current-speed').textContent = speed;
+        $('average-speed').textContent = average;
+        $('max-speed').textContent = max;
+        $('run-pace').textContent = paceSeconds ? `평균 페이스 ${formatPace(paceSeconds)}` : '평균 페이스 --';
+        $('pause-icon').textContent = run.paused ? '▶' : 'Ⅱ';
+        $('pause-label').textContent = run.paused ? '계속하기' : '일시정지';
+        $('live-map-caption').textContent = `데모 GPS ${visiblePoints.length}개 지점 기록 중`;
+        $('live-route').setAttribute('points', visiblePoints.map((point) => point.join(',')).join(' '));
+        $('live-finish').setAttribute('cx', lastPoint[0]);
+        $('live-finish').setAttribute('cy', lastPoint[1]);
+        $('run-quest-title').textContent = questDone ? '일일 퀘스트 달성!' : '1km 퀘스트 진행 중';
+        $('run-quest-caption').textContent = questDone
+          ? '1km 러닝 · 120 XP 받을 준비 완료'
           : `${run.distance.toFixed(2)} / 1km · 계속 달려보세요`;
-        $("run-quest-progress").style.width = `${questProgress}%`;
+        $('run-quest-progress').style.width = `${questProgress}%`;
       }
 
       function renderSummary() {
@@ -1775,70 +2285,74 @@
         const pace = averageSpeed > 0 ? 3600 / averageSpeed : 0;
         const calories = Math.max(1, Math.round(pendingReward.distance * 65));
 
-        $("summary-distance").textContent = pendingReward.distance.toFixed(2);
-        $("summary-time").textContent = formatTime(pendingReward.seconds);
-        $("summary-pace").textContent = formatPace(pace);
-        $("summary-average-speed").textContent = `${averageSpeed.toFixed(1)} km/h`;
-        $("summary-max-speed").textContent = `${maxSpeed.toFixed(1)} km/h`;
-        $("summary-calories").textContent = `${calories} kcal`;
-        $("summary-moving-time").textContent = formatTime(pendingReward.seconds);
-        $("summary-points").textContent = `${pendingReward.routeCount}개`;
-        $("summary-xp-reward").textContent = `✦ +${pendingReward.xp}`;
-        $("summary-energy-reward").textContent = `⚡ +${pendingReward.energy}`;
+        $('summary-distance').textContent = pendingReward.distance.toFixed(2);
+        $('summary-time').textContent = formatTime(pendingReward.seconds);
+        $('summary-pace').textContent = formatPace(pace);
+        $('summary-average-speed').textContent = `${averageSpeed.toFixed(1)} km/h`;
+        $('summary-max-speed').textContent = `${maxSpeed.toFixed(1)} km/h`;
+        $('summary-calories').textContent = `${calories} kcal`;
+        $('summary-moving-time').textContent = formatTime(pendingReward.seconds);
+        $('summary-points').textContent = `${pendingReward.routeCount}개`;
+        $('summary-xp-reward').textContent = `✦ +${pendingReward.xp}`;
+        $('summary-energy-reward').textContent = `⚡ +${pendingReward.energy}`;
       }
 
       function formatTime(totalSeconds) {
         const minutes = Math.floor(totalSeconds / 60);
         const seconds = Math.floor(totalSeconds % 60);
-        return `${String(minutes).padStart(2, "0")}:${String(seconds).padStart(2, "0")}`;
+        return `${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
       }
 
       function formatPace(totalSeconds) {
-        if (!Number.isFinite(totalSeconds) || totalSeconds <= 0) return "--";
+        if (!Number.isFinite(totalSeconds) || totalSeconds <= 0) return '--';
         const minutes = Math.floor(totalSeconds / 60);
         const seconds = Math.round(totalSeconds % 60);
-        return `${String(minutes).padStart(2, "0")}'${String(seconds).padStart(2, "0")}"`;
+        return `${String(minutes).padStart(2, '0')}'${String(seconds).padStart(2, '0')}"`;
       }
 
       function formatNumber(value) {
-        return Number(value).toLocaleString("ko-KR");
+        return Number(value).toLocaleString('ko-KR');
       }
 
       function showToast(message) {
         clearTimeout(toastTimer);
-        $("toast").textContent = message;
-        $("toast").classList.add("show");
-        toastTimer = setTimeout(() => $("toast").classList.remove("show"), 2200);
+        $('toast').textContent = message;
+        $('toast').classList.add('show');
+        toastTimer = setTimeout(() => $('toast').classList.remove('show'), 2200);
       }
 
-      $("start-run").addEventListener("click", startRun);
-      $("pause-run").addEventListener("click", pauseRun);
-      $("finish-run").addEventListener("click", finishRun);
-      $("cancel-run").addEventListener("click", cancelRun);
-      $("claim-run-reward").addEventListener("click", claimRunReward);
-      $("claim-daily-quest").addEventListener("click", claimDailyQuest);
-      $("attack-monster").addEventListener("click", attackMonster);
-      $("reset-demo").addEventListener("click", resetDemo);
+      $('start-run').addEventListener('click', startRun);
+      $('pause-run').addEventListener('click', pauseRun);
+      $('finish-run').addEventListener('click', finishRun);
+      $('cancel-run').addEventListener('click', cancelRun);
+      $('claim-run-reward').addEventListener('click', claimRunReward);
+      $('claim-daily-quest').addEventListener('click', claimDailyQuest);
+      $('start-auto-hunt').addEventListener('click', handleAdventureAction);
+      $('reset-demo').addEventListener('click', resetDemo);
+
+      document.querySelectorAll('[data-stage]').forEach((button) => {
+        button.addEventListener('click', () => selectAdventureStage(Number(button.dataset.stage)));
+      });
 
       navButtons.forEach((button) => {
-        button.addEventListener("click", () => showView(button.dataset.nav));
+        button.addEventListener('click', () => showView(button.dataset.nav));
       });
 
       shortcutButtons.forEach((button) => {
-        button.addEventListener("click", () => {
-          if (button.dataset.target === "running") {
+        button.addEventListener('click', () => {
+          if (button.dataset.target === 'running') {
             startRun();
-          } else if (button.dataset.target === "summary") {
+          } else if (button.dataset.target === 'summary') {
             openSampleSummary();
           } else {
-            showView("home");
+            showView('home');
           }
         });
       });
 
       renderState();
       renderRun();
-      showView("home");
+      showView('home');
     </script>
   </body>
 </html>

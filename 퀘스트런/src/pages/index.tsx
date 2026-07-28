@@ -2,13 +2,7 @@ import { getServerTime } from '@apps-in-toss/framework';
 import { createRoute } from '@granite-js/react-native';
 import React, { useEffect, useState } from 'react';
 import { Pressable, SafeAreaView, StatusBar, StyleSheet, Text, View } from 'react-native';
-import {
-  applyCompletedRun,
-  claimQuestReward,
-  getDateKey,
-  registerBattleWin,
-  spendBattleEnergy,
-} from '../domain/gameState';
+import { applyCompletedRun, claimQuestReward, completeAdventureStage, getDateKey } from '../domain/gameState';
 import { createDemoRun, type CompletedRun, type DemoRunOptions } from '../domain/runTracking';
 import { usePersistentGameState } from '../hooks/usePersistentGameState';
 import { AdventureScreen } from '../screens/AdventureScreen';
@@ -137,9 +131,8 @@ function QuestRunApp() {
           ) : null}
           {activeTab === 'adventure' ? (
             <AdventureScreen
-              battleEnergy={gameState.battleEnergy}
-              onMonsterDefeated={() => updateGameState((current) => registerBattleWin(current))}
-              onSpendEnergy={(amount) => updateGameState((current) => spendBattleEnergy(current, amount))}
+              gameState={gameState}
+              onCompleteStage={(stageId) => updateGameState((current) => completeAdventureStage(current, stageId))}
             />
           ) : null}
           {activeTab === 'character' ? <CharacterScreen gameState={gameState} /> : null}

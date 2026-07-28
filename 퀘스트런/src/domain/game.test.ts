@@ -1,4 +1,10 @@
-import { calculateRunRewards, findUnlockedRegionalAchievements, getEnduranceBonus, getItemById } from './game';
+import {
+  calculateRunRewards,
+  findUnlockedRegionalAchievements,
+  getAdventureStageState,
+  getEnduranceBonus,
+  getItemById,
+} from './game';
 
 describe('퀘스트런 성장 규칙', () => {
   it('러닝 거리에 비례해 경험치와 전투 에너지를 계산한다', () => {
@@ -38,5 +44,13 @@ describe('퀘스트런 성장 규칙', () => {
 
     expect(item?.kind).toBe('cosmetic');
     expect(item?.power).toBe(0);
+  });
+
+  it('완료한 스테이지 다음 단계만 도전 가능 상태로 연다', () => {
+    const clearedStageIds = ['forest-1', 'forest-2'];
+
+    expect(getAdventureStageState(clearedStageIds, 'forest-2')).toBe('cleared');
+    expect(getAdventureStageState(clearedStageIds, 'forest-3')).toBe('current');
+    expect(getAdventureStageState(clearedStageIds, 'forest-4')).toBe('locked');
   });
 });

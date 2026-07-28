@@ -56,6 +56,7 @@ export function usePersistentGameState() {
       dailyDateKey: rolloverGameState(DEFAULT_GAME_STATE, timestamp).dailyDateKey,
       weeklyDateKey: rolloverGameState(DEFAULT_GAME_STATE, timestamp).weeklyDateKey,
       claimedQuestIds: [],
+      clearedAdventureStageIds: [...DEFAULT_GAME_STATE.clearedAdventureStageIds],
       unlockedItemIds: [...DEFAULT_GAME_STATE.unlockedItemIds],
       unlockedAchievementIds: [],
       awardedEnduranceMilestones: [],

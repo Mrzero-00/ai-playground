@@ -1,6 +1,6 @@
 import React from 'react';
 import { Image, Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
-import { getDailyQuests, type GameState } from '../domain/gameState';
+import { getCurrentAdventureStage, getDailyQuests, type GameState } from '../domain/gameState';
 import {
   Card,
   IconButton,
@@ -34,6 +34,7 @@ export function HomeScreen({
   const dailyDistanceQuest = getDailyQuests(gameState).find((quest) => quest.id === 'daily-distance');
   const dailyDistanceProgress = (dailyDistanceQuest?.current ?? 0) / (dailyDistanceQuest?.target ?? 1);
   const remainingExperience = Math.max(0, gameState.experienceToNextLevel - gameState.experience);
+  const currentAdventureStage = getCurrentAdventureStage(gameState);
 
   return (
     <ScrollView contentContainerStyle={styles.content} showsVerticalScrollIndicator={false}>
@@ -158,21 +159,29 @@ export function HomeScreen({
       />
 
       <Pressable
-        accessibilityLabel="이끼 골렘 모험 열기"
+        accessibilityLabel={`${currentAdventureStage?.monsterName ?? '초록숨 숲'} 모험 열기`}
         accessibilityRole="button"
         onPress={onOpenAdventure}
         style={({ pressed }) => [styles.monsterPreview, pressed && styles.pressed]}
       >
         <View style={styles.monsterArt}>
-          <Text style={styles.monsterEmoji}>🗿</Text>
+          <Text style={styles.monsterEmoji}>{currentAdventureStage?.monsterIcon ?? '👑'}</Text>
           <View style={styles.monsterLevel}>
-            <Text style={styles.monsterLevelText}>Lv. 6</Text>
+            <Text style={styles.monsterLevelText}>
+              {currentAdventureStage == null ? '완료' : `Stage ${currentAdventureStage.number}`}
+            </Text>
           </View>
         </View>
         <View style={styles.monsterCopy}>
-          <Text style={styles.monsterZone}>초록숨 숲 · 2-3</Text>
-          <Text style={styles.monsterName}>이끼 골렘</Text>
-          <Text style={styles.monsterReward}>첫 처치 보상 · 숲빛 장갑</Text>
+          <Text style={styles.monsterZone}>
+            초록숨 숲 · {currentAdventureStage == null ? '챕터 정복' : `${currentAdventureStage.number}단계`}
+          </Text>
+          <Text style={styles.monsterName}>{currentAdventureStage?.monsterName ?? '모든 몬스터 처치 완료'}</Text>
+          <Text style={styles.monsterReward}>
+            {currentAdventureStage == null
+              ? '다음 챕터를 준비 중이에요.'
+              : `자동사냥 · 에너지 ${currentAdventureStage.energyCost}`}
+          </Text>
         </View>
         <Text style={styles.chevron}>›</Text>
       </Pressable>

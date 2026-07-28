@@ -50,6 +50,130 @@ export interface EnduranceMilestone {
   title: string;
 }
 
+export interface AdventureStage {
+  id: string;
+  number: number;
+  name: string;
+  monsterName: string;
+  monsterIcon: string;
+  monsterHp: number;
+  autoDamage: number;
+  energyCost: number;
+  goldReward: number;
+  rewardItemId?: string;
+  isBoss?: boolean;
+}
+
+export type AdventureStageState = 'cleared' | 'current' | 'locked';
+
+export const ADVENTURE_STAGES: AdventureStage[] = [
+  {
+    id: 'forest-1',
+    number: 1,
+    name: '새싹 오솔길',
+    monsterName: '초록 슬라임',
+    monsterIcon: '🟢',
+    monsterHp: 90,
+    autoDamage: 30,
+    energyCost: 60,
+    goldReward: 35,
+  },
+  {
+    id: 'forest-2',
+    number: 2,
+    name: '버섯 언덕',
+    monsterName: '버섯 도적',
+    monsterIcon: '🍄',
+    monsterHp: 120,
+    autoDamage: 30,
+    energyCost: 72,
+    goldReward: 45,
+  },
+  {
+    id: 'forest-3',
+    number: 3,
+    name: '야생의 길',
+    monsterName: '숲 그림자 늑대',
+    monsterIcon: '🐺',
+    monsterHp: 150,
+    autoDamage: 30,
+    energyCost: 84,
+    goldReward: 55,
+    rewardItemId: 'wolf-band',
+  },
+  {
+    id: 'forest-4',
+    number: 4,
+    name: '휘감긴 뿌리',
+    monsterName: '뿌리 정령',
+    monsterIcon: '🌱',
+    monsterHp: 180,
+    autoDamage: 36,
+    energyCost: 96,
+    goldReward: 65,
+  },
+  {
+    id: 'forest-5',
+    number: 5,
+    name: '이끼 바위터',
+    monsterName: '이끼 골렘',
+    monsterIcon: '🗿',
+    monsterHp: 240,
+    autoDamage: 40,
+    energyCost: 120,
+    goldReward: 90,
+    rewardItemId: 'forest-gloves',
+    isBoss: true,
+  },
+  {
+    id: 'forest-6',
+    number: 6,
+    name: '달빛 동굴',
+    monsterName: '밤날개 박쥐',
+    monsterIcon: '🦇',
+    monsterHp: 270,
+    autoDamage: 45,
+    energyCost: 132,
+    goldReward: 100,
+  },
+  {
+    id: 'forest-7',
+    number: 7,
+    name: '독안개 늪',
+    monsterName: '독안개 마녀',
+    monsterIcon: '🧙',
+    monsterHp: 300,
+    autoDamage: 50,
+    energyCost: 144,
+    goldReward: 120,
+    rewardItemId: 'moss-cape',
+  },
+  {
+    id: 'forest-8',
+    number: 8,
+    name: '고대 나무길',
+    monsterName: '고대 나무정령',
+    monsterIcon: '🌳',
+    monsterHp: 360,
+    autoDamage: 60,
+    energyCost: 156,
+    goldReward: 140,
+  },
+  {
+    id: 'forest-9',
+    number: 9,
+    name: '수호자의 둥지',
+    monsterName: '숲의 수호룡',
+    monsterIcon: '🐉',
+    monsterHp: 480,
+    autoDamage: 60,
+    energyCost: 180,
+    goldReward: 250,
+    rewardItemId: 'forest-crown',
+    isBoss: true,
+  },
+];
+
 export const DAILY_QUESTS: Quest[] = [
   {
     id: 'daily-distance',
@@ -159,6 +283,36 @@ export const ITEMS: GameItem[] = [
     unlocked: false,
   },
   {
+    id: 'wolf-band',
+    name: '그림자 늑대 머리띠',
+    kind: 'armor',
+    rarity: '희귀',
+    icon: '🐺',
+    power: 11,
+    description: '초록숨 숲 3단계 자동사냥 보상',
+    unlocked: false,
+  },
+  {
+    id: 'moss-cape',
+    name: '이끼빛 망토',
+    kind: 'armor',
+    rarity: '영웅',
+    icon: '🧥',
+    power: 22,
+    description: '독안개 늪을 돌파한 모험가의 망토',
+    unlocked: false,
+  },
+  {
+    id: 'forest-crown',
+    name: '숲의 수호관',
+    kind: 'armor',
+    rarity: '영웅',
+    icon: '👑',
+    power: 32,
+    description: '초록숨 숲의 마지막 수호룡을 처치한 증표',
+    unlocked: false,
+  },
+  {
     id: 'wood-shield',
     name: '연습용 나무 방패',
     kind: 'armor',
@@ -239,6 +393,19 @@ export function getEnduranceBonus(streakDays: number): number {
   return ENDURANCE_MILESTONES.reduce((total, milestone) => {
     return streakDays >= milestone.days ? total + milestone.bonus : total;
   }, 0);
+}
+
+export function getAdventureStageState(clearedStageIds: string[], stageId: string): AdventureStageState {
+  if (clearedStageIds.includes(stageId)) {
+    return 'cleared';
+  }
+
+  const firstUnclearedStage = ADVENTURE_STAGES.find((stage) => !clearedStageIds.includes(stage.id));
+  return firstUnclearedStage?.id === stageId ? 'current' : 'locked';
+}
+
+export function getAdventureStageById(stageId: string): AdventureStage | undefined {
+  return ADVENTURE_STAGES.find((stage) => stage.id === stageId);
 }
 
 export function findUnlockedRegionalAchievements(regionDistances: Record<string, number>): HiddenAchievement[] {

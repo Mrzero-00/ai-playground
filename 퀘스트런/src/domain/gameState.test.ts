@@ -2,7 +2,9 @@ import {
   DEFAULT_GAME_STATE,
   applyCompletedRun,
   claimQuestReward,
+  completeAdventureStage,
   getDailyQuests,
+  getCurrentAdventureStage,
   getDateKey,
   getWeekKey,
   registerBattleWin,
@@ -54,6 +56,23 @@ describe('게임 상태', () => {
 
     expect(won.battleEnergy).toBe(720);
     expect(won.dailyBattles).toBe(1);
+  });
+
+  it('자동사냥 승리 시 에너지를 사용하고 다음 스테이지를 연다', () => {
+    const next = completeAdventureStage(BASE_STATE, 'forest-3', TEST_NOW);
+
+    expect(next.battleEnergy).toBe(BASE_STATE.battleEnergy - 84);
+    expect(next.dailyBattles).toBe(BASE_STATE.dailyBattles + 1);
+    expect(next.clearedAdventureStageIds).toContain('forest-3');
+    expect(next.unlockedItemIds).toContain('wolf-band');
+    expect(next.gold).toBe(BASE_STATE.gold + 55);
+    expect(getCurrentAdventureStage(next)?.id).toBe('forest-4');
+  });
+
+  it('잠긴 스테이지는 자동사냥으로 건너뛸 수 없다', () => {
+    const next = completeAdventureStage(BASE_STATE, 'forest-5', TEST_NOW);
+
+    expect(next).toBe(BASE_STATE);
   });
 
   it('일일 퀘스트 완료값을 현재 게임 상태에서 계산한다', () => {

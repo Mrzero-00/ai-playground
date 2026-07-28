@@ -1,8 +1,11 @@
 import {
+  ADVENTURE_STAGES,
   DAILY_QUESTS,
   HIDDEN_ACHIEVEMENTS,
   WEEKLY_QUESTS,
   calculateRunRewards,
+  getAdventureStageById,
+  getAdventureStageState,
   getEnduranceBonus,
   type Quest,
 } from './game';
@@ -28,6 +31,7 @@ export interface GameState {
   dailyRuns: number;
   dailyBattles: number;
   claimedQuestIds: string[];
+  clearedAdventureStageIds: string[];
   unlockedItemIds: string[];
   unlockedAchievementIds: string[];
   awardedEnduranceMilestones: number[];
@@ -55,6 +59,7 @@ export const DEFAULT_GAME_STATE: GameState = {
   dailyRuns: 0,
   dailyBattles: 0,
   claimedQuestIds: [],
+  clearedAdventureStageIds: ['forest-1', 'forest-2'],
   unlockedItemIds: ['wood-sword', 'leaf-jacket', 'swift-shoes'],
   unlockedAchievementIds: [],
   awardedEnduranceMilestones: [],
@@ -114,6 +119,37 @@ export function registerBattleWin(state: GameState, timestamp = Date.now()): Gam
     dailyBattles: state.dailyBattles + 1,
     unlockedItemIds: [...new Set([...state.unlockedItemIds, 'forest-gloves'])],
   };
+}
+
+export function completeAdventureStage(state: GameState, stageId: string, timestamp = Date.now()): GameState {
+  state = rolloverGameState(state, timestamp);
+  const stage = getAdventureStageById(stageId);
+
+  if (
+    stage == null ||
+    getAdventureStageState(state.clearedAdventureStageIds, stageId) !== 'current' ||
+    state.battleEnergy < stage.energyCost
+  ) {
+    return state;
+  }
+
+  const unlockedItemIds =
+    stage.rewardItemId == null ? state.unlockedItemIds : [...new Set([...state.unlockedItemIds, stage.rewardItemId])];
+
+  return {
+    ...state,
+    battleEnergy: state.battleEnergy - stage.energyCost,
+    dailyBattles: state.dailyBattles + 1,
+    gold: state.gold + stage.goldReward,
+    clearedAdventureStageIds: [...state.clearedAdventureStageIds, stageId],
+    unlockedItemIds,
+  };
+}
+
+export function getCurrentAdventureStage(state: GameState) {
+  return ADVENTURE_STAGES.find(
+    (stage) => getAdventureStageState(state.clearedAdventureStageIds, stage.id) === 'current'
+  );
 }
 
 export function claimQuestReward(state: GameState, questId: string, todayDateKey: string): GameState {

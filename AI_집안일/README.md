@@ -17,11 +17,11 @@ pnpm install
 pnpm dev
 ```
 
-브라우저에서는 `http://localhost:5173`으로 확인할 수 있습니다. 토스 샌드박스 앱으로 테스트할 때는 앱인토스 개발자센터의 샌드박스 테스트 절차를 따르세요.
+브라우저에서는 `http://localhost:5173`으로 확인할 수 있습니다. API 주소를 설정하지 않은 로컬 개발은 의도적으로 로컬 저장 모드로 동작합니다. 토스 샌드박스 앱으로 테스트할 때는 앱인토스 개발자센터의 샌드박스 테스트 절차를 따르세요.
 
 ## 데이터 저장과 Vercel 테스트
 
-Supabase와 Vercel API를 사용해 공동 집 데이터와 수행 기록을 저장합니다. 로그인 화면 대신 서명된 익명 세션 쿠키를 사용하며, 로컬 스토리지는 빠른 화면 표시와 API 장애 시 캐시 역할을 합니다.
+Supabase와 Vercel API를 사용해 공동 집 데이터와 수행 기록을 저장합니다. 일반 브라우저에서는 서명된 익명 세션 쿠키, 앱인토스에서는 `getAnonymousKey`를 서버 내부 UUID로 변환해 사용합니다. 로컬 스토리지는 빠른 화면 표시와 API 장애 시 캐시 역할을 합니다. 공유 집은 집별 버전으로 충돌을 검사합니다.
 
 설정 방법은 [Supabase + Vercel 연결 가이드](./docs/supabase-vercel-setup.md)를 참고하세요.
 
@@ -37,6 +37,9 @@ Supabase와 Vercel API를 사용해 공동 집 데이터와 수행 기록을 저
 ## 빌드
 
 ```bash
+pnpm test        # 핵심 계산, API 검증, 전체 가이드 검사
+pnpm typecheck   # 웹/API 타입 검사
 pnpm build       # 웹 빌드 확인
 pnpm ait:build   # 콘솔에 업로드할 .ait 번들 생성
+pnpm verify      # 위 검사를 순서대로 모두 실행
 ```

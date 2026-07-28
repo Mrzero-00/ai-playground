@@ -1,0 +1,1018 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>퀘스트런 실행 미리보기</title>
+    <style>
+      :root {
+        color-scheme: light;
+        font-family:
+          Pretendard, -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo",
+          "Noto Sans KR", sans-serif;
+        --ink: #102a2e;
+        --muted: #5f7074;
+        --faint: #91a0a3;
+        --background: #f4f7f5;
+        --surface: #ffffff;
+        --line: #e2eae6;
+        --brand: #16b87a;
+        --brand-dark: #087b55;
+        --brand-soft: #ddf7ec;
+        --orange: #ff8a3d;
+        --navy: #0b2030;
+        --yellow: #ffc857;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        align-items: center;
+        background:
+          radial-gradient(circle at 10% 10%, rgba(22, 184, 122, 0.15), transparent 28rem),
+          radial-gradient(circle at 90% 80%, rgba(255, 138, 61, 0.12), transparent 28rem),
+          #e8f0ec;
+        color: var(--ink);
+        display: flex;
+        justify-content: center;
+        margin: 0;
+        min-height: 100vh;
+        padding: 36px;
+      }
+
+      .preview-shell {
+        align-items: center;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+      }
+
+      .preview-title {
+        letter-spacing: -0.04em;
+        margin: 0;
+        text-align: center;
+      }
+
+      .preview-caption {
+        color: var(--muted);
+        font-size: 14px;
+        margin: -12px 0 0;
+      }
+
+      .switcher {
+        background: rgba(255, 255, 255, 0.82);
+        border: 1px solid rgba(255, 255, 255, 0.9);
+        border-radius: 999px;
+        box-shadow: 0 8px 28px rgba(7, 36, 26, 0.1);
+        display: flex;
+        gap: 4px;
+        padding: 5px;
+      }
+
+      .switcher button {
+        background: transparent;
+        border: 0;
+        border-radius: 999px;
+        color: var(--muted);
+        cursor: pointer;
+        font: inherit;
+        font-size: 13px;
+        font-weight: 800;
+        padding: 9px 18px;
+      }
+
+      .switcher button.active {
+        background: var(--navy);
+        color: #fff;
+      }
+
+      .phone {
+        background: #09151b;
+        border: 8px solid #09151b;
+        border-radius: 48px;
+        box-shadow:
+          0 34px 70px rgba(4, 27, 19, 0.22),
+          0 0 0 2px rgba(255, 255, 255, 0.42);
+        height: 844px;
+        overflow: hidden;
+        position: relative;
+        width: 390px;
+      }
+
+      .notch {
+        background: #09151b;
+        border-radius: 0 0 18px 18px;
+        height: 27px;
+        left: 50%;
+        position: absolute;
+        top: 0;
+        transform: translateX(-50%);
+        width: 118px;
+        z-index: 20;
+      }
+
+      .screen {
+        background: var(--background);
+        height: 100%;
+        overflow: hidden;
+        position: relative;
+      }
+
+      .view {
+        display: none;
+        height: 100%;
+      }
+
+      .view.active {
+        display: block;
+      }
+
+      .scroll {
+        height: 100%;
+        overflow: hidden;
+        padding: 27px 18px 112px;
+      }
+
+      .title-row {
+        align-items: center;
+        display: flex;
+        justify-content: space-between;
+        margin: 10px 2px 16px;
+      }
+
+      .eyebrow {
+        color: var(--brand-dark);
+        font-size: 10px;
+        font-weight: 900;
+        letter-spacing: 0.16em;
+        margin-bottom: 4px;
+      }
+
+      h2,
+      p {
+        margin: 0;
+      }
+
+      .title-row h2 {
+        font-size: 25px;
+        letter-spacing: -0.05em;
+      }
+
+      .gear {
+        align-items: center;
+        background: #fff;
+        border-radius: 17px;
+        box-shadow: 0 5px 16px rgba(7, 36, 26, 0.08);
+        display: flex;
+        font-size: 18px;
+        height: 42px;
+        justify-content: center;
+        width: 42px;
+      }
+
+      .hero {
+        background: var(--navy);
+        border-radius: 28px;
+        color: #fff;
+        height: 318px;
+        overflow: hidden;
+        position: relative;
+      }
+
+      .hero::before {
+        background: #0d8c7c;
+        border-radius: 50%;
+        content: "";
+        height: 260px;
+        opacity: 0.34;
+        position: absolute;
+        right: -55px;
+        top: -50px;
+        width: 260px;
+      }
+
+      .hero-copy {
+        left: 20px;
+        position: absolute;
+        top: 22px;
+        z-index: 2;
+      }
+
+      .pill {
+        background: rgba(255, 255, 255, 0.12);
+        border-radius: 999px;
+        display: inline-block;
+        font-size: 10px;
+        font-weight: 900;
+        padding: 7px 10px;
+      }
+
+      .hero-name {
+        font-size: 29px;
+        font-weight: 900;
+        letter-spacing: -0.05em;
+        margin-top: 12px;
+      }
+
+      .hero-message {
+        color: #cfe5e1;
+        font-size: 12px;
+        font-weight: 650;
+        line-height: 1.55;
+        margin-top: 7px;
+      }
+
+      .hero img {
+        bottom: 25px;
+        image-rendering: pixelated;
+        position: absolute;
+        right: -32px;
+        width: 270px;
+      }
+
+      .hero-bottom {
+        background: rgba(5, 18, 27, 0.8);
+        bottom: 0;
+        left: 0;
+        padding: 12px 20px 16px;
+        position: absolute;
+        right: 0;
+        z-index: 4;
+      }
+
+      .level-labels {
+        display: flex;
+        font-size: 9px;
+        font-weight: 800;
+        justify-content: space-between;
+        margin-bottom: 7px;
+      }
+
+      .level-labels span:first-child {
+        color: var(--yellow);
+      }
+
+      .progress {
+        background: rgba(255, 255, 255, 0.15);
+        border-radius: 999px;
+        height: 7px;
+        overflow: hidden;
+      }
+
+      .progress > span {
+        background: var(--yellow);
+        border-radius: inherit;
+        display: block;
+        height: 100%;
+        width: 65%;
+      }
+
+      .card {
+        background: #fff;
+        border-radius: 22px;
+        box-shadow: 0 7px 22px rgba(7, 36, 26, 0.055);
+        margin-top: 14px;
+        padding: 17px;
+      }
+
+      .recommend {
+        display: flex;
+        justify-content: space-between;
+      }
+
+      .recommend small {
+        color: var(--brand-dark);
+        font-size: 9px;
+        font-weight: 900;
+      }
+
+      .recommend h3 {
+        font-size: 17px;
+        letter-spacing: -0.04em;
+        margin: 5px 0;
+      }
+
+      .recommend p {
+        color: var(--muted);
+        font-size: 10px;
+      }
+
+      .route-icon {
+        align-items: center;
+        background: var(--brand-soft);
+        border-radius: 16px;
+        color: var(--brand-dark);
+        display: flex;
+        font-size: 25px;
+        height: 48px;
+        justify-content: center;
+        width: 48px;
+      }
+
+      .primary {
+        background: var(--brand);
+        border-radius: 15px;
+        color: #fff;
+        font-size: 13px;
+        font-weight: 900;
+        margin-top: 14px;
+        padding: 13px;
+        text-align: center;
+      }
+
+      .nav {
+        align-items: center;
+        background: #fff;
+        border-radius: 23px;
+        bottom: 11px;
+        box-shadow: 0 12px 32px rgba(7, 36, 26, 0.16);
+        display: flex;
+        height: 72px;
+        justify-content: space-around;
+        left: 12px;
+        position: absolute;
+        right: 12px;
+        z-index: 10;
+      }
+
+      .nav-item {
+        align-items: center;
+        color: var(--faint);
+        display: flex;
+        flex-direction: column;
+        font-size: 9px;
+        font-weight: 800;
+        gap: 4px;
+        width: 25%;
+      }
+
+      .nav-item b {
+        align-items: center;
+        border-radius: 12px;
+        display: flex;
+        font-size: 18px;
+        height: 31px;
+        justify-content: center;
+        width: 42px;
+      }
+
+      .nav-item.active {
+        color: var(--brand-dark);
+      }
+
+      .nav-item.active b {
+        background: var(--brand-soft);
+      }
+
+      .run-view {
+        background: var(--navy);
+        color: #fff;
+      }
+
+      .run-header {
+        align-items: center;
+        display: flex;
+        justify-content: space-between;
+        padding: 34px 18px 0;
+      }
+
+      .close {
+        align-items: center;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 50%;
+        display: flex;
+        font-size: 24px;
+        height: 38px;
+        justify-content: center;
+        width: 38px;
+      }
+
+      .gps {
+        align-items: center;
+        color: #bed1d2;
+        display: flex;
+        font-size: 10px;
+        font-weight: 800;
+        gap: 5px;
+      }
+
+      .gps::before {
+        background: #35df91;
+        border-radius: 50%;
+        content: "";
+        height: 7px;
+        width: 7px;
+      }
+
+      .run-center {
+        padding: 20px 18px 0;
+        text-align: center;
+      }
+
+      .run-status {
+        color: #a8c8c6;
+        font-size: 12px;
+        font-weight: 800;
+      }
+
+      .distance {
+        font-size: 76px;
+        font-variant-numeric: tabular-nums;
+        font-weight: 900;
+        letter-spacing: -0.06em;
+        line-height: 0.95;
+        margin-top: 12px;
+      }
+
+      .distance-unit {
+        color: #9db5b7;
+        font-size: 15px;
+        font-weight: 800;
+        margin-top: 6px;
+      }
+
+      .pace {
+        color: var(--yellow);
+        font-size: 11px;
+        font-weight: 850;
+        margin-top: 8px;
+      }
+
+      .metrics {
+        align-items: center;
+        background: rgba(255, 255, 255, 0.08);
+        border: 1px solid rgba(255, 255, 255, 0.06);
+        border-radius: 20px;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        margin-top: 18px;
+        padding: 14px 5px;
+      }
+
+      .metric {
+        border-right: 1px solid rgba(255, 255, 255, 0.1);
+        min-width: 0;
+      }
+
+      .metric:last-child {
+        border: 0;
+      }
+
+      .metric strong {
+        display: block;
+        font-size: 12px;
+        letter-spacing: -0.03em;
+        white-space: nowrap;
+      }
+
+      .metric span {
+        color: #88a4a6;
+        display: block;
+        font-size: 8px;
+        margin-top: 4px;
+      }
+
+      .map {
+        background: #092732;
+        border-radius: 21px;
+        height: 176px;
+        margin-top: 16px;
+        overflow: hidden;
+        position: relative;
+        text-align: left;
+      }
+
+      .map.light {
+        background: #e8f0ec;
+      }
+
+      .map-road {
+        background: rgba(255, 255, 255, 0.07);
+        height: 7px;
+        left: -20px;
+        position: absolute;
+        right: -20px;
+        top: 53%;
+        transform: rotate(-9deg);
+      }
+
+      .map.light .map-road {
+        background: rgba(57, 91, 82, 0.12);
+      }
+
+      .map-river {
+        background: rgba(48, 166, 190, 0.18);
+        height: 24px;
+        left: -25px;
+        position: absolute;
+        right: -25px;
+        top: 68%;
+        transform: rotate(7deg);
+      }
+
+      .map-title {
+        font-size: 10px;
+        font-weight: 900;
+        left: 13px;
+        position: absolute;
+        top: 12px;
+        z-index: 2;
+      }
+
+      .map-caption {
+        color: #89aaa5;
+        font-size: 7px;
+        left: 13px;
+        position: absolute;
+        top: 28px;
+        z-index: 2;
+      }
+
+      .map.light .map-title {
+        color: var(--ink);
+      }
+
+      .map.light .map-caption {
+        color: var(--muted);
+      }
+
+      .privacy {
+        background: rgba(255, 255, 255, 0.11);
+        border-radius: 999px;
+        font-size: 7px;
+        font-weight: 900;
+        padding: 5px 7px;
+        position: absolute;
+        right: 11px;
+        top: 11px;
+        z-index: 2;
+      }
+
+      .map.light .privacy {
+        background: rgba(255, 255, 255, 0.85);
+        color: var(--brand-dark);
+      }
+
+      .route {
+        fill: none;
+        stroke: var(--orange);
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        stroke-width: 5;
+      }
+
+      .map.light .route {
+        stroke: var(--brand-dark);
+      }
+
+      .map svg {
+        height: 100%;
+        left: 0;
+        position: absolute;
+        top: 0;
+        width: 100%;
+      }
+
+      .run-quest {
+        background: rgba(255, 255, 255, 0.08);
+        border-radius: 18px;
+        margin-top: 14px;
+        padding: 14px;
+        text-align: left;
+      }
+
+      .run-quest-top {
+        align-items: center;
+        display: flex;
+        gap: 10px;
+        margin-bottom: 10px;
+      }
+
+      .run-quest-icon {
+        color: var(--yellow);
+        font-size: 17px;
+      }
+
+      .run-quest h4 {
+        font-size: 12px;
+        margin: 0 0 3px;
+      }
+
+      .run-quest p {
+        color: #8eabac;
+        font-size: 9px;
+      }
+
+      .run-controls {
+        align-items: center;
+        bottom: 22px;
+        display: flex;
+        justify-content: center;
+        left: 0;
+        position: absolute;
+        right: 0;
+        z-index: 4;
+      }
+
+      .control {
+        align-items: center;
+        display: flex;
+        flex-direction: column;
+        font-size: 9px;
+        font-weight: 800;
+        gap: 5px;
+      }
+
+      .control-circle {
+        align-items: center;
+        background: #fff;
+        border-radius: 50%;
+        color: var(--navy);
+        display: flex;
+        font-size: 22px;
+        height: 72px;
+        justify-content: center;
+        width: 72px;
+      }
+
+      .summary-scroll {
+        height: 100%;
+        overflow: hidden;
+        padding: 34px 18px 38px;
+        text-align: center;
+      }
+
+      .complete-check {
+        align-items: center;
+        background: var(--brand-soft);
+        border-radius: 50%;
+        color: var(--brand-dark);
+        display: flex;
+        font-size: 20px;
+        font-weight: 900;
+        height: 48px;
+        justify-content: center;
+        margin: 4px auto 10px;
+        width: 48px;
+      }
+
+      .summary-eyebrow {
+        color: var(--brand-dark);
+        font-size: 9px;
+        font-weight: 900;
+        letter-spacing: 0.16em;
+      }
+
+      .summary-title {
+        font-size: 23px;
+        letter-spacing: -0.05em;
+        margin-top: 5px;
+      }
+
+      .summary-caption {
+        color: var(--muted);
+        font-size: 10px;
+        margin-top: 5px;
+      }
+
+      .summary-record {
+        margin-top: 14px;
+        padding: 13px 15px 14px;
+      }
+
+      .summary-distance {
+        align-items: baseline;
+        display: flex;
+        justify-content: center;
+      }
+
+      .summary-distance strong {
+        font-size: 44px;
+        letter-spacing: -0.05em;
+      }
+
+      .summary-distance span {
+        color: var(--muted);
+        font-size: 13px;
+        font-weight: 800;
+        margin-left: 4px;
+      }
+
+      .summary-metrics {
+        border-top: 1px solid var(--line);
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        margin-top: 8px;
+        padding-top: 11px;
+      }
+
+      .summary-metric {
+        border-right: 1px solid var(--line);
+      }
+
+      .summary-metric:last-child {
+        border: 0;
+      }
+
+      .summary-metric strong {
+        display: block;
+        font-size: 11px;
+      }
+
+      .summary-metric span {
+        color: var(--muted);
+        display: block;
+        font-size: 7px;
+        margin-top: 3px;
+      }
+
+      .summary-map {
+        height: 144px;
+        margin-top: 12px;
+      }
+
+      .details {
+        display: grid;
+        gap: 0;
+        grid-template-columns: repeat(2, 1fr);
+        margin-top: 12px;
+        padding: 0;
+      }
+
+      .detail {
+        align-items: center;
+        display: flex;
+        gap: 8px;
+        padding: 13px;
+        text-align: left;
+      }
+
+      .detail:nth-child(odd) {
+        border-right: 1px solid var(--line);
+      }
+
+      .detail:nth-child(-n + 2) {
+        border-bottom: 1px solid var(--line);
+      }
+
+      .detail i {
+        font-style: normal;
+        font-size: 16px;
+      }
+
+      .detail strong {
+        display: block;
+        font-size: 11px;
+      }
+
+      .detail span {
+        color: var(--muted);
+        display: block;
+        font-size: 7px;
+        margin-top: 3px;
+      }
+
+      .reward-title {
+        font-size: 12px;
+        font-weight: 900;
+        margin: 13px 0 8px;
+        text-align: left;
+      }
+
+      .rewards {
+        display: grid;
+        gap: 8px;
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .reward {
+        background: #fff3e9;
+        border-radius: 17px;
+        color: #b84f0a;
+        padding: 12px;
+      }
+
+      .reward:last-child {
+        background: var(--brand-soft);
+        color: var(--brand-dark);
+      }
+
+      .reward strong {
+        display: block;
+        font-size: 16px;
+      }
+
+      .reward span {
+        display: block;
+        font-size: 8px;
+        margin-top: 2px;
+      }
+
+      .preview-note {
+        color: var(--muted);
+        font-size: 11px;
+        text-align: center;
+      }
+
+      @media (max-width: 520px) {
+        body {
+          padding: 0;
+        }
+
+        .preview-title,
+        .preview-caption,
+        .preview-note {
+          display: none;
+        }
+
+        .preview-shell {
+          gap: 0;
+          width: 100%;
+        }
+
+        .switcher {
+          border-radius: 0;
+          box-shadow: none;
+          justify-content: center;
+          width: 100%;
+        }
+
+        .phone {
+          border: 0;
+          border-radius: 0;
+          height: calc(100vh - 51px);
+          width: 100%;
+        }
+
+        .notch {
+          display: none;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="preview-shell">
+      <h1 class="preview-title">퀘스트런 실행 미리보기</h1>
+      <p class="preview-caption">달릴수록 성장하는 나만의 러닝 RPG</p>
+      <nav aria-label="미리보기 화면 선택" class="switcher">
+        <button class="active" data-target="home">홈</button>
+        <button data-target="running">실시간 러닝</button>
+        <button data-target="summary">러닝 완료</button>
+      </nav>
+
+      <section class="phone" aria-label="퀘스트런 모바일 화면">
+        <div class="notch"></div>
+        <div class="screen">
+          <article class="view active" id="home">
+            <div class="scroll">
+              <div class="title-row">
+                <div>
+                  <div class="eyebrow">QUESTRUN</div>
+                  <h2>오늘도 한 걸음!</h2>
+                </div>
+                <div class="gear">⚙</div>
+              </div>
+              <section class="hero">
+                <div class="hero-copy">
+                  <span class="pill">Lv. 7 · 새싹 러너</span>
+                  <div class="hero-name">루미</div>
+                  <p class="hero-message">오늘 350 XP만 더 모으면<br />레벨이 올라요.</p>
+                </div>
+                <img src="../assets/quest-run-hero.png" alt="민트색 픽셀 여우 캐릭터" />
+                <div class="hero-bottom">
+                  <div class="level-labels">
+                    <span>LEVEL 7</span>
+                    <span>650 / 1,000 XP</span>
+                  </div>
+                  <div class="progress"><span></span></div>
+                </div>
+              </section>
+              <section class="card">
+                <div class="recommend">
+                  <div>
+                    <small>오늘의 추천</small>
+                    <h3>편안하게 2km 달리기</h3>
+                    <p>예상 보상 · 200 XP + 에너지 240</p>
+                  </div>
+                  <div class="route-icon">⌁</div>
+                </div>
+                <div class="primary">▶ &nbsp;러닝 시작</div>
+              </section>
+            </div>
+            <nav class="nav">
+              <div class="nav-item active"><b>⌂</b><span>홈</span></div>
+              <div class="nav-item"><b>✓</b><span>퀘스트</span></div>
+              <div class="nav-item"><b>⚔</b><span>모험</span></div>
+              <div class="nav-item"><b>♙</b><span>캐릭터</span></div>
+            </nav>
+          </article>
+
+          <article class="view run-view" id="running">
+            <header class="run-header">
+              <div class="close">×</div>
+              <span class="pill">실시간 GPS 기록</span>
+              <span class="gps">GPS 좋음</span>
+            </header>
+            <div class="run-center">
+              <p class="run-status">안전하게 달리는 중</p>
+              <div class="distance">1.42</div>
+              <div class="distance-unit">km</div>
+              <div class="pace">평균 페이스 06'31"</div>
+              <section class="metrics">
+                <div class="metric"><strong>09:16</strong><span>시간</span></div>
+                <div class="metric"><strong>9.5</strong><span>현재 km/h</span></div>
+                <div class="metric"><strong>9.2</strong><span>평균 km/h</span></div>
+                <div class="metric"><strong>10.9</strong><span>최고 km/h</span></div>
+              </section>
+              <section class="map">
+                <div class="map-road"></div>
+                <div class="map-river"></div>
+                <div class="map-title">운동 경로</div>
+                <div class="map-caption">GPS 37개 지점 기록 중</div>
+                <div class="privacy">좌표 비저장</div>
+                <svg viewBox="0 0 350 176" role="img" aria-label="러닝 경로">
+                  <polyline class="route" points="35,137 72,120 89,88 132,99 170,66 203,78 228,51 274,70 316,46" />
+                  <circle cx="35" cy="137" fill="#16b87a" r="8" />
+                  <circle cx="316" cy="46" fill="#ff8a3d" r="8" />
+                </svg>
+              </section>
+              <section class="run-quest">
+                <div class="run-quest-top">
+                  <span class="run-quest-icon">✦</span>
+                  <div>
+                    <h4>일일 퀘스트 달성!</h4>
+                    <p>1km 러닝 · 120 XP 받을 준비 완료</p>
+                  </div>
+                </div>
+                <div class="progress"><span style="width: 100%"></span></div>
+              </section>
+            </div>
+            <div class="run-controls">
+              <div class="control">
+                <div class="control-circle">Ⅱ</div>
+                <span>일시정지</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="view" id="summary">
+            <div class="summary-scroll">
+              <div class="complete-check">✓</div>
+              <div class="summary-eyebrow">RUN COMPLETE</div>
+              <h2 class="summary-title">멋진 러닝이었어요!</h2>
+              <p class="summary-caption">오늘의 발걸음이 루미를 더 강하게 만들었어요.</p>
+              <section class="card summary-record">
+                <div class="summary-distance"><strong>2.00</strong><span>km</span></div>
+                <div class="summary-metrics">
+                  <div class="summary-metric"><strong>13:02</strong><span>시간</span></div>
+                  <div class="summary-metric"><strong>06'31"</strong><span>평균 페이스</span></div>
+                  <div class="summary-metric"><strong>9.2 km/h</strong><span>평균 속도</span></div>
+                </div>
+              </section>
+              <section class="map light summary-map">
+                <div class="map-road"></div>
+                <div class="map-river"></div>
+                <div class="map-title">운동 경로</div>
+                <div class="map-caption">GPS 좌표를 지운 상대 경로</div>
+                <div class="privacy">좌표 비저장</div>
+                <svg viewBox="0 0 350 144" role="img" aria-label="완료한 러닝 경로">
+                  <polyline class="route" points="32,115 67,99 88,70 130,83 166,52 202,66 227,40 272,59 315,36" />
+                  <circle cx="32" cy="115" fill="#16b87a" r="7" />
+                  <circle cx="315" cy="36" fill="#ff8a3d" r="7" />
+                </svg>
+              </section>
+              <section class="card details">
+                <div class="detail"><i>⚡</i><div><strong>10.9 km/h</strong><span>최고 속도</span></div></div>
+                <div class="detail"><i>🔥</i><div><strong>130 kcal</strong><span>예상 칼로리</span></div></div>
+                <div class="detail"><i>◷</i><div><strong>13:02</strong><span>이동 시간</span></div></div>
+                <div class="detail"><i>⌁</i><div><strong>48개</strong><span>경로 지점</span></div></div>
+              </section>
+              <div class="reward-title">획득한 성장 보상</div>
+              <section class="rewards">
+                <div class="reward"><strong>✦ +200</strong><span>경험치</span></div>
+                <div class="reward"><strong>⚡ +240</strong><span>전투 에너지</span></div>
+              </section>
+            </div>
+          </article>
+        </div>
+      </section>
+      <p class="preview-note">현재 React Native 구현을 브라우저에서 확인할 수 있도록 재현한 화면입니다.</p>
+    </main>
+
+    <script>
+      const buttons = document.querySelectorAll(".switcher button");
+      const views = document.querySelectorAll(".view");
+
+      buttons.forEach((button) => {
+        button.addEventListener("click", () => {
+          buttons.forEach((item) => item.classList.remove("active"));
+          views.forEach((view) => view.classList.remove("active"));
+          button.classList.add("active");
+          document.getElementById(button.dataset.target).classList.add("active");
+        });
+      });
+    </script>
+  </body>
+</html>

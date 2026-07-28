@@ -32,6 +32,15 @@ const categoryMeta: Record<ChoreCategory, { icon: string; label: string }> = {
   etc: { icon: '✨', label: '기타' },
 };
 
+const categoryFromLabel: Record<string, ChoreCategory> = {
+  청소: 'cleaning',
+  주방: 'kitchen',
+  세탁: 'laundry',
+  반려동물: 'pet',
+  정리: 'living',
+  기타: 'etc',
+};
+
 function toView(chore: Chore): ChoreView {
   const frequency =
     chore.recurrence.interval !== 1
@@ -41,20 +50,23 @@ function toView(chore: Chore): ChoreView {
     id: chore.id,
     title: chore.title,
     category: categoryMeta[chore.category].label,
-    icon: categoryMeta[chore.category].icon,
+    icon: chore.icon ?? categoryMeta[chore.category].icon,
     frequency,
     frequencyLabel: formatRecurrence(chore.recurrence),
     recurrenceGroup: ({ day: 'daily', week: 'weekly', month: 'monthly', year: 'yearly' } as const)[chore.recurrence.unit],
     dueLabel: formatDueDate(chore.nextDueDate),
     completed: false,
+    enabled: chore.enabled,
     isCustom: chore.isCustom,
+    notificationEnabled: chore.notificationEnabled,
+    notificationTime: chore.notificationTime,
     taskKind: chore.id.startsWith('supply-chore-') ? 'supply-purchase' : 'housework',
     guideId: guideForChore(chore.title)?.id,
   };
 }
 
 function recurrenceFromInput(input: CustomChoreInput): Recurrence {
-  if (input.frequency === 'custom') return { interval: input.interval, unit: 'day' };
+  if (input.frequency === 'custom') return { interval: input.interval, unit: input.customUnit };
   return {
     interval: 1,
     unit: ({ daily: 'day', weekly: 'week', monthly: 'month', yearly: 'year' } as const)[input.frequency],
@@ -77,8 +89,10 @@ function App() {
     updateHomeSettings,
     updateUserName,
     addCustomChore,
+    updateCustomChore,
     completeChore,
     undoTodayCompletion,
+    toggleChore,
     removeCustomChore,
     acceptRecommendation,
     dismissRecommendation,
@@ -97,6 +111,7 @@ function App() {
   } = useAppData();
   const [activeTab, setActiveTab] = useState<NavigationTab>('today');
   const [isAddingChore, setIsAddingChore] = useState(false);
+  const [editingChoreId, setEditingChoreId] = useState<string | null>(null);
   const [isEditingHome, setIsEditingHome] = useState(false);
   const [purchasingSupplyId, setPurchasingSupplyId] = useState<string | null>(null);
   const [openGuideId, setOpenGuideId] = useState<string | null>(null);
@@ -164,22 +179,41 @@ function App() {
   }
 
   function submitCustomChore(input: CustomChoreInput) {
-    addCustomChore(input.title, recurrenceFromInput(input));
-    if (input.notificationEnabled) {
-      updateNotifications({ enabled: true, reminderHour: Number(input.notificationTime.split(':')[0]) });
-    }
+    const draft = {
+      title: input.title,
+      category: categoryFromLabel[input.category] ?? 'etc',
+      icon: input.icon,
+      recurrence: recurrenceFromInput(input),
+      notificationEnabled: input.notificationEnabled,
+      notificationTime: input.notificationEnabled ? input.notificationTime : undefined,
+    };
+    if (editingChoreId) updateCustomChore(editingChoreId, draft);
+    else addCustomChore(draft);
     setIsAddingChore(false);
+    setEditingChoreId(null);
     setActiveTab('manage');
   }
 
   function toggleTodayChore(choreId: string) {
     const chore = todayViews.find((item) => item.id === choreId);
-    if (chore?.completed) undoTodayCompletion(choreId);
-    else if (chore?.taskKind === 'supply-purchase') setPurchasingSupplyId(choreId.slice('supply-chore-'.length));
+    if (chore?.taskKind === 'supply-purchase') setPurchasingSupplyId(choreId.slice('supply-chore-'.length));
+    else if (chore?.completed) undoTodayCompletion(choreId);
     else completeChore(choreId);
   }
 
   const purchasingSupply = activeHome?.supplies.find((item) => item.id === purchasingSupplyId) ?? null;
+  const purchasingSupplyCompleted = todayViews.some((chore) => chore.id === `supply-chore-${purchasingSupplyId}` && chore.completed);
+  const editingCustomChore = activeHome?.chores.find((chore) => chore.id === editingChoreId && chore.isCustom) ?? null;
+  const editingCustomInput: CustomChoreInput | undefined = editingCustomChore ? {
+    title: editingCustomChore.title,
+    category: categoryMeta[editingCustomChore.category].label === '생활' ? '정리' : categoryMeta[editingCustomChore.category].label,
+    icon: editingCustomChore.icon ?? categoryMeta[editingCustomChore.category].icon,
+    frequency: toView(editingCustomChore).frequency,
+    interval: editingCustomChore.recurrence.interval,
+    customUnit: editingCustomChore.recurrence.unit,
+    notificationEnabled: editingCustomChore.notificationEnabled ?? false,
+    notificationTime: editingCustomChore.notificationTime ?? '09:00',
+  } : undefined;
 
   const syncLabel = ({ loading: '서버 확인 중', saving: '저장 중', synced: '동기화됨', offline: '로컬 저장 중', error: '동기화 오류' } as const)[syncStatus];
   const homeSwitcher = <div className="home-switcher-wrap"><SharedHomeUI
@@ -222,7 +256,7 @@ function App() {
       {activeTab === 'manage' && (
         <main className="screen chores-hub-screen">
           <header className="screen-header compact"><span className="step-label">우리 집 루틴</span><h1>집안일</h1><p>필요한 일은 추가하고, 사용 중인 루틴은 한곳에서 관리하세요.</p></header>
-          <section className="chore-hub-summary"><article><span aria-hidden="true">✓</span><div><strong>{allViews.length}</strong><small>사용 중</small></div></article><article><span aria-hidden="true">✨</span><div><strong>{recommendationCandidates.length}</strong><small>새 추천</small></div></article><article><span aria-hidden="true">🗓️</span><div><strong>{dueChores.length}</strong><small>오늘 할 일</small></div></article></section>
+          <section className="chore-hub-summary"><article><span aria-hidden="true">✓</span><div><strong>{allViews.filter((chore) => chore.enabled !== false).length}</strong><small>사용 중</small></div></article><article><span aria-hidden="true">✨</span><div><strong>{recommendationCandidates.length}</strong><small>새 추천</small></div></article><article><span aria-hidden="true">🗓️</span><div><strong>{dueChores.length}</strong><small>오늘 할 일</small></div></article></section>
           <RecommendationReview candidates={recommendationCandidates} onAccept={acceptRecommendation} onDismiss={dismissRecommendation} onSnooze={snoozeRecommendation} />
           <ChoreManager
             chores={allViews}
@@ -231,7 +265,9 @@ function App() {
             onChangeFrequency={(id, frequency) => updateChoreRecurrence(id, { interval: 1, unit: ({ daily: 'day', weekly: 'week', monthly: 'month', yearly: 'year', custom: 'week' } as const)[frequency] })}
             onDelete={removeCustomChore}
             onDismissRecommendation={dismissRecommendation}
+            onEdit={(chore) => setEditingChoreId(chore.id)}
             onOpenGuide={setOpenGuideId}
+            onToggleEnabled={toggleChore}
           />
         </main>
       )}
@@ -240,12 +276,13 @@ function App() {
       {activeTab === 'profile' && <PersonalProfile homes={data.homes} onSaveName={updateUserName} user={data.user} />}
       <BottomNavigation active={activeTab} onChange={setActiveTab} />
       <CustomChoreModal
-        key={isAddingChore ? 'open' : 'closed'}
-        open={isAddingChore}
-        onClose={() => setIsAddingChore(false)}
+        initialValue={editingCustomInput}
+        key={editingChoreId ?? (isAddingChore ? 'new' : 'closed')}
+        open={isAddingChore || Boolean(editingCustomChore)}
+        onClose={() => { setIsAddingChore(false); setEditingChoreId(null); }}
         onSubmit={submitCustomChore}
       />
-      {purchasingSupply && <SupplyPurchaseModal initialQuantity={purchasingSupply.purchaseQuantity} itemName={purchasingSupply.name} key={purchasingSupply.id} onClose={() => setPurchasingSupplyId(null)} onSubmit={(quantity) => { recordSupplyPurchase(purchasingSupply.id, todayKey(), quantity); completeChore(`supply-chore-${purchasingSupply.id}`); setPurchasingSupplyId(null); }} open unit={purchasingSupply.unit} />}
+      {purchasingSupply && <SupplyPurchaseModal editing={purchasingSupplyCompleted} initialQuantity={purchasingSupply.purchaseQuantity} itemName={purchasingSupply.name} key={purchasingSupply.id} onClose={() => setPurchasingSupplyId(null)} onSubmit={(quantity) => { recordSupplyPurchase(purchasingSupply.id, todayKey(), quantity); if (!purchasingSupplyCompleted) completeChore(`supply-chore-${purchasingSupply.id}`); setPurchasingSupplyId(null); }} open unit={purchasingSupply.unit} />}
       {openGuideId && choreGuideById(openGuideId) && <ChoreGuideModal guide={choreGuideById(openGuideId)!} onClose={() => setOpenGuideId(null)} />}
     </div>
   );

@@ -1,5 +1,5 @@
 import { buildSchedule } from './schedule';
-import { endOfMonthKey, startOfMonthKey, todayKey, toDateKey } from './date';
+import { endOfMonthKey, startOfMonthKey, toDateKey } from './date';
 import type { Chore, ChoreCategory, ChoreHistory, HomeMember } from './types';
 
 export interface MemberContribution {
@@ -32,8 +32,11 @@ export function calculateHomeAnalytics(
 ): HomeAnalytics {
   const monthStart = startOfMonthKey(now);
   const monthEnd = endOfMonthKey(now);
-  const today = todayKey();
+  const today = toDateKey(now);
   const schedule = buildSchedule(chores, history, monthStart, monthEnd);
+  const streakStartDate = new Date(now);
+  streakStartDate.setDate(streakStartDate.getDate() - 365);
+  const streakSchedule = buildSchedule(chores, history, toDateKey(streakStartDate), today);
   const elapsedDays = [...schedule.values()].filter((day) => day.date <= today);
   const scheduledUntilToday = elapsedDays.reduce((sum, day) => sum + day.totalCount, 0);
   const completedScheduled = elapsedDays.reduce((sum, day) => sum + day.completedCount, 0);
@@ -73,11 +76,10 @@ export function calculateHomeAnalytics(
   const cursor = new Date(`${today}T12:00:00`);
   while (currentStreak < 366) {
     const key = toDateKey(cursor);
-    const day = schedule.get(key);
+    const day = streakSchedule.get(key);
     if (day?.totalCount && day.completionRate === 100) currentStreak += 1;
     else if (day?.totalCount) break;
     cursor.setDate(cursor.getDate() - 1);
-    if (key < monthStart) break;
   }
 
   return {

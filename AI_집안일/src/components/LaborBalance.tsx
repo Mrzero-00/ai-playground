@@ -57,14 +57,16 @@ interface LaborBalanceProps {
 export function LaborBalance({ assessments, chores, currentUserId, members, onAssign, onSaveAssessment, assignmentMode, onAutoAssign, onUseSharedList, view = 'summary', onOpenAssignments }: LaborBalanceProps) {
   const previous = assessments.find((item) => item.userId === currentUserId);
   const [testing, setTesting] = useState(false);
-  const [answers, setAnswers] = useState<number[]>(previous?.answers.length === questions.length ? previous.answers : Array(questions.length).fill(3));
+  const [answers, setAnswers] = useState<Array<number | null>>(previous?.answers.length === questions.length ? previous.answers : Array(questions.length).fill(null));
   const [questionIndex, setQuestionIndex] = useState(0);
   const assessedMembers = useMemo(() => assessments.map((item) => ({ ...item, member: members.find((member) => member.userId === item.userId) })), [assessments, members]);
   const homePlanningLoad = assessments.length ? Math.round(assessments.reduce((sum, item) => sum + item.planningScore, 0) / assessments.length) : 0;
 
   function submit(event: FormEvent) {
     event.preventDefault();
-    onSaveAssessment({ planningScore: score(answers, 'planning'), executionScore: score(answers, 'execution'), answers });
+    if (answers.some((answer) => answer === null)) return;
+    const completedAnswers = answers as number[];
+    onSaveAssessment({ planningScore: score(completedAnswers, 'planning'), executionScore: score(completedAnswers, 'execution'), answers: completedAnswers });
     setTesting(false);
   }
 
@@ -91,7 +93,7 @@ export function LaborBalance({ assessments, chores, currentUserId, members, onAs
         <div className="labor-test-progress" aria-label={`${questions.length}문항 중 ${questionIndex + 1}번째`}><i style={{ width: `${((questionIndex + 1) / questions.length) * 100}%` }} /></div>
         <p>최근 한 달의 우리 집 생활을 떠올리며 답해주세요. 정답은 없어요.</p>
         <fieldset><div className="labor-question-meta"><span>{questions[questionIndex].kind === 'planning' ? '생각하고 챙기는 일' : '직접 실행하는 일'}</span><small>문항 {String(questionIndex + 1).padStart(2, '0')}</small></div><legend>{questions[questionIndex].text}</legend><div className="labor-scale">{[1, 2, 3, 4, 5].map((value) => <label key={value}><input checked={answers[questionIndex] === value} name={`labor-${questionIndex}`} onChange={() => setAnswers((current) => current.map((answer, answerIndex) => answerIndex === questionIndex ? value : answer))} type="radio" /><span>{value}</span></label>)}</div><div className="labor-scale-labels"><span>전혀<br />그렇지 않다</span><span>보통이다</span><span>매우<br />그렇다</span></div></fieldset>
-        <div className="labor-test-actions"><button className="labor-back-button" disabled={questionIndex === 0} type="button" onClick={() => setQuestionIndex((value) => value - 1)}>‹ 이전</button>{questionIndex < questions.length - 1 ? <button className="labor-next-button" type="button" onClick={() => setQuestionIndex((value) => value + 1)}>다음 문항 <span aria-hidden="true">›</span></button> : <button className="labor-next-button" type="submit">결과 확인하기</button>}</div>
+        <div className="labor-test-actions"><button className="labor-back-button" disabled={questionIndex === 0} type="button" onClick={() => setQuestionIndex((value) => value - 1)}>‹ 이전</button>{questionIndex < questions.length - 1 ? <button className="labor-next-button" disabled={answers[questionIndex] === null} type="button" onClick={() => setQuestionIndex((value) => value + 1)}>다음 문항 <span aria-hidden="true">›</span></button> : <button className="labor-next-button" disabled={answers[questionIndex] === null} type="submit">결과 확인하기</button>}</div>
       </form>
     </section></div>}
   </>;

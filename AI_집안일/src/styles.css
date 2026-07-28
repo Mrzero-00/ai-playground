@@ -283,8 +283,10 @@ h2 { font-size:20px; letter-spacing:-.3px; }
 .manage-panel { display:grid; gap:9px; padding:13px 14px; border-top:1px solid #eceef1; background:#fafbfc; }
 .manage-panel label { display:flex; align-items:center; justify-content:space-between; color:#6b7684; font-size:11px; }
 .manage-panel select { min-width:94px; height:36px; padding:0 9px; border:1px solid #d1d6db; border-radius:9px; background:#fff; }
+.manage-panel input[role=switch] { width:42px; height:24px; accent-color:var(--primary); }
 .manage-panel>button { min-height:38px; border:0; border-radius:10px; color:#6b7684; background:#eef0f3; font-size:11px; font-weight:800; }
 .manage-panel>button.is-danger { color:#e42939; background:#fff0f1; }
+.manage-list li.is-disabled .manage-row { opacity:.55; }
 .profile-identity { display:flex; align-items:center; gap:16px; padding:20px; border:1px solid #eceef1; border-radius:20px; }
 .profile-identity>span { display:grid; flex:0 0 auto; width:58px; height:58px; place-items:center; border-radius:50%; background:#e8f3ff; font-size:30px; }
 .profile-identity form { min-width:0; flex:1; }
@@ -454,6 +456,7 @@ h2 { font-size:20px; letter-spacing:-.3px; }
 .purchase-quantity-field input { min-width:0; height:54px; flex:1; padding:0 16px; border:0; outline:0; font-size:20px; font-weight:900; }
 .purchase-quantity-field>div strong { padding-right:16px; color:#7359df; }
 .purchase-quantity-field>small { display:block; margin-top:7px; color:#8b95a1; font-size:10px; }
+.affiliate-disclosure { display:block; margin-top:-11px; color:#8b95a1; font-size:10px; text-align:center; }
 .purchase-modal-actions { display:grid; grid-template-columns:1fr 2fr; gap:9px; }
 .purchase-modal-actions button { min-height:52px; border:0; border-radius:14px; font-weight:850; }
 .purchase-modal-actions button:first-child { color:#6b7684; background:#f2f4f6; }
@@ -479,7 +482,8 @@ h2 { font-size:20px; letter-spacing:-.3px; }
 .frequency-tabs label { position:relative; }
 .frequency-tabs span { display:grid; height:42px; place-items:center; border:1px solid #e5e6e9; border-radius:11px; color:#737984; font-size:12px; }
 .frequency-tabs input:checked+span { border-color:#7359df; color:#7359df; background:#f4f0ff; font-weight:800; }
-.inline-input { display:grid; grid-template-columns:auto 80px auto; gap:9px; align-items:center; }
+.inline-input { display:grid; grid-template-columns:auto 80px minmax(100px,1fr); gap:9px; align-items:center; }
+.inline-input select { min-width:0; }
 .notification-box { padding:16px; border-radius:15px; background:#f7f7f9; }
 .notification-box label { display:flex; align-items:center; justify-content:space-between; }
 .notification-box strong,.notification-box small { display:block; }

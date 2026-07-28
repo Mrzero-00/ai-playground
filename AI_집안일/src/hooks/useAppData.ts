@@ -280,15 +280,39 @@ export function useAppData() {
     }));
   }
 
-  function addCustomChore(title: string, recurrence: Recurrence) {
-    const chore: Chore = { id: makeId('custom'), title: title.trim(), category: 'etc', recurrence, createdAt: new Date().toISOString(), scheduleAnchorDate: todayKey(), nextDueDate: todayKey(), isCustom: true, enabled: true };
+  function addCustomChore(input: Pick<Chore, 'title' | 'category' | 'icon' | 'recurrence' | 'notificationEnabled' | 'notificationTime'>) {
+    const chore: Chore = {
+      id: makeId('custom'),
+      ...input,
+      title: input.title.trim(),
+      createdAt: new Date().toISOString(),
+      scheduleAnchorDate: todayKey(),
+      nextDueDate: todayKey(),
+      isCustom: true,
+      enabled: true,
+    };
     updateActiveHome((home) => ({ ...home, chores: [...home.chores, chore] }));
+  }
+
+  function updateCustomChore(choreId: string, input: Pick<Chore, 'title' | 'category' | 'icon' | 'recurrence' | 'notificationEnabled' | 'notificationTime'>) {
+    updateActiveHome((home) => ({
+      ...home,
+      chores: home.chores.map((chore) => chore.id === choreId && chore.isCustom
+        ? { ...chore, ...input, title: input.title.trim() }
+        : chore),
+    }));
   }
 
   function completeChore(choreId: string) {
     updateActiveHome((home) => {
       const chore = home.chores.find((item) => item.id === choreId);
       if (!chore) return home;
+      const alreadyCompletedToday = home.history.some((entry) =>
+        entry.choreId === choreId &&
+        entry.action === 'completed' &&
+        toDateKey(new Date(entry.performedAt)) === todayKey(),
+      );
+      if (alreadyCompletedToday) return home;
       const supplyId = choreId.startsWith('supply-chore-') ? choreId.slice('supply-chore-'.length) : null;
       const purchasedSupply = supplyId ? (home.supplies ?? []).find((item) => item.id === supplyId) : null;
       const updatedSupply = purchasedSupply ? { ...purchasedSupply, purchaseDate: todayKey(), updatedAt: new Date().toISOString() } : null;
@@ -469,5 +493,5 @@ export function useAppData() {
     }));
   }
 
-  return { data, activeHome, dueChores, recommendationCandidates, syncStatus, syncError, refreshRemoteState, createHome, selectHome, joinHomeByInviteCode, saveProfile, updateHomeSettings, updateUserName, addCustomChore, completeChore, undoTodayCompletion, toggleChore, removeCustomChore, acceptRecommendation, dismissRecommendation, snoozeRecommendation, updateChoreRecurrence, updateNotifications, saveLaborAssessment, assignChoreExecutor, setSharedAssignmentMode, autoAssignChores, addSupplyItem, recordSupplyPurchase, removeSupplyItem, ensureDemoSupply, ensureDemoGuideChores };
+  return { data, activeHome, dueChores, recommendationCandidates, syncStatus, syncError, refreshRemoteState, createHome, selectHome, joinHomeByInviteCode, saveProfile, updateHomeSettings, updateUserName, addCustomChore, updateCustomChore, completeChore, undoTodayCompletion, toggleChore, removeCustomChore, acceptRecommendation, dismissRecommendation, snoozeRecommendation, updateChoreRecurrence, updateNotifications, saveLaborAssessment, assignChoreExecutor, setSharedAssignmentMode, autoAssignChores, addSupplyItem, recordSupplyPurchase, removeSupplyItem, ensureDemoSupply, ensureDemoGuideChores };
 }

@@ -3,2193 +3,1524 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>퀘스트런 실행 미리보기</title>
+    <title>퀘스트런 · 달리고 꾸미는 러너 아바타</title>
     <style>
       :root {
         color-scheme: light;
-        font-family:
-          Pretendard,
-          -apple-system,
-          BlinkMacSystemFont,
-          'Apple SD Gothic Neo',
-          'Noto Sans KR',
-          sans-serif;
         --ink: #102a2e;
-        --muted: #5f7074;
+        --muted: #617579;
         --faint: #91a0a3;
-        --background: #f4f7f5;
-        --surface: #ffffff;
+        --bg: #f3f7f5;
+        --surface: #fff;
         --line: #e2eae6;
         --brand: #16b87a;
         --brand-dark: #087b55;
         --brand-soft: #ddf7ec;
         --orange: #ff8a3d;
+        --orange-soft: #fff0e5;
         --navy: #0b2030;
         --yellow: #ffc857;
+        --purple: #7668e8;
+        --shadow: 0 16px 42px rgba(18, 55, 44, 0.1);
       }
 
       * {
         box-sizing: border-box;
       }
 
+      html {
+        background: radial-gradient(circle at 15% 10%, rgba(22, 184, 122, 0.11), transparent 24rem),
+          radial-gradient(circle at 85% 80%, rgba(255, 138, 61, 0.09), transparent 24rem), #eaf1ed;
+      }
+
       body {
-        align-items: center;
-        background: radial-gradient(circle at 10% 10%, rgba(22, 184, 122, 0.15), transparent 28rem),
-          radial-gradient(circle at 90% 80%, rgba(255, 138, 61, 0.12), transparent 28rem), #e8f0ec;
+        margin: 0;
         color: var(--ink);
-        display: flex;
-        justify-content: center;
-        margin: 0;
-        min-height: 100vh;
-        padding: 36px;
+        font-family:
+          Pretendard,
+          -apple-system,
+          BlinkMacSystemFont,
+          'Segoe UI',
+          sans-serif;
       }
 
-      .preview-shell {
-        align-items: center;
-        display: flex;
-        flex-direction: column;
-        gap: 20px;
-      }
-
-      .preview-title {
-        letter-spacing: -0.04em;
-        margin: 0;
-        text-align: center;
-      }
-
-      .preview-caption {
-        color: var(--muted);
-        font-size: 14px;
-        margin: -12px 0 0;
-      }
-
-      .switcher {
-        background: rgba(255, 255, 255, 0.82);
-        border: 1px solid rgba(255, 255, 255, 0.9);
-        border-radius: 999px;
-        box-shadow: 0 8px 28px rgba(7, 36, 26, 0.1);
-        display: flex;
-        gap: 4px;
-        padding: 5px;
-      }
-
-      .switcher button {
-        background: transparent;
-        border: 0;
-        border-radius: 999px;
-        color: var(--muted);
-        cursor: pointer;
+      button {
+        color: inherit;
         font: inherit;
-        font-size: 13px;
-        font-weight: 800;
-        padding: 9px 18px;
       }
 
-      .switcher button.active {
-        background: var(--navy);
-        color: #fff;
-      }
-
-      .phone {
-        background: #09151b;
-        border: 8px solid #09151b;
-        border-radius: 48px;
-        box-shadow:
-          0 34px 70px rgba(4, 27, 19, 0.22),
-          0 0 0 2px rgba(255, 255, 255, 0.42);
-        height: 844px;
+      .app {
+        width: min(100%, 430px);
+        min-height: 100vh;
+        margin: 0 auto;
         overflow: hidden;
-        position: relative;
-        width: 390px;
-      }
-
-      .notch {
-        background: #09151b;
-        border-radius: 0 0 18px 18px;
-        height: 27px;
-        left: 50%;
-        position: absolute;
-        top: 0;
-        transform: translateX(-50%);
-        width: 118px;
-        z-index: 20;
+        background: var(--bg);
+        box-shadow: var(--shadow);
       }
 
       .screen {
-        background: var(--background);
-        height: 100%;
-        overflow: hidden;
-        position: relative;
-      }
-
-      .view {
         display: none;
-        height: 100%;
+        min-height: 100vh;
+        padding: 22px 20px 116px;
       }
 
-      .view.active {
+      .screen.active {
         display: block;
+        animation: screen-in 0.28s ease both;
       }
 
-      .scroll {
-        height: 100%;
-        overflow: hidden;
-        padding: 27px 18px 112px;
+      @keyframes screen-in {
+        from {
+          opacity: 0;
+          transform: translateY(8px);
+        }
       }
 
-      .title-row {
-        align-items: center;
+      .header {
         display: flex;
+        align-items: center;
         justify-content: space-between;
-        margin: 10px 2px 16px;
+        margin-bottom: 20px;
       }
 
       .eyebrow {
+        margin: 0 0 4px;
         color: var(--brand-dark);
-        font-size: 10px;
+        font-size: 11px;
         font-weight: 900;
-        letter-spacing: 0.16em;
-        margin-bottom: 4px;
+        letter-spacing: 1.2px;
       }
 
+      h1,
       h2,
+      h3,
       p {
         margin: 0;
       }
 
-      .title-row h2 {
-        font-size: 25px;
-        letter-spacing: -0.05em;
+      h1 {
+        font-size: 28px;
+        letter-spacing: -0.8px;
       }
 
-      .gear {
+      .coin-pill,
+      .level-pill {
+        display: inline-flex;
         align-items: center;
-        background: #fff;
-        border-radius: 17px;
-        box-shadow: 0 5px 16px rgba(7, 36, 26, 0.08);
-        display: flex;
-        font-size: 18px;
-        height: 42px;
-        justify-content: center;
-        width: 42px;
+        gap: 7px;
+        border-radius: 999px;
+        font-size: 13px;
+        font-weight: 900;
       }
 
-      .hero {
-        background: var(--navy);
-        border-radius: 28px;
-        color: #fff;
-        height: 318px;
-        overflow: hidden;
+      .coin-pill {
+        padding: 9px 13px;
+        color: #994a04;
+        background: var(--orange-soft);
+      }
+
+      .coin-dot {
+        color: #d87511;
+      }
+
+      .level-pill {
+        padding: 7px 11px;
+        color: white;
+        background: rgba(255, 255, 255, 0.14);
+      }
+
+      .hero-card,
+      .avatar-card {
         position: relative;
+        min-height: 370px;
+        overflow: hidden;
+        border-radius: 30px;
+        color: white;
+        background: var(--navy);
       }
 
-      .hero::before {
-        background: #0d8c7c;
-        border-radius: 50%;
-        content: '';
-        height: 260px;
-        opacity: 0.34;
+      .hero-card::before,
+      .avatar-card::before {
         position: absolute;
-        right: -55px;
-        top: -50px;
-        width: 260px;
+        top: -70px;
+        right: -80px;
+        width: 310px;
+        height: 310px;
+        border-radius: 50%;
+        background: #164d58;
+        content: '';
+      }
+
+      .hero-card::after,
+      .avatar-card::after {
+        position: absolute;
+        right: 54px;
+        bottom: -100px;
+        width: 220px;
+        height: 220px;
+        border-radius: 50%;
+        background: rgba(13, 140, 124, 0.6);
+        content: '';
       }
 
       .hero-copy {
-        left: 20px;
-        position: absolute;
-        top: 22px;
-        z-index: 2;
+        position: relative;
+        z-index: 3;
+        padding: 23px;
       }
 
-      .pill {
-        background: rgba(255, 255, 255, 0.12);
-        border-radius: 999px;
-        display: inline-block;
-        font-size: 10px;
-        font-weight: 900;
-        padding: 7px 10px;
+      .hero-copy h2 {
+        margin-top: 14px;
+        font-size: 30px;
+        letter-spacing: -0.8px;
       }
 
-      .hero-name {
-        font-size: 29px;
-        font-weight: 900;
-        letter-spacing: -0.05em;
-        margin-top: 12px;
-      }
-
-      .hero-message {
+      .hero-copy p {
+        margin-top: 8px;
         color: #cfe5e1;
-        font-size: 12px;
-        font-weight: 650;
+        font-size: 13px;
         line-height: 1.55;
-        margin-top: 7px;
       }
 
-      .hero img {
-        bottom: 25px;
-        image-rendering: pixelated;
+      .avatar-stage {
         position: absolute;
-        right: -32px;
+        z-index: 2;
+        right: -4px;
+        bottom: 40px;
         width: 270px;
+        height: 290px;
       }
 
-      .hero-bottom {
-        background: rgba(5, 18, 27, 0.8);
-        bottom: 0;
-        left: 0;
-        padding: 12px 20px 16px;
+      .avatar-stage::after {
         position: absolute;
-        right: 0;
-        z-index: 4;
+        right: 28px;
+        bottom: 7px;
+        width: 190px;
+        height: 36px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.12);
+        content: '';
       }
 
-      .level-labels {
+      .hero-img {
+        position: absolute;
+        z-index: 2;
+        right: 7px;
+        bottom: 5px;
+        width: 235px;
+        height: 270px;
+        object-fit: contain;
+        image-rendering: pixelated;
+      }
+
+      .wearable {
+        position: absolute;
+        z-index: 5;
+        display: grid;
+        width: 48px;
+        height: 48px;
+        place-items: center;
+        font-size: 36px;
+        filter: drop-shadow(0 4px 3px rgba(0, 0, 0, 0.16));
+        pointer-events: none;
+      }
+
+      .wearable[data-slot='head'] {
+        top: 21px;
+        right: 87px;
+      }
+
+      .wearable[data-slot='top'] {
+        top: 135px;
+        right: 87px;
+      }
+
+      .wearable[data-slot='shoes'] {
+        right: 76px;
+        bottom: 13px;
+      }
+
+      .wearable[data-slot='accessory'] {
+        top: 134px;
+        right: 30px;
+      }
+
+      .xp-panel {
+        position: absolute;
+        z-index: 6;
+        right: 20px;
+        bottom: 19px;
+        left: 20px;
+      }
+
+      .xp-labels {
         display: flex;
-        font-size: 9px;
-        font-weight: 800;
         justify-content: space-between;
         margin-bottom: 7px;
-      }
-
-      .level-labels span:first-child {
-        color: var(--yellow);
+        font-size: 10px;
+        font-weight: 900;
       }
 
       .progress {
-        background: rgba(255, 255, 255, 0.15);
-        border-radius: 999px;
-        height: 7px;
+        height: 8px;
         overflow: hidden;
+        border-radius: 99px;
+        background: #eaf2ee;
+      }
+
+      .progress.dark {
+        background: rgba(255, 255, 255, 0.14);
       }
 
       .progress > span {
-        background: var(--yellow);
-        border-radius: inherit;
         display: block;
         height: 100%;
-        width: 65%;
+        border-radius: inherit;
+        background: var(--brand);
+        transition: width 0.4s ease;
+      }
+
+      .progress.dark > span {
+        background: var(--yellow);
       }
 
       .card {
-        background: #fff;
-        border-radius: 22px;
-        box-shadow: 0 7px 22px rgba(7, 36, 26, 0.055);
         margin-top: 14px;
-        padding: 17px;
+        padding: 18px;
+        border-radius: 23px;
+        background: var(--surface);
+        box-shadow: 0 8px 24px rgba(18, 55, 44, 0.05);
       }
 
-      .recommend {
+      .run-card-top,
+      .row,
+      .item-detail-top,
+      .section-title,
+      .quest-top {
         display: flex;
+        align-items: center;
         justify-content: space-between;
+        gap: 12px;
       }
 
-      .recommend small {
+      .run-eyebrow {
         color: var(--brand-dark);
-        font-size: 9px;
+        font-size: 10px;
         font-weight: 900;
       }
 
-      .recommend h3 {
-        font-size: 17px;
-        letter-spacing: -0.04em;
-        margin: 5px 0;
+      .run-card h3 {
+        margin-top: 4px;
+        font-size: 18px;
       }
 
-      .recommend p {
+      .caption {
+        margin-top: 5px;
         color: var(--muted);
-        font-size: 10px;
+        font-size: 11px;
+        line-height: 1.5;
       }
 
       .route-icon {
-        align-items: center;
-        background: var(--brand-soft);
-        border-radius: 16px;
+        display: grid;
+        width: 52px;
+        height: 52px;
+        flex: 0 0 auto;
+        place-items: center;
+        border-radius: 17px;
         color: var(--brand-dark);
-        display: flex;
+        background: var(--brand-soft);
         font-size: 25px;
-        height: 48px;
-        justify-content: center;
-        width: 48px;
       }
 
       .primary {
-        background: var(--brand);
-        border: 0;
-        border-radius: 15px;
-        color: #fff;
-        cursor: pointer;
-        display: block;
-        font-size: 13px;
-        font-weight: 900;
-        margin-top: 14px;
-        padding: 13px;
-        text-align: center;
         width: 100%;
+        min-height: 54px;
+        margin-top: 15px;
+        border: 0;
+        border-radius: 16px;
+        color: white;
+        background: var(--brand);
+        font-size: 15px;
+        font-weight: 900;
+        cursor: pointer;
+        transition:
+          transform 0.15s ease,
+          opacity 0.15s ease;
       }
 
       .primary:active,
       .nav-item:active,
-      .control:active,
-      .attack-button:active {
+      .item-card:active {
         transform: scale(0.97);
       }
 
-      .primary:disabled,
-      .attack-button:disabled {
-        cursor: not-allowed;
-        filter: grayscale(0.6);
-        opacity: 0.55;
+      .primary:disabled {
+        opacity: 0.44;
+        cursor: default;
+      }
+
+      .section-title {
+        align-items: flex-end;
+        margin: 27px 0 12px;
+      }
+
+      .section-title h2 {
+        font-size: 20px;
+        letter-spacing: -0.4px;
+      }
+
+      .section-title button {
+        border: 0;
+        color: var(--brand-dark);
+        background: none;
+        font-size: 12px;
+        font-weight: 900;
+        cursor: pointer;
+      }
+
+      .metrics {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        text-align: center;
+      }
+
+      .metric + .metric {
+        border-left: 1px solid var(--line);
+      }
+
+      .metric strong {
+        display: block;
+        font-size: 18px;
+      }
+
+      .metric span {
+        display: block;
+        margin-top: 5px;
+        color: var(--muted);
+        font-size: 10px;
+      }
+
+      .style-teaser {
+        border: 0;
+        text-align: left;
+        cursor: pointer;
+      }
+
+      .teaser-icon {
+        display: grid;
+        width: 64px;
+        height: 64px;
+        flex: 0 0 auto;
+        place-items: center;
+        border-radius: 19px;
+        background: var(--orange-soft);
+        font-size: 32px;
+      }
+
+      .teaser-copy {
+        flex: 1;
+      }
+
+      .teaser-copy small {
+        color: var(--muted);
+      }
+
+      .chevron {
+        color: var(--faint);
+        font-size: 26px;
+      }
+
+      .segment,
+      .filters {
+        display: flex;
+        gap: 8px;
+        overflow-x: auto;
+        scrollbar-width: none;
+      }
+
+      .segment {
+        padding: 4px;
+        border-radius: 16px;
+        background: white;
+      }
+
+      .segment button,
+      .filter {
+        border: 0;
+        border-radius: 13px;
+        color: var(--muted);
+        background: transparent;
+        font-size: 12px;
+        font-weight: 900;
+        cursor: pointer;
+        white-space: nowrap;
+      }
+
+      .segment button {
+        flex: 1;
+        padding: 11px 6px;
+      }
+
+      .segment button.active,
+      .filter.active {
+        color: white;
+        background: var(--navy);
+      }
+
+      .filter {
+        padding: 10px 17px;
+        border: 1px solid var(--line);
+        background: white;
+      }
+
+      .shop-hero {
+        min-height: 355px;
+      }
+
+      .outfit-strip {
+        position: absolute;
+        z-index: 7;
+        bottom: 18px;
+        left: 20px;
+        display: flex;
+        gap: 7px;
+      }
+
+      .outfit-slot {
+        display: grid;
+        width: 42px;
+        height: 42px;
+        place-items: center;
+        border: 1px solid rgba(255, 255, 255, 0.17);
+        border-radius: 13px;
+        background: rgba(255, 255, 255, 0.14);
+        font-size: 19px;
+      }
+
+      .earn-card {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        padding: 14px;
+      }
+
+      .earn-icon {
+        display: grid;
+        width: 47px;
+        height: 47px;
+        place-items: center;
+        border-radius: 14px;
+        background: var(--brand-soft);
+        font-size: 22px;
+      }
+
+      .earn-card strong {
+        display: block;
+        font-size: 12px;
+      }
+
+      .earn-card small {
+        color: var(--muted);
+        font-size: 10px;
+      }
+
+      .earn-value {
+        margin-left: auto;
+        color: #a65a00;
+        font-size: 12px;
+        font-weight: 900;
+      }
+
+      .item-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+        margin-top: 14px;
+      }
+
+      .item-card {
+        padding: 10px;
+        border: 2px solid transparent;
+        border-radius: 19px;
+        text-align: left;
+        background: white;
+        cursor: pointer;
+      }
+
+      .item-card.selected {
+        border-color: var(--brand);
+      }
+
+      .item-card.equipped {
+        background: #effbf6;
+      }
+
+      .item-art {
+        position: relative;
+        display: grid;
+        height: 88px;
+        place-items: center;
+        border-radius: 15px;
+        background: #edf3f0;
+        font-size: 40px;
+      }
+
+      .item-art.regional {
+        background: #f0ecff;
+      }
+
+      .check {
+        position: absolute;
+        top: 7px;
+        right: 7px;
+        display: grid;
+        width: 21px;
+        height: 21px;
+        place-items: center;
+        border-radius: 10px;
+        color: white;
+        background: var(--brand);
+        font-size: 11px;
+        font-weight: 900;
+      }
+
+      .item-name {
+        display: block;
+        margin-top: 9px;
+        overflow: hidden;
+        font-size: 12px;
+        font-weight: 900;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+
+      .item-meta {
+        display: block;
+        margin-top: 5px;
+        color: #a65a00;
+        font-size: 10px;
+        font-weight: 900;
+      }
+
+      .item-card.equipped .item-meta,
+      .item-card.owned .item-meta {
+        color: var(--brand-dark);
+      }
+
+      .item-detail-top {
+        align-items: flex-start;
+      }
+
+      .detail-icon {
+        display: grid;
+        width: 70px;
+        height: 70px;
+        flex: 0 0 auto;
+        place-items: center;
+        border-radius: 18px;
+        background: var(--orange-soft);
+        font-size: 35px;
+      }
+
+      .item-detail-copy {
+        flex: 1;
+      }
+
+      .item-detail-copy h3 {
+        font-size: 16px;
+      }
+
+      .badge {
+        display: inline-flex;
+        margin-top: 7px;
+        padding: 5px 9px;
+        border-radius: 99px;
+        color: var(--brand-dark);
+        background: var(--brand-soft);
+        font-size: 10px;
+        font-weight: 900;
+      }
+
+      .regional-row,
+      .wardrobe-row,
+      .quest-card {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+
+      .regional-row + .regional-row,
+      .wardrobe-row + .wardrobe-row {
+        margin-top: 14px;
+        padding-top: 14px;
+        border-top: 1px solid var(--line);
+      }
+
+      .regional-row > span:first-child,
+      .wardrobe-icon {
+        font-size: 28px;
+      }
+
+      .regional-row div,
+      .wardrobe-row div {
+        flex: 1;
+      }
+
+      .regional-row small {
+        color: var(--muted);
+      }
+
+      .regional-progress {
+        color: var(--purple);
+        font-size: 10px;
+        font-weight: 900;
+      }
+
+      .avatar-card {
+        min-height: 445px;
+      }
+
+      .avatar-card .avatar-stage {
+        right: 15px;
+        bottom: 62px;
+        width: 300px;
+        height: 320px;
+      }
+
+      .avatar-card .hero-img {
+        width: 260px;
+        height: 300px;
+      }
+
+      .avatar-card .wearable[data-slot='head'] {
+        top: 16px;
+        right: 96px;
+      }
+
+      .avatar-card .wearable[data-slot='top'] {
+        top: 148px;
+        right: 96px;
+      }
+
+      .avatar-card .wearable[data-slot='shoes'] {
+        right: 84px;
+      }
+
+      .avatar-card .wearable[data-slot='accessory'] {
+        top: 148px;
+        right: 31px;
+      }
+
+      .avatar-name {
+        position: absolute;
+        z-index: 7;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        padding: 15px 21px;
+        background: rgba(6, 25, 35, 0.92);
+      }
+
+      .avatar-name small {
+        display: block;
+        margin-top: 4px;
+        overflow: hidden;
+        color: #bed4d1;
+        font-size: 10px;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+
+      .wardrobe-row button {
+        padding: 8px 12px;
+        border: 0;
+        border-radius: 12px;
+        color: var(--brand-dark);
+        background: var(--brand-soft);
+        font-size: 11px;
+        font-weight: 900;
+        cursor: pointer;
+      }
+
+      .wardrobe-row button:disabled {
+        color: var(--muted);
+        background: #edf2ef;
+      }
+
+      .quest-list {
+        display: grid;
+        gap: 11px;
+      }
+
+      .quest-card {
+        padding: 16px;
+      }
+
+      .quest-reward {
+        display: grid;
+        width: 48px;
+        height: 48px;
+        flex: 0 0 auto;
+        place-items: center;
+        border-radius: 15px;
+        color: var(--brand-dark);
+        background: var(--brand-soft);
+        font-size: 20px;
+      }
+
+      .quest-copy {
+        flex: 1;
+      }
+
+      .quest-top strong {
+        font-size: 13px;
+      }
+
+      .quest-top span {
+        color: var(--muted);
+        font-size: 10px;
+        font-weight: 800;
+      }
+
+      .quest-copy .progress {
+        height: 7px;
+        margin-top: 9px;
+      }
+
+      .quest-bottom {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-top: 8px;
+      }
+
+      .quest-bottom small {
+        color: var(--muted);
+        font-size: 10px;
+      }
+
+      .claim {
+        padding: 6px 10px;
+        border: 0;
+        border-radius: 10px;
+        color: white;
+        background: var(--orange);
+        font-size: 10px;
+        font-weight: 900;
+        cursor: pointer;
+      }
+
+      .claim:disabled {
+        color: var(--muted);
+        background: #edf2ef;
       }
 
       .nav {
-        align-items: center;
-        background: #fff;
-        border-radius: 23px;
-        bottom: 11px;
-        box-shadow: 0 12px 32px rgba(7, 36, 26, 0.16);
-        display: flex;
-        height: 72px;
-        justify-content: space-around;
-        left: 12px;
-        position: absolute;
-        right: 12px;
-        z-index: 10;
+        position: fixed;
+        z-index: 30;
+        right: max(14px, calc((100vw - 430px) / 2 + 14px));
+        bottom: 10px;
+        left: max(14px, calc((100vw - 430px) / 2 + 14px));
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        padding: 8px 7px;
+        border: 1px solid rgba(226, 234, 230, 0.8);
+        border-radius: 25px;
+        background: rgba(255, 255, 255, 0.94);
+        box-shadow: 0 12px 38px rgba(17, 47, 39, 0.18);
+        backdrop-filter: blur(18px);
       }
 
       .nav-item {
-        align-items: center;
-        background: transparent;
-        border: 0;
-        color: var(--faint);
-        cursor: pointer;
         display: flex;
+        min-height: 58px;
+        align-items: center;
+        justify-content: center;
         flex-direction: column;
-        font-family: inherit;
-        font-size: 9px;
-        font-weight: 800;
         gap: 4px;
-        width: 25%;
+        border: 0;
+        border-radius: 18px;
+        color: var(--faint);
+        background: transparent;
+        font-size: 10px;
+        font-weight: 800;
+        cursor: pointer;
       }
 
-      .nav-item b {
-        align-items: center;
+      .nav-icon {
+        display: grid;
+        width: 31px;
+        height: 27px;
+        place-items: center;
         border-radius: 12px;
-        display: flex;
-        font-size: 18px;
-        height: 31px;
-        justify-content: center;
-        width: 42px;
+        font-size: 17px;
       }
 
       .nav-item.active {
         color: var(--brand-dark);
       }
 
-      .nav-item.active b {
-        background: var(--brand-soft);
+      .nav-item.active .nav-icon {
+        color: white;
+        background: var(--brand);
       }
 
-      .run-view {
-        background: var(--navy);
-        color: #fff;
+      .running-overlay {
+        position: fixed;
+        z-index: 100;
+        inset: 0;
+        display: none;
+        width: min(100%, 430px);
+        margin: auto;
+        padding: 34px 22px;
+        color: white;
+        background: radial-gradient(circle at 50% 22%, rgba(22, 184, 122, 0.4), transparent 18rem), var(--navy);
       }
 
-      .run-header {
-        align-items: center;
+      .running-overlay.active {
+        display: flex;
+        align-items: stretch;
+        flex-direction: column;
+      }
+
+      .running-top {
         display: flex;
         justify-content: space-between;
-        padding: 34px 18px 0;
+        font-size: 11px;
+        font-weight: 900;
       }
 
-      .close {
-        align-items: center;
-        background: rgba(255, 255, 255, 0.1);
-        border: 0;
-        border-radius: 50%;
-        color: #fff;
-        cursor: pointer;
-        display: flex;
-        font-family: inherit;
-        font-size: 24px;
-        height: 38px;
-        justify-content: center;
-        width: 38px;
+      .live-badge {
+        padding: 6px 10px;
+        border-radius: 99px;
+        color: #0f674b;
+        background: #bff5dd;
       }
 
-      .gps {
-        align-items: center;
-        color: #bed1d2;
-        display: flex;
-        font-size: 10px;
-        font-weight: 800;
-        gap: 5px;
-      }
-
-      .gps::before {
-        background: #35df91;
-        border-radius: 50%;
-        content: '';
-        height: 7px;
-        width: 7px;
-      }
-
-      .run-center {
-        padding: 20px 18px 0;
+      .run-live-main {
+        display: grid;
+        flex: 1;
+        place-content: center;
         text-align: center;
       }
 
-      .run-status {
-        color: #a8c8c6;
-        font-size: 12px;
+      .run-live-main small {
+        color: #b9d0cd;
         font-weight: 800;
       }
 
-      .distance {
-        font-size: 76px;
-        font-variant-numeric: tabular-nums;
+      .run-distance {
+        margin: 10px 0 0;
+        font-size: 74px;
         font-weight: 900;
-        letter-spacing: -0.06em;
-        line-height: 0.95;
-        margin-top: 12px;
+        letter-spacing: -4px;
       }
 
-      .distance-unit {
-        color: #9db5b7;
-        font-size: 15px;
-        font-weight: 800;
-        margin-top: 6px;
+      .run-unit {
+        font-size: 20px;
+        letter-spacing: 0;
       }
 
-      .pace {
-        color: var(--yellow);
-        font-size: 11px;
-        font-weight: 850;
-        margin-top: 8px;
-      }
-
-      .metrics {
-        align-items: center;
-        background: rgba(255, 255, 255, 0.08);
-        border: 1px solid rgba(255, 255, 255, 0.06);
-        border-radius: 20px;
+      .live-metrics {
         display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        margin-top: 18px;
-        padding: 14px 5px;
+        grid-template-columns: repeat(3, 1fr);
+        margin-top: 34px;
       }
 
-      .metric {
-        border-right: 1px solid rgba(255, 255, 255, 0.1);
-        min-width: 0;
-      }
-
-      .metric:last-child {
-        border: 0;
-      }
-
-      .metric strong {
+      .live-metrics strong,
+      .live-metrics span {
         display: block;
-        font-size: 12px;
-        letter-spacing: -0.03em;
-        white-space: nowrap;
       }
 
-      .metric span {
-        color: #88a4a6;
-        display: block;
-        font-size: 8px;
-        margin-top: 4px;
-      }
-
-      .map {
-        background: #092732;
-        border-radius: 21px;
-        height: 176px;
-        margin-top: 16px;
-        overflow: hidden;
-        position: relative;
-        text-align: left;
-      }
-
-      .map.light {
-        background: #e8f0ec;
-      }
-
-      .map-road {
-        background: rgba(255, 255, 255, 0.07);
-        height: 7px;
-        left: -20px;
-        position: absolute;
-        right: -20px;
-        top: 53%;
-        transform: rotate(-9deg);
-      }
-
-      .map.light .map-road {
-        background: rgba(57, 91, 82, 0.12);
-      }
-
-      .map-river {
-        background: rgba(48, 166, 190, 0.18);
-        height: 24px;
-        left: -25px;
-        position: absolute;
-        right: -25px;
-        top: 68%;
-        transform: rotate(7deg);
-      }
-
-      .map-title {
-        font-size: 10px;
-        font-weight: 900;
-        left: 13px;
-        position: absolute;
-        top: 12px;
-        z-index: 2;
-      }
-
-      .map-caption {
-        color: #89aaa5;
-        font-size: 7px;
-        left: 13px;
-        position: absolute;
-        top: 28px;
-        z-index: 2;
-      }
-
-      .map.light .map-title {
-        color: var(--ink);
-      }
-
-      .map.light .map-caption {
-        color: var(--muted);
-      }
-
-      .privacy {
-        background: rgba(255, 255, 255, 0.11);
-        border-radius: 999px;
-        font-size: 7px;
-        font-weight: 900;
-        padding: 5px 7px;
-        position: absolute;
-        right: 11px;
-        top: 11px;
-        z-index: 2;
-      }
-
-      .map.light .privacy {
-        background: rgba(255, 255, 255, 0.85);
-        color: var(--brand-dark);
-      }
-
-      .route {
-        fill: none;
-        stroke: var(--orange);
-        stroke-linecap: round;
-        stroke-linejoin: round;
-        stroke-width: 5;
-      }
-
-      .map.light .route {
-        stroke: var(--brand-dark);
-      }
-
-      .map svg {
-        height: 100%;
-        left: 0;
-        position: absolute;
-        top: 0;
-        width: 100%;
-      }
-
-      .run-quest {
-        background: rgba(255, 255, 255, 0.08);
-        border-radius: 18px;
-        margin-top: 14px;
-        padding: 14px;
-        text-align: left;
-      }
-
-      .run-quest-top {
-        align-items: center;
-        display: flex;
-        gap: 10px;
-        margin-bottom: 10px;
-      }
-
-      .run-quest-icon {
-        color: var(--yellow);
+      .live-metrics strong {
         font-size: 17px;
       }
 
-      .run-quest h4 {
-        font-size: 12px;
-        margin: 0 0 3px;
-      }
-
-      .run-quest p {
-        color: #8eabac;
+      .live-metrics span {
+        margin-top: 5px;
+        color: #9fb9b6;
         font-size: 9px;
       }
 
-      .run-controls {
-        align-items: center;
-        bottom: 22px;
-        display: flex;
-        gap: 48px;
-        justify-content: center;
-        left: 0;
-        position: absolute;
-        right: 0;
-        z-index: 4;
-      }
-
-      .control {
-        align-items: center;
-        background: transparent;
-        border: 0;
-        color: #fff;
-        cursor: pointer;
-        display: flex;
-        flex-direction: column;
-        font-family: inherit;
-        font-size: 9px;
-        font-weight: 800;
-        gap: 5px;
-      }
-
-      .control-circle {
-        align-items: center;
-        background: #fff;
-        border-radius: 50%;
-        color: var(--navy);
-        display: flex;
-        font-size: 22px;
-        height: 72px;
-        justify-content: center;
-        width: 72px;
-      }
-
-      .control.finish .control-circle {
-        background: var(--orange);
-        color: #fff;
-      }
-
-      .finish-square {
-        background: currentColor;
-        border-radius: 3px;
-        height: 18px;
-        width: 18px;
-      }
-
-      .summary-scroll {
-        height: 100%;
-        overflow: hidden;
-        padding: 34px 18px 38px;
-        text-align: center;
-      }
-
-      .complete-check {
-        align-items: center;
-        background: var(--brand-soft);
-        border-radius: 50%;
-        color: var(--brand-dark);
-        display: flex;
-        font-size: 20px;
-        font-weight: 900;
-        height: 48px;
-        justify-content: center;
-        margin: 4px auto 10px;
-        width: 48px;
-      }
-
-      .summary-eyebrow {
-        color: var(--brand-dark);
-        font-size: 9px;
-        font-weight: 900;
-        letter-spacing: 0.16em;
-      }
-
-      .summary-title {
-        font-size: 23px;
-        letter-spacing: -0.05em;
-        margin-top: 5px;
-      }
-
-      .summary-caption {
-        color: var(--muted);
-        font-size: 10px;
-        margin-top: 5px;
-      }
-
-      .summary-record {
-        margin-top: 14px;
-        padding: 13px 15px 14px;
-      }
-
-      .summary-distance {
-        align-items: baseline;
-        display: flex;
-        justify-content: center;
-      }
-
-      .summary-distance strong {
-        font-size: 44px;
-        letter-spacing: -0.05em;
-      }
-
-      .summary-distance span {
-        color: var(--muted);
-        font-size: 13px;
-        font-weight: 800;
-        margin-left: 4px;
-      }
-
-      .summary-metrics {
-        border-top: 1px solid var(--line);
+      .run-actions {
         display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        margin-top: 8px;
-        padding-top: 11px;
-      }
-
-      .summary-metric {
-        border-right: 1px solid var(--line);
-      }
-
-      .summary-metric:last-child {
-        border: 0;
-      }
-
-      .summary-metric strong {
-        display: block;
-        font-size: 11px;
-      }
-
-      .summary-metric span {
-        color: var(--muted);
-        display: block;
-        font-size: 7px;
-        margin-top: 3px;
-      }
-
-      .summary-map {
-        height: 144px;
-        margin-top: 12px;
-      }
-
-      .details {
-        display: grid;
-        gap: 0;
-        grid-template-columns: repeat(2, 1fr);
-        margin-top: 12px;
-        padding: 0;
-      }
-
-      .detail {
-        align-items: center;
-        display: flex;
-        gap: 8px;
-        padding: 13px;
-        text-align: left;
-      }
-
-      .detail:nth-child(odd) {
-        border-right: 1px solid var(--line);
-      }
-
-      .detail:nth-child(-n + 2) {
-        border-bottom: 1px solid var(--line);
-      }
-
-      .detail i {
-        font-style: normal;
-        font-size: 16px;
-      }
-
-      .detail strong {
-        display: block;
-        font-size: 11px;
-      }
-
-      .detail span {
-        color: var(--muted);
-        display: block;
-        font-size: 7px;
-        margin-top: 3px;
-      }
-
-      .reward-title {
-        font-size: 12px;
-        font-weight: 900;
-        margin: 13px 0 8px;
-        text-align: left;
-      }
-
-      .rewards {
-        display: grid;
-        gap: 8px;
-        grid-template-columns: 1fr 1fr;
-      }
-
-      .reward {
-        background: #fff3e9;
-        border-radius: 17px;
-        color: #b84f0a;
-        padding: 12px;
-      }
-
-      .reward:last-child {
-        background: var(--brand-soft);
-        color: var(--brand-dark);
-      }
-
-      .reward strong {
-        display: block;
-        font-size: 16px;
-      }
-
-      .reward span {
-        display: block;
-        font-size: 8px;
-        margin-top: 2px;
-      }
-
-      .app-scroll {
-        height: 100%;
-        overflow-x: hidden;
-        overflow-y: auto;
-        padding: 35px 18px 112px;
-        scrollbar-width: none;
-      }
-
-      .app-scroll::-webkit-scrollbar {
-        display: none;
-      }
-
-      .app-header {
-        align-items: flex-start;
-        display: flex;
-        justify-content: space-between;
-        margin: 6px 2px 16px;
-      }
-
-      .app-header h2 {
-        font-size: 25px;
-        letter-spacing: -0.05em;
-        margin: 0;
-      }
-
-      .app-header p {
-        color: var(--muted);
-        font-size: 10px;
-        margin-top: 5px;
-      }
-
-      .stat-pill {
-        background: var(--brand-soft);
-        border-radius: 999px;
-        color: var(--brand-dark);
-        font-size: 10px;
-        font-weight: 900;
-        padding: 8px 10px;
-      }
-
-      .quest-list {
-        display: grid;
+        grid-template-columns: 1fr 2fr;
         gap: 10px;
       }
 
-      .quest-item {
-        background: #fff;
-        border-radius: 20px;
-        box-shadow: 0 7px 22px rgba(7, 36, 26, 0.05);
-        display: grid;
-        gap: 12px;
-        grid-template-columns: 42px 1fr;
-        padding: 15px;
-      }
-
-      .quest-icon {
-        align-items: center;
-        background: var(--brand-soft);
-        border-radius: 14px;
-        display: flex;
-        font-size: 20px;
-        height: 42px;
-        justify-content: center;
-        width: 42px;
-      }
-
-      .quest-copy h3 {
-        font-size: 14px;
-        margin: 0;
-      }
-
-      .quest-copy p {
-        color: var(--muted);
-        font-size: 9px;
-        margin: 4px 0 10px;
-      }
-
-      .quest-copy .progress {
-        background: var(--line);
-      }
-
-      .quest-copy .progress span {
-        background: var(--brand);
-      }
-
-      .quest-footer {
-        align-items: center;
-        display: flex;
-        grid-column: 1 / -1;
-        justify-content: space-between;
-      }
-
-      .quest-reward {
-        color: var(--orange);
-        font-size: 9px;
-        font-weight: 900;
-      }
-
-      .small-button {
-        background: var(--navy);
+      .run-actions button {
+        min-height: 56px;
         border: 0;
-        border-radius: 12px;
-        color: #fff;
+        border-radius: 17px;
+        font-weight: 900;
         cursor: pointer;
-        font-family: inherit;
-        font-size: 9px;
-        font-weight: 900;
-        padding: 9px 12px;
       }
 
-      .small-button:disabled {
-        background: var(--line);
-        color: var(--faint);
+      .cancel-run {
+        color: #d6e5e3;
+        background: rgba(255, 255, 255, 0.1);
       }
 
-      .battle-card {
-        background: linear-gradient(150deg, #173c43, var(--navy));
-        border-radius: 28px;
-        color: #fff;
-        margin-top: 13px;
-        overflow: hidden;
-        padding: 0 0 15px;
-        position: relative;
-        text-align: center;
-      }
-
-      .stage-map-web {
-        background: radial-gradient(circle at 15% 25%, rgba(255, 255, 255, 0.7), transparent 50px),
-          radial-gradient(circle at 85% 75%, rgba(255, 255, 255, 0.5), transparent 65px), #dff3e8;
-        border-radius: 26px;
-        height: 360px;
-        margin-bottom: 13px;
-        overflow: hidden;
-        position: relative;
-      }
-
-      .stage-map-title {
-        left: 15px;
-        position: absolute;
-        top: 14px;
-        z-index: 4;
-      }
-
-      .stage-map-title strong {
-        display: block;
-        font-size: 12px;
-      }
-
-      .stage-map-title span {
-        color: var(--muted);
-        display: block;
-        font-size: 8px;
-        margin-top: 3px;
-      }
-
-      .stage-map-web svg {
-        height: 100%;
-        left: 0;
-        position: absolute;
-        top: 0;
-        width: 100%;
-      }
-
-      .stage-path-base,
-      .stage-path-progress {
-        fill: none;
-        stroke-linecap: round;
-        stroke-linejoin: round;
-        stroke-width: 9;
-      }
-
-      .stage-path-base {
-        stroke: rgba(58, 101, 82, 0.16);
-      }
-
-      .stage-path-progress {
-        stroke: var(--brand);
-        stroke-dasharray: 1500;
-        stroke-dashoffset: 1500;
-        transition: stroke-dashoffset 0.45s ease;
-      }
-
-      .stage-node-web {
-        align-items: center;
-        background: #bdcbc5;
-        border: 4px solid #d8e2dd;
-        border-radius: 50%;
-        box-shadow: 0 7px 12px rgba(23, 75, 57, 0.16);
-        color: #fff;
-        cursor: pointer;
-        display: flex;
-        flex-direction: column;
-        font-family: inherit;
-        height: 48px;
-        justify-content: center;
-        padding: 0;
-        position: absolute;
-        transform: translate(-50%, -50%);
-        transition: 0.2s ease;
-        width: 48px;
-        z-index: 3;
-      }
-
-      .stage-node-web strong {
-        font-size: 12px;
-        line-height: 1;
-      }
-
-      .stage-node-web span {
-        font-size: 8px;
-        line-height: 1;
-        margin-top: 3px;
-      }
-
-      .stage-node-web.cleared {
-        background: var(--brand);
-        border-color: #91e5c1;
-      }
-
-      .stage-node-web.current {
-        animation: stage-pulse 1.5s ease-in-out infinite;
+      .finish-run {
+        color: white;
         background: var(--orange);
-        border-color: #ffd0b1;
       }
 
-      .stage-node-web.selected {
-        box-shadow:
-          0 0 0 5px var(--yellow),
-          0 9px 16px rgba(23, 75, 57, 0.22);
-        transform: translate(-50%, -50%) scale(1.08);
-      }
-
-      .stage-node-web:disabled {
-        cursor: not-allowed;
-        opacity: 0.72;
-      }
-
-      .stage-boss-crown {
-        color: var(--orange);
-        font-size: 14px;
-        left: 50%;
-        position: absolute;
-        top: -18px;
-        transform: translateX(-50%);
-      }
-
-      .stage-decoration {
-        font-size: 29px;
-        opacity: 0.35;
-        position: absolute;
-      }
-
-      .stage-decoration.tree-one {
-        left: 17px;
-        top: 135px;
-      }
-
-      .stage-decoration.tree-two {
-        bottom: 60px;
-        right: 15px;
-      }
-
-      .stage-decoration.rock {
-        right: 25px;
-        top: 110px;
-      }
-
-      .selected-stage-bar {
-        align-items: center;
-        background: #fff;
-        border-radius: 18px;
-        display: flex;
-        justify-content: space-between;
-        margin-bottom: 11px;
-        padding: 12px 14px;
-      }
-
-      .selected-stage-bar strong {
-        display: block;
-        font-size: 12px;
-      }
-
-      .selected-stage-bar span {
-        color: var(--muted);
-        display: block;
-        font-size: 8px;
-        margin-top: 3px;
-      }
-
-      .stage-state-badge {
-        background: var(--orange);
-        border-radius: 999px;
-        color: #fff !important;
-        font-size: 8px !important;
-        font-weight: 900;
-        margin: 0 !important;
-        padding: 6px 8px;
-      }
-
-      .battle-zone {
-        color: #8ed6bc;
-        font-size: 9px;
-        font-weight: 900;
-        letter-spacing: 0.12em;
-      }
-
-      .battle-arena-web {
-        background: radial-gradient(circle at 82% 16%, rgba(226, 245, 200, 0.18), transparent 74px),
-          linear-gradient(165deg, #123d3c, #09212f);
-        height: 330px;
-        overflow: hidden;
-        position: relative;
-      }
-
-      .battle-arena-web::before,
-      .battle-arena-web::after {
-        background: #214d42;
-        border-radius: 50%;
-        bottom: -105px;
-        content: '';
-        height: 190px;
-        position: absolute;
-        width: 320px;
-      }
-
-      .battle-arena-web::before {
-        left: -90px;
-      }
-
-      .battle-arena-web::after {
-        right: -85px;
-      }
-
-      .enemy-hud-web,
-      .hero-hud-web {
-        background: rgba(5, 17, 25, 0.83);
-        border: 1px solid rgba(255, 255, 255, 0.08);
-        border-radius: 14px;
-        padding: 9px 10px;
-        position: absolute;
-        text-align: left;
-        z-index: 7;
-      }
-
-      .enemy-hud-web {
-        left: 13px;
-        top: 14px;
-        width: 62%;
-      }
-
-      .hero-hud-web {
-        bottom: 13px;
-        right: 13px;
-        width: 57%;
-      }
-
-      .hud-name-row {
-        align-items: center;
-        display: flex;
-        font-size: 9px;
-        font-weight: 900;
-        justify-content: space-between;
-        margin-bottom: 6px;
-      }
-
-      .hud-stage {
-        background: var(--orange);
-        border-radius: 999px;
-        font-size: 7px;
-        padding: 4px 6px;
-      }
-
-      .hud-bar {
-        background: rgba(255, 255, 255, 0.13);
-        border-radius: 999px;
-        height: 7px;
-        overflow: hidden;
-      }
-
-      .hud-bar span {
-        background: linear-gradient(90deg, var(--orange), #ffca57);
-        display: block;
-        height: 100%;
-        transition: width 0.25s ease;
-      }
-
-      .hero-hud-web .hud-bar span {
-        background: var(--brand);
-        width: 100%;
-      }
-
-      .hud-caption {
-        color: #a9c2bd;
-        font-size: 7px;
-        margin-top: 4px;
-        text-align: right;
-      }
-
-      .enemy-platform-web,
-      .hero-platform-web {
-        background: rgba(90, 159, 126, 0.28);
-        border-radius: 50%;
-        height: 28px;
-        position: absolute;
-      }
-
-      .enemy-platform-web {
-        right: 22px;
-        top: 191px;
-        transform: scaleX(1.5);
-        width: 94px;
-      }
-
-      .hero-platform-web {
-        bottom: 45px;
-        left: -5px;
-        transform: scaleX(1.5);
-        width: 112px;
-      }
-
-      .monster-web {
-        filter: drop-shadow(0 12px 8px rgba(0, 0, 0, 0.28));
-        font-size: 78px;
-        position: absolute;
-        right: 34px;
-        top: 103px;
-        transform-origin: center bottom;
-        z-index: 3;
-      }
-
-      .monster-web.defeated {
-        filter: grayscale(1);
-        opacity: 0.25;
-        transform: scale(0.72);
-      }
-
-      .battle-hero-web {
-        bottom: 28px;
-        image-rendering: pixelated;
-        left: -14px;
-        position: absolute;
-        width: 154px;
-        z-index: 4;
-      }
-
-      .auto-badge-web {
-        align-items: center;
-        background: rgba(255, 255, 255, 0.12);
-        border-radius: 999px;
+      .summary-modal {
+        position: fixed;
+        z-index: 110;
+        inset: 0;
         display: none;
-        font-size: 7px;
-        font-weight: 900;
-        gap: 5px;
-        padding: 6px 8px;
-        position: absolute;
-        right: 13px;
-        top: 14px;
-        z-index: 8;
-      }
-
-      .auto-badge-web::before {
-        background: var(--yellow);
-        border-radius: 50%;
-        content: '';
-        height: 6px;
-        width: 6px;
-      }
-
-      .slash-web {
-        color: var(--yellow);
-        font-size: 60px;
-        font-weight: 900;
-        opacity: 0;
-        position: absolute;
-        right: 49px;
-        text-shadow: 0 0 12px var(--orange);
-        top: 118px;
-        transform: rotate(-18deg);
-        z-index: 9;
-      }
-
-      .damage-number-web {
-        color: var(--yellow);
-        font-size: 24px;
-        font-weight: 900;
-        opacity: 0;
-        position: absolute;
-        right: 48px;
-        text-shadow: 0 2px 4px #6a2600;
-        top: 109px;
-        z-index: 10;
-      }
-
-      .battle-card.hunting .auto-badge-web {
-        display: flex;
-      }
-
-      .battle-card.hunting .battle-hero-web {
-        animation: hero-lunge 0.62s ease-in-out infinite;
-      }
-
-      .battle-card.hunting .monster-web {
-        animation: enemy-hit 0.62s ease-in-out infinite;
-      }
-
-      .battle-card.hunting .slash-web {
-        animation: slash-hit 0.62s ease-in-out infinite;
-      }
-
-      .battle-card.hunting .damage-number-web {
-        animation: damage-float 0.62s ease-out infinite;
-      }
-
-      .monster {
-        font-size: 84px;
-        filter: drop-shadow(0 13px 10px rgba(0, 0, 0, 0.25));
-        margin: 10px 0 4px;
-        transition: 0.2s ease;
-      }
-
-      .monster.hit {
-        opacity: 0.55;
-        transform: scale(0.9);
-      }
-
-      .monster-name {
-        font-size: 22px;
-        font-weight: 900;
-      }
-
-      .hp-label {
-        display: flex;
-        font-size: 9px;
-        font-weight: 800;
-        justify-content: space-between;
-        margin: 17px 0 7px;
-      }
-
-      .hp-bar {
-        background: rgba(255, 255, 255, 0.12);
-        border-radius: 999px;
-        height: 10px;
-        overflow: hidden;
-      }
-
-      .hp-bar span {
-        background: linear-gradient(90deg, var(--orange), #ffca57);
-        display: block;
-        height: 100%;
-        transition: width 0.25s ease;
-        width: 100%;
-      }
-
-      .attack-button {
-        background: var(--orange);
-        border: 0;
-        border-radius: 15px;
-        color: #fff;
-        cursor: pointer;
-        font-family: inherit;
-        font-size: 12px;
-        font-weight: 900;
-        margin: 10px 14px 0;
-        padding: 13px;
-        width: calc(100% - 28px);
-      }
-
-      .auto-message {
-        background: rgba(255, 255, 255, 0.09);
-        border-radius: 12px;
-        color: #a8c8c6;
-        font-size: 9px;
-        line-height: 1.5;
-        margin: 11px 14px 0;
-        padding: 9px 10px;
-      }
-
-      @keyframes hero-lunge {
-        0%,
-        100% {
-          transform: translateX(0);
-        }
-        42% {
-          transform: translateX(78px) translateY(-9px) scale(1.05);
-        }
-      }
-
-      @keyframes enemy-hit {
-        0%,
-        45%,
-        100% {
-          transform: translateX(0);
-        }
-        55% {
-          filter: brightness(2) drop-shadow(0 12px 8px rgba(0, 0, 0, 0.2));
-          transform: translateX(-8px);
-        }
-        65% {
-          transform: translateX(7px);
-        }
-      }
-
-      @keyframes slash-hit {
-        0%,
-        38%,
-        100% {
-          opacity: 0;
-          transform: rotate(-18deg) scale(0.45);
-        }
-        52% {
-          opacity: 1;
-          transform: rotate(-18deg) scale(1.1);
-        }
-      }
-
-      @keyframes damage-float {
-        0%,
-        42% {
-          opacity: 0;
-          transform: translateY(0);
-        }
-        55% {
-          opacity: 1;
-        }
-        100% {
-          opacity: 0;
-          transform: translateY(-34px);
-        }
-      }
-
-      @keyframes stage-pulse {
-        0%,
-        100% {
-          box-shadow: 0 0 0 0 rgba(255, 138, 61, 0.35);
-        }
-        50% {
-          box-shadow: 0 0 0 8px rgba(255, 138, 61, 0);
-        }
-      }
-
-      .loot-card {
+        width: min(100%, 430px);
+        margin: auto;
         align-items: center;
-        display: flex;
-        gap: 12px;
-        text-align: left;
-      }
-
-      .loot-icon {
-        align-items: center;
-        background: #eef9f4;
-        border-radius: 16px;
-        display: flex;
-        font-size: 26px;
-        height: 54px;
         justify-content: center;
-        width: 54px;
+        padding: 24px;
+        background: rgba(11, 32, 48, 0.78);
+        backdrop-filter: blur(10px);
       }
 
-      .loot-card h3 {
-        font-size: 14px;
-        margin: 0;
+      .summary-modal.active {
+        display: flex;
       }
 
-      .loot-card p {
-        color: var(--muted);
-        font-size: 9px;
-        margin-top: 5px;
-      }
-
-      .character-panel {
-        background: var(--navy);
+      .summary-card {
+        width: 100%;
+        padding: 24px;
         border-radius: 28px;
-        color: #fff;
-        height: 365px;
-        overflow: hidden;
-        position: relative;
+        background: white;
+        box-shadow: var(--shadow);
       }
 
-      .character-panel::before {
-        background: #0d8c7c;
-        border-radius: 50%;
-        content: '';
-        height: 270px;
-        opacity: 0.32;
-        position: absolute;
-        right: -55px;
-        top: -35px;
-        width: 270px;
-      }
-
-      .character-panel img {
-        bottom: 42px;
-        image-rendering: pixelated;
-        position: absolute;
-        right: -12px;
-        width: 290px;
-      }
-
-      .character-level {
-        left: 19px;
-        position: absolute;
-        top: 21px;
-        z-index: 2;
-      }
-
-      .character-level strong {
-        display: block;
-        font-size: 26px;
-        margin-top: 10px;
-      }
-
-      .character-level span {
-        color: #bcd9d3;
-        font-size: 10px;
-      }
-
-      .character-stats {
-        background: rgba(5, 18, 27, 0.78);
-        bottom: 0;
+      .summary-icon {
         display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        left: 0;
-        padding: 13px;
-        position: absolute;
-        right: 0;
-        z-index: 3;
+        width: 60px;
+        height: 60px;
+        margin: 0 auto;
+        place-items: center;
+        border-radius: 20px;
+        background: var(--brand-soft);
+        font-size: 29px;
       }
 
-      .character-stat {
-        border-right: 1px solid rgba(255, 255, 255, 0.11);
+      .summary-card h2,
+      .summary-card > p {
         text-align: center;
       }
 
-      .character-stat:last-child {
-        border: 0;
+      .summary-card h2 {
+        margin-top: 13px;
       }
 
-      .character-stat strong {
-        display: block;
+      .summary-card > p {
+        margin-top: 6px;
+        color: var(--muted);
         font-size: 12px;
       }
 
-      .character-stat span {
-        color: #91b3b1;
+      .reward-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+        margin-top: 18px;
+      }
+
+      .reward-box {
+        padding: 16px;
+        border-radius: 17px;
+        text-align: center;
+        background: var(--bg);
+      }
+
+      .reward-box strong {
         display: block;
-        font-size: 8px;
-        margin-top: 3px;
+        margin-top: 5px;
+        font-size: 18px;
+      }
+
+      .reward-box small {
+        color: var(--muted);
       }
 
       .toast {
-        background: var(--navy);
-        border-radius: 14px;
-        bottom: 94px;
-        box-shadow: 0 12px 32px rgba(7, 36, 26, 0.2);
-        color: #fff;
-        font-size: 10px;
-        font-weight: 800;
-        left: 50%;
-        opacity: 0;
-        padding: 12px 16px;
-        pointer-events: none;
-        position: absolute;
-        transform: translate(-50%, 10px);
-        transition: 0.2s ease;
-        white-space: nowrap;
-        z-index: 30;
+        position: fixed;
+        z-index: 200;
+        right: 50%;
+        bottom: 92px;
+        display: none;
+        width: min(calc(100% - 40px), 390px);
+        padding: 13px 16px;
+        transform: translateX(50%);
+        border-radius: 15px;
+        color: white;
+        text-align: center;
+        background: rgba(11, 32, 48, 0.94);
+        box-shadow: var(--shadow);
+        font-size: 12px;
+        font-weight: 900;
       }
 
       .toast.show {
-        opacity: 1;
-        transform: translate(-50%, 0);
+        display: block;
+        animation: toast-in 0.25s ease both;
       }
 
-      .reset-button {
-        background: #fff;
-        border: 0;
-        border-radius: 17px;
-        box-shadow: 0 5px 16px rgba(7, 36, 26, 0.08);
-        cursor: pointer;
-        font-size: 18px;
-        height: 42px;
-        width: 42px;
+      @keyframes toast-in {
+        from {
+          opacity: 0;
+          transform: translate(50%, 8px);
+        }
       }
 
-      .preview-note {
-        color: var(--muted);
-        font-size: 11px;
-        text-align: center;
-      }
-
-      @media (max-width: 520px) {
+      @media (min-width: 700px) {
         body {
-          padding: 0;
+          padding: 24px 0;
         }
 
-        .preview-title,
-        .preview-caption,
-        .preview-note {
-          display: none;
+        .app {
+          min-height: calc(100vh - 48px);
+          border-radius: 34px;
         }
 
-        .preview-shell {
-          gap: 0;
-          width: 100%;
+        .screen {
+          min-height: calc(100vh - 48px);
         }
 
-        .switcher {
-          border-radius: 0;
-          box-shadow: none;
-          justify-content: center;
-          width: 100%;
+        .nav {
+          bottom: 22px;
         }
 
-        .phone {
-          border: 0;
-          border-radius: 0;
-          height: calc(100vh - 51px);
-          width: 100%;
-        }
-
-        .notch {
-          display: none;
+        .running-overlay,
+        .summary-modal {
+          top: 24px;
+          bottom: 24px;
+          border-radius: 34px;
         }
       }
     </style>
   </head>
   <body>
-    <main class="preview-shell">
-      <h1 class="preview-title">퀘스트런 브라우저 데모</h1>
-      <p class="preview-caption">앱 안의 버튼을 직접 누르면 기록과 캐릭터 상태가 바뀝니다.</p>
-      <nav aria-label="개발 화면 바로가기" class="switcher">
-        <button class="active" data-target="home">홈</button>
-        <button data-target="running">실시간 러닝</button>
-        <button data-target="summary">러닝 완료</button>
-      </nav>
+    <main class="app">
+      <section class="screen active" data-screen="home">
+        <header class="header">
+          <div>
+            <p class="eyebrow">QUESTRUN</p>
+            <h1>오늘도 한 걸음!</h1>
+          </div>
+          <div class="coin-pill"><span class="coin-dot">●</span><span data-bind="coins">1,240</span></div>
+        </header>
 
-      <section class="phone" aria-label="퀘스트런 모바일 화면">
-        <div class="notch"></div>
-        <div class="screen">
-          <article class="view active" id="home">
-            <div class="scroll">
-              <div class="title-row">
-                <div>
-                  <div class="eyebrow">QUESTRUN</div>
-                  <h2>오늘도 한 걸음!</h2>
-                </div>
-                <button aria-label="데모 데이터 초기화" class="reset-button" id="reset-demo">↻</button>
-              </div>
-              <section class="hero">
-                <div class="hero-copy">
-                  <span class="pill" id="home-level-pill">Lv. 7 · 새싹 러너</span>
-                  <div class="hero-name">루미</div>
-                  <p class="hero-message">오늘 <span id="remaining-xp">350</span> XP만 더 모으면<br />레벨이 올라요.</p>
-                </div>
-                <img src="../assets/quest-run-hero.png" alt="민트색 픽셀 여우 캐릭터" />
-                <div class="hero-bottom">
-                  <div class="level-labels">
-                    <span id="home-level-label">LEVEL 7</span>
-                    <span id="home-xp-label">650 / 1,000 XP</span>
-                  </div>
-                  <div class="progress"><span id="home-xp-progress"></span></div>
-                </div>
-              </section>
-              <section class="card">
-                <div class="recommend">
-                  <div>
-                    <small>오늘의 추천</small>
-                    <h3>편안하게 2km 달리기</h3>
-                    <p>예상 보상 · 200 XP + 에너지 240</p>
-                  </div>
-                  <div class="route-icon">⌁</div>
-                </div>
-                <button class="primary" id="start-run">▶ &nbsp;러닝 시작</button>
-              </section>
+        <div class="hero-card">
+          <div class="hero-copy">
+            <span class="level-pill">RUNNER Lv. <span data-bind="level">7</span></span>
+            <h2>루미</h2>
+            <p>달릴수록 러너 레벨이 오르고<br />새로운 스타일을 만들 수 있어요.</p>
+          </div>
+          <div class="avatar-stage" data-avatar></div>
+          <div class="xp-panel">
+            <div class="xp-labels">
+              <span>RUNNER LEVEL <span data-bind="level">7</span></span>
+              <span><span data-bind="xp">650</span> / <span data-bind="xpTarget">1,000</span> XP</span>
             </div>
-          </article>
+            <div class="progress dark"><span data-xp-bar style="width: 65%"></span></div>
+          </div>
+        </div>
 
-          <article class="view run-view" id="running">
-            <header class="run-header">
-              <button aria-label="러닝 취소" class="close" id="cancel-run">×</button>
-              <span class="pill">브라우저 데모 GPS</span>
-              <span class="gps" id="gps-label">GPS 좋음</span>
-            </header>
-            <div class="run-center">
-              <p class="run-status" id="run-status">안전하게 달리는 중</p>
-              <div class="distance" id="run-distance">0.00</div>
-              <div class="distance-unit">km</div>
-              <div class="pace" id="run-pace">평균 페이스 --</div>
-              <section class="metrics">
-                <div class="metric"><strong id="run-time">00:00</strong><span>시간</span></div>
-                <div class="metric"><strong id="current-speed">--</strong><span>현재 km/h</span></div>
-                <div class="metric"><strong id="average-speed">--</strong><span>평균 km/h</span></div>
-                <div class="metric"><strong id="max-speed">--</strong><span>최고 km/h</span></div>
-              </section>
-              <section class="map">
-                <div class="map-road"></div>
-                <div class="map-river"></div>
-                <div class="map-title">운동 경로</div>
-                <div class="map-caption" id="live-map-caption">첫 번째 위치를 기다리고 있어요</div>
-                <div class="privacy">좌표 비저장</div>
-                <svg viewBox="0 0 350 176" role="img" aria-label="러닝 경로">
-                  <polyline class="route" id="live-route" points="35,137" />
-                  <circle cx="35" cy="137" fill="#16b87a" r="8" />
-                  <circle cx="35" cy="137" fill="#ff8a3d" id="live-finish" r="8" />
-                </svg>
-              </section>
-              <section class="run-quest">
-                <div class="run-quest-top">
-                  <span class="run-quest-icon">✦</span>
-                  <div>
-                    <h4 id="run-quest-title">1km 퀘스트 진행 중</h4>
-                    <p id="run-quest-caption">0.00 / 1km · 계속 달려보세요</p>
-                  </div>
-                </div>
-                <div class="progress"><span id="run-quest-progress" style="width: 0"></span></div>
-              </section>
+        <div class="card run-card">
+          <div class="run-card-top">
+            <div>
+              <p class="run-eyebrow">오늘의 추천</p>
+              <h3>편안하게 2km 달리기</h3>
+              <p class="caption">예상 보상 · 200 XP + 러닝 코인 80</p>
             </div>
-            <div class="run-controls">
-              <button class="control" id="pause-run">
-                <span class="control-circle" id="pause-icon">Ⅱ</span>
-                <span id="pause-label">일시정지</span>
-              </button>
-              <button class="control finish" id="finish-run">
-                <span class="control-circle"><span class="finish-square"></span></span>
-                <span>종료</span>
-              </button>
-            </div>
-          </article>
+            <div class="route-icon">⌁</div>
+          </div>
+          <button class="primary" data-start-run>▶ 데모 러닝 시작</button>
+        </div>
 
-          <article class="view" id="summary">
-            <div class="summary-scroll">
-              <div class="complete-check">✓</div>
-              <div class="summary-eyebrow">RUN COMPLETE</div>
-              <h2 class="summary-title">멋진 러닝이었어요!</h2>
-              <p class="summary-caption">오늘의 발걸음이 루미를 더 강하게 만들었어요.</p>
-              <section class="card summary-record">
-                <div class="summary-distance"><strong id="summary-distance">0.00</strong><span>km</span></div>
-                <div class="summary-metrics">
-                  <div class="summary-metric"><strong id="summary-time">00:00</strong><span>시간</span></div>
-                  <div class="summary-metric"><strong id="summary-pace">--</strong><span>평균 페이스</span></div>
-                  <div class="summary-metric"><strong id="summary-average-speed">--</strong><span>평균 속도</span></div>
-                </div>
-              </section>
-              <section class="map light summary-map">
-                <div class="map-road"></div>
-                <div class="map-river"></div>
-                <div class="map-title">운동 경로</div>
-                <div class="map-caption">GPS 좌표를 지운 상대 경로</div>
-                <div class="privacy">좌표 비저장</div>
-                <svg viewBox="0 0 350 144" role="img" aria-label="완료한 러닝 경로">
-                  <polyline class="route" points="32,115 67,99 88,70 130,83 166,52 202,66 227,40 272,59 315,36" />
-                  <circle cx="32" cy="115" fill="#16b87a" r="7" />
-                  <circle cx="315" cy="36" fill="#ff8a3d" r="7" />
-                </svg>
-              </section>
-              <section class="card details">
-                <div class="detail">
-                  <i>⚡</i>
-                  <div><strong id="summary-max-speed">--</strong><span>최고 속도</span></div>
-                </div>
-                <div class="detail">
-                  <i>🔥</i>
-                  <div><strong id="summary-calories">0 kcal</strong><span>예상 칼로리</span></div>
-                </div>
-                <div class="detail">
-                  <i>◷</i>
-                  <div><strong id="summary-moving-time">00:00</strong><span>이동 시간</span></div>
-                </div>
-                <div class="detail">
-                  <i>⌁</i>
-                  <div><strong id="summary-points">0개</strong><span>경로 지점</span></div>
-                </div>
-              </section>
-              <div class="reward-title">획득한 성장 보상</div>
-              <section class="rewards">
-                <div class="reward"><strong id="summary-xp-reward">✦ +20</strong><span>경험치</span></div>
-                <div class="reward"><strong id="summary-energy-reward">⚡ +24</strong><span>전투 에너지</span></div>
-              </section>
-              <button class="primary" id="claim-run-reward">✓ &nbsp;보상 받고 계속하기</button>
-            </div>
-          </article>
+        <div class="section-title">
+          <div>
+            <h2>이번 주 기록</h2>
+            <p class="caption">목표까지 꾸준히 달려보세요.</p>
+          </div>
+        </div>
+        <div class="card metrics">
+          <div class="metric"><strong data-bind="weekKm">6.4km</strong><span>거리</span></div>
+          <div class="metric"><strong data-bind="weekRuns">2회</strong><span>러닝</span></div>
+          <div class="metric"><strong>6일</strong><span>연속 달성</span></div>
+        </div>
 
-          <article class="view" id="quest">
-            <div class="app-scroll">
-              <header class="app-header">
-                <div>
-                  <div class="eyebrow">DAILY & WEEKLY</div>
-                  <h2>오늘의 퀘스트</h2>
-                  <p>실제 러닝 기록으로 진행도가 올라가요.</p>
-                </div>
-                <span class="stat-pill" id="quest-streak">🔥 3일</span>
-              </header>
-              <section class="quest-list">
-                <article class="quest-item">
-                  <div class="quest-icon">🏃</div>
-                  <div class="quest-copy">
-                    <h3>가볍게 몸풀기</h3>
-                    <p id="daily-quest-caption">오늘 0.00 / 1km 달리기</p>
-                    <div class="progress"><span id="daily-quest-progress" style="width: 0"></span></div>
-                  </div>
-                  <div class="quest-footer">
-                    <span class="quest-reward">✦ 120 XP</span>
-                    <button class="small-button" disabled id="claim-daily-quest">보상 받기</button>
-                  </div>
-                </article>
-                <article class="quest-item">
-                  <div class="quest-icon">🗺️</div>
-                  <div class="quest-copy">
-                    <h3>주간 탐험가</h3>
-                    <p id="weekly-quest-caption">이번 주 3.2 / 10km</p>
-                    <div class="progress"><span id="weekly-quest-progress" style="width: 32%"></span></div>
-                  </div>
-                  <div class="quest-footer">
-                    <span class="quest-reward">🎁 숲빛 장비 상자</span>
-                    <span class="stat-pill">주간</span>
-                  </div>
-                </article>
-                <article class="quest-item">
-                  <div class="quest-icon">❔</div>
-                  <div class="quest-copy">
-                    <h3>숨겨진 지역 업적</h3>
-                    <p>특별한 지역에서 일정 거리 이상 달리면 꾸미기 아이템이 열려요.</p>
-                  </div>
-                  <div class="quest-footer">
-                    <span class="quest-reward">성능과 무관한 한정 코스튬</span>
-                    <span class="stat-pill">SECRET</span>
-                  </div>
-                </article>
-              </section>
-            </div>
-          </article>
+        <div class="section-title">
+          <div>
+            <h2>오늘의 스타일</h2>
+            <p class="caption">러닝 코인으로 꾸미기 선택지를 늘려보세요.</p>
+          </div>
+          <button data-go="style">구경하기</button>
+        </div>
+        <button class="card row style-teaser" data-go="style">
+          <span class="teaser-icon" data-head-icon>🧢</span>
+          <span class="teaser-copy">
+            <strong data-head-name>민트 러닝 캡</strong><br />
+            <small>현재 착용 중 · 보유 코인 <span data-bind="coins">1,240</span></small>
+          </span>
+          <span class="chevron">›</span>
+        </button>
+      </section>
 
-          <article class="view" id="adventure">
-            <div class="app-scroll">
-              <header class="app-header">
-                <div>
-                  <div class="eyebrow">ADVENTURE</div>
-                  <h2>초록숨 숲</h2>
-                  <p id="stage-progress-label">완료 2 / 9 · 다음 3단계</p>
-                </div>
-                <span class="stat-pill" id="battle-energy">⚡ 240</span>
-              </header>
-              <section class="stage-map-web" aria-label="초록숨 숲 단계 지도">
-                <div class="stage-map-title">
-                  <strong>단계별 모험 지도</strong>
-                  <span>클리어하면 다음 길이 열려요.</span>
-                </div>
-                <span class="stage-decoration tree-one">🌲</span>
-                <span class="stage-decoration tree-two">🌳</span>
-                <span class="stage-decoration rock">🪨</span>
-                <svg viewBox="0 0 350 360" aria-hidden="true">
-                  <polyline
-                    class="stage-path-base"
-                    points="77,320 186,285 276,242 172,205 67,168 155,132 276,98 200,67 96,45"
-                  />
-                  <polyline
-                    class="stage-path-progress"
-                    id="stage-path-progress"
-                    points="77,320 186,285 276,242 172,205 67,168 155,132 276,98 200,67 96,45"
-                  />
-                </svg>
-                <button class="stage-node-web" data-stage="1" style="left: 22%; top: 320px">
-                  <strong>1</strong><span>★</span>
-                </button>
-                <button class="stage-node-web" data-stage="2" style="left: 53%; top: 285px">
-                  <strong>2</strong><span>★</span>
-                </button>
-                <button class="stage-node-web" data-stage="3" style="left: 79%; top: 242px">
-                  <strong>3</strong><span>🐺</span>
-                </button>
-                <button class="stage-node-web" data-stage="4" style="left: 49%; top: 205px">
-                  <strong>4</strong><span>🔒</span>
-                </button>
-                <button class="stage-node-web" data-stage="5" style="left: 19%; top: 168px">
-                  <i class="stage-boss-crown">♛</i><strong>5</strong><span>🔒</span>
-                </button>
-                <button class="stage-node-web" data-stage="6" style="left: 44%; top: 132px">
-                  <strong>6</strong><span>🔒</span>
-                </button>
-                <button class="stage-node-web" data-stage="7" style="left: 79%; top: 98px">
-                  <strong>7</strong><span>🔒</span>
-                </button>
-                <button class="stage-node-web" data-stage="8" style="left: 57%; top: 67px">
-                  <strong>8</strong><span>🔒</span>
-                </button>
-                <button class="stage-node-web" data-stage="9" style="left: 27%; top: 45px">
-                  <i class="stage-boss-crown">♛</i><strong>9</strong><span>🔒</span>
-                </button>
-              </section>
-              <section class="selected-stage-bar">
-                <div>
-                  <strong id="selected-stage-title">3단계 · 야생의 길</strong>
-                  <span id="selected-stage-caption">숲 그림자 늑대 · 에너지 84</span>
-                </div>
-                <span class="stage-state-badge" id="selected-stage-state">현재 단계</span>
-              </section>
-              <section class="battle-card" id="battle-card">
-                <div class="battle-arena-web">
-                  <div class="enemy-hud-web">
-                    <div class="hud-name-row">
-                      <span class="hud-stage" id="battle-zone">STAGE 3</span>
-                      <span id="monster-name">숲 그림자 늑대</span>
-                    </div>
-                    <div class="hud-bar"><span id="monster-hp-bar"></span></div>
-                    <div class="hud-caption" id="monster-hp-label">HP 150 / 150</div>
-                  </div>
-                  <div class="auto-badge-web">AUTO HUNTING</div>
-                  <div class="enemy-platform-web"></div>
-                  <div class="monster-web" id="monster-art">🐺</div>
-                  <div class="slash-web">✦</div>
-                  <div class="damage-number-web" id="damage-number">-30</div>
-                  <div class="hero-platform-web"></div>
-                  <img
-                    alt="몬스터에게 자동 공격하는 픽셀 여우 루미"
-                    class="battle-hero-web"
-                    src="../assets/quest-run-hero.png"
-                  />
-                  <div class="hero-hud-web">
-                    <div class="hud-name-row"><span>루미</span><span>Lv. 7</span></div>
-                    <div class="hud-bar"><span></span></div>
-                    <div class="hud-caption" id="hero-battle-status">전투 에너지 840</div>
-                  </div>
-                </div>
-                <div class="auto-message" id="auto-message">버튼을 한 번 누르면 루미가 끝까지 자동으로 사냥해요.</div>
-                <button class="attack-button" id="start-auto-hunt">▶ 자동사냥 시작 · 에너지 84</button>
-              </section>
-              <section class="card loot-card">
-                <div class="loot-icon" id="loot-icon">🎁</div>
-                <div>
-                  <h3 id="loot-title">3단계 클리어 보상</h3>
-                  <p id="loot-caption">그림자 늑대 머리띠 · 55 골드 · 다음 길 해금</p>
-                </div>
-              </section>
+      <section class="screen" data-screen="quest">
+        <header class="header">
+          <div>
+            <p class="eyebrow">RUN GOALS</p>
+            <h1>퀘스트</h1>
+          </div>
+          <span class="level-pill" style="color: var(--brand-dark); background: var(--brand-soft)">🔥 6일</span>
+        </header>
+        <div class="segment">
+          <button class="active">일일</button>
+          <button>주간</button>
+          <button>업적</button>
+        </div>
+        <div class="card">
+          <div class="row">
+            <div>
+              <strong>연속 달성 보너스</strong>
+              <p class="caption">내일까지 모두 완료하면 지구력 +1</p>
             </div>
-          </article>
-
-          <article class="view" id="character">
-            <div class="app-scroll">
-              <header class="app-header">
-                <div>
-                  <div class="eyebrow">MY CHARACTER</div>
-                  <h2>캐릭터</h2>
-                  <p>러닝과 퀘스트로 성장한 나의 동료예요.</p>
-                </div>
-                <span class="stat-pill" id="character-energy">⚡ 240</span>
-              </header>
-              <section class="character-panel">
-                <div class="character-level">
-                  <span class="pill" id="character-level-pill">Lv. 7 · 새싹 러너</span>
-                  <strong>루미</strong>
-                  <span id="character-xp">650 / 1,000 XP</span>
-                </div>
-                <img src="../assets/quest-run-hero.png" alt="민트색 픽셀 여우 캐릭터" />
-                <div class="character-stats">
-                  <div class="character-stat"><strong id="character-total-km">8.6km</strong><span>누적 거리</span></div>
-                  <div class="character-stat"><strong id="character-runs">2회</strong><span>완료 러닝</span></div>
-                  <div class="character-stat"><strong id="character-streak">3일</strong><span>연속 달성</span></div>
-                </div>
-              </section>
-              <section class="card loot-card">
-                <div class="loot-icon">🧤</div>
-                <div>
-                  <h3>보유 아이템</h3>
-                  <p id="inventory-label">아직 획득한 장비가 없어요. 모험에 도전해 보세요.</p>
-                </div>
-              </section>
-            </div>
-          </article>
-
-          <nav class="nav" id="app-nav">
-            <button class="nav-item active" data-nav="home"><b>⌂</b><span>홈</span></button>
-            <button class="nav-item" data-nav="quest"><b>✓</b><span>퀘스트</span></button>
-            <button class="nav-item" data-nav="adventure"><b>⚔</b><span>모험</span></button>
-            <button class="nav-item" data-nav="character"><b>♙</b><span>캐릭터</span></button>
-          </nav>
-          <div aria-live="polite" class="toast" id="toast"></div>
+            <span style="font-size: 28px">💜</span>
+          </div>
+          <div class="progress" style="margin-top: 14px">
+            <span style="width: 86%; background: var(--purple)"></span>
+          </div>
+        </div>
+        <div class="section-title">
+          <div>
+            <h2>오늘의 퀘스트</h2>
+            <p class="caption">러닝만으로 완료할 수 있어요.</p>
+          </div>
+        </div>
+        <div class="quest-list" data-quest-list></div>
+        <div class="section-title">
+          <div>
+            <h2>지역 한정 이야기</h2>
+            <p class="caption">여행지에서 달리면 특별한 꾸미기 아이템을 발견해요.</p>
+          </div>
+        </div>
+        <div class="card">
+          <div class="regional-row">
+            <span>🍊</span>
+            <div><strong>제주의 상큼한 러너</strong><br /><small>제주 누적 5km</small></div>
+            <span class="regional-progress">숨은 업적</span>
+          </div>
+          <div class="regional-row">
+            <span>🌙</span>
+            <div><strong>강을 따라 걷는 달빛</strong><br /><small>서울 누적 10km</small></div>
+            <span class="regional-progress">숨은 업적</span>
+          </div>
         </div>
       </section>
-      <p class="preview-note">브라우저 데모는 GPS를 빠르게 재현하며, 상태는 이 브라우저에 자동 저장됩니다.</p>
+
+      <section class="screen" data-screen="style">
+        <header class="header">
+          <div>
+            <p class="eyebrow">RUN & STYLE</p>
+            <h1>스타일 상점</h1>
+          </div>
+          <div class="coin-pill"><span class="coin-dot">●</span><span data-bind="coins">1,240</span></div>
+        </header>
+
+        <div class="hero-card shop-hero">
+          <div class="hero-copy">
+            <span class="level-pill">Lv. <span data-bind="level">7</span> 러너</span>
+            <h2 style="font-size: 26px">오늘의 루미</h2>
+            <p>달리며 모은 코인으로<br />나만의 스타일을 완성해요.</p>
+          </div>
+          <div class="avatar-stage" data-avatar></div>
+          <div class="outfit-strip" data-outfit-strip></div>
+        </div>
+        <div class="card earn-card">
+          <span class="earn-icon">🏃</span>
+          <span><strong>1km마다 러닝 코인 40</strong><small>XP와 꾸미기 코인을 함께 받아요.</small></span>
+          <span class="earn-value">● +40</span>
+        </div>
+
+        <div class="section-title">
+          <div>
+            <h2>새로운 스타일</h2>
+            <p class="caption">모든 아이템은 능력치가 없는 꾸미기 전용이에요.</p>
+          </div>
+        </div>
+        <div class="filters" data-filters></div>
+        <div class="item-grid" data-shop-grid></div>
+        <div class="card" data-item-detail></div>
+
+        <div class="section-title">
+          <div>
+            <h2>지역 한정 컬렉션</h2>
+            <p class="caption">코인으로 살 수 없는 여행의 추억이에요.</p>
+          </div>
+        </div>
+        <div class="card">
+          <div class="regional-row">
+            <span>🍊</span>
+            <div><strong>제주 · 한라봉 모자</strong><br /><small>제주 누적 5km 달리기</small></div>
+            <span class="regional-progress">0.0 / 5km</span>
+          </div>
+          <div class="regional-row">
+            <span>🌙</span>
+            <div><strong>서울 · 한강 달빛 핀</strong><br /><small>서울 누적 10km 달리기</small></div>
+            <span class="regional-progress"><span data-bind="seoulKm">0.0</span> / 10km</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="screen" data-screen="avatar">
+        <header class="header">
+          <div>
+            <p class="eyebrow">MY RUNNER</p>
+            <h1>내 아바타</h1>
+          </div>
+          <div class="coin-pill"><span class="coin-dot">●</span><span data-bind="coins">1,240</span></div>
+        </header>
+        <div class="avatar-card">
+          <div class="hero-copy">
+            <span class="level-pill">RUNNER Lv. <span data-bind="level">7</span></span>
+            <h2 style="font-size: 25px">나만의 러너, 루미</h2>
+            <p>달릴수록 더 많은 스타일이 열려요.</p>
+          </div>
+          <div class="avatar-stage" data-avatar></div>
+          <div class="avatar-name">
+            <strong>루미</strong>
+            <small data-outfit-names>민트 러닝 캡 · 민트 후디 · 오렌지 러닝화</small>
+          </div>
+        </div>
+        <div class="card metrics">
+          <div class="metric">
+            <strong>Lv. <span data-bind="level">7</span></strong
+            ><span>러너 레벨</span>
+          </div>
+          <div class="metric"><strong data-bind="totalKm">42.8km</strong><span>누적 거리</span></div>
+          <div class="metric"><strong>3</strong><span>지구력</span></div>
+        </div>
+        <div class="section-title">
+          <div>
+            <h2>내 옷장</h2>
+            <p class="caption">보유한 아이템을 바로 바꿔 입을 수 있어요.</p>
+          </div>
+          <button data-go="style">상점</button>
+        </div>
+        <div class="segment" data-wardrobe-tabs></div>
+        <div class="card" data-wardrobe></div>
+      </section>
     </main>
 
+    <nav class="nav" aria-label="주 메뉴">
+      <button class="nav-item active" data-nav="home"><span class="nav-icon">⌂</span>홈</button>
+      <button class="nav-item" data-nav="quest"><span class="nav-icon">✓</span>퀘스트</button>
+      <button class="nav-item" data-nav="style"><span class="nav-icon">✦</span>스타일</button>
+      <button class="nav-item" data-nav="avatar"><span class="nav-icon">♙</span>아바타</button>
+    </nav>
+
+    <section class="running-overlay" data-running>
+      <div class="running-top">
+        <span class="live-badge">● GPS 기록 중</span>
+        <span>퀘스트런 데모</span>
+      </div>
+      <div class="run-live-main">
+        <small>현재 거리</small>
+        <div class="run-distance"><span data-live-distance>0.00</span><span class="run-unit"> km</span></div>
+        <div class="live-metrics">
+          <div><strong data-live-time>00:00</strong><span>운동 시간</span></div>
+          <div><strong>6′30″</strong><span>평균 페이스</span></div>
+          <div><strong>9.2</strong><span>평균 속도 km/h</span></div>
+        </div>
+      </div>
+      <div class="run-actions">
+        <button class="cancel-run" data-cancel-run>취소</button>
+        <button class="finish-run" data-finish-run>2km 러닝 완료</button>
+      </div>
+    </section>
+
+    <section class="summary-modal" data-summary>
+      <div class="summary-card">
+        <div class="summary-icon">✓</div>
+        <h2>멋진 러닝이었어요!</h2>
+        <p>러너 레벨 경험치와 꾸미기 코인을 받았어요.</p>
+        <div class="reward-grid">
+          <div class="reward-box"><span>✦</span><strong>+200</strong><small>경험치</small></div>
+          <div class="reward-box"><span>●</span><strong>+80</strong><small>러닝 코인</small></div>
+        </div>
+        <button class="primary" data-claim-run>보상 받고 계속하기</button>
+      </div>
+    </section>
+
+    <div class="toast" role="status" data-toast></div>
+
     <script>
-      const STORAGE_KEY = 'quest-run-browser-demo-v2';
-      const defaultState = {
+      const STORAGE_KEY = 'quest-run-style-demo-v1';
+      const slots = ['head', 'top', 'shoes', 'accessory'];
+      const slotLabels = { head: '모자', top: '상의', shoes: '신발', accessory: '장식' };
+      const items = [
+        {
+          id: 'mint-cap',
+          name: '민트 러닝 캡',
+          slot: 'head',
+          rarity: '일반',
+          icon: '🧢',
+          price: 0,
+          source: 'starter',
+          description: '루미의 첫 러닝을 함께하는 산뜻한 기본 모자',
+        },
+        {
+          id: 'mint-hoodie',
+          name: '민트 후디',
+          slot: 'top',
+          rarity: '일반',
+          icon: '👕',
+          price: 0,
+          source: 'starter',
+          description: '가볍고 편안한 기본 러닝 후디',
+        },
+        {
+          id: 'orange-shoes',
+          name: '오렌지 러닝화',
+          slot: 'shoes',
+          rarity: '일반',
+          icon: '👟',
+          price: 0,
+          source: 'starter',
+          description: '통통 튀는 색감의 기본 러닝화',
+        },
+        {
+          id: 'sunny-visor',
+          name: '햇살 바이저',
+          slot: 'head',
+          rarity: '일반',
+          icon: '☀️',
+          price: 180,
+          source: 'shop',
+          description: '맑은 날의 러닝을 닮은 노란 바이저',
+        },
+        {
+          id: 'cherry-headphones',
+          name: '체리 헤드폰',
+          slot: 'head',
+          rarity: '희귀',
+          icon: '🎧',
+          price: 360,
+          source: 'shop',
+          description: '달리는 리듬을 더 신나게 만들어 주는 헤드폰',
+        },
+        {
+          id: 'cloud-hoodie',
+          name: '구름 후디',
+          slot: 'top',
+          rarity: '희귀',
+          icon: '☁️',
+          price: 420,
+          source: 'shop',
+          description: '새벽 구름처럼 포근한 하늘색 러닝 후디',
+        },
+        {
+          id: 'sunset-windbreaker',
+          name: '노을 바람막이',
+          slot: 'top',
+          rarity: '영웅',
+          icon: '🌅',
+          price: 680,
+          source: 'shop',
+          description: '노을빛 그라데이션을 담은 특별한 바람막이',
+        },
+        {
+          id: 'star-sneakers',
+          name: '별빛 스니커즈',
+          slot: 'shoes',
+          rarity: '희귀',
+          icon: '✨',
+          price: 520,
+          source: 'shop',
+          description: '움직일 때마다 작은 별빛이 반짝이는 러닝화',
+        },
+        {
+          id: 'clover-pin',
+          name: '행운의 클로버 핀',
+          slot: 'accessory',
+          rarity: '일반',
+          icon: '🍀',
+          price: 140,
+          source: 'shop',
+          description: '매일의 러닝에 작은 행운을 더하는 핀',
+        },
+        {
+          id: 'rainbow-trail',
+          name: '무지개 발자국',
+          slot: 'accessory',
+          rarity: '영웅',
+          icon: '🌈',
+          price: 900,
+          source: 'shop',
+          description: '달린 자리에 무지개빛 추억을 남기는 장식',
+        },
+        {
+          id: 'weekly-bandana',
+          name: '주간 완주 반다나',
+          slot: 'head',
+          rarity: '희귀',
+          icon: '🎗️',
+          price: 0,
+          source: 'quest',
+          description: '한 주에 10km를 달린 러너만 받는 완주 기념품',
+        },
+        {
+          id: 'hallabong-hat',
+          name: '한라봉 모자',
+          slot: 'head',
+          rarity: '지역 한정',
+          icon: '🍊',
+          price: 0,
+          source: 'achievement',
+          description: '제주에서 누적 5km를 달린 러너의 지역 한정 모자',
+        },
+        {
+          id: 'seoul-moon-pin',
+          name: '한강 달빛 핀',
+          slot: 'accessory',
+          rarity: '지역 한정',
+          icon: '🌙',
+          price: 0,
+          source: 'achievement',
+          description: '서울에서 누적 10km를 달린 러너의 달빛 장식',
+        },
+      ];
+
+      const initialState = {
+        coins: 1240,
         level: 7,
         xp: 650,
-        xpToNext: 1000,
-        energy: 840,
-        gold: 1240,
-        totalKm: 8.6,
-        weeklyKm: 3.2,
-        runs: 2,
-        streak: 3,
-        dailyDistance: 0,
-        dailyClaimed: false,
-        clearedStages: [1, 2],
-        inventory: [],
+        xpTarget: 1000,
+        totalKm: 42.8,
+        weekKm: 6.4,
+        weekRuns: 2,
+        todayKm: 0.65,
+        todayRuns: 0,
+        seoulKm: 0,
+        owned: ['mint-cap', 'mint-hoodie', 'orange-shoes'],
+        equipped: { head: 'mint-cap', top: 'mint-hoodie', shoes: 'orange-shoes' },
+        claimed: [],
       };
-      const routePoints = [
-        [35, 137],
-        [72, 120],
-        [89, 88],
-        [132, 99],
-        [170, 66],
-        [203, 78],
-        [228, 51],
-        [274, 70],
-        [316, 46],
-      ];
-      const adventureStages = [
-        {
-          number: 1,
-          name: '새싹 오솔길',
-          monster: '초록 슬라임',
-          icon: '🟢',
-          hp: 90,
-          damage: 30,
-          energy: 60,
-          gold: 35,
-        },
-        {
-          number: 2,
-          name: '버섯 언덕',
-          monster: '버섯 도적',
-          icon: '🍄',
-          hp: 120,
-          damage: 30,
-          energy: 72,
-          gold: 45,
-        },
-        {
-          number: 3,
-          name: '야생의 길',
-          monster: '숲 그림자 늑대',
-          icon: '🐺',
-          hp: 150,
-          damage: 30,
-          energy: 84,
-          gold: 55,
-          item: '그림자 늑대 머리띠',
-          itemIcon: '🐺',
-        },
-        {
-          number: 4,
-          name: '휘감긴 뿌리',
-          monster: '뿌리 정령',
-          icon: '🌱',
-          hp: 180,
-          damage: 36,
-          energy: 96,
-          gold: 65,
-        },
-        {
-          number: 5,
-          name: '이끼 바위터',
-          monster: '이끼 골렘',
-          icon: '🗿',
-          hp: 240,
-          damage: 40,
-          energy: 120,
-          gold: 90,
-          item: '숲빛 장갑',
-          itemIcon: '🧤',
-          boss: true,
-        },
-        {
-          number: 6,
-          name: '달빛 동굴',
-          monster: '밤날개 박쥐',
-          icon: '🦇',
-          hp: 270,
-          damage: 45,
-          energy: 132,
-          gold: 100,
-        },
-        {
-          number: 7,
-          name: '독안개 늪',
-          monster: '독안개 마녀',
-          icon: '🧙',
-          hp: 300,
-          damage: 50,
-          energy: 144,
-          gold: 120,
-          item: '이끼빛 망토',
-          itemIcon: '🧥',
-        },
-        {
-          number: 8,
-          name: '고대 나무길',
-          monster: '고대 나무정령',
-          icon: '🌳',
-          hp: 360,
-          damage: 60,
-          energy: 156,
-          gold: 140,
-        },
-        {
-          number: 9,
-          name: '수호자의 둥지',
-          monster: '숲의 수호룡',
-          icon: '🐉',
-          hp: 480,
-          damage: 60,
-          energy: 180,
-          gold: 250,
-          item: '숲의 수호관',
-          itemIcon: '👑',
-          boss: true,
-        },
-      ];
 
       let state = loadState();
-      let run = createEmptyRun();
+      let selectedItemId = 'sunny-visor';
+      let activeFilter = 'all';
+      let wardrobeSlot = 'head';
       let runTimer = null;
-      let pendingReward = null;
-      let toastTimer = null;
-      let selectedAdventureStage = 3;
-      let battleHp = adventureStages[2].hp;
-      let battleTurn = 0;
-      let autoHunting = false;
-      let autoHuntTimer = null;
-      let lastClearedStage = null;
-
-      const $ = (id) => document.getElementById(id);
-      const views = document.querySelectorAll('.view');
-      const shortcutButtons = document.querySelectorAll('.switcher button');
-      const navButtons = document.querySelectorAll('[data-nav]');
+      let runSeconds = 0;
 
       function loadState() {
         try {
-          return { ...defaultState, ...JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}') };
+          return { ...initialState, ...JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}') };
         } catch {
-          return { ...defaultState };
+          return { ...initialState };
         }
       }
 
@@ -2197,445 +1528,337 @@
         localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
       }
 
-      function createEmptyRun() {
-        return {
-          active: false,
-          paused: false,
-          seconds: 0,
-          distance: 0,
-          currentSpeed: 0,
-          averageSpeed: 0,
-          maxSpeed: 0,
-          routeCount: 1,
-        };
-      }
-
-      function showView(viewId) {
-        views.forEach((view) => view.classList.toggle('active', view.id === viewId));
-        shortcutButtons.forEach((button) => button.classList.toggle('active', button.dataset.target === viewId));
-        navButtons.forEach((button) => button.classList.toggle('active', button.dataset.nav === viewId));
-        $('app-nav').style.display = ['home', 'quest', 'adventure', 'character'].includes(viewId) ? 'flex' : 'none';
-      }
-
-      function startRun() {
-        clearInterval(runTimer);
-        run = createEmptyRun();
-        run.active = true;
-        pendingReward = null;
-        renderRun();
-        showView('running');
-        runTimer = setInterval(tickRun, 500);
-      }
-
-      function tickRun() {
-        if (!run.active || run.paused) return;
-
-        run.seconds += 5;
-        run.currentSpeed = 8.7 + Math.sin(run.seconds / 9) * 1.35 + (run.seconds % 20 === 0 ? 0.6 : 0);
-        run.distance += (run.currentSpeed * 5) / 3600;
-        run.averageSpeed = run.seconds > 0 ? (run.distance / run.seconds) * 3600 : 0;
-        run.maxSpeed = Math.max(run.maxSpeed, run.currentSpeed);
-        run.routeCount = Math.min(routePoints.length, Math.max(2, Math.ceil(run.distance * 10) + 1));
-        renderRun();
-      }
-
-      function pauseRun() {
-        if (!run.active) return;
-        run.paused = !run.paused;
-        renderRun();
-      }
-
-      function cancelRun() {
-        clearInterval(runTimer);
-        run = createEmptyRun();
-        showView('home');
-        showToast('러닝 기록을 취소했어요.');
-      }
-
-      function finishRun() {
-        if (!run.active) return;
-        clearInterval(runTimer);
-        run.active = false;
-
-        const distance = Math.max(0.01, run.distance);
-        const xp = Math.max(20, Math.round(distance * 100));
-        const energy = Math.max(24, Math.round(distance * 120));
-        pendingReward = { distance, xp, energy, ...run };
-        renderSummary();
-        showView('summary');
-      }
-
-      function openSampleSummary() {
-        clearInterval(runTimer);
-        run = {
-          active: false,
-          paused: false,
-          seconds: 782,
-          distance: 2,
-          currentSpeed: 9.5,
-          averageSpeed: 9.2,
-          maxSpeed: 10.9,
-          routeCount: routePoints.length,
-        };
-        pendingReward = { distance: 2, xp: 200, energy: 240, ...run };
-        renderSummary();
-        showView('summary');
-      }
-
-      function claimRunReward() {
-        if (!pendingReward) {
-          showView('home');
-          return;
-        }
-
-        state.xp += pendingReward.xp;
-        state.energy += pendingReward.energy;
-        state.totalKm += pendingReward.distance;
-        state.weeklyKm += pendingReward.distance;
-        state.dailyDistance += pendingReward.distance;
-        state.runs += 1;
-
-        while (state.xp >= state.xpToNext) {
-          state.xp -= state.xpToNext;
-          state.level += 1;
-          state.xpToNext = Math.round(state.xpToNext * 1.12);
-        }
-
-        pendingReward = null;
-        saveState();
-        renderState();
-        showView('home');
-        showToast('러닝 보상과 퀘스트 진행도가 반영됐어요!');
-      }
-
-      function claimDailyQuest() {
-        if (state.dailyDistance < 1 || state.dailyClaimed) return;
-        state.dailyClaimed = true;
-        state.xp += 120;
-        if (state.xp >= state.xpToNext) {
-          state.xp -= state.xpToNext;
-          state.level += 1;
-          state.xpToNext = Math.round(state.xpToNext * 1.12);
-        }
-        saveState();
-        renderState();
-        showToast('일일 퀘스트 보상 120 XP를 받았어요!');
-      }
-
-      function getAdventureStage(number) {
-        return adventureStages.find((stage) => stage.number === number);
-      }
-
-      function getAdventureStageStatus(number) {
-        if (state.clearedStages.includes(number)) return 'cleared';
-        const nextNumber = adventureStages.find((stage) => !state.clearedStages.includes(stage.number))?.number;
-        return number === nextNumber ? 'current' : 'locked';
-      }
-
-      function selectAdventureStage(number) {
-        if (autoHunting || getAdventureStageStatus(number) === 'locked') return;
-        const stage = getAdventureStage(number);
-        if (!stage) return;
-
-        selectedAdventureStage = number;
-        battleHp = stage.hp;
-        battleTurn = 0;
-        lastClearedStage = null;
-        renderAdventure();
-      }
-
-      function handleAdventureAction() {
-        const stage = getAdventureStage(selectedAdventureStage);
-        if (!stage || autoHunting) return;
-        const status = getAdventureStageStatus(stage.number);
-
-        if (status === 'cleared') {
-          const nextStage = adventureStages.find((candidate) => !state.clearedStages.includes(candidate.number));
-          if (nextStage) selectAdventureStage(nextStage.number);
-          return;
-        }
-
-        if (status !== 'current' || state.energy < stage.energy) return;
-
-        battleHp = stage.hp;
-        battleTurn = 0;
-        autoHunting = true;
-        lastClearedStage = null;
-        renderAdventure();
-
-        autoHuntTimer = setInterval(() => {
-          battleTurn += 1;
-          battleHp = Math.max(0, battleHp - stage.damage);
-
-          if (battleHp === 0) {
-            clearInterval(autoHuntTimer);
-            autoHunting = false;
-            state.energy -= stage.energy;
-            state.gold += stage.gold;
-            state.clearedStages = [...new Set([...state.clearedStages, stage.number])];
-            if (stage.item && !state.inventory.includes(stage.item)) {
-              state.inventory.push(stage.item);
-            }
-            lastClearedStage = stage.number;
-            saveState();
-            renderState();
-            showToast(
-              `${stage.monster} 처치! ${stage.number + 1 <= adventureStages.length ? '다음 단계가 열렸어요.' : '챕터를 정복했어요!'}`
-            );
-            return;
-          }
-
-          renderAdventure();
-        }, 620);
-      }
-
-      function resetDemo() {
-        clearInterval(runTimer);
-        clearInterval(autoHuntTimer);
-        state = { ...defaultState, clearedStages: [...defaultState.clearedStages], inventory: [] };
-        run = createEmptyRun();
-        pendingReward = null;
-        selectedAdventureStage = 3;
-        battleHp = adventureStages[2].hp;
-        battleTurn = 0;
-        autoHunting = false;
-        lastClearedStage = null;
-        saveState();
-        renderState();
-        showView('home');
-        showToast('데모 데이터를 처음 상태로 초기화했어요.');
-      }
-
-      function renderState() {
-        const progress = Math.min(100, (state.xp / state.xpToNext) * 100);
-        const remaining = Math.max(0, state.xpToNext - state.xp);
-        const dailyProgress = Math.min(100, state.dailyDistance * 100);
-        const weeklyProgress = Math.min(100, (state.weeklyKm / 10) * 100);
-
-        $('home-level-pill').textContent = `Lv. ${state.level} · 새싹 러너`;
-        $('home-level-label').textContent = `LEVEL ${state.level}`;
-        $('home-xp-label').textContent = `${formatNumber(state.xp)} / ${formatNumber(state.xpToNext)} XP`;
-        $('home-xp-progress').style.width = `${progress}%`;
-        $('remaining-xp').textContent = formatNumber(remaining);
-
-        $('quest-streak').textContent = `🔥 ${state.streak}일`;
-        $('daily-quest-caption').textContent = `오늘 ${state.dailyDistance.toFixed(2)} / 1km 달리기`;
-        $('daily-quest-progress').style.width = `${dailyProgress}%`;
-        $('claim-daily-quest').disabled = state.dailyDistance < 1 || state.dailyClaimed;
-        $('claim-daily-quest').textContent = state.dailyClaimed ? '완료' : '보상 받기';
-        $('weekly-quest-caption').textContent = `이번 주 ${state.weeklyKm.toFixed(1)} / 10km`;
-        $('weekly-quest-progress').style.width = `${weeklyProgress}%`;
-
-        renderAdventure();
-
-        $('character-energy').textContent = `⚡ ${state.energy}`;
-        $('character-level-pill').textContent = `Lv. ${state.level} · 새싹 러너`;
-        $('character-xp').textContent = `${formatNumber(state.xp)} / ${formatNumber(state.xpToNext)} XP`;
-        $('character-total-km').textContent = `${state.totalKm.toFixed(1)}km`;
-        $('character-runs').textContent = `${state.runs}회`;
-        $('character-streak').textContent = `${state.streak}일`;
-        $('inventory-label').textContent = state.inventory.length
-          ? state.inventory.join(', ')
-          : '아직 획득한 장비가 없어요. 모험에 도전해 보세요.';
-      }
-
-      function renderAdventure() {
-        const stage = getAdventureStage(selectedAdventureStage);
-        if (!stage) return;
-
-        const status = getAdventureStageStatus(stage.number);
-        const clearedCount = state.clearedStages.length;
-        const nextStage = adventureStages.find((candidate) => !state.clearedStages.includes(candidate.number));
-        const hpProgress = Math.max(0, (battleHp / stage.hp) * 100);
-        const progressRatio = Math.max(0, Math.min(1, (clearedCount - 1) / (adventureStages.length - 1)));
-
-        $('battle-energy').textContent = `⚡ ${state.energy}`;
-        $('stage-progress-label').textContent =
-          clearedCount === adventureStages.length
-            ? `완료 ${clearedCount} / ${adventureStages.length} · 챕터 정복`
-            : `완료 ${clearedCount} / ${adventureStages.length} · 다음 ${nextStage?.number}단계`;
-        $('stage-path-progress').style.strokeDashoffset = String(1500 - 1500 * progressRatio);
-
-        document.querySelectorAll('[data-stage]').forEach((button) => {
-          const number = Number(button.dataset.stage);
-          const nodeStage = getAdventureStage(number);
-          const nodeStatus = getAdventureStageStatus(number);
-          const icon = button.querySelector('span');
-          button.classList.toggle('cleared', nodeStatus === 'cleared');
-          button.classList.toggle('current', nodeStatus === 'current');
-          button.classList.toggle('selected', number === selectedAdventureStage);
-          button.disabled = nodeStatus === 'locked' || autoHunting;
-          button.setAttribute(
-            'aria-label',
-            `${number}단계 ${nodeStage?.name} · ${nodeStatus === 'cleared' ? '완료' : nodeStatus === 'current' ? '도전 가능' : '잠김'}`
-          );
-          if (icon) {
-            icon.textContent = nodeStatus === 'cleared' ? '★' : nodeStatus === 'current' ? nodeStage?.icon : '🔒';
-          }
-        });
-
-        $('selected-stage-title').textContent = `${stage.number}단계 · ${stage.name}`;
-        $('selected-stage-caption').textContent = `${stage.monster} · 에너지 ${stage.energy}`;
-        $('selected-stage-state').textContent =
-          status === 'cleared' ? '클리어' : status === 'current' ? '현재 단계' : '잠김';
-        $('battle-card').classList.toggle('hunting', autoHunting);
-        $('battle-zone').textContent = stage.boss ? `BOSS ${stage.number}` : `STAGE ${stage.number}`;
-        $('monster-art').textContent = battleHp === 0 ? '💫' : stage.icon;
-        $('monster-art').classList.toggle('defeated', battleHp === 0);
-        $('monster-name').textContent = stage.monster;
-        $('monster-hp-label').textContent = battleHp === 0 ? '처치 완료' : `HP ${battleHp} / ${stage.hp}`;
-        $('monster-hp-bar').style.width = `${hpProgress}%`;
-        $('damage-number').textContent = `-${stage.damage}`;
-        $('hero-battle-status').textContent = autoHunting
-          ? `${battleTurn + 1}번째 행동 준비`
-          : `전투 에너지 ${state.energy}`;
-
-        if (autoHunting) {
-          $('auto-message').textContent = `${battleTurn}번째 자동 공격 · ${stage.damage} 피해 · 남은 HP ${battleHp}`;
-        } else if (lastClearedStage === stage.number) {
-          $('auto-message').textContent = `${stage.monster} 처치 완료! 골드와 전리품을 획득했어요.`;
-        } else if (status === 'cleared') {
-          $('auto-message').textContent = '이미 클리어한 단계예요. 다음 단계로 이동할 수 있어요.';
-        } else if (status === 'locked') {
-          $('auto-message').textContent = '앞 단계를 클리어하면 길이 열려요.';
-        } else {
-          $('auto-message').textContent = '버튼을 한 번 누르면 루미가 끝까지 자동으로 사냥해요.';
-        }
-
-        const actionButton = $('start-auto-hunt');
-        if (autoHunting) {
-          actionButton.disabled = true;
-          actionButton.textContent = `◌ 자동사냥 중 · ${battleTurn}회 공격`;
-        } else if (status === 'cleared') {
-          actionButton.disabled = !nextStage;
-          actionButton.textContent = nextStage ? `› 다음 ${nextStage.number}단계로 이동` : '✓ 초록숨 숲 모든 단계 완료';
-        } else if (status === 'locked') {
-          actionButton.disabled = true;
-          actionButton.textContent = '🔒 이전 단계를 먼저 클리어하세요';
-        } else if (state.energy < stage.energy) {
-          actionButton.disabled = true;
-          actionButton.textContent = `에너지 ${stage.energy - state.energy} 부족`;
-        } else {
-          actionButton.disabled = false;
-          actionButton.textContent = `▶ 자동사냥 시작 · 에너지 ${stage.energy}`;
-        }
-
-        $('loot-icon').textContent = lastClearedStage === stage.number ? stage.itemIcon || '●' : '🎁';
-        $('loot-title').textContent =
-          lastClearedStage === stage.number
-            ? `${stage.item || `${stage.gold} 골드`} 획득!`
-            : `${stage.number}단계 클리어 보상`;
-        $('loot-caption').textContent =
-          lastClearedStage === stage.number
-            ? `${stage.gold} 골드 · 다음 길 해금 완료`
-            : `${stage.item || `${stage.gold} 골드`} · 다음 길 해금`;
-      }
-
-      function renderRun() {
-        const speed = run.currentSpeed > 0 ? run.currentSpeed.toFixed(1) : '--';
-        const average = run.averageSpeed > 0 ? run.averageSpeed.toFixed(1) : '--';
-        const max = run.maxSpeed > 0 ? run.maxSpeed.toFixed(1) : '--';
-        const paceSeconds = run.averageSpeed > 0 ? 3600 / run.averageSpeed : 0;
-        const visiblePoints = routePoints.slice(0, run.routeCount);
-        const lastPoint = visiblePoints[visiblePoints.length - 1] || routePoints[0];
-        const questProgress = Math.min(100, run.distance * 100);
-        const questDone = run.distance >= 1;
-
-        $('run-status').textContent = run.paused ? '잠시 쉬는 중' : '안전하게 달리는 중';
-        $('run-distance').textContent = run.distance.toFixed(2);
-        $('run-time').textContent = formatTime(run.seconds);
-        $('current-speed').textContent = speed;
-        $('average-speed').textContent = average;
-        $('max-speed').textContent = max;
-        $('run-pace').textContent = paceSeconds ? `평균 페이스 ${formatPace(paceSeconds)}` : '평균 페이스 --';
-        $('pause-icon').textContent = run.paused ? '▶' : 'Ⅱ';
-        $('pause-label').textContent = run.paused ? '계속하기' : '일시정지';
-        $('live-map-caption').textContent = `데모 GPS ${visiblePoints.length}개 지점 기록 중`;
-        $('live-route').setAttribute('points', visiblePoints.map((point) => point.join(',')).join(' '));
-        $('live-finish').setAttribute('cx', lastPoint[0]);
-        $('live-finish').setAttribute('cy', lastPoint[1]);
-        $('run-quest-title').textContent = questDone ? '일일 퀘스트 달성!' : '1km 퀘스트 진행 중';
-        $('run-quest-caption').textContent = questDone
-          ? '1km 러닝 · 120 XP 받을 준비 완료'
-          : `${run.distance.toFixed(2)} / 1km · 계속 달려보세요`;
-        $('run-quest-progress').style.width = `${questProgress}%`;
-      }
-
-      function renderSummary() {
-        if (!pendingReward) return;
-        const averageSpeed = pendingReward.averageSpeed || 9.2;
-        const maxSpeed = pendingReward.maxSpeed || averageSpeed;
-        const pace = averageSpeed > 0 ? 3600 / averageSpeed : 0;
-        const calories = Math.max(1, Math.round(pendingReward.distance * 65));
-
-        $('summary-distance').textContent = pendingReward.distance.toFixed(2);
-        $('summary-time').textContent = formatTime(pendingReward.seconds);
-        $('summary-pace').textContent = formatPace(pace);
-        $('summary-average-speed').textContent = `${averageSpeed.toFixed(1)} km/h`;
-        $('summary-max-speed').textContent = `${maxSpeed.toFixed(1)} km/h`;
-        $('summary-calories').textContent = `${calories} kcal`;
-        $('summary-moving-time').textContent = formatTime(pendingReward.seconds);
-        $('summary-points').textContent = `${pendingReward.routeCount}개`;
-        $('summary-xp-reward').textContent = `✦ +${pendingReward.xp}`;
-        $('summary-energy-reward').textContent = `⚡ +${pendingReward.energy}`;
-      }
-
-      function formatTime(totalSeconds) {
-        const minutes = Math.floor(totalSeconds / 60);
-        const seconds = Math.floor(totalSeconds % 60);
-        return `${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
-      }
-
-      function formatPace(totalSeconds) {
-        if (!Number.isFinite(totalSeconds) || totalSeconds <= 0) return '--';
-        const minutes = Math.floor(totalSeconds / 60);
-        const seconds = Math.round(totalSeconds % 60);
-        return `${String(minutes).padStart(2, '0')}'${String(seconds).padStart(2, '0')}"`;
+      function itemById(id) {
+        return items.find((item) => item.id === id);
       }
 
       function formatNumber(value) {
         return Number(value).toLocaleString('ko-KR');
       }
 
-      function showToast(message) {
-        clearTimeout(toastTimer);
-        $('toast').textContent = message;
-        $('toast').classList.add('show');
-        toastTimer = setTimeout(() => $('toast').classList.remove('show'), 2200);
-      }
-
-      $('start-run').addEventListener('click', startRun);
-      $('pause-run').addEventListener('click', pauseRun);
-      $('finish-run').addEventListener('click', finishRun);
-      $('cancel-run').addEventListener('click', cancelRun);
-      $('claim-run-reward').addEventListener('click', claimRunReward);
-      $('claim-daily-quest').addEventListener('click', claimDailyQuest);
-      $('start-auto-hunt').addEventListener('click', handleAdventureAction);
-      $('reset-demo').addEventListener('click', resetDemo);
-
-      document.querySelectorAll('[data-stage]').forEach((button) => {
-        button.addEventListener('click', () => selectAdventureStage(Number(button.dataset.stage)));
-      });
-
-      navButtons.forEach((button) => {
-        button.addEventListener('click', () => showView(button.dataset.nav));
-      });
-
-      shortcutButtons.forEach((button) => {
-        button.addEventListener('click', () => {
-          if (button.dataset.target === 'running') {
-            startRun();
-          } else if (button.dataset.target === 'summary') {
-            openSampleSummary();
-          } else {
-            showView('home');
+      function renderAvatar(container) {
+        container.innerHTML = `<img class="hero-img" src="../assets/quest-run-hero.png" alt="꾸미기 아이템을 착용한 픽셀 여우 루미" />`;
+        slots.forEach((slot) => {
+          const item = itemById(state.equipped[slot]);
+          if (item) {
+            container.insertAdjacentHTML(
+              'beforeend',
+              `<span class="wearable" data-slot="${slot}" aria-hidden="true">${item.icon}</span>`
+            );
           }
         });
+      }
+
+      function renderGlobal() {
+        document
+          .querySelectorAll('[data-bind=coins]')
+          .forEach((node) => (node.textContent = formatNumber(state.coins)));
+        document.querySelectorAll('[data-bind=level]').forEach((node) => (node.textContent = state.level));
+        document.querySelectorAll('[data-bind=xp]').forEach((node) => (node.textContent = formatNumber(state.xp)));
+        document
+          .querySelectorAll('[data-bind=xpTarget]')
+          .forEach((node) => (node.textContent = formatNumber(state.xpTarget)));
+        document
+          .querySelectorAll('[data-bind=totalKm]')
+          .forEach((node) => (node.textContent = `${state.totalKm.toFixed(1)}km`));
+        document
+          .querySelectorAll('[data-bind=weekKm]')
+          .forEach((node) => (node.textContent = `${state.weekKm.toFixed(1)}km`));
+        document.querySelectorAll('[data-bind=weekRuns]').forEach((node) => (node.textContent = `${state.weekRuns}회`));
+        document
+          .querySelectorAll('[data-bind=seoulKm]')
+          .forEach((node) => (node.textContent = state.seoulKm.toFixed(1)));
+        document
+          .querySelectorAll('[data-xp-bar]')
+          .forEach((node) => (node.style.width = `${Math.min(100, (state.xp / state.xpTarget) * 100)}%`));
+        document.querySelectorAll('[data-avatar]').forEach(renderAvatar);
+
+        const head = itemById(state.equipped.head);
+        document.querySelector('[data-head-icon]').textContent = head?.icon || '🧢';
+        document.querySelector('[data-head-name]').textContent = head?.name || '기본 러닝 스타일';
+        document.querySelector('[data-outfit-names]').textContent =
+          slots
+            .map((slot) => itemById(state.equipped[slot])?.name)
+            .filter(Boolean)
+            .join(' · ') || '기본 러닝 스타일';
+
+        const strip = document.querySelector('[data-outfit-strip]');
+        strip.innerHTML = slots
+          .map((slot) => `<span class="outfit-slot">${itemById(state.equipped[slot])?.icon || '＋'}</span>`)
+          .join('');
+      }
+
+      function renderShop() {
+        const filters = [
+          ['all', '전체'],
+          ['head', '모자'],
+          ['top', '상의'],
+          ['shoes', '신발'],
+          ['accessory', '장식'],
+        ];
+        document.querySelector('[data-filters]').innerHTML = filters
+          .map(
+            ([id, label]) =>
+              `<button class="filter ${activeFilter === id ? 'active' : ''}" data-filter="${id}">${label}</button>`
+          )
+          .join('');
+
+        const visible = items.filter(
+          (item) => item.source !== 'starter' && (activeFilter === 'all' || item.slot === activeFilter)
+        );
+        document.querySelector('[data-shop-grid]').innerHTML = visible
+          .map((item) => {
+            const owned = state.owned.includes(item.id);
+            const equipped = state.equipped[item.slot] === item.id;
+            const meta = owned
+              ? equipped
+                ? '착용 중'
+                : '보유 중'
+              : item.source === 'shop'
+                ? `● ${formatNumber(item.price)}`
+                : item.source === 'quest'
+                  ? '퀘스트 한정'
+                  : '지역 한정';
+            return `<button class="item-card ${selectedItemId === item.id ? 'selected' : ''} ${
+              owned ? 'owned' : ''
+            } ${equipped ? 'equipped' : ''}" data-item="${item.id}">
+              <span class="item-art ${item.rarity === '지역 한정' ? 'regional' : ''}">
+                ${item.icon}${equipped ? '<span class="check">✓</span>' : ''}
+              </span>
+              <span class="item-name">${item.name}</span>
+              <span class="item-meta">${meta}</span>
+            </button>`;
+          })
+          .join('');
+
+        const selected = itemById(selectedItemId) || items[3];
+        const owned = state.owned.includes(selected.id);
+        const equipped = state.equipped[selected.slot] === selected.id;
+        const canBuy = selected.source === 'shop' && state.coins >= selected.price;
+        let action = '획득 조건을 달성해 주세요';
+        if (owned) action = equipped ? '현재 착용 중' : '이 아이템 착용하기';
+        else if (selected.source === 'shop')
+          action = canBuy ? `● ${formatNumber(selected.price)} · 구매하기` : '러닝 코인이 부족해요';
+        else if (selected.source === 'quest') action = '주간 10km 퀘스트 보상';
+        else action = '해당 지역 러닝으로 발견';
+
+        document.querySelector('[data-item-detail]').innerHTML = `
+          <div class="item-detail-top">
+            <div class="detail-icon">${selected.icon}</div>
+            <div class="item-detail-copy">
+              <h3>${selected.name}</h3>
+              <span class="badge">${selected.rarity} · ${slotLabels[selected.slot]}</span>
+              <p class="caption">${selected.description}</p>
+            </div>
+          </div>
+          <button class="primary" data-item-action ${equipped || (!owned && !canBuy) ? 'disabled' : ''}>${action}</button>
+        `;
+      }
+
+      function renderWardrobe() {
+        document.querySelector('[data-wardrobe-tabs]').innerHTML = slots
+          .map(
+            (slot) =>
+              `<button class="${wardrobeSlot === slot ? 'active' : ''}" data-wardrobe-slot="${slot}">${slotLabels[slot]}</button>`
+          )
+          .join('');
+
+        const owned = items.filter((item) => item.slot === wardrobeSlot && state.owned.includes(item.id));
+        document.querySelector('[data-wardrobe]').innerHTML = owned.length
+          ? owned
+              .map((item) => {
+                const equipped = state.equipped[item.slot] === item.id;
+                return `<div class="wardrobe-row">
+                  <span class="wardrobe-icon">${item.icon}</span>
+                  <div><strong>${item.name}</strong><br /><small class="caption">${item.rarity}</small></div>
+                  <button data-equip="${item.id}" ${equipped ? 'disabled' : ''}>${equipped ? '착용 중' : '착용하기'}</button>
+                </div>`;
+              })
+              .join('')
+          : `<div style="padding:18px 0;text-align:center"><div style="font-size:32px">✨</div><strong>이 칸은 아직 비어 있어요</strong><p class="caption">달리고 코인을 모아 새 아이템을 만나보세요.</p></div>`;
+      }
+
+      function renderQuests() {
+        const quests = [
+          {
+            id: 'daily-distance',
+            title: '가볍게 몸풀기',
+            current: state.todayKm,
+            target: 1,
+            unit: 'km',
+            icon: '✦',
+            reward: '120 XP',
+          },
+          {
+            id: 'daily-run',
+            title: '오늘의 첫 러닝',
+            current: state.todayRuns,
+            target: 1,
+            unit: '회',
+            icon: '●',
+            reward: '러닝 코인 80',
+          },
+          {
+            id: 'daily-distance-3',
+            title: '조금 더 멀리',
+            current: state.todayKm,
+            target: 3,
+            unit: 'km',
+            icon: '●',
+            reward: '러닝 코인 120',
+          },
+        ];
+        document.querySelector('[data-quest-list]').innerHTML = quests
+          .map((quest) => {
+            const done = quest.current >= quest.target;
+            const claimed = state.claimed.includes(quest.id);
+            return `<div class="card quest-card" style="margin-top:0">
+              <span class="quest-reward">${quest.icon}</span>
+              <div class="quest-copy">
+                <div class="quest-top"><strong>${quest.title}</strong><span>${quest.current.toFixed(
+                  quest.unit === 'km' ? 2 : 0
+                )} / ${quest.target}${quest.unit}</span></div>
+                <div class="progress"><span style="width:${Math.min(100, (quest.current / quest.target) * 100)}%"></span></div>
+                <div class="quest-bottom"><small>보상 · ${quest.reward}</small>${
+                  done
+                    ? `<button class="claim" data-claim="${quest.id}" ${claimed ? 'disabled' : ''}>${
+                        claimed ? '받음' : '받기'
+                      }</button>`
+                    : ''
+                }</div>
+              </div>
+            </div>`;
+          })
+          .join('');
+      }
+
+      function render() {
+        renderGlobal();
+        renderShop();
+        renderWardrobe();
+        renderQuests();
+      }
+
+      function goTo(screen) {
+        document
+          .querySelectorAll('[data-screen]')
+          .forEach((node) => node.classList.toggle('active', node.dataset.screen === screen));
+        document
+          .querySelectorAll('[data-nav]')
+          .forEach((node) => node.classList.toggle('active', node.dataset.nav === screen));
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+        render();
+      }
+
+      function showToast(message) {
+        const toast = document.querySelector('[data-toast]');
+        toast.textContent = message;
+        toast.classList.add('show');
+        clearTimeout(showToast.timer);
+        showToast.timer = setTimeout(() => toast.classList.remove('show'), 1900);
+      }
+
+      function buyOrEquipSelected() {
+        const item = itemById(selectedItemId);
+        if (!item) return;
+        if (state.owned.includes(item.id)) {
+          state.equipped[item.slot] = item.id;
+          showToast(`${item.name}을(를) 착용했어요!`);
+        } else if (item.source === 'shop' && state.coins >= item.price) {
+          state.coins -= item.price;
+          state.owned.push(item.id);
+          state.equipped[item.slot] = item.id;
+          showToast(`${item.name} 구매 후 바로 착용했어요!`);
+        }
+        saveState();
+        render();
+      }
+
+      function startRun() {
+        runSeconds = 0;
+        document.querySelector('[data-running]').classList.add('active');
+        document.querySelector('[data-live-distance]').textContent = '0.00';
+        document.querySelector('[data-live-time]').textContent = '00:00';
+        runTimer = setInterval(() => {
+          runSeconds += 1;
+          const distance = Math.min(2, runSeconds * 0.09);
+          document.querySelector('[data-live-distance]').textContent = distance.toFixed(2);
+          document.querySelector('[data-live-time]').textContent = `00:${String(runSeconds).padStart(2, '0')}`;
+        }, 1000);
+      }
+
+      function stopRun() {
+        clearInterval(runTimer);
+        runTimer = null;
+        document.querySelector('[data-running]').classList.remove('active');
+      }
+
+      document.addEventListener('click', (event) => {
+        const target = event.target.closest('button');
+        if (!target) return;
+        if (target.dataset.nav) goTo(target.dataset.nav);
+        if (target.dataset.go) goTo(target.dataset.go);
+        if (target.dataset.filter) {
+          activeFilter = target.dataset.filter;
+          renderShop();
+        }
+        if (target.dataset.item) {
+          selectedItemId = target.dataset.item;
+          renderShop();
+        }
+        if (target.matches('[data-item-action]')) buyOrEquipSelected();
+        if (target.dataset.wardrobeSlot) {
+          wardrobeSlot = target.dataset.wardrobeSlot;
+          renderWardrobe();
+        }
+        if (target.dataset.equip) {
+          const item = itemById(target.dataset.equip);
+          state.equipped[item.slot] = item.id;
+          saveState();
+          render();
+          showToast(`${item.name}을(를) 착용했어요!`);
+        }
+        if (target.hasAttribute('data-start-run')) startRun();
+        if (target.hasAttribute('data-cancel-run')) stopRun();
+        if (target.hasAttribute('data-finish-run')) {
+          stopRun();
+          document.querySelector('[data-summary]').classList.add('active');
+        }
+        if (target.hasAttribute('data-claim-run')) {
+          state.xp += 200;
+          while (state.xp >= state.xpTarget) {
+            state.xp -= state.xpTarget;
+            state.level += 1;
+            state.xpTarget = Math.floor(state.xpTarget * 1.18);
+          }
+          state.coins += 80;
+          state.totalKm += 2;
+          state.weekKm += 2;
+          state.weekRuns += 1;
+          state.todayKm += 2;
+          state.todayRuns += 1;
+          state.seoulKm += 2;
+          if (state.seoulKm >= 10 && !state.owned.includes('seoul-moon-pin')) state.owned.push('seoul-moon-pin');
+          saveState();
+          document.querySelector('[data-summary]').classList.remove('active');
+          render();
+          showToast('200 XP와 러닝 코인 80을 받았어요!');
+        }
+        if (target.dataset.claim) {
+          const id = target.dataset.claim;
+          if (!state.claimed.includes(id)) {
+            state.claimed.push(id);
+            if (id === 'daily-distance') state.xp += 120;
+            if (id === 'daily-run') state.coins += 80;
+            if (id === 'daily-distance-3') state.coins += 120;
+            saveState();
+            render();
+            showToast('퀘스트 보상을 받았어요!');
+          }
+        }
       });
 
-      renderState();
-      renderRun();
-      showView('home');
+      render();
     </script>
   </body>
 </html>

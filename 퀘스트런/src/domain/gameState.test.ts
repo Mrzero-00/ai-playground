@@ -2,13 +2,12 @@ import {
   DEFAULT_GAME_STATE,
   applyCompletedRun,
   claimQuestReward,
-  completeAdventureStage,
+  equipItem,
   getDailyQuests,
-  getCurrentAdventureStage,
   getDateKey,
   getWeekKey,
-  registerBattleWin,
-  spendBattleEnergy,
+  migrateGameState,
+  purchaseItem,
 } from './gameState';
 import type { CompletedRun } from './runTracking';
 
@@ -29,13 +28,13 @@ const RUN: CompletedRun = {
 };
 
 describe('게임 상태', () => {
-  it('완료한 러닝을 성장과 퀘스트에 반영한다', () => {
+  it('완료한 러닝을 레벨과 꾸미기 코인에 반영한다', () => {
     const next = applyCompletedRun(BASE_STATE, RUN);
 
     expect(next.totalDistanceKm).toBe(44.3);
     expect(next.dailyDistanceKm).toBe(2.15);
     expect(next.dailyRuns).toBe(1);
-    expect(next.battleEnergy).toBe(1_020);
+    expect(next.styleCoins).toBe(1_300);
     expect(next.runHistory).toHaveLength(1);
   });
 
@@ -50,29 +49,29 @@ describe('게임 상태', () => {
     expect(next.unlockedItemIds).toContain('hallabong-hat');
   });
 
-  it('전투 에너지와 일일 전투 진행도를 갱신한다', () => {
-    const spent = spendBattleEnergy(BASE_STATE, 120);
-    const won = registerBattleWin(spent, TEST_NOW);
+  it('러닝 코인으로 상점 아이템을 구매한다', () => {
+    const next = purchaseItem(BASE_STATE, 'sunny-visor');
 
-    expect(won.battleEnergy).toBe(720);
-    expect(won.dailyBattles).toBe(1);
+    expect(next.styleCoins).toBe(BASE_STATE.styleCoins - 180);
+    expect(next.unlockedItemIds).toContain('sunny-visor');
   });
 
-  it('자동사냥 승리 시 에너지를 사용하고 다음 스테이지를 연다', () => {
-    const next = completeAdventureStage(BASE_STATE, 'forest-3', TEST_NOW);
+  it('코인이 부족하면 아이템을 구매하지 않는다', () => {
+    const state = { ...BASE_STATE, styleCoins: 10 };
+    const next = purchaseItem(state, 'sunny-visor');
 
-    expect(next.battleEnergy).toBe(BASE_STATE.battleEnergy - 84);
-    expect(next.dailyBattles).toBe(BASE_STATE.dailyBattles + 1);
-    expect(next.clearedAdventureStageIds).toContain('forest-3');
-    expect(next.unlockedItemIds).toContain('wolf-band');
-    expect(next.gold).toBe(BASE_STATE.gold + 55);
-    expect(getCurrentAdventureStage(next)?.id).toBe('forest-4');
+    expect(next).toBe(state);
   });
 
-  it('잠긴 스테이지는 자동사냥으로 건너뛸 수 없다', () => {
-    const next = completeAdventureStage(BASE_STATE, 'forest-5', TEST_NOW);
+  it('보유한 아이템을 슬롯에 착용한다', () => {
+    const purchased = purchaseItem(BASE_STATE, 'sunny-visor');
+    const equipped = equipItem(purchased, 'sunny-visor');
 
-    expect(next).toBe(BASE_STATE);
+    expect(equipped.equippedItemIds.head).toBe('sunny-visor');
+  });
+
+  it('보유하지 않은 아이템은 착용할 수 없다', () => {
+    expect(equipItem(BASE_STATE, 'rainbow-trail')).toBe(BASE_STATE);
   });
 
   it('일일 퀘스트 완료값을 현재 게임 상태에서 계산한다', () => {
@@ -81,41 +80,49 @@ describe('게임 상태', () => {
 
     expect(quests.find((quest) => quest.id === 'daily-distance')?.current).toBe(2.15);
     expect(quests.find((quest) => quest.id === 'daily-run')?.current).toBe(1);
+    expect(quests.find((quest) => quest.id === 'daily-distance-3')?.current).toBe(2.15);
   });
 
   it('7일째 일일 퀘스트를 모두 받으면 지구력이 오른다', () => {
     const completed = {
       ...BASE_STATE,
-      dailyDistanceKm: 1,
+      dailyDistanceKm: 3,
       dailyRuns: 1,
-      dailyBattles: 1,
     };
     const first = claimQuestReward(completed, 'daily-distance', '2026-07-28');
     const second = claimQuestReward(first, 'daily-run', '2026-07-28');
-    const third = claimQuestReward(second, 'daily-battle', '2026-07-28');
+    const third = claimQuestReward(second, 'daily-distance-3', '2026-07-28');
 
     expect(third.dailyStreak).toBe(7);
     expect(third.endurance).toBe(4);
     expect(third.awardedEnduranceMilestones).toContain(7);
   });
 
-  it('전투 일일 퀘스트 보상으로 나무 방패를 해금한다', () => {
+  it('주간 거리 퀘스트로 한정 반다나를 얻는다', () => {
     const completed = {
       ...BASE_STATE,
-      dailyBattles: 1,
+      weeklyDistanceKm: 10,
     };
-    const next = claimQuestReward(completed, 'daily-battle', '2026-07-28');
+    const next = claimQuestReward(completed, 'weekly-distance', '2026-07-28');
 
-    expect(next.unlockedItemIds).toContain('wood-shield');
+    expect(next.unlockedItemIds).toContain('weekly-bandana');
   });
 
-  it('주간 러닝 횟수 퀘스트 보상으로 골드를 지급한다', () => {
+  it('주간 러닝 횟수 퀘스트 보상으로 꾸미기 코인을 지급한다', () => {
     const completed = {
       ...BASE_STATE,
       weeklyRuns: 3,
     };
     const next = claimQuestReward(completed, 'weekly-runs', '2026-07-28');
 
-    expect(next.gold).toBe(BASE_STATE.gold + 500);
+    expect(next.styleCoins).toBe(BASE_STATE.styleCoins + 300);
+  });
+
+  it('기존 골드 저장값을 꾸미기 코인으로 마이그레이션한다', () => {
+    const migrated = migrateGameState({ version: 1, gold: 777, unlockedItemIds: [] });
+
+    expect(migrated.version).toBe(2);
+    expect(migrated.styleCoins).toBe(777);
+    expect(migrated.unlockedItemIds).toEqual(expect.arrayContaining(['mint-cap', 'mint-hoodie', 'orange-shoes']));
   });
 });

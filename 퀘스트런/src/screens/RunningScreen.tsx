@@ -203,7 +203,7 @@ export function RunningScreen({ onCancel, onFinish, onUseDemoRun }: RunningScree
         </Pressable>
       </View>
 
-      <Text style={styles.safetyText}>주변을 살피며 달려주세요. 전투는 러닝 종료 후 진행돼요.</Text>
+      <Text style={styles.safetyText}>주변을 살피며 달려주세요. 보상은 러닝 종료 후 한 번에 지급돼요.</Text>
     </SafeAreaView>
   );
 }
@@ -231,7 +231,7 @@ export function RunSummaryScreen({ run, gameState, onContinue }: RunSummaryScree
         </View>
         <Text style={styles.summaryEyebrow}>RUN COMPLETE</Text>
         <Text style={styles.summaryTitle}>멋진 러닝이었어요!</Text>
-        <Text style={styles.summaryCaption}>오늘의 발걸음이 루미를 더 강하게 만들었어요.</Text>
+        <Text style={styles.summaryCaption}>오늘의 발걸음이 러너 레벨과 새로운 스타일로 이어져요.</Text>
 
         <Card style={styles.summaryRecordCard}>
           <View style={styles.summaryMainMetric}>
@@ -273,9 +273,9 @@ export function RunSummaryScreen({ run, gameState, onContinue }: RunSummaryScree
             <Text style={styles.rewardLabel}>경험치</Text>
           </View>
           <View style={[styles.rewardCard, styles.rewardCardEnergy]}>
-            <Text style={styles.rewardIcon}>⚡</Text>
-            <Text style={styles.rewardValue}>+{rewards.battleEnergy}</Text>
-            <Text style={styles.rewardLabel}>전투 에너지</Text>
+            <Text style={styles.rewardIcon}>●</Text>
+            <Text style={styles.rewardValue}>+{rewards.styleCoins}</Text>
+            <Text style={styles.rewardLabel}>러닝 코인</Text>
           </View>
         </View>
 

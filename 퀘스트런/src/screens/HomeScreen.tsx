@@ -1,6 +1,7 @@
 import React from 'react';
 import { Image, Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
-import { getCurrentAdventureStage, getDailyQuests, type GameState } from '../domain/gameState';
+import { getItemById } from '../domain/game';
+import { getDailyQuests, type GameState } from '../domain/gameState';
 import {
   Card,
   IconButton,
@@ -19,7 +20,7 @@ interface HomeScreenProps {
   isHydrated: boolean;
   onStartRun: () => void;
   onOpenQuest: () => void;
-  onOpenAdventure: () => void;
+  onOpenStyle: () => void;
   onOpenTestLab?: () => void;
 }
 
@@ -28,13 +29,14 @@ export function HomeScreen({
   isHydrated,
   onStartRun,
   onOpenQuest,
-  onOpenAdventure,
+  onOpenStyle,
   onOpenTestLab,
 }: HomeScreenProps) {
   const dailyDistanceQuest = getDailyQuests(gameState).find((quest) => quest.id === 'daily-distance');
   const dailyDistanceProgress = (dailyDistanceQuest?.current ?? 0) / (dailyDistanceQuest?.target ?? 1);
   const remainingExperience = Math.max(0, gameState.experienceToNextLevel - gameState.experience);
-  const currentAdventureStage = getCurrentAdventureStage(gameState);
+  const equippedHeadItem =
+    gameState.equippedItemIds.head == null ? undefined : getItemById(gameState.equippedItemIds.head);
 
   return (
     <ScrollView contentContainerStyle={styles.content} showsVerticalScrollIndicator={false}>
@@ -92,7 +94,7 @@ export function HomeScreen({
           <View>
             <Text style={styles.runEyebrow}>오늘의 추천</Text>
             <Text style={styles.runTitle}>편안하게 2km 달리기</Text>
-            <Text style={styles.runCaption}>예상 보상 · 200 XP + 에너지 240</Text>
+            <Text style={styles.runCaption}>예상 보상 · 200 XP + 러닝 코인 80</Text>
           </View>
           <View style={styles.routeIcon}>
             <Text style={styles.routeIconText}>⌁</Text>
@@ -150,38 +152,30 @@ export function HomeScreen({
 
       <SectionHeader
         action={
-          <Pressable accessibilityRole="button" onPress={onOpenAdventure}>
-            <Text style={styles.sectionAction}>모험하기</Text>
+          <Pressable accessibilityRole="button" onPress={onOpenStyle}>
+            <Text style={styles.sectionAction}>구경하기</Text>
           </Pressable>
         }
-        caption="러닝으로 모은 에너지로 도전해요."
-        title="기다리는 몬스터"
+        caption="러닝 코인으로 루미의 오늘 스타일을 바꿔보세요."
+        title="오늘의 스타일"
       />
 
       <Pressable
-        accessibilityLabel={`${currentAdventureStage?.monsterName ?? '초록숨 숲'} 모험 열기`}
+        accessibilityLabel="스타일 상점 열기"
         accessibilityRole="button"
-        onPress={onOpenAdventure}
-        style={({ pressed }) => [styles.monsterPreview, pressed && styles.pressed]}
+        onPress={onOpenStyle}
+        style={({ pressed }) => [styles.stylePreview, pressed && styles.pressed]}
       >
-        <View style={styles.monsterArt}>
-          <Text style={styles.monsterEmoji}>{currentAdventureStage?.monsterIcon ?? '👑'}</Text>
-          <View style={styles.monsterLevel}>
-            <Text style={styles.monsterLevelText}>
-              {currentAdventureStage == null ? '완료' : `Stage ${currentAdventureStage.number}`}
-            </Text>
+        <View style={styles.styleArt}>
+          <Text style={styles.styleEmoji}>{equippedHeadItem?.icon ?? '🧢'}</Text>
+          <View style={styles.styleBadge}>
+            <Text style={styles.styleBadgeText}>착용 중</Text>
           </View>
         </View>
-        <View style={styles.monsterCopy}>
-          <Text style={styles.monsterZone}>
-            초록숨 숲 · {currentAdventureStage == null ? '챕터 정복' : `${currentAdventureStage.number}단계`}
-          </Text>
-          <Text style={styles.monsterName}>{currentAdventureStage?.monsterName ?? '모든 몬스터 처치 완료'}</Text>
-          <Text style={styles.monsterReward}>
-            {currentAdventureStage == null
-              ? '다음 챕터를 준비 중이에요.'
-              : `자동사냥 · 에너지 ${currentAdventureStage.energyCost}`}
-          </Text>
+        <View style={styles.styleCopy}>
+          <Text style={styles.styleLabel}>현재 헤드 아이템</Text>
+          <Text style={styles.styleName}>{equippedHeadItem?.name ?? '기본 러닝 스타일'}</Text>
+          <Text style={styles.styleCurrency}>보유 코인 · ● {gameState.styleCoins.toLocaleString()}</Text>
         </View>
         <Text style={styles.chevron}>›</Text>
       </Pressable>
@@ -398,7 +392,7 @@ const styles = StyleSheet.create({
     fontSize: 12,
     fontWeight: '900',
   },
-  monsterPreview: {
+  stylePreview: {
     alignItems: 'center',
     backgroundColor: colors.navy,
     borderRadius: radii.large,
@@ -407,7 +401,7 @@ const styles = StyleSheet.create({
     overflow: 'hidden',
     padding: 14,
   },
-  monsterArt: {
+  styleArt: {
     alignItems: 'center',
     backgroundColor: '#284F47',
     borderRadius: 20,
@@ -416,10 +410,10 @@ const styles = StyleSheet.create({
     marginRight: 15,
     width: 88,
   },
-  monsterEmoji: {
+  styleEmoji: {
     fontSize: 46,
   },
-  monsterLevel: {
+  styleBadge: {
     backgroundColor: colors.orange,
     borderRadius: radii.pill,
     bottom: 5,
@@ -427,26 +421,26 @@ const styles = StyleSheet.create({
     paddingVertical: 3,
     position: 'absolute',
   },
-  monsterLevelText: {
+  styleBadgeText: {
     color: colors.white,
     fontSize: 9,
     fontWeight: '900',
   },
-  monsterCopy: {
+  styleCopy: {
     flex: 1,
   },
-  monsterZone: {
+  styleLabel: {
     color: '#91B8B0',
     fontSize: 10,
     fontWeight: '800',
     marginBottom: 5,
   },
-  monsterName: {
+  styleName: {
     color: colors.white,
     fontSize: 18,
     fontWeight: '900',
   },
-  monsterReward: {
+  styleCurrency: {
     color: '#BED4D0',
     fontSize: 11,
     marginTop: 7,

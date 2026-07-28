@@ -1,7 +1,8 @@
 export type QuestKind = 'daily' | 'weekly' | 'streak';
-export type QuestMetric = 'distance' | 'runs' | 'battle' | 'dailyPerfect';
-export type ItemKind = 'weapon' | 'armor' | 'shoes' | 'cosmetic';
+export type QuestMetric = 'distance' | 'runs';
+export type ItemSlot = 'head' | 'top' | 'shoes' | 'accessory';
 export type ItemRarity = '일반' | '희귀' | '영웅' | '지역 한정';
+export type ItemSource = 'starter' | 'shop' | 'quest' | 'achievement';
 
 export interface Quest {
   id: string;
@@ -18,13 +19,13 @@ export interface Quest {
 export interface GameItem {
   id: string;
   name: string;
-  kind: ItemKind;
+  slot: ItemSlot;
   rarity: ItemRarity;
   icon: string;
-  power: number;
+  price: number;
   description: string;
+  source: ItemSource;
   region?: string;
-  unlocked: boolean;
 }
 
 export interface HiddenAchievement {
@@ -40,7 +41,7 @@ export interface HiddenAchievement {
 
 export interface RunRewards {
   experience: number;
-  battleEnergy: number;
+  styleCoins: number;
   questDistance: number;
 }
 
@@ -49,130 +50,6 @@ export interface EnduranceMilestone {
   bonus: number;
   title: string;
 }
-
-export interface AdventureStage {
-  id: string;
-  number: number;
-  name: string;
-  monsterName: string;
-  monsterIcon: string;
-  monsterHp: number;
-  autoDamage: number;
-  energyCost: number;
-  goldReward: number;
-  rewardItemId?: string;
-  isBoss?: boolean;
-}
-
-export type AdventureStageState = 'cleared' | 'current' | 'locked';
-
-export const ADVENTURE_STAGES: AdventureStage[] = [
-  {
-    id: 'forest-1',
-    number: 1,
-    name: '새싹 오솔길',
-    monsterName: '초록 슬라임',
-    monsterIcon: '🟢',
-    monsterHp: 90,
-    autoDamage: 30,
-    energyCost: 60,
-    goldReward: 35,
-  },
-  {
-    id: 'forest-2',
-    number: 2,
-    name: '버섯 언덕',
-    monsterName: '버섯 도적',
-    monsterIcon: '🍄',
-    monsterHp: 120,
-    autoDamage: 30,
-    energyCost: 72,
-    goldReward: 45,
-  },
-  {
-    id: 'forest-3',
-    number: 3,
-    name: '야생의 길',
-    monsterName: '숲 그림자 늑대',
-    monsterIcon: '🐺',
-    monsterHp: 150,
-    autoDamage: 30,
-    energyCost: 84,
-    goldReward: 55,
-    rewardItemId: 'wolf-band',
-  },
-  {
-    id: 'forest-4',
-    number: 4,
-    name: '휘감긴 뿌리',
-    monsterName: '뿌리 정령',
-    monsterIcon: '🌱',
-    monsterHp: 180,
-    autoDamage: 36,
-    energyCost: 96,
-    goldReward: 65,
-  },
-  {
-    id: 'forest-5',
-    number: 5,
-    name: '이끼 바위터',
-    monsterName: '이끼 골렘',
-    monsterIcon: '🗿',
-    monsterHp: 240,
-    autoDamage: 40,
-    energyCost: 120,
-    goldReward: 90,
-    rewardItemId: 'forest-gloves',
-    isBoss: true,
-  },
-  {
-    id: 'forest-6',
-    number: 6,
-    name: '달빛 동굴',
-    monsterName: '밤날개 박쥐',
-    monsterIcon: '🦇',
-    monsterHp: 270,
-    autoDamage: 45,
-    energyCost: 132,
-    goldReward: 100,
-  },
-  {
-    id: 'forest-7',
-    number: 7,
-    name: '독안개 늪',
-    monsterName: '독안개 마녀',
-    monsterIcon: '🧙',
-    monsterHp: 300,
-    autoDamage: 50,
-    energyCost: 144,
-    goldReward: 120,
-    rewardItemId: 'moss-cape',
-  },
-  {
-    id: 'forest-8',
-    number: 8,
-    name: '고대 나무길',
-    monsterName: '고대 나무정령',
-    monsterIcon: '🌳',
-    monsterHp: 360,
-    autoDamage: 60,
-    energyCost: 156,
-    goldReward: 140,
-  },
-  {
-    id: 'forest-9',
-    number: 9,
-    name: '수호자의 둥지',
-    monsterName: '숲의 수호룡',
-    monsterIcon: '🐉',
-    monsterHp: 480,
-    autoDamage: 60,
-    energyCost: 180,
-    goldReward: 250,
-    rewardItemId: 'forest-crown',
-    isBoss: true,
-  },
-];
 
 export const DAILY_QUESTS: Quest[] = [
   {
@@ -189,24 +66,24 @@ export const DAILY_QUESTS: Quest[] = [
   {
     id: 'daily-run',
     kind: 'daily',
-    title: '모험의 첫걸음',
+    title: '오늘의 첫 러닝',
     description: '러닝 1회 완료하기',
     metric: 'runs',
     current: 0,
     target: 1,
-    rewardLabel: '전투 에너지 80',
-    rewardIcon: '⚡',
+    rewardLabel: '러닝 코인 80',
+    rewardIcon: '●',
   },
   {
-    id: 'daily-battle',
+    id: 'daily-distance-3',
     kind: 'daily',
-    title: '오늘의 사냥',
-    description: '몬스터 1회 처치하기',
-    metric: 'battle',
-    current: 0,
-    target: 1,
-    rewardLabel: '나무 상자',
-    rewardIcon: '▣',
+    title: '조금 더 멀리',
+    description: '오늘 누적 3km 달리기',
+    metric: 'distance',
+    current: 0.65,
+    target: 3,
+    rewardLabel: '러닝 코인 120',
+    rewardIcon: '●',
   },
 ];
 
@@ -214,12 +91,12 @@ export const WEEKLY_QUESTS: Quest[] = [
   {
     id: 'weekly-distance',
     kind: 'weekly',
-    title: '이번 주 원정',
+    title: '이번 주 10km',
     description: '이번 주 누적 10km 달리기',
     metric: 'distance',
     current: 6.4,
     target: 10,
-    rewardLabel: '희귀 장비 상자',
+    rewardLabel: '주간 완주 반다나',
     rewardIcon: '◆',
   },
   {
@@ -230,7 +107,7 @@ export const WEEKLY_QUESTS: Quest[] = [
     metric: 'runs',
     current: 2,
     target: 3,
-    rewardLabel: '500 골드',
+    rewardLabel: '러닝 코인 300',
     rewardIcon: '●',
   },
 ];
@@ -243,116 +120,136 @@ export const ENDURANCE_MILESTONES: EnduranceMilestone[] = [
 
 export const ITEMS: GameItem[] = [
   {
-    id: 'wood-sword',
-    name: '단단한 목검',
-    kind: 'weapon',
+    id: 'mint-cap',
+    name: '민트 러닝 캡',
+    slot: 'head',
     rarity: '일반',
-    icon: '⚔',
-    power: 12,
-    description: '첫 모험을 함께하는 가벼운 목검',
-    unlocked: true,
+    icon: '🧢',
+    price: 0,
+    description: '루미의 첫 러닝을 함께하는 산뜻한 기본 모자',
+    source: 'starter',
   },
   {
-    id: 'leaf-jacket',
-    name: '새싹 바람막이',
-    kind: 'armor',
-    rarity: '희귀',
-    icon: '♜',
-    power: 18,
-    description: '숲의 바람을 닮은 초보 모험가 재킷',
-    unlocked: true,
-  },
-  {
-    id: 'swift-shoes',
-    name: '바람 러닝화',
-    kind: 'shoes',
-    rarity: '희귀',
-    icon: '◒',
-    power: 8,
-    description: '발걸음이 가벼워지는 모험용 러닝화',
-    unlocked: true,
-  },
-  {
-    id: 'forest-gloves',
-    name: '숲빛 장갑',
-    kind: 'armor',
-    rarity: '희귀',
-    icon: '🧤',
-    power: 16,
-    description: '이끼 골렘을 처음 처치하고 얻는 숲의 장갑',
-    unlocked: false,
-  },
-  {
-    id: 'wolf-band',
-    name: '그림자 늑대 머리띠',
-    kind: 'armor',
-    rarity: '희귀',
-    icon: '🐺',
-    power: 11,
-    description: '초록숨 숲 3단계 자동사냥 보상',
-    unlocked: false,
-  },
-  {
-    id: 'moss-cape',
-    name: '이끼빛 망토',
-    kind: 'armor',
-    rarity: '영웅',
-    icon: '🧥',
-    power: 22,
-    description: '독안개 늪을 돌파한 모험가의 망토',
-    unlocked: false,
-  },
-  {
-    id: 'forest-crown',
-    name: '숲의 수호관',
-    kind: 'armor',
-    rarity: '영웅',
-    icon: '👑',
-    power: 32,
-    description: '초록숨 숲의 마지막 수호룡을 처치한 증표',
-    unlocked: false,
-  },
-  {
-    id: 'wood-shield',
-    name: '연습용 나무 방패',
-    kind: 'armor',
+    id: 'mint-hoodie',
+    name: '민트 후디',
+    slot: 'top',
     rarity: '일반',
-    icon: '🛡️',
-    power: 10,
-    description: '오늘의 사냥 퀘스트 보상으로 받는 단단한 나무 방패',
-    unlocked: false,
+    icon: '👕',
+    price: 0,
+    description: '가볍고 편안한 기본 러닝 후디',
+    source: 'starter',
   },
   {
-    id: 'trail-blade',
-    name: '원정대의 검',
-    kind: 'weapon',
+    id: 'orange-shoes',
+    name: '오렌지 러닝화',
+    slot: 'shoes',
+    rarity: '일반',
+    icon: '👟',
+    price: 0,
+    description: '통통 튀는 색감의 기본 러닝화',
+    source: 'starter',
+  },
+  {
+    id: 'sunny-visor',
+    name: '햇살 바이저',
+    slot: 'head',
+    rarity: '일반',
+    icon: '☀️',
+    price: 180,
+    description: '맑은 날의 러닝을 닮은 노란 바이저',
+    source: 'shop',
+  },
+  {
+    id: 'cherry-headphones',
+    name: '체리 헤드폰',
+    slot: 'head',
+    rarity: '희귀',
+    icon: '🎧',
+    price: 360,
+    description: '달리는 리듬을 더 신나게 만들어 주는 헤드폰',
+    source: 'shop',
+  },
+  {
+    id: 'cloud-hoodie',
+    name: '구름 후디',
+    slot: 'top',
+    rarity: '희귀',
+    icon: '☁️',
+    price: 420,
+    description: '새벽 구름처럼 포근한 하늘색 러닝 후디',
+    source: 'shop',
+  },
+  {
+    id: 'sunset-windbreaker',
+    name: '노을 바람막이',
+    slot: 'top',
     rarity: '영웅',
-    icon: '🗡️',
-    power: 24,
-    description: '주간 10km 원정을 완수한 러너에게 주어지는 검',
-    unlocked: false,
+    icon: '🌅',
+    price: 680,
+    description: '노을빛 그라데이션을 담은 특별한 바람막이',
+    source: 'shop',
+  },
+  {
+    id: 'star-sneakers',
+    name: '별빛 스니커즈',
+    slot: 'shoes',
+    rarity: '희귀',
+    icon: '✨',
+    price: 520,
+    description: '움직일 때마다 작은 별빛이 반짝이는 러닝화',
+    source: 'shop',
+  },
+  {
+    id: 'clover-pin',
+    name: '행운의 클로버 핀',
+    slot: 'accessory',
+    rarity: '일반',
+    icon: '🍀',
+    price: 140,
+    description: '매일의 러닝에 작은 행운을 더하는 핀',
+    source: 'shop',
+  },
+  {
+    id: 'rainbow-trail',
+    name: '무지개 발자국',
+    slot: 'accessory',
+    rarity: '영웅',
+    icon: '🌈',
+    price: 900,
+    description: '달린 자리에 무지개빛 추억을 남기는 장식',
+    source: 'shop',
+  },
+  {
+    id: 'weekly-bandana',
+    name: '주간 완주 반다나',
+    slot: 'head',
+    rarity: '희귀',
+    icon: '🎗️',
+    price: 0,
+    description: '한 주에 10km를 달린 러너만 받는 완주 기념품',
+    source: 'quest',
   },
   {
     id: 'hallabong-hat',
     name: '한라봉 모자',
-    kind: 'cosmetic',
+    slot: 'head',
     rarity: '지역 한정',
     icon: '🍊',
-    power: 0,
+    price: 0,
     description: '제주에서 달린 러너만 발견할 수 있는 꾸미기 아이템',
+    source: 'achievement',
     region: '제주특별자치도',
-    unlocked: false,
   },
   {
     id: 'seoul-moon-pin',
     name: '한강 달빛 핀',
-    kind: 'cosmetic',
+    slot: 'accessory',
     rarity: '지역 한정',
     icon: '🌙',
-    power: 0,
+    price: 0,
     description: '서울의 강변을 오래 달린 러너를 위한 장식',
+    source: 'achievement',
     region: '서울특별시',
-    unlocked: false,
   },
 ];
 
@@ -384,7 +281,7 @@ export function calculateRunRewards(distanceKm: number): RunRewards {
 
   return {
     experience: Math.floor(safeDistance * 100),
-    battleEnergy: Math.floor(safeDistance * 120),
+    styleCoins: Math.floor(safeDistance * 40),
     questDistance: Math.round(safeDistance * 100) / 100,
   };
 }
@@ -395,19 +292,6 @@ export function getEnduranceBonus(streakDays: number): number {
   }, 0);
 }
 
-export function getAdventureStageState(clearedStageIds: string[], stageId: string): AdventureStageState {
-  if (clearedStageIds.includes(stageId)) {
-    return 'cleared';
-  }
-
-  const firstUnclearedStage = ADVENTURE_STAGES.find((stage) => !clearedStageIds.includes(stage.id));
-  return firstUnclearedStage?.id === stageId ? 'current' : 'locked';
-}
-
-export function getAdventureStageById(stageId: string): AdventureStage | undefined {
-  return ADVENTURE_STAGES.find((stage) => stage.id === stageId);
-}
-
 export function findUnlockedRegionalAchievements(regionDistances: Record<string, number>): HiddenAchievement[] {
   return HIDDEN_ACHIEVEMENTS.filter((achievement) => {
     return (regionDistances[achievement.region] ?? 0) >= achievement.requiredDistanceKm;
@@ -416,4 +300,8 @@ export function findUnlockedRegionalAchievements(regionDistances: Record<string,
 
 export function getItemById(itemId: string): GameItem | undefined {
   return ITEMS.find((item) => item.id === itemId);
+}
+
+export function getItemsBySlot(slot: ItemSlot): GameItem[] {
+  return ITEMS.filter((item) => item.slot === slot);
 }

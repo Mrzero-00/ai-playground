@@ -1,18 +1,18 @@
 import {
-  ADVENTURE_STAGES,
   DAILY_QUESTS,
   HIDDEN_ACHIEVEMENTS,
+  ITEMS,
   WEEKLY_QUESTS,
   calculateRunRewards,
-  getAdventureStageById,
-  getAdventureStageState,
   getEnduranceBonus,
+  getItemById,
+  type ItemSlot,
   type Quest,
 } from './game';
 import type { CompletedRun } from './runTracking';
 
 export interface GameState {
-  version: 1;
+  version: 2;
   dailyDateKey: string;
   weeklyDateKey: string;
   level: number;
@@ -25,14 +25,12 @@ export interface GameState {
   totalRuns: number;
   weeklyDistanceKm: number;
   weeklyRuns: number;
-  gold: number;
-  battleEnergy: number;
+  styleCoins: number;
   dailyDistanceKm: number;
   dailyRuns: number;
-  dailyBattles: number;
   claimedQuestIds: string[];
-  clearedAdventureStageIds: string[];
   unlockedItemIds: string[];
+  equippedItemIds: Partial<Record<ItemSlot, string>>;
   unlockedAchievementIds: string[];
   awardedEnduranceMilestones: number[];
   regionDistancesKm: Record<string, number>;
@@ -40,7 +38,7 @@ export interface GameState {
 }
 
 export const DEFAULT_GAME_STATE: GameState = {
-  version: 1,
+  version: 2,
   dailyDateKey: getDateKey(Date.now()),
   weeklyDateKey: getWeekKey(Date.now()),
   level: 7,
@@ -53,14 +51,16 @@ export const DEFAULT_GAME_STATE: GameState = {
   totalRuns: 12,
   weeklyDistanceKm: 6.4,
   weeklyRuns: 2,
-  gold: 1_240,
-  battleEnergy: 840,
+  styleCoins: 1_240,
   dailyDistanceKm: 0.65,
   dailyRuns: 0,
-  dailyBattles: 0,
   claimedQuestIds: [],
-  clearedAdventureStageIds: ['forest-1', 'forest-2'],
-  unlockedItemIds: ['wood-sword', 'leaf-jacket', 'swift-shoes'],
+  unlockedItemIds: ['mint-cap', 'mint-hoodie', 'orange-shoes'],
+  equippedItemIds: {
+    head: 'mint-cap',
+    top: 'mint-hoodie',
+    shoes: 'orange-shoes',
+  },
   unlockedAchievementIds: [],
   awardedEnduranceMilestones: [],
   regionDistancesKm: {},
@@ -94,7 +94,7 @@ export function applyCompletedRun(state: GameState, run: CompletedRun): GameStat
     totalRuns: state.totalRuns + 1,
     weeklyDistanceKm: roundTo(state.weeklyDistanceKm + run.distanceKm, 2),
     weeklyRuns: state.weeklyRuns + 1,
-    battleEnergy: state.battleEnergy + rewards.battleEnergy,
+    styleCoins: state.styleCoins + rewards.styleCoins,
     dailyDistanceKm: roundTo(state.dailyDistanceKm + run.distanceKm, 2),
     dailyRuns: state.dailyRuns + 1,
     regionDistancesKm: updatedRegions,
@@ -104,52 +104,39 @@ export function applyCompletedRun(state: GameState, run: CompletedRun): GameStat
   };
 }
 
-export function spendBattleEnergy(state: GameState, amount: number): GameState {
-  return {
-    ...state,
-    battleEnergy: Math.max(0, state.battleEnergy - Math.max(0, amount)),
-  };
-}
-
-export function registerBattleWin(state: GameState, timestamp = Date.now()): GameState {
-  state = rolloverGameState(state, timestamp);
-
-  return {
-    ...state,
-    dailyBattles: state.dailyBattles + 1,
-    unlockedItemIds: [...new Set([...state.unlockedItemIds, 'forest-gloves'])],
-  };
-}
-
-export function completeAdventureStage(state: GameState, stageId: string, timestamp = Date.now()): GameState {
-  state = rolloverGameState(state, timestamp);
-  const stage = getAdventureStageById(stageId);
+export function purchaseItem(state: GameState, itemId: string): GameState {
+  const item = getItemById(itemId);
 
   if (
-    stage == null ||
-    getAdventureStageState(state.clearedAdventureStageIds, stageId) !== 'current' ||
-    state.battleEnergy < stage.energyCost
+    item == null ||
+    item.source !== 'shop' ||
+    state.unlockedItemIds.includes(item.id) ||
+    state.styleCoins < item.price
   ) {
     return state;
   }
 
-  const unlockedItemIds =
-    stage.rewardItemId == null ? state.unlockedItemIds : [...new Set([...state.unlockedItemIds, stage.rewardItemId])];
-
   return {
     ...state,
-    battleEnergy: state.battleEnergy - stage.energyCost,
-    dailyBattles: state.dailyBattles + 1,
-    gold: state.gold + stage.goldReward,
-    clearedAdventureStageIds: [...state.clearedAdventureStageIds, stageId],
-    unlockedItemIds,
+    styleCoins: state.styleCoins - item.price,
+    unlockedItemIds: [...state.unlockedItemIds, item.id],
   };
 }
 
-export function getCurrentAdventureStage(state: GameState) {
-  return ADVENTURE_STAGES.find(
-    (stage) => getAdventureStageState(state.clearedAdventureStageIds, stage.id) === 'current'
-  );
+export function equipItem(state: GameState, itemId: string): GameState {
+  const item = getItemById(itemId);
+
+  if (item == null || !state.unlockedItemIds.includes(itemId)) {
+    return state;
+  }
+
+  return {
+    ...state,
+    equippedItemIds: {
+      ...state.equippedItemIds,
+      [item.slot]: item.id,
+    },
+  };
 }
 
 export function claimQuestReward(state: GameState, questId: string, todayDateKey: string): GameState {
@@ -174,28 +161,28 @@ export function claimQuestReward(state: GameState, questId: string, todayDateKey
   if (questId === 'daily-run') {
     nextState = {
       ...nextState,
-      battleEnergy: nextState.battleEnergy + 80,
+      styleCoins: nextState.styleCoins + 80,
     };
   }
 
-  if (questId === 'daily-battle') {
+  if (questId === 'daily-distance-3') {
     nextState = {
       ...nextState,
-      unlockedItemIds: [...new Set([...nextState.unlockedItemIds, 'wood-shield'])],
+      styleCoins: nextState.styleCoins + 120,
     };
   }
 
   if (questId === 'weekly-distance') {
     nextState = {
       ...nextState,
-      unlockedItemIds: [...new Set([...nextState.unlockedItemIds, 'trail-blade'])],
+      unlockedItemIds: [...new Set([...nextState.unlockedItemIds, 'weekly-bandana'])],
     };
   }
 
   if (questId === 'weekly-runs') {
     nextState = {
       ...nextState,
-      gold: nextState.gold + 500,
+      styleCoins: nextState.styleCoins + 300,
     };
   }
 
@@ -239,12 +226,7 @@ export function getWeeklyQuests(state: GameState): Quest[] {
 
 export function isQuestComplete(state: GameState, questId: string): boolean {
   const quest = [...DAILY_QUESTS, ...WEEKLY_QUESTS].find((candidate) => candidate.id === questId);
-
-  if (quest == null) {
-    return false;
-  }
-
-  return getQuestCurrentValue(state, quest) >= quest.target;
+  return quest != null && getQuestCurrentValue(state, quest) >= quest.target;
 }
 
 export function getDateKey(timestamp: number): string {
@@ -277,7 +259,6 @@ export function rolloverGameState(state: GameState, timestamp: number): GameStat
       dailyDateKey: currentDailyKey,
       dailyDistanceKm: 0,
       dailyRuns: 0,
-      dailyBattles: 0,
       claimedQuestIds: nextState.claimedQuestIds.filter((questId) => !dailyQuestIds.has(questId)),
     };
   }
@@ -296,26 +277,40 @@ export function rolloverGameState(state: GameState, timestamp: number): GameStat
   return nextState;
 }
 
+export function migrateGameState(stored: Record<string, unknown>): GameState {
+  const legacyGold = typeof stored.gold === 'number' ? stored.gold : DEFAULT_GAME_STATE.styleCoins;
+  const unlockedItemIds = Array.isArray(stored.unlockedItemIds)
+    ? stored.unlockedItemIds.filter(
+        (id): id is string => typeof id === 'string' && ITEMS.some((item) => item.id === id)
+      )
+    : [];
+
+  return {
+    ...DEFAULT_GAME_STATE,
+    ...stored,
+    version: 2,
+    styleCoins: typeof stored.styleCoins === 'number' ? stored.styleCoins : legacyGold,
+    unlockedItemIds: [...new Set([...DEFAULT_GAME_STATE.unlockedItemIds, ...unlockedItemIds])],
+    equippedItemIds:
+      stored.version === 2 && stored.equippedItemIds != null
+        ? (stored.equippedItemIds as Partial<Record<ItemSlot, string>>)
+        : DEFAULT_GAME_STATE.equippedItemIds,
+    claimedQuestIds: Array.isArray(stored.claimedQuestIds)
+      ? stored.claimedQuestIds.filter(
+          (id): id is string =>
+            typeof id === 'string' && [...DAILY_QUESTS, ...WEEKLY_QUESTS].some((quest) => quest.id === id)
+        )
+      : [],
+  } as GameState;
+}
+
 function getQuestCurrentValue(state: GameState, quest: Quest): number {
   if (quest.kind === 'daily') {
-    if (quest.metric === 'distance') {
-      return state.dailyDistanceKm;
-    }
-    if (quest.metric === 'runs') {
-      return state.dailyRuns;
-    }
-    if (quest.metric === 'battle') {
-      return state.dailyBattles;
-    }
+    return quest.metric === 'distance' ? state.dailyDistanceKm : state.dailyRuns;
   }
 
   if (quest.kind === 'weekly') {
-    if (quest.metric === 'distance') {
-      return state.weeklyDistanceKm;
-    }
-    if (quest.metric === 'runs') {
-      return state.weeklyRuns;
-    }
+    return quest.metric === 'distance' ? state.weeklyDistanceKm : state.weeklyRuns;
   }
 
   return quest.current;
@@ -334,7 +329,7 @@ function applyExperience(
   while (nextExperience >= nextTarget) {
     nextExperience -= nextTarget;
     nextLevel += 1;
-    nextTarget += 200;
+    nextTarget = Math.floor(nextTarget * 1.18);
   }
 
   return {
@@ -349,10 +344,9 @@ function isPreviousDate(previousDateKey: string | null, currentDateKey: string):
     return false;
   }
 
-  const previousDate = new Date(`${previousDateKey}T00:00:00`);
-  const currentDate = new Date(`${currentDateKey}T00:00:00`);
-  const dayInMilliseconds = 24 * 60 * 60 * 1000;
-  return Math.round((currentDate.getTime() - previousDate.getTime()) / dayInMilliseconds) === 1;
+  const previous = new Date(`${previousDateKey}T12:00:00`);
+  const current = new Date(`${currentDateKey}T12:00:00`);
+  return Math.round((current.getTime() - previous.getTime()) / 86_400_000) === 1;
 }
 
 function roundTo(value: number, digits: number): number {

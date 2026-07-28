@@ -1,16 +1,16 @@
 import {
   calculateRunRewards,
   findUnlockedRegionalAchievements,
-  getAdventureStageState,
   getEnduranceBonus,
   getItemById,
+  getItemsBySlot,
 } from './game';
 
 describe('퀘스트런 성장 규칙', () => {
-  it('러닝 거리에 비례해 경험치와 전투 에너지를 계산한다', () => {
+  it('러닝 거리에 비례해 경험치와 꾸미기 코인을 계산한다', () => {
     expect(calculateRunRewards(3.25)).toEqual({
       experience: 325,
-      battleEnergy: 390,
+      styleCoins: 130,
       questDistance: 3.25,
     });
   });
@@ -18,7 +18,7 @@ describe('퀘스트런 성장 규칙', () => {
   it('음수 거리는 보상에 반영하지 않는다', () => {
     expect(calculateRunRewards(-1)).toEqual({
       experience: 0,
-      battleEnergy: 0,
+      styleCoins: 0,
       questDistance: 0,
     });
   });
@@ -39,18 +39,18 @@ describe('퀘스트런 성장 규칙', () => {
     expect(achievements.map((achievement) => achievement.id)).toEqual(['jeju-citrus-runner']);
   });
 
-  it('지역 보상은 전투 성능과 무관한 꾸미기 아이템이다', () => {
+  it('지역 보상은 코인으로 살 수 없는 꾸미기 아이템이다', () => {
     const item = getItemById('hallabong-hat');
 
-    expect(item?.kind).toBe('cosmetic');
-    expect(item?.power).toBe(0);
+    expect(item?.source).toBe('achievement');
+    expect(item?.price).toBe(0);
+    expect(item?.slot).toBe('head');
   });
 
-  it('완료한 스테이지 다음 단계만 도전 가능 상태로 연다', () => {
-    const clearedStageIds = ['forest-1', 'forest-2'];
+  it('슬롯별로 착용 가능한 아이템을 분류한다', () => {
+    const headItems = getItemsBySlot('head');
 
-    expect(getAdventureStageState(clearedStageIds, 'forest-2')).toBe('cleared');
-    expect(getAdventureStageState(clearedStageIds, 'forest-3')).toBe('current');
-    expect(getAdventureStageState(clearedStageIds, 'forest-4')).toBe('locked');
+    expect(headItems).toContainEqual(expect.objectContaining({ id: 'mint-cap' }));
+    expect(headItems.every((item) => item.slot === 'head')).toBe(true);
   });
 });

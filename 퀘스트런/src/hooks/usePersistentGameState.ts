@@ -1,8 +1,8 @@
 import { Storage } from '@apps-in-toss/framework';
 import { useCallback, useEffect, useRef, useState } from 'react';
-import { DEFAULT_GAME_STATE, rolloverGameState, type GameState } from '../domain/gameState';
+import { DEFAULT_GAME_STATE, migrateGameState, rolloverGameState, type GameState } from '../domain/gameState';
 
-const STORAGE_KEY = 'quest-run:game-state:v1';
+const STORAGE_KEY = 'quest-run:game-state:v2';
 
 export function usePersistentGameState() {
   const [gameState, setGameState] = useState<GameState>(DEFAULT_GAME_STATE);
@@ -16,8 +16,8 @@ export function usePersistentGameState() {
       try {
         const storedValue = await Storage.getItem(STORAGE_KEY);
         if (storedValue != null && active) {
-          const parsed = JSON.parse(storedValue) as Partial<GameState>;
-          setGameState(rolloverGameState({ ...DEFAULT_GAME_STATE, ...parsed, version: 1 }, Date.now()));
+          const parsed = JSON.parse(storedValue) as Record<string, unknown>;
+          setGameState(rolloverGameState(migrateGameState(parsed), Date.now()));
         }
       } catch {
         // 샌드박스 밖의 UI 테스트에서는 기본 상태를 사용한다.
@@ -56,8 +56,8 @@ export function usePersistentGameState() {
       dailyDateKey: rolloverGameState(DEFAULT_GAME_STATE, timestamp).dailyDateKey,
       weeklyDateKey: rolloverGameState(DEFAULT_GAME_STATE, timestamp).weeklyDateKey,
       claimedQuestIds: [],
-      clearedAdventureStageIds: [...DEFAULT_GAME_STATE.clearedAdventureStageIds],
       unlockedItemIds: [...DEFAULT_GAME_STATE.unlockedItemIds],
+      equippedItemIds: { ...DEFAULT_GAME_STATE.equippedItemIds },
       unlockedAchievementIds: [],
       awardedEnduranceMilestones: [],
       regionDistancesKm: {},

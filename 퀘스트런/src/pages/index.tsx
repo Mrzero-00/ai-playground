@@ -2,14 +2,14 @@ import { getServerTime } from '@apps-in-toss/framework';
 import { createRoute } from '@granite-js/react-native';
 import React, { useEffect, useState } from 'react';
 import { Pressable, SafeAreaView, StatusBar, StyleSheet, Text, View } from 'react-native';
-import { applyCompletedRun, claimQuestReward, completeAdventureStage, getDateKey } from '../domain/gameState';
+import { applyCompletedRun, claimQuestReward, equipItem, getDateKey, purchaseItem } from '../domain/gameState';
 import { createDemoRun, type CompletedRun, type DemoRunOptions } from '../domain/runTracking';
 import { usePersistentGameState } from '../hooks/usePersistentGameState';
-import { AdventureScreen } from '../screens/AdventureScreen';
 import { CharacterScreen } from '../screens/CharacterScreen';
 import { HomeScreen } from '../screens/HomeScreen';
 import { QuestScreen } from '../screens/QuestScreen';
 import { RunningScreen, RunSummaryScreen } from '../screens/RunningScreen';
+import { StyleShopScreen } from '../screens/StyleShopScreen';
 import { TestLabModal } from '../screens/TestLabModal';
 import { colors, radii } from '../ui/theme';
 
@@ -17,14 +17,14 @@ export const Route = createRoute('/', {
   component: QuestRunApp,
 });
 
-type AppTab = 'home' | 'quest' | 'adventure' | 'character';
+type AppTab = 'home' | 'quest' | 'style' | 'character';
 type RunFlow = 'idle' | 'running' | 'summary';
 
 const NAV_ITEMS: Array<{ id: AppTab; label: string; icon: string }> = [
   { id: 'home', label: '홈', icon: '⌂' },
   { id: 'quest', label: '퀘스트', icon: '✓' },
-  { id: 'adventure', label: '모험', icon: '⚔' },
-  { id: 'character', label: '캐릭터', icon: '♙' },
+  { id: 'style', label: '스타일', icon: '✦' },
+  { id: 'character', label: '아바타', icon: '♙' },
 ];
 
 const TEST_LAB_ENABLED = __DEV__;
@@ -105,7 +105,7 @@ function QuestRunApp() {
             <HomeScreen
               gameState={gameState}
               isHydrated={isHydrated}
-              onOpenAdventure={() => setActiveTab('adventure')}
+              onOpenStyle={() => setActiveTab('style')}
               onOpenQuest={() => setActiveTab('quest')}
               onOpenTestLab={TEST_LAB_ENABLED ? () => setTestLabVisible(true) : undefined}
               onStartRun={() => setRunFlow('running')}
@@ -129,13 +129,29 @@ function QuestRunApp() {
               }}
             />
           ) : null}
-          {activeTab === 'adventure' ? (
-            <AdventureScreen
+          {activeTab === 'style' ? (
+            <StyleShopScreen
               gameState={gameState}
-              onCompleteStage={(stageId) => updateGameState((current) => completeAdventureStage(current, stageId))}
+              onEquipItem={(itemId) => {
+                updateGameState((current) => equipItem(current, itemId));
+                setToast('루미의 스타일을 바꿨어요!');
+              }}
+              onPurchaseItem={(itemId) => {
+                updateGameState((current) => purchaseItem(current, itemId));
+                setToast('새 꾸미기 아이템을 얻었어요!');
+              }}
             />
           ) : null}
-          {activeTab === 'character' ? <CharacterScreen gameState={gameState} /> : null}
+          {activeTab === 'character' ? (
+            <CharacterScreen
+              gameState={gameState}
+              onEquipItem={(itemId) => {
+                updateGameState((current) => equipItem(current, itemId));
+                setToast('루미의 스타일을 바꿨어요!');
+              }}
+              onOpenStyle={() => setActiveTab('style')}
+            />
+          ) : null}
         </View>
 
         <BottomNavigation activeTab={activeTab} onSelectTab={setActiveTab} />

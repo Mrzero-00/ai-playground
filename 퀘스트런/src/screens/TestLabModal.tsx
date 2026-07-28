@@ -26,7 +26,7 @@ const SCENARIOS: Array<{
     icon: '🏙️',
     title: '서울 2km 러닝',
     description: '일일 거리·러닝 퀘스트와 경험치 획득을 확인해요.',
-    reward: '200 XP · 에너지 240',
+    reward: '200 XP · 러닝 코인 80',
     options: {
       distanceKm: 2,
       paceSecondsPerKm: 390,
@@ -50,7 +50,7 @@ const SCENARIOS: Array<{
     icon: '🌱',
     title: '짧은 500m 러닝',
     description: '퀘스트를 아직 달성하지 않은 중간 상태를 확인해요.',
-    reward: '50 XP · 에너지 60',
+    reward: '50 XP · 러닝 코인 20',
     options: {
       distanceKm: 0.5,
       paceSecondsPerKm: 450,
@@ -103,7 +103,7 @@ export function TestLabModal({ gameState, onClose, onReset, onStartDemoRun, visi
               <View style={styles.metricDivider} />
               <TestMetric label="오늘 거리" value={`${gameState.dailyDistanceKm.toFixed(2)}km`} />
               <View style={styles.metricDivider} />
-              <TestMetric label="에너지" value={String(gameState.battleEnergy)} />
+              <TestMetric label="러닝 코인" value={gameState.styleCoins.toLocaleString()} />
             </View>
           </Card>
 
@@ -137,8 +137,8 @@ export function TestLabModal({ gameState, onClose, onReset, onStartDemoRun, visi
             <Text style={styles.guideText}>
               1. 서울 2km 러닝 완료{'\n'}
               2. 퀘스트에서 거리·러닝 보상 수령{'\n'}
-              3. 모험 3단계에서 자동사냥 시작{'\n'}
-              4. 다음 스테이지 해금과 전투 장비 확인
+              3. 스타일 상점에서 아이템 구매{'\n'}
+              4. 내 아바타에서 새 아이템 착용
             </Text>
           </Card>
 

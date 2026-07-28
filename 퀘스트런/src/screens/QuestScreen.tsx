@@ -134,7 +134,7 @@ function WeeklyPanel({ gameState, onClaimQuest }: QuestScreenProps) {
   return (
     <>
       <Card style={styles.weekSummary}>
-        <Text style={styles.weekSummaryLabel}>이번 주 모험 진행도</Text>
+        <Text style={styles.weekSummaryLabel}>이번 주 러닝 진행도</Text>
         <Text style={styles.weekSummaryValue}>{Math.min(100, Math.round(weeklyProgress * 100))}%</Text>
         <ProgressBar color={colors.orange} height={12} value={weeklyProgress} />
         <View style={styles.weekSummaryMeta}>
@@ -155,16 +155,16 @@ function WeeklyPanel({ gameState, onClaimQuest }: QuestScreenProps) {
         ))}
       </View>
 
-      <SectionHeader title="주간 보스" />
+      <SectionHeader caption="10km를 채우면 코인으로 살 수 없는 기념 아이템을 받아요." title="주간 완주 스타일" />
       <Card style={styles.bossCard}>
         <View style={styles.bossIcon}>
-          <Text style={styles.bossEmoji}>🐗</Text>
+          <Text style={styles.bossEmoji}>🎗️</Text>
         </View>
         <View style={styles.bossCopy}>
-          <Text style={styles.bossLabel}>누적 8km에서 해금</Text>
-          <Text style={styles.bossName}>붉은갈기 멧돼지</Text>
-          <ProgressBar color={colors.orange} value={gameState.weeklyDistanceKm / 8} />
-          <Text style={styles.bossDistance}>앞으로 {Math.max(0, 8 - gameState.weeklyDistanceKm).toFixed(1)}km</Text>
+          <Text style={styles.bossLabel}>이번 주 누적 10km 보상</Text>
+          <Text style={styles.bossName}>주간 완주 반다나</Text>
+          <ProgressBar color={colors.orange} value={gameState.weeklyDistanceKm / 10} />
+          <Text style={styles.bossDistance}>앞으로 {Math.max(0, 10 - gameState.weeklyDistanceKm).toFixed(1)}km</Text>
         </View>
       </Card>
     </>
@@ -222,9 +222,9 @@ function AchievementPanel({ gameState }: { gameState: GameState }) {
       <Card style={styles.cosmeticNotice}>
         <Text style={styles.cosmeticNoticeIcon}>♢</Text>
         <View style={styles.cosmeticNoticeCopy}>
-          <Text style={styles.cosmeticNoticeTitle}>꾸미기 보상은 공정해요</Text>
+          <Text style={styles.cosmeticNoticeTitle}>모든 아이템은 꾸미기 전용이에요</Text>
           <Text style={styles.cosmeticNoticeText}>
-            지역 한정 아이템은 캐릭터의 외형만 바꾸며 공격력과 방어력에는 영향을 주지 않아요.
+            지역 한정 아이템을 포함해 어떤 옷도 러닝 기록이나 러너 레벨에 능력치 보너스를 주지 않아요.
           </Text>
         </View>
       </Card>

@@ -1,9 +1,10 @@
 import React, { useEffect, useMemo, useRef, useState } from 'react';
-import { Pressable, ScrollView, StyleSheet, Text, View, type LayoutChangeEvent } from 'react-native';
+import { Animated, Pressable, ScrollView, StyleSheet, Text, View, type LayoutChangeEvent } from 'react-native';
 import { ADVENTURE_STAGES, getAdventureStageState, getItemById, type AdventureStage } from '../domain/game';
 import { getCurrentAdventureStage, type GameState } from '../domain/gameState';
 import { Card, Metric, Pill, PrimaryButton, ProgressBar, ScreenTitle, SectionHeader } from '../ui/components';
 import { colors, radii } from '../ui/theme';
+import heroImage from '../../assets/quest-run-hero.png';
 
 const MAP_HEIGHT = 680;
 const NODE_SIZE = 68;
@@ -36,6 +37,10 @@ export function AdventureScreen({ gameState, onCompleteStage }: AdventureScreenP
   const [battleMessage, setBattleMessage] = useState('현재 스테이지를 선택하고 자동사냥을 시작하세요.');
   const [lastClearedStageId, setLastClearedStageId] = useState<string | null>(null);
   const completeStageRef = useRef(onCompleteStage);
+  const heroLunge = useRef(new Animated.Value(0)).current;
+  const monsterShake = useRef(new Animated.Value(0)).current;
+  const hitFlash = useRef(new Animated.Value(0)).current;
+  const damageFloat = useRef(new Animated.Value(0)).current;
   const selectedStage = ADVENTURE_STAGES.find((stage) => stage.id === selectedStageId) ?? ADVENTURE_STAGES[0]!;
   const selectedStageState = getAdventureStageState(gameState.clearedAdventureStageIds, selectedStage.id);
   const selectedRewardItem = selectedStage.rewardItemId == null ? undefined : getItemById(selectedStage.rewardItemId);
@@ -94,6 +99,71 @@ export function AdventureScreen({ gameState, onCompleteStage }: AdventureScreenP
 
     return () => clearTimeout(timer);
   }, [autoHunting, battleTurn, monsterHp, selectedStage]);
+
+  useEffect(() => {
+    if (battleTurn === 0) {
+      return;
+    }
+
+    heroLunge.setValue(0);
+    monsterShake.setValue(0);
+    hitFlash.setValue(0);
+    damageFloat.setValue(0);
+
+    Animated.parallel([
+      Animated.sequence([
+        Animated.timing(heroLunge, {
+          duration: 180,
+          toValue: 78,
+          useNativeDriver: true,
+        }),
+        Animated.timing(heroLunge, {
+          duration: 260,
+          toValue: 0,
+          useNativeDriver: true,
+        }),
+      ]),
+      Animated.sequence([
+        Animated.delay(150),
+        Animated.timing(monsterShake, {
+          duration: 70,
+          toValue: -10,
+          useNativeDriver: true,
+        }),
+        Animated.timing(monsterShake, {
+          duration: 70,
+          toValue: 9,
+          useNativeDriver: true,
+        }),
+        Animated.timing(monsterShake, {
+          duration: 70,
+          toValue: 0,
+          useNativeDriver: true,
+        }),
+      ]),
+      Animated.sequence([
+        Animated.delay(130),
+        Animated.timing(hitFlash, {
+          duration: 90,
+          toValue: 1,
+          useNativeDriver: true,
+        }),
+        Animated.timing(hitFlash, {
+          duration: 180,
+          toValue: 0,
+          useNativeDriver: true,
+        }),
+      ]),
+      Animated.sequence([
+        Animated.delay(140),
+        Animated.timing(damageFloat, {
+          duration: 430,
+          toValue: 1,
+          useNativeDriver: true,
+        }),
+      ]),
+    ]).start();
+  }, [battleTurn, damageFloat, heroLunge, hitFlash, monsterShake]);
 
   const mapPoints = useMemo(
     () =>
@@ -286,32 +356,113 @@ export function AdventureScreen({ gameState, onCompleteStage }: AdventureScreenP
         <View style={styles.sceneMoon} />
         <View style={styles.sceneHillOne} />
         <View style={styles.sceneHillTwo} />
-        <View style={styles.monsterShadow} />
-        <Text style={[styles.monsterEmoji, autoHunting && battleTurn % 2 === 1 && styles.monsterHit]}>
-          {monsterHp === 0 ? '💥' : selectedStage.monsterIcon}
-        </Text>
-        <View style={[styles.monsterTag, selectedStage.isBoss && styles.monsterTagBoss]}>
-          <Text style={styles.monsterTagText}>{selectedStage.isBoss ? '보스 몬스터' : '스테이지 몬스터'}</Text>
+
+        <View style={styles.enemyStatusCard}>
+          <View style={styles.battleStatusNameRow}>
+            <View style={[styles.monsterTag, selectedStage.isBoss && styles.monsterTagBoss]}>
+              <Text style={styles.monsterTagText}>
+                {selectedStage.isBoss ? 'BOSS' : `STAGE ${selectedStage.number}`}
+              </Text>
+            </View>
+            <Text numberOfLines={1} style={styles.enemyName}>
+              {selectedStage.monsterName}
+            </Text>
+          </View>
+          <ProgressBar
+            color={monsterHp === 0 ? colors.inkFaint : colors.danger}
+            height={9}
+            trackColor="rgba(255,255,255,0.14)"
+            value={monsterHp / selectedStage.monsterHp}
+          />
+          <Text style={styles.enemyHp}>
+            {monsterHp === 0 ? '처치 완료' : `HP ${monsterHp} / ${selectedStage.monsterHp}`}
+          </Text>
         </View>
+
+        <View style={styles.enemyPlatform} />
+        <Animated.View
+          style={[
+            styles.monsterActor,
+            {
+              opacity: monsterHp === 0 ? 0.25 : 1,
+              transform: [{ translateX: monsterShake }, { scale: monsterHp === 0 ? 0.72 : 1 }],
+            },
+          ]}
+        >
+          <Text style={styles.monsterEmoji}>{monsterHp === 0 ? '💫' : selectedStage.monsterIcon}</Text>
+        </Animated.View>
+
+        <View style={styles.heroPlatform} />
+        <Animated.Image
+          accessibilityLabel="몬스터에게 자동 공격하는 픽셀 여우 루미"
+          resizeMode="contain"
+          source={heroImage}
+          style={[styles.battleHero, { transform: [{ translateX: heroLunge }] }]}
+        />
+
+        <Animated.View
+          pointerEvents="none"
+          style={[
+            styles.hitEffect,
+            {
+              opacity: hitFlash,
+              transform: [
+                {
+                  rotate: '-20deg',
+                },
+                {
+                  scale: hitFlash.interpolate({
+                    inputRange: [0, 1],
+                    outputRange: [0.45, 1.15],
+                  }),
+                },
+              ],
+            },
+          ]}
+        >
+          <Text style={styles.hitEffectText}>✦</Text>
+        </Animated.View>
+
+        {battleTurn > 0 ? (
+          <Animated.Text
+            pointerEvents="none"
+            style={[
+              styles.damageText,
+              {
+                opacity: damageFloat.interpolate({
+                  inputRange: [0, 0.15, 1],
+                  outputRange: [0, 1, 0],
+                }),
+                transform: [
+                  {
+                    translateY: damageFloat.interpolate({
+                      inputRange: [0, 1],
+                      outputRange: [0, -34],
+                    }),
+                  },
+                ],
+              },
+            ]}
+          >
+            -{selectedStage.autoDamage}
+          </Animated.Text>
+        ) : null}
+
         {autoHunting ? (
           <View style={styles.autoBadge}>
             <View style={styles.autoDot} />
             <Text style={styles.autoBadgeText}>AUTO HUNTING</Text>
           </View>
         ) : null}
-        <View style={styles.monsterInfo}>
-          <View style={styles.monsterNameRow}>
-            <Text style={styles.monsterName}>{selectedStage.monsterName}</Text>
-            <Text style={styles.monsterLevel}>Stage {selectedStage.number}</Text>
+
+        <View style={styles.heroStatusCard}>
+          <View style={styles.battleStatusNameRow}>
+            <Text style={styles.heroName}>루미</Text>
+            <Text style={styles.heroLevel}>Lv. {gameState.level}</Text>
           </View>
-          <ProgressBar
-            color={monsterHp === 0 ? colors.inkFaint : colors.danger}
-            height={10}
-            trackColor="rgba(255,255,255,0.16)"
-            value={monsterHp / selectedStage.monsterHp}
-          />
-          <Text style={styles.monsterHp}>
-            {monsterHp === 0 ? '처치 완료' : `${monsterHp} / ${selectedStage.monsterHp} HP`}
+          <ProgressBar color={colors.brand} height={8} trackColor="rgba(255,255,255,0.16)" value={1} />
+          <Text style={styles.heroBattleState}>
+            {autoHunting ? `${battleTurn + 1}번째 행동 준비` : `전투 에너지 ${gameState.battleEnergy}`}
           </Text>
         </View>
       </View>
@@ -564,7 +715,7 @@ const styles = StyleSheet.create({
   monsterScene: {
     backgroundColor: colors.navy,
     borderRadius: 30,
-    height: 350,
+    height: 430,
     overflow: 'hidden',
     position: 'relative',
   },
@@ -581,7 +732,7 @@ const styles = StyleSheet.create({
   sceneHillOne: {
     backgroundColor: '#163F3A',
     borderRadius: 140,
-    bottom: -75,
+    bottom: -82,
     height: 190,
     left: -40,
     position: 'absolute',
@@ -590,39 +741,88 @@ const styles = StyleSheet.create({
   sceneHillTwo: {
     backgroundColor: '#214D42',
     borderRadius: 140,
-    bottom: -100,
+    bottom: -92,
     height: 210,
     position: 'absolute',
     right: -40,
     width: 320,
   },
-  monsterShadow: {
-    backgroundColor: 'rgba(0,0,0,0.35)',
-    borderRadius: 70,
-    bottom: 83,
-    height: 32,
-    left: '27%',
+  enemyStatusCard: {
+    backgroundColor: 'rgba(5,17,25,0.82)',
+    borderColor: 'rgba(255,255,255,0.08)',
+    borderRadius: 16,
+    borderWidth: 1,
+    left: 16,
+    padding: 12,
     position: 'absolute',
-    width: '46%',
+    top: 16,
+    width: '64%',
+    zIndex: 6,
+  },
+  battleStatusNameRow: {
+    alignItems: 'center',
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    marginBottom: 8,
+  },
+  enemyName: {
+    color: colors.white,
+    flex: 1,
+    fontSize: 12,
+    fontWeight: '900',
+    marginLeft: 8,
+    textAlign: 'right',
+  },
+  enemyHp: {
+    color: '#AFC8C3',
+    fontSize: 8,
+    fontWeight: '700',
+    marginTop: 5,
+    textAlign: 'right',
+  },
+  enemyPlatform: {
+    backgroundColor: 'rgba(76,144,110,0.3)',
+    borderRadius: 80,
+    height: 30,
+    position: 'absolute',
+    right: 20,
+    top: 210,
+    transform: [{ scaleX: 1.55 }],
+    width: 110,
+  },
+  monsterActor: {
+    alignItems: 'center',
+    justifyContent: 'center',
+    position: 'absolute',
+    right: 30,
+    top: 116,
   },
   monsterEmoji: {
-    fontSize: 132,
-    left: '25%',
-    position: 'absolute',
-    top: 58,
+    fontSize: 92,
   },
-  monsterHit: {
-    opacity: 0.55,
-    transform: [{ scale: 0.92 }],
+  heroPlatform: {
+    backgroundColor: 'rgba(76,144,110,0.28)',
+    borderRadius: 90,
+    bottom: 87,
+    height: 35,
+    left: -6,
+    position: 'absolute',
+    transform: [{ scaleX: 1.65 }],
+    width: 125,
+  },
+  battleHero: {
+    bottom: 59,
+    height: 190,
+    left: -17,
+    position: 'absolute',
+    width: 165,
+    zIndex: 3,
   },
   monsterTag: {
     backgroundColor: colors.brand,
     borderRadius: radii.pill,
-    left: 18,
-    paddingHorizontal: 10,
-    paddingVertical: 5,
-    position: 'absolute',
-    top: 18,
+    paddingHorizontal: 8,
+    paddingVertical: 4,
   },
   monsterTagBoss: {
     backgroundColor: colors.orange,
@@ -640,8 +840,9 @@ const styles = StyleSheet.create({
     paddingHorizontal: 10,
     paddingVertical: 6,
     position: 'absolute',
-    right: 18,
+    right: 16,
     top: 18,
+    zIndex: 7,
   },
   autoDot: {
     backgroundColor: colors.yellow,
@@ -656,37 +857,63 @@ const styles = StyleSheet.create({
     fontWeight: '900',
     letterSpacing: 0.7,
   },
-  monsterInfo: {
-    backgroundColor: 'rgba(5,17,25,0.82)',
-    bottom: 0,
-    left: 0,
-    paddingBottom: 19,
-    paddingHorizontal: 20,
-    paddingTop: 15,
-    position: 'absolute',
-    right: 0,
-  },
-  monsterNameRow: {
+  hitEffect: {
     alignItems: 'center',
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    marginBottom: 10,
+    height: 75,
+    justifyContent: 'center',
+    position: 'absolute',
+    right: 65,
+    top: 145,
+    width: 75,
+    zIndex: 8,
   },
-  monsterName: {
+  hitEffectText: {
+    color: colors.yellow,
+    fontSize: 64,
+    fontWeight: '900',
+    textShadowColor: colors.orange,
+    textShadowOffset: { height: 0, width: 0 },
+    textShadowRadius: 10,
+  },
+  damageText: {
+    color: colors.yellow,
+    fontSize: 26,
+    fontWeight: '900',
+    position: 'absolute',
+    right: 55,
+    textShadowColor: '#6A2600',
+    textShadowOffset: { height: 2, width: 0 },
+    textShadowRadius: 4,
+    top: 137,
+    zIndex: 9,
+  },
+  heroStatusCard: {
+    backgroundColor: 'rgba(5,17,25,0.82)',
+    borderColor: 'rgba(255,255,255,0.08)',
+    borderRadius: 16,
+    borderWidth: 1,
+    bottom: 17,
+    padding: 11,
+    position: 'absolute',
+    right: 16,
+    width: '57%',
+    zIndex: 6,
+  },
+  heroName: {
     color: colors.white,
-    fontSize: 19,
+    fontSize: 13,
     fontWeight: '900',
   },
-  monsterLevel: {
+  heroLevel: {
     color: '#B1C9C4',
-    fontSize: 11,
+    fontSize: 9,
     fontWeight: '800',
   },
-  monsterHp: {
+  heroBattleState: {
     color: '#B8D0CB',
-    fontSize: 9,
+    fontSize: 8,
     fontWeight: '700',
-    marginTop: 6,
+    marginTop: 5,
     textAlign: 'right',
   },
   powerCard: {

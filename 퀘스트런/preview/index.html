@@ -977,7 +977,7 @@
         color: #fff;
         margin-top: 13px;
         overflow: hidden;
-        padding: 22px 18px 18px;
+        padding: 0 0 15px;
         position: relative;
         text-align: center;
       }
@@ -1162,6 +1162,213 @@
         letter-spacing: 0.12em;
       }
 
+      .battle-arena-web {
+        background: radial-gradient(circle at 82% 16%, rgba(226, 245, 200, 0.18), transparent 74px),
+          linear-gradient(165deg, #123d3c, #09212f);
+        height: 330px;
+        overflow: hidden;
+        position: relative;
+      }
+
+      .battle-arena-web::before,
+      .battle-arena-web::after {
+        background: #214d42;
+        border-radius: 50%;
+        bottom: -105px;
+        content: '';
+        height: 190px;
+        position: absolute;
+        width: 320px;
+      }
+
+      .battle-arena-web::before {
+        left: -90px;
+      }
+
+      .battle-arena-web::after {
+        right: -85px;
+      }
+
+      .enemy-hud-web,
+      .hero-hud-web {
+        background: rgba(5, 17, 25, 0.83);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: 14px;
+        padding: 9px 10px;
+        position: absolute;
+        text-align: left;
+        z-index: 7;
+      }
+
+      .enemy-hud-web {
+        left: 13px;
+        top: 14px;
+        width: 62%;
+      }
+
+      .hero-hud-web {
+        bottom: 13px;
+        right: 13px;
+        width: 57%;
+      }
+
+      .hud-name-row {
+        align-items: center;
+        display: flex;
+        font-size: 9px;
+        font-weight: 900;
+        justify-content: space-between;
+        margin-bottom: 6px;
+      }
+
+      .hud-stage {
+        background: var(--orange);
+        border-radius: 999px;
+        font-size: 7px;
+        padding: 4px 6px;
+      }
+
+      .hud-bar {
+        background: rgba(255, 255, 255, 0.13);
+        border-radius: 999px;
+        height: 7px;
+        overflow: hidden;
+      }
+
+      .hud-bar span {
+        background: linear-gradient(90deg, var(--orange), #ffca57);
+        display: block;
+        height: 100%;
+        transition: width 0.25s ease;
+      }
+
+      .hero-hud-web .hud-bar span {
+        background: var(--brand);
+        width: 100%;
+      }
+
+      .hud-caption {
+        color: #a9c2bd;
+        font-size: 7px;
+        margin-top: 4px;
+        text-align: right;
+      }
+
+      .enemy-platform-web,
+      .hero-platform-web {
+        background: rgba(90, 159, 126, 0.28);
+        border-radius: 50%;
+        height: 28px;
+        position: absolute;
+      }
+
+      .enemy-platform-web {
+        right: 22px;
+        top: 191px;
+        transform: scaleX(1.5);
+        width: 94px;
+      }
+
+      .hero-platform-web {
+        bottom: 45px;
+        left: -5px;
+        transform: scaleX(1.5);
+        width: 112px;
+      }
+
+      .monster-web {
+        filter: drop-shadow(0 12px 8px rgba(0, 0, 0, 0.28));
+        font-size: 78px;
+        position: absolute;
+        right: 34px;
+        top: 103px;
+        transform-origin: center bottom;
+        z-index: 3;
+      }
+
+      .monster-web.defeated {
+        filter: grayscale(1);
+        opacity: 0.25;
+        transform: scale(0.72);
+      }
+
+      .battle-hero-web {
+        bottom: 28px;
+        image-rendering: pixelated;
+        left: -14px;
+        position: absolute;
+        width: 154px;
+        z-index: 4;
+      }
+
+      .auto-badge-web {
+        align-items: center;
+        background: rgba(255, 255, 255, 0.12);
+        border-radius: 999px;
+        display: none;
+        font-size: 7px;
+        font-weight: 900;
+        gap: 5px;
+        padding: 6px 8px;
+        position: absolute;
+        right: 13px;
+        top: 14px;
+        z-index: 8;
+      }
+
+      .auto-badge-web::before {
+        background: var(--yellow);
+        border-radius: 50%;
+        content: '';
+        height: 6px;
+        width: 6px;
+      }
+
+      .slash-web {
+        color: var(--yellow);
+        font-size: 60px;
+        font-weight: 900;
+        opacity: 0;
+        position: absolute;
+        right: 49px;
+        text-shadow: 0 0 12px var(--orange);
+        top: 118px;
+        transform: rotate(-18deg);
+        z-index: 9;
+      }
+
+      .damage-number-web {
+        color: var(--yellow);
+        font-size: 24px;
+        font-weight: 900;
+        opacity: 0;
+        position: absolute;
+        right: 48px;
+        text-shadow: 0 2px 4px #6a2600;
+        top: 109px;
+        z-index: 10;
+      }
+
+      .battle-card.hunting .auto-badge-web {
+        display: flex;
+      }
+
+      .battle-card.hunting .battle-hero-web {
+        animation: hero-lunge 0.62s ease-in-out infinite;
+      }
+
+      .battle-card.hunting .monster-web {
+        animation: enemy-hit 0.62s ease-in-out infinite;
+      }
+
+      .battle-card.hunting .slash-web {
+        animation: slash-hit 0.62s ease-in-out infinite;
+      }
+
+      .battle-card.hunting .damage-number-web {
+        animation: damage-float 0.62s ease-out infinite;
+      }
+
       .monster {
         font-size: 84px;
         filter: drop-shadow(0 13px 10px rgba(0, 0, 0, 0.25));
@@ -1211,9 +1418,9 @@
         font-family: inherit;
         font-size: 12px;
         font-weight: 900;
-        margin-top: 17px;
+        margin: 10px 14px 0;
         padding: 13px;
-        width: 100%;
+        width: calc(100% - 28px);
       }
 
       .auto-message {
@@ -1222,8 +1429,61 @@
         color: #a8c8c6;
         font-size: 9px;
         line-height: 1.5;
-        margin-top: 11px;
+        margin: 11px 14px 0;
         padding: 9px 10px;
+      }
+
+      @keyframes hero-lunge {
+        0%,
+        100% {
+          transform: translateX(0);
+        }
+        42% {
+          transform: translateX(78px) translateY(-9px) scale(1.05);
+        }
+      }
+
+      @keyframes enemy-hit {
+        0%,
+        45%,
+        100% {
+          transform: translateX(0);
+        }
+        55% {
+          filter: brightness(2) drop-shadow(0 12px 8px rgba(0, 0, 0, 0.2));
+          transform: translateX(-8px);
+        }
+        65% {
+          transform: translateX(7px);
+        }
+      }
+
+      @keyframes slash-hit {
+        0%,
+        38%,
+        100% {
+          opacity: 0;
+          transform: rotate(-18deg) scale(0.45);
+        }
+        52% {
+          opacity: 1;
+          transform: rotate(-18deg) scale(1.1);
+        }
+      }
+
+      @keyframes damage-float {
+        0%,
+        42% {
+          opacity: 0;
+          transform: translateY(0);
+        }
+        55% {
+          opacity: 1;
+        }
+        100% {
+          opacity: 0;
+          transform: translateY(-34px);
+        }
       }
 
       @keyframes stage-pulse {
@@ -1692,15 +1952,33 @@
                 </div>
                 <span class="stage-state-badge" id="selected-stage-state">현재 단계</span>
               </section>
-              <section class="battle-card">
-                <div class="battle-zone" id="battle-zone">STAGE 3 · AUTO HUNT</div>
-                <div class="monster" id="monster-art">🐺</div>
-                <div class="monster-name" id="monster-name">숲 그림자 늑대</div>
-                <div class="hp-label">
-                  <span>MONSTER HP</span>
-                  <span id="monster-hp-label">150 / 150</span>
+              <section class="battle-card" id="battle-card">
+                <div class="battle-arena-web">
+                  <div class="enemy-hud-web">
+                    <div class="hud-name-row">
+                      <span class="hud-stage" id="battle-zone">STAGE 3</span>
+                      <span id="monster-name">숲 그림자 늑대</span>
+                    </div>
+                    <div class="hud-bar"><span id="monster-hp-bar"></span></div>
+                    <div class="hud-caption" id="monster-hp-label">HP 150 / 150</div>
+                  </div>
+                  <div class="auto-badge-web">AUTO HUNTING</div>
+                  <div class="enemy-platform-web"></div>
+                  <div class="monster-web" id="monster-art">🐺</div>
+                  <div class="slash-web">✦</div>
+                  <div class="damage-number-web" id="damage-number">-30</div>
+                  <div class="hero-platform-web"></div>
+                  <img
+                    alt="몬스터에게 자동 공격하는 픽셀 여우 루미"
+                    class="battle-hero-web"
+                    src="../assets/quest-run-hero.png"
+                  />
+                  <div class="hero-hud-web">
+                    <div class="hud-name-row"><span>루미</span><span>Lv. 7</span></div>
+                    <div class="hud-bar"><span></span></div>
+                    <div class="hud-caption" id="hero-battle-status">전투 에너지 840</div>
+                  </div>
                 </div>
-                <div class="hp-bar"><span id="monster-hp-bar"></span></div>
                 <div class="auto-message" id="auto-message">버튼을 한 번 누르면 루미가 끝까지 자동으로 사냥해요.</div>
                 <button class="attack-button" id="start-auto-hunt">▶ 자동사냥 시작 · 에너지 84</button>
               </section>
@@ -2200,12 +2478,17 @@
         $('selected-stage-caption').textContent = `${stage.monster} · 에너지 ${stage.energy}`;
         $('selected-stage-state').textContent =
           status === 'cleared' ? '클리어' : status === 'current' ? '현재 단계' : '잠김';
-        $('battle-zone').textContent = `STAGE ${stage.number} · ${stage.boss ? 'BOSS' : 'AUTO HUNT'}`;
-        $('monster-art').textContent = battleHp === 0 ? '💥' : stage.icon;
-        $('monster-art').classList.toggle('hit', autoHunting && battleTurn % 2 === 1);
+        $('battle-card').classList.toggle('hunting', autoHunting);
+        $('battle-zone').textContent = stage.boss ? `BOSS ${stage.number}` : `STAGE ${stage.number}`;
+        $('monster-art').textContent = battleHp === 0 ? '💫' : stage.icon;
+        $('monster-art').classList.toggle('defeated', battleHp === 0);
         $('monster-name').textContent = stage.monster;
-        $('monster-hp-label').textContent = battleHp === 0 ? '처치 완료' : `${battleHp} / ${stage.hp}`;
+        $('monster-hp-label').textContent = battleHp === 0 ? '처치 완료' : `HP ${battleHp} / ${stage.hp}`;
         $('monster-hp-bar').style.width = `${hpProgress}%`;
+        $('damage-number').textContent = `-${stage.damage}`;
+        $('hero-battle-status').textContent = autoHunting
+          ? `${battleTurn + 1}번째 행동 준비`
+          : `전투 에너지 ${state.energy}`;
 
         if (autoHunting) {
           $('auto-message').textContent = `${battleTurn}번째 자동 공격 · ${stage.damage} 피해 · 남은 HP ${battleHp}`;

@@ -93,10 +93,17 @@ interface PersonalProfileProps {
   user: LocalUser;
   homes: Home[];
   onSaveName: (name: string) => void;
+  onDeleteAccount: () => Promise<void>;
 }
 
-export function PersonalProfile({ user, homes, onSaveName }: PersonalProfileProps) {
+function safePublicUrl(value?: string): string | null {
+  return value && /^https:\/\//.test(value) ? value : null;
+}
+
+export function PersonalProfile({ user, homes, onSaveName, onDeleteAccount }: PersonalProfileProps) {
   const [name, setName] = useState(user.displayName);
+  const [deleteError, setDeleteError] = useState<string | null>(null);
+  const [deleting, setDeleting] = useState(false);
   const personalCompletions = useMemo(
     () => homes.flatMap((home) => home.history).filter((entry) => entry.action === 'completed' && entry.performedByUserId === user.id).length,
     [homes, user.id],
@@ -110,6 +117,24 @@ export function PersonalProfile({ user, homes, onSaveName }: PersonalProfileProp
     onSaveName(name);
   }
 
+  async function deleteAllData() {
+    if (!window.confirm('집토리의 모든 집, 집안일, 수행 기록을 삭제할까요? 공유 집에서는 내 기록과 참여 정보가 삭제되며 되돌릴 수 없어요.')) return;
+    setDeleting(true);
+    setDeleteError(null);
+    try {
+      await onDeleteAccount();
+    } catch (error) {
+      setDeleteError(error instanceof Error ? error.message : '데이터를 삭제하지 못했어요.');
+      setDeleting(false);
+    }
+  }
+
+  const policyLinks = [
+    ['이용약관', safePublicUrl(import.meta.env.VITE_TERMS_URL)],
+    ['개인정보처리방침', safePublicUrl(import.meta.env.VITE_PRIVACY_URL)],
+    ['고객 문의', safePublicUrl(import.meta.env.VITE_SUPPORT_URL)],
+  ] as const;
+
   return (
     <main className="screen personal-profile-screen">
       <header className="screen-header compact"><span className="step-label">개인 계정</span><h1>내 정보</h1><p>내 활동과 집안일 성장을 확인하세요.</p></header>
@@ -117,6 +142,12 @@ export function PersonalProfile({ user, homes, onSaveName }: PersonalProfileProp
       <section className="level-card"><div className="level-badge"><span>LV.</span><strong>{level}</strong></div><div className="level-copy"><span>{levelName}</span><strong>나의 집안일 레벨</strong><div><i style={{ width: `${progress}%` }} /></div><small>다음 레벨까지 {10 - (personalCompletions % 10)}번 남았어요</small></div></section>
       <section className="personal-summary"><article><strong>{homes.length}</strong><span>참여 중인 집</span></article><article><strong>{personalCompletions}</strong><span>완료한 집안일</span></article></section>
       <section className="my-homes"><div className="section-heading"><h2>내가 참여한 집</h2><span>{homes.length}개</span></div>{homes.length ? <ul>{homes.map((home) => <li key={home.id}><span aria-hidden="true">{home.emoji}</span><div><strong>{home.name}</strong><small>{home.members.length}명 · {home.members.find((member) => member.userId === user.id)?.role === 'owner' ? '소유자' : '구성원'}</small></div></li>)}</ul> : <div className="report-empty">아직 참여한 집이 없어요.</div>}</section>
+      <section className="account-policy-section">
+        <h2>서비스 안내</h2>
+        <div className="account-policy-links">{policyLinks.map(([label, url]) => url ? <a href={url} key={label} rel="noopener noreferrer" target="_blank">{label}<span aria-hidden="true">›</span></a> : <span key={label}>{label}<small>주소 설정 전</small></span>)}</div>
+        <button className="account-delete-button" disabled={deleting} onClick={deleteAllData} type="button">{deleting ? '삭제 중…' : '서비스 탈퇴 및 데이터 삭제'}</button>
+        {deleteError && <p className="account-delete-error" role="alert">{deleteError}</p>}
+      </section>
       <p className="level-policy">레벨은 내가 완료한 집안일 횟수를 기반으로 한 개인 성장 지표이며, 다른 사람과의 우열을 의미하지 않아요.</p>
     </main>
   );

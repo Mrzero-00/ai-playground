@@ -16,6 +16,7 @@ export interface HouseholdProfile {
   memberCount: number;
   hasDog: boolean;
   hasCat: boolean;
+  childAges: number[];
 }
 
 export interface ProfileSetupProps {
@@ -42,6 +43,7 @@ export function ProfileSetup({ initialValue, onSubmit }: ProfileSetupProps) {
     memberCount: initialValue?.memberCount ?? 1,
     hasDog: initialValue?.hasDog ?? false,
     hasCat: initialValue?.hasCat ?? false,
+    childAges: initialValue?.childAges ?? [],
   });
 
   function submit(event: FormEvent<HTMLFormElement>) {
@@ -65,7 +67,11 @@ export function ProfileSetup({ initialValue, onSubmit }: ProfileSetupProps) {
               <input
                 checked={profile.householdType === option.value}
                 name="householdType"
-                onChange={() => setProfile((current) => ({ ...current, householdType: option.value }))}
+                onChange={() => setProfile((current) => ({
+                  ...current,
+                  householdType: option.value,
+                  memberCount: option.value === 'single' ? 1 : Math.max(2, current.memberCount),
+                }))}
                 type="radio"
                 value={option.value}
               />
@@ -86,6 +92,15 @@ export function ProfileSetup({ initialValue, onSubmit }: ProfileSetupProps) {
           <button aria-label="인원 늘리기" onClick={() => setProfile((value) => ({ ...value, memberCount: value.memberCount + 1 }))} type="button">＋</button>
         </div>
       </div>
+
+      {profile.householdType === 'family' && <fieldset className="field-section onboarding-child-section">
+        <legend>아이 정보 <small>선택</small></legend>
+        <p>나이대에 맞는 수유·기저귀·학교 준비 업무만 추천해요.</p>
+        <div className="onboarding-child-list">
+          {profile.childAges.map((age, index) => <label key={index}><span>아이 {index + 1}</span><input aria-label={`아이 ${index + 1} 만 나이`} inputMode="numeric" max="18" min="0" onChange={(event) => setProfile((current) => ({ ...current, childAges: current.childAges.map((item, itemIndex) => itemIndex === index ? Math.min(18, Math.max(0, Number(event.target.value))) : item) }))} type="number" value={age} /><b>세</b><button aria-label={`아이 ${index + 1} 삭제`} onClick={() => setProfile((current) => ({ ...current, childAges: current.childAges.filter((_, itemIndex) => itemIndex !== index) }))} type="button">삭제</button></label>)}
+        </div>
+        <button className="onboarding-add-child" onClick={() => setProfile((current) => ({ ...current, childAges: [...current.childAges, 0], memberCount: Math.max(current.memberCount, current.childAges.length + 2) }))} type="button">＋ 아이 추가</button>
+      </fieldset>}
 
       <fieldset className="field-section">
         <legend>거주 형태</legend>
@@ -340,7 +355,8 @@ export function SupplyPurchaseModal({ open, itemName, unit, initialQuantity, edi
 
 export function ChoreGuideModal({ guide, onClose }: { guide: ChoreGuide; onClose: () => void }) {
   const titleId = useId();
-  return <div className="modal-backdrop" role="presentation" onMouseDown={(event) => { if (event.currentTarget === event.target) onClose(); }}><section className="bottom-sheet chore-guide-sheet" aria-labelledby={titleId} aria-modal="true" role="dialog"><header><button aria-label="집안일 가이드 닫기" onClick={onClose} type="button">×</button><span /><span /></header><div className="guide-hero"><div><span>집토리 가이드</span><h2 id={titleId}>{guide.title}</h2><p>필요한 준비물과 안전한 순서를 한 번에 확인하세요.</p><small>⏱ {guide.duration}</small></div><span className="guide-hero-visual" aria-hidden="true">{guideHeroIcon(guide.title)}</span></div><section className="guide-card"><h3>준비물</h3><div className="guide-supplies">{guide.supplies.map((supply) => <article key={supply}><span aria-hidden="true">{supplyIcon(supply)}</span><strong>{supply}</strong></article>)}</div><div className="guide-shopping-row"><div><strong>준비물을 한 번에 챙겨보세요</strong><small>필요한 제품을 연결할 예정이에요.</small></div><button disabled type="button">쇼핑 연동 준비 중</button></div></section><section className="guide-card guide-steps"><h3>좋은 순서</h3><ol>{guide.steps.map((step, index) => <li key={step}><span>{index + 1}</span><p>{step}</p></li>)}</ol></section><section className="guide-cautions"><h3>꼭 주의하세요</h3><ul>{guide.cautions.map((caution) => <li key={caution}><span aria-hidden="true">!</span><p>{caution}</p></li>)}</ul></section>{guide.modelNote && <p className="guide-model-note">💡 {guide.modelNote}</p>}</section></div>;
+  const shoppingUrl = tossShoppingUrl(guide.supplies.join(' '));
+  return <div className="modal-backdrop" role="presentation" onMouseDown={(event) => { if (event.currentTarget === event.target) onClose(); }}><section className="bottom-sheet chore-guide-sheet" aria-labelledby={titleId} aria-modal="true" role="dialog"><header><button aria-label="집안일 가이드 닫기" onClick={onClose} type="button">×</button><span /><span /></header><div className="guide-hero"><div><span>집토리 가이드</span><h2 id={titleId}>{guide.title}</h2><p>필요한 준비물과 안전한 순서를 한 번에 확인하세요.</p><small>⏱ {guide.duration}</small></div><span className="guide-hero-visual" aria-hidden="true">{guideHeroIcon(guide.title)}</span></div><section className="guide-card"><h3>준비물</h3><div className="guide-supplies">{guide.supplies.map((supply) => <article key={supply}><span aria-hidden="true">{supplyIcon(supply)}</span><strong>{supply}</strong></article>)}</div><div className="guide-shopping-row"><div><strong>준비물을 한 번에 챙겨보세요</strong><small>{shoppingUrl ? '구매 연결을 통해 수익이 발생할 수 있어요.' : '토스쇼핑 제휴 승인 후 연결할 수 있어요.'}</small></div>{shoppingUrl ? <a href={shoppingUrl} rel="noopener noreferrer" target="_blank">토스쇼핑에서 보기</a> : <button disabled type="button">연동 준비 중</button>}</div></section><section className="guide-card guide-steps"><h3>좋은 순서</h3><ol>{guide.steps.map((step, index) => <li key={step}><span>{index + 1}</span><p>{step}</p></li>)}</ol></section><section className="guide-cautions"><h3>꼭 주의하세요</h3><ul>{guide.cautions.map((caution) => <li key={caution}><span aria-hidden="true">!</span><p>{caution}</p></li>)}</ul></section>{guide.modelNote && <p className="guide-model-note">💡 {guide.modelNote}</p>}</section></div>;
 }
 
 function guideHeroIcon(title: string) {

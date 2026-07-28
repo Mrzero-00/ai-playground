@@ -73,13 +73,15 @@ export function calculateHomeAnalytics(
     .sort((a, b) => b.count - a.count);
 
   let currentStreak = 0;
+  let inspectedDays = 0;
   const cursor = new Date(`${today}T12:00:00`);
-  while (currentStreak < 366) {
+  while (inspectedDays < 366) {
     const key = toDateKey(cursor);
     const day = streakSchedule.get(key);
     if (day?.totalCount && day.completionRate === 100) currentStreak += 1;
     else if (day?.totalCount) break;
     cursor.setDate(cursor.getDate() - 1);
+    inspectedDays += 1;
   }
 
   return {

@@ -43,3 +43,21 @@ export function joinRemoteHome(inviteCode: string): Promise<AppData> {
     body: JSON.stringify({ inviteCode: inviteCode.trim().toUpperCase() }),
   });
 }
+
+export async function deleteRemoteAccount(): Promise<void> {
+  const configuredBaseUrl = import.meta.env.VITE_API_BASE_URL?.trim().replace(/\/+$/, '');
+  if (import.meta.env.DEV && !configuredBaseUrl) {
+    throw new Error('서버에 연결된 상태에서만 전체 데이터를 삭제할 수 있어요.');
+  }
+  const tossUserKey = await getTossAnonymousKey();
+  const response = await fetch(`${configuredBaseUrl ?? ''}/api/account`, {
+    method: 'DELETE',
+    credentials: 'include',
+    headers: {
+      'Content-Type': 'application/json',
+      ...(tossUserKey ? { 'X-Jiptori-User-Key': tossUserKey } : {}),
+    },
+  });
+  const payload = await response.json().catch(() => ({})) as { error?: string };
+  if (!response.ok) throw new Error(payload.error ?? '데이터를 삭제하지 못했어요.');
+}

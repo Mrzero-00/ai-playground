@@ -85,6 +85,7 @@ function App() {
     syncStatus,
     syncError,
     refreshRemoteState,
+    deleteAccount,
     saveProfile,
     updateHomeSettings,
     updateUserName,
@@ -118,7 +119,7 @@ function App() {
   const demoSupplySeeded = useRef(false);
 
   useEffect(() => {
-    if (demoSupplySeeded.current || !activeHome?.profile || !['localhost', '127.0.0.1'].includes(window.location.hostname)) return;
+    if (demoSupplySeeded.current || !activeHome?.profile || import.meta.env.VITE_ENABLE_DEMO_DATA !== 'true') return;
     demoSupplySeeded.current = true;
     ensureDemoSupply();
     ensureDemoGuideChores();
@@ -170,7 +171,7 @@ function App() {
         ...(profile.hasCat ? (['cat'] as const) : []),
       ],
       petCounts: { dog: profile.hasDog ? 1 : 0, cat: profile.hasCat ? 1 : 0 },
-      childAges: [],
+      childAges: profile.childAges,
       roomCount: 1,
       bathroomCount: 1,
       completed: true,
@@ -273,7 +274,7 @@ function App() {
       )}
       {activeTab === 'schedule' && <ScheduleCalendar chores={activeHome.chores} history={activeHome.history} />}
       {activeTab === 'report' && <HouseholdReport assessments={activeHome.laborAssessments ?? []} assignmentMode={activeHome.assignmentMode ?? 'shared'} chores={activeHome.chores} currentUserId={data.user.id} history={activeHome.history} homeName={activeHome.name} members={activeHome.members} onAddSupply={addSupplyItem} onAssign={assignChoreExecutor} onAutoAssign={autoAssignChores} onPurchaseSupply={recordSupplyPurchase} onRemoveSupply={removeSupplyItem} onSaveAssessment={saveLaborAssessment} onUseSharedList={setSharedAssignmentMode} supplies={activeHome.supplies ?? []} />}
-      {activeTab === 'profile' && <PersonalProfile homes={data.homes} onSaveName={updateUserName} user={data.user} />}
+      {activeTab === 'profile' && <PersonalProfile homes={data.homes} onDeleteAccount={deleteAccount} onSaveName={updateUserName} user={data.user} />}
       <BottomNavigation active={activeTab} onChange={setActiveTab} />
       <CustomChoreModal
         initialValue={editingCustomInput}

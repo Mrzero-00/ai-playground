@@ -54,3 +54,8 @@ export function getOrCreateAnonymousUserId(req: VercelRequest, res: VercelRespon
   res.setHeader('Set-Cookie', `${COOKIE_NAME}=${userId}.${sign(userId)}; Path=/; HttpOnly; SameSite=Lax; Max-Age=${MAX_AGE}${secure}`);
   return userId;
 }
+
+export function clearAnonymousSession(res: VercelResponse): void {
+  const secure = process.env.VERCEL === '1' ? '; Secure' : '';
+  res.setHeader('Set-Cookie', `${COOKIE_NAME}=; Path=/; HttpOnly; SameSite=Lax; Max-Age=0${secure}`);
+}

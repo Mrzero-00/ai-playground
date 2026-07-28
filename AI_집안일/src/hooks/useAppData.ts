@@ -2,8 +2,8 @@ import { useEffect, useMemo, useRef, useState } from 'react';
 import { addRecurrence, isDue, todayKey, toDateKey } from '../domain/date';
 import { isCoreRecommendation, previewAllRecommendedChores, recommendedChores } from '../domain/recommendations';
 import type { AppData, Chore, Home, HomeProfile, LaborAssessment, NotificationSettings, Recurrence, SupplyItem } from '../domain/types';
-import { loadAppData, makeInviteCode, saveAppData } from '../data/storage';
-import { joinRemoteHome, loadRemoteState, saveRemoteState } from '../data/remote';
+import { createInitialAppData, loadAppData, makeInviteCode, saveAppData } from '../data/storage';
+import { deleteRemoteAccount, joinRemoteHome, loadRemoteState, saveRemoteState } from '../data/remote';
 import { automaticallyAllocateChores } from '../domain/laborAllocation';
 import { supplyProjection } from '../domain/supplies';
 import { guideForChore } from '../domain/choreGuides';
@@ -35,6 +35,17 @@ function synchronizeRecommendations(home: Pick<Home, 'chores' | 'profile' | 'rec
     .map((preference) => preference.templateId));
   const additions = recommended.filter((chore) => isCoreRecommendation(chore.id) && !retainedIds.has(chore.id) && !hiddenIds.has(chore.id));
   return [...retained, ...additions];
+}
+
+function recommendationPriority(chore: Chore, profile: HomeProfile): number {
+  const id = chore.id;
+  if ((profile.childAges ?? []).length && /(baby|child|toddler|family-toys)/.test(id)) return 0;
+  if (profile.hasPets && /(pet|dog|cat|fish|bird|animal|reptile)/.test(id)) return 0;
+  if (profile.housingTenure === 'monthly-rent' && /(rent-condition|rent-contract|monthly-rent)/.test(id)) return 1;
+  if (profile.housingTenure === 'jeonse' && /(rent-condition|rent-contract|jeonse)/.test(id)) return 1;
+  if (profile.housingTenure === 'owned' && /owned/.test(id)) return 1;
+  if (id.includes(profile.householdType)) return 2;
+  return 3;
 }
 
 export function useAppData() {
@@ -171,6 +182,7 @@ export function useAppData() {
       .map((preference) => preference.templateId));
     return recommendedChores(activeHome.profile)
       .filter((chore) => !isCoreRecommendation(chore.id) && !existingIds.has(chore.id) && !hiddenIds.has(chore.id))
+      .sort((a, b) => recommendationPriority(a, activeHome.profile!) - recommendationPriority(b, activeHome.profile!))
       .slice(0, 6);
   }, [activeHome]);
 
@@ -243,6 +255,17 @@ export function useAppData() {
       setSyncStatus('offline');
       setSyncError(error instanceof Error ? error.message : '동기화 서버에 연결하지 못했어요.');
     }
+  }
+
+  async function deleteAccount() {
+    await deleteRemoteAccount();
+    const initial = createInitialAppData();
+    remoteReady.current = false;
+    skipNextRemoteSave.current = true;
+    latestData.current = initial;
+    setData(initial);
+    setSyncStatus('offline');
+    setSyncError(null);
   }
 
   function saveProfile(profile: HomeProfile) {
@@ -493,5 +516,5 @@ export function useAppData() {
     }));
   }
 
-  return { data, activeHome, dueChores, recommendationCandidates, syncStatus, syncError, refreshRemoteState, createHome, selectHome, joinHomeByInviteCode, saveProfile, updateHomeSettings, updateUserName, addCustomChore, updateCustomChore, completeChore, undoTodayCompletion, toggleChore, removeCustomChore, acceptRecommendation, dismissRecommendation, snoozeRecommendation, updateChoreRecurrence, updateNotifications, saveLaborAssessment, assignChoreExecutor, setSharedAssignmentMode, autoAssignChores, addSupplyItem, recordSupplyPurchase, removeSupplyItem, ensureDemoSupply, ensureDemoGuideChores };
+  return { data, activeHome, dueChores, recommendationCandidates, syncStatus, syncError, refreshRemoteState, deleteAccount, createHome, selectHome, joinHomeByInviteCode, saveProfile, updateHomeSettings, updateUserName, addCustomChore, updateCustomChore, completeChore, undoTodayCompletion, toggleChore, removeCustomChore, acceptRecommendation, dismissRecommendation, snoozeRecommendation, updateChoreRecurrence, updateNotifications, saveLaborAssessment, assignChoreExecutor, setSharedAssignmentMode, autoAssignChores, addSupplyItem, recordSupplyPurchase, removeSupplyItem, ensureDemoSupply, ensureDemoGuideChores };
 }

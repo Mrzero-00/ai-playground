@@ -55,13 +55,17 @@ export function usePersistentGameState() {
       ...DEFAULT_GAME_STATE,
       dailyDateKey: rolloverGameState(DEFAULT_GAME_STATE, timestamp).dailyDateKey,
       weeklyDateKey: rolloverGameState(DEFAULT_GAME_STATE, timestamp).weeklyDateKey,
+      monthlyDateKey: rolloverGameState(DEFAULT_GAME_STATE, timestamp).monthlyDateKey,
       claimedQuestIds: [],
       unlockedItemIds: [...DEFAULT_GAME_STATE.unlockedItemIds],
+      unlockedSlotIds: [...DEFAULT_GAME_STATE.unlockedSlotIds],
       equippedItemIds: { ...DEFAULT_GAME_STATE.equippedItemIds },
       unlockedAchievementIds: [],
       awardedEnduranceMilestones: [],
       regionDistancesKm: {},
       runHistory: [],
+      claimedGroupQuestMonthKeys: [],
+      seenFriendNotificationIds: [],
     });
   }, []);
 

@@ -1,8 +1,14 @@
 export type QuestKind = 'daily' | 'weekly' | 'streak';
 export type QuestMetric = 'distance' | 'runs';
-export type ItemSlot = 'head' | 'top' | 'shoes' | 'accessory';
-export type ItemRarity = '일반' | '희귀' | '영웅' | '지역 한정';
-export type ItemSource = 'starter' | 'shop' | 'quest' | 'achievement';
+export type ItemSlot = 'head' | 'top' | 'bottom' | 'shoes' | 'glasses' | 'bag' | 'watch';
+export type ItemRarity = '일반' | '희귀' | '영웅' | '지역 한정' | '월간 한정';
+export type ItemSource = 'starter' | 'shop' | 'quest' | 'achievement' | 'group';
+export type AchievementMetric =
+  | 'streak'
+  | 'total-distance'
+  | 'total-runs'
+  | 'region-distance'
+  | 'solo-group-distance';
 
 export interface Quest {
   id: string;
@@ -28,15 +34,17 @@ export interface GameItem {
   region?: string;
 }
 
-export interface HiddenAchievement {
+export interface Achievement {
   id: string;
   title: string;
-  hiddenTitle: string;
-  hiddenHint: string;
-  region: string;
-  requiredDistanceKm: number;
-  rewardItemId: string;
-  unlocked: boolean;
+  description: string;
+  hint: string;
+  metric: AchievementMetric;
+  target: number;
+  hidden?: boolean;
+  region?: string;
+  rewardItemId?: string;
+  unlockSlot?: ItemSlot;
 }
 
 export interface RunRewards {
@@ -50,6 +58,27 @@ export interface EnduranceMilestone {
   bonus: number;
   title: string;
 }
+
+export interface RunnerGrowthStage {
+  id: 'sprout' | 'steady' | 'trailblazer' | 'legend';
+  title: string;
+  minLevel: number;
+  nextLevel: number | null;
+  description: string;
+}
+
+export const BASE_ITEM_SLOTS: ItemSlot[] = ['head', 'top', 'bottom', 'shoes'];
+export const EXTRA_ITEM_SLOTS: ItemSlot[] = ['glasses', 'bag', 'watch'];
+
+export const SLOT_LABELS: Record<ItemSlot, string> = {
+  head: '머리',
+  top: '상의',
+  bottom: '하의',
+  shoes: '신발',
+  glasses: '안경',
+  bag: '가방',
+  watch: '시계',
+};
 
 export const DAILY_QUESTS: Quest[] = [
   {
@@ -118,6 +147,37 @@ export const ENDURANCE_MILESTONES: EnduranceMilestone[] = [
   { days: 100, bonus: 3, title: '백일의 러너' },
 ];
 
+export const RUNNER_GROWTH_STAGES: RunnerGrowthStage[] = [
+  {
+    id: 'sprout',
+    title: '새싹 러너',
+    minLevel: 1,
+    nextLevel: 10,
+    description: '달리기의 즐거움을 발견하고 있어요.',
+  },
+  {
+    id: 'steady',
+    title: '꾸준한 러너',
+    minLevel: 10,
+    nextLevel: 25,
+    description: '매일의 발걸음이 루미를 단단하게 만들어요.',
+  },
+  {
+    id: 'trailblazer',
+    title: '길을 여는 러너',
+    minLevel: 25,
+    nextLevel: 50,
+    description: '새로운 길과 업적을 스스로 만들어 가요.',
+  },
+  {
+    id: 'legend',
+    title: '전설의 러너',
+    minLevel: 50,
+    nextLevel: null,
+    description: '모든 러너가 기억하는 특별한 발자국이에요.',
+  },
+];
+
 export const ITEMS: GameItem[] = [
   {
     id: 'mint-cap',
@@ -137,6 +197,16 @@ export const ITEMS: GameItem[] = [
     icon: '👕',
     price: 0,
     description: '가볍고 편안한 기본 러닝 후디',
+    source: 'starter',
+  },
+  {
+    id: 'navy-shorts',
+    name: '네이비 러닝 쇼츠',
+    slot: 'bottom',
+    rarity: '일반',
+    icon: '🩳',
+    price: 0,
+    description: '어떤 상의와도 잘 어울리는 기본 러닝 쇼츠',
     source: 'starter',
   },
   {
@@ -190,6 +260,16 @@ export const ITEMS: GameItem[] = [
     source: 'shop',
   },
   {
+    id: 'berry-leggings',
+    name: '베리 러닝 팬츠',
+    slot: 'bottom',
+    rarity: '희귀',
+    icon: '🟣',
+    price: 390,
+    description: '탄력 있는 보랏빛 러닝 팬츠',
+    source: 'shop',
+  },
+  {
     id: 'star-sneakers',
     name: '별빛 스니커즈',
     slot: 'shoes',
@@ -200,23 +280,64 @@ export const ITEMS: GameItem[] = [
     source: 'shop',
   },
   {
-    id: 'clover-pin',
-    name: '행운의 클로버 핀',
-    slot: 'accessory',
-    rarity: '일반',
-    icon: '🍀',
-    price: 140,
-    description: '매일의 러닝에 작은 행운을 더하는 핀',
+    id: 'daily-runner-glasses',
+    name: '꾸준함 안경',
+    slot: 'glasses',
+    rarity: '영웅',
+    icon: '🤓',
+    price: 0,
+    description: '일주일 동안 모든 일일 퀘스트를 마친 러너의 안경',
+    source: 'achievement',
+  },
+  {
+    id: 'record-backpack',
+    name: '100km 기록 가방',
+    slot: 'bag',
+    rarity: '영웅',
+    icon: '🎒',
+    price: 0,
+    description: '누적 100km의 추억을 가득 담은 기록 가방',
+    source: 'achievement',
+  },
+  {
+    id: 'seoul-moon-watch',
+    name: '한강 달빛 시계',
+    slot: 'watch',
+    rarity: '지역 한정',
+    icon: '⌚',
+    price: 0,
+    description: '서울에서 10km를 달린 러너만 착용하는 달빛 시계',
+    source: 'achievement',
+    region: '서울특별시',
+  },
+  {
+    id: 'pink-sunglasses',
+    name: '핑크 선글라스',
+    slot: 'glasses',
+    rarity: '희귀',
+    icon: '🕶️',
+    price: 420,
+    description: '안경 슬롯을 해금한 러너를 위한 경쾌한 선글라스',
     source: 'shop',
   },
   {
-    id: 'rainbow-trail',
-    name: '무지개 발자국',
-    slot: 'accessory',
+    id: 'clover-backpack',
+    name: '클로버 미니백',
+    slot: 'bag',
+    rarity: '희귀',
+    icon: '🍀',
+    price: 560,
+    description: '행운을 등에 메고 달릴 수 있는 미니백',
+    source: 'shop',
+  },
+  {
+    id: 'pace-watch',
+    name: '페이스 워치',
+    slot: 'watch',
     rarity: '영웅',
-    icon: '🌈',
-    price: 900,
-    description: '달린 자리에 무지개빛 추억을 남기는 장식',
+    icon: '⏱️',
+    price: 720,
+    description: '오늘의 속도를 기억해 주는 러너 전용 시계',
     source: 'shop',
   },
   {
@@ -241,40 +362,86 @@ export const ITEMS: GameItem[] = [
     region: '제주특별자치도',
   },
   {
-    id: 'seoul-moon-pin',
-    name: '한강 달빛 핀',
-    slot: 'accessory',
-    rarity: '지역 한정',
-    icon: '🌙',
+    id: 'monthly-comet-crown',
+    name: '월간 혜성 크라운',
+    slot: 'head',
+    rarity: '월간 한정',
+    icon: '☄️',
     price: 0,
-    description: '서울의 강변을 오래 달린 러너를 위한 장식',
+    description: '팀과 함께 월간 400km를 완주한 러너에게만 주어지는 크라운',
+    source: 'group',
+  },
+  {
+    id: 'solo-star-glasses',
+    name: '솔로 스타 글라스',
+    slot: 'glasses',
+    rarity: '월간 한정',
+    icon: '🌟',
+    price: 0,
+    description: '400km 그룹 퀘스트를 혼자 완주한 러너의 숨겨진 증표',
     source: 'achievement',
-    region: '서울특별시',
   },
 ];
 
-export const HIDDEN_ACHIEVEMENTS: HiddenAchievement[] = [
+export const ACHIEVEMENTS: Achievement[] = [
+  {
+    id: 'seven-day-promise',
+    title: '7일의 약속',
+    description: '7일 연속으로 모든 일일 퀘스트를 완료했어요.',
+    hint: '일일 퀘스트를 빠짐없이 이어가 보세요.',
+    metric: 'streak',
+    target: 7,
+    rewardItemId: 'daily-runner-glasses',
+    unlockSlot: 'glasses',
+  },
+  {
+    id: 'hundred-km-memory',
+    title: '100km의 기억',
+    description: '누적 러닝 거리 100km를 달성했어요.',
+    hint: '모든 러닝 기록의 거리가 차곡차곡 쌓여요.',
+    metric: 'total-distance',
+    target: 100,
+    rewardItemId: 'record-backpack',
+    unlockSlot: 'bag',
+  },
   {
     id: 'jeju-citrus-runner',
     title: '제주의 상큼한 러너',
-    hiddenTitle: '???',
-    hiddenHint: '바람과 귤 향기가 함께하는 섬에서 발견할 수 있어요.',
+    description: '제주에서 누적 5km를 달렸어요.',
+    hint: '바람과 귤 향기가 함께하는 섬에서 달려 보세요.',
+    metric: 'region-distance',
     region: '제주특별자치도',
-    requiredDistanceKm: 5,
+    target: 5,
+    hidden: true,
     rewardItemId: 'hallabong-hat',
-    unlocked: false,
   },
   {
     id: 'seoul-river-night',
     title: '강을 따라 걷는 달빛',
-    hiddenTitle: '???',
-    hiddenHint: '도시의 큰 강을 따라 충분히 달리면 빛이 보여요.',
+    description: '서울에서 누적 10km를 달렸어요.',
+    hint: '도시의 큰 강을 따라 충분히 달리면 빛이 보여요.',
+    metric: 'region-distance',
     region: '서울특별시',
-    requiredDistanceKm: 10,
-    rewardItemId: 'seoul-moon-pin',
-    unlocked: false,
+    target: 10,
+    hidden: true,
+    rewardItemId: 'seoul-moon-watch',
+    unlockSlot: 'watch',
+  },
+  {
+    id: 'solo-is-my-team',
+    title: '혼자여도 한 팀',
+    description: '월간 400km 그룹 퀘스트를 혼자 완주했어요.',
+    hint: '함께하는 퀘스트에는 아무도 예상하지 못한 길도 있어요.',
+    metric: 'solo-group-distance',
+    target: 400,
+    hidden: true,
+    rewardItemId: 'solo-star-glasses',
+    unlockSlot: 'glasses',
   },
 ];
+
+// 이전 화면과 저장 데이터에서 사용하던 이름을 호환한다.
+export const HIDDEN_ACHIEVEMENTS = ACHIEVEMENTS.filter((achievement) => achievement.hidden);
 
 export function calculateRunRewards(distanceKm: number): RunRewards {
   const safeDistance = Math.max(0, distanceKm);
@@ -292,10 +459,18 @@ export function getEnduranceBonus(streakDays: number): number {
   }, 0);
 }
 
-export function findUnlockedRegionalAchievements(regionDistances: Record<string, number>): HiddenAchievement[] {
-  return HIDDEN_ACHIEVEMENTS.filter((achievement) => {
-    return (regionDistances[achievement.region] ?? 0) >= achievement.requiredDistanceKm;
-  });
+export function getRunnerGrowthStage(level: number): RunnerGrowthStage {
+  return [...RUNNER_GROWTH_STAGES]
+    .reverse()
+    .find((stage) => level >= stage.minLevel) ?? RUNNER_GROWTH_STAGES[0]!;
+}
+
+export function findUnlockedRegionalAchievements(regionDistances: Record<string, number>): Achievement[] {
+  return ACHIEVEMENTS.filter(
+    (achievement) =>
+      achievement.metric === 'region-distance' &&
+      (regionDistances[achievement.region ?? ''] ?? 0) >= achievement.target
+  );
 }
 
 export function getItemById(itemId: string): GameItem | undefined {

@@ -1,6 +1,6 @@
 import React, { useMemo, useState } from 'react';
 import { Image, Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
-import { ITEMS, getItemById, type GameItem, type ItemSlot } from '../domain/game';
+import { ITEMS, SLOT_LABELS, getItemById, type GameItem, type ItemSlot } from '../domain/game';
 import type { GameState } from '../domain/gameState';
 import { Card, Pill, PrimaryButton, ScreenTitle, SectionHeader } from '../ui/components';
 import { colors, radii } from '../ui/theme';
@@ -16,10 +16,13 @@ interface StyleShopScreenProps {
 
 const FILTERS: Array<{ id: StyleFilter; label: string }> = [
   { id: 'all', label: '전체' },
-  { id: 'head', label: '모자' },
+  { id: 'head', label: '머리' },
   { id: 'top', label: '상의' },
+  { id: 'bottom', label: '하의' },
   { id: 'shoes', label: '신발' },
-  { id: 'accessory', label: '장식' },
+  { id: 'glasses', label: '안경' },
+  { id: 'bag', label: '가방' },
+  { id: 'watch', label: '시계' },
 ];
 
 export function StyleShopScreen({ gameState, onEquipItem, onPurchaseItem }: StyleShopScreenProps) {
@@ -29,6 +32,7 @@ export function StyleShopScreen({ gameState, onEquipItem, onPurchaseItem }: Styl
   const isOwned = gameState.unlockedItemIds.includes(selectedItem.id);
   const isEquipped = gameState.equippedItemIds[selectedItem.slot] === selectedItem.id;
   const canPurchase = selectedItem.source === 'shop' && gameState.styleCoins >= selectedItem.price;
+  const isSlotUnlocked = gameState.unlockedSlotIds.includes(selectedItem.slot);
   const equippedItems = Object.values(gameState.equippedItemIds)
     .map((itemId) => (itemId == null ? undefined : getItemById(itemId)))
     .filter((item): item is GameItem => item != null);
@@ -37,7 +41,9 @@ export function StyleShopScreen({ gameState, onEquipItem, onPurchaseItem }: Styl
     [filter]
   );
 
-  const actionLabel = isOwned
+  const actionLabel = !isSlotUnlocked
+    ? `${SLOT_LABELS[selectedItem.slot]} 슬롯을 업적으로 해금하세요`
+    : isOwned
     ? isEquipped
       ? '현재 착용 중'
       : '이 아이템 착용하기'
@@ -83,7 +89,7 @@ export function StyleShopScreen({ gameState, onEquipItem, onPurchaseItem }: Styl
         </View>
         <AvatarPreview equippedItems={equippedItems} />
         <View style={styles.outfitStrip}>
-          {(['head', 'top', 'shoes', 'accessory'] as ItemSlot[]).map((slot) => {
+          {gameState.unlockedSlotIds.map((slot) => {
             const item = equippedItems.find((candidate) => candidate.slot === slot);
             return (
               <View key={slot} style={[styles.outfitSlot, item == null && styles.outfitSlotEmpty]}>
@@ -160,9 +166,13 @@ export function StyleShopScreen({ gameState, onEquipItem, onPurchaseItem }: Styl
                     : '보유 중'
                   : item.source === 'shop'
                     ? `● ${item.price.toLocaleString()}`
-                    : item.source === 'quest'
+                    : !gameState.unlockedSlotIds.includes(item.slot)
+                      ? `${SLOT_LABELS[item.slot]} 잠김`
+                      : item.source === 'quest'
                       ? '퀘스트 한정'
-                      : '지역 한정'}
+                      : item.source === 'group'
+                        ? '월간 한정'
+                        : '업적 한정'}
               </Text>
             </Pressable>
           );
@@ -183,7 +193,7 @@ export function StyleShopScreen({ gameState, onEquipItem, onPurchaseItem }: Styl
           </View>
         </View>
         <PrimaryButton
-          disabled={isEquipped || (!isOwned && !canPurchase)}
+          disabled={!isSlotUnlocked || isEquipped || (!isOwned && !canPurchase)}
           icon={isOwned ? '✓' : '●'}
           label={actionLabel}
           onPress={handleAction}
@@ -206,7 +216,7 @@ export function StyleShopScreen({ gameState, onEquipItem, onPurchaseItem }: Styl
         <View style={styles.regionalItem}>
           <Text style={styles.regionalEmoji}>🌙</Text>
           <View style={styles.regionalCopy}>
-            <Text style={styles.regionalTitle}>서울 · 한강 달빛 핀</Text>
+            <Text style={styles.regionalTitle}>서울 · 한강 달빛 시계</Text>
             <Text style={styles.regionalCaption}>서울 누적 10km 달리기</Text>
           </View>
           <Text style={styles.regionalProgress}>
@@ -237,8 +247,11 @@ function AvatarPreview({ equippedItems }: { equippedItems: GameItem[] }) {
               styles.avatarDecoration,
               item.slot === 'head' && styles.avatarHead,
               item.slot === 'top' && styles.avatarTop,
+              item.slot === 'bottom' && styles.avatarBottom,
               item.slot === 'shoes' && styles.avatarShoes,
-              item.slot === 'accessory' && styles.avatarAccessory,
+              item.slot === 'glasses' && styles.avatarGlasses,
+              item.slot === 'bag' && styles.avatarBag,
+              item.slot === 'watch' && styles.avatarWatch,
             ]}
           >
             {item.icon}
@@ -353,13 +366,25 @@ const styles = StyleSheet.create({
     right: 82,
     top: 132,
   },
+  avatarBottom: {
+    right: 82,
+    top: 174,
+  },
   avatarShoes: {
     bottom: 12,
     right: 65,
   },
-  avatarAccessory: {
+  avatarGlasses: {
+    right: 85,
+    top: 88,
+  },
+  avatarBag: {
     right: 27,
     top: 128,
+  },
+  avatarWatch: {
+    right: 51,
+    top: 163,
   },
   outfitStrip: {
     bottom: 20,

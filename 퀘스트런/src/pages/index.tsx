@@ -2,13 +2,23 @@ import { getServerTime } from '@apps-in-toss/framework';
 import { createRoute } from '@granite-js/react-native';
 import React, { useEffect, useState } from 'react';
 import { Pressable, SafeAreaView, StatusBar, StyleSheet, Text, View } from 'react-native';
-import { applyCompletedRun, claimQuestReward, equipItem, getDateKey, purchaseItem } from '../domain/gameState';
+import {
+  applyCompletedRun,
+  claimGroupQuestReward,
+  claimQuestReward,
+  equipItem,
+  getDateKey,
+  markFriendNotificationsSeen,
+  purchaseItem,
+  selectGroupQuestMode,
+} from '../domain/gameState';
 import { createDemoRun, type CompletedRun, type DemoRunOptions } from '../domain/runTracking';
 import { usePersistentGameState } from '../hooks/usePersistentGameState';
 import { CharacterScreen } from '../screens/CharacterScreen';
 import { HomeScreen } from '../screens/HomeScreen';
 import { QuestScreen } from '../screens/QuestScreen';
 import { RunningScreen, RunSummaryScreen } from '../screens/RunningScreen';
+import { SocialScreen } from '../screens/SocialScreen';
 import { StyleShopScreen } from '../screens/StyleShopScreen';
 import { TestLabModal } from '../screens/TestLabModal';
 import { colors, radii } from '../ui/theme';
@@ -17,13 +27,14 @@ export const Route = createRoute('/', {
   component: QuestRunApp,
 });
 
-type AppTab = 'home' | 'quest' | 'style' | 'character';
+type AppTab = 'home' | 'quest' | 'style' | 'social' | 'character';
 type RunFlow = 'idle' | 'running' | 'summary';
 
 const NAV_ITEMS: Array<{ id: AppTab; label: string; icon: string }> = [
   { id: 'home', label: '홈', icon: '⌂' },
   { id: 'quest', label: '퀘스트', icon: '✓' },
   { id: 'style', label: '스타일', icon: '✦' },
+  { id: 'social', label: '친구', icon: '♧' },
   { id: 'character', label: '아바타', icon: '♙' },
 ];
 
@@ -139,6 +150,22 @@ function QuestRunApp() {
               onPurchaseItem={(itemId) => {
                 updateGameState((current) => purchaseItem(current, itemId));
                 setToast('새 꾸미기 아이템을 얻었어요!');
+              }}
+            />
+          ) : null}
+          {activeTab === 'social' ? (
+            <SocialScreen
+              gameState={gameState}
+              onClaimGroupQuest={() => {
+                updateGameState((current) => claimGroupQuestReward(current));
+                setToast('월간 한정 꾸미기 보상을 받았어요!');
+              }}
+              onMarkNotificationsSeen={(notificationIds) => {
+                updateGameState((current) => markFriendNotificationsSeen(current, notificationIds));
+              }}
+              onSelectGroupMode={(mode) => {
+                updateGameState((current) => selectGroupQuestMode(current, mode));
+                setToast(mode === 'group' ? '친구들과 함께 도전해요!' : '혼자 400km 도전을 시작했어요.');
               }}
             />
           ) : null}

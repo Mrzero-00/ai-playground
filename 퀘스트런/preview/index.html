@@ -235,14 +235,29 @@
         right: 87px;
       }
 
+      .wearable[data-slot='bottom'] {
+        top: 178px;
+        right: 87px;
+      }
+
       .wearable[data-slot='shoes'] {
         right: 76px;
         bottom: 13px;
       }
 
-      .wearable[data-slot='accessory'] {
+      .wearable[data-slot='glasses'] {
+        top: 86px;
+        right: 90px;
+      }
+
+      .wearable[data-slot='bag'] {
         top: 134px;
         right: 30px;
+      }
+
+      .wearable[data-slot='watch'] {
+        top: 164px;
+        right: 53px;
       }
 
       .xp-panel {
@@ -703,13 +718,28 @@
         right: 96px;
       }
 
+      .avatar-card .wearable[data-slot='bottom'] {
+        top: 194px;
+        right: 96px;
+      }
+
       .avatar-card .wearable[data-slot='shoes'] {
         right: 84px;
       }
 
-      .avatar-card .wearable[data-slot='accessory'] {
+      .avatar-card .wearable[data-slot='glasses'] {
+        top: 90px;
+        right: 99px;
+      }
+
+      .avatar-card .wearable[data-slot='bag'] {
         top: 148px;
         right: 31px;
+      }
+
+      .avatar-card .wearable[data-slot='watch'] {
+        top: 178px;
+        right: 58px;
       }
 
       .avatar-name {
@@ -816,6 +846,355 @@
         background: #edf2ef;
       }
 
+      .social-content {
+        display: grid;
+        gap: 10px;
+      }
+
+      .social-intro,
+      .friend-card,
+      .notice-card,
+      .member-row {
+        display: flex;
+        align-items: center;
+      }
+
+      .social-intro {
+        gap: 12px;
+      }
+
+      .social-intro-icon,
+      .notice-icon {
+        display: grid;
+        flex: 0 0 auto;
+        place-items: center;
+        border-radius: 17px;
+        background: var(--brand-soft);
+        font-size: 24px;
+      }
+
+      .social-intro-icon {
+        width: 56px;
+        height: 56px;
+      }
+
+      .social-intro strong,
+      .friend-card strong,
+      .notice-card strong {
+        display: block;
+        font-size: 13px;
+      }
+
+      .social-intro small,
+      .friend-card small,
+      .notice-card small {
+        color: var(--muted);
+        font-size: 10px;
+        line-height: 1.55;
+      }
+
+      .friend-card,
+      .notice-card {
+        width: 100%;
+        gap: 11px;
+        border: 0;
+        text-align: left;
+        cursor: pointer;
+      }
+
+      .friend-avatar {
+        display: grid;
+        width: 49px;
+        height: 49px;
+        flex: 0 0 auto;
+        place-items: center;
+        border-radius: 50%;
+        color: white;
+        font-size: 17px;
+        font-weight: 900;
+      }
+
+      .friend-copy,
+      .notice-copy {
+        flex: 1;
+      }
+
+      .friend-level {
+        margin-left: 6px;
+        color: var(--brand-dark);
+        font-size: 9px;
+        font-weight: 900;
+      }
+
+      .friend-progress {
+        display: flex;
+        gap: 8px;
+        margin-top: 5px;
+        color: var(--muted);
+        font-size: 9px;
+        font-weight: 800;
+      }
+
+      .social-chevron {
+        color: var(--faint);
+        font-size: 24px;
+      }
+
+      .monthly-hero {
+        position: relative;
+        min-height: 218px;
+        overflow: hidden;
+        padding: 22px;
+        border-radius: 27px;
+        color: white;
+        background: var(--navy);
+      }
+
+      .monthly-hero::after {
+        position: absolute;
+        top: -65px;
+        right: -45px;
+        width: 220px;
+        height: 220px;
+        border-radius: 50%;
+        background: #164d58;
+        content: '';
+      }
+
+      .monthly-hero h2 {
+        position: relative;
+        z-index: 2;
+        margin-top: 14px;
+        font-size: 28px;
+      }
+
+      .monthly-hero p {
+        position: relative;
+        z-index: 2;
+        margin-top: 7px;
+        color: #cfe5e1;
+        font-size: 11px;
+        line-height: 1.65;
+      }
+
+      .monthly-reward {
+        position: absolute;
+        z-index: 2;
+        top: 55px;
+        right: 39px;
+        font-size: 65px;
+      }
+
+      .monthly-reward-name {
+        position: absolute;
+        z-index: 2;
+        right: 23px;
+        bottom: 20px;
+        color: var(--yellow);
+        font-size: 10px;
+        font-weight: 900;
+      }
+
+      .mode-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 9px;
+      }
+
+      .mode-card {
+        position: relative;
+        padding: 15px;
+        border: 2px solid transparent;
+        border-radius: 18px;
+        text-align: left;
+        background: white;
+        cursor: pointer;
+      }
+
+      .mode-card.active {
+        border-color: var(--brand);
+        background: #effbf6;
+      }
+
+      .mode-card span {
+        display: block;
+        font-size: 23px;
+      }
+
+      .mode-card strong {
+        display: block;
+        margin-top: 7px;
+        font-size: 12px;
+      }
+
+      .mode-card small {
+        color: var(--muted);
+        font-size: 9px;
+      }
+
+      .group-progress-head {
+        display: flex;
+        align-items: flex-end;
+        justify-content: space-between;
+        margin-bottom: 13px;
+      }
+
+      .group-progress-head small,
+      .group-progress-head strong {
+        display: block;
+      }
+
+      .group-progress-head strong {
+        margin-top: 3px;
+        font-size: 25px;
+      }
+
+      .group-progress-head small {
+        color: var(--muted);
+        font-size: 10px;
+      }
+
+      .group-percent {
+        padding: 7px 10px;
+        border-radius: 99px;
+        color: #b6512c;
+        background: var(--orange-soft);
+        font-size: 11px;
+        font-weight: 900;
+      }
+
+      .member-row {
+        gap: 9px;
+        padding: 9px 0;
+      }
+
+      .member-row + .member-row {
+        border-top: 1px solid var(--line);
+      }
+
+      .member-row .friend-avatar {
+        width: 34px;
+        height: 34px;
+        font-size: 11px;
+      }
+
+      .member-row strong {
+        flex: 1;
+        font-size: 11px;
+      }
+
+      .member-row b {
+        color: var(--brand-dark);
+        font-size: 11px;
+      }
+
+      .hidden-challenge {
+        display: flex;
+        align-items: center;
+        gap: 11px;
+        border: 1px solid #ddd0fa;
+        background: #f6f1ff;
+      }
+
+      .hidden-icon {
+        display: grid;
+        width: 40px;
+        height: 40px;
+        flex: 0 0 auto;
+        place-items: center;
+        border-radius: 50%;
+        color: white;
+        background: var(--purple);
+        font-weight: 900;
+      }
+
+      .notice-card.unread {
+        border: 1px solid #c7ecdd;
+        background: #effbf6;
+      }
+
+      .notice-icon {
+        width: 44px;
+        height: 44px;
+        background: #edf3f0;
+        font-size: 20px;
+      }
+
+      .unread-dot {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: var(--orange);
+      }
+
+      .friend-profile-hero {
+        position: relative;
+        height: 300px;
+        overflow: hidden;
+        padding: 22px;
+        border-radius: 28px;
+      }
+
+      .friend-profile-hero .hero-img {
+        right: -3px;
+        bottom: -5px;
+        width: 220px;
+        height: 235px;
+      }
+
+      .friend-profile-copy {
+        position: relative;
+        z-index: 3;
+      }
+
+      .friend-profile-copy h2 {
+        margin-top: 14px;
+        font-size: 28px;
+      }
+
+      .profile-stats {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 8px;
+      }
+
+      .profile-stat {
+        padding: 13px 6px;
+        border-radius: 16px;
+        text-align: center;
+        background: white;
+      }
+
+      .profile-stat strong,
+      .profile-stat small {
+        display: block;
+      }
+
+      .profile-stat strong {
+        font-size: 13px;
+      }
+
+      .profile-stat small {
+        margin-top: 4px;
+        color: var(--muted);
+        font-size: 8px;
+      }
+
+      .profile-back,
+      .mark-read {
+        padding: 0;
+        border: 0;
+        color: var(--brand-dark);
+        background: transparent;
+        font-size: 11px;
+        font-weight: 900;
+        cursor: pointer;
+      }
+
+      .locked-slot {
+        opacity: 0.5;
+      }
+
       .nav {
         position: fixed;
         z-index: 30;
@@ -823,7 +1202,7 @@
         bottom: 10px;
         left: max(14px, calc((100vw - 430px) / 2 + 14px));
         display: grid;
-        grid-template-columns: repeat(4, 1fr);
+        grid-template-columns: repeat(5, 1fr);
         padding: 8px 7px;
         border: 1px solid rgba(226, 234, 230, 0.8);
         border-radius: 25px;
@@ -1148,7 +1527,7 @@
         <div class="card metrics">
           <div class="metric"><strong data-bind="weekKm">6.4km</strong><span>거리</span></div>
           <div class="metric"><strong data-bind="weekRuns">2회</strong><span>러닝</span></div>
-          <div class="metric"><strong>6일</strong><span>연속 달성</span></div>
+          <div class="metric"><strong><span data-bind="streak">6</span>일</strong><span>연속 달성</span></div>
         </div>
 
         <div class="section-title">
@@ -1174,7 +1553,7 @@
             <p class="eyebrow">RUN GOALS</p>
             <h1>퀘스트</h1>
           </div>
-          <span class="level-pill" style="color: var(--brand-dark); background: var(--brand-soft)">🔥 6일</span>
+          <span class="level-pill" style="color: var(--brand-dark); background: var(--brand-soft)">🔥 <span data-bind="streak">6</span>일</span>
         </header>
         <div class="segment">
           <button class="active">일일</button>
@@ -1207,6 +1586,16 @@
           </div>
         </div>
         <div class="card">
+          <div class="regional-row">
+            <span>🤓</span>
+            <div><strong>7일의 약속</strong><br /><small>일일 퀘스트 7일 연속 완료 · 안경 슬롯</small></div>
+            <span class="regional-progress"><span data-bind="streak">6</span> / 7일</span>
+          </div>
+          <div class="regional-row">
+            <span>🎒</span>
+            <div><strong>100km의 기억</strong><br /><small>누적 100km · 가방 슬롯</small></div>
+            <span class="regional-progress"><span data-bind="totalKmPlain">42.8</span> / 100km</span>
+          </div>
           <div class="regional-row">
             <span>🍊</span>
             <div><strong>제주의 상큼한 러너</strong><br /><small>제주 누적 5km</small></div>
@@ -1274,6 +1663,22 @@
         </div>
       </section>
 
+      <section class="screen" data-screen="social">
+        <header class="header">
+          <div>
+            <p class="eyebrow">RUN TOGETHER</p>
+            <h1>러닝 친구</h1>
+          </div>
+          <span class="level-pill" style="color: var(--brand-dark); background: var(--brand-soft)">3명 연결</span>
+        </header>
+        <div class="segment" data-social-tabs>
+          <button class="active" data-social-tab="friends">친구</button>
+          <button data-social-tab="group">그룹 퀘스트</button>
+          <button data-social-tab="notifications">알림 <span data-unread-count></span></button>
+        </div>
+        <div class="social-content" data-social-content></div>
+      </section>
+
       <section class="screen" data-screen="avatar">
         <header class="header">
           <div>
@@ -1318,6 +1723,7 @@
       <button class="nav-item active" data-nav="home"><span class="nav-icon">⌂</span>홈</button>
       <button class="nav-item" data-nav="quest"><span class="nav-icon">✓</span>퀘스트</button>
       <button class="nav-item" data-nav="style"><span class="nav-icon">✦</span>스타일</button>
+      <button class="nav-item" data-nav="social"><span class="nav-icon">♧</span>친구</button>
       <button class="nav-item" data-nav="avatar"><span class="nav-icon">♙</span>아바타</button>
     </nav>
 
@@ -1357,9 +1763,17 @@
     <div class="toast" role="status" data-toast></div>
 
     <script>
-      const STORAGE_KEY = 'quest-run-style-demo-v1';
-      const slots = ['head', 'top', 'shoes', 'accessory'];
-      const slotLabels = { head: '모자', top: '상의', shoes: '신발', accessory: '장식' };
+      const STORAGE_KEY = 'quest-run-style-demo-v2';
+      const slots = ['head', 'top', 'bottom', 'shoes', 'glasses', 'bag', 'watch'];
+      const slotLabels = {
+        head: '머리',
+        top: '상의',
+        bottom: '하의',
+        shoes: '신발',
+        glasses: '안경',
+        bag: '가방',
+        watch: '시계',
+      };
       const items = [
         {
           id: 'mint-cap',
@@ -1390,6 +1804,16 @@
           price: 0,
           source: 'starter',
           description: '통통 튀는 색감의 기본 러닝화',
+        },
+        {
+          id: 'navy-shorts',
+          name: '네이비 러닝 쇼츠',
+          slot: 'bottom',
+          rarity: '일반',
+          icon: '🩳',
+          price: 0,
+          source: 'starter',
+          description: '어떤 상의와도 잘 어울리는 기본 러닝 쇼츠',
         },
         {
           id: 'sunny-visor',
@@ -1442,24 +1866,34 @@
           description: '움직일 때마다 작은 별빛이 반짝이는 러닝화',
         },
         {
-          id: 'clover-pin',
-          name: '행운의 클로버 핀',
-          slot: 'accessory',
-          rarity: '일반',
-          icon: '🍀',
-          price: 140,
+          id: 'pink-sunglasses',
+          name: '핑크 선글라스',
+          slot: 'glasses',
+          rarity: '희귀',
+          icon: '🕶️',
+          price: 420,
           source: 'shop',
-          description: '매일의 러닝에 작은 행운을 더하는 핀',
+          description: '7일 연속 업적으로 안경 슬롯을 연 러너의 선글라스',
         },
         {
-          id: 'rainbow-trail',
-          name: '무지개 발자국',
-          slot: 'accessory',
-          rarity: '영웅',
-          icon: '🌈',
-          price: 900,
+          id: 'clover-backpack',
+          name: '클로버 미니백',
+          slot: 'bag',
+          rarity: '희귀',
+          icon: '🎒',
+          price: 560,
           source: 'shop',
-          description: '달린 자리에 무지개빛 추억을 남기는 장식',
+          description: '100km 업적으로 가방 슬롯을 연 러너의 미니백',
+        },
+        {
+          id: 'pace-watch',
+          name: '페이스 워치',
+          slot: 'watch',
+          rarity: '영웅',
+          icon: '⏱️',
+          price: 720,
+          source: 'shop',
+          description: '서울 러닝 업적으로 시계 슬롯을 연 러너의 페이스 워치',
         },
         {
           id: 'weekly-bandana',
@@ -1482,14 +1916,54 @@
           description: '제주에서 누적 5km를 달린 러너의 지역 한정 모자',
         },
         {
-          id: 'seoul-moon-pin',
-          name: '한강 달빛 핀',
-          slot: 'accessory',
+          id: 'seoul-moon-watch',
+          name: '한강 달빛 시계',
+          slot: 'watch',
           rarity: '지역 한정',
           icon: '🌙',
           price: 0,
           source: 'achievement',
-          description: '서울에서 누적 10km를 달린 러너의 달빛 장식',
+          description: '서울에서 누적 10km를 달린 러너의 달빛 시계',
+        },
+        {
+          id: 'daily-runner-glasses',
+          name: '꾸준함 안경',
+          slot: 'glasses',
+          rarity: '영웅',
+          icon: '🤓',
+          price: 0,
+          source: 'achievement',
+          description: '7일 연속 일일 퀘스트를 완료해 얻는 안경',
+        },
+        {
+          id: 'record-backpack',
+          name: '100km 기록 가방',
+          slot: 'bag',
+          rarity: '영웅',
+          icon: '🎒',
+          price: 0,
+          source: 'achievement',
+          description: '누적 100km의 추억을 담은 기록 가방',
+        },
+        {
+          id: 'monthly-comet-crown',
+          name: '월간 혜성 크라운',
+          slot: 'head',
+          rarity: '월간 한정',
+          icon: '☄️',
+          price: 0,
+          source: 'group',
+          description: '월간 400km 그룹 퀘스트 완주 보상',
+        },
+        {
+          id: 'solo-star-glasses',
+          name: '솔로 스타 글라스',
+          slot: 'glasses',
+          rarity: '월간 한정',
+          icon: '🌟',
+          price: 0,
+          source: 'achievement',
+          description: '월간 400km를 혼자 완주한 숨은 업적 보상',
         },
       ];
 
@@ -1503,22 +1977,88 @@
         weekRuns: 2,
         todayKm: 0.65,
         todayRuns: 0,
+        dailyStreak: 6,
         seoulKm: 0,
-        owned: ['mint-cap', 'mint-hoodie', 'orange-shoes'],
-        equipped: { head: 'mint-cap', top: 'mint-hoodie', shoes: 'orange-shoes' },
+        monthlyGroupKm: 286.4,
+        monthlyPersonalKm: 42.8,
+        groupMode: 'group',
+        groupClaimed: false,
+        soloAchievement: false,
+        unlockedSlots: ['head', 'top', 'bottom', 'shoes'],
+        owned: ['mint-cap', 'mint-hoodie', 'navy-shorts', 'orange-shoes'],
+        equipped: { head: 'mint-cap', top: 'mint-hoodie', bottom: 'navy-shorts', shoes: 'orange-shoes' },
         claimed: [],
+        seenNotifications: [],
       };
+
+      const friends = [
+        {
+          id: 'harin',
+          name: '하린',
+          handle: '@harin_runs',
+          level: 18,
+          title: '새벽을 여는 러너',
+          weekKm: 14.2,
+          quests: 3,
+          streak: 21,
+          achievements: 8,
+          status: '오늘 5km 템포런 완료!',
+          color: '#f5a7b8',
+        },
+        {
+          id: 'minjun',
+          name: '민준',
+          handle: '@minjun_10k',
+          level: 12,
+          title: '꾸준한 러너',
+          weekKm: 9.6,
+          quests: 2,
+          streak: 8,
+          achievements: 5,
+          status: '주간 10km까지 0.4km 남았어요',
+          color: '#77c9b5',
+        },
+        {
+          id: 'seoyeon',
+          name: '서연',
+          handle: '@seoyeon_trail',
+          level: 27,
+          title: '길을 여는 러너',
+          weekKm: 22.8,
+          quests: 3,
+          streak: 37,
+          achievements: 10,
+          status: '한강 달빛 시계를 해금했어요',
+          color: '#8b88d8',
+        },
+      ];
+
+      const notifications = [
+        { id: 'notice-harin', friendId: 'harin', icon: '🔥', text: '하린님이 일일 퀘스트를 모두 완료했어요.', time: '12분 전' },
+        { id: 'notice-seoyeon', friendId: 'seoyeon', icon: '🏅', text: '서연님이 ‘강을 따라 걷는 달빛’ 업적을 달성했어요.', time: '1시간 전' },
+        { id: 'notice-minjun', friendId: 'minjun', icon: '🏃', text: '민준님이 이번 주 세 번째 러닝을 시작했어요.', time: '어제' },
+      ];
 
       let state = loadState();
       let selectedItemId = 'sunny-visor';
       let activeFilter = 'all';
       let wardrobeSlot = 'head';
+      let socialTab = 'friends';
+      let selectedFriendId = null;
       let runTimer = null;
       let runSeconds = 0;
 
       function loadState() {
         try {
-          return { ...initialState, ...JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}') };
+          const saved = JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}');
+          return {
+            ...initialState,
+            ...saved,
+            equipped: { ...initialState.equipped, ...(saved.equipped || {}) },
+            owned: [...new Set([...initialState.owned, ...(saved.owned || [])])],
+            unlockedSlots: [...new Set([...initialState.unlockedSlots, ...(saved.unlockedSlots || [])])],
+            seenNotifications: saved.seenNotifications || [],
+          };
         } catch {
           return { ...initialState };
         }
@@ -1554,6 +2094,7 @@
           .querySelectorAll('[data-bind=coins]')
           .forEach((node) => (node.textContent = formatNumber(state.coins)));
         document.querySelectorAll('[data-bind=level]').forEach((node) => (node.textContent = state.level));
+        document.querySelectorAll('[data-bind=streak]').forEach((node) => (node.textContent = state.dailyStreak));
         document.querySelectorAll('[data-bind=xp]').forEach((node) => (node.textContent = formatNumber(state.xp)));
         document
           .querySelectorAll('[data-bind=xpTarget]')
@@ -1561,6 +2102,9 @@
         document
           .querySelectorAll('[data-bind=totalKm]')
           .forEach((node) => (node.textContent = `${state.totalKm.toFixed(1)}km`));
+        document
+          .querySelectorAll('[data-bind=totalKmPlain]')
+          .forEach((node) => (node.textContent = state.totalKm.toFixed(1)));
         document
           .querySelectorAll('[data-bind=weekKm]')
           .forEach((node) => (node.textContent = `${state.weekKm.toFixed(1)}km`));
@@ -1583,7 +2127,7 @@
             .join(' · ') || '기본 러닝 스타일';
 
         const strip = document.querySelector('[data-outfit-strip]');
-        strip.innerHTML = slots
+        strip.innerHTML = state.unlockedSlots
           .map((slot) => `<span class="outfit-slot">${itemById(state.equipped[slot])?.icon || '＋'}</span>`)
           .join('');
       }
@@ -1591,10 +2135,13 @@
       function renderShop() {
         const filters = [
           ['all', '전체'],
-          ['head', '모자'],
+          ['head', '머리'],
           ['top', '상의'],
+          ['bottom', '하의'],
           ['shoes', '신발'],
-          ['accessory', '장식'],
+          ['glasses', '안경'],
+          ['bag', '가방'],
+          ['watch', '시계'],
         ];
         document.querySelector('[data-filters]').innerHTML = filters
           .map(
@@ -1610,15 +2157,20 @@
           .map((item) => {
             const owned = state.owned.includes(item.id);
             const equipped = state.equipped[item.slot] === item.id;
+            const slotUnlocked = state.unlockedSlots.includes(item.slot);
             const meta = owned
               ? equipped
                 ? '착용 중'
                 : '보유 중'
+              : !slotUnlocked
+                ? `${slotLabels[item.slot]} 잠김`
               : item.source === 'shop'
                 ? `● ${formatNumber(item.price)}`
                 : item.source === 'quest'
                   ? '퀘스트 한정'
-                  : '지역 한정';
+                  : item.source === 'group'
+                    ? '월간 한정'
+                    : '업적 한정';
             return `<button class="item-card ${selectedItemId === item.id ? 'selected' : ''} ${
               owned ? 'owned' : ''
             } ${equipped ? 'equipped' : ''}" data-item="${item.id}">
@@ -1634,9 +2186,11 @@
         const selected = itemById(selectedItemId) || items[3];
         const owned = state.owned.includes(selected.id);
         const equipped = state.equipped[selected.slot] === selected.id;
-        const canBuy = selected.source === 'shop' && state.coins >= selected.price;
+        const slotUnlocked = state.unlockedSlots.includes(selected.slot);
+        const canBuy = slotUnlocked && selected.source === 'shop' && state.coins >= selected.price;
         let action = '획득 조건을 달성해 주세요';
-        if (owned) action = equipped ? '현재 착용 중' : '이 아이템 착용하기';
+        if (!slotUnlocked) action = `${slotLabels[selected.slot]} 슬롯을 업적으로 해금하세요`;
+        else if (owned) action = equipped ? '현재 착용 중' : '이 아이템 착용하기';
         else if (selected.source === 'shop')
           action = canBuy ? `● ${formatNumber(selected.price)} · 구매하기` : '러닝 코인이 부족해요';
         else if (selected.source === 'quest') action = '주간 10km 퀘스트 보상';
@@ -1651,7 +2205,7 @@
               <p class="caption">${selected.description}</p>
             </div>
           </div>
-          <button class="primary" data-item-action ${equipped || (!owned && !canBuy) ? 'disabled' : ''}>${action}</button>
+          <button class="primary" data-item-action ${!slotUnlocked || equipped || (!owned && !canBuy) ? 'disabled' : ''}>${action}</button>
         `;
       }
 
@@ -1659,9 +2213,17 @@
         document.querySelector('[data-wardrobe-tabs]').innerHTML = slots
           .map(
             (slot) =>
-              `<button class="${wardrobeSlot === slot ? 'active' : ''}" data-wardrobe-slot="${slot}">${slotLabels[slot]}</button>`
+              `<button class="${wardrobeSlot === slot ? 'active' : ''} ${
+                state.unlockedSlots.includes(slot) ? '' : 'locked-slot'
+              }" data-wardrobe-slot="${slot}">${state.unlockedSlots.includes(slot) ? '' : '🔒 '}${slotLabels[slot]}</button>`
           )
           .join('');
+
+        if (!state.unlockedSlots.includes(wardrobeSlot)) {
+          document.querySelector('[data-wardrobe]').innerHTML =
+            `<div style="padding:18px 0;text-align:center"><div style="font-size:32px">🔒</div><strong>${slotLabels[wardrobeSlot]} 슬롯은 아직 잠겨 있어요</strong><p class="caption">업적을 달성하면 장착 부위와 전용 아이템이 함께 열려요.</p></div>`;
+          return;
+        }
 
         const owned = items.filter((item) => item.slot === wardrobeSlot && state.owned.includes(item.id));
         document.querySelector('[data-wardrobe]').innerHTML = owned.length
@@ -1732,11 +2294,131 @@
           .join('');
       }
 
+      function renderSocial() {
+        const unread = notifications.filter((notice) => !state.seenNotifications.includes(notice.id)).length;
+        const unreadNode = document.querySelector('[data-unread-count]');
+        unreadNode.textContent = unread ? `· ${unread}` : '';
+        document
+          .querySelectorAll('[data-social-tab]')
+          .forEach((node) => node.classList.toggle('active', node.dataset.socialTab === socialTab));
+        const container = document.querySelector('[data-social-content]');
+
+        if (selectedFriendId) {
+          const friend = friends.find((candidate) => candidate.id === selectedFriendId);
+          container.innerHTML = `
+            <button class="profile-back" data-profile-back>‹ 친구 목록</button>
+            <div class="friend-profile-hero" style="background:${friend.color}">
+              <div class="friend-profile-copy">
+                <span class="level-pill">RUNNER Lv. ${friend.level}</span>
+                <h2>${friend.name}</h2>
+                <p class="caption">${friend.handle}</p>
+                <p style="margin-top:10px;font-size:11px;font-weight:900">${friend.title}</p>
+              </div>
+              <img class="hero-img" src="../assets/quest-run-lumi-v2.png" alt="${friend.name}님의 러너 캐릭터" />
+            </div>
+            <div class="profile-stats">
+              <div class="profile-stat"><strong>${friend.weekKm.toFixed(1)}km</strong><small>이번 주</small></div>
+              <div class="profile-stat"><strong>${friend.streak}일</strong><small>연속 완료</small></div>
+              <div class="profile-stat"><strong>${friend.achievements}/12</strong><small>업적</small></div>
+            </div>
+            <div class="section-title"><div><h2>현재 스타일</h2><p class="caption">친구가 공개한 꾸미기 구성이에요.</p></div></div>
+            <div class="card">
+              <div class="regional-row"><span>🎧</span><div><strong>머리 · 체리 헤드폰</strong><br><small>희귀 꾸미기</small></div><b>착용 중</b></div>
+              <div class="regional-row"><span>⌚</span><div><strong>시계 · 한강 달빛 시계</strong><br><small>지역 한정 업적</small></div><b>${friend.level >= 18 ? '해금' : '잠김'}</b></div>
+            </div>
+            <div class="section-title"><div><h2>업적 상태</h2><p class="caption">대표 업적 진행 상황이에요.</p></div></div>
+            <div class="card">
+              <div class="regional-row"><span>🔥</span><div><strong>${friend.streak}일의 약속</strong><br><small>일일 퀘스트 연속 완료</small></div><b>달성</b></div>
+              <div class="regional-row"><span>?</span><div><strong>아직 발견하지 못한 이야기</strong><br><small>숨은 업적</small></div><b>잠김</b></div>
+            </div>`;
+          return;
+        }
+
+        if (socialTab === 'friends') {
+          container.innerHTML = `
+            <div class="card social-intro">
+              <span class="social-intro-icon">👟</span>
+              <div><strong>서로의 한 걸음을 응원해요</strong><small>친구의 퀘스트와 업적을 확인하고 월간 목표에 함께 도전하세요.</small></div>
+            </div>
+            <div class="section-title"><div><h2>내 친구</h2><p class="caption">프로필에서 캐릭터와 업적을 볼 수 있어요.</p></div></div>
+            ${friends
+              .map(
+                (friend) => `<button class="card friend-card" data-friend="${friend.id}">
+                  <span class="friend-avatar" style="background:${friend.color}">${friend.name[0]}</span>
+                  <span class="friend-copy">
+                    <strong>${friend.name}<span class="friend-level">Lv. ${friend.level}</span></strong>
+                    <small>${friend.status}</small>
+                    <span class="friend-progress"><span>이번 주 ${friend.weekKm.toFixed(1)}km</span><span>퀘스트 ${friend.quests}/3</span></span>
+                  </span>
+                  <span class="social-chevron">›</span>
+                </button>`
+              )
+              .join('')}`;
+          return;
+        }
+
+        if (socialTab === 'group') {
+          const current = state.groupMode === 'solo' ? state.monthlyPersonalKm : state.monthlyGroupKm;
+          const percent = Math.min(100, Math.floor((current / 400) * 100));
+          container.innerHTML = `
+            <div class="monthly-hero">
+              <span class="level-pill">JULY MONTHLY</span>
+              <h2>우리의 400km</h2>
+              <p>한 달 동안 함께 달린 거리를 모아<br>월간 한정 아이템을 완성해요.</p>
+              <span class="monthly-reward">☄️</span>
+              <span class="monthly-reward-name">월간 혜성 크라운</span>
+            </div>
+            <div class="section-title"><div><h2>도전 방식</h2><p class="caption">같이 달리거나 혼자서도 도전할 수 있어요.</p></div></div>
+            <div class="mode-grid">
+              <button class="mode-card ${state.groupMode === 'group' ? 'active' : ''}" data-group-mode="group"><span>👥</span><strong>함께 달리기</strong><small>친구 거리와 합산</small></button>
+              <button class="mode-card ${state.groupMode === 'solo' ? 'active' : ''}" data-group-mode="solo"><span>🏃</span><strong>혼자 달리기</strong><small>내 거리만으로 도전</small></button>
+            </div>
+            <div class="card">
+              <div class="group-progress-head"><div><small>${state.groupMode === 'group' ? '팀 누적 거리' : '나의 단독 거리'}</small><strong>${current.toFixed(1)} <small style="display:inline">/ 400km</small></strong></div><span class="group-percent">${percent}%</span></div>
+              <div class="progress"><span style="width:${percent}%;background:var(--orange)"></span></div>
+              <p class="caption" style="margin:8px 0 14px;text-align:right">앞으로 ${Math.max(0, 400 - current).toFixed(1)}km</p>
+              <button class="primary" data-claim-group ${current < 400 || state.groupClaimed ? 'disabled' : ''}>${state.groupClaimed ? '✓ 월간 보상 받음' : current >= 400 ? '☄️ 월간 보상 받기' : '400km 달성 후 받을 수 있어요'}</button>
+            </div>
+            ${
+              state.groupMode === 'solo'
+                ? `<div class="card hidden-challenge"><span class="hidden-icon">?</span><div><strong>숨겨진 도전이 감지됐어요</strong><p class="caption">혼자 400km를 완주하면 특별한 업적과 장식이 열려요.</p></div></div>`
+                : `<div class="section-title"><div><h2>함께 달리는 친구</h2><p class="caption">모든 멤버의 러닝이 합산돼요.</p></div></div>
+                  <div class="card">
+                    ${[
+                      ['나', state.monthlyPersonalKm, '#fc7043'],
+                      ['서연', 96.3, '#8b88d8'],
+                      ['하린', 82.7, '#f5a7b8'],
+                      ['민준', 64.6, '#77c9b5'],
+                    ]
+                      .map(
+                        ([name, km, color]) => `<div class="member-row"><span class="friend-avatar" style="background:${color}">${name[0]}</span><strong>${name}</strong><b>${Number(km).toFixed(1)}km</b></div>`
+                      )
+                      .join('')}
+                  </div>`
+            }`;
+          return;
+        }
+
+        container.innerHTML = `
+          <div class="section-title"><div><h2>친구 소식 ${unread ? `· 새 알림 ${unread}` : ''}</h2><p class="caption">친구의 퀘스트와 업적 진행을 알려드려요.</p></div><button class="mark-read" data-mark-read>${unread ? '모두 읽음' : '모두 확인함'}</button></div>
+          ${notifications
+            .map((notice) => {
+              const seen = state.seenNotifications.includes(notice.id);
+              return `<button class="card notice-card ${seen ? '' : 'unread'}" data-friend="${notice.friendId}">
+                <span class="notice-icon">${notice.icon}</span>
+                <span class="notice-copy"><strong>${notice.text}</strong><small>${notice.time}</small></span>
+                ${seen ? '' : '<span class="unread-dot"></span>'}
+              </button>`;
+            })
+            .join('')}`;
+      }
+
       function render() {
         renderGlobal();
         renderShop();
         renderWardrobe();
         renderQuests();
+        renderSocial();
       }
 
       function goTo(screen) {
@@ -1760,7 +2442,7 @@
 
       function buyOrEquipSelected() {
         const item = itemById(selectedItemId);
-        if (!item) return;
+        if (!item || !state.unlockedSlots.includes(item.slot)) return;
         if (state.owned.includes(item.id)) {
           state.equipped[item.slot] = item.id;
           showToast(`${item.name}을(를) 착용했어요!`);
@@ -1798,6 +2480,47 @@
         if (!target) return;
         if (target.dataset.nav) goTo(target.dataset.nav);
         if (target.dataset.go) goTo(target.dataset.go);
+        if (target.dataset.socialTab) {
+          socialTab = target.dataset.socialTab;
+          selectedFriendId = null;
+          renderSocial();
+        }
+        if (target.dataset.friend) {
+          selectedFriendId = target.dataset.friend;
+          renderSocial();
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        if (target.hasAttribute('data-profile-back')) {
+          selectedFriendId = null;
+          renderSocial();
+        }
+        if (target.dataset.groupMode) {
+          state.groupMode = target.dataset.groupMode;
+          saveState();
+          renderSocial();
+          showToast(state.groupMode === 'group' ? '친구들과 함께 도전해요!' : '혼자 400km 도전을 시작했어요.');
+        }
+        if (target.hasAttribute('data-mark-read')) {
+          state.seenNotifications = notifications.map((notice) => notice.id);
+          saveState();
+          renderSocial();
+          showToast('친구 소식을 모두 확인했어요.');
+        }
+        if (target.hasAttribute('data-claim-group')) {
+          const current = state.groupMode === 'solo' ? state.monthlyPersonalKm : state.monthlyGroupKm;
+          if (current >= 400 && !state.groupClaimed) {
+            state.groupClaimed = true;
+            state.owned.push('monthly-comet-crown');
+            if (state.groupMode === 'solo') {
+              state.soloAchievement = true;
+              state.owned.push('solo-star-glasses');
+              if (!state.unlockedSlots.includes('glasses')) state.unlockedSlots.push('glasses');
+            }
+            saveState();
+            render();
+            showToast('월간 한정 꾸미기 보상을 받았어요!');
+          }
+        }
         if (target.dataset.filter) {
           activeFilter = target.dataset.filter;
           renderShop();
@@ -1813,6 +2536,7 @@
         }
         if (target.dataset.equip) {
           const item = itemById(target.dataset.equip);
+          if (!state.unlockedSlots.includes(item.slot)) return;
           state.equipped[item.slot] = item.id;
           saveState();
           render();
@@ -1838,7 +2562,12 @@
           state.todayKm += 2;
           state.todayRuns += 1;
           state.seoulKm += 2;
-          if (state.seoulKm >= 10 && !state.owned.includes('seoul-moon-pin')) state.owned.push('seoul-moon-pin');
+          state.monthlyPersonalKm += 2;
+          state.monthlyGroupKm += 2;
+          if (state.seoulKm >= 10 && !state.owned.includes('seoul-moon-watch')) {
+            state.owned.push('seoul-moon-watch');
+            state.unlockedSlots.push('watch');
+          }
           saveState();
           document.querySelector('[data-summary]').classList.remove('active');
           render();
@@ -1851,6 +2580,11 @@
             if (id === 'daily-distance') state.xp += 120;
             if (id === 'daily-run') state.coins += 80;
             if (id === 'daily-distance-3') state.coins += 120;
+            if (['daily-distance', 'daily-run', 'daily-distance-3'].every((questId) => state.claimed.includes(questId))) {
+              state.dailyStreak = Math.max(7, state.dailyStreak);
+              if (!state.unlockedSlots.includes('glasses')) state.unlockedSlots.push('glasses');
+              if (!state.owned.includes('daily-runner-glasses')) state.owned.push('daily-runner-glasses');
+            }
             saveState();
             render();
             showToast('퀘스트 보상을 받았어요!');

@@ -1,20 +1,31 @@
 import {
+  ACHIEVEMENTS,
+  BASE_ITEM_SLOTS,
   DAILY_QUESTS,
-  HIDDEN_ACHIEVEMENTS,
   ITEMS,
   WEEKLY_QUESTS,
   calculateRunRewards,
   getEnduranceBonus,
   getItemById,
+  type Achievement,
   type ItemSlot,
   type Quest,
 } from './game';
 import type { CompletedRun } from './runTracking';
 
+export type GroupQuestMode = 'group' | 'solo';
+
+export interface AchievementProgress {
+  achievement: Achievement;
+  current: number;
+  unlocked: boolean;
+}
+
 export interface GameState {
-  version: 2;
+  version: 3;
   dailyDateKey: string;
   weeklyDateKey: string;
+  monthlyDateKey: string;
   level: number;
   experience: number;
   experienceToNextLevel: number;
@@ -30,17 +41,26 @@ export interface GameState {
   dailyRuns: number;
   claimedQuestIds: string[];
   unlockedItemIds: string[];
+  unlockedSlotIds: ItemSlot[];
   equippedItemIds: Partial<Record<ItemSlot, string>>;
   unlockedAchievementIds: string[];
   awardedEnduranceMilestones: number[];
   regionDistancesKm: Record<string, number>;
   runHistory: CompletedRun[];
+  groupQuestMode: GroupQuestMode;
+  monthlyGroupDistanceKm: number;
+  monthlyPersonalDistanceKm: number;
+  claimedGroupQuestMonthKeys: string[];
+  seenFriendNotificationIds: string[];
 }
 
+export const MONTHLY_GROUP_TARGET_KM = 400;
+
 export const DEFAULT_GAME_STATE: GameState = {
-  version: 2,
+  version: 3,
   dailyDateKey: getDateKey(Date.now()),
   weeklyDateKey: getWeekKey(Date.now()),
+  monthlyDateKey: getMonthKey(Date.now()),
   level: 7,
   experience: 650,
   experienceToNextLevel: 1_000,
@@ -55,16 +75,23 @@ export const DEFAULT_GAME_STATE: GameState = {
   dailyDistanceKm: 0.65,
   dailyRuns: 0,
   claimedQuestIds: [],
-  unlockedItemIds: ['mint-cap', 'mint-hoodie', 'orange-shoes'],
+  unlockedItemIds: ['mint-cap', 'mint-hoodie', 'navy-shorts', 'orange-shoes'],
+  unlockedSlotIds: [...BASE_ITEM_SLOTS],
   equippedItemIds: {
     head: 'mint-cap',
     top: 'mint-hoodie',
+    bottom: 'navy-shorts',
     shoes: 'orange-shoes',
   },
   unlockedAchievementIds: [],
   awardedEnduranceMilestones: [],
   regionDistancesKm: {},
   runHistory: [],
+  groupQuestMode: 'group',
+  monthlyGroupDistanceKm: 286.4,
+  monthlyPersonalDistanceKm: 42.8,
+  claimedGroupQuestMonthKeys: [],
+  seenFriendNotificationIds: [],
 };
 
 export function applyCompletedRun(state: GameState, run: CompletedRun): GameState {
@@ -76,18 +103,8 @@ export function applyCompletedRun(state: GameState, run: CompletedRun): GameStat
     updatedRegions[region] = roundTo((updatedRegions[region] ?? 0) + distanceKm, 2);
   }
 
-  const unlockedAchievements = HIDDEN_ACHIEVEMENTS.filter(
-    (achievement) => (updatedRegions[achievement.region] ?? 0) >= achievement.requiredDistanceKm
-  );
-  const unlockedAchievementIds = [
-    ...new Set([...state.unlockedAchievementIds, ...unlockedAchievements.map((achievement) => achievement.id)]),
-  ];
-  const unlockedItemIds = [
-    ...new Set([...state.unlockedItemIds, ...unlockedAchievements.map((achievement) => achievement.rewardItemId)]),
-  ];
   const levelProgress = applyExperience(state.level, state.experience, state.experienceToNextLevel, rewards.experience);
-
-  return {
+  const nextState: GameState = {
     ...state,
     ...levelProgress,
     totalDistanceKm: roundTo(state.totalDistanceKm + run.distanceKm, 2),
@@ -97,11 +114,13 @@ export function applyCompletedRun(state: GameState, run: CompletedRun): GameStat
     styleCoins: state.styleCoins + rewards.styleCoins,
     dailyDistanceKm: roundTo(state.dailyDistanceKm + run.distanceKm, 2),
     dailyRuns: state.dailyRuns + 1,
+    monthlyPersonalDistanceKm: roundTo(state.monthlyPersonalDistanceKm + run.distanceKm, 2),
+    monthlyGroupDistanceKm: roundTo(state.monthlyGroupDistanceKm + run.distanceKm, 2),
     regionDistancesKm: updatedRegions,
-    unlockedAchievementIds,
-    unlockedItemIds,
     runHistory: [run, ...state.runHistory].slice(0, 30),
   };
+
+  return syncAchievements(nextState);
 }
 
 export function purchaseItem(state: GameState, itemId: string): GameState {
@@ -110,6 +129,7 @@ export function purchaseItem(state: GameState, itemId: string): GameState {
   if (
     item == null ||
     item.source !== 'shop' ||
+    !state.unlockedSlotIds.includes(item.slot) ||
     state.unlockedItemIds.includes(item.id) ||
     state.styleCoins < item.price
   ) {
@@ -126,7 +146,11 @@ export function purchaseItem(state: GameState, itemId: string): GameState {
 export function equipItem(state: GameState, itemId: string): GameState {
   const item = getItemById(itemId);
 
-  if (item == null || !state.unlockedItemIds.includes(itemId)) {
+  if (
+    item == null ||
+    !state.unlockedItemIds.includes(itemId) ||
+    !state.unlockedSlotIds.includes(item.slot)
+  ) {
     return state;
   }
 
@@ -159,17 +183,11 @@ export function claimQuestReward(state: GameState, questId: string, todayDateKey
   }
 
   if (questId === 'daily-run') {
-    nextState = {
-      ...nextState,
-      styleCoins: nextState.styleCoins + 80,
-    };
+    nextState = { ...nextState, styleCoins: nextState.styleCoins + 80 };
   }
 
   if (questId === 'daily-distance-3') {
-    nextState = {
-      ...nextState,
-      styleCoins: nextState.styleCoins + 120,
-    };
+    nextState = { ...nextState, styleCoins: nextState.styleCoins + 120 };
   }
 
   if (questId === 'weekly-distance') {
@@ -180,40 +198,128 @@ export function claimQuestReward(state: GameState, questId: string, todayDateKey
   }
 
   if (questId === 'weekly-runs') {
-    nextState = {
-      ...nextState,
-      styleCoins: nextState.styleCoins + 300,
-    };
+    nextState = { ...nextState, styleCoins: nextState.styleCoins + 300 };
   }
 
   const allDailyClaimed = DAILY_QUESTS.every((quest) => nextState.claimedQuestIds.includes(quest.id));
 
-  if (!allDailyClaimed || nextState.lastDailyCompletionDate === todayDateKey) {
-    return nextState;
+  if (allDailyClaimed && nextState.lastDailyCompletionDate !== todayDateKey) {
+    const nextStreak = isPreviousDate(nextState.lastDailyCompletionDate, todayDateKey)
+      ? nextState.dailyStreak + 1
+      : nextState.lastDailyCompletionDate == null
+        ? nextState.dailyStreak + 1
+        : 1;
+    const newlyReachedMilestones = [7, 30, 100].filter(
+      (days) => nextStreak >= days && !nextState.awardedEnduranceMilestones.includes(days)
+    );
+    const enduranceGain = getEnduranceBonus(nextStreak) - getEnduranceBonus(nextStreak - 1);
+
+    nextState = {
+      ...nextState,
+      dailyStreak: nextStreak,
+      endurance: nextState.endurance + Math.max(0, enduranceGain),
+      lastDailyCompletionDate: todayDateKey,
+      awardedEnduranceMilestones: [
+        ...new Set([...nextState.awardedEnduranceMilestones, ...newlyReachedMilestones]),
+      ],
+    };
   }
 
-  const nextStreak = isPreviousDate(nextState.lastDailyCompletionDate, todayDateKey)
-    ? nextState.dailyStreak + 1
-    : nextState.lastDailyCompletionDate == null
-      ? nextState.dailyStreak + 1
-      : 1;
-  const newlyReachedMilestones = [7, 30, 100].filter(
-    (days) => nextStreak >= days && !nextState.awardedEnduranceMilestones.includes(days)
+  return syncAchievements(nextState);
+}
+
+export function selectGroupQuestMode(state: GameState, mode: GroupQuestMode): GameState {
+  if (state.claimedGroupQuestMonthKeys.includes(state.monthlyDateKey)) {
+    return state;
+  }
+
+  return { ...state, groupQuestMode: mode };
+}
+
+export function getMonthlyGroupQuestProgress(state: GameState): number {
+  return state.groupQuestMode === 'solo' ? state.monthlyPersonalDistanceKm : state.monthlyGroupDistanceKm;
+}
+
+export function claimGroupQuestReward(state: GameState): GameState {
+  if (
+    state.claimedGroupQuestMonthKeys.includes(state.monthlyDateKey) ||
+    getMonthlyGroupQuestProgress(state) < MONTHLY_GROUP_TARGET_KM
+  ) {
+    return state;
+  }
+
+  let nextState: GameState = {
+    ...state,
+    unlockedItemIds: [...new Set([...state.unlockedItemIds, 'monthly-comet-crown'])],
+    claimedGroupQuestMonthKeys: [...state.claimedGroupQuestMonthKeys, state.monthlyDateKey],
+  };
+
+  if (state.groupQuestMode === 'solo') {
+    nextState = syncAchievements(nextState);
+  }
+
+  return nextState;
+}
+
+export function markFriendNotificationsSeen(state: GameState, notificationIds: string[]): GameState {
+  return {
+    ...state,
+    seenFriendNotificationIds: [...new Set([...state.seenFriendNotificationIds, ...notificationIds])],
+  };
+}
+
+export function getAchievementProgress(state: GameState, achievement: Achievement): number {
+  switch (achievement.metric) {
+    case 'streak':
+      return state.dailyStreak;
+    case 'total-distance':
+      return state.totalDistanceKm;
+    case 'total-runs':
+      return state.totalRuns;
+    case 'region-distance':
+      return state.regionDistancesKm[achievement.region ?? ''] ?? 0;
+    case 'solo-group-distance':
+      return state.groupQuestMode === 'solo' ? state.monthlyPersonalDistanceKm : 0;
+  }
+}
+
+export function getAchievementsWithProgress(state: GameState): AchievementProgress[] {
+  return ACHIEVEMENTS.map((achievement) => ({
+    achievement,
+    current: getAchievementProgress(state, achievement),
+    unlocked: state.unlockedAchievementIds.includes(achievement.id),
+  }));
+}
+
+export function syncAchievements(state: GameState): GameState {
+  const completed = ACHIEVEMENTS.filter(
+    (achievement) => getAchievementProgress(state, achievement) >= achievement.target
   );
-  const enduranceGain = getEnduranceBonus(nextStreak) - getEnduranceBonus(nextStreak - 1);
 
   return {
-    ...nextState,
-    dailyStreak: nextStreak,
-    endurance: nextState.endurance + Math.max(0, enduranceGain),
-    lastDailyCompletionDate: todayDateKey,
-    awardedEnduranceMilestones: [...new Set([...nextState.awardedEnduranceMilestones, ...newlyReachedMilestones])],
+    ...state,
+    unlockedAchievementIds: [
+      ...new Set([...state.unlockedAchievementIds, ...completed.map((achievement) => achievement.id)]),
+    ],
+    unlockedItemIds: [
+      ...new Set([
+        ...state.unlockedItemIds,
+        ...completed.flatMap((achievement) =>
+          achievement.rewardItemId == null ? [] : [achievement.rewardItemId]
+        ),
+      ]),
+    ],
+    unlockedSlotIds: [
+      ...new Set([
+        ...state.unlockedSlotIds,
+        ...completed.flatMap((achievement) => (achievement.unlockSlot == null ? [] : [achievement.unlockSlot])),
+      ]),
+    ],
   };
 }
 
 export function getQuestWithProgress(state: GameState, quest: Quest): Quest {
-  const current = getQuestCurrentValue(state, quest);
-  return { ...quest, current };
+  return { ...quest, current: getQuestCurrentValue(state, quest) };
 }
 
 export function getDailyQuests(state: GameState): Quest[] {
@@ -247,9 +353,14 @@ export function getWeekKey(timestamp: number): string {
   return getDateKey(monday.getTime());
 }
 
+export function getMonthKey(timestamp: number): string {
+  return getDateKey(timestamp).slice(0, 7);
+}
+
 export function rolloverGameState(state: GameState, timestamp: number): GameState {
   const currentDailyKey = getDateKey(timestamp);
   const currentWeeklyKey = getWeekKey(timestamp);
+  const currentMonthlyKey = getMonthKey(timestamp);
   let nextState = state;
 
   if (state.dailyDateKey !== currentDailyKey) {
@@ -274,34 +385,78 @@ export function rolloverGameState(state: GameState, timestamp: number): GameStat
     };
   }
 
+  if (state.monthlyDateKey !== currentMonthlyKey) {
+    nextState = {
+      ...nextState,
+      monthlyDateKey: currentMonthlyKey,
+      monthlyGroupDistanceKm: 0,
+      monthlyPersonalDistanceKm: 0,
+      groupQuestMode: 'group',
+    };
+  }
+
   return nextState;
 }
 
 export function migrateGameState(stored: Record<string, unknown>): GameState {
   const legacyGold = typeof stored.gold === 'number' ? stored.gold : DEFAULT_GAME_STATE.styleCoins;
-  const unlockedItemIds = Array.isArray(stored.unlockedItemIds)
+  const validItemIds = Array.isArray(stored.unlockedItemIds)
     ? stored.unlockedItemIds.filter(
         (id): id is string => typeof id === 'string' && ITEMS.some((item) => item.id === id)
       )
     : [];
+  const storedSlots = Array.isArray(stored.unlockedSlotIds)
+    ? stored.unlockedSlotIds.filter(
+        (slot): slot is ItemSlot =>
+          typeof slot === 'string' &&
+          ['head', 'top', 'bottom', 'shoes', 'glasses', 'bag', 'watch'].includes(slot)
+      )
+    : [];
+  const rawEquipped =
+    stored.equippedItemIds != null && typeof stored.equippedItemIds === 'object'
+      ? (stored.equippedItemIds as Record<string, unknown>)
+      : {};
+  const equippedItemIds: Partial<Record<ItemSlot, string>> = {
+    ...DEFAULT_GAME_STATE.equippedItemIds,
+  };
 
-  return {
+  for (const [slot, itemId] of Object.entries(rawEquipped)) {
+    if (
+      typeof itemId === 'string' &&
+      ['head', 'top', 'bottom', 'shoes', 'glasses', 'bag', 'watch'].includes(slot) &&
+      getItemById(itemId)?.slot === slot
+    ) {
+      equippedItemIds[slot as ItemSlot] = itemId;
+    }
+  }
+
+  const migrated = {
     ...DEFAULT_GAME_STATE,
     ...stored,
-    version: 2,
+    version: 3,
+    monthlyDateKey:
+      typeof stored.monthlyDateKey === 'string' ? stored.monthlyDateKey : DEFAULT_GAME_STATE.monthlyDateKey,
     styleCoins: typeof stored.styleCoins === 'number' ? stored.styleCoins : legacyGold,
-    unlockedItemIds: [...new Set([...DEFAULT_GAME_STATE.unlockedItemIds, ...unlockedItemIds])],
-    equippedItemIds:
-      stored.version === 2 && stored.equippedItemIds != null
-        ? (stored.equippedItemIds as Partial<Record<ItemSlot, string>>)
-        : DEFAULT_GAME_STATE.equippedItemIds,
+    unlockedItemIds: [
+      ...new Set([...DEFAULT_GAME_STATE.unlockedItemIds, ...validItemIds]),
+    ],
+    unlockedSlotIds: [...new Set([...BASE_ITEM_SLOTS, ...storedSlots])],
+    equippedItemIds,
     claimedQuestIds: Array.isArray(stored.claimedQuestIds)
       ? stored.claimedQuestIds.filter(
           (id): id is string =>
             typeof id === 'string' && [...DAILY_QUESTS, ...WEEKLY_QUESTS].some((quest) => quest.id === id)
         )
       : [],
+    claimedGroupQuestMonthKeys: Array.isArray(stored.claimedGroupQuestMonthKeys)
+      ? stored.claimedGroupQuestMonthKeys.filter((key): key is string => typeof key === 'string')
+      : [],
+    seenFriendNotificationIds: Array.isArray(stored.seenFriendNotificationIds)
+      ? stored.seenFriendNotificationIds.filter((id): id is string => typeof id === 'string')
+      : [],
   } as GameState;
+
+  return syncAchievements(migrated);
 }
 
 function getQuestCurrentValue(state: GameState, quest: Quest): number {
@@ -346,7 +501,7 @@ function isPreviousDate(previousDateKey: string | null, currentDateKey: string):
 
   const previous = new Date(`${previousDateKey}T12:00:00`);
   const current = new Date(`${currentDateKey}T12:00:00`);
-  return Math.round((current.getTime() - previous.getTime()) / 86_400_000) === 1;
+  return current.getTime() - previous.getTime() === 86_400_000;
 }
 
 function roundTo(value: number, digits: number): number {

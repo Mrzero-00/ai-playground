@@ -1,7 +1,12 @@
 import React, { useState } from 'react';
 import { Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
-import { ENDURANCE_MILESTONES, HIDDEN_ACHIEVEMENTS, ITEMS, type Quest } from '../domain/game';
-import { getDailyQuests, getWeeklyQuests, type GameState } from '../domain/gameState';
+import { ACHIEVEMENTS, ENDURANCE_MILESTONES, ITEMS, SLOT_LABELS, type Quest } from '../domain/game';
+import {
+  getAchievementsWithProgress,
+  getDailyQuests,
+  getWeeklyQuests,
+  type GameState,
+} from '../domain/gameState';
 import { Card, Pill, ProgressBar, ScreenTitle, SectionHeader } from '../ui/components';
 import { colors, radii } from '../ui/theme';
 
@@ -172,6 +177,8 @@ function WeeklyPanel({ gameState, onClaimQuest }: QuestScreenProps) {
 }
 
 function AchievementPanel({ gameState }: { gameState: GameState }) {
+  const achievements = getAchievementsWithProgress(gameState);
+
   return (
     <>
       <Card style={styles.collectionCard}>
@@ -179,21 +186,22 @@ function AchievementPanel({ gameState }: { gameState: GameState }) {
           <Text style={styles.collectionIconText}>✦</Text>
         </View>
         <View style={styles.collectionCopy}>
-          <Text style={styles.collectionTitle}>숨은 업적 도감</Text>
+          <Text style={styles.collectionTitle}>러너 업적 도감</Text>
           <Text style={styles.collectionText}>
-            여행지에서 달리면 그 지역만의 특별한 꾸미기 아이템을 발견할 수 있어요.
+            꾸준함과 지역 러닝으로 아이템과 새로운 장착 부위를 발견할 수 있어요.
           </Text>
         </View>
         <Text style={styles.collectionCount}>
-          {gameState.unlockedAchievementIds.length} / {HIDDEN_ACHIEVEMENTS.length}
+          {gameState.unlockedAchievementIds.length} / {ACHIEVEMENTS.length}
         </Text>
       </Card>
 
-      <SectionHeader caption="달성하기 전에는 정확한 조건이 공개되지 않아요." title="발견하지 못한 이야기" />
+      <SectionHeader caption="숨은 업적은 달성하기 전까지 정확한 조건이 공개되지 않아요." title="성장의 이야기" />
 
-      {HIDDEN_ACHIEVEMENTS.map((achievement) => {
+      {achievements.map(({ achievement, current, unlocked }) => {
         const reward = ITEMS.find((item) => item.id === achievement.rewardItemId);
-        const unlocked = gameState.unlockedAchievementIds.includes(achievement.id);
+        const title = achievement.hidden && !unlocked ? '???' : achievement.title;
+        const detail = achievement.hidden && !unlocked ? achievement.hint : achievement.description;
 
         return (
           <Card key={achievement.id} style={styles.hiddenCard}>
@@ -202,17 +210,21 @@ function AchievementPanel({ gameState }: { gameState: GameState }) {
             </View>
             <View style={styles.hiddenCopy}>
               <View style={styles.hiddenTitleRow}>
-                <Text style={styles.hiddenTitle}>{unlocked ? achievement.title : achievement.hiddenTitle}</Text>
-                <Pill tone={unlocked ? 'brand' : 'purple'}>{unlocked ? '발견 완료' : '숨은 업적'}</Pill>
+                <Text style={styles.hiddenTitle}>{title}</Text>
+                <Pill tone={unlocked ? 'brand' : 'purple'}>
+                  {unlocked ? '달성 완료' : achievement.hidden ? '숨은 업적' : '진행 중'}
+                </Pill>
               </View>
-              <Text style={styles.hiddenHint}>
-                {unlocked
-                  ? `${achievement.region} 누적 ${achievement.requiredDistanceKm}km 달성`
-                  : achievement.hiddenHint}
-              </Text>
+              <Text style={styles.hiddenHint}>{detail}</Text>
+              {!achievement.hidden || unlocked ? (
+                <ProgressBar color={unlocked ? colors.orange : colors.brand} height={6} value={current / achievement.target} />
+              ) : null}
               <View style={styles.hiddenReward}>
-                <Text style={styles.hiddenRewardLabel}>발견 보상</Text>
-                <Text style={styles.hiddenRewardValue}>{reward?.icon ?? '✦'} 지역 한정 꾸미기</Text>
+                <Text style={styles.hiddenRewardLabel}>업적 보상</Text>
+                <Text style={styles.hiddenRewardValue}>
+                  {reward?.icon ?? '✦'} {reward?.name ?? '특별 꾸미기'}
+                  {achievement.unlockSlot == null ? '' : ` · ${SLOT_LABELS[achievement.unlockSlot]} 슬롯 해금`}
+                </Text>
               </View>
             </View>
           </Card>
@@ -222,9 +234,9 @@ function AchievementPanel({ gameState }: { gameState: GameState }) {
       <Card style={styles.cosmeticNotice}>
         <Text style={styles.cosmeticNoticeIcon}>♢</Text>
         <View style={styles.cosmeticNoticeCopy}>
-          <Text style={styles.cosmeticNoticeTitle}>모든 아이템은 꾸미기 전용이에요</Text>
+          <Text style={styles.cosmeticNoticeTitle}>업적은 성장의 기록이에요</Text>
           <Text style={styles.cosmeticNoticeText}>
-            지역 한정 아이템을 포함해 어떤 옷도 러닝 기록이나 러너 레벨에 능력치 보너스를 주지 않아요.
+            새 슬롯과 아이템은 캐릭터를 표현하는 데만 사용되며 러닝 성능에는 영향을 주지 않아요.
           </Text>
         </View>
       </Card>

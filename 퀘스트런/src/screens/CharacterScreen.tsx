@@ -1,19 +1,20 @@
 import React, { useState } from 'react';
 import { Image, Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
-import { ENDURANCE_MILESTONES, ITEMS, getItemById, type GameItem, type ItemSlot } from '../domain/game';
+import {
+  ENDURANCE_MILESTONES,
+  ITEMS,
+  SLOT_LABELS,
+  getItemById,
+  getRunnerGrowthStage,
+  type GameItem,
+  type ItemSlot,
+} from '../domain/game';
 import type { GameState } from '../domain/gameState';
 import { formatPace, type CompletedRun } from '../domain/runTracking';
 import { Card, Metric, Pill, PrimaryButton, ProgressBar, ScreenTitle, SectionHeader } from '../ui/components';
 import { RunRouteMap } from '../ui/RunRouteMap';
 import { colors, radii } from '../ui/theme';
 import heroImage from '../../assets/quest-run-lumi-v2.png';
-
-const SLOT_LABELS: Record<ItemSlot, string> = {
-  head: '모자',
-  top: '상의',
-  shoes: '신발',
-  accessory: '장식',
-};
 
 interface CharacterScreenProps {
   gameState: GameState;
@@ -29,6 +30,8 @@ export function CharacterScreen({ gameState, onEquipItem, onOpenStyle }: Charact
   const ownedItems = ITEMS.filter((item) => item.slot === selectedSlot && gameState.unlockedItemIds.includes(item.id));
   const nextEnduranceMilestone = ENDURANCE_MILESTONES.find((milestone) => milestone.days > gameState.dailyStreak);
   const enduranceProgress = nextEnduranceMilestone == null ? 1 : gameState.dailyStreak / nextEnduranceMilestone.days;
+  const growthStage = getRunnerGrowthStage(gameState.level);
+  const selectedSlotUnlocked = gameState.unlockedSlotIds.includes(selectedSlot);
 
   return (
     <ScrollView contentContainerStyle={styles.content} showsVerticalScrollIndicator={false}>
@@ -68,8 +71,11 @@ export function CharacterScreen({ gameState, onEquipItem, onOpenStyle }: Charact
                   styles.avatarDecoration,
                   item.slot === 'head' && styles.avatarHead,
                   item.slot === 'top' && styles.avatarTop,
+                  item.slot === 'bottom' && styles.avatarBottom,
                   item.slot === 'shoes' && styles.avatarShoes,
-                  item.slot === 'accessory' && styles.avatarAccessory,
+                  item.slot === 'glasses' && styles.avatarGlasses,
+                  item.slot === 'bag' && styles.avatarBag,
+                  item.slot === 'watch' && styles.avatarWatch,
                 ]}
               >
                 {item.icon}
@@ -93,7 +99,7 @@ export function CharacterScreen({ gameState, onEquipItem, onOpenStyle }: Charact
           <Metric accent={colors.purple} label="지구력" value={String(gameState.endurance)} />
         </View>
         <View style={styles.levelLabels}>
-          <Text style={styles.levelTitle}>다음 러너 레벨까지</Text>
+          <Text style={styles.levelTitle}>{growthStage.title} · 다음 러너 레벨까지</Text>
           <Text style={styles.levelValue}>
             {gameState.experience.toLocaleString()} / {gameState.experienceToNextLevel.toLocaleString()} XP
           </Text>
@@ -117,16 +123,28 @@ export function CharacterScreen({ gameState, onEquipItem, onOpenStyle }: Charact
             accessibilityRole="button"
             key={slot}
             onPress={() => setSelectedSlot(slot)}
-            style={[styles.slotTab, selectedSlot === slot && styles.slotTabActive]}
+            style={[
+              styles.slotTab,
+              !gameState.unlockedSlotIds.includes(slot) && styles.slotTabLocked,
+              selectedSlot === slot && styles.slotTabActive,
+            ]}
           >
             <Text style={[styles.slotTabText, selectedSlot === slot && styles.slotTabTextActive]}>
-              {SLOT_LABELS[slot]}
+              {gameState.unlockedSlotIds.includes(slot) ? SLOT_LABELS[slot] : `🔒 ${SLOT_LABELS[slot]}`}
             </Text>
           </Pressable>
         ))}
       </View>
 
-      {ownedItems.length === 0 ? (
+      {!selectedSlotUnlocked ? (
+        <Card style={styles.emptyWardrobe}>
+          <Text style={styles.emptyIcon}>🔒</Text>
+          <Text style={styles.emptyTitle}>{SLOT_LABELS[selectedSlot]} 슬롯은 아직 잠겨 있어요</Text>
+          <Text style={styles.emptyCaption}>
+            업적을 달성하면 장착 부위 자체가 늘어나고 전용 꾸미기 아이템도 함께 받아요.
+          </Text>
+        </Card>
+      ) : ownedItems.length === 0 ? (
         <Card style={styles.emptyWardrobe}>
           <Text style={styles.emptyIcon}>✨</Text>
           <Text style={styles.emptyTitle}>이 칸은 아직 비어 있어요</Text>
@@ -354,13 +372,25 @@ const styles = StyleSheet.create({
     right: 97,
     top: 142,
   },
+  avatarBottom: {
+    right: 96,
+    top: 194,
+  },
   avatarShoes: {
     bottom: 20,
     right: 83,
   },
-  avatarAccessory: {
+  avatarGlasses: {
+    right: 101,
+    top: 92,
+  },
+  avatarBag: {
     right: 31,
     top: 142,
+  },
+  avatarWatch: {
+    right: 62,
+    top: 174,
   },
   characterBottom: {
     backgroundColor: 'rgba(6,25,35,0.9)',
@@ -417,13 +447,18 @@ const styles = StyleSheet.create({
     backgroundColor: colors.surface,
     borderRadius: 15,
     flexDirection: 'row',
+    flexWrap: 'wrap',
     padding: 4,
   },
   slotTab: {
     alignItems: 'center',
     borderRadius: 12,
-    flex: 1,
+    marginVertical: 2,
     paddingVertical: 10,
+    width: '25%',
+  },
+  slotTabLocked: {
+    opacity: 0.52,
   },
   slotTabActive: {
     backgroundColor: colors.navy,

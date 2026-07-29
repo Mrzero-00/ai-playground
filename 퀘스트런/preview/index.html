@@ -1510,8 +1510,8 @@
           <div class="run-card-top">
             <div>
               <p class="run-eyebrow">오늘의 추천</p>
-              <h3>편안하게 2km 달리기</h3>
-              <p class="caption">예상 보상 · 200 XP + 러닝 코인 80</p>
+              <h3>원하는 만큼 자유 러닝</h3>
+              <p class="caption">완료를 누를 때까지 거리와 보상이 계속 쌓여요.</p>
             </div>
             <div class="route-icon">⌁</div>
           </div>
@@ -1743,7 +1743,7 @@
       </div>
       <div class="run-actions">
         <button class="cancel-run" data-cancel-run>취소</button>
-        <button class="finish-run" data-finish-run>2km 러닝 완료</button>
+        <button class="finish-run" data-finish-run>러닝 완료</button>
       </div>
     </section>
 
@@ -1751,10 +1751,10 @@
       <div class="summary-card">
         <div class="summary-icon">✓</div>
         <h2>멋진 러닝이었어요!</h2>
-        <p>러너 레벨 경험치와 꾸미기 코인을 받았어요.</p>
+        <p><strong data-summary-distance>0.00</strong>km를 달렸어요. 거리만큼 보상이 계산됐어요.</p>
         <div class="reward-grid">
-          <div class="reward-box"><span>✦</span><strong>+200</strong><small>경험치</small></div>
-          <div class="reward-box"><span>●</span><strong>+80</strong><small>러닝 코인</small></div>
+          <div class="reward-box"><span>✦</span><strong data-summary-xp>+0</strong><small>경험치</small></div>
+          <div class="reward-box"><span>●</span><strong data-summary-coins>+0</strong><small>러닝 코인</small></div>
         </div>
         <button class="primary" data-claim-run>보상 받고 계속하기</button>
       </div>
@@ -2047,6 +2047,8 @@
       let selectedFriendId = null;
       let runTimer = null;
       let runSeconds = 0;
+      let currentRunDistance = 0;
+      let completedRunDistance = 0;
 
       function loadState() {
         try {
@@ -2458,14 +2460,20 @@
 
       function startRun() {
         runSeconds = 0;
+        currentRunDistance = 0;
+        completedRunDistance = 0;
         document.querySelector('[data-running]').classList.add('active');
         document.querySelector('[data-live-distance]').textContent = '0.00';
         document.querySelector('[data-live-time]').textContent = '00:00';
         runTimer = setInterval(() => {
           runSeconds += 1;
-          const distance = Math.min(2, runSeconds * 0.09);
-          document.querySelector('[data-live-distance]').textContent = distance.toFixed(2);
-          document.querySelector('[data-live-time]').textContent = `00:${String(runSeconds).padStart(2, '0')}`;
+          currentRunDistance = runSeconds * 0.09;
+          const minutes = Math.floor(runSeconds / 60);
+          const seconds = runSeconds % 60;
+          document.querySelector('[data-live-distance]').textContent = currentRunDistance.toFixed(2);
+          document.querySelector('[data-live-time]').textContent = `${String(minutes).padStart(2, '0')}:${String(
+            seconds
+          ).padStart(2, '0')}`;
         }, 1000);
       }
 
@@ -2545,33 +2553,47 @@
         if (target.hasAttribute('data-start-run')) startRun();
         if (target.hasAttribute('data-cancel-run')) stopRun();
         if (target.hasAttribute('data-finish-run')) {
+          completedRunDistance = currentRunDistance;
+          const runXp = Math.floor(completedRunDistance * 100);
+          const runCoins = Math.floor(completedRunDistance * 40);
           stopRun();
+          document.querySelector('[data-summary-distance]').textContent = completedRunDistance.toFixed(2);
+          document.querySelector('[data-summary-xp]').textContent = `+${formatNumber(runXp)}`;
+          document.querySelector('[data-summary-coins]').textContent = `+${formatNumber(runCoins)}`;
           document.querySelector('[data-summary]').classList.add('active');
         }
         if (target.hasAttribute('data-claim-run')) {
-          state.xp += 200;
+          const distance = completedRunDistance;
+          const runXp = Math.floor(distance * 100);
+          const runCoins = Math.floor(distance * 40);
+          state.xp += runXp;
           while (state.xp >= state.xpTarget) {
             state.xp -= state.xpTarget;
             state.level += 1;
             state.xpTarget = Math.floor(state.xpTarget * 1.18);
           }
-          state.coins += 80;
-          state.totalKm += 2;
-          state.weekKm += 2;
+          state.coins += runCoins;
+          state.totalKm = Number((state.totalKm + distance).toFixed(2));
+          state.weekKm = Number((state.weekKm + distance).toFixed(2));
           state.weekRuns += 1;
-          state.todayKm += 2;
+          state.todayKm = Number((state.todayKm + distance).toFixed(2));
           state.todayRuns += 1;
-          state.seoulKm += 2;
-          state.monthlyPersonalKm += 2;
-          state.monthlyGroupKm += 2;
+          state.seoulKm = Number((state.seoulKm + distance).toFixed(2));
+          state.monthlyPersonalKm = Number((state.monthlyPersonalKm + distance).toFixed(2));
+          state.monthlyGroupKm = Number((state.monthlyGroupKm + distance).toFixed(2));
           if (state.seoulKm >= 10 && !state.owned.includes('seoul-moon-watch')) {
             state.owned.push('seoul-moon-watch');
-            state.unlockedSlots.push('watch');
+            if (!state.unlockedSlots.includes('watch')) state.unlockedSlots.push('watch');
+          }
+          if (state.totalKm >= 100 && !state.owned.includes('record-backpack')) {
+            state.owned.push('record-backpack');
+            if (!state.unlockedSlots.includes('bag')) state.unlockedSlots.push('bag');
           }
           saveState();
           document.querySelector('[data-summary]').classList.remove('active');
+          completedRunDistance = 0;
           render();
-          showToast('200 XP와 러닝 코인 80을 받았어요!');
+          showToast(`${formatNumber(runXp)} XP와 러닝 코인 ${formatNumber(runCoins)}을 받았어요!`);
         }
         if (target.dataset.claim) {
           const id = target.dataset.claim;

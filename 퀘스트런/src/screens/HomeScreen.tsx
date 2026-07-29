@@ -93,8 +93,8 @@ export function HomeScreen({
         <View style={styles.runCardTop}>
           <View>
             <Text style={styles.runEyebrow}>오늘의 추천</Text>
-            <Text style={styles.runTitle}>편안하게 2km 달리기</Text>
-            <Text style={styles.runCaption}>예상 보상 · 200 XP + 러닝 코인 80</Text>
+            <Text style={styles.runTitle}>원하는 만큼 자유 러닝</Text>
+            <Text style={styles.runCaption}>완료할 때까지 거리와 보상이 계속 쌓여요.</Text>
           </View>
           <View style={styles.routeIcon}>
             <Text style={styles.routeIconText}>⌁</Text>

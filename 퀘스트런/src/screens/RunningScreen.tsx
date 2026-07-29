@@ -188,7 +188,7 @@ export function RunningScreen({ onCancel, onFinish, onUseDemoRun }: RunningScree
           <Text style={styles.pauseLabel}>{paused ? '계속하기' : '일시정지'}</Text>
         </Pressable>
         <Pressable
-          accessibilityLabel="러닝 종료"
+          accessibilityLabel="러닝 완료"
           accessibilityRole="button"
           disabled={!canControl}
           onPress={() => onFinish(completeRun(track, startedAt, Date.now(), elapsedSeconds))}
@@ -199,7 +199,7 @@ export function RunningScreen({ onCancel, onFinish, onUseDemoRun }: RunningScree
           ]}
         >
           <View style={styles.finishSquare} />
-          <Text style={styles.finishLabel}>종료</Text>
+          <Text style={styles.finishLabel}>완료</Text>
         </Pressable>
       </View>
 

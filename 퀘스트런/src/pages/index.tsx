@@ -158,8 +158,8 @@ function QuestRunApp() {
                 setToast('루미의 스타일을 바꿨어요!');
               }}
               onPurchaseItem={(itemId) => {
-                updateGameState((current) => purchaseItem(current, itemId));
-                setToast('새 꾸미기 아이템을 얻었어요!');
+                updateGameState((current) => equipItem(purchaseItem(current, itemId), itemId));
+                setToast('새 꾸미기 아이템을 얻고 바로 착용했어요!');
               }}
             />
           ) : null}

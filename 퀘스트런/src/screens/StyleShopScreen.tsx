@@ -4,7 +4,7 @@ import { ITEMS, getItemById, type GameItem, type ItemSlot } from '../domain/game
 import type { GameState } from '../domain/gameState';
 import { Card, Pill, PrimaryButton, ScreenTitle, SectionHeader } from '../ui/components';
 import { colors, radii } from '../ui/theme';
-import heroImage from '../../assets/quest-run-hero.png';
+import heroImage from '../../assets/quest-run-lumi-v2.png';
 
 type StyleFilter = 'all' | ItemSlot;
 
@@ -223,25 +223,27 @@ function AvatarPreview({ equippedItems }: { equippedItems: GameItem[] }) {
     <View style={styles.avatarWrap}>
       <View style={styles.avatarHalo} />
       <Image
-        accessibilityLabel="꾸미기 아이템을 착용한 픽셀 여우 루미"
+        accessibilityLabel="꾸미기 아이템을 착용한 새싹 러너 루미"
         resizeMode="contain"
         source={heroImage}
         style={styles.avatar}
       />
-      {equippedItems.map((item) => (
-        <Text
-          key={item.id}
-          style={[
-            styles.avatarDecoration,
-            item.slot === 'head' && styles.avatarHead,
-            item.slot === 'top' && styles.avatarTop,
-            item.slot === 'shoes' && styles.avatarShoes,
-            item.slot === 'accessory' && styles.avatarAccessory,
-          ]}
-        >
-          {item.icon}
-        </Text>
-      ))}
+      {equippedItems
+        .filter((item) => item.source !== 'starter')
+        .map((item) => (
+          <Text
+            key={item.id}
+            style={[
+              styles.avatarDecoration,
+              item.slot === 'head' && styles.avatarHead,
+              item.slot === 'top' && styles.avatarTop,
+              item.slot === 'shoes' && styles.avatarShoes,
+              item.slot === 'accessory' && styles.avatarAccessory,
+            ]}
+          >
+            {item.icon}
+          </Text>
+        ))}
     </View>
   );
 }

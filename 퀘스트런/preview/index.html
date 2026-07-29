@@ -1537,10 +1537,10 @@
       }
 
       function renderAvatar(container) {
-        container.innerHTML = `<img class="hero-img" src="../assets/quest-run-hero.png" alt="꾸미기 아이템을 착용한 픽셀 여우 루미" />`;
+        container.innerHTML = `<img class="hero-img" src="../assets/quest-run-lumi-v2.png" alt="꾸미기 아이템을 착용한 새싹 러너 루미" />`;
         slots.forEach((slot) => {
           const item = itemById(state.equipped[slot]);
-          if (item) {
+          if (item && item.source !== 'starter') {
             container.insertAdjacentHTML(
               'beforeend',
               `<span class="wearable" data-slot="${slot}" aria-hidden="true">${item.icon}</span>`

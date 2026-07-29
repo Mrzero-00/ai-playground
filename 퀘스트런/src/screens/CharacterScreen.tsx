@@ -6,7 +6,7 @@ import { formatPace, type CompletedRun } from '../domain/runTracking';
 import { Card, Metric, Pill, PrimaryButton, ProgressBar, ScreenTitle, SectionHeader } from '../ui/components';
 import { RunRouteMap } from '../ui/RunRouteMap';
 import { colors, radii } from '../ui/theme';
-import heroImage from '../../assets/quest-run-hero.png';
+import heroImage from '../../assets/quest-run-lumi-v2.png';
 
 const SLOT_LABELS: Record<ItemSlot, string> = {
   head: '모자',
@@ -54,25 +54,27 @@ export function CharacterScreen({ gameState, onEquipItem, onOpenStyle }: Charact
         <View style={styles.avatarStage}>
           <View style={styles.avatarGround} />
           <Image
-            accessibilityLabel="꾸미기 아이템을 착용한 픽셀 여우 캐릭터"
+            accessibilityLabel="꾸미기 아이템을 착용한 새싹 러너 루미"
             resizeMode="contain"
             source={heroImage}
             style={styles.characterImage}
           />
-          {equippedItems.map((item) => (
-            <Text
-              key={item.id}
-              style={[
-                styles.avatarDecoration,
-                item.slot === 'head' && styles.avatarHead,
-                item.slot === 'top' && styles.avatarTop,
-                item.slot === 'shoes' && styles.avatarShoes,
-                item.slot === 'accessory' && styles.avatarAccessory,
-              ]}
-            >
-              {item.icon}
-            </Text>
-          ))}
+          {equippedItems
+            .filter((item) => item.source !== 'starter')
+            .map((item) => (
+              <Text
+                key={item.id}
+                style={[
+                  styles.avatarDecoration,
+                  item.slot === 'head' && styles.avatarHead,
+                  item.slot === 'top' && styles.avatarTop,
+                  item.slot === 'shoes' && styles.avatarShoes,
+                  item.slot === 'accessory' && styles.avatarAccessory,
+                ]}
+              >
+                {item.icon}
+              </Text>
+            ))}
         </View>
         <View style={styles.characterBottom}>
           <Text style={styles.characterName}>루미</Text>

@@ -13,7 +13,7 @@ import {
   SectionHeader,
 } from '../ui/components';
 import { colors, radii } from '../ui/theme';
-import heroImage from '../../assets/quest-run-hero.png';
+import heroImage from '../../assets/quest-run-lumi-v2.png';
 
 interface HomeScreenProps {
   gameState: GameState;
@@ -67,7 +67,7 @@ export function HomeScreen({
         </View>
 
         <Image
-          accessibilityLabel="민트색 러닝복을 입은 픽셀 여우 캐릭터"
+          accessibilityLabel="새싹 잎과 민트색 러닝복을 입고 달리는 루미"
           resizeMode="contain"
           source={heroImage}
           style={styles.heroImage}

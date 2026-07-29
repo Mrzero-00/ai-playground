@@ -17,6 +17,7 @@ import { usePersistentGameState } from '../hooks/usePersistentGameState';
 import { CharacterScreen } from '../screens/CharacterScreen';
 import { HomeScreen } from '../screens/HomeScreen';
 import { QuestScreen } from '../screens/QuestScreen';
+import { RunConsentScreen } from '../screens/RunConsentScreen';
 import { RunningScreen, RunSummaryScreen } from '../screens/RunningScreen';
 import { SocialScreen } from '../screens/SocialScreen';
 import { StyleShopScreen } from '../screens/StyleShopScreen';
@@ -28,7 +29,7 @@ export const Route = createRoute('/', {
 });
 
 type AppTab = 'home' | 'quest' | 'style' | 'social' | 'character';
-type RunFlow = 'idle' | 'running' | 'summary';
+type RunFlow = 'idle' | 'consent' | 'running' | 'summary';
 
 const NAV_ITEMS: Array<{ id: AppTab; label: string; icon: string }> = [
   { id: 'home', label: '홈', icon: '⌂' },
@@ -88,6 +89,15 @@ function QuestRunApp() {
     );
   }
 
+  if (runFlow === 'consent') {
+    return (
+      <RunConsentScreen
+        onCancel={() => setRunFlow('idle')}
+        onContinue={() => setRunFlow('running')}
+      />
+    );
+  }
+
   if (runFlow === 'summary' && completedRun != null) {
     return (
       <>
@@ -119,7 +129,7 @@ function QuestRunApp() {
               onOpenStyle={() => setActiveTab('style')}
               onOpenQuest={() => setActiveTab('quest')}
               onOpenTestLab={TEST_LAB_ENABLED ? () => setTestLabVisible(true) : undefined}
-              onStartRun={() => setRunFlow('running')}
+              onStartRun={() => setRunFlow('consent')}
             />
           ) : null}
           {activeTab === 'quest' ? (

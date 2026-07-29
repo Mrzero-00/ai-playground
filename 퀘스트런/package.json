@@ -7,7 +7,10 @@
     "test": "jest --passWithNoTests",
     "typecheck": "tsc --noEmit",
     "lint": "eslint .",
-    "deploy": "ait deploy"
+    "deploy": "ait deploy",
+    "release:check": "node scripts/validate-ait-release.mjs config",
+    "release:build": "pnpm release:check && ait build && node scripts/validate-ait-release.mjs artifact",
+    "release:upload": "pnpm release:check && node scripts/validate-ait-release.mjs artifact && ait deploy --location ./quest-run.ait"
   },
   "dependencies": {
     "@apps-in-toss/framework": "^2.10.7",

@@ -213,6 +213,251 @@
         image-rendering: pixelated;
       }
 
+      .forest-avatar {
+        position: absolute;
+        z-index: 2;
+        right: 7px;
+        bottom: 5px;
+        width: 235px;
+        height: 270px;
+      }
+
+      .forest-shadow,
+      .forest-ear,
+      .forest-body,
+      .forest-arm,
+      .forest-leg,
+      .forest-shoe,
+      .forest-head,
+      .forest-face-patch,
+      .forest-blush,
+      .forest-stem,
+      .forest-leaf,
+      .forest-shorts,
+      .forest-collar {
+        position: absolute;
+        display: block;
+      }
+
+      .forest-shadow {
+        right: 31px;
+        bottom: 4px;
+        width: 171px;
+        height: 27px;
+        border-radius: 50%;
+        background: rgba(5, 33, 38, 0.22);
+        transform: scaleY(0.5);
+      }
+
+      .forest-ear {
+        top: 65px;
+        width: 46px;
+        height: 58px;
+        border: 3px solid #a9653f;
+        border-radius: 50%;
+        background: #e9a96f;
+      }
+
+      .forest-ear.left {
+        left: 26px;
+        transform: rotate(-18deg);
+      }
+
+      .forest-ear.right {
+        right: 26px;
+        transform: rotate(18deg);
+      }
+
+      .forest-body {
+        top: 149px;
+        left: 63px;
+        width: 109px;
+        height: 98px;
+        overflow: hidden;
+        border: 3px solid #236d67;
+        border-radius: 48% 48% 42% 42%;
+        background: #52c6ae;
+      }
+
+      .forest-collar {
+        top: 4px;
+        left: 33px;
+        width: 43px;
+        height: 16px;
+        border-radius: 0 0 50% 50%;
+        background: #e8fff7;
+      }
+
+      .forest-shorts {
+        right: 5px;
+        bottom: 0;
+        left: 5px;
+        height: 37px;
+        border-radius: 20px 20px 0 0;
+        background: #244863;
+      }
+
+      .forest-arm {
+        top: 155px;
+        width: 29px;
+        height: 66px;
+        border: 3px solid #a9653f;
+        border-radius: 50%;
+        background: #f2bd82;
+      }
+
+      .forest-arm.left {
+        left: 48px;
+        transform: rotate(31deg);
+      }
+
+      .forest-arm.right {
+        right: 48px;
+        transform: rotate(-35deg);
+      }
+
+      .forest-leg {
+        bottom: 21px;
+        width: 30px;
+        height: 47px;
+        border: 3px solid #a9653f;
+        border-radius: 50%;
+        background: #f2bd82;
+      }
+
+      .forest-leg.left {
+        left: 77px;
+        transform: rotate(20deg);
+      }
+
+      .forest-leg.right {
+        right: 77px;
+        transform: rotate(-24deg);
+      }
+
+      .forest-shoe {
+        bottom: 10px;
+        width: 51px;
+        height: 26px;
+        border: 3px solid #9c4a2a;
+        border-radius: 50%;
+        background: #ff8a4c;
+      }
+
+      .forest-shoe.left {
+        left: 59px;
+        transform: rotate(-8deg);
+      }
+
+      .forest-shoe.right {
+        right: 59px;
+        transform: rotate(8deg);
+      }
+
+      .forest-head {
+        top: 33px;
+        left: 36px;
+        width: 163px;
+        height: 149px;
+        overflow: hidden;
+        border: 4px solid #a9653f;
+        border-radius: 49% 49% 46% 46%;
+        background: #f2bd82;
+      }
+
+      .forest-face-patch {
+        top: 27px;
+        left: 16px;
+        width: 131px;
+        height: 113px;
+        border-radius: 50%;
+        background: #ffe0ae;
+      }
+
+      .forest-blush {
+        top: 86px;
+        width: 26px;
+        height: 13px;
+        border-radius: 50%;
+        background: rgba(243, 155, 138, 0.55);
+      }
+
+      .forest-blush.left {
+        left: 25px;
+      }
+
+      .forest-blush.right {
+        right: 25px;
+      }
+
+      .forest-eyes,
+      .forest-nose,
+      .forest-mouth {
+        position: absolute;
+        z-index: 3;
+        right: 0;
+        left: 0;
+        color: #173f4a;
+        font-weight: 900;
+        line-height: 1;
+        text-align: center;
+      }
+
+      .forest-eyes {
+        top: 52px;
+        font-size: 25px;
+        letter-spacing: 4px;
+      }
+
+      .forest-nose {
+        top: 81px;
+        color: #a85f3b;
+        font-size: 17px;
+      }
+
+      .forest-mouth {
+        top: 99px;
+        color: #8f4836;
+        font-size: 23px;
+      }
+
+      .forest-nose[data-face='leaf-nose'] {
+        color: #39966e;
+      }
+
+      .forest-nose[data-face='peach-nose'] {
+        color: #e77965;
+      }
+
+      .forest-stem {
+        top: 8px;
+        left: 114px;
+        width: 8px;
+        height: 32px;
+        border: 1px solid #206234;
+        border-radius: 10px;
+        background: #3a8e50;
+      }
+
+      .forest-leaf {
+        top: 3px;
+        width: 39px;
+        height: 27px;
+        border: 2px solid #2d7139;
+        border-radius: 50%;
+        background: #74be54;
+      }
+
+      .forest-leaf.left {
+        left: 83px;
+        transform: rotate(27deg);
+      }
+
+      .forest-leaf.right {
+        right: 83px;
+        transform: rotate(-27deg);
+      }
+
       .wearable {
         position: absolute;
         z-index: 5;
@@ -703,9 +948,15 @@
         height: 320px;
       }
 
-      .avatar-card .hero-img {
+      .avatar-card .hero-img,
+      .avatar-card .forest-avatar {
         width: 260px;
         height: 300px;
+      }
+
+      .avatar-card .forest-avatar {
+        transform: scale(1.1);
+        transform-origin: right bottom;
       }
 
       .avatar-card .wearable[data-slot='head'] {
@@ -1636,7 +1887,7 @@
         <div class="section-title">
           <div>
             <h2>새로운 스타일</h2>
-            <p class="caption">모든 아이템은 능력치가 없는 꾸미기 전용이에요.</p>
+            <p class="caption">눈·코·입부터 옷까지 모두 능력치 없는 꾸미기 전용이에요.</p>
           </div>
         </div>
         <div class="filters" data-filters></div>
@@ -1710,7 +1961,7 @@
         <div class="section-title">
           <div>
             <h2>내 옷장</h2>
-            <p class="caption">보유한 아이템을 바로 바꿔 입을 수 있어요.</p>
+            <p class="caption">보유한 얼굴 파츠와 아이템을 바로 바꿀 수 있어요.</p>
           </div>
           <button data-go="style">상점</button>
         </div>
@@ -1763,9 +2014,12 @@
     <div class="toast" role="status" data-toast></div>
 
     <script>
-      const STORAGE_KEY = 'quest-run-style-demo-v2';
-      const slots = ['head', 'top', 'bottom', 'shoes', 'glasses', 'bag', 'watch'];
+      const STORAGE_KEY = 'quest-run-style-demo-v3';
+      const slots = ['eyes', 'nose', 'mouth', 'head', 'top', 'bottom', 'shoes', 'glasses', 'bag', 'watch'];
       const slotLabels = {
+        eyes: '눈',
+        nose: '코',
+        mouth: '입',
         head: '머리',
         top: '상의',
         bottom: '하의',
@@ -1775,6 +2029,36 @@
         watch: '시계',
       };
       const items = [
+        {
+          id: 'round-eyes',
+          name: '포근한 동그란 눈',
+          slot: 'eyes',
+          rarity: '일반',
+          icon: '● ●',
+          price: 0,
+          source: 'starter',
+          description: '루미의 따뜻하고 순한 기본 눈매',
+        },
+        {
+          id: 'bean-nose',
+          name: '작은 콩코',
+          slot: 'nose',
+          rarity: '일반',
+          icon: '•',
+          price: 0,
+          source: 'starter',
+          description: '숲마을 친구처럼 작고 귀여운 기본 코',
+        },
+        {
+          id: 'soft-smile',
+          name: '포근한 미소',
+          slot: 'mouth',
+          rarity: '일반',
+          icon: '⌣',
+          price: 0,
+          source: 'starter',
+          description: '달리기 전에도 기분 좋아지는 기본 미소',
+        },
         {
           id: 'mint-cap',
           name: '민트 러닝 캡',
@@ -1864,6 +2148,96 @@
           price: 520,
           source: 'shop',
           description: '움직일 때마다 작은 별빛이 반짝이는 러닝화',
+        },
+        {
+          id: 'sparkle-eyes',
+          name: '반짝이는 호기심 눈',
+          slot: 'eyes',
+          rarity: '희귀',
+          icon: '✦ ✦',
+          price: 220,
+          source: 'shop',
+          description: '새로운 길을 발견했을 때처럼 반짝이는 눈',
+        },
+        {
+          id: 'smiley-eyes',
+          name: '싱긋 웃는 눈',
+          slot: 'eyes',
+          rarity: '일반',
+          icon: '⌒ ⌒',
+          price: 280,
+          source: 'shop',
+          description: '친구를 만나면 저절로 휘어지는 다정한 눈매',
+        },
+        {
+          id: 'sleepy-eyes',
+          name: '나른한 새벽 눈',
+          slot: 'eyes',
+          rarity: '희귀',
+          icon: '— —',
+          price: 360,
+          source: 'shop',
+          description: '이른 아침 러닝의 포근한 졸음을 담은 눈매',
+        },
+        {
+          id: 'peach-nose',
+          name: '복숭아 세모코',
+          slot: 'nose',
+          rarity: '일반',
+          icon: '▼',
+          price: 160,
+          source: 'shop',
+          description: '볼의 홍조와 잘 어울리는 작은 복숭아빛 코',
+        },
+        {
+          id: 'button-nose',
+          name: '동글 단추코',
+          slot: 'nose',
+          rarity: '희귀',
+          icon: '●',
+          price: 240,
+          source: 'shop',
+          description: '도토리 단추처럼 동그랗고 선명한 코',
+        },
+        {
+          id: 'leaf-nose',
+          name: '새싹 잎코',
+          slot: 'nose',
+          rarity: '희귀',
+          icon: '◆',
+          price: 320,
+          source: 'shop',
+          description: '루미의 새싹 정체성을 담은 초록빛 코',
+        },
+        {
+          id: 'cat-mouth',
+          name: '말랑 고양이입',
+          slot: 'mouth',
+          rarity: '일반',
+          icon: 'ω',
+          price: 200,
+          source: 'shop',
+          description: '장난스러운 표정을 만드는 말랑한 입모양',
+        },
+        {
+          id: 'open-smile',
+          name: '활짝 웃는 입',
+          slot: 'mouth',
+          rarity: '희귀',
+          icon: '▽',
+          price: 280,
+          source: 'shop',
+          description: '오늘의 러닝이 즐거웠다는 활짝 열린 미소',
+        },
+        {
+          id: 'surprised-mouth',
+          name: '깜짝 동그란 입',
+          slot: 'mouth',
+          rarity: '희귀',
+          icon: '○',
+          price: 340,
+          source: 'shop',
+          description: '새 업적을 발견한 순간의 귀여운 놀람',
         },
         {
           id: 'pink-sunglasses',
@@ -1984,9 +2358,25 @@
         groupMode: 'group',
         groupClaimed: false,
         soloAchievement: false,
-        unlockedSlots: ['head', 'top', 'bottom', 'shoes'],
-        owned: ['mint-cap', 'mint-hoodie', 'navy-shorts', 'orange-shoes'],
-        equipped: { head: 'mint-cap', top: 'mint-hoodie', bottom: 'navy-shorts', shoes: 'orange-shoes' },
+        unlockedSlots: ['eyes', 'nose', 'mouth', 'head', 'top', 'bottom', 'shoes'],
+        owned: [
+          'round-eyes',
+          'bean-nose',
+          'soft-smile',
+          'mint-cap',
+          'mint-hoodie',
+          'navy-shorts',
+          'orange-shoes',
+        ],
+        equipped: {
+          eyes: 'round-eyes',
+          nose: 'bean-nose',
+          mouth: 'soft-smile',
+          head: 'mint-cap',
+          top: 'mint-hoodie',
+          bottom: 'navy-shorts',
+          shoes: 'orange-shoes',
+        },
         claimed: [],
         seenNotifications: [],
       };
@@ -2040,9 +2430,9 @@
       ];
 
       let state = loadState();
-      let selectedItemId = 'sunny-visor';
+      let selectedItemId = 'sparkle-eyes';
       let activeFilter = 'all';
-      let wardrobeSlot = 'head';
+      let wardrobeSlot = 'eyes';
       let socialTab = 'friends';
       let selectedFriendId = null;
       let runTimer = null;
@@ -2079,10 +2469,48 @@
       }
 
       function renderAvatar(container) {
-        container.innerHTML = `<img class="hero-img" src="../assets/quest-run-lumi-v2.png" alt="꾸미기 아이템을 착용한 새싹 러너 루미" />`;
+        const eyeId = state.equipped.eyes || 'round-eyes';
+        const noseId = state.equipped.nose || 'bean-nose';
+        const mouthId = state.equipped.mouth || 'soft-smile';
+        const eyeGlyphs = {
+          'round-eyes': '●  ●',
+          'sparkle-eyes': '✦  ✦',
+          'smiley-eyes': '⌒  ⌒',
+          'sleepy-eyes': '—  —',
+        };
+        const noseGlyphs = {
+          'bean-nose': '•',
+          'peach-nose': '▼',
+          'button-nose': '●',
+          'leaf-nose': '◆',
+        };
+        const mouthGlyphs = {
+          'soft-smile': '⌣',
+          'cat-mouth': 'ω',
+          'open-smile': '▽',
+          'surprised-mouth': '○',
+        };
+
+        container.innerHTML = `
+          <div class="forest-avatar" role="img" aria-label="눈, 코, 입을 꾸밀 수 있는 숲마을 치비 러너 루미">
+            <span class="forest-shadow"></span>
+            <span class="forest-ear left"></span><span class="forest-ear right"></span>
+            <span class="forest-body"><span class="forest-collar"></span><span class="forest-shorts"></span></span>
+            <span class="forest-arm left"></span><span class="forest-arm right"></span>
+            <span class="forest-leg left"></span><span class="forest-leg right"></span>
+            <span class="forest-shoe left"></span><span class="forest-shoe right"></span>
+            <span class="forest-head">
+              <span class="forest-face-patch"></span>
+              <span class="forest-blush left"></span><span class="forest-blush right"></span>
+              <span class="forest-eyes" data-face="${eyeId}">${eyeGlyphs[eyeId] || eyeGlyphs['round-eyes']}</span>
+              <span class="forest-nose" data-face="${noseId}">${noseGlyphs[noseId] || noseGlyphs['bean-nose']}</span>
+              <span class="forest-mouth" data-face="${mouthId}">${mouthGlyphs[mouthId] || mouthGlyphs['soft-smile']}</span>
+            </span>
+            <span class="forest-stem"></span><span class="forest-leaf left"></span><span class="forest-leaf right"></span>
+          </div>`;
         slots.forEach((slot) => {
           const item = itemById(state.equipped[slot]);
-          if (item && item.source !== 'starter') {
+          if (item && item.source !== 'starter' && !['eyes', 'nose', 'mouth'].includes(slot)) {
             container.insertAdjacentHTML(
               'beforeend',
               `<span class="wearable" data-slot="${slot}" aria-hidden="true">${item.icon}</span>`
@@ -2130,6 +2558,7 @@
 
         const strip = document.querySelector('[data-outfit-strip]');
         strip.innerHTML = state.unlockedSlots
+          .filter((slot) => !['eyes', 'nose', 'mouth'].includes(slot))
           .map((slot) => `<span class="outfit-slot">${itemById(state.equipped[slot])?.icon || '＋'}</span>`)
           .join('');
       }
@@ -2137,6 +2566,9 @@
       function renderShop() {
         const filters = [
           ['all', '전체'],
+          ['eyes', '눈'],
+          ['nose', '코'],
+          ['mouth', '입'],
           ['head', '머리'],
           ['top', '상의'],
           ['bottom', '하의'],

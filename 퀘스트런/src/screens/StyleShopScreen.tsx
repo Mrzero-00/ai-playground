@@ -1,10 +1,10 @@
 import React, { useMemo, useState } from 'react';
-import { Image, Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
+import { Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
 import { ITEMS, SLOT_LABELS, getItemById, type GameItem, type ItemSlot } from '../domain/game';
 import type { GameState } from '../domain/gameState';
 import { Card, Pill, PrimaryButton, ScreenTitle, SectionHeader } from '../ui/components';
+import { RunnerAvatar } from '../ui/RunnerAvatar';
 import { colors, radii } from '../ui/theme';
-import heroImage from '../../assets/quest-run-lumi-v2.png';
 
 type StyleFilter = 'all' | ItemSlot;
 
@@ -16,6 +16,9 @@ interface StyleShopScreenProps {
 
 const FILTERS: Array<{ id: StyleFilter; label: string }> = [
   { id: 'all', label: '전체' },
+  { id: 'eyes', label: '눈' },
+  { id: 'nose', label: '코' },
+  { id: 'mouth', label: '입' },
   { id: 'head', label: '머리' },
   { id: 'top', label: '상의' },
   { id: 'bottom', label: '하의' },
@@ -27,7 +30,7 @@ const FILTERS: Array<{ id: StyleFilter; label: string }> = [
 
 export function StyleShopScreen({ gameState, onEquipItem, onPurchaseItem }: StyleShopScreenProps) {
   const [filter, setFilter] = useState<StyleFilter>('all');
-  const [selectedItemId, setSelectedItemId] = useState('sunny-visor');
+  const [selectedItemId, setSelectedItemId] = useState('sparkle-eyes');
   const selectedItem = getItemById(selectedItemId) ?? ITEMS[0]!;
   const isOwned = gameState.unlockedItemIds.includes(selectedItem.id);
   const isEquipped = gameState.equippedItemIds[selectedItem.slot] === selectedItem.id;
@@ -87,16 +90,18 @@ export function StyleShopScreen({ gameState, onEquipItem, onPurchaseItem }: Styl
           <Text style={styles.previewTitle}>오늘의 루미</Text>
           <Text style={styles.previewCaption}>달리며 모은 코인으로{'\n'}나만의 스타일을 완성해요.</Text>
         </View>
-        <AvatarPreview equippedItems={equippedItems} />
+        <AvatarPreview equippedItemIds={gameState.equippedItemIds} />
         <View style={styles.outfitStrip}>
-          {gameState.unlockedSlotIds.map((slot) => {
+          {gameState.unlockedSlotIds
+            .filter((slot) => !['eyes', 'nose', 'mouth'].includes(slot))
+            .map((slot) => {
             const item = equippedItems.find((candidate) => candidate.slot === slot);
             return (
               <View key={slot} style={[styles.outfitSlot, item == null && styles.outfitSlotEmpty]}>
                 <Text style={styles.outfitIcon}>{item?.icon ?? '＋'}</Text>
               </View>
             );
-          })}
+            })}
         </View>
       </View>
 
@@ -111,7 +116,10 @@ export function StyleShopScreen({ gameState, onEquipItem, onPurchaseItem }: Styl
         <Text style={styles.earnCoin}>● +40</Text>
       </Card>
 
-      <SectionHeader caption="모든 아이템은 능력치 없이 꾸미기에만 사용돼요." title="새로운 스타일" />
+      <SectionHeader
+        caption="눈·코·입부터 옷까지, 모든 아이템은 능력치 없는 꾸미기 전용이에요."
+        title="새로운 스타일"
+      />
 
       <ScrollView
         contentContainerStyle={styles.filters}
@@ -228,35 +236,15 @@ export function StyleShopScreen({ gameState, onEquipItem, onPurchaseItem }: Styl
   );
 }
 
-function AvatarPreview({ equippedItems }: { equippedItems: GameItem[] }) {
+function AvatarPreview({
+  equippedItemIds,
+}: {
+  equippedItemIds: Partial<Record<ItemSlot, string>>;
+}) {
   return (
     <View style={styles.avatarWrap}>
       <View style={styles.avatarHalo} />
-      <Image
-        accessibilityLabel="꾸미기 아이템을 착용한 새싹 러너 루미"
-        resizeMode="contain"
-        source={heroImage}
-        style={styles.avatar}
-      />
-      {equippedItems
-        .filter((item) => item.source !== 'starter')
-        .map((item) => (
-          <Text
-            key={item.id}
-            style={[
-              styles.avatarDecoration,
-              item.slot === 'head' && styles.avatarHead,
-              item.slot === 'top' && styles.avatarTop,
-              item.slot === 'bottom' && styles.avatarBottom,
-              item.slot === 'shoes' && styles.avatarShoes,
-              item.slot === 'glasses' && styles.avatarGlasses,
-              item.slot === 'bag' && styles.avatarBag,
-              item.slot === 'watch' && styles.avatarWatch,
-            ]}
-          >
-            {item.icon}
-          </Text>
-        ))}
+      <RunnerAvatar equippedItemIds={equippedItemIds} pose="run" size={220} style={styles.avatar} />
     </View>
   );
 }
@@ -348,43 +336,8 @@ const styles = StyleSheet.create({
   },
   avatar: {
     bottom: 0,
-    height: 260,
     position: 'absolute',
     right: 4,
-    width: 220,
-  },
-  avatarDecoration: {
-    fontSize: 34,
-    position: 'absolute',
-    zIndex: 3,
-  },
-  avatarHead: {
-    right: 82,
-    top: 26,
-  },
-  avatarTop: {
-    right: 82,
-    top: 132,
-  },
-  avatarBottom: {
-    right: 82,
-    top: 174,
-  },
-  avatarShoes: {
-    bottom: 12,
-    right: 65,
-  },
-  avatarGlasses: {
-    right: 85,
-    top: 88,
-  },
-  avatarBag: {
-    right: 27,
-    top: 128,
-  },
-  avatarWatch: {
-    right: 51,
-    top: 163,
   },
   outfitStrip: {
     bottom: 20,

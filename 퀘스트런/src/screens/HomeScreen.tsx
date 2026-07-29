@@ -1,5 +1,5 @@
 import React from 'react';
-import { Image, Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
+import { Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
 import { getItemById } from '../domain/game';
 import { getDailyQuests, type GameState } from '../domain/gameState';
 import {
@@ -12,8 +12,8 @@ import {
   ScreenTitle,
   SectionHeader,
 } from '../ui/components';
+import { RunnerAvatar } from '../ui/RunnerAvatar';
 import { colors, radii } from '../ui/theme';
-import heroImage from '../../assets/quest-run-lumi-v2.png';
 
 interface HomeScreenProps {
   gameState: GameState;
@@ -66,11 +66,11 @@ export function HomeScreen({
           </Text>
         </View>
 
-        <Image
-          accessibilityLabel="새싹 잎과 민트색 러닝복을 입고 달리는 루미"
-          resizeMode="contain"
-          source={heroImage}
-          style={styles.heroImage}
+        <RunnerAvatar
+          equippedItemIds={gameState.equippedItemIds}
+          pose="run"
+          size={230}
+          style={styles.heroAvatar}
         />
 
         <View style={styles.heroBottom}>
@@ -226,12 +226,10 @@ const styles = StyleSheet.create({
     lineHeight: 21,
     marginTop: 8,
   },
-  heroImage: {
-    bottom: 34,
-    height: 328,
+  heroAvatar: {
+    bottom: 38,
     position: 'absolute',
-    right: -32,
-    width: 286,
+    right: -4,
   },
   heroBottom: {
     backgroundColor: 'rgba(5,18,27,0.7)',

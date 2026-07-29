@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Image, Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
+import { Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
 import {
   ENDURANCE_MILESTONES,
   ITEMS,
@@ -13,8 +13,8 @@ import type { GameState } from '../domain/gameState';
 import { formatPace, type CompletedRun } from '../domain/runTracking';
 import { Card, Metric, Pill, PrimaryButton, ProgressBar, ScreenTitle, SectionHeader } from '../ui/components';
 import { RunRouteMap } from '../ui/RunRouteMap';
+import { RunnerAvatar } from '../ui/RunnerAvatar';
 import { colors, radii } from '../ui/theme';
-import heroImage from '../../assets/quest-run-lumi-v2.png';
 
 interface CharacterScreenProps {
   gameState: GameState;
@@ -23,7 +23,7 @@ interface CharacterScreenProps {
 }
 
 export function CharacterScreen({ gameState, onEquipItem, onOpenStyle }: CharacterScreenProps) {
-  const [selectedSlot, setSelectedSlot] = useState<ItemSlot>('head');
+  const [selectedSlot, setSelectedSlot] = useState<ItemSlot>('eyes');
   const equippedItems = Object.values(gameState.equippedItemIds)
     .map((itemId) => (itemId == null ? undefined : getItemById(itemId)))
     .filter((item): item is GameItem => item != null);
@@ -56,31 +56,11 @@ export function CharacterScreen({ gameState, onEquipItem, onOpenStyle }: Charact
         </View>
         <View style={styles.avatarStage}>
           <View style={styles.avatarGround} />
-          <Image
-            accessibilityLabel="꾸미기 아이템을 착용한 새싹 러너 루미"
-            resizeMode="contain"
-            source={heroImage}
-            style={styles.characterImage}
+          <RunnerAvatar
+            equippedItemIds={gameState.equippedItemIds}
+            size={250}
+            style={styles.characterAvatar}
           />
-          {equippedItems
-            .filter((item) => item.source !== 'starter')
-            .map((item) => (
-              <Text
-                key={item.id}
-                style={[
-                  styles.avatarDecoration,
-                  item.slot === 'head' && styles.avatarHead,
-                  item.slot === 'top' && styles.avatarTop,
-                  item.slot === 'bottom' && styles.avatarBottom,
-                  item.slot === 'shoes' && styles.avatarShoes,
-                  item.slot === 'glasses' && styles.avatarGlasses,
-                  item.slot === 'bag' && styles.avatarBag,
-                  item.slot === 'watch' && styles.avatarWatch,
-                ]}
-              >
-                {item.icon}
-              </Text>
-            ))}
         </View>
         <View style={styles.characterBottom}>
           <Text style={styles.characterName}>루미</Text>
@@ -352,45 +332,10 @@ const styles = StyleSheet.create({
     transform: [{ scaleY: 0.45 }],
     width: 210,
   },
-  characterImage: {
+  characterAvatar: {
     bottom: 0,
-    height: 300,
     position: 'absolute',
     right: 10,
-    width: 250,
-  },
-  avatarDecoration: {
-    fontSize: 39,
-    position: 'absolute',
-    zIndex: 3,
-  },
-  avatarHead: {
-    right: 96,
-    top: 15,
-  },
-  avatarTop: {
-    right: 97,
-    top: 142,
-  },
-  avatarBottom: {
-    right: 96,
-    top: 194,
-  },
-  avatarShoes: {
-    bottom: 20,
-    right: 83,
-  },
-  avatarGlasses: {
-    right: 101,
-    top: 92,
-  },
-  avatarBag: {
-    right: 31,
-    top: 142,
-  },
-  avatarWatch: {
-    right: 62,
-    top: 174,
   },
   characterBottom: {
     backgroundColor: 'rgba(6,25,35,0.9)',

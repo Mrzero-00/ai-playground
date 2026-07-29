@@ -1,5 +1,6 @@
 import {
   ACHIEVEMENTS,
+  ALL_ITEM_SLOTS,
   BASE_ITEM_SLOTS,
   DAILY_QUESTS,
   ITEMS,
@@ -22,7 +23,7 @@ export interface AchievementProgress {
 }
 
 export interface GameState {
-  version: 3;
+  version: 4;
   dailyDateKey: string;
   weeklyDateKey: string;
   monthlyDateKey: string;
@@ -57,7 +58,7 @@ export interface GameState {
 export const MONTHLY_GROUP_TARGET_KM = 400;
 
 export const DEFAULT_GAME_STATE: GameState = {
-  version: 3,
+  version: 4,
   dailyDateKey: getDateKey(Date.now()),
   weeklyDateKey: getWeekKey(Date.now()),
   monthlyDateKey: getMonthKey(Date.now()),
@@ -75,9 +76,20 @@ export const DEFAULT_GAME_STATE: GameState = {
   dailyDistanceKm: 0.65,
   dailyRuns: 0,
   claimedQuestIds: [],
-  unlockedItemIds: ['mint-cap', 'mint-hoodie', 'navy-shorts', 'orange-shoes'],
+  unlockedItemIds: [
+    'round-eyes',
+    'bean-nose',
+    'soft-smile',
+    'mint-cap',
+    'mint-hoodie',
+    'navy-shorts',
+    'orange-shoes',
+  ],
   unlockedSlotIds: [...BASE_ITEM_SLOTS],
   equippedItemIds: {
+    eyes: 'round-eyes',
+    nose: 'bean-nose',
+    mouth: 'soft-smile',
     head: 'mint-cap',
     top: 'mint-hoodie',
     bottom: 'navy-shorts',
@@ -409,7 +421,7 @@ export function migrateGameState(stored: Record<string, unknown>): GameState {
     ? stored.unlockedSlotIds.filter(
         (slot): slot is ItemSlot =>
           typeof slot === 'string' &&
-          ['head', 'top', 'bottom', 'shoes', 'glasses', 'bag', 'watch'].includes(slot)
+          ALL_ITEM_SLOTS.includes(slot as ItemSlot)
       )
     : [];
   const rawEquipped =
@@ -423,7 +435,7 @@ export function migrateGameState(stored: Record<string, unknown>): GameState {
   for (const [slot, itemId] of Object.entries(rawEquipped)) {
     if (
       typeof itemId === 'string' &&
-      ['head', 'top', 'bottom', 'shoes', 'glasses', 'bag', 'watch'].includes(slot) &&
+      ALL_ITEM_SLOTS.includes(slot as ItemSlot) &&
       getItemById(itemId)?.slot === slot
     ) {
       equippedItemIds[slot as ItemSlot] = itemId;
@@ -433,7 +445,7 @@ export function migrateGameState(stored: Record<string, unknown>): GameState {
   const migrated = {
     ...DEFAULT_GAME_STATE,
     ...stored,
-    version: 3,
+    version: 4,
     monthlyDateKey:
       typeof stored.monthlyDateKey === 'string' ? stored.monthlyDateKey : DEFAULT_GAME_STATE.monthlyDateKey,
     styleCoins: typeof stored.styleCoins === 'number' ? stored.styleCoins : legacyGold,

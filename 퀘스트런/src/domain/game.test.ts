@@ -53,4 +53,12 @@ describe('퀘스트런 성장 규칙', () => {
     expect(headItems).toContainEqual(expect.objectContaining({ id: 'mint-cap' }));
     expect(headItems.every((item) => item.slot === 'head')).toBe(true);
   });
+
+  it('눈·코·입을 각각 독립된 꾸미기 슬롯으로 제공한다', () => {
+    expect(getItemsBySlot('eyes')).toEqual(
+      expect.arrayContaining([expect.objectContaining({ id: 'round-eyes' }), expect.objectContaining({ id: 'sparkle-eyes' })])
+    );
+    expect(getItemsBySlot('nose')).toContainEqual(expect.objectContaining({ id: 'bean-nose' }));
+    expect(getItemsBySlot('mouth')).toContainEqual(expect.objectContaining({ id: 'soft-smile' }));
+  });
 });

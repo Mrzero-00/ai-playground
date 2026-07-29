@@ -81,6 +81,15 @@ describe('게임 상태', () => {
     expect(equipped.equippedItemIds.head).toBe('sunny-visor');
   });
 
+  it('러닝 코인으로 얼굴 파츠를 구매하고 바로 바꿀 수 있다', () => {
+    const purchased = purchaseItem(BASE_STATE, 'sparkle-eyes');
+    const equipped = equipItem(purchased, 'sparkle-eyes');
+
+    expect(purchased.styleCoins).toBe(BASE_STATE.styleCoins - 220);
+    expect(purchased.unlockedItemIds).toContain('sparkle-eyes');
+    expect(equipped.equippedItemIds.eyes).toBe('sparkle-eyes');
+  });
+
   it('보유하지 않은 아이템은 착용할 수 없다', () => {
     expect(equipItem(BASE_STATE, 'rainbow-trail')).toBe(BASE_STATE);
   });
@@ -135,12 +144,29 @@ describe('게임 상태', () => {
   it('기존 골드 저장값을 꾸미기 코인으로 마이그레이션한다', () => {
     const migrated = migrateGameState({ version: 1, gold: 777, unlockedItemIds: [] });
 
-    expect(migrated.version).toBe(3);
+    expect(migrated.version).toBe(4);
     expect(migrated.styleCoins).toBe(777);
     expect(migrated.unlockedItemIds).toEqual(
-      expect.arrayContaining(['mint-cap', 'mint-hoodie', 'navy-shorts', 'orange-shoes'])
+      expect.arrayContaining([
+        'round-eyes',
+        'bean-nose',
+        'soft-smile',
+        'mint-cap',
+        'mint-hoodie',
+        'navy-shorts',
+        'orange-shoes',
+      ])
     );
-    expect(migrated.unlockedSlotIds).toEqual(expect.arrayContaining(['head', 'top', 'bottom', 'shoes']));
+    expect(migrated.unlockedSlotIds).toEqual(
+      expect.arrayContaining(['eyes', 'nose', 'mouth', 'head', 'top', 'bottom', 'shoes'])
+    );
+    expect(migrated.equippedItemIds).toEqual(
+      expect.objectContaining({
+        eyes: 'round-eyes',
+        nose: 'bean-nose',
+        mouth: 'soft-smile',
+      })
+    );
   });
 
   it('누적 100km 업적으로 가방 슬롯과 기록 가방을 해금한다', () => {

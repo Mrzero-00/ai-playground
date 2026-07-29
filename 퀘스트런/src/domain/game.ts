@@ -1,6 +1,16 @@
 export type QuestKind = 'daily' | 'weekly' | 'streak';
 export type QuestMetric = 'distance' | 'runs';
-export type ItemSlot = 'head' | 'top' | 'bottom' | 'shoes' | 'glasses' | 'bag' | 'watch';
+export type ItemSlot =
+  | 'eyes'
+  | 'nose'
+  | 'mouth'
+  | 'head'
+  | 'top'
+  | 'bottom'
+  | 'shoes'
+  | 'glasses'
+  | 'bag'
+  | 'watch';
 export type ItemRarity = '일반' | '희귀' | '영웅' | '지역 한정' | '월간 한정';
 export type ItemSource = 'starter' | 'shop' | 'quest' | 'achievement' | 'group';
 export type AchievementMetric =
@@ -67,10 +77,14 @@ export interface RunnerGrowthStage {
   description: string;
 }
 
-export const BASE_ITEM_SLOTS: ItemSlot[] = ['head', 'top', 'bottom', 'shoes'];
+export const BASE_ITEM_SLOTS: ItemSlot[] = ['eyes', 'nose', 'mouth', 'head', 'top', 'bottom', 'shoes'];
 export const EXTRA_ITEM_SLOTS: ItemSlot[] = ['glasses', 'bag', 'watch'];
+export const ALL_ITEM_SLOTS: ItemSlot[] = [...BASE_ITEM_SLOTS, ...EXTRA_ITEM_SLOTS];
 
 export const SLOT_LABELS: Record<ItemSlot, string> = {
+  eyes: '눈',
+  nose: '코',
+  mouth: '입',
   head: '머리',
   top: '상의',
   bottom: '하의',
@@ -180,6 +194,36 @@ export const RUNNER_GROWTH_STAGES: RunnerGrowthStage[] = [
 
 export const ITEMS: GameItem[] = [
   {
+    id: 'round-eyes',
+    name: '포근한 동그란 눈',
+    slot: 'eyes',
+    rarity: '일반',
+    icon: '● ●',
+    price: 0,
+    description: '루미의 따뜻하고 순한 기본 눈매',
+    source: 'starter',
+  },
+  {
+    id: 'bean-nose',
+    name: '작은 콩코',
+    slot: 'nose',
+    rarity: '일반',
+    icon: '•',
+    price: 0,
+    description: '숲마을 친구처럼 작고 귀여운 기본 코',
+    source: 'starter',
+  },
+  {
+    id: 'soft-smile',
+    name: '포근한 미소',
+    slot: 'mouth',
+    rarity: '일반',
+    icon: '⌣',
+    price: 0,
+    description: '달리기 전에도 기분 좋아지는 기본 미소',
+    source: 'starter',
+  },
+  {
     id: 'mint-cap',
     name: '민트 러닝 캡',
     slot: 'head',
@@ -277,6 +321,96 @@ export const ITEMS: GameItem[] = [
     icon: '✨',
     price: 520,
     description: '움직일 때마다 작은 별빛이 반짝이는 러닝화',
+    source: 'shop',
+  },
+  {
+    id: 'sparkle-eyes',
+    name: '반짝이는 호기심 눈',
+    slot: 'eyes',
+    rarity: '희귀',
+    icon: '✦ ✦',
+    price: 220,
+    description: '새로운 길을 발견했을 때처럼 반짝이는 눈',
+    source: 'shop',
+  },
+  {
+    id: 'smiley-eyes',
+    name: '싱긋 웃는 눈',
+    slot: 'eyes',
+    rarity: '일반',
+    icon: '⌒ ⌒',
+    price: 280,
+    description: '친구를 만나면 저절로 휘어지는 다정한 눈매',
+    source: 'shop',
+  },
+  {
+    id: 'sleepy-eyes',
+    name: '나른한 새벽 눈',
+    slot: 'eyes',
+    rarity: '희귀',
+    icon: '— —',
+    price: 360,
+    description: '이른 아침 러닝의 포근한 졸음을 담은 눈매',
+    source: 'shop',
+  },
+  {
+    id: 'peach-nose',
+    name: '복숭아 세모코',
+    slot: 'nose',
+    rarity: '일반',
+    icon: '▼',
+    price: 160,
+    description: '볼의 홍조와 잘 어울리는 작은 복숭아빛 코',
+    source: 'shop',
+  },
+  {
+    id: 'button-nose',
+    name: '동글 단추코',
+    slot: 'nose',
+    rarity: '희귀',
+    icon: '●',
+    price: 240,
+    description: '도토리 단추처럼 동그랗고 선명한 코',
+    source: 'shop',
+  },
+  {
+    id: 'leaf-nose',
+    name: '새싹 잎코',
+    slot: 'nose',
+    rarity: '희귀',
+    icon: '◆',
+    price: 320,
+    description: '루미의 새싹 정체성을 담은 초록빛 코',
+    source: 'shop',
+  },
+  {
+    id: 'cat-mouth',
+    name: '말랑 고양이입',
+    slot: 'mouth',
+    rarity: '일반',
+    icon: 'ω',
+    price: 200,
+    description: '장난스러운 표정을 만드는 말랑한 입모양',
+    source: 'shop',
+  },
+  {
+    id: 'open-smile',
+    name: '활짝 웃는 입',
+    slot: 'mouth',
+    rarity: '희귀',
+    icon: '▽',
+    price: 280,
+    description: '오늘의 러닝이 즐거웠다는 활짝 열린 미소',
+    source: 'shop',
+  },
+  {
+    id: 'surprised-mouth',
+    name: '깜짝 동그란 입',
+    slot: 'mouth',
+    rarity: '희귀',
+    icon: '○',
+    price: 340,
+    description: '새 업적을 발견한 순간의 귀여운 놀람',
     source: 'shop',
   },
   {

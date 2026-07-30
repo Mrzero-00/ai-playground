@@ -224,17 +224,25 @@
 
       .forest-shadow,
       .forest-ear,
+      .forest-hood,
       .forest-body,
       .forest-arm,
+      .forest-hand,
       .forest-leg,
       .forest-shoe,
+      .forest-sole,
       .forest-head,
       .forest-face-patch,
+      .forest-hair-cap,
+      .forest-bang,
+      .forest-head-highlight,
       .forest-blush,
       .forest-stem,
       .forest-leaf,
       .forest-shorts,
-      .forest-collar {
+      .forest-collar,
+      .forest-shirt-highlight,
+      .forest-pocket {
         position: absolute;
         display: block;
       }
@@ -253,7 +261,7 @@
         top: 69px;
         width: 19px;
         height: 30px;
-        border: 2px solid #a9653f;
+        border: 2px solid #c7835e;
         border-radius: 50%;
         background: #f2bd82;
       }
@@ -273,9 +281,19 @@
         display: block;
         width: 19px;
         height: 21px;
-        border: 2px solid #a9653f;
+        border: 2px solid #c7835e;
         border-radius: 10px;
         background: #f2bd82;
+      }
+
+      .forest-hood {
+        top: 135px;
+        left: 73px;
+        width: 90px;
+        height: 48px;
+        border: 2px solid #0b6d5e;
+        border-radius: 50%;
+        background: #168e79;
       }
 
       .forest-body {
@@ -284,9 +302,9 @@
         width: 81px;
         height: 94px;
         overflow: hidden;
-        border: 3px solid #236d67;
+        border: 3px solid #147d6d;
         border-radius: 28px 28px 18px 18px;
-        background: #52c6ae;
+        background: #48c9ae;
       }
 
       .forest-collar {
@@ -296,6 +314,25 @@
         height: 14px;
         border-radius: 0 0 50% 50%;
         background: #e8fff7;
+      }
+
+      .forest-shirt-highlight {
+        top: 19px;
+        left: 9px;
+        width: 14px;
+        height: 54px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.2);
+        transform: rotate(8deg);
+      }
+
+      .forest-pocket {
+        bottom: 37px;
+        left: 27px;
+        width: 29px;
+        height: 14px;
+        border-bottom: 2px solid rgba(9, 103, 88, 0.34);
+        border-radius: 50%;
       }
 
       .forest-shorts {
@@ -311,9 +348,10 @@
         top: 145px;
         width: 21px;
         height: 83px;
-        border: 3px solid #a9653f;
+        overflow: visible;
+        border: 2px solid #147d6d;
         border-radius: 50%;
-        background: #f2bd82;
+        background: #48c9ae;
       }
 
       .forest-arm.left {
@@ -326,11 +364,21 @@
         transform: rotate(-32deg);
       }
 
+      .forest-hand {
+        bottom: -3px;
+        left: -1px;
+        width: 21px;
+        height: 22px;
+        border: 2px solid #c7835e;
+        border-radius: 50%;
+        background: #f2bd82;
+      }
+
       .forest-leg {
         bottom: 23px;
         width: 21px;
         height: 73px;
-        border: 3px solid #a9653f;
+        border: 3px solid #c7835e;
         border-radius: 50%;
         background: #f2bd82;
       }
@@ -349,9 +397,10 @@
         bottom: 7px;
         width: 43px;
         height: 24px;
-        border: 3px solid #9c4a2a;
+        overflow: hidden;
+        border: 2px solid #8d776a;
         border-radius: 50%;
-        background: #ff8a4c;
+        background: #fff8ed;
       }
 
       .forest-shoe.left {
@@ -364,15 +413,24 @@
         transform: rotate(6deg);
       }
 
+      .forest-sole {
+        right: 4px;
+        bottom: 1px;
+        left: 4px;
+        height: 5px;
+        border-radius: 50%;
+        background: #ff8a4c;
+      }
+
       .forest-head {
         top: 29px;
         left: 69px;
         width: 96px;
         height: 112px;
         overflow: hidden;
-        border: 3px solid #a9653f;
+        border: 3px solid #493028;
         border-radius: 40px;
-        background: #d98c52;
+        background: #5d4138;
       }
 
       .forest-face-patch {
@@ -381,7 +439,47 @@
         width: 79px;
         height: 90px;
         border-radius: 50%;
-        background: #ffe0ae;
+        background: #ffd9b8;
+      }
+
+      .forest-hair-cap {
+        top: -4px;
+        left: -3px;
+        width: 100px;
+        height: 39px;
+        border-bottom: 2px solid #493028;
+        border-radius: 50%;
+        background: #5d4138;
+      }
+
+      .forest-bang {
+        top: 18px;
+        width: 26px;
+        height: 23px;
+        border-radius: 0 0 50% 50%;
+        background: #5d4138;
+      }
+
+      .forest-bang.left {
+        left: 12px;
+        transform: rotate(18deg);
+      }
+
+      .forest-bang.right {
+        left: 36px;
+        height: 21px;
+        transform: rotate(-8deg);
+      }
+
+      .forest-head-highlight {
+        top: 33px;
+        left: 8px;
+        z-index: 2;
+        width: 10px;
+        height: 30px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.27);
+        transform: rotate(-18deg);
       }
 
       .forest-blush {
@@ -2507,12 +2605,20 @@
             <span class="forest-shadow"></span>
             <span class="forest-ear left"></span><span class="forest-ear right"></span>
             <span class="forest-neck"></span>
-            <span class="forest-body"><span class="forest-collar"></span><span class="forest-shorts"></span></span>
-            <span class="forest-arm left"></span><span class="forest-arm right"></span>
+            <span class="forest-hood"></span>
+            <span class="forest-body">
+              <span class="forest-collar"></span><span class="forest-shirt-highlight"></span>
+              <span class="forest-pocket"></span><span class="forest-shorts"></span>
+            </span>
+            <span class="forest-arm left"><span class="forest-hand"></span></span>
+            <span class="forest-arm right"><span class="forest-hand"></span></span>
             <span class="forest-leg left"></span><span class="forest-leg right"></span>
-            <span class="forest-shoe left"></span><span class="forest-shoe right"></span>
+            <span class="forest-shoe left"><span class="forest-sole"></span></span>
+            <span class="forest-shoe right"><span class="forest-sole"></span></span>
             <span class="forest-head">
               <span class="forest-face-patch"></span>
+              <span class="forest-hair-cap"></span><span class="forest-bang left"></span><span class="forest-bang right"></span>
+              <span class="forest-head-highlight"></span>
               <span class="forest-blush left"></span><span class="forest-blush right"></span>
               <span class="forest-eyes" data-face="${eyeId}">${eyeGlyphs[eyeId] || eyeGlyphs['round-eyes']}</span>
               <span class="forest-nose" data-face="${noseId}">${noseGlyphs[noseId] || noseGlyphs['bean-nose']}</span>

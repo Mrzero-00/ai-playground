@@ -104,6 +104,18 @@ export function RunnerAvatar({
 
       <View
         style={[
+          styles.hood,
+          {
+            height: 45 * unit,
+            left: 68 * unit,
+            top: 126 * unit,
+            width: 84 * unit,
+          },
+        ]}
+      />
+
+      <View
+        style={[
           styles.body,
           {
             height: 88 * unit,
@@ -121,6 +133,28 @@ export function RunnerAvatar({
               left: 23 * unit,
               top: 4 * unit,
               width: 30 * unit,
+            },
+          ]}
+        />
+        <View
+          style={[
+            styles.shirtHighlight,
+            {
+              height: 51 * unit,
+              left: 8 * unit,
+              top: 18 * unit,
+              width: 13 * unit,
+            },
+          ]}
+        />
+        <View
+          style={[
+            styles.shirtPocket,
+            {
+              bottom: 35 * unit,
+              height: 13 * unit,
+              left: 25 * unit,
+              width: 27 * unit,
             },
           ]}
         />
@@ -148,7 +182,19 @@ export function RunnerAvatar({
             width: 20 * unit,
           },
         ]}
-      />
+      >
+        <View
+          style={[
+            styles.hand,
+            {
+              bottom: -3 * unit,
+              height: 21 * unit,
+              left: -2 * unit,
+              width: 20 * unit,
+            },
+          ]}
+        />
+      </View>
       <View
         style={[
           styles.arm,
@@ -160,7 +206,19 @@ export function RunnerAvatar({
             width: 20 * unit,
           },
         ]}
-      />
+      >
+        <View
+          style={[
+            styles.hand,
+            {
+              bottom: -3 * unit,
+              height: 21 * unit,
+              right: -2 * unit,
+              width: 20 * unit,
+            },
+          ]}
+        />
+      </View>
 
       <View
         style={[
@@ -197,7 +255,9 @@ export function RunnerAvatar({
             width: 40 * unit,
           },
         ]}
-      />
+      >
+        <View style={[styles.shoeSole, { bottom: 1 * unit, height: 5 * unit, width: 34 * unit }]} />
+      </View>
       <View
         style={[
           styles.shoe,
@@ -209,7 +269,9 @@ export function RunnerAvatar({
             width: 40 * unit,
           },
         ]}
-      />
+      >
+        <View style={[styles.shoeSole, { bottom: 1 * unit, height: 5 * unit, width: 34 * unit }]} />
+      </View>
 
       <View
         style={[
@@ -230,6 +292,53 @@ export function RunnerAvatar({
               left: 8 * unit,
               top: 15 * unit,
               width: 74 * unit,
+            },
+          ]}
+        />
+        <View
+          style={[
+            styles.hairCap,
+            {
+              height: 36 * unit,
+              left: -3 * unit,
+              top: -4 * unit,
+              width: 94 * unit,
+            },
+          ]}
+        />
+        <View
+          style={[
+            styles.bang,
+            {
+              height: 22 * unit,
+              left: 11 * unit,
+              top: 17 * unit,
+              transform: [{ rotate: '18deg' }],
+              width: 25 * unit,
+            },
+          ]}
+        />
+        <View
+          style={[
+            styles.bang,
+            {
+              height: 20 * unit,
+              left: 34 * unit,
+              top: 17 * unit,
+              transform: [{ rotate: '-8deg' }],
+              width: 24 * unit,
+            },
+          ]}
+        />
+        <View
+          style={[
+            styles.headHighlight,
+            {
+              height: 28 * unit,
+              left: 7 * unit,
+              top: 31 * unit,
+              transform: [{ rotate: '-18deg' }],
+              width: 9 * unit,
             },
           ]}
         />
@@ -370,21 +479,28 @@ const styles = StyleSheet.create({
   },
   humanEar: {
     backgroundColor: '#F2BD82',
-    borderColor: '#A9653F',
+    borderColor: '#C7835E',
     borderRadius: 999,
     borderWidth: 2,
     position: 'absolute',
   },
   neck: {
     backgroundColor: '#F2BD82',
-    borderColor: '#A9653F',
+    borderColor: '#C7835E',
+    borderRadius: 999,
+    borderWidth: 2,
+    position: 'absolute',
+  },
+  hood: {
+    backgroundColor: '#168E79',
+    borderColor: '#0B6D5E',
     borderRadius: 999,
     borderWidth: 2,
     position: 'absolute',
   },
   body: {
-    backgroundColor: '#52C6AE',
-    borderColor: '#236D67',
+    backgroundColor: '#48C9AE',
+    borderColor: '#147D6D',
     borderRadius: 26,
     borderWidth: 3,
     overflow: 'hidden',
@@ -397,6 +513,18 @@ const styles = StyleSheet.create({
     borderBottomRightRadius: 999,
     position: 'absolute',
   },
+  shirtHighlight: {
+    backgroundColor: 'rgba(255,255,255,0.2)',
+    borderRadius: 999,
+    position: 'absolute',
+    transform: [{ rotate: '8deg' }],
+  },
+  shirtPocket: {
+    borderBottomColor: 'rgba(9,103,88,0.34)',
+    borderBottomWidth: 2,
+    borderRadius: 999,
+    position: 'absolute',
+  },
   shorts: {
     backgroundColor: '#244863',
     borderTopLeftRadius: 18,
@@ -404,38 +532,71 @@ const styles = StyleSheet.create({
     position: 'absolute',
   },
   arm: {
-    backgroundColor: '#F2BD82',
-    borderColor: '#A9653F',
+    backgroundColor: '#48C9AE',
+    borderColor: '#147D6D',
     borderRadius: 999,
-    borderWidth: 3,
+    borderWidth: 2,
+    position: 'absolute',
+  },
+  hand: {
+    backgroundColor: '#F2BD82',
+    borderColor: '#C7835E',
+    borderRadius: 999,
+    borderWidth: 2,
     position: 'absolute',
   },
   leg: {
     backgroundColor: '#F2BD82',
-    borderColor: '#A9653F',
+    borderColor: '#C7835E',
     borderRadius: 999,
     borderWidth: 3,
     position: 'absolute',
   },
   shoe: {
-    backgroundColor: '#FF8A4C',
-    borderColor: '#9C4A2A',
+    alignItems: 'center',
+    backgroundColor: '#FFF8ED',
+    borderColor: '#8D776A',
     borderRadius: 999,
-    borderWidth: 3,
+    borderWidth: 2,
+    overflow: 'hidden',
+    position: 'absolute',
+  },
+  shoeSole: {
+    backgroundColor: '#FF8A4C',
+    borderRadius: 999,
     position: 'absolute',
   },
   head: {
-    backgroundColor: '#D98C52',
-    borderColor: '#A9653F',
+    backgroundColor: '#5D4138',
+    borderColor: '#493028',
     borderRadius: 38,
     borderWidth: 3,
     overflow: 'hidden',
     position: 'absolute',
   },
   facePatch: {
-    backgroundColor: '#FFE0AE',
+    backgroundColor: '#FFD9B8',
     borderRadius: 999,
     position: 'absolute',
+  },
+  hairCap: {
+    backgroundColor: '#5D4138',
+    borderBottomColor: '#493028',
+    borderBottomWidth: 2,
+    borderRadius: 999,
+    position: 'absolute',
+  },
+  bang: {
+    backgroundColor: '#5D4138',
+    borderBottomLeftRadius: 999,
+    borderBottomRightRadius: 999,
+    position: 'absolute',
+  },
+  headHighlight: {
+    backgroundColor: 'rgba(255,255,255,0.27)',
+    borderRadius: 999,
+    position: 'absolute',
+    zIndex: 2,
   },
   blush: {
     backgroundColor: '#F39B8A',
@@ -495,7 +656,7 @@ const styles = StyleSheet.create({
     position: 'absolute',
   },
   sproutLeaf: {
-    backgroundColor: '#74BE54',
+    backgroundColor: '#7DD05E',
     borderColor: '#2D7139',
     borderRadius: 999,
     borderWidth: 2,

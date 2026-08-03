@@ -87,13 +87,13 @@ export function RunnerAvatar({
         <View
           style={[
             styles.blush,
-            { height: 7 * unit, left: 3 * unit, top: 32 * unit, width: 16 * unit },
+            { height: 7 * unit, left: 5 * unit, top: 32 * unit, width: 15 * unit },
           ]}
         />
         <View
           style={[
             styles.blush,
-            { height: 7 * unit, right: 3 * unit, top: 32 * unit, width: 16 * unit },
+            { height: 7 * unit, right: 5 * unit, top: 32 * unit, width: 15 * unit },
           ]}
         />
         {eyeId === 'round-eyes' ? (
@@ -101,44 +101,44 @@ export function RunnerAvatar({
             <View
               style={[
                 styles.animeEye,
-                { height: 20 * unit, left: 9 * unit, top: 7 * unit, width: 16 * unit },
+                { height: 19 * unit, left: 11 * unit, top: 10 * unit, width: 15 * unit },
               ]}
             >
               <View
                 style={[
                   styles.irisGlow,
-                  { bottom: 1 * unit, height: 8 * unit, left: 2 * unit, width: 12 * unit },
+                  { bottom: 1 * unit, height: 7 * unit, left: 2 * unit, width: 11 * unit },
                 ]}
               />
               <View
                 style={[
                   styles.eyeSparkle,
-                  { height: 5 * unit, left: 3 * unit, top: 3 * unit, width: 5 * unit },
+                  { height: 4 * unit, left: 3 * unit, top: 3 * unit, width: 4 * unit },
                 ]}
               />
             </View>
             <View
               style={[
                 styles.animeEye,
-                { height: 20 * unit, right: 9 * unit, top: 7 * unit, width: 16 * unit },
+                { height: 19 * unit, right: 11 * unit, top: 10 * unit, width: 15 * unit },
               ]}
             >
               <View
                 style={[
                   styles.irisGlow,
-                  { bottom: 1 * unit, height: 8 * unit, left: 2 * unit, width: 12 * unit },
+                  { bottom: 1 * unit, height: 7 * unit, left: 2 * unit, width: 11 * unit },
                 ]}
               />
               <View
                 style={[
                   styles.eyeSparkle,
-                  { height: 5 * unit, left: 3 * unit, top: 3 * unit, width: 5 * unit },
+                  { height: 4 * unit, left: 3 * unit, top: 3 * unit, width: 4 * unit },
                 ]}
               />
             </View>
           </>
         ) : (
-          <Text style={[styles.eyes, { fontSize: 13 * unit, top: 10 * unit }]}>
+          <Text style={[styles.eyes, { fontSize: 12 * unit, top: 14 * unit }]}>
             {EYE_GLYPHS[eyeId] ?? EYE_GLYPHS['round-eyes']}
           </Text>
         )}
@@ -147,7 +147,7 @@ export function RunnerAvatar({
             styles.nose,
             noseId === 'leaf-nose' && styles.noseLeaf,
             noseId === 'peach-nose' && styles.nosePeach,
-            { fontSize: 8 * unit, top: 28 * unit },
+            { fontSize: 8 * unit, top: 29 * unit },
           ]}
         >
           {NOSE_GLYPHS[noseId] ?? NOSE_GLYPHS['bean-nose']}
@@ -155,7 +155,7 @@ export function RunnerAvatar({
         <Text
           style={[
             styles.mouth,
-            { fontSize: (mouthId === 'surprised-mouth' ? 10 : 13) * unit, top: 39 * unit },
+            { fontSize: (mouthId === 'surprised-mouth' ? 9 : 12) * unit, top: 36 * unit },
           ]}
         >
           {MOUTH_GLYPHS[mouthId] ?? MOUTH_GLYPHS['soft-smile']}
@@ -209,7 +209,7 @@ const styles = StyleSheet.create({
     color: '#783C52',
     fontWeight: '900',
     left: 0,
-    letterSpacing: 4,
+    letterSpacing: 3,
     position: 'absolute',
     right: 0,
     textAlign: 'center',

@@ -159,11 +159,27 @@ export function RunnerAvatar({
   const avatarBase = avatarPreset === 'mori' ? moriAnimeBase : lumiAnimeBase;
   const isMori = avatarPreset === 'mori';
   const faceLayout = isMori
-    ? { height: 59, left: 75, top: 66, width: 74 }
-    : { height: 57, left: 75, top: 68, width: 72 };
+    ? { height: 60, left: 77, top: 63, width: 74 }
+    : { height: 60, left: 78, top: 65, width: 72 };
   const facePositions = isMori
-    ? { blushTop: 34, eyeTop: 15, mouthTop: 40, noseTop: 31, roundEyeTop: 11 }
-    : { blushTop: 32, eyeTop: 14, mouthTop: 36, noseTop: 29, roundEyeTop: 10 };
+    ? {
+        blushInset: 9,
+        blushTop: 29,
+        eyeInset: 16,
+        eyeTop: 15,
+        mouthTop: 29,
+        noseTop: 26,
+        roundEyeTop: 11,
+      }
+    : {
+        blushInset: 7,
+        blushTop: 30,
+        eyeInset: 12,
+        eyeTop: 18,
+        mouthTop: 34,
+        noseTop: 30,
+        roundEyeTop: 14,
+      };
   const eyeId = equippedItemIds.eyes ?? 'round-eyes';
   const noseId = equippedItemIds.nose ?? 'bean-nose';
   const mouthId = equippedItemIds.mouth ?? 'soft-smile';
@@ -237,7 +253,7 @@ export function RunnerAvatar({
             styles.blush,
             {
               height: 7 * unit,
-              left: 5 * unit,
+              left: facePositions.blushInset * unit,
               top: facePositions.blushTop * unit,
               width: 15 * unit,
             },
@@ -248,7 +264,7 @@ export function RunnerAvatar({
             styles.blush,
             {
               height: 7 * unit,
-              right: 5 * unit,
+              right: facePositions.blushInset * unit,
               top: facePositions.blushTop * unit,
               width: 15 * unit,
             },
@@ -261,7 +277,7 @@ export function RunnerAvatar({
                 styles.animeEye,
                 {
                   height: 19 * unit,
-                  left: 11 * unit,
+                  left: facePositions.eyeInset * unit,
                   top: facePositions.roundEyeTop * unit,
                   width: 15 * unit,
                 },
@@ -285,7 +301,7 @@ export function RunnerAvatar({
                 styles.animeEye,
                 {
                   height: 19 * unit,
-                  right: 11 * unit,
+                  right: facePositions.eyeInset * unit,
                   top: facePositions.roundEyeTop * unit,
                   width: 15 * unit,
                 },

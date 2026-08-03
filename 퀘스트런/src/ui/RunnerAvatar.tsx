@@ -1,13 +1,5 @@
 import React from 'react';
-import {
-  Image,
-  StyleSheet,
-  Text,
-  View,
-  type ImageSourcePropType,
-  type StyleProp,
-  type ViewStyle,
-} from 'react-native';
+import { Image, StyleSheet, Text, View, type ImageSourcePropType, type StyleProp, type ViewStyle } from 'react-native';
 import lumiAnimeBase from '../../assets/avatar/lumi-anime-base-v1.png';
 import moriAnimeBase from '../../assets/avatar/lumi-anime-boy-base-v2.png';
 import berryLeggingsLayer from '../../assets/avatar/layers/bottom-berry-leggings-v1.png';
@@ -54,6 +46,46 @@ interface AvatarLayerConfig {
   sources: Record<AvatarPreset, ImageSourcePropType>;
   zIndex: number;
 }
+
+interface AvatarFaceLayout {
+  frame: AvatarLayerLayout;
+  features: {
+    blushInset: number;
+    blushTop: number;
+    eyeInset: number;
+    mouthTop: number;
+    noseTop: number;
+    roundEyeTop: number;
+    symbolEyeTop: number;
+  };
+}
+
+export const AVATAR_FACE_LAYOUTS = {
+  lumi: {
+    frame: { height: 60, left: 78, top: 68, width: 72 },
+    features: {
+      blushInset: 10,
+      blushTop: 29,
+      eyeInset: 14,
+      mouthTop: 32,
+      noseTop: 29,
+      roundEyeTop: 14,
+      symbolEyeTop: 17,
+    },
+  },
+  mori: {
+    frame: { height: 60, left: 77, top: 63, width: 74 },
+    features: {
+      blushInset: 10,
+      blushTop: 28,
+      eyeInset: 16,
+      mouthTop: 30,
+      noseTop: 27,
+      roundEyeTop: 13,
+      symbolEyeTop: 16,
+    },
+  },
+} as const satisfies Record<AvatarPreset, AvatarFaceLayout>;
 
 const AVATAR_LAYERS: Record<string, AvatarLayerConfig> = {
   'berry-leggings': {
@@ -125,27 +157,6 @@ const AVATAR_LAYERS: Record<string, AvatarLayerConfig> = {
 
 const LAYER_SLOT_ORDER: ItemSlot[] = ['bottom', 'shoes', 'top', 'hair'];
 
-const EYE_GLYPHS: Record<string, string> = {
-  'round-eyes': '●  ●',
-  'sparkle-eyes': '✦  ✦',
-  'smiley-eyes': '⌒  ⌒',
-  'sleepy-eyes': '—  —',
-};
-
-const NOSE_GLYPHS: Record<string, string> = {
-  'bean-nose': '•',
-  'peach-nose': '▼',
-  'button-nose': '●',
-  'leaf-nose': '◆',
-};
-
-const MOUTH_GLYPHS: Record<string, string> = {
-  'soft-smile': '⌣',
-  'cat-mouth': 'ω',
-  'open-smile': '▽',
-  'surprised-mouth': '○',
-};
-
 export function RunnerAvatar({
   avatarPreset = 'lumi',
   equippedItemIds,
@@ -157,29 +168,7 @@ export function RunnerAvatar({
   const height = size * 1.28;
   const avatarDefinition = getAvatarPresetDefinition(avatarPreset);
   const avatarBase = avatarPreset === 'mori' ? moriAnimeBase : lumiAnimeBase;
-  const isMori = avatarPreset === 'mori';
-  const faceLayout = isMori
-    ? { height: 60, left: 77, top: 63, width: 74 }
-    : { height: 60, left: 78, top: 65, width: 72 };
-  const facePositions = isMori
-    ? {
-        blushInset: 9,
-        blushTop: 29,
-        eyeInset: 16,
-        eyeTop: 15,
-        mouthTop: 29,
-        noseTop: 26,
-        roundEyeTop: 11,
-      }
-    : {
-        blushInset: 7,
-        blushTop: 30,
-        eyeInset: 12,
-        eyeTop: 18,
-        mouthTop: 34,
-        noseTop: 30,
-        roundEyeTop: 14,
-      };
+  const { features: facePositions, frame: faceLayout } = AVATAR_FACE_LAYOUTS[avatarPreset];
   const eyeId = equippedItemIds.eyes ?? 'round-eyes';
   const noseId = equippedItemIds.nose ?? 'bean-nose';
   const mouthId = equippedItemIds.mouth ?? 'soft-smile';
@@ -190,10 +179,7 @@ export function RunnerAvatar({
     .map((itemId) => (itemId == null ? undefined : AVATAR_LAYERS[itemId]))
     .filter((layer): layer is AvatarLayerConfig => layer != null);
   const decorations = equippedItems.filter(
-    (item) =>
-      !FACE_SLOTS.includes(item.slot) &&
-      AVATAR_LAYERS[item.id] == null &&
-      item.source !== 'starter'
+    (item) => !FACE_SLOTS.includes(item.slot) && AVATAR_LAYERS[item.id] == null && item.source !== 'starter'
   );
 
   return (
@@ -201,171 +187,232 @@ export function RunnerAvatar({
       accessibilityLabel={`애니메이션 일러스트 스타일의 새싹 러너 ${avatarDefinition.name}. 눈, 코, 입과 러닝 아이템을 꾸밀 수 있습니다.`}
       style={[{ height, width: size }, style]}
     >
-      <Image
-        resizeMode="contain"
-        source={avatarBase}
-        style={[
-          styles.base,
-          {
-            height: 296 * unit,
-            left: 18 * unit,
-            top: -7 * unit,
-            transform: [{ rotate: pose === 'run' ? '-3deg' : '0deg' }],
-            width: 184 * unit,
-          },
-        ]}
-      />
-
-      {visualLayers.map((layer) => (
-        <Image
-          key={`${layer.sources[avatarPreset]}-${layer.zIndex}`}
-          resizeMode={layer.resizeMode ?? 'contain'}
-          source={layer.sources[avatarPreset]}
-          style={[
-            styles.avatarLayer,
-            {
-              height: layer.layouts[avatarPreset].height * unit,
-              left: layer.layouts[avatarPreset].left * unit,
-              top: layer.layouts[avatarPreset].top * unit,
-              transform: [{ rotate: pose === 'run' ? '-3deg' : '0deg' }],
-              width: layer.layouts[avatarPreset].width * unit,
-              zIndex: layer.zIndex,
-            },
-          ]}
-        />
-      ))}
-
       <View
         pointerEvents="none"
         style={[
-          styles.faceLayer,
+          styles.avatarCanvas,
           {
-            height: faceLayout.height * unit,
-            left: faceLayout.left * unit,
-            top: faceLayout.top * unit,
+            height,
             transform: [{ rotate: pose === 'run' ? '-3deg' : '0deg' }],
-            width: faceLayout.width * unit,
+            width: size,
           },
         ]}
       >
-        <View
+        <Image
+          resizeMode="contain"
+          source={avatarBase}
           style={[
-            styles.blush,
+            styles.base,
             {
-              height: 7 * unit,
-              left: facePositions.blushInset * unit,
-              top: facePositions.blushTop * unit,
-              width: 15 * unit,
+              height: 296 * unit,
+              left: 18 * unit,
+              top: -7 * unit,
+              width: 184 * unit,
             },
           ]}
         />
-        <View
-          style={[
-            styles.blush,
-            {
-              height: 7 * unit,
-              right: facePositions.blushInset * unit,
-              top: facePositions.blushTop * unit,
-              width: 15 * unit,
-            },
-          ]}
-        />
-        {eyeId === 'round-eyes' ? (
-          <>
-            <View
-              style={[
-                styles.animeEye,
-                {
-                  height: 19 * unit,
-                  left: facePositions.eyeInset * unit,
-                  top: facePositions.roundEyeTop * unit,
-                  width: 15 * unit,
-                },
-              ]}
-            >
-              <View
-                style={[
-                  styles.irisGlow,
-                  { bottom: 1 * unit, height: 7 * unit, left: 2 * unit, width: 11 * unit },
-                ]}
-              />
-              <View
-                style={[
-                  styles.eyeSparkle,
-                  { height: 4 * unit, left: 3 * unit, top: 3 * unit, width: 4 * unit },
-                ]}
-              />
-            </View>
-            <View
-              style={[
-                styles.animeEye,
-                {
-                  height: 19 * unit,
-                  right: facePositions.eyeInset * unit,
-                  top: facePositions.roundEyeTop * unit,
-                  width: 15 * unit,
-                },
-              ]}
-            >
-              <View
-                style={[
-                  styles.irisGlow,
-                  { bottom: 1 * unit, height: 7 * unit, left: 2 * unit, width: 11 * unit },
-                ]}
-              />
-              <View
-                style={[
-                  styles.eyeSparkle,
-                  { height: 4 * unit, left: 3 * unit, top: 3 * unit, width: 4 * unit },
-                ]}
-              />
-            </View>
-          </>
-        ) : (
-          <Text
+
+        {visualLayers.map((layer) => (
+          <Image
+            key={`${layer.sources[avatarPreset]}-${layer.zIndex}`}
+            resizeMode={layer.resizeMode ?? 'contain'}
+            source={layer.sources[avatarPreset]}
             style={[
-              styles.eyes,
-              { fontSize: 12 * unit, top: facePositions.eyeTop * unit },
+              styles.avatarLayer,
+              {
+                height: layer.layouts[avatarPreset].height * unit,
+                left: layer.layouts[avatarPreset].left * unit,
+                top: layer.layouts[avatarPreset].top * unit,
+                width: layer.layouts[avatarPreset].width * unit,
+                zIndex: layer.zIndex,
+              },
+            ]}
+          />
+        ))}
+
+        <View
+          pointerEvents="none"
+          style={[
+            styles.faceLayer,
+            {
+              height: faceLayout.height * unit,
+              left: faceLayout.left * unit,
+              top: faceLayout.top * unit,
+              width: faceLayout.width * unit,
+            },
+          ]}
+        >
+          <View
+            style={[
+              styles.blush,
+              {
+                height: 7 * unit,
+                left: facePositions.blushInset * unit,
+                top: facePositions.blushTop * unit,
+                width: 15 * unit,
+              },
+            ]}
+          />
+          <View
+            style={[
+              styles.blush,
+              {
+                height: 7 * unit,
+                right: facePositions.blushInset * unit,
+                top: facePositions.blushTop * unit,
+                width: 15 * unit,
+              },
+            ]}
+          />
+          <FaceEye
+            eyeId={eyeId}
+            inset={facePositions.eyeInset}
+            roundTop={facePositions.roundEyeTop}
+            side="left"
+            symbolTop={facePositions.symbolEyeTop}
+            unit={unit}
+          />
+          <FaceEye
+            eyeId={eyeId}
+            inset={facePositions.eyeInset}
+            roundTop={facePositions.roundEyeTop}
+            side="right"
+            symbolTop={facePositions.symbolEyeTop}
+            unit={unit}
+          />
+          <FaceNose noseId={noseId} top={facePositions.noseTop} unit={unit} />
+          <FaceMouth mouthId={mouthId} top={facePositions.mouthTop} unit={unit} />
+        </View>
+
+        {decorations.map((item) => (
+          <Text
+            key={item.id}
+            style={[
+              styles.decoration,
+              decorationPosition(item.slot, unit),
+              { fontSize: (item.slot === 'watch' ? 18 : 29) * unit },
             ]}
           >
-            {EYE_GLYPHS[eyeId] ?? EYE_GLYPHS['round-eyes']}
+            {item.icon}
           </Text>
-        )}
-        <Text
+        ))}
+      </View>
+    </View>
+  );
+}
+
+function FaceEye({
+  eyeId,
+  inset,
+  roundTop,
+  side,
+  symbolTop,
+  unit,
+}: {
+  eyeId: string;
+  inset: number;
+  roundTop: number;
+  side: 'left' | 'right';
+  symbolTop: number;
+  unit: number;
+}) {
+  const horizontalPosition: ViewStyle = side === 'left' ? { left: inset * unit } : { right: inset * unit };
+
+  if (eyeId === 'round-eyes') {
+    return (
+      <View
+        style={[styles.animeEye, horizontalPosition, { height: 19 * unit, top: roundTop * unit, width: 15 * unit }]}
+      >
+        <View style={[styles.irisGlow, { bottom: 1 * unit, height: 7 * unit, left: 2 * unit, width: 11 * unit }]} />
+        <View style={[styles.eyeHighlight, { height: 4 * unit, left: 3 * unit, top: 3 * unit, width: 4 * unit }]} />
+      </View>
+    );
+  }
+
+  if (eyeId === 'sparkle-eyes') {
+    return (
+      <View
+        style={[styles.sparkleEye, horizontalPosition, { height: 15 * unit, top: symbolTop * unit, width: 15 * unit }]}
+      >
+        <View style={[styles.sparkleEyeVertical, { height: 15 * unit, left: 6 * unit, width: 3 * unit }]} />
+        <View style={[styles.sparkleEyeHorizontal, { height: 3 * unit, top: 6 * unit, width: 15 * unit }]} />
+        <View style={[styles.eyeHighlight, { height: 3 * unit, left: 4 * unit, top: 3 * unit, width: 3 * unit }]} />
+      </View>
+    );
+  }
+
+  return (
+    <View
+      style={[
+        eyeId === 'smiley-eyes' ? styles.smileyEye : styles.sleepyEye,
+        horizontalPosition,
+        {
+          height: (eyeId === 'smiley-eyes' ? 8 : 2) * unit,
+          top: (symbolTop + (eyeId === 'smiley-eyes' ? 3 : 6)) * unit,
+          width: (eyeId === 'smiley-eyes' ? 16 : 15) * unit,
+        },
+        eyeId === 'smiley-eyes' && {
+          borderRadius: 8 * unit,
+          borderTopWidth: 2 * unit,
+        },
+      ]}
+    />
+  );
+}
+
+function FaceNose({ noseId, top, unit }: { noseId: string; top: number; unit: number }) {
+  return (
+    <View style={[styles.featureAnchor, { height: 8 * unit, top: top * unit }]}>
+      {noseId === 'peach-nose' ? (
+        <View
           style={[
-            styles.nose,
-            noseId === 'leaf-nose' && styles.noseLeaf,
-            noseId === 'peach-nose' && styles.nosePeach,
-            { fontSize: 8 * unit, top: facePositions.noseTop * unit },
-          ]}
-        >
-          {NOSE_GLYPHS[noseId] ?? NOSE_GLYPHS['bean-nose']}
-        </Text>
-        <Text
-          style={[
-            styles.mouth,
+            styles.peachNose,
             {
-              fontSize: (mouthId === 'surprised-mouth' ? 9 : 12) * unit,
-              top: facePositions.mouthTop * unit,
+              borderLeftWidth: 4 * unit,
+              borderRightWidth: 4 * unit,
+              borderTopWidth: 6 * unit,
             },
           ]}
-        >
-          {MOUTH_GLYPHS[mouthId] ?? MOUTH_GLYPHS['soft-smile']}
-        </Text>
-      </View>
-
-      {decorations.map((item) => (
-        <Text
-          key={item.id}
+        />
+      ) : (
+        <View
           style={[
-            styles.decoration,
-            decorationPosition(item.slot, unit),
-            { fontSize: (item.slot === 'watch' ? 18 : 29) * unit },
+            noseId === 'button-nose' ? styles.buttonNose : noseId === 'leaf-nose' ? styles.leafNose : styles.beanNose,
+            {
+              height: (noseId === 'button-nose' ? 6 : noseId === 'leaf-nose' ? 5 : 4) * unit,
+              width: (noseId === 'button-nose' ? 6 : noseId === 'leaf-nose' ? 7 : 5) * unit,
+            },
           ]}
-        >
-          {item.icon}
-        </Text>
-      ))}
+        />
+      )}
+    </View>
+  );
+}
+
+function FaceMouth({ mouthId, top, unit }: { mouthId: string; top: number; unit: number }) {
+  return (
+    <View style={[styles.featureAnchor, { height: 10 * unit, top: top * unit }]}>
+      {mouthId === 'cat-mouth' ? (
+        <View style={styles.catMouth}>
+          <View style={[styles.catMouthArc, { borderBottomWidth: 2 * unit, height: 6 * unit, width: 8 * unit }]} />
+          <View style={[styles.catMouthArc, { borderBottomWidth: 2 * unit, height: 6 * unit, width: 8 * unit }]} />
+        </View>
+      ) : mouthId === 'open-smile' ? (
+        <View style={[styles.openMouth, { height: 8 * unit, marginTop: 2 * unit, width: 12 * unit }]}>
+          <View
+            style={[styles.openMouthHighlight, { bottom: 1 * unit, height: 3 * unit, left: 2 * unit, width: 8 * unit }]}
+          />
+        </View>
+      ) : mouthId === 'surprised-mouth' ? (
+        <View
+          style={[
+            styles.surprisedMouth,
+            { borderWidth: 2 * unit, height: 8 * unit, marginTop: 2 * unit, width: 7 * unit },
+          ]}
+        />
+      ) : (
+        <View style={[styles.softSmile, { borderBottomWidth: 2 * unit, height: 6 * unit, width: 14 * unit }]} />
+      )}
     </View>
   );
 }
@@ -386,6 +433,11 @@ function decorationPosition(slot: ItemSlot, unit: number): ViewStyle {
 }
 
 const styles = StyleSheet.create({
+  avatarCanvas: {
+    left: 0,
+    position: 'absolute',
+    top: 0,
+  },
   base: {
     position: 'absolute',
     zIndex: 0,
@@ -403,18 +455,6 @@ const styles = StyleSheet.create({
     opacity: 0.42,
     position: 'absolute',
   },
-  eyes: {
-    color: '#783C52',
-    fontWeight: '900',
-    left: 0,
-    letterSpacing: 3,
-    position: 'absolute',
-    right: 0,
-    textAlign: 'center',
-    textShadowColor: 'rgba(255,255,255,0.65)',
-    textShadowOffset: { height: 0, width: 0 },
-    textShadowRadius: 2,
-  },
   animeEye: {
     backgroundColor: '#71354F',
     borderColor: '#4D283B',
@@ -429,32 +469,89 @@ const styles = StyleSheet.create({
     opacity: 0.85,
     position: 'absolute',
   },
-  eyeSparkle: {
+  eyeHighlight: {
     backgroundColor: '#FFFFFF',
     borderRadius: 999,
     position: 'absolute',
   },
-  nose: {
-    color: '#B9665B',
-    fontWeight: '900',
+  sparkleEye: {
+    position: 'absolute',
+  },
+  sparkleEyeVertical: {
+    backgroundColor: '#783C52',
+    borderRadius: 999,
+    position: 'absolute',
+    top: 0,
+  },
+  sparkleEyeHorizontal: {
+    backgroundColor: '#783C52',
+    borderRadius: 999,
+    left: 0,
+    position: 'absolute',
+  },
+  smileyEye: {
+    borderColor: '#783C52',
+    position: 'absolute',
+  },
+  sleepyEye: {
+    backgroundColor: '#783C52',
+    borderRadius: 999,
+    position: 'absolute',
+  },
+  featureAnchor: {
+    alignItems: 'center',
     left: 0,
     position: 'absolute',
     right: 0,
-    textAlign: 'center',
   },
-  noseLeaf: {
-    color: '#39966E',
+  beanNose: {
+    backgroundColor: '#B9665B',
+    borderRadius: 999,
   },
-  nosePeach: {
-    color: '#E77965',
+  peachNose: {
+    borderLeftColor: 'transparent',
+    borderRightColor: 'transparent',
+    borderTopColor: '#E77965',
+    height: 0,
+    width: 0,
   },
-  mouth: {
-    color: '#A95061',
-    fontWeight: '900',
-    left: 0,
+  buttonNose: {
+    backgroundColor: '#B9665B',
+    borderColor: '#91483F',
+    borderRadius: 999,
+    borderWidth: 1,
+  },
+  leafNose: {
+    backgroundColor: '#39966E',
+    borderBottomLeftRadius: 5,
+    borderTopRightRadius: 5,
+    transform: [{ rotate: '-28deg' }],
+  },
+  softSmile: {
+    borderBottomColor: '#A95061',
+    borderRadius: 999,
+  },
+  catMouth: {
+    flexDirection: 'row',
+  },
+  catMouthArc: {
+    borderBottomColor: '#A95061',
+    borderRadius: 999,
+  },
+  openMouth: {
+    backgroundColor: '#A95061',
+    borderColor: '#7D3A48',
+    borderRadius: 999,
+    borderWidth: 1,
+  },
+  openMouthHighlight: {
+    backgroundColor: '#F49AAA',
+    borderRadius: 999,
     position: 'absolute',
-    right: 0,
-    textAlign: 'center',
+  },
+  surprisedMouth: {
+    borderColor: '#A95061',
+    borderRadius: 999,
   },
   decoration: {
     position: 'absolute',

@@ -747,7 +747,7 @@
       .anime-face-layer {
         position: absolute;
         z-index: 6;
-        top: 65px;
+        top: 68px;
         left: 78px;
         display: block;
         width: 72px;
@@ -762,23 +762,19 @@
       }
 
       .anime-face-layer[data-preset='mori'] .anime-blush {
-        top: 29px;
+        top: 28px;
       }
 
       .anime-face-layer[data-preset='mori'] .anime-blush.left {
-        left: 9px;
+        left: 10px;
       }
 
       .anime-face-layer[data-preset='mori'] .anime-blush.right {
-        right: 9px;
-      }
-
-      .anime-face-layer[data-preset='mori'] .anime-eyes {
-        top: 15px;
+        right: 10px;
       }
 
       .anime-face-layer[data-preset='mori'] .anime-round-eye {
-        top: 11px;
+        top: 13px;
       }
 
       .anime-face-layer[data-preset='mori'] .anime-round-eye.left {
@@ -789,17 +785,37 @@
         right: 16px;
       }
 
-      .anime-face-layer[data-preset='mori'] .anime-nose {
-        top: 26px;
+      .anime-face-layer[data-preset='mori'] .anime-eye-shape {
+        top: 16px;
       }
 
-      .anime-face-layer[data-preset='mori'] .anime-mouth {
-        top: 29px;
+      .anime-face-layer[data-preset='mori'] .anime-eye-shape[data-face='smiley-eyes'] {
+        top: 19px;
+      }
+
+      .anime-face-layer[data-preset='mori'] .anime-eye-shape[data-face='sleepy-eyes'] {
+        top: 22px;
+      }
+
+      .anime-face-layer[data-preset='mori'] .anime-eye-shape.left {
+        left: 16px;
+      }
+
+      .anime-face-layer[data-preset='mori'] .anime-eye-shape.right {
+        right: 16px;
+      }
+
+      .anime-face-layer[data-preset='mori'] .anime-nose-shape {
+        top: 27px;
+      }
+
+      .anime-face-layer[data-preset='mori'] .anime-mouth-shape {
+        top: 30px;
       }
 
       .anime-blush {
         position: absolute;
-        top: 30px;
+        top: 29px;
         width: 15px;
         height: 7px;
         border-radius: 50%;
@@ -807,41 +823,21 @@
       }
 
       .anime-blush.left {
-        left: 7px;
+        left: 10px;
       }
 
       .anime-blush.right {
-        right: 7px;
+        right: 10px;
       }
 
-      .anime-eyes,
-      .anime-nose,
-      .anime-mouth {
+      .anime-round-eye,
+      .anime-eye-shape {
         position: absolute;
-        right: 0;
-        left: 0;
         display: block;
-        font-weight: 900;
-        line-height: 1;
-        text-align: center;
-      }
-
-      .anime-eyes {
-        top: 18px;
-        color: #783c52;
-        font-size: 12px;
-        letter-spacing: 3px;
-        text-shadow: 0 0 2px rgba(255, 255, 255, 0.65);
-      }
-
-      .anime-eyes:not([data-face='round-eyes']) {
-        font-size: 12px;
       }
 
       .anime-round-eye {
-        position: absolute;
         top: 14px;
-        display: block;
         width: 15px;
         height: 19px;
         overflow: hidden;
@@ -851,11 +847,11 @@
       }
 
       .anime-round-eye.left {
-        left: 12px;
+        left: 14px;
       }
 
       .anime-round-eye.right {
-        right: 12px;
+        right: 14px;
       }
 
       .anime-iris-glow {
@@ -870,7 +866,7 @@
         opacity: 0.85;
       }
 
-      .anime-eye-sparkle {
+      .anime-eye-highlight {
         position: absolute;
         top: 3px;
         left: 3px;
@@ -881,28 +877,170 @@
         background: #fff;
       }
 
-      .anime-nose {
-        top: 30px;
-        color: #b9665b;
-        font-size: 8px;
+      .anime-eye-shape {
+        top: 17px;
+        width: 15px;
+        height: 15px;
       }
 
-      .anime-mouth {
-        top: 34px;
-        color: #a95061;
-        font-size: 12px;
+      .anime-eye-shape.left {
+        left: 14px;
       }
 
-      .anime-mouth[data-face='surprised-mouth'] {
-        font-size: 9px;
+      .anime-eye-shape.right {
+        right: 14px;
       }
 
-      .anime-nose[data-face='leaf-nose'] {
-        color: #39966e;
+      .anime-eye-shape[data-face='sparkle-eyes'] i,
+      .anime-eye-shape[data-face='sparkle-eyes'] b {
+        position: absolute;
+        display: block;
+        border-radius: 999px;
       }
 
-      .anime-nose[data-face='peach-nose'] {
-        color: #e77965;
+      .anime-eye-shape[data-face='sparkle-eyes'] i:first-child {
+        top: 0;
+        left: 6px;
+        width: 3px;
+        height: 15px;
+        background: #783c52;
+      }
+
+      .anime-eye-shape[data-face='sparkle-eyes'] i:nth-child(2) {
+        top: 6px;
+        left: 0;
+        width: 15px;
+        height: 3px;
+        background: #783c52;
+      }
+
+      .anime-eye-shape[data-face='sparkle-eyes'] b {
+        top: 3px;
+        left: 4px;
+        width: 3px;
+        height: 3px;
+        background: #fff;
+      }
+
+      .anime-eye-shape[data-face='smiley-eyes'] {
+        top: 20px;
+        width: 16px;
+        height: 8px;
+        border-top: 2px solid #783c52;
+        border-radius: 50%;
+      }
+
+      .anime-eye-shape[data-face='sleepy-eyes'] {
+        top: 23px;
+        height: 2px;
+        border-radius: 999px;
+        background: #783c52;
+      }
+
+      .anime-feature-anchor {
+        position: absolute;
+        right: 0;
+        left: 0;
+        display: flex;
+        justify-content: center;
+      }
+
+      .anime-nose-shape {
+        top: 29px;
+        height: 8px;
+      }
+
+      .anime-nose-shape i {
+        display: block;
+      }
+
+      .anime-nose-shape[data-face='bean-nose'] i {
+        width: 5px;
+        height: 4px;
+        border-radius: 999px;
+        background: #b9665b;
+      }
+
+      .anime-nose-shape[data-face='peach-nose'] i {
+        width: 0;
+        height: 0;
+        border-top: 6px solid #e77965;
+        border-right: 4px solid transparent;
+        border-left: 4px solid transparent;
+      }
+
+      .anime-nose-shape[data-face='button-nose'] i {
+        width: 6px;
+        height: 6px;
+        border: 1px solid #91483f;
+        border-radius: 50%;
+        background: #b9665b;
+      }
+
+      .anime-nose-shape[data-face='leaf-nose'] i {
+        width: 7px;
+        height: 5px;
+        border-radius: 0 5px 0 5px;
+        background: #39966e;
+        transform: rotate(-28deg);
+      }
+
+      .anime-mouth-shape {
+        top: 32px;
+        height: 10px;
+      }
+
+      .anime-mouth-shape > i,
+      .anime-mouth-shape > span {
+        display: block;
+      }
+
+      .anime-mouth-shape[data-face='soft-smile'] > i {
+        width: 14px;
+        height: 6px;
+        border-bottom: 2px solid #a95061;
+        border-radius: 50%;
+      }
+
+      .anime-mouth-shape[data-face='cat-mouth'] > span {
+        display: flex;
+      }
+
+      .anime-mouth-shape[data-face='cat-mouth'] i {
+        width: 8px;
+        height: 6px;
+        border-bottom: 2px solid #a95061;
+        border-radius: 50%;
+      }
+
+      .anime-mouth-shape[data-face='open-smile'] > i {
+        position: relative;
+        width: 12px;
+        height: 8px;
+        margin-top: 2px;
+        overflow: hidden;
+        border: 1px solid #7d3a48;
+        border-radius: 50%;
+        background: #a95061;
+      }
+
+      .anime-mouth-shape[data-face='open-smile'] b {
+        position: absolute;
+        bottom: 1px;
+        left: 2px;
+        display: block;
+        width: 8px;
+        height: 3px;
+        border-radius: 50%;
+        background: #f49aaa;
+      }
+
+      .anime-mouth-shape[data-face='surprised-mouth'] > i {
+        width: 7px;
+        height: 8px;
+        margin-top: 2px;
+        border: 2px solid #a95061;
+        border-radius: 50%;
       }
 
       .forest-stem {
@@ -3168,32 +3306,33 @@
           avatarPreset === 'mori'
             ? '../assets/avatar/lumi-anime-boy-base-v2.png'
             : '../assets/avatar/lumi-anime-base-v1.png';
-        const eyeId = state.equipped.eyes || 'round-eyes';
-        const noseId = state.equipped.nose || 'bean-nose';
-        const mouthId = state.equipped.mouth || 'soft-smile';
-        const eyeGlyphs = {
-          'round-eyes': '●  ●',
-          'sparkle-eyes': '✦  ✦',
-          'smiley-eyes': '⌒  ⌒',
-          'sleepy-eyes': '—  —',
-        };
-        const noseGlyphs = {
-          'bean-nose': '•',
-          'peach-nose': '▼',
-          'button-nose': '●',
-          'leaf-nose': '◆',
-        };
-        const mouthGlyphs = {
-          'soft-smile': '⌣',
-          'cat-mouth': 'ω',
-          'open-smile': '▽',
-          'surprised-mouth': '○',
-        };
-        const eyeMarkup =
-          eyeId === 'round-eyes'
-            ? `<span class="anime-round-eye left"><span class="anime-iris-glow"></span><span class="anime-eye-sparkle"></span></span>
-               <span class="anime-round-eye right"><span class="anime-iris-glow"></span><span class="anime-eye-sparkle"></span></span>`
-            : `<span class="anime-eyes" data-face="${eyeId}">${eyeGlyphs[eyeId] || eyeGlyphs['round-eyes']}</span>`;
+        const eyeId = ['round-eyes', 'sparkle-eyes', 'smiley-eyes', 'sleepy-eyes'].includes(state.equipped.eyes)
+          ? state.equipped.eyes
+          : 'round-eyes';
+        const noseId = ['bean-nose', 'peach-nose', 'button-nose', 'leaf-nose'].includes(state.equipped.nose)
+          ? state.equipped.nose
+          : 'bean-nose';
+        const mouthId = ['soft-smile', 'cat-mouth', 'open-smile', 'surprised-mouth'].includes(state.equipped.mouth)
+          ? state.equipped.mouth
+          : 'soft-smile';
+        const eyeMarkup = ['left', 'right']
+          .map((side) => {
+            if (eyeId === 'round-eyes') {
+              return `<span class="anime-round-eye ${side}"><span class="anime-iris-glow"></span><span class="anime-eye-highlight"></span></span>`;
+            }
+            if (eyeId === 'sparkle-eyes') {
+              return `<span class="anime-eye-shape ${side}" data-face="${eyeId}"><i></i><i></i><b></b></span>`;
+            }
+            return `<span class="anime-eye-shape ${side}" data-face="${eyeId}"></span>`;
+          })
+          .join('');
+        const noseMarkup = `<span class="anime-feature-anchor anime-nose-shape" data-face="${noseId}"><i></i></span>`;
+        const mouthMarkup =
+          mouthId === 'cat-mouth'
+            ? `<span class="anime-feature-anchor anime-mouth-shape" data-face="${mouthId}"><span><i></i><i></i></span></span>`
+            : mouthId === 'open-smile'
+              ? `<span class="anime-feature-anchor anime-mouth-shape" data-face="${mouthId}"><i><b></b></i></span>`
+              : `<span class="anime-feature-anchor anime-mouth-shape" data-face="${mouthId}"><i></i></span>`;
         const layerMarkup = ['bottom', 'shoes', 'top', 'hair']
           .map((slot) => state.equipped[slot])
           .filter((itemId) => avatarLayerAssets[itemId])
@@ -3212,8 +3351,8 @@
             <span class="anime-face-layer" data-preset="${avatarPreset}">
               <span class="anime-blush left"></span><span class="anime-blush right"></span>
               ${eyeMarkup}
-              <span class="anime-nose" data-face="${noseId}">${noseGlyphs[noseId] || noseGlyphs['bean-nose']}</span>
-              <span class="anime-mouth" data-face="${mouthId}">${mouthGlyphs[mouthId] || mouthGlyphs['soft-smile']}</span>
+              ${noseMarkup}
+              ${mouthMarkup}
             </span>
           </div>`;
         slots.forEach((slot) => {

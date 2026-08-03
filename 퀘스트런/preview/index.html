@@ -607,6 +607,7 @@
 
       .anime-avatar-base {
         position: absolute;
+        z-index: 0;
         top: -7px;
         left: 18px;
         display: block;
@@ -615,10 +616,50 @@
         object-fit: contain;
       }
 
+      .anime-avatar-layer {
+        position: absolute;
+        display: block;
+        object-fit: contain;
+        pointer-events: none;
+      }
+
+      .anime-avatar-layer[data-item='berry-leggings'] {
+        z-index: 1;
+        top: 164px;
+        left: 42px;
+        width: 135px;
+        height: 90px;
+      }
+
+      .anime-avatar-layer[data-item='star-sneakers'] {
+        z-index: 2;
+        top: 184px;
+        left: 70px;
+        width: 83px;
+        height: 126px;
+      }
+
+      .anime-avatar-layer[data-item='cloud-hoodie'] {
+        z-index: 3;
+        top: 62px;
+        left: 51px;
+        width: 117px;
+        height: 181px;
+      }
+
+      .anime-avatar-layer[data-item='plum-twintail'] {
+        z-index: 4;
+        top: -23px;
+        left: 48px;
+        width: 134px;
+        height: 240px;
+      }
+
       .anime-face-layer {
         position: absolute;
-        top: 67px;
-        left: 74px;
+        z-index: 6;
+        top: 68px;
+        left: 75px;
         display: block;
         width: 72px;
         height: 57px;
@@ -2320,12 +2361,14 @@
 
     <script>
       const STORAGE_KEY = 'quest-run-style-demo-v3';
-      const slots = ['eyes', 'nose', 'mouth', 'head', 'top', 'bottom', 'shoes', 'glasses', 'bag', 'watch'];
+      const SHOWCASE_LOOK = new URLSearchParams(window.location.search).get('look') === 'showcase';
+      const slots = ['eyes', 'nose', 'mouth', 'hair', 'head', 'top', 'bottom', 'shoes', 'glasses', 'bag', 'watch'];
       const slotLabels = {
         eyes: '눈',
         nose: '코',
         mouth: '입',
-        head: '머리',
+        hair: '헤어스타일',
+        head: '머리장식',
         top: '상의',
         bottom: '하의',
         shoes: '신발',
@@ -2365,14 +2408,24 @@
           description: '달리기 전에도 기분 좋아지는 기본 미소',
         },
         {
-          id: 'mint-cap',
-          name: '민트 러닝 캡',
-          slot: 'head',
+          id: 'chestnut-ponytail',
+          name: '밤색 웨이브 포니테일',
+          slot: 'hair',
           rarity: '일반',
-          icon: '🧢',
+          icon: '🤎',
           price: 0,
           source: 'starter',
-          description: '루미의 첫 러닝을 함께하는 산뜻한 기본 모자',
+          description: '새싹 핀과 잘 어울리는 루미의 기본 웨이브 포니테일',
+        },
+        {
+          id: 'mint-cap',
+          name: '새싹 러닝 핀',
+          slot: 'head',
+          rarity: '일반',
+          icon: '🌱',
+          price: 0,
+          source: 'starter',
+          description: '루미의 첫 러닝을 함께하는 산뜻한 기본 머리장식',
         },
         {
           id: 'mint-hoodie',
@@ -2425,6 +2478,16 @@
           description: '달리는 리듬을 더 신나게 만들어 주는 헤드폰',
         },
         {
+          id: 'plum-twintail',
+          name: '플럼 리본 트윈테일',
+          slot: 'hair',
+          rarity: '희귀',
+          icon: '🎀',
+          price: 460,
+          source: 'shop',
+          description: '코랄 리본으로 묶은 풍성한 자주빛 트윈테일',
+        },
+        {
           id: 'cloud-hoodie',
           name: '구름 후디',
           slot: 'top',
@@ -2443,6 +2506,16 @@
           price: 680,
           source: 'shop',
           description: '노을빛 그라데이션을 담은 특별한 바람막이',
+        },
+        {
+          id: 'berry-leggings',
+          name: '베리 러닝 팬츠',
+          slot: 'bottom',
+          rarity: '희귀',
+          icon: '🟣',
+          price: 390,
+          source: 'shop',
+          description: '탄력 있는 보랏빛 러닝 팬츠',
         },
         {
           id: 'star-sneakers',
@@ -2646,6 +2719,13 @@
         },
       ];
 
+      const avatarLayerAssets = {
+        'berry-leggings': '../assets/avatar/layers/bottom-berry-leggings-v1.png',
+        'star-sneakers': '../assets/avatar/layers/shoes-star-v1.png',
+        'cloud-hoodie': '../assets/avatar/layers/top-cloud-hoodie-v1.png',
+        'plum-twintail': '../assets/avatar/layers/hair-plum-twintail-v1.png',
+      };
+
       const initialState = {
         coins: 1240,
         level: 7,
@@ -2663,11 +2743,12 @@
         groupMode: 'group',
         groupClaimed: false,
         soloAchievement: false,
-        unlockedSlots: ['eyes', 'nose', 'mouth', 'head', 'top', 'bottom', 'shoes'],
+        unlockedSlots: ['eyes', 'nose', 'mouth', 'hair', 'head', 'top', 'bottom', 'shoes'],
         owned: [
           'round-eyes',
           'bean-nose',
           'soft-smile',
+          'chestnut-ponytail',
           'mint-cap',
           'mint-hoodie',
           'navy-shorts',
@@ -2677,6 +2758,7 @@
           eyes: 'round-eyes',
           nose: 'bean-nose',
           mouth: 'soft-smile',
+          hair: 'chestnut-ponytail',
           head: 'mint-cap',
           top: 'mint-hoodie',
           bottom: 'navy-shorts',
@@ -2746,6 +2828,26 @@
       let completedRunDistance = 0;
 
       function loadState() {
+        if (SHOWCASE_LOOK) {
+          return {
+            ...initialState,
+            owned: [
+              ...initialState.owned,
+              'plum-twintail',
+              'cloud-hoodie',
+              'berry-leggings',
+              'star-sneakers',
+            ],
+            equipped: {
+              ...initialState.equipped,
+              hair: 'plum-twintail',
+              top: 'cloud-hoodie',
+              bottom: 'berry-leggings',
+              shoes: 'star-sneakers',
+            },
+          };
+        }
+
         try {
           const saved = JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}');
           return {
@@ -2762,6 +2864,7 @@
       }
 
       function saveState() {
+        if (SHOWCASE_LOOK) return;
         localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
       }
 
@@ -2800,10 +2903,19 @@
             ? `<span class="anime-round-eye left"><span class="anime-iris-glow"></span><span class="anime-eye-sparkle"></span></span>
                <span class="anime-round-eye right"><span class="anime-iris-glow"></span><span class="anime-eye-sparkle"></span></span>`
             : `<span class="anime-eyes" data-face="${eyeId}">${eyeGlyphs[eyeId] || eyeGlyphs['round-eyes']}</span>`;
+        const layerMarkup = ['bottom', 'shoes', 'top', 'hair']
+          .map((slot) => state.equipped[slot])
+          .filter((itemId) => avatarLayerAssets[itemId])
+          .map(
+            (itemId) =>
+              `<img class="anime-avatar-layer" data-item="${itemId}" src="${avatarLayerAssets[itemId]}" alt="" aria-hidden="true" />`
+          )
+          .join('');
 
         container.innerHTML = `
-          <div class="forest-avatar" role="img" aria-label="애니메이션 일러스트 스타일의 새싹 러너 루미. 눈, 코, 입과 러닝 아이템을 꾸밀 수 있습니다.">
+          <div class="forest-avatar" role="img" aria-label="애니메이션 일러스트 스타일의 새싹 러너 루미. 얼굴, 헤어스타일과 러닝 아이템을 꾸밀 수 있습니다.">
             <img class="anime-avatar-base" src="../assets/avatar/lumi-anime-base-v1.png" alt="" aria-hidden="true" />
+            ${layerMarkup}
             <span class="anime-face-layer">
               <span class="anime-blush left"></span><span class="anime-blush right"></span>
               ${eyeMarkup}
@@ -2813,7 +2925,12 @@
           </div>`;
         slots.forEach((slot) => {
           const item = itemById(state.equipped[slot]);
-          if (item && item.source !== 'starter' && !['eyes', 'nose', 'mouth'].includes(slot)) {
+          if (
+            item &&
+            item.source !== 'starter' &&
+            !avatarLayerAssets[item.id] &&
+            !['eyes', 'nose', 'mouth'].includes(slot)
+          ) {
             container.insertAdjacentHTML(
               'beforeend',
               `<span class="wearable" data-slot="${slot}" aria-hidden="true">${item.icon}</span>`
@@ -2851,7 +2968,7 @@
         document.querySelectorAll('[data-avatar]').forEach(renderAvatar);
 
         const head = itemById(state.equipped.head);
-        document.querySelector('[data-head-icon]').textContent = head?.icon || '🧢';
+        document.querySelector('[data-head-icon]').textContent = head?.icon || '🌱';
         document.querySelector('[data-head-name]').textContent = head?.name || '기본 러닝 스타일';
         document.querySelector('[data-outfit-names]').textContent =
           slots
@@ -2872,7 +2989,8 @@
           ['eyes', '눈'],
           ['nose', '코'],
           ['mouth', '입'],
-          ['head', '머리'],
+          ['hair', '헤어'],
+          ['head', '머리장식'],
           ['top', '상의'],
           ['bottom', '하의'],
           ['shoes', '신발'],

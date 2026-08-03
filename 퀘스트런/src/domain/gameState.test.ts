@@ -91,6 +91,21 @@ describe('게임 상태', () => {
     expect(equipped.equippedItemIds.eyes).toBe('sparkle-eyes');
   });
 
+  it('헤어·상의·하의·신발을 각각 구매하고 실제 슬롯에 착용한다', () => {
+    const itemIds = ['plum-twintail', 'cloud-hoodie', 'berry-leggings', 'star-sneakers'];
+    const purchased = itemIds.reduce(purchaseItem, { ...BASE_STATE, styleCoins: 3_000 });
+    const equipped = itemIds.reduce(equipItem, purchased);
+
+    expect(equipped.equippedItemIds).toEqual(
+      expect.objectContaining({
+        hair: 'plum-twintail',
+        top: 'cloud-hoodie',
+        bottom: 'berry-leggings',
+        shoes: 'star-sneakers',
+      })
+    );
+  });
+
   it('보유하지 않은 아이템은 착용할 수 없다', () => {
     expect(equipItem(BASE_STATE, 'rainbow-trail')).toBe(BASE_STATE);
   });
@@ -152,6 +167,7 @@ describe('게임 상태', () => {
         'round-eyes',
         'bean-nose',
         'soft-smile',
+        'chestnut-ponytail',
         'mint-cap',
         'mint-hoodie',
         'navy-shorts',
@@ -159,7 +175,7 @@ describe('게임 상태', () => {
       ])
     );
     expect(migrated.unlockedSlotIds).toEqual(
-      expect.arrayContaining(['eyes', 'nose', 'mouth', 'head', 'top', 'bottom', 'shoes'])
+      expect.arrayContaining(['eyes', 'nose', 'mouth', 'hair', 'head', 'top', 'bottom', 'shoes'])
     );
     expect(migrated.equippedItemIds).toEqual(
       expect.objectContaining({

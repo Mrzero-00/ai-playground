@@ -1,6 +1,18 @@
 import React from 'react';
-import { Image, StyleSheet, Text, View, type StyleProp, type ViewStyle } from 'react-native';
+import {
+  Image,
+  StyleSheet,
+  Text,
+  View,
+  type ImageSourcePropType,
+  type StyleProp,
+  type ViewStyle,
+} from 'react-native';
 import lumiAnimeBase from '../../assets/avatar/lumi-anime-base-v1.png';
+import berryLeggingsLayer from '../../assets/avatar/layers/bottom-berry-leggings-v1.png';
+import plumTwintailLayer from '../../assets/avatar/layers/hair-plum-twintail-v1.png';
+import starSneakersLayer from '../../assets/avatar/layers/shoes-star-v1.png';
+import cloudHoodieLayer from '../../assets/avatar/layers/top-cloud-hoodie-v1.png';
 import { getItemById, type GameItem, type ItemSlot } from '../domain/game';
 
 interface RunnerAvatarProps {
@@ -11,6 +23,52 @@ interface RunnerAvatarProps {
 }
 
 const FACE_SLOTS: ItemSlot[] = ['eyes', 'nose', 'mouth'];
+
+interface AvatarLayerConfig {
+  height: number;
+  left: number;
+  source: ImageSourcePropType;
+  top: number;
+  width: number;
+  zIndex: number;
+}
+
+const AVATAR_LAYERS: Record<string, AvatarLayerConfig> = {
+  'berry-leggings': {
+    height: 90,
+    left: 42,
+    source: berryLeggingsLayer,
+    top: 164,
+    width: 135,
+    zIndex: 1,
+  },
+  'star-sneakers': {
+    height: 126,
+    left: 70,
+    source: starSneakersLayer,
+    top: 184,
+    width: 83,
+    zIndex: 2,
+  },
+  'cloud-hoodie': {
+    height: 181,
+    left: 51,
+    source: cloudHoodieLayer,
+    top: 62,
+    width: 117,
+    zIndex: 3,
+  },
+  'plum-twintail': {
+    height: 240,
+    left: 48,
+    source: plumTwintailLayer,
+    top: -23,
+    width: 134,
+    zIndex: 4,
+  },
+};
+
+const LAYER_SLOT_ORDER: ItemSlot[] = ['bottom', 'shoes', 'top', 'hair'];
 
 const EYE_GLYPHS: Record<string, string> = {
   'round-eyes': '●  ●',
@@ -47,8 +105,14 @@ export function RunnerAvatar({
   const equippedItems = Object.values(equippedItemIds)
     .map((itemId) => (itemId == null ? undefined : getItemById(itemId)))
     .filter((item): item is GameItem => item != null);
+  const visualLayers = LAYER_SLOT_ORDER.map((slot) => equippedItemIds[slot])
+    .map((itemId) => (itemId == null ? undefined : AVATAR_LAYERS[itemId]))
+    .filter((layer): layer is AvatarLayerConfig => layer != null);
   const decorations = equippedItems.filter(
-    (item) => !FACE_SLOTS.includes(item.slot) && item.source !== 'starter'
+    (item) =>
+      !FACE_SLOTS.includes(item.slot) &&
+      AVATAR_LAYERS[item.id] == null &&
+      item.source !== 'starter'
   );
 
   return (
@@ -71,14 +135,33 @@ export function RunnerAvatar({
         ]}
       />
 
+      {visualLayers.map((layer) => (
+        <Image
+          key={`${layer.source}-${layer.zIndex}`}
+          resizeMode="contain"
+          source={layer.source}
+          style={[
+            styles.avatarLayer,
+            {
+              height: layer.height * unit,
+              left: layer.left * unit,
+              top: layer.top * unit,
+              transform: [{ rotate: pose === 'run' ? '-3deg' : '0deg' }],
+              width: layer.width * unit,
+              zIndex: layer.zIndex,
+            },
+          ]}
+        />
+      ))}
+
       <View
         pointerEvents="none"
         style={[
           styles.faceLayer,
           {
             height: 57 * unit,
-            left: 74 * unit,
-            top: 67 * unit,
+            left: 75 * unit,
+            top: 68 * unit,
             transform: [{ rotate: pose === 'run' ? '-3deg' : '0deg' }],
             width: 72 * unit,
           },
@@ -180,6 +263,7 @@ export function RunnerAvatar({
 
 function decorationPosition(slot: ItemSlot, unit: number): ViewStyle {
   const positions: Partial<Record<ItemSlot, ViewStyle>> = {
+    hair: { left: 91 * unit, top: 18 * unit },
     head: { left: 93 * unit, top: 6 * unit },
     top: { left: 96 * unit, top: 144 * unit },
     bottom: { left: 96 * unit, top: 190 * unit },
@@ -195,9 +279,14 @@ function decorationPosition(slot: ItemSlot, unit: number): ViewStyle {
 const styles = StyleSheet.create({
   base: {
     position: 'absolute',
+    zIndex: 0,
+  },
+  avatarLayer: {
+    position: 'absolute',
   },
   faceLayer: {
     position: 'absolute',
+    zIndex: 6,
   },
   blush: {
     backgroundColor: '#F49AAA',

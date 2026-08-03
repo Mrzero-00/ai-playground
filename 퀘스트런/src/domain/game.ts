@@ -4,6 +4,7 @@ export type ItemSlot =
   | 'eyes'
   | 'nose'
   | 'mouth'
+  | 'hair'
   | 'head'
   | 'top'
   | 'bottom'
@@ -77,7 +78,16 @@ export interface RunnerGrowthStage {
   description: string;
 }
 
-export const BASE_ITEM_SLOTS: ItemSlot[] = ['eyes', 'nose', 'mouth', 'head', 'top', 'bottom', 'shoes'];
+export const BASE_ITEM_SLOTS: ItemSlot[] = [
+  'eyes',
+  'nose',
+  'mouth',
+  'hair',
+  'head',
+  'top',
+  'bottom',
+  'shoes',
+];
 export const EXTRA_ITEM_SLOTS: ItemSlot[] = ['glasses', 'bag', 'watch'];
 export const ALL_ITEM_SLOTS: ItemSlot[] = [...BASE_ITEM_SLOTS, ...EXTRA_ITEM_SLOTS];
 
@@ -85,7 +95,8 @@ export const SLOT_LABELS: Record<ItemSlot, string> = {
   eyes: '눈',
   nose: '코',
   mouth: '입',
-  head: '머리',
+  hair: '헤어스타일',
+  head: '머리장식',
   top: '상의',
   bottom: '하의',
   shoes: '신발',
@@ -224,13 +235,23 @@ export const ITEMS: GameItem[] = [
     source: 'starter',
   },
   {
+    id: 'chestnut-ponytail',
+    name: '밤색 웨이브 포니테일',
+    slot: 'hair',
+    rarity: '일반',
+    icon: '🤎',
+    price: 0,
+    description: '새싹 핀과 잘 어울리는 루미의 기본 웨이브 포니테일',
+    source: 'starter',
+  },
+  {
     id: 'mint-cap',
-    name: '민트 러닝 캡',
+    name: '새싹 러닝 핀',
     slot: 'head',
     rarity: '일반',
-    icon: '🧢',
+    icon: '🌱',
     price: 0,
-    description: '루미의 첫 러닝을 함께하는 산뜻한 기본 모자',
+    description: '루미의 첫 러닝을 함께하는 산뜻한 기본 머리장식',
     source: 'starter',
   },
   {
@@ -281,6 +302,16 @@ export const ITEMS: GameItem[] = [
     icon: '🎧',
     price: 360,
     description: '달리는 리듬을 더 신나게 만들어 주는 헤드폰',
+    source: 'shop',
+  },
+  {
+    id: 'plum-twintail',
+    name: '플럼 리본 트윈테일',
+    slot: 'hair',
+    rarity: '희귀',
+    icon: '🎀',
+    price: 460,
+    description: '코랄 리본으로 묶은 풍성한 자주빛 트윈테일',
     source: 'shop',
   },
   {

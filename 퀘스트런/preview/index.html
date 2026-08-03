@@ -605,6 +605,133 @@
         color: #e77965;
       }
 
+      .anime-avatar-base {
+        position: absolute;
+        top: -7px;
+        left: 18px;
+        display: block;
+        width: 184px;
+        height: 296px;
+        object-fit: contain;
+      }
+
+      .anime-face-layer {
+        position: absolute;
+        top: 67px;
+        left: 74px;
+        display: block;
+        width: 72px;
+        height: 57px;
+      }
+
+      .anime-blush {
+        position: absolute;
+        top: 32px;
+        width: 16px;
+        height: 7px;
+        border-radius: 50%;
+        background: rgba(244, 154, 170, 0.42);
+      }
+
+      .anime-blush.left {
+        left: 3px;
+      }
+
+      .anime-blush.right {
+        right: 3px;
+      }
+
+      .anime-eyes,
+      .anime-nose,
+      .anime-mouth {
+        position: absolute;
+        right: 0;
+        left: 0;
+        display: block;
+        font-weight: 900;
+        line-height: 1;
+        text-align: center;
+      }
+
+      .anime-eyes {
+        top: 10px;
+        color: #783c52;
+        font-size: 15px;
+        letter-spacing: 4px;
+        text-shadow: 0 0 2px rgba(255, 255, 255, 0.65);
+      }
+
+      .anime-eyes:not([data-face='round-eyes']) {
+        font-size: 13px;
+      }
+
+      .anime-round-eye {
+        position: absolute;
+        top: 7px;
+        display: block;
+        width: 16px;
+        height: 20px;
+        overflow: hidden;
+        border: 1px solid #4d283b;
+        border-radius: 50%;
+        background: #71354f;
+      }
+
+      .anime-round-eye.left {
+        left: 9px;
+      }
+
+      .anime-round-eye.right {
+        right: 9px;
+      }
+
+      .anime-iris-glow {
+        position: absolute;
+        bottom: 1px;
+        left: 2px;
+        display: block;
+        width: 12px;
+        height: 8px;
+        border-radius: 50%;
+        background: #df748f;
+        opacity: 0.85;
+      }
+
+      .anime-eye-sparkle {
+        position: absolute;
+        top: 3px;
+        left: 3px;
+        display: block;
+        width: 5px;
+        height: 5px;
+        border-radius: 50%;
+        background: #fff;
+      }
+
+      .anime-nose {
+        top: 28px;
+        color: #b9665b;
+        font-size: 8px;
+      }
+
+      .anime-mouth {
+        top: 39px;
+        color: #a95061;
+        font-size: 13px;
+      }
+
+      .anime-mouth[data-face='surprised-mouth'] {
+        font-size: 10px;
+      }
+
+      .anime-nose[data-face='leaf-nose'] {
+        color: #39966e;
+      }
+
+      .anime-nose[data-face='peach-nose'] {
+        color: #e77965;
+      }
+
       .forest-stem {
         top: 8px;
         left: 107px;
@@ -2668,35 +2795,21 @@
           'open-smile': '▽',
           'surprised-mouth': '○',
         };
+        const eyeMarkup =
+          eyeId === 'round-eyes'
+            ? `<span class="anime-round-eye left"><span class="anime-iris-glow"></span><span class="anime-eye-sparkle"></span></span>
+               <span class="anime-round-eye right"><span class="anime-iris-glow"></span><span class="anime-eye-sparkle"></span></span>`
+            : `<span class="anime-eyes" data-face="${eyeId}">${eyeGlyphs[eyeId] || eyeGlyphs['round-eyes']}</span>`;
 
         container.innerHTML = `
-          <div class="forest-avatar" role="img" aria-label="눈, 코, 입을 꾸밀 수 있는 2.5등신 SD 새싹 러너 루미">
-            <span class="forest-shadow"></span>
-            <span class="forest-leg left"><span class="forest-sock"></span></span>
-            <span class="forest-leg right"><span class="forest-sock"></span></span>
-            <span class="forest-shoe left"><span class="forest-shoe-highlight"></span><span class="forest-sole"></span></span>
-            <span class="forest-shoe right"><span class="forest-shoe-highlight"></span><span class="forest-sole"></span></span>
-            <span class="forest-hood"></span>
-            <span class="forest-arm left"><span class="forest-cuff"></span><span class="forest-hand"></span></span>
-            <span class="forest-arm right"><span class="forest-cuff"></span><span class="forest-hand"></span></span>
-            <span class="forest-body">
-              <span class="forest-collar"></span><span class="forest-shirt-highlight"></span>
-              <span class="forest-drawstring left"></span><span class="forest-drawstring right"></span>
-              <span class="forest-pocket"></span>
+          <div class="forest-avatar" role="img" aria-label="애니메이션 일러스트 스타일의 새싹 러너 루미. 눈, 코, 입과 러닝 아이템을 꾸밀 수 있습니다.">
+            <img class="anime-avatar-base" src="../assets/avatar/lumi-anime-base-v1.png" alt="" aria-hidden="true" />
+            <span class="anime-face-layer">
+              <span class="anime-blush left"></span><span class="anime-blush right"></span>
+              ${eyeMarkup}
+              <span class="anime-nose" data-face="${noseId}">${noseGlyphs[noseId] || noseGlyphs['bean-nose']}</span>
+              <span class="anime-mouth" data-face="${mouthId}">${mouthGlyphs[mouthId] || mouthGlyphs['soft-smile']}</span>
             </span>
-            <span class="forest-shorts"><span class="forest-short-seam"></span></span>
-            <span class="forest-ear left"></span><span class="forest-ear right"></span>
-            <span class="forest-neck"></span>
-            <span class="forest-head">
-              <span class="forest-face-patch"></span>
-              <span class="forest-hair-cap"></span><span class="forest-bang left"></span><span class="forest-bang right"></span>
-              <span class="forest-head-highlight"></span>
-              <span class="forest-blush left"></span><span class="forest-blush right"></span>
-              <span class="forest-eyes" data-face="${eyeId}">${eyeGlyphs[eyeId] || eyeGlyphs['round-eyes']}</span>
-              <span class="forest-nose" data-face="${noseId}">${noseGlyphs[noseId] || noseGlyphs['bean-nose']}</span>
-              <span class="forest-mouth" data-face="${mouthId}">${mouthGlyphs[mouthId] || mouthGlyphs['soft-smile']}</span>
-            </span>
-            <span class="forest-stem"></span><span class="forest-leaf left"></span><span class="forest-leaf right"></span>
           </div>`;
         slots.forEach((slot) => {
           const item = itemById(state.equipped[slot]);

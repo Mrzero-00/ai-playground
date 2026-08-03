@@ -9,7 +9,7 @@ import {
   type ViewStyle,
 } from 'react-native';
 import lumiAnimeBase from '../../assets/avatar/lumi-anime-base-v1.png';
-import moriAnimeBase from '../../assets/avatar/lumi-anime-boy-base-v1.png';
+import moriAnimeBase from '../../assets/avatar/lumi-anime-boy-base-v2.png';
 import berryLeggingsLayer from '../../assets/avatar/layers/bottom-berry-leggings-v1.png';
 import plumTwintailLayer from '../../assets/avatar/layers/hair-plum-twintail-v1.png';
 import starSneakersLayer from '../../assets/avatar/layers/shoes-star-v1.png';

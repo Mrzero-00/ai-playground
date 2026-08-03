@@ -99,7 +99,7 @@ export const AVATAR_PRESETS: AvatarPresetDefinition[] = [
     id: 'mori',
     name: '모리',
     label: '남자 러너',
-    description: '부드러운 쇼트 헤어의 새싹 러너',
+    description: '트랙 재킷과 일자 쇼츠의 새싹 러너',
     icon: '🌿',
   },
 ];

@@ -61,4 +61,18 @@ describe('퀘스트런 성장 규칙', () => {
     expect(getItemsBySlot('nose')).toContainEqual(expect.objectContaining({ id: 'bean-nose' }));
     expect(getItemsBySlot('mouth')).toContainEqual(expect.objectContaining({ id: 'soft-smile' }));
   });
+
+  it('기본 꾸미기 슬롯마다 남녀가 함께 사용할 수 있는 선택지를 3종 이상 제공한다', () => {
+    const customizableSlots = ['eyes', 'nose', 'mouth', 'hair', 'head', 'top', 'bottom', 'shoes'] as const;
+
+    for (const slot of customizableSlots) {
+      expect(getItemsBySlot(slot).length).toBeGreaterThanOrEqual(3);
+    }
+
+    expect(getItemsBySlot('hair')).toContainEqual(expect.objectContaining({ id: 'silver-wolf-hair' }));
+    expect(getItemsBySlot('bottom')).toContainEqual(
+      expect.objectContaining({ id: 'midnight-track-pants' })
+    );
+    expect(getItemsBySlot('shoes')).toContainEqual(expect.objectContaining({ id: 'mint-comet-shoes' }));
+  });
 });

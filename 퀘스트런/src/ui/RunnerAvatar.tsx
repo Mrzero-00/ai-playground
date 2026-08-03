@@ -11,9 +11,18 @@ import {
 import lumiAnimeBase from '../../assets/avatar/lumi-anime-base-v1.png';
 import moriAnimeBase from '../../assets/avatar/lumi-anime-boy-base-v2.png';
 import berryLeggingsLayer from '../../assets/avatar/layers/bottom-berry-leggings-v1.png';
+import berryMoriLayer from '../../assets/avatar/layers/bottom-berry-mori-v1.png';
+import midnightTrackLayer from '../../assets/avatar/layers/bottom-midnight-track-v1.png';
 import plumTwintailLayer from '../../assets/avatar/layers/hair-plum-twintail-v1.png';
+import plumMoriLayer from '../../assets/avatar/layers/hair-plum-mori-v1.png';
+import silverWolfLayer from '../../assets/avatar/layers/hair-silver-wolf-v1.png';
+import silverWolfMoriLayer from '../../assets/avatar/layers/hair-silver-wolf-mori-v1.png';
+import mintCometShoesLayer from '../../assets/avatar/layers/shoes-mint-comet-v1.png';
 import starSneakersLayer from '../../assets/avatar/layers/shoes-star-v1.png';
+import starSneakersMoriLayer from '../../assets/avatar/layers/shoes-star-mori-v1.png';
 import cloudHoodieLayer from '../../assets/avatar/layers/top-cloud-hoodie-v1.png';
+import cloudHoodieMoriLayer from '../../assets/avatar/layers/top-cloud-mori-v1.png';
+import sunsetWindbreakerLayer from '../../assets/avatar/layers/top-sunset-windbreaker-v1.png';
 import {
   getAvatarPresetDefinition,
   getItemById,
@@ -32,46 +41,84 @@ interface RunnerAvatarProps {
 
 const FACE_SLOTS: ItemSlot[] = ['eyes', 'nose', 'mouth'];
 
-interface AvatarLayerConfig {
+interface AvatarLayerLayout {
   height: number;
   left: number;
-  source: ImageSourcePropType;
   top: number;
   width: number;
+}
+
+interface AvatarLayerConfig {
+  layouts: Record<AvatarPreset, AvatarLayerLayout>;
+  resizeMode?: 'contain' | 'stretch';
+  sources: Record<AvatarPreset, ImageSourcePropType>;
   zIndex: number;
 }
 
 const AVATAR_LAYERS: Record<string, AvatarLayerConfig> = {
   'berry-leggings': {
-    height: 90,
-    left: 42,
-    source: berryLeggingsLayer,
-    top: 164,
-    width: 135,
+    layouts: {
+      lumi: { height: 90, left: 42, top: 164, width: 135 },
+      mori: { height: 86, left: 50, top: 161, width: 120 },
+    },
+    sources: { lumi: berryLeggingsLayer, mori: berryMoriLayer },
+    zIndex: 1,
+  },
+  'midnight-track-pants': {
+    layouts: {
+      lumi: { height: 140, left: 45, top: 148, width: 130 },
+      mori: { height: 136, left: 51, top: 150, width: 118 },
+    },
+    resizeMode: 'stretch',
+    sources: { lumi: midnightTrackLayer, mori: midnightTrackLayer },
     zIndex: 1,
   },
   'star-sneakers': {
-    height: 126,
-    left: 70,
-    source: starSneakersLayer,
-    top: 184,
-    width: 83,
+    layouts: {
+      lumi: { height: 126, left: 70, top: 184, width: 83 },
+      mori: { height: 116, left: 64, top: 190, width: 93 },
+    },
+    sources: { lumi: starSneakersLayer, mori: starSneakersMoriLayer },
+    zIndex: 2,
+  },
+  'mint-comet-shoes': {
+    layouts: {
+      lumi: { height: 126, left: 68, top: 184, width: 86 },
+      mori: { height: 116, left: 64, top: 190, width: 94 },
+    },
+    sources: { lumi: mintCometShoesLayer, mori: mintCometShoesLayer },
     zIndex: 2,
   },
   'cloud-hoodie': {
-    height: 181,
-    left: 51,
-    source: cloudHoodieLayer,
-    top: 62,
-    width: 117,
+    layouts: {
+      lumi: { height: 181, left: 51, top: 62, width: 117 },
+      mori: { height: 174, left: 47, top: 68, width: 126 },
+    },
+    sources: { lumi: cloudHoodieLayer, mori: cloudHoodieMoriLayer },
+    zIndex: 3,
+  },
+  'sunset-windbreaker': {
+    layouts: {
+      lumi: { height: 181, left: 50, top: 63, width: 120 },
+      mori: { height: 174, left: 47, top: 68, width: 126 },
+    },
+    sources: { lumi: sunsetWindbreakerLayer, mori: sunsetWindbreakerLayer },
     zIndex: 3,
   },
   'plum-twintail': {
-    height: 240,
-    left: 48,
-    source: plumTwintailLayer,
-    top: -23,
-    width: 134,
+    layouts: {
+      lumi: { height: 240, left: 48, top: -23, width: 134 },
+      mori: { height: 211, left: 48, top: -7, width: 128 },
+    },
+    sources: { lumi: plumTwintailLayer, mori: plumMoriLayer },
+    zIndex: 4,
+  },
+  'silver-wolf-hair': {
+    layouts: {
+      lumi: { height: 260, left: 37, top: -28, width: 154 },
+      mori: { height: 245, left: 37, top: -33, width: 147 },
+    },
+    sources: { lumi: silverWolfLayer, mori: silverWolfMoriLayer },
     zIndex: 4,
   },
 };
@@ -155,17 +202,17 @@ export function RunnerAvatar({
 
       {visualLayers.map((layer) => (
         <Image
-          key={`${layer.source}-${layer.zIndex}`}
-          resizeMode="contain"
-          source={layer.source}
+          key={`${layer.sources[avatarPreset]}-${layer.zIndex}`}
+          resizeMode={layer.resizeMode ?? 'contain'}
+          source={layer.sources[avatarPreset]}
           style={[
             styles.avatarLayer,
             {
-              height: layer.height * unit,
-              left: layer.left * unit,
-              top: layer.top * unit,
+              height: layer.layouts[avatarPreset].height * unit,
+              left: layer.layouts[avatarPreset].left * unit,
+              top: layer.layouts[avatarPreset].top * unit,
               transform: [{ rotate: pose === 'run' ? '-3deg' : '0deg' }],
-              width: layer.width * unit,
+              width: layer.layouts[avatarPreset].width * unit,
               zIndex: layer.zIndex,
             },
           ]}

@@ -631,12 +631,57 @@
         height: 90px;
       }
 
+      .anime-avatar-layer[data-item='berry-leggings'][data-preset='mori'] {
+        top: 161px;
+        left: 50px;
+        width: 120px;
+        height: 86px;
+      }
+
+      .anime-avatar-layer[data-item='midnight-track-pants'] {
+        z-index: 1;
+        top: 148px;
+        left: 45px;
+        width: 130px;
+        height: 140px;
+        object-fit: fill;
+      }
+
+      .anime-avatar-layer[data-item='midnight-track-pants'][data-preset='mori'] {
+        top: 150px;
+        left: 51px;
+        width: 118px;
+        height: 136px;
+      }
+
       .anime-avatar-layer[data-item='star-sneakers'] {
         z-index: 2;
         top: 184px;
         left: 70px;
         width: 83px;
         height: 126px;
+      }
+
+      .anime-avatar-layer[data-item='star-sneakers'][data-preset='mori'] {
+        top: 190px;
+        left: 64px;
+        width: 93px;
+        height: 116px;
+      }
+
+      .anime-avatar-layer[data-item='mint-comet-shoes'] {
+        z-index: 2;
+        top: 184px;
+        left: 68px;
+        width: 86px;
+        height: 126px;
+      }
+
+      .anime-avatar-layer[data-item='mint-comet-shoes'][data-preset='mori'] {
+        top: 190px;
+        left: 64px;
+        width: 94px;
+        height: 116px;
       }
 
       .anime-avatar-layer[data-item='cloud-hoodie'] {
@@ -647,12 +692,56 @@
         height: 181px;
       }
 
+      .anime-avatar-layer[data-item='cloud-hoodie'][data-preset='mori'] {
+        top: 68px;
+        left: 47px;
+        width: 126px;
+        height: 174px;
+      }
+
+      .anime-avatar-layer[data-item='sunset-windbreaker'] {
+        z-index: 3;
+        top: 63px;
+        left: 50px;
+        width: 120px;
+        height: 181px;
+      }
+
+      .anime-avatar-layer[data-item='sunset-windbreaker'][data-preset='mori'] {
+        top: 68px;
+        left: 47px;
+        width: 126px;
+        height: 174px;
+      }
+
       .anime-avatar-layer[data-item='plum-twintail'] {
         z-index: 4;
         top: -23px;
         left: 48px;
         width: 134px;
         height: 240px;
+      }
+
+      .anime-avatar-layer[data-item='plum-twintail'][data-preset='mori'] {
+        top: -7px;
+        left: 48px;
+        width: 128px;
+        height: 211px;
+      }
+
+      .anime-avatar-layer[data-item='silver-wolf-hair'] {
+        z-index: 4;
+        top: -28px;
+        left: 37px;
+        width: 154px;
+        height: 260px;
+      }
+
+      .anime-avatar-layer[data-item='silver-wolf-hair'][data-preset='mori'] {
+        top: -33px;
+        left: 37px;
+        width: 147px;
+        height: 245px;
       }
 
       .anime-face-layer {
@@ -2595,13 +2684,23 @@
         },
         {
           id: 'plum-twintail',
-          name: '플럼 리본 트윈테일',
+          name: '플럼 러너 헤어',
           slot: 'hair',
           rarity: '희귀',
           icon: '🎀',
           price: 460,
           source: 'shop',
-          description: '코랄 리본으로 묶은 풍성한 자주빛 트윈테일',
+          description: '루미는 트윈테일, 모리는 코랄 핀 쇼트 헤어로 연출되는 자주빛 스타일',
+        },
+        {
+          id: 'silver-wolf-hair',
+          name: '실버 클라우드 울프컷',
+          slot: 'hair',
+          rarity: '영웅',
+          icon: '🩶',
+          price: 640,
+          source: 'shop',
+          description: '남녀 캐릭터 모두에게 어울리는 은빛 레이어드 울프보브',
         },
         {
           id: 'cloud-hoodie',
@@ -2631,7 +2730,17 @@
           icon: '🟣',
           price: 390,
           source: 'shop',
-          description: '탄력 있는 보랏빛 러닝 팬츠',
+          description: '루미는 레깅스, 모리는 일자 쇼츠로 바뀌는 보랏빛 러닝 팬츠',
+        },
+        {
+          id: 'midnight-track-pants',
+          name: '미드나잇 트랙팬츠',
+          slot: 'bottom',
+          rarity: '영웅',
+          icon: '🌌',
+          price: 560,
+          source: 'shop',
+          description: '민트 라인과 코랄 지퍼 포인트를 더한 남녀 공용 조거팬츠',
         },
         {
           id: 'star-sneakers',
@@ -2642,6 +2751,16 @@
           price: 520,
           source: 'shop',
           description: '움직일 때마다 작은 별빛이 반짝이는 러닝화',
+        },
+        {
+          id: 'mint-comet-shoes',
+          name: '민트 코멧 러닝화',
+          slot: 'shoes',
+          rarity: '영웅',
+          icon: '☄️',
+          price: 620,
+          source: 'shop',
+          description: '민트 혜성 문양과 코랄 밑창을 더한 남녀 공용 러닝화',
         },
         {
           id: 'sparkle-eyes',
@@ -2836,10 +2955,38 @@
       ];
 
       const avatarLayerAssets = {
-        'berry-leggings': '../assets/avatar/layers/bottom-berry-leggings-v1.png',
-        'star-sneakers': '../assets/avatar/layers/shoes-star-v1.png',
-        'cloud-hoodie': '../assets/avatar/layers/top-cloud-hoodie-v1.png',
-        'plum-twintail': '../assets/avatar/layers/hair-plum-twintail-v1.png',
+        'berry-leggings': {
+          lumi: '../assets/avatar/layers/bottom-berry-leggings-v1.png',
+          mori: '../assets/avatar/layers/bottom-berry-mori-v1.png',
+        },
+        'midnight-track-pants': {
+          lumi: '../assets/avatar/layers/bottom-midnight-track-v1.png',
+          mori: '../assets/avatar/layers/bottom-midnight-track-v1.png',
+        },
+        'star-sneakers': {
+          lumi: '../assets/avatar/layers/shoes-star-v1.png',
+          mori: '../assets/avatar/layers/shoes-star-mori-v1.png',
+        },
+        'mint-comet-shoes': {
+          lumi: '../assets/avatar/layers/shoes-mint-comet-v1.png',
+          mori: '../assets/avatar/layers/shoes-mint-comet-v1.png',
+        },
+        'cloud-hoodie': {
+          lumi: '../assets/avatar/layers/top-cloud-hoodie-v1.png',
+          mori: '../assets/avatar/layers/top-cloud-mori-v1.png',
+        },
+        'sunset-windbreaker': {
+          lumi: '../assets/avatar/layers/top-sunset-windbreaker-v1.png',
+          mori: '../assets/avatar/layers/top-sunset-windbreaker-v1.png',
+        },
+        'plum-twintail': {
+          lumi: '../assets/avatar/layers/hair-plum-twintail-v1.png',
+          mori: '../assets/avatar/layers/hair-plum-mori-v1.png',
+        },
+        'silver-wolf-hair': {
+          lumi: '../assets/avatar/layers/hair-silver-wolf-v1.png',
+          mori: '../assets/avatar/layers/hair-silver-wolf-mori-v1.png',
+        },
       };
 
       const initialState = {
@@ -2951,16 +3098,20 @@
             owned: [
               ...initialState.owned,
               'plum-twintail',
+              'silver-wolf-hair',
               'cloud-hoodie',
+              'sunset-windbreaker',
               'berry-leggings',
+              'midnight-track-pants',
               'star-sneakers',
+              'mint-comet-shoes',
             ],
             equipped: {
               ...initialState.equipped,
-              hair: 'plum-twintail',
-              top: 'cloud-hoodie',
-              bottom: 'berry-leggings',
-              shoes: 'star-sneakers',
+              hair: 'silver-wolf-hair',
+              top: 'sunset-windbreaker',
+              bottom: 'midnight-track-pants',
+              shoes: 'mint-comet-shoes',
             },
           };
         }
@@ -3030,8 +3181,10 @@
           .map((slot) => state.equipped[slot])
           .filter((itemId) => avatarLayerAssets[itemId])
           .map(
-            (itemId) =>
-              `<img class="anime-avatar-layer" data-item="${itemId}" src="${avatarLayerAssets[itemId]}" alt="" aria-hidden="true" />`
+            (itemId) => {
+              const sources = avatarLayerAssets[itemId];
+              return `<img class="anime-avatar-layer" data-item="${itemId}" data-preset="${avatarPreset}" src="${sources[avatarPreset] || sources.lumi}" alt="" aria-hidden="true" />`;
+            }
           )
           .join('');
 

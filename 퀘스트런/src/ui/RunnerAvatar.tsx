@@ -110,6 +110,13 @@ export function RunnerAvatar({
   const height = size * 1.28;
   const avatarDefinition = getAvatarPresetDefinition(avatarPreset);
   const avatarBase = avatarPreset === 'mori' ? moriAnimeBase : lumiAnimeBase;
+  const isMori = avatarPreset === 'mori';
+  const faceLayout = isMori
+    ? { height: 59, left: 75, top: 66, width: 74 }
+    : { height: 57, left: 75, top: 68, width: 72 };
+  const facePositions = isMori
+    ? { blushTop: 34, eyeTop: 15, mouthTop: 40, noseTop: 31, roundEyeTop: 11 }
+    : { blushTop: 32, eyeTop: 14, mouthTop: 36, noseTop: 29, roundEyeTop: 10 };
   const eyeId = equippedItemIds.eyes ?? 'round-eyes';
   const noseId = equippedItemIds.nose ?? 'bean-nose';
   const mouthId = equippedItemIds.mouth ?? 'soft-smile';
@@ -170,24 +177,34 @@ export function RunnerAvatar({
         style={[
           styles.faceLayer,
           {
-            height: 57 * unit,
-            left: (avatarPreset === 'mori' ? 79 : 75) * unit,
-            top: 68 * unit,
+            height: faceLayout.height * unit,
+            left: faceLayout.left * unit,
+            top: faceLayout.top * unit,
             transform: [{ rotate: pose === 'run' ? '-3deg' : '0deg' }],
-            width: 72 * unit,
+            width: faceLayout.width * unit,
           },
         ]}
       >
         <View
           style={[
             styles.blush,
-            { height: 7 * unit, left: 5 * unit, top: 32 * unit, width: 15 * unit },
+            {
+              height: 7 * unit,
+              left: 5 * unit,
+              top: facePositions.blushTop * unit,
+              width: 15 * unit,
+            },
           ]}
         />
         <View
           style={[
             styles.blush,
-            { height: 7 * unit, right: 5 * unit, top: 32 * unit, width: 15 * unit },
+            {
+              height: 7 * unit,
+              right: 5 * unit,
+              top: facePositions.blushTop * unit,
+              width: 15 * unit,
+            },
           ]}
         />
         {eyeId === 'round-eyes' ? (
@@ -195,7 +212,12 @@ export function RunnerAvatar({
             <View
               style={[
                 styles.animeEye,
-                { height: 19 * unit, left: 11 * unit, top: 10 * unit, width: 15 * unit },
+                {
+                  height: 19 * unit,
+                  left: 11 * unit,
+                  top: facePositions.roundEyeTop * unit,
+                  width: 15 * unit,
+                },
               ]}
             >
               <View
@@ -214,7 +236,12 @@ export function RunnerAvatar({
             <View
               style={[
                 styles.animeEye,
-                { height: 19 * unit, right: 11 * unit, top: 10 * unit, width: 15 * unit },
+                {
+                  height: 19 * unit,
+                  right: 11 * unit,
+                  top: facePositions.roundEyeTop * unit,
+                  width: 15 * unit,
+                },
               ]}
             >
               <View
@@ -232,7 +259,12 @@ export function RunnerAvatar({
             </View>
           </>
         ) : (
-          <Text style={[styles.eyes, { fontSize: 12 * unit, top: 14 * unit }]}>
+          <Text
+            style={[
+              styles.eyes,
+              { fontSize: 12 * unit, top: facePositions.eyeTop * unit },
+            ]}
+          >
             {EYE_GLYPHS[eyeId] ?? EYE_GLYPHS['round-eyes']}
           </Text>
         )}
@@ -241,7 +273,7 @@ export function RunnerAvatar({
             styles.nose,
             noseId === 'leaf-nose' && styles.noseLeaf,
             noseId === 'peach-nose' && styles.nosePeach,
-            { fontSize: 8 * unit, top: 29 * unit },
+            { fontSize: 8 * unit, top: facePositions.noseTop * unit },
           ]}
         >
           {NOSE_GLYPHS[noseId] ?? NOSE_GLYPHS['bean-nose']}
@@ -249,7 +281,10 @@ export function RunnerAvatar({
         <Text
           style={[
             styles.mouth,
-            { fontSize: (mouthId === 'surprised-mouth' ? 9 : 12) * unit, top: 36 * unit },
+            {
+              fontSize: (mouthId === 'surprised-mouth' ? 9 : 12) * unit,
+              top: facePositions.mouthTop * unit,
+            },
           ]}
         >
           {MOUTH_GLYPHS[mouthId] ?? MOUTH_GLYPHS['soft-smile']}

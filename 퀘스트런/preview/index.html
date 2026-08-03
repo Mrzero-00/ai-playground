@@ -2561,7 +2561,8 @@
     <div class="toast" role="status" data-toast></div>
 
     <script>
-      const STORAGE_KEY = 'quest-run-style-demo-v3';
+      const STORAGE_KEY = 'quest-run-style-demo-v4';
+      const TEST_COINS = 9999;
       const SHOWCASE_LOOK = new URLSearchParams(window.location.search).get('look') === 'showcase';
       const avatarPresets = {
         lumi: { name: '루미', label: '여자 러너' },
@@ -2991,7 +2992,7 @@
 
       const initialState = {
         avatarPreset: 'lumi',
-        coins: 1240,
+        coins: TEST_COINS,
         level: 7,
         xp: 650,
         xpTarget: 1000,

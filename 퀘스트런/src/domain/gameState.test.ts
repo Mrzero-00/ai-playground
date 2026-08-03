@@ -1,6 +1,7 @@
 import {
   DEFAULT_GAME_STATE,
   MONTHLY_GROUP_TARGET_KM,
+  TEST_STYLE_COINS,
   applyCompletedRun,
   claimGroupQuestReward,
   claimQuestReward,
@@ -46,7 +47,7 @@ describe('게임 상태', () => {
     expect(next.totalDistanceKm).toBe(44.3);
     expect(next.dailyDistanceKm).toBe(2.15);
     expect(next.dailyRuns).toBe(1);
-    expect(next.styleCoins).toBe(1_300);
+    expect(next.styleCoins).toBe(TEST_STYLE_COINS + 60);
     expect(next.monthlyPersonalDistanceKm).toBe(44.3);
     expect(next.runHistory).toHaveLength(1);
   });
@@ -166,12 +167,12 @@ describe('게임 상태', () => {
     expect(next.styleCoins).toBe(BASE_STATE.styleCoins + 300);
   });
 
-  it('기존 골드 저장값을 꾸미기 코인으로 마이그레이션한다', () => {
+  it('기존 저장값을 테스트용 꾸미기 코인으로 한 번 보정한다', () => {
     const migrated = migrateGameState({ version: 1, gold: 777, unlockedItemIds: [] });
 
-    expect(migrated.version).toBe(5);
+    expect(migrated.version).toBe(6);
     expect(migrated.avatarPreset).toBe('lumi');
-    expect(migrated.styleCoins).toBe(777);
+    expect(migrated.styleCoins).toBe(TEST_STYLE_COINS);
     expect(migrated.unlockedItemIds).toEqual(
       expect.arrayContaining([
         'round-eyes',
@@ -194,6 +195,16 @@ describe('게임 상태', () => {
         mouth: 'soft-smile',
       })
     );
+  });
+
+  it('테스트 코인을 사용한 뒤 저장된 잔액은 다시 충전하지 않는다', () => {
+    const migrated = migrateGameState({
+      ...DEFAULT_GAME_STATE,
+      version: 6,
+      styleCoins: 9_300,
+    });
+
+    expect(migrated.styleCoins).toBe(9_300);
   });
 
   it('누적 100km 업적으로 가방 슬롯과 기록 가방을 해금한다', () => {

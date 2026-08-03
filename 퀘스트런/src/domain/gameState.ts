@@ -24,7 +24,7 @@ export interface AchievementProgress {
 }
 
 export interface GameState {
-  version: 5;
+  version: 6;
   avatarPreset: AvatarPreset;
   dailyDateKey: string;
   weeklyDateKey: string;
@@ -58,9 +58,10 @@ export interface GameState {
 }
 
 export const MONTHLY_GROUP_TARGET_KM = 400;
+export const TEST_STYLE_COINS = 9_999;
 
 export const DEFAULT_GAME_STATE: GameState = {
-  version: 5,
+  version: 6,
   avatarPreset: 'lumi',
   dailyDateKey: getDateKey(Date.now()),
   weeklyDateKey: getWeekKey(Date.now()),
@@ -75,7 +76,7 @@ export const DEFAULT_GAME_STATE: GameState = {
   totalRuns: 12,
   weeklyDistanceKm: 6.4,
   weeklyRuns: 2,
-  styleCoins: 1_240,
+  styleCoins: TEST_STYLE_COINS,
   dailyDistanceKm: 0.65,
   dailyRuns: 0,
   claimedQuestIds: [],
@@ -424,7 +425,12 @@ export function rolloverGameState(state: GameState, timestamp: number): GameStat
 }
 
 export function migrateGameState(stored: Record<string, unknown>): GameState {
-  const legacyGold = typeof stored.gold === 'number' ? stored.gold : DEFAULT_GAME_STATE.styleCoins;
+  const storedStyleCoins =
+    typeof stored.styleCoins === 'number'
+      ? stored.styleCoins
+      : typeof stored.gold === 'number'
+        ? stored.gold
+        : TEST_STYLE_COINS;
   const validItemIds = Array.isArray(stored.unlockedItemIds)
     ? stored.unlockedItemIds.filter(
         (id): id is string => typeof id === 'string' && ITEMS.some((item) => item.id === id)
@@ -458,11 +464,14 @@ export function migrateGameState(stored: Record<string, unknown>): GameState {
   const migrated = {
     ...DEFAULT_GAME_STATE,
     ...stored,
-    version: 5,
+    version: 6,
     avatarPreset: stored.avatarPreset === 'mori' ? 'mori' : 'lumi',
     monthlyDateKey:
       typeof stored.monthlyDateKey === 'string' ? stored.monthlyDateKey : DEFAULT_GAME_STATE.monthlyDateKey,
-    styleCoins: typeof stored.styleCoins === 'number' ? stored.styleCoins : legacyGold,
+    styleCoins:
+      stored.version === 6
+        ? Math.max(0, storedStyleCoins)
+        : Math.max(TEST_STYLE_COINS, storedStyleCoins),
     unlockedItemIds: [
       ...new Set([...DEFAULT_GAME_STATE.unlockedItemIds, ...validItemIds]),
     ],

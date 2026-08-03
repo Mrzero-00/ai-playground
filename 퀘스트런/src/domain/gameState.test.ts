@@ -26,6 +26,7 @@ const BASE_STATE = {
   ...DEFAULT_GAME_STATE,
   dailyDateKey: getDateKey(TEST_NOW),
   weeklyDateKey: getWeekKey(TEST_NOW),
+  monthlyDateKey: getMonthKey(TEST_NOW),
 };
 const RUN: CompletedRun = {
   id: 'run-test',

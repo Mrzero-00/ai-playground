@@ -218,8 +218,10 @@
         z-index: 2;
         right: 7px;
         bottom: 0;
-        width: 235px;
-        height: 301px;
+        width: 220px;
+        height: 282px;
+        transform: scale(1.07);
+        transform-origin: right bottom;
       }
 
       .forest-shadow,
@@ -227,9 +229,12 @@
       .forest-hood,
       .forest-body,
       .forest-arm,
+      .forest-cuff,
       .forest-hand,
       .forest-leg,
+      .forest-sock,
       .forest-shoe,
+      .forest-shoe-highlight,
       .forest-sole,
       .forest-head,
       .forest-face-patch,
@@ -240,7 +245,9 @@
       .forest-stem,
       .forest-leaf,
       .forest-shorts,
+      .forest-short-seam,
       .forest-collar,
+      .forest-drawstring,
       .forest-shirt-highlight,
       .forest-pocket {
         position: absolute;
@@ -248,254 +255,315 @@
       }
 
       .forest-shadow {
-        right: 48px;
-        bottom: 3px;
-        width: 139px;
+        bottom: 2px;
+        left: 35px;
+        width: 150px;
         height: 24px;
         border-radius: 50%;
         background: rgba(5, 33, 38, 0.22);
-        transform: scaleY(0.5);
+        transform: scaleY(0.48);
       }
 
       .forest-ear {
-        top: 69px;
-        width: 19px;
+        top: 61px;
+        width: 25px;
         height: 30px;
-        border: 2px solid #c7835e;
+        border: 2px solid #c8795d;
         border-radius: 50%;
-        background: #f2bd82;
+        background: #ffd1ae;
       }
 
       .forest-ear.left {
-        left: 59px;
+        left: 36px;
       }
 
       .forest-ear.right {
-        right: 59px;
+        right: 36px;
       }
 
       .forest-neck {
         position: absolute;
-        top: 130px;
-        left: 108px;
+        top: 113px;
+        left: 99px;
         display: block;
-        width: 19px;
-        height: 21px;
-        border: 2px solid #c7835e;
+        width: 22px;
+        height: 20px;
+        border: 2px solid #c8795d;
         border-radius: 10px;
-        background: #f2bd82;
+        background: #ffd1ae;
       }
 
       .forest-hood {
-        top: 135px;
-        left: 73px;
-        width: 90px;
-        height: 48px;
-        border: 2px solid #0b6d5e;
+        top: 118px;
+        left: 57px;
+        width: 106px;
+        height: 55px;
+        border: 2px solid #086655;
         border-radius: 50%;
-        background: #168e79;
+        background: #118b76;
       }
 
       .forest-body {
-        top: 141px;
-        left: 77px;
-        width: 81px;
-        height: 94px;
+        top: 126px;
+        left: 64px;
+        width: 92px;
+        height: 79px;
         overflow: hidden;
-        border: 3px solid #147d6d;
-        border-radius: 28px 28px 18px 18px;
-        background: #48c9ae;
+        border: 3px solid #0c7e6a;
+        border-radius: 29px;
+        background: #46cead;
       }
 
       .forest-collar {
-        top: 4px;
-        left: 25px;
-        width: 32px;
-        height: 14px;
+        top: 3px;
+        left: 27px;
+        width: 38px;
+        height: 16px;
         border-radius: 0 0 50% 50%;
-        background: #e8fff7;
+        background: #f2fff9;
       }
 
       .forest-shirt-highlight {
-        top: 19px;
-        left: 9px;
-        width: 14px;
-        height: 54px;
+        top: 16px;
+        left: 10px;
+        width: 13px;
+        height: 47px;
         border-radius: 50%;
-        background: rgba(255, 255, 255, 0.2);
+        background: rgba(255, 255, 255, 0.23);
         transform: rotate(8deg);
       }
 
+      .forest-drawstring {
+        top: 15px;
+        width: 2px;
+        height: 22px;
+        border-radius: 10px;
+        background: #e9fff8;
+      }
+
+      .forest-drawstring.left {
+        left: 39px;
+        transform: rotate(5deg);
+      }
+
+      .forest-drawstring.right {
+        right: 39px;
+        transform: rotate(-5deg);
+      }
+
       .forest-pocket {
-        bottom: 37px;
-        left: 27px;
-        width: 29px;
-        height: 14px;
-        border-bottom: 2px solid rgba(9, 103, 88, 0.34);
+        bottom: 10px;
+        left: 22px;
+        width: 48px;
+        height: 23px;
+        border-right: 1px solid rgba(5, 105, 88, 0.24);
+        border-bottom: 2px solid rgba(5, 105, 88, 0.45);
+        border-left: 1px solid rgba(5, 105, 88, 0.24);
         border-radius: 50%;
       }
 
       .forest-shorts {
-        right: 3px;
-        bottom: 0;
-        left: 3px;
-        height: 33px;
-        border-radius: 20px 20px 0 0;
-        background: #244863;
+        top: 187px;
+        left: 69px;
+        width: 82px;
+        height: 39px;
+        overflow: hidden;
+        border: 2px solid #17384f;
+        border-radius: 17px;
+        background: #264c68;
+      }
+
+      .forest-short-seam {
+        top: 10px;
+        left: 39px;
+        width: 2px;
+        height: 27px;
+        border-left: 2px solid rgba(255, 255, 255, 0.2);
       }
 
       .forest-arm {
-        top: 145px;
-        width: 21px;
-        height: 83px;
+        top: 132px;
+        width: 29px;
+        height: 70px;
         overflow: visible;
-        border: 2px solid #147d6d;
+        border: 2px solid #0c7e6a;
         border-radius: 50%;
-        background: #48c9ae;
+        background: #46cead;
       }
 
       .forest-arm.left {
-        left: 59px;
-        transform: rotate(29deg);
+        left: 45px;
+        transform: rotate(8deg);
       }
 
       .forest-arm.right {
-        right: 59px;
-        transform: rotate(-32deg);
+        right: 45px;
+        transform: rotate(-8deg);
+      }
+
+      .forest-cuff {
+        bottom: 9px;
+        left: 0;
+        width: 25px;
+        height: 14px;
+        border-radius: 50%;
+        background: #bdf4e4;
       }
 
       .forest-hand {
-        bottom: -3px;
-        left: -1px;
-        width: 21px;
-        height: 22px;
-        border: 2px solid #c7835e;
+        bottom: -4px;
+        left: 0;
+        width: 25px;
+        height: 25px;
+        border: 2px solid #c8795d;
         border-radius: 50%;
-        background: #f2bd82;
+        background: #ffd1ae;
       }
 
       .forest-leg {
-        bottom: 23px;
-        width: 21px;
-        height: 73px;
-        border: 3px solid #c7835e;
+        top: 198px;
+        width: 27px;
+        height: 54px;
+        overflow: hidden;
+        border: 2px solid #c8795d;
         border-radius: 50%;
-        background: #f2bd82;
+        background: #f4bb91;
       }
 
       .forest-leg.left {
-        left: 88px;
-        transform: rotate(15deg);
+        left: 73px;
+        transform: rotate(2deg);
       }
 
       .forest-leg.right {
-        right: 88px;
-        transform: rotate(-18deg);
+        right: 73px;
+        transform: rotate(-2deg);
+      }
+
+      .forest-sock {
+        right: 0;
+        bottom: 0;
+        left: 0;
+        height: 19px;
+        border-top: 2px solid #bbddd3;
+        background: #f7fff9;
       }
 
       .forest-shoe {
-        bottom: 7px;
-        width: 43px;
-        height: 24px;
+        bottom: 6px;
+        width: 50px;
+        height: 28px;
         overflow: hidden;
-        border: 2px solid #8d776a;
+        border: 2px solid #796b65;
         border-radius: 50%;
-        background: #fff8ed;
+        background: #fff9ee;
       }
 
       .forest-shoe.left {
-        left: 70px;
-        transform: rotate(-6deg);
+        left: 57px;
+        transform: rotate(-2deg);
       }
 
       .forest-shoe.right {
-        right: 70px;
-        transform: rotate(6deg);
+        right: 57px;
+        transform: rotate(2deg);
+      }
+
+      .forest-shoe-highlight {
+        top: 5px;
+        left: 9px;
+        width: 21px;
+        height: 8px;
+        border-radius: 50%;
+        background: #fff;
+        opacity: 0.9;
       }
 
       .forest-sole {
-        right: 4px;
+        right: 3px;
         bottom: 1px;
-        left: 4px;
-        height: 5px;
+        left: 3px;
+        height: 6px;
         border-radius: 50%;
-        background: #ff8a4c;
+        background: #ff8352;
       }
 
       .forest-head {
-        top: 29px;
-        left: 69px;
-        width: 96px;
-        height: 112px;
+        top: 22px;
+        left: 45px;
+        width: 130px;
+        height: 104px;
         overflow: hidden;
-        border: 3px solid #493028;
-        border-radius: 40px;
-        background: #5d4138;
+        border: 3px solid #3f2c29;
+        border-radius: 46px;
+        background: #5a3e38;
       }
 
       .forest-face-patch {
-        top: 16px;
+        top: 10px;
         left: 9px;
-        width: 79px;
-        height: 90px;
+        width: 112px;
+        height: 88px;
+        border: 1px solid #e9a980;
         border-radius: 50%;
-        background: #ffd9b8;
+        background: #ffd7b8;
       }
 
       .forest-hair-cap {
-        top: -4px;
-        left: -3px;
-        width: 100px;
-        height: 39px;
-        border-bottom: 2px solid #493028;
+        top: -3px;
+        left: -2px;
+        width: 134px;
+        height: 40px;
+        border-bottom: 2px solid #3f2c29;
         border-radius: 50%;
-        background: #5d4138;
+        background: #5a3e38;
       }
 
       .forest-bang {
-        top: 18px;
-        width: 26px;
-        height: 23px;
+        top: 19px;
+        width: 37px;
+        height: 28px;
         border-radius: 0 0 50% 50%;
-        background: #5d4138;
+        background: #5a3e38;
       }
 
       .forest-bang.left {
-        left: 12px;
+        left: 16px;
         transform: rotate(18deg);
       }
 
       .forest-bang.right {
-        left: 36px;
-        height: 21px;
-        transform: rotate(-8deg);
+        left: 48px;
+        width: 34px;
+        height: 26px;
+        transform: rotate(-9deg);
       }
 
       .forest-head-highlight {
-        top: 33px;
-        left: 8px;
+        top: 38px;
+        left: 12px;
         z-index: 2;
         width: 10px;
-        height: 30px;
+        height: 33px;
         border-radius: 50%;
-        background: rgba(255, 255, 255, 0.27);
-        transform: rotate(-18deg);
+        background: rgba(255, 255, 255, 0.3);
+        transform: rotate(-15deg);
       }
 
       .forest-blush {
-        top: 66px;
-        width: 17px;
+        top: 69px;
+        width: 20px;
         height: 9px;
         border-radius: 50%;
-        background: rgba(243, 155, 138, 0.55);
+        background: rgba(244, 150, 141, 0.52);
       }
 
       .forest-blush.left {
-        left: 13px;
+        left: 19px;
       }
 
       .forest-blush.right {
-        right: 13px;
+        right: 19px;
       }
 
       .forest-eyes,
@@ -512,19 +580,19 @@
       }
 
       .forest-eyes {
-        top: 42px;
+        top: 47px;
         font-size: 18px;
-        letter-spacing: 2px;
+        letter-spacing: 5px;
       }
 
       .forest-nose {
-        top: 62px;
+        top: 66px;
         color: #a85f3b;
         font-size: 11px;
       }
 
       .forest-mouth {
-        top: 78px;
+        top: 79px;
         color: #8f4836;
         font-size: 16px;
       }
@@ -538,32 +606,32 @@
       }
 
       .forest-stem {
-        top: 6px;
-        left: 114px;
+        top: 8px;
+        left: 107px;
         width: 6px;
-        height: 27px;
+        height: 20px;
         border: 1px solid #206234;
         border-radius: 10px;
         background: #3a8e50;
       }
 
       .forest-leaf {
-        top: 2px;
-        width: 33px;
+        top: 1px;
+        width: 35px;
         height: 22px;
         border: 2px solid #2d7139;
         border-radius: 50%;
-        background: #74be54;
+        background: #80d65d;
       }
 
       .forest-leaf.left {
-        left: 89px;
-        transform: rotate(27deg);
+        left: 82px;
+        transform: rotate(25deg);
       }
 
       .forest-leaf.right {
-        right: 89px;
-        transform: rotate(-27deg);
+        right: 82px;
+        transform: rotate(-25deg);
       }
 
       .wearable {
@@ -579,38 +647,38 @@
       }
 
       .wearable[data-slot='head'] {
-        top: 10px;
-        right: 93px;
+        top: 6px;
+        right: 91px;
       }
 
       .wearable[data-slot='top'] {
-        top: 147px;
-        right: 93px;
+        top: 145px;
+        right: 91px;
       }
 
       .wearable[data-slot='bottom'] {
         top: 188px;
-        right: 93px;
+        right: 91px;
       }
 
       .wearable[data-slot='shoes'] {
-        right: 87px;
-        bottom: 5px;
+        right: 85px;
+        bottom: 3px;
       }
 
       .wearable[data-slot='glasses'] {
-        top: 58px;
-        right: 94px;
+        top: 59px;
+        right: 89px;
       }
 
       .wearable[data-slot='bag'] {
-        top: 147px;
-        right: 59px;
+        top: 145px;
+        right: 51px;
       }
 
       .wearable[data-slot='watch'] {
-        top: 176px;
-        right: 70px;
+        top: 171px;
+        right: 61px;
       }
 
       .xp-panel {
@@ -1056,14 +1124,15 @@
         height: 320px;
       }
 
-      .avatar-card .hero-img,
-      .avatar-card .forest-avatar {
+      .avatar-card .hero-img {
         width: 260px;
         height: 300px;
       }
 
       .avatar-card .forest-avatar {
-        transform: scale(1.1);
+        width: 220px;
+        height: 282px;
+        transform: scale(1.18);
         transform-origin: right bottom;
       }
 
@@ -2601,20 +2670,23 @@
         };
 
         container.innerHTML = `
-          <div class="forest-avatar" role="img" aria-label="눈, 코, 입을 꾸밀 수 있는 사람형 새싹 러너 루미">
+          <div class="forest-avatar" role="img" aria-label="눈, 코, 입을 꾸밀 수 있는 2.5등신 SD 새싹 러너 루미">
             <span class="forest-shadow"></span>
-            <span class="forest-ear left"></span><span class="forest-ear right"></span>
-            <span class="forest-neck"></span>
+            <span class="forest-leg left"><span class="forest-sock"></span></span>
+            <span class="forest-leg right"><span class="forest-sock"></span></span>
+            <span class="forest-shoe left"><span class="forest-shoe-highlight"></span><span class="forest-sole"></span></span>
+            <span class="forest-shoe right"><span class="forest-shoe-highlight"></span><span class="forest-sole"></span></span>
             <span class="forest-hood"></span>
+            <span class="forest-arm left"><span class="forest-cuff"></span><span class="forest-hand"></span></span>
+            <span class="forest-arm right"><span class="forest-cuff"></span><span class="forest-hand"></span></span>
             <span class="forest-body">
               <span class="forest-collar"></span><span class="forest-shirt-highlight"></span>
-              <span class="forest-pocket"></span><span class="forest-shorts"></span>
+              <span class="forest-drawstring left"></span><span class="forest-drawstring right"></span>
+              <span class="forest-pocket"></span>
             </span>
-            <span class="forest-arm left"><span class="forest-hand"></span></span>
-            <span class="forest-arm right"><span class="forest-hand"></span></span>
-            <span class="forest-leg left"></span><span class="forest-leg right"></span>
-            <span class="forest-shoe left"><span class="forest-sole"></span></span>
-            <span class="forest-shoe right"><span class="forest-sole"></span></span>
+            <span class="forest-shorts"><span class="forest-short-seam"></span></span>
+            <span class="forest-ear left"></span><span class="forest-ear right"></span>
+            <span class="forest-neck"></span>
             <span class="forest-head">
               <span class="forest-face-patch"></span>
               <span class="forest-hair-cap"></span><span class="forest-bang left"></span><span class="forest-bang right"></span>

@@ -15,6 +15,7 @@ import {
   migrateGameState,
   purchaseItem,
   rolloverGameState,
+  selectAvatarPreset,
   selectGroupQuestMode,
   syncAchievements,
 } from './gameState';
@@ -106,6 +107,14 @@ describe('게임 상태', () => {
     );
   });
 
+  it('남자 러너로 바꿔도 아이템과 러닝 기록을 그대로 유지한다', () => {
+    const next = selectAvatarPreset(BASE_STATE, 'mori');
+
+    expect(next.avatarPreset).toBe('mori');
+    expect(next.equippedItemIds).toEqual(BASE_STATE.equippedItemIds);
+    expect(next.totalDistanceKm).toBe(BASE_STATE.totalDistanceKm);
+  });
+
   it('보유하지 않은 아이템은 착용할 수 없다', () => {
     expect(equipItem(BASE_STATE, 'rainbow-trail')).toBe(BASE_STATE);
   });
@@ -160,7 +169,8 @@ describe('게임 상태', () => {
   it('기존 골드 저장값을 꾸미기 코인으로 마이그레이션한다', () => {
     const migrated = migrateGameState({ version: 1, gold: 777, unlockedItemIds: [] });
 
-    expect(migrated.version).toBe(4);
+    expect(migrated.version).toBe(5);
+    expect(migrated.avatarPreset).toBe('lumi');
     expect(migrated.styleCoins).toBe(777);
     expect(migrated.unlockedItemIds).toEqual(
       expect.arrayContaining([

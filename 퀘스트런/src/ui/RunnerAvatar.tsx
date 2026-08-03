@@ -9,13 +9,21 @@ import {
   type ViewStyle,
 } from 'react-native';
 import lumiAnimeBase from '../../assets/avatar/lumi-anime-base-v1.png';
+import moriAnimeBase from '../../assets/avatar/lumi-anime-boy-base-v1.png';
 import berryLeggingsLayer from '../../assets/avatar/layers/bottom-berry-leggings-v1.png';
 import plumTwintailLayer from '../../assets/avatar/layers/hair-plum-twintail-v1.png';
 import starSneakersLayer from '../../assets/avatar/layers/shoes-star-v1.png';
 import cloudHoodieLayer from '../../assets/avatar/layers/top-cloud-hoodie-v1.png';
-import { getItemById, type GameItem, type ItemSlot } from '../domain/game';
+import {
+  getAvatarPresetDefinition,
+  getItemById,
+  type AvatarPreset,
+  type GameItem,
+  type ItemSlot,
+} from '../domain/game';
 
 interface RunnerAvatarProps {
+  avatarPreset?: AvatarPreset;
   equippedItemIds: Partial<Record<ItemSlot, string>>;
   pose?: 'stand' | 'run';
   size?: number;
@@ -92,6 +100,7 @@ const MOUTH_GLYPHS: Record<string, string> = {
 };
 
 export function RunnerAvatar({
+  avatarPreset = 'lumi',
   equippedItemIds,
   pose = 'stand',
   size = 220,
@@ -99,6 +108,8 @@ export function RunnerAvatar({
 }: RunnerAvatarProps) {
   const unit = size / 220;
   const height = size * 1.28;
+  const avatarDefinition = getAvatarPresetDefinition(avatarPreset);
+  const avatarBase = avatarPreset === 'mori' ? moriAnimeBase : lumiAnimeBase;
   const eyeId = equippedItemIds.eyes ?? 'round-eyes';
   const noseId = equippedItemIds.nose ?? 'bean-nose';
   const mouthId = equippedItemIds.mouth ?? 'soft-smile';
@@ -117,12 +128,12 @@ export function RunnerAvatar({
 
   return (
     <View
-      accessibilityLabel="애니메이션 일러스트 스타일의 새싹 러너 루미. 눈, 코, 입과 러닝 아이템을 꾸밀 수 있습니다."
+      accessibilityLabel={`애니메이션 일러스트 스타일의 새싹 러너 ${avatarDefinition.name}. 눈, 코, 입과 러닝 아이템을 꾸밀 수 있습니다.`}
       style={[{ height, width: size }, style]}
     >
       <Image
         resizeMode="contain"
-        source={lumiAnimeBase}
+        source={avatarBase}
         style={[
           styles.base,
           {
@@ -160,7 +171,7 @@ export function RunnerAvatar({
           styles.faceLayer,
           {
             height: 57 * unit,
-            left: 75 * unit,
+            left: (avatarPreset === 'mori' ? 79 : 75) * unit,
             top: 68 * unit,
             transform: [{ rotate: pose === 'run' ? '-3deg' : '0deg' }],
             width: 72 * unit,

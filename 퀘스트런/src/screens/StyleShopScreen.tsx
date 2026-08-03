@@ -1,6 +1,14 @@
 import React, { useMemo, useState } from 'react';
 import { Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
-import { ITEMS, SLOT_LABELS, getItemById, type GameItem, type ItemSlot } from '../domain/game';
+import {
+  ITEMS,
+  SLOT_LABELS,
+  getAvatarPresetDefinition,
+  getItemById,
+  type AvatarPreset,
+  type GameItem,
+  type ItemSlot,
+} from '../domain/game';
 import type { GameState } from '../domain/gameState';
 import { Card, Pill, PrimaryButton, ScreenTitle, SectionHeader } from '../ui/components';
 import { RunnerAvatar } from '../ui/RunnerAvatar';
@@ -32,6 +40,7 @@ const FILTERS: Array<{ id: StyleFilter; label: string }> = [
 export function StyleShopScreen({ gameState, onEquipItem, onPurchaseItem }: StyleShopScreenProps) {
   const [filter, setFilter] = useState<StyleFilter>('all');
   const [selectedItemId, setSelectedItemId] = useState('sparkle-eyes');
+  const avatarDefinition = getAvatarPresetDefinition(gameState.avatarPreset);
   const selectedItem = getItemById(selectedItemId) ?? ITEMS[0]!;
   const isOwned = gameState.unlockedItemIds.includes(selectedItem.id);
   const isEquipped = gameState.equippedItemIds[selectedItem.slot] === selectedItem.id;
@@ -88,10 +97,10 @@ export function StyleShopScreen({ gameState, onEquipItem, onPurchaseItem }: Styl
         <View style={styles.previewBlobTwo} />
         <View style={styles.previewCopy}>
           <Pill tone="dark">Lv. {gameState.level} 러너</Pill>
-          <Text style={styles.previewTitle}>오늘의 루미</Text>
+          <Text style={styles.previewTitle}>오늘의 {avatarDefinition.name}</Text>
           <Text style={styles.previewCaption}>달리며 모은 코인으로{'\n'}나만의 스타일을 완성해요.</Text>
         </View>
-        <AvatarPreview equippedItemIds={gameState.equippedItemIds} />
+        <AvatarPreview avatarPreset={gameState.avatarPreset} equippedItemIds={gameState.equippedItemIds} />
         <View style={styles.outfitStrip}>
           {gameState.unlockedSlotIds
             .filter((slot) => !['eyes', 'nose', 'mouth'].includes(slot))
@@ -238,14 +247,22 @@ export function StyleShopScreen({ gameState, onEquipItem, onPurchaseItem }: Styl
 }
 
 function AvatarPreview({
+  avatarPreset,
   equippedItemIds,
 }: {
+  avatarPreset: AvatarPreset;
   equippedItemIds: Partial<Record<ItemSlot, string>>;
 }) {
   return (
     <View style={styles.avatarWrap}>
       <View style={styles.avatarHalo} />
-      <RunnerAvatar equippedItemIds={equippedItemIds} pose="run" size={220} style={styles.avatar} />
+      <RunnerAvatar
+        avatarPreset={avatarPreset}
+        equippedItemIds={equippedItemIds}
+        pose="run"
+        size={220}
+        style={styles.avatar}
+      />
     </View>
   );
 }

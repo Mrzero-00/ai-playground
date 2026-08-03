@@ -1,6 +1,6 @@
 import React from 'react';
 import { Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
-import { getItemById } from '../domain/game';
+import { getAvatarPresetDefinition, getItemById } from '../domain/game';
 import { getDailyQuests, type GameState } from '../domain/gameState';
 import {
   Card,
@@ -37,6 +37,7 @@ export function HomeScreen({
   const remainingExperience = Math.max(0, gameState.experienceToNextLevel - gameState.experience);
   const equippedHeadItem =
     gameState.equippedItemIds.head == null ? undefined : getItemById(gameState.equippedItemIds.head);
+  const avatarDefinition = getAvatarPresetDefinition(gameState.avatarPreset);
 
   return (
     <ScrollView contentContainerStyle={styles.content} showsVerticalScrollIndicator={false}>
@@ -60,13 +61,14 @@ export function HomeScreen({
         <View style={styles.heroGlow} />
         <View style={styles.heroCopy}>
           <Pill tone="dark">Lv. {gameState.level} · 새싹 러너</Pill>
-          <Text style={styles.heroName}>루미</Text>
+          <Text style={styles.heroName}>{avatarDefinition.name}</Text>
           <Text style={styles.heroMessage}>
             오늘 {remainingExperience} XP만 더 모으면{'\n'}레벨이 올라요.
           </Text>
         </View>
 
         <RunnerAvatar
+          avatarPreset={gameState.avatarPreset}
           equippedItemIds={gameState.equippedItemIds}
           pose="run"
           size={230}

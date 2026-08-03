@@ -9,6 +9,7 @@ import {
   getEnduranceBonus,
   getItemById,
   type Achievement,
+  type AvatarPreset,
   type ItemSlot,
   type Quest,
 } from './game';
@@ -23,7 +24,8 @@ export interface AchievementProgress {
 }
 
 export interface GameState {
-  version: 4;
+  version: 5;
+  avatarPreset: AvatarPreset;
   dailyDateKey: string;
   weeklyDateKey: string;
   monthlyDateKey: string;
@@ -58,7 +60,8 @@ export interface GameState {
 export const MONTHLY_GROUP_TARGET_KM = 400;
 
 export const DEFAULT_GAME_STATE: GameState = {
-  version: 4,
+  version: 5,
+  avatarPreset: 'lumi',
   dailyDateKey: getDateKey(Date.now()),
   weeklyDateKey: getWeekKey(Date.now()),
   monthlyDateKey: getMonthKey(Date.now()),
@@ -175,6 +178,14 @@ export function equipItem(state: GameState, itemId: string): GameState {
       [item.slot]: item.id,
     },
   };
+}
+
+export function selectAvatarPreset(state: GameState, avatarPreset: AvatarPreset): GameState {
+  if (state.avatarPreset === avatarPreset) {
+    return state;
+  }
+
+  return { ...state, avatarPreset };
 }
 
 export function claimQuestReward(state: GameState, questId: string, todayDateKey: string): GameState {
@@ -447,7 +458,8 @@ export function migrateGameState(stored: Record<string, unknown>): GameState {
   const migrated = {
     ...DEFAULT_GAME_STATE,
     ...stored,
-    version: 4,
+    version: 5,
+    avatarPreset: stored.avatarPreset === 'mori' ? 'mori' : 'lumi',
     monthlyDateKey:
       typeof stored.monthlyDateKey === 'string' ? stored.monthlyDateKey : DEFAULT_GAME_STATE.monthlyDateKey,
     styleCoins: typeof stored.styleCoins === 'number' ? stored.styleCoins : legacyGold,

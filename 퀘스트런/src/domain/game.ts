@@ -1,5 +1,6 @@
 export type QuestKind = 'daily' | 'weekly' | 'streak';
 export type QuestMetric = 'distance' | 'runs';
+export type AvatarPreset = 'lumi' | 'mori';
 export type ItemSlot =
   | 'eyes'
   | 'nose'
@@ -76,6 +77,35 @@ export interface RunnerGrowthStage {
   minLevel: number;
   nextLevel: number | null;
   description: string;
+}
+
+export interface AvatarPresetDefinition {
+  id: AvatarPreset;
+  name: string;
+  label: string;
+  description: string;
+  icon: string;
+}
+
+export const AVATAR_PRESETS: AvatarPresetDefinition[] = [
+  {
+    id: 'lumi',
+    name: '루미',
+    label: '여자 러너',
+    description: '풍성한 웨이브 헤어의 새싹 러너',
+    icon: '🌸',
+  },
+  {
+    id: 'mori',
+    name: '모리',
+    label: '남자 러너',
+    description: '부드러운 쇼트 헤어의 새싹 러너',
+    icon: '🌿',
+  },
+];
+
+export function getAvatarPresetDefinition(preset: AvatarPreset): AvatarPresetDefinition {
+  return AVATAR_PRESETS.find((candidate) => candidate.id === preset) ?? AVATAR_PRESETS[0]!;
 }
 
 export const BASE_ITEM_SLOTS: ItemSlot[] = [
@@ -236,12 +266,12 @@ export const ITEMS: GameItem[] = [
   },
   {
     id: 'chestnut-ponytail',
-    name: '밤색 웨이브 포니테일',
+    name: '밤색 기본 헤어',
     slot: 'hair',
     rarity: '일반',
     icon: '🤎',
     price: 0,
-    description: '새싹 핀과 잘 어울리는 루미의 기본 웨이브 포니테일',
+    description: '캐릭터 타입에 맞춰 웨이브 또는 쇼트 스타일로 바뀌는 기본 헤어',
     source: 'starter',
   },
   {

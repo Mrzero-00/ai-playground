@@ -665,6 +665,10 @@
         height: 57px;
       }
 
+      .anime-face-layer[data-preset='mori'] {
+        left: 79px;
+      }
+
       .anime-blush {
         position: absolute;
         top: 32px;
@@ -1283,6 +1287,73 @@
 
       .avatar-card {
         min-height: 445px;
+      }
+
+      .avatar-preset-card {
+        margin-top: 14px;
+      }
+
+      .avatar-preset-header,
+      .avatar-preset-option {
+        display: flex;
+        align-items: center;
+      }
+
+      .avatar-preset-header {
+        justify-content: space-between;
+      }
+
+      .avatar-preset-header strong {
+        color: var(--ink);
+        font-size: 14px;
+      }
+
+      .avatar-preset-header span {
+        color: var(--brand-dark);
+        font-size: 10px;
+        font-weight: 900;
+      }
+
+      .avatar-preset-options {
+        display: grid;
+        gap: 8px;
+        margin-top: 12px;
+      }
+
+      .avatar-preset-option {
+        gap: 10px;
+        width: 100%;
+        padding: 11px 12px;
+        border: 1px solid var(--line);
+        border-radius: 16px;
+        color: var(--ink);
+        background: #f5f9f7;
+        text-align: left;
+      }
+
+      .avatar-preset-option.active {
+        border-color: var(--brand);
+        color: var(--brand-dark);
+        background: var(--brand-soft);
+      }
+
+      .avatar-preset-icon {
+        font-size: 23px;
+      }
+
+      .avatar-preset-copy {
+        flex: 1;
+      }
+
+      .avatar-preset-copy strong,
+      .avatar-preset-copy small {
+        display: block;
+      }
+
+      .avatar-preset-copy small {
+        margin-top: 3px;
+        color: var(--muted);
+        font-size: 9px;
       }
 
       .avatar-card .avatar-stage {
@@ -2090,7 +2161,7 @@
         <div class="hero-card">
           <div class="hero-copy">
             <span class="level-pill">RUNNER Lv. <span data-bind="level">7</span></span>
-            <h2>루미</h2>
+            <h2 data-avatar-name>루미</h2>
             <p>달릴수록 러너 레벨이 오르고<br />새로운 스타일을 만들 수 있어요.</p>
           </div>
           <div class="avatar-stage" data-avatar></div>
@@ -2218,7 +2289,7 @@
         <div class="hero-card shop-hero">
           <div class="hero-copy">
             <span class="level-pill">Lv. <span data-bind="level">7</span> 러너</span>
-            <h2 style="font-size: 26px">오늘의 루미</h2>
+            <h2 style="font-size: 26px">오늘의 <span data-avatar-name>루미</span></h2>
             <p>달리며 모은 코인으로<br />나만의 스타일을 완성해요.</p>
           </div>
           <div class="avatar-stage" data-avatar></div>
@@ -2287,13 +2358,31 @@
         <div class="avatar-card">
           <div class="hero-copy">
             <span class="level-pill">RUNNER Lv. <span data-bind="level">7</span></span>
-            <h2 style="font-size: 25px">나만의 러너, 루미</h2>
+            <h2 style="font-size: 25px">나만의 러너, <span data-avatar-name>루미</span></h2>
             <p>달릴수록 더 많은 스타일이 열려요.</p>
           </div>
           <div class="avatar-stage" data-avatar></div>
           <div class="avatar-name">
-            <strong>루미</strong>
+            <strong data-avatar-name>루미</strong>
             <small data-outfit-names>민트 러닝 캡 · 민트 후디 · 오렌지 러닝화</small>
+          </div>
+        </div>
+        <div class="card avatar-preset-card">
+          <div class="avatar-preset-header">
+            <div><strong>캐릭터 타입</strong><p class="caption">꾸미기 아이템과 러너 기록은 그대로 유지돼요.</p></div>
+            <span data-avatar-label>여자 러너</span>
+          </div>
+          <div class="avatar-preset-options">
+            <button class="avatar-preset-option active" data-avatar-preset="lumi">
+              <span class="avatar-preset-icon">🌸</span>
+              <span class="avatar-preset-copy"><strong>루미 · 여자 러너</strong><small>풍성한 웨이브 헤어의 새싹 러너</small></span>
+              <b>✓</b>
+            </button>
+            <button class="avatar-preset-option" data-avatar-preset="mori">
+              <span class="avatar-preset-icon">🌿</span>
+              <span class="avatar-preset-copy"><strong>모리 · 남자 러너</strong><small>부드러운 쇼트 헤어의 새싹 러너</small></span>
+              <b></b>
+            </button>
           </div>
         </div>
         <div class="card metrics">
@@ -2362,6 +2451,10 @@
     <script>
       const STORAGE_KEY = 'quest-run-style-demo-v3';
       const SHOWCASE_LOOK = new URLSearchParams(window.location.search).get('look') === 'showcase';
+      const avatarPresets = {
+        lumi: { name: '루미', label: '여자 러너' },
+        mori: { name: '모리', label: '남자 러너' },
+      };
       const slots = ['eyes', 'nose', 'mouth', 'hair', 'head', 'top', 'bottom', 'shoes', 'glasses', 'bag', 'watch'];
       const slotLabels = {
         eyes: '눈',
@@ -2409,13 +2502,13 @@
         },
         {
           id: 'chestnut-ponytail',
-          name: '밤색 웨이브 포니테일',
+          name: '밤색 기본 헤어',
           slot: 'hair',
           rarity: '일반',
           icon: '🤎',
           price: 0,
           source: 'starter',
-          description: '새싹 핀과 잘 어울리는 루미의 기본 웨이브 포니테일',
+          description: '캐릭터 타입에 맞춰 웨이브 또는 쇼트 스타일로 바뀌는 기본 헤어',
         },
         {
           id: 'mint-cap',
@@ -2727,6 +2820,7 @@
       };
 
       const initialState = {
+        avatarPreset: 'lumi',
         coins: 1240,
         level: 7,
         xp: 650,
@@ -2877,6 +2971,12 @@
       }
 
       function renderAvatar(container) {
+        const avatarPreset = avatarPresets[state.avatarPreset] ? state.avatarPreset : 'lumi';
+        const avatarDefinition = avatarPresets[avatarPreset];
+        const avatarBaseSource =
+          avatarPreset === 'mori'
+            ? '../assets/avatar/lumi-anime-boy-base-v1.png'
+            : '../assets/avatar/lumi-anime-base-v1.png';
         const eyeId = state.equipped.eyes || 'round-eyes';
         const noseId = state.equipped.nose || 'bean-nose';
         const mouthId = state.equipped.mouth || 'soft-smile';
@@ -2913,10 +3013,10 @@
           .join('');
 
         container.innerHTML = `
-          <div class="forest-avatar" role="img" aria-label="애니메이션 일러스트 스타일의 새싹 러너 루미. 얼굴, 헤어스타일과 러닝 아이템을 꾸밀 수 있습니다.">
-            <img class="anime-avatar-base" src="../assets/avatar/lumi-anime-base-v1.png" alt="" aria-hidden="true" />
+          <div class="forest-avatar" role="img" aria-label="애니메이션 일러스트 스타일의 새싹 러너 ${avatarDefinition.name}. 얼굴, 헤어스타일과 러닝 아이템을 꾸밀 수 있습니다.">
+            <img class="anime-avatar-base" src="${avatarBaseSource}" alt="" aria-hidden="true" />
             ${layerMarkup}
-            <span class="anime-face-layer">
+            <span class="anime-face-layer" data-preset="${avatarPreset}">
               <span class="anime-blush left"></span><span class="anime-blush right"></span>
               ${eyeMarkup}
               <span class="anime-nose" data-face="${noseId}">${noseGlyphs[noseId] || noseGlyphs['bean-nose']}</span>
@@ -2940,6 +3040,8 @@
       }
 
       function renderGlobal() {
+        const avatarPreset = avatarPresets[state.avatarPreset] ? state.avatarPreset : 'lumi';
+        const avatarDefinition = avatarPresets[avatarPreset];
         document
           .querySelectorAll('[data-bind=coins]')
           .forEach((node) => (node.textContent = formatNumber(state.coins)));
@@ -2965,6 +3067,17 @@
         document
           .querySelectorAll('[data-xp-bar]')
           .forEach((node) => (node.style.width = `${Math.min(100, (state.xp / state.xpTarget) * 100)}%`));
+        document
+          .querySelectorAll('[data-avatar-name]')
+          .forEach((node) => (node.textContent = avatarDefinition.name));
+        document
+          .querySelectorAll('[data-avatar-label]')
+          .forEach((node) => (node.textContent = avatarDefinition.label));
+        document.querySelectorAll('[data-avatar-preset]').forEach((node) => {
+          const selected = node.dataset.avatarPreset === avatarPreset;
+          node.classList.toggle('active', selected);
+          node.querySelector('b').textContent = selected ? '✓' : '';
+        });
         document.querySelectorAll('[data-avatar]').forEach(renderAvatar);
 
         const head = itemById(state.equipped.head);
@@ -3341,6 +3454,12 @@
         if (!target) return;
         if (target.dataset.nav) goTo(target.dataset.nav);
         if (target.dataset.go) goTo(target.dataset.go);
+        if (target.dataset.avatarPreset && avatarPresets[target.dataset.avatarPreset]) {
+          state.avatarPreset = target.dataset.avatarPreset;
+          saveState();
+          render();
+          showToast(state.avatarPreset === 'mori' ? '남자 러너 모리로 변경했어요!' : '여자 러너 루미로 변경했어요!');
+        }
         if (target.dataset.socialTab) {
           socialTab = target.dataset.socialTab;
           selectedFriendId = null;

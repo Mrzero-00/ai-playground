@@ -10,6 +10,7 @@ import {
   getDateKey,
   markFriendNotificationsSeen,
   purchaseItem,
+  selectAvatarPreset,
   selectGroupQuestMode,
 } from '../domain/gameState';
 import { createDemoRun, type CompletedRun, type DemoRunOptions } from '../domain/runTracking';
@@ -155,7 +156,7 @@ function QuestRunApp() {
               gameState={gameState}
               onEquipItem={(itemId) => {
                 updateGameState((current) => equipItem(current, itemId));
-                setToast('루미의 스타일을 바꿨어요!');
+                setToast('러너의 스타일을 바꿨어요!');
               }}
               onPurchaseItem={(itemId) => {
                 updateGameState((current) => equipItem(purchaseItem(current, itemId), itemId));
@@ -184,9 +185,13 @@ function QuestRunApp() {
               gameState={gameState}
               onEquipItem={(itemId) => {
                 updateGameState((current) => equipItem(current, itemId));
-                setToast('루미의 스타일을 바꿨어요!');
+                setToast('러너의 스타일을 바꿨어요!');
               }}
               onOpenStyle={() => setActiveTab('style')}
+              onSelectAvatarPreset={(preset) => {
+                updateGameState((current) => selectAvatarPreset(current, preset));
+                setToast(preset === 'mori' ? '남자 러너 모리로 변경했어요!' : '여자 러너 루미로 변경했어요!');
+              }}
             />
           ) : null}
         </View>

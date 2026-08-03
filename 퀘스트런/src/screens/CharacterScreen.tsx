@@ -1,11 +1,14 @@
 import React, { useState } from 'react';
 import { Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
 import {
+  AVATAR_PRESETS,
   ENDURANCE_MILESTONES,
   ITEMS,
   SLOT_LABELS,
+  getAvatarPresetDefinition,
   getItemById,
   getRunnerGrowthStage,
+  type AvatarPreset,
   type GameItem,
   type ItemSlot,
 } from '../domain/game';
@@ -20,9 +23,15 @@ interface CharacterScreenProps {
   gameState: GameState;
   onEquipItem: (itemId: string) => void;
   onOpenStyle: () => void;
+  onSelectAvatarPreset: (preset: AvatarPreset) => void;
 }
 
-export function CharacterScreen({ gameState, onEquipItem, onOpenStyle }: CharacterScreenProps) {
+export function CharacterScreen({
+  gameState,
+  onEquipItem,
+  onOpenStyle,
+  onSelectAvatarPreset,
+}: CharacterScreenProps) {
   const [selectedSlot, setSelectedSlot] = useState<ItemSlot>('eyes');
   const equippedItems = Object.values(gameState.equippedItemIds)
     .map((itemId) => (itemId == null ? undefined : getItemById(itemId)))
@@ -32,6 +41,7 @@ export function CharacterScreen({ gameState, onEquipItem, onOpenStyle }: Charact
   const enduranceProgress = nextEnduranceMilestone == null ? 1 : gameState.dailyStreak / nextEnduranceMilestone.days;
   const growthStage = getRunnerGrowthStage(gameState.level);
   const selectedSlotUnlocked = gameState.unlockedSlotIds.includes(selectedSlot);
+  const avatarDefinition = getAvatarPresetDefinition(gameState.avatarPreset);
 
   return (
     <ScrollView contentContainerStyle={styles.content} showsVerticalScrollIndicator={false}>
@@ -51,24 +61,64 @@ export function CharacterScreen({ gameState, onEquipItem, onOpenStyle }: Charact
         <View style={styles.characterGlowTwo} />
         <View style={styles.characterHeader}>
           <Pill tone="dark">RUNNER Lv. {gameState.level}</Pill>
-          <Text style={styles.characterTitle}>나만의 러너, 루미</Text>
+          <Text style={styles.characterTitle}>나만의 러너, {avatarDefinition.name}</Text>
           <Text style={styles.characterSubtitle}>달릴수록 더 많은 스타일이 열려요.</Text>
         </View>
         <View style={styles.avatarStage}>
           <View style={styles.avatarGround} />
           <RunnerAvatar
+            avatarPreset={gameState.avatarPreset}
             equippedItemIds={gameState.equippedItemIds}
             size={250}
             style={styles.characterAvatar}
           />
         </View>
         <View style={styles.characterBottom}>
-          <Text style={styles.characterName}>루미</Text>
+          <Text style={styles.characterName}>{avatarDefinition.name}</Text>
           <Text style={styles.characterLook}>
             {equippedItems.map((item) => item.name).join(' · ') || '기본 러닝 스타일'}
           </Text>
         </View>
       </View>
+
+      <Card style={styles.presetCard}>
+        <View style={styles.presetHeader}>
+          <View>
+            <Text style={styles.presetTitle}>캐릭터 타입</Text>
+            <Text style={styles.presetCaption}>꾸미기 아이템과 러너 기록은 그대로 유지돼요.</Text>
+          </View>
+          <Text style={styles.presetCurrent}>{avatarDefinition.label}</Text>
+        </View>
+        <View style={styles.presetOptions}>
+          {AVATAR_PRESETS.map((preset) => {
+            const selected = gameState.avatarPreset === preset.id;
+
+            return (
+              <Pressable
+                accessibilityLabel={`${preset.label} ${preset.name}`}
+                accessibilityRole="button"
+                accessibilityState={{ selected }}
+                key={preset.id}
+                onPress={() => onSelectAvatarPreset(preset.id)}
+                style={[styles.presetOption, selected && styles.presetOptionSelected]}
+              >
+                <Text style={styles.presetIcon}>{preset.icon}</Text>
+                <View style={styles.presetCopy}>
+                  <Text style={[styles.presetName, selected && styles.presetNameSelected]}>
+                    {preset.name} · {preset.label}
+                  </Text>
+                  <Text numberOfLines={1} style={styles.presetDescription}>
+                    {preset.description}
+                  </Text>
+                </View>
+                <Text style={[styles.presetCheck, selected && styles.presetCheckSelected]}>
+                  {selected ? '✓' : ''}
+                </Text>
+              </Pressable>
+            );
+          })}
+        </View>
+      </Card>
 
       <Card style={styles.runnerCard}>
         <View style={styles.runnerMetrics}>
@@ -356,6 +406,75 @@ const styles = StyleSheet.create({
     color: '#BCD3D0',
     fontSize: 10,
     marginTop: 4,
+  },
+  presetCard: {
+    marginTop: 14,
+  },
+  presetHeader: {
+    alignItems: 'center',
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+  },
+  presetTitle: {
+    color: colors.ink,
+    fontSize: 15,
+    fontWeight: '900',
+  },
+  presetCaption: {
+    color: colors.inkMuted,
+    fontSize: 10,
+    marginTop: 4,
+  },
+  presetCurrent: {
+    color: colors.brandDark,
+    fontSize: 11,
+    fontWeight: '900',
+  },
+  presetOptions: {
+    gap: 9,
+    marginTop: 14,
+  },
+  presetOption: {
+    alignItems: 'center',
+    backgroundColor: colors.surfaceMuted,
+    borderColor: colors.line,
+    borderRadius: 16,
+    borderWidth: 1,
+    flexDirection: 'row',
+    paddingHorizontal: 13,
+    paddingVertical: 11,
+  },
+  presetOptionSelected: {
+    backgroundColor: colors.brandSoft,
+    borderColor: colors.brand,
+  },
+  presetIcon: {
+    fontSize: 24,
+    marginRight: 10,
+  },
+  presetCopy: {
+    flex: 1,
+  },
+  presetName: {
+    color: colors.ink,
+    fontSize: 12,
+    fontWeight: '900',
+  },
+  presetNameSelected: {
+    color: colors.brandDark,
+  },
+  presetDescription: {
+    color: colors.inkMuted,
+    fontSize: 9,
+    marginTop: 3,
+  },
+  presetCheck: {
+    color: colors.white,
+    fontSize: 13,
+    fontWeight: '900',
+  },
+  presetCheckSelected: {
+    color: colors.brandDark,
   },
   runnerCard: {
     marginTop: 14,

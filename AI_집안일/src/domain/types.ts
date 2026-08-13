@@ -75,13 +75,20 @@ export interface SupplyItem {
 
 export interface ChoreHistory {
   id: string;
+  /** 서버 멱등 요청과 legacy local history ID를 조정하기 위한 호환 필드 */
+  requestId?: string;
   choreId: string;
   choreTitle: string;
+  categorySnapshot?: ChoreCategory;
   action: 'completed' | 'skipped';
   performedAt: string;
   scheduledFor?: string;
   performedByUserId: string;
+  performedByMembershipId?: string;
   performedByName: string;
+  assigneeMembershipIdSnapshot?: string;
+  assigneeNameSnapshot?: string;
+  completedByAssignee?: boolean | null;
 }
 
 export interface Home {

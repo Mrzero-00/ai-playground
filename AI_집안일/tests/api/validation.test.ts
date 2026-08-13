@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { assertValidAppData, normalizeInviteCode } from './validation';
+import { assertValidAppData, normalizeInviteCode } from '../../api/_lib/validation';
 
 describe('API 입력 검증', () => {
   it('초대 코드는 영문·숫자 6자리만 허용한다', () => {

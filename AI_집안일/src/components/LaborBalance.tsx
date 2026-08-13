@@ -71,9 +71,9 @@ export function LaborBalance({ assessments, chores, currentUserId, members, onAs
   }
 
   if (view === 'assignments') return <section className="labor-assignments labor-detail-section">
-    <div className="assignment-mode-card"><div><strong>{assignmentMode === 'auto' ? '✨ 자동 분배 사용 중' : '👥 전체 목록 함께 보기'}</strong><small>{assignmentMode === 'auto' ? '각자 오늘 화면에서 담당 업무를 확인해요.' : '모든 구성원에게 같은 목록이 보여요.'}</small></div><button type="button" onClick={assignmentMode === 'auto' ? onUseSharedList : onAutoAssign}>{assignmentMode === 'auto' ? '함께 보기로 변경' : '스타일로 자동 분배'}</button>{assignmentMode === 'auto' && <button className="text-button" type="button" onClick={onAutoAssign}>다시 자동 분배</button>}</div>
-    <div className="detail-list-heading"><strong>등록된 실행 업무</strong><span>{chores.length}개</span></div>
-    <ul>{chores.map((chore) => <li key={chore.id}><strong>{chore.title}</strong><div><label>실행 담당<select aria-label={`${chore.title} 실행 담당`} value={chore.executorMemberId ?? ''} onChange={(event) => onAssign(chore.id, event.target.value || undefined)}><option value="">모두에게 표시</option>{members.map((member) => <option key={member.id} value={member.id}>{member.displayName}</option>)}</select></label></div></li>)}</ul>
+    <div className="assignment-mode-card"><div><strong>{assignmentMode === 'auto' ? '✨ 담당자 자동 배정 중' : '👥 담당자 선택 지정'}</strong><small>{assignmentMode === 'auto' ? '내 담당 업무를 먼저 보여주되 누구나 완료할 수 있어요.' : '필요한 집안일에만 담당자를 직접 지정해요.'}</small></div><button type="button" onClick={assignmentMode === 'auto' ? onUseSharedList : onAutoAssign}>{assignmentMode === 'auto' ? '직접 지정으로 변경' : '자동 배정 사용'}</button>{assignmentMode === 'auto' && <button className="text-button" type="button" onClick={onAutoAssign}>다시 자동 배정</button>}</div>
+    <div className="detail-list-heading"><strong>등록된 집안일</strong><span>{chores.length}개</span></div>
+    <ul>{chores.map((chore) => <li key={chore.id}><strong>{chore.title}</strong><div><label>담당자 <small>선택</small><select aria-label={`${chore.title} 담당자`} value={chore.executorMemberId ?? ''} onChange={(event) => onAssign(chore.id, event.target.value || undefined)}><option value="">담당자 없음</option>{members.map((member) => <option key={member.id} value={member.id}>{member.displayName}</option>)}</select></label></div></li>)}</ul>
   </section>;
 
   return <>
@@ -85,7 +85,7 @@ export function LaborBalance({ assessments, chores, currentUserId, members, onAs
       <p className="report-note">이 수치는 능력이나 기여도의 순위가 아니라, 현재 누가 어떤 부담을 체감하는지 대화하기 위한 지표예요.</p>
     </section>
 
-    <button className="report-link-card" type="button" onClick={onOpenAssignments}><span aria-hidden="true">🧹</span><div><strong>실행 업무 나누기</strong><small>{assignmentMode === 'auto' ? `자동 분배 중 · ${chores.length}개 업무` : `${chores.length}개 업무의 담당자를 관리해요`}</small></div><i aria-hidden="true">›</i></button>
+    <button className="report-link-card" type="button" onClick={onOpenAssignments}><span aria-hidden="true">🧹</span><div><strong>집안일 담당자 관리</strong><small>{assignmentMode === 'auto' ? `자동 분배 중 · ${chores.length}개 업무` : `필요한 일에만 담당자를 지정할 수 있어요`}</small></div><i aria-hidden="true">›</i></button>
 
     {testing && <div className="modal-backdrop" role="presentation"><section className="bottom-sheet labor-test-sheet" role="dialog" aria-modal="true" aria-labelledby="labor-test-title">
       <header><button type="button" aria-label="테스트 닫기" onClick={() => setTesting(false)}>×</button><div><small>24문항 진단</small><h2 id="labor-test-title">보이지 않는 노동 테스트</h2></div><span>{questionIndex + 1}<small> / {questions.length}</small></span></header>

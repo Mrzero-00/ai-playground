@@ -2,7 +2,7 @@ import { PassThrough } from 'node:stream';
 import type { VercelRequest, VercelResponse } from '@vercel/node';
 import { describe, expect, it } from 'vitest';
 
-import handler from './profile-og';
+import handler from '../../api/profile-og';
 
 describe('profile OG image endpoint', () => {
   it('renders a 1200×630 PNG with cache headers', async () => {

@@ -1,4 +1,4 @@
-import type { ChoreCategory, Home } from './types';
+import type { ChoreCategory, Home } from './types.js';
 
 export interface ProfileTendency {
   category: ChoreCategory | null;
@@ -13,6 +13,17 @@ export interface ProfileLevel {
   progress: number;
   levelName: string;
   remaining: number;
+}
+
+export type ProfileCategoryCounts = Record<ChoreCategory, number>;
+
+export interface CalculatedProfileInsights {
+  completedCount: number;
+  categoryCounts: ProfileCategoryCounts;
+  level: ProfileLevel;
+  tendency: ProfileTendency;
+  /** 선택된 성향을 뒷받침하는 상위 카테고리의 완료 건수 */
+  tendencySampleSize: number;
 }
 
 const tendencyOrder: ChoreCategory[] = ['cleaning', 'kitchen', 'laundry', 'living', 'pet', 'etc'];
@@ -80,22 +91,40 @@ export function profileTendencyKey(tendency: ProfileTendency): ProfileTendencyKe
   return tendency.category ?? 'starter';
 }
 
-export function getProfileTendency(homes: Home[], userId: string): ProfileTendency {
-  const categoryCounts = new Map<ChoreCategory, number>();
+export function normalizeProfileCategoryCounts(
+  input: Partial<Record<ChoreCategory, number>>,
+): ProfileCategoryCounts {
+  return Object.fromEntries(tendencyOrder.map((category) => {
+    const count = input[category];
+    const normalized = Number.isFinite(count) ? Math.max(0, Math.floor(count ?? 0)) : 0;
+    return [category, normalized];
+  })) as ProfileCategoryCounts;
+}
+
+export function getProfileCategoryCounts(homes: Home[], userId: string): ProfileCategoryCounts {
+  const categoryCounts = normalizeProfileCategoryCounts({});
 
   for (const home of homes) {
     const categoryByChoreId = new Map(home.chores.map((chore) => [chore.id, chore.category]));
     for (const history of home.history) {
       if (history.action !== 'completed' || history.performedByUserId !== userId) continue;
-      const category = categoryByChoreId.get(history.choreId);
-      if (category) categoryCounts.set(category, (categoryCounts.get(category) ?? 0) + 1);
+      const category = history.categorySnapshot ?? categoryByChoreId.get(history.choreId);
+      if (category) categoryCounts[category] += 1;
     }
   }
+
+  return categoryCounts;
+}
+
+export function getProfileTendencyFromCategoryCounts(
+  input: Partial<Record<ChoreCategory, number>>,
+): ProfileTendency {
+  const categoryCounts = normalizeProfileCategoryCounts(input);
 
   let topCategory: ChoreCategory | null = null;
   let topCount = 0;
   for (const category of tendencyOrder) {
-    const count = categoryCounts.get(category) ?? 0;
+    const count = categoryCounts[category];
     if (count > topCount) {
       topCategory = category;
       topCount = count;
@@ -103,6 +132,29 @@ export function getProfileTendency(homes: Home[], userId: string): ProfileTenden
   }
 
   return topCategory && topCount >= 3 ? tendencies[topCategory] : starterTendency;
+}
+
+export function getProfileInsightsFromCategoryCounts(
+  input: Partial<Record<ChoreCategory, number>>,
+): CalculatedProfileInsights {
+  const categoryCounts = normalizeProfileCategoryCounts(input);
+  const completedCount = tendencyOrder.reduce((sum, category) => sum + categoryCounts[category], 0);
+  const tendency = getProfileTendencyFromCategoryCounts(categoryCounts);
+  const tendencySampleSize = tendency.category
+    ? categoryCounts[tendency.category]
+    : Math.max(...Object.values(categoryCounts));
+
+  return {
+    completedCount,
+    categoryCounts,
+    level: getProfileLevel(completedCount),
+    tendency,
+    tendencySampleSize,
+  };
+}
+
+export function getProfileTendency(homes: Home[], userId: string): ProfileTendency {
+  return getProfileTendencyFromCategoryCounts(getProfileCategoryCounts(homes, userId));
 }
 
 export function getProfileLevel(completedCount: number): ProfileLevel {

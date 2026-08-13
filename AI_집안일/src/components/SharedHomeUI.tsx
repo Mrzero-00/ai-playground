@@ -32,7 +32,7 @@ export interface SharedHomeUIProps {
 type Panel = "list" | "create" | "join";
 
 const ui: Record<string, CSSProperties> = {
-  bar: { display: "flex", alignItems: "center", gap: 10, width: "100%", padding: "10px 14px", border: 0, borderRadius: 14, background: "#f4f6f8", color: "#191f28", textAlign: "left", cursor: "pointer" },
+  bar: { display: "flex", minHeight: 56, alignItems: "center", gap: 10, width: "100%", padding: "8px 4px", border: 0, borderRadius: 0, background: "#fff", color: "#191f28", textAlign: "left", cursor: "pointer" },
   dim: { position: "fixed", inset: 0, zIndex: 40, display: "flex", alignItems: "flex-end", justifyContent: "center", background: "rgba(0,0,0,.42)" },
   sheet: { width: "min(100%, 520px)", maxHeight: "86dvh", overflowY: "auto", padding: "10px 20px max(24px, env(safe-area-inset-bottom))", borderRadius: "24px 24px 0 0", background: "#fff", color: "#191f28" },
   header: { display: "flex", alignItems: "center", justifyContent: "space-between", minHeight: 52 },

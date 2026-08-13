@@ -3,7 +3,7 @@ import {
   profileTendencyByKey,
   profileTendencyKey,
   type ProfileTendency,
-} from './profileInsights';
+} from './profileInsights.js';
 
 export const DEFAULT_PROFILE_SHARE_ORIGIN = 'https://jiptori.vercel.app';
 

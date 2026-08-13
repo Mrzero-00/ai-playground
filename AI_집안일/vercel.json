@@ -3,7 +3,7 @@
   "outputDirectory": "dist",
   "framework": "vite",
   "functions": {
-    "api/profile-og.tsx": {
+    "api/profile-og.ts": {
       "includeFiles": "api/assets/Pretendard-*.woff"
     }
   },

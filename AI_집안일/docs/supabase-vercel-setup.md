@@ -10,8 +10,9 @@ Supabase 대시보드의 **SQL Editor**에서 아래 파일 전체를 실행합�
 - `supabase/migrations/202607140002_labor_balance.sql`
 - `supabase/migrations/202607280003_safe_shared_sync.sql`
 - `supabase/migrations/202607280004_account_deletion.sql`
+- `supabase/migrations/202608110005_user_home_api_core.sql`
 
-파일명 순서대로 실행합니다. 세 번째 마이그레이션은 추천 선택 저장, 맞춤 집안일 알림·아이콘, 집별 동기화 버전과 원자 저장 함수를 추가합니다. 네 번째는 서비스 탈퇴 시 개인 데이터 삭제와 공유 집 소유권 이전을 처리합니다.
+파일명 순서대로 실행합니다. 세 번째 마이그레이션은 추천 선택 저장, 맞춤 집안일 알림·아이콘, 집별 동기화 버전과 원자 저장 함수를 추가합니다. 네 번째는 서비스 탈퇴 시 개인 데이터 삭제와 공유 집 소유권 이전을 처리합니다. 다섯 번째는 사용자·집 API용 메타데이터, 선택 담당자 무결성, 완료 당시 스냅샷과 `(집, 집안일, 예정일)` 중복 방지, 원자 완료·집 생성·참여 함수를 추가합니다.
 
 이 스키마는 사용자, 집, 집 구성원, 집 프로필, 집안일, 수행 기록, 개인 설정을 분리해 저장합니다. 모든 테이블은 RLS를 켜고 브라우저용 `anon`/`authenticated` 권한을 제거했습니다. 데이터 접근은 서버의 Secret Key로만 수행합니다.
 
@@ -58,8 +59,16 @@ Vercel 프로젝트의 **Settings → Environment Variables**에 서버용 `SUPA
 ## API
 
 - `GET /api/session`: 익명 세션 생성 및 현재 사용자 확인
+- `GET /api/me`: 사용자 기본정보, 서버 계산 레벨·성향, 참여 집 요약 조회
+- `PATCH /api/me`: 표시명, 현재 집, 알림 설정 변경
+- `GET /api/homes`: 참여 중인 집 요약 조회
+- `POST /api/homes`: 집과 소유자 소속을 원자적으로 생성
+- `GET /api/homes/:homeId`: 권한, 구성원, 집안일, 오늘 예정, 최근 완료를 포함한 집 상세 조회
+- `PATCH /api/homes/:homeId`: 소유자 전용 집 기본정보·프로필 변경
+- `PATCH /api/homes/:homeId/chores/:choreId`: 선택 담당자 지정·해제
+- `POST /api/homes/:homeId/chores/:choreId/complete`: 예정 건을 한 번만 완료하고 실제 수행자 기록
 - `GET /api/state`: 참여 중인 집 전체 상태 조회
-- `PUT /api/state`: 집, 집안일, 기록, 설정 저장
+- `PUT /api/state`: 이전 화면 호환용 전체 상태 저장(점진적으로 제거 예정)
 - `POST /api/homes/join`: 초대 코드로 집 참여
 - `DELETE /api/account`: 서비스 탈퇴와 개인 데이터 삭제
 
@@ -68,7 +77,11 @@ Vercel 프로젝트의 **Settings → Environment Variables**에 서버용 `SUPA
 ## 배포 직후 점검
 
 1. `/api/session`과 `/api/state`가 JSON 200을 반환하는지 확인합니다.
-2. 집을 만든 뒤 Supabase `homes.sync_revision`이 증가하는지 확인합니다.
-3. 다른 브라우저에서 초대 코드로 참여하고 30초 이내 또는 창 재진입 시 변경이 보이는지 확인합니다.
-4. 오래된 두 화면에서 동시에 수정했을 때 한쪽이 `동기화 오류`로 멈추는지 확인합니다.
-5. 탈퇴 테스트 계정의 개인 기록이 삭제되고 공유 집의 다른 구성원 데이터가 유지되는지 확인합니다.
+2. `/api/me`와 `/api/homes`가 사용자·소속 집을 분리해서 반환하는지 확인합니다.
+3. 집을 만든 뒤 Supabase `homes.sync_revision`이 증가하는지 확인합니다.
+4. 다른 브라우저에서 초대 코드로 참여하고 30초 이내 또는 창 재진입 시 변경이 보이는지 확인합니다.
+5. 한 집안일의 담당자를 지정·해제하고 다른 집의 membership ID가 거절되는지 확인합니다.
+6. 두 사용자가 같은 `scheduledFor`를 동시에 완료해도 활성 `chore_history`가 한 건인지 확인합니다.
+7. 동일한 `clientRequestId`를 재전송했을 때 같은 완료 기록을 반환하는지 확인합니다.
+8. 오래된 두 화면에서 동시에 집 정보를 수정했을 때 한쪽이 충돌 응답을 받는지 확인합니다.
+9. 탈퇴 테스트 계정의 개인 기록이 삭제되고 공유 집의 완료 사실은 이전 구성원 기록으로 안전하게 유지되는지 확인합니다.

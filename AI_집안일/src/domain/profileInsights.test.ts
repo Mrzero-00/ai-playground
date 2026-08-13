@@ -1,5 +1,12 @@
 import { describe, expect, it } from 'vitest';
-import { buildProfileShareMessage, getProfileLevel, getProfileTendency } from './profileInsights';
+import {
+  buildProfileShareMessage,
+  getProfileCategoryCounts,
+  getProfileInsightsFromCategoryCounts,
+  getProfileLevel,
+  getProfileTendency,
+  getProfileTendencyFromCategoryCounts,
+} from './profileInsights';
 import type { Home } from './types';
 
 function sampleHome(): Home {
@@ -64,6 +71,79 @@ describe('공유용 살림 프로필', () => {
       category: 'laundry',
       name: '뽀송 요정',
       basis: '세탁·패브릭',
+    });
+  });
+
+  it('집 스냅샷에서 서버 계산에 재사용할 카테고리별 완료 수를 만든다', () => {
+    expect(getProfileCategoryCounts([sampleHome()], 'me')).toEqual({
+      cleaning: 1,
+      kitchen: 0,
+      laundry: 3,
+      living: 0,
+      pet: 0,
+      etc: 0,
+    });
+  });
+
+  it('집안일이 삭제되거나 분류가 바뀌어도 완료 당시 분류를 유지한다', () => {
+    const home = sampleHome();
+    home.chores = [];
+    home.history = [{
+      id: 'deleted-kitchen-chore',
+      choreId: 'deleted-chore',
+      choreTitle: '저녁 준비',
+      categorySnapshot: 'kitchen',
+      action: 'completed',
+      performedAt: '2026-07-04T09:00:00.000Z',
+      performedByUserId: 'me',
+      performedByName: '나',
+    }];
+
+    expect(getProfileCategoryCounts([home], 'me')).toMatchObject({ kitchen: 1 });
+  });
+
+  it('카테고리별 집계만으로 레벨과 성향을 같이 계산한다', () => {
+    const insights = getProfileInsightsFromCategoryCounts({
+      cleaning: 2,
+      kitchen: 12,
+    });
+
+    expect(insights).toMatchObject({
+      completedCount: 14,
+      level: {
+        level: 2,
+        progress: 40,
+        remaining: 6,
+      },
+      tendency: {
+        category: 'kitchen',
+        name: '우리 집 이모카세',
+      },
+      tendencySampleSize: 12,
+      categoryCounts: {
+        cleaning: 2,
+        kitchen: 12,
+        laundry: 0,
+        living: 0,
+        pet: 0,
+        etc: 0,
+      },
+    });
+  });
+
+  it('잘못된 집계값을 보정하고 동률은 정해진 우선순위로 안정적으로 계산한다', () => {
+    const insights = getProfileInsightsFromCategoryCounts({
+      cleaning: 3.9,
+      kitchen: 3,
+      laundry: -2,
+      living: Number.NaN,
+    });
+
+    expect(insights.completedCount).toBe(6);
+    expect(insights.categoryCounts).toMatchObject({ cleaning: 3, kitchen: 3, laundry: 0, living: 0 });
+    expect(getProfileTendencyFromCategoryCounts(insights.categoryCounts)).toMatchObject({
+      category: 'cleaning',
+      name: '먼지 사냥꾼',
     });
   });
 

@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import { normalizeProfileShareData } from '../../src/domain/profileShare';
-import { renderProfileShareHtml } from './profileShare';
+import { renderProfileShareHtml } from '../../api/_lib/profileShare';
 
 describe('프로필 공유 HTML', () => {
   it('동적 OG와 트위터 메타 태그를 완성된 HTML로 제공한다', () => {

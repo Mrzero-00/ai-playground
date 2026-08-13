@@ -436,7 +436,7 @@ export function useAppData() {
     updateActiveHome((home) => ({
       ...home,
       chores: home.chores.map((chore) => chore.id === choreId
-        ? { ...chore, executorMemberId: executorMemberId || undefined }
+        ? { ...chore, assignedMemberId: executorMemberId || undefined, executorMemberId: executorMemberId || undefined }
         : chore),
     }));
   }

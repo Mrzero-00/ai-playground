@@ -1,3 +1,4 @@
+@layer jiptori-legacy {
 :root { --primary:#3182f6; --primary-strong:#1b64da; --primary-soft:#eaf3ff; --warm-bg:#f7f6f2; --surface:#fff; --text:#191f28; --muted:#6b7684; --line:#e5e8eb; --success:#20a474; font-family:Pretendard,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; color:var(--text); background:var(--warm-bg); font-synthesis:none; text-rendering:optimizeLegibility; }
 * { box-sizing:border-box; }
 body { margin:0; min-width:320px; min-height:100vh; background:var(--warm-bg); -webkit-tap-highlight-color:transparent; }
@@ -392,6 +393,7 @@ h2 { font-size:20px; letter-spacing:-.3px; }
 .quest-ticket-icon { display:grid; flex:0 0 auto; width:46px; height:46px; place-items:center; border-radius:14px; background:#f5f3fb; font-size:23px; }
 .quest-ticket-body strong { display:block; font-size:15px; }
 .quest-ticket-body p { margin-top:5px; color:#8b95a1; font-size:11px; }
+.quest-ticket-body .task-assignment-row { margin-top:8px; }
 .quest-ticket>footer { display:flex; align-items:center; justify-content:space-between; padding:11px 14px; border-top:1px dashed #e5e8eb; }
 .quest-ticket>footer>span { color:#6b7684; font-size:10px; }
 .quest-ticket>footer>span b { color:#f59f00; }
@@ -456,7 +458,20 @@ h2 { font-size:20px; letter-spacing:-.3px; }
 .task-copy strong { font-size:15px; }
 .task-copy small,.manage-copy small { margin-top:5px; color:#9297a1; font-size:12px; }
 .chore-guide-link { display:block; margin-top:7px; padding:0; border:0; color:#7359df; background:transparent; font-size:10px; font-weight:850; }
-.is-completed .task-copy { opacity:.45; text-decoration:line-through; }
+.is-completed .task-copy { opacity:.58; }
+.is-completed .task-copy>strong { text-decoration:line-through; }
+.task-tracking { display:inline-flex; width:max-content; max-width:100%; align-items:center; gap:5px; margin-top:7px; padding:5px 8px; border-radius:999px; color:#6b7684; background:#f2f4f6; font-size:10px; font-weight:750; line-height:1.2; }
+.task-tracking i { color:#98a2b3; font-size:8px; font-style:normal; }
+.task-tracking.is-assigned { color:#175cd3; background:#eff8ff; }
+.task-tracking.is-assigned i { color:#2e90fa; }
+.task-tracking.is-done { color:#067647; background:#ecfdf3; }
+.task-tracking.is-done i { color:#12b76a; }
+.task-assignment-row { display:flex; max-width:100%; align-items:center; flex-wrap:wrap; gap:6px; margin-top:7px; }
+.task-assignment-row .task-tracking { margin-top:0; }
+.claim-task-button { min-height:40px; padding:0 13px; border:1px solid #d6e4ff; border-radius:999px; color:#1769e0; background:#f7faff; font-size:11px; font-weight:850; white-space:nowrap; }
+.claim-task-button:hover { background:#edf5ff; }
+.claim-task-button:active { transform:scale(.97); }
+.claim-task-button:focus-visible { outline:3px solid #3182f633; outline-offset:2px; }
 .task-list .supply-purchase-task { gap:11px; min-height:92px; margin:10px 0; padding:12px; border:1px solid #ffd9a8; border-radius:16px; background:linear-gradient(135deg,#fffaf1,#fff4df); }
 .supply-purchase-icon { display:grid; flex:0 0 auto; width:44px; height:44px; place-items:center; border-radius:14px; background:#fff; box-shadow:0 4px 12px #bd751115; font-size:22px; }
 .supply-purchase-task .task-copy strong { margin-top:4px; color:#3d2d18; font-size:14px; }
@@ -1027,4 +1042,5 @@ h2 { color:#101828; font-weight:850; }
   color: #fff;
   font: inherit;
   font-weight: 700;
+}
 }

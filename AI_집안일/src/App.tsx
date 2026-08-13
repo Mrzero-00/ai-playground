@@ -119,6 +119,11 @@ function App() {
   const [openGuideId, setOpenGuideId] = useState<string | null>(null);
   const demoSupplySeeded = useRef(false);
 
+  const currentHomeMember = useMemo(
+    () => activeHome?.members.find((member) => member.userId === data.user.id) ?? null,
+    [activeHome, data.user.id],
+  );
+
   useEffect(() => {
     if (demoSupplySeeded.current || !activeHome?.profile || import.meta.env.VITE_ENABLE_DEMO_DATA !== 'true') return;
     demoSupplySeeded.current = true;
@@ -127,26 +132,46 @@ function App() {
   }, [activeHome, ensureDemoSupply, ensureDemoGuideChores]);
 
   const todayViews = useMemo(() => {
-    const currentMember = activeHome?.members.find((member) => member.userId === data.user.id);
-    const isVisibleForCurrentMember = (chore: Chore) => activeHome?.assignmentMode !== 'auto' || !currentMember || !chore.executorMemberId || chore.executorMemberId === currentMember.id;
-    const visibleDue = activeHome?.assignmentMode === 'auto' && currentMember
-      ? dueChores.filter(isVisibleForCurrentMember)
-      : dueChores;
-    const due = visibleDue.map(toView);
-    if (!activeHome) return due;
-    const completedIds = new Set(
-      activeHome.history
-        .filter((entry) => entry.action === 'completed' && toDateKey(new Date(entry.performedAt)) === todayKey())
-        .map((entry) => entry.choreId),
-    );
+    if (!activeHome) return dueChores.map(toView);
+    const memberNameById = new Map(activeHome.members.map((member) => [member.id, member.displayName]));
+    const assigneeId = (chore: Chore) => chore.executorMemberId ?? chore.assignedMemberId;
+    const assignmentRank = (chore: Chore) => assigneeId(chore) === currentHomeMember?.id ? 0 : assigneeId(chore) ? 2 : 1;
+    const decorate = (chore: Chore, completedByName?: string): ChoreView => {
+      const assigneeMembershipId = assigneeId(chore);
+      return {
+        ...toView(chore),
+        assigneeMembershipId,
+        assigneeName: assigneeMembershipId ? memberNameById.get(assigneeMembershipId) ?? '구성원' : undefined,
+        completedByName,
+      };
+    };
+    const due = [...dueChores]
+      .sort((left, right) => assignmentRank(left) - assignmentRank(right))
+      .map((chore) => decorate(chore));
+    const todayCompletions = new Map<string, (typeof activeHome.history)[number]>();
+    for (const entry of activeHome.history) {
+      if (entry.action !== 'completed' || toDateKey(new Date(entry.performedAt)) !== todayKey() || todayCompletions.has(entry.choreId)) continue;
+      todayCompletions.set(entry.choreId, entry);
+    }
     const completed = activeHome.chores
-      .filter((chore) => completedIds.has(chore.id) && isVisibleForCurrentMember(chore))
-      .map((chore) => ({ ...toView(chore), completed: true, dueLabel: '오늘 완료' }));
+      .filter((chore) => todayCompletions.has(chore.id))
+      .map((chore) => ({ ...decorate(chore, todayCompletions.get(chore.id)?.performedByName), completed: true, dueLabel: '오늘 완료' }));
     const completedChoreIds = new Set(completed.map((chore) => chore.id));
     const combined = [...due.filter((chore) => !completedChoreIds.has(chore.id)), ...completed];
     return [...new Map(combined.map((chore) => [chore.id, chore])).values()];
-  }, [activeHome, dueChores]);
-  const allViews = useMemo(() => activeHome?.chores.map(toView) ?? [], [activeHome]);
+  }, [activeHome, currentHomeMember?.id, dueChores]);
+  const allViews = useMemo(() => {
+    if (!activeHome) return [];
+    const memberNameById = new Map(activeHome.members.map((member) => [member.id, member.displayName]));
+    return activeHome.chores.map((chore) => {
+      const assigneeMembershipId = chore.executorMemberId ?? chore.assignedMemberId;
+      return {
+        ...toView(chore),
+        assigneeMembershipId,
+        assigneeName: assigneeMembershipId ? memberNameById.get(assigneeMembershipId) ?? '구성원' : undefined,
+      };
+    });
+  }, [activeHome]);
   const homeViews = useMemo(() => data.homes.map((home) => ({
     id: home.id,
     name: home.name,
@@ -203,6 +228,18 @@ function App() {
     else completeChore(choreId);
   }
 
+  function claimTodayChore(choreId: string) {
+    if (!currentHomeMember) return;
+    const chore = activeHome?.chores.find((item) => item.id === choreId);
+    if (!chore || chore.executorMemberId || chore.assignedMemberId) return;
+    assignChoreExecutor(choreId, currentHomeMember.id);
+  }
+
+  function changeTab(tab: NavigationTab) {
+    setActiveTab(tab);
+    window.requestAnimationFrame(() => window.scrollTo({ top: 0, behavior: 'auto' }));
+  }
+
   const purchasingSupply = activeHome?.supplies.find((item) => item.id === purchasingSupplyId) ?? null;
   const purchasingSupplyCompleted = todayViews.some((chore) => chore.id === `supply-chore-${purchasingSupplyId}` && chore.completed);
   const editingCustomChore = activeHome?.chores.find((chore) => chore.id === editingChoreId && chore.isCustom) ?? null;
@@ -248,6 +285,7 @@ function App() {
           householdName={activeHome.name}
           onAdd={() => setIsAddingChore(true)}
           onReminderToggle={() => updateNotifications({ ...data.notifications, enabled: !data.notifications.enabled })}
+          onClaim={currentHomeMember ? claimTodayChore : undefined}
           onOpenGuide={setOpenGuideId}
           onToggle={toggleTodayChore}
           reminderEnabled={data.notifications.enabled}
@@ -258,7 +296,7 @@ function App() {
       {activeTab === 'manage' && (
         <main className="screen chores-hub-screen">
           <header className="screen-header compact"><span className="step-label">우리 집 루틴</span><h1>집안일</h1><p>필요한 일은 추가하고, 사용 중인 루틴은 한곳에서 관리하세요.</p></header>
-          <section className="chore-hub-summary"><article><span aria-hidden="true">✓</span><div><strong>{allViews.filter((chore) => chore.enabled !== false).length}</strong><small>사용 중</small></div></article><article><span aria-hidden="true">✨</span><div><strong>{recommendationCandidates.length}</strong><small>새 추천</small></div></article><article><span aria-hidden="true">🗓️</span><div><strong>{dueChores.length}</strong><small>오늘 할 일</small></div></article></section>
+          <section className="chore-hub-summary" aria-label="집안일 요약"><article><strong>{allViews.filter((chore) => chore.enabled !== false).length}</strong><small>사용 중</small></article><article><strong>{recommendationCandidates.length}</strong><small>새 추천</small></article><article><strong>{dueChores.length}</strong><small>오늘 할 일</small></article></section>
           <RecommendationReview candidates={recommendationCandidates} onAccept={acceptRecommendation} onDismiss={dismissRecommendation} onSnooze={snoozeRecommendation} />
           <ChoreManager
             chores={allViews}
@@ -276,7 +314,7 @@ function App() {
       {activeTab === 'schedule' && <ScheduleCalendar chores={activeHome.chores} history={activeHome.history} />}
       {activeTab === 'report' && <HouseholdReport assessments={activeHome.laborAssessments ?? []} assignmentMode={activeHome.assignmentMode ?? 'shared'} chores={activeHome.chores} currentUserId={data.user.id} history={activeHome.history} homeName={activeHome.name} members={activeHome.members} onAddSupply={addSupplyItem} onAssign={assignChoreExecutor} onAutoAssign={autoAssignChores} onPurchaseSupply={recordSupplyPurchase} onRemoveSupply={removeSupplyItem} onSaveAssessment={saveLaborAssessment} onUseSharedList={setSharedAssignmentMode} supplies={activeHome.supplies ?? []} />}
       {activeTab === 'profile' && <PersonalProfile homes={data.homes} onDeleteAccount={deleteAccount} onSaveName={updateUserName} user={data.user} />}
-      <BottomNavigation active={activeTab} onChange={setActiveTab} />
+      <BottomNavigation active={activeTab} onChange={changeTab} />
       <CustomChoreModal
         initialValue={editingCustomInput}
         key={editingChoreId ?? (isAddingChore ? 'new' : 'closed')}

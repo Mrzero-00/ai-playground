@@ -20,11 +20,15 @@ function recommendationKind(chore: Chore) {
 
 export function RecommendationReview({ candidates, onAccept, onDismiss, onSnooze }: RecommendationReviewProps) {
   const [recurrences, setRecurrences] = useState<Record<string, Recurrence>>({});
+  const [showAll, setShowAll] = useState(false);
   if (!candidates.length) return null;
+
+  const visibleCandidates = showAll ? candidates : candidates.slice(0, 2);
+  const hiddenCount = candidates.length - visibleCandidates.length;
 
   return <section className="recommendation-review">
     <header><div><span>우리 집 맞춤 추천</span><h2>먼저 {candidates.length}가지만 확인해 보세요</h2><p>필요한 일만 추가하면 다음 추천이 이어져요. 제외한 선택은 다시 묻지 않아요.</p></div></header>
-    <div className="recommendation-cards">{candidates.map((chore) => {
+    <div className="recommendation-cards">{visibleCandidates.map((chore) => {
       const recurrence = recurrences[chore.id] ?? chore.recurrence;
       return <article key={chore.id}>
         <div className="recommendation-card-head"><span className="recommendation-card-icon" aria-hidden="true">{chore.icon ?? '✨'}</span><div className="recommendation-card-copy"><span className="recommendation-card-kind">{recommendationKind(chore)}</span><strong>{chore.title}</strong><small>추천 주기 {formatRecurrence(chore.recurrence)} · 가이드 포함</small></div></div>
@@ -32,5 +36,6 @@ export function RecommendationReview({ candidates, onAccept, onDismiss, onSnooze
         <footer><button onClick={() => onSnooze(chore.id)} type="button">나중에</button><button onClick={() => onDismiss(chore.id)} type="button">필요 없어요</button><button className="recommendation-accept" onClick={() => onAccept(chore.id, recurrence)} type="button">추가하기</button></footer>
       </article>;
     })}</div>
+    {candidates.length > 2 && <button aria-expanded={showAll} className="recommendation-more-button" onClick={() => setShowAll((value) => !value)} type="button">{showAll ? '추천 접기' : `추천 ${hiddenCount}개 더 보기`}</button>}
   </section>;
 }

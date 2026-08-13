@@ -1,4 +1,4 @@
-import { useMemo, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { calculateHomeAnalytics } from '../domain/analytics';
 import type { Chore, ChoreCategory, ChoreHistory, HomeMember } from '../domain/types';
 import type { LaborAssessment } from '../domain/types';
@@ -40,9 +40,13 @@ export function HouseholdReport({ homeName, chores, history, members, assessment
     [chores, history, members],
   );
 
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: 'auto' });
+  }, [detail]);
+
   if (detail) return <main className="screen report-detail-screen">
-    <header className="detail-screen-header"><button aria-label="리포트로 돌아가기" onClick={() => setDetail(null)} type="button">‹</button><div><span>{homeName}</span><h1>{{ assignments: '실행 업무 나누기', supplies: '생활용품 관리', history: '집안일 히스토리' }[detail]}</h1></div><span /></header>
-    {detail === 'assignments' && <><p className="detail-screen-intro">담당 방식을 정하고 각 집안일의 실행 담당자를 관리하세요.</p><LaborBalance assessments={assessments} assignmentMode={assignmentMode} chores={chores} currentUserId={currentUserId} members={members} onAssign={onAssign} onAutoAssign={onAutoAssign} onSaveAssessment={onSaveAssessment} onUseSharedList={onUseSharedList} view="assignments" /></>}
+    <header className="detail-screen-header"><button aria-label="리포트로 돌아가기" onClick={() => setDetail(null)} type="button">‹</button><div><span>{homeName}</span><h1>{{ assignments: '집안일 담당자 관리', supplies: '생활용품 관리', history: '집안일 히스토리' }[detail]}</h1></div><span /></header>
+    {detail === 'assignments' && <><p className="detail-screen-intro">지라 티켓처럼 필요한 일에만 담당자를 지정해요. 담당자가 없어도 완료한 사람은 자동으로 기록돼요.</p><LaborBalance assessments={assessments} assignmentMode={assignmentMode} chores={chores} currentUserId={currentUserId} members={members} onAssign={onAssign} onAutoAssign={onAutoAssign} onSaveAssessment={onSaveAssessment} onUseSharedList={onUseSharedList} view="assignments" /></>}
     {detail === 'supplies' && <><p className="detail-screen-intro">구매 수량과 사용 속도를 기록하면 다음 확인 시점을 계산해요.</p><SupplyPlanner items={supplies} onAdd={onAddSupply} onPurchase={onPurchaseSupply} onRemove={onRemoveSupply} /></>}
     {detail === 'history' && <><div className="detail-list-heading"><strong>최근 완료 기록</strong><span>{analytics.recentHistory.length}건</span></div>{!analytics.recentHistory.length ? <ReportEmpty text="집안일을 완료하면 여기에 기록돼요." /> : <HistoryList entries={analytics.recentHistory} />}</>}
   </main>;

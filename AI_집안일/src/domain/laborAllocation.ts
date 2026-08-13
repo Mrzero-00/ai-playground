@@ -19,6 +19,6 @@ export function automaticallyAllocateChores(chores: Chore[], members: HomeMember
   return chores.map((chore) => {
     const executor = pickExecutor();
     if (executor) executionCounts.set(executor.id, (executionCounts.get(executor.id) ?? 0) + 1);
-    return { ...chore, executorMemberId: executor?.id };
+    return { ...chore, assignedMemberId: executor?.id, executorMemberId: executor?.id };
   });
 }

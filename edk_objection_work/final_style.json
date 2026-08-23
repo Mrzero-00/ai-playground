@@ -1,0 +1,170 @@
+{
+  "input": "/Users/sonsang-il/Desktop/ai/EDK_\ub9ac\ub274\uc5bc_\ud504\ub85c\uc81d\ud2b8_\uc774\uc758\uc81c\uae30_\ubc0f_\uac80\ud1a0\uc758\uacac\uc11c_v1.0.docx",
+  "fonts_by_char_count": {
+    "Noto Sans KR": 6316
+  },
+  "direct_run_formatting_runs": 236,
+  "direct_paragraph_formatting_paragraphs": 246,
+  "heading_like_paragraphs_not_heading_style": [
+    {
+      "para_index": 1,
+      "text": "EDK",
+      "style": ""
+    },
+    {
+      "para_index": 2,
+      "text": "\ub9ac\ub274\uc5bc \ud504\ub85c\uc81d\ud2b8 \uc774\uc758\uc81c\uae30 \ubc0f \uac80\ud1a0\uc758\uacac\uc11c",
+      "style": ""
+    },
+    {
+      "para_index": 81,
+      "text": "\ud56d\ubaa9",
+      "style": ""
+    },
+    {
+      "para_index": 82,
+      "text": "\ub0b4\uc6a9",
+      "style": ""
+    },
+    {
+      "para_index": 83,
+      "text": "\ucc38\uc870 \ubb38\uc11c",
+      "style": ""
+    },
+    {
+      "para_index": 85,
+      "text": "\ubb38\uc11c \uc131\uaca9",
+      "style": ""
+    },
+    {
+      "para_index": 87,
+      "text": "\uc791\uc131 \ubaa9\uc801",
+      "style": ""
+    },
+    {
+      "para_index": 89,
+      "text": "\uc791\uc131\uc77c",
+      "style": ""
+    },
+    {
+      "para_index": 91,
+      "text": "\uc791\uc131",
+      "style": ""
+    },
+    {
+      "para_index": 93,
+      "text": "\uc218\uc2e0",
+      "style": ""
+    },
+    {
+      "para_index": 95,
+      "text": "\ubc30\ud3ec \uad6c\ubd84",
+      "style": ""
+    },
+    {
+      "para_index": 97,
+      "text": "\ud575\uc2ec \uc758\uacac",
+      "style": ""
+    },
+    {
+      "para_index": 99,
+      "text": "\ubcf4\uace0\uc11c \uae30\uc7ac \uc0ac\ud56d",
+      "style": ""
+    },
+    {
+      "para_index": 100,
+      "text": "\ud655\uc778\ub418\ub294 \uc0ac\uc2e4",
+      "style": ""
+    },
+    {
+      "para_index": 101,
+      "text": "\uac80\ud1a0\uc0c1 \uc758\ubbf8",
+      "style": ""
+    },
+    {
+      "para_index": 102,
+      "text": "2.2 \ubc94\uc704 \ubc0f \uc6d0\uce59",
+      "style": ""
+    },
+    {
+      "para_index": 105,
+      "text": "2.2 UI/UX \uc644\uc804 \ubcf4\uc874",
+      "style": ""
+    },
+    {
+      "para_index": 108,
+      "text": "3.1 \ucd94\uc9c4 \uc804\ub7b5",
+      "style": ""
+    },
+    {
+      "para_index": 111,
+      "text": "3.1 \uc804\ub7b5 \uc804\ud658",
+      "style": ""
+    },
+    {
+      "para_index": 114,
+      "text": "2.4 \uae30\uc220 \uc2a4\ud0dd",
+      "style": ""
+    }
+  ],
+  "examples": {
+    "direct_paragraph_formatting": [
+      {
+        "para_index": 1,
+        "text": "EDK",
+        "style": ""
+      },
+      {
+        "para_index": 2,
+        "text": "\ub9ac\ub274\uc5bc \ud504\ub85c\uc81d\ud2b8 \uc774\uc758\uc81c\uae30 \ubc0f \uac80\ud1a0\uc758\uacac\uc11c",
+        "style": ""
+      },
+      {
+        "para_index": 3,
+        "text": "UI/UX \ub3d9\uc77c\uc131, \ud504\ub860\ud2b8\uc5d4\ub4dc \ucf54\ub4dc \ubcf4\uc874 \ubc0f \uc131\ub2a5\uac1c\uc120 \ubc94\uc704\uc5d0 \uad00\ud55c \uacf5\uc2dd \uac80\ud1a0",
+        "style": ""
+      },
+      {
+        "para_index": 4,
+        "text": "",
+        "style": ""
+      },
+      {
+        "para_index": 5,
+        "text": "\ubcf8 \ubb38\uc11c\ub294 \uc81c\uacf5\ub41c \uc885\ub8cc\ubcf4\uace0\uc11c \ucd08\uc548\uc744 \uadfc\uac70\ub85c \uc791\uc131\ud55c \uac80\ud1a0 \uc758\uacac\uc774\uba70, \uacc4\uc57d\uc11c\u00b7\uc81c\uc548\uc694\uccad\uc11c\u00b7\ud68c\uc758\ub85d\u00b7\ubcc0\uacbd\uc2b9\uc778\uc11c \uc6d0\ubb38\uc774 \ucd94\uac00\ub418\uba74 \uadf8 \ub0b4\uc6a9\uc5d0 \ub530\ub77c \ubcf4\uc644\ub418\uc5b4\uc57c \ud55c\ub2e4.",
+        "style": ""
+      }
+    ],
+    "direct_run_formatting": [
+      {
+        "para_index": 1,
+        "run_text": "EDK",
+        "style": ""
+      },
+      {
+        "para_index": 2,
+        "run_text": "\ub9ac\ub274\uc5bc \ud504\ub85c\uc81d\ud2b8 \uc774\uc758\uc81c\uae30 \ubc0f \uac80\ud1a0\uc758\uacac\uc11c",
+        "style": ""
+      },
+      {
+        "para_index": 3,
+        "run_text": "UI/UX \ub3d9\uc77c\uc131, \ud504\ub860\ud2b8\uc5d4\ub4dc \ucf54\ub4dc \ubcf4\uc874 \ubc0f \uc131\ub2a5\uac1c\uc120 \ubc94\uc704\uc5d0 \uad00\ud55c \uacf5\uc2dd \uac80\ud1a0",
+        "style": ""
+      },
+      {
+        "para_index": 5,
+        "run_text": "\ubcf8 \ubb38\uc11c\ub294 \uc81c\uacf5\ub41c \uc885\ub8cc\ubcf4\uace0\uc11c \ucd08\uc548\uc744 \uadfc\uac70\ub85c \uc791\uc131\ud55c \uac80\ud1a0 \uc758\uacac\uc774\uba70, \uacc4\uc57d\uc11c\u00b7\uc81c\uc548\uc694\uccad\uc11c\u00b7\ud68c\uc758\ub85d\u00b7\ubcc0\uacbd\uc2b9\uc778\uc11c \uc6d0\ubb38\uc774 \ucd94\uac00\ub418\uba74 \uadf8 \ub0b4\uc6a9\uc5d0 \ub530\ub77c \ubcf4\uc644\ub418\uc5b4\uc57c",
+        "style": ""
+      },
+      {
+        "para_index": 7,
+        "run_text": "1. \uc694\uc57d \ubc0f \uacf5\uc2dd \uc774\uc758\uc81c\uae30",
+        "style": "Heading 1"
+      }
+    ]
+  },
+  "notes": [
+    "Direct formatting is not always wrong, but it often causes inconsistent output when templates change.",
+    "Heading-like paragraphs not using Heading styles can break TOC and accessibility."
+  ]
+}

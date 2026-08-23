@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cfa39309991041049c2aa04751a602c2, type: 3}
+  m_Name: CarTuning_V01
+  m_EditorClassIdentifier: RCWeeklyTimeAttack.Runtime::RCWeeklyTimeAttack.Vehicle.CarTuning
+  acceleration: 18
+  maxForwardSpeed: 22
+  brakeDeceleration: 32
+  coastDeceleration: 2.2
+  steeringDegreesPerSecond: 105
+  minimumSteeringSpeed: 0.45
+  lateralGrip: 12
+

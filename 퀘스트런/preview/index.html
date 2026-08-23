@@ -1,0 +1,3924 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>퀘스트런 · 달리고 꾸미는 러너 아바타</title>
+    <style>
+      :root {
+        color-scheme: light;
+        --ink: #102a2e;
+        --muted: #617579;
+        --faint: #91a0a3;
+        --bg: #f3f7f5;
+        --surface: #fff;
+        --line: #e2eae6;
+        --brand: #16b87a;
+        --brand-dark: #087b55;
+        --brand-soft: #ddf7ec;
+        --orange: #ff8a3d;
+        --orange-soft: #fff0e5;
+        --navy: #0b2030;
+        --yellow: #ffc857;
+        --purple: #7668e8;
+        --shadow: 0 16px 42px rgba(18, 55, 44, 0.1);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        background: radial-gradient(circle at 15% 10%, rgba(22, 184, 122, 0.11), transparent 24rem),
+          radial-gradient(circle at 85% 80%, rgba(255, 138, 61, 0.09), transparent 24rem), #eaf1ed;
+      }
+
+      body {
+        margin: 0;
+        color: var(--ink);
+        font-family:
+          Pretendard,
+          -apple-system,
+          BlinkMacSystemFont,
+          'Segoe UI',
+          sans-serif;
+      }
+
+      button {
+        color: inherit;
+        font: inherit;
+      }
+
+      .app {
+        width: min(100%, 430px);
+        min-height: 100vh;
+        margin: 0 auto;
+        overflow: hidden;
+        background: var(--bg);
+        box-shadow: var(--shadow);
+      }
+
+      .screen {
+        display: none;
+        min-height: 100vh;
+        padding: 22px 20px 116px;
+      }
+
+      .screen.active {
+        display: block;
+        animation: screen-in 0.28s ease both;
+      }
+
+      @keyframes screen-in {
+        from {
+          opacity: 0;
+          transform: translateY(8px);
+        }
+      }
+
+      .header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 20px;
+      }
+
+      .eyebrow {
+        margin: 0 0 4px;
+        color: var(--brand-dark);
+        font-size: 11px;
+        font-weight: 900;
+        letter-spacing: 1.2px;
+      }
+
+      h1,
+      h2,
+      h3,
+      p {
+        margin: 0;
+      }
+
+      h1 {
+        font-size: 28px;
+        letter-spacing: -0.8px;
+      }
+
+      .coin-pill,
+      .level-pill {
+        display: inline-flex;
+        align-items: center;
+        gap: 7px;
+        border-radius: 999px;
+        font-size: 13px;
+        font-weight: 900;
+      }
+
+      .coin-pill {
+        padding: 9px 13px;
+        color: #994a04;
+        background: var(--orange-soft);
+      }
+
+      .coin-dot {
+        color: #d87511;
+      }
+
+      .level-pill {
+        padding: 7px 11px;
+        color: white;
+        background: rgba(255, 255, 255, 0.14);
+      }
+
+      .hero-card,
+      .avatar-card {
+        position: relative;
+        min-height: 370px;
+        overflow: hidden;
+        border-radius: 30px;
+        color: white;
+        background: var(--navy);
+      }
+
+      .hero-card::before,
+      .avatar-card::before {
+        position: absolute;
+        top: -70px;
+        right: -80px;
+        width: 310px;
+        height: 310px;
+        border-radius: 50%;
+        background: #164d58;
+        content: '';
+      }
+
+      .hero-card::after,
+      .avatar-card::after {
+        position: absolute;
+        right: 54px;
+        bottom: -100px;
+        width: 220px;
+        height: 220px;
+        border-radius: 50%;
+        background: rgba(13, 140, 124, 0.6);
+        content: '';
+      }
+
+      .hero-copy {
+        position: relative;
+        z-index: 3;
+        padding: 23px;
+      }
+
+      .hero-copy h2 {
+        margin-top: 14px;
+        font-size: 30px;
+        letter-spacing: -0.8px;
+      }
+
+      .hero-copy p {
+        margin-top: 8px;
+        color: #cfe5e1;
+        font-size: 13px;
+        line-height: 1.55;
+      }
+
+      .avatar-stage {
+        position: absolute;
+        z-index: 2;
+        right: -4px;
+        bottom: 40px;
+        width: 270px;
+        height: 290px;
+      }
+
+      .avatar-stage::after {
+        position: absolute;
+        right: 28px;
+        bottom: 7px;
+        width: 190px;
+        height: 36px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.12);
+        content: '';
+      }
+
+      .hero-img {
+        position: absolute;
+        z-index: 2;
+        right: 7px;
+        bottom: 5px;
+        width: 235px;
+        height: 270px;
+        object-fit: contain;
+        image-rendering: pixelated;
+      }
+
+      .forest-avatar {
+        position: absolute;
+        z-index: 2;
+        right: 7px;
+        bottom: 0;
+        width: 220px;
+        height: 282px;
+        transform: scale(1.07);
+        transform-origin: right bottom;
+      }
+
+      .forest-shadow,
+      .forest-ear,
+      .forest-hood,
+      .forest-body,
+      .forest-arm,
+      .forest-cuff,
+      .forest-hand,
+      .forest-leg,
+      .forest-sock,
+      .forest-shoe,
+      .forest-shoe-highlight,
+      .forest-sole,
+      .forest-head,
+      .forest-face-patch,
+      .forest-hair-cap,
+      .forest-bang,
+      .forest-head-highlight,
+      .forest-blush,
+      .forest-stem,
+      .forest-leaf,
+      .forest-shorts,
+      .forest-short-seam,
+      .forest-collar,
+      .forest-drawstring,
+      .forest-shirt-highlight,
+      .forest-pocket {
+        position: absolute;
+        display: block;
+      }
+
+      .forest-shadow {
+        bottom: 2px;
+        left: 35px;
+        width: 150px;
+        height: 24px;
+        border-radius: 50%;
+        background: rgba(5, 33, 38, 0.22);
+        transform: scaleY(0.48);
+      }
+
+      .forest-ear {
+        top: 61px;
+        width: 25px;
+        height: 30px;
+        border: 2px solid #c8795d;
+        border-radius: 50%;
+        background: #ffd1ae;
+      }
+
+      .forest-ear.left {
+        left: 36px;
+      }
+
+      .forest-ear.right {
+        right: 36px;
+      }
+
+      .forest-neck {
+        position: absolute;
+        top: 113px;
+        left: 99px;
+        display: block;
+        width: 22px;
+        height: 20px;
+        border: 2px solid #c8795d;
+        border-radius: 10px;
+        background: #ffd1ae;
+      }
+
+      .forest-hood {
+        top: 118px;
+        left: 57px;
+        width: 106px;
+        height: 55px;
+        border: 2px solid #086655;
+        border-radius: 50%;
+        background: #118b76;
+      }
+
+      .forest-body {
+        top: 126px;
+        left: 64px;
+        width: 92px;
+        height: 79px;
+        overflow: hidden;
+        border: 3px solid #0c7e6a;
+        border-radius: 29px;
+        background: #46cead;
+      }
+
+      .forest-collar {
+        top: 3px;
+        left: 27px;
+        width: 38px;
+        height: 16px;
+        border-radius: 0 0 50% 50%;
+        background: #f2fff9;
+      }
+
+      .forest-shirt-highlight {
+        top: 16px;
+        left: 10px;
+        width: 13px;
+        height: 47px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.23);
+        transform: rotate(8deg);
+      }
+
+      .forest-drawstring {
+        top: 15px;
+        width: 2px;
+        height: 22px;
+        border-radius: 10px;
+        background: #e9fff8;
+      }
+
+      .forest-drawstring.left {
+        left: 39px;
+        transform: rotate(5deg);
+      }
+
+      .forest-drawstring.right {
+        right: 39px;
+        transform: rotate(-5deg);
+      }
+
+      .forest-pocket {
+        bottom: 10px;
+        left: 22px;
+        width: 48px;
+        height: 23px;
+        border-right: 1px solid rgba(5, 105, 88, 0.24);
+        border-bottom: 2px solid rgba(5, 105, 88, 0.45);
+        border-left: 1px solid rgba(5, 105, 88, 0.24);
+        border-radius: 50%;
+      }
+
+      .forest-shorts {
+        top: 187px;
+        left: 69px;
+        width: 82px;
+        height: 39px;
+        overflow: hidden;
+        border: 2px solid #17384f;
+        border-radius: 17px;
+        background: #264c68;
+      }
+
+      .forest-short-seam {
+        top: 10px;
+        left: 39px;
+        width: 2px;
+        height: 27px;
+        border-left: 2px solid rgba(255, 255, 255, 0.2);
+      }
+
+      .forest-arm {
+        top: 132px;
+        width: 29px;
+        height: 70px;
+        overflow: visible;
+        border: 2px solid #0c7e6a;
+        border-radius: 50%;
+        background: #46cead;
+      }
+
+      .forest-arm.left {
+        left: 45px;
+        transform: rotate(8deg);
+      }
+
+      .forest-arm.right {
+        right: 45px;
+        transform: rotate(-8deg);
+      }
+
+      .forest-cuff {
+        bottom: 9px;
+        left: 0;
+        width: 25px;
+        height: 14px;
+        border-radius: 50%;
+        background: #bdf4e4;
+      }
+
+      .forest-hand {
+        bottom: -4px;
+        left: 0;
+        width: 25px;
+        height: 25px;
+        border: 2px solid #c8795d;
+        border-radius: 50%;
+        background: #ffd1ae;
+      }
+
+      .forest-leg {
+        top: 198px;
+        width: 27px;
+        height: 54px;
+        overflow: hidden;
+        border: 2px solid #c8795d;
+        border-radius: 50%;
+        background: #f4bb91;
+      }
+
+      .forest-leg.left {
+        left: 73px;
+        transform: rotate(2deg);
+      }
+
+      .forest-leg.right {
+        right: 73px;
+        transform: rotate(-2deg);
+      }
+
+      .forest-sock {
+        right: 0;
+        bottom: 0;
+        left: 0;
+        height: 19px;
+        border-top: 2px solid #bbddd3;
+        background: #f7fff9;
+      }
+
+      .forest-shoe {
+        bottom: 6px;
+        width: 50px;
+        height: 28px;
+        overflow: hidden;
+        border: 2px solid #796b65;
+        border-radius: 50%;
+        background: #fff9ee;
+      }
+
+      .forest-shoe.left {
+        left: 57px;
+        transform: rotate(-2deg);
+      }
+
+      .forest-shoe.right {
+        right: 57px;
+        transform: rotate(2deg);
+      }
+
+      .forest-shoe-highlight {
+        top: 5px;
+        left: 9px;
+        width: 21px;
+        height: 8px;
+        border-radius: 50%;
+        background: #fff;
+        opacity: 0.9;
+      }
+
+      .forest-sole {
+        right: 3px;
+        bottom: 1px;
+        left: 3px;
+        height: 6px;
+        border-radius: 50%;
+        background: #ff8352;
+      }
+
+      .forest-head {
+        top: 22px;
+        left: 45px;
+        width: 130px;
+        height: 104px;
+        overflow: hidden;
+        border: 3px solid #3f2c29;
+        border-radius: 46px;
+        background: #5a3e38;
+      }
+
+      .forest-face-patch {
+        top: 10px;
+        left: 9px;
+        width: 112px;
+        height: 88px;
+        border: 1px solid #e9a980;
+        border-radius: 50%;
+        background: #ffd7b8;
+      }
+
+      .forest-hair-cap {
+        top: -3px;
+        left: -2px;
+        width: 134px;
+        height: 40px;
+        border-bottom: 2px solid #3f2c29;
+        border-radius: 50%;
+        background: #5a3e38;
+      }
+
+      .forest-bang {
+        top: 19px;
+        width: 37px;
+        height: 28px;
+        border-radius: 0 0 50% 50%;
+        background: #5a3e38;
+      }
+
+      .forest-bang.left {
+        left: 16px;
+        transform: rotate(18deg);
+      }
+
+      .forest-bang.right {
+        left: 48px;
+        width: 34px;
+        height: 26px;
+        transform: rotate(-9deg);
+      }
+
+      .forest-head-highlight {
+        top: 38px;
+        left: 12px;
+        z-index: 2;
+        width: 10px;
+        height: 33px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.3);
+        transform: rotate(-15deg);
+      }
+
+      .forest-blush {
+        top: 69px;
+        width: 20px;
+        height: 9px;
+        border-radius: 50%;
+        background: rgba(244, 150, 141, 0.52);
+      }
+
+      .forest-blush.left {
+        left: 19px;
+      }
+
+      .forest-blush.right {
+        right: 19px;
+      }
+
+      .forest-eyes,
+      .forest-nose,
+      .forest-mouth {
+        position: absolute;
+        z-index: 3;
+        right: 0;
+        left: 0;
+        color: #173f4a;
+        font-weight: 900;
+        line-height: 1;
+        text-align: center;
+      }
+
+      .forest-eyes {
+        top: 47px;
+        font-size: 18px;
+        letter-spacing: 5px;
+      }
+
+      .forest-nose {
+        top: 66px;
+        color: #a85f3b;
+        font-size: 11px;
+      }
+
+      .forest-mouth {
+        top: 79px;
+        color: #8f4836;
+        font-size: 16px;
+      }
+
+      .forest-nose[data-face='leaf-nose'] {
+        color: #39966e;
+      }
+
+      .forest-nose[data-face='peach-nose'] {
+        color: #e77965;
+      }
+
+      .anime-avatar-base {
+        position: absolute;
+        z-index: 0;
+        top: -7px;
+        left: 18px;
+        display: block;
+        width: 184px;
+        height: 296px;
+        object-fit: contain;
+      }
+
+      .anime-avatar-layer {
+        position: absolute;
+        display: block;
+        object-fit: contain;
+        pointer-events: none;
+      }
+
+      .anime-avatar-layer[data-item='berry-leggings'] {
+        z-index: 1;
+        top: 164px;
+        left: 42px;
+        width: 135px;
+        height: 90px;
+      }
+
+      .anime-avatar-layer[data-item='berry-leggings'][data-preset='mori'] {
+        top: 161px;
+        left: 50px;
+        width: 120px;
+        height: 86px;
+      }
+
+      .anime-avatar-layer[data-item='midnight-track-pants'] {
+        z-index: 1;
+        top: 148px;
+        left: 45px;
+        width: 130px;
+        height: 140px;
+        object-fit: fill;
+      }
+
+      .anime-avatar-layer[data-item='midnight-track-pants'][data-preset='mori'] {
+        top: 150px;
+        left: 51px;
+        width: 118px;
+        height: 136px;
+      }
+
+      .anime-avatar-layer[data-item='star-sneakers'] {
+        z-index: 2;
+        top: 184px;
+        left: 70px;
+        width: 83px;
+        height: 126px;
+      }
+
+      .anime-avatar-layer[data-item='star-sneakers'][data-preset='mori'] {
+        top: 190px;
+        left: 64px;
+        width: 93px;
+        height: 116px;
+      }
+
+      .anime-avatar-layer[data-item='mint-comet-shoes'] {
+        z-index: 2;
+        top: 184px;
+        left: 68px;
+        width: 86px;
+        height: 126px;
+      }
+
+      .anime-avatar-layer[data-item='mint-comet-shoes'][data-preset='mori'] {
+        top: 190px;
+        left: 64px;
+        width: 94px;
+        height: 116px;
+      }
+
+      .anime-avatar-layer[data-item='cloud-hoodie'] {
+        z-index: 3;
+        top: 62px;
+        left: 51px;
+        width: 117px;
+        height: 181px;
+      }
+
+      .anime-avatar-layer[data-item='cloud-hoodie'][data-preset='mori'] {
+        top: 68px;
+        left: 47px;
+        width: 126px;
+        height: 174px;
+      }
+
+      .anime-avatar-layer[data-item='sunset-windbreaker'] {
+        z-index: 3;
+        top: 63px;
+        left: 50px;
+        width: 120px;
+        height: 181px;
+      }
+
+      .anime-avatar-layer[data-item='sunset-windbreaker'][data-preset='mori'] {
+        top: 68px;
+        left: 47px;
+        width: 126px;
+        height: 174px;
+      }
+
+      .anime-avatar-layer[data-item='plum-twintail'] {
+        z-index: 4;
+        top: -23px;
+        left: 48px;
+        width: 134px;
+        height: 240px;
+      }
+
+      .anime-avatar-layer[data-item='plum-twintail'][data-preset='mori'] {
+        top: -7px;
+        left: 48px;
+        width: 128px;
+        height: 211px;
+      }
+
+      .anime-avatar-layer[data-item='silver-wolf-hair'] {
+        z-index: 4;
+        top: -28px;
+        left: 37px;
+        width: 154px;
+        height: 260px;
+      }
+
+      .anime-avatar-layer[data-item='silver-wolf-hair'][data-preset='mori'] {
+        top: -33px;
+        left: 37px;
+        width: 147px;
+        height: 245px;
+      }
+
+      .anime-face-layer {
+        position: absolute;
+        z-index: 6;
+        top: 68px;
+        left: 78px;
+        display: block;
+        width: 72px;
+        height: 60px;
+      }
+
+      .anime-face-layer[data-preset='mori'] {
+        top: 63px;
+        left: 77px;
+        width: 74px;
+        height: 60px;
+      }
+
+      .anime-face-layer[data-preset='mori'] .anime-blush {
+        top: 28px;
+      }
+
+      .anime-face-layer[data-preset='mori'] .anime-blush.left {
+        left: 10px;
+      }
+
+      .anime-face-layer[data-preset='mori'] .anime-blush.right {
+        right: 10px;
+      }
+
+      .anime-face-layer[data-preset='mori'] .anime-round-eye {
+        top: 13px;
+      }
+
+      .anime-face-layer[data-preset='mori'] .anime-round-eye.left {
+        left: 16px;
+      }
+
+      .anime-face-layer[data-preset='mori'] .anime-round-eye.right {
+        right: 16px;
+      }
+
+      .anime-face-layer[data-preset='mori'] .anime-eye-shape {
+        top: 16px;
+      }
+
+      .anime-face-layer[data-preset='mori'] .anime-eye-shape[data-face='smiley-eyes'] {
+        top: 19px;
+      }
+
+      .anime-face-layer[data-preset='mori'] .anime-eye-shape[data-face='sleepy-eyes'] {
+        top: 22px;
+      }
+
+      .anime-face-layer[data-preset='mori'] .anime-eye-shape.left {
+        left: 16px;
+      }
+
+      .anime-face-layer[data-preset='mori'] .anime-eye-shape.right {
+        right: 16px;
+      }
+
+      .anime-face-layer[data-preset='mori'] .anime-nose-shape {
+        top: 27px;
+      }
+
+      .anime-face-layer[data-preset='mori'] .anime-mouth-shape {
+        top: 30px;
+      }
+
+      .anime-blush {
+        position: absolute;
+        top: 29px;
+        width: 15px;
+        height: 7px;
+        border-radius: 50%;
+        background: rgba(244, 154, 170, 0.42);
+      }
+
+      .anime-blush.left {
+        left: 10px;
+      }
+
+      .anime-blush.right {
+        right: 10px;
+      }
+
+      .anime-round-eye,
+      .anime-eye-shape {
+        position: absolute;
+        display: block;
+      }
+
+      .anime-round-eye {
+        top: 14px;
+        width: 15px;
+        height: 19px;
+        overflow: hidden;
+        border: 1px solid #4d283b;
+        border-radius: 50%;
+        background: #71354f;
+      }
+
+      .anime-round-eye.left {
+        left: 14px;
+      }
+
+      .anime-round-eye.right {
+        right: 14px;
+      }
+
+      .anime-iris-glow {
+        position: absolute;
+        bottom: 1px;
+        left: 2px;
+        display: block;
+        width: 11px;
+        height: 7px;
+        border-radius: 50%;
+        background: #df748f;
+        opacity: 0.85;
+      }
+
+      .anime-eye-highlight {
+        position: absolute;
+        top: 3px;
+        left: 3px;
+        display: block;
+        width: 4px;
+        height: 4px;
+        border-radius: 50%;
+        background: #fff;
+      }
+
+      .anime-eye-shape {
+        top: 17px;
+        width: 15px;
+        height: 15px;
+      }
+
+      .anime-eye-shape.left {
+        left: 14px;
+      }
+
+      .anime-eye-shape.right {
+        right: 14px;
+      }
+
+      .anime-eye-shape[data-face='sparkle-eyes'] i,
+      .anime-eye-shape[data-face='sparkle-eyes'] b {
+        position: absolute;
+        display: block;
+        border-radius: 999px;
+      }
+
+      .anime-eye-shape[data-face='sparkle-eyes'] i:first-child {
+        top: 0;
+        left: 6px;
+        width: 3px;
+        height: 15px;
+        background: #783c52;
+      }
+
+      .anime-eye-shape[data-face='sparkle-eyes'] i:nth-child(2) {
+        top: 6px;
+        left: 0;
+        width: 15px;
+        height: 3px;
+        background: #783c52;
+      }
+
+      .anime-eye-shape[data-face='sparkle-eyes'] b {
+        top: 3px;
+        left: 4px;
+        width: 3px;
+        height: 3px;
+        background: #fff;
+      }
+
+      .anime-eye-shape[data-face='smiley-eyes'] {
+        top: 20px;
+        width: 16px;
+        height: 8px;
+        border-top: 2px solid #783c52;
+        border-radius: 50%;
+      }
+
+      .anime-eye-shape[data-face='sleepy-eyes'] {
+        top: 23px;
+        height: 2px;
+        border-radius: 999px;
+        background: #783c52;
+      }
+
+      .anime-feature-anchor {
+        position: absolute;
+        right: 0;
+        left: 0;
+        display: flex;
+        justify-content: center;
+      }
+
+      .anime-nose-shape {
+        top: 29px;
+        height: 8px;
+      }
+
+      .anime-nose-shape i {
+        display: block;
+      }
+
+      .anime-nose-shape[data-face='bean-nose'] i {
+        width: 5px;
+        height: 4px;
+        border-radius: 999px;
+        background: #b9665b;
+      }
+
+      .anime-nose-shape[data-face='peach-nose'] i {
+        width: 0;
+        height: 0;
+        border-top: 6px solid #e77965;
+        border-right: 4px solid transparent;
+        border-left: 4px solid transparent;
+      }
+
+      .anime-nose-shape[data-face='button-nose'] i {
+        width: 6px;
+        height: 6px;
+        border: 1px solid #91483f;
+        border-radius: 50%;
+        background: #b9665b;
+      }
+
+      .anime-nose-shape[data-face='leaf-nose'] i {
+        width: 7px;
+        height: 5px;
+        border-radius: 0 5px 0 5px;
+        background: #39966e;
+        transform: rotate(-28deg);
+      }
+
+      .anime-mouth-shape {
+        top: 32px;
+        height: 10px;
+      }
+
+      .anime-mouth-shape > i,
+      .anime-mouth-shape > span {
+        display: block;
+      }
+
+      .anime-mouth-shape[data-face='soft-smile'] > i {
+        width: 14px;
+        height: 6px;
+        border-bottom: 2px solid #a95061;
+        border-radius: 50%;
+      }
+
+      .anime-mouth-shape[data-face='cat-mouth'] > span {
+        display: flex;
+      }
+
+      .anime-mouth-shape[data-face='cat-mouth'] i {
+        width: 8px;
+        height: 6px;
+        border-bottom: 2px solid #a95061;
+        border-radius: 50%;
+      }
+
+      .anime-mouth-shape[data-face='open-smile'] > i {
+        position: relative;
+        width: 12px;
+        height: 8px;
+        margin-top: 2px;
+        overflow: hidden;
+        border: 1px solid #7d3a48;
+        border-radius: 50%;
+        background: #a95061;
+      }
+
+      .anime-mouth-shape[data-face='open-smile'] b {
+        position: absolute;
+        bottom: 1px;
+        left: 2px;
+        display: block;
+        width: 8px;
+        height: 3px;
+        border-radius: 50%;
+        background: #f49aaa;
+      }
+
+      .anime-mouth-shape[data-face='surprised-mouth'] > i {
+        width: 7px;
+        height: 8px;
+        margin-top: 2px;
+        border: 2px solid #a95061;
+        border-radius: 50%;
+      }
+
+      .forest-stem {
+        top: 8px;
+        left: 107px;
+        width: 6px;
+        height: 20px;
+        border: 1px solid #206234;
+        border-radius: 10px;
+        background: #3a8e50;
+      }
+
+      .forest-leaf {
+        top: 1px;
+        width: 35px;
+        height: 22px;
+        border: 2px solid #2d7139;
+        border-radius: 50%;
+        background: #80d65d;
+      }
+
+      .forest-leaf.left {
+        left: 82px;
+        transform: rotate(25deg);
+      }
+
+      .forest-leaf.right {
+        right: 82px;
+        transform: rotate(-25deg);
+      }
+
+      .wearable {
+        position: absolute;
+        z-index: 5;
+        display: grid;
+        width: 48px;
+        height: 48px;
+        place-items: center;
+        font-size: 36px;
+        filter: drop-shadow(0 4px 3px rgba(0, 0, 0, 0.16));
+        pointer-events: none;
+      }
+
+      .wearable[data-slot='head'] {
+        top: 6px;
+        right: 91px;
+      }
+
+      .wearable[data-slot='top'] {
+        top: 145px;
+        right: 91px;
+      }
+
+      .wearable[data-slot='bottom'] {
+        top: 188px;
+        right: 91px;
+      }
+
+      .wearable[data-slot='shoes'] {
+        right: 85px;
+        bottom: 3px;
+      }
+
+      .wearable[data-slot='glasses'] {
+        top: 59px;
+        right: 89px;
+      }
+
+      .wearable[data-slot='bag'] {
+        top: 145px;
+        right: 51px;
+      }
+
+      .wearable[data-slot='watch'] {
+        top: 171px;
+        right: 61px;
+      }
+
+      .xp-panel {
+        position: absolute;
+        z-index: 6;
+        right: 20px;
+        bottom: 19px;
+        left: 20px;
+      }
+
+      .xp-labels {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 7px;
+        font-size: 10px;
+        font-weight: 900;
+      }
+
+      .progress {
+        height: 8px;
+        overflow: hidden;
+        border-radius: 99px;
+        background: #eaf2ee;
+      }
+
+      .progress.dark {
+        background: rgba(255, 255, 255, 0.14);
+      }
+
+      .progress > span {
+        display: block;
+        height: 100%;
+        border-radius: inherit;
+        background: var(--brand);
+        transition: width 0.4s ease;
+      }
+
+      .progress.dark > span {
+        background: var(--yellow);
+      }
+
+      .card {
+        margin-top: 14px;
+        padding: 18px;
+        border-radius: 23px;
+        background: var(--surface);
+        box-shadow: 0 8px 24px rgba(18, 55, 44, 0.05);
+      }
+
+      .run-card-top,
+      .row,
+      .item-detail-top,
+      .section-title,
+      .quest-top {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+      }
+
+      .run-eyebrow {
+        color: var(--brand-dark);
+        font-size: 10px;
+        font-weight: 900;
+      }
+
+      .run-card h3 {
+        margin-top: 4px;
+        font-size: 18px;
+      }
+
+      .caption {
+        margin-top: 5px;
+        color: var(--muted);
+        font-size: 11px;
+        line-height: 1.5;
+      }
+
+      .route-icon {
+        display: grid;
+        width: 52px;
+        height: 52px;
+        flex: 0 0 auto;
+        place-items: center;
+        border-radius: 17px;
+        color: var(--brand-dark);
+        background: var(--brand-soft);
+        font-size: 25px;
+      }
+
+      .primary {
+        width: 100%;
+        min-height: 54px;
+        margin-top: 15px;
+        border: 0;
+        border-radius: 16px;
+        color: white;
+        background: var(--brand);
+        font-size: 15px;
+        font-weight: 900;
+        cursor: pointer;
+        transition:
+          transform 0.15s ease,
+          opacity 0.15s ease;
+      }
+
+      .primary:active,
+      .nav-item:active,
+      .item-card:active {
+        transform: scale(0.97);
+      }
+
+      .primary:disabled {
+        opacity: 0.44;
+        cursor: default;
+      }
+
+      .section-title {
+        align-items: flex-end;
+        margin: 27px 0 12px;
+      }
+
+      .section-title h2 {
+        font-size: 20px;
+        letter-spacing: -0.4px;
+      }
+
+      .section-title button {
+        border: 0;
+        color: var(--brand-dark);
+        background: none;
+        font-size: 12px;
+        font-weight: 900;
+        cursor: pointer;
+      }
+
+      .metrics {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        text-align: center;
+      }
+
+      .metric + .metric {
+        border-left: 1px solid var(--line);
+      }
+
+      .metric strong {
+        display: block;
+        font-size: 18px;
+      }
+
+      .metric span {
+        display: block;
+        margin-top: 5px;
+        color: var(--muted);
+        font-size: 10px;
+      }
+
+      .style-teaser {
+        border: 0;
+        text-align: left;
+        cursor: pointer;
+      }
+
+      .teaser-icon {
+        display: grid;
+        width: 64px;
+        height: 64px;
+        flex: 0 0 auto;
+        place-items: center;
+        border-radius: 19px;
+        background: var(--orange-soft);
+        font-size: 32px;
+      }
+
+      .teaser-copy {
+        flex: 1;
+      }
+
+      .teaser-copy small {
+        color: var(--muted);
+      }
+
+      .chevron {
+        color: var(--faint);
+        font-size: 26px;
+      }
+
+      .segment,
+      .filters {
+        display: flex;
+        gap: 8px;
+        overflow-x: auto;
+        scrollbar-width: none;
+      }
+
+      .segment {
+        padding: 4px;
+        border-radius: 16px;
+        background: white;
+      }
+
+      .segment button,
+      .filter {
+        border: 0;
+        border-radius: 13px;
+        color: var(--muted);
+        background: transparent;
+        font-size: 12px;
+        font-weight: 900;
+        cursor: pointer;
+        white-space: nowrap;
+      }
+
+      .segment button {
+        flex: 1;
+        padding: 11px 6px;
+      }
+
+      .segment button.active,
+      .filter.active {
+        color: white;
+        background: var(--navy);
+      }
+
+      .filter {
+        padding: 10px 17px;
+        border: 1px solid var(--line);
+        background: white;
+      }
+
+      .shop-hero {
+        min-height: 355px;
+      }
+
+      .outfit-strip {
+        position: absolute;
+        z-index: 7;
+        bottom: 18px;
+        left: 20px;
+        display: flex;
+        gap: 7px;
+      }
+
+      .outfit-slot {
+        display: grid;
+        width: 42px;
+        height: 42px;
+        place-items: center;
+        border: 1px solid rgba(255, 255, 255, 0.17);
+        border-radius: 13px;
+        background: rgba(255, 255, 255, 0.14);
+        font-size: 19px;
+      }
+
+      .earn-card {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        padding: 14px;
+      }
+
+      .earn-icon {
+        display: grid;
+        width: 47px;
+        height: 47px;
+        place-items: center;
+        border-radius: 14px;
+        background: var(--brand-soft);
+        font-size: 22px;
+      }
+
+      .earn-card strong {
+        display: block;
+        font-size: 12px;
+      }
+
+      .earn-card small {
+        color: var(--muted);
+        font-size: 10px;
+      }
+
+      .earn-value {
+        margin-left: auto;
+        color: #a65a00;
+        font-size: 12px;
+        font-weight: 900;
+      }
+
+      .item-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+        margin-top: 14px;
+      }
+
+      .item-card {
+        padding: 10px;
+        border: 2px solid transparent;
+        border-radius: 19px;
+        text-align: left;
+        background: white;
+        cursor: pointer;
+      }
+
+      .item-card.selected {
+        border-color: var(--brand);
+      }
+
+      .item-card.equipped {
+        background: #effbf6;
+      }
+
+      .item-art {
+        position: relative;
+        display: grid;
+        height: 88px;
+        place-items: center;
+        border-radius: 15px;
+        background: #edf3f0;
+        font-size: 40px;
+      }
+
+      .item-art.regional {
+        background: #f0ecff;
+      }
+
+      .check {
+        position: absolute;
+        top: 7px;
+        right: 7px;
+        display: grid;
+        width: 21px;
+        height: 21px;
+        place-items: center;
+        border-radius: 10px;
+        color: white;
+        background: var(--brand);
+        font-size: 11px;
+        font-weight: 900;
+      }
+
+      .item-name {
+        display: block;
+        margin-top: 9px;
+        overflow: hidden;
+        font-size: 12px;
+        font-weight: 900;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+
+      .item-meta {
+        display: block;
+        margin-top: 5px;
+        color: #a65a00;
+        font-size: 10px;
+        font-weight: 900;
+      }
+
+      .item-card.equipped .item-meta,
+      .item-card.owned .item-meta {
+        color: var(--brand-dark);
+      }
+
+      .item-detail-top {
+        align-items: flex-start;
+      }
+
+      .detail-icon {
+        display: grid;
+        width: 70px;
+        height: 70px;
+        flex: 0 0 auto;
+        place-items: center;
+        border-radius: 18px;
+        background: var(--orange-soft);
+        font-size: 35px;
+      }
+
+      .item-detail-copy {
+        flex: 1;
+      }
+
+      .item-detail-copy h3 {
+        font-size: 16px;
+      }
+
+      .badge {
+        display: inline-flex;
+        margin-top: 7px;
+        padding: 5px 9px;
+        border-radius: 99px;
+        color: var(--brand-dark);
+        background: var(--brand-soft);
+        font-size: 10px;
+        font-weight: 900;
+      }
+
+      .regional-row,
+      .wardrobe-row,
+      .quest-card {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+
+      .regional-row + .regional-row,
+      .wardrobe-row + .wardrobe-row {
+        margin-top: 14px;
+        padding-top: 14px;
+        border-top: 1px solid var(--line);
+      }
+
+      .regional-row > span:first-child,
+      .wardrobe-icon {
+        font-size: 28px;
+      }
+
+      .regional-row div,
+      .wardrobe-row div {
+        flex: 1;
+      }
+
+      .regional-row small {
+        color: var(--muted);
+      }
+
+      .regional-progress {
+        color: var(--purple);
+        font-size: 10px;
+        font-weight: 900;
+      }
+
+      .avatar-card {
+        min-height: 445px;
+      }
+
+      .avatar-preset-card {
+        margin-top: 14px;
+      }
+
+      .avatar-preset-header,
+      .avatar-preset-option {
+        display: flex;
+        align-items: center;
+      }
+
+      .avatar-preset-header {
+        justify-content: space-between;
+      }
+
+      .avatar-preset-header strong {
+        color: var(--ink);
+        font-size: 14px;
+      }
+
+      .avatar-preset-header span {
+        color: var(--brand-dark);
+        font-size: 10px;
+        font-weight: 900;
+      }
+
+      .avatar-preset-options {
+        display: grid;
+        gap: 8px;
+        margin-top: 12px;
+      }
+
+      .avatar-preset-option {
+        gap: 10px;
+        width: 100%;
+        padding: 11px 12px;
+        border: 1px solid var(--line);
+        border-radius: 16px;
+        color: var(--ink);
+        background: #f5f9f7;
+        text-align: left;
+      }
+
+      .avatar-preset-option.active {
+        border-color: var(--brand);
+        color: var(--brand-dark);
+        background: var(--brand-soft);
+      }
+
+      .avatar-preset-icon {
+        font-size: 23px;
+      }
+
+      .avatar-preset-copy {
+        flex: 1;
+      }
+
+      .avatar-preset-copy strong,
+      .avatar-preset-copy small {
+        display: block;
+      }
+
+      .avatar-preset-copy small {
+        margin-top: 3px;
+        color: var(--muted);
+        font-size: 9px;
+      }
+
+      .avatar-card .avatar-stage {
+        right: 15px;
+        bottom: 62px;
+        width: 300px;
+        height: 320px;
+      }
+
+      .avatar-card .hero-img {
+        width: 260px;
+        height: 300px;
+      }
+
+      .avatar-card .forest-avatar {
+        width: 220px;
+        height: 282px;
+        transform: scale(1.18);
+        transform-origin: right bottom;
+      }
+
+      .avatar-card .wearable[data-slot='head'] {
+        top: 10px;
+        right: 108px;
+      }
+
+      .avatar-card .wearable[data-slot='top'] {
+        top: 165px;
+        right: 107px;
+      }
+
+      .avatar-card .wearable[data-slot='bottom'] {
+        top: 205px;
+        right: 107px;
+      }
+
+      .avatar-card .wearable[data-slot='shoes'] {
+        right: 98px;
+        bottom: 15px;
+      }
+
+      .avatar-card .wearable[data-slot='glasses'] {
+        top: 71px;
+        right: 109px;
+      }
+
+      .avatar-card .wearable[data-slot='bag'] {
+        top: 166px;
+        right: 55px;
+      }
+
+      .avatar-card .wearable[data-slot='watch'] {
+        top: 190px;
+        right: 72px;
+      }
+
+      .avatar-name {
+        position: absolute;
+        z-index: 7;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        padding: 15px 21px;
+        background: rgba(6, 25, 35, 0.92);
+      }
+
+      .avatar-name small {
+        display: block;
+        margin-top: 4px;
+        overflow: hidden;
+        color: #bed4d1;
+        font-size: 10px;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+
+      .wardrobe-row button {
+        padding: 8px 12px;
+        border: 0;
+        border-radius: 12px;
+        color: var(--brand-dark);
+        background: var(--brand-soft);
+        font-size: 11px;
+        font-weight: 900;
+        cursor: pointer;
+      }
+
+      .wardrobe-row button:disabled {
+        color: var(--muted);
+        background: #edf2ef;
+      }
+
+      .quest-list {
+        display: grid;
+        gap: 11px;
+      }
+
+      .quest-card {
+        padding: 16px;
+      }
+
+      .quest-reward {
+        display: grid;
+        width: 48px;
+        height: 48px;
+        flex: 0 0 auto;
+        place-items: center;
+        border-radius: 15px;
+        color: var(--brand-dark);
+        background: var(--brand-soft);
+        font-size: 20px;
+      }
+
+      .quest-copy {
+        flex: 1;
+      }
+
+      .quest-top strong {
+        font-size: 13px;
+      }
+
+      .quest-top span {
+        color: var(--muted);
+        font-size: 10px;
+        font-weight: 800;
+      }
+
+      .quest-copy .progress {
+        height: 7px;
+        margin-top: 9px;
+      }
+
+      .quest-bottom {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-top: 8px;
+      }
+
+      .quest-bottom small {
+        color: var(--muted);
+        font-size: 10px;
+      }
+
+      .claim {
+        padding: 6px 10px;
+        border: 0;
+        border-radius: 10px;
+        color: white;
+        background: var(--orange);
+        font-size: 10px;
+        font-weight: 900;
+        cursor: pointer;
+      }
+
+      .claim:disabled {
+        color: var(--muted);
+        background: #edf2ef;
+      }
+
+      .social-content {
+        display: grid;
+        gap: 10px;
+      }
+
+      .social-intro,
+      .friend-card,
+      .notice-card,
+      .member-row {
+        display: flex;
+        align-items: center;
+      }
+
+      .social-intro {
+        gap: 12px;
+      }
+
+      .social-intro-icon,
+      .notice-icon {
+        display: grid;
+        flex: 0 0 auto;
+        place-items: center;
+        border-radius: 17px;
+        background: var(--brand-soft);
+        font-size: 24px;
+      }
+
+      .social-intro-icon {
+        width: 56px;
+        height: 56px;
+      }
+
+      .social-intro strong,
+      .friend-card strong,
+      .notice-card strong {
+        display: block;
+        font-size: 13px;
+      }
+
+      .social-intro small,
+      .friend-card small,
+      .notice-card small {
+        color: var(--muted);
+        font-size: 10px;
+        line-height: 1.55;
+      }
+
+      .friend-card,
+      .notice-card {
+        width: 100%;
+        gap: 11px;
+        border: 0;
+        text-align: left;
+        cursor: pointer;
+      }
+
+      .friend-avatar {
+        display: grid;
+        width: 49px;
+        height: 49px;
+        flex: 0 0 auto;
+        place-items: center;
+        border-radius: 50%;
+        color: white;
+        font-size: 17px;
+        font-weight: 900;
+      }
+
+      .friend-copy,
+      .notice-copy {
+        flex: 1;
+      }
+
+      .friend-level {
+        margin-left: 6px;
+        color: var(--brand-dark);
+        font-size: 9px;
+        font-weight: 900;
+      }
+
+      .friend-progress {
+        display: flex;
+        gap: 8px;
+        margin-top: 5px;
+        color: var(--muted);
+        font-size: 9px;
+        font-weight: 800;
+      }
+
+      .social-chevron {
+        color: var(--faint);
+        font-size: 24px;
+      }
+
+      .monthly-hero {
+        position: relative;
+        min-height: 218px;
+        overflow: hidden;
+        padding: 22px;
+        border-radius: 27px;
+        color: white;
+        background: var(--navy);
+      }
+
+      .monthly-hero::after {
+        position: absolute;
+        top: -65px;
+        right: -45px;
+        width: 220px;
+        height: 220px;
+        border-radius: 50%;
+        background: #164d58;
+        content: '';
+      }
+
+      .monthly-hero h2 {
+        position: relative;
+        z-index: 2;
+        margin-top: 14px;
+        font-size: 28px;
+      }
+
+      .monthly-hero p {
+        position: relative;
+        z-index: 2;
+        margin-top: 7px;
+        color: #cfe5e1;
+        font-size: 11px;
+        line-height: 1.65;
+      }
+
+      .monthly-reward {
+        position: absolute;
+        z-index: 2;
+        top: 55px;
+        right: 39px;
+        font-size: 65px;
+      }
+
+      .monthly-reward-name {
+        position: absolute;
+        z-index: 2;
+        right: 23px;
+        bottom: 20px;
+        color: var(--yellow);
+        font-size: 10px;
+        font-weight: 900;
+      }
+
+      .mode-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 9px;
+      }
+
+      .mode-card {
+        position: relative;
+        padding: 15px;
+        border: 2px solid transparent;
+        border-radius: 18px;
+        text-align: left;
+        background: white;
+        cursor: pointer;
+      }
+
+      .mode-card.active {
+        border-color: var(--brand);
+        background: #effbf6;
+      }
+
+      .mode-card span {
+        display: block;
+        font-size: 23px;
+      }
+
+      .mode-card strong {
+        display: block;
+        margin-top: 7px;
+        font-size: 12px;
+      }
+
+      .mode-card small {
+        color: var(--muted);
+        font-size: 9px;
+      }
+
+      .group-progress-head {
+        display: flex;
+        align-items: flex-end;
+        justify-content: space-between;
+        margin-bottom: 13px;
+      }
+
+      .group-progress-head small,
+      .group-progress-head strong {
+        display: block;
+      }
+
+      .group-progress-head strong {
+        margin-top: 3px;
+        font-size: 25px;
+      }
+
+      .group-progress-head small {
+        color: var(--muted);
+        font-size: 10px;
+      }
+
+      .group-percent {
+        padding: 7px 10px;
+        border-radius: 99px;
+        color: #b6512c;
+        background: var(--orange-soft);
+        font-size: 11px;
+        font-weight: 900;
+      }
+
+      .member-row {
+        gap: 9px;
+        padding: 9px 0;
+      }
+
+      .member-row + .member-row {
+        border-top: 1px solid var(--line);
+      }
+
+      .member-row .friend-avatar {
+        width: 34px;
+        height: 34px;
+        font-size: 11px;
+      }
+
+      .member-row strong {
+        flex: 1;
+        font-size: 11px;
+      }
+
+      .member-row b {
+        color: var(--brand-dark);
+        font-size: 11px;
+      }
+
+      .hidden-challenge {
+        display: flex;
+        align-items: center;
+        gap: 11px;
+        border: 1px solid #ddd0fa;
+        background: #f6f1ff;
+      }
+
+      .hidden-icon {
+        display: grid;
+        width: 40px;
+        height: 40px;
+        flex: 0 0 auto;
+        place-items: center;
+        border-radius: 50%;
+        color: white;
+        background: var(--purple);
+        font-weight: 900;
+      }
+
+      .notice-card.unread {
+        border: 1px solid #c7ecdd;
+        background: #effbf6;
+      }
+
+      .notice-icon {
+        width: 44px;
+        height: 44px;
+        background: #edf3f0;
+        font-size: 20px;
+      }
+
+      .unread-dot {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: var(--orange);
+      }
+
+      .friend-profile-hero {
+        position: relative;
+        height: 300px;
+        overflow: hidden;
+        padding: 22px;
+        border-radius: 28px;
+      }
+
+      .friend-profile-hero .hero-img {
+        right: -3px;
+        bottom: -5px;
+        width: 220px;
+        height: 235px;
+      }
+
+      .friend-profile-copy {
+        position: relative;
+        z-index: 3;
+      }
+
+      .friend-profile-copy h2 {
+        margin-top: 14px;
+        font-size: 28px;
+      }
+
+      .profile-stats {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 8px;
+      }
+
+      .profile-stat {
+        padding: 13px 6px;
+        border-radius: 16px;
+        text-align: center;
+        background: white;
+      }
+
+      .profile-stat strong,
+      .profile-stat small {
+        display: block;
+      }
+
+      .profile-stat strong {
+        font-size: 13px;
+      }
+
+      .profile-stat small {
+        margin-top: 4px;
+        color: var(--muted);
+        font-size: 8px;
+      }
+
+      .profile-back,
+      .mark-read {
+        padding: 0;
+        border: 0;
+        color: var(--brand-dark);
+        background: transparent;
+        font-size: 11px;
+        font-weight: 900;
+        cursor: pointer;
+      }
+
+      .locked-slot {
+        opacity: 0.5;
+      }
+
+      .nav {
+        position: fixed;
+        z-index: 30;
+        right: max(14px, calc((100vw - 430px) / 2 + 14px));
+        bottom: 10px;
+        left: max(14px, calc((100vw - 430px) / 2 + 14px));
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        padding: 8px 7px;
+        border: 1px solid rgba(226, 234, 230, 0.8);
+        border-radius: 25px;
+        background: rgba(255, 255, 255, 0.94);
+        box-shadow: 0 12px 38px rgba(17, 47, 39, 0.18);
+        backdrop-filter: blur(18px);
+      }
+
+      .nav-item {
+        display: flex;
+        min-height: 58px;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        gap: 4px;
+        border: 0;
+        border-radius: 18px;
+        color: var(--faint);
+        background: transparent;
+        font-size: 10px;
+        font-weight: 800;
+        cursor: pointer;
+      }
+
+      .nav-icon {
+        display: grid;
+        width: 31px;
+        height: 27px;
+        place-items: center;
+        border-radius: 12px;
+        font-size: 17px;
+      }
+
+      .nav-item.active {
+        color: var(--brand-dark);
+      }
+
+      .nav-item.active .nav-icon {
+        color: white;
+        background: var(--brand);
+      }
+
+      .running-overlay {
+        position: fixed;
+        z-index: 100;
+        inset: 0;
+        display: none;
+        width: min(100%, 430px);
+        margin: auto;
+        padding: 34px 22px;
+        color: white;
+        background: radial-gradient(circle at 50% 22%, rgba(22, 184, 122, 0.4), transparent 18rem), var(--navy);
+      }
+
+      .running-overlay.active {
+        display: flex;
+        align-items: stretch;
+        flex-direction: column;
+      }
+
+      .running-top {
+        display: flex;
+        justify-content: space-between;
+        font-size: 11px;
+        font-weight: 900;
+      }
+
+      .live-badge {
+        padding: 6px 10px;
+        border-radius: 99px;
+        color: #0f674b;
+        background: #bff5dd;
+      }
+
+      .run-live-main {
+        display: grid;
+        flex: 1;
+        place-content: center;
+        text-align: center;
+      }
+
+      .run-live-main small {
+        color: #b9d0cd;
+        font-weight: 800;
+      }
+
+      .run-distance {
+        margin: 10px 0 0;
+        font-size: 74px;
+        font-weight: 900;
+        letter-spacing: -4px;
+      }
+
+      .run-unit {
+        font-size: 20px;
+        letter-spacing: 0;
+      }
+
+      .live-metrics {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        margin-top: 34px;
+      }
+
+      .live-metrics strong,
+      .live-metrics span {
+        display: block;
+      }
+
+      .live-metrics strong {
+        font-size: 17px;
+      }
+
+      .live-metrics span {
+        margin-top: 5px;
+        color: #9fb9b6;
+        font-size: 9px;
+      }
+
+      .run-actions {
+        display: grid;
+        grid-template-columns: 1fr 2fr;
+        gap: 10px;
+      }
+
+      .run-actions button {
+        min-height: 56px;
+        border: 0;
+        border-radius: 17px;
+        font-weight: 900;
+        cursor: pointer;
+      }
+
+      .cancel-run {
+        color: #d6e5e3;
+        background: rgba(255, 255, 255, 0.1);
+      }
+
+      .finish-run {
+        color: white;
+        background: var(--orange);
+      }
+
+      .summary-modal {
+        position: fixed;
+        z-index: 110;
+        inset: 0;
+        display: none;
+        width: min(100%, 430px);
+        margin: auto;
+        align-items: center;
+        justify-content: center;
+        padding: 24px;
+        background: rgba(11, 32, 48, 0.78);
+        backdrop-filter: blur(10px);
+      }
+
+      .summary-modal.active {
+        display: flex;
+      }
+
+      .summary-card {
+        width: 100%;
+        padding: 24px;
+        border-radius: 28px;
+        background: white;
+        box-shadow: var(--shadow);
+      }
+
+      .summary-icon {
+        display: grid;
+        width: 60px;
+        height: 60px;
+        margin: 0 auto;
+        place-items: center;
+        border-radius: 20px;
+        background: var(--brand-soft);
+        font-size: 29px;
+      }
+
+      .summary-card h2,
+      .summary-card > p {
+        text-align: center;
+      }
+
+      .summary-card h2 {
+        margin-top: 13px;
+      }
+
+      .summary-card > p {
+        margin-top: 6px;
+        color: var(--muted);
+        font-size: 12px;
+      }
+
+      .reward-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+        margin-top: 18px;
+      }
+
+      .reward-box {
+        padding: 16px;
+        border-radius: 17px;
+        text-align: center;
+        background: var(--bg);
+      }
+
+      .reward-box strong {
+        display: block;
+        margin-top: 5px;
+        font-size: 18px;
+      }
+
+      .reward-box small {
+        color: var(--muted);
+      }
+
+      .toast {
+        position: fixed;
+        z-index: 200;
+        right: 50%;
+        bottom: 92px;
+        display: none;
+        width: min(calc(100% - 40px), 390px);
+        padding: 13px 16px;
+        transform: translateX(50%);
+        border-radius: 15px;
+        color: white;
+        text-align: center;
+        background: rgba(11, 32, 48, 0.94);
+        box-shadow: var(--shadow);
+        font-size: 12px;
+        font-weight: 900;
+      }
+
+      .toast.show {
+        display: block;
+        animation: toast-in 0.25s ease both;
+      }
+
+      @keyframes toast-in {
+        from {
+          opacity: 0;
+          transform: translate(50%, 8px);
+        }
+      }
+
+      @media (min-width: 700px) {
+        body {
+          padding: 24px 0;
+        }
+
+        .app {
+          min-height: calc(100vh - 48px);
+          border-radius: 34px;
+        }
+
+        .screen {
+          min-height: calc(100vh - 48px);
+        }
+
+        .nav {
+          bottom: 22px;
+        }
+
+        .running-overlay,
+        .summary-modal {
+          top: 24px;
+          bottom: 24px;
+          border-radius: 34px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="app">
+      <section class="screen active" data-screen="home">
+        <header class="header">
+          <div>
+            <p class="eyebrow">QUESTRUN</p>
+            <h1>오늘도 한 걸음!</h1>
+          </div>
+          <div class="coin-pill"><span class="coin-dot">●</span><span data-bind="coins">1,240</span></div>
+        </header>
+
+        <div class="hero-card">
+          <div class="hero-copy">
+            <span class="level-pill">RUNNER Lv. <span data-bind="level">7</span></span>
+            <h2 data-avatar-name>루미</h2>
+            <p>달릴수록 러너 레벨이 오르고<br />새로운 스타일을 만들 수 있어요.</p>
+          </div>
+          <div class="avatar-stage" data-avatar></div>
+          <div class="xp-panel">
+            <div class="xp-labels">
+              <span>RUNNER LEVEL <span data-bind="level">7</span></span>
+              <span><span data-bind="xp">650</span> / <span data-bind="xpTarget">1,000</span> XP</span>
+            </div>
+            <div class="progress dark"><span data-xp-bar style="width: 65%"></span></div>
+          </div>
+        </div>
+
+        <div class="card run-card">
+          <div class="run-card-top">
+            <div>
+              <p class="run-eyebrow">오늘의 추천</p>
+              <h3>원하는 만큼 자유 러닝</h3>
+              <p class="caption">완료를 누를 때까지 거리와 보상이 계속 쌓여요.</p>
+            </div>
+            <div class="route-icon">⌁</div>
+          </div>
+          <button class="primary" data-start-run>▶ 데모 러닝 시작</button>
+        </div>
+
+        <div class="section-title">
+          <div>
+            <h2>이번 주 기록</h2>
+            <p class="caption">목표까지 꾸준히 달려보세요.</p>
+          </div>
+        </div>
+        <div class="card metrics">
+          <div class="metric"><strong data-bind="weekKm">6.4km</strong><span>거리</span></div>
+          <div class="metric"><strong data-bind="weekRuns">2회</strong><span>러닝</span></div>
+          <div class="metric"><strong><span data-bind="streak">6</span>일</strong><span>연속 달성</span></div>
+        </div>
+
+        <div class="section-title">
+          <div>
+            <h2>오늘의 스타일</h2>
+            <p class="caption">러닝 코인으로 꾸미기 선택지를 늘려보세요.</p>
+          </div>
+          <button data-go="style">구경하기</button>
+        </div>
+        <button class="card row style-teaser" data-go="style">
+          <span class="teaser-icon" data-head-icon>🧢</span>
+          <span class="teaser-copy">
+            <strong data-head-name>민트 러닝 캡</strong><br />
+            <small>현재 착용 중 · 보유 코인 <span data-bind="coins">1,240</span></small>
+          </span>
+          <span class="chevron">›</span>
+        </button>
+      </section>
+
+      <section class="screen" data-screen="quest">
+        <header class="header">
+          <div>
+            <p class="eyebrow">RUN GOALS</p>
+            <h1>퀘스트</h1>
+          </div>
+          <span class="level-pill" style="color: var(--brand-dark); background: var(--brand-soft)">🔥 <span data-bind="streak">6</span>일</span>
+        </header>
+        <div class="segment">
+          <button class="active">일일</button>
+          <button>주간</button>
+          <button>업적</button>
+        </div>
+        <div class="card">
+          <div class="row">
+            <div>
+              <strong>연속 달성 보너스</strong>
+              <p class="caption">내일까지 모두 완료하면 지구력 +1</p>
+            </div>
+            <span style="font-size: 28px">💜</span>
+          </div>
+          <div class="progress" style="margin-top: 14px">
+            <span style="width: 86%; background: var(--purple)"></span>
+          </div>
+        </div>
+        <div class="section-title">
+          <div>
+            <h2>오늘의 퀘스트</h2>
+            <p class="caption">러닝만으로 완료할 수 있어요.</p>
+          </div>
+        </div>
+        <div class="quest-list" data-quest-list></div>
+        <div class="section-title">
+          <div>
+            <h2>지역 한정 이야기</h2>
+            <p class="caption">여행지에서 달리면 특별한 꾸미기 아이템을 발견해요.</p>
+          </div>
+        </div>
+        <div class="card">
+          <div class="regional-row">
+            <span>🤓</span>
+            <div><strong>7일의 약속</strong><br /><small>일일 퀘스트 7일 연속 완료 · 안경 슬롯</small></div>
+            <span class="regional-progress"><span data-bind="streak">6</span> / 7일</span>
+          </div>
+          <div class="regional-row">
+            <span>🎒</span>
+            <div><strong>100km의 기억</strong><br /><small>누적 100km · 가방 슬롯</small></div>
+            <span class="regional-progress"><span data-bind="totalKmPlain">42.8</span> / 100km</span>
+          </div>
+          <div class="regional-row">
+            <span>🍊</span>
+            <div><strong>제주의 상큼한 러너</strong><br /><small>제주 누적 5km</small></div>
+            <span class="regional-progress">숨은 업적</span>
+          </div>
+          <div class="regional-row">
+            <span>🌙</span>
+            <div><strong>강을 따라 걷는 달빛</strong><br /><small>서울 누적 10km</small></div>
+            <span class="regional-progress">숨은 업적</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="screen" data-screen="style">
+        <header class="header">
+          <div>
+            <p class="eyebrow">RUN & STYLE</p>
+            <h1>스타일 상점</h1>
+          </div>
+          <div class="coin-pill"><span class="coin-dot">●</span><span data-bind="coins">1,240</span></div>
+        </header>
+
+        <div class="hero-card shop-hero">
+          <div class="hero-copy">
+            <span class="level-pill">Lv. <span data-bind="level">7</span> 러너</span>
+            <h2 style="font-size: 26px">오늘의 <span data-avatar-name>루미</span></h2>
+            <p>달리며 모은 코인으로<br />나만의 스타일을 완성해요.</p>
+          </div>
+          <div class="avatar-stage" data-avatar></div>
+          <div class="outfit-strip" data-outfit-strip></div>
+        </div>
+        <div class="card earn-card">
+          <span class="earn-icon">🏃</span>
+          <span><strong>1km마다 러닝 코인 40</strong><small>XP와 꾸미기 코인을 함께 받아요.</small></span>
+          <span class="earn-value">● +40</span>
+        </div>
+
+        <div class="section-title">
+          <div>
+            <h2>새로운 스타일</h2>
+            <p class="caption">눈·코·입부터 옷까지 모두 능력치 없는 꾸미기 전용이에요.</p>
+          </div>
+        </div>
+        <div class="filters" data-filters></div>
+        <div class="item-grid" data-shop-grid></div>
+        <div class="card" data-item-detail></div>
+
+        <div class="section-title">
+          <div>
+            <h2>지역 한정 컬렉션</h2>
+            <p class="caption">코인으로 살 수 없는 여행의 추억이에요.</p>
+          </div>
+        </div>
+        <div class="card">
+          <div class="regional-row">
+            <span>🍊</span>
+            <div><strong>제주 · 한라봉 모자</strong><br /><small>제주 누적 5km 달리기</small></div>
+            <span class="regional-progress">0.0 / 5km</span>
+          </div>
+          <div class="regional-row">
+            <span>🌙</span>
+            <div><strong>서울 · 한강 달빛 핀</strong><br /><small>서울 누적 10km 달리기</small></div>
+            <span class="regional-progress"><span data-bind="seoulKm">0.0</span> / 10km</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="screen" data-screen="social">
+        <header class="header">
+          <div>
+            <p class="eyebrow">RUN TOGETHER</p>
+            <h1>러닝 친구</h1>
+          </div>
+          <span class="level-pill" style="color: var(--brand-dark); background: var(--brand-soft)">3명 연결</span>
+        </header>
+        <div class="segment" data-social-tabs>
+          <button class="active" data-social-tab="friends">친구</button>
+          <button data-social-tab="group">그룹 퀘스트</button>
+          <button data-social-tab="notifications">알림 <span data-unread-count></span></button>
+        </div>
+        <div class="social-content" data-social-content></div>
+      </section>
+
+      <section class="screen" data-screen="avatar">
+        <header class="header">
+          <div>
+            <p class="eyebrow">MY RUNNER</p>
+            <h1>내 아바타</h1>
+          </div>
+          <div class="coin-pill"><span class="coin-dot">●</span><span data-bind="coins">1,240</span></div>
+        </header>
+        <div class="avatar-card">
+          <div class="hero-copy">
+            <span class="level-pill">RUNNER Lv. <span data-bind="level">7</span></span>
+            <h2 style="font-size: 25px">나만의 러너, <span data-avatar-name>루미</span></h2>
+            <p>달릴수록 더 많은 스타일이 열려요.</p>
+          </div>
+          <div class="avatar-stage" data-avatar></div>
+          <div class="avatar-name">
+            <strong data-avatar-name>루미</strong>
+            <small data-outfit-names>민트 러닝 캡 · 민트 후디 · 오렌지 러닝화</small>
+          </div>
+        </div>
+        <div class="card avatar-preset-card">
+          <div class="avatar-preset-header">
+            <div><strong>캐릭터 타입</strong><p class="caption">꾸미기 아이템과 러너 기록은 그대로 유지돼요.</p></div>
+            <span data-avatar-label>여자 러너</span>
+          </div>
+          <div class="avatar-preset-options">
+            <button class="avatar-preset-option active" data-avatar-preset="lumi">
+              <span class="avatar-preset-icon">🌸</span>
+              <span class="avatar-preset-copy"><strong>루미 · 여자 러너</strong><small>풍성한 웨이브 헤어의 새싹 러너</small></span>
+              <b>✓</b>
+            </button>
+            <button class="avatar-preset-option" data-avatar-preset="mori">
+              <span class="avatar-preset-icon">🌿</span>
+              <span class="avatar-preset-copy"><strong>모리 · 남자 러너</strong><small>트랙 재킷과 일자 쇼츠의 새싹 러너</small></span>
+              <b></b>
+            </button>
+          </div>
+        </div>
+        <div class="card metrics">
+          <div class="metric">
+            <strong>Lv. <span data-bind="level">7</span></strong
+            ><span>러너 레벨</span>
+          </div>
+          <div class="metric"><strong data-bind="totalKm">42.8km</strong><span>누적 거리</span></div>
+          <div class="metric"><strong>3</strong><span>지구력</span></div>
+        </div>
+        <div class="section-title">
+          <div>
+            <h2>내 옷장</h2>
+            <p class="caption">보유한 얼굴 파츠와 아이템을 바로 바꿀 수 있어요.</p>
+          </div>
+          <button data-go="style">상점</button>
+        </div>
+        <div class="segment" data-wardrobe-tabs></div>
+        <div class="card" data-wardrobe></div>
+      </section>
+    </main>
+
+    <nav class="nav" aria-label="주 메뉴">
+      <button class="nav-item active" data-nav="home"><span class="nav-icon">⌂</span>홈</button>
+      <button class="nav-item" data-nav="quest"><span class="nav-icon">✓</span>퀘스트</button>
+      <button class="nav-item" data-nav="style"><span class="nav-icon">✦</span>스타일</button>
+      <button class="nav-item" data-nav="social"><span class="nav-icon">♧</span>친구</button>
+      <button class="nav-item" data-nav="avatar"><span class="nav-icon">♙</span>아바타</button>
+    </nav>
+
+    <section class="running-overlay" data-running>
+      <div class="running-top">
+        <span class="live-badge">● GPS 기록 중</span>
+        <span>퀘스트런 데모</span>
+      </div>
+      <div class="run-live-main">
+        <small>현재 거리</small>
+        <div class="run-distance"><span data-live-distance>0.00</span><span class="run-unit"> km</span></div>
+        <div class="live-metrics">
+          <div><strong data-live-time>00:00</strong><span>운동 시간</span></div>
+          <div><strong>6′30″</strong><span>평균 페이스</span></div>
+          <div><strong>9.2</strong><span>평균 속도 km/h</span></div>
+        </div>
+      </div>
+      <div class="run-actions">
+        <button class="cancel-run" data-cancel-run>취소</button>
+        <button class="finish-run" data-finish-run>러닝 완료</button>
+      </div>
+    </section>
+
+    <section class="summary-modal" data-summary>
+      <div class="summary-card">
+        <div class="summary-icon">✓</div>
+        <h2>멋진 러닝이었어요!</h2>
+        <p><strong data-summary-distance>0.00</strong>km를 달렸어요. 거리만큼 보상이 계산됐어요.</p>
+        <div class="reward-grid">
+          <div class="reward-box"><span>✦</span><strong data-summary-xp>+0</strong><small>경험치</small></div>
+          <div class="reward-box"><span>●</span><strong data-summary-coins>+0</strong><small>러닝 코인</small></div>
+        </div>
+        <button class="primary" data-claim-run>보상 받고 계속하기</button>
+      </div>
+    </section>
+
+    <div class="toast" role="status" data-toast></div>
+
+    <script>
+      const STORAGE_KEY = 'quest-run-style-demo-v4';
+      const TEST_COINS = 9999;
+      const SHOWCASE_LOOK = new URLSearchParams(window.location.search).get('look') === 'showcase';
+      const avatarPresets = {
+        lumi: { name: '루미', label: '여자 러너' },
+        mori: { name: '모리', label: '남자 러너' },
+      };
+      const slots = ['eyes', 'nose', 'mouth', 'hair', 'head', 'top', 'bottom', 'shoes', 'glasses', 'bag', 'watch'];
+      const slotLabels = {
+        eyes: '눈',
+        nose: '코',
+        mouth: '입',
+        hair: '헤어스타일',
+        head: '머리장식',
+        top: '상의',
+        bottom: '하의',
+        shoes: '신발',
+        glasses: '안경',
+        bag: '가방',
+        watch: '시계',
+      };
+      const items = [
+        {
+          id: 'round-eyes',
+          name: '포근한 동그란 눈',
+          slot: 'eyes',
+          rarity: '일반',
+          icon: '● ●',
+          price: 0,
+          source: 'starter',
+          description: '루미의 따뜻하고 순한 기본 눈매',
+        },
+        {
+          id: 'bean-nose',
+          name: '작은 콩코',
+          slot: 'nose',
+          rarity: '일반',
+          icon: '•',
+          price: 0,
+          source: 'starter',
+          description: '숲마을 친구처럼 작고 귀여운 기본 코',
+        },
+        {
+          id: 'soft-smile',
+          name: '포근한 미소',
+          slot: 'mouth',
+          rarity: '일반',
+          icon: '⌣',
+          price: 0,
+          source: 'starter',
+          description: '달리기 전에도 기분 좋아지는 기본 미소',
+        },
+        {
+          id: 'chestnut-ponytail',
+          name: '밤색 기본 헤어',
+          slot: 'hair',
+          rarity: '일반',
+          icon: '🤎',
+          price: 0,
+          source: 'starter',
+          description: '캐릭터 타입에 맞춰 웨이브 또는 쇼트 스타일로 바뀌는 기본 헤어',
+        },
+        {
+          id: 'mint-cap',
+          name: '새싹 러닝 핀',
+          slot: 'head',
+          rarity: '일반',
+          icon: '🌱',
+          price: 0,
+          source: 'starter',
+          description: '루미의 첫 러닝을 함께하는 산뜻한 기본 머리장식',
+        },
+        {
+          id: 'mint-hoodie',
+          name: '민트 후디',
+          slot: 'top',
+          rarity: '일반',
+          icon: '👕',
+          price: 0,
+          source: 'starter',
+          description: '가볍고 편안한 기본 러닝 후디',
+        },
+        {
+          id: 'orange-shoes',
+          name: '오렌지 러닝화',
+          slot: 'shoes',
+          rarity: '일반',
+          icon: '👟',
+          price: 0,
+          source: 'starter',
+          description: '통통 튀는 색감의 기본 러닝화',
+        },
+        {
+          id: 'navy-shorts',
+          name: '네이비 러닝 쇼츠',
+          slot: 'bottom',
+          rarity: '일반',
+          icon: '🩳',
+          price: 0,
+          source: 'starter',
+          description: '어떤 상의와도 잘 어울리는 기본 러닝 쇼츠',
+        },
+        {
+          id: 'sunny-visor',
+          name: '햇살 바이저',
+          slot: 'head',
+          rarity: '일반',
+          icon: '☀️',
+          price: 180,
+          source: 'shop',
+          description: '맑은 날의 러닝을 닮은 노란 바이저',
+        },
+        {
+          id: 'cherry-headphones',
+          name: '체리 헤드폰',
+          slot: 'head',
+          rarity: '희귀',
+          icon: '🎧',
+          price: 360,
+          source: 'shop',
+          description: '달리는 리듬을 더 신나게 만들어 주는 헤드폰',
+        },
+        {
+          id: 'plum-twintail',
+          name: '플럼 러너 헤어',
+          slot: 'hair',
+          rarity: '희귀',
+          icon: '🎀',
+          price: 460,
+          source: 'shop',
+          description: '루미는 트윈테일, 모리는 코랄 핀 쇼트 헤어로 연출되는 자주빛 스타일',
+        },
+        {
+          id: 'silver-wolf-hair',
+          name: '실버 클라우드 울프컷',
+          slot: 'hair',
+          rarity: '영웅',
+          icon: '🩶',
+          price: 640,
+          source: 'shop',
+          description: '남녀 캐릭터 모두에게 어울리는 은빛 레이어드 울프보브',
+        },
+        {
+          id: 'cloud-hoodie',
+          name: '구름 후디',
+          slot: 'top',
+          rarity: '희귀',
+          icon: '☁️',
+          price: 420,
+          source: 'shop',
+          description: '새벽 구름처럼 포근한 하늘색 러닝 후디',
+        },
+        {
+          id: 'sunset-windbreaker',
+          name: '노을 바람막이',
+          slot: 'top',
+          rarity: '영웅',
+          icon: '🌅',
+          price: 680,
+          source: 'shop',
+          description: '노을빛 그라데이션을 담은 특별한 바람막이',
+        },
+        {
+          id: 'berry-leggings',
+          name: '베리 러닝 팬츠',
+          slot: 'bottom',
+          rarity: '희귀',
+          icon: '🟣',
+          price: 390,
+          source: 'shop',
+          description: '루미는 레깅스, 모리는 일자 쇼츠로 바뀌는 보랏빛 러닝 팬츠',
+        },
+        {
+          id: 'midnight-track-pants',
+          name: '미드나잇 트랙팬츠',
+          slot: 'bottom',
+          rarity: '영웅',
+          icon: '🌌',
+          price: 560,
+          source: 'shop',
+          description: '민트 라인과 코랄 지퍼 포인트를 더한 남녀 공용 조거팬츠',
+        },
+        {
+          id: 'star-sneakers',
+          name: '별빛 스니커즈',
+          slot: 'shoes',
+          rarity: '희귀',
+          icon: '✨',
+          price: 520,
+          source: 'shop',
+          description: '움직일 때마다 작은 별빛이 반짝이는 러닝화',
+        },
+        {
+          id: 'mint-comet-shoes',
+          name: '민트 코멧 러닝화',
+          slot: 'shoes',
+          rarity: '영웅',
+          icon: '☄️',
+          price: 620,
+          source: 'shop',
+          description: '민트 혜성 문양과 코랄 밑창을 더한 남녀 공용 러닝화',
+        },
+        {
+          id: 'sparkle-eyes',
+          name: '반짝이는 호기심 눈',
+          slot: 'eyes',
+          rarity: '희귀',
+          icon: '✦ ✦',
+          price: 220,
+          source: 'shop',
+          description: '새로운 길을 발견했을 때처럼 반짝이는 눈',
+        },
+        {
+          id: 'smiley-eyes',
+          name: '싱긋 웃는 눈',
+          slot: 'eyes',
+          rarity: '일반',
+          icon: '⌒ ⌒',
+          price: 280,
+          source: 'shop',
+          description: '친구를 만나면 저절로 휘어지는 다정한 눈매',
+        },
+        {
+          id: 'sleepy-eyes',
+          name: '나른한 새벽 눈',
+          slot: 'eyes',
+          rarity: '희귀',
+          icon: '— —',
+          price: 360,
+          source: 'shop',
+          description: '이른 아침 러닝의 포근한 졸음을 담은 눈매',
+        },
+        {
+          id: 'peach-nose',
+          name: '복숭아 세모코',
+          slot: 'nose',
+          rarity: '일반',
+          icon: '▼',
+          price: 160,
+          source: 'shop',
+          description: '볼의 홍조와 잘 어울리는 작은 복숭아빛 코',
+        },
+        {
+          id: 'button-nose',
+          name: '동글 단추코',
+          slot: 'nose',
+          rarity: '희귀',
+          icon: '●',
+          price: 240,
+          source: 'shop',
+          description: '도토리 단추처럼 동그랗고 선명한 코',
+        },
+        {
+          id: 'leaf-nose',
+          name: '새싹 잎코',
+          slot: 'nose',
+          rarity: '희귀',
+          icon: '◆',
+          price: 320,
+          source: 'shop',
+          description: '루미의 새싹 정체성을 담은 초록빛 코',
+        },
+        {
+          id: 'cat-mouth',
+          name: '말랑 고양이입',
+          slot: 'mouth',
+          rarity: '일반',
+          icon: 'ω',
+          price: 200,
+          source: 'shop',
+          description: '장난스러운 표정을 만드는 말랑한 입모양',
+        },
+        {
+          id: 'open-smile',
+          name: '활짝 웃는 입',
+          slot: 'mouth',
+          rarity: '희귀',
+          icon: '▽',
+          price: 280,
+          source: 'shop',
+          description: '오늘의 러닝이 즐거웠다는 활짝 열린 미소',
+        },
+        {
+          id: 'surprised-mouth',
+          name: '깜짝 동그란 입',
+          slot: 'mouth',
+          rarity: '희귀',
+          icon: '○',
+          price: 340,
+          source: 'shop',
+          description: '새 업적을 발견한 순간의 귀여운 놀람',
+        },
+        {
+          id: 'pink-sunglasses',
+          name: '핑크 선글라스',
+          slot: 'glasses',
+          rarity: '희귀',
+          icon: '🕶️',
+          price: 420,
+          source: 'shop',
+          description: '7일 연속 업적으로 안경 슬롯을 연 러너의 선글라스',
+        },
+        {
+          id: 'clover-backpack',
+          name: '클로버 미니백',
+          slot: 'bag',
+          rarity: '희귀',
+          icon: '🎒',
+          price: 560,
+          source: 'shop',
+          description: '100km 업적으로 가방 슬롯을 연 러너의 미니백',
+        },
+        {
+          id: 'pace-watch',
+          name: '페이스 워치',
+          slot: 'watch',
+          rarity: '영웅',
+          icon: '⏱️',
+          price: 720,
+          source: 'shop',
+          description: '서울 러닝 업적으로 시계 슬롯을 연 러너의 페이스 워치',
+        },
+        {
+          id: 'weekly-bandana',
+          name: '주간 완주 반다나',
+          slot: 'head',
+          rarity: '희귀',
+          icon: '🎗️',
+          price: 0,
+          source: 'quest',
+          description: '한 주에 10km를 달린 러너만 받는 완주 기념품',
+        },
+        {
+          id: 'hallabong-hat',
+          name: '한라봉 모자',
+          slot: 'head',
+          rarity: '지역 한정',
+          icon: '🍊',
+          price: 0,
+          source: 'achievement',
+          description: '제주에서 누적 5km를 달린 러너의 지역 한정 모자',
+        },
+        {
+          id: 'seoul-moon-watch',
+          name: '한강 달빛 시계',
+          slot: 'watch',
+          rarity: '지역 한정',
+          icon: '🌙',
+          price: 0,
+          source: 'achievement',
+          description: '서울에서 누적 10km를 달린 러너의 달빛 시계',
+        },
+        {
+          id: 'daily-runner-glasses',
+          name: '꾸준함 안경',
+          slot: 'glasses',
+          rarity: '영웅',
+          icon: '🤓',
+          price: 0,
+          source: 'achievement',
+          description: '7일 연속 일일 퀘스트를 완료해 얻는 안경',
+        },
+        {
+          id: 'record-backpack',
+          name: '100km 기록 가방',
+          slot: 'bag',
+          rarity: '영웅',
+          icon: '🎒',
+          price: 0,
+          source: 'achievement',
+          description: '누적 100km의 추억을 담은 기록 가방',
+        },
+        {
+          id: 'monthly-comet-crown',
+          name: '월간 혜성 크라운',
+          slot: 'head',
+          rarity: '월간 한정',
+          icon: '☄️',
+          price: 0,
+          source: 'group',
+          description: '월간 400km 그룹 퀘스트 완주 보상',
+        },
+        {
+          id: 'solo-star-glasses',
+          name: '솔로 스타 글라스',
+          slot: 'glasses',
+          rarity: '월간 한정',
+          icon: '🌟',
+          price: 0,
+          source: 'achievement',
+          description: '월간 400km를 혼자 완주한 숨은 업적 보상',
+        },
+      ];
+
+      const avatarLayerAssets = {
+        'berry-leggings': {
+          lumi: '../assets/avatar/layers/bottom-berry-leggings-v1.png',
+          mori: '../assets/avatar/layers/bottom-berry-mori-v1.png',
+        },
+        'midnight-track-pants': {
+          lumi: '../assets/avatar/layers/bottom-midnight-track-v1.png',
+          mori: '../assets/avatar/layers/bottom-midnight-track-v1.png',
+        },
+        'star-sneakers': {
+          lumi: '../assets/avatar/layers/shoes-star-v1.png',
+          mori: '../assets/avatar/layers/shoes-star-mori-v1.png',
+        },
+        'mint-comet-shoes': {
+          lumi: '../assets/avatar/layers/shoes-mint-comet-v1.png',
+          mori: '../assets/avatar/layers/shoes-mint-comet-v1.png',
+        },
+        'cloud-hoodie': {
+          lumi: '../assets/avatar/layers/top-cloud-hoodie-v1.png',
+          mori: '../assets/avatar/layers/top-cloud-mori-v1.png',
+        },
+        'sunset-windbreaker': {
+          lumi: '../assets/avatar/layers/top-sunset-windbreaker-v1.png',
+          mori: '../assets/avatar/layers/top-sunset-windbreaker-v1.png',
+        },
+        'plum-twintail': {
+          lumi: '../assets/avatar/layers/hair-plum-twintail-v1.png',
+          mori: '../assets/avatar/layers/hair-plum-mori-v1.png',
+        },
+        'silver-wolf-hair': {
+          lumi: '../assets/avatar/layers/hair-silver-wolf-v1.png',
+          mori: '../assets/avatar/layers/hair-silver-wolf-mori-v1.png',
+        },
+      };
+
+      const initialState = {
+        avatarPreset: 'lumi',
+        coins: TEST_COINS,
+        level: 7,
+        xp: 650,
+        xpTarget: 1000,
+        totalKm: 42.8,
+        weekKm: 6.4,
+        weekRuns: 2,
+        todayKm: 0.65,
+        todayRuns: 0,
+        dailyStreak: 6,
+        seoulKm: 0,
+        monthlyGroupKm: 286.4,
+        monthlyPersonalKm: 42.8,
+        groupMode: 'group',
+        groupClaimed: false,
+        soloAchievement: false,
+        unlockedSlots: ['eyes', 'nose', 'mouth', 'hair', 'head', 'top', 'bottom', 'shoes'],
+        owned: [
+          'round-eyes',
+          'bean-nose',
+          'soft-smile',
+          'chestnut-ponytail',
+          'mint-cap',
+          'mint-hoodie',
+          'navy-shorts',
+          'orange-shoes',
+        ],
+        equipped: {
+          eyes: 'round-eyes',
+          nose: 'bean-nose',
+          mouth: 'soft-smile',
+          hair: 'chestnut-ponytail',
+          head: 'mint-cap',
+          top: 'mint-hoodie',
+          bottom: 'navy-shorts',
+          shoes: 'orange-shoes',
+        },
+        claimed: [],
+        seenNotifications: [],
+      };
+
+      const friends = [
+        {
+          id: 'harin',
+          name: '하린',
+          handle: '@harin_runs',
+          level: 18,
+          title: '새벽을 여는 러너',
+          weekKm: 14.2,
+          quests: 3,
+          streak: 21,
+          achievements: 8,
+          status: '오늘 5km 템포런 완료!',
+          color: '#f5a7b8',
+        },
+        {
+          id: 'minjun',
+          name: '민준',
+          handle: '@minjun_10k',
+          level: 12,
+          title: '꾸준한 러너',
+          weekKm: 9.6,
+          quests: 2,
+          streak: 8,
+          achievements: 5,
+          status: '주간 10km까지 0.4km 남았어요',
+          color: '#77c9b5',
+        },
+        {
+          id: 'seoyeon',
+          name: '서연',
+          handle: '@seoyeon_trail',
+          level: 27,
+          title: '길을 여는 러너',
+          weekKm: 22.8,
+          quests: 3,
+          streak: 37,
+          achievements: 10,
+          status: '한강 달빛 시계를 해금했어요',
+          color: '#8b88d8',
+        },
+      ];
+
+      const notifications = [
+        { id: 'notice-harin', friendId: 'harin', icon: '🔥', text: '하린님이 일일 퀘스트를 모두 완료했어요.', time: '12분 전' },
+        { id: 'notice-seoyeon', friendId: 'seoyeon', icon: '🏅', text: '서연님이 ‘강을 따라 걷는 달빛’ 업적을 달성했어요.', time: '1시간 전' },
+        { id: 'notice-minjun', friendId: 'minjun', icon: '🏃', text: '민준님이 이번 주 세 번째 러닝을 시작했어요.', time: '어제' },
+      ];
+
+      let state = loadState();
+      let selectedItemId = 'sparkle-eyes';
+      let activeFilter = 'all';
+      let wardrobeSlot = 'eyes';
+      let socialTab = 'friends';
+      let selectedFriendId = null;
+      let runTimer = null;
+      let runSeconds = 0;
+      let currentRunDistance = 0;
+      let completedRunDistance = 0;
+
+      function loadState() {
+        if (SHOWCASE_LOOK) {
+          return {
+            ...initialState,
+            owned: [
+              ...initialState.owned,
+              'plum-twintail',
+              'silver-wolf-hair',
+              'cloud-hoodie',
+              'sunset-windbreaker',
+              'berry-leggings',
+              'midnight-track-pants',
+              'star-sneakers',
+              'mint-comet-shoes',
+            ],
+            equipped: {
+              ...initialState.equipped,
+              hair: 'silver-wolf-hair',
+              top: 'sunset-windbreaker',
+              bottom: 'midnight-track-pants',
+              shoes: 'mint-comet-shoes',
+            },
+          };
+        }
+
+        try {
+          const saved = JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}');
+          return {
+            ...initialState,
+            ...saved,
+            equipped: { ...initialState.equipped, ...(saved.equipped || {}) },
+            owned: [...new Set([...initialState.owned, ...(saved.owned || [])])],
+            unlockedSlots: [...new Set([...initialState.unlockedSlots, ...(saved.unlockedSlots || [])])],
+            seenNotifications: saved.seenNotifications || [],
+          };
+        } catch {
+          return { ...initialState };
+        }
+      }
+
+      function saveState() {
+        if (SHOWCASE_LOOK) return;
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+      }
+
+      function itemById(id) {
+        return items.find((item) => item.id === id);
+      }
+
+      function formatNumber(value) {
+        return Number(value).toLocaleString('ko-KR');
+      }
+
+      function renderAvatar(container) {
+        const avatarPreset = avatarPresets[state.avatarPreset] ? state.avatarPreset : 'lumi';
+        const avatarDefinition = avatarPresets[avatarPreset];
+        const avatarBaseSource =
+          avatarPreset === 'mori'
+            ? '../assets/avatar/lumi-anime-boy-base-v2.png'
+            : '../assets/avatar/lumi-anime-base-v1.png';
+        const eyeId = ['round-eyes', 'sparkle-eyes', 'smiley-eyes', 'sleepy-eyes'].includes(state.equipped.eyes)
+          ? state.equipped.eyes
+          : 'round-eyes';
+        const noseId = ['bean-nose', 'peach-nose', 'button-nose', 'leaf-nose'].includes(state.equipped.nose)
+          ? state.equipped.nose
+          : 'bean-nose';
+        const mouthId = ['soft-smile', 'cat-mouth', 'open-smile', 'surprised-mouth'].includes(state.equipped.mouth)
+          ? state.equipped.mouth
+          : 'soft-smile';
+        const eyeMarkup = ['left', 'right']
+          .map((side) => {
+            if (eyeId === 'round-eyes') {
+              return `<span class="anime-round-eye ${side}"><span class="anime-iris-glow"></span><span class="anime-eye-highlight"></span></span>`;
+            }
+            if (eyeId === 'sparkle-eyes') {
+              return `<span class="anime-eye-shape ${side}" data-face="${eyeId}"><i></i><i></i><b></b></span>`;
+            }
+            return `<span class="anime-eye-shape ${side}" data-face="${eyeId}"></span>`;
+          })
+          .join('');
+        const noseMarkup = `<span class="anime-feature-anchor anime-nose-shape" data-face="${noseId}"><i></i></span>`;
+        const mouthMarkup =
+          mouthId === 'cat-mouth'
+            ? `<span class="anime-feature-anchor anime-mouth-shape" data-face="${mouthId}"><span><i></i><i></i></span></span>`
+            : mouthId === 'open-smile'
+              ? `<span class="anime-feature-anchor anime-mouth-shape" data-face="${mouthId}"><i><b></b></i></span>`
+              : `<span class="anime-feature-anchor anime-mouth-shape" data-face="${mouthId}"><i></i></span>`;
+        const layerMarkup = ['bottom', 'shoes', 'top', 'hair']
+          .map((slot) => state.equipped[slot])
+          .filter((itemId) => avatarLayerAssets[itemId])
+          .map(
+            (itemId) => {
+              const sources = avatarLayerAssets[itemId];
+              return `<img class="anime-avatar-layer" data-item="${itemId}" data-preset="${avatarPreset}" src="${sources[avatarPreset] || sources.lumi}" alt="" aria-hidden="true" />`;
+            }
+          )
+          .join('');
+
+        container.innerHTML = `
+          <div class="forest-avatar" role="img" aria-label="애니메이션 일러스트 스타일의 새싹 러너 ${avatarDefinition.name}. 얼굴, 헤어스타일과 러닝 아이템을 꾸밀 수 있습니다.">
+            <img class="anime-avatar-base" src="${avatarBaseSource}" alt="" aria-hidden="true" />
+            ${layerMarkup}
+            <span class="anime-face-layer" data-preset="${avatarPreset}">
+              <span class="anime-blush left"></span><span class="anime-blush right"></span>
+              ${eyeMarkup}
+              ${noseMarkup}
+              ${mouthMarkup}
+            </span>
+          </div>`;
+        slots.forEach((slot) => {
+          const item = itemById(state.equipped[slot]);
+          if (
+            item &&
+            item.source !== 'starter' &&
+            !avatarLayerAssets[item.id] &&
+            !['eyes', 'nose', 'mouth'].includes(slot)
+          ) {
+            container.insertAdjacentHTML(
+              'beforeend',
+              `<span class="wearable" data-slot="${slot}" aria-hidden="true">${item.icon}</span>`
+            );
+          }
+        });
+      }
+
+      function renderGlobal() {
+        const avatarPreset = avatarPresets[state.avatarPreset] ? state.avatarPreset : 'lumi';
+        const avatarDefinition = avatarPresets[avatarPreset];
+        document
+          .querySelectorAll('[data-bind=coins]')
+          .forEach((node) => (node.textContent = formatNumber(state.coins)));
+        document.querySelectorAll('[data-bind=level]').forEach((node) => (node.textContent = state.level));
+        document.querySelectorAll('[data-bind=streak]').forEach((node) => (node.textContent = state.dailyStreak));
+        document.querySelectorAll('[data-bind=xp]').forEach((node) => (node.textContent = formatNumber(state.xp)));
+        document
+          .querySelectorAll('[data-bind=xpTarget]')
+          .forEach((node) => (node.textContent = formatNumber(state.xpTarget)));
+        document
+          .querySelectorAll('[data-bind=totalKm]')
+          .forEach((node) => (node.textContent = `${state.totalKm.toFixed(1)}km`));
+        document
+          .querySelectorAll('[data-bind=totalKmPlain]')
+          .forEach((node) => (node.textContent = state.totalKm.toFixed(1)));
+        document
+          .querySelectorAll('[data-bind=weekKm]')
+          .forEach((node) => (node.textContent = `${state.weekKm.toFixed(1)}km`));
+        document.querySelectorAll('[data-bind=weekRuns]').forEach((node) => (node.textContent = `${state.weekRuns}회`));
+        document
+          .querySelectorAll('[data-bind=seoulKm]')
+          .forEach((node) => (node.textContent = state.seoulKm.toFixed(1)));
+        document
+          .querySelectorAll('[data-xp-bar]')
+          .forEach((node) => (node.style.width = `${Math.min(100, (state.xp / state.xpTarget) * 100)}%`));
+        document
+          .querySelectorAll('[data-avatar-name]')
+          .forEach((node) => (node.textContent = avatarDefinition.name));
+        document
+          .querySelectorAll('[data-avatar-label]')
+          .forEach((node) => (node.textContent = avatarDefinition.label));
+        document.querySelectorAll('[data-avatar-preset]').forEach((node) => {
+          const selected = node.dataset.avatarPreset === avatarPreset;
+          node.classList.toggle('active', selected);
+          node.querySelector('b').textContent = selected ? '✓' : '';
+        });
+        document.querySelectorAll('[data-avatar]').forEach(renderAvatar);
+
+        const head = itemById(state.equipped.head);
+        document.querySelector('[data-head-icon]').textContent = head?.icon || '🌱';
+        document.querySelector('[data-head-name]').textContent = head?.name || '기본 러닝 스타일';
+        document.querySelector('[data-outfit-names]').textContent =
+          slots
+            .map((slot) => itemById(state.equipped[slot])?.name)
+            .filter(Boolean)
+            .join(' · ') || '기본 러닝 스타일';
+
+        const strip = document.querySelector('[data-outfit-strip]');
+        strip.innerHTML = state.unlockedSlots
+          .filter((slot) => !['eyes', 'nose', 'mouth'].includes(slot))
+          .map((slot) => `<span class="outfit-slot">${itemById(state.equipped[slot])?.icon || '＋'}</span>`)
+          .join('');
+      }
+
+      function renderShop() {
+        const filters = [
+          ['all', '전체'],
+          ['eyes', '눈'],
+          ['nose', '코'],
+          ['mouth', '입'],
+          ['hair', '헤어'],
+          ['head', '머리장식'],
+          ['top', '상의'],
+          ['bottom', '하의'],
+          ['shoes', '신발'],
+          ['glasses', '안경'],
+          ['bag', '가방'],
+          ['watch', '시계'],
+        ];
+        document.querySelector('[data-filters]').innerHTML = filters
+          .map(
+            ([id, label]) =>
+              `<button class="filter ${activeFilter === id ? 'active' : ''}" data-filter="${id}">${label}</button>`
+          )
+          .join('');
+
+        const visible = items.filter(
+          (item) => item.source !== 'starter' && (activeFilter === 'all' || item.slot === activeFilter)
+        );
+        document.querySelector('[data-shop-grid]').innerHTML = visible
+          .map((item) => {
+            const owned = state.owned.includes(item.id);
+            const equipped = state.equipped[item.slot] === item.id;
+            const slotUnlocked = state.unlockedSlots.includes(item.slot);
+            const meta = owned
+              ? equipped
+                ? '착용 중'
+                : '보유 중'
+              : !slotUnlocked
+                ? `${slotLabels[item.slot]} 잠김`
+              : item.source === 'shop'
+                ? `● ${formatNumber(item.price)}`
+                : item.source === 'quest'
+                  ? '퀘스트 한정'
+                  : item.source === 'group'
+                    ? '월간 한정'
+                    : '업적 한정';
+            return `<button class="item-card ${selectedItemId === item.id ? 'selected' : ''} ${
+              owned ? 'owned' : ''
+            } ${equipped ? 'equipped' : ''}" data-item="${item.id}">
+              <span class="item-art ${item.rarity === '지역 한정' ? 'regional' : ''}">
+                ${item.icon}${equipped ? '<span class="check">✓</span>' : ''}
+              </span>
+              <span class="item-name">${item.name}</span>
+              <span class="item-meta">${meta}</span>
+            </button>`;
+          })
+          .join('');
+
+        const selected = itemById(selectedItemId) || items[3];
+        const owned = state.owned.includes(selected.id);
+        const equipped = state.equipped[selected.slot] === selected.id;
+        const slotUnlocked = state.unlockedSlots.includes(selected.slot);
+        const canBuy = slotUnlocked && selected.source === 'shop' && state.coins >= selected.price;
+        let action = '획득 조건을 달성해 주세요';
+        if (!slotUnlocked) action = `${slotLabels[selected.slot]} 슬롯을 업적으로 해금하세요`;
+        else if (owned) action = equipped ? '현재 착용 중' : '이 아이템 착용하기';
+        else if (selected.source === 'shop')
+          action = canBuy ? `● ${formatNumber(selected.price)} · 구매하기` : '러닝 코인이 부족해요';
+        else if (selected.source === 'quest') action = '주간 10km 퀘스트 보상';
+        else action = '해당 지역 러닝으로 발견';
+
+        document.querySelector('[data-item-detail]').innerHTML = `
+          <div class="item-detail-top">
+            <div class="detail-icon">${selected.icon}</div>
+            <div class="item-detail-copy">
+              <h3>${selected.name}</h3>
+              <span class="badge">${selected.rarity} · ${slotLabels[selected.slot]}</span>
+              <p class="caption">${selected.description}</p>
+            </div>
+          </div>
+          <button class="primary" data-item-action ${!slotUnlocked || equipped || (!owned && !canBuy) ? 'disabled' : ''}>${action}</button>
+        `;
+      }
+
+      function renderWardrobe() {
+        document.querySelector('[data-wardrobe-tabs]').innerHTML = slots
+          .map(
+            (slot) =>
+              `<button class="${wardrobeSlot === slot ? 'active' : ''} ${
+                state.unlockedSlots.includes(slot) ? '' : 'locked-slot'
+              }" data-wardrobe-slot="${slot}">${state.unlockedSlots.includes(slot) ? '' : '🔒 '}${slotLabels[slot]}</button>`
+          )
+          .join('');
+
+        if (!state.unlockedSlots.includes(wardrobeSlot)) {
+          document.querySelector('[data-wardrobe]').innerHTML =
+            `<div style="padding:18px 0;text-align:center"><div style="font-size:32px">🔒</div><strong>${slotLabels[wardrobeSlot]} 슬롯은 아직 잠겨 있어요</strong><p class="caption">업적을 달성하면 장착 부위와 전용 아이템이 함께 열려요.</p></div>`;
+          return;
+        }
+
+        const owned = items.filter((item) => item.slot === wardrobeSlot && state.owned.includes(item.id));
+        document.querySelector('[data-wardrobe]').innerHTML = owned.length
+          ? owned
+              .map((item) => {
+                const equipped = state.equipped[item.slot] === item.id;
+                return `<div class="wardrobe-row">
+                  <span class="wardrobe-icon">${item.icon}</span>
+                  <div><strong>${item.name}</strong><br /><small class="caption">${item.rarity}</small></div>
+                  <button data-equip="${item.id}" ${equipped ? 'disabled' : ''}>${equipped ? '착용 중' : '착용하기'}</button>
+                </div>`;
+              })
+              .join('')
+          : `<div style="padding:18px 0;text-align:center"><div style="font-size:32px">✨</div><strong>이 칸은 아직 비어 있어요</strong><p class="caption">달리고 코인을 모아 새 아이템을 만나보세요.</p></div>`;
+      }
+
+      function renderQuests() {
+        const quests = [
+          {
+            id: 'daily-distance',
+            title: '가볍게 몸풀기',
+            current: state.todayKm,
+            target: 1,
+            unit: 'km',
+            icon: '✦',
+            reward: '120 XP',
+          },
+          {
+            id: 'daily-run',
+            title: '오늘의 첫 러닝',
+            current: state.todayRuns,
+            target: 1,
+            unit: '회',
+            icon: '●',
+            reward: '러닝 코인 80',
+          },
+          {
+            id: 'daily-distance-3',
+            title: '조금 더 멀리',
+            current: state.todayKm,
+            target: 3,
+            unit: 'km',
+            icon: '●',
+            reward: '러닝 코인 120',
+          },
+        ];
+        document.querySelector('[data-quest-list]').innerHTML = quests
+          .map((quest) => {
+            const done = quest.current >= quest.target;
+            const claimed = state.claimed.includes(quest.id);
+            return `<div class="card quest-card" style="margin-top:0">
+              <span class="quest-reward">${quest.icon}</span>
+              <div class="quest-copy">
+                <div class="quest-top"><strong>${quest.title}</strong><span>${quest.current.toFixed(
+                  quest.unit === 'km' ? 2 : 0
+                )} / ${quest.target}${quest.unit}</span></div>
+                <div class="progress"><span style="width:${Math.min(100, (quest.current / quest.target) * 100)}%"></span></div>
+                <div class="quest-bottom"><small>보상 · ${quest.reward}</small>${
+                  done
+                    ? `<button class="claim" data-claim="${quest.id}" ${claimed ? 'disabled' : ''}>${
+                        claimed ? '받음' : '받기'
+                      }</button>`
+                    : ''
+                }</div>
+              </div>
+            </div>`;
+          })
+          .join('');
+      }
+
+      function renderSocial() {
+        const unread = notifications.filter((notice) => !state.seenNotifications.includes(notice.id)).length;
+        const unreadNode = document.querySelector('[data-unread-count]');
+        unreadNode.textContent = unread ? `· ${unread}` : '';
+        document
+          .querySelectorAll('[data-social-tab]')
+          .forEach((node) => node.classList.toggle('active', node.dataset.socialTab === socialTab));
+        const container = document.querySelector('[data-social-content]');
+
+        if (selectedFriendId) {
+          const friend = friends.find((candidate) => candidate.id === selectedFriendId);
+          container.innerHTML = `
+            <button class="profile-back" data-profile-back>‹ 친구 목록</button>
+            <div class="friend-profile-hero" style="background:${friend.color}">
+              <div class="friend-profile-copy">
+                <span class="level-pill">RUNNER Lv. ${friend.level}</span>
+                <h2>${friend.name}</h2>
+                <p class="caption">${friend.handle}</p>
+                <p style="margin-top:10px;font-size:11px;font-weight:900">${friend.title}</p>
+              </div>
+              <img class="hero-img" src="../assets/quest-run-lumi-v2.png" alt="${friend.name}님의 러너 캐릭터" />
+            </div>
+            <div class="profile-stats">
+              <div class="profile-stat"><strong>${friend.weekKm.toFixed(1)}km</strong><small>이번 주</small></div>
+              <div class="profile-stat"><strong>${friend.streak}일</strong><small>연속 완료</small></div>
+              <div class="profile-stat"><strong>${friend.achievements}/12</strong><small>업적</small></div>
+            </div>
+            <div class="section-title"><div><h2>현재 스타일</h2><p class="caption">친구가 공개한 꾸미기 구성이에요.</p></div></div>
+            <div class="card">
+              <div class="regional-row"><span>🎧</span><div><strong>머리 · 체리 헤드폰</strong><br><small>희귀 꾸미기</small></div><b>착용 중</b></div>
+              <div class="regional-row"><span>⌚</span><div><strong>시계 · 한강 달빛 시계</strong><br><small>지역 한정 업적</small></div><b>${friend.level >= 18 ? '해금' : '잠김'}</b></div>
+            </div>
+            <div class="section-title"><div><h2>업적 상태</h2><p class="caption">대표 업적 진행 상황이에요.</p></div></div>
+            <div class="card">
+              <div class="regional-row"><span>🔥</span><div><strong>${friend.streak}일의 약속</strong><br><small>일일 퀘스트 연속 완료</small></div><b>달성</b></div>
+              <div class="regional-row"><span>?</span><div><strong>아직 발견하지 못한 이야기</strong><br><small>숨은 업적</small></div><b>잠김</b></div>
+            </div>`;
+          return;
+        }
+
+        if (socialTab === 'friends') {
+          container.innerHTML = `
+            <div class="card social-intro">
+              <span class="social-intro-icon">👟</span>
+              <div><strong>서로의 한 걸음을 응원해요</strong><small>친구의 퀘스트와 업적을 확인하고 월간 목표에 함께 도전하세요.</small></div>
+            </div>
+            <div class="section-title"><div><h2>내 친구</h2><p class="caption">프로필에서 캐릭터와 업적을 볼 수 있어요.</p></div></div>
+            ${friends
+              .map(
+                (friend) => `<button class="card friend-card" data-friend="${friend.id}">
+                  <span class="friend-avatar" style="background:${friend.color}">${friend.name[0]}</span>
+                  <span class="friend-copy">
+                    <strong>${friend.name}<span class="friend-level">Lv. ${friend.level}</span></strong>
+                    <small>${friend.status}</small>
+                    <span class="friend-progress"><span>이번 주 ${friend.weekKm.toFixed(1)}km</span><span>퀘스트 ${friend.quests}/3</span></span>
+                  </span>
+                  <span class="social-chevron">›</span>
+                </button>`
+              )
+              .join('')}`;
+          return;
+        }
+
+        if (socialTab === 'group') {
+          const current = state.groupMode === 'solo' ? state.monthlyPersonalKm : state.monthlyGroupKm;
+          const percent = Math.min(100, Math.floor((current / 400) * 100));
+          container.innerHTML = `
+            <div class="monthly-hero">
+              <span class="level-pill">JULY MONTHLY</span>
+              <h2>우리의 400km</h2>
+              <p>한 달 동안 함께 달린 거리를 모아<br>월간 한정 아이템을 완성해요.</p>
+              <span class="monthly-reward">☄️</span>
+              <span class="monthly-reward-name">월간 혜성 크라운</span>
+            </div>
+            <div class="section-title"><div><h2>도전 방식</h2><p class="caption">같이 달리거나 혼자서도 도전할 수 있어요.</p></div></div>
+            <div class="mode-grid">
+              <button class="mode-card ${state.groupMode === 'group' ? 'active' : ''}" data-group-mode="group"><span>👥</span><strong>함께 달리기</strong><small>친구 거리와 합산</small></button>
+              <button class="mode-card ${state.groupMode === 'solo' ? 'active' : ''}" data-group-mode="solo"><span>🏃</span><strong>혼자 달리기</strong><small>내 거리만으로 도전</small></button>
+            </div>
+            <div class="card">
+              <div class="group-progress-head"><div><small>${state.groupMode === 'group' ? '팀 누적 거리' : '나의 단독 거리'}</small><strong>${current.toFixed(1)} <small style="display:inline">/ 400km</small></strong></div><span class="group-percent">${percent}%</span></div>
+              <div class="progress"><span style="width:${percent}%;background:var(--orange)"></span></div>
+              <p class="caption" style="margin:8px 0 14px;text-align:right">앞으로 ${Math.max(0, 400 - current).toFixed(1)}km</p>
+              <button class="primary" data-claim-group ${current < 400 || state.groupClaimed ? 'disabled' : ''}>${state.groupClaimed ? '✓ 월간 보상 받음' : current >= 400 ? '☄️ 월간 보상 받기' : '400km 달성 후 받을 수 있어요'}</button>
+            </div>
+            ${
+              state.groupMode === 'solo'
+                ? `<div class="card hidden-challenge"><span class="hidden-icon">?</span><div><strong>숨겨진 도전이 감지됐어요</strong><p class="caption">혼자 400km를 완주하면 특별한 업적과 장식이 열려요.</p></div></div>`
+                : `<div class="section-title"><div><h2>함께 달리는 친구</h2><p class="caption">모든 멤버의 러닝이 합산돼요.</p></div></div>
+                  <div class="card">
+                    ${[
+                      ['나', state.monthlyPersonalKm, '#fc7043'],
+                      ['서연', 96.3, '#8b88d8'],
+                      ['하린', 82.7, '#f5a7b8'],
+                      ['민준', 64.6, '#77c9b5'],
+                    ]
+                      .map(
+                        ([name, km, color]) => `<div class="member-row"><span class="friend-avatar" style="background:${color}">${name[0]}</span><strong>${name}</strong><b>${Number(km).toFixed(1)}km</b></div>`
+                      )
+                      .join('')}
+                  </div>`
+            }`;
+          return;
+        }
+
+        container.innerHTML = `
+          <div class="section-title"><div><h2>친구 소식 ${unread ? `· 새 알림 ${unread}` : ''}</h2><p class="caption">친구의 퀘스트와 업적 진행을 알려드려요.</p></div><button class="mark-read" data-mark-read>${unread ? '모두 읽음' : '모두 확인함'}</button></div>
+          ${notifications
+            .map((notice) => {
+              const seen = state.seenNotifications.includes(notice.id);
+              return `<button class="card notice-card ${seen ? '' : 'unread'}" data-friend="${notice.friendId}">
+                <span class="notice-icon">${notice.icon}</span>
+                <span class="notice-copy"><strong>${notice.text}</strong><small>${notice.time}</small></span>
+                ${seen ? '' : '<span class="unread-dot"></span>'}
+              </button>`;
+            })
+            .join('')}`;
+      }
+
+      function render() {
+        renderGlobal();
+        renderShop();
+        renderWardrobe();
+        renderQuests();
+        renderSocial();
+      }
+
+      function goTo(screen) {
+        document
+          .querySelectorAll('[data-screen]')
+          .forEach((node) => node.classList.toggle('active', node.dataset.screen === screen));
+        document
+          .querySelectorAll('[data-nav]')
+          .forEach((node) => node.classList.toggle('active', node.dataset.nav === screen));
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+        render();
+      }
+
+      function showToast(message) {
+        const toast = document.querySelector('[data-toast]');
+        toast.textContent = message;
+        toast.classList.add('show');
+        clearTimeout(showToast.timer);
+        showToast.timer = setTimeout(() => toast.classList.remove('show'), 1900);
+      }
+
+      function buyOrEquipSelected() {
+        const item = itemById(selectedItemId);
+        if (!item || !state.unlockedSlots.includes(item.slot)) return;
+        if (state.owned.includes(item.id)) {
+          state.equipped[item.slot] = item.id;
+          showToast(`${item.name}을(를) 착용했어요!`);
+        } else if (item.source === 'shop' && state.coins >= item.price) {
+          state.coins -= item.price;
+          state.owned.push(item.id);
+          state.equipped[item.slot] = item.id;
+          showToast(`${item.name} 구매 후 바로 착용했어요!`);
+        }
+        saveState();
+        render();
+      }
+
+      function startRun() {
+        runSeconds = 0;
+        currentRunDistance = 0;
+        completedRunDistance = 0;
+        document.querySelector('[data-running]').classList.add('active');
+        document.querySelector('[data-live-distance]').textContent = '0.00';
+        document.querySelector('[data-live-time]').textContent = '00:00';
+        runTimer = setInterval(() => {
+          runSeconds += 1;
+          currentRunDistance = runSeconds * 0.09;
+          const minutes = Math.floor(runSeconds / 60);
+          const seconds = runSeconds % 60;
+          document.querySelector('[data-live-distance]').textContent = currentRunDistance.toFixed(2);
+          document.querySelector('[data-live-time]').textContent = `${String(minutes).padStart(2, '0')}:${String(
+            seconds
+          ).padStart(2, '0')}`;
+        }, 1000);
+      }
+
+      function stopRun() {
+        clearInterval(runTimer);
+        runTimer = null;
+        document.querySelector('[data-running]').classList.remove('active');
+      }
+
+      document.addEventListener('click', (event) => {
+        const target = event.target.closest('button');
+        if (!target) return;
+        if (target.dataset.nav) goTo(target.dataset.nav);
+        if (target.dataset.go) goTo(target.dataset.go);
+        if (target.dataset.avatarPreset && avatarPresets[target.dataset.avatarPreset]) {
+          state.avatarPreset = target.dataset.avatarPreset;
+          saveState();
+          render();
+          showToast(state.avatarPreset === 'mori' ? '남자 러너 모리로 변경했어요!' : '여자 러너 루미로 변경했어요!');
+        }
+        if (target.dataset.socialTab) {
+          socialTab = target.dataset.socialTab;
+          selectedFriendId = null;
+          renderSocial();
+        }
+        if (target.dataset.friend) {
+          selectedFriendId = target.dataset.friend;
+          renderSocial();
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        if (target.hasAttribute('data-profile-back')) {
+          selectedFriendId = null;
+          renderSocial();
+        }
+        if (target.dataset.groupMode) {
+          state.groupMode = target.dataset.groupMode;
+          saveState();
+          renderSocial();
+          showToast(state.groupMode === 'group' ? '친구들과 함께 도전해요!' : '혼자 400km 도전을 시작했어요.');
+        }
+        if (target.hasAttribute('data-mark-read')) {
+          state.seenNotifications = notifications.map((notice) => notice.id);
+          saveState();
+          renderSocial();
+          showToast('친구 소식을 모두 확인했어요.');
+        }
+        if (target.hasAttribute('data-claim-group')) {
+          const current = state.groupMode === 'solo' ? state.monthlyPersonalKm : state.monthlyGroupKm;
+          if (current >= 400 && !state.groupClaimed) {
+            state.groupClaimed = true;
+            state.owned.push('monthly-comet-crown');
+            if (state.groupMode === 'solo') {
+              state.soloAchievement = true;
+              state.owned.push('solo-star-glasses');
+              if (!state.unlockedSlots.includes('glasses')) state.unlockedSlots.push('glasses');
+            }
+            saveState();
+            render();
+            showToast('월간 한정 꾸미기 보상을 받았어요!');
+          }
+        }
+        if (target.dataset.filter) {
+          activeFilter = target.dataset.filter;
+          renderShop();
+        }
+        if (target.dataset.item) {
+          selectedItemId = target.dataset.item;
+          renderShop();
+        }
+        if (target.matches('[data-item-action]')) buyOrEquipSelected();
+        if (target.dataset.wardrobeSlot) {
+          wardrobeSlot = target.dataset.wardrobeSlot;
+          renderWardrobe();
+        }
+        if (target.dataset.equip) {
+          const item = itemById(target.dataset.equip);
+          if (!state.unlockedSlots.includes(item.slot)) return;
+          state.equipped[item.slot] = item.id;
+          saveState();
+          render();
+          showToast(`${item.name}을(를) 착용했어요!`);
+        }
+        if (target.hasAttribute('data-start-run')) startRun();
+        if (target.hasAttribute('data-cancel-run')) stopRun();
+        if (target.hasAttribute('data-finish-run')) {
+          completedRunDistance = currentRunDistance;
+          const runXp = Math.floor(completedRunDistance * 100);
+          const runCoins = Math.floor(completedRunDistance * 40);
+          stopRun();
+          document.querySelector('[data-summary-distance]').textContent = completedRunDistance.toFixed(2);
+          document.querySelector('[data-summary-xp]').textContent = `+${formatNumber(runXp)}`;
+          document.querySelector('[data-summary-coins]').textContent = `+${formatNumber(runCoins)}`;
+          document.querySelector('[data-summary]').classList.add('active');
+        }
+        if (target.hasAttribute('data-claim-run')) {
+          const distance = completedRunDistance;
+          const runXp = Math.floor(distance * 100);
+          const runCoins = Math.floor(distance * 40);
+          state.xp += runXp;
+          while (state.xp >= state.xpTarget) {
+            state.xp -= state.xpTarget;
+            state.level += 1;
+            state.xpTarget = Math.floor(state.xpTarget * 1.18);
+          }
+          state.coins += runCoins;
+          state.totalKm = Number((state.totalKm + distance).toFixed(2));
+          state.weekKm = Number((state.weekKm + distance).toFixed(2));
+          state.weekRuns += 1;
+          state.todayKm = Number((state.todayKm + distance).toFixed(2));
+          state.todayRuns += 1;
+          state.seoulKm = Number((state.seoulKm + distance).toFixed(2));
+          state.monthlyPersonalKm = Number((state.monthlyPersonalKm + distance).toFixed(2));
+          state.monthlyGroupKm = Number((state.monthlyGroupKm + distance).toFixed(2));
+          if (state.seoulKm >= 10 && !state.owned.includes('seoul-moon-watch')) {
+            state.owned.push('seoul-moon-watch');
+            if (!state.unlockedSlots.includes('watch')) state.unlockedSlots.push('watch');
+          }
+          if (state.totalKm >= 100 && !state.owned.includes('record-backpack')) {
+            state.owned.push('record-backpack');
+            if (!state.unlockedSlots.includes('bag')) state.unlockedSlots.push('bag');
+          }
+          saveState();
+          document.querySelector('[data-summary]').classList.remove('active');
+          completedRunDistance = 0;
+          render();
+          showToast(`${formatNumber(runXp)} XP와 러닝 코인 ${formatNumber(runCoins)}을 받았어요!`);
+        }
+        if (target.dataset.claim) {
+          const id = target.dataset.claim;
+          if (!state.claimed.includes(id)) {
+            state.claimed.push(id);
+            if (id === 'daily-distance') state.xp += 120;
+            if (id === 'daily-run') state.coins += 80;
+            if (id === 'daily-distance-3') state.coins += 120;
+            if (['daily-distance', 'daily-run', 'daily-distance-3'].every((questId) => state.claimed.includes(questId))) {
+              state.dailyStreak = Math.max(7, state.dailyStreak);
+              if (!state.unlockedSlots.includes('glasses')) state.unlockedSlots.push('glasses');
+              if (!state.owned.includes('daily-runner-glasses')) state.owned.push('daily-runner-glasses');
+            }
+            saveState();
+            render();
+            showToast('퀘스트 보상을 받았어요!');
+          }
+        }
+      });
+
+      render();
+    </script>
+  </body>
+</html>

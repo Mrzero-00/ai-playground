@@ -1,0 +1,170 @@
+{
+  "input": "/Users/sonsang-il/Desktop/ai/edk_objection_work/EDK_renewal_completion_report_v0.1.6_draft.docx",
+  "fonts_by_char_count": {
+    "Consolas": 11
+  },
+  "direct_run_formatting_runs": 649,
+  "direct_paragraph_formatting_paragraphs": 701,
+  "heading_like_paragraphs_not_heading_style": [
+    {
+      "para_index": 2,
+      "text": "EDK \ub9ac\ub274\uc5bc \ud504\ub85c\uc81d\ud2b8 \uc885\ub8cc \ubcf4\uace0\uc11c",
+      "style": "Title"
+    },
+    {
+      "para_index": 12,
+      "text": "\ucc28\ub840",
+      "style": ""
+    },
+    {
+      "para_index": 57,
+      "text": "2026-01 \u2014 (\uacc4\uc57d \uc804 \uc900\ube44) \ud504\ub85c\uc81d\ud2b8 \uc800\uc7a5\uc18c \uad6c\uc131, \uc544\ud0a4\ud14d\ucc98\u00b7\ub3c4\uba54\uc778 \uc124\uacc4, \ud575\uc2ec \ub3c4\uba54\uc778 \uc120\ud589 \uad6c\ud604 \ucc29\uc218",
+      "style": "List Paragraph"
+    },
+    {
+      "para_index": 58,
+      "text": "2026-02-02 \u2014 \uacc4\uc57d \ucc29\uc218. \uc2e0\uaddc \ubc31\uc5d4\ub4dc \ud575\uc2ec \ub3c4\uba54\uc778 \uad6c\ucd95 \uac1c\uc2dc (\uacf5\uae09\ub9dd\u00b7\ubcf4\uace0\uc11c\u00b7\uc778\uad8c\uc601\ud5a5\ud3c9\uac00\u00b7\ub370\uc774\ud130 \uc5f0\uacc4)",
+      "style": "List Paragraph"
+    },
+    {
+      "para_index": 59,
+      "text": "2026-03 \u2014 \uad00\ub9ac\uc790 \uae30\ub2a5 \uad6c\ucd95 (\uc911\ub300\uc131\ud3c9\uac00 \uad00\ub9ac, \uac00\uc774\ub4dc \uc778\ub371\uc2a4, \uacf5\uc2dc \uae30\uc900, \ubc88\uc5ed\u00b7\ub2e8\uc704 \uad00\ub9ac)",
+      "style": "List Paragraph"
+    },
+    {
+      "para_index": 60,
+      "text": "2026-03~04 \u2014 \ub370\uc774\ud130 \uc774\uad00 \uccb4\uacc4 \uad6c\ucd95, \uac1c\ubc1c \ud658\uacbd 30,000\uac74 \uc774\uc0c1 \uc774\uad00",
+      "style": "List Paragraph"
+    },
+    {
+      "para_index": 61,
+      "text": "2026-04-25 \u2014 \ucd94\uc9c4 \uc804\ub7b5(\ubc31\uc5d4\ub4dc \uc7ac\uad6c\ucd95 + \ud504\ub860\ud2b8 \ubcf4\uc874) \uc804\ud658 \ud655\uc815, PoC 5/5 \ud1b5\uacfc",
+      "style": "List Paragraph"
+    },
+    {
+      "para_index": 62,
+      "text": "2026-05-23 \u2014 \ubc31\uc5d4\ub4dc API \ud638\ud658 \uad6c\ud604 \uc644\ub8cc (\uc804 \ub3c4\uba54\uc778)",
+      "style": "List Paragraph"
+    },
+    {
+      "para_index": 63,
+      "text": "2026-05-26 \u2014 \ud504\ub860\ud2b8 \ud1b5\ud569 \ubc0f API \uac8c\uc774\ud2b8\uc6e8\uc774 \ubd84\ub9ac \uc644\ub8cc",
+      "style": "List Paragraph"
+    },
+    {
+      "para_index": 64,
+      "text": "2026-06-05 \u2014 \uac1c\ubc1c \ud658\uacbd \uc804\uccb4 \ub3c4\uba54\uc778 \uc804\ud658 (admin/client/report)",
+      "style": "List Paragraph"
+    },
+    {
+      "para_index": 65,
+      "text": "2026-06-27 \u2014 API \ucee4\ubc84\ub9ac\uc9c0 \uc804\uc218 \uac80\uc99d \uc885\uacb0 (\ubbf8\ucee4\ubc84 0\uac74)",
+      "style": "List Paragraph"
+    },
+    {
+      "para_index": 66,
+      "text": "2026-07-21 \u2014 \ud654\uba74 QA \uc804 \ub3c4\uba54\uc778 \uc644\ub8cc",
+      "style": "List Paragraph"
+    },
+    {
+      "para_index": 67,
+      "text": "2026-07 \ud604\uc7ac \u2014 QA \uc138\ubd80 \ubcf4\uc644 \ud56d\ubaa9 \ucc98\ub9ac \ubc0f \uc6b4\uc601 \uc804\ud658 \uc900\ube44",
+      "style": "List Paragraph"
+    },
+    {
+      "para_index": 85,
+      "text": "\ubc31\uc5d4\ub4dc \uc2e0\uaddc \uad6c\ucd95 (\uc644\ub8cc\u00b7\uc778\ub3c4\ubd84)",
+      "style": ""
+    },
+    {
+      "para_index": 87,
+      "text": "\ud504\ub860\ud2b8\uc5d4\ub4dc \uc2e0\uaddc \uad6c\ucd95 (\uc804\ub7b5 \uc804\ud658\uc73c\ub85c \uc911\ub2e8, \ubcc4\ub3c4 \ud45c\uae30)",
+      "style": ""
+    },
+    {
+      "para_index": 179,
+      "text": "\ud56d\ubaa9",
+      "style": ""
+    },
+    {
+      "para_index": 180,
+      "text": "\ub0b4\uc6a9",
+      "style": ""
+    },
+    {
+      "para_index": 197,
+      "text": "\ubc84\uc804",
+      "style": ""
+    },
+    {
+      "para_index": 198,
+      "text": "\uc77c\uc790",
+      "style": ""
+    },
+    {
+      "para_index": 199,
+      "text": "\ubcc0\uacbd \ub0b4\uc6a9",
+      "style": ""
+    }
+  ],
+  "examples": {
+    "direct_paragraph_formatting": [
+      {
+        "para_index": 1,
+        "text": "",
+        "style": ""
+      },
+      {
+        "para_index": 2,
+        "text": "EDK \ub9ac\ub274\uc5bc \ud504\ub85c\uc81d\ud2b8 \uc885\ub8cc \ubcf4\uace0\uc11c",
+        "style": "Title"
+      },
+      {
+        "para_index": 3,
+        "text": "EDK \ub9ac\ub274\uc5bc \ud504\ub85c\uc81d\ud2b8 (Marcspon \uc2dc\uc2a4\ud15c V1\u2192V2 \uc7ac\uad6c\ucd95)",
+        "style": ""
+      },
+      {
+        "para_index": 4,
+        "text": "",
+        "style": ""
+      },
+      {
+        "para_index": 5,
+        "text": "\ubb38\uc11c \ubc84\uc804 \uad00\ub9ac",
+        "style": "Heading 2"
+      }
+    ],
+    "direct_run_formatting": [
+      {
+        "para_index": 2,
+        "run_text": "EDK \ub9ac\ub274\uc5bc \ud504\ub85c\uc81d\ud2b8 \uc885\ub8cc \ubcf4\uace0\uc11c",
+        "style": "Title"
+      },
+      {
+        "para_index": 3,
+        "run_text": "EDK \ub9ac\ub274\uc5bc \ud504\ub85c\uc81d\ud2b8 (Marcspon \uc2dc\uc2a4\ud15c V1\u2192V2 \uc7ac\uad6c\ucd95)",
+        "style": ""
+      },
+      {
+        "para_index": 5,
+        "run_text": "\ubb38\uc11c \ubc84\uc804 \uad00\ub9ac",
+        "style": "Heading 2"
+      },
+      {
+        "para_index": 6,
+        "run_text": "\ubcf4\uace0\uc11c \uc804\uccb4 \ub808\ubca8\uc758 \ubc84\uc804 \uc774\ub825. \uac01 \uc7a5\uc758 \uc138\ubd80 \uc774\ub825\uc740 \uc7a5\ubcc4 \ud30c\uc77c\uc758 \ubc84\uc804 \uc774\ub825 \ud45c \ucc38\uc870.",
+        "style": ""
+      },
+      {
+        "para_index": 7,
+        "run_text": "\uaddc\uce59: major.minor.patch \u2014 patch: \uc790\uad6c \uc218\uc815 / minor: \ub0b4\uc6a9 \ucd94\uac00\u00b7\uad6c\uc870 \ubcc0\uacbd / major: \uc81c\ucd9c\u00b7\uc2b9\uc778 \ub2e8\uc704. \ubc84\uc804 ",
+        "style": ""
+      }
+    ]
+  },
+  "notes": [
+    "Direct formatting is not always wrong, but it often causes inconsistent output when templates change.",
+    "Heading-like paragraphs not using Heading styles can break TOC and accessibility."
+  ]
+}

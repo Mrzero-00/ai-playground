@@ -53,7 +53,7 @@ WeeklyTrackProvider ─ RaceSession ─ CheckpointProgress                 └�
 
 ### Bootstrap/UI
 
-- `PrototypeBootstrap`: 외부 에셋 없이 타원 트랙, Cube Car, Checkpoint, Ghost, Camera, 터치 UI를 조립
+- `PrototypeBootstrap`: 외부 에셋 없이 둥근 RC 버기 시각 모델, Technical Track, 13 Checkpoint, Ghost, Camera, 터치 UI를 조립
 - `SafeAreaFitter`: 모바일 노치와 홈 인디케이터 영역 대응
 - `SteeringModeController`: Arrow/Wheel UI와 입력 소스 전환
 

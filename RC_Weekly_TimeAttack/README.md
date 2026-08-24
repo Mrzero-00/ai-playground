@@ -6,7 +6,8 @@
 
 V0.4 로컬 플레이테스트 수직 슬라이스가 구현되어 있습니다.
 
-- Cube Car와 가벼운 아케이드 물리
+- 둥근 바디 셸, 독립 휠, 서스펜션, 범퍼, 윙, 안테나를 갖춘 절차적 RC 버기 외형
+- 단일 공정 충돌체를 사용하는 가벼운 아케이드 물리
 - Gas / Brake
 - Arrow 조향과 입력 보간
 - Steering Wheel 드래그 조향과 자동 센터 복귀
@@ -15,7 +16,7 @@ V0.4 로컬 플레이테스트 수직 슬라이스가 구현되어 있습니다.
 - 쿼터뷰 추적 Camera
 - WebGL 포커스 이탈 시 입력 초기화
 - 브레이크 진입과 스로틀 유지가 가능한 아케이드 Drift
-- 1랩 타원형 Weekly Track과 순서 기반 Checkpoint 6개
+- 헤어핀·연속 코너·좁은 시케인이 있는 1랩 Technical Weekly Track과 Checkpoint 13개
 - 3초 Countdown, 전체 Race Finish Time, Best Finish Time
 - `R` 또는 화면 버튼을 이용한 횟수 제한 없는 즉시 재도전
 - 로컬 Top 5 기록 저장
@@ -57,7 +58,7 @@ V0.4 로컬 플레이테스트 수직 슬라이스가 구현되어 있습니다.
 
 씬이 보이지 않거나 깨졌다면 Unity 메뉴에서 `RC Time Attack > Playtest > Rebuild Sandbox Scene`을 실행합니다.
 
-처음 실행하면 3초 카운트다운 뒤 레이스가 시작됩니다. 파란 체크포인트를 `CP 1 → CP 6` 순서대로 통과한 다음, 출발 지점의 노란 Finish 라인으로 돌아오면 전체 완주 시간이 기록됩니다. 자세한 검증 순서는 [플레이테스트 가이드](docs/PLAYTEST.md)를 참고합니다.
+처음 실행하면 3초 카운트다운 뒤 레이스가 시작됩니다. 바닥 중앙선을 따라 파란 체크포인트를 `CP 1 → CP 13` 순서대로 통과한 다음, 출발 지점의 노란 Finish 라인으로 돌아오면 전체 완주 시간이 기록됩니다. 자세한 검증 순서는 [플레이테스트 가이드](docs/PLAYTEST.md)를 참고합니다.
 
 ## 조작
 
@@ -91,7 +92,7 @@ SDK의 `AIT > Build & Package` 흐름을 사용하며, 별도 Vite 앱이나 자
 Assets/_Project/
 ├── Scenes/                 # 플레이테스트 시작 씬
 ├── Scripts/Runtime/
-│   ├── Bootstrap/          # 플레이테스트 월드/UI 조립
+│   ├── Bootstrap/          # RC 버기와 Technical Track/UI 조립
 │   ├── Camera/             # 쿼터뷰 추적
 │   ├── Input/              # 키보드/터치/조향 인터페이스
 │   ├── Race/               # Weekly Track, Checkpoint, Timer, 기록

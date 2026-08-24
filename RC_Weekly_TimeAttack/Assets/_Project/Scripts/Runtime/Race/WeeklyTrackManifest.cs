@@ -43,8 +43,8 @@ namespace RCWeeklyTimeAttack.Race
     {
         public WeeklyTrackManifest Current { get; } = new(
             "PLAYTEST-WEEK",
-            "oval-01",
-            "oval-01-v1",
+            "technical-01",
+            "technical-01-v1",
             "arcade-v02",
             1);
     }

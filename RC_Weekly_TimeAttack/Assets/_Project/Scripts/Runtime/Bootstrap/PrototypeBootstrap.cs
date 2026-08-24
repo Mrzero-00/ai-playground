@@ -18,8 +18,8 @@ namespace RCWeeklyTimeAttack.Bootstrap
     public sealed class PrototypeBootstrap : MonoBehaviour
     {
         private const string RuntimeRootName = "V04_Playtest_Runtime";
-        private static readonly Vector3 StartPosition = new(0f, 0.4f, -25f);
-        private static readonly Quaternion StartRotation = Quaternion.Euler(0f, 90f, 0f);
+        private static readonly Vector3 StartPosition = new(-25f, 0.4f, -16f);
+        private static readonly Quaternion StartRotation = Quaternion.Euler(0f, 180f, 0f);
 
         [SerializeField] private CarTuning tuning;
         [SerializeField] private SteeringMode initialMode = SteeringMode.Arrow;
@@ -75,12 +75,13 @@ namespace RCWeeklyTimeAttack.Bootstrap
 
         private CarRuntime CreateCar(Transform parent)
         {
-            GameObject car = new("CubeCar");
+            GameObject car = new("RCBuggy");
             car.transform.SetParent(parent);
             car.transform.SetPositionAndRotation(StartPosition, StartRotation);
 
             BoxCollider carCollider = car.AddComponent<BoxCollider>();
-            carCollider.size = new Vector3(1.45f, 0.65f, 2.35f);
+            carCollider.center = Vector3.zero;
+            carCollider.size = new Vector3(1.85f, 0.68f, 2.55f);
 
             Rigidbody body = car.AddComponent<Rigidbody>();
             body.mass = 1.15f;
@@ -89,7 +90,7 @@ namespace RCWeeklyTimeAttack.Bootstrap
             body.interpolation = RigidbodyInterpolation.Interpolate;
             body.collisionDetectionMode = CollisionDetectionMode.ContinuousDynamic;
             body.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ;
-            body.centerOfMass = new Vector3(0f, -0.25f, 0f);
+            body.centerOfMass = new Vector3(0f, -0.18f, 0f);
 
             car.AddComponent<KeyboardVehicleInputSource>();
             TouchVehicleInputSource touch = car.AddComponent<TouchVehicleInputSource>();
@@ -99,12 +100,7 @@ namespace RCWeeklyTimeAttack.Bootstrap
             controller.Configure(tuning);
             router.RefreshSources();
 
-            CreateCarVisual(car.transform, "Body", Vector3.zero,
-                new Vector3(1.45f, 0.65f, 2.35f), new Color(0.08f, 0.46f, 0.95f));
-            CreateCarVisual(car.transform, "Cabin", new Vector3(0f, 0.68f, -0.08f),
-                new Vector3(0.78f, 0.48f, 0.92f), new Color(0.04f, 0.12f, 0.23f));
-            CreateCarVisual(car.transform, "FrontMarker", new Vector3(0f, 0.28f, 0.86f),
-                new Vector3(0.52f, 0.12f, 0.18f), new Color(1f, 0.82f, 0.12f));
+            CreateRcBuggyVisual(car.transform, false);
 
             Transform cameraTarget = new GameObject("CameraTarget").transform;
             cameraTarget.SetParent(car.transform, false);
@@ -113,18 +109,95 @@ namespace RCWeeklyTimeAttack.Bootstrap
             return new CarRuntime(car, controller, router, touch, telemetry, cameraTarget);
         }
 
-        private static void CreateCarVisual(
+        private static void CreateRcBuggyVisual(Transform parent, bool ghost)
+        {
+            Color bodyColor = ghost
+                ? new Color(0.1f, 0.95f, 1f, 0.34f)
+                : new Color(0.06f, 0.43f, 0.98f);
+            Color accentColor = ghost
+                ? new Color(0.75f, 1f, 1f, 0.3f)
+                : new Color(1f, 0.78f, 0.08f);
+            Color darkColor = ghost
+                ? new Color(0.18f, 0.9f, 1f, 0.24f)
+                : new Color(0.025f, 0.045f, 0.065f);
+            Color metalColor = ghost
+                ? new Color(0.55f, 1f, 1f, 0.28f)
+                : new Color(0.42f, 0.48f, 0.54f);
+
+            CreatePrimitiveVisual(PrimitiveType.Cube, parent, "Chassis",
+                new Vector3(0f, 0.18f, 0f), Quaternion.identity,
+                new Vector3(1.38f, 0.22f, 2.15f), darkColor);
+            CreatePrimitiveVisual(PrimitiveType.Capsule, parent, "RoundedBodyShell",
+                new Vector3(0f, 0.44f, 0.02f), Quaternion.Euler(90f, 0f, 0f),
+                new Vector3(0.78f, 0.9f, 0.34f), bodyColor);
+            CreatePrimitiveVisual(PrimitiveType.Sphere, parent, "RoundedHood",
+                new Vector3(0f, 0.4f, 0.78f), Quaternion.identity,
+                new Vector3(1.18f, 0.42f, 0.88f), bodyColor);
+            CreatePrimitiveVisual(PrimitiveType.Sphere, parent, "Canopy",
+                new Vector3(0f, 0.72f, -0.28f), Quaternion.identity,
+                new Vector3(0.7f, 0.44f, 0.72f), darkColor);
+
+            CreatePrimitiveVisual(PrimitiveType.Capsule, parent, "FrontBumper",
+                new Vector3(0f, 0.16f, 1.22f), Quaternion.Euler(0f, 0f, 90f),
+                new Vector3(0.18f, 0.78f, 0.18f), accentColor);
+            CreatePrimitiveVisual(PrimitiveType.Cube, parent, "RearWing",
+                new Vector3(0f, 0.68f, -1.05f), Quaternion.identity,
+                new Vector3(1.48f, 0.1f, 0.34f), bodyColor);
+            CreatePrimitiveVisual(PrimitiveType.Cube, parent, "RearWingMountLeft",
+                new Vector3(-0.46f, 0.5f, -0.95f), Quaternion.identity,
+                new Vector3(0.08f, 0.38f, 0.08f), metalColor);
+            CreatePrimitiveVisual(PrimitiveType.Cube, parent, "RearWingMountRight",
+                new Vector3(0.46f, 0.5f, -0.95f), Quaternion.identity,
+                new Vector3(0.08f, 0.38f, 0.08f), metalColor);
+
+            CreateRcWheel(parent, "FrontLeft", new Vector3(-0.93f, 0.12f, 0.78f), darkColor, metalColor);
+            CreateRcWheel(parent, "FrontRight", new Vector3(0.93f, 0.12f, 0.78f), darkColor, metalColor);
+            CreateRcWheel(parent, "RearLeft", new Vector3(-0.93f, 0.12f, -0.78f), darkColor, metalColor);
+            CreateRcWheel(parent, "RearRight", new Vector3(0.93f, 0.12f, -0.78f), darkColor, metalColor);
+
+            CreatePrimitiveVisual(PrimitiveType.Cube, parent, "FrontSuspension",
+                new Vector3(0f, 0.18f, 0.78f), Quaternion.identity,
+                new Vector3(1.8f, 0.07f, 0.09f), metalColor);
+            CreatePrimitiveVisual(PrimitiveType.Cube, parent, "RearSuspension",
+                new Vector3(0f, 0.18f, -0.78f), Quaternion.identity,
+                new Vector3(1.8f, 0.07f, 0.09f), metalColor);
+            CreatePrimitiveVisual(PrimitiveType.Cylinder, parent, "Antenna",
+                new Vector3(0.26f, 1.02f, -0.42f), Quaternion.identity,
+                new Vector3(0.035f, 0.42f, 0.035f), darkColor);
+            CreatePrimitiveVisual(PrimitiveType.Sphere, parent, "AntennaTip",
+                new Vector3(0.26f, 1.45f, -0.42f), Quaternion.identity,
+                Vector3.one * 0.11f, accentColor);
+        }
+
+        private static void CreateRcWheel(
+            Transform parent,
+            string wheelName,
+            Vector3 localPosition,
+            Color tireColor,
+            Color hubColor)
+        {
+            CreatePrimitiveVisual(PrimitiveType.Cylinder, parent, $"{wheelName}Tire",
+                localPosition, Quaternion.Euler(0f, 0f, 90f),
+                new Vector3(0.78f, 0.16f, 0.78f), tireColor);
+            CreatePrimitiveVisual(PrimitiveType.Cylinder, parent, $"{wheelName}Hub",
+                localPosition, Quaternion.Euler(0f, 0f, 90f),
+                new Vector3(0.38f, 0.18f, 0.38f), hubColor);
+        }
+
+        private static void CreatePrimitiveVisual(
+            PrimitiveType primitiveType,
             Transform parent,
             string objectName,
             Vector3 localPosition,
+            Quaternion localRotation,
             Vector3 localScale,
             Color color)
         {
-            GameObject visual = GameObject.CreatePrimitive(PrimitiveType.Cube);
+            GameObject visual = GameObject.CreatePrimitive(primitiveType);
             visual.name = objectName;
             visual.transform.SetParent(parent, false);
             visual.transform.localPosition = localPosition;
-            visual.transform.localRotation = Quaternion.identity;
+            visual.transform.localRotation = localRotation;
             visual.transform.localScale = localScale;
             Collider visualCollider = visual.GetComponent<Collider>();
             visualCollider.enabled = false;
@@ -153,50 +226,89 @@ namespace RCWeeklyTimeAttack.Bootstrap
         private static int CreatePlaytestTrack(Transform parent)
         {
             GameObject ground = GameObject.CreatePrimitive(PrimitiveType.Plane);
-            ground.name = "PlaytestTrackSurface";
+            ground.name = "TechnicalTrackSurface";
             ground.transform.SetParent(parent);
-            ground.transform.localScale = new Vector3(6f, 1f, 8f);
-            SetColor(ground, new Color(0.16f, 0.19f, 0.22f));
+            ground.transform.localScale = new Vector3(7f, 1f, 9f);
+            SetColor(ground, new Color(0.13f, 0.16f, 0.19f));
 
-            CreateBox(parent, "Wall_Left", new Vector3(-30f, 1f, 0f), new Vector3(1f, 2f, 80f),
+            CreateBox(parent, "Wall_Left", new Vector3(-34f, 1f, 0f), new Vector3(1f, 2f, 88f),
                 new Color(0.78f, 0.82f, 0.86f), true);
-            CreateBox(parent, "Wall_Right", new Vector3(30f, 1f, 0f), new Vector3(1f, 2f, 80f),
+            CreateBox(parent, "Wall_Right", new Vector3(34f, 1f, 0f), new Vector3(1f, 2f, 88f),
                 new Color(0.78f, 0.82f, 0.86f), true);
-            CreateBox(parent, "Wall_Top", new Vector3(0f, 1f, 40f), new Vector3(60f, 2f, 1f),
+            CreateBox(parent, "Wall_Top", new Vector3(0f, 1f, 44f), new Vector3(68f, 2f, 1f),
                 new Color(0.78f, 0.82f, 0.86f), true);
-            CreateBox(parent, "Wall_Bottom", new Vector3(0f, 1f, -40f), new Vector3(60f, 2f, 1f),
+            CreateBox(parent, "Wall_Bottom", new Vector3(0f, 1f, -44f), new Vector3(68f, 2f, 1f),
                 new Color(0.78f, 0.82f, 0.86f), true);
 
-            CreateBox(parent, "CenterIsland", new Vector3(0f, 0.6f, 0f), new Vector3(30f, 1.2f, 32f),
-                new Color(0.2f, 0.46f, 0.25f), true);
+            Color islandColor = new(0.2f, 0.39f, 0.24f);
+            Color barrierColor = new(0.88f, 0.3f, 0.12f);
+            CreateBox(parent, "LowerIsland", new Vector3(-6f, 0.6f, -27f), new Vector3(25f, 1.2f, 8f),
+                islandColor, true);
+            CreateBox(parent, "RightLowerIsland", new Vector3(15f, 0.6f, -10f), new Vector3(12f, 1.2f, 19f),
+                islandColor, true);
+            CreateBox(parent, "CenterLeftIsland", new Vector3(-6f, 0.6f, -1.5f), new Vector3(14f, 1.2f, 14f),
+                islandColor, true);
+            CreateBox(parent, "TopMiddleBarrier", new Vector3(3f, 0.6f, 20f), new Vector3(16f, 1.2f, 6f),
+                barrierColor, true);
+            CreateBox(parent, "TopRightIsland", new Vector3(20f, 0.6f, 17f), new Vector3(9f, 1.2f, 8f),
+                islandColor, true);
+            CreateBox(parent, "LeftHairpinIsland", new Vector3(-20f, 0.6f, 1f), new Vector3(7f, 1.2f, 12f),
+                barrierColor, true);
 
-            Color markerColor = new(0.85f, 0.87f, 0.9f);
-            CreateBox(parent, "BottomLaneMarker", new Vector3(0f, 0.02f, -25f), new Vector3(42f, 0.04f, 0.18f),
-                markerColor, false);
-            CreateBox(parent, "TopLaneMarker", new Vector3(0f, 0.02f, 25f), new Vector3(42f, 0.04f, 0.18f),
-                markerColor, false);
-            CreateBox(parent, "LeftLaneMarker", new Vector3(-24f, 0.02f, 0f), new Vector3(0.18f, 0.04f, 34f),
-                markerColor, false);
-            CreateBox(parent, "RightLaneMarker", new Vector3(24f, 0.02f, 0f), new Vector3(0.18f, 0.04f, 34f),
-                markerColor, false);
+            Color markerColor = new(0.72f, 0.76f, 0.8f);
+            CreateRouteMarker(parent, "Route_01", new Vector3(-25f, 0f, -16f), new Vector3(-25f, 0f, -35f), markerColor);
+            CreateRouteMarker(parent, "Route_02", new Vector3(-25f, 0f, -36f), new Vector3(5f, 0f, -36f), markerColor);
+            CreateRouteMarker(parent, "Route_03", new Vector3(5f, 0f, -36f), new Vector3(27f, 0f, -28f), markerColor);
+            CreateRouteMarker(parent, "Route_04", new Vector3(29f, 0f, -28f), new Vector3(29f, 0f, 7f), markerColor);
+            CreateRouteMarker(parent, "Route_05", new Vector3(29f, 0f, 7f), new Vector3(2f, 0f, 2f), markerColor);
+            CreateRouteMarker(parent, "Route_06", new Vector3(2f, 0f, 2f), new Vector3(-12f, 0f, 14f), markerColor);
+            CreateRouteMarker(parent, "Route_07", new Vector3(-12f, 0f, 14f), new Vector3(-10f, 0f, 28f), markerColor);
+            CreateRouteMarker(parent, "Route_08", new Vector3(-10f, 0f, 29f), new Vector3(27f, 0f, 25f), markerColor);
+            CreateRouteMarker(parent, "Route_09", new Vector3(29f, 0f, 25f), new Vector3(29f, 0f, 10f), markerColor);
+            CreateRouteMarker(parent, "Route_10", new Vector3(29f, 0f, 10f), new Vector3(0f, 0f, 14f), markerColor);
+            CreateRouteMarker(parent, "Route_11", new Vector3(0f, 0f, 14f), new Vector3(-15f, 0f, 8f), markerColor);
+            CreateRouteMarker(parent, "Route_12", new Vector3(-15f, 0f, 8f), new Vector3(-27f, 0f, 9f), markerColor);
+            CreateRouteMarker(parent, "Route_13", new Vector3(-27f, 0f, 9f), new Vector3(-25f, 0f, -23f), markerColor);
 
             Color checkpointColor = new(0.1f, 0.63f, 1f);
-            CreateRaceGate(parent, "Finish", 0, Vector3.right, new Vector3(5f, 0.25f, -25f), new Vector3(0.6f, 0.5f, 12f),
+            CreateRaceGate(parent, "Finish", 0, Vector3.back, new Vector3(-25f, 0.25f, -23f), 9f,
                 new Color(1f, 0.86f, 0.16f));
-            CreateRaceGate(parent, "CP_1", 1, Vector3.right, new Vector3(20f, 0.25f, -25f), new Vector3(0.6f, 0.5f, 12f),
-                checkpointColor);
-            CreateRaceGate(parent, "CP_2", 2, Vector3.forward, new Vector3(24f, 0.25f, 0f), new Vector3(12f, 0.5f, 0.6f),
-                checkpointColor);
-            CreateRaceGate(parent, "CP_3", 3, Vector3.left, new Vector3(20f, 0.25f, 25f), new Vector3(0.6f, 0.5f, 12f),
-                checkpointColor);
-            CreateRaceGate(parent, "CP_4", 4, Vector3.left, new Vector3(-20f, 0.25f, 25f), new Vector3(0.6f, 0.5f, 12f),
-                checkpointColor);
-            CreateRaceGate(parent, "CP_5", 5, Vector3.back, new Vector3(-24f, 0.25f, 0f), new Vector3(12f, 0.5f, 0.6f),
-                checkpointColor);
-            CreateRaceGate(parent, "CP_6", 6, Vector3.right, new Vector3(-20f, 0.25f, -25f), new Vector3(0.6f, 0.5f, 12f),
-                checkpointColor);
+            CreateRaceGate(parent, "CP_1", 1, Vector3.back, new Vector3(-25f, 0.25f, -35f), 9f, checkpointColor);
+            CreateRaceGate(parent, "CP_2", 2, Vector3.right, new Vector3(5f, 0.25f, -36f), 9f, checkpointColor);
+            CreateRaceGate(parent, "CP_3", 3, Vector3.right, new Vector3(27f, 0.25f, -28f), 8f, checkpointColor);
+            CreateRaceGate(parent, "CP_4", 4, Vector3.forward, new Vector3(29f, 0.25f, -8f), 8f, checkpointColor);
+            CreateRaceGate(parent, "CP_5", 5, Vector3.left, new Vector3(20f, 0.25f, 7f), 8f, checkpointColor);
+            CreateRaceGate(parent, "CP_6", 6, Vector3.left, new Vector3(2f, 0.25f, 2f), 7f, checkpointColor);
+            CreateRaceGate(parent, "CP_7", 7, Vector3.forward, new Vector3(-12f, 0.25f, 14f), 7f, checkpointColor);
+            CreateRaceGate(parent, "CP_8", 8, Vector3.right, new Vector3(4f, 0.25f, 29f), 8f, checkpointColor);
+            CreateRaceGate(parent, "CP_9", 9, Vector3.back, new Vector3(27f, 0.25f, 25f), 8f, checkpointColor);
+            CreateRaceGate(parent, "CP_10", 10, Vector3.left, new Vector3(18f, 0.25f, 10f), 7f, checkpointColor);
+            CreateRaceGate(parent, "CP_11", 11, Vector3.left, new Vector3(0f, 0.25f, 14f), 7f, checkpointColor);
+            CreateRaceGate(parent, "CP_12", 12, Vector3.left, new Vector3(-15f, 0.25f, 8f), 7f, checkpointColor);
+            CreateRaceGate(parent, "CP_13", 13, Vector3.back, new Vector3(-27f, 0.25f, -5f), 8f, checkpointColor);
 
-            return 6;
+            return 13;
+        }
+
+        private static void CreateRouteMarker(
+            Transform parent,
+            string objectName,
+            Vector3 from,
+            Vector3 to,
+            Color color)
+        {
+            Vector3 delta = to - from;
+            Vector3 center = (from + to) * 0.5f + Vector3.up * 0.025f;
+            float yaw = Mathf.Atan2(delta.x, delta.z) * Mathf.Rad2Deg;
+            GameObject marker = GameObject.CreatePrimitive(PrimitiveType.Cube);
+            marker.name = objectName;
+            marker.transform.SetParent(parent);
+            marker.transform.SetPositionAndRotation(center, Quaternion.Euler(0f, yaw, 0f));
+            marker.transform.localScale = new Vector3(0.16f, 0.05f, delta.magnitude);
+            Collider markerCollider = marker.GetComponent<Collider>();
+            markerCollider.enabled = false;
+            Destroy(markerCollider);
+            SetColor(marker, color);
         }
 
         private static void CreateRaceGate(
@@ -205,26 +317,49 @@ namespace RCWeeklyTimeAttack.Bootstrap
             int gateIndex,
             Vector3 expectedDirection,
             Vector3 position,
-            Vector3 scale,
+            float width,
             Color color)
         {
+            float yaw = Mathf.Atan2(expectedDirection.x, expectedDirection.z) * Mathf.Rad2Deg;
             GameObject gate = GameObject.CreatePrimitive(PrimitiveType.Cube);
             gate.name = objectName;
             gate.transform.SetParent(parent);
-            gate.transform.SetPositionAndRotation(position, Quaternion.identity);
-            gate.transform.localScale = scale;
+            gate.transform.SetPositionAndRotation(position, Quaternion.Euler(0f, yaw, 0f));
+            gate.transform.localScale = new Vector3(width, 0.5f, 0.6f);
             SetColor(gate, new Color(color.r, color.g, color.b, 0.72f));
             gate.AddComponent<RaceCheckpoint>().Configure(gateIndex, expectedDirection);
+            CreateGateLabel(parent, gateIndex == 0 ? "FINISH" : $"CP {gateIndex}", position);
+        }
+
+        private static void CreateGateLabel(Transform parent, string value, Vector3 position)
+        {
+            GameObject labelObject = new($"{value}_Label");
+            labelObject.transform.SetParent(parent);
+            labelObject.transform.SetPositionAndRotation(
+                position + Vector3.up * 0.34f,
+                Quaternion.Euler(90f, 0f, 0f));
+            TextMesh label = labelObject.AddComponent<TextMesh>();
+            label.font = GetRuntimeFont();
+            label.text = value;
+            label.fontSize = 54;
+            label.characterSize = 0.18f;
+            label.anchor = TextAnchor.MiddleCenter;
+            label.alignment = TextAlignment.Center;
+            label.color = Color.white;
+            MeshRenderer labelRenderer = labelObject.GetComponent<MeshRenderer>();
+            if (labelRenderer != null && label.font != null)
+            {
+                labelRenderer.sharedMaterial = label.font.material;
+                labelRenderer.shadowCastingMode = ShadowCastingMode.Off;
+                labelRenderer.receiveShadows = false;
+            }
         }
 
         private static Transform CreateGhostVisual(Transform parent)
         {
             Transform ghost = new GameObject("MyBestGhost").transform;
             ghost.SetParent(parent);
-            CreateCarVisual(ghost, "GhostBody", Vector3.zero,
-                new Vector3(1.52f, 0.69f, 2.42f), new Color(0.15f, 0.9f, 1f, 0.42f));
-            CreateCarVisual(ghost, "GhostCabin", new Vector3(0f, 0.68f, -0.08f),
-                new Vector3(0.82f, 0.5f, 0.96f), new Color(0.72f, 1f, 1f, 0.42f));
+            CreateRcBuggyVisual(ghost, true);
             return ghost;
         }
 

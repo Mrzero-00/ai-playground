@@ -25,5 +25,4 @@ Unity 6 + C# + WebGL + Apps in Toss Unity SDK + Supabase 방향의 모바일 RC�
 
 ## 현재 범위
 
-V0.1만 완료되어 있다. Drift, Race, Replay/Ghost, Supabase, Apps in Toss API 호출은 `docs/TODO.md` 순서로 추가한다.
-
+V0.4 로컬 플레이테스트 수직 슬라이스까지 구현되어 있다. Drift, 단일 Weekly Track, 순서 기반 Checkpoint, 전체 Race Finish Time, 무제한 재도전, 개인 Top 5, My Best Replay/Ghost가 로컬에서 연결된다. Supabase 서버 기록, 실제 Weekly Leaderboard, 다른 플레이어 Ghost, 광고, Apps in Toss API 호출은 `docs/TODO.md` 순서로 추가한다.

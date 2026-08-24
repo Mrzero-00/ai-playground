@@ -1,6 +1,7 @@
 using System.Linq;
 using RCWeeklyTimeAttack.Bootstrap;
 using RCWeeklyTimeAttack.Input;
+using RCWeeklyTimeAttack.Race;
 using RCWeeklyTimeAttack.Vehicle;
 using UnityEditor;
 using UnityEditor.SceneManagement;
@@ -20,19 +21,19 @@ namespace RCWeeklyTimeAttack.Editor
             EditorApplication.delayCall += EnsureProjectSetup;
         }
 
-        [MenuItem("RC Time Attack/V0.1/Open Sandbox", priority = 1)]
+        [MenuItem("RC Time Attack/Playtest/Open Sandbox", priority = 1)]
         public static void OpenSandbox()
         {
             EnsureSceneExists();
             EditorSceneManager.OpenScene(ScenePath, OpenSceneMode.Single);
         }
 
-        [MenuItem("RC Time Attack/V0.1/Rebuild Sandbox Scene", priority = 2)]
+        [MenuItem("RC Time Attack/Playtest/Rebuild Sandbox Scene", priority = 2)]
         public static void RebuildSandbox()
         {
             if (!EditorUtility.DisplayDialog(
-                    "Rebuild V0.1 Sandbox",
-                    "V01_Sandbox 씬을 Bootstrap 한 개만 포함한 상태로 다시 만듭니다.",
+                    "Rebuild Playtest Sandbox",
+                    "플레이테스트 씬을 Bootstrap 한 개만 포함한 상태로 다시 만듭니다.",
                     "Rebuild",
                     "Cancel"))
             {
@@ -40,6 +41,25 @@ namespace RCWeeklyTimeAttack.Editor
             }
 
             RebuildScene();
+        }
+
+        [MenuItem("RC Time Attack/Playtest/Clear Local Records", priority = 20)]
+        public static void ClearLocalRecords()
+        {
+            if (!EditorUtility.DisplayDialog(
+                    "Clear Local Playtest Records",
+                    "현재 Playtest Weekly Track의 Top 5와 My Best Ghost를 삭제합니다.",
+                    "Clear",
+                    "Cancel"))
+            {
+                return;
+            }
+
+            string storageKey = new LocalWeeklyTrackProvider().Current.StorageKey;
+            PlayerPrefs.DeleteKey($"rc-weekly:times:{storageKey}");
+            PlayerPrefs.DeleteKey($"rc-weekly:replay:{storageKey}");
+            PlayerPrefs.Save();
+            Debug.Log("RC Weekly Time Attack local playtest records cleared.");
         }
 
         private static void EnsureProjectSetup()

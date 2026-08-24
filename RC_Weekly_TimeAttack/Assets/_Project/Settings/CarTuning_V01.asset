@@ -19,4 +19,11 @@ MonoBehaviour:
   steeringDegreesPerSecond: 105
   minimumSteeringSpeed: 0.45
   lateralGrip: 12
-
+  driftMinimumSpeed: 8
+  driftSteeringThreshold: 0.42
+  driftBrakeThreshold: 0.25
+  driftLateralGrip: 2.4
+  driftBrakeMultiplier: 0.38
+  driftSteeringMultiplier: 1.35
+  driftEnterRate: 4.5
+  driftExitRate: 1.25

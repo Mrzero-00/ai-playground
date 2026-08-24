@@ -11,6 +11,9 @@ namespace RCWeeklyTimeAttack.Vehicle
         public float Steering { get; }
         public float Throttle { get; }
         public float Brake { get; }
+        public bool IsDrifting { get; }
+        public float DriftBlend { get; }
+        public float SlipAngle { get; }
 
         public VehicleTelemetrySnapshot(
             Vector3 position,
@@ -19,7 +22,10 @@ namespace RCWeeklyTimeAttack.Vehicle
             float lateralSpeed,
             float steering,
             float throttle,
-            float brake)
+            float brake,
+            bool isDrifting,
+            float driftBlend,
+            float slipAngle)
         {
             Position = position;
             Rotation = rotation;
@@ -28,6 +34,9 @@ namespace RCWeeklyTimeAttack.Vehicle
             Steering = steering;
             Throttle = throttle;
             Brake = brake;
+            IsDrifting = isDrifting;
+            DriftBlend = driftBlend;
+            SlipAngle = slipAngle;
         }
     }
 
@@ -41,4 +50,3 @@ namespace RCWeeklyTimeAttack.Vehicle
         }
     }
 }
-

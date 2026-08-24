@@ -1,8 +1,11 @@
 using RCWeeklyTimeAttack.CameraSystem;
 using RCWeeklyTimeAttack.Input;
+using RCWeeklyTimeAttack.Race;
+using RCWeeklyTimeAttack.Replay;
 using RCWeeklyTimeAttack.Vehicle;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.Rendering;
 using UnityEngine.UI;
 
 #if ENABLE_INPUT_SYSTEM
@@ -14,7 +17,9 @@ namespace RCWeeklyTimeAttack.Bootstrap
     [DefaultExecutionOrder(-1000)]
     public sealed class PrototypeBootstrap : MonoBehaviour
     {
-        private const string RuntimeRootName = "V01_Runtime";
+        private const string RuntimeRootName = "V04_Playtest_Runtime";
+        private static readonly Vector3 StartPosition = new(0f, 0.4f, -25f);
+        private static readonly Quaternion StartRotation = Quaternion.Euler(0f, 90f, 0f);
 
         [SerializeField] private CarTuning tuning;
         [SerializeField] private SteeringMode initialMode = SteeringMode.Arrow;
@@ -39,18 +44,40 @@ namespace RCWeeklyTimeAttack.Bootstrap
 
             GameObject runtimeRoot = new(RuntimeRootName);
             CreateLighting(runtimeRoot.transform);
-            CreateArena(runtimeRoot.transform);
+            int checkpointCount = CreatePlaytestTrack(runtimeRoot.transform);
 
             CarRuntime car = CreateCar(runtimeRoot.transform);
+            WeeklyTrackManifest manifest = new LocalWeeklyTrackProvider().Current;
+            RaceSession raceSession = car.Root.AddComponent<RaceSession>();
+            raceSession.Configure(manifest, checkpointCount, StartPosition, StartRotation);
+
+            ReplayRecorder recorder = car.Root.AddComponent<ReplayRecorder>();
+            float replaySpeedLimit = car.Controller.Tuning != null
+                ? car.Controller.Tuning.MaxForwardSpeed
+                : 22f;
+            recorder.Configure(raceSession, car.Telemetry, manifest, replaySpeedLimit);
+
+            Transform ghostVisual = CreateGhostVisual(runtimeRoot.transform);
+            GhostPlayback ghostPlayback = runtimeRoot.AddComponent<GhostPlayback>();
+            ghostPlayback.Configure(raceSession, ghostVisual, manifest);
+
             CreateRaceCamera(runtimeRoot.transform, car.CameraTarget);
-            CreateDriveUi(runtimeRoot.transform, car.TouchInput, car.InputRouter, car.Telemetry, initialMode);
+            CreateDriveUi(
+                runtimeRoot.transform,
+                car.TouchInput,
+                car.InputRouter,
+                car.Telemetry,
+                raceSession,
+                ghostPlayback,
+                recorder,
+                initialMode);
         }
 
         private CarRuntime CreateCar(Transform parent)
         {
             GameObject car = new("CubeCar");
             car.transform.SetParent(parent);
-            car.transform.SetPositionAndRotation(new Vector3(0f, 0.4f, -25f), Quaternion.identity);
+            car.transform.SetPositionAndRotation(StartPosition, StartRotation);
 
             BoxCollider carCollider = car.AddComponent<BoxCollider>();
             carCollider.size = new Vector3(1.45f, 0.65f, 2.35f);
@@ -83,7 +110,7 @@ namespace RCWeeklyTimeAttack.Bootstrap
             cameraTarget.SetParent(car.transform, false);
             cameraTarget.localPosition = new Vector3(0f, 1.2f, 1.4f);
 
-            return new CarRuntime(router, touch, telemetry, cameraTarget);
+            return new CarRuntime(car, controller, router, touch, telemetry, cameraTarget);
         }
 
         private static void CreateCarVisual(
@@ -123,29 +150,82 @@ namespace RCWeeklyTimeAttack.Bootstrap
             followCamera.Configure(target);
         }
 
-        private static void CreateArena(Transform parent)
+        private static int CreatePlaytestTrack(Transform parent)
         {
             GameObject ground = GameObject.CreatePrimitive(PrimitiveType.Plane);
-            ground.name = "Ground";
+            ground.name = "PlaytestTrackSurface";
             ground.transform.SetParent(parent);
-            ground.transform.localScale = new Vector3(6f, 1f, 10f);
-            SetColor(ground, new Color(0.22f, 0.25f, 0.28f));
+            ground.transform.localScale = new Vector3(6f, 1f, 8f);
+            SetColor(ground, new Color(0.16f, 0.19f, 0.22f));
 
-            CreateBox(parent, "Wall_Left", new Vector3(-30f, 1f, 0f), new Vector3(1f, 2f, 100f),
+            CreateBox(parent, "Wall_Left", new Vector3(-30f, 1f, 0f), new Vector3(1f, 2f, 80f),
                 new Color(0.78f, 0.82f, 0.86f), true);
-            CreateBox(parent, "Wall_Right", new Vector3(30f, 1f, 0f), new Vector3(1f, 2f, 100f),
+            CreateBox(parent, "Wall_Right", new Vector3(30f, 1f, 0f), new Vector3(1f, 2f, 80f),
                 new Color(0.78f, 0.82f, 0.86f), true);
-            CreateBox(parent, "Wall_Top", new Vector3(0f, 1f, 50f), new Vector3(60f, 2f, 1f),
+            CreateBox(parent, "Wall_Top", new Vector3(0f, 1f, 40f), new Vector3(60f, 2f, 1f),
                 new Color(0.78f, 0.82f, 0.86f), true);
-            CreateBox(parent, "Wall_Bottom", new Vector3(0f, 1f, -50f), new Vector3(60f, 2f, 1f),
+            CreateBox(parent, "Wall_Bottom", new Vector3(0f, 1f, -40f), new Vector3(60f, 2f, 1f),
                 new Color(0.78f, 0.82f, 0.86f), true);
 
-            CreateBox(parent, "StartLine", new Vector3(0f, 0.025f, -20f), new Vector3(14f, 0.05f, 0.7f),
-                new Color(0.94f, 0.94f, 0.94f), false);
-            CreateBox(parent, "PracticeIslandA", new Vector3(-10f, 0.6f, 7f), new Vector3(8f, 1.2f, 4f),
-                new Color(0.9f, 0.34f, 0.2f), true);
-            CreateBox(parent, "PracticeIslandB", new Vector3(11f, 0.6f, 23f), new Vector3(7f, 1.2f, 5f),
-                new Color(0.9f, 0.34f, 0.2f), true);
+            CreateBox(parent, "CenterIsland", new Vector3(0f, 0.6f, 0f), new Vector3(30f, 1.2f, 32f),
+                new Color(0.2f, 0.46f, 0.25f), true);
+
+            Color markerColor = new(0.85f, 0.87f, 0.9f);
+            CreateBox(parent, "BottomLaneMarker", new Vector3(0f, 0.02f, -25f), new Vector3(42f, 0.04f, 0.18f),
+                markerColor, false);
+            CreateBox(parent, "TopLaneMarker", new Vector3(0f, 0.02f, 25f), new Vector3(42f, 0.04f, 0.18f),
+                markerColor, false);
+            CreateBox(parent, "LeftLaneMarker", new Vector3(-24f, 0.02f, 0f), new Vector3(0.18f, 0.04f, 34f),
+                markerColor, false);
+            CreateBox(parent, "RightLaneMarker", new Vector3(24f, 0.02f, 0f), new Vector3(0.18f, 0.04f, 34f),
+                markerColor, false);
+
+            Color checkpointColor = new(0.1f, 0.63f, 1f);
+            CreateRaceGate(parent, "Finish", 0, Vector3.right, new Vector3(5f, 0.25f, -25f), new Vector3(0.6f, 0.5f, 12f),
+                new Color(1f, 0.86f, 0.16f));
+            CreateRaceGate(parent, "CP_1", 1, Vector3.right, new Vector3(20f, 0.25f, -25f), new Vector3(0.6f, 0.5f, 12f),
+                checkpointColor);
+            CreateRaceGate(parent, "CP_2", 2, Vector3.forward, new Vector3(24f, 0.25f, 0f), new Vector3(12f, 0.5f, 0.6f),
+                checkpointColor);
+            CreateRaceGate(parent, "CP_3", 3, Vector3.left, new Vector3(20f, 0.25f, 25f), new Vector3(0.6f, 0.5f, 12f),
+                checkpointColor);
+            CreateRaceGate(parent, "CP_4", 4, Vector3.left, new Vector3(-20f, 0.25f, 25f), new Vector3(0.6f, 0.5f, 12f),
+                checkpointColor);
+            CreateRaceGate(parent, "CP_5", 5, Vector3.back, new Vector3(-24f, 0.25f, 0f), new Vector3(12f, 0.5f, 0.6f),
+                checkpointColor);
+            CreateRaceGate(parent, "CP_6", 6, Vector3.right, new Vector3(-20f, 0.25f, -25f), new Vector3(0.6f, 0.5f, 12f),
+                checkpointColor);
+
+            return 6;
+        }
+
+        private static void CreateRaceGate(
+            Transform parent,
+            string objectName,
+            int gateIndex,
+            Vector3 expectedDirection,
+            Vector3 position,
+            Vector3 scale,
+            Color color)
+        {
+            GameObject gate = GameObject.CreatePrimitive(PrimitiveType.Cube);
+            gate.name = objectName;
+            gate.transform.SetParent(parent);
+            gate.transform.SetPositionAndRotation(position, Quaternion.identity);
+            gate.transform.localScale = scale;
+            SetColor(gate, new Color(color.r, color.g, color.b, 0.72f));
+            gate.AddComponent<RaceCheckpoint>().Configure(gateIndex, expectedDirection);
+        }
+
+        private static Transform CreateGhostVisual(Transform parent)
+        {
+            Transform ghost = new GameObject("MyBestGhost").transform;
+            ghost.SetParent(parent);
+            CreateCarVisual(ghost, "GhostBody", Vector3.zero,
+                new Vector3(1.52f, 0.69f, 2.42f), new Color(0.15f, 0.9f, 1f, 0.42f));
+            CreateCarVisual(ghost, "GhostCabin", new Vector3(0f, 0.68f, -0.08f),
+                new Vector3(0.82f, 0.5f, 0.96f), new Color(0.72f, 1f, 1f, 0.42f));
+            return ghost;
         }
 
         private static void CreateBox(
@@ -187,6 +267,9 @@ namespace RCWeeklyTimeAttack.Bootstrap
             TouchVehicleInputSource touchInput,
             VehicleInputRouter inputRouter,
             VehicleTelemetry telemetry,
+            RaceSession raceSession,
+            GhostPlayback ghostPlayback,
+            ReplayRecorder replayRecorder,
             SteeringMode initialSteeringMode)
         {
             EnsureEventSystem(parent);
@@ -241,7 +324,14 @@ namespace RCWeeklyTimeAttack.Bootstrap
 
             GameObject modeButton = CreateClickButton(
                 "ModeButton", safeArea, new Vector2(44f, -44f), new Vector2(270f, 72f),
-                new Vector2(0f, 1f), new Vector2(0f, 1f), out Button button, out Text modeLabel);
+                new Vector2(0f, 1f), new Vector2(0f, 1f), "MODE: ARROW",
+                out Button button, out Text modeLabel);
+
+            GameObject restartButton = CreateClickButton(
+                "RestartButton", safeArea, new Vector2(-44f, -44f), new Vector2(250f, 72f),
+                new Vector2(1f, 1f), new Vector2(1f, 1f), "RESTART [R]",
+                out Button restart, out _);
+            restart.onClick.AddListener(raceSession.RestartRace);
 
             Text hudText = CreateText("Telemetry", safeArea, string.Empty, 30, TextAnchor.UpperCenter);
             RectTransform hudRect = hudText.rectTransform;
@@ -249,10 +339,32 @@ namespace RCWeeklyTimeAttack.Bootstrap
             hudRect.anchorMax = new Vector2(0.5f, 1f);
             hudRect.pivot = new Vector2(0.5f, 1f);
             hudRect.anchoredPosition = new Vector2(0f, -36f);
-            hudRect.sizeDelta = new Vector2(760f, 100f);
+            hudRect.sizeDelta = new Vector2(980f, 170f);
             Outline outline = hudText.gameObject.AddComponent<Outline>();
             outline.effectColor = new Color(0f, 0f, 0f, 0.8f);
             outline.effectDistance = new Vector2(2f, -2f);
+
+            Text raceBanner = CreateText("RaceBanner", safeArea, string.Empty, 92, TextAnchor.MiddleCenter);
+            RectTransform bannerRect = raceBanner.rectTransform;
+            bannerRect.anchorMin = new Vector2(0.5f, 0.5f);
+            bannerRect.anchorMax = new Vector2(0.5f, 0.5f);
+            bannerRect.pivot = new Vector2(0.5f, 0.5f);
+            bannerRect.anchoredPosition = new Vector2(0f, 80f);
+            bannerRect.sizeDelta = new Vector2(1000f, 210f);
+            Outline bannerOutline = raceBanner.gameObject.AddComponent<Outline>();
+            bannerOutline.effectColor = new Color(0f, 0f, 0f, 0.92f);
+            bannerOutline.effectDistance = new Vector2(3f, -3f);
+
+            Text leaderboard = CreateText("LocalLeaderboard", safeArea, string.Empty, 24, TextAnchor.UpperRight);
+            RectTransform leaderboardRect = leaderboard.rectTransform;
+            leaderboardRect.anchorMin = new Vector2(1f, 1f);
+            leaderboardRect.anchorMax = new Vector2(1f, 1f);
+            leaderboardRect.pivot = new Vector2(1f, 1f);
+            leaderboardRect.anchoredPosition = new Vector2(-44f, -132f);
+            leaderboardRect.sizeDelta = new Vector2(360f, 250f);
+            Outline leaderboardOutline = leaderboard.gameObject.AddComponent<Outline>();
+            leaderboardOutline.effectColor = new Color(0f, 0f, 0f, 0.8f);
+            leaderboardOutline.effectDistance = new Vector2(2f, -2f);
 
             SteeringModeController modeController = canvasObject.AddComponent<SteeringModeController>();
             modeController.Configure(
@@ -266,10 +378,19 @@ namespace RCWeeklyTimeAttack.Bootstrap
             button.onClick.AddListener(modeController.Toggle);
 
             PrototypeHud hud = canvasObject.AddComponent<PrototypeHud>();
-            hud.Configure(hudText, telemetry, modeController);
+            hud.Configure(
+                hudText,
+                raceBanner,
+                leaderboard,
+                telemetry,
+                modeController,
+                raceSession,
+                ghostPlayback,
+                replayRecorder);
 
             inputRouter.RefreshSources();
             _ = modeButton;
+            _ = restartButton;
         }
 
         private static void EnsureEventSystem(Transform parent)
@@ -345,6 +466,7 @@ namespace RCWeeklyTimeAttack.Bootstrap
             Vector2 size,
             Vector2 anchor,
             Vector2 pivot,
+            string initialLabel,
             out Button button,
             out Text label)
         {
@@ -359,7 +481,7 @@ namespace RCWeeklyTimeAttack.Bootstrap
             image.color = new Color(0.06f, 0.1f, 0.16f, 0.78f);
             button = rect.gameObject.AddComponent<Button>();
             button.targetGraphic = image;
-            label = CreateText("Label", rect, "MODE: ARROW", 28, TextAnchor.MiddleCenter);
+            label = CreateText("Label", rect, initialLabel, 28, TextAnchor.MiddleCenter);
             StretchFull(label.rectTransform);
             label.raycastTarget = false;
             return rect.gameObject;
@@ -393,6 +515,7 @@ namespace RCWeeklyTimeAttack.Bootstrap
             text.fontSize = fontSize;
             text.alignment = alignment;
             text.color = Color.white;
+            text.raycastTarget = false;
             text.horizontalOverflow = HorizontalWrapMode.Overflow;
             text.verticalOverflow = VerticalWrapMode.Overflow;
             return text;
@@ -447,22 +570,42 @@ namespace RCWeeklyTimeAttack.Bootstrap
             {
                 material.SetColor("_Color", color);
             }
+            if (color.a < 0.999f && material.HasProperty("_Mode"))
+            {
+                material.SetFloat("_Mode", 3f);
+                material.SetOverrideTag("RenderType", "Transparent");
+                material.SetInt("_SrcBlend", (int)BlendMode.SrcAlpha);
+                material.SetInt("_DstBlend", (int)BlendMode.OneMinusSrcAlpha);
+                material.SetInt("_ZWrite", 0);
+                material.DisableKeyword("_ALPHATEST_ON");
+                material.EnableKeyword("_ALPHABLEND_ON");
+                material.DisableKeyword("_ALPHAPREMULTIPLY_ON");
+                material.renderQueue = (int)RenderQueue.Transparent;
+                renderer.shadowCastingMode = ShadowCastingMode.Off;
+                renderer.receiveShadows = false;
+            }
             renderer.sharedMaterial = material;
         }
 
         private readonly struct CarRuntime
         {
+            public GameObject Root { get; }
+            public CubeCarController Controller { get; }
             public VehicleInputRouter InputRouter { get; }
             public TouchVehicleInputSource TouchInput { get; }
             public VehicleTelemetry Telemetry { get; }
             public Transform CameraTarget { get; }
 
             public CarRuntime(
+                GameObject root,
+                CubeCarController controller,
                 VehicleInputRouter inputRouter,
                 TouchVehicleInputSource touchInput,
                 VehicleTelemetry telemetry,
                 Transform cameraTarget)
             {
+                Root = root;
+                Controller = controller;
                 InputRouter = inputRouter;
                 TouchInput = touchInput;
                 Telemetry = telemetry;

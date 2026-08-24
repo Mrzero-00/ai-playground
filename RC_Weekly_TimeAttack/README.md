@@ -4,7 +4,7 @@
 
 ## 현재 상태
 
-V0.1 차량 조작 프로토타입이 구현되어 있습니다.
+V0.4 로컬 플레이테스트 수직 슬라이스가 구현되어 있습니다.
 
 - Cube Car와 가벼운 아케이드 물리
 - Gas / Brake
@@ -14,10 +14,17 @@ V0.1 차량 조작 프로토타입이 구현되어 있습니다.
 - 모바일 Safe Area 대응 터치 UI
 - 쿼터뷰 추적 Camera
 - WebGL 포커스 이탈 시 입력 초기화
-- V0.1 샌드박스를 코드로 구성하는 Bootstrap 씬
+- 브레이크 진입과 스로틀 유지가 가능한 아케이드 Drift
+- 1랩 타원형 Weekly Track과 순서 기반 Checkpoint 6개
+- 3초 Countdown, 전체 Race Finish Time, Best Finish Time
+- `R` 또는 화면 버튼을 이용한 횟수 제한 없는 즉시 재도전
+- 로컬 Top 5 기록 저장
+- 10Hz Replay 기록과 My Best Ghost 보간 재생
+- 기본 속도/순간이동 Replay 검증
+- 플레이테스트 월드 전체를 코드로 구성하는 Bootstrap 씬
 - Apps in Toss Unity SDK v3.0.3 고정
 
-아직 구현하지 않은 핵심 기능은 Drift, Track/Checkpoint, 전체 Race Finish Timer, Replay/Ghost, Weekly Leaderboard, Supabase, 광고입니다. 순서는 [개발 TODO](docs/TODO.md)를 따릅니다.
+실제 서버 Weekly Leaderboard, Supabase 기록 제출, 다른 플레이어 Ghost, 광고는 아직 연결하지 않았습니다. 계정 없이 게임성을 먼저 검증할 수 있도록 현재 단계에서는 같은 저장소 키를 쓰는 로컬 기록으로 대체합니다. 자세한 순서는 [개발 TODO](docs/TODO.md)를 따릅니다.
 
 ## 기준 문서
 
@@ -48,7 +55,9 @@ V0.1 차량 조작 프로토타입이 구현되어 있습니다.
 4. `Assets/_Project/Scenes/V01_Sandbox.unity`를 엽니다.
 5. Play를 누릅니다.
 
-씬이 보이지 않거나 깨졌다면 Unity 메뉴에서 `RC Time Attack > V0.1 > Rebuild Sandbox Scene`을 실행합니다.
+씬이 보이지 않거나 깨졌다면 Unity 메뉴에서 `RC Time Attack > Playtest > Rebuild Sandbox Scene`을 실행합니다.
+
+처음 실행하면 3초 카운트다운 뒤 레이스가 시작됩니다. 파란 체크포인트를 `CP 1 → CP 6` 순서대로 통과한 다음, 출발 지점의 노란 Finish 라인으로 돌아오면 전체 완주 시간이 기록됩니다. 자세한 검증 순서는 [플레이테스트 가이드](docs/PLAYTEST.md)를 참고합니다.
 
 ## 조작
 
@@ -58,12 +67,17 @@ V0.1 차량 조작 프로토타입이 구현되어 있습니다.
 - Brake: `↓` 또는 `S`
 - Steering: `←` / `→` 또는 `A` / `D`
 - 입력 모드 전환: 화면 왼쪽 위 `MODE` 버튼
+- 즉시 재도전: `R` 또는 화면 오른쪽 위 `RESTART`
 
 모바일/마우스:
 
 - Arrow 모드: 왼쪽 아래 `◀`, `▶` 길게 누르기
 - Wheel 모드: 왼쪽 아래 휠을 원을 그리듯 드래그
 - 오른쪽 아래 `GAS`, `BRAKE` 길게 누르기
+
+Drift는 별도 버튼 없이 속도가 붙은 상태에서 Steering과 Brake를 함께 입력해 진입합니다. 차가 미끄러지기 시작하면 Brake를 놓고 Gas와 Steering으로 유지하며, 반대 방향 Steering으로 카운터 조향할 수 있습니다.
+
+첫 완주 기록은 My Best Replay로 저장됩니다. 다음 재도전부터 하늘색 Ghost가 같은 시간축으로 재생되며 충돌하지 않습니다.
 
 ## Apps in Toss
 
@@ -75,12 +89,14 @@ SDK의 `AIT > Build & Package` 흐름을 사용하며, 별도 Vite 앱이나 자
 
 ```text
 Assets/_Project/
-├── Scenes/                 # V0.1 시작 씬
+├── Scenes/                 # 플레이테스트 시작 씬
 ├── Scripts/Runtime/
-│   ├── Bootstrap/          # 프로토타입 월드/UI 조립
+│   ├── Bootstrap/          # 플레이테스트 월드/UI 조립
 │   ├── Camera/             # 쿼터뷰 추적
 │   ├── Input/              # 키보드/터치/조향 인터페이스
-│   └── Vehicle/            # 차량 물리와 텔레메트리
+│   ├── Race/               # Weekly Track, Checkpoint, Timer, 기록
+│   ├── Replay/             # 10Hz 기록, 검증, My Best Ghost
+│   └── Vehicle/            # 차량/Drift 물리와 텔레메트리
 ├── Scripts/Editor/         # 씬 복구/생성 도구
 └── Tests/EditMode/         # 순수 입력 로직 테스트
 docs/                       # 기획, 구조, 개발 계획
@@ -92,7 +108,6 @@ ProjectSettings/            # Unity 버전과 시작 씬
 
 - 차량 물리는 플랫폼 SDK, Supabase, UI를 직접 참조하지 않습니다.
 - 입력은 `IVehicleInputSource`와 `ISteeringInput` 뒤에 둡니다.
-- Replay/Ghost는 차량의 `VehicleTelemetrySnapshot`을 소비합니다.
+- Replay/Ghost는 차량의 `VehicleTelemetrySnapshot`을 소비하며 물리 차량과 충돌하지 않습니다.
 - Weekly Track과 Leaderboard는 서버가 정한 버전 정보를 신뢰 경계로 사용합니다.
 - WebGL 클라이언트에는 Supabase `service_role` 키를 절대 넣지 않습니다.
-

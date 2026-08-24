@@ -22,33 +22,35 @@ V0.1 완료 판정: Plane 위 Cube Car가 Gas/Brake로 가감속하고 Arrow 또
 
 ## V0.2 — Drift Physics
 
-- [ ] 전방/횡방향 속도 분리
-- [ ] 속도 + Steering + Brake 기반 Drift 진입
-- [ ] Grip / Side Grip / Slip 튜닝
-- [ ] Throttle Drift 유지
-- [ ] Counter Steering
-- [ ] Drift 상태 텔레메트리와 디버그 HUD
+- [x] 전방/횡방향 속도 분리
+- [x] 속도 + Steering + Brake 기반 Drift 진입
+- [x] Grip / Side Grip / Slip 튜닝
+- [x] Throttle Drift 유지
+- [x] Counter Steering
+- [x] Drift 상태 텔레메트리와 디버그 HUD
 - [ ] 30/60/120fps 물리 결과 비교
 
 ## V0.3 — Weekly Track / Race
 
-- [ ] `WeeklyTrackManifest`와 `IWeeklyTrackProvider`
-- [ ] 클라이언트 맵 선택 UI 없이 서버 지정 트랙만 로드
-- [ ] Start / 순서 기반 Checkpoint / Finish
-- [ ] 전체 Race Finish Timer
-- [ ] 무제한 즉시 재도전
-- [ ] `trackVersion`, `physicsVersion`, required lap 고정
-- [ ] Best Finish Time 저장
-- [ ] 문서 원본의 잔여 `BEST LAP` 표현을 제품 규칙에 맞게 정정한 별도 개정본 작성
+- [x] `WeeklyTrackManifest`와 `IWeeklyTrackProvider`
+- [x] 맵 선택 UI 없는 단일 로컬 Weekly Track provider
+- [x] Start / 순서 기반 Checkpoint / Finish
+- [x] 전체 Race Finish Timer
+- [x] 무제한 즉시 재도전
+- [x] `trackVersion`, `physicsVersion`, required lap 고정
+- [x] Best Finish Time과 로컬 Top 5 저장
+- [x] 문서 원본의 잔여 `BEST LAP` 표현을 정정한 플레이테스트 부록 작성
+- [ ] 서버 지정 Weekly Track manifest 수신
 
 ## V0.4 — Replay / Ghost
 
-- [ ] 10~20Hz pose/input frame 기록
-- [ ] Replay 직렬화 버전 정의
-- [ ] My Best 저장/재생
-- [ ] Ghost interpolation
-- [ ] Ghost collision layer 분리
-- [ ] 최대 속도, 순간이동, Checkpoint skip 기본 검증
+- [x] 10Hz pose/input frame 기록
+- [x] Replay 직렬화 버전 정의
+- [x] My Best 로컬 저장/재생
+- [x] Ghost interpolation
+- [x] Ghost collider 미생성으로 충돌 차단
+- [x] 최대 속도, 순간이동, Checkpoint skip 기본 검증
+- [ ] Supabase Storage Replay 업로드/다운로드
 
 ## V0.5 — Supabase
 
@@ -76,6 +78,7 @@ V0.1 완료 판정: Plane 위 Cube Car가 Gas/Brake로 가감속하고 Arrow 또
 
 ## V0.7 — Weekly Competition / Ads
 
+- [x] 게임성 테스트용 개인 로컬 Top 5
 - [ ] Weekly Leaderboard와 Top %
 - [ ] 전주 마감 및 과거 순위 보존
 - [ ] My Rank + 1 Ghost
@@ -93,3 +96,14 @@ V0.1 완료 판정: Plane 위 Cube Car가 Gas/Brake로 가감속하고 Arrow 또
 - [ ] 기록 무효화/긴급 패치 정책
 - [ ] 개인정보/이용약관/운영 정책
 
+## 현재 플레이테스트 판정
+
+- [x] 코드상 Start → CP1~CP6 → Finish → Result → Restart 루프 연결
+- [x] 첫 Best Replay 저장 후 다음 시도 Ghost 로드 구조 연결
+- [x] 잘못된 Checkpoint 순서와 조기 Finish 거부 단위 테스트 작성
+- [x] 전체 Finish Time 포맷 및 Replay 속도/순간이동 검증 테스트 작성
+- [ ] Unity Console 컴파일 오류 0건 확인
+- [ ] Editor Play Mode에서 실제 1회 완주
+- [ ] 두 번째 시도에서 My Best Ghost 표시 확인
+- [ ] WebGL Development Build 브라우저 완주
+- [ ] Apps in Toss `.ait` QR 실기기 완주

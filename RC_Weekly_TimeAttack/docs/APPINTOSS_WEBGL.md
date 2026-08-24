@@ -34,7 +34,7 @@ Granite / Vite 패키징
 ait-build/dist/*.ait
 ```
 
-Unity 메뉴의 `AIT > Build & Package`를 사용합니다. SDK가 WebGL 템플릿, Wasm, 압축, stripping, 메모리, 스레딩 설정을 빌드 프로필에 맞게 구성하므로 V0.1에서 별도 Vite 앱이나 자체 `.jslib` 브리지를 만들지 않습니다.
+Unity 메뉴의 `AIT > Build & Package`를 사용합니다. SDK가 WebGL 템플릿, Wasm, 압축, stripping, 메모리, 스레딩 설정을 빌드 프로필에 맞게 구성하므로 플레이테스트 단계에서 별도 Vite 앱이나 자체 `.jslib` 브리지를 만들지 않습니다.
 
 ## WebGL 제약
 
@@ -71,4 +71,3 @@ https://<appName>.private-apps.tossmini.com
 - https://developers-apps-in-toss.toss.im/unity/sdk/build-customization.html
 - https://developers-apps-in-toss.toss.im/checklist/app-game.html
 - https://github.com/toss/apps-in-toss-unity-sdk/releases
-

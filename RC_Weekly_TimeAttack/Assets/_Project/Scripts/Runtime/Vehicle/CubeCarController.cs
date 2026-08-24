@@ -12,8 +12,11 @@ namespace RCWeeklyTimeAttack.Vehicle
         private VehicleInputRouter inputRouter;
         private VehicleTelemetry telemetry;
         private CarTuning runtimeFallbackTuning;
+        private bool controlEnabled = true;
+        private float driftBlend;
 
         public CarTuning Tuning => tuning;
+        public bool ControlEnabled => controlEnabled;
 
         private void Awake()
         {
@@ -37,9 +40,18 @@ namespace RCWeeklyTimeAttack.Vehicle
             }
         }
 
+        public void SetControlEnabled(bool value)
+        {
+            controlEnabled = value;
+            if (!controlEnabled)
+            {
+                inputRouter?.ResetAllInput();
+            }
+        }
+
         private void FixedUpdate()
         {
-            VehicleInputFrame input = inputRouter.Current;
+            VehicleInputFrame input = controlEnabled ? inputRouter.Current : VehicleInputFrame.Neutral;
             float deltaTime = Time.fixedDeltaTime;
             Vector3 velocity = body.linearVelocity;
             Vector3 verticalVelocity = Vector3.Project(velocity, Vector3.up);
@@ -48,12 +60,28 @@ namespace RCWeeklyTimeAttack.Vehicle
             float forwardSpeed = Vector3.Dot(planarVelocity, transform.forward);
             float lateralSpeed = Vector3.Dot(planarVelocity, transform.right);
 
+            bool initiatingDrift =
+                forwardSpeed > tuning.DriftMinimumSpeed &&
+                Mathf.Abs(input.Steering) >= tuning.DriftSteeringThreshold &&
+                input.Brake >= tuning.DriftBrakeThreshold;
+            bool sustainingDrift =
+                driftBlend > 0.05f &&
+                forwardSpeed > tuning.DriftMinimumSpeed * 0.65f &&
+                Mathf.Abs(input.Steering) > 0.12f &&
+                input.Throttle > 0.1f;
+            float targetDrift = initiatingDrift || sustainingDrift ? 1f : 0f;
+            float driftChangeRate = targetDrift > driftBlend
+                ? tuning.DriftEnterRate
+                : tuning.DriftExitRate;
+            driftBlend = Mathf.MoveTowards(driftBlend, targetDrift, driftChangeRate * deltaTime);
+
             if (input.Brake > 0f)
             {
+                float brakingMultiplier = Mathf.Lerp(1f, tuning.DriftBrakeMultiplier, driftBlend);
                 forwardSpeed = Mathf.MoveTowards(
                     forwardSpeed,
                     0f,
-                    tuning.BrakeDeceleration * input.Brake * deltaTime);
+                    tuning.BrakeDeceleration * brakingMultiplier * input.Brake * deltaTime);
             }
             else if (input.Throttle > 0f)
             {
@@ -68,10 +96,11 @@ namespace RCWeeklyTimeAttack.Vehicle
             }
 
             forwardSpeed = Mathf.Clamp(forwardSpeed, 0f, tuning.MaxForwardSpeed);
+            float activeLateralGrip = Mathf.Lerp(tuning.LateralGrip, tuning.DriftLateralGrip, driftBlend);
             lateralSpeed = Mathf.MoveTowards(
                 lateralSpeed,
                 0f,
-                tuning.LateralGrip * deltaTime);
+                activeLateralGrip * deltaTime);
 
             body.linearVelocity =
                 transform.forward * forwardSpeed +
@@ -82,13 +111,17 @@ namespace RCWeeklyTimeAttack.Vehicle
             {
                 float speedRatio = Mathf.Clamp01(forwardSpeed / tuning.MaxForwardSpeed);
                 float steeringAuthority = Mathf.Lerp(0.35f, 1f, speedRatio);
+                float driftSteering = Mathf.Lerp(1f, tuning.DriftSteeringMultiplier, driftBlend);
                 float yawDelta = input.Steering *
                                  tuning.SteeringDegreesPerSecond *
                                  steeringAuthority *
+                                 driftSteering *
                                  deltaTime;
                 body.MoveRotation(body.rotation * Quaternion.Euler(0f, yawDelta, 0f));
             }
 
+            float slipAngle = Mathf.Atan2(lateralSpeed, Mathf.Max(0.1f, Mathf.Abs(forwardSpeed))) * Mathf.Rad2Deg;
+            bool isDrifting = driftBlend > 0.35f && Mathf.Abs(slipAngle) > 2f;
             telemetry.Publish(new VehicleTelemetrySnapshot(
                 body.position,
                 body.rotation,
@@ -96,7 +129,10 @@ namespace RCWeeklyTimeAttack.Vehicle
                 lateralSpeed,
                 input.Steering,
                 input.Throttle,
-                input.Brake));
+                input.Brake,
+                isDrifting,
+                driftBlend,
+                slipAngle));
         }
 
         private void OnDestroy()
@@ -108,4 +144,3 @@ namespace RCWeeklyTimeAttack.Vehicle
         }
     }
 }
-

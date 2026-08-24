@@ -1,6 +1,6 @@
 # 냥BTI App in Toss 출시 체크리스트
 
-최종 확인일: **2026-08-19 (Asia/Seoul)**
+최종 확인일: **2026-08-24 (Asia/Seoul)**
 
 이 문서는 공식 App in Toss 개발자센터의 현재 내용을 냥BTI 비게임 WebView에 맞춰 정리한 실무 체크리스트다. 정책·SDK·최소 토스 앱 버전은 수시로 바뀔 수 있다.
 
@@ -8,9 +8,10 @@
 
 ## 1. 필수 공식 자료
 
-- [미니앱 테스트하기](https://developers-apps-in-toss.toss.im/guide/operation/toss) — 요청에 지정된 URL이며 현재 문서 제목은 “미니앱 테스트하기”다.
-- [미니앱 출시하기](https://developers-apps-in-toss.toss.im/guide/operation/deploy)
-- [비게임 출시 가이드](https://developers-apps-in-toss.toss.im/checklist/app-nongame)
+- [사용자가 지정한 운영/테스트 URL](https://developers-apps-in-toss.toss.im/guide/operation/toss) — 이전 경로일 수 있으므로 현재 문서로의 이동 여부를 확인한다.
+- [토스앱 테스트하기](https://developers-apps-in-toss.toss.im/development/test/toss.html)
+- [미니앱 출시](https://developers-apps-in-toss.toss.im/development/deploy.html)
+- [비게임 출시 가이드](https://developers-apps-in-toss.toss.im/checklist/app-nongame.html)
 - [서비스 오픈 정책](https://developers-apps-in-toss.toss.im/intro/guide)
 - [기존 웹 프로젝트에 SDK 연동하기](https://developers-apps-in-toss.toss.im/tutorials/webview)
 - [WebView 설정](https://developers-apps-in-toss.toss.im/bedrock/reference/framework/UI/Config)
@@ -19,8 +20,8 @@
 - [화면 닫기](https://developers-apps-in-toss.toss.im/bedrock/reference/framework/%ED%99%94%EB%A9%B4%20%EC%A0%9C%EC%96%B4/closeView)
 - [Safe Area](https://developers-apps-in-toss.toss.im/bedrock/reference/framework/%ED%99%94%EB%A9%B4%20%EC%A0%9C%EC%96%B4/safe-area)
 - [WebView 속성](https://developers-apps-in-toss.toss.im/bedrock/reference/framework/%EC%86%8D%EC%84%B1%20%EC%A0%9C%EC%96%B4/webview-props)
-- [인앱 광고 소개](https://developers-apps-in-toss.toss.im/ads/intro)
-- [광고 개발·정책](https://developers-apps-in-toss.toss.im/ads/develop)
+- [인앱 광고 소개](https://developers-apps-in-toss.toss.im/ads/intro.html)
+- [광고 개발·정책](https://developers-apps-in-toss.toss.im/ads/develop.html)
 - [배너 광고(WebView)](https://developers-apps-in-toss.toss.im/bedrock/reference/framework/%EA%B4%91%EA%B3%A0/BannerAd)
 - [통합 전면형·보상형 광고](https://developers-apps-in-toss.toss.im/bedrock/reference/framework/%EA%B4%91%EA%B3%A0/IntegratedAd)
 
@@ -28,9 +29,10 @@
 
 - [x] `next.config.ts`에 `output: "export"`가 적용되어 있다.
 - [x] 이미지 최적화 서버에 의존하지 않도록 정적 이미지 설정을 사용한다.
-- [ ] 모든 App Router 경로가 빌드 시 확정되는지 확인한다.
-- [ ] 서버 컴포넌트의 요청 시점 데이터, 서버 액션, Route Handler, SSR API를 사용하지 않는다.
-- [ ] `pnpm build`가 `out/`을 만들고 새로고침·직접 URL 진입이 정상인지 확인한다.
+- [x] 모든 App Router 경로가 빌드 시 정적 페이지로 확정된다.
+- [x] 요청 시점 서버 데이터, 서버 액션, Route Handler, SSR API를 사용하지 않는다.
+- [x] `pnpm build`가 `out/`을 생성한다. 2026-08-24 빌드 기준 약 14MB다.
+- [ ] App in Toss 테스트 환경에서 새로고침·직접 URL 진입이 정상인지 확인한다.
 - [ ] App in Toss SDK/CLI를 설치하고 현재 공식 방식으로 `.ait` 번들을 생성한다.
 - [ ] `.ait` 번들의 **압축 해제 기준 용량이 100MB 이하**인지 측정한다.
 - [ ] 실행에 꼭 필요한 자산만 번들에 포함하고 큰 이미지·영상·사운드는 CDN 또는 지연 로딩으로 분리한다.
@@ -112,23 +114,25 @@
 - [ ] 로그인·세션 유지, 외부 리소스, CDN, 공유, 광고를 실제 토스 앱에서 재검증한다.
 - [ ] 네트워크 실패 시 재시도 또는 사용자 안내가 있고 빈 화면에 머물지 않는다.
 
-2026-08-19 확인 기준 공식 출시 문서의 Origin:
+2026-08-24 확인 기준 현재 공식 출시 문서의 Origin:
 
-| SDK | 라이브 | QR 테스트 |
-| --- | --- | --- |
-| 3.x | `https://<appName>.web.tossmini.com` | `https://<appName>.private-web.tossmini.com` |
-| 1.x~2.x | `https://<appName>.apps.tossmini.com` | `https://<appName>.private-apps.tossmini.com` |
+| 환경 | Origin |
+| --- | --- |
+| 라이브 | `https://<appName>.apps.tossmini.com` |
+| QR 테스트 | `https://<appName>.private-apps.tossmini.com` |
 
-이 값은 실제 연동 직전에 다시 확인한다.
+개발자센터의 경로와 안내가 개편될 수 있으므로 이 값은 실제 연동 직전에 다시 확인한다.
 
 ## 9. Toss Ads adapter와 수명주기
 
 - [x] 광고 UI와 SDK 호출 사이에 adapter 경계가 있다.
 - [x] 현재 adapter는 네트워크 요청을 만들지 않는 placeholder다.
+- [x] 운영 빌드의 미지원 환경에서는 placeholder와 빈 광고 높이를 남기지 않는다.
+- [ ] 콘솔에 사업자·정산 정보를 등록하고 검토를 완료한다.
+- [ ] 광고 그룹을 생성하고 발급까지의 대기 시간을 고려해 공식 광고 그룹 ID를 준비한다.
 - [ ] 외부 광고 네트워크를 직접 연동하지 않고 App in Toss가 허용하는 전면형·보상형·배너만 사용한다.
 - [ ] 개발과 검수에는 반드시 공식 테스트 광고 ID만 사용한다.
 - [ ] 일반 브라우저와 미지원 토스 앱에서는 안전한 `noop`으로 동작한다.
-- [ ] 운영의 미지원 환경에서는 placeholder나 빈 광고 높이를 남기지 않는다.
 - [ ] `isSupported()`와 토스 앱 버전을 모두 확인한다.
 
 ### 배너
@@ -149,7 +153,7 @@
 - [ ] 시작, 인트로, 로딩, 모달, 예측하기 어려운 순간에 노출하지 않는다.
 - [ ] 광고 종료 뒤 원래 결과 화면으로 정상 복귀한다.
 
-확인 당시 통합 전면형·보상형 문서 기준은 WebView SDK 1.6.0, 토스 앱 5.247.0 이상이며 `isSupported()` 확인이 필요하다. 토스 앱 5.227.0~5.247.0 미만은 AdMob 단독 경로, 5.227.0 미만은 미지원으로 안내된다.
+현재 광고 개발 문서는 Toss Ads와 Google AdMob을 하나의 통합 SDK로 다루는 인앱 광고 2.0 ver2를 안내한다. 실제 연동 시점의 공식 패키지·지원 버전·테스트 ID와 `isSupported()` 방식을 다시 확인한다.
 
 ### 금지 사항
 

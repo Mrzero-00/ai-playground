@@ -1,6 +1,11 @@
 import { describe, expect, it } from "vitest";
 import { QUESTIONS } from "@/data/questions";
-import { calculateTraitScores, scoreSurvey } from "./scoring";
+import {
+  calculateAxes,
+  calculateTraitScores,
+  getCompletedAnswerCount,
+  scoreSurvey,
+} from "./scoring";
 
 const allAnswers = (value: number) =>
   Object.fromEntries(QUESTIONS.map((question) => [question.id, value]));
@@ -31,5 +36,34 @@ describe("냥BTI scoring", () => {
     expect(result.code).toBe(
       `${result.axes.EI.selected}${result.axes.NS.selected}${result.axes.TF.selected}${result.axes.JP.selected}`,
     );
+  });
+
+  it("uses the first letter for an exact 50/50 axis tie", () => {
+    const axes = calculateAxes({
+      sociability: 50,
+      boldness: 50,
+      activity: 50,
+      playfulness: 50,
+      adaptability: 50,
+      sensitivity: 50,
+    });
+
+    expect(Object.values(axes).map(({ selected }) => selected)).toEqual(["E", "N", "F", "P"]);
+    expect(Object.values(axes).map(({ level }) => level)).toEqual([
+      "낮음",
+      "낮음",
+      "낮음",
+      "낮음",
+    ]);
+  });
+
+  it("counts only known questions with finite answers", () => {
+    expect(
+      getCompletedAnswerCount({
+        [QUESTIONS[0].id]: 0,
+        [QUESTIONS[1].id]: Number.NaN,
+        unknown: 4,
+      }),
+    ).toBe(1);
   });
 });

@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useMemo, useRef } from "react";
 import { getAdAdapter } from "@/adapters/ads";
 import type { AdPlacement } from "@/adapters/ads/types";
 
@@ -10,9 +10,12 @@ interface AdSlotProps {
 
 export function AdSlot({ placement }: AdSlotProps) {
   const containerRef = useRef<HTMLDivElement>(null);
+  const adapter = useMemo(() => getAdAdapter(), []);
+  const isSupported = adapter.isSupported();
+  const showDevelopmentPlaceholder =
+    process.env.NODE_ENV !== "production" && adapter.name === "development-placeholder";
 
   useEffect(() => {
-    const adapter = getAdAdapter();
     const container = containerRef.current;
     let cleanup: () => void = () => undefined;
 
@@ -23,12 +26,18 @@ export function AdSlot({ placement }: AdSlotProps) {
     }
 
     return () => cleanup();
-  }, [placement]);
+  }, [adapter, placement]);
+
+  if (!isSupported && !showDevelopmentPlaceholder) return null;
 
   return (
     <aside ref={containerRef} className="ad-slot" aria-label="광고 영역">
-      <span>AD</span>
-      <p>App in Toss 광고 SDK 연결 예정 영역</p>
+      {showDevelopmentPlaceholder ? (
+        <>
+          <span>AD</span>
+          <p>App in Toss 광고 SDK 연결 예정 영역</p>
+        </>
+      ) : null}
     </aside>
   );
 }

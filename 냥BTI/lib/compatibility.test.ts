@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
-import { HUMAN_MBTI_CODES } from "@/data/human-mbti";
-import { calculateCompatibility } from "./compatibility";
+import { HUMAN_MBTI_CODES, HUMAN_MBTI_PROFILES } from "@/data/human-mbti";
+import { calculateCompatibility, catTraitsToInteractionNeeds } from "./compatibility";
 import type { TraitScores } from "@/types/nyangbti";
 
 const sampleTraits: TraitScores = {
@@ -26,5 +26,18 @@ describe("guardian compatibility", () => {
       expect(score).toBeGreaterThanOrEqual(45);
       expect(score).toBeLessThanOrEqual(97);
     });
+  });
+
+  it("compares every human profile against continuous cat needs", () => {
+    const catNeeds = catTraitsToInteractionNeeds(sampleTraits);
+
+    expect(Object.keys(catNeeds)).toEqual(Object.keys(HUMAN_MBTI_PROFILES.ENFP));
+    Object.values(catNeeds).forEach((value) => {
+      expect(value).toBeGreaterThanOrEqual(0);
+      expect(value).toBeLessThanOrEqual(100);
+    });
+
+    expect(new Set(HUMAN_MBTI_CODES.map((code) => calculateCompatibility(code, sampleTraits).score)).size)
+      .toBeGreaterThan(1);
   });
 });

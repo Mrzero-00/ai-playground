@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { AppHeader } from "@/components/AppHeader";
 import { HydrationScreen } from "@/components/HydrationScreen";
@@ -35,11 +36,16 @@ export default function HomePage() {
           <br />여섯 가지 성향과 냥BTI를 알아봐요.
         </p>
 
-        <div className="home-cat" role="img" aria-label="상자 속에서 고개를 내민 고양이 캐릭터">
-          <span className="home-cat__tail" aria-hidden="true" />
-          <span className="home-cat__box" aria-hidden="true" />
-          <span className="home-cat__head" aria-hidden="true">= ᆺ =</span>
-          <span className="home-cat__label" aria-hidden="true">HELLO</span>
+        <div className="home-cat" role="img" aria-label="탐험을 떠나는 냥BTI 고양이 캐릭터">
+          <Image
+            className="home-cat__image"
+            src="/characters/enfp.png"
+            alt=""
+            width={768}
+            height={768}
+            priority
+            aria-hidden="true"
+          />
         </div>
       </section>
 

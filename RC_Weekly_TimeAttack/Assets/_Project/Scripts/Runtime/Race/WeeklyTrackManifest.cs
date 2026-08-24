@@ -45,7 +45,7 @@ namespace RCWeeklyTimeAttack.Race
             "PLAYTEST-WEEK",
             "technical-01",
             "technical-01-v1",
-            "arcade-v02",
+            "arcade-v03-mini",
             1);
     }
 }

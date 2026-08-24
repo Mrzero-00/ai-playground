@@ -18,6 +18,7 @@ namespace RCWeeklyTimeAttack.Bootstrap
     public sealed class PrototypeBootstrap : MonoBehaviour
     {
         private const string RuntimeRootName = "V04_Playtest_Runtime";
+        private const float MiniRcScale = 0.68f;
         private static readonly Vector3 StartPosition = new(-25f, 0.4f, -16f);
         private static readonly Quaternion StartRotation = Quaternion.Euler(0f, 180f, 0f);
 
@@ -81,16 +82,16 @@ namespace RCWeeklyTimeAttack.Bootstrap
 
             BoxCollider carCollider = car.AddComponent<BoxCollider>();
             carCollider.center = Vector3.zero;
-            carCollider.size = new Vector3(1.85f, 0.68f, 2.55f);
+            carCollider.size = new Vector3(1.85f, 0.68f, 2.55f) * MiniRcScale;
 
             Rigidbody body = car.AddComponent<Rigidbody>();
-            body.mass = 1.15f;
+            body.mass = 0.8f;
             body.linearDamping = 0.05f;
             body.angularDamping = 5f;
             body.interpolation = RigidbodyInterpolation.Interpolate;
             body.collisionDetectionMode = CollisionDetectionMode.ContinuousDynamic;
             body.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ;
-            body.centerOfMass = new Vector3(0f, -0.18f, 0f);
+            body.centerOfMass = new Vector3(0f, -0.12f, 0f);
 
             car.AddComponent<KeyboardVehicleInputSource>();
             TouchVehicleInputSource touch = car.AddComponent<TouchVehicleInputSource>();
@@ -104,13 +105,18 @@ namespace RCWeeklyTimeAttack.Bootstrap
 
             Transform cameraTarget = new GameObject("CameraTarget").transform;
             cameraTarget.SetParent(car.transform, false);
-            cameraTarget.localPosition = new Vector3(0f, 1.2f, 1.4f);
+            cameraTarget.localPosition = new Vector3(0f, 0.82f, 0.95f);
 
             return new CarRuntime(car, controller, router, touch, telemetry, cameraTarget);
         }
 
         private static void CreateRcBuggyVisual(Transform parent, bool ghost)
         {
+            Transform visualRoot = new GameObject(ghost ? "MiniGhostVisual" : "MiniRcVisual").transform;
+            visualRoot.SetParent(parent, false);
+            visualRoot.localScale = Vector3.one * MiniRcScale;
+            parent = visualRoot;
+
             Color bodyColor = ghost
                 ? new Color(0.1f, 0.95f, 1f, 0.34f)
                 : new Color(0.06f, 0.43f, 0.98f);
@@ -212,7 +218,7 @@ namespace RCWeeklyTimeAttack.Bootstrap
             cameraObject.tag = "MainCamera";
 
             Camera raceCamera = cameraObject.AddComponent<Camera>();
-            raceCamera.fieldOfView = 58f;
+            raceCamera.fieldOfView = 64f;
             raceCamera.nearClipPlane = 0.1f;
             raceCamera.farClipPlane = 180f;
             raceCamera.backgroundColor = new Color(0.08f, 0.12f, 0.16f);

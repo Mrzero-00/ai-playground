@@ -53,7 +53,7 @@ WeeklyTrackProvider ─ RaceSession ─ CheckpointProgress                 └�
 
 ### Bootstrap/UI
 
-- `PrototypeBootstrap`: 외부 에셋 없이 둥근 RC 버기 시각 모델, Technical Track, 13 Checkpoint, Ghost, Camera, 터치 UI를 조립
+- `PrototypeBootstrap`: 외부 에셋 없이 68% 미니 스케일의 둥근 RC 버기 시각 모델·충돌체, Technical Track, 13 Checkpoint, 같은 크기의 Ghost, 넓은 시야 Camera, 터치 UI를 조립
 - `SafeAreaFitter`: 모바일 노치와 홈 인디케이터 영역 대응
 - `SteeringModeController`: Arrow/Wheel UI와 입력 소스 전환
 

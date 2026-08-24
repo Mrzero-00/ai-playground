@@ -41,6 +41,7 @@ V0.1 완료 판정: Plane 위 Cube Car가 Gas/Brake로 가감속하고 Arrow 또
 - [x] Best Finish Time과 로컬 Top 5 저장
 - [x] 단순 타원에서 헤어핀·시케인·13 Checkpoint Technical Track으로 난이도 상향
 - [x] Cube 시각 모델을 휠·서스펜션·범퍼·윙이 있는 RC 버기로 개선
+- [x] 차량 외형·충돌체 68% 축소와 미니 RC카 Camera 프레이밍 적용
 - [x] 문서 원본의 잔여 `BEST LAP` 표현을 정정한 플레이테스트 부록 작성
 - [ ] 서버 지정 Weekly Track manifest 수신
 

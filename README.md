@@ -18,8 +18,14 @@
 3. **AI_쿠팡 파트너스**
    - (설명 없음 — README 상단에 `> 한줄설명` 을 추가하세요)
 
-4. **alpine-mercenaries**
+4. **AI_토스증권자동매매**
+   - 미국 시장 후보를 발견하고 증거 기반 가설과 결정론적 리스크 승인을 거쳐 Paper Trade를 재현하는 AI Investment OS Phase 1 MVP입니다.
+
+5. **alpine-mercenaries**
    - 실사풍 알프스 세계에서 무기가 역할을 결정하는 최대 5인 3인칭 협동 액션 RPG 프로젝트입니다.
+
+6. **RC_Weekly_TimeAttack**
+   - 매주 하나의 트랙에서 동일 성능의 RC카로 전체 Race Finish Time을 겨루는 Apps in Toss용 Unity WebGL 타임어택 게임
 
 <!-- PROJECTS:END -->
 

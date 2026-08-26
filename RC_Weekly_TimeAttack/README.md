@@ -6,7 +6,8 @@
 
 V0.4 로컬 플레이테스트 수직 슬라이스가 구현되어 있습니다.
 
-- 둥근 바디 셸, 독립 휠, 서스펜션, 범퍼, 윙, 안테나를 갖춘 절차적 RC 버기 외형
+- 14,080 triangles의 파란 랠리 쿠페 FBX와 차체·캐노피·램프·범퍼·윙·4개 휠 분리 구조
+- 주행 속도 기반 휠 회전과 입력 기반 앞바퀴 조향 애니메이션
 - 코스 대비 약 68% 크기의 시각 모델·충돌체와 넓어진 Camera 시야를 적용한 미니카 스케일
 - 단일 공정 충돌체를 사용하는 가벼운 아케이드 물리
 - Gas / Brake
@@ -48,6 +49,8 @@ V0.4 로컬 플레이테스트 수직 슬라이스가 구현되어 있습니다.
 - Git(Unity Package Manager가 Apps in Toss SDK를 받는 데 사용)
 
 현재 이 저장소를 만든 머신에는 Unity Editor가 설치되어 있지 않아 Unity 임포트와 WebGL 실빌드는 아직 실행하지 못했습니다. 코드는 Unity 프로젝트로 바로 열 수 있게 구성되어 있습니다.
+
+차량 FBX는 Blender `5.2.1 LTS`에서 생성 및 재임포트 검증했습니다. 폴리 수와 파츠 구조는 [파란 랠리 RC 구현 문서](docs/implementation/BLUE_RALLY_RC.md)에서 확인할 수 있습니다.
 
 ## 실행
 
@@ -93,6 +96,7 @@ SDK의 `AIT > Build & Package` 흐름을 사용하며, 별도 Vite 앱이나 자
 
 ```text
 Assets/_Project/
+├── Resources/Vehicles/     # 런타임에 로드하는 Blue Rally RC FBX
 ├── Scenes/                 # 플레이테스트 시작 씬
 ├── Scripts/Runtime/
 │   ├── Bootstrap/          # RC 버기와 Technical Track/UI 조립
@@ -103,6 +107,8 @@ Assets/_Project/
 │   └── Vehicle/            # 차량/Drift 물리와 텔레메트리
 ├── Scripts/Editor/         # 씬 복구/생성 도구
 └── Tests/EditMode/         # 순수 입력 로직 테스트
+ArtSource/Vehicles/         # Blender 원본과 모델 리포트
+Tools/Blender/              # FBX 재생성 및 재임포트 검증 스크립트
 docs/                       # 기획, 구조, 개발 계획
 Packages/                   # Unity와 Apps in Toss 패키지
 ProjectSettings/            # Unity 버전과 시작 씬

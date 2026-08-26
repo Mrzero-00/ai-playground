@@ -1,0 +1,32 @@
+{
+  "model": "BlueRallyRC",
+  "triangleDefinition": "All exported mesh polygons are triangulated",
+  "targetTriangleRange": [
+    8000,
+    15000
+  ],
+  "totalTriangles": 14080,
+  "withinTarget": true,
+  "meshObjects": {
+    "BodyShell": 7504,
+    "Canopy": 728,
+    "AeroKit": 736,
+    "Headlights": 432,
+    "RearWing": 412,
+    "RCDetails": 1052,
+    "Wheel_FL": 804,
+    "Wheel_FR": 804,
+    "Wheel_RL": 804,
+    "Wheel_RR": 804
+  },
+  "materials": [
+    "M_BlueBody",
+    "M_Graphite",
+    "M_LampWhite",
+    "M_SmokedGlass",
+    "M_WheelMetal",
+    "M_YellowAccent"
+  ],
+  "fbx": "Assets/_Project/Resources/Vehicles/BlueRallyRC.fbx",
+  "sourceBlend": "ArtSource/Vehicles/BlueRallyRC/BlueRallyRC.blend"
+}

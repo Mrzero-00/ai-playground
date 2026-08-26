@@ -76,7 +76,7 @@ namespace RCWeeklyTimeAttack.Bootstrap
 
         private CarRuntime CreateCar(Transform parent)
         {
-            GameObject car = new("RCBuggy");
+            GameObject car = new("BlueRallyRC");
             car.transform.SetParent(parent);
             car.transform.SetPositionAndRotation(StartPosition, StartRotation);
 
@@ -101,114 +101,15 @@ namespace RCWeeklyTimeAttack.Bootstrap
             controller.Configure(tuning);
             router.RefreshSources();
 
-            CreateRcBuggyVisual(car.transform, false);
+            BlueRallyVisualInstance visual = BlueRallyCarVisual.Create(car.transform, false, MiniRcScale);
+            RcWheelVisualAnimator wheelAnimator = car.AddComponent<RcWheelVisualAnimator>();
+            wheelAnimator.ConfigurePlayer(body, router, visual, MiniRcScale);
 
             Transform cameraTarget = new GameObject("CameraTarget").transform;
             cameraTarget.SetParent(car.transform, false);
             cameraTarget.localPosition = new Vector3(0f, 0.82f, 0.95f);
 
             return new CarRuntime(car, controller, router, touch, telemetry, cameraTarget);
-        }
-
-        private static void CreateRcBuggyVisual(Transform parent, bool ghost)
-        {
-            Transform visualRoot = new GameObject(ghost ? "MiniGhostVisual" : "MiniRcVisual").transform;
-            visualRoot.SetParent(parent, false);
-            visualRoot.localScale = Vector3.one * MiniRcScale;
-            parent = visualRoot;
-
-            Color bodyColor = ghost
-                ? new Color(0.1f, 0.95f, 1f, 0.34f)
-                : new Color(0.06f, 0.43f, 0.98f);
-            Color accentColor = ghost
-                ? new Color(0.75f, 1f, 1f, 0.3f)
-                : new Color(1f, 0.78f, 0.08f);
-            Color darkColor = ghost
-                ? new Color(0.18f, 0.9f, 1f, 0.24f)
-                : new Color(0.025f, 0.045f, 0.065f);
-            Color metalColor = ghost
-                ? new Color(0.55f, 1f, 1f, 0.28f)
-                : new Color(0.42f, 0.48f, 0.54f);
-
-            CreatePrimitiveVisual(PrimitiveType.Cube, parent, "Chassis",
-                new Vector3(0f, 0.18f, 0f), Quaternion.identity,
-                new Vector3(1.38f, 0.22f, 2.15f), darkColor);
-            CreatePrimitiveVisual(PrimitiveType.Capsule, parent, "RoundedBodyShell",
-                new Vector3(0f, 0.44f, 0.02f), Quaternion.Euler(90f, 0f, 0f),
-                new Vector3(0.78f, 0.9f, 0.34f), bodyColor);
-            CreatePrimitiveVisual(PrimitiveType.Sphere, parent, "RoundedHood",
-                new Vector3(0f, 0.4f, 0.78f), Quaternion.identity,
-                new Vector3(1.18f, 0.42f, 0.88f), bodyColor);
-            CreatePrimitiveVisual(PrimitiveType.Sphere, parent, "Canopy",
-                new Vector3(0f, 0.72f, -0.28f), Quaternion.identity,
-                new Vector3(0.7f, 0.44f, 0.72f), darkColor);
-
-            CreatePrimitiveVisual(PrimitiveType.Capsule, parent, "FrontBumper",
-                new Vector3(0f, 0.16f, 1.22f), Quaternion.Euler(0f, 0f, 90f),
-                new Vector3(0.18f, 0.78f, 0.18f), accentColor);
-            CreatePrimitiveVisual(PrimitiveType.Cube, parent, "RearWing",
-                new Vector3(0f, 0.68f, -1.05f), Quaternion.identity,
-                new Vector3(1.48f, 0.1f, 0.34f), bodyColor);
-            CreatePrimitiveVisual(PrimitiveType.Cube, parent, "RearWingMountLeft",
-                new Vector3(-0.46f, 0.5f, -0.95f), Quaternion.identity,
-                new Vector3(0.08f, 0.38f, 0.08f), metalColor);
-            CreatePrimitiveVisual(PrimitiveType.Cube, parent, "RearWingMountRight",
-                new Vector3(0.46f, 0.5f, -0.95f), Quaternion.identity,
-                new Vector3(0.08f, 0.38f, 0.08f), metalColor);
-
-            CreateRcWheel(parent, "FrontLeft", new Vector3(-0.93f, 0.12f, 0.78f), darkColor, metalColor);
-            CreateRcWheel(parent, "FrontRight", new Vector3(0.93f, 0.12f, 0.78f), darkColor, metalColor);
-            CreateRcWheel(parent, "RearLeft", new Vector3(-0.93f, 0.12f, -0.78f), darkColor, metalColor);
-            CreateRcWheel(parent, "RearRight", new Vector3(0.93f, 0.12f, -0.78f), darkColor, metalColor);
-
-            CreatePrimitiveVisual(PrimitiveType.Cube, parent, "FrontSuspension",
-                new Vector3(0f, 0.18f, 0.78f), Quaternion.identity,
-                new Vector3(1.8f, 0.07f, 0.09f), metalColor);
-            CreatePrimitiveVisual(PrimitiveType.Cube, parent, "RearSuspension",
-                new Vector3(0f, 0.18f, -0.78f), Quaternion.identity,
-                new Vector3(1.8f, 0.07f, 0.09f), metalColor);
-            CreatePrimitiveVisual(PrimitiveType.Cylinder, parent, "Antenna",
-                new Vector3(0.26f, 1.02f, -0.42f), Quaternion.identity,
-                new Vector3(0.035f, 0.42f, 0.035f), darkColor);
-            CreatePrimitiveVisual(PrimitiveType.Sphere, parent, "AntennaTip",
-                new Vector3(0.26f, 1.45f, -0.42f), Quaternion.identity,
-                Vector3.one * 0.11f, accentColor);
-        }
-
-        private static void CreateRcWheel(
-            Transform parent,
-            string wheelName,
-            Vector3 localPosition,
-            Color tireColor,
-            Color hubColor)
-        {
-            CreatePrimitiveVisual(PrimitiveType.Cylinder, parent, $"{wheelName}Tire",
-                localPosition, Quaternion.Euler(0f, 0f, 90f),
-                new Vector3(0.78f, 0.16f, 0.78f), tireColor);
-            CreatePrimitiveVisual(PrimitiveType.Cylinder, parent, $"{wheelName}Hub",
-                localPosition, Quaternion.Euler(0f, 0f, 90f),
-                new Vector3(0.38f, 0.18f, 0.38f), hubColor);
-        }
-
-        private static void CreatePrimitiveVisual(
-            PrimitiveType primitiveType,
-            Transform parent,
-            string objectName,
-            Vector3 localPosition,
-            Quaternion localRotation,
-            Vector3 localScale,
-            Color color)
-        {
-            GameObject visual = GameObject.CreatePrimitive(primitiveType);
-            visual.name = objectName;
-            visual.transform.SetParent(parent, false);
-            visual.transform.localPosition = localPosition;
-            visual.transform.localRotation = localRotation;
-            visual.transform.localScale = localScale;
-            Collider visualCollider = visual.GetComponent<Collider>();
-            visualCollider.enabled = false;
-            Destroy(visualCollider);
-            SetColor(visual, color);
         }
 
         private static void CreateRaceCamera(Transform parent, Transform target)
@@ -365,7 +266,9 @@ namespace RCWeeklyTimeAttack.Bootstrap
         {
             Transform ghost = new GameObject("MyBestGhost").transform;
             ghost.SetParent(parent);
-            CreateRcBuggyVisual(ghost, true);
+            BlueRallyVisualInstance visual = BlueRallyCarVisual.Create(ghost, true, MiniRcScale);
+            RcWheelVisualAnimator wheelAnimator = ghost.gameObject.AddComponent<RcWheelVisualAnimator>();
+            wheelAnimator.ConfigureGhost(ghost, visual, MiniRcScale);
             return ghost;
         }
 

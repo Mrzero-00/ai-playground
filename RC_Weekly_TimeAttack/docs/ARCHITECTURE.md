@@ -35,6 +35,8 @@ WeeklyTrackProvider ─ RaceSession ─ CheckpointProgress                 └�
 - `CarTuning`: 조작감 수치만 보관하는 ScriptableObject
 - `CubeCarController`: Rigidbody 이동, 제동, 조향, Brake 진입/Throttle 유지 Drift
 - `VehicleTelemetrySnapshot`: Drift/Replay가 읽을 pose, 속도, slip, 입력
+- `BlueRallyCarVisual`: `Resources/Vehicles/BlueRallyRC.fbx`를 플레이어와 Ghost에 같은 구조로 인스턴스화하고 런타임 Material을 적용
+- `RcWheelVisualAnimator`: Rigidbody 속도로 네 바퀴를 회전시키고 입력값으로 앞바퀴를 조향하며 Ghost 이동 거리도 시각 회전으로 변환
 
 ### Race
 
@@ -53,7 +55,7 @@ WeeklyTrackProvider ─ RaceSession ─ CheckpointProgress                 └�
 
 ### Bootstrap/UI
 
-- `PrototypeBootstrap`: 외부 에셋 없이 68% 미니 스케일의 둥근 RC 버기 시각 모델·충돌체, Technical Track, 13 Checkpoint, 같은 크기의 Ghost, 넓은 시야 Camera, 터치 UI를 조립
+- `PrototypeBootstrap`: 68% 미니 스케일의 Blue Rally FBX와 독립된 단일 충돌체, Technical Track, 13 Checkpoint, 같은 모델의 Ghost, 넓은 시야 Camera, 터치 UI를 조립
 - `SafeAreaFitter`: 모바일 노치와 홈 인디케이터 영역 대응
 - `SteeringModeController`: Arrow/Wheel UI와 입력 소스 전환
 

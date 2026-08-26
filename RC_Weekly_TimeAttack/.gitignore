@@ -37,8 +37,10 @@ Assets/AppsInToss/Editor/AITConfig.asset.meta
 .DS_Store
 Thumbs.db
 
+# Blender backup files (the source .blend is versioned)
+*.blend1
+
 # Local secrets
 .env
 .env.*
 !.env.example
-

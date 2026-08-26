@@ -27,7 +27,7 @@ namespace RCWeeklyTimeAttack.Vehicle
             sourceBody = body;
             inputRouter = router;
             motionSource = transform;
-            wheelRadius = Mathf.Max(0.01f, 0.39f * visualScale);
+            wheelRadius = Mathf.Max(0.01f, 0.42f * visualScale);
             ConfigureWheels(visual);
         }
 
@@ -39,7 +39,7 @@ namespace RCWeeklyTimeAttack.Vehicle
             sourceBody = null;
             inputRouter = null;
             motionSource = ghostMotionSource;
-            wheelRadius = Mathf.Max(0.01f, 0.39f * visualScale);
+            wheelRadius = Mathf.Max(0.01f, 0.42f * visualScale);
             ConfigureWheels(visual);
         }
 

@@ -6,7 +6,7 @@
 
 V0.4 로컬 플레이테스트 수직 슬라이스가 구현되어 있습니다.
 
-- 14,080 triangles의 파란 랠리 쿠페 FBX와 차체·캐노피·램프·범퍼·윙·4개 휠 분리 구조
+- 12,584 triangles의 짧고 넓은 파란 RC 스포츠 쿠페 FBX와 차체·캐노피·램프·범퍼·윙·4개 휠 분리 구조
 - 주행 속도 기반 휠 회전과 입력 기반 앞바퀴 조향 애니메이션
 - 코스 대비 약 68% 크기의 시각 모델·충돌체와 넓어진 Camera 시야를 적용한 미니카 스케일
 - 단일 공정 충돌체를 사용하는 가벼운 아케이드 물리
@@ -108,6 +108,7 @@ Assets/_Project/
 ├── Scripts/Editor/         # 씬 복구/생성 도구
 └── Tests/EditMode/         # 순수 입력 로직 테스트
 ArtSource/Vehicles/         # Blender 원본과 모델 리포트
+ArtSource/ThirdParty/       # CC0 베이스 메시와 원본 라이선스
 Tools/Blender/              # FBX 재생성 및 재임포트 검증 스크립트
 docs/                       # 기획, 구조, 개발 계획
 Packages/                   # Unity와 Apps in Toss 패키지

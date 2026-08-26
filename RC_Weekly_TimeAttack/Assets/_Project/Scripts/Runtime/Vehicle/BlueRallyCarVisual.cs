@@ -34,7 +34,7 @@ namespace RCWeeklyTimeAttack.Vehicle
         private static readonly Color Graphite = new(0.018f, 0.026f, 0.045f);
         private static readonly Color SmokedGlass = new(0.015f, 0.028f, 0.052f);
         private static readonly Color YellowAccent = new(1f, 0.66f, 0.04f);
-        private static readonly Color WheelMetal = new(0.19f, 0.23f, 0.3f);
+        private static readonly Color TailRed = new(0.95f, 0.025f, 0.018f);
         private static readonly Color LampWhite = new(0.78f, 0.94f, 1f);
         private static readonly Color GhostCyan = new(0.12f, 0.94f, 1f, 0.32f);
 
@@ -120,13 +120,13 @@ namespace RCWeeklyTimeAttack.Vehicle
             {
                 return YellowAccent;
             }
-            if (materialName.Contains("WheelMetal"))
-            {
-                return WheelMetal;
-            }
             if (materialName.Contains("LampWhite"))
             {
                 return LampWhite;
+            }
+            if (materialName.Contains("TailRed"))
+            {
+                return TailRed;
             }
             if (materialName.Contains("Graphite"))
             {

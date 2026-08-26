@@ -1,10 +1,12 @@
-"""Generate the production-feasible Blue Rally RC model and export it to Unity FBX.
+"""Build the production Blue Rally RC model and export a Unity-ready FBX.
+
+The body starts from IceMaan's CC0 A_R7_Body_3 mesh. This deterministic
+pipeline converts it into a compact RC coupe, consolidates it to six solid
+materials, separates Unity-facing parts, adds RC-specific details and exports
+the final FBX, Blender source, triangle report, and preview render.
 
 Run from the repository root:
     blender --background --python RC_Weekly_TimeAttack/Tools/Blender/generate_blue_rally_rc.py
-
-The script is intentionally deterministic so the FBX, source .blend, preview, and
-triangle report can be regenerated without manual Blender scene edits.
 """
 
 from __future__ import annotations
@@ -14,9 +16,18 @@ import math
 from pathlib import Path
 
 import bpy
+from mathutils import Matrix, Vector
 
 
 PROJECT_ROOT = Path(__file__).resolve().parents[2]
+SOURCE_BODY_PATH = (
+    PROJECT_ROOT
+    / "ArtSource"
+    / "ThirdParty"
+    / "IceMaan"
+    / "A_R7"
+    / "A_R7_Body_3.fbx"
+)
 SOURCE_DIR = PROJECT_ROOT / "ArtSource" / "Vehicles" / "BlueRallyRC"
 FBX_DIR = PROJECT_ROOT / "Assets" / "_Project" / "Resources" / "Vehicles"
 PREVIEW_DIR = PROJECT_ROOT / "docs" / "implementation"
@@ -49,7 +60,7 @@ def create_material(
     name: str,
     color: tuple[float, float, float, float],
     metallic: float = 0.0,
-    roughness: float = 0.42,
+    roughness: float = 0.3,
 ) -> bpy.types.Material:
     material = bpy.data.materials.new(name)
     material.diffuse_color = color
@@ -88,8 +99,7 @@ def create_beveled_cube(
     location: tuple[float, float, float],
     dimensions: tuple[float, float, float],
     material: bpy.types.Material,
-    bevel: float = 0.035,
-    bevel_segments: int = 2,
+    bevel: float = 0.02,
     rotation: tuple[float, float, float] = (0.0, 0.0, 0.0),
 ) -> bpy.types.Object:
     bpy.ops.mesh.primitive_cube_add(location=location, rotation=rotation)
@@ -97,33 +107,35 @@ def create_beveled_cube(
     object_.name = name
     object_.dimensions = dimensions
     apply_rotation_and_scale(object_)
-    if bevel > 0.0:
-        modifier = object_.modifiers.new("ProductionBevel", "BEVEL")
-        modifier.width = bevel
-        modifier.segments = bevel_segments
-        modifier.limit_method = "ANGLE"
-        apply_modifier(object_, modifier.name)
+    modifier = object_.modifiers.new("ProductionBevel", "BEVEL")
+    modifier.width = bevel
+    modifier.segments = 2
+    modifier.limit_method = "ANGLE"
+    apply_modifier(object_, modifier.name)
     object_.data.materials.append(material)
     set_smooth(object_)
     return object_
 
 
-def create_uv_ellipsoid(
+def create_torus(
     name: str,
     location: tuple[float, float, float],
-    radii: tuple[float, float, float],
+    major_radius: float,
+    minor_radius: float,
     material: bpy.types.Material,
-    segments: int = 24,
-    ring_count: int = 12,
+    major_segments: int = 26,
+    minor_segments: int = 8,
 ) -> bpy.types.Object:
-    bpy.ops.mesh.primitive_uv_sphere_add(
-        segments=segments,
-        ring_count=ring_count,
+    bpy.ops.mesh.primitive_torus_add(
+        major_segments=major_segments,
+        minor_segments=minor_segments,
         location=location,
+        rotation=(math.pi * 0.5, 0.0, 0.0),
+        major_radius=major_radius,
+        minor_radius=minor_radius,
     )
     object_ = bpy.context.object
     object_.name = name
-    object_.scale = radii
     apply_rotation_and_scale(object_)
     object_.data.materials.append(material)
     set_smooth(object_)
@@ -136,14 +148,13 @@ def create_cylinder(
     radius: float,
     depth: float,
     material: bpy.types.Material,
-    vertices: int = 24,
-    rotation: tuple[float, float, float] = (0.0, math.pi * 0.5, 0.0),
+    vertices: int = 20,
+    rotation: tuple[float, float, float] = (math.pi * 0.5, 0.0, 0.0),
 ) -> bpy.types.Object:
     bpy.ops.mesh.primitive_cylinder_add(
         vertices=vertices,
         radius=radius,
         depth=depth,
-        end_fill_type="NGON",
         location=location,
         rotation=rotation,
     )
@@ -155,25 +166,20 @@ def create_cylinder(
     return object_
 
 
-def create_torus(
+def create_uv_sphere(
     name: str,
     location: tuple[float, float, float],
-    major_radius: float,
-    minor_radius: float,
+    radius: float,
     material: bpy.types.Material,
 ) -> bpy.types.Object:
-    bpy.ops.mesh.primitive_torus_add(
-        align="WORLD",
-        major_segments=24,
-        minor_segments=8,
+    bpy.ops.mesh.primitive_uv_sphere_add(
+        segments=14,
+        ring_count=7,
+        radius=radius,
         location=location,
-        rotation=(0.0, math.pi * 0.5, 0.0),
-        major_radius=major_radius,
-        minor_radius=minor_radius,
     )
     object_ = bpy.context.object
     object_.name = name
-    apply_rotation_and_scale(object_)
     object_.data.materials.append(material)
     set_smooth(object_)
     return object_
@@ -182,6 +188,10 @@ def create_torus(
 def join_objects(name: str, objects: list[bpy.types.Object]) -> bpy.types.Object:
     if not objects:
         raise ValueError(f"Cannot create {name} from an empty object list")
+    if len(objects) == 1:
+        objects[0].name = name
+        objects[0].select_set(False)
+        return objects[0]
     bpy.ops.object.select_all(action="DESELECT")
     for object_ in objects:
         object_.select_set(True)
@@ -193,95 +203,87 @@ def join_objects(name: str, objects: list[bpy.types.Object]) -> bpy.types.Object
     return result
 
 
-def interpolate_profile(
-    controls: list[tuple[float, float, float, float]],
-    y: float,
-) -> tuple[float, float, float]:
-    for index in range(len(controls) - 1):
-        left = controls[index]
-        right = controls[index + 1]
-        if left[0] <= y <= right[0]:
-            amount = (y - left[0]) / max(0.0001, right[0] - left[0])
-            smooth = amount * amount * (3.0 - 2.0 * amount)
-            return tuple(
-                left[value_index] + (right[value_index] - left[value_index]) * smooth
-                for value_index in range(1, 4)
-            )
-    return controls[-1][1], controls[-1][2], controls[-1][3]
+def material_key(source_name: str) -> str:
+    name = source_name.lower()
+    if "rear" in name:
+        return "tail"
+    if "head" in name:
+        return "lamp"
+    if "glass" in name:
+        return "glass"
+    if "det" in name or "under" in name or "exhaust" in name:
+        return "graphite"
+    return "body"
 
 
-def create_body_shell(material: bpy.types.Material) -> bpy.types.Object:
-    # Blender forward is -Y. The profile stays inside the existing physics box.
-    controls = [
-        (-1.24, 0.32, 0.30, 0.18),
-        (-1.08, 0.63, 0.32, 0.23),
-        (-0.76, 0.78, 0.34, 0.27),
-        (-0.28, 0.76, 0.35, 0.28),
-        (0.30, 0.72, 0.35, 0.27),
-        (0.72, 0.79, 0.34, 0.27),
-        (1.03, 0.66, 0.31, 0.23),
-        (1.18, 0.35, 0.28, 0.17),
+def import_and_split_body(
+    materials: dict[str, bpy.types.Material],
+) -> tuple[bpy.types.Object, bpy.types.Object, bpy.types.Object, bpy.types.Object]:
+    if not SOURCE_BODY_PATH.exists():
+        raise FileNotFoundError(f"Missing CC0 body source: {SOURCE_BODY_PATH}")
+
+    bpy.ops.import_scene.fbx(filepath=str(SOURCE_BODY_PATH), use_anim=False)
+    imported_meshes = [
+        object_ for object_ in bpy.context.scene.objects if object_.type == "MESH"
     ]
-    longitudinal_segments = 20
-    ring_segments = 28
-    vertices: list[tuple[float, float, float]] = []
-    faces: list[tuple[int, ...]] = []
+    if len(imported_meshes) != 1:
+        raise RuntimeError(
+            f"Expected one A_R7 body mesh, found {[item.name for item in imported_meshes]}"
+        )
 
-    for station in range(longitudinal_segments):
-        amount = station / (longitudinal_segments - 1)
-        y = controls[0][0] + (controls[-1][0] - controls[0][0]) * amount
-        half_width, center_z, half_height = interpolate_profile(controls, y)
-        for ring_index in range(ring_segments):
-            angle = math.tau * ring_index / ring_segments
-            cosine = math.cos(angle)
-            sine = math.sin(angle)
-            shaped_sine = (
-                math.pow(sine, 0.82)
-                if sine >= 0.0
-                else -math.pow(-sine, 1.22)
-            )
-            vertices.append(
-                (cosine * half_width, y, center_z + shaped_sine * half_height)
-            )
+    body = imported_meshes[0]
+    body.name = "A_R7_RC_Source"
+    source_materials = [slot.material for slot in body.material_slots]
+    ordered_keys = ["body", "graphite", "glass", "yellow", "lamp", "tail"]
+    material_indices = {key: index for index, key in enumerate(ordered_keys)}
+    target_indices = [
+        material_indices[material_key(source_materials[polygon.material_index].name)]
+        for polygon in body.data.polygons
+    ]
+    body.data.materials.clear()
+    for key in ordered_keys:
+        body.data.materials.append(materials[key])
+    for polygon, material_index in zip(body.data.polygons, target_indices):
+        polygon.material_index = material_index
 
-    for station in range(longitudinal_segments - 1):
-        first_ring = station * ring_segments
-        next_ring = (station + 1) * ring_segments
-        for ring_index in range(ring_segments):
-            next_index = (ring_index + 1) % ring_segments
-            faces.append(
-                (
-                    first_ring + ring_index,
-                    next_ring + ring_index,
-                    next_ring + next_index,
-                    first_ring + next_index,
-                )
-            )
+    body.scale = (0.72, 1.07, 1.22)
+    apply_rotation_and_scale(body)
+    edge_softening = body.modifiers.new("BodyEdgeSoftening", "BEVEL")
+    edge_softening.width = 0.018
+    edge_softening.segments = 1
+    edge_softening.limit_method = "ANGLE"
+    apply_modifier(body, edge_softening.name)
 
-    front_center_index = len(vertices)
-    vertices.append((0.0, controls[0][0], controls[0][2]))
-    rear_center_index = len(vertices)
-    vertices.append((0.0, controls[-1][0], controls[-1][2]))
-    for ring_index in range(ring_segments):
-        next_index = (ring_index + 1) % ring_segments
-        faces.append((front_center_index, next_index, ring_index))
-        rear_ring = (longitudinal_segments - 1) * ring_segments
-        faces.append((rear_center_index, rear_ring + ring_index, rear_ring + next_index))
+    bpy.ops.object.select_all(action="DESELECT")
+    body.select_set(True)
+    bpy.context.view_layer.objects.active = body
+    bpy.ops.object.mode_set(mode="EDIT")
+    bpy.ops.mesh.separate(type="MATERIAL")
+    bpy.ops.object.mode_set(mode="OBJECT")
+    separated = [
+        object_ for object_ in bpy.context.selected_objects if object_.type == "MESH"
+    ]
 
-    mesh = bpy.data.meshes.new("BlueRallyBodyShellMesh")
-    mesh.from_pydata(vertices, [], faces)
-    mesh.update()
-    object_ = bpy.data.objects.new("BodyShell", mesh)
-    bpy.context.collection.objects.link(object_)
-    object_.data.materials.append(material)
-    set_smooth(object_)
+    pieces: dict[str, list[bpy.types.Object]] = {}
+    for object_ in separated:
+        if not object_.data.polygons:
+            continue
+        polygon = object_.data.polygons[0]
+        material = object_.data.materials[polygon.material_index]
+        pieces.setdefault(material.name, []).append(object_)
 
-    subdivision = object_.modifiers.new("BodySurface", "SUBSURF")
-    subdivision.subdivision_type = "CATMULL_CLARK"
-    subdivision.levels = 1
-    subdivision.render_levels = 1
-    apply_modifier(object_, subdivision.name)
-    return object_
+    def require_piece(material_name: str, object_name: str) -> bpy.types.Object:
+        source_pieces = pieces.get(material_name, [])
+        if not source_pieces:
+            raise RuntimeError(f"A_R7 body is missing {material_name} geometry")
+        return join_objects(object_name, source_pieces)
+
+    body_shell = require_piece("M_BlueBody", "BodyShell")
+    canopy = require_piece("M_SmokedGlass", "Canopy")
+    aero_kit = require_piece("M_Graphite", "AeroKit")
+    light_parts = pieces.get("M_LampWhite", []) + pieces.get("M_TailRed", [])
+    headlights = join_objects("Headlights", light_parts)
+    return body_shell, canopy, aero_kit, headlights
 
 
 def create_wheel(
@@ -291,46 +293,63 @@ def create_wheel(
     materials: dict[str, bpy.types.Material],
 ) -> bpy.types.Object:
     x, y, z = location
-    outer_face_x = x + outward_sign * 0.17
+    outer_face_y = y + outward_sign * 0.09
     parts = [
-        create_cylinder(f"{name}_Tire", location, 0.39, 0.34, materials["graphite"], vertices=32),
-        create_torus(f"{name}_Rim", (outer_face_x, y, z), 0.215, 0.045, materials["metal"]),
+        create_torus(
+            f"{name}_Tire",
+            location,
+            0.305,
+            0.115,
+            materials["graphite"],
+        ),
+        create_torus(
+            f"{name}_Rim",
+            (x, outer_face_y, z),
+            0.205,
+            0.042,
+            materials["graphite"],
+            major_segments=22,
+            minor_segments=7,
+        ),
         create_cylinder(
             f"{name}_Hub",
-            (outer_face_x + outward_sign * 0.015, y, z),
-            0.075,
-            0.055,
+            (x, outer_face_y + outward_sign * 0.015, z),
+            0.072,
+            0.05,
             materials["yellow"],
-            vertices=20,
         ),
     ]
     for spoke_index in range(5):
         angle = math.tau * spoke_index / 5.0
-        radial_y = math.sin(angle)
-        radial_z = math.cos(angle)
-        spoke = create_beveled_cube(
-            f"{name}_Spoke_{spoke_index + 1}",
-            (
-                outer_face_x,
-                y + radial_y * 0.11,
-                z + radial_z * 0.11,
-            ),
-            (0.045, 0.060, 0.235),
-            materials["metal"],
-            bevel=0.012,
-            bevel_segments=1,
-            rotation=(angle, 0.0, 0.0),
+        parts.append(
+            create_beveled_cube(
+                f"{name}_Spoke_{spoke_index + 1}",
+                (
+                    x + math.cos(angle) * 0.11,
+                    outer_face_y,
+                    z + math.sin(angle) * 0.11,
+                ),
+                (0.245, 0.050, 0.065),
+                materials["graphite"],
+                bevel=0.012,
+                rotation=(0.0, -angle, 0.0),
+            )
         )
-        parts.append(spoke)
     wheel = join_objects(name, parts)
-    wheel["wheelRadius"] = 0.39
+    wheel["wheelRadius"] = 0.42
     wheel["steering"] = name.endswith("FL") or name.endswith("FR")
     return wheel
 
 
-def parent_to_root(root: bpy.types.Object, objects: list[bpy.types.Object]) -> None:
+def rotate_to_unity_coordinates(objects: list[bpy.types.Object]) -> None:
+    # Source vehicle forward is +X. Unity-facing Blender convention is -Y,
+    # with vehicle width on X and height on Z.
+    rotation = Matrix.Rotation(-math.pi * 0.5, 4, "Z")
     for object_ in objects:
-        object_.parent = root
+        if object_.type == "MESH":
+            object_.data.transform(rotation)
+            object_.data.update()
+        object_.location = rotation @ object_.location
 
 
 def triangulate_meshes(objects: list[bpy.types.Object]) -> None:
@@ -343,157 +362,90 @@ def triangulate_meshes(objects: list[bpy.types.Object]) -> None:
         apply_modifier(object_, modifier.name)
 
 
-def create_model() -> tuple[bpy.types.Object, list[bpy.types.Object], dict[str, bpy.types.Material]]:
+def create_model() -> tuple[
+    bpy.types.Object,
+    list[bpy.types.Object],
+    dict[str, bpy.types.Material],
+]:
     materials = {
-        "body": create_material("M_BlueBody", (0.012, 0.16, 0.88, 1.0), metallic=0.10, roughness=0.27),
-        "graphite": create_material("M_Graphite", (0.018, 0.025, 0.040, 1.0), metallic=0.05, roughness=0.48),
-        "glass": create_material("M_SmokedGlass", (0.012, 0.020, 0.034, 1.0), metallic=0.18, roughness=0.20),
-        "yellow": create_material("M_YellowAccent", (1.0, 0.58, 0.025, 1.0), metallic=0.02, roughness=0.34),
-        "metal": create_material("M_WheelMetal", (0.16, 0.19, 0.24, 1.0), metallic=0.72, roughness=0.28),
-        "lamp": create_material("M_LampWhite", (0.82, 0.94, 1.0, 1.0), metallic=0.0, roughness=0.18),
+        "body": create_material("M_BlueBody", (0.005, 0.055, 0.58, 1.0), 0.12, 0.22),
+        "graphite": create_material("M_Graphite", (0.012, 0.018, 0.028, 1.0), 0.12, 0.34),
+        "glass": create_material("M_SmokedGlass", (0.008, 0.014, 0.025, 1.0), 0.22, 0.16),
+        "yellow": create_material("M_YellowAccent", (1.0, 0.57, 0.012, 1.0), 0.02, 0.28),
+        "lamp": create_material("M_LampWhite", (0.90, 0.96, 1.0, 1.0), 0.0, 0.12),
+        "tail": create_material("M_TailRed", (1.0, 0.02, 0.01, 1.0), 0.0, 0.18),
     }
+
+    body, canopy, aero_kit, headlights = import_and_split_body(materials)
+    wheels = [
+        create_wheel("Wheel_FL", (0.86, -0.80, 0.22), -1.0, materials),
+        create_wheel("Wheel_FR", (0.86, 0.80, 0.22), 1.0, materials),
+        create_wheel("Wheel_RL", (-0.81, -0.80, 0.22), -1.0, materials),
+        create_wheel("Wheel_RR", (-0.81, 0.80, 0.22), 1.0, materials),
+    ]
+
+    wing = join_objects(
+        "RearWing",
+        [
+            create_beveled_cube("WingDeck", (-1.03, 0.0, 0.91), (0.22, 1.34, 0.09), materials["graphite"], 0.025),
+            create_beveled_cube("WingPostLeft", (-0.95, -0.40, 0.70), (0.10, 0.09, 0.42), materials["graphite"], 0.015),
+            create_beveled_cube("WingPostRight", (-0.95, 0.40, 0.70), (0.10, 0.09, 0.42), materials["graphite"], 0.015),
+            create_beveled_cube("WingTipLeft", (-1.03, -0.69, 0.92), (0.25, 0.08, 0.18), materials["yellow"], 0.018),
+            create_beveled_cube("WingTipRight", (-1.03, 0.69, 0.92), (0.25, 0.08, 0.18), materials["yellow"], 0.018),
+        ],
+    )
+
+    details = join_objects(
+        "RCDetails",
+        [
+            create_cylinder("HoodClipLeft", (0.88, -0.22, 0.72), 0.036, 0.045, materials["graphite"], rotation=(0.0, 0.0, 0.0)),
+            create_cylinder("HoodClipRight", (0.88, 0.22, 0.72), 0.036, 0.045, materials["graphite"], rotation=(0.0, 0.0, 0.0)),
+            create_cylinder("Antenna", (-0.20, 0.0, 1.06), 0.018, 0.28, materials["graphite"], 14, rotation=(0.0, 0.0, 0.0)),
+            create_uv_sphere("AntennaTip", (-0.20, 0.0, 1.21), 0.042, materials["graphite"]),
+            create_beveled_cube("SkirtAccentLeft", (0.0, -0.825, 0.14), (0.92, 0.035, 0.050), materials["yellow"], 0.012),
+            create_beveled_cube("SkirtAccentRight", (0.0, 0.825, 0.14), (0.92, 0.035, 0.050), materials["yellow"], 0.012),
+        ],
+    )
+
+    model_objects = [body, canopy, aero_kit, headlights, wing, details, *wheels]
+    rotate_to_unity_coordinates(model_objects)
+    triangulate_meshes(model_objects)
 
     root = bpy.data.objects.new("BlueRallyRC", None)
     root.empty_display_type = "CUBE"
     root.empty_display_size = 0.25
     bpy.context.collection.objects.link(root)
-
-    body_parts = [create_body_shell(materials["body"])]
-    for side in (-1.0, 1.0):
-        for y in (-0.72, 0.70):
-            body_parts.append(
-                create_uv_ellipsoid(
-                    f"Fender_{side}_{y}",
-                    (side * 0.73, y, 0.32),
-                    (0.27, 0.48, 0.27),
-                    materials["body"],
-                    segments=28,
-                    ring_count=14,
-                )
-            )
-    body = join_objects("BodyShell", body_parts)
-
-    canopy = create_uv_ellipsoid(
-        "Canopy",
-        (0.0, 0.04, 0.61),
-        (0.54, 0.69, 0.31),
-        materials["glass"],
-        segments=28,
-        ring_count=14,
-    )
-
-    aero_parts = [
-        create_beveled_cube("FrontSplitter", (0.0, -1.25, 0.09), (1.20, 0.22, 0.10), materials["graphite"], 0.040, 2),
-        create_beveled_cube("FrontIntake", (0.0, -1.245, 0.27), (0.72, 0.09, 0.15), materials["graphite"], 0.030, 2),
-        create_beveled_cube("FrontAccent", (0.0, -1.365, 0.115), (0.68, 0.040, 0.040), materials["yellow"], 0.016, 2),
-        create_beveled_cube("RearBumper", (0.0, 1.15, 0.14), (1.12, 0.19, 0.13), materials["graphite"], 0.040, 2),
-        create_beveled_cube("SkirtLeft", (-0.76, 0.0, 0.10), (0.11, 1.58, 0.12), materials["graphite"], 0.025, 2),
-        create_beveled_cube("SkirtRight", (0.76, 0.0, 0.10), (0.11, 1.58, 0.12), materials["graphite"], 0.025, 2),
-        create_beveled_cube("SkirtAccentLeft", (-0.823, 0.0, 0.14), (0.025, 0.78, 0.032), materials["yellow"], 0.01, 1),
-        create_beveled_cube("SkirtAccentRight", (0.823, 0.0, 0.14), (0.025, 0.78, 0.032), materials["yellow"], 0.01, 1),
-    ]
-    aero_kit = join_objects("AeroKit", aero_parts)
-
-    headlight_parts: list[bpy.types.Object] = []
-    for side in (-1.0, 1.0):
-        headlight_parts.append(
-            create_beveled_cube(
-                f"HeadlightHousing_{side}",
-                (side * 0.44, -1.105, 0.43),
-                (0.33, 0.14, 0.12),
-                materials["graphite"],
-                0.025,
-                2,
-                rotation=(0.0, 0.0, math.radians(side * 7.0)),
-            )
-        )
-        headlight_parts.append(
-            create_beveled_cube(
-                f"HeadlightLens_{side}",
-                (side * 0.44, -1.183, 0.435),
-                (0.245, 0.025, 0.067),
-                materials["lamp"],
-                0.014,
-                2,
-                rotation=(0.0, 0.0, math.radians(side * 7.0)),
-            )
-        )
-    headlights = join_objects("Headlights", headlight_parts)
-
-    wing_parts = [
-        create_beveled_cube("WingDeck", (0.0, 0.94, 0.86), (1.30, 0.25, 0.09), materials["graphite"], 0.032, 2),
-        create_beveled_cube("WingPostLeft", (-0.42, 0.91, 0.70), (0.080, 0.11, 0.30), materials["graphite"], 0.016, 1),
-        create_beveled_cube("WingPostRight", (0.42, 0.91, 0.70), (0.080, 0.11, 0.30), materials["graphite"], 0.016, 1),
-        create_beveled_cube("WingTipLeft", (-0.67, 0.94, 0.87), (0.085, 0.27, 0.19), materials["yellow"], 0.022, 2),
-        create_beveled_cube("WingTipRight", (0.67, 0.94, 0.87), (0.085, 0.27, 0.19), materials["yellow"], 0.022, 2),
-    ]
-    wing = join_objects("RearWing", wing_parts)
-
-    detail_parts = [
-        create_cylinder("HoodClipLeft", (-0.23, -0.55, 0.59), 0.036, 0.045, materials["graphite"], 16, rotation=(0.0, 0.0, 0.0)),
-        create_cylinder("HoodClipRight", (0.23, -0.55, 0.59), 0.036, 0.045, materials["graphite"], 16, rotation=(0.0, 0.0, 0.0)),
-        create_cylinder("Antenna", (0.20, 0.28, 0.91), 0.019, 0.40, materials["graphite"], 12, rotation=(0.0, 0.0, 0.0)),
-        create_uv_ellipsoid("AntennaTip", (0.20, 0.28, 1.12), (0.048, 0.048, 0.048), materials["yellow"], 16, 8),
-        create_uv_ellipsoid("MirrorLeft", (-0.65, -0.22, 0.58), (0.090, 0.060, 0.060), materials["graphite"], 16, 8),
-        create_uv_ellipsoid("MirrorRight", (0.65, -0.22, 0.58), (0.090, 0.060, 0.060), materials["graphite"], 16, 8),
-        create_beveled_cube("TailLightLeft", (-0.45, 1.105, 0.40), (0.25, 0.035, 0.09), materials["yellow"], 0.018, 2),
-        create_beveled_cube("TailLightRight", (0.45, 1.105, 0.40), (0.25, 0.035, 0.09), materials["yellow"], 0.018, 2),
-    ]
-    details = join_objects("RCDetails", detail_parts)
-
-    wheels = [
-        create_wheel("Wheel_FL", (-0.91, -0.72, 0.12), -1.0, materials),
-        create_wheel("Wheel_FR", (0.91, -0.72, 0.12), 1.0, materials),
-        create_wheel("Wheel_RL", (-0.91, 0.70, 0.12), -1.0, materials),
-        create_wheel("Wheel_RR", (0.91, 0.70, 0.12), 1.0, materials),
-    ]
-
-    model_objects = [body, canopy, aero_kit, headlights, wing, details, *wheels]
-    parent_to_root(root, model_objects)
-    triangulate_meshes(model_objects)
     for object_ in model_objects:
+        object_.parent = root
         object_.select_set(False)
     return root, model_objects, materials
 
 
-def setup_preview(root: bpy.types.Object) -> None:
-    bpy.ops.object.camera_add(location=(4.1, -5.4, 3.25))
+def setup_preview() -> None:
+    bpy.ops.object.camera_add(location=(4.3, -5.2, 2.4))
     camera = bpy.context.object
     camera.name = "PreviewCamera"
+    direction = Vector((0.0, 0.0, 0.43)) - camera.location
+    camera.rotation_euler = direction.to_track_quat("-Z", "Y").to_euler()
+    camera.data.lens = 58
     bpy.context.scene.camera = camera
 
-    def point_at(object_: bpy.types.Object, target: tuple[float, float, float]) -> None:
-        direction = bpy.mathutils.Vector(target) - object_.location
-        object_.rotation_euler = direction.to_track_quat("-Z", "Y").to_euler()
+    for name, location, energy, size in (
+        ("PreviewKey", (-3.0, -4.0, 6.0), 950.0, 5.0),
+        ("PreviewFill", (4.0, 2.0, 3.0), 550.0, 4.0),
+    ):
+        bpy.ops.object.light_add(type="AREA", location=location)
+        light = bpy.context.object
+        light.name = name
+        light.data.energy = energy
+        light.data.size = size
 
-    # mathutils is exposed through Blender's module namespace in supported versions.
-    if not hasattr(bpy, "mathutils"):
-        import mathutils
-
-        direction = mathutils.Vector((0.0, 0.0, 0.42)) - camera.location
-        camera.rotation_euler = direction.to_track_quat("-Z", "Y").to_euler()
-    else:
-        point_at(camera, (0.0, 0.0, 0.42))
-    camera.data.lens = 56
-
-    bpy.ops.object.light_add(type="AREA", location=(-3.0, -4.0, 6.0))
-    key_light = bpy.context.object
-    key_light.name = "PreviewKey"
-    key_light.data.energy = 900.0
-    key_light.data.shape = "DISK"
-    key_light.data.size = 5.0
-
-    bpy.ops.object.light_add(type="AREA", location=(3.5, 1.5, 3.2))
-    fill_light = bpy.context.object
-    fill_light.name = "PreviewFill"
-    fill_light.data.energy = 520.0
-    fill_light.data.size = 4.0
-
-    bpy.ops.mesh.primitive_plane_add(size=20.0, location=(0.0, 0.0, -0.275))
+    bpy.ops.mesh.primitive_plane_add(size=20.0, location=(0.0, 0.0, -0.20))
     ground = bpy.context.object
     ground.name = "PreviewGround"
-    ground_material = create_material("M_PreviewGround", (0.055, 0.065, 0.082, 1.0), roughness=0.62)
-    ground.data.materials.append(ground_material)
+    ground.data.materials.append(
+        create_material("M_PreviewGround", (0.55, 0.57, 0.61, 1.0), 0.0, 0.70)
+    )
 
     scene = bpy.context.scene
     scene.render.engine = "BLENDER_EEVEE"
@@ -503,8 +455,7 @@ def setup_preview(root: bpy.types.Object) -> None:
     scene.render.image_settings.file_format = "PNG"
     scene.render.filepath = str(PREVIEW_PATH)
     scene.render.film_transparent = False
-    scene.world.color = (0.025, 0.035, 0.055)
-    scene.render.image_settings.color_mode = "RGBA"
+    scene.world.color = (0.65, 0.67, 0.72)
     bpy.ops.render.render(write_still=True)
 
 
@@ -534,7 +485,10 @@ def export_model(root: bpy.types.Object, model_objects: list[bpy.types.Object]) 
     )
 
 
-def write_report(model_objects: list[bpy.types.Object], materials: dict[str, bpy.types.Material]) -> None:
+def write_report(
+    model_objects: list[bpy.types.Object],
+    materials: dict[str, bpy.types.Material],
+) -> None:
     object_triangles = {
         object_.name: len(object_.data.polygons)
         for object_ in model_objects
@@ -551,6 +505,8 @@ def write_report(model_objects: list[bpy.types.Object], materials: dict[str, bpy
         "materials": sorted(material.name for material in materials.values()),
         "fbx": str(FBX_PATH.relative_to(PROJECT_ROOT)),
         "sourceBlend": str(BLEND_PATH.relative_to(PROJECT_ROOT)),
+        "baseMesh": str(SOURCE_BODY_PATH.relative_to(PROJECT_ROOT)),
+        "baseMeshLicense": "CC0",
     }
     REPORT_PATH.write_text(json.dumps(report, indent=2) + "\n", encoding="utf-8")
     if not report["withinTarget"]:
@@ -572,7 +528,7 @@ def main() -> None:
     write_report(model_objects, materials)
     bpy.ops.wm.save_as_mainfile(filepath=str(BLEND_PATH), check_existing=False)
     export_model(root, model_objects)
-    setup_preview(root)
+    setup_preview()
 
 
 if __name__ == "__main__":

@@ -39,11 +39,17 @@ namespace RCWeeklyTimeAttack.Tests
         }
 
         [Test]
-        public void Fbx_ExposesFourIndependentWheelObjects()
+        public void Fbx_ExposesSeparatedVisualPartsAndFourIndependentWheels()
         {
             GameObject prefab = Resources.Load<GameObject>(ResourcePath);
 
             Assert.That(prefab, Is.Not.Null, $"Missing Resources/{ResourcePath}.fbx");
+            Assert.That(FindDescendant(prefab.transform, "BodyShell"), Is.Not.Null);
+            Assert.That(FindDescendant(prefab.transform, "Canopy"), Is.Not.Null);
+            Assert.That(FindDescendant(prefab.transform, "AeroKit"), Is.Not.Null);
+            Assert.That(FindDescendant(prefab.transform, "Headlights"), Is.Not.Null);
+            Assert.That(FindDescendant(prefab.transform, "RearWing"), Is.Not.Null);
+            Assert.That(FindDescendant(prefab.transform, "RCDetails"), Is.Not.Null);
             Assert.That(FindDescendant(prefab.transform, "Wheel_FL"), Is.Not.Null);
             Assert.That(FindDescendant(prefab.transform, "Wheel_FR"), Is.Not.Null);
             Assert.That(FindDescendant(prefab.transform, "Wheel_RL"), Is.Not.Null);

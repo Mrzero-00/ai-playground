@@ -24,7 +24,7 @@ EXPECTED_MATERIALS = {
     "M_Graphite",
     "M_LampWhite",
     "M_SmokedGlass",
-    "M_WheelMetal",
+    "M_TailRed",
     "M_YellowAccent",
 }
 

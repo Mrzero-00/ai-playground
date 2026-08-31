@@ -34,18 +34,6 @@ const AXIS_DESCRIPTIONS = {
   JP: { P: "놀이와 순간의 재미를 따라가요", J: "신중하고 예측 가능한 리듬을 좋아해요" },
 } as const;
 
-const BEHAVIOR_CHECK_ITEMS = [
-  "식욕이 눈에 띄게 달라졌어요",
-  "활동량이 갑자기 크게 줄었어요",
-  "숨는 시간이 부쩍 늘었어요",
-  "공격 행동이 갑자기 늘었어요",
-  "화장실·배변 습관이 달라졌어요",
-  "그루밍이 크게 늘거나 줄었어요",
-  "울음소리가 갑자기 많아졌어요",
-];
-
-const BEHAVIOR_CHECK_CLEAR = "해당하는 변화가 없어요";
-
 const SHARE_CARD_META = [
   { title: "냥BTI 대표 결과", description: "캐릭터와 냥BTI 유형을 한눈에 보여주는 첫 장" },
   { title: "나다운 순간", description: "평소 행동에서 발견한 대표 성향과 강점" },
@@ -65,7 +53,6 @@ export default function ResultPage() {
   const [shareStatus, setShareStatus] = useState("");
   const [shareFiles, setShareFiles] = useState<{ name: string; url: string }[]>([]);
   const [isCreatingCards, setIsCreatingCards] = useState(false);
-  const [checkedSignals, setCheckedSignals] = useState<string[]>([]);
 
   const completed = getCompletedAnswerCount(answers);
   const result = useMemo(() => scoreSurvey(answers), [answers]);
@@ -172,6 +159,8 @@ export default function ResultPage() {
           <p className="result-description">{content.description}</p>
         </div>
       </section>
+
+      <AdSlot placement="result-between-sections" />
 
       <section className="card section-card result-section" aria-labelledby="axis-title">
         <p className="section-number">01</p>
@@ -300,8 +289,6 @@ export default function ResultPage() {
         </section>
       ) : null}
 
-      <AdSlot placement="result-between-sections" />
-
       <section className="card section-card result-section" aria-labelledby="careful-title">
         <p className="section-number">04</p>
         <h2 className="section-heading" id="careful-title">조심해서 살펴볼 부분</h2>
@@ -329,60 +316,6 @@ export default function ResultPage() {
             </article>
           ))}
         </div>
-      </section>
-
-      <section className="behavior-check" aria-labelledby="behavior-title">
-        <div className="behavior-check__heading">
-          <span aria-hidden="true">＋</span>
-          <div>
-            <p className="eyebrow">BEHAVIOR CHECK</p>
-            <h2 id="behavior-title">최근 달라진 행동이 있나요?</h2>
-          </div>
-        </div>
-        <p>냥BTI 점수와는 별개예요. 평소와 다른 변화만 가볍게 확인해 보세요.</p>
-        <div className="behavior-options">
-          {BEHAVIOR_CHECK_ITEMS.map((item) => {
-            const checked = checkedSignals.includes(item);
-            return (
-              <label key={item} className={checked ? "is-checked" : ""}>
-                <input
-                  type="checkbox"
-                  checked={checked}
-                  onChange={() =>
-                    setCheckedSignals((current) =>
-                      checked
-                        ? current.filter((value) => value !== item)
-                        : [...current.filter((value) => value !== BEHAVIOR_CHECK_CLEAR), item],
-                    )
-                  }
-                />
-                <span>{item}</span>
-              </label>
-            );
-          })}
-          <label className={checkedSignals.includes(BEHAVIOR_CHECK_CLEAR) ? "is-checked" : ""}>
-            <input
-              type="checkbox"
-              checked={checkedSignals.includes(BEHAVIOR_CHECK_CLEAR)}
-              onChange={() =>
-                setCheckedSignals((current) =>
-                  current.includes(BEHAVIOR_CHECK_CLEAR) ? [] : [BEHAVIOR_CHECK_CLEAR],
-                )
-              }
-            />
-            <span>{BEHAVIOR_CHECK_CLEAR}</span>
-          </label>
-        </div>
-        {checkedSignals.some((item) => item !== BEHAVIOR_CHECK_CLEAR) ? (
-          <p className="behavior-alert" role="status">
-            이런 변화가 계속되거나 통증·식욕 저하가 함께 보인다면 기록해 두고 수의사와 상담해 주세요.
-            이 안내는 질병을 판단하거나 진단하지 않습니다.
-          </p>
-        ) : checkedSignals.includes(BEHAVIOR_CHECK_CLEAR) ? (
-          <p className="behavior-clear">평소 모습을 꾸준히 관찰해 주세요.</p>
-        ) : (
-          <p className="behavior-clear">해당하는 항목을 선택해 주세요. 이 선택은 냥BTI 점수에 반영되지 않아요.</p>
-        )}
       </section>
 
       <section className="share-card" aria-labelledby="share-title">

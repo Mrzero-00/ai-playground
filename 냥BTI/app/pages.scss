@@ -531,9 +531,11 @@
 .compatibility-empty h2 { margin-bottom: 4px; font-size: 17px; }
 .compatibility-empty p { margin: 0; color: var(--muted); font-size: 12px; line-height: 1.5; }
 
-.ad-slot { display: grid; min-height: 84px; place-content: center; gap: 4px; margin: 16px 0; border: 1px dashed #d5cec4; border-radius: 18px; background: rgb(255 255 255 / 48%); color: #aaa39a; text-align: center; }
-.ad-slot span { font-size: 10px; font-weight: 900; letter-spacing: 0.2em; }
-.ad-slot p { margin: 0; font-size: 10px; }
+.ad-slot { width: 100%; margin: 16px 0; }
+.ad-slot--live { display: block; min-height: 0; overflow: visible; }
+.ad-slot--placeholder { display: grid; min-height: 96px; place-content: center; gap: 4px; border: 1px dashed #d5cec4; border-radius: 18px; background: rgb(255 255 255 / 48%); color: #aaa39a; text-align: center; }
+.ad-slot--placeholder span { font-size: 10px; font-weight: 900; letter-spacing: 0.2em; }
+.ad-slot--placeholder p { margin: 0; font-size: 10px; }
 
 .split-content { display: grid; gap: 13px; margin-top: 18px; }
 .split-content > div { border-radius: 18px; padding: 16px; background: #f5f1eb; }
@@ -548,19 +550,6 @@
 .care-grid h3 { margin: 14px 0 7px; font-size: 14px; }
 .care-grid p { margin: 0; color: var(--muted); font-size: 11px; line-height: 1.65; }
 
-.behavior-check { margin-top: 16px; border-radius: var(--radius-lg); padding: 24px 20px; background: #eaf0ec; }
-.behavior-check__heading { display: flex; align-items: center; gap: 12px; }
-.behavior-check__heading > span { display: grid; min-width: 42px; height: 42px; place-items: center; border-radius: 50%; background: #5a7e71; color: #fff; font-size: 24px; }
-.behavior-check .eyebrow { margin-bottom: 3px; color: #5a7e71; }
-.behavior-check h2 { margin: 0; font-size: 20px; }
-.behavior-check > p { margin: 15px 0; color: #627069; font-size: 12px; line-height: 1.6; }
-.behavior-options { display: grid; gap: 7px; }
-.behavior-options label { display: grid; grid-template-columns: 18px 1fr; align-items: center; gap: 9px; border-radius: 12px; padding: 10px 11px; background: rgb(255 255 255 / 60%); color: #56615c; font-size: 12px; cursor: pointer; }
-.behavior-options input { width: 17px; height: 17px; accent-color: #5a7e71; }
-.behavior-options label.is-checked { background: #fff; color: #2f5145; font-weight: 750; }
-.behavior-alert, .behavior-clear { border-radius: 12px; padding: 12px !important; font-size: 11px !important; }
-.behavior-alert { background: #fff0dc; color: #7d5b2d !important; }
-.behavior-clear { background: rgb(255 255 255 / 52%); }
 
 .share-card { position: relative; margin-top: 16px; overflow: hidden; border-radius: var(--radius-lg); padding: 30px 22px 22px; background: #ffd47e; box-shadow: var(--shadow); }
 .share-card__stamp { position: absolute; top: 20px; right: 17px; font-size: 50px; opacity: 0.22; transform: rotate(18deg); }

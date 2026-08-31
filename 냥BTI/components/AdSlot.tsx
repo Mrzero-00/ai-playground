@@ -39,7 +39,11 @@ export function AdSlot({ placement }: AdSlotProps) {
   if (!isSupported && !showDevelopmentPlaceholder) return null;
 
   return (
-    <aside ref={containerRef} className="ad-slot" aria-label="광고 영역">
+    <aside
+      ref={containerRef}
+      className={`ad-slot${showDevelopmentPlaceholder ? " ad-slot--placeholder" : " ad-slot--live"}`}
+      aria-label="광고 영역"
+    >
       {showDevelopmentPlaceholder ? (
         <>
           <span>AD</span>

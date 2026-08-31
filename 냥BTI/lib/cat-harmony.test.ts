@@ -9,6 +9,15 @@ describe("calculateCatHarmony", () => {
     const result = calculateCatHarmony(traits(60), traits(60));
     expect(result.score).toBe(100);
     expect(result.dimensions).toHaveLength(4);
+    expect(result.dimensions[0]).toMatchObject({
+      key: "social",
+      label: "교류 욕구",
+      lowLabel: "혼자 회복",
+      highLabel: "먼저 다가감",
+      difference: 0,
+    });
+    expect(result.dimensions[0].comparison).toContain("첫 번째 고양이");
+    expect(result.dimensions[0].tip.length).toBeGreaterThan(20);
     expect(result.careGuides).toHaveLength(2);
     expect(result.commonCautions).toHaveLength(3);
   });
@@ -30,5 +39,10 @@ describe("calculateCatHarmony", () => {
     expect(result.careGuides[1].cautions.join(" ")).toContain("구름");
     expect(result.sharedTips.join(" ")).toContain("조심스러운 고양이");
     expect(result.sharedTips.length).toBeGreaterThanOrEqual(2);
+    expect(result.dimensions[0].firstReading).toMatchObject({ level: "높음", title: "먼저 다가가는 편" });
+    expect(result.dimensions[0].secondReading).toMatchObject({ level: "낮음", title: "혼자 회복하는 편" });
+    expect(result.dimensions[0].comparison).toContain("보리");
+    expect(result.dimensions[0].comparison).toContain("구름");
+    expect(result.dimensions[0].tip).toContain("숨숨집");
   });
 });

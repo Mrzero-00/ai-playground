@@ -24,6 +24,12 @@ interface HarmonyCandidate {
   source: "local" | "shared";
 }
 
+function getDifferenceLabel(difference: number) {
+  if (difference < 16) return { label: "리듬이 비슷해요", tone: "similar" };
+  if (difference < 31) return { label: "속도가 조금 달라요", tone: "different" };
+  return { label: "배려가 필요한 차이", tone: "attention" };
+}
+
 export default function HarmonyPage() {
   const router = useRouter();
   const hydrated = useStoreHydration();
@@ -102,7 +108,59 @@ export default function HarmonyPage() {
       </section>
       {report && first && second ? <>
         <section className="harmony-summary"><p>{first.name} × {second.name}</p><strong>{report.score}<small>%</small></strong><span>생활 리듬 유사도</span><h2>{report.title}</h2><p>점수는 관찰된 성향의 생활 리듬이 얼마나 비슷한지를 재미로 표현한 값이에요.</p></section>
-        <section className="card section-card harmony-report"><h2 className="section-heading">생활 리듬 나란히 보기</h2><div className="harmony-legend"><span><i />{first.name}</span><span><i />{second.name}</span></div>{report.dimensions.map((item) => <article key={item.label}><h3>{item.label}<small>{item.difference < 16 ? "비슷해요" : item.difference < 31 ? "조금 달라요" : "차이가 있어요"}</small></h3><div className="harmony-bars"><span style={{ width: `${item.first}%` }} /><span style={{ width: `${item.second}%` }} /></div><p>{item.note}</p></article>)}</section>
+        <section className="card section-card harmony-report">
+          <div className="harmony-report__intro">
+            <p className="eyebrow">RHYTHM MAP</p>
+            <h2 className="section-heading">생활 리듬 나란히 보기</h2>
+            <p>숫자가 높고 낮은 것은 좋고 나쁨이 아니에요. 두 고양이가 언제 편안하고, 어느 순간 서로의 속도가 어긋날 수 있는지 살펴보세요.</p>
+          </div>
+          <div className="harmony-legend" aria-label="비교 고양이 색상 안내">
+            <span><i />{first.name}</span>
+            <span><i />{second.name}</span>
+          </div>
+          <div className="harmony-dimension-list">
+            {report.dimensions.map((item) => {
+              const difference = getDifferenceLabel(item.difference);
+              const readings = [
+                { name: first.name, score: item.first, reading: item.firstReading, className: "is-first" },
+                { name: second.name, score: item.second, reading: item.secondReading, className: "is-second" },
+              ];
+              return (
+                <article className="harmony-dimension" key={item.key}>
+                  <header className="harmony-dimension__header">
+                    <span className="harmony-dimension__icon" aria-hidden="true">{item.icon}</span>
+                    <div>
+                      <h3>{item.label}</h3>
+                      <p>{item.description}</p>
+                    </div>
+                    <span className={`harmony-difference is-${difference.tone}`}>
+                      {difference.label}<b>{item.difference}점 차이</b>
+                    </span>
+                  </header>
+                  <div className="harmony-scale-labels" aria-hidden="true"><span>{item.lowLabel}</span><span>{item.highLabel}</span></div>
+                  <div className="harmony-readings">
+                    {readings.map(({ name, score, reading, className }) => (
+                      <div className={`harmony-reading ${className}`} key={name}>
+                        <div className="harmony-reading__heading">
+                          <span><i />{name}</span>
+                          <div><em>{reading.level}</em><strong>{score}</strong><small>/100</small></div>
+                        </div>
+                        <div className="harmony-meter" role="meter" aria-label={`${name} ${item.label} ${score}점`} aria-valuemin={0} aria-valuemax={100} aria-valuenow={score}>
+                          <i style={{ width: `${score}%` }} />
+                        </div>
+                        <p><b>{reading.title}</b>{reading.description}</p>
+                      </div>
+                    ))}
+                  </div>
+                  <div className="harmony-interpretation">
+                    <div><strong>둘이 함께 있을 때</strong><p>{item.comparison}</p></div>
+                    <div className="harmony-action"><strong>이렇게 도와주세요</strong><p>{item.tip}</p></div>
+                  </div>
+                </article>
+              );
+            })}
+          </div>
+        </section>
         <section className="card section-card individual-care"><p className="eyebrow">INDIVIDUAL CARE</p><h2 className="section-heading">고양이별로 살펴볼 점</h2><div className="individual-care__grid">{report.careGuides.map((guide, index) => {
           const candidate = index === 0 ? first : second;
           return <article key={`${guide.name}-${index}`} className={index === 0 ? "is-first" : "is-second"}><h3><span className="individual-care__avatar" aria-hidden="true"><Image src={CHARACTER_ASSETS[candidate.code]} alt="" width={80} height={80} /></span>{guide.name}에게</h3><p>{guide.summary}</p><ul>{guide.cautions.map((tip) => <li key={tip}>{tip}</li>)}</ul></article>;

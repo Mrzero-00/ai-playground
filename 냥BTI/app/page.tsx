@@ -43,17 +43,17 @@ export default function HomePage() {
 
   return (
     <main className="screen screen--warm home-screen">
-      <AppHeader trailing={<span className="chip">행동 성향 테스트</span>} />
+      <AppHeader trailing={<span className="chip">행동 성향 · 생활 궁합</span>} />
 
       <section className="home-hero">
         <p className="eyebrow">MY CAT, SIX TRAITS</p>
         <h1 className="display-title">
-          우리 고양이의
-          <br />진짜 성향은?
+          우리 고양이를 이해하고
+          <br />함께 사는 방법까지
         </h1>
         <p className="lead">
-          최근 4주의 일상 행동 30가지를 떠올리며
-          <br />여섯 가지 성향과 냥BTI를 알아봐요.
+          최근 4주의 행동 30가지를 떠올려 보세요.
+          <br />성향을 알아보고 생활 궁합도 살펴봐요.
         </p>
 
         <div className="home-cat" role="img" aria-label="탐험을 떠나는 냥BTI 고양이 캐릭터">
@@ -67,6 +67,17 @@ export default function HomePage() {
             aria-hidden="true"
           />
         </div>
+      </section>
+
+      <section className="home-service-guide" aria-labelledby="service-guide-title">
+        <p className="eyebrow">WHAT YOU CAN SEE</p>
+        <h2 id="service-guide-title">성향부터 관계까지 한 번에 봐요</h2>
+        <div className="home-service-guide__grid">
+          <article><span aria-hidden="true">01</span><h3>고양이 행동 성향</h3><p>평소 행동을 여섯 가지 연속 성향과 16가지 캐릭터로 정리해요.</p></article>
+          <article><span aria-hidden="true">02</span><h3>고양이 × 집사</h3><p>집사 MBTI와 고양이 성향을 비교해 편안한 생활 리듬을 찾아요.</p></article>
+          <article><span aria-hidden="true">03</span><h3>고양이 × 고양이</h3><p>여러 고양이의 거리·놀이·환경 적응을 비교하고 생활 팁을 확인해요.</p></article>
+        </div>
+        <p className="home-service-guide__optional">한 마리만 검사해도 괜찮아요. 다른 고양이 추가와 고양이끼리 궁합 보기는 선택 기능이에요.</p>
       </section>
 
       {cats.length > 1 ? (
@@ -127,7 +138,7 @@ export default function HomePage() {
           </>
         ) : (
           <Link className="button button--primary button--wide" href="/profile">
-            냥BTI 시작하기
+            우리 고양이 성향 알아보기
             <span aria-hidden="true">→</span>
           </Link>
         )}
@@ -143,8 +154,8 @@ export default function HomePage() {
       <AdSlot placement="home-after-primary-action" />
 
       <p className="disclaimer home-disclaimer">
-        냥BTI는 보호자가 관찰한 행동을 이해하기 위한 엔터테인먼트 콘텐츠이며,
-        성격 검사나 수의학적 진단을 대신하지 않아요.
+        보호자의 관찰을 바탕으로 한 엔터테인먼트 콘텐츠예요. 성격·건강·행동 문제를 진단하거나
+        합사 성공 여부를 판단하지 않아요.
       </p>
     </main>
   );

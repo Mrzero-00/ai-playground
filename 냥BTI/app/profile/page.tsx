@@ -107,7 +107,8 @@ export default function ProfilePage() {
       <AppHeader backHref="/" />
       <p className="eyebrow">CAT PROFILE</p>
       <h1 className="form-title">{form.name ? `${form.name}의 프로필을\n확인해 주세요` : cats.length > 1 ? "새 고양이를\n소개해 주세요" : "먼저 고양이를\n소개해 주세요"}</h1>
-      <p className="lead form-lead">결과 문구를 더 다정하게 만드는 정보예요. 성향 점수에는 사용하지 않아요.</p>
+      <p className="lead form-lead">고양이의 기본 정보를 알려주세요. 성향은 행동 답변으로 계산하고, 집사 MBTI는 생활 궁합에만 사용해요.</p>
+      <p className="profile-optional-note">여러 마리와 산다면 한 마리씩 검사해 주세요. 다른 고양이 추가는 선택 기능이에요.</p>
 
       <form className="profile-form" onSubmit={handleSubmit} noValidate>
         <label className="field">
@@ -222,7 +223,7 @@ export default function ProfilePage() {
               <option key={code} value={code}>{code}</option>
             ))}
           </select>
-          <span className="field__help">모름을 선택해도 냥BTI 결과는 동일하게 볼 수 있어요.</span>
+          <span className="field__help">집사와 고양이의 생활 궁합에만 사용해요. ‘잘 모르겠어요’를 선택해도 성향 결과는 볼 수 있어요.</span>
         </label>
 
         {submitted && !isValid ? (

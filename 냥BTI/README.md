@@ -1,6 +1,6 @@
 # 냥BTI
 
-30개의 일상 행동 문항으로 고양이의 6개 연속 성향을 계산하고, 이를 4축 냥BTI와 16개 결과 유형으로 보여주는 모바일 우선 MVP입니다. 집사의 사람 MBTI를 생활 상호작용 프로필로 변환해 고양이의 실제 Trait과 비교하는 재미용 궁합도 제공합니다.
+30개의 일상 행동 문항으로 고양이의 6개 연속 성향을 계산하고, 이를 4축 냥BTI와 16개 결과 유형으로 보여주는 모바일 우선 MVP입니다. 집사와 고양이의 생활 궁합, 여러 고양이끼리의 생활 궁합, 공유받은 고양이와 내 고양이의 궁합도 제공합니다.
 
 ## 현재 상태
 
@@ -13,8 +13,8 @@
 - 16개 유형별 카툰 캐릭터·이름·설명·주의점·관찰 신호·관리 팁
 - 16개 사람 MBTI Interaction Profile과 연속 Trait 기반 생활 궁합
 - 여러 고양이 프로필·검사 결과 관리와 고양이 간 생활 조화 리포트
-- Behavior Check와 비진단 안내
-- 인스타용 4:5 결과 카드 5장 생성·미리보기·공유·PNG 저장
+- 엔터테인먼트·비진단·비합사판정 안내
+- 앱인토스 공식 딥링크 결과 공유와 공유받은 고양이 궁합
 - App in Toss Safe Area·공유·광고/WebView adapter
 - 정적 내보내기(`output: "export"`)와 자동 검증 워크플로
 
@@ -50,8 +50,9 @@ pnpm build
 | `/` | 서비스 소개, 새 테스트, 이어하기 |
 | `/profile` | 이름, 생년월일, 품종, 성별, 중성화 여부, 집사 MBTI 입력 |
 | `/questions` | 최근 4주 행동을 기준으로 30개 문항 응답 |
-| `/result` | 캐릭터 Hero, 냥BTI, 4축, 6 Trait, 궁합, 관리, Behavior Check, 공유 |
+| `/result` | 캐릭터 Hero, 냥BTI, 4축, 6 Trait, 집사·고양이 궁합, 관리, 공유 진입 |
 | `/harmony` | 완료된 두 고양이의 생활 조화, 개별·공통 관리 팁 |
+| `/share` | 링크 수신자용 공유 결과와 고양이 간 생활 궁합 진입 |
 
 직접 URL로 진입했을 때 필요한 저장 상태가 없으면 앞 단계로 돌려보냅니다. 프로필과 설문 상태는 현재 기기의 `localStorage`에만 저장됩니다. 문항이나 계산식 버전이 달라지면 이전 답변은 자동 초기화하고 프로필만 유지합니다.
 
@@ -85,6 +86,8 @@ P = playfulness × 0.55 + activity × 0.30 + adaptability × 0.15
 - [`docs/guardian-mbti-compatibility-design.md`](docs/guardian-mbti-compatibility-design.md) — 집사 궁합 설계
 - [`docs/character-asset-guide.md`](docs/character-asset-guide.md) — 16종 카툰 자산과 생성 프롬프트
 - [`docs/app-in-toss-checklist.md`](docs/app-in-toss-checklist.md) — 출시 전 공식 요구사항 체크리스트
+- [`docs/user-guide.md`](docs/user-guide.md) — 사용자용 기능·결과·공유 안내
+- [`docs/app-in-toss-listing-copy.md`](docs/app-in-toss-listing-copy.md) — 콘솔 등록용 소개와 주요 기능 문구
 - [`docs/remaining-tasks.md`](docs/remaining-tasks.md) — 사용자 승인·실기기·외부 검토가 필요한 잔여 작업
 
 ## 남은 작업

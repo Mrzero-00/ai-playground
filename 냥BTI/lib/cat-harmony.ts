@@ -1,4 +1,5 @@
 import type { TraitScores } from "@/types/nyangbti";
+import { withJosa } from "@/lib/korean";
 
 export interface HarmonyDimension {
   label: string;
@@ -25,17 +26,17 @@ const level = (value: number) => value >= 67 ? "high" : value <= 33 ? "low" : "m
 
 function buildCareGuide(name: string, traits: TraitScores): HarmonyCareGuide {
   const cautions: string[] = [];
-  if (level(traits.sociability) === "high") cautions.push(`${name}가 먼저 다가가더라도 다른 고양이의 숨는 곳이나 쉬는 자리를 따라가 점유하지 않는지 살펴봐 주세요.`);
+  if (level(traits.sociability) === "high") cautions.push(`${withJosa(name, "이/가")} 먼저 다가가더라도 다른 고양이를 숨는 곳이나 쉬는 자리까지 따라가 공간을 차지하지 않는지 살펴봐 주세요.`);
   if (level(traits.sociability) === "low") cautions.push(`${name}에게는 혼자 머물 수 있는 자리와 먼저 물러날 동선을 남겨두고, 접촉을 서두르지 마세요.`);
   if (level(traits.activity) === "high" || level(traits.playfulness) === "high") cautions.push(`${name}의 놀이 에너지는 하루 여러 번 짧게 풀어주고, 다른 고양이를 쫓는 행동이 놀이로 굳어지지 않게 전환해 주세요.`);
-  if (level(traits.activity) === "low" && level(traits.playfulness) === "low") cautions.push(`${name}가 쉬는 시간에는 갑작스러운 놀이 유도보다 조용히 관찰하고, 짧고 부담 없는 활동부터 제안해 주세요.`);
+  if (level(traits.activity) === "low" && level(traits.playfulness) === "low") cautions.push(`${withJosa(name, "이/가")} 쉬는 시간에는 갑작스러운 놀이 유도보다 조용히 관찰하고, 짧고 부담 없는 활동부터 제안해 주세요.`);
   if (level(traits.boldness) === "low" || level(traits.adaptability) === "low") cautions.push(`${name}의 식기·화장실·숨는 장소 위치는 한꺼번에 바꾸지 말고, 새 환경은 냄새와 시야부터 천천히 익히게 해주세요.`);
-  if (level(traits.boldness) === "high" && level(traits.adaptability) === "high") cautions.push(`${name}가 새 공간과 자원을 먼저 차지할 수 있으니, 다른 고양이도 방해받지 않고 접근하는지 확인해 주세요.`);
-  if (level(traits.sensitivity) === "high") cautions.push(`${name}는 소리와 움직임에 긴장할 수 있어요. 조용한 피난처와 높은 관찰 자리를 생활 구역마다 마련해 주세요.`);
-  if (level(traits.sensitivity) === "low") cautions.push(`${name}가 상대의 경고 신호를 지나치지 않도록 응시·길막·꼬리 흔들기 같은 작은 신호도 보호자가 중간에서 끊어주세요.`);
+  if (level(traits.boldness) === "high" && level(traits.adaptability) === "high") cautions.push(`${withJosa(name, "이/가")} 새 공간과 자원을 먼저 차지할 수 있으니, 다른 고양이도 방해받지 않고 접근하는지 확인해 주세요.`);
+  if (level(traits.sensitivity) === "high") cautions.push(`${withJosa(name, "은/는")} 소리와 움직임에 긴장할 수 있어요. 조용한 피난처와 높은 관찰 자리를 생활 구역마다 마련해 주세요.`);
+  if (level(traits.sensitivity) === "low") cautions.push(`${withJosa(name, "이/가")} 상대의 경고 신호를 놓치지 않도록 응시·길막·꼬리 흔들기 같은 작은 신호가 보이면 보호자가 개입해 행동을 끊어 주세요.`);
 
   if (cautions.length < 2) {
-    cautions.push(`${name}가 밥, 물, 화장실, 잠자리에 평소처럼 접근하는지 매일 살펴보고 작은 변화도 기록해 주세요.`);
+    cautions.push(`${withJosa(name, "이/가")} 밥, 물, 화장실, 잠자리에 평소처럼 접근하는지 매일 살펴보고 작은 변화도 기록해 주세요.`);
   }
 
   const energy = roundedAverage(traits.activity, traits.playfulness);
@@ -65,7 +66,7 @@ export function calculateCatHarmony(first: TraitScores, second: TraitScores, opt
   const energyDifference = Math.abs(roundedAverage(first.activity, first.playfulness) - roundedAverage(second.activity, second.playfulness));
   const changeDifference = Math.abs(roundedAverage(first.boldness, first.adaptability) - roundedAverage(second.boldness, second.adaptability));
   const sensitivityDifference = Math.abs(first.sensitivity - second.sensitivity);
-  if (socialDifference >= 20) sharedTips.push(`교류 속도는 더 조심스러운 고양이에게 맞추고, ${firstName}와 ${secondName}가 서로 피할 수 있는 동선을 열어두세요.`);
+  if (socialDifference >= 20) sharedTips.push(`교류 속도는 더 조심스러운 고양이에게 맞추고, ${withJosa(firstName, "과/와")} ${withJosa(secondName, "이/가")} 서로 피할 수 있는 동선을 열어두세요.`);
   if (energyDifference >= 20) sharedTips.push("놀이 시간과 강도를 따로 맞춘 뒤, 함께 있는 시간에는 간식 찾기처럼 경쟁이 적은 활동을 활용해 보세요.");
   if (changeDifference >= 20) sharedTips.push("가구 이동이나 새 물건은 더 신중한 고양이의 생활 구역에서 멀리 두고 단계적으로 소개해 주세요.");
   if (sensitivityDifference >= 20) sharedTips.push("더 민감한 고양이가 편히 쉴 수 있도록 소리와 움직임이 적은 전용 피난처를 보장해 주세요.");

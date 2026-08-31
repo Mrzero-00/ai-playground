@@ -5,6 +5,7 @@ import type {
   InteractionProfile,
   TraitScores,
 } from "@/types/nyangbti";
+import { withJosa } from "@/lib/korean";
 
 const clamp = (value: number, min: number, max: number) =>
   Math.min(max, Math.max(min, value));
@@ -51,7 +52,7 @@ export function catTraitsToInteractionNeeds(traits: TraitScores): InteractionPro
 
 function goodFitCopy(dimension: keyof InteractionProfile, catName: string): string {
   const copies: Record<keyof InteractionProfile, string> = {
-    interaction: `${catName}가 편안해하는 교감의 거리와 집사님의 표현 방식이 잘 맞아요.`,
+    interaction: `${withJosa(catName, "이/가")} 편안해하는 교감의 거리와 집사님의 표현 방식이 잘 맞아요.`,
     stimulation: `놀이의 속도와 새로움을 즐기는 정도가 비슷해 함께 재미를 찾기 좋아요.`,
     routine: `서로 기대하는 하루의 리듬이 비슷해 안정적인 생활을 만들기 좋아요.`,
     independence: `함께하는 시간과 각자 쉬는 시간의 균형이 자연스럽게 맞아요.`,
@@ -62,7 +63,7 @@ function goodFitCopy(dimension: keyof InteractionProfile, catName: string): stri
 
 function adjustmentCopy(dimension: keyof InteractionProfile, catName: string): string {
   const copies: Record<keyof InteractionProfile, string> = {
-    interaction: `${catName}가 먼저 다가올 때 교감하고, 물러나면 잠시 기다려 주세요.`,
+    interaction: `${withJosa(catName, "이/가")} 먼저 다가올 때 교감하고, 물러나면 잠시 기다려 주세요.`,
     stimulation: `놀이 강도는 ${catName}의 호흡과 꼬리 움직임을 보며 한 단계씩 맞춰주세요.`,
     routine: `집사의 일정이 달라지는 날에도 식사와 휴식의 기준점은 지켜주세요.`,
     independence: `애정 표현 사이에 방해받지 않는 혼자만의 회복 시간을 넣어주세요.`,
@@ -115,7 +116,7 @@ export function calculateCompatibility(
 
   return {
     score,
-    title: `${DIMENSION_LABELS[best]}이 잘 통하는 우리`,
+    title: `${withJosa(DIMENSION_LABELS[best], "이/가")} 잘 통하는 우리`,
     goodFit: goodFitCopy(best, catName),
     adjustment: adjustmentCopy(needsCare, catName),
     tip: livingTip(traits),

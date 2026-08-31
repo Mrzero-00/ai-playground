@@ -4,13 +4,16 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build:web": "next build",
+    "build": "pnpm build:web && ait build",
     "start": "next start",
     "lint": "eslint .",
     "typecheck": "tsc --noEmit",
-    "test": "vitest run"
+    "test": "vitest run",
+    "deploy": "ait deploy cat-mbti-00.ait"
   },
   "dependencies": {
+    "@apps-in-toss/web-framework": "^3.1.1",
     "next": "16.3.1",
     "react": "19.2.8",
     "react-dom": "19.2.8",
@@ -24,7 +27,8 @@
     "eslint-config-next": "16.3.1",
     "sass": "1.102.0",
     "typescript": "5.9.3",
-    "vitest": "4.1.11"
+    "vitest": "4.1.11",
+    "@apps-in-toss/devtools": "^3.1.1"
   },
   "packageManager": "pnpm@10.12.1"
 }

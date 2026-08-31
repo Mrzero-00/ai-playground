@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import type { ReactNode } from "react";
+import { AppRuntimeBridge } from "@/components/AppRuntimeBridge";
 import "./globals.scss";
 import "./pages.scss";
 
@@ -21,6 +22,7 @@ export default function RootLayout({ children }: Readonly<{ children: ReactNode 
   return (
     <html lang="ko">
       <body>
+        <AppRuntimeBridge />
         <div className="app-shell">{children}</div>
       </body>
     </html>

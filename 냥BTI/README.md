@@ -4,7 +4,7 @@
 
 ## 현재 상태
 
-브라우저에서 처음부터 끝까지 실행 가능한 Next.js 정적 웹 앱입니다.
+브라우저와 App in Toss 정적 WebView 번들에서 처음부터 끝까지 실행 가능한 Next.js 앱입니다.
 
 - Next.js App Router + TypeScript + SCSS
 - Zustand `persist` 기반 프로필·응답·현재 문항 저장과 문항/스코어 버전 migration
@@ -14,7 +14,8 @@
 - 16개 사람 MBTI Interaction Profile과 연속 Trait 기반 생활 궁합
 - Behavior Check와 비진단 안내
 - Web Share API·클립보드 공유 fallback
-- App in Toss 광고/WebView adapter 경계와 개발 전용 placeholder
+- App in Toss SDK 3.1.1, 네이티브 내비게이션·Safe Area·뒤로가기 adapter
+- Toss Ads adapter 경계와 개발 전용 placeholder
 - 정적 내보내기(`output: "export"`)와 자동 검증 워크플로
 
 캐릭터 이미지는 사용자가 제공한 스타일 참고 자료를 바탕으로 새로 만든 16종 손그림 카툰입니다. 이미지에는 결과 문구를 넣지 않았고, 모든 결과 텍스트는 HTML로 렌더링합니다.
@@ -40,7 +41,13 @@ pnpm test
 pnpm build
 ```
 
-`pnpm build`가 성공하면 App in Toss 번들 준비에 사용할 정적 결과가 `out/`에 생성됩니다.
+`pnpm build`가 성공하면 정적 결과 `out/`과 콘솔 업로드용 `cat-mbti-00.ait`가 생성됩니다. `.ait`는 배포 산출물이므로 Git에는 포함하지 않습니다.
+
+App in Toss 콘솔에 올릴 때는 아래 명령을 사용합니다. CLI를 사용할 경우 먼저 워크스페이스에서 발급한 API 키를 로컬 자격 증명에 등록해야 합니다.
+
+```bash
+pnpm deploy
+```
 
 ## 화면 흐름
 
@@ -83,14 +90,15 @@ P = playfulness × 0.55 + activity × 0.30 + adaptability × 0.15
 - [`docs/guardian-mbti-compatibility-design.md`](docs/guardian-mbti-compatibility-design.md) — 집사 궁합 설계
 - [`docs/character-asset-guide.md`](docs/character-asset-guide.md) — 16종 카툰 자산과 생성 프롬프트
 - [`docs/app-in-toss-checklist.md`](docs/app-in-toss-checklist.md) — 출시 전 공식 요구사항 체크리스트
+- [`docs/app-in-toss-deployment.md`](docs/app-in-toss-deployment.md) — 실제 콘솔 값, 번들, QR 테스트와 심사 절차
 - [`docs/remaining-tasks.md`](docs/remaining-tasks.md) — 사용자 승인·실기기·외부 검토가 필요한 잔여 작업
 
 ## 남은 작업
 
-로컬 MVP에서 즉시 처리 가능한 개발 항목은 완료했습니다. 남은 필수 작업은 App in Toss 콘솔 등록, 실제 `appName`과 광고 ID 발급, 최신 SDK 연결, 실제 기기 QR 테스트, 검토·출시처럼 사용자 계정과 외부 승인이 필요한 단계입니다. 전체 목록은 [`docs/remaining-tasks.md`](docs/remaining-tasks.md)에 분리했습니다.
+로컬 MVP와 App in Toss 번들 연결은 완료했습니다. 콘솔에는 `고양이 MBTI` / `cat-mbti-00` 앱이 등록되어 있고, SDK 3.1.1 기반 `.ait`도 생성됩니다. 남은 필수 작업은 콘솔 번들 등록, 워크스페이스 멤버의 실제 토스 앱 QR 테스트, 검토 요청과 승인 후 최종 출시입니다. 전체 목록은 [`docs/remaining-tasks.md`](docs/remaining-tasks.md)에 분리했습니다.
 
 ## App in Toss 연동 전 필수 확인
 
-사용자가 지정한 공식 [App in Toss 운영/테스트 가이드](https://developers-apps-in-toss.toss.im/guide/operation/toss)와 현재 개발자센터의 [토스앱 테스트하기](https://developers-apps-in-toss.toss.im/development/test/toss.html), [미니앱 출시](https://developers-apps-in-toss.toss.im/development/deploy.html), [비게임 출시 가이드](https://developers-apps-in-toss.toss.im/checklist/app-nongame.html)를 SDK 설치 직전과 검토 요청 직전에 다시 확인해야 합니다.
+2026-08-31에 사용자가 지정한 공식 [App in Toss 운영/테스트 가이드](https://developers-apps-in-toss.toss.im/guide/operation/toss)와 현재 개발자센터의 [토스앱 테스트하기](https://developers-apps-in-toss.toss.im/development/test/toss.html), [미니앱 출시](https://developers-apps-in-toss.toss.im/development/deploy.html), [비게임 출시 가이드](https://developers-apps-in-toss.toss.im/checklist/app-nongame.html)를 확인했습니다. 정책은 바뀔 수 있으므로 검토 요청 직전에 다시 확인해야 합니다.
 
 SDK major, 패키지명, 최소 토스 앱 버전, QR 테스트 Origin, 광고 API와 심사 정책은 이 저장소의 값을 영구 고정값으로 사용하지 않습니다. 현재 광고 placeholder는 개발 환경에서만 보이며, 운영 빌드의 미지원 환경에서는 빈 광고 영역을 남기지 않습니다.

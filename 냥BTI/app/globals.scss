@@ -77,9 +77,14 @@ p {
 .screen {
   min-height: 100svh;
   padding:
-    max(20px, env(safe-area-inset-top))
-    20px
-    max(28px, env(safe-area-inset-bottom));
+    max(20px, var(--ait-safe-top, env(safe-area-inset-top)))
+    max(20px, var(--ait-safe-right, env(safe-area-inset-right)))
+    max(28px, var(--ait-safe-bottom, env(safe-area-inset-bottom)))
+    max(20px, var(--ait-safe-left, env(safe-area-inset-left)));
+}
+
+.ait-runtime .topbar {
+  display: none;
 }
 
 .screen--warm {

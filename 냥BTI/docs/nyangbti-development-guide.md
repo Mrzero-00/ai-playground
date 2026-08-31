@@ -18,7 +18,7 @@
 - 서버 액션, Route Handler, 동적 서버 렌더링, 요청 시점 쿠키·헤더 의존 기능을 추가하지 않는다.
 - 동적 경로를 추가한다면 빌드 시 모든 경로를 확정하거나 `generateStaticParams`를 제공한다.
 
-개발 중에는 `pnpm dev`를 사용한다. `pnpm build` 후 정적 결과는 `out/`에 생성되며, `next start`가 아니라 정적 파일 서버 또는 App in Toss 빌드 과정으로 확인한다.
+개발 중에는 `pnpm dev`를 사용한다. `pnpm build` 후 정적 결과는 `out/`, 콘솔 업로드 번들은 `cat-mbti-00.ait`에 생성된다. `apps-in-toss.config.ts`의 `appName`은 콘솔의 불변 값 `cat-mbti-00`과 일치해야 한다.
 
 ## 2. 화면과 라우트
 
@@ -31,10 +31,7 @@
 
 각 화면은 클라이언트 컴포넌트로 동작한다. Zustand 저장소가 복원되기 전 잘못된 리다이렉트나 화면 깜빡임이 생기지 않도록 `useStoreHydration`과 `HydrationScreen`을 거친다.
 
-현재 `AppHeader`는 일반 브라우저용 자체 헤더다. App in Toss SDK를 붙이면 네이티브 비게임 내비게이션과 중복되지 않도록 다음 중 하나로 정리한다.
-
-1. 토스 런타임에서는 자체 뒤로가기 UI를 숨기고 네이티브 내비게이션을 사용한다.
-2. 일반 브라우저에서만 `AppHeader`를 유지한다.
+`AppHeader`는 일반 브라우저용 자체 헤더다. 토스 런타임에서는 `AppRuntimeBridge`가 런타임 클래스를 적용해 자체 헤더를 숨기고 SDK 3.1.1 네이티브 내비게이션을 사용한다.
 
 ## 3. 상태와 저장 경계
 
@@ -151,12 +148,12 @@ Behavior Check는 냥BTI 점수와 분리한다. 사용자가 최근 변화 신�
 
 ### WebView
 
-`adapters/webview.ts`는 닫기와 뒤로가기 구독 경계다. 현재 브라우저 구현은 `window.history.back()`만 사용한다. 실제 SDK 연동 시 다음을 이 adapter 안에 둔다.
+`adapters/webview.ts`는 닫기와 뒤로가기 구독 경계다. 브라우저 구현은 `window.history.back()`, 토스 구현은 `Screen.close()`와 `graniteEvent`의 `backEvent`를 사용한다. 다음 원칙을 유지한다.
 
 - `closeView()`
 - `graniteEvent`의 `backEvent` 구독과 해제
 - 첫 화면에서는 종료, 내부 화면에서는 라우터 뒤로가기
-- Safe Area 최초 조회와 변경 구독
+- Safe Area는 `AppRuntimeBridge`에서 최초 조회와 변경 구독 후 CSS 변수로 전달
 - 토스 런타임 여부 및 지원 버전 판별
 
 ## 9. 검증 흐름
@@ -193,12 +190,12 @@ pnpm build
 
 - [x] 의존성을 `latest`가 아닌 검증된 버전으로 고정하고 lockfile을 생성한다.
 - [ ] 원본 v0.1 문항·가중치 문서와 `data/questions.ts`를 항목별로 대조한다.
-- [ ] 16개 캐릭터 이미지가 확보되면 코드별 asset map을 추가하고 용량·대체 텍스트를 검수한다.
+- [x] 16개 캐릭터 이미지의 코드별 asset map, 용량과 대체 텍스트를 검수한다.
 - [ ] 실제 기기에서 날짜 입력, 키보드, 스크롤, 고정 CTA, 320px 폭을 점검한다.
-- [ ] App in Toss 최신 SDK와 CLI를 도입하고 `.ait` 번들 빌드를 구성한다.
-- [ ] `granite.config.ts`에 콘솔과 동일한 앱 ID·국문명·로고·브랜드 색·비게임 내비게이션을 설정한다.
-- [ ] 토스 런타임에서 자체 `AppHeader` 뒤로가기를 숨겨 네이티브 내비게이션과 중복되지 않게 한다.
-- [ ] `SafeAreaInsets.get()`/`subscribe()` 결과를 CSS 변수에 연결한다.
+- [x] App in Toss Web Framework/CLI 3.1.1을 도입하고 `.ait` 번들 빌드를 구성한다.
+- [x] `apps-in-toss.config.ts`에 콘솔과 동일한 앱 ID, 브랜드 색, 비게임 내비게이션과 WebView 설정을 적용한다.
+- [x] 토스 런타임에서 자체 `AppHeader`를 숨겨 네이티브 내비게이션과 중복되지 않게 한다.
+- [x] `SafeArea.get()`/`subscribe()` 결과를 CSS 변수에 연결한다.
 - [ ] `TossAdsAdapter`를 구현하되 테스트 ID와 실제 ID를 환경별로 분리한다.
 - [ ] 토스 공유 링크 SDK 적용 여부를 결정하고 현재 Web Share/클립보드 fallback을 유지한다.
 - [ ] App in Toss QR 테스트, CORS, 딥링크, 뒤로가기, 광고 복귀를 실제 토스 앱에서 검증한다.

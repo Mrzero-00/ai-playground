@@ -17,9 +17,18 @@ if (!new Set(["disabled", "test", "production"]).has(adMode)) {
   process.exitCode = 1;
 }
 
-if (adMode === "production" && !process.env.NEXT_PUBLIC_TOSS_AD_GROUP_ID?.trim()) {
+const adGroupId = process.env.NEXT_PUBLIC_TOSS_AD_GROUP_ID?.trim();
+
+if ((adMode === "test" || adMode === "production") && !adGroupId) {
   console.error(
-    "[App in Toss] NEXT_PUBLIC_TOSS_AD_GROUP_ID is required when ad mode is production.",
+    "[App in Toss] NEXT_PUBLIC_TOSS_AD_GROUP_ID is required when ads are enabled.",
+  );
+  process.exitCode = 1;
+}
+
+if (adMode === "production" && adGroupId && !adGroupId.startsWith("ait.v2.live.")) {
+  console.error(
+    "[App in Toss] Production builds require a live ad group ID starting with ait.v2.live.",
   );
   process.exitCode = 1;
 }

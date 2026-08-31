@@ -1,7 +1,6 @@
 import { TossAds } from "@apps-in-toss/web-framework";
 import type { AdAdapter, AdPlacement } from "./types";
 
-const TEST_BANNER_ID = "ait-ad-test-banner-id";
 type AdMode = "disabled" | "test" | "production";
 
 let initialization: Promise<boolean> | undefined;
@@ -12,8 +11,7 @@ function adMode(): AdMode {
 }
 
 function adGroupId(): string | undefined {
-  if (adMode() === "test") return TEST_BANNER_ID;
-  if (adMode() === "production") {
+  if (adMode() === "test" || adMode() === "production") {
     return process.env.NEXT_PUBLIC_TOSS_AD_GROUP_ID?.trim() || undefined;
   }
   return undefined;

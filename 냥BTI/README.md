@@ -95,7 +95,7 @@ P = playfulness × 0.55 + activity × 0.30 + adaptability × 0.15
 
 ## 남은 작업
 
-로컬 MVP와 App in Toss 번들 연결은 완료했습니다. 콘솔에는 `고양이 MBTI` / `cat-mbti-00` 앱이 등록되어 있고, SDK 3.1.1 기반 `.ait`도 생성됩니다. 남은 필수 작업은 콘솔 번들 등록, 워크스페이스 멤버의 실제 토스 앱 QR 테스트, 검토 요청과 승인 후 최종 출시입니다. 전체 목록은 [`docs/remaining-tasks.md`](docs/remaining-tasks.md)에 분리했습니다.
+로컬 MVP와 App in Toss 번들 연결은 완료했습니다. 콘솔에는 `고양이 MBTI` / `cat-mbti-00` 앱과 첫 번들 버전 `20260831-1`이 등록되어 있습니다. 남은 필수 작업은 워크스페이스 멤버의 실제 토스 앱 QR 테스트, 검토 요청과 승인 후 최종 출시입니다. 전체 목록은 [`docs/remaining-tasks.md`](docs/remaining-tasks.md)에 분리했습니다.
 
 ## App in Toss 연동 전 필수 확인
 

@@ -13,6 +13,8 @@
 | 브랜드 색 | `#FF765F` |
 | SDK/CLI | `@apps-in-toss/web-framework` 3.1.1 |
 | 콘솔용 로고 후보 | `public/brand/nyangbti-logo-600.png` (600×600) |
+| 첫 번들 버전 | `20260831-1` |
+| 테스트 deploymentId | `01a0563c-2dec-7ed5-ab54-889b90d1435f` |
 
 `appName`은 콘솔에서 변경할 수 없는 식별자다. `apps-in-toss.config.ts`와 번들 파일명이 반드시 `cat-mbti-00`을 사용해야 한다.
 
@@ -58,7 +60,7 @@ QR 회귀 테스트가 끝난 뒤 비게임 체크리스트를 다시 점검하�
 - [x] 기존 콘솔 앱과 실제 `appName` 확인
 - [x] SDK 3.1.1 설정과 정적 `.ait` 생성
 - [x] 로컬 lint/typecheck/test/build 및 용량 검사
-- [ ] 콘솔에 첫 번들 등록
+- [x] 콘솔에 첫 번들 `20260831-1` 등록
 - [ ] QR 실제 기기 테스트
 - [ ] 검토 요청
 - [ ] 승인 후 최종 출시

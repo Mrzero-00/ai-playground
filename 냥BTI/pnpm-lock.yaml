@@ -24,6 +24,9 @@ importers:
         specifier: 5.0.15
         version: 5.0.15(@types/react@19.2.18)(react@19.2.8)
     devDependencies:
+      '@apps-in-toss/devtools':
+        specifier: ^3.1.1
+        version: 3.1.1(@apps-in-toss/web-framework@3.1.1(typanion@3.14.0)(typescript@5.9.3))(rolldown@1.2.4)(vite@8.2.1(@types/node@26.2.0)(jiti@2.7.0)(sass@1.102.0))
       '@types/node':
         specifier: 26.2.0
         version: 26.2.0
@@ -61,6 +64,15 @@ packages:
   '@apps-in-toss/cli@3.1.1':
     resolution: {integrity: sha512-ljYMvh/dCuv8YZEDLbbkf2LDXEhi3VHMQgKFi3BWplkKxu6Kcm9EP3OOiGr7tHTjT83U8u8RIbrZeLDwtZFs/Q==}
     hasBin: true
+
+  '@apps-in-toss/devtools@3.1.1':
+    resolution: {integrity: sha512-8AHZs79hJNXjDOhi9EGpPbwtyK/XhRM/lffbIQ1+S8wpzoWA/F50Viq9XVaLwMMHFoteAqpnJ9pLDNGSB30pdg==}
+    engines: {node: '>=24'}
+    peerDependencies:
+      '@apps-in-toss/web-framework': '>=2.6.0 <3.0.0 || >=3.0.1 <4.0.0'
+    peerDependenciesMeta:
+      '@apps-in-toss/web-framework':
+        optional: true
 
   '@apps-in-toss/web-framework@3.1.1':
     resolution: {integrity: sha512-2hOa3FbgiTam+LT1ITv7PmMGEE4y548n5bgtkRdfc8OLNcDIZdWLA7PH/nUyOrC/nwDGlmRDCTUZvymy0T5J/g==}
@@ -2462,6 +2474,39 @@ packages:
   undici-types@8.3.0:
     resolution: {integrity: sha512-j375ScV60dom+YkPFIfTLcOiPxkN/buHz5GobjLhixFuANaNs3C9l4GmrWqejgXWJ7BbJcFYpTEUkS1Ge8bpZQ==}
 
+  unplugin@3.3.0:
+    resolution: {integrity: sha512-qa66K+crbfyE6JK10GjvbJeRrOsuC/JpbnHctfyp/i4oBTxWOzJfRZyDiOk1PtErMFRu8JhsU/wPvOdBNWe5Rg==}
+    engines: {node: ^20.19.0 || >=22.12.0}
+    peerDependencies:
+      '@farmfe/core': '*'
+      '@rspack/core': '*'
+      bun-types-no-globals: '*'
+      esbuild: '*'
+      rolldown: '*'
+      rollup: '*'
+      unloader: '*'
+      vite: '*'
+      webpack: '*'
+    peerDependenciesMeta:
+      '@farmfe/core':
+        optional: true
+      '@rspack/core':
+        optional: true
+      bun-types-no-globals:
+        optional: true
+      esbuild:
+        optional: true
+      rolldown:
+        optional: true
+      rollup:
+        optional: true
+      unloader:
+        optional: true
+      vite:
+        optional: true
+      webpack:
+        optional: true
+
   unrs-resolver@1.12.2:
     resolution: {integrity: sha512-dmlRxBJJayXjqTwC+JtF1HhJmgf3ftQ3YejFcZrf4+KKtJv0qDsK1pjqaaVjG7wJ5NJ6UVP1OqRMQ71Z4C3rxQ==}
 
@@ -2570,6 +2615,9 @@ packages:
       jsdom:
         optional: true
 
+  webpack-virtual-modules@0.6.2:
+    resolution: {integrity: sha512-66/V2i5hQanC51vBQKPH4aI8NMAcBW59FVBs+rC7eGHupMyfn34q7rZIE+ETlJ+XTevqfUhVVBgSUNSW2flEUQ==}
+
   which-boxed-primitive@1.1.1:
     resolution: {integrity: sha512-TbX3mj8n0odCBFVlY8AxkqcHASw3L60jIuF8jFP78az3C2YhmGvqbHBpAjTRH2/xqYunrJ9g1jSyjCjpoWzIAA==}
     engines: {node: '>= 0.4'}
@@ -2664,6 +2712,22 @@ snapshots:
       - magicast
       - supports-color
       - typanion
+
+  '@apps-in-toss/devtools@3.1.1(@apps-in-toss/web-framework@3.1.1(typanion@3.14.0)(typescript@5.9.3))(rolldown@1.2.4)(vite@8.2.1(@types/node@26.2.0)(jiti@2.7.0)(sass@1.102.0))':
+    dependencies:
+      unplugin: 3.3.0(rolldown@1.2.4)(vite@8.2.1(@types/node@26.2.0)(jiti@2.7.0)(sass@1.102.0))
+    optionalDependencies:
+      '@apps-in-toss/web-framework': 3.1.1(typanion@3.14.0)(typescript@5.9.3)
+    transitivePeerDependencies:
+      - '@farmfe/core'
+      - '@rspack/core'
+      - bun-types-no-globals
+      - esbuild
+      - rolldown
+      - rollup
+      - unloader
+      - vite
+      - webpack
 
   '@apps-in-toss/web-framework@3.1.1(typanion@3.14.0)(typescript@5.9.3)':
     dependencies:
@@ -5284,6 +5348,15 @@ snapshots:
 
   undici-types@8.3.0: {}
 
+  unplugin@3.3.0(rolldown@1.2.4)(vite@8.2.1(@types/node@26.2.0)(jiti@2.7.0)(sass@1.102.0)):
+    dependencies:
+      '@jridgewell/remapping': 2.3.5
+      picomatch: 4.0.5
+      webpack-virtual-modules: 0.6.2
+    optionalDependencies:
+      rolldown: 1.2.4
+      vite: 8.2.1(@types/node@26.2.0)(jiti@2.7.0)(sass@1.102.0)
+
   unrs-resolver@1.12.2:
     dependencies:
       napi-postinstall: 0.3.4
@@ -5366,6 +5439,8 @@ snapshots:
       '@types/node': 26.2.0
     transitivePeerDependencies:
       - msw
+
+  webpack-virtual-modules@0.6.2: {}
 
   which-boxed-primitive@1.1.1:
     dependencies:

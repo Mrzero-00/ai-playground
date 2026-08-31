@@ -1,6 +1,8 @@
 "use client";
 
 import { useEffect, useMemo, useState } from "react";
+import Image from "next/image";
+import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { AdSlot } from "@/components/AdSlot";
 import { AppHeader } from "@/components/AppHeader";
@@ -11,7 +13,10 @@ import { TRAIT_META } from "@/data/traits";
 import { TYPE_CONTENT } from "@/data/type-content";
 import { useStoreHydration } from "@/hooks/useStoreHydration";
 import { calculateCompatibility } from "@/lib/compatibility";
+import { calculateCatHarmony } from "@/lib/cat-harmony";
 import { getCompletedAnswerCount, getTraitLevel, scoreSurvey } from "@/lib/scoring";
+import { createShareCardFiles } from "@/lib/share-cards";
+import { shareMessage } from "@/adapters/share";
 import { useNyangBtiStore } from "@/store/useNyangBtiStore";
 import { TRAIT_KEYS } from "@/types/nyangbti";
 
@@ -41,13 +46,25 @@ const BEHAVIOR_CHECK_ITEMS = [
 
 const BEHAVIOR_CHECK_CLEAR = "해당하는 변화가 없어요";
 
+const SHARE_CARD_META = [
+  { title: "냥BTI 대표 결과", description: "캐릭터와 냥BTI 유형을 한눈에 보여주는 첫 장" },
+  { title: "나다운 순간", description: "평소 행동에서 발견한 대표 성향과 강점" },
+  { title: "성향 한눈에 보기", description: "네 가지 냥BTI 축과 여섯 가지 성향 점수" },
+  { title: "고양이 × 집사 생활 궁합", description: "함께 지낼 때 잘 맞는 점과 맞춰줄 부분" },
+  { title: "오늘부터 이렇게 지내봐요", description: "놀이·환경·생활·관계를 위한 맞춤 팁" },
+] as const;
+
 export default function ResultPage() {
   const router = useRouter();
   const hydrated = useStoreHydration();
   const profile = useNyangBtiStore((state) => state.profile);
   const answers = useNyangBtiStore((state) => state.answers);
-  const reset = useNyangBtiStore((state) => state.reset);
+  const cats = useNyangBtiStore((state) => state.cats);
+  const clearAnswers = useNyangBtiStore((state) => state.clearAnswers);
+  const addCat = useNyangBtiStore((state) => state.addCat);
   const [shareStatus, setShareStatus] = useState("");
+  const [shareFiles, setShareFiles] = useState<{ name: string; url: string }[]>([]);
+  const [isCreatingCards, setIsCreatingCards] = useState(false);
   const [checkedSignals, setCheckedSignals] = useState<string[]>([]);
 
   const completed = getCompletedAnswerCount(answers);
@@ -60,12 +77,27 @@ export default function ResultPage() {
         : null,
     [profile.guardianMbti, profile.name, result.traits],
   );
+  const catHarmonyReports = useMemo(() => {
+    const completedCats = cats.filter(
+      (cat) => cat.profile.name && getCompletedAnswerCount(cat.answers) === QUESTIONS.length,
+    );
+
+    return completedCats.flatMap((first, firstIndex) =>
+      completedCats.slice(firstIndex + 1).map((second) => ({
+        first,
+        second,
+        report: calculateCatHarmony(scoreSurvey(first.answers).traits, scoreSurvey(second.answers).traits),
+      })),
+    );
+  }, [cats]);
 
   useEffect(() => {
     if (!hydrated) return;
     if (!profile.name) router.replace("/profile");
     else if (completed < QUESTIONS.length) router.replace("/questions");
   }, [completed, hydrated, profile.name, router]);
+
+  useEffect(() => () => shareFiles.forEach((item) => URL.revokeObjectURL(item.url)), [shareFiles]);
 
   if (!hydrated || !profile.name || completed < QUESTIONS.length) return <HydrationScreen />;
 
@@ -74,22 +106,51 @@ export default function ResultPage() {
       ? ` 집사 ${profile.guardianMbti}와의 생활 궁합은 ${compatibility.score}%!`
       : "";
     const text = `${profile.name}의 냥BTI는 ${result.code}, ${content.name}!${compatibilityText}`;
+    setIsCreatingCards(true);
+    let files: File[] = [];
+    const prepareDownloads = (items: File[]) => {
+      setShareFiles((current) => {
+        current.forEach((item) => URL.revokeObjectURL(item.url));
+        return items.map((file) => ({ name: file.name, url: URL.createObjectURL(file) }));
+      });
+    };
     try {
-      if (navigator.share) {
-        await navigator.share({ title: `${profile.name}의 냥BTI`, text, url: window.location.href });
-        setShareStatus("공유 창을 열었어요.");
+      files = await createShareCardFiles({
+        catName: profile.name,
+        guardianMbti: profile.guardianMbti,
+        result,
+        content,
+        compatibility,
+      });
+      if (navigator.share && navigator.canShare?.({ files })) {
+        await navigator.share({ title: `${profile.name}의 냥BTI`, text, files });
+        setShareStatus("인스타용 결과 카드 5장을 공유했어요.");
       } else {
-        await navigator.clipboard.writeText(`${text} ${window.location.href}`);
-        setShareStatus("결과 문구를 복사했어요.");
+        prepareDownloads(files);
+        const shareResult = await shareMessage(`${text} ${window.location.href}`);
+        if (shareResult === "toss" || shareResult === "browser") {
+          setShareStatus("카드가 준비됐어요. 아래에서 한 장씩 저장할 수 있어요.");
+        } else if (shareResult === "clipboard") {
+          setShareStatus("카드가 준비됐어요. 아래에서 한 장씩 저장해 주세요. 결과 문구도 복사했어요.");
+        } else {
+          setShareStatus("카드가 준비됐어요. 아래에서 한 장씩 저장해 주세요.");
+        }
       }
     } catch (error) {
       if (error instanceof DOMException && error.name === "AbortError") return;
-      setShareStatus("공유하지 못했어요. 잠시 후 다시 시도해 주세요.");
+      if (files.length) {
+        prepareDownloads(files);
+        setShareStatus("공유창에서 전송하지 못했어요. 아래에서 한 장씩 저장해 주세요.");
+      } else {
+        setShareStatus("이미지를 만들지 못했어요. 잠시 후 다시 시도해 주세요.");
+      }
+    } finally {
+      setIsCreatingCards(false);
     }
   };
 
   const handleRestart = () => {
-    reset();
+    addCat();
     router.push("/profile");
   };
 
@@ -106,8 +167,10 @@ export default function ResultPage() {
           ))}
         </div>
         <h1>{content.name}</h1>
-        <p className="result-tagline">“{content.tagline}”</p>
-        <p className="result-description">{content.description}</p>
+        <div className="result-summary">
+          <p className="result-tagline">“{content.tagline}”</p>
+          <p className="result-description">{content.description}</p>
+        </div>
       </section>
 
       <section className="card section-card result-section" aria-labelledby="axis-title">
@@ -204,6 +267,39 @@ export default function ResultPage() {
         </section>
       )}
 
+      {catHarmonyReports.length > 0 ? (
+        <section className="cat-harmony-preview" aria-labelledby="cat-harmony-title">
+          <div className="cat-harmony-preview__heading">
+            <div>
+              <p className="eyebrow">CAT × CAT</p>
+              <h2 id="cat-harmony-title">우리 고양이들 생활 궁합</h2>
+              <p>함께 지낼 때의 리듬과 배려 포인트를 살펴봐요.</p>
+            </div>
+            <Link href="/harmony">자세히 보기 <span aria-hidden="true">→</span></Link>
+          </div>
+          <div className="cat-harmony-preview__list">
+            {catHarmonyReports.map(({ first, second, report }) => {
+              const largestGap = [...report.dimensions].sort((a, b) => b.difference - a.difference)[0];
+              return (
+                <article className="cat-harmony-pair" key={`${first.id}-${second.id}`}>
+                  <div className="cat-harmony-pair__top">
+                    <div>
+                      <span>{first.profile.name}</span>
+                      <i aria-hidden="true">×</i>
+                      <span>{second.profile.name}</span>
+                    </div>
+                    <strong>{report.score}<small>%</small></strong>
+                  </div>
+                  <h3>{report.title}</h3>
+                  <p><b>{largestGap.label}</b>에서 가장 서로의 속도를 살펴주면 좋아요.</p>
+                </article>
+              );
+            })}
+          </div>
+          <p className="cat-harmony-preview__note">점수는 성향의 비슷함을 재미로 표현한 값이며, 합사 성공 여부를 판단하지 않아요.</p>
+        </section>
+      ) : null}
+
       <AdSlot placement="result-between-sections" />
 
       <section className="card section-card result-section" aria-labelledby="careful-title">
@@ -293,14 +389,39 @@ export default function ResultPage() {
         <div className="share-card__stamp" aria-hidden="true">🐾</div>
         <p>나만 보기 아까운 결과</p>
         <h2 id="share-title">{profile.name}의 냥BTI를<br />집사 친구에게 알려주세요</h2>
-        <button className="button button--primary button--wide" type="button" onClick={handleShare}>
-          결과 공유하기 <span aria-hidden="true">↗</span>
+        <button className="button button--primary button--wide" type="button" onClick={handleShare} disabled={isCreatingCards}>
+          {isCreatingCards ? "이미지 5장을 만드는 중…" : "인스타용 결과 카드 공유하기"} <span aria-hidden="true">↗</span>
         </button>
         {shareStatus ? <p className="share-status" role="status">{shareStatus}</p> : null}
+        {shareFiles.length ? (
+          <div className="share-downloads" aria-label="결과 카드 개별 저장">
+            <div className="share-downloads__heading">
+              <strong>저장할 카드를 확인해 보세요</strong>
+              <span>이미지를 누르면 원본 PNG 파일로 저장돼요.</span>
+            </div>
+            {shareFiles.map((file, index) => {
+              const card = SHARE_CARD_META[index];
+              return (
+                <article className="share-download-card" key={file.url}>
+                  <a className="share-download-card__preview" href={file.url} download={file.name} aria-label={`${index + 1}번 카드 ${card.title} PNG 저장`}>
+                    <Image src={file.url} alt={`${profile.name}의 ${card.title} 공유 카드 미리보기`} width={1080} height={1350} unoptimized />
+                  </a>
+                  <div className="share-download-card__copy">
+                    <span>카드 {index + 1}/5</span>
+                    <strong>{card.title}</strong>
+                    <p>{card.description}</p>
+                    <a href={file.url} download={file.name}>이 카드 저장하기 <span aria-hidden="true">↓</span></a>
+                  </div>
+                </article>
+              );
+            })}
+          </div>
+        ) : null}
       </section>
 
       <div className="result-footer-actions">
-        <button className="text-button" type="button" onClick={handleRestart}>다른 고양이 테스트하기</button>
+        <button className="text-button" type="button" onClick={handleRestart}>다른 고양이 추가하기</button>
+        <button className="text-button" type="button" onClick={() => { clearAnswers(); router.push("/questions"); }}>이 고양이 다시 검사하기</button>
       </div>
 
       <p className="disclaimer result-disclaimer">

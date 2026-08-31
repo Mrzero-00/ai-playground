@@ -12,9 +12,10 @@
 - 6 Trait 정규화와 4축 냥BTI 변환
 - 16개 유형별 카툰 캐릭터·이름·설명·주의점·관찰 신호·관리 팁
 - 16개 사람 MBTI Interaction Profile과 연속 Trait 기반 생활 궁합
+- 여러 고양이 프로필·검사 결과 관리와 고양이 간 생활 조화 리포트
 - Behavior Check와 비진단 안내
-- Web Share API·클립보드 공유 fallback
-- App in Toss 광고/WebView adapter 경계와 개발 전용 placeholder
+- 인스타용 4:5 결과 카드 5장 생성·미리보기·공유·PNG 저장
+- App in Toss Safe Area·공유·광고/WebView adapter
 - 정적 내보내기(`output: "export"`)와 자동 검증 워크플로
 
 캐릭터 이미지는 사용자가 제공한 스타일 참고 자료를 바탕으로 새로 만든 16종 손그림 카툰입니다. 이미지에는 결과 문구를 넣지 않았고, 모든 결과 텍스트는 HTML로 렌더링합니다.
@@ -24,7 +25,7 @@
 Node.js 22와 pnpm 10을 권장합니다.
 
 ```bash
-cd /Users/sonsang-il/Desktop/ai/냥BTI
+cd 냥BTI
 pnpm install --frozen-lockfile
 pnpm dev
 ```
@@ -50,6 +51,7 @@ pnpm build
 | `/profile` | 이름, 생년월일, 품종, 성별, 중성화 여부, 집사 MBTI 입력 |
 | `/questions` | 최근 4주 행동을 기준으로 30개 문항 응답 |
 | `/result` | 캐릭터 Hero, 냥BTI, 4축, 6 Trait, 궁합, 관리, Behavior Check, 공유 |
+| `/harmony` | 완료된 두 고양이의 생활 조화, 개별·공통 관리 팁 |
 
 직접 URL로 진입했을 때 필요한 저장 상태가 없으면 앞 단계로 돌려보냅니다. 프로필과 설문 상태는 현재 기기의 `localStorage`에만 저장됩니다. 문항이나 계산식 버전이 달라지면 이전 답변은 자동 초기화하고 프로필만 유지합니다.
 
@@ -87,7 +89,7 @@ P = playfulness × 0.55 + activity × 0.30 + adaptability × 0.15
 
 ## 남은 작업
 
-로컬 MVP에서 즉시 처리 가능한 개발 항목은 완료했습니다. 남은 필수 작업은 App in Toss 콘솔 등록, 실제 `appName`과 광고 ID 발급, 최신 SDK 연결, 실제 기기 QR 테스트, 검토·출시처럼 사용자 계정과 외부 승인이 필요한 단계입니다. 전체 목록은 [`docs/remaining-tasks.md`](docs/remaining-tasks.md)에 분리했습니다.
+핵심 기능과 정적 웹 빌드 검증은 완료했습니다. App in Toss 업로드 후보가 되려면 콘솔 등록, 실제 `appName`과 아이콘 URL 입력, `.ait` 생성, 배포 기준 커밋/태그, 실제 기기 QR 테스트가 더 필요합니다. 광고를 사용할 때만 사업자·정산 등록과 운영 광고 ID가 추가로 필요합니다. 전체 목록은 [`docs/remaining-tasks.md`](docs/remaining-tasks.md)에 분리했습니다.
 
 ## App in Toss 연동 전 필수 확인
 

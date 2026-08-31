@@ -17,15 +17,23 @@ export function AdSlot({ placement }: AdSlotProps) {
 
   useEffect(() => {
     const container = containerRef.current;
+    let cancelled = false;
     let cleanup: () => void = () => undefined;
 
     if (container && adapter.isSupported()) {
       void adapter.mountBanner(container, placement).then((unmount) => {
+        if (cancelled) {
+          unmount();
+          return;
+        }
         cleanup = unmount;
       });
     }
 
-    return () => cleanup();
+    return () => {
+      cancelled = true;
+      cleanup();
+    };
   }, [adapter, placement]);
 
   if (!isSupported && !showDevelopmentPlaceholder) return null;
@@ -35,7 +43,7 @@ export function AdSlot({ placement }: AdSlotProps) {
       {showDevelopmentPlaceholder ? (
         <>
           <span>AD</span>
-          <p>App in Toss 광고 SDK 연결 예정 영역</p>
+          <p>App in Toss 배너 광고 테스트 영역</p>
         </>
       ) : null}
     </aside>

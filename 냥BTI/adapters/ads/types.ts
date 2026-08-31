@@ -1,4 +1,4 @@
-export type AdPlacement = "result-between-sections" | "result-footer";
+export type AdPlacement = "home-after-primary-action" | "result-between-sections";
 
 export interface AdAdapter {
   readonly name: string;

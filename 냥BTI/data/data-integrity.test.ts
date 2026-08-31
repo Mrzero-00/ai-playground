@@ -19,6 +19,8 @@ describe("냥BTI data integrity", () => {
     expect(ANSWER_OPTIONS.map(({ value }) => value)).toEqual([0, 1, 2, 3, 4]);
 
     for (const question of QUESTIONS) {
+      expect(question.prompt.trim().length).toBeGreaterThan(0);
+      expect(question.example).toMatch(/^예:/);
       expect(Object.keys(question.weights).length).toBeGreaterThan(0);
       for (const [trait, weight] of Object.entries(question.weights)) {
         expect(TRAIT_KEYS).toContain(trait);

@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import { useRouter } from "next/navigation";
 import { AppHeader } from "@/components/AppHeader";
 import { HydrationScreen } from "@/components/HydrationScreen";
@@ -16,6 +16,9 @@ export default function QuestionsPage() {
   const questionIndex = useNyangBtiStore((state) => state.questionIndex);
   const setQuestionIndex = useNyangBtiStore((state) => state.setQuestionIndex);
   const setAnswer = useNyangBtiStore((state) => state.setAnswer);
+  const advancingRef = useRef(false);
+  const advanceTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const questionTitleRef = useRef<HTMLHeadingElement>(null);
 
   const safeIndex = Math.min(Math.max(questionIndex, 0), QUESTIONS.length - 1);
   const question = QUESTIONS[safeIndex];
@@ -26,6 +29,14 @@ export default function QuestionsPage() {
     if (hydrated && !profile.name) router.replace("/profile");
   }, [hydrated, profile.name, router]);
 
+  useEffect(() => {
+    advancingRef.current = false;
+    questionTitleRef.current?.focus();
+    return () => {
+      if (advanceTimerRef.current) clearTimeout(advanceTimerRef.current);
+    };
+  }, [safeIndex]);
+
   if (!hydrated || !profile.name) return <HydrationScreen />;
 
   const goBack = () => {
@@ -33,10 +44,17 @@ export default function QuestionsPage() {
     else setQuestionIndex(safeIndex - 1);
   };
 
-  const goNext = () => {
-    if (!Number.isFinite(selectedAnswer)) return;
-    if (safeIndex === QUESTIONS.length - 1) router.push("/result");
-    else setQuestionIndex(safeIndex + 1);
+  const selectAnswer = (value: number) => {
+    if (advancingRef.current) return;
+    advancingRef.current = true;
+
+    // Zustand updates (including persisted storage) synchronously, so the last
+    // answer is available before the result route checks completion.
+    setAnswer(question.id, value);
+    advanceTimerRef.current = setTimeout(() => {
+      if (safeIndex === QUESTIONS.length - 1) router.push("/result");
+      else setQuestionIndex(safeIndex + 1);
+    }, 120);
   };
 
   return (
@@ -53,11 +71,16 @@ export default function QuestionsPage() {
       <section className="question-content">
         <div>
           <p className="question-kicker">최근 4주의 평소 모습을 떠올려 주세요</p>
-          <h1 className="question-title">{question.prompt}</h1>
+          <h1 className="question-title" ref={questionTitleRef} tabIndex={-1}>{question.prompt}</h1>
+          <p className="question-example">
+            <span aria-hidden="true">💡</span>
+            <span>{question.example}</span>
+          </p>
           {question.context ? <p className="question-context">{question.context}</p> : null}
         </div>
 
-        <div className="answer-list" role="radiogroup" aria-label="답변 선택">
+        <p className="sr-only" id="answer-auto-advance">답변을 선택하면 다음 화면으로 자동 이동합니다.</p>
+        <div className="answer-list" role="radiogroup" aria-label="답변 선택" aria-describedby="answer-auto-advance">
           {ANSWER_OPTIONS.map((option) => {
             const selected = selectedAnswer === option.value;
             return (
@@ -67,7 +90,7 @@ export default function QuestionsPage() {
                 type="button"
                 role="radio"
                 aria-checked={selected}
-                onClick={() => setAnswer(question.id, option.value)}
+                onClick={() => selectAnswer(option.value)}
               >
                 <span className="option-button__indicator" aria-hidden="true" />
                 <span>{option.label}</span>
@@ -80,15 +103,6 @@ export default function QuestionsPage() {
       <div className="question-nav">
         <button className="button button--secondary" type="button" onClick={goBack}>
           이전
-        </button>
-        <button
-          className="button button--coral"
-          type="button"
-          onClick={goNext}
-          disabled={!Number.isFinite(selectedAnswer)}
-        >
-          {safeIndex === QUESTIONS.length - 1 ? "결과 보기" : "다음"}
-          <span aria-hidden="true">→</span>
         </button>
       </div>
     </main>

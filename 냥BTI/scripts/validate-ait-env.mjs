@@ -1,0 +1,25 @@
+const required = ["AIT_APP_NAME", "AIT_DISPLAY_NAME", "AIT_ICON_URL"];
+const missing = required.filter((name) => !process.env[name]?.trim());
+
+if (missing.length > 0) {
+  console.error(
+    `[App in Toss] Missing required build values: ${missing.join(", ")}. ` +
+      "Load them from your secure environment before running pnpm build:ait.",
+  );
+  process.exitCode = 1;
+}
+
+const adMode = process.env.NEXT_PUBLIC_TOSS_AD_MODE ?? "disabled";
+if (!new Set(["disabled", "test", "production"]).has(adMode)) {
+  console.error(
+    "[App in Toss] NEXT_PUBLIC_TOSS_AD_MODE must be disabled, test, or production.",
+  );
+  process.exitCode = 1;
+}
+
+if (adMode === "production" && !process.env.NEXT_PUBLIC_TOSS_AD_GROUP_ID?.trim()) {
+  console.error(
+    "[App in Toss] NEXT_PUBLIC_TOSS_AD_GROUP_ID is required when ad mode is production.",
+  );
+  process.exitCode = 1;
+}

@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import type { ReactNode } from "react";
+import { TossRuntimeProvider } from "@/providers/TossRuntimeProvider";
 import "./globals.scss";
 import "./pages.scss";
 
@@ -21,7 +22,9 @@ export default function RootLayout({ children }: Readonly<{ children: ReactNode 
   return (
     <html lang="ko">
       <body>
-        <div className="app-shell">{children}</div>
+        <TossRuntimeProvider>
+          <div className="app-shell">{children}</div>
+        </TossRuntimeProvider>
       </body>
     </html>
   );

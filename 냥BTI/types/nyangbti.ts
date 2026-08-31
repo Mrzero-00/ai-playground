@@ -42,10 +42,21 @@ export interface CatProfile {
   guardianMbti: HumanMbti | "unknown" | "";
 }
 
+export interface CatAssessment {
+  id: string;
+  profile: CatProfile;
+  answers: SurveyAnswers;
+  questionIndex: number;
+  assessmentVersion: string;
+  createdAt: string;
+  updatedAt: string;
+}
+
 export interface Question {
   id: string;
   trait: TraitKey;
   prompt: string;
+  example: string;
   context?: string;
   weights: Partial<Record<TraitKey, number>>;
 }

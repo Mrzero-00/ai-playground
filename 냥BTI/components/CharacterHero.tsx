@@ -5,14 +5,15 @@ import type { TypeContent } from "@/types/nyangbti";
 interface CharacterHeroProps {
   type: TypeContent;
   catName: string;
+  resultName?: string;
 }
 
-export function CharacterHero({ type, catName }: CharacterHeroProps) {
+export function CharacterHero({ type, catName, resultName }: CharacterHeroProps) {
   return (
     <div
       className="character-stage"
       role="img"
-      aria-label={`${catName}의 ${type.name} 고양이 캐릭터`}
+      aria-label={`${catName}의 ${resultName ?? type.name} 고양이 캐릭터`}
     >
       <Image
         className="character-stage__image"

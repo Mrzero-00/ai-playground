@@ -543,19 +543,9 @@
 .axis-bar i { position: absolute; top: -3px; width: 14px; height: 14px; border: 3px solid #fff; border-radius: 50%; background: var(--ink); box-shadow: 0 2px 6px rgb(0 0 0 / 20%); }
 .axis-item > p { margin: 7px 28px 0; color: #99928b; font-size: 10px; }
 
-.trait-list { display: grid; gap: 19px; }
-.trait-row__top { display: flex; align-items: baseline; justify-content: space-between; }
-.trait-row__top span { display: flex; align-items: center; gap: 7px; }
-.trait-row__top strong { font-size: 14px; }
-.trait-row__top small { color: var(--muted); font-size: 10px; }
-.trait-row__top b { font-size: 14px; font-variant-numeric: tabular-nums; }
-.trait-bar { height: 9px; margin: 8px 0; overflow: hidden; border-radius: 999px; background: #eee9e2; }
-.trait-bar span { display: block; height: 100%; border-radius: inherit; }
-.trait-row p { margin: 0; color: var(--muted); font-size: 11px; line-height: 1.5; }
-
 .feature-list, .split-content ul { display: grid; gap: 12px; margin: 16px 0 0; padding: 0; list-style: none; }
-.feature-list li { display: grid; grid-template-columns: 28px 1fr; align-items: center; gap: 9px; font-size: 14px; line-height: 1.5; }
-.feature-list li span { display: grid; width: 28px; height: 28px; place-items: center; border-radius: 50%; background: #e3f0e9; color: #4c8a72; font-weight: 900; }
+.feature-list li { display: grid; grid-template-columns: 28px 1fr; align-items: start; gap: 10px; font-size: 13px; line-height: 1.7; }
+.feature-list li span { display: grid; width: 28px; height: 28px; margin-top: 1px; place-items: center; border-radius: 50%; background: #e3f0e9; color: #4c8a72; font-weight: 900; }
 
 .compatibility-card { margin-top: 16px; overflow: hidden; border-radius: var(--radius-lg); padding: 25px 20px 20px; background: linear-gradient(145deg, #302e35, #51495b); box-shadow: var(--shadow); color: #fff; }
 .compatibility-card .eyebrow { color: #f2bd71; }
@@ -569,7 +559,7 @@
 .compatibility-notes { display: grid; gap: 10px; }
 .compatibility-notes article { border: 1px solid rgb(255 255 255 / 10%); border-radius: 16px; padding: 14px; background: rgb(255 255 255 / 6%); }
 .compatibility-notes span { color: #f2bd71; font-size: 11px; font-weight: 850; }
-.compatibility-notes p { margin: 6px 0 0; color: rgb(255 255 255 / 78%); font-size: 12px; line-height: 1.6; }
+.compatibility-notes p { margin: 7px 0 0; color: rgb(255 255 255 / 82%); font-size: 13px; line-height: 1.7; }
 .compatibility-disclaimer { margin: 16px 2px 0; color: rgb(255 255 255 / 45%); font-size: 10px; line-height: 1.6; }
 .compatibility-empty { display: flex; align-items: center; gap: 15px; }
 .compatibility-empty > span { display: grid; min-width: 42px; height: 42px; place-items: center; border-radius: 50%; background: #f2e5e1; color: #bd6b59; font-size: 22px; }
@@ -586,14 +576,14 @@
 .split-content > div { border-radius: 18px; padding: 16px; background: #f5f1eb; }
 .split-content h3 { display: flex; align-items: center; gap: 8px; margin: 0; font-size: 14px; }
 .split-content h3 span { display: grid; width: 25px; height: 25px; place-items: center; border-radius: 50%; background: #fff; color: #b45b4d; }
-.split-content li { position: relative; padding-left: 12px; color: var(--muted); font-size: 12px; line-height: 1.55; }
+.split-content li { position: relative; padding-left: 12px; color: var(--muted); font-size: 12px; line-height: 1.7; }
 .split-content li::before { position: absolute; top: 0.65em; left: 0; width: 4px; height: 4px; border-radius: 50%; background: #b9b1a7; content: ""; }
 
 .care-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 18px; }
 .care-grid article { min-height: 174px; border-radius: 18px; padding: 16px; background: #f5f1eb; }
 .care-icon { display: grid; width: 36px; height: 36px; place-items: center; border-radius: 12px; background: #fff; font-size: 18px; }
 .care-grid h3 { margin: 14px 0 7px; font-size: 14px; }
-.care-grid p { margin: 0; color: var(--muted); font-size: 11px; line-height: 1.65; }
+.care-grid p { margin: 0; color: var(--muted); font-size: 12px; line-height: 1.72; }
 
 
 .share-card { position: relative; margin-top: 16px; overflow: hidden; border-radius: var(--radius-lg); padding: 30px 22px 22px; background: #ffd47e; box-shadow: var(--shadow); }

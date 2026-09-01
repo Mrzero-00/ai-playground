@@ -5,7 +5,7 @@ export const TRAIT_META: Record<
   { label: string; shortLabel: string; description: string; color: string }
 > = {
   sociability: {
-    label: "사회성",
+    label: "사람 친화성",
     shortLabel: "사람 곁",
     description: "사람과 가까이 지내고 교감하려는 경향",
     color: "#ff765f",
@@ -25,7 +25,7 @@ export const TRAIT_META: Record<
   playfulness: {
     label: "놀이성",
     shortLabel: "놀이",
-    description: "사냥 놀이와 새로운 자극을 즐기는 정도",
+    description: "사냥 놀이와 새 장난감을 즐기는 정도",
     color: "#8b79c4",
   },
   adaptability: {

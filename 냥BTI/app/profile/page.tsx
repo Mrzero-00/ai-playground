@@ -107,7 +107,7 @@ export default function ProfilePage() {
       <AppHeader backHref="/" />
       <p className="eyebrow">CAT PROFILE</p>
       <h1 className="form-title">{form.name ? `${form.name}의 프로필을\n확인해 주세요` : cats.length > 1 ? "새 고양이를\n소개해 주세요" : "먼저 고양이를\n소개해 주세요"}</h1>
-      <p className="lead form-lead">고양이의 기본 정보를 알려주세요. 성향은 행동 답변으로 계산하고, 집사 MBTI는 생활 궁합에만 사용해요.</p>
+      <p className="lead form-lead">고양이의 기본 정보를 알려 주세요. 성향은 행동 답변으로 계산하고, 집사 MBTI는 생활 궁합에만 사용해요.</p>
       <p className="profile-optional-note">여러 마리와 산다면 한 마리씩 검사해 주세요. 다른 고양이 추가는 선택 기능이에요.</p>
 
       <form className="profile-form" onSubmit={handleSubmit} noValidate>

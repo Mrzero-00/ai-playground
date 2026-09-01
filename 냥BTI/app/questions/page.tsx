@@ -70,7 +70,7 @@ export default function QuestionsPage() {
 
       <section className="question-content">
         <div>
-          <p className="question-kicker">최근 4주의 평소 모습을 떠올려 주세요</p>
+          <p className="question-kicker">최근 4주의 평소 모습이나 가장 비슷했던 경험을 떠올려 주세요</p>
           <h1 className="question-title" ref={questionTitleRef} tabIndex={-1}>{question.prompt}</h1>
           <p className="question-example">
             <span aria-hidden="true">💡</span>

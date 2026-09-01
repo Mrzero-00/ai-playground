@@ -9,7 +9,8 @@ import { HydrationScreen } from "@/components/HydrationScreen";
 import { QUESTIONS } from "@/data/questions";
 import { TYPE_CONTENT } from "@/data/type-content";
 import { useStoreHydration } from "@/hooks/useStoreHydration";
-import { getCompletedAnswerCount } from "@/lib/scoring";
+import { buildBehaviorResultCopy, getTypePresentation } from "@/lib/result-copy";
+import { calculateAxes, getCompletedAnswerCount } from "@/lib/scoring";
 import { withJosa } from "@/lib/korean";
 import { decodeSharedCatResult, rememberSharedCatResult } from "@/lib/shared-harmony";
 import { useNyangBtiStore } from "@/store/useNyangBtiStore";
@@ -54,6 +55,9 @@ export default function SharePage() {
   }
 
   const content = TYPE_CONTENT[shared.code];
+  const sharedResult = { code: shared.code, traits: shared.traits, axes: calculateAxes(shared.traits) };
+  const behaviorCopy = buildBehaviorResultCopy(shared.traits, shared.name);
+  const typePresentation = getTypePresentation(sharedResult, content);
   const harmonyHref = `/harmony?shared=${encodeURIComponent(payload)}`;
 
   return (
@@ -61,11 +65,11 @@ export default function SharePage() {
       <AppHeader backHref="/" trailing={<span className="chip">SHARED</span>} />
       <section className="share-preview" aria-labelledby="share-preview-title">
         <p className="eyebrow">A CAT RESULT ARRIVED</p>
-        <CharacterHero type={content} catName={shared.name} />
+        <CharacterHero type={content} catName={shared.name} resultName={typePresentation.name} />
         <div className="share-preview__type">{shared.code}</div>
-        <h1 id="share-preview-title">{withJosa(shared.name, "은/는")}<br />{content.name}</h1>
-        <p className="share-preview__tagline">“{content.tagline}”</p>
-        <p className="share-preview__description">{content.description}</p>
+        <h1 id="share-preview-title">{withJosa(shared.name, "은/는")}<br />{typePresentation.name}</h1>
+        <p className="share-preview__tagline">“{typePresentation.tagline}”</p>
+        <p className="share-preview__description">{behaviorCopy.description}</p>
       </section>
 
       <section className="share-features" aria-label="고양이 MBTI 주요 기능">

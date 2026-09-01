@@ -10,7 +10,7 @@
 - Zustand `persist` 기반 프로필·응답·현재 문항 저장과 문항/스코어 버전 migration
 - 시작 → 프로필 → 30문항 → 스코어링 → 결과 흐름
 - 6 Trait 정규화와 4축 냥BTI 변환
-- 16개 유형별 카툰 캐릭터·이름·설명·주의점·관찰 신호·관리 팁
+- 16개 유형별 카툰 캐릭터와 6개 연속 Trait 기반 동적 설명·주의점·관찰 신호·관리 팁
 - 16개 사람 MBTI Interaction Profile과 연속 Trait 기반 생활 궁합
 - 여러 고양이 프로필·검사 결과 관리와 고양이 간 생활 조화 리포트
 - 엔터테인먼트·비진단·비합사판정 안내
@@ -27,10 +27,10 @@ Node.js 22와 pnpm 10을 권장합니다.
 ```bash
 cd 냥BTI
 pnpm install --frozen-lockfile
-pnpm dev
+pnpm exec next dev -p 5173
 ```
 
-터미널에 표시된 주소를 브라우저에서 엽니다. 기본 주소는 `http://localhost:3000`입니다.
+터미널에 표시된 주소를 브라우저에서 엽니다. 이 프로젝트의 로컬 확인 주소는 `http://localhost:5173`을 사용합니다.
 
 ## 검증
 
@@ -71,6 +71,8 @@ P = playfulness × 0.55 + activity × 0.30 + adaptability × 0.15
 
 상세 규칙은 [`docs/nyangbti-question-scoring-dataset-v0.1.md`](docs/nyangbti-question-scoring-dataset-v0.1.md), 집사 궁합은 [`docs/guardian-mbti-compatibility-design.md`](docs/guardian-mbti-compatibility-design.md)를 참고하세요.
 
+고양이 MBTI 유형은 캐릭터를 위한 요약 레이어입니다. 결과 요약, 강점, 주의점, 관찰 신호와 관리 팁은 실제 6개 연속 점수에서 생성하며, 중립에 가까운 축이 많을 때는 한 유형을 강하게 단정하지 않고 균형형으로 표시합니다.
+
 ## 자료 상태와 주의사항
 
 이전 대화에서 작성된 원본 Markdown 첨부 본문은 현재 파일 시스템에서 복구되지 않아 `docs/`에 실행 코드 기준 재구성 작업본을 정리했습니다. 현재 30문항과 가중치는 내부적으로 일관된 MVP용 재구성 모델이며, 실제 출시 전 수의행동 전문가 검토와 응답 분포 기반 보정이 필요합니다.
@@ -84,6 +86,8 @@ P = playfulness × 0.55 + activity × 0.30 + adaptability × 0.15
 - [`docs/nyangbti-veterinary-questionnaire-reference.md`](docs/nyangbti-veterinary-questionnaire-reference.md) — 관찰·문항·Behavior Check 참고
 - [`docs/nyangbti-question-scoring-dataset-v0.1.md`](docs/nyangbti-question-scoring-dataset-v0.1.md) — 30문항과 스코어링
 - [`docs/guardian-mbti-compatibility-design.md`](docs/guardian-mbti-compatibility-design.md) — 집사 궁합 설계
+- [`docs/content-context-audit.md`](docs/content-context-audit.md) — 설문부터 결과·궁합까지 설명 문맥 전수 점검 기록
+- [`docs/content-copy-catalog.md`](docs/content-copy-catalog.md) — 화면·설문·결과·궁합의 전체 사용자 노출 문구 모음
 - [`docs/character-asset-guide.md`](docs/character-asset-guide.md) — 16종 카툰 자산과 생성 프롬프트
 - [`docs/app-in-toss-checklist.md`](docs/app-in-toss-checklist.md) — 출시 전 공식 요구사항 체크리스트
 - [`docs/user-guide.md`](docs/user-guide.md) — 사용자용 기능·결과·공유 안내

@@ -223,7 +223,7 @@ export const QUESTIONS: Question[] = [
   {
     id: "SEN05",
     trait: "sensitivity",
-    prompt: "갑작스러운 자극에도 크게 반응하지 않고 편안한가요?",
+    prompt: "갑자기 큰 소리가 나거나 물건이 움직여도 크게 반응하지 않고 편안한가요?",
     example: "예: 문이 닫히거나 물건이 떨어져도 잠깐 바라본 뒤 그대로 쉬어요.",
     weights: { sensitivity: -1, boldness: 0.2 },
   },

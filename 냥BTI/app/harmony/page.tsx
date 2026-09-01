@@ -100,7 +100,7 @@ export default function HarmonyPage() {
       <AppHeader backHref="/" trailing={<span className="chip">CAT × CAT</span>} />
       {shared ? <p className="eyebrow">SHARED RESULT</p> : <p className="eyebrow">LIVING HARMONY</p>}
       <h1 className="form-title">고양이끼리<br />생활 궁합 리포트</h1>
-      <p className="lead form-lead">활동량·놀이·사회성·환경 적응 리듬을 비교해, 각자에게 필요한 거리와 자원 배치 팁을 찾아봐요.</p>
+      <p className="lead form-lead">활동량·놀이·환경 적응과 사람에게 보인 교류 성향을 나란히 보고, 둘 사이에서 실제로 확인할 점과 밥그릇·화장실·숨는 자리 배치 팁을 찾아봐요.</p>
       <section className="harmony-picker" aria-label="비교할 고양이 선택">
         <label><span>첫 번째 고양이</span><select value={first?.id ?? ""} onChange={(event) => { setFirstId(event.target.value); if (event.target.value === second?.id) setSecondId(candidates.find((cat) => cat.id !== event.target.value)?.id ?? ""); }}>{candidates.filter((cat) => cat.id !== second?.id || cat.id === first?.id).map((cat) => <option value={cat.id} key={cat.id}>{cat.name}{cat.source === "shared" ? " · 공유받음" : ""}</option>)}</select></label>
         <span aria-hidden="true">×</span>
@@ -154,7 +154,7 @@ export default function HarmonyPage() {
                   </div>
                   <div className="harmony-interpretation">
                     <div><strong>둘이 함께 있을 때</strong><p>{item.comparison}</p></div>
-                    <div className="harmony-action"><strong>이렇게 도와주세요</strong><p>{item.tip}</p></div>
+                  <div className="harmony-action"><strong>이렇게 도와주세요</strong><p>{item.tip}</p></div>
                   </div>
                 </article>
               );
@@ -166,7 +166,7 @@ export default function HarmonyPage() {
           return <article key={`${guide.name}-${index}`} className={index === 0 ? "is-first" : "is-second"}><h3><span className="individual-care__avatar" aria-hidden="true"><Image src={CHARACTER_ASSETS[candidate.code]} alt="" width={80} height={80} /></span>{guide.name}에게</h3><p>{guide.summary}</p><ul>{guide.cautions.map((tip) => <li key={tip}>{tip}</li>)}</ul></article>;
         })}</div></section>
         <section className="card section-card together-tips"><p className="eyebrow">TOGETHER TIPS</p><h2 className="section-heading">둘 사이를 조율하는 생활 팁</h2><ul>{report.sharedTips.map((tip) => <li key={tip}>{tip}</li>)}</ul></section>
-        <section className="card section-card resource-tips"><p className="eyebrow">COMMON CARE</p><h2 className="section-heading">두 고양이에게 공통으로 지켜주세요</h2><ul>{report.commonCautions.map((tip) => <li key={tip}>{tip}</li>)}</ul></section>
+        <section className="card section-card resource-tips"><p className="eyebrow">COMMON CARE</p><h2 className="section-heading">두 고양이에게 공통으로 지켜 주세요</h2><ul>{report.commonCautions.map((tip) => <li key={tip}>{tip}</li>)}</ul></section>
         <p className="disclaimer harmony-disclaimer">재미를 위한 생활 성향 비교예요. 친밀도·서열·합사 성공 여부나 건강·행동 문제를 판정하지 않아요.</p>
       </> : null}
     </main>

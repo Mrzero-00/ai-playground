@@ -25,9 +25,9 @@ export default defineConfig({
   },
   web: {
     host: "0.0.0.0",
-    port: 3000,
+    port: 5173,
     commands: {
-      dev: "pnpm dev --hostname 0.0.0.0",
+      dev: "pnpm exec next dev -p 5173 --hostname 0.0.0.0",
       build: "pnpm build:web",
     },
   },

@@ -11,6 +11,7 @@ import { CHARACTER_ASSETS } from "@/data/character-assets";
 import { QUESTIONS } from "@/data/questions";
 import { TYPE_CONTENT } from "@/data/type-content";
 import { useStoreHydration } from "@/hooks/useStoreHydration";
+import { getTypePresentation } from "@/lib/result-copy";
 import { getCompletedAnswerCount, scoreSurvey } from "@/lib/scoring";
 import { useNyangBtiStore } from "@/store/useNyangBtiStore";
 
@@ -52,7 +53,7 @@ export default function HomePage() {
           <br />함께 사는 방법까지
         </h1>
         <p className="lead">
-          최근 4주의 행동 30가지를 떠올려 보세요.
+          평소 모습과 비슷한 경험을 떠올려 30문항에 답해 보세요.
           <br />성향을 알아보고 생활 궁합도 살펴봐요.
         </p>
 
@@ -75,7 +76,7 @@ export default function HomePage() {
         <div className="home-service-guide__grid">
           <article><span aria-hidden="true">01</span><h3>고양이 행동 성향</h3><p>평소 행동을 여섯 가지 연속 성향과 16가지 캐릭터로 정리해요.</p></article>
           <article><span aria-hidden="true">02</span><h3>고양이 × 집사</h3><p>집사 MBTI와 고양이 성향을 비교해 편안한 생활 리듬을 찾아요.</p></article>
-          <article><span aria-hidden="true">03</span><h3>고양이 × 고양이</h3><p>여러 고양이의 거리·놀이·환경 적응을 비교하고 생활 팁을 확인해요.</p></article>
+          <article><span aria-hidden="true">03</span><h3>고양이 × 고양이</h3><p>놀이·환경 적응과 사람에게 보인 교류 성향을 나란히 보고, 실제 둘 사이에서 확인할 점을 안내해요.</p></article>
         </div>
         <p className="home-service-guide__optional">한 마리만 검사해도 괜찮아요. 다른 고양이 추가와 고양이끼리 궁합 보기는 선택 기능이에요.</p>
       </section>
@@ -92,6 +93,9 @@ export default function HomePage() {
               const complete = count === QUESTIONS.length;
               const result = complete ? scoreSurvey(cat.answers) : null;
               const resultContent = result ? TYPE_CONTENT[result.code] : null;
+              const resultPresentation = result && resultContent
+                ? getTypePresentation(result, resultContent)
+                : null;
               return (
                 <article className={`cat-profile-card${cat.id === activeCatId ? " is-active" : ""}${complete ? " is-complete" : ""}`} key={cat.id}>
                   <button className="cat-profile-card__main" type="button" onClick={() => selectCat(cat.id)} aria-pressed={cat.id === activeCatId}>
@@ -100,10 +104,10 @@ export default function HomePage() {
                     </span>
                     <span className="cat-profile-card__info">
                       <strong>{cat.profile.name || "새 고양이"}</strong>
-                      {result && resultContent ? (
+                      {result && resultPresentation ? (
                         <span className="cat-profile-card__result">
-                          <span><b>{result.code}</b>{resultContent.name}</span>
-                          <small>{resultContent.tagline}</small>
+                          <span><b>{result.code}</b>{resultPresentation.name}</span>
+                          <small>{resultPresentation.tagline}</small>
                         </span>
                       ) : (
                         <small>{cat.profile.name ? `${count}/30 진행 중` : "프로필 작성 전"}</small>

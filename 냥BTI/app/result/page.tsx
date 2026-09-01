@@ -8,29 +8,21 @@ import { AppHeader } from "@/components/AppHeader";
 import { CharacterHero } from "@/components/CharacterHero";
 import { HydrationScreen } from "@/components/HydrationScreen";
 import { QUESTIONS } from "@/data/questions";
-import { TRAIT_META } from "@/data/traits";
 import { TYPE_CONTENT } from "@/data/type-content";
 import { useStoreHydration } from "@/hooks/useStoreHydration";
 import { calculateCompatibility } from "@/lib/compatibility";
 import { calculateCatHarmony } from "@/lib/cat-harmony";
-import { getCompletedAnswerCount, getTraitLevel, scoreSurvey } from "@/lib/scoring";
+import { buildBehaviorResultCopy, getAxisPresentation, getTypePresentation } from "@/lib/result-copy";
+import { getCompletedAnswerCount, scoreSurvey } from "@/lib/scoring";
 import { shareMiniAppResult } from "@/adapters/share";
 import { encodeSharedCatResult, readRememberedSharedCatResult } from "@/lib/shared-harmony";
 import { useNyangBtiStore } from "@/store/useNyangBtiStore";
-import { TRAIT_KEYS } from "@/types/nyangbti";
 
 const CARE_META = {
   play: { icon: "🪶", label: "놀이" },
   environment: { icon: "⌂", label: "환경" },
   routine: { icon: "◷", label: "생활" },
   relationship: { icon: "♡", label: "관계" },
-} as const;
-
-const AXIS_DESCRIPTIONS = {
-  EI: { E: "사람 곁에서 에너지를 얻어요", I: "혼자만의 거리에서 편안해요" },
-  NS: { N: "새로운 자극을 먼저 탐색해요", S: "익숙한 환경에서 안정돼요" },
-  TF: { F: "관계와 감정 신호에 부드럽게 반응해요", T: "독립적이고 분명한 방식으로 반응해요" },
-  JP: { P: "놀이와 순간의 재미를 따라가요", J: "신중하고 예측 가능한 리듬을 좋아해요" },
 } as const;
 
 export default function ResultPage() {
@@ -48,6 +40,11 @@ export default function ResultPage() {
   const completed = getCompletedAnswerCount(answers);
   const result = useMemo(() => scoreSurvey(answers), [answers]);
   const content = TYPE_CONTENT[result.code];
+  const behaviorCopy = useMemo(
+    () => buildBehaviorResultCopy(result.traits, profile.name || "고양이"),
+    [profile.name, result.traits],
+  );
+  const typePresentation = getTypePresentation(result, content);
   const compatibility = useMemo(
     () =>
       profile.guardianMbti && profile.guardianMbti !== "unknown"
@@ -64,7 +61,11 @@ export default function ResultPage() {
       completedCats.slice(firstIndex + 1).map((second) => ({
         first,
         second,
-        report: calculateCatHarmony(scoreSurvey(first.answers).traits, scoreSurvey(second.answers).traits),
+        report: calculateCatHarmony(
+          scoreSurvey(first.answers).traits,
+          scoreSurvey(second.answers).traits,
+          { firstName: first.profile.name, secondName: second.profile.name },
+        ),
       })),
     );
   }, [cats]);
@@ -87,7 +88,7 @@ export default function ResultPage() {
 
   const handleShare = async () => {
     const payload = encodeSharedCatResult({ v: 1, name: profile.name, code: result.code, traits: result.traits });
-    const message = `${profile.name}의 고양이 MBTI는 ${result.code}, ${content.name}!\n우리 고양이와의 생활 궁합도 확인해 보세요.`;
+    const message = `${profile.name}의 고양이 MBTI는 ${result.code}, ${typePresentation.name}!\n우리 고양이와의 생활 궁합도 확인해 보세요.`;
     setIsSharing(true);
     setShareStatus("공유 링크를 준비하고 있어요.");
     try {
@@ -114,17 +115,17 @@ export default function ResultPage() {
 
       <section className="result-hero">
         <p className="eyebrow">{profile.name}의 행동 성향 결과</p>
-        <CharacterHero type={content} catName={profile.name} />
+        <CharacterHero type={content} catName={profile.name} resultName={typePresentation.name} />
         <div className="result-code" aria-label={`냥비티아이 ${result.code}`}>
           {result.code.split("").map((letter, index) => (
             <span key={`${letter}-${index}`}>{letter}</span>
           ))}
         </div>
-        <h1>{content.name}</h1>
+        <h1>{typePresentation.name}</h1>
         <div className="result-summary">
-          <p className="result-tagline">“{content.tagline}”</p>
-          <p className="result-description">{content.description}</p>
-          <p className="result-basis">최근 4주 동안 관찰한 행동을 여섯 가지 연속 성향으로 정리한 결과예요.</p>
+          <p className="result-tagline">“{typePresentation.tagline}”</p>
+          <p className="result-description">{behaviorCopy.description}</p>
+          <p className="result-basis">30개 행동 답변에서 드러난 생활 모습을 고양이 MBTI와 네 가지 축 설명에 함께 반영했어요.</p>
         </div>
       </section>
 
@@ -132,18 +133,18 @@ export default function ResultPage() {
 
       <section className="card section-card result-section" aria-labelledby="axis-title">
         <p className="section-number">01</p>
-        <h2 className="section-heading" id="axis-title">네 가지 냥BTI 축</h2>
-        <p className="section-copy">선택한 글자에 해당하는 성향이 얼마나 또렷한지 보여줘요.</p>
+        <h2 className="section-heading" id="axis-title">고양이 MBTI 네 가지 축</h2>
+        <p className="section-copy">각 글자의 의미와 행동 답변에서 그렇게 나타난 이유를 함께 보여줘요.</p>
         <div className="axis-list">
           {Object.values(result.axes).map((axis) => {
             const markerPosition = 100 - axis.firstScore;
-            const description = AXIS_DESCRIPTIONS[axis.key][axis.selected as keyof (typeof AXIS_DESCRIPTIONS)[typeof axis.key]];
+            const axisPresentation = getAxisPresentation(axis, result.traits);
             return (
               <article className="axis-item" key={axis.key}>
                 <div className="axis-item__header">
                   <div>
-                    <strong>{axis.selected} 성향</strong>
-                    <span>{description}</span>
+                    <strong>{axisPresentation.heading}</strong>
+                    <span>{axisPresentation.description}</span>
                   </div>
                   <span className={`level-badge level-badge--${axis.level}`}>{axis.level}</span>
                 </div>
@@ -161,35 +162,12 @@ export default function ResultPage() {
         </div>
       </section>
 
-      <section className="card section-card result-section" aria-labelledby="traits-title">
-        <p className="section-number">02</p>
-        <h2 className="section-heading" id="traits-title">여섯 가지 실제 성향</h2>
-        <p className="section-copy">유형 글자보다 중요한, 연속적인 행동 성향이에요.</p>
-        <div className="trait-list">
-          {TRAIT_KEYS.map((trait) => {
-            const score = result.traits[trait];
-            const meta = TRAIT_META[trait];
-            return (
-              <article className="trait-row" key={trait}>
-                <div className="trait-row__top">
-                  <span><strong>{meta.label}</strong><small>{getTraitLevel(score)}</small></span>
-                  <b>{Math.round(score)}</b>
-                </div>
-                <div className="trait-bar" aria-label={`${meta.label} ${Math.round(score)}점`}>
-                  <span style={{ width: `${score}%`, background: meta.color }} />
-                </div>
-                <p>{meta.description}</p>
-              </article>
-            );
-          })}
-        </div>
-      </section>
-
       <section className="card section-card result-section" aria-labelledby="tendency-title">
-        <p className="section-number">03</p>
+        <p className="section-number">02</p>
         <h2 className="section-heading" id="tendency-title">{profile.name}다운 순간</h2>
+        <p className="section-copy">답변에서 가장 특징적으로 나타난 두 가지 모습이에요. 평소 어떤 장면에서 보이는지 함께 적었어요.</p>
         <ul className="feature-list feature-list--good">
-          {content.strengths.map((strength) => (
+          {behaviorCopy.strengths.map((strength) => (
             <li key={strength}><span aria-hidden="true">✓</span>{strength}</li>
           ))}
         </ul>
@@ -207,14 +185,14 @@ export default function ResultPage() {
             </div>
           </div>
           <h3>{compatibility.title}</h3>
-          <p className="compatibility-context">누가 더 좋은 성격인지 판단하는 점수가 아니라, 서로 편안해지도록 생활 방식을 맞추는 힌트예요.</p>
+          <p className="compatibility-context">누가 더 좋은 성격인지 판단하는 점수가 아니에요. 가장 비슷한 생활 방식과 차이가 큰 부분을 나누어 보고, 실제 행동으로 확인할 방법까지 안내해요.</p>
           <div className="compatibility-notes">
-            <article><span>잘 맞는 점</span><p>{compatibility.goodFit}</p></article>
-            <article><span>맞춰주면 좋은 점</span><p>{compatibility.adjustment}</p></article>
+            <article><span>가장 가까운 점</span><p>{compatibility.goodFit}</p></article>
+            <article><span>맞춰 주면 좋은 점</span><p>{compatibility.adjustment}</p></article>
             <article><span>함께 지내는 팁</span><p>{compatibility.tip}</p></article>
           </div>
           <p className="compatibility-disclaimer">
-            이 궁합은 고양이의 6가지 관찰 성향과 사람 MBTI의 생활 스타일을 연결한 재미용 콘텐츠예요.
+            이 궁합은 30개 행동 문항에서 관찰한 성향과 사람 MBTI의 생활 스타일을 연결한 재미용 콘텐츠예요.
             과학적으로 검증된 궁합이나 심리·수의학적 진단이 아니에요.
           </p>
         </section>
@@ -238,6 +216,7 @@ export default function ResultPage() {
           <div className="cat-harmony-preview__list">
             {catHarmonyReports.map(({ first, second, report }) => {
               const largestGap = [...report.dimensions].sort((a, b) => b.difference - a.difference)[0];
+              const largestGapLabel = largestGap.key === "social" ? "사람과의 교류 성향" : largestGap.label;
               return (
                 <article className="cat-harmony-pair" key={`${first.id}-${second.id}`}>
                   <div className="cat-harmony-pair__top">
@@ -249,7 +228,7 @@ export default function ResultPage() {
                     <strong>{report.score}<small>%</small></strong>
                   </div>
                   <h3>{report.title}</h3>
-                  <p><b>{largestGap.label}</b>에서 차이가 가장 커요. 서로의 속도를 살펴주면 좋아요.</p>
+                  <p>비교 항목 중 <b>{largestGapLabel}</b> 점수 차이가 가장 커요. 실제 둘 사이에서도 같은 차이가 보이는지 살펴봐 주세요.</p>
                 </article>
               );
             })}
@@ -259,29 +238,31 @@ export default function ResultPage() {
       ) : null}
 
       <section className="card section-card result-section" aria-labelledby="careful-title">
-        <p className="section-number">04</p>
+        <p className="section-number">03</p>
         <h2 className="section-heading" id="careful-title">조심해서 살펴볼 부분</h2>
+        <p className="section-copy">부담이 될 수 있는 상황과 그 뒤에 확인할 행동을 나란히 살펴보세요. 한 번의 반응보다 평소와 다른 모습이 반복되는지가 중요해요.</p>
         <div className="split-content">
           <div>
             <h3><span aria-hidden="true">!</span> 부담이 될 수 있어요</h3>
-            <ul>{content.cautions.map((item) => <li key={item}>{item}</li>)}</ul>
+            <ul>{behaviorCopy.cautions.map((item) => <li key={item}>{item}</li>)}</ul>
           </div>
           <div>
             <h3><span aria-hidden="true">⌁</span> 관찰해 주세요</h3>
-            <ul>{content.observationSigns.map((item) => <li key={item}>{item}</li>)}</ul>
+            <ul>{behaviorCopy.observationSigns.map((item) => <li key={item}>{item}</li>)}</ul>
           </div>
         </div>
       </section>
 
       <section className="card section-card result-section" aria-labelledby="care-title">
-        <p className="section-number">05</p>
-        <h2 className="section-heading" id="care-title">오늘부터 이렇게 지내봐요</h2>
+        <p className="section-number">04</p>
+        <h2 className="section-heading" id="care-title">오늘부터 이렇게 지내 봐요</h2>
+        <p className="section-copy">모두 한꺼번에 바꾸지 않아도 괜찮아요. 가장 적용하기 쉬운 한 가지부터 시작하고 식사·배변·휴식이 편안하게 유지되는지 확인해 주세요.</p>
         <div className="care-grid">
           {(Object.keys(CARE_META) as (keyof typeof CARE_META)[]).map((key) => (
             <article key={key}>
               <span className="care-icon" aria-hidden="true">{CARE_META[key].icon}</span>
               <h3>{CARE_META[key].label}</h3>
-              <p>{content.care[key]}</p>
+              <p>{behaviorCopy.care[key]}</p>
             </article>
           ))}
         </div>
@@ -290,7 +271,7 @@ export default function ResultPage() {
       <section className="share-card" aria-labelledby="share-title">
         <div className="share-card__stamp" aria-hidden="true">🐾</div>
         <p>나만 보기 아까운 결과</p>
-        <h2 id="share-title">{profile.name}의 냥BTI를<br />집사 친구에게 알려주세요</h2>
+        <h2 id="share-title">{profile.name}의 냥BTI를<br />집사 친구에게 알려 주세요</h2>
         <button className="button button--primary button--wide" type="button" onClick={handleShare} disabled={isSharing}>
           {isSharing ? "공유 링크 준비 중…" : "고양이 MBTI 결과 공유하기"} <span aria-hidden="true">↗</span>
         </button>

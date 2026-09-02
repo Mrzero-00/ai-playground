@@ -1,0 +1,19 @@
+{
+  "name": "ppira-ppira-ppi",
+  "version": "0.1.0",
+  "private": true,
+  "packageManager": "pnpm@10.12.1",
+  "scripts": {
+    "dev": "pnpm --parallel --filter @ppira/api --filter @ppira/web dev",
+    "build": "pnpm --filter @ppira/api build && pnpm --filter @ppira/web build",
+    "typecheck": "pnpm -r typecheck",
+    "test": "pnpm -r test",
+    "check": "pnpm typecheck && pnpm test && pnpm build",
+    "ait:build": "pnpm --filter @ppira/web ait:build"
+  },
+  "devDependencies": {
+    "@types/node": "^22.15.0",
+    "tsx": "^4.20.0",
+    "typescript": "^5.8.3"
+  }
+}

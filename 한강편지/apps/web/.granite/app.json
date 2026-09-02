@@ -1,0 +1,13 @@
+{
+  "appName": "hangang-letter",
+  "permissions": [
+    {
+      "name": "geolocation",
+      "access": "access"
+    },
+    {
+      "name": "camera",
+      "access": "access"
+    }
+  ]
+}

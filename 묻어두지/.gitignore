@@ -12,3 +12,4 @@ android/
 *.tsbuildinfo
 .DS_Store
 coverage/
+public/maplibre/

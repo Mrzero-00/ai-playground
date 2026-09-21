@@ -1,3 +1,4 @@
+import { colors as C } from '../theme';
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import type { AudioRecorderProps } from './AudioRecorder.types';
@@ -12,7 +13,7 @@ export default function AudioRecorder(_props: AudioRecorderProps) {
 }
 
 const styles = StyleSheet.create({
-  card: { backgroundColor: '#F1F2E8', borderRadius: 18, padding: 17, gap: 7 },
-  title: { color: '#315B41', fontSize: 15, fontWeight: '700' },
-  body: { color: '#647262', fontSize: 13, lineHeight: 20 },
+  card: { backgroundColor: C.pale, borderRadius: 18, padding: 17, gap: 7 },
+  title: { color: C.primary, fontSize: 15, fontWeight: '700' },
+  body: { color: C.muted, fontSize: 13, lineHeight: 20 },
 });

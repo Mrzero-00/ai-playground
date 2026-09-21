@@ -1,3 +1,4 @@
+import { colors as C } from '../theme';
 import React from 'react';
 import { Modal, Pressable, StyleSheet, Text, View } from 'react-native';
 import type { CapsuleARProps } from './CapsuleAR.types';
@@ -23,10 +24,10 @@ export default function CapsuleAR({ onClose }: CapsuleARProps) {
 
 const styles = StyleSheet.create({
   backdrop: { flex: 1, backgroundColor: 'rgba(25, 34, 28, 0.65)', alignItems: 'center', justifyContent: 'center', padding: 24 },
-  card: { width: '100%', maxWidth: 420, padding: 28, borderRadius: 28, backgroundColor: '#F8F6EE', gap: 14 },
-  eyebrow: { color: '#58745A', fontSize: 12, fontWeight: '700' },
-  title: { color: '#213A2C', fontSize: 23, fontWeight: '700' },
-  body: { color: '#617063', fontSize: 15, lineHeight: 24 },
-  button: { padding: 17, borderRadius: 16, marginTop: 8, backgroundColor: '#254B37', alignItems: 'center' },
+  card: { width: '100%', maxWidth: 420, padding: 28, borderRadius: 28, backgroundColor: C.background, gap: 14 },
+  eyebrow: { color: C.primary, fontSize: 12, fontWeight: '700' },
+  title: { color: C.ink, fontSize: 23, fontWeight: '700' },
+  body: { color: C.muted, fontSize: 15, lineHeight: 24 },
+  button: { padding: 17, borderRadius: 16, marginTop: 8, backgroundColor: C.primary, alignItems: 'center' },
   buttonText: { color: '#FFFFFF', fontSize: 16, fontWeight: '700' },
 });

@@ -7,6 +7,11 @@
     "node": ">=22.13.0 <23 || >=24"
   },
   "scripts": {
+    "prepare:map": "node scripts/prepare-map-assets.mjs",
+    "postinstall": "npm run prepare:map",
+    "prestart": "npm run prepare:map",
+    "preweb": "npm run prepare:map",
+    "export": "npm run prepare:map && expo export --platform all",
     "start": "expo start --dev-client",
     "web": "expo start --web --port 8081",
     "ios": "bash scripts/ios.sh",
@@ -36,6 +41,7 @@
     "expo-secure-store": "~55.0.18",
     "expo-status-bar": "~55.0.6",
     "expo-video": "~55.0.21",
+    "maplibre-gl": "6.10.0",
     "react": "19.2.0",
     "react-dom": "19.2.0",
     "react-native": "0.83.10",
@@ -47,6 +53,7 @@
   "devDependencies": {
     "@types/node": "^22.19.0",
     "@types/react": "~19.2.0",
+    "@types/react-dom": "~19.2.0",
     "tsx": "^4.21.0",
     "typescript": "~5.9.2"
   }

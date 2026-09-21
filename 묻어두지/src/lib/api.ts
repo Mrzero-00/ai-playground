@@ -4,6 +4,7 @@ import * as SecureStore from 'expo-secure-store';
 import type {
   ApiErrorBody, CapsuleCreateResponse, CapsuleListResponse, CapsuleOpenResponse,
   CreateCapsuleInput, Eligibility, LocationFix,
+  AttendanceResponse, GroupListResponse, GroupResponse,
 } from '../shared/contracts';
 
 function getBaseUrl() {
@@ -90,5 +91,11 @@ export const api = {
   create: (input: CreateCapsuleInput, requestKey: string) => authenticated<CapsuleCreateResponse>('/capsules', input, { 'Idempotency-Key': requestKey }),
   recover: (requestKey: string) => authenticated<CapsuleCreateResponse>(`/capsules/by-request/${encodeURIComponent(requestKey)}`),
   eligibility: (id: string, location: LocationFix) => authenticated<Eligibility>(`/capsules/${encodeURIComponent(id)}/eligibility`, { location }),
-  open: (id: string, location: LocationFix) => authenticated<CapsuleOpenResponse>(`/capsules/${encodeURIComponent(id)}/open`, { location }),
+  open: (id: string, location: LocationFix, attendanceToken?: string) => authenticated<CapsuleOpenResponse>(`/capsules/${encodeURIComponent(id)}/open`, { location, ...(attendanceToken ? { attendanceToken } : {}) }),
+  groups: () => authenticated<GroupListResponse>('/groups'),
+  createGroup: (title: string, expectedCount: number, displayName: string) => authenticated<GroupResponse>('/groups', { title, expectedCount, displayName }),
+  joinGroup: (inviteCode: string, displayName: string) => authenticated<GroupResponse>('/groups/join', { inviteCode, displayName }),
+  startAttendance: (id: string, location: LocationFix) => authenticated<AttendanceResponse>(`/capsules/${encodeURIComponent(id)}/attendance/start`, { location }),
+  heartbeat: (id: string, attendanceToken: string, sequence: number, location: LocationFix) => authenticated<AttendanceResponse>(`/capsules/${encodeURIComponent(id)}/attendance/heartbeat`, { attendanceToken, sequence, location }),
+  leaveAttendance: (id: string, attendanceToken: string) => authenticated<{ ok: boolean }>(`/capsules/${encodeURIComponent(id)}/attendance/leave`, { attendanceToken }),
 };

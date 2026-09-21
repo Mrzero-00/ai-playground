@@ -1,3 +1,4 @@
+import { colors as C } from '../theme';
 import React, { Component, useEffect, useLayoutEffect, useRef, useState } from 'react';
 import { ActivityIndicator, AppState, Platform, Pressable, StyleSheet, Text, View } from 'react-native';
 import { useEvent } from 'expo';
@@ -101,7 +102,7 @@ function AudioPlayback({ uri, label }: Omit<MediaPlaybackProps, 'kind'>) {
         <Pressable accessibilityRole="button" disabled={!status.isLoaded || !!problem} onPress={() => void play(true)} style={styles.replayButton}>
           <Text style={[styles.replayText, (!status.isLoaded || !!problem) && styles.disabled]}>처음부터</Text>
         </Pressable>
-        {loading && !problem && <ActivityIndicator color="#315B41" accessibilityLabel="음성 준비 중" />}
+        {loading && !problem && <ActivityIndicator color={C.primary} accessibilityLabel="음성 준비 중" />}
       </View>
       {problem && (
         <View style={styles.errorBox}>
@@ -165,7 +166,7 @@ function VideoPlayback({ uri, label }: Omit<MediaPlaybackProps, 'kind'>) {
         allowsVideoFrameAnalysis={false}
         playsInline
       />
-      {(status === 'loading' || status === 'idle') && !loadTimedOut && <View style={styles.videoNotice}><ActivityIndicator color="#315B41" /><Text style={styles.caption}>영상을 준비하고 있어요</Text></View>}
+      {(status === 'loading' || status === 'idle') && !loadTimedOut && <View style={styles.videoNotice}><ActivityIndicator color={C.primary} /><Text style={styles.caption}>영상을 준비하고 있어요</Text></View>}
       {(status === 'error' || loadTimedOut) && <Text accessibilityRole="alert" style={styles.videoError}>영상을 재생할 수 없어요. 파일 형식을 확인하거나 화면을 다시 열어주세요.</Text>}
     </View>
   );
@@ -188,24 +189,24 @@ export default function MediaPlayback({ kind, uri, label }: MediaPlaybackProps) 
 }
 
 const styles = StyleSheet.create({
-  audioCard: { backgroundColor: '#F1F2E8', borderRadius: 18, padding: 18, gap: 15 },
+  audioCard: { backgroundColor: C.pale, borderRadius: 18, padding: 18, gap: 15 },
   row: { flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', gap: 10 },
-  title: { flex: 1, color: '#315B41', fontSize: 15, fontWeight: '700' },
-  time: { color: '#6B7864', fontSize: 12, fontVariant: ['tabular-nums'] },
-  track: { height: 5, backgroundColor: '#DCE3D5', borderRadius: 3, overflow: 'hidden' },
-  progress: { height: '100%', backgroundColor: '#527554', borderRadius: 3 },
+  title: { flex: 1, color: C.primary, fontSize: 15, fontWeight: '700' },
+  time: { color: C.muted, fontSize: 12, fontVariant: ['tabular-nums'] },
+  track: { height: 5, backgroundColor: C.line, borderRadius: 3, overflow: 'hidden' },
+  progress: { height: '100%', backgroundColor: C.primary, borderRadius: 3 },
   controls: { flexDirection: 'row', alignItems: 'center', gap: 12 },
-  playButton: { backgroundColor: '#315B41', paddingHorizontal: 20, paddingVertical: 12, borderRadius: 13 },
+  playButton: { backgroundColor: C.primary, paddingHorizontal: 20, paddingVertical: 12, borderRadius: 13 },
   playText: { color: '#FFFFFF', fontSize: 14, fontWeight: '700' },
   replayButton: { paddingVertical: 12, paddingHorizontal: 4 },
-  replayText: { color: '#315B41', fontSize: 13, fontWeight: '600' },
+  replayText: { color: C.primary, fontSize: 13, fontWeight: '600' },
   disabled: { opacity: 0.45 },
   errorBox: { gap: 10 },
-  error: { color: '#A13D2E', fontSize: 13, lineHeight: 20 },
-  videoCard: { backgroundColor: '#F1F2E8', borderRadius: 18, overflow: 'hidden' },
-  videoTitle: { color: '#315B41', fontSize: 15, fontWeight: '700', marginHorizontal: 16, marginVertical: 14 },
+  error: { color: C.error, fontSize: 13, lineHeight: 20 },
+  videoCard: { backgroundColor: C.pale, borderRadius: 18, overflow: 'hidden' },
+  videoTitle: { color: C.primary, fontSize: 15, fontWeight: '700', marginHorizontal: 16, marginVertical: 14 },
   video: { width: '100%', aspectRatio: 16 / 10, backgroundColor: '#17251D' },
   videoNotice: { flexDirection: 'row', alignItems: 'center', justifyContent: 'center', gap: 9, padding: 15 },
-  caption: { color: '#647262', fontSize: 13 },
-  videoError: { color: '#A13D2E', fontSize: 13, lineHeight: 20, padding: 16 },
+  caption: { color: C.muted, fontSize: 13 },
+  videoError: { color: C.error, fontSize: 13, lineHeight: 20, padding: 16 },
 });

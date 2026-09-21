@@ -1,3 +1,4 @@
+import { colors as C } from '../theme';
 import React from 'react';
 import { Linking, Platform, Pressable, StyleSheet, Text, View } from 'react-native';
 import MapView, { Circle, Marker } from 'react-native-maps';
@@ -17,8 +18,8 @@ export default function CapsuleMap({ latitude, longitude, radius = 50, title = '
     scrollEnabled={false} zoomEnabled={false} rotateEnabled={false} pitchEnabled={false}
     showsCompass={false} showsUserLocation={false} toolbarEnabled={false}
   >
-    <Circle center={{ latitude, longitude }} radius={radius} fillColor="rgba(94,120,79,.13)" strokeColor="#627c57" strokeWidth={1}/>
-    <Marker coordinate={{ latitude, longitude }} title={title} pinColor="#526b4b"/>
+    <Circle center={{ latitude, longitude }} radius={radius} fillColor="rgba(49,108,133,.13)" strokeColor={C.primary} strokeWidth={1}/>
+    <Marker coordinate={{ latitude, longitude }} title={title} pinColor={C.primary}/>
   </MapView><View style={styles.label}><Text style={styles.labelText}>{title} · 반경 {radius}m</Text></View></View>;
 }
-const styles = StyleSheet.create({ frame: { height: 190, borderRadius: 22, overflow: 'hidden', backgroundColor: '#e9edde' }, label: { position: 'absolute', bottom: 12, alignSelf: 'center', backgroundColor: '#fffdf5', borderRadius: 12, paddingVertical: 8, paddingHorizontal: 14 }, labelText: { fontSize: 11, color: '#40503c' }, fallback: { borderRadius: 22, backgroundColor: '#e9edde', padding: 24, gap: 8 }, title: { color: '#354531', fontWeight: '700' }, link: { fontSize: 12, color: '#526b4b', marginTop: 10 } });
+const styles = StyleSheet.create({ frame: { height: 190, borderRadius: 22, overflow: 'hidden', backgroundColor: C.pale }, label: { position: 'absolute', bottom: 12, alignSelf: 'center', backgroundColor: '#fffdf5', borderRadius: 12, paddingVertical: 8, paddingHorizontal: 14 }, labelText: { fontSize: 11, color: C.ink }, fallback: { borderRadius: 22, backgroundColor: C.pale, padding: 24, gap: 8 }, title: { color: C.ink, fontWeight: '700' }, link: { fontSize: 12, color: C.primary, marginTop: 10 } });

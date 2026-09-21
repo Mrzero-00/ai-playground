@@ -1,3 +1,4 @@
+import { colors as C } from '../theme';
 import React from 'react';
 import { Linking, Pressable, StyleSheet, Text, View } from 'react-native';
 
@@ -10,4 +11,4 @@ export default function CapsuleMap({ latitude, longitude, radius = 50, title = '
     <Pressable accessibilityRole="link" onPress={() => Linking.openURL(`https://www.google.com/maps/search/?api=1&query=${latitude},${longitude}`)}><Text style={styles.link}>지도에서 위치 보기 ↗</Text></Pressable>
   </View>;
 }
-const styles = StyleSheet.create({ frame: { padding: 24, alignItems: 'center', borderRadius: 22, backgroundColor: '#e9edde', gap: 8 }, dot: { width: 14, height: 14, borderRadius: 7, backgroundColor: '#5b744e', marginBottom: 4 }, title: { fontSize: 15, color: '#354531', fontWeight: '700' }, coordinates: { color: '#56644e', fontSize: 12 }, caption: { color: '#7b8472', fontSize: 11 }, link: { color: '#465e3e', fontSize: 12, marginTop: 10, textDecorationLine: 'underline' } });
+const styles = StyleSheet.create({ frame: { padding: 24, alignItems: 'center', borderRadius: 22, backgroundColor: C.pale, gap: 8 }, dot: { width: 14, height: 14, borderRadius: 7, backgroundColor: C.primary, marginBottom: 4 }, title: { fontSize: 15, color: C.ink, fontWeight: '700' }, coordinates: { color: C.muted, fontSize: 12 }, caption: { color: C.muted, fontSize: 11 }, link: { color: C.primary, fontSize: 12, marginTop: 10, textDecorationLine: 'underline' } });

@@ -1,3 +1,4 @@
+import { colors as C } from '../theme';
 import React, { useEffect, useLayoutEffect, useRef, useState } from 'react';
 import { ActivityIndicator, AppState, Linking, Platform, Pressable, StyleSheet, Text, View } from 'react-native';
 import { AudioModule, RecordingPresets, setAudioModeAsync, type AudioRecorder as NativeRecorder } from 'expo-audio';
@@ -254,22 +255,22 @@ export default function AudioRecorder({ disabled = false, ...callbacks }: AudioR
 }
 
 const styles = StyleSheet.create({
-  card: { backgroundColor: '#F1F2E8', borderRadius: 18, padding: 17, gap: 12 },
+  card: { backgroundColor: C.pale, borderRadius: 18, padding: 17, gap: 12 },
   heading: { flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', gap: 12 },
   headingText: { flex: 1, gap: 5 },
-  title: { color: '#315B41', fontSize: 15, fontWeight: '700' },
-  hint: { color: '#647262', fontSize: 12, lineHeight: 18 },
-  timer: { color: '#7E8C78', fontSize: 17, fontWeight: '700', fontVariant: ['tabular-nums'] },
+  title: { color: C.primary, fontSize: 15, fontWeight: '700' },
+  hint: { color: C.muted, fontSize: 12, lineHeight: 18 },
+  timer: { color: C.muted, fontSize: 17, fontWeight: '700', fontVariant: ['tabular-nums'] },
   recording: { color: '#A44939' },
   actions: { flexDirection: 'row', alignItems: 'center', gap: 10 },
   grow: { flex: 1 },
-  primary: { minHeight: 46, padding: 13, borderRadius: 13, backgroundColor: '#315B41', alignItems: 'center', justifyContent: 'center' },
+  primary: { minHeight: 46, padding: 13, borderRadius: 13, backgroundColor: C.primary, alignItems: 'center', justifyContent: 'center' },
   primaryText: { color: '#FFFFFF', fontSize: 14, fontWeight: '700' },
   disabled: { opacity: 0.5 },
   loading: { flexDirection: 'row', alignItems: 'center', gap: 9 },
   cancel: { paddingHorizontal: 10, paddingVertical: 14 },
-  cancelText: { color: '#647262', fontSize: 14, fontWeight: '600' },
-  error: { color: '#A13D2E', fontSize: 13, lineHeight: 20 },
-  settings: { color: '#315B41', fontWeight: '700', textDecorationLine: 'underline', fontSize: 13 },
-  footnote: { color: '#7B8574', fontSize: 11, lineHeight: 16 },
+  cancelText: { color: C.muted, fontSize: 14, fontWeight: '600' },
+  error: { color: C.error, fontSize: 13, lineHeight: 20 },
+  settings: { color: C.primary, fontWeight: '700', textDecorationLine: 'underline', fontSize: 13 },
+  footnote: { color: C.muted, fontSize: 11, lineHeight: 16 },
 });

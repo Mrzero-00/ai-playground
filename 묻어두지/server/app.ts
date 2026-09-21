@@ -11,6 +11,10 @@ import {
   MAX_AUDIO_BYTES,
   MAX_PHOTO_BYTES,
   MAX_VIDEO_BYTES,
+  MAX_GROUP_MEMBERS,
+  ATTENDANCE_TTL_MS,
+  type CapsuleGroup,
+  type AttendanceStatus,
   type AudioMimeType,
   type ApiErrorBody,
   type CapsuleContent,
@@ -44,6 +48,8 @@ type CapsuleMetadataRow = {
   has_photo: number;
   has_audio: number;
   has_video: number;
+  group_id: string | null;
+  participant_count: number;
 };
 
 type CapsuleContentRow = {
@@ -64,7 +70,8 @@ const METADATA_COLUMNS = `id, title, place_name, created_at, opens_at, opened_at
   latitude, longitude, radius_meters,
   photo_base64 IS NOT NULL AS has_photo,
   audio_base64 IS NOT NULL AS has_audio,
-  video_base64 IS NOT NULL AS has_video`;
+  video_base64 IS NOT NULL AS has_video, group_id,
+  COALESCE((SELECT expected_count FROM capsule_groups WHERE id = capsules.group_id), 1) AS participant_count`;
 
 class ApiError extends Error {
   constructor(
@@ -145,6 +152,8 @@ function parseCreateInput(value: unknown): CreateCapsuleInput {
   const title = boundedText(value.title, '캡슐 이름', 80);
   const placeName = boundedText(value.placeName, '장소 이름', 120);
   const unlockAfterSeconds = value.unlockAfterSeconds;
+  const groupId = value.groupId;
+  if (groupId !== undefined && (typeof groupId !== 'string' || !/^[a-f0-9-]{36}$/.test(groupId))) rejectInput('공동 캡슐 모임을 확인해 주세요.');
   if (
     !finiteNumber(unlockAfterSeconds) ||
     !Number.isInteger(unlockAfterSeconds) ||
@@ -167,6 +176,7 @@ function parseCreateInput(value: unknown): CreateCapsuleInput {
     unlockAfterSeconds,
     location: parseLocation(value.location),
     content: { letter: value.content.letter, photo, ...(audio ? { audio } : {}), ...(video ? { video } : {}) },
+    ...(groupId ? { groupId: groupId as string } : {}),
   };
 }
 
@@ -186,6 +196,7 @@ function createRequestHash(input: CreateCapsuleInput): string {
     title: input.title,
     placeName: input.placeName,
     unlockAfterSeconds: input.unlockAfterSeconds,
+    ...(input.groupId ? { groupId: input.groupId } : {}),
     // Omit absent new fields so pre-media requests keep their original hash.
     content: {
       letter: input.content.letter,
@@ -220,6 +231,7 @@ const GATE_MESSAGES: Record<Exclude<Eligibility['code'], 'READY'>, string> = {
   INACCURATE_LOCATION: '위치 오차가 커요. 하늘이 보이는 곳에서 정확한 위치를 다시 확인해 주세요.',
   STALE_LOCATION: '위치를 다시 측정해 주세요. 계속 실패하면 휴대폰의 날짜와 시간을 자동으로 설정해 주세요.',
   MOCKED_LOCATION: '모의 위치로는 캡슐을 묻거나 열 수 없어요.',
+  WAITING_PARTICIPANTS: '참여자 전원이 이 장소에서 함께 열기에 참여해야 해요.',
 };
 
 function summary(row: CapsuleMetadataRow): CapsuleSummary {
@@ -237,6 +249,8 @@ function summary(row: CapsuleMetadataRow): CapsuleSummary {
     hasPhoto: row.has_photo === 1,
     hasAudio: row.has_audio === 1,
     hasVideo: row.has_video === 1,
+    groupId: row.group_id,
+    participantCount: row.participant_count,
   };
 }
 
@@ -348,6 +362,25 @@ export function createCapsuleServer({ databasePath, now = Date.now, onError = co
       capsule_id TEXT NOT NULL REFERENCES capsules(id),
       PRIMARY KEY (owner_id, request_key)
     );
+    CREATE TABLE IF NOT EXISTS capsule_groups (
+      id TEXT PRIMARY KEY,
+      host_id TEXT NOT NULL REFERENCES sessions(id),
+      title TEXT NOT NULL,
+      expected_count INTEGER NOT NULL CHECK(expected_count BETWEEN 2 AND 20),
+      invite_code TEXT NOT NULL UNIQUE,
+      capsule_id TEXT UNIQUE REFERENCES capsules(id),
+      created_at INTEGER NOT NULL
+    );
+    CREATE TABLE IF NOT EXISTS group_members (
+      id TEXT NOT NULL UNIQUE,
+      group_id TEXT NOT NULL REFERENCES capsule_groups(id),
+      session_id TEXT NOT NULL REFERENCES sessions(id),
+      display_name TEXT NOT NULL,
+      joined_at INTEGER NOT NULL,
+      PRIMARY KEY (group_id, session_id),
+      UNIQUE (group_id, display_name)
+    );
+    CREATE INDEX IF NOT EXISTS group_members_session ON group_members(session_id);
   `);
 
   // Nullable additive migration preserves all existing capsules, sessions and
@@ -358,6 +391,8 @@ export function createCapsuleServer({ databasePath, now = Date.now, onError = co
     for (const column of ['audio_base64', 'audio_mime_type', 'audio_file_name', 'video_base64', 'video_mime_type', 'video_file_name']) {
       if (!columns.has(column)) database.exec(`ALTER TABLE capsules ADD COLUMN ${column} TEXT`);
     }
+    if (!columns.has('group_id')) database.exec('ALTER TABLE capsules ADD COLUMN group_id TEXT REFERENCES capsule_groups(id)');
+    database.exec('CREATE UNIQUE INDEX IF NOT EXISTS capsules_group ON capsules(group_id) WHERE group_id IS NOT NULL');
     database.exec('COMMIT');
   } catch (error) {
     database.exec('ROLLBACK');
@@ -377,10 +412,58 @@ export function createCapsuleServer({ databasePath, now = Date.now, onError = co
   }
 
   function ownedCapsule(id: string, ownerId: string): CapsuleMetadataRow {
-    const capsule = database.prepare(`SELECT ${METADATA_COLUMNS} FROM capsules WHERE id = ? AND owner_id = ?`)
-      .get(id, ownerId) as CapsuleMetadataRow | undefined;
+    const capsule = database.prepare(`SELECT ${METADATA_COLUMNS} FROM capsules WHERE id = ? AND
+      (owner_id = ? OR EXISTS (SELECT 1 FROM group_members WHERE group_id = capsules.group_id AND session_id = ?))`)
+      .get(id, ownerId, ownerId) as CapsuleMetadataRow | undefined;
     if (!capsule) throw new ApiError(404, 'NOT_FOUND', '캡슐을 찾을 수 없습니다.');
     return capsule;
+  }
+
+  type GroupRow = { id: string; host_id: string; title: string; expected_count: number; invite_code: string; capsule_id: string | null };
+  type MemberRow = { id: string; session_id: string; display_name: string };
+  const membersOf = (groupId: string) => database.prepare('SELECT id, session_id, display_name FROM group_members WHERE group_id = ? ORDER BY joined_at, id').all(groupId) as MemberRow[];
+  function groupForMember(id: string, sessionId: string): GroupRow {
+    const row = database.prepare(`SELECT * FROM capsule_groups WHERE id = ? AND EXISTS
+      (SELECT 1 FROM group_members WHERE group_id = capsule_groups.id AND session_id = ?)`)
+      .get(id, sessionId) as GroupRow | undefined;
+    if (!row) throw new ApiError(404, 'NOT_FOUND', '참여한 모임을 찾을 수 없어요.');
+    return row;
+  }
+  function groupSummary(row: GroupRow, sessionId: string): CapsuleGroup {
+    return { id: row.id, title: row.title, expectedCount: row.expected_count, isHost: row.host_id === sessionId,
+      inviteCode: row.capsule_id ? null : row.invite_code, capsuleId: row.capsule_id,
+      members: membersOf(row.id).map(m => ({ id: m.id, name: m.display_name, isMe: m.session_id === sessionId })) };
+  }
+
+  // Ephemeral leases: raw attendance coordinates never enter SQLite or public
+  // responses. Restarting the server requires everybody to check in again.
+  type Presence = { token: string; location: LocationFix; seenAt: number; sequence: number };
+  const presence = new Map<string, Presence>();
+  const presenceKey = (capsuleId: string, sessionId: string) => `${capsuleId}:${sessionId}`;
+  function attendance(capsule: CapsuleMetadataRow, sessionId: string, currentTime: number): AttendanceStatus {
+    const members = membersOf(capsule.group_id!).map(member => {
+      const p = presence.get(presenceKey(capsule.id, member.session_id));
+      const present = !!p && currentTime >= p.seenAt && currentTime - p.seenAt < ATTENDANCE_TTL_MS
+        && !locationGate(p.location, currentTime) && distanceMeters(p.location, capsule) <= capsule.radius_meters;
+      return { id: member.id, name: member.display_name, isMe: member.session_id === sessionId, present };
+    });
+    return { requiredCount: capsule.participant_count, presentCount: members.filter(m => m.present).length,
+      validForSeconds: ATTENDANCE_TTL_MS / 1000, members };
+  }
+  function fullGate(capsule: CapsuleMetadataRow, location: LocationFix, sessionId: string, currentTime: number): Eligibility {
+    const gate = eligibility(capsule, location, currentTime);
+    if (!capsule.group_id) return gate;
+    const status = attendance(capsule, sessionId, currentTime);
+    return { ...gate, attendance: status,
+      ...(gate.eligible && (status.presentCount !== status.requiredCount || status.members.length !== status.requiredCount)
+        ? { code: 'WAITING_PARTICIPANTS' as const, eligible: false } : {}) };
+  }
+  function currentLease(capsuleId: string, sessionId: string, token: unknown): Presence {
+    const p = presence.get(presenceKey(capsuleId, sessionId));
+    if (!p || typeof token !== 'string' || p.token !== token) {
+      throw new ApiError(409, 'ATTENDANCE_EXPIRED', '함께 열기 참여가 끝났어요. 다시 참여해 주세요.');
+    }
+    return p;
   }
 
   const server = createServer(async (request, response) => {
@@ -408,6 +491,52 @@ export function createCapsuleServer({ databasePath, now = Date.now, onError = co
       }
 
       const ownerId = owner(request);
+      if (request.method === 'GET' && pathname === '/groups') {
+        const rows = database.prepare(`SELECT * FROM capsule_groups WHERE EXISTS
+          (SELECT 1 FROM group_members WHERE group_id = capsule_groups.id AND session_id = ?) ORDER BY created_at DESC, id`)
+          .all(ownerId) as GroupRow[];
+        return respond(response, 200, { groups: rows.map(row => groupSummary(row, ownerId)), serverNow: new Date(now()).toISOString() });
+      }
+      if (request.method === 'POST' && pathname === '/groups') {
+        const body = await readJson(request);
+        if (!isRecord(body)) rejectInput('모임 정보가 필요해요.');
+        const title = boundedText(body.title, '모임 이름', 80);
+        const displayName = boundedText(body.displayName, '내 이름', 24);
+        const count = body.expectedCount;
+        if (!finiteNumber(count) || !Number.isInteger(count) || count < 2 || count > MAX_GROUP_MEMBERS) {
+          rejectInput(`함께 열 사람은 본인을 포함해 2~${MAX_GROUP_MEMBERS}명으로 정해 주세요.`);
+        }
+        const id = randomUUID();
+        database.exec('BEGIN IMMEDIATE');
+        try {
+          database.prepare('INSERT INTO capsule_groups(id, host_id, title, expected_count, invite_code, created_at) VALUES (?, ?, ?, ?, ?, ?)')
+            .run(id, ownerId, title, count, randomBytes(6).toString('hex').toUpperCase(), now());
+          database.prepare('INSERT INTO group_members(id, group_id, session_id, display_name, joined_at) VALUES (?, ?, ?, ?, ?)')
+            .run(randomUUID(), id, ownerId, displayName, now());
+          database.exec('COMMIT');
+        } catch (error) { database.exec('ROLLBACK'); throw error; }
+        return respond(response, 201, { group: groupSummary(groupForMember(id, ownerId), ownerId), serverNow: new Date(now()).toISOString() });
+      }
+      if (request.method === 'POST' && pathname === '/groups/join') {
+        const body = await readJson(request);
+        if (!isRecord(body)) rejectInput('초대 코드와 이름을 입력해 주세요.');
+        const code = boundedText(body.inviteCode, '초대 코드', 12).toUpperCase();
+        const displayName = boundedText(body.displayName, '내 이름', 24);
+        const row = database.prepare('SELECT * FROM capsule_groups WHERE invite_code = ?').get(code) as GroupRow | undefined;
+        if (!row) throw new ApiError(404, 'NOT_FOUND', '참여 가능한 초대 코드를 찾을 수 없어요.');
+        const members = membersOf(row.id);
+        if (members.some(m => m.session_id === ownerId)) {
+          return respond(response, 200, { group: groupSummary(row, ownerId), serverNow: new Date(now()).toISOString() });
+        }
+        if (row.capsule_id) throw new ApiError(409, 'GROUP_SEALED', '이미 봉인된 캡슐의 참여자는 바꿀 수 없어요.');
+        if (members.length >= row.expected_count) throw new ApiError(409, 'GROUP_FULL', '정해진 인원이 모두 참여했어요.');
+        if (members.some(m => m.display_name === displayName)) throw new ApiError(409, 'NAME_TAKEN', '모임에서 구별할 수 있는 다른 이름을 입력해 주세요.');
+        // No await between the capacity check and insert: this synchronous
+        // SQLite operation is serialized with sealing and other joins.
+        database.prepare('INSERT INTO group_members(id, group_id, session_id, display_name, joined_at) VALUES (?, ?, ?, ?, ?)')
+          .run(randomUUID(), row.id, ownerId, displayName, now());
+        return respond(response, 200, { group: groupSummary(row, ownerId), serverNow: new Date(now()).toISOString() });
+      }
       const recoveryRoute = /^\/capsules\/by-request\/([A-Za-z0-9_-]{16,128})$/.exec(pathname);
       if (request.method === 'GET' && recoveryRoute) {
         const previous = database.prepare('SELECT capsule_id FROM creation_requests WHERE owner_id = ? AND request_key = ?')
@@ -416,8 +545,9 @@ export function createCapsuleServer({ databasePath, now = Date.now, onError = co
         return respond(response, 200, { capsule: summary(ownedCapsule(previous.capsule_id, ownerId)), serverNow: new Date(now()).toISOString() });
       }
       if (request.method === 'GET' && pathname === '/capsules') {
-        const rows = database.prepare(`SELECT ${METADATA_COLUMNS} FROM capsules WHERE owner_id = ? ORDER BY created_at DESC, id ASC`)
-          .all(ownerId) as CapsuleMetadataRow[];
+        const rows = database.prepare(`SELECT ${METADATA_COLUMNS} FROM capsules WHERE owner_id = ? OR EXISTS
+          (SELECT 1 FROM group_members WHERE group_id = capsules.group_id AND session_id = ?) ORDER BY created_at DESC, id ASC`)
+          .all(ownerId, ownerId) as CapsuleMetadataRow[];
         return respond(response, 200, { capsules: rows.map(summary), serverNow: new Date(now()).toISOString() });
       }
       if (request.method === 'POST' && pathname === '/capsules') {
@@ -447,16 +577,23 @@ export function createCapsuleServer({ databasePath, now = Date.now, onError = co
         const id = randomUUID();
         database.exec('BEGIN IMMEDIATE');
         try {
+          if (input.groupId) {
+            const group = groupForMember(input.groupId, ownerId);
+            if (group.host_id !== ownerId) throw new ApiError(403, 'HOST_REQUIRED', '모임을 만든 사람만 내용을 담고 봉인할 수 있어요.');
+            if (group.capsule_id) throw new ApiError(409, 'GROUP_SEALED', '이 모임은 이미 캡슐을 봉인했어요.');
+            if (membersOf(group.id).length !== group.expected_count) throw new ApiError(409, 'GROUP_INCOMPLETE', '초대한 인원이 모두 참여한 뒤 봉인해 주세요.');
+          }
           database.prepare(`INSERT INTO capsules
             (id, owner_id, title, place_name, created_at, opens_at, latitude, longitude, radius_meters, letter, photo_base64, photo_mime_type,
-              audio_base64, audio_mime_type, audio_file_name, video_base64, video_mime_type, video_file_name)
-            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`)
+              audio_base64, audio_mime_type, audio_file_name, video_base64, video_mime_type, video_file_name, group_id)
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`)
             .run(id, ownerId, input.title, input.placeName, currentTime,
               currentTime + input.unlockAfterSeconds * 1_000, input.location.latitude,
               input.location.longitude, CAPSULE_RADIUS_METERS, input.content.letter,
               input.content.photo?.base64 ?? null, input.content.photo?.mimeType ?? null,
               input.content.audio?.base64 ?? null, input.content.audio?.mimeType ?? null, input.content.audio?.fileName ?? null,
-              input.content.video?.base64 ?? null, input.content.video?.mimeType ?? null, input.content.video?.fileName ?? null);
+              input.content.video?.base64 ?? null, input.content.video?.mimeType ?? null, input.content.video?.fileName ?? null, input.groupId ?? null);
+          if (input.groupId) database.prepare('UPDATE capsule_groups SET capsule_id = ? WHERE id = ?').run(id, input.groupId);
           if (requestKey) {
             database.prepare('INSERT INTO creation_requests (owner_id, request_key, request_hash, capsule_id) VALUES (?, ?, ?, ?)')
               .run(ownerId, requestKey, requestHash!, id);
@@ -469,15 +606,58 @@ export function createCapsuleServer({ databasePath, now = Date.now, onError = co
         return respond(response, 201, { capsule: summary(ownedCapsule(id, ownerId)), serverNow: new Date(currentTime).toISOString() });
       }
 
+      const attendanceRoute = /^\/capsules\/([a-f0-9-]{36})\/attendance\/(start|heartbeat|leave)$/.exec(pathname);
+      if (request.method === 'POST' && attendanceRoute) {
+        const capsule = ownedCapsule(attendanceRoute[1], ownerId);
+        if (!capsule.group_id) throw new ApiError(400, 'PERSONAL_CAPSULE', '개인 캡슐에는 참석 확인이 필요하지 않아요.');
+        const body = await readJson(request);
+        if (!isRecord(body)) rejectInput('참석 확인 정보가 필요해요.');
+        const key = presenceKey(capsule.id, ownerId);
+        if (attendanceRoute[2] === 'leave') {
+          // An old screen must not revoke a newer screen's attendance lease.
+          if (presence.get(key)?.token === body.attendanceToken) presence.delete(key);
+          return respond(response, 200, { ok: true });
+        }
+        const previous = attendanceRoute[2] === 'heartbeat' ? currentLease(capsule.id, ownerId, body.attendanceToken) : undefined;
+        const sequence = body.sequence;
+        if (previous && (!finiteNumber(sequence) || !Number.isSafeInteger(sequence) || sequence <= previous.sequence)) {
+          throw new ApiError(409, 'ATTENDANCE_OUTDATED', '이전 참석 확인 요청이에요.');
+        }
+        let location: LocationFix;
+        try { location = parseLocation(body.location); }
+        catch (error) { presence.delete(key); throw error; }
+        const currentTime = now();
+        const locationFailure = locationGate(location, currentTime);
+        if (locationFailure || distanceMeters(location, capsule) > capsule.radius_meters) {
+          presence.delete(key);
+          const gate = fullGate(capsule, location, ownerId, currentTime);
+          const code = locationFailure ?? 'TOO_FAR';
+          throw new ApiError(403, code, GATE_MESSAGES[code as Exclude<Eligibility['code'], 'READY'>], { ...gate, eligible: false, code });
+        }
+        const entry: Presence = { token: previous?.token ?? randomBytes(24).toString('base64url'), location, seenAt: currentTime, sequence: previous ? sequence as number : 0 };
+        presence.set(key, entry);
+        return respond(response, 200, { attendanceToken: entry.token, eligibility: fullGate(capsule, location, ownerId, currentTime) });
+      }
+
       const route = /^\/capsules\/([a-f0-9-]{36})\/(eligibility|open)$/.exec(pathname);
       if (request.method === 'POST' && route) {
         // Scope by owner before evaluating or parsing anything capsule-specific.
         const capsule = ownedCapsule(route[1], ownerId);
         const body = await readJson(request);
         if (!isRecord(body)) rejectInput('현재 위치가 필요합니다.');
-        const location = parseLocation(body.location);
+        let location: LocationFix;
+        try { location = parseLocation(body.location); }
+        catch (error) { if (capsule.group_id) presence.delete(presenceKey(capsule.id, ownerId)); throw error; }
         const currentTime = now();
-        const gate = eligibility(capsule, location, currentTime);
+        if (route[2] === 'open' && capsule.group_id) {
+          currentLease(capsule.id, ownerId, body.attendanceToken);
+        }
+        if (capsule.group_id && (locationGate(location, currentTime) || distanceMeters(location, capsule) > capsule.radius_meters)) {
+          // A newly reported departure invalidates the caller's old check-in
+          // immediately, including when reported via /open or /eligibility.
+          presence.delete(presenceKey(capsule.id, ownerId));
+        }
+        const gate = fullGate(capsule, location, ownerId, currentTime);
         if (route[2] === 'eligibility') return respond(response, 200, gate);
         if (!gate.eligible && gate.code !== 'READY') {
           throw new ApiError(403, gate.code, GATE_MESSAGES[gate.code], gate);
@@ -490,7 +670,7 @@ export function createCapsuleServer({ databasePath, now = Date.now, onError = co
         const opened = ownedCapsule(capsule.id, ownerId);
         const stored = database.prepare(`SELECT letter, photo_base64, photo_mime_type,
           audio_base64, audio_mime_type, audio_file_name, video_base64, video_mime_type, video_file_name
-          FROM capsules WHERE id = ? AND owner_id = ?`).get(capsule.id, ownerId) as CapsuleContentRow;
+          FROM capsules WHERE id = ?`).get(capsule.id) as CapsuleContentRow;
         const content: CapsuleContent = {
           letter: stored.letter,
           photo: stored.photo_base64 && stored.photo_mime_type

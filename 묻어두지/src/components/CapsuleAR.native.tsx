@@ -1,3 +1,4 @@
+import { colors as C } from '../theme';
 import React, { Component, useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import {
   ActivityIndicator,
@@ -38,10 +39,10 @@ async function loadSupportedAR(): Promise<ViroModule> {
       throw new Error('이 기기에서는 AR을 지원하지 않아요. AR을 지원하는 iPhone 또는 Android 실기기가 필요해요.');
     }
     viro.ViroMaterials.createMaterials({
-      mudCapsuleBody: { lightingModel: 'Blinn', diffuseColor: '#D9B47C', shininess: 0.45 },
-      mudCapsuleBand: { lightingModel: 'Blinn', diffuseColor: '#365F49', shininess: 0.25 },
-      mudCapsuleSeal: { lightingModel: 'Blinn', diffuseColor: '#F5E6C9', shininess: 0.3 },
-      mudCapsulePlane: { lightingModel: 'Constant', diffuseColor: 'rgba(168, 213, 162, 0.4)', blendMode: 'Alpha', cullMode: 'None', writesToDepthBuffer: false },
+      mudCapsuleBody: { lightingModel: 'Blinn', diffuseColor: '#B4D6E4', shininess: 0.45 },
+      mudCapsuleBand: { lightingModel: 'Blinn', diffuseColor: '#316C85', shininess: 0.25 },
+      mudCapsuleSeal: { lightingModel: 'Blinn', diffuseColor: '#F3DEC6', shininess: 0.3 },
+      mudCapsulePlane: { lightingModel: 'Constant', diffuseColor: 'rgba(151, 203, 224, 0.4)', blendMode: 'Alpha', cullMode: 'None', writesToDepthBuffer: false },
     });
     return viro;
   } finally {
@@ -102,7 +103,7 @@ function makeCapsuleScene(viro: ViroModule, report: (update: Partial<ARStatus>) 
   };
 }
 
-function ARSession({ mode, title, busy = false, onAction }: CapsuleARProps) {
+function ARSession({ mode, title, busy = false, actionAllowed = true, participationHint, onAction }: CapsuleARProps) {
   const [permission, requestPermission, refreshPermission] = useCameraPermissions();
   const [viro, setViro] = useState<ViroModule | null>(null);
   const [error, setError] = useState<string | null>(null);
@@ -152,7 +153,7 @@ function ARSession({ mode, title, busy = false, onAction }: CapsuleARProps) {
 
   const Scene = useMemo(() => viro ? makeCapsuleScene(viro, report) : null, [viro, report]);
   const performAction = async () => {
-    if (actionLock.current || busy || !active || !liveStatus.current.tracking || !liveStatus.current.selected) return;
+    if (actionLock.current || busy || !actionAllowed || !active || !liveStatus.current.tracking || !liveStatus.current.selected) return;
     actionLock.current = true;
     setSubmitting(true);
     setActionError(null);
@@ -185,12 +186,12 @@ function ARSession({ mode, title, busy = false, onAction }: CapsuleARProps) {
     );
   }
   const working = busy || submitting;
-  const ready = status.tracking && status.selected && active && !working;
+  const ready = status.tracking && status.selected && active && !working && actionAllowed;
   const prompt = !status.tracking
     ? '주변을 천천히 비춰주세요'
     : status.selected
-      ? mode === 'bury' ? '이곳에 추억을 묻어둘까요?' : '기다리던 캡슐을 찾았어요'
-      : status.detected ? '초록색 바닥을 눌러주세요' : '평평한 바닥을 찾고 있어요';
+      ? mode === 'bury' ? '좋아, 여기에 묻어둘까요?' : '기다리던 캡슐을 찾았어요'
+      : status.detected ? '하늘색 바닥을 눌러주세요' : '평평한 바닥을 찾고 있어요';
 
   return (
     <View style={styles.fill}>
@@ -205,6 +206,7 @@ function ARSession({ mode, title, busy = false, onAction }: CapsuleARProps) {
         </View>
         <View style={styles.bottomCard}>
           <Text accessibilityLiveRegion="polite" style={styles.prompt}>{prompt}</Text>
+          {participationHint && <Text accessibilityLiveRegion="polite" style={styles.help}>{participationHint}</Text>}
           <Text style={styles.help}>
             {status.selected
               ? '선택한 바닥 위에 캡슐이 나타나요. 이 테스트에서는 방문한 장소의 바닥에 새로 배치해요.'
@@ -260,22 +262,22 @@ export default function CapsuleAR(props: CapsuleARProps) {
 }
 
 const styles = StyleSheet.create({
-  container: { flex: 1, backgroundColor: '#15281F' },
+  container: { flex: 1, backgroundColor: '#243B46' },
   fill: { flex: 1 },
   overlay: { ...StyleSheet.absoluteFillObject, justifyContent: 'space-between' },
   topCard: { marginTop: 62, marginHorizontal: 20, alignSelf: 'flex-start', maxWidth: '85%', borderRadius: 20, padding: 16, gap: 7, backgroundColor: 'rgba(21, 40, 31, 0.88)' },
   eyebrow: { color: '#DAB77E', fontSize: 12, fontWeight: '700', letterSpacing: 1 },
   capsuleTitle: { color: '#FFF9EC', fontSize: 20, fontWeight: '700' },
-  smallText: { color: '#DBE6D9', fontSize: 12 },
-  bottomCard: { margin: 16, backgroundColor: '#FAF7EE', borderRadius: 26, padding: 22, gap: 13 },
-  prompt: { fontSize: 22, fontWeight: '700', color: '#213A2C' },
-  help: { fontSize: 14, lineHeight: 21, color: '#657464' },
-  primary: { minHeight: 54, padding: 16, borderRadius: 16, backgroundColor: '#315B41', alignItems: 'center', justifyContent: 'center' },
+  smallText: { color: '#DDEEF5', fontSize: 12 },
+  bottomCard: { margin: 16, backgroundColor: C.background, borderRadius: 26, padding: 22, gap: 13 },
+  prompt: { fontSize: 22, fontWeight: '700', color: C.ink },
+  help: { fontSize: 14, lineHeight: 21, color: C.muted },
+  primary: { minHeight: 54, padding: 16, borderRadius: 16, backgroundColor: C.primary, alignItems: 'center', justifyContent: 'center' },
   primaryText: { color: '#FFFFFF', fontSize: 16, fontWeight: '700' },
-  disabled: { backgroundColor: '#99A494' },
+  disabled: { backgroundColor: '#9BAFB7' },
   secondary: { alignItems: 'center', padding: 8 },
-  secondaryText: { color: '#58735B', fontSize: 13, fontWeight: '600' },
-  error: { color: '#A13D2E', fontSize: 13, lineHeight: 20 },
+  secondaryText: { color: C.primary, fontSize: 13, fontWeight: '600' },
+  error: { color: C.error, fontSize: 13, lineHeight: 20 },
   notice: { flex: 1, justifyContent: 'center', padding: 32, gap: 20 },
   noticeTitle: { color: '#FFF8EC', fontSize: 26, fontWeight: '700' },
   noticeBody: { color: '#D1DEC9', fontSize: 16, lineHeight: 26 },

@@ -14,7 +14,7 @@
 사용법:
   python3 combo_optimizer.py 입력.json [--max 100] [--double 1.4] [--triple 1.25]
 """
-import argparse, itertools, json, math, sys
+import argparse, json, math, sys
 
 OUT = ["승", "무", "패"]
 
@@ -60,13 +60,28 @@ def greedy(games, max_c, th2, th3):
 
 
 def exhaustive(games, max_c):
-    best = (0, None)
-    for lv in itertools.product([1, 2, 3], repeat=len(games)):
-        if math.prod(lv) <= max_c:
-            p = hit_prob(games, lv)
-            if p > best[0]:
-                best = (p, lv)
-    return best
+    # 조합 수별 최고 확률만 남기는 DP (14경기도 즉시 계산)
+    states = {1: (1.0, ())}
+    for g in games:
+        nxt = {}
+        for c, (p, lv) in states.items():
+            for k in (1, 2, 3):
+                if c * k > max_c:
+                    break
+                q = p * sum(g["p"][o] for o in g["rank"][:k])
+                if q > nxt.get(c * k, (0,))[0]:
+                    nxt[c * k] = (q, lv + (k,))
+        states = nxt
+    return max(states.values())
+
+
+def miss_dist(games, levels, upto=3):
+    """마킹 밖으로 빠지는 경기 수(0, 1, 2 …)의 확률 분포. 다등위 상품의 2~4등 확률이다."""
+    d = [1.0] + [0.0] * upto
+    for g, k in zip(games, levels):
+        q = sum(g["p"][o] for o in g["rank"][:k])
+        d = [d[i] * q + (d[i - 1] * (1 - q) if i else 0) for i in range(upto + 1)]
+    return d
 
 
 def main():
@@ -90,6 +105,8 @@ def main():
             v = g["투표"]; s = sum(v.values())
             print(f"{g['name']:<28} : " + "  ".join(f"{o} {g['p'][o] / (v[o] / s):.2f}" for o in OUT if v.get(o)))
     print(f"\n총 {math.prod(levels)}조합 / 예상 전체 적중 확률 {hit_prob(games, levels)*100:.2f}%")
+    n = len(games)
+    print("등위별 확률: " + " / ".join(f"{n - i}경기 적중 {p * 100:.1f}%" for i, p in enumerate(miss_dist(games, levels))))
     print("\n확장 과정:")
     for l in log:
         print("  -", l)

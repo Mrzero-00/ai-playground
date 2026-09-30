@@ -6,11 +6,14 @@
    python3 match_model.py --lam 1.55 1.10
 2) xG 지표로 λ 추정 (평균회귀 포함)
    python3 match_model.py --xg 홈xG득 홈xGA 원정xG득 원정xGA --games 8 --league 2.8
-   - 값은 '경기당' 수치. 홈팀은 홈경기, 원정팀은 원정경기 수치가 있으면 그걸 우선.
+   - 값은 '경기당' 수치. 기본은 시즌 전체(홈+원정 합산) 수치를 넣는다.
+   - 홈팀의 홈경기·원정팀의 원정경기 수치를 넣었다면 반드시 --split 을 붙인다.
+     (그 수치에 이미 홈 이점이 들어 있어서, 붙이지 않으면 홈 이점을 두 번 곱하게 된다)
    - --games: 표본 경기 수. 적을수록 리그 평균 쪽으로 강하게 당김 (k=8 경기).
    - --ha: 홈 이점 배수(기본 1.12 ≈ 홈/원정 득점비 1.25의 제곱근. 코로나 이후 홈 승률 약 42~44%)
 3) 시장 확률과 섞기
    ... --market 45 28 27 --w 0.7      # 최종 = 0.7*시장 + 0.3*모델
+   ... --blend log                    # 로그(기하) 결합: 시장^w * 모델^(1-w) 후 정규화 (Benter 방식)
 
 근거: Dixon & Coles(1997) rho ≈ -0.13 → 0-0, 1-1 확률을 올리고 1-0, 0-1을 낮춰 무승부 과소평가를 보정.
 """
@@ -57,6 +60,8 @@ def main():
     ap.add_argument("--rho", type=float, default=-0.13)
     ap.add_argument("--market", nargs=3, type=float)
     ap.add_argument("--w", type=float, default=0.7, help="시장 확률 가중치")
+    ap.add_argument("--split", action="store_true", help="xG가 홈/원정 분리 수치일 때 (홈 이점 중복 적용 방지)")
+    ap.add_argument("--blend", choices=["linear", "log"], default="linear")
     a = ap.parse_args()
 
     if a.lam:
@@ -64,8 +69,9 @@ def main():
     elif a.xg:
         m = a.league / 2
         hf, ha_, af, aa = (shrink(v, m, a.games) for v in a.xg)
-        lh = hf / m * aa / m * m * a.ha
-        la = af / m * ha_ / m * m / a.ha
+        ha = 1.0 if a.split else a.ha
+        lh = hf / m * aa / m * m * ha
+        la = af / m * ha_ / m * m / ha
     else:
         ap.error("--lam 또는 --xg 필요")
 
@@ -75,7 +81,11 @@ def main():
     print("유력 스코어: " + ", ".join(f"{s} {q * 100:.1f}%" for q, s in top))
     if a.market:
         mk = [x / sum(a.market) for x in a.market]
-        f = [a.w * x + (1 - a.w) * y for x, y in zip(mk, p)]
+        if a.blend == "log":
+            f = [x ** a.w * y ** (1 - a.w) for x, y in zip(mk, p)]
+            f = [x / sum(f) for x in f]
+        else:
+            f = [a.w * x + (1 - a.w) * y for x, y in zip(mk, p)]
         print("시장      " + "  ".join(f"{o} {v * 100:5.1f}%" for o, v in zip("승무패", mk)))
         print(f"최종(w={a.w}) " + "  ".join(f"{o} {v * 100:5.1f}%" for o, v in zip("승무패", f)))
         gap = max(abs(x - y) for x, y in zip(mk, p))

@@ -20,6 +20,7 @@
   python3 scripts/odds_scan.py --no-draw --combo 3          # 3경기 조합, 적중 확률 순
   python3 scripts/odds_scan.py --target 3 --min-prob 65     # 합계 배당 3배 이상 조합 중 적중 확률 최고
   python3 scripts/odds_scan.py --no-handi ...                # 핸디캡 제외 (기본은 포함)
+  - 배당 1.3 미만 선택지는 기본으로 뺀다(--min-odds 1.3). 전부 보려면 --min-odds 1
   - 핸디캡: 야구·축구 소수핸디캡(±x.5), 배구 세트핸디캡은 Pinnacle 같은 라인(기본+대체)과 비교.
     축구 정수핸디캡(3-way)은 Pinnacle (라인-0.5) 홈 / (라인+0.5) 원정으로 핸디승·핸디패를, 나머지를 핸디무로 계산.
     Pinnacle에 해당 라인이 없으면 --all 에 'Pinnacle 라인 없음'으로 나온다.
@@ -368,6 +369,8 @@ def main():
     ap.add_argument("--combo", type=int, default=0, help="N경기 조합 중 적중 확률 높은 순 (--prob 자동)")
     ap.add_argument("--target", type=float, default=0.0, help="합계 배당 이 값 이상인 조합 중 적중 확률 높은 순 (2~5경기)")
     ap.add_argument("--stake", type=int, default=10000, help="조합 계산 금액(원)")
+    ap.add_argument("--min-odds", type=float, default=1.3,
+                    help="베트맨 배당이 이 값 미만인 선택지는 추천·조합에서 뺀다 (기본 1.3, 사용자 결정 2026-10-02). 끄려면 --min-odds 1")
     ap.add_argument("--best", action="store_true", help="경기마다 가장 확률 높은 선택지(일반·핸디캡·언더오버 전체)를 확률 순으로")
     a = ap.parse_args()
     if a.best and not a.sure:
@@ -459,7 +462,7 @@ def scan(a):
             ev = o * probs[key]
             if ev < a.min_ev:
                 continue
-            if probs[key] * 100 < a.min_prob:
+            if probs[key] * 100 < a.min_prob or o < a.min_odds:
                 continue
             rows.append({**base, "종목": SPORT_KO.get(g["종목"], g["종목"]), "Pinnacle경기": f"{p['홈']} vs {p['원정']}",
                          "선택": lab, "베트맨": o,

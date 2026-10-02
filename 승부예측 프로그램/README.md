@@ -23,8 +23,14 @@
 | `scripts/calibration.py` | 누적 기록으로 확률 보정 상태 점검 |
 | `scripts/devig.py` | 배당률 → 마진 제거 확률 (Shin/Power) |
 | `scripts/match_model.py` | 포아송 + Dixon-Coles 모델, 시장 블렌딩 |
-| `scripts/odds_scan.py` | 베트맨 프로토 배당 vs Pinnacle 공정 확률 → 기대값 1 이상 경기 탐지 |
+| `scripts/odds_scan.py` | 베트맨 프로토 배당 vs Pinnacle 공정 확률 → 기대값 1 이상 경기 탐지. `--no-draw --prob`로 야구·배구·농구를 이길 확률 순으로, `--sports`·`--round`·`--min-prob` 필터, `--best`로 경기마다 가장 확률 높은 선택지(일반·핸디캡·언더오버), `--combo N`·`--target 배당`으로 적중 확률 높은 조합 (`--no-handi`로 일반만) |
 | `scripts/backtest.py` | 과거 5대 리그 자료로 기법별 정확도 순위·앙상블 검증 |
+| `scripts/source_compare.py` | 확률 방식(마감·오픈·시장평균·재보정·스태킹)별 실제 적중 비교 |
+| `scripts/sure_backtest.py` | 경기마다 최고 확률 선택지(일반·핸디캡·언더오버)를 고를 때 실제 적중률·선별 곡선 |
+| `scripts/tune.py` | EPL 2012~2026 자료로 고확률 선택 보정·모델 상수 격자·핸디캡 역산 모델 검증 (결과 `회차별분석/상수점검_*.md`) |
+
+> 백테스트 스크립트(`backtest.py`, `tune.py`)는 numpy·pandas·scipy·scikit-learn이 필요하다: `python3 -m venv .venv && .venv/bin/pip install numpy pandas scipy scikit-learn`.
+> football-data.co.uk는 국내 통신사에서 차단되므로 `tune.py` 상단의 GitHub 미러 주소로 자료를 받는다. `odds_scan.py`는 표준 라이브러리만 쓴다.
 | `분석방법론.md` | 해외·국내 전문가·연구 방법론 정리, 백테스트 결과 (출처 포함) |
 
 ## 주의

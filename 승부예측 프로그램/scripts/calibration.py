@@ -68,6 +68,9 @@ for r in rows:
         both.append((sc, scores(ms, res)))
 
 n = len(mine)
+if not n:
+    print("확률과 결과(승/무/패)가 함께 기록된 경기가 없습니다. result 칸은 홈팀 기준 승/무/패로 적는다.")
+    sys.exit()
 b, rps, ll = avg(mine)
 print(f"경기 수: {n}  /  Brier {b:.3f}  RPS {rps:.3f}  로그손실 {ll:.3f}\n")
 print("구간        예측평균  실제발생  표본")

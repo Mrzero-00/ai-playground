@@ -525,7 +525,7 @@ def sure_view(rows, a):
         print(f"{mark} {r['시각']} {r.get('종목', ''):2} {r['경기']:<28} → {leg_name(r)}{model:<1} {r['공정확률']:5.1f}% · 배당 {r['베트맨']}")
     if ok:
         from math import prod
-        print(f"\n추천 {len(ok)}경기 평균 확률 {sum(r['공정확률'] for r in ok)/len(ok):.1f}% — 단식 기준. "
+        print(f"\n{'기준 이상 ' if a.sure >= 1 else ''}{len(ok)}경기 평균 확률 {sum(r['공정확률'] for r in ok)/len(ok):.1f}% — 단식 기준. "
               f"조합하면 확률이 곱해진다 (예: 상위 2개 {prod(r['공정확률']/100 for r in ok[:2])*100:.1f}%, 3개 {prod(r['공정확률']/100 for r in ok[:3])*100:.1f}%).")
 
 
@@ -533,7 +533,7 @@ def leg_name(r):
     """'인도_남자 vs 한국_남자' + 패 → '한국 승' / 핸디캡이면 '한국 -1.5' (이기는 쪽 이름으로 표기)"""
     home, away = (re.sub(r"_(남자|여자)$", "", t) for t in r["경기"].split(" vs "))
     if r.get("OU") is not None and r.get("OU") != "":
-        return f"{home}-{away} {'언더' if r['선택'] == '승' else '오버'} {r['OU']:g}"
+        return f"{home}-{away} {'언더' if r['선택'] in ('승', '언더') else '오버'} {r['OU']:g}"  # 표 출력 뒤엔 선택이 언더/오버로 바뀌어 있다
     line = r.get("라인")
     if line is None or line == "":
         return {"승": f"{home} 승", "패": f"{away} 승", "무": f"{home}-{away} 무"}[r["선택"]]

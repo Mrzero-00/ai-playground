@@ -139,6 +139,7 @@
  "산마리노": "San Marino",
  "안도라": "Andorra",
  "한국": [
+  "Korea",
   "South Korea",
   "Korea Republic"
  ],
@@ -192,9 +193,28 @@
  "호주": "Australia",
  "오스트레일리아": "Australia",
  "북한": [
-  "North Korea",
-  "Korea DPR"
+  "Korea DPR",
+  "North Korea"
  ],
  "홍콩": "Hong Kong",
- "파키스탄": "Pakistan"
+ "파키스탄": "Pakistan",
+ "수리남": "Suriname",
+ "과테말라": "Guatemala",
+ "마르티니크": "Martinique",
+ "온두라스": "Honduras",
+ "엘살바도르": "El Salvador",
+ "자메이카": "Jamaica",
+ "인도": "India",
+ "부르키나 파소": "Burkina Faso",
+ "부르키나파소": "Burkina Faso",
+ "코트디부아르": [
+  "Ivory Coast",
+  "Cote d'Ivoire"
+ ],
+ "카메룬": "Cameroon",
+ "키르기스스탄": "Kyrgyzstan",
+ "대만": [
+  "Chinese Taipei",
+  "Taiwan"
+ ]
 }

@@ -182,7 +182,7 @@ def run_elo(d, k=20, ha=60, margin=True):
     return diff
 
 
-def run_pi(d, lam=0.035, gamma=0.7, c=3.0):
+def run_pi(d, lam=0.07, gamma=0.7, c=3.0):  # lam 0.035→0.07: EPL 2019-26 RPS 0.2068→0.2047 (scripts/tune.py)
     rh, ra = defaultdict(float), defaultdict(float)  # 홈 레이팅, 원정 레이팅
     diff = np.full(len(d), np.nan)
     for i, row in d.iterrows():

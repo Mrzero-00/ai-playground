@@ -43,6 +43,7 @@ from devig import shin  # noqa: E402
 
 ROOT = os.path.join(os.path.dirname(__file__), "..")
 NAMES_PATH = os.path.join(ROOT, "data", "team_names.json")
+EXCLUDE_PATH = os.path.join(ROOT, "data", "exclude.json")
 UA = "Mozilla/5.0"
 PIN_KEY = "CmX2KcMrXuFmNg6YFbmTxE0y9CIrOi0R"  # Pinnacle 공개 게스트 키 (사이트 프론트엔드가 쓰는 값)
 SPORTS = {"SC": 29, "BS": 3, "BK": 4, "VL": 34, "IH": 19}  # 베트맨 itemCode → Pinnacle sport id
@@ -371,6 +372,7 @@ def main():
     ap.add_argument("--stake", type=int, default=10000, help="조합 계산 금액(원)")
     ap.add_argument("--min-odds", type=float, default=1.3,
                     help="베트맨 배당이 이 값 미만인 선택지는 추천·조합에서 뺀다 (기본 1.3, 사용자 결정 2026-10-02). 끄려면 --min-odds 1")
+    ap.add_argument("--exclude", default="", help="이 문자열이 들어간 경기 제외 (쉼표 구분, 예: 한국_남자,카타르). 회차별 고정 제외는 data/exclude.json")
     ap.add_argument("--best", action="store_true", help="경기마다 가장 확률 높은 선택지(일반·핸디캡·언더오버 전체)를 확률 순으로")
     a = ap.parse_args()
     if a.best and not a.sure:
@@ -405,6 +407,29 @@ def scan(a):
         return ((not a.sports or g["종목"] in a.sports) and (not a.round or g["회차"] in a.round)
                 and (a.started or g["시각"] > now))
     games, pending = [g for g in games if keep(g)], [g for g in pending if keep(g)]
+    # 뉴스 위험으로 뺄 경기: data/exclude.json {"117": {"인도_남자-한국_남자": "순위결정전, 동기 약함"}} + --exclude 팀명 일부
+    ex = {}
+    if os.path.exists(EXCLUDE_PATH):
+        for rnd, d in json.load(open(EXCLUDE_PATH, encoding="utf-8")).items():
+            if rnd.startswith("_"):
+                continue
+            for k, why in d.items():
+                ex[(int(rnd), k)] = why
+    words = [w.strip() for w in a.exclude.split(",") if w.strip()]
+    def excluded(g):
+        key = f"{g['홈']}-{g['원정']}"
+        for (rnd, k), why in ex.items():
+            if rnd == g["회차"] and k == key:
+                return why
+        return next((f"--exclude {w}" for w in words if w in key), None)
+    dropped = {}
+    for g in games:
+        why = excluded(g)
+        if why:
+            dropped[f"{g['홈']} vs {g['원정']}"] = why
+    games = [g for g in games if not excluded(g)]
+    if dropped:
+        print("뉴스 위험으로 제외: " + "; ".join(f"{k}({v})" for k, v in dropped.items()))
     print("판매 중 회차: " + ", ".join(f"{r['gmOsidTs']}회(마감 {dt.datetime.fromtimestamp(r['saleEndDate']/1000, KST):%m-%d %H:%M})" for r in rounds))
     if pending:
         cnt = {}

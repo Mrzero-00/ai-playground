@@ -138,7 +138,10 @@
  "리투아니아": "Lithuania",
  "산마리노": "San Marino",
  "안도라": "Andorra",
- "한국": "Korea",
+ "한국": [
+  "South Korea",
+  "Korea Republic"
+ ],
  "일본": "Japan",
  "중국": "China",
  "베네수엘라": "Venezuela",
@@ -188,6 +191,10 @@
  "사우디아라비아": "Saudi Arabia",
  "호주": "Australia",
  "오스트레일리아": "Australia",
- "북한": "Korea DPR",
- "홍콩": "Hong Kong"
+ "북한": [
+  "North Korea",
+  "Korea DPR"
+ ],
+ "홍콩": "Hong Kong",
+ "파키스탄": "Pakistan"
 }

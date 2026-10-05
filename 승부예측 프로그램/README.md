@@ -23,7 +23,8 @@
 | `scripts/calibration.py` | 누적 기록으로 확률 보정 상태 점검 |
 | `scripts/devig.py` | 배당률 → 마진 제거 확률 (Shin/Power) |
 | `scripts/match_model.py` | 포아송 + Dixon-Coles 모델, 시장 블렌딩 |
-| `scripts/odds_scan.py` | 베트맨 프로토 배당 vs Pinnacle 공정 확률 → 기대값 1 이상 경기 탐지 |
+| `scripts/odds_scan.py` | 베트맨 프로토 배당(승무패·승패·핸디캡·언더오버·승N패·전반) vs Pinnacle 공정 확률 → 기대값 1 이상 선택지 탐지. `--lambda`로 경기별 기대 득점·실점과 핸디캡/언더오버 확률 사다리 출력 |
+| `scripts/match_scan.py` | 축구토토 매치(전반+최종 스코어) 칸별 모델 확률 vs 대중 점유율 → 풀 배당 기대값 |
 | `scripts/backtest.py` | 과거 5대 리그 자료로 기법별 정확도 순위·앙상블 검증 |
 | `분석방법론.md` | 해외·국내 전문가·연구 방법론 정리, 백테스트 결과 (출처 포함) |
 

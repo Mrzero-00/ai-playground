@@ -8,6 +8,7 @@
   "역산 모델(*)이 직접 비교보다 얼마나 덜 맞는지"를 몇 회차 안에 확인할 수 있다.
 
 파일: data/스캔기록.csv  (한 행 = 한 선택지. 키 = 회차+번호+선택. 같은 키는 가장 늦은 스캔으로 덮어쓴다 = 킥오프에 가까운 배당)
+      data/배당이력.csv  (스캔할 때마다 누적. 시간에 따른 베트맨 배당·공정확률 변화 → 뉴스 반영 지연·CLV 분석용)
 열: scan_time, 회차, 번호, 시각, 종목, 리그, 경기, 유형, 구분, 선택, 베트맨, 공정확률, 기대값, 근거, result, hit, 비고
 
 사용법
@@ -105,6 +106,15 @@ def log_rows(rows, scan_time=None):
             "구분": r.get("구분", "일반"), "선택": sel, "베트맨": r.get("베트맨", ""), "공정확률": r["공정확률"],
             "기대값": r.get("기대값", ""), "근거": src, "result": "", "hit": "", "비고": "",
         })
+    # 배당 이력(덮어쓰지 않고 누적): 뉴스 반영 지연 가설(킥오프 직전 배당 vs 처음 배당, CLV) 검증용
+    hist = os.path.join(ROOT, "data", "배당이력.csv")
+    new_file = not os.path.exists(hist)
+    with open(hist, "a", encoding="utf-8", newline="") as fh:
+        w = csv.DictWriter(fh, fieldnames=["scan_time", "회차", "번호", "경기", "구분", "선택", "베트맨", "공정확률", "기대값", "근거"])
+        if new_file:
+            w.writeheader()
+        for r in out:
+            w.writerow({c: r.get(c, "") for c in ["scan_time", "회차", "번호", "경기", "구분", "선택", "베트맨", "공정확률", "기대값", "근거"]})
     return upsert(out)
 
 

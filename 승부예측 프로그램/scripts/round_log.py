@@ -10,6 +10,7 @@
   python3 scripts/round_log.py init 119              # 베트맨 119회 대진을 행으로 등록 (이미 있는 경기는 건너뜀)
   python3 scripts/round_log.py pure 119 <파일.csv>   # 순수 분석 결과 일괄 입력 (열: 홈,원정,순수_승,순수_무,순수_패,확신도,핵심근거,뉴스위험,제외)
   python3 scripts/round_log.py market 119            # 판매 중이면 Pinnacle 공정확률·베트맨 배당을 채움 (킥오프 가까울수록 다시 돌린다)
+  python3 scripts/round_log.py market-from-scanlog 118  # 판매가 끝난 회차에 스캔기록(킥오프 직전 일반 시장)으로 시장 확률 보충
   python3 scripts/round_log.py results 119           # 베트맨 공식 결과로 결과·점수·적중 채점
   python3 scripts/round_log.py review 119            # 전체 회고 보고서 → 회차별분석/YYYY-MM-DD_프로토119_전체회고.md
 
@@ -146,6 +147,34 @@ def cmd_market(a):
     print(f"{a.round}회: 시장 확률 {n}경기 갱신 ({now})")
 
 
+def cmd_market_from_scanlog(a):
+    """판매가 끝난 회차: data/스캔기록.csv(일반 시장, 킥오프 직전 스캔)에서 시장 확률·베트맨 배당을 채운다.
+    판매 중에 market을 못 돌렸을 때 보충용 (2026-10-07)."""
+    rows = load()
+    path = os.path.join(ROOT, "data", "스캔기록.csv")
+    if not os.path.exists(path):
+        print("스캔기록.csv 없음"); return
+    scan = [x for x in csv.DictReader(open(path, encoding="utf-8")) if x["회차"] == str(a.round) and x["구분"] == "일반"]
+    by = {}
+    for x in scan:
+        by.setdefault(x["경기"], {})[x["선택"]] = x
+    n = 0
+    for r in rows:
+        if r["회차"] != str(a.round) or r.get("시장_승"):
+            continue
+        g = by.get(f"{r['홈']} vs {r['원정']}")
+        if not g or "승" not in g or "패" not in g:
+            continue
+        r["시장_승"], r["시장_패"] = g["승"]["공정확률"], g["패"]["공정확률"]
+        r["시장_무"] = g["무"]["공정확률"] if "무" in g else 0
+        r["베트맨_승"], r["베트맨_패"] = g["승"]["베트맨"], g["패"]["베트맨"]
+        r["베트맨_무"] = g["무"]["베트맨"] if "무" in g else ""
+        r["시장시각"] = g["승"]["scan_time"] + " (스캔기록)"
+        n += 1
+    save(rows)
+    print(f"{a.round}회: 스캔기록에서 시장 확률 {n}경기 보충")
+
+
 def argmax(r, pre):
     try:
         v = [float(r[f"{pre}_승"] or 0), float(r[f"{pre}_무"] or 0), float(r[f"{pre}_패"] or 0)]
@@ -255,8 +284,10 @@ def main():
     for c in ("init", "market", "results", "review"):
         s = sub.add_parser(c); s.add_argument("round", type=int)
     s = sub.add_parser("pure"); s.add_argument("round", type=int); s.add_argument("file")
+    s = sub.add_parser("market-from-scanlog"); s.add_argument("round", type=int)
     a = ap.parse_args()
-    {"init": cmd_init, "pure": cmd_pure, "market": cmd_market, "results": cmd_results, "review": cmd_review}[a.cmd](a)
+    {"init": cmd_init, "pure": cmd_pure, "market": cmd_market, "results": cmd_results, "review": cmd_review,
+     "market-from-scanlog": cmd_market_from_scanlog}[a.cmd](a)
 
 
 if __name__ == "__main__":

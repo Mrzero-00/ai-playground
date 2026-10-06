@@ -316,7 +316,9 @@ def clv_report(save_md=True, top=15):
     if not items:
         print("같은 선택지가 2번 이상 스캔된 기록이 아직 없습니다.")
         return
+    cand = [i for i in items if i["EV처음"] >= 0.95]
     lines = [f"# CLV 보고 ({dt.datetime.now(KST):%Y-%m-%d %H:%M}) — 선택지 {len(items)}개 (2회 이상 스캔)",
+             f"- **후보 기준(처음 기대값 0.95 이상) {len(cand)}개: 평균 CLV {sum(i['CLV'] for i in cand)/max(1,len(cand)):+.3f}, 평균 베트맨 지연 {sum(i['베트맨지연'] for i in cand)/max(1,len(cand)):+.3f}** ← 수익 판정은 이 줄을 본다 (전체 평균은 롱샷이 섞여 늘 음수)",
              "- CLV = 마지막(킥오프 직전) 공정확률 × 처음 베트맨 배당 − 1. 양수면 '처음 봤을 때 산 가격이 마감 기준으로 유리했다'.",
              "- 베트맨 지연 = 마지막 기대값 − 처음 기대값. 양수면 Pinnacle이 그쪽으로 움직였는데 베트맨이 덜 따라갔다.",
              f"- 평균 CLV {sum(i['CLV'] for i in items)/len(items):+.3f}, 평균 베트맨 지연 {sum(i['베트맨지연'] for i in items)/len(items):+.3f}, "

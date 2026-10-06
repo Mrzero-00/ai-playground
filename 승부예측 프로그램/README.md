@@ -28,6 +28,7 @@
 | `scripts/tracker.py` | 구매 무관 전체 추적: `odds_scan.py --log`로 쌓인 모든 선택지를 베트맨 공식 결과로 자동 채점(`results`), 확률 구간·종목·유형·근거별 예상 vs 실제 보고(`report`), 마감 대비 가치·베트맨 지연 보고(`clv`) |
 | `scripts/match_scan.py` | 축구토토 매치(전반+최종 스코어) 칸별 모델 확률 vs 대중 점유율 → 풀 배당 기대값 |
 | `scripts/backtest.py` | 과거 5대 리그 자료로 기법별 정확도 순위·앙상블 검증 |
+| `scripts/round_log.py` | 회차 전체 경기 기록(`전체경기기록.csv`)·시장 확률·결과 채점·전체 회고 보고서 — 절차는 `회차운영절차.md` |
 | `scripts/source_compare.py` | 확률 방식(마감·오픈·시장평균·재보정·스태킹)별 실제 적중 비교 |
 | `scripts/sure_backtest.py` | 경기마다 최고 확률 선택지(일반·핸디캡·언더오버)를 고를 때 실제 적중률·선별 곡선 |
 | `scripts/tune.py` | EPL 2012~2026 자료로 고확률 선택 보정·모델 상수 격자·핸디캡 역산 모델 검증 (결과 `회차별분석/상수점검_*.md`) |

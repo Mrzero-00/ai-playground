@@ -24,6 +24,7 @@
 | `scripts/devig.py` | 배당률 → 마진 제거 확률 (Shin/Power) |
 | `scripts/match_model.py` | 포아송 + Dixon-Coles 모델, 시장 블렌딩 |
 | `scripts/odds_scan.py` | 베트맨 프로토 배당 vs Pinnacle 공정 확률 → 기대값 1 이상 경기 탐지. `--no-draw --prob`로 야구·배구·농구를 이길 확률 순으로, `--sports`·`--round`·`--min-prob` 필터, `--best`로 경기마다 가장 확률 높은 선택지(일반·핸디캡·언더오버), `--combo N`·`--target 배당`으로 적중 확률 높은 조합 (`--no-handi`로 일반만) |
+| `scripts/tracker.py` | 구매 무관 전체 추적: `odds_scan.py --log`로 쌓인 모든 선택지를 베트맨 공식 결과로 자동 채점(`results`), 확률 구간·종목·유형·근거별 예상 vs 실제 보고(`report`) |
 | `scripts/match_scan.py` | 축구토토 매치(전반+최종 스코어) 칸별 모델 확률 vs 대중 점유율 → 풀 배당 기대값 |
 | `scripts/backtest.py` | 과거 5대 리그 자료로 기법별 정확도 순위·앙상블 검증 |
 | `scripts/source_compare.py` | 확률 방식(마감·오픈·시장평균·재보정·스태킹)별 실제 적중 비교 |

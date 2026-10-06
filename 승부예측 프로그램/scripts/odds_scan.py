@@ -21,6 +21,7 @@
   python3 scripts/odds_scan.py --target 3 --min-prob 65     # 합계 배당 3배 이상 조합 중 적중 확률 최고
   python3 scripts/odds_scan.py --no-handi ...                # 핸디캡 제외 (기본은 포함)
   python3 scripts/odds_scan.py --lambda --sports 축구        # 축구 경기별 기대 득점·실점 + 핸디캡/언더오버 확률 사다리
+  python3 scripts/odds_scan.py --best --log                  # 스캔하면서 모든 선택지를 data/스캔기록.csv에 기록 (구매 무관 전체 추적)
   - 배당 1.3 미만 선택지는 기본으로 뺀다(--min-odds 1.3). 전부 보려면 --min-odds 1
   - 핸디캡: 야구·축구 소수핸디캡(±x.5), 배구 세트핸디캡은 Pinnacle 같은 라인(기본+대체)과 비교.
     축구 정수핸디캡(3-way)은 Pinnacle (라인-0.5) 홈 / (라인+0.5) 원정으로 핸디승·핸디패를, 나머지를 핸디무로 계산.
@@ -393,6 +394,7 @@ def main():
                     help="베트맨 배당이 이 값 미만인 선택지는 추천·조합에서 뺀다 (기본 1.3, 사용자 결정 2026-10-02). 끄려면 --min-odds 1")
     ap.add_argument("--exclude", default="", help="이 문자열이 들어간 경기 제외 (쉼표 구분, 예: 한국_남자,카타르). 회차별 고정 제외는 data/exclude.json")
     ap.add_argument("--best", action="store_true", help="경기마다 가장 확률 높은 선택지(일반·핸디캡·언더오버 전체)를 확률 순으로")
+    ap.add_argument("--log", action="store_true", help="스캔한 모든 선택지(필터 전)를 data/스캔기록.csv에 기록 (구매 무관 전체 추적, tracker.py)")
     ap.add_argument("--lambda", dest="lam", action="store_true",
                     help="축구 경기별 기대 득점·실점(승무패+언더오버 역산)과 핸디캡/언더오버 확률 사다리를 함께 출력")
     a = ap.parse_args()
@@ -472,6 +474,7 @@ def scan(a):
             pins[code] = pinnacle(sid)
     names = load_names()
     rows = []
+    log_rows = []  # --log 용: 필터(min-ev/min-prob/min-odds) 적용 전 전체 선택지
     if a.no_handi:
         games = [g for g in games if g["라인"] is None and g["OU"] is None]
     matched = match(games, pins, names)
@@ -518,6 +521,8 @@ def scan(a):
             if not o:
                 continue
             ev = o * probs[key]
+            log_rows.append({**base, "종목": SPORT_KO.get(g["종목"], g["종목"]), "선택": lab, "베트맨": o,
+                             "공정확률": round(probs[key] * 100, 1), "기대값": round(ev, 3)})
             if ev < a.min_ev:
                 continue
             if probs[key] * 100 < a.min_prob or o < a.min_odds:
@@ -526,6 +531,10 @@ def scan(a):
                          "선택": lab, "베트맨": o,
                          "Pinnacle": round(p["배당"][key], 2) if line is None and ou is None else "",
                          "공정확률": round(probs[key] * 100, 1), "기대값": round(ev, 3), "Pin마진%": round(margin, 1)})
+    if a.log and log_rows:
+        import tracker
+        added, replaced = tracker.log_rows(log_rows)
+        print(f"[전체 추적] 스캔기록에 {len(log_rows)}개 선택지 기록 (새로 {added}, 갱신 {replaced}) → data/스캔기록.csv")
     all_rows = list(rows)  # 조합(--target)은 모든 선택지를 후보로 쓴다
     if a.sure:
         return sure_view(all_rows, a)

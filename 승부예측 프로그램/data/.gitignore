@@ -1,3 +1,7 @@
 *.csv
 *.npz
 .betman_cookie
+# 전체 추적 기록은 여러 컴퓨터에서 이어 쓰므로 git에 올린다 (2026-10-07)
+!스캔기록.csv
+
+autoscan.log

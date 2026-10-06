@@ -658,7 +658,10 @@ def leg_name(r):
         return f"{home}-{away} {'언더' if r['선택'] in ('승', '언더') else '오버'} {r['OU']:g}"  # 표 출력 뒤엔 선택이 언더/오버로 바뀌어 있다
     line = r.get("라인")
     if line is None or line == "":
-        return {"승": f"{home} 승", "패": f"{away} 승", "무": f"{home}-{away} 무"}[r["선택"]]
+        if "승N패" in str(r.get("구분", "")):
+            return {"승": f"{home} 2점차+ 승", "1점차": f"{home}-{away} 1점차", "패": f"{away} 2점차+ 승"}.get(r["선택"], r["선택"])
+        pre = "전반 " if str(r.get("구분", "")).startswith("전반") else ""
+        return pre + {"승": f"{home} 승", "패": f"{away} 승", "무": f"{home}-{away} 무"}.get(r["선택"], r["선택"])
     if "정수" in (r.get("유형") or "") and line != 0:  # 3-way 정수핸디캡은 베트맨 화면 표기 그대로 (예: 한국 H-2 패)
         k = int(abs(line))
         if line < 0:  # 홈이 -k

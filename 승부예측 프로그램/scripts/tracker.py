@@ -16,6 +16,7 @@
   python3 scripts/tracker.py results                 # 결과 없는 행의 회차를 베트맨에서 조회해 result/hit 채움
   python3 scripts/tracker.py results --round 117,118
   python3 scripts/tracker.py report                  # 확률 구간·종목·구분·근거별 예상 vs 실제, 회차별분석/전체추적_YYYY-MM-DD.md 저장
+  python3 scripts/tracker.py clv                     # 배당이력으로 CLV(마감 대비 가치)·베트맨 지연 보고 → 회차별분석/CLV_YYYY-MM-DD.md
   python3 scripts/tracker.py import 회차별분석/배당스캔_*.csv   # 예전 스캔 CSV를 스캔기록으로 가져오기
 
 베트맨 결과 코드 (gameInfoInq compSchedules.gameResult)
@@ -283,17 +284,79 @@ def report(save_md=True):
         print("\n저장:", out)
 
 
+# ---------------------------------------------------------------- CLV (마감 배당 대비 가치)
+def clv_report(save_md=True, top=15):
+    """배당이력.csv: 같은 선택지의 첫 스캔 vs 마지막 스캔(킥오프 직전) 기대값을 비교한다.
+    - CLV = 마지막 공정확률 × 처음 베트맨 배당 − 1 : 처음 봤을 때 샀다면 마감 기준으로 얼마나 유리/불리했는가.
+    - 베트맨 지연 = 마지막 기대값 − 처음 기대값 : Pinnacle은 움직였는데 베트맨이 안 고친 정도.
+    결과가 쌓이기 전에도(50~100건) '가치를 사고 있는지'를 판정할 수 있는 표준 지표."""
+    hist = os.path.join(ROOT, "data", "배당이력.csv")
+    if not os.path.exists(hist):
+        print("배당이력.csv 없음. odds_scan.py --log 를 여러 번 돌리면 쌓인다.")
+        return
+    rows = list(csv.DictReader(open(hist, encoding="utf-8")))
+    by = {}
+    for r in rows:
+        by.setdefault((r["회차"], r["번호"], r["선택"]), []).append(r)
+    res_rows = {key(r): r for r in load()}
+    items = []
+    for k, g in by.items():
+        g.sort(key=lambda r: r["scan_time"])
+        f, l = g[0], g[-1]
+        if len(g) < 2 or not f["공정확률"] or not l["공정확률"] or not f["베트맨"]:
+            continue
+        p0, p1 = float(f["공정확률"]) / 100, float(l["공정확률"]) / 100
+        o0, o1 = float(f["베트맨"]), float(l["베트맨"])
+        clv = p1 * o0 - 1
+        lag = p1 * o1 - p0 * o0
+        rr = res_rows.get(k, {})
+        items.append({"회차": k[0], "경기": l["경기"], "구분": l["구분"], "선택": k[2], "스캔수": len(g),
+                      "처음": f"{p0*100:.1f}%×{o0}", "마지막": f"{p1*100:.1f}%×{o1}", "EV처음": round(p0 * o0, 3), "EV마지막": round(p1 * o1, 3),
+                      "CLV": round(clv, 3), "베트맨지연": round(lag, 3), "결과": rr.get("hit", ""), "근거": l["근거"]})
+    if not items:
+        print("같은 선택지가 2번 이상 스캔된 기록이 아직 없습니다.")
+        return
+    lines = [f"# CLV 보고 ({dt.datetime.now(KST):%Y-%m-%d %H:%M}) — 선택지 {len(items)}개 (2회 이상 스캔)",
+             "- CLV = 마지막(킥오프 직전) 공정확률 × 처음 베트맨 배당 − 1. 양수면 '처음 봤을 때 산 가격이 마감 기준으로 유리했다'.",
+             "- 베트맨 지연 = 마지막 기대값 − 처음 기대값. 양수면 Pinnacle이 그쪽으로 움직였는데 베트맨이 덜 따라갔다.",
+             f"- 평균 CLV {sum(i['CLV'] for i in items)/len(items):+.3f}, 평균 베트맨 지연 {sum(i['베트맨지연'] for i in items)/len(items):+.3f}, "
+             f"마지막 기대값 1.0 이상 {sum(1 for i in items if i['EV마지막'] >= 1.0)}개 (처음 기준 {sum(1 for i in items if i['EV처음'] >= 1.0)}개)"]
+    def table(title, its):
+        lines.append(f"\n### {title}")
+        lines.append("| 회차 | 경기 | 구분 | 선택 | 처음 | 마지막 | EV처음 | EV마지막 | CLV | 베트맨지연 | 결과 | 근거 |")
+        lines.append("|---|---|---|---|---|---|---|---|---|---|---|---|")
+        for i in its:
+            lines.append(f"| {i['회차']} | {i['경기']} | {i['구분']} | {i['선택']} | {i['처음']} | {i['마지막']} | {i['EV처음']} | {i['EV마지막']} | {i['CLV']:+.3f} | {i['베트맨지연']:+.3f} | {i['결과']} | {i['근거']} |")
+    table(f"마지막 기대값 상위 {top} (지금 사면 좋은 가격)", sorted(items, key=lambda i: -i["EV마지막"])[:top])
+    table(f"베트맨 지연 상위 {top} (Pinnacle은 움직였는데 베트맨이 안 고친 것)", sorted(items, key=lambda i: -i["베트맨지연"])[:top])
+    done = [i for i in items if i["결과"] in ("0", "1")]
+    if done:
+        pos = [i for i in done if i["CLV"] > 0]
+        neg = [i for i in done if i["CLV"] <= 0]
+        lines.append("\n### CLV와 실제 결과")
+        lines.append(f"- CLV 양수 {len(pos)}개: 적중 {sum(int(i['결과']) for i in pos)} / CLV 음수 {len(neg)}개: 적중 {sum(int(i['결과']) for i in neg)}")
+    text = "\n".join(lines)
+    print(text)
+    if save_md:
+        out = os.path.join(ROOT, "회차별분석", f"CLV_{dt.datetime.now(KST):%Y-%m-%d}.md")
+        open(out, "w", encoding="utf-8").write(text + "\n")
+        print("\n저장:", out)
+
+
 def main():
     ap = argparse.ArgumentParser()
     sub = ap.add_subparsers(dest="cmd", required=True)
     r = sub.add_parser("results"); r.add_argument("--round", default="")
     sub.add_parser("report")
+    c = sub.add_parser("clv"); c.add_argument("--top", type=int, default=15)
     i = sub.add_parser("import"); i.add_argument("paths", nargs="+")
     a = ap.parse_args()
     if a.cmd == "results":
         fill_results([x for x in a.round.split(",") if x] or None)
     elif a.cmd == "report":
         report()
+    elif a.cmd == "clv":
+        clv_report(top=a.top)
     elif a.cmd == "import":
         paths = [p for pat in a.paths for p in sorted(glob.glob(pat))]
         print("합계 추가/덮어씀:", import_csvs(paths))

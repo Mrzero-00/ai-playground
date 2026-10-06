@@ -394,6 +394,7 @@ def main():
                     help="베트맨 배당이 이 값 미만인 선택지는 추천·조합에서 뺀다 (기본 1.3, 사용자 결정 2026-10-02). 끄려면 --min-odds 1")
     ap.add_argument("--exclude", default="", help="이 문자열이 들어간 경기 제외 (쉼표 구분, 예: 한국_남자,카타르). 회차별 고정 제외는 data/exclude.json")
     ap.add_argument("--best", action="store_true", help="경기마다 가장 확률 높은 선택지(일반·핸디캡·언더오버 전체)를 확률 순으로")
+    ap.add_argument("--bank", type=int, default=1000000, help="켈리 금액 계산용 뱅크롤(원). 기대값 1.0 이상 선택지에 1/4 켈리 권장 금액을 표시")
     ap.add_argument("--log", action="store_true", help="스캔한 모든 선택지(필터 전)를 data/스캔기록.csv에 기록 (구매 무관 전체 추적, tracker.py)")
     ap.add_argument("--lambda", dest="lam", action="store_true",
                     help="축구 경기별 기대 득점·실점(승무패+언더오버 역산)과 핸디캡/언더오버 확률 사다리를 함께 출력")
@@ -560,7 +561,13 @@ def scan(a):
     w = {c: max(len(c), *(len(str(r.get(c, ""))) for r in rows)) for c in cols}
     print(" | ".join(c.ljust(w[c]) for c in cols))
     for r in rows:
-        flag = " ★ +EV" if r["기대값"] != "" and r["기대값"] >= 1.0 else ("  근접" if r["기대값"] != "" and r["기대값"] >= 0.95 else "")
+        flag = ""
+        if r["기대값"] != "" and r["기대값"] >= 1.0:
+            b, pk = float(r["베트맨"]) - 1, r["공정확률"] / 100
+            kelly = max(0.0, (b * pk - (1 - pk)) / b) / 4  # 1/4 켈리
+            flag = f" ★ +EV  권장 {int(round(kelly * a.bank, -3)):,}원(1/4켈리)"
+        elif r["기대값"] != "" and r["기대값"] >= 0.95:
+            flag = "  근접"
         print(" | ".join(str(r.get(c, "")).ljust(w[c]) for c in cols) + flag)
     n_plus = sum(1 for r in rows if r["기대값"] != "" and r["기대값"] >= 1.0)
     print(f"\n비교 {len(rows)}건 / 기대값 1.0 이상 {n_plus}건. 매칭 실패는 --all 로 확인하고 data/team_names.json 에 이름을 추가한다.")

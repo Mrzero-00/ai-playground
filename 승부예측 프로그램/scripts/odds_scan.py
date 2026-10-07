@@ -38,7 +38,7 @@
 - 축구 '승패'형은 무승부 시 적중특례(배당 1.0). Pinnacle 2-way(무 환불)와 같은 조건이다.
 - 기대값 1.0 이상이어도 표본이 적으면 우연일 수 있다. 예측기록.csv에 남겨 CLV(마감 배당 대비)로 검증한다.
 """
-import argparse, csv, datetime as dt, json, math, os, re, subprocess, sys, time
+import re, argparse, csv, datetime as dt, json, math, os, re, subprocess, sys, time
 
 sys.path.insert(0, os.path.dirname(__file__))
 from devig import shin  # noqa: E402
@@ -91,8 +91,9 @@ def betman(cookie):
                 continue
             is_handi = "핸디캡" in bt  # 일반 소수핸디캡(±x.5) / 일반 정수핸디캡(축구 3-way) / 일반 세트핸디캡(배구)
             is_ou = bt == "일반 언더오버"  # 베트맨: 승 칸 = 언더, 패 칸 = 오버, winHandi = 기준점
-            is_wnl = bt == "승N패"  # 야구 3-way: 홈 2점차+ 승 / 1점차(어느 쪽이든) / 원정 2점차+ 승. Pinnacle 런라인 ±1.5로 조립
+            is_wnl = bt == "승N패"  # 3-way: 홈 (N+1)점차+ 승 / N점차 이내(어느 쪽이든) / 원정 (N+1)점차+ 승. Pinnacle 스프레드 ±(N+0.5)로 조립
             bn = g.get("betNm") or ""
+            wnl_n = int(re.search(r"승(\d+)패", bn).group(1)) if is_wnl and re.search(r"승(\d+)패", bn) else (1 if is_wnl else 0)  # 야구 승1패=1, 농구 승5패=5 (2026-10-08 버그 수정)
             period = 1 if "전반" in bn else 0  # 전반: 축구 전반전 = Pinnacle period 1, 야구 1~5회 = period 1 (2026-10-07 추가)
             if bt not in ("승무패", "일반 승패", "승패") and not is_handi and not is_ou and not is_wnl:
                 continue
@@ -110,7 +111,7 @@ def betman(cookie):
             games.append({
                 "회차": r["gmOsidTs"], "번호": g["matchSeq"], "종목": g["itemCode"], "리그": g["leagueName"],
                 "시각": dt.datetime.fromtimestamp(g["gameDate"] / 1000, dt.timezone.utc),
-                "홈": g["homeName"], "원정": g["awayName"], "유형": bt, "betNm": g.get("betNm"), "기간": period, "승N패": is_wnl,
+                "홈": g["homeName"], "원정": g["awayName"], "유형": bt, "betNm": g.get("betNm"), "기간": period, "승N패": is_wnl, "승N": wnl_n,
                 "라인": g["winHandi"] if is_handi else None,  # 홈팀 기준 핸디캡 (예: -1.5 = 홈이 2점 이상 이겨야 적중)
                 "OU": g["winHandi"] if is_ou else None,  # 언더오버 기준점
                 "단식": g.get("sgl") == "1",  # 한 경기 구매 가능 표시로 보이는 값 (베트맨 화면에서 확인 필요)  # 홈팀 기준 핸디캡 (예: -1.5 = 홈이 2점 이상 이겨야 적중)
@@ -174,12 +175,14 @@ def period_view(p, period):
     return {**p, "배당": ml, "핸디": sp, "합계": p.get("합계1")}
 
 
-def fair_wnl(spreads):
-    """야구 승N패(승 = 홈 2점차+, 1점차, 패 = 원정 2점차+)를 런라인 ±1.5에서 조립."""
-    if -1.5 not in spreads or 1.5 not in spreads:
+def fair_wnl(spreads, n=1):
+    """승N패(승 = 홈 N+1점차+, N점차 이내, 패 = 원정 N+1점차+)를 스프레드 ±(N+0.5)에서 조립. 야구 N=1(런라인 ±1.5), 농구 N=5(±5.5).
+    해당 라인이 Pinnacle에 없으면 None(가짜 확률을 만들지 않는다 — 2026-10-08 KBL 승5패를 ±1.5로 계산해 기대값 1.38이 나온 버그)."""
+    k = n + 0.5
+    if -k not in spreads or k not in spreads:
         return None
-    w = shin([1 / spreads[-1.5]["home"], 1 / spreads[-1.5]["away"]])[0][0]
-    lo = shin([1 / spreads[1.5]["home"], 1 / spreads[1.5]["away"]])[0][0]
+    w = shin([1 / spreads[-k]["home"], 1 / spreads[-k]["away"]])[0][0]
+    lo = shin([1 / spreads[k]["home"], 1 / spreads[k]["away"]])[0][0]
     return {"home": w, "draw": max(0.0, lo - w), "away": 1 - lo}, 0.0
 
 
@@ -539,7 +542,7 @@ def scan(a):
         p = period_view(p0, g.get("기간", 0))
         three = g["배당"][1] is not None
         if g.get("승N패"):
-            f = fair_wnl(p["핸디"])
+            f = fair_wnl(p["핸디"], g.get("승N", 1))
         elif ou is not None:
             fo = fair_ou(p, ou, g["종목"] == "SC") if p.get("배당") or p.get("합계") else None
             f = (fo[0], fo[1]) if fo else None
@@ -561,7 +564,7 @@ def scan(a):
                 rows.append({**base, "선택": "", "베트맨": "", "Pinnacle": "", "공정확률": "", "기대값": "", "매칭": "Pinnacle 라인 없음"})
             continue
         probs, margin = f
-        labels = [("승", "home"), ("1점차" if g.get("승N패") else "무", "draw"), ("패", "away")] if three else [("승", "home"), ("패", "away")]
+        labels = [("승", "home"), (f"{g.get('승N', 1)}점차" if g.get("승N패") else "무", "draw"), ("패", "away")] if three else [("승", "home"), ("패", "away")]
         bo = g["배당"] if three else [g["배당"][0], g["배당"][2]]
         for (lab, key), o in zip(labels, bo):
             if not o:

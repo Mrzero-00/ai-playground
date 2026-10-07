@@ -125,7 +125,7 @@ def cmd_market(a):
             continue
         three = (g.get("betTypNm") == "승무패")
         games.append({"종목": g["itemCode"], "시각": dt.datetime.fromtimestamp(g["gameDate"] / 1000, dt.timezone.utc),
-                      "홈": h, "원정": w, "유형": g.get("betTypNm"), "three": three,
+                      "홈": h, "원정": w, "유형": g.get("betTypNm"), "three": three, "번호": str(g.get("matchSeq") or ""),
                       "배당": [g["winAllot"], g["drawAllot"] if three else None, g["loseAllot"]]})
     pins = {c: o.pinnacle(s) for c, s in o.SPORTS.items() if any(x["종목"] == c for x in games)}
     names = o.load_names()
@@ -135,6 +135,8 @@ def cmd_market(a):
         for r in rows:
             if r["회차"] != str(a.round) or r["홈"] != g["홈"] or r["원정"] != g["원정"]:
                 continue
+            if r.get("결과") or (r.get("번호") and g.get("번호") and str(r["번호"]) != g["번호"]):
+                continue  # 끝난 경기·다른 번호(같은 대진이 회차에 두 번: MLB G3/G4)는 덮어쓰지 않는다 — 2026-10-08
             r["베트맨_승"], r["베트맨_무"], r["베트맨_패"] = g["배당"][0], g["배당"][1] or "", g["배당"][2]
             if p:
                 f = o.fair(p["배당"], g["three"])
@@ -229,15 +231,16 @@ def argmax(r, pre):
 def cmd_results(a):
     rows = load()
     raw = fetch_round(a.round)
-    res = {}
+    res, res_no = {}, {}
     for g in main_markets(raw):
         res[(g["homeName"], g["awayName"])] = (g.get("gameResult"), g.get("mchScore"), g.get("protoStatus"))
+        res_no[str(g.get("matchSeq"))] = res[(g["homeName"], g["awayName"])]  # 같은 대진 2경기(MLB G3/G4)는 번호로 — 2026-10-08
     code = {"0": "승", "1": "무", "2": "패", "4": "적특"}
     n = 0
     for r in rows:
         if r["회차"] != str(a.round) or r.get("결과"):
             continue
-        x = res.get((r["홈"], r["원정"]))
+        x = res_no.get(str(r.get("번호"))) if r.get("번호") else res.get((r["홈"], r["원정"]))
         if not x or x[2] != "4" or x[0] in (None, ""):
             continue
         r["결과"], r["점수"] = code.get(x[0], x[0]), x[1] or ""

@@ -253,7 +253,14 @@ def cmd_results(a):
     code = {"0": "승", "1": "무", "2": "패", "4": "적특"}
     n = 0
     for r in rows:
-        if r["회차"] != str(a.round) or r.get("결과"):
+        if r["회차"] != str(a.round):
+            continue
+        if r.get("결과") in ("승", "무", "패"):  # 결과 뒤에 확률이 채워졌을 수 있으니 적중만 다시 계산 (2026-10-09)
+            for pre, col in (("순수", "순수적중"), ("시장", "시장적중"), ("보정", "보정적중")):
+                pk = argmax(r, pre)
+                r[col] = "" if pk is None else int(pk == r["결과"])
+            continue
+        if r.get("결과"):
             continue
         x = res_no.get(str(r.get("번호"))) if r.get("번호") else res.get((r["홈"], r["원정"]))
         if not x or x[2] != "4" or x[0] in (None, ""):

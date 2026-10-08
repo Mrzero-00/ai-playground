@@ -179,8 +179,22 @@ def cmd_market_from_scanlog(a):
     print(f"{a.round}회: 스캔기록에서 시장 확률 {n}경기 보충")
 
 
+def own_weight(r):
+    """독자 분석 비중: data/own_weights.json (scripts/own_model.py report)의 리그 → 종목 → 전체 순으로, 없으면 0.10."""
+    path = os.path.join(ROOT, "data", "own_weights.json")
+    try:
+        w = json.load(open(path, encoding="utf-8"))
+    except (OSError, ValueError):
+        return 0.10
+    import own_model
+    for key in (f"리그:{r.get('종목', '')}·{own_model.league_group(r)}", f"종목:{r.get('종목', '')}", "전체:전체"):
+        if key in w:
+            return float(w[key])
+    return 0.10
+
+
 def cmd_adjust(a):
-    """보정 확률 = 시장 90% + 순수 분석 10% (분석규칙: 백테스트상 10% 이상 섞으면 나빠짐).
+    """보정 확률 = 시장 (1-w) + 순수 분석 w. w는 독자 분석 실적에 따라 구간별로 자동 조정(own_model.py, 기본 0.10).
     --news '홈,원정,승조정%%p,메모' 로 시장에 아직 반영 안 된 정보만 최대 ±5%p 추가 조정(무·패에 비례 배분).
     순수가 없으면 보정 = 시장. 사용자 요청(2026-10-07): 추천표에 시장 확률과 분석 적용 확률을 나란히 보여 준다."""
     rows = load()
@@ -196,7 +210,8 @@ def cmd_adjust(a):
         if not m:
             continue
         if pu:
-            f = [0.9 * x + 0.1 * y for x, y in zip(m, pu)]; memo = "시장90+순수10"
+            w = own_weight(r)
+            f = [(1 - w) * x + w * y for x, y in zip(m, pu)]; memo = f"시장{round((1 - w) * 100)}+순수{round(w * 100)}"
         else:
             f = list(m); memo = "순수 없음=시장"
         d, nm = news.get((r["홈"], r["원정"]), (0.0, ""))

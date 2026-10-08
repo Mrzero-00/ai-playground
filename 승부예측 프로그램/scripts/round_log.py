@@ -228,6 +228,15 @@ def cmd_adjust(a):
         n += 1
     save(rows)
     print(f"{a.round}회: 보정 확률 {n}경기 계산")
+    warn = []
+    for r in rows:
+        pu, m = probs(r, "순수"), probs(r, "시장")
+        if r["회차"] == str(a.round) and pu and m:
+            gap = max(abs(x - y) for x, y in zip(pu, m)) * 100
+            if gap >= 8:
+                warn.append(f"  ⚠ {r['홈']}-{r['원정']}: 순수와 시장 {gap:.0f}%p 차이 — 확인된 미반영 사실(확정 결장·라인업)이 없으면 시장 쪽으로 (분석규칙 8%p, 119회 DB·화이트삭스 실패)")
+    if warn:
+        print("8%p 이상 차이 경기:"); print("\n".join(warn))
     for r in rows:
         if r["회차"] == str(a.round) and r.get("보정_승"):
             print(f"  {r['시각']} {r['홈']}-{r['원정']}: 순수 {r['순수_승'] or '-'}/{r['순수_무'] or '-'}/{r['순수_패'] or '-'} | 시장 {r['시장_승']}/{r['시장_무']}/{r['시장_패']} | 보정 {r['보정_승']}/{r['보정_무']}/{r['보정_패']} ({r['보정메모']})")

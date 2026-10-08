@@ -99,6 +99,65 @@ def absorb_list(rows):
     return lst
 
 
+# ---------------------------------------------------------------- 가상 배팅 (독자 분석으로만 샀다면)
+SWITCH = {"고확신_기준": 0.70, "고확신_n": 100, "고확신_적중": 0.80, "ROI": 1.0, "RPS_n": 200}
+
+
+def paper_bets(rows):
+    """경기마다 순수 확률 1순위를 1단위 샀다고 가정. 베트맨 배당이 있으면 회수까지 계산(없으면 적중만)."""
+    out = []
+    for r in rows:
+        if r.get("결과") not in ("승", "무", "패"):
+            continue
+        pu = probs(r, "순수")
+        if not pu:
+            continue
+        i = max(range(3), key=lambda k: pu[k])
+        pick = "승무패"[i]
+        try:
+            odds = float(r.get(f"베트맨_{pick}") or 0)
+        except ValueError:
+            odds = 0
+        mk = probs(r, "시장")
+        mpick = "승무패"[max(range(3), key=lambda k: mk[k])] if mk else ""
+        out.append({"회차": r["회차"], "종목": r.get("종목", ""), "경기": f"{r['홈']}-{r['원정']}", "픽": pick, "확률": pu[i],
+                    "배당": odds, "적중": int(pick == r["결과"]), "시장픽": mpick, "시장적중": int(mpick == r["결과"]) if mpick else None})
+    return out
+
+
+def paper_section(rows, ev):
+    pb = paper_bets(rows)
+    L = ["", "## 가상 배팅 — 독자 분석 1순위를 경기마다 1단위 샀다면 (구매 여부 무관, 누적)", ""]
+    if not pb:
+        return L + ["아직 결과가 나온 경기가 없다."]
+    L += ["| 내 확률 구간 | 픽 수 | 적중률 | 배당 있는 픽 | 회수율(ROI) | 같은 경기 시장 1순위 적중률 |", "|---|---|---|---|---|---|"]
+    for lo, hi in ((0, .5), (.5, .6), (.6, .7), (.7, .8), (.8, 1.01), (0, 1.01)):
+        xs = [x for x in pb if lo <= x["확률"] < hi]
+        if not xs:
+            continue
+        od = [x for x in xs if x["배당"] > 1]
+        roi = (sum(x["배당"] * x["적중"] for x in od) / len(od)) if od else None
+        mk = [x for x in xs if x["시장적중"] is not None]
+        name = "전체" if (lo, hi) == (0, 1.01) else f"{lo:.0%}~{min(hi, 1):.0%}"
+        L.append(f"| {name} | {len(xs)} | {sum(x['적중'] for x in xs) / len(xs):.1%} | {len(od)} | "
+                 f"{(f'{roi:.2f}' if roi is not None else '-')} | {(f'{sum(x["시장적중"] for x in mk) / len(mk):.1%}' if mk else '-')} |")
+    hi = [x for x in pb if x["확률"] >= SWITCH["고확신_기준"]]
+    hi_od = [x for x in hi if x["배당"] > 1]
+    hit = sum(x["적중"] for x in hi) / len(hi) if hi else 0
+    roi = sum(x["배당"] * x["적중"] for x in hi_od) / len(hi_od) if hi_od else 0
+    allr = ev.get(("전체", "전체"), {})
+    c1 = len(hi) >= SWITCH["고확신_n"] and hit >= SWITCH["고확신_적중"]
+    c2 = len(hi_od) >= SWITCH["고확신_n"] and roi >= SWITCH["ROI"]
+    c3 = allr.get("n", 0) >= SWITCH["RPS_n"] and allr.get("순수RPS", 9) < allr.get("시장RPS", 0)
+    L += ["", "## 독자 분석 단독 운영 전환 조건 (사용자 기준 80% + 수익·정확도)", "",
+          "| 조건 | 기준 | 현재 | 충족 |", "|---|---|---|---|",
+          f"| 1. 고확신 픽(내 확률 70%+) 적중률 | {SWITCH['고확신_n']}건 이상에서 80% 이상 | {len(hi)}건, {hit:.1%} | {'O' if c1 else 'X'} |",
+          f"| 2. 그 픽을 베트맨 배당으로 샀을 때 회수율 | {SWITCH['고확신_n']}건 이상에서 1.00 이상 | {len(hi_od)}건, {roi:.2f} | {'O' if c2 else 'X'} |",
+          f"| 3. 같은 경기 시장보다 정확(RPS) | {SWITCH['RPS_n']}경기 이상에서 순수 < 시장 | {allr.get('n', 0)}경기, 순수 {allr.get('순수RPS', 0):.3f} vs 시장 {allr.get('시장RPS', 0):.3f} | {'O' if c3 else 'X'} |",
+          "", f"**전환 판정: {'세 조건 모두 충족 — 독자 분석 단독 운영 가능' if (c1 and c2 and c3) else '아직 아님 (시장 기준 유지, 독자 분석 비중은 구간별 자동 조정)'}**"]
+    return L
+
+
 def cmd_report():
     rows = list(csv.DictReader(open(REC, encoding="utf-8")))
     ev = evaluate(rows)
@@ -124,6 +183,7 @@ def cmd_report():
           "## 독자 분석 구매 자격", "",
           "- 구간 n ≥ 100 이고 순수 RPS < 시장 RPS 인 구간에서만, 순수 확률 × 베트맨 배당 ≥ 1.05 를 '독자 분석 구매 후보'로 낸다.",
           "- 자격 구간: " + (", ".join(f"{t}:{nm}" for (t, nm), v in ev.items() if v["n"] >= 100 and v["순수RPS"] < v["시장RPS"]) or "아직 없음")]
+    L += paper_section(rows, ev)
     out = os.path.join(ROOT, "회차별분석", f"독자분석_현황_{dt.date.today()}.md")
     open(out, "w", encoding="utf-8").write("\n".join(L) + "\n")
     print("\n".join(L[:14]))

@@ -10,6 +10,8 @@
   python3 scripts/round_log.py init 119              # 베트맨 119회 대진을 행으로 등록 (이미 있는 경기는 건너뜀)
   python3 scripts/round_log.py pure 119 <파일.csv>   # 순수 분석 결과 일괄 입력 (열: 홈,원정,순수_승,순수_무,순수_패,확신도,핵심근거,뉴스위험,제외)
   python3 scripts/round_log.py market 119            # 판매 중이면 Pinnacle 공정확률·베트맨 배당을 채움 (킥오프 가까울수록 다시 돌린다)
+  python3 scripts/round_log.py market-from-scanlog 118  # 판매가 끝난 회차에 스캔기록(킥오프 직전 일반 시장)으로 시장 확률 보충
+  python3 scripts/round_log.py adjust 119 [--news '홈,원정,+3,라인업 발표']  # 보정 확률(시장90+순수10, 미반영 뉴스 ±5%p) → 추천표에 시장/보정 나란히
   python3 scripts/round_log.py results 119           # 베트맨 공식 결과로 결과·점수·적중 채점
   python3 scripts/round_log.py review 119            # 전체 회고 보고서 → 회차별분석/YYYY-MM-DD_프로토119_전체회고.md
 
@@ -27,7 +29,8 @@ PATH = os.path.join(ROOT, "전체경기기록.csv")
 COLS = ["회차", "번호", "시각", "종목", "리그", "홈", "원정",
         "순수_승", "순수_무", "순수_패", "확신도", "핵심근거", "뉴스위험", "제외",
         "시장_승", "시장_무", "시장_패", "베트맨_승", "베트맨_무", "베트맨_패", "시장시각",
-        "추천", "구매", "결과", "점수", "순수적중", "시장적중", "비고"]
+        "보정_승", "보정_무", "보정_패", "보정메모",
+        "추천", "구매", "결과", "점수", "순수적중", "시장적중", "보정적중", "비고"]
 SPORT = {"SC": "축구", "BS": "야구", "BK": "농구", "VL": "배구", "IH": "하키"}
 KST = o.KST
 
@@ -122,7 +125,7 @@ def cmd_market(a):
             continue
         three = (g.get("betTypNm") == "승무패")
         games.append({"종목": g["itemCode"], "시각": dt.datetime.fromtimestamp(g["gameDate"] / 1000, dt.timezone.utc),
-                      "홈": h, "원정": w, "유형": g.get("betTypNm"), "three": three,
+                      "홈": h, "원정": w, "유형": g.get("betTypNm"), "three": three, "번호": str(g.get("matchSeq") or ""),
                       "배당": [g["winAllot"], g["drawAllot"] if three else None, g["loseAllot"]]})
     pins = {c: o.pinnacle(s) for c, s in o.SPORTS.items() if any(x["종목"] == c for x in games)}
     names = o.load_names()
@@ -132,6 +135,8 @@ def cmd_market(a):
         for r in rows:
             if r["회차"] != str(a.round) or r["홈"] != g["홈"] or r["원정"] != g["원정"]:
                 continue
+            if r.get("결과") or (r.get("번호") and g.get("번호") and str(r["번호"]) != g["번호"]):
+                continue  # 끝난 경기·다른 번호(같은 대진이 회차에 두 번: MLB G3/G4)는 덮어쓰지 않는다 — 2026-10-08
             r["베트맨_승"], r["베트맨_무"], r["베트맨_패"] = g["배당"][0], g["배당"][1] or "", g["배당"][2]
             if p:
                 f = o.fair(p["배당"], g["three"])
@@ -144,6 +149,73 @@ def cmd_market(a):
                     n += 1
     save(rows)
     print(f"{a.round}회: 시장 확률 {n}경기 갱신 ({now})")
+
+
+def cmd_market_from_scanlog(a):
+    """판매가 끝난 회차: data/스캔기록.csv(일반 시장, 킥오프 직전 스캔)에서 시장 확률·베트맨 배당을 채운다.
+    판매 중에 market을 못 돌렸을 때 보충용 (2026-10-07)."""
+    rows = load()
+    path = os.path.join(ROOT, "data", "스캔기록.csv")
+    if not os.path.exists(path):
+        print("스캔기록.csv 없음"); return
+    scan = [x for x in csv.DictReader(open(path, encoding="utf-8")) if x["회차"] == str(a.round) and x["구분"] == "일반"]
+    by = {}
+    for x in scan:
+        by.setdefault(x["경기"], {})[x["선택"]] = x
+    n = 0
+    for r in rows:
+        if r["회차"] != str(a.round) or r.get("시장_승"):
+            continue
+        g = by.get(f"{r['홈']} vs {r['원정']}")
+        if not g or "승" not in g or "패" not in g:
+            continue
+        r["시장_승"], r["시장_패"] = g["승"]["공정확률"], g["패"]["공정확률"]
+        r["시장_무"] = g["무"]["공정확률"] if "무" in g else 0
+        r["베트맨_승"], r["베트맨_패"] = g["승"]["베트맨"], g["패"]["베트맨"]
+        r["베트맨_무"] = g["무"]["베트맨"] if "무" in g else ""
+        r["시장시각"] = g["승"]["scan_time"] + " (스캔기록)"
+        n += 1
+    save(rows)
+    print(f"{a.round}회: 스캔기록에서 시장 확률 {n}경기 보충")
+
+
+def cmd_adjust(a):
+    """보정 확률 = 시장 90% + 순수 분석 10% (분석규칙: 백테스트상 10% 이상 섞으면 나빠짐).
+    --news '홈,원정,승조정%%p,메모' 로 시장에 아직 반영 안 된 정보만 최대 ±5%p 추가 조정(무·패에 비례 배분).
+    순수가 없으면 보정 = 시장. 사용자 요청(2026-10-07): 추천표에 시장 확률과 분석 적용 확률을 나란히 보여 준다."""
+    rows = load()
+    news = {}
+    for item in (a.news or []):
+        h, w, d, memo = (item.split(",", 3) + [""])[:4]
+        news[(h.strip(), w.strip())] = (max(-5.0, min(5.0, float(d))), memo.strip())
+    n = 0
+    for r in rows:
+        if r["회차"] != str(a.round) or not r.get("시장_승"):
+            continue
+        m = probs(r, "시장"); pu = probs(r, "순수")
+        if not m:
+            continue
+        if pu:
+            f = [0.9 * x + 0.1 * y for x, y in zip(m, pu)]; memo = "시장90+순수10"
+        else:
+            f = list(m); memo = "순수 없음=시장"
+        d, nm = news.get((r["홈"], r["원정"]), (0.0, ""))
+        if d:
+            rest = f[1] + f[2]
+            f[0] = min(0.99, max(0.01, f[0] + d / 100))
+            scale = (1 - f[0]) / rest if rest > 0 else 0
+            f[1], f[2] = f[1] * scale, f[2] * scale
+            memo += f"; 뉴스 {d:+.0f}%p({nm})"
+        r["보정_승"], r["보정_무"], r["보정_패"] = round(f[0] * 100, 1), round(f[1] * 100, 1), round(f[2] * 100, 1)
+        r["보정메모"] = memo
+        if r.get("결과") in ("승", "무", "패"):
+            pk = argmax(r, "보정"); r["보정적중"] = int(pk == r["결과"]) if pk else ""
+        n += 1
+    save(rows)
+    print(f"{a.round}회: 보정 확률 {n}경기 계산")
+    for r in rows:
+        if r["회차"] == str(a.round) and r.get("보정_승"):
+            print(f"  {r['시각']} {r['홈']}-{r['원정']}: 순수 {r['순수_승'] or '-'}/{r['순수_무'] or '-'}/{r['순수_패'] or '-'} | 시장 {r['시장_승']}/{r['시장_무']}/{r['시장_패']} | 보정 {r['보정_승']}/{r['보정_무']}/{r['보정_패']} ({r['보정메모']})")
 
 
 def argmax(r, pre):
@@ -159,19 +231,20 @@ def argmax(r, pre):
 def cmd_results(a):
     rows = load()
     raw = fetch_round(a.round)
-    res = {}
+    res, res_no = {}, {}
     for g in main_markets(raw):
         res[(g["homeName"], g["awayName"])] = (g.get("gameResult"), g.get("mchScore"), g.get("protoStatus"))
+        res_no[str(g.get("matchSeq"))] = res[(g["homeName"], g["awayName"])]  # 같은 대진 2경기(MLB G3/G4)는 번호로 — 2026-10-08
     code = {"0": "승", "1": "무", "2": "패", "4": "적특"}
     n = 0
     for r in rows:
         if r["회차"] != str(a.round) or r.get("결과"):
             continue
-        x = res.get((r["홈"], r["원정"]))
+        x = res_no.get(str(r.get("번호"))) if r.get("번호") else res.get((r["홈"], r["원정"]))
         if not x or x[2] != "4" or x[0] in (None, ""):
             continue
         r["결과"], r["점수"] = code.get(x[0], x[0]), x[1] or ""
-        for pre, col in (("순수", "순수적중"), ("시장", "시장적중")):
+        for pre, col in (("순수", "순수적중"), ("시장", "시장적중"), ("보정", "보정적중")):
             pk = argmax(r, pre)
             r[col] = "" if pk is None or r["결과"] == "적특" else int(pk == r["결과"])
         n += 1
@@ -205,19 +278,23 @@ def cmd_review(a):
         both = [r for r in rs if probs(r, "순수") and probs(r, "시장")]
         pu = [r for r in rs if r.get("순수적중") != ""]
         mk = [r for r in rs if r.get("시장적중") != ""]
+        bj = [r for r in rs if r.get("보정적중") not in ("", None)]
         line = f"| {title} | {len(rs)} | "
         line += (f"{sum(int(r['순수적중']) for r in pu)}/{len(pu)} | " if pu else "- | ")
         line += (f"{sum(int(r['시장적중']) for r in mk)}/{len(mk)} | " if mk else "- | ")
+        line += (f"{sum(int(r['보정적중']) for r in bj)}/{len(bj)} | " if bj else "- | ")
         if both:
             rp = sum(rps(probs(r, "순수"), r["결과"]) for r in both) / len(both)
             rm = sum(rps(probs(r, "시장"), r["결과"]) for r in both) / len(both)
-            line += f"{rp:.3f} | {rm:.3f} | {len(both)} |"
+            bb = [r for r in both if probs(r, "보정")]
+            rb = sum(rps(probs(r, "보정"), r["결과"]) for r in bb) / len(bb) if bb else None
+            line += f"{rp:.3f} | {rm:.3f} | {rb:.3f} | {len(both)} |" if rb is not None else f"{rp:.3f} | {rm:.3f} | - | {len(both)} |"
         else:
-            line += "- | - | 0 |"
+            line += "- | - | - | 0 |"
         return line
 
-    L += ["## 1. 순수 분석 vs 시장 (1순위 적중, RPS 낮을수록 좋음)", "",
-          "| 구분 | 경기 | 순수 1순위 적중 | 시장 1순위 적중 | 순수 RPS | 시장 RPS | 비교 표본 |", "|---|---|---|---|---|---|---|",
+    L += ["## 1. 순수 분석 vs 시장 vs 보정(시장90+순수10+뉴스) — 1순위 적중, RPS 낮을수록 좋음", "",
+          "| 구분 | 경기 | 순수 적중 | 시장 적중 | 보정 적중 | 순수 RPS | 시장 RPS | 보정 RPS | 비교 표본 |", "|---|---|---|---|---|---|---|---|---|",
           block("전체", done)]
     for sp in sorted({r["종목"] for r in done}):
         L.append(block(sp, [r for r in done if r["종목"] == sp]))
@@ -254,9 +331,12 @@ def main():
     sub = ap.add_subparsers(dest="cmd", required=True)
     for c in ("init", "market", "results", "review"):
         s = sub.add_parser(c); s.add_argument("round", type=int)
+    s = sub.add_parser("adjust"); s.add_argument("round", type=int); s.add_argument("--news", action="append", help="'홈,원정,승조정%%p,메모' (최대 ±5)")
     s = sub.add_parser("pure"); s.add_argument("round", type=int); s.add_argument("file")
+    s = sub.add_parser("market-from-scanlog"); s.add_argument("round", type=int)
     a = ap.parse_args()
-    {"init": cmd_init, "pure": cmd_pure, "market": cmd_market, "results": cmd_results, "review": cmd_review}[a.cmd](a)
+    {"init": cmd_init, "pure": cmd_pure, "market": cmd_market, "results": cmd_results, "review": cmd_review, "adjust": cmd_adjust,
+     "market-from-scanlog": cmd_market_from_scanlog}[a.cmd](a)
 
 
 if __name__ == "__main__":

@@ -34,11 +34,11 @@
   data/team_names.json에 이름을 추가하면 다음부터 잡힌다.
 
 주의
-- 승무패·승패·핸디캡을 비교한다. 언더오버·홀짝·승N패는 제외.
+- 승무패·승패·핸디캡·언더오버·승N패·전반(축구 전반전, 야구 1~5회 = Pinnacle period 1)을 비교한다. 홀짝·후반 단독은 제외. (2026-10-07 전반·승N패 추가 — 416개 집계에서 전반 마켓 평균 기대값 0.935로 베트맨 마진이 가장 얇은 곳)
 - 축구 '승패'형은 무승부 시 적중특례(배당 1.0). Pinnacle 2-way(무 환불)와 같은 조건이다.
 - 기대값 1.0 이상이어도 표본이 적으면 우연일 수 있다. 예측기록.csv에 남겨 CLV(마감 배당 대비)로 검증한다.
 """
-import argparse, csv, datetime as dt, json, math, os, re, subprocess, sys, time
+import re, argparse, csv, datetime as dt, json, math, os, re, subprocess, sys, time
 
 sys.path.insert(0, os.path.dirname(__file__))
 from devig import shin  # noqa: E402
@@ -91,13 +91,17 @@ def betman(cookie):
                 continue
             is_handi = "핸디캡" in bt  # 일반 소수핸디캡(±x.5) / 일반 정수핸디캡(축구 3-way) / 일반 세트핸디캡(배구)
             is_ou = bt == "일반 언더오버"  # 베트맨: 승 칸 = 언더, 패 칸 = 오버, winHandi = 기준점
-            if bt not in ("승무패", "일반 승패", "승패") and not is_handi and not is_ou:
+            is_wnl = bt == "승N패"  # 3-way: 홈 (N+1)점차+ 승 / N점차 이내(어느 쪽이든) / 원정 (N+1)점차+ 승. Pinnacle 스프레드 ±(N+0.5)로 조립
+            bn = g.get("betNm") or ""
+            wnl_n = int(re.search(r"승(\d+)패", bn).group(1)) if is_wnl and re.search(r"승(\d+)패", bn) else (1 if is_wnl else 0)  # 야구 승1패=1, 농구 승5패=5 (2026-10-08 버그 수정)
+            period = 1 if "전반" in bn else 0  # 전반: 축구 전반전 = Pinnacle period 1, 야구 1~5회 = period 1 (2026-10-07 추가)
+            if bt not in ("승무패", "일반 승패", "승패") and not is_handi and not is_ou and not is_wnl:
                 continue
             if not is_handi and not is_ou and (g.get("winHandi") or g.get("loseHandi")):
                 continue  # 핸디캡 붙은 승무패는 비교 대상 아님 ('handi'는 유형 코드라 보지 않는다: 일반 승패=21)
-            if "전반" in (g.get("betNm") or "") or "후반" in (g.get("betNm") or ""):
-                continue  # 전반전 승무패 등은 경기 전체 배당과 비교하면 안 됨
-            if (is_handi or is_ou) and (not g.get("winAllot") or g["homeName"] == "미정" or g.get("winHandi") is None):
+            if "후반" in bn or (period == 1 and g["itemCode"] not in ("SC", "BS")):
+                continue  # 후반 단독·배구 전반은 비교 마켓 없음
+            if (is_handi or is_ou or is_wnl or period == 1) and (not g.get("winAllot") or g["homeName"] == "미정" or ((is_handi or is_ou) and g.get("winHandi") is None)):
                 continue  # 미발표 목록은 일반 승패/승무패 기준으로만 센다
             if not g.get("winAllot") or g["homeName"] == "미정":
                 pending.append({"회차": r["gmOsidTs"], "종목": g["itemCode"], "리그": g["leagueName"], "홈": g["homeName"],
@@ -107,11 +111,11 @@ def betman(cookie):
             games.append({
                 "회차": r["gmOsidTs"], "번호": g["matchSeq"], "종목": g["itemCode"], "리그": g["leagueName"],
                 "시각": dt.datetime.fromtimestamp(g["gameDate"] / 1000, dt.timezone.utc),
-                "홈": g["homeName"], "원정": g["awayName"], "유형": bt, "betNm": g.get("betNm"),
+                "홈": g["homeName"], "원정": g["awayName"], "유형": bt, "betNm": g.get("betNm"), "기간": period, "승N패": is_wnl, "승N": wnl_n,
                 "라인": g["winHandi"] if is_handi else None,  # 홈팀 기준 핸디캡 (예: -1.5 = 홈이 2점 이상 이겨야 적중)
                 "OU": g["winHandi"] if is_ou else None,  # 언더오버 기준점
                 "단식": g.get("sgl") == "1",  # 한 경기 구매 가능 표시로 보이는 값 (베트맨 화면에서 확인 필요)  # 홈팀 기준 핸디캡 (예: -1.5 = 홈이 2점 이상 이겨야 적중)
-                "배당": [g["winAllot"], g["drawAllot"] if (bt == "승무패" or (is_handi and g.get("drawAllot"))) else None,
+                "배당": [g["winAllot"], g["drawAllot"] if (bt == "승무패" or is_wnl or (is_handi and g.get("drawAllot"))) else None,
                          g["loseAllot"]],
             })
     return rounds, games, pending
@@ -127,23 +131,25 @@ def pinnacle(sport_id):
     mt = curl(f"https://guest.api.arcadia.pinnacle.com/0.1/sports/{sport_id}/matchups?withSpecials=false", hdr)
     mk = curl(f"https://guest.api.arcadia.pinnacle.com/0.1/sports/{sport_id}/markets/straight?primaryOnly=false", hdr)
     prices, spreads, totals = {}, {}, {}
+    prices1, spreads1, totals1 = {}, {}, {}  # period 1 (축구 전반 / 야구 1~5회)
     for m in mk:
-        if m.get("period") != 0 or m.get("status") != "open":
+        if m.get("period") not in (0, 1) or m.get("status") != "open":
             continue
+        P, S, T = (prices, spreads, totals) if m["period"] == 0 else (prices1, spreads1, totals1)
         if m.get("type") == "moneyline" and not m.get("isAlternate"):
-            prices[m["matchupId"]] = {p["designation"]: american_to_decimal(p["price"]) for p in m["prices"]}
+            P[m["matchupId"]] = {p["designation"]: american_to_decimal(p["price"]) for p in m["prices"]}
         elif m.get("type") == "total":  # 기본 + 대체 언더오버 (언더오버 비교와 핸디캡 역산 모델용)
             pr = {p["designation"]: p for p in m["prices"]}
             if "over" in pr and "under" in pr:
                 pts = float(pr["over"]["points"])
-                t = totals.setdefault(m["matchupId"], {"lines": {}, "main": None})
+                t = T.setdefault(m["matchupId"], {"lines": {}, "main": None})
                 t["lines"][lkey(pts)] = {"over": american_to_decimal(pr["over"]["price"]), "under": american_to_decimal(pr["under"]["price"])}
                 if not m.get("isAlternate"):
                     t["main"] = lkey(pts)
         elif m.get("type") == "spread":  # 기본 + 대체 라인, 홈팀 points 기준으로 저장
             pr = {p["designation"]: p for p in m["prices"]}
             if "home" in pr and "away" in pr:
-                spreads.setdefault(m["matchupId"], {})[lkey(pr["home"]["points"])] = {
+                S.setdefault(m["matchupId"], {})[lkey(pr["home"]["points"])] = {
                     "home": american_to_decimal(pr["home"]["price"]), "away": american_to_decimal(pr["away"]["price"])}
     out = []
     for t in mt:
@@ -153,8 +159,40 @@ def pinnacle(sport_id):
         away = next((p["name"] for p in t["participants"] if p.get("alignment") == "away"), t["participants"][-1]["name"])
         out.append({"id": t["id"], "리그": t["league"]["name"], "홈": home, "원정": away,
                     "시각": dt.datetime.fromisoformat(t["startTime"].replace("Z", "+00:00")), "배당": prices[t["id"]],
-                    "핸디": spreads.get(t["id"], {}), "합계": totals.get(t["id"])})
+                    "핸디": spreads.get(t["id"], {}), "합계": totals.get(t["id"]),
+                    "배당1": prices1.get(t["id"], {}), "핸디1": spreads1.get(t["id"], {}), "합계1": totals1.get(t["id"])})
     return out
+
+
+def period_view(p, period):
+    """경기 p의 period(0 전체 / 1 전반) 마켓만 보이는 뷰. 전반 머니라인이 없으면 스프레드 0 또는 ±0.5에서 조립한다."""
+    if period == 0:
+        return p
+    ml = dict(p.get("배당1") or {})
+    sp = p.get("핸디1") or {}
+    if not ml and 0.0 in sp:
+        ml = {"home": sp[0.0]["home"], "away": sp[0.0]["away"]}  # 무 환불 2-way
+    return {**p, "배당": ml, "핸디": sp, "합계": p.get("합계1")}
+
+
+def fair_wnl(spreads, n=1):
+    """승N패(승 = 홈 N+1점차+, N점차 이내, 패 = 원정 N+1점차+)를 스프레드 ±(N+0.5)에서 조립. 야구 N=1(런라인 ±1.5), 농구 N=5(±5.5).
+    해당 라인이 Pinnacle에 없으면 None(가짜 확률을 만들지 않는다 — 2026-10-08 KBL 승5패를 ±1.5로 계산해 기대값 1.38이 나온 버그)."""
+    k = n + 0.5
+    if -k not in spreads or k not in spreads:
+        return None
+    w = shin([1 / spreads[-k]["home"], 1 / spreads[-k]["away"]])[0][0]
+    lo = shin([1 / spreads[k]["home"], 1 / spreads[k]["away"]])[0][0]
+    return {"home": w, "draw": max(0.0, lo - w), "away": 1 - lo}, 0.0
+
+
+def fair_3way_from_spreads(spreads):
+    """3-way 승무패를 머니라인 없이 ±0.5 스프레드로 조립 (야구 전반 승무패 등)."""
+    if -0.5 not in spreads or 0.5 not in spreads:
+        return None
+    w = shin([1 / spreads[-0.5]["home"], 1 / spreads[-0.5]["away"]])[0][0]
+    lo = shin([1 / spreads[0.5]["home"], 1 / spreads[0.5]["away"]])[0][0]
+    return {"home": w, "draw": max(0.0, lo - w), "away": 1 - lo}, 0.0
 
 
 def lkey(x):
@@ -490,24 +528,34 @@ def scan(a):
             if lad:
                 print(f"  {g['시각'].astimezone(KST):%m-%d %H:%M} {g['리그']} | {g['홈']} vs {g['원정']}\n    {lad}")
         print()
-    for g, p, how, ncand in matched:
+    for g, p0, how, ncand in matched:
         line, ou = g["라인"], g["OU"]
+        pre = "전반 " if g.get("기간") == 1 else ""
+        gubun = "승N패" if g.get("승N패") else (f"U/O {ou:g}" if ou is not None else ("일반" if line is None else f"H{line:+g}"))
         base = {"회차": g["회차"], "번호": g["번호"], "시각": g["시각"].astimezone(KST).strftime("%m-%d %H:%M"), "리그": g["리그"],
                 "경기": f"{g['홈']} vs {g['원정']}", "유형": g["유형"], "매칭": how, "라인": line,
-                "구분": f"U/O {ou:g}" if ou is not None else ("일반" if line is None else f"H{line:+g}"), "단식": g["단식"], "OU": ou}
-        if not p:
+                "구분": pre + gubun, "단식": g["단식"], "OU": ou}
+        if not p0:
             if a.all:
                 rows.append({**base, "선택": "", "베트맨": "", "Pinnacle": "", "공정확률": "", "기대값": "", "후보": ncand})
             continue
+        p = period_view(p0, g.get("기간", 0))
         three = g["배당"][1] is not None
-        if ou is not None:
-            fo = fair_ou(p, ou, g["종목"] == "SC")
+        if g.get("승N패"):
+            f = fair_wnl(p["핸디"], g.get("승N", 1))
+        elif ou is not None:
+            fo = fair_ou(p, ou, g["종목"] == "SC") if p.get("배당") or p.get("합계") else None
             f = (fo[0], fo[1]) if fo else None
             if fo and fo[2]:
                 base["매칭"] = how + "·역산모델"
         else:
-            f = fair(p["배당"], three) if line is None else fair_handi(p["핸디"], line, three, p["배당"])
-        if not f and ou is None and line is not None and g["종목"] == "SC":
+            if line is None:
+                f = fair(p["배당"], three) if p.get("배당") else None
+                if not f and three:
+                    f = fair_3way_from_spreads(p["핸디"])  # 야구 전반 승무패 등: ±0.5 스프레드로 조립
+            else:
+                f = fair_handi(p["핸디"], line, three, p.get("배당") or None) if (p.get("핸디") or p.get("배당")) else None
+        if not f and ou is None and line is not None and g["종목"] == "SC" and p.get("배당") and "draw" in p["배당"]:
             f = fair_handi_model(p, line, three)
             if f:
                 base["매칭"] = how + "·역산모델"
@@ -516,7 +564,7 @@ def scan(a):
                 rows.append({**base, "선택": "", "베트맨": "", "Pinnacle": "", "공정확률": "", "기대값": "", "매칭": "Pinnacle 라인 없음"})
             continue
         probs, margin = f
-        labels = [("승", "home"), ("무", "draw"), ("패", "away")] if three else [("승", "home"), ("패", "away")]
+        labels = [("승", "home"), (f"{g.get('승N', 1)}점차" if g.get("승N패") else "무", "draw"), ("패", "away")] if three else [("승", "home"), ("패", "away")]
         bo = g["배당"] if three else [g["배당"][0], g["배당"][2]]
         for (lab, key), o in zip(labels, bo):
             if not o:
@@ -530,7 +578,7 @@ def scan(a):
                 continue
             rows.append({**base, "종목": SPORT_KO.get(g["종목"], g["종목"]), "Pinnacle경기": f"{p['홈']} vs {p['원정']}",
                          "선택": lab, "베트맨": o,
-                         "Pinnacle": round(p["배당"][key], 2) if line is None and ou is None else "",
+                         "Pinnacle": round(p["배당"][key], 2) if line is None and ou is None and not g.get("승N패") and key in (p.get("배당") or {}) else "",
                          "공정확률": round(probs[key] * 100, 1), "기대값": round(ev, 3), "Pin마진%": round(margin, 1)})
     if a.log and log_rows:
         import tracker
@@ -613,7 +661,10 @@ def leg_name(r):
         return f"{home}-{away} {'언더' if r['선택'] in ('승', '언더') else '오버'} {r['OU']:g}"  # 표 출력 뒤엔 선택이 언더/오버로 바뀌어 있다
     line = r.get("라인")
     if line is None or line == "":
-        return {"승": f"{home} 승", "패": f"{away} 승", "무": f"{home}-{away} 무"}[r["선택"]]
+        if "승N패" in str(r.get("구분", "")):
+            return {"승": f"{home} 2점차+ 승", "1점차": f"{home}-{away} 1점차", "패": f"{away} 2점차+ 승"}.get(r["선택"], r["선택"])
+        pre = "전반 " if str(r.get("구분", "")).startswith("전반") else ""
+        return pre + {"승": f"{home} 승", "패": f"{away} 승", "무": f"{home}-{away} 무"}.get(r["선택"], r["선택"])
     if "정수" in (r.get("유형") or "") and line != 0:  # 3-way 정수핸디캡은 베트맨 화면 표기 그대로 (예: 한국 H-2 패)
         k = int(abs(line))
         if line < 0:  # 홈이 -k

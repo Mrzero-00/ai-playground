@@ -657,13 +657,13 @@ def sure_view(rows, a):
 def leg_name(r):
     """'인도_남자 vs 한국_남자' + 패 → '한국 승' / 핸디캡이면 '한국 -1.5' (이기는 쪽 이름으로 표기)"""
     home, away = (re.sub(r"_(남자|여자)$", "", t) for t in r["경기"].split(" vs "))
+    pre = "전반 " if str(r.get("구분", "")).startswith("전반") else ""  # 전반 핸디캡·언더오버도 표시 (120회 '전반 H-1 패'가 전체 경기로 보이던 문제)
     if r.get("OU") is not None and r.get("OU") != "":
-        return f"{home}-{away} {'언더' if r['선택'] in ('승', '언더') else '오버'} {r['OU']:g}"  # 표 출력 뒤엔 선택이 언더/오버로 바뀌어 있다
+        return pre + f"{home}-{away} {'언더' if r['선택'] in ('승', '언더') else '오버'} {r['OU']:g}"  # 표 출력 뒤엔 선택이 언더/오버로 바뀌어 있다
     line = r.get("라인")
     if line is None or line == "":
         if "승N패" in str(r.get("구분", "")):
             return {"승": f"{home} 2점차+ 승", "1점차": f"{home}-{away} 1점차", "패": f"{away} 2점차+ 승"}.get(r["선택"], r["선택"])
-        pre = "전반 " if str(r.get("구분", "")).startswith("전반") else ""
         return pre + {"승": f"{home} 승", "패": f"{away} 승", "무": f"{home}-{away} 무"}.get(r["선택"], r["선택"])
     if "정수" in (r.get("유형") or "") and line != 0:  # 3-way 정수핸디캡은 베트맨 화면 표기 그대로 (예: 한국 H-2 패)
         k = int(abs(line))
@@ -673,8 +673,8 @@ def leg_name(r):
         else:  # 홈이 +k
             meaning = {"승": f"{home} 지지않음" if k == 1 else f"{home} 승·무 또는 {k - 1}골차 이하 패",
                        "무": f"{away} 정확히 {k}골차 승", "패": f"{away} {k + 1}골차 이상 승"}[r["선택"]]
-        return f"{home} H{line:+g} {r['선택']}[{meaning}]"
-    return {"승": f"{home} {line:+g}", "패": f"{away} {-line:+g}", "무": f"{home} {line:+g} 핸디무"}[r["선택"]]
+        return f"{pre}{home} H{line:+g} {r['선택']}[{meaning}]"
+    return pre + {"승": f"{home} {line:+g}", "패": f"{away} {-line:+g}", "무": f"{home} {line:+g} 핸디무"}[r["선택"]]
 
 
 def combos(rows, a, pool_size=40, max_legs=5, top=10):

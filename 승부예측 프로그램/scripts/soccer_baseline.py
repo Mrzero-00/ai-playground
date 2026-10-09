@@ -13,7 +13,19 @@
   --refresh 로 전부 다시 받는다.
 - 완료 경기만 쓴다: STATUS_FULL_TIME, STATUS_FINAL_PEN(승부차기 = 90분 무승부로 처리).
   STATUS_FINAL_AET(연장 득점 포함)는 버린다.
-- ESPN에 없는 리그(2026-10-09 확인): K리그1(kor.1), K리그2(kor.2), J2리그(jpn.2) → 기준선 없음.
+- ESPN에 없는 리그는 공식 사이트에서 받는다 (2026-10-09 확인, 같은 캐시 형식으로 정규화):
+  · K리그1(kor.1)·K리그2(kor.2): K리그 공식 홈페이지가 부르는 JSON
+    POST https://www.kleague.com/getScheduleList.do  본문 {"leagueId":"1|2","year":"YYYY","month":"MM"} (월 필수)
+    → endYn='Y' 이고 gameStatus='FE' 인 경기만. 'Play Off'(K2 플레이오프·승강 PO, 연장 가능)는 뺀다.
+    파이널A/B(스플릿)는 일반 경기로 쓴다. 팀은 구단 코드(K01 등)로 묶어 이름 바뀜(제주SK 등)에 흔들리지 않는다.
+  · J2(jpn.2): J리그 공식 데이터 사이트 검색 결과 HTML
+    https://data.j-league.or.jp/SFMS01/search?competition_years=YYYY&competition_frame_ids=2
+    (2026 = 2026/27 추춘제 시즌. '2026特別'(J2·J3 百年構想リーグ, 무승부 승부차기)은 J3 팀이 섞여 뺀다)
+    팀은 jleague.jp 클럽 slug(tosu 등)로 묶는다.
+  · 한글 팀명은 스크립트 안 KOR_TEAMS / JPN2_TEAMS (코드 → 대표 이름 + 별칭) 로 직접 매칭한다.
+- 강등팀 처리(리그 간 공통 척도 대용): kor.2·jpn.2 에 새로 나타난 팀이 그 전 해 상위 리그(kor.1 / J1) 소속이면
+  하위 20% 가 아니라 상위 NEW_TEAM_Q_DOWN(70%) 분위에서 시작한다. 두 리그를 한 척도로 묶지는 않는다
+  (리그 사이 경기가 승강 PO 몇 경기뿐이라 연결이 약함). 승격팀은 다른 리그와 같이 하위 20% 에서 시작.
 
 레이팅: pi-rating (Constantinou & Fenton 2013), scripts/backtest.py run_pi 와 같은 식·상수
 - 팀마다 홈 레이팅 R_H, 원정 레이팅 R_A (단위 = 골). 예측 득실차 pred = R_H(홈팀) − R_A(원정팀).
@@ -22,7 +34,10 @@
 - λ(LAMBDA)=0.07 (EPL 2019-26 백테스트 RPS 최적, scripts/tune.py), γ(GAMMA)=0.7, C=3.0
 - 시즌 경계에서 초기화하지 않는다(지난 시즌이 그대로 이어진다).
 - 자료 시작 후 NEW_TEAM_AFTER_DAYS(200일) 뒤에 처음 나온 팀(승격팀)은 0이 아니라 그 리그 현역 팀 레이팅의
-  하위 NEW_TEAM_Q(20%) 분위값에서 시작한다. (backtest.py 와 다른 유일한 부분. 승격팀 = 약팀이라는 사전 정보)
+  하위 NEW_TEAM_Q(20%) 분위값에서 시작한다. (backtest.py 와 다른 부분. 승격팀 = 약팀이라는 사전 정보)
+  강등팀(kor.2·jpn.2 만 판별 가능)은 NEW_TEAM_Q_DOWN(70%) 분위에서 시작한다.
+  공식 소스 리그(kor.1·kor.2·jpn.2)는 리그 경기 RETURN_GAP(150) 동안 안 나왔다 돌아온 팀도 옛 레이팅을 버리고
+  같은 규칙으로 다시 시작한다 (예: 인천 K1→K2→K1, 요코하마FC J2→J1→J2).
 
 레이팅 → 기대 득점 → 확률 (리그마다 데이터로 추정, --round/--calib 에서는 경기 전 데이터만 사용)
 - 예열 BURN_IN_DAYS(240일)이 지난 경기만 회귀에 쓴다.
@@ -37,6 +52,7 @@
 사용법
   python3 scripts/soccer_baseline.py --league eng.1 --home Arsenal --away Leeds
   python3 scripts/soccer_baseline.py --league "잉글랜드 프리미어리그" --home 아스널 --away "리즈 유나이티드"
+  python3 scripts/soccer_baseline.py --league K리그1 --home FC서울 --away "제주 SKFC"
   python3 scripts/soccer_baseline.py --round 120 [--csv out.csv]   # 전체경기기록.csv 회차 전체 비교
   python3 scripts/soccer_baseline.py --calib [--weeks 10]           # 리그별 최근 N주 보류 검증(Brier/RPS)
   python3 scripts/soccer_baseline.py --calib --until 2026-06-01     # 지난 시즌 마지막 N주로 검증
@@ -64,6 +80,8 @@ RHO = -0.13
 BURN_IN_DAYS = 240
 NEW_TEAM_AFTER_DAYS = 200
 NEW_TEAM_Q = 0.20
+NEW_TEAM_Q_DOWN = 0.70   # 상위 리그에서 강등돼 온 팀의 시작 분위 (kor.2, jpn.2)
+RETURN_GAP = 150         # 이 수 이상의 리그 경기 동안 안 나온 팀 = 다른 리그에 갔다 돌아온 팀 (공식 소스 리그만)
 MIN_LAMBDA = 0.15
 MAX_GOALS = 10
 YEARS_BACK = 2           # 올해 + 지난 2개 연도
@@ -76,7 +94,61 @@ LEAGUES = {  # ESPN 코드 → 이름
     "chn.1": "중국 슈퍼리그", "aus.1": "호주 A리그",
     "kor.1": "K리그1", "kor.2": "K리그2", "jpn.2": "일본 J2리그",
 }
-UNSUPPORTED = {"kor.1", "kor.2", "jpn.2"}  # ESPN 미제공 (2026-10-09 확인: 400 Failed to get events endpoint)
+UNSUPPORTED = set()  # kor.1/kor.2/jpn.2 는 ESPN 미제공(400) → 아래 공식 사이트 소스로 받는다
+SOURCE_NAME = {"kor.1": "K리그", "kor.2": "K리그", "jpn.2": "J리그 데이터"}
+
+# K리그 구단 코드 → [대표 이름(베트맨 표기), 별칭...]. 별칭은 공백·'프로축구단' 등을 지운 뒤 정확히 같으면 매칭.
+KOR_TEAMS = {
+    "K01": ["울산 HDFC", "울산", "울산 HD", "울산 HD FC", "울산 현대"],
+    "K02": ["수원 삼성블루윙즈", "수원", "수원 삼성", "수원 삼성 블루윙즈"],
+    "K03": ["포항 스틸러스", "포항"],
+    "K04": ["제주 SKFC", "제주", "제주SK FC", "제주 유나이티드"],
+    "K05": ["전북 현대모터스", "전북", "전북 현대", "전북 현대 모터스"],
+    "K06": ["부산 아이파크", "부산"],
+    "K07": ["전남 드래곤즈", "전남"],
+    "K08": ["성남FC", "성남"],
+    "K09": ["FC서울", "서울"],
+    "K10": ["대전 하나시티즌", "대전", "대전 하나 시티즌"],
+    "K17": ["대구FC", "대구"],
+    "K18": ["인천 유나이티드", "인천", "인천 Utd"],
+    "K20": ["경남FC", "경남"],
+    "K21": ["강원FC", "강원"],
+    "K22": ["광주FC", "광주"],
+    "K26": ["부천FC 1995", "부천", "부천FC"],
+    "K27": ["FC안양", "안양"],
+    "K29": ["수원FC"],
+    "K31": ["서울 이랜드", "서울E", "서울 이랜드 FC", "서울이랜드FC"],
+    "K32": ["안산 그리너스", "안산", "안산 그리너스 축구단"],
+    "K34": ["충남아산 프로축구단", "충남아산", "충남 아산 FC", "충남아산FC"],
+    "K35": ["김천상무 프로축구단", "김천", "김천 상무"],
+    "K36": ["김포FC", "김포"],
+    "K37": ["충북청주 프로축구단", "충북청주", "충북 청주FC", "충북청주FC"],
+    "K38": ["천안 시티FC", "천안", "천안시티FC"],
+    "K39": ["화성FC", "화성"],
+    "K40": ["파주 프런티어", "파주", "파주프런티어FC"],
+    "K41": ["김해FC 2008", "김해", "김해FC2008"],
+    "K42": ["용인FC", "용인"],
+}
+# J리그 클럽 slug(jleague.jp/club/<slug>/) → [대표 이름(베트맨 표기), 별칭...]
+JPN2_TEAMS = {
+    "akita": ["블라우블리츠 아키타", "아키타"], "chiba": ["제프 유나이티드 지바", "지바", "JEF 유나이티드"],
+    "ehime": ["에히메FC", "에히메"], "fujieda": ["후지에다 MYFC", "후지에다"], "imabari": ["FC이마바리", "이마바리"],
+    "iwaki": ["이와키FC", "이와키"], "iwata": ["주빌로 이와타", "이와타"], "kofu": ["반포레 고후", "고후"],
+    "kumamoto": ["로아소 구마모토", "구마모토"], "mito": ["미토 홀리호크", "미토"], "nagasaki": ["V바렌 나가사키", "나가사키", "V-바렌 나가사키"],
+    "oita": ["오이타 트리니타", "오이타"], "omiya": ["RB오미야 아르디자", "오미야", "오미야 아르디자"],
+    "sapporo": ["콘사도레 삿포로", "삿포로", "홋카이도 콘사도레 삿포로"], "sendai": ["베갈타 센다이", "센다이"],
+    "tokushima": ["도쿠시마 보르티스", "도쿠시마"], "tosu": ["사간 도스", "도스"], "toyama": ["카탈레 도야마", "도야마"],
+    "yamagata": ["몬테디오 야마가타", "야마가타"], "yamaguchi": ["레노파 야마구치", "야마구치"],
+    "kusatsu": ["더스파 군마", "군마", "더스파 구사쓰 군마"], "okayama": ["파지아노 오카야마", "오카야마"],
+    "shimizu": ["시미즈 S펄스", "시미즈"], "tochigi": ["도치기SC", "도치기 SC"], "kagoshima": ["가고시마 유나이티드", "가고시마"],
+    "hachinohe": ["반라우레 하치노헤FC", "하치노헤", "반라우레 하치노헤"], "miyazaki": ["테게바자로 미야자키", "미야자키"],
+    "niigata": ["알비렉스 니가타", "니가타"], "shonan": ["쇼난 벨마레", "쇼난"], "tochigic": ["도치기 시티FC", "도치기 시티"],
+    "yokohamafc": ["요코하마FC"], "kanazawa": ["츠에겐 가나자와", "가나자와"], "ryukyu": ["FC류큐", "류큐"],
+    "gifu": ["FC기후", "기후"], "sagamihara": ["SC사가미하라", "사가미하라"], "kitakyushu": ["기라반츠 기타큐슈", "기타큐슈"],
+    "machida": ["마치다 젤비아", "마치다"], "tokyo-v": ["도쿄 베르디", "베르디"], "kyoto": ["교토 상가", "교토"],
+    "iwate": ["이와테 그루야 모리오카", "이와테"], "nagano": ["나가노 파르세이로", "나가노"], "fukushima": ["후쿠시마 유나이티드", "후쿠시마"],
+}
+TEAM_TABLE = {"kor.1": KOR_TEAMS, "kor.2": KOR_TEAMS, "jpn.2": JPN2_TEAMS}
 KO_LEAGUE = {v: k for k, v in LEAGUES.items()}
 KO_LEAGUE.update({"EPL": "eng.1", "프리미어리그": "eng.1", "라리가": "esp.1", "분데스리가": "ger.1",
                   "세리에A": "ita.1", "리그1": "fra.1", "에레디비시": "ned.1", "MLS": "usa.1",
@@ -120,25 +192,126 @@ def fetch_year(league, year):
     return out
 
 
-def load_results(league, refresh=False, quiet=False):
-    """리그 완료 경기 목록(시간순). 캐시 사용."""
+def curl_text(args):
+    for attempt in range(3):
+        r = subprocess.run(["curl", "-sS", "--compressed", "-m", "60", "-A", UA] + args, capture_output=True, text=True)
+        if r.returncode == 0 and r.stdout.strip():
+            return r.stdout
+        time.sleep(1.5 * (attempt + 1))
+    return None
+
+
+def kleague_month(league_id, year, month):
+    txt = curl_text(["-H", "Content-Type: application/json", "-X", "POST", "-d",
+                     json.dumps({"leagueId": str(league_id), "year": str(year), "month": f"{month:02d}"}),
+                     "https://www.kleague.com/getScheduleList.do"])
+    try:
+        return json.loads(txt)["data"]
+    except (TypeError, ValueError, KeyError):
+        return None
+
+
+def fetch_kleague(league, year):
+    """K리그 공식 JSON. 반환 (경기 목록, 그 해 상위 리그 구단 코드 목록 또는 None)."""
+    lid = 1 if league == "kor.1" else 2
+    out = []
+    for m in range(1, 13):
+        d = kleague_month(lid, year, m)
+        if d is None:
+            return None, None
+        for g in d.get("scheduleList") or []:
+            if g.get("endYn") != "Y" or g.get("gameStatus") != "FE" or g.get("leagueId") != lid:
+                continue
+            if "Play" in (g.get("codeName") or "") or "승강" in (g.get("meetName") or ""):
+                continue  # 플레이오프·승강 PO (연장 가능, 리그 밖 경기)
+            if g.get("homeGoal") is None or g.get("awayGoal") is None:
+                continue
+            ko = dt.datetime.strptime(f"{g['gameDate']} {g.get('gameTime') or '19:00'}", "%Y.%m.%d %H:%M").replace(tzinfo=KST)
+            out.append({"date": ko.astimezone(dt.timezone.utc).strftime("%Y-%m-%dT%H:%MZ"),
+                        "home": g["homeTeamName"], "away": g["awayTeamName"],
+                        "home_id": g["homeTeam"], "away_id": g["awayTeam"],
+                        "hg": int(g["homeGoal"]), "ag": int(g["awayGoal"]), "status": "STATUS_FULL_TIME",
+                        "neutral": False, "season": g.get("codeName") or ""})
+    upper = None
+    if league == "kor.2":
+        d = kleague_month(1, year, 6)
+        upper = [c["teamId"] for c in (d or {}).get("clubList") or []] or None
+    return out, upper
+
+
+def jleague_frame(year, frame):
+    h = curl_text([f"https://data.j-league.or.jp/SFMS01/search?competition_years={year}&competition_frame_ids={frame}&tv_relay_station_name="])
+    if h is None or "search-table" not in h:
+        return None
+    rows = []
+    for tr in re.findall(r"<tr>(.*?)</tr>", h, re.S):
+        tds = re.findall(r"<td[^>]*>(.*?)</td>", tr, re.S)
+        if len(tds) < 8:
+            continue
+        txt = [re.sub(r"\s+", " ", re.sub(r"<[^>]+>", "", t)).strip() for t in tds[:8]]
+        slug = [(re.search(r"/club/([^/]+)/", tds[i]) or [None, None])[1] for i in (5, 7)]
+        rows.append((txt, slug))
+    return rows
+
+
+def fetch_jleague(league, year):
+    """J리그 공식 데이터 사이트 검색 결과(J2). 반환 (경기 목록, 그 해 J1 클럽 slug 목록)."""
+    rows = jleague_frame(year, 2)
+    if rows is None:
+        return None, None
+    out = []
+    for txt, (hs, as_) in rows:
+        m = re.fullmatch(r"(\d+)-(\d+)", txt[6])
+        dm = re.match(r"(\d{2})/(\d{2})/(\d{2})", txt[3])
+        if not m or not dm or not hs or not as_:
+            continue  # 'vs' = 아직 안 한 경기
+        tm = re.match(r"(\d{1,2}):(\d{2})", txt[4])
+        hh, mi = (int(tm[1]), int(tm[2])) if tm else (14, 0)  # 시각 미기재 → 14:00
+        ko = dt.datetime(2000 + int(dm[1]), int(dm[2]), int(dm[3]), hh, mi, tzinfo=KST)  # JST = KST
+        out.append({"date": ko.astimezone(dt.timezone.utc).strftime("%Y-%m-%dT%H:%MZ"),
+                    "home": txt[5], "away": txt[7], "home_id": hs, "away_id": as_,
+                    "hg": int(m[1]), "ag": int(m[2]), "status": "STATUS_FULL_TIME", "neutral": False, "season": txt[0]})
+    j1 = jleague_frame(year, 1)
+    upper = sorted({s for _, sl in (j1 or []) for s in sl if s}) or None
+    return out, upper
+
+
+SOURCES = {"kor.1": fetch_kleague, "kor.2": fetch_kleague, "jpn.2": fetch_jleague}
+
+
+def canon(league, tid, fallback):
+    tab = TEAM_TABLE.get(league)
+    return tab[tid][0] if tab and tid in tab else fallback
+
+
+def load_results(league, refresh=False, quiet=False, with_upper=False):
+    """리그 완료 경기 목록(시간순). 캐시 사용. with_upper=True 면 (경기, {연도: 상위 리그 팀 대표 이름 집합}) 반환."""
     if league in UNSUPPORTED:
-        return []
+        return ([], {}) if with_upper else []
     os.makedirs(CACHE_DIR, exist_ok=True)
     path = os.path.join(CACHE_DIR, f"{league}.json")
     cache = {"years": {}, "fetched": {}}
     if os.path.exists(path) and not refresh:
         cache = json.load(open(path, encoding="utf-8"))
+    cache.setdefault("upper", {})
     this_year = dt.datetime.now(KST).year
+    # J2 는 2026/27 부터 추춘제: 'YYYY' 시즌이 다음 해 5월까지 이어지므로 지난해 시즌도 계속 새로 받는다
+    live = {this_year, this_year - 1} if league == "jpn.2" else {this_year}
     changed = False
     for y in range(this_year - YEARS_BACK, this_year + 1):
         ys = str(y)
         age_h = (time.time() - cache["fetched"].get(ys, 0)) / 3600
-        stale = ys not in cache["years"] or (y == this_year and age_h > CURRENT_TTL_H)
+        stale = ys not in cache["years"] or (y in live and age_h > CURRENT_TTL_H)
         if stale:
+            src = SOURCES.get(league)
             if not quiet:
-                print(f"  ESPN 받는 중: {league} {y}", file=sys.stderr)
-            rows = fetch_year(league, y)
+                print(f"  {SOURCE_NAME.get(league, 'ESPN')} 받는 중: {league} {y}", file=sys.stderr)
+            if src:
+                rows, upper = src(league, y)
+                if upper:
+                    cache["upper"][ys] = upper
+            else:
+                rows = fetch_year(league, y)
             if rows is None:
                 print(f"  [경고] {league} {y} 받기 실패", file=sys.stderr)
                 continue
@@ -149,6 +322,8 @@ def load_results(league, refresh=False, quiet=False):
     games, seen = [], set()
     for ys in sorted(cache["years"]):
         for g in cache["years"][ys]:
+            if "home_id" in g:  # 공식 사이트 소스: 구단 코드 → 대표 이름 (이름 바뀜 흡수)
+                g["home"], g["away"] = canon(league, g["home_id"], g["home"]), canon(league, g["away_id"], g["away"])
             k = (g["date"], g["home"], g["away"])
             if "All-Star" in g["home"] or "All-Star" in g["away"]:  # MLS 올스타전 등 친선
                 continue
@@ -158,6 +333,8 @@ def load_results(league, refresh=False, quiet=False):
     games.sort(key=lambda g: g["date"])
     for g in games:
         g["t"] = parse_iso(g["date"])
+    if with_upper:
+        return games, {int(ys): {canon(league, t, t) for t in v} for ys, v in cache["upper"].items()}
     return games
 
 
@@ -166,10 +343,19 @@ def parse_iso(s):
 
 
 # ---------------------------------------------------------------- pi-rating
-def run_pi(games, cutoff=None):
+def relegated(team, t, upper):
+    """team 이 경기 연도 이전에 상위 리그 소속이었나 (upper = {연도: 팀 집합})."""
+    return bool(upper) and any(team in v for y, v in upper.items() if y < t.year)
+
+
+def run_pi(games, cutoff=None, upper=None, returning=False):
     """games 를 시간순으로 처리. 각 경기의 경기 전 pred 를 g['pred'] 에 기록. cutoff 이후 경기는 처리하지 않는다.
+    upper = {연도: 상위 리그 팀 집합} 이면 새로 나온 강등팀은 NEW_TEAM_Q_DOWN 분위에서 시작.
+    returning=True 면 리그 경기가 RETURN_GAP 이상 지나는 동안 안 나왔던 팀(다른 리그에 갔다 돌아온 팀)도
+    새 팀처럼 다시 시작한다 (공식 사이트 소스 리그만. ESPN 리그는 기존 동작 유지).
     반환: (rh, ra, 처리한 경기 목록)"""
     rh, ra = {}, {}
+    last = {}
     start = games[0]["t"] if games else None
     used = []
     for g in games:
@@ -177,12 +363,16 @@ def run_pi(games, cutoff=None):
             break
         h, a = g["home"], g["away"]
         for tm in (h, a):
+            if returning and tm in rh and len(used) - last.get(tm, len(used)) > RETURN_GAP:
+                del rh[tm], ra[tm]  # 다른 리그에서 돌아온 팀: 옛 레이팅 버림
+            last[tm] = len(used)
             if tm not in rh:
                 if (g["t"] - start).days > NEW_TEAM_AFTER_DAYS and len(rh) >= 6:
                     # 승격팀: 현역 팀 레이팅 하위 분위에서 시작
                     act = active_teams(used[-400:])
-                    rh[tm] = quantile([rh[x] for x in act if x in rh], NEW_TEAM_Q)
-                    ra[tm] = quantile([ra[x] for x in act if x in ra], NEW_TEAM_Q)  # R_A 도 높을수록 강팀
+                    q = NEW_TEAM_Q_DOWN if relegated(tm, g["t"], upper) else NEW_TEAM_Q
+                    rh[tm] = quantile([rh[x] for x in act if x in rh], q)
+                    ra[tm] = quantile([ra[x] for x in act if x in ra], q)  # R_A 도 높을수록 강팀
                 else:
                     rh[tm], ra[tm] = 0.0, 0.0
         pred = rh[h] - ra[a]
@@ -312,8 +502,35 @@ def hints_for(names, ko):
     return v if isinstance(v, list) else [v]
 
 
-def match_team(query, teams, names):
-    """query(한글 또는 영문) → ESPN 팀명. 실패 시 None."""
+def knorm(s):
+    s = re.sub(r"프로축구단|축구단|\s|[^0-9a-zA-Z가-힣]", "", s.lower())
+    return s
+
+
+def match_team_table(query, teams, table):
+    """공식 사이트 소스(대표 이름이 한글): 별칭 정확 일치 → 없으면 유사도 0.75 이상 최고."""
+    alias = {}
+    for v in table.values():
+        if v[0] in teams:
+            for a in v:
+                alias.setdefault(knorm(a), v[0])
+    for t in teams:
+        alias.setdefault(knorm(t), t)
+    q = knorm(query)
+    if q in alias:
+        return alias[q]
+    best, best_s = None, 0.75
+    for a, t in alias.items():
+        r = difflib.SequenceMatcher(None, q, a).ratio()
+        if r > best_s:
+            best, best_s = t, r
+    return best
+
+
+def match_team(query, teams, names, table=None):
+    """query(한글 또는 영문) → ESPN 팀명(또는 공식 소스 대표 이름). 실패 시 None."""
+    if table:
+        return match_team_table(query, teams, table)
     cands = hints_for(names, query) if re.search(r"[가-힣]", query) else [query]
     if not cands:
         return None
@@ -343,7 +560,9 @@ def match_team(query, teams, names):
 class League:
     def __init__(self, code, refresh=False):
         self.code = code
-        self.games = load_results(code, refresh=refresh)
+        self.games, self.upper = load_results(code, refresh=refresh, with_upper=True)
+        self.table = TEAM_TABLE.get(code)
+        self.returning = code in SOURCES
 
     def teams(self, before=None, recent_days=400):
         ref = before or (self.games[-1]["t"] if self.games else None)
@@ -354,7 +573,7 @@ class League:
         return sorted(s) or sorted({g["home"] for g in self.games} | {g["away"] for g in self.games})
 
     def state(self, cutoff=None):
-        rh, ra, used = run_pi(self.games, cutoff)
+        rh, ra, used = run_pi(self.games, cutoff, self.upper, self.returning)
         return rh, ra, used, fit_league(used)
 
 
@@ -393,10 +612,10 @@ def cmd_single(args, names):
     if code not in LEAGUES:
         sys.exit(f"알 수 없는 리그: {args.league} (가능: {', '.join(LEAGUES)})")
     if code in UNSUPPORTED:
-        sys.exit(f"{code} ({LEAGUES[code]}) 는 ESPN 데이터가 없어 기준선을 낼 수 없다.")
+        sys.exit(f"{code} ({LEAGUES[code]}) 는 결과 데이터가 없어 기준선을 낼 수 없다.")
     lg = League(code, args.refresh)
     teams = lg.teams()
-    h, a = match_team(args.home, teams, names), match_team(args.away, teams, names)
+    h, a = match_team(args.home, teams, names, lg.table), match_team(args.away, teams, names, lg.table)
     if not h or not a:
         sys.exit(f"팀 매칭 실패: home={args.home}->{h}, away={args.away}->{a}\n가능한 팀: {', '.join(teams)}")
     out, par = baseline(lg, h, a)
@@ -438,7 +657,7 @@ def cmd_calib(args):
         if not lg.games:
             continue
         until = dt.datetime.fromisoformat(args.until).replace(tzinfo=dt.timezone.utc) if args.until else None
-        rh, ra, used = run_pi(lg.games, until)   # 경기마다 경기 전 pred 기록
+        rh, ra, used = run_pi(lg.games, until, lg.upper, lg.returning)   # 경기마다 경기 전 pred 기록
         if not used:
             continue
         last = used[-1]["t"]
@@ -509,7 +728,7 @@ def cmd_round(args, names):
         ko = kickoff(r["시각"], now)
         cutoff = ko - dt.timedelta(hours=2) if ko else None
         teams = lg.teams(before=cutoff)
-        h, a = match_team(r["홈"], teams, names), match_team(r["원정"], teams, names)
+        h, a = match_team(r["홈"], teams, names, lg.table), match_team(r["원정"], teams, names, lg.table)
         if not h:
             unmatched.append((r["리그"], r["홈"]))
         if not a:
@@ -598,7 +817,7 @@ def cmd_round(args, names):
 
 
 def main():
-    ap = argparse.ArgumentParser(description="축구 pi-rating 기준선 (ESPN 결과)")
+    ap = argparse.ArgumentParser(description="축구 pi-rating 기준선 (ESPN / K리그 / J리그 공식 결과)")
     ap.add_argument("--league"); ap.add_argument("--home"); ap.add_argument("--away")
     ap.add_argument("--round", type=int)
     ap.add_argument("--csv")

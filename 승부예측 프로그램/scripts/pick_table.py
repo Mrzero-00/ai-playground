@@ -8,6 +8,9 @@
   python3 scripts/pick_table.py --round 120 "10/9 오후 2경기=7052:패,7005:승" "10/10 오후=7345:패,7339:패"
   - 조합마다 "제목=번호:선택,번호:선택" 하나. 제목은 생략 가능("7052:패,7005:승").
   - 선택: 승/무/패, 언더/오버, 1점차 (베트맨 칸 이름 그대로)
+  --save                         표에 나온 선택지를 추천기록.csv에 '추천'으로 저장 (리그별 성적표용, 회고 때 채점)
+  --skip "번호:선택=이유" ...     추천에서 뺀 선택지를 '추천제외'로 저장 (사용자에게는 보여 주지 않음, 기권 정확도 채점용)
+  --buy "제목=금액"               --save 와 함께: 그 조합을 샀다고 표시
 """
 import argparse
 import csv
@@ -15,6 +18,8 @@ import os
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 LOG = os.path.join(ROOT, "data", "스캔기록.csv")
+REC = os.path.join(ROOT, "추천기록.csv")
+REC_COLS = ["회차", "번호", "선택", "시각", "종목", "리그", "경기", "게임", "배당", "확률", "구분", "조합", "이유", "구매", "결과", "적중"]
 SPORT = {"SC": "축구", "BS": "야구", "BK": "농구", "VL": "배구"}
 
 
@@ -92,16 +97,50 @@ def table(by_no, title, picks):
     return "\n".join(lines)
 
 
+def save_rec(by_no, rnd, items):
+    """items: (번호, 선택, 구분, 조합, 이유, 구매). 같은 (회차, 번호, 선택)은 덮어쓴다."""
+    old = list(csv.DictReader(open(REC, encoding="utf-8"))) if os.path.exists(REC) else []
+    keep = {(r["회차"], r["번호"], r["선택"]): r for r in old}
+    for no, pick, kind_, combo, why, buy in items:
+        opts = by_no.get(no) or []
+        sel = next((o for o in opts if o["선택"] == pick), None)
+        if not sel:
+            print(f"  (저장 건너뜀: {no}:{pick} 스캔기록에 없음)")
+            continue
+        k = (str(rnd), no, pick)
+        prev = keep.get(k, {})
+        keep[k] = {"회차": rnd, "번호": no, "선택": pick, "시각": sel["시각"], "종목": sel["종목"], "리그": sel["리그"],
+                   "경기": sel["경기"], "게임": kind(sel), "배당": sel["베트맨"], "확률": sel["공정확률"], "구분": kind_,
+                   "조합": combo, "이유": why, "구매": buy or prev.get("구매", ""),
+                   "결과": prev.get("결과", ""), "적중": prev.get("적중", "")}
+    w = csv.DictWriter(open(REC, "w", encoding="utf-8", newline=""), fieldnames=REC_COLS)
+    w.writeheader()
+    w.writerows(keep.values())
+    print(f"추천기록.csv 저장 ({len(items)}건)")
+
+
 def main():
     ap = argparse.ArgumentParser(description="추천 선택지를 베트맨 화면 형태 표로")
     ap.add_argument("--round", type=int, required=True)
-    ap.add_argument("combos", nargs="+", help='"제목=번호:선택,번호:선택"')
+    ap.add_argument("combos", nargs="*", help='"제목=번호:선택,번호:선택"')
+    ap.add_argument("--save", action="store_true")
+    ap.add_argument("--skip", nargs="*", default=[], help='"번호:선택=이유"')
+    ap.add_argument("--buy", nargs="*", default=[], help='"제목=금액"')
     a = ap.parse_args()
     by_no = load(a.round)
+    buys = dict(b.rsplit("=", 1) for b in a.buy)
+    items = []
     for c in a.combos:
         title, _, body = c.rpartition("=")
         picks = [tuple(x.strip().split(":")) for x in body.split(",") if x.strip()]
         print(table(by_no, title, picks) + "\n")
+        items += [(no, pk, "추천", title, "", buys.get(title, "")) for no, pk in picks]
+    for sk in a.skip:
+        leg, _, why = sk.partition("=")
+        no, pk = leg.strip().split(":")
+        items.append((no, pk, "추천제외", "", why.strip(), ""))
+    if a.save or a.skip:
+        save_rec(by_no, a.round, [x for x in items if a.save or x[2] == "추천제외"])
 
 
 if __name__ == "__main__":

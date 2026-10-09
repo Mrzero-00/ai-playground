@@ -167,7 +167,10 @@
  "카타르": "Qatar",
  "바레인": "Bahrain",
  "예멘": "Yemen",
- "뉴욕 레드불스": "New York Red Bulls",
+ "뉴욕 레드불스": [
+  "New York Red Bulls",
+  "Red Bull New York"
+ ],
  "세인트루이스 시티SC": "St. Louis City",
  "에콰도르": "Ecuador",
  "파나마": "Panama",
@@ -258,7 +261,10 @@
  "성남FC": "Seongnam FC",
  "김포FC": "Gimpo",
  "서울 이랜드": "Seoul E-Land",
- "선전 신펑청": "Shenzhen Peng City",
+ "선전 신펑청": [
+  "Shenzhen Peng City",
+  "Shenzhen Xinpengcheng"
+ ],
  "허난FC": "Henan",
  "칭다오 하이뉴": "Qingdao Hainiu",
  "베이징 궈안": "Beijing Guoan",
@@ -451,7 +457,10 @@
  "볼로냐": "Bologna",
  "OGC니스": "Nice",
  "RC스트라스부르": "Strasbourg",
- "쾰른": "Koln",
+ "쾰른": [
+  "Koln",
+  "Cologne"
+ ],
  "묀헨글라트바흐": [
   "Gladbach",
   "Monchengladbach"
@@ -460,7 +469,10 @@
  "데포르티보 아코루냐": "Deportivo",
  "엑셀시오르 로테르담": "Excelsior",
  "흐로닝언": "Groningen",
- "스타드 렌": "Rennes",
+ "스타드 렌": [
+  "Rennes",
+  "Stade Rennais"
+ ],
  "AJ오세르": "Auxerre",
  "리버풀": "Liverpool",
  "맨체스터 시티": "Manchester City",
@@ -476,5 +488,9 @@
  "올랭피크드 마르세유": "Marseille",
  "라싱 산탄데르": "Racing",
  "발렌시아": "Valencia",
- "LA 갤럭시": "Galaxy"
+ "LA 갤럭시": "Galaxy",
+ "위트레흐트": "Utrecht",
+ "빌럼II": "Willem II",
+ "나고야 그램퍼스": "Nagoya Grampus",
+ "밴쿠버 화이트캡스FC": "Vancouver Whitecaps"
 }

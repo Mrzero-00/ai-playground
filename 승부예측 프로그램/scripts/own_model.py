@@ -14,6 +14,10 @@
 
 사용법
   python3 scripts/own_model.py report          # 구간별 성적·권장 비중·흡수 목록 → 회차별분석/독자분석_현황_YYYY-MM-DD.md, data/own_weights.json
+  같은 보고서에 (2026-10-09 추가, 종목별분석/성공률_향상_로드맵.md)
+  - 리그별 성적표: 추천 다리 적중률·예상 대비 오차·회수율·추천제외 적중률(기권 정확도)·승급 단계
+    (추천기록.csv = pick_table.py --save/--skip, 채점은 data/스캔기록.csv 의 hit, 이전 회차는 예측기록.csv 프로토 행)
+  - 변수 태그별 방향 적중: 전체경기기록.csv '변수' 열("선발우위:+2; 불펜연투:-1", +는 홈 유리)
   (round_log.py adjust 가 data/own_weights.json 의 구간 비중을 자동으로 쓴다. 파일이 없으면 0.10)
 """
 import csv, datetime as dt, json, os
@@ -21,6 +25,9 @@ import csv, datetime as dt, json, os
 ROOT = os.path.join(os.path.dirname(__file__), "..")
 REC = os.path.join(ROOT, "전체경기기록.csv")
 WPATH = os.path.join(ROOT, "data", "own_weights.json")
+PICKS = os.path.join(ROOT, "추천기록.csv")
+SCAN = os.path.join(ROOT, "data", "스캔기록.csv")
+PRED = os.path.join(ROOT, "예측기록.csv")
 BASE_W, K = 0.10, 150
 
 
@@ -158,6 +165,126 @@ def paper_section(rows, ev):
     return L
 
 
+# ---------------------------------------------------------------- 리그별 성적표 (추천 다리 단위)
+STAGE = [("80%", "n≥100·적중≥80%·회수율≥1.0"), ("강점", "n≥100·적중≥예상+5%p"), ("보정", "n≥30·오차 ±5%p"), ("관찰", "n<30 또는 오차 큼")]
+
+
+def grade_picks():
+    """추천기록.csv 의 결과·적중을 스캔기록 hit 로 채운다. 반환: 추천기록 행 + 예측기록(프로토) 이전 기록."""
+    if not os.path.exists(PICKS):
+        picks = []
+    else:
+        picks = list(csv.DictReader(open(PICKS, encoding="utf-8")))
+    if picks and os.path.exists(SCAN):
+        hits = {}
+        for r in csv.DictReader(open(SCAN, encoding="utf-8")):
+            if r.get("hit") in ("0", "1"):
+                hits[(r["회차"], r["번호"], r["선택"])] = (r.get("result", ""), r["hit"])
+        for p in picks:
+            h = hits.get((p["회차"], p["번호"], p["선택"]))
+            if h and p.get("적중") not in ("0", "1"):
+                p["결과"], p["적중"] = h
+        w = csv.DictWriter(open(PICKS, "w", encoding="utf-8", newline=""), fieldnames=list(picks[0].keys()))
+        w.writeheader(); w.writerows(picks)
+    legacy = []
+    if os.path.exists(PRED):
+        import re
+        for r in csv.DictReader(open(PRED, encoding="utf-8")):
+            if not r["round"].startswith("프로토") or r.get("hit") not in ("0", "1"):
+                continue
+            pk = r.get("pick", "")
+            away1 = r["away"].split()[0]
+            if pk.startswith("무"):
+                col = "p_draw"
+            elif pk.startswith("패") or pk.startswith(away1) or (r["away"] and r["away"] in pk and r["home"] not in pk):
+                col = "p_lose"  # '패(두산 승)', 'KT', 'KIA 승 1.40' 처럼 원정팀 이름으로 적힌 픽
+            else:
+                col = "p_win"
+            kind = "추천제외" if ("피함" in pk or "제외" in pk) else "추천"
+            m = re.search(r"베트맨 ([0-9.]+)", r.get("note", ""))
+            legacy.append({"회차": r["round"].replace("프로토", ""), "종목": r["sport"], "리그": r["league"], "확률": r.get(col, ""),
+                           "배당": m.group(1) if m else "", "구분": kind, "적중": r["hit"], "경기": f"{r['home']}-{r['away']}"})
+    return picks + legacy
+
+
+def league_card(rows):
+    seg = {}
+    for p in rows:
+        if p.get("적중") not in ("0", "1"):
+            continue
+        for key in (("종목", p.get("종목", "")), ("리그", f"{p.get('종목', '')}·{p.get('리그', '')}")):
+            d = seg.setdefault(key, {"추천": [], "추천제외": []})
+            d[p.get("구분") or "추천"].append(p)
+    L = ["", "## 리그별 성적표 — 추천 다리 단위 (로드맵: 종목별분석/성공률_향상_로드맵.md)", "",
+         "적중률 = 추천한 선택지(조합의 각 다리) 적중. 예상 = 추천 당시 확률 평균. 기권 정확도 = 추천에서 뺀 선택지 적중률(추천보다 낮아야 빼는 판단이 맞음).", "",
+         "| 구간 | 추천 n | 적중률 | 예상 | 오차(실제-예상) | 회수율 | 추천제외 n | 제외 적중률 | 단계 |", "|---|---|---|---|---|---|---|---|---|"]
+    def f(x):
+        try:
+            return float(x)
+        except (TypeError, ValueError):
+            return None
+    for (typ, name), d in sorted(seg.items(), key=lambda kv: (kv[0][0] != "종목", -len(kv[1]["추천"]))):
+        rec = d["추천"]
+        n = len(rec)
+        hit = sum(int(p["적중"]) for p in rec) / n if n else None
+        ps = [f(p.get("확률")) for p in rec if f(p.get("확률"))]
+        exp = sum(ps) / len(ps) / 100 if ps else None
+        od = [(f(p.get("배당")), int(p["적중"])) for p in rec if f(p.get("배당"))]
+        roi = sum(o * h for o, h in od) / len(od) if od else None
+        sk = d["추천제외"]
+        skh = sum(int(p["적중"]) for p in sk) / len(sk) if sk else None
+        gap = (hit - exp) if (hit is not None and exp is not None) else None
+        if n >= 100 and hit >= 0.80 and (roi or 0) >= 1.0:
+            stage = "80%"
+        elif n >= 100 and gap is not None and gap >= 0.05:
+            stage = "강점"
+        elif n >= 30 and gap is not None and abs(gap) <= 0.05:
+            stage = "보정"
+        else:
+            stage = "관찰"
+        pct = lambda v: "-" if v is None else f"{v:.1%}"
+        L.append(f"| {typ}:{name} | {n} | {pct(hit)} | {pct(exp)} | {('-' if gap is None else f'{gap * 100:+.1f}%p')} | "
+                 f"{('-' if roi is None else f'{roi:.2f}')} | {len(sk)} | {pct(skh)} | {stage} |")
+    if len(L) == 7:
+        L.append("| (채점된 추천 다리 없음) | | | | | | | | |")
+    L += ["", "단계: " + " / ".join(f"{a}({b})" for a, b in STAGE)]
+    return L
+
+
+def variable_section(rows):
+    """'변수' 태그별: 태그 방향(+ 홈 유리 / - 원정 유리)이 결과와 맞았는지. 무승부는 따로 센다."""
+    seg = {}
+    for r in rows:
+        if r.get("결과") not in ("승", "무", "패") or not r.get("변수"):
+            continue
+        for t in r["변수"].replace(",", ";").split(";"):
+            if ":" not in t:
+                continue
+            name, v = t.split(":", 1)
+            try:
+                v = float(v)
+            except ValueError:
+                continue
+            if v == 0:
+                continue
+            key = (r.get("종목", ""), league_group(r), name.strip())
+            d = seg.setdefault(key, {"n": 0, "맞음": 0, "무": 0})
+            d["n"] += 1
+            if r["결과"] == "무":
+                d["무"] += 1
+            elif (v > 0) == (r["결과"] == "승"):
+                d["맞음"] += 1
+    L = ["", "## 변수 태그별 방향 적중 — 리그마다 실제로 결과를 가른 변수 찾기", "",
+         "태그 방향(+ 홈 유리, - 원정 유리)과 결과가 같았던 비율(무승부 제외). 표본 20 이상에서 60% 넘으면 강화, 50% 근처면 그 리그에서는 빼는 후보.", "",
+         "| 종목 | 리그 | 변수 | n | 무 | 방향 적중률 |", "|---|---|---|---|---|---|"]
+    for (sp, lg, nm), d in sorted(seg.items(), key=lambda kv: -kv[1]["n"]):
+        dec = d["n"] - d["무"]
+        L.append(f"| {sp} | {lg} | {nm} | {d['n']} | {d['무']} | {(f'{d['맞음'] / dec:.0%}' if dec else '-')} |")
+    if len(L) == 7:
+        L.append("| (태그가 붙은 채점 경기 없음 — 121회부터 조사 CSV에 '변수' 열) | | | | | |")
+    return L
+
+
 def cmd_report():
     rows = list(csv.DictReader(open(REC, encoding="utf-8")))
     ev = evaluate(rows)
@@ -184,6 +311,8 @@ def cmd_report():
           "- 구간 n ≥ 100 이고 순수 RPS < 시장 RPS 인 구간에서만, 순수 확률 × 베트맨 배당 ≥ 1.05 를 '독자 분석 구매 후보'로 낸다.",
           "- 자격 구간: " + (", ".join(f"{t}:{nm}" for (t, nm), v in ev.items() if v["n"] >= 100 and v["순수RPS"] < v["시장RPS"]) or "아직 없음")]
     L += paper_section(rows, ev)
+    L += league_card(grade_picks())
+    L += variable_section(rows)
     out = os.path.join(ROOT, "회차별분석", f"독자분석_현황_{dt.date.today()}.md")
     open(out, "w", encoding="utf-8").write("\n".join(L) + "\n")
     print("\n".join(L[:14]))

@@ -166,7 +166,7 @@ def cmd_plan(due_only=False):
 
 
 def cmd_games(rnd, block):
-    for g in assign_blocks([g for g in games_of(rnd) if g["마감"] > now()]).get(block, []):
+    for g in assign_blocks(games_of(rnd)).get(block, []):
         if True:
             print(f"{g['번호']}\t{g['시각']:%m-%d %H:%M}\t마감 {g['마감']:%m-%d %H:%M}\t{g['종목']}\t{g['리그']}\t{g['홈']} vs {g['원정']}")
 

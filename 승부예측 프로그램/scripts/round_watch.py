@@ -19,6 +19,7 @@
   python3 scripts/round_watch.py due              # 분석 시각이 지난 대기 블록 (지금 분석할 것)
   python3 scripts/round_watch.py games <회차> <블록>   # 그 블록 경기 목록 (번호·시각·마감·리그·대진)
   python3 scripts/round_watch.py done <회차> <블록> [메모]
+  python3 scripts/round_watch.py unreserve        # '예약됨' 표시 지우기(다른 PC·새 세션에서 루프를 다시 켤 때 — 예약은 세션 한정)
   python3 scripts/round_watch.py add <회차>        # 이미 등록된 회차의 남은 블록을 일정에 추가(진행 중 회차를 루프로 넘길 때)
 """
 import csv
@@ -191,6 +192,13 @@ def main():
         cmd_plan(due_only=True)
     elif a[0] == "games":
         cmd_games(int(a[1]), a[2])
+    elif a[0] == "unreserve":
+        rows = load_plan()
+        for r in rows:
+            if r["상태"] == "대기" and r["메모"] == "예약됨":
+                r["메모"] = ""
+        save_plan(rows)
+        print("예약 표시 초기화")
     elif a[0] == "add":
         plan = [r for r in load_plan() if r["회차"] != a[1] or r["상태"] != "대기"]
         have = {(r["회차"], r["블록"]) for r in plan}

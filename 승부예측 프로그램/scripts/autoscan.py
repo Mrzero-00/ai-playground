@@ -20,7 +20,7 @@
 - **추천 다리 배당 변동 경고**: 추천기록.csv 의 추천 다리(아직 시작 전)의 현재 베트맨 배당이 추천 당시보다 0.08 이상
   오르면(= 그 선택지가 불리해졌다는 신호) '⚠ 추천 다리 배당 상승'을 로그와 data/배당변동알림.log 에 남긴다.
 - **구매 점검**: 구매일정.csv 의 점검시각(판매 마감 30분 전)이 되면 final_check.py --due --notify 를 돌려
-  최종 점검 결과를 회차별분석/최종점검_*.md 에 쓰고 macOS 알림을 띄운다. 점검시각에 맞춰 깨어나도록 대기 시간을 줄인다.
+  최종 점검 결과를 회차별분석/최종점검_*.md 에 쓴다(Mac 알림은 끔 — 사용자 요청 2026-10-10: 알림은 휴대폰으로만). 점검시각에 맞춰 깨어나도록 대기 시간을 줄인다.
   (휴대폰 알림·뉴스 확인은 Claude 세션의 예약 작업이 맡는다 — 세션이 꺼져 있어도 이 숫자 점검은 돈다)
 - 네트워크 오류는 그 주기만 건너뛴다.
 """
@@ -127,7 +127,7 @@ def main():
         nc = next_check_minutes(now)
         if nc == 0:
             print("--- 구매 점검", flush=True)
-            print(run(["final_check.py", "--due", "--notify", "--no-scan"]).strip()[-1500:], flush=True)
+            print(run(["final_check.py", "--due", "--no-scan"]).strip()[-1500:], flush=True)
             nc = next_check_minutes(dt.datetime.now(KST))
         if n % a.results_every == 1:
             print("--- 채점/보고", flush=True)

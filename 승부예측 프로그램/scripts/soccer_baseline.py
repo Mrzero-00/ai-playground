@@ -26,18 +26,20 @@
 - 강등팀 처리(리그 간 공통 척도 대용): kor.2·jpn.2 에 새로 나타난 팀이 그 전 해 상위 리그(kor.1 / J1) 소속이면
   하위 20% 가 아니라 상위 NEW_TEAM_Q_DOWN(70%) 분위에서 시작한다. 두 리그를 한 척도로 묶지는 않는다
   (리그 사이 경기가 승강 PO 몇 경기뿐이라 연결이 약함). 승격팀은 다른 리그와 같이 하위 20% 에서 시작.
+  eng.2(챔피언십)도 2026-10-10부터 eng.1 캐시로 강등팀을 판별한다 (UPPER_FROM, 시즌 시작 연도 기준).
 
-레이팅: pi-rating (Constantinou & Fenton 2013), scripts/backtest.py run_pi 와 같은 식·상수
+레이팅: pi-rating (Constantinou & Fenton 2013), scripts/backtest.py run_pi 와 같은 식 (상수는 아래처럼 다름)
 - 팀마다 홈 레이팅 R_H, 원정 레이팅 R_A (단위 = 골). 예측 득실차 pred = R_H(홈팀) − R_A(원정팀).
 - 결과 득실차 obs 와의 오차 e = |obs − pred|, ψ = C·log10(1+e), 부호 = obs > pred 이면 +.
 - 홈팀: R_H += ψ·λ, R_A += ψ·λ·γ / 원정팀: R_A −= ψ·λ, R_H −= ψ·λ·γ
-- λ(LAMBDA)=0.07 (EPL 2019-26 백테스트 RPS 최적, scripts/tune.py), γ(GAMMA)=0.7, C=3.0
+- λ(LAMBDA)=0.05, γ(GAMMA)=1.0, C=3.0. (backtest.py 는 EPL 2019-26 최적 0.07/0.7. 이 스크립트는 14개 리그
+  시간 분할 검증(아래)에서 0.05/1.0 이 검증·시험 구간 모두 가장 좋아 2026-10-10 바꿈. γ=1 = 홈/원정 레이팅을 같이 움직임)
 - 시즌 경계에서 초기화하지 않는다(지난 시즌이 그대로 이어진다).
 - 자료 시작 후 NEW_TEAM_AFTER_DAYS(200일) 뒤에 처음 나온 팀(승격팀)은 0이 아니라 그 리그 현역 팀 레이팅의
   하위 NEW_TEAM_Q(20%) 분위값에서 시작한다. (backtest.py 와 다른 부분. 승격팀 = 약팀이라는 사전 정보)
   강등팀(kor.2·jpn.2 만 판별 가능)은 NEW_TEAM_Q_DOWN(70%) 분위에서 시작한다.
-  공식 소스 리그(kor.1·kor.2·jpn.2)는 리그 경기 RETURN_GAP(150) 동안 안 나왔다 돌아온 팀도 옛 레이팅을 버리고
-  같은 규칙으로 다시 시작한다 (예: 인천 K1→K2→K1, 요코하마FC J2→J1→J2).
+  모든 리그에서(2026-10-10부터 ESPN 리그 포함) 리그 경기 RETURN_GAP(150) 동안 안 나왔다 돌아온 팀도 옛 레이팅을
+  버리고 같은 규칙으로 다시 시작한다 (예: 인천 K1→K2→K1, 요코하마FC J2→J1→J2, 강등 후 복귀한 EPL 팀).
 
 레이팅 → 기대 득점 → 확률 (리그마다 데이터로 추정, --round/--calib 에서는 경기 전 데이터만 사용)
 - 예열 BURN_IN_DAYS(240일)이 지난 경기만 회귀에 쓴다.
@@ -59,6 +61,21 @@
   python3 scripts/soccer_baseline.py --leagues                      # 리그별 평균 득점·홈 이점·회귀 계수
   --refresh : 캐시 무시하고 다시 받기
 
+시간 분할 검증 (2026-10-10, 14개 리그 13,000여 경기, 미래 정보 없음)
+- 레이팅은 경기 전 값만 쓴다. 리그마다 경기 순서 기준 앞 50% 로 회귀 → 50~75% 로 '검증'(선택용),
+  앞 75% 로 회귀 → 마지막 25% 로 '시험'(보고용). 예열 240일은 회귀에서 뺀다.
+- 채택: λ0.05·γ1.0 + ESPN 리그 복귀팀 재시작 + eng.2 강등팀 판별.
+  RPS 검증 0.2125→0.2119, 시험 0.2142→0.2129 (log loss 1.0408→1.0371). 시험에서 14개 중 10개 리그 개선.
+  --calib(최근 10주) 0.2125→0.2106, --calib --until 2026-06-01 0.2156→0.2149.
+- 기각(시험 RPS 개선 없음 또는 악화): 기울기 키우기(b×1.1 0.2146, ×1.2 0.2154), 비선형 pred·|pred| 0.2146,
+  승/무/패 우도로 a·b 직접 추정 0.2152, 리그 기울기를 공통 기울기로 수축(k=50~1000, ±0.0001),
+  휴식일 차(10일 상한) 0.2144, 14일 경기 수 차 0.2144, 최근 5경기 잔차 폼 0.2142(변화 없음),
+  리그별 ρ 추정 0.2142(무 예측 26.9→25.8%, 실제 27.2% → 오히려 멀어짐), 시간 감쇠 Massey 레이팅 추가(검증 악화).
+- 보정 상태(시험 구간): 기준선 최다쪽 ≥60% 489경기 예측 68.5% / 실제 66.9%, 무 예측 26.9% / 실제 27.2%,
+  홈승 예측 41.9% / 실제 41.1%. → 기준선은 강팀을 '덜' 보지 않는다(약간 높게 본다). 그래서 기울기를 키우지 않는다.
+  시장과의 강팀 격차(120회 ≥60% 경기 −8.8%p)는 대부분 '시장 쪽으로 고른 경기' 선택 효과 + 결과만으로는 모르는
+  정보(이적·부상·라인업·xG)다. 기준선 쪽에서 ≥60% 를 고르면 시장과의 차는 −4%p 안팎.
+
 한계
 - 결과(득점)만 쓴다. 부상·로테이션·동기·감독 교체·이적 시장은 반영하지 않는다 → 뉴스 보정 몫.
 - 승격팀·시즌 초는 표본이 적어 기준선이 덜 믿을 만하다.
@@ -74,14 +91,15 @@ RECORD_PATH = os.path.join(ROOT, "전체경기기록.csv")
 UA = "Mozilla/5.0"
 KST = dt.timezone(dt.timedelta(hours=9))
 
-# ---- 상수 (backtest.py run_pi / run_dc 와 맞춤)
-LAMBDA, GAMMA, C_PSI = 0.07, 0.7, 3.0
+# ---- 상수 (C_PSI·RHO 는 backtest.py 와 같음. LAMBDA·GAMMA 는 14개 리그 시간 분할 검증 값)
+LAMBDA, GAMMA, C_PSI = 0.05, 1.0, 3.0   # 2026-10-10 시간 분할 검증으로 0.07/0.7 → 0.05/1.0 (docstring 참고)
 RHO = -0.13
 BURN_IN_DAYS = 240
 NEW_TEAM_AFTER_DAYS = 200
 NEW_TEAM_Q = 0.20
 NEW_TEAM_Q_DOWN = 0.70   # 상위 리그에서 강등돼 온 팀의 시작 분위 (kor.2, jpn.2)
-RETURN_GAP = 150         # 이 수 이상의 리그 경기 동안 안 나온 팀 = 다른 리그에 갔다 돌아온 팀 (공식 소스 리그만)
+RETURN_GAP = 150         # 이 수 이상의 리그 경기 동안 안 나온 팀 = 다른 리그에 갔다 돌아온 팀 (전 리그 적용)
+UPPER_FROM = {"eng.2": "eng.1"}  # ESPN 2부: 상위 리그 캐시로 강등팀 판별 (시즌 시작 연도 기준)
 MIN_LAMBDA = 0.15
 MAX_GOALS = 10
 YEARS_BACK = 2           # 올해 + 지난 2개 연도
@@ -561,8 +579,13 @@ class League:
     def __init__(self, code, refresh=False):
         self.code = code
         self.games, self.upper = load_results(code, refresh=refresh, with_upper=True)
+        if code in UPPER_FROM:  # ESPN 2부: 상위 리그 결과에서 시즌(시작 연도)별 소속 팀을 만든다
+            self.upper = dict(self.upper or {})
+            for g in load_results(UPPER_FROM[code], refresh=refresh, quiet=True):
+                sy = g["t"].year if g["t"].month >= 7 else g["t"].year - 1
+                self.upper.setdefault(sy, set()).update((g["home"], g["away"]))
         self.table = TEAM_TABLE.get(code)
-        self.returning = code in SOURCES
+        self.returning = True  # 2026-10-10: ESPN 리그도 돌아온 팀 재시작 (보류 검증 RPS 소폭 개선)
 
     def teams(self, before=None, recent_days=400):
         ref = before or (self.games[-1]["t"] if self.games else None)

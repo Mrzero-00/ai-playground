@@ -14,14 +14,66 @@
   pkill -f autoscan.py                                              # 중지
 
 메모
-- 베트맨 배당은 보통 하루 전 뜨고 킥오프까지 몇 번 바뀐다. 30분 간격이면 변화를 거의 다 잡는다.
+- 베트맨 배당은 보통 하루 전 뜨고 킥오프까지 몇 번 바뀐다.
+- **킥오프 75분 이내 경기가 있으면 5분 간격**으로 수집한다(2026-10-10: 120회 정관장 배당이 16:01 마지막 수집 뒤
+  킥오프 30분 안에 1.36→1.59로 바뀐 걸 30분 간격이 놓쳤다 — 라인업 발표 직후 변동).
+- **추천 다리 배당 변동 경고**: 추천기록.csv 의 추천 다리(아직 시작 전)의 현재 베트맨 배당이 추천 당시보다 0.08 이상
+  오르면(= 그 선택지가 불리해졌다는 신호) '⚠ 추천 다리 배당 상승'을 로그와 data/배당변동알림.log 에 남긴다.
 - 네트워크 오류는 그 주기만 건너뛴다.
 """
-import argparse, datetime as dt, os, subprocess, sys, time
+import argparse, csv, datetime as dt, os, subprocess, sys, time
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 PY = sys.executable
 KST = dt.timezone(dt.timedelta(hours=9))
+ROOT = os.path.dirname(HERE)
+SCAN = os.path.join(ROOT, "data", "스캔기록.csv")
+PICKS = os.path.join(ROOT, "추천기록.csv")
+ALERT = os.path.join(ROOT, "data", "배당변동알림.log")
+FAST_WINDOW, FAST_INTERVAL, ODDS_JUMP = 75, 5, 0.08
+
+
+def latest_scan():
+    """(회차, 번호, 선택) → 스캔기록 최신 행"""
+    out = {}
+    if os.path.exists(SCAN):
+        for r in csv.DictReader(open(SCAN, encoding="utf-8")):
+            out[(r["회차"], r["번호"], r["선택"])] = r
+    return out
+
+
+def next_kickoff_minutes(scan, now):
+    best = None
+    for r in scan.values():
+        try:
+            k = dt.datetime.strptime(r["시각"], "%Y-%m-%d %H:%M").replace(tzinfo=KST)
+        except (ValueError, KeyError):
+            continue
+        m = (k - now).total_seconds() / 60
+        if m > 0 and (best is None or m < best):
+            best = m
+    return best
+
+
+def pick_alerts(scan, now):
+    if not os.path.exists(PICKS):
+        return []
+    msgs = []
+    for p in csv.DictReader(open(PICKS, encoding="utf-8")):
+        if p.get("구분") != "추천":
+            continue
+        r = scan.get((str(p["회차"]), p["번호"], p["선택"]))
+        if not r:
+            continue
+        try:
+            k = dt.datetime.strptime(r["시각"], "%Y-%m-%d %H:%M").replace(tzinfo=KST)
+            o0, o1 = float(p["배당"]), float(r["베트맨"])
+        except (ValueError, KeyError):
+            continue
+        if k > now and o1 - o0 >= ODDS_JUMP:
+            msgs.append(f"⚠ 추천 다리 배당 상승 {p['경기']} {p['게임']} {p['선택']}: {o0:.2f}→{o1:.2f} "
+                        f"(시장 {p['확률']}→{r['공정확률']}%) 킥오프 {r['시각'][5:]} — 라인업·뉴스 확인")
+    return msgs
 
 
 def run(args):
@@ -42,12 +94,21 @@ def main():
         out = run(["odds_scan.py", "--log", "--min-ev", "1.0"])
         keep = [ln for ln in out.splitlines() if ("★" in ln or "전체 추적" in ln or "판매 중 회차" in ln or "오류" in ln or "JSON 아님" in ln)]
         print("\n".join(keep) if keep else "(+EV 없음)", flush=True)
+        scan = latest_scan()
+        for m in pick_alerts(scan, now):
+            print(m, flush=True)
+            with open(ALERT, "a", encoding="utf-8") as f:
+                f.write(f"[{now:%m-%d %H:%M}] {m}\n")
+        nk = next_kickoff_minutes(scan, now)
         if n % a.results_every == 1:
             print("--- 채점/보고", flush=True)
             print(run(["tracker.py", "results"]).strip()[-800:], flush=True)
             run(["tracker.py", "report"])
             run(["tracker.py", "clv"])
-        time.sleep(a.interval * 60)
+        wait = FAST_INTERVAL if (nk is not None and nk <= FAST_WINDOW) else a.interval
+        if wait != a.interval:
+            print(f"(다음 킥오프 {nk:.0f}분 전 → {wait}분 간격)", flush=True)
+        time.sleep(wait * 60)
 
 
 if __name__ == "__main__":

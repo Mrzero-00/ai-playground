@@ -111,6 +111,7 @@ def betman(cookie):
             games.append({
                 "회차": r["gmOsidTs"], "번호": g["matchSeq"], "종목": g["itemCode"], "리그": g["leagueName"],
                 "시각": dt.datetime.fromtimestamp(g["gameDate"] / 1000, dt.timezone.utc),
+                "마감": dt.datetime.fromtimestamp((g.get("endDate") or g["gameDate"]) / 1000, dt.timezone.utc),  # 베트맨 실제 판매 마감(23시 이후 경기는 전날 23:00)
                 "홈": g["homeName"], "원정": g["awayName"], "유형": bt, "betNm": g.get("betNm"), "기간": period, "승N패": is_wnl, "승N": wnl_n,
                 "라인": g["winHandi"] if is_handi else None,  # 홈팀 기준 핸디캡 (예: -1.5 = 홈이 2점 이상 이겨야 적중)
                 "OU": g["winHandi"] if is_ou else None,  # 언더오버 기준점
@@ -580,6 +581,15 @@ def scan(a):
                          "선택": lab, "베트맨": o,
                          "Pinnacle": round(p["배당"][key], 2) if line is None and ou is None and not g.get("승N패") and key in (p.get("배당") or {}) else "",
                          "공정확률": round(probs[key] * 100, 1), "기대값": round(ev, 3), "Pin마진%": round(margin, 1)})
+    if a.log:  # 게임 번호별 베트맨 판매 마감 시각 → data/마감시각.json (pick_table 구매 시각 계산용, 2026-10-10)
+        mp = os.path.join(ROOT, "data", "마감시각.json")
+        try:
+            dd = json.load(open(mp, encoding="utf-8")) if os.path.exists(mp) else {}
+        except ValueError:
+            dd = {}
+        for g in games:
+            dd[f"{g['회차']}-{g['번호']}"] = g["마감"].astimezone(KST).strftime("%Y-%m-%d %H:%M")
+        json.dump(dd, open(mp, "w", encoding="utf-8"), ensure_ascii=False, indent=0)
     if a.log and log_rows:
         import tracker
         added, replaced = tracker.log_rows(log_rows)

@@ -19,6 +19,9 @@
   킥오프 30분 안에 1.36→1.59로 바뀐 걸 30분 간격이 놓쳤다 — 라인업 발표 직후 변동).
 - **추천 다리 배당 변동 경고**: 추천기록.csv 의 추천 다리(아직 시작 전)의 현재 베트맨 배당이 추천 당시보다 0.08 이상
   오르면(= 그 선택지가 불리해졌다는 신호) '⚠ 추천 다리 배당 상승'을 로그와 data/배당변동알림.log 에 남긴다.
+- **구매 점검**: 구매일정.csv 의 점검시각(판매 마감 30분 전)이 되면 final_check.py --due --notify 를 돌려
+  최종 점검 결과를 회차별분석/최종점검_*.md 에 쓰고 macOS 알림을 띄운다. 점검시각에 맞춰 깨어나도록 대기 시간을 줄인다.
+  (휴대폰 알림·뉴스 확인은 Claude 세션의 예약 작업이 맡는다 — 세션이 꺼져 있어도 이 숫자 점검은 돈다)
 - 네트워크 오류는 그 주기만 건너뛴다.
 """
 import argparse, csv, datetime as dt, os, subprocess, sys, time
@@ -31,6 +34,27 @@ SCAN = os.path.join(ROOT, "data", "스캔기록.csv")
 PICKS = os.path.join(ROOT, "추천기록.csv")
 ALERT = os.path.join(ROOT, "data", "배당변동알림.log")
 FAST_WINDOW, FAST_INTERVAL, ODDS_JUMP = 75, 5, 0.08
+SCHED = os.path.join(ROOT, "구매일정.csv")
+
+
+def next_check_minutes(now):
+    """대기 상태 조합 중 다음 점검시각까지 남은 분 (지났으면 0)"""
+    if not os.path.exists(SCHED):
+        return None
+    best = None
+    for r in csv.DictReader(open(SCHED, encoding="utf-8")):
+        if r.get("상태") != "대기":
+            continue
+        try:
+            t = dt.datetime.strptime(r["점검시각"], "%Y-%m-%d %H:%M").replace(tzinfo=KST)
+            c = dt.datetime.strptime(r["마감"], "%Y-%m-%d %H:%M").replace(tzinfo=KST)
+        except (ValueError, KeyError):
+            continue
+        if c <= now:
+            continue
+        m = max(0.0, (t - now).total_seconds() / 60)
+        best = m if best is None else min(best, m)
+    return best
 
 
 def latest_scan():
@@ -100,12 +124,19 @@ def main():
             with open(ALERT, "a", encoding="utf-8") as f:
                 f.write(f"[{now:%m-%d %H:%M}] {m}\n")
         nk = next_kickoff_minutes(scan, now)
+        nc = next_check_minutes(now)
+        if nc == 0:
+            print("--- 구매 점검", flush=True)
+            print(run(["final_check.py", "--due", "--notify", "--no-scan"]).strip()[-1500:], flush=True)
+            nc = next_check_minutes(dt.datetime.now(KST))
         if n % a.results_every == 1:
             print("--- 채점/보고", flush=True)
             print(run(["tracker.py", "results"]).strip()[-800:], flush=True)
             run(["tracker.py", "report"])
             run(["tracker.py", "clv"])
         wait = FAST_INTERVAL if (nk is not None and nk <= FAST_WINDOW) else a.interval
+        if nc is not None and 0 < nc < wait:
+            wait = max(1, nc)  # 점검시각에 맞춰 깨어난다
         if wait != a.interval:
             print(f"(다음 킥오프 {nk:.0f}분 전 → {wait}분 간격)", flush=True)
         time.sleep(wait * 60)

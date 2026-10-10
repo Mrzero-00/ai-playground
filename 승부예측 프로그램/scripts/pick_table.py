@@ -24,7 +24,10 @@ REC_COLS = ["회차", "번호", "선택", "시각", "종목", "리그", "경기"
 SPORT = {"SC": "축구", "BS": "야구", "BK": "농구", "VL": "배구"}
 # 조합은 '비슷한 시각에 끝나는 경기끼리' 묶고 구매 시각을 함께 알린다 (사용자 요청 2026-10-10)
 DURATION = {"축구": 115, "야구": 195, "농구": 120, "배구": 120}  # 킥오프→종료 예상(분)
-SALE_CLOSE_MIN = 10   # 베트맨 프로토 판매 마감 = 경기 시작 10분 전(가정, 화면 마감 시각이 다르면 그 값을 따른다)
+SALE_CLOSE_MIN = 10   # data/마감시각.json(베트맨 endDate)에 없을 때만 쓰는 대체값: 경기 시작 10분 전
+CLOSE_PATH = os.path.join(ROOT, "data", "마감시각.json")
+SCHED = os.path.join(ROOT, "구매일정.csv")
+SCHED_COLS = ["회차", "조합", "다리", "마감", "점검시각", "결과예상", "구매", "상태", "메모"]
 BUY_BEFORE_MIN = 30   # 구매 시각 = 마감 30분 전 → 그때 최종 재분석(재스캔·라인업)
 END_SPREAD_MAX = 180  # 조합 안 경기 종료 예상 시각 차이 경고 기준(분)
 
@@ -77,9 +80,18 @@ def cells(opts, pick):
     return out
 
 
-def timing(by_no, picks):
-    """첫 경기 킥오프 기준 구매 마감·구매 시각, 마지막 경기 종료 예상. 종료 시각이 많이 벌어지면 경고."""
-    ks, ends = [], []
+def closes():
+    import json
+    try:
+        return json.load(open(CLOSE_PATH, encoding="utf-8"))
+    except (OSError, ValueError):
+        return {}
+
+
+def combo_times(by_no, picks, rnd=None):
+    """(마감, 점검시각, 결과예상, 종료 차이 분) — 마감은 베트맨 endDate(조합 다리 중 가장 이른 것)."""
+    cl = closes()
+    ks, ends, cs = [], [], []
     for no, _ in picks:
         opts = by_no.get(no)
         if not opts:
@@ -87,16 +99,44 @@ def timing(by_no, picks):
         k = dt.datetime.strptime(opts[0]["시각"], "%Y-%m-%d %H:%M")
         ks.append(k)
         ends.append(k + dt.timedelta(minutes=DURATION.get(SPORT.get(opts[0]["종목"], opts[0]["종목"]), 120)))
+        c = cl.get(f"{rnd or opts[0]['회차']}-{no}")
+        cs.append(dt.datetime.strptime(c, "%Y-%m-%d %H:%M") if c else k - dt.timedelta(minutes=SALE_CLOSE_MIN))
     if not ks:
+        return None
+    close = min(cs)
+    return close, close - dt.timedelta(minutes=BUY_BEFORE_MIN), max(ends), (max(ends) - min(ends)).total_seconds() / 60
+
+
+def timing(by_no, picks):
+    """첫 경기 킥오프 기준 구매 마감·구매 시각, 마지막 경기 종료 예상. 종료 시각이 많이 벌어지면 경고."""
+    t = combo_times(by_no, picks)
+    if not t:
         return ""
-    close = min(ks) - dt.timedelta(minutes=SALE_CLOSE_MIN)
-    buy = close - dt.timedelta(minutes=BUY_BEFORE_MIN)
+    close, buy, end, spread = t
     f = lambda d: d.strftime("%m/%d %H:%M")
-    out = f"\n🕒 **구매 시각 {f(buy)}** (판매 마감 {f(close)}) · 결과 예상 {f(max(ends))}"
-    spread = (max(ends) - min(ends)).total_seconds() / 60
+    out = f"\n🕒 **구매 시각 {f(buy)}** (베트맨 판매 마감 {f(close)}) · 결과 예상 {f(end)} — 이 시각에 최종 재분석 후 다시 알림"
     if spread > END_SPREAD_MAX:
         out += f"  ⚠ 경기 종료 시각 차이 {spread / 60:.1f}시간 — 비슷한 시각에 끝나는 경기끼리 다시 묶을 것"
     return out
+
+
+def save_schedule(by_no, rnd, combos, buys):
+    """조합별 구매 일정 → 구매일정.csv (autoscan.py 가 점검시각에 final_check.py 를 돌려 알림)"""
+    old = list(csv.DictReader(open(SCHED, encoding="utf-8"))) if os.path.exists(SCHED) else []
+    keep = {(r["회차"], r["조합"]): r for r in old}
+    for title, picks in combos:
+        t = combo_times(by_no, picks, rnd)
+        if not t:
+            continue
+        close, buy, end, _ = t
+        prev = keep.get((str(rnd), title), {})
+        keep[(str(rnd), title)] = {"회차": rnd, "조합": title, "다리": ",".join(f"{n}:{p}" for n, p in picks),
+                                   "마감": close.strftime("%Y-%m-%d %H:%M"), "점검시각": buy.strftime("%Y-%m-%d %H:%M"),
+                                   "결과예상": end.strftime("%Y-%m-%d %H:%M"), "구매": buys.get(title, prev.get("구매", "")),
+                                   "상태": prev.get("상태", "대기"), "메모": prev.get("메모", "")}
+    w = csv.DictWriter(open(SCHED, "w", encoding="utf-8", newline=""), fieldnames=SCHED_COLS)
+    w.writeheader(); w.writerows(keep.values())
+    print(f"구매일정.csv 저장 ({len(combos)}조합)")
 
 
 def table(by_no, title, picks):
@@ -160,16 +200,19 @@ def main():
     a = ap.parse_args()
     by_no = load(a.round)
     buys = dict(b.rsplit("=", 1) for b in a.buy)
-    items = []
+    items, combos_ = [], []
     for c in a.combos:
         title, _, body = c.rpartition("=")
         picks = [tuple(x.strip().split(":")) for x in body.split(",") if x.strip()]
         print(table(by_no, title, picks) + "\n")
         items += [(no, pk, "추천", title, "", buys.get(title, "")) for no, pk in picks]
+        combos_.append((title, picks))
     for sk in a.skip:
         leg, _, why = sk.partition("=")
         no, pk = leg.strip().split(":")
         items.append((no, pk, "추천제외", "", why.strip(), ""))
+    if a.save and combos_:
+        save_schedule(by_no, a.round, combos_, buys)
     if a.save or a.skip:
         save_rec(by_no, a.round, [x for x in items if a.save or x[2] == "추천제외"])
 

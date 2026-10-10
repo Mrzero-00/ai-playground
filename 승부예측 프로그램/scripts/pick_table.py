@@ -14,6 +14,7 @@
 """
 import argparse
 import csv
+import datetime as dt
 import os
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -21,6 +22,11 @@ LOG = os.path.join(ROOT, "data", "스캔기록.csv")
 REC = os.path.join(ROOT, "추천기록.csv")
 REC_COLS = ["회차", "번호", "선택", "시각", "종목", "리그", "경기", "게임", "배당", "확률", "구분", "조합", "이유", "구매", "결과", "적중"]
 SPORT = {"SC": "축구", "BS": "야구", "BK": "농구", "VL": "배구"}
+# 조합은 '비슷한 시각에 끝나는 경기끼리' 묶고 구매 시각을 함께 알린다 (사용자 요청 2026-10-10)
+DURATION = {"축구": 115, "야구": 195, "농구": 120, "배구": 120}  # 킥오프→종료 예상(분)
+SALE_CLOSE_MIN = 10   # 베트맨 프로토 판매 마감 = 경기 시작 10분 전(가정, 화면 마감 시각이 다르면 그 값을 따른다)
+BUY_BEFORE_MIN = 30   # 구매 시각 = 마감 30분 전 → 그때 최종 재분석(재스캔·라인업)
+END_SPREAD_MAX = 180  # 조합 안 경기 종료 예상 시각 차이 경고 기준(분)
 
 
 def load(rnd):
@@ -71,6 +77,28 @@ def cells(opts, pick):
     return out
 
 
+def timing(by_no, picks):
+    """첫 경기 킥오프 기준 구매 마감·구매 시각, 마지막 경기 종료 예상. 종료 시각이 많이 벌어지면 경고."""
+    ks, ends = [], []
+    for no, _ in picks:
+        opts = by_no.get(no)
+        if not opts:
+            continue
+        k = dt.datetime.strptime(opts[0]["시각"], "%Y-%m-%d %H:%M")
+        ks.append(k)
+        ends.append(k + dt.timedelta(minutes=DURATION.get(SPORT.get(opts[0]["종목"], opts[0]["종목"]), 120)))
+    if not ks:
+        return ""
+    close = min(ks) - dt.timedelta(minutes=SALE_CLOSE_MIN)
+    buy = close - dt.timedelta(minutes=BUY_BEFORE_MIN)
+    f = lambda d: d.strftime("%m/%d %H:%M")
+    out = f"\n🕒 **구매 시각 {f(buy)}** (판매 마감 {f(close)}) · 결과 예상 {f(max(ends))}"
+    spread = (max(ends) - min(ends)).total_seconds() / 60
+    if spread > END_SPREAD_MAX:
+        out += f"  ⚠ 경기 종료 시각 차이 {spread / 60:.1f}시간 — 비슷한 시각에 끝나는 경기끼리 다시 묶을 것"
+    return out
+
+
 def table(by_no, title, picks):
     lines = []
     if title:
@@ -92,6 +120,9 @@ def table(by_no, title, picks):
         prob = prob * p / 100 if (p is not None and prob is not None) else None
         when = r["시각"][5:16]
         lines.append(f"| {no} | {r['경기']} ({when}) | {kind(r)} | {c[0]} | {c[1]} | {c[2]} | {f'{p:.1f}%' if p is not None else '-'} |")
+    t = timing(by_no, picks)
+    if t:
+        lines.append(t)
     if len(picks) > 1:
         lines.append(f"\n합계 배당 **{odds:.2f}배** · 적중 확률 **{prob * 100:.1f}%**" if prob is not None else f"\n합계 배당 **{odds:.2f}배**")
     return "\n".join(lines)

@@ -5,8 +5,9 @@
 - 하루 두 번(00시·12시) `check`: 베트맨 판매 중 회차 중 아직 `전체경기기록.csv`에 없는 새 회차가 있으면
   등록(round_log init)하고, 경기들을 **판매 마감 시각(베트맨 endDate) 기준 블록**으로 묶어 `분석일정.csv`에 쓴다.
   새 회차가 없으면 아무것도 하지 않는다(토큰 절약).
-- 블록 = 마감 날짜 × 시간대: 새벽(00~06) / 오전(06~12) / 오후(12~18) / 저녁(18~24).
-  오후·저녁을 나눈 이유: 14시 마감과 23시 마감을 한 번에 분석하면 늦은 경기의 라인업이 아직 없다.
+- 블록 = **판매 마감이 가까운 경기 묶음**: 가장 이른 마감부터 WINDOW(60분) 안에 마감되는 경기를 한 블록으로,
+  그다음 경기부터 다시 새 블록(사용자 요청 2026-10-10: 오전/오후처럼 넓게 묶으면 앞뒤 경기 시간차가 커서 의미 없음).
+  블록 이름 = 첫 마감 'MM/DD HH:MM'. 새벽(00~06시) 마감 경기는 하루치를 한 블록으로 묶어 00시에 분석.
 - 분석 시각 = 블록의 가장 이른 마감 − 70분(선발·라인업 발표 직후). 단 **새벽 블록은 그날 00시**에 분석한다.
   → 분석은 마감 직전에 한 번만 한다(이중 분석 없음). 분석 직후 추천 = 그 자체가 구매 직전 점검.
 - Claude 쪽: 00/12시 정기 작업이 `check` 후 `due`/`plan`을 보고, 블록 분석 시각마다 일회성 예약 작업을 건다.
@@ -35,7 +36,8 @@ import round_log as rl  # noqa: E402
 PLAN = os.path.join(ROOT, "분석일정.csv")
 COLS = ["회차", "블록", "첫마감", "끝마감", "분석시각", "경기수", "종목", "상태", "메모"]
 LEAD_MIN = 70
-SLOTS = [(0, 6, "새벽"), (6, 12, "오전"), (12, 18, "오후"), (18, 24, "저녁")]
+WINDOW = 60  # 블록 첫 마감 ~ 마지막 마감 최대 간격(분) — 사용자: 최대한 동일 시간대끼리
+MIN_GAMES, MERGE_SPAN = 3, 90  # 3경기 미만 블록은 합쳐도 간격 90분 이내인 이웃 블록과 합친다(조합을 못 만드는 블록 방지)
 
 
 def kst(ms):
@@ -46,12 +48,49 @@ def now():
     return dt.datetime.now(o.KST).replace(tzinfo=None)
 
 
-def slot(t):
-    return next(name for a, b, name in SLOTS if a <= t.hour < b)
+def is_dawn(t):
+    return t.hour < 6
 
 
-def block_name(close):
-    return f"{close:%m/%d} {slot(close)}"
+def assign_blocks(gs):
+    """마감 순으로 훑으며 WINDOW 안에 마감되는 경기를 한 블록으로. 반환 {블록이름: [경기]}"""
+    out, start, name = {}, None, None
+    for g in sorted(gs, key=lambda g: g["마감"]):
+        c = g["마감"]
+        if is_dawn(c):
+            key = f"{c:%m/%d} 새벽"
+        else:
+            if start is None or (c - start).total_seconds() / 60 > WINDOW or is_dawn(start):
+                start, name = c, f"{c:%m/%d %H:%M}"
+            key = name
+        out.setdefault(key, []).append(g)
+    return merge_small(out)
+
+
+def merge_small(blocks):
+    order = sorted(blocks.items(), key=lambda kv: min(g["마감"] for g in kv[1]))
+    changed = True
+    while changed:
+        changed = False
+        for i, (name, gs) in enumerate(order):
+            if len(gs) >= MIN_GAMES or name.endswith("새벽"):
+                continue
+            best = None
+            for j in (i - 1, i + 1):
+                if 0 <= j < len(order) and not order[j][0].endswith("새벽"):
+                    allg = gs + order[j][1]
+                    span = (max(g["마감"] for g in allg) - min(g["마감"] for g in allg)).total_seconds() / 60
+                    if span <= MERGE_SPAN and (best is None or span < best[0]):
+                        best = (span, j)
+            if best:
+                j = best[1]
+                a, b = sorted((i, j))
+                merged = order[a][1] + order[b][1]
+                order[a] = (f"{min(g['마감'] for g in merged):%m/%d %H:%M}", merged)
+                del order[b]
+                changed = True
+                break
+    return dict(order)
 
 
 def sale_rounds():
@@ -79,15 +118,11 @@ def save_plan(rows):
 
 
 def build_blocks(rnd):
-    blocks = {}
-    for g in games_of(rnd):
-        if g["마감"] <= now():
-            continue
-        blocks.setdefault(block_name(g["마감"]), []).append(g)
+    blocks = assign_blocks([g for g in games_of(rnd) if g["마감"] > now()])
     rows = []
     for name, gs in sorted(blocks.items(), key=lambda kv: min(g["마감"] for g in kv[1])):
         first = min(g["마감"] for g in gs)
-        if slot(first) == "새벽":
+        if is_dawn(first):
             at = first.replace(hour=0, minute=0)
         else:
             at = first - dt.timedelta(minutes=LEAD_MIN)
@@ -130,8 +165,8 @@ def cmd_plan(due_only=False):
 
 
 def cmd_games(rnd, block):
-    for g in games_of(rnd):
-        if block_name(g["마감"]) == block:
+    for g in assign_blocks([g for g in games_of(rnd) if g["마감"] > now()]).get(block, []):
+        if True:
             print(f"{g['번호']}\t{g['시각']:%m-%d %H:%M}\t마감 {g['마감']:%m-%d %H:%M}\t{g['종목']}\t{g['리그']}\t{g['홈']} vs {g['원정']}")
 
 

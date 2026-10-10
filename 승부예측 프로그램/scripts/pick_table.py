@@ -29,7 +29,7 @@ CLOSE_PATH = os.path.join(ROOT, "data", "마감시각.json")
 SCHED = os.path.join(ROOT, "구매일정.csv")
 SCHED_COLS = ["회차", "조합", "다리", "마감", "점검시각", "결과예상", "구매", "상태", "메모"]
 BUY_BEFORE_MIN = 30   # 구매 시각 = 마감 30분 전 → 그때 최종 재분석(재스캔·라인업)
-END_SPREAD_MAX = 180  # 조합 안 경기 종료 예상 시각 차이 경고 기준(분)
+END_SPREAD_MAX = 90   # 조합 안 경기 종료 예상 시각 차이 경고 기준(분) — 같은 시간대끼리(2026-10-10)
 
 
 def load(rnd):

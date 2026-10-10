@@ -6,7 +6,7 @@
 cd "$(dirname "$0")/.." || exit 1
 if [ "$1" = "stop" ]; then
   pkill -f "scripts/autoscan.py" && echo "autoscan 중지"
-  pkill -f "caffeinate -dimsu" && echo "잠자기 방지 해제"
+  pkill -f "caffeinate -ims" && echo "잠자기 방지 해제"
   exit 0
 fi
 git pull --no-rebase origin pacu || echo "⚠ pull 실패 — 충돌을 먼저 해결"
@@ -14,8 +14,8 @@ python3 --version || { echo "⚠ python3 없음"; exit 1; }
 if pgrep -f "scripts/autoscan.py" >/dev/null; then echo "autoscan 이미 실행 중"
 else nohup python3 scripts/autoscan.py >> data/autoscan.log 2>&1 & echo "autoscan 시작 (pid $!)"; fi
 if [ "$(uname)" = "Darwin" ]; then
-  if pgrep -f "caffeinate -dimsu" >/dev/null; then echo "잠자기 방지 이미 켜짐"
-  else nohup caffeinate -dimsu >/dev/null 2>&1 & echo "잠자기 방지 켬 (덮개 닫지 말 것, 전원 연결)"; fi
+  if pgrep -f "caffeinate -ims" >/dev/null; then echo "잠자기 방지 이미 켜짐"
+  else nohup caffeinate -ims >/dev/null 2>&1 & echo "잠자기 방지 켬 — 화면은 꺼져도 됨 (덮개 닫지 말 것, 전원 연결)"; fi
 else
   echo "⚠ macOS가 아님 — 전원 옵션에서 절전 모드를 '안 함'으로 직접 설정"
 fi

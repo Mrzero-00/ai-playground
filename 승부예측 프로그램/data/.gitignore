@@ -6,3 +6,6 @@
 
 autoscan.log
 soccer_results/
+
+# KBO 과거 경기·박스스코어 캐시 (kbo_backtest.py fetch, 다시 받을 수 있음)
+kbo_history/

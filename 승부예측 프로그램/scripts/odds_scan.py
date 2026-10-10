@@ -434,6 +434,8 @@ def main():
     ap.add_argument("--exclude", default="", help="이 문자열이 들어간 경기 제외 (쉼표 구분, 예: 한국_남자,카타르). 회차별 고정 제외는 data/exclude.json")
     ap.add_argument("--best", action="store_true", help="경기마다 가장 확률 높은 선택지(일반·핸디캡·언더오버 전체)를 확률 순으로")
     ap.add_argument("--bank", type=int, default=1000000, help="켈리 금액 계산용 뱅크롤(원). 기대값 1.0 이상 선택지에 1/4 켈리 권장 금액을 표시")
+    ap.add_argument("--close-from", default="", help="판매 마감 하한 'YYYY-MM-DD HH:MM' (KST)")
+    ap.add_argument("--close-to", default="", help="판매 마감 상한 'YYYY-MM-DD HH:MM' (KST)")
     ap.add_argument("--log", action="store_true", help="스캔한 모든 선택지(필터 전)를 data/스캔기록.csv에 기록 (구매 무관 전체 추적, tracker.py)")
     ap.add_argument("--lambda", dest="lam", action="store_true",
                     help="축구 경기별 기대 득점·실점(승무패+언더오버 역산)과 핸디캡/언더오버 확률 사다리를 함께 출력")
@@ -466,9 +468,15 @@ def scan(a):
     rounds, games, pending = betman(cookie)
     now = dt.datetime.now(dt.timezone.utc)
 
+    def in_close(g):  # --close-from/--close-to: 판매 마감(KST) 범위로 블록 경기만 (round_watch 블록 분석용)
+        if "마감" not in g or not (a.close_from or a.close_to):
+            return True
+        c = g["마감"].astimezone(KST).strftime("%Y-%m-%d %H:%M")
+        return (not a.close_from or c >= a.close_from) and (not a.close_to or c <= a.close_to)
+
     def keep(g):
         return ((not a.sports or g["종목"] in a.sports) and (not a.round or g["회차"] in a.round)
-                and (a.started or g["시각"] > now))
+                and (a.started or g["시각"] > now) and in_close(g))
     games, pending = [g for g in games if keep(g)], [g for g in pending if keep(g)]
     # 뉴스 위험으로 뺄 경기: data/exclude.json {"117": {"인도_남자-한국_남자": "순위결정전, 동기 약함"}} + --exclude 팀명 일부
     ex = {}

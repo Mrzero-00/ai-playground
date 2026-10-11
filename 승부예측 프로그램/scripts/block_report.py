@@ -88,8 +88,9 @@ def main():
                  f"{(r.get('뉴스위험') or '')[:40]} | {'; '.join(picks.get(key, [])) or ('제외' if r.get('제외') else '-')} |")
     out = os.path.join(ROOT, "회차별분석", f"블록분석_{rnd}_{block.replace('/', '').replace(':', '').replace(' ', '-')}.md")
     open(out, "w", encoding="utf-8").write("\n".join(L) + "\n")
-    print("\n".join(L))
-    print("저장:", out)
+    if "--print" in sys.argv:
+        print("\n".join(L))
+    print(f"저장: {out} ({len(gs)}경기)")  # 토큰 절약(2026-10-12): 표 출력은 --print일 때만
 
 
 if __name__ == "__main__":

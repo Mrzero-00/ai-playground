@@ -235,8 +235,10 @@ def cmd_adjust(a):
             gap = max(abs(x - y) for x, y in zip(pu, m)) * 100
             if gap >= 8:
                 warn.append(f"  ⚠ {r['홈']}-{r['원정']}: 순수와 시장 {gap:.0f}%p 차이 — 확인된 미반영 사실(확정 결장·라인업)이 없으면 시장 쪽으로 (분석규칙 8%p, 119회 DB·화이트삭스 실패)")
-    if warn:
+    if warn and not a.quiet:
         print("8%p 이상 차이 경기:"); print("\n".join(warn))
+    if a.quiet:  # 토큰 절약(2026-10-12): 경기별 표는 block_brief.py가 보여 준다
+        return
     for r in rows:
         if r["회차"] == str(a.round) and r.get("보정_승"):
             print(f"  {r['시각']} {r['홈']}-{r['원정']}: 순수 {r['순수_승'] or '-'}/{r['순수_무'] or '-'}/{r['순수_패'] or '-'} | 시장 {r['시장_승']}/{r['시장_무']}/{r['시장_패']} | 보정 {r['보정_승']}/{r['보정_무']}/{r['보정_패']} ({r['보정메모']})")
@@ -362,7 +364,7 @@ def main():
     sub = ap.add_subparsers(dest="cmd", required=True)
     for c in ("init", "market", "results", "review"):
         s = sub.add_parser(c); s.add_argument("round", type=int)
-    s = sub.add_parser("adjust"); s.add_argument("round", type=int); s.add_argument("--news", action="append", help="'홈,원정,승조정%%p,메모' (최대 ±5)")
+    s = sub.add_parser("adjust"); s.add_argument("round", type=int); s.add_argument("--news", action="append", help="'홈,원정,승조정%%p,메모' (최대 ±5)"); s.add_argument("--quiet", action="store_true", help="계산만, 경기별 출력 생략")
     s = sub.add_parser("pure"); s.add_argument("round", type=int); s.add_argument("file")
     s = sub.add_parser("market-from-scanlog"); s.add_argument("round", type=int)
     a = ap.parse_args()

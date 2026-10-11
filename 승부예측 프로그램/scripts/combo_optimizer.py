@@ -13,6 +13,9 @@
 
 사용법:
   python3 combo_optimizer.py 입력.json [--max 100] [--double 1.4] [--triple 1.25]
+  python3 combo_optimizer.py 입력.json --gap 5 [--max 16]   # 박빙 카운트 방식 (사용자 제안 2026-10-12)
+    1·2순위 확률 차가 gap(%p) 미만인 경기를 모두 복수(1·2순위)로 → 조합 수 = 2^박빙 경기 수.
+    --max를 넘으면 차이가 작은 경기부터 채운다. 조합 수를 미리 정하지 않고 분석 확률이 정한다.
 """
 import argparse, json, math, sys
 
@@ -75,6 +78,17 @@ def exhaustive(games, max_c):
     return max(states.values())
 
 
+def gap_levels(games, gap, max_c):
+    """1·2순위 차가 gap%p 미만인 경기만 복수. 차이 작은 순으로, max_c 안에서."""
+    close = sorted((g["p"][g["rank"][0]] - g["p"][g["rank"][1]], i) for i, g in enumerate(games))
+    levels = [1] * len(games)
+    for d, i in close:
+        if d * 100 >= gap or math.prod(levels) * 2 > max_c:
+            break
+        levels[i] = 2
+    return levels
+
+
 def miss_dist(games, levels, upto=3):
     """마킹 밖으로 빠지는 경기 수(0, 1, 2 …)의 확률 분포. 다등위 상품의 2~4등 확률이다."""
     d = [1.0] + [0.0] * upto
@@ -90,14 +104,21 @@ def main():
     ap.add_argument("--max", type=int, default=100)
     ap.add_argument("--double", type=float, default=1.4)
     ap.add_argument("--triple", type=float, default=1.25)
+    ap.add_argument("--gap", type=float, help="박빙 카운트 방식: 1·2순위 차 %%p 미만 경기를 복수로")
     a = ap.parse_args()
     games = load(a.input)
 
-    levels, log = greedy(games, a.max, a.double, a.triple)
-    print("=== 추천 마킹 (효율 규칙) ===")
+    if a.gap is not None:
+        levels = gap_levels(games, a.gap, a.max)
+        log = [f"1·2순위 차 {a.gap:g}%p 미만 박빙 {sum(1 for k in levels if k == 2)}경기 → 복수"]
+        print(f"=== 추천 마킹 (박빙 카운트, 차 {a.gap:g}%p 미만) ===")
+    else:
+        levels, log = greedy(games, a.max, a.double, a.triple)
+        print("=== 추천 마킹 (효율 규칙) ===")
     for g, k in zip(games, levels):
         probs = " ".join(f"{o} {g['p'][o]*100:.0f}%" for o in OUT)
-        print(f"{g['name']:<28} : {'/'.join(sorted(g['rank'][:k], key=OUT.index)):<8} ({probs})")
+        gp = (g["p"][g["rank"][0]] - g["p"][g["rank"][1]]) * 100
+        print(f"{g['name']:<28} : {'/'.join(sorted(g['rank'][:k], key=OUT.index)):<8} ({probs}, 1·2위 차 {gp:.1f})")
     vg = [g for g in games if "투표" in g]
     if vg:
         print("\n=== 인기도 대비 가치 (모델확률/투표율) ===")

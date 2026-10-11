@@ -24,7 +24,7 @@
   (휴대폰 알림·뉴스 확인은 Claude 세션의 예약 작업이 맡는다 — 세션이 꺼져 있어도 이 숫자 점검은 돈다)
 - 네트워크 오류는 그 주기만 건너뛴다.
 """
-import argparse, csv, datetime as dt, os, subprocess, sys, time
+import argparse, csv, datetime as dt, os, re, subprocess, sys, time
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 PY = sys.executable
@@ -88,6 +88,11 @@ def pick_alerts(scan, now):
             continue
         r = scan.get((str(p["회차"]), p["번호"], p["선택"]))
         if not r:
+            continue
+        # 베트맨이 같은 번호의 핸디캡 기준점을 바꾸면(H-1→H+1) 배당 비교가 무의미 — 기준점이 같을 때만 (120회 7502 오경보)
+        hp = re.search(r"H\s*([+-]?\d+(?:\.\d+)?)", p.get("게임", ""))
+        hs = re.search(r"H\s*([+-]?\d+(?:\.\d+)?)", r.get("구분", ""))
+        if hp and hs and float(hp.group(1)) != float(hs.group(1)):
             continue
         try:
             k = dt.datetime.strptime(r["시각"], "%Y-%m-%d %H:%M").replace(tzinfo=KST)

@@ -93,8 +93,9 @@ def main():
             continue
         closer = sum(1 for x in xs if x["순수거리"] < x["오픈거리"])
         dv = [x for x in xs if x["방향"] is not None]
+        dv_txt = f"{sum(x['방향'] for x in dv) / len(dv):.0%}" if dv else "-"  # Python 3.9 호환 — 2026-10-12
         L.append(f"| {k} | {len(xs)} | {sum(x['순수거리'] for x in xs) / len(xs):.4f} | {sum(x['오픈거리'] for x in xs) / len(xs):.4f} | "
-                 f"{closer}/{len(xs)} | {len(dv)} | {(f'{sum(x['방향'] for x in dv) / len(dv):.0%}' if dv else '-')} |")
+                 f"{closer}/{len(xs)} | {len(dv)} | {dv_txt} |")
     L += ["", "## 갈린 경기 상세 (시장 1순위 기준, %)", "", "| 회차 | 경기 | 순수 | 오픈 | 마감 | 시장 이동 | 순수 쪽? |", "|---|---|---|---|---|---|---|"]
     for x in sorted([x for x in rows if x["방향"] is not None], key=lambda x: -abs(x["d_own"]))[:40]:
         L.append(f"| {x['회차']} | {x['경기']} | {x['own']:.0f} | {x['open']:.0f} | {x['close']:.0f} | {x['d_mkt']:+.1f} | {'O' if x['방향'] else 'X'} |")

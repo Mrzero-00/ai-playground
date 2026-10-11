@@ -146,8 +146,9 @@ def paper_section(rows, ev):
         roi = (sum(x["배당"] * x["적중"] for x in od) / len(od)) if od else None
         mk = [x for x in xs if x["시장적중"] is not None]
         name = "전체" if (lo, hi) == (0, 1.01) else f"{lo:.0%}~{min(hi, 1):.0%}"
+        mk_txt = f"{sum(x['시장적중'] for x in mk) / len(mk):.1%}" if mk else "-"  # Python 3.9 호환(f-string 중첩 따옴표) — 2026-10-12
         L.append(f"| {name} | {len(xs)} | {sum(x['적중'] for x in xs) / len(xs):.1%} | {len(od)} | "
-                 f"{(f'{roi:.2f}' if roi is not None else '-')} | {(f'{sum(x["시장적중"] for x in mk) / len(mk):.1%}' if mk else '-')} |")
+                 f"{(f'{roi:.2f}' if roi is not None else '-')} | {mk_txt} |")
     hi = [x for x in pb if x["확률"] >= SWITCH["고확신_기준"]]
     hi_od = [x for x in hi if x["배당"] > 1]
     hit = sum(x["적중"] for x in hi) / len(hi) if hi else 0
@@ -279,7 +280,8 @@ def variable_section(rows):
          "| 종목 | 리그 | 변수 | n | 무 | 방향 적중률 |", "|---|---|---|---|---|---|"]
     for (sp, lg, nm), d in sorted(seg.items(), key=lambda kv: -kv[1]["n"]):
         dec = d["n"] - d["무"]
-        L.append(f"| {sp} | {lg} | {nm} | {d['n']} | {d['무']} | {(f'{d['맞음'] / dec:.0%}' if dec else '-')} |")
+        acc_txt = f"{d['맞음'] / dec:.0%}" if dec else "-"  # Python 3.9 호환 — 2026-10-12
+        L.append(f"| {sp} | {lg} | {nm} | {d['n']} | {d['무']} | {acc_txt} |")
     if len(L) == 7:
         L.append("| (태그가 붙은 채점 경기 없음 — 121회부터 조사 CSV에 '변수' 열) | | | | | |")
     return L

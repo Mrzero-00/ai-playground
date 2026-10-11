@@ -21,6 +21,7 @@
   python3 scripts/round_watch.py done <회차> <블록> [메모]
   python3 scripts/round_watch.py unreserve        # '예약됨' 표시 지우기(다른 PC·새 세션에서 루프를 다시 켤 때 — 예약은 세션 한정)
   python3 scripts/round_watch.py add <회차>        # 이미 등록된 회차의 남은 블록을 일정에 추가(진행 중 회차를 루프로 넘길 때)
+  python3 scripts/round_watch.py toto             # 축구토토 승무패(G011) 판매 회차 중 아직 분석 안 한 회차 (사용자 요청 2026-10-12)
 """
 import csv
 import datetime as dt
@@ -155,6 +156,24 @@ def cmd_check():
     save_plan(plan)
 
 
+def cmd_toto():
+    """승무패 판매 회차 확인. 전체경기기록.csv에 '승무패<회차>'가 없으면 새 회차로 보고(분석은 Claude가 심층 분석 절차로)."""
+    ck = os.path.join(ROOT, "data", ".betman_cookie")
+    page = "https://www.betman.co.kr/main/mainPage/gamebuy/gameSlip.do?frameType=typeA&gmId=G011"
+    hdr = ["Content-Type: application/json; charset=UTF-8", "Accept: application/json", "X-Requested-With: XMLHttpRequest",
+           "Origin: https://www.betman.co.kr", f"Referer: {page}"]
+    subprocess.run(["curl", "-sS", "-m", "30", "-A", o.UA, "-c", ck, "-o", "/dev/null", page])
+    lst = o.curl("https://www.betman.co.kr/buyPsblGame/inqCacheBuyAbleGameInfoList.do", hdr,
+                 '{"_sbmInfo":{"_sbmInfo":{"debugMode":"false"}}}', ck)
+    known = {r["회차"] for r in csv.DictReader(open(rl.PATH, encoding="utf-8"))} if os.path.exists(rl.PATH) else set()
+    found = [g for g in lst.get("totoGames", []) if g.get("gmId") == "G011"]
+    new = [g for g in found if f"승무패{g['gmOsidTs']}" not in known]
+    if not new:
+        print("승무패 새 회차 없음" + (f" (판매 중 {', '.join(str(g['gmOsidTs']) for g in found)}회 분석됨)" if found else ""))
+    for g in new:
+        print(f"승무패 {g['gmOsidTs']}회 판매 중 — 미분석 (gmTs {g.get('gmTs')}, 연도 {g.get('gmOsidTsYear')})")
+
+
 def cmd_plan(due_only=False):
     rows = [r for r in load_plan() if r["상태"] == "대기"]
     if due_only:
@@ -206,6 +225,8 @@ def main():
         save_plan(plan + rows)
         for r in rows:
             print(f"  {r['블록']}: {r['경기수']}경기({r['종목']}) 마감 {r['첫마감'][5:]}~{r['끝마감'][11:]} → 분석 {r['분석시각'][5:]}")
+    elif a[0] == "toto":
+        cmd_toto()
     elif a[0] == "done":
         cmd_done(a[1], a[2], " ".join(a[3:]))
     else:

@@ -21,7 +21,7 @@
   python3 scripts/round_watch.py done <회차> <블록> [메모]
   python3 scripts/round_watch.py unreserve        # '예약됨' 표시 지우기(다른 PC·새 세션에서 루프를 다시 켤 때 — 예약은 세션 한정)
   python3 scripts/round_watch.py add <회차>        # 이미 등록된 회차의 남은 블록을 일정에 추가(진행 중 회차를 루프로 넘길 때)
-  python3 scripts/round_watch.py toto             # 축구토토 승무패(G011) 판매 회차 중 아직 분석 안 한 회차 (사용자 요청 2026-10-12)
+  python3 scripts/round_watch.py toto             # 축구토토 승무패(G011) 새 회차 → 마감 시각 읽어 분석일정에 '분석'(즉시)·'최종점검'(마감 60분 전) 추가 (사용자 요청 2026-10-12)
 """
 import csv
 import datetime as dt
@@ -38,6 +38,7 @@ import round_log as rl  # noqa: E402
 PLAN = os.path.join(ROOT, "분석일정.csv")
 COLS = ["회차", "블록", "첫마감", "끝마감", "분석시각", "경기수", "종목", "상태", "메모"]
 LEAD_MIN = 70
+TOTO_LEAD_MIN = 120  # 승무패: 마감 2시간 전에 한 번 (14경기 심층 30~40분 + 구매 여유, 2026-10-12)
 WINDOW = 60  # 블록 첫 마감 ~ 마지막 마감 최대 간격(분) — 사용자: 최대한 동일 시간대끼리
 MIN_GAMES, MERGE_SPAN = 3, 90  # 3경기 미만 블록은 합쳐도 간격 90분 이내인 이웃 블록과 합친다(조합을 못 만드는 블록 방지)
 
@@ -172,6 +173,36 @@ def cmd_toto():
         print("승무패 새 회차 없음" + (f" (판매 중 {', '.join(str(g['gmOsidTs']) for g in found)}회 분석됨)" if found else ""))
     for g in new:
         print(f"승무패 {g['gmOsidTs']}회 판매 중 — 미분석 (gmTs {g.get('gmTs')}, 연도 {g.get('gmOsidTsYear')})")
+        toto_plan(g, hdr, ck)
+
+
+def toto_plan(g, hdr, ck):
+    """승무패 회차의 마감 시각(saleEndDate)을 읽어 분석일정.csv에 한 줄을 넣는다 (사용자 지시 2026-10-12: 두 번 분석하면 토큰 낭비 —
+    **마감 2시간 전에 한 번만** 2단계 심층 분석 + 마킹 — 14경기 심층이 30~40분 걸리고 구매 여유가 필요). 같은 회차 줄이 이미 있으면 건너뛴다."""
+    import json as _json
+    d = o.curl("https://www.betman.co.kr/buyPsblGame/gameInfoInq.do", hdr,
+               _json.dumps({"gmId": "G011", "gmTs": g.get("gmTs"), "gameYear": g.get("gmOsidTsYear"),
+                            "_sbmInfo": {"_sbmInfo": {"debugMode": "false"}}}), ck)
+    cl = d.get("currentLottery") or {}
+    end = cl.get("saleEndDate")
+    sched = d.get("schedulesList") or []
+    if not end:
+        print("  ⚠ 마감 시각(saleEndDate) 없음 — 분석일정에 추가 못함"); return
+    end_dt = dt.datetime.fromtimestamp(end / 1000, o.KST)
+    kicks = [dt.datetime.fromtimestamp(x["gameDate"] / 1000, o.KST) for x in sched if x.get("gameDate")]
+    rnd = f"승무패{g['gmOsidTs']}"
+    rows = load_plan()
+    if any(r["회차"] == rnd for r in rows):
+        print(f"  분석일정에 {rnd} 이미 있음"); return
+    fmt = "%Y-%m-%d %H:%M"
+    first = min(kicks).strftime(fmt) if kicks else ""
+    last = max(kicks).strftime(fmt) if kicks else ""
+    at = end_dt - dt.timedelta(minutes=TOTO_LEAD_MIN)  # 승무패 14경기 2단계 심층은 30~40분 걸리므로 2시간 전(2026-10-12 실측)
+    rows.append({"회차": rnd, "블록": f"마감 {end_dt:%m/%d %H:%M}", "첫마감": end_dt.strftime(fmt), "끝마감": end_dt.strftime(fmt),
+                 "분석시각": at.strftime(fmt), "경기수": len(sched) or 14, "종목": "축구", "상태": "대기",
+                 "메모": f"승무패 14경기 2단계 심층(1차→갈림·박빙·후보 반론→앙상블) 한 번만, 마감 2시간 전. 경기 {first}~{last}. 투표율·Pinnacle 마감값으로 마킹(1·4·--gap 3)"})
+    save_plan(rows)
+    print(f"  {rnd}: 마감 {end_dt:%m/%d %H:%M}, 경기 {first}~{last} → 분석일정에 분석 {at:%m/%d %H:%M} 한 줄 추가")
 
 
 def cmd_plan(due_only=False):

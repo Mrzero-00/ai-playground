@@ -17,6 +17,7 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(HERE)
 sys.path.insert(0, HERE)
 import round_watch as rw  # noqa: E402
+import market_move as mm  # noqa: E402
 
 REC = os.path.join(ROOT, "전체경기기록.csv")
 SCAN = os.path.join(ROOT, "data", "스캔기록.csv")
@@ -68,14 +69,22 @@ def main():
         for p in csv.DictReader(open(PICKS, encoding="utf-8")):
             if p["회차"] == str(rnd):
                 picks.setdefault(p["경기"], []).append(f"{p['구분']} {p['선택']}" + (f"({p['이유']})" if p.get("이유") else ""))
+    hs = mm.history(rnd)
+
+    def flow(no, r):
+        if str(no) not in hs:
+            return "-"
+        pure = {k: float(r[f"순수_{k}"]) for k in "승무패"} if r.get("순수_승") else None
+        return " ".join(mm.move(str(no), hs[str(no)], pure).split("\t")[3:]).strip()
+
     L = [f"# {rnd}회 블록 {block} — 전체 경기 분석 ({len(gs)}경기)", "",
          "추천 여부와 상관없이 블록의 모든 경기를 기록한다(회고·학습용). 확률은 승/무/패 %.", "",
-         "| 번호 | 시각 | 리그 | 경기 | 기준선 | 순수(확신도) | 시장 | 최종 | 최고 선택지 | 핵심근거 | 뉴스위험 | 추천/제외 |", "|---|---|---|---|---|---|---|---|---|---|---|---|"]
+         "| 번호 | 시각 | 리그 | 경기 | 기준선 | 순수(확신도) | 시장 | 최종 | 시장흐름 | 최고 선택지 | 핵심근거 | 뉴스위험 | 추천/제외 |", "|---|---|---|---|---|---|---|---|---|---|---|---|---|"]
     for g in sorted(gs, key=lambda g: g["시각"]):
         r = rec.get((g["홈"], g["원정"]), {})
         key = f"{g['홈']} vs {g['원정']}"
         L.append(f"| {g['번호']} | {g['시각']:%m-%d %H:%M} | {g['리그']} | {key} | {baseline(g)} | {tri(r, '순수')}({r.get('확신도', '')}) | "
-                 f"{tri(r, '시장')} | {tri(r, '보정')} | {best_option(rnd, g['홈'])} | {(r.get('핵심근거') or '')[:60]} | "
+                 f"{tri(r, '시장')} | {tri(r, '보정')} | {flow(g['번호'], r)} | {best_option(rnd, g['홈'])} | {(r.get('핵심근거') or '')[:60]} | "
                  f"{(r.get('뉴스위험') or '')[:40]} | {'; '.join(picks.get(key, [])) or ('제외' if r.get('제외') else '-')} |")
     out = os.path.join(ROOT, "회차별분석", f"블록분석_{rnd}_{block.replace('/', '').replace(':', '').replace(' ', '-')}.md")
     open(out, "w", encoding="utf-8").write("\n".join(L) + "\n")

@@ -74,6 +74,8 @@ def main():
         if b and b[0] >= 60:
             # 농구는 조합 다리 금지 (사용자 지시 2026-10-12, 분석규칙.md) — 분석·기록만
             flags.append("농구보류" if g.get("종목") == "농구" else "후보")
+        if g.get("종목") == "농구" and "농구보류" not in flags:
+            flags.append("농구보류")  # 농구는 전 경기 2차 반론까지 (성능 검증 기간)
         if pu and mk and max(abs(x - y) for x, y in zip(pu, mk)) >= 8:
             flags.append("갈림")
         ref = fi or mk
@@ -88,7 +90,7 @@ def main():
                 flags.append("흐름⚠")
         if not pu:
             flags.append("순수없음")
-        if any(x in flags for x in ("후보", "갈림", "박빙", "흐름⚠")):
+        if any(x in flags for x in ("후보", "갈림", "박빙", "흐름⚠", "농구보류")):
             n2 += 1
         if any(x in flags for x in ("후보", "박빙")):
             ne += 1

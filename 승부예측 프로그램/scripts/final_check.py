@@ -6,7 +6,7 @@
 - 베트맨 배당이 추천 때보다 +0.08 이상 오름 → ⚠ 불리해진 신호(120회 정관장 1.36→1.59, 외국인 당일 결장)
 - 시장 확률이 3%p 이상 떨어짐, 또는 60% 미만 → ⚠
 - data/exclude.json 에 들어간 경기 → ✗ 제외
-- 경고 다리가 있으면: 같은 시간대(조합 결과 예상 ±3시간)·마감 전·배당 1.3+·확률 60%+ 중 확률 순 교체 후보 3개
+- 경고 다리가 있으면: 같은 시간대(조합 결과 예상 ±3시간)·마감 전·배당 1.2+·확률 60%+ 중 확률 순 교체 후보 3개
 ※ 라인업·결장 뉴스 확인(검색)은 Claude 세션이 이 결과를 보고 이어서 한다. 이 스크립트는 숫자 점검과 알림만.
 
 사용
@@ -30,7 +30,7 @@ import pick_table as pt  # noqa: E402
 
 PICKS = os.path.join(ROOT, "추천기록.csv")
 EXCL = os.path.join(ROOT, "data", "exclude.json")
-ODDS_UP, PROB_DROP, PROB_MIN, ODDS_MIN = 0.08, 3.0, 60.0, 1.3
+ODDS_UP, PROB_DROP, PROB_MIN, ODDS_MIN = 0.08, 3.0, 60.0, 1.2
 
 
 def now_kst():
@@ -116,7 +116,7 @@ def run(rnd, sched, notify):
     if bad:
         alt = alternatives(rnd, sched, by_no, {n for n, _ in picks})
         keep = [(n, p) for n, p in picks if n not in bad]
-        L += ["", f"**변경 권장** — 경고 다리 {len(bad)}개. 교체 후보(같은 시간대·60%+·1.3+):"]
+        L += ["", f"**변경 권장** — 경고 다리 {len(bad)}개. 교체 후보(같은 시간대·60%+·1.2+):"]
         for no, pk in alt:
             L.append(pt.table(by_no, f"교체안: 유지 다리 + {no}:{pk}", keep + [(no, pk)]))
         if not alt:

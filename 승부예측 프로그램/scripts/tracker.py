@@ -252,7 +252,7 @@ def report(save_md=True):
         return "일반"
     section("유형별", [(t, [r for r in rows if gtype(r) == t]) for t in ("일반", "핸디캡", "언더오버", "전반")])
     section("근거별", [(s, [r for r in rows if r["근거"] == s]) for s in sorted({r["근거"] for r in rows})])
-    # 전략: 경기당 최고 확률 선택지 (--best 와 같은 규칙, 배당 1.3 이상)
+    # 전략: 경기당 최고 확률 선택지 (--best 와 같은 규칙, 배당 1.2 이상)
     best = {}
     for r in rows:
         if r["o"] is None or r["o"] < 1.3:
@@ -261,7 +261,7 @@ def report(save_md=True):
         if k not in best or r["p"] > best[k]["p"]:
             best[k] = r
     bl = list(best.values())
-    section("전략: 경기당 최고 확률 선택지(배당 1.3 이상) — 추천 규칙 그대로", [
+    section("전략: 경기당 최고 확률 선택지(배당 1.2 이상) — 추천 규칙 그대로", [
         ("전체", bl), ("확률 70% 이상", [r for r in bl if r["p"] >= 0.7]), ("60~70%", [r for r in bl if 0.6 <= r["p"] < 0.7]),
         ("60% 미만", [r for r in bl if r["p"] < 0.6])])
     # 기대값 구간

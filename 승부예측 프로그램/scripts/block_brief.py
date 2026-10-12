@@ -72,7 +72,8 @@ def main():
         flags = []
         b = best.get(g["홈"])
         if b and b[0] >= 60:
-            flags.append("후보")
+            # 농구는 조합 다리 금지 (사용자 지시 2026-10-12, 분석규칙.md) — 분석·기록만
+            flags.append("농구보류" if g.get("종목") == "농구" else "후보")
         if pu and mk and max(abs(x - y) for x, y in zip(pu, mk)) >= 8:
             flags.append("갈림")
         ref = fi or mk

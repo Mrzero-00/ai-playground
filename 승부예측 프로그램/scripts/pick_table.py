@@ -139,11 +139,14 @@ def save_schedule(by_no, rnd, combos, buys):
     print(f"구매일정.csv 저장 ({len(combos)}조합)")
 
 
+OWN = {}  # (번호, 선택) → 내 분석 확률 (--own). 추천 확률은 내 분석만 쓴다 (사용자 지시 2026-10-13)
+
+
 def table(by_no, title, picks):
     lines = []
     if title:
         lines.append(f"**{title}**\n")
-    lines.append("| 번호 | 경기 | 게임 | 승 | 무 | 패 | 확률 |")
+    lines.append("| 번호 | 경기 | 게임 | 승 | 무 | 패 | " + ("내 분석" if OWN else "확률(시장·내 분석 미입력)") + " |")
     lines.append("|---|---|---|---|---|---|---|")
     odds, prob = 1.0, 1.0
     for no, pick in picks:
@@ -154,7 +157,7 @@ def table(by_no, title, picks):
         sel = next((o for o in opts if o["선택"] == pick), None)
         r = opts[0]
         c = cells(opts, pick)
-        p = float(sel["공정확률"]) if sel and sel["공정확률"] else None
+        p = OWN[(no, pick)] if (no, pick) in OWN else (None if OWN else (float(sel["공정확률"]) if sel and sel["공정확률"] else None))
         if sel:
             odds *= float(sel["베트맨"])
         prob = prob * p / 100 if (p is not None and prob is not None) else None
@@ -181,7 +184,7 @@ def save_rec(by_no, rnd, items):
         k = (str(rnd), no, pick)
         prev = keep.get(k, {})
         keep[k] = {"회차": rnd, "번호": no, "선택": pick, "시각": sel["시각"], "종목": sel["종목"], "리그": sel["리그"],
-                   "경기": sel["경기"], "게임": kind(sel), "배당": sel["베트맨"], "확률": sel["공정확률"], "구분": kind_,
+                   "경기": sel["경기"], "게임": kind(sel), "배당": sel["베트맨"], "확률": OWN.get((no, pick), sel["공정확률"]), "구분": kind_,
                    "조합": combo, "이유": why, "구매": buy or prev.get("구매", ""),
                    "결과": prev.get("결과", ""), "적중": prev.get("적중", "")}
     w = csv.DictWriter(open(REC, "w", encoding="utf-8", newline=""), fieldnames=REC_COLS)
@@ -197,8 +200,12 @@ def main():
     ap.add_argument("--save", action="store_true")
     ap.add_argument("--skip", nargs="*", default=[], help='"번호:선택=이유"')
     ap.add_argument("--buy", nargs="*", default=[], help='"제목=금액"')
+    ap.add_argument("--own", nargs="*", default=[], help='"번호:선택=내 분석 확률(%%)" — 표·기록의 확률을 내 분석으로 (2026-10-13부터 필수)')
     a = ap.parse_args()
     by_no = load(a.round)
+    for x in a.own:
+        leg, _, v = x.partition("=")
+        OWN[tuple(leg.strip().split(":"))] = float(v)
     buys = dict(b.rsplit("=", 1) for b in a.buy)
     items, combos_ = [], []
     for c in a.combos:

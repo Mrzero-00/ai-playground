@@ -25,6 +25,8 @@ def spent(rnd):
     for r in csv.DictReader(open(os.path.join(ROOT, "구매기록.csv"), encoding="utf-8")):
         if r["round"] != f"프로토{rnd}":
             continue
+        if r.get("result") == "예정":  # 구매 예정(미구매) 티켓은 사용액에 넣지 않는다 (2026-10-13)
+            continue
         try:
             tot += int(float(r["stake"]))
         except ValueError:

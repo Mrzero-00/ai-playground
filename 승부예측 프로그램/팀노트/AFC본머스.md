@@ -1,4 +1,13 @@
 # AFC 본머스 (잉글랜드 프리미어리그)
+
+<!-- FACTS:START -->
+## 팩트시트 (자동 수집 2026-10-14) — 조사 전 반드시 읽고, 아래 사실과 다른 뉴스 요약은 '미확인'으로 둔다
+- 출처: 위키 '2026–27 AFC Bournemouth season'(season), ESPN 있음
+- 감독: Marco Rose
+- 리그 순위: 18위 6경기 0승3무3패 GD-6 승점3 (AFC Bournemouth)
+- 최근 경기(ESPN, 최대 28일): 2026-09-05 Newcastle United 2-2 AFC Bournemouth / 2026-09-12 AFC Bournemouth 2-2 Brentford / 2026-09-20 AFC Bournemouth 0-1 Liverpool / 2026-10-10 Chelsea 5-1 AFC Bournemouth
+<!-- FACTS:END -->
+
 ## 성향
 - 안도니 이라올라 감독(주의: 2026-10-14 뉴스 요약 도구가 "마르코 로즈"로 잘못 표기 — 실제 감독 아님, 요약 신뢰도 낮아 해당 인용 미반영).
 

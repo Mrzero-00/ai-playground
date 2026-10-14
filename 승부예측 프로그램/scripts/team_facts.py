@@ -65,21 +65,42 @@ def page_exists(title):
     return None
 
 
+SEASON_CACHE = {}
+
+
+def is_football_season(title):
+    """채택 전 검증: 축구 클럽 시즌 인포박스가 있고 여자·유스 문서가 아니어야 한다 (NFL·NHL·NBA 동명 구단 오매칭 방지)."""
+    if title in SEASON_CACHE:
+        return SEASON_CACHE[title]
+    wt = wikitext(title)
+    ok = bool(re.search(r"\{\{\s*Infobox football club season", wt, re.I)) and not re.search(r"\bWomen\b|W\.F\.C\.|Under-?\d+|Academy|reserves", title, re.I)
+    SEASON_CACHE[title] = (ok, wt)
+    return SEASON_CACHE[title]
+
+
 def find_season_page(eng, single_year):
     """위키 전문 검색(list=search)으로 '<시즌> <클럽> season' 문서를 찾는다. 없으면 클럽 문서."""
+    eng = str(eng)
     seasons = ["2026"] if single_year else [SEASON, SEASON.replace("–", "-")]
     pat = re.compile(r"^(2026(–|-)27|2026) .+ season$")
+    norm = lambda x: re.sub(r"[^a-z0-9]", "", x.lower().replace("ø", "o").replace("é", "e").replace("ü", "u").replace("ö", "o").replace("á", "a"))
+    toks = [norm(tok) for tok in re.split(r"[\s\-/]+", eng) if norm(tok) and norm(tok) not in ("the", "club", "fc", "cf", "sc", "afc")]
+    def name_ok(t):
+        nt = norm(t)
+        return norm(eng) in nt or (toks and all(tok in nt for tok in toks))
     for sv in seasons:
-        d = wiki_json({"action": "query", "list": "search", "srsearch": f'intitle:"{sv}" intitle:season {eng}', "srlimit": 5, "srnamespace": 0})
+        d = wiki_json({"action": "query", "list": "search", "srsearch": f'intitle:"{sv}" intitle:season {eng}', "srlimit": 6, "srnamespace": 0})
         for hit in (d.get("query") or {}).get("search", []):
             t = hit["title"]
-            if pat.match(t) and any(tok.lower() in t.lower() for tok in re.split(r"[\s\-/]+", eng) if len(tok) > 2):
-                return t, "season"
+            if pat.match(t) and name_ok(t):
+                ok, _ = is_football_season(t)
+                if ok:
+                    return t, "season"
     d = wiki_json({"action": "query", "list": "search", "srsearch": f"{eng} football club", "srlimit": 5, "srnamespace": 0})
     bad = re.compile(r"season|stadium|academy|women|reserves|ownership|supporters|rivalry|records|players|managers|history|\(disambiguation\)", re.I)
     for hit in (d.get("query") or {}).get("search", []):
         t = hit["title"]
-        if not bad.search(t) and any(tok.lower() in t.lower() for tok in re.split(r"[\s\-/]+", eng) if len(tok) > 2):
+        if not bad.search(t) and name_ok(t):
             return t, "club"
     return None, None
 
@@ -180,7 +201,7 @@ def facts_for(team, eng, league):
     out = {"팀": team, "영문": eng, "리그": league, "위키": title or "", "종류": kind or "", "감독": "", "이적": [], "순위": "", "최근": [], "순위(ESPN)": "", "최근(ESPN)": []}
     wt = ""
     if title:
-        wt = wikitext(title)
+        wt = SEASON_CACHE[title][1] if title in SEASON_CACHE else wikitext(title)
         out["감독"] = infobox(wt, "manager") or infobox(wt, "mgr") or infobox(wt, "head coach") or infobox(wt, "head_coach")
         if kind == "season":
             out["순위"] = infobox(wt, "league result") or infobox(wt, "league")

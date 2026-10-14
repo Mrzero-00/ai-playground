@@ -1,0 +1,16 @@
+# 파포스FC (키프로스 1부)
+
+<!-- FACTS:START -->
+## 팩트시트 (자동 수집 2026-10-14) — 조사 전 반드시 읽고, 아래 사실과 다른 뉴스 요약은 '미확인'으로 둔다
+- 출처: 위키 '2026–27 Pafos FC season'(season), ESPN 있음
+- 감독: Ricardo Sá Pinto
+- 리그 순위: 27위 0경기 0승0무0패 GD0 승점0 (Pafos)
+- 2026 여름 이적(위키 이적 표, 앞 8줄씩): IN 2 June 2026 · GK · Charalampos Kyriakidis · Omonia · Undisclosed / IN 15 June 2026 · MF · Murad Mammadov · Neftçi · Undisclosed / IN 29 June 2026 · MF · Guga · Al-Najma · Undisclosed / IN 1 July 2026 · MF · Alexandre Brito · Sporting CP · Undisclosed / IN 9 July 2026 · GK · Michalis Papastylianou · PAC Omonia 29M · Undisclosed / IN 3 August 2026 · FW · Moumi Ngamaleu · Unattached · Free / IN 4 September 2026 · FW · Afonso Patrão · Westerlo · Undisclosed / IN 9 September 2026 · DF · Jónatas Noro · Braga · Undisclosed / OUT 24 July 2026 · DF · Derrick Luckassen · Red Star Belgrade · Undisclosed / OUT 2 August 2026 · DF · Axel Guessand · Kalamata · Undisclosed / OUT 4 September 2026 · FW · Mons Bassouamina · Marítimo · Undisclosed
+<!-- FACTS:END -->
+
+## 성향
+- 2026-10-14 조사: ClubElo 미등재(키프로스 리그는 ClubElo 비추적 추정) — Elo 수치 확보 불가, 추정치(체코 2부~야블로네츠급인 1500대 중반)로 대체 사용 필요(불확실성 높음).
+- 키프로스 챔피언. 최근 시즌 챔피언스리그 예선 등에서 첼시 상대 1-0 패(2026-01-21) 등 유럽대항전 경험 보유 — 노장 다비드 루이스(38세)가 CL 득점(2017년 이후 첫 골) 기록할 정도로 선수단 구성에 베테랑 다수.
+- 2026시즌 유럽대항전 성적 혼조: RB 잘츠부르크 상대 1무1패(0-1패·3-3무), 디나모 시티전 4-2승, 하이두크 스플리트 상대 1승1패(0-2패·4-0승) — 기복 있는 팀, 약팀 상대 대승·강팀 상대 선전형 패배 패턴.
+- 10/16(한국시간) 컨퍼런스리그 아탈란타 원정 예정. 로테이션·결장 관련 구체 뉴스 확인 못함(의문).
+- 출처: 구글뉴스(Pafos FC 검색, 2026-10 다수 기사 종합).

@@ -2,9 +2,10 @@
 
 <!-- FACTS:START -->
 ## 팩트시트 (자동 수집 2026-10-14) — 조사 전 반드시 읽고, 아래 사실과 다른 뉴스 요약은 '미확인'으로 둔다
-- 출처: 위키 'Charlotte FC'(club), ESPN 없음
+- 출처: 위키 '2026 Charlotte FC season'(season), ESPN 있음
 - 감독: Dean Smith
-- 리그 순위: 미확인
+- 리그 순위: 5위 28경기 13승7무8패 GD+10 승점46 (Charlotte FC)
+- 최근 경기(ESPN, 최대 28일): 2026-09-09 CF Montréal 1-2 Charlotte FC / 2026-09-12 FC Cincinnati 3-3 Charlotte FC / 2026-09-19 D.C. United 1-2 Charlotte FC / 2026-09-26 Charlotte FC 0-1 Chicago Fire FC / 2026-10-10 Charlotte FC 3-2 FC Dallas
 <!-- FACTS:END -->
 
 - 2026-10-14 조사: 10/15 08:30(KST) 원정 콜럼버스 크루전, 정규시즌 마지막 매치데이. 기준선(콜럼버스 기준) 승/무/패 38.5/27.0/34.5% → 샬럿 승 34.5%. 핸디캡 홈−1 기준 샬럿(원정) 61.5% — 출처: 자체 모델

@@ -5,7 +5,7 @@
 - 출처: 위키 '2026–27 AFC Bournemouth season'(season), ESPN 있음
 - 감독: Marco Rose
 - 리그 순위: 18위 6경기 0승3무3패 GD-6 승점3 (AFC Bournemouth)
-- 최근 경기(ESPN, 최대 28일): 2026-09-05 Newcastle United 2-2 AFC Bournemouth / 2026-09-12 AFC Bournemouth 2-2 Brentford / 2026-09-20 AFC Bournemouth 0-1 Liverpool / 2026-10-10 Chelsea 5-1 AFC Bournemouth
+- 최근 경기(ESPN, 최대 28일): 2026-09-05 Newcastle United 2-2 AFC Bournemouth / 2026-09-12 AFC Bournemouth 2-2 Brentford / 2026-09-20 AFC Bournemouth 0-1 Liverpool / 2026-10-10 Chelsea 5-1 AFC Bournemouth / 2026-09-17 Real Sociedad 1-2 AFC Bournemouth
 <!-- FACTS:END -->
 
 ## 성향

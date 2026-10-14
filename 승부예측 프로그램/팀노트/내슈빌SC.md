@@ -1,4 +1,13 @@
 # 내슈빌SC (MLS)
+
+<!-- FACTS:START -->
+## 팩트시트 (자동 수집 2026-10-14) — 조사 전 반드시 읽고, 아래 사실과 다른 뉴스 요약은 '미확인'으로 둔다
+- 출처: 위키 'Nashville SC'(club), ESPN 있음
+- 감독: B. J. Callaghan
+- 리그 순위: 1위 28경기 19승6무3패 GD+37 승점63 (Nashville SC)
+- 최근 경기(ESPN, 최대 28일): 2026-09-09 Toronto FC 2-1 Nashville SC / 2026-09-12 Inter Miami CF 2-2 Nashville SC / 2026-09-20 Nashville SC 3-0 Chicago Fire FC / 2026-09-27 Nashville SC 2-0 Toronto FC / 2026-10-11 Austin FC 1-4 Nashville SC
+<!-- FACTS:END -->
+
 ## 성향
 - 2026시즌 리그 최상위권, Supporters' Shield(정규리그 1위) 경쟁 중 — 매우 강한 동기부여.
 

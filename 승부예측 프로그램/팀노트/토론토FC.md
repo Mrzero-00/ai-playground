@@ -1,5 +1,14 @@
 # 토론토FC (MLS 동부)
 
+<!-- FACTS:START -->
+## 팩트시트 (자동 수집 2026-10-14) — 조사 전 반드시 읽고, 아래 사실과 다른 뉴스 요약은 '미확인'으로 둔다
+- 출처: 위키 '2026 Toronto FC II season'(season), ESPN 있음
+- 감독: Gianni Cimini
+- 리그 순위: 11위 28경기 7승11무10패 GD-11 승점32 (Toronto FC)
+- 2026 여름 이적(위키 이적 표, 앞 8줄씩): IN align=center|82 · align=center · Bryce Boneau · Huntsville City FC / IN align=center|74 · align=center · Luca Costabile · Maryland Terrapins / IN align=center|60 · align=center · Christopher Kalongo · Forge FC / IN align=center|72 · align=center · Daniel Stampatori · Lipscomb Bisons / IN align=center|86 · align=center · Abundance Salaou · IFK Göteborg · Transfer / IN align=center|38 · align=center · Jackson Gilman · Pittsburgh Panthers · First Team draft pick / IN align=center|79 · align=center · Fletcher Bank · Stanford Cardinal · First team draft pick / IN align=center|84 · align=center · Elias Khodri · New Hampshire Wildcats / OUT align=center| 85 · align=center · Marko Stojadinovic · Atlético Ottawa · Option declined / OUT align=center| 68 · align=center · Lucas Olguin · HFX Wanderers FC · Option declined / OUT align=center| 82 · align=center · Patrick McDonald · St. Louis City SC 2 · Option declined / OUT align=center| 74 · align=center · Michael Sullivan · FC Cincinnati 2 · Option declined
+- 최근 경기(ESPN, 최대 28일): 2026-09-09 Toronto FC 2-1 Nashville SC / 2026-09-12 Orlando City SC 3-0 Toronto FC / 2026-09-20 St. Louis CITY SC 3-1 Toronto FC / 2026-09-27 Nashville SC 2-0 Toronto FC / 2026-10-10 Toronto FC 2-1 CF Montréal
+<!-- FACTS:END -->
+
 - 2026-10-14 조사: 10/15 08:30(KST) 홈 올랜도 시티전, 정규시즌 마지막 매치데이. 기준선 승/무/패 41.5/26.7/31.8%, 핸디캡 홈−1 22.1/19.5/58.5%, 오버 2.5 59.2% — 출처: 자체 모델
 - 2026-10-14 조사: 뉴스 요약에서 "6-pointer", "둘 다 결과 필요"로 양팀 플레이오프 동기 확인 — 출처: Google News RSS
 - 2026-10-14 조사: Sportsnet.ca발로 "Walker Zimmerman, Jonathan Osorio 결장" 보도 확인됐으나, 월커 짐머만은 실제로는 내슈빌SC 소속 선수로 알려져 있어 구단 혼동 가능성 높음(신뢰도 낮음, 원문 대조 필요). 오소리오(Osorio) 결장은 토론토 소속 선수라 별도로는 개연성 있음(미확정) — 출처: Sportsnet.ca(제목만, 뉴스 요약 모델 생성이라 교차검증 실패)

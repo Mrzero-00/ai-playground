@@ -11,7 +11,8 @@
   python3 scripts/round_log.py pure 119 <파일.csv>   # 순수 분석 결과 일괄 입력 (열: 홈,원정,순수_승,순수_무,순수_패,확신도,핵심근거,뉴스위험,제외)
   python3 scripts/round_log.py market 119            # 판매 중이면 Pinnacle 공정확률·베트맨 배당을 채움 (킥오프 가까울수록 다시 돌린다)
   python3 scripts/round_log.py market-from-scanlog 118  # 판매가 끝난 회차에 스캔기록(킥오프 직전 일반 시장)으로 시장 확률 보충
-  python3 scripts/round_log.py adjust 119 [--news '홈,원정,+3,라인업 발표']  # 보정 확률(시장90+순수10, 미반영 뉴스 ±5%p) → 추천표에 시장/보정 나란히
+  python3 scripts/round_log.py anchor 119   # 최종(보정) 확률 = 축구 순수50+기준선50 → 보정 계수(calibrate.py). pure 뒤 자동 실행. 시장 미사용 (2026-10-15)
+  python3 scripts/round_log.py adjust 119 [--news ...]  # (구) 시장90+순수10 혼합 — 추천에는 쓰지 않음, 회고 비교용
   python3 scripts/round_log.py results 119           # 베트맨 공식 결과로 결과·점수·적중 채점
   python3 scripts/round_log.py review 119            # 전체 회고 보고서 → 회차별분석/YYYY-MM-DD_프로토119_전체회고.md
 
@@ -113,6 +114,9 @@ def cmd_pure(a):
                 n += 1
     save(rows)
     print(f"순수 분석 {n}행 반영")
+    if n and not getattr(a, "no_anchor", False):
+        a.quiet = True
+        cmd_anchor(a)   # 순수가 들어오면 바로 최종(보정) 확률까지 (2026-10-15)
 
 
 def cmd_market(a):
@@ -191,6 +195,54 @@ def own_weight(r):
         if key in w:
             return float(w[key])
     return 0.10
+
+
+def cmd_anchor(a):
+    """최종 확률(보정_*) = 내 분석만으로 만든 숫자 (2026-10-15, calibrate.py·soccer_baseline.py).
+    축구: 순수 50 + pi-rating 기준선 50 → 보정 계수(온도·홈·무 편향) 적용.  기준선 없으면 순수만 보정.
+    그 외 종목: 순수에 보정 계수(채택된 종목만, 아니면 그대로).
+    근거(114경기 역검증): 순수 RPS 0.208 / 기준선 0.204 / 순수 보정 0.193 / 혼합 후 보정 0.192 / 시장 0.194.
+    시장 확률은 쓰지 않는다(사용자 지시 2026-10-13). 옛 adjust(시장90+순수10)는 대체됨."""
+    sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+    import calibrate
+    rows = load()
+    params = calibrate.load_params()
+    cache, names, sb = {}, None, None
+    n = nb = 0
+    for r in rows:
+        if r["회차"] != str(a.round):
+            continue
+        pu = probs(r, "순수")
+        if not pu:
+            if r.get("보정메모", "").startswith("순수 없음"):   # 옛 adjust 가 시장을 넣어 둔 행 — 최종에 시장 금지
+                r["보정_승"] = r["보정_무"] = r["보정_패"] = r["보정메모"] = r["보정적중"] = ""
+            continue
+        memo = "순수"
+        if r["종목"] == "축구":
+            if sb is None:
+                import soccer_baseline as sb
+                names = sb.load_names()
+            try:
+                b = sb.row_baseline(r, names, cache)
+            except Exception:
+                b = None
+            if b:
+                pu = [0.5 * x + 0.5 * y for x, y in zip(pu, (b["승"], b["무"], b["패"]))]
+                memo = f"순수50+기준선50({b['승']*100:.0f}/{b['무']*100:.0f}/{b['패']*100:.0f})"
+                nb += 1
+        f = calibrate.apply(pu, r["종목"], params)
+        g = params.get(r["종목"], {})
+        if g.get("adopted"):
+            memo += f"→보정T{g['T']:.2f}"
+        r["보정_승"], r["보정_무"], r["보정_패"] = round(f[0] * 100, 1), round(f[1] * 100, 1), round(f[2] * 100, 1)
+        r["보정메모"] = memo
+        if r.get("결과") in ("승", "무", "패"):
+            pk = argmax(r, "보정"); r["보정적중"] = int(pk == r["결과"]) if pk else ""
+        n += 1
+        if not getattr(a, "quiet", False):
+            print(f"  {r['시각']} {r['홈']}-{r['원정']}: 순수 {r['순수_승']}/{r['순수_무']}/{r['순수_패']} → 최종 {r['보정_승']}/{r['보정_무']}/{r['보정_패']} ({memo})")
+    save(rows)
+    print(f"{a.round}회: 최종(보정) 확률 {n}경기 (기준선 혼합 {nb})")
 
 
 def cmd_adjust(a):
@@ -365,11 +417,12 @@ def main():
     for c in ("init", "market", "results", "review"):
         s = sub.add_parser(c); s.add_argument("round", type=int)
     s = sub.add_parser("adjust"); s.add_argument("round", type=int); s.add_argument("--news", action="append", help="'홈,원정,승조정%%p,메모' (최대 ±5)"); s.add_argument("--quiet", action="store_true", help="계산만, 경기별 출력 생략")
-    s = sub.add_parser("pure"); s.add_argument("round", type=int); s.add_argument("file")
+    s = sub.add_parser("pure"); s.add_argument("round", type=int); s.add_argument("file"); s.add_argument("--no-anchor", action="store_true")
+    s = sub.add_parser("anchor"); s.add_argument("round", type=int); s.add_argument("--quiet", action="store_true")
     s = sub.add_parser("market-from-scanlog"); s.add_argument("round", type=int)
     a = ap.parse_args()
     {"init": cmd_init, "pure": cmd_pure, "market": cmd_market, "results": cmd_results, "review": cmd_review, "adjust": cmd_adjust,
-     "market-from-scanlog": cmd_market_from_scanlog}[a.cmd](a)
+     "market-from-scanlog": cmd_market_from_scanlog, "anchor": cmd_anchor}[a.cmd](a)
 
 
 if __name__ == "__main__":

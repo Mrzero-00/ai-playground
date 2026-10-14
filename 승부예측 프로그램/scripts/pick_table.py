@@ -140,6 +140,25 @@ def save_schedule(by_no, rnd, combos, buys):
 
 
 OWN = {}  # (번호, 선택) → 내 분석 확률 (--own). 추천 확률은 내 분석만 쓴다 (사용자 지시 2026-10-13)
+RAW = {}  # (번호, 선택) → --own 에 넣은 원본 값 (보정 전). 표에는 "최종 (원본)" 으로
+RECORD = os.path.join(ROOT, "전체경기기록.csv")
+
+
+def final_probs(rnd):
+    """전체경기기록 보정_*(round_log anchor: 순수50+기준선50→보정 계수) → {번호: {승,무,패}} (2026-10-15).
+    --own 으로 들어온 원본 확률은 일반 승무패·승패 선택에 한해 이 최종 값으로 바뀐다. 핸디캡·U/O 는 원본 그대로."""
+    out = {}
+    try:
+        for r in csv.DictReader(open(RECORD, encoding="utf-8-sig")):
+            if r["회차"] != str(rnd) or not r.get("보정_승"):
+                continue
+            try:
+                out[r["번호"]] = {"승": float(r["보정_승"]), "무": float(r["보정_무"] or 0), "패": float(r["보정_패"])}
+            except ValueError:
+                pass
+    except OSError:
+        pass
+    return out
 
 
 def table(by_no, title, picks):
@@ -162,7 +181,9 @@ def table(by_no, title, picks):
             odds *= float(sel["베트맨"])
         prob = prob * p / 100 if (p is not None and prob is not None) else None
         when = r["시각"][5:16]
-        lines.append(f"| {no} | {r['경기']} ({when}) | {kind(r)} | {c[0]} | {c[1]} | {c[2]} | {f'{p:.1f}%' if p is not None else '-'} |")
+        raw = RAW.get((no, pick))
+        ps = f"{p:.1f}%" + (f" (원본 {raw:.0f})" if raw is not None and abs(raw - p) >= 0.5 else "") if p is not None else "-"
+        lines.append(f"| {no} | {r['경기']} ({when}) | {kind(r)} | {c[0]} | {c[1]} | {c[2]} | {ps} |")
     t = timing(by_no, picks)
     if t:
         lines.append(t)
@@ -203,9 +224,16 @@ def main():
     ap.add_argument("--own", nargs="*", default=[], help='"번호:선택=내 분석 확률(%%)" — 표·기록의 확률을 내 분석으로 (2026-10-13부터 필수)')
     a = ap.parse_args()
     by_no = load(a.round)
+    fin = final_probs(a.round)
     for x in a.own:
         leg, _, v = x.partition("=")
-        OWN[tuple(leg.strip().split(":"))] = float(v)
+        no, pk = leg.strip().split(":")
+        OWN[(no, pk)] = float(v)
+        opts = by_no.get(no) or []
+        plain = bool(opts) and opts[0]["유형"] in ("승무패", "승패") and not opts[0]["구분"].startswith("전반")
+        if plain and no in fin and pk in fin[no] and fin[no][pk] > 0:
+            RAW[(no, pk)] = float(v)
+            OWN[(no, pk)] = fin[no][pk]   # 최종(보정) 확률로 대체 — round_log anchor (2026-10-15)
     buys = dict(b.rsplit("=", 1) for b in a.buy)
     items, combos_ = [], []
     for c in a.combos:

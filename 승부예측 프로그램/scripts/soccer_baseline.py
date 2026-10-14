@@ -730,6 +730,31 @@ def kickoff(s, now):
     return dt.datetime(y, mo, d, hh, mm, tzinfo=KST).astimezone(dt.timezone.utc)
 
 
+def row_baseline(r, names, cache, now=None, refresh=False):
+    """전체경기기록 한 행(축구) → 기준선 dict(승/무/패 0~1, xg_h, xg_a) 또는 None. cache: {code: League}.
+    킥오프 2시간 전까지의 경기만 써서 예측(사후 정보 누수 방지). round_log.py anchor / cmd_round 공용 (2026-10-15)."""
+    now = now or dt.datetime.now(KST)
+    code = KO_LEAGUE.get(r.get("리그", ""))
+    if not code or code in UNSUPPORTED:
+        return None
+    if code not in cache:
+        try:
+            cache[code] = League(code, refresh)
+        except SystemExit:
+            cache[code] = None
+    lg = cache[code]
+    if lg is None or not lg.games:
+        return None
+    ko = kickoff(r.get("시각", ""), now)
+    cutoff = ko - dt.timedelta(hours=2) if ko else None
+    teams = lg.teams(before=cutoff)
+    h, a = match_team(r["홈"], teams, names, lg.table), match_team(r["원정"], teams, names, lg.table)
+    if not h or not a:
+        return None
+    b, _ = baseline(lg, h, a, cutoff)
+    return b
+
+
 def cmd_round(args, names):
     rows = [r for r in csv.DictReader(open(RECORD_PATH, encoding="utf-8-sig"))
             if r["회차"] == str(args.round) and r["종목"] == "축구"]

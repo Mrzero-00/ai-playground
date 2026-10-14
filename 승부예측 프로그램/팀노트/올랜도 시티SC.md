@@ -7,4 +7,8 @@
 - 리그 순위: 7위 28경기 11승4무13패 GD-15 승점37 (Orlando City SC)
 - 최근 경기(ESPN, 최대 28일): 2026-09-09 Atlanta United FC 2-3 Orlando City SC / 2026-09-12 Orlando City SC 3-0 Toronto FC / 2026-09-19 New England Revolution 4-2 Orlando City SC / 2026-09-26 Philadelphia Union 4-2 Orlando City SC / 2026-10-10 Orlando City SC 3-2 Columbus Crew
 <!-- FACTS:END -->
+<!-- INPUTS:START -->
+## 입력(자동 수집 2026-10-15) — xG·휴식일·라인업은 이 숫자를 쓴다
+- 10-15 08:30 vs 토론토FC: 휴식 4.0일(7일 1경기) · 직전 10-11 홈 vs Columbus Crew 3-2 [usa.1] · xG - · 선발 4-3-3 Maxime Crépeau, Iago Teodoro, David Brekalo, Vinícius Nogueira, Iván Angulo, Luis Otávio, Wilder Cartagena, Eduard Atuesta, Antoine Griezmann, Martín Ojeda, Harvey Sarajian · 직전 대비 교체 2명(Robin Jansson, Marco Pasalic)
+<!-- INPUTS:END -->
 

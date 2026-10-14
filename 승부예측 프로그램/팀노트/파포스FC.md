@@ -7,6 +7,10 @@
 - 리그 순위: 27위 0경기 0승0무0패 GD0 승점0 (Pafos)
 - 2026 여름 이적(위키 이적 표, 앞 8줄씩): IN 2 June 2026 · GK · Charalampos Kyriakidis · Omonia · Undisclosed / IN 15 June 2026 · MF · Murad Mammadov · Neftçi · Undisclosed / IN 29 June 2026 · MF · Guga · Al-Najma · Undisclosed / IN 1 July 2026 · MF · Alexandre Brito · Sporting CP · Undisclosed / IN 9 July 2026 · GK · Michalis Papastylianou · PAC Omonia 29M · Undisclosed / IN 3 August 2026 · FW · Moumi Ngamaleu · Unattached · Free / IN 4 September 2026 · FW · Afonso Patrão · Westerlo · Undisclosed / IN 9 September 2026 · DF · Jónatas Noro · Braga · Undisclosed / OUT 24 July 2026 · DF · Derrick Luckassen · Red Star Belgrade · Undisclosed / OUT 2 August 2026 · DF · Axel Guessand · Kalamata · Undisclosed / OUT 4 September 2026 · FW · Mons Bassouamina · Marítimo · Undisclosed
 <!-- FACTS:END -->
+<!-- INPUTS:START -->
+## 입력(자동 수집 2026-10-15) — xG·휴식일·라인업은 이 숫자를 쓴다
+- 10-16 04:00 vs 아탈란타BC: 휴식 ?(ESPN 미제공 리그 — 직접 확인) · 직전 - · xG -
+<!-- INPUTS:END -->
 
 ## 성향
 - 2026-10-14 조사: ClubElo 미등재(키프로스 리그는 ClubElo 비추적 추정) — Elo 수치 확보 불가, 추정치(체코 2부~야블로네츠급인 1500대 중반)로 대체 사용 필요(불확실성 높음).

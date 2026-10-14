@@ -8,6 +8,10 @@
 - 2026 여름 이적(위키 이적 표, 앞 8줄씩): IN align=center|82 · align=center · Bryce Boneau · Huntsville City FC / IN align=center|74 · align=center · Luca Costabile · Maryland Terrapins / IN align=center|60 · align=center · Christopher Kalongo · Forge FC / IN align=center|72 · align=center · Daniel Stampatori · Lipscomb Bisons / IN align=center|86 · align=center · Abundance Salaou · IFK Göteborg · Transfer / IN align=center|38 · align=center · Jackson Gilman · Pittsburgh Panthers · First Team draft pick / IN align=center|79 · align=center · Fletcher Bank · Stanford Cardinal · First team draft pick / IN align=center|84 · align=center · Elias Khodri · New Hampshire Wildcats / OUT align=center| 85 · align=center · Marko Stojadinovic · Atlético Ottawa · Option declined / OUT align=center| 68 · align=center · Lucas Olguin · HFX Wanderers FC · Option declined / OUT align=center| 82 · align=center · Patrick McDonald · St. Louis City SC 2 · Option declined / OUT align=center| 74 · align=center · Michael Sullivan · FC Cincinnati 2 · Option declined
 - 최근 경기(ESPN, 최대 28일): 2026-09-09 Toronto FC 2-1 Nashville SC / 2026-09-12 Orlando City SC 3-0 Toronto FC / 2026-09-20 St. Louis CITY SC 3-1 Toronto FC / 2026-09-27 Nashville SC 2-0 Toronto FC / 2026-10-10 Toronto FC 2-1 CF Montréal
 <!-- FACTS:END -->
+<!-- INPUTS:START -->
+## 입력(자동 수집 2026-10-15) — xG·휴식일·라인업은 이 숫자를 쓴다
+- 10-15 08:30 vs 올랜도 시티SC: 휴식 4.3일(7일 1경기) · 직전 10-11 홈 vs CF Montréal 2-1 [usa.1] · xG - · 선발 4-4-2 Luka Gavran, Benjamín Kuscevic, Zane Monlouis, Matheus Pereira, Richie Laryea, Niklas Dorsch, Alonso Coello, Dániel Sallói, Theo Corbeanu, Lewis Morgan, Josh Sargent · 직전 대비 교체 2명(Nickseon Gomis, Jonathan Osorio)
+<!-- INPUTS:END -->
 
 - 2026-10-14 조사: 10/15 08:30(KST) 홈 올랜도 시티전, 정규시즌 마지막 매치데이. 기준선 승/무/패 41.5/26.7/31.8%, 핸디캡 홈−1 22.1/19.5/58.5%, 오버 2.5 59.2% — 출처: 자체 모델
 - 2026-10-14 조사: 뉴스 요약에서 "6-pointer", "둘 다 결과 필요"로 양팀 플레이오프 동기 확인 — 출처: Google News RSS

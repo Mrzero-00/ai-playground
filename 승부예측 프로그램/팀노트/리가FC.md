@@ -6,5 +6,9 @@
 - 감독: Adrián Guľa
 - 리그 순위: 30위 0경기 0승0무0패 GD0 승점0 (Riga FC)
 <!-- FACTS:END -->
+<!-- INPUTS:START -->
+## 입력(자동 수집 2026-10-15) — xG·휴식일·라인업은 이 숫자를 쓴다
+- 10-16 01:45 vs 카이라트 알마티: 휴식 12.2일?(국내리그 ESPN 미제공 — 직접 확인) · 직전 10-03 원정 vs Aris Limassol 1-2 [club friendly] · xG -
+<!-- INPUTS:END -->
 
 - 2026-10-14 조사: ClubElo 1499(10/14 기준, 홈+60 적용시 1559). 10/16 UECL 원정 카이라트전(홈 리가). 뉴스 검색(Google News RSS)에서 결장·폼 관련 구체 보도 없음(CBS/ESPN/Transfermarkt 등 집계 링크만). 라트비아 버르슬리가 상위권 추정, 추가 검증 필요.

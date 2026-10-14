@@ -8,4 +8,8 @@
 - 2026 여름 이적(위키 이적 표, 앞 8줄씩): IN 28 June 2026 · LB · Caio Henrique · Monaco · €10,500,000 / IN 8 July 2026 · DF · Daley Blind · Girona · Free transfer / IN 17 July 2026 · FW · Marcos Leonardo · Al-Hilal · €19,900,000 / IN 31 July 2026 · MF · Julian Brandt · Borussia Dortmund · Free transfer / IN 17 August 2026 · DF · Jofre Torrents · Barcelona · Free transfer / IN 27 August 2026 · FW · Viktor Tsyhankov · Girona · €4,000,000 / IN 30 August 2026 · MF · Sofyan Amrabat · Fenerbahçe · Free transfer / IN 16 September 2026 · MF · Yves Bissouma · Tottenham Hotspur · Free transfer / OUT 5 May 2026 · FW · Chuba Akpom · Ipswich Town · €9,300,000 / OUT 20 June 2026 · CM · Sivert Mannsverk · Sparta Prague · €2,500,000 / OUT 27 June 2026 · FW · Wout Weghorst · Twente · Free transfer / OUT 30 June 2026 · DF · Nick Verschuren · Sparta Rotterdam · €1,000,000
 - 최근 경기(ESPN, 최대 28일): 2026-09-05 Ajax Amsterdam 1-3 PSV Eindhoven / 2026-09-12 Fortuna Sittard 1-5 Ajax Amsterdam / 2026-09-15 Ajax Amsterdam 5-1 Willem II / 2026-09-19 Ajax Amsterdam 2-2 Excelsior / 2026-10-10 Ajax Amsterdam 1-1 NEC Nijmegen
 <!-- FACTS:END -->
+<!-- INPUTS:START -->
+## 입력(자동 수집 2026-10-15) — xG·휴식일·라인업은 이 숫자를 쓴다
+- 10-16 01:45 vs HNK하이두크 스플리트: 휴식 4.9일(7일 2경기) · 직전 10-11 홈 vs NEC Nijmegen 1-1 [ned.1] · xG - · 직전 선발 4-3-3 Marc-André ter Stegen, Youri Baas, Thilo Kehrer, Owen Wijndal, Lucas Rosa, Sofyan Amrabat, Julian Brandt, Jorthy Mokio, Tolu Arokodare, Oscar Gloukh, Viktor Tsygankov
+<!-- INPUTS:END -->
 

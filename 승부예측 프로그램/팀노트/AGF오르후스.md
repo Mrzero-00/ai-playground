@@ -6,4 +6,8 @@
 - 감독: 미확인
 - 리그 순위: 1위 0경기 0승0무0패 GD0 승점0 (AGF)
 <!-- FACTS:END -->
+<!-- INPUTS:START -->
+## 입력(자동 수집 2026-10-15) — xG·휴식일·라인업은 이 숫자를 쓴다
+- 10-16 01:45 vs KAA헨트: 휴식 3.0일(7일 1경기) · 직전 10-13 홈 vs Sønderjyske Fodbold 3-0 [den.1] · xG - · 직전 선발 3-4-2-1 Jesper Hansen, Frederik Tingager, Daniel Grétarsson, Tobias Henriksen, Magnus Knudsen, Kristian Malt Arnstad, Frederik Emmery, Rasmus Carstensen, Janni Serra, Mikkel Anderson, Tobias Bech
+<!-- INPUTS:END -->
 

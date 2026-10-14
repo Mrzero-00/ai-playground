@@ -6,6 +6,10 @@
 - 감독: Philippe Eullaffroy– Interim
 - 리그 순위: cup1 = MLS Cup playoffs
 <!-- FACTS:END -->
+<!-- INPUTS:START -->
+## 입력(자동 수집 2026-10-15) — xG·휴식일·라인업은 이 숫자를 쓴다
+- 10-15 08:30 vs 애틀랜타 유나이티드FC: 휴식 4.3일(7일 1경기) · 직전 10-11 원정 vs Toronto FC 2-1 [usa.1] · xG - · 선발 4-2-3-1 Sébastian Breza, Brandan Craig, Jalen Neal, Luca Petrasso, Dawid Bugaj, Alexis Sánchez, Dani Pereira, Matthew Longstaff, Daniel Ríos, Noah Streit, Wikelman Carmona · 직전 대비 교체 3명(Brayan Vera, Victor Loturi, Prince Owusu)
+<!-- INPUTS:END -->
 
 - 2026-10-14 조사: 10/15 08:30(KST) 홈 애틀랜타 유나이티드전, 정규시즌 마지막 매치데이. 기준선 승/무/패 43.4/26.4/30.2%, 핸디캡 홈−1 23.5/19.9/56.6%, 오버 2.5 59.5% — 출처: 자체 모델
 - 2026-10-14 조사: Bradenton Herald "Atlanta United, CF Montreal both on verge of playoff elimination" — 양팀 모두 탈락 직전, "동부 최하위권 맞대결"로 묘사됨 — 생존 절박감으로 동기 자체는 살아있음 — 출처: Bradenton Herald(제목), Google News RSS

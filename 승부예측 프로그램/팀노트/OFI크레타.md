@@ -7,6 +7,10 @@
 - 리그 순위: 9위 1경기 1승0무0패 GD+2 승점3 (OFI Crete)
 - 최근 경기(ESPN, 최대 28일): 2026-09-17 OFI Crete 2-0 TSG Hoffenheim
 <!-- FACTS:END -->
+<!-- INPUTS:START -->
+## 입력(자동 수집 2026-10-15) — xG·휴식일·라인업은 이 숫자를 쓴다
+- 10-16 04:00 vs 스타드 렌: 휴식 5.1일(7일 1경기) · 직전 10-11 원정 vs AEK Athens 3-0 [gre.1] · xG - · 직전 선발 3-4-3 Nikos Christogeorgos, Achilleas Poungouras, Kresimir Krizmanic, Konstantinos Kostoulas, Andreas Bouchalakis, Thanasis Androutsos, Nicolaos Athanasiou, Lorenzo Dickmann, Kenan Kodro, Aitor Cantalapiedra, Taxiarchis Fountas
+<!-- INPUTS:END -->
 
 ## 성향
 - ClubElo 미등재(2026-10-14 기준 조회 실패 — clubelo.com/OFI, OFIKrete, OFICrete, 그리스 국가별 페이지 모두 상위 팀만 노출돼 확인 불가). 추정치로 처리: 그리스 중하위권 통상 레벨(≈1550~1600) 가정, 불확실성 큼.

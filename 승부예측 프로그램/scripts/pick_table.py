@@ -168,12 +168,26 @@ def final_probs(rnd):
     return out
 
 
+def leg_type(p, mk, pick, top, odds):
+    """2026-10-15 사용자 결정 구조. p=내 분석(최종) 확률, mk=시장 공정확률, top=시장 1순위."""
+    if p is None or mk is None or odds is None:
+        return "-"
+    if (top and top != pick) or p - mk >= 8:
+        return "A 갈림" + ("" if p * odds / 100 >= 1.05 else " ✗(내 확률×배당<1.05)")
+    ok = p >= 60 and mk >= 60 and mk * odds / 100 >= 0.95
+    return "B 일치" if ok else "✗"
+
+
 def table(by_no, title, picks):
     lines = []
     if title:
         lines.append(f"**{title}**\n")
-    lines.append("| 번호 | 경기 | 게임 | 승 | 무 | 패 | " + ("적중 예상도" if OWN else "확률(시장·내 분석 미입력)") + " |")
-    lines.append("|---|---|---|---|---|---|---|")
+    if OWN:   # 2026-10-15 사용자 결정: 내 분석(가리고 확정) 뒤 시장과 비교 — A 갈림 / B 일치
+        lines.append("| 번호 | 경기 | 게임 | 승 | 무 | 패 | 내 분석 | 시장 | 유형 |")
+        lines.append("|---|---|---|---|---|---|---|---|---|")
+    else:
+        lines.append("| 번호 | 경기 | 게임 | 승 | 무 | 패 | 확률(시장·내 분석 미입력) |")
+        lines.append("|---|---|---|---|---|---|---|")
     odds, prob = 1.0, 1.0
     for no, pick in picks:
         opts = by_no.get(no)
@@ -191,8 +205,17 @@ def table(by_no, title, picks):
         game_cell = f"{r['경기']} ({when})"
         raw = RAW.get((no, pick))
         cal = CAL.get((no, pick))
-        ps = (f"{p:.1f}%" + (f" (보정 {cal:.0f} · 원본 {raw:.0f})" if cal is not None else (f" (원본 {raw:.0f})" if raw is not None and abs(raw - p) >= 0.5 else ""))) if p is not None else "-"
-        lines.append(f"| {no} | {game_cell} | {kind(r)} | {c[0]} | {c[1]} | {c[2]} | {ps} |")
+        hit = CAL.get((no, pick))   # 적중 예상도(hit_model) — 기록·참고만 (2026-10-15 판정 전)
+        ps = (f"{p:.1f}%" + (f" (예상도 {hit:.0f})" if hit is not None else "") + (f" (원본 {raw:.0f})" if raw is not None and abs(raw - p) >= 0.5 else "")) if p is not None else "-"
+        if OWN:
+            mk = float(sel["공정확률"]) if sel and sel.get("공정확률") else None
+            top = max(opts, key=lambda o: float(o["공정확률"] or 0))["선택"] if all(o.get("공정확률") for o in opts) else None
+            ty = leg_type(p, mk, pick, top, float(sel["베트맨"]) if sel else None)
+            lines.append(f"| {no} | {game_cell} | {kind(r)} | {c[0]} | {c[1]} | {c[2]} | {ps} | {f'{mk:.1f}%' if mk is not None else '-'} | {ty} |")
+        else:
+            lines.append(f"| {no} | {game_cell} | {kind(r)} | {c[0]} | {c[1]} | {c[2]} | {ps} |")
+    if OWN:
+        lines.append("\n유형 A = 시장과 갈림(1순위 다름 또는 내 확률 ≥ 시장+8%p): 확인된 사실 근거 + 내 확률×배당 ≥ 1.05 필요 · B = 일치: 내 60%+·시장 60%+·시장×배당 ≥ 0.95 · ✗ = 둘 다 아님(추천 금지)")
     lines.append("\n앱에서는 팀명이 단축 표기(예: 콜로래피·미네소타U)라 **게임번호**로 찾는다.")
     t = timing(by_no, picks)
     if t:
@@ -244,8 +267,8 @@ def main():
         if plain and no in fin and pk in fin[no] and fin[no][pk] > 0:
             RAW[(no, pk)] = float(v)
             if fin[no].get("_top") == pk and fin[no].get("_hit") is not None:
-                OWN[(no, pk)] = fin[no]["_hit"]      # 적중 예상도(hit_model) — 추천 기준 60% (2026-10-15)
-                CAL[(no, pk)] = fin[no][pk]
+                OWN[(no, pk)] = fin[no][pk]          # 2026-10-15 구조 변경: 내 분석 = 최종(보정) 확률
+                CAL[(no, pk)] = fin[no]["_hit"]      # 적중 예상도는 기록·참고만 (121·122 86경기에서 구간 분리 안 됨)
             else:
                 OWN[(no, pk)] = fin[no][pk]   # 예상 결과가 아닌 선택지(또는 모델 없음): 보정 확률
     buys = dict(b.rsplit("=", 1) for b in a.buy)

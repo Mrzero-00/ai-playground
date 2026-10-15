@@ -72,7 +72,7 @@ def norm(s):
     s = unicodedata.normalize("NFKD", s).encode("ascii", "ignore").decode().lower()
     s = re.sub(r"[.\-/&]+", " ", s)
     s = " ".join(ALIAS.get(t, t) for t in s.split())
-    s = re.sub(r"\b(fc|cf|sc|afc|club|ksv|kv|sv|bk|if|ff)\b", " ", s)
+    s = re.sub(r"\b(fc|cf|sc|afc|club|ksv|kv|sv|bk|if|ff|sk|fk|nk|gnk|hnk|kf|ofk|sl|tsg|kaa|rsc|cd|ud|sd|fsv|vfb|vfl|tsv|spvgg|ks|mks|as|ac|aik|aif|cska|1999)\b", " ", s)
     return re.sub(r"\s+", " ", s).strip()
 
 

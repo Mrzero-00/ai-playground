@@ -9,6 +9,6 @@
 <!-- FACTS:END -->
 <!-- INPUTS:START -->
 ## 입력(자동 수집 2026-10-15) — xG·휴식일·라인업은 이 숫자를 쓴다
-- 10-16 01:45 vs 스파르타 프라하: 휴식 1.9일(7일 3경기) · 직전 10-14 원정 vs Arsenal 3-0 [uefa.champions] · xG 시즌6경기 xG1.45/xGA1.62 npxGD-0.17 · 최근5 1.5/1.58 (-0.07) · 홈0.52/원정-0.86 · xPts7.9 vs 승점13 · 직전 선발 4-3-3 Berke Özer, Alexsandro, Nathan Ngoy, Romain Perraud, Maxima Goffi, Nabil Bentaleb, Benjamin André, Ngal'ayel Mukau, Ayase Ueda, Hákon Haraldsson, Dilane Bakwa
+- 10-16 01:45 vs 스파르타 프라하: 휴식 4.0일(7일 1경기) · 직전 10-12 홈 vs Molde 2-2 [eliteserien] · xG - · 직전 선발 4-1-4-1 Pontus Dahlberg, Ruben Gabrielsen, Sander Moen Foss, Filip Ottosson, Frederik Elkaer, Lars Ranger, Eric Kitolano, Gustav Nyheim, Vá, Daniel Bassi, Thomas Lehne Olsen
 <!-- INPUTS:END -->
 

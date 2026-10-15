@@ -10,6 +10,6 @@
 <!-- FACTS:END -->
 <!-- INPUTS:START -->
 ## 입력(자동 수집 2026-10-15) — xG·휴식일·라인업은 이 숫자를 쓴다
-- 10-16 01:45 vs AGF오르후스: 휴식 4.9일(7일 1경기) · 직전 10-11 원정 vs Zulte-Waregem 0-2 [bel.1] · xG - · 직전 선발 3-4-2-1 Davy Roef, Christian Burgess, Siebe van der Heyden, Maksim Paskotši, Mathias Delorge-Knieper, Leo Da Silva Lopes, Tiago Araújo, Bi Goore, Ibrahima Cisse, Momodou Sonko, Michel-Ange Balikwisha
+- 10-16 01:45 vs AGF오르후스: 휴식 3.9일(7일 4경기) · 직전 10-12 원정 vs Platense 1-1 [torneo clausura] · xG - · 직전 선발 4-3-3 Brayan Cortés, Franco Vázquez, Francisco Álvarez, Sebastián Prieto, Franco Paredes, Facundo Gutiérrez, Nicolás Oroz, Facundo Carrizo, Tomas Molina, Gastón Verón, Diego Porcel
 <!-- INPUTS:END -->
 

@@ -20,8 +20,9 @@ OUT = os.path.join(ROOT, "data", "hit_model.json")
 OUTS = ("승", "무", "패")
 CONF = {"높음": 2, "상": 2, "중간": 1, "중": 1, "낮음": 0, "하": 0}
 MIN_N = 40
+PURE_FLOOR = 0.45  # 순수 1순위가 이 미만이면 적중 예상도 상한 50%
 L2 = 1.0
-FEATS = ["상수", "순수1순위", "1-2순위차", "홈픽", "무픽", "확신도", "보정1순위일치"]
+FEATS = ["상수", "순수1순위x10", "1-2순위차x10", "홈픽", "무픽", "보정1순위일치"]  # 2026-10-15 13:40: 확률·격차 ×10 스케일(L2 공정), 확신도 제거
 
 
 def _num(x):
@@ -52,8 +53,8 @@ def features(r):
             q = p
     iq = max(range(3), key=lambda j: q[j])
     two_way = r.get("종목") != "축구"
-    x = [1.0, p[i], srt[0] - srt[1], 1.0 if i == 0 else 0.0, 0.0 if two_way else (1.0 if i == 1 else 0.0),
-         float(CONF.get(r.get("확신도", ""), 1)), 1.0 if i == iq else 0.0]
+    x = [1.0, p[i] * 10, (srt[0] - srt[1]) * 10, 1.0 if i == 0 else 0.0, 0.0 if two_way else (1.0 if i == 1 else 0.0),
+         1.0 if i == iq else 0.0]
     return i, x
 
 
@@ -104,7 +105,10 @@ def predict_row(r, model=None):
     i, x = f
     m = model.get(r.get("종목", ""))
     if m and m.get("w"):
-        return OUTS[i], round(_sig(sum(a * b for a, b in zip(m["w"], x))) * 100, 1)
+        hp = _sig(sum(a * b for a, b in zip(m["w"], x))) * 100
+        if x[1] < PURE_FLOOR * 10:   # 순수 1순위 45% 미만: 모델이 홈 픽 계수로 과대평가(셀타 36%→64%) → 50%로 묶음 (2026-10-15, 40~45% 구간 실제 53%)
+            hp = min(hp, 50.0)
+        return OUTS[i], round(hp, 1)
     q = _probs(r, "보정") or _probs(r, "순수")
     return OUTS[i], round(q[i] * 100, 1)
 

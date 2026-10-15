@@ -10,6 +10,6 @@
 <!-- FACTS:END -->
 <!-- INPUTS:START -->
 ## 입력(자동 수집 2026-10-15) — xG·휴식일·라인업은 이 숫자를 쓴다
-- 10-16 04:00 vs 파포스FC: 휴식 3.1일(7일 1경기) · 직전 10-13 홈 vs Venezia 3-1 [italian serie a] · xG 시즌6경기 xG1.13/xGA2.23 npxGD-0.98 · 최근5 1.17/2.14 (-0.82) · 홈-0.42/원정-2.1 · xPts4.2 vs 승점9 · 직전 선발 4-2-3-1 Marco Carnesecchi, Giorgio Scalvini, Thomas Kristensen, Davide Zappacosta, Raoul Bellanova, Charles De Ketelaere, Éderson, Franck Kessié, Nikola Krstovic, Jon Rowe, Eljif Elmas
+- 10-16 04:00 vs 파포스FC: 휴식 ?(ESPN 미제공 리그 — 직접 확인) · 직전 - · xG 시즌6경기 xG1.13/xGA2.23 npxGD-0.98 · 최근5 1.17/2.14 (-0.82) · 홈-0.42/원정-2.1 · xPts4.2 vs 승점9
 <!-- INPUTS:END -->
 

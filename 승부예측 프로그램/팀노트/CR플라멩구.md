@@ -10,6 +10,6 @@
 <!-- FACTS:END -->
 <!-- INPUTS:START -->
 ## 입력(자동 수집 2026-10-15) — xG·휴식일·라인업은 이 숫자를 쓴다
-- 10-16 09:30 vs 에스투디안테스데 라플라타: 휴식 4.2일(7일 1경기) · 직전 10-12 홈 vs Fluminense 1-0 [brasileiro serie a] · xG - · 직전 선발 4-2-3-1 Agustín Rossi, Léo Pereira, Léo Ortiz, Alex Sandro, Guillermo Varela, Lucas Paquetá, Saúl Ñíguez, Erick Pulgar, Pedro, Samuel Lino, Jorge Carrascal
+- 10-16 09:30 vs 에스투디안테스데 라플라타: 휴식 ?(ESPN 미제공 리그 — 직접 확인) · 직전 - · xG -
 <!-- INPUTS:END -->
 

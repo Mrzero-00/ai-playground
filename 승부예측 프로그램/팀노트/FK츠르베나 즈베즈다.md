@@ -8,6 +8,6 @@
 <!-- FACTS:END -->
 <!-- INPUTS:START -->
 ## 입력(자동 수집 2026-10-15) — xG·휴식일·라인업은 이 숫자를 쓴다
-- 10-16 01:45 vs 루가노: 휴식 5.2일(7일 1경기) · 직전 10-10 원정 vs Clermont Foot 2-3 [ligue 2] · xG - · 직전 선발 4-2-3-1 Gaetan Poussin, Josué Escartin, Dylan Durivaux, Elyaz Zidane, Théo Magnin, Saif-Eddine Khaoui, Samuel Renel, Islamdine Halifa, Jovany Ikanga, Damien Durand, Kémo Cissé
+- 10-16 01:45 vs 루가노: 휴식 ?(ESPN 미제공 리그 — 직접 확인) · 직전 - · xG -
 <!-- INPUTS:END -->
 

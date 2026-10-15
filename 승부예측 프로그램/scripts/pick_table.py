@@ -115,7 +115,9 @@ def timing(by_no, picks):
     close, buy, end, spread = t
     f = lambda d: d.strftime("%m/%d %H:%M")
     out = f"\n🕒 **구매 시각 {f(buy)}** (베트맨 판매 마감 {f(close)}) · 결과 예상 {f(end)} — 이 시각에 최종 재분석 후 다시 알림"
-    if spread > END_SPREAD_MAX:
+    kos = [by_no[no][0]["시각"][11:16] for no, _ in picks if by_no.get(no)]
+    dawn = kos and all("00:00" <= k <= "05:00" for k in kos)   # 사용자 2026-10-15: 00~05시 킥오프는 한 묶음
+    if spread > END_SPREAD_MAX and not dawn:
         out += f"  ⚠ 경기 종료 시각 차이 {spread / 60:.1f}시간 — 비슷한 시각에 끝나는 경기끼리 다시 묶을 것"
     return out
 

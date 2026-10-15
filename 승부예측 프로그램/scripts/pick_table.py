@@ -140,7 +140,8 @@ def save_schedule(by_no, rnd, combos, buys):
 
 
 OWN = {}  # (번호, 선택) → 내 분석 확률 (--own). 추천 확률은 내 분석만 쓴다 (사용자 지시 2026-10-13)
-RAW = {}  # (번호, 선택) → --own 에 넣은 원본 값 (보정 전). 표에는 "최종 (원본)" 으로
+RAW = {}  # (번호, 선택) → --own 에 넣은 원본 값 (보정 전). 표에는 "적중 예상도 (보정·원본)" 으로
+CAL = {}  # (번호, 선택) → 보정 확률 (적중 예상도를 쓴 경우 참고 표시)
 RECORD = os.path.join(ROOT, "전체경기기록.csv")
 SHORT = {}  # 베트맨 앱은 단축명(콜로래피·미네소타U)으로 표기하는데 G101 API엔 없다(2026-10-15 확인). 표 밑에 번호로 찾으라는 안내만 둔다.
 
@@ -154,7 +155,12 @@ def final_probs(rnd):
             if r["회차"] != str(rnd) or not r.get("보정_승"):
                 continue
             try:
-                out[r["번호"]] = {"승": float(r["보정_승"]), "무": float(r["보정_무"] or 0), "패": float(r["보정_패"])}
+                d = {"승": float(r["보정_승"]), "무": float(r["보정_무"] or 0), "패": float(r["보정_패"])}
+                hp = r.get("적중예상도")
+                if hp:   # 2026-10-15: 예상 결과(순수 1순위)의 적중 예상도 — 그 선택지에만 붙는다
+                    pu = {k: float(r.get(f"순수_{k}") or 0) for k in ("승", "무", "패")}
+                    d["_top"] = max(pu, key=pu.get); d["_hit"] = float(hp)
+                out[r["번호"]] = d
             except ValueError:
                 pass
     except OSError:
@@ -166,7 +172,7 @@ def table(by_no, title, picks):
     lines = []
     if title:
         lines.append(f"**{title}**\n")
-    lines.append("| 번호 | 경기 | 게임 | 승 | 무 | 패 | " + ("내 분석" if OWN else "확률(시장·내 분석 미입력)") + " |")
+    lines.append("| 번호 | 경기 | 게임 | 승 | 무 | 패 | " + ("적중 예상도" if OWN else "확률(시장·내 분석 미입력)") + " |")
     lines.append("|---|---|---|---|---|---|---|")
     odds, prob = 1.0, 1.0
     for no, pick in picks:
@@ -184,7 +190,8 @@ def table(by_no, title, picks):
         when = r["시각"][5:16]
         game_cell = f"{r['경기']} ({when})"
         raw = RAW.get((no, pick))
-        ps = f"{p:.1f}%" + (f" (원본 {raw:.0f})" if raw is not None and abs(raw - p) >= 0.5 else "") if p is not None else "-"
+        cal = CAL.get((no, pick))
+        ps = (f"{p:.1f}%" + (f" (보정 {cal:.0f} · 원본 {raw:.0f})" if cal is not None else (f" (원본 {raw:.0f})" if raw is not None and abs(raw - p) >= 0.5 else ""))) if p is not None else "-"
         lines.append(f"| {no} | {game_cell} | {kind(r)} | {c[0]} | {c[1]} | {c[2]} | {ps} |")
     lines.append("\n앱에서는 팀명이 단축 표기(예: 콜로래피·미네소타U)라 **게임번호**로 찾는다.")
     t = timing(by_no, picks)
@@ -236,7 +243,11 @@ def main():
         plain = bool(opts) and opts[0]["유형"] in ("승무패", "승패") and not opts[0]["구분"].startswith("전반")
         if plain and no in fin and pk in fin[no] and fin[no][pk] > 0:
             RAW[(no, pk)] = float(v)
-            OWN[(no, pk)] = fin[no][pk]   # 최종(보정) 확률로 대체 — round_log anchor (2026-10-15)
+            if fin[no].get("_top") == pk and fin[no].get("_hit") is not None:
+                OWN[(no, pk)] = fin[no]["_hit"]      # 적중 예상도(hit_model) — 추천 기준 60% (2026-10-15)
+                CAL[(no, pk)] = fin[no][pk]
+            else:
+                OWN[(no, pk)] = fin[no][pk]   # 예상 결과가 아닌 선택지(또는 모델 없음): 보정 확률
     buys = dict(b.rsplit("=", 1) for b in a.buy)
     items, combos_ = [], []
     for c in a.combos:

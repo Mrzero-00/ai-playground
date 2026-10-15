@@ -9,7 +9,7 @@
 <!-- FACTS:END -->
 <!-- INPUTS:START -->
 ## 입력(자동 수집 2026-10-15) — xG·휴식일·라인업은 이 숫자를 쓴다
-- 10-16 04:00 vs 슈투름 그라츠: 휴식 5.2일(7일 1경기) · 직전 10-10 원정 vs Chelsea 5-1 [english premier league] · xG 시즌6경기 xG1.63/xGA1.39 npxGD+0.23 · 최근5 1.81/1.18 (+0.63) · 홈0.67/원정-0.2 · xPts9.4 vs 승점3 · 직전 선발 4-2-3-1 Djordje Petrovic, António Silva, James Hill, Adrien Truffert, Adam Smith, Rayan, Ryan Christie, Tyler Adams, Evanilson, Marcus Tavernier, David Brooks
+- 10-18 22:00 vs 선덜랜드: 휴식 8.0일 · 직전 10-10 원정 vs Chelsea 5-1 [english premier league] · xG 시즌6경기 xG1.63/xGA1.39 npxGD+0.23 · 최근5 1.81/1.18 (+0.63) · 홈0.67/원정-0.2 · xPts9.4 vs 승점3 · 직전 선발 4-2-3-1 Djordje Petrovic, António Silva, James Hill, Adrien Truffert, Adam Smith, Rayan, Ryan Christie, Tyler Adams, Evanilson, Marcus Tavernier, David Brooks
 <!-- INPUTS:END -->
 
 ## 성향

@@ -62,7 +62,7 @@ import unicodedata
 ALIAS = {"saint": "st", "sankt": "st", "st.": "st", "athletic": "athletic", "atletico": "atletico"}
 
 
-ESPN_ALIAS = {"Los Angeles FC": "LAFC", "Ferencvarosi TC": "Ferencvaros", "F.C. Copenhagen": "FC Copenhagen", "FC Nordsjaelland": "Nordsjaelland",
+ESPN_ALIAS = {"Los Angeles FC": "LAFC", "Athletic Bilbao": "Athletic Club", "Ferencvarosi TC": "Ferencvaros", "F.C. Copenhagen": "FC Copenhagen", "FC Nordsjaelland": "Nordsjaelland",
               "CS Universitatea Craiova": "Universitatea Craiova", "FC Kairat": "Kairat Almaty"}
 
 
@@ -249,9 +249,11 @@ def us_team(eng, refresh=False):
         if lg not in _US:
             d = us_league(lg, refresh) or {}
             _US[lg] = (d.get("teams") or {})
+        e = norm(eng)
         for t in _US[lg].values():
-            s = score(eng, t["title"])
-            if s and matcher(eng)(t["title"]) and (best is None or s > best[0]):
+            n = norm(t["title"]); s = score(eng, t["title"])
+            loose = bool(e and n) and (e in n or n in e) and min(len(e), len(n)) >= 4
+            if s and (matcher(eng)(t["title"]) or loose) and (best is None or s > best[0]):
                 best = (s, lg, t)
     return (best[1], best[2]) if best else None
 

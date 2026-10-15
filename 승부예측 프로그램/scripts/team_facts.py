@@ -284,6 +284,8 @@ def main():
     out = []
     for t, lg in targets:
         eng = names.get(t) or names.get(t.split()[0] if t.split() else t)
+        if isinstance(eng, list):
+            eng = eng[0] if eng else ""
         if not eng:
             out.append({"팀": t, "영문": "", "리그": lg, "위키": "", "감독": "", "순위(ESPN)": "", "순위": "", "이적": [], "최근(ESPN)": []})
             print(f"  ✗ {t}: team_names.json에 영문명 없음 — 추가 필요"); continue

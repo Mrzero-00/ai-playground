@@ -8,7 +8,7 @@
 <!-- FACTS:END -->
 <!-- INPUTS:START -->
 ## 입력(자동 수집 2026-10-15) — xG·휴식일·라인업은 이 숫자를 쓴다
-- 10-16 04:00 vs 링컨 레드임프스: 휴식 6.1일(7일 1경기) · 직전 10-10 홈 vs Viking FK 0-2 [eliteserien] · xG - · 직전 선발 4-3-3 Simen Vidtun Nilsen, Neraysho Kasanwirjo, Fredrik Knudsen, Vetle Dragsnes, Thore Baardsen Pedersen, Jacob Sørensen, Eggert Aron Gudmundsson, Kristian Eriksen, Noah Holm, Jonas Torsvik, Saevar Atli Magnússon
+- 10-16 04:00 vs 링컨 레드임프스: 휴식 6.1일(7일 1경기) · 직전 10-10 홈 vs Viking FK 0-2 패 [eliteserien] · xG - · 직전 선발 4-3-3 Simen Vidtun Nilsen, Neraysho Kasanwirjo, Fredrik Knudsen, Vetle Dragsnes, Thore Baardsen Pedersen, Jacob Sørensen, Eggert Aron Gudmundsson, Kristian Eriksen, Noah Holm, Jonas Torsvik, Saevar Atli Magnússon
 <!-- INPUTS:END -->
 
 - 2026-10-14 조사: ClubElo 1582점(최고 1603, 2026-08-27). 직전 경기 10/9 홈에서 비킹에 0-2 패(-5.8) — 출처: ClubElo(clubelo.com/Brann)

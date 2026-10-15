@@ -10,6 +10,6 @@
 <!-- FACTS:END -->
 <!-- INPUTS:START -->
 ## 입력(자동 수집 2026-10-15) — xG·휴식일·라인업은 이 숫자를 쓴다
-- 10-16 04:00 vs RSC안더레흐트: 휴식 29.0일?(국내리그 ESPN 미제공 — 직접 확인) · 직전 09-17 원정 vs Hapoel Be'er 0-0 [uefa.europa] · xG - · 직전 선발 4-1-4-1 Dominik Kotarski, Scott McKenna, Sergi Domínguez, Josip Misic, Bruno Goda, Niko Galesic, Lukas Kacavenda, Luka Stojkovic, Mislav Orsic, Mateo Lisica, Arbër Hoxha
+- 10-16 04:00 vs RSC안더레흐트: 휴식 29.0일?(국내리그 ESPN 미제공 — 직접 확인) · 직전 09-17 원정 vs Hapoel Be'er 0-0 무 [uefa.europa] · xG - · 직전 선발 4-1-4-1 Dominik Kotarski, Scott McKenna, Sergi Domínguez, Josip Misic, Bruno Goda, Niko Galesic, Lukas Kacavenda, Luka Stojkovic, Mislav Orsic, Mateo Lisica, Arbër Hoxha
 <!-- INPUTS:END -->
 

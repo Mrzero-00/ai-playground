@@ -182,6 +182,18 @@ def strict_matcher(eng):
     return ok
 
 
+YOUTH = re.compile(r"\b(u1\d|u2\d|ii|b|reserves?|women|w|youth|academy|amateur)\b")
+
+
+def _score(mine, theirs):
+    """'팀 득점-상대 득점 승/무/패' — 원정 경기 스코어가 상대 기준으로 읽히던 오류 방지(2026-10-15 AZ 0-2 패 → '2-0')."""
+    try:
+        x, y = int(mine), int(theirs)
+    except (TypeError, ValueError):
+        return f"{mine}-{theirs}"
+    return f"{x}-{y} {'승' if x > y else '무' if x == y else '패'}"
+
+
 def team_events(eng, before_utc, days=35, refresh=False, prefer=None):
     """팀이 뛴 완료 경기(모든 대회), 최근순 [(date_utc, 대회, event_id, 홈/원정, 상대, 스코어)].
     prefer = 경기의 리그 코드(usa.1 등): 그 대회는 보통 매칭, 다른 대회는 엄격 매칭(샌호세 볼리비아·갤럭시 남아공 오매칭 방지)."""
@@ -196,10 +208,12 @@ def team_events(eng, before_utc, days=35, refresh=False, prefer=None):
         if before_utc and (t >= before_utc or t < lo):
             continue
         ok = ok_pref if (prefer and comp == prefer) or comp.startswith(("uefa", "afc", "conmebol", "concacaf")) else ok_strict
+        if YOUTH.search(norm(h["team"]["displayName"])) or YOUTH.search(norm(a["team"]["displayName"])) or "trophy" in comp or "u21" in comp:
+            continue   # EFL 트로피 U21·B팀·여자팀 경기 제외 (2026-10-15 풀럼 U21 오매칭)
         if ok(h["team"]["displayName"]):
-            out.append((t, comp, eid, "홈", a["team"]["displayName"], f"{h.get('score')}-{a.get('score')}"))
+            out.append((t, comp, eid, "홈", a["team"]["displayName"], _score(h.get("score"), a.get("score"))))
         elif ok(a["team"]["displayName"]):
-            out.append((t, comp, eid, "원정", h["team"]["displayName"], f"{h.get('score')}-{a.get('score')}"))
+            out.append((t, comp, eid, "원정", h["team"]["displayName"], _score(a.get("score"), h.get("score"))))
     return sorted(out, key=lambda x: x[0], reverse=True)
 
 

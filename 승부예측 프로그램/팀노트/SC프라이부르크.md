@@ -10,7 +10,7 @@
 <!-- FACTS:END -->
 <!-- INPUTS:START -->
 ## 입력(자동 수집 2026-10-15) — xG·휴식일·라인업은 이 숫자를 쓴다
-- 10-16 04:00 vs 야블로네츠: 휴식 4.1일(7일 1경기) · 직전 10-12 홈 vs Schalke 04 2-1 [german bundesliga] · xG 시즌5경기 xG2.05/xGA0.88 npxGD+1.17 · 최근5 2.05/0.88 (+1.17) · 홈1.52/원정0.64 · xPts11.2 vs 승점13 · 직전 선발 4-2-3-1 Mio Backhaus, Philipp Lienhart, Matthias Ginter, Jordy Makengo, Philipp Treu, Yuito Suzuki, Yannick Engelhardt, Maximilian Eggestein, Igor Matanovic, Derry Scherhant, Niklas Beste
+- 10-16 04:00 vs 야블로네츠: 휴식 4.1일(7일 1경기) · 직전 10-12 홈 vs Schalke 04 2-1 승 [german bundesliga] · xG 시즌5경기 xG2.05/xGA0.88 npxGD+1.17 · 최근5 2.05/0.88 (+1.17) · 홈1.52/원정0.64 · xPts11.2 vs 승점13 · 직전 선발 4-2-3-1 Mio Backhaus, Philipp Lienhart, Matthias Ginter, Jordy Makengo, Philipp Treu, Yuito Suzuki, Yannick Engelhardt, Maximilian Eggestein, Igor Matanovic, Derry Scherhant, Niklas Beste
 <!-- INPUTS:END -->
 
 ## 성향

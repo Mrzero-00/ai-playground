@@ -9,7 +9,7 @@
 <!-- FACTS:END -->
 <!-- INPUTS:START -->
 ## 입력(자동 수집 2026-10-15) — xG·휴식일·라인업은 이 숫자를 쓴다
-- 10-16 01:45 vs NK첼레: 휴식 29.0일?(국내리그 ESPN 미제공 — 직접 확인) · 직전 09-17 홈 vs Celta Vigo 1-0 [uefa.europa] · xG - · 직전 선발 4-2-3-1 Fabiano, Lubomir Satka, Senou Coulibaly, Jure Balkovec, Jean-Kévin Duverne, Muamer Tankovic, Mateo Maric, Panagiotis Andreou, Loïs Diony, Jaden Montnor, Ewandro
+- 10-16 01:45 vs NK첼레: 휴식 29.0일?(국내리그 ESPN 미제공 — 직접 확인) · 직전 09-17 홈 vs Celta Vigo 1-0 승 [uefa.europa] · xG - · 직전 선발 4-2-3-1 Fabiano, Lubomir Satka, Senou Coulibaly, Jure Balkovec, Jean-Kévin Duverne, Muamer Tankovic, Mateo Maric, Panagiotis Andreou, Loïs Diony, Jaden Montnor, Ewandro
 <!-- INPUTS:END -->
 
 ## 성향

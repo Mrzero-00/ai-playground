@@ -10,7 +10,7 @@
 <!-- FACTS:END -->
 <!-- INPUTS:START -->
 ## 입력(자동 수집 2026-10-15) — xG·휴식일·라인업은 이 숫자를 쓴다
-- 10-16 01:45 vs CSKA소피아: 휴식 4.9일(7일 1경기) · 직전 10-11 홈 vs Toulouse 2-2 [ligue 1] · xG 시즌6경기 xG1.23/xGA1.33 npxGD+0.03 · 최근5 1.15/1.46 (-0.16) · 홈0.34/원정-0.28 · xPts8.0 vs 승점14 · 직전 선발 4-2-3-1 Lukas Hradecky, Eric Dier, Sadibou Sané, Názinho, Vanderson, Aleksandr Golovin, Denis Zakaria, Lamine Camara, Matthis Abline, Mathys Detourbet, Edan Diop
+- 10-16 01:45 vs CSKA소피아: 휴식 4.9일(7일 1경기) · 직전 10-11 홈 vs Toulouse 2-2 무 [ligue 1] · xG 시즌6경기 xG1.23/xGA1.33 npxGD+0.03 · 최근5 1.15/1.46 (-0.16) · 홈0.34/원정-0.28 · xPts8.0 vs 승점14 · 직전 선발 4-2-3-1 Lukas Hradecky, Eric Dier, Sadibou Sané, Názinho, Vanderson, Aleksandr Golovin, Denis Zakaria, Lamine Camara, Matthis Abline, Mathys Detourbet, Edan Diop
 <!-- INPUTS:END -->
 
 - 2026-10-14 조사: ClubElo 1798(10/14 기준). 10/16 UECL 원정 CSKA소피아전. 폴라린 발로군이 에버턴 이적 결렬(9월 데드라인데이) 여파로 UEFA 유로파컨퍼런스리그 등록 명단에서 제외(이미 반영된 사안, 당일 변수 아님). 압린·안수 파티도 9월경 결장 보도 있었으나 10월 현재 상태 재확인 안됨(오래된 뉴스, 신뢰도 낮음). 스쿼드 뎁스는 여전히 CSKA 대비 우위로 평가.

@@ -8,7 +8,7 @@
 <!-- FACTS:END -->
 <!-- INPUTS:START -->
 ## 입력(자동 수집 2026-10-15) — xG·휴식일·라인업은 이 숫자를 쓴다
-- 10-16 04:00 vs 코펜하겐: 휴식 2.8일(7일 2경기) · 직전 10-13 홈 vs Cruzeiro 4-2 [brasileiro serie a] · xG - · 직전 선발 4-2-3-1 Tiago Volpi, Guzmán Rodríguez, Gustavo Marques, Juninho Capixaba, Ryan Augusto, Wallace Yan, Fabinho, Ramires, Eduardo Sasha, Fernando, Lucas Barbosa
+- 10-16 04:00 vs 코펜하겐: 휴식 2.8일(7일 2경기) · 직전 10-13 홈 vs Cruzeiro 4-2 승 [brasileiro serie a] · xG - · 직전 선발 4-2-3-1 Tiago Volpi, Guzmán Rodríguez, Gustavo Marques, Juninho Capixaba, Ryan Augusto, Wallace Yan, Fabinho, Ramires, Eduardo Sasha, Fernando, Lucas Barbosa
 <!-- INPUTS:END -->
 
 ## 성향

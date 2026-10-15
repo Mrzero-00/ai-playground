@@ -10,6 +10,6 @@
 <!-- FACTS:END -->
 <!-- INPUTS:START -->
 ## 입력(자동 수집 2026-10-15) — xG·휴식일·라인업은 이 숫자를 쓴다
-- 10-16 04:00 vs 레프스키 소피아: 휴식 5.0일(7일 1경기) · 직전 10-11 원정 vs Ajax Amsterdam 1-1 [ned.1] · xG - · 직전 선발 3-4-2-1 Gonzalo Crettaz, Perr Schuurs, Deveron Fonville, Gabi Brás, Noé Lebreton, Darko Nejasmic, Kevin Kers, Tobias Storm, Bryan Linssen, Dusan Tadic, Tjaronn Chery
+- 10-16 04:00 vs 레프스키 소피아: 휴식 5.0일(7일 1경기) · 직전 10-11 원정 vs Ajax Amsterdam 1-1 무 [ned.1] · xG - · 직전 선발 3-4-2-1 Gonzalo Crettaz, Perr Schuurs, Deveron Fonville, Gabi Brás, Noé Lebreton, Darko Nejasmic, Kevin Kers, Tobias Storm, Bryan Linssen, Dusan Tadic, Tjaronn Chery
 <!-- INPUTS:END -->
 

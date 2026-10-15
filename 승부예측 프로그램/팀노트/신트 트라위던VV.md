@@ -10,6 +10,6 @@
 <!-- FACTS:END -->
 <!-- INPUTS:START -->
 ## 입력(자동 수집 2026-10-15) — xG·휴식일·라인업은 이 숫자를 쓴다
-- 10-16 04:00 vs 이베리아1999 트빌리시: 휴식 4.1일(7일 1경기) · 직전 10-12 원정 vs KV Mechelen 4-3 [bel.1] · xG - · 직전 선발 4-2-3-1 Leo Brian Kokubo, Shogo Taniguchi, Kota Takai, Taiga Hata, Robert-Jan Vanwesemael, Ryotaro Araki, Abdoulage Sissako, Ryan Merlen, Samed Bazdar, Ilias Sebaoui, Kaito Matsuzawa
+- 10-16 04:00 vs 이베리아1999 트빌리시: 휴식 4.1일(7일 1경기) · 직전 10-12 원정 vs KV Mechelen 3-4 패 [bel.1] · xG - · 직전 선발 4-2-3-1 Leo Brian Kokubo, Shogo Taniguchi, Kota Takai, Taiga Hata, Robert-Jan Vanwesemael, Ryotaro Araki, Abdoulage Sissako, Ryan Merlen, Samed Bazdar, Ilias Sebaoui, Kaito Matsuzawa
 <!-- INPUTS:END -->
 

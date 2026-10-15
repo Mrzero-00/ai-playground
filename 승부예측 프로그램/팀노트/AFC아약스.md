@@ -10,6 +10,6 @@
 <!-- FACTS:END -->
 <!-- INPUTS:START -->
 ## 입력(자동 수집 2026-10-15) — xG·휴식일·라인업은 이 숫자를 쓴다
-- 10-16 01:45 vs HNK하이두크 스플리트: 휴식 4.9일(7일 2경기) · 직전 10-11 홈 vs NEC Nijmegen 1-1 [ned.1] · xG - · 직전 선발 4-3-3 Marc-André ter Stegen, Youri Baas, Thilo Kehrer, Owen Wijndal, Lucas Rosa, Sofyan Amrabat, Julian Brandt, Jorthy Mokio, Tolu Arokodare, Oscar Gloukh, Viktor Tsygankov
+- 10-16 01:45 vs HNK하이두크 스플리트: 휴식 4.9일(7일 2경기) · 직전 10-11 홈 vs NEC Nijmegen 1-1 무 [ned.1] · xG - · 직전 선발 4-3-3 Marc-André ter Stegen, Youri Baas, Thilo Kehrer, Owen Wijndal, Lucas Rosa, Sofyan Amrabat, Julian Brandt, Jorthy Mokio, Tolu Arokodare, Oscar Gloukh, Viktor Tsygankov
 <!-- INPUTS:END -->
 

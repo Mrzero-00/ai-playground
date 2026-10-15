@@ -10,6 +10,6 @@
 <!-- FACTS:END -->
 <!-- INPUTS:START -->
 ## 입력(자동 수집 2026-10-15) — xG·휴식일·라인업은 이 숫자를 쓴다
-- 10-16 04:00 vs 빅토리아 플젠: 휴식 28.0일?(국내리그 ESPN 미제공 — 직접 확인) · 직전 09-18 원정 vs Celtic 1-3 [uefa.europa] · xG - · 직전 선발 4-2-3-1 Ádam Varga, Mariano Gómez, Toon Raemaekers, Cadu, Olivér Nagy, Kristoffer Zachariassen, Marius Dumitru Corbu, Ádám Nagy, Ádám Bagi, Daniel Arzani, Bamidele Isa Yusuf
+- 10-16 04:00 vs 빅토리아 플젠: 휴식 28.0일?(국내리그 ESPN 미제공 — 직접 확인) · 직전 09-18 원정 vs Celtic 3-1 승 [uefa.europa] · xG - · 직전 선발 4-2-3-1 Ádam Varga, Mariano Gómez, Toon Raemaekers, Cadu, Olivér Nagy, Kristoffer Zachariassen, Marius Dumitru Corbu, Ádám Nagy, Ádám Bagi, Daniel Arzani, Bamidele Isa Yusuf
 <!-- INPUTS:END -->
 

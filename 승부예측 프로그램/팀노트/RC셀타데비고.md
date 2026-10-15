@@ -10,6 +10,6 @@
 <!-- FACTS:END -->
 <!-- INPUTS:START -->
 ## 입력(자동 수집 2026-10-15) — xG·휴식일·라인업은 이 숫자를 쓴다
-- 10-18 23:15 vs 데포르티보 알라베스: 휴식 7.1일 · 직전 10-11 원정 vs Elche 0-0 [laliga] · xG 시즌8경기 xG1.0/xGA1.24 npxGD-0.24 · 최근5 1.24/0.89 (+0.19) · 홈-0.32/원정-0.15 · xPts9.7 vs 승점8 · 직전 선발 3-4-3 Andrei Radu, Yoel Lago, Marcos Alonso, Álvaro Núñez, Aleix Febas, Ilaix Moriba, Javi Galán, Javi Rueda, Pablo Durán, Hugo Álvarez, Ferran Jutglà
+- 10-16 04:00 vs 유벤투스: 휴식 4.3일(7일 1경기) · 직전 10-11 원정 vs Elche 0-0 무 [laliga] · xG 시즌8경기 xG1.0/xGA1.24 npxGD-0.24 · 최근5 1.24/0.89 (+0.19) · 홈-0.32/원정-0.15 · xPts9.7 vs 승점8 · 직전 선발 3-4-3 Andrei Radu, Yoel Lago, Marcos Alonso, Álvaro Núñez, Aleix Febas, Ilaix Moriba, Javi Galán, Javi Rueda, Pablo Durán, Hugo Álvarez, Ferran Jutglà
 <!-- INPUTS:END -->
 

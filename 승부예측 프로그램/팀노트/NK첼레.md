@@ -9,7 +9,7 @@
 <!-- FACTS:END -->
 <!-- INPUTS:START -->
 ## 입력(자동 수집 2026-10-15) — xG·휴식일·라인업은 이 숫자를 쓴다
-- 10-16 01:45 vs AC오모니아: 휴식 28.9일?(국내리그 ESPN 미제공 — 직접 확인) · 직전 09-17 원정 vs Bayer Leverkusen 2-0 [uefa.europa] · xG - · 직전 선발 4-2-3-1 Zan-Luk Leban, Artemijus Tutyskinas, Lukasz Bejger, Milot Avdyli, Pijus Sirvys, Svit Seslar, Mark Zabukovnik, Luka Ticic, Armandas Kucys, Benjamin Verbic, Yaya Dukuly
+- 10-16 01:45 vs AC오모니아: 휴식 28.9일?(국내리그 ESPN 미제공 — 직접 확인) · 직전 09-17 원정 vs Bayer Leverkusen 0-2 패 [uefa.europa] · xG - · 직전 선발 4-2-3-1 Zan-Luk Leban, Artemijus Tutyskinas, Lukasz Bejger, Milot Avdyli, Pijus Sirvys, Svit Seslar, Mark Zabukovnik, Luka Ticic, Armandas Kucys, Benjamin Verbic, Yaya Dukuly
 <!-- INPUTS:END -->
 
 ## 성향

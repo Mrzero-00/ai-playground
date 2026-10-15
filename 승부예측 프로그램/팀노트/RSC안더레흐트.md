@@ -10,6 +10,6 @@
 <!-- FACTS:END -->
 <!-- INPUTS:START -->
 ## 입력(자동 수집 2026-10-15) — xG·휴식일·라인업은 이 숫자를 쓴다
-- 10-16 04:00 vs GNK디나모 자그레브: 휴식 5.2일(7일 1경기) · 직전 10-10 원정 vs Cercle Brugge KSV 1-2 [bel.1] · xG - · 직전 선발 4-2-3-1 Colin Coosemans, Léo Pétrot, Kaïs Houdoussi Barry, Ludwig Augustinsson, Ali Maamar, Danylo Sikan, Ilias Koutsoupias, Marco Kana, Tawfik Bentayeb, Marten Winkler, Lukás Ambros
+- 10-16 04:00 vs GNK디나모 자그레브: 휴식 5.2일(7일 1경기) · 직전 10-10 원정 vs Cercle Brugge KSV 2-1 승 [bel.1] · xG - · 직전 선발 4-2-3-1 Colin Coosemans, Léo Pétrot, Kaïs Houdoussi Barry, Ludwig Augustinsson, Ali Maamar, Danylo Sikan, Ilias Koutsoupias, Marco Kana, Tawfik Bentayeb, Marten Winkler, Lukás Ambros
 <!-- INPUTS:END -->
 

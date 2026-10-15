@@ -10,7 +10,7 @@
 <!-- FACTS:END -->
 <!-- INPUTS:START -->
 ## 입력(자동 수집 2026-10-15) — xG·휴식일·라인업은 이 숫자를 쓴다
-- 10-16 01:45 vs 잘츠부르크: 휴식 4.0일(7일 1경기) · 직전 10-12 원정 vs Sassuolo 1-1 [italian serie a] · xG 시즌6경기 xG1.93/xGA1.21 npxGD+0.72 · 최근5 1.96/1.23 (+0.74) · 홈2.48/원정-0.16 · xPts10.7 vs 승점12 · 직전 선발 4-4-2 Mike Maignan, Strahinja Pavlovic, Matteo Gabbia, Pervis Estupiñán, Mario Gila, Adrien Rabiot, Yunus Musah, Diego Moreira, Samuel Chukwueze, Gonçalo Ramos, Christian Pulisic
+- 10-16 01:45 vs 잘츠부르크: 휴식 4.0일(7일 1경기) · 직전 10-12 원정 vs Sassuolo 1-1 무 [italian serie a] · xG 시즌6경기 xG1.93/xGA1.21 npxGD+0.72 · 최근5 1.96/1.23 (+0.74) · 홈2.48/원정-0.16 · xPts10.7 vs 승점12 · 직전 선발 4-4-2 Mike Maignan, Strahinja Pavlovic, Matteo Gabbia, Pervis Estupiñán, Mario Gila, Adrien Rabiot, Yunus Musah, Diego Moreira, Samuel Chukwueze, Gonçalo Ramos, Christian Pulisic
 <!-- INPUTS:END -->
 
 - 2026-10-14 조사: UEL 2차전(10/16 KST, vs 잘츠부르크, 원정) 결장·로테이션 구체 정보 미확인. "Milan to find their feet"류 베팅 매체 프리뷰 제목만 확인, 실질 팀뉴스 부족. ClubElo 1822. 출처: Google News RSS, clubelo.com/Milan.

@@ -8,6 +8,10 @@
   python3 scripts/upset_log.py scan <회차> ["<블록>"]   # 후보를 data/이변기록.csv에 기록(같은 경기·선택은 최신값으로 갱신)
   python3 scripts/upset_log.py report                  # 결과 채점: 적중·ROI(베트맨)·CLV(기록 시 시장 → 최신 시장), 종목·무/역배별
 판정 (분석규칙.md [시험]): 30건 뒤 ROI > 0 이고 CLV 평균 > 0 이면 소액 별도 추천 검토, 아니면 폐기.
+
+무 후보 (사용자 지시 2026-10-15, 유형 '무1순위'): 최종(보정) 확률 1순위가 무이고 보정_무 ≥ 35%. 시장 격차·기대값 조건 없음 — 시장은 무를 거의 항상
+  3순위로 두므로 내 분석이 무를 1순위로 보는 경기가 시장과 가장 크게 갈리는 지점. 승무패에서는 단일 무로 마킹, 프로토에서는 가상 기록만.
+  30건에서 적중률 30% 이상(배당 3.3 손익분기)이면 프로토 추천에 60% 기준 예외로 편입.
 """
 import csv
 import datetime as dt
@@ -22,6 +26,7 @@ LOG = os.path.join(ROOT, "data", "이변기록.csv")
 COLS = ["기록시각", "회차", "종목", "리그", "홈", "원정", "선택", "유형", "순수", "시장", "베트맨", "기대값", "결과", "적중"]
 OUT = ("승", "무", "패")
 GAP, EV_MIN = 5.0, 1.05
+DRAW_MIN = 35.0  # 무1순위 후보: 최종(보정) 무 확률 하한
 
 
 def num(x):
@@ -35,15 +40,20 @@ def candidates(r):
     pu = [num(r.get(f"순수_{k}")) for k in OUT]
     mk = [num(r.get(f"시장_{k}")) for k in OUT]
     bt = [num(r.get(f"베트맨_{k}")) for k in OUT]
-    if None in (pu[0], pu[2], mk[0], mk[2]):
-        return []
-    top = max(range(3), key=lambda i: mk[i] or 0)
     out = []
+    # 무1순위 후보 (2026-10-15): 최종(보정) 확률 기준, 시장 무관
+    fin = [num(r.get(f"보정_{k}")) for k in OUT]
+    if r.get("종목") == "축구" and None not in fin and fin[1] >= DRAW_MIN and fin[1] >= max(fin):
+        ev = (fin[1] / 100 * bt[1]) if bt[1] else None
+        out.append(("무", "무1순위", fin[1], mk[1] if mk[1] is not None else "", bt[1] or "", round(ev, 3) if ev else ""))
+    if None in (pu[0], pu[2], mk[0], mk[2]):
+        return out
+    top = max(range(3), key=lambda i: mk[i] or 0)
     for i, k in enumerate(OUT):
         if i == top or not pu[i] or not mk[i] or not bt[i]:
             continue
         ev = pu[i] / 100 * bt[i]
-        if pu[i] - mk[i] >= GAP and ev >= EV_MIN:
+        if pu[i] - mk[i] >= GAP and ev >= EV_MIN and not (k == "무" and any(o[1] == "무1순위" for o in out)):
             out.append((k, "무" if k == "무" else "역배", pu[i], mk[i], bt[i], round(ev, 3)))
     return out
 
@@ -102,14 +112,19 @@ def cmd_report():
             s = groups.setdefault(g, [0, 0, 0.0, 0.0, 0])
             s[0] += 1
             s[1] += int(x["적중"])
-            s[2] += (float(x["베트맨"]) if x["적중"] == "1" else 0) - 1
-            if latest is not None:
+            s[2] += ((float(x["베트맨"]) if x["적중"] == "1" else 0) - 1) if x["베트맨"] else 0
+            if latest is not None and x["시장"]:
                 s[3] += latest - float(x["시장"])
                 s[4] += 1
     save_log(log)
     print(f"이변 가상 기록 {len(log)}건 (채점 {groups.get('전체', [0])[0]}건) — 판정 기준 30건")
     for g, (n, h, pl, clv, nc) in groups.items():
         print(f"  {g}: {h}/{n} 적중 · ROI {pl / n * 100:+.1f}% · CLV 평균 {clv / nc if nc else 0:+.1f}%p")
+    d = groups.get("무1순위")
+    if d:
+        n, h = d[0], d[1]
+        verdict = "표본 부족" if n < 30 else ("프로토 편입 검토(적중률 30%+)" if h / n >= 0.30 else "미달")
+        print(f"  ▶ 무1순위 판정: {h}/{n} ({h / n * 100:.0f}%) — {verdict} (기준 30건·30%)")
 
 
 if __name__ == "__main__":

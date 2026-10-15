@@ -9,6 +9,6 @@
 <!-- FACTS:END -->
 <!-- INPUTS:START -->
 ## 입력(자동 수집 2026-10-15) — xG·휴식일·라인업은 이 숫자를 쓴다
-- 10-16 01:45 vs 스파르타 프라하: 휴식 4.0일(7일 1경기) · 직전 10-12 홈 vs Molde 2-2 무 [eliteserien] · xG 시즌6경기 xG1.45/xGA1.62 npxGD-0.17 · 최근5 1.5/1.58 (-0.07) · 홈0.52/원정-0.86 · xPts7.9 vs 승점13 · 직전 선발 4-1-4-1 Pontus Dahlberg, Ruben Gabrielsen, Sander Moen Foss, Filip Ottosson, Frederik Elkaer, Lars Ranger, Eric Kitolano, Gustav Nyheim, Vá, Daniel Bassi, Thomas Lehne Olsen
+- 10-16 01:45 vs 스파르타 프라하: 휴식 27.9일?(국내리그 ESPN 미제공 — 직접 확인) · 직전 09-18 홈 vs Torreense 1-2 패 [uefa.europa] · xG 시즌6경기 xG1.45/xGA1.62 npxGD-0.17 · 최근5 1.5/1.58 (-0.07) · 홈0.52/원정-0.86 · xPts7.9 vs 승점13 · 직전 선발 4-3-3 Pontus Dahlberg, Ruben Gabrielsen, Sander Moen Foss, Frederik Elkaer, Lars Ranger, Filip Ottosson, Gustav Nyheim, Ylldren Ibrahimaj, Fredrik Gulbrandsen, Vá, Yaw Paintsil
 <!-- INPUTS:END -->
 

@@ -9,7 +9,7 @@
 <!-- FACTS:END -->
 <!-- INPUTS:START -->
 ## 입력(자동 수집 2026-10-15) — xG·휴식일·라인업은 이 숫자를 쓴다
-- 10-16 04:00 vs 스타드 렌: 휴식 5.1일(7일 1경기) · 직전 10-11 원정 vs AEK Athens 0-3 패 [gre.1] · xG - · 직전 선발 3-4-3 Nikos Christogeorgos, Achilleas Poungouras, Kresimir Krizmanic, Konstantinos Kostoulas, Andreas Bouchalakis, Thanasis Androutsos, Nicolaos Athanasiou, Lorenzo Dickmann, Kenan Kodro, Aitor Cantalapiedra, Taxiarchis Fountas
+- 10-16 04:00 vs 스타드 렌: 휴식 28.1일?(국내리그 ESPN 미제공 — 직접 확인) · 직전 09-18 홈 vs TSG Hoffenheim 2-0 승 [uefa.europa] · xG - · 직전 선발 3-4-3 Nikos Christogeorgos, Achilleas Poungouras, Kresimir Krizmanic, Konstantinos Kostoulas, Andreas Bouchalakis, Thanasis Androutsos, Nicolaos Athanasiou, Lorenzo Dickmann, Kenan Kodro, Aitor Cantalapiedra, Taxiarchis Fountas
 <!-- INPUTS:END -->
 
 ## 성향

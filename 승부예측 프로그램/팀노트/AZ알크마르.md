@@ -9,7 +9,7 @@
 <!-- FACTS:END -->
 <!-- INPUTS:START -->
 ## 입력(자동 수집 2026-10-15) — xG·휴식일·라인업은 이 숫자를 쓴다
-- 10-16 01:45 vs 하포엘 베르셰바: 휴식 5.0일(7일 1경기) · 직전 10-11 원정 vs Feyenoord Rotterdam 0-2 패 [ned.1] · xG - · 직전 선발 4-3-3 Jari De Busser, Lewis Schouten, Wouter Goes, Mateo Chávez, Elijah Dijkstra, Calvin Stengs, Peer Koopmeiners, Jordy Clasie, Mexx Meerdink, Ro-Zangelo Daal, Ayoub Oufkir
+- 10-16 01:45 vs 하포엘 베르셰바: 휴식 11.1일 · 직전 10-04 원정 vs De Graafschap 0-3 패 [vrouwen eredivisie] · xG - · 직전 선발 4-2-3-1 Febe Copier, Maudy Stoop, Amber Verspaget, Ginia Caprino, Pleun Groot, Desiree van Lunteren, Manique De Vette, Jasmijn Van Uden, Sabrine Ellouzi, Shanique Dessing, Angel Harting
 <!-- INPUTS:END -->
 
 - 2026-10-14 조사: UEL 2차전(10/16 KST, vs 하포엘 베르셰바, 홈) 관련 결장·로테이션 구체 정보 미확인. 네덜란드 당국이 보안 우려로 하포엘 원정팬 입장을 제한(경기력 변수는 아니고 분위기 요인). 경기는 AZ 정규 홈구장에서 열려 중립 개최 아님. ClubElo 1686(clubelo.com/Ranking 표 기준, 프로필 페이지 slug 미확인). 출처: Google News RSS, clubelo.com/Ranking.

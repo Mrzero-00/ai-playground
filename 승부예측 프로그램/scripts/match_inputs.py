@@ -156,14 +156,14 @@ def pool(refresh=False):
     for code in CODES:
         for ym in (f"{prev:%Y%m}", f"{today:%Y%m}"):
             for e in sb_month(code, ym, refresh):
-                P.setdefault(e["id"], (e, comp_name(e, code)))
+                P.setdefault(e["id"], (e, comp_name(e, code), code))
     for i in range(-1, 36):
         ds = (today - dt.timedelta(days=i)).strftime("%Y%m%d")
         for e in sb_day(ds, refresh):
             cn = comp_name(e)
             if any(k in cn for k in SKIP_COMP) or (e.get("season") or {}).get("slug", "").find("women") >= 0:
                 continue
-            P.setdefault(e["id"], (e, cn))
+            P.setdefault(e["id"], (e, cn, ""))
     _POOL = P
     return P
 
@@ -200,26 +200,29 @@ def team_events(eng, before_utc, days=35, refresh=False, prefer=None):
     ok_pref, ok_strict = matcher(eng), strict_matcher(eng)
     out = []
     lo = (before_utc - dt.timedelta(days=days)) if before_utc else None
-    for eid, (e, comp) in pool(refresh).items():
+    for eid, (e, comp, code) in pool(refresh).items():
         c, h, a = sides(e)
         if not c["status"]["type"].get("completed"):
             continue
         t = dt.datetime.fromisoformat(e["date"].replace("Z", "+00:00"))
         if before_utc and (t >= before_utc or t < lo):
             continue
-        ok = ok_pref if (prefer and comp == prefer) or comp.startswith(("uefa", "afc", "conmebol", "concacaf")) else ok_strict
+        ok = ok_pref if (prefer and code == prefer) or code.startswith(("uefa", "afc", "conmebol", "concacaf")) else ok_strict
         if YOUTH.search(norm(h["team"]["displayName"])) or YOUTH.search(norm(a["team"]["displayName"])) or "trophy" in comp or "u21" in comp:
             continue   # EFL 트로피 U21·B팀·여자팀 경기 제외 (2026-10-15 풀럼 U21 오매칭)
         if ok(h["team"]["displayName"]):
-            out.append((t, comp, eid, "홈", a["team"]["displayName"], _score(h.get("score"), a.get("score"))))
+            out.append((t, comp, eid, "홈", a["team"]["displayName"], _score(h.get("score"), a.get("score")), code))
         elif ok(a["team"]["displayName"]):
-            out.append((t, comp, eid, "원정", h["team"]["displayName"], _score(a.get("score"), h.get("score"))))
+            out.append((t, comp, eid, "원정", h["team"]["displayName"], _score(a.get("score"), h.get("score")), code))
+    cont = ("uefa", "afc", "conmebol", "concacaf")
+    if prefer and any(x[6] == prefer for x in out):
+        out = [x for x in out if x[6] == prefer or x[6].startswith(cont) or x[6] == ""]   # 같은 이름의 타국 클럽(브라질 Athletic Club) 제거
     return sorted(out, key=lambda x: x[0], reverse=True)
 
 
 def find_event(ko_utc, home_eng, away_eng, refresh=False):
     okh, oka = matcher(home_eng), matcher(away_eng)
-    for eid, (e, comp) in pool(refresh).items():
+    for eid, (e, comp, code) in pool(refresh).items():
         t = dt.datetime.fromisoformat(e["date"].replace("Z", "+00:00"))
         if abs((t - ko_utc).total_seconds()) > 36 * 3600:
             continue

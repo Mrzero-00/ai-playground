@@ -10,6 +10,6 @@
 <!-- FACTS:END -->
 <!-- INPUTS:START -->
 ## 입력(자동 수집 2026-10-15) — xG·휴식일·라인업은 이 숫자를 쓴다
-- 10-16 09:30 vs 에스투디안테스데 라플라타: 휴식 ?(ESPN 미제공 리그 — 직접 확인) · 직전 - · xG -
+- 10-16 09:30 vs 에스투디안테스데 라플라타: 휴식 28.0일?(국내리그 ESPN 미제공 — 직접 확인) · 직전 09-18 홈 vs Independiente del Valle 1-1 무 [quarterfinals] · xG - · 직전 선발 4-2-3-1 Agustín Rossi, Léo Pereira, Léo Ortiz, Ayrton Lucas, Emerson Royal, Lucas Paquetá, Jorginho, Erick Pulgar, Bruno Henrique, Samuel Lino, Jorge Carrascal
 <!-- INPUTS:END -->
 

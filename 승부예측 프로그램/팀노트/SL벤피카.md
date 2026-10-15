@@ -10,7 +10,7 @@
 <!-- FACTS:END -->
 <!-- INPUTS:START -->
 ## 입력(자동 수집 2026-10-15) — xG·휴식일·라인업은 이 숫자를 쓴다
-- 10-16 04:00 vs 셀틱: 휴식 15.0일?(국내리그 ESPN 미제공 — 직접 확인) · 직전 10-01 홈 vs Bayern Munich 0-3 패 [league phase] · xG - · 직전 선발 4-2-3-1 Lena Pauels, Tinkara Testen, Diana Gomes, Marit Bratberg Lund, Catarina Amado, Anna Csiki, Carolina Tristão, Pauleta, Frøya Brennskag-Dorsin, Lúcia Alves, Chandra Davidson
+- 10-16 04:00 vs 셀틱: 휴식 29.0일?(국내리그 ESPN 미제공 — 직접 확인) · 직전 09-17 원정 vs AC Milan 2-0 승 [uefa.europa] · xG - · 직전 선발 4-2-3-1 Anatoliy Trubin, Tomás Araújo, Alessandro Circati, Souffian El Karouani, Daniel Banjaqui, Georgiy Sudakov, João Palhinha, Fredrik Aursnes, Jhon Durán, Jakub Kaminski, Dodi Lukébakio
 <!-- INPUTS:END -->
 
 ## 성향

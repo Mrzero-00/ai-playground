@@ -4,27 +4,28 @@
   "경기": "AZ알크마르 - 하포엘 베르셰바",
   "리그": "UEFA 유로파리그",
   "시각": "10-16 01:45",
-  "수집": "10-15 16:59",
+  "수집": "10-15 17:00",
   "홈": {
    "팀": "AZ알크마르",
    "eng": "AZ Alkmaar",
-   "직전": "10-04 원정 vs De Graafschap 0-3 패 [vrouwen eredivisie]",
-   "휴식일": 11.1,
+   "직전": "09-17 원정 vs Sunderland 0-1 패 [uefa.europa]",
+   "휴식일": 28.9,
+   "휴식일주의": "ESPN에 없는 리그일 수 있음(21일 내 경기 없음) — 실제 휴식일은 더 짧을 수 있음",
    "최근7일경기": 0,
-   "직전event": "401882153",
+   "직전event": "401915592",
    "xg": null,
    "직전선발": [
-    "Febe Copier",
-    "Maudy Stoop",
-    "Amber Verspaget",
-    "Ginia Caprino",
-    "Pleun Groot",
-    "Desiree van Lunteren",
-    "Manique De Vette",
-    "Jasmijn Van Uden",
-    "Sabrine Ellouzi",
-    "Shanique Dessing",
-    "Angel Harting"
+    "Jari De Busser",
+    "Lewis Schouten",
+    "Wouter Goes",
+    "Mateo Chávez",
+    "Elijah Dijkstra",
+    "Kees Smit",
+    "Peer Koopmeiners",
+    "Jordy Clasie",
+    "Mexx Meerdink",
+    "Ro-Zangelo Daal",
+    "Ayoub Oufkir"
    ],
    "직전포메이션": "4-2-3-1"
   },
@@ -52,7 +53,7 @@
    ],
    "직전포메이션": "4-3-3"
   },
-  "라인업": "미발표(킥오프 8.8h 전)",
+  "라인업": "미발표(킥오프 8.7h 전)",
   "event": "401915573"
  },
  "8481": {
@@ -60,7 +61,7 @@
   "경기": "루아얄 위니옹 생질루아즈 - 레알 소시에다드",
   "리그": "UEFA 유로파리그",
   "시각": "10-16 01:45",
-  "수집": "10-15 16:59",
+  "수집": "10-15 17:00",
   "홈": {
    "팀": "루아얄 위니옹 생질루아즈",
    "eng": "Royale Union Saint-Gilloise",
@@ -88,10 +89,11 @@
   "원정": {
    "팀": "레알 소시에다드",
    "eng": "Real Sociedad",
-   "직전": "10-05 원정 vs Valencia 1-0 승 [spanish liga f]",
-   "휴식일": 11.0,
+   "직전": "09-18 홈 vs AFC Bournemouth 1-2 패 [uefa.europa]",
+   "휴식일": 27.9,
+   "휴식일주의": "ESPN에 없는 리그일 수 있음(21일 내 경기 없음) — 실제 휴식일은 더 짧을 수 있음",
    "최근7일경기": 0,
-   "직전event": "401882493",
+   "직전event": "401915583",
    "xg": {
     "n": 8,
     "xg": 1.34,
@@ -107,21 +109,21 @@
    },
    "xg_src": "Understat La_liga Real Sociedad",
    "직전선발": [
-    "Julia Arrula",
-    "Claudia Florentino",
-    "Nahia Aparicio",
-    "Ainhoa Moraza",
-    "Camino",
-    "Ainoa Campo",
-    "Intza Eguiguren",
-    "Paula Fernández",
-    "Nerea Eizagirre",
-    "Cecilia Marcos",
-    "Ainhoa Marín"
+    "Unai Marrero",
+    "Jon Martín",
+    "Mamadou Sarr",
+    "Luken Beitia",
+    "Sergio Gómez",
+    "Héctor Fort",
+    "Yangel Herrera",
+    "Beñat Turrientes",
+    "Ander Barrenetxea",
+    "Mikel Oyarzabal",
+    "Orri Óskarsson"
    ],
-   "직전포메이션": "4-3-3"
+   "직전포메이션": "5-4-1"
   },
-  "라인업": "미발표(킥오프 8.8h 전)",
+  "라인업": "미발표(킥오프 8.7h 전)",
   "event": "401915574"
  },
  "8512": {
@@ -129,7 +131,7 @@
   "경기": "아탈란타BC - 파포스FC",
   "리그": "UEFA 컨퍼런스리그",
   "시각": "10-16 04:00",
-  "수집": "10-15 16:59",
+  "수집": "10-15 17:00",
   "홈": {
    "팀": "아탈란타BC",
    "eng": "Atalanta BC",
@@ -169,7 +171,7 @@
   "경기": "AFC본머스 - 슈투름 그라츠",
   "리그": "UEFA 유로파리그",
   "시각": "10-16 04:00",
-  "수집": "10-15 16:59",
+  "수집": "10-15 17:00",
   "홈": {
    "팀": "AFC본머스",
    "eng": "AFC Bournemouth",
@@ -210,26 +212,26 @@
   "원정": {
    "팀": "슈투름 그라츠",
    "eng": "Sturm Graz",
-   "직전": "10-01 홈 vs VfL Wolfsburg 0-2 패 [second qualifying round]",
-   "휴식일": 15.1,
+   "직전": "09-17 홈 vs Stade Rennais 0-0 무 [uefa.europa]",
+   "휴식일": 29.0,
    "휴식일주의": "ESPN에 없는 리그일 수 있음(21일 내 경기 없음) — 실제 휴식일은 더 짧을 수 있음",
    "최근7일경기": 0,
-   "직전event": "401916418",
+   "직전event": "401915593",
    "xg": null,
    "직전선발": [
-    "Vanessa Gritzner",
-    "Julia Wattilete",
-    "Stefanie Großgasteiger",
-    "Merel Bormans",
-    "Marie Spieß",
-    "Lena Breznik",
-    "Sara Pavlovic",
-    "Sophie Maierhofer",
-    "Julia Keutz",
-    "Lilla Sipos",
-    "Laura Krumböck"
+    "Danill Khudiakov",
+    "Joshua Quarshie",
+    "Paul-Friedrich Koller",
+    "Albert Vallci",
+    "Luís Balbo",
+    "Jürgen Heil",
+    "Valmir Matoshi",
+    "Jacob Peter Hödl",
+    "Luca Weinhandl",
+    "Gizo Mamageishvili",
+    "Belmin Beganovic"
    ],
-   "직전포메이션": "4-3-3"
+   "직전포메이션": "5-3-2"
   },
   "라인업": "미발표(킥오프 11.0h 전)",
   "event": "401915571"
@@ -1643,7 +1645,7 @@
   "경기": "KAA헨트 - AGF오르후스",
   "리그": "UEFA 컨퍼런스리그",
   "시각": "10-16 01:45",
-  "수집": "10-15 16:59",
+  "수집": "10-15 17:00",
   "홈": {
    "팀": "KAA헨트",
    "eng": "KAA Gent",
@@ -1676,7 +1678,7 @@
    "휴식일주의": "35일 내 경기 없음 — ESPN 미제공 리그(체코·폴란드·헝가리·불가리아·키프로스·이스라엘·핀란드·크로아티아·세르비아·동남아 등)이면 에이전트가 직접 확인",
    "xg": null
   },
-  "라인업": "미발표(킥오프 8.8h 전)",
+  "라인업": "미발표(킥오프 8.7h 전)",
   "event": null
  },
  "8430": {
@@ -1684,7 +1686,7 @@
   "경기": "파나티나이코스 - FK보라츠 바냐루카",
   "리그": "UEFA 컨퍼런스리그",
   "시각": "10-16 01:45",
-  "수집": "10-15 16:59",
+  "수집": "10-15 17:00",
   "홈": {
    "팀": "파나티나이코스",
    "eng": "Panathinaikos",
@@ -1717,7 +1719,7 @@
    "휴식일주의": "35일 내 경기 없음 — ESPN 미제공 리그(체코·폴란드·헝가리·불가리아·키프로스·이스라엘·핀란드·크로아티아·세르비아·동남아 등)이면 에이전트가 직접 확인",
    "xg": null
   },
-  "라인업": "미발표(킥오프 8.8h 전)",
+  "라인업": "미발표(킥오프 8.7h 전)",
   "event": "401915856"
  },
  "8436": {
@@ -1725,7 +1727,7 @@
   "경기": "루가노 - FK츠르베나 즈베즈다",
   "리그": "UEFA 컨퍼런스리그",
   "시각": "10-16 01:45",
-  "수집": "10-15 16:59",
+  "수집": "10-15 17:00",
   "홈": {
    "팀": "루가노",
    "eng": "FC Lugano",
@@ -1744,7 +1746,7 @@
    "휴식일주의": "35일 내 경기 없음 — ESPN 미제공 리그(체코·폴란드·헝가리·불가리아·키프로스·이스라엘·핀란드·크로아티아·세르비아·동남아 등)이면 에이전트가 직접 확인",
    "xg": null
   },
-  "라인업": "미발표(킥오프 8.8h 전)",
+  "라인업": "미발표(킥오프 8.7h 전)",
   "event": "401915748"
  },
  "8440": {
@@ -1752,7 +1754,7 @@
   "경기": "KuPS쿠오피오 - 트라브존스포르",
   "리그": "UEFA 컨퍼런스리그",
   "시각": "10-16 01:45",
-  "수집": "10-15 16:59",
+  "수집": "10-15 17:00",
   "홈": {
    "팀": "KuPS쿠오피오",
    "eng": "KuPS",
@@ -1785,7 +1787,7 @@
    ],
    "직전포메이션": "4-2-3-1"
   },
-  "라인업": "미발표(킥오프 8.8h 전)",
+  "라인업": "미발표(킥오프 8.7h 전)",
   "event": "401915858"
  },
  "8444": {
@@ -1793,7 +1795,7 @@
   "경기": "우니베르시타테아 크라이오바 - 헤타페",
   "리그": "UEFA 컨퍼런스리그",
   "시각": "10-16 01:45",
-  "수집": "10-15 16:59",
+  "수집": "10-15 17:00",
   "홈": {
    "팀": "우니베르시타테아 크라이오바",
    "eng": "CS Universitatea Craiova",
@@ -1839,7 +1841,7 @@
    ],
    "직전포메이션": "5-4-1"
   },
-  "라인업": "미발표(킥오프 8.8h 전)",
+  "라인업": "미발표(킥오프 8.7h 전)",
   "event": null
  },
  "8448": {
@@ -1847,7 +1849,7 @@
   "경기": "리가FC - 카이라트 알마티",
   "리그": "UEFA 컨퍼런스리그",
   "시각": "10-16 01:45",
-  "수집": "10-15 16:59",
+  "수집": "10-15 17:00",
   "홈": {
    "팀": "리가FC",
    "eng": "Riga FC",
@@ -1866,7 +1868,7 @@
    "휴식일주의": "35일 내 경기 없음 — ESPN 미제공 리그(체코·폴란드·헝가리·불가리아·키프로스·이스라엘·핀란드·크로아티아·세르비아·동남아 등)이면 에이전트가 직접 확인",
    "xg": null
   },
-  "라인업": "미발표(킥오프 8.8h 전)",
+  "라인업": "미발표(킥오프 8.7h 전)",
   "event": "401915747"
  },
  "8452": {
@@ -1874,7 +1876,7 @@
   "경기": "HNK하이두크 스플리트 - AFC아약스",
   "리그": "UEFA 컨퍼런스리그",
   "시각": "10-16 01:45",
-  "수집": "10-15 16:59",
+  "수집": "10-15 17:00",
   "홈": {
    "팀": "HNK하이두크 스플리트",
    "eng": "HNK Hajduk Split",
@@ -1907,7 +1909,7 @@
    ],
    "직전포메이션": "4-3-3"
   },
-  "라인업": "미발표(킥오프 8.8h 전)",
+  "라인업": "미발표(킥오프 8.7h 전)",
   "event": "401915861"
  },
  "8456": {
@@ -1915,7 +1917,7 @@
   "경기": "CSKA소피아 - AS모나코",
   "리그": "UEFA 컨퍼런스리그",
   "시각": "10-16 01:45",
-  "수집": "10-15 16:59",
+  "수집": "10-15 17:00",
   "홈": {
    "팀": "CSKA소피아",
    "eng": "CSKA Sofia",
@@ -1976,7 +1978,7 @@
    ],
    "직전포메이션": "4-2-3-1"
   },
-  "라인업": "미발표(킥오프 8.8h 전)",
+  "라인업": "미발표(킥오프 8.7h 전)",
   "event": "401915855"
  },
  "8460": {
@@ -1984,7 +1986,7 @@
   "경기": "미엘뷔AIF - 인터클럽드 에스칼데스",
   "리그": "UEFA 컨퍼런스리그",
   "시각": "10-16 01:45",
-  "수집": "10-15 16:59",
+  "수집": "10-15 17:00",
   "홈": {
    "팀": "미엘뷔AIF",
    "eng": "Mjallby AIF",
@@ -2030,7 +2032,7 @@
    },
    "xg_src": "Understat Serie_A Inter"
   },
-  "라인업": "미발표(킥오프 8.8h 전)",
+  "라인업": "미발표(킥오프 8.7h 전)",
   "event": "401915857"
  },
  "8466": {
@@ -2038,7 +2040,7 @@
   "경기": "KF에그나티아 - 미트윌란",
   "리그": "UEFA 컨퍼런스리그",
   "시각": "10-16 01:45",
-  "수집": "10-15 16:59",
+  "수집": "10-15 17:00",
   "홈": {
    "팀": "KF에그나티아",
    "eng": "KF Egnatia",
@@ -2071,7 +2073,7 @@
    ],
    "직전포메이션": "3-4-1-2"
   },
-  "라인업": "미발표(킥오프 8.8h 전)",
+  "라인업": "미발표(킥오프 8.7h 전)",
   "event": "401915859"
  },
  "8470": {
@@ -2079,7 +2081,7 @@
   "경기": "올랭피크 리옹 - 크리스털 팰리스",
   "리그": "UEFA 유로파리그",
   "시각": "10-16 01:45",
-  "수집": "10-15 16:59",
+  "수집": "10-15 17:00",
   "홈": {
    "팀": "올랭피크 리옹",
    "eng": "Olympique Lyonnais",
@@ -2105,11 +2107,11 @@
   "원정": {
    "팀": "크리스털 팰리스",
    "eng": "Crystal Palace",
-   "직전": "10-01 홈 vs Charlton Athletic 3-0 승 [league phase]",
-   "휴식일": 14.9,
+   "직전": "09-18 홈 vs Lech Poznan 4-0 승 [uefa.europa]",
+   "휴식일": 27.9,
    "휴식일주의": "ESPN에 없는 리그일 수 있음(21일 내 경기 없음) — 실제 휴식일은 더 짧을 수 있음",
    "최근7일경기": 0,
-   "직전event": "401923364",
+   "직전event": "401915569",
    "xg": {
     "n": 6,
     "xg": 1.64,
@@ -2125,21 +2127,21 @@
    },
    "xg_src": "Understat EPL Crystal Palace",
    "직전선발": [
-    "Shae Yañez",
-    "Hayley Nolan",
-    "Caitlin Cosme",
-    "Jamie-Lee Napier",
-    "Shanade Hopcroft",
-    "Sierra Enge",
-    "Ashleigh Weerden",
-    "Molly-Mae Sharpe",
-    "Abbie Larkin",
-    "Kirsty Howat",
-    "Annabel Blanchard"
+    "Walter Benítez",
+    "Axel Disasi",
+    "Honest Ahanor",
+    "Chris Richards",
+    "Adam Wharton",
+    "Quinten Timber",
+    "Tyrick Mitchell",
+    "Anan Khalaili",
+    "Jørgen Strand Larsen",
+    "Yéremy Pino",
+    "Daichi Kamada"
    ],
-   "직전포메이션": "3-4-2-1"
+   "직전포메이션": "3-4-3"
   },
-  "라인업": "미발표(킥오프 8.8h 전)",
+  "라인업": "미발표(킥오프 8.7h 전)",
   "event": null
  },
  "8486": {
@@ -2147,7 +2149,7 @@
   "경기": "잘츠부르크 - AC밀란",
   "리그": "UEFA 유로파리그",
   "시각": "10-16 01:45",
-  "수집": "10-15 16:59",
+  "수집": "10-15 17:00",
   "홈": {
    "팀": "잘츠부르크",
    "eng": "FC Red Bull Salzburg",
@@ -2194,7 +2196,7 @@
    ],
    "직전포메이션": "3-4-2-1"
   },
-  "라인업": "미발표(킥오프 8.8h 전)",
+  "라인업": "미발표(킥오프 8.7h 전)",
   "event": null
  },
  "8491": {
@@ -2202,28 +2204,28 @@
   "경기": "스파르타 프라하 - 릴레스트룀SK",
   "리그": "UEFA 유로파리그",
   "시각": "10-16 01:45",
-  "수집": "10-15 16:59",
+  "수집": "10-15 17:00",
   "홈": {
    "팀": "스파르타 프라하",
    "eng": "Sparta Prague",
-   "직전": "09-30 원정 vs Farul Constanta 4-0 승 [second qualifying round]",
-   "휴식일": 15.1,
+   "직전": "09-17 원정 vs Ararat-Armenia 4-1 승 [uefa.europa]",
+   "휴식일": 29.0,
    "휴식일주의": "ESPN에 없는 리그일 수 있음(21일 내 경기 없음) — 실제 휴식일은 더 짧을 수 있음",
    "최근7일경기": 0,
-   "직전event": "401916444",
+   "직전event": "401915594",
    "xg": null,
    "직전선발": [
-    "Nikola Harantová",
-    "Tori Hansen",
-    "Aneta Pochmanova",
-    "Laura Retkesová",
-    "Eva Bartonová",
-    "Anna Petryk",
-    "Natálie Pešková",
-    "Franny Cerna",
-    "Hallie Bergford",
-    "Ellie Ospeck",
-    "Michaela Khyrova"
+    "Jakub Surovcik",
+    "Tobias Guddal",
+    "Loïc Mbe Soh",
+    "Matej Rynes",
+    "Martin Suchomel",
+    "Roman Macek",
+    "Hugo Sochurek",
+    "Adam Karabec",
+    "Jonatan Brunes",
+    "Josimar Alcócer",
+    "John Mercado"
    ],
    "직전포메이션": "4-3-3"
   },
@@ -2264,7 +2266,7 @@
    ],
    "직전포메이션": "4-3-3"
   },
-  "라인업": "미발표(킥오프 8.8h 전)",
+  "라인업": "미발표(킥오프 8.7h 전)",
   "event": "401915567"
  },
  "8497": {
@@ -2272,7 +2274,7 @@
   "경기": "레흐 포즈난 - 바이어04 레버쿠젠",
   "리그": "UEFA 유로파리그",
   "시각": "10-16 01:45",
-  "수집": "10-15 16:59",
+  "수집": "10-15 17:00",
   "홈": {
    "팀": "레흐 포즈난",
    "eng": "Lech Poznan",
@@ -2334,7 +2336,7 @@
    ],
    "직전포메이션": "4-2-3-1"
   },
-  "라인업": "미발표(킥오프 8.8h 전)",
+  "라인업": "미발표(킥오프 8.7h 전)",
   "event": "401915576"
  },
  "8502": {
@@ -2342,7 +2344,7 @@
   "경기": "NK첼레 - AC오모니아",
   "리그": "UEFA 유로파리그",
   "시각": "10-16 01:45",
-  "수집": "10-15 16:59",
+  "수집": "10-15 17:00",
   "홈": {
    "팀": "NK첼레",
    "eng": "NK Celje",
@@ -2391,7 +2393,7 @@
    ],
    "직전포메이션": "4-2-3-1"
   },
-  "라인업": "미발표(킥오프 8.8h 전)",
+  "라인업": "미발표(킥오프 8.7h 전)",
   "event": "401915577"
  },
  "8507": {
@@ -2399,39 +2401,39 @@
   "경기": "SCU토렌세 - 선덜랜드",
   "리그": "UEFA 유로파리그",
   "시각": "10-16 01:45",
-  "수집": "10-15 16:59",
+  "수집": "10-15 17:00",
   "홈": {
    "팀": "SCU토렌세",
    "eng": "Torreense",
-   "직전": "10-01 홈 vs Metalist 1925 Kharkiv 4-1 승 [second qualifying round]",
-   "휴식일": 14.9,
+   "직전": "09-18 원정 vs Lillestrom 2-1 승 [uefa.europa]",
+   "휴식일": 27.9,
    "휴식일주의": "ESPN에 없는 리그일 수 있음(21일 내 경기 없음) — 실제 휴식일은 더 짧을 수 있음",
    "최근7일경기": 0,
-   "직전event": "401916419",
+   "직전event": "401915570",
    "xg": null,
    "직전선발": [
-    "Ana Rute Costa",
-    "Ella Tonkin",
-    "Bárbara Lopes",
-    "Nuria Mendoza",
-    "Nicole Silva Nunes",
-    "Gerda Inge Konst",
-    "Raquel Ferreira",
-    "Catarina Santos Vieira Pereira",
-    "Bruna Alexandre Domingues Ramos",
-    "Maile Joy Hayes",
-    "Jennie Lakip"
+    "Adriel",
+    "Volnei Feltes",
+    "Mohamed Diadié",
+    "Javier Vazquez",
+    "David Bruno",
+    "João Marques",
+    "Alejandro Alfaro",
+    "Amine Oudrhiri",
+    "Malik Abubakari",
+    "Dany Jean",
+    "Manuel Pozo"
    ],
-   "직전포메이션": "3-5-2"
+   "직전포메이션": "4-2-3-1"
   },
   "원정": {
    "팀": "선덜랜드",
    "eng": "Sunderland AFC",
-   "직전": "09-24 원정 vs Liverpool 2-4 패 [league phase]",
-   "휴식일": 21.9,
+   "직전": "09-17 홈 vs AZ Alkmaar 1-0 승 [uefa.europa]",
+   "휴식일": 28.9,
    "휴식일주의": "ESPN에 없는 리그일 수 있음(21일 내 경기 없음) — 실제 휴식일은 더 짧을 수 있음",
    "최근7일경기": 0,
-   "직전event": "401923272",
+   "직전event": "401915592",
    "xg": {
     "n": 6,
     "xg": 1.82,
@@ -2447,21 +2449,21 @@
    },
    "xg_src": "Understat EPL Sunderland",
    "직전선발": [
-    "Noa Schumacher",
-    "Brianna Westrup",
-    "Chloe Paxton",
-    "Tess Laplacette",
-    "Mary Corbyn",
-    "Katie Kitching",
-    "Emily Cassap",
-    "Natasha Fenton",
-    "Sanni Franssi",
-    "Emily Scarr",
-    "Ella Parker"
+    "Robin Roefs",
+    "Omar Alderete",
+    "Kevin Danso",
+    "Reinildo Mandava",
+    "Nordi Mukiele",
+    "Enzo Le Fée",
+    "Noah Sadiki",
+    "Granit Xhaka",
+    "Wilson Isidor",
+    "Malick Fofana",
+    "Trai Hume"
    ],
    "직전포메이션": "4-2-3-1"
   },
-  "라인업": "미발표(킥오프 8.8h 전)",
+  "라인업": "미발표(킥오프 8.7h 전)",
   "event": "401915575"
  },
  "8516": {
@@ -2469,7 +2471,7 @@
   "경기": "SC프라이부르크 - 야블로네츠",
   "리그": "UEFA 컨퍼런스리그",
   "시각": "10-16 04:00",
-  "수집": "10-15 16:59",
+  "수집": "10-15 17:00",
   "홈": {
    "팀": "SC프라이부르크",
    "eng": "SC Freiburg",
@@ -2523,7 +2525,7 @@
   "경기": "코펜하겐 - SC브라가",
   "리그": "UEFA 컨퍼런스리그",
   "시각": "10-16 04:00",
-  "수집": "10-15 16:59",
+  "수집": "10-15 17:00",
   "홈": {
    "팀": "코펜하겐",
    "eng": "F.C. Copenhagen",
@@ -2564,7 +2566,7 @@
   "경기": "브라이턴&호브 앨비언 - 카우노 잘기리스",
   "리그": "UEFA 컨퍼런스리그",
   "시각": "10-16 04:00",
-  "수집": "10-15 16:59",
+  "수집": "10-15 17:00",
   "홈": {
    "팀": "브라이턴&호브 앨비언",
    "eng": "Brighton & Hove Albion",
@@ -2618,7 +2620,7 @@
   "경기": "트벤테 - FC툰",
   "리그": "UEFA 컨퍼런스리그",
   "시각": "10-16 04:00",
-  "수집": "10-15 16:59",
+  "수집": "10-15 17:00",
   "홈": {
    "팀": "트벤테",
    "eng": "FC Twente",
@@ -2659,7 +2661,7 @@
   "경기": "신트 트라위던VV - 이베리아1999 트빌리시",
   "리그": "UEFA 컨퍼런스리그",
   "시각": "10-16 04:00",
-  "수집": "10-15 16:59",
+  "수집": "10-15 17:00",
   "홈": {
    "팀": "신트 트라위던VV",
    "eng": "Sint-Truidense VV",
@@ -2715,7 +2717,7 @@
   "경기": "SK브란 - 링컨 레드임프스",
   "리그": "UEFA 컨퍼런스리그",
   "시각": "10-16 04:00",
-  "수집": "10-15 16:59",
+  "수집": "10-15 17:00",
   "홈": {
    "팀": "SK브란",
    "eng": "SK Brann",
@@ -2756,7 +2758,7 @@
   "경기": "하트오브 미들로디언 - 노르셸란",
   "리그": "UEFA 컨퍼런스리그",
   "시각": "10-16 04:00",
-  "수집": "10-15 16:59",
+  "수집": "10-15 17:00",
   "홈": {
    "팀": "하트오브 미들로디언",
    "eng": "Heart of Midlothian",
@@ -2811,28 +2813,28 @@
   "경기": "SL벤피카 - 셀틱",
   "리그": "UEFA 유로파리그",
   "시각": "10-16 04:00",
-  "수집": "10-15 16:59",
+  "수집": "10-15 17:00",
   "홈": {
    "팀": "SL벤피카",
    "eng": "SL Benfica",
-   "직전": "10-01 홈 vs Bayern Munich 0-3 패 [league phase]",
-   "휴식일": 15.0,
+   "직전": "09-17 원정 vs AC Milan 2-0 승 [uefa.europa]",
+   "휴식일": 29.0,
    "휴식일주의": "ESPN에 없는 리그일 수 있음(21일 내 경기 없음) — 실제 휴식일은 더 짧을 수 있음",
    "최근7일경기": 0,
-   "직전event": "401917005",
+   "직전event": "401915586",
    "xg": null,
    "직전선발": [
-    "Lena Pauels",
-    "Tinkara Testen",
-    "Diana Gomes",
-    "Marit Bratberg Lund",
-    "Catarina Amado",
-    "Anna Csiki",
-    "Carolina Tristão",
-    "Pauleta",
-    "Frøya Brennskag-Dorsin",
-    "Lúcia Alves",
-    "Chandra Davidson"
+    "Anatoliy Trubin",
+    "Tomás Araújo",
+    "Alessandro Circati",
+    "Souffian El Karouani",
+    "Daniel Banjaqui",
+    "Georgiy Sudakov",
+    "João Palhinha",
+    "Fredrik Aursnes",
+    "Jhon Durán",
+    "Jakub Kaminski",
+    "Dodi Lukébakio"
    ],
    "직전포메이션": "4-2-3-1"
   },
@@ -2868,7 +2870,7 @@
   "경기": "올랭피크드 마르세유 - 올림피아코스",
   "리그": "UEFA 유로파리그",
   "시각": "10-16 04:00",
-  "수집": "10-15 16:59",
+  "수집": "10-15 17:00",
   "홈": {
    "팀": "올랭피크드 마르세유",
    "eng": "Olympique de Marseille",
@@ -2923,7 +2925,7 @@
   "경기": "페렌츠바로시TC - 빅토리아 플젠",
   "리그": "UEFA 유로파리그",
   "시각": "10-16 04:00",
-  "수집": "10-15 16:59",
+  "수집": "10-15 17:00",
   "홈": {
    "팀": "페렌츠바로시TC",
    "eng": "Ferencvarosi TC",
@@ -2980,7 +2982,7 @@
   "경기": "GNK디나모 자그레브 - RSC안더레흐트",
   "리그": "UEFA 유로파리그",
   "시각": "10-16 04:00",
-  "수집": "10-15 16:59",
+  "수집": "10-15 17:00",
   "홈": {
    "팀": "GNK디나모 자그레브",
    "eng": "GNK Dinamo Zagreb",
@@ -3037,7 +3039,7 @@
   "경기": "스타드 렌 - OFI크레타",
   "리그": "UEFA 유로파리그",
   "시각": "10-16 04:00",
-  "수집": "10-15 16:59",
+  "수집": "10-15 17:00",
   "홈": {
    "팀": "스타드 렌",
    "eng": "Stade Rennais",
@@ -3094,7 +3096,7 @@
   "경기": "야기엘로니아 비아위스토크 - 아라라트 아르메니아",
   "리그": "UEFA 유로파리그",
   "시각": "10-16 04:00",
-  "수집": "10-15 16:59",
+  "수집": "10-15 17:00",
   "홈": {
    "팀": "야기엘로니아 비아위스토크",
    "eng": "Jagiellonia Bialystok",
@@ -3151,15 +3153,15 @@
   "경기": "RC셀타데비고 - 유벤투스",
   "리그": "UEFA 유로파리그",
   "시각": "10-16 04:00",
-  "수집": "10-15 16:59",
+  "수집": "10-15 17:00",
   "홈": {
    "팀": "RC셀타데비고",
    "eng": "RC Celta de Vigo",
-   "직전": "10-01 홈 vs Real Oviedo 3-1 승 [second round]",
-   "휴식일": 15.1,
+   "직전": "09-17 원정 vs Omonia Nicosia 0-1 패 [uefa.europa]",
+   "휴식일": 29.1,
    "휴식일주의": "ESPN에 없는 리그일 수 있음(21일 내 경기 없음) — 실제 휴식일은 더 짧을 수 있음",
    "최근7일경기": 0,
-   "직전event": "401919419",
+   "직전event": "401915611",
    "xg": {
     "n": 8,
     "xg": 1.0,
@@ -3173,16 +3175,30 @@
     "xpts": 9.7,
     "pts": 8
    },
-   "xg_src": "Understat La_liga Celta Vigo"
+   "xg_src": "Understat La_liga Celta Vigo",
+   "직전선발": [
+    "Andrei Radu",
+    "Carl Starfelt",
+    "Marcos Alonso",
+    "Javi Rodríguez",
+    "Sergio Carreira",
+    "Miguel Román",
+    "Hugo Burcio",
+    "Couhaib Driouech",
+    "Álvaro Núñez",
+    "Ferran Jutglà",
+    "Pablo Durán"
+   ],
+   "직전포메이션": "3-4-1-2"
   },
   "원정": {
    "팀": "유벤투스",
    "eng": "Juventus FC",
-   "직전": "10-01 원정 vs BK Häcken 3-0 승 [league phase]",
-   "휴식일": 15.1,
+   "직전": "09-18 홈 vs NEC Nijmegen 5-0 승 [uefa.europa]",
+   "휴식일": 28.0,
    "휴식일주의": "ESPN에 없는 리그일 수 있음(21일 내 경기 없음) — 실제 휴식일은 더 짧을 수 있음",
    "최근7일경기": 0,
-   "직전event": "401917008",
+   "직전event": "401915582",
    "xg": {
     "n": 6,
     "xg": 1.94,
@@ -3198,19 +3214,19 @@
    },
    "xg_src": "Understat Serie_A Juventus",
    "직전선발": [
-    "Daniëlle de Jong",
-    "Cecilia Salvai",
-    "Kysha Sylla",
-    "Martina Lenzini",
-    "Eva Schatzer",
-    "Júlia Bartel",
-    "Estela Carbonell",
-    "Emma Godø",
-    "Alba Redondo",
-    "Tatiana Pinto",
-    "Amaiur Sarriegi"
+    "Kamil Grabara",
+    "Federico Gatti",
+    "Jhon Lucumí",
+    "Pierre Kalulu",
+    "Pape Matar Sarr",
+    "Douglas Luiz",
+    "Weston McKennie",
+    "Zeki Çelik",
+    "Nick Woltemade",
+    "Kerim Alajbegovic",
+    "Nico González"
    ],
-   "직전포메이션": "3-4-3"
+   "직전포메이션": "3-4-2-1"
   },
   "라인업": "미발표(킥오프 11.0h 전)",
   "event": "401915560"
@@ -3220,7 +3236,7 @@
   "경기": "TSG1899 호펜하임 - 베식타시",
   "리그": "UEFA 유로파리그",
   "시각": "10-16 04:00",
-  "수집": "10-15 16:59",
+  "수집": "10-15 17:00",
   "홈": {
    "팀": "TSG1899 호펜하임",
    "eng": "TSG Hoffenheim",
@@ -3290,7 +3306,7 @@
   "경기": "NEC네이메헌 - 레프스키 소피아",
   "리그": "UEFA 유로파리그",
   "시각": "10-16 04:00",
-  "수집": "10-15 16:59",
+  "수집": "10-15 17:00",
   "홈": {
    "팀": "NEC네이메헌",
    "eng": "NEC Nijmegen",
@@ -3347,15 +3363,15 @@
   "경기": "에스투디안테스데 라플라타 - CR플라멩구",
   "리그": "코파 리베르타도레스",
   "시각": "10-16 09:30",
-  "수집": "10-15 16:59",
+  "수집": "10-15 17:00",
   "홈": {
    "팀": "에스투디안테스데 라플라타",
    "eng": "Estudiantes de La Plata",
-   "직전": "10-02 원정 vs Platense 0-1 패 [quarterfinals]",
-   "휴식일": 14.0,
+   "직전": "09-17 원정 vs Corinthians 1-0 승 [quarterfinals]",
+   "휴식일": 29.0,
    "휴식일주의": "ESPN에 없는 리그일 수 있음(21일 내 경기 없음) — 실제 휴식일은 더 짧을 수 있음",
    "최근7일경기": 0,
-   "직전event": "401913078",
+   "직전event": "401912540",
    "xg": null,
    "직전선발": [
     "Fernando Muslera",
@@ -3363,14 +3379,14 @@
     "Santiago Núñez",
     "Tomás Palacios",
     "Eros Mancuso",
-    "Baltasar Rodríguez",
+    "Alexis Castro",
     "Ezequiel Piovi",
-    "José Sosa",
-    "Guido Carrillo",
     "Joaquín Tobio Burgos",
-    "Fabricio Pérez"
+    "Baltasar Rodríguez",
+    "Guido Carrillo",
+    "Joaquín Correa"
    ],
-   "직전포메이션": "4-2-3-1"
+   "직전포메이션": "4-4-2"
   },
   "원정": {
    "팀": "CR플라멩구",
@@ -3404,7 +3420,7 @@
   "경기": "시드니FC - 웨스턴시드니 원더러스",
   "리그": "호주 A리그",
   "시각": "10-16 18:00",
-  "수집": "10-15 16:59",
+  "수집": "10-15 17:00",
   "홈": {
    "팀": "시드니FC",
    "eng": "Sydney FC",
@@ -3431,7 +3447,7 @@
   "경기": "허난FC - 톈진 진먼후",
   "리그": "중국 슈퍼리그",
   "시각": "10-16 20:35",
-  "수집": "10-15 16:59",
+  "수집": "10-15 17:00",
   "홈": {
    "팀": "허난FC",
    "eng": "Henan FC",

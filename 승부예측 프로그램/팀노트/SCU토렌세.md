@@ -9,7 +9,7 @@
 <!-- FACTS:END -->
 <!-- INPUTS:START -->
 ## 입력(자동 수집 2026-10-15) — xG·휴식일·라인업은 이 숫자를 쓴다
-- 10-16 01:45 vs 선덜랜드: 휴식 14.9일?(국내리그 ESPN 미제공 — 직접 확인) · 직전 10-01 홈 vs Metalist 1925 Kharkiv 4-1 승 [second qualifying round] · xG - · 직전 선발 3-5-2 Ana Rute Costa, Ella Tonkin, Bárbara Lopes, Nuria Mendoza, Nicole Silva Nunes, Gerda Inge Konst, Raquel Ferreira, Catarina Santos Vieira Pereira, Bruna Alexandre Domingues Ramos, Maile Joy Hayes, Jennie Lakip
+- 10-16 01:45 vs 선덜랜드: 휴식 27.9일?(국내리그 ESPN 미제공 — 직접 확인) · 직전 09-18 원정 vs Lillestrom 2-1 승 [uefa.europa] · xG - · 직전 선발 4-2-3-1 Adriel, Volnei Feltes, Mohamed Diadié, Javier Vazquez, David Bruno, João Marques, Alejandro Alfaro, Amine Oudrhiri, Malik Abubakari, Dany Jean, Manuel Pozo
 <!-- INPUTS:END -->
 
 ## 성향

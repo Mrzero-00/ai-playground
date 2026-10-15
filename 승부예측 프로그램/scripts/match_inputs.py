@@ -216,7 +216,7 @@ def team_events(eng, before_utc, days=35, refresh=False, prefer=None):
             out.append((t, comp, eid, "원정", h["team"]["displayName"], _score(a.get("score"), h.get("score")), code))
     cont = ("uefa", "afc", "conmebol", "concacaf")
     if prefer and any(x[6] == prefer for x in out):
-        out = [x for x in out if x[6] == prefer or x[6].startswith(cont) or x[6] == ""]   # 같은 이름의 타국 클럽(브라질 Athletic Club) 제거
+        out = [x for x in out if x[6] == prefer or x[6].startswith(cont)]   # 같은 이름의 타국 클럽(브라질 Athletic Club, 'all' 일별 포함) 제거
     return sorted(out, key=lambda x: x[0], reverse=True)
 
 

@@ -168,11 +168,14 @@ def final_probs(rnd):
     return out
 
 
-def leg_type(p, mk, pick, top, odds):
-    """2026-10-15 사용자 결정 구조. p=내 분석(최종) 확률, mk=시장 공정확률, top=시장 1순위."""
+def leg_type(p, mk, pick, top, odds, raw=None):
+    """2026-10-15 사용자 결정 구조. p=내 분석(최종) 확률, mk=시장 공정확률, top=시장 1순위, raw=가리고 낸 순수 확률.
+    갈림 판정은 순수 확률로 한다 — 보정 계수(온도)가 강팀 확률을 일괄로 올려 생긴 차이는 '확인된 사실' 갈림이 아니다
+    (티켓 K 점검 2026-10-15: 순수 72/70/66 < 시장인데 보정 89/87/84 로 전부 A 판정되던 문제)."""
     if p is None or mk is None or odds is None:
         return "-"
-    if (top and top != pick) or p - mk >= 8:
+    base = raw if raw is not None else p
+    if (top and top != pick) or base - mk >= 8:
         return "A 갈림" + ("" if p * odds / 100 >= 1.05 else " ✗(내 확률×배당<1.05)")
     ok = p >= 60 and mk >= 60 and mk * odds / 100 >= 0.95
     return "B 일치" if ok else "✗"
@@ -210,7 +213,7 @@ def table(by_no, title, picks):
         if OWN:
             mk = float(sel["공정확률"]) if sel and sel.get("공정확률") else None
             top = max(opts, key=lambda o: float(o["공정확률"] or 0))["선택"] if all(o.get("공정확률") for o in opts) else None
-            ty = leg_type(p, mk, pick, top, float(sel["베트맨"]) if sel else None)
+            ty = leg_type(p, mk, pick, top, float(sel["베트맨"]) if sel else None, raw)
             lines.append(f"| {no} | {game_cell} | {kind(r)} | {c[0]} | {c[1]} | {c[2]} | {ps} | {f'{mk:.1f}%' if mk is not None else '-'} | {ty} |")
         else:
             lines.append(f"| {no} | {game_cell} | {kind(r)} | {c[0]} | {c[1]} | {c[2]} | {ps} |")

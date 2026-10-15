@@ -142,6 +142,7 @@ def save_schedule(by_no, rnd, combos, buys):
 OWN = {}  # (번호, 선택) → 내 분석 확률 (--own). 추천 확률은 내 분석만 쓴다 (사용자 지시 2026-10-13)
 RAW = {}  # (번호, 선택) → --own 에 넣은 원본 값 (보정 전). 표에는 "최종 (원본)" 으로
 RECORD = os.path.join(ROOT, "전체경기기록.csv")
+SHORT = {}  # 베트맨 앱은 단축명(콜로래피·미네소타U)으로 표기하는데 G101 API엔 없다(2026-10-15 확인). 표 밑에 번호로 찾으라는 안내만 둔다.
 
 
 def final_probs(rnd):
@@ -181,9 +182,11 @@ def table(by_no, title, picks):
             odds *= float(sel["베트맨"])
         prob = prob * p / 100 if (p is not None and prob is not None) else None
         when = r["시각"][5:16]
+        game_cell = f"{r['경기']} ({when})"
         raw = RAW.get((no, pick))
         ps = f"{p:.1f}%" + (f" (원본 {raw:.0f})" if raw is not None and abs(raw - p) >= 0.5 else "") if p is not None else "-"
-        lines.append(f"| {no} | {r['경기']} ({when}) | {kind(r)} | {c[0]} | {c[1]} | {c[2]} | {ps} |")
+        lines.append(f"| {no} | {game_cell} | {kind(r)} | {c[0]} | {c[1]} | {c[2]} | {ps} |")
+    lines.append("\n앱에서는 팀명이 단축 표기(예: 콜로래피·미네소타U)라 **게임번호**로 찾는다.")
     t = timing(by_no, picks)
     if t:
         lines.append(t)

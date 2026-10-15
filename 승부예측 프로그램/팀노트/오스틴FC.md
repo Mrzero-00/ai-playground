@@ -10,6 +10,6 @@
 <!-- FACTS:END -->
 <!-- INPUTS:START -->
 ## 입력(자동 수집 2026-10-15) — xG·휴식일·라인업은 이 숫자를 쓴다
-- 10-15 11:30 vs LAFC: 휴식 3.3일(7일 5경기) · 직전 10-12 홈 vs Lamar 1-2 [ncaa division i women] · xG -
+- 10-15 11:30 vs LAFC: 휴식 4.1일(7일 1경기) · 직전 10-11 홈 vs Nashville SC 1-4 [usa.1] · xG - · 직전 선발 3-4-3 Brad Stuver, Jon Bell, Guilherme Biro, Mikkel Desler, Ilie Sánchez, Ervin Torres, Jon Gallagher, Facundo Torres, Brandon Vázquez, Myrto Uzuni, Jorge Alastuey
 <!-- INPUTS:END -->
 

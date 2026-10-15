@@ -9,6 +9,6 @@
 <!-- FACTS:END -->
 <!-- INPUTS:START -->
 ## 입력(자동 수집 2026-10-15) — xG·휴식일·라인업은 이 숫자를 쓴다
-- 10-15 11:30 vs 샌디에이고FC: 휴식 3.3일(7일 3경기) · 직전 10-12 원정 vs Arizona State 2-3 [ncaa division i women] · xG -
+- 10-15 11:30 vs 샌디에이고FC: 휴식 4.1일(7일 1경기) · 직전 10-11 원정 vs Minnesota United FC 2-2 [usa.1] · xG - · 직전 선발 4-3-3 Jonathan Bond, Lucas Halter, Antônio Carlos, Lawrence Ennali, Felipe Andrade, Artur, Agustín Bouzat, Diadie Samassekou, Lyle Foster, Guilherme Augusto, Mateusz Bogusz
 <!-- INPUTS:END -->
 

@@ -91,14 +91,15 @@ def score(eng, name):
 
 
 def matcher(eng):
-    """참/거짓: 정규화 포함 관계 → 참. 아니면 비(非)관용어 토큰(길이>2)이 3개 이상이면 하나 빼고 전부, 2개면 전부,
+    """참/거짓: 정규화 포함 관계 → 참(단, ESPN 쪽 짧은 이름이 내 이름에 포함되는 경우는 두 단어 이상일 때만 — 'Colorado'(NCAA) ≠ 'Colorado Rapids').
+    아니면 비(非)관용어 토큰(길이>2)이 3개 이상이면 하나 빼고 전부, 2개면 전부,
     1개면 그 토큰 + 'united/city' 같은 관용어까지 전부 있어야 참(맨유≠맨시티, 레알≠소시에다드)."""
     e = norm(eng); tk = toks(eng); allt = [t for t in e.split() if len(t) > 2]
     def ok(name):
         n = norm(name)
         if not n or not e:
             return False
-        if e == n or e in n or n in e:
+        if e == n or e in n or (n in e and len(n.split()) >= 2):
             return True
         words = n.split()
         if len(tk) >= 3:
@@ -142,6 +143,9 @@ def comp_name(e, code=""):
     return s if s and s not in ("league phase", "group stage", "regular season", "qualifying round") else (code or s)
 
 
+SKIP_COMP = ("ncaa", "women", "womens", "w ", "friendly", "u19", "u20", "u21", "u23", "youth")
+
+
 def pool(refresh=False):
     """회차 실행당 한 번: 지난달+이번달 리그별 월간 + 최근 22일 전체 일별 → {event_id: (event, 대회명)}"""
     global _POOL
@@ -156,7 +160,10 @@ def pool(refresh=False):
     for i in range(-1, 36):
         ds = (today - dt.timedelta(days=i)).strftime("%Y%m%d")
         for e in sb_day(ds, refresh):
-            P.setdefault(e["id"], (e, comp_name(e)))
+            cn = comp_name(e)
+            if any(k in cn for k in SKIP_COMP) or (e.get("season") or {}).get("slug", "").find("women") >= 0:
+                continue
+            P.setdefault(e["id"], (e, cn))
     _POOL = P
     return P
 
@@ -167,9 +174,18 @@ def sides(e):
     return c, h, a
 
 
-def team_events(eng, before_utc, days=35, refresh=False):
-    """팀이 뛴 완료 경기(모든 대회), 최근순 [(date_utc, 대회, event_id, 홈/원정, 상대, 스코어)]"""
-    ok = matcher(eng)
+def strict_matcher(eng):
+    e = norm(eng); tk = toks(eng)
+    def ok(name):
+        n = norm(name)
+        return bool(e and n) and (e == n or e in n or (len(tk) >= 2 and all(t in n.split() for t in tk)))
+    return ok
+
+
+def team_events(eng, before_utc, days=35, refresh=False, prefer=None):
+    """팀이 뛴 완료 경기(모든 대회), 최근순 [(date_utc, 대회, event_id, 홈/원정, 상대, 스코어)].
+    prefer = 경기의 리그 코드(usa.1 등): 그 대회는 보통 매칭, 다른 대회는 엄격 매칭(샌호세 볼리비아·갤럭시 남아공 오매칭 방지)."""
+    ok_pref, ok_strict = matcher(eng), strict_matcher(eng)
     out = []
     lo = (before_utc - dt.timedelta(days=days)) if before_utc else None
     for eid, (e, comp) in pool(refresh).items():
@@ -179,6 +195,7 @@ def team_events(eng, before_utc, days=35, refresh=False):
         t = dt.datetime.fromisoformat(e["date"].replace("Z", "+00:00"))
         if before_utc and (t >= before_utc or t < lo):
             continue
+        ok = ok_pref if (prefer and comp == prefer) or comp.startswith(("uefa", "afc", "conmebol", "concacaf")) else ok_strict
         if ok(h["team"]["displayName"]):
             out.append((t, comp, eid, "홈", a["team"]["displayName"], f"{h.get('score')}-{a.get('score')}"))
         elif ok(a["team"]["displayName"]):
@@ -262,7 +279,7 @@ def game_inputs(r, names, now, refresh=False):
     out = {"번호": r["번호"], "경기": f"{h} - {a}", "리그": r["리그"], "시각": r["시각"], "수집": now.strftime("%m-%d %H:%M"), "홈": {}, "원정": {}}
     for side, team, eng in (("홈", h, eh), ("원정", a, ea)):
         d = out[side]; d["팀"] = team; d["eng"] = eng
-        ev = team_events(eng, ko, refresh=refresh) if ko else []
+        ev = team_events(eng, ko, refresh=refresh, prefer=code) if ko else []
         if ev:
             last = ev[0]
             d["직전"] = f"{last[0].astimezone(KST):%m-%d} {last[3]} vs {last[4]} {last[5]} [{last[1]}]"

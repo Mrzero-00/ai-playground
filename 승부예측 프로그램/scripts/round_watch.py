@@ -193,8 +193,18 @@ def log_pool(g):
         if new:
             w.writerow(["확인시각", "회차", "이월금", "이월횟수", "판매액", "1등예상(현재판매액기준)"])
         w.writerow([now, f"승무패{g.get('gmOsidTs')}", fwd, cnt, sell, int(first)])
+    combos = combos_for(fwd)
     print(f"  승무패 {g.get('gmOsidTs')}회 이월금 {fwd:,}원(이월 {cnt}회) · 판매액 {sell:,}원 · 1등 예상 약 {first / 1e8:.2f}억원(현재 기준)"
-          + (" ★ 이월 있음" if fwd else ""))
+          + (" ★ 이월 있음" if fwd else "") + f" → 권장 조합 수 {combos}")
+
+
+# 이월금에 따른 조합 수 (사용자 지시 2026-10-16: "이월금액이 많이 쌓이면 4조합 → 8조합 이렇게 늘려가려고").
+# 기준값은 초기 제안 — 사용자가 바꾸면 여기만 고친다. (이월금 하한, 조합 수)
+CARRY_STEPS = [(0, 4), (100_000_000, 8), (300_000_000, 16)]
+
+
+def combos_for(fwd):
+    return max(c for lo, c in CARRY_STEPS if fwd >= lo)
 
 
 def toto_plan(g, hdr, ck):

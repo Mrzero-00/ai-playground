@@ -178,8 +178,8 @@ def leg_type(p, mk, pick, top, odds, raw=None):
         return "-"
     base = raw if raw is not None else p
     if (top and top != pick) or base - mk >= 8:
-        return "A 갈림" + ("" if p * odds / 100 >= 1.05 else " ✗(내 확률×배당<1.05)")
-    ok = p >= 60 and mk >= 60 and mk * odds / 100 >= 0.95
+        return "A 갈림" + ("" if odds >= 1.2 else " ✗(배당<1.2)")
+    ok = p >= 60 and mk >= 60 and odds >= 1.2  # 2026-10-16 사용자: 기대값 조건 폐지
     return "B 일치" if ok else "✗"
 
 
@@ -220,7 +220,7 @@ def table(by_no, title, picks):
         else:
             lines.append(f"| {no} | {game_cell} | {kind(r)} | {c[0]} | {c[1]} | {c[2]} | {ps} |")
     if OWN:
-        lines.append("\n유형 A = 시장과 갈림(1순위 다름 또는 내 확률 ≥ 시장+8%p): 확인된 사실 근거 + 내 확률×배당 ≥ 1.05 필요 · B = 일치: 내 60%+·시장 60%+·시장×배당 ≥ 0.95 · ✗ = 둘 다 아님(추천 금지)")
+        lines.append("\n유형 A = 시장과 갈림(1순위 다름 또는 내 확률 ≥ 시장+8%p): 확인된 사실 근거 + 배당 1.2+ · B = 일치: 내 60%+·시장 60%+·배당 1.2+ (기대값 조건 폐지 2026-10-16) · ✗ = 둘 다 아님(추천 금지)")
     lines.append("\n앱에서는 팀명이 단축 표기(예: 콜로래피·미네소타U)라 **게임번호**로 찾는다.")
     t = timing(by_no, picks)
     if t:

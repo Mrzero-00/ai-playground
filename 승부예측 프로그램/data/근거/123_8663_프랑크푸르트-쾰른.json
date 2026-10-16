@@ -1,0 +1,16 @@
+[{"번호":"8663","홈":"프랑크푸르트","원정":"쾰른",
+"기준선":{"승":51.4,"무":24.8,"패":23.9,"출처":"soccer_baseline pi-rating ger.1 2026-10-16"},
+"득점모델":{"방식":"xG","λ홈":2.05,"λ원정":1.55,"출처":"Understat 시즌 xG/xGA (INPUTS 2026-10-16) 40% + 기준선 60% 혼합(5경기 표본), 쾰른 ST 결장 원정 λ −6%"},
+"요인":[
+{"유형":"xG","팀":"홈","상태":"확정","영향":-4.0,"내용":"기준선 불신 보정: 분데스 5경기, pi +0.33에 지난 시즌 혼입. 이번 시즌 프랑크푸르트 14위 득실 9:16 xG−xGA −0.56, 쾰른 +0.15, 라이프치히 0-6. 순수 xG λ 2.23:2.21(승 40.6)을 40% 섞음","출처":"팀노트 FACTS/INPUTS 2026-10-16","날짜":"2026-10-16"},
+{"유형":"결장","팀":"원정","선수":"Thijs Dallinga","등급":"B(추정)","상태":"확정","영향":1.2,"내용":"ST 십자인대, 새 결장(10/11 1경기만 결장). 1.5×R0.8×1.0×1.0","출처":"https://ran.joyn.de/sports/fussball/bundesliga/1-fc-koeln-testspiel-mit-folgen-dallinga-schwer-verletzt-auch-ache-faellt-aus-196023 ; https://www.ligainsider.de/1-fc-koeln/15/derbyheld-el-mala-koeln-schlaegt-gladbach-mit-2-1-419015/","날짜":"2026-10-11"},
+{"유형":"결장","팀":"원정","선수":"Ragnar Ache","등급":"B(추정)","상태":"확정","영향":1.4,"내용":"ST 허벅지, 같은 라인 2번째 ×1.15","출처":"https://ran.joyn.de/sports/fussball/bundesliga/1-fc-koeln-testspiel-mit-folgen-dallinga-schwer-verletzt-auch-ache-faellt-aus-196023 ; https://www.ligainsider.de/1-fc-koeln/15/derbyheld-el-mala-koeln-schlaegt-gladbach-mit-2-1-419015/","날짜":"2026-10-11"},
+{"유형":"결장","팀":"원정","선수":"Ellyes Skhiri","등급":"B(추정)","상태":"확정","영향":0,"내용":"DM 발목 장기(2027 초). 선발 수 미확인 B → DM은 A 이상만 점수 규칙으로 0. 선발 75%+ 확인 시 +2~3%p 여지","출처":"https://www.ligainsider.de/ellyes-skhiri_20776/wagner-hofft-auf-skhiri-rueckkehr-anfang-2027-419130/ ; https://ran.joyn.de/sports/fussball/bundesliga/bundesliga-verletztenliste-beim1-fc-koeln-wird-laenger-der-naechste-schluesselspieler-faellt-aus-199920","날짜":"2026-10-14"},
+{"유형":"결장","팀":"홈","선수":"Malik Pimpong","등급":"B(추정)","상태":"의심","영향":-0.6,"내용":"FW angeschlagen(1곳). 1.5×0.8×P0.5×1.0","출처":"https://www.ligainsider.de/eintracht-frankfurt/3/sturm-und-system-huetter-legt-sich-noch-nicht-fest-419129/","날짜":"2026-10-14"},
+{"유형":"뉴스없음","팀":"홈","상태":"확정","영향":0,"내용":"징계·감독 변동 없음(Hütter)","출처":"https://www.hessenschau.de/sport/fussball/eintracht-frankfurt/das-wichtigste-zu-eintracht-koeln-wann-platzt-der-offensiv-knoten-v1,das-wichtigste-sge-koeln100.html","날짜":"2026-10-14","검색처":"hessenschau 티커, ligainsider"},
+{"유형":"뉴스없음","팀":"원정","상태":"확정","영향":0,"내용":"징계·감독 변동 없음(Wagner). van den Berg·Hübers는 근거 부족으로 제외","출처":"https://bulinews.com/wagner-brutal-blow-skhiri-castro-montes-fit-for-koln-frankfurt","날짜":"2026-10-14","검색처":"bulinews, ligainsider, ran.joyn"}],
+"최종":{"승":49.4,"무":22.5,"패":28.1},
+"선택지":[{"번호":"8665","선택":"패","확률":71.3,"계산":"H-2 패 = 1-P(홈 2골차+ 28.7), 포아송 λ2.05:1.55"},{"번호":"8664","선택":"패","확률":50.6,"계산":"H-1 패 = 무+원정승"},{"번호":"8666","선택":"언더","확률":51.5,"계산":"U3.5, 혼합비율 민감(기준선 λ 60.3 / 순수 xG 35.3)"}],
+"결론":"기준선 51.4 + 쾰른 ST 2명 결장 +2.6 − Pimpong 의심 0.6 − 기준선 불신(이번 시즌 xG) 4.0 = 49.4. 프랑크푸르트는 이번 시즌 실점 질이 나빠(xGA 2.73) 크게 이기기 어렵고 홈 2골차+ 승은 약 29% → H-2 패 71%. U3.5는 박빙(51%).",
+"미확인":["Skhiri·Ache·Dallinga·Pimpong 이번 시즌 선발 수","양 팀 예상 XI","Skhiri 진단명","Pimpong 1곳 보도"],
+"추가 수집 요청":["선수별 이번 시즌 선발/출전분(Transfermarkt·kicker)","공식 라인업(킥오프 직전)","쾰른 9월 개별 결과·xG"]}]

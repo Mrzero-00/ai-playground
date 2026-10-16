@@ -24,6 +24,9 @@
   - 영향 = 홈 승 확률 변화 %p (+ 홈 유리, − 원정 유리). 기준선 승 + Σ영향 ≈ 최종 승 (±2) 이어야 한다.
   - 유형 어휘: 결장 · 복귀 · 징계 · 라인업 · 감독 · xG · 폼 · 휴식 · 일정 · 맞대결 · 동기 · 홈원정 · 전술 · 날씨 · 선발투수 · 불펜 · 기타
   - 상태: 확정 · 의심 · 추정(추정만으로 된 요인은 A 갈림 근거 불가)
+  - 뉴스가 없을 때(2026-10-16): {"유형": "뉴스없음", "팀": "원정", "영향": 0, "검색처": "구단 공식, 지역지 X, Transfermarkt 부상표", "내용": "10/16 21시 검색, 결장·징계 보도 없음"}
+    → 정상(등급 영향 없음). 뉴스 보정 0으로 데이터(기준선·xG·직전 선발 XI)만으로 계산. 이 경기는 A 갈림 근거가 없으니 B 일치만 가능.
+    팀마다 뉴스 요인 또는 '뉴스없음' 중 하나는 반드시 있어야 한다(없으면 '확인 안 함' = C).
 
 사용
   python3 scripts/integrity.py pre <회차> [--from "MM-DD HH:MM" --to ...]   # 분석 전: 팩트시트·INPUTS 최신 여부 (빠지면 먼저 채운다)
@@ -47,7 +50,7 @@ ROOT = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..")
 NOTES = os.path.join(ROOT, "팀노트")
 EVI = os.path.join(ROOT, "data", "근거기록.csv")
 CHK = os.path.join(ROOT, "data", "정합성기록.csv")
-EVI_COLS = ["회차", "번호", "경기", "기록시각", "구분", "유형", "팀", "선수", "등급", "상태", "영향", "내용", "출처", "날짜",
+EVI_COLS = ["회차", "번호", "경기", "기록시각", "구분", "유형", "팀", "선수", "등급", "상태", "영향", "내용", "출처", "날짜", "검색처",
             "기준선", "득점모델", "최종", "선택지", "결론", "미확인", "결과", "방향적중"]
 CHK_COLS = ["회차", "번호", "경기", "검사시각", "등급", "심각", "경미"]
 XG_LEAGUES = ("프리미어리그", "라리가", "분데스리가", "세리에A", "리그1")   # Understat xG 제공 (2부 리그 제외)
@@ -110,7 +113,22 @@ def evidence_checks(r, e, severe, minor):
             severe.append("득점모델이 리그 평균 — 경기별 λ 필요")
         if any(k in (r.get("리그") or "") for k in XG_LEAGUES) and "2부" not in (r.get("리그") or "") and has_ou and gm.get("방식") != "xG":
             severe.append("xG 제공 리그인데 핸디캡·언더오버 확률을 xG λ로 계산하지 않음")
+    # 뉴스 없음 ≠ 확인 안 함 (2026-10-16 사용자 질문): 팀마다 '결장·라인업 뉴스를 찾아봤다'는 기록이 있어야 한다.
+    # 찾았으면 뉴스 요인(URL·날짜), 못 찾았으면 유형 '뉴스없음' + 검색처 2곳 이상(현지 매체·구단 공식 등) + 영향 0.
+    for side in ("홈", "원정"):
+        fs = [f for f in e.get("요인", []) if f.get("팀") == side]
+        news = [f for f in fs if f.get("유형") in NEWS_TYPES]
+        none_ = [f for f in fs if f.get("유형") == "뉴스없음"]
+        if not news and not none_:
+            severe.append(f"{side} 뉴스 확인 기록 없음(찾았으면 요인, 없으면 '뉴스없음'+검색처)")
+        for f in none_:
+            if len([x for x in re.split(r"[,·/]", str(f.get("검색처", ""))) if x.strip()]) < 2:
+                severe.append(f"{side} '뉴스없음'인데 검색처 2곳 미만")
+            if float(f.get("영향") or 0) != 0:
+                severe.append(f"{side} '뉴스없음' 요인에 영향 %p를 줌(0이어야 함)")
     for f in e.get("요인", []):
+        if f.get("유형") == "뉴스없음":
+            continue
         tag = f"{f.get('유형')}·{f.get('선수') or f.get('내용', '')[:15]}"
         if not f.get("출처"):
             (severe if f.get("유형") in NEWS_TYPES else minor).append(f"출처 없음: {tag}")
@@ -181,7 +199,7 @@ def cmd_add(a):
         game = f"{r['홈']}-{r['원정']}"
         base = {"회차": r["회차"], "번호": r["번호"], "경기": game, "기록시각": now}
         for f in e.get("요인", []):
-            ev.append({**base, "구분": "요인", **{k: f.get(k, "") for k in ("유형", "팀", "선수", "등급", "상태", "영향", "내용", "출처", "날짜")}})
+            ev.append({**base, "구분": "요인", **{k: f.get(k, "") for k in ("유형", "팀", "선수", "등급", "상태", "영향", "내용", "출처", "날짜", "검색처")}})
         ev.append({**base, "구분": "요약", "기준선": json.dumps(e.get("기준선"), ensure_ascii=False),
                    "득점모델": json.dumps(e.get("득점모델"), ensure_ascii=False), "최종": json.dumps(e.get("최종"), ensure_ascii=False),
                    "선택지": json.dumps(e.get("선택지"), ensure_ascii=False), "결론": e.get("결론", ""),

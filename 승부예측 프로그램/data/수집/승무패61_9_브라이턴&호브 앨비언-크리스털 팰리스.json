@@ -1,0 +1,267 @@
+{
+ "번호": 9,
+ "홈": "브라이턴&호브 앨비언",
+ "원정": "크리스털 팰리스",
+ "수집시각": "2026-10-16 23:10 KST",
+ "결장": [
+  {
+   "팀": "원정",
+   "선수": "Jean-Philippe Mateta",
+   "포지션": "ST",
+   "이번시즌_선발/경기": "미확인",
+   "득점·도움": "미확인",
+   "사유": "햄스트링 회복 중(일부 매체 부상 종류 미기재)",
+   "상태": "의심(Lyon 원정 미동행, 감독 '이번 주말 복귀 가능성 약간')",
+   "복귀예정": "미정",
+   "대체선수": "Jørgen Strand Larsen(선두 예상)",
+   "출처": "https://readcrystalpalace.com/2026/10/16/brighton-vs-crystal-palace-preview-team-news/ ; https://readcrystalpalace.com/2026/10/16/mateta-injury-update-crystal-palace-brighton/ (현지 팬매체 Read Crystal Palace 2곳, 동일 매체. 복수 출처 확인 안 돼 '의심')",
+   "날짜": "2026-10-16"
+  },
+  {
+   "팀": "원정",
+   "선수": "Axel Disasi",
+   "포지션": "CB",
+   "이번시즌_선발/경기": "미확인(팩트: 직전 선발 3백 포함)",
+   "득점·도움": "미확인",
+   "사유": "리그 3경기 출장정지 마지막 경기(입스위치전 퇴장)",
+   "상태": "확정(출처 1곳, 검색 요약도 일치)",
+   "복귀예정": "10/18 이후",
+   "대체선수": "미확인",
+   "출처": "https://readcrystalpalace.com/2026/10/16/brighton-vs-crystal-palace-preview-team-news/ ; WebSearch 요약(Yahoo 계열)",
+   "날짜": "2026-10-16"
+  },
+  {
+   "팀": "원정",
+   "선수": "Chadi Riad",
+   "포지션": "CB",
+   "이번시즌_선발/경기": "미확인",
+   "득점·도움": "미확인",
+   "사유": "무릎, 시즌 아웃",
+   "상태": "확정(장기)",
+   "복귀예정": "시즌 아웃",
+   "대체선수": "미확인",
+   "출처": "https://readcrystalpalace.com/2026/10/16/brighton-vs-crystal-palace-preview-team-news/",
+   "날짜": "2026-10-16"
+  },
+  {
+   "팀": "원정",
+   "선수": "Dean Henderson / Takehiro Tomiyasu / Ben Chilwell",
+   "포지션": "GK/DF",
+   "이번시즌_선발/경기": "미확인",
+   "득점·도움": "미확인",
+   "사유": "Lyon전 이전부터 결장(사유 미확인)",
+   "상태": "의심(검색요약, Lyon전 이전 정보)",
+   "복귀예정": "미확인",
+   "대체선수": "미확인",
+   "출처": "WebSearch 요약(Yahoo Sports 기사 'Sage hopeful Crystal Palace star could return against Brighton', URL 미열람)",
+   "날짜": "2026-10-16"
+  },
+  {
+   "팀": "홈",
+   "선수": "Kaoru Mitoma",
+   "포지션": "LW",
+   "이번시즌_선발/경기": "미확인(검색 요약상 이번 시즌 미출장 보도, 통계 직접 열람 못 함)",
+   "득점·도움": "미확인",
+   "사유": "햄스트링(검색 요약, 부상 종류는 구단 기사에 미기재)",
+   "상태": "확정 결장(감독 기자회견 '국제 휴식기 복귀 희망, 인내 필요')",
+   "복귀예정": "국제 휴식기(미확정)",
+   "대체선수": "미확인",
+   "출처": "[https://www.brightonandhovealbion.com/media-article/mft-match-preview-bha-crystal-palace-pl-october-2026, 2026-10-16]; [https://www.tribalfootball.com/article/soccer-premier-league-hurzeler-offers-mixed-injury-update-as-brighton-host-crystal-palace-70536910-c757-41ba-b4b8-6aa46666494d, 2026-10-16(날짜 페이지 미표기, 10/17 경기 언급)]",
+   "날짜": "2026-10-16"
+  },
+  {
+   "팀": "홈",
+   "선수": "Yankuba Minteh",
+   "포지션": "RW",
+   "이번시즌_선발/경기": "0경기(구단 기사: 이번 시즌 공식전 미출장)",
+   "득점·도움": "0",
+   "사유": "프리시즌 로마전 부상",
+   "상태": "확정 결장(다음 경기부터 복귀 가능성 '꽤 빠른 복귀')",
+   "복귀예정": "미정(이번 주말 이후)",
+   "대체선수": "미확인",
+   "출처": "[https://www.brightonandhovealbion.com/media-article/mft-match-preview-bha-crystal-palace-pl-october-2026, 2026-10-16]",
+   "날짜": "2026-10-16"
+  },
+  {
+   "팀": "홈",
+   "선수": "Mats Wieffer",
+   "포지션": "CM",
+   "이번시즌_선발/경기": "리그 2경기 출장(선발 여부 미확인)",
+   "득점·도움": "미확인",
+   "사유": "무릎(8/30 첼시전 부상)",
+   "상태": "확정 결장(진전 있음, 복귀일 미정)",
+   "복귀예정": "미정(이번 주말 이후, '꽤 빠른 복귀')",
+   "대체선수": "미확인",
+   "출처": "[https://www.rotowire.com/soccer/headlines/mats-wieffer-injury-still-sidelined-against-crystal-palace-539667, 2026-10-16]; [https://www.brightonandhovealbion.com/media-article/mft-match-preview-bha-crystal-palace-pl-october-2026, 2026-10-16]",
+   "날짜": "2026-10-16"
+  },
+  {
+   "팀": "홈",
+   "선수": "Pascal Struijk",
+   "포지션": "CB",
+   "이번시즌_선발/경기": "미확인(직전 선덜랜드전 60분 출장, 팀노트 예상 XI 포함)",
+   "득점·도움": "미확인",
+   "사유": "국제 휴식기 중 컨디션 문제, UECL 카우노전 휴식(선덜랜드 60분 소화 후)",
+   "상태": "의심(구단 기사 '하루 더 회복, 내일 보고 결정'; 다른 요약은 선덜랜드전 퇴장 취소돼 복귀 기대 -> 출처 간 표현 엇갈림)",
+   "복귀예정": "10/17 감독 결정 대기",
+   "대체선수": "Vuskovic, Boscagli, Dunk(UECL 선발: Dunk·Boscagli, 후반 Vuskovic 투입)",
+   "출처": "[https://www.brightonandhovealbion.com/media-article/mft-match-preview-bha-crystal-palace-pl-october-2026, 2026-10-16]; [https://www.sofascore.com/news/brighton-4-0-kauno-zalgiris-rutter-brace-xg-4-05, 2026-10-15]; WebSearch 요약",
+   "날짜": "2026-10-16"
+  },
+  {
+   "팀": "홈",
+   "선수": "Femi Azeez / Stefanos Tzimas / Evan Ferguson",
+   "포지션": "FW",
+   "이번시즌_선발/경기": "미확인",
+   "득점·도움": "미확인",
+   "사유": "부상(종류 미기재)",
+   "상태": "확정 결장(장기)",
+   "복귀예정": "11월",
+   "대체선수": "미확인",
+   "출처": "[https://www.tribalfootball.com/article/soccer-premier-league-hurzeler-offers-mixed-injury-update-as-brighton-host-crystal-palace-70536910-c757-41ba-b4b8-6aa46666494d, 2026-10-16(날짜 페이지 미표기)]",
+   "날짜": "2026-10-16"
+  }
+ ],
+ "보충_2026-10-16": {
+  "브라이턴_UECL_카우노전": "10/15 홈 4-0 승(Rutter 2골, Hinshelwood, O'Riley). 선덜랜드전 대비 대폭 로테이션: Verbruggen·Boscagli·Dunk·Gross 선발, Dunk·Boscagli 하프타임 교체(Vuskovic·De Cuyper 투입). Struijk 제외(휴식). 후반 Benchaib·Osman 교체 아웃 보도(Sofascore, 부상 여부 미확인). Hinshelwood 발목 부상 약 2개월 만에 복귀. [https://www.sofascore.com/news/brighton-4-0-kauno-zalgiris-rutter-brace-xg-4-05, 2026-10-15]",
+  "감독_기자회견": "Hürzeler 10/16 기자회견: 카우노전 후 새 부상 우려 없음. Minteh·Wieffer 이번 주말 불가, Mitoma 불가, Struijk 하루 더 회복 후 결정. [https://www.brightonandhovealbion.com/media-article/mft-match-preview-bha-crystal-palace-pl-october-2026, 2026-10-16]",
+  "킥오프": "일요일 14:00(현지) = 22:00 KST, 10/18 [https://www.brightonandhovealbion.com/media-article/mft-match-preview-bha-crystal-palace-pl-october-2026, 2026-10-16] (Tribal Football은 10/17로 표기, 엇갈림)",
+  "브라이턴_휴식일": "직전 공식전 UECL 카우노전 10/15(현지 저녁) -> 10/18 14:00까지 약 2.7일. 그 앞은 10/10 선덜랜드(리그), 5일 간격. 기존 '5.2일' 값은 오류, 2.7일이 맞음 [Sofascore 2026-10-15; 구단 기사 2026-10-16]",
+  "마테타_재판정": "상태 '의심' 유지. 두 번째 출처 Rotowire: 햄스트링, 리옹전 결장, Sage '이번 주말 볼 가능성 약간, 재활 순조', 마지막 공식전 8/22, 복귀해도 벤치부터·선발은 Strand Larsen과 경쟁 예상 [https://www.rotowire.com/soccer/headlines/jean-philippe-mateta-injury-could-return-in-weekend-match-539604, 2026-10-15]. 구단 쪽 확정 보도 없음, 선발 가능성 낮음. 부상 종류(햄스트링) 일치로 RCP·Rotowire 독립 확인됨",
+  "미확인": [
+    "결장 선수 이번 시즌 리그 선발 수 (Transfermarkt/FBref/BeSoccer 직접 열람 못 함; Minteh 0경기, Wieffer 2경기 출장만 확인)",
+    "Argus·BBC Sport·Sussex World·Sports Mole 본문 (Sussex Express 403, 직접 열람 못 함; 검색 요약만)",
+    "Benchaib·Osman 부상 여부"
+  ]
+ },
+ "라인업": {
+  "홈": {
+   "발표여부": "미발표",
+   "예상XI": "팀노트 직전선발 4-2-3-1 Verbruggen; Struijk,Vuskovic,Boscagli,Kadioglu; Ayari,Chema; Gross,Kostoulas,De Cuyper? (팀노트 INPUTS, 10/10 선발 기준)",
+   "포메이션": "4-2-3-1(직전)",
+   "출처": "팀노트 INPUTS(ESPN)",
+   "날짜": "2026-10-15"
+  },
+  "원정": {
+   "발표여부": "미발표",
+   "예상XI": "미확인(Mateta 불발 시 Strand Larsen 선두)",
+   "포메이션": "3-4-3(직전)",
+   "출처": "https://readcrystalpalace.com/2026/10/16/brighton-vs-crystal-palace-preview-team-news/",
+   "날짜": "2026-10-16"
+  }
+ },
+ "최근경기": [
+  {
+   "팀": "브라이턴",
+   "날짜": "2026-10-10",
+   "상대": "선덜랜드",
+   "장소": "원정",
+   "스코어": "2-0 승",
+   "비고": "ESPN/팀노트"
+  },
+  {
+   "팀": "브라이턴",
+   "날짜": "2026-10-15/16",
+   "상대": "카우노 잘기리스",
+   "장소": "홈",
+   "스코어": "4-0 승",
+   "비고": "유럽대항전(UECL 추정) 04:00 KST, 휴식 약 2.5일 후 경기. 브라이턴 주력 로테이션 여부 미확인. 출처 RCP 프리뷰"
+  },
+  {
+   "팀": "브라이턴",
+   "날짜": "2026-09-19",
+   "상대": "아스널",
+   "장소": "홈",
+   "스코어": "3-0 승",
+   "비고": "팩트시트"
+  },
+  {
+   "팀": "팰리스",
+   "날짜": "2026-10-15",
+   "상대": "올랭피크 리옹",
+   "장소": "원정",
+   "스코어": "2-3 패(UEL)",
+   "비고": "0-2 뒤 Pino·Kamada 동점, Sulc 결승. Sage '전반 부재'. 출처 cpfc.co.uk 기사 제목 'Sage on learning lessons after Palace narrowly edged out in Lyon' + RCP"
+  },
+  {
+   "팀": "팰리스",
+   "날짜": "2026-10-11",
+   "상대": "노팅엄",
+   "장소": "홈",
+   "스코어": "3-1 승",
+   "비고": "팀노트"
+  },
+  {
+   "팀": "팰리스",
+   "날짜": "2026-09-20",
+   "상대": "리즈",
+   "장소": "원정",
+   "스코어": "0-0",
+   "비고": "팩트시트"
+  }
+ ],
+ "순위": {
+  "홈": "3위 6경기 4승1무1패 18득 5실 승점13",
+  "원정": "12위 6경기 2승1무3패 9득 12실 승점7",
+  "출처": "https://readcrystalpalace.com/2026/10/16/brighton-vs-crystal-palace-preview-team-news/",
+  "날짜": "2026-10-16"
+ },
+ "감독": {
+  "홈": "Fabian Hürzeler(팩트시트, 변동 없음)",
+  "원정": "Pierre Sage(리옹 친정 복귀전)",
+  "변동": "없음",
+  "출처": "https://readcrystalpalace.com/2026/10/16/brighton-vs-crystal-palace-preview-team-news/ ; 팀노트",
+  "날짜": "2026-10-16"
+ },
+ "일정·동기·날씨·기타": [
+  {
+   "내용": "팰리스 리옹 원정(UEL, 10/15 현지 저녁, 10/16 01:45 KST) 후 일요일 22:00 KST 경기 → 휴식 약 2.7~3일. 다음 유럽 경기: 10/22 베식타시 원정",
+   "출처": "Yahoo/WebSearch 요약 + RCP",
+   "날짜": "2026-10-16"
+  },
+  {
+   "내용": "브라이턴도 10/15-16 UECL 홈 4-0 승 후 약 2.5~2.7일 휴식(팀노트 INPUTS 04:00 KST 기재). 브라이턴 휴식 약 5.2일은 10/16 경기 전 계산이라 실제는 짧음",
+   "출처": "팀노트 INPUTS + RCP",
+   "날짜": "2026-10-16"
+  },
+  {
+   "내용": "브라이턴 시즌 18득 5실, 아스널전 3-0(9/19)",
+   "출처": "https://readcrystalpalace.com/2026/10/16/brighton-vs-crystal-palace-preview-team-news/",
+   "날짜": "2026-10-16"
+  }
+ ],
+ "이전_재확인_결과": [
+  {
+   "항목": "팰리스 리옹 원정 후 2.7일",
+   "결과": "확인",
+   "출처": "cpfc.co.uk(Sage on learning lessons... Lyon) / RCP",
+   "날짜": "2026-10-16"
+  },
+  {
+   "항목": "마테타 결장 근거",
+   "결과": "확인(의심 등급)",
+   "출처": "https://readcrystalpalace.com/2026/10/16/mateta-injury-update-crystal-palace-brighton/",
+   "날짜": "2026-10-16"
+  },
+  {
+   "항목": "브라이턴 결장",
+   "결과": "미확인(RCP에 결장 없음, 현지 별도 확인 못 함) -> 2026-10-16 보충: 구단 공식 기사로 Mitoma·Minteh·Wieffer 결장, Struijk 의심 확인(결장_위 참조)",
+   "출처": "https://readcrystalpalace.com/2026/10/16/brighton-vs-crystal-palace-preview-team-news/",
+   "날짜": "2026-10-16"
+  }
+ ],
+ "엇갈림": [
+  "팀노트 INPUTS는 브라이턴 휴식 5.2일(10/16 04:00 경기 이전 기준) → 10/16 UECL 4-0 승 후 실제 약 2.5일. 정정 필요",
+  "팀노트 '팰리스 UEL' vs 일부 요약 'Conference League 우승팀' — 올 시즌 UEL 뛰는 것 맞음(리옹전)"
+ ],
+ "못찾음": [
+  "브라이턴 현지 지역지(Argus) 결장 기사",
+  "Mateta 이번시즌 선발수",
+  "Disasi·Riad 등 선발수 (Transfermarkt/FBref 직접 열람 못 함)",
+  "브라이턴 UECL 로테이션 실제 선발"
+ ],
+ "뉴스없음": {
+  "홈": "결장 뉴스 없음(RCP 프리뷰 결장 0명 기재) — 검색처 Read Crystal Palace, WebSearch(Yahoo/Sky 계열). Argus·BBC 직접 확인 못함이라 '확인 안 함' 쪽에 가까움",
+  "원정": ""
+ }
+}

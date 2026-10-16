@@ -1,0 +1,178 @@
+{
+ "결장": [
+  {
+   "팀": "원정",
+   "선수": "Raphinha",
+   "포지션": "윙어",
+   "이번시즌_선발/경기": "미확인",
+   "득점·도움": "미확인",
+   "사유": "오른 허벅지(대표팀 차출 중 발생), 헤타페전·갈라타사라이전 결장",
+   "상태": "SportsMole 10/14는 '경미한 의심, 베티스전 복귀 예정'; 팀노트(10/12)는 결장 확정 — 엇갈림",
+   "복귀예정": "베티스전 가능성",
+   "대체선수": "Anthony Gordon 등",
+   "출처": "https://www.sportsmole.co.uk/football/barcelona/injury-news/injuries-and-suspensions/raphinha-de-jong-updates-barcelona-injury-suspension-list-vs-real-betis_606866.html",
+   "날짜": "2026-10-14"
+  },
+  {
+   "팀": "원정",
+   "선수": "Frenkie de Jong",
+   "포지션": "MF",
+   "이번시즌_선발/경기": "미확인",
+   "득점·도움": "미확인",
+   "사유": "무릎 큰 부상 후 훈련 복귀",
+   "상태": "경미한 의심, 스쿼드 복귀 예상(SportsMole). 튀르키예 매체의 ACL·11/30 복귀 보도는 상충(출처 미확보)",
+   "복귀예정": "베티스전",
+   "대체선수": "Pedri/Rodri 등",
+   "출처": "https://www.sportsmole.co.uk/football/barcelona/injury-news/injuries-and-suspensions/raphinha-de-jong-updates-barcelona-injury-suspension-list-vs-real-betis_606866.html",
+   "날짜": "2026-10-14"
+  },
+  {
+   "팀": "원정",
+   "선수": "Andreas Christensen",
+   "포지션": "CB",
+   "이번시즌_선발/경기": "미확인",
+   "득점·도움": "미확인",
+   "사유": "허벅지",
+   "상태": "결장",
+   "복귀예정": "10/31(알라베스전)",
+   "대체선수": "미확인",
+   "출처": "https://www.sportsmole.co.uk/football/barcelona/injury-news/injuries-and-suspensions/raphinha-de-jong-updates-barcelona-injury-suspension-list-vs-real-betis_606866.html",
+   "날짜": "2026-10-14"
+  },
+  {
+   "팀": "원정",
+   "선수": "Roony Bardghji",
+   "포지션": "윙어",
+   "이번시즌_선발/경기": "미확인",
+   "득점·도움": "미확인",
+   "사유": "전방십자인대(파열 보도)",
+   "상태": "결장",
+   "복귀예정": "미정",
+   "대체선수": "-",
+   "출처": "https://www.sportsmole.co.uk/football/barcelona/injury-news/injuries-and-suspensions/raphinha-de-jong-updates-barcelona-injury-suspension-list-vs-real-betis_606866.html",
+   "날짜": "2026-10-14"
+  },
+  {
+   "팀": "홈",
+   "선수": "Aitor Ruibal, Diego Llorente",
+   "포지션": "WB/CB",
+   "이번시즌_선발/경기": "미확인",
+   "득점·도움": "미확인",
+   "사유": "부상",
+   "상태": "9/16 기준 결장 — 7일 초과 오래된 정보, 현재 상태 미확인",
+   "복귀예정": "미확인",
+   "대체선수": "-",
+   "출처": "https://www.comuniate.com/noticias/37992/pellegrini-confirma-dos-bajas-y-habla-de-isco-ceballos-parrott-cucho-y-las-rotaciones",
+   "날짜": "약 2026-09-16(검색요약)"
+  },
+  {
+   "팀": "홈",
+   "선수": "Junior Firpo, Bartra, Rui? (팀노트 10/12: Firpo, Ruibal, Bartra, Conde, Lo Celso)",
+   "포지션": "-",
+   "이번시즌_선발/경기": "미확인",
+   "득점·도움": "미확인",
+   "사유": "포르투전 대비 결장 목록",
+   "상태": "10/12 팀노트 기준, 포르투전 이후 갱신 못 찾음",
+   "복귀예정": "미확인",
+   "대체선수": "-",
+   "출처": "팀노트 베티스 10/12 (Yahoo Sports/GSFN)",
+   "날짜": "2026-10-12"
+  }
+ ],
+ "라인업": {
+  "홈": {
+   "발표여부": "미발표",
+   "예상XI": "미확인(10/15 포르투전 선발 4-2-3-1: Valles; Natan, Bartra, Fran García, Á.Ortiz; Isco, Roca, Deossa; Parrott, Abde, Antony — INPUTS)",
+   "포메이션": "4-2-3-1",
+   "출처": "팀노트 INPUTS",
+   "날짜": "2026-10-15"
+  },
+  "원정": {
+   "발표여부": "미발표",
+   "예상XI": "미확인(10/14 선발 4-3-3 INPUTS)",
+   "포메이션": "4-3-3",
+   "출처": "팀노트 INPUTS",
+   "날짜": "2026-10-15"
+  }
+ },
+ "최근경기": [
+  {
+   "팀": "베티스",
+   "날짜": "2026-10-15",
+   "상대": "포르투",
+   "장소": "홈",
+   "스코어": "3-2 승",
+   "비고": "UCL, INPUTS"
+  },
+  {
+   "팀": "바르셀로나",
+   "날짜": "2026-10-14",
+   "상대": "갈라타사라이",
+   "장소": "원정",
+   "스코어": "4-1 승",
+   "비고": "INPUTS; 후 약 3.9일"
+  }
+ ],
+ "순위": {
+  "홈": "3위 승점19",
+  "원정": "1위 8승 승점24",
+  "출처": "https://www.sportsmole.co.uk/...(위 URL) 및 팩트시트",
+  "날짜": "2026-10-14"
+ },
+ "감독": {
+  "홈": "Pellegrini",
+  "원정": "Hansi Flick",
+  "변동": "없음",
+  "출처": "팩트시트",
+  "날짜": "2026-10-15"
+ },
+ "일정·동기·날씨·기타": [
+  {
+   "내용": "경기 토 10/17 라 카르투하(KST 10/18 01:30). 바르사 다음: 10/20 PSG(UCL), 10/25 레알 마드리드 — 로테이션 유인",
+   "출처": "https://www.sportsmole.co.uk/football/barcelona/injury-news/injuries-and-suspensions/raphinha-de-jong-updates-barcelona-injury-suspension-list-vs-real-betis_606866.html(검색 요약)",
+   "날짜": "2026-10-14"
+  },
+  {
+   "내용": "플릭: 라피냐 '부상 아닌 관리' 발언 보도(3번째 허벅지 문제 우려)",
+   "출처": "https://www.elimparcial.com/deporte/2026/10/09/por-que-raphinha-es-baja-del-barcelona-y-cuando-volvera-a-jugar-los-partidos-que-se-perdera/",
+   "날짜": "2026-10-09"
+  }
+ ],
+ "이전_재확인_결과": [
+  {
+   "항목": "라피냐 결장",
+   "결과": "반박 가능성: SportsMole(10/14)는 복귀 예정·경미한 의심. 확정 결장 아님(단일 출처=의심)",
+   "출처": "https://www.sportsmole.co.uk/football/barcelona/injury-news/injuries-and-suspensions/raphinha-de-jong-updates-barcelona-injury-suspension-list-vs-real-betis_606866.html",
+   "날짜": "2026-10-14"
+  },
+  {
+   "항목": "더용 상태",
+   "결과": "의심(복귀 예상) — 상충 보도 있음",
+   "출처": "https://www.sportsmole.co.uk/football/barcelona/injury-news/injuries-and-suspensions/raphinha-de-jong-updates-barcelona-injury-suspension-list-vs-real-betis_606866.html",
+   "날짜": "2026-10-14"
+  },
+  {
+   "항목": "베티스 휴식 2.9일/바르사 3.9일",
+   "결과": "확인(INPUTS)",
+   "출처": "INPUTS",
+   "날짜": "2026-10-15"
+  }
+ ],
+ "엇갈림": [
+  "라피냐: 팀노트 결장 확정 vs SportsMole 복귀 예정",
+  "더용: SportsMole 훈련복귀 vs 튀르키예 매체 장기 이탈(출처 미확보)"
+ ],
+ "못찾음": [
+  "베티스 포르투전 이후 결장/부상 및 페예그리니 10/16 기자회견",
+  "바르사 플릭 10/16~17 기자회견",
+  "선수별 시즌 선발수 전부 미확인"
+ ],
+ "뉴스없음": {
+  "홈": "포르투전 이후 최신 베티스 결장: 뉴스없음 — Comuniate, SportsMole, El Gol Digital에서 신규 기사 없음",
+  "원정": ""
+ },
+ "번호": 5,
+ "홈": "레알 베티스",
+ "원정": "바르셀로나",
+ "수집시각": "2026-10-16 22:55 KST"
+}

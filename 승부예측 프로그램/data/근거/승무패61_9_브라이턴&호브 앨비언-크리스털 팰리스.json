@@ -1,0 +1,129 @@
+[
+ {
+  "번호": "9",
+  "홈": "브라이턴&호브 앨비언",
+  "원정": "크리스털 팰리스",
+  "기준선": {
+   "승": 56.6,
+   "무": 25.0,
+   "패": 18.4,
+   "출처": "soccer_baseline pi-rating 2026-10-16"
+  },
+  "득점모델": {
+   "방식": "xG",
+   "λ홈": 2.1,
+   "λ원정": 1.31,
+   "출처": "Understat 시즌 xG/xGA (INPUTS 2026-10-15) + 혼합 비율. xG λ 2.36:1.61(6경기 표본, 시즌 초반) 50% + 기준선 λ 1.89:1.01 50% 혼합. 표본 6경기라 xG 비중 절반."
+  },
+  "요인": [
+   {
+    "유형": "xG",
+    "팀": "홈",
+    "선수": "",
+    "등급": "",
+    "상태": "확정",
+    "영향": -1,
+    "내용": "기준선 불신 보정: 기준선 λ 1.89:1.01 대비 xG λ 2.36:1.61(원정 득점력·브라이턴 실점 반영). 혼합 점수분포 55.6/20.9/23.5 → 홈승 -1, 무는 상한 -3(분포는 -4).",
+    "출처": "팀노트 FACTS/INPUTS 2026-10-15",
+    "날짜": "2026-10-15",
+    "검색처": "Understat(INPUTS)"
+   },
+   {
+    "유형": "결장",
+    "팀": "홈",
+    "선수": "Kaoru Mitoma",
+    "등급": "B",
+    "상태": "추정",
+    "영향": -1.0,
+    "내용": "햄스트링 확정 결장. 이번 시즌 선발 수 미확인(검색요약상 미출장 보도)이라 보수적으로 B·추정, 시즌 내내 결장이면 D=0이라 과대 가능.",
+    "출처": "https://www.brightonandhovealbion.com/media-article/mft-match-preview-bha-crystal-palace-pl-october-2026 ; https://www.tribalfootball.com/article/soccer-premier-league-hurzeler-offers-mixed-injury-update-as-brighton-host-crystal-palace-70536910-c757-41ba-b4b8-6aa46666494d",
+    "날짜": "2026-10-16",
+    "검색처": "구단 공식, Tribal Football"
+   },
+   {
+    "유형": "결장",
+    "팀": "홈",
+    "선수": "Pascal Struijk",
+    "등급": "B",
+    "상태": "의심",
+    "영향": -0.5,
+    "내용": "CB, 선덜랜드전 60분 출장·예상 XI 포함. 하루 더 회복 후 결정, 대체 Vuskovic/Boscagli/Dunk 가능. 출처 간 표현 엇갈려 반영 절반.",
+    "출처": "https://www.brightonandhovealbion.com/media-article/mft-match-preview-bha-crystal-palace-pl-october-2026",
+    "날짜": "2026-10-16",
+    "검색처": "구단 공식, Sofascore, WebSearch 요약"
+   },
+   {
+    "유형": "결장",
+    "팀": "홈",
+    "선수": "Minteh / Wieffer / Azeez·Tzimas·Ferguson",
+    "등급": "C",
+    "상태": "확정",
+    "영향": 0,
+    "내용": "Minteh 0경기(D=0), Wieffer 리그 2경기 출장, 장기 FW 3명 모두 시즌 비주전·장기 결장. 시장에 반영된 정보로 영향 0.",
+    "출처": "https://www.brightonandhovealbion.com/media-article/mft-match-preview-bha-crystal-palace-pl-october-2026",
+    "날짜": "2026-10-16",
+    "검색처": "구단 공식, Rotowire"
+   },
+   {
+    "유형": "징계",
+    "팀": "원정",
+    "선수": "Axel Disasi",
+    "등급": "B",
+    "상태": "확정",
+    "영향": 1.5,
+    "내용": "입스위치전 퇴장 3경기 출장정지 마지막 경기, 직전 3백 선발. 선발 수 미확인이라 B. Riad 시즌 아웃(D=0, 영향 0).",
+    "출처": "https://readcrystalpalace.com/2026/10/16/brighton-vs-crystal-palace-preview-team-news/",
+    "날짜": "2026-10-16",
+    "검색처": "Read Crystal Palace, WebSearch 요약(Yahoo)"
+   },
+   {
+    "유형": "결장",
+    "팀": "원정",
+    "선수": "Jean-Philippe Mateta",
+    "등급": "B",
+    "상태": "의심",
+    "영향": 0,
+    "내용": "햄스트링, 마지막 공식전 8/22로 이번 시즌 사실상 결장 상태(D≈0), 복귀해도 벤치부터. 대체 Strand Larsen이 이미 선발. 영향 0.",
+    "출처": "https://readcrystalpalace.com/2026/10/16/mateta-injury-update-crystal-palace-brighton/ ; https://www.rotowire.com/soccer/headlines/jean-philippe-mateta-injury-could-return-in-weekend-match-539604",
+    "날짜": "2026-10-16",
+    "검색처": "Read Crystal Palace, Rotowire"
+   },
+   {
+    "유형": "휴식",
+    "팀": "원정",
+    "선수": "",
+    "등급": "",
+    "상태": "확정",
+    "영향": 1.5,
+    "내용": "양 팀 모두 10/15 유럽대항전 후 약 2.7일(INPUTS 브라이턴 5.2일은 오류). 브라이턴은 카우노전 4-0 대폭 로테이션·홈, 팰리스는 리옹 원정 2-3 패(0-2 열세 추격) 후 이동. 팰리스 쪽 피로·XI 변동 부담이 큼.",
+    "출처": "https://www.brightonandhovealbion.com/media-article/mft-match-preview-bha-crystal-palace-pl-october-2026 ; https://www.sofascore.com/news/brighton-4-0-kauno-zalgiris-rutter-brace-xg-4-05",
+    "날짜": "2026-10-16",
+    "검색처": "구단 공식, Sofascore, cpfc.co.uk"
+   }
+  ],
+  "최종": {
+   "승": 57,
+   "무": 22,
+   "패": 21
+  },
+  "선택지": [
+   {
+    "번호": "9",
+    "선택": "1순위 홈승",
+    "확률": 57,
+    "계산": "1·2순위 차 35%p (2순위 무 22)"
+   }
+  ],
+  "결론": "기준선 홈승 56.6에서 xG 불신(-1), 홈 Mitoma·Struijk(-1.5), 원정 Disasi 정지(+1.5), 팰리스의 리옹 원정 후 피로(+1.5)를 더해 57%. 혼합 λ 포아송 55.6/20.9/23.5와 ±2 안에서 맞고, 무는 기준선 -3%p 상한까지만 내렸다.",
+  "미확인": [
+   "결장 선수 이번 시즌 리그 선발 수(Mitoma·Disasi·Struijk)",
+   "Mateta·Struijk 출전 여부",
+   "양 팀 발표 라인업",
+   "INPUTS 날짜 10-15라 휴식일은 수집 JSON 값으로 대체"
+  ],
+  "추가 수집 요청": [
+   "Mitoma·Disasi·Struijk 이번 시즌 리그 선발 수(FBref/Transfermarkt)",
+   "킥오프 전 발표 XI"
+  ]
+ }
+]

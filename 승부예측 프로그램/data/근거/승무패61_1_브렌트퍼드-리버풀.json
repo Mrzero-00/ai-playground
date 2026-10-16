@@ -1,0 +1,173 @@
+[
+ {
+  "번호": "1",
+  "홈": "브렌트퍼드",
+  "원정": "리버풀",
+  "기준선": {
+   "승": 39.1,
+   "무": 28.3,
+   "패": 32.6,
+   "출처": "soccer_baseline pi-rating 2026-10-16"
+  },
+  "득점모델": {
+   "방식": "xG",
+   "λ홈": 1.6,
+   "λ원정": 1.42,
+   "출처": "Understat 시즌 xG/xGA (INPUTS 2026-10-16) + 혼합 비율. 원값 λ 1.695:1.53를 기준선 λ 1.47:1.33과 50:50 혼합(시즌 6경기라 표본 작음)"
+  },
+  "요인": [
+   {
+    "유형": "xG",
+    "팀": "홈",
+    "선수": "",
+    "등급": "",
+    "상태": "확정",
+    "영향": 3.0,
+    "내용": "xG 모델(λ 1.695:1.53) 포아송 승41.9 vs 기준선 39.1. 브렌트 xG1.97/xGA1.56, 리버풀 1.5/1.42. 기준선 pi가 지난 시즌 영향 가능, 이번 시즌 xG는 홈 우세",
+    "출처": "팀노트 FACTS/INPUTS 2026-10-16",
+    "날짜": "2026-10-16",
+    "검색처": ""
+   },
+   {
+    "유형": "결장",
+    "팀": "원정",
+    "선수": "알렉산데르 이삭",
+    "등급": "B",
+    "상태": "확정",
+    "영향": 1.0,
+    "내용": "허벅지, 복귀 미정(2곳). 이번 시즌 선발 수 미확인이라 보수적 B",
+    "출처": "https://www.sportsmole.co.uk/football/liverpool/injury-news/news/iraola-issues-pessimistic-liverpool-injury-updates-ahead-of-lask-clash_606704.html ; https://www.empireofthekop.com/2026/10/12/iraola-issues-concerning-liverpool-injury-update-ahead-of-lask/amp/",
+    "날짜": "2026-10-11 / 2026-10-12",
+    "검색처": "FootballDream, Sports Mole, Empire of the Kop"
+   },
+   {
+    "유형": "결장",
+    "팀": "원정",
+    "선수": "코디 각포",
+    "등급": "B",
+    "상태": "확정",
+    "영향": 0.5,
+    "내용": "발목, 복귀 미정(2곳). 선발 수 미확인, 직전 XI에 없음 -> 영향 작게",
+    "출처": "https://www.footballdream.in/blog/brentford-vs-liverpool-gw7-premier-league-2026-27 ; https://www.sportsmole.co.uk/football/liverpool/injury-news/news/iraola-issues-pessimistic-liverpool-injury-updates-ahead-of-lask-clash_606704.html",
+    "날짜": "2026-10-16 / 2026-10-11",
+    "검색처": "FootballDream, Sports Mole"
+   },
+   {
+    "유형": "징계",
+    "팀": "원정",
+    "선수": "라이언 흐라벤베르흐",
+    "등급": "B",
+    "상태": "의심",
+    "영향": 0.5,
+    "내용": "10/25까지 징계(단일 출처 1곳, 경기수·사유 미확인). 직전 XI에 선발. 의심이라 P 낮게",
+    "출처": "https://www.footballdream.in/blog/brentford-vs-liverpool-gw7-premier-league-2026-27",
+    "날짜": "2026-10-16",
+    "검색처": "FootballDream"
+   },
+   {
+    "유형": "결장",
+    "팀": "원정",
+    "선수": "도미니크 소보슬라이",
+    "등급": "B",
+    "상태": "의심",
+    "영향": 0.3,
+    "내용": "햄스트링 긴장 75%, 맨시티·LASK전 결장. 10/17 출전 미확인. P 낮게",
+    "출처": "https://www.footballdream.in/blog/brentford-vs-liverpool-gw7-premier-league-2026-27 ; https://www.sportsmole.co.uk/football/liverpool/injury-news/news/iraola-issues-pessimistic-liverpool-injury-updates-ahead-of-lask-clash_606704.html",
+    "날짜": "2026-10-16 / 2026-10-11",
+    "검색처": "FootballDream, Sports Mole"
+   },
+   {
+    "유형": "결장",
+    "팀": "홈",
+    "선수": "콜린스, 푸로",
+    "등급": "B",
+    "상태": "추정",
+    "영향": -0.8,
+    "내용": "종아리 등 결장, 복귀 미정(단일 출처). 선발 수 미확인, 보수적 B",
+    "출처": "https://www.footballdream.in/blog/brentford-vs-liverpool-gw7-premier-league-2026-27",
+    "날짜": "2026-10-16",
+    "검색처": "FootballDream"
+   },
+   {
+    "유형": "결장",
+    "팀": "홈",
+    "선수": "샤데, 슈스터, 담스고르",
+    "등급": "B",
+    "상태": "의심",
+    "영향": -0.5,
+    "내용": "각 75%, 예상 XI에는 샤데·슈스터 포함(단일 출처). P 낮게 반영",
+    "출처": "https://www.footballdream.in/blog/brentford-vs-liverpool-gw7-premier-league-2026-27",
+    "날짜": "2026-10-16",
+    "검색처": "FootballDream"
+   },
+   {
+    "유형": "휴식",
+    "팀": "원정",
+    "선수": "",
+    "등급": "",
+    "상태": "확정",
+    "영향": 0.5,
+    "내용": "리버풀 휴식 2.9일(UCL LASK 원정 직후, 10/20 비야레알 앞), 브렌트퍼드 7일",
+    "출처": "팀노트 FACTS/INPUTS 2026-10-16",
+    "날짜": "2026-10-16",
+    "검색처": ""
+   },
+   {
+    "유형": "뉴스없음",
+    "팀": "홈",
+    "선수": "",
+    "등급": "",
+    "상태": "확정",
+    "영향": 0,
+    "내용": "앤드루스 10/16 기자회견 뉴스 없음",
+    "출처": "수집 JSON 뉴스없음",
+    "날짜": "2026-10-16",
+    "검색처": "Google식 웹검색, FootballDream"
+   },
+   {
+    "유형": "뉴스없음",
+    "팀": "원정",
+    "선수": "",
+    "등급": "",
+    "상태": "확정",
+    "영향": 0,
+    "내용": "이라올라 10/16 기자회견 뉴스 없음(최신 10/12~13)",
+    "출처": "수집 JSON 뉴스없음",
+    "날짜": "2026-10-16",
+    "검색처": "Sports Mole, Empire of the Kop"
+   }
+  ],
+  "최종": {
+   "승": 43.6,
+   "무": 27.0,
+   "패": 29.4
+  },
+  "선택지": [
+   {
+    "번호": "1",
+    "선택": "1순위 승",
+    "확률": 43.6,
+    "계산": "1·2순위(승 vs 패) 차 14.2%p"
+   },
+   {
+    "번호": "1",
+    "선택": "2순위 패",
+    "확률": 29.4,
+    "계산": "패-무 차 2.4%p"
+   }
+  ],
+  "결론": "기준선 39.1에서 xG(홈 우세)와 리버풀 공격수 이탈·UCL 직후 휴식 열세로 소폭 올려 승 43.6. 팀뉴스는 대부분 단일 출처 의심이라 뉴스 순영향은 +1.0 수준으로 제한했고, 포아송(승41.9/무24.1/패34.0)은 무 과소라 무는 기준선 대비 -1.3%p만 조정.",
+  "미확인": [
+   "결장자 이번 시즌 선발 수 전원",
+   "흐라벤베르흐 징계 경기수·사유",
+   "소보슬라이 출전 여부",
+   "LASK전 출전자",
+   "라인업 미발표"
+  ],
+  "추가 수집 요청": [
+   "킥오프 1시간 전 공식 라인업",
+   "흐라벤베르흐 징계 2곳 이상 확인",
+   "결장자 선발 수(FBref/Transfermarkt)"
+  ]
+ }
+]

@@ -1,0 +1,271 @@
+{
+ "번호": 10,
+ "홈": "리즈 유나이티드",
+ "원정": "맨체스터 유나이티드",
+ "수집시각": "2026-10-16 23:10 KST",
+ "결장": [
+  {
+   "팀": "원정",
+   "선수": "Luke Shaw",
+   "포지션": "LB",
+   "이번시즌_선발/경기": "미확인",
+   "득점·도움": "미확인",
+   "사유": "부상(사유 미공개). Atlético전 결장, 대신 Ayden Heaven 좌측 풀백",
+   "상태": "의심(모니터링)",
+   "복귀예정": "미정",
+   "대체선수": "Ayden Heaven / Diogo Dalot?",
+   "출처": "Irish News·ESPN 리포트(Atlético전) + https://khelnow.com/football/leeds-united-vs-manchester-united-preview-premier-league-202610 (khelnow)",
+   "날짜": "2026-10-13~16"
+  },
+  {
+   "팀": "원정",
+   "선수": "Kobbie Mainoo",
+   "포지션": "CM",
+   "이번시즌_선발/경기": "미확인",
+   "득점·도움": "미확인",
+   "사유": "Atlético전 결장, 사유 미공개",
+   "상태": "의심",
+   "복귀예정": "미정",
+   "대체선수": "Andrey Santos / Tielemans / Baleba",
+   "출처": "https://khelnow.com/football/leeds-united-vs-manchester-united-preview-premier-league-202610 ; 3addedminutes 제목('Mainoo & Shaw among doubts')",
+   "날짜": "2026-10-16"
+  },
+  {
+   "팀": "원정",
+   "선수": "Noussair Mazraoui",
+   "포지션": "RB",
+   "이번시즌_선발/경기": "미확인",
+   "득점·도움": "미확인",
+   "사유": "사유 미공개(국대차출 중 이탈 보도 10/12)",
+   "상태": "의심",
+   "복귀예정": "미정",
+   "대체선수": "Dalot",
+   "출처": "https://khelnow.com/football/leeds-united-vs-manchester-united-preview-premier-league-202610",
+   "날짜": "2026-10-16"
+  },
+  {
+   "팀": "원정",
+   "선수": "Benjamin Šeško",
+   "포지션": "ST",
+   "이번시즌_선발/경기": "미확인",
+   "득점·도움": "미확인",
+   "사유": "정강이",
+   "상태": "확정에 가까움(khelnow 결장, 검색요약은 '우려')",
+   "복귀예정": "미정",
+   "대체선수": "Cunha / Mbeumo",
+   "출처": "https://khelnow.com/football/leeds-united-vs-manchester-united-preview-premier-league-202610",
+   "날짜": "2026-10-16"
+  },
+  {
+   "팀": "원정",
+   "선수": "Patrick Dorgu / Manuel Ugarte",
+   "포지션": "LB·DM",
+   "이번시즌_선발/경기": "미확인",
+   "득점·도움": "미확인",
+   "사유": "사유 미공개",
+   "상태": "결장(khelnow 1곳)",
+   "복귀예정": "미정",
+   "대체선수": "미확인",
+   "출처": "https://khelnow.com/football/leeds-united-vs-manchester-united-preview-premier-league-202610",
+   "날짜": "2026-10-16"
+  },
+  {
+   "팀": "원정",
+   "선수": "Matthijs de Ligt",
+   "포지션": "CB",
+   "이번시즌_선발/경기": "미확인",
+   "득점·도움": "미확인",
+   "사유": "부상 중(10/12 팀노트: 허리). 복귀 가능성 거론",
+   "상태": "의심(복귀 가능)",
+   "복귀예정": "미정",
+   "대체선수": "Yoro / Maguire",
+   "출처": "https://khelnow.com/football/leeds-united-vs-manchester-united-preview-premier-league-202610",
+   "날짜": "2026-10-16"
+  },
+  {
+   "팀": "원정",
+   "선수": "Leny Yoro",
+   "포지션": "CB",
+   "이번시즌_선발/경기": "직전 선발",
+   "득점·도움": "미확인",
+   "사유": "UCL 74분 퇴장 → UCL 다음 경기(Como) 출장정지. 리그 출전은 가능(UEFA 징계)",
+   "상태": "확인(UCL만 정지)",
+   "복귀예정": "리그 가능",
+   "대체선수": "-",
+   "출처": "WebSearch 요약(Atlético전 리포트 비교) / ESPN",
+   "날짜": "2026-10-13"
+  },
+  {
+   "팀": "홈",
+   "선수": "Joe Rodon",
+   "포지션": "CB",
+   "이번시즌_선발/경기": "미확인",
+   "득점·도움": "미확인",
+   "사유": "햄스트링",
+   "상태": "결장",
+   "복귀예정": "미정",
+   "대체선수": "Elvedi/Muharemović/Justin",
+   "출처": "https://khelnow.com/football/leeds-united-vs-manchester-united-preview-premier-league-202610",
+   "날짜": "2026-10-16"
+  },
+  {
+   "팀": "홈",
+   "선수": "Mateo Joseph",
+   "포지션": "FW",
+   "이번시즌_선발/경기": "미확인",
+   "득점·도움": "미확인",
+   "사유": "무릎",
+   "상태": "결장",
+   "복귀예정": "미정",
+   "대체선수": "Calvert-Lewin/Okafor",
+   "출처": "https://khelnow.com/football/leeds-united-vs-manchester-united-preview-premier-league-202610",
+   "날짜": "2026-10-16"
+  },
+  {
+   "팀": "홈",
+   "선수": "Daniel James",
+   "포지션": "W",
+   "이번시즌_선발/경기": "미확인",
+   "득점·도움": "미확인",
+   "사유": "허리",
+   "상태": "의심",
+   "복귀예정": "미정",
+   "대체선수": "Okafor",
+   "출처": "https://khelnow.com/football/leeds-united-vs-manchester-united-preview-premier-league-202610",
+   "날짜": "2026-10-16"
+  },
+  {
+   "팀": "홈",
+   "선수": "Harry Wilson",
+   "포지션": "W/FW",
+   "이번시즌_선발/경기": "미확인",
+   "득점·도움": "미확인",
+   "사유": "대퇴사두근, 복귀 가능",
+   "상태": "의심(복귀 쪽)",
+   "복귀예정": "10/18 가능",
+   "대체선수": "-",
+   "출처": "https://khelnow.com/football/leeds-united-vs-manchester-united-preview-premier-league-202610",
+   "날짜": "2026-10-16"
+  }
+ ],
+ "라인업": {
+  "홈": {
+   "발표여부": "미발표",
+   "예상XI": "3-5-2: Trafford; Justin,Elvedi,Muharemović; Bogle,Stach,Ampadu,Tanaka,Gudmundsson; Calvert-Lewin,Okafor",
+   "포메이션": "3-5-2/3-4-2-1",
+   "출처": "https://khelnow.com/football/leeds-united-vs-manchester-united-preview-premier-league-202610",
+   "날짜": "2026-10-16"
+  },
+  "원정": {
+   "발표여부": "미발표",
+   "예상XI": "4-2-3-1: Lammens; Dalot,Martínez,Maguire,Yoro; A.Santos,Tielemans; Amad,Fernandes,Cunha; Mbeumo (3addedminutes는 '4명 변경' 예상)",
+   "포메이션": "4-2-3-1",
+   "출처": "https://khelnow.com/football/leeds-united-vs-manchester-united-preview-premier-league-202610",
+   "날짜": "2026-10-16"
+  }
+ },
+ "최근경기": [
+  {
+   "팀": "맨유",
+   "날짜": "2026-10-13",
+   "상대": "아틀레티코",
+   "장소": "원정",
+   "스코어": "0-2 패(UCL)",
+   "비고": "Barrios 1분 선제, Yoro 74분 퇴장, Lookman 추가골. 5경기 무승, 40년 만의 최악 리그 출발 보도(출처: Irish News/ESPN/Al Jazeera 10/13)"
+  },
+  {
+   "팀": "맨유",
+   "날짜": "2026-10-10",
+   "상대": "토트넘",
+   "장소": "홈",
+   "스코어": "1-1",
+   "비고": "팀노트"
+  },
+  {
+   "팀": "리즈",
+   "날짜": "2026-10-10",
+   "상대": "아스널",
+   "장소": "원정",
+   "스코어": "1-2 패",
+   "비고": "팩트시트"
+  },
+  {
+   "팀": "리즈",
+   "날짜": "2026-09-20",
+   "상대": "팰리스",
+   "장소": "홈",
+   "스코어": "0-0",
+   "비고": "팩트시트"
+  }
+ ],
+ "순위": {
+  "홈": "7위 6경기 2승3무1패 승점9",
+  "원정": "13위 6경기 1승3무2패 승점6",
+  "출처": "팀노트 팩트시트(ESPN) ; https://khelnow.com/football/leeds-united-vs-manchester-united-preview-premier-league-202610",
+  "날짜": "2026-10-15"
+ },
+ "감독": {
+  "홈": "Daniel Farke",
+  "원정": "Michael Carrick(경질 압박 보도)",
+  "변동": "없음, 맨유 감독 압박 고조",
+  "출처": "ESPN/Irish News Atlético전 리포트",
+  "날짜": "2026-10-13"
+ },
+ "일정·동기·날씨·기타": [
+  {
+   "내용": "맨유 아틀레티코 원정(10/13 현지) 후 일요일 22:00 KST까지 약 4.8일. 다음 UCL 코모 원정(수요일). 맨유는 주중 UCL 때문에 로테이션 요인",
+   "출처": "khelnow/ESPN",
+   "날짜": "2026-10-16"
+  },
+  {
+   "내용": "맨유 팀노트의 'Atlético 원정 10/14'는 현지 10/13 화요일 경기로 정정(ESPN·Al Jazeera 10/13)",
+   "출처": "aljazeera.com/sports/2026/10/13/...",
+   "날짜": "2026-10-13"
+  }
+ ],
+ "이전_재확인_결과": [
+  {
+   "항목": "맨유 쇼 상태",
+   "결과": "확인(결장 지속, 일요일 의심)",
+   "출처": "https://khelnow.com/football/leeds-united-vs-manchester-united-preview-premier-league-202610",
+   "날짜": "2026-10-16"
+  },
+  {
+   "항목": "맨유 마이누 상태",
+   "결과": "확인(의심)",
+   "출처": "https://khelnow.com/football/leeds-united-vs-manchester-united-preview-premier-league-202610",
+   "날짜": "2026-10-16"
+  },
+  {
+   "항목": "맨유 마즈라위 상태",
+   "결과": "확인(의심, 사유 미공개)",
+   "출처": "https://khelnow.com/football/leeds-united-vs-manchester-united-preview-premier-league-202610",
+   "날짜": "2026-10-16"
+  },
+  {
+   "항목": "아틀레티코전 후 새 부상",
+   "결과": "미확인(경기 중 새 부상 보도 없음, 검색요약상 Yoro 퇴장만)",
+   "출처": "ESPN/Irish News",
+   "날짜": "2026-10-13"
+  },
+  {
+   "항목": "리즈 결장",
+   "결과": "확인(Rodon·Joseph 결장, James 의심, Wilson 복귀 가능)",
+   "출처": "https://khelnow.com/football/leeds-united-vs-manchester-united-preview-premier-league-202610",
+   "날짜": "2026-10-16"
+  }
+ ],
+ "엇갈림": [
+  "Šeško: khelnow '정강이로 결장' vs 검색요약 '여전히 우려' — 등급 유동",
+  "팀노트 10/12 '데 리흐트 확정 결장' vs khelnow '복귀 가능성' — 엇갈림"
+ ],
+ "못찾음": [
+  "Shaw·Mainoo·Mazraoui·Rodon 이번시즌 선발수",
+  "리즈 현지지(Yorkshire Evening Post) 직접 기사",
+  "맨유 팀노트 마이누/마즈라위 부상 부위"
+ ],
+ "뉴스없음": {
+  "홈": "",
+  "원정": ""
+ }
+}

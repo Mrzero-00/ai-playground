@@ -1,0 +1,165 @@
+[
+ {
+  "번호": "12",
+  "홈": "노팅엄 포리스트",
+  "원정": "아스널",
+  "기준선": {
+   "승": 20.3,
+   "무": 25.7,
+   "패": 54.1,
+   "출처": "soccer_baseline pi-rating 2026-10-16"
+  },
+  "득점모델": {
+   "방식": "xG",
+   "λ홈": 1.29,
+   "λ원정": 1.7,
+   "출처": "Understat 시즌 xG/xGA (INPUTS 2026-10-15) + 혼합 비율. xG만: 홈 1.575·원정 1.585 → 홈이점 보정 1.65:1.51. 기준선 λ 1.05:1.83과 4:6 혼합(6경기 표본이라 xG 비중 낮춤)"
+  },
+  "요인": [
+   {
+    "유형": "xG",
+    "팀": "홈",
+    "선수": "",
+    "등급": "",
+    "상태": "확정",
+    "영향": 4.0,
+    "내용": "기준선 불신 보정: 노팅엄 xPts 11.4 vs 승점 5, xG 2.04/xGA 1.21(npxGD+0.7); 아스널 xG 1.96/xGA 1.11. xG상 양 팀 비슷한데 pi는 -1.02. 시즌 6경기라 과거 시즌 자료 혼입 가능",
+    "출처": "팀노트 FACTS/INPUTS 2026-10-15",
+    "날짜": "2026-10-15",
+    "검색처": ""
+   },
+   {
+    "유형": "결장",
+    "팀": "원정",
+    "선수": "Saliba",
+    "등급": "B",
+    "상태": "확정",
+    "영향": 0,
+    "내용": "이번 시즌 미출전, 시즌 내내 이탈이라 D=0",
+    "출처": "https://www.sportsmole.co.uk/football/arsenal/champions-league/news/very-unfortunate-arteta-explains-hincapie-zubimendi-arsenal-injury-blows_606741.html ; https://www.football365.com/match-preview/nottingham-forest-v-arsenal-prediction-preview",
+    "날짜": "2026-10-16",
+    "검색처": "Sports Mole, Football365"
+   },
+   {
+    "유형": "결장",
+    "팀": "원정",
+    "선수": "Hincapié",
+    "등급": "B(추정)",
+    "상태": "확정",
+    "영향": 0.9,
+    "내용": "LB/CB, 선발 수 미확인이라 B 보수 추정. 1.5×R0.6(Calafiori/Lewis-Skelly)×P1×D1. 수 주 결장(요약 일부 복귀 가능, 엇갈림)",
+    "출처": "https://www.sportsmole.co.uk/football/arsenal/champions-league/news/very-unfortunate-arteta-explains-hincapie-zubimendi-arsenal-injury-blows_606741.html ; https://www.football365.com/match-preview/nottingham-forest-v-arsenal-prediction-preview",
+    "날짜": "2026-10-16",
+    "검색처": "Sports Mole, Football365"
+   },
+   {
+    "유형": "결장",
+    "팀": "원정",
+    "선수": "Zubimendi",
+    "등급": "B(추정)",
+    "상태": "의심",
+    "영향": 0.4,
+    "내용": "DM, 경미·복귀 예상. 1.5×R0.5×P0.5×D1",
+    "출처": "https://www.football365.com/match-preview/nottingham-forest-v-arsenal-prediction-preview",
+    "날짜": "2026-10-16",
+    "검색처": "Football365, Sports Mole"
+   },
+   {
+    "유형": "결장",
+    "팀": "원정",
+    "선수": "Tzolis",
+    "등급": "B(추정)",
+    "상태": "확정",
+    "영향": 0.4,
+    "내용": "W, 수 주 결장. 1.5×R0.5×P1×D0.5(신규 영입 선발 수 미확인)",
+    "출처": "https://www.football365.com/match-preview/nottingham-forest-v-arsenal-prediction-preview",
+    "날짜": "2026-10-16",
+    "검색처": "Football365"
+   },
+   {
+    "유형": "결장",
+    "팀": "홈",
+    "선수": "Igor Jesus",
+    "등급": "B(추정)",
+    "상태": "확정",
+    "영향": -0.45,
+    "내용": "FW, 수 주. 1.5×R0.6(Delap)×P1×D0.5",
+    "출처": "https://www.football365.com/match-preview/nottingham-forest-v-arsenal-prediction-preview ; WebSearch 요약",
+    "날짜": "2026-10-16",
+    "검색처": "Football365, 검색요약"
+   },
+   {
+    "유형": "결장",
+    "팀": "홈",
+    "선수": "Milenkovic",
+    "등급": "B(추정)",
+    "상태": "의심",
+    "영향": -0.6,
+    "내용": "CB, 뼈 타박. 10/11 결장. 1.5×R0.8(Aina)×P0.5×D1",
+    "출처": "https://www.football365.com/match-preview/nottingham-forest-v-arsenal-prediction-preview",
+    "날짜": "2026-10-16",
+    "검색처": "Football365"
+   },
+   {
+    "유형": "결장",
+    "팀": "홈",
+    "선수": "Savona",
+    "등급": "C",
+    "상태": "확정",
+    "영향": 0,
+    "내용": "3월 수술 여파, 시즌 내내 이탈 D=0",
+    "출처": "https://www.football365.com/match-preview/nottingham-forest-v-arsenal-prediction-preview",
+    "날짜": "2026-10-16",
+    "검색처": "Football365"
+   },
+   {
+    "유형": "휴식",
+    "팀": "원정",
+    "선수": "",
+    "등급": "",
+    "상태": "확정",
+    "영향": 1.0,
+    "내용": "아스널 UCL 후 4.9일 vs 노팅엄 7.1일 휴식. 릴전 주전 3명 벤치로 부담은 완화되어 소폭",
+    "출처": "팀노트 FACTS/INPUTS 2026-10-15",
+    "날짜": "2026-10-15",
+    "검색처": ""
+   },
+   {
+    "유형": "폼",
+    "팀": "홈",
+    "선수": "",
+    "등급": "",
+    "상태": "확정",
+    "영향": 0,
+    "내용": "홈 3경기 무득점. xG에 이미 반영되어 추가 영향 0(이중 계산 방지)",
+    "출처": "https://www.football365.com/match-preview/nottingham-forest-v-arsenal-prediction-preview",
+    "날짜": "2026-10-16",
+    "검색처": "Football365"
+   }
+  ],
+  "최종": {
+   "승": 26,
+   "무": 26,
+   "패": 48
+  },
+  "선택지": [
+   {
+    "번호": "12",
+    "선택": "2순위(승)/무 동률 부근 · 1순위 패",
+    "확률": 48,
+    "계산": "1순위 패 48, 2순위 무 26(승 26 동률), 1·2순위 차 22%p"
+   }
+  ],
+  "결론": "기준선(20/26/54)은 시즌 초 pi-rating 영향으로 아스널 쪽에 치우쳐 xG 보정 +4%p를 줬다. 아스널 수비 결장(힌카피에 등)과 4.9일 휴식이 소폭 홈에 유리하나 노팅엄 공격수 이탈과 홈 무득점이 상쇄한다. 최종 26/26/48, Poisson 교차(29/24/47)와 근접.",
+  "미확인": [
+   "선수별 이번 시즌 선발 수(등급은 B 추정)",
+   "라인업 미발표",
+   "힌카피에 결장 기간 엇갈림",
+   "Jesus 출처 2곳째 URL"
+  ],
+  "추가 수집 요청": [
+   "Transfermarkt/FBref 선발 수",
+   "10/18 라인업 발표 후 재확인"
+  ]
+ }
+]

@@ -1,0 +1,133 @@
+{
+ "결장": [
+  {
+   "팀": "홈",
+   "선수": "Péter Gulácsi",
+   "포지션": "GK",
+   "이번시즌_선발/경기": "미확인",
+   "득점·도움": "미확인",
+   "사유": "나폴리전 직전 자택 무장강도(신체 무사), 컨디션 문제로 UCL 결장",
+   "상태": "의심(엘체전 출전 여부 추후 판단)",
+   "복귀예정": "미정",
+   "대체선수": "미확인",
+   "출처": "https://www.elgoldigital.com/futbol/villarreal-cf/villarreal-elche-inigo-perez-rotaciones-once-laliga-2026/",
+   "날짜": "2026-10-14"
+  },
+  {
+   "팀": "홈",
+   "선수": "Tajon Buchanan",
+   "포지션": "윙어",
+   "이번시즌_선발/경기": "미확인",
+   "득점·도움": "미확인",
+   "사유": "근육 부상",
+   "상태": "결장(Comuniate 경기페이지; 팀노트 10/12와 일치=2곳 수준이나 날짜 10/12·미표기)",
+   "복귀예정": "미정",
+   "대체선수": "Akhomach 등",
+   "출처": "https://www.comuniate.com/partido/26/10/9/villarreal-elche",
+   "날짜": "미표기(페이지 경기전 상태)"
+  },
+  {
+   "팀": "홈",
+   "선수": "Nicolas Pépé",
+   "포지션": "윙어",
+   "이번시즌_선발/경기": "미확인",
+   "득점·도움": "미확인",
+   "사유": "안구 수술",
+   "상태": "결장",
+   "복귀예정": "약 6경기(팀노트)",
+   "대체선수": "미확인",
+   "출처": "https://www.comuniate.com/partido/26/10/9/villarreal-elche",
+   "날짜": "미표기"
+  }
+ ],
+ "라인업": {
+  "홈": {
+   "발표여부": "미발표(경기 60분 전 공개)",
+   "예상XI": "Gulácsi; Freeman, Renato Veiga/Pau Navarro, Foyth, Cardona; Saliba, Gueye/Comesaña; Moleiro, Ayoze, Akhomach; Oluwaseyi (로테이션 5명: Freeman·Foyth·Cardona·Akhomach·Ayoze 나폴리전 벤치)",
+   "포메이션": "미확인",
+   "출처": "https://www.elgoldigital.com/futbol/villarreal-cf/villarreal-elche-inigo-perez-rotaciones-once-laliga-2026/",
+   "날짜": "2026-10-14"
+  },
+  "원정": {
+   "발표여부": "미발표",
+   "예상XI": "미확인(10/11 셀타전 5-3-2: Dituro; Chust, Revivo, Morcillo; Valera, R.Sánchez, Aguado, Lemar, Villar; Fer Niño, Morente — INPUTS)",
+   "포메이션": "5-3-2",
+   "출처": "팀노트 INPUTS",
+   "날짜": "2026-10-16"
+  }
+ },
+ "최근경기": [
+  {
+   "팀": "비야레알",
+   "날짜": "2026-10-14",
+   "상대": "나폴리",
+   "장소": "홈",
+   "스코어": "3-1 승(역전: Mikautadze 선제→Mouriño 동점→Oluwaseyi 결승; 출처 서술)",
+   "비고": "UCL. 선제골자 표기가 팀노트 선발 명단(Mikautadze=비야레알)과 상충 — 확인 필요 [elgoldigital 2026-10-14]"
+  },
+  {
+   "팀": "엘체",
+   "날짜": "2026-10-11",
+   "상대": "셀타 비고",
+   "장소": "홈",
+   "스코어": "0-0",
+   "비고": "INPUTS"
+  }
+ ],
+ "순위": {
+  "홈": "11위 8경기 2승2무4패 승점8(팩트시트; 팀노트 10/12는 9위로 상충)",
+  "원정": "미확인(팩트시트 미확인; INPUTS 승점6)",
+  "출처": "팀노트 FACTS",
+  "날짜": "2026-10-15"
+ },
+ "감독": {
+  "홈": "Iñigo Pérez (elgoldigital 10/14·Comuniate 다수 일치; 팀노트의 마르셀리노 서술은 오류)",
+  "원정": "Martín Anselmi",
+  "변동": "변동 없음 확인 못함(뉴스없음)",
+  "출처": "https://www.elgoldigital.com/futbol/villarreal-cf/villarreal-elche-inigo-perez-rotaciones-once-laliga-2026/",
+  "날짜": "2026-10-14"
+ },
+ "일정·동기·날씨·기타": [
+  {
+   "내용": "경기: 토 10/17 16:15 CEST(=23:15 KST) 라 세라미카, DAZN. 나폴리전 후 약 3.8일",
+   "출처": "https://www.comuniate.com/partido/26/10/9/villarreal-elche",
+   "날짜": "미표기"
+  },
+  {
+   "내용": "이니고 페레스, 나폴리전 후 로테이션 지속 예정(5명 휴식했던 선수 선발 후보)",
+   "출처": "https://www.elgoldigital.com/futbol/villarreal-cf/villarreal-elche-inigo-perez-rotaciones-once-laliga-2026/",
+   "날짜": "2026-10-14"
+  }
+ ],
+ "이전_재확인_결과": [
+  {
+   "항목": "비야레알 나폴리전 후 3.8일 로테이션",
+   "결과": "확인",
+   "출처": "elgoldigital 위 기사",
+   "날짜": "2026-10-14"
+  },
+  {
+   "항목": "양 팀 결장",
+   "결과": "부분확인: 비야레알 Gulácsi 의심·Buchanan·Pépé / 엘체 Comuniate는 부상자 없음 표기(장기: Yago Santiago 무릎수술 — 약 1주 전 기사, Redondo도 이탈 언급)",
+   "출처": "comuniate 경기페이지; https://www.comuniate.com/noticias/38325/anselmi-sobre-josan-lomonaco-cepeda-valera-y-el-celta-de-vigo",
+   "날짜": "2026-10 초(약 10/9)"
+  }
+ ],
+ "엇갈림": [
+  "나폴리전 선제골자 Mikautadze 서술 vs 팀노트 선발(비야레알 소속)",
+  "비야레알 순위 11위(FACTS) vs 9위(팀노트 10/12)"
+ ],
+ "못찾음": [
+  "엘체 10/16~17 기자회견·최신 결장",
+  "비야레알 10/16 기자회견 (Gulácsi 복귀 여부)",
+  "결장 선수별 이번시즌 선발/출전 수(Transfermarkt 접근불가, FBref/BeSoccer 미검색) 전부 미확인"
+ ],
+ "뉴스없음": {
+  "홈": "",
+  "원정": "엘체 최신 결장: 뉴스없음 — 검색처 Comuniate, El Gol Digital, Jornada Perfecta(10/16 시점 기자회견 기사 없음)"
+ },
+ "번호": 3,
+ "홈": "비야레알",
+ "원정": "엘체",
+ "수집시각": "2026-10-16 22:55 KST"
+}

@@ -77,7 +77,7 @@ def _fit(X, Y, l2=L2):
 
 def _rows(exclude=()):
     out = {}
-    for r in csv.DictReader(open(REC, encoding="utf-8-sig")):
+    for r in (r for r in csv.DictReader(open(REC, encoding="utf-8-sig")) if r.get("정합성") != "C"):  # 2026-10-16 정합성 C(오류 데이터) 학습 제외
         if r.get("결과") not in OUTS or r.get("제외") or str(r.get("회차")) in exclude:
             continue
         f = features(r)

@@ -59,7 +59,7 @@ def load_hist():
 def main():
     hist = load_hist()
     rows = []
-    for r in csv.DictReader(open(REC, encoding="utf-8")):
+    for r in (r for r in csv.DictReader(open(REC, encoding="utf-8")) if r.get("정합성") != "C"):  # 2026-10-16 정합성 C(오류 데이터) 학습 제외
         if not r.get("순수_승") or not r.get("번호") or not r["회차"].isdigit():
             continue
         try:

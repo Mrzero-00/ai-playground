@@ -1,5 +1,13 @@
 # 허난FC (중국, Henan FC)
 
+<!-- FACTS:START -->
+## 팩트시트 (자동 수집 2026-10-16) — 조사 전 반드시 읽고, 아래 사실과 다른 뉴스 요약은 '미확인'으로 둔다
+- 출처: 위키 'Henan F.C.'(club), ESPN 있음
+- 감독: Daniel Ramos
+- 리그 순위: 13위 27경기 8승10무9패 GD-2 승점28 (Henan)
+- 최근 경기(ESPN, 최대 28일): 2026-09-06 Henan 0-0 Chengdu Rongcheng / 2026-09-12 Wuhan Three Towns 1-1 Henan / 2026-10-09 Shenzhen Xinpengcheng 2-2 Henan
+<!-- FACTS:END -->
+
 <!-- INPUTS:START -->
 ## 입력(자동 수집 2026-10-16) — xG·휴식일·라인업은 이 숫자를 쓴다
 - 10-16 20:35 vs 톈진 진먼후: 휴식 7.0일 · 직전 10-09 원정 vs Shenzhen Xinpengcheng 2-2 무 [chinese super league] · xG - · 직전 선발 4-2-3-1 Shi Chenglong, Lucas Varone, Iago Maidana, Nebijan Muhmet, Shinar Yeljan, Bruno Nazario, Wang Shangyuan, Abraham Halik, Gustavo, Pedro Maranhão, Zheng Dalun

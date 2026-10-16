@@ -288,7 +288,7 @@ def variable_section(rows):
 
 
 def cmd_report():
-    rows = list(csv.DictReader(open(REC, encoding="utf-8")))
+    rows = list((r for r in csv.DictReader(open(REC, encoding="utf-8")) if r.get("정합성") != "C"))  # 2026-10-16 정합성 C(오류 데이터) 학습 제외
     ev = evaluate(rows)
     weights = {f"{k[0]}:{k[1]}": v["w권장"] for k, v in ev.items() if k[0] in ("전체", "종목", "리그")}
     os.makedirs(os.path.dirname(WPATH), exist_ok=True)

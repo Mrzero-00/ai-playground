@@ -183,6 +183,20 @@ def leg_type(p, mk, pick, top, odds, raw=None):
     return "B 일치" if ok else "✗"
 
 
+_GRADE = None
+
+
+def integrity_grade(r):
+    """전체경기기록 '정합성' 등급 (integrity.py add). 선택지 번호와 경기 번호가 달라 경기명(홈 vs 원정)으로 찾는다."""
+    global _GRADE
+    if _GRADE is None:
+        _GRADE = {}
+        p = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "전체경기기록.csv")
+        for x in csv.DictReader(open(p, encoding="utf-8")):
+            _GRADE[(x["회차"], f"{x['홈']} vs {x['원정']}")] = x.get("정합성", "")
+    return _GRADE.get((str(r.get("회차", "")), r.get("경기", "")), "")
+
+
 def table(by_no, title, picks):
     lines = []
     if title:
@@ -216,11 +230,14 @@ def table(by_no, title, picks):
             mk = float(sel["공정확률"]) if sel and sel.get("공정확률") else None
             top = max(opts, key=lambda o: float(o["공정확률"] or 0))["선택"] if all(o.get("공정확률") for o in opts) else None
             ty = leg_type(p, mk, pick, top, float(sel["베트맨"]) if sel else None, raw)
+            g = integrity_grade(r)   # 2026-10-16 사용자 지시: 데이터 정합성 C(오래된·잘못된 자료)·미검사는 다리 금지
+            if g != "A" and g != "B":
+                ty = f"✗ 정합성 {g or '미검사'}"
             lines.append(f"| {no} | {game_cell} | {kind(r)} | {c[0]} | {c[1]} | {c[2]} | {ps} | {f'{mk:.1f}%' if mk is not None else '-'} | {ty} |")
         else:
             lines.append(f"| {no} | {game_cell} | {kind(r)} | {c[0]} | {c[1]} | {c[2]} | {ps} |")
     if OWN:
-        lines.append("\n유형 A = 시장과 갈림(1순위 다름 또는 내 확률 ≥ 시장+8%p): 확인된 사실 근거 + 배당 1.2+ · B = 일치: 내 60%+·시장 60%+·배당 1.2+ (기대값 조건 폐지 2026-10-16) · ✗ = 둘 다 아님(추천 금지)")
+        lines.append("\n유형 A = 시장과 갈림(1순위 다름 또는 내 확률 ≥ 시장+8%p): 확인된 사실 근거 + 배당 1.2+ · B = 일치: 내 60%+·시장 60%+·배당 1.2+ (기대값 조건 폐지 2026-10-16) · ✗ = 둘 다 아님(추천 금지) · ✗ 정합성 = integrity.py 등급 C·미검사(추천 금지, 2026-10-16)")
     lines.append("\n앱에서는 팀명이 단축 표기(예: 콜로래피·미네소타U)라 **게임번호**로 찾는다.")
     t = timing(by_no, picks)
     if t:

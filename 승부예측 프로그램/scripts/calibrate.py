@@ -72,7 +72,7 @@ def _rps(p, y):
 
 def _rows():
     out = {k: [] for k in GROUPS}
-    for r in csv.DictReader(open(REC, encoding="utf-8-sig")):
+    for r in (r for r in csv.DictReader(open(REC, encoding="utf-8-sig")) if r.get("정합성") != "C"):  # 2026-10-16 정합성 C(오류 데이터) 학습 제외
         sp = r["종목"]
         if sp not in GROUPS or not r.get("순수_승") or r.get("결과") not in ("승", "무", "패"):
             continue

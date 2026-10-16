@@ -1,5 +1,13 @@
 # 교토 상가FC
 
+<!-- FACTS:START -->
+## 팩트시트 (자동 수집 2026-10-16) — 조사 전 반드시 읽고, 아래 사실과 다른 뉴스 요약은 '미확인'으로 둔다
+- 출처: 위키 'Kyoto Sanga FC'(club), ESPN 있음
+- 감독: Ranko Popović
+- 리그 순위: 16위 9경기 2승2무5패 GD-5 승점8 (Kyoto Sanga)
+- 최근 경기(ESPN, 최대 28일): 2026-09-02 Yokohama F. Marinos 1-1 Kyoto Sanga / 2026-09-06 FC Tokyo 2-0 Kyoto Sanga / 2026-09-11 Kyoto Sanga 2-3 Kashiwa Reysol / 2026-09-19 Fagiano Okayama 1-2 Kyoto Sanga / 2026-10-10 Kyoto Sanga 0-1 Machida Zelvia
+<!-- FACTS:END -->
+
 <!-- INPUTS:START -->
 ## 입력(자동 수집 2026-10-16) — xG·휴식일·라인업은 이 숫자를 쓴다
 - 10-17 14:00 vs 산프레체 히로시마: 휴식 3.8일(7일 2경기) · 직전 10-13 홈 vs Ratchaburi FC 1-0 승 [league stage] · xG - · 직전 선발 3-4-3 Halls, Weverton, Takaaki Shichi, Hisashi Appiah Tawiah, Yoon Sung-Jun, Thiago, Kyo Sato, Ren Kato, Everton Maceió, Marco Túlio, Haruki Arai

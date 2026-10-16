@@ -168,12 +168,33 @@ def cmd_toto():
                  '{"_sbmInfo":{"_sbmInfo":{"debugMode":"false"}}}', ck)
     known = {r["회차"] for r in csv.DictReader(open(rl.PATH, encoding="utf-8"))} if os.path.exists(rl.PATH) else set()
     found = [g for g in lst.get("totoGames", []) if g.get("gmId") == "G011"]
+    for g in found:   # 이월금·판매액 기록 (사용자 지시 2026-10-16: 이월금액도 함께 확인)
+        log_pool(g)
     new = [g for g in found if f"승무패{g['gmOsidTs']}" not in known]
     if not new:
         print("승무패 새 회차 없음" + (f" (판매 중 {', '.join(str(g['gmOsidTs']) for g in found)}회 분석됨)" if found else ""))
     for g in new:
         print(f"승무패 {g['gmOsidTs']}회 판매 중 — 미분석 (gmTs {g.get('gmTs')}, 연도 {g.get('gmOsidTsYear')})")
         toto_plan(g, hdr, ck)
+
+
+POOL = os.path.join(ROOT, "data", "승무패_이월판매.csv")
+
+
+def log_pool(g):
+    """승무패 회차의 이월금(forwardAmount)·이월 횟수(forwardCnt)·판매액(totalSellAmount)을 data/승무패_이월판매.csv에 남기고 한 줄 보고.
+    1등 예상 = (판매액 × 50% 환급) × 50% + 이월금. 이월이 있으면 1등 상금이 커져 마킹 판단(단일 정배 vs 이변 복수)에 참고한다."""
+    fwd, cnt, sell = int(g.get("forwardAmount") or 0), int(g.get("forwardCnt") or 0), int(g.get("totalSellAmount") or 0)
+    first = sell * 0.5 * 0.5 + fwd
+    now = dt.datetime.now(o.KST).strftime("%Y-%m-%d %H:%M")
+    new = not os.path.exists(POOL)
+    with open(POOL, "a", encoding="utf-8", newline="") as fh:
+        w = csv.writer(fh, lineterminator="\n")
+        if new:
+            w.writerow(["확인시각", "회차", "이월금", "이월횟수", "판매액", "1등예상(현재판매액기준)"])
+        w.writerow([now, f"승무패{g.get('gmOsidTs')}", fwd, cnt, sell, int(first)])
+    print(f"  승무패 {g.get('gmOsidTs')}회 이월금 {fwd:,}원(이월 {cnt}회) · 판매액 {sell:,}원 · 1등 예상 약 {first / 1e8:.2f}억원(현재 기준)"
+          + (" ★ 이월 있음" if fwd else ""))
 
 
 def toto_plan(g, hdr, ck):

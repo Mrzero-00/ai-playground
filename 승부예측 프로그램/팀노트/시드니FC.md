@@ -13,3 +13,5 @@
 <!-- INPUTS:END -->
 
 - 2026-10-14 조사: 2026-27 A리그 개막전(10/16, 홈, 시드니 더비) 앞둠. 주장 Tobin 수비 복귀, 2026-27 스쿼드 번호 공개·스폰서(Sports Direct Australia) 계약 연장 발표 등 안정적 운영. 여자팀 Jada Whyman 2년 재계약 등 구단 전반 활발한 움직임이나, 신규 전력 보강 소식은 상대적으로 적음. baseline(pi-rating, aus.1) 기준 홈승 46.5%. 출처: Google News RSS(영문, 호주).
+
+- 2026-10-16 확인(light): 개막전 R1, Allianz Stadium, 현지 20:00 AEDT(=18:00 KST), 관중 3.5만 예상. Kisnorbo 3월 부임 후 정식 감독(25-26 그랜드파이널 진출). Lolley 뉴캐슬 이적, Quispe 이탈(위키 이적표). 영입 Zac Harrison·James Overy·Jacob Farrell(출처 football360). Tisserand 프리시즌 훈련 불참·은퇴 임박 보도. 개막전 공식 결장 명단 확인 안 됨. baseline 46.5/27.0/26.5, 기대득점 1.68:1.23, O2.5 55.6%. 출처: football360.com.au, sydneyfc.com

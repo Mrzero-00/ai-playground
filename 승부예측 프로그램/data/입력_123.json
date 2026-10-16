@@ -1,0 +1,208 @@
+{
+ "8607": {
+  "번호": "8607",
+  "경기": "에스투디안테스데 라플라타 - CR플라멩구",
+  "리그": "코파 리베르타도레스",
+  "시각": "10-16 09:30",
+  "수집": "10-16 19:23",
+  "홈": {
+   "팀": "에스투디안테스데 라플라타",
+   "eng": "Estudiantes de La Plata",
+   "직전": "09-17 원정 vs Corinthians 1-0 승 [quarterfinals]",
+   "휴식일": 29.0,
+   "휴식일주의": "ESPN에 없는 리그일 수 있음(21일 내 경기 없음) — 실제 휴식일은 더 짧을 수 있음",
+   "최근7일경기": 0,
+   "직전event": "401912540",
+   "xg": null,
+   "선발": [
+    "Fernando Muslera",
+    "Ramiro Funes Mori",
+    "Santiago Núñez",
+    "Gastón Benedetti",
+    "Eros Mancuso",
+    "Alexis Castro",
+    "Ezequiel Piovi",
+    "Joaquín Tobio Burgos",
+    "Baltasar Rodríguez",
+    "Guido Carrillo",
+    "Tiago Palacios"
+   ],
+   "포메이션": "4-4-2",
+   "직전선발": [
+    "Fernando Muslera",
+    "Leandro González Pírez",
+    "Santiago Núñez",
+    "Tomás Palacios",
+    "Eros Mancuso",
+    "Alexis Castro",
+    "Ezequiel Piovi",
+    "Joaquín Tobio Burgos",
+    "Baltasar Rodríguez",
+    "Guido Carrillo",
+    "Joaquín Correa"
+   ],
+   "직전포메이션": "4-4-2",
+   "교체": 3,
+   "빠진": [
+    "Leandro González Pírez",
+    "Tomás Palacios",
+    "Joaquín Correa"
+   ]
+  },
+  "원정": {
+   "팀": "CR플라멩구",
+   "eng": "CR Flamengo",
+   "직전": "09-18 홈 vs Independiente del Valle 1-1 무 [quarterfinals]",
+   "휴식일": 28.0,
+   "휴식일주의": "ESPN에 없는 리그일 수 있음(21일 내 경기 없음) — 실제 휴식일은 더 짧을 수 있음",
+   "최근7일경기": 0,
+   "직전event": "401912526",
+   "xg": null,
+   "선발": [
+    "Agustín Rossi",
+    "Léo Pereira",
+    "Léo Ortiz",
+    "Alex Sandro",
+    "Emerson Royal",
+    "Lucas Paquetá",
+    "Saúl Ñíguez",
+    "Erick Pulgar",
+    "Bruno Henrique",
+    "Samuel Lino",
+    "Jorge Carrascal"
+   ],
+   "포메이션": "4-2-3-1",
+   "직전선발": [
+    "Agustín Rossi",
+    "Léo Pereira",
+    "Léo Ortiz",
+    "Ayrton Lucas",
+    "Emerson Royal",
+    "Lucas Paquetá",
+    "Jorginho",
+    "Erick Pulgar",
+    "Bruno Henrique",
+    "Samuel Lino",
+    "Jorge Carrascal"
+   ],
+   "직전포메이션": "4-2-3-1",
+   "교체": 2,
+   "빠진": [
+    "Ayrton Lucas",
+    "Jorginho"
+   ]
+  },
+  "라인업": "발표",
+  "event": "401912523"
+ },
+ "8611": {
+  "번호": "8611",
+  "경기": "시드니FC - 웨스턴시드니 원더러스",
+  "리그": "호주 A리그",
+  "시각": "10-16 18:00",
+  "수집": "10-16 19:23",
+  "홈": {
+   "팀": "시드니FC",
+   "eng": "Sydney FC",
+   "휴식일": null,
+   "직전": "-",
+   "최근7일경기": null,
+   "휴식일주의": "35일 내 경기 없음 — ESPN 미제공 리그(체코·폴란드·헝가리·불가리아·키프로스·이스라엘·핀란드·크로아티아·세르비아·동남아 등)이면 에이전트가 직접 확인",
+   "xg": null,
+   "선발": [
+    "Harrison Devenish-Meares",
+    "Jordan Courtney-Perkins",
+    "Alexandar Popovic",
+    "Ben Garuccio",
+    "Rhyan Grant",
+    "Tiago Quintal",
+    "Jake Hollman",
+    "Rhys Youlley",
+    "Oriola Sunday",
+    "Takahiro Sekine",
+    "Al Hassan Toure"
+   ],
+   "포메이션": "4-2-3-1"
+  },
+  "원정": {
+   "팀": "웨스턴시드니 원더러스",
+   "eng": "Western Sydney Wanderers",
+   "휴식일": null,
+   "직전": "-",
+   "최근7일경기": null,
+   "휴식일주의": "35일 내 경기 없음 — ESPN 미제공 리그(체코·폴란드·헝가리·불가리아·키프로스·이스라엘·핀란드·크로아티아·세르비아·동남아 등)이면 에이전트가 직접 확인",
+   "xg": null,
+   "선발": [
+    "Lawrence Thomas",
+    "Anthony Pantazopoulos",
+    "German Ferreyra",
+    "Alex Gersbach",
+    "Panashe Madanha",
+    "Miguel Di Pizio",
+    "Dylan Scicluna",
+    "Angus Thurgate",
+    "Awan Lual",
+    "William Gillion",
+    "Nicolas Milanovic"
+   ],
+   "포메이션": "4-2-3-1"
+  },
+  "라인업": "발표",
+  "event": "401892162"
+ },
+ "8642": {
+  "번호": "8642",
+  "경기": "허난FC - 톈진 진먼후",
+  "리그": "중국 슈퍼리그",
+  "시각": "10-16 20:35",
+  "수집": "10-16 19:23",
+  "홈": {
+   "팀": "허난FC",
+   "eng": "Henan FC",
+   "직전": "10-09 원정 vs Shenzhen Xinpengcheng 2-2 무 [chinese super league]",
+   "휴식일": 7.0,
+   "최근7일경기": 0,
+   "직전event": "401861471",
+   "xg": null,
+   "직전선발": [
+    "Shi Chenglong",
+    "Lucas Varone",
+    "Iago Maidana",
+    "Nebijan Muhmet",
+    "Shinar Yeljan",
+    "Bruno Nazario",
+    "Wang Shangyuan",
+    "Abraham Halik",
+    "Gustavo",
+    "Pedro Maranhão",
+    "Zheng Dalun"
+   ],
+   "직전포메이션": "4-2-3-1"
+  },
+  "원정": {
+   "팀": "톈진 진먼후",
+   "eng": "Tianjin Jinmen Tiger",
+   "직전": "10-10 원정 vs Chengdu Rongcheng 1-0 승 [chinese super league]",
+   "휴식일": 6.0,
+   "최근7일경기": 1,
+   "직전event": "401861473",
+   "xg": null,
+   "직전선발": [
+    "Yan Bingliang",
+    "Aitor Córdoba",
+    "Xiandiao Wang",
+    "Xie Weijun",
+    "Sun Ming-Him",
+    "Wang Zhenghao",
+    "Cristian",
+    "Chen Zhexuan",
+    "Wang Qiuming",
+    "Bruno Xadas",
+    "Alberto Quiles Piosa"
+   ],
+   "직전포메이션": "5-4-1"
+  },
+  "라인업": "미발표(킥오프 1.2h 전)",
+  "event": "401861477"
+ }
+}

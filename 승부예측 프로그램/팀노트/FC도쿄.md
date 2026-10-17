@@ -7,8 +7,8 @@
 - 리그 순위: 미확인
 <!-- FACTS:END -->
 <!-- INPUTS:START -->
-## 입력(자동 수집 2026-10-17) — xG·휴식일·라인업은 이 숫자를 쓴다
-- 10-17 14:00 vs 도쿄 베르디: 휴식 6.0일(7일 2경기) · 직전 10-11 홈 vs Sanfrecce Hiroshima 0-2 패 [jpn.1] · xG - · 선발 4-4-2 Matheus Vidotto, Maaya Sako, Naoki Hayashi, Yuta Arai, Kaito Suzuki, Kosuke Saito, Kai Shibato, Yuya Fukuda, Kanya Fujimoto, Itsuki Someno, Hyun-Woo Kim · 직전 대비 교체 0명()
+## 입력(자동 수집 2026-10-17) — xG·휴식일·라인업·환경(이동거리·고도·날씨)은 이 숫자를 쓴다
+- 10-17 14:00 vs 도쿄 베르디: 휴식 7.0일(7일 1경기) · 직전 10-10 홈 vs Urawa Red Diamonds 3-0 승 [jpn.1] · xG - · 선발 4-4-2 Matheus Vidotto, Maaya Sako, Naoki Hayashi, Yuta Arai, Kaito Suzuki, Kosuke Saito, Kai Shibato, Yuya Fukuda, Kanya Fujimoto, Itsuki Someno, Hyun-Woo Kim · 직전 대비 교체 11명(Kim Seung-Gyu, Hayato Inamura, Alexander Scholz, Kashifu Bangunagande, Hirokazu Ishikara, Kyota Tokiwa, Shuto Nagano, Kota Tawaratsumida, Soma Anzai, Motoki Nagakura, Marcelo Ryan) · 구장 아지노모토 스타디움 · 이동 0km · 고도 66m(차 +0m) · 23.5℃ 강수0mm(0%) 바람8.0km/h
 <!-- INPUTS:END -->
 
 ## 성향

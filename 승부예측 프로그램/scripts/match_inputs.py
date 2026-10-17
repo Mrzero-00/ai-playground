@@ -211,9 +211,13 @@ def team_events(eng, before_utc, days=35, refresh=False, prefer=None):
         if YOUTH.search(norm(h["team"]["displayName"])) or YOUTH.search(norm(a["team"]["displayName"])) or "trophy" in comp or "u21" in comp:
             continue   # EFL 트로피 U21·B팀·여자팀 경기 제외 (2026-10-15 풀럼 U21 오매칭)
         if ok(h["team"]["displayName"]):
-            out.append((t, comp, eid, "홈", a["team"]["displayName"], _score(h.get("score"), a.get("score")), code))
+            out.append((t, comp, eid, "홈", a["team"]["displayName"], _score(h.get("score"), a.get("score")), code, norm(h["team"]["displayName"]) == norm(eng)))
         elif ok(a["team"]["displayName"]):
-            out.append((t, comp, eid, "원정", h["team"]["displayName"], _score(a.get("score"), h.get("score")), code))
+            out.append((t, comp, eid, "원정", h["team"]["displayName"], _score(a.get("score"), h.get("score")), code, norm(a["team"]["displayName"]) == norm(eng)))
+    if any(x[7] for x in out):
+        # 정확히 같은 이름이 있으면 포함 일치는 버린다(2026-10-17: 'FC Tokyo'→'tokyo'가 'Tokyo Verdy'에 포함돼 FC도쿄 INPUTS가 베르디 것으로 채워짐)
+        out = [x for x in out if x[7]]
+    out = [x[:7] for x in out]
     cont = ("uefa", "afc", "conmebol", "concacaf")
     if prefer and any(x[6] == prefer for x in out):
         out = [x for x in out if x[6] == prefer or x[6].startswith(cont)]   # 같은 이름의 타국 클럽(브라질 Athletic Club, 'all' 일별 포함) 제거
@@ -316,6 +320,12 @@ def game_inputs(r, names, now, refresh=False):
             d["xg_src"] = f"Understat {u[0]} {u[1]['title']}"
         else:
             d["xg"] = None
+    # 환경 — 이동거리·고도 차·킥오프 날씨 (venue_env.py, 사용자 지시 2026-10-17)
+    try:
+        import venue_env
+        out["환경"] = venue_env.match_env(h, a, ko.astimezone(KST) if ko else None, eh, ea, "축구")
+    except Exception as e:
+        out["환경"] = {"오류": str(e)[:80]}
     # 라인업
     out["라인업"] = "-"
     if ko:
@@ -367,10 +377,13 @@ def fmt_side(d):
 
 def write_note(team, line, today):
     path = os.path.join(NOTES, f"{team}.md")
-    block = f"<!-- INPUTS:START -->\n## 입력(자동 수집 {today}) — xG·휴식일·라인업은 이 숫자를 쓴다\n- {line}\n<!-- INPUTS:END -->\n"
+    block = f"<!-- INPUTS:START -->\n## 입력(자동 수집 {today}) — xG·휴식일·라인업·환경(이동거리·고도·날씨)은 이 숫자를 쓴다\n- {line}\n<!-- INPUTS:END -->\n"
     old = open(path, encoding="utf-8").read() if os.path.exists(path) else f"# {team}\n\n"
     if "<!-- INPUTS:START -->" in old:
-        new = re.sub(r"<!-- INPUTS:START -->.*?<!-- INPUTS:END -->\n?", block, old, flags=re.S)
+        # 중복 블록·중첩 마커까지 전부 지우고 하나만 넣는다(2026-10-17: INPUTS 마커가 겹쳐 같은 줄이 두 번씩 쌓이던 문제)
+        new = re.sub(r"(?:<!-- INPUTS:START -->\s*)+.*?(?:<!-- INPUTS:END -->\s*)+", "\x00", old, count=1, flags=re.S)
+        new = re.sub(r"(?:<!-- INPUTS:START -->\s*)+.*?(?:<!-- INPUTS:END -->\s*)+", "", new, flags=re.S)
+        new = new.replace("\x00", block + "\n", 1)
     elif "<!-- FACTS:END -->" in old:
         new = old.replace("<!-- FACTS:END -->\n", "<!-- FACTS:END -->\n" + block, 1)
     else:
@@ -397,18 +410,29 @@ def main():
     today = now.date().isoformat()
     L = [f"# {a.round}회 경기 입력 — xG·휴식일·라인업 (수집 {now:%m-%d %H:%M})", "",
          "xG = Understat(상위 5리그 소속 팀만, 경기당 평균). 휴식일 = 직전 공식전(모든 대회)부터 킥오프까지. 라인업 = ESPN 공식 선발(발표 전이면 직전 경기 XI).", "",
-         "| 번호 | 시각 | 경기 | 홈 | 원정 | 라인업 |", "|---|---|---|---|---|---|"]
+         "| 번호 | 시각 | 경기 | 홈 | 원정 | 라인업 | 환경(이동·고도·날씨) |", "|---|---|---|---|---|---|---|"]
     for r in rows:
         try:
             g = game_inputs(r, names, now, a.refresh)
         except Exception as e:
             print(f"  ✗ {r['번호']} {r['홈']}-{r['원정']}: {e}", file=sys.stderr); continue
         store[g["번호"]] = g
-        L.append(f"| {g['번호']} | {g['시각']} | {g['경기']} | {fmt_side(g['홈'])} | {fmt_side(g['원정'])} | {g['라인업']} |")
+        try:
+            import venue_env
+            envs = venue_env.fmt_env(g.get("환경"))
+        except Exception:
+            envs = "-"
+        L.append(f"| {g['번호']} | {g['시각']} | {g['경기']} | {fmt_side(g['홈'])} | {fmt_side(g['원정'])} | {g['라인업']} | {envs} |")
         print(f"  {g['번호']} {g['경기']}: 휴식 {g['홈'].get('휴식일')}/{g['원정'].get('휴식일')} · xG {'○' if g['홈'].get('xg') else '-'}/{'○' if g['원정'].get('xg') else '-'} · 라인업 {g['라인업']}")
         if not a.no_notes:
             for side in ("홈", "원정"):
-                write_note(g[side]["팀"], f"{g['시각']} vs {g['원정' if side == '홈' else '홈']['팀']}: {fmt_side(g[side])}", today)
+                env = ""
+                try:
+                    import venue_env
+                    env = " · " + venue_env.fmt_env(g.get("환경"))
+                except Exception:
+                    pass
+                write_note(g[side]["팀"], f"{g['시각']} vs {g['원정' if side == '홈' else '홈']['팀']}: {fmt_side(g[side])}{env}", today)
     json.dump(store, open(jp, "w", encoding="utf-8"), ensure_ascii=False, indent=1)
     mp = os.path.join(ROOT, "회차별분석", f"입력_{a.round}.md")
     open(mp, "w", encoding="utf-8").write("\n".join(L) + "\n")

@@ -1,12 +1,12 @@
 # 토론토FC (MLS 동부)
 
 <!-- FACTS:START -->
-## 팩트시트 (자동 수집 2026-10-14) — 조사 전 반드시 읽고, 아래 사실과 다른 뉴스 요약은 '미확인'으로 둔다
-- 출처: 위키 '2026 Toronto FC II season'(season), ESPN 있음
-- 감독: Gianni Cimini
-- 리그 순위: 11위 28경기 7승11무10패 GD-11 승점32 (Toronto FC)
-- 2026 여름 이적(위키 이적 표, 앞 8줄씩): IN align=center|82 · align=center · Bryce Boneau · Huntsville City FC / IN align=center|74 · align=center · Luca Costabile · Maryland Terrapins / IN align=center|60 · align=center · Christopher Kalongo · Forge FC / IN align=center|72 · align=center · Daniel Stampatori · Lipscomb Bisons / IN align=center|86 · align=center · Abundance Salaou · IFK Göteborg · Transfer / IN align=center|38 · align=center · Jackson Gilman · Pittsburgh Panthers · First Team draft pick / IN align=center|79 · align=center · Fletcher Bank · Stanford Cardinal · First team draft pick / IN align=center|84 · align=center · Elias Khodri · New Hampshire Wildcats / OUT align=center| 85 · align=center · Marko Stojadinovic · Atlético Ottawa · Option declined / OUT align=center| 68 · align=center · Lucas Olguin · HFX Wanderers FC · Option declined / OUT align=center| 82 · align=center · Patrick McDonald · St. Louis City SC 2 · Option declined / OUT align=center| 74 · align=center · Michael Sullivan · FC Cincinnati 2 · Option declined
-- 최근 경기(ESPN, 최대 28일): 2026-09-09 Toronto FC 2-1 Nashville SC / 2026-09-12 Orlando City SC 3-0 Toronto FC / 2026-09-20 St. Louis CITY SC 3-1 Toronto FC / 2026-09-27 Nashville SC 2-0 Toronto FC / 2026-10-10 Toronto FC 2-1 CF Montréal
+## 팩트시트 (자동 수집 2026-10-18) — 조사 전 반드시 읽고, 아래 사실과 다른 뉴스 요약은 '미확인'으로 둔다
+- 출처: 위키 '2026 Inter Toronto FC season'(season), ESPN 있음
+- 감독: Mauro Eustáquio
+- 리그 순위: cup1 =
+- 2026 여름 이적(위키 이적 표, 앞 8줄씩): IN align=center · align=center · {{sort|Bassett, Ollie | Ollie Bassett}} · Tampa Bay Rowdies · Free / IN align=center · align=center · {{sort|López, Raúl | Raúl López}} · FC Rànger's · Free / IN align=center · align=center · {{sort|Almagro, Ariel | Ariel Almagro}} · Aucas · Free / IN align=center · align=center · {{sort|Badibanga, Béni | Béni Badibanga}} · Forge FC · Free / IN align=center · align=center · {{sort|Campos, Antonio | Antonio Campos}} · Fullerton Titans · Free / IN align=center · align=center · {{sort|Gonzáles, Sebastián | Sebastián Gonzales}} · KF Teuta · Free / IN align=center · align=center · {{sort|Guzmán, Carlos | Carlos Guzmán}} · Monterey Bay FC · Free / IN align=center · align=center · {{sort|Córdova, Juan | Juan Córdova}} · Unión San Felipe · Free / OUT align=center|6 · align=center · align=Botello, Orlando | Orlando Botello · C.F. Monterrey U23 · Loan ended / OUT align=center|1 · align=center · align=Urtiaga, Diego | Diego Urtiaga · Atlético San Luis · Loan ended / OUT align=center|62 · align=center · {{sort|Higgins, Nyal | Nyal Higgins}} · Contract expired / OUT align=center|17 · align=center · {{sort|López, Leonel | Leonel López}} · Cancún FC · Contract expired
+- 최근 경기(ESPN, 최대 28일): 2026-09-12 Orlando City SC 3-0 Toronto FC / 2026-09-20 St. Louis CITY SC 3-1 Toronto FC / 2026-09-27 Nashville SC 2-0 Toronto FC / 2026-10-10 Toronto FC 2-1 CF Montréal / 2026-10-14 Toronto FC 3-3 Orlando City SC
 <!-- FACTS:END -->
 <!-- INPUTS:START -->
 ## 입력(자동 수집 2026-10-15) — xG·휴식일·라인업은 이 숫자를 쓴다

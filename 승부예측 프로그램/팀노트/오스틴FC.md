@@ -1,12 +1,12 @@
 # 오스틴FC
 
 <!-- FACTS:START -->
-## 팩트시트 (자동 수집 2026-10-14) — 조사 전 반드시 읽고, 아래 사실과 다른 뉴스 요약은 '미확인'으로 둔다
-- 출처: 위키 '2026 Austin FC season'(season), ESPN 있음
-- 감독: Nico Estévez''(until May 18)''Davy Arnaud''(interim, from May 18)
-- 리그 순위: 13위 28경기 7승10무11패 GD-15 승점31 (Austin FC)
-- 2026 여름 이적(위키 이적 표, 앞 8줄씩): IN December 16, 2025 · DF · align="left"| Jon Bell · align="left"| Seattle Sounders · Free Agent / IN December 18, 2025 · FW · align="left" | Jayden Nelson · align="left" | Vancouver Whitecaps · $700,000 in 2026  / IN December 18, 2025 · DF · align="left" | Joseph Rosales · align="left" | Minnesota United · $1.5 million cash t / IN January 23, 2026 · MF · align="left" | Facundo Torres · align="left" | SE Palmeiras · $9.5 million cash trade / IN February 27, 2026 · FW · align="left" | Christian Ramirez · align="left" | LA Galaxy · free / IN June 30, 2026 · FW · align="left" | Przemysław Płacheta · align="left" | Oxford United · free / IN July 30, 2026 · FW · align="left" | Jorge Alastuey · align="left" | Austin FC II · free / IN align=center | 24 · align=center | MF · Jorge Alastuey · Austin FC II · March 13, 2026March 20, 2026April 22,  / OUT rowspan=3|November 25, 2025 · DF · align="left"| Julio Cascante · align="left"| Melbourne City FC · Declined c / OUT FW · align="left"| Jimmy Farkarlun · align="left"| El Paso Locomotive · Declined contract option · N/A / OUT FW · align="left"| Diego Rubio · align="left"| Deportes La Serena · Declined contract option · N/A / OUT December 10, 2025 · GK · align="left"| Stefan Cleveland · align="left"| Sporting Kansas City · Trade
-- 최근 경기(ESPN, 최대 28일): 2026-09-10 Austin FC 1-1 Colorado Rapids / 2026-09-13 Vancouver Whitecaps 1-2 Austin FC / 2026-09-20 FC Dallas 0-0 Austin FC / 2026-09-27 Austin FC 3-3 San Diego FC / 2026-10-11 Austin FC 1-4 Nashville SC
+## 팩트시트 (자동 수집 2026-10-18) — 조사 전 반드시 읽고, 아래 사실과 다른 뉴스 요약은 '미확인'으로 둔다
+- 출처: 위키 '2026 Austin FC II season'(season), ESPN 있음
+- 감독: Jason Shackell
+- 리그 순위: 14위 29경기 7승10무12패 GD-17 승점31 (Austin FC)
+- 2026 여름 이적(위키 이적 표, 앞 8줄씩): IN January 15, 2026 · FW · style="text-align:left"| Ibrahima Sall · style="text-align:left"| Notaresco · Free / IN January 15, 2026 · GK · style="text-align:left"| Erik Lauta · style="text-align:left"| Huntsville City FC · Fr / IN February 3, 2026 · DF · style="text-align:left"| Evan Watt · style="text-align:left"| Weymouth F.C. · Free / IN February 6, 2026 · FW · style="text-align:left"| Stefan Dobrijevic · style="text-align:left"| Akron · Drafted / IN February 6, 2026 · MF · style="text-align:left"| Patrick Cayelli · style="text-align:left"| Pennsylvania · Dra / IN February 20, 2026 · DF · style="text-align:left"| Dren Dobruna · style="text-align:left"| Dayton · Free / IN March 6, 2026 · MF · style="text-align:left"| Kenan Hot · style="text-align:left"| Duke · Free / IN MF · style="text-align:left"| Riley Thomas · style="text-align:left"| Austin FC · February 27, 2026 · December / OUT January 21, 2026 · FW · style="text-align:left"| Peter Grogan · style="text-align:left"| Athlone Town · Mutual / OUT February 3, 2026 · DF · style="text-align:left"| Rubén Bonachera · style="text-align:left"| UE Sant Andreu · T / OUT July 31, 2026 · MF · style="text-align:left"| Jorge Alastuey · style="text-align:left"| Austin FC · Signed wit / OUT style="text-align:center"| 4 · style="text-align:center"| DF · Antonio Gomez · Sporting Club Jacksonville · Ja
+- 최근 경기(ESPN, 최대 28일): 2026-09-13 Vancouver Whitecaps 1-2 Austin FC / 2026-09-20 FC Dallas 0-0 Austin FC / 2026-09-27 Austin FC 3-3 San Diego FC / 2026-10-11 Austin FC 1-4 Nashville SC / 2026-10-15 LAFC 3-1 Austin FC
 <!-- FACTS:END -->
 <!-- INPUTS:START -->
 ## 입력(자동 수집 2026-10-15) — xG·휴식일·라인업은 이 숫자를 쓴다

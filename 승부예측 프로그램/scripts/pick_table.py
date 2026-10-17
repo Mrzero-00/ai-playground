@@ -156,6 +156,11 @@ def final_probs(rnd):
         for r in csv.DictReader(open(RECORD, encoding="utf-8-sig")):
             if r["회차"] != str(rnd) or not r.get("보정_승"):
                 continue
+            if r.get("정합성") in ("A", "B"):
+                # 2026-10-17 123 중간회고: 근거 JSON(수집가/분석가) 경기는 분석가 최종이 이미 기준선에서 출발한다.
+                # anchor(기준선 50 재혼합 + 옛 평평한 순수로 학습한 온도·홈 편향)를 또 씌우면 홈 승이 시장보다 +7~10%p 부푼다
+                # (121·122·123 연속, 번리 39→49·시드니 45→60). 새 방식 30경기 채점 뒤 calibrate 재학습 전까지 분석가 최종을 쓴다.
+                continue
             try:
                 d = {"승": float(r["보정_승"]), "무": float(r["보정_무"] or 0), "패": float(r["보정_패"])}
                 hp = r.get("적중예상도")

@@ -182,6 +182,9 @@ def leg_type(p, mk, pick, top, odds, raw=None):
     if p is None or mk is None or odds is None:
         return "-"
     base = raw if raw is not None else p
+    if p >= 60 and mk >= 60 and odds >= 1.2 and base - mk >= 8:
+        # 2026-10-17 [중간]: 사실 근거 없는 모델 갈림(+8%p)은 과신 신호 — 오후 2/12. 조합 확률은 시장 기준으로 본다
+        return "B 일치 ⚠과신(시장 기준)"
     if (top and top != pick) or base - mk >= 8:
         return "A 갈림" + ("" if odds >= 1.2 else " ✗(배당<1.2)")
     ok = p >= 60 and mk >= 60 and odds >= 1.2  # 2026-10-16 사용자: 기대값 조건 폐지

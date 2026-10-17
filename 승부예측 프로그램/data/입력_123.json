@@ -1829,7 +1829,7 @@
   "경기": "미들즈브러 - 카디프 시티",
   "리그": "잉글랜드 챔피언십",
   "시각": "10-17 20:30",
-  "수집": "10-17 13:48",
+  "수집": "10-17 19:50",
   "홈": {
    "팀": "미들즈브러",
    "eng": "Middlesbrough",
@@ -1838,6 +1838,20 @@
    "최근7일경기": 2,
    "직전event": "401880227",
    "xg": null,
+   "선발": [
+    "Radek Vítek",
+    "Ashley Phillips",
+    "Luke Ayling",
+    "Neto Borges",
+    "Callum Brittain",
+    "Riley McGree",
+    "Aidan Morris",
+    "Adilson Malanda",
+    "Kyle Joseph",
+    "Tommy Conway",
+    "Amario Cozier-Duberry"
+   ],
+   "포메이션": "4-2-3-1",
    "직전선발": [
     "Radek Vítek",
     "Ashley Phillips",
@@ -1851,7 +1865,13 @@
     "Jeremy Sarmiento",
     "Amario Cozier-Duberry"
    ],
-   "직전포메이션": "3-4-2-1"
+   "직전포메이션": "3-4-2-1",
+   "교체": 3,
+   "빠진": [
+    "Sebastian Berhalter",
+    "Will Lankshear",
+    "Jeremy Sarmiento"
+   ]
   },
   "원정": {
    "팀": "카디프 시티",
@@ -1861,6 +1881,20 @@
    "최근7일경기": 2,
    "직전event": "401880229",
    "xg": null,
+   "선발": [
+    "Nathan Trott",
+    "Ollie Tanner",
+    "Jack Moylan",
+    "Krystian Bielik",
+    "Gabriel Osho",
+    "Joel Bagan",
+    "Ronan Kpakio",
+    "Alex Robertson",
+    "Cian Ashford",
+    "Chris Willock",
+    "Joel Colwill"
+   ],
+   "포메이션": "4-1-4-1",
    "직전선발": [
     "Nathan Trott",
     "Gabriel Osho",
@@ -1874,9 +1908,35 @@
     "Ollie Tanner",
     "Jack Moylan"
    ],
-   "직전포메이션": "4-1-4-1"
+   "직전포메이션": "4-1-4-1",
+   "교체": 2,
+   "빠진": [
+    "Dylan Lawlor",
+    "Perry Ng"
+   ]
   },
-  "라인업": "미발표(킥오프 6.7h 전)",
+  "환경": {
+   "구장": "리버사이드 스타디움",
+   "구장고도": 21,
+   "원정홈": "카디프 시티 스타디움",
+   "원정홈고도": 11,
+   "이동km": 370,
+   "고도차": 10,
+   "날씨": {
+    "기온": 11.5,
+    "습도": 50,
+    "강수mm": 0,
+    "강수확률": 12,
+    "풍속": 17.3,
+    "출처": "Open-Meteo forecast 10-17 19:50"
+   },
+   "출처": [
+    "Wikidata Q18661→Q822886 · Open-Meteo 고도",
+    "Wikidata Q18662→Q867902 · Open-Meteo 고도"
+   ],
+   "주의": []
+  },
+  "라인업": "발표",
   "event": "401880216"
  },
  "8843": {
@@ -1939,7 +1999,7 @@
   "경기": "왓포드 - 찰턴 애슬레틱",
   "리그": "잉글랜드 챔피언십",
   "시각": "10-17 20:30",
-  "수집": "10-17 13:48",
+  "수집": "10-17 19:50",
   "홈": {
    "팀": "왓포드",
    "eng": "Watford",
@@ -1948,6 +2008,20 @@
    "최근7일경기": 2,
    "직전event": "401880229",
    "xg": null,
+   "선발": [
+    "Federico Ravaglia",
+    "Kévin Keben",
+    "Matthew Pollock",
+    "Soumaila Coulibaly",
+    "Krépin Diatta",
+    "Myron Boadu",
+    "Hector Kyprianou",
+    "Edo Kayembe",
+    "Luca Kjerrumgaard",
+    "Iker Bravo",
+    "Marc Bola"
+   ],
+   "포메이션": "4-2-3-1",
    "직전선발": [
     "Federico Ravaglia",
     "Kévin Keben",
@@ -1961,7 +2035,15 @@
     "Stephy Mavididi",
     "Othmane Maamma"
    ],
-   "직전포메이션": "4-2-3-1"
+   "직전포메이션": "4-2-3-1",
+   "교체": 5,
+   "빠진": [
+    "Jordan Zemura",
+    "Omar-Haktab Traoré",
+    "Martín Payero",
+    "Stephy Mavididi",
+    "Othmane Maamma"
+   ]
   },
   "원정": {
    "팀": "찰턴 애슬레틱",
@@ -1971,6 +2053,20 @@
    "최근7일경기": 1,
    "직전event": "401880230",
    "xg": null,
+   "선발": [
+    "Arthur Okonkwo",
+    "Billy Koumetio",
+    "Dan McNamara",
+    "Ivan Mesik",
+    "Lloyd Jones",
+    "Karlan Grant",
+    "Oliver Skipp",
+    "Kayne Ramsay",
+    "Conor Coventry",
+    "Tyreece Campbell",
+    "Miles Leaburn"
+   ],
+   "포메이션": "4-2-3-1",
    "직전선발": [
     "Arthur Okonkwo",
     "Lloyd Jones",
@@ -1984,9 +2080,34 @@
     "Tyreece Campbell",
     "Karlan Grant"
    ],
-   "직전포메이션": "3-4-2-1"
+   "직전포메이션": "3-4-2-1",
+   "교체": 1,
+   "빠진": [
+    "Amari'i Bell"
+   ]
   },
-  "라인업": "미발표(킥오프 6.7h 전)",
+  "환경": {
+   "구장": "비커리지 로드",
+   "구장고도": 72,
+   "원정홈": "더 밸리",
+   "원정홈고도": 7,
+   "이동km": 35,
+   "고도차": 65,
+   "날씨": {
+    "기온": 11.6,
+    "습도": 63,
+    "강수mm": 0,
+    "강수확률": 2,
+    "풍속": 18.4,
+    "출처": "Open-Meteo forecast 10-17 19:50"
+   },
+   "출처": [
+    "Wikidata Q2714→Q10626 · Open-Meteo 고도",
+    "Wikidata Q19462→Q958319 · Open-Meteo 고도"
+   ],
+   "주의": []
+  },
+  "라인업": "발표",
   "event": "401880211"
  },
  "8851": {
@@ -2096,7 +2217,7 @@
   "경기": "칭다오 하이뉴 - 랴오닝 톄런",
   "리그": "중국 슈퍼리그",
   "시각": "10-17 20:35",
-  "수집": "10-17 13:48",
+  "수집": "10-17 19:50",
   "홈": {
    "팀": "칭다오 하이뉴",
    "eng": "Qingdao Hainiu",
@@ -2143,7 +2264,31 @@
    ],
    "직전포메이션": "3-1-4-2"
   },
-  "라인업": "미발표(킥오프 6.8h 전)",
+  "환경": {
+   "구장": "Qingdao Tiantai Stadium",
+   "구장고도": 12,
+   "원정홈": "랴오닝성(구단 좌표 — 구장 미확인)",
+   "원정홈고도": 48,
+   "이동km": 692,
+   "고도차": -36,
+   "날씨": {
+    "기온": 22.7,
+    "습도": 90,
+    "강수mm": 1.1,
+    "강수확률": 100,
+    "풍속": 41.9,
+    "출처": "Open-Meteo forecast 10-17 19:50"
+   },
+   "출처": [
+    "Wikidata Q1192574→Q1013812 · Open-Meteo 고도",
+    "Wikidata Q43934→구단 · Open-Meteo 고도"
+   ],
+   "주의": [
+    "비 1.1mm(100%)",
+    "강풍 41.9km/h"
+   ]
+  },
+  "라인업": "미발표(킥오프 0.7h 전)",
   "event": "401861510"
  },
  "8860": {
@@ -2151,7 +2296,7 @@
   "경기": "윈난 위쿤 - 충칭 퉁량룽",
   "리그": "중국 슈퍼리그",
   "시각": "10-17 20:35",
-  "수집": "10-17 13:48",
+  "수집": "10-17 19:50",
   "홈": {
    "팀": "윈난 위쿤",
    "eng": "Yunnan",
@@ -2198,7 +2343,30 @@
    ],
    "직전포메이션": "5-4-1"
   },
-  "라인업": "미발표(킥오프 6.8h 전)",
+  "환경": {
+   "구장": "윈난성(구단 좌표 — 구장 미확인)",
+   "구장고도": 1923,
+   "원정홈": "충칭시(구단 좌표 — 구장 미확인)",
+   "원정홈고도": 218,
+   "이동km": 625,
+   "고도차": 1705,
+   "날씨": {
+    "기온": 21.7,
+    "습도": 47,
+    "강수mm": 0,
+    "강수확률": 0,
+    "풍속": 9.3,
+    "출처": "Open-Meteo forecast 10-17 19:50"
+   },
+   "출처": [
+    "Wikidata Q43194→구단 · Open-Meteo 고도",
+    "Wikidata Q11725→구단 · Open-Meteo 고도"
+   ],
+   "주의": [
+    "고지대 +1705m"
+   ]
+  },
+  "라인업": "미발표(킥오프 0.7h 전)",
   "event": "401861511"
  },
  "8864": {

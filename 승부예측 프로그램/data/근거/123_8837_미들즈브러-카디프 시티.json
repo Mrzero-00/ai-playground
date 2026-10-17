@@ -1,0 +1,262 @@
+[
+ {
+  "번호": "8837",
+  "홈": "미들즈브러",
+  "원정": "카디프 시티",
+  "기준선": {
+   "승": 59,
+   "무": 25,
+   "패": 15,
+   "출처": "soccer_baseline pi-rating 2026-10-17"
+  },
+  "득점모델": {
+   "방식": "기준선",
+   "λ홈": 1.82,
+   "λ원정": 0.82,
+   "출처": "baseline λ 1.82:0.83 출발, 홈 공격 스트렐렉 결장·란샤크 벤치 -0.0, 카디프 CB·FW 결장 반영 원정 -0.01. 챔피언십은 xG 없어 참고만(2026-10-17 규칙상 핸디캡·U/O 다리 제외)"
+  },
+  "요인": [
+   {
+    "유형": "결장",
+    "팀": "홈",
+    "선수": "Alfie Jones",
+    "등급": "B(추정)",
+    "상태": "확정",
+    "영향": -0.6,
+    "내용": "CB, 종아리, 팀노트상 10/13 이전부터 회복 중(D0.5). CB는 A 미만이라 절반 반영. 1.5×R0.8×P1.0×D0.5",
+    "출처": "https://www.sportsmole.co.uk/football/middlesbrough/preview/middlesbrough-vs-cardiff-prediction-team-news-lineups_606985.html ; https://starting11.com/fixtures/middlesbrough-vs-cardiff",
+    "날짜": "2026-10-17"
+   },
+   {
+    "유형": "결장",
+    "팀": "홈",
+    "선수": "Rokas Pukštas",
+    "등급": "B(추정)",
+    "상태": "확정",
+    "영향": -0.5,
+    "내용": "햄스트링 4경기(팀노트 10/12), D0.5, 1.5×R0.6×1.0×0.5 ×다중1.15",
+    "출처": "https://www.sportsmole.co.uk/football/middlesbrough/preview/middlesbrough-vs-cardiff-prediction-team-news-lineups_606985.html ; https://www.gazettelive.co.uk/sport/football/football-news/middlesbrough-vs-cardiff-city-live-34778908",
+    "날짜": "2026-10-17"
+   },
+   {
+    "유형": "결장",
+    "팀": "홈",
+    "선수": "David Strelec",
+    "등급": "B(추정)",
+    "상태": "확정",
+    "영향": -0.5,
+    "내용": "FW 부상, 이전 결장 여부 불명 D0.5, 1.5×R0.6×1.0×0.5 ×다중1.15",
+    "출처": "https://www.sportsmole.co.uk/football/middlesbrough/preview/middlesbrough-vs-cardiff-prediction-team-news-lineups_606985.html ; https://www.gazettelive.co.uk/sport/football/football-news/middlesbrough-vs-cardiff-city-live-34778908",
+    "날짜": "2026-10-17"
+   },
+   {
+    "유형": "라인업",
+    "팀": "홈",
+    "선수": "Will Lankshear",
+    "등급": "B(추정)",
+    "상태": "의심",
+    "영향": -0.2,
+    "내용": "시즌 7골 득점 공동1위가 리그 첫 비선발. 선발XI 단일 출처 의심이라 P0.5 이하. 벤치 대기 가능",
+    "출처": "https://www.gazettelive.co.uk/sport/football/football-news/middlesbrough-vs-cardiff-city-live-34778908",
+    "날짜": "2026-10-17"
+   },
+   {
+    "유형": "결장",
+    "팀": "원정",
+    "선수": "Dylan Lawlor",
+    "등급": "B(추정)",
+    "상태": "확정",
+    "영향": 1.0,
+    "내용": "CB 햄스트링, 10/13 왓포드전 새 결장(D1.0), CB는 A 미만 절반 반영. 1.5×R0.8×1.0×1.0×0.85",
+    "출처": "https://www.sportsmole.co.uk/football/middlesbrough/preview/middlesbrough-vs-cardiff-prediction-team-news-lineups_606985.html ; https://starting11.com/fixtures/middlesbrough-vs-cardiff",
+    "날짜": "2026-10-17"
+   },
+   {
+    "유형": "결장",
+    "팀": "원정",
+    "선수": "Rubin Colwill",
+    "등급": "B(추정)",
+    "상태": "확정",
+    "영향": 0.5,
+    "내용": "발목, 선발 'Joel Colwill'은 다른 선수로 보여 결장 유지. 1.5×R0.6×1.0×D0.5",
+    "출처": "https://www.sportsmole.co.uk/football/middlesbrough/preview/middlesbrough-vs-cardiff-prediction-team-news-lineups_606985.html ; https://starting11.com/fixtures/middlesbrough-vs-cardiff",
+    "날짜": "2026-10-17"
+   },
+   {
+    "유형": "결장",
+    "팀": "원정",
+    "선수": "Calum Chambers",
+    "등급": "B(추정)",
+    "상태": "확정",
+    "영향": 0.2,
+    "내용": "무릎 장기 이탈 D0.2",
+    "출처": "https://www.sportsmole.co.uk/football/middlesbrough/preview/middlesbrough-vs-cardiff-prediction-team-news-lineups_606985.html ; https://starting11.com/fixtures/middlesbrough-vs-cardiff",
+    "날짜": "2026-10-17"
+   },
+   {
+    "유형": "결장",
+    "팀": "원정",
+    "선수": "Yousef Salech",
+    "등급": "B(추정)",
+    "상태": "의심",
+    "영향": 0.3,
+    "내용": "출처 엇갈림(SM1·Gazette 복귀 가능 / S11 out) P0.5, FW 1.5×R0.8×0.5×D0.5",
+    "출처": "https://www.sportsmole.co.uk/football/middlesbrough/preview/middlesbrough-vs-cardiff-prediction-team-news-lineups_606985.html ; https://www.gazettelive.co.uk/sport/football/football-news/middlesbrough-vs-cardiff-city-live-34778908",
+    "날짜": "2026-10-17"
+   },
+   {
+    "유형": "결장",
+    "팀": "원정",
+    "선수": "Bielik/Fish/Davies",
+    "등급": "B(추정)",
+    "상태": "의심",
+    "영향": 0.2,
+    "내용": "Bielik은 Gazette 선발 포함(P낮음), Fish·Davies 의심 P0.5 이하. 합산 소폭",
+    "출처": "https://starting11.com/fixtures/middlesbrough-vs-cardiff ; https://www.gazettelive.co.uk/sport/football/football-news/middlesbrough-vs-cardiff-city-live-34778908",
+    "날짜": "2026-10-17"
+   },
+   {
+    "유형": "맞대결",
+    "팀": "홈",
+    "선수": "미들즈브러",
+    "등급": "-",
+    "상태": "확정",
+    "영향": 0.3,
+    "내용": "2022-09 이후 최근 5번 4승1무 무패. 작게 반영",
+    "출처": "https://www.sportsmole.co.uk/football/middlesbrough/preview/middlesbrough-vs-cardiff-prediction-team-news-lineups_606985.html",
+    "날짜": "2026-10-17"
+   },
+   {
+    "유형": "폼",
+    "팀": "홈",
+    "선수": "미들즈브러",
+    "등급": "-",
+    "상태": "확정",
+    "영향": 0.3,
+    "내용": "리그 8경기 무패, 홈 5경기 4승1무, 카디프는 이번 시즌 원정 승 없음. 기준선에 대부분 반영돼 작게",
+    "출처": "https://www.sportsmole.co.uk/football/middlesbrough/preview/middlesbrough-vs-cardiff-prediction-team-news-lineups_606985.html",
+    "날짜": "2026-10-17"
+   },
+   {
+    "유형": "폼",
+    "팀": "원정",
+    "선수": "카디프",
+    "등급": "-",
+    "상태": "확정",
+    "영향": -0.3,
+    "내용": "10/13 왓포드 5-1, 최근 3경기 2승 상승세. 작게 반영",
+    "출처": "data/수집/123_8837_미들즈브러-카디프 시티.json",
+    "날짜": "2026-10-17"
+   },
+   {
+    "유형": "일정",
+    "팀": "홈",
+    "선수": "양 팀",
+    "등급": "-",
+    "상태": "확정",
+    "영향": 0,
+    "내용": "휴식 양 팀 3.7일 동일, 이동 370km, 날씨 11.5도 강수0 바람17km/h로 영향 없음",
+    "출처": "팀노트 INPUTS",
+    "날짜": "2026-10-17"
+   }
+  ],
+  "최종": {
+   "승": 60,
+   "무": 25,
+   "패": 15
+  },
+  "선택지": [
+   {
+    "번호": "8837",
+    "선택": "8837 승무패 일반 승",
+    "확률": 60,
+    "계산": "최종 승"
+   },
+   {
+    "번호": "8837",
+    "선택": "8837 승무패 일반 무",
+    "확률": 25,
+    "계산": "최종 무"
+   },
+   {
+    "번호": "8837",
+    "선택": "8837 승무패 일반 패",
+    "확률": 15,
+    "계산": "최종 패"
+   },
+   {
+    "번호": "8838",
+    "선택": "8838 일반 정수핸디캡 H-1 승",
+    "확률": 35.7,
+    "계산": "포아송 λ1.82:0.82 홈 2골차+ (참고 계산)"
+   },
+   {
+    "번호": "8838",
+    "선택": "8838 일반 정수핸디캡 H-1 무",
+    "확률": 25.4,
+    "계산": "포아송 홈 정확히 1골차 승"
+   },
+   {
+    "번호": "8838",
+    "선택": "8838 일반 정수핸디캡 H-1 패",
+    "확률": 40,
+    "계산": "최종 무+패 = 25+15 (포아송 38.9)"
+   },
+   {
+    "번호": "8839",
+    "선택": "8839 일반 정수핸디캡 H-2 승",
+    "확률": 16.8,
+    "계산": "포아송 홈 3골차+"
+   },
+   {
+    "번호": "8839",
+    "선택": "8839 일반 정수핸디캡 H-2 무",
+    "확률": 18.9,
+    "계산": "포아송 홈 정확히 2골차 승"
+   },
+   {
+    "번호": "8839",
+    "선택": "8839 일반 정수핸디캡 H-2 패",
+    "확률": 64.3,
+    "계산": "포아송 홈 승 1골차 이하(무·패 포함)"
+   },
+   {
+    "번호": "8840",
+    "선택": "8840 일반 소수핸디캡 H-3.5 승",
+    "확률": 6.5,
+    "계산": "포아송 홈 4골차+"
+   },
+   {
+    "번호": "8840",
+    "선택": "8840 일반 소수핸디캡 H-3.5 패",
+    "확률": 93.5,
+    "계산": "포아송 3골차 이하"
+   },
+   {
+    "번호": "8841",
+    "선택": "8841 일반 언더오버 U/O 3.5 언더",
+    "확률": 72.7,
+    "계산": "포아송 총득점 3 이하"
+   },
+   {
+    "번호": "8841",
+    "선택": "8841 일반 언더오버 U/O 3.5 오버",
+    "확률": 27.3,
+    "계산": "포아송 총득점 4 이상"
+   }
+  ],
+  "결론": "기준선 59/25/15는 2위 대 19위 순위와 맞아 신뢰한다. 양 팀 결장 순차이와 맞대결·폼이 상쇄돼 합계 +0.9로 60/25/15. 선발 XI는 단일 출처 의심이라 라인업 영향은 작게만 넣었다. 무는 포아송이 22.5로 낮지만 기준선 ±3 안에서 25 유지.",
+  "미확인": [
+   "선발 XI 단일 출처(구단·BBC·Sky 미확인)",
+   "결장 선수들의 이번 시즌 선발 비중(등급 추정)",
+   "Salech·Bielik·Fish 출전 여부",
+   "Colwill 동일인 여부",
+   "카디프 순위 19위/18위",
+   "킥오프 12:30 vs 15:00 BST"
+  ],
+  "추가 수집 요청": [
+   "Jones·Pukštas·Strelec·Lawlor 이번 시즌 선발 수",
+   "공식 라인업 2번째 출처"
+  ]
+ }
+]

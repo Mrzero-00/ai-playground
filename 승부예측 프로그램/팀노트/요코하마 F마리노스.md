@@ -9,7 +9,7 @@
 - 최근 경기(ESPN, 최대 28일): 2026-09-02 Yokohama F. Marinos 1-1 Kyoto Sanga / 2026-09-06 Kashiwa Reysol 0-2 Yokohama F. Marinos / 2026-09-12 Machida Zelvia 1-1 Yokohama F. Marinos / 2026-09-19 Yokohama F. Marinos 2-0 Mito Hollyhock / 2026-10-10 Cerezo Osaka 0-0 Yokohama F. Marinos
 <!-- FACTS:END -->
 <!-- INPUTS:START -->
-## 입력(자동 수집 2026-10-16) — xG·휴식일·라인업은 이 숫자를 쓴다
+## 입력(자동 수집 2026-10-17) — xG·휴식일·라인업은 이 숫자를 쓴다
 - 10-17 14:00 vs 제프 유나이티드: 휴식 7.0일 · 직전 10-10 원정 vs Cerezo Osaka 0-0 무 [jpn.1] · xG - · 직전 선발 4-2-3-1 Hiroki Iikura, Kosei Suwama, Jeisson Quiñones, Toichi Suzuki, Takuto Kimura, Jun Amano, Riku Yamane, Kosuke Matsumura, Kaina Tanimura, Ryo Miyaichi, Tomoki Kondo
 <!-- INPUTS:END -->
 

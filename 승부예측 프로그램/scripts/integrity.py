@@ -111,7 +111,7 @@ def evidence_checks(r, e, severe, minor):
     if r.get("종목") == "축구":
         if gm.get("방식") == "리그평균":
             severe.append("득점모델이 리그 평균 — 경기별 λ 필요")
-        if any(k in (r.get("리그") or "") for k in XG_LEAGUES) and "2부" not in (r.get("리그") or "") and has_ou and gm.get("방식") != "xG":
+        if "K리그" not in (r.get("리그") or "") and any(k in (r.get("리그") or "") for k in XG_LEAGUES) and "2부" not in (r.get("리그") or "") and has_ou and gm.get("방식") != "xG":
             severe.append("xG 제공 리그인데 핸디캡·언더오버 확률을 xG λ로 계산하지 않음")
     # 뉴스 없음 ≠ 확인 안 함 (2026-10-16 사용자 질문): 팀마다 '결장·라인업 뉴스를 찾아봤다'는 기록이 있어야 한다.
     # 찾았으면 뉴스 요인(URL·날짜), 못 찾았으면 유형 '뉴스없음' + 검색처 2곳 이상(현지 매체·구단 공식 등) + 영향 0.
@@ -160,8 +160,12 @@ def append(path, cols, rows):
 
 
 def find(rows, rnd, e):
+    # 번호 우선. 이름 일치는 결과 없는 행만(2026-10-17: 같은 대진 연전 — 한신-DeNA 4차전 근거가 3차전 8615 행에 붙던 버그)
     for r in rows:
-        if r["회차"] == str(rnd) and (r["번호"] == str(e.get("번호")) or (r["홈"] == e.get("홈") and r["원정"] == e.get("원정"))):
+        if r["회차"] == str(rnd) and r["번호"] == str(e.get("번호")):
+            return r
+    for r in rows:
+        if r["회차"] == str(rnd) and r["홈"] == e.get("홈") and r["원정"] == e.get("원정") and not r.get("결과"):
             return r
     return None
 

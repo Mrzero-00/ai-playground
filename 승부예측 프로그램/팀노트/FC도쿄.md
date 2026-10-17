@@ -7,7 +7,7 @@
 - 리그 순위: 미확인
 <!-- FACTS:END -->
 <!-- INPUTS:START -->
-## 입력(자동 수집 2026-10-16) — xG·휴식일·라인업은 이 숫자를 쓴다
+## 입력(자동 수집 2026-10-17) — xG·휴식일·라인업은 이 숫자를 쓴다
 - 10-17 14:00 vs 도쿄 베르디: 휴식 6.0일(7일 2경기) · 직전 10-11 홈 vs Sanfrecce Hiroshima 0-2 패 [jpn.1] · xG - · 직전 선발 4-4-2 Matheus Vidotto, Maaya Sako, Naoki Hayashi, Yuta Arai, Kaito Suzuki, Kosuke Saito, Kai Shibato, Yuya Fukuda, Kanya Fujimoto, Hyun-Woo Kim, Itsuki Someno
 <!-- INPUTS:END -->
 

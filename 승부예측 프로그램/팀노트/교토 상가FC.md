@@ -9,7 +9,7 @@
 <!-- FACTS:END -->
 
 <!-- INPUTS:START -->
-## 입력(자동 수집 2026-10-16) — xG·휴식일·라인업은 이 숫자를 쓴다
+## 입력(자동 수집 2026-10-17) — xG·휴식일·라인업은 이 숫자를 쓴다
 - 10-17 14:00 vs 산프레체 히로시마: 휴식 3.8일(7일 2경기) · 직전 10-13 홈 vs Ratchaburi FC 1-0 승 [league stage] · xG - · 직전 선발 3-4-3 Halls, Weverton, Takaaki Shichi, Hisashi Appiah Tawiah, Yoon Sung-Jun, Thiago, Kyo Sato, Ren Kato, Everton Maceió, Marco Túlio, Haruki Arai
 <!-- INPUTS:END -->
 

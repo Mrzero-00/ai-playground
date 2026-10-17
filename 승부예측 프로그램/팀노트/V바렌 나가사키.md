@@ -9,7 +9,7 @@
 <!-- FACTS:END -->
 
 <!-- INPUTS:START -->
-## 입력(자동 수집 2026-10-16) — xG·휴식일·라인업은 이 숫자를 쓴다
+## 입력(자동 수집 2026-10-17) — xG·휴식일·라인업은 이 숫자를 쓴다
 - 10-17 15:00 vs 가시마 앤틀러스: 휴식 6.0일(7일 1경기) · 직전 10-11 원정 vs JEF United Ichihara-Chiba 1-1 무 [jpn.1] · xG - · 직전 선발 3-4-2-1 Masaaki Goto, Ikki Arai, Kanta Doi, Ryosuke Shindo, Riku Yamada, Hotaru Yamaguchi, Shunya Yoneda, Asahi Masuyama, Thiago Santana, Motoki Hasegawa, Matheus Jesus
 <!-- INPUTS:END -->
 

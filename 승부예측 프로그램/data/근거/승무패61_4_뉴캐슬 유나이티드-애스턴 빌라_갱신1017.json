@@ -1,0 +1,140 @@
+[
+ {
+  "번호": "4",
+  "홈": "뉴캐슬 유나이티드",
+  "원정": "아스톤 빌라",
+  "기준선": {
+   "승": 39.9,
+   "무": 28.2,
+   "패": 31.9,
+   "출처": "soccer_baseline pi-rating 2026-10-16"
+  },
+  "득점모델": {
+   "방식": "xG",
+   "λ홈": 1.57,
+   "λ원정": 1.4,
+   "출처": "Understat 시즌 xG/xGA (INPUTS 2026-10-15): xG식 λ홈 1.655/λ원정 1.485(뉴캐슬 xG1.29·빌라 xGA2.02 / 빌라 xG1.14·뉴캐슬 xGA1.83)를 기준선 λ 1.49/1.31과 50:50 혼합(시즌 6경기라 표본 작아 xG 단독 불신, 기준선도 지난 시즌 혼입 가능). 포아송 41.6/24.3/34.1"
+  },
+  "요인": [
+   {
+    "유형": "xG",
+    "팀": "홈",
+    "선수": "",
+    "등급": "",
+    "상태": "확정",
+    "영향": 1.0,
+    "내용": "기준선 pi 득실차 -0.04로 거의 대등이나 시즌 xG 차(뉴캐슬 npxGD -0.41 vs 빌라 -0.88)와 xG식 홈 λ우위 0.17 소폭 홈 쪽. 기준선 불신 보정(소폭)",
+    "출처": "팀노트 FACTS/INPUTS 2026-10-15",
+    "날짜": "2026-10-15",
+    "검색처": ""
+   },
+   {
+    "유형": "휴식",
+    "팀": "원정",
+    "선수": "",
+    "등급": "",
+    "상태": "확정",
+    "영향": 1.5,
+    "내용": "빌라 10/15 UCL(페네르바체 6-0) 후 휴식 2.9일 vs 뉴캐슬 4.9일. 로테이션 발언·출전명단은 미확인이라 보수적 반영",
+    "출처": "팀노트 FACTS/INPUTS 2026-10-15",
+    "날짜": "2026-10-15",
+    "검색처": ""
+   },
+   {
+    "유형": "결장",
+    "팀": "홈",
+    "선수": "엘랑가",
+    "등급": "B",
+    "상태": "확정",
+    "영향": -1.0,
+    "내용": "허벅지/햄스트링, 감독 '수 주'(확정, 2곳). 이번 시즌 선발 수 미확인이라 B(추정) 유지, 대체 반스/머피 가용. 10/16 반영분 그대로",
+    "출처": "https://readnewcastle.com/2026/10/16/newcastle-team-news-toure-elanga-aston-villa/ ; https://www.sportsmole.co.uk/football/newcastle-united/injury-news/team-news/newcastle-vs-aston-villa-injury-suspension-list-predicted-xis_606928.html",
+    "날짜": "2026-10-16",
+    "검색처": ""
+   },
+   {
+    "유형": "결장",
+    "팀": "홈",
+    "선수": "리빙스턴/램지/투레",
+    "등급": "B",
+    "상태": "추정",
+    "영향": -1.5,
+    "내용": "리빙스턴(RB)·램지(MF) 결장 확정 2곳, 투레(윙) 의심 P0.5. 선발 수 미확인 B. 각 약 -0.6/-0.6/-0.3, 대체 가용(조엘링톤·번 복귀)",
+    "출처": "https://readnewcastle.com/2026/10/16/newcastle-team-news-toure-elanga-aston-villa/ ; https://www.sportsmole.co.uk/football/newcastle-united/injury-news/team-news/newcastle-vs-aston-villa-injury-suspension-list-predicted-xis_606928.html",
+    "날짜": "2026-10-16",
+    "검색처": ""
+   },
+   {
+    "유형": "결장",
+    "팀": "원정",
+    "선수": "오나나/마트센/루제리",
+    "등급": "B",
+    "상태": "추정",
+    "영향": 1.8,
+    "내용": "오나나(MF 무릎)·마트센(LB, Sports Mole+FPL)·루제리(DF, 1곳) 결장. 선발 수 미확인 B. 각 약 +0.7/+0.6/+0.5, 모도 시세는 포지션 불명 C 0",
+    "출처": "https://www.sportsmole.co.uk/football/newcastle-united/injury-news/team-news/newcastle-vs-aston-villa-injury-suspension-list-predicted-xis_606928.html ; https://www.footballdream.in/blog/newcastle-united-vs-aston-villa-gw7-premier-league-2026-27",
+    "날짜": "2026-10-16",
+    "검색처": ""
+   },
+   {
+    "유형": "결장",
+    "팀": "원정",
+    "선수": "바클리/헤밍스/마드조",
+    "등급": "C",
+    "상태": "의심",
+    "영향": 0.2,
+    "내용": "전부 의심(P0.5 이하). 양 팀 순 차이만 반영: 원정 의심 3명 약 +0.5, 홈 투레 의심은 위 홈 요인에 포함 -0.3 상쇄 후 순 +0.2",
+    "출처": "https://www.sportsmole.co.uk/football/newcastle-united/injury-news/team-news/newcastle-vs-aston-villa-injury-suspension-list-predicted-xis_606928.html ; https://www.footballdream.in/blog/newcastle-united-vs-aston-villa-gw7-premier-league-2026-27",
+    "날짜": "2026-10-16",
+    "검색처": ""
+   },
+   {
+    "유형": "뉴스없음",
+    "팀": "원정",
+    "선수": "",
+    "등급": "",
+    "상태": "확정",
+    "영향": 0,
+    "내용": "에메리 기자회견 기사 못 찾음(WebSearch 2회, Sports Mole). 빌라 UCL 출전 명단 미확인, 로테이션 예고는 휴식 요인 ±3%p 이내로 유지",
+    "출처": "https://www.sportsmole.co.uk/football/newcastle-united/injury-news/team-news/newcastle-vs-aston-villa-injury-suspension-list-predicted-xis_606928.html",
+    "날짜": "2026-10-16",
+    "검색처": "WebSearch 2회, Sports Mole"
+   },
+   {
+    "유형": "기타",
+    "팀": "홈",
+    "선수": "",
+    "등급": "",
+    "상태": "확정",
+    "영향": 0,
+    "내용": "무승부 보정 -2.0%p(기준선 28.2 vs 포아송 24.3), 승 영향에는 미포함, 무에서 차감. 강팀 과소 편향 점검: 기준선 아래로 내린 요인 없음(홈 승 기준선 +2.3)",
+    "출처": "팀노트 FACTS/INPUTS 2026-10-15",
+    "날짜": "2026-10-15",
+    "검색처": ""
+   }
+  ],
+  "최종": {
+   "승": 42,
+   "무": 26,
+   "패": 32
+  },
+  "선택지": [
+   {
+    "번호": "4",
+    "선택": "1순위(홈 승)",
+    "확률": 42,
+    "계산": "1·2순위 차 10%p (홈 42 vs 패 32), 3순위 무 26"
+   }
+  ],
+  "결론": "기준선 39.9에 xG +1.0, 빌라 UCL 후 휴식 +1.5, 엘랑가 -1.0, 홈 신규 결장(리빙스턴·램지·투레 의심) -1.5, 원정 신규 결장(오나나·마트센·루제리, 의심 순) +2.0을 합산해 홈 승 42.2→42. 무는 기준선 -2로 26. 10/16 대비 +1 홈 승, 결장이 양 팀 모두 늘어 순 영향은 작다.",
+  "미확인": [
+   "빌라 UCL 출전 명단·에메리 로테이션 발언",
+   "결장 선수들의 시즌 선발 수",
+   "양 팀 공식 선발 XI(킥오프 10/17 17:30 BST 전 미발표)"
+  ],
+  "추가 수집 요청": [
+   "선발 XI 발표 후 재점검",
+   "결장 선수 시즌 선발 수"
+  ]
+ }
+]

@@ -1,0 +1,159 @@
+[
+ {
+  "번호": "10",
+  "홈": "리즈 유나이티드",
+  "원정": "맨체스터 유나이티드",
+  "기준선": {
+   "승": 35.3,
+   "무": 28.5,
+   "패": 36.3,
+   "출처": "soccer_baseline pi-rating 2026-10-16"
+  },
+  "득점모델": {
+   "방식": "xG",
+   "λ홈": 1.475,
+   "λ원정": 1.49,
+   "출처": "Understat 시즌 xG/xGA (INPUTS 2026-10-15): λ홈=(1.40+1.54)/2=1.47, λ원정=(1.91+1.46)/2=1.685, 홈이점 ±0.10 보정 1.57/1.585, 기준선 λ(1.38/1.40)와 50:50 혼합 (6경기 표본이라 xG 단독 불신, 기준선도 시즌초 혼입 의심)"
+  },
+  "요인": [
+   {
+    "유형": "결장",
+    "팀": "원정",
+    "선수": "Luke Shaw",
+    "등급": "B",
+    "상태": "의심",
+    "영향": 0.75,
+    "내용": "LB 선발수 미확인 B, R1.0, P0.5(의심 상한: 카릭 '지켜보겠다'), D1.0 → 1.5×1.0×0.5×1.0=0.75. 홈 유리",
+    "출처": "https://thepeoplesperson.com/2026/10/16/every-word-of-michael-carricks-leeds-united-pre-match-press-conference-319323/ ; https://khelnow.com/football/leeds-united-vs-manchester-united-preview-premier-league-202610",
+    "날짜": "2026-10-16",
+    "검색처": "기자회견록/khelnow"
+   },
+   {
+    "유형": "결장",
+    "팀": "원정",
+    "선수": "Benjamin Šeško",
+    "등급": "B",
+    "상태": "확정",
+    "영향": 0.43,
+    "내용": "ST 선발수 미확인 B, R0.6, P0.95(카릭 '한참 더 걸림'+khelnow 2곳), D0.5 → 1.5×0.6×0.95×0.5=0.43. 홈 유리",
+    "출처": "https://thepeoplesperson.com/2026/10/16/every-word-of-michael-carricks-leeds-united-pre-match-press-conference-319323/ ; https://khelnow.com/football/leeds-united-vs-manchester-united-preview-premier-league-202610",
+    "날짜": "2026-10-16",
+    "검색처": "기자회견록/khelnow"
+   },
+   {
+    "유형": "결장",
+    "팀": "원정",
+    "선수": "Kobbie Mainoo",
+    "등급": "B",
+    "상태": "의심",
+    "영향": 0.6,
+    "내용": "CM 선발수 미확인 B(신규), R0.8, P0.5(카릭 '지켜보겠다', 아틀레티코전 결장), D1.0 → 1.5×0.8×0.5×1.0=0.6. 홈 유리",
+    "출처": "https://thepeoplesperson.com/2026/10/16/every-word-of-michael-carricks-leeds-united-pre-match-press-conference-319323/ ; https://khelnow.com/football/leeds-united-vs-manchester-united-preview-premier-league-202610",
+    "날짜": "2026-10-16",
+    "검색처": "기자회견록/khelnow"
+   },
+   {
+    "유형": "결장",
+    "팀": "원정",
+    "선수": "Noussair Mazraoui",
+    "등급": "B",
+    "상태": "의심",
+    "영향": 0.5,
+    "내용": "RB 선발수 미확인 B(신규), R0.7, P0.5(khelnow 1곳), D1.0 → 1.5×0.7×0.5×1.0=0.53≈0.5. 홈 유리",
+    "출처": "https://khelnow.com/football/leeds-united-vs-manchester-united-preview-premier-league-202610",
+    "날짜": "2026-10-16",
+    "검색처": "기자회견록/khelnow"
+   },
+   {
+    "유형": "결장",
+    "팀": "홈",
+    "선수": "Daniel James",
+    "등급": "B",
+    "상태": "의심",
+    "영향": -0.3,
+    "내용": "윙 선발수 미확인 B, 예상 XI는 벤치 옵션이라 D0.5, R0.8, P0.5 → 1.5×0.8×0.5×0.5=0.3. 원정 유리(홈 -0.3)",
+    "출처": "https://khelnow.com/football/leeds-united-vs-manchester-united-preview-premier-league-202610 ; YEP 검색요약",
+    "날짜": "2026-10-16",
+    "검색처": "기자회견록/khelnow"
+   },
+   {
+    "유형": "결장",
+    "팀": "원정",
+    "선수": "de Ligt/Dorgu/Ugarte",
+    "등급": "C",
+    "상태": "추정",
+    "영향": 0,
+    "내용": "de Ligt 복귀 가능성은 khelnow 1곳(카릭 언급 없음)이라 C 0. Dorgu·Ugarte 장기 이탈 D=0(결장 유지). CB·DM은 A 미만 제외",
+    "출처": "https://khelnow.com/football/leeds-united-vs-manchester-united-preview-premier-league-202610",
+    "날짜": "2026-10-16",
+    "검색처": "khelnow"
+   },
+   {
+    "유형": "결장",
+    "팀": "홈",
+    "선수": "Rodon/Joseph/Wilson",
+    "등급": "C",
+    "상태": "추정",
+    "영향": 0,
+    "내용": "Rodon CB 결장·Joseph FW 결장 예상(무릎)이나 예상 XI 외 C, D≈0. Wilson 복귀(quad) 가능도 C라 0",
+    "출처": "https://khelnow.com/football/leeds-united-vs-manchester-united-preview-premier-league-202610",
+    "날짜": "2026-10-16",
+    "검색처": "khelnow"
+   },
+   {
+    "유형": "일정",
+    "팀": "원정",
+    "선수": "",
+    "등급": "",
+    "상태": "확정",
+    "영향": 1.0,
+    "내용": "맨유 UCL 원정 후 휴식 4.8일 vs 리즈 8.1일, 주중 UCL 코모 앞두고 로테이션 가능, Yoro UCL 퇴장은 리그 무관. 홈 유리",
+    "출처": "팀노트 FACTS/INPUTS 2026-10-15",
+    "날짜": "2026-10-15",
+    "검색처": "팀노트"
+   },
+   {
+    "유형": "xG",
+    "팀": "원정",
+    "선수": "",
+    "등급": "",
+    "상태": "확정",
+    "영향": -1.5,
+    "내용": "시즌 xG: 맨유 1.91/1.54(npxGD+0.24) vs 리즈 1.40/1.46(-0.05). 기준선 pi는 거의 균형(-0.24)이나 이번 시즌 xG는 맨유 우세, xPts 맨유 8.9 vs 승점6(불운). 홈 -1.5(기준선 불신 보정)",
+    "출처": "팀노트 FACTS/INPUTS 2026-10-15",
+    "날짜": "2026-10-15",
+    "검색처": "팀노트"
+   }
+  ],
+  "최종": {
+   "승": 36.8,
+   "무": 28.5,
+   "패": 34.7
+  },
+  "선택지": [
+   {
+    "번호": "10",
+    "선택": "1순위 홈승",
+    "확률": 36.8,
+    "계산": "1·2순위 차 2.1%p"
+   },
+   {
+    "번호": "10",
+    "선택": "2순위 원정승",
+    "확률": 34.7,
+    "계산": "1·2순위 차 2.1%p"
+   }
+  ],
+  "결론": "10/17 갱신: Šeško 결장 확정에 가까움, Mainoo·Mazraoui 신규 의심, 홈 James 의심. 원정 결장 +2.3, 홈 -0.3, 일정 +1.0, xG -1.5 → 승 36.8. 3지선다에 가까운 박빙.",
+  "미확인": [
+   "Shaw·Mainoo·Mazraoui·Rodon 이번 시즌 선발수",
+   "Šeško 결장 여부(소스 엇갈림)",
+   "de Ligt 복귀 여부",
+   "라인업 미발표"
+  ],
+  "추가 수집 요청": [
+   "10/18 라인업 발표 후 Shaw·Šeško·Mainoo 포함 여부",
+   "결장 선수 이번 시즌 선발수(등급 확정)"
+  ]
+ }
+]

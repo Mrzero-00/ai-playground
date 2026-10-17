@@ -1,0 +1,187 @@
+[
+ {
+  "번호": "8",
+  "홈": "AFC본머스",
+  "원정": "선덜랜드",
+  "기준선": {
+   "승": 50.2,
+   "무": 26.6,
+   "패": 23.2,
+   "출처": "soccer_baseline pi-rating 2026-10-16"
+  },
+  "득점모델": {
+   "방식": "xG",
+   "λ홈": 1.75,
+   "λ원정": 1.33,
+   "출처": "Understat 시즌 xG/xGA (INPUTS 2026-10-15) + 혼합 비율. xG만: λ홈=(1.63+1.75)/2=1.69, λ원정=(1.82+1.39)/2=1.605, 홈 이점 보정(홈×1.05, 원정×0.95) 후 1.77:1.52. 기준선 λ 1.73:1.13과 50:50 혼합(6경기 표본이 작고 기준선은 지난 시즌 섞임) → 1.75:1.33. 포아송 승/무/패 47.4/23.4/29.2"
+  },
+  "요인": [
+   {
+    "유형": "xG",
+    "팀": "홈",
+    "선수": "",
+    "등급": "",
+    "상태": "확정",
+    "영향": -3.0,
+    "내용": "기준선 불신 보정: pi가 본머스 +0.41 우위로 보지만 이번 시즌 본머스 18위 GD-6, xG 1.63/xGA 1.39 vs 선덜랜드 1.82/1.75. xG 차(공격은 선덜랜드 우위, 수비는 본머스 우위)가 거의 같고 xPts 9.4 vs 8.5로 본머스 약간 우위. 혼합 λ 포아송은 기준선보다 홈 승 약 4%p 낮음. 지난 시즌 자료가 섞였다고 보고 -5였으나, 1017 재검토: 강팀 과소 편향 규칙상 결장 근거 없는 기준선 하향은 축소. 포아송 47.4가 기준선 대비 -2.8이라 -3.0으로 완화",
+    "출처": "팀노트 FACTS/INPUTS 2026-10-15",
+    "날짜": "2026-10-15",
+    "검색처": ""
+   },
+   {
+    "유형": "결장",
+    "팀": "홈",
+    "선수": "알렉스 스콧",
+    "등급": "B",
+    "상태": "확정",
+    "영향": -0.8,
+    "내용": "MF, 허벅지 결장 확정(Sports Mole+FPL 2곳). 시즌 선발 수 미확인이라 B. 1.5×R0.8×P1.0×D0.7 (10/16과 동일, 상태만 의심→확정)",
+    "출처": "https://www.sportsmole.co.uk/football/bournemouth/preview/bournemouth-vs-sunderland-prediction-team-news-lineups_607069.html",
+    "날짜": "2026-10-16",
+    "검색처": "Sports Mole, FootballDream 2곳"
+   },
+   {
+    "유형": "결장",
+    "팀": "원정",
+    "선수": "이시도르",
+    "등급": "B",
+    "상태": "의심",
+    "영향": 0.6,
+    "내용": "FW, 타박 의심 50%. 직전 선발(INPUTS), 시즌 선발 수 미확인이라 B. 1.5×R0.8×P0.5×D1.0, 대체 브로베이. 선덜랜드 불리 → 홈 +0.6 1017 Sports Mole+FPL 50%로 변화 없음.",
+    "출처": "https://www.footballdream.in/blog/afc-bournemouth-vs-sunderland-gw7-premier-league-2026-27",
+    "날짜": "2026-10-17",
+    "검색처": "Sports Mole, FootballDream 2곳"
+   },
+   {
+    "유형": "결장",
+    "팀": "원정",
+    "선수": "발라드",
+    "등급": "C",
+    "상태": "확정",
+    "영향": 0.0,
+    "내용": "CB 햄스트링 결장 확정(2곳). CB는 A 이상만 반영, 선발 수 미확인 C로 0. 대체 알데레테·무키엘레",
+    "출처": "https://www.footballdream.in/blog/afc-bournemouth-vs-sunderland-gw7-premier-league-2026-27",
+    "날짜": "2026-10-17",
+    "검색처": "Sports Mole, FootballDream 2곳"
+   },
+   {
+    "유형": "결장",
+    "팀": "원정",
+    "선수": "뫼니에",
+    "등급": "C",
+    "상태": "확정",
+    "영향": 0.0,
+    "내용": "DF 결장(Sports Mole 1곳, 2경기 연속; 10/16 FPL 75% 출전과 엇갈림). DF는 A 미만이라 0",
+    "출처": "https://www.footballdream.in/blog/afc-bournemouth-vs-sunderland-gw7-premier-league-2026-27",
+    "날짜": "2026-10-17",
+    "검색처": "Sports Mole 1곳"
+   },
+   {
+    "유형": "결장",
+    "팀": "원정",
+    "선수": "브라이언 브로베이",
+    "등급": "B",
+    "상태": "확정",
+    "영향": 0.0,
+    "내용": "회복해 선발 경쟁, 예상 XI 선발(Sports Mole 2기사). 복귀로 정리, 영향 0",
+    "출처": "https://www.sportsmole.co.uk/football/sunderland/predicted-lineups/will-brobbey-be-ready-to-start-predicted-sunderland-lineup-vs-bournemouth_607096.html",
+    "날짜": "2026-10-17",
+    "검색처": "Sports Mole 2기사"
+   },
+   {
+    "유형": "결장",
+    "팀": "홈",
+    "선수": "밀로사블레비치·아라우주·크루피",
+    "등급": "C",
+    "상태": "확정",
+    "영향": 0.0,
+    "내용": "DF 2명·FW 1명 기존 장기 결장(무릎·수술). 선발 수 미확인 C, 장기 결장은 기준선에 이미 반영된 것으로 보고 0",
+    "출처": "https://www.sportsmole.co.uk/football/bournemouth/preview/bournemouth-vs-sunderland-prediction-team-news-lineups_607069.html",
+    "날짜": "2026-10-17",
+    "검색처": "Sports Mole 1곳"
+   },
+   {
+    "유형": "결장",
+    "팀": "원정",
+    "선수": "로메인 문들",
+    "등급": "C",
+    "상태": "확정",
+    "영향": 0.0,
+    "내용": "무릎 결장(Sports Mole 1곳, 신규). 포지션·선발 수 미확인이라 C, 0",
+    "출처": "https://www.sportsmole.co.uk/football/bournemouth/preview/bournemouth-vs-sunderland-prediction-team-news-lineups_607069.html",
+    "날짜": "2026-10-17",
+    "검색처": "Sports Mole 1곳"
+   },
+   {
+    "유형": "복귀",
+    "팀": "홈",
+    "선수": "아들리·클루이베르트",
+    "등급": "C",
+    "상태": "확정",
+    "영향": 0.0,
+    "내용": "부상 복귀, 목요일 UEL 교체 출전, 벤치 가능. 선발 아님이라 0",
+    "출처": "https://www.sportsmole.co.uk/football/bournemouth/preview/bournemouth-vs-sunderland-prediction-team-news-lineups_607069.html",
+    "날짜": "2026-10-17",
+    "검색처": "Sports Mole 1곳"
+   },
+   {
+    "유형": "휴식",
+    "팀": "홈",
+    "선수": "",
+    "등급": "",
+    "상태": "확정",
+    "영향": 0.0,
+    "내용": "본머스 10/15 UEL 스투름 그라츠 3-0 승(휴식 약 3일), 선덜랜드 10/14 토레엔세 원정 2-1 승(93분 결승, 포르투갈 이동, 휴식 약 4일). 양쪽 로테이션 예고 상쇄, 순 0",
+    "출처": "https://www.sportsmole.co.uk/football/bournemouth/preview/bournemouth-vs-sunderland-prediction-team-news-lineups_607069.html",
+    "날짜": "2026-10-17",
+    "검색처": "Sports Mole, Flashscore"
+   },
+   {
+    "유형": "뉴스없음",
+    "팀": "홈",
+    "선수": "",
+    "등급": "",
+    "상태": "확정",
+    "영향": 0.0,
+    "내용": "10/16 이후 본머스 추가 팀뉴스 없음(클라위버르트는 10/14 결장 목록, 10/16 목록에는 없음 → 미확인이라 0)",
+    "출처": "https://www.footballdream.in/blog/afc-bournemouth-vs-sunderland-gw7-premier-league-2026-27",
+    "날짜": "2026-10-16",
+    "검색처": "웹검색 3회, FootballDream"
+   },
+   {
+    "유형": "뉴스없음",
+    "팀": "원정",
+    "선수": "",
+    "등급": "",
+    "상태": "확정",
+    "영향": 0.0,
+    "내용": "10/16 이후 선덜랜드 추가 팀뉴스 없음",
+    "출처": "https://www.sportsmole.co.uk/football/torreense/europa-league/preview/torreense-vs-sunderland-prediction-team-news-lineups_606755.html",
+    "날짜": "2026-10-16",
+    "검색처": "웹검색 2회, Sports Mole"
+   }
+  ],
+  "최종": {
+   "승": 47.0,
+   "무": 27.0,
+   "패": 26.0
+  },
+  "선택지": [
+   {
+    "번호": "8",
+    "선택": "1순위 승",
+    "확률": 47.0,
+    "계산": "1·2순위(승 vs 무) 차 20.0%p; 패 26.0%"
+   }
+  ],
+  "결론": "기준선 승 50.2에 xG 보정 -3.0(1017 완화), 결장 순영향 -0.2(스콧 확정 -0.8, 이시도르 +0.6)를 더해 승 47.0. 새 결장은 모두 DF/C등급이라 0, 브로비 복귀 0. 무는 기준선 +0.4. 포아송 47.4/23.4/29.2와 승 근접.",
+  "미확인": [
+   "결장자 시즌 선발 수",
+   "뫼니에 출전(Sports Mole 결장 vs FPL 75%)",
+   "공식 선발 XI"
+  ],
+  "추가 수집 요청": [
+   "10/18 공식 선발 XI"
+  ]
+ }
+]

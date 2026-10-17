@@ -1,0 +1,145 @@
+{
+ "번호": "8881",
+ "홈": "함부르크",
+ "원정": "VfB슈투트가르트",
+ "수집시각": "2026-10-17 20:55 KST",
+ "결장": [
+  {
+   "팀": "홈",
+   "선수": "Nicolai Remberg",
+   "포지션": "CM",
+   "이번시즌_선발/경기": "미확인(kicker/transfermarkt 직접 조회 못함)",
+   "사유": "십자인대 파열, 시즌 아웃(검색요약 1곳 / 팀노트 직전 선발 MF)",
+   "상태": "의심(1곳; statszone는 사유 없이 injured 목록)",
+   "대체선수": "미확인",
+   "출처": "https://www.whoscored.com/articles/a-kvR94jdEW1rHu36Acl7g/show/cng111-20261017-hamburg-vs-vfb-stuttgart-prediction-1792215409 ; https://www.thestatszone.com/hamburg-vs-stuttgart-preview-team-news-prediction-230995",
+   "날짜": "2026-10-16~17(날짜 미표기)"
+  },
+  {
+   "팀": "홈",
+   "선수": "Patson Daka",
+   "포지션": "FW",
+   "이번시즌_선발/경기": "미확인(kicker/transfermarkt 직접 조회 못함)",
+   "사유": "부상(사유 불명)",
+   "상태": "의심(statszone 1곳)",
+   "대체선수": "미확인",
+   "출처": "https://www.thestatszone.com/hamburg-vs-stuttgart-preview-team-news-prediction-230995",
+   "날짜": "2026-10-17"
+  },
+  {
+   "팀": "홈",
+   "선수": "Albert Grønbæk",
+   "포지션": "MF/FW",
+   "이번시즌_선발/경기": "미확인(kicker/transfermarkt 직접 조회 못함)",
+   "사유": "부상(사유 불명)",
+   "상태": "의심(1곳)",
+   "대체선수": "미확인",
+   "출처": "https://www.thestatszone.com/hamburg-vs-stuttgart-preview-team-news-prediction-230995",
+   "날짜": "2026-10-17"
+  },
+  {
+   "팀": "홈",
+   "선수": "Dickes",
+   "포지션": "?",
+   "이번시즌_선발/경기": "미확인(kicker/transfermarkt 직접 조회 못함)",
+   "사유": "부상(사유 불명)",
+   "상태": "의심(1곳)",
+   "대체선수": "미확인",
+   "출처": "https://www.thestatszone.com/hamburg-vs-stuttgart-preview-team-news-prediction-230995",
+   "날짜": "2026-10-17"
+  },
+  {
+   "팀": "홈",
+   "선수": "Vuskovic",
+   "포지션": "CB",
+   "이번시즌_선발/경기": "미확인(kicker/transfermarkt 직접 조회 못함)",
+   "사유": "출장정지 보도(요약 1곳, statszone엔 없음)",
+   "상태": "의심(1곳 검색요약; 미확인)",
+   "대체선수": "미확인",
+   "출처": "https://www.whoscored.com/articles/a-kvR94jdEW1rHu36Acl7g/show/cng111-20261017-hamburg-vs-vfb-stuttgart-prediction-1792215409",
+   "날짜": "2026-10-17"
+  },
+  {
+   "팀": "홈",
+   "선수": "Lokonga/Jatta/Nadir",
+   "포지션": "MF/FW",
+   "이번시즌_선발/경기": "미확인(kicker/transfermarkt 직접 조회 못함)",
+   "사유": "출전 불투명(doubtful)",
+   "상태": "의심(1곳) — 단 Lokonga는 whoscored 예상 XI엔 있음→엇갈림",
+   "대체선수": "미확인",
+   "출처": "https://www.thestatszone.com/hamburg-vs-stuttgart-preview-team-news-prediction-230995",
+   "날짜": "2026-10-17"
+  },
+  {
+   "팀": "원정",
+   "선수": "Al-Dakhil, Diehl, Malanga, Nartey, Tomas, Zagadou",
+   "포지션": "각종",
+   "이번시즌_선발/경기": "미확인(kicker/transfermarkt 직접 조회 못함)",
+   "사유": "부상(사유 불명) 6명",
+   "상태": "의심(statszone 1곳; 팀노트 10-12 'Nartey·Al Dakhil·Tomas·Diehl 등 다수' 결장과 일치)",
+   "대체선수": "미확인",
+   "출처": "https://www.thestatszone.com/hamburg-vs-stuttgart-preview-team-news-prediction-230995",
+   "날짜": "2026-10-17"
+  },
+  {
+   "팀": "원정",
+   "선수": "Maximilian Mittelstädt",
+   "포지션": "LB",
+   "이번시즌_선발/경기": "미확인(kicker/transfermarkt 직접 조회 못함)",
+   "사유": "발뒤꿈치 봉합 상처, UCL 결장, 출전 확인 중",
+   "상태": "의심(1곳)",
+   "대체선수": "미확인",
+   "출처": "https://www.thestatszone.com/hamburg-vs-stuttgart-preview-team-news-prediction-230995 ; whoscored 요약",
+   "날짜": "2026-10-17"
+  }
+ ],
+ "라인업": {
+  "홈": {
+   "발표여부": "아니오(예상)",
+   "예상XI": "3-4-2-1/3-4-3 Fernandes; Bornauw 중심 3백(Torunarigha/Omari/Capaldo 변형); El Ouahdi(복귀 가능), Lokonga/Amoako, Møller Wolfe; Adeline, Vieira, Poulsen",
+   "포메이션": "3-4-3 또는 3-4-2-1",
+   "출처": "https://www.thestatszone.com/hamburg-vs-stuttgart-preview-team-news-prediction-230995 ; whoscored 요약",
+   "날짜": "2026-10-17"
+  },
+  "원정": {
+   "발표여부": "아니오(예상)",
+   "예상XI": "4-2-3-1 Seimen(Nübel 후임 GK; 팀노트 직전 Bredlow); Vagnoman, Jeltsch, Chabot, Hendriks; Karazor, Stiller; Leweling, Undav, Führich; Demirović(또는 Pejčinović). Karazor·Leweling UCL 벤치→선발 예상",
+   "포메이션": "4-2-3-1",
+   "출처": "https://www.thestatszone.com/hamburg-vs-stuttgart-preview-team-news-prediction-230995 ; whoscored 요약",
+   "날짜": "2026-10-17"
+  }
+ },
+ "최근경기": [
+  "슈투트가르트 10-15 UCL 원정 슬로반 브라티슬라바 3-0 승(statszone)",
+  "슈투트가르트 10-10 파더보른 2-0 승(2연패 끝)",
+  "함부르크 10-10 호펜하임 원정 3-2 승, 9/19 쾰른 2-1; 경기당 약 3실점(statszone)"
+ ],
+ "순위": {
+  "함부르크": "12~13위 6점(팀노트12위/statszone 13위)",
+  "슈투트가르트": "11위 6점(팀노트)"
+ },
+ "감독": {
+  "함부르크": "Merlin Polzin",
+  "슈투트가르트": "Sebastian Hoeneß"
+ },
+ "일정·동기·기타": [
+  "슈투트가르트는 주중 UCL 원정(브라티슬라바) 후 휴식 2.8일 — 유럽대항전 O",
+  "킥오프 15:30 CEST"
+ ],
+ "맞대결": [
+  "2026-04-12 슈투트가르트 홈 4-0 함부르크(hsv.de/nst.com.my)"
+ ],
+ "엇갈림": [
+  "Vuskovic 출장정지: 검색요약 1곳만(statszone 언급 없음)",
+  "Lokonga: doubtful vs 예상XI 포함",
+  "함부르크 순위 12 vs 13위"
+ ],
+ "못찾음": [
+  "선발 수/출전(결장자 전원)",
+  "독일 매체(kicker/ligainsider/bulinews/sport1/구단) 검색에 10월 기사 안 잡힘; 영문 프리뷰만 확보",
+  "Polzin/Hoeneß 기자회견 10월"
+ ],
+ "뉴스없음": {
+  "함부르크 공식 부상 확정": "뉴스없음. 검색처: hsv.de, kicker.de — 미검출"
+ }
+}

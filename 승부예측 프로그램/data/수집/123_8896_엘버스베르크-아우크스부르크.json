@@ -1,0 +1,122 @@
+{
+ "번호": "8896",
+ "홈": "엘버스베르크",
+ "원정": "아우크스부르크",
+ "수집시각": "2026-10-17 20:55 KST",
+ "결장": [
+  {
+   "팀": "홈",
+   "선수": "Francis Onyeka",
+   "포지션": "?",
+   "이번시즌_선발/경기": "미확인(kicker/transfermarkt 직접 조회 못함)",
+   "사유": "발 부상",
+   "상태": "의심(sportsmole 1곳)",
+   "대체선수": "미확인",
+   "출처": "https://www.sportsmole.co.uk/football/elversberg/preview/elversberg-vs-augsburg-prediction-team-news-lineups_606909.html",
+   "날짜": "2026-10-15"
+  },
+  {
+   "팀": "홈",
+   "선수": "Luis Seifert",
+   "포지션": "?",
+   "이번시즌_선발/경기": "미확인(kicker/transfermarkt 직접 조회 못함)",
+   "사유": "발목",
+   "상태": "의심(1곳)",
+   "대체선수": "미확인",
+   "출처": "sportsmole 동일",
+   "날짜": "2026-10-15"
+  },
+  {
+   "팀": "홈",
+   "선수": "Jan Gyamerah",
+   "포지션": "RB",
+   "이번시즌_선발/경기": "미확인(kicker/transfermarkt 직접 조회 못함)",
+   "사유": "근육 문제 완전 회복, 풀훈련 복귀 — 출전 가능",
+   "상태": "가용(1곳 africasoccer; sportsmole 예상XI 선발)",
+   "대체선수": "미확인",
+   "출처": "https://africasoccer.com/?p=636109",
+   "날짜": "2026-10-13"
+  },
+  {
+   "팀": "원정",
+   "선수": "Noahkai Banks",
+   "포지션": "CB",
+   "이번시즌_선발/경기": "미확인(kicker/transfermarkt 직접 조회 못함)",
+   "사유": "부상",
+   "상태": "의심(1곳)",
+   "대체선수": "미확인",
+   "출처": "sportsmole 동일",
+   "날짜": "2026-10-15"
+  },
+  {
+   "팀": "원정",
+   "선수": "Juma Bah",
+   "포지션": "CB/LB",
+   "이번시즌_선발/경기": "미확인(kicker/transfermarkt 직접 조회 못함)",
+   "사유": "부상(팀노트 직전 선발 출전자)",
+   "상태": "의심(1곳)",
+   "대체선수": "미확인",
+   "출처": "sportsmole 동일",
+   "날짜": "2026-10-15"
+  },
+  {
+   "팀": "원정",
+   "선수": "Alexis Claude-Maurice",
+   "포지션": "FW/MF",
+   "이번시즌_선발/경기": "미확인(kicker/transfermarkt 직접 조회 못함)",
+   "사유": "근육",
+   "상태": "의심(1곳)",
+   "대체선수": "미확인",
+   "출처": "sportsmole 동일",
+   "날짜": "2026-10-15"
+  }
+ ],
+ "라인업": {
+  "홈": {
+   "발표여부": "아니오(예상)",
+   "예상XI": "Kristof; Gyamerah, Pinckert, Rohr, Günther; Keidel, Poreba; Petkov, Darvich, Krattenmacher; Mokwa (Gyamerah vs Sirch 선택 고민, Wagner)",
+   "포메이션": "불명(4-2-3-1 형태)",
+   "출처": "sportsmole 2026-10-15 ; africasoccer 2026-10-13",
+   "날짜": "2026-10-15"
+  },
+  "원정": {
+   "발표여부": "아니오(예상)",
+   "예상XI": "Dahmen; Gouweleeuw, Matsima, Brackelmann; Wolf, Massengo, Rieder, Behrens; Fellhauer, Ibrahimovic; Gregoritsch (3-4-2-1)",
+   "포메이션": "3-4-2-1",
+   "출처": "sportsmole 2026-10-15",
+   "날짜": "2026-10-15"
+  }
+ },
+ "최근경기": [
+  "엘버스베르크 10-10 우니온 원정 0-1 패, 9/20 샬케 0-0",
+  "아우크스부르크 10-10 홈 바이에른 2-2"
+ ],
+ "순위": {
+  "엘버스베르크": "9위 7점(강등권과 3점차, sportsmole) — 승격팀 O(복수 소스 'newly promoted')",
+  "아우크스부르크": "6위 8점"
+ },
+ "감독": {
+  "엘버스베르크": "Vincent Wagner",
+  "아우크스부르크": "Manuel Baum"
+ },
+ "일정·동기·기타": [
+  "엘버스베르크 승격팀 O (livescore 요약 'newly promoted Elversberg')",
+  "양팀 평일 경기 없음, 휴식 7일",
+  "킥오프 15:30 CEST"
+ ],
+ "맞대결": [
+  "못찾음"
+ ],
+ "엇갈림": [
+  "Bah: 팀노트 직전 선발 출전자인데 sportsmole은 부상"
+ ],
+ "못찾음": [
+  "선발 수/출전(결장자 전원)",
+  "독일 매체(kicker/ligainsider/bulinews/sport1/구단) 검색에 10월 기사 안 잡힘; 영문 프리뷰만 확보",
+  "Augsburg 독일 매체 부상 기사",
+  "맞대결 기록"
+ ],
+ "뉴스없음": {
+  "Augsburg 10월 부상 공식": "뉴스없음. 검색처: fcaugsburg.de, kicker.de — 미검출"
+ }
+}

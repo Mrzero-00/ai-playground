@@ -1,0 +1,76 @@
+{
+ "새결장": [
+  {
+   "팀": "원정",
+   "선수": "Oihan Sancet",
+   "포지션": "MF",
+   "이번시즌_선발/경기": "미확인",
+   "사유": "발바닥, 훈련 미복귀",
+   "상태": "출전 거의 배제(elgoldigital)",
+   "출처": "https://www.elgoldigital.com/futbol/athletic-club/laporte-terzic-zaga-valencia/",
+   "날짜": "2026-10-15"
+  },
+  {
+   "팀": "원정",
+   "선수": "Aymeric Laporte",
+   "포지션": "CB",
+   "사유": "몸살/불편, 볼 터치만 하고 그룹 훈련 미참가",
+   "상태": "의심(10/15까지). 불발 시 Vivian·Yeray·Paredes CB 가능",
+   "출처": "위 동일",
+   "날짜": "2026-10-15"
+  },
+  {
+   "팀": "원정",
+   "선수": "Nico Williams",
+   "포지션": "윙어",
+   "사유": "허벅지",
+   "상태": "의심, 잔디 훈련 복귀(10/15 elgoldigital) — 기존 '출전 어려움'에서 완화",
+   "출처": "위 동일",
+   "날짜": "2026-10-15"
+  }
+ ],
+ "복귀": [
+  {
+   "팀": "원정",
+   "선수": "Dani Vivian",
+   "사유": "내전근 부상 후 훈련 복귀",
+   "출처": "위 동일",
+   "날짜": "2026-10-15"
+  }
+ ],
+ "일정·피로·날씨": [
+  {
+   "내용": "경기 10/17(토) 21:00 CEST 메스타야 예정 유지. 아직 연기 공식 발표 없음",
+   "출처": "https://bilbaohiria.com/deportes/valencia-athletic-prevision-tiempo-mestalla-dana-aemet",
+   "날짜": "2026-10-15"
+  },
+  {
+   "내용": "AEMET(ECMWF 모델): 토 20~23시 약 1mm 강수확률 20% — 기사는 '연기 위험 없음'으로 봄. 가장 심한 비는 일 10/18·월 10/19(지중해 연안 150~250 l/m2), 발렌시아 시내는 최대 누적 지역 아님",
+   "출처": "위 동일",
+   "날짜": "2026-10-15"
+  },
+  {
+   "내용": "이전 기사: 토 오후부터 매우 강한 비 가능, 연기 경종(elgoldigital) — 상충, 이후 예보 하향",
+   "출처": "https://www.elgoldigital.com/futbol/athletic-club/valencia-athletic-lluvia-aemet-suspension-mestalla/",
+   "날짜": "2026-10-14"
+  },
+  {
+   "내용": "참고: Levante-Athletic 9/16 폭우로 중단, 10/21 20:00 재편성",
+   "출처": "https://www.elgoldigital.com/futbol/athletic-club/levante-athletic-suspendido-temporal-valencia-laliga-2026/",
+   "날짜": "2026-09"
+  }
+ ],
+ "엇갈림": [
+  "강수: 10/14 elgoldigital '토 오후부터 매우 강한 비' vs 10/15 bilbaohiria AEMET 토 20~23시 20%/1mm"
+ ],
+ "변경없음": {
+  "홈(발렌시아)": "10/16 이후 발렌시아 신규 결장 기사 미확보. 검색: WebSearch 'Valencia Athletic lluvia', Comuniate 이전 파일 유지",
+  "비고": "당일(10/17 오후) 연기 공식 발표·킥오프 직전 기상 미확인 — 재확인 필요"
+ },
+ "번호": 6,
+ "홈": "발렌시아",
+ "원정": "아틀레틱 빌바오",
+ "수집시각": "2026-10-17 20:55 KST",
+ "소집명단": {},
+ "라인업": {}
+}

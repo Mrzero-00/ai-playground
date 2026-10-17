@@ -1,0 +1,60 @@
+{
+ "새결장": [
+  {
+   "팀": "홈",
+   "선수": "Aimar Oroz",
+   "포지션": "MF",
+   "사유": "부상",
+   "상태": "결장 확정",
+   "출처": "https://www.comuniate.com/noticias/38431/osasuna-racing-previa-alineaciones-probables-y-consejos-fantasy-jornada-9-de-laliga",
+   "날짜": "2026-10(날짜 미표기, 10/18 경기 전)"
+  },
+  {
+   "팀": "홈",
+   "선수": "Kike Barja, Del Castillo, Raúl Moro",
+   "사유": "부상",
+   "상태": "의심",
+   "출처": "위 동일",
+   "날짜": "동일"
+  },
+  {
+   "팀": "원정",
+   "선수": "Eriksson(GK2)",
+   "사유": "불명",
+   "상태": "소집 의심",
+   "출처": "위 동일",
+   "날짜": "동일"
+  }
+ ],
+ "복귀": [
+  {
+   "팀": "원정",
+   "선수": "Andrés Martín 복귀(발렌시아전 출전), Matteo Prati 정상 훈련·선발 가능",
+   "출처": "위 동일",
+   "날짜": "동일"
+  }
+ ],
+ "라인업": {
+  "홈": {
+   "예상": "Budimir 확실, GK Herrera vs Aitor 미정, 공격 Rubén García·Moi Gómez",
+   "출처": "위 동일"
+  }
+ },
+ "일정·피로·날씨": [
+  {
+   "내용": "10/18(일) 14:00 CEST, Arrasate 복귀 첫 경기. 두 팀 모두 주중 유럽대항전 없음",
+   "출처": "위 동일"
+  }
+ ],
+ "엇갈림": [
+  "Herrando 결장: 이전 파일 '수개월' vs Comuniate '회복 중' — 이번 글은 결장 확정으로 표기"
+ ],
+ "변경없음": {
+  "비고": "감독 기자회견(10/16~17)·공식 소집 기사 미확보. 검색: WebSearch 'Osasuna Racing convocatoria Arrasate', Comuniate 38431"
+ },
+ "번호": 7,
+ "홈": "오사수나",
+ "원정": "라싱 산탄데르",
+ "수집시각": "2026-10-17 20:55 KST",
+ "소집명단": {}
+}

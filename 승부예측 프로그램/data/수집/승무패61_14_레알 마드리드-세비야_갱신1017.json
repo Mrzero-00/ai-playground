@@ -1,0 +1,52 @@
+{
+ "새결장": [
+  {
+   "팀": "홈",
+   "선수": "Vinícius Jr.",
+   "포지션": "LW",
+   "사유": "4경기 징계(항소 기각 확정), 세비야전이 첫 경기",
+   "상태": "확정",
+   "출처": "https://www.madrid-barcelona.com/articulo/real-madrid/mourinho-destapa-guerra-real-madrid-pensaba-que-vinicius-caerian-mas-partidos/20261017110732037528.html",
+   "날짜": "2026-10-17"
+  },
+  {
+   "팀": "홈",
+   "선수": "Rodrygo, Raúl Asencio",
+   "사유": "부상 지속",
+   "상태": "결장(Comuniate/Asesorías 요약)",
+   "출처": "https://www.comuniate.com/noticias/38445/real-madrid-sevilla-previa-alineaciones-probables-y-consejos-fantasy-jornada-9-de-laliga",
+   "날짜": "2026-10"
+  },
+  {
+   "팀": "홈",
+   "선수": "Militão",
+   "사유": "컨디션 미완",
+   "상태": "의심",
+   "출처": "위 동일"
+  }
+ ],
+ "일정·피로·날씨": [
+  {
+   "내용": "Mourinho 10/17: 로마전 후 일부 선수 피로 인정, 일요일 '휴식과 로테이션 좋은 선택지', 비니시우스는 수요일 UCL 선발 시사. 경기 10/18 21:00 CEST",
+   "출처": "https://www.eurosport.es/futbol/la-liga/2026-2027/rueda-de-prensa-mourinho-vinicius-javier-tebas-partido-sevilla_sto23346458/story.shtml",
+   "날짜": "2026-10-17"
+  }
+ ],
+ "라인업": {
+  "홈": {
+   "예상": "Mbappé·Diomande 공격, Bellingham·Güler, CB Huijsen/Konaté/Rüdiger 경쟁 (판타지 사이트, 신뢰 낮음)",
+   "출처": "위 Comuniate",
+   "날짜": "2026-10"
+  }
+ },
+ "변경없음": {
+  "원정(세비야)": "신규 결장 기사 미확보. 검색: WebSearch 'Sevilla Real Madrid previa bajas Almeyda' 외 1건 — 최신 기사 없음"
+ },
+ "번호": 14,
+ "홈": "레알 마드리드",
+ "원정": "세비야",
+ "수집시각": "2026-10-17 20:55 KST",
+ "복귀": [],
+ "엇갈림": [],
+ "소집명단": {}
+}

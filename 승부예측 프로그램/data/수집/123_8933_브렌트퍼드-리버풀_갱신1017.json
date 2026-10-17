@@ -1,0 +1,206 @@
+{
+ "번호": "8933",
+ "홈": "브렌트퍼드",
+ "원정": "리버풀",
+ "수집시각": "2026-10-17 20:50 KST",
+ "기준": "10/16 23:10 파일 대비 신규 사실만",
+ "결장": [
+  {
+   "팀": "원정",
+   "선수": "라이언 흐라벤베르흐(Gravenberch)",
+   "포지션": "MF",
+   "사유": "맨시티전(10/11) 두 번째 경고 퇴장(도쿠 파울) → 1경기 징계",
+   "상태": "확정(2곳: Sports Mole 10/16 업데이트 'one-match ban' + 웹검색 요약). 10/16 파일의 '10/25까지 징계'는 Sports Mole의 1경기 징계와 엇갈림",
+   "출처": "https://www.sportsmole.co.uk/football/brentford/preview/brentford-vs-liverpool-prediction-team-news-lineups_606921.html ; https://www.vavel.com/en/football/2026/10/15/liverpool-fc/1275382-iraola-says-trio-s-fitness-status-is-too-early-to-declare.html",
+   "날짜": "2026-10-16 / 2026-10-15",
+   "이번시즌_선발/경기": "미확인",
+   "득점·도움": "미확인"
+  },
+  {
+   "팀": "원정",
+   "선수": "도미니크 소보슬라이",
+   "포지션": "MF",
+   "사유": "햄스트링",
+   "상태": "의심(Sports Mole: 출전 불확실·선발 가능성 낮음. 이라올라 10/15 '말하기 이르다, 가능성 열어둠')",
+   "출처": "https://www.sportsmole.co.uk/football/brentford/preview/brentford-vs-liverpool-prediction-team-news-lineups_606921.html ; https://www.liverpoolfc.com/news/fitness-update-andoni-iraola-gakpo-isak-szoboszlai-changes-brentford",
+   "날짜": "2026-10-16 / 2026-10-15",
+   "이번시즌_선발/경기": "미확인",
+   "득점·도움": "미확인"
+  },
+  {
+   "팀": "원정",
+   "선수": "알렉산데르 이삭",
+   "포지션": "FW",
+   "사유": "허벅지(스웨덴 대표팀)",
+   "상태": "의심(상동, 2곳; 10/16 파일의 '확정 결장'보다 완화)",
+   "출처": "https://www.sportsmole.co.uk/football/brentford/preview/brentford-vs-liverpool-prediction-team-news-lineups_606921.html ; https://www.caughtoffside.com/2026/10/15/liverpool-isak-gakpo-szoboszlai-injury-brentford/",
+   "날짜": "2026-10-16 / 2026-10-15",
+   "이번시즌_선발/경기": "미확인",
+   "득점·도움": "미확인"
+  },
+  {
+   "팀": "원정",
+   "선수": "코디 각포",
+   "포지션": "FW",
+   "사유": "발목(네덜란드 대표팀)",
+   "상태": "의심(상동, 2곳)",
+   "출처": "https://www.sportsmole.co.uk/football/brentford/preview/brentford-vs-liverpool-prediction-team-news-lineups_606921.html ; https://www.caughtoffside.com/2026/10/15/liverpool-isak-gakpo-szoboszlai-injury-brentford/",
+   "날짜": "2026-10-16 / 2026-10-15",
+   "이번시즌_선발/경기": "미확인",
+   "득점·도움": "미확인"
+  },
+  {
+   "팀": "원정",
+   "선수": "위고 에키티케",
+   "포지션": "FW",
+   "사유": "아킬레스건",
+   "상태": "결장(Sports Mole; Brentford 공식도 부상 언급)",
+   "출처": "https://www.sportsmole.co.uk/football/brentford/preview/brentford-vs-liverpool-prediction-team-news-lineups_606921.html ; https://www.brentfordfc.com/en/news/match-previews-brentford-v-liverpool-premier-league-17-10-2026",
+   "날짜": "2026-10-16",
+   "이번시즌_선발/경기": "미확인",
+   "득점·도움": "미확인"
+  },
+  {
+   "팀": "원정",
+   "선수": "코너 브래들리 / 조반니 레오니",
+   "포지션": "DF",
+   "사유": "무릎",
+   "상태": "결장(Sports Mole 1곳)",
+   "출처": "https://www.sportsmole.co.uk/football/brentford/preview/brentford-vs-liverpool-prediction-team-news-lineups_606921.html",
+   "날짜": "2026-10-16",
+   "이번시즌_선발/경기": "미확인",
+   "득점·도움": "미확인"
+  },
+  {
+   "팀": "홈",
+   "선수": "케빈 샤데",
+   "포지션": "FW",
+   "사유": "어깨",
+   "상태": "의심(Sports Mole + 구단 공식: 이번 주 잔디 훈련 복귀, 출전은 다음 훈련 소화량에 달림 = 2곳)",
+   "출처": "https://www.sportsmole.co.uk/football/brentford/preview/brentford-vs-liverpool-prediction-team-news-lineups_606921.html ; https://www.brentfordfc.com/en/news/match-previews-brentford-v-liverpool-premier-league-17-10-2026",
+   "날짜": "2026-10-16",
+   "이번시즌_선발/경기": "미확인",
+   "득점·도움": "미확인"
+  },
+  {
+   "팀": "홈",
+   "선수": "야니크 슈스터",
+   "포지션": "CB",
+   "사유": "발목",
+   "상태": "의심(상동 2곳)",
+   "출처": "https://www.sportsmole.co.uk/football/brentford/preview/brentford-vs-liverpool-prediction-team-news-lineups_606921.html ; https://www.brentfordfc.com/en/news/match-previews-brentford-v-liverpool-premier-league-17-10-2026",
+   "날짜": "2026-10-16",
+   "이번시즌_선발/경기": "미확인",
+   "득점·도움": "미확인"
+  },
+  {
+   "팀": "홈",
+   "선수": "미켈 담스고르",
+   "포지션": "MF",
+   "사유": "발목(덴마크 대표팀)",
+   "상태": "의심(Sports Mole 의심 / 구단 공식 '부상 중 가장 짧음')",
+   "출처": "https://www.sportsmole.co.uk/football/brentford/preview/brentford-vs-liverpool-prediction-team-news-lineups_606921.html ; https://www.brentfordfc.com/en/news/match-previews-brentford-v-liverpool-premier-league-17-10-2026",
+   "날짜": "2026-10-16",
+   "이번시즌_선발/경기": "미확인",
+   "득점·도움": "미확인"
+  },
+  {
+   "팀": "홈",
+   "선수": "네이선 콜린스",
+   "포지션": "DF",
+   "사유": "종아리",
+   "상태": "의심(Sports Mole) / 공식: 빌라전 엔트리 제외",
+   "출처": "https://www.sportsmole.co.uk/football/brentford/preview/brentford-vs-liverpool-prediction-team-news-lineups_606921.html ; https://www.brentfordfc.com/en/news/match-previews-brentford-v-liverpool-premier-league-17-10-2026",
+   "날짜": "2026-10-16",
+   "이번시즌_선발/경기": "미확인",
+   "득점·도움": "미확인"
+  },
+  {
+   "팀": "홈",
+   "선수": "조시 다실바 / 안토니 밀람보 / 카예 푸로",
+   "포지션": "-",
+   "사유": "허벅지·무릎·중족골 수술",
+   "상태": "결장(Sports Mole; 공식도 다실바 햄스트링·푸로 수술 확인)",
+   "출처": "https://www.sportsmole.co.uk/football/brentford/preview/brentford-vs-liverpool-prediction-team-news-lineups_606921.html ; https://www.brentfordfc.com/en/news/match-previews-brentford-v-liverpool-premier-league-17-10-2026",
+   "날짜": "2026-10-16",
+   "이번시즌_선발/경기": "미확인",
+   "득점·도움": "미확인"
+  },
+  {
+   "팀": "홈",
+   "선수": "세프 판 덴 베르흐",
+   "포지션": "DF",
+   "사유": "사타구니",
+   "상태": "엇갈림: 공식 '시즌 아웃, 빌라전 벤치' vs Sports Mole 예상 XI에서 슈스터 대체 후보",
+   "출처": "https://www.sportsmole.co.uk/football/brentford/preview/brentford-vs-liverpool-prediction-team-news-lineups_606921.html ; https://www.brentfordfc.com/en/news/match-previews-brentford-v-liverpool-premier-league-17-10-2026",
+   "날짜": "2026-10-16",
+   "이번시즌_선발/경기": "미확인",
+   "득점·도움": "미확인"
+  }
+ ],
+ "라인업": {
+  "홈": {
+   "발표여부": "미발표",
+   "예상XI": "Kelleher; Kayode, Van den Berg, Ajer, Lewis-Potter; Yarmolyuk, Janelt; Anthony, Jensen, Ouattara; Thiago",
+   "출처": "https://www.sportsmole.co.uk/football/brentford/preview/brentford-vs-liverpool-prediction-team-news-lineups_606921.html",
+   "날짜": "2026-10-16"
+  },
+  "원정": {
+   "발표여부": "미발표",
+   "예상XI": "Alisson; Araujo, Jacquet, Van Dijk, Kerkez; Nyoni, Mac Allister; Munoz, Wirtz, Barcola; Koumas (니오니 19세 EPL 선발 데뷔 가능; 이삭·각포·소보슬라이 3인 모두 건강해도 선발 어려움)",
+   "출처": "https://www.sportsmole.co.uk/football/brentford/preview/brentford-vs-liverpool-prediction-team-news-lineups_606921.html",
+   "날짜": "2026-10-16"
+  }
+ },
+ "최근경기": [
+  {
+   "팀": "리버풀",
+   "날짜": "2026-10-14",
+   "상대": "LASK(원정,UCL)",
+   "스코어": "6-3 승; 바르코라 해트트릭, 아라우호·프림퐁·쿠미스 득점",
+   "비고": "이삭·각포·소보슬라이 미출전",
+   "출처": "https://www.caughtoffside.com/2026/10/15/liverpool-isak-gakpo-szoboszlai-injury-brentford/ ; https://www.brentfordfc.com/en/news/match-previews-brentford-v-liverpool-premier-league-17-10-2026"
+  }
+ ],
+ "감독": {
+  "원정": "이라올라 — 브렌트퍼드 상대 7회 0승(5무2패). 리버풀 부임 후 EPL 2승3무1패",
+  "출처": "https://www.sportsmole.co.uk/football/brentford/preview/brentford-vs-liverpool-prediction-team-news-lineups_606921.html",
+  "날짜": "2026-10-16"
+ },
+ "일정·동기·기타": [
+  {
+   "내용": "이라올라 10/15(목) 기자회견: '지금은 사실상 3일마다, 3일도 안 되게 경기. 더 많은 선수가 필요하다'. LASK전 '조금' 변화, 주말·비야레알전(10/20)도 또 바꿀 것, '우리는 모두가 필요하다'",
+   "출처": "https://www.liverpoolfc.com/news/fitness-update-andoni-iraola-gakpo-isak-szoboszlai-changes-brentford ; https://www.caughtoffside.com/2026/10/15/liverpool-isak-gakpo-szoboszlai-injury-brentford/ ; https://www.vavel.com/en/football/2026/10/15/liverpool-fc/1275382-iraola-says-trio-s-fitness-status-is-too-early-to-declare.html",
+   "날짜": "2026-10-15"
+  },
+  {
+   "내용": "브렌트퍼드 앤드루스: '우리는 아주 좋은 곳에 있다', 이번 주 '몇 가지 문제'를 헤쳐옴. 브렌트퍼드 전 대회 무패, 홈 리그 8경기 무패",
+   "출처": "https://www.brentfordfc.com/en/news/match-previews-brentford-v-liverpool-premier-league-17-10-2026 ; https://www.sportsmole.co.uk/football/brentford/preview/brentford-vs-liverpool-prediction-team-news-lineups_606921.html",
+   "날짜": "2026-10-16"
+  },
+  {
+   "내용": "리버풀 10/20 안필드 비야레알(UCL) 예정(이라올라 '3일 뒤')",
+   "출처": "https://www.liverpoolfc.com/news/fitness-update-andoni-iraola-gakpo-isak-szoboszlai-changes-brentford",
+   "날짜": "2026-10-15"
+  }
+ ],
+ "맞대결": [
+  {
+   "내용": "브렌트퍼드가 2025-10-25 홈 3-2 승, 2025-26 마지막 라운드(5월) 안필드 1-1. 최근 6번 맞대결 모두 2골 이상",
+   "출처": "https://www.sportsmole.co.uk/football/brentford/preview/brentford-vs-liverpool-prediction-team-news-lineups_606921.html ; https://www.brentfordfc.com/en/news/match-previews-brentford-v-liverpool-premier-league-17-10-2026",
+   "날짜": "2026-10-16"
+  }
+ ],
+ "엇갈림": [
+  "흐라벤베르흐 징계 기간: 10/16 파일 '10/25까지' vs Sports Mole '1경기'",
+  "이삭·각포: 10/16 파일 '확정 결장' vs 이라올라 10/15 '가능성 열어둠'(의심)",
+  "판 덴 베르흐: 공식 시즌 아웃 vs Sports Mole 예상 XI 선발",
+  "Sports Mole 예상XI에 소보슬라이 없음 vs 10/16 파일 팬터지 XI에 포함",
+  "LASK전 일자: 기사들 수요일(10/14)"
+ ],
+ "못찾음": [
+  "10/16(금) 이라올라·앤드루스 기자회견 본문(최신은 10/15 목 기자회견까지만 확인)",
+  "BBC/Sky/Brentford 지역지 직접 기사"
+ ],
+ "뉴스없음": {}
+}

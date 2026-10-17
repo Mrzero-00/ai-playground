@@ -1,0 +1,170 @@
+[
+ {
+  "번호": "8876",
+  "홈": "우니온 베를린",
+  "원정": "도르트문트",
+  "기준선": {
+   "승": 13,
+   "무": 19,
+   "패": 69,
+   "출처": "soccer_baseline pi-rating 2026-10-17"
+  },
+  "득점모델": {
+   "방식": "xG",
+   "λ홈": 1.1,
+   "λ원정": 2.45,
+   "출처": "Understat 시즌5경기: λ홈=(우니온 xG1.23+도르트 xGA1.02)/2=1.125, λ원정=(도르트 xG2.24+우니온 xGA2.63)/2=2.435, 기준선 λ(1.06/2.56)와 0.5골 이내, 홈이점 보정 반영 없이 반올림. 우니온 수비 3결장은 승확률에 반영"
+  },
+  "요인": [
+   {
+    "유형": "결장",
+    "팀": "홈",
+    "선수": "Juranović·Nsoki·Markgraf(RB·CB·LB)",
+    "등급": "B(추정)",
+    "상태": "확정",
+    "영향": -1.5,
+    "내용": "수비 3명 확정 결장(선발 수 미확인, B 추정). 수비 라인 3자리, 합산 -1.5",
+    "출처": "https://thehardtackle.com/round-up/2026/10/16/union-berlin-vs-borussia-dortmund-preview-prediction-probable-lineups-tactics-team-news-key-stats/ ; https://www.livescore.com/en/news/football/bundesliga/union-berlin-vs-borussia-dortmund-preview-bvb-on-downward-spiral-bvb-buzz/",
+    "날짜": "2026-10-16"
+   },
+   {
+    "유형": "결장",
+    "팀": "홈",
+    "선수": "Emmanuel Latte Lath",
+    "등급": "B(추정)",
+    "상태": "의심",
+    "영향": -0.3,
+    "내용": "FW 근육, 보도 엇갈림(결장 vs doubtful). 1.5×R0.8×P0.5×0.5 수준",
+    "출처": "https://thehardtackle.com/round-up/2026/10/16/union-berlin-vs-borussia-dortmund-preview-prediction-probable-lineups-tactics-team-news-key-stats/ ; https://www.livescore.com/en/news/football/bundesliga/union-berlin-vs-borussia-dortmund-preview-bvb-on-downward-spiral-bvb-buzz/",
+    "날짜": "2026-10-16"
+   },
+   {
+    "유형": "결장",
+    "팀": "원정",
+    "선수": "Lerma·Emre Can·Konstantelias",
+    "등급": "B(추정)",
+    "상태": "확정",
+    "영향": 0.9,
+    "내용": "MF 3명 확정 결장(Can 십자인대 장기). 선발 수 미확인이라 B 추정, 합산 +0.9",
+    "출처": "https://thehardtackle.com/round-up/2026/10/16/union-berlin-vs-borussia-dortmund-preview-prediction-probable-lineups-tactics-team-news-key-stats/ ; https://www.livescore.com/en/news/football/bundesliga/union-berlin-vs-borussia-dortmund-preview-bvb-on-downward-spiral-bvb-buzz/",
+    "날짜": "2026-10-16"
+   },
+   {
+    "유형": "일정",
+    "팀": "원정",
+    "선수": "",
+    "등급": "",
+    "상태": "의심",
+    "영향": 0.8,
+    "내용": "UCL 10-15 원정 후 휴식 2.8일, 로테이션 예상만 있고 Nmecha·Nwaneri·Guirassy 복귀 예상이라 작게 반영(규칙 5, 합계 ±3 이내)",
+    "출처": "팀노트 INPUTS 2026-10-17 ; https://thehardtackle.com/round-up/2026/10/16/union-berlin-vs-borussia-dortmund-preview-prediction-probable-lineups-tactics-team-news-key-stats/ ; https://www.livescore.com/en/news/football/bundesliga/union-berlin-vs-borussia-dortmund-preview-bvb-on-downward-spiral-bvb-buzz/",
+    "날짜": "2026-10-17"
+   },
+   {
+    "유형": "뉴스없음",
+    "팀": "홈",
+    "상태": "확정",
+    "영향": 0,
+    "내용": "감독 변동·징계 없음(Lustrinelli). 이동·고도·날씨 ⚠ 없음(이동 432km, 11.9℃, 강수 5%)",
+    "출처": "팀노트 INPUTS 2026-10-17",
+    "날짜": "2026-10-17",
+    "검색처": "kicker.de, 구단 공식(미조회/미검출)"
+   },
+   {
+    "유형": "뉴스없음",
+    "팀": "원정",
+    "상태": "확정",
+    "영향": 0,
+    "내용": "징계·감독 변동 없음(Kovač). 로테이션 공식 발언 뉴스없음",
+    "출처": "팀노트 INPUTS 2026-10-17",
+    "날짜": "2026-10-17",
+    "검색처": "kicker.de, bvb.de 기자회견(미조회/미검출)"
+   }
+  ],
+  "최종": {
+   "승": 13,
+   "무": 19,
+   "패": 68
+  },
+  "선택지": [
+   {
+    "번호": "8876",
+    "선택": "패",
+    "확률": 68,
+    "계산": "최종 승무패(기준선 13/19/69 + 요인합 -0.1, 포아송 15/18/67과 일치 범위)"
+   },
+   {
+    "번호": "8876",
+    "선택": "무",
+    "확률": 19,
+    "계산": "기준선 ±3%p 이내, 포아송 17.7"
+   },
+   {
+    "번호": "8876",
+    "선택": "승",
+    "확률": 13,
+    "계산": "기준선 13 + 요인 -0.1"
+   },
+   {
+    "번호": "8877",
+    "선택": "패",
+    "확률": 45,
+    "계산": "H+1 패 = 원정 2골차+ 승, 포아송 λ1.10:2.45 → 45.1"
+   },
+   {
+    "번호": "8877",
+    "선택": "무",
+    "확률": 22,
+    "계산": "H+1 무 = 원정 1골차 승 21.9"
+   },
+   {
+    "번호": "8877",
+    "선택": "승",
+    "확률": 33,
+    "계산": "H+1 승 = 홈 안 짐 = 승+무 33.0"
+   },
+   {
+    "번호": "8878",
+    "선택": "승",
+    "확률": 55,
+    "계산": "H+2 승 = 원정 1골차 이하 승 또는 홈 안 짐, 54.9"
+   },
+   {
+    "번호": "8878",
+    "선택": "무",
+    "확률": 19.5,
+    "계산": "H+2 무 = 원정 정확히 2골차 승 19.5"
+   },
+   {
+    "번호": "8878",
+    "선택": "패",
+    "확률": 25.5,
+    "계산": "H+2 패 = 원정 3골차+ 승 25.6"
+   },
+   {
+    "번호": "8879",
+    "선택": "언더",
+    "확률": 52.5,
+    "계산": "U3.5 = 총득점 ≤3, 포아송 λ1.10+2.45=3.55 → 52.6"
+   },
+   {
+    "번호": "8879",
+    "선택": "오버",
+    "확률": 47.5,
+    "계산": "1-언더"
+   }
+  ],
+  "결론": "기준선 13 + 우니온 수비 3명 결장 -1.5 - Latte Lath 의심 0.3 + 도르트 MF 3명 결장 0.9 + UCL 후 피로 0.8 = 12.9. xG(우니온 1.23/2.63 vs 도르트 2.24/1.02)도 원정 우세라 도르트 승 68%, 강팀 승 과소 편향 규칙으로 기준선보다 낮추지 않았다. 도르트 2골차+ 승이 45%라 H+1 패(8877)가 핵심이며 언더오버 3.5는 박빙(52.6).",
+  "미확인": [
+   "결장자 전원 이번 시즌 선발 수",
+   "양 팀 공식 라인업",
+   "도르트 중원 예상 XI 엇갈림(Veerman/Sabitzer vs Bellingham/Karetsas/Silva)",
+   "Latte Lath 결장 여부"
+  ],
+  "추가 수집 요청": [
+   "kicker/Transfermarkt 결장자 선발·출전분",
+   "킥오프 직전 공식 라인업",
+   "Kovač 기자회견 로테이션 발언"
+  ]
+ }
+]

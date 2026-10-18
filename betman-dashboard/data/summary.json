@@ -1,10 +1,10 @@
 {
- "updated": "2026-10-19 08:52",
+ "updated": "2026-10-19 08:56",
  "mode": "가상 추천(실투자 중단, 조합 성공률 80% 근처에서 재개)",
  "leg_rate": 0.6,
  "legs_scored": 50,
- "combo_rate": 0.23529411764705882,
- "combos_scored": 17,
+ "combo_rate": 0.2222222222222222,
+ "combos_scored": 18,
  "by_round": {
   "120": {
    "legs": 23,

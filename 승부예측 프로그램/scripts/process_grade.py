@@ -17,6 +17,7 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 REC = os.path.join(ROOT, "전체경기기록.csv")
 POST = os.path.join(ROOT, "data", "경기후.csv")
 ABS = os.path.join(ROOT, "data", "결장검증.csv")
+FIX = os.path.join(ROOT, "data", "과정채점_수정.csv")   # 사람(에이전트) 검토로 바뀐 4분면 — 재실행해도 유지
 OUT = os.path.join(ROOT, "data", "과정채점.csv")
 COLS = ["회차", "번호", "경기", "예측", "확률", "결과", "점수", "결과적중", "지배", "내용근거", "내용적중", "4분면", "요인검증", "퇴장", "정합성", "추천"]
 
@@ -35,9 +36,19 @@ def dominant(p):
         d = hx - ax
         return ("홈" if d > 0.3 else "원정" if d < -0.3 else "대등"), f"xG {hx:.2f}:{ax:.2f}"
     hs, as_ = num(p.get("홈유효")), num(p.get("원정유효"))
+    ts, ta = num(p.get("홈슈팅")), num(p.get("원정슈팅")); po, pa = num(p.get("홈점유")), num(p.get("원정점유"))
     if hs is not None and as_ is not None and (hs + as_) > 0:
         d = hs - as_
-        return ("홈" if d > 1 else "원정" if d < -1 else "대등"), f"유효 {hs:.0f}:{as_:.0f}"
+        if d > 1:
+            return "홈", f"유효 {hs:.0f}:{as_:.0f}"
+        if d < -1:
+            return "원정", f"유효 {hs:.0f}:{as_:.0f}"
+        # 유효 대등이면 슈팅 차 ≥6 또는 점유 차 ≥20p 로 보조 판정 (2026-10-19 내용 회고: 유효만 보면 '대등' 과다)
+        if ts is not None and ta is not None and abs(ts - ta) >= 6:
+            return ("홈" if ts > ta else "원정"), f"유효 {hs:.0f}:{as_:.0f}·슈팅 {ts:.0f}:{ta:.0f}"
+        if po is not None and pa is not None and abs(po - pa) >= 20:
+            return ("홈" if po > pa else "원정"), f"유효 {hs:.0f}:{as_:.0f}·점유 {po:.0f}:{pa:.0f}"
+        return "대등", f"유효 {hs:.0f}:{as_:.0f}"
     hs, as_ = num(p.get("홈슈팅")), num(p.get("원정슈팅"))
     if hs is not None and as_ is not None and (hs + as_) > 0:
         d = hs - as_
@@ -77,6 +88,11 @@ def main():
         rows.append({"회차": r["회차"], "번호": r["번호"], "경기": f"{r['홈']}-{r['원정']}", "예측": pred, "확률": f"{pu[pred]:.0f}", "결과": r["결과"], "점수": r.get("점수", ""),
                      "결과적중": int(ok_res), "지배": dom, "내용근거": why, "내용적중": int(ok_con), "4분면": quad, "요인검증": fv,
                      "퇴장": int(red), "정합성": r.get("정합성", ""), "추천": r.get("추천", "")})
+    fixes = {(f["회차"], f["번호"]): f for f in csv.DictReader(open(FIX, encoding="utf-8"))} if os.path.exists(FIX) else {}
+    for x in rows:
+        f = fixes.get((x["회차"], x["번호"]))
+        if f:
+            x["4분면"] = f["4분면"]; x["내용적중"] = int(f["내용적중"]); x["내용근거"] += f" [검토: {f['메모']}]"
     # 저장(회차 단위로 덮어쓰기)
     old = list(csv.DictReader(open(OUT, encoding="utf-8"))) if os.path.exists(OUT) else []
     done = {(x["회차"], x["번호"]) for x in rows}
@@ -92,8 +108,10 @@ def main():
         if not n:
             return
         q = collections.Counter(x["4분면"] for x in sel)
-        hit = sum(x["결과적중"] for x in sel); con = sum(x["내용적중"] for x in sel)
-        L.append(f"## {title} (n={n}) — 결과 적중 {hit}/{n} ({hit/n*100:.0f}%) · **과정 점수 {con}/{n} ({con/n*100:.0f}%)** · 실력 {q['실력']} · 운 {q['운']} · 분산 {q['분산']} · 오판 {q['오판']}")
+        hit = sum(x["결과적중"] for x in sel)
+        clean = [x for x in sel if not x["퇴장"]]   # 퇴장 경기는 과정 점수에서 제외(내용 검증 불가)
+        con = sum(x["내용적중"] for x in clean)
+        L.append(f"## {title} (n={n}) — 결과 적중 {hit}/{n} ({hit/n*100:.0f}%) · **과정 점수 {con}/{len(clean)} ({(con/len(clean)*100 if clean else 0):.0f}%, 퇴장 {n-len(clean)}경기 제외)** · 실력 {q['실력']} · 운 {q['운']} · 분산 {q['분산']} · 오판 {q['오판']}")
         L.append("")
     table("전체", rows)
     for rnd in sorted({x["회차"] for x in rows}):

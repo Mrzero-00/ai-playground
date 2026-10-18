@@ -1,0 +1,242 @@
+{
+ "번호": "9307",
+ "홈": "트벤테",
+ "원정": "위트레흐트",
+ "수집시각": "2026-10-18 21:10 KST",
+ "결장": [
+  {
+   "팀": "홈",
+   "선수": "Lars Unnerstall",
+   "포지션": "GK",
+   "이번시즌_선발/경기": "미확인(팩트시트상 10-10 선발 GK는 Joel Drommel)",
+   "득점·도움": "미확인",
+   "사유": "사유 미기재",
+   "상태": "의심(1곳)",
+   "복귀예정": "미확인",
+   "대체선수": "Joel Drommel(예상 GK)",
+   "출처": "https://www.sportsmole.co.uk/football/fc-twente/preview/fc-twente-vs-utrecht-prediction-team-news-lineups_607024.html",
+   "날짜": "2026-10-16"
+  },
+  {
+   "팀": "홈",
+   "선수": "Max Bruns",
+   "포지션": "미확인",
+   "이번시즌_선발/경기": "미확인",
+   "득점·도움": "미확인",
+   "사유": "사유 미기재",
+   "상태": "의심(1곳)",
+   "복귀예정": "미확인",
+   "대체선수": "미확인",
+   "출처": "https://www.sportsmole.co.uk/football/fc-twente/preview/fc-twente-vs-utrecht-prediction-team-news-lineups_607024.html",
+   "날짜": "2026-10-16"
+  },
+  {
+   "팀": "홈",
+   "선수": "Stav Lemkin",
+   "포지션": "미확인",
+   "이번시즌_선발/경기": "미확인",
+   "득점·도움": "미확인",
+   "사유": "근육(muscle)",
+   "상태": "의심(1곳)",
+   "복귀예정": "미확인",
+   "대체선수": "미확인",
+   "출처": "https://www.sportsmole.co.uk/football/fc-twente/preview/fc-twente-vs-utrecht-prediction-team-news-lineups_607024.html",
+   "날짜": "2026-10-16"
+  },
+  {
+   "팀": "원정",
+   "선수": "Artem Stepanov",
+   "포지션": "FW",
+   "이번시즌_선발/경기": "미확인",
+   "득점·도움": "미확인",
+   "사유": "발목(ankle), 결장 가능성 높음(likely to miss)",
+   "상태": "의심(1곳)",
+   "복귀예정": "미확인",
+   "대체선수": "미확인",
+   "출처": "https://www.sportsmole.co.uk/football/fc-twente/preview/fc-twente-vs-utrecht-prediction-team-news-lineups_607024.html",
+   "날짜": "2026-10-16"
+  },
+  {
+   "팀": "원정",
+   "선수": "Noah Ohio",
+   "포지션": "미확인",
+   "이번시즌_선발/경기": "미확인",
+   "득점·도움": "미확인",
+   "사유": "무릎(knee)",
+   "상태": "의심(1곳)",
+   "복귀예정": "미확인",
+   "대체선수": "미확인",
+   "출처": "https://www.sportsmole.co.uk/football/fc-twente/preview/fc-twente-vs-utrecht-prediction-team-news-lineups_607024.html",
+   "날짜": "2026-10-16"
+  },
+  {
+   "팀": "원정",
+   "선수": "Alonzo Engwanda",
+   "포지션": "미확인",
+   "이번시즌_선발/경기": "미확인",
+   "득점·도움": "미확인",
+   "사유": "햄스트링",
+   "상태": "의심(1곳)",
+   "복귀예정": "미확인",
+   "대체선수": "미확인",
+   "출처": "https://www.sportsmole.co.uk/football/fc-twente/preview/fc-twente-vs-utrecht-prediction-team-news-lineups_607024.html",
+   "날짜": "2026-10-16"
+  },
+  {
+   "팀": "원정",
+   "선수": "Miliano Jonathans",
+   "포지션": "미확인",
+   "이번시즌_선발/경기": "미확인",
+   "득점·도움": "미확인",
+   "사유": "전방십자인대(ACL)",
+   "상태": "의심(1곳)",
+   "복귀예정": "미확인(장기)",
+   "대체선수": "미확인",
+   "출처": "https://www.sportsmole.co.uk/football/fc-twente/preview/fc-twente-vs-utrecht-prediction-team-news-lineups_607024.html",
+   "날짜": "2026-10-16"
+  },
+  {
+   "팀": "원정",
+   "선수": "Kevin Paredes",
+   "포지션": "미확인",
+   "이번시즌_선발/경기": "미확인",
+   "득점·도움": "미확인",
+   "사유": "무릎, 일요일 전 평가 예정(출전 불확실)",
+   "상태": "의심(1곳)",
+   "복귀예정": "미확인",
+   "대체선수": "미확인",
+   "출처": "https://www.sportsmole.co.uk/football/fc-twente/preview/fc-twente-vs-utrecht-prediction-team-news-lineups_607024.html",
+   "날짜": "2026-10-16"
+  }
+ ],
+ "라인업": {
+  "홈": {
+   "발표여부": "미발표(확정 XI 못 찾음)",
+   "예상XI": "Drommel; Van Rooij, Propper, Nijstad, Adelgaard; Zerrouki, Weidmann; Rots, Taha, Pjaca; Weghorst",
+   "포메이션": "미기재(팩트시트상 직전 4-2-3-1)",
+   "출처": "https://www.sportsmole.co.uk/football/fc-twente/preview/fc-twente-vs-utrecht-prediction-team-news-lineups_607024.html",
+   "날짜": "2026-10-16"
+  },
+  "원정": {
+   "발표여부": "미발표",
+   "예상XI": "Barkas; Panagiotou, Didden, Horemans; Vesterlund, Van Overeem, Agougil, Zagre; Broholm, De Wit, Cathline",
+   "포메이션": "3-4-3 형태(수비 3명 기재)",
+   "출처": "https://www.sportsmole.co.uk/football/fc-twente/preview/fc-twente-vs-utrecht-prediction-team-news-lineups_607024.html",
+   "날짜": "2026-10-16"
+  }
+ },
+ "최근경기": [
+  {
+   "팀": "트벤테",
+   "날짜": "2026-09-06",
+   "상대": "Groningen",
+   "장소": "원정",
+   "스코어": "2-2",
+   "비고": "ESPN(팩트시트 2026-10-18)"
+  },
+  {
+   "팀": "트벤테",
+   "날짜": "2026-09-09",
+   "상대": "Telstar",
+   "장소": "홈",
+   "스코어": "1-0 승",
+   "비고": ""
+  },
+  {
+   "팀": "트벤테",
+   "날짜": "2026-09-12",
+   "상대": "ADO Den Haag",
+   "장소": "홈",
+   "스코어": "2-0 승",
+   "비고": ""
+  },
+  {
+   "팀": "트벤테",
+   "날짜": "2026-09-20",
+   "상대": "PSV Eindhoven",
+   "장소": "홈",
+   "스코어": "3-2 승",
+   "비고": ""
+  },
+  {
+   "팀": "트벤테",
+   "날짜": "2026-10-10",
+   "상대": "Fortuna Sittard",
+   "장소": "원정",
+   "스코어": "1-1",
+   "비고": "INPUTS는 10-11로 표기, 이후 10-16 컨퍼런스리그 FC Thun전(홈) 있었으나 결과 못 찾음"
+  },
+  {
+   "팀": "위트레흐트",
+   "날짜": "2026-09-08",
+   "상대": "Go Ahead Eagles",
+   "장소": "홈",
+   "스코어": "3-3",
+   "비고": ""
+  },
+  {
+   "팀": "위트레흐트",
+   "날짜": "2026-09-13",
+   "상대": "Excelsior",
+   "장소": "원정",
+   "스코어": "2-1 승",
+   "비고": ""
+  },
+  {
+   "팀": "위트레흐트",
+   "날짜": "2026-09-20",
+   "상대": "Feyenoord",
+   "장소": "원정",
+   "스코어": "0-5 패",
+   "비고": ""
+  },
+  {
+   "팀": "위트레흐트",
+   "날짜": "2026-10-11",
+   "상대": "Willem II",
+   "장소": "홈",
+   "스코어": "3-1 승",
+   "비고": ""
+  }
+ ],
+ "순위": {
+  "홈": "4위, 8경기 5승2무1패 GD+8 승점17",
+  "원정": "13위, 8경기 2승2무4패 GD-11 승점8",
+  "출처": "팩트시트(위키/ESPN); sportsmole(4위/13위 일치)",
+  "날짜": "2026-10-18"
+ },
+ "감독": {
+  "홈": "John van den Brom",
+  "원정": "팩트시트: Mark Otten / sportsmole: Anthony Correia(여름에 Ron Jans 후임) - 엇갈림",
+  "변동": "원정 감독 불일치",
+  "출처": "팩트시트; https://www.sportsmole.co.uk/football/fc-twente/preview/fc-twente-vs-utrecht-prediction-team-news-lineups_607024.html",
+  "날짜": "2026-10-16"
+ },
+ "일정·동기·기타": [
+  {
+   "내용": "에레디비시 9라운드, De Grolsch Veste, sportsmole 표기 일요일(10-18) 19:00(영국 시간 추정; 네덜란드 20:00 = KST 10-19 03:00과 일치)",
+   "출처": "https://www.sportsmole.co.uk/football/fc-twente/preview/fc-twente-vs-utrecht-prediction-team-news-lineups_607024.html",
+   "날짜": "2026-10-16"
+  },
+  {
+   "내용": "트벤테 휴식: 10-16 컨퍼런스리그 FC Thun전(홈) 후 중2일 이내 경기(팀노트 INPUTS 2026-10-15 기준 일정)",
+   "출처": "팀노트 트벤테.md",
+   "날짜": "2026-10-15"
+  }
+ ],
+ "엇갈림": [
+  "위트레흐트 감독: Mark Otten(팩트시트) vs Anthony Correia(sportsmole). 팩트시트 위키 출처가 'Jong FC Utrecht season'이라 팩트시트 오염 가능성",
+  "Twente 팩트시트 직전경기 날짜 10-10(ESPN) vs 10-11(INPUTS)"
+ ],
+ "못찾음": [
+  "네덜란드 현지 매체(Tubantia/VI/AD) 프리매치 기사",
+  "확정 선발 XI",
+  "결장 선수 이번시즌 선발/득점·도움",
+  "10-16 FC Thun전 결과·출전 로테이션",
+  "이적 여부 확인(결장 선수 7명 모두 이적 확인 못함)"
+ ],
+ "뉴스없음": {
+  "홈": "해당 없음(결장 3명 보도 있음, 1곳뿐)",
+  "원정": "해당 없음(결장 4~5명 보도 있음, 1곳뿐)"
+ }
+}

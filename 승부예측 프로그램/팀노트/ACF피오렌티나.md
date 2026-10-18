@@ -10,6 +10,6 @@
 <!-- FACTS:END -->
 <!-- INPUTS:START -->
 ## 입력(자동 수집 2026-10-18) — xG·휴식일·라인업·환경(이동거리·고도·날씨)은 이 숫자를 쓴다
-- 10-18 22:00 vs 코모1907: 휴식 8.0일 · 직전 10-10 원정 vs Genoa 1-2 패 [italian serie a] · xG 시즌6경기 xG1.41/xGA1.83 npxGD-0.42 · 최근5 1.63/1.44 (+0.19) · 홈-0.21/원정-0.64 · xPts7.2 vs 승점4 · 직전 선발 4-2-3-1 David de Gea, Luca Ranieri, Radu Dragusin, Víctor Valdepeñas, Álex Jiménez, Christ Inao Oulaï, Nicolò Fagioli, Cher Ndour, Beto, Wilfried Gnonto, Franco Mastantuono · 구장 스타디오 아르테미오 프란키 · 이동 285km · 고도 54m(차 -147m) · 23.4℃ 강수0mm(15%) 바람8.0km/h
+- 10-18 22:00 vs 코모1907: 휴식 8.0일 · 직전 10-10 원정 vs Genoa 1-2 패 [italian serie a] · xG 시즌6경기 xG1.41/xGA1.83 npxGD-0.42 · 최근5 1.63/1.44 (+0.19) · 홈-0.21/원정-0.64 · xPts7.2 vs 승점4 · 직전 선발 4-2-3-1 David de Gea, Luca Ranieri, Radu Dragusin, Víctor Valdepeñas, Álex Jiménez, Christ Inao Oulaï, Nicolò Fagioli, Cher Ndour, Beto, Wilfried Gnonto, Franco Mastantuono · 구장 스타디오 아르테미오 프란키 · 이동 285km · 고도 54m(차 -147m) · 23.4℃ 강수0mm(8%) 바람8.0km/h
 <!-- INPUTS:END -->
 

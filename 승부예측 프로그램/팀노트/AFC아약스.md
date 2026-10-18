@@ -9,7 +9,7 @@
 - 최근 경기(ESPN, 최대 28일): 2026-09-05 Ajax Amsterdam 1-3 PSV Eindhoven / 2026-09-12 Fortuna Sittard 1-5 Ajax Amsterdam / 2026-09-15 Ajax Amsterdam 5-1 Willem II / 2026-09-19 Ajax Amsterdam 2-2 Excelsior / 2026-10-10 Ajax Amsterdam 1-1 NEC Nijmegen
 <!-- FACTS:END -->
 <!-- INPUTS:START -->
-## 입력(자동 수집 2026-10-15) — xG·휴식일·라인업은 이 숫자를 쓴다
-- 10-16 01:45 vs HNK하이두크 스플리트: 휴식 4.9일(7일 2경기) · 직전 10-11 홈 vs NEC Nijmegen 1-1 무 [ned.1] · xG - · 직전 선발 4-3-3 Marc-André ter Stegen, Youri Baas, Thilo Kehrer, Owen Wijndal, Lucas Rosa, Sofyan Amrabat, Julian Brandt, Jorthy Mokio, Tolu Arokodare, Oscar Gloukh, Viktor Tsygankov
+## 입력(자동 수집 2026-10-18) — xG·휴식일·라인업·환경(이동거리·고도·날씨)은 이 숫자를 쓴다
+- 10-18 23:45 vs 흐로닝언: 휴식 2.9일(7일 1경기) · 직전 10-16 원정 vs Hajduk Split 1-2 패 [uefa.europa.conf] · xG - · 직전 선발 4-3-3 Marc-André ter Stegen, Youri Baas, Aaron Bouwman, Jofre Torrents, Thilo Kehrer, Sofyan Amrabat, Julian Brandt, Davy Klaassen, Tolu Arokodare, Abdellah Ouazane, Viktor Tsygankov · 구장 흐로닝언(구단 좌표 — 구장 미확인) · 이동 149km · 고도 12m(차 -5m) · 10.9℃ 강수0mm(35%) 바람18.0km/h
 <!-- INPUTS:END -->
 

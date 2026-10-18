@@ -9,8 +9,8 @@
 - 최근 경기(ESPN, 최대 28일): 2026-09-05 SC Paderborn 07 0-1 SC Freiburg / 2026-09-12 SC Freiburg 5-0 Borussia Mönchengladbach / 2026-09-19 Eintracht Frankfurt 2-2 SC Freiburg / 2026-10-11 SC Freiburg 2-1 Schalke 04
 <!-- FACTS:END -->
 <!-- INPUTS:START -->
-## 입력(자동 수집 2026-10-15) — xG·휴식일·라인업은 이 숫자를 쓴다
-- 10-16 04:00 vs 야블로네츠: 휴식 4.1일(7일 1경기) · 직전 10-12 홈 vs Schalke 04 2-1 승 [german bundesliga] · xG 시즌5경기 xG2.05/xGA0.88 npxGD+1.17 · 최근5 2.05/0.88 (+1.17) · 홈1.52/원정0.64 · xPts11.2 vs 승점13 · 직전 선발 4-2-3-1 Mio Backhaus, Philipp Lienhart, Matthias Ginter, Jordy Makengo, Philipp Treu, Yuito Suzuki, Yannick Engelhardt, Maximilian Eggestein, Igor Matanovic, Derry Scherhant, Niklas Beste
+## 입력(자동 수집 2026-10-18) — xG·휴식일·라인업·환경(이동거리·고도·날씨)은 이 숫자를 쓴다
+- 10-18 22:30 vs 바이어04 레버쿠젠: 휴식 2.8일(7일 2경기) · 직전 10-16 홈 vs Jablonec 3-2 승 [uefa.europa.conf] · xG 시즌5경기 xG2.05/xGA0.88 npxGD+1.17 · 최근5 2.05/0.88 (+1.17) · 홈1.52/원정0.64 · xPts11.2 vs 승점13 · 직전 선발 4-2-3-1 Mio Backhaus, Max Rosenfelder, Matthias Ginter, Christian Günter, Lukas Kübler, Yuito Suzuki, Patrick Osterhage, Maximilian Eggestein, Lucas Höler, Vincenzo Grifo, Cyriaque Irié · 구장 바이아레나 · 이동 345km · 고도 44m(차 -265m) · 10.9℃ 강수0mm(2%) 바람8.6km/h
 <!-- INPUTS:END -->
 
 ## 성향

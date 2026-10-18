@@ -116,15 +116,20 @@ def main():
             g = store[e["번호"]]; side = "홈" if e["팀"] == "홈" else "원정"
             roster = g.get(side, {}).get("명단") or []
             starters = g.get(side, {}).get("선발") or []
-            parts = [plain(p) for p in re.split(r"[·,/]| 외", e["선수"]) if p.strip()]
+            parts = [plain(re.sub(r"[\(（].*?[\)）]", "", p)).strip() for p in re.split(r"[·,/]| 외", e["선수"]) if p.strip()]   # 괄호(한자·설명) 제거 (2026-10-19 우한 Sauer(绍尔) 오류)
+            parts = [p for p in parts if p]
             if not roster:
                 real = "미확인(명단 없음)"
             elif not all(re.search(r"[a-z]", p) for p in parts):
                 real = "미확인(한글 이름)"
             else:
-                hits = [p for p in parts if any(p.split()[-1] in plain(n) for n in roster)]
-                st = [p for p in parts if any(p.split()[-1] in plain(n) for n in starters)]
-                real = "출전(선발)" if st else "명단 포함(벤치)" if hits else "결장 맞음"
+                def tok(p):
+                    ts = [t for t in p.split() if len(t) >= 3]
+                    return ts[-1] if ts else (p.split()[-1] if p.split() else "")
+                hits = [p for p in parts if tok(p) and any(tok(p) in plain(n) for n in roster)]
+                st = [p for p in parts if tok(p) and any(tok(p) in plain(n) for n in starters)]
+                weak = [p for p in parts if not tok(p) or len(tok(p)) < 3]
+                real = "출전(선발)" if st else "명단 포함(벤치)" if hits else ("미확인(이름 매칭 실패)" if weak else "결장 맞음")
             ab.append({"회차": rnd, "번호": e["번호"], "경기": e["경기"], "팀": e["팀"], "선수": e["선수"], "요인상태": e["상태"], "실제": real,
                        "근거": "ESPN 명단", "수집": now})
     with open(ABS_CSV, "w", encoding="utf-8", newline="") as f:

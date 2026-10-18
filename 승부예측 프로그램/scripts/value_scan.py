@@ -4,6 +4,8 @@
   - 전체 선택지 단식 회수율 0.85, 기대값(공정확률×베트맨) 0.95+ 구간 0.99 — 베트맨 마진이 다리마다 곱해져 확률만 보면 적자.
   - 유형별로 갈라 보니 언더오버만 기대값 0.93+에서 학습(116~121)·검증(122~123) 모두 1.0 이상.
   - 규칙 W = 언더 · 기대값 ≥ 0.93 · 공정확률 ≥ 50% · 근거 '직접'(Pinnacle 같은 라인) · 전반 제외
+  - (10/18 사용자 "1.5 이상") W2 = W + Pinnacle 공정확률이 첫 스캔보다 떨어지지 않음(Δp≥0, 시장이 언더 쪽으로 움직였거나 그대로)
+      다리 48개 단식 1.29(학습 1.21/검증 1.37) · 시간순 2폴더 13장 7적중 회수율 1.53 · 이론 2폴더 1.66
       다리 53개 단식 1.23 / 시간순 2폴더 22장 10적중 회수율 1.27 (회차별 1.02~1.34, 118·119 표본 작음)
   - 핸디캡(정수)은 같은 조건에서 0.3~0.9로 나빠 제외. 1X2 는 0.9 안팎.
 주의: 규칙을 데이터를 보고 골랐다(사후 선택). 53개 표본 → 실제 회수율 90% 구간은 넓다. 실전 전 가상 기록으로 30장+ 확인(분석규칙 [시험]).
@@ -19,7 +21,8 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SCAN = os.path.join(ROOT, "data", "스캔기록.csv")
 LOG = os.path.join(ROOT, "data", "가치전략기록.csv")
 KST = dt.timezone(dt.timedelta(hours=9))
-RULE = {"이름": "W", "선택": "언더", "ev": 0.93, "p": 50.0}
+RULE = {"이름": "W2", "선택": "언더", "ev": 0.93, "p": 50.0, "dp": 0.0}   # 2026-10-18 W2: Pinnacle 확률이 첫 스캔보다 떨어지지 않은 것만(Δp≥0)
+HIST = os.path.join(ROOT, "data", "배당이력.csv")
 COLS = ["기록시각", "회차", "조합", "번호", "시각", "경기", "구분", "선택", "베트맨", "공정확률", "기대값", "result", "hit"]
 
 
@@ -29,7 +32,26 @@ def ok(r):
     except ValueError:
         return False
     return ("언더오버" in r["유형"] and "전반" not in r["구분"] and r["선택"] == RULE["선택"]
-            and ev >= RULE["ev"] and p >= RULE["p"] and r["근거"] == "직접" and r["종목"] != "농구")
+            and ev >= RULE["ev"] and p >= RULE["p"] and r["근거"] == "직접" and r["종목"] != "농구"
+            and p - first_p(r) >= RULE["dp"])
+
+
+_FIRST = None
+def first_p(r):
+    """배당이력에서 이 선택지의 첫 공정확률(없으면 현재값)."""
+    global _FIRST
+    if _FIRST is None:
+        _FIRST = {}
+        if os.path.exists(HIST):
+            for h in csv.DictReader(open(HIST, encoding="utf-8-sig")):
+                k = (h["회차"], h["번호"], h["선택"])
+                if k not in _FIRST or h["scan_time"] < _FIRST[k][0]:
+                    try:
+                        _FIRST[k] = (h["scan_time"], float(h["공정확률"]))
+                    except ValueError:
+                        pass
+    v = _FIRST.get((r["회차"], r["번호"], r["선택"]))
+    return v[1] if v else float(r["공정확률"])
 
 
 def t_of(r):
@@ -79,7 +101,7 @@ def main():
             continue
         latest[(r["회차"], r["번호"], r["선택"])] = r
     legs = [r for r in latest.values() if ok(r) and t_of(r) > now + dt.timedelta(minutes=15) and not r.get("result")]
-    print(f"규칙 W(언더·기대값≥{RULE['ev']}·공정확률≥{RULE['p']:.0f}%) 다리 {len(legs)}개")
+    print(f"규칙 W2(언더·기대값≥{RULE['ev']}·공정확률≥{RULE['p']:.0f}%·Pinnacle 확률 첫 스캔 대비 유지/상승) 다리 {len(legs)}개")
     for r in sorted(legs, key=t_of):
         print(f"  {r['시각'][5:]} {r['번호']} {r['경기']} {r['구분']} 언더 {r['베트맨']} · 공정 {r['공정확률']}% · 기대값 {r['기대값']}")
     P = pairs(legs)

@@ -9,7 +9,7 @@
 - 최근 경기(ESPN, 최대 28일): 2026-09-13 Vancouver Whitecaps 1-2 Austin FC / 2026-09-20 FC Dallas 0-0 Austin FC / 2026-09-27 Austin FC 3-3 San Diego FC / 2026-10-11 Austin FC 1-4 Nashville SC / 2026-10-15 LAFC 3-1 Austin FC
 <!-- FACTS:END -->
 <!-- INPUTS:START -->
-## 입력(자동 수집 2026-10-15) — xG·휴식일·라인업은 이 숫자를 쓴다
-- 10-15 11:30 vs LAFC: 휴식 4.1일(7일 1경기) · 직전 10-11 홈 vs Nashville SC 1-4 [usa.1] · xG - · 직전 선발 3-4-3 Brad Stuver, Jon Bell, Guilherme Biro, Mikkel Desler, Ilie Sánchez, Ervin Torres, Jon Gallagher, Facundo Torres, Brandon Vázquez, Myrto Uzuni, Jorge Alastuey
+## 입력(자동 수집 2026-10-18) — xG·휴식일·라인업·환경(이동거리·고도·날씨)은 이 숫자를 쓴다
+- 10-18 09:30 vs 밴쿠버 화이트캡스FC: 휴식 2.9일(7일 1경기) · 직전 10-15 원정 vs LAFC 1-3 패 [usa.1] · xG - · 선발 3-4-3 Brad Stuver, Oleksandr Svatok, Jon Bell, Brendan Hines-Ike, Besard Sabovic, Ervin Torres, Jon Gallagher, Joseph Rosales, Brandon Vázquez, Myrto Uzuni, Christian Ramírez · 직전 대비 교체 2명(Guilherme Biro, Facundo Torres) · 구장 ? · 이동 ?(구장 미확인) · 고도 ?m · 날씨 -
 <!-- INPUTS:END -->
 

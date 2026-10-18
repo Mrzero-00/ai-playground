@@ -8,7 +8,7 @@
 - 2026 여름 이적(위키 이적 표, 앞 8줄씩): IN December 9, 2025 · align=center| MF · Mathieu Choinière · Grasshopper · Exercised option to buy / IN December 29, 2025 · align=center| FW · Jacob Shaffelburg · Nashville SC · Trade / IN January 8, 2026 · align=center| MF · Matt Evans · Los Angeles FC 2 · Homegrown signing / IN January 8, 2026 · align=center| GK · Cabral Carter · Los Angeles FC 2 · First-team signing / IN January 14, 2026 · align=center| FW · Tyler Boyd · align=center| ''Unattached · Free agent / IN January 24, 2026 · align=center| MF · Amin Boudri · GAIS · Transfer / IN March 23, 2026 · align=center| DF · Christian Diaz · Los Angeles FC 2 · Homegrown signing / IN June 9, 2026 · align=center| DF · Yevhen Cheberko · Columbus Crew · Trade; Joining July 13 / OUT November 18, 2025 · align=center| DF · Luca Bombino · San Diego FC · Trade / OUT November 26, 2025 · align=center|FW · Alexandru Băluță · Boluspor · Declined contract options / OUT November 26, 2025 · align=center|MF · Jailson · Declined contract options / OUT November 26, 2025 · align=center|MF · Adam Saldana · Declined contract options
 <!-- FACTS:END -->
 <!-- INPUTS:START -->
-## 입력(자동 수집 2026-10-15) — xG·휴식일·라인업은 이 숫자를 쓴다
-- 10-15 11:30 vs 오스틴FC: 휴식 4.0일(7일 1경기) · 직전 10-11 홈 vs Vancouver Whitecaps 1-1 [usa.1] · xG - · 직전 선발 4-2-3-1 Hugo Lloris, Eddie Segura, Ryan Porteous, Yevhen Cheberko, Sergi Palencia, Son Heung-Min, Mathieu Choinière, Sergio Vásquez, Denis Bouanga, Jacob Shaffelburg, Armindo Sieb
+## 입력(자동 수집 2026-10-18) — xG·휴식일·라인업·환경(이동거리·고도·날씨)은 이 숫자를 쓴다
+- 10-18 08:30 vs 뉴욕 시티FC: 휴식 2.9일(7일 2경기) · 직전 10-15 홈 vs Austin FC 3-1 승 [usa.1] · xG - · 선발 4-2-3-1 Hugo Lloris, Nkosi Tafari, Aaron Long, Yevhen Cheberko, Ryan Hollingshead, Son Heung-Min, Igor Jesus, Mark Delgado, Denis Bouanga, Jacob Shaffelburg, Leo Walta · 직전 대비 교체 3명(Ryan Porteous, Sergi Palencia, Armindo Sieb) · 구장 양키 스타디움 · 이동 3947km · 고도 6m(차 -54m) · 9.4℃ 강수0mm(0%) 바람11.3km/h · ⚠ 장거리 원정 3947km
 <!-- INPUTS:END -->
 

@@ -8,7 +8,7 @@
 <!-- FACTS:END -->
 <!-- INPUTS:START -->
 ## 입력(자동 수집 2026-10-18) — xG·휴식일·라인업·환경(이동거리·고도·날씨)은 이 숫자를 쓴다
-- 10-18 11:30 vs 시애틀 사운더스FC: 휴식 3.1일(7일 1경기) · 직전 10-15 홈 vs Atlanta United FC 0-3 패 [usa.1] · xG - · 직전 선발 4-2-3-1 Sébastian Breza, Brandan Craig, Jalen Neal, Luca Petrasso, Dawid Bugaj, Alexis Sánchez, Dani Pereira, Matthew Longstaff, Daniel Ríos, Noah Streit, Wikelman Carmona · 구장 루멘 필드 · 이동 3673km · 고도 10m(차 -27m) · 12.2℃ 강수0mm(1%) 바람11.6km/h · ⚠ 장거리 원정 3673km
+- 10-18 11:30 vs 시애틀 사운더스FC: 휴식 3.1일(7일 1경기) · 직전 10-15 홈 vs Atlanta United FC 0-3 패 [usa.1] · xG - · 선발 4-2-3-1 Sébastian Breza, Brandan Craig, Efraín Morales, Viktor Radojevic, Jalen Neal, Fabian Herbers, Victor Loturi, Samuel Piette, Alexis Sánchez, Noah Streit, Hennadii Synchuk · 직전 대비 교체 6명(Luca Petrasso, Dawid Bugaj, Dani Pereira, Matthew Longstaff, Daniel Ríos, Wikelman Carmona) · 구장 루멘 필드 · 이동 3673km · 고도 10m(차 -27m) · 12.5℃ 강수0mm(1%) 바람12.6km/h · ⚠ 장거리 원정 3673km
 <!-- INPUTS:END -->
 
 - 2026-10-14 조사: 10/15 08:30(KST) 홈 애틀랜타 유나이티드전, 정규시즌 마지막 매치데이. 기준선 승/무/패 43.4/26.4/30.2%, 핸디캡 홈−1 23.5/19.9/56.6%, 오버 2.5 59.5% — 출처: 자체 모델

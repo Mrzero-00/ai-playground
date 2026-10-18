@@ -1,0 +1,260 @@
+{
+ "번호": "9192",
+ "홈": "우디네세",
+ "원정": "US 레체",
+ "수집시각": "2026-10-18 약 18:10 KST (킥오프 12:30 CEST = 19:30 KST, Bluenergy Stadium, 7라운드)",
+ "결장": [
+  {
+   "팀": "홈",
+   "선수": "Nicolò Zaniolo",
+   "포지션": "공격형 MF/FW",
+   "이번시즌_선발/경기": "미확인",
+   "득점·도움": "미확인",
+   "사유": "Runjaic 기자회견에서 결장 확인(일부 보도: 허벅지 문제)",
+   "상태": "확정",
+   "복귀예정": "미확인",
+   "대체선수": "Ekkelenkamp/Chakvetadze 2선",
+   "출처": "https://www.napolimagazine.com/calcio/articolo/udinese-runjaic-davis-e-zanoli-saranno-a-disposizione-zaniolo-bayo-e-gueye-non-saranno-della-gara-17-10-2026 ; https://sport.sky.it/calcio/serie-a/2026/10/17/udinese-lecce-probabili-formazioni-7-giornata ; https://www.dazn.com/it-IT/news/calcio/probabili-formazioni-serie-a-chi-gioca-indisponibili-e-squalificati/n7xdzcbuno6l1pzsf52p6y1cw ; https://www.corrieresalentino.it/2026/10/udinese-lecce-formazioni-a-confronto-orfane-di-ilic-e-zaniolo/",
+   "날짜": "2026-10-17"
+  },
+  {
+   "팀": "홈",
+   "선수": "Bayo",
+   "포지션": "FW",
+   "이번시즌_선발/경기": "미확인",
+   "득점·도움": "미확인",
+   "사유": "사유 미기재, 감독이 결장 확인",
+   "상태": "확정",
+   "복귀예정": "미확인",
+   "대체선수": "Davis",
+   "출처": "https://www.napolimagazine.com/calcio/articolo/udinese-runjaic-davis-e-zanoli-saranno-a-disposizione-zaniolo-bayo-e-gueye-non-saranno-della-gara-17-10-2026 ; https://sport.sky.it/calcio/serie-a/2026/10/17/udinese-lecce-probabili-formazioni-7-giornata ; https://www.dazn.com/it-IT/news/calcio/probabili-formazioni-serie-a-chi-gioca-indisponibili-e-squalificati/n7xdzcbuno6l1pzsf52p6y1cw",
+   "날짜": "2026-10-17"
+  },
+  {
+   "팀": "홈",
+   "선수": "Gueye",
+   "포지션": "MF",
+   "이번시즌_선발/경기": "미확인",
+   "득점·도움": "미확인",
+   "사유": "사유 미기재, 감독이 결장 확인",
+   "상태": "확정",
+   "복귀예정": "미확인",
+   "대체선수": "미확인",
+   "출처": "https://www.napolimagazine.com/calcio/articolo/udinese-runjaic-davis-e-zanoli-saranno-a-disposizione-zaniolo-bayo-e-gueye-non-saranno-della-gara-17-10-2026 ; https://sport.sky.it/calcio/serie-a/2026/10/17/udinese-lecce-probabili-formazioni-7-giornata ; https://www.dazn.com/it-IT/news/calcio/probabili-formazioni-serie-a-chi-gioca-indisponibili-e-squalificati/n7xdzcbuno6l1pzsf52p6y1cw",
+   "날짜": "2026-10-17"
+  },
+  {
+   "팀": "홈",
+   "선수": "Abankwah",
+   "포지션": "DF",
+   "이번시즌_선발/경기": "미확인",
+   "득점·도움": "미확인",
+   "사유": "훈련 중 불편감(Runjaic: fastidio, 부상 아님), 출전 불투명. Sky·Mondo Udinese: 회복 가능, DAZN·Corriere Salentino: 결장 목록",
+   "상태": "의심",
+   "복귀예정": "미확인",
+   "대체선수": "Kabasele/Ebosse/Palma",
+   "출처": "https://sport.sky.it/calcio/serie-a/2026/10/17/udinese-lecce-probabili-formazioni-7-giornata ; https://www.dazn.com/it-IT/news/calcio/probabili-formazioni-serie-a-chi-gioca-indisponibili-e-squalificati/n7xdzcbuno6l1pzsf52p6y1cw ; https://www.corrieresalentino.it/2026/10/udinese-lecce-formazioni-a-confronto-orfane-di-ilic-e-zaniolo/ ; https://www.mondoudinese.it/udinese/news-udinese/conferenza-runjaic-udinese-lecce-davis-okoye/",
+   "날짜": "2026-10-17"
+  },
+  {
+   "팀": "홈",
+   "선수": "Piotrowski",
+   "포지션": "MF",
+   "이번시즌_선발/경기": "미확인",
+   "득점·도움": "미확인",
+   "사유": "Corriere Salentino 결장 목록, 심장 문제 보도 1건(검색요약). Sky·DAZN 미언급",
+   "상태": "의심",
+   "복귀예정": "미확인",
+   "대체선수": "-",
+   "출처": "https://www.corrieresalentino.it/2026/10/udinese-lecce-formazioni-a-confronto-orfane-di-ilic-e-zaniolo/",
+   "날짜": "2026-10-16"
+  },
+  {
+   "팀": "홈",
+   "선수": "Zanoli",
+   "포지션": "DF",
+   "이번시즌_선발/경기": "미확인",
+   "득점·도움": "미확인",
+   "사유": "복귀 — Runjaic '출전 가능'(Corriere Salentino는 결장 목록: 엇갈림)",
+   "상태": "확정",
+   "복귀예정": "복귀",
+   "대체선수": "-",
+   "출처": "https://www.napolimagazine.com/calcio/articolo/udinese-runjaic-davis-e-zanoli-saranno-a-disposizione-zaniolo-bayo-e-gueye-non-saranno-della-gara-17-10-2026 ; https://www.corrieresalentino.it/2026/10/udinese-lecce-formazioni-a-confronto-orfane-di-ilic-e-zaniolo/",
+   "날짜": "2026-10-17"
+  },
+  {
+   "팀": "홈",
+   "선수": "Keinan Davis",
+   "포지션": "FW",
+   "이번시즌_선발/경기": "미확인",
+   "득점·도움": "미확인",
+   "사유": "복귀 — 선발 예정(Runjaic)",
+   "상태": "확정",
+   "복귀예정": "복귀",
+   "대체선수": "-",
+   "출처": "https://www.napolimagazine.com/calcio/articolo/udinese-runjaic-davis-e-zanoli-saranno-a-disposizione-zaniolo-bayo-e-gueye-non-saranno-della-gara-17-10-2026 ; https://sport.sky.it/calcio/serie-a/2026/10/17/udinese-lecce-probabili-formazioni-7-giornata ; https://www.dazn.com/it-IT/news/calcio/probabili-formazioni-serie-a-chi-gioca-indisponibili-e-squalificati/n7xdzcbuno6l1pzsf52p6y1cw",
+   "날짜": "2026-10-17"
+  },
+  {
+   "팀": "원정",
+   "선수": "Ilić",
+   "포지션": "MF",
+   "이번시즌_선발/경기": "미확인",
+   "득점·도움": "미확인",
+   "사유": "부상",
+   "상태": "확정",
+   "복귀예정": "미확인",
+   "대체선수": "Ngom",
+   "출처": "https://sport.sky.it/calcio/serie-a/2026/10/17/udinese-lecce-probabili-formazioni-7-giornata ; https://www.dazn.com/it-IT/news/calcio/probabili-formazioni-serie-a-chi-gioca-indisponibili-e-squalificati/n7xdzcbuno6l1pzsf52p6y1cw ; https://www.corrieresalentino.it/2026/10/udinese-lecce-formazioni-a-confronto-orfane-di-ilic-e-zaniolo/",
+   "날짜": "2026-10-17"
+  },
+  {
+   "팀": "원정",
+   "선수": "Berisha",
+   "포지션": "FW",
+   "이번시즌_선발/경기": "미확인",
+   "득점·도움": "미확인",
+   "사유": "사유 미기재",
+   "상태": "확정",
+   "복귀예정": "미확인",
+   "대체선수": "Fatah/Pierotti",
+   "출처": "https://sport.sky.it/calcio/serie-a/2026/10/17/udinese-lecce-probabili-formazioni-7-giornata ; https://www.dazn.com/it-IT/news/calcio/probabili-formazioni-serie-a-chi-gioca-indisponibili-e-squalificati/n7xdzcbuno6l1pzsf52p6y1cw ; https://www.corrieresalentino.it/2026/10/udinese-lecce-formazioni-a-confronto-orfane-di-ilic-e-zaniolo/",
+   "날짜": "2026-10-17"
+  },
+  {
+   "팀": "원정",
+   "선수": "Štulić",
+   "포지션": "FW",
+   "이번시즌_선발/경기": "미확인",
+   "득점·도움": "미확인",
+   "사유": "DAZN은 '복귀 가능', 다른 요약은 결장 가능 — 엇갈림",
+   "상태": "의심",
+   "복귀예정": "미확인",
+   "대체선수": "Geubbels",
+   "출처": "https://www.dazn.com/it-IT/news/calcio/probabili-formazioni-serie-a-chi-gioca-indisponibili-e-squalificati/n7xdzcbuno6l1pzsf52p6y1cw",
+   "날짜": "2026-10-17"
+  }
+ ],
+ "라인업": {
+  "홈": {
+   "발표여부": "미발표(예상XI만)",
+   "예상XI": "Sky: Okoye; Palma, Solet, Alaba; Vojvoda, Karlström, Zarraga, Kamara; Ekkelenkamp, Chakvetadze; Davis. (Corriere Salentino: Okoye; Solet, Alaba, Ebosse; Vojvoda, Miller, Karlström, Kamara; Unai Gomez, Ekkelenkamp; Davis. DAZN: Miller가 Zarraga보다 우세)",
+   "포메이션": "3-4-2-1",
+   "출처": "https://sport.sky.it/calcio/serie-a/2026/10/17/udinese-lecce-probabili-formazioni-7-giornata ; https://www.corrieresalentino.it/2026/10/udinese-lecce-formazioni-a-confronto-orfane-di-ilic-e-zaniolo/ ; https://www.dazn.com/it-IT/news/calcio/probabili-formazioni-serie-a-chi-gioca-indisponibili-e-squalificati/n7xdzcbuno6l1pzsf52p6y1cw",
+   "날짜": "2026-10-17"
+  },
+  "원정": {
+   "발표여부": "미발표(예상XI만)",
+   "예상XI": "Falcone; Veiga, Tiago Gabriel, Siebert, Gallo; Coulibaly, Ngom, Maleh; Pierotti, Geubbels, Fatah (DAZN: Siebert vs Gaspar 경합)",
+   "포메이션": "4-3-3",
+   "출처": "https://sport.sky.it/calcio/serie-a/2026/10/17/udinese-lecce-probabili-formazioni-7-giornata ; https://www.corrieresalentino.it/2026/10/udinese-lecce-formazioni-a-confronto-orfane-di-ilic-e-zaniolo/ ; https://www.dazn.com/it-IT/news/calcio/probabili-formazioni-serie-a-chi-gioca-indisponibili-e-squalificati/n7xdzcbuno6l1pzsf52p6y1cw",
+   "날짜": "2026-10-17"
+  }
+ },
+ "최근경기": [
+  {
+   "팀": "홈",
+   "날짜": "2026-10-12",
+   "상대": "Torino",
+   "장소": "원정",
+   "스코어": "1-2",
+   "비고": "리그 4연패 중, Runjaic '5연패는 피해야'(Mondo Udinese)"
+  },
+  {
+   "팀": "홈",
+   "날짜": "2026-09-19",
+   "상대": "Cagliari",
+   "장소": "홈",
+   "스코어": "0-1",
+   "비고": "ESPN 팩트시트"
+  },
+  {
+   "팀": "홈",
+   "날짜": "2026-09-14",
+   "상대": "Inter",
+   "장소": "원정",
+   "스코어": "3-5",
+   "비고": "ESPN 팩트시트"
+  },
+  {
+   "팀": "홈",
+   "날짜": "2026-09-07",
+   "상대": "Lazio",
+   "장소": "홈",
+   "스코어": "1-2",
+   "비고": "ESPN 팩트시트"
+  },
+  {
+   "팀": "원정",
+   "날짜": "2026-10-11",
+   "상대": "Bologna",
+   "장소": "홈",
+   "스코어": "1-2",
+   "비고": "ESPN 팩트시트"
+  },
+  {
+   "팀": "원정",
+   "날짜": "2026-09-20",
+   "상대": "AC Milan",
+   "장소": "원정",
+   "스코어": "0-3",
+   "비고": "ESPN"
+  },
+  {
+   "팀": "원정",
+   "날짜": "2026-09-13",
+   "상대": "Monza",
+   "장소": "홈",
+   "스코어": "3-2",
+   "비고": "ESPN"
+  },
+  {
+   "팀": "원정",
+   "날짜": "2026-09-07",
+   "상대": "Cagliari",
+   "장소": "원정",
+   "스코어": "0-1",
+   "비고": "ESPN"
+  }
+ ],
+ "순위": {
+  "홈": "15위 6경기 1승1무4패 GD-4 승점4 (팩트시트; 팀노트 10/12 서술은 14위)",
+  "원정": "13위 6경기 2승0무4패 GD-6 승점6",
+  "출처": "팀노트 팩트시트(ESPN/위키)",
+  "날짜": "2026-10-16"
+ },
+ "감독": {
+  "홈": "Kosta Runjaić",
+  "원정": "Eusebio Di Francesco",
+  "변동": "변동 없음(팩트시트와 기사 일치)",
+  "출처": "https://sport.sky.it/calcio/serie-a/2026/10/17/udinese-lecce-probabili-formazioni-7-giornata",
+  "날짜": "2026-10-17"
+ },
+ "일정·동기·기타": [
+  {
+   "내용": "우디네세 리그 4연패. Runjaic: Davis 선발, Okoye 신뢰, 라인업 변화 예고, 홈 승리 적었음. Alaba·Arizala 훈련 1주 추가 소화",
+   "출처": "https://www.mondoudinese.it/udinese/news-udinese/conferenza-runjaic-udinese-lecce-davis-okoye/ ; https://www.direttafanta.com/udinese-runjaic-lecce-match-delicato-davis-titolare-fiducia-a-okoye-e-su-alaba/",
+   "날짜": "2026-10-17 (Mondo Udinese 본문에 2025 표기 있어 날짜 불확실; 내용은 Napoli Magazine 10/17과 일치)"
+  },
+  {
+   "내용": "출장정지·경고누적 결장: 양 팀 기사 모두 없음",
+   "출처": "https://sport.sky.it/calcio/serie-a/2026/10/17/udinese-lecce-probabili-formazioni-7-giornata ; https://www.dazn.com/it-IT/news/calcio/probabili-formazioni-serie-a-chi-gioca-indisponibili-e-squalificati/n7xdzcbuno6l1pzsf52p6y1cw",
+   "날짜": "2026-10-17"
+  }
+ ],
+ "엇갈림": [
+  "Abankwah·Piotrowski·Zanoli 결장 여부",
+  "Štulić 가용 여부",
+  "우디네세 수비 3인(Palma vs Ebosse)"
+ ],
+ "못찾음": [
+  "확정 라인업(킥오프 전)",
+  "Di Francesco 2026-10 기자회견 원문",
+  "결장자 시즌 출전 수치",
+  "Messaggero Veneto/Udinese Tonight/Calciolecce 원문 미확인"
+ ],
+ "뉴스없음": {
+  "홈": "해당 없음(결장 보도 다수)",
+  "원정": "결장 보도 있음(Sky·DAZN·Corriere Salentino 3곳). 단 Di Francesco 회견은 못 찾음"
+ }
+}

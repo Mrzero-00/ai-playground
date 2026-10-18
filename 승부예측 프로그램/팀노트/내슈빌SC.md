@@ -8,8 +8,8 @@
 - 최근 경기(ESPN, 최대 28일): 2026-09-12 Inter Miami CF 2-2 Nashville SC / 2026-09-20 Nashville SC 3-0 Chicago Fire FC / 2026-09-27 Nashville SC 2-0 Toronto FC / 2026-10-11 Austin FC 1-4 Nashville SC / 2026-10-15 Nashville SC 4-0 Sporting Kansas City
 <!-- FACTS:END -->
 <!-- INPUTS:START -->
-## 입력(자동 수집 2026-10-15) — xG·휴식일·라인업은 이 숫자를 쓴다
-- 10-15 09:30 vs 스포팅 캔자스시티: 휴식 4.0일(7일 1경기) · 직전 10-11 원정 vs Austin FC 1-4 [usa.1] · xG - · 선발 4-2-3-1 Brian Schwake, Andy Nájar, Reed Baker-Whiting, Jeisson Palacios, Maxwell Woledzi, Cristian Espinoza, Hany Mukhtar, Matthew Corcoran, Elias Saad, Edvard Tagseth, Sam Surridge · 직전 대비 교체 1명(Patrick Yazbek)
+## 입력(자동 수집 2026-10-18) — xG·휴식일·라인업·환경(이동거리·고도·날씨)은 이 숫자를 쓴다
+- 10-18 11:30 vs 새너제이 어스퀘이크스: 휴식 3.1일(7일 1경기) · 직전 10-15 홈 vs Sporting Kansas City 4-0 승 [usa.1] · xG - · 선발 4-2-3-1 Brian Schwake, Maxwell Woledzi, Jeisson Palacios, Daniel Lovitz, Andy Nájar, Hany Mukhtar, Matthew Corcoran, Patrick Yazbek, Sam Surridge, Shakur Mohammed, Cristian Espinoza · 직전 대비 교체 3명(Reed Baker-Whiting, Edvard Tagseth, Elias Saad) · 구장 어바이어 스타디움 · 이동 3115km · 고도 18m(차 -110m) · 23.6℃ 강수0mm(0%) 바람6.8km/h · ⚠ 장거리 원정 3115km
 <!-- INPUTS:END -->
 
 ## 성향

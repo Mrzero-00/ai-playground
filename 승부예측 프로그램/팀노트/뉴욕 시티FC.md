@@ -8,8 +8,8 @@
 - 최근 경기(ESPN, 최대 28일): 2026-09-30 Red Bull New York 0-3 St. Louis CITY SC / 2026-10-10 Chicago Fire FC 2-1 New York City FC / 2026-10-10 Red Bull New York 4-1 San Diego FC / 2026-10-14 D.C. United 2-1 Red Bull New York / 2026-10-14 Inter Miami CF 2-0 New York City FC
 <!-- FACTS:END -->
 <!-- INPUTS:START -->
-## 입력(자동 수집 2026-10-15) — xG·휴식일·라인업은 이 숫자를 쓴다
-- 10-15 08:30 vs 인터 마이애미CF: 휴식 4.0일(7일 4경기) · 직전 10-11 홈 vs San Diego FC 4-1 [usa.1] · xG - · 선발 4-2-3-1 Matt Freese, James Sands, Thiago Martins, Nico Cavallo, Tayvon Gray, Nicolás Fernández, Andrés Perea, Aiden O'Neill, Alonso Martínez, Bénie Traoré, Agustin Ojeda · 직전 대비 교체 11명(Ethan Horvath, Julián Bazán, Justin Che, Devin Padelford, Dylan Nealis, Adri Mehmeti, Mohammed Sofo, Ronald Donkor, Julian Hall, Cade Cowell, Jorge Ruvalcaba)
+## 입력(자동 수집 2026-10-18) — xG·휴식일·라인업·환경(이동거리·고도·날씨)은 이 숫자를 쓴다
+- 10-18 08:30 vs LAFC: 휴식 3.0일(7일 1경기) · 직전 10-15 원정 vs Inter Miami CF 0-2 패 [usa.1] · xG - · 선발 4-2-3-1 Matt Freese, James Sands, Thiago Martins, Kevin O'Toole, Tayvon Gray, Nicolás Fernández, Andrés Perea, Aiden O'Neill, Luighi Hanri, Hannes Wolf, Agustin Ojeda · 직전 대비 교체 3명(Nico Cavallo, Alonso Martínez, Bénie Traoré) · 구장 양키 스타디움 · 이동 3947km · 고도 6m(차 -54m) · 9.4℃ 강수0mm(0%) 바람11.3km/h · ⚠ 장거리 원정 3947km
 <!-- INPUTS:END -->
 
 - 2026-10-14 조사: 10/15 08:30(KST) 원정 인터 마이애미전, 정규시즌 마지막 매치데이. 기준선(마이애미 기준) 승/무/패 56.1/23.7/20.1% → NYCFC 패 20.1%(승 20.1% 아님, 원정 승률 20.1%) — 출처: 자체 모델

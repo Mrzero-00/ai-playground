@@ -3999,5 +3999,161 @@
   },
   "라인업": "미발표(킥오프 9.7h 전)",
   "event": null
+ },
+ "9071": {
+  "번호": "9071",
+  "경기": "포틀랜드 팀버스 - 콜로라도 래피즈",
+  "리그": "미국 메이저리그사커",
+  "시각": "10-18 11:30",
+  "수집": "10-18 09:43",
+  "홈": {
+   "팀": "포틀랜드 팀버스",
+   "eng": "Portland Timbers",
+   "직전": "10-15 원정 vs LA Galaxy 0-2 패 [usa.1]",
+   "휴식일": 3.0,
+   "최근7일경기": 1,
+   "직전event": "761874",
+   "xg": null,
+   "직전선발": [
+    "James Pantemis",
+    "Kamal Miller",
+    "Joel Waterman",
+    "José Caicedo",
+    "Jimer Fory",
+    "Ronald Hernández",
+    "David Da Costa",
+    "Joao Ortiz",
+    "Kristoffer Velde",
+    "Ariel Lassiter",
+    "Vincent Janssen"
+   ],
+   "직전포메이션": "4-1-4-1"
+  },
+  "원정": {
+   "팀": "콜로라도 래피즈",
+   "eng": "Colorado Rapids",
+   "직전": "10-15 홈 vs Minnesota United FC 2-2 무 [usa.1]",
+   "휴식일": 3.0,
+   "최근7일경기": 1,
+   "직전event": "761871",
+   "xg": null,
+   "직전선발": [
+    "Nico Hansen",
+    "Loic Williams",
+    "Rob Holding",
+    "Miguel Navarro",
+    "Keegan Rosenberry",
+    "Paxten Aaronson",
+    "Hamzat Ojediran",
+    "Wayne Frederick",
+    "Donavan Phillip",
+    "Darren Yapi",
+    "Morgan Whittaker"
+   ],
+   "직전포메이션": "4-2-3-1"
+  },
+  "환경": {
+   "구장": "프로비던스 파크",
+   "구장고도": 34,
+   "원정홈": "딕스 스포팅 구즈 파크",
+   "원정홈고도": 1586,
+   "이동km": 1584,
+   "고도차": -1552,
+   "날씨": {
+    "기온": 13.3,
+    "습도": 73,
+    "강수mm": 0,
+    "강수확률": 0,
+    "풍속": 12.1,
+    "출처": "Open-Meteo forecast 10-18 09:43"
+   },
+   "출처": [
+    "Wikidata Q16025275→Q262291 · Open-Meteo 고도",
+    "Wikidata Q642408→Q1210268 · Open-Meteo 고도"
+   ],
+   "주의": [
+    "장거리 원정 1584km"
+   ]
+  },
+  "라인업": "미발표(킥오프 1.8h 전)",
+  "event": "761888"
+ },
+ "9079": {
+  "번호": "9079",
+  "경기": "시애틀 사운더스FC - CF몽레알",
+  "리그": "미국 메이저리그사커",
+  "시각": "10-18 11:30",
+  "수집": "10-18 09:43",
+  "홈": {
+   "팀": "시애틀 사운더스FC",
+   "eng": "Seattle Sounders FC",
+   "직전": "10-15 원정 vs FC Dallas 0-1 패 [usa.1]",
+   "휴식일": 3.1,
+   "최근7일경기": 1,
+   "직전event": "761867",
+   "xg": null,
+   "직전선발": [
+    "Andy Thomas",
+    "Jackson Ragen",
+    "Stuart Hawkins",
+    "Nouhou Tolo",
+    "Kalani Kossa-Rienzi",
+    "Albert Rusnák",
+    "Snyder Brunell",
+    "Cristian Roldan",
+    "Dejan Joveljic",
+    "Paul Arriola",
+    "Sebastian Gomez"
+   ],
+   "직전포메이션": "4-2-3-1"
+  },
+  "원정": {
+   "팀": "CF몽레알",
+   "eng": "CF Montreal",
+   "직전": "10-15 홈 vs Atlanta United FC 0-3 패 [usa.1]",
+   "휴식일": 3.1,
+   "최근7일경기": 1,
+   "직전event": "761864",
+   "xg": null,
+   "직전선발": [
+    "Sébastian Breza",
+    "Brandan Craig",
+    "Jalen Neal",
+    "Luca Petrasso",
+    "Dawid Bugaj",
+    "Alexis Sánchez",
+    "Dani Pereira",
+    "Matthew Longstaff",
+    "Daniel Ríos",
+    "Noah Streit",
+    "Wikelman Carmona"
+   ],
+   "직전포메이션": "4-2-3-1"
+  },
+  "환경": {
+   "구장": "루멘 필드",
+   "구장고도": 10,
+   "원정홈": "사푸토 스타디움",
+   "원정홈고도": 37,
+   "이동km": 3673,
+   "고도차": -27,
+   "날씨": {
+    "기온": 12.2,
+    "습도": 73,
+    "강수mm": 0,
+    "강수확률": 1,
+    "풍속": 11.6,
+    "출처": "Open-Meteo forecast 10-18 09:44"
+   },
+   "출처": [
+    "Wikidata Q632511→Q612736 · Open-Meteo 고도",
+    "Wikidata Q167615→Q2093647 · Open-Meteo 고도"
+   ],
+   "주의": [
+    "장거리 원정 3673km"
+   ]
+  },
+  "라인업": "미발표(킥오프 1.8h 전)",
+  "event": "761885"
  }
 }

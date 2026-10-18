@@ -9,7 +9,7 @@
 - 최근 경기(ESPN, 최대 28일): 2026-09-24 Seattle Sounders FC 2-0 Real Salt Lake / 2026-09-27 Seattle Sounders FC 3-1 Minnesota United FC / 2026-10-02 Seattle Sounders FC 2-1 Sporting Kansas City / 2026-10-10 New England Revolution 0-3 Seattle Sounders FC / 2026-10-15 FC Dallas 1-0 Seattle Sounders FC
 <!-- FACTS:END -->
 <!-- INPUTS:START -->
-## 입력(자동 수집 2026-10-15) — xG·휴식일·라인업은 이 숫자를 쓴다
-- 10-15 09:30 vs FC댈러스: 휴식 4.0일(7일 1경기) · 직전 10-11 원정 vs New England Revolution 0-3 [usa.1] · xG - · 선발 4-2-3-1 Andy Thomas, Stuart Hawkins, Nouhou Tolo, Kalani Kossa-Rienzi, Jackson Ragen, Albert Rusnák, Cristian Roldan, Sebastian Gomez, Paul Arriola, Snyder Brunell, Dejan Joveljic · 직전 대비 교체 4명(Yeimar Gómez, Alex Roldan, Hassani Dotson, Jordan Morris)
+## 입력(자동 수집 2026-10-18) — xG·휴식일·라인업·환경(이동거리·고도·날씨)은 이 숫자를 쓴다
+- 10-18 11:30 vs CF몽레알: 휴식 3.1일(7일 1경기) · 직전 10-15 원정 vs FC Dallas 0-1 패 [usa.1] · xG - · 직전 선발 4-2-3-1 Andy Thomas, Jackson Ragen, Stuart Hawkins, Nouhou Tolo, Kalani Kossa-Rienzi, Albert Rusnák, Snyder Brunell, Cristian Roldan, Dejan Joveljic, Paul Arriola, Sebastian Gomez · 구장 루멘 필드 · 이동 3673km · 고도 10m(차 -27m) · 12.2℃ 강수0mm(1%) 바람11.6km/h · ⚠ 장거리 원정 3673km
 <!-- INPUTS:END -->
 

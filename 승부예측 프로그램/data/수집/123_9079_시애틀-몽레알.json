@@ -1,0 +1,212 @@
+{
+ "번호": 9079,
+ "홈": "시애틀 사운더스",
+ "원정": "CF 몽레알",
+ "수집시각": "2026-10-18 09:55 KST",
+ "결장": [
+  {
+   "팀": "시애틀",
+   "선수": "Pedro de la Vega",
+   "사유": "quad(허벅지)",
+   "상태": "Out",
+   "판정": "의심(1곳)",
+   "출처": "https://www.sounderatheart.com/2026/10/everything-you-need-to-know-about-sounders-cf-montreal/",
+   "기사일": "2026-10-17"
+  },
+  {
+   "팀": "시애틀",
+   "선수": "Nikola Petković",
+   "사유": "knee",
+   "상태": "Out",
+   "판정": "의심(1곳)",
+   "출처": "https://www.sounderatheart.com/2026/10/everything-you-need-to-know-about-sounders-cf-montreal/",
+   "기사일": "2026-10-17"
+  },
+  {
+   "팀": "시애틀",
+   "선수": "Paul Rothrock",
+   "사유": "hamstring",
+   "상태": "Out",
+   "판정": "의심(1곳)",
+   "출처": "https://www.sounderatheart.com/2026/10/everything-you-need-to-know-about-sounders-cf-montreal/",
+   "기사일": "2026-10-17"
+  },
+  {
+   "팀": "시애틀",
+   "선수": "Nouhou",
+   "사유": "hand",
+   "상태": "Questionable",
+   "판정": "의심(1곳)",
+   "출처": "https://www.sounderatheart.com/2026/10/everything-you-need-to-know-about-sounders-cf-montreal/",
+   "기사일": "2026-10-17"
+  },
+  {
+   "팀": "몽레알",
+   "선수": "Prince Owusu",
+   "사유": "lower body",
+   "상태": "Out",
+   "판정": "의심(1곳)",
+   "출처": "https://www.sounderatheart.com/2026/10/everything-you-need-to-know-about-sounders-cf-montreal/",
+   "기사일": "2026-10-17"
+  },
+  {
+   "팀": "몽레알",
+   "선수": "Brayan Ceballos",
+   "사유": "lower body",
+   "상태": "Out",
+   "판정": "의심(1곳)",
+   "출처": "https://www.sounderatheart.com/2026/10/everything-you-need-to-know-about-sounders-cf-montreal/",
+   "기사일": "2026-10-17"
+  },
+  {
+   "팀": "몽레알",
+   "선수": "Thomas Gillier(GK)",
+   "사유": "upper body, 8/29부터",
+   "상태": "Out",
+   "판정": "확정(SAH+구단공식)",
+   "출처": [
+    "https://www.sounderatheart.com/2026/10/everything-you-need-to-know-about-sounders-cf-montreal/",
+    "https://www.soundersfc.com/news/seavmtl-101-preview-all-you-need-to-know-when-the-sounders-host-cf-montreal-on-saturday-pres-by-ticketmaster"
+   ],
+   "기사일": "2026-10-17"
+  },
+  {
+   "팀": "몽레알",
+   "선수": "Bode Hidalgo",
+   "사유": "lower body",
+   "상태": "Out",
+   "판정": "의심(1곳)",
+   "출처": "https://www.sounderatheart.com/2026/10/everything-you-need-to-know-about-sounders-cf-montreal/",
+   "기사일": "2026-10-17"
+  },
+  {
+   "팀": "몽레알",
+   "선수": "Dante Sealy",
+   "사유": "lower body",
+   "상태": "Out",
+   "판정": "의심(1곳)",
+   "출처": "https://www.sounderatheart.com/2026/10/everything-you-need-to-know-about-sounders-cf-montreal/",
+   "기사일": "2026-10-17"
+  }
+ ],
+ "라인업": {
+  "비고": "예상/확정 선발 기사 못 찾음. 팀노트 INPUTS의 직전(10/15) 선발만 존재",
+  "시애틀_직전선발": "10/15 FC Dallas 0-1 패, 4-2-3-1 (팀노트)",
+  "몽레알_직전선발": "10/15 홈 Atlanta 0-3 패, 4-2-3-1 Breza, Craig, Neal, Petrasso, Bugaj, Sánchez, Pereira, Longstaff, Ríos, Streit, Carmona (팀노트)"
+ },
+ "최근경기": [
+  {
+   "팀": "시애틀",
+   "내용": "10/15 원정 FC Dallas 0-1 패; 직전 MLS 9경기 무패(4승5무)가 끊김",
+   "출처": "https://www.soundersfc.com/news/seavmtl-101-preview-all-you-need-to-know-when-the-sounders-host-cf-montreal-on-saturday-pres-by-ticketmaster",
+   "기사일": "2026-10-17",
+   "판정": "확정(ESPN팩트시트+구단)"
+  },
+  {
+   "팀": "시애틀",
+   "내용": "최근 10경기 승점 17, 서부 3위 타이",
+   "출처": "https://www.sounderatheart.com/2026/10/everything-you-need-to-know-about-sounders-cf-montreal/",
+   "기사일": "2026-10-17",
+   "판정": "의심"
+  },
+  {
+   "팀": "시애틀",
+   "내용": "전체대회 폼 LWWWW(최근순)",
+   "출처": "https://www.soundersfc.com/news/seavmtl-101-preview-all-you-need-to-know-when-the-sounders-host-cf-montreal-on-saturday-pres-by-ticketmaster",
+   "기사일": "2026-10-17",
+   "판정": "의심"
+  },
+  {
+   "팀": "몽레알",
+   "내용": "10/15 홈 Atlanta 0-3 패(팀노트/ESPN)",
+   "판정": "팩트시트"
+  },
+  {
+   "팀": "몽레알",
+   "내용": "최근 9경기 승점 4; 전체대회 폼 LLWLW",
+   "출처": [
+    "https://www.sounderatheart.com/2026/10/everything-you-need-to-know-about-sounders-cf-montreal/",
+    "https://www.soundersfc.com/news/seavmtl-101-preview-all-you-need-to-know-when-the-sounders-host-cf-montreal-on-saturday-pres-by-ticketmaster"
+   ],
+   "기사일": "2026-10-17",
+   "판정": "확정(승점4 SAH, 폼 SFC 각 1곳이므로 항목별 의심)"
+  }
+ ],
+ "순위": {
+  "시애틀": "서부 7위 11-10-8 승점41 (구단공식)",
+  "몽레알": "동부 15위(최하위) 6-17-6 승점24 (구단공식, SAH도 동부 최하위)",
+  "판정": "확정",
+  "출처": [
+   "https://www.soundersfc.com/news/seavmtl-101-preview-all-you-need-to-know-when-the-sounders-host-cf-montreal-on-saturday-pres-by-ticketmaster",
+   "https://www.sounderatheart.com/2026/10/everything-you-need-to-know-about-sounders-cf-montreal/"
+  ]
+ },
+ "감독": {
+  "시애틀": "Brian Schmetzer(팩트시트)",
+  "몽레알": "Philippe Eullaffroy 임시(팩트시트)"
+ },
+ "일정·동기·기타": [
+  {
+   "내용": "MLS 정규시즌 최종일(Decision Day)은 11/7(토)로 이번 경기는 최종일이 아님. 시애틀은 Decision Day에 홈에서 LAFC전",
+   "출처": "https://www.mlssoccer.com/playoffs/2026/news/audi-2026-mls-cup-playoffs-key-dates-schedule-information; https://www.soundersfc.com/news/topics/decision-day/",
+   "기사일": "검색요약만, 원문 날짜 미확인",
+   "판정": "의심"
+  },
+  {
+   "내용": "몽레알은 수요일(10/21) 캐나다 챔피언십 홈경기 예정, 로테이션 가능성이 언급됨",
+   "출처": "https://www.sounderatheart.com/2026/10/everything-you-need-to-know-about-sounders-cf-montreal/",
+   "기사일": "2026-10-17",
+   "판정": "의심"
+  },
+  {
+   "내용": "몽레알 플레이오프: 동부 최하위, 정확한 탈락 확정 여부 기사 못 찾음(팀노트: 10/14 Bradenton Herald 탈락 직전)",
+   "판정": "의심"
+  },
+  {
+   "내용": "시애틀 플레이오프 확정 여부 기사 못 찾음. 서부 7위 승점41",
+   "판정": "뉴스없음"
+  },
+  {
+   "내용": "주중 A매치·대표 차출: 기사 언급 없음",
+   "판정": "뉴스없음"
+  }
+ ],
+ "맞대결": [
+  {
+   "내용": "정규시즌 유일 맞대결. 직전 맞대결 2024-04-06 시애틀 5-0 (루멘필드)",
+   "출처": "https://www.soundersfc.com/news/seavmtl-101-preview-all-you-need-to-know-when-the-sounders-host-cf-montreal-on-saturday-pres-by-ticketmaster",
+   "기사일": "기사 날짜 미명시(10월 경기 프리뷰)",
+   "판정": "의심"
+  }
+ ],
+ "엇갈림": [
+  {
+   "내용": "시애틀 결장: 구단 프리뷰는 결장 미기재, SaH는 3명 Out+1 Questionable. 구단 프리뷰는 작성시점이 더 이를 가능성(날짜 미명시)",
+   "출처": [
+    "https://www.soundersfc.com/news/seavmtl-101-preview-all-you-need-to-know-when-the-sounders-host-cf-montreal-on-saturday-pres-by-ticketmaster",
+    "https://www.sounderatheart.com/2026/10/everything-you-need-to-know-about-sounders-cf-montreal/"
+   ]
+  },
+  {
+   "내용": "몽레알 결장: 구단 프리뷰는 Gillier만, SaH는 5명"
+  }
+ ],
+ "못찾음": [
+  "확정 선발 11명(경기 전)",
+  "MLS 공식 injury report 원문",
+  "Seattle Times/Oregonian 기사",
+  "몽레알 구단공식 결장 보고",
+  "플레이오프 확정·탈락 공식 상황",
+  "경기 결과(10/17 경기, 이미 종료됐을 수 있으나 결과는 수집하지 않음)"
+ ],
+ "뉴스없음": {
+  "대표차출": [
+   "mlssoccer.com",
+   "soundersfc.com"
+  ],
+  "시애틀 플레이오프 확정": [
+   "mlssoccer.com 2026 playoffs",
+   "sounderatheart.com"
+  ]
+ }
+}

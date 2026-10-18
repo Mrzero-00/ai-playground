@@ -53,6 +53,57 @@ CHK = os.path.join(ROOT, "data", "정합성기록.csv")
 EVI_COLS = ["회차", "번호", "경기", "기록시각", "구분", "유형", "팀", "선수", "등급", "상태", "영향", "내용", "출처", "날짜", "검색처",
             "기준선", "득점모델", "최종", "선택지", "결론", "미확인", "결과", "방향적중"]
 CHK_COLS = ["회차", "번호", "경기", "검사시각", "등급", "심각", "경미"]
+SNAP = os.path.join(ROOT, "data", "예측스냅샷.csv")
+SNAP_COLS = ["회차", "번호", "경기", "기록시각", "단계", "근거파일", "정합성", "기준선", "최종", "선택지", "시장", "결과", "점수"]
+
+# ── 어휘 고정 (사용자 지시 2026-10-18: 나중에 분석 스킬을 키울 수 있는 데이터) ──────────────
+# 분석가가 자유롭게 쓰면 같은 요인이 '일정·일정피로·휴식'처럼 쪼개져 유형별 30건 판정에 영원히 못 간다.
+TYPES = ("결장", "복귀", "징계", "라인업", "로테이션", "감독", "휴식", "이동", "고도", "날씨", "xG", "폼", "기준선불신",
+         "맞대결", "동기", "홈원정", "전술", "선발투수", "불펜", "뉴스없음", "기타")
+TYPE_RULES = [  # (포함 문자열들, 표준 유형) — 위에서부터 먼저 맞는 것
+    (("뉴스없음",), "뉴스없음"), (("기준선",), "기준선불신"), (("로테이션",), "로테이션"), (("고도",), "고도"), (("이동", "원정거리"), "이동"),
+    (("날씨", "우천", "강풍", "기온"), "날씨"), (("징계", "퇴장", "경고누적", "출장정지"), "징계"), (("복귀",), "복귀"),
+    (("결장", "부상", "이탈", "의심정보"), "결장"), (("라인업", "선발명단", "예상xi"), "라인업"), (("감독",), "감독"),
+    (("휴식", "일정", "피로", "연전"), "휴식"), (("xg",), "xG"), (("폼", "흐름", "연승", "연패", "득점력"), "폼"),
+    (("맞대결", "상대전적"), "맞대결"), (("동기", "순위경쟁", "강등", "클래스"), "동기"), (("홈원정", "홈 이점", "홈이점"), "홈원정"),
+    (("전술", "포메이션", "상성"), "전술"), (("선발투수",), "선발투수"), (("불펜",), "불펜")]
+STATES = ("확정", "의심", "추정")
+
+
+def norm_type(t):
+    t0 = (t or "").strip()
+    if t0 in TYPES:
+        return t0
+    low = t0.lower().replace(" ", "")
+    for keys, std in TYPE_RULES:
+        if any(k.replace(" ", "") in low for k in keys):
+            return std
+    return "기타"
+
+
+def norm_state(s):
+    s0 = (s or "").strip()
+    for st in STATES:
+        if s0.startswith(st):
+            return st
+    if s0.startswith("확인"):
+        return "확정"
+    return "추정"     # 빈칸·자유 서술 = 확인 안 된 것으로 본다
+
+
+def norm_factor(f):
+    """표준 유형·상태로 바꾸고, 바뀐 원문은 내용 앞에 [원: …]으로 남긴다."""
+    f = dict(f)
+    t, st = norm_type(f.get("유형", "")), norm_state(f.get("상태", ""))
+    keep = []
+    if t != (f.get("유형") or ""):
+        keep.append(f"유형 {f.get('유형')}")
+    if st != (f.get("상태") or ""):
+        keep.append(f"상태 {f.get('상태')}")
+    if keep:
+        f["내용"] = f"[원: {' · '.join(keep)}] " + (f.get("내용") or "")
+    f["유형"], f["상태"] = t, st
+    return f
 XG_LEAGUES = ("프리미어리그", "라리가", "분데스리가", "세리에A", "리그1")   # Understat xG 제공 (2부 리그 제외)
 NEWS_TYPES = ("결장", "복귀", "징계", "라인업", "감독", "선발투수", "불펜")
 NEWS_DAYS = 7      # 결장·라인업류 뉴스는 분석 시점 7일 이내 기사만
@@ -189,7 +240,7 @@ def cmd_add(a):
     data = json.load(open(a.file, encoding="utf-8"))
     rows = R.load()
     now = dt.datetime.now(R.KST).strftime("%Y-%m-%d %H:%M")
-    ev, ck = [], []
+    ev, ck, snaps = [], [], []
     for e in data:
         r = find(rows, a.round, e)
         if r is None:
@@ -203,7 +254,14 @@ def cmd_add(a):
         game = f"{r['홈']}-{r['원정']}"
         base = {"회차": r["회차"], "번호": r["번호"], "경기": game, "기록시각": now}
         for f in e.get("요인", []):
+            f = norm_factor(f)
             ev.append({**base, "구분": "요인", **{k: f.get(k, "") for k in ("유형", "팀", "선수", "등급", "상태", "영향", "내용", "출처", "날짜", "검색처")}})
+        snaps.append({"회차": r["회차"], "번호": r["번호"], "경기": game, "기록시각": now,
+                      "단계": "재분석" if "재분석" in os.path.basename(a.file) or "갱신" in os.path.basename(a.file) else "초기",
+                      "근거파일": os.path.relpath(a.file, ROOT) if os.path.isabs(a.file) else a.file, "정합성": g,
+                      "기준선": json.dumps(e.get("기준선"), ensure_ascii=False), "최종": json.dumps(e.get("최종"), ensure_ascii=False),
+                      "선택지": json.dumps(e.get("선택지"), ensure_ascii=False), "시장": json.dumps(market_now(r), ensure_ascii=False),
+                      "결과": "", "점수": ""})
         ev.append({**base, "구분": "요약", "기준선": json.dumps(e.get("기준선"), ensure_ascii=False),
                    "득점모델": json.dumps(e.get("득점모델"), ensure_ascii=False), "최종": json.dumps(e.get("최종"), ensure_ascii=False),
                    "선택지": json.dumps(e.get("선택지"), ensure_ascii=False), "결론": e.get("결론", ""),
@@ -214,9 +272,40 @@ def cmd_add(a):
     R.save(rows)
     append(EVI, EVI_COLS, ev)
     append(CHK, CHK_COLS, ck)
+    append(SNAP, SNAP_COLS, snaps)   # 덮어쓰지 않는 예측 기록 — 초기·라인업 후 재분석을 모두 남긴다
     print(f"근거 {len(ev)}행 → data/근거기록.csv · 검사 {len(ck)}경기 → data/정합성기록.csv · 등급 → 전체경기기록 '정합성'")
     if any(c["등급"] == "C" for c in ck):
         print("⚠ C 경기는 추천 다리 금지·학습 제외. 자료를 고쳐 다시 add 하면 새 등급으로 덮어쓴다.")
+
+
+def market_now(r):
+    """그 시점 스캔기록의 이 경기 선택지별 시장 공정확률·베트맨 배당 {번호/구분/선택: [공정, 배당]}."""
+    out = {}
+    p = os.path.join(ROOT, "data", "스캔기록.csv")
+    if not os.path.exists(p):
+        return out
+    want = f"{r['홈']} vs {r['원정']}"
+    for x in csv.DictReader(open(p, encoding="utf-8-sig")):
+        if x["회차"] == r["회차"] and x["경기"] == want:
+            out[f"{x['번호']}/{x['구분']}/{x['선택']}"] = [x["공정확률"], x["베트맨"]]
+    return out
+
+
+def cmd_normalize(a):
+    """기존 근거기록의 유형·상태를 표준 어휘로 정리(원문은 내용 앞 [원: …])."""
+    ev = list(csv.DictReader(open(EVI, encoding="utf-8")))
+    before = (len({x["유형"] for x in ev if x["구분"] == "요인"}), len({x["상태"] for x in ev if x["구분"] == "요인"}))
+    n = 0
+    for i, x in enumerate(ev):
+        if x["구분"] != "요인":
+            continue
+        y = norm_factor(x)
+        if (y["유형"], y["상태"]) != (x["유형"], x["상태"]):
+            ev[i] = {**x, **{k: y[k] for k in ("유형", "상태", "내용")}}; n += 1
+    with open(EVI, "w", encoding="utf-8", newline="") as f:
+        w = csv.DictWriter(f, fieldnames=EVI_COLS, extrasaction="ignore"); w.writeheader(); w.writerows(ev)
+    after = (len({x["유형"] for x in ev if x["구분"] == "요인"}), len({x["상태"] for x in ev if x["구분"] == "요인"}))
+    print(f"{n}행 정리 · 유형 {before[0]}→{after[0]}종 · 상태 {before[1]}→{after[1]}종")
 
 
 def cmd_mark(a):
@@ -292,8 +381,9 @@ def main():
     p = sp.add_parser("mark"); p.add_argument("round"); p.add_argument("items", nargs="+")
     p = sp.add_parser("grade"); p.add_argument("round")
     sp.add_parser("report")
+    sp.add_parser("normalize")
     a = ap.parse_args()
-    {"pre": cmd_pre, "add": cmd_add, "mark": cmd_mark, "grade": cmd_grade, "report": cmd_report}[a.cmd](a)
+    {"pre": cmd_pre, "add": cmd_add, "mark": cmd_mark, "grade": cmd_grade, "report": cmd_report, "normalize": cmd_normalize}[a.cmd](a)
 
 
 if __name__ == "__main__":

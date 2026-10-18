@@ -23,7 +23,13 @@ LOG = os.path.join(ROOT, "data", "가치전략기록.csv")
 KST = dt.timezone(dt.timedelta(hours=9))
 RULE = {"이름": "W2", "선택": "언더", "ev": 0.93, "p": 50.0, "dp": 0.0}   # 2026-10-18 W2: Pinnacle 확률이 첫 스캔보다 떨어지지 않은 것만(Δp≥0)
 HIST = os.path.join(ROOT, "data", "배당이력.csv")
-COLS = ["기록시각", "회차", "조합", "번호", "시각", "경기", "구분", "선택", "베트맨", "공정확률", "기대값", "result", "hit"]
+COLS = ["기록시각", "회차", "조합", "번호", "시각", "경기", "구분", "선택", "베트맨", "공정확률", "기대값", "단계", "금액", "result", "hit", "마감공정", "CLV"]
+# 금액 단계 (가치전략_운영설계.md §2) — 성적이 증명될수록 올리고, 무너지면 멈춘다. 손실 만회 증액 금지.
+PHASES = [  # (이름, 최소 채점 조합 수, 최소 회수율, CLV>0 필요, 조합당 금액)
+    ("확대", 80, 1.20, True, 20000),
+    ("소액 실전", 30, 1.20, True, 10000),
+    ("검증", 0, 0.0, False, 5000),
+]
 
 
 def ok(r):
@@ -52,6 +58,45 @@ def first_p(r):
                         pass
     v = _FIRST.get((r["회차"], r["번호"], r["선택"]))
     return v[1] if v else float(r["공정확률"])
+
+
+def closing_fair(r):
+    """배당이력에서 킥오프 전 마지막 공정확률 → CLV 계산용."""
+    best = None
+    if os.path.exists(HIST):
+        for h in csv.DictReader(open(HIST, encoding="utf-8-sig")):
+            if (h["회차"], h["번호"], h["선택"]) == (r["회차"], r["번호"], r["선택"]) and h["scan_time"] < r["시각"]:
+                if best is None or h["scan_time"] > best[0]:
+                    try:
+                        best = (h["scan_time"], float(h["공정확률"]))
+                    except ValueError:
+                        pass
+    return best[1] if best else None
+
+
+def stats():
+    """채점된 조합 수 · 회수율 · 평균 CLV · 최근 30조합 회수율."""
+    if not os.path.exists(LOG):
+        return 0, None, None, None
+    by = {}
+    for r in csv.DictReader(open(LOG, encoding="utf-8")):
+        by.setdefault(r["조합"], []).append(r)
+    done = [v for v in by.values() if len(v) == 2 and all(x["hit"] in ("0", "1") for x in v)]
+    done.sort(key=lambda v: v[0]["시각"])
+    pay = [float(v[0]["베트맨"]) * float(v[1]["베트맨"]) if all(x["hit"] == "1" for x in v) else 0.0 for v in done]
+    clv = [float(x["CLV"]) for v in done for x in v if x.get("CLV") not in ("", None)]
+    n = len(done)
+    return n, (sum(pay) / n if n else None), (sum(clv) / len(clv) if clv else None), (sum(pay[-30:]) / len(pay[-30:]) if n >= 30 else None)
+
+
+def phase():
+    n, roi, clv, last30 = stats()
+    if last30 is not None and (last30 < 0.95 or (clv is not None and clv <= 0)):
+        return ("중지", 0, f"최근 30조합 회수율 {last30:.2f} · CLV {clv if clv is None else round(clv, 3)} — 재검토 전까지 0원")
+    for nm, nmin, rmin, need_clv, amt in PHASES:
+        if n >= nmin and (roi or 0) >= rmin and (not need_clv or (clv or 0) > 0):
+            return (nm, amt, f"채점 {n}조합 · 회수율 {roi if roi is None else round(roi, 2)} · CLV {clv if clv is None else round(clv, 3)}")
+    return ("검증", 5000, "")
 
 
 def t_of(r):
@@ -84,7 +129,15 @@ def main():
                 r["result"], r["hit"] = res.get((r["회차"], r["번호"], r["선택"]), ("", ""))
         with open(LOG, "w", encoding="utf-8", newline="") as f:
             w = csv.DictWriter(f, fieldnames=COLS); w.writeheader(); w.writerows(R)
+        for r in R:   # CLV = 산 배당 × 마감 공정확률 − 1 (0보다 크면 시장 마감가보다 좋은 가격에 샀다)
+            if r["hit"] in ("0", "1") and not r.get("CLV"):
+                cf = closing_fair(r)
+                if cf:
+                    r["마감공정"] = cf; r["CLV"] = round(float(r["베트맨"]) * cf / 100 - 1, 3)
+        with open(LOG, "w", encoding="utf-8", newline="") as f:
+            w = csv.DictWriter(f, fieldnames=COLS, extrasaction="ignore"); w.writeheader(); w.writerows(R)
         legs = [r for r in R if r["hit"] in ("0", "1")]
+        ph = phase(); print(f"단계: {ph[0]} · 조합당 {ph[1]:,}원 {ph[2]}")
         by = {}
         for r in R:
             by.setdefault(r["조합"], []).append(r)
@@ -105,9 +158,13 @@ def main():
     for r in sorted(legs, key=t_of):
         print(f"  {r['시각'][5:]} {r['번호']} {r['경기']} {r['구분']} 언더 {r['베트맨']} · 공정 {r['공정확률']}% · 기대값 {r['기대값']}")
     P = pairs(legs)
+    ph = phase()
+    if P:
+        print(f"[단계 {ph[0]}] 조합당 {ph[1]:,}원 {ph[2]} · 블록당 최대 2조합")
     for i, (x, y) in enumerate(P, 1):
         o = float(x["베트맨"]) * float(y["베트맨"]); q = float(x["공정확률"]) * float(y["공정확률"]) / 1e4
-        print(f"W{i}: {x['번호']} {x['경기']} {x['구분']} 언더 + {y['번호']} {y['경기']} {y['구분']} 언더 = {o:.2f}배 · 적중 {q * 100:.0f}% · 기대 {o * q:.2f}")
+        print(f"W{i}: {x['번호']} {x['경기']} {x['구분']} 언더 + {y['번호']} {y['경기']} {y['구분']} 언더 = {o:.2f}배 · 시장 적중 {q * 100:.0f}% · 💰 {ph[1]:,}원"
+              f" · 구매 직전 확인: 두 다리 모두 배당 ≥ {float(x['베트맨']) - 0.05:.2f}/{float(y['베트맨']) - 0.05:.2f} 이고 기대값 ≥ {RULE['ev']} 일 때만")
     if a.log and P:
         new = not os.path.exists(LOG)
         old = set()
@@ -123,7 +180,8 @@ def main():
                 cid = f"{x['회차']}-{x['번호']}+{y['번호']}"
                 for r in (x, y):
                     w.writerow({"기록시각": now.strftime("%Y-%m-%d %H:%M"), "회차": r["회차"], "조합": cid, "번호": r["번호"], "시각": r["시각"], "경기": r["경기"],
-                                "구분": r["구분"], "선택": r["선택"], "베트맨": r["베트맨"], "공정확률": r["공정확률"], "기대값": r["기대값"], "result": "", "hit": ""})
+                                "구분": r["구분"], "선택": r["선택"], "베트맨": r["베트맨"], "공정확률": r["공정확률"], "기대값": r["기대값"],
+                                "단계": ph[0], "금액": ph[1], "result": "", "hit": "", "마감공정": "", "CLV": ""})
         print(f"→ {LOG}")
 
 

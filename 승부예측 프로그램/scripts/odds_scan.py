@@ -133,7 +133,12 @@ def pinnacle(sport_id):
     mk = curl(f"https://guest.api.arcadia.pinnacle.com/0.1/sports/{sport_id}/markets/straight?primaryOnly=false", hdr)
     prices, spreads, totals = {}, {}, {}
     prices1, spreads1, totals1 = {}, {}, {}  # period 1 (축구 전반 / 야구 1~5회)
+    if not isinstance(mk, list) or not isinstance(mt, list):  # API 점검(503 dict) 등 — 빈 결과로 넘긴다
+        print(f"  ! Pinnacle 응답 이상(sport {sport_id}): {str(mk)[:120]}")
+        return []
     for m in mk:
+        if not isinstance(m, dict):
+            continue
         if m.get("period") not in (0, 1) or m.get("status") != "open":
             continue
         P, S, T = (prices, spreads, totals) if m["period"] == 0 else (prices1, spreads1, totals1)

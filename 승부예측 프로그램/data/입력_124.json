@@ -1,0 +1,411 @@
+{
+ "9379": {
+  "번호": "9379",
+  "경기": "AC몬차 - 칼리아리",
+  "리그": "이탈리아 세리에A",
+  "시각": "10-20 01:30",
+  "수집": "10-19 22:02",
+  "홈": {
+   "팀": "AC몬차",
+   "eng": "Monza",
+   "직전": "10-11 원정 vs Lazio 1-3 패 [italian serie a]",
+   "휴식일": 8.1,
+   "최근7일경기": 0,
+   "직전event": "401874951",
+   "xg": {
+    "n": 6,
+    "xg": 1.87,
+    "xga": 1.6,
+    "npxgd": 0.14,
+    "l5_xg": 2.0,
+    "l5_xga": 1.62,
+    "l5_npxgd": 0.23,
+    "home_xgd": -0.27,
+    "away_xgd": 0.35,
+    "xpts": 9.4,
+    "pts": 4
+   },
+   "xg_src": "Understat Serie_A Monza",
+   "직전선발": [
+    "Noel Törnqvist",
+    "Lorenzo Lucchesi",
+    "Andrea Carboni",
+    "Eddy Kouadio",
+    "Ebenezer Akinsanmiro",
+    "Michael Folorunsho",
+    "Ricardo Mangas",
+    "Samuele Birindelli",
+    "Gustavo Varela",
+    "Exequiel Zeballos",
+    "Cyril Ngonge"
+   ],
+   "직전포메이션": "3-4-2-1"
+  },
+  "원정": {
+   "팀": "칼리아리",
+   "eng": "Cagliari",
+   "직전": "10-12 홈 vs Juventus 1-1 무 [italian serie a]",
+   "휴식일": 7.9,
+   "최근7일경기": 0,
+   "직전event": "401874764",
+   "xg": {
+    "n": 6,
+    "xg": 1.04,
+    "xga": 1.86,
+    "npxgd": -0.94,
+    "l5_xg": 1.0,
+    "l5_xga": 2.02,
+    "l5_npxgd": -1.18,
+    "home_xgd": -1.25,
+    "away_xgd": -0.64,
+    "xpts": 6.0,
+    "pts": 13
+   },
+   "xg_src": "Understat Serie_A Cagliari",
+   "직전선발": [
+    "Elia Caprile",
+    "Juan Rodríguez",
+    "Yerry Mina",
+    "Adam Obert",
+    "Zé Pedro",
+    "Harry Winks",
+    "Alessandro Romano",
+    "Michel Adopo",
+    "Paul Mendy",
+    "Daniel Maldini",
+    "Yanis Massolin"
+   ],
+   "직전포메이션": "4-3-2-1"
+  },
+  "환경": {
+   "구장": "Stadio Brianteo",
+   "구장고도": 171,
+   "원정홈": "유니폴 도무스",
+   "원정홈고도": 1,
+   "이동km": 710,
+   "고도차": 170,
+   "날씨": {
+    "기온": 19.2,
+    "습도": 67,
+    "강수mm": 0,
+    "강수확률": 0,
+    "풍속": 6.2,
+    "출처": "Open-Meteo forecast 10-19 22:03"
+   },
+   "출처": [
+    "Wikidata Q289482→Q1851616 · Open-Meteo 고도",
+    "Wikidata Q1900→Q30880646 · Open-Meteo 고도"
+   ],
+   "주의": []
+  },
+  "라인업": "미발표(킥오프 3.5h 전)",
+  "event": "401874762"
+ },
+ "9384": {
+  "번호": "9384",
+  "경기": "파르마 - 토리노",
+  "리그": "이탈리아 세리에A",
+  "시각": "10-20 03:45",
+  "수집": "10-19 22:02",
+  "홈": {
+   "팀": "파르마",
+   "eng": "Parma",
+   "직전": "10-11 원정 vs Internazionale 0-3 패 [italian serie a]",
+   "휴식일": 9.1,
+   "최근7일경기": 0,
+   "직전event": "401875021",
+   "xg": {
+    "n": 6,
+    "xg": 0.78,
+    "xga": 2.12,
+    "npxgd": -1.21,
+    "l5_xg": 0.73,
+    "l5_xga": 2.29,
+    "l5_npxgd": -1.41,
+    "home_xgd": -0.57,
+    "away_xgd": -1.86,
+    "xpts": 3.5,
+    "pts": 4
+   },
+   "xg_src": "Understat Serie_A Parma Calcio 1913",
+   "직전선발": [
+    "Edoardo Corvi",
+    "Diego Carlos",
+    "Franco Carboni",
+    "Mariano Troilo",
+    "Vincent Sierro",
+    "Mandela Keita",
+    "Emanuele Valeri",
+    "Enrico Del Prato",
+    "Nesta Elphege",
+    "El Bilal Toure",
+    "Giovanni Fabbian"
+   ],
+   "직전포메이션": "3-4-2-1"
+  },
+  "원정": {
+   "팀": "토리노",
+   "eng": "Torino",
+   "직전": "10-13 홈 vs Udinese 2-1 승 [italian serie a]",
+   "휴식일": 7.0,
+   "최근7일경기": 0,
+   "직전event": "401874763",
+   "xg": {
+    "n": 6,
+    "xg": 1.24,
+    "xga": 1.38,
+    "npxgd": -0.13,
+    "l5_xg": 1.26,
+    "l5_xga": 1.3,
+    "l5_npxgd": -0.04,
+    "home_xgd": -0.14,
+    "away_xgd": -0.12,
+    "xpts": 7.6,
+    "pts": 7
+   },
+   "xg_src": "Understat Serie_A Torino",
+   "직전선발": [
+    "Lucas Perri",
+    "Saúl Coco",
+    "Ricardo Rodríguez",
+    "Pietro Comuzzo",
+    "Daniel Bragança",
+    "Rolando Mandragora",
+    "Alessio Cacciamani",
+    "Rafik Belghali",
+    "Giovanni Simeone",
+    "Ché Adams",
+    "Gaetano Oristanio"
+   ],
+   "직전포메이션": "3-4-2-1"
+  },
+  "환경": {
+   "구장": "스타디오 엔니오 타르디니",
+   "구장고도": 56,
+   "원정홈": "스타디오 올림피코 디 토리노",
+   "원정홈고도": 243,
+   "이동km": 213,
+   "고도차": -187,
+   "날씨": {
+    "기온": 18.1,
+    "습도": 75,
+    "강수mm": 0,
+    "강수확률": 0,
+    "풍속": 3.8,
+    "출처": "Open-Meteo forecast 10-19 22:03"
+   },
+   "출처": [
+    "Wikidata Q2693→Q610546 · Open-Meteo 고도",
+    "Wikidata Q2768→Q214629 · Open-Meteo 고도"
+   ],
+   "주의": []
+  },
+  "라인업": "미발표(킥오프 5.7h 전)",
+  "event": "401874784"
+ },
+ "9389": {
+  "번호": "9389",
+  "경기": "토트넘 홋스퍼 - 코번트리 시티",
+  "리그": "잉글랜드 프리미어리그",
+  "시각": "10-20 04:00",
+  "수집": "10-19 22:02",
+  "홈": {
+   "팀": "토트넘 홋스퍼",
+   "eng": "Tottenham",
+   "직전": "10-11 원정 vs Manchester United 1-1 무 [english premier league]",
+   "휴식일": 9.1,
+   "최근7일경기": 0,
+   "직전event": "401878773",
+   "xg": {
+    "n": 6,
+    "xg": 1.31,
+    "xga": 1.68,
+    "npxgd": -0.24,
+    "l5_xg": 1.42,
+    "l5_xga": 1.2,
+    "l5_npxgd": 0.22,
+    "home_xgd": -0.25,
+    "away_xgd": -0.23,
+    "xpts": 7.7,
+    "pts": 3
+   },
+   "xg_src": "Understat EPL Tottenham",
+   "직전선발": [
+    "Antonín Kinsky",
+    "Marcos Senesi",
+    "Jan Paul van Hecke",
+    "Destiny Udogie",
+    "Archie Gray",
+    "Conor Gallagher",
+    "Sandro Tonali",
+    "Lucas Bergvall",
+    "Dominic Solanke",
+    "Sávio",
+    "Mohammed Kudus"
+   ],
+   "직전포메이션": "4-2-3-1"
+  },
+  "원정": {
+   "팀": "코번트리 시티",
+   "eng": "Coventry City",
+   "직전": "10-13 홈 vs Newcastle United 4-1 승 [english premier league]",
+   "휴식일": 7.0,
+   "최근7일경기": 0,
+   "직전event": "401879267",
+   "xg": {
+    "n": 6,
+    "xg": 1.11,
+    "xga": 1.8,
+    "npxgd": -0.69,
+    "l5_xg": 1.22,
+    "l5_xga": 1.79,
+    "l5_npxgd": -0.57,
+    "home_xgd": -0.52,
+    "away_xgd": -0.87,
+    "xpts": 5.5,
+    "pts": 6
+   },
+   "xg_src": "Understat EPL Coventry",
+   "직전선발": [
+    "Carl Rushworth",
+    "Ethan Pinnock",
+    "Bobby Thomas",
+    "Jay Da Silva",
+    "Milan van Ewijk",
+    "Jack Rudoni",
+    "Matt Grimes",
+    "Caleb Yirenkyi",
+    "Sidiki Cherif",
+    "Ephron Mason-Clark",
+    "Brandon Thomas-Asante"
+   ],
+   "직전포메이션": "4-2-3-1"
+  },
+  "환경": {
+   "구장": "토트넘 홋스퍼 스타디움",
+   "구장고도": 13,
+   "원정홈": "리코 아레나",
+   "원정홈고도": 104,
+   "이동km": 136,
+   "고도차": -91,
+   "날씨": {
+    "기온": 12.2,
+    "습도": 79,
+    "강수mm": 0,
+    "강수확률": 8,
+    "풍속": 9.7,
+    "출처": "Open-Meteo forecast 10-19 22:04"
+   },
+   "출처": [
+    "Wikidata Q18741→Q55074091 · Open-Meteo 고도",
+    "Wikidata Q19580→Q842077 · Open-Meteo 고도"
+   ],
+   "주의": []
+  },
+  "라인업": "미발표(킥오프 6.0h 전)",
+  "event": "401879257"
+ },
+ "9394": {
+  "번호": "9394",
+  "경기": "헤타페 - 라요 바예카노",
+  "리그": "스페인 라리가",
+  "시각": "10-20 04:00",
+  "수집": "10-19 22:02",
+  "홈": {
+   "팀": "헤타페",
+   "eng": "Getafe CF",
+   "직전": "10-16 원정 vs CSU Craiova 1-1 무 [uefa.europa.conf]",
+   "휴식일": 4.1,
+   "최근7일경기": 1,
+   "직전event": "401915854",
+   "xg": {
+    "n": 8,
+    "xg": 0.81,
+    "xga": 1.71,
+    "npxgd": -0.72,
+    "l5_xg": 0.82,
+    "l5_xga": 1.71,
+    "l5_npxgd": -0.89,
+    "home_xgd": 0.29,
+    "away_xgd": -1.74,
+    "xpts": 6.8,
+    "pts": 8
+   },
+   "xg_src": "Understat La_liga Getafe",
+   "직전선발": [
+    "David Soria",
+    "Jean Ives Valou",
+    "Djené",
+    "Davinchi",
+    "Andrés García",
+    "Mario Martín",
+    "Francho Serrano",
+    "Nemanja Gudelj",
+    "Borja Mayoral",
+    "Martín Satriano",
+    "Ramón Terrats"
+   ],
+   "직전포메이션": "4-2-3-1"
+  },
+  "원정": {
+   "팀": "라요 바예카노",
+   "eng": "Rayo",
+   "직전": "09-19 원정 vs Osasuna 1-1 무 [laliga]",
+   "휴식일": 30.3,
+   "휴식일주의": "ESPN에 없는 리그일 수 있음(21일 내 경기 없음) — 실제 휴식일은 더 짧을 수 있음",
+   "최근7일경기": 0,
+   "직전event": "401882860",
+   "xg": {
+    "n": 7,
+    "xg": 1.3,
+    "xga": 1.86,
+    "npxgd": -0.24,
+    "l5_xg": 1.33,
+    "l5_xga": 1.76,
+    "l5_npxgd": -0.28,
+    "home_xgd": -0.14,
+    "away_xgd": -0.32,
+    "xpts": 7.7,
+    "pts": 8
+   },
+   "xg_src": "Understat La_liga Rayo Vallecano",
+   "직전선발": [
+    "Emil Audero",
+    "Florian Lejeune",
+    "Mujaid Sadick",
+    "Adrià Pedrosa",
+    "Andrei Ratiu",
+    "Pathé Ciss",
+    "Óscar Valentín",
+    "Unai López",
+    "Sergio Camello",
+    "Álvaro García",
+    "Jorge de Frutos"
+   ],
+   "직전포메이션": "4-3-3"
+  },
+  "환경": {
+   "구장": "콜리세움 알폰소 페레스",
+   "구장고도": 619,
+   "원정홈": "캄포 데 푸트볼 데 바예카스",
+   "원정홈고도": 642,
+   "이동km": 9,
+   "고도차": -23,
+   "날씨": {
+    "기온": 11.8,
+    "습도": 89,
+    "강수mm": 0,
+    "강수확률": 3,
+    "풍속": 2.6,
+    "출처": "Open-Meteo forecast 10-19 22:04"
+   },
+   "출처": [
+    "Wikidata Q8806→Q929109 · Open-Meteo 고도",
+    "Wikidata Q10300→Q983806 · Open-Meteo 고도"
+   ],
+   "주의": []
+  },
+  "라인업": "미발표(킥오프 6.0h 전)",
+  "event": "401882842"
+ }
+}

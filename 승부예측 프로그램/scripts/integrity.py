@@ -162,8 +162,19 @@ def evidence_checks(r, e, severe, minor):
     if r.get("종목") == "축구":
         if gm.get("방식") == "리그평균":
             severe.append("득점모델이 리그 평균 — 경기별 λ 필요")
-        if "K리그" not in (r.get("리그") or "") and any(k in (r.get("리그") or "") for k in XG_LEAGUES) and "2부" not in (r.get("리그") or "") and has_ou and gm.get("방식") != "xG":
-            severe.append("xG 제공 리그인데 핸디캡·언더오버 확률을 xG λ로 계산하지 않음")
+        # 2026-10-19 수정: '방식' 문자열 완전일치(== "xG")는 거짓 C를 냈다.
+        # "xG+기준선 혼합" 처럼 xG 를 실제로 쓴 분석까지 탈락시켰으므로,
+        # 실질 기준(방식에 xG 가 들어가고 경기별 λ 가 양수로 채워졌는가)으로 바꾼다.
+        if "K리그" not in (r.get("리그") or "") and any(k in (r.get("리그") or "") for k in XG_LEAGUES) and "2부" not in (r.get("리그") or "") and has_ou:
+            def _pos(v):
+                try:
+                    return float(v) > 0
+                except (TypeError, ValueError):
+                    return False
+            if "xG" not in str(gm.get("방식") or ""):
+                severe.append("xG 제공 리그인데 핸디캡·언더오버 확률을 xG λ로 계산하지 않음")
+            elif not (_pos(gm.get("λ홈")) and _pos(gm.get("λ원정"))):
+                severe.append("득점모델 방식에 xG 라고 적었으나 경기별 λ홈·λ원정 숫자가 없음")
     # 뉴스 없음 ≠ 확인 안 함 (2026-10-16 사용자 질문): 팀마다 '결장·라인업 뉴스를 찾아봤다'는 기록이 있어야 한다.
     # 찾았으면 뉴스 요인(URL·날짜), 못 찾았으면 유형 '뉴스없음' + 검색처 2곳 이상(현지 매체·구단 공식 등) + 영향 0.
     for side in ("홈", "원정"):

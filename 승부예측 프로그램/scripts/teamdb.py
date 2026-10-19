@@ -256,9 +256,27 @@ def norm(s):
     return re.sub(r"[^a-z0-9 ]", " ", s).strip()
 
 
+_NAMES = None
+
+
+def en_name(name):
+    """베트맨 한글 팀명 → 영문명 (data/team_names.json). 매핑 없으면 원문."""
+    global _NAMES
+    if _NAMES is None:
+        _NAMES = jload(os.path.join(os.path.dirname(DB), "team_names.json"), {})
+        if not _NAMES:
+            _NAMES = jload(os.path.join(DB, "..", "team_names.json"), {})
+    if name in _NAMES:
+        return _NAMES[name]
+    first = name.split()[0] if name.split() else name
+    return _NAMES.get(first, name)
+
+
 def find_team(name):
     """Understat 팀 → (리그, 팀 dict, 팀 상세 dict)"""
-    n = norm(name); best = None
+    n = norm(en_name(name)); best = None
+    if not n:  # 한글 등 매핑 실패 — 아무 팀이나 부분일치로 잡히는 것을 막는다
+        return None
     for lg in LEAGUES:
         d = jload(os.path.join(DB, "understat", f"{lg}_{SEASON}.json"), {})
         for tid, t in (d.get("teams") or {}).items():

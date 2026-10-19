@@ -19,7 +19,7 @@ POST = os.path.join(ROOT, "data", "경기후.csv")
 ABS = os.path.join(ROOT, "data", "결장검증.csv")
 FIX = os.path.join(ROOT, "data", "과정채점_수정.csv")   # 사람(에이전트) 검토로 바뀐 4분면 — 재실행해도 유지
 OUT = os.path.join(ROOT, "data", "과정채점.csv")
-COLS = ["회차", "번호", "경기", "예측", "확률", "결과", "점수", "결과적중", "지배", "내용근거", "내용적중", "4분면", "요인검증", "퇴장", "정합성", "추천"]
+COLS = ["종목", "회차", "번호", "경기", "예측", "확률", "결과", "점수", "결과적중", "지배", "내용근거", "내용적중", "4분면", "요인검증", "퇴장", "정합성", "추천"]
 
 
 def num(x):
@@ -27,6 +27,28 @@ def num(x):
         return float(x)
     except (TypeError, ValueError):
         return None
+
+
+MARGIN = {"야구": (3, 1), "농구": (10, 5), "배구": (2, 1)}   # (지배 하한, 대등 상한) — 야구 점수차, 농구 점수차, 배구 세트차
+
+
+def dominant_score(sport, score):
+    """내용 지표가 없는 종목(야구·농구·배구)은 점수차(배구는 세트차)로 지배를 가른다 (2026-10-19 확장).
+    접전은 '대등'으로 둬서 결과만 맞은 경기를 '운'으로 분류한다."""
+    m = MARGIN.get(sport)
+    if not m or not score or ":" not in score:
+        return None, ""
+    try:
+        h, a = (int(x) for x in score.split(":")[:2])
+    except ValueError:
+        return None, ""
+    d = h - a; big, small = m
+    unit = "세트" if sport == "배구" else "점"
+    if abs(d) >= big:
+        return ("홈" if d > 0 else "원정"), f"{unit}차 {abs(d)}"
+    if abs(d) <= small:
+        return "대등", f"{unit}차 {abs(d)}(접전)"
+    return ("홈" if d > 0 else "원정"), f"{unit}차 {abs(d)}"
 
 
 def dominant(p):
@@ -57,7 +79,7 @@ def dominant(p):
 
 
 def main():
-    ap = argparse.ArgumentParser(); ap.add_argument("--round"); ap.add_argument("--all", action="store_true")
+    ap = argparse.ArgumentParser(); ap.add_argument("--round"); ap.add_argument("--all", action="store_true"); ap.add_argument("--sport")
     a = ap.parse_args()
     post = {(r["회차"], r["번호"]): r for r in csv.DictReader(open(POST, encoding="utf-8"))} if os.path.exists(POST) else {}
     absv = collections.defaultdict(lambda: [0, 0])
@@ -69,23 +91,28 @@ def main():
             absv[k][0] += 1; absv[k][1] += 1 if st.startswith("결장 맞음") else 0
     rows = []
     for r in csv.DictReader(open(REC, encoding="utf-8-sig")):
-        if r["종목"] != "축구" or r.get("결과") not in ("승", "무", "패") or not r.get("순수_승"):
+        if r.get("결과") not in ("승", "무", "패") or not r.get("순수_승"):
+            continue
+        if r["종목"] != "축구" and r["종목"] not in MARGIN:
             continue
         if a.round and r["회차"] != a.round:
             continue
-        k = (r["회차"], r["번호"]); p = post.get(k)
-        if not p:
+        if a.sport and r["종목"] != a.sport:
             continue
+        k = (r["회차"], r["번호"]); p = post.get(k)
         pu = {x: num(r.get(f"순수_{x}")) or 0 for x in ("승", "무", "패")}; pred = max(pu, key=pu.get)
-        dom, why = dominant(p)
+        dom, why = dominant(p) if p else (None, "")
+        if dom is None:   # 경기후 자료 없음(비축구 또는 미수집) → 점수차로 대용
+            dom, why = dominant_score(r["종목"], r.get("점수", ""))
         if dom is None:
             continue
+        p = p or {}
         ok_res = pred == r["결과"]
         ok_con = (pred == "승" and dom == "홈") or (pred == "패" and dom == "원정") or (pred == "무" and dom == "대등")
         quad = "실력" if ok_res and ok_con else "운" if ok_res else "분산" if ok_con else "오판"
         red = (num(p.get("홈퇴장")) or 0) + (num(p.get("원정퇴장")) or 0)
         av = absv.get(k); fv = f"{av[1]}/{av[0]}" if av else "-"
-        rows.append({"회차": r["회차"], "번호": r["번호"], "경기": f"{r['홈']}-{r['원정']}", "예측": pred, "확률": f"{pu[pred]:.0f}", "결과": r["결과"], "점수": r.get("점수", ""),
+        rows.append({"종목": r["종목"], "회차": r["회차"], "번호": r["번호"], "경기": f"{r['홈']}-{r['원정']}", "예측": pred, "확률": f"{pu[pred]:.0f}", "결과": r["결과"], "점수": r.get("점수", ""),
                      "결과적중": int(ok_res), "지배": dom, "내용근거": why, "내용적중": int(ok_con), "4분면": quad, "요인검증": fv,
                      "퇴장": int(red), "정합성": r.get("정합성", ""), "추천": r.get("추천", "")})
     fixes = {(f["회차"], f["번호"]): f for f in csv.DictReader(open(FIX, encoding="utf-8"))} if os.path.exists(FIX) else {}
@@ -102,7 +129,7 @@ def main():
     # 보고
     today = dt.date.today().isoformat()
     L = [f"# 과정 채점 — {a.round or '전체'} ({today})", "",
-         "결과만 보지 않고 '분석이 경기 내용을 맞췄는가'를 같이 본다. 지배 = 경기 xG(없으면 유효슈팅·슈팅) 우위. 4분면: 실력(결과O 내용O) · 운(결과O 내용X) · 분산(결과X 내용O) · 오판(결과X 내용X).", ""]
+         "결과만 보지 않고 '분석이 경기 내용을 맞췄는가'를 같이 본다. 지배 = 축구는 경기 xG(없으면 유효슈팅·슈팅) 우위, 야구·농구·배구는 점수차(배구 세트차) — 접전은 '대등'이라 결과만 맞으면 '운'. 4분면: 실력(결과O 내용O) · 운(결과O 내용X) · 분산(결과X 내용O) · 오판(결과X 내용X).", ""]
     def table(title, sel):
         n = len(sel)
         if not n:
@@ -114,6 +141,8 @@ def main():
         L.append(f"## {title} (n={n}) — 결과 적중 {hit}/{n} ({hit/n*100:.0f}%) · **과정 점수 {con}/{len(clean)} ({(con/len(clean)*100 if clean else 0):.0f}%, 퇴장 {n-len(clean)}경기 제외)** · 실력 {q['실력']} · 운 {q['운']} · 분산 {q['분산']} · 오판 {q['오판']}")
         L.append("")
     table("전체", rows)
+    for sp in sorted({x["종목"] for x in rows}):
+        table(f"종목 {sp}", [x for x in rows if x["종목"] == sp])
     for rnd in sorted({x["회차"] for x in rows}):
         table(f"회차 {rnd}", [x for x in rows if x["회차"] == rnd])
     for g in ("A", "B", "C"):

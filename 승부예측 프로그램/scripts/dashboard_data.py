@@ -81,6 +81,15 @@ def review_text(rnd, no):
 def build(out):
     os.makedirs(os.path.join(out, "teams"), exist_ok=True)
     rec = rows("추천기록.csv"); games = rows("전체경기기록.csv"); proc = rows("data/과정채점.csv")
+    sched = rows("구매일정.csv"); plan = rows("분석일정.csv"); buy = rows("구매기록.csv")
+    try:
+        closes = json.load(open(os.path.join(ROOT, "data", "마감시각.json"), encoding="utf-8"))   # "회차-번호" → "YYYY-MM-DD HH:MM"
+    except Exception:
+        closes = {}
+    sched_close = {}
+    for x in sched:
+        legs_key = frozenset(l.split(":")[0] for l in (x.get("다리") or "").split(",") if l)
+        sched_close[(x["회차"], x["조합"])] = x.get("마감", ""); sched_close[(x["회차"], legs_key)] = x.get("마감", "")
     gmap = {(g["회차"], g["번호"]): g for g in games}
     pmap = {(p["회차"], p["번호"]): p for p in proc}
     recs = [r for r in rec if r.get("구분") == "추천"]
@@ -112,7 +121,17 @@ def build(out):
         if all(x["prob"] is not None for x in leg_out):
             prob = 1.0
             for x in leg_out: prob *= x["prob"] / 100
-        combo_rows.append({"round": rnd, "title": title, "legs": leg_out, "odds": round(odds, 2), "prob": prob, "scored": scored, "stale": stale, "hit": hit,
+        close = sched_close.get((rnd, title)) or sched_close.get((rnd, frozenset(l["번호"] for l in legs))) or ""
+        if not close:
+            cs = [closes.get(f"{rnd}-{l['번호']}") for l in legs if closes.get(f"{rnd}-{l['번호']}")]
+            if cs:
+                close = min(cs)
+            elif last_time:
+                try:
+                    close = (dt.datetime.strptime(min(l.get("시각", "") for l in legs)[:16], "%Y-%m-%d %H:%M") - dt.timedelta(minutes=10)).strftime("%Y-%m-%d %H:%M")
+                except ValueError:
+                    close = ""
+        combo_rows.append({"round": rnd, "title": title, "close": close, "legs": leg_out, "odds": round(odds, 2), "prob": prob, "scored": scored, "stale": stale, "hit": hit,
                            "bought": any(fnum(l.get("구매")) for l in legs), "time": min(l.get("시각", "") for l in legs), "n": len(legs)})
     combo_rows.sort(key=lambda c: (c["round"], c["time"]), reverse=True)
     current = [c for c in combo_rows if not c["scored"] and not c["stale"]]
@@ -226,12 +245,42 @@ def build(out):
         teams.sort(key=lambda x: -(x["nums"] or {}).get("pts", 0))
         leagues.append({"name": lg, "ko": LG_KO.get(lg, lg), "code": code, "teams": len(teams)})
         json.dump({"league": lg, "ko": LG_KO.get(lg, lg), "updated": dt.date.today().isoformat(), "teams": teams}, open(os.path.join(out, "teams", f"{lg}.json"), "w", encoding="utf-8"), ensure_ascii=False)
+    # ---- 승무패(토토) 카드: 구매기록(마킹) + 분석일정(마감) + 전체경기기록(경기·결과)
+    toto = []
+    plan_close = {x["회차"]: x.get("끝마감") or x.get("첫마감") or "" for x in plan if x["회차"].startswith("승무패")}
+    toto_rounds = sorted({r["회차"] for r in games if r["회차"].startswith("승무패")}, key=lambda x: int(re.sub(r"\D", "", x) or 0))
+    for tr in toto_rounds:
+        gs = sorted([g for g in games if g["회차"] == tr], key=lambda g: int(g["번호"]) if g["번호"].isdigit() else 0)
+        marks = [b for b in buy if b["round"] == tr]
+        mark = marks[-1] if marks else None
+        mk = {}
+        if mark:
+            for tok in (mark.get("legs") or "").split():
+                m = re.match(r"(\d+)(.+)", tok)
+                if m:
+                    mk[m.group(1)] = m.group(2)
+        legs = []
+        hits = 0; done = 0
+        for g in gs:
+            pu = {k: fnum(g.get(f"순수_{k}")) or 0 for k in ("승", "무", "패")}; top = max(pu, key=pu.get) if sum(pu.values()) else ""
+            pick = mk.get(g["번호"]) or top
+            res = g.get("결과", "")
+            hit = None
+            if res in ("승", "무", "패") and pick:
+                hit = res in pick.split("/"); done += 1; hits += 1 if hit else 0
+            legs.append({"no": g["번호"], "game": f"{g['홈']} - {g['원정']}", "time": g.get("시각", ""), "pick": pick, "prob": round(pu[top]) if top else None,
+                         "result": (res + (" " + g["점수"] if g.get("점수") else "")).strip(), "hit": "" if hit is None else ("1" if hit else "0"), "why": (g.get("핵심근거") or "")[:200]})
+        close = plan_close.get(tr, "")
+        toto.append({"round": tr, "title": (mark["ticket"] if mark else "마킹") + (f" · {mark['stake']}원" if mark and fnum(mark.get("stake")) else ""), "close": close,
+                     "legs": legs, "n": len(legs), "done": done, "hits": hits, "scored": done == len(legs) and len(legs) > 0, "result": (mark or {}).get("result", ""),
+                     "current": bool(close) and close >= now.strftime("%Y-%m-%d %H:%M")})
+    toto.sort(key=lambda t: t["round"], reverse=True)
     summary = {"updated": now.strftime("%Y-%m-%d %H:%M"), "mode": "가상 추천 중(실투자 없음)",
                "combos_total": len(combo_rows), "combos_scored": len(sc), "combos_hit": sum(1 for c in sc if c["hit"]), "combo_rate": combo_rate,
                "legs_scored": len(legs_scored), "leg_rate": leg_rate, "by_round": by_round,
                "process_score": proc_score, "process_n": len(clean), "quad": dict(quad), "leagues": leagues}
     json.dump(summary, open(os.path.join(out, "summary.json"), "w", encoding="utf-8"), ensure_ascii=False, indent=1)
-    json.dump({"current": current, "past": past[:150]}, open(os.path.join(out, "recommendations.json"), "w", encoding="utf-8"), ensure_ascii=False, indent=1)
+    json.dump({"current": current, "past": past[:150], "toto": toto}, open(os.path.join(out, "recommendations.json"), "w", encoding="utf-8"), ensure_ascii=False, indent=1)
     for stale in ("tickets.json", "process.json"):
         p = os.path.join(out, stale)
         if os.path.exists(p): os.remove(p)

@@ -12,6 +12,24 @@ const pct = (x, d = 0) => (x == null ? "-" : (x * 100).toFixed(d) + "%");
 const esc = (s) => String(s ?? "").replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
 const pill = (hit) => hit === "1" || hit === true ? '<span class="pill hit">적중</span>' : hit === "0" || hit === false ? '<span class="pill miss">실패</span>' : '<span class="pill wait">대기</span>';
 const quadPill = (q) => (q ? `<span class="pill q${esc(q)}">${esc(q)}</span>` : "");
+function closeText(c) {
+  if (!c) return "";
+  const d = new Date(c.replace(" ", "T") + ":00+09:00"); const diff = (d - Date.now()) / 60000;
+  const when = c.slice(5, 16).replace("-", "/");
+  if (isNaN(diff)) return `구매 마감 ${esc(c)}`;
+  if (diff < 0) return `마감 ${when}`;
+  const h = Math.floor(diff / 60), m = Math.round(diff % 60);
+  return `<b>구매 마감 ${when}</b> (${h > 0 ? h + "시간 " : ""}${m}분 남음)`;
+}
+function totoCard(t, past) {
+  return `<div class="card combo"><div class="chead"><b>${esc(t.round)}회 승무패 · ${esc(t.title)}</b>
+    <span class="small">${t.n}경기${t.done ? ` · ${t.hits}/${t.done} 적중` : ""}</span><span class="sp"></span>
+    ${t.current ? `<span class="pill wait">진행</span>` : t.scored ? (t.hits >= 13 ? '<span class="pill hit">' : '<span class="pill miss">') + esc(t.result || `${t.hits}/${t.n}`) + "</span>" : '<span class="pill wait">채점 중</span>'}</div>
+    <div class="small">${closeText(t.close)}</div>
+    <ul class="legs">${t.legs.map((l) => `<li><div class="lhead"><span class="g">${esc(l.no)}. ${esc(l.game)} <span class="m">${esc(l.time.slice(5, 16))}</span></span>
+      <span class="pk"><b>${esc(l.pick)}</b>${l.prob ? ` <span class="m">${l.prob}%</span>` : ""}</span><span>${l.result ? esc(l.result) + " " : ""}${l.hit !== "" ? pill(l.hit) : ""}</span></div>
+      ${l.why && !past ? `<div class="why"><span class="lbl">근거</span> ${esc(l.why)}</div>` : ""}</li>`).join("")}</ul></div>`;
+}
 
 function legRow(l, past) {
   const rv = l.review || {};
@@ -33,6 +51,7 @@ function comboCard(c, past) {
     <div class="chead"><b>${esc(c.round)}회 · ${esc(c.title)}</b>
       <span class="small">${c.n}폴더 · ${c.odds}배${c.prob ? " · 적중 예상 " + pct(c.prob) : ""}</span>
       <span class="sp"></span>${past ? (c.scored ? pill(c.hit) : '<span class="pill wait">미채점</span>') : '<span class="pill wait">진행</span>'}${c.bought ? ' <span class="pill">실구매</span>' : ""}</div>
+    <div class="small">${closeText(c.close)}</div>
     <ul class="legs">${c.legs.map((l) => legRow(l, past)).join("")}</ul></div>`;
 }
 
@@ -46,12 +65,14 @@ async function now() {
     <div class="tile"><div class="k">추천 조합 총계</div><div class="v">${s.combos_total}</div><div class="d">진행 ${r.current.length} · 채점 ${s.combos_scored}</div></div>
     <div class="tile"><div class="k">과정 점수</div><div class="v">${pct(s.process_score)}</div><div class="d">내용이 예측 쪽이었던 비율 · ${s.process_n}경기</div></div>
   </div>
-  <h2>현재 진행 중</h2>
-  ${r.current.length ? r.current.map((c) => comboCard(c, false)).join("") : '<div class="empty">진행 중인 추천 조합이 없습니다. 다음 블록 분석 시각에 추가됩니다.</div>'}`;
+  <h2>현재 진행 중 — 프로토</h2>
+  ${r.current.length ? r.current.map((c) => comboCard(c, false)).join("") : '<div class="empty">진행 중인 프로토 추천 조합이 없습니다. 다음 블록 분석 시각에 추가됩니다.</div>'}
+  <h2>현재 진행 중 — 승무패</h2>
+  ${(r.toto || []).filter((t) => t.current).length ? (r.toto || []).filter((t) => t.current).map((t) => totoCard(t, false)).join("") : '<div class="empty">진행 중인 승무패 마킹이 없습니다. 마감 2시간 전 분석 뒤 올라옵니다.</div>'}`;
 }
 async function past() {
   const s = await load("summary"), r = await load("recommendations");
-  const rounds = [...new Set(r.past.map((c) => c.round))];
+  const rounds = [...new Set([...r.past.map((c) => c.round), ...(r.toto || []).map((t) => t.round)])];
   const br = Object.entries(s.by_round);
   app.innerHTML = `<h1>지난 조합</h1><p class="sub">조합 단위 성공/실패와 회고. 회고는 결과만이 아니라 경기 내용(슈팅·xG·실제 선발)이 예측 쪽이었는지로 실력·운·분산·오판을 나눕니다.</p>
   <div class="grid">${br.map(([k, v]) => `<div class="tile"><div class="k">${esc(k)}회</div><div class="v">${v.hit}/${v.n}</div><div class="d">조합 적중</div></div>`).join("")}</div>
@@ -60,7 +81,8 @@ async function past() {
   const render = () => {
     const fr = $("#f-round").value, fs = $("#f-state").value;
     const xs = r.past.filter((c) => (!fr || c.round === fr) && (!fs || (fs === "hit" ? c.scored && c.hit : c.scored && !c.hit)));
-    $("#list").innerHTML = xs.length ? xs.map((c) => comboCard(c, true)).join("") : '<div class="empty">없음</div>';
+    const ts = (r.toto || []).filter((t) => !t.current && (!fr || t.round === fr) && (!fs || (fs === "hit" ? t.scored && t.hits >= 13 : t.scored && t.hits < 13)));
+    $("#list").innerHTML = (xs.length || ts.length) ? xs.map((c) => comboCard(c, true)).join("") + (ts.length ? "<h2>승무패</h2>" + ts.map((t) => totoCard(t, true)).join("") : "") : '<div class="empty">없음</div>';
   };
   $("#f-round").onchange = $("#f-state").onchange = render; render();
 }

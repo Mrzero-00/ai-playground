@@ -1,0 +1,68 @@
+{
+ "updated": "2026-10-19 09:56",
+ "mode": "가상 추천 중(실투자 없음)",
+ "combos_total": 20,
+ "combos_scored": 17,
+ "combos_hit": 4,
+ "combo_rate": 0.23529411764705882,
+ "legs_scored": 50,
+ "leg_rate": 0.6,
+ "by_round": {
+  "120": {
+   "n": 8,
+   "hit": 2
+  },
+  "121": {
+   "n": 4,
+   "hit": 2
+  },
+  "122": {
+   "n": 2,
+   "hit": 0
+  },
+  "123": {
+   "n": 3,
+   "hit": 0
+  }
+ },
+ "process_score": 0.5853658536585366,
+ "process_n": 82,
+ "quad": {
+  "실력": 35,
+  "운": 17,
+  "분산": 20,
+  "오판": 23
+ },
+ "leagues": [
+  {
+   "name": "EPL",
+   "ko": "프리미어리그",
+   "code": "eng.1",
+   "teams": 20
+  },
+  {
+   "name": "La_liga",
+   "ko": "라리가",
+   "code": "esp.1",
+   "teams": 20
+  },
+  {
+   "name": "Serie_A",
+   "ko": "세리에A",
+   "code": "ita.1",
+   "teams": 20
+  },
+  {
+   "name": "Bundesliga",
+   "ko": "분데스리가",
+   "code": "ger.1",
+   "teams": 18
+  },
+  {
+   "name": "Ligue_1",
+   "ko": "리그1",
+   "code": "fra.1",
+   "teams": 18
+  }
+ ]
+}

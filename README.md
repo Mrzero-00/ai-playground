@@ -30,7 +30,10 @@
 7. **alpine-mercenaries**
    - 실사풍 알프스 세계에서 무기가 역할을 결정하는 최대 5인 3인칭 협동 액션 RPG 프로젝트입니다.
 
-8. **RC_Weekly_TimeAttack**
+8. **betman-dashboard**
+   - 승부예측 프로그램의 추천 조합·티켓 성적·과정 회고(4분면)와 지정 리그(5대 리그) 팀별 xG·선수·포메이션 기록을 보여 주는 정적 대시보드 (Vercel 배포)
+
+9. **RC_Weekly_TimeAttack**
    - 매주 하나의 트랙에서 동일 성능의 RC카로 전체 Race Finish Time을 겨루는 Apps in Toss용 Unity WebGL 타임어택 게임
 
 <!-- PROJECTS:END -->

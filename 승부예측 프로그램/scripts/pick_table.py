@@ -28,6 +28,7 @@ SALE_CLOSE_MIN = 10   # data/마감시각.json(베트맨 endDate)에 없을 때�
 CLOSE_PATH = os.path.join(ROOT, "data", "마감시각.json")
 SCHED = os.path.join(ROOT, "구매일정.csv")
 SCHED_COLS = ["회차", "조합", "다리", "마감", "점검시각", "결과예상", "구매", "상태", "메모"]
+MIN_COMBO_ODDS = 1.8  # 조합 합계 배당 하한 (사용자 지시 2026-10-19: "최소 배당률은 조합으로 1.8 이상")
 BUY_BEFORE_MIN = 30   # 구매 시각 = 마감 30분 전 → 그때 최종 재분석(재스캔·라인업)
 END_SPREAD_MAX = 90   # 조합 안 경기 종료 예상 시각 차이 경고 기준(분) — 같은 시간대끼리(2026-10-10)
 
@@ -252,6 +253,10 @@ def table(by_no, title, picks):
         lines.append(t)
     if len(picks) > 1:
         lines.append(f"\n합계 배당 **{odds:.2f}배** · 적중 확률 **{prob * 100:.1f}%**" if prob is not None else f"\n합계 배당 **{odds:.2f}배**")
+        if odds < MIN_COMBO_ODDS:
+            lines.append(f"⚠ 조합 합계 배당 {odds:.2f} < {MIN_COMBO_ODDS} — 사용자 기준(2026-10-19) 미달. 다리를 더하거나 배당 높은 다리로 바꾼다.")
+    else:
+        lines.append("⚠ 단일 다리 — 프로토 추천은 2폴더 이상만(2026-10-16).")
     return "\n".join(lines)
 
 

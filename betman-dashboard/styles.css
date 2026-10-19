@@ -36,3 +36,10 @@ td.num,th.num{text-align:right;font-variant-numeric:tabular-nums}
 .bar{height:8px;background:var(--line);border-radius:4px;overflow:hidden;display:flex;gap:2px}.bar i{display:block;height:100%}
 .empty{color:var(--faint);padding:24px;text-align:center}
 @media (max-width:600px){.tile .v{font-size:22px}th,td{padding:6px 5px}}
+/* 2차 개편(10/19): 카드형 조합·텍스트 팀 상태 */
+.chead{display:flex;gap:10px;align-items:center;flex-wrap:wrap}.chead .sp{flex:1}
+.legs li{display:block;padding:8px 0}.lhead{display:flex;gap:8px;flex-wrap:wrap;align-items:baseline}.lhead .pk{min-width:120px}
+.why{font-size:13px;color:var(--muted);margin:4px 0 0;line-height:1.45}.why.warn{color:var(--s2)}.lbl{display:inline-block;font-size:11.5px;border:1px solid var(--line);border-radius:6px;padding:0 6px;margin-right:4px;color:var(--faint)}
+.rev{font-size:13px;margin:6px 0 0;padding:6px 10px;border-left:3px solid var(--line);color:var(--text);line-height:1.5}.rev .m{color:var(--muted)}
+ul.txt{margin:4px 0 10px;padding-left:18px}ul.txt li{margin:3px 0;line-height:1.5}
+.card p{margin:4px 0 8px;line-height:1.6}

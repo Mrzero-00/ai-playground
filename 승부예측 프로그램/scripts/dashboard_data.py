@@ -92,13 +92,13 @@ def build(out):
         sched_close[(x["회차"], x["조합"])] = x.get("마감", ""); sched_close[(x["회차"], legs_key)] = x.get("마감", "")
     gmap = {(g["회차"], g["번호"]): g for g in games}
     pmap = {(p["회차"], p["번호"]): p for p in proc}
-    recs = [r for r in rec if r.get("구분") == "추천"]
+    recs = [r for r in rec if r.get("구분") in ("추천", "도파민")]
     combos = collections.defaultdict(list)
     for r in recs:
-        combos[(r["회차"], r.get("조합") or "(단일)")].append(r)
+        combos[(r["회차"], r.get("조합") or "(단일)", r.get("구분") or "추천")].append(r)
     now = dt.datetime.now()
     combo_rows = []
-    for (rnd, title), legs in combos.items():
+    for (rnd, title, kind), legs in combos.items():
         scored = all(l.get("적중") in ("0", "1") for l in legs)
         last_time = max(l.get("시각", "") for l in legs)
         stale = (not scored) and bool(last_time) and last_time[:16] < (now - dt.timedelta(days=1)).strftime("%Y-%m-%d %H:%M")
@@ -131,13 +131,17 @@ def build(out):
                     close = (dt.datetime.strptime(min(l.get("시각", "") for l in legs)[:16], "%Y-%m-%d %H:%M") - dt.timedelta(minutes=10)).strftime("%Y-%m-%d %H:%M")
                 except ValueError:
                     close = ""
-        combo_rows.append({"round": rnd, "title": title, "close": close, "legs": leg_out, "odds": round(odds, 2), "prob": prob, "scored": scored, "stale": stale, "hit": hit,
+        combo_rows.append({"round": rnd, "title": title, "track": kind, "close": close, "legs": leg_out, "odds": round(odds, 2), "prob": prob, "scored": scored, "stale": stale, "hit": hit,
                            "bought": any(fnum(l.get("구매")) for l in legs), "time": min(l.get("시각", "") for l in legs), "n": len(legs)})
     combo_rows.sort(key=lambda c: (c["round"], c["time"]), reverse=True)
     current = [c for c in combo_rows if not c["scored"] and not c["stale"]]
     past = [c for c in combo_rows if c["scored"] or c["stale"]]
-    sc = [c for c in combo_rows if c["scored"] and c["n"] >= 2]
+    core = [c for c in combo_rows if c.get("track") != "도파민"]
+    fun = [c for c in combo_rows if c.get("track") == "도파민"]
+    sc = [c for c in core if c["scored"] and c["n"] >= 2]
+    scf = [c for c in fun if c["scored"] and c["n"] >= 2]
     combo_rate = (sum(1 for c in sc if c["hit"]) / len(sc)) if sc else None
+    fun_rate = (sum(1 for c in scf if c["hit"]) / len(scf)) if scf else None
     legs_scored = [r for r in recs if r.get("적중") in ("0", "1")]
     leg_rate = (sum(int(r["적중"]) for r in legs_scored) / len(legs_scored)) if legs_scored else None
     by_round = collections.OrderedDict()
@@ -327,7 +331,8 @@ def build(out):
                      "current": bool(close) and close >= now.strftime("%Y-%m-%d %H:%M")})
     toto.sort(key=lambda t: t["round"], reverse=True)
     summary = {"updated": now.strftime("%Y-%m-%d %H:%M"), "mode": "가상 추천 중(실투자 없음)",
-               "combos_total": len(combo_rows), "combos_scored": len(sc), "combos_hit": sum(1 for c in sc if c["hit"]), "combo_rate": combo_rate,
+               "combos_total": len(core), "combos_scored": len(sc), "combos_hit": sum(1 for c in sc if c["hit"]), "combo_rate": combo_rate,
+               "fun_total": len(fun), "fun_scored": len(scf), "fun_hit": sum(1 for c in scf if c["hit"]), "fun_rate": fun_rate,
                "legs_scored": len(legs_scored), "leg_rate": leg_rate, "by_round": by_round,
                "process_score": proc_score, "process_n": len(clean), "quad": dict(quad), "leagues": leagues}
     json.dump(summary, open(os.path.join(out, "summary.json"), "w", encoding="utf-8"), ensure_ascii=False, indent=1)

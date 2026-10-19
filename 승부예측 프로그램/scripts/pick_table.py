@@ -208,6 +208,33 @@ def leg_type(p, mk, pick, top, odds, raw=None):
     return "B− 고배당(1.6~1.9, 정확도 65%)"
 
 
+def leg_type_fun(p, mk, pick, top, odds, raw=None):
+    """도파민(위성) 트랙 판정 — 역배·무 전용 (사용자 제안 2026-10-19 "코어 주식 + 단타" 구조).
+    측정(297다리 기준): 역배 전체 63다리 32%·회수 81% → **내−시장 +10%p 이상 22다리 36%·회수 102%**.
+                        무 전체 267다리 22%·75% → **내 무 확률 28%+ 115다리 29%·회수 94%**.
+    즉 내 분석이 역배·무를 고르는 데 +20%p 기여한다(아직 수익 구간은 아님, 본전 근처).
+    조건: ① 역배 = 내 1순위 ≠ 시장 1순위 + 내−시장 ≥ +10%p + 배당 1.8~4.0
+          ② 무  = 내 무 확률 ≥ 28% + 무 배당 2.5~4.5
+    코어와 집계를 섞지 않는다(추천기록 구분 '도파민'). 금액은 코어의 1/5."""
+    if p is None or mk is None or odds is None:
+        return "-"
+    base = raw if raw is not None else p
+    gap = base - mk
+    if pick == "무":
+        if base < 28:
+            return "✗ 무 확률<28(실측 22%)"
+        if not (2.5 <= odds <= 4.5):
+            return "✗ 무 배당 범위 밖(2.5~4.5)"
+        return "D 무(실측 29%·회수 94%)"
+    if top and pick == top:
+        return "✗ 정배는 코어 트랙"
+    if gap < 10:
+        return "✗ 역배 근거 약함(내−시장 +%.0f < 10)" % gap
+    if not (1.8 <= odds <= 4.0):
+        return "✗ 역배 배당 범위 밖(1.8~4.0)"
+    return "D 역배(실측 36%·회수 102%)"
+
+
 _GRADE = None
 
 
@@ -330,7 +357,8 @@ def main():
         title, _, body = c.rpartition("=")
         picks = [tuple(x.strip().split(":")) for x in body.split(",") if x.strip()]
         print(table(by_no, title, picks) + "\n")
-        items += [(no, pk, "추천", title, "", buys.get(title, "")) for no, pk in picks]
+        kind = "도파민" if ("도파민" in title or "[D]" in title) else "추천"   # 코어/위성 분리 집계 (2026-10-19)
+        items += [(no, pk, kind, title, "", buys.get(title, "")) for no, pk in picks]
         combos_.append((title, picks))
     for sk in a.skip:
         leg, _, why = sk.partition("=")

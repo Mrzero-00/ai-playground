@@ -1,16 +1,16 @@
 # V바렌 나가사키 (J1)
 
 <!-- FACTS:START -->
-## 팩트시트 (자동 수집 2026-10-16) — 조사 전 반드시 읽고, 아래 사실과 다른 뉴스 요약은 '미확인'으로 둔다
+## 팩트시트 (자동 수집 2026-10-20) — 조사 전 반드시 읽고, 아래 사실과 다른 뉴스 요약은 '미확인'으로 둔다
 - 출처: 위키 'V-Varen Nagasaki'(club), ESPN 있음
 - 감독: Takuya Takagi
-- 리그 순위: 14위 9경기 2승3무4패 GD-5 승점9 (V-Varen Nagasaki)
-- 최근 경기(ESPN, 최대 28일): 2026-09-02 V-Varen Nagasaki 2-2 Gamba Osaka / 2026-09-06 Vissel Kobe 3-1 V-Varen Nagasaki / 2026-09-12 V-Varen Nagasaki 2-0 Nagoya Grampus / 2026-09-19 V-Varen Nagasaki 1-1 Cerezo Osaka / 2026-10-11 JEF United Ichihara-Chiba 1-1 V-Varen Nagasaki
+- 리그 순위: 15위 10경기 2승3무5패 GD-7 승점9 (V-Varen Nagasaki)
+- 최근 경기(ESPN, 최대 28일): 2026-09-06 Vissel Kobe 3-1 V-Varen Nagasaki / 2026-09-12 V-Varen Nagasaki 2-0 Nagoya Grampus / 2026-09-19 V-Varen Nagasaki 1-1 Cerezo Osaka / 2026-10-11 JEF United Ichihara-Chiba 1-1 V-Varen Nagasaki / 2026-10-17 Kashima Antlers 2-0 V-Varen Nagasaki
 <!-- FACTS:END -->
 
 <!-- INPUTS:START -->
-## 입력(자동 수집 2026-10-17) — xG·휴식일·라인업은 이 숫자를 쓴다
-- 10-17 15:00 vs 가시마 앤틀러스: 휴식 6.0일(7일 1경기) · 직전 10-11 원정 vs JEF United Ichihara-Chiba 1-1 무 [jpn.1] · xG - · 직전 선발 3-4-2-1 Masaaki Goto, Ikki Arai, Kanta Doi, Ryosuke Shindo, Riku Yamada, Hotaru Yamaguchi, Shunya Yoneda, Asahi Masuyama, Thiago Santana, Motoki Hasegawa, Matheus Jesus
+## 입력(자동 수집 2026-10-20) — xG·휴식일·라인업·환경(이동거리·고도·날씨)은 이 숫자를 쓴다
+- 10-21 19:00 vs 산프레체 히로시마: 휴식 4.2일(7일 1경기) · 직전 10-17 원정 vs Kashima Antlers 0-2 패 [jpn.1] · xG - · 직전 선발 3-4-2-1 Masaaki Goto, Ikki Arai, Kanta Doi, Takuma Ominami, Motoki Hasegawa, Hotaru Yamaguchi, Shunya Yoneda, Asahi Masuyama, Jonathan Júnior, Tenmu Matsumoto, Matheus Jesus · 구장 Nagasaki Athletic Stadium · 이동 282km · 고도 12m(차 -142m) · 19.4℃ 강수0mm(14%) 바람5.9km/h
 <!-- INPUTS:END -->
 
 ## 성향

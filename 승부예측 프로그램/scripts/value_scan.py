@@ -54,8 +54,8 @@ def first_p(r):
                 if k not in _FIRST or h["scan_time"] < _FIRST[k][0]:
                     try:
                         _FIRST[k] = (h["scan_time"], float(h["공정확률"]))
-                    except ValueError:
-                        pass
+                    except (ValueError, TypeError):
+                        pass  # 공정확률 빈 칸(Pinnacle 라인 없음) 행 무시 — 2026-10-19
     v = _FIRST.get((r["회차"], r["번호"], r["선택"]))
     return v[1] if v else float(r["공정확률"])
 
@@ -69,8 +69,8 @@ def closing_fair(r):
                 if best is None or h["scan_time"] > best[0]:
                     try:
                         best = (h["scan_time"], float(h["공정확률"]))
-                    except ValueError:
-                        pass
+                    except (ValueError, TypeError):
+                        pass  # 공정확률 빈 칸(Pinnacle 라인 없음) 행 무시 — 2026-10-19
     return best[1] if best else None
 
 

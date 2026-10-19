@@ -78,6 +78,8 @@ def _rows():
             continue
         if r.get("제외"):
             continue
+        if r.get("깊이") == "기준선":   # 모델 자동 채움 — 보정·적중예상도 학습에서 제외 (2026-10-19)
+            continue
         try:
             p = [float(r["순수_승"] or 0), float(r["순수_무"] or 0), float(r["순수_패"] or 0)]
         except ValueError:

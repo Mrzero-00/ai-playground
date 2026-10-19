@@ -177,19 +177,75 @@ def final_probs(rnd):
 
 
 def leg_type(p, mk, pick, top, odds, raw=None):
-    """2026-10-15 사용자 결정 구조. p=내 분석(최종) 확률, mk=시장 공정확률, top=시장 1순위, raw=가리고 낸 순수 확률.
-    갈림 판정은 순수 확률로 한다 — 보정 계수(온도)가 강팀 확률을 일괄로 올려 생긴 차이는 '확인된 사실' 갈림이 아니다
-    (티켓 K 점검 2026-10-15: 순수 72/70/66 < 시장인데 보정 89/87/84 로 전부 A 판정되던 문제)."""
+    """추천 다리 판정 — 2026-10-19 2차 교체 (297다리 백테스트, 회차 5개 모두 회수 100%+ 확인).
+    측정(일치 + 내가 시장보다 3%p+ 낮게 본 다리, 배당 구간별 적중·단식 회수):
+        1.20~1.30  69% / 86%   ← 마진 과다, 금지
+        1.30~1.45  74% / 101%
+        1.45~1.60  82% / 124%  ← 최적
+        1.60~1.90  65% / 113%  ← 정확도 낮음, 조합이 깨진다
+        1.90+      53% / 108%  ← 금지
+    규칙: ① 내 1순위 = 시장 1순위(갈림 39% — 영구 금지) ② 배당 1.30~1.90 ③ 내−시장 < +2(과신 금지).
+          B+ = 1.45~1.60 또는 (1.30~1.60 & gap ≤ −3). 조합은 B+ 우선.
+    내 확률 절대값은 문턱으로 쓰지 않는다(구간별 적중 비단조). 역배(시장 1순위 아닌 쪽)는 63다리 32%·회수 81%로 제외."""
     if p is None or mk is None or odds is None:
         return "-"
     base = raw if raw is not None else p
-    if p >= 60 and mk >= 60 and odds >= 1.2 and base - mk >= 8:
-        # 2026-10-17 [중간]: 사실 근거 없는 모델 갈림(+8%p)은 과신 신호 — 오후 2/12. 조합 확률은 시장 기준으로 본다
-        return "B 일치 ⚠과신(시장 기준)"
-    if (top and top != pick) or base - mk >= 8:
-        return "A 갈림" + ("" if odds >= 1.2 else " ✗(배당<1.2)")
-    ok = p >= 60 and mk >= 60 and odds >= 1.2  # 2026-10-16 사용자: 기대값 조건 폐지
-    return "B 일치" if ok else "✗"
+    gap = base - mk
+    if top and pick != top:
+        return "✗ 역배·방향 갈림(실측 32%)"
+    if gap >= 8:
+        return "✗ 과신(내−시장 +%.0f, 실측 39%%)" % gap
+    if gap >= 2:
+        return "✗ 내가 시장보다 높음(+%.0f)" % gap
+    if odds < 1.30:
+        return "✗ 배당<1.30(마진 과다, 실측 69%·86%)"
+    if odds > 2.20:
+        return "✗ 배당>2.20(실측 39%)"
+    # 회수 200% 목표 경로 (사용자 목표 2026-10-19): 합계 4.0(다리 2.0)이면 다리 71%만 필요.
+    # 실측 1.6~2.4 중 gap<=-3 & 시장 52%+ 는 14다리 79% → 2폴더 회수 170%. 표본이 작아 우선 추천 + 별도 추적.
+    if 1.60 <= odds <= 2.20 and gap <= -3 and mk >= 52:
+        return "B++ 200%경로(중배당·내가 낮게 봄)"
+    if 1.45 <= odds <= 1.60 or (odds <= 1.60 and gap <= -3):
+        return "B+ 최적(1.45~1.6, 실측 76%·2폴더 132%)"
+    if odds <= 1.60:
+        return "B 일치"
+    if odds <= 1.90:
+        return "B− 중배당(1.6~1.9, 65%)"
+    return "B− 중배당(1.9~2.2, 57%)"
+
+
+def leg_type_fun(p, mk, pick, top, odds, raw=None, mk_all=None):
+    """도파민(위성) 트랙 — **단식 전용**. 2026-10-19 2차 교체(측정으로 조건·구조 모두 수정).
+    측정(119~123, 축구 310경기 / 역배 50다리):
+      · 무 기준선(실제 무 발생률) 21.3%.
+        내 무 확률 28%+ → 128경기 31%(배수 1.47)  ← 느슨함(전체의 41%)
+        **시장 1순위 < 45% + 시장 무 ≥ 28% → 37경기 38%(배수 1.78)·회수 96%**  ← 가장 선별적
+        내 1·2순위 차 3%p 미만(박빙) → 22경기 18%(배수 0.85) ← **내 박빙 판정은 무 신호가 아니다**
+      · 역배 전체 50다리 26%·회수 76% → **내−시장 ≥ +10%p 16다리 31%·회수 105%**
+      · **조합 금지**: 엄선 52다리를 2폴더로 묶으면 25조합 8.0%·회수 50%(단식 102%). 36% 다리를 곱하면 깨진다.
+        도파민 평균 배당 2.86이라 단식만으로 사용자 고정(합계 1.8+)을 충족한다.
+    mk_all = 시장 확률 dict(무 조건 판정에 필요)."""
+    if p is None or mk is None or odds is None:
+        return "-"
+    base = raw if raw is not None else p
+    if pick == "무":
+        if not mk_all:
+            return "✗ 무 판정에 시장 확률 필요"
+        mtop = max(mk_all, key=mk_all.get)
+        if mk_all[mtop] >= 45:
+            return "✗ 시장 1순위 45%+ (혼전 아님)"
+        if mk_all.get("무", 0) < 28:
+            return "✗ 시장 무<28(실측 21%)"
+        if not (2.2 <= odds <= 4.5):
+            return "✗ 무 배당 범위 밖(2.2~4.5)"
+        return "D 무 단식(실측 38%·배수 1.78)"
+    if top and pick == top:
+        return "✗ 정배는 코어 트랙"
+    if base - mk < 10:
+        return "✗ 역배 근거 약함(내−시장 +%.0f < 10)" % (base - mk)
+    if not (1.8 <= odds <= 4.0):
+        return "✗ 역배 배당 범위 밖(1.8~4.0)"
+    return "D 역배 단식(실측 31%·회수 105%)"
 
 
 _GRADE = None
@@ -253,6 +309,10 @@ def table(by_no, title, picks):
         lines.append(t)
     if len(picks) > 1:
         lines.append(f"\n합계 배당 **{odds:.2f}배** · 적중 확률 **{prob * 100:.1f}%**" if prob is not None else f"\n합계 배당 **{odds:.2f}배**")
+        if any("도파민" in (title or "") or "[D]" in (title or "") for _ in [0]) and len(picks) > 1:
+            lines.append("⚠ 도파민은 **단식 전용**이다 — 엄선 다리도 2폴더로 묶으면 25조합 8%·회수 50%(단식 102%). 한 경기씩 따로 낸다.")
+        if len(picks) > 2:
+            lines.append(f"⚠ {len(picks)}폴더 — 1.8배 제약에서 3폴더는 다리당 1.22가 필요하고 그 구간 실측 적중 69%(회수 86%)다. **2폴더 권장**(실측 2폴더 회수 128%).")
         if odds < MIN_COMBO_ODDS:
             lines.append(f"⚠ 조합 합계 배당 {odds:.2f} < {MIN_COMBO_ODDS} — 사용자 기준(2026-10-19) 미달. 다리를 더하거나 배당 높은 다리로 바꾼다.")
     else:
@@ -312,7 +372,9 @@ def main():
         title, _, body = c.rpartition("=")
         picks = [tuple(x.strip().split(":")) for x in body.split(",") if x.strip()]
         print(table(by_no, title, picks) + "\n")
-        items += [(no, pk, "추천", title, "", buys.get(title, "")) for no, pk in picks]
+        kind = "도파민" if ("도파민" in title or "[D]" in title) else "추천"   # 코어/위성 분리 집계 (2026-10-19)
+        amt = "" if kind == "도파민" else buys.get(title, "")   # 도파민은 기록 전용·금액 0 (사용자 결정 2026-10-19)
+        items += [(no, pk, kind, title, "", amt) for no, pk in picks]
         combos_.append((title, picks))
     for sk in a.skip:
         leg, _, why = sk.partition("=")

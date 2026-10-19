@@ -245,6 +245,57 @@ def build(out):
         teams.sort(key=lambda x: -(x["nums"] or {}).get("pts", 0))
         leagues.append({"name": lg, "ko": LG_KO.get(lg, lg), "code": code, "teams": len(teams)})
         json.dump({"league": lg, "ko": LG_KO.get(lg, lg), "updated": dt.date.today().isoformat(), "teams": teams}, open(os.path.join(out, "teams", f"{lg}.json"), "w", encoding="utf-8"), ensure_ascii=False)
+    # ---- 분석 기록(블록 단위) — 추천이 없어도 무엇을 분석했고 왜 뺐는지 남긴다 (사용자 요청 2026-10-19)
+    ex_by_game = collections.defaultdict(list)
+    for r in rec:
+        if r.get("구분") == "추천제외":
+            ex_by_game[(r["회차"], r["번호"])].append(f"{r['선택']}: {r.get('이유', '')}"[:160])
+    combo_by_block = collections.defaultdict(list)
+    for c in combo_rows:
+        combo_by_block[(c["round"], c.get("close", ""))].append(c)
+    history = []
+    for b in plan:
+        if not b.get("블록") or b["회차"].startswith("승무패"):
+            continue
+        rnd = b["회차"]; c1, c2 = b.get("첫마감", ""), b.get("끝마감", "") or b.get("첫마감", "")
+        gs = []
+        for g in games:
+            if g["회차"] != rnd:
+                continue
+            cl = closes.get(f"{rnd}-{g['번호']}")
+            if cl:
+                inblock = c1 <= cl <= c2
+            else:   # 마감 미수집: 베트맨 규칙으로 추정 — 킥오프 10분 전, 단 00~05시 킥오프는 전날 23:00
+                try:
+                    ko = dt.datetime.strptime(f"{c1[:4]}-{g['시각']}", "%Y-%m-%d %H:%M")
+                    est = (ko - dt.timedelta(days=1)).replace(hour=23, minute=0) if ko.hour < 5 else ko - dt.timedelta(minutes=10)
+                    inblock = dt.datetime.strptime(c1, "%Y-%m-%d %H:%M") - dt.timedelta(minutes=15) <= est <= dt.datetime.strptime(c2, "%Y-%m-%d %H:%M")
+                except (ValueError, TypeError):
+                    inblock = False
+            if not inblock:
+                continue
+            pu = {k: fnum(g.get(f"순수_{k}")) for k in ("승", "무", "패")}
+            mk = {k: fnum(g.get(f"시장_{k}")) for k in ("승", "무", "패")}
+            ptop = max(pu, key=lambda k: pu[k] or 0) if any(pu.values()) else ""
+            mtop = max(mk, key=lambda k: mk[k] or 0) if any(mk.values()) else ""
+            res = g.get("결과", "")
+            gs.append({"no": g["번호"], "game": f"{g['홈']} - {g['원정']}", "league": g.get("리그", ""), "time": g.get("시각", ""),
+                       "mine": f"{ptop} {pu[ptop]:.0f}" if ptop else "", "market": f"{mtop} {mk[mtop]:.0f}" if mtop else "",
+                       "agree": bool(ptop and mtop and ptop == mtop), "result": (res + " " + (g.get("점수") or "")).strip(),
+                       "hit": ("1" if ptop == res else "0") if (ptop and res in ("승", "무", "패")) else "",
+                       "why": (g.get("핵심근거") or "")[:260], "skip": "; ".join(ex_by_game.get((rnd, g["번호"]), []))[:260] or (g.get("비고") or "")[:200],
+                       "grade": g.get("정합성", "")})
+        cs = combo_by_block.get((rnd, c1), []) + [c for c in combo_rows if c["round"] == rnd and c.get("close") and c1 <= c["close"] <= c2 and c not in combo_by_block.get((rnd, c1), [])]
+        seen_t = set(); cs = [c for c in cs if not (c["title"] in seen_t or seen_t.add(c["title"]))]
+        analyzed = [g for g in gs if g["mine"]]
+        hits = sum(1 for g in analyzed if g["hit"] == "1"); done = sum(1 for g in analyzed if g["hit"] in ("0", "1"))
+        history.append({"round": rnd, "block": b["블록"], "at": b.get("분석시각", ""), "close": c1, "state": b.get("상태", ""),
+                        "memo": (b.get("메모") or "")[:300], "sports": b.get("종목", ""), "n": len(gs), "analyzed": len(analyzed),
+                        "hits": hits, "done": done, "combos": [{"title": c["title"], "n": c["n"], "odds": c["odds"], "hit": c["hit"], "scored": c["scored"]} for c in cs],
+                        "games": sorted(gs, key=lambda g: g["time"])})
+    history.sort(key=lambda h: (h["close"] or h["at"]), reverse=True)
+    history = history[:70]
+
     # ---- 승무패(토토) 카드: 구매기록(마킹) + 분석일정(마감) + 전체경기기록(경기·결과)
     toto = []
     plan_close = {x["회차"]: x.get("끝마감") or x.get("첫마감") or "" for x in plan if x["회차"].startswith("승무패")}
@@ -281,10 +332,11 @@ def build(out):
                "process_score": proc_score, "process_n": len(clean), "quad": dict(quad), "leagues": leagues}
     json.dump(summary, open(os.path.join(out, "summary.json"), "w", encoding="utf-8"), ensure_ascii=False, indent=1)
     json.dump({"current": current, "past": past[:150], "toto": toto}, open(os.path.join(out, "recommendations.json"), "w", encoding="utf-8"), ensure_ascii=False, indent=1)
+    json.dump(history, open(os.path.join(out, "history.json"), "w", encoding="utf-8"), ensure_ascii=False)
     for stale in ("tickets.json", "process.json"):
         p = os.path.join(out, stale)
         if os.path.exists(p): os.remove(p)
-    print(f"→ {out}: 조합 {len(combo_rows)}(진행 {len(current)}, 채점 {len(sc)}, 성공률 {combo_rate and round(combo_rate*100)}%), 다리 {leg_rate and round(leg_rate*100)}% n={len(legs_scored)}, 팀 {sum(l['teams'] for l in leagues)}")
+    print(f"→ {out}: 분석 기록 {len(history)}블록(경기 {sum(h['n'] for h in history)}), 조합 {len(combo_rows)}(진행 {len(current)}, 채점 {len(sc)}, 성공률 {combo_rate and round(combo_rate*100)}%), 다리 {leg_rate and round(leg_rate*100)}% n={len(legs_scored)}, 팀 {sum(l['teams'] for l in leagues)}")
 
 
 if __name__ == "__main__":

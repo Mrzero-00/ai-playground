@@ -199,13 +199,19 @@ def leg_type(p, mk, pick, top, odds, raw=None):
         return "✗ 내가 시장보다 높음(+%.0f)" % gap
     if odds < 1.30:
         return "✗ 배당<1.30(마진 과다, 실측 69%·86%)"
-    if odds > 1.90:
-        return "✗ 배당>1.90(실측 53%)"
+    if odds > 2.20:
+        return "✗ 배당>2.20(실측 39%)"
+    # 회수 200% 목표 경로 (사용자 목표 2026-10-19): 합계 4.0(다리 2.0)이면 다리 71%만 필요.
+    # 실측 1.6~2.4 중 gap<=-3 & 시장 52%+ 는 14다리 79% → 2폴더 회수 170%. 표본이 작아 우선 추천 + 별도 추적.
+    if 1.60 <= odds <= 2.20 and gap <= -3 and mk >= 52:
+        return "B++ 200%경로(중배당·내가 낮게 봄)"
     if 1.45 <= odds <= 1.60 or (odds <= 1.60 and gap <= -3):
-        return "B+ 최적(1.45~1.6 또는 내가 낮게 봄)"
+        return "B+ 최적(1.45~1.6, 실측 76%·2폴더 132%)"
     if odds <= 1.60:
         return "B 일치"
-    return "B− 고배당(1.6~1.9, 정확도 65%)"
+    if odds <= 1.90:
+        return "B− 중배당(1.6~1.9, 65%)"
+    return "B− 중배당(1.9~2.2, 57%)"
 
 
 def leg_type_fun(p, mk, pick, top, odds, raw=None, mk_all=None):

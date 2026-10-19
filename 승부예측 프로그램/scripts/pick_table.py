@@ -367,7 +367,8 @@ def main():
         picks = [tuple(x.strip().split(":")) for x in body.split(",") if x.strip()]
         print(table(by_no, title, picks) + "\n")
         kind = "도파민" if ("도파민" in title or "[D]" in title) else "추천"   # 코어/위성 분리 집계 (2026-10-19)
-        items += [(no, pk, kind, title, "", buys.get(title, "")) for no, pk in picks]
+        amt = "" if kind == "도파민" else buys.get(title, "")   # 도파민은 기록 전용·금액 0 (사용자 결정 2026-10-19)
+        items += [(no, pk, kind, title, "", amt) for no, pk in picks]
         combos_.append((title, picks))
     for sk in a.skip:
         leg, _, why = sk.partition("=")

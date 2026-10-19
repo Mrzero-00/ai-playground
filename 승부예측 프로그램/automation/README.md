@@ -12,7 +12,7 @@ launchctl list | grep com.pacu.betman        # 두 줄 보이면 설치됨
 ```
 - daily: 매일 08:03 — 새 회차 등록·팩트시트·입력·teamdb·학습 갱신·대시보드 배포.
 - blocks: 20분마다 `round_watch.py due` 를 보고 분석 시각이 된 블록(승무패 포함)만 처리. 없으면 바로 종료(비용 0).
-- 로그: `승부예측 프로그램/logs/auto_YYYYMMDD.log`, `launchd_*.log`.
+- 실행 저장소: `~/orca/workspaces/ai/pacu-auto`(별도 클론 — Desktop 아래 .git 은 launchd 가 접근 못 함). 로그: `pacu-auto/승부예측 프로그램/logs/auto_YYYYMMDD.log`, `launchd_*.log`.
 - 해제: `launchctl bootout gui/$(id -u)/com.pacu.betman.daily` (blocks 도 동일).
 
 ## 2. 권한 모드 (결정 필요)

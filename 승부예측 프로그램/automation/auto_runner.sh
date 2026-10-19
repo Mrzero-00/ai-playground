@@ -4,7 +4,8 @@
 # 설치 방법은 automation/README.md. 잠자기 방지: 실행 중 caffeinate. 중복 방지: 잠금 파일.
 set -u
 export PATH="/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin:$PATH"
-PROJ="/Users/sonsang-il/orca/workspaces/ai/pacu/승부예측 프로그램"
+# 무인 실행은 Desktop 아래 .git(TCC 보호)에 묶인 worktree 대신 별도 클론에서 돈다(2026-10-19: launchd 에서 "not a git repository" — Desktop 접근 권한).
+PROJ="/Users/sonsang-il/orca/workspaces/ai/pacu-auto/승부예측 프로그램"
 LOG="$PROJ/logs/auto_$(date +%Y%m%d).log"
 LOCK="/tmp/pacu_auto_runner.lock"
 MODE="${1:-blocks}"

@@ -16,7 +16,7 @@ launchctl list | grep com.pacu.betman        # 두 줄 보이면 설치됨
 - 해제: `launchctl bootout gui/$(id -u)/com.pacu.betman.daily` (blocks 도 동일).
 
 ## 2. 권한 모드 (결정 필요)
-`auto_runner.sh` 는 기본 `--permission-mode acceptEdits` 로 실행한다. 이 모드는 파일 편집만 자동 승인하고 Bash 는 `.claude/settings.json` 의 허용 목록을 따른다. 무인 실행에서 승인 프롬프트가 뜨면 그 턴은 실패하므로 둘 중 하나를 고른다.
+plist 두 개에 `PACU_PERM=bypassPermissions` 가 이미 들어 있어(2026-10-19 사용자 요청) 설치하면 완전 무인(모든 권한 검사 생략)으로 돈다. 승인 모드로 바꾸려면 그 줄을 지우면 `acceptEdits` 가 기본값이 된다. `auto_runner.sh` 는 기본 `--permission-mode acceptEdits` 로 실행한다. 이 모드는 파일 편집만 자동 승인하고 Bash 는 `.claude/settings.json` 의 허용 목록을 따른다. 무인 실행에서 승인 프롬프트가 뜨면 그 턴은 실패하므로 둘 중 하나를 고른다.
 - (권장) 프로젝트 `.claude/settings.json` 에 쓰는 명령을 허용 목록으로 등록: `python3 scripts/*`, `git *`, `sh ../betman-dashboard/deploy.sh`, `vercel *`, `curl *`.
 - 또는 plist 의 `ProgramArguments` 앞에 환경변수 `PACU_PERM=bypassPermissions` 를 넣어 모든 권한 검사 생략(완전 무인, 위험 감수).
 

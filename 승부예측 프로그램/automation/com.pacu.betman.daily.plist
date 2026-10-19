@@ -4,6 +4,7 @@
 <key>Label</key><string>com.pacu.betman.daily</string>
 <key>ProgramArguments</key><array><string>/bin/zsh</string><string>/Users/sonsang-il/orca/workspaces/ai/pacu/승부예측 프로그램/automation/auto_runner.sh</string><string>daily</string></array>
 <key>StartCalendarInterval</key><dict><key>Hour</key><integer>8</integer><key>Minute</key><integer>3</integer></dict>
+<key>EnvironmentVariables</key><dict><key>PACU_PERM</key><string>bypassPermissions</string><key>PATH</key><string>/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin</string></dict>
 <key>RunAtLoad</key><false/>
 <key>StandardOutPath</key><string>/Users/sonsang-il/orca/workspaces/ai/pacu/승부예측 프로그램/logs/launchd_daily.log</string>
 <key>StandardErrorPath</key><string>/Users/sonsang-il/orca/workspaces/ai/pacu/승부예측 프로그램/logs/launchd_daily.log</string>

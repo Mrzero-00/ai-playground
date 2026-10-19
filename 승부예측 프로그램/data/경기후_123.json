@@ -10107,5 +10107,109 @@
     "Rafael Romero"
    ]
   }
+ },
+ "9327": {
+  "경기": "FC신시내티 - 콜럼버스 크루",
+  "점수": "0:2",
+  "event": "761889",
+  "수집": "2026-10-19 10:04",
+  "홈": {
+   "팀": "FC Cincinnati",
+   "슈팅": "23",
+   "유효": "7",
+   "점유": "68.1",
+   "퇴장": "0",
+   "선발": [
+    "Roman Celentano",
+    "Julian Malatini",
+    "Teenage Hadebe",
+    "Samuel Gidi",
+    "Pavel Bucha",
+    "Obinna Nwobodo",
+    "Evander",
+    "Tyrell Malacia",
+    "David Doudera",
+    "Kévin Denkey",
+    "Tom Barlow"
+   ],
+   "교체투입": [
+    "Ayoub Jabbari",
+    "Nick Hagglund",
+    "Kenji Mboma Dem",
+    "Ender Echenique",
+    "Gerardo Valenzuela"
+   ],
+   "명단": [
+    "Roman Celentano",
+    "Julian Malatini",
+    "Teenage Hadebe",
+    "Samuel Gidi",
+    "Pavel Bucha",
+    "Obinna Nwobodo",
+    "Evander",
+    "Tyrell Malacia",
+    "David Doudera",
+    "Kévin Denkey",
+    "Tom Barlow",
+    "Ayoub Jabbari",
+    "Tah Anunga",
+    "Nick Hagglund",
+    "Kenji Mboma Dem",
+    "Ender Echenique",
+    "Gerardo Valenzuela",
+    "Kyle Smith",
+    "Bryan Ramirez",
+    "Evan Louro"
+   ]
+  },
+  "원정": {
+   "팀": "Columbus Crew",
+   "슈팅": "3",
+   "유효": "2",
+   "점유": "31.9",
+   "퇴장": "0",
+   "선발": [
+    "Patrick Schulte",
+    "Sean Zawadzki",
+    "Malte Amundsen",
+    "Steven Moreira",
+    "Taha Habroune",
+    "André Gomes",
+    "Brooks Lennon",
+    "Andrés Herrera",
+    "Gonzalo Tapia",
+    "Santiago Rodríguez",
+    "Brais Méndez"
+   ],
+   "교체투입": [
+    "Eric Bailly",
+    "Dylan Chambost",
+    "Jamal Thiaré",
+    "Sékou Tidiany Bangoura",
+    "Laurtaro Giaccone"
+   ],
+   "명단": [
+    "Patrick Schulte",
+    "Sean Zawadzki",
+    "Malte Amundsen",
+    "Steven Moreira",
+    "Taha Habroune",
+    "André Gomes",
+    "Brooks Lennon",
+    "Andrés Herrera",
+    "Gonzalo Tapia",
+    "Santiago Rodríguez",
+    "Brais Méndez",
+    "Eric Bailly",
+    "Josef Martínez",
+    "Nicholas Hagen",
+    "Dylan Chambost",
+    "Amar Sejdic",
+    "Jamal Thiaré",
+    "Mohamed Farsi",
+    "Sékou Tidiany Bangoura",
+    "Laurtaro Giaccone"
+   ]
+  }
  }
 }

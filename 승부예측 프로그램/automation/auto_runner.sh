@@ -18,7 +18,7 @@ echo "=== $(date '+%F %T') mode=$MODE perm=$PERM"
 if [ -e "$LOCK" ] && kill -0 "$(cat "$LOCK" 2>/dev/null)" 2>/dev/null; then echo "다른 실행 진행 중 — 건너뜀"; exit 0; fi
 echo $$ > "$LOCK"; trap 'rm -f "$LOCK"' EXIT
 git pull --rebase --autostash origin pacu 2>&1 | tail -2 || echo "pull 실패(계속)"
-RULES='★ 현행 규칙: 리그 제한(축구 5대 리그+K리그, 야구 KBO·MLB; 대항전·컵은 한 팀이라도 지정 리그면 대상; 그 외는 분석·기록만) · 추천 = 일치(B) 다리만 · 적중 예상도 60%+ · 배당 1.2+ · 2폴더 이상(동시간대 짝 없으면 추천 없음) · 농구 제외 · 기대값 조건 없음 · 가상 추천 모드(구매 0, 추천·기록·채점 계속) · 분석가는 teamdb.py card 먼저 · 강팀 감점 상한(폼·발언 −5, 추정 결장 0) · 분석일정이 이미 완료면 중복 금지. 끝나면 round_watch.py done, 커밋·푸시(origin pacu, pacu:main), 마지막에 sh ../betman-dashboard/deploy.sh 로 대시보드 갱신.'
+RULES='★ 현행 규칙: 리그 제한(축구 5대 리그+K리그, 야구 KBO·MLB; 대항전·컵은 한 팀이라도 지정 리그면 대상; 그 외는 분석·기록만) · 추천 = 일치(B) 다리만 · 적중 예상도 60%+ · 배당 1.2+ · 2폴더 이상·조합 합계 배당 1.8 이상(동시간대 짝 없으면 추천 없음) · 농구 제외 · 기대값 조건 없음 · 가상 추천 모드(구매 0, 추천·기록·채점 계속) · 분석가는 teamdb.py card 먼저 · 강팀 감점 상한(폼·발언 −5, 추정 결장 0) · 분석일정이 이미 완료면 중복 금지. 끝나면 round_watch.py done, 커밋·푸시(origin pacu, pacu:main), 마지막에 sh ../betman-dashboard/deploy.sh 로 대시보드 갱신.'
 if [ "$MODE" = "daily" ]; then
   PROMPT="[정기 작업: 회차 감시 08시, 헤드리스] 승부예측 프로그램 폴더의 블록분석_절차.md A 절차: teamdb.py update → round_watch.py check → team_facts.py --round <판매 중 회차> --stale 3 → match_inputs.py --round <회차> → plan(예약은 걸지 말고 분석일정에만 남긴다 — 블록 실행은 auto_runner blocks 가 분석 시각에 한다) → 즉시 분석할 블록(due)이 있으면 B 절차로 처리 → round_watch.py toto(승무패 새 회차면 팩트시트·입력·teamdb 후 14경기 패널, 가중치 ①0.25 ②0.2 ④0.25 ⑤0.3) → 학습 갱신(round_log results·tracker results·grade_all·postmatch·process_grade --all·own_model report·fast_learn·bet_hit·calibrate fit·hit_model fit·upset_log report) → 조합 성공률·과정 점수 한 줄 → 커밋·푸시 → deploy.sh. $RULES"
 else

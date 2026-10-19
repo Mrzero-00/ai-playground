@@ -86,6 +86,40 @@ async function past() {
   };
   $("#f-round").onchange = $("#f-state").onchange = render; render();
 }
+async function history() {
+  const hs = await load("history");
+  const rounds = [...new Set(hs.map((h) => h.round))];
+  app.innerHTML = `<h1>분석 기록</h1><p class="sub">추천이 나오지 않은 블록도 남깁니다. 무엇을 분석했고, 내 확률이 시장과 어땠고, 왜 뺐는지 블록마다 볼 수 있습니다.</p>
+  <div class="filters"><select id="h-round"><option value="">전체 회차</option>${rounds.map((x) => `<option>${esc(x)}</option>`).join("")}</select>
+  <select id="h-kind"><option value="">전체</option><option value="rec">추천 있음</option><option value="none">추천 없음</option><option value="done">분석 완료</option><option value="wait">예정</option></select></div>
+  <div id="hlist"></div>`;
+  const render = () => {
+    const fr = $("#h-round").value, fk = $("#h-kind").value;
+    const xs = hs.filter((h) => (!fr || h.round === fr) &&
+      (!fk || (fk === "rec" ? h.combos.length : fk === "none" ? !h.combos.length && h.analyzed : fk === "done" ? h.state === "분석완료" : h.state !== "분석완료")));
+    $("#hlist").innerHTML = xs.length ? xs.map(blockCard).join("") : '<div class="empty">없음</div>';
+  };
+  $("#h-round").onchange = $("#h-kind").onchange = render; render();
+}
+function blockCard(h) {
+  const badge = h.combos.length
+    ? h.combos.map((c) => `<span class="pill ${c.scored ? (c.hit ? "hit" : "miss") : "wait"}">${esc(c.title)} ${c.n}폴더 ${c.odds}배</span>`).join(" ")
+    : (h.state === "분석완료" ? (h.analyzed ? '<span class="pill">추천 없음</span>' : '<span class="pill">분석 제외</span>') : '<span class="pill wait">예정</span>');
+  const rows = h.games.map((g) => `<tr>
+    <td class="mono">${esc(g.time.slice(0, 11))}</td><td>${esc(g.game)}<div class="m small">${esc(g.league)}</div></td>
+    <td>${esc(g.mine) || '<span class="m">미분석</span>'}</td><td class="m">${esc(g.market)}</td>
+    <td>${g.mine && g.market ? (g.agree ? '<span class="pill">일치</span>' : '<span class="pill q운">갈림</span>') : ""}</td>
+    <td>${esc(g.result)} ${g.hit !== "" ? pill(g.hit) : ""}</td>
+    <td class="small">${esc(g.why)}${g.skip ? `<div class="m">제외: ${esc(g.skip)}</div>` : ""}</td></tr>`).join("");
+  return `<details class="card hblk"${h.combos.length ? " open" : ""}>
+    <summary><b>${esc(h.round)}회 · ${esc(h.block)}</b>
+      <span class="small">${esc(h.sports)} · 경기 ${h.n}${h.analyzed ? ` · 분석 ${h.analyzed}` : ""}${h.done ? ` · 1순위 ${h.hits}/${h.done}` : ""}</span>
+      <span class="sp"></span>${badge}</summary>
+    <div class="small hmeta">분석 ${esc(h.at)} · 마감 ${esc(h.close)}${h.memo ? ` · ${esc(h.memo)}` : ""}</div>
+    <div class="tbl"><table><thead><tr><th>시각</th><th>경기</th><th>내 확률</th><th>시장</th><th></th><th>결과</th><th>근거 / 제외 이유</th></tr></thead><tbody>${rows}</tbody></table></div>
+  </details>`;
+}
+
 async function teams(lg, id) {
   const s = await load("summary");
   lg = lg || s.leagues[0].name;
@@ -114,7 +148,7 @@ async function route() {
   const h = (location.hash || "#now").slice(1).split("/");
   document.querySelectorAll("nav a").forEach((a) => a.classList.toggle("on", a.dataset.r === h[0]));
   try {
-    if (h[0] === "past") await past(); else if (h[0] === "teams") await teams(h[1], h[2]); else await now();
+    if (h[0] === "past") await past(); else if (h[0] === "history") await history(); else if (h[0] === "teams") await teams(h[1], h[2]); else await now();
   } catch (e) { app.innerHTML = `<div class="empty">데이터를 불러오지 못했습니다 (${esc(e.message)})</div>`; }
   window.scrollTo(0, 0);
 }

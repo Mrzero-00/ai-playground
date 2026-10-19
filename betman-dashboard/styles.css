@@ -43,3 +43,16 @@ td.num,th.num{text-align:right;font-variant-numeric:tabular-nums}
 .rev{font-size:13px;margin:6px 0 0;padding:6px 10px;border-left:3px solid var(--line);color:var(--text);line-height:1.5}.rev .m{color:var(--muted)}
 ul.txt{margin:4px 0 10px;padding-left:18px}ul.txt li{margin:3px 0;line-height:1.5}
 .card p{margin:4px 0 8px;line-height:1.6}
+
+/* 분석 기록 */
+details.hblk{padding:10px 14px}details.hblk summary{display:flex;gap:10px;align-items:center;flex-wrap:wrap;cursor:pointer;list-style:none}
+details.hblk summary::-webkit-details-marker{display:none}
+details.hblk summary:before{content:"▸";color:var(--faint);margin-right:2px}details.hblk[open] summary:before{content:"▾"}
+details.hblk summary .sp{flex:1}
+.hmeta{margin:6px 0 8px;color:var(--faint)}
+details.hblk td{vertical-align:top}details.hblk .m{color:var(--muted)}
+details.hblk table{min-width:820px}
+details.hblk th,details.hblk td{white-space:nowrap}
+details.hblk td:nth-child(2),details.hblk td:nth-child(7),details.hblk th:nth-child(2),details.hblk th:nth-child(7){white-space:normal}
+details.hblk td:nth-child(2){min-width:190px}details.hblk td:nth-child(7){min-width:300px}
+details.hblk td .m.small,details.hblk td.small{font-size:12px}

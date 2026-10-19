@@ -80,6 +80,8 @@ def _rows(exclude=()):
     for r in (r for r in csv.DictReader(open(REC, encoding="utf-8-sig")) if r.get("정합성") != "C"):  # 2026-10-16 정합성 C(오류 데이터) 학습 제외
         if r.get("결과") not in OUTS or r.get("제외") or str(r.get("회차")) in exclude:
             continue
+        if r.get("깊이") == "기준선":   # 모델 자동 채움 — 보정·적중예상도 학습에서 제외 (2026-10-19)
+            continue
         f = features(r)
         if not f:
             continue

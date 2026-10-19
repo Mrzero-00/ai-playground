@@ -19,7 +19,7 @@ POST = os.path.join(ROOT, "data", "경기후.csv")
 ABS = os.path.join(ROOT, "data", "결장검증.csv")
 FIX = os.path.join(ROOT, "data", "과정채점_수정.csv")   # 사람(에이전트) 검토로 바뀐 4분면 — 재실행해도 유지
 OUT = os.path.join(ROOT, "data", "과정채점.csv")
-COLS = ["종목", "회차", "번호", "경기", "예측", "확률", "결과", "점수", "결과적중", "지배", "내용근거", "내용적중", "4분면", "요인검증", "퇴장", "정합성", "추천"]
+COLS = ["종목", "깊이", "회차", "번호", "경기", "예측", "확률", "결과", "점수", "결과적중", "지배", "내용근거", "내용적중", "4분면", "요인검증", "퇴장", "정합성", "추천"]
 
 
 def num(x):
@@ -112,7 +112,7 @@ def main():
         quad = "실력" if ok_res and ok_con else "운" if ok_res else "분산" if ok_con else "오판"
         red = (num(p.get("홈퇴장")) or 0) + (num(p.get("원정퇴장")) or 0)
         av = absv.get(k); fv = f"{av[1]}/{av[0]}" if av else "-"
-        rows.append({"종목": r["종목"], "회차": r["회차"], "번호": r["번호"], "경기": f"{r['홈']}-{r['원정']}", "예측": pred, "확률": f"{pu[pred]:.0f}", "결과": r["결과"], "점수": r.get("점수", ""),
+        rows.append({"종목": r["종목"], "깊이": r.get("깊이") or "분석", "회차": r["회차"], "번호": r["번호"], "경기": f"{r['홈']}-{r['원정']}", "예측": pred, "확률": f"{pu[pred]:.0f}", "결과": r["결과"], "점수": r.get("점수", ""),
                      "결과적중": int(ok_res), "지배": dom, "내용근거": why, "내용적중": int(ok_con), "4분면": quad, "요인검증": fv,
                      "퇴장": int(red), "정합성": r.get("정합성", ""), "추천": r.get("추천", "")})
     fixes = {(f["회차"], f["번호"]): f for f in csv.DictReader(open(FIX, encoding="utf-8"))} if os.path.exists(FIX) else {}
@@ -143,6 +143,8 @@ def main():
     table("전체", rows)
     for sp in sorted({x["종목"] for x in rows}):
         table(f"종목 {sp}", [x for x in rows if x["종목"] == sp])
+    for dp in sorted({x["깊이"] for x in rows}):
+        table(f"깊이 {dp}", [x for x in rows if x["깊이"] == dp])
     for rnd in sorted({x["회차"] for x in rows}):
         table(f"회차 {rnd}", [x for x in rows if x["회차"] == rnd])
     for g in ("A", "B", "C"):

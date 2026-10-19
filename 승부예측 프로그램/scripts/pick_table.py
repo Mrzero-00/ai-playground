@@ -208,31 +208,38 @@ def leg_type(p, mk, pick, top, odds, raw=None):
     return "B− 고배당(1.6~1.9, 정확도 65%)"
 
 
-def leg_type_fun(p, mk, pick, top, odds, raw=None):
-    """도파민(위성) 트랙 판정 — 역배·무 전용 (사용자 제안 2026-10-19 "코어 주식 + 단타" 구조).
-    측정(297다리 기준): 역배 전체 63다리 32%·회수 81% → **내−시장 +10%p 이상 22다리 36%·회수 102%**.
-                        무 전체 267다리 22%·75% → **내 무 확률 28%+ 115다리 29%·회수 94%**.
-    즉 내 분석이 역배·무를 고르는 데 +20%p 기여한다(아직 수익 구간은 아님, 본전 근처).
-    조건: ① 역배 = 내 1순위 ≠ 시장 1순위 + 내−시장 ≥ +10%p + 배당 1.8~4.0
-          ② 무  = 내 무 확률 ≥ 28% + 무 배당 2.5~4.5
-    코어와 집계를 섞지 않는다(추천기록 구분 '도파민'). 금액은 코어의 1/5."""
+def leg_type_fun(p, mk, pick, top, odds, raw=None, mk_all=None):
+    """도파민(위성) 트랙 — **단식 전용**. 2026-10-19 2차 교체(측정으로 조건·구조 모두 수정).
+    측정(119~123, 축구 310경기 / 역배 50다리):
+      · 무 기준선(실제 무 발생률) 21.3%.
+        내 무 확률 28%+ → 128경기 31%(배수 1.47)  ← 느슨함(전체의 41%)
+        **시장 1순위 < 45% + 시장 무 ≥ 28% → 37경기 38%(배수 1.78)·회수 96%**  ← 가장 선별적
+        내 1·2순위 차 3%p 미만(박빙) → 22경기 18%(배수 0.85) ← **내 박빙 판정은 무 신호가 아니다**
+      · 역배 전체 50다리 26%·회수 76% → **내−시장 ≥ +10%p 16다리 31%·회수 105%**
+      · **조합 금지**: 엄선 52다리를 2폴더로 묶으면 25조합 8.0%·회수 50%(단식 102%). 36% 다리를 곱하면 깨진다.
+        도파민 평균 배당 2.86이라 단식만으로 사용자 고정(합계 1.8+)을 충족한다.
+    mk_all = 시장 확률 dict(무 조건 판정에 필요)."""
     if p is None or mk is None or odds is None:
         return "-"
     base = raw if raw is not None else p
-    gap = base - mk
     if pick == "무":
-        if base < 28:
-            return "✗ 무 확률<28(실측 22%)"
-        if not (2.5 <= odds <= 4.5):
-            return "✗ 무 배당 범위 밖(2.5~4.5)"
-        return "D 무(실측 29%·회수 94%)"
+        if not mk_all:
+            return "✗ 무 판정에 시장 확률 필요"
+        mtop = max(mk_all, key=mk_all.get)
+        if mk_all[mtop] >= 45:
+            return "✗ 시장 1순위 45%+ (혼전 아님)"
+        if mk_all.get("무", 0) < 28:
+            return "✗ 시장 무<28(실측 21%)"
+        if not (2.2 <= odds <= 4.5):
+            return "✗ 무 배당 범위 밖(2.2~4.5)"
+        return "D 무 단식(실측 38%·배수 1.78)"
     if top and pick == top:
         return "✗ 정배는 코어 트랙"
-    if gap < 10:
-        return "✗ 역배 근거 약함(내−시장 +%.0f < 10)" % gap
+    if base - mk < 10:
+        return "✗ 역배 근거 약함(내−시장 +%.0f < 10)" % (base - mk)
     if not (1.8 <= odds <= 4.0):
         return "✗ 역배 배당 범위 밖(1.8~4.0)"
-    return "D 역배(실측 36%·회수 102%)"
+    return "D 역배 단식(실측 31%·회수 105%)"
 
 
 _GRADE = None
@@ -296,6 +303,8 @@ def table(by_no, title, picks):
         lines.append(t)
     if len(picks) > 1:
         lines.append(f"\n합계 배당 **{odds:.2f}배** · 적중 확률 **{prob * 100:.1f}%**" if prob is not None else f"\n합계 배당 **{odds:.2f}배**")
+        if any("도파민" in (title or "") or "[D]" in (title or "") for _ in [0]) and len(picks) > 1:
+            lines.append("⚠ 도파민은 **단식 전용**이다 — 엄선 다리도 2폴더로 묶으면 25조합 8%·회수 50%(단식 102%). 한 경기씩 따로 낸다.")
         if len(picks) > 2:
             lines.append(f"⚠ {len(picks)}폴더 — 1.8배 제약에서 3폴더는 다리당 1.22가 필요하고 그 구간 실측 적중 69%(회수 86%)다. **2폴더 권장**(실측 2폴더 회수 128%).")
         if odds < MIN_COMBO_ODDS:

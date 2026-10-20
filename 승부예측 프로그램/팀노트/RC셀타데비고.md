@@ -9,7 +9,7 @@
 - 최근 경기(ESPN, 최대 28일): 2026-09-03 Real Sociedad 0-0 Celta Vigo / 2026-09-07 Getafe 1-1 Celta Vigo / 2026-09-13 Celta Vigo 1-1 Málaga / 2026-09-19 Celta Vigo 5-0 Racing Santander / 2026-10-11 Elche 0-0 Celta Vigo
 <!-- FACTS:END -->
 <!-- INPUTS:START -->
-## 입력(자동 수집 2026-10-18) — xG·휴식일·라인업·환경(이동거리·고도·날씨)은 이 숫자를 쓴다
-- 10-18 23:15 vs 알라베스: 휴식 2.8일(7일 1경기) · 직전 10-16 홈 vs Juventus 1-2 패 [uefa.europa] · xG 시즌8경기 xG1.0/xGA1.24 npxGD-0.24 · 최근5 1.24/0.89 (+0.19) · 홈-0.32/원정-0.15 · xPts9.7 vs 승점8 · 직전 선발 3-4-3 Andrei Radu, Yoel Lago, Marcos Alonso, Javi Rodríguez, Aleix Febas, Ilaix Moriba, Sergio Carreira, Javi Rueda, Ferran Jutglà, Williot Swedberg, Hugo Álvarez · 구장 에스타디오 데 발라이도스 · 이동 501km · 고도 13m(차 -518m) · 22.6℃ 강수0mm(0%) 바람13.0km/h
+## 입력(자동 수집 2026-10-21) — xG·휴식일·라인업·환경(이동거리·고도·날씨)은 이 숫자를 쓴다
+- 10-23 04:00 vs 셀틱: 휴식 7.0일 · 직전 10-16 홈 vs Juventus 1-2 패 [uefa.europa] · xG 시즌9경기 xG0.98/xGA1.23 npxGD-0.26 · 최근5 1.26/0.93 (+0.19) · 홈-0.34/원정-0.15 · xPts10.7 vs 승점11 · 직전 선발 3-4-3 Andrei Radu, Yoel Lago, Marcos Alonso, Javi Rodríguez, Aleix Febas, Ilaix Moriba, Sergio Carreira, Javi Rueda, Ferran Jutglà, Williot Swedberg, Hugo Álvarez · 구장 셀틱 파크(구단 좌표 — 구장 미확인) · 이동 1551km · 고도 20m(차 +7m) · 7.0℃ 강수0mm(1%) 바람10.1km/h · ⚠ 장거리 원정 1551km
 <!-- INPUTS:END -->
 

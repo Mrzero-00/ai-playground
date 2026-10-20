@@ -9,7 +9,7 @@
 - 최근 경기(ESPN, 최대 28일): 2026-09-05 NEC Nijmegen 1-3 Feyenoord Rotterdam / 2026-09-08 NEC Nijmegen 2-2 Excelsior / 2026-09-12 SC Cambuur 3-0 NEC Nijmegen / 2026-09-20 NEC Nijmegen 1-1 Go Ahead Eagles / 2026-10-10 Ajax Amsterdam 1-1 NEC Nijmegen
 <!-- FACTS:END -->
 <!-- INPUTS:START -->
-## 입력(자동 수집 2026-10-15) — xG·휴식일·라인업은 이 숫자를 쓴다
-- 10-16 04:00 vs 레프스키 소피아: 휴식 28.0일?(국내리그 ESPN 미제공 — 직접 확인) · 직전 09-18 원정 vs Juventus 0-5 패 [uefa.europa] · xG - · 직전 선발 3-4-2-1 Nikolas Polster, Philippe Sandler, Almugera Kabar, Tobias Storm, Noé Lebreton, Darko Nejasmic, Ayodele Thomas, Clement Bischoff, Bryan Linssen, Dusan Tadic, Tjaronn Chery
+## 입력(자동 수집 2026-10-21) — xG·휴식일·라인업·환경(이동거리·고도·날씨)은 이 숫자를 쓴다
+- 10-23 01:45 vs GNK디나모 자그레브: 휴식 6.9일(7일 1경기) · 직전 10-16 홈 vs Levski Sofia 1-1 무 [uefa.europa] · xG - · 직전 선발 3-4-3 Gonzalo Crettaz, Perr Schuurs, Deveron Fonville, Gabi Brás, Noé Lebreton, Darko Nejasmic, Clement Bischoff, Kevin Kers, Bryan Linssen, Dusan Tadic, Tjaronn Chery · 구장 스타디온 마크시미르 · 이동 999km · 고도 124m(차 +101m) · 12.3℃ 강수0mm(30%) 바람7.2km/h · ⚠ 장거리 원정 999km
 <!-- INPUTS:END -->
 

@@ -8,8 +8,8 @@
 - 최근 경기(ESPN, 최대 28일): 2026-09-05 Newcastle United 2-2 AFC Bournemouth / 2026-09-12 AFC Bournemouth 2-2 Brentford / 2026-09-20 AFC Bournemouth 0-1 Liverpool / 2026-10-10 Chelsea 5-1 AFC Bournemouth
 <!-- FACTS:END -->
 <!-- INPUTS:START -->
-## 입력(자동 수집 2026-10-18) — xG·휴식일·라인업·환경(이동거리·고도·날씨)은 이 숫자를 쓴다
-- 10-18 22:00 vs 선덜랜드: 휴식 2.8일(7일 1경기) · 직전 10-16 홈 vs SK Sturm Graz 3-0 승 [uefa.europa] · xG 시즌6경기 xG1.63/xGA1.39 npxGD+0.23 · 최근5 1.81/1.18 (+0.63) · 홈0.67/원정-0.2 · xPts9.4 vs 승점3 · 직전 선발 4-4-2 Djordje Petrovic, António Silva, Bafodé Diakité, Julio Soler, Adam Smith, Tyler Adams, Lewis Cook, Marcus Tavernier, Ben Gannon-Doak, Álvaro Rodríguez, Evanilson · 구장 딘 코트 · 이동 466km · 고도 36m(차 -11m) · 13.2℃ 강수0mm(3%) 바람17.3km/h
+## 입력(자동 수집 2026-10-21) — xG·휴식일·라인업·환경(이동거리·고도·날씨)은 이 숫자를 쓴다
+- 10-23 04:00 vs AC밀란: 휴식 7.0일 · 직전 10-16 홈 vs SK Sturm Graz 3-0 승 [uefa.europa] · xG 시즌7경기 xG2.02/xGA1.21 npxGD+0.81 · 최근5 2.24/0.86 (+1.37) · 홈1.57/원정-0.2 · xPts12.3 vs 승점6 · 직전 선발 4-4-2 Djordje Petrovic, António Silva, Bafodé Diakité, Julio Soler, Adam Smith, Tyler Adams, Lewis Cook, Marcus Tavernier, Ben Gannon-Doak, Álvaro Rodríguez, Evanilson · 구장 딘 코트 · 이동 1000km · 고도 36m(차 -103m) · 13.7℃ 강수2.3mm(100%) 바람32.4km/h · ⚠ 장거리 원정 1000km, 비 2.3mm(100%), 강풍 32.4km/h
 <!-- INPUTS:END -->
 
 ## 성향

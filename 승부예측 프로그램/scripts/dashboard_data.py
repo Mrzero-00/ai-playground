@@ -78,6 +78,41 @@ def review_text(rnd, no):
     return None
 
 
+def actual_side(gtype, pick, hit, result_txt, score_txt):
+    """실제 결과를 '그 베팅의 공간'(승/무/패 또는 언더/오버)으로 돌려준다.
+    점수+핸디캡 선으로 계산하고, 적중 여부와 어긋나면 적중 여부를 신뢰한다.
+    전반 베팅은 점수가 풀타임이라 계산하지 않는다. 모르면 ''."""
+    gtype = gtype or ""
+    uo = "언더오버" in gtype
+    half = "전반" in gtype
+    line = None
+    m = re.search(r"[HU]/?O?\s*([+-]?\d+(?:\.\d+)?)", gtype.replace("`", ""))
+    if m:
+        try: line = float(m.group(1))
+        except ValueError: line = None
+    sm = re.search(r"(\d+)\s*[:\-]\s*(\d+)", (result_txt or "") + " " + (score_txt or ""))
+    calc = ""
+    if sm and not half:
+        h, a = int(sm.group(1)), int(sm.group(2))
+        if uo and line is not None:
+            calc = "오버" if h + a > line else "언더"
+        elif not uo:
+            d = h - a + (line or 0)
+            calc = "승" if d > 0 else "패" if d < 0 else "무"
+    if hit == "1":
+        return pick                                   # 적중이면 실제 = 내 선택
+    if hit == "0":
+        if calc and calc != pick:
+            return calc
+        if uo:
+            return "오버" if pick == "언더" else "언더"
+        if line is not None and abs(line * 2) % 2 == 1:   # .5 선은 무가 없다
+            return "패" if pick == "승" else "승"
+        t = re.search(r"(?<![가-힣])([승무패])(?![가-힣])", result_txt or "")
+        return t.group(1) if t and t.group(1) != pick else ""
+    return calc
+
+
 def build(out):
     os.makedirs(os.path.join(out, "teams"), exist_ok=True)
     rec = rows("추천기록.csv"); games = rows("전체경기기록.csv"); proc = rows("data/과정채점.csv")
@@ -131,6 +166,7 @@ def build(out):
             rv = review_text(rnd, l["번호"]) if l.get("적중") in ("0", "1") else None
             leg_out.append({"no": l["번호"], "game": l["경기"], "pick": l["선택"], "type": l.get("게임", ""), "odds": fnum(l.get("배당")), "prob": fnum(l.get("확률")),
                             "time": l.get("시각", ""), "result": l.get("결과", "") or (f"{g.get('결과', '')} {g.get('점수', '')}".strip()), "hit": l.get("적중", ""),
+                            "actual": actual_side(l.get("게임", ""), l["선택"], l.get("적중", ""), l.get("결과", "") or (g.get("결과") or ""), g.get("점수", "")),
                             "why": why, "risk": risk,
                             "review": ({"quad": pr["4분면"], "content": pr["내용근거"], "pred": f"{pr['예측']} {pr['확률']}%"} if pr else {}) | (rv or {})})
         prob = None

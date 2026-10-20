@@ -31,24 +31,30 @@ function totoCard(t, past) {
       ${l.why && !past ? `<div class="why"><span class="lbl">근거</span> ${esc(l.why)}</div>` : ""}</li>`).join("")}</ul></div>`;
 }
 
-function pickCells(l) {
+function pickCells(l, past) {
   const t = (l.type || "");
   const isUO = t.includes("언더오버") || /^(언더|오버)$/.test(l.pick);
   const line = (t.match(/`([^`]+)`/) || [])[1] || "";
-  if (isUO) return `<td colspan="3" class="ck"><b>${esc(l.pick)}</b> ${esc(line)}</td>`;
+  const act = past ? (l.actual || "") : "";           // 실제 결과 칸은 배경색으로 칠한다
+  const tint = (k) => (act && act === k ? (act === l.pick ? " act-ok" : " act-no") : "");
+  if (isUO) {
+    const extra = act && act !== l.pick ? ` <span class="am">실제 ${esc(act)}</span>` : "";
+    return `<td colspan="3" class="ck${act ? (act === l.pick ? " act-ok" : " act-no") : ""}"><b>${esc(l.pick)}</b> ${esc(line)}${extra}</td>`;
+  }
   const mark = (k) => l.pick === k ? `<span class="ok">✓</span>${line && k !== "무" ? ` <span class="ln">${esc(line)}</span>` : ""}` : "";
-  return ["승", "무", "패"].map((k) => `<td class="ck">${mark(k)}</td>`).join("");
+  return ["승", "무", "패"].map((k) => `<td class="ck${tint(k)}">${mark(k)}</td>`).join("");
 }
 function comboTable(c, past) {
   const rows = c.legs.map((l) => `<tr>
     <td class="gm">${esc(l.game)}<div class="m">${esc(l.time.slice(5, 16))} · ${esc((l.type || "").replace(/`[^`]*`/, "").trim())}</div></td>
-    ${pickCells(l)}
+    ${pickCells(l, past)}
     <td class="num">${l.odds ?? "-"}</td>
     ${past ? `<td class="num">${esc(l.result || "-")}</td><td>${l.hit !== "" ? pill(l.hit) : '<span class="pill wait">대기</span>'}</td>` : ""}
   </tr>`).join("");
   return `<div class="tbl"><table class="combo-tbl"><thead><tr>
     <th>경기</th><th class="ck">승</th><th class="ck">무</th><th class="ck">패</th><th class="num">배당</th>
-    ${past ? '<th class="num">결과</th><th>적중</th>' : ""}</tr></thead><tbody>${rows}</tbody></table></div>`;
+    ${past ? '<th class="num">결과</th><th>적중</th>' : ""}</tr></thead><tbody>${rows}</tbody></table>
+    ${past ? '<div class="tnote"><span class="ok">✓</span> 내가 고른 방향 · <span class="sw act-ok"></span> 실제 결과(맞음) · <span class="sw act-no"></span> 실제 결과(빗나감)</div>' : ""}</div>`;
 }
 function legNotes(c, past) {
   return c.legs.map((l) => {

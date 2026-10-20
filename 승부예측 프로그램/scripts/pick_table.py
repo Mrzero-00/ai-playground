@@ -176,7 +176,7 @@ def final_probs(rnd):
     return out
 
 
-def leg_type(p, mk, pick, top, odds, raw=None):
+def leg_type(p, mk, pick, top, odds, raw=None, own_top=None):
     """추천 다리 판정 — 2026-10-19 2차 교체 (297다리 백테스트, 회차 5개 모두 회수 100%+ 확인).
     측정(일치 + 내가 시장보다 3%p+ 낮게 본 다리, 배당 구간별 적중·단식 회수):
         1.20~1.30  69% / 86%   ← 마진 과다, 금지
@@ -186,13 +186,19 @@ def leg_type(p, mk, pick, top, odds, raw=None):
         1.90+      53% / 108%  ← 금지
     규칙: ① 내 1순위 = 시장 1순위(갈림 39% — 영구 금지) ② 배당 1.30~1.90 ③ 내−시장 < +2(과신 금지).
           B+ = 1.45~1.60 또는 (1.30~1.60 & gap ≤ −3). 조합은 B+ 우선.
-    내 확률 절대값은 문턱으로 쓰지 않는다(구간별 적중 비단조). 역배(시장 1순위 아닌 쪽)는 63다리 32%·회수 81%로 제외."""
+    내 확률 절대값은 문턱으로 쓰지 않는다(구간별 적중 비단조). 역배(시장 1순위 아닌 쪽)는 63다리 32%·회수 81%로 제외.
+
+    own_top = **내** 1순위 선택(2026-10-20 추가). 규칙 ①은 '내 1순위 = 시장 1순위'인데 예전 구현은 '고른 선택 = 시장 1순위'만
+    봤다 — 내가 반대쪽을 더 높게 본 선택지를 고르면 갈림인데도 B로 통과했다(124회 9400 세트핸디캡에서 발견).
+    2지선다(승/패·핸디캡·언더오버)는 table()이 100−p로 반대쪽을 채워 자동 판정한다."""
     if p is None or mk is None or odds is None:
         return "-"
     base = raw if raw is not None else p
     gap = base - mk
     if top and pick != top:
         return "✗ 역배·방향 갈림(실측 32%)"
+    if own_top and pick != own_top:
+        return "✗ 내 1순위 아님(내가 %s를 더 높게 봄 — 갈림)" % own_top
     if gap >= 8:
         return "✗ 과신(내−시장 +%.0f, 실측 39%%)" % gap
     if gap >= 2:
@@ -262,6 +268,22 @@ def integrity_grade(r):
     return _GRADE.get((str(r.get("회차", "")), r.get("경기", "")), "")
 
 
+def own_first(no, pick, p, opts):
+    """내 1순위 선택 — 규칙 ① '내 1순위 = 시장 1순위' 판정용 (2026-10-20 추가).
+    --own 으로 같은 번호의 여러 선택을 주면 그중 최댓값, 2지선다(무 없음)면 반대쪽을 100−p 로 채워 비교한다.
+    3지선다에서 한쪽만 준 경우는 판정 불가라 None(기존 동작 유지)."""
+    if p is None:
+        return None
+    mine = {sel: v for (n, sel), v in OWN.items() if n == no}
+    if len(mine) >= 2:
+        return max(mine, key=mine.get)
+    sels = [o["선택"] for o in opts]
+    if len(sels) == 2 and pick in sels:
+        other = next(s for s in sels if s != pick)
+        return pick if p >= 100 - p else other
+    return None
+
+
 def table(by_no, title, picks):
     lines = []
     if title:
@@ -294,7 +316,8 @@ def table(by_no, title, picks):
         if OWN:
             mk = float(sel["공정확률"]) if sel and sel.get("공정확률") else None
             top = max(opts, key=lambda o: float(o["공정확률"] or 0))["선택"] if all(o.get("공정확률") for o in opts) else None
-            ty = leg_type(p, mk, pick, top, float(sel["베트맨"]) if sel else None, raw)
+            own_top = own_first(no, pick, p, opts)
+            ty = leg_type(p, mk, pick, top, float(sel["베트맨"]) if sel else None, raw, own_top)
             g = integrity_grade(r)   # 2026-10-16 사용자 지시: 데이터 정합성 C(오래된·잘못된 자료)·미검사는 다리 금지
             if g != "A" and g != "B":
                 ty = f"✗ 정합성 {g or '미검사'}"

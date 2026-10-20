@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-20 14:03",
+ "updated": "2026-10-20 14:33",
  "mode": "가상 추천 중(실투자 없음)",
  "combos_total": 21,
  "combos_scored": 18,
@@ -33,14 +33,9 @@
    "hit": 0
   }
  },
- "process_score": 0.5778894472361809,
- "process_n": 199,
- "quad": {
-  "오판": 66,
-  "실력": 90,
-  "운": 28,
-  "분산": 38
- },
+ "process_score": null,
+ "process_n": 0,
+ "quad": {},
  "leagues": [
   {
    "name": "EPL",

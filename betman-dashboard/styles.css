@@ -65,4 +65,21 @@ a.card.retro{display:block;color:var(--text)}a.card.retro:hover{text-decoration:
 .card.doc h2,.card.doc h3,.card.doc h4,.card.doc h5{margin:14px 0 6px}
 .card.doc p{margin:4px 0}.card.doc ul{margin:4px 0 10px;padding-left:18px}.card.doc li{line-height:1.5}
 .card.doc table{font-size:12.5px}
+.doc h2,.doc h3,.doc h4,.doc h5{margin:14px 0 6px}
+.doc p{margin:4px 0}.doc ul{margin:4px 0 10px;padding-left:18px}.doc li{line-height:1.5}
+.doc table{font-size:12.5px}
+.rround{margin:26px 0}.rround>h2{margin:0 0 10px;padding-bottom:6px;border-bottom:1px solid var(--line)}
+.rround>h2 .small{font-weight:400;color:var(--muted);margin-left:6px}
+details.hblk .doc{padding:4px 14px 14px}
 .card.doc code{background:var(--bg);border:1px solid var(--line);border-radius:4px;padding:0 4px;font-size:12px}
+/* 조합 표 */
+table.combo-tbl{min-width:0}
+table.combo-tbl td,table.combo-tbl th{padding:8px 8px}
+table.combo-tbl th.ck,table.combo-tbl td.ck{text-align:center;width:46px}
+table.combo-tbl td.gm{min-width:190px}
+table.combo-tbl td.gm .m{color:var(--muted);font-size:12px;margin-top:2px}
+table.combo-tbl .ok{color:var(--s3);font-weight:700;font-size:15px}
+table.combo-tbl .ln{color:var(--muted);font-size:11.5px}
+.note{margin:8px 0 0;padding:8px 10px;border-left:3px solid var(--line);background:var(--bg);border-radius:0 8px 8px 0}
+.note .nh{font-size:13px;margin-bottom:3px}
+.note .why{margin:3px 0}

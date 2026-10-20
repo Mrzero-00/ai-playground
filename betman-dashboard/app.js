@@ -31,28 +31,47 @@ function totoCard(t, past) {
       ${l.why && !past ? `<div class="why"><span class="lbl">근거</span> ${esc(l.why)}</div>` : ""}</li>`).join("")}</ul></div>`;
 }
 
-function legRow(l, past) {
-  const rv = l.review || {};
-  return `<li>
-    <div class="lhead"><span class="g">${esc(l.game)} <span class="m">${esc(l.time.slice(5, 16))}</span></span>
-      <span class="pk"><b>${esc(l.pick)}</b> <span class="m">${esc(l.type)}</span></span>
-      <span class="mono">${l.odds ?? "-"}배${l.prob != null ? ` · ${l.prob}%` : ""}</span>
-      <span>${l.result ? esc(l.result) + " " : ""}${past ? pill(l.hit) : ""}</span></div>
-    ${l.why ? `<div class="why"><span class="lbl">추천 이유</span> ${esc(l.why)}</div>` : ""}
-    ${l.risk && !past ? `<div class="why warn"><span class="lbl">변수</span> ${esc(l.risk)}</div>` : ""}
-    ${past && (rv.quad || rv.content || rv.판정 || rv.배울점) ? `<div class="rev">
-      <div><span class="lbl">회고</span> ${quadPill(rv.quad)} ${esc(rv.판정 || "")}</div>
-      ${rv.내용 || rv.content ? `<div class="m">경기 내용: ${esc(rv.내용 || rv.content)}</div>` : ""}
-      ${rv.배울점 ? `<div class="m">배울 점: ${esc(rv.배울점)}</div>` : ""}</div>` : ""}
-  </li>`;
+function pickCells(l) {
+  const t = (l.type || "");
+  const isUO = t.includes("언더오버") || /^(언더|오버)$/.test(l.pick);
+  const line = (t.match(/`([^`]+)`/) || [])[1] || "";
+  if (isUO) return `<td colspan="3" class="ck"><b>${esc(l.pick)}</b> ${esc(line)}</td>`;
+  const mark = (k) => l.pick === k ? `<span class="ok">✓</span>${line && k !== "무" ? ` <span class="ln">${esc(line)}</span>` : ""}` : "";
+  return ["승", "무", "패"].map((k) => `<td class="ck">${mark(k)}</td>`).join("");
+}
+function comboTable(c, past) {
+  const rows = c.legs.map((l) => `<tr>
+    <td class="gm">${esc(l.game)}<div class="m">${esc(l.time.slice(5, 16))} · ${esc((l.type || "").replace(/`[^`]*`/, "").trim())}</div></td>
+    ${pickCells(l)}
+    <td class="num">${l.odds ?? "-"}</td>
+    ${past ? `<td class="num">${esc(l.result || "-")}</td><td>${l.hit !== "" ? pill(l.hit) : '<span class="pill wait">대기</span>'}</td>` : ""}
+  </tr>`).join("");
+  return `<div class="tbl"><table class="combo-tbl"><thead><tr>
+    <th>경기</th><th class="ck">승</th><th class="ck">무</th><th class="ck">패</th><th class="num">배당</th>
+    ${past ? '<th class="num">결과</th><th>적중</th>' : ""}</tr></thead><tbody>${rows}</tbody></table></div>`;
+}
+function legNotes(c, past) {
+  return c.legs.map((l) => {
+    const rv = l.review || {};
+    const why = l.why || "";
+    const rev = past && (rv.quad || rv.내용 || rv.content || rv.판정 || rv.배울점);
+    if (!why && !rev && !l.risk) return "";
+    return `<div class="note"><div class="nh">${esc(l.game)} — <b>${esc(l.pick)}</b> ${esc((l.type || "").replace(/`[^`]*`/, "").trim())}</div>
+      ${why ? `<div class="why"><span class="lbl">추천 이유</span> ${esc(why)}</div>` : ""}
+      ${l.risk && !past ? `<div class="why warn"><span class="lbl">변수</span> ${esc(l.risk)}</div>` : ""}
+      ${rev ? `<div class="why"><span class="lbl">회고</span> ${quadPill(rv.quad)} ${esc(rv.판정 || "")} ${esc(rv.내용 || rv.content || "")}${rv.배울점 ? ` · 배울 점: ${esc(rv.배울점)}` : ""}</div>` : ""}
+    </div>`;
+  }).join("");
 }
 function comboCard(c, past) {
+  const st = past ? (c.scored ? pill(c.hit) : '<span class="pill wait">결과 대기</span>') : '<span class="pill wait">진행</span>';
   return `<div class="card combo">
     <div class="chead"><b>${esc(c.round)}회 · ${esc(c.title)}</b>
-      <span class="small">${c.n}폴더 · ${c.odds}배${c.prob ? " · 적중 예상 " + pct(c.prob) : ""}</span>
-      ${c.track === "도파민" ? '<span class="pill q운">도파민</span>' : ""}<span class="sp"></span>${past ? (c.scored ? pill(c.hit) : '<span class="pill wait">결과 대기</span>') : '<span class="pill wait">진행</span>'}${c.bought ? ' <span class="pill">실구매</span>' : ""}</div>
+      <span class="small">${c.n}폴더 · <b>${c.odds}배</b>${c.prob ? " · 적중 예상 " + pct(c.prob) : ""}</span>
+      ${c.track === "도파민" ? '<span class="pill q운">도파민</span>' : ""}<span class="sp"></span>${st}${c.bought ? ' <span class="pill">실구매</span>' : ""}</div>
     <div class="small">${closeText(c.close)}</div>
-    <ul class="legs">${c.legs.map((l) => legRow(l, past)).join("")}</ul></div>`;
+    ${comboTable(c, past)}
+    ${legNotes(c, past)}</div>`;
 }
 
 async function now() {
@@ -153,19 +172,36 @@ async function retro(file) {
       <div class="card doc">${mdLite(r.body)}</div>`;
     return;
   }
-  const kinds = [...new Set(rs.map((x) => x.kind))];
-  app.innerHTML = `<h1>회고</h1><p class="sub">분석이 맞았는지 결과가 아니라 경기 내용으로 확인한 기록입니다. 맞은 경기도 운인지 실력인지 나눠 적습니다.</p>
-  <div class="filters"><select id="r-kind"><option value="">전체 ${rs.length}건</option>${kinds.map((k) => `<option>${esc(k)}</option>`).join("")}</select></div>
+  const s = await load("summary"), rec = await load("recommendations");
+  const done = rec.past.filter((c) => c.scored);
+  const rounds = [...new Set([...done.map((c) => c.round), ...rs.map((x) => x.round).filter(Boolean)])]
+    .sort((a, b) => (parseInt(b) || 0) - (parseInt(a) || 0));
+  app.innerHTML = `<h1>회고</h1><p class="sub">회차마다 추천한 조합을 그대로 놓고, 적중 여부와 회고 내용을 아래에 적습니다. 결과가 아니라 경기 내용(슈팅·xG·실제 선발)이 예측 쪽이었는지로 실력·운·분산·오판을 나눕니다.</p>
+  <div class="grid">
+    <div class="tile"><div class="k">과정 점수</div><div class="v">${pct(s.process_score)}</div><div class="d">내용이 예측 쪽이었던 비율 · ${s.process_n}경기</div></div>
+    <div class="tile"><div class="k">조합 성공률</div><div class="v">${pct(s.combo_rate)}</div><div class="d">${s.combos_hit}/${s.combos_scored} 코어 조합</div></div>
+    <div class="tile"><div class="k">다리 적중률</div><div class="v">${pct(s.leg_rate)}</div><div class="d">${s.legs_scored}다리 채점</div></div>
+    <div class="tile"><div class="k">회고 문서</div><div class="v">${rs.length}</div><div class="d">심층·경기별 내용 회고</div></div>
+  </div>
+  <div class="filters"><select id="r-round"><option value="">전체 회차</option>${rounds.map((x) => `<option>${esc(x)}회</option>`).join("")}</select>
+  <select id="r-state"><option value="">전체 조합</option><option value="hit">적중</option><option value="miss">실패</option></select></div>
   <div id="rlist"></div>`;
   const render = () => {
-    const fk = $("#r-kind").value;
-    const xs = rs.filter((x) => !fk || x.kind === fk);
-    $("#rlist").innerHTML = xs.map((x) => `<a class="card retro" href="#retro/${encodeURIComponent(x.file)}">
-      <div><b>${esc(x.title)}</b> <span class="pill">${esc(x.kind)}</span></div>
-      <div class="small">${esc(x.date)} · ${Math.round(x.chars / 100) / 10}천자</div>
-      ${x.summary ? `<div class="why">${esc(x.summary)}</div>` : ""}</a>`).join("") || '<div class="empty">없음</div>';
+    const fr = ($("#r-round").value || "").replace("회", ""), fs = $("#r-state").value;
+    const xs = rounds.filter((x) => !fr || x === fr).map((rd) => {
+      const cs = done.filter((c) => c.round === rd && (!fs || (fs === "hit" ? c.hit : !c.hit)));
+      const ds = rs.filter((x) => x.round === rd);
+      return { rd, cs, ds };
+    }).filter((g) => g.cs.length || (g.ds.length && !fs));
+    $("#rlist").innerHTML = xs.map((g) => {
+      const hit = g.cs.filter((c) => c.hit).length;
+      return `<section class="rround"><h2>${esc(g.rd)}회 <span class="small">조합 ${hit}/${g.cs.length} 적중${g.ds.length ? ` · 회고 문서 ${g.ds.length}건` : ""}</span></h2>
+      ${g.cs.length ? g.cs.map((c) => comboCard(c, true)).join("") : '<div class="empty">채점된 조합 없음</div>'}
+      ${g.ds.map((d) => `<details class="card hblk"><summary><b>${esc(d.title)}</b> <span class="pill">${esc(d.kind)}</span><span class="sp"></span><span class="small">${esc(d.date)} · ${Math.round(d.chars / 100) / 10}천자</span></summary>
+        <div class="doc">${mdLite(d.body)}</div></details>`).join("")}</section>`;
+    }).join("") || '<div class="empty">없음</div>';
   };
-  $("#r-kind").onchange = render; render();
+  $("#r-round").onchange = $("#r-state").onchange = render; render();
 }
 
 async function teams(lg, id) {

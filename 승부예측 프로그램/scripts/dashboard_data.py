@@ -93,11 +93,23 @@ def build(out):
     gmap = {(g["회차"], g["번호"]): g for g in games}
     pmap = {(p["회차"], p["번호"]): p for p in proc}
     recs = [r for r in rec if r.get("구분") in ("추천", "도파민")]
-    combos = collections.defaultdict(list)
+    combos = collections.defaultdict(list); dopa = {}
     for r in recs:
         kind = r.get("구분") or "추천"
-        key = (r["회차"], (r.get("조합") or "(단일)") + (f" · {r['번호']}" if kind == "도파민" else ""), kind)   # 도파민은 단식 전용이라 다리별 분리 (2026-10-20)
-        combos[key].append(r)
+        title = r.get("조합") or "(단일)"
+        if kind == "도파민":
+            # 도파민도 조합으로 본다(사용자 지시 2026-10-21): 같은 블록 다리를 배당 낮은 순 2개씩 2폴더로 묶는다.
+            cl = closes.get(f"{r['회차']}-{r['번호']}") or (r.get("시각") or "")[:13]
+            title = f"[도파민] {cl[5:16]}"
+            dopa.setdefault((r["회차"], title), []).append(r)
+            continue
+        combos[(r["회차"], title, kind)].append(r)
+    for (rnd, title), legs in dopa.items():   # 블록별 도파민 다리를 2폴더씩 끊는다
+        legs = sorted(legs, key=lambda x: (fnum(x.get("배당")) or 9, x["번호"]))
+        for i in range(0, len(legs), 2):
+            chunk = legs[i:i + 2]
+            t = title + (f" 조합{i // 2 + 1}" if len(legs) > 2 else " 조합")
+            combos[(rnd, t, "도파민")] = chunk
     now = dt.datetime.now()
     combo_rows = []
     for (rnd, title, kind), legs in combos.items():
@@ -352,7 +364,9 @@ def build(out):
                 summ = l.lstrip("> ").strip()[:400]; break
         kind = "심층 회고" if "심층회고" in base else "경기별 내용 회고" if "내용회고" in base else "회차 회고"
         mt = dt.datetime.fromtimestamp(os.path.getmtime(f))
-        retros.append({"file": base, "title": title[:120], "kind": kind, "date": mt.strftime("%Y-%m-%d %H:%M"),
+        m = re.search(r"(\d{2,4})회", base) or re.search(r"(\d{2,4})회", title)
+        rnd = m.group(1) if m else ""
+        retros.append({"file": base, "title": title[:120], "kind": kind, "round": rnd, "date": mt.strftime("%Y-%m-%d %H:%M"),
                        "summary": summ, "body": txt[:60000], "chars": len(txt)})
         if len(retros) >= 40:
             break

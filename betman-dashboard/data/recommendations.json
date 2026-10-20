@@ -1,5 +1,6 @@
 {
- "current": [
+ "current": [],
+ "past": [
   {
    "round": "124",
    "title": "코어 2폴더",
@@ -14,11 +15,15 @@
      "odds": 1.53,
      "prob": 47.3,
      "time": "2026-10-21 04:00",
-     "result": "",
-     "hit": "",
+     "result": "4:3",
+     "hit": "1",
      "why": "기준선 33.8/26.6/39.5 → 요인 기준선불신:[원유형: 기준선 편향 보정] [(+10.0), 결장:Ole Didrik Blomberg(+1.2), 결장:Håkon Evjen / August Mikkelsen(+0.97), 결장:Magnus Bech Riisnæs(+0.45), 결장:Buongiorno/Neres/Vergara/Alisson Santos/Favasuli(+0.0) → 최종 47.3/26.1/26.6",
      "risk": "",
-     "review": {}
+     "review": {
+      "quad": "실력",
+      "content": "유효 8:6",
+      "pred": "승 47%"
+     }
     },
     {
      "no": "9477",
@@ -28,8 +33,8 @@
      "odds": 1.57,
      "prob": 58.4,
      "time": "2026-10-21 04:00",
-     "result": "",
-     "hit": "",
+     "result": "4:3",
+     "hit": "1",
      "why": "",
      "risk": "",
      "review": {}
@@ -37,10 +42,10 @@
    ],
    "odds": 2.4,
    "prob": 0.276232,
-   "scored": false,
+   "scored": true,
    "stale": false,
-   "started": false,
-   "hit": null,
+   "started": true,
+   "hit": true,
    "bought": false,
    "time": "2026-10-21 04:00",
    "n": 2
@@ -59,8 +64,8 @@
      "odds": 3.3,
      "prob": 47.6,
      "time": "2026-10-21 04:00",
-     "result": "",
-     "hit": "",
+     "result": "5:1",
+     "hit": "0",
      "why": "",
      "risk": "",
      "review": {}
@@ -68,10 +73,10 @@
    ],
    "odds": 3.3,
    "prob": 0.47600000000000003,
-   "scored": false,
+   "scored": true,
    "stale": false,
-   "started": false,
-   "hit": null,
+   "started": true,
+   "hit": false,
    "bought": false,
    "time": "2026-10-21 04:00",
    "n": 1
@@ -101,7 +106,7 @@
    "prob": 0.445,
    "scored": false,
    "stale": false,
-   "started": false,
+   "started": true,
    "hit": null,
    "bought": false,
    "time": "2026-10-21 04:00",
@@ -132,7 +137,7 @@
    "prob": 0.569,
    "scored": false,
    "stale": false,
-   "started": false,
+   "started": true,
    "hit": null,
    "bought": false,
    "time": "2026-10-21 04:00",
@@ -152,19 +157,23 @@
      "odds": 3.05,
      "prob": 38.2,
      "time": "2026-10-21 04:00",
-     "result": "",
-     "hit": "",
+     "result": "1:1",
+     "hit": "0",
      "why": "기준선 37.6/26.9/35.5 → 요인 결장:Cristian 'Cuti' Romero(+1.8), 결장:Koke Resurrección(+1.0), 기타:Maximilian Mittelstädt(+0.0), 결장:Diehl/Malanga/Tomas(+0), xG:-(-2.5) → 최종 38.2/27.4/34.4",
      "risk": "",
-     "review": {}
+     "review": {
+      "quad": "분산",
+      "content": "유효 5:3",
+      "pred": "승 38%"
+     }
     }
    ],
    "odds": 3.05,
    "prob": 0.382,
-   "scored": false,
+   "scored": true,
    "stale": false,
-   "started": false,
-   "hit": null,
+   "started": true,
+   "hit": false,
    "bought": false,
    "time": "2026-10-21 04:00",
    "n": 1
@@ -183,8 +192,8 @@
      "odds": 3.0,
      "prob": 41.1,
      "time": "2026-10-21 04:00",
-     "result": "",
-     "hit": "",
+     "result": "4:0",
+     "hit": "0",
      "why": "",
      "risk": "",
      "review": {}
@@ -192,10 +201,10 @@
    ],
    "odds": 3.0,
    "prob": 0.41100000000000003,
-   "scored": false,
+   "scored": true,
    "stale": false,
-   "started": false,
-   "hit": null,
+   "started": true,
+   "hit": false,
    "bought": false,
    "time": "2026-10-21 04:00",
    "n": 1
@@ -214,8 +223,8 @@
      "odds": 2.02,
      "prob": 71.6,
      "time": "2026-10-21 04:00",
-     "result": "",
-     "hit": "",
+     "result": "4:0",
+     "hit": "0",
      "why": "",
      "risk": "",
      "review": {}
@@ -223,10 +232,10 @@
    ],
    "odds": 2.02,
    "prob": 0.716,
-   "scored": false,
+   "scored": true,
    "stale": false,
-   "started": false,
-   "hit": null,
+   "started": true,
+   "hit": false,
    "bought": false,
    "time": "2026-10-21 04:00",
    "n": 1
@@ -256,7 +265,7 @@
    "prob": 0.659,
    "scored": false,
    "stale": false,
-   "started": false,
+   "started": true,
    "hit": null,
    "bought": false,
    "time": "2026-10-21 04:00",
@@ -276,19 +285,23 @@
      "odds": 1.84,
      "prob": 61.4,
      "time": "2026-10-21 04:00",
-     "result": "",
-     "hit": "",
+     "result": "121:113",
+     "hit": "1",
      "why": "기준선 59.9/0/40.1 → 요인 로테이션:제일런 브라운→폴 조지 트레이드(+1.8), 로테이션:미첼 로빈슨 영입(-0.9), 로테이션:존 콜린스·아이재아 조·게리 해리스 영입(+1.3), 복귀:제이슨 테이텀(+1.8), 결장:데빈 카터(+0) → 최종 61.4/0/38.6",
      "risk": "개막전 표본 0",
-     "review": {}
+     "review": {
+      "quad": "실력",
+      "content": "점차 8",
+      "pred": "승 61%"
+     }
     }
    ],
    "odds": 1.84,
    "prob": 0.614,
-   "scored": false,
+   "scored": true,
    "stale": false,
-   "started": false,
-   "hit": null,
+   "started": true,
+   "hit": true,
    "bought": false,
    "time": "2026-10-21 04:00",
    "n": 1
@@ -318,7 +331,7 @@
    "prob": 0.429,
    "scored": false,
    "stale": false,
-   "started": false,
+   "started": true,
    "hit": null,
    "bought": false,
    "time": "2026-10-21 04:00",
@@ -349,14 +362,12 @@
    "prob": 0.441,
    "scored": false,
    "stale": false,
-   "started": false,
+   "started": true,
    "hit": null,
    "bought": false,
    "time": "2026-10-21 04:00",
    "n": 1
-  }
- ],
- "past": [
+  },
   {
    "round": "124",
    "title": "[도파민] 124회 10/20 18:30 — LG-KIA 언더 8.5 · 9420",
@@ -371,8 +382,8 @@
      "odds": 1.89,
      "prob": 62.0,
      "time": "2026-10-20 18:30",
-     "result": "",
-     "hit": "",
+     "result": "1:13",
+     "hit": "0",
      "why": "",
      "risk": "",
      "review": {}
@@ -380,10 +391,10 @@
    ],
    "odds": 1.89,
    "prob": 0.62,
-   "scored": false,
+   "scored": true,
    "stale": false,
    "started": true,
-   "hit": null,
+   "hit": false,
    "bought": false,
    "time": "2026-10-20 18:30",
    "n": 1
@@ -437,7 +448,11 @@
      "hit": "1",
      "why": "기준선 39.6/31.0/29.4 → 요인 xG:xG 혼합 1단계. 기준선 λ 1(-1.8), 일정:헤타페 10/16(목) 루마니아 (-1.8), 전술:라요 최근5 PPDA 9.9(적극(-1.0), 결장:Andrei Rațiu(+2.6), 결장:Luiz Felipe(+0.0) → 최종 35.6/33.0/31.4",
      "risk": "1·2순위 차 2.6%p 삼파전·헤타페 로테이션 위험",
-     "review": {}
+     "review": {
+      "quad": "오판",
+      "content": "xG 0.90:2.29",
+      "pred": "승 36%"
+     }
     }
    ],
    "odds": 2.6,
@@ -468,7 +483,11 @@
      "hit": "1",
      "why": "기준선 44.4/27.7/27.9 → 요인 결장:Sávio (Savinho)(-3.15), 결장:Lucas Bergvall(-0.88), 결장:Rodrigo Bentancur(+0.0), 결장:Pedro Porro(-0.6), 결장:Mudryk / Xavi Simons / Odobert(+0.0) → 최종 47.5/28.0/24.5",
      "risk": "공식 라인업 미발표·Awoniyi 선발이면 45/28.5/26.5",
-     "review": {}
+     "review": {
+      "quad": "실력",
+      "content": "유효 5:1",
+      "pred": "승 48%"
+     }
     },
     {
      "no": "9382",
@@ -513,7 +532,11 @@
      "hit": "0",
      "why": "기준선 24.0/29.3/46.7 → 요인 xG:몬차 시즌 xG 1.87 / xG(+3.2), xG:칼리아리 시즌 xG 1.04 / (+3.3), 결장:Lorenzo Lucchesi(-3.6), 결장:Zeballos / Maye / Pessina·Ziolkowski·Touré·Ciurria(+0.0), 결장:Alessandro Deiola(+2.1) → 최종 28.5/28.4/43.1",
      "risk": "Deiola 선발이면 26.4/29.1/44.5로 이동·Nzola 선발 갈림",
-     "review": {}
+     "review": {
+      "quad": "분산",
+      "content": "xG 1.84:2.73",
+      "pred": "패 43%"
+     }
     }
    ],
    "odds": 2.5,
@@ -544,7 +567,11 @@
      "hit": "0",
      "why": "기준선 24.0/29.3/46.7 → 요인 xG:몬차 시즌 xG 1.87 / xG(+3.2), xG:칼리아리 시즌 xG 1.04 / (+3.3), 결장:Lorenzo Lucchesi(-3.6), 결장:Zeballos / Maye / Pessina·Ziolkowski·Touré·Ciurria(+0.0), 결장:Alessandro Deiola(+2.1) → 최종 28.5/28.4/43.1",
      "risk": "Deiola 선발이면 26.4/29.1/44.5로 이동·Nzola 선발 갈림",
-     "review": {}
+     "review": {
+      "quad": "분산",
+      "content": "xG 1.84:2.73",
+      "pred": "패 43%"
+     }
     }
    ],
    "odds": 3.15,
@@ -1100,7 +1127,11 @@
      "hit": "1",
      "why": "10/12 조사 기준선 40.3(양창섭 FIP 4.77 vs 소형준 3.59) → 36. KT 9연승·우승 확정 후에도 정상 운용(10/7 검증), 소형준 정상 로테이션(승리 시 승률왕·10승 동기, 최근 3경기 QS급), 10/11 라인업 주전 전원. 삼성은 3연패·최종전 양창섭 불펜데이(9/20 이후 1군 등판 없음, 후반기 롱릴리프), 구자욱 아웃·디아즈 감기 결장 가능, 10/11 후",
      "risk": "삼성 당일 라인업(디아즈·주전 휴식) 미확인; 소형준 투구수 제한 여부",
-     "review": {}
+     "review": {
+      "quad": "실력",
+      "content": "점차 2",
+      "pred": "패 64%"
+     }
     },
     {
      "no": "7801",
@@ -1114,7 +1145,11 @@
      "hit": "0",
      "why": "10/12 조사: DB 2승1패(10/4 소노 95-86·10/10 KCC 85-79) 엘런슨·알바노 안정 vs 모비스 0승3패(10/5 KCC 87-97·10/10 가스공사 75-81), 베즐리 감독 지시 불이행 배제(10/5). DB 백투백(10/10→10/12). 모비스 서명진·이우석 가세 추정",
      "risk": "모비스 외국인(베즐리·프림) 출전시간·서명진·이우석 당일 출전 미확인; DB 로테이션",
-     "review": {}
+     "review": {
+      "quad": "오판",
+      "content": "점차 10",
+      "pred": "패 68%"
+     }
     },
     {
      "no": "7793",
@@ -1128,7 +1163,11 @@
      "hit": "1",
      "why": "10/12 조사 기준선 46.5(양현종 FIP 5.06 vs 임찬규 4.21) → 53. 3위 결정전: KIA 승·무면 준PO 직행, LG는 승리 필수(동기 양쪽 최대). 임찬규 최근 3경기 4·4·5자책 부진·KIA전 2026 ERA 6.75(+3) vs 양현종 4일 휴식·LG전 4.61. LG 오지환(인대)·박동원(무릎) 결장 지속(+2), 손주영 블론 반복·고우석 연투 vs KIA 필승",
      "risk": "광주 21시 이후 비(5~50mm) → 후반 강우 중단·노게임 시 베트맨 특례; 양현종 볼넷 많음(BB/9 4.3) 빅이닝 위험; LG 라인업 발표 전",
-     "review": {}
+     "review": {
+      "quad": "실력",
+      "content": "점차 2",
+      "pred": "승 53%"
+     }
     },
     {
      "no": "7777",
@@ -1142,7 +1181,11 @@
      "hit": "0",
      "why": "10/12 조사 기준선 45.8(이용찬 FIP 5.26 vs 박세웅 4.26) → 48. 두산 5위 확정·WC 10/14 집중, 최종전 선발 이용찬(2020년 이후 첫 선발, 9~10월 1이닝 무실점 8경기) = 사실상 불펜데이 → 약한 선발 과대 감점 축소(+2), 두산 불펜 3일 0구·팀 ERA 1위로 신선(+2) vs 롯데 불펜 3일 170구·최준용 3일 중 2회·이이무라 연투(+1).",
      "risk": "두산 라인업(주전 휴식 여부) 발표 전; 잠실 21시 이후 비 예보 5~40mm(후반 중단·콜드)",
-     "review": {}
+     "review": {
+      "quad": "실력",
+      "content": "점차 3",
+      "pred": "패 52%"
+     }
     }
    ],
    "odds": 5.79,
@@ -1575,7 +1618,11 @@
      "hit": "1",
      "why": "10/10 롯데 탈락 LG 3위 동기 선발 미확인",
      "risk": "선발 미정 9일 결과 미확인",
-     "review": {}
+     "review": {
+      "quad": "운",
+      "content": "점차 1(접전)",
+      "pred": "패 56%"
+     }
     }
    ],
    "odds": 2.82,
@@ -1606,7 +1653,11 @@
      "hit": "0",
      "why": "정관장 2연승(무니 23·16)·김종규만 결장 vs 삼성 칸터 30점·이대성 결장·이규태 의문(결장 가정 안 함). 정관장 4쿼터 추격 허용 패턴",
      "risk": "이규태 출전",
-     "review": {}
+     "review": {
+      "quad": "오판",
+      "content": "점차 8",
+      "pred": "패 60%"
+     }
     },
     {
      "no": "7005",
@@ -1800,7 +1851,7 @@
    "hits": 0,
    "scored": false,
    "result": "",
-   "current": true
+   "current": false
   },
   {
    "round": "승무패61",

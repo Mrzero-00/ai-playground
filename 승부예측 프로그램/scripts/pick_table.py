@@ -205,11 +205,14 @@ def leg_type(p, mk, pick, top, odds, raw=None, own_top=None):
         return "✗ 내가 시장보다 높음(+%.0f)" % gap
     if odds < 1.30:
         return "✗ 배당<1.30(마진 과다, 실측 69%·86%)"
-    if odds > 2.20:
-        return "✗ 배당>2.20(실측 39%)"
+    if odds > 2.00:
+        # 2026-10-21 심층회고(124회) — core_backtest.py 1X2 1159다리 재측정.
+        # 2.00~2.20 구간은 40다리 16적중(40%)·단식 회수 85%로 119~123 다섯 회차 전부 50% 미만.
+        # 상한을 2.20→2.00 으로 내리면 코어 전체가 59.3%→63.1%, 단식 99%→101%, 2폴더 회수 81%→92%.
+        return "✗ 배당>2.00(실측 40%·회수 85%, 2026-10-21 상한 하향)"
     # 회수 200% 목표 경로 (사용자 목표 2026-10-19): 합계 4.0(다리 2.0)이면 다리 71%만 필요.
     # 실측 1.6~2.4 중 gap<=-3 & 시장 52%+ 는 14다리 79% → 2폴더 회수 170%. 표본이 작아 우선 추천 + 별도 추적.
-    if 1.60 <= odds <= 2.20 and gap <= -3 and mk >= 52:
+    if 1.60 <= odds <= 2.00 and gap <= -3 and mk >= 52:
         return "B++ 200%경로(중배당·내가 낮게 봄)"
     if 1.45 <= odds <= 1.60 or (odds <= 1.60 and gap <= -3):
         return "B+ 최적(1.45~1.6, 실측 76%·2폴더 132%)"
@@ -217,10 +220,10 @@ def leg_type(p, mk, pick, top, odds, raw=None, own_top=None):
         return "B 일치"
     if odds <= 1.90:
         return "B− 중배당(1.6~1.9, 65%)"
-    return "B− 중배당(1.9~2.2, 57%)"
+    return "B− 중배당(1.9~2.0, 52%)"
 
 
-def leg_type_fun(p, mk, pick, top, odds, raw=None, mk_all=None):
+def leg_type_fun(p, mk, pick, top, odds, raw=None, mk_all=None, kind=None, sport=None):
     """도파민(위성) 트랙 — **단식 전용**. 2026-10-19 2차 교체(측정으로 조건·구조 모두 수정).
     측정(119~123, 축구 310경기 / 역배 50다리):
       · 무 기준선(실제 무 발생률) 21.3%.
@@ -230,10 +233,18 @@ def leg_type_fun(p, mk, pick, top, odds, raw=None, mk_all=None):
       · 역배 전체 50다리 26%·회수 76% → **내−시장 ≥ +10%p 16다리 31%·회수 105%**
       · **조합 금지**: 엄선 52다리를 2폴더로 묶으면 25조합 8.0%·회수 50%(단식 102%). 36% 다리를 곱하면 깨진다.
         도파민 평균 배당 2.86이라 단식만으로 사용자 고정(합계 1.8+)을 충족한다.
-    mk_all = 시장 확률 dict(무 조건 판정에 필요)."""
+    mk_all = 시장 확률 dict(무 조건 판정에 필요).
+
+    kind/sport (2026-10-21 추가) — **측정 범위 밖 경고**. 위 숫자는 전부 '축구 승무패(1X2)' 다리로 잰 것이다.
+    124회에 이 기준을 축구 핸디캡·언더오버·전반, KBO 언더오버, 배구 세트핸디캡, NBA 승패까지 기계적으로 넓혔더니
+    승무패 다리 1/4, 그 밖 다리 1/6 이었다(채점 10건). 핸디캡·언더오버의 '내−시장 +10%p'는 승무패의 +10%p 와
+    같은 뜻이 아니다(라인이 다르면 분포 꼬리가 다르다). 범위 밖은 기록은 하되 유형에 ⚠를 달아 집계를 분리한다."""
     if p is None or mk is None or odds is None:
         return "-"
     base = raw if raw is not None else p
+    oos = ""
+    if (sport and sport != "축구") or (kind and ("핸디캡" in kind or "언더오버" in kind or "전반" in kind)):
+        oos = " ⚠측정범위밖(축구 승무패로만 측정 — 집계 분리)"
     if pick == "무":
         if not mk_all:
             return "✗ 무 판정에 시장 확률 필요"
@@ -244,14 +255,14 @@ def leg_type_fun(p, mk, pick, top, odds, raw=None, mk_all=None):
             return "✗ 시장 무<28(실측 21%)"
         if not (2.2 <= odds <= 4.5):
             return "✗ 무 배당 범위 밖(2.2~4.5)"
-        return "D 무 단식(실측 38%·배수 1.78)"
+        return "D 무 단식(실측 38%·배수 1.78)" + oos
     if top and pick == top:
         return "✗ 정배는 코어 트랙"
     if base - mk < 10:
         return "✗ 역배 근거 약함(내−시장 +%.0f < 10)" % (base - mk)
     if not (1.8 <= odds <= 4.0):
         return "✗ 역배 배당 범위 밖(1.8~4.0)"
-    return "D 역배 단식(실측 31%·회수 105%)"
+    return "D 역배 단식(실측 31%·회수 105%)" + oos
 
 
 _GRADE = None

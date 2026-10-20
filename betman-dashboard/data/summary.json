@@ -1,16 +1,16 @@
 {
- "updated": "2026-10-20 22:15",
+ "updated": "2026-10-21 07:37",
  "mode": "가상 추천 중(실투자 없음)",
  "combos_total": 22,
- "combos_scored": 18,
- "combos_hit": 4,
- "combo_rate": 0.2222222222222222,
+ "combos_scored": 19,
+ "combos_hit": 5,
+ "combo_rate": 0.2631578947368421,
  "fun_total": 15,
  "fun_scored": 0,
  "fun_hit": 0,
  "fun_rate": null,
- "legs_scored": 56,
- "leg_rate": 0.5714285714285714,
+ "legs_scored": 64,
+ "leg_rate": 0.546875,
  "by_round": {
   "120": {
    "n": 8,
@@ -29,13 +29,18 @@
    "hit": 0
   },
   "124": {
-   "n": 1,
-   "hit": 0
+   "n": 2,
+   "hit": 1
   }
  },
- "process_score": null,
- "process_n": 0,
- "quad": {},
+ "process_score": 0.475,
+ "process_n": 80,
+ "quad": {
+  "오판": 35,
+  "실력": 36,
+  "운": 8,
+  "분산": 3
+ },
  "leagues": [
   {
    "name": "EPL",
@@ -68,5 +73,5 @@
    "teams": 18
   }
  ],
- "retros": 28
+ "retros": 29
 }

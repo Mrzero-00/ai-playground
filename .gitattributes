@@ -1,2 +1,9 @@
 betman-dashboard/data/*.json merge=ours
 "승부예측 프로그램/data/과정채점.csv" merge=ours
+
+# 2026-10-21 — CSV 줄바꿈 정규화.
+# round_log.save 는 LF, grade_all·tracker·process_grade 등 csv.DictWriter 기본값은 CRLF 라
+# 두 스크립트가 번갈아 쓸 때마다 전체경기기록.csv 가 695줄 전부 바뀐 것처럼 보였고
+# (124회 회고 때 실제로 발생), PC 두 대에서 같은 파일을 합칠 때 충돌 위험이 됐다.
+# git 이 커밋 시 LF 로 통일하면 작업트리 줄바꿈과 무관하게 diff 가 깨끗해진다.
+*.csv text eol=lf

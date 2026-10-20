@@ -205,6 +205,26 @@ def evidence_checks(r, e, severe, minor):
                 minor.append(f"날짜 형식 오류: {tag}")
         if f.get("상태") not in ("확정", "의심", "추정"):
             minor.append(f"상태 누락: {tag}")
+        # 2026-10-21(124회 심층회고): CLAUDE.md 의 '추정 결장 0' 상한이 코드로 막혀 있지 않아
+        # 124회에만 '의심·추정'인데 영향 %p 를 준 요인이 53개 나왔다(맨시티 Haaland 의심 -1.9 → 5:1 승,
+        # 그 탓에 오버3.5 B+ 다리를 뺐는데 실제 6골). 확인 안 된 결장으로 확률을 움직이지 않는다.
+        # 2026-10-21(124회 심층회고): 휴식·일정 피로 요인은 방향 적중 11/51(22%)로 세 회차 연속 꼴찌다
+        # (123회 4/21·124회 5/17·승무패61 2/13, 단측 p=0.00003). 대부분 유럽대항전 직후 팀에 감점을 주는데
+        # 그 팀이 그냥 이긴다 — pi-rating 기준선이 이미 전력차를 담고, 로테이션은 강팀 뎁스로 흡수된다.
+        # 절제 실험(factor_value.py --drop 휴식)도 뺀 쪽이 낫다(1순위 +1.4%p·RPS -0.0072).
+        # → 기록은 계속하되 확률은 움직이지 않는다. 분석규칙 2026-10-21 [중간].
+        if f.get("유형") == "휴식":
+            try:
+                if float(f.get("영향") or 0) != 0:
+                    minor.append(f"'휴식' 요인에 영향 {f.get('영향')}%p (2026-10-21부터 상한 0, 기록만): {tag}")
+            except (TypeError, ValueError):
+                pass
+        if f.get("유형") == "결장" and f.get("상태") == "추정":
+            try:
+                if float(f.get("영향") or 0) != 0:
+                    minor.append(f"'추정' 결장에 영향 {f.get('영향')}%p (상한 0): {tag}")
+            except (TypeError, ValueError):
+                pass
 
 
 def grade_of(severe, minor):

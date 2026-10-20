@@ -53,7 +53,9 @@ def us_xg(lg, home_eng, away_eng, day):
 
 
 def main():
-    ap = argparse.ArgumentParser(); ap.add_argument("--round", required=True); a = ap.parse_args()
+    ap = argparse.ArgumentParser(); ap.add_argument("--round", required=True)
+    ap.add_argument("--refresh", action="store_true", help="이미 기록된 결장검증 행을 지우고 다시 대조(매칭 규칙을 고친 뒤 소급 적용)")
+    a = ap.parse_args()
     rnd = str(a.round)
     names = json.load(open(os.path.join(ROOT, "data", "team_names.json"), encoding="utf-8"))
     inp = json.load(open(os.path.join(ROOT, "data", f"입력_{rnd}.json"), encoding="utf-8")) if os.path.exists(os.path.join(ROOT, "data", f"입력_{rnd}.json")) else {}
@@ -106,6 +108,8 @@ def main():
         w = csv.DictWriter(f, fieldnames=COLS); w.writeheader(); w.writerows(old)
     # 결장 검증 — 라틴 문자 이름만 대조(한글 표기는 '미확인')
     ab = list(csv.DictReader(open(ABS_CSV, encoding="utf-8"))) if os.path.exists(ABS_CSV) else []
+    if a.refresh:
+        ab = [x for x in ab if x["회차"] != rnd]
     seen = {(x["회차"], x["번호"], x["선수"]) for x in ab}
     if os.path.exists(EVI):
         for e in csv.DictReader(open(EVI, encoding="utf-8")):
@@ -123,12 +127,26 @@ def main():
             elif not all(re.search(r"[a-z]", p) for p in parts):
                 real = "미확인(한글 이름)"
             else:
-                def tok(p):
+                # 2026-10-21 수정: 성(姓)만 대조하면 동성이인을 '출전'으로 오판한다.
+                # 124회 PSG-바르샤에서 결장이 맞은 Eric Garcia 가 로스터의 Joan Garcia 와 매칭돼
+                # '출전(선발)'로 기록됐고, 그 탓에 맞는 결장 요인이 '틀린 요인'으로 학습될 뻔했다.
+                # → 이름의 유의미한 토큰(3자 이상)이 **전부** 들어맞는 로스터 이름만 매칭으로 센다.
+                def toks(p):
                     ts = [t for t in p.split() if len(t) >= 3]
-                    return ts[-1] if ts else (p.split()[-1] if p.split() else "")
-                hits = [p for p in parts if tok(p) and any(tok(p) in plain(n) for n in roster)]
-                st = [p for p in parts if tok(p) and any(tok(p) in plain(n) for n in starters)]
-                weak = [p for p in parts if not tok(p) or len(tok(p)) < 3]
+                    return ts or ([p.split()[-1]] if p.split() else [])
+
+                def tmatch(t, n):
+                    # 부분 문자열 매칭은 azon ⊂ Sazonov 같은 오탐을 낸다 → 토큰 단위 일치(또는 5자 이상 접두)
+                    nt = plain(n).split()
+                    return any(t == x or (len(t) >= 5 and x.startswith(t)) for x in nt)
+
+                def hit_in(p, names):
+                    ts = toks(p)
+                    return bool(ts) and any(all(tmatch(t, n) for t in ts) for n in names)
+
+                hits = [p for p in parts if hit_in(p, roster)]
+                st = [p for p in parts if hit_in(p, starters)]
+                weak = [p for p in parts if not any(len(t) >= 3 for t in toks(p))]
                 real = "출전(선발)" if st else "명단 포함(벤치)" if hits else ("미확인(이름 매칭 실패)" if weak else "결장 맞음")
             ab.append({"회차": rnd, "번호": e["번호"], "경기": e["경기"], "팀": e["팀"], "선수": e["선수"], "요인상태": e["상태"], "실제": real,
                        "근거": "ESPN 명단", "수집": now})

@@ -14,3 +14,7 @@
 - 10-21 04:00 vs FK보되 글림트: 휴식 7.0일 · 직전 10-14 원정 vs Villarreal 1-3 패 [uefa.champions] · xG 시즌7경기 xG2.14/xGA1.15 npxGD+0.77 · 최근5 2.56/1.3 (+0.96) · 홈1.33/원정0.34 · xPts14.3 vs 승점10 · 직전 선발 3-4-2-1 Vanja Milinkovic-Savic, Amir Rrahmani, Benoît Badiashile, Rafa Marín, Scott McTominay, Billy Gilmour, Giovanni Di Lorenzo, Matteo Politano, Rasmus Højlund, Giovane, Kevin De Bruyne · 구장 스타디오 디에고 아르만도 마라도나 · 이동 2941km · 고도 35m(차 +16m) · 20.6℃ 강수0mm(5%) 바람5.1km/h · ⚠ 장거리 원정 2941km
 <!-- INPUTS:END -->
 
+### 2026-10-21 회고 — 124회 9508 보되 글림트전 4:3 승 (적중, 추천 다리)
+- **맞은 근거(강화)**: 기준선 33.8%는 보되(엘리테세리엔)를 과대평가한 값이라 보고 +13.5%p 올려 47.3%로 추천했다. 시장(59.7%)보다 낮게 본 B 다리였고 적중 — '내가 시장보다 낮게 본 경기가 잘 맞는다'의 사례.
+- 단서: 그래도 **3실점**(보되 유효 6·점유 56.8%)이다. 보되가 약해서 이긴 게 아니라 나폴리 화력으로 이겼다 → 같은 대진에서 **언더·클린시트 쪽은 피한다**.
+- 리그 보정: **노르웨이 엘리테세리엔 팀의 pi-rating은 UCL에서 과대평가된다**(보되). `euro_baseline` 리그 강도 오프셋 후보로 적어 둔다.

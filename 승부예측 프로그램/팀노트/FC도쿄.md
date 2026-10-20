@@ -9,7 +9,7 @@
 <!-- FACTS:END -->
 <!-- INPUTS:START -->
 ## 입력(자동 수집 2026-10-20) — xG·휴식일·라인업·환경(이동거리·고도·날씨)은 이 숫자를 쓴다
-- 10-21 19:00 vs 가시와 레이솔: 휴식 11.2일 · 직전 10-10 홈 vs Urawa Red Diamonds 3-0 승 [jpn.1] · xG - · 직전 선발 4-4-2 Kim Seung-Gyu, Hayato Inamura, Alexander Scholz, Kashifu Bangunagande, Hirokazu Ishikara, Kyota Tokiwa, Shuto Nagano, Kota Tawaratsumida, Soma Anzai, Motoki Nagakura, Marcelo Ryan · 구장 아지노모토 스타디움 · 이동 45km · 고도 66m(차 +42m) · 24.8℃ 강수0mm(1%) 바람13.8km/h
+- 10-21 19:00 vs 가시와 레이솔: 휴식 11.2일 · 직전 10-10 홈 vs Urawa Red Diamonds 3-0 승 [jpn.1] · xG - · 직전 선발 4-4-2 Kim Seung-Gyu, Hayato Inamura, Alexander Scholz, Kashifu Bangunagande, Hirokazu Ishikara, Kyota Tokiwa, Shuto Nagano, Kota Tawaratsumida, Soma Anzai, Motoki Nagakura, Marcelo Ryan · 구장 아지노모토 스타디움 · 이동 45km · 고도 66m(차 +42m) · 24.8℃ 강수0mm(4%) 바람13.8km/h
 <!-- INPUTS:END -->
 
 ## 성향

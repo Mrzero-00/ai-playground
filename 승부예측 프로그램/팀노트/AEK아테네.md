@@ -10,6 +10,6 @@
 <!-- FACTS:END -->
 <!-- INPUTS:START -->
 ## 입력(자동 수집 2026-10-20) — xG·휴식일·라인업·환경(이동거리·고도·날씨)은 이 숫자를 쓴다
-- 10-21 04:00 vs 맨체스터 시티: 휴식 6.0일(7일 1경기) · 직전 10-15 원정 vs Shakhtar Donetsk 1-3 패 [uefa.champions] · xG - · 직전 선발 4-4-2 Alberto Brignoli, Filipe Relvas, Harold Moukoudi, Stavros Pilios, Lazaros Rota, Razvan Marin, Milán Vitális, Aboubakary Koita, Lovro Majer, Luka Jovic, Zini · 구장 시티 오브 맨체스터 스타디움 · 이동 2620km · 고도 57m(차 -46m) · 11.3℃ 강수0.1mm(91%) 바람4.3km/h · ⚠ 장거리 원정 2620km, 비 0.1mm(91%)
+- 10-21 04:00 vs 맨체스터 시티: 휴식 6.0일(7일 1경기) · 직전 10-15 원정 vs Shakhtar Donetsk 1-3 패 [uefa.champions] · xG - · 직전 선발 4-4-2 Alberto Brignoli, Filipe Relvas, Harold Moukoudi, Stavros Pilios, Lazaros Rota, Razvan Marin, Milán Vitális, Aboubakary Koita, Lovro Majer, Luka Jovic, Zini · 구장 시티 오브 맨체스터 스타디움 · 이동 2620km · 고도 57m(차 -46m) · 10.9℃ 강수0mm(100%) 바람5.8km/h · ⚠ 장거리 원정 2620km, 비 0mm(100%)
 <!-- INPUTS:END -->
 

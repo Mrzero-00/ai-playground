@@ -1,0 +1,160 @@
+{
+  "번호": "9528",
+  "홈": "뉴욕 닉스",
+  "원정": "필라델피아 76ers",
+  "수집시각": "2026-10-20T00:00:00+09:00",
+  "종목": "NBA",
+  "결장": [
+    {
+      "팀": "필라델피아 76ers",
+      "선수": "Ariel Hukporti",
+      "포지션": "C",
+      "상태": "시즌 아웃",
+      "사유": "아킬레스건 파열",
+      "출전시간_득점비중": "로테이션 외곽 선수",
+      "출처": ["https://sports.yahoo.com/articles/76ers-face-challenge-major-knicks-213355520.html", "https://www.libertyballers.com/76ers-injury-report/99328/philadelphia-sixers-injuries-dominick-barlow-first-apron-cap"],
+      "기사날짜": "2026-10-19"
+    },
+    {
+      "팀": "필라델피아 76ers",
+      "선수": "Dominick Barlow",
+      "포지션": "F",
+      "상태": "결장",
+      "사유": "허리 부상, 최소 2주 후 재평가",
+      "출전시간_득점비중": "로테이션 외곽 선수",
+      "출처": ["https://www.libertyballers.com/76ers-injury-report/99328/philadelphia-sixers-injuries-dominick-barlow-first-apron-cap"],
+      "기사날짜": "2026-10-19"
+    },
+    {
+      "팀": "필라델피아 76ers",
+      "선수": "Tacko Fall",
+      "포지션": "C",
+      "상태": "결장",
+      "사유": "고관절/엉덩이 부상(일부 기사는 허벅지·quad로 표기, 표현 엇갈림)",
+      "출전시간_득점비중": "로테이션 외곽 선수",
+      "출처": ["https://fubo.tv/news/nba/philadelphia-76ers-at-new-york-knicks-where-to-watch-stream-info-tv-channel-and-live-updates-october-20-2026", "https://heavy.com/sports/nba/philadelphia-76ers/76ers-lineup-decision-knicks-preseason-opener/"],
+      "기사날짜": "2026-10-19"
+    },
+    {
+      "팀": "필라델피아 76ers",
+      "선수": "Adem Bona",
+      "포지션": "C/F",
+      "상태": "의문(questionable)",
+      "사유": "발 부상",
+      "출전시간_득점비중": "로테이션",
+      "출처": ["https://www.espn.com/nba/injuries"],
+      "기사날짜": "2026-10-19"
+    },
+    {
+      "팀": "필라델피아 76ers",
+      "선수": "Anfernee Simons",
+      "포지션": "G",
+      "상태": "의문(questionable)",
+      "사유": "좌측 햄스트링 뻣뻣함·통증",
+      "출전시간_득점비중": "로테이션 가드",
+      "출처": ["https://sports.yahoo.com/articles/philadelphia-76ers-announce-anfernee-simons-001150734.html"],
+      "기사날짜": "2026-10-19"
+    },
+    {
+      "팀": "필라델피아 76ers",
+      "선수": "Dean Wade",
+      "포지션": "F",
+      "상태": "의문(questionable)",
+      "사유": "발목 부상",
+      "출전시간_득점비중": "로테이션",
+      "출처": ["https://www.espn.com/nba/injuries"],
+      "기사날짜": "2026-10-19"
+    },
+    {
+      "팀": "뉴욕 닉스",
+      "선수": "Josh Hart",
+      "포지션": "G/F",
+      "상태": "프리시즌 결장했으나 개막전 출전 가능",
+      "사유": "우측 발목 통증(프리시즌 파이널 경기 결장)",
+      "출전시간_득점비중": "주전급",
+      "출처": ["https://heavy.com/sports/nba/new-york-knicks/knicks-josh-hart-injury-update-76ers-opener/"],
+      "기사날짜": "2026-10-19"
+    },
+    {
+      "팀": "뉴욕 닉스",
+      "선수": "전원",
+      "포지션": "-",
+      "상태": "NBA 공식 인저리 리포트에 닉스 선수 0명 — 전원 건강, 연습 전원 참가(마이크 브라운 감독 코멘트)",
+      "사유": "-",
+      "출전시간_득점비중": "-",
+      "출처": ["https://fubo.tv/news/nba/philadelphia-76ers-at-new-york-knicks-where-to-watch-stream-info-tv-channel-and-live-updates-october-20-2026"],
+      "기사날짜": "2026-10-19"
+    }
+  ],
+  "라인업": {
+    "홈_예상선발": {
+      "확인됨": false,
+      "비고": "닉스 구체적 예상 선발 명단은 검색에서 확인 못함(못찾음). 전원 건강 상태로 주전 베이스 유지 추정.",
+      "출처": []
+    },
+    "원정_예상선발": {
+      "확인됨": true,
+      "명단": ["LeBron James(G/F)", "Tyrese Maxey(G)", "Jaylen Brown(F)", "VJ Edgecombe(G)", "Joel Embiid(C)"],
+      "비고": "복수 매체가 동일하게 보도. LeBron James는 부상 명단 제외로 출전 예정(코멘트: '피했다 injury designation').",
+      "출처": ["https://fubo.tv/news/nba/philadelphia-76ers-at-new-york-knicks-where-to-watch-stream-info-tv-channel-and-live-updates-october-20-2026", "https://heavy.com/sports/nba/philadelphia-76ers/lebron-james-playing-knicks-opener"],
+      "기사날짜": "2026-10-19"
+    }
+  },
+  "팀기록": {
+    "홈": {
+      "2026-27_시즌": "정규시즌 개막전 — 경기 전 0승0패(표본 0)",
+      "비고": "2025-26시즌 NBA 챔피언(디펜딩 챔피언) 자격으로 '밴너 올리는(banner-raising)' 개막전 치름",
+      "출처": ["https://thelibertyline.com/2026/10/20/game-preview-sixers-knicks", "https://postingandtoasting.com/knicks-game-previews/90094/ring-night-preview-knicks-vs-76ers-october-20-2026"],
+      "기사날짜": "2026-10-19"
+    },
+    "원정": {
+      "2026-27_시즌": "정규시즌 개막전 — 경기 전 0승0패(표본 0)",
+      "비고": "오프시즌 대규모 영입(LeBron James, Jaylen Brown, VJ Edgecombe 등)으로 로스터 개편",
+      "출처": ["https://libertyballers.com/76ers-game-previews/99319/season-of-a-lifetime-begins-sixers-defending-champion-new-york-knicks-philadelphia-76ers-nba"],
+      "기사날짜": "2026-10-19"
+    }
+  },
+  "직전시즌참고": {
+    "비고": "2025-26시즌: 뉴욕 닉스 NBA 챔피언(기사상 '디펜딩 챔피언', 'banner-raising'으로 표현). 필라델피아 76ers의 2025-26시즌 성적은 검색에서 구체적으로 확인 못함(못찾음).",
+    "출처": ["https://thelibertyline.com/2026/10/20/game-preview-sixers-knicks"],
+    "기사날짜": "2026-10-19"
+  },
+  "최근경기": [
+    {
+      "구분": "양팀 모두 정규시즌 첫 경기(시즌 개막전), 직전 프리시즌 경기만 존재",
+      "출처": ["https://fubo.tv/news/nba/philadelphia-76ers-at-new-york-knicks-where-to-watch-stream-info-tv-channel-and-live-updates-october-20-2026"],
+      "기사날짜": "2026-10-19"
+    }
+  ],
+  "일정": [
+    {
+      "구분": "개막전(Opening Night)",
+      "장소": "Madison Square Garden (뉴욕)",
+      "비고": "닉스 '밴너 올리는 날(Ring Night)' 행사 동반, 76ers는 시즌 첫 경기",
+      "출처": ["https://postingandtoasting.com/knicks-game-previews/90094/ring-night-preview-knicks-vs-76ers-october-20-2026"],
+      "기사날짜": "2026-10-19"
+    }
+  ],
+  "감독": {
+    "홈": {"이름": "Mike Brown(마이크 브라운)", "출처": ["https://fubo.tv/news/nba/philadelphia-76ers-at-new-york-knicks-where-to-watch-stream-info-tv-channel-and-live-updates-october-20-2026"], "기사날짜": "2026-10-19"},
+    "원정": {"이름": "확인 못함(못찾음)", "출처": [], "기사날짜": ""}
+  },
+  "로스터변화": [
+    {
+      "팀": "필라델피아 76ers",
+      "내용": "오프시즌 LeBron James, Jaylen Brown, VJ Edgecombe 등 영입(대규모 로스터 개편). Joel Embiid·Tyrese Maxey와 함께 선발 라인업 구성.",
+      "출처": ["https://libertyballers.com/76ers-game-previews/99319/season-of-a-lifetime-begins-sixers-defending-champion-new-york-knicks-philadelphia-76ers-nba"],
+      "기사날짜": "2026-10-19"
+    }
+  ],
+  "엇갈림": [
+    "Tacko Fall 부상 부위 표기가 기사마다 'hip(고관절)' vs 'quad(허벅지)'로 다름.",
+    "경기 일자 표기 혼선: 요청 번호 9528은 'KST 2026-10-21 새벽'으로 전달됐으나, 미국 현지 기사들은 전부 'October 20, 2026'(미 동부시간 저녁 개막전)으로 보도 — 미국 10/20 저녁 경기가 한국시간 10/21 새벽으로 넘어오는 것과 일치. 같은 경기로 판단."
+  ],
+  "못찾음": [
+    "필라델피아 76ers 감독 이름",
+    "뉴욕 닉스 구체적 예상 선발 5인",
+    "필라델피아 76ers 2025-26시즌 정규시즌 성적"
+  ],
+  "뉴스없음": {}
+}

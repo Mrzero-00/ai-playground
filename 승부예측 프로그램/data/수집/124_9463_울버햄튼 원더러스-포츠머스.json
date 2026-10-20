@@ -1,0 +1,186 @@
+{
+  "번호": "9463",
+  "홈": "울버햄튼 원더러스",
+  "원정": "포츠머스",
+  "대회": "잉글랜드 챔피언십",
+  "킥오프": "2026-10-21 03:45 KST (2026-10-20 19:45 BST)",
+  "장소": "몰리뉴 스타디움",
+  "수집시각": "2026-10-20T21:00:00+09:00",
+  "결장": [
+    {
+      "팀": "울버햄튼 원더러스",
+      "선수": "Raúl Jiménez",
+      "포지션": "FW",
+      "이번시즌_선발/경기": "미상(기존 팀노트: EFL컵 에버턴전에서 무릎 부상)",
+      "득점·도움": "미상",
+      "사유": "무릎 수술(장기)",
+      "상태": "확정(복수 소스)",
+      "복귀예정": "새해(2027년) 이후",
+      "대체선수": "Rafiki Said / Sean Neave",
+      "출처": ["https://www.portsmouth.co.uk/sport/football/portsmouth-fc/portsmouth-fc-news-injury-latest-raul-jimenez-surgery-wolves-championship-9289425", "https://thehardtackle.com/round-up/2026/10/19/wolves-vs-portsmouth-preview-prediction-probable-lineups-tactics-team-news-key-stats/"],
+      "날짜": "2026-10-19"
+    },
+    {
+      "팀": "울버햄튼 원더러스",
+      "선수": "Adam Armstrong",
+      "포지션": "FW(주공격수)",
+      "이번시즌_선발/경기": "주전급(신규 영입 주공격 자원)",
+      "득점·도움": "미상",
+      "사유": "허리 부상",
+      "상태": "확정(결장 또는 결장 유력 — 출처 간 '아웃'/'의심' 표기 혼재, 엇갈림 참고)",
+      "복귀예정": "미상",
+      "대체선수": "Rafiki Said",
+      "출처": ["https://thehardtackle.com/round-up/2026/10/19/wolves-vs-portsmouth-preview-prediction-probable-lineups-tactics-team-news-key-stats/", "https://www.expressandstar.com/sport/wolves-v-portsmouth-visitors-checking-on-striker-amid-injury-crisis-9296205"],
+      "날짜": "2026-10-19"
+    },
+    {
+      "팀": "울버햄튼 원더러스",
+      "선수": "Rodrigo Gomes",
+      "포지션": "MF/WF",
+      "이번시즌_선발/경기": "미상",
+      "득점·도움": "미상",
+      "사유": "발목 부상",
+      "상태": "확정",
+      "복귀예정": "미상",
+      "대체선수": "-",
+      "출처": ["https://thehardtackle.com/round-up/2026/10/19/wolves-vs-portsmouth-preview-prediction-probable-lineups-tactics-team-news-key-stats/"],
+      "날짜": "2026-10-19"
+    },
+    {
+      "팀": "울버햄튼 원더러스",
+      "선수": "Boubacar Traoré",
+      "포지션": "MF",
+      "이번시즌_선발/경기": "미상",
+      "득점·도움": "미상",
+      "사유": "종아리 부상",
+      "상태": "확정",
+      "복귀예정": "미상",
+      "대체선수": "-",
+      "출처": ["https://thehardtackle.com/round-up/2026/10/19/wolves-vs-portsmouth-preview-prediction-probable-lineups-tactics-team-news-key-stats/"],
+      "날짜": "2026-10-19"
+    },
+    {
+      "팀": "울버햄튼 원더러스",
+      "선수": "Bertrand Traoré",
+      "포지션": "FW",
+      "이번시즌_선발/경기": "미상",
+      "득점·도움": "미상",
+      "사유": "햄스트링 부상",
+      "상태": "확정",
+      "복귀예정": "미상",
+      "대체선수": "-",
+      "출처": ["https://thehardtackle.com/round-up/2026/10/19/wolves-vs-portsmouth-preview-prediction-probable-lineups-tactics-team-news-key-stats/"],
+      "날짜": "2026-10-19"
+    },
+    {
+      "팀": "포츠머스",
+      "선수": "Keshi Anderson",
+      "포지션": "FW/MF",
+      "이번시즌_선발/경기": "미상(주공격 자원으로 보도)",
+      "득점·도움": "미상",
+      "사유": "10-14 셰필드 유나이티드전에서 햄스트링 파열",
+      "상태": "확정(복수 소스)",
+      "복귀예정": "6~8주",
+      "대체선수": "-",
+      "출처": ["https://sports.yahoo.com/articles/mousinho-reveals-more-bad-injury-191800394.html", "https://hayters.com/mousinho-reveals-more-bad-injury-news-but-is-delighted-with-portsmouths-win-over-norwich/"],
+      "날짜": "2026-10-17"
+    },
+    {
+      "팀": "포츠머스",
+      "선수": "Colby Bishop",
+      "포지션": "FW",
+      "이번시즌_선발/경기": "미상",
+      "득점·도움": "미상",
+      "사유": "10-17 노리치전 워밍업 중 무릎 불편감으로 출전 명단 제외",
+      "상태": "확정(결장 유력, 의문부 잔존)",
+      "복귀예정": "미상",
+      "대체선수": "-",
+      "출처": ["https://sports.yahoo.com/articles/mousinho-reveals-more-bad-injury-191800394.html", "https://thehardtackle.com/round-up/2026/10/19/wolves-vs-portsmouth-preview-prediction-probable-lineups-tactics-team-news-key-stats/"],
+      "날짜": "2026-10-19"
+    },
+    {
+      "팀": "포츠머스",
+      "선수": "Conor Shaughnessy",
+      "포지션": "CB",
+      "이번시즌_선발/경기": "미상",
+      "득점·도움": "미상",
+      "사유": "9월 말 블랙번전(2-2) 서혜부 부상",
+      "상태": "확정 — '장기는 아니다'는 감독 발언 있으나 복귀 시점 미정",
+      "복귀예정": "미상(장기 아님)",
+      "대체선수": "-",
+      "출처": ["https://www.portsmouth.co.uk/sport/football/portsmouth-fc/portsmouth-fc-news-injury-update-keshi-anderson-john-mousinho-sheffield-united-birmingham-9294287"],
+      "날짜": "2026-10-19"
+    },
+    {
+      "팀": "포츠머스",
+      "선수": "John Swift, Luke Brooke-Smith, Franco Umeh, Thomas Waddingham, Connor Ogilvie, Benjamin Arthur, Mark Kosznovszky",
+      "포지션": "다수(MF·DF 등)",
+      "이번시즌_선발/경기": "미상",
+      "득점·도움": "-",
+      "사유": "부상(세부 사유 개별 미확인) — 보도에 '최대 9명 결장 가능' 명시",
+      "상태": "확정(결장 명단에 포함, 구체 사유는 일부만 확인됨)",
+      "복귀예정": "미상",
+      "대체선수": "-",
+      "출처": ["https://thehardtackle.com/round-up/2026/10/19/wolves-vs-portsmouth-preview-prediction-probable-lineups-tactics-team-news-key-stats/", "https://www.expressandstar.com/sport/wolves-v-portsmouth-visitors-checking-on-striker-amid-injury-crisis-9296205"],
+      "날짜": "2026-10-19"
+    }
+  ],
+  "라인업": {
+    "홈": {
+      "발표여부": "미발표(예상 라인업)",
+      "예상XI": "Sá; Tchatchoua, Djiga, Toti, Konan; Munetsi, André; Mané, López, Said; Neave",
+      "포메이션": "4-2-3-1",
+      "비고": "직전(10-17 번리전 2-1 승) 선발과 비교 시 Fernando López가 Bellegarde 자리, Rafiki Said가 Armstrong 결장 공백 메우는 구성으로 예상",
+      "출처": "https://thehardtackle.com/round-up/2026/10/19/wolves-vs-portsmouth-preview-prediction-probable-lineups-tactics-team-news-key-stats/",
+      "날짜": "2026-10-19"
+    },
+    "원정": {
+      "발표여부": "미발표(예상 라인업)",
+      "예상XI": "Schmid; Swanson, Poole, Dia, Meghoma; Adams, Pack; Kamara, Segecic, Kavuma-McQueen; Marezi(Milovanović로 추정, 표기 엇갈림)",
+      "포메이션": "4-2-3-1",
+      "비고": "Bishop 결장으로 최전방에 변화 예상(출처는 'Marezi'로 표기했으나 직전 경기 기록·팀노트에는 해당 이름 없음 — Milovanović 오기 가능성, 엇갈림 참고)",
+      "출처": "https://thehardtackle.com/round-up/2026/10/19/wolves-vs-portsmouth-preview-prediction-probable-lineups-tactics-team-news-key-stats/",
+      "날짜": "2026-10-19"
+    }
+  },
+  "최근경기": [
+    {"팀": "울버햄튼 원더러스", "날짜": "2026-10-10", "상대": "Middlesbrough", "장소": "원정", "스코어": "0-1 패", "비고": "챔피언십"},
+    {"팀": "울버햄튼 원더러스", "날짜": "2026-10-13", "상대": "Bolton Wanderers", "장소": "홈", "스코어": "1-3 패", "비고": "챔피언십, xG 2.27 기록에도 패배"},
+    {"팀": "울버햄튼 원더러스", "날짜": "2026-10-17", "상대": "Burnley", "장소": "원정", "스코어": "2-1 승", "비고": "챔피언십, 번리에 0-1 뒤진 후 역전승(번리 원정 최근 8번 무승 기록 종료) [eng.2]"},
+    {"팀": "포츠머스", "날짜": "2026-10-11", "상대": "Southampton", "장소": "원정", "스코어": "0-1 패", "비고": "챔피언십, 사우스코스트 더비"},
+    {"팀": "포츠머스", "날짜": "2026-10-14", "상대": "Sheffield United", "장소": "홈(Fratton Park)", "스코어": "3-2 승", "비고": "챔피언십, 상대 1명 퇴장 상태에서 승리, 이 경기서 Keshi Anderson 햄스트링 부상"},
+    {"팀": "포츠머스", "날짜": "2026-10-17", "상대": "Norwich City", "장소": "원정", "스코어": "1-0 승", "비고": "챔피언십, Marko Milovanović 페널티킥 결승골 [eng.2]"}
+  ],
+  "순위": {
+    "홈": "챔피언십 8위, 10경기 5승2무3패 GD+3 승점17 (10-20 번리전 승리 반영분 포함 여부 재확인 필요 — 팩트시트 자동수집 2026-10-20 기준)",
+    "원정": "챔피언십 13위, 10경기 4승2무4패 GD0 승점14 (팩트시트 자동수집 2026-10-19 기준, 10-17 노리치 승리분 반영)",
+    "출처": "팀노트 FACTS 블록(ESPN 자동수집)",
+    "날짜": "2026-10-19~20"
+  },
+  "감독": {
+    "홈": "César Peixoto",
+    "원정": "John Mousinho",
+    "변동": "없음",
+    "출처": "팀노트 FACTS 블록",
+    "날짜": "2026-10-19~20"
+  },
+  "일정·동기·기타": [
+    {"내용": "포츠머스는 셰필드 유나이티드·노리치 연승으로 2연승 중 원정. 울버햄튼은 번리 원정 역전승 후 연속 홈경기.", "출처": "https://www.goal.com/en-gb/news/live-stream-online-tv-where-to-watch-wolverhampton-wanderers-v-portsmouth/blt9afaa9acdc5f7c86", "날짜": "2026-10-19~20"},
+    {"내용": "포츠머스는 부상자 최대 9명으로 '스트레치드 스쿼드' 상태로 원정 이동(미드랜드 지역, 블랙 컨트리).", "출처": "https://www.expressandstar.com/sport/wolves-v-portsmouth-visitors-checking-on-striker-amid-injury-crisis-9296205", "날짜": "2026-10-19"},
+    {"내용": "감독 Mousinho는 Conor Shaughnessy의 복귀를 '장기는 아니다'라고 언급(복귀 시점은 특정하지 않음).", "출처": "https://www.portsmouth.co.uk/sport/football/portsmouth-fc/portsmouth-fc-news-injury-update-keshi-anderson-john-mousinho-sheffield-united-birmingham-9294287", "날짜": "2026-10-19"}
+  ],
+  "엇갈림": [
+    "Adam Armstrong 상태가 출처마다 '결장 확정'과 '의심(doubtful)'으로 다르게 표기됨 — 팀노트(10-16)는 결장 확정 톤, thehardtackle(10-19)은 doubtful로 표기.",
+    "경기장 관련 입력값(구장·이동거리·고도·날씨)이 두 팀노트에 동일하게 '몰리뉴 스타디움·213km·135m'로 기록돼 있으나 포츠머스 입장에서는 이동거리 수치가 울버햄튼 기준(홈팀 기준 수치의 원정팀 적용 오류 가능성)일 수 있어 재확인 필요.",
+    "포츠머스 예상 라인업 최전방 'Marezi' 표기 — 팀노트·최근 선발 명단에는 해당 이름이 없어 Milovanović 오기로 추정(엇갈림)."
+  ],
+  "못찾음": [
+    "양팀 공식 발표 선발 XI(킥오프 임박 전까지 미발표)",
+    "울버햄튼·포츠머스 이번 시즌 개인별 xG·슈팅 세부 기록",
+    "정확한 킥오프 시각(현지 보도 간 '14:45'·'Tuesday evening' 등 표기 불일치, 과제 지정 03:45 KST 기준으로 기록)"
+  ],
+  "뉴스없음": {
+    "홈": "해당 없음(결장 뉴스 다수 확인됨)",
+    "원정": "해당 없음(결장 뉴스 다수 확인됨)"
+  }
+}

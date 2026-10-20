@@ -10,7 +10,7 @@
 <!-- FACTS:END -->
 <!-- INPUTS:START -->
 ## 입력(자동 수집 2026-10-20) — xG·휴식일·라인업·환경(이동거리·고도·날씨)은 이 숫자를 쓴다
-- 10-21 19:00 vs 반포레 고후: 휴식 4.2일(7일 1경기) · 직전 10-17 원정 vs JEF United Ichihara-Chiba 0-0 무 [jpn.1] · xG - · 직전 선발 4-2-3-1 Il-Kyu Park, Kosei Suwama, Jeisson Quiñones, Toichi Suzuki, Takuto Kimura, Jun Amano, Kosuke Matsumura, Riku Yamane, Kaina Tanimura, Ryo Miyaichi, Tomoki Kondo · 구장 JIT Recycle Ink Stadium · 이동 93km · 고도 257m(차 +211m) · 25.6℃ 강수0mm(27%) 바람11.4km/h
+- 10-21 19:00 vs 반포레 고후: 휴식 4.2일(7일 1경기) · 직전 10-17 원정 vs JEF United Ichihara-Chiba 0-0 무 [jpn.1] · xG - · 직전 선발 4-2-3-1 Il-Kyu Park, Kosei Suwama, Jeisson Quiñones, Toichi Suzuki, Takuto Kimura, Jun Amano, Kosuke Matsumura, Riku Yamane, Kaina Tanimura, Ryo Miyaichi, Tomoki Kondo · 구장 JIT Recycle Ink Stadium · 이동 93km · 고도 257m(차 +211m) · 25.5℃ 강수0mm(37%) 바람11.9km/h
 <!-- INPUTS:END -->
 
 - 2026-10-13 조사: 2026 J2리그 5위(9경기 5승2무2패, 득점18·실점11, 득실+7) — 최근 전 대회 연승세: 10/7 천황배3회전 @후쿠오카 1-0승, 10/4 J2 9절 @하치노헤 2-0승, 9/29 르방컵1라운드2회전 @기후 2-1승, 9/26 J2 8절 @도야마 3-3무. 10/14(수) 18:30 니파츠미츠사와(홈)에서 르방컵1라운드3회전 우라와 레드전(토너먼트 준결승 아닌 조별 3번째 경기). pi-rating 기준선(scripts/soccer_baseline.py)은 31.3/30.2/38.5(우라와 근소 우위)로 J1·J2 격차에도 요코하마FC 홈 경쟁력이 확인됨. 확정 결장 보도 없음. 출처: [football-lab.jp/y-fc](https://www.football-lab.jp/y-fc), [yokohamafc.com](https://yokohamafc.com/2025/09/30/261014_urawa_ticket/)

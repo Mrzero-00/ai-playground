@@ -8,6 +8,6 @@
 <!-- FACTS:END -->
 <!-- INPUTS:START -->
 ## 입력(자동 수집 2026-10-20) — xG·휴식일·라인업·환경(이동거리·고도·날씨)은 이 숫자를 쓴다
-- 10-21 19:00 vs 쇼난 벨마레: 휴식 ?(ESPN 미제공 리그 — 직접 확인) · 직전 - · xG - · 구장 Shonan BMW Stadium Hiratsuka · 이동 227km · 고도 9m(차 -44m) · 25.2℃ 강수0mm(19%) 바람19.0km/h
+- 10-21 19:00 vs 쇼난 벨마레: 휴식 ?(ESPN 미제공 리그 — 직접 확인) · 직전 - · xG - · 구장 Shonan BMW Stadium Hiratsuka · 이동 227km · 고도 9m(차 -44m) · 25.3℃ 강수0mm(20%) 바람19.5km/h
 <!-- INPUTS:END -->
 

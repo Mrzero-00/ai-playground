@@ -10,6 +10,6 @@
 <!-- FACTS:END -->
 <!-- INPUTS:START -->
 ## 입력(자동 수집 2026-10-20) — xG·휴식일·라인업·환경(이동거리·고도·날씨)은 이 숫자를 쓴다
-- 10-21 04:00 vs SK슬로반 브라티슬라바: 휴식 6.0일(7일 1경기) · 직전 10-15 홈 vs Real Madrid 3-4 패 [uefa.champions] · xG 시즌7경기 xG2.66/xGA1.13 npxGD+1.53 · 최근5 2.15/1.29 (+0.86) · 홈1.72/원정1.28 · xPts15.4 vs 승점17 · 직전 선발 3-4-2-1 Pierluigi Gollini, Evan Ndicka, Mario Hermoso, Gianluca Mancini, Manu Koné, Marten de Roon, Nahuel Molina, Wesley, Donyell Malen, Paulo Dybala, Matìas Soulè · 구장 ? · 이동 ?(구장 미확인) · 고도 ?m · 날씨 -
+- 10-21 04:00 vs SK슬로반 브라티슬라바: 휴식 6.0일(7일 1경기) · 직전 10-15 홈 vs Real Madrid 3-4 패 [uefa.champions] · xG 시즌7경기 xG2.66/xGA1.13 npxGD+1.53 · 최근5 2.15/1.29 (+0.86) · 홈1.72/원정1.28 · xPts15.4 vs 승점17 · 직전 선발 3-4-2-1 Pierluigi Gollini, Evan Ndicka, Mario Hermoso, Gianluca Mancini, Manu Koné, Marten de Roon, Nahuel Molina, Wesley, Donyell Malen, Paulo Dybala, Matìas Soulè · 구장 스타디오 올림피코 · 이동 ?(구장 미확인) · 고도 17m · 19.7℃ 강수0mm(33%) 바람4.2km/h
 <!-- INPUTS:END -->
 

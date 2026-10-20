@@ -95,12 +95,16 @@ def build(out):
     recs = [r for r in rec if r.get("구분") in ("추천", "도파민")]
     combos = collections.defaultdict(list)
     for r in recs:
-        combos[(r["회차"], r.get("조합") or "(단일)", r.get("구분") or "추천")].append(r)
+        kind = r.get("구분") or "추천"
+        key = (r["회차"], (r.get("조합") or "(단일)") + (f" · {r['번호']}" if kind == "도파민" else ""), kind)   # 도파민은 단식 전용이라 다리별 분리 (2026-10-20)
+        combos[key].append(r)
     now = dt.datetime.now()
     combo_rows = []
     for (rnd, title, kind), legs in combos.items():
         scored = all(l.get("적중") in ("0", "1") for l in legs)
         last_time = max(l.get("시각", "") for l in legs)
+        # 마지막 경기 킥오프가 지났으면 더 이상 '진행 중'이 아니다(채점 대기). 하루 지나도 미채점이면 stale.
+        started = bool(last_time) and last_time[:16] <= now.strftime("%Y-%m-%d %H:%M")
         stale = (not scored) and bool(last_time) and last_time[:16] < (now - dt.timedelta(days=1)).strftime("%Y-%m-%d %H:%M")
         hit = all(l.get("적중") == "1" for l in legs) if scored else None
         odds = 1.0
@@ -131,11 +135,11 @@ def build(out):
                     close = (dt.datetime.strptime(min(l.get("시각", "") for l in legs)[:16], "%Y-%m-%d %H:%M") - dt.timedelta(minutes=10)).strftime("%Y-%m-%d %H:%M")
                 except ValueError:
                     close = ""
-        combo_rows.append({"round": rnd, "title": title, "track": kind, "close": close, "legs": leg_out, "odds": round(odds, 2), "prob": prob, "scored": scored, "stale": stale, "hit": hit,
+        combo_rows.append({"round": rnd, "title": title, "track": kind, "close": close, "legs": leg_out, "odds": round(odds, 2), "prob": prob, "scored": scored, "stale": stale, "started": started, "hit": hit,
                            "bought": any(fnum(l.get("구매")) for l in legs), "time": min(l.get("시각", "") for l in legs), "n": len(legs)})
     combo_rows.sort(key=lambda c: (c["round"], c["time"]), reverse=True)
-    current = [c for c in combo_rows if not c["scored"] and not c["stale"]]
-    past = [c for c in combo_rows if c["scored"] or c["stale"]]
+    current = [c for c in combo_rows if not c["scored"] and not c["stale"] and not c["started"]]
+    past = [c for c in combo_rows if c["scored"] or c["stale"] or c["started"]]
     core = [c for c in combo_rows if c.get("track") != "도파민"]
     fun = [c for c in combo_rows if c.get("track") == "도파민"]
     sc = [c for c in core if c["scored"] and c["n"] >= 2]

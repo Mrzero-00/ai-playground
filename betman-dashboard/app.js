@@ -50,7 +50,7 @@ function comboCard(c, past) {
   return `<div class="card combo">
     <div class="chead"><b>${esc(c.round)}회 · ${esc(c.title)}</b>
       <span class="small">${c.n}폴더 · ${c.odds}배${c.prob ? " · 적중 예상 " + pct(c.prob) : ""}</span>
-      ${c.track === "도파민" ? '<span class="pill q운">도파민</span>' : ""}<span class="sp"></span>${past ? (c.scored ? pill(c.hit) : '<span class="pill wait">미채점</span>') : '<span class="pill wait">진행</span>'}${c.bought ? ' <span class="pill">실구매</span>' : ""}</div>
+      ${c.track === "도파민" ? '<span class="pill q운">도파민</span>' : ""}<span class="sp"></span>${past ? (c.scored ? pill(c.hit) : '<span class="pill wait">결과 대기</span>') : '<span class="pill wait">진행</span>'}${c.bought ? ' <span class="pill">실구매</span>' : ""}</div>
     <div class="small">${closeText(c.close)}</div>
     <ul class="legs">${c.legs.map((l) => legRow(l, past)).join("")}</ul></div>`;
 }

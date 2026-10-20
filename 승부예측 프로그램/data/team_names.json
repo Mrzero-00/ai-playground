@@ -357,7 +357,7 @@
  "스파르타 로테르담": "Sparta",
  "릴OSC": "Lille",
  "르아브르AC": "Le Havre",
- "인테르나치오날레 밀라노": "Inter",
+ "인테르나치오날레 밀라노": "Internazionale",
  "파르마": "Parma",
  "맨체스터 유나이티드": "Manchester United",
  "토트넘 홋스퍼": "Tottenham",
@@ -421,7 +421,7 @@
   "Dalian Yingbo",
   "Dalian"
  ],
- "코모1907": "Como 1907",
+ "코모1907": "Como",
  "AS로마": "AS Roma",
  "사우샘프턴": "Southampton FC",
  "포츠머스": "Portsmouth FC",
@@ -510,7 +510,7 @@
  "AEK 아테네": "AEK Athens",
  "SK슬로반 브라티슬라바": "Slovan Bratislava",
  "슬로반 브라티슬라바": "Slovan Bratislava",
- "LASK": "LASK",
+ "LASK": "LASK Linz",
  "슈투름 그라츠": "Sturm Graz",
  "SK브란": "SK Brann",
  "루아얄 위니옹 생질루아즈": "Royale Union Saint-Gilloise",
@@ -583,5 +583,11 @@
  "대한항공 점보스": "Incheon Jumbos",
  "대한항공": "Incheon Jumbos",
  "삼성화재 블루팡스": "Daejeon Bluefangs",
- "삼성화재": "Daejeon Bluefangs"
+ "삼성화재": "Daejeon Bluefangs",
+ "슬라비아 프라하": "Slavia Prague",
+ "갈라타사라이": "Galatasaray",
+ "스포르팅 CP": "Sporting CP",
+ "클뤼프 브뤼허": "Club Brugge",
+ "클뤼프 브뤼헤": "Club Brugge",
+ "인테르 밀란": "Internazionale"
 }

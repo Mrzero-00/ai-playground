@@ -1,0 +1,117 @@
+{
+  "번호": 11,
+  "홈": "인테르나치오날레 밀라노",
+  "원정": "샤흐타르 도네츠크",
+  "수집시각": "2026-10-20 22:30 KST",
+  "결장": [
+    {
+      "팀": "인테르나치오날레 밀라노",
+      "선수": "Lautaro Martinez",
+      "포지션": "FW(주장)",
+      "이번시즌_선발/경기": "주전 최전방 공격수(시즌 내내 선발)",
+      "득점·도움": "확인 안 됨(이번 기사들은 부상 경위 중심, 수치 미기재)",
+      "사유": "좌측 허벅지 굴근(flessori) 근육 부상 — 10/13(원정 Club Brugge전) 이후 악화",
+      "상태": "확정",
+      "복귀예정": "국제 경기 주간(10월말) 이후 복귀 전망, 10/31 밀란 더비 출전도 불투명 — Bologna(10/17)·Shakhtar(10/21)·Fiorentina(10/25)·Venezia(10/28) 4경기 연속 결장 가능성 보도",
+      "대체선수": "Pio Esposito 또는 Ange-Yoan Bonny가 Thuram과 투톱 예상",
+      "출처": "https://www.fantacalcio.it/news/calcio-italia/15_10_2026/inter-infortunio-per-lautaro-martinez-il-report-medico-499251 ; https://www.lapresse.it/calcio/2026/10/15/inter-lesione-muscolare-per-lautaro-martinez-ecco-quando-rientra/ ; https://www.ilfattoquotidiano.it/2026/10/15/infortunio-lautaro-martinez-inter-coscia-come-sta-condizioni-quando-torna-quali-partite-salta/8539267/ ; https://www.adnkronos.com/sport/inter-lautaro-champions-brugge-infortunio-ai-flessori_5BdqPH9bnSQniylwH0aqeN",
+      "날짜": "2026-10-15"
+    },
+    {
+      "팀": "샤흐타르 도네츠크",
+      "선수": "Irakli Azarov",
+      "포지션": "DF(조지아)",
+      "이번시즌_선발/경기": "확인 안 됨",
+      "득점·도움": "-",
+      "사유": "부상 — 투란 감독이 AEK전(10/14) 앞두고 결장 수비수 3명 중 하나로 직접 호명",
+      "상태": "의심(AEK전 결장 확정, 인테르전까지 이어지는지는 추가 보도 없음)",
+      "복귀예정": "불명",
+      "대체선수": "불명",
+      "출처": "https://ukrfootball.ua/evrokubky/lyga-chempyonov/turan-rozpoviv-pro-travmovanikh-futbolistiv-shakhtarya-proti-komandi-aek-ne-zigrayut-troye-zakhisnikiv-legioneriv/",
+      "날짜": "2026-10-14"
+    },
+    {
+      "팀": "샤흐타르 도네츠크",
+      "선수": "Alaa Gram",
+      "포지션": "DF(튀니지)",
+      "이번시즌_선발/경기": "확인 안 됨",
+      "득점·도움": "-",
+      "사유": "부상 — 상동(투란 감독 10/14 발언)",
+      "상태": "의심(AEK전 결장 확정, 인테르전 지속 여부 미확인)",
+      "복귀예정": "불명",
+      "대체선수": "불명",
+      "출처": "https://ukrfootball.ua/evrokubky/lyga-chempyonov/turan-rozpoviv-pro-travmovanikh-futbolistiv-shakhtarya-proti-komandi-aek-ne-zigrayut-troye-zakhisnikiv-legioneriv/",
+      "날짜": "2026-10-14"
+    },
+    {
+      "팀": "샤흐타르 도네츠크",
+      "선수": "Marlon Santos",
+      "포지션": "DF(브라질)",
+      "이번시즌_선발/경기": "확인 안 됨",
+      "득점·도움": "-",
+      "사유": "부상 — 상동(투란 감독 10/14 발언). 단, 팀노트 기존 기록(9월 중순 112.ua/rotowire 인용)은 \"근육 부상 회복 후 복귀, 정상 컨디션\"이라 상충 — 아래 엇갈림 참조",
+      "상태": "의심(최신 보도 우선, 인테르전 지속 여부 미확인)",
+      "복귀예정": "불명",
+      "대체선수": "불명",
+      "출처": "https://ukrfootball.ua/evrokubky/lyga-chempyonov/turan-rozpoviv-pro-travmovanikh-futbolistiv-shakhtarya-proti-komandi-aek-ne-zigrayut-troye-zakhisnikiv-legioneriv/",
+      "날짜": "2026-10-14"
+    }
+  ],
+  "라인업": {
+    "홈": {
+      "발표여부": "미발표(프리뷰 예상 라인업)",
+      "예상XI": "3-5-2: Josep Martínez(GK); Bisseck, Akanji, Bastoni; Diouf, Barella, Çalhanoğlu, Zielinski/Mkhitaryan, Dimarco; Thuram, Pio Esposito(Bonny 경합) — 마르티네스 대 프로베델(GK), 카를로스 아우구스토 선발 여부는 매체별 불일치",
+      "포메이션": "3-5-2",
+      "출처": "https://www.corrieredellosport.it/formazione/calcio/serie-a/2026/10/21-2685419/inter-shakhtar ; https://www.linterista.it/probabili-formazioni/probabili-formazione-inter-shakhtar-dubbio-martinez-carlos-augusto-titolare-scelte-chivu-202052",
+      "날짜": "2026-10-20(linterista, 당일 작성) / 2026-10-21(corrieredellosport 경기일자 표기 기사)"
+    },
+    "원정": {
+      "발표여부": "미발표(프리뷰 예상 라인업)",
+      "예상XI": "4-2-3-1: Riznyk(GK); Vinícius Tobias, Pedro Henrique, Bondar, Matviienko; Alisson Santana, Marlon Gomes; Pedrinho, Mendoza(또는 Newerton), Kauã Elias — corrieredellosport가 언급한 'Mudryk 선발'은 오류로 판단해 제외(엇갈림 참조)",
+      "포메이션": "4-2-3-1",
+      "출처": "https://www.corrieredellosport.it/formazione/calcio/serie-a/2026/10/21-2685419/inter-shakhtar",
+      "날짜": "2026-10-21(기사 경기일자 표기)"
+    }
+  },
+  "최근경기": [
+    {"팀": "인테르나치오날레 밀라노", "날짜": "2026-10-17", "상대": "Bologna", "장소": "원정", "스코어": "1-3(인테르 승)", "비고": "세리에A"},
+    {"팀": "인테르나치오날레 밀라노", "날짜": "2026-10-13", "상대": "Club Brugge", "장소": "홈", "스코어": "3-4(인테르 패)", "비고": "UCL 리그페이즈 MD2, 이 경기 후 라우타로 부상"},
+    {"팀": "인테르나치오날레 밀라노", "날짜": "2026-10-10", "상대": "Parma", "장소": "홈", "스코어": "3-0(인테르 승)", "비고": "세리에A"},
+    {"팀": "인테르나치오날레 밀라노", "날짜": "2026-09-19", "상대": "AS Roma", "장소": "원정", "스코어": "2-2", "비고": "세리에A"},
+    {"팀": "인테르나치오날레 밀라노", "날짜": "2026-09-08", "상대": "Real Madrid", "장소": "원정", "스코어": "2-1(인테르 패)", "비고": "UCL 리그페이즈 MD1"},
+    {"팀": "샤흐타르 도네츠크", "날짜": "2026-10-14", "상대": "AEK Athens", "장소": "홈(스탬포드 브리지, 실질 중립)", "스코어": "3-1(샤흐타르 승)", "비고": "UCL 리그페이즈 MD2"},
+    {"팀": "샤흐타르 도네츠크", "날짜": "2026-09-10", "상대": "PSV Eindhoven", "장소": "원정", "스코어": "1-1", "비고": "UCL 리그페이즈 MD1"}
+  ],
+  "순위": {
+    "홈": "세리에A 1위 7경기 6승1무0패 GD+12 승점19(팩트시트 2026-10-20) / UCL 리그페이즈 0점(0승0무2패, MD1 레알 마드리드 패·MD2 클뤼프 브뤼허 패)",
+    "원정": "우크라이나 프리미어리그 2026-10-12 기준 단독 1위(8전 7승1패, 18득4실) — 그 이후 갱신 미확인 / UCL 리그페이즈 4점(1무1승: PSV 무·AEK 승)",
+    "출처": "https://www.corrieredellosport.it/formazione/calcio/serie-a/2026/10/21-2685419/inter-shakhtar ; 팀노트 팩트시트(2026-10-20 자동수집)",
+    "날짜": "2026-10-20"
+  },
+  "감독": {
+    "홈": "Cristian Chivu(변동없음)",
+    "원정": "Arda Turan(변동없음)",
+    "변동": "없음",
+    "출처": "팀노트 팩트시트(위키 시즌문서 기반, 2026-10-20 자동수집)",
+    "날짜": "2026-10-20"
+  },
+  "일정·동기·기타": [
+    {"내용": "인테르는 UCL 2연패(0점)로 승점이 절실한 상황에서 세리에A-UCL-세리에A 3일 간격 연전을 치르는 중(Bologna→Shakhtar→Fiorentina)", "출처": "https://www.corrieredellosport.it/formazione/calcio/serie-a/2026/10/21-2685419/inter-shakhtar", "날짜": "2026-10-21"},
+    {"내용": "샤흐타르는 전쟁으로 자국 홈경기장을 쓸 수 없어 이번 시즌 UCL 홈경기 전부 런던 스탬포드 브리지(첼시 홈구장)에서 치름 — 이번 인테르전은 밀라노(지우세페 메아차) 원정", "출처": "shakhtar.com(팀노트 기존 인용, 2026-08-21/09-17)", "날짜": "2026-08-21"},
+    {"내용": "역대 전적상 샤흐타르는 인테르를 상대로 7번 맞대결에서 한 번도 이긴 적 없음(goal.com 프리뷰)", "출처": "https://www.goal.com/en/news/inter-milan-shakhtar-donetsk-uefa-champions-league-preview/bltcf2c0bc69a8c4367", "날짜": "2026-10-20"},
+    {"내용": "경기 시각 보도 차이: 이탈리아 매체는 현지시각 21:00(로마 기준) 10/21 경기로 표기 — KST 환산 시 10/22 04:00과 일치(시차 7시간)", "출처": "https://www.corrieredellosport.it/formazione/calcio/serie-a/2026/10/21-2685419/inter-shakhtar", "날짜": "2026-10-20"}
+  ],
+  "엇갈림": [
+    "샤흐타르 예상 선발에 'Mudryk' 포함(corrieredellosport.it, 2026-10-21) — 그러나 우크라이나 매체 3곳(sport.ua, my.ua, zn.ua, 2026-10-17~10-20)은 미하일로 무드리크가 토트넘 홋스퍼 소속이며 발목 부상으로 이탈 중이라 보도, 샤흐타르 선수가 아님. corrieredellosport 오류로 판단해 라인업에서 Mudryk 제외.",
+    "마를론 산토스(샤흐타르 DF): 팀노트 기존 기록(112.ua/rotowire, 9월 중순 추정)은 '근육 부상 회복 후 복귀, 정상 컨디션'이라 했으나, 아르다 투란 감독의 2026-10-14 발언(ukrfootball.ua)은 마를론 산토스를 AEK전 결장 수비수 3명 중 하나로 지목 — 최신 정보를 우선 채택했으나 인테르전 복귀 여부는 미확인."
+  ],
+  "못찾음": [
+    "샤흐타르 수비수 3명(아자로프·그람·마를론 산토스) 결장이 인테르전(10/21~22)까지 이어지는지 공식 확인 안 됨",
+    "인테르 골키퍼(마르티네스 vs 프로베델)·카를로스 아우구스토 선발 여부 확정 보도 없음",
+    "우크라이나 프리미어리그 10/14 이후 최신 순위·경기수 갱신 안 됨(전쟁으로 일정 특수성 — 샤흐타르 자국리그 8경기만 치른 것으로 확인, 추가 경기 여부 미확인)"
+  ],
+  "뉴스없음": {
+    "홈": "",
+    "원정": ""
+  }
+}

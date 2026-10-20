@@ -1,0 +1,140 @@
+{
+  "번호": 12,
+  "홈": "스포르팅 CP",
+  "원정": "LASK",
+  "수집시각": "2026-10-20 22:30 KST",
+  "결장": [
+    {
+      "팀": "스포르팅 CP",
+      "선수": "Zeno Debast",
+      "포지션": "DF(벨기에)",
+      "이번시즌_선발/경기": "확인 안 됨",
+      "득점·도움": "-",
+      "사유": "근육 문제(허벅지)",
+      "상태": "확정(abola.pt·sapo.pt 2개 이상 매체 일치)",
+      "복귀예정": "미기재",
+      "대체선수": "Eduardo Quaresma가 Gonçalo Inácio와 센터백 조합으로 선발 예상",
+      "출처": "https://www.abola.pt/noticias/sporting-leao-continua-com-baixas-de-peso-antes-do-lask-2026102010060283394 ; https://sapo.pt/artigo/sporting-leao-continua-com-baixas-de-peso-antes-do-lask-6ad73f6424d059fd8b0928d5",
+      "날짜": "2026-10-20"
+    },
+    {
+      "팀": "스포르팅 CP",
+      "선수": "Rodrigo Zalazar",
+      "포지션": "MF(우루과이)",
+      "이번시즌_선발/경기": "확인 안 됨",
+      "득점·도움": "-",
+      "사유": "좌측 허벅지 근육 부상 — 10/9 브라가 원정(리그 8라운드)에서 통증 호소 후 교체, 애초 예상보다 장기화 우려",
+      "상태": "확정(abola.pt 2건 이상, thestatszone.com)",
+      "복귀예정": "불명(장기화 가능성 보도)",
+      "대체선수": "João Simões/Altimira 중원 조합 유지 예상",
+      "출처": "https://www.abola.pt/noticias/sporting-baixa-confirmada-para-o-lask-2026101518075157544 ; https://thestatszone.com/sporting-cp-vs-lask-preview-team-news-prediction-2026-27-uefa-champions-league-league-phase-231326",
+      "날짜": "2026-10-15 / 2026-10-19"
+    },
+    {
+      "팀": "스포르팅 CP",
+      "선수": "Nuno Santos",
+      "포지션": "WG(31세)",
+      "이번시즌_선발/경기": "0경기 — 5/4 이후 미출전",
+      "득점·도움": "0",
+      "사유": "무릎(우측) 회전건 완전 파열 수술 후 재활, 15개월째 이탈",
+      "상태": "확정이나 시즌 내내 결장 — 새 결장 아님(이미 시장에 반영됐을 가능성 높음, 참고용)",
+      "복귀예정": "불명",
+      "대체선수": "해당없음(장기 결장)",
+      "출처": "https://www.abola.pt/noticias/sporting-leao-continua-com-baixas-de-peso-antes-do-lask-2026102010060283394",
+      "날짜": "2026-10-19"
+    },
+    {
+      "팀": "LASK",
+      "선수": "George Bello",
+      "포지션": "LB",
+      "이번시즌_선발/경기": "1014분 출전(시즌 누적)",
+      "득점·도움": "확인 안 됨",
+      "사유": "근육 부상 — 10/11 라피드 빈전(분데스리가)에서 발생",
+      "상태": "확정(onefootball, thestatszone, ligaportal 등 2곳 이상)",
+      "복귀예정": "불명",
+      "대체선수": "불명(좌측 수비 포지션 변동 예상)",
+      "출처": "https://onefootball.com/en/news/lask-suffer-injury-blow-ahead-of-liverpool-clash-43605035 ; https://thestatszone.com/sporting-cp-vs-lask-preview-team-news-prediction-2026-27-uefa-champions-league-league-phase-231326",
+      "날짜": "2026-10-13 / 2026-10-19"
+    },
+    {
+      "팀": "LASK",
+      "선수": "Moses Usor",
+      "포지션": "WG",
+      "이번시즌_선발/경기": "670분 출전(시즌 누적)",
+      "득점·도움": "확인 안 됨",
+      "사유": "어깨 관절 부상 — 10/11 라피드 빈전(분데스리가)에서 발생",
+      "상태": "확정(동일 출처 2곳 이상)",
+      "복귀예정": "감독은 \"오래 걸리지 않을 것\"으로 기대한다고 언급(10/13), 10/20 현재도 명단에서 빠진 상태",
+      "대체선수": "불명",
+      "출처": "https://onefootball.com/en/news/lask-suffer-injury-blow-ahead-of-liverpool-clash-43605035 ; https://thestatszone.com/sporting-cp-vs-lask-preview-team-news-prediction-2026-27-uefa-champions-league-league-phase-231326",
+      "날짜": "2026-10-13 / 2026-10-19"
+    },
+    {
+      "팀": "LASK",
+      "선수": "Ramiz Harakaté",
+      "포지션": "MF(추정)",
+      "이번시즌_선발/경기": "0경기(시즌아웃)",
+      "득점·도움": "0",
+      "사유": "전십자인대(ACL) 파열, 7/26부터 결장",
+      "상태": "장기 결장 — 10/13 이전부터 결장 중이라 '새 결장' 아님(참고용)",
+      "복귀예정": "불명",
+      "대체선수": "해당없음",
+      "출처": "https://thestatszone.com/sporting-cp-vs-lask-preview-team-news-prediction-2026-27-uefa-champions-league-league-phase-231326",
+      "날짜": "2026-10-19"
+    }
+  ],
+  "라인업": {
+    "홈": {
+      "발표여부": "미발표(프리뷰 예상 라인업)",
+      "예상XI": "Kaique(GK); Fresneda, Quaresma, Inácio, Maxi Araújo; Simões, Altimira; Catamo, Doumbia, Irankunda; Luis Suárez — 직전 Lens전(10/14) 선발과 거의 동일 인원",
+      "포메이션": "4-2-3-1(thestatszone 표기) / 직전 Lens전은 4-3-3으로 기록",
+      "출처": "https://thestatszone.com/sporting-cp-vs-lask-preview-team-news-prediction-2026-27-uefa-champions-league-league-phase-231326",
+      "날짜": "2026-10-19"
+    },
+    "원정": {
+      "발표여부": "미발표(프리뷰 예상 라인업)",
+      "예상XI": "Jungwirth(GK); Mbuyamba, Tornich, Andrade; Jørgensen, Bogarde, Schöpf, Dibango; Daněk, Adeniran, Lang — 단, 10/17 루스테나우전 득점자 Kalajdžić 포함 여부는 출처마다 불일치",
+      "포메이션": "3-4-3(thestatszone 표기) / 직전 리버풀전은 5-4-1로 기록(팀노트 INPUTS)",
+      "출처": "https://thestatszone.com/sporting-cp-vs-lask-preview-team-news-prediction-2026-27-uefa-champions-league-league-phase-231326",
+      "날짜": "2026-10-19"
+    }
+  },
+  "최근경기": [
+    {"팀": "스포르팅 CP", "날짜": "2026-10-14", "상대": "RC Lens", "장소": "원정", "스코어": "0-2(스포르팅 승)", "비고": "UCL 리그페이즈 MD2"},
+    {"팀": "스포르팅 CP", "날짜": "2026-10-09", "상대": "SC Braga", "장소": "원정(Pedreira)", "스코어": "1-3(스포르팅 승)", "비고": "프리메이라리가 8라운드, 이 경기에서 Zalazar 부상"},
+    {"팀": "스포르팅 CP", "날짜": "2026-09(일자 특정 못함)", "상대": "Galatasaray", "장소": "홈", "스코어": "3-1(스포르팅 승)", "비고": "UCL 리그페이즈 MD1"},
+    {"팀": "LASK", "날짜": "2026-10-17", "상대": "SC Austria Lustenau", "장소": "원정", "스코어": "0-4(LASK 승)", "비고": "분데스리가 9라운드 — 5경기 무승(승리 없음) 탈출, Kalajdžić·Adeniran·Lang(PK) 득점"},
+    {"팀": "LASK", "날짜": "2026-10-14", "상대": "Liverpool", "장소": "홈", "스코어": "3-6(LASK 패)", "비고": "UCL 리그페이즈 MD2"},
+    {"팀": "LASK", "날짜": "2026-10-11", "상대": "SK Rapid Wien", "장소": "홈", "스코어": "0-2(LASK 패)", "비고": "분데스리가 8라운드 — 이 경기에서 Bello·Usor 부상"}
+  ],
+  "순위": {
+    "홈": "포르투갈 프리메이라리가 3위, 8경기 5승3무0패 승점18 GD+11(2026-10 기준) / UCL 리그페이즈 6점(2승0무0패: 갈라타사라이·랑스 승)",
+    "원정": "오스트리아 분데스리가 2026-10-14 기준 3위 승점16(8경기 GF19 GA9) — 10/17 루스테나우 승리분은 순위표 미반영 가능 / UCL 리그페이즈 0점(0승0무2패: AEK패·리버풀패)",
+    "출처": "https://www.espn.com/soccer/standings/_/league/por.1 ; https://thestatszone.com/sporting-cp-vs-lask-preview-team-news-prediction-2026-27-uefa-champions-league-league-phase-231326 ; 팀노트 팩트시트(aut.1 standings, 2026-10-14)",
+    "날짜": "2026-10-19~20"
+  },
+  "감독": {
+    "홈": "Rui Borges(변동없음) — abola.pt는 \"최근 3시즌 포르투갈 감독 중 유럽 무대 최다승\"으로 소개",
+    "원정": "Dietmar Kühbauer(변동없음)",
+    "변동": "없음",
+    "출처": "https://www.abola.pt/noticias/sporting-tem-contas-do-passado-por-ajustar-com-o-lask-linz-2026101909284246905 ; 팀노트 팩트시트",
+    "날짜": "2026-10-19"
+  },
+  "일정·동기·기타": [
+    {"내용": "스포르팅은 UCL 2연승(갈라타사라이·랑스)에 이어 포르투갈 리그도 무패(5승3무)로 유럽·국내 모두 상승세 — LASK전은 3연승 도전 기회로 평가됨", "출처": "https://thestatszone.com/sporting-cp-vs-lask-preview-team-news-prediction-2026-27-uefa-champions-league-league-phase-231326", "날짜": "2026-10-19"},
+    {"내용": "LASK는 UCL 데뷔 시즌 2연패(0점) 뒤 국내리그에서도 라피드 빈에 0-2로 패했으나, 직전 경기(10/17 루스테나우 원정 4-0)로 5경기 무승을 끊고 반등한 채 원정길에 오름", "출처": "https://www.ligaportal.at/bundesliga/spielberichte/22686-lask-zieht-sich-gegen-sc-austria-lustenau-aus-der-ergebniskrise ; https://www.skysportaustria.at/klarer-erfolg-in-lustenau-lask-kehrt-auf-siegerstrasse-zurueck/", "날짜": "2026-10-17"},
+    {"내용": "경기 시각: 포르투갈 현지 20:00(리스본 기준) 10/21 경기 — KST 환산 시 10/22 04:00과 일치(시차 8시간)", "출처": "https://thestatszone.com/sporting-cp-vs-lask-preview-team-news-prediction-2026-27-uefa-champions-league-league-phase-231326", "날짜": "2026-10-19"}
+  ],
+  "엇갈림": [
+    "LASK의 10/17 이후 최근 경기 결과에 대해 일부 검색 합성 요약은 '라피드 빈 상대 0-4 패'로 잘못 안내했으나, 실제로는 10/11 라피드 빈(홈)에 0-2로 패했고 10/17 루스테나우 원정에서는 4-0으로 승리(5경기 무승 탈출)한 것으로, 전담 기사 제목(ligaportal.at '아우스 데어 에르겝니스크리제', skysportaustria.at '클라러 에어폴크')까지 일치해 이쪽을 채택함."
+  ],
+  "못찾음": [
+    "스포르팅 공식 포메이션(4-2-3-1 vs 4-3-3) 확정 안 됨",
+    "LASK 공식 포메이션(3-4-3 vs 5-4-1) 확정 안 됨, Kalajdžić 선발 포함 여부 불명",
+    "LASK 분데스리가 10/17 이후 최신 순위·승점 갱신 수치 못 찾음"
+  ],
+  "뉴스없음": {
+    "홈": "",
+    "원정": ""
+  }
+}

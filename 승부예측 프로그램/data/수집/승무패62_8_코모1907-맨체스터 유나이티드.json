@@ -1,0 +1,70 @@
+{
+  "번호": 8,
+  "홈": "코모1907",
+  "원정": "맨체스터 유나이티드",
+  "수집시각": "2026-10-20 23:50 KST",
+  "결장": [
+    {"팀": "코모1907", "선수": "Assane Diao", "포지션": "공격수", "이번시즌_선발/경기": "미확인", "득점·도움": "-", "사유": "좌측 허벅지 근육 부상(페예노르트전에서 발생)", "상태": "확정", "복귀예정": "미확인", "대체선수": "Kaiki/Nico Paz", "출처": "https://www.fantamaster.it/infortunati-como-chalobah-diao-kean-ultime-notizie-rifinitura-2026-2027/", "날짜": "2026-10-16"},
+    {"팀": "코모1907", "선수": "Moise Kean", "포지션": "공격수", "이번시즌_선발/경기": "미확인", "득점·도움": "-", "사유": "부상(구체 부위 미확인)", "상태": "확정", "복귀예정": "미확인", "대체선수": "Douvikas", "출처": "https://www.fantamaster.it/infortunati-como-chalobah-diao-kean-ultime-notizie-rifinitura-2026-2027/", "날짜": "2026-10-16"},
+    {"팀": "코모1907", "선수": "Trevoh Chalobah", "포지션": "센터백", "이번시즌_선발/경기": "주전급(직전 경기 선발)", "득점·도움": "-", "사유": "컨디션 테스트 대기(뛸 수 있을지 불확실) — 일부 예상 라인업엔 선발 포함(엇갈림)", "상태": "의심", "복귀예정": "경기 당일 테스트 결과로 결정", "대체선수": "Jacobo Ramón/Ivan Smolcic", "출처": "https://www.fantamaster.it/infortunati-como-chalobah-diao-kean-ultime-notizie-rifinitura-2026-2027/ ; https://www.tuttosport.com/news/calcio/serie-a/como/2026/10/16-151928396/fabregas_sta_imparando_como_si_dice_champions_il_ko_e_la_situazione_infortuni_da_kean_a_diao", "날짜": "2026-10-16"},
+    {"팀": "맨체스터 유나이티드", "선수": "Leny Yoro", "포지션": "센터백", "이번시즌_선발/경기": "주전(직전 아틀레티코전 선발)", "득점·도움": "-", "사유": "아틀레티코 마드리드전 퇴장에 따른 출장정지(징계)", "상태": "확정", "복귀예정": "이번 경기 정지, 이후 복귀", "대체선수": "Harry Maguire/Ayden Heaven", "출처": "https://www.sportsmole.co.uk/football/man-utd/injury-news/news/crisis-time-carrick-provides-martinez-injury-update-as-united-prepare-for-como_607194.html", "날짜": "2026-10-20"},
+    {"팀": "맨체스터 유나이티드", "선수": "Manuel Ugarte", "포지션": "수비형 미드필더", "이번시즌_선발/경기": "0경기(시즌 아웃)", "득점·도움": "-", "사유": "전방십자인대 수술(장기 결장)", "상태": "확정", "복귀예정": "시즌 중 복귀 불투명", "대체선수": "Carlos Baleba/Andrey Santos", "출처": "팀노트 2026-10-12 조사(centredevils.co.uk, sportsmole) — 최신 재확인", "날짜": "2026-10-12"},
+    {"팀": "맨체스터 유나이티드", "선수": "Benjamin Šeško", "포지션": "공격수(스트라이커)", "이번시즌_선발/경기": "미확인", "득점·도움": "-", "사유": "결장(구체 사유 미확인, 다수 매체 보도)", "상태": "확정", "복귀예정": "미확인", "대체선수": "Bryan Mbeumo/Marcus Rashford", "출처": "https://khelnow.com/football/como-vs-manchester-united-preview-champions-league-202610", "날짜": "2026-10-20"},
+    {"팀": "맨체스터 유나이티드", "선수": "Patrick Dorgu", "포지션": "레프트백", "이번시즌_선발/경기": "미확인", "득점·도움": "-", "사유": "결장(국가대표 차출 중 부상 보도 — 최신 구체 사유 미확인)", "상태": "확정", "복귀예정": "미확인", "대체선수": "Diogo Dalot/Luke Shaw(단, Shaw도 결장 의심)", "출처": "https://khelnow.com/football/como-vs-manchester-united-preview-champions-league-202610", "날짜": "2026-10-20"},
+    {"팀": "맨체스터 유나이티드", "선수": "Luke Shaw", "포지션": "레프트백", "이번시즌_선발/경기": "미확인", "득점·도움": "-", "사유": "훈련 불참(화요일), 부상 지속", "상태": "의심", "복귀예정": "미확인", "대체선수": "Diogo Dalot", "출처": "https://www.rotowire.com/soccer/headlines/luke-shaw-injury-misses-training-ahead-of-como-clash-540821", "날짜": "2026-10-20"},
+    {"팀": "맨체스터 유나이티드", "선수": "Kobbie Mainoo", "포지션": "미드필더", "이번시즌_선발/경기": "미확인", "득점·도움": "-", "사유": "훈련 불참(화요일), 출전 가능성 낮음", "상태": "의심", "복귀예정": "미확인", "대체선수": "Carlos Baleba/Andrey Santos", "출처": "https://www.rotowire.com/soccer/headlines/kobbie-mainoo-injury-unlikely-to-face-como-540820", "날짜": "2026-10-20"},
+    {"팀": "맨체스터 유나이티드", "선수": "Lisandro Martínez", "포지션": "센터백", "이번시즌_선발/경기": "미확인(리즈전 이후 결장 보도)", "득점·도움": "-", "사유": "허벅지 부상 — 훈련 불참, 리즈전 이후 발생", "상태": "의심", "복귀예정": "미확인", "대체선수": "Harry Maguire/Ayden Heaven", "출처": "https://www.rotowire.com/soccer/headlines/lisandro-martinez-injury-doubtful-for-como-clash-540822 ; https://www.sportsmole.co.uk/football/man-utd/injury-news/news/crisis-time-carrick-provides-martinez-injury-update-as-united-prepare-for-como_607194.html", "날짜": "2026-10-20"}
+  ],
+  "라인업": {
+    "홈": {
+      "발표여부": "미발표(예상, 매체 간 일부 엇갈림)",
+      "예상XI": "Butez; Yan Couto, Trevoh Chalobah(컨디션 테스트 대기), Jacobo Ramón, Álex Valle; Luis Milla, Máximo Perrone/Da Cunha; Jesús Rodríguez, Nico Paz, Martin Baturina; Christian Douvikas",
+      "포메이션": "4-2-3-1 (매체별 4-3-1-2 변형 보도도 있음)",
+      "출처": "https://www.tuttosport.com/news/calcio/calcio/champions-league/2026/10/20-152015231/como-manchester_united_probabili_formazioni_orario_e_dove_vedere_in_tv_e_streaming_la_champions_league ; https://khelnow.com/football/como-vs-manchester-united-preview-champions-league-202610",
+      "날짜": "2026-10-20"
+    },
+    "원정": {
+      "발표여부": "미발표(예상)",
+      "예상XI": "Senne Lammens; Diogo Dalot, Harry Maguire, Ayden Heaven, Noussair Mazraoui; Carlos Baleba, Andrey Santos; Bryan Mbeumo, Bruno Fernandes/Amad Diallo, Marcus Rashford; Casemiro 전방 변형 또는 Rashford 단독 최전방(매체 간 상이)",
+      "포메이션": "4-2-3-1",
+      "출처": "https://www.tuttosport.com/news/calcio/calcio/champions-league/2026/10/20-152015231/como-manchester_united_probabili_formazioni_orario_e_dove_vedere_in_tv_e_streaming_la_champions_league ; https://khelnow.com/football/como-vs-manchester-united-preview-champions-league-202610",
+      "날짜": "2026-10-20"
+    }
+  },
+  "최근경기": [
+    {"팀": "코모1907", "날짜": "2026-10-11", "상대": "AS Roma", "장소": "홈", "스코어": "0-0 무", "비고": "세리에A"},
+    {"팀": "코모1907", "날짜": "2026-10-14", "상대": "Feyenoord(A)", "장소": "원정", "스코어": "2-3 패", "비고": "UCL MD2"},
+    {"팀": "코모1907", "날짜": "2026-10-18", "상대": "Fiorentina(A)", "장소": "원정", "스코어": "3-1 승(Liberali·Nico Paz·Douvikas 득점)", "비고": "세리에A, 3연속 원정 승"},
+    {"팀": "맨체스터 유나이티드", "날짜": "2026-09-10", "상대": "Sabah FK", "장소": "홈", "스코어": "4-0 승", "비고": "UCL MD1"},
+    {"팀": "맨체스터 유나이티드", "날짜": "2026-10-13", "상대": "Atlético Madrid(A)", "장소": "원정", "스코어": "0-2 패", "비고": "UCL MD2"},
+    {"팀": "맨체스터 유나이티드", "날짜": "2026-10-18", "상대": "Leeds United(A)", "장소": "원정", "스코어": "1-1 무", "비고": "프리미어리그"}
+  ],
+  "순위": {
+    "홈": "세리에A 4위 8경기 14점(2026-10-18 기준, 피오렌티나 원정승 후) · UCL 리그페이즈 2경기 1승1패 3점",
+    "원정": "프리미어리그 13위 7경기 1승4무2패 승점7(팩트시트) · UCL 리그페이즈 2경기 1승1패 3점",
+    "출처": "https://www.ansa.it/sito/notizie/sport/calcio/2026/10/18/serie-a-fiorentina-como-1-3_2b5fe209-f157-4218-ad2f-22dc99db30e2.html ; https://khelnow.com/football/como-vs-manchester-united-preview-champions-league-202610",
+    "날짜": "2026-10-20"
+  },
+  "감독": {
+    "홈": "Cesc Fàbregas(유임, 변동 없음)",
+    "원정": "Michael Carrick(유임, 변동 없음)",
+    "변동": "없음",
+    "출처": "팀노트 팩트시트 2026-10-20 ; https://www.goal.com/en/news/como-manchester-united-uefa-champions-league-preview/blt6e2a84a27530b9e9",
+    "날짜": "2026-10-20"
+  },
+  "일정·동기·기타": [
+    {"내용": "코모 UCL 첫 출전 시즌 — 홈 구장은 기존 Stadio Giuseppe Sinigaglia를 약 5천만 파운드(£50m) 규모 리노베이션 후 UEFA 승인받아 그대로 사용(대체 구장 아님)", "출처": "https://ground.news/article/video-como-announced-what-the-stadium-looks-like-where-they-will-play-the-champions-league-for-the-first-time ; https://comofootball.com/en/stadio-sinigaglia-will-host-the-uefa-champions-league/", "날짜": "2026-10-20"},
+    {"내용": "맨유는 최근 전 대회 통틀어 '6경기 무승' 보도(goal.com) — 리그 13위로 부진, 이번 경기가 분수령으로 보도됨", "출처": "https://www.goal.com/en/news/como-manchester-united-uefa-champions-league-preview/blt6e2a84a27530b9e9", "날짜": "2026-10-20"},
+    {"내용": "맨유 원정 이동거리 1178km, 코모는 세리에A 3연속 원정 승리 등 상승세(10/18 피오렌티나 3-1)", "출처": "입력_승무패62(팀노트 INPUTS) ; https://www.ansa.it/sito/notizie/sport/calcio/2026/10/18/serie-a-fiorentina-como-1-3_2b5fe209-f157-4218-ad2f-22dc99db30e2.html", "날짜": "2026-10-20"},
+    {"내용": "맨유 수비진 공백 심각 — Yoro(징계)·Ugarte(장기부상)·Martinez(의심)·Shaw(의심)·Dorgu(결장) 겹침, 센터백 조합이 Maguire-Heaven으로 예상됨", "출처": "https://www.sportsmole.co.uk/football/man-utd/injury-news/news/crisis-time-carrick-provides-martinez-injury-update-as-united-prepare-for-como_607194.html", "날짜": "2026-10-20"}
+  ],
+  "엇갈림": [
+    "코모 예상 라인업에 Trevoh Chalobah가 선발로 포함되는 매체가 다수이나, 동시에 '컨디션 테스트 대기' 보도가 있어 출전 여부 불확실 — 라인업 공식 발표 전까지 '의심'으로 유지",
+    "맨유 예상 공격진 구성(Diallo vs Bruno Fernandes 선발 여부)이 매체마다 상이"
+  ],
+  "못찾음": [
+    "코모 Chalobah·Diao·Kean의 정확한 복귀 예정일",
+    "맨유 Ugarte·Šeško·Dorgu의 2026-10-13 이후 최신 결장 사유 재확인 기사(팀노트 10/12 조사 정보에 의존)"
+  ],
+  "뉴스없음": {"홈": "해당없음(결장·라인업 뉴스 다수 확인됨)", "원정": "해당없음(결장·라인업 뉴스 다수 확인됨)"}
+}

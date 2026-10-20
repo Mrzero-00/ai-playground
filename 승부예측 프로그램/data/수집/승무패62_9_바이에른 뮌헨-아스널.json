@@ -1,0 +1,132 @@
+{
+  "번호": 9,
+  "홈": "바이에른 뮌헨",
+  "원정": "아스널",
+  "수집시각": "2026-10-20 22:30 KST",
+  "결장": [
+    {
+      "팀": "바이에른 뮌헨",
+      "선수": "Jamal Musiala",
+      "포지션": "FW/AM",
+      "이번시즌_선발/경기": "미상",
+      "득점·도움": "미상",
+      "사유": "오른쪽 허벅지 근육 부상(국가대표 기간 중 발생, 3주 전)",
+      "상태": "확정",
+      "복귀예정": "미정(계속 재활 중)",
+      "대체선수": "Lennart Karl / Tom Bischof",
+      "출처": ["https://thefalse9.com/2026/10/bayern-injury-news-vs-arsenal.html", "https://www.goal.com/en-us/lists/bayern-munich-manuel-neuer-arsenal-jonas-urbig/bltc11f21769d9255f6"],
+      "날짜": "2026-10-19"
+    },
+    {
+      "팀": "바이에른 뮌헨",
+      "선수": "Michael Olise",
+      "포지션": "FW/RW",
+      "이번시즌_선발/경기": "미상",
+      "득점·도움": "미상",
+      "사유": "징계 — 비킹 FK전(UCL MD2) 2번째 경고 누적 출전정지",
+      "상태": "확정",
+      "복귀예정": "이번 경기만 결장, 다음 경기 복귀 가능",
+      "대체선수": "Lennart Karl",
+      "출처": ["https://www.goal.com/en-us/lists/bayern-munich-manuel-neuer-arsenal-jonas-urbig/bltc11f21769d9255f6", "https://thefalse9.com/2026/10/bayern-injury-news-vs-arsenal.html"],
+      "날짜": "2026-10-19"
+    },
+    {
+      "팀": "바이에른 뮌헨",
+      "선수": "Manuel Neuer",
+      "포지션": "GK",
+      "이번시즌_선발/경기": "6경기 출전(시즌)",
+      "득점·도움": "미상",
+      "사유": "발에 체액(fluid) 고임 — 통증·부기",
+      "상태": "의심(10/21 훈련 소화 후 최종 결정 예정)",
+      "복귀예정": "이번 경기 출전 여부 미정, 문제 없으면 선발 가능",
+      "대체선수": "Jonas Urbig(23세, 네우어 결장 시 선발)",
+      "출처": ["https://thefalse9.com/2026/10/bayern-injury-news-vs-arsenal.html", "https://www.goal.com/en-us/lists/bayern-munich-manuel-neuer-arsenal-jonas-urbig/bltc11f21769d9255f6"],
+      "날짜": "2026-10-19"
+    },
+    {
+      "팀": "아스널",
+      "선수": "William Saliba",
+      "포지션": "CB",
+      "이번시즌_선발/경기": "미상(2026 월드컵 준결승 중 부상 이후 결장 지속)",
+      "득점·도움": "미상",
+      "사유": "등 부상(2026 월드컵 준결승, vs 스페인, 수술 없이 재활)",
+      "상태": "확정",
+      "복귀예정": "11월 21일 뉴캐슬전 예상",
+      "대체선수": "Jurriën Timber(또는 Ezri Konsa)",
+      "출처": ["https://www.sportsmole.co.uk/football/arsenal/news/arsenal-handed-huge-william-saliba-injury-boost_606172.html", "https://thefalse9.com/2026/10/arsenal-injury-news-vs-bayern-munich.html", "https://aftv.co.uk/latest-arsenal-news/arsenal-injury-news-double-boost-for-mikel-arteta-ahead-of-bayern-munich-clash-but-two-stars-absent/"],
+      "날짜": "2026-10-19"
+    },
+    {
+      "팀": "아스널",
+      "선수": "Piero Hincapié",
+      "포지션": "CB/LB",
+      "이번시즌_선발/경기": "미상",
+      "득점·도움": "미상",
+      "사유": "발목 부상",
+      "상태": "확정",
+      "복귀예정": "11월 1일 리버풀전 목표",
+      "대체선수": "Myles Lewis-Skelly",
+      "출처": ["https://www.sportsmole.co.uk", "https://thefalse9.com/2026/10/arsenal-injury-news-vs-bayern-munich.html"],
+      "날짜": "2026-10-19"
+    },
+    {
+      "팀": "아스널",
+      "선수": "Christos Tzolis",
+      "포지션": "FW",
+      "이번시즌_선발/경기": "미상",
+      "득점·도움": "미상",
+      "사유": "햄스트링 부상",
+      "상태": "확정",
+      "복귀예정": "11월 1일 리버풀전 목표",
+      "대체선수": "Noni Madueke / Eberechi Eze",
+      "출처": ["https://www.sportsmole.co.uk", "https://thefalse9.com/2026/10/arsenal-injury-news-vs-bayern-munich.html"],
+      "날짜": "2026-10-19"
+    }
+  ],
+  "라인업": {
+    "홈": {
+      "발표여부": "미발표(공식 선발은 킥오프 1시간 전)",
+      "예상XI": "4-2-3-1 예상: Urbig(네우어 결장 시); Kim Min-Jae, Jonathan Tah, Nathaniel Brown/Sacha Boey; Konrad Laimer, Joshua Kimmich; Lennart Karl, Tom Bischof, Luis Díaz; Harry Kane (올리세·무시알라 결장으로 측면 로테이션)",
+      "포메이션": "4-2-3-1",
+      "출처": ["https://www.fussballnationalmannschaft.net/fc-bayern-arsenal-aufstellung-champions-league-neuer-karl-123309723.html(제목만 확인, 본문 접근 실패·403)", "팀노트 직전 선발(2026-10-17 분데스리가 vs Leipzig) 기준 추정"],
+      "날짜": "2026-10-19"
+    },
+    "원정": {
+      "발표여부": "미발표",
+      "예상XI": "4-2-3-1 예상: David Raya; Gabriel Magalhães, Ezri Konsa, Myles Lewis-Skelly, Jurriën Timber; Mikel Merino, Bruno Guimarães, Declan Rice; Eberechi Eze, Viktor Gyökeres, Noni Madueke (살리바·힌카피에·촐리스 결장)",
+      "포메이션": "4-2-3-1 또는 4-3-3",
+      "출처": ["팀노트 직전 선발(2026-10-13 UCL vs Lille) 기준", "https://thefalse9.com/2026/10/arsenal-injury-news-vs-bayern-munich.html"],
+      "날짜": "2026-10-19"
+    }
+  },
+  "최근경기": [
+    {"팀": "바이에른 뮌헨", "날짜": "2026-10-17", "상대": "RB Leipzig(H, 분데스리가)", "장소": "홈", "스코어": "6-1", "비고": "대승"},
+    {"팀": "바이에른 뮌헨", "날짜": "2026-10-13", "상대": "Viking FK(A, UCL MD2)", "장소": "원정", "스코어": "3-3", "비고": "무승부"},
+    {"팀": "바이에른 뮌헨", "날짜": "2026-10-10", "상대": "FC Augsburg(A, 분데스리가)", "장소": "원정", "스코어": "2-2", "비고": "무승부"},
+    {"팀": "아스널", "날짜": "2026-10-18", "상대": "Nottingham Forest(A, PL)", "장소": "원정", "스코어": "0-1(아스널 승)", "비고": "Noni Madueke 결승골(후반 10분 전, 교체 투입 후), 공격 전반적으로 부진했다는 평가(샷온타겟 1개). 승점18 2위 복귀"},
+    {"팀": "아스널", "날짜": "2026-10-13", "상대": "Lille(H, UCL MD2)", "장소": "홈", "스코어": "3-0", "비고": "완승"}
+  ],
+  "순위": {
+    "홈": "분데스리가 1위 6경기 4승2무0패 GD+17 승점14 (Bayern Munich) · UCL 리그페이즈 1W1D(승점4, GD+5, MD2 기준)",
+    "원정": "프리미어리그 2위 7경기 6승0무1패(Nottingham 승 반영시 7승) GD+6 승점18 (Arsenal) · UCL 리그페이즈 2승0패(승점6, GD+4, MD2 기준)",
+    "출처": ["팀노트 FACTS(위키 시즌문서/ESPN)", "https://www.nbcsports.com/soccer/news/uefa-champions-league-2026-27-league-phase-table-latest-standings", "https://www.nbcsports.com/soccer/live/nottingham-forest-vs-arsenal-live-updates-score-goals-highlights-stats-2026-october-18"],
+    "날짜": "2026-10-19~20"
+  },
+  "감독": {
+    "홈": "Vincent Kompany",
+    "원정": "Mikel Arteta",
+    "변동": "Kompany 감독이 바이러스성 질환 및 엉덩이 통증으로 벤치 참석이 불투명했으나 10/21 경기 참가가 예상된다는 보도(경질·교체 아님, 단순 컨디션 이슈)",
+    "출처": ["https://thefalse9.com/2026/10/bayern-injury-news-vs-arsenal.html"],
+    "날짜": "2026-10-19"
+  },
+  "일정·동기·기타": [
+    {"내용": "양팀 모두 UCL MD3 홈/원정 첫 승이 필요한 상황은 아님 — 바이에른 1승1무(4점), 아스널 2승(6점)으로 선두권 경쟁 중", "출처": "https://www.nbcsports.com/soccer/news/uefa-champions-league-2026-27-league-phase-table-latest-standings", "날짜": "2026-10-19"},
+    {"내용": "양팀은 이 UCL 경기 직전 체급이 다른 상대(바이에른 vs 자국리그 라이프치히 6-1 / 아스널 vs 노팅엄 포레스트 1-0 신승)로 컨디션 낙차가 있어 로테이션 변수 존재", "출처": "팀노트 FACTS", "날짜": "2026-10-20"},
+    {"내용": "경기장 Allianz Arena, 강수확률 90%(1.9mm) 예보 — 그라운드 상태 변수 가능", "출처": "팀노트 INPUTS(기상 데이터)", "날짜": "2026-10-20"}
+  ],
+  "엇갈림": [
+    {"내용": "Manuel Neuer 출전 여부 — 일부 매체는 '체액 고임으로 결장 유력', 일부는 '훈련 소화하면 선발 가능'으로 뉘앙스 차이. 10/21 훈련 후 최종 결정 예정이라 현재는 '의심'으로만 처리", "출처": ["thefalse9.com", "goal.com"], "날짜": "2026-10-19"}
+  ],
+  "못찾음": ["Musiala·Olise·Saliba·Hincapié·Tzolis의 이번 시즌 정확한 선발 횟수·득점·도움 수치(기사에 비기재)", "양팀 공식 발표 선발 명단(킥오프 1시간 전 공개 예정)"],
+  "뉴스없음": {"홈": "해당 없음(결장 뉴스 다수 확인됨)", "원정": "해당 없음(결장 뉴스 다수 확인됨)"}
+}

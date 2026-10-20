@@ -1,0 +1,241 @@
+{
+  "번호": 14,
+  "홈": "레알 베티스",
+  "원정": "페예노르트",
+  "수집시각": "2026-10-20 22:30 KST",
+  "결장": [
+    {
+      "팀": "레알 베티스",
+      "선수": "Cucho Hernández",
+      "포지션": "FW",
+      "이번시즌_선발/경기": "주전급 공격수(시즌 초반 주요 자원)",
+      "득점·도움": "미상",
+      "사유": "좌측 가자미근(soleo) 부상, 약 한 달 결장(6경기 결장 전망, 11/8 복귀 목표)",
+      "상태": "확정",
+      "복귀예정": "2026-11-08경",
+      "대체선수": "Troy Parrott",
+      "출처": ["https://www.elgoldigital.com/futbol/real-betis-balompie/lesion-cucho-hernandez-soleo-betis-un-mes-baja", "https://sports.yahoo.com/articles/preview-real-betis-vs-feyenoord-192500480.html"],
+      "날짜": "2026-10-19"
+    },
+    {
+      "팀": "레알 베티스",
+      "선수": "Junior Firpo",
+      "포지션": "LB",
+      "이번시즌_선발/경기": "주전 좌풀백",
+      "득점·도움": "미상",
+      "사유": "내전근(adductor) 부상(10/2부터), 10월 말까지 결장 전망",
+      "상태": "확정",
+      "복귀예정": "10월 말",
+      "대체선수": "Fran García",
+      "출처": ["https://sports.yahoo.com/articles/preview-real-betis-vs-feyenoord-192500480.html", "https://www.eldesmarque.com/futbol/liga-1a-division/20261008/betis-lesionados-ausencias-bajas-osasuna-novedades_18_020383729.html"],
+      "날짜": "2026-10-19"
+    },
+    {
+      "팀": "레알 베티스",
+      "선수": "Aitor Ruibal",
+      "포지션": "RB/WB",
+      "이번시즌_선발/경기": "백업급(반월판 수술 재활 중)",
+      "득점·도움": "미상",
+      "사유": "무릎 반월판 수술 재활(5/14부터), 복귀 임박 — 이번 경기 복귀 가능성 거론",
+      "상태": "의심(복귀 가능 쪽에 무게)",
+      "복귀예정": "이번 경기 또는 임박",
+      "대체선수": "Héctor Bellerín / Ángel Ortiz",
+      "출처": ["https://www.rotowire.com/soccer/headlines/aitor-ruibal-injury-could-return-against-feyenoord-540827"],
+      "날짜": "2026-10-19"
+    },
+    {
+      "팀": "레알 베티스",
+      "선수": "Romain Del Castillo",
+      "포지션": "WF",
+      "이번시즌_선발/경기": "로테이션 자원",
+      "득점·도움": "미상",
+      "사유": "내전근 부상(10/8부터), 10월 말까지 결장 전망",
+      "상태": "확정",
+      "복귀예정": "10월 말",
+      "대체선수": "Antony / Abde Ezzalzouli",
+      "출처": ["https://www.futbolfantasy.com/laliga/lesionados"],
+      "날짜": "2026-10-19"
+    },
+    {
+      "팀": "레알 베티스",
+      "선수": "Diego Conde",
+      "포지션": "GK",
+      "이번시즌_선발/경기": "백업 GK",
+      "득점·도움": "-",
+      "사유": "어깨 부상(10/12 메모 이후 지속 여부 미확인)",
+      "상태": "의심(최신 기사에서 확인 안 됨)",
+      "복귀예정": "미상",
+      "대체선수": "Álvaro Valles(주전)",
+      "출처": ["팀노트/레알 베티스.md(2026-10-12)"],
+      "날짜": "2026-10-12"
+    },
+    {
+      "팀": "페예노르트",
+      "선수": "Thomas Beelen",
+      "포지션": "CB",
+      "이번시즌_선발/경기": "0경기(431일째 장기결장)",
+      "득점·도움": "0골 0도움",
+      "사유": "중증 다리 부상(골절) 수술 후 재활, 복귀 가시권 아님",
+      "상태": "확정",
+      "복귀예정": "미정(장기)",
+      "대체선수": "David Hubert / Gernot Trauner",
+      "출처": ["https://1908.nl/artikelen/wat-is-er-aan-de-hand-met-thomas-beelen-terugkeer-lijkt-nog-niet-dichtbij", "https://www.fr12.nl/nieuws/blessureoverzicht-feyenoord-vijf-afwezigen-en-twee-vraagtekens"],
+      "날짜": "2026-10-19"
+    },
+    {
+      "팀": "페예노르트",
+      "선수": "Jordan Bos",
+      "포지션": "LB",
+      "이번시즌_선발/경기": "주전급(시즌 초반)",
+      "득점·도움": "미상",
+      "사유": "무릎 부상, 수개월 결장 전망",
+      "상태": "확정",
+      "복귀예정": "수개월 뒤(기존 메모 11월 말 전망과 배치, 최신은 더 장기)",
+      "대체선수": "Gijs Smal(동반 결장) 대신 Marmol/Read",
+      "출처": ["https://www.fr12.nl/nieuws/blessureoverzicht-feyenoord-vijf-afwezigen-en-twee-vraagtekens"],
+      "날짜": "2026-10-19"
+    },
+    {
+      "팀": "페예노르트",
+      "선수": "Bart Nieuwkoop",
+      "포지션": "RB",
+      "이번시즌_선발/경기": "주전급",
+      "득점·도움": "미상",
+      "사유": "무릎 부상",
+      "상태": "확정",
+      "복귀예정": "미상",
+      "대체선수": "David Read",
+      "출처": ["https://www.fr12.nl/nieuws/blessureoverzicht-feyenoord-vijf-afwezigen-en-twee-vraagtekens", "https://sports.yahoo.com/articles/preview-real-betis-vs-feyenoord-192500480.html"],
+      "날짜": "2026-10-19"
+    },
+    {
+      "팀": "페예노르트",
+      "선수": "Jakub Moder",
+      "포지션": "MF",
+      "이번시즌_선발/경기": "로테이션급",
+      "득점·도움": "미상",
+      "사유": "등 부상",
+      "상태": "확정",
+      "복귀예정": "미상",
+      "대체선수": "Vanhoutte / Zechiel",
+      "출처": ["https://www.fr12.nl/nieuws/blessureoverzicht-feyenoord-vijf-afwezigen-en-twee-vraagtekens"],
+      "날짜": "2026-10-19"
+    },
+    {
+      "팀": "페예노르트",
+      "선수": "Gijs Smal",
+      "포지션": "LB",
+      "이번시즌_선발/경기": "로테이션급",
+      "득점·도움": "미상",
+      "사유": "발목 부상",
+      "상태": "확정",
+      "복귀예정": "미상",
+      "대체선수": "-",
+      "출처": ["https://www.fr12.nl/nieuws/blessureoverzicht-feyenoord-vijf-afwezigen-en-twee-vraagtekens"],
+      "날짜": "2026-10-19"
+    },
+    {
+      "팀": "페예노르트",
+      "선수": "Goncalo Borges",
+      "포지션": "FW",
+      "이번시즌_선발/경기": "미상",
+      "득점·도움": "미상",
+      "사유": "미상(부상)",
+      "상태": "확정",
+      "복귀예정": "미상",
+      "대체선수": "-",
+      "출처": ["https://sports.yahoo.com/articles/preview-real-betis-vs-feyenoord-192500480.html"],
+      "날짜": "2026-10-19"
+    },
+    {
+      "팀": "페예노르트",
+      "선수": "Reiss Nelson",
+      "포지션": "WF",
+      "이번시즌_선발/경기": "미상",
+      "득점·도움": "미상",
+      "사유": "근육 부상",
+      "상태": "확정",
+      "복귀예정": "미상",
+      "대체선수": "-",
+      "출처": ["https://sports.yahoo.com/articles/preview-real-betis-vs-feyenoord-192500480.html"],
+      "날짜": "2026-10-19"
+    },
+    {
+      "팀": "페예노르트",
+      "선수": "Shaqueel Van Persie",
+      "포지션": "FW",
+      "이번시즌_선발/경기": "미상",
+      "득점·도움": "미상",
+      "사유": "경미한 타박상(knock)",
+      "상태": "의심",
+      "복귀예정": "출전 가능성 있음",
+      "대체선수": "-",
+      "출처": ["https://sports.yahoo.com/articles/preview-real-betis-vs-feyenoord-192500480.html"],
+      "날짜": "2026-10-19"
+    },
+    {
+      "팀": "페예노르트",
+      "선수": "Tsuyoshi Watanabe",
+      "포지션": "CB",
+      "이번시즌_선발/경기": "주전급(일본 대표팀 차출)",
+      "득점·도움": "미상",
+      "사유": "A매치 차출 후 컨디션 저하로 결장 우려 있었으나 최신 기사는 출전 가능 쪽으로 호전",
+      "상태": "의심(출전 가능 쪽)",
+      "복귀예정": "이번 경기 출전 가능 전망",
+      "대체선수": "Mika Marmol",
+      "출처": ["https://www.fcupdate.nl/voetbalnieuws/2026/10/devy-rigaux-feyenoord-fysieke-staat-selectie-blessures"],
+      "날짜": "2026-10-19"
+    }
+  ],
+  "라인업": {
+    "홈": {
+      "발표여부": "미발표(예상 라인업만 보도)",
+      "예상XI": "Álvaro Valles; Héctor Bellerín(또는 Ángel Ortiz), Marc Bartra, Natan, Fran García; Marc Roca, Pablo Fornals(또는 Isco); Antony, Isco, Abde Ezzalzouli; Troy Parrott — Pellegrini가 바르셀로나전(2-5 패, 10/17) 대비 로테이션 시사, Isco·Antony는 직전 라리가 경기 휴식 후 복귀 전망",
+      "포메이션": "4-2-3-1",
+      "출처": ["https://www.elmira.es/articulo/futbol/posible-alineacion-real-betis-feyenoord-champions-league-final-anticipada-cartuja/20261019170300623091.html", "https://www.sportsmole.co.uk/football/betis/champions-league/preview/betis-vs-feyenoord-prediction-team-news-lineups_607262.html"],
+      "날짜": "2026-10-19"
+    },
+    "원정": {
+      "발표여부": "미발표(예상 라인업 보도)",
+      "예상XI": "Timon Wellenreuther 또는 Ernst(GK 불확실); David Read, Dávid Hancko(또는 St. Juste), Tsuyoshi Watanabe, Mika Marmol; Antoni Milambo(Zechiel/Vanhoutte), Quinten Timber(Targhalline); Anis Hadj Moussa, Julian Carranza(Ferri), Ibrahim Osman(Valente) — 결장 다수(Beelen·Bos·Nieuwkoop·Moder·Smal)로 수비진 변형 불가피",
+      "포메이션": "4-2-3-1 변형",
+      "출처": ["https://www.sportsmole.co.uk/football/betis/champions-league/preview/betis-vs-feyenoord-prediction-team-news-lineups_607262.html"],
+      "날짜": "2026-10-19"
+    }
+  },
+  "최근경기": [
+    {"팀": "레알 베티스", "날짜": "2026-10-17", "상대": "바르셀로나(홈)", "장소": "라 카르투하", "스코어": "2-5 패", "비고": "라리가, 대패"},
+    {"팀": "레알 베티스", "날짜": "2026-10-14", "상대": "FC 포르투(홈)", "장소": "라 카르투하", "스코어": "3-2 승", "비고": "UCL MD2"},
+    {"팀": "레알 베티스", "날짜": "2026-10-11", "상대": "오사수나(홈)", "장소": "라 카르투하", "스코어": "5-2 승", "비고": "라리가, 3-2까지 추격당함"},
+    {"팀": "페예노르트", "날짜": "2026-10-17", "상대": "텔스타(원정)", "장소": "미상", "스코어": "4-3 승(페예노르트)", "비고": "에레디비시, 원정에서 접전 끝에 승리"},
+    {"팀": "페예노르트", "날짜": "2026-10-14", "상대": "코모 1907(홈)", "장소": "미상", "스코어": "3-2 승", "비고": "UCL MD2"},
+    {"팀": "페예노르트", "날짜": "2026-10-10", "상대": "AZ알크마르(홈)", "장소": "미상", "스코어": "2-0 승", "비고": "에레디비시"}
+  ],
+  "순위": {
+    "홈": "라리가 2026-27 4위, 9경기 6승1무2패 GD+2 승점19(팩트시트) · UCL 리그페이즈 2경기 2승 GD+2(6-4) 승점6 — MD2 종료 기준, 이번 승리 시 5게임 남기고 9점",
+    "원정": "에레디비시 2026-27 1위, 9경기 7승2무0패 GD+21 승점23(팩트시트) · UCL 리그페이즈 2경기 1승1패 GD-3(4-7) 승점3 — MD1 바르셀로나전 1-5 대패 후 MD2 코모전 3-2 승",
+    "출처": "팀노트/레알 베티스.md·페예노르트.md FACTS, https://en.wikipedia.org/wiki/2026%E2%80%9327_UEFA_Champions_League_league_phase",
+    "날짜": "2026-10-20"
+  },
+  "감독": {
+    "홈": "Manuel Pellegrini(변동 없음)",
+    "원정": "Giovanni van Bronckhorst(변동 없음)",
+    "변동": "양팀 모두 감독 교체 없음",
+    "출처": ["팀노트/레알 베티스.md FACTS", "팀노트/페예노르트.md FACTS"],
+    "날짜": "2026-10-20"
+  },
+  "일정·동기·기타": [
+    {"내용": "베티스는 10/11 오사수나, 10/14 포르투, 10/17 바르셀로나까지 8일 동안 홈 3연전(모두 라 카르투하)을 치렀고 이번이 4번째 연속 홈경기 — 체력 부담 속 로테이션 전망", "출처": "팀노트/레알 베티스.md INPUTS 및 최근경기", "날짜": "2026-10-20"},
+    {"내용": "라 카르투하는 베니토 비야마린 리노베이션(2025-26시즌부터 임시 사용) 공사로 2026-27 시즌에도 계속 임시 홈구장으로 사용 중 — 복귀는 2027년 10월 예정", "출처": "https://en.wikipedia.org/wiki/Estadio_Benito_Villamar%C3%ADn, https://www.realbetisbalompie.es/club/la-cartuja", "날짜": "2026-10-20"},
+    {"내용": "스페인 매체는 이번 경기를 베티스 16강 진출 가능성을 좌우할 '조기 결승'으로 묘사 — 승리 시 3경기 9점, 남은 5경기", "출처": "https://www.elmira.es/articulo/futbol/posible-alineacion-real-betis-feyenoord-champions-league-final-anticipada-cartuja/20261019170300623091.html", "날짜": "2026-10-19"},
+    {"내용": "페예노르트는 수비진 부상 속출(Beelen·Bos·Nieuwkoop·Moder·Smal 장기 결장)로 '부상 위기'로 보도됨", "출처": "https://www.fr12.nl/nieuws/blessureoverzicht-feyenoord-vijf-afwezigen-en-twee-vraagtekens", "날짜": "2026-10-19"},
+    {"내용": "van Bronckhorst는 경기 전날 기자회견에서 베티스전을 앞두고 전망 발표 예정(세부 인용 미확인)", "출처": "https://fr12.nl/uefa-champions-league/van-bronckhorst-blikt-vanavond-vooruit-op-real-betis-feyenoord", "날짜": "2026-10-19"}
+  ],
+  "엇갈림": [
+    "예상 라인업 출처 간 포지션 배치 불일치: elmira.es는 Bellerín을 우측 수비로, sportsmole 쪽 요약(기존 입력 블록, 10/16 vs 바르셀로나용)은 Ángel Ortiz를 우측에 배치 — 더 최신(10/19)인 elmira.es/sportsmole 프리뷰를 우선.",
+    "Jordan Bos 복귀 시점: 팀노트 2026-10-12 메모는 '11월 말 복귀 예상'이나 2026-10-19 fr12.nl 기사는 '수개월' 결장으로 더 비관적 — 최신 쪽 채택.",
+    "Watanabe 결장 여부: 팀노트 2026-10-12 메모는 '일본 대표팀 차출 후 미복귀(마르몰 대체)'였으나 2026-10-19 fcupdate.nl은 '복귀 가능' 쪽으로 호전 — 최신 쪽 채택(의심 등급)."
+  ],
+  "못찾음": ["Feyenoord 정확한 예상 선발 GK(Wellenreuther vs Ernst 혼재)", "베티스 UCL 리그페이즈 정확한 순위(몇 위인지 숫자 미확인, 승점·GD만 확인)", "페예노르트 UCL 리그페이즈 정확한 순위(숫자 미확인)"],
+  "뉴스없음": {}
+}

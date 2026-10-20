@@ -1,0 +1,58 @@
+{
+  "번호": 3,
+  "홈": "리버풀",
+  "원정": "비야레알",
+  "수집시각": "2026-10-20T22:30+09:00",
+  "결장": [
+    {"팀": "리버풀", "선수": "Dominik Szoboszlai", "포지션": "MF", "이번시즌_선발/경기": "확인 안됨(주전급)", "득점·도움": "확인 안됨", "사유": "햄스트링 재발 — 10/17 브렌트포드전 전반 32분 교체아웃", "상태": "확정", "복귀예정": "불명확(이라올라 '시간 더 필요')", "대체선수": "불명", "출처": "https://www.thisisanfield.com/2026/10/liverpool-team-news-vs-villarreal-injuries-suspension-squad/ ; https://sports.yahoo.com/articles/andoni-iraola-provides-trio-liverpool-153402686.html", "날짜": "2026-10-19"},
+    {"팀": "리버풀", "선수": "Jeremie Frimpong", "포지션": "RB/RWB", "이번시즌_선발/경기": "확인 안됨(주전급, 10/15 LASK전 선발)", "득점·도움": "확인 안됨", "사유": "새로운 근육 부상 — 10/17 브렌트포드전 후반 52분 교체아웃", "상태": "확정", "복귀예정": "11월 A매치 휴식기 이후 가능성(이라올라 코멘트)", "대체선수": "불명", "출처": "https://www.thisisanfield.com/2026/10/liverpool-team-news-vs-villarreal-injuries-suspension-squad/", "날짜": "2026-10-19"},
+    {"팀": "리버풀", "선수": "Alexander Isak", "포지션": "FW", "이번시즌_선발/경기": "장기 결장 중", "득점·도움": "확인 안됨", "사유": "허벅지 부상, 팀 훈련 미복귀", "상태": "의문", "복귀예정": "이라올라 '멀지 않았다(not far)', 구체 일정 불명", "대체선수": "불명", "출처": "https://www.thisisanfield.com/2026/10/szoboszlai-gakpo-isak-injury-latest-iraola-return-dates/", "날짜": "2026-10-19(추정)"},
+    {"팀": "리버풀", "선수": "Cody Gakpo", "포지션": "FW", "이번시즌_선발/경기": "장기 결장 중", "득점·도움": "확인 안됨", "사유": "발목 부상, 팀 훈련 미복귀", "상태": "의문", "복귀예정": "불명확", "대체선수": "불명", "출처": "https://www.thisisanfield.com/2026/10/szoboszlai-gakpo-isak-injury-latest-iraola-return-dates/", "날짜": "2026-10-19(추정)"},
+    {"팀": "리버풀", "선수": "Conor Bradley", "포지션": "RB", "이번시즌_선발/경기": "연초부터 결장(올 시즌 미출전)", "득점·도움": "0", "사유": "아스널전 무릎 중상(연초)", "상태": "확정", "복귀예정": "2026년 11월 목표", "대체선수": "불명", "출처": "https://www.liverpool.com/liverpool-fc-news/features/injury-latest-bradley-leoni-ekitike-34657495", "날짜": "2026-10-19(추정)"},
+    {"팀": "리버풀", "선수": "Hugo Ekitike", "포지션": "FW", "이번시즌_선발/경기": "0(올 시즌 미출전)", "득점·도움": "0", "사유": "4월 PSG전 아킬레스건 파열(장기)", "상태": "확정", "복귀예정": "불명확(장기)", "대체선수": "불명", "출처": "https://sports.yahoo.com/articles/liverpool-injury-latest-hugo-ekitike-135500071.html", "날짜": "2026-10-19(추정)"},
+    {"팀": "리버풀", "선수": "Giovanni Leoni", "포지션": "CB", "이번시즌_선발/경기": "0(데뷔전 부상으로 작년 시즌 전체 결장)", "득점·도움": "0", "사유": "데뷔전 ACL 파열, 재활 중", "상태": "확정(이번 경기 결장, 복귀 임박)", "복귀예정": "2026년 10월 목표(이번 경기 포함 여부 불명)", "대체선수": "불명", "출처": "https://www.liverpool.com/liverpool-fc-news/features/injury-latest-bradley-leoni-ekitike-34657495", "날짜": "2026-10-19(추정)"},
+    {"팀": "리버풀", "선수": "Federico Chiesa", "포지션": "FW", "이번시즌_선발/경기": "0(올 시즌 미출전)", "득점·도움": "0", "사유": "8월 코모 친선전 이후 허리 문제, 챔피언스리그 리그페이즈 명단 제외", "상태": "확정", "복귀예정": "결장자 중 가장 임박(복귀 가까움)", "대체선수": "-", "출처": "https://sports.yahoo.com/articles/liverpool-injury-latest-hugo-ekitike-135500071.html", "날짜": "2026-10-19(추정)"},
+    {"팀": "리버풀", "선수": "Wataru Endo", "포지션": "DM", "이번시즌_선발/경기": "컨디션은 정상이나 UCL 리그페이즈 등록 명단 제외", "득점·도움": "-", "사유": "부상 아님 — 챔피언스리그 명단 미등록", "상태": "확정", "복귀예정": "해당없음(리그 경기만 가능)", "대체선수": "-", "출처": "https://tribuna.com/es/news/2026-10-19-liverpool-afronta-una-grave-crisis-de-bajas-antes-del-duelo-de-champions-league", "날짜": "2026-10-19"},
+    {"팀": "비야레알", "선수": "Nicolás Pépé", "포지션": "RW", "이번시즌_선발/경기": "확인 안됨", "득점·도움": "확인 안됨", "사유": "눈 수술(이례적 부상), 최근 3경기 결장(나폴리·엘체 포함)", "상태": "확정", "복귀예정": "약 6경기 결장 전망(팀노트 기존 추정)", "대체선수": "불명", "출처": "https://www.givemesport.com/villarreal-without-nicolas-pepe-liverpool-tajon-buchanan-returns/ ; https://www.comuniate.com/noticias/38536/el-villarreal-recupera-a-buchanan-antes-de-visitar-al-liverpool-pero-sigue-sin-pepe", "날짜": "2026-10-19"},
+    {"팀": "비야레알", "선수": "Tajon Buchanan", "포지션": "WB/RW", "이번시즌_선발/경기": "최근 3경기 결장 후 복귀", "득점·도움": "확인 안됨", "사유": "햄스트링 부상에서 회복, 월요일 팀 훈련 복귀", "상태": "복귀(확정 가용)", "복귀예정": "이번 경기 출전 가능", "대체선수": "해당없음", "출처": "https://www.givemesport.com/villarreal-without-nicolas-pepe-liverpool-tajon-buchanan-returns/ ; https://www.comuniate.com/noticias/38536/el-villarreal-recupera-a-buchanan-antes-de-visitar-al-liverpool-pero-sigue-sin-pepe", "날짜": "2026-10-19/20"}
+  ],
+  "라인업": {
+    "홈": {"발표여부": "미발표(킥오프 약 6.8시간 전)", "예상XI": "구체적 예상 선발 보도 확인 안됨 — 직전 경기(10/15 LASK 원정, 4-2-3-1): Alisson Becker, Jérémy Jacquet, Ronald Araújo, Kostas Tsimikas, Jeremie Frimpong(現 결장), Florian Wirtz, Trey Nyoni, Ryan Gravenberch, Lewis Koumas, Bradley Barcola, Rio Ngumoha — 이후 10/17 브렌트포드전에서 소보슬라이·프림퐁 교체아웃으로 변경 불가피", "포메이션": "4-2-3-1(직전 기준, 변경 가능)", "출처": "팀노트/입력_승무패62.md(ESPN 수집)", "날짜": "2026-10-15(직전 경기 기준)"},
+    "원정": {"발표여부": "미발표(킥오프 약 6.8시간 전)", "예상XI": "구체적 예상 선발 보도 확인 안됨 — 직전 경기(10/14 홈 vs 나폴리 3-1 승, 4-4-2): Luiz Júnior, Renato Veiga, Pau Navarro, Carlos Romero, Santiago Mouriño, Pape Gueye, Santi Comesaña, Alberto Moleiro, Nathan Saliba, Georges Mikautadze, Gerard Moreno — Buchanan 복귀 시 교체 가능성", "포메이션": "4-4-2(직전 기준)", "출처": "팀노트/입력_승무패62.md(ESPN 수집)", "날짜": "2026-10-14(직전 경기 기준)"}
+  },
+  "최근경기": [
+    {"팀": "리버풀", "날짜": "2026-10-15", "상대": "LASK Linz", "장소": "원정", "스코어": "6-3 승(UCL MD2)", "비고": "대승이나 수비 3실점"},
+    {"팀": "리버풀", "날짜": "2026-10-17", "상대": "Brentford", "장소": "원정", "스코어": "2-1 승(PL)", "비고": "소보슬라이·프림퐁 부상 교체아웃"},
+    {"팀": "비야레알", "날짜": "2026-10-14", "상대": "Napoli", "장소": "홈", "스코어": "3-1 승(UCL MD2)", "비고": "대회 첫 승점"},
+    {"팀": "비야레알", "날짜": "2026-10-17", "상대": "Elche", "장소": "홈", "스코어": "0-0 무(라리가)", "비고": "공격 침묵"}
+  ],
+  "순위": {
+    "홈": "프리미어리그 5위 7경기 3승3무1패 GD+1 승점12(2026-10-19 기준) · UCL 리그페이즈 5위 2경기 2승0무0패 GD+4 승점6(MD3 이전)",
+    "원정": "라리가 12위 9경기 2승3무4패 GD0 승점9(2026-10-19 기준) · UCL 리그페이즈 14위 2경기 1승0무1패 GD+1 승점3(MD3 이전)",
+    "출처": "회차별분석/팩트시트_승무패62.md(2026-10-19 자동수집, 위키/ESPN) ; https://www.101greatgoals.com/football/champions-league/champions-league-predictions-schedule-standings-games/",
+    "날짜": "2026-10-19/20"
+  },
+  "감독": {
+    "홈": "Andoni Iraola(안도니 이라올라) — 기존 아르네 슬롯에서 교체 확인, 변동 없음(2026-10 유지)",
+    "원정": "Iñigo Pérez(이니고 페레스) — 팀노트 내 과거 '마르셀리노' 기재와 불일치했으나 최신 팩트시트·복수 스페인 매체로 이니고 페레스 확정",
+    "변동": "두 팀 모두 이번 주 추가 감독 교체 뉴스 없음",
+    "출처": "회차별분석/팩트시트_승무패62.md ; https://betfair.es/blog/futbol/champions-league/liverpool---villarreal-alineaciones-horario-donde-ver-pronosticos-y-estadisticas-191026-1210.html",
+    "날짜": "2026-10-19"
+  },
+  "일정·동기·기타": [
+    {"내용": "리버풀은 프리미어리그 부진(5위, 최근 감독 교체)과 별개로 UCL에서는 2연승 중(아틀레티코·LASK)이나 결장자 9명 수준의 뎁스 위기", "출처": "https://tribuna.com/es/news/2026-10-19-liverpool-afronta-una-grave-crisis-de-bajas-antes-del-duelo-de-champions-league", "날짜": "2026-10-19"},
+    {"내용": "비야레알은 UCL 1차전 도르트문트 원정 2-3 패 이후 나폴리전 첫 승점(3-1), 반등 흐름에서 원정", "출처": "https://es.soccerway.com/noticias/futbol-champions-league-una-champions-nefasta-para-el-villarreal-que-se-cierra-con-una-eliminacion-prematura/h0SMh8z8", "날짜": "2026-10-19"},
+    {"내용": "경기 환경: 안필드, 이동 1515km, 강수 0.3mm(97%) 습윤 컨디션", "출처": "회차별분석/입력_승무패62.md", "날짜": "2026-10-20"}
+  ],
+  "엇갈림": [
+    "비야레알 감독 표기 — 팀노트 2026-10-13 메모는 '마르셀리노 가르시아 토랄 유지'로 적었으나, 팩트시트(10-19 자동수집)·스페인 매체(teleprensa 등)·베트페어는 모두 '이니고 페레스'로 일치 — 이니고 페레스가 맞음(팀노트 구기재는 오류로 폐기)"
+  ],
+  "못찾음": [
+    "비야레알 Aïssa Mandi(CB) 발목 부상 최신 상태 — 2026-10-12 이전 기사(알제리 대표팀 차출 중 부상) 외 2026-10-13 이후 갱신 기사 확인 안 됨. 이번 경기 결장 여부 불명(엔트리 제외 가능성 있으나 미확인)",
+    "리버풀·비야레알 양팀 모두 이번 경기 공식/예상 선발 11 명단 기사 확인 안 됨(검색 시점 기준 미리보기 기사들이 구체 라인업 생략)"
+  ],
+  "뉴스없음": {
+    "홈": "해당 없음(결장 뉴스 다수)",
+    "원정": "해당 없음(결장 뉴스 있음, Mandi만 최신 확인 불가)"
+  }
+}

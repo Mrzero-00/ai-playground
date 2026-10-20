@@ -123,6 +123,51 @@ function blockCard(h) {
   </details>`;
 }
 
+function mdLite(t) {
+  const esc2 = (s) => esc(s).replace(/\*\*(.+?)\*\*/g, "<b>$1</b>").replace(/`([^`]+)`/g, "<code>$1</code>");
+  const lines = t.split("\n"); const out = []; let tbl = [];
+  const flush = () => { if (!tbl.length) return;
+    const rows = tbl.filter((r) => !/^\|[\s|:-]+\|$/.test(r.trim()));
+    const cells = rows.map((r) => r.trim().replace(/^\||\|$/g, "").split("|").map((c) => esc2(c.trim())));
+    if (cells.length) out.push(`<div class="tbl"><table><thead><tr>${cells[0].map((c) => `<th>${c}</th>`).join("")}</tr></thead><tbody>${cells.slice(1).map((r) => `<tr>${r.map((c) => `<td>${c}</td>`).join("")}</tr>`).join("")}</tbody></table></div>`);
+    tbl = []; };
+  for (const ln of lines) {
+    if (ln.trim().startsWith("|")) { tbl.push(ln); continue; }
+    flush();
+    const h = ln.match(/^(#{1,4})\s+(.*)$/);
+    if (h) { const lv = Math.min(h[1].length + 1, 5); out.push(`<h${lv}>${esc2(h[2])}</h${lv}>`); continue; }
+    if (/^[-*]\s+/.test(ln.trim())) { out.push(`<li>${esc2(ln.trim().replace(/^[-*]\s+/, ""))}</li>`); continue; }
+    if (!ln.trim()) { out.push(""); continue; }
+    out.push(`<p>${esc2(ln)}</p>`);
+  }
+  flush();
+  return out.join("\n").replace(/(<li>[\s\S]*?<\/li>)(?!\s*<li>)/g, "<ul>$1</ul>");
+}
+async function retro(file) {
+  const rs = await load("retros");
+  if (file) {
+    const r = rs.find((x) => x.file === decodeURIComponent(file));
+    if (!r) { app.innerHTML = '<div class="empty">문서 없음</div>'; return; }
+    app.innerHTML = `<p class="small"><a href="#retro">← 회고 목록</a></p>
+      <h1>${esc(r.title)}</h1><p class="sub">${esc(r.kind)} · ${esc(r.date)}</p>
+      <div class="card doc">${mdLite(r.body)}</div>`;
+    return;
+  }
+  const kinds = [...new Set(rs.map((x) => x.kind))];
+  app.innerHTML = `<h1>회고</h1><p class="sub">분석이 맞았는지 결과가 아니라 경기 내용으로 확인한 기록입니다. 맞은 경기도 운인지 실력인지 나눠 적습니다.</p>
+  <div class="filters"><select id="r-kind"><option value="">전체 ${rs.length}건</option>${kinds.map((k) => `<option>${esc(k)}</option>`).join("")}</select></div>
+  <div id="rlist"></div>`;
+  const render = () => {
+    const fk = $("#r-kind").value;
+    const xs = rs.filter((x) => !fk || x.kind === fk);
+    $("#rlist").innerHTML = xs.map((x) => `<a class="card retro" href="#retro/${encodeURIComponent(x.file)}">
+      <div><b>${esc(x.title)}</b> <span class="pill">${esc(x.kind)}</span></div>
+      <div class="small">${esc(x.date)} · ${Math.round(x.chars / 100) / 10}천자</div>
+      ${x.summary ? `<div class="why">${esc(x.summary)}</div>` : ""}</a>`).join("") || '<div class="empty">없음</div>';
+  };
+  $("#r-kind").onchange = render; render();
+}
+
 async function teams(lg, id) {
   const s = await load("summary");
   lg = lg || s.leagues[0].name;
@@ -151,11 +196,21 @@ async function route() {
   const h = (location.hash || "#now").slice(1).split("/");
   document.querySelectorAll("nav a").forEach((a) => a.classList.toggle("on", a.dataset.r === h[0]));
   try {
-    if (h[0] === "past") await past(); else if (h[0] === "history") await history(); else if (h[0] === "teams") await teams(h[1], h[2]); else await now();
+    if (h[0] === "past") await past(); else if (h[0] === "history") await history();
+    else if (h[0] === "retro") await retro(h[1]); else if (h[0] === "teams") await teams(h[1], h[2]); else await now();
   } catch (e) { app.innerHTML = `<div class="empty">데이터를 불러오지 못했습니다 (${esc(e.message)})</div>`; }
   window.scrollTo(0, 0);
 }
+async function stamp() {
+  try { const s = await load("summary"); const el = $("#stamp"); if (el) el.textContent = "갱신 " + s.updated.slice(5); } catch (_) {}
+}
+$("#refresh").onclick = async (e) => {
+  const b = e.currentTarget; b.classList.add("spin");
+  for (const k of Object.keys(cache)) delete cache[k];
+  await route().then(stamp); await stamp();
+  setTimeout(() => b.classList.remove("spin"), 400);
+};
 window.addEventListener("hashchange", route);
 $("#theme").onclick = () => { const cur = document.documentElement.dataset.theme || (matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light"); document.documentElement.dataset.theme = cur === "dark" ? "light" : "dark"; try { localStorage.setItem("theme", document.documentElement.dataset.theme); } catch (_) {} };
 try { const t = localStorage.getItem("theme"); if (t) document.documentElement.dataset.theme = t; } catch (_) {}
-route();
+route().then(stamp);

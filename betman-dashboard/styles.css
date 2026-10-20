@@ -56,3 +56,13 @@ details.hblk th,details.hblk td{white-space:nowrap}
 details.hblk td:nth-child(2),details.hblk td:nth-child(7),details.hblk th:nth-child(2),details.hblk th:nth-child(7){white-space:normal}
 details.hblk td:nth-child(2){min-width:190px}details.hblk td:nth-child(7){min-width:300px}
 details.hblk td .m.small,details.hblk td.small{font-size:12px}
+
+/* 회고·새로고침 */
+#refresh{font-size:16px;line-height:1}
+#refresh.spin{animation:sp .6s linear}@keyframes sp{to{transform:rotate(360deg)}}
+#stamp{margin-right:6px;color:var(--faint);white-space:nowrap}
+a.card.retro{display:block;color:var(--text)}a.card.retro:hover{text-decoration:none;border-color:var(--accent)}
+.card.doc h2,.card.doc h3,.card.doc h4,.card.doc h5{margin:14px 0 6px}
+.card.doc p{margin:4px 0}.card.doc ul{margin:4px 0 10px;padding-left:18px}.card.doc li{line-height:1.5}
+.card.doc table{font-size:12.5px}
+.card.doc code{background:var(--bg);border:1px solid var(--line);border-radius:4px;padding:0 4px;font-size:12px}

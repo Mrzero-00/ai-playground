@@ -330,18 +330,43 @@ def build(out):
                      "legs": legs, "n": len(legs), "done": done, "hits": hits, "scored": done == len(legs) and len(legs) > 0, "result": (mark or {}).get("result", ""),
                      "current": bool(close) and close >= now.strftime("%Y-%m-%d %H:%M")})
     toto.sort(key=lambda t: t["round"], reverse=True)
+    # ---- 회고 문서 목록·본문 (사용자 요청 2026-10-19)
+    import glob as _g
+    retros = []
+    for f in sorted(_g.glob(os.path.join(ROOT, "회차별분석", "*.md")), key=os.path.getmtime, reverse=True):
+        base = os.path.basename(f)
+        if not any(k in base for k in ("회고", "심층회고", "내용회고")):
+            continue
+        try:
+            txt = open(f, encoding="utf-8").read()
+        except Exception:
+            continue
+        title = next((l.lstrip("# ").strip() for l in txt.splitlines() if l.startswith("#")), base[:-3])
+        summ = ""
+        for l in txt.splitlines():
+            if l.startswith("요약") or l.startswith("> 요약"):
+                summ = l.lstrip("> ").strip()[:400]; break
+        kind = "심층 회고" if "심층회고" in base else "경기별 내용 회고" if "내용회고" in base else "회차 회고"
+        mt = dt.datetime.fromtimestamp(os.path.getmtime(f))
+        retros.append({"file": base, "title": title[:120], "kind": kind, "date": mt.strftime("%Y-%m-%d %H:%M"),
+                       "summary": summ, "body": txt[:60000], "chars": len(txt)})
+        if len(retros) >= 40:
+            break
+    json.dump(retros, open(os.path.join(out, "retros.json"), "w", encoding="utf-8"), ensure_ascii=False)
+
     summary = {"updated": now.strftime("%Y-%m-%d %H:%M"), "mode": "가상 추천 중(실투자 없음)",
                "combos_total": len(core), "combos_scored": len(sc), "combos_hit": sum(1 for c in sc if c["hit"]), "combo_rate": combo_rate,
                "fun_total": len(fun), "fun_scored": len(scf), "fun_hit": sum(1 for c in scf if c["hit"]), "fun_rate": fun_rate,
                "legs_scored": len(legs_scored), "leg_rate": leg_rate, "by_round": by_round,
-               "process_score": proc_score, "process_n": len(clean), "quad": dict(quad), "leagues": leagues}
+               "process_score": proc_score, "process_n": len(clean), "quad": dict(quad), "leagues": leagues,
+               "retros": len(retros)}
     json.dump(summary, open(os.path.join(out, "summary.json"), "w", encoding="utf-8"), ensure_ascii=False, indent=1)
     json.dump({"current": current, "past": past[:150], "toto": toto}, open(os.path.join(out, "recommendations.json"), "w", encoding="utf-8"), ensure_ascii=False, indent=1)
     json.dump(history, open(os.path.join(out, "history.json"), "w", encoding="utf-8"), ensure_ascii=False)
     for stale in ("tickets.json", "process.json"):
         p = os.path.join(out, stale)
         if os.path.exists(p): os.remove(p)
-    print(f"→ {out}: 분석 기록 {len(history)}블록(경기 {sum(h['n'] for h in history)}), 조합 {len(combo_rows)}(진행 {len(current)}, 채점 {len(sc)}, 성공률 {combo_rate and round(combo_rate*100)}%), 다리 {leg_rate and round(leg_rate*100)}% n={len(legs_scored)}, 팀 {sum(l['teams'] for l in leagues)}")
+    print(f"→ {out}: 회고 {len(retros)}건, 분석 기록 {len(history)}블록(경기 {sum(h['n'] for h in history)}), 조합 {len(combo_rows)}(진행 {len(current)}, 채점 {len(sc)}, 성공률 {combo_rate and round(combo_rate*100)}%), 다리 {leg_rate and round(leg_rate*100)}% n={len(legs_scored)}, 팀 {sum(l['teams'] for l in leagues)}")
 
 
 if __name__ == "__main__":

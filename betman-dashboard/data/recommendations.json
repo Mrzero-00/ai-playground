@@ -1,5 +1,37 @@
 {
- "current": [],
+ "current": [
+  {
+   "round": "124",
+   "title": "[도파민] 124회 10/20 18:30 — LG-KIA 언더 8.5 · 9420",
+   "track": "도파민",
+   "close": "2026-10-20 18:30",
+   "legs": [
+    {
+     "no": "9420",
+     "game": "LG 트윈스 vs KIA 타이거즈",
+     "pick": "언더",
+     "type": "야구 언더오버 `U/O 8.5`",
+     "odds": 1.89,
+     "prob": 62.0,
+     "time": "2026-10-20 18:30",
+     "result": "",
+     "hit": "",
+     "why": "",
+     "risk": "",
+     "review": {}
+    }
+   ],
+   "odds": 1.89,
+   "prob": 0.62,
+   "scored": false,
+   "stale": false,
+   "started": false,
+   "hit": null,
+   "bought": false,
+   "time": "2026-10-20 18:30",
+   "n": 1
+  }
+ ],
  "past": [
   {
    "round": "124",
@@ -15,8 +47,8 @@
      "odds": 2.0,
      "prob": 53.6,
      "time": "2026-10-20 13:00",
-     "result": "",
-     "hit": "",
+     "result": "3:1",
+     "hit": "0",
      "why": "D 역배 — 내 53.6 − 시장 43.1 = +10.5%p(≥10)·배당 2.00(1.8~4.0). 코어 분석 후 기계적 추출, 별도 조사 없음. ※ 도파민 역배 기준은 축구 승무패 50다리 측정값 — 배구 세트핸디캡 첫 적용이라 집계 때 분리",
      "risk": "",
      "review": {}
@@ -24,10 +56,10 @@
    ],
    "odds": 2.0,
    "prob": 0.536,
-   "scored": false,
+   "scored": true,
    "stale": false,
    "started": true,
-   "hit": null,
+   "hit": false,
    "bought": false,
    "time": "2026-10-20 13:00",
    "n": 1

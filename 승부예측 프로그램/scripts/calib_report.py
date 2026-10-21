@@ -13,7 +13,7 @@
     python3 scripts/calib_report.py --round 124  # 그 회차만
     python3 scripts/calib_report.py --save       # 회차별분석/확률정합_<날짜>.md 로 저장
 """
-import argparse, collections, csv, datetime as dt, math, os, sys
+import argparse, collections, csv, datetime as dt, math, os, re, sys
 
 ROOT = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..")
 SIDES = ("승", "무", "패")
@@ -147,6 +147,52 @@ def section_split(rows, pre, key, label, out, issues, minn=12):
         out += rowsout
 
 
+def section_score(rows, out, issues):
+    """예상점수 정합 (사용자 제안 2026-10-22).
+    방향은 경기당 1비트뿐이라 '왜 틀렸는지'를 못 알려준다. 점수를 적어 두면 오차가 둘로 갈린다.
+      · 총득점 오차 = 경기 템포·수비를 잘못 본 것
+      · 득실차 오차 = 두 팀 전력 차를 잘못 본 것
+    둘은 고치는 방법이 다르다. 핸디캡·언더오버 다리는 애초에 이 두 숫자 위에 서 있다."""
+    xs = []
+    for r in rows:
+        ps, act = (r.get("예상점수") or "").strip(), (r.get("점수") or "").strip()
+        m1 = re.match(r"^\s*([0-9]+(?:\.[0-9]+)?)\s*[:：]\s*([0-9]+(?:\.[0-9]+)?)", ps)
+        m2 = re.match(r"^\s*(\d+)\s*[:：]\s*(\d+)", act)
+        if not (m1 and m2):
+            continue
+        ph, pa = float(m1.group(1)), float(m1.group(2))
+        ah, aa = int(m2.group(1)), int(m2.group(2))
+        xs.append((r.get("종목") or "?", ph, pa, ah, aa))
+    if not xs:
+        out.append("\n### 예상점수 — 기록된 경기가 없다")
+        out.append("\n분석할 때 `예상점수` 열에 '홈:원정'(기대 득점도 좋다)을 남기면 다음 회고부터 잴 수 있다.")
+        return
+    out.append(f"\n### 예상점수 정합 (n={len(xs)})")
+    out.append("| 종목 | 경기 | 총득점 평균오차 | 득실차 평균오차 | 승패 방향 일치 | 정확히 맞음 |")
+    out.append("|---|---:|---:|---:|---:|---:|")
+    g = collections.defaultdict(list)
+    for sp, ph, pa, ah, aa in xs:
+        g[sp].append((ph, pa, ah, aa))
+    g["(전체)"] = [(ph, pa, ah, aa) for _, ph, pa, ah, aa in xs]
+    for sp in sorted(g, key=lambda k: (k == "(전체)", -len(g[k]))):
+        b = g[sp]
+        tot = sum(abs((ph + pa) - (ah + aa)) for ph, pa, ah, aa in b) / len(b)
+        mar = sum(abs((ph - pa) - (ah - aa)) for ph, pa, ah, aa in b) / len(b)
+        sgn = sum(1 for ph, pa, ah, aa in b
+                  if (ph > pa) == (ah > aa) or (abs(ph - pa) < 0.25 and ah == aa)) / len(b) * 100
+        exact = sum(1 for ph, pa, ah, aa in b if round(ph) == ah and round(pa) == aa) / len(b) * 100
+        out.append(f"| {sp} | {len(b)} | {tot:.2f} | {mar:.2f} | {sgn:.0f}% | {exact:.0f}% |")
+    out.append("")
+    out.append("> 정확히 맞음은 참고만 한다(원래 10% 안팎). 고칠 것은 **총득점 오차**(템포·수비를 잘못 봄)와 "
+               "**득실차 오차**(전력 차를 잘못 봄)이고, 둘은 고치는 방법이 다르다. "
+               "핸디캡·언더오버 다리는 이 두 숫자 위에 서 있으므로 여기가 1X2보다 직접적인 지표다.")
+    b = g["(전체)"]
+    mar = sum(abs((ph - pa) - (ah - aa)) for ph, pa, ah, aa in b) / len(b)
+    tot = sum(abs((ph + pa) - (ah + aa)) for ph, pa, ah, aa in b) / len(b)
+    if len(b) >= 30 and mar > tot:
+        issues.append(f"예상점수: 득실차 오차({mar:.2f})가 총득점 오차({tot:.2f})보다 크다 — 전력 차 판정이 템포 판정보다 나쁘다(n={len(b)})")
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--round")
@@ -167,6 +213,7 @@ def main():
         section_split(rows, pre, lambda r: r.get("종목"), "종목", out, issues)
         section_split(rows, pre, lambda r: r.get("리그"), "리그", out, issues, minn=15)
         section_split(rows, pre, lambda r: r.get("깊이") or "(표시없음)", "분석 깊이", out, issues)
+    section_score(rows, out, issues)
     out.append("\n## 고쳐야 할 것 (유의한 편향만)")
     if issues:
         out += [f"{i + 1}. {s}" for i, s in enumerate(issues)]

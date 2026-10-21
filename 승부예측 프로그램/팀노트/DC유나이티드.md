@@ -9,6 +9,6 @@
 <!-- FACTS:END -->
 <!-- INPUTS:START -->
 ## 입력(자동 수집 2026-10-21) — xG·휴식일·라인업·환경(이동거리·고도·날씨)은 이 숫자를 쓴다
-- 10-22 08:00 vs FC신시내티: 휴식 4.0일(7일 2경기) · 직전 10-18 원정 vs Orlando City SC 1-4 패 [usa.1] · xG - · 선발 4-3-3 Sean Johnson, Andre Dozzell, Lucas Bartlett, Keisuke Kurokawa, Kimito Nono, Matti Peltola, João Peglow, Brandon Servania, Jackson Hopkins, Nathan Ordaz, Louis Munteanu · 직전 대비 교체 5명(Kye Rowles, Sean Nealis, Silvan Hefti, Jared Stroud, Tai Baribo) · 구장 TQL 스타디움 · 이동 ?(구장 미확인) · 고도 162m · 17.7℃ 강수0mm(0%) 바람8.6km/h
+- 10-22 08:00 vs FC신시내티: 휴식 4.0일(7일 2경기) · 직전 10-18 원정 vs Orlando City SC 1-4 패 [usa.1] · xG - · 선발 4-3-3 Sean Johnson, Andre Dozzell, Lucas Bartlett, Keisuke Kurokawa, Kimito Nono, Matti Peltola, João Peglow, Brandon Servania, Jackson Hopkins, Nathan Ordaz, Louis Munteanu · 직전 대비 교체 5명(Kye Rowles, Sean Nealis, Silvan Hefti, Jared Stroud, Tai Baribo) · 구장 TQL 스타디움 · 이동 649km · 고도 162m(차 +155m) · 17.7℃ 강수0mm(0%) 바람9.0km/h
 <!-- INPUTS:END -->
 

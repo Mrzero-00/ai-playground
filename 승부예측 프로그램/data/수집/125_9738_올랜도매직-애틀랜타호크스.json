@@ -1,0 +1,59 @@
+{
+  "번호": 9738,
+  "홈": "올랜도 매직",
+  "원정": "애틀랜타 호크스",
+  "종목": "농구(NBA)",
+  "킥오프": "2026-10-22 08:00 KST (2026-10-21 19:00 ET, Kia Center, Orlando)",
+  "수집시각": "2026-10-21 22:40 KST",
+  "비고": "2026-27 NBA 정규시즌 개막전(양팀 모두 시즌 첫 경기, 0-0)",
+  "결장": [
+    {"팀":"홈","선수":"Franz Wagner","상태":"출전 가능(injury report 제외)","사유":"프리시즌 마이애미전 3점 시도 중 오른 어깨 부상 → 10-20 전면 훈련 소화, 본인이 출전 의사 밝힘. 일부 집계에는 Day-To-Day(Shoulder)로 남아 있음","출처":"https://www.nbcsports.com/fantasy/basketball/player-news/2026-10-20/franz-wagner-shoulder-not-on-injury-report","날짜":"2026-10-20"},
+    {"팀":"홈","선수":"Noah Penda","상태":"OUT","사유":"햄스트링","출처":"https://969thegame.iheart.com/content/2026-10-21-hawks-vs-magic-injury-report-oct-21/","날짜":"2026-10-21"},
+    {"팀":"홈","선수":"Anthony Black","상태":"OUT","사유":"발목","출처":"https://969thegame.iheart.com/content/2026-10-21-hawks-vs-magic-injury-report-oct-21/","날짜":"2026-10-21"},
+    {"팀":"홈","선수":"Jonathan Isaac","상태":"OUT","사유":"무릎","출처":"https://969thegame.iheart.com/content/2026-10-21-hawks-vs-magic-injury-report-oct-21/","날짜":"2026-10-21"},
+    {"팀":"홈","선수":"Izaiyah Nelson","상태":"OUT","사유":"발목","출처":"https://969thegame.iheart.com/content/2026-10-21-hawks-vs-magic-injury-report-oct-21/","날짜":"2026-10-21"},
+    {"팀":"홈","선수":"Jase Richardson","상태":"DAY-TO-DAY","사유":"허리","출처":"https://969thegame.iheart.com/content/2026-10-21-hawks-vs-magic-injury-report-oct-21/","날짜":"2026-10-21"},
+    {"팀":"원정","선수":"Henri Veesaar","상태":"OUT (시즌 아웃)","사유":"ACL 파열","출처":"https://969thegame.iheart.com/content/2026-10-21-hawks-vs-magic-injury-report-oct-21/","날짜":"2026-10-21"},
+    {"팀":"원정","선수":"Mouhamed Gueye","상태":"OUT","사유":"발","출처":"https://969thegame.iheart.com/content/2026-10-21-hawks-vs-magic-injury-report-oct-21/","날짜":"2026-10-21"}
+  ],
+  "주축_상태_요약": [
+    {"선수":"Paolo Banchero","팀":"홈","상태":"리포트에 없음 = 출전 가능","날짜":"2026-10-21"},
+    {"선수":"Jalen Suggs","팀":"홈","상태":"리포트에 없음 = 출전 가능","날짜":"2026-10-21"},
+    {"선수":"Desmond Bane","팀":"홈","상태":"리포트에 없음 = 출전 가능","날짜":"2026-10-21"},
+    {"선수":"Jalen Johnson","팀":"원정","상태":"리포트에 없음 = 출전 가능, 선발 예상","날짜":"2026-10-21"},
+    {"선수":"Trae Young","팀":"원정","상태":"해당 없음 — 2026-01-09 워싱턴으로 트레이드되어 호크스 소속 아님","출처":"https://www.nba.com/news/hawks-trade-trae-young-to-wizards-for-cj-mccollum-corey-kispert","날짜":"2026-01-09"}
+  ],
+  "선발": {
+    "홈": ["Jalen Suggs (PG)","Desmond Bane (SG)","Franz Wagner (SF)","Paolo Banchero (PF)","Wendell Carter Jr. (C)"],
+    "원정": ["CJ McCollum (G)","Nickeil Alexander-Walker (G)","Dyson Daniels (F)","Jalen Johnson (F)","Onyeka Okongwu (C)"],
+    "확정여부": "예상(프리시즌·현지 매체 프로젝션, 공식 발표 전)",
+    "출처": "https://sports.yahoo.com/articles/orlando-magic-season-preview-lineup-094226891.html ; https://www.si.com/nba/hawks/onsi/final-atlanta-hawks-starting-lineup-and-rotation-projection-ahead-of-the-2026-27-season-01m5dbn54mcs",
+    "날짜": "2026-10-20"
+  },
+  "레이팅": {
+    "홈": {"ORtg":115.09,"DRtg":114.54,"NRtg":0.56,"Pace":100.0,"전적":"45-37","시즌":"2025-26","출처":"https://www.basketball-reference.com/leagues/NBA_2026_ratings.html"},
+    "원정": {"ORtg":116.13,"DRtg":113.77,"NRtg":2.36,"Pace":null,"전적":"46-36","시즌":"2025-26","출처":"https://www.basketball-reference.com/leagues/NBA_2026_ratings.html"}
+  },
+  "로스터변동": [
+    {"팀":"홈","내용":"감독 교체 — Jamahl Mosley와 2026년 5월 결별, 신임 감독 Sean Sweeney(前 댈러스·샌안토니오 어시스턴트, NBA 수석 첫 시즌)","출처":"https://www.espn.com/nba/story/_/id/49793920/orlando-magic-2026-27-season-preview-stats-roster-banchero-bane-wagner","날짜":"2026-10"},
+    {"팀":"홈","내용":"Nikola Vucevic 복귀(1년 $3.9M). 그 외 FA 영입 거의 없음 — 상위 연봉 5인(Banchero·F.Wagner·Bane·Suggs·Carter Jr.) 전원 잔류. 이 5인은 지난 시즌 부상으로 함께 뛴 시간이 182분뿐","출처":"https://www.espn.com/nba/story/_/id/49793920/orlando-magic-2026-27-season-preview-stats-roster-banchero-bane-wagner","날짜":"2026-10"},
+    {"팀":"원정","내용":"영입: Luguentz Dort(OKC, 3자 트레이드), Ryan Nembhard(DAL), Aaron Wiggins, Kingston Flemings, Devin Carter, Zuby Ejiofor, Henri Veesaar. 방출/이탈: Zaccharie Risacher(Dort 트레이드로 발송), Jonathan Kuminga, Gabe Vincent, Keaton Wallace. CJ McCollum·Jock Landale 1년 재계약","출처":"https://www.espn.com/nba/story/_/id/49652199/atlanta-hawks-offseason-recap-2026-27-season-preview-stats-roster-depth-chart","날짜":"2026-09~10"},
+    {"팀":"원정","내용":"감독 Quin Snyder 유임. 뎁스가 두꺼워 선발·로테이션 미확정 상태로 개막","출처":"https://www.nba.com/news/2026-27-season-preview-atl","날짜":"2026-10-20"}
+  ],
+  "일정": {
+    "홈": "시즌 개막전, 직전 공식전 없음(프리시즌 종료). 백투백 아님",
+    "원정": "시즌 개막전. 프리시즌 4-1(홈 1-1, 원정 3-0). 애틀랜타→올랜도 이동(약 650km, 당일 이동 부담 낮음). 백투백 아님",
+    "출처": "https://www.yardbarker.com/nba/articles/atlanta_hawks_2026_27_nba_preseason_preview/s1_17659_44383054"
+  },
+  "기타사실": [
+    {"내용":"매직은 최근 3시즌 연속 플레이오프 1라운드 탈락, 구단이 '더 나은 성적'을 요구한 상태. 45승 로스터를 신임 감독과 그대로 가져감","출처":"https://www.espn.com/nba/story/_/id/49793920/orlando-magic-2026-27-season-preview-stats-roster-banchero-bane-wagner","날짜":"2026-10"},
+    {"내용":"호크스는 2025-26 정규시즌 46-36으로 매직(45-37)보다 1승 앞섰고, 2025-26 NRtg도 +2.36 vs +0.56으로 우위","출처":"https://www.basketball-reference.com/leagues/NBA_2026_ratings.html","날짜":"2026-04"},
+    {"내용":"매직은 결장 6명(그중 OUT 4명)으로 호크스(OUT 2명)보다 이탈자가 많지만, OUT 선수들은 모두 벤치 자원(Black·Isaac·Penda·Nelson)","출처":"https://969thegame.iheart.com/content/2026-10-21-hawks-vs-magic-injury-report-oct-21/","날짜":"2026-10-21"}
+  ],
+  "확인못한것": [
+    "2025-26 Pace 정확값 — 매직 100.0(12위)만 확인, 호크스 Pace 미확인",
+    "양팀 공식 선발 발표(틴오프 30분 전 확정)",
+    "Franz Wagner 출전시간 제한(미닛 리스트릭션) 여부 — '풀 워크로드 예상' 보도만 있음",
+    "호크스 프리시즌 개별 선수 출전시간·Onyeka Okongwu vs Jock Landale 센터 경쟁 최종 결론"
+  ]
+}

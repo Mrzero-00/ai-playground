@@ -10,6 +10,6 @@
 <!-- FACTS:END -->
 <!-- INPUTS:START -->
 ## 입력(자동 수집 2026-10-21) — xG·휴식일·라인업·환경(이동거리·고도·날씨)은 이 숫자를 쓴다
-- 10-22 09:30 vs 플루미넨시: 휴식 7.0일 · 직전 10-15 원정 vs Fluminense 2-1 승 [semifinals] · xG - · 직전 선발 3-4-2-1 Carlos Miguel, Gustavo Gómez, Alexander Barboza, Murilo, Lucas Evangelista, Marlon Freitas, Joaquín Piquerez, Agustín Giay, José Manuel López, Andreas Pereira, Jhon Arias · 구장 Estádio Rua Javari · 이동 352km · 고도 738m(차 +723m) · 17.9℃ 강수0mm(14%) 바람12.1km/h
+- 10-22 09:30 vs 플루미넨시: 휴식 7.0일 · 직전 10-15 원정 vs Fluminense 2-1 승 [semifinals] · xG - · 직전 선발 3-4-2-1 Carlos Miguel, Gustavo Gómez, Alexander Barboza, Murilo, Lucas Evangelista, Marlon Freitas, Joaquín Piquerez, Agustín Giay, José Manuel López, Andreas Pereira, Jhon Arias · 구장 Estádio Rua Javari · 이동 352km · 고도 738m(차 +723m) · 18.0℃ 강수0mm(23%) 바람10.2km/h
 <!-- INPUTS:END -->
 

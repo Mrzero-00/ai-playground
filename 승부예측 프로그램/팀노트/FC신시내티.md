@@ -9,6 +9,6 @@
 <!-- FACTS:END -->
 <!-- INPUTS:START -->
 ## 입력(자동 수집 2026-10-21) — xG·휴식일·라인업·환경(이동거리·고도·날씨)은 이 숫자를 쓴다
-- 10-22 08:00 vs DC유나이티드: 휴식 3.1일(7일 2경기) · 직전 10-19 홈 vs Columbus Crew 0-2 패 [usa.1] · xG - · 선발 3-5-2 Roman Celentano, Miles Robinson, Andrei Chirila, Kyle Smith, Gerardo Valenzuela, Obinna Nwobodo, Evander, Ender Echenique, Pavel Bucha, Kévin Denkey, Ayoub Jabbari · 직전 대비 교체 6명(Julian Malatini, Teenage Hadebe, Samuel Gidi, Tyrell Malacia, David Doudera, Tom Barlow) · 구장 TQL 스타디움 · 이동 ?(구장 미확인) · 고도 162m · 17.7℃ 강수0mm(0%) 바람8.6km/h
+- 10-22 08:00 vs DC유나이티드: 휴식 3.1일(7일 2경기) · 직전 10-19 홈 vs Columbus Crew 0-2 패 [usa.1] · xG - · 선발 3-5-2 Roman Celentano, Miles Robinson, Andrei Chirila, Kyle Smith, Gerardo Valenzuela, Obinna Nwobodo, Evander, Ender Echenique, Pavel Bucha, Kévin Denkey, Ayoub Jabbari · 직전 대비 교체 6명(Julian Malatini, Teenage Hadebe, Samuel Gidi, Tyrell Malacia, David Doudera, Tom Barlow) · 구장 TQL 스타디움 · 이동 649km · 고도 162m(차 +155m) · 17.7℃ 강수0mm(0%) 바람9.0km/h
 <!-- INPUTS:END -->
 

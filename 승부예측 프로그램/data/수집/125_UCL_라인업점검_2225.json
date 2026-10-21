@@ -1,0 +1,163 @@
+{
+  "수집시각": "2026-10-21 22:30 KST",
+  "수집범위": "2026-10-20~21 기사만. 확률·예측·배당 미수집(가림 원칙). 킥오프 19:00 UTC(A~E)·16:45 UTC(F,G) 기준 공식 선발 XI는 전 경기 미발표 상태(현재 13:30 UTC).",
+  "경기": [
+    {
+      "번호": 9685,
+      "경기": "레알 마드리드-RB라이프치히",
+      "새결장": [
+        {"팀": "홈", "선수": "Vinicius Junior", "상태": "확정", "사유": "출전 정지(2026-11-08까지)", "시즌선발비중": "미확인(10/14 로마전 선발)", "신규여부": "기존", "출처": "https://www.fotmob.com/matches/real-madrid-vs-rb-leipzig/81hwp83", "날짜": "2026-10-21"},
+        {"팀": "홈", "선수": "Raul Asencio", "상태": "확정", "사유": "다리 부상, 2027년 1월초 복귀 예정", "시즌선발비중": "미확인", "신규여부": "기존", "출처": "https://www.fotmob.com/matches/real-madrid-vs-rb-leipzig/81hwp83", "날짜": "2026-10-21"},
+        {"팀": "홈", "선수": "Rodrygo", "상태": "확정", "사유": "결장(사유 미명시)", "시즌선발비중": "미확인", "신규여부": "기존", "출처": "https://onefootball.com/en/news/real-madrid-rb-leipzig-champions-league-preview-and-latest-line-ups-43630790", "날짜": "2026-10-21"},
+        {"팀": "원정", "선수": "Marc Guiu", "상태": "확정", "사유": "결장(사유 미명시)", "시즌선발비중": "미확인", "신규여부": "기존", "출처": "https://onefootball.com/en/news/real-madrid-rb-leipzig-champions-league-preview-and-latest-line-ups-43630790", "날짜": "2026-10-21"},
+        {"팀": "원정", "선수": "Assan Ouedraogo", "상태": "확정", "사유": "결장(사유 미명시)", "시즌선발비중": "미확인", "신규여부": "기존", "출처": "https://onefootball.com/en/news/real-madrid-rb-leipzig-champions-league-preview-and-latest-line-ups-43630790", "날짜": "2026-10-21"}
+      ],
+      "복귀": [
+        {"팀": "홈", "선수": "Ferland Mendy", "상태": "팀 훈련 복귀(인대 부상 회복 중, 출전 여부 불명)", "출처": "https://www.fotmob.com/matches/real-madrid-vs-rb-leipzig/81hwp83", "날짜": "2026-10-21"}
+      ],
+      "선발XI": {
+        "홈": "미발표. 현지 예상 XI(4-2-3-1): Courtois - Dumfries, Konate, Rudiger, Cucurella - Valverde, Tchouameni - Diomande, Bellingham, Brahim Diaz - Mbappe",
+        "원정": "미발표. 예상: Vandevoordt - Baku, Lukeba, Orban, Raum - Banzuzi, El Aynaoui - Nusa, Gruda, Romulo Cruz - Nkunku",
+        "출처": "https://www.fotmob.com/matches/real-madrid-vs-rb-leipzig/81hwp83"
+      },
+      "로테이션발언": {"내용": "10/20~21 기자회견에서 대거 로테이션 암시 기사 확인 못함. Mbappe·Bellingham 결장 보도 없음(10/14 로마전 선발 명단에 포함)", "출처": "https://www.goal.com/en/news/real-madrid-rb-leipzig-champions-league-preview/blt7ee234496dfbd851"},
+      "변화없음": false,
+      "비고": "어제 대비 확인된 '신규' 결장 없음. Mendy 훈련 복귀가 유일한 변동 신호."
+    },
+    {
+      "번호": 9693,
+      "경기": "인테르나치오날레 밀라노-샤흐타르 도네츠크",
+      "새결장": [
+        {"팀": "홈", "선수": "Lautaro Martinez", "상태": "확정", "사유": "햄스트링(대표팀 휴식기 이후 복귀 예정 — '다음 A매치 휴식기까지 결장')", "시즌선발비중": "주전 공격수·주장(수치 미확인)", "신규여부": "기존", "출처": "https://www.ilnapolista.it/2026/10/chivu-conferenza-inter-shakhtar-devo-migliorare-io/", "날짜": "2026-10-20"},
+        {"팀": "홈", "선수": "John Stones", "상태": "의심", "사유": "굴곡근(flexor) 문제 지속", "시즌선발비중": "미확인", "신규여부": "기존", "출처": "https://www.sportsmole.co.uk/football/inter-milan/champions-league/preview/inter-milan-vs-shakhtar-prediction-team-news-lineups_607239.html", "날짜": "2026-10-21"},
+        {"팀": "홈", "선수": "Benjamin Pavard", "상태": "의심", "사유": "허벅지 부상 회복 중", "시즌선발비중": "미확인", "신규여부": "기존", "출처": "https://www.sportsmole.co.uk/football/inter-milan/champions-league/preview/inter-milan-vs-shakhtar-prediction-team-news-lineups_607239.html", "날짜": "2026-10-21"},
+        {"팀": "홈", "선수": "Curtis Jones", "상태": "의심", "사유": "허벅지 부상 회복 중", "시즌선발비중": "미확인", "신규여부": "기존", "출처": "https://www.sportsmole.co.uk/football/inter-milan/champions-league/preview/inter-milan-vs-shakhtar-prediction-team-news-lineups_607239.html", "날짜": "2026-10-21"}
+      ],
+      "복귀": [
+        {"팀": "홈", "선수": "Hakan Calhanoglu", "상태": "직전 경기 결장 후 중원 복귀 예상", "출처": "https://notiziesportive.net/inter-shakhtar-probabili-formazioni-champions-league-2026-32255/", "날짜": "2026-10-20"}
+      ],
+      "선발XI": {
+        "홈": "미발표. 현지 예상 XI(3-5-2): Provedel; Bisseck, Akanji, Bastoni; Diouf, Barella, Calhanoglu, Mkhitaryan, Carlos Augusto; Bonny, Thuram (Lautaro 결장으로 Bonny 또는 Pio Esposito가 Thuram 파트너)",
+        "원정": "미발표",
+        "출처": "https://notiziesportive.net/inter-shakhtar-probabili-formazioni-champions-league-2026-32255/"
+      },
+      "로테이션발언": {"내용": "Chivu 10/20 기자회견(Appiano Gentile 14:30, Bastoni 동석): '내가 먼저 나아져야 한다', '우리는 완벽하지 않다, 내가 첫 번째 책임자다', '우리가 지면 드라마처럼 보인다'. 반드시 이겨야 한다는 기조 — 대거 로테이션 예고는 없음. 현지 매체 제목에는 'Chivu cambia tutto?'(부분 변화) 표현.", "출처": "https://www.fcinternews.it/in-primo-piano/live-torna-champions-chivu-presenta-inter-shakhtar-conferenza-stampa-1021222"},
+      "변화없음": false,
+      "비고": "샤흐타르는 Arda Turan 체제 5연승(AEK 3-1, Kolos 2-1) — 결장 정보 확인 못함."
+    },
+    {
+      "번호": 9677,
+      "경기": "바이에른 뮌헨-아스널",
+      "새결장": [
+        {"팀": "홈", "선수": "Michael Olise", "상태": "확정", "사유": "UEFA 출전 정지(10/13 Viking전 경고 누적 퇴장 — 전술적 파울 + 상대에게 공 투척)", "시즌선발비중": "주전 우측 공격수(수치 미확인)", "신규여부": "기존", "출처": "https://thefalse9.com/2026/10/bayern-vs-arsenal-team-news.html", "날짜": "2026-10-21"},
+        {"팀": "홈", "선수": "Jamal Musiala", "상태": "확정(결장 예상)", "사유": "A매치 기간 중 허벅지 부상. 단장 Max Eberl은 '10월 중 복귀' 언급했으나 이 경기는 결장 전망", "시즌선발비중": "미확인", "신규여부": "기존", "출처": "https://thefalse9.com/2026/10/bayern-vs-arsenal-team-news.html", "날짜": "2026-10-21"},
+        {"팀": "홈", "선수": "Vincent Kompany(감독)", "상태": "확정", "사유": "바이러스 감염으로 벤치 부재 — 터치라인에 서지 못함", "시즌선발비중": "해당없음(감독)", "신규여부": "신규(10/20~21 보도)", "출처": "https://uk.sports.yahoo.com/news/bayern-munich-xi-vs-arsenal-172913238.html", "날짜": "2026-10-21"},
+        {"팀": "원정", "선수": "William Saliba", "상태": "확정", "사유": "허리 부상, 복귀 시점 미정", "시즌선발비중": "주전 센터백(수치 미확인)", "신규여부": "기존", "출처": "https://thefalse9.com/2026/10/bayern-vs-arsenal-team-news.html", "날짜": "2026-10-21"},
+        {"팀": "원정", "선수": "Piero Hincapie", "상태": "확정", "사유": "발목, 10/24 복귀 예정", "시즌선발비중": "미확인", "신규여부": "기존", "출처": "https://thefalse9.com/2026/10/bayern-vs-arsenal-team-news.html", "날짜": "2026-10-21"},
+        {"팀": "원정", "선수": "Christos Tzolis", "상태": "확정", "사유": "햄스트링, 11/01 복귀 예정", "시즌선발비중": "미확인", "신규여부": "기존", "출처": "https://thefalse9.com/2026/10/bayern-vs-arsenal-team-news.html", "날짜": "2026-10-21"}
+      ],
+      "복귀": [
+        {"팀": "홈", "선수": "Manuel Neuer", "상태": "10/21 기준 '골문 복귀 예상'으로 보도 — 발 부종으로 직전 2경기 결장, Eberl은 '수요일에 판단'. 대체 Jonas Urbig가 최근 2경기 선발", "출처": "https://uk.sports.yahoo.com/news/bayern-munich-xi-vs-arsenal-172913238.html", "날짜": "2026-10-21"},
+        {"팀": "홈", "선수": "Joshua Kimmich", "상태": "화요일(10/20) 개인 사정으로 훈련 불참했으나 출전 가능 전망", "출처": "https://uk.sports.yahoo.com/news/bayern-munich-xi-vs-arsenal-172913238.html", "날짜": "2026-10-21"}
+      ],
+      "선발XI": {
+        "홈": "미발표. Olise 자리에 Lennart Karl 선발 유력, 골키퍼는 Neuer 복귀 전망(Urbig 대기)",
+        "원정": "미발표",
+        "출처": "https://www.espn.com/soccer/story/_/id/50216509/bayern-munich-vs-arsenal-tv-channel-how-watch-kick-live-stream-referee-injury-predicted-lineups-uefa-champions-league-2026-27"
+      },
+      "로테이션발언": {"내용": "대거 로테이션 예고 기사 확인 못함. Kompany는 감염으로 벤치 부재(코치진 대행). 매체 논점은 '아스널이 바이에른의 뎁스를 시험한다'", "출처": "https://www.cbssports.com/soccer/news/what-to-watch-in-uefa-champions-league-arsenal-to-test-bayern-munichs-depth/"},
+      "변화없음": false,
+      "비고": "10/21 핵심 변동 = ① Neuer 복귀 쪽으로 기울었다(어제는 '의심') ② Kompany 감독 벤치 부재(신규) ③ Kimmich 훈련 불참(출전 전망). Musiala·Olise는 기존."
+    },
+    {
+      "번호": 9726,
+      "경기": "레알 베티스-페예노르트",
+      "새결장": [
+        {"팀": "홈", "선수": "Cucho Hernandez", "상태": "확정", "사유": "왼쪽 가자미근 근위부 손상(바르셀로나전 부상) — 소집 제외", "시즌선발비중": "미확인", "신규여부": "신규(10/20 소집명단 발표)", "출처": "https://www.eldesmarque.com/futbol/champions-league/20261020/lesion-descartes-convocatoria-betis-feyenoord-champions_18_020486669.html", "날짜": "2026-10-20"},
+        {"팀": "홈", "선수": "Junior Firpo", "상태": "확정", "사유": "왼쪽 내전근 근육 부상 회복 중 — 소집 제외", "시즌선발비중": "미확인", "신규여부": "기존", "출처": "https://www.eldesmarque.com/futbol/champions-league/20261020/lesion-descartes-convocatoria-betis-feyenoord-champions_18_020486669.html", "날짜": "2026-10-20"},
+        {"팀": "홈", "선수": "Iker Losada", "상태": "확정", "사유": "감독 전술적 제외(descarte)", "시즌선발비중": "미확인", "신규여부": "신규", "출처": "https://futeros.com/la-convocatoria-del-betis-para-la-champions-cambio-de-fichas-para-pellegrini-con-dos-bajas-y-una-esperada-novedad/", "날짜": "2026-10-20"},
+        {"팀": "홈", "선수": "Manu Gonzalez", "상태": "확정", "사유": "감독 전술적 제외(유스)", "시즌선발비중": "미확인", "신규여부": "신규", "출처": "https://futeros.com/la-convocatoria-del-betis-para-la-champions-cambio-de-fichas-para-pellegrini-con-dos-bajas-y-una-esperada-novedad/", "날짜": "2026-10-20"}
+      ],
+      "복귀": [
+        {"팀": "홈", "선수": "Aitor Ruibal", "상태": "5개월 만에 소집 명단 복귀", "출처": "https://futeros.com/la-convocatoria-del-betis-para-la-champions-cambio-de-fichas-para-pellegrini-con-dos-bajas-y-una-esperada-novedad/", "날짜": "2026-10-20"}
+      ],
+      "선발XI": {
+        "홈": "미발표. 현지 예상 XI(4-2-3-1): Alvaro Valles - Angel Ortiz, Marc Bartra, Natan, Valentin Gomez - Facundo Bernal, Pablo Fornals - Antony, Isco, Ezzalzouli - Troy Parrott",
+        "원정": "미발표",
+        "출처": "https://www.fotmob.com/matches/real-betis-vs-feyenoord/2xnfq0"
+      },
+      "로테이션발언": {"내용": "로테이션의 '반대' 신호: Pellegrini는 토요일(라리가)에 쉬게 한 주축 상당수를 되돌려 라 카르투하에서 가장 익숙한 베스트에 가까운 팀을 내보낼 의도라고 보도됨", "출처": "https://www.eldesmarque.com/futbol/champions-league/20261020/lesion-descartes-convocatoria-betis-feyenoord-champions_18_020486669.html"},
+      "변화없음": false,
+      "비고": "페예노르트 쪽 10/21 결장 소식은 확인 못함. 경기장은 Estadio La Cartuja(비야마린 아님)."
+    },
+    {
+      "번호": 9718,
+      "경기": "클뤼프 브뤼허-RC랑스",
+      "새결장": [
+        {"팀": "홈", "선수": "Joel Ordonez", "상태": "확정", "사유": "부상", "시즌선발비중": "미확인", "신규여부": "기존", "출처": "https://www.whoscored.com/articles/6Fj08ilfdUOKqyfK7WgkvQ/show/cng111-20261021-club-brugge-vs-lens-prediction-1792581996", "날짜": "2026-10-21"},
+        {"팀": "원정", "선수": "Jonathan Gradit", "상태": "확정", "사유": "부상", "시즌선발비중": "미확인", "신규여부": "기존", "출처": "https://www.whoscored.com/articles/6Fj08ilfdUOKqyfK7WgkvQ/show/cng111-20261021-club-brugge-vs-lens-prediction-1792581996", "날짜": "2026-10-21"},
+        {"팀": "원정", "선수": "Abdallah Sima", "상태": "확정", "사유": "부상", "시즌선발비중": "미확인", "신규여부": "기존", "출처": "https://www.whoscored.com/articles/6Fj08ilfdUOKqyfK7WgkvQ/show/cng111-20261021-club-brugge-vs-lens-prediction-1792581996", "날짜": "2026-10-21"}
+      ],
+      "복귀": [],
+      "선발XI": {
+        "홈": "미발표. 예상: Sommer; Sabbe, Mechele, Spileers, Seys; Potts, Vetlesen; Forbs, Vanaken, Vergili; Tresoldi",
+        "원정": "미발표. 예상: Risser; Antonio, Ganiou, Baidoo; Abdulhamid, Cuisance, Haidara, Udol; Thauvin, Kadile; Ivanovic",
+        "출처": "https://www.sportsmole.co.uk/football/club-brugge/champions-league/preview/brugge-vs-lens-prediction-team-news-lineups_607212.html"
+      },
+      "로테이션발언": {"내용": "10/20~21 기자회견 내용 확인 못함(브뤼허 감독은 Ivan Leko — 2025-12-08 Nicky Hayen 후임). 브뤼허 공식전 5연승, 직전 인터 원정 4-3 승(Tresoldi 해트트릭)", "출처": "https://www.sportsmole.co.uk/football/club-brugge/champions-league/preview/brugge-vs-lens-prediction-team-news-lineups_607212.html"},
+      "변화없음": false,
+      "비고": "10/21자 신규 변동은 확인되지 않음 — 위 3명은 어제까지 알려진 결장."
+    },
+    {
+      "번호": 9656,
+      "경기": "릴OSC-갈라타사라이",
+      "새결장": [
+        {"팀": "홈", "선수": "Ethan Mbappe", "상태": "확정", "사유": "출전 정지(베티스전 퇴장)", "시즌선발비중": "미확인", "신규여부": "기존", "출처": "https://www.befoot.net/lille-galatasaray-compos-probables-chaine-tv-heure/", "날짜": "2026-10-21"},
+        {"팀": "홈", "선수": "Tiago Santos", "상태": "확정", "사유": "십자인대 파열, 2027년 6월까지 결장", "시즌선발비중": "미확인", "신규여부": "기존", "출처": "https://www.befoot.net/lille-galatasaray-compos-probables-chaine-tv-heure/", "날짜": "2026-10-21"},
+        {"팀": "홈", "선수": "Hamza Igamane", "상태": "확정", "사유": "십자인대 부상, 10월 말 복귀 예상", "시즌선발비중": "미확인", "신규여부": "기존", "출처": "https://www.befoot.net/lille-galatasaray-compos-probables-chaine-tv-heure/", "날짜": "2026-10-21"},
+        {"팀": "홈", "선수": "Ayase Ueda", "상태": "확정", "사유": "아스널전 부상으로 이 경기 결장", "시즌선발비중": "미확인", "신규여부": "기존", "출처": "https://www.befoot.net/lille-galatasaray-compos-probables-chaine-tv-heure/", "날짜": "2026-10-21"},
+        {"팀": "원정", "선수": "Gunay Guvenc", "상태": "확정", "사유": "무릎 부상", "시즌선발비중": "미확인(백업 GK)", "신규여부": "기존", "출처": "https://www.befoot.net/lille-galatasaray-compos-probables-chaine-tv-heure/", "날짜": "2026-10-21"},
+        {"팀": "원정", "선수": "Rafael Leao", "상태": "확정", "사유": "내전근 부상", "시즌선발비중": "미확인", "신규여부": "기존", "출처": "https://www.befoot.net/lille-galatasaray-compos-probables-chaine-tv-heure/", "날짜": "2026-10-21"},
+        {"팀": "원정", "선수": "Lucas Torreira", "상태": "의심", "사유": "바르셀로나전에서 부상 — 상태 불확실", "시즌선발비중": "미확인", "신규여부": "기존", "출처": "https://www.befoot.net/lille-galatasaray-compos-probables-chaine-tv-heure/", "날짜": "2026-10-21"}
+      ],
+      "복귀": [],
+      "선발XI": {
+        "홈": "미발표. 예상: Ozer - Goffi, Ngoy, Alexsandro, Perraud - Andre, Bentaleb, Mukau - Bakwa, Giroud, Haraldsson",
+        "원정": "미발표. 예상: Cakir - Sallai, Sanchez, Bardakci, Elmali - Lemina, Gabriel Sara - Akgun, Batrakov, Sane - Osimhen",
+        "출처": "https://www.befoot.net/lille-galatasaray-compos-probables-chaine-tv-heure/"
+      },
+      "로테이션발언": {"내용": "확인 못함", "출처": ""},
+      "변화없음": false,
+      "비고": "킥오프 18:45 CEST(= 01:45 KST). 10/21자 신규 변동 없음."
+    },
+    {
+      "번호": 9664,
+      "경기": "코모1907-맨체스터 유나이티드",
+      "새결장": [
+        {"팀": "원정", "선수": "Leny Yoro", "상태": "확정", "사유": "출전 정지(아틀레티코 마드리드전 퇴장)", "시즌선발비중": "미확인(센터백 주전급)", "신규여부": "기존", "출처": "https://www.goal.com/en/news/como-manchester-united-uefa-champions-league-preview/blt6e2a84a27530b9e9", "날짜": "2026-10-21"},
+        {"팀": "홈", "선수": "Trevoh Chalobah", "상태": "확정", "사유": "최소 2주 결장 — 이 경기 제외", "시즌선발비중": "미확인", "신규여부": "기존", "출처": "https://khelnow.com/football/como-vs-manchester-united-preview-champions-league-202610", "날짜": "2026-10-21"},
+        {"팀": "홈", "선수": "Assane Diao", "상태": "의심(중대 의문부호)", "사유": "페예노르트전 부상", "시즌선발비중": "미확인", "신규여부": "기존", "출처": "https://khelnow.com/football/como-vs-manchester-united-preview-champions-league-202610", "날짜": "2026-10-21"}
+      ],
+      "복귀": [],
+      "선발XI": {
+        "홈": "미발표",
+        "원정": "미발표. 예상(4-2-3-1): Lammens; Dalot, Maguire, Martinez, Mazraoui; Santos, Baleba; Fernandes, Tielemans, Rashford; Mbeumo — Yoro 정지로 Martinez·Maguire 중앙 조합",
+        "출처": "https://lastwordonsports.com/football/2026/10/21/como-vs-manchester-united-pl/"
+      },
+      "로테이션발언": {"내용": "확인 못함. 맨유는 공식전 6경기 무승 상태로 압박을 받고 있다는 보도(로테이션보다 정예 기조 시사)", "출처": "https://www.goal.com/en/news/como-manchester-united-uefa-champions-league-preview/blt6e2a84a27530b9e9"},
+      "변화없음": false,
+      "비고": "맨유 원정 명단(공식 travelling squad) 발표 기사 확인 못함. 10/21자 신규 결장 없음."
+    }
+  ],
+  "확인못한것": [
+    "모든 경기 공식 선발 XI — 킥오프 1시간 전(A~E 18:00 UTC, F·G 15:45 UTC) 발표라 수집 시점(13:30 UTC)에 미발표",
+    "선수별 '이번 시즌 선발 비중' 수치 — 어떤 기사에도 명시되지 않아 전부 '미확인'으로 남김(추정 금지)",
+    "샤흐타르 도네츠크 결장자 명단",
+    "페예노르트 결장자·로테이션(10/21자 네덜란드 매체 미확인)",
+    "클뤼프 브뤼허·RC랑스 10/20~21 기자회견(Leko·Sage 발언)",
+    "릴·갈라타사라이 감독 로테이션 발언",
+    "맨유 공식 원정 명단(travelling squad), Como 감독(Fabregas) 기자회견",
+    "Neuer 최종 선발 확정 여부 — 10/21 기준 '복귀 예상'까지만 확인(Eberl: '수요일에 판단')",
+    "Xabi Alonso(레알) 기자회견 전문 — 영문/스페인어 검색에서 10/21자 기사 미확보"
+  ]
+}

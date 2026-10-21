@@ -10,6 +10,6 @@
 <!-- FACTS:END -->
 <!-- INPUTS:START -->
 ## 입력(자동 수집 2026-10-21) — xG·휴식일·라인업·환경(이동거리·고도·날씨)은 이 숫자를 쓴다
-- 10-22 04:00 vs 레알 마드리드: 휴식 8.0일 · 직전 10-14 홈 vs PSV Eindhoven 1-0 승 [uefa.champions] · xG 시즌6경기 xG2.36/xGA2.0 npxGD+0.36 · 최근5 2.08/2.15 (-0.07) · 홈2.42/원정-1.7 · xPts10.5 vs 승점9 · 직전 선발 4-2-3-1 Maarten Vandevoordt, Castello Lukeba, Willi Orbán, David Raum, Ridle Baku, Christopher Nkunku, Ezechiel Banzuzi, Neil El Aynaoui, Rômulo, Antonio Nusa, Brajan Gruda · 구장 시우다드 레알 마드리드 · 이동 1722km · 고도 666m(차 +539m) · 13.2℃ 강수0mm(0%) 바람3.7km/h · ⚠ 장거리 원정 1722km
+- 10-22 04:00 vs 레알 마드리드: 휴식 8.0일 · 직전 10-14 홈 vs PSV Eindhoven 1-0 승 [uefa.champions] · xG 시즌6경기 xG2.36/xGA2.0 npxGD+0.36 · 최근5 2.08/2.15 (-0.07) · 홈2.42/원정-1.7 · xPts10.5 vs 승점9 · 직전 선발 4-2-3-1 Maarten Vandevoordt, Castello Lukeba, Willi Orbán, David Raum, Ridle Baku, Christopher Nkunku, Ezechiel Banzuzi, Neil El Aynaoui, Rômulo, Antonio Nusa, Brajan Gruda · 구장 시우다드 레알 마드리드 · 이동 1722km · 고도 666m(차 +539m) · 13.4℃ 강수0mm(0%) 바람3.4km/h · ⚠ 장거리 원정 1722km
 <!-- INPUTS:END -->
 

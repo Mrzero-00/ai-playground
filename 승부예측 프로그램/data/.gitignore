@@ -7,6 +7,8 @@
 !예측스냅샷.csv
 !근거기록.csv
 !정합성기록.csv
+# 실패 요인·사전인지 장부도 무인 클론과 이어 써야 한다 (2026-10-22)
+!실패요인.csv
 
 autoscan.log
 soccer_results/

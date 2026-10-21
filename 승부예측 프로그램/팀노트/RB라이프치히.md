@@ -13,3 +13,8 @@
 - 10-22 04:00 vs 레알 마드리드: 휴식 8.0일 · 직전 10-14 홈 vs PSV Eindhoven 1-0 승 [uefa.champions] · xG 시즌6경기 xG2.36/xGA2.0 npxGD+0.36 · 최근5 2.08/2.15 (-0.07) · 홈2.42/원정-1.7 · xPts10.5 vs 승점9 · 직전 선발 4-2-3-1 Maarten Vandevoordt, Castello Lukeba, Willi Orbán, David Raum, Ridle Baku, Christopher Nkunku, Ezechiel Banzuzi, Neil El Aynaoui, Rômulo, Antonio Nusa, Brajan Gruda · 구장 시우다드 레알 마드리드 · 이동 1722km · 고도 666m(차 +539m) · 13.4℃ 강수0mm(0%) 바람3.4km/h · ⚠ 장거리 원정 1722km
 <!-- INPUTS:END -->
 
+
+## 2026-10-22 회고 (125회 9685, UCL 1:4 레알 원정 패)
+- 맞은 근거(유지): "분데스리가 바이에른 원정 1-6 대패 직후 장거리(1722km) UCL 원정", 최근5 npxGD −0.07
+  (시즌 평균 +0.36 대비 악화), 원정 split −1.7. 실제 유효슈팅 6·점유 35.6%로 내용까지 무너졌다.
+- 이 요인들을 **별도 감점하지 않고 폼·원정 split에 이미 반영된 것으로 처리(영향 0)한 것이 옳았다** — 이중계산 방지.

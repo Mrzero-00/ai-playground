@@ -36,7 +36,7 @@ def spent(rnd):
 
 def blocks_left(rnd):
     p = os.path.join(ROOT, "분석일정.csv")
-    return sum(1 for r in csv.DictReader(open(p, encoding="utf-8")) if r["회차"] == str(rnd) and r["상태"] == "대기")
+    return sum(1 for r in csv.DictReader(open(p, encoding="utf-8-sig")) if r["회차"] == str(rnd) and r["상태"] == "대기")
 
 
 def allocate(amount, combos):

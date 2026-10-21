@@ -46,7 +46,7 @@ def best_option(rnd, no_home):
     best = None
     if not os.path.exists(SCAN):
         return "-"
-    for r in csv.DictReader(open(SCAN, encoding="utf-8")):
+    for r in csv.DictReader(open(SCAN, encoding="utf-8-sig")):
         if r["회차"] != str(rnd) or not r["경기"].startswith(no_home + " vs"):
             continue
         try:
@@ -63,10 +63,10 @@ def main():
     gs = rw.assign_blocks([g for g in rw.games_of(rnd)]).get(block, [])
     if not gs:  # 이미 마감된 블록도 기록할 수 있게 마감 필터 없이 다시 찾는다
         gs = []
-    rec = {(r["홈"], r["원정"]): r for r in csv.DictReader(open(REC, encoding="utf-8")) if r["회차"] == str(rnd)}
+    rec = {(r["홈"], r["원정"]): r for r in csv.DictReader(open(REC, encoding="utf-8-sig")) if r["회차"] == str(rnd)}
     picks = {}
     if os.path.exists(PICKS):
-        for p in csv.DictReader(open(PICKS, encoding="utf-8")):
+        for p in csv.DictReader(open(PICKS, encoding="utf-8-sig")):
             if p["회차"] == str(rnd):
                 picks.setdefault(p["경기"], []).append(f"{p['구분']} {p['선택']}" + (f"({p['이유']})" if p.get("이유") else ""))
     hs = mm.history(rnd)

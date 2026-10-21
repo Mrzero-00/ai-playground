@@ -175,10 +175,10 @@ def grade_picks():
     if not os.path.exists(PICKS):
         picks = []
     else:
-        picks = list(csv.DictReader(open(PICKS, encoding="utf-8")))
+        picks = list(csv.DictReader(open(PICKS, encoding="utf-8-sig")))
     if picks and os.path.exists(SCAN):
         hits = {}
-        for r in csv.DictReader(open(SCAN, encoding="utf-8")):
+        for r in csv.DictReader(open(SCAN, encoding="utf-8-sig")):
             if r.get("hit") in ("0", "1"):
                 hits[(r["회차"], r["번호"], r["선택"])] = (r.get("result", ""), r["hit"])
         for p in picks:
@@ -190,7 +190,7 @@ def grade_picks():
     legacy = []
     if os.path.exists(PRED):
         import re
-        for r in csv.DictReader(open(PRED, encoding="utf-8")):
+        for r in csv.DictReader(open(PRED, encoding="utf-8-sig")):
             if not r["round"].startswith("프로토") or r.get("hit") not in ("0", "1"):
                 continue
             pk = r.get("pick", "")
@@ -288,7 +288,7 @@ def variable_section(rows):
 
 
 def cmd_report():
-    allrows = list((r for r in csv.DictReader(open(REC, encoding="utf-8")) if r.get("정합성") != "C"))  # 2026-10-16 정합성 C(오류 데이터) 학습 제외
+    allrows = list((r for r in csv.DictReader(open(REC, encoding="utf-8-sig")) if r.get("정합성") != "C"))  # 2026-10-16 정합성 C(오류 데이터) 학습 제외
     # 깊이=기준선(baseline_fill 이 자동으로 채운 pi-rating 행)은 '내 분석'이 아니라 대조군이다 — 2026-10-21 125회 심층회고.
     # calibrate.py·hit_model.py 는 이미 빼고 있었는데 여기만 섞여 있어서, 순수 1순위 적중이 축구 58%→54%로
     # 깎여 보이고 w권장(독자 분석 비중)도 대조군 성적으로 정해지고 있었다.

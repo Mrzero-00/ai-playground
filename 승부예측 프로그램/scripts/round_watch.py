@@ -112,7 +112,7 @@ def games_of(rnd):
 
 
 def load_plan():
-    return list(csv.DictReader(open(PLAN, encoding="utf-8"))) if os.path.exists(PLAN) else []
+    return list(csv.DictReader(open(PLAN, encoding="utf-8-sig"))) if os.path.exists(PLAN) else []
 
 
 def save_plan(rows):
@@ -140,7 +140,7 @@ def build_blocks(rnd):
 
 
 def cmd_check():
-    known = {r["회차"] for r in csv.DictReader(open(rl.PATH, encoding="utf-8"))} if os.path.exists(rl.PATH) else set()
+    known = {r["회차"] for r in csv.DictReader(open(rl.PATH, encoding="utf-8-sig"))} if os.path.exists(rl.PATH) else set()
     planned = {r["회차"] for r in load_plan()}
     new = [r for r in sale_rounds() if str(r) not in known and str(r) not in planned]
     if not new:
@@ -166,7 +166,7 @@ def cmd_toto():
     subprocess.run(["curl", "-sS", "-m", "30", "-A", o.UA, "-c", ck, "-o", "/dev/null", page])
     lst = o.curl("https://www.betman.co.kr/buyPsblGame/inqCacheBuyAbleGameInfoList.do", hdr,
                  '{"_sbmInfo":{"_sbmInfo":{"debugMode":"false"}}}', ck)
-    known = {r["회차"] for r in csv.DictReader(open(rl.PATH, encoding="utf-8"))} if os.path.exists(rl.PATH) else set()
+    known = {r["회차"] for r in csv.DictReader(open(rl.PATH, encoding="utf-8-sig"))} if os.path.exists(rl.PATH) else set()
     found = [g for g in lst.get("totoGames", []) if g.get("gmId") == "G011"]
     for g in found:   # 이월금·판매액 기록 (사용자 지시 2026-10-16: 이월금액도 함께 확인)
         log_pool(g)

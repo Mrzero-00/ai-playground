@@ -27,7 +27,7 @@ SCAN = os.path.join(ROOT, "data", "스캔기록.csv")
 
 def load(rnd):
     last = {}
-    for r in csv.DictReader(open(SCAN, encoding="utf-8")):
+    for r in csv.DictReader(open(SCAN, encoding="utf-8-sig")):
         if r["회차"] != str(rnd):
             continue
         k = (r["번호"], r["선택"])

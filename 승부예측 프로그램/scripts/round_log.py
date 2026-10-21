@@ -41,7 +41,7 @@ KST = o.KST
 def load():
     if not os.path.exists(PATH):
         return []
-    return list(csv.DictReader(open(PATH, encoding="utf-8")))
+    return list(csv.DictReader(open(PATH, encoding="utf-8-sig")))
 
 
 def save(rows):
@@ -105,7 +105,7 @@ def cmd_init(a):
 
 def cmd_pure(a):
     rows = load()
-    src = list(csv.DictReader(open(a.file, encoding="utf-8")))
+    src = list(csv.DictReader(open(a.file, encoding="utf-8-sig")))
     n = 0
     for s in src:
         for r in rows:
@@ -164,7 +164,7 @@ def cmd_market_from_scanlog(a):
     path = os.path.join(ROOT, "data", "스캔기록.csv")
     if not os.path.exists(path):
         print("스캔기록.csv 없음"); return
-    scan = [x for x in csv.DictReader(open(path, encoding="utf-8")) if x["회차"] == str(a.round) and x["구분"] == "일반"]
+    scan = [x for x in csv.DictReader(open(path, encoding="utf-8-sig")) if x["회차"] == str(a.round) and x["구분"] == "일반"]
     by = {}
     for x in scan:
         by.setdefault(x["경기"], {})[x["선택"]] = x

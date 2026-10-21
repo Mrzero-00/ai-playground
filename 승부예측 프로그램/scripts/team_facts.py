@@ -265,7 +265,7 @@ def main():
             targets.append((t.strip(), ""))
     if a.round:
         seen = set()
-        for r in csv.DictReader(open(REC, encoding="utf-8")):
+        for r in csv.DictReader(open(REC, encoding="utf-8-sig")):
             if r["회차"] == str(a.round) and r["종목"] == a.sport and not r["결과"] and r["제외"] != "제외":
                 for t in (r["홈"], r["원정"]):
                     if t not in seen:

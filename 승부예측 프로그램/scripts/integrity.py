@@ -42,6 +42,7 @@ import json
 import os
 import re
 import sys
+import unicodedata
 
 sys.path.insert(0, os.path.dirname(__file__))
 import round_log as R  # noqa: E402
@@ -132,6 +133,60 @@ def today():
     return dt.datetime.now(R.KST).date() if hasattr(R, "KST") else dt.date.today()
 
 
+def ref_date(r=None):
+    """최신성 기준일 = **경기일**(없으면 오늘).
+
+    2026-10-22(125회 심층회고): 지금까지 팩트시트·뉴스의 '며칠 지났나'를 오늘 기준으로 쟀다.
+    그래서 회고 때 `add` 를 다시 돌리면 분석 시점엔 멀쩡했던 경기가 날짜가 지났다는 이유만으로
+    C(추천 금지·학습 제외)로 떨어진다 — 9685 레알-라이프치히가 B → C 로 바뀌며 발견했다.
+    등급은 '그때 그 자료로 분석한 것이 타당했는가'를 재는 값이므로 기준일은 경기일이어야 한다.
+    경기일이 미래면(분석 시점) 오늘을 쓴다 — 분석 전 검사는 지금 자료가 최신인지를 봐야 하기 때문.
+    이미 검사한 경기는 **첫 검사 날짜**를 그대로 쓴다(정합성기록.csv) — 같은 자료를 다시 넣으면
+    언제 돌려도 같은 등급이 나와야 하기 때문이다.
+    """
+    first = _first_check(r)
+    if first:
+        return first
+    t = (r or {}).get("시각") or ""
+    m = re.match(r"(?:(\d{4})-)?(\d{1,2})-(\d{1,2})", t.strip())
+    if not m:
+        return today()
+    now = today()
+    y = int(m.group(1)) if m.group(1) else now.year
+    try:
+        d = dt.date(y, int(m.group(2)), int(m.group(3)))
+    except ValueError:
+        return today()
+    if not m.group(1):           # 연도 없는 'MM-DD' — 회차 경계에서 해를 넘긴 경우 보정
+        if (d - now).days > 180:
+            d = d.replace(year=y - 1)
+        elif (now - d).days > 180:
+            d = d.replace(year=y + 1)
+    return min(d, now) if d > now else d
+
+
+_FIRST_CHECK = None
+
+
+def _first_check(r):
+    """정합성기록.csv 에 남은 (회차, 번호)의 첫 검사 날짜 — 재실행 시 등급을 고정하기 위한 기준일."""
+    global _FIRST_CHECK
+    if _FIRST_CHECK is None:
+        _FIRST_CHECK = {}
+        if os.path.exists(CHK):
+            for x in csv.DictReader(open(CHK, encoding="utf-8-sig")):
+                k = (str(x.get("회차")), str(x.get("번호")))
+                try:
+                    d = dt.date.fromisoformat(str(x.get("검사시각"))[:10])
+                except ValueError:
+                    continue
+                if k not in _FIRST_CHECK or d < _FIRST_CHECK[k]:
+                    _FIRST_CHECK[k] = d
+    if not r:
+        return None
+    return _FIRST_CHECK.get((str(r.get("회차")), str(r.get("번호"))))
+
+
 def note_dates(team):
     """팀노트의 FACTS·INPUTS 수집 날짜 (없으면 None)."""
     p = os.path.join(NOTES, f"{team}.md")
@@ -147,15 +202,16 @@ def note_dates(team):
 def note_checks(r, severe, minor):
     if r.get("종목") != "축구":
         return
+    ref = ref_date(r)
     for side in ("홈", "원정"):
         fd, idt = note_dates(r[side])
         if fd is None:
             severe.append(f"{r[side]} 팩트시트 없음")
-        elif (today() - fd).days > FACTS_DAYS:
-            severe.append(f"{r[side]} 팩트시트 {fd} ({(today() - fd).days}일 지남)")
+        elif (ref - fd).days > FACTS_DAYS:
+            severe.append(f"{r[side]} 팩트시트 {fd} ({(ref - fd).days}일 지남)")
         if idt is None:
             severe.append(f"{r[side]} INPUTS 없음")
-        elif (today() - idt).days > 1:
+        elif (ref - idt).days > 1:
             severe.append(f"{r[side]} INPUTS {idt} (오래됨)")
 
 
@@ -225,7 +281,7 @@ def evidence_checks(r, e, severe, minor):
             (severe if f.get("유형") in NEWS_TYPES else minor).append(f"날짜 없음: {tag}")
         else:
             try:
-                age = (today() - dt.date.fromisoformat(f["날짜"][:10])).days
+                age = (ref_date(r) - dt.date.fromisoformat(f["날짜"][:10])).days
                 if f.get("유형") in NEWS_TYPES and age > NEWS_DAYS:
                     severe.append(f"오래된 뉴스 {age}일: {tag}")
             except ValueError:
@@ -260,6 +316,27 @@ def evidence_checks(r, e, severe, minor):
         # 라벨만 바로잡게 '경미'로 알린다.
         if f.get("유형") == "결장" and norm_state(f.get("상태")) == "확정" and hedged(f):
             minor.append(f"'확정' 결장인데 근거가 추측 표현({hedged(f)}) — 상태는 '의심'이어야 한다: {tag}")
+    # 2026-10-22(125회 심층회고): 같은 선수가 한 경기 안에서 서로 반대로 기록되는 것을 잡는다.
+    # 125회 9685 Vinícius Júnior — 수집가는 "라리가 4경기 출전정지이나 UCL은 무관, 선발 유력"(영향 0)으로
+    # 정확히 적었는데, 10/21 라인업 점검 단계가 같은 파일에 "결장·출전정지(2026-11-08까지)"를 덧붙였다.
+    # 실제로 그는 선발 출전했다(postmatch 결장검증 '출전(선발)'). 영향이 둘 다 0이라 확률은 안 틀렸지만
+    # 핵심근거 문장과 근거기록에는 거짓이 남아 학습 자료가 오염된다. 나중 점검이 앞 판단을 모순되게
+    # 덮어쓰는 것은 사람이 다시 읽어야 할 일이므로 '심각'이 아니라 '경미'로 알린다.
+    # 국내 리그 퇴장·경고누적 출전정지는 UEFA 대항전에 이월되지 않는다(반대도 같다) — 분석규칙 2026-10-22.
+    seen = {}
+    for f in e.get("요인", []):
+        name = str(f.get("선수") or "").strip()
+        if not name or f.get("유형") == "뉴스없음":
+            continue
+        key = (f.get("팀"), unicodedata.normalize("NFKD", name).encode("ascii", "ignore").decode().lower().strip())
+        out = f.get("유형") in ("결장", "징계")
+        txt = str(f.get("내용") or "")
+        # '출전 가능·무관·선발 유력' 이 적힌 요인은 '결장 아님' 쪽으로 읽는다
+        playing = bool(re.search(r"출전\s*가능|무관|선발\s*유력|결장으로\s*처리하지\s*않", txt + str(f.get("상태") or "")))
+        state = "출전" if (playing or not out) else "결장"
+        if key in seen and seen[key][0] != state:
+            minor.append(f"같은 선수를 서로 반대로 기록({seen[key][1]} ↔ {f.get('유형')}): {f.get('팀')} {name}")
+        seen.setdefault(key, (state, f.get("유형")))
 
 
 def grade_of(severe, minor):
@@ -317,6 +394,12 @@ def cmd_add(a):
         evidence_checks(r, e, severe, minor)
         g = grade_of(severe, minor)
         r["정합성"] = g
+        # 2026-10-22(125회 심층회고): 근거 JSON 이 있으면 그 경기는 정의상 심층 분석이다.
+        # 그런데 '깊이' 칸을 분석가가 따로 적어야 해서 125회 UCL 9경기를 포함해 빈칸이 많았고,
+        # baseline_fill 의 '분석 vs 기준선' 표에서 그 경기들이 '분석' 쪽에 세어지지 않았다
+        # (125회 빈칸 10경기 7적중 70% — 분석의 가치를 재는 표에서 가장 잘 맞은 경기가 빠져 있었다).
+        if not (r.get("깊이") or "").strip():
+            r["깊이"] = "심층"
         game = f"{r['홈']}-{r['원정']}"
         base = {"회차": r["회차"], "번호": r["번호"], "경기": game, "기록시각": now}
         for f in e.get("요인", []):
@@ -359,7 +442,7 @@ def market_now(r):
 
 def cmd_normalize(a):
     """기존 근거기록의 유형·상태를 표준 어휘로 정리(원문은 내용 앞 [원: …])."""
-    ev = list(csv.DictReader(open(EVI, encoding="utf-8")))
+    ev = list(csv.DictReader(open(EVI, encoding="utf-8-sig")))
     before = (len({x["유형"] for x in ev if x["구분"] == "요인"}), len({x["상태"] for x in ev if x["구분"] == "요인"}))
     n = 0
     for i, x in enumerate(ev):
@@ -396,7 +479,7 @@ def cmd_grade(a):
     if not os.path.exists(EVI):
         return print("근거기록 없음")
     res = {(r["회차"], r["번호"]): r.get("결과", "") for r in R.load()}
-    ev = list(csv.DictReader(open(EVI, encoding="utf-8")))
+    ev = list(csv.DictReader(open(EVI, encoding="utf-8-sig")))
     n = 0
     for x in ev:
         if x["회차"] != str(a.round) or x["방향적중"]:
@@ -426,7 +509,7 @@ def cmd_report(a):
         return print("근거기록 없음")
     grade = {(r["회차"], r["번호"]): r.get("정합성", "") for r in R.load()}
     agg = {}
-    for x in csv.DictReader(open(EVI, encoding="utf-8")):
+    for x in csv.DictReader(open(EVI, encoding="utf-8-sig")):
         if x["구분"] != "요인" or x["방향적중"] not in ("0", "1", "무") or grade.get((x["회차"], x["번호"])) == "C":
             continue
         k = (x["유형"], x["상태"])

@@ -35,7 +35,7 @@ END_SPREAD_MAX = 90   # 조합 안 경기 종료 예상 시각 차이 경고 기
 
 def load(rnd):
     rows = {}
-    for r in csv.DictReader(open(LOG, encoding="utf-8")):
+    for r in csv.DictReader(open(LOG, encoding="utf-8-sig")):
         if r["회차"] != str(rnd):
             continue
         key = (r["번호"], r["선택"])
@@ -125,7 +125,7 @@ def timing(by_no, picks):
 
 def save_schedule(by_no, rnd, combos, buys):
     """조합별 구매 일정 → 구매일정.csv (autoscan.py 가 점검시각에 final_check.py 를 돌려 알림)"""
-    old = list(csv.DictReader(open(SCHED, encoding="utf-8"))) if os.path.exists(SCHED) else []
+    old = list(csv.DictReader(open(SCHED, encoding="utf-8-sig"))) if os.path.exists(SCHED) else []
     keep = {(r["회차"], r["조합"]): r for r in old}
     for title, picks in combos:
         t = combo_times(by_no, picks, rnd)
@@ -279,7 +279,7 @@ def integrity_grade(r):
     if _GRADE is None:
         _GRADE = {}
         p = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "전체경기기록.csv")
-        for x in csv.DictReader(open(p, encoding="utf-8")):
+        for x in csv.DictReader(open(p, encoding="utf-8-sig")):
             _GRADE[(x["회차"], f"{x['홈']} vs {x['원정']}")] = x.get("정합성", "")
     return _GRADE.get((str(r.get("회차", "")), r.get("경기", "")), "")
 
@@ -361,7 +361,7 @@ def table(by_no, title, picks):
 
 def save_rec(by_no, rnd, items):
     """items: (번호, 선택, 구분, 조합, 이유, 구매). 같은 (회차, 번호, 선택)은 덮어쓴다."""
-    old = list(csv.DictReader(open(REC, encoding="utf-8"))) if os.path.exists(REC) else []
+    old = list(csv.DictReader(open(REC, encoding="utf-8-sig"))) if os.path.exists(REC) else []
     keep = {(r["회차"], r["번호"], r["선택"]): r for r in old}
     for no, pick, kind_, combo, why, buy in items:
         opts = by_no.get(no) or []

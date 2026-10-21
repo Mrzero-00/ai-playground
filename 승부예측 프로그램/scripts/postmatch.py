@@ -3,7 +3,7 @@
 왜: '선수 A 결장'을 요인으로 넣었는데 실제로 A가 빠졌는지, 진 팀이 내용도 나빴는지(운 vs 분석)를 확인하지 않았다.
     이게 없으면 맞는 요인을 버리거나 틀린 요인을 유지하게 된다.
 무엇(축구, 결과 나온 경기):
-  - ESPN summary: 실제 선발 XI·교체 투입, 슈팅·유효슈팅·점유율·퇴장(boxscore)
+  - ESPN summary: 실제 선발 XI·교체 투입, 슈팅·유효슈팅·점유율·퇴장(boxscore), 전반 점수(header linescores)
   - Understat(5대 리그): 경기 xG (getLeagueData dates)
   - 근거기록의 '결장' 요인(선수 이름이 있는 것) → 실제 명단에 있었는지 대조 → data/결장검증.csv
 저장: data/경기후_<회차>.json · data/경기후.csv(한 행=한 경기) · data/결장검증.csv
@@ -20,7 +20,7 @@ REC = os.path.join(ROOT, "전체경기기록.csv")
 EVI = os.path.join(ROOT, "data", "근거기록.csv")
 OUT_CSV = os.path.join(ROOT, "data", "경기후.csv")
 ABS_CSV = os.path.join(ROOT, "data", "결장검증.csv")
-COLS = ["회차", "번호", "경기", "점수", "홈xG", "원정xG", "xG출처", "홈슈팅", "원정슈팅", "홈유효", "원정유효", "홈점유", "원정점유", "홈퇴장", "원정퇴장", "event", "수집"]
+COLS = ["회차", "번호", "경기", "점수", "전반점수", "홈xG", "원정xG", "xG출처", "홈슈팅", "원정슈팅", "홈유효", "원정유효", "홈점유", "원정점유", "홈퇴장", "원정퇴장", "event", "수집"]
 ACOLS = ["회차", "번호", "경기", "팀", "선수", "요인상태", "실제", "근거", "수집"]
 LEAGUE_US = {"잉글랜드 프리미어리그": "EPL", "스페인 라리가": "La_liga", "독일 분데스리가": "Bundesliga", "이탈리아 세리에A": "Serie_A", "프랑스 리그1": "Ligue_1"}
 
@@ -74,6 +74,18 @@ def main():
         g = {"경기": f"{r['홈']} - {r['원정']}", "점수": r["점수"], "event": eid, "수집": now, "홈": {}, "원정": {}}
         if eid:
             j = summary(eid) or {}
+            # 전반 점수 — header.competitions[0].competitors[].linescores[0] (ESPN 축구는 전·후반 2칸)
+            try:
+                hc = ((j.get("header") or {}).get("competitions") or [{}])[0]
+                ht = {}
+                for c in hc.get("competitors", []):
+                    ls = c.get("linescores") or []
+                    if ls:
+                        ht["홈" if c.get("homeAway") == "home" else "원정"] = str(ls[0].get("displayValue", "")).strip()
+                if ht.get("홈", "").isdigit() and ht.get("원정", "").isdigit():
+                    g["전반점수"] = f"{ht['홈']}:{ht['원정']}"
+            except (KeyError, IndexError, TypeError):
+                pass
             teams = (j.get("boxscore") or {}).get("teams", [])
             for t in teams:
                 side = "홈" if t.get("homeAway") == "home" else "원정"
@@ -95,24 +107,30 @@ def main():
         store[r["번호"]] = g
     json.dump(store, open(jp, "w", encoding="utf-8"), ensure_ascii=False, indent=1)
     # 한 행 CSV
-    old = list(csv.DictReader(open(OUT_CSV, encoding="utf-8"))) if os.path.exists(OUT_CSV) else []
-    have = {(x["회차"], x["번호"]) for x in old}
+    old = list(csv.DictReader(open(OUT_CSV, encoding="utf-8-sig"))) if os.path.exists(OUT_CSV) else []
+    idx = {(x["회차"], x["번호"]): x for x in old}
     for no, g in store.items():
-        if (rnd, no) in have:
-            continue
-        old.append({"회차": rnd, "번호": no, "경기": g["경기"], "점수": g["점수"], "홈xG": g["홈"].get("xG", ""), "원정xG": g["원정"].get("xG", ""),
+        row = {"회차": rnd, "번호": no, "경기": g["경기"], "점수": g["점수"], "전반점수": g.get("전반점수", ""), "홈xG": g["홈"].get("xG", ""), "원정xG": g["원정"].get("xG", ""),
                     "xG출처": g.get("xG출처", ""), "홈슈팅": g["홈"].get("슈팅", ""), "원정슈팅": g["원정"].get("슈팅", ""), "홈유효": g["홈"].get("유효", ""),
                     "원정유효": g["원정"].get("유효", ""), "홈점유": g["홈"].get("점유", ""), "원정점유": g["원정"].get("점유", ""),
-                    "홈퇴장": g["홈"].get("퇴장", ""), "원정퇴장": g["원정"].get("퇴장", ""), "event": g.get("event") or "", "수집": g["수집"]})
+                    "홈퇴장": g["홈"].get("퇴장", ""), "원정퇴장": g["원정"].get("퇴장", ""), "event": g.get("event") or "", "수집": g["수집"]}
+        prev = idx.get((rnd, no))
+        if prev is None:
+            old.append(row); idx[(rnd, no)] = row
+        else:
+            # 기존 행은 빈 칸만 채운다(열 추가 뒤 재수집해도 과거 값을 지우지 않음)
+            for k, v in row.items():
+                if v not in ("", None) and not (prev.get(k) or "").strip():
+                    prev[k] = v
     with open(OUT_CSV, "w", encoding="utf-8", newline="") as f:
         w = csv.DictWriter(f, fieldnames=COLS); w.writeheader(); w.writerows(old)
     # 결장 검증 — 라틴 문자 이름만 대조(한글 표기는 '미확인')
-    ab = list(csv.DictReader(open(ABS_CSV, encoding="utf-8"))) if os.path.exists(ABS_CSV) else []
+    ab = list(csv.DictReader(open(ABS_CSV, encoding="utf-8-sig"))) if os.path.exists(ABS_CSV) else []
     if a.refresh:
         ab = [x for x in ab if x["회차"] != rnd]
     seen = {(x["회차"], x["번호"], x["선수"]) for x in ab}
     if os.path.exists(EVI):
-        for e in csv.DictReader(open(EVI, encoding="utf-8")):
+        for e in csv.DictReader(open(EVI, encoding="utf-8-sig")):
             if e["회차"] != rnd or e["구분"] != "요인" or e["유형"] != "결장" or not e["선수"] or e["번호"] not in store:
                 continue
             if (rnd, e["번호"], e["선수"]) in seen:

@@ -79,7 +79,7 @@ def stats():
     if not os.path.exists(LOG):
         return 0, None, None, None
     by = {}
-    for r in csv.DictReader(open(LOG, encoding="utf-8")):
+    for r in csv.DictReader(open(LOG, encoding="utf-8-sig")):
         by.setdefault(r["조합"], []).append(r)
     done = [v for v in by.values() if len(v) == 2 and all(x["hit"] in ("0", "1") for x in v)]
     done.sort(key=lambda v: v[0]["시각"])
@@ -122,7 +122,7 @@ def main():
     if a.report:
         if not os.path.exists(LOG):
             print("기록 없음"); return
-        R = list(csv.DictReader(open(LOG, encoding="utf-8")))
+        R = list(csv.DictReader(open(LOG, encoding="utf-8-sig")))
         res = {(r["회차"], r["번호"], r["선택"]): (r.get("result", ""), r.get("hit", "")) for r in csv.DictReader(open(SCAN, encoding="utf-8-sig"))}
         for r in R:   # 채점: tracker.py results 가 스캔기록에 남긴 적중을 가져온다
             if r["hit"] not in ("0", "1"):
@@ -169,7 +169,7 @@ def main():
         new = not os.path.exists(LOG)
         old = set()
         if not new:
-            old = {(r["회차"], r["번호"]) for r in csv.DictReader(open(LOG, encoding="utf-8"))}
+            old = {(r["회차"], r["번호"]) for r in csv.DictReader(open(LOG, encoding="utf-8-sig"))}
         with open(LOG, "a", encoding="utf-8", newline="") as f:
             w = csv.DictWriter(f, fieldnames=COLS)
             if new:

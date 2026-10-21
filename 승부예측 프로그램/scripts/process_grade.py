@@ -81,10 +81,10 @@ def dominant(p):
 def main():
     ap = argparse.ArgumentParser(); ap.add_argument("--round"); ap.add_argument("--all", action="store_true"); ap.add_argument("--sport")
     a = ap.parse_args()
-    post = {(r["회차"], r["번호"]): r for r in csv.DictReader(open(POST, encoding="utf-8"))} if os.path.exists(POST) else {}
+    post = {(r["회차"], r["번호"]): r for r in csv.DictReader(open(POST, encoding="utf-8-sig"))} if os.path.exists(POST) else {}
     absv = collections.defaultdict(lambda: [0, 0])
     if os.path.exists(ABS):
-        for r in csv.DictReader(open(ABS, encoding="utf-8")):
+        for r in csv.DictReader(open(ABS, encoding="utf-8-sig")):
             k = (r["회차"], r["번호"]); st = r.get("실제", "")
             if st.startswith("미확인"):
                 continue
@@ -115,13 +115,13 @@ def main():
         rows.append({"종목": r["종목"], "깊이": r.get("깊이") or "분석", "회차": r["회차"], "번호": r["번호"], "경기": f"{r['홈']}-{r['원정']}", "예측": pred, "확률": f"{pu[pred]:.0f}", "결과": r["결과"], "점수": r.get("점수", ""),
                      "결과적중": int(ok_res), "지배": dom, "내용근거": why, "내용적중": int(ok_con), "4분면": quad, "요인검증": fv,
                      "퇴장": int(red), "정합성": r.get("정합성", ""), "추천": r.get("추천", "")})
-    fixes = {(f["회차"], f["번호"]): f for f in csv.DictReader(open(FIX, encoding="utf-8"))} if os.path.exists(FIX) else {}
+    fixes = {(f["회차"], f["번호"]): f for f in csv.DictReader(open(FIX, encoding="utf-8-sig"))} if os.path.exists(FIX) else {}
     for x in rows:
         f = fixes.get((x["회차"], x["번호"]))
         if f:
             x["4분면"] = f["4분면"]; x["내용적중"] = int(f["내용적중"]); x["내용근거"] += f" [검토: {f['메모']}]"
     # 저장(회차 단위로 덮어쓰기)
-    old = list(csv.DictReader(open(OUT, encoding="utf-8"))) if os.path.exists(OUT) else []
+    old = list(csv.DictReader(open(OUT, encoding="utf-8-sig"))) if os.path.exists(OUT) else []
     done = {(x["회차"], x["번호"]) for x in rows}
     keep = [x for x in old if (x["회차"], x["번호"]) not in done]
     with open(OUT, "w", encoding="utf-8", newline="") as f:

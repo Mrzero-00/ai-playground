@@ -294,7 +294,7 @@ def clv_report(save_md=True, top=15):
     if not os.path.exists(hist):
         print("배당이력.csv 없음. odds_scan.py --log 를 여러 번 돌리면 쌓인다.")
         return
-    rows = list(csv.DictReader(open(hist, encoding="utf-8")))
+    rows = list(csv.DictReader(open(hist, encoding="utf-8-sig")))
     by = {}
     for r in rows:
         by.setdefault((r["회차"], r["번호"], r["선택"]), []).append(r)

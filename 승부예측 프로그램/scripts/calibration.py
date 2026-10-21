@@ -15,7 +15,7 @@ import csv, math, sys
 from collections import defaultdict
 
 path = sys.argv[1] if len(sys.argv) > 1 else __file__.rsplit("/", 2)[0] + "/예측기록.csv"
-rows = [r for r in csv.DictReader(open(path, encoding="utf-8")) if (r.get("result") or "").strip()]
+rows = [r for r in csv.DictReader(open(path, encoding="utf-8-sig")) if (r.get("result") or "").strip()]
 if not rows:
     print("결과가 입력된 경기가 없습니다.")
     sys.exit()

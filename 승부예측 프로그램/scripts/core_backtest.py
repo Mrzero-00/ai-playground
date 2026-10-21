@@ -14,8 +14,17 @@
   python3 scripts/core_backtest.py                 # 유형별·배당 구간별
   python3 scripts/core_backtest.py --holdout 124   # 이 회차를 빼고 측정(규칙 후보 검증용)
   python3 scripts/core_backtest.py --only 124      # 이 회차만
+  python3 scripts/core_backtest.py --picks         # 실제 추천기록 다리(핸디캡·언더오버 포함)로 재측정
+
+--picks (2026-10-22 심층회고 2단계 추가)
+  왜: 코어 규칙의 근거 숫자(66다리 72.7%·회수 116%)는 전부 **1X2 다리**로 잰 것인데,
+      124·125회에 실제로 추천한 코어 다리는 전부 **정수 핸디캡(H-1.0)** 이었다.
+      핸디캡·언더오버의 '시장 확률'은 스캔기록에서 근거=역산모델 — Pinnacle 1X2 를 득점 모델로
+      변환한 값이라 독립 시장이 아니다. 즉 "측정한 것"과 "사는 것"이 달랐다.
+  무엇: 추천기록.csv 의 채점된 다리(내 확률·배당 기록됨)에 스캔기록 공정확률을 붙여
+      시장 유형별(1X2 / 핸디캡 / 언더오버)·근거별(직접 / 역산모델) 적중과 회수를 따로 낸다.
 """
-import argparse, csv, itertools, os, random, sys, collections
+import argparse, csv, itertools, os, random, re, sys, collections
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, HERE)
@@ -118,10 +127,106 @@ def pairs(rows, trials=4000, seed=7):
     return f"2폴더 {ok}/{tot} ({ok/tot*100:4.1f}%) 평균합계배당 … 회수 {ret/tot*100:5.1f}%"
 
 
+PICK = os.path.join(ROOT, "추천기록.csv")
+SCAN = os.path.join(ROOT, "data", "스캔기록.csv")
+
+
+def norm_line(line, half=False):
+    """추천기록 '게임' 칸의 라인 표기(`H -1.0`·`U/O 2.5`)를 스캔기록 구분 표기(H-1·U/O 2.5)로 맞춘다.
+    맞추지 않으면 핸디캡 다리가 전부 '일반' 으로 떨어져 1X2 시장 확률과 비교된다(잘못된 숫자)."""
+    t = (line or "일반").strip()
+    m = re.match(r"^H\s*([+-]?\d+(?:\.\d+)?)$", t)
+    if m:
+        v = float(m.group(1))
+        t = "H%+g" % v            # -1.0 → H-1 · -2.5 → H-2.5
+    else:
+        m = re.match(r"^U/O\s*([\d.]+)$", t)
+        if m:
+            t = "U/O %g" % float(m.group(1))
+    return ("전반 " + t) if half else t
+
+
+def pick_legs(only=None):
+    """실제 추천기록 다리 — 1X2 밖(핸디캡·언더오버·전반)까지 포함해 코어 판정을 다시 먹인다."""
+    scan = {}
+    for r in csv.DictReader(open(SCAN, encoding="utf-8-sig")):
+        key = (r["회차"], r["번호"], (r.get("구분") or "일반").strip())
+        scan.setdefault(key, {})[r["선택"]] = (num(r.get("공정확률")), (r.get("근거") or "").strip())
+    out, miss = [], []
+    for r in csv.DictReader(open(PICK, encoding="utf-8-sig")):
+        if r.get("적중") not in ("0", "1"):
+            continue
+        if only and r["회차"] != only:
+            continue
+        p, od = num(r.get("확률")), num(r.get("배당"))
+        if p is None or od is None:
+            continue
+        game = r.get("게임") or ""
+        raw_line = game.split("`")[1].strip() if "`" in game else "일반"
+        half = "전반" in game
+        line = norm_line(raw_line, half)
+        opts = scan.get((r["회차"], r["번호"], line)) or {}
+        mk, src = opts.get(r["선택"], (None, ""))
+        if mk is None:
+            miss.append(f'{r["회차"]}/{r["번호"]} {game} [{line}]')
+            continue
+        top = max(opts, key=lambda k: opts[k][0] or -1)
+        market = ("전반 " if half else "") + ("핸디캡" if "H" in line else "언더오버" if "U/O" in line else "1X2")
+        out.append(dict(rd=r["회차"], no=r["번호"], game=r.get("경기", ""), lg=r.get("리그", ""), sport=r.get("종목", ""),
+                        sel=r["선택"], p=p, raw=p, mk=mk, od=od, hit=int(r["적중"]), time=r.get("시각", ""),
+                        depth=r.get("구분", ""), market=market, src=src or "직접",
+                        ty=leg_type(p, mk, r["선택"], top, od, p, None)))
+    if miss:
+        print(f"※ 시장 확률 매칭 실패 {len(miss)}다리 — " + ", ".join(miss[:6]) + (" …" if len(miss) > 6 else ""))
+    return out
+
+
+def picks_report(only=None):
+    rows = pick_legs(only)
+    print(f"# 실제 추천기록 다리 재측정 — {len(rows)}다리 (핸디캡·언더오버 포함)")
+    print("\n## 시장 유형별 (전체 — 추천·추천제외·도파민 모두)")
+    by = collections.defaultdict(list)
+    for x in rows:
+        by[x["market"]].append(x)
+    for k in sorted(by, key=lambda k: -len(by[k])):
+        print(f"  {k:12s} {summary(by[k])}")
+    print("\n## 시장 확률 근거별")
+    by = collections.defaultdict(list)
+    for x in rows:
+        by[x["src"]].append(x)
+    for k in sorted(by, key=lambda k: -len(by[k])):
+        print(f"  {k:12s} {summary(by[k])}")
+    core = [x for x in rows if x["ty"].startswith("B")]
+    print(f"\n## 코어 판정 통과 다리  {summary(core)}")
+    by = collections.defaultdict(list)
+    for x in core:
+        by[x["market"]].append(x)
+    for k in sorted(by, key=lambda k: -len(by[k])):
+        print(f"  {k:12s} {summary(by[k])}")
+    print("\n## 코어 판정 통과 — 시장 확률 근거별 (역산모델 = 독립 시장이 아님)")
+    by = collections.defaultdict(list)
+    for x in core:
+        by[x["src"]].append(x)
+    for k in sorted(by, key=lambda k: -len(by[k])):
+        print(f"  {k:12s} {summary(by[k])}")
+    print("\n## 실제로 '추천'으로 올린 다리만 (구분=추천)")
+    rec = [x for x in rows if x["depth"] == "추천"]
+    print(f"  전체        {summary(rec)}")
+    by = collections.defaultdict(list)
+    for x in rec:
+        by[x["market"]].append(x)
+    for k in sorted(by, key=lambda k: -len(by[k])):
+        print(f"  {k:12s} {summary(by[k])}")
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--holdout"); ap.add_argument("--only")
+    ap.add_argument("--picks", action="store_true", help="실제 추천기록 다리(핸디캡·언더오버 포함)로 재측정")
     a = ap.parse_args()
+    if a.picks:
+        picks_report(a.only)
+        return
     rows = legs(a.holdout, a.only)
     print(f"# 코어 규칙 백테스트 — 1X2 다리 {len(rows)}개"
           + (f" (제외 {a.holdout}회)" if a.holdout else "") + (f" ({a.only}회만)" if a.only else ""))

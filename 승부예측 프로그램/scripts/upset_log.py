@@ -59,7 +59,7 @@ def candidates(r):
 
 
 def load_log():
-    return list(csv.DictReader(open(LOG, encoding="utf-8"))) if os.path.exists(LOG) else []
+    return list(csv.DictReader(open(LOG, encoding="utf-8-sig"))) if os.path.exists(LOG) else []
 
 
 def save_log(rows):
@@ -78,7 +78,7 @@ def cmd_scan(rnd, block=None):
     idx = {(r["회차"], r["홈"], r["원정"], r["선택"]): r for r in log}
     now = dt.datetime.now().strftime("%Y-%m-%d %H:%M")
     n = 0
-    for r in csv.DictReader(open(REC, encoding="utf-8")):
+    for r in csv.DictReader(open(REC, encoding="utf-8-sig")):
         if r["회차"] != str(rnd) or (keys is not None and (r["홈"], r["원정"]) not in keys) or r.get("결과"):
             continue
         for k, typ, p, m, b, ev in candidates(r):
@@ -98,7 +98,7 @@ def cmd_scan(rnd, block=None):
 
 def cmd_report():
     log = load_log()
-    rec = {(r["회차"], r["홈"], r["원정"]): r for r in csv.DictReader(open(REC, encoding="utf-8"))}
+    rec = {(r["회차"], r["홈"], r["원정"]): r for r in csv.DictReader(open(REC, encoding="utf-8-sig"))}
     groups = {}
     for x in log:
         r = rec.get((x["회차"], x["홈"], x["원정"]), {})

@@ -24,7 +24,7 @@ MIN_MOVE = 2.0  # %p — 이보다 작으면 '정체'
 def history(rnd):
     snap = defaultdict(lambda: defaultdict(dict))
     name = {}
-    for r in csv.DictReader(open(HIST, encoding="utf-8")):
+    for r in csv.DictReader(open(HIST, encoding="utf-8-sig")):
         if r["회차"] != str(rnd) or r.get("구분") != "일반" or r.get("선택") not in OUT:
             continue
         try:
@@ -62,7 +62,7 @@ def main():
     nos = sys.argv[2:]
     pure = {}
     if os.path.exists(REC):
-        for r in csv.DictReader(open(REC, encoding="utf-8")):
+        for r in csv.DictReader(open(REC, encoding="utf-8-sig")):
             if r["회차"] == rnd and r.get("순수_승"):
                 try:
                     pure[r["번호"]] = {k: float(r[f"순수_{k}"]) for k in OUT}

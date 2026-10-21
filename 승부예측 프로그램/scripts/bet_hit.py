@@ -8,17 +8,17 @@ import csv, os, sys, argparse
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 TARGET = 85.0
 
-def load():
+def load(kind="추천", min_odds=1.2):
     rows = list(csv.DictReader(open(os.path.join(ROOT, "추천기록.csv"), encoding="utf-8")))
     out = []
     for r in rows:
-        if r["구분"] != "추천" or r["적중"] not in ("0", "1"):
+        if r["구분"] != kind or r["적중"] not in ("0", "1"):
             continue
         try:
             odds = float(r["배당"]); p = float(r["확률"])
         except ValueError:
             continue
-        if odds < 1.2:
+        if odds < min_odds:
             continue
         out.append({**r, "odds": odds, "p": p, "hit": int(r["적중"]), "bought": bool(r["구매"] and r["구매"] != "미구매")})
     return out
@@ -47,6 +47,21 @@ def main():
     print(hdr)
     for lo, hi in ((60, 65), (65, 70), (70, 100)): print(line(f"확률 {lo}~{hi}", [r for r in rs if lo <= r["p"] < hi]))
     for lo, hi in ((1.2, 1.35), (1.35, 1.5), (1.5, 9)): print(line(f"배당 {lo}~{hi}", [r for r in rs if lo <= r["odds"] < hi]))
+    # 도파민 트랙 — 코어와 절대 합치지 않는다(사용자 지시 2026-10-19: 집계·보고 분리)
+    dp = load("도파민", min_odds=0)
+    if a.round: dp = [r for r in dp if r["회차"] == a.round]
+    if dp:
+        dn = len(dp); dh = sum(r["hit"] for r in dp)
+        droi = sum((r["odds"] - 1) if r["hit"] else -1 for r in dp) / dn * 100
+        print(f"\n## 도파민 트랙 (기록 전용·단식·금액 0) — 별도 집계")
+        print(f"**{dh}/{dn} = {dh/dn*100:.1f}% · 단식 회수 {100+droi:.0f}%** (승격 조건: 100건 또는 회수 110%가 두 회차 연속)")
+        print(hdr)
+        for rnd in sorted({r["회차"] for r in dp}): print(line(f"{rnd}회", [r for r in dp if r["회차"] == rnd]))
+        rev = [r for r in dp if "역배" in (r.get("조합") or "")]
+        drw = [r for r in dp if "무 단식" in (r.get("조합") or "")]
+        print(line("역배", rev)); print(line("무", drw))
+        print(line("전반 다리", [r for r in dp if "전반" in (r.get("게임") or "")]))
+
     print("\n기준 상향 시뮬레이션(추천 당시 확률 기준):")
     for t in (60, 65, 70, 75):
         sub = [r for r in rs if r["p"] >= t]; k = len(sub)

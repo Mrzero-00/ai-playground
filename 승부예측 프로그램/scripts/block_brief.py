@@ -38,7 +38,7 @@ def tri(r, pre):
 def best_options(rnd):
     best = {}
     if os.path.exists(SCAN):
-        for r in csv.DictReader(open(SCAN, encoding="utf-8")):
+        for r in csv.DictReader(open(SCAN, encoding="utf-8-sig")):
             if r["회차"] != str(rnd):
                 continue
             try:
@@ -62,7 +62,7 @@ def note_date(team):
 def main():
     rnd, block = int(sys.argv[1]), sys.argv[2]
     gs = rw.assign_blocks(rw.games_of(rnd)).get(block, [])
-    rec = {(r["홈"], r["원정"]): r for r in csv.DictReader(open(REC, encoding="utf-8")) if r["회차"] == str(rnd)}
+    rec = {(r["홈"], r["원정"]): r for r in csv.DictReader(open(REC, encoding="utf-8-sig")) if r["회차"] == str(rnd)}
     best, hs = best_options(rnd), mm.history(rnd)
     n2 = ne = 0
     for g in sorted(gs, key=lambda g: g["마감"]):

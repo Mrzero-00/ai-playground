@@ -52,7 +52,7 @@ def excluded(rnd, game):
 
 
 def check(rnd, sched, by_no):
-    rec = {(r["회차"], r["번호"], r["선택"]): r for r in csv.DictReader(open(PICKS, encoding="utf-8"))} if os.path.exists(PICKS) else {}
+    rec = {(r["회차"], r["번호"], r["선택"]): r for r in csv.DictReader(open(PICKS, encoding="utf-8-sig"))} if os.path.exists(PICKS) else {}
     picks = [tuple(x.split(":")) for x in sched["다리"].split(",")]
     legs, bad = [], []
     for no, pk in picks:
@@ -154,7 +154,7 @@ def main():
     a = ap.parse_args()
     if not os.path.exists(pt.SCHED):
         print("구매일정.csv 없음 (pick_table.py --save 로 추천을 저장하면 생긴다)"); return
-    rows = list(csv.DictReader(open(pt.SCHED, encoding="utf-8")))
+    rows = list(csv.DictReader(open(pt.SCHED, encoding="utf-8-sig")))
     now = now_kst()
     if a.due:
         todo = [r for r in rows if r["상태"] == "대기"

@@ -42,7 +42,7 @@ def next_check_minutes(now):
     if not os.path.exists(SCHED):
         return None
     best = None
-    for r in csv.DictReader(open(SCHED, encoding="utf-8")):
+    for r in csv.DictReader(open(SCHED, encoding="utf-8-sig")):
         if r.get("상태") != "대기":
             continue
         try:
@@ -61,7 +61,7 @@ def latest_scan():
     """(회차, 번호, 선택) → 스캔기록 최신 행"""
     out = {}
     if os.path.exists(SCAN):
-        for r in csv.DictReader(open(SCAN, encoding="utf-8")):
+        for r in csv.DictReader(open(SCAN, encoding="utf-8-sig")):
             out[(r["회차"], r["번호"], r["선택"])] = r
     return out
 
@@ -83,7 +83,7 @@ def pick_alerts(scan, now):
     if not os.path.exists(PICKS):
         return []
     msgs = []
-    for p in csv.DictReader(open(PICKS, encoding="utf-8")):
+    for p in csv.DictReader(open(PICKS, encoding="utf-8-sig")):
         if p.get("구분") != "추천":
             continue
         r = scan.get((str(p["회차"]), p["번호"], p["선택"]))

@@ -1,5 +1,85 @@
 {
- "current": [],
+ "current": [
+  {
+   "round": "125",
+   "title": "[도파민] 10-21 19:00 조합1",
+   "track": "도파민",
+   "close": "2026-10-21 19:00",
+   "legs": [
+    {
+     "no": "9606",
+     "game": "쇼난 벨마레 vs 이와키FC",
+     "pick": "승",
+     "type": "축구 승무패",
+     "odds": 2.4,
+     "prob": 45.0,
+     "time": "2026-10-21 19:00",
+     "result": "",
+     "hit": "",
+     "actual": "",
+     "why": "pi-rating 기준선 자동(2026-10-21) — 뉴스·결장 반영 없음, 방향 기록용",
+     "risk": "",
+     "review": {}
+    },
+    {
+     "no": "9586",
+     "game": "아비스파 후쿠오카 vs 감바 오사카",
+     "pick": "무",
+     "type": "축구 승무패",
+     "odds": 3.0,
+     "prob": 28.2,
+     "time": "2026-10-21 19:00",
+     "result": "",
+     "hit": "",
+     "actual": "",
+     "why": "pi-rating 기준선 자동(2026-10-21) — 뉴스·결장 반영 없음, 방향 기록용",
+     "risk": "",
+     "review": {}
+    }
+   ],
+   "odds": 7.2,
+   "prob": 0.12689999999999999,
+   "scored": false,
+   "stale": false,
+   "started": false,
+   "hit": null,
+   "bought": false,
+   "time": "2026-10-21 19:00",
+   "n": 2
+  },
+  {
+   "round": "125",
+   "title": "[도파민] 10-21 19:00 조합2",
+   "track": "도파민",
+   "close": "2026-10-21 19:00",
+   "legs": [
+    {
+     "no": "9606",
+     "game": "쇼난 벨마레 vs 이와키FC",
+     "pick": "무",
+     "type": "축구 승무패",
+     "odds": 3.0,
+     "prob": 28.5,
+     "time": "2026-10-21 19:00",
+     "result": "",
+     "hit": "",
+     "actual": "",
+     "why": "pi-rating 기준선 자동(2026-10-21) — 뉴스·결장 반영 없음, 방향 기록용",
+     "risk": "",
+     "review": {}
+    }
+   ],
+   "odds": 3.0,
+   "prob": 0.285,
+   "scored": false,
+   "stale": false,
+   "started": false,
+   "hit": null,
+   "bought": false,
+   "time": "2026-10-21 19:00",
+   "n": 1
+  }
+ ],
  "past": [
   {
    "round": "124",

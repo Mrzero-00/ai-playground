@@ -89,13 +89,11 @@ async function now() {
     <div class="tile"><div class="k">조합 성공률</div><div class="v">${pct(s.combo_rate)}</div><div class="d">${s.combos_hit}/${s.combos_scored} 조합 적중 · 재개 기준 80%</div></div>
     <div class="tile"><div class="k">다리 적중률</div><div class="v">${pct(s.leg_rate)}</div><div class="d">${s.legs_scored}다리 채점</div></div>
     <div class="tile"><div class="k">코어 조합 총계</div><div class="v">${s.combos_total}</div><div class="d">진행 ${r.current.filter((c)=>c.track!=="도파민").length} · 채점 ${s.combos_scored}</div></div>
-    <div class="tile"><div class="k">도파민 성공률</div><div class="v">${pct(s.fun_rate)}</div><div class="d">${s.fun_hit||0}/${s.fun_scored||0} · 역배·무 위성 트랙</div></div>
+    <div class="tile"><div class="k">방향 적중률 (전 경기)</div><div class="v">${pct(s.dir_rate)}</div><div class="d">${s.dir_n}경기 · 같은 경기 시장 ${pct(s.dir_market)} vs 내 ${pct(s.dir_me)}</div></div>
     <div class="tile"><div class="k">과정 점수</div><div class="v">${pct(s.process_score)}</div><div class="d">내용이 예측 쪽이었던 비율 · ${s.process_n}경기</div></div>
   </div>
-  <h2>현재 진행 중 — 코어(안전)</h2>
+  <h2>현재 진행 중</h2>
   ${r.current.filter((c)=>c.track!=="도파민").length ? r.current.filter((c)=>c.track!=="도파민").map((c) => comboCard(c, false)).join("") : '<div class="empty">진행 중인 코어 조합이 없습니다. 다음 블록 분석 시각에 추가됩니다.</div>'}
-  <h2>현재 진행 중 — 도파민(역배·무)</h2>
-  ${r.current.filter((c)=>c.track==="도파민").length ? r.current.filter((c)=>c.track==="도파민").map((c) => comboCard(c, false)).join("") : '<div class="empty">진행 중인 도파민 조합이 없습니다.</div>'}
   <h2>현재 진행 중 — 승무패</h2>
   ${(r.toto || []).filter((t) => t.current).length ? (r.toto || []).filter((t) => t.current).map((t) => totoCard(t, false)).join("") : '<div class="empty">진행 중인 승무패 마킹이 없습니다. 마감 2시간 전 분석 뒤 올라옵니다.</div>'}`;
 }

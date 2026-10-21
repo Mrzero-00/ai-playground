@@ -408,7 +408,28 @@ def build(out):
             break
     json.dump(retros, open(os.path.join(out, "retros.json"), "w", encoding="utf-8"), ensure_ascii=False)
 
+    # 1번 목표 지표(2026-10-22): 추천 여부와 무관하게 방향을 적은 모든 경기의 1순위 적중률 — 같은 경기에서 시장과 맞댄다
+    def _top(g, pre):
+        v = {}
+        for k in ("승", "무", "패"):
+            x = g.get(f"{pre}_{k}")
+            if x in (None, ""):
+                return None
+            try: v[k] = float(x)
+            except ValueError: return None
+        return max(v, key=v.get)
+    dir_rows = [g for g in games if g.get("결과") in ("승", "무", "패")]
+    mine = [(g, _top(g, "보정") or _top(g, "순수")) for g in dir_rows]
+    mine = [(g, t) for g, t in mine if t]
+    dir_rate = (sum(1 for g, t in mine if t == g["결과"]) / len(mine)) if mine else None
+    head = [(g, t, _top(g, "시장")) for g, t in mine]
+    head = [(g, t, m) for g, t, m in head if m]
+    dir_me = (sum(1 for g, t, m in head if t == g["결과"]) / len(head)) if head else None
+    dir_mk = (sum(1 for g, t, m in head if m == g["결과"]) / len(head)) if head else None
+
     summary = {"updated": now.strftime("%Y-%m-%d %H:%M"), "mode": "가상 추천 중(실투자 없음)",
+               "dir_n": len(mine), "dir_rate": dir_rate,
+               "dir_head_n": len(head), "dir_me": dir_me, "dir_market": dir_mk,
                "combos_total": len(core), "combos_scored": len(sc), "combos_hit": sum(1 for c in sc if c["hit"]), "combo_rate": combo_rate,
                "fun_total": len(fun), "fun_scored": len(scf), "fun_hit": sum(1 for c in scf if c["hit"]), "fun_rate": fun_rate,
                "legs_scored": len(legs_scored), "leg_rate": leg_rate, "by_round": by_round,

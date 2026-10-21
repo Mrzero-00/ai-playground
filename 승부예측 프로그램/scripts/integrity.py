@@ -91,6 +91,23 @@ def norm_state(s):
     return "추정"     # 빈칸·자유 서술 = 확인 안 된 것으로 본다
 
 
+# 결장 '여부'를 흐리는 표현. '복귀 전망/복귀 예상'은 결장이 확정이고 돌아올 날짜만 추정하는 것이라 뺀다.
+HEDGE = ("유력", "아마", "불투명", "출전 가능", "결장 가능", "가능성", "doubtful", "questionable", "probable", "game-time")
+HEDGE_OK = ("복귀 전망", "복귀 예상", "복귀 가능", "복귀 시점")
+
+
+def hedged(f):
+    """'확정' 결장인데 내용이 결장 여부 자체를 추측하고 있으면 그 표현을 돌려준다."""
+    txt = (f.get("내용") or "")
+    for ok in HEDGE_OK:
+        txt = txt.replace(ok, "")
+    low = txt.lower()
+    for h in HEDGE:
+        if h in txt or h in low:
+            return h
+    return ""
+
+
 def norm_factor(f):
     """표준 유형·상태로 바꾸고, 바뀐 원문은 내용 앞에 [원: …]으로 남긴다."""
     f = dict(f)
@@ -225,6 +242,14 @@ def evidence_checks(r, e, severe, minor):
                     minor.append(f"'추정' 결장에 영향 {f.get('영향')}%p (상한 0): {tag}")
             except (TypeError, ValueError):
                 pass
+        # 2026-10-21(125회 심층회고): '확정'인데 근거 문장이 추측인 결장을 잡는다.
+        # 124회 9630 KCC 허웅 — 근거가 감독 코멘트("다음 경기도 **아마** 쉽지 않을 것")뿐인데 상태를 확정,
+        # 영향 +4%p 로 썼다. 실제로는 복귀해 11득점했다(삼성이 이겨서 결과는 맞았지만 요인은 사실 오류).
+        # 상태 칸이 확신도를 담는 자리인데 '유력·아마'가 섞이면 그 뒤 모든 집계(요인 검증·절제 실험)가 흐려진다.
+        # 확률을 깎지는 않는다 — 의심 결장의 영향은 52경기 절제 실험에서 해롭지 않았다(1순위 48.1% 동일, RPS 0.2057 vs 뺀 쪽 0.2077).
+        # 라벨만 바로잡게 '경미'로 알린다.
+        if f.get("유형") == "결장" and norm_state(f.get("상태")) == "확정" and hedged(f):
+            minor.append(f"'확정' 결장인데 근거가 추측 표현({hedged(f)}) — 상태는 '의심'이어야 한다: {tag}")
 
 
 def grade_of(severe, minor):

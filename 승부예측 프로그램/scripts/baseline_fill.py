@@ -60,6 +60,73 @@ def main():
     for k in sorted(acc):
         t, h = acc[k]
         print(f"  {k[0]} {k[1]}: {h}/{t} ({h / t * 100:.0f}%)")
+    depth_compare(rows)
+
+
+# 지정 리그(추천 다리를 뽑는 범위) — CLAUDE.md 2026-10-19 리그 제한
+BIG_SOCCER = ("프리미어", "라리가", "세리에A", "분데스리가", "리그1", "K리그",
+              "챔피언스리그", "유로파", "컨퍼런스리그")
+
+
+def tier(r):
+    return "지정" if any(k in r.get("리그", "") for k in BIG_SOCCER) else "비지정"
+
+
+def depth_compare(rows):
+    """'분석 vs 기준선' 비교에서 교란(리그 구성·회차)을 통제한다 — 2026-10-21 125회 심층회고.
+
+    왜: `종목·깊이별` 원표는 축구 분석 58% vs 기준선 42%로 보이지만, 기준선 행은 **아무도 고르지
+        않은 경기**(J1·J2·MLS·챔피언십이 109개 중 65개)에만 채워지고 분석 행은 큰 리그에 몰려 있다.
+        둘은 같은 경기 집합이 아니라서 차이의 대부분이 리그 구성에서 온다. 지정 리그로 좁히면
+        분석 62.9%(129/205) vs 기준선 60.6%(20/33) = +2.3%p 뿐이다(원표는 +16%p로 보였다).
+        이 수치가 '분석을 계속할 이유'의 근거라서, 통제한 값을 같이 찍지 않으면 과대평가된다.
+    """
+    soc = [r for r in rows if r.get("종목") == "축구" and r.get("결과") in ("승", "무", "패") and r.get("순수_승")]
+    cells = {}
+    for r in soc:
+        pk = rl.argmax(r, "순수")
+        if not pk:
+            continue
+        d = "기준선" if r.get("깊이") == "기준선" else "분석"
+        for key in ((tier(r), d), ("전체", d), (r["회차"], tier(r), d)):
+            x = cells.setdefault(key, [0, 0]); x[0] += 1; x[1] += 1 if pk == r["결과"] else 0
+
+    def line(key, label):
+        v = cells.get(key)
+        return f"{label} {v[1]}/{v[0]} ({v[1] / v[0] * 100:.1f}%)" if v and v[0] else f"{label} -"
+
+    def gap(t):
+        a, b = cells.get((t, "분석")), cells.get((t, "기준선"))
+        if not a or not b or not a[0] or not b[0]:
+            return None
+        return a[1] / a[0] * 100 - b[1] / b[0] * 100
+
+    print("\n축구 분석 vs 기준선 — 리그권 통제 (기준선은 '아무도 안 고른 경기'라 리그 구성이 다르다):")
+    for t in ("전체", "지정", "비지정"):
+        g = gap(t)
+        print(f"  {t:<4} {line((t, '분석'), '분석'):<22} {line((t, '기준선'), '기준선'):<22}"
+              f" 차 {f'{g:+.1f}%p' if g is not None else '-'}")
+
+    # 같은 회차 안에서만 비교 (회차마다 경기 풀이 다른 교란 제거)
+    rounds = sorted({k[0] for k in cells if len(k) == 3})
+    tot = {t: [0, 0, 0, 0] for t in ("지정", "비지정")}   # 분석(n,hit), 기준선(n,hit)
+    for rd in rounds:
+        for t in ("지정", "비지정"):
+            a, b = cells.get((rd, t, "분석")), cells.get((rd, t, "기준선"))
+            if not a or not b:
+                continue   # 그 회차에 한쪽만 있으면 비교 불가
+            tot[t][0] += a[0]; tot[t][1] += a[1]; tot[t][2] += b[0]; tot[t][3] += b[1]
+    print("  같은 회차에 둘 다 있는 경기만:")
+    for t in ("지정", "비지정"):
+        an, ah, bn, bh = tot[t]
+        if not an or not bn:
+            print(f"    {t:<4} 비교 가능한 회차 없음")
+            continue
+        print(f"    {t:<4} 분석 {ah}/{an} ({ah / an * 100:.1f}%)   기준선 {bh}/{bn} ({bh / bn * 100:.1f}%)"
+              f"   차 {ah / an * 100 - bh / bn * 100:+.1f}%p")
+    g_all, g_big = gap("전체"), gap("지정")
+    if g_all is not None and g_big is not None and g_all - g_big > 5:
+        print(f"  ⚠ 원표의 차({g_all:+.1f}%p)는 리그 구성 때문에 부풀어 있다 — 추천 범위(지정 리그)에서는 {g_big:+.1f}%p.")
 
 
 if __name__ == "__main__":

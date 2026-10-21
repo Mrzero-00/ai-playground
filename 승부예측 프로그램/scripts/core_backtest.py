@@ -63,7 +63,25 @@ def legs(holdout=None, only=None):
                             sport=r.get("종목", ""), sel=k, p=p, raw=pure[k], mk=mkt[k], od=od[k],
                             hit=1 if res == k else 0, time=r.get("시각", ""), depth=r.get("깊이", ""),
                             ty=leg_type(p, mkt[k], k, top, od[k], pure[k], own_top)))
-    return out
+    return dedupe(out)
+
+
+def dedupe(legs):
+    """같은 경기가 두 회차에 걸쳐 팔리면 다리가 두 번 세어진다 — 2026-10-21 125회 심층회고에서 발견.
+
+    왜: 베트맨은 회차 경계에 걸친 경기를 다음 회차에도 올린다(119·120의 SSG-삼성, 124·125의 오카야마-미토 등).
+        `round_log.py init` 이 회차마다 행을 만들기 때문에 전체경기기록에 같은 경기가 두 행 있고,
+        코어 71다리 중 5다리(7%)가 그 중복이었다. 넷이 적중이라 정확도·표본이 같이 부풀었다.
+        코어 규칙을 정하는 스크립트라 '30다리마다 재측정' 의 n 이 틀리면 안 된다.
+    무엇: (시각, 경기, 선택) 이 같으면 **늦은 회차**(마감에 가까운 배당·최신 분석) 하나만 남긴다.
+    """
+    keep = {}
+    for x in legs:
+        k = (x["time"], x["game"], x["sel"])
+        prev = keep.get(k)
+        if prev is None or str(x["rd"]) > str(prev["rd"]):
+            keep[k] = x
+    return list(keep.values())
 
 
 def summary(rows):

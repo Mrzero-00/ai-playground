@@ -288,8 +288,14 @@ def variable_section(rows):
 
 
 def cmd_report():
-    rows = list((r for r in csv.DictReader(open(REC, encoding="utf-8")) if r.get("정합성") != "C"))  # 2026-10-16 정합성 C(오류 데이터) 학습 제외
+    allrows = list((r for r in csv.DictReader(open(REC, encoding="utf-8")) if r.get("정합성") != "C"))  # 2026-10-16 정합성 C(오류 데이터) 학습 제외
+    # 깊이=기준선(baseline_fill 이 자동으로 채운 pi-rating 행)은 '내 분석'이 아니라 대조군이다 — 2026-10-21 125회 심층회고.
+    # calibrate.py·hit_model.py 는 이미 빼고 있었는데 여기만 섞여 있어서, 순수 1순위 적중이 축구 58%→54%로
+    # 깎여 보이고 w권장(독자 분석 비중)도 대조군 성적으로 정해지고 있었다.
+    rows = [r for r in allrows if r.get("깊이") != "기준선"]
+    base_rows = [r for r in allrows if r.get("깊이") == "기준선"]
     ev = evaluate(rows)
+    ev_base = evaluate(base_rows)
     weights = {f"{k[0]}:{k[1]}": v["w권장"] for k, v in ev.items() if k[0] in ("전체", "종목", "리그")}
     os.makedirs(os.path.dirname(WPATH), exist_ok=True)
     json.dump({"_설명": "독자 분석 혼합 비중(최종=(1-w)시장+w순수). scripts/own_model.py report 가 갱신", "갱신": str(dt.date.today()), **weights},
@@ -301,6 +307,11 @@ def cmd_report():
     for (typ, name), v in order:
         better = "예" if v["순수RPS"] < v["시장RPS"] else "아니오"
         L.append(f"| {typ}:{name} | {v['n']} | {v['순수RPS']:.3f} | {v['시장RPS']:.3f} | {better} | {v['순수적중']}/{v['n']} | {v['시장적중']}/{v['n']} | {v['w최적']:.2f} | **{v['w권장']:.2f}** |")
+    b = ev_base.get(("전체", "전체"))
+    L += ["", f"> 대조군 제외: `깊이=기준선` {len(base_rows)}행(= `baseline_fill.py` 가 자동으로 채운 pi-rating)은 위 표에서 뺐다. "
+              + (f"대조군만 보면 n={b['n']} · 순수 1순위 {b['순수적중']}/{b['n']} · 시장 {b['시장적중']}/{b['n']} · 순수 RPS {b['순수RPS']:.3f} vs 시장 {b['시장RPS']:.3f}."
+                 if b else "대조군은 아직 채점된 경기가 없다.")
+              + " 대조군은 '아무도 고르지 않은 경기'라 리그 구성이 달라, 분석과 직접 빼서 비교하면 안 된다(`baseline_fill.py --all` 의 리그권 통제표를 쓴다)."]
     ab = absorb_list(rows)
     L += ["", "## 흡수 목록 — 순수와 시장이 10%p 이상 갈린 경기", "",
           "결과가 나온 경기: '시장'이 맞았으면 시장이 알던 정보를 찾아 `독자분석_로드맵.md` 변수 목록에 추가, '순수'가 맞았으면 그 근거를 강화.", "",

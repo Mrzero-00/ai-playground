@@ -9,8 +9,8 @@
 - 최근 경기(ESPN, 최대 28일): 2026-09-06 Juventus 1-1 AC Milan / 2026-09-12 Lazio 2-2 AC Milan / 2026-09-20 AC Milan 3-0 Lecce / 2026-10-11 Sassuolo 1-1 AC Milan
 <!-- FACTS:END -->
 <!-- INPUTS:START -->
-## 입력(자동 수집 2026-10-18) — xG·휴식일·라인업·환경(이동거리·고도·날씨)은 이 숫자를 쓴다
-- 10-19 01:00 vs 아탈란타BC: 휴식 3.0일(7일 1경기) · 직전 10-16 원정 vs RB Salzburg 4-0 승 [uefa.europa] · xG 시즌6경기 xG1.93/xGA1.21 npxGD+0.72 · 최근5 1.96/1.23 (+0.74) · 홈2.48/원정-0.16 · xPts10.7 vs 승점12 · 직전 선발 3-4-2-1 Mike Maignan, Koni De Winter, Strahinja Pavlovic, Fikayo Tomori, Adrien Rabiot, Ardon Jashari, Davide Bartesaghi, Omari Hutchinson, Francesco Camarda, Alphadjo Cissè, Ruben Loftus-Cheek · 구장 스타디오 주세페 메아차 · 이동 50km · 고도 139m(차 -127m) · 16.5℃ 강수3.2mm(85%) 바람5.9km/h · ⚠ 비 3.2mm(85%)
+## 입력(자동 수집 2026-10-21) — xG·휴식일·라인업·환경(이동거리·고도·날씨)은 이 숫자를 쓴다
+- 10-23 04:00 vs AFC본머스: 휴식 7.1일 · 직전 10-16 원정 vs RB Salzburg 4-0 승 [uefa.europa] · xG 시즌7경기 xG2.02/xGA1.31 npxGD+0.5 · 최근5 1.84/1.51 (+0.03) · 홈1.38/원정-0.16 · xPts12.6 vs 승점15 · 직전 선발 3-4-2-1 Mike Maignan, Koni De Winter, Strahinja Pavlovic, Fikayo Tomori, Adrien Rabiot, Ardon Jashari, Davide Bartesaghi, Omari Hutchinson, Francesco Camarda, Alphadjo Cissè, Ruben Loftus-Cheek · 구장 딘 코트 · 이동 1000km · 고도 36m(차 -103m) · 13.7℃ 강수2.3mm(100%) 바람32.4km/h · ⚠ 장거리 원정 1000km, 비 2.3mm(100%), 강풍 32.4km/h
 <!-- INPUTS:END -->
 
 - 2026-10-14 조사: UEL 2차전(10/16 KST, vs 잘츠부르크, 원정) 결장·로테이션 구체 정보 미확인. "Milan to find their feet"류 베팅 매체 프리뷰 제목만 확인, 실질 팀뉴스 부족. ClubElo 1822. 출처: Google News RSS, clubelo.com/Milan.

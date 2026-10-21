@@ -8,7 +8,7 @@
 - 최근 경기(ESPN, 최대 28일): 2026-10-15 FC Lugano 3-2 Red Star Belgrade
 <!-- FACTS:END -->
 <!-- INPUTS:START -->
-## 입력(자동 수집 2026-10-15) — xG·휴식일·라인업은 이 숫자를 쓴다
-- 10-16 01:45 vs 루가노: 휴식 ?(ESPN 미제공 리그 — 직접 확인) · 직전 - · xG -
+## 입력(자동 수집 2026-10-21) — xG·휴식일·라인업·환경(이동거리·고도·날씨)은 이 숫자를 쓴다
+- 10-23 01:45 vs 코펜하겐: 휴식 7.0일 · 직전 10-16 원정 vs FC Lugano 2-3 패 [uefa.europa.conf] · xG - · 직전 선발 5-4-1 Matheus, Stefan Gudelj, Yuta Nakayama, Matej Gashtarov, Mihailo Ristic, Vladimir Lucic, Tomás Händel, Rade Krunic, Vasilije Kostov, Timi Elsnik, Bamba Dieng · 구장 스타디온 츠르베나 즈베즈다 · 이동 1336km · 고도 121m(차 +112m) · 14.3℃ 강수0mm(33%) 바람15.1km/h · ⚠ 장거리 원정 1336km
 <!-- INPUTS:END -->
 

@@ -9,7 +9,7 @@
 - 최근 경기(ESPN, 최대 28일): 2026-09-03 KAA Gent 1-0 OH Leuven / 2026-09-06 Cercle Brugge KSV 0-3 KAA Gent / 2026-09-13 Racing Genk 1-1 KAA Gent / 2026-09-18 KAA Gent 2-1 Standard Liege / 2026-10-10 Zulte-Waregem 0-2 KAA Gent / 2026-10-15 KAA Gent 1-0 AGF
 <!-- FACTS:END -->
 <!-- INPUTS:START -->
-## 입력(자동 수집 2026-10-15) — xG·휴식일·라인업은 이 숫자를 쓴다
-- 10-16 01:45 vs AGF오르후스: 휴식 3.9일(7일 4경기) · 직전 10-12 원정 vs Platense 1-1 무 [torneo clausura] · xG - · 직전 선발 4-3-3 Brayan Cortés, Franco Vázquez, Francisco Álvarez, Sebastián Prieto, Franco Paredes, Facundo Gutiérrez, Nicolás Oroz, Facundo Carrizo, Tomas Molina, Gastón Verón, Diego Porcel
+## 입력(자동 수집 2026-10-21) — xG·휴식일·라인업·환경(이동거리·고도·날씨)은 이 숫자를 쓴다
+- 10-23 04:00 vs SC브라가: 휴식 7.1일 · 직전 10-16 홈 vs AGF 1-0 승 [uefa.europa.conf] · xG - · 직전 선발 3-1-4-2 Davy Roef, Christian Burgess, Siebe van der Heyden, Maksim Paskotši, Tibe De Vlieger, Mathias Delorge-Knieper, Matties Volckaert, Tiago Araújo, Michel-Ange Balikwisha, Momodou Sonko, Ibrahima Cisse · 구장 이스타디우 무니시팔 드 브라가 · 이동 1406km · 고도 111m(차 +101m) · 14.4℃ 강수0.6mm(35%) 바람12.4km/h · ⚠ 장거리 원정 1406km
 <!-- INPUTS:END -->
 

@@ -9,7 +9,7 @@
 - 최근 경기(ESPN, 최대 28일): 2026-09-17 Celtic 1-3 Ferencvaros / 2026-10-15 Ferencvaros 2-1 Viktoria Plzen
 <!-- FACTS:END -->
 <!-- INPUTS:START -->
-## 입력(자동 수집 2026-10-15) — xG·휴식일·라인업은 이 숫자를 쓴다
-- 10-16 04:00 vs 빅토리아 플젠: 휴식 28.0일?(국내리그 ESPN 미제공 — 직접 확인) · 직전 09-18 원정 vs Celtic 3-1 승 [uefa.europa] · xG - · 직전 선발 4-2-3-1 Ádam Varga, Mariano Gómez, Toon Raemaekers, Cadu, Olivér Nagy, Kristoffer Zachariassen, Marius Dumitru Corbu, Ádám Nagy, Ádám Bagi, Daniel Arzani, Bamidele Isa Yusuf
+## 입력(자동 수집 2026-10-21) — xG·휴식일·라인업·환경(이동거리·고도·날씨)은 이 숫자를 쓴다
+- 10-23 01:45 vs SCU토렌세: 휴식 6.9일(7일 1경기) · 직전 10-16 홈 vs Viktoria Plzen 2-1 승 [uefa.europa] · xG - · 직전 선발 4-2-3-1 Dániel Radnóti, Mariano Gómez, Toon Raemaekers, Cadu, Attila Osvath, Kristoffer Zachariassen, Ádám Nagy, Marius Dumitru Corbu, Krisztián Lisztes, Veljko Birmancevic, Bamidele Isa Yusuf · 구장 그루파마 아레나 · 이동 2460km · 고도 115m(차 +89m) · 10.6℃ 강수0mm(0%) 바람20.5km/h · ⚠ 장거리 원정 2460km
 <!-- INPUTS:END -->
 

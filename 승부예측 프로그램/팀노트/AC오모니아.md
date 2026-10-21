@@ -8,8 +8,8 @@
 - 최근 경기(ESPN, 최대 28일): 2026-09-16 Omonia Nicosia 1-0 Celta Vigo / 2026-10-15 NK Celje 0-3 Omonia Nicosia
 <!-- FACTS:END -->
 <!-- INPUTS:START -->
-## 입력(자동 수집 2026-10-15) — xG·휴식일·라인업은 이 숫자를 쓴다
-- 10-16 01:45 vs NK첼레: 휴식 29.0일?(국내리그 ESPN 미제공 — 직접 확인) · 직전 09-17 홈 vs Celta Vigo 1-0 승 [uefa.europa] · xG - · 직전 선발 4-2-3-1 Fabiano, Lubomir Satka, Senou Coulibaly, Jure Balkovec, Jean-Kévin Duverne, Muamer Tankovic, Mateo Maric, Panagiotis Andreou, Loïs Diony, Jaden Montnor, Ewandro
+## 입력(자동 수집 2026-10-21) — xG·휴식일·라인업·환경(이동거리·고도·날씨)은 이 숫자를 쓴다
+- 10-23 04:00 vs SL벤피카: 휴식 7.1일 · 직전 10-16 원정 vs NK Celje 3-0 승 [uefa.europa] · xG - · 직전 선발 4-4-2 Fabiano, Lubomir Satka, Senou Coulibaly, Jure Balkovec, Jean-Kévin Duverne, Mateo Maric, Panagiotis Andreou, Jaden Montnor, Ewandro, Muamer Tankovic, Loïs Diony · 구장 GSP 스타디움 · 이동 ?(구장 미확인) · 고도 181m · 19.2℃ 강수0mm(0%) 바람6.5km/h
 <!-- INPUTS:END -->
 
 ## 성향

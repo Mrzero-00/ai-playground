@@ -9,8 +9,8 @@
 - 최근 경기(ESPN, 최대 28일): 2026-09-06 Kashiwa Reysol 0-2 Yokohama F. Marinos / 2026-09-12 Machida Zelvia 1-1 Yokohama F. Marinos / 2026-09-19 Yokohama F. Marinos 2-0 Mito Hollyhock / 2026-10-10 Cerezo Osaka 0-0 Yokohama F. Marinos / 2026-10-17 JEF United Ichihara-Chiba 0-0 Yokohama F. Marinos
 <!-- FACTS:END -->
 <!-- INPUTS:START -->
-## 입력(자동 수집 2026-10-20) — xG·휴식일·라인업·환경(이동거리·고도·날씨)은 이 숫자를 쓴다
-- 10-21 19:00 vs 도쿄 베르디: 휴식 4.2일(7일 1경기) · 직전 10-17 원정 vs JEF United Ichihara-Chiba 0-0 무 [jpn.1] · xG - · 직전 선발 4-2-3-1 Il-Kyu Park, Kosei Suwama, Jeisson Quiñones, Toichi Suzuki, Takuto Kimura, Jun Amano, Kosuke Matsumura, Riku Yamane, Kaina Tanimura, Ryo Miyaichi, Tomoki Kondo · 구장 Marinos del Crucero General Belgrano train station(구단 좌표 — 구장 미확인) · 이동 18355km · 고도 29m(차 -37m) · 13.9℃ 강수0mm(9%) 바람16.3km/h · ⚠ 장거리 원정 18355km
+## 입력(자동 수집 2026-10-21) — xG·휴식일·라인업·환경(이동거리·고도·날씨)은 이 숫자를 쓴다
+- 10-21 19:00 vs 도쿄 베르디: 휴식 4.2일(7일 1경기) · 직전 10-17 원정 vs JEF United Ichihara-Chiba 0-0 무 [jpn.1] · xG - · 직전 선발 4-2-3-1 Il-Kyu Park, Kosei Suwama, Jeisson Quiñones, Toichi Suzuki, Takuto Kimura, Jun Amano, Kosuke Matsumura, Riku Yamane, Kaina Tanimura, Ryo Miyaichi, Tomoki Kondo · 구장 Marinos del Crucero General Belgrano train station(구단 좌표 — 구장 미확인) · 이동 18355km · 고도 29m(차 -37m) · 13.7℃ 강수0mm(4%) 바람17.3km/h · ⚠ 장거리 원정 18355km
 <!-- INPUTS:END -->
 
 - 2026-10-13 조사: 2026 J1리그 7위(9경기 4승3무2패, 득점13·실점9, 득실+4) — 리그 5경기 무패(최근 10/10 원정 세레소 오사카와 0-0 무). 10/14(수) 19:00 닛산스타디움(홈) 르방컵1라운드3회전 시미즈 에스펄스전(조별, 준결승 아님). 10/22 ACLE(AFC챔피언스리그엘리트) 리그스테이지 3절 산둥타이산 원정 예정 — 로테이션 가능성이 있으나 10/13 현재 확정 라인업 변경 보도는 없음('로테이션' 뉴스위험으로만 표시). pi-rating 기준선 50.4/28.0/21.6(마리노스 우세). 출처: [f-marinos.com](https://www.f-marinos.com/news/match/10594), [blog.domesoccer.jp](https://blog.domesoccer.jp/archives/60254542.html)

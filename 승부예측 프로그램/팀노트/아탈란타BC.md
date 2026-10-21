@@ -9,7 +9,7 @@
 - 최근 경기(ESPN, 최대 28일): 2026-09-05 AS Roma 2-1 Atalanta / 2026-09-12 Atalanta 1-2 Cagliari / 2026-09-20 Juventus 2-0 Atalanta / 2026-10-12 Atalanta 3-1 Venezia
 <!-- FACTS:END -->
 <!-- INPUTS:START -->
-## 입력(자동 수집 2026-10-18) — xG·휴식일·라인업·환경(이동거리·고도·날씨)은 이 숫자를 쓴다
-- 10-19 01:00 vs AC밀란: 휴식 2.9일(7일 2경기) · 직전 10-16 홈 vs Pafos 3-1 승 [uefa.europa.conf] · xG 시즌6경기 xG1.13/xGA2.23 npxGD-0.98 · 최근5 1.17/2.14 (-0.82) · 홈-0.42/원정-2.1 · xPts4.2 vs 승점9 · 직전 선발 4-2-3-1 Marco Carnesecchi, Sead Kolasinac, Thomas Kristensen, Lorenzo Bernasconi, Davide Zappacosta, Giacomo Raspadori, Mario Pasalic, Gianluca Gaetano, Gianluca Scamacca, Nicola Zalewski, Eljif Elmas · 구장 스타디오 주세페 메아차 · 이동 50km · 고도 139m(차 -127m) · 16.5℃ 강수3.2mm(85%) 바람5.9km/h · ⚠ 비 3.2mm(85%)
+## 입력(자동 수집 2026-10-21) — xG·휴식일·라인업·환경(이동거리·고도·날씨)은 이 숫자를 쓴다
+- 10-23 04:00 vs AFC아약스: 휴식 7.0일 · 직전 10-16 홈 vs Pafos 3-1 승 [uefa.europa.conf] · xG 시즌7경기 xG1.24/xGA2.29 npxGD-0.72 · 최근5 1.52/2.41 (-0.44) · 홈-0.42/원정-1.12 · xPts5.1 vs 승점9 · 직전 선발 4-2-3-1 Marco Carnesecchi, Sead Kolasinac, Thomas Kristensen, Lorenzo Bernasconi, Davide Zappacosta, Giacomo Raspadori, Mario Pasalic, Gianluca Gaetano, Gianluca Scamacca, Nicola Zalewski, Eljif Elmas · 구장 암스테르담 아레나 · 이동 811km · 고도 17m(차 -249m) · 9.3℃ 강수0mm(0%) 바람14.4km/h · ⚠ 장거리 원정 811km
 <!-- INPUTS:END -->
 

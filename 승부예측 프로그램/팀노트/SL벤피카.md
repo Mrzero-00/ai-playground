@@ -9,8 +9,8 @@
 - 최근 경기(ESPN, 최대 28일): 2026-09-09 Moreirense 0-4 Benfica / 2026-09-13 Benfica 3-1 Gil Vicente / 2026-09-20 FC Porto 3-1 Benfica / 2026-10-11 Benfica 2-0 Vitória de Guimaraes / 2026-09-16 AC Milan 0-2 Benfica / 2026-10-15 Benfica 4-1 Celtic
 <!-- FACTS:END -->
 <!-- INPUTS:START -->
-## 입력(자동 수집 2026-10-15) — xG·휴식일·라인업은 이 숫자를 쓴다
-- 10-16 04:00 vs 셀틱: 휴식 29.0일?(국내리그 ESPN 미제공 — 직접 확인) · 직전 09-17 원정 vs AC Milan 2-0 승 [uefa.europa] · xG - · 직전 선발 4-2-3-1 Anatoliy Trubin, Tomás Araújo, Alessandro Circati, Souffian El Karouani, Daniel Banjaqui, Georgiy Sudakov, João Palhinha, Fredrik Aursnes, Jhon Durán, Jakub Kaminski, Dodi Lukébakio
+## 입력(자동 수집 2026-10-21) — xG·휴식일·라인업·환경(이동거리·고도·날씨)은 이 숫자를 쓴다
+- 10-23 04:00 vs AC오모니아: 휴식 7.0일 · 직전 10-16 홈 vs Celtic 4-1 승 [uefa.europa] · xG - · 직전 선발 4-2-3-1 Anatoliy Trubin, Clément Lenglet, Tomás Araújo, Samuel Dahl, Alexander Bah, Georgiy Sudakov, João Palhinha, Fredrik Aursnes, Jhon Durán, Gianluca Prestianni, Dodi Lukébakio · 구장 GSP 스타디움 · 이동 ?(구장 미확인) · 고도 181m · 19.2℃ 강수0mm(0%) 바람6.5km/h
 <!-- INPUTS:END -->
 
 ## 성향

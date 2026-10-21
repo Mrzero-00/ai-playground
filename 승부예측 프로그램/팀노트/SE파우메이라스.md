@@ -9,7 +9,7 @@
 - 최근 경기(ESPN, 최대 28일): 2026-10-09 Palmeiras 1-0 Bahia / 2026-10-11 Palmeiras 4-1 Corinthians / 2026-10-17 Athletico-PR 0-2 Palmeiras / 2026-09-09 Palmeiras 1-0 Liga de Quito / 2026-09-16 Liga de Quito 3-2 Palmeiras / 2026-10-15 Fluminense 1-2 Palmeiras
 <!-- FACTS:END -->
 <!-- INPUTS:START -->
-## 입력(자동 수집 2026-10-15) — xG·휴식일·라인업은 이 숫자를 쓴다
-- 10-15 09:30 vs 플루미넨시: 휴식 3.2일(7일 2경기) · 직전 10-12 홈 vs Corinthians 4-1 [brasileiro serie a] · xG - · 선발 3-4-2-1 Carlos Miguel, Alexander Barboza, Gustavo Gómez, Murilo, Marlon Freitas, Andreas Pereira, Agustín Giay, Jhon Arias, Joaquín Piquerez, Lucas Evangelista, José Manuel López · 직전 대비 교체 1명(Vitor Roque)
+## 입력(자동 수집 2026-10-21) — xG·휴식일·라인업·환경(이동거리·고도·날씨)은 이 숫자를 쓴다
+- 10-22 09:30 vs 플루미넨시: 휴식 7.0일 · 직전 10-15 원정 vs Fluminense 2-1 승 [semifinals] · xG - · 직전 선발 3-4-2-1 Carlos Miguel, Gustavo Gómez, Alexander Barboza, Murilo, Lucas Evangelista, Marlon Freitas, Joaquín Piquerez, Agustín Giay, José Manuel López, Andreas Pereira, Jhon Arias · 구장 Estádio Rua Javari · 이동 352km · 고도 738m(차 +723m) · 17.9℃ 강수0mm(14%) 바람12.1km/h
 <!-- INPUTS:END -->
 

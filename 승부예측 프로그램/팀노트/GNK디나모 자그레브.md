@@ -9,7 +9,7 @@
 - 최근 경기(ESPN, 최대 28일): 2026-09-16 Hapoel Be'er 0-0 Dinamo Zagreb / 2026-10-15 Dinamo Zagreb 1-0 Anderlecht
 <!-- FACTS:END -->
 <!-- INPUTS:START -->
-## 입력(자동 수집 2026-10-15) — xG·휴식일·라인업은 이 숫자를 쓴다
-- 10-16 04:00 vs RSC안더레흐트: 휴식 29.0일?(국내리그 ESPN 미제공 — 직접 확인) · 직전 09-17 원정 vs Hapoel Be'er 0-0 무 [uefa.europa] · xG - · 직전 선발 4-1-4-1 Dominik Kotarski, Scott McKenna, Sergi Domínguez, Josip Misic, Bruno Goda, Niko Galesic, Lukas Kacavenda, Luka Stojkovic, Mislav Orsic, Mateo Lisica, Arbër Hoxha
+## 입력(자동 수집 2026-10-21) — xG·휴식일·라인업·환경(이동거리·고도·날씨)은 이 숫자를 쓴다
+- 10-23 01:45 vs NEC네이메헌: 휴식 6.9일(7일 1경기) · 직전 10-16 홈 vs Anderlecht 1-0 승 [uefa.europa] · xG - · 직전 선발 4-1-4-1 Dominik Kotarski, Stjepan Radeljic, Sergi Domínguez, Josip Misic, Matteo Vinlöf, Niko Galesic, Luka Ivanusec, Luka Stojkovic, Arbër Hoxha, Iker Almena, Dion Drena Beljo · 구장 스타디온 마크시미르 · 이동 999km · 고도 124m(차 +101m) · 12.3℃ 강수0mm(30%) 바람7.2km/h · ⚠ 장거리 원정 999km
 <!-- INPUTS:END -->
 

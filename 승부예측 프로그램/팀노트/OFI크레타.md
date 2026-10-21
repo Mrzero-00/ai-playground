@@ -8,8 +8,8 @@
 - 최근 경기(ESPN, 최대 28일): 2026-09-17 OFI Crete 2-0 TSG Hoffenheim / 2026-10-15 Stade Rennais 2-1 OFI Crete
 <!-- FACTS:END -->
 <!-- INPUTS:START -->
-## 입력(자동 수집 2026-10-15) — xG·휴식일·라인업은 이 숫자를 쓴다
-- 10-16 04:00 vs 스타드 렌: 휴식 28.1일?(국내리그 ESPN 미제공 — 직접 확인) · 직전 09-18 홈 vs TSG Hoffenheim 2-0 승 [uefa.europa] · xG - · 직전 선발 3-4-3 Nikos Christogeorgos, Achilleas Poungouras, Kresimir Krizmanic, Konstantinos Kostoulas, Andreas Bouchalakis, Thanasis Androutsos, Nicolaos Athanasiou, Lorenzo Dickmann, Kenan Kodro, Aitor Cantalapiedra, Taxiarchis Fountas
+## 입력(자동 수집 2026-10-21) — xG·휴식일·라인업·환경(이동거리·고도·날씨)은 이 숫자를 쓴다
+- 10-23 01:45 vs 바이어04 레버쿠젠: 휴식 6.9일(7일 1경기) · 직전 10-16 원정 vs Stade Rennais 1-2 패 [uefa.europa] · xG - · 직전 선발 3-4-3 Nikos Christogeorgos, Dimitris Nikolaou, Kresimir Krizmanic, Achilleas Poungouras, Andreas Bouchalakis, Thanasis Androutsos, Nicolaos Athanasiou, Lorenzo Dickmann, Kenan Kodro, Thiago Thomas Nuss, Taxiarchis Fountas · 구장 Pankritio Stadium · 이동 2268km · 고도 10m(차 -34m) · 22.6℃ 강수0mm(0%) 바람13.0km/h · ⚠ 장거리 원정 2268km
 <!-- INPUTS:END -->
 
 ## 성향

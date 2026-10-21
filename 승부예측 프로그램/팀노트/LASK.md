@@ -9,8 +9,8 @@
 - 최근 경기(ESPN, 최대 28일): 2026-09-08 AEK Athens 1-0 LASK Linz / 2026-10-14 LASK Linz 3-6 Liverpool
 <!-- FACTS:END -->
 <!-- INPUTS:START -->
-## 입력(자동 수집 2026-10-20) — xG·휴식일·라인업·환경(이동거리·고도·날씨)은 이 숫자를 쓴다
-- 10-22 04:00 vs 스포르팅 CP: 휴식 7.1일 · 직전 10-15 홈 vs Liverpool 3-6 패 [uefa.champions] · xG - · 직전 선발 5-4-1 Lukas Jungwirth, Alemão, Andrés Andrade, Xavier Mbuyamba, Yvan Dibango, Kasper Jørgensen, Alessandro Schöpf, Melayro Bogarde, Christoph Lang, Krystof Danek, Samuel Adeniran · 구장 이스타디우 조제 알발라드 · 이동 2154km · 고도 78m(차 -248m) · 14.0℃ 강수0mm(0%) 바람10.7km/h · ⚠ 장거리 원정 2154km
+## 입력(자동 수집 2026-10-21) — xG·휴식일·라인업·환경(이동거리·고도·날씨)은 이 숫자를 쓴다
+- 10-22 04:00 vs 스포르팅CP: 휴식 7.1일 · 직전 10-15 홈 vs Liverpool 3-6 패 [uefa.champions] · xG - · 직전 선발 5-4-1 Lukas Jungwirth, Alemão, Andrés Andrade, Xavier Mbuyamba, Yvan Dibango, Kasper Jørgensen, Alessandro Schöpf, Melayro Bogarde, Christoph Lang, Krystof Danek, Samuel Adeniran · 구장 ? · 이동 ?(구장 미확인) · 고도 ?m · 날씨 -
 <!-- INPUTS:END -->
 
 - 2026-10-14 조사: 오스트리아 분데스리가 8경기 3위, 16점(GF19 GA9, 득실차 +10/8경기=+1.25) — 출처: ESPN API(aut.1 standings)

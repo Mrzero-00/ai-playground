@@ -9,7 +9,7 @@
 - 최근 경기(ESPN, 최대 28일): 2026-09-02 Sint-Truidense 0-3 Union St.-Gilloise / 2026-09-05 Sint-Truidense 4-0 RAAL La Louvière / 2026-09-12 Waasland-Beveren 2-0 Sint-Truidense / 2026-09-20 Sint-Truidense 0-2 KVC Westerlo / 2026-10-11 KV Mechelen 4-3 Sint-Truidense / 2026-10-15 Sint-Truidense 2-0 Iberia 1999
 <!-- FACTS:END -->
 <!-- INPUTS:START -->
-## 입력(자동 수집 2026-10-15) — xG·휴식일·라인업은 이 숫자를 쓴다
-- 10-16 04:00 vs 이베리아1999 트빌리시: 휴식 4.1일(7일 1경기) · 직전 10-12 원정 vs KV Mechelen 3-4 패 [bel.1] · xG - · 직전 선발 4-2-3-1 Leo Brian Kokubo, Shogo Taniguchi, Kota Takai, Taiga Hata, Robert-Jan Vanwesemael, Ryotaro Araki, Abdoulage Sissako, Ryan Merlen, Samed Bazdar, Ilias Sebaoui, Kaito Matsuzawa
+## 입력(자동 수집 2026-10-21) — xG·휴식일·라인업·환경(이동거리·고도·날씨)은 이 숫자를 쓴다
+- 10-23 04:00 vs 미트윌란: 휴식 7.0일 · 직전 10-16 홈 vs Iberia 1999 2-0 승 [uefa.europa.conf] · xG - · 직전 선발 4-2-3-1 Leo Brian Kokubo, Visar Musliu, Shogo Taniguchi, Joederik Pupe, Robert-Jan Vanwesemael, Ryan Merlen, Nelson Ishiwatari, Abdoulage Sissako, Samed Bazdar, Ilias Sebaoui, Nathanaël Mbuku · 구장 ? · 이동 ?(구장 미확인) · 고도 ?m · 날씨 -
 <!-- INPUTS:END -->
 

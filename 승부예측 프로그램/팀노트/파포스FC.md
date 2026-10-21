@@ -2,14 +2,15 @@
 
 <!-- FACTS:START -->
 ## 팩트시트 (자동 수집 2026-10-21) — 조사 전 반드시 읽고, 아래 사실과 다른 뉴스 요약은 '미확인'으로 둔다
-- 출처: 위키 'Pafos FC'(club), ESPN 있음
+- 출처: 위키 '2026–27 Pafos FC season'(season), ESPN 있음
 - 감독: Ricardo Sá Pinto
 - 리그 순위: 32위 1경기 0승0무1패 GD-2 승점0 (Pafos)
+- 2026 여름 이적(위키 이적 표, 앞 8줄씩): IN 2 June 2026 · GK · Charalampos Kyriakidis · Omonia · Undisclosed / IN 15 June 2026 · MF · Murad Mammadov · Neftçi · Undisclosed / IN 29 June 2026 · MF · Guga · Al-Najma · Undisclosed / IN 1 July 2026 · MF · Alexandre Brito · Sporting CP · Undisclosed / IN 9 July 2026 · GK · Michalis Papastylianou · PAC Omonia 29M · Undisclosed / IN 3 August 2026 · FW · Moumi Ngamaleu · Unattached · Free / IN 4 September 2026 · FW · Afonso Patrão · Westerlo · Undisclosed / IN 9 September 2026 · DF · Jónatas Noro · Braga · Undisclosed / OUT 24 July 2026 · DF · Derrick Luckassen · Red Star Belgrade · Undisclosed / OUT 2 August 2026 · DF · Axel Guessand · Kalamata · Undisclosed / OUT 4 September 2026 · FW · Mons Bassouamina · Marítimo · Undisclosed
 - 최근 경기(ESPN, 최대 28일): 2026-10-15 Atalanta 3-1 Pafos
 <!-- FACTS:END -->
 <!-- INPUTS:START -->
-## 입력(자동 수집 2026-10-15) — xG·휴식일·라인업은 이 숫자를 쓴다
-- 10-16 04:00 vs 아탈란타BC: 휴식 ?(ESPN 미제공 리그 — 직접 확인) · 직전 - · xG -
+## 입력(자동 수집 2026-10-21) — xG·휴식일·라인업·환경(이동거리·고도·날씨)은 이 숫자를 쓴다
+- 10-23 01:45 vs 리가FC: 휴식 6.9일(7일 1경기) · 직전 10-16 원정 vs Atalanta 1-3 패 [uefa.europa.conf] · xG - · 직전 선발 4-3-3 Radoslaw Majecki, David Luiz, Samy Mmaee, Nicholas Ioannou, Bruno, Ivan Sunjic, Pêpê, Vlad Dragomir, Lelê, Gabriel Teixeira, Domingos Quina · 구장 파피아코 스타디움 · 이동 ?(구장 미확인) · 고도 75m · 23.8℃ 강수0mm(0%) 바람7.0km/h
 <!-- INPUTS:END -->
 
 ## 성향

@@ -9,8 +9,8 @@
 - 최근 경기(ESPN, 최대 28일): 2026-10-15 FC Twente 1-0 FC Thun
 <!-- FACTS:END -->
 <!-- INPUTS:START -->
-## 입력(자동 수집 2026-10-15) — xG·휴식일·라인업은 이 숫자를 쓴다
-- 10-16 04:00 vs 트벤테: 휴식 ?(ESPN 미제공 리그 — 직접 확인) · 직전 - · xG -
+## 입력(자동 수집 2026-10-21) — xG·휴식일·라인업·환경(이동거리·고도·날씨)은 이 숫자를 쓴다
+- 10-23 04:00 vs HNK하이두크 스플리트: 휴식 7.0일 · 직전 10-16 원정 vs FC Twente 0-1 패 [uefa.europa.conf] · xG - · 직전 선발 4-4-2 Niklas Steffen, Jan Bamert, Nicolas Bürgy, Olivier Mambwa, Fabio Fehr, Mattias Käit, Justin Roth, Patrik Kristal, Nils Reichmuth, Furkan Dursun, Brighton Labeau · 구장 Visana Stadion · 이동 ?(구장 미확인) · 고도 572m · 6.2℃ 강수0mm(0%) 바람2.9km/h
 <!-- INPUTS:END -->
 
 - 2026-10-14 조사: ClubElo 1563점(최고 1677, 2026-03-14), 10/10 취리히전 결과 반영 최신치 — 출처: ClubElo(clubelo.com/Thun)

@@ -1,0 +1,287 @@
+[
+ {
+  "번호": 9672,
+  "홈": "레반테",
+  "원정": "아틀레틱 빌바오",
+  "기준선": {
+   "승": 38.2,
+   "무": 31.3,
+   "패": 30.5,
+   "출처": "soccer_baseline.py 2026-10-21 (라리가 pi-rating, 자료 1048경기, 마지막 2026-10-19). pi 득실차 pred -0.21 → 기대 득실차 +0.16, 기대 득점 1.25:1.10. 리그 평균 총득점 2.71, 홈 이점 +0.37골"
+  },
+  "득점모델": {
+   "방식": "xG + 기준선 혼합 — 기준선 λ(1.25:1.10)에서 출발해 경기별 xG로 조정. 홈(레반테)은 시즌 xG 1.49·최근5 1.48로 기준선보다 높지만 상대 아틀레틱의 최근5 xGA 1.01(5경기 1실점)을 만나 소폭 하향 → 1.22. 원정(아틀레틱)은 시즌 xG 1.69·최근5 2.02에 레반테 xGA 2.24(최근5 2.63)가 겹쳐 기준선 1.10보다 크게 올려야 하나, Guruzeta 시즌 아웃·Sancet 결장·Nico Williams 교체 대기로 9번 자원이 2명(Iñaki Williams·Sannadi, 후자는 5경기 91분)으로 축소돼 상쇄 → 1.18. 총 2.40으로 리그 평균 2.71 아래 — 양 팀 최근 경기가 무승부·저득점으로 수렴(아틀레틱 최근5 6득점 1실점, 직전 2경기 0-0·0-0 / 레반테 직전 3-3·1-1 뒤 수비 개선 기조).",
+   "λ홈": 1.22,
+   "λ원정": 1.18,
+   "출처": "data/수집/125_9672_레반테-아틀레틱빌바오.json 폼 블록(팀노트 INPUTS Understat 자동수집 2026-10-21) + 결장 보정",
+   "정합확인": "이 λ의 원시 포아송 1X2는 37.1/27.7/35.2로, 최종 승 36.1과 ±1.0%p 안에서 일치한다. 무의 차이(27.7→33.3)는 '폼(저득점)' 요인의 무상관 보정분이며 그만큼 패에서 빠졌다."
+  },
+  "부호규약": "모든 요인의 '영향' = 홈 승 확률 변화 %p (+ 홈 유리, − 원정 유리) 하나로 통일. 무에 대한 효과는 별도 필드 '무영향'에 적고, 그 요인의 '영향'에는 무 가산이 승에서 가져간 몫만 음수로 넣는다. Σ영향 = 최종 승 − 기준선 승.",
+  "요인": [
+   {
+    "유형": "결장",
+    "팀": "원정",
+    "선수": "Gorka Guruzeta",
+    "등급": "B(선발 60% 추정 — 이번 시즌 선발 횟수 미확인, 직전 발렌시아전은 62분 교체 투입이라 S/A 불가)",
+    "상태": "확정",
+    "영향": 0.9,
+    "내용": "등급1.5×R0.6(대체 Iñaki Williams가 이미 직전 2경기 선발 9번, 동급에 가까워 격차 작음)×P1.0(10/19 구단 공식 메디컬 파트 = 왼무릎 전방십자인대 파열, 수술 필요·시즌 아웃)×D1.0(10/17 경기 중 발생한 완전 신규 이탈 — 최근5 xG 2.02 표본에 전혀 반영 안 됨)=0.9 ⇒ 홈 승 +0.9%p. 등급을 S/A로 올리지 않은 이유: 10/18 직전 선발 XI 미포함 + 시즌 선발 비중 미확인이라 '이름값 금지' 원칙 적용.",
+    "출처": "https://www.futbolfantasy.com/laliga/noticias/153097-parte-medico-oficial-de-gorka-guruzeta-rotura-de-ligamento-cruzado-anterior ; https://www.eldesmarque.com/futbol/liga-1a-division/20261019/lesion-gorka-guruzeta-club-parte-medico-tiempo-baja_18_020475892.html",
+    "날짜": "2026-10-19"
+   },
+   {
+    "유형": "결장",
+    "팀": "원정",
+    "선수": "Oihan Sancet",
+    "등급": "A(부상 전까지 주전 공격형 MF)",
+    "상태": "확정",
+    "영향": 1.2,
+    "내용": "등급3.0×R0.7(대체 Peio Canales/Robert Navarro — 직전 2경기 이미 그 자리를 메워 평균 수준)×P1.0(10/9 테르지치 감독이 라요전 결장을 공식 발표, 왼다리 가자미근 중등도, 복귀 11월 초)×D0.5(10/13 이후 3경기 연속 결장 → 이번이 4경기째라 최근5 xG·xPts 표본에 절반 이상 반영됨)=1.05, 같은 공격 라인 2번째 이탈이라 다중결장 ×1.15 ⇒ 홈 승 +1.2%p.",
+    "출처": "https://www.futbolfantasy.com/laliga/noticias/152502-nico-williams-y-sancet-bajas-en-la-convocatoria-de-terzic ; https://www.elgoldigital.com/futbol/athletic-club/convocatoria-athletic-levante-nico-williams-sin-guruzeta-sancet-djalo",
+    "날짜": "2026-10-21"
+   },
+   {
+    "유형": "결장",
+    "팀": "원정",
+    "선수": "Álvaro Djaló",
+    "등급": "C(로테이션·백업 — 10/18 선발 XI 미포함, 10/21 소집명단 제외, 시즌 비중 미확인)",
+    "상태": "확정",
+    "영향": 0.0,
+    "내용": "등급0(C)×R×P1.0×D1.0=0 ⇒ 0%p. 사유가 'problemas físicos'로만 공개돼 구체성도 없다. 이름 수로 결장을 세지 않는다는 122회 셀타-유벤투스 교훈 적용.",
+    "출처": "https://www.comuniate.com/noticias/38568/convocatoria-del-athletic-ante-el-levante-vuelve-nico-williams-y-cuatro-jugadores-son-baja",
+    "날짜": "2026-10-21"
+   },
+   {
+    "유형": "결장",
+    "팀": "원정",
+    "선수": "Unai Egiluz",
+    "등급": "—(시즌 내내 이탈)",
+    "상태": "확정",
+    "영향": 0.0,
+    "내용": "십자인대 파열 후 무릎 수술 회복(post-operatorio), 복귀 예정 2027년 1월 중순. 신규성 D=0(시즌 내내 이탈 = pi-rating·폼·xG 표본에 전부 반영, 시장도 기반영) ⇒ 0%p. A 갈림 근거로도 쓰지 않는다.",
+    "출처": "https://www.comuniate.com/noticias/38568/convocatoria-del-athletic-ante-el-levante-vuelve-nico-williams-y-cuatro-jugadores-son-baja ; https://anecdotarios.com/2026/10/21/levante-vs-athletic-bilbao-previa-horario-y-como-llegan-para-la-fecha-6-de-la-liga/",
+    "날짜": "2026-10-21"
+   },
+   {
+    "유형": "복귀",
+    "팀": "원정",
+    "선수": "Nico Williams",
+    "등급": "S(부상 전 주전 LW)",
+    "상태": "의심",
+    "영향": -0.5,
+    "내용": "10/19~20 그룹 훈련 복귀, 10/21 23인 소집명단 포함. 최근5 폼 표본 중 2경기(10/13 라요·10/17 발렌시아)를 그가 빠진 채 기록했으므로 교체로라도 출전하면 기준선 대비 소폭 상향이 맞다. 등급4.5×R0.6(Berenguer/Navarro가 이미 2경기 대체해 격차 작음)=2.7에 교체 출전 전제로 효과를 약 1/5만 인정 ⇒ 원정 +0.5%p, 즉 홈 승 −0.5%p. 테르지치 '첫 출전 분(primeros minutos)' 발언과 AS '부분 훈련만 소화해 선발 가능성 낮음'이 근거라 선발 전제로 더 올리지 않았다.",
+    "출처": "https://www.infobae.com/espana/agencias/2026/10/21/nico-williams-vuelve-a-la-convocatoria-del-athletic-para-visitar-al-levante/ ; https://www.comuniate.com/en/noticias/38566/levante-vs-athletic-likely-lineups-as-the-press-predicts",
+    "날짜": "2026-10-21"
+   },
+   {
+    "유형": "결장",
+    "팀": "홈",
+    "선수": "Hugo Sotelo",
+    "등급": "B(선발 60% 추정, 2026 여름 셀타 비고 임대 영입 MF)",
+    "상태": "확정",
+    "영향": -0.5,
+    "내용": "무릎 염좌(esguince), 복귀 예정 11월 초. 등급1.5×R0.7(Oriol Rey·Olasagasti·Requena가 세 매체 예상 XI 중원을 모두 채워 대체 가능)×P1.0×D0.5(10/9·10/16·10/21 세 경기 연속 결장 → 4경기째라 폼 표본에 반영됨)=0.5 ⇒ 홈 승 −0.5%p.",
+    "출처": "https://www.comuniate.com/en/noticias/38566/levante-vs-athletic-likely-lineups-as-the-press-predicts ; https://anecdotarios.com/2026/10/21/levante-vs-athletic-bilbao-previa-horario-y-como-llegan-para-la-fecha-6-de-la-liga/",
+    "날짜": "2026-10-21"
+   },
+   {
+    "유형": "결장",
+    "팀": "홈",
+    "선수": "Álex Primo",
+    "등급": "B(어깨 부상, 시즌 비중 미확인)",
+    "상태": "확정",
+    "영향": -0.2,
+    "내용": "등급1.5×R0.7×P1.0×D0.2(10/9부터 지속 = 장기, 기준선·시장 기반영)=0.2 ⇒ 홈 승 −0.2%p.",
+    "출처": "https://anecdotarios.com/2026/10/21/levante-vs-athletic-bilbao-previa-horario-y-como-llegan-para-la-fecha-6-de-la-liga/",
+    "날짜": "2026-10-21"
+   },
+   {
+    "유형": "복귀",
+    "팀": "홈",
+    "선수": "Karl Etta Eyong",
+    "등급": "A(부상 전 주전 공격수)",
+    "상태": "의심",
+    "영향": 0.5,
+    "내용": "대퇴부 부상에서 복귀 임박. comuniate 10/20은 'entrenando a pleno rendimiento'(정상 훈련 복귀), anecdotarios 10/21은 여전히 결장으로 표기 — 매체 상충. 등급3.0×R0.6×P0.3(상충이라 낮게)×D1.0=0.5 ⇒ 홈 승 +0.5%p만 인정. 세 매체 예상 XI 어디에도 그의 이름이 없어(Ratkov·Romero·Musuayi) 선발 전제로는 올리지 않는다. 확정 아닌 정보를 과대 반영하지 않는다는 119회 교훈 적용.",
+    "출처": "https://www.comuniate.com/en/noticias/38566/levante-vs-athletic-likely-lineups-as-the-press-predicts ; https://anecdotarios.com/2026/10/21/levante-vs-athletic-bilbao-previa-horario-y-como-llegan-para-la-fecha-6-de-la-liga/",
+    "날짜": "2026-10-21"
+   },
+   {
+    "유형": "xG",
+    "팀": "원정",
+    "선수": "—",
+    "등급": "—",
+    "상태": "확정",
+    "영향": -5.0,
+    "내용": "측정값. 아틀레틱 npxGD 시즌 +0.27·최근5 +1.01 vs 레반테 시즌 −0.57·최근5 −0.85 — 경기당 격차 약 1.9골. 더 중요한 건 아틀레틱 xPts 12.5 vs 실제 승점 9(−3.5점)로, pi-rating은 실제 득실로 계산되니 아틀레틱의 진짜 전력을 과소평가한 상태다(레반테는 xPts 7.7 vs 7로 정합 — 운 요소 없음). 라리가 회고에서 반복 확인된 '강팀 과소 −6~−19%p' 편향(120회 소시에다드 3-2·베티스 5-2)도 같은 방향. xG·폼 근거 상한 −5%p를 그대로 적용 ⇒ 홈 승 −5.0%p. 이 값이 λ원정을 기준선 1.10에서 올린 근거이기도 하다.",
+    "출처": "data/수집/125_9672_레반테-아틀레틱빌바오.json 폼 블록(팀노트 INPUTS Understat 자동수집) ; 종목별분석/축구.md 120회 라리가 회고",
+    "날짜": "2026-10-21"
+   },
+   {
+    "유형": "홈원정",
+    "팀": "홈",
+    "선수": "—",
+    "등급": "—",
+    "상태": "확정",
+    "영향": 1.5,
+    "내용": "측정값(표본 작음). 아틀레틱 Understat 원정 npxGD −1.16 vs 홈 +1.34 — 리그 평균 홈 이점(+0.37골)을 훨씬 넘는 극단적 홈 편중이라 기준선의 일반 홈 보정 위에 추가 반영. 다만 ① 원정 3~4경기 표본 ② 직전 원정이 메스타야 0-0 무실점이라 수치와 어긋남 ③ 기준선 pi-rating이 그 원정 결과들을 이미 일부 담고 있음 — 셋 때문에 효과를 대폭 깎아 ⇒ 홈 승 +1.5%p만.",
+    "출처": "data/수집/125_9672_레반테-아틀레틱빌바오.json 홈원정성적 블록(팀노트 INPUTS Understat 2026-10-21)",
+    "날짜": "2026-10-21"
+   },
+   {
+    "유형": "휴식",
+    "팀": "홈",
+    "선수": "—",
+    "등급": "—",
+    "상태": "확정",
+    "영향": 0.0,
+    "내용": "기록만(2026-10-21 규칙: 휴식·일정 피로 요인은 방향 적중 11/51로 세 회차 연속 꼴찌라 영향 상한 0). 레반테 휴식 5일 vs 아틀레틱 4일(1일 차). 양 팀 모두 주중 대항전 없어 로테이션 요인 없음 — 아틀레틱은 최근 7일 1경기로 주중 경기가 없었음이 간접 확인된다 ⇒ 0%p.",
+    "출처": "data/수집/125_9672_레반테-아틀레틱빌바오.json 일정 블록(팀노트 INPUTS 자동수집 2026-10-21)",
+    "날짜": "2026-10-21"
+   },
+   {
+    "유형": "이동",
+    "팀": "홈",
+    "선수": "—",
+    "등급": "—",
+    "상태": "확정",
+    "영향": 0.5,
+    "내용": "아틀레틱은 10/17 메스타야(발렌시아) 원정에 이어 2연속 발렌시아 원정(Ciutat de València)으로, 편도 471km 이동과 원정 체류가 연속된다 ⇒ 홈 승 +0.5%p. '휴식' 요인과 분리해 적는다(휴식은 상한 0이지만 이동 거리는 별도 유형).",
+    "출처": "data/수집/125_9672_레반테-아틀레틱빌바오.json 일정·이동거리 블록(팀노트 INPUTS 자동수집)",
+    "날짜": "2026-10-21"
+   },
+   {
+    "유형": "동기",
+    "팀": "홈",
+    "선수": "—",
+    "등급": "—",
+    "상태": "확정",
+    "영향": 0.5,
+    "내용": "레반테 17위 승점7, 강등권과 3점 차 — 홈 잔류 경쟁 경기. 감독 Luís Castro가 10/17 데포르티보전 무승부 뒤 '한 걸음 나아갔다(hemos dado un paso adelante)'며 수비 개선을 강조해 수비적 안정을 지향한다. 아틀레틱은 10~11위 승점9로 선두와 18점 차, 1경기 덜 치러 상위 추격 동기는 있으나 절박함은 홈 쪽이 크다 ⇒ 홈 승 +0.5%p(상한 작게).",
+    "출처": "https://officialpress.es/luis-castro-destaca-la-mejoria-del-levante-ud-tras-empatar-ante-el-deportivo-hemos-dado-un-paso-adelante/ ; https://www.fichajes.com/equipo/levante-ud/clasificacion",
+    "날짜": "2026-10-17"
+   },
+   {
+    "유형": "폼",
+    "팀": "—",
+    "선수": "— (저득점 → 무 가산)",
+    "등급": "—",
+    "상태": "확정",
+    "영향": -1.0,
+    "무영향": 2.0,
+    "내용": "무 방향 신호. ① 아틀레틱 직전 3경기 1-1·0-0·0-0, 최근5 6득점 1실점으로 저득점 수렴 ② 레반테 최근5 D-L-L-D-D(무 3) ③ 레반테가 10/17 뒤 수비 개선 기조 ④ 라리가 리그 카드 '하위권 저득점 무승부' 경향(축구.md 리그표, 무 +0.3). λ 합계를 2.40(리그 평균 2.71 아래)으로 잡은 것과 같은 근거다. ⇒ 무 +2.0%p를 승·패에서 각 1.0%p씩 가져온다. 부호 규약상 이 요인의 '영향'(홈 승 기준)은 −1.0%p이고, 패에서 가져온 −1.0%p는 최종 패 계산에 반영했다.",
+    "출처": "data/수집/125_9672_레반테-아틀레틱빌바오.json 폼 블록 ; 종목별분석/축구.md 리그별 표(라리가 무 +0.3·하위권 저득점 무승부)",
+    "날짜": "2026-10-21"
+   }
+  ],
+  "요인합산": "Σ영향(홈 승 기준) = +0.9(Guruzeta) +1.2(Sancet) +0.0(Djaló) +0.0(Egiluz) −0.5(Nico 복귀) −0.5(Sotelo) −0.2(Primo) +0.5(Etta Eyong) −5.0(xG) +1.5(홈원정) +0.0(휴식·상한0) +0.5(이동) +0.5(동기) −1.0(폼: 무 가산이 승에서 가져간 몫) = **−2.1%p**. ⇒ 최종 승 = 38.2 − 2.1 = 36.1 (오차 0). 무 가산을 뺀 요인 순합은 −1.1%p이므로 원정이 +1.1%p를 얻고 거기서 무 가산 몫 1.0%p를 내준다 ⇒ 패 = 30.5 + 1.1 − 1.0 = 30.6. 무 = 31.3 + 2.0 = 33.3. 합계 100.0. 검산: 36.1 + 33.3 + 30.6 = 100.0, 기준선승 38.2 + Σ영향 −2.1 = 최종승 36.1.",
+  "합계수정이력": "최초 제출본은 최종을 35.5/33.0/31.5로 적었는데 그 중 약 1.1%p는 'λ와 1X2 방향을 맞추기 위한 정합 조정'이라는 근거 없는 임의 보정이었고, 요인 리스트의 부호 규약도 통일돼 있지 않아 검사 스크립트가 Σ를 +1.4로 읽었다(무 가산 +2.0을 홈 승 효과로 오인). 교정 방침: **요인 리스트를 권위로 삼아 최종 확률 쪽을 고쳤다** — 요인의 ±%p 값은 하나도 바꾸지 않았다. ① 모든 '영향'을 홈 승 기준 ±%p로 통일하고 무에 대한 효과는 별도 필드 '무영향'으로 분리 ② 임의 보정 1.1%p 삭제 → 최종 승 36.1(= 38.2 − 2.1, 오차 0) ③ 표준 어휘 위반 교정: '결장핵심'→'결장', 'xG차'→'xG', '순위동기'→'동기', '저득점'→'폼'. 유형 문자열이 비표준이면 정합성 검사가 뉴스 확인 기록을 못 읽어 C가 된다(NEWS_TYPES 완전일치). ④ '일정피로'(+1.0)를 '휴식'(영향 0 — 2026-10-21 상한 규칙)과 '이동'(+0.5)으로 분리해 0.5%p 감소. 임의 보정을 없애니 λ도 1.20:1.22(원정 우위)에서 1.22:1.18(홈 미세 우위)로 바로잡혀, 원시 포아송 1X2(37.1/27.7/35.2)와 최종 승 36.1이 ±1.0%p 안에서 맞는다 — 불일치의 원인은 분석이 아니라 내가 넣은 보정값과 어휘 위반이었다.",
+  "최종": {
+   "승": 36.1,
+   "무": 33.3,
+   "패": 30.6
+  },
+  "기준선과차이": "기준선(38.2/31.3/30.5)보다 홈 승을 2.1%p 낮추고 무를 2.0%p 올렸다. 홈 승을 낮춘 단일 이유는 xG 요인이다 — pi-rating은 실제 득실로 계산되는데 아틀레틱은 xPts 12.5 대비 승점 9로 3.5점 손해를 봐 기준선이 그 전력을 과소평가했다(레반테는 xPts 7.7 vs 7로 정합). 다만 반대 방향 요인(아틀레틱 원정 npxGD −1.16, 2연속 발렌시아 원정 471km, Guruzeta 시즌 아웃·Sancet 공백, 레반테 잔류 동기)이 그 −5.0%p의 절반 이상을 되돌려 순효과가 −2.1%p에 그쳤다. 무를 올린 것은 양 팀 저득점 수렴과 라리가 하위권 무승부 경향이다.",
+  "뉴스": {
+   "홈": [
+    {
+     "사실": "Hugo Sotelo 무릎 염좌(esguince)로 결장, 복귀 예정 11월 초. 10/9·10/16·10/21 세 경기 연속 결장 보도",
+     "출처": "https://www.comuniate.com/en/noticias/38566/levante-vs-athletic-likely-lineups-as-the-press-predicts ; https://anecdotarios.com/2026/10/21/levante-vs-athletic-bilbao-previa-horario-y-como-llegan-para-la-fecha-6-de-la-liga/",
+     "날짜": "2026-10-20~21"
+    },
+    {
+     "사실": "Karl Etta Eyong 대퇴부 부상 — 10/20 시점 'entrenando a pleno rendimiento'(정상 훈련 복귀)로 보도돼 복귀 가능성이 있으나, anecdotarios 10/21은 여전히 결장으로 표기. 매체 상충",
+     "출처": "https://www.comuniate.com/en/noticias/38566/levante-vs-athletic-likely-lineups-as-the-press-predicts ; https://anecdotarios.com/2026/10/21/levante-vs-athletic-bilbao-previa-horario-y-como-llegan-para-la-fecha-6-de-la-liga/",
+     "날짜": "2026-10-20~21"
+    },
+    {
+     "사실": "Álex Primo 어깨 부상으로 결장(10/9부터 지속)",
+     "출처": "https://anecdotarios.com/2026/10/21/levante-vs-athletic-bilbao-previa-horario-y-como-llegan-para-la-fecha-6-de-la-liga/",
+     "날짜": "2026-10-21"
+    },
+    {
+     "사실": "예상 선발 XI 3종 보도(AS 4-3-3 / Mundo Deportivo 4-3-3 / Bet365 4-2-3-1). 9번 자리를 Petar Ratkov(AS·Bet365) vs Yanis Musuayi(MD)로 갈라 적음. 공식 발표 아님",
+     "출처": "https://news.bet365.es/es-es/article/levante-vs-athletic-alineaciones-estadisticas-horario-donde-ver/2026102010404992546 ; https://www.comuniate.com/en/noticias/38566/levante-vs-athletic-likely-lineups-as-the-press-predicts",
+     "날짜": "2026-10-20~21"
+    },
+    {
+     "사실": "감독 Luís Castro가 10/17 데포르티보전 1-1 뒤 '한 걸음 나아갔다(hemos dado un paso adelante)'며 수비 개선 강조. 17위·강등권 3점 차로 잔류 경쟁",
+     "출처": "https://officialpress.es/luis-castro-destaca-la-mejoria-del-levante-ud-tras-empatar-ante-el-deportivo-hemos-dado-un-paso-adelante/",
+     "날짜": "2026-10-17"
+    }
+   ],
+   "원정": [
+    {
+     "사실": "Gorka Guruzeta 왼무릎 전방십자인대 파열 — 10/19 구단 공식 메디컬 파트 발표. 10/17 발렌시아 원정 62분 교체 투입 6분 만에 부상. 수술 필요, 시즌 아웃(평균 회복 9.1개월, 2027 여름까지)",
+     "출처": "https://www.futbolfantasy.com/laliga/noticias/153097-parte-medico-oficial-de-gorka-guruzeta-rotura-de-ligamento-cruzado-anterior ; https://www.eldesmarque.com/futbol/liga-1a-division/20261019/lesion-gorka-guruzeta-club-parte-medico-tiempo-baja_18_020475892.html",
+     "날짜": "2026-10-19"
+    },
+    {
+     "사실": "Oihan Sancet 왼다리 가자미근(sóleo) 중등도 부상 — 10/9 테르지치가 라요전 결장 확정 발표. 복귀 예정 2026년 11월 초. 10/13 이후 3경기 연속 결장",
+     "출처": "https://www.futbolfantasy.com/laliga/noticias/152502-nico-williams-y-sancet-bajas-en-la-convocatoria-de-terzic ; https://www.elgoldigital.com/futbol/athletic-club/convocatoria-athletic-levante-nico-williams-sin-guruzeta-sancet-djalo",
+     "날짜": "2026-10-09~21"
+    },
+    {
+     "사실": "Nico Williams 그룹 훈련 복귀(10/19~20) 후 10/21 23인 소집명단 포함. 테르지치가 '첫 출전 분(primeros minutos)'을 언급 — 선발보다 교체 투입 전망. AS는 '부분 훈련만 소화해 선발 가능성 낮음'으로 적시. 약 3주 전 스페인 대표팀 소집 중 왼쪽 대퇴직근 중등도 근육 부상",
+     "출처": "https://www.infobae.com/espana/agencias/2026/10/21/nico-williams-vuelve-a-la-convocatoria-del-athletic-para-visitar-al-levante/ ; https://www.comuniate.com/en/noticias/38566/levante-vs-athletic-likely-lineups-as-the-press-predicts",
+     "날짜": "2026-10-21"
+    },
+    {
+     "사실": "10/21 공식 23인 소집명단 발표 — Guruzeta·Sancet·Djaló(problemas físicos)·Egiluz(십자인대 수술 후 회복, 복귀 2027년 1월 중순) 4명 제외, Nico Williams 복귀",
+     "출처": "https://www.comuniate.com/noticias/38568/convocatoria-del-athletic-ante-el-levante-vuelve-nico-williams-y-cuatro-jugadores-son-baja",
+     "날짜": "2026-10-21"
+    },
+    {
+     "사실": "Guruzeta 시즌 아웃으로 9번 자원이 Iñaki Williams·Maroan Sannadi 둘로 축소. 언론이 '구루세타 대체 3가지 옵션'을 논하며 겨울 영입 필요성 제기. Sannadi는 부상 직전까지 5경기 91분 출전에 그친 저활용 자원",
+     "출처": "https://www.fichajes.net/noticias/3-opciones-athletic-club-reemplazar-guruzeta-20261019.html",
+     "날짜": "2026-10-19"
+    },
+    {
+     "사실": "[미확인·주의] soccerway 기사 제목에 'Beñat Prados sufre una rotura del ligamento cruzado'가 검색되나, Prados는 10/21 23인 소집명단에 포함돼 있어 과거 시즌 건으로 추정. 현 시점 가용으로 처리",
+     "출처": "https://es.soccerway.com/noticias/benat-prados-lesion-athletic-club/rcX9kBNP",
+     "날짜": "미확인"
+    }
+   ]
+  },
+  "파생확률": {
+   "H+1": {
+    "승": 67.0,
+    "무": 20.5,
+    "패": 12.5
+   },
+   "U/O 2.5": {
+    "언더": 58.5,
+    "오버": 41.5
+   },
+   "H-1": {
+    "승": 14.5,
+    "무": 22.5,
+    "패": 63.0
+   },
+   "U/O 1.5": {
+    "언더": 31.5,
+    "오버": 68.5
+   },
+   "산출방식": "opt_prob.py λ 1.22:1.18. H±1은 무상관 보정 없는 원시 포아송(H+1 64.8/20.5/14.7)과 1X2 정합 보정판(H+1 69.9/20.3/9.8)의 중간값. U/O 2.5는 총득점이 무상관 보정과 무관하므로 원시 λ 값(언더 57.0)을 쓰되, 양 팀 저득점 수렴(아틀레틱 직전 0-0·0-0, 최근5 1실점)을 반영해 언더 58.5로 소폭 올렸다(기준선 58.3과 사실상 동일)."
+  },
+  "확신도": "낮음",
+  "결론": "**코어 탈락 — 추천 금지.** 내 1순위는 홈 승 36.1%인데 시장 1순위는 원정 승(패)이라 방향이 갈렸고, 2026-10-19 규칙 1('방향은 시장 1순위와 같아야 한다, 갈림 46다리 39.1% — 영구 금지')에 정면으로 걸린다. 게다가 36.1/33.3/30.6로 세 갈래가 5.5%p 안에 모인 균등 분포라 어느 쪽에도 확신이 없어, A 갈림 다리로 되살릴 근거(확인된 사실로 뒷받침되는 8%p+ 갈림)도 없다 — 내 최대 요인인 xG −5.0%p는 오히려 시장과 같은 방향(원정 우세)을 가리키는데도 반대 요인들에 상쇄돼 1순위가 뒤집힌 것이라, 이 갈림은 근거의 승리가 아니라 요인 상쇄의 부산물이다. 다리로 쓸 수 있는 선택지가 있다면 1X2가 아니라 언더 2.5(58.5%)나 레반테 H+1 승(67.0%)이지만 둘 다 베트맨 배당이 코어 밴드(1.45~1.80)에 들지 못할 가능성이 높으므로, 이 경기는 **추천 없이 학습용 기록(깊이=심층)으로만 남긴다.**",
+  "핵심근거": "승·무·패가 36.1/33.3/30.6로 세 갈래가 거의 균등한 3파전이다 — 아틀레틱의 xG 우위(최근5 npxGD +1.01 vs −0.85)와 기준선이 못 담은 xPts 손해 3.5점이 원정 쪽을 밀지만, 그 공격력을 만들던 Guruzeta가 10/19 십자인대로 시즌 아웃되고 Sancet도 4경기째 빠져 9번 자원이 Iñaki Williams·Sannadi 둘로 줄었으며, 아틀레틱 원정 npxGD −1.16의 극단적 홈 편중과 2연속 발렌시아 원정(471km)이 반대로 작용한다. 양 팀 모두 저득점·무승부로 수렴 중이라(아틀레틱 직전 1-1·0-0·0-0, 레반테 최근5 무 3) λ 합계를 리그 평균 2.71 아래인 2.40으로 잡았고, 그래서 가장 확신이 서는 건 1X2가 아니라 언더 2.5(58.5%)와 레반테 +1 핸디캡 승(67.0%) 쪽이다.",
+  "반론": "이 판단이 틀릴 가장 큰 이유는 레반테의 수비가 측정값대로 무너지는 경우다 — xGA 시즌 2.24·최근5 2.63에 홈 3경기에서 9실점(5-2, 2-4, 3-3)으로 홈에서 오히려 난타전이 났다. 아틀레틱이 Nico Williams를 예상보다 일찍 투입하거나 Iñaki Williams가 9번으로 정착하면 λ원정이 1.18이 아니라 1.6~1.8이 되고, 그러면 '언더 2.5'와 '3파전' 판정이 동시에 깨져 원정 다득점 승리(0-2, 1-3)가 된다. 반대 방향 위험도 하나 있다 — Etta Eyong이 실제로 선발 복귀하면 레반테 공격이 예상 XI보다 세진다. 보조적으로, 내가 아틀레틱 원정 약세에 준 +1.5%p는 원정 3~4경기 표본이고 직전 원정이 0-0 무실점이라 수치 자체가 흔들린다.",
+  "미확인": [
+   "Guruzeta·Djaló의 이번 시즌 정확한 선발 비중 — 미확인이라 등급을 B/C로 보수적으로 잡았다. 실제가 A 이상이면 아틀레틱 감점이 2~3%p 커진다",
+   "Etta Eyong 최종 가용 여부 — comuniate(정상 훈련 복귀) vs anecdotarios(결장) 매체 상충. P를 0.3으로만 반영",
+   "Nico Williams 선발 여부 — 테르지치 '첫 출전 분' 발언과 AS '부분 훈련만'으로 교체 전제. 선발이면 λ원정 상향",
+   "양 팀 선발 XI 미발표(언론 예상 3종이 레반테 9번을 Ratkov vs Musuayi로, 아틀레틱 9번을 Iñaki Williams vs Sannadi로 갈라 적음). 아틀레틱 23인 소집명단만 공식",
+   "레반테 공식 소집명단 미확보 — 레반테 결장은 전부 언론 예상 기반",
+   "아틀레틱의 레반테 원정 구체 상대전적(Deia 기사 403 차단). 제목만 '아틀레틱이 레반테 원정에서 성적 좋다' 취지라 방향만 있고 숫자가 없어 요인에 넣지 않았다",
+   "라운드 표기 상충(6라운드 연기분 vs 10라운드) — 경기 성격에 영향 없다고 보고 요인화하지 않음",
+   "레반테 홈/아틀레틱 원정 분리 승무패 공식 집계(위키 표 불완전) — Understat npxGD 분리값만 사용",
+   "아틀레틱 2026-27 유럽대항전 참가 여부 미확정(최근 7일 1경기로 주중 경기 없음만 확인) — 로테이션 요인 0으로 처리",
+   "Beñat Prados 십자인대 기사 날짜 미확인 — 23인 소집명단 포함을 근거로 과거 건으로 판단"
+  ],
+  "불확실": [
+   "'미확인' 필드와 동일(스키마 호환용 별칭)"
+  ]
+ }
+]

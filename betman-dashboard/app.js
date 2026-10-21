@@ -2,9 +2,10 @@
 const $ = (s, el = document) => el.querySelector(s);
 const app = $("#app");
 const cache = {};
+const BUST = Date.now();          // 로드할 때마다 새 토큰 — 브라우저·CDN 캐시를 지나친다
 async function load(name) {
   if (cache[name]) return cache[name];
-  const r = await fetch(`data/${name}.json?v=${Date.now() >> 16}`);
+  const r = await fetch(`data/${name}.json?t=${BUST}`, { cache: "no-store" });
   if (!r.ok) throw new Error(name);
   return (cache[name] = await r.json());
 }
@@ -246,11 +247,9 @@ async function route() {
 async function stamp() {
   try { const s = await load("summary"); const el = $("#stamp"); if (el) el.textContent = "갱신 " + s.updated.slice(5); } catch (_) {}
 }
-$("#refresh").onclick = async (e) => {
-  const b = e.currentTarget; b.classList.add("spin");
-  for (const k of Object.keys(cache)) delete cache[k];
-  await route().then(stamp); await stamp();
-  setTimeout(() => b.classList.remove("spin"), 400);
+$("#refresh").onclick = (e) => {   // 다시 그리기가 아니라 실제 페이지 리로드
+  e.currentTarget.classList.add("spin");
+  setTimeout(() => location.reload(), 120);   // 데이터는 no-store 로 받으므로 리로드면 항상 최신
 };
 window.addEventListener("hashchange", route);
 $("#theme").onclick = () => { const cur = document.documentElement.dataset.theme || (matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light"); document.documentElement.dataset.theme = cur === "dark" ? "light" : "dark"; try { localStorage.setItem("theme", document.documentElement.dataset.theme); } catch (_) {} };

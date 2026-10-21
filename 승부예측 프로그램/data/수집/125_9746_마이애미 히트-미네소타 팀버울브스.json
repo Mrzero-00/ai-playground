@@ -1,0 +1,162 @@
+{
+  "번호": 9746,
+  "홈": "마이애미 히트",
+  "원정": "미네소타 팀버울브스",
+  "수집시각": "2026-10-22 08:00 KST",
+  "레이팅": {
+    "홈": {
+      "ORtg": 116.7,
+      "DRtg": 114.5,
+      "Pace": 103.4,
+      "시즌": "2025-26",
+      "순위_비고": "ORtg 13/30, DRtg 13/30, Pace 1/30, 전적 43-39(동 10위)",
+      "이번시즌_경기수": 0,
+      "비고": "2026-10-21(KST 10/22) 정규시즌 개막전(시즌 첫 경기) — 직전 시즌 값 사용",
+      "출처": "https://www.basketball-reference.com/teams/MIA/2026.html"
+    },
+    "원정": {
+      "ORtg": 116.8,
+      "DRtg": 113.5,
+      "Pace": 100.5,
+      "시즌": "2025-26",
+      "순위_비고": "ORtg 12/30, DRtg 8/30, Pace 9/30, 전적 49-33(서 6위)",
+      "이번시즌_경기수": 0,
+      "비고": "개막전 — 직전 시즌 값 사용",
+      "출처": "https://www.basketball-reference.com/teams/MIN/2026.html"
+    }
+  },
+  "결장": [
+    {
+      "팀": "마이애미 히트",
+      "선수": "Vladislav Goldin",
+      "포지션": "C",
+      "사유": "우측 발목 염좌(ankle sprain)",
+      "상태": "questionable",
+      "직전시즌_선발/경기": "루키(2026 드래프트, NBA 정규시즌 출전 기록 없음) — 투웨이 계약, 애드바요 결장 시에만 로테이션 예상",
+      "평균득점": "미확인(2025-26 NBA 출전 없음)",
+      "출처": ["https://www.nbcsports.com/fantasy/basketball/player-news/2026-10-20/vladislav-goldin-ankle-questionable-for-opener", "https://www.cbssports.com/fantasy/basketball/news/heats-vladislav-goldin-questionable-with-ankle-sprain/"],
+      "날짜": "2026-10-20"
+    },
+    {
+      "팀": "마이애미 히트",
+      "선수": "Myron Gardner",
+      "포지션": "F",
+      "사유": "우측 발목 염좌",
+      "상태": "available(출전 가능)",
+      "직전시즌_선발/경기": "미확인(로스터 주변부 선수)",
+      "평균득점": "미확인",
+      "출처": ["https://bvmsports.com/2026/10/21/heat-release-initial-injury-report-for-opener-v-timberwolves/"],
+      "날짜": "2026-10-21"
+    },
+    {
+      "팀": "마이애미 히트",
+      "선수": "Dru Smith",
+      "포지션": "G",
+      "사유": "우측 종아리 긴장(calf strain)",
+      "상태": "available(출전 가능)",
+      "직전시즌_선발/경기": "미확인(로테이션 주변부)",
+      "평균득점": "미확인",
+      "출처": ["https://bvmsports.com/2026/10/21/heat-release-initial-injury-report-for-opener-v-timberwolves/"],
+      "날짜": "2026-10-21"
+    },
+    {
+      "팀": "마이애미 히트",
+      "선수": "Bam Adebayo",
+      "포지션": "C",
+      "사유": "우측 서혜부 뻐근함(groin tightness) — 프리시즌 마지막 3경기 결장",
+      "상태": "제외됨(개막전 출전 예정, injury report에서 빠짐)",
+      "직전시즌_선발/경기": "주전 센터(건강 시 선발)",
+      "평균득점": "미확인(구체 수치 미확인)",
+      "출처": ["https://athlonsports.com/nba/miami-heat/final-injury-report-for-timberwolves-heat-will-bam-adebayo-donte-divincenzo-play"],
+      "날짜": "2026-10-21"
+    },
+    {
+      "팀": "미네소타 팀버울브스",
+      "선수": "Donte DiVincenzo",
+      "포지션": "SG",
+      "사유": "우측 아킬레스건 수술(지난 시즌 플레이오프 중 부상)",
+      "상태": "out",
+      "직전시즌_선발/경기": "2025-26시즌 82경기 전경기 선발 출전",
+      "평균득점": "12.2점(리바운드 4.1, 어시스트 3.8, 30.4분)",
+      "출처": ["https://roundtable.io/sports/nba/timberwolves/news/timberwolves-vs-heat-injury-report-who-s-out-for-opening-night", "https://www.cbssports.com/nba/players/2203519/donte-divincenzo/splits/"],
+      "날짜": "2026-10-21"
+    }
+  ],
+  "로스터변화": [
+    {
+      "팀": "마이애미 히트",
+      "선수": "Giannis Antetokounmpo",
+      "방향": "합류",
+      "직전시즌_선발여부": "밀워키 주전(올스타급)",
+      "평균출전시간": "미확인(수치 미확인, 밀워키 주전 에이스)",
+      "비고": "2026 오프시즌 밀워키와 트레이드 — 마이애미가 타일러 헤로·자이메 하케즈 주니어·켈엘 웨어·카스파라스 야쿠치오니스·2순위 지명권을 내주고 야니스+보비 포티스 영입",
+      "출처": ["https://www.espn.com/nba/story/_/id/49754660/miami-heat-offseason-recap-2026-27-season-preview-stats-roster-depth-chart"],
+      "날짜": "2026(오프시즌)"
+    },
+    {
+      "팀": "마이애미 히트",
+      "선수": "Tyler Herro / Jaime Jaquez Jr. / Kel'el Ware",
+      "방향": "이탈",
+      "직전시즌_선발여부": "헤로는 주전/핵심 가드, 자케스·웨어는 로테이션급",
+      "평균출전시간": "미확인",
+      "비고": "야니스 트레이드로 밀워키행",
+      "출처": ["https://www.espn.com/nba/story/_/id/49754660/miami-heat-offseason-recap-2026-27-season-preview-stats-roster-depth-chart"],
+      "날짜": "2026(오프시즌)"
+    },
+    {
+      "팀": "마이애미 히트",
+      "선수": "Klay Thompson",
+      "방향": "합류",
+      "직전시즌_선발여부": "미확인(FA 영입, 슈터 역할)",
+      "평균출전시간": "미확인",
+      "출처": ["https://www.espn.com/nba/story/_/id/49754660/miami-heat-offseason-recap-2026-27-season-preview-stats-roster-depth-chart"],
+      "날짜": "2026(오프시즌)"
+    },
+    {
+      "팀": "미네소타 팀버울브스",
+      "선수": "LaMelo Ball / Josh Green",
+      "방향": "합류",
+      "직전시즌_선발여부": "볼은 샬럿 주전 포인트가드(2025-26 20.1점·7.1AST)",
+      "평균출전시간": "미확인",
+      "비고": "샬럿과 4팀 트레이드(네이즈 리드+1라운드픽 등 다수 반대급부 지급) — 에드워즈와 함께 선발 예상",
+      "출처": ["https://www.nba.com/news/lamelo-ball-trade-timberwolves-2026", "https://www.skysports.com/nba/news/36226/13557754/nba-charlotte-hornets-trade-lamelo-ball-josh-green-to-minnesota-timberwolves-for-naz-reid-and-a-series-of-draft-picks"],
+      "날짜": "2026-06-25"
+    },
+    {
+      "팀": "미네소타 팀버울브스",
+      "선수": "Naz Reid",
+      "방향": "이탈",
+      "직전시즌_선발여부": "식스맨(비선발) 핵심 로테이션",
+      "평균출전시간": "미확인",
+      "비고": "LaMelo Ball 트레이드로 샬럿행",
+      "출처": ["https://www.espn.com/nba/story/_/id/49175343/hornets-trade-ball-timberwolves-reid-picks"],
+      "날짜": "2026-06-25"
+    },
+    {
+      "팀": "미네소타 팀버울브스",
+      "선수": "Jonathan Kuminga",
+      "방향": "합류",
+      "직전시즌_선발여부": "골든스테이트 비주전/준주전(FA 2년 계약, 선발 예상)",
+      "평균출전시간": "미확인",
+      "비고": "2년 1240만 달러 계약, 조시 그린을 유타로 보내는 사인앤트레이드로 성사",
+      "출처": ["https://www.mprnews.org/story/2026/08/27/timberwolves-agree-to-deal-with-jonathan-kuminga-of-atlanta-hawks"],
+      "날짜": "2026-08-27"
+    }
+  ],
+  "일정": {
+    "홈": {"이번시즌_경기수": 0, "직전경기": "2026 프리시즌", "백투백": false, "비고": "정규시즌 개막전"},
+    "원정": {"이번시즌_경기수": 0, "직전경기": "2026 프리시즌", "백투백": false, "비고": "정규시즌 개막전"}
+  },
+  "기타": [
+    {
+      "내용": "두 팀 모두 2026-27 정규시즌 개막전(Opening Night). 미네소타 선발 예상 라인업: LaMelo Ball, Anthony Edwards, Jaden McDaniels, Jonathan Kuminga, Rudy Gobert.",
+      "출처": ["https://sports.yahoo.com/articles/timberwolves-vs-heat-injury-report-182331023.html"],
+      "날짜": "2026-10-21"
+    }
+  ],
+  "미확인": [
+    "Vladislav Goldin / Myron Gardner / Dru Smith 의 구체적 평균 출전시간·득점(NBA 정규시즌 기록 없음 또는 비주전)",
+    "양 팀 2026-27 시즌 실제 1경기차 백투백 여부(둘 다 개막전이라 해당 없음)",
+    "Bam Adebayo 결장 없이 출전 확정인지 최종(킥오프 직전) 라인업 재확인 필요"
+  ]
+}

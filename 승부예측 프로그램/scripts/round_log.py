@@ -159,7 +159,11 @@ def cmd_market(a):
 
 def cmd_market_from_scanlog(a):
     """판매가 끝난 회차: data/스캔기록.csv(일반 시장, 킥오프 직전 스캔)에서 시장 확률·베트맨 배당을 채운다.
-    판매 중에 market을 못 돌렸을 때 보충용 (2026-10-07)."""
+    판매 중에 market을 못 돌렸을 때 보충용 (2026-10-07).
+    --force: 이미 값이 있어도 **더 늦은 스캔**이면 덮어쓴다 (2026-10-22 추가).
+      이유: 블록 분석은 마감 70분 전에 도는데 기존 동작은 '빈 칸만' 채워서 전날 스캔값이 그대로 남았다.
+      125회 9750(브루클린-샬럿)은 전날 16:28 홈 53.1%/1.52 → 당일 08:00 46.9%/1.85 로 뒤집혔는데
+      갈림/과신 판정이 옛 숫자로 이뤄질 뻔했다."""
     rows = load()
     path = os.path.join(ROOT, "data", "스캔기록.csv")
     if not os.path.exists(path):
@@ -170,11 +174,15 @@ def cmd_market_from_scanlog(a):
         by.setdefault(x["경기"], {})[x["선택"]] = x
     n = 0
     for r in rows:
-        if r["회차"] != str(a.round) or r.get("시장_승"):
+        if r["회차"] != str(a.round):
+            continue
+        if r.get("시장_승") and not getattr(a, "force", False):
             continue
         g = by.get(f"{r['홈']} vs {r['원정']}")
         if not g or "승" not in g or "패" not in g:
             continue
+        if r.get("시장_승") and r.get("시장시각", "").split(" (")[0] >= g["승"]["scan_time"]:
+            continue   # 기존 값이 더 최신이면 두고 간다
         r["시장_승"], r["시장_패"] = g["승"]["공정확률"], g["패"]["공정확률"]
         r["시장_무"] = g["무"]["공정확률"] if "무" in g else 0
         r["베트맨_승"], r["베트맨_패"] = g["승"]["베트맨"], g["패"]["베트맨"]
@@ -428,6 +436,7 @@ def main():
     s = sub.add_parser("pure"); s.add_argument("round", type=int); s.add_argument("file"); s.add_argument("--no-anchor", action="store_true")
     s = sub.add_parser("anchor"); s.add_argument("round", type=int); s.add_argument("--quiet", action="store_true")
     s = sub.add_parser("market-from-scanlog"); s.add_argument("round", type=int)
+    s.add_argument("--force", action="store_true", help="이미 값이 있어도 더 늦은 스캔이면 덮어쓴다")
     a = ap.parse_args()
     {"init": cmd_init, "pure": cmd_pure, "market": cmd_market, "results": cmd_results, "review": cmd_review, "adjust": cmd_adjust,
      "market-from-scanlog": cmd_market_from_scanlog, "anchor": cmd_anchor}[a.cmd](a)

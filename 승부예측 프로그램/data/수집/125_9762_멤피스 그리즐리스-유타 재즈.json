@@ -1,0 +1,152 @@
+{
+  "번호": 9762,
+  "홈": "멤피스 그리즐리스",
+  "원정": "유타 재즈",
+  "수집시각": "2026-10-22 08:10 KST",
+  "레이팅": {
+    "홈": {
+      "ORtg": 112.9,
+      "DRtg": 118.8,
+      "Pace": 101.3,
+      "시즌": "2025-26 (직전 시즌, 25-57)",
+      "이번시즌_경기수": 0,
+      "비고": "2026-27 시즌 개막전(KST 10/22 09:00 = 현지 10/21 저녁 19:00 CST)이라 이번 시즌 표본 없음",
+      "출처": "https://www.basketball-reference.com/teams/MEM/2026.html"
+    },
+    "원정": {
+      "ORtg": 114.1,
+      "DRtg": 122.3,
+      "Pace": 102.3,
+      "시즌": "2025-26 (직전 시즌, 22-60)",
+      "이번시즌_경기수": 0,
+      "비고": "개막전, 이번 시즌 표본 없음",
+      "출처": "https://www.basketball-reference.com/teams/UTA/2026.html"
+    }
+  },
+  "결장": [
+    {
+      "팀": "멤피스 그리즐리스",
+      "선수": "Isaiah Stewart",
+      "포지션": "C",
+      "사유": "왼쪽 발목 염좌(ankle sprain)",
+      "상태": "doubtful",
+      "직전시즌_선발/경기": "13/58",
+      "평균득점": "10.0",
+      "출처": ["https://sports.yahoo.com/articles/memphis-grizzlies-isaiah-stewart-injury-220656287.html", "https://www.si.com/nba/grizzlies/onsi/memphis-grizzlies-utah-jazz-preview-injuries-odds-starters-how-to-watch-01m5ek696ecc"],
+      "날짜": "2026-10-21"
+    },
+    {
+      "팀": "유타 재즈",
+      "선수": "Jusuf Nurkic",
+      "포지션": "C",
+      "사유": "발(foot)",
+      "상태": "out",
+      "직전시즌_선발/경기": "36/41",
+      "평균득점": "10.9",
+      "비고": "원래 예상 선발 센터였음(평균 10.4리바운드·4.8어시스트)",
+      "출처": ["https://sports.yahoo.com/articles/utah-jazz-vs-memphis-grizzlies-133737617.html"],
+      "날짜": "2026-10-21"
+    },
+    {
+      "팀": "유타 재즈",
+      "선수": "Tony Bradley",
+      "포지션": "C",
+      "사유": "대퇴사두근(quadriceps)",
+      "상태": "out",
+      "직전시즌_선발/경기": "미확인/41",
+      "평균득점": "4.0",
+      "출처": ["https://sports.yahoo.com/articles/utah-jazz-vs-memphis-grizzlies-133737617.html"],
+      "날짜": "2026-10-21"
+    },
+    {
+      "팀": "유타 재즈",
+      "선수": "Trey Alexander",
+      "포지션": "G",
+      "사유": "무릎(knee)",
+      "상태": "out",
+      "직전시즌_선발/경기": "0/9 (2025-26, 당시 소속 뉴올리언스)",
+      "평균득점": "5.2",
+      "비고": "오프시즌 FA로 펠리컨스→재즈 이적",
+      "출처": ["https://sports.yahoo.com/articles/utah-jazz-vs-memphis-grizzlies-133737617.html"],
+      "날짜": "2026-10-21"
+    },
+    {
+      "팀": "유타 재즈",
+      "선수": "Blake Hinson",
+      "포지션": "F",
+      "사유": "햄스트링(hamstring)",
+      "상태": "out",
+      "직전시즌_선발/경기": "미확인/14",
+      "평균득점": "11.9",
+      "출처": ["https://sports.yahoo.com/articles/utah-jazz-vs-memphis-grizzlies-133737617.html"],
+      "날짜": "2026-10-21"
+    }
+  ],
+  "로스터변화": [
+    {
+      "팀": "유타 재즈",
+      "선수": "Jaren Jackson Jr.",
+      "방향": "합류",
+      "직전시즌_선발여부": "선발(멤피스 주전 빅맨)",
+      "평균출전시간": "미확인",
+      "비고": "오프시즌 트레이드로 멤피스→유타. 유타가 Walter Clayton Jr., Kyle Anderson, Georges Niang + 미래 1라운드픽 3장을 멤피스에 지급",
+      "출처": ["https://sports.yahoo.com/articles/utah-jazz-vs-memphis-grizzlies-133737617.html"],
+      "날짜": "2026 오프시즌"
+    },
+    {
+      "팀": "멤피스 그리즐리스",
+      "선수": "Walter Clayton Jr., Kyle Anderson, Georges Niang",
+      "방향": "합류",
+      "직전시즌_선발여부": "미확인(일괄 트레이드 수령 자산)",
+      "평균출전시간": "미확인",
+      "비고": "JJJ 트레이드 반대급부로 유타에서 수령",
+      "출처": ["https://sports.yahoo.com/articles/utah-jazz-vs-memphis-grizzlies-133737617.html"],
+      "날짜": "2026 오프시즌"
+    },
+    {
+      "팀": "멤피스 그리즐리스",
+      "선수": "Cameron Boozer",
+      "방향": "합류",
+      "직전시즌_선발여부": "신인(2026 드래프트 전체 3순위, 개막전 선발 예정)",
+      "평균출전시간": "미확인",
+      "출처": ["https://sports.yahoo.com/articles/utah-jazz-vs-memphis-grizzlies-133737617.html"],
+      "날짜": "2026 드래프트"
+    },
+    {
+      "팀": "유타 재즈",
+      "선수": "Darryn Peterson",
+      "방향": "합류",
+      "직전시즌_선발여부": "신인(2026 드래프트 전체 2순위, 개막전 선발 예정)",
+      "평균출전시간": "미확인",
+      "출처": ["https://sports.yahoo.com/articles/utah-jazz-vs-memphis-grizzlies-133737617.html"],
+      "날짜": "2026 드래프트"
+    }
+  ],
+  "일정": {
+    "홈": {"이번시즌_경기수": 0, "직전경기": "없음(개막전)", "백투백": false},
+    "원정": {"이번시즌_경기수": 0, "직전경기": "없음(개막전)", "백투백": false}
+  },
+  "기타": [
+    {
+      "내용": "베트맨/미국 시장 베팅 라인: 멤피스 1.5점 홈 선호(-120 머니라인), 유타 +100. 총점 라인 238.5",
+      "출처": ["https://sports.yahoo.com/articles/utah-jazz-vs-memphis-grizzlies-133737617.html"],
+      "날짜": "2026-10-21"
+    },
+    {
+      "내용": "2026 드래프트 2·3순위 루키(Darryn Peterson, Cameron Boozer) NBA 데뷔전. JJJ에게는 유타 상대 홈커밍(친정팀 복귀) 경기",
+      "출처": ["https://sports.yahoo.com/articles/utah-jazz-vs-memphis-grizzlies-133737617.html"],
+      "날짜": "2026-10-21"
+    },
+    {
+      "내용": "예상 선발 - 멤피스: Ty Jerome, Cedric Coward, Zach Edey, Jaylen Wells, Cameron Boozer / 유타: Keyonte George, Darryn Peterson, Jaxson Hayes, Lauri Markkanen, Jaren Jackson Jr.",
+      "출처": ["https://sports.yahoo.com/articles/utah-jazz-vs-memphis-grizzlies-133737617.html"],
+      "날짜": "2026-10-21"
+    }
+  ],
+  "미확인": [
+    "Tony Bradley 2025-26 선발 횟수 정확치",
+    "Blake Hinson 2025-26 선발 횟수 정확치",
+    "Jaren Jackson Jr./Walter Clayton Jr./Kyle Anderson/Georges Niang 2025-26 평균 출전시간",
+    "2026-27 시즌 양 팀 현재까지 공식 injury report(최신 갱신본, 10/22 당일자) 확인 필요 - 검색 결과는 10/21자 기준"
+  ]
+}

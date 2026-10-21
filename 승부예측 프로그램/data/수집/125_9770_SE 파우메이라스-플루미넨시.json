@@ -1,0 +1,146 @@
+{
+  "번호": 9770,
+  "홈": "SE 파우메이라스",
+  "원정": "플루미넨시",
+  "수집시각": "2026-10-22 08:15 KST",
+  "대회맥락": {
+    "대회": "코파 리베르타도레스 2026",
+    "라운드": "준결승 2차전(volta) — 1차전은 2026-10-15 플루미넨시 홈(마라카낭)에서 치름",
+    "1차전": "플루미넨시 1-2 파우메이라스 (호세 로페스·마를론 프레이타스 득점, 플루미넨시는 웨슬리 94분 득점)",
+    "합산규칙": "파우메이라스가 2-1 합산 리드. 원정다득점 규정 없음(2차전 무승부 또는 어떤 스코어든 승리 시 파우메이라스 결승 진출) — 동률 시 연장/승부차기 여부는 미확인",
+    "출처": [
+      "https://www.foxsports.com/articles/soccer/palmeiras-beat-fluminense-21-away-in-copa-libertadores-semifinal",
+      "https://www.france24.com/en/live-news/20261015-palmeiras-beat-fluminense-2-1-in-libertadores-semi-final-first-leg",
+      "https://www.metropoles.com/esportes/palmeiras-defende-vantagem-contra-fluminense-por-vaga-na-final-da-liberta"
+    ],
+    "날짜": "2026-10-21"
+  },
+  "최근폼": {
+    "홈": {
+      "최근5": "2026-10-08 파우메이라스 1-0 바이아(승) / 2026-10-11 파우메이라스 4-1 코린치안스(승) / 2026-10-17 아틀레치쿠파라나엔시 0-2 파우메이라스(승, 원정) / 2026-10-15 플루미넨시 1-2 파우메이라스(리베르타도레스, 승) — 브라질레이랑 8경기 무패(5승3무)",
+      "득점": "미확인(평균 미계산, 개별 스코어만 확인)",
+      "실점": "미확인",
+      "비고": "브라질레이랑 선두(66점), 플라멩구에 2점 차 우위(10/17 기준)",
+      "출처": [
+        "https://www.terra.com.br/esportes/palmeiras/palmeiras-nao-perde-ha-oito-jogos-pelo-campeonato-brasileiro,40cd58d69870c05aa532d324c77ca304qeruaia2.html",
+        "https://www.gazetaesportiva.com/times/palmeiras/palmeiras-x-bahia-29-rodada-brasileirao-08-10-2026/"
+      ]
+    },
+    "원정": {
+      "최근5": "최근 5경기 3승2패, 8득점 6실점(요약 수치). 2026-10-18 플루미넨시 1-2 산투스(홈 패배)가 가장 최근 경기",
+      "득점": 1.6,
+      "실점": 1.2,
+      "비고": "브라질레이랑 3위(51점, 29경기 14승9무6패)",
+      "출처": [
+        "https://www.golmates.com/pt/brasil/brasileirao/2026/resultados",
+        "https://www.lance.com.br/fluminense"
+      ]
+    }
+  },
+  "결장": [
+    {
+      "팀": "SE 파우메이라스",
+      "선수": "Jefté",
+      "포지션": "수비수(레프트백)",
+      "사유": "예방적 출장정지(suspensão preventiva)",
+      "상태": "결장 확정",
+      "주전여부": "미확인",
+      "출처": ["https://www.metropoles.com/esportes/palmeiras-defende-vantagem-contra-fluminense-por-vaga-na-final-da-liberta"],
+      "날짜": "2026-10-21"
+    },
+    {
+      "팀": "SE 파우메이라스",
+      "선수": "Vitor Roque",
+      "포지션": "공격수",
+      "사유": "오른쪽 발목 염좌, 아직 체력 훈련 복귀 전",
+      "상태": "결장 확정",
+      "주전여부": "주전급 공격 자원",
+      "출처": ["https://www.gazetaesportiva.com/campeonatos/libertadores-da-america/palmeiras-x-fluminense-tudo-sobre-semifinal-libertadores-21-10-2026/"],
+      "날짜": "2026-10-21"
+    },
+    {
+      "팀": "SE 파우메이라스",
+      "선수": "Gustavo Gómez, Giay",
+      "포지션": "수비수",
+      "사유": "브라질레이랑 출장정지 복귀 — 이번 경기는 출전 가능(결장 아님, 참고용)",
+      "상태": "출전 가능",
+      "주전여부": "주전",
+      "출처": ["https://www.metropoles.com/esportes/palmeiras-defende-vantagem-contra-fluminense-por-vaga-na-final-da-liberta"],
+      "날짜": "2026-10-21"
+    },
+    {
+      "팀": "플루미넨시",
+      "선수": "John Kennedy",
+      "포지션": "공격수",
+      "사유": "무릎 수술",
+      "상태": "결장 확정",
+      "주전여부": "미확인",
+      "출처": ["https://www.cartacapital.com.br/esporte/palmeiras-x-fluminense-provaveis-escalacoes-desfalques-arbitragem-onde-acompanhar-e-palpite/"],
+      "날짜": "2026-10-21"
+    },
+    {
+      "팀": "플루미넨시",
+      "선수": "Alisson, Matheus Reis",
+      "포지션": "미확인",
+      "사유": "의무팀(DM)/체력 훈련 복귀 중(transição física)",
+      "상태": "결장 확정",
+      "주전여부": "미확인",
+      "출처": ["https://www.cartacapital.com.br/esporte/palmeiras-x-fluminense-provaveis-escalacoes-desfalques-arbitragem-onde-acompanhar-e-palpite/"],
+      "날짜": "2026-10-21"
+    },
+    {
+      "팀": "플루미넨시",
+      "선수": "Matheus Martinelli",
+      "포지션": "미드필더",
+      "사유": "왼쪽 무릎 염좌 — 1차전 하프타임에 부상",
+      "상태": "출전 의심(DÚVIDA)",
+      "주전여부": "주전",
+      "출처": ["https://www.netflu.com.br/palmeiras-x-fluminense-provaveis-escalacoes-onde-assistir-horario-e-tudo-sobre-o-jogo-da-libertadores/"],
+      "날짜": "2026-10-21"
+    },
+    {
+      "팀": "플루미넨시",
+      "선수": "Germán Cano",
+      "포지션": "공격수(주전 스트라이커)",
+      "사유": "오른쪽 허벅지 부상",
+      "상태": "출전 의심(DÚVIDA)",
+      "주전여부": "주전(에이스)",
+      "출처": ["https://www.gazetaesportiva.com/campeonatos/libertadores-da-america/palmeiras-x-fluminense-tudo-sobre-semifinal-libertadores-21-10-2026/"],
+      "날짜": "2026-10-21"
+    }
+  ],
+  "동기": [
+    {
+      "팀": "SE 파우메이라스",
+      "내용": "브라질레이랑 선두 경쟁과 리베르타도레스 결승행(11/28 몬테비데오)을 동시에 노리는 상황. 무승부 이상이면 결승 진출 — 수비적으로 안정적인 운영 가능성(미확인, 추정)",
+      "출처": ["https://www.metropoles.com/esportes/palmeiras-defende-vantagem-contra-fluminense-por-vaga-na-final-da-liberta"],
+      "날짜": "2026-10-21"
+    },
+    {
+      "팀": "플루미넨시",
+      "내용": "1-2 열세를 뒤집어야(reverter) 결승 진출 가능 — 공격적으로 나설 수밖에 없는 상황",
+      "출처": ["https://boca.com.br/esportes/fluminense-se-prepara-para-virada-na-libertadores"],
+      "날짜": "2026-10-21"
+    }
+  ],
+  "맞대결": {
+    "내용": "이번 시즌 리베르타도레스 1차전(2026-10-15, 마라카낭) 플루미넨시 1-2 파우메이라스. 그 이전 장기 H2H 전적은 미확인",
+    "출처": ["https://www.foxsports.com/articles/soccer/palmeiras-beat-fluminense-21-away-in-copa-libertadores-semifinal"]
+  },
+  "환경": {
+    "경기장": "Allianz Parque(현지 보도상 '누방크 파르키/Nubank Parque'로 표기 — 스폰서명 변경 여부 미확인), 상파울루",
+    "날씨": "흐림, 약한 비 가능성, 기온 약 14~17°C, 습도 약 89%",
+    "이동거리": "플루미넨시(리우데자네이루) → 상파울루 약 430km 이동",
+    "출처": [
+      "https://www.climatempo.com.br/previsao-do-tempo/cidade/558/saopaulo-sp",
+      "https://www.climaeradar.com.br/previsao-tempo/sao-paulo/3705599"
+    ]
+  },
+  "미확인": [
+    "경기장명 'Nubank Parque' 표기가 스폰서 변경인지 오기인지",
+    "두 팀 장기 역대 H2H 전적",
+    "아벨 페헤이라(파우메이라스 감독)·헤나투 가우슈(플루미넨시 감독) 최근 공식 코멘트/예상 선발",
+    "연장전 여부(동률 시 규정)",
+    "파우메이라스 최근 5경기 평균 득실점 정밀 수치"
+  ]
+}

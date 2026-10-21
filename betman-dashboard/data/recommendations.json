@@ -1,5 +1,38 @@
 {
- "current": [],
+ "current": [
+  {
+   "round": "125",
+   "title": "[도파민] 10-22 09:00 조합",
+   "track": "도파민",
+   "close": "2026-10-22 09:00",
+   "legs": [
+    {
+     "no": "9766",
+     "game": "뉴올리언스 펠리컨스 vs 인디애나 페이서스",
+     "pick": "승",
+     "type": "농구 승패",
+     "odds": 2.15,
+     "prob": 64.3,
+     "time": "2026-10-22 09:00",
+     "result": "",
+     "hit": "",
+     "actual": "",
+     "why": "기준선 66.5/0/33.5 → 요인 라인업:Ivica Zubac(합류) / Myles Turner(이탈)(+0.0), 복귀:Tyrese Haliburton(-6.0), 결장:Aaron Nesmith(+2.5), 결장:T.J. McConnell(+1.0), 결장:Johnny Furphy(+0.3) → 최종 64.3/0/35.7",
+     "risk": "Haliburton 출전시간 제한 가능",
+     "review": {}
+    }
+   ],
+   "odds": 2.15,
+   "prob": 0.643,
+   "scored": false,
+   "stale": false,
+   "started": false,
+   "hit": null,
+   "bought": false,
+   "time": "2026-10-22 09:00",
+   "n": 1
+  }
+ ],
  "past": [
   {
    "round": "125",

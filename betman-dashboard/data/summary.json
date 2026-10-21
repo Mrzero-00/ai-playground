@@ -1,16 +1,16 @@
 {
- "updated": "2026-10-21 22:37",
+ "updated": "2026-10-22 07:39",
  "mode": "가상 추천 중(실투자 없음)",
  "combos_total": 23,
- "combos_scored": 19,
- "combos_hit": 5,
- "combo_rate": 0.2631578947368421,
+ "combos_scored": 20,
+ "combos_hit": 6,
+ "combo_rate": 0.3,
  "fun_total": 16,
- "fun_scored": 7,
- "fun_hit": 0,
- "fun_rate": 0.0,
- "legs_scored": 72,
- "leg_rate": 0.5138888888888888,
+ "fun_scored": 11,
+ "fun_hit": 1,
+ "fun_rate": 0.09090909090909091,
+ "legs_scored": 83,
+ "leg_rate": 0.5301204819277109,
  "by_round": {
   "120": {
    "n": 8,
@@ -31,15 +31,19 @@
   "124": {
    "n": 2,
    "hit": 1
+  },
+  "125": {
+   "n": 1,
+   "hit": 1
   }
  },
- "process_score": 0.47959183673469385,
- "process_n": 98,
+ "process_score": 0.5743440233236151,
+ "process_n": 343,
  "quad": {
-  "오판": 46,
-  "실력": 41,
-  "운": 8,
-  "분산": 9
+  "오판": 119,
+  "실력": 156,
+  "운": 50,
+  "분산": 67
  },
  "leagues": [
   {
@@ -73,5 +77,5 @@
    "teams": 18
   }
  ],
- "retros": 30
+ "retros": 31
 }

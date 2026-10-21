@@ -1,11 +1,11 @@
 # OFI 크레타 (그리스 수페르리그)
 
 <!-- FACTS:START -->
-## 팩트시트 (자동 수집 2026-10-14) — 조사 전 반드시 읽고, 아래 사실과 다른 뉴스 요약은 '미확인'으로 둔다
+## 팩트시트 (자동 수집 2026-10-21) — 조사 전 반드시 읽고, 아래 사실과 다른 뉴스 요약은 '미확인'으로 둔다
 - 출처: 위키 'OFI Crete F.C.'(club), ESPN 있음
 - 감독: Christos Kontis
-- 리그 순위: 9위 1경기 1승0무0패 GD+2 승점3 (OFI Crete)
-- 최근 경기(ESPN, 최대 28일): 2026-09-17 OFI Crete 2-0 TSG Hoffenheim
+- 리그 순위: 18위 2경기 1승0무1패 GD+1 승점3 (OFI Crete)
+- 최근 경기(ESPN, 최대 28일): 2026-09-17 OFI Crete 2-0 TSG Hoffenheim / 2026-10-15 Stade Rennais 2-1 OFI Crete
 <!-- FACTS:END -->
 <!-- INPUTS:START -->
 ## 입력(자동 수집 2026-10-15) — xG·휴식일·라인업은 이 숫자를 쓴다

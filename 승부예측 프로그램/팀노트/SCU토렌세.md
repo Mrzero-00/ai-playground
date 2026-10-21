@@ -1,11 +1,11 @@
 # SCU토렌세 (포르투갈 2부)
 
 <!-- FACTS:START -->
-## 팩트시트 (자동 수집 2026-10-14) — 조사 전 반드시 읽고, 아래 사실과 다른 뉴스 요약은 '미확인'으로 둔다
+## 팩트시트 (자동 수집 2026-10-21) — 조사 전 반드시 읽고, 아래 사실과 다른 뉴스 요약은 '미확인'으로 둔다
 - 출처: 위키 'S.C.U. Torreense'(club), ESPN 있음
 - 감독: Luís Tralhão
-- 리그 순위: 12위 1경기 1승0무0패 GD+1 승점3 (Torreense)
-- 최근 경기(ESPN, 최대 28일): 2026-09-17 Lillestrom 1-2 Torreense
+- 리그 순위: 19위 2경기 1승0무1패 GD0 승점3 (Torreense)
+- 최근 경기(ESPN, 최대 28일): 2026-09-17 Lillestrom 1-2 Torreense / 2026-10-15 Torreense 1-2 Sunderland
 <!-- FACTS:END -->
 <!-- INPUTS:START -->
 ## 입력(자동 수집 2026-10-15) — xG·휴식일·라인업은 이 숫자를 쓴다

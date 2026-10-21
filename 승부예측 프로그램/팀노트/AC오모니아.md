@@ -1,11 +1,11 @@
 # AC오모니아 (키프로스 1부)
 
 <!-- FACTS:START -->
-## 팩트시트 (자동 수집 2026-10-14) — 조사 전 반드시 읽고, 아래 사실과 다른 뉴스 요약은 '미확인'으로 둔다
+## 팩트시트 (자동 수집 2026-10-21) — 조사 전 반드시 읽고, 아래 사실과 다른 뉴스 요약은 '미확인'으로 둔다
 - 출처: 위키 'AC Omonia'(club), ESPN 있음
 - 감독: Henning Berg
-- 리그 순위: 15위 1경기 1승0무0패 GD+1 승점3 (Omonia Nicosia)
-- 최근 경기(ESPN, 최대 28일): 2026-09-16 Omonia Nicosia 1-0 Celta Vigo
+- 리그 순위: 6위 2경기 2승0무0패 GD+4 승점6 (Omonia Nicosia)
+- 최근 경기(ESPN, 최대 28일): 2026-09-16 Omonia Nicosia 1-0 Celta Vigo / 2026-10-15 NK Celje 0-3 Omonia Nicosia
 <!-- FACTS:END -->
 <!-- INPUTS:START -->
 ## 입력(자동 수집 2026-10-15) — xG·휴식일·라인업은 이 숫자를 쓴다

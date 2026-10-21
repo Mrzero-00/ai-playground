@@ -1,11 +1,11 @@
 # 파포스FC (키프로스 1부)
 
 <!-- FACTS:START -->
-## 팩트시트 (자동 수집 2026-10-14) — 조사 전 반드시 읽고, 아래 사실과 다른 뉴스 요약은 '미확인'으로 둔다
-- 출처: 위키 '2026–27 Pafos FC season'(season), ESPN 있음
+## 팩트시트 (자동 수집 2026-10-21) — 조사 전 반드시 읽고, 아래 사실과 다른 뉴스 요약은 '미확인'으로 둔다
+- 출처: 위키 'Pafos FC'(club), ESPN 있음
 - 감독: Ricardo Sá Pinto
-- 리그 순위: 27위 0경기 0승0무0패 GD0 승점0 (Pafos)
-- 2026 여름 이적(위키 이적 표, 앞 8줄씩): IN 2 June 2026 · GK · Charalampos Kyriakidis · Omonia · Undisclosed / IN 15 June 2026 · MF · Murad Mammadov · Neftçi · Undisclosed / IN 29 June 2026 · MF · Guga · Al-Najma · Undisclosed / IN 1 July 2026 · MF · Alexandre Brito · Sporting CP · Undisclosed / IN 9 July 2026 · GK · Michalis Papastylianou · PAC Omonia 29M · Undisclosed / IN 3 August 2026 · FW · Moumi Ngamaleu · Unattached · Free / IN 4 September 2026 · FW · Afonso Patrão · Westerlo · Undisclosed / IN 9 September 2026 · DF · Jónatas Noro · Braga · Undisclosed / OUT 24 July 2026 · DF · Derrick Luckassen · Red Star Belgrade · Undisclosed / OUT 2 August 2026 · DF · Axel Guessand · Kalamata · Undisclosed / OUT 4 September 2026 · FW · Mons Bassouamina · Marítimo · Undisclosed
+- 리그 순위: 32위 1경기 0승0무1패 GD-2 승점0 (Pafos)
+- 최근 경기(ESPN, 최대 28일): 2026-10-15 Atalanta 3-1 Pafos
 <!-- FACTS:END -->
 <!-- INPUTS:START -->
 ## 입력(자동 수집 2026-10-15) — xG·휴식일·라인업은 이 숫자를 쓴다

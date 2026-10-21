@@ -1,11 +1,12 @@
 # FC툰 FC Thun (스위스 수퍼리그)
 
 <!-- FACTS:START -->
-## 팩트시트 (자동 수집 2026-10-14) — 조사 전 반드시 읽고, 아래 사실과 다른 뉴스 요약은 '미확인'으로 둔다
-- 출처: 위키 '2026–27 FC Thun season'(season), ESPN 없음
+## 팩트시트 (자동 수집 2026-10-21) — 조사 전 반드시 읽고, 아래 사실과 다른 뉴스 요약은 '미확인'으로 둔다
+- 출처: 위키 '2026–27 FC Thun season'(season), ESPN 있음
 - 감독: Gian-Luca Privitelli
 - 리그 순위: Pre-season
 - 2026 여름 이적(위키 이적 표, 앞 8줄씩): IN align="center" · Mathías Tomás · APOEL · Loan return / IN align="center" · Nicolas Bürgy · Odense · Undisclosed / IN align="center" · Dorian Derbaci · FC Aarau / IN align="center" · Nassim Zoukit · Aarau · Undisclosed / IN align="center" · Mats Seiler · Young Boys · Undisclosed · } === Out === {| class="wikitable plainrowheaders so / IN align="center" · Dominik Franke · Žalgiris / IN align="center" · Kastriot Imeri · Young Boys · Loan return / IN align="center" · Leonardo Bertone · Luzern · Undisclosed / OUT align="center" · Dominik Franke · Žalgiris / OUT align="center" · Kastriot Imeri · Young Boys · Loan return / OUT align="center" · Leonardo Bertone · Luzern · Undisclosed / OUT align="center" · Vasilije Janjičić
+- 최근 경기(ESPN, 최대 28일): 2026-10-15 FC Twente 1-0 FC Thun
 <!-- FACTS:END -->
 <!-- INPUTS:START -->
 ## 입력(자동 수집 2026-10-15) — xG·휴식일·라인업은 이 숫자를 쓴다

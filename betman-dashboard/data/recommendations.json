@@ -1,5 +1,6 @@
 {
- "current": [
+ "current": [],
+ "past": [
   {
    "round": "125",
    "title": "코어 2폴더 — 본머스·헤타페 '2골차 승 저지'",
@@ -29,9 +30,9 @@
      "odds": 1.8,
      "prob": 40.9,
      "time": "2026-10-23 01:45",
-     "result": "",
-     "hit": "",
-     "actual": "",
+     "result": "2:5",
+     "hit": "1",
+     "actual": "패",
      "why": "",
      "risk": "",
      "review": {}
@@ -41,14 +42,12 @@
    "prob": 0.16728099999999999,
    "scored": false,
    "stale": false,
-   "started": false,
+   "started": true,
    "hit": null,
    "bought": false,
    "time": "2026-10-23 01:45",
    "n": 2
-  }
- ],
- "past": [
+  },
   {
    "round": "125",
    "title": "[도파민] 10-22 09:00 조합",

@@ -1,11 +1,11 @@
 # FC도쿄 (J1)
 
 <!-- FACTS:START -->
-## 팩트시트 (자동 수집 2026-10-19) — 조사 전 반드시 읽고, 아래 사실과 다른 뉴스 요약은 '미확인'으로 둔다
+## 팩트시트 (자동 수집 2026-10-23) — 조사 전 반드시 읽고, 아래 사실과 다른 뉴스 요약은 '미확인'으로 둔다
 - 출처: 위키 'FC Tokyo'(club), ESPN 있음
 - 감독: Rikizo Matsuhashi
-- 리그 순위: 3위 10경기 7승2무1패 GD+13 승점23 (FC Tokyo)
-- 최근 경기(ESPN, 최대 28일): 2026-09-19 Urawa Red Diamonds 3-1 Tokyo Verdy 1969 / 2026-09-19 FC Tokyo 1-0 Nagoya Grampus / 2026-10-10 FC Tokyo 3-0 Urawa Red Diamonds / 2026-10-11 Tokyo Verdy 1969 0-2 Sanfrecce Hiroshima / 2026-10-17 Tokyo Verdy 1969 0-4 FC Tokyo
+- 리그 순위: 2위 11경기 7승3무1패 GD+13 승점24 (FC Tokyo)
+- 최근 경기(ESPN, 최대 28일): 2026-10-10 FC Tokyo 3-0 Urawa Red Diamonds / 2026-10-11 Tokyo Verdy 1969 0-2 Sanfrecce Hiroshima / 2026-10-17 Tokyo Verdy 1969 0-4 FC Tokyo / 2026-10-21 FC Tokyo 0-0 Kashiwa Reysol / 2026-10-21 Yokohama F. Marinos 2-2 Tokyo Verdy 1969
 <!-- FACTS:END -->
 <!-- INPUTS:START -->
 ## 입력(자동 수집 2026-10-21) — xG·휴식일·라인업·환경(이동거리·고도·날씨)은 이 숫자를 쓴다

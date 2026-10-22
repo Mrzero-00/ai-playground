@@ -1,11 +1,11 @@
 # 밴쿠버 화이트캡스FC
 
 <!-- FACTS:START -->
-## 팩트시트 (자동 수집 2026-10-18) — 조사 전 반드시 읽고, 아래 사실과 다른 뉴스 요약은 '미확인'으로 둔다
-- 출처: 위키 'Vancouver Whitecaps (1986–2010)'(club), ESPN 있음
-- 감독: Teitur Thordarson
-- 리그 순위: 1위 29경기 15승7무7패 GD+31 승점52 (Vancouver Whitecaps)
-- 최근 경기(ESPN, 최대 28일): 2026-09-20 Real Salt Lake 0-3 Vancouver Whitecaps / 2026-09-27 Vancouver Whitecaps 3-3 D.C. United / 2026-10-07 Chicago Fire FC 3-1 Vancouver Whitecaps / 2026-10-11 LAFC 1-1 Vancouver Whitecaps / 2026-10-15 St. Louis CITY SC 0-0 Vancouver Whitecaps
+## 팩트시트 (자동 수집 2026-10-23) — 조사 전 반드시 읽고, 아래 사실과 다른 뉴스 요약은 '미확인'으로 둔다
+- 출처: 위키 'Vancouver Whitecaps FC'(club), ESPN 있음
+- 감독: Axel Schuster
+- 리그 순위: 1위 30경기 16승7무7패 GD+32 승점55 (Vancouver Whitecaps)
+- 최근 경기(ESPN, 최대 28일): 2026-09-27 Vancouver Whitecaps 3-3 D.C. United / 2026-10-07 Chicago Fire FC 3-1 Vancouver Whitecaps / 2026-10-11 LAFC 1-1 Vancouver Whitecaps / 2026-10-15 St. Louis CITY SC 0-0 Vancouver Whitecaps / 2026-10-18 Austin FC 1-2 Vancouver Whitecaps
 <!-- FACTS:END -->
 <!-- INPUTS:START -->
 ## 입력(자동 수집 2026-10-18) — xG·휴식일·라인업·환경(이동거리·고도·날씨)은 이 숫자를 쓴다

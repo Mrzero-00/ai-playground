@@ -162,6 +162,47 @@ def section_curve(rows, pre, out, issues):
             issues.append(f"{pre} '{k}'을 1순위로 고를 때: 내 말 {s / n:.1f}% vs 실제 {h / n * 100:.1f}% (n={n})")
 
 
+def section_margin(rows, pre, out, issues):
+    """1·2순위 차(margin)별 방향 적중 — **확률의 절대값보다 이쪽이 진짜 확신 지표다.**
+
+    2026-10-23(125회 회고) 발견: 1순위 확률의 절대값은 비단조라 선별에 못 쓴다고 이미 적어 뒀는데
+    (CLAUDE.md '45~49% 71% / 60~64% 57%'), 1·2순위 **차**는 단조다.
+      실측 n=593: 차 0~3%p 33.3% · 3~6%p 32.7% · 6~10%p 47.2% · 10~20%p 50.0% · 20%p+ 65.5%
+    차 10%p 미만은 '방향을 고른 것'이 아니라 '방향이 형성되지 않은 것'이라 기권으로 적는다
+    (analysis_guard.py G1 이 자동 교정). 이 표가 단조를 잃으면 규칙을 내린다."""
+    xs = []
+    for r in rows:
+        p = probs(r, pre)
+        if not p:
+            continue
+        v = sorted(p.values(), reverse=True)
+        t = max(p, key=p.get)
+        xs.append((v[0] - v[1], t == (r["결과"])))
+    if not xs:
+        return
+    out.append(f"\n### {pre} — 1·2순위 차(확신 지표)별 방향 적중 (n={len(xs)})")
+    out.append("| 1·2순위 차 | 경기 | 방향 적중 | |")
+    out.append("|---|---:|---:|---|")
+    prev = None
+    broke = False
+    for lo, hi, lab in [(0, 3, "0~3%p"), (3, 6, "3~6%p"), (6, 10, "6~10%p"),
+                        (10, 20, "10~20%p"), (20, 101, "20%p+")]:
+        b = [x for x in xs if lo <= x[0] < hi]
+        if not b:
+            continue
+        acc = sum(1 for x in b if x[1]) / len(b) * 100
+        mark = ""
+        if prev is not None and acc < prev - 3:
+            mark = "**역전**"; broke = True
+        prev = acc
+        note = " ← 방향 미형성(기권)" if hi <= 10 else ""
+        out.append(f"| {lab} | {len(b)} | {acc:.1f}% | {mark}{note} |")
+    if broke:
+        issues.append(f"{pre} 1·2순위 차 단조 깨짐 — analysis_guard G1 문턱 재검토")
+    out.append("")
+    out.append("> 차 10%p 미만은 방향을 고른 것이 아니라 **형성되지 않은** 것이다. `analysis_guard.py --fix` 가 확신도를 '기권'으로 적는다(확률·기록은 남긴다).")
+
+
 def section_split(rows, pre, key, label, out, issues, minn=12):
     xs = []
     for r in rows:
@@ -253,6 +294,7 @@ def main():
     for pre in ("순수", "보정", "시장"):
         section_sides(rows, pre, out, issues if pre != "시장" else [])
         section_curve(rows, pre, out, issues if pre != "시장" else [])
+        section_margin(rows, pre, out, issues if pre != "시장" else [])
     for pre in ("순수", "보정"):
         section_split(rows, pre, lambda r: r.get("종목"), "종목", out, issues)
         section_split(rows, pre, lambda r: r.get("리그"), "리그", out, issues, minn=15)

@@ -248,6 +248,8 @@ def cmd_anchor(a):
         r["보정메모"] = memo
         if r.get("결과") in ("승", "무", "패"):
             pk = argmax(r, "보정"); r["보정적중"] = int(pk == r["결과"]) if pk else ""
+        # 2026-10-23 125회 회고 — 검문(analysis_guard)을 확률 확정 직후에 자동으로 돌린다.
+        # 점검표가 글로만 있던 탓에 같은 항목이 10회·5회 되풀이됐다(result_log.py report).
         try:
             import hit_model
             _, hp = hit_model.predict_row(r)
@@ -259,6 +261,15 @@ def cmd_anchor(a):
             print(f"  {r['시각']} {r['홈']}-{r['원정']}: 순수 {r['순수_승']}/{r['순수_무']}/{r['순수_패']} → 최종 {r['보정_승']}/{r['보정_무']}/{r['보정_패']} ({memo}) · 적중예상도 {r.get('적중예상도','')}")
     save(rows)
     print(f"{a.round}회: 최종(보정) 확률 {n}경기 (기준선 혼합 {nb}) · 적중예상도 계산")
+    # ── 검문 자동 실행 (2026-10-23, 125회 회고) ──────────────────────────────
+    # 되풀이된 점검표 항목(방향 미형성 10회·농구 시즌초 5회·소표본 과소평가 2회 등)을
+    # 글이 아니라 숫자로 막는다. 확률이 확정된 직후가 유일하게 검문할 수 있는 시점이다.
+    try:
+        import analysis_guard
+        print()
+        analysis_guard.cmd_round(argparse.Namespace(round=str(a.round), fix=True))
+    except Exception as e:
+        print(f"(검문 건너뜀: {e})")
 
 
 def cmd_adjust(a):

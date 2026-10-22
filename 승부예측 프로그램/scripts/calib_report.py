@@ -20,12 +20,29 @@ SIDES = ("승", "무", "패")
 Z_SIG = 2.0
 
 
+def dedupe(rs):
+    """같은 경기가 두 회차에 걸쳐 팔리면 두 번 세어진다 — 2026-10-22 125회 심층회고에서 발견.
+
+    왜: 베트맨은 회차 경계에 걸친 경기를 다음 회차에도 올리고 `round_log.py init` 이 회차마다 행을 만든다.
+        채점 662행 중 48행(7%)이 그 중복이었다. 정합을 재는 스크립트에서 n 이 틀리면 |z| 가 통째로 틀린다.
+        core_backtest.dedupe 와 같은 이유·같은 규칙이다.
+    무엇: (종목, 홈, 원정, 시각) 이 같으면 **늦은 회차** 하나만 남긴다(최신 분석·마감에 가까운 배당).
+    """
+    keep = {}
+    for r in rs:
+        k = (r.get("종목"), r.get("홈"), r.get("원정"), (r.get("시각") or "")[:5])
+        prev = keep.get(k)
+        if prev is None or str(r.get("회차")) > str(prev.get("회차")):
+            keep[k] = r
+    return list(keep.values())
+
+
 def load(rnd=None):
     p = os.path.join(ROOT, "전체경기기록.csv")
     rs = [r for r in csv.DictReader(open(p, encoding="utf-8-sig")) if r.get("결과") in SIDES]
     if rnd:
         rs = [r for r in rs if r.get("회차") == str(rnd)]
-    return rs
+    return dedupe(rs)
 
 
 def probs(r, pre):
@@ -75,7 +92,25 @@ def section_sides(rows, pre, out, issues):
             issues.append(f"{pre} 전체: '{s}' 확률을 {said - got:+.1f}p 어긋나게 본다(n={len(xs)})")
 
 
+def inversions(bands, minn=15, drop=5.0):
+    """이웃한 확신 구간의 실제 적중이 뒤집혔는지 — 2026-10-22 125회 심층회고에서 추가.
+
+    왜: 보정 55~60% 가 실제 73.5%, 60~65% 가 실제 47.7% 였다. 구간별 |z| 만 보면 '한쪽은 과신, 한쪽은 과소'로
+        따로 읽히지만, 둘을 나란히 두면 **더 확신한 쪽이 덜 맞는** 순서 붕괴다. 단조롭지 않은 확률은
+        온도(T)나 어떤 단조 보정으로도 고칠 수 없다 — 순서를 만드는 입력 자체가 틀린 것이다.
+        (실제 원인: 그 구간에 내−시장 과신 경기가 몰려 있었다. 과신 +2%p 이상 100경기 43% vs 그 외 225경기 65%.)
+    무엇: 양쪽 다 n>=minn 이고 실제 적중이 drop %p 이상 거꾸로면 보고한다.
+    """
+    out = []
+    b = [x for x in bands if x[2] >= minn]
+    for (lo1, hi1, n1, s1, g1), (lo2, hi2, n2, s2, g2) in zip(b, b[1:]):
+        if g1 - g2 >= drop:
+            out.append((lo1, hi1, g1, lo2, hi2, g2, g2 - g1))
+    return out
+
+
 def section_curve(rows, pre, out, issues):
+    bands = []
     xs = []
     for r in rows:
         p = probs(r, pre)
@@ -98,9 +133,18 @@ def section_curve(rows, pre, out, issues):
         g = sum(1 for x in b if x[1]) / len(b) * 100
         t, sig = line(f"{lo}~{hi}", len(b), s, g)
         out.append(t)
+        bands.append((lo, hi, len(b), s, g))
         if sig:
             issues.append(f"{pre} {lo}~{hi}% 구간: 내 말 {s:.1f}% vs 실제 {g:.1f}% ({g - s:+.1f}p, n={len(b)})")
     out.append("")
+    inv = inversions(bands)
+    if inv:
+        out.append("> **뒤집힌 이웃 구간** — 확신을 더 준 구간이 오히려 덜 맞았다. 순서가 깨진 것이라 온도·보정으로는 못 고치고 입력을 고쳐야 한다.")
+        out.append("")
+        for lo1, hi1, g1, lo2, hi2, g2, d in inv:
+            out.append(f"> - {lo1}~{hi1}% 실제 {g1:.1f}%  →  {lo2}~{hi2}% 실제 {g2:.1f}%  ({d:+.1f}p 역전)")
+            issues.append(f"{pre} 이웃 구간 역전: {lo1}~{hi1}%({g1:.1f}%) > {lo2}~{hi2}%({g2:.1f}%) — 확률 순서가 깨짐")
+        out.append("")
     out.append("> 1순위로 고른 방향별")
     out.append("")
     out.append("| 고른 방향 | 경기 | 내가 말한 평균 | 실제 | 격차 | z | |")

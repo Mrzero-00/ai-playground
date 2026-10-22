@@ -212,8 +212,47 @@ def news_check(r, severe):
         severe.append("뉴스위험 빈칸(확인 안 함 — '없음'이라도 적는다)")
 
 
+OVERCONF_P = 15.0
+
+
+def overconf_check(r, severe, minor):
+    """내 1순위가 시장보다 크게 높으면 막는다 — 점검표 2회 반복이라 스크립트로 고정(2026-10-22 125회 심층회고).
+
+    왜: 분석전_점검표의 '내 확률이 시장보다 +15%p 이상 높으면 시장 쪽으로 되돌린다' 는 124회에 올라왔는데
+        125회 9766(뉴올리언스-인디애나)에서 **+21.6%p** 로 다시 어겼고 졌다. 사람이 읽는 표로는 안 지켜진다.
+    실측(중복 제거·기준선/C/제외 뺀 325경기, 내−시장 gap 구간별 1순위 적중):
+        ≤-15 84.8% · -15~-5 73.0% · -5~+2 50.0% · +2~+8 46.9% · +8~+15 41.5% · **+15 초과 30.0%**(n=10)
+        농구만 보면 +15 초과 5경기에서 1/5(20%).
+    무엇: 방향을 적었는데 같은 방향 시장 확률보다 OVERCONF_P 이상 높으면 '심각'으로 잡는다.
+        이것은 **추천에서 빼는 게 아니라 숫자를 다시 보게 하는 것**이다(사용자 지시 2026-10-22:
+        어긋나는 구간을 빼지 말고 격차 자체를 고쳐라). 근거를 다시 재고 값을 고치거나,
+        그대로 두겠다면 왜 시장이 틀렸는지를 근거에 적어야 통과한다.
+    시장 확률이 없으면(Pinnacle 미등재) 검사하지 않는다 — 비교 대상이 없다.
+    """
+    def num(x):
+        try:
+            return float(x)
+        except (TypeError, ValueError):
+            return None
+    mine = {k: num(r.get(f"순수_{k}")) for k in ("승", "무", "패")}
+    mine = {k: v for k, v in mine.items() if v is not None}
+    if not mine or sum(mine.values()) <= 0:
+        return
+    t = max(mine, key=mine.get)
+    m = num(r.get(f"시장_{t}"))
+    if m is None or m <= 0:
+        return
+    gap = mine[t] - m
+    if gap >= OVERCONF_P:
+        severe.append(f"과신 +{gap:.1f}%p (내 {t} {mine[t]:.1f} vs 시장 {m:.1f}) — "
+                      f"+{OVERCONF_P:.0f}%p 이상 구간 실측 적중 30%, 값을 되돌리거나 시장이 틀린 이유를 근거에 적는다")
+    elif gap >= OVERCONF_P - 7:
+        minor.append(f"과신 +{gap:.1f}%p (내 {t} {mine[t]:.1f} vs 시장 {m:.1f})")
+
+
 def note_checks(r, severe, minor):
     news_check(r, severe)
+    overconf_check(r, severe, minor)
     if r.get("종목") != "축구":
         return
     ref = ref_date(r)

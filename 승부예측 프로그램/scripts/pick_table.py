@@ -176,7 +176,7 @@ def final_probs(rnd):
     return out
 
 
-def leg_type(p, mk, pick, top, odds, raw=None, own_top=None):
+def leg_type(p, mk, pick, top, odds, raw=None, own_top=None, own_margin=None):
     """추천 다리 판정 — **2026-10-21 3차 교체** (core_backtest.py 전수 재측정, 아래 본문 주석에 근거).
     규칙: ① 내 1순위 = 시장 1순위(갈림 39% — 영구 금지) ② **−15 ≤ 내−시장 ≤ −5** ③ **배당 1.45~1.80**.
           우선순위 B++(1.60~1.80 & 시장 52%+) > B+(1.45~1.60) > B(1.60~1.80).
@@ -196,6 +196,17 @@ def leg_type(p, mk, pick, top, odds, raw=None, own_top=None):
         return "✗ 역배·방향 갈림(실측 32%)"
     if own_top and pick != own_top:
         return "✗ 내 1순위 아님(내가 %s를 더 높게 봄 — 갈림)" % own_top
+    # ── 기권 가드 (2026-10-22 125회 19:00 블록에서 추가) ──
+    # 점검표 항목 "1·2순위 차가 1%p 미만이면 '방향을 골랐다'고 기록하지 말고 기권 표시한다"가
+    # 규칙 문서에만 있고 코드에 없었다. own_first() 가 `p >= 100 - p` 로 비교해 **정확히 50.0 동률을
+    # 조용히 '내 1순위'로 통과**시켰다(125회 9811 현대캐피탈-대한항공, 내 50.0:50.0 → B+ 최적 판정).
+    # 측정 근거: 코어 통과 67다리를 내 1·2순위 차로 가르면 3%p 미만 구간이 **n=0** 이다.
+    #   3~8%p 6다리 83.3%/132% · 8%p+ 61다리 72.1%/115% — 1%p 미만은 한 번도 산 적이 없는 구간이다.
+    # 즉 '빼는' 게 아니라 '측정된 적 없는 것을 샀다고 기록하지 않는' 것이다. 분석·기록은 계속한다.
+    # (사용자 지시 2026-10-22 "어긋나는 구간을 추천에서 빼지 않는다"는 내가 말한 값과 실제가 어긋나는
+    #  확률 구간에 대한 것이고, 이건 애초에 방향을 형성하지 못한 경기다 — 맞아도 실적으로 세지 않는다.)
+    if own_margin is not None and own_margin < 1.0:
+        return "✗ 기권(내 1·2순위 차 %.1f%%p < 1 — 방향 미형성, 코어 실측 n=0)" % own_margin
     if gap >= 8:
         return "✗ 과신(내−시장 +%.0f, 실측 39%%)" % gap
     if gap >= 2:
@@ -300,6 +311,21 @@ def own_first(no, pick, p, opts):
     return None
 
 
+def own_margin(no, pick, p, opts):
+    """내 1·2순위 확률 차(%p). 판정 불가면 None.
+    2지선다(무 없음)는 반대쪽을 100−p 로 채워 |2p−100| 이 된다."""
+    if p is None:
+        return None
+    mine = {sel: v for (n, sel), v in OWN.items() if n == no}
+    if len(mine) >= 2:
+        v = sorted(mine.values(), reverse=True)
+        return v[0] - v[1]
+    sels = [o["선택"] for o in opts]
+    if len(sels) == 2 and pick in sels:
+        return abs(2 * p - 100)
+    return None
+
+
 def table(by_no, title, picks):
     lines = []
     if title:
@@ -333,7 +359,8 @@ def table(by_no, title, picks):
             mk = float(sel["공정확률"]) if sel and sel.get("공정확률") else None
             top = max(opts, key=lambda o: float(o["공정확률"] or 0))["선택"] if all(o.get("공정확률") for o in opts) else None
             own_top = own_first(no, pick, p, opts)
-            ty = leg_type(p, mk, pick, top, float(sel["베트맨"]) if sel else None, raw, own_top)
+            om = own_margin(no, pick, raw if raw is not None else p, opts)
+            ty = leg_type(p, mk, pick, top, float(sel["베트맨"]) if sel else None, raw, own_top, om)
             g = integrity_grade(r)   # 2026-10-16 사용자 지시: 데이터 정합성 C(오래된·잘못된 자료)·미검사는 다리 금지
             if g != "A" and g != "B":
                 ty = f"✗ 정합성 {g or '미검사'}"

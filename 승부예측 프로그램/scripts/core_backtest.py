@@ -71,7 +71,9 @@ def legs(holdout=None, only=None):
             out.append(dict(rd=rd, no=r["번호"], game=f"{r['홈']}-{r['원정']}", lg=r.get("리그", ""),
                             sport=r.get("종목", ""), sel=k, p=p, raw=pure[k], mk=mkt[k], od=od[k],
                             hit=1 if res == k else 0, time=r.get("시각", ""), depth=r.get("깊이", ""),
-                            ty=leg_type(p, mkt[k], k, top, od[k], pure[k], own_top)))
+                            ty=leg_type(p, mkt[k], k, top, od[k], pure[k], own_top,
+                                        own_margin=(lambda v: v[0] - v[1])(sorted((x for x in pure.values() if x is not None), reverse=True))
+                                        if sum(x is not None for x in pure.values()) >= 2 else None)))
     return dedupe(out)
 
 

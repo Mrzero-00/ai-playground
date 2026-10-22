@@ -1,12 +1,12 @@
 # 토론토FC (MLS 동부)
 
 <!-- FACTS:START -->
-## 팩트시트 (자동 수집 2026-10-18) — 조사 전 반드시 읽고, 아래 사실과 다른 뉴스 요약은 '미확인'으로 둔다
-- 출처: 위키 '2026 Inter Toronto FC season'(season), ESPN 있음
-- 감독: Mauro Eustáquio
-- 리그 순위: cup1 =
-- 2026 여름 이적(위키 이적 표, 앞 8줄씩): IN align=center · align=center · {{sort|Bassett, Ollie | Ollie Bassett}} · Tampa Bay Rowdies · Free / IN align=center · align=center · {{sort|López, Raúl | Raúl López}} · FC Rànger's · Free / IN align=center · align=center · {{sort|Almagro, Ariel | Ariel Almagro}} · Aucas · Free / IN align=center · align=center · {{sort|Badibanga, Béni | Béni Badibanga}} · Forge FC · Free / IN align=center · align=center · {{sort|Campos, Antonio | Antonio Campos}} · Fullerton Titans · Free / IN align=center · align=center · {{sort|Gonzáles, Sebastián | Sebastián Gonzales}} · KF Teuta · Free / IN align=center · align=center · {{sort|Guzmán, Carlos | Carlos Guzmán}} · Monterey Bay FC · Free / IN align=center · align=center · {{sort|Córdova, Juan | Juan Córdova}} · Unión San Felipe · Free / OUT align=center|6 · align=center · align=Botello, Orlando | Orlando Botello · C.F. Monterrey U23 · Loan ended / OUT align=center|1 · align=center · align=Urtiaga, Diego | Diego Urtiaga · Atlético San Luis · Loan ended / OUT align=center|62 · align=center · {{sort|Higgins, Nyal | Nyal Higgins}} · Contract expired / OUT align=center|17 · align=center · {{sort|López, Leonel | Leonel López}} · Cancún FC · Contract expired
-- 최근 경기(ESPN, 최대 28일): 2026-09-12 Orlando City SC 3-0 Toronto FC / 2026-09-20 St. Louis CITY SC 3-1 Toronto FC / 2026-09-27 Nashville SC 2-0 Toronto FC / 2026-10-10 Toronto FC 2-1 CF Montréal / 2026-10-14 Toronto FC 3-3 Orlando City SC
+## 팩트시트 (자동 수집 2026-10-23) — 조사 전 반드시 읽고, 아래 사실과 다른 뉴스 요약은 '미확인'으로 둔다
+- 출처: 위키 '2026 Toronto FC season'(season), ESPN 있음
+- 감독: Robin Fraser
+- 리그 순위: 10위 30경기 8승12무10패 GD-9 승점36 (Toronto FC)
+- 2026 여름 이적(위키 이적 표, 앞 8줄씩): IN CB · Stefan Kapor · Toronto FC II · Homegrown player contract; joined January 1, 2026 · October 3, 2025 / IN RW · Theo Corbeanu · Granada · Purchase option exercised · October 24, 2025 / IN LB · Matheus Pereira · Santa Clara · Undisclosed fee · December 29, 2025 / IN CB · Walker Zimmerman · Free agent · January 2, 2026 / IN GK · William Yarbrough · Free agent · January 16, 2026 / IN LB · Raheem Edwards · New York Red Bulls · Claimed off waivers · February 17, 2026 / IN LW · Dániel Sallói · Sporting Kansas City · $300,000 in general allocation money (GAM) split across two season / IN CF · Josh Sargent · Norwich City · Designated player contract and an undisclosed fee; $500,000 in GAM for St.  / OUT GK · Sean Johnson · D.C. United · Contract option declined; signed with D.C. United on December 23, 2025 · Oct / OUT CB · Kevin Long · Waterford · Contract option declined; signed with Waterford on March 15, 2026 · October 24,  / OUT LB · Raoul Petretta · Darmstadt 98 · Contract option declined; signed with Darmstadt 98 on January 20, 2026 ·  / OUT CB · Sigurd Rosted · Sarpsborg 08 · Contract option declined; signed with Sarpsborg 08 on January 22, 2026 · O
+- 최근 경기(ESPN, 최대 28일): 2026-09-20 St. Louis CITY SC 3-1 Toronto FC / 2026-09-27 Nashville SC 2-0 Toronto FC / 2026-10-10 Toronto FC 2-1 CF Montréal / 2026-10-14 Toronto FC 3-3 Orlando City SC / 2026-10-17 Red Bull New York 0-2 Toronto FC
 <!-- FACTS:END -->
 <!-- INPUTS:START -->
 ## 입력(자동 수집 2026-10-18) — xG·휴식일·라인업·환경(이동거리·고도·날씨)은 이 숫자를 쓴다

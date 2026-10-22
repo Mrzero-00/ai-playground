@@ -1,11 +1,11 @@
 # 뉴욕 시티FC (MLS 동부)
 
 <!-- FACTS:START -->
-## 팩트시트 (자동 수집 2026-10-18) — 조사 전 반드시 읽고, 아래 사실과 다른 뉴스 요약은 '미확인'으로 둔다
+## 팩트시트 (자동 수집 2026-10-23) — 조사 전 반드시 읽고, 아래 사실과 다른 뉴스 요약은 '미확인'으로 둔다
 - 출처: 위키 '2026 New York City FC season'(season), ESPN 있음
 - 감독: Pascal Jansen
-- 리그 순위: 10위 29경기 8승9무12패 GD+2 승점33 (New York City FC)
-- 최근 경기(ESPN, 최대 28일): 2026-09-30 Red Bull New York 0-3 St. Louis CITY SC / 2026-10-10 Chicago Fire FC 2-1 New York City FC / 2026-10-10 Red Bull New York 4-1 San Diego FC / 2026-10-14 D.C. United 2-1 Red Bull New York / 2026-10-14 Inter Miami CF 2-0 New York City FC
+- 리그 순위: 12위 30경기 8승10무12패 GD+2 승점34 (New York City FC)
+- 최근 경기(ESPN, 최대 28일): 2026-10-10 Red Bull New York 4-1 San Diego FC / 2026-10-14 D.C. United 2-1 Red Bull New York / 2026-10-14 Inter Miami CF 2-0 New York City FC / 2026-10-17 New York City FC 1-1 LAFC / 2026-10-17 Red Bull New York 0-2 Toronto FC
 <!-- FACTS:END -->
 <!-- INPUTS:START -->
 ## 입력(자동 수집 2026-10-18) — xG·휴식일·라인업·환경(이동거리·고도·날씨)은 이 숫자를 쓴다

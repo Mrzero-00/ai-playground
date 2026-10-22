@@ -1,7 +1,7 @@
 # 울산 HDFC
 
 <!-- FACTS:START -->
-## 팩트시트 (자동 수집 2026-10-16) — 조사 전 반드시 읽고, 아래 사실과 다른 뉴스 요약은 '미확인'으로 둔다
+## 팩트시트 (자동 수집 2026-10-23) — 조사 전 반드시 읽고, 아래 사실과 다른 뉴스 요약은 '미확인'으로 둔다
 - 출처: 위키 '2026 Ulsan HD FC season'(season), ESPN 없음
 - 감독: stadium = Ulsan Munsu Football Stadium
 - 리그 순위: cup1 = Korea Cup

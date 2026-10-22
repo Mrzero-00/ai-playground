@@ -1,11 +1,11 @@
 # 저장FC
 
 <!-- FACTS:START -->
-## 팩트시트 (자동 수집 2026-10-16) — 조사 전 반드시 읽고, 아래 사실과 다른 뉴스 요약은 '미확인'으로 둔다
+## 팩트시트 (자동 수집 2026-10-23) — 조사 전 반드시 읽고, 아래 사실과 다른 뉴스 요약은 '미확인'으로 둔다
 - 출처: 위키 'Zhejiang Professional F.C.'(club), ESPN 있음
 - 감독: Ross Aloisi
-- 리그 순위: 10위 27경기 10승6무11패 GD0 승점31 (Zhejiang Professional FC)
-- 최근 경기(ESPN, 최대 28일): 2026-09-06 Tianjin Jinmen Tiger 2-1 Zhejiang Professional FC / 2026-09-18 Zhejiang Professional FC 4-1 Wuhan Three Towns / 2026-10-09 Zhejiang Professional FC 2-4 Shanghai Port
+- 리그 순위: 11위 28경기 10승6무12패 GD-5 승점31 (Zhejiang Professional FC)
+- 최근 경기(ESPN, 최대 28일): 2026-09-06 Tianjin Jinmen Tiger 2-1 Zhejiang Professional FC / 2026-09-18 Zhejiang Professional FC 4-1 Wuhan Three Towns / 2026-10-09 Zhejiang Professional FC 2-4 Shanghai Port / 2026-10-17 Shandong Taishan 5-0 Zhejiang Professional FC
 <!-- FACTS:END -->
 
 <!-- INPUTS:START -->

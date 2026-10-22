@@ -109,6 +109,28 @@ def inversions(bands, minn=15, drop=5.0):
     return out
 
 
+def robust_band(xs, lo, hi, shift=5):
+    """좁은 칸(5%p)의 '유의'가 **칸 경계를 옮겨도 살아남는가**를 본다 — 2026-10-23, 125회 회고.
+
+    왜: 보정 60~65% 가 말 62.7% / 실제 46.4% (z=-2.2) 로 '유의'하게 찍혔다. 그런데
+        같은 모집단을 10%p 폭으로 묶으면 45~55 50.8% · 55~65 55.6% · 65~101 73.5% 로
+        **단조롭고 전부 |z|<=1.0** 이고, 경계를 5%p 옮기면 구멍이 50~60(61%)→60~70(53%)으로
+        자리를 옮긴다. 즉 구멍이 확률값에 붙어 있지 않다 — 칸 자르기가 만든 허상이다.
+        이걸 '유의'로 올리면 없는 편향을 쫓느라 멀쩡한 입력을 건드리게 된다.
+    무엇: 칸을 ±shift 만큼 옮겨 다시 재고, 옮긴 두 칸 중 하나라도 |z| < Z_SIG 면 '경계 흔들림'으로 본다.
+    반환: True = 경계를 옮겨도 유의(진짜) · False = 경계 흔들림(쫓지 않는다)
+    """
+    for d in (-shift, shift):
+        b = [x for x in xs if lo + d <= x[0] < hi + d]
+        if len(b) < 10:
+            return True            # 옮긴 칸이 너무 작으면 판정 보류 — 원래 결과를 믿는다
+        sd = sum(x[0] for x in b) / len(b)
+        gt = sum(1 for x in b if x[1]) / len(b) * 100
+        if abs(z_of(sd, gt, len(b))) < Z_SIG:
+            return False
+    return True
+
+
 def section_curve(rows, pre, out, issues):
     bands = []
     xs = []
@@ -132,12 +154,25 @@ def section_curve(rows, pre, out, issues):
         s = sum(x[0] for x in b) / len(b)
         g = sum(1 for x in b if x[1]) / len(b) * 100
         t, sig = line(f"{lo}~{hi}", len(b), s, g)
+        if sig and not robust_band(xs, lo, hi):
+            t = t[:-2] + "경계 흔들림 |"      # 칸을 5%p 옮기면 사라진다 — 유의 표시를 내린다
+            sig = False
         out.append(t)
         bands.append((lo, hi, len(b), s, g))
         if sig:
             issues.append(f"{pre} {lo}~{hi}% 구간: 내 말 {s:.1f}% vs 실제 {g:.1f}% ({g - s:+.1f}p, n={len(b)})")
     out.append("")
-    inv = inversions(bands)
+    # 2026-10-23: 역전도 **넓은 칸(10%p)** 에서 다시 재고, 거기서 사라지면 올리지 않는다.
+    # 5%p 칸은 n≈50 이라 ±7%p 가 그냥 흔들린다 — 좁은 칸의 지그재그를 '입력이 틀렸다'로 읽으면
+    # 멀쩡한 입력을 건드리게 된다. 실측: 보정 55~60(66.7%)→60~65(46.4%) 역전이 10%p 칸에서는
+    # 45~55 50.8% · 55~65 55.6% · 65~101 73.5% 로 단조롭다.
+    wide = []
+    for lo, hi in [(0, 45), (45, 55), (55, 65), (65, 101)]:
+        b = [x for x in xs if lo <= x[0] < hi]
+        if b:
+            wide.append((lo, hi, len(b), sum(x[0] for x in b) / len(b),
+                         sum(1 for x in b if x[1]) / len(b) * 100))
+    inv = inversions(bands) if inversions(wide) else []
     if inv:
         out.append("> **뒤집힌 이웃 구간** — 확신을 더 준 구간이 오히려 덜 맞았다. 순서가 깨진 것이라 온도·보정으로는 못 고치고 입력을 고쳐야 한다.")
         out.append("")

@@ -14,3 +14,5 @@
 <!-- INPUTS:END -->
 
 - 2026-10-14 조사: UEL 2차전(10/16 KST, vs 잘츠부르크, 원정) 결장·로테이션 구체 정보 미확인. "Milan to find their feet"류 베팅 매체 프리뷰 제목만 확인, 실질 팀뉴스 부족. ClubElo 1822. 출처: Google News RSS, clubelo.com/Milan.
+
+- **2026-10-23 회고(125회 9946, UEL 원정 0:3 본머스 — 내 예측 방향 적중)**: Santiago Ramos·Chukwueze 동시 결장 상태에서 대체(Camarda·Cissè·Hutchinson)로는 공백을 못 메운다는 판단이 맞았다. 실제 **슈팅 3개·유효 0개**, 점유 35.9%, 퇴장 1. 주말 세리에A 일정 앞둔 UEL 원정 + 공격 2명 결장이 겹치면 감점을 크게 둔다(이번 −큰폭이 정확했다).

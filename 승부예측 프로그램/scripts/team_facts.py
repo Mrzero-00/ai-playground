@@ -223,6 +223,42 @@ def facts_for(team, eng, league):
     return out
 
 
+import contextlib, time as _time
+
+
+@contextlib.contextmanager
+def note_lock(path, timeout=20.0):
+    """팀노트 한 파일에 대한 간단한 파일 잠금 (2026-10-23, 125회 회고).
+
+    왜: `team_facts`(FACTS 블록)와 `match_inputs`(INPUTS 블록)는 **같은 파일**을 읽어
+    통째로 다시 쓴다. 둘이 겹쳐 돌면 나중에 쓴 쪽이 앞의 블록을 통째로 날린다.
+    실제로 126회 준비 중 두 스크립트를 겹쳐 돌렸고(이번엔 운 좋게 무사했다),
+    팀노트는 분석가의 기억이라 조용히 날아가면 복구할 방법이 없다.
+    timeout 을 넘기면 잠금을 포기하고 그냥 쓴다 — 쓰기를 거르는 쪽이 더 나쁘다.
+    """
+    lk = path + ".lock"
+    fd = None
+    end = _time.time() + timeout
+    while _time.time() < end:
+        try:
+            fd = os.open(lk, os.O_CREAT | os.O_EXCL | os.O_WRONLY)
+            break
+        except FileExistsError:
+            try:                       # 죽은 프로세스가 남긴 잠금은 10초 뒤 무시
+                if _time.time() - os.path.getmtime(lk) > 10:
+                    os.unlink(lk); continue
+            except OSError:
+                pass
+            _time.sleep(0.1)
+    try:
+        yield
+    finally:
+        if fd is not None:
+            os.close(fd)
+            with contextlib.suppress(OSError):
+                os.unlink(lk)
+
+
 _ALIAS_CACHE = {}
 
 
@@ -273,13 +309,16 @@ def write_note(team, f):
         lines.append("- 최근 경기(ESPN, 최대 28일): " + " / ".join(f["최근(ESPN)"]))
     lines.append("<!-- FACTS:END -->")
     block = "\n".join(lines) + "\n"
-    old = open(path, encoding="utf-8").read() if os.path.exists(path) else f"# {team}\n\n"
-    if "<!-- FACTS:START -->" in old:
-        new = re.sub(r"<!-- FACTS:START -->.*?<!-- FACTS:END -->\n?", block, old, flags=re.S)
-    else:
-        head, _, rest = old.partition("\n")
-        new = head + "\n\n" + block + "\n" + rest.lstrip("\n")
-    open(path, "w", encoding="utf-8").write(new)
+    with note_lock(path):      # match_inputs 와 겹쳐 돌아도 서로의 블록을 날리지 않게
+        old = open(path, encoding="utf-8").read() if os.path.exists(path) else f"# {team}\n\n"
+        if "<!-- FACTS:START -->" in old:
+            new = re.sub(r"<!-- FACTS:START -->.*?<!-- FACTS:END -->\n?", block, old, flags=re.S)
+        else:
+            head, _, rest = old.partition("\n")
+            new = head + "\n\n" + block + "\n" + rest.lstrip("\n")
+        tmp = path + ".tmp"
+        open(tmp, "w", encoding="utf-8").write(new)
+        os.replace(tmp, path)          # 원자적 교체 — 중간에 죽어도 잘린 파일이 남지 않는다
 
 
 def facts_age(team):

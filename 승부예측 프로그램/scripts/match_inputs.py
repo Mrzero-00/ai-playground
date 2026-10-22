@@ -379,23 +379,26 @@ def write_note(team, line, today):
     # 2026-10-23: 같은 구단이 두 한글 표기로 갈리지 않게 team_facts.note_path 를 그대로 쓴다
     # (팀노트는 분석가의 기억인데 표기가 갈리면 쌓아 둔 절반이 안 보인다 — 125회 회고에서 5구단 발견)
     try:
-        import team_facts
-        path = team_facts.note_path(team)
+        path = tf.note_path(team)
     except Exception:
         path = os.path.join(NOTES, f"{team}.md")
     block = f"<!-- INPUTS:START -->\n## 입력(자동 수집 {today}) — xG·휴식일·라인업·환경(이동거리·고도·날씨)은 이 숫자를 쓴다\n- {line}\n<!-- INPUTS:END -->\n"
-    old = open(path, encoding="utf-8").read() if os.path.exists(path) else f"# {team}\n\n"
-    if "<!-- INPUTS:START -->" in old:
-        # 중복 블록·중첩 마커까지 전부 지우고 하나만 넣는다(2026-10-17: INPUTS 마커가 겹쳐 같은 줄이 두 번씩 쌓이던 문제)
-        new = re.sub(r"(?:<!-- INPUTS:START -->\s*)+.*?(?:<!-- INPUTS:END -->\s*)+", "\x00", old, count=1, flags=re.S)
-        new = re.sub(r"(?:<!-- INPUTS:START -->\s*)+.*?(?:<!-- INPUTS:END -->\s*)+", "", new, flags=re.S)
-        new = new.replace("\x00", block + "\n", 1)
-    elif "<!-- FACTS:END -->" in old:
-        new = old.replace("<!-- FACTS:END -->\n", "<!-- FACTS:END -->\n" + block, 1)
-    else:
-        head, _, rest = old.partition("\n")
-        new = head + "\n\n" + block + "\n" + rest.lstrip("\n")
-    open(path, "w", encoding="utf-8").write(new)
+    # 2026-10-23: team_facts 와 같은 파일을 통째로 다시 쓰므로 겹쳐 돌면 서로의 블록이 날아간다 — 잠금 + 원자적 교체
+    with tf.note_lock(path):
+        old = open(path, encoding="utf-8").read() if os.path.exists(path) else f"# {team}\n\n"
+        if "<!-- INPUTS:START -->" in old:
+            # 중복 블록·중첩 마커까지 전부 지우고 하나만 넣는다(2026-10-17: INPUTS 마커가 겹쳐 같은 줄이 두 번씩 쌓이던 문제)
+            new = re.sub(r"(?:<!-- INPUTS:START -->\s*)+.*?(?:<!-- INPUTS:END -->\s*)+", "\x00", old, count=1, flags=re.S)
+            new = re.sub(r"(?:<!-- INPUTS:START -->\s*)+.*?(?:<!-- INPUTS:END -->\s*)+", "", new, flags=re.S)
+            new = new.replace("\x00", block + "\n", 1)
+        elif "<!-- FACTS:END -->" in old:
+            new = old.replace("<!-- FACTS:END -->\n", "<!-- FACTS:END -->\n" + block, 1)
+        else:
+            head, _, rest = old.partition("\n")
+            new = head + "\n\n" + block + "\n" + rest.lstrip("\n")
+        tmp = path + ".tmp"
+        open(tmp, "w", encoding="utf-8").write(new)
+        os.replace(tmp, path)
 
 
 def main():

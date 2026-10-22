@@ -112,12 +112,31 @@ def games_of(rnd):
 
 
 def load_plan():
-    return list(csv.DictReader(open(PLAN, encoding="utf-8-sig"))) if os.path.exists(PLAN) else []
+    """메모에 콤마가 따옴표 없이 들어간 행(다른 PC가 수기로 쓴 경우)도 살려 읽는다.
+
+    2026-10-22: 그런 행 하나가 DictReader 에서 None 키로 들어와 save_plan 의 DictWriter 가
+    예외를 냈고, 이미 열어 둔 파일이 잘린 채 남아 분석일정 뒤 4블록이 통째로 사라졌다.
+    읽을 때 넘치는 칸을 메모로 되붙이고, 쓸 때는 임시 파일에 다 쓴 뒤 바꿔 끼운다.
+    """
+    if not os.path.exists(PLAN):
+        return []
+    rd = csv.DictReader(open(PLAN, encoding="utf-8-sig"), restkey="_넘침")
+    rows = []
+    for r in rd:
+        over = r.pop("_넘침", None)
+        if over:
+            r[COLS[-1]] = ",".join([r.get(COLS[-1]) or ""] + [x or "" for x in over])
+        rows.append({c: r.get(c, "") for c in COLS})
+    return rows
 
 
 def save_plan(rows):
-    w = csv.DictWriter(open(PLAN, "w", encoding="utf-8", newline=""), fieldnames=COLS)
-    w.writeheader(); w.writerows(rows)
+    tmp = PLAN + ".tmp"
+    with open(tmp, "w", encoding="utf-8", newline="") as f:
+        w = csv.DictWriter(f, fieldnames=COLS, extrasaction="ignore")
+        w.writeheader()
+        w.writerows([{c: r.get(c, "") for c in COLS} for r in rows])
+    os.replace(tmp, PLAN)   # 원자적 교체 — 중간에 죽어도 원본이 남는다
 
 
 def build_blocks(rnd):

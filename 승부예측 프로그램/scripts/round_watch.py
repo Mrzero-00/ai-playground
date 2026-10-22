@@ -272,12 +272,28 @@ def cmd_games(rnd, block):
 
 
 def cmd_done(rnd, block, memo=""):
+    """블록을 분석완료로 닫는다.  사용법: round_watch.py done <회차> <블록> [메모...]
+
+    2026-10-23: 맞는 행이 **하나도 없어도 '완료 처리'를 찍고 끝나던** 버그를 고쳤다.
+    `--round 126 --block "10/23 09:30"` 처럼 플래그 형태로 부르면 a[1]='--round' 가 되어
+    아무 행도 안 맞는데 성공처럼 보였고, 블록이 '대기'로 남아 다음 루프가 같은 블록을
+    다시 분석할 뻔했다(중복 분석 금지 규칙 위반). 이제 0건이면 후보를 보여주고 1로 끝낸다.
+    """
+    rnd = str(rnd).lstrip("-").replace("round=", "")
     rows = load_plan()
+    n = 0
     for r in rows:
         if r["회차"] == str(rnd) and r["블록"] == block:
             r["상태"], r["메모"] = "분석완료", memo or f"{now():%m/%d %H:%M}"
+            n += 1
+    if not n:
+        print(f"✗ 맞는 블록 없음 — 회차={rnd!r} 블록={block!r} (플래그가 아니라 위치 인자다)")
+        cands = [r["블록"] for r in rows if r["회차"] == str(rnd)]
+        if cands:
+            print("   그 회차의 블록: " + ", ".join(cands))
+        sys.exit(1)
     save_plan(rows)
-    print("완료 처리")
+    print(f"완료 처리 {n}건")
 
 
 def main():

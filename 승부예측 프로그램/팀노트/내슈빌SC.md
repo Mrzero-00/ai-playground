@@ -8,8 +8,8 @@
 - 최근 경기(ESPN, 최대 28일): 2026-09-20 Nashville SC 3-0 Chicago Fire FC / 2026-09-27 Nashville SC 2-0 Toronto FC / 2026-10-11 Austin FC 1-4 Nashville SC / 2026-10-15 Nashville SC 4-0 Sporting Kansas City / 2026-10-18 San Jose Earthquakes 1-1 Nashville SC
 <!-- FACTS:END -->
 <!-- INPUTS:START -->
-## 입력(자동 수집 2026-10-18) — xG·휴식일·라인업·환경(이동거리·고도·날씨)은 이 숫자를 쓴다
-- 10-18 11:30 vs 새너제이 어스퀘이크스: 휴식 3.1일(7일 1경기) · 직전 10-15 홈 vs Sporting Kansas City 4-0 승 [usa.1] · xG - · 선발 4-2-3-1 Brian Schwake, Maxwell Woledzi, Jeisson Palacios, Daniel Lovitz, Andy Nájar, Hany Mukhtar, Matthew Corcoran, Patrick Yazbek, Sam Surridge, Shakur Mohammed, Cristian Espinoza · 직전 대비 교체 3명(Reed Baker-Whiting, Edvard Tagseth, Elias Saad) · 구장 어바이어 스타디움 · 이동 3115km · 고도 18m(차 -110m) · 23.6℃ 강수0mm(0%) 바람6.8km/h · ⚠ 장거리 원정 3115km
+## 입력(자동 수집 2026-10-23) — xG·휴식일·라인업·환경(이동거리·고도·날씨)은 이 숫자를 쓴다
+- 10-25 02:30 vs CF몽레알: 휴식 6.6일(7일 1경기) · 직전 10-18 원정 vs San Jose Earthquakes 1-1 무 [usa.1] · xG - · 직전 선발 4-2-3-1 Brian Schwake, Maxwell Woledzi, Jeisson Palacios, Daniel Lovitz, Andy Nájar, Hany Mukhtar, Matthew Corcoran, Patrick Yazbek, Sam Surridge, Shakur Mohammed, Cristian Espinoza · 구장 사푸토 스타디움 · 이동 1522km · 고도 37m(차 -91m) · 10.2℃ 강수0mm(0%) 바람7.4km/h · ⚠ 장거리 원정 1522km
 <!-- INPUTS:END -->
 
 ## 성향

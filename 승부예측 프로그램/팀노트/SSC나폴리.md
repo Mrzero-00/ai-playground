@@ -10,8 +10,8 @@
 <!-- FACTS:END -->
 
 <!-- INPUTS:START -->
-## 입력(자동 수집 2026-10-20) — xG·휴식일·라인업·환경(이동거리·고도·날씨)은 이 숫자를 쓴다
-- 10-21 04:00 vs FK보되 글림트: 휴식 7.0일 · 직전 10-14 원정 vs Villarreal 1-3 패 [uefa.champions] · xG 시즌7경기 xG2.14/xGA1.15 npxGD+0.77 · 최근5 2.56/1.3 (+0.96) · 홈1.33/원정0.34 · xPts14.3 vs 승점10 · 직전 선발 3-4-2-1 Vanja Milinkovic-Savic, Amir Rrahmani, Benoît Badiashile, Rafa Marín, Scott McTominay, Billy Gilmour, Giovanni Di Lorenzo, Matteo Politano, Rasmus Højlund, Giovane, Kevin De Bruyne · 구장 스타디오 디에고 아르만도 마라도나 · 이동 2941km · 고도 35m(차 +16m) · 20.6℃ 강수0mm(5%) 바람5.1km/h · ⚠ 장거리 원정 2941km
+## 입력(자동 수집 2026-10-23) — xG·휴식일·라인업·환경(이동거리·고도·날씨)은 이 숫자를 쓴다
+- 10-25 01:00 vs AS로마: 휴식 3.9일(7일 1경기) · 직전 10-21 홈 vs Bodo/Glimt 4-3 승 [uefa.champions] · xG 시즌7경기 xG2.14/xGA1.15 npxGD+0.77 · 최근5 2.56/1.3 (+0.96) · 홈1.33/원정0.34 · xPts14.3 vs 승점10 · 직전 선발 4-3-3 Alex Meret, Rafa Marín, Amir Rrahmani, Leonardo Spinazzola, Giovanni Di Lorenzo, Kevin De Bruyne, Scott McTominay, Frank Anguissa, Rasmus Højlund, Noa Lang, Matteo Politano · 구장 스타디오 디에고 아르만도 마라도나 · 이동 190km · 고도 35m(차 +18m) · 17.6℃ 강수0mm(3%) 바람16.3km/h
 <!-- INPUTS:END -->
 
 ### 2026-10-21 회고 — 124회 9508 보되 글림트전 4:3 승 (적중, 추천 다리)

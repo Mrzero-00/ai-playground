@@ -9,10 +9,9 @@
 - 최근 경기(ESPN, 최대 28일): 2026-09-13 RB Leipzig 5-0 Hamburg SV / 2026-09-20 Bayer Leverkusen 2-0 RB Leipzig / 2026-10-10 RB Leipzig 6-0 Eintracht Frankfurt / 2026-10-17 Bayern Munich 6-1 RB Leipzig / 2026-09-10 Como 4-1 RB Leipzig / 2026-10-13 RB Leipzig 1-0 PSV Eindhoven
 <!-- FACTS:END -->
 <!-- INPUTS:START -->
-## 입력(자동 수집 2026-10-21) — xG·휴식일·라인업·환경(이동거리·고도·날씨)은 이 숫자를 쓴다
-- 10-22 04:00 vs 레알 마드리드: 휴식 8.0일 · 직전 10-14 홈 vs PSV Eindhoven 1-0 승 [uefa.champions] · xG 시즌6경기 xG2.36/xGA2.0 npxGD+0.36 · 최근5 2.08/2.15 (-0.07) · 홈2.42/원정-1.7 · xPts10.5 vs 승점9 · 직전 선발 4-2-3-1 Maarten Vandevoordt, Castello Lukeba, Willi Orbán, David Raum, Ridle Baku, Christopher Nkunku, Ezechiel Banzuzi, Neil El Aynaoui, Rômulo, Antonio Nusa, Brajan Gruda · 구장 시우다드 레알 마드리드 · 이동 1722km · 고도 666m(차 +539m) · 13.4℃ 강수0mm(0%) 바람3.4km/h · ⚠ 장거리 원정 1722km
+## 입력(자동 수집 2026-10-23) — xG·휴식일·라인업·환경(이동거리·고도·날씨)은 이 숫자를 쓴다
+- 10-24 22:30 vs 엘버스베르크: 휴식 2.8일(7일 2경기) · 직전 10-22 원정 vs Real Madrid 1-4 패 [uefa.champions] · xG 시즌6경기 xG2.36/xGA2.0 npxGD+0.36 · 최근5 2.08/2.15 (-0.07) · 홈2.42/원정-1.7 · xPts10.5 vs 승점9 · 직전 선발 4-2-3-1 Maarten Vandevoordt, Castello Lukeba, Willi Orbán, David Raum, Ridle Baku, Christopher Nkunku, Neil El Aynaoui, Nicolas Seiwald, Rômulo, Antonio Nusa, Brajan Gruda · 구장 라이프치히(구단 좌표 — 구장 미확인) · 이동 435km · 고도 127m(차 -228m) · 11.3℃ 강수0mm(30%) 바람20.2km/h
 <!-- INPUTS:END -->
-
 
 ## 2026-10-22 회고 (125회 9685, UCL 1:4 레알 원정 패)
 - 맞은 근거(유지): "분데스리가 바이에른 원정 1-6 대패 직후 장거리(1722km) UCL 원정", 최근5 npxGD −0.07

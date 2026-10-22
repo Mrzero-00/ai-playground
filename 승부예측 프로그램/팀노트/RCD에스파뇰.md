@@ -10,7 +10,7 @@
 <!-- FACTS:END -->
 
 <!-- INPUTS:START -->
-## 입력(자동 수집 2026-10-17) — xG·휴식일·라인업은 이 숫자를 쓴다
-- 10-17 21:00 vs 아틀레티코 마드리드: 휴식 7.7일 · 직전 10-10 원정 vs Málaga 1-1 무 [laliga] · xG 시즌8경기 xG1.35/xGA1.36 npxGD-0.01 · 최근5 1.37/1.05 (+0.32) · 홈0.39/원정-0.42 · xPts11.6 vs 승점8 · 직전 선발 4-2-3-1 Ángel Fortuño, Leandro Cabrera, Clemens Riedel, Quilindschy Hartman, Omar El Hilali, Javi Hernandez, Edu Expósito, Pol Lozano, Roberto Fernández, Bryan Zaragoza, Tyrhys Dolan
+## 입력(자동 수집 2026-10-23) — xG·휴식일·라인업·환경(이동거리·고도·날씨)은 이 숫자를 쓴다
+- 10-24 23:15 vs 라싱 산탄데르: 휴식 7.1일 · 직전 10-17 홈 vs Atlético Madrid 0-1 패 [laliga] · xG 시즌9경기 xG1.25/xGA1.41 npxGD-0.16 · 최근5 1.1/1.33 (-0.23) · 홈0.05/원정-0.42 · xPts12.0 vs 승점8 · 직전 선발 5-4-1 Ángel Fortuño, Clemens Riedel, Leandro Cabrera, Vanja Drkusic, Roger Hinojo, Omar El Hilali, Pol Lozano, Edu Expósito, Bryan Zaragoza, Javi Hernandez, Roberto Fernández · 구장 캄포스 데 스포르트 데 엘 사르디네로 · 이동 537km · 고도 12m(차 -6m) · 16.4℃ 강수0mm(0%) 바람11.2km/h
 <!-- INPUTS:END -->
 

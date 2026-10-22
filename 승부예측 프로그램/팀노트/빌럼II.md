@@ -8,4 +8,8 @@
 - 2026 여름 이적(위키 이적 표, 앞 8줄씩): IN align="center" · Finn Stam · AZ · Loan made permanent / IN align="center" · Jaden Slory · Feyenoord · Loan · } === Out === {| class="wikitable plainrowheaders sortable"  / IN align="center" · Samuel Bamba · VfL Bochum · Loan return · [https://www.willem-ii.nl/artikel/willem-ii-neemt-a / IN align="center" · Gijs Besselink · Twente · Loan return / IN align="center" · Calvin Twigt · Go Ahead Eagles · Loan return / IN align="center" · Raffael Behounek · Wolfsberger AC · End of contract / IN align="center" · Nick Doodeman · Volendam · End of contract · [https://www.willem-ii.nl/artikel/willem-ii-neem / IN align="center" · Mounir El Allouchi · End of contract · } / OUT align="center" · Samuel Bamba · VfL Bochum · Loan return · [https://www.willem-ii.nl/artikel/willem-ii-neemt-a / OUT align="center" · Gijs Besselink · Twente · Loan return / OUT align="center" · Calvin Twigt · Go Ahead Eagles · Loan return / OUT align="center" · Raffael Behounek · Wolfsberger AC · End of contract
 - 최근 경기(ESPN, 최대 28일): 2026-09-11 AZ Alkmaar 1-1 Willem II / 2026-09-15 Ajax Amsterdam 5-1 Willem II / 2026-09-19 Willem II 0-1 Fortuna Sittard / 2026-10-11 FC Utrecht 3-1 Willem II / 2026-10-17 Sparta Rotterdam 3-2 Willem II
 <!-- FACTS:END -->
+<!-- INPUTS:START -->
+## 입력(자동 수집 2026-10-23) — xG·휴식일·라인업·환경(이동거리·고도·날씨)은 이 숫자를 쓴다
+- 10-25 01:45 vs SC캄뷔르: 휴식 ?(ESPN 미제공 리그 — 직접 확인) · 직전 - · xG - · 구장 Koning Willem II Stadion · 이동 192km · 고도 20m(차 +16m) · 9.9℃ 강수2.0mm(96%) 바람29.9km/h · ⚠ 비 2.0mm(96%)
+<!-- INPUTS:END -->
 

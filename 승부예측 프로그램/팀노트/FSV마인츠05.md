@@ -10,7 +10,7 @@
 <!-- FACTS:END -->
 
 <!-- INPUTS:START -->
-## 입력(자동 수집 2026-10-17) — xG·휴식일·라인업은 이 숫자를 쓴다
-- 10-17 22:30 vs 샬케04: 휴식 7.0일 · 직전 10-10 홈 vs Bayer Leverkusen 3-4 패 [german bundesliga] · xG 시즌5경기 xG2.54/xGA1.7 npxGD+0.97 · 최근5 2.54/1.7 (+0.97) · 홈-0.02/원정2.46 · xPts9.3 vs 승점7 · 직전 선발 3-5-2 Alexander Schwolow, Fabio Gruber, Kacper Potulski, Stefan Posch, Nadiem Amiri, Eric Martel, Kaishu Sano, Phillipp Mwene, Anthony Caci, Sheraldo Becker, Phillip Tietz
+## 입력(자동 수집 2026-10-23) — xG·휴식일·라인업·환경(이동거리·고도·날씨)은 이 숫자를 쓴다
+- 10-24 22:30 vs 베르더 브레멘: 휴식 7.0일 · 직전 10-17 원정 vs Schalke 04 1-0 승 [german bundesliga] · xG 시즌6경기 xG2.37/xGA1.48 npxGD+0.99 · 최근5 2.54/1.64 (+1.02) · 홈-0.02/원정2.01 · xPts11.6 vs 승점10 · 직전 선발 3-5-2 Alexander Schwolow, Stefan Posch, Kacper Potulski, Danny da Costa, Lee Jae-Sung, Nadiem Amiri, Kaishu Sano, Phillipp Mwene, Anthony Caci, Phillip Tietz, Sheraldo Becker · 구장 메바 아레나 · 이동 345km · 고도 133m(차 +130m) · 12.2℃ 강수0mm(3%) 바람17.3km/h
 <!-- INPUTS:END -->
 

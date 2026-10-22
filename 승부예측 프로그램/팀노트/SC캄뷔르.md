@@ -8,7 +8,7 @@
 - 최근 경기(ESPN, 최대 28일): 2026-09-06 Telstar 2-2 SC Cambuur / 2026-09-12 SC Cambuur 3-0 NEC Nijmegen / 2026-09-19 ADO Den Haag 1-1 SC Cambuur / 2026-10-11 PEC Zwolle 0-1 SC Cambuur / 2026-10-18 SC Cambuur 2-2 AZ Alkmaar
 <!-- FACTS:END -->
 <!-- INPUTS:START -->
-## 입력(자동 수집 2026-10-18) — xG·휴식일·라인업·환경(이동거리·고도·날씨)은 이 숫자를 쓴다
-- 10-18 21:30 vs AZ알크마르: 휴식 7.0일 · 직전 10-11 원정 vs PEC Zwolle 1-0 승 [ned.1] · xG - · 직전 선발 4-2-3-1 Thijs Jansen, Billy Van Duijl, Ismaël Baouf, Morgan Costarelli, Devid Eugene Bouah, Rafik El Arguioui, Nicky Souren, Ethan Apkakou, Mathieu Maertens, Ilyes Hamache, Fabian Kvam · 구장 ? · 이동 ?(구장 미확인) · 고도 ?m · 날씨 -
+## 입력(자동 수집 2026-10-23) — xG·휴식일·라인업·환경(이동거리·고도·날씨)은 이 숫자를 쓴다
+- 10-25 01:45 vs 빌럼II: 휴식 6.2일(7일 1경기) · 직전 10-18 홈 vs AZ Alkmaar 2-2 무 [ned.1] · xG - · 직전 선발 4-2-3-1 Thijs Jansen, Billy Van Duijl, Ismaël Baouf, Morgan Costarelli, Devid Eugene Bouah, Rafik El Arguioui, Nicky Souren, Mathieu Maertens, Nicolas Binder, Ilyes Hamache, Jason Ceka · 구장 Koning Willem II Stadion · 이동 192km · 고도 20m(차 +16m) · 9.9℃ 강수2.0mm(96%) 바람29.9km/h · ⚠ 비 2.0mm(96%)
 <!-- INPUTS:END -->
 

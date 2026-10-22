@@ -30,8 +30,15 @@
       조치: 깊이=기준선으로 적고 결장·폼 가산으로 기준선을 더 벌리지 않는다.
 
   G5 '의심' 결장으로 만든 갈림  뉴스위험에 '의심'/'추정' & 내−시장 >= +8%p
-      실측(lineup_grade): '확정' 395건 92% 적중 · '의심' 162건 56% · '추정' 15건 47%.
+      실측(lineup_grade): '확정' 451건 91% 적중 · '의심' 168건 55% · '추정' 17건 53%.
       조치: 의심·추정 결장은 확률 보정에 쓰지 않는다(방향을 바꾸는 근거로는 더더욱).
+
+  G6 깊이 미표기            순수 확률은 있는데 깊이 칸이 비었다
+      왜: 깊이는 **학습 분리 스위치**다. 깊이=기준선 행은 calibrate(보정 계수)·hit_model 학습에서
+      빠지고 보정 계수 적용도 받지 않는다. 칸이 비면 모델 자동 채움이 분석 행으로 둔갑해
+      조용히 학습에 섞인다 — 125회 UECL·UEL 18경기가 그렇게 섞였고(10/22 23:00 블록),
+      그 탓에 보정이 순수 61.8 → 75.3 처럼 부풀어 시장 57.8 대비 +17.5%p 과신이 됐다.
+      조치(--fix): 뉴스위험·핵심근거에 '기준선' 표식이 있으면 깊이=기준선, 아니면 사람이 정한다.
 
 사용법
     python3 scripts/analysis_guard.py --round 125          # 검문만
@@ -91,8 +98,28 @@ def check(r):
         out.append(("G4", f"시장 대조 없는 극단 — 시장 확률 없음인데 내 {pt} {p[pt]:.1f}%", True))
     nw = (r.get("뉴스위험") or "")
     if gap is not None and gap >= SUSP_GAP and ("의심" in nw or "추정" in nw):
-        out.append(("G5", f"'의심/추정' 결장으로 만든 과신 (+{gap:.1f}%p) — 의심 56%·추정 47% 적중", False))
+        out.append(("G5", f"'의심/추정' 결장으로 만든 과신 (+{gap:.1f}%p) — 의심 55%·추정 53% 적중", False))
+    if not (r.get("깊이") or "").strip() and _depth_era(r):
+        auto = _looks_baseline(r)
+        tail = " (기준선 표식 있음 → 자동 교정)" if auto else " (심층/가벼움/기준선 중 하나를 적어야 한다)"
+        out.append(("G6", f"깊이 미표기 — 학습 분리 스위치가 비었다{tail}", auto))
     return out
+
+
+DEPTH_SINCE = 124      # 깊이 칸은 2026-10-19(124회)부터 쓴다 — 그 전 행의 빈칸은 교정 대상이 아니다
+
+
+def _depth_era(r):
+    try:
+        return int(str(r.get("회차") or "").strip()) >= DEPTH_SINCE
+    except ValueError:
+        return False      # 승무패NN 등 비숫자 회차는 제외
+
+
+def _looks_baseline(r):
+    """모델 자동 채움(기준선)인지 글자로 판별 — baseline_fill·euro_baseline·soccer_baseline 이 남기는 표식."""
+    blob = " ".join(str(r.get(k) or "") for k in ("뉴스위험", "핵심근거", "비고", "보정메모"))
+    return ("기준선 전용" in blob) or ("기준선만" in blob) or ("기준선 자동" in blob) or ("깊이=기준선" in blob)
 
 
 def cmd_round(a):
@@ -113,7 +140,7 @@ def cmd_round(a):
                 if code == "G1" and r.get("확신도") != "기권":
                     r["확신도"] = "기권"; fixed += 1
                     print("      → 확신도=기권 으로 교정")
-                if code == "G4" and r.get("깊이") != "기준선":
+                if code in ("G4", "G6") and r.get("깊이") != "기준선":
                     r["깊이"] = "기준선"; fixed += 1
                     print("      → 깊이=기준선 으로 교정")
     if a.fix and fixed:

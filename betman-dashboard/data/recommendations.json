@@ -1,5 +1,6 @@
 {
- "current": [
+ "current": [],
+ "past": [
   {
    "round": "125",
    "title": "[도파민] 10-22 09:00 조합",
@@ -26,14 +27,12 @@
    "prob": 0.643,
    "scored": false,
    "stale": false,
-   "started": false,
+   "started": true,
    "hit": null,
    "bought": false,
    "time": "2026-10-22 09:00",
    "n": 1
-  }
- ],
- "past": [
+  },
   {
    "round": "125",
    "title": "[도파민] 10-21 23:00 조합1",

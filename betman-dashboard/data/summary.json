@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-22 13:58",
+ "updated": "2026-10-22 14:58",
  "mode": "가상 추천 중(실투자 없음)",
  "dir_n": 573,
  "dir_rate": 0.5445026178010471,
@@ -11,11 +11,11 @@
  "combos_hit": 6,
  "combo_rate": 0.3,
  "fun_total": 17,
- "fun_scored": 11,
+ "fun_scored": 12,
  "fun_hit": 1,
- "fun_rate": 0.09090909090909091,
- "legs_scored": 84,
- "leg_rate": 0.5238095238095238,
+ "fun_rate": 0.08333333333333333,
+ "legs_scored": 85,
+ "leg_rate": 0.5176470588235295,
  "by_round": {
   "120": {
    "n": 8,

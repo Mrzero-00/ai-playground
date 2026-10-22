@@ -18,6 +18,12 @@ DB = os.path.join(ROOT, "data", "teamdb")
 UA = "Mozilla/5.0 (Macintosh; Intel Mac OS X 14_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0 Safari/537.36"
 SEASON = "2026"
 LEAGUES = {"EPL": "eng.1", "La_liga": "esp.1", "Serie_A": "ita.1", "Bundesliga": "ger.1", "Ligue_1": "fra.1"}
+# Understat 이 다루지 않는 리그 — ESPN 만으로 쌓는다(사용자 지시 2026-10-22, 개선안 3번).
+# 측정 근거: 내 방향 정확도가 시장에 가장 많이 뒤지는 곳이 바로 이 세 리그였다.
+#   잉글랜드 챔피언십 n=37 내 45.9% vs 시장 54.1%(-8.1p) · J1 n=42 47.6% vs 52.4%(-4.8p)
+#   MLS n=44 43.2% vs 45.5%(-2.3p) — 셋이 123경기로 전체의 1/4인데 전부 시장 아래.
+#   공통점은 팀 기록이 없다는 것이다. xG 는 없지만 결과·슈팅·선발은 ESPN 으로 쌓을 수 있다.
+ESPN_ONLY = {"Championship": "eng.2", "J1": "jpn.1", "MLS": "usa.1"}
 MONTHS = ["202608", "202609", "202610", "202611", "202612", "202701", "202702", "202703", "202704", "202705"]
 _last = [0.0]
 
@@ -237,6 +243,14 @@ def cmd_update(a):
         nt, np_ = us_update(lg, a.refresh)
         ne, na = espn_update(code, a.refresh)
         print(f"{lg}/{code}: Understat 팀 {nt}(팀 상세 갱신 {np_}) · ESPN 완료 경기 {ne}(신규 {na})")
+    for lg, code in ESPN_ONLY.items():
+        if a.league and a.league not in (lg, code):
+            continue
+        try:
+            ne, na = espn_update(code, a.refresh)
+            print(f"{lg}/{code}: ESPN 전용 — 완료 경기 {ne}(신규 {na}, xG 없음)")
+        except Exception as e:
+            print(f"{lg} 수집 실패:", e)
     if not a.league:
         try:
             print("K리그:", kleague_update(a.refresh))

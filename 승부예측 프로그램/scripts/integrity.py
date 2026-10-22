@@ -199,7 +199,21 @@ def note_dates(team):
     return d(f), d(i)
 
 
+def news_check(r, severe):
+    """뉴스 확인을 안 한 채 방향을 확정하지 못하게 막는다 (사용자 지시 2026-10-22, 개선안 4번).
+    실측: 뉴스위험 칸을 채운 307경기는 내 58.3% vs 시장 58.0%(+0.3p)로 대등하지만,
+    빈칸인 176경기는 50.6% vs 56.2%로 **5.7%p 뒤진다**. 확인 결과가 '없음'이어도 적게 한다 —
+    빈칸은 '확인했는데 없었다'와 '아예 안 봤다'를 구별하지 못한다."""
+    if (r.get("뉴스위험") or "").strip():
+        return
+    # 방향을 이미 적었는데 뉴스 칸이 비어 있으면 심각
+    has_dir = any((r.get(f"{pre}_{k}") or "") for pre in ("순수", "보정") for k in ("승", "무", "패"))
+    if has_dir:
+        severe.append("뉴스위험 빈칸(확인 안 함 — '없음'이라도 적는다)")
+
+
 def note_checks(r, severe, minor):
+    news_check(r, severe)
     if r.get("종목") != "축구":
         return
     ref = ref_date(r)

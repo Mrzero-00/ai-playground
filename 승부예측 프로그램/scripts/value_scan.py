@@ -30,6 +30,9 @@ PHASES = [  # (이름, 최소 채점 조합 수, 최소 회수율, CLV>0 필요,
     ("소액 실전", 30, 1.20, True, 10000),
     ("검증", 0, 0.0, False, 5000),
 ]
+# 재탐색 판정으로 멈춤 (2026-10-22 08시: roi_search 검증 122~125회 0.91(n35)<1.0, 더 나은 규칙 없음, 가상 2폴더 0/5·CLV -0.059).
+# 다리·조합은 계속 가상 기록(데이터 수집), 금액만 0원. 재탐색에서 검증 1.1+ 규칙이 다시 나오면 None으로 되돌린다.
+HALT = "재탐색 검증 0.91(n35)<1.0 · 가상 2폴더 0/5 · CLV -0.059 — 가상 기록만(0원), 2026-10-22"
 
 
 def ok(r):
@@ -91,6 +94,8 @@ def stats():
 
 def phase():
     n, roi, clv, last30 = stats()
+    if HALT:
+        return ("중지", 0, HALT)
     if last30 is not None and (last30 < 0.95 or (clv is not None and clv <= 0)):
         return ("중지", 0, f"최근 30조합 회수율 {last30:.2f} · CLV {clv if clv is None else round(clv, 3)} — 재검토 전까지 0원")
     for nm, nmin, rmin, need_clv, amt in PHASES:

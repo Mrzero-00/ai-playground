@@ -8,7 +8,7 @@
 - 최근 경기(ESPN, 최대 28일): 2026-09-10 Slavia Prague 2-3 Lens / 2026-10-13 Lens 0-2 Sporting CP
 <!-- FACTS:END -->
 <!-- INPUTS:START -->
-## 입력(자동 수집 2026-10-21) — xG·휴식일·라인업·환경(이동거리·고도·날씨)은 이 숫자를 쓴다
-- 10-22 04:00 vs 클뤼프 브뤼허: 휴식 8.1일 · 직전 10-14 홈 vs Sporting CP 0-2 패 [uefa.champions] · xG 시즌7경기 xG2.25/xGA1.54 npxGD+0.49 · 최근5 1.54/1.45 (+0.09) · 홈1.03/원정0.09 · xPts12.2 vs 승점10 · 직전 선발 3-4-2-1 Robin Risser, Samson Baidoo, Kyllian Antonio, Pierre Ganiou, Amadou Haidara, Michaël Cuisance, Matthieu Udol, Saud Abdulhamid, Franjo Ivanovic, Junior Kadile, Florian Thauvin · 구장 얀 브레이덜 스타디온 · 이동 88km · 고도 10m(차 -32m) · 9.3℃ 강수1.3mm(25%) 바람20.2km/h
+## 입력(자동 수집 2026-10-23) — xG·휴식일·라인업·환경(이동거리·고도·날씨)은 이 숫자를 쓴다
+- 10-25 03:45 vs 파리FC: 휴식 3.0일(7일 1경기) · 직전 10-22 원정 vs Club Brugge 0-3 패 [uefa.champions] · xG 시즌7경기 xG2.25/xGA1.54 npxGD+0.49 · 최근5 1.54/1.45 (+0.09) · 홈1.03/원정0.09 · xPts12.2 vs 승점10 · 직전 선발 3-4-2-1 Robin Risser, Samson Baidoo, Matthieu Udol, Ruben Aguilar, Amadou Haidara, Michaël Cuisance, Michal Skoras, Saud Abdulhamid, Franjo Ivanovic, Thorgan Hazard, Junior Kadile · 구장 스타드 펠릭스 볼라르트 · 이동 183km · 고도 42m(차 -15m) · 10.4℃ 강수5.0mm(100%) 바람37.4km/h · ⚠ 비 5.0mm(100%), 강풍 37.4km/h
 <!-- INPUTS:END -->
 

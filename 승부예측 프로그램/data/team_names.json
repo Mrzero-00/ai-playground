@@ -282,7 +282,10 @@
  "도르트문트": "Borussia Dortmund",
  "베르더 브레멘": "Bremen",
  "RC랑스": "Lens",
- "올랭피크 리옹": "Olympique Lyonnais",
+ "올랭피크 리옹": [
+  "Olympique Lyonnais",
+  "Lyon"
+ ],
  "웨스트햄 유나이티드": "West Ham United",
  "퀸즈파크 레인저스": "Queens Park Rangers",
  "말라가": "Malaga",
@@ -473,7 +476,10 @@
  "칼리아리": "Cagliari",
  "유벤투스": "Juventus FC",
  "트루아AC": "Troyes",
- "올랭피크드 마르세유": "Olympique de Marseille",
+ "올랭피크드 마르세유": [
+  "Olympique de Marseille",
+  "Marseille"
+ ],
  "라싱 산탄데르": "Racing Santander",
  "발렌시아": "Valencia",
  "LA 갤럭시": "LA Galaxy",
@@ -515,7 +521,10 @@
  "SK브란": "SK Brann",
  "루아얄 위니옹 생질루아즈": "Royale Union Saint-Gilloise",
  "하포엘 베르셰바": "Hapoel Be'er Sheva",
- "잘츠부르크": "FC Red Bull Salzburg",
+ "잘츠부르크": [
+  "FC Red Bull Salzburg",
+  "RB Salzburg"
+ ],
  "스파르타 프라하": "Sparta Prague",
  "릴레스트룀SK": "Lillestrom SK",
  "레흐 포즈난": "Lech Poznan",
@@ -535,14 +544,20 @@
  "베식타시": "Besiktas JK",
  "레프스키 소피아": "Levski Sofia",
  "KAA헨트": "KAA Gent",
- "AGF오르후스": "AGF Aarhus",
+ "AGF오르후스": [
+  "AGF Aarhus",
+  "AGF"
+ ],
  "파나티나이코스": "Panathinaikos",
  "FK보라츠 바냐루카": "FK Borac Banja Luka",
  "루가노": "FC Lugano",
  "FK츠르베나 즈베즈다": "Red Star Belgrade",
  "KuPS쿠오피오": "KuPS",
  "트라브존스포르": "Trabzonspor",
- "우니베르시타테아 크라이오바": "CS Universitatea Craiova",
+ "우니베르시타테아 크라이오바": [
+  "CS Universitatea Craiova",
+  "CSU Craiova"
+ ],
  "리가FC": "Riga FC",
  "카이라트 알마티": "FC Kairat",
  "HNK하이두크 스플리트": "HNK Hajduk Split",

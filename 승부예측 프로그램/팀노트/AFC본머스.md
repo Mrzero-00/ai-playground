@@ -1,11 +1,11 @@
 # AFC 본머스 (잉글랜드 프리미어리그)
 
 <!-- FACTS:START -->
-## 팩트시트 (자동 수집 2026-10-18) — 조사 전 반드시 읽고, 아래 사실과 다른 뉴스 요약은 '미확인'으로 둔다
+## 팩트시트 (자동 수집 2026-10-22) — 조사 전 반드시 읽고, 아래 사실과 다른 뉴스 요약은 '미확인'으로 둔다
 - 출처: 위키 '2026–27 AFC Bournemouth season'(season), ESPN 있음
 - 감독: Marco Rose
-- 리그 순위: 19위 6경기 0승3무3패 GD-6 승점3 (AFC Bournemouth)
-- 최근 경기(ESPN, 최대 28일): 2026-09-05 Newcastle United 2-2 AFC Bournemouth / 2026-09-12 AFC Bournemouth 2-2 Brentford / 2026-09-20 AFC Bournemouth 0-1 Liverpool / 2026-10-10 Chelsea 5-1 AFC Bournemouth
+- 리그 순위: 15위 7경기 1승3무3패 GD-4 승점6 (AFC Bournemouth)
+- 최근 경기(ESPN, 최대 28일): 2026-09-12 AFC Bournemouth 2-2 Brentford / 2026-09-20 AFC Bournemouth 0-1 Liverpool / 2026-10-10 Chelsea 5-1 AFC Bournemouth / 2026-10-18 AFC Bournemouth 2-0 Sunderland / 2026-09-17 Real Sociedad 1-2 AFC Bournemouth / 2026-10-15 AFC Bournemouth 3-0 SK Sturm Graz
 <!-- FACTS:END -->
 <!-- INPUTS:START -->
 ## 입력(자동 수집 2026-10-21) — xG·휴식일·라인업·환경(이동거리·고도·날씨)은 이 숫자를 쓴다

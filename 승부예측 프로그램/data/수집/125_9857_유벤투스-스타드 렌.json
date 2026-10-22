@@ -1,0 +1,60 @@
+{
+  "번호": 9857,
+  "홈": "유벤투스",
+  "원정": "스타드 렌",
+  "수집시각": "2026-10-22 22:20 KST",
+  "결장": [
+    {"팀":"유벤투스","선수":"Francisco Conceição","포지션":"MF/FW","이번시즌_선발/경기":"63분/경기 출전(주전급)","득점·도움":"1.6xG+0.6xA(teamdb 핵심선수 2위)","사유":"어깨 부상 회복 중","상태":"확정","복귀예정":"미상","대체선수":"Nico González 또는 Kerim Alajbegovic","출처":["https://www.goal.com/en/news/juventus-rennes-uefa-europa-league-preview/bltfb980f9a5591ee68","https://www.corrieredellosport.it/news/calcio/europa-league/2026/10/22-152064015/juve-rennes_i_convocati_di_spalletti_per_la_sfida_di_europa_league_quattro_assenti_un_rientro"],"날짜":"2026-10-22"},
+    {"팀":"유벤투스","선수":"Kamil Grabara","포지션":"GK(백업)","이번시즌_선발/경기":"미상(백업 GK)","득점·도움":"-","사유":"부상(세부 미상)","상태":"확정","복귀예정":"미상","대체선수":"해당없음(주전 Vicario 영향 없음)","출처":["https://khelnow.com/football/juventus-vs-rennes-preview-europa-league-202610"],"날짜":"2026-10-22"},
+    {"팀":"유벤투스","선수":"Khéphren Thuram","포지션":"MF","이번시즌_선발/경기":"미상 — 시즌 중 결장 지속 보도(이전 팀노트 10/14 조사에서도 미드필드 위기 언급)","득점·도움":"미상","사유":"부상(세부 미상)","상태":"확정","복귀예정":"미상","대체선수":"Douglas Luiz / Pape Matar Sarr","출처":["https://www.corrieredellosport.it/news/calcio/europa-league/2026/10/22-152064015/juve-rennes_i_convocati_di_spalletti_per_la_sfida_di_europa_league_quattro_assenti_un_rientro"],"날짜":"2026-10-22"},
+    {"팀":"유벤투스","선수":"Manuel Locatelli","포지션":"MF","이번시즌_선발/경기":"시즌 내내 결장 지속(9월 초부터 약 3개월 결장 전망 — 이미 시즌 내내 빠져있던 선수, 반영된 정보)","득점·도움":"미상","사유":"부상","상태":"확정","복귀예정":"미상(약 3개월 전망, 9월초 보도 기준)","대체선수":"Douglas Luiz","출처":["https://www.goal.com/it/notizie/formazioni-juventus-rennes-le-ultime-sulla-partita-e-dove-vederla-in-tv-e-streaming/blt553adfa887e18895"],"날짜":"2026-10-22"},
+    {"팀":"유벤투스","선수":"Jeff Ekhator","포지션":"FW","이번시즌_선발/경기":"신입(여름 이적) 저활용","득점·도움":"미상","사유":"부상(세부 미상)","상태":"확정","복귀예정":"미상","대체선수":"해당없음(로테이션 자원)","출처":["https://www.goal.com/en/news/juventus-rennes-uefa-europa-league-preview/bltfb980f9a5591ee68"],"날짜":"2026-10-22"},
+    {"팀":"유벤투스","선수":"Kenan Yıldız","포지션":"FW/MF","이번시즌_선발/경기":"시즌 내내 결장 지속(8월 말부터 — 이미 시즌 내내 빠져있던 선수, 반영된 정보)","득점·도움":"미상","사유":"부상","상태":"확정","복귀예정":"미상","대체선수":"Nico González / Kolo Muani","출처":["https://www.tuttosport.com/news/calcio/serie-a/juventus/2026/10/21-152039528/allenamento_juve_partitella_e_doppia_difesa_cosa_dice_il_campo_prima_del_rennes"],"날짜":"2026-10-22"},
+    {"팀":"유벤투스","선수":"Edon Zhegrova","포지션":"MF/FW","이번시즌_선발/경기":"22분/경기(teamdb, 로테이션 자원)","득점·도움":"0.7xG+1.0xA","사유":"부상이 아니라 시즌 초 UEFA 유로파리그 등록 명단에서 제외됨(행정적 결장, 유로파리그 전 경기 불가)","상태":"확정","복귀예정":"해당없음(이번 시즌 유로파리그 전체 결장)","대체선수":"해당없음","출처":["https://www.goal.com/en/news/juventus-rennes-uefa-europa-league-preview/bltfb980f9a5591ee68"],"날짜":"2026-10-22"},
+    {"팀":"스타드 렌","선수":"Estéban Lepaul","포지션":"FW","이번시즌_선발/경기":"리그1 득점 1위(7골), 주전 최전방","득점·도움":"리그1 7골(시즌 최다 득점자)","사유":"10/18 파리FC전(4-3 패)에서 왼쪽 발목 중상 — 경기 중 패널티킥 해트트릭(29',74',88')을 기록했음에도 부상으로 이탈, 신규 결장(갈림 근거로 유효)","상태":"확정","복귀예정":"이번 경기 결장, 복귀 시점 미상","대체선수":"Mahdi Camara / Ibrahim Soumaré 또는 Amine Dia 투톱 변형","출처":["https://www.butfootballclub.fr/1706356-pronostic-juventus-stade-rennais-22-10-prono-cotes-et-compos/","https://www.eurofootnews.net/le-paris-fc-simpose-au-terme-dun-scenario-completement-fou-face-a-rennes-en-ligue-1-4-3/18/10/2026/"],"날짜":"2026-10-22"}
+  ],
+  "예상XI": {
+    "홈": {"포메이션":"3-4-2-1(일부 보도 4-2-3-1 변형)","명단":["Guglielmo Vicario","Pierre Kalulu","Federico Gatti/Bremer","Lloyd Kelly","Zeki Çelik","Weston McKennie","Douglas Luiz","Andrea Cambiaso","Nico González","Randal Kolo Muani","Nick Woltemade"],"근거":"이탈리아·프랑스 매체 공통(스팔레티 감독, 콜로 무아니-볼테마데 투톱 공식화)","출처":["https://www.corrieredellosport.it/news/calcio/europa-league/2026/10/22-152064015/juve-rennes_i_convocati_di_spalletti_per_la_sfida_di_europa_league_quattro_assenti_un_rientro","https://www.goal.com/it/notizie/formazioni-juventus-rennes-le-ultime-sulla-partita-e-dove-vederla-in-tv-e-streaming/blt553adfa887e18895"],"날짜":"2026-10-22"},
+    "원정": {"포메이션":"4-3-3(또는 4-1-2-3)","명단":["Brice Samba","Jeremy/Przemyslaw Reynolds-Frankowski","Charlie Cresswell","Abdelhamid Aït Boudlal","Mahamadou Nagida","Valentin Rongier","Mahdi Camara","Lorenz Thomasson/Sebastian Szymański","Ludovic Blas","Mousa Al-Tamari","Amine Dia"],"근거":"프랑스 매체 공통(르폴 결장으로 디아·알타마리·블라스 조합 전진), 소스마다 측면 수비(레이놀즈 vs 프랑코프스키) 엇갈림 — 미확정","출처":["https://www.butfootballclub.fr/1706356-pronostic-juventus-stade-rennais-22-10-prono-cotes-et-compos/","https://www.goal.com/en/news/juventus-rennes-uefa-europa-league-preview/bltfb980f9a5591ee68"],"날짜":"2026-10-22"}
+  },
+  "최근5경기": {
+    "홈": [
+      {"날짜":"2026-09-13","상대":"Sassuolo(원정)","결과":"패 2-3","비고":"xG 1.18:0.96"},
+      {"날짜":"2026-09-20","상대":"Atalanta(홈)","결과":"승 2-0","비고":"xG 1.92:0.49"},
+      {"날짜":"2026-10-11","상대":"Cagliari(원정)","결과":"무 1-1","비고":"xG 2.38:0.81, 결장 7명 상태서 선방"},
+      {"날짜":"2026-10-16","상대":"Celta Vigo(원정, UEL)","결과":"승 2-1","비고":"유로파리그 2라운드"},
+      {"날짜":"2026-10-18","상대":"Lazio(홈)","결과":"패 0-3","비고":"xG 0.60:0.82, 최근 공격력 저조·직전 경기"}
+    ],
+    "원정": [
+      {"날짜":"2026-09-19","상대":"Lyon(원정)","결과":"패 0-4","비고":""},
+      {"날짜":"2026-10-11","상대":"Auxerre(홈)","결과":"승 4-1","비고":"오세르 수비진 5명 결장 상대"},
+      {"날짜":"2026-10-16","상대":"OFI Crete(홈, UEL)","결과":"승 2-1","비고":"유로파리그 2라운드"},
+      {"날짜":"2026-10-18","상대":"Paris FC(원정)","결과":"패 3-4","비고":"Lepaul 페널티킥 해트트릭(29',74',88') 후 부상 이탈, 추가시간 실점으로 역전패, 직전 경기"}
+    ]
+  },
+  "일정피로": {
+    "홈": {"직전공식전":"2026-10-18 홈 0-3 Lazio(세리에A)","최근7일경기수":1,"이동거리":"홈경기(이동 없음)"},
+    "원정": {"직전공식전":"2026-10-18 원정 3-4 Paris FC(리그1)","최근7일경기수":1,"이동거리":"약 788km(렌→토리노)"}
+  },
+  "동기": {
+    "홈": "유로파리그 리그페이즈 2경기 2승(6점) 1위 — 3연승으로 조기 진출 확정 노림. 세리에A는 직전 라치오전 0-3 완패로 분위기 반전 필요, 10/25 레체 원정 앞둠.",
+    "원정": "유로파리그 1승1무(4점) 중위권 — 이번 경기 승점 추가 시 진출 가능성 상승. 리그1은 4위권 다툼 중이나 직전 파리FC전 충격패로 에이스 르폴 이탈까지 겹쳐 사기 영향 우려.",
+    "출처": ["https://en.wikipedia.org/wiki/2026%E2%80%9327_UEFA_Europa_League_league_phase","https://www.eurofootnews.net/le-paris-fc-simpose-au-terme-dun-scenario-completement-fou-face-a-rennes-en-ligue-1-4-3/18/10/2026/"]
+  },
+  "환경": {
+    "경기장": "Allianz Stadium(유벤투스 스타디움), 토리노",
+    "날씨": "17.0℃ 강수 0mm(확률 0%), 바람 3.9km/h — 맑음",
+    "심판": "Morten Krogh(덴마크). 부심 Steffen Bramsen·Victor Skytte(덴마크), 4th Jacob Karlsen, VAR Benjamin Brand(독일), AVAR Stuart Attwell(잉글랜드). 두 팀 모두 상대한 적 없음.",
+    "출처": ["https://www.ansa.it/sito/notizie/sport/calcio/2026/10/20/europa-league-il-danese-krogh-arbitra-la-juve-greco-fotias-per-il-milan_6d9a7224-d9a6-4840-808e-c1f66ed95bfd.html","https://www.juvenews.eu/news/arbitro-juventus-rennes-morten-krogh/"]
+  },
+  "기타사실": [
+    {"내용":"유벤투스는 결장 6명(콘세이상·그라바라·투람·로카텔리·에카토르·이을드즈) + 제그로바 유로파리그 명단 제외로 사실상 7명 공백이나, 핵심 공격진(콜로 무아니·볼테마데·니코 곤살레스)은 전원 가용.","출처":["https://www.corrieredellosport.it/news/calcio/europa-league/2026/10/22-152064015/juve-rennes_i_convocati_di_spalletti_per_la_sfida_di_europa_league_quattro_assenti_un_rientro"],"날짜":"2026-10-22"},
+    {"내용":"스타드 렌 르폴은 10/18 파리FC전 부상 이전까지 리그1 득점 단독 1위(7골)였음 — 이번 결장은 시즌 내내 결장이 아닌 신규 이탈이라 시장에 아직 충분히 반영되지 않았을 가능성.","출처":["https://www.butfootballclub.fr/1706356-pronostic-juventus-stade-rennais-22-10-prono-cotes-et-compos/"],"날짜":"2026-10-22"},
+    {"내용":"경기는 2026-10-22(현지) 18:45 CEST 킥오프 = 2026-10-23 01:45 KST.","출처":["https://www.befoot.net/juventus-rennes-compos-probables-chaine-tv-heure/"],"날짜":"2026-10-22"}
+  ],
+  "미확인": [
+    "스타드 렌 예상 XI의 좌측 수비수(Reynolds vs Frankowski) — 소스마다 엇갈림",
+    "유벤투스 Thuram·Ekhator·Grabara 부상 세부 부위/복귀 시점",
+    "경기장 실제 좌표 기반 날씨(위 환경 데이터는 구단 좌표 기준 자동 수집치, 팀노트 INPUTS 원본)"
+  ]
+}

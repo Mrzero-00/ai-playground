@@ -1,0 +1,75 @@
+{
+  "번호": 9905,
+  "홈": "AS모나코",
+  "원정": "SC프라이부르크",
+  "수집시각": "2026-10-22 22:25 KST",
+  "결장": [
+    {"팀":"모나코","선수":"Eric Dier","포지션":"DF","이번시즌_선발/경기":"주전급(직전 선발 라인업 포함 이력)","득점·도움":"미상","사유":"대퇴부(허벅지) 부상","상태":"확정","복귀예정":"11월 A매치 브레이크 전 추가 결장 가능성 보도","대체선수":"Christian Mawissa/Sadibou Sané","출처":["https://sports.yahoo.com/articles/monaco-eric-dier-stanis-idumbo-125200616.html"],"날짜":"2026-10-22"},
+    {"팀":"모나코","선수":"Stanis Idumbo","포지션":"MF/FW","이번시즌_선발/경기":"주전급(xG+xA 비중 9%, 73분/경기)","득점·도움":"미상","사유":"등 부상","상태":"확정","복귀예정":"미상","대체선수":"Edan Diop/Mamadou Coulibaly","출처":["https://sports.yahoo.com/articles/monaco-eric-dier-stanis-idumbo-125200616.html"],"날짜":"2026-10-22"},
+    {"팀":"모나코","선수":"Folarin Balogun","포지션":"FW","이번시즌_선발/경기":"미상(유럽대항전 등록 명단 제외)","득점·도움":"-","사유":"UEFA 대회 등록 명단에서 제외 — 부상 아닌 행정적 결장","상태":"확정","복귀예정":"이번 대회 전체 결장(등록 명단 변경 전까지)","대체선수":"Paris Brunner","출처":["https://sports.yahoo.com/articles/monaco-predicted-xi-v-freiburg-082600286.html"],"날짜":"2026-10-22"},
+    {"팀":"모나코","선수":"Paris Brunner","포지션":"FW","이번시즌_선발/경기":"주전급(xG+xA 비중 23%, 79분/경기) — 참고: 결장 아님, 복귀 선수","득점·도움":"미상","사유":"리그1 6라운드 출전정지였으나 이미 소화, 이번 경기 복귀 예정","상태":"확정(복귀)","복귀예정":"이번 경기 선발 예상","대체선수":"-","출처":["https://sports.yahoo.com/articles/monaco-predicted-xi-v-freiburg-082600286.html"],"날짜":"2026-10-22"},
+    {"팀":"프라이부르크","선수":"Philipp Lienhart","포지션":"DF(CB)","이번시즌_선발/경기":"주전급","득점·도움":"미상","사유":"복부 근육 부상(일부 매체는 컨디션 관리 차원 표현도 혼재)","상태":"확정","복귀예정":"수주 소요 보도","대체선수":"Max Rosenfelder","출처":["https://www.wochenblatt-reporter.de/c-sport/ausfall-beim-sc-freiburg-lienhart-fehlt-in-monaco_a916541","https://www.wnoz.de/nachrichten/baden-wuerttemberg-und-hessen/sc-freiburg-muss-in-monaco-auf-lienhart-verzichten-1147367.html"],"날짜":"2026-10-22"},
+    {"팀":"프라이부르크","선수":"Florent Muslija","포지션":"MF","이번시즌_선발/경기":"시즌 아웃급(십자인대 재활 중)","득점·도움":"-","사유":"십자인대 부상 재활 지속","상태":"확정","복귀예정":"미상(장기)","대체선수":"-","출처":["https://sports.yahoo.com/articles/preview-monaco-vs-sc-freiburg-195500446.html"],"날짜":"2026-10-22"},
+    {"팀":"프라이부르크","선수":"Berkay Yılmaz","포지션":"미상","이번시즌_선발/경기":"로테이션","득점·도움":"미상","사유":"치과 수술 후 결장","상태":"확정","복귀예정":"단기 내 복귀 가능","대체선수":"-","출처":["https://sports.yahoo.com/articles/preview-monaco-vs-sc-freiburg-195500446.html"],"날짜":"2026-10-22"},
+    {"팀":"프라이부르크","선수":"Bruno Ogbus","포지션":"미상","이번시즌_선발/경기":"로테이션/유스 자원 추정","득점·도움":"미상","사유":"근육 문제로 결장 예상","상태":"의심","복귀예정":"미상","대체선수":"-","출처":["https://sports.yahoo.com/articles/preview-monaco-vs-sc-freiburg-195500446.html"],"날짜":"2026-10-22"}
+  ],
+  "예상XI": {
+    "홈": {
+      "포메이션": "4-2-3-1 계열(매체 간 포지션 배열 차이 있음)",
+      "명단_A(Yahoo 기사1)": ["Hradecky","Mawissa","Salisu","Sané","Teze","Camara","Diop","Detourbet","Golovin","Coulibaly","Brunner"],
+      "명단_B(Yahoo 기사2)": ["Hradecky","Teze","Sané","Salisu","Mawissa","Camara","Zakaria","Minamino","Golovin","Fati","Brunner"],
+      "근거": "우측 측면 자원(Detourbet/Coulibaly/Abline/Fati/Minamino) 경쟁 중이라 매체마다 예상이 갈림. 공통점: GK Hradecky, 중앙수비 Salisu+Sané(+Mawissa/Teze), 중원 Camara 포함, 최전방 Brunner(출전정지 소화 후 복귀).",
+      "출처": ["https://sports.yahoo.com/articles/monaco-predicted-xi-v-freiburg-082600286.html","https://sports.yahoo.com/articles/monaco-eric-dier-stanis-idumbo-125200616.html"],
+      "날짜": "2026-10-22"
+    },
+    "원정": {
+      "포메이션": "4-2-3-1",
+      "명단": ["Backhaus","Kübler","Ginter","Rosenfelder","Günter","Eggestein","Osterhage","Irié","Suzuki","Grifo","Höler"],
+      "근거": "리엔하르트 결장으로 로젠펠더가 중앙수비 대체. 나머지는 직전 UECL 선발(야블로네츠전)과 유사한 축 유지.",
+      "출처": ["https://sports.yahoo.com/articles/monaco-eric-dier-stanis-idumbo-125200616.html"],
+      "날짜": "2026-10-22"
+    }
+  },
+  "최근5경기": {
+    "홈": [
+      {"날짜":"2026-09-12","상대":"Strasbourg(원정)","결과":"1-1 무","비고":"ESPN/Understat"},
+      {"날짜":"2026-09-18","상대":"Lens(홈)","결과":"2-1 승","비고":"ESPN/Understat"},
+      {"날짜":"2026-10-10","상대":"Toulouse(홈)","결과":"2-2 무","비고":"ESPN/Understat"},
+      {"날짜":"2026-10-16","상대":"CSKA Sofia(원정, UECL)","결과":"2-1 승","비고":"UECL MD1, 리그1 외 유일한 무패 유럽 경기"},
+      {"날짜":"2026-10-18","상대":"Lorient(원정)","결과":"0-1 패","비고":"리그1, xG 0.49:1.75로 내용상 열세"}
+    ],
+    "원정": [
+      {"날짜":"2026-09-12","상대":"Borussia Mönchengladbach(홈)","결과":"5-0 승","비고":"ESPN/Understat"},
+      {"날짜":"2026-09-19","상대":"Eintracht Frankfurt(원정)","결과":"2-2 무","비고":"ESPN/Understat, xG 2.93:2.08로 내용상 우세했으나 무승부"},
+      {"날짜":"2026-10-11","상대":"Schalke 04(홈)","결과":"2-1 승","비고":"ESPN/Understat"},
+      {"날짜":"2026-10-16","상대":"Jablonec(홈, UECL)","결과":"3-2 승","비고":"UECL MD1"},
+      {"날짜":"2026-10-18","상대":"Bayer Leverkusen(원정)","결과":"1-2 패","비고":"분데스리가, xG 1.21:1.85"}
+    ]
+  },
+  "일정피로": {
+    "홈": {"직전공식전":"2026-10-18 원정 Lorient 0-1 패(리그1) — teamdb 자동입력은 10-16 원정 CSKA Sofia 2-1 승 기준 휴식 7.1일로 계산(국내리그 미반영 가능성)","최근7일경기수":2,"이동거리":"홈 경기(모나코 스타드 루이 되)"},
+    "원정": {"직전공식전":"2026-10-18 원정 Bayer Leverkusen 1-2 패(분데스리가) — teamdb 자동입력은 10-16 홈 Jablonec 3-2 승 기준 휴식 7.0일로 계산(국내리그 미반영 가능성)","최근7일경기수":2,"이동거리":"프라이부르크→모나코 약 475km(teamdb 자동계산)"}
+  },
+  "동기": {
+    "홈": "UECL 리그페이즈 1라운드 CSKA 소피아 원정 2-1 승으로 3점. 리그1은 팀노트 기준 5위(최근 10-18 로리앙 패배로 순위 변동 가능, 재확인 필요). 감독 필리프 루이스 체제, 결장진 일부 복귀(앙수 파티·테제·수베이르·자카리아는 A매치 기간 중 복귀 보도) — 안드레이 지에르·파리 브루너는 정상 가동.",
+    "원정": "UECL 1라운드 야블로네츠 홈 3-2 승으로 3점. 분데스리가 3위(4승1무1패, 13점)로 상위권 유지. 감독 율리안 슈스터 체제. 경기 이후(10월 말) 리그 선두 바이에른 뮌헨과의 빅매치가 예정돼 있어 로테이션 가능성 거론(단, 정확한 날짜·연속성은 추가 확인 필요).",
+    "출처": ["https://www.ski-nordique.net/ligue-conference-20262027-resultats-et-classements-apres-j1-monaco-demarre-bien.6755128-581149.html","https://www.ligainsider.de/bundesliga/verletzte-und-gesperrte-spieler/"]
+  },
+  "환경": {
+    "경기장": "Stade Louis II, 모나코",
+    "날씨": "자동수집(teamdb INPUTS) 약 18.3℃, 강수 0mm(0%), 바람 11.3km/h",
+    "심판": "Samuel Barrott(잉글랜드) — 67경기 평균 경기당 카드 4.3장",
+    "출처": ["https://tips.gg/article/monaco-vs-freiburg-22-10-2026/"]
+  },
+  "기타사실": [
+    {"내용":"모나코는 프라이부르크전 이후 10/25(일) 리그1 릴 OSC와 홈(스타드 루이 되) 경기가 예정돼 있음.","출처":["https://www.asmonaco.com/fr/news/le-planning-des-rouge-et-blanc-avant-les-receptions-de-fribourg-et-lille"],"날짜":"2026-10-22"},
+    {"내용":"경기 시각은 현지(모나코) 기준 21:00(KST 04:00), Stade Louis-II에서 진행.","출처":["https://www.goal.com/en-us/news/watch-monaco-v-freiburg-live-stream-online-tv-channel/blta516002dee45b7f6"],"날짜":"2026-10-22"}
+  ],
+  "미확인": [
+    "모나코 예상 선발 중 우측 측면 자원(Detourbet/Coulibaly/Abline/Fati/Minamino) 최종 확정 안 됨 — 매체 간 불일치",
+    "모나코 현재 리그1 순위가 3위(팀노트 FACTS, 10/18 이전 기준)인지 5위(teamdb, 10/22 기준)인지 — 10/18 로리앙 패배 반영 여부 확인 필요",
+    "프라이부르크 Bruno Ogbus 소속(1군/유스)·포지션 확인 못함",
+    "프라이부르크의 '바이에른전이 임박했다'는 로테이션 동기가 이번 주말 경기인지 추후 경기인지 날짜 특정 못함",
+    "두 팀 모두 teamdb 자동 휴식일(7.0~7.1일)이 UECL 기준이며, 실제로는 10/18 국내리그 경기가 더 최근이라 실제 휴식은 더 짧을 가능성 — 재확인 필요"
+  ]
+}

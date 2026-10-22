@@ -1,0 +1,44 @@
+{
+  "번호": 9823, "홈": "파포스FC", "원정": "리가FC",
+  "수집시각": "2026-10-22 22:23 KST",
+  "결장": [
+    {"팀":"파포스FC","선수":"미상","포지션":"미상","이번시즌_선발/경기":"미상","득점·도움":"미상","사유":"구체적 결장·부상 보도 확인 안 됨","상태":"의심","복귀예정":"미상","대체선수":"미상","출처":[],"날짜":"2026-10-22"},
+    {"팀":"리가FC","선수":"미상","포지션":"미상","이번시즌_선발/경기":"미상","득점·도움":"미상","사유":"구체적 결장·부상 보도 확인 안 됨","상태":"의심","복귀예정":"미상","대체선수":"미상","출처":[],"날짜":"2026-10-22"}
+  ],
+  "예상XI": {
+    "홈": {"포메이션":"4-3-3(직전 선발 기준)","명단":["Radoslaw Majecki","David Luiz","Samy Mmaee","Nicholas Ioannou","Bruno","Ivan Sunjic","Pêpê","Vlad Dragomir","Lelê","Gabriel Teixeira","Domingos Quina"],"근거":"teamdb 직전(10-16 Atalanta전) 선발, 이번 경기 예상 명단은 별도 확인 안 됨","출처":[],"날짜":"2026-10-21"},
+    "원정": {"포메이션":"4-2-3-1(직전 선발 기준)","명단":["Kenan Piric","Karl Wassom","Baba Musah","Raivis Andris Jurkovskis","Maksims Tonisevs","Salah-Eddine Oulad","Iago Siqueira","Ahmed Ankrah","Muhammed Badamosi","Raki Aouani","Meissa Diop"],"근거":"teamdb 직전(10-16 Kairat전) 선발","출처":[],"날짜":"2026-10-21"}
+  },
+  "최근5경기": {
+    "홈": [
+      {"날짜":"2026-10-15","상대":"Atalanta(원정, UECL)","결과":"1-3 패","비고":"UECL 2차전"},
+      {"날짜":"미상(합산)","상대":"키프로스 1부 리그 5경기","결과":"최근 5경기 중 2승 (betmines 집계, 세부 미확인)","비고":"컨퍼런스리그 최근 11경기 중 클린시트 1회뿐 — 수비 불안정"}
+    ],
+    "원정": [
+      {"날짜":"2026-10-15","상대":"Kairat Almaty(홈, UECL)","결과":"1-1 무","비고":"UECL 2차전"},
+      {"날짜":"미상(합산)","상대":"라트비아 리그 5경기","결과":"최근 5경기 무패(4승1무), 원정 최근 4연승·3클린시트","비고":"betmines/UEFA 프리뷰 집계"}
+    ]
+  },
+  "일정피로": {
+    "홈": {"직전공식전":"2026-10-16 원정 Atalanta 1-3 패(UECL)","최근7일경기수":1,"이동거리":"미상"},
+    "원정": {"직전공식전":"2026-10-16 홈 Kairat Almaty 1-1 무(UECL)","최근7일경기수":1,"이동거리":"라트비아→키프로스 장거리"}
+  },
+  "동기": {"홈":"UECL 리그페이즈 2경기 성적 부진, 최근 11경기 중 1클린시트로 수비 이슈. 키프로스 자국리그 순위는 팀노트 FACTS '32위 1경기'로 되어 있으나 이는 시즌 초 스테일 데이터로 추정(실제 최신 순위 미확인).","원정":"UECL 원정 최근 4연승·3클린시트 행진 중, 역사적으로 처음 키프로스 원정 — '역사 도전' 서사(UEFA 공식 프리뷰 표현). 라트비아 리그 순위 '21위 1경기'도 팀노트상 스테일 데이터로 추정.","출처":["https://www.uefa.com/uefaconferenceleague/clubs/2609532--pafos/matches/","https://betmines.com/match-preview/pafos-fc-vs-riga-prediction-match-preview-and-analysis-europa-conference-league-22-10-2026"]},
+  "환경": {
+    "경기장":"파포스 홈 공식 구장은 Stadio Stelios Kyriakides(파포스)이나, UEFA 기준 미달로 유럽대항전은 Alphamega Stadium(리마솔 추정, 수용 10,830)에서 개최 가능성 — 이번 경기 실제 개최 구장 확정 못함",
+    "잔디":"미상",
+    "날씨":"23.8℃, 강수 0mm(0%), 바람 7.0km/h (teamdb 10-21 수집, 좌표가 Stelios Kyriakides 기준일 수 있어 실제 개최구장과 다를 가능성 있음)",
+    "심판":"미상",
+    "출처":["https://en.wikipedia.org/wiki/Stelios_Kyriakides_Stadium"]
+  },
+  "기타사실": [
+    {"내용":"파포스 키 플레이어 Anderson Silva, 최근 2경기 연속 유럽대항전 공격포인트.","출처":["https://betmines.com/match-preview/pafos-fc-vs-riga-prediction-match-preview-and-analysis-europa-conference-league-22-10-2026"],"날짜":"2026-10-22"},
+    {"내용":"리가FC 키플레이어 Iago Siqueira 주말 득점, 최근 6골 중 5골이 후반전.","출처":["https://betmines.com/match-preview/pafos-fc-vs-riga-prediction-match-preview-and-analysis-europa-conference-league-22-10-2026"],"날짜":"2026-10-22"}
+  ],
+  "미확인": [
+    "양팀 결장·부상 명단",
+    "실제 개최 구장(Stelios Kyriakides vs Alphamega)",
+    "양국 자국리그 최신 순위(팀노트 FACTS가 시즌 초 스테일 값으로 의심됨)",
+    "심판 배정"
+  ]
+}

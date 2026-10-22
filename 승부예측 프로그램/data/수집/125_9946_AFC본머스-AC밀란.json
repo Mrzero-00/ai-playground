@@ -1,0 +1,76 @@
+{
+  "번호": 9946,
+  "홈": "AFC본머스",
+  "원정": "AC밀란",
+  "수집시각": "2026-10-22 22:20 KST",
+  "결장": [
+    {"팀":"AFC본머스","선수":"Alex Scott","포지션":"MF","이번시즌_선발/경기":"미상","득점·도움":"미상","사유":"허벅지·햄스트링 부상","상태":"확정","복귀예정":"최소 2주 후","대체선수":"미상","출처":["https://football-italia.net/milan-goncalo-ramos-out-bournemouth-injury/"],"날짜":"2026-10-21"},
+    {"팀":"AFC본머스","선수":"Julian Araujo","포지션":"DF","이번시즌_선발/경기":"미상","득점·도움":"미상","사유":"부상(세부 미상)","상태":"확정","복귀예정":"미상","대체선수":"미상","출처":["https://football-italia.net/milan-goncalo-ramos-out-bournemouth-injury/"],"날짜":"2026-10-21"},
+    {"팀":"AFC본머스","선수":"Junior Kroupi","포지션":"FW","이번시즌_선발/경기":"시즌 내내 결장(여름 발 수술 후 재활)","득점·도움":"미상","사유":"재활 중 훈련 복귀했으나 유로파리그 등록명단에서 제외돼 출전 불가","상태":"확정","복귀예정":"리그 복귀만 가능(유로파리그는 전 경기 제외)","대체선수":"해당없음","출처":["https://www.sportsmole.co.uk/football/bournemouth/injury-news/news/rose-delivers-kroupi-latest-in-bournemouth-injury-update-ahead-of-ac-milan-clash_607376.html"],"날짜":"2026-10-21"},
+    {"팀":"AC밀란","선수":"Gonçalo Ramos","포지션":"FW","이번시즌_선발/경기":"핵심 공격수 — teamdb 기준 xG+xA 비중 21%(팀 내 1위), 90분/경기 소화","득점·도움":"4.7xG+0.7xA(시즌 누적)","사유":"종아리 근육 과부하(sovraccarico muscolare)","상태":"확정","복귀예정":"미상","대체선수":"Francesco Camarda 또는 Alphadjo Cissè","출처":["https://sport.sky.it/calcio/europa-league/2026/10/21/gonzalo-ramos-infortunio-milan-news","https://football-italia.net/milan-goncalo-ramos-out-bournemouth-injury/"],"날짜":"2026-10-21"},
+    {"팀":"AC밀란","선수":"Samuel Chukwueze","포지션":"MF/FW","이번시즌_선발/경기":"teamdb 기준 xG+xA 비중 11%(팀 내 3위)","득점·도움":"0.8xG+2.0xA(시즌 누적)","사유":"엉덩이(hip) 부상, 수개월 결장 가능성 보도","상태":"확정","복귀예정":"수개월 소요 가능(보도 기준, 공식 발표 아님)","대체선수":"Omari Hutchinson 선발 예상","출처":["https://football-italia.net/milan-goncalo-ramos-out-bournemouth-injury/","https://www.pianetamilan.it/partite/dove-vedere-la-partita/dove-vedere-bournemouth-milan-diretta-tv-streaming/"],"날짜":"2026-10-21"},
+    {"팀":"AC밀란","선수":"Matteo Gabbia","포지션":"DF","이번시즌_선발/경기":"미상(기존 장기 결장자)","득점·도움":"미상","사유":"부상(지속, 세부 미상)","상태":"확정","복귀예정":"미상","대체선수":"미상","출처":["https://www.pianetamilan.it/partite/dove-vedere-la-partita/dove-vedere-bournemouth-milan-diretta-tv-streaming/"],"날짜":"2026-10-21"},
+    {"팀":"AC밀란","선수":"Alexis Saelemaekers","포지션":"MF","이번시즌_선발/경기":"teamdb 기준 xG+xA 비중 6%(교체 출전 다수, 46분/경기)","득점·도움":"0.2xG+1.4xA(시즌 누적)","사유":"부상(지속, 세부 미상)","상태":"확정","복귀예정":"미상","대체선수":"미상","출처":["https://www.pianetamilan.it/partite/dove-vedere-la-partita/dove-vedere-bournemouth-milan-diretta-tv-streaming/"],"날짜":"2026-10-21"},
+    {"팀":"AC밀란","선수":"Filippo Terracciano","포지션":"DF","이번시즌_선발/경기":"미상(백업 자원)","득점·도움":"미상","사유":"징계(출전정지)","상태":"확정","복귀예정":"다음 경기","대체선수":"해당없음","출처":["https://www.pianetamilan.it/partite/dove-vedere-la-partita/dove-vedere-bournemouth-milan-diretta-tv-streaming/"],"날짜":"2026-10-21"}
+  ],
+  "예상XI": {
+    "홈": {
+      "포메이션": "4-4-2(또는 4-2-3-1) — 매체 간 엇갈림",
+      "명단": ["Djordje Petrović","Adam Smith","António Silva","Bafodé Diakité 또는 James Hill","Julio Soler 또는 Adrien Truffert","Marcus Tavernier","Tyler Adams","Lewis Cook","Ben Gannon-Doak 또는 Justin Kluivert","Evanilson","Álvaro Rodríguez 또는 Rayan"],
+      "근거": "Marco Rose가 수비·미드필드 뎁스 부족으로 평소와 다른 포메이션(4-4-2) 검토 중이라는 보도와, 기존 4-2-3-1 유지 예상 보도가 공존 — 확정 라인업 발표 전",
+      "출처": ["https://thefalse9.com/2026/10/bournemouth-predicted-lineup-milan-tavernier-starts.html","https://www.whoscored.com/articles/1o-WNyCeGUq6XNU_jFcWyA/show/cng111-20261022-bournemouth-vs-ac-milan-prediction-1792667833"],
+      "날짜": "2026-10-21"
+    },
+    "원정": {
+      "포메이션": "3-4-2-1",
+      "명단": ["Mike Maignan","Koni De Winter","Fikayo Tomori","Valeri Vladimirov 또는 Strahinja Pavlovic","Davide Bartesaghi","Adrien Rabiot","Ardon Jashari","Omari Hutchinson","Alphadjo Cissè","Christian Pulisic","Francesco Camarda"],
+      "근거": "Ramos·Chukwueze 결장으로 Camarda가 최전방, Cissè가 2선 배치 예상 — 이탈리아 매체 다수 일치",
+      "출처": ["https://thefalse9.com/2026/10/milan-predicted-lineup-bournemouth-hutchinson-starts.html","https://www.pianetamilan.it/partite/dove-vedere-la-partita/dove-vedere-bournemouth-milan-diretta-tv-streaming/"],
+      "날짜": "2026-10-21"
+    }
+  },
+  "최근5경기": {
+    "홈": [
+      {"날짜":"2026-09-05","상대":"Newcastle United(원정)","결과":"2-2 무","비고":"리그"},
+      {"날짜":"2026-09-12","상대":"Brentford(홈)","결과":"2-2 무","비고":"리그, xG 2.55:0.79"},
+      {"날짜":"2026-09-20","상대":"Liverpool(홈)","결과":"0-1 패","비고":"리그, xG 0.94:1.29"},
+      {"날짜":"2026-10-10","상대":"Chelsea(원정)","결과":"1-5 패","비고":"리그, xG 1.68:1.37"},
+      {"날짜":"2026-10-18","상대":"Sunderland(홈)","결과":"2-0 승","비고":"리그, xG 4.39:0.09"},
+      {"날짜":"2026-10-16","상대":"SK Sturm Graz(홈, UEL)","결과":"3-0 승","비고":"UEL MD2"}
+    ],
+    "원정": [
+      {"날짜":"2026-09-06","상대":"Juventus(원정)","결과":"1-1 무","비고":"리그, xG 0.09:1.69"},
+      {"날짜":"2026-09-12","상대":"Lazio(원정)","결과":"2-2 무","비고":"리그, xG 2.16:2.36"},
+      {"날짜":"2026-09-20","상대":"Lecce(홈)","결과":"3-0 승","비고":"리그, xG 2.48:0.22"},
+      {"날짜":"2026-10-11","상대":"Sassuolo(원정)","결과":"1-1 무","비고":"리그, xG 1.87:1.34"},
+      {"날짜":"2026-10-18","상대":"Atalanta(홈)","결과":"3-2 승","비고":"리그, xG 2.62:1.92"},
+      {"날짜":"2026-10-16","상대":"RB Salzburg(원정, UEL)","결과":"4-0 승","비고":"UEL MD2, Cissè 해트트릭 + Ramos 1골"}
+    ]
+  },
+  "일정피로": {
+    "홈": {"직전공식전":"2026-10-18 홈 Sunderland전 2-0 승(리그)","최근7일경기수":1,"이동거리":"없음(홈)"},
+    "원정": {"직전공식전":"2026-10-18 홈 Atalanta전 3-2 승(리그) 및 10-16 원정 Salzburg전 4-0 승(UEL)","최근7일경기수":2,"이동거리":"약 1000km(밀라노→본머스, teamdb INPUTS 기준)"}
+  },
+  "동기": {
+    "홈": "유로파리그 리그페이즈 2전 전승(승점6, 5위권)로 순항 중, 주말 10/25 맨체스터 유나이티드 원정(PL)을 앞둬 로테이션 가능성 존재.",
+    "원정": "리그페이즈 1패1승(승점3, 16위권)로 탈락권에 가까워 반드시 승점이 필요한 상황. 주말 10/25 우디네세 원정(세리에A)과 일정이 촘촘해 선발진 일부 로테이션 예상(Ramos·Chukwueze 결장이 이미 선택지를 좁힘).",
+    "출처": ["https://www.sofascore.com/news/bournemouth-vs-ac-milan-europa-league-preview-stats-and-odds","https://sempremilan.com/europa-league-preview-bournemouth-ac-milan-2026-27"]
+  },
+  "환경": {
+    "경기장": "Vitality Stadium(딘 코트), 본머스 — 수용인원 약 11,307명 소규모 구장",
+    "날씨": "약 13도 (웹 프리뷰 기준) — teamdb INPUTS 자동 수집치(13.7도, 강수 2.3mm 100%, 바람 32.4km/h)와 대체로 일치, 강풍·강우 가능성 유의",
+    "심판": "Vassilis Fotias(그리스), 부심 Andreas Meintanas·Michail Papadakis — 통산 155경기 옐로카드 737장으로 카드 많이 주는 편",
+    "출처": ["https://www.sofascore.com/news/bournemouth-vs-ac-milan-europa-league-preview-stats-and-odds"]
+  },
+  "기타사실": [
+    {"내용":"양 팀 첫 공식 맞대결.","출처":["https://www.sofascore.com/news/bournemouth-vs-ac-milan-europa-league-preview-stats-and-odds"],"날짜":"2026-10-21"},
+    {"내용":"본머스는 유로파리그 2경기 5득점 1실점으로 홈에서 안정적 수비(최근 홈 4연승 모두 클린시트), 2026년 홈 첫 경기 이후 홈 패배는 1회뿐.","출처":["https://www.sofascore.com/news/bournemouth-vs-ac-milan-europa-league-preview-stats-and-odds"],"날짜":"2026-10-21"},
+    {"내용":"밀란은 세리에A 7경기 4승3무 무패(6위, teamdb 기준 4위)로 리그 기세는 좋으나 유로파리그 성적(1승1패)은 상대적으로 저조.","출처":["https://www.italiansoccerseriea.com/ac-milan/2026-27-results-uefa-europa-league-matchday-2-league-phase-thursday-15-october-2026/"],"날짜":"2026-10-21"}
+  ],
+  "미확인": [
+    "본머스 예상 포메이션이 4-4-2(수비진 Diakité·Soler 기용)와 4-2-3-1(Smith·Hill·Silva·Truffert) 두 가지로 매체마다 다름 — 라인업 공식 발표 전까지 확정 불가.",
+    "AC밀란 리그 테이블/유로파리그 순위 수치가 검색 소스마다 다소 혼선(16위 3점 vs teamdb 세리에A 4위 15점은 별개 대회이므로 혼동 주의 — 세리에A 순위는 teamdb, 유로파리그 순위는 웹 검색 결과를 따로 구분해서 쓸 것).",
+    "밀란 백3 멤버 중 Strahinja Pavlovic과 Valeri Vladimirov 중 누가 선발인지 매체 간 불일치.",
+    "경기장 날씨(강풍 32km/h, 강수 100%) 수치는 자동 수집 예보로 킥오프 임박 재확인 필요."
+  ]
+}

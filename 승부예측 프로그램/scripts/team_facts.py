@@ -223,8 +223,45 @@ def facts_for(team, eng, league):
     return out
 
 
+_ALIAS_CACHE = {}
+
+
+def note_path(team):
+    """팀노트 경로 — 같은 구단이 두 한글 표기로 갈리지 않게 **이미 있는 별칭 파일로 모은다**.
+
+    왜 (2026-10-23, 125회 회고): 팀노트는 분석가의 기억이고 분석가는 기록의 팀명으로 파일을 찾는다.
+    '애스턴 빌라'/'아스톤 빌라', 'AEK아테네'/'AEK 아테네' 처럼 표기가 갈리면 쌓아 둔 메모의 절반이
+    보이지 않는다. 실제로 5개 구단이 갈려 있었다(통합 완료). `team_names.json` 의 영문명이 같으면
+    같은 구단이므로, 이미 노트가 있는 별칭이 있으면 그쪽에 이어 쓴다.
+    """
+    direct = os.path.join(NOTES, f"{team}.md")
+    if os.path.exists(direct):
+        return direct
+    if not _ALIAS_CACHE:
+        try:
+            import json
+            raw = json.load(open(os.path.join(ROOT, "data", "team_names.json"), encoding="utf-8"))
+        except Exception:
+            raw = {}
+        for k, v in raw.items():
+            key = v if isinstance(v, str) else (v[0] if v else None)
+            if key:
+                _ALIAS_CACHE.setdefault(key, []).append(k)
+        _ALIAS_CACHE["__raw__"] = raw
+    raw = _ALIAS_CACHE.get("__raw__", {})
+    v = raw.get(team)
+    key = v if isinstance(v, str) else (v[0] if v else None)
+    for alias in _ALIAS_CACHE.get(key, []) if key else []:
+        if alias == team:
+            continue
+        cand = os.path.join(NOTES, f"{alias}.md")
+        if os.path.exists(cand):
+            return cand          # 같은 구단의 기존 노트에 이어 쓴다 (새 표기로 쪼개지 않는다)
+    return direct
+
+
 def write_note(team, f):
-    path = os.path.join(NOTES, f"{team}.md")
+    path = note_path(team)
     today = dt.date.today().isoformat()
     lines = [f"<!-- FACTS:START -->", f"## 팩트시트 (자동 수집 {today}) — 조사 전 반드시 읽고, 아래 사실과 다른 뉴스 요약은 '미확인'으로 둔다",
              f"- 출처: 위키 '{f['위키']}'({f['종류'] or '없음'}), ESPN {'있음' if f['순위(ESPN)'] or f['최근(ESPN)'] else '없음'}",
@@ -246,7 +283,7 @@ def write_note(team, f):
 
 
 def facts_age(team):
-    path = os.path.join(NOTES, f"{team}.md")
+    path = note_path(team)
     if not os.path.exists(path):
         return None
     m = re.search(r"팩트시트 \(자동 수집 (\d{4}-\d{2}-\d{2})\)", open(path, encoding="utf-8").read())

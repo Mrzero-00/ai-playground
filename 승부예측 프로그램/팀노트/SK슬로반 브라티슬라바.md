@@ -13,3 +13,16 @@
 - 10-21 04:00 vs AS로마: 휴식 6.0일(7일 1경기) · 직전 10-15 홈 vs VfB Stuttgart 0-3 패 [uefa.champions] · xG - · 직전 선발 4-2-3-1 Dominik Takac, Svetozar Markovic, Kenan Bajric, Sandro Cruz, César Blackman, Cristian Martínez, Alen Mustafic, Peter Pokorny, Andraz Sporar, Suleiman Camara, Tigran Barseghyan · 구장 스타디오 올림피코 · 이동 ?(구장 미확인) · 고도 17m · 19.7℃ 강수0mm(33%) 바람4.2km/h
 <!-- INPUTS:END -->
 
+
+
+---
+
+## 합친 메모 — 옛 표기 `슬로반 브라티슬라바.md` (2026-10-23 통합)
+같은 구단이 두 표기로 갈려 있어 쌓인 메모의 절반이 분석가에게 안 보였다. 아래는 그쪽 내용이다.
+
+# 슬로반 브라티슬라바 (슬로바키아 니케리가)
+
+## 성향
+- UCL 리그 페이즈에서 VfB 슈투트가르트 상대 역대 무승(3전 1무2패, 최근 2024-25시즌 홈에서도 1-3 패).
+
+- 2026-10-12 확인: 홈구장 테헬레 폴레(브라티슬라바)에서 정상 개최(전쟁 등 변수 없음, 진짜 홈). UCL MD1은 PSG 원정 1-6 대패(최상위 클럽 상대라 전력 격차 큰 결과, 일반화 주의). 현재 결장자 없음(완전체 스쿼드)으로 보도됨. 니케리가에서는 코마르노 원정 2-1 승 등 양호한 흐름. [출처: ESPN/vavel(MD1), bundesliga.com 팀뉴스(결장자 없음), sportnet.sme.sk]

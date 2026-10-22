@@ -13,3 +13,16 @@
 - 10-21 04:00 vs 맨체스터 시티: 휴식 6.0일(7일 1경기) · 직전 10-15 원정 vs Shakhtar Donetsk 1-3 패 [uefa.champions] · xG - · 직전 선발 4-4-2 Alberto Brignoli, Filipe Relvas, Harold Moukoudi, Stavros Pilios, Lazaros Rota, Razvan Marin, Milán Vitális, Aboubakary Koita, Lovro Majer, Luka Jovic, Zini · 구장 시티 오브 맨체스터 스타디움 · 이동 2620km · 고도 57m(차 -46m) · 10.9℃ 강수0mm(100%) 바람5.8km/h · ⚠ 장거리 원정 2620km, 비 0mm(100%)
 <!-- INPUTS:END -->
 
+
+
+---
+
+## 합친 메모 — 옛 표기 `AEK 아테네.md` (2026-10-23 통합)
+같은 구단이 두 표기로 갈려 있어 쌓인 메모의 절반이 분석가에게 안 보였다. 아래는 그쪽 내용이다.
+
+# AEK 아테네 (그리스 수퍼리그)
+
+## 성향
+- (신규 — 특이 성향 아직 미축적)
+
+- 2026-10-12 확인: 그리스 수퍼리그 3위(5전 3승2무, 11점, 최근 10경기 무패권). UCL MD1 LASK 상대 1-0 승(3점/16위). 주포 바르나바시 바르가(헝가리 공격수, 시즌 9경기 8골로 팀 득점 비중 매우 높음)가 대퇴사두 염좌로 샤흐타르전 출전 "극도로 불확실"(그리스 매체는 "확정 결장" 아닌 "의문"으로 보도, 구단은 완전 파열은 아니라고 해명). [출처: sport24.gr, kerkida.net 2026-10-10~12]

@@ -145,6 +145,32 @@ def comp_name(e, code=""):
 
 SKIP_COMP = ("ncaa", "women", "womens", "w ", "friendly", "u19", "u20", "u21", "u23", "youth")
 
+# ESPN 리그 슬러그는 이벤트의 links href '/league/<slug>' 에만 들어 있다(aus.w.1, usa.w.1, eng.w.1, fifa.wwc …).
+# 여자 리그는 **팀 displayName 이 남자팀과 똑같고**(둘 다 'Brisbane Roar') season.slug 도 'regular-season' 이라
+# 팀명 정규식(YOUTH)·대회명(SKIP_COMP)·season slug 세 필터를 전부 빠져나간다.
+# 2026-10-23 126회 9994 브리즈번 로어-퍼스 글로리에서 적발: 남자팀 리그 개막 전인데 INPUTS 직전 경기가
+# 'vs Central Coast Mariners 2-4 패 · 선발 Chloe Lincoln, Rosie Curtis …'(aus.w.1 event 401913252)로 채워졌다.
+# 슬러그의 '.w.' 는 ESPN 전 종목 공통 여자 리그 표기라 리그별 하드코딩 없이 막힌다.
+# ESPN 여자 대회 슬러그 표기는 두 가지다 — 점 구분 segment(`eng.w.1`, `fifa.friendly.w`)와
+# 단어 앞 w 접두(`uefa.wchampions`, `fifa.wworld.u17`, `usa.nwsl`). 둘 다 잡는다.
+# 캐시 9,953경기 전수 대조로 오탐 0 확인(`swe.1` 처럼 팀/국가명에 w 가 든 남자 리그는 안 걸린다).
+WOMEN_SLUG = re.compile(r"(^|\.)w(\.|$)|(^|\.)n?w(champions|world|sl|super|euro|league|cup)|wwc|women")
+_LEAGUE_HREF = re.compile(r"/league/([a-z0-9._-]+)", re.I)
+
+
+def league_slug(e):
+    """이벤트가 속한 ESPN 리그 슬러그(aus.1 / aus.w.1 …). 못 찾으면 ''."""
+    for l in (e.get("links") or []):
+        m = _LEAGUE_HREF.search(l.get("href") or "")
+        if m:
+            return m.group(1).lower()
+    return ""
+
+
+def is_women(e):
+    """여자 대회 경기면 True — 리그 슬러그로 판정한다(팀명·season slug 로는 못 가른다)."""
+    return bool(WOMEN_SLUG.search(league_slug(e)))
+
 
 def pool(refresh=False):
     """회차 실행당 한 번: 지난달+이번달 리그별 월간 + 최근 22일 전체 일별 → {event_id: (event, 대회명)}"""
@@ -156,12 +182,14 @@ def pool(refresh=False):
     for code in CODES:
         for ym in (f"{prev:%Y%m}", f"{today:%Y%m}"):
             for e in sb_month(code, ym, refresh):
+                if is_women(e):
+                    continue
                 P.setdefault(e["id"], (e, comp_name(e, code), code))
     for i in range(-1, 36):
         ds = (today - dt.timedelta(days=i)).strftime("%Y%m%d")
         for e in sb_day(ds, refresh):
             cn = comp_name(e)
-            if any(k in cn for k in SKIP_COMP) or (e.get("season") or {}).get("slug", "").find("women") >= 0:
+            if any(k in cn for k in SKIP_COMP) or (e.get("season") or {}).get("slug", "").find("women") >= 0 or is_women(e):
                 continue
             P.setdefault(e["id"], (e, cn, ""))
     _POOL = P
@@ -210,6 +238,8 @@ def team_events(eng, before_utc, days=35, refresh=False, prefer=None):
         ok = ok_pref if (prefer and code == prefer) or code.startswith(("uefa", "afc", "conmebol", "concacaf")) else ok_strict
         if YOUTH.search(norm(h["team"]["displayName"])) or YOUTH.search(norm(a["team"]["displayName"])) or "trophy" in comp or "u21" in comp:
             continue   # EFL 트로피 U21·B팀·여자팀 경기 제외 (2026-10-15 풀럼 U21 오매칭)
+        if is_women(e):
+            continue   # 여자 리그(aus.w.1 등) — 팀명이 남자팀과 같아 위 필터로는 안 걸린다 (2026-10-23 브리즈번 로어)
         if ok(h["team"]["displayName"]):
             out.append((t, comp, eid, "홈", a["team"]["displayName"], _score(h.get("score"), a.get("score")), code, norm(h["team"]["displayName"]) == norm(eng)))
         elif ok(a["team"]["displayName"]):

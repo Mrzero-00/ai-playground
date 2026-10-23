@@ -121,29 +121,29 @@
   "경기": "브리즈번 로어 - 퍼스 글로리",
   "리그": "호주 A리그",
   "시각": "10-23 18:00",
-  "수집": "10-23 08:40",
+  "수집": "10-23 17:10",
   "홈": {
    "팀": "브리즈번 로어",
    "eng": "Brisbane Roar",
-   "직전": "10-17 홈 vs Central Coast Mariners 2-4 패 [regular season]",
-   "휴식일": 6.1,
-   "최근7일경기": 1,
-   "직전event": "401913252",
+   "휴식일": null,
+   "직전": "-",
+   "최근7일경기": null,
+   "휴식일주의": "35일 내 경기 없음 — ESPN 미제공 리그(체코·폴란드·헝가리·불가리아·키프로스·이스라엘·핀란드·크로아티아·세르비아·동남아 등)이면 에이전트가 직접 확인",
    "xg": null,
-   "직전선발": [
-    "Chloe Lincoln",
-    "Rosie Curtis",
-    "Josie Studer",
-    "Isabel Hodgson",
-    "Natalie Tathem",
-    "Emily Lesina Roach",
-    "Zara Kruger",
-    "Abigail Smothers",
-    "Murphy Alexandra Agnew",
-    "Daisy Brown",
-    "Kijah Stephenson"
+   "선발": [
+    "George Plusnin",
+    "Nam Tae-Hee",
+    "Noah Maieroni",
+    "Sabit Ngor",
+    "Justin Vidic",
+    "Joel King",
+    "Tate Russell",
+    "Tom Aldred",
+    "Virgiliu Postolachi",
+    "Milorad Stajic",
+    "Tyrese Francois"
    ],
-   "직전포메이션": "5-3-2"
+   "포메이션": "4-2-3-1"
   },
   "원정": {
    "팀": "퍼스 글로리",
@@ -176,12 +176,12 @@
    "이동km": 3604,
    "고도차": 1,
    "날씨": {
-    "기온": 20.4,
-    "습도": 87,
-    "강수mm": 0.9,
-    "강수확률": 82,
-    "풍속": 11.3,
-    "출처": "Open-Meteo forecast 10-23 08:40"
+    "기온": 20.6,
+    "습도": 85,
+    "강수mm": 0.5,
+    "강수확률": 71,
+    "풍속": 10.8,
+    "출처": "Open-Meteo forecast 10-23 17:10"
    },
    "출처": [
     "Wikidata Q839997→Q643328 · Open-Meteo 고도",
@@ -189,10 +189,10 @@
    ],
    "주의": [
     "장거리 원정 3604km",
-    "비 0.9mm(82%)"
+    "비 0.5mm(71%)"
    ]
   },
-  "라인업": "미발표(킥오프 9.3h 전)",
+  "라인업": "발표",
   "event": "401892156"
  },
  "25": {

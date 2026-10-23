@@ -9,7 +9,7 @@
 <!-- FACTS:END -->
 
 <!-- INPUTS:START -->
-## 입력(자동 수집 2026-10-20) — xG·휴식일·라인업·환경(이동거리·고도·날씨)은 이 숫자를 쓴다
-- 10-21 04:00 vs 포르투: 휴식 7.0일 · 직전 10-14 원정 vs RB Leipzig 0-1 패 [uefa.champions] · xG - · 직전 선발 4-2-3-1 Matej Kovár, Armando Obispo, Lutsharel Geertruida, Filip Kostic, Sergiño Dest, Guus Til, Mauro Júnior, Kodai Sano, Sven Mijnans, Ruben Van Bommel, Ivan Perisic · 구장 이스타디우 두 드라강 · 이동 1567km · 고도 128m(차 +113m) · 14.3℃ 강수0mm(0%) 바람3.3km/h · ⚠ 장거리 원정 1567km
+## 입력(자동 수집 2026-10-23) — xG·휴식일·라인업·환경(이동거리·고도·날씨)은 이 숫자를 쓴다
+- 10-25 22:30 vs 페예노르트: 휴식 4.8일(7일 1경기) · 직전 10-21 원정 vs FC Porto 1-0 승 [uefa.champions] · xG - · 직전 선발 4-2-3-1 Matej Kovár, Yarek Gasiorowski, Lutsharel Geertruida, Filip Kostic, Sergiño Dest, Sven Mijnans, Mauro Júnior, Kodai Sano, Guus Til, Ivan Perisic, Esmir Bajraktarevic · 구장 필립스 스타디온 · 이동 82km · 고도 15m(차 +12m) · 11.8℃ 강수0.4mm(51%) 바람28.5km/h
 <!-- INPUTS:END -->
 

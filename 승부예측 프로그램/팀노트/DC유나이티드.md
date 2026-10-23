@@ -9,7 +9,7 @@
 - 최근 경기(ESPN, 최대 28일): 2026-09-27 Vancouver Whitecaps 3-3 D.C. United / 2026-10-10 Inter Miami CF 4-0 D.C. United / 2026-10-14 D.C. United 2-1 Red Bull New York / 2026-10-17 Orlando City SC 4-1 D.C. United / 2026-10-21 FC Cincinnati 2-1 D.C. United
 <!-- FACTS:END -->
 <!-- INPUTS:START -->
-## 입력(자동 수집 2026-10-21) — xG·휴식일·라인업·환경(이동거리·고도·날씨)은 이 숫자를 쓴다
-- 10-22 08:00 vs FC신시내티: 휴식 4.0일(7일 2경기) · 직전 10-18 원정 vs Orlando City SC 1-4 패 [usa.1] · xG - · 선발 4-3-3 Sean Johnson, Andre Dozzell, Lucas Bartlett, Keisuke Kurokawa, Kimito Nono, Matti Peltola, João Peglow, Brandon Servania, Jackson Hopkins, Nathan Ordaz, Louis Munteanu · 직전 대비 교체 5명(Kye Rowles, Sean Nealis, Silvan Hefti, Jared Stroud, Tai Baribo) · 구장 TQL 스타디움 · 이동 649km · 고도 162m(차 +155m) · 17.7℃ 강수0mm(0%) 바람9.0km/h
+## 입력(자동 수집 2026-10-23) — xG·휴식일·라인업·환경(이동거리·고도·날씨)은 이 숫자를 쓴다
+- 10-25 08:30 vs FC신시내티: 휴식 3.0일(7일 1경기) · 직전 10-22 원정 vs FC Cincinnati 1-2 패 [usa.1] · xG - · 직전 선발 4-4-2 Alex Bono, Kye Rowles, Lucas Bartlett, Keisuke Kurokawa, Silvan Hefti, Brandon Servania, Andre Dozzell, João Peglow, Kimito Nono, Jackson Hopkins, Tai Baribo · 구장 아우디 필드 · 이동 ?(구장 미확인) · 고도 7m · 13.8℃ 강수0mm(0%) 바람6.8km/h
 <!-- INPUTS:END -->
 

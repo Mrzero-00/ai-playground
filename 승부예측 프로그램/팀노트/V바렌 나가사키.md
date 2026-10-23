@@ -9,8 +9,8 @@
 <!-- FACTS:END -->
 
 <!-- INPUTS:START -->
-## 입력(자동 수집 2026-10-21) — xG·휴식일·라인업·환경(이동거리·고도·날씨)은 이 숫자를 쓴다
-- 10-21 19:00 vs 산프레체 히로시마: 휴식 4.2일(7일 1경기) · 직전 10-17 원정 vs Kashima Antlers 0-2 패 [jpn.1] · xG - · 직전 선발 3-4-2-1 Masaaki Goto, Ikki Arai, Kanta Doi, Takuma Ominami, Motoki Hasegawa, Hotaru Yamaguchi, Shunya Yoneda, Asahi Masuyama, Jonathan Júnior, Tenmu Matsumoto, Matheus Jesus · 구장 Nagasaki Athletic Stadium · 이동 282km · 고도 12m(차 -142m) · 18.3℃ 강수0mm(0%) 바람4.5km/h
+## 입력(자동 수집 2026-10-23) — xG·휴식일·라인업·환경(이동거리·고도·날씨)은 이 숫자를 쓴다
+- 10-25 15:00 vs 우라와 레드: 휴식 3.8일(7일 1경기) · 직전 10-21 홈 vs Sanfrecce Hiroshima 4-0 승 [jpn.1] · xG - · 직전 선발 3-4-2-1 Masaaki Goto, Ikki Arai, Kanta Doi, Takuma Ominami, Motoki Hasegawa, Hotaru Yamaguchi, Shunya Yoneda, Hijiri Onaga, Jonathan Júnior, Takashi Sawada, Matheus Jesus · 구장 사이타마 스타디움 2002 · 이동 951km · 고도 2m(차 -10m) · 18.2℃ 강수1.0mm(27%) 바람2.2km/h · ⚠ 장거리 원정 951km
 <!-- INPUTS:END -->
 
 ## 성향

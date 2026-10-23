@@ -8,7 +8,7 @@
 - 최근 경기(ESPN, 최대 28일): 2026-09-20 Minnesota United FC 2-3 LA Galaxy / 2026-09-27 LA Galaxy 3-2 Colorado Rapids / 2026-10-11 St. Louis CITY SC 6-2 LA Galaxy / 2026-10-15 LA Galaxy 2-0 Portland Timbers / 2026-10-18 LA Galaxy 2-2 San Diego FC
 <!-- FACTS:END -->
 <!-- INPUTS:START -->
-## 입력(자동 수집 2026-10-18) — xG·휴식일·라인업·환경(이동거리·고도·날씨)은 이 숫자를 쓴다
-- 10-18 11:30 vs 샌디에이고FC: 휴식 3.0일(7일 2경기) · 직전 10-15 홈 vs Portland Timbers 2-0 승 [usa.1] · xG - · 선발 4-2-3-1 JT Marcinkowski, Justin Haak, Carlos Garcés, John Nelson, Harbor Miller, Marco Reus, Sergi Roberto, Pablo Ruiz, João Klauss, Erik Thommy, Robert Taylor · 직전 대비 교체 2명(Calegari, Joseph Paintsil) · 구장 디그니티 헬스 스포츠 파크 · 이동 160km · 고도 23m(차 +1m) · 26.0℃ 강수0mm(4%) 바람7.9km/h
+## 입력(자동 수집 2026-10-23) — xG·휴식일·라인업·환경(이동거리·고도·날씨)은 이 숫자를 쓴다
+- 10-26 10:00 vs LAFC: 휴식 7.9일 · 직전 10-18 홈 vs San Diego FC 2-2 무 [usa.1] · xG - · 직전 선발 4-2-3-1 JT Marcinkowski, Justin Haak, Carlos Garcés, John Nelson, Harbor Miller, Marco Reus, Sergi Roberto, Pablo Ruiz, João Klauss, Erik Thommy, Robert Taylor · 구장 BMO 스타디움(구단 좌표 — 구장 미확인) · 이동 17km · 고도 60m(차 +37m) · 24.4℃ 강수0mm(0%) 바람12.7km/h
 <!-- INPUTS:END -->
 

@@ -5,8 +5,15 @@
 열로 고정해 쌓아야 '이 심판은 무가 많다' 같은 것을 나중에 잴 수 있다.
 
   심판 — ESPN 경기 요약의 officials. 과거 심판별 무 비율·카드 성향은 teamdb ESPN 캐시로 집계한다.
-  날씨 — Open-Meteo 무료 예보 API(키 불필요). 경기장 좌표는 ESPN venue 에서 받는다.
+  날씨 — Open-Meteo 무료 예보 API(키 불필요). 좌표는 ESPN venue, 없으면 홈팀 구장(venue_env/Wikidata).
          강수확률·풍속이 높으면 총득점이 내려가고 무가 올라간다는 것이 통설이라 검증 대상으로 둔다.
+
+  ★ 2026-10-23 — 심판과 날씨는 쓸 수 있는 시점이 다르다.
+    ESPN 캐시에는 **끝난 경기만** 있다. 그래서 '판매 중 회차'에 돌리면 아무것도 안 채워졌고
+    (126회 133경기 → 0건), 누적으로 심판 0/960 · 날씨 8/960 이었다 — 사실상 죽은 기능이었다.
+      · 날씨: 홈팀 구장 좌표로 돌아가게 고쳐서 **경기 전에도** 채워진다. 분석에 쓰는 값이다.
+      · 심판: ESPN 요약에만 있어 **끝난 뒤에만** 채워진다. 사전 입력이 아니라 refstats(심판별 무 비율)
+        를 쌓기 위한 사후 열이다. 그러므로 회고 때 **직전 회차**에 돌린다(판매 중 회차가 아니라).
 
     python3 scripts/context_inputs.py fill --round 125      # 해당 회차 경기에 심판·날씨 채우기
     python3 scripts/context_inputs.py refstats               # 심판별 무 비율(캐시 집계)
@@ -134,23 +141,39 @@ def cmd_fill(a):
     if a.no:
         tgt = [r for r in tgt if r["번호"] in set(a.no.split(","))]
     done = 0
+    vcache = None
+    try:
+        import venue_env as V
+        vcache = V.load_venues()
+    except Exception:
+        pass
     for r in tgt:
         if r.get("심판") and r.get("날씨") and not a.refresh:
             continue
         if (r.get("종목") or "") != "축구":
             continue
         eid = L.find_event(T.en_name(r["홈"]), T.en_name(r["원정"]), (r.get("시각") or "")[:10])
-        if not eid:
-            continue
-        s = summary(eid)
-        if not s:
-            continue
-        ref = referee_of(s)
-        if a.refresh:
-            r["심판"] = ref            # 못 찾으면 빈칸으로 — 옛 오매칭 값을 남기지 않는다
-        elif ref and not r.get("심판"):
-            r["심판"] = ref
-        lat, lon = venue_latlon(s)
+        s = summary(eid) if eid else None
+        if s:
+            ref = referee_of(s)
+            if a.refresh:
+                r["심판"] = ref        # 못 찾으면 빈칸으로 — 옛 오매칭 값을 남기지 않는다
+            elif ref and not r.get("심판"):
+                r["심판"] = ref
+        lat, lon = venue_latlon(s) if s else (None, None)
+        if lat is None:
+            # 2026-10-23: ESPN 캐시는 **끝난 경기만** 들고 있어서, 아직 안 치른 경기는 eid 가 없고
+            # 그래서 날씨도 못 채웠다 — 126회 133경기에 0건, 누적 심판 0/960·날씨 8/960 이었다.
+            # 날씨는 경기를 치르기 전에 알아야 쓸모가 있으니 홈팀 구장 좌표로 돌아간다
+            # (venue_env 가 Wikidata 에서 받아 data/venues.json 에 캐시해 둔 것 — match_inputs 가 쓰는 길과 같다).
+            # 심판은 ESPN 요약에만 있어 **끝난 뒤에야** 채워진다 — refstats(심판별 무 비율)용 사후 열이다.
+            try:
+                import venue_env as V
+                v = V.team_venue(r["홈"], T.en_name(r["홈"]), r.get("종목") or "축구", cache=vcache)
+                if v and v.get("lat") is not None:
+                    lat, lon = v["lat"], v["lon"]
+            except Exception:
+                pass
         if a.refresh and lat is None:
             r["날씨"] = ""
         if lat is not None and (not r.get("날씨") or a.refresh):
@@ -168,6 +191,12 @@ def cmd_fill(a):
             done += 1
             print(f"  {r['번호']} {r['홈']}-{r['원정']}: 심판 {r.get('심판') or '-'} · 날씨 {r.get('날씨') or '-'}")
     R.save(rows)
+    if vcache is not None:
+        try:
+            import venue_env as V
+            V.save_venues(vcache)
+        except Exception:
+            pass
     print(f"{a.round}회 — 심판·날씨 채운 경기 {done}건")
     return 0
 

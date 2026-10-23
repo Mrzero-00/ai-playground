@@ -8,7 +8,7 @@
 - 최근 경기(ESPN, 최대 28일): 2026-09-06 Angers 1-2 Stade Rennais / 2026-09-12 Le Havre AC 0-0 Angers / 2026-09-19 Angers 2-0 Troyes / 2026-10-10 Brest 5-1 Angers / 2026-10-18 Angers 2-5 Marseille
 <!-- FACTS:END -->
 <!-- INPUTS:START -->
-## 입력(자동 수집 2026-10-18) — xG·휴식일·라인업·환경(이동거리·고도·날씨)은 이 숫자를 쓴다
-- 10-18 22:00 vs 올랭피크드 마르세유: 휴식 7.8일 · 직전 10-11 원정 vs Brest 1-5 패 [ligue 1] · xG 시즌6경기 xG1.59/xGA1.93 npxGD-0.21 · 최근5 1.54/2.07 (-0.38) · 홈0.45/원정-0.88 · xPts7.5 vs 승점7 · 직전 선발 4-3-3 Anthony Lopes, Jordan Lefort, Ousmane Camara, Joseph Kalulu Kyatengwa, Marius Louãr, Haris Belkebla, Branco van den Boomen, Yassin Belkhdim, Prosper Peter, Amine Sbaï, Jim Allevinah · 구장 Stade Raymond Kopa · 이동 656km · 고도 45m(차 +35m) · 12.9℃ 강수0.1mm(33%) 바람10.5km/h
+## 입력(자동 수집 2026-10-23) — xG·휴식일·라인업·환경(이동거리·고도·날씨)은 이 숫자를 쓴다
+- 10-26 01:15 vs 로리앙: 휴식 7.1일 · 직전 10-18 홈 vs Marseille 2-5 패 [ligue 1] · xG 시즌7경기 xG1.62/xGA2.1 npxGD-0.35 · 최근5 1.54/2.34 (-0.62) · 홈0.05/원정-0.88 · xPts8.1 vs 승점7 · 직전 선발 4-2-3-1 Anthony Lopes, Maël Gernigon, Emmanuel Biumla, Lilian Raolisoa, Carlens Arcus, Louis Mouton, Branco van den Boomen, Yassin Belkhdim, Amine El Ouazzani, Amine Sbaï, Jim Allevinah · 구장 Stade Raymond Kopa · 이동 114km · 고도 45m(차 +18m) · 15.5℃ 강수0mm(0%) 바람11.0km/h
 <!-- INPUTS:END -->
 

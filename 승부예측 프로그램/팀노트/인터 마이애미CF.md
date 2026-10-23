@@ -9,7 +9,7 @@
 - 최근 경기(ESPN, 최대 28일): 2026-09-20 Inter Miami CF 2-2 San Diego FC / 2026-09-27 Columbus Crew 2-1 Inter Miami CF / 2026-10-10 Inter Miami CF 4-0 D.C. United / 2026-10-14 Inter Miami CF 2-0 New York City FC / 2026-10-17 Atlanta United FC 1-3 Inter Miami CF
 <!-- FACTS:END -->
 <!-- INPUTS:START -->
-## 입력(자동 수집 2026-10-18) — xG·휴식일·라인업·환경(이동거리·고도·날씨)은 이 숫자를 쓴다
-- 10-18 08:30 vs 애틀랜타 유나이티드FC: 휴식 3.0일(7일 1경기) · 직전 10-15 홈 vs New York City FC 2-0 승 [usa.1] · xG 시즌7경기 xG3.15/xGA1.38 npxGD+1.67 · 최근5 3.31/1.62 (+1.54) · 홈1.48/원정1.92 · xPts16.4 vs 승점19 · 선발 4-3-3 Dayne St. Clair, Micael, Casemiro, Sergio Reguilón, Gonzalo Luján, David Ayala, Matías Galarza, Rodrigo De Paul, Luis Suárez, Germán Berterame, Lionel Messi · 직전 대비 교체 0명() · 구장 메르세데스-벤츠 스타디움 · 이동 935km · 고도 307m(차 +302m) · 15.5℃ 강수0mm(0%) 바람13.7km/h · ⚠ 장거리 원정 935km
+## 입력(자동 수집 2026-10-23) — xG·휴식일·라인업·환경(이동거리·고도·날씨)은 이 숫자를 쓴다
+- 10-25 06:30 vs 뉴욕 레드불스: 휴식 6.9일(7일 1경기) · 직전 10-18 원정 vs Atlanta United FC 3-1 승 [usa.1] · xG 시즌7경기 xG3.15/xGA1.38 npxGD+1.67 · 최근5 3.31/1.62 (+1.54) · 홈1.48/원정1.92 · xPts16.4 vs 승점19 · 직전 선발 4-3-3 Dayne St. Clair, Micael, Casemiro, Sergio Reguilón, Gonzalo Luján, David Ayala, Matías Galarza, Rodrigo De Paul, Luis Suárez, Germán Berterame, Lionel Messi · 구장 레드불 아레나 · 이동 ?(구장 미확인) · 고도 5m · 17.0℃ 강수0mm(0%) 바람8.7km/h
 <!-- INPUTS:END -->
 

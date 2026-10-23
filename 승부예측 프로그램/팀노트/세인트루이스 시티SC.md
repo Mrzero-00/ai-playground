@@ -7,7 +7,7 @@
 - 리그 순위: 미확인
 <!-- FACTS:END -->
 <!-- INPUTS:START -->
-## 입력(자동 수집 2026-10-21) — xG·휴식일·라인업·환경(이동거리·고도·날씨)은 이 숫자를 쓴다
-- 10-22 09:00 vs 콜럼버스 크루: 휴식 4.1일(7일 2경기) · 직전 10-18 원정 vs Minnesota United FC 2-3 패 [usa.1] · xG - · 직전 선발 3-4-1-2 Roman Bürki, Timo Baumgartl, Fallou Fall, Jaziel Orozco, Miguel Perez, Dante Polvara, Jeong Sang-Bin, Tomas Totland, Mykhi Joyner, Rafael Navarro, Simon Becher · 구장 로우어닷컴 필드 · 이동 636km · 고도 218m(차 +70m) · 13.8℃ 강수0mm(0%) 바람8.3km/h
+## 입력(자동 수집 2026-10-23) — xG·휴식일·라인업·환경(이동거리·고도·날씨)은 이 숫자를 쓴다
+- 10-25 10:30 vs 레알 솔트레이크: 휴식 7.2일 · 직전 10-18 원정 vs Minnesota United FC 2-3 패 [usa.1] · xG - · 직전 선발 3-4-1-2 Roman Bürki, Timo Baumgartl, Fallou Fall, Jaziel Orozco, Miguel Perez, Dante Polvara, Jeong Sang-Bin, Tomas Totland, Mykhi Joyner, Rafael Navarro, Simon Becher · 구장 아메리카 퍼스트 필드 · 이동 1865km · 고도 1350m(차 +1202m) · 11.5℃ 강수0mm(3%) 바람13.3km/h · ⚠ 장거리 원정 1865km, 고지대 +1202m
 <!-- INPUTS:END -->
 

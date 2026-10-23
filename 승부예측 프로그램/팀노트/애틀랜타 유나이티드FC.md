@@ -8,7 +8,7 @@
 - 최근 경기(ESPN, 최대 28일): 2026-09-20 Portland Timbers 0-1 Atlanta United FC / 2026-09-26 Atlanta United FC 2-2 New York City FC / 2026-10-10 Atlanta United FC 1-3 FC Cincinnati / 2026-10-14 CF Montréal 0-3 Atlanta United FC / 2026-10-17 Atlanta United FC 1-3 Inter Miami CF
 <!-- FACTS:END -->
 <!-- INPUTS:START -->
-## 입력(자동 수집 2026-10-18) — xG·휴식일·라인업·환경(이동거리·고도·날씨)은 이 숫자를 쓴다
-- 10-18 08:30 vs 인터 마이애미CF: 휴식 3.0일(7일 1경기) · 직전 10-15 원정 vs CF Montréal 3-0 승 [usa.1] · xG - · 선발 4-3-3 Lucas Hoyos, Júnior Alonso, Paulo Díaz, Elías Baez, Tomás Jacob, Mauricio Amaro, Giuliano Galoppo, Tristan Muyumba, Breel Embolo, Miguel Almirón, Alexey Miranchuk · 직전 대비 교체 2명(Matt Edwards, Jay Fortune) · 구장 메르세데스-벤츠 스타디움 · 이동 935km · 고도 307m(차 +302m) · 15.5℃ 강수0mm(0%) 바람13.7km/h · ⚠ 장거리 원정 935km
+## 입력(자동 수집 2026-10-23) — xG·휴식일·라인업·환경(이동거리·고도·날씨)은 이 숫자를 쓴다
+- 10-25 08:30 vs 시카고 파이어FC: 휴식 7.0일 · 직전 10-18 홈 vs Inter Miami CF 1-3 패 [usa.1] · xG - · 직전 선발 4-3-3 Lucas Hoyos, Júnior Alonso, Paulo Díaz, Elías Baez, Tomás Jacob, Mauricio Amaro, Giuliano Galoppo, Tristan Muyumba, Breel Embolo, Miguel Almirón, Alexey Miranchuk · 구장 메르세데스-벤츠 스타디움 · 이동 945km · 고도 307m(차 +113m) · 19.3℃ 강수0mm(0%) 바람13.0km/h · ⚠ 장거리 원정 945km
 <!-- INPUTS:END -->
 

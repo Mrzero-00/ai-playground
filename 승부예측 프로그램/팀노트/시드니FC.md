@@ -9,8 +9,8 @@
 - 최근 경기(ESPN, 최대 28일): 2026-10-16 Sydney FC 0-0 Western Sydney Wanderers
 <!-- FACTS:END -->
 <!-- INPUTS:START -->
-## 입력(자동 수집 2026-10-16) — xG·휴식일·라인업은 이 숫자를 쓴다
-- 10-16 18:00 vs 웨스턴시드니 원더러스: 휴식 ?(ESPN 미제공 리그 — 직접 확인) · 직전 - · xG - · 선발 4-2-3-1 Harrison Devenish-Meares, Jordan Courtney-Perkins, Alexandar Popovic, Ben Garuccio, Rhyan Grant, Tiago Quintal, Jake Hollman, Rhys Youlley, Oriola Sunday, Takahiro Sekine, Al Hassan Toure
+## 입력(자동 수집 2026-10-23) — xG·휴식일·라인업·환경(이동거리·고도·날씨)은 이 숫자를 쓴다
+- 10-25 13:00 vs 애들레이드 유나이티드: 휴식 8.8일 · 직전 10-16 홈 vs Western Sydney Wanderers 0-0 무 [aus.1] · xG - · 직전 선발 4-2-3-1 Harrison Devenish-Meares, Jordan Courtney-Perkins, Alexandar Popovic, Ben Garuccio, Rhyan Grant, Tiago Quintal, Jake Hollman, Rhys Youlley, Oriola Sunday, Takahiro Sekine, Al Hassan Toure · 구장 ? · 이동 ?(구장 미확인) · 고도 ?m · 날씨 -
 <!-- INPUTS:END -->
 
 - 2026-10-14 조사: 2026-27 A리그 개막전(10/16, 홈, 시드니 더비) 앞둠. 주장 Tobin 수비 복귀, 2026-27 스쿼드 번호 공개·스폰서(Sports Direct Australia) 계약 연장 발표 등 안정적 운영. 여자팀 Jada Whyman 2년 재계약 등 구단 전반 활발한 움직임이나, 신규 전력 보강 소식은 상대적으로 적음. baseline(pi-rating, aus.1) 기준 홈승 46.5%. 출처: Google News RSS(영문, 호주).

@@ -8,8 +8,8 @@
 - 최근 경기(ESPN, 최대 28일): 2026-09-12 AFC Bournemouth 2-2 Brentford / 2026-09-20 AFC Bournemouth 0-1 Liverpool / 2026-10-10 Chelsea 5-1 AFC Bournemouth / 2026-10-18 AFC Bournemouth 2-0 Sunderland / 2026-09-17 Real Sociedad 1-2 AFC Bournemouth / 2026-10-15 AFC Bournemouth 3-0 SK Sturm Graz
 <!-- FACTS:END -->
 <!-- INPUTS:START -->
-## 입력(자동 수집 2026-10-21) — xG·휴식일·라인업·환경(이동거리·고도·날씨)은 이 숫자를 쓴다
-- 10-23 04:00 vs AC밀란: 휴식 7.0일 · 직전 10-16 홈 vs SK Sturm Graz 3-0 승 [uefa.europa] · xG 시즌7경기 xG2.02/xGA1.21 npxGD+0.81 · 최근5 2.24/0.86 (+1.37) · 홈1.57/원정-0.2 · xPts12.3 vs 승점6 · 직전 선발 4-4-2 Djordje Petrovic, António Silva, Bafodé Diakité, Julio Soler, Adam Smith, Tyler Adams, Lewis Cook, Marcus Tavernier, Ben Gannon-Doak, Álvaro Rodríguez, Evanilson · 구장 딘 코트 · 이동 1000km · 고도 36m(차 -103m) · 13.7℃ 강수2.3mm(100%) 바람32.4km/h · ⚠ 장거리 원정 1000km, 비 2.3mm(100%), 강풍 32.4km/h
+## 입력(자동 수집 2026-10-23) — xG·휴식일·라인업·환경(이동거리·고도·날씨)은 이 숫자를 쓴다
+- 10-25 23:00 vs 맨체스터 유나이티드: 휴식 2.8일(7일 1경기) · 직전 10-23 홈 vs AC Milan 3-0 승 [uefa.europa] · xG 시즌7경기 xG2.02/xGA1.21 npxGD+0.81 · 최근5 2.24/0.86 (+1.37) · 홈1.57/원정-0.2 · xPts12.3 vs 승점6 · 직전 선발 4-4-2 Michele Di Gregorio, António Silva, Bafodé Diakité, Adrien Truffert, James Hill, Ryan Christie, Tyler Adams, Marcus Tavernier, Ben Gannon-Doak, Evanilson, Justin Kluivert · 구장 올드 트래퍼드 · 이동 305km · 고도 18m(차 -18m) · 9.5℃ 강수0.4mm(88%) 바람30.6km/h · ⚠ 비 0.4mm(88%), 강풍 30.6km/h
 <!-- INPUTS:END -->
 
 ## 성향

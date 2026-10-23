@@ -9,8 +9,8 @@
 - 최근 경기(ESPN, 최대 28일): 2026-09-20 St. Louis CITY SC 3-1 Toronto FC / 2026-09-27 Nashville SC 2-0 Toronto FC / 2026-10-10 Toronto FC 2-1 CF Montréal / 2026-10-14 Toronto FC 3-3 Orlando City SC / 2026-10-17 Red Bull New York 0-2 Toronto FC
 <!-- FACTS:END -->
 <!-- INPUTS:START -->
-## 입력(자동 수집 2026-10-18) — xG·휴식일·라인업·환경(이동거리·고도·날씨)은 이 숫자를 쓴다
-- 10-18 08:30 vs 뉴욕 레드불스: 휴식 3.0일(7일 1경기) · 직전 10-15 홈 vs Orlando City SC 3-3 무 [usa.1] · xG - · 선발 4-4-2 Luka Gavran, Nickseon Gomis, Zane Monlouis, Matheus Pereira, Kobe Franklin, Jonathan Osorio, Niklas Dorsch, Lewis Morgan, Theo Corbeanu, Djordje Mihailovic, Josh Sargent · 직전 대비 교체 4명(Benjamín Kuscevic, Richie Laryea, Alonso Coello, Dániel Sallói) · 구장 레드불 아레나 · 이동 540km · 고도 5m(차 -78m) · 9.8℃ 강수0mm(0%) 바람14.8km/h
+## 입력(자동 수집 2026-10-23) — xG·휴식일·라인업·환경(이동거리·고도·날씨)은 이 숫자를 쓴다
+- 10-25 04:30 vs 콜럼버스 크루: 휴식 6.8일(7일 1경기) · 직전 10-18 원정 vs Red Bull New York 2-0 승 [usa.1] · xG - · 직전 선발 4-4-2 Luka Gavran, Nickseon Gomis, Zane Monlouis, Matheus Pereira, Kobe Franklin, Jonathan Osorio, Niklas Dorsch, Lewis Morgan, Theo Corbeanu, Djordje Mihailovic, Josh Sargent · 구장 로우어닷컴 필드 · 이동 505km · 고도 218m(차 +135m) · 19.8℃ 강수0mm(0%) 바람6.5km/h
 <!-- INPUTS:END -->
 
 - 2026-10-14 조사: 10/15 08:30(KST) 홈 올랜도 시티전, 정규시즌 마지막 매치데이. 기준선 승/무/패 41.5/26.7/31.8%, 핸디캡 홈−1 22.1/19.5/58.5%, 오버 2.5 59.2% — 출처: 자체 모델

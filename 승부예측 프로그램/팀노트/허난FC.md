@@ -10,7 +10,7 @@
 
 <!-- INPUTS:START -->
 ## 입력(자동 수집 2026-10-23) — xG·휴식일·라인업·환경(이동거리·고도·날씨)은 이 숫자를 쓴다
-- 10-24 16:30 vs 베이징 궈안: 휴식 7.8일 · 직전 10-16 홈 vs Tianjin Jinmen Tiger 0-1 패 [chinese super league] · xG - · 직전 선발 4-2-3-1 Shi Chenglong, Lucas Varone, Iago Maidana, Nebijan Muhmet, Shinar Yeljan, Bruno Nazario, Wang Shangyuan, Abraham Halik, Gustavo, Yihao Zhong, Pedro Maranhão · 구장 Zhengzhou Hanghai Stadium · 이동 627km · 고도 102m(차 +63m) · 20.1℃ 강수0mm(0%) 바람7.4km/h
+- 10-24 16:30 vs 베이징 궈안: 휴식 7.8일 · 직전 10-16 홈 vs Tianjin Jinmen Tiger 0-1 패 [chinese super league] · xG - · 직전 선발 4-2-3-1 Shi Chenglong, Lucas Varone, Iago Maidana, Nebijan Muhmet, Shinar Yeljan, Bruno Nazario, Wang Shangyuan, Abraham Halik, Gustavo, Yihao Zhong, Pedro Maranhão · 구장 Zhengzhou Hanghai Stadium · 이동 627km · 고도 102m(차 +63m) · 19.3℃ 강수0mm(0%) 바람5.3km/h
 <!-- INPUTS:END -->
 
 - 2026-10-14 조사: 중국 슈퍼리그 28라운드(시즌 막판) 강등권 생존 사투 중. 8경기 연속 무승(八轮不胜)으로 심리적 압박 큼. 톈진 진먼후 상대 홈경기(10/16)는 "조기 잔류 확정(提前上岸)"이 걸린 중요 일전. 출처: Google News RSS(중국어).

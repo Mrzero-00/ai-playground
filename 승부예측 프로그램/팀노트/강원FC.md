@@ -9,6 +9,6 @@
 <!-- FACTS:END -->
 <!-- INPUTS:START -->
 ## 입력(자동 수집 2026-10-23) — xG·휴식일·라인업·환경(이동거리·고도·날씨)은 이 숫자를 쓴다
-- 10-24 14:00 vs FC서울: 휴식 8.8일 · 직전 10-15 홈 vs Phnom Penh Crown 1-2 패 [afc.cup] · xG - · 직전 선발 4-4-2 Kim Yu-Sung, Seong-Yun Kang, Eun-Seok Ko, Hong Chul, Kim Do-Hyun, Lee Yong-Jae, Yi-Seok Kim, Cho Won-Woo, Kang Yun-Gu, Park Sang-Hyeok, Abdulla Halaihal · 구장 서울월드컵경기장 · 이동 77km · 고도 16m(차 -68m) · 19.7℃ 강수0mm(8%) 바람2.2km/h
+- 10-24 14:00 vs FC서울: 휴식 8.8일 · 직전 10-15 홈 vs Phnom Penh Crown FC 1-2 패 [afc.cup] · xG - · 직전 선발 4-4-2 Kim Yu-Sung, Seong-Yun Kang, Eun-Seok Ko, Hong Chul, Kim Do-Hyun, Lee Yong-Jae, Yi-Seok Kim, Cho Won-Woo, Kang Yun-Gu, Park Sang-Hyeok, Abdulla Halaihal · 구장 서울월드컵경기장 · 이동 77km · 고도 16m(차 -68m) · 18.4℃ 강수0mm(35%) 바람4.8km/h
 <!-- INPUTS:END -->
 

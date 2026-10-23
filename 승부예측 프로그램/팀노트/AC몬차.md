@@ -10,6 +10,6 @@
 <!-- FACTS:END -->
 <!-- INPUTS:START -->
 ## 입력(자동 수집 2026-10-23) — xG·휴식일·라인업·환경(이동거리·고도·날씨)은 이 숫자를 쓴다
-- 10-24 03:45 vs 토리노: 휴식 4.1일(7일 1경기) · 직전 10-20 홈 vs Cagliari 4-0 승 [italian serie a] · xG 시즌7경기 xG1.86/xGA1.76 npxGD-0.01 · 최근5 1.99/1.96 (-0.12) · 홈-0.48/원정0.35 · xPts10.2 vs 승점7 · 직전 선발 3-4-2-1 Noel Törnqvist, Saba Goglichidze, Andrea Carboni, Eddy Kouadio, Ebenezer Akinsanmiro, Manga Foe Ondoa, Ricardo Mangas, Samuele Birindelli, Gustavo Varela, Jay Robinson, Dany Mota · 구장 스타디오 올림피코 디 토리노 · 이동 143km · 고도 243m(차 +72m) · 11.1℃ 강수0mm(0%) 바람4.5km/h
+- 10-24 03:45 vs 토리노: 휴식 4.1일(7일 1경기) · 직전 10-20 홈 vs Cagliari 4-0 승 [italian serie a] · xG 시즌7경기 xG1.86/xGA1.76 npxGD-0.01 · 최근5 1.99/1.96 (-0.12) · 홈-0.48/원정0.35 · xPts10.2 vs 승점7 · 직전 선발 3-4-2-1 Noel Törnqvist, Saba Goglichidze, Andrea Carboni, Eddy Kouadio, Ebenezer Akinsanmiro, Manga Foe Ondoa, Ricardo Mangas, Samuele Birindelli, Gustavo Varela, Jay Robinson, Dany Mota · 구장 스타디오 올림피코 디 토리노 · 이동 143km · 고도 243m(차 +72m) · 10.7℃ 강수0mm(0%) 바람2.7km/h
 <!-- INPUTS:END -->
 

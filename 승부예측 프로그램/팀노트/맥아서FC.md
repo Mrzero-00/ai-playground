@@ -11,6 +11,6 @@
 
 <!-- INPUTS:START -->
 ## 입력(자동 수집 2026-10-23) — xG·휴식일·라인업·환경(이동거리·고도·날씨)은 이 숫자를 쓴다
-- 10-24 13:00 vs 뉴캐슬 제츠: 휴식 ?(ESPN 미제공 리그 — 직접 확인) · 직전 - · xG - · 구장 뉴캐슬 국제 스포츠 센터 · 이동 ?(구장 미확인) · 고도 10m · 22.8℃ 강수0mm(53%) 바람19.6km/h
+- 10-24 13:00 vs 뉴캐슬 제츠: 휴식 6.9일(7일 1경기) · 직전 10-17 홈 vs Perth Glory FC 2-1 승 [aus.1] · xG - · 직전 선발 4-2-3-1 Alex Robinson, Jonathan Aspropotamitis, Tatsuki Nara, Nathan Paull, Callum Talbot, Ben Gibson, Oliver Randazzo, Liam Rose, Apostolos Stamatelopoulos, Connor Pain, Luke Vickery · 구장 뉴캐슬 국제 스포츠 센터 · 이동 151km · 고도 10m(차 -48m) · 23.4℃ 강수0mm(47%) 바람19.8km/h
 <!-- INPUTS:END -->
 

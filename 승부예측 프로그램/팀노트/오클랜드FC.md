@@ -11,6 +11,6 @@
 
 <!-- INPUTS:START -->
 ## 입력(자동 수집 2026-10-23) — xG·휴식일·라인업·환경(이동거리·고도·날씨)은 이 숫자를 쓴다
-- 10-24 15:00 vs 웨스턴시드니 원더러스: 휴식 ?(ESPN 미제공 리그 — 직접 확인) · 직전 - · xG - · 구장 Sydney Showground Stadium · 이동 ?(구장 미확인) · 고도 15m · 24.3℃ 강수0mm(53%) 바람14.4km/h
+- 10-24 15:00 vs 웨스턴시드니 원더러스: 휴식 7.1일 · 직전 10-17 홈 vs Melbourne City FC 3-1 승 [aus.1] · xG - · 직전 선발 4-2-3-1 Michael Woud, Nando Pijnaker, Luka Vicelich, Francis de Vries, Hiroki Sakai, Lachlan Bayliss, Jake Brimmer, Felipe Gallegos, Sam Cosgrove, Logan Rogerson, Lachlan Brook · 구장 Sydney Showground Stadium · 이동 2174km · 고도 15m(차 -8m) · 24.8℃ 강수0mm(86%) 바람14.5km/h · ⚠ 장거리 원정 2174km, 비 0mm(86%)
 <!-- INPUTS:END -->
 

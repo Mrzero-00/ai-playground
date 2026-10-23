@@ -10,6 +10,6 @@
 <!-- FACTS:END -->
 <!-- INPUTS:START -->
 ## 입력(자동 수집 2026-10-23) — xG·휴식일·라인업·환경(이동거리·고도·날씨)은 이 숫자를 쓴다
-- 10-24 03:30 vs 묀헨글라트바흐: 휴식 3.0일(7일 2경기) · 직전 10-21 홈 vs Atlético Madrid 1-1 무 [uefa.champions] · xG 시즌6경기 xG2.22/xGA2.63 npxGD-0.41 · 최근5 2.42/2.34 (+0.08) · 홈-0.39/원정-0.41 · xPts7.2 vs 승점6 · 직전 선발 4-2-3-1 Dennis Seimen, Jeff Chabot, Ramon Hendriks, Maximilian Mittelstädt, Josha Vagnoman, Bilal El Khannouss, Angelo Stiller, Grischa Prömel, Deniz Undav, Chris Führich, Jamie Leweling · 구장 MHP아레나 · 이동 334km · 고도 219m(차 +145m) · 12.2℃ 강수2.5mm(20%) 바람24.3km/h · ⚠ 비 2.5mm(20%)
+- 10-24 03:30 vs 묀헨글라트바흐: 휴식 3.0일(7일 2경기) · 직전 10-21 홈 vs Atlético Madrid 1-1 무 [uefa.champions] · xG 시즌6경기 xG2.22/xGA2.63 npxGD-0.41 · 최근5 2.42/2.34 (+0.08) · 홈-0.39/원정-0.41 · xPts7.2 vs 승점6 · 직전 선발 4-2-3-1 Dennis Seimen, Jeff Chabot, Ramon Hendriks, Maximilian Mittelstädt, Josha Vagnoman, Bilal El Khannouss, Angelo Stiller, Grischa Prömel, Deniz Undav, Chris Führich, Jamie Leweling · 구장 MHP아레나 · 이동 334km · 고도 219m(차 +145m) · 13.1℃ 강수0.4mm(10%) 바람26.0km/h
 <!-- INPUTS:END -->
 

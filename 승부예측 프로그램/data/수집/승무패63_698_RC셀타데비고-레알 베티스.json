@@ -1,0 +1,174 @@
+{
+  "번호": 698,
+  "홈": "RC셀타데비고",
+  "원정": "레알 베티스",
+  "리그": "라리가 10라운드",
+  "구장": "에스타디오 아방카-발라이도스(비고)",
+  "킥오프": "2026-10-26 00:15 KST (현지 16:15)",
+  "수집시각": "2026-10-24 21:45 KST",
+  "결장": [
+    {
+      "팀": "RC셀타데비고",
+      "선수": "Borja Iglesias",
+      "포지션": "FW",
+      "이번시즌_선발/경기": "미상",
+      "득점·도움": "미상",
+      "사유": "가자미근(sóleo) 부상, 약 6주 결장 예상",
+      "상태": "확정",
+      "복귀예정": "약 6주 후",
+      "출처": ["https://www.elmira.es/articulo/futbol/posible-alineacion-real-betis-celta-vigo-balaidos-mide-rotaciones-post-champions/20261023151350624255.html"],
+      "날짜": "2026-10-23"
+    },
+    {
+      "팀": "RC셀타데비고",
+      "선수": "Álvaro Núñez",
+      "포지션": "DF",
+      "이번시즌_선발/경기": "미상",
+      "득점·도움": "미상",
+      "사유": "왼쪽 내전근 섬유 파열, 약 4주 결장 예상",
+      "상태": "확정",
+      "복귀예정": "약 4주 후",
+      "출처": ["https://www.elmira.es/articulo/futbol/posible-alineacion-real-betis-celta-vigo-balaidos-mide-rotaciones-post-champions/20261023151350624255.html"],
+      "날짜": "2026-10-23"
+    },
+    {
+      "팀": "RC셀타데비고",
+      "선수": "Carl Starfelt",
+      "포지션": "CB",
+      "이번시즌_선발/경기": "미상",
+      "득점·도움": "미상",
+      "사유": "회복 중(세부 사유 기사 미기재)",
+      "상태": "의심",
+      "복귀예정": "미상",
+      "출처": ["https://www.elmira.es/articulo/futbol/posible-alineacion-real-betis-celta-vigo-balaidos-mide-rotaciones-post-champions/20261023151350624255.html"],
+      "날짜": "2026-10-23"
+    },
+    {
+      "팀": "RC셀타데비고",
+      "선수": "Miguel Román",
+      "포지션": "미상",
+      "이번시즌_선발/경기": "미상",
+      "득점·도움": "미상",
+      "사유": "회복 중(세부 사유 기사 미기재)",
+      "상태": "의심",
+      "복귀예정": "미상",
+      "출처": ["https://www.elmira.es/articulo/futbol/posible-alineacion-real-betis-celta-vigo-balaidos-mide-rotaciones-post-champions/20261023151350624255.html"],
+      "날짜": "2026-10-23"
+    },
+    {
+      "팀": "RC셀타데비고",
+      "선수": "Jones El-Abdellaoui",
+      "포지션": "미상",
+      "이번시즌_선발/경기": "미상",
+      "득점·도움": "미상",
+      "사유": "회복 중(세부 사유 기사 미기재)",
+      "상태": "의심",
+      "복귀예정": "미상",
+      "출처": ["https://www.elmira.es/articulo/futbol/posible-alineacion-real-betis-celta-vigo-balaidos-mide-rotaciones-post-champions/20261023151350624255.html"],
+      "날짜": "2026-10-23"
+    },
+    {
+      "팀": "레알 베티스",
+      "선수": "Cucho Hernández",
+      "포지션": "FW",
+      "이번시즌_선발/경기": "미상",
+      "득점·도움": "미상",
+      "사유": "가자미근(sóleo) 부상, 약 1개월 결장 예상",
+      "상태": "확정",
+      "복귀예정": "약 1개월 후",
+      "출처": ["https://www.elmira.es/articulo/futbol/posible-alineacion-real-betis-celta-vigo-balaidos-mide-rotaciones-post-champions/20261023151350624255.html"],
+      "날짜": "2026-10-23"
+    },
+    {
+      "팀": "레알 베티스",
+      "선수": "Junior Firpo",
+      "포지션": "LB",
+      "이번시즌_선발/경기": "미상",
+      "득점·도움": "미상",
+      "사유": "부상(복귀 시점 미확정)",
+      "상태": "확정",
+      "복귀예정": "미정",
+      "출처": ["https://www.elmira.es/articulo/futbol/posible-alineacion-real-betis-celta-vigo-balaidos-mide-rotaciones-post-champions/20261023151350624255.html"],
+      "날짜": "2026-10-23"
+    },
+    {
+      "팀": "레알 베티스",
+      "선수": "Facundo Bernal",
+      "포지션": "MF",
+      "이번시즌_선발/경기": "미상",
+      "득점·도움": "미상",
+      "사유": "징계 — 바르셀로나전 퇴장으로 4경기 출전정지",
+      "상태": "확정",
+      "복귀예정": "4경기 출전정지 중",
+      "출처": ["https://www.elmira.es/articulo/futbol/posible-alineacion-real-betis-celta-vigo-balaidos-mide-rotaciones-post-champions/20261023151350624255.html"],
+      "날짜": "2026-10-23"
+    },
+    {
+      "팀": "레알 베티스",
+      "선수": "Héctor Bellerín",
+      "포지션": "RB",
+      "이번시즌_선발/경기": "미상",
+      "득점·도움": "미상",
+      "사유": "컨디션 의문(세부 사유 기사 미기재)",
+      "상태": "의심",
+      "복귀예정": "미상",
+      "출처": ["https://www.elmira.es/articulo/futbol/posible-alineacion-real-betis-celta-vigo-balaidos-mide-rotaciones-post-champions/20261023151350624255.html"],
+      "날짜": "2026-10-23"
+    }
+  ],
+  "라인업": {
+    "홈": {
+      "발표여부": "미발표(예상 라인업)",
+      "예상XI": "Radu; Javi Rodríguez, Lago, Cáceres; Carreira, Moriba, Burcio, H. Álvarez; Driouech, Jutglà, Swedberg",
+      "포메이션": "3-4-3",
+      "출처": ["https://www.jornadaperfecta.com/blog/alineaciones-celta-betis-j10-26-27/"],
+      "날짜": "2026-10-23"
+    },
+    "원정": {
+      "발표여부": "미발표(예상 라인업, 챔피언스리그 이후 로테이션 변수 있음)",
+      "예상XI": "Álvaro Valles; Ángel Ortiz, Diego Llorente, Natan, Francisco García; Marc Roca, Pablo Fornals; Antony, Isco, Abdessamad Ezzalzouli; Troy Parrott",
+      "포메이션": "4-2-3-1",
+      "출처": ["https://www.elmira.es/articulo/futbol/posible-alineacion-real-betis-celta-vigo-balaidos-mide-rotaciones-post-champions/20261023151350624255.html"],
+      "날짜": "2026-10-23"
+    }
+  },
+  "최근경기": [
+    {"팀": "RC셀타데비고", "날짜": "직전 라리가 경기", "상대": "Deportivo Alavés", "장소": "미상", "스코어": "2-1(셀타 승)", "비고": "라리가"},
+    {"팀": "RC셀타데비고", "날짜": "2026-10-22", "상대": "Celtic(UEL 리그페이즈 MD3)", "장소": "원정(글래스고)", "스코어": "2-1(셀타 승)", "비고": "유로파리그 원정 승리, 베티스전까지 중3일 휴식"},
+    {"팀": "레알 베티스", "날짜": "2026-10-21", "상대": "Feyenoord(UCL)", "장소": "홈", "스코어": "1-0(베티스 승)", "비고": "챔피언스리그 홈 승리"},
+    {"팀": "레알 베티스", "날짜": "직전 라리가 경기", "상대": "Barcelona", "장소": "미상", "스코어": "2-5(베티스 패)", "비고": "라리가 대패"},
+    {"팀": "레알 베티스", "날짜": "그 전", "상대": "Osasuna", "장소": "미상", "스코어": "5-2(베티스 승)", "비고": "라리가"}
+  ],
+  "맞대결": {
+    "통산": "전 대회 88경기, 베티스 33승 셀타 29승 26무",
+    "최근": "2026-03-15 중립지(라 카르투하) 1-1 무승부(직전 시즌 발라이도스 사용 제한 이슈로 중립경기였던 것으로 추정 — 이번 경기는 정상적으로 발라이도스에서 개최)",
+    "출처": ["https://www.betisweb.com/web/datos-enfrentamientos-historicos-y-curiosidades-del-rc-celta-vs-real-betis/", "https://www.aiscore.com/head-to-head/soccer-rc-celta-vs-real-betis"],
+    "날짜": "2026-10-24"
+  },
+  "일정피로": {
+    "홈": "10/22 유로파리그 원정(글래스고, 셀틱전 승리) 직후 10/26 00:15 KST(현지 10/25 16:15) 홈경기 — 중3일, 장거리 원정 복귀 포함 피로 요인",
+    "원정": "10/21 챔피언스리그 홈경기(페예노르트전 승리) 이후 10/25~26 원정경기 — 중4~5일, 기사에서도 '챔피언스리그 이후 로테이션(rotaciones post Champions)' 변수를 직접 언급",
+    "출처": ["https://www.uefa.com/uefaeuropaleague/news/02a8-2174cafa5bb6-82bbc20c9b92-1000--2026-27-europa-league-all-the-league-phase-fixtures-and-re/", "https://www.elmira.es/articulo/futbol/posible-alineacion-real-betis-celta-vigo-balaidos-mide-rotaciones-post-champions/20261023151350624255.html"],
+    "날짜": "2026-10-24"
+  },
+  "순위": {
+    "홈": "라리가 8위, 9경기 11승점",
+    "원정": "라리가 4위, 9경기 19승점",
+    "출처": ["https://www.si.com/es-us/como-estaria-la-clasificacion-de-laliga-2026-27-al-final-de-la-jornada-9-si-no-hubiera-var"],
+    "날짜": "2026-10-24"
+  },
+  "감독": {
+    "홈": "미확인(변동 보도 없음)",
+    "원정": "미확인(변동 보도 없음)",
+    "변동": "없음(확인처: elmira.es, jornadaperfecta.com)",
+    "날짜": "2026-10-24"
+  },
+  "날씨": {
+    "내용": "비고 10/25~26 약한 소나기(비) 예보, 기온 약 16도/12도(섭씨)",
+    "출처": ["https://www.weather25.com/europe/spain/asturias/vigo?page=month&month=October"],
+    "날짜": "2026-10-24"
+  },
+  "엇갈림": [],
+  "못찾음": ["양팀 결장 선수들의 이번 시즌 정확한 선발 횟수·득점·도움", "Carl Starfelt·Miguel Román·Jones El-Abdellaoui·Héctor Bellerín의 구체적 결장 사유", "공식 발표 선발 명단", "심판 배정"],
+  "뉴스없음": {"홈": "위 결장 외 추가 내부 이슈 없음(확인처: elmira.es, jornadaperfecta.com)", "원정": "위 결장·징계 외 추가 내부 이슈 없음(확인처: elmira.es, jornadaperfecta.com)"}
+}

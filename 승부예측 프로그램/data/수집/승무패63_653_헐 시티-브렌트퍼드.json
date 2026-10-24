@@ -1,0 +1,251 @@
+{
+  "번호": 653,
+  "홈": "헐 시티",
+  "원정": "브렌트퍼드",
+  "리그": "English Premier League (2026-27, 헐 시티는 승격팀)",
+  "구장": "MKM Stadium (Kingston upon Hull)",
+  "킥오프": "2026-10-25 14:00 UK / 23:00 KST (일요일)",
+  "수집시각": "2026-10-24 21:50 KST",
+  "결장": [
+    {
+      "팀": "헐 시티",
+      "선수": "Charlie Hughes",
+      "포지션": "DF",
+      "이번시즌_선발/경기": "미상",
+      "득점·도움": "미상",
+      "사유": "사타구니(groin) 부상",
+      "상태": "확정",
+      "복귀예정": "미정",
+      "대체선수": "미상",
+      "출처": ["https://www.brentfordfc.com/en/news/first-team-news-hull-city-v-brentford-premier-league-25-10-2026"],
+      "날짜": "2026-10-24"
+    },
+    {
+      "팀": "헐 시티",
+      "선수": "Nobel Mendy",
+      "포지션": "DF",
+      "이번시즌_선발/경기": "미상",
+      "득점·도움": "미상",
+      "사유": "사타구니(groin) 부상",
+      "상태": "확정",
+      "복귀예정": "미정",
+      "대체선수": "미상",
+      "출처": ["https://www.brentfordfc.com/en/news/first-team-news-hull-city-v-brentford-premier-league-25-10-2026"],
+      "날짜": "2026-10-24"
+    },
+    {
+      "팀": "헐 시티",
+      "선수": "Darko Gyabi",
+      "포지션": "MF",
+      "이번시즌_선발/경기": "미상",
+      "득점·도움": "미상",
+      "사유": "사타구니(groin) 부상",
+      "상태": "확정",
+      "복귀예정": "미정",
+      "대체선수": "미상",
+      "출처": ["https://www.brentfordfc.com/en/news/first-team-news-hull-city-v-brentford-premier-league-25-10-2026"],
+      "날짜": "2026-10-24"
+    },
+    {
+      "팀": "헐 시티",
+      "선수": "Jack Butland",
+      "포지션": "GK",
+      "이번시즌_선발/경기": "미상",
+      "득점·도움": "-",
+      "사유": "팔(arm) 부상",
+      "상태": "확정",
+      "복귀예정": "미정",
+      "대체선수": "미상(주전 GK)",
+      "출처": ["https://www.brentfordfc.com/en/news/first-team-news-hull-city-v-brentford-premier-league-25-10-2026"],
+      "날짜": "2026-10-24"
+    },
+    {
+      "팀": "헐 시티",
+      "선수": "Matt Targett",
+      "포지션": "DF",
+      "이번시즌_선발/경기": "미상",
+      "득점·도움": "미상",
+      "사유": "발목(ankle) 부상",
+      "상태": "확정",
+      "복귀예정": "미정",
+      "대체선수": "미상",
+      "출처": ["https://www.brentfordfc.com/en/news/first-team-news-hull-city-v-brentford-premier-league-25-10-2026"],
+      "날짜": "2026-10-24"
+    },
+    {
+      "팀": "헐 시티",
+      "선수": "Ilyas Ansah",
+      "포지션": "FW",
+      "이번시즌_선발/경기": "미상",
+      "득점·도움": "미상",
+      "사유": "허리(back) 부상",
+      "상태": "확정",
+      "복귀예정": "미정",
+      "대체선수": "미상",
+      "출처": ["https://www.brentfordfc.com/en/news/first-team-news-hull-city-v-brentford-premier-league-25-10-2026"],
+      "날짜": "2026-10-24"
+    },
+    {
+      "팀": "헐 시티",
+      "선수": "Eliot Matazo",
+      "포지션": "MF",
+      "이번시즌_선발/경기": "0경기(장기 결장)",
+      "득점·도움": "-",
+      "사유": "전방십자인대(ACL) 파열 — 지난 시즌 말 부상",
+      "상태": "확정(장기)",
+      "복귀예정": "미정, 시즌 아웃 가능성",
+      "대체선수": "미상",
+      "출처": ["https://www.brentfordfc.com/en/news/first-team-news-hull-city-v-brentford-premier-league-25-10-2026"],
+      "날짜": "2026-10-24"
+    },
+    {
+      "팀": "헐 시티",
+      "선수": "Robinio Vaz",
+      "포지션": "FW/MF",
+      "이번시즌_선발/경기": "미상",
+      "득점·도움": "미상",
+      "사유": "풀럼전(10/17) 종료 직전 통증으로 교체 — MRI 결과 손상 없음, 이번주 훈련 소화",
+      "상태": "의심(출전 가능성 높음)",
+      "복귀예정": "이번 경기 출전 가능 전망",
+      "대체선수": "-",
+      "출처": ["https://www.brentfordfc.com/en/news/first-team-news-hull-city-v-brentford-premier-league-25-10-2026"],
+      "날짜": "2026-10-24"
+    },
+    {
+      "팀": "헐 시티",
+      "선수": "Mohamed-Ali Cho",
+      "포지션": "FW",
+      "이번시즌_선발/경기": "최근 2경기 결장",
+      "득점·도움": "미상",
+      "사유": "컨디션 이슈로 2경기 결장 후 이번주 훈련 전부 소화",
+      "상태": "의심(복귀 가능)",
+      "복귀예정": "이번 경기 복귀 가능",
+      "대체선수": "-",
+      "출처": ["https://www.brentfordfc.com/en/news/first-team-news-hull-city-v-brentford-premier-league-25-10-2026"],
+      "날짜": "2026-10-24"
+    },
+    {
+      "팀": "헐 시티",
+      "선수": "Lucas Gourna-Douath",
+      "포지션": "MF",
+      "이번시즌_선발/경기": "최근 2경기 결장",
+      "득점·도움": "미상",
+      "사유": "컨디션 이슈로 2경기 결장 후 이번주 훈련 전부 소화",
+      "상태": "의심(복귀 가능)",
+      "복귀예정": "이번 경기 복귀 가능",
+      "대체선수": "-",
+      "출처": ["https://www.brentfordfc.com/en/news/first-team-news-hull-city-v-brentford-premier-league-25-10-2026"],
+      "날짜": "2026-10-24"
+    },
+    {
+      "팀": "브렌트퍼드",
+      "선수": "Yehor Yarmoliuk",
+      "포지션": "MF",
+      "이번시즌_선발/경기": "미상",
+      "득점·도움": "미상",
+      "사유": "리버풀전(10/17) 상대 선수(Jeremy Jacquet) 헤드버트로 직접 퇴장 — 3경기 출전정지 시작",
+      "상태": "확정(징계)",
+      "복귀예정": "3경기 후",
+      "대체선수": "미상",
+      "출처": ["https://www.brentfordfc.com/en/news/first-team-news-hull-city-v-brentford-premier-league-25-10-2026"],
+      "날짜": "2026-10-24"
+    },
+    {
+      "팀": "브렌트퍼드",
+      "선수": "Vitaly Janelt",
+      "포지션": "MF",
+      "이번시즌_선발/경기": "미상",
+      "득점·도움": "미상",
+      "사유": "리버풀전 경고 2회 누적 — 이번 경기 출전정지",
+      "상태": "확정(징계)",
+      "복귀예정": "다음 경기",
+      "대체선수": "Mamadou Sangaré(선발 복귀 예상), Mathias Jensen이 더 깊은 역할",
+      "출처": ["https://www.brentfordfc.com/en/news/first-team-news-hull-city-v-brentford-premier-league-25-10-2026"],
+      "날짜": "2026-10-24"
+    },
+    {
+      "팀": "브렌트퍼드",
+      "선수": "Antoni Milambo",
+      "포지션": "MF",
+      "이번시즌_선발/경기": "미상",
+      "득점·도움": "미상",
+      "사유": "경기 소화력(match-fitness) 이슈",
+      "상태": "확정",
+      "복귀예정": "미정",
+      "대체선수": "미상",
+      "출처": ["https://www.brentfordfc.com/en/news/first-team-news-hull-city-v-brentford-premier-league-25-10-2026"],
+      "날짜": "2026-10-24"
+    },
+    {
+      "팀": "브렌트퍼드",
+      "선수": "Kaye Furo",
+      "포지션": "미상",
+      "이번시즌_선발/경기": "미상",
+      "득점·도움": "미상",
+      "사유": "발(foot) 수술 후 회복 중",
+      "상태": "확정(장기)",
+      "복귀예정": "미정",
+      "대체선수": "미상",
+      "출처": ["https://www.brentfordfc.com/en/news/first-team-news-hull-city-v-brentford-premier-league-25-10-2026"],
+      "날짜": "2026-10-24"
+    },
+    {
+      "팀": "브렌트퍼드",
+      "선수": "Kevin Schade",
+      "포지션": "FW",
+      "이번시즌_선발/경기": "미상",
+      "득점·도움": "미상",
+      "사유": "어깨(shoulder) 부상에서 복귀 중",
+      "상태": "복귀(출전 가능)",
+      "복귀예정": "이번 경기 출전 가능",
+      "대체선수": "-",
+      "출처": ["https://www.brentfordfc.com/en/news/first-team-news-hull-city-v-brentford-premier-league-25-10-2026"],
+      "날짜": "2026-10-24"
+    }
+  ],
+  "라인업": {
+    "홈": {
+      "발표여부": "미발표(공식 선발은 킥오프 1시간 전)",
+      "예상XI_또는_직전XI": "직전 경기(10/17 풀럼 원정, 0-1패) 기준 XI + 이번주 복귀 가능한 Cho·Gourna-Douath·Vaz 포함 로테이션 전망. 구체적 예상 포지션별 명단은 매체 접근 제한으로 확인 못함",
+      "포메이션": "미상",
+      "출처": ["https://www.brentfordfc.com/en/news/first-team-news-hull-city-v-brentford-premier-league-25-10-2026"],
+      "날짜": "2026-10-24"
+    },
+    "원정": {
+      "발표여부": "미발표",
+      "예상XI_또는_직전XI": "Yarmoliuk(퇴장 징계)·Janelt(경고 누적 정지) 결장 확정 → Mamadou Sangaré 선발 복귀, Mathias Jensen이 더 깊은 미드필더 역할로 조정 전망. Kevin Schade 복귀 가능",
+      "포메이션": "미상",
+      "출처": ["https://www.brentfordfc.com/en/news/first-team-news-hull-city-v-brentford-premier-league-25-10-2026"],
+      "날짜": "2026-10-24"
+    }
+  },
+  "최근경기": [
+    {"팀": "헐 시티", "날짜": "2026-09-12", "상대": "Chelsea(A, PL)", "장소": "원정", "스코어": "2-2", "비고": "무승부"},
+    {"팀": "헐 시티", "날짜": "2026-09-19", "상대": "Newcastle United(A, PL)", "장소": "원정", "스코어": "1-2(패)", "비고": "패배"},
+    {"팀": "헐 시티", "날짜": "2026-10-11", "상대": "Everton(H, PL)", "장소": "홈", "스코어": "2-2", "비고": "무승부"},
+    {"팀": "헐 시티", "날짜": "2026-10-17", "상대": "Fulham(A, PL)", "장소": "원정", "스코어": "0-1(패)", "비고": "최근 5경기 무승(0승), 득5 실8"},
+    {"팀": "브렌트퍼드", "날짜": "2026-10-17", "상대": "Liverpool(H, PL)", "장소": "홈", "스코어": "1-2(패)", "비고": "Yarmoliuk 퇴장·Janelt 경고 누적 발생 경기"}
+  ],
+  "순위": {
+    "홈": "프리미어리그 10위, 7경기 2승3무2패 승점9 GD+1 (Hull City, 2026-27 승격팀)",
+    "원정": "프리미어리그 6위, 7경기 2승4무1패 승점10 (Brentford)",
+    "출처": ["https://sports.yahoo.com/articles/premier-league-table-2026-27-135706318.html", "https://www.nbcsports.com/soccer/news/premier-league-table-for-2026-27-season", "https://www.si.com/soccer/brentford-vs-liverpool-preview-predictions-lineups-10-17-26"],
+    "날짜": "2026-10-24"
+  },
+  "감독": {
+    "홈": "미확인(이번 검색에서 확인 못함)",
+    "원정": "Keith Andrews",
+    "변동": "없음(확인처: brentfordfc.com, si.com — 경질·교체 보도 없음)",
+    "출처": ["https://dave.sport/news/keith-andrews-press-conference-hull-october-2026/"],
+    "날짜": "2026-10-24"
+  },
+  "일정·동기·기타": [
+    {"내용": "헐 시티는 리그 최근 5경기 무승(2무3패, EFL컵 포함 시 더 저조) — 승격팀으로서 잔류 싸움 초반 국면", "출처": "https://www.fotmob.com/en-GB/teams/8667/overview/hull-city", "날짜": "2026-10-24"},
+    {"내용": "브렌트퍼드는 직전 리버풀전에서 퇴장(Yarmoliuk)·경고누적 정지(Janelt) 2명 결장 확정 — 중원 조합 변경 불가피(Sangaré 복귀, Jensen 역할 조정)", "출처": "https://www.brentfordfc.com/en/news/first-team-news-hull-city-v-brentford-premier-league-25-10-2026", "날짜": "2026-10-24"},
+    {"내용": "양팀 모두 유럽대항전 없음 — 피로 변수는 제한적(둘 다 PL 단일 경기 사이클)", "출처": "검색 종합", "날짜": "2026-10-24"},
+    {"내용": "날씨: 일요일(10/25) 헐 지역 구름 많고 오후 소나기, 강풍(돌풍 최대 52mph) 예보 — 그라운드 컨디션·크로스 플레이에 영향 가능", "출처": "https://www.accuweather.com/en/gb/kingston-upon-hull/hu1-2/weather-forecast/327337, https://www.theweatheroutlook.com/forecast/uk/kingston-upon-hull--east-riding-of-yorkshire", "날짜": "2026-10-24"}
+  ],
+  "엇갈림": [],
+  "못찾음": ["헐 시티 감독 이름(이번 검색 라운드에서 미확인, 추가 확인 필요)", "양팀 결장 선수들의 이번 시즌 정확한 선발 횟수·득점(기사 미기재)", "공식 발표 선발 명단(킥오프 1시간 전 공개 예정)", "헐 시티 쪽 예상 XI 포지션별 상세 명단(매체 접근 제한)"],
+  "뉴스없음": {"홈": "해당 없음(결장 뉴스 다수 확인됨)", "원정": "해당 없음(결장·징계 뉴스 다수 확인됨)"}
+}

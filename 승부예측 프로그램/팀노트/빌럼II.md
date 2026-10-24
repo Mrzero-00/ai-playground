@@ -9,7 +9,7 @@
 - 최근 경기(ESPN, 최대 28일): 2026-09-11 AZ Alkmaar 1-1 Willem II / 2026-09-15 Ajax Amsterdam 5-1 Willem II / 2026-09-19 Willem II 0-1 Fortuna Sittard / 2026-10-11 FC Utrecht 3-1 Willem II / 2026-10-17 Sparta Rotterdam 3-2 Willem II
 <!-- FACTS:END -->
 <!-- INPUTS:START -->
-## 입력(자동 수집 2026-10-23) — xG·휴식일·라인업·환경(이동거리·고도·날씨)은 이 숫자를 쓴다
-- 10-25 01:45 vs SC캄뷔르: 휴식 ?(ESPN 미제공 리그 — 직접 확인) · 직전 - · xG - · 구장 Koning Willem II Stadion · 이동 192km · 고도 20m(차 +16m) · 9.9℃ 강수2.0mm(96%) 바람29.9km/h · ⚠ 비 2.0mm(96%)
+## 입력(자동 수집 2026-10-24) — xG·휴식일·라인업·환경(이동거리·고도·날씨)은 이 숫자를 쓴다
+- 10-25 01:45 vs SC캄뷔르: 휴식 ?(ESPN 미제공 리그 — 직접 확인) · 직전 - · xG - · 구장 Koning Willem II Stadion · 이동 192km · 고도 20m(차 +16m) · 10.4℃ 강수1.7mm(100%) 바람27.4km/h · ⚠ 비 1.7mm(100%)
 <!-- INPUTS:END -->
 

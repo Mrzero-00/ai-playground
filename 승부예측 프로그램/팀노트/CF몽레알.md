@@ -7,8 +7,8 @@
 - 리그 순위: cup1 = MLS Cup playoffs
 <!-- FACTS:END -->
 <!-- INPUTS:START -->
-## 입력(자동 수집 2026-10-23) — xG·휴식일·라인업·환경(이동거리·고도·날씨)은 이 숫자를 쓴다
-- 10-25 02:30 vs 내슈빌SC: 휴식 6.6일(7일 1경기) · 직전 10-18 원정 vs Seattle Sounders FC 1-1 무 [usa.1] · xG - · 직전 선발 4-2-3-1 Sébastian Breza, Brandan Craig, Efraín Morales, Viktor Radojevic, Jalen Neal, Fabian Herbers, Victor Loturi, Samuel Piette, Alexis Sánchez, Noah Streit, Hennadii Synchuk · 구장 사푸토 스타디움 · 이동 1522km · 고도 37m(차 -91m) · 10.2℃ 강수0mm(0%) 바람7.4km/h · ⚠ 장거리 원정 1522km
+## 입력(자동 수집 2026-10-24) — xG·휴식일·라인업·환경(이동거리·고도·날씨)은 이 숫자를 쓴다
+- 10-25 02:30 vs 내슈빌SC: 휴식 6.6일(7일 1경기) · 직전 10-18 원정 vs Seattle Sounders FC 1-1 무 [usa.1] · xG - · 직전 선발 4-2-3-1 Sébastian Breza, Brandan Craig, Efraín Morales, Viktor Radojevic, Jalen Neal, Fabian Herbers, Victor Loturi, Samuel Piette, Alexis Sánchez, Noah Streit, Hennadii Synchuk · 구장 사푸토 스타디움 · 이동 1522km · 고도 37m(차 -91m) · 8.6℃ 강수0mm(0%) 바람5.4km/h · ⚠ 장거리 원정 1522km
 <!-- INPUTS:END -->
 
 - 2026-10-14 조사: 10/15 08:30(KST) 홈 애틀랜타 유나이티드전, 정규시즌 마지막 매치데이. 기준선 승/무/패 43.4/26.4/30.2%, 핸디캡 홈−1 23.5/19.9/56.6%, 오버 2.5 59.5% — 출처: 자체 모델

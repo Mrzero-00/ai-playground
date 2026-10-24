@@ -1,0 +1,161 @@
+{
+  "번호": 395,
+  "홈": "발렌시아",
+  "원정": "비야레알",
+  "리그": "스페인 라리가 2026-27 10라운드",
+  "구장": "메스타야(Estadio de Mestalla, Valencia) — 교차확인 2곳(jornadaperfecta.com, eldesmarque.com)",
+  "킥오프": "2026-10-25 01:30 KST (현지 10-24 18:30 CEST)",
+  "수집시각": "2026-10-24 21:55 KST",
+  "입력_126.md_대조": "해당 경기 행 없음 — 126회 입력 파일에 10-24 23:30 이후(10-25 새벽) 경기가 포함되지 않음. 직접 수집으로 대체.",
+  "팩트시트_126.md_대조": "해당 팀 행 없음(파일 헤더만 존재, 미채움)",
+  "teamdb_card": {
+    "홈": "발렌시아 19위 9경기 1승3무5패 GD-9 승점6 · xG1.08/xGA1.62(npxGD-0.54, xPts10.1 vs 승점6 '운 나쁨') · 핵심선수 Javier Guerra(16%), David Otorbi(13%), Arnaut Danjuma(10%) · 포메이션 혼용(5-4-1 41%, 4-2-3-1 22%, 4-4-2 21%)",
+    "원정": "비야레알 12위 9경기 2승3무4패 GD0 승점9 · xG2.49/xGA1.45(npxGD+1.04, xPts16.7 vs 승점9 '운 매우 나쁨') · 핵심선수 Alberto Moleiro(17%), Ayoze Pérez(15%), Georges Mikautadze(14%), Gerard Moreno(12%) · 주 포메이션 4-4-2(72%)"
+  },
+  "결장": [
+    {
+      "팀": "발렌시아",
+      "선수": "Dimitri Foulquier",
+      "포지션": "DF",
+      "이번시즌_선발/경기": "미상",
+      "득점·도움": "미상",
+      "사유": "근육 부상",
+      "상태": "확정",
+      "복귀예정": "미상",
+      "대체선수": "미상",
+      "출처": ["WebSearch 종합(comuniate.com, jornadaperfecta.com 계열)"],
+      "날짜": "2026-10-23"
+    },
+    {
+      "팀": "발렌시아",
+      "선수": "Diego López",
+      "포지션": "GK",
+      "이번시즌_선발/경기": "미상",
+      "득점·도움": "미상",
+      "사유": "오른쪽 무릎 전방십자인대(ACL) 파열",
+      "상태": "확정",
+      "복귀예정": "내년 1월 예상(장기 결장)",
+      "대체선수": "Stole Dimitrievski(주전 GK)",
+      "출처": ["WebSearch 종합(comuniate.com 계열)"],
+      "날짜": "2026-10-23"
+    },
+    {
+      "팀": "발렌시아",
+      "선수": "Sergi Canós",
+      "포지션": "MF/FW",
+      "이번시즌_선발/경기": "미상",
+      "득점·도움": "미상",
+      "사유": "무릎 부상",
+      "상태": "확정",
+      "복귀예정": "11월 예상",
+      "대체선수": "미상",
+      "출처": ["WebSearch 종합"],
+      "날짜": "2026-10-23"
+    },
+    {
+      "팀": "발렌시아",
+      "선수": "Umar Sadiq",
+      "포지션": "FW",
+      "이번시즌_선발/경기": "미상",
+      "득점·도움": "미상",
+      "사유": "햄스트링 근육 부상",
+      "상태": "확정",
+      "복귀예정": "11월 예상",
+      "대체선수": "Hugo Duro(주전 원톱)",
+      "출처": ["WebSearch 종합"],
+      "날짜": "2026-10-23"
+    },
+    {
+      "팀": "발렌시아",
+      "선수": "José Copete",
+      "포지션": "DF",
+      "이번시즌_선발/경기": "미상",
+      "득점·도움": "미상",
+      "사유": "미상(부상 추정)",
+      "상태": "의심",
+      "복귀예정": "미상",
+      "대체선수": "미상",
+      "출처": ["WebSearch 종합"],
+      "날짜": "2026-10-23"
+    },
+    {
+      "팀": "비야레알",
+      "선수": "Nicolas Pepe",
+      "포지션": "FW/MF",
+      "이번시즌_선발/경기": "미상(팀노트 최근5 명단에는 소수 출전으로 포함)",
+      "득점·도움": "미상",
+      "사유": "눈 수술(eye surgery) 후 회복 중",
+      "상태": "확정",
+      "복귀예정": "미상(회복 지속)",
+      "대체선수": "미상",
+      "출처": ["WebSearch 종합(comuniate.com, jornadaperfecta.com 계열)"],
+      "날짜": "2026-10-23"
+    },
+    {
+      "팀": "비야레알",
+      "선수": "Carlos/Nathan Saliba(원문 'Nathan Saliba' — 선수 식별 불확실)",
+      "포지션": "미상",
+      "이번시즌_선발/경기": "미상",
+      "득점·도움": "미상",
+      "사유": "근육 불편감(muscle discomfort)으로 이번 주 추가",
+      "상태": "의심",
+      "복귀예정": "미상",
+      "대체선수": "미상",
+      "출처": ["WebSearch 종합"],
+      "날짜": "2026-10-23"
+    }
+  ],
+  "라인업": {
+    "홈": {
+      "발표여부": "미발표(예상 선발만)",
+      "예상XI": "4-2-3-1(또는 5-4-1 혼용): Dimitrievski; Maffeo, Gayà, De Haas, Diakhaby; Pepelu, Guido; Otorbi, Raba, Javi Guerra; Hugo Duro",
+      "포메이션": "4-2-3-1 예상(시즌 중 5-4-1 비중도 높음, 41%)",
+      "출처": ["https://www.eldesmarque.com/futbol/liga-1a-division/20261023/posibles-valencia-cf-villarreal-mestalla_18_020491466.html", "https://www.comuniate.com/equipos/18/valencia-alineacion"],
+      "날짜": "2026-10-23"
+    },
+    "원정": {
+      "발표여부": "미발표",
+      "예상XI": "4-4-2: Gulácsi; Freeman, Romero(Cristian Romero 추정), Veiga, Foyth; Pape Gueye, Ilias Akhomach; Moleiro, Ayoze Pérez; Mikautadze (검색 결과 원문에 'Saliba'가 비야레알 수비수로 오기된 것으로 보임 — 교차검증 필요, 엇갈림 항목 참고)",
+      "포메이션": "4-4-2",
+      "출처": ["https://www.eldesmarque.com/futbol/liga-1a-division/20261023/posibles-valencia-cf-villarreal-mestalla_18_020491466.html", "teamdb.py card(직전 선발 4-4-2: Gulácsi, Logan Costa, Juan Foyth, Sergi Cardona, Alex Freeman, Carlos Macià, Santi Comesaña, Tani Oluwaseyi, Ilias Akhomach, Alberto Moleiro, Ayoze Pérez)"],
+      "날짜": "2026-10-23~24"
+    }
+  },
+  "최근경기": [
+    {"팀": "발렌시아", "날짜": "2026-10-11", "상대": "Racing Santander(A)", "장소": "원정", "스코어": "2-2", "비고": "xG 1.75:1.40"},
+    {"팀": "발렌시아", "날짜": "2026-10-17", "상대": "Athletic Club(H)", "장소": "홈", "스코어": "0-0", "비고": "xG 2.24:0.52, 4-2-3-1"},
+    {"팀": "비야레알", "날짜": "2026-10-10", "상대": "Real Madrid(A)", "장소": "원정", "스코어": "0-1 패", "비고": "xG 0.53:1.43"},
+    {"팀": "비야레알", "날짜": "2026-10-17", "상대": "Elche(H)", "장소": "홈", "스코어": "0-0", "비고": "xG 2.30:0.22, 4-4-2"}
+  ],
+  "맞대결": {
+    "내용": "직접 검색하지 못함",
+    "출처": [],
+    "날짜": ""
+  },
+  "순위": {
+    "홈": "19위(꼴찌권) 9경기 1승3무5패 GD-9 승점6",
+    "원정": "12위 9경기 2승3무4패 GD0 승점9",
+    "출처": "teamdb.py card",
+    "날짜": "2026-10-24"
+  },
+  "감독": {
+    "홈": "미상(직접 확인 못함 — 'Aguirre'라는 성이 검색 결과에 1회 등장했으나 교차확인 1곳뿐이라 미확정)",
+    "원정": "미상(직접 확인 못함)",
+    "변동": "미상",
+    "출처": ["https://enfoquenoticias.com.mx/noticias/el-valencia-de-aguirre-busca-su-primer-triunfo-ante-un-villarreal"],
+    "날짜": "2026-10-23"
+  },
+  "일정·동기·기타": [
+    {"내용": "비야레알은 이번 달 유럽대항전 일정이 없음(챔피언스리그/유로파/컨퍼런스 모두 미참가 시즌) — 체력 변수 적음", "출처": "WebSearch 종합(ESPN 피스처 목록)", "날짜": "2026-10-24"},
+    {"내용": "발렌시아는 9경기 1승으로 강등권 바로 위 또는 강등권(19위), 승점 6점 — 첫 승이 급한 상황으로 보도", "출처": "https://enfoquenoticias.com.mx/noticias/el-valencia-de-aguirre-busca-su-primer-triunfo-ante-un-villarreal", "날짜": "2026-10-23"},
+    {"내용": "심판: Javier Alberola Rojas", "출처": "WebSearch 종합", "날짜": "2026-10-23"}
+  ],
+  "심판": {"이름": "Javier Alberola Rojas", "출처": ["WebSearch 종합"], "날짜": "2026-10-23"},
+  "날씨": {"내용": "직접 확인 못함(검색 결과에 수치 없음)", "출처": [], "날짜": ""},
+  "엇갈림": [
+    {"내용": "비야레알 수비수 이름이 검색 결과에서 'Saliba'로 표기되었으나 실제로는 Arsenal의 William Saliba와 동명이인 혹은 teamdb의 'Logan Costa/Carlos Romero' 등과 혼선 가능성 — 확정 선발 발표 전까지 '미확인'으로 처리", "출처": ["https://magazine.comunio.es/jornada-10-alineaciones-probables-del-valencia-villarreal/"], "날짜": "2026-10-23"},
+    {"내용": "발렌시아 감독 성(姓) 'Aguirre' 보도는 교차확인 2곳이 안 되어 미확인 루머로 분리", "출처": ["enfoquenoticias.com.mx(1곳만)"], "날짜": "2026-10-23"}
+  ],
+  "못찾음": ["양팀 감독 이름 공식 교차확인", "날씨 예보", "결장 선수 선발 횟수·득점 통계", "H2H 맞대결 전적", "공식 확정 선발(킥오프 3.5시간 이상 전이라 당연히 미발표)"],
+  "뉴스없음": {"홈": "해당 없음(결장 다수 확인됨)", "원정": "해당 없음(결장 확인됨)"}
+}

@@ -1,0 +1,179 @@
+{
+  "번호": 292,
+  "홈": "RB라이프치히",
+  "원정": "엘버스베르크",
+  "리그": "독일 분데스리가 2026-27 7라운드",
+  "구장": "레드불 아레나(Red Bull Arena, Leipzig) — 교차확인: sportschau.de, datencenter.dfb.de",
+  "킥오프": "2026-10-24 15:30 CEST (22:30 KST)",
+  "수집시각": "2026-10-24 21:50 KST",
+  "결장": [
+    {
+      "팀": "RB라이프치히",
+      "선수": "Marc Guiu",
+      "포지션": "FW",
+      "이번시즌_선발/경기": "미상(teamdb 핵심선수 상위 6인에 미포함 — 출전 비중 낮음 추정)",
+      "득점·도움": "미상",
+      "사유": "뒷허벅지(햄스트링) 근육 부상",
+      "상태": "확정",
+      "복귀예정": "미정",
+      "출처": ["https://www.sportsmole.co.uk/football/rb-leipzig/preview/rb-leipzig-vs-elversberg-prediction-team-news-lineups_607493.html", "https://sports.yahoo.com/articles/leipzig-face-nkunku-injury-scare-202956481.html"],
+      "날짜": "2026-10-23~24"
+    },
+    {
+      "팀": "RB라이프치히",
+      "선수": "Assan Ouédraogo",
+      "포지션": "MF",
+      "이번시즌_선발/경기": "미상",
+      "득점·도움": "미상",
+      "사유": "어깨 캡슐 부상(수술 받음)",
+      "상태": "확정",
+      "복귀예정": "12월 말 예상",
+      "출처": ["https://x.com/RBLeipzig_EN/status/2111031168372273173", "https://sports.yahoo.com/articles/leipzig-face-nkunku-injury-scare-202956481.html"],
+      "날짜": "2026-10-23"
+    },
+    {
+      "팀": "RB라이프치히",
+      "선수": "Christoph Baumgartner",
+      "포지션": "AM",
+      "이번시즌_선발/경기": "장기 결장 후 복귀",
+      "득점·도움": "미상",
+      "사유": "햄스트링 부상에서 회복, 팀 훈련 일부 합류",
+      "상태": "의심(스쿼드 복귀는 확정이나 선발은 아니고 벤치 대기 예상 — 매체 간 표현 차이 있음)",
+      "복귀예정": "스쿼드 복귀(선발 제외 유력)",
+      "출처": ["https://sports.yahoo.com/articles/leipzig-face-nkunku-injury-scare-202956481.html", "https://www.fussballnationalmannschaft.net/fussball-heute-aufstellung-leipzig-elversberg-gomis-123312892.html"],
+      "날짜": "2026-10-24"
+    },
+    {
+      "팀": "RB라이프치히",
+      "선수": "Christopher Nkunku",
+      "포지션": "FW/AM",
+      "이번시즌_선발/경기": "teamdb: xG+xA 비중 14%, 61분/경기(시즌6경기 기준)",
+      "득점·도움": "teamdb: 3.0xG+0.6xA(6경기 누적)",
+      "사유": "엇갈림 — Yahoo는 '내전근(adductor) 부상 우려'로 보도했으나, 다수 예상 선발 명단(kicker 계열 종합)에는 선발 포함",
+      "상태": "의심(예상 선발에는 포함, 통증 우려 보도와 충돌 — 미확인 루머는 아니고 교차 매체 뉘앙스 차이)",
+      "복귀예정": "출전 가능해 보임(선발 예상)",
+      "출처": ["https://sports.yahoo.com/articles/leipzig-face-nkunku-injury-scare-202956481.html", "https://www.fussballnationalmannschaft.net/fussball-heute-aufstellung-leipzig-elversberg-gomis-123312892.html"],
+      "날짜": "2026-10-24"
+    },
+    {
+      "팀": "엘버스베르크",
+      "선수": "Tom Zimmerschied",
+      "포지션": "미상",
+      "이번시즌_선발/경기": "미상",
+      "득점·도움": "미상",
+      "사유": "부상(재발)",
+      "상태": "확정",
+      "복귀예정": "미정",
+      "출처": ["https://www.sportsmole.co.uk/football/rb-leipzig/preview/rb-leipzig-vs-elversberg-prediction-team-news-lineups_607493.html"],
+      "날짜": "2026-10-23"
+    },
+    {
+      "팀": "엘버스베르크",
+      "선수": "Luis Seifert",
+      "포지션": "미상",
+      "이번시즌_선발/경기": "미상",
+      "득점·도움": "미상",
+      "사유": "신디스모제(발목 인대) 부상 — 재활 훈련 단계",
+      "상태": "확정",
+      "복귀예정": "미정",
+      "출처": ["https://www.fussballnationalmannschaft.net/fussball-heute-aufstellung-leipzig-elversberg-gomis-123312892.html"],
+      "날짜": "2026-10-24"
+    },
+    {
+      "팀": "엘버스베르크",
+      "선수": "Cole Campbell",
+      "포지션": "MF (teamdb: xG+xA 비중 6%, 58분/경기)",
+      "이번시즌_선발/경기": "teamdb 기준 로테이션 자원",
+      "득점·도움": "teamdb: 0.6xG+0.5xA(6경기 누적)",
+      "사유": "발목 문제",
+      "상태": "의심",
+      "복귀예정": "미정",
+      "출처": ["https://www.fussballnationalmannschaft.net/fussball-heute-aufstellung-leipzig-elversberg-gomis-123312892.html", "https://www.sportsmole.co.uk/football/rb-leipzig/preview/rb-leipzig-vs-elversberg-prediction-team-news-lineups_607493.html"],
+      "날짜": "2026-10-24"
+    },
+    {
+      "팀": "엘버스베르크",
+      "선수": "Francis Onyeka",
+      "포지션": "미상",
+      "이번시즌_선발/경기": "미상",
+      "득점·도움": "미상",
+      "사유": "발 부상 우려",
+      "상태": "의심",
+      "복귀예정": "미정",
+      "출처": ["https://www.fussballnationalmannschaft.net/fussball-heute-aufstellung-leipzig-elversberg-gomis-123312892.html"],
+      "날짜": "2026-10-24"
+    },
+    {
+      "팀": "엘버스베르크",
+      "선수": "Jan Gyamerah",
+      "포지션": "DF (직전 선발 포함)",
+      "이번시즌_선발/경기": "직전 경기 선발",
+      "득점·도움": "미상",
+      "사유": "경미한 컨디션 난조 — 아우크스부르크전 조기 교체는 예방 차원이었다고 보도됨. 예상 선발에는 포함",
+      "상태": "의심(출전은 유력, 리스크만 기록)",
+      "복귀예정": "선발 예상",
+      "출처": ["https://www.fussballnationalmannschaft.net/fussball-heute-aufstellung-leipzig-elversberg-gomis-123312892.html"],
+      "날짜": "2026-10-24"
+    }
+  ],
+  "라인업": {
+    "홈": {
+      "발표여부": "미발표(예상, 킥오프 약 0.7h 전)",
+      "예상XI": "4-2-3-1: Vandevoordt; Baku, Orbán, Lukeba, Raum; Banzuzi, El Aynaoui; Gruda, Nkunku, Nusa; Gomis",
+      "포메이션": "4-2-3-1",
+      "출처": ["https://www.fussballnationalmannschaft.net/fussball-heute-aufstellung-leipzig-elversberg-gomis-123312892.html", "https://magazin.comunio.de/rb-leipzig-sv-elversberg-voraussichtliche-aufstellungen/"],
+      "날짜": "2026-10-24"
+    },
+    "원정": {
+      "발표여부": "미발표(예상)",
+      "예상XI": "4-2-3-1: Kristof; Gyamerah, Pinckert, Rohr, Günther; Keidel, Poręba; Petkov, Darvich, Krattenmacher; Mokwa",
+      "포메이션": "4-2-3-1",
+      "출처": ["https://www.fussballnationalmannschaft.net/fussball-heute-aufstellung-leipzig-elversberg-gomis-123312892.html"],
+      "날짜": "2026-10-24"
+    }
+  },
+  "최근경기": {
+    "홈_최근5(입력_126/teamdb)": "최근5 xG2.08/xGA2.15, 직전 10-22 원정 UCL vs Real Madrid 1-4 패, 직전 리그 10-17 원정 vs Bayern Munich 1-6 패(대패)",
+    "원정_최근5(입력_126/teamdb)": "최근5 xG1.83/xGA2.44, 직전 10-17 홈 vs FC Augsburg 4-3 승",
+    "비고": "teamdb Understat 로그 상 라이프치히는 10-10 홈 6-0 대승 이후 10-17 원정 1-6 대패로 변동폭이 큼"
+  },
+  "맞대결": {
+    "역대": "분데스리가 레벨에서는 첫 맞대결. 3부리그(3. Liga) 시절인 2013-14 시즌 1승1패 (2013-09 엘버스베르크 1-0 승 / 2014-03 라이프치히 2-0 승)",
+    "출처": ["https://www.aiscore.com/head-to-head/soccer-rb-leipzig-vs-sv-elversberg"],
+    "날짜": "2026-10-24"
+  },
+  "일정": {
+    "홈": "휴식 2.8일(최근 7일 2경기) — 10-22 UCL 원정 패배 직후 곧바로 리그 경기, 대항전 병행 부담 큼 (입력_126)",
+    "원정": "휴식 7.0일, 대항전 없음 (입력_126)",
+    "비고": "라이프치히는 UCL 로테이션 가능성 있음"
+  },
+  "동기": {
+    "홈": "분데스리가 승점9, 리그 성적 들쑥날쑥(대승-대패 반복)",
+    "원정": "승격팀(2026 5/17 2부리그 우승 없이 득실차로 자동승격) 승점10으로 중위권 선전 중",
+    "감독": {
+      "홈": "Martín Demichelis — Ole Werner 후임으로 부임(계약 2028년까지). 바이에른전 1-6 대패 이후 성적 비판 거세짐. 구단 스포츠디렉터 Marcel Schäfer가 신뢰 표명, 레드불 글로벌 사커 총괄 Roger Schmidt도 경질 반대 입장으로 보도됨 — 내부 이슈로 기록",
+      "원정": "Vincent Wagner — 2025-26시즌 전 부임, 첫 해에 승격 이끎",
+      "출처": ["https://www.spox.com/fussball/news/schnelle-entlassung-nachfolger-von-juergen-klopp-hat-wohl-klare-meinung-zu-rb-leipzigs-trainer-martin-demichelis/blt21a74ed5ef09d9f7", "https://www.sport.de/news/ne17260631/blitz-aus-fuer-demichelis-bei-rb-leipzig/", "https://news-7.de/politik/sv-elversberg-bundesliga-aufstieg-2026/"],
+      "날짜": "2026-10-19~24"
+    }
+  },
+  "환경": {
+    "날씨": "8.5℃ 강수 0.8mm(확률95%) 바람 13.8km/h — ⚠ 비 예보 (입력_126 기준값 그대로)",
+    "구장": "레드불 아레나(라이프치히)",
+    "이동": "엘버스베르크 원정 이동 435km",
+    "비고": "입력_126은 구단 좌표 기준이라 '구장 미확인' 표기했으나 검색으로 Red Bull Arena 확인됨"
+  },
+  "심판": {
+    "주심": "Bastian Dankert",
+    "부심": ["René Rohde", "Marcel Unger"],
+    "대기심": "Richard Hempel",
+    "VAR": "Pascal Müller",
+    "출처": ["https://www.bundesliga.com/de/bundesliga/news/schiedsrichter-ansetzungen-bundesliga-spieltag-42"],
+    "날짜": "2026-10-24"
+  },
+  "뉴스없음": {
+    "홈": "해당 없음(결장·컨디션 뉴스 다수 확인됨)",
+    "원정": "해당 없음(결장 뉴스 다수 확인됨)"
+  },
+  "미확인루머": []
+}

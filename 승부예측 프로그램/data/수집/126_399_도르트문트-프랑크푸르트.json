@@ -1,0 +1,160 @@
+{
+  "번호": 399,
+  "홈": "도르트문트",
+  "원정": "프랑크푸르트",
+  "수집시각": "2026-10-24 21:40 KST",
+  "리그_확인": "둘 다 2026-27 독일 분데스리가(1부) 소속, 지정 5대 리그 포함 팀(teamdb.py card 'Borussia Dortmund (Bundesliga)' / 'Eintracht Frankfurt (Bundesliga)' 확인). 도르트문트 2위(14점), 프랑크푸르트 11위(8점).",
+  "비고_입력파일": "회차별분석/팩트시트_126.md 는 헤더만 있고 팀별 행이 비어 있음(수집 당시 미채움). 회차별분석/입력_126.md 에도 이 경기(399) 행이 없음 — 두 자료 모두 이 매치는 대상 밖. 아래 FACTS/INPUTS 성격 수치는 teamdb.py card + 직접 검색으로 대체.",
+  "결장": [
+    {
+      "팀": "도르트문트",
+      "선수": "Konstantinos Karetsas",
+      "포지션": "MF/FW",
+      "이번시즌_선발/경기": "미상(신규 영입, 시즌 초반 합류)",
+      "득점·도움": "미상",
+      "사유": "발 인대 부상(Bandverletzung im Fuß)",
+      "상태": "확정",
+      "복귀예정": "미정",
+      "대체선수": "Ethan Nwaneri / Fabio Silva",
+      "출처": ["https://www.radio912.de/artikel/bvb-ohne-karetsas-verletzung-stoppt-den-neuzugang-2784821", "https://www.bundesliga.com/de/bundesliga/news/borussia-dortmund-bvb-konstantinos-karetsas-verletzung-union-berlin-diagnose-39619"],
+      "날짜": "2026-10-20경"
+    },
+    {
+      "팀": "도르트문트",
+      "선수": "Emre Can",
+      "포지션": "MF/DF",
+      "이번시즌_선발/경기": "미상",
+      "득점·도움": "미상",
+      "사유": "인대 파열(ligament tear) — 장기 결장",
+      "상태": "확정",
+      "복귀예정": "장기 결장",
+      "대체선수": "Felix Nmecha / Daniel Svensson",
+      "출처": ["https://www.goal.com/de/listen/bvb-platzt-der-wechsel-serhou-guirassy-borussia-dortmund/blt67a533a9b44be633(교차 목록)", "https://www.radio912.de/artikel/bvb-ohne-karetsas-verletzung-stoppt-den-neuzugang-2784821"],
+      "날짜": "2026-10-20경"
+    },
+    {
+      "팀": "도르트문트",
+      "선수": "Giannis Konstantelias",
+      "포지션": "MF",
+      "이번시즌_선발/경기": "미상",
+      "득점·도움": "미상",
+      "사유": "인대 파열(ligament tear)",
+      "상태": "확정",
+      "복귀예정": "장기 결장",
+      "대체선수": "미상",
+      "출처": ["https://www.radio912.de/artikel/bvb-ohne-karetsas-verletzung-stoppt-den-neuzugang-2784821"],
+      "날짜": "2026-10-20경"
+    },
+    {
+      "팀": "도르트문트",
+      "선수": "Justin Lerma",
+      "포지션": "MF",
+      "이번시즌_선발/경기": "미상",
+      "득점·도움": "미상",
+      "사유": "근육 문제 지속",
+      "상태": "확정",
+      "복귀예정": "미정",
+      "대체선수": "미상",
+      "출처": ["https://www.radio912.de/artikel/bvb-ohne-karetsas-verletzung-stoppt-den-neuzugang-2784821"],
+      "날짜": "2026-10-20경"
+    },
+    {
+      "팀": "프랑크푸르트",
+      "선수": "Jessic Ngankam / Malik Pimpong",
+      "포지션": "FW",
+      "이번시즌_선발/경기": "미상(teamdb 핵심 선수 목록 밖 — 백업 공격 자원)",
+      "득점·도움": "미상",
+      "사유": "부상(구체 부위 비기재)",
+      "상태": "확정",
+      "복귀예정": "미상",
+      "대체선수": "해당없음(주전 공격진 Burkardt·Ebnoutalib·Uzun 영향 적음)",
+      "출처": ["WhoScored/통계 프리뷰 교차 검색 결과"],
+      "날짜": "2026-10-23"
+    },
+    {
+      "팀": "프랑크푸르트",
+      "선수": "Nnamdi Collins",
+      "포지션": "DF",
+      "이번시즌_선발/경기": "teamdb 직전 선발(10-16) 명단 포함 — 최근 주전급 수비수",
+      "득점·도움": "미상",
+      "사유": "컨디션 이슈(구체 사유 비기재)로 출전 의문",
+      "상태": "의심",
+      "복귀예정": "출전 여부 미정",
+      "대체선수": "Lilian Brassier / Robin Koch 조합 유지 또는 Keita Kosugi 이동",
+      "출처": ["https://tips.gg/article/borussia-dortmund-vs-eintracht-frankfurt-predicted-lineups-team-news-24-10-2026/"],
+      "날짜": "2026-10-23"
+    },
+    {
+      "팀": "프랑크푸르트",
+      "선수": "Oscar Højlund",
+      "포지션": "FW",
+      "이번시즌_선발/경기": "미상(teamdb 핵심 선수 목록 밖)",
+      "득점·도움": "미상",
+      "사유": "출전 의문(구체 사유 비기재)",
+      "상태": "의심",
+      "복귀예정": "미상",
+      "대체선수": "해당없음",
+      "출처": ["https://tips.gg/article/borussia-dortmund-vs-eintracht-frankfurt-predicted-lineups-team-news-24-10-2026/"],
+      "날짜": "2026-10-23"
+    }
+  ],
+  "라인업": {
+    "홈": {
+      "발표여부": "미발표(예상 라인업)",
+      "예상XI": "3-4-2-1: Gregor Kobel; Kouakou Gadou, Waldemar Anton, Nico Schlotterbeck; Julian Ryerson, Jobe Bellingham, Felix Nmecha, Daniel Svensson; Ethan Nwaneri, Maximilian Beier; Serhou Guirassy",
+      "포메이션": "3-4-2-1(시즌 83% 사용, teamdb 직전 선발과 일치)",
+      "출처": ["https://tips.gg/article/borussia-dortmund-vs-eintracht-frankfurt-predicted-lineups-team-news-24-10-2026/", "teamdb.py card(직전 선발 10-17 vs Union Berlin와 대조해 일치 확인)"],
+      "날짜": "2026-10-24",
+      "비고": "Guirassy는 바쿠(유로파리그 원정) 2골 활약 이후 선발 확실시"
+    },
+    "원정": {
+      "발표여부": "미발표(예상 라인업)",
+      "예상XI": "4-4-2 또는 4-2-3-1: Noah Atubolu; (Collins 의심, 결장 시 Keita Kosugi 우측 이동), Robin Koch, Lilian Brassier, (좌측 풀백); Farès Chaïbi/Can Knauff, Raphael Onyedika, (Mario Götze 또는 Aseko), Ritsu Doan; Younes Ebnoutalib, Jonathan Burkardt",
+      "포메이션": "4-4-2(시즌 61% 사용) — teamdb 직전 선발과 매체 예상 라인업 대체로 일치(일부 측면 로테이션 가능)",
+      "출처": ["https://tips.gg/article/borussia-dortmund-vs-eintracht-frankfurt-predicted-lineups-team-news-24-10-2026/", "teamdb.py card(직전 선발 10-16 vs Cologne)"],
+      "날짜": "2026-10-24",
+      "비고": "일부 검색 결과(kicker.de 캐시 스니펫)는 Reggiani·Sabitzer·Brandt·Inacio·Zetterer 등 teamdb 명단에 전혀 없는 이름을 제시 — 다른 시즌/오류로 판단해 채택하지 않음"
+    }
+  },
+  "최근경기": [
+    {"팀": "도르트문트", "날짜": "2026-10-17", "상대": "1. FC Union Berlin(A)", "장소": "원정", "스코어": "0-0 무", "비고": "xG 0.99:0.94"},
+    {"팀": "도르트문트", "날짜": "2026-10-09", "상대": "Werder Bremen(H)", "장소": "홈", "스코어": "2-2 무", "비고": "xG 2.62:0.85(기대득점상 압도했으나 무승부)"},
+    {"팀": "도르트문트", "날짜": "2026-09-19", "상대": "VfB Stuttgart(A)", "장소": "원정", "스코어": "1-0 승", "비고": "xG 2.11:0.67"},
+    {"팀": "프랑크푸르트", "날짜": "2026-10-16", "상대": "FC Cologne(H)", "장소": "홈", "스코어": "1-0 승", "비고": "xG 1.27:1.02"},
+    {"팀": "프랑크푸르트", "날짜": "2026-10-10", "상대": "RB Leipzig(A)", "장소": "원정", "스코어": "0-6 패", "비고": "xG 1.96:4.74, 대패"},
+    {"팀": "프랑크푸르트", "날짜": "2026-09-19", "상대": "SC Freiburg(H)", "장소": "홈", "스코어": "2-2 무", "비고": "xG 2.08:2.93"}
+  ],
+  "맞대결": {
+    "기록": "프랑크푸르트의 도르트문트 원정 전적은 역대 최악급 — 1963년 이후 53경기 중 8승뿐, 1991년 이후 35년간은 단 3승. 가장 최근 원정 승리는 2021년",
+    "출처": ["https://hessenschau.de/sport/fussball/eintracht-frankfurt/das-wichtigste-zum-eintracht-spiel-in-dortmund-gegen-die-grusel-bilanz-v1,wichtigste-sge-bvb-100.html"],
+    "날짜": "2026-10-23"
+  },
+  "일정·동기·기타": [
+    {"내용": "도르트문트는 직전 경기(10-17) 전 유로파리그 원정(바쿠, Qarabağ 추정)에서 Guirassy 2골 활약 — 유럽대항전·리그 병행 일정이나 휴식일은 리그 기준 7일(10-17→10-24)", "출처": "https://goldesel.de/aktien/news/borussia-dortmund-bvb-aktie-karetsas-fehlt-in-baku-und-gegen-frankfurt", "날짜": "2026-10-20경"},
+    {"내용": "'분데스리가 톱슈피엘(Topspiel)'로 중계 편성됨 — 도르트문트 2위 14점 vs 프랑크푸르트 11위 8점으로 순위차는 있으나 양팀 다 유럽대항전 복귀가 목표", "출처": "https://www.bundesliga.com/en/bundesliga/matchday/2026-2027/7/borussia-dortmund-vs-eintracht-frankfurt/liveticker", "날짜": "2026-10-24"},
+    {"내용": "프랑크푸르트는 직전 시즌(2025-26) 1월 Dino Toppmöller 감독 경질 이력이 있으나 2026-27 현재 감독은 교체 이력 없음(아래 감독 항목 참고, 오래된 뉴스)", "출처": "https://www.sportschau.de/regional/hr/hr-offiziell-eintracht-frankfurt-trennt-sich-von-trainer-dino-toppmoeller-100.html", "날짜": "2026-01-18(오래된 뉴스)"}
+  ],
+  "감독": {
+    "홈": "Niko Kovac (현재 도르트문트 감독, 이번 주 교체 없음)",
+    "원정": "Toppmöller 후임 체제 — 검색 결과 확인된 공식 후임자명은 찾지 못함(2026-01 경질 당시 임시로 U21 감독 Dennis Schmitt+Alexander Meier 체제였다는 과거 보도만 확인, 2026-27 시즌 정식 감독명은 교차확인 못 함)",
+    "변동": "프랑크푸르트 쪽 2026-27 시즌 정식 감독명 미확인 — 분석가는 별도 확인 필요",
+    "출처": ["https://www.radio912.de/artikel/bvb-ohne-karetsas-verletzung-stoppt-den-neuzugang-2784821", "https://www.sportschau.de/regional/hr/hr-offiziell-eintracht-frankfurt-trennt-sich-von-trainer-dino-toppmoeller-100.html"],
+    "날짜": "2026-10-20 / 2026-01-18(오래된 뉴스, 프랑크푸르트 후임자는 미확인)"
+  },
+  "날씨": {
+    "내용": "구장 Signal Iduna Park, 도르트문트 · 킥오프(18:30 CEST) 전후 약 10℃, 강수확률 80%, 바람 18km/h(돌풍 45km/h) — 자정 이후 더 강해져 돌풍 최대 74km/h까지 예보. 팩트시트/입력_126에 이 경기 행이 없어 일반 기상 검색으로 대체(Open-Meteo 좌표 기반 수치 아님, 정확도 낮음)",
+    "출처": ["독일 날씨 포털 검색 결과(wetter.com류 애그리게이터)"],
+    "날짜": "2026-10-23 기준 예보치"
+  },
+  "심판": {
+    "내용": "주심 Sven Jablonski, 부심 Eduard Beitinger·Dr. Martin Thomsen, 4th Felix Bickel, VAR Sören Storks·Markus Wollenweber",
+    "출처": ["https://www.bundesliga.com/de/bundesliga/news/schiedsrichter-ansetzungen-bundesliga-spieltag-42", "https://ig-schiedsrichter.de/bundesliga-jablonski-und-zwayer-leiten-die-topspiele-des-7-spieltags/"],
+    "날짜": "2026-10-24",
+    "비고": "검색 1회차에서 'Patrick Ittrich'라는 다른 이름이 1곳에서만 나왔으나 공식 배정 발표(bundesliga.com) 소스와 교차검증한 결과 Sven Jablonski가 맞음 — Ittrich 건은 오류로 폐기"
+  },
+  "엇갈림": [
+    {"내용": "프랑크푸르트 예상 선발 일부 출처(kicker.de 캐시)에서 teamdb 실제 선수단과 무관한 이름(Reggiani·Sabitzer·Brandt·Inacio·Zetterer)이 나와 신뢰 불가 — tips.gg/fussballnationalmannschaft 쪽 라인업(Atubolu·Koch·Brassier·Doan·Burkardt·Ebnoutalib 등)을 채택", "출처": ["kicker.de 검색 스니펫(채택 안 함)", "https://tips.gg/article/borussia-dortmund-vs-eintracht-frankfurt-predicted-lineups-team-news-24-10-2026/"], "날짜": "2026-10-24"}
+  ],
+  "못찾음": ["프랑크푸르트 2026-27 시즌 정식 감독 이름", "도르트문트·프랑크푸르트 결장 선수들의 이번 시즌 정확한 선발 횟수·득점·도움", "이 경기장 날씨의 정확한 좌표 기반 수치(Open-Meteo 미적용)", "양팀 공식 발표 선발 명단"],
+  "뉴스없음": {"홈": "해당 없음(결장 뉴스 확인됨)", "원정": "해당 없음(결장 뉴스 확인됨)"}
+}

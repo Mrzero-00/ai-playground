@@ -1,0 +1,253 @@
+{
+  "번호": 663,
+  "홈": "맨체스터 유나이티드",
+  "원정": "AFC본머스",
+  "수집시각": "2026-10-24 21:45 KST",
+  "결장": [
+    {
+      "팀": "맨체스터 유나이티드",
+      "선수": "Manuel Ugarte",
+      "포지션": "DM",
+      "이번시즌_선발/경기": "미상",
+      "득점·도움": "미상",
+      "사유": "무릎 부상(2026 월드컵 우루과이 대표 차출 중 발생)",
+      "상태": "확정",
+      "복귀예정": "미정(장기 결장)",
+      "대체선수": "Andrey Santos / Youri Tielemans",
+      "출처": ["https://www.sportsmole.co.uk/football/man-utd/injury-news/injuries-and-suspensions/sesko-martinez-shaw-mainoo-latest-man-united-injury-suspension-list-vs-bournemouth_607436.html", "https://manutdnews.com/confirmed-man-united-team-news-vs-bournemouth-ayden-heaven-poised-to-return-but-kobbie-mainoo-ruled-out"],
+      "날짜": "2026-10-22~23"
+    },
+    {
+      "팀": "맨체스터 유나이티드",
+      "선수": "Benjamin Sesko",
+      "포지션": "ST",
+      "이번시즌_선발/경기": "미상",
+      "득점·도움": "미상",
+      "사유": "정강이(shin) 부상 재발 — 지난 시즌 말 부상 재발",
+      "상태": "확정",
+      "복귀예정": "미정(일부 보도는 2027년 초까지 결장 가능성)",
+      "대체선수": "Matheus Cunha(가짜9번) / Harry Maguire 활용",
+      "출처": ["https://www.sportsmole.co.uk/football/man-utd/injury-news/injuries-and-suspensions/sesko-martinez-shaw-mainoo-latest-man-united-injury-suspension-list-vs-bournemouth_607436.html"],
+      "날짜": "2026-10-22"
+    },
+    {
+      "팀": "맨체스터 유나이티드",
+      "선수": "Kobbie Mainoo",
+      "포지션": "CM",
+      "이번시즌_선발/경기": "미상",
+      "득점·도움": "미상",
+      "사유": "불특정 부상(토트넘전 1-1 이후 결장 지속)",
+      "상태": "확정",
+      "복귀예정": "11/3 AS로마전(UEL) 목표",
+      "대체선수": "Andrey Santos / Bruno Fernandes",
+      "출처": ["https://www.sportsmole.co.uk/football/man-utd/injury-news/injuries-and-suspensions/sesko-martinez-shaw-mainoo-latest-man-united-injury-suspension-list-vs-bournemouth_607436.html"],
+      "날짜": "2026-10-22"
+    },
+    {
+      "팀": "맨체스터 유나이티드",
+      "선수": "Luke Shaw",
+      "포지션": "LB",
+      "이번시즌_선발/경기": "미상",
+      "득점·도움": "미상",
+      "사유": "불특정 부상",
+      "상태": "확정",
+      "복귀예정": "11/8 아스톤 빌라전 목표",
+      "대체선수": "Diogo Dalot(좌측 전환) / Patrick Dorgu(결장 중이라 미가동)",
+      "출처": ["https://www.sportsmole.co.uk/football/man-utd/injury-news/injuries-and-suspensions/sesko-martinez-shaw-mainoo-latest-man-united-injury-suspension-list-vs-bournemouth_607436.html"],
+      "날짜": "2026-10-22"
+    },
+    {
+      "팀": "맨체스터 유나이티드",
+      "선수": "Patrick Dorgu",
+      "포지션": "LB/LWB",
+      "이번시즌_선발/경기": "미상",
+      "득점·도움": "미상",
+      "사유": "햄스트링 부상(국가대표 차출 중 발생)",
+      "상태": "확정",
+      "복귀예정": "미정",
+      "대체선수": "Diogo Dalot",
+      "출처": ["https://manutdnews.com/confirmed-man-united-team-news-vs-bournemouth-ayden-heaven-poised-to-return-but-kobbie-mainoo-ruled-out"],
+      "날짜": "2026-10-23"
+    },
+    {
+      "팀": "맨체스터 유나이티드",
+      "선수": "Lisandro Martinez",
+      "포지션": "CB",
+      "이번시즌_선발/경기": "미상",
+      "득점·도움": "미상",
+      "사유": "허벅지(thigh) 부상 — 코모전(10/22 UCL) 결장",
+      "상태": "의심(late assessment, 경기 당일 최종 판정)",
+      "복귀예정": "10/25 본머스전 출전 여부 미정",
+      "대체선수": "Harry Maguire / Matthijs de Ligt",
+      "출처": ["https://www.sportsmole.co.uk/football/man-utd/injury-news/injuries-and-suspensions/sesko-martinez-shaw-mainoo-latest-man-united-injury-suspension-list-vs-bournemouth_607436.html", "https://manutdnews.com/confirmed-man-united-team-news-vs-bournemouth-ayden-heaven-poised-to-return-but-kobbie-mainoo-ruled-out"],
+      "날짜": "2026-10-23"
+    },
+    {
+      "팀": "맨체스터 유나이티드",
+      "선수": "Marcus Rashford",
+      "포지션": "FW",
+      "이번시즌_선발/경기": "미상",
+      "득점·도움": "미상",
+      "사유": "엉덩이(hip) 부상 — 코모전(10/22 UCL) 결장",
+      "상태": "의심(major doubt, late assessment)",
+      "복귀예정": "10/25 본머스전 출전 여부 미정",
+      "대체선수": "Bryan Mbeumo(우측 유지) / Amad Diallo",
+      "출처": ["https://www.sportsmole.co.uk/football/man-utd/injury-news/injuries-and-suspensions/sesko-martinez-shaw-mainoo-latest-man-united-injury-suspension-list-vs-bournemouth_607436.html", "https://manutdnews.com/confirmed-man-united-team-news-vs-bournemouth-ayden-heaven-poised-to-return-but-kobbie-mainoo-ruled-out"],
+      "날짜": "2026-10-23"
+    },
+    {
+      "팀": "맨체스터 유나이티드",
+      "선수": "Ayden Heaven",
+      "포지션": "CB",
+      "이번시즌_선발/경기": "미상",
+      "득점·도움": "미상",
+      "사유": "컨디션 난조(illness) — 리즈전·코모전 결장",
+      "상태": "의심(minor doubt — 훈련 복귀, 출전 유력)",
+      "복귀예정": "10/25 본머스전 복귀 유력",
+      "대체선수": "해당 없음(복귀 시 선발 후보)",
+      "출처": ["https://manutdnews.com/confirmed-man-united-team-news-vs-bournemouth-ayden-heaven-poised-to-return-but-kobbie-mainoo-ruled-out"],
+      "날짜": "2026-10-23"
+    },
+    {
+      "팀": "맨체스터 유나이티드",
+      "선수": "Leny Yoro",
+      "포지션": "CB",
+      "이번시즌_선발/경기": "미상",
+      "득점·도움": "미상",
+      "사유": "징계(코모전 출전정지) — 이번 경기부터 복귀",
+      "상태": "확정(복귀, 결장 아님)",
+      "복귀예정": "10/25 본머스전 선발 가능",
+      "대체선수": "해당 없음",
+      "출처": ["https://www.sportsmole.co.uk/football/man-utd/injury-news/injuries-and-suspensions/sesko-martinez-shaw-mainoo-latest-man-united-injury-suspension-list-vs-bournemouth_607436.html"],
+      "날짜": "2026-10-22"
+    },
+    {
+      "팀": "AFC본머스",
+      "선수": "Julian Araujo",
+      "포지션": "RB",
+      "이번시즌_선발/경기": "미상",
+      "득점·도움": "미상",
+      "사유": "부상(사유 미상)",
+      "상태": "확정",
+      "복귀예정": "미정",
+      "대체선수": "James Hill / Adrien Truffert(측면 전환)",
+      "출처": ["https://www.sportsmole.co.uk/football/man-utd/injury-news/injuries-and-suspensions/sesko-martinez-shaw-mainoo-latest-man-united-injury-suspension-list-vs-bournemouth_607436.html"],
+      "날짜": "2026-10-22"
+    },
+    {
+      "팀": "AFC본머스",
+      "선수": "Eli Junior Kroupi",
+      "포지션": "FW",
+      "이번시즌_선발/경기": "미상",
+      "득점·도움": "미상",
+      "사유": "발 부상",
+      "상태": "의심(훈련 복귀, 맨체스터 원정 동행·출전 시간 부여 계획 — Marco Rose 발언)",
+      "복귀예정": "10/25 교체 출전 가능성",
+      "대체선수": "Evanilson / Justin Kluivert",
+      "출처": ["https://www.sportsmole.co.uk/football/man-utd/injury-news/injuries-and-suspensions/sesko-martinez-shaw-mainoo-latest-man-united-injury-suspension-list-vs-bournemouth_607436.html"],
+      "날짜": "2026-10-22"
+    },
+    {
+      "팀": "AFC본머스",
+      "선수": "Alex Scott",
+      "포지션": "CM",
+      "이번시즌_선발/경기": "미상",
+      "득점·도움": "미상",
+      "사유": "부상(사유 미상)",
+      "상태": "확정",
+      "복귀예정": "미정",
+      "대체선수": "Ryan Christie / Tyler Adams",
+      "출처": ["https://www.sportsmole.co.uk/football/man-utd/injury-news/injuries-and-suspensions/sesko-martinez-shaw-mainoo-latest-man-united-injury-suspension-list-vs-bournemouth_607436.html"],
+      "날짜": "2026-10-22"
+    },
+    {
+      "팀": "AFC본머스",
+      "선수": "Veljko Milosavljevic",
+      "포지션": "CB",
+      "이번시즌_선발/경기": "미상",
+      "득점·도움": "미상",
+      "사유": "부상(사유 미상)",
+      "상태": "확정",
+      "복귀예정": "미정",
+      "대체선수": "António Silva / Bafodé Diakité",
+      "출처": ["https://www.sportsmole.co.uk/football/man-utd/injury-news/injuries-and-suspensions/sesko-martinez-shaw-mainoo-latest-man-united-injury-suspension-list-vs-bournemouth_607436.html"],
+      "날짜": "2026-10-22"
+    }
+  ],
+  "라인업": {
+    "홈": {
+      "발표여부": "미발표(공식 선발은 킥오프 1시간 전)",
+      "예상XI": "4-2-3-1 추정(확정 라인업 기사 없음): Senne Lammens; Diogo Dalot, Harry Maguire/Matthijs de Ligt, Ayden Heaven(복귀 시)/de Ligt, Noussair Mazraoui; Youri Tielemans, Andrey Santos; Bryan Mbeumo, Bruno Fernandes, Amad Diallo/Matheus Cunha; Matheus Cunha(가짜9번, 세슈코 결장). 마르티네스·래시포드는 경기 당일 최종 판정",
+      "포메이션": "4-2-3-1",
+      "출처": ["팀노트 직전 선발(2026-10-22 UCL vs Como) 기준 추정", "https://manutdnews.com/confirmed-man-united-team-news-vs-bournemouth-ayden-heaven-poised-to-return-but-kobbie-mainoo-ruled-out"],
+      "날짜": "2026-10-23"
+    },
+    "원정": {
+      "발표여부": "미발표",
+      "예상XI": "4-4-2 추정(직전 10/23 UEL 밀란전 기준): Michele Di Gregorio; António Silva, Bafodé Diakité, Adrien Truffert, James Hill; Ryan Christie, Tyler Adams, Marcus Tavernier; Evanilson, Justin Kluivert — Kroupi 복귀 시 교체 후보",
+      "포메이션": "4-4-2",
+      "출처": ["팀노트 직전 선발(2026-10-23 UEL vs AC Milan) 기준"],
+      "날짜": "2026-10-23"
+    }
+  },
+  "최근경기": [
+    {"팀": "맨체스터 유나이티드", "날짜": "2026-09-20", "상대": "풀럼(A)", "장소": "원정", "스코어": "1-1", "비고": "EPL 무승부"},
+    {"팀": "맨체스터 유나이티드", "날짜": "2026-10-10", "상대": "토트넘(H)", "장소": "홈", "스코어": "1-1", "비고": "EPL 무승부"},
+    {"팀": "맨체스터 유나이티드", "날짜": "2026-10-18", "상대": "리즈 유나이티드(A)", "장소": "원정", "스코어": "1-1", "비고": "EPL 무승부"},
+    {"팀": "맨체스터 유나이티드", "날짜": "2026-10-22", "상대": "코모 1907(A)", "장소": "원정", "스코어": "4-1 패", "비고": "UCL — 챔스 데뷔팀 코모에 패, Carrick 자체 '참담한 패배' 평가 보도"},
+    {"팀": "AFC본머스", "날짜": "2026-09-20", "상대": "리버풀(H)", "장소": "홈", "스코어": "0-1 패", "비고": "EPL"},
+    {"팀": "AFC본머스", "날짜": "2026-10-10", "상대": "첼시(A)", "장소": "원정", "스코어": "1-5 패", "비고": "EPL 대패"},
+    {"팀": "AFC본머스", "날짜": "2026-10-15", "상대": "슈투름 그라츠(H)", "장소": "홈", "스코어": "3-0 승", "비고": "UEL"},
+    {"팀": "AFC본머스", "날짜": "2026-10-18", "상대": "선덜랜드(H)", "장소": "홈", "스코어": "2-0 승", "비고": "EPL"},
+    {"팀": "AFC본머스", "날짜": "2026-10-23", "상대": "AC 밀란(H)", "장소": "홈", "스코어": "3-0 승", "비고": "UEL — 밀란 공격진 결장 겹침, 본머스 슈팅 20·유효7 vs 밀란 슈팅3·유효0+퇴장1(팀노트 125회 회고 기록)"}
+  ],
+  "순위": {
+    "홈": "프리미어리그 13위 7경기 1승4무2패 GD0 승점7 (Manchester United)",
+    "원정": "프리미어리그 15위 7경기 1승3무3패 GD-4 승점6 (AFC Bournemouth)",
+    "출처": ["https://www.foxsports.com/soccer/premier-league/standings", "팀노트 FACTS(2026-10-22/24 수집)"],
+    "날짜": "2026-10-24"
+  },
+  "감독": {
+    "홈": "Michael Carrick",
+    "원정": "Marco Rose",
+    "변동": "없음(확인처: manutdnews.com 2026-10-23, sportsmole.co.uk 2026-10-22)",
+    "출처": ["https://manutdnews.com/confirmed-man-united-team-news-vs-bournemouth-ayden-heaven-poised-to-return-but-kobbie-mainoo-ruled-out"],
+    "날짜": "2026-10-23"
+  },
+  "일정·동기·날씨·기타": [
+    {
+      "내용": "맨유는 10/22 UCL 원정(코모 1-4 패) 직후 중2.9일로 본머스전. 본머스는 10/23 UEL 홈(밀란 3-0 승) 직후 중1.8일로 원정 이동 — 양팀 모두 유럽대항전 직후 체력 소모 상태(팀노트 INPUTS 자동 수집: 맨유 휴식 3.9일, 본머스 휴식 2.8일 — INPUTS 산정 기준일 2026-10-23 당시 수치, 코모·밀란 결과 반영 후 실제 중간 일수는 각각 약 2.9일·1.8일)",
+      "출처": "팀노트 INPUTS(2026-10-23 자동 수집), 본문 웹검색 교차확인",
+      "날짜": "2026-10-23/24"
+    },
+    {
+      "내용": "본머스는 최근 맨유전 '천적'급 — 최근 5번의 맞대결에서 무패(전 경기 득점 포함), 최근 6번의 PL 맞대결 2승4무. 맨유가 이 매치업에서 마지막으로 이긴 건 2022-23시즌. 직전 두 맞대결은 2025-12 올드 트래퍼드 4-4 무, 2026-03 본머스 홈 2-2 무.",
+      "출처": "https://www.goal.com/en/news/manchester-united-afc-bournemouth-premier-league-preview/blta4ff2d987f58195b",
+      "날짜": "2026-10-24"
+    },
+    {
+      "내용": "맨유 결장 리스트가 매우 길다(위건 리스트 기준 5명 확정 아웃 + 2명 당일 판정 + 1명 복귀 의심) — 수비진·공격진 모두 로테이션 불가피. 본머스는 4명 결장이나 크루피 복귀 가능성으로 공격 옵션 확보.",
+      "출처": "https://www.sportsmole.co.uk/football/man-utd/injury-news/injuries-and-suspensions/sesko-martinez-shaw-mainoo-latest-man-united-injury-suspension-list-vs-bournemouth_607436.html",
+      "날짜": "2026-10-22"
+    },
+    {
+      "내용": "킥오프 10/25 14:00 GMT(=23:00 KST), 올드 트래퍼드. 날씨(팀노트 INPUTS Open-Meteo 기준): 기온 9.5℃, 강수확률 88%(강수량 0.4mm), 바람 30.6km/h(강풍 주의)",
+      "출처": "팀노트 INPUTS(2026-10-23 자동 수집)",
+      "날짜": "2026-10-23"
+    },
+    {
+      "내용": "동기부여: 맨유 13위로 중위권 정체, 코모전 참패 후 홈 반등 필요성 보도. 본머스 15위, 밀란전 완승 이후 원정에서도 UEL 호조를 PL로 이어갈지 주목. 양팀 모두 강등권은 아니나 상위권 진입 경쟁에서 뒤처진 상태 — 승점이 급한 쪽은 맨유(최근 4경기 3무1패).",
+      "출처": "https://www.goal.com/en/news/manchester-united-afc-bournemouth-premier-league-preview/blta4ff2d987f58195b",
+      "날짜": "2026-10-24"
+    }
+  ],
+  "엇갈림": [
+    {
+      "내용": "Ayden Heaven 상태 — sportsmole은 'minor doubt'로 분류했으나 manutdnews(카릭 발언 인용)는 '그룹 훈련 복귀, 곧 합류' 뉘앙스로 더 긍정적. 복귀 가능성 높음으로 보되 '의심'으로 유지.",
+      "출처": ["sportsmole.co.uk", "manutdnews.com"],
+      "날짜": "2026-10-22~23"
+    }
+  ],
+  "못찾음": ["결장 선수 전원의 이번 시즌 정확한 선발 횟수·득점·도움 수치(기사에 비기재)", "양팀 공식 발표 선발 명단(킥오프 1시간 전 공개 예정)", "본머스 Araujo·Scott·Milosavljevic의 구체적 부상 부위·복귀 시점"],
+  "뉴스없음": {"홈": "해당 없음(결장 뉴스 다수 확인됨)", "원정": "해당 없음(결장 뉴스 다수 확인됨)"}
+}

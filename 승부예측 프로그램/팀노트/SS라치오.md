@@ -9,7 +9,7 @@
 - 최근 경기(ESPN, 최대 28일): 2026-09-07 Udinese 1-2 Lazio / 2026-09-12 Lazio 2-2 AC Milan / 2026-09-19 Venezia 0-2 Lazio / 2026-10-11 Lazio 3-1 Monza / 2026-10-18 Juventus 0-3 Lazio
 <!-- FACTS:END -->
 <!-- INPUTS:START -->
-## 입력(자동 수집 2026-10-23) — xG·휴식일·라인업·환경(이동거리·고도·날씨)은 이 숫자를 쓴다
-- 10-25 03:45 vs 파르마: 휴식 6.0일(7일 1경기) · 직전 10-19 원정 vs Juventus 3-0 승 [italian serie a] · xG 시즌7경기 xG1.72/xGA1.36 npxGD+0.37 · 최근5 1.83/1.34 (+0.49) · 홈0.83/원정0.02 · xPts11.6 vs 승점19 · 직전 선발 4-3-3 Christos Mandas, Oliver Provstgaard, Josip Sutalo, Nuno Tavares, Romano Floriani, Reda Belahyane, Kenneth Taylor, Davide Frattesi, Tijjani Noslin, Mattia Zaccagni, Gustav Isaksen · 구장 ? · 이동 ?(구장 미확인) · 고도 ?m · 날씨 -
+## 입력(자동 수집 2026-10-24) — xG·휴식일·라인업·환경(이동거리·고도·날씨)은 이 숫자를 쓴다
+- 10-25 03:45 vs 파르마: 휴식 6.0일(7일 1경기) · 직전 10-19 원정 vs Juventus 3-0 승 [italian serie a] · xG 시즌7경기 xG1.72/xGA1.36 npxGD+0.37 · 최근5 1.83/1.34 (+0.49) · 홈0.83/원정0.02 · xPts11.6 vs 승점19 · 직전 선발 4-3-3 Christos Mandas, Oliver Provstgaard, Josip Sutalo, Nuno Tavares, Romano Floriani, Reda Belahyane, Kenneth Taylor, Davide Frattesi, Tijjani Noslin, Mattia Zaccagni, Gustav Isaksen · 구장 스타디오 올림피코 · 이동 361km · 고도 17m(차 -39m) · 16.1℃ 강수0mm(0%) 바람5.0km/h
 <!-- INPUTS:END -->
 

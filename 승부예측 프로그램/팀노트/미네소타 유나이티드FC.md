@@ -9,7 +9,7 @@
 - 최근 경기(ESPN, 최대 28일): 2026-09-20 Minnesota United FC 2-3 LA Galaxy / 2026-09-27 Seattle Sounders FC 3-1 Minnesota United FC / 2026-10-11 Minnesota United FC 2-2 Houston Dynamo FC / 2026-10-15 Colorado Rapids 2-2 Minnesota United FC / 2026-10-17 Minnesota United FC 3-2 St. Louis CITY SC
 <!-- FACTS:END -->
 <!-- INPUTS:START -->
-## 입력(자동 수집 2026-10-23) — xG·휴식일·라인업·환경(이동거리·고도·날씨)은 이 숫자를 쓴다
-- 10-25 09:30 vs 휴스턴 다이너모FC: 휴식 7.2일 · 직전 10-18 홈 vs St. Louis CITY SC 3-2 승 [usa.1] · xG - · 직전 선발 3-4-3 Drake Callender, Jefferson Díaz, Morris Duggan, Cherrion Valerius, Wil Trapp, Nectarios Triantis, Anthony Markanich, Bongokuhle Hlongwane, Kelvin Yeboah, Mauricio Gonzalez, Aziel Jackson · 구장 BBVV 컴패스 스타디움 · 이동 1701km · 고도 12m(차 -269m) · 24.8℃ 강수0mm(0%) 바람15.7km/h · ⚠ 장거리 원정 1701km
+## 입력(자동 수집 2026-10-24) — xG·휴식일·라인업·환경(이동거리·고도·날씨)은 이 숫자를 쓴다
+- 10-25 09:30 vs 휴스턴 다이너모FC: 휴식 7.2일 · 직전 10-18 홈 vs St. Louis CITY SC 3-2 승 [usa.1] · xG - · 직전 선발 3-4-3 Drake Callender, Jefferson Díaz, Morris Duggan, Cherrion Valerius, Wil Trapp, Nectarios Triantis, Anthony Markanich, Bongokuhle Hlongwane, Kelvin Yeboah, Mauricio Gonzalez, Aziel Jackson · 구장 BBVV 컴패스 스타디움 · 이동 1701km · 고도 12m(차 -269m) · 24.3℃ 강수0mm(0%) 바람12.0km/h · ⚠ 장거리 원정 1701km
 <!-- INPUTS:END -->
 

@@ -1,0 +1,176 @@
+{
+  "번호": 298,
+  "홈": "아우크스부르크",
+  "원정": "우니온 베를린",
+  "리그": "독일 분데스리가 2026-27 7라운드",
+  "구장": "WWK 아레나(교차확인: 입력_126, bundesliga.com 기사)",
+  "킥오프": "2026-10-24 15:30 CEST (22:30 KST)",
+  "수집시각": "2026-10-24 21:55 KST",
+  "결장": [
+    {
+      "팀": "아우크스부르크",
+      "선수": "Noahkai Banks",
+      "포지션": "미상",
+      "이번시즌_선발/경기": "미상",
+      "득점·도움": "미상",
+      "사유": "기사에 구체적 사유 미기재(결장자 명단에만 포함)",
+      "상태": "확정",
+      "복귀예정": "미정",
+      "출처": ["https://www.fussballnationalmannschaft.net/fussball-heute-aufstellung-augsburg-union-banks-123312885.html"],
+      "날짜": "2026-10-24"
+    },
+    {
+      "팀": "아우크스부르크",
+      "선수": "Steve Mounié",
+      "포지션": "FW",
+      "이번시즌_선발/경기": "미상",
+      "득점·도움": "미상",
+      "사유": "기사에 구체적 사유 미기재",
+      "상태": "확정",
+      "복귀예정": "미정",
+      "출처": ["https://www.fussballnationalmannschaft.net/fussball-heute-aufstellung-augsburg-union-banks-123312885.html"],
+      "날짜": "2026-10-24"
+    },
+    {
+      "팀": "아우크스부르크",
+      "선수": "Claude-Maurice",
+      "포지션": "미상",
+      "이번시즌_선발/경기": "미상",
+      "득점·도움": "미상",
+      "사유": "기사에 구체적 사유 미기재",
+      "상태": "확정",
+      "복귀예정": "미정",
+      "출처": ["https://www.fussballnationalmannschaft.net/fussball-heute-aufstellung-augsburg-union-banks-123312885.html"],
+      "날짜": "2026-10-24"
+    },
+    {
+      "팀": "우니온 베를린",
+      "선수": "Nsoki",
+      "포지션": "DF",
+      "이번시즌_선발/경기": "미상",
+      "득점·도움": "미상",
+      "사유": "종아리 부상",
+      "상태": "확정",
+      "복귀예정": "미정",
+      "출처": ["https://www.fussballnationalmannschaft.net/fussball-heute-bundesliga-augsburg-union-uebertragung-123312883.html"],
+      "날짜": "2026-10-24"
+    },
+    {
+      "팀": "우니온 베를린",
+      "선수": "Markgraf",
+      "포지션": "미상",
+      "이번시즌_선발/경기": "미상",
+      "득점·도움": "미상",
+      "사유": "십자인대 파열(시즌아웃급 중상)",
+      "상태": "확정",
+      "복귀예정": "장기(시즌 상당 기간)",
+      "출처": ["https://www.fussballnationalmannschaft.net/fussball-heute-bundesliga-augsburg-union-uebertragung-123312883.html"],
+      "날짜": "2026-10-24"
+    },
+    {
+      "팀": "우니온 베를린",
+      "선수": "Ilic",
+      "포지션": "미상",
+      "이번시즌_선발/경기": "미상",
+      "득점·도움": "미상",
+      "사유": "맹장 수술 후 재활 훈련 단계",
+      "상태": "확정",
+      "복귀예정": "미정",
+      "출처": ["https://www.fussballnationalmannschaft.net/fussball-heute-bundesliga-augsburg-union-uebertragung-123312883.html"],
+      "날짜": "2026-10-24"
+    },
+    {
+      "팀": "우니온 베를린",
+      "선수": "Juranovic",
+      "포지션": "DF",
+      "이번시즌_선발/경기": "미상",
+      "득점·도움": "미상",
+      "사유": "기사에 구체적 사유 미기재",
+      "상태": "의심",
+      "복귀예정": "미정",
+      "출처": ["https://www.fussballnationalmannschaft.net/fussball-heute-bundesliga-augsburg-union-uebertragung-123312883.html"],
+      "날짜": "2026-10-24"
+    },
+    {
+      "팀": "우니온 베를린",
+      "선수": "Burcu",
+      "포지션": "미상",
+      "이번시즌_선발/경기": "미상",
+      "득점·도움": "미상",
+      "사유": "기사에 구체적 사유 미기재",
+      "상태": "의심",
+      "복귀예정": "미정",
+      "출처": ["https://www.fussballnationalmannschaft.net/fussball-heute-bundesliga-augsburg-union-uebertragung-123312883.html"],
+      "날짜": "2026-10-24"
+    },
+    {
+      "팀": "우니온 베를린",
+      "선수": "Burke",
+      "포지션": "미상",
+      "이번시즌_선발/경기": "미상",
+      "득점·도움": "미상",
+      "사유": "기사에 구체적 사유 미기재",
+      "상태": "의심",
+      "복귀예정": "미정",
+      "출처": ["https://www.fussballnationalmannschaft.net/fussball-heute-bundesliga-augsburg-union-uebertragung-123312883.html"],
+      "날짜": "2026-10-24"
+    }
+  ],
+  "라인업": {
+    "홈": {
+      "발표여부": "미발표(예상)",
+      "예상XI": "3-4-2-1: Dahmen; Matsima, Gouweleeuw, Brackelmann; Fellhauer, Massengo, Rieder, Behrens; Kade, Ibrahimović; Gregoritsch",
+      "포메이션": "3-4-2-1",
+      "출처": ["https://www.fussballnationalmannschaft.net/fussball-heute-aufstellung-augsburg-union-banks-123312885.html"],
+      "날짜": "2026-10-24"
+    },
+    "원정": {
+      "발표여부": "미발표(예상, 아래 두 출처가 서로 다른 포메이션 제시 — 엇갈림)",
+      "예상XI": "4백 라인 예상(기사A): Rönnow; Haberer, van den Bosch, Uduokhai, Rothe; Schäfer, Khedira, Aebischer; Jeong, Imeri; Skarke — 또는 teamdb 직전 선발 기준 4-2-3-1: Ronnow, Uduokhai, Van Den Bosch, Rothe, Haberer, Aebischer, Khedira, Schäfer, Skarke, Imeri, Jeong",
+      "포메이션": "4-2-3-1(백4, 양 출처 공통)",
+      "출처": ["https://www.fussballnationalmannschaft.net/fussball-heute-aufstellung-augsburg-union-banks-123312885.html", "teamdb 직전 선발(2026-10-17 홈 vs Dortmund)"],
+      "날짜": "2026-10-24"
+    }
+  },
+  "최근경기": {
+    "홈_최근5(teamdb)": "최근5 xG1.74/xGA3.06, 직전 10-17 원정 vs SV Elversberg 3-4 패, 순위 10위 2승2무2패 GD+4 승점8",
+    "원정_최근5(teamdb)": "최근5 xG0.96/xGA2.40, 직전 10-17 홈 vs Borussia Dortmund 0-0 무, 순위 17위 1승2무3패 GD-12 승점5 — 10-18 바이에른전 0-7 대패 포함 극심한 부진",
+    "비고": "검색 결과 기준 순위 표기는 '아우크스부르크 6위', '우니온 16위'로 입력_126/teamdb(10위·17위)와 다소 차이 — 조사 시점(라운드 전/중) 차이로 보이며 teamdb가 더 최신"
+  },
+  "맞대결": {
+    "역대": "통산 17~18경기 아우크스부르크 7승 우니온 2~3승 8무 (득실 21:13 아우크스부르크 우세), 다만 최근 3경기는 우니온 무패(2026-05-16 우니온 4-0 승 / 2026-01-15 1-1 무 / 2025-05-17 우니온 1-2 승 — 매체마다 숫자 소폭 차이, 큰 흐름은 '최근 우니온 무패'로 일치",
+    "출처": ["https://www.weltfussball.de/spielbericht/co12/deutschland-bundesliga/ma12194371/fc-augsburg_1-fc-union-berlin/"],
+    "날짜": "2026-10-24"
+  },
+  "일정": {
+    "홈": "휴식 7.0일, 대항전 없음 (입력_126)",
+    "원정": "휴식 7.0일, 대항전 없음 (입력_126)"
+  },
+  "동기": {
+    "홈": "6위~10위권, 홈 무패 행보(기사 기준 '이번 시즌 홈 무패')",
+    "원정": "16~17위 강등권 인접, 바이에른전 0-7 포함 원정 2경기 합계 0-7 실점 — 팀 전반 위기감",
+    "감독": {
+      "홈": "Manuel Baum",
+      "원정": "Mauro Lustrinelli — 2026-27 시즌을 앞두고 2026-07-01부로 신규 선임된 신임 감독(스위스 출신)",
+      "출처": ["https://www.kicker.de/mauro-lustrinelli/trainer/bundesliga/2026-27/1-fc-union-berlin", "https://www.fc-union-berlin.de/de/meldungen/meisterlicher-taktgeber-fuer-unions-maenner-mauro-lustrinelli-wird-neuer-cheftrainer-tCyufa"],
+      "날짜": "2026-10-24"
+    }
+  },
+  "환경": {
+    "날씨": "8.6℃ 강수 0mm(확률23%) 바람 23.2km/h (입력_126 기준값 그대로)",
+    "구장": "WWK 아레나",
+    "이동": "우니온 베를린 원정 이동 497km"
+  },
+  "심판": {
+    "주심": "Dr. Robin Braun",
+    "VAR": "Patrick Hanslbauer",
+    "비고": "우니온 베를린은 브라운 주심 판정 하의 원정 전적이 나쁘다는 보도(berliner-zeitung.de) — 참고용, 확률 추정에는 쓰지 않음",
+    "출처": ["https://www.berliner-zeitung.de/article/union-berlin-robin-braun-augsburg-auswaertsbilanz-10522807"],
+    "날짜": "2026-10-24"
+  },
+  "뉴스없음": {
+    "홈": "해당 없음(결장 뉴스 확인됨)",
+    "원정": "해당 없음(결장 뉴스 다수 확인됨)"
+  },
+  "미확인루머": []
+}

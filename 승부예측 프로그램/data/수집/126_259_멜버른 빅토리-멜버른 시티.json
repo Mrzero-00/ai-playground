@@ -1,0 +1,223 @@
+{
+  "번호": "259",
+  "홈": "멜버른 빅토리",
+  "원정": "멜버른 시티",
+  "수집시각": "2026-10-24 16:46",
+  "결장": [
+    {
+      "팀": "홈",
+      "선수": "Louis D'Arrigo",
+      "포지션": "미드필더",
+      "이번시즌_선발/경기": "2026-27시즌 출전 없음(시즌 내내 결장)",
+      "득점·도움": "-",
+      "사유": "햄스트링 부상(호주컵 결승 전후 발생, 9월부터 결장 지속)",
+      "상태": "확정(2곳 이상 교차확인: bets.com.au 2026-10-22, football360.com.au, aleagues.com.au Round2 Ins&Outs, melbournevictory.com.au)",
+      "복귀예정": "불명",
+      "대체선수": "불명(미드필더 로테이션 추정)",
+      "출처": "https://www.bets.com.au/soccer/a-league/melbourne-victory-vs-melbourne-city-a-league-round-2-tips-prediction-20261022-0006/ ; https://football360.com.au/melbourne-victory-melbourne-city-preview/ ; https://aleagues.com.au/news/ins-outs-team-news-round-2-a-league-men-injuries-suspensions-latest-news/",
+      "날짜": "2026-10-22"
+    },
+    {
+      "팀": "홈",
+      "선수": "Harry Sawyer (Harrison Sawyer)",
+      "포지션": "공격수",
+      "이번시즌_선발/경기": "불명",
+      "득점·도움": "-",
+      "사유": "허벅지(서혜부)/연습 중 통증(ACL2 FC서울전 이후)",
+      "상태": "결장 아님 — 복귀 가능 상태(의심 수준, 1곳 명시)",
+      "복귀예정": "이번 경기 출전 가능으로 보도됨",
+      "대체선수": "-",
+      "출처": "https://football360.com.au/melbourne-victory-melbourne-city-preview/",
+      "날짜": "2026-10-23"
+    },
+    {
+      "팀": "원정",
+      "선수": "Samuel Souprayen",
+      "포지션": "수비수(센터백)",
+      "이번시즌_선발/경기": "불명",
+      "득점·도움": "-",
+      "사유": "햄스트링 부상(AFC 챔피언스리그 엘리트 부리람 유나이티드전 중 부상으로 보도)",
+      "상태": "의심 — 날짜 불일치 있음(한 기사는 부상 시점을 2025-10으로, 다른 기사는 2026-10 Round2 결장으로 서술해 교차검증 실패, 아래 '엇갈림' 참조)",
+      "복귀예정": "4~6주 결장 전망(Vidmar 감독 코멘트, 날짜 불명확)",
+      "대체선수": "불명",
+      "출처": "https://aleagues.com.au/news/a-league-injury-news-melbourne-city-samuel-souprayen-details-reaction-andrew-nabbout-acl-aurelio-vidmar/ ; https://aleagues.com.au/news/ins-outs-team-news-round-2-a-league-men-injuries-suspensions-latest-news/",
+      "날짜": "불명(기사 간 2025-10 vs 2026-10 혼재)"
+    },
+    {
+      "팀": "원정",
+      "선수": "Matheus Rossetto",
+      "포지션": "미드필더",
+      "이번시즌_선발/경기": "0경기(아직 경쟁 데뷔 전)",
+      "득점·도움": "-",
+      "사유": "종아리(calf) 부상으로 데뷔 지연",
+      "상태": "의심(1곳)",
+      "복귀예정": "불명",
+      "대체선수": "-",
+      "출처": "https://melbournecityfc.com.au/news/20261015-team-news/",
+      "날짜": "2026-10-15"
+    },
+    {
+      "팀": "원정",
+      "선수": "Emiliano Marcondes",
+      "포지션": "미드필더(공격형)",
+      "이번시즌_선발/경기": "0경기(10/15 기준 미출전)",
+      "득점·도움": "-",
+      "사유": "발목 부상으로 10/15 시점 데뷔 지연 보도되었으나, Round2 스쿼드 명단(10/22경 기사)에는 포함되어 회복 후 선발 등록 가능성",
+      "상태": "엇갈림 — 10/15 기사는 결장, 10/22 Round2 스쿼드 기사는 포함",
+      "복귀예정": "이번 경기 출전 가능성 있음",
+      "대체선수": "-",
+      "출처": "https://melbournecityfc.com.au/news/20261015-team-news/ ; https://aleagues.com.au/news/aleague-men-ins-and-outs-matchweek-2/",
+      "날짜": "2026-10-15 / 2026-10-22"
+    },
+    {
+      "팀": "원정",
+      "선수": "Ben Mazzeo",
+      "포지션": "수비수",
+      "이번시즌_선발/경기": "불명(일부 기사는 Round2 승격 'in'으로도 언급)",
+      "득점·도움": "-",
+      "사유": "발목 부상(한 기사)",
+      "상태": "엇갈림 — 다른 기사는 동일 선수를 Round2 'Ins(승격)' 대상으로 서술",
+      "복귀예정": "불명",
+      "대체선수": "-",
+      "출처": "https://www.bets.com.au/soccer/a-league/melbourne-victory-vs-melbourne-city-a-league-round-2-tips-prediction-20261022-0006/ ; https://aleagues.com.au/news/ins-outs-team-news-round-2-a-league-men-injuries-suspensions-latest-news/",
+      "날짜": "2026-10-22"
+    },
+    {
+      "팀": "원정",
+      "선수": "Alessandro Lopane",
+      "포지션": "불명",
+      "이번시즌_선발/경기": "불명",
+      "득점·도움": "-",
+      "사유": "부상(기사마다 부위 불일치: 발목 vs 햄스트링)",
+      "상태": "엇갈림(부위 불일치) — 결장 자체는 2곳에서 언급",
+      "복귀예정": "불명",
+      "대체선수": "-",
+      "출처": "https://aleagues.com.au/news/ins-outs-team-news-round-2-a-league-men-injuries-suspensions-latest-news/ ; https://www.bets.com.au/soccer/a-league/melbourne-victory-vs-melbourne-city-a-league-round-2-tips-prediction-20261022-0006/",
+      "날짜": "2026-10-22"
+    },
+    {
+      "팀": "원정",
+      "선수": "Ryan Kalms",
+      "포지션": "불명",
+      "이번시즌_선발/경기": "불명",
+      "득점·도움": "-",
+      "사유": "무릎 부상",
+      "상태": "의심(1곳)",
+      "복귀예정": "불명",
+      "대체선수": "-",
+      "출처": "https://www.bets.com.au/soccer/a-league/melbourne-victory-vs-melbourne-city-a-league-round-2-tips-prediction-20261022-0006/",
+      "날짜": "2026-10-22"
+    },
+    {
+      "팀": "원정",
+      "선수": "Medin Memeti",
+      "포지션": "공격수",
+      "이번시즌_선발/경기": "Round1(10/17) 선발 출전",
+      "득점·도움": "-",
+      "사유": "햄스트링(한 기사에만 언급, Round1 선발 출전 사실과 상충 가능)",
+      "상태": "엇갈림 — 직전 경기(10/17) 선발 명단에 포함된 것으로 확인되어(팀노트 INPUTS) 결장 보도와 불일치",
+      "복귀예정": "불명",
+      "대체선수": "-",
+      "출처": "https://aleagues.com.au/news/ins-outs-team-news-round-2-a-league-men-injuries-suspensions-latest-news/",
+      "날짜": "2026-10-22"
+    },
+    {
+      "팀": "홈|원정 불명(엇갈림)",
+      "선수": "Harrison Shillington (Harry Shillington)",
+      "포지션": "라이트백(위키 기준 멜버른 빅토리 소속)",
+      "이번시즌_선발/경기": "불명",
+      "득점·도움": "-",
+      "사유": "뇌진탕(기록상 2025-12-11~2026-01-02 결장 이력, 현재와 무관할 가능성)",
+      "상태": "엇갈림 — 한 기사는 이 선수를 '멜버른 시티' 결장자로, 위키피디아 등은 '멜버른 빅토리' 소속 선수로 기재. 소속팀 자체가 불일치하여 신뢰 낮음. 현재(10/22) 스쿼드 명단에는 멜버른 빅토리 명단에 포함되어 출전 가능 시사",
+      "복귀예정": "불명",
+      "대체선수": "-",
+      "출처": "https://aleagues.com.au/news/ins-outs-team-news-round-2-a-league-men-injuries-suspensions-latest-news/ ; https://en.wikipedia.org/wiki/Harry_Shillington ; https://aleagues.com.au/news/aleague-men-ins-and-outs-matchweek-2/",
+      "날짜": "2026-10-22"
+    },
+    {
+      "팀": "참고(반박 자료)",
+      "선수": "Andrew Nabbout",
+      "포지션": "공격수",
+      "이번시즌_선발/경기": "Round1(10/17) 선발 출전 후 Max Caputo와 교체",
+      "득점·도움": "-",
+      "사유": "일부 검색 요약이 'ACL 부상으로 결장'이라 서술했으나 사실과 다름(직전 경기 선발 출전·정상 교체 확인)",
+      "상태": "불가 — 오류로 확인되어 결장 목록에서 제외, 기록용으로만 남김",
+      "복귀예정": "해당없음(결장 아님)",
+      "대체선수": "해당없음",
+      "출처": "https://www.fotmob.com/matches/melbourne-city-fc-vs-auckland-fc/lqfui4p2 ; 팀노트 INPUTS(2026-10-24, 직전 선발 명단에 Nabbout 포함 안 됨 — Medin Memeti가 최전방, 실제로는 Nabbout이 선발 후 교체되었다는 fotmob 근거와 팀노트 INPUTS 선발 명단이 일부 불일치하므로 참고용",
+      "날짜": "2026-10-17"
+    }
+  ],
+  "라인업": {
+    "홈": {
+      "발표여부": "미발표(공식 라인업 미공개, 킥오프 1시간 전 발표 예정)",
+      "예상XI": "직전 경기(10/18 Wellington Phoenix전) 베이스 4-4-1-1: Jack Duncan(GK); Jason Davidson, Philipp Ziereis, Franco Lino, Joshua Inserra; Denis Genreau, Jordi Valadon; Matthew Grimaldi, Clarismario(Clerismario) Santos Rodrigues, Charles Nduka; Guillermo May. (D'Arrigo 결장 지속 가정, Harry Sawyer 복귀 가능)",
+      "포메이션": "4-4-1-1(추정, 직전 경기 기준)",
+      "출처": "팀노트 멜버른 빅토리 INPUTS(2026-10-24) ; https://aleagues.com.au/news/aleague-men-ins-and-outs-matchweek-2/(스쿼드 명단)",
+      "날짜": "2026-10-24"
+    },
+    "원정": {
+      "발표여부": "미발표",
+      "예상XI": "직전 경기(10/17 Auckland FC전) 베이스 4-2-3-1: Macklin Freke(GK); Harrison Delbridge, Liam Bonetig, Aziz Behich(주장); Nathaniel Atkinson, Quinn Macnicol; Kavian Rahmani, Besian Kutleshi, Awer Mabil; Medin Memeti/Andrew Nabbout 최전방 로테이션 추정. Mathew Leckie·Max Caputo 벤치/교체 자원으로 보도",
+      "포메이션": "4-2-3-1(추정, 직전 경기 기준)",
+      "출처": "팀노트 멜버른 시티 INPUTS(2026-10-24) ; https://aleagues.com.au/news/aleague-men-ins-and-outs-matchweek-2/ ; https://football360.com.au/melbourne-victory-melbourne-city-preview/",
+      "날짜": "2026-10-24"
+    }
+  },
+  "최근경기": [
+    {"팀": "홈", "날짜": "2026-10-18", "상대": "Wellington Phoenix FC", "장소": "원정", "스코어": "2-1(웰링턴 승)", "비고": "2026-27 A리그 라운드1. 출처: 팀노트 FACTS/INPUTS, https://www.friendsoffootballnz.com/2026/10/19/dream-start-for-phoenix-as-new-signings-stand-out-in-win-against-victory/"},
+    {"팀": "원정", "날짜": "2026-10-17", "상대": "Auckland FC", "장소": "원정", "스코어": "3-1(오클랜드 승)", "비고": "2026-27 A리그 라운드1, Quinn Macnicol 득점. 출처: 팀노트 FACTS, https://global.espn.com/football/story/_/id/46669823/melbourne-city-hope-first-win-spark-reinvigorated-acl-tilt"}
+  ],
+  "순위": {
+    "홈": "11위 · 1경기 0승0무1패 · 득실-1 · 승점0 (2026-27 A리그, Round1 종료 기준)",
+    "원정": "12위 · 1경기 0승0무1패 · 득실-2 · 승점0 (2026-27 A리그, Round1 종료 기준)",
+    "출처": "팀노트 멜버른 빅토리/멜버른 시티 FACTS 블록(자동수집, 위키 2026-27 시즌 문서+ESPN)",
+    "날짜": "2026-10-23"
+  },
+  "감독": {
+    "홈": "Giovanni Savarese (2025-26 시즌 중 선임, MLS 포틀랜드 팀버스 등 지도 경력)",
+    "원정": "Aurelio Vidmar (2026-06 계약 연장 발표, 2027-28시즌까지 계약)",
+    "변동": "최근 교체 없음. 검색 결과 중 일부가 '멜버른 시티 신임 감독 Pedro Moreira'라고 서술했으나 교차검증 결과 Pedro Moreira는 Auckland FC 감독이며 멜버른 시티 감독은 계속 Aurelio Vidmar임(오류로 확인, 기록 목적상 엇갈림에도 기재)",
+    "출처": "https://melbournecityfc.com.au/news/20260602-vidmar-extends/ ; https://aleagues.com.au/news/defiant-vidmar-stresses-city-outplayed-champions/ ; https://football360.com.au/melbourne-victory-melbourne-city-preview/",
+    "날짜": "2026-10-23"
+  },
+  "일정·동기·기타": [
+    {"내용": "제52회 멜버른 더비. 빅토리가 최근 2번의 더비(2025년 12월, 2026년 2월 또는 3월)를 모두 승리(각각 Matthew Grimaldi, Juan Mata 결승골)", "출처": "https://melbournevictory.com.au/news/melbourne-derby-awaits-victory-men/ ; https://football360.com.au/melbourne-victory-melbourne-city-preview/", "날짜": "2026-10-23"},
+    {"내용": "빅토리 전 소속(2026 멜버른 더비 메달리스트) Juan Mata가 선수 은퇴 후 이번 홈경기에서 AAMI Park 관중석 방문 예정(응원 감사 인사)", "출처": "https://melbournevictory.com.au/news/melbourne-derby-to-open-victorys-home-campaign/", "날짜": "2026-10-23"},
+    {"내용": "빅토리는 개막전 패배 + (일부 기사에 따르면) 호주컵 결승 패배까지 겹쳐 부담 속에 홈 개막전을 치름. 단, '호주컵 결승서 NPL 클럽 South Melbourne에 패배'는 단일 출처(bets.com.au)로만 확인되어 신뢰도 낮음", "출처": "https://www.bets.com.au/soccer/a-league/melbourne-victory-vs-melbourne-city-a-league-round-2-tips-prediction-20261022-0006/", "날짜": "2026-10-22"},
+    {"내용": "멜버른 시티는 개막전(10/17)에서 18~19세 선수 3명을 기용하는 등 유스 중용 기조 유지. Vidmar 감독 '더비에는 항상 특별한 것이 있다' 코멘트", "출처": "https://football360.com.au/melbourne-victory-melbourne-city-preview/", "날짜": "2026-10-23"},
+    {"내용": "빅토리는 최근 AFC 챔피언스리그 투(ACL2) 조별리그 일정(Thể Công-Viettel, FC서울 등)을 병행 중이라 '바쁜 7일'을 보냈다고 보도됨. 구체 스코어(0-0 무 vs Viettel, 3-0 승 vs FC서울)는 팀노트(10/13 조사: Viettel전 1-1 무)와 불일치해 엇갈림으로 처리", "출처": "https://www.bets.com.au/soccer/a-league/melbourne-victory-vs-melbourne-city-a-league-round-2-tips-prediction-20261022-0006/", "날짜": "2026-10-22"},
+    {"내용": "중계: Paramount+ 및 10 Drama", "출처": "https://football360.com.au/melbourne-victory-melbourne-city-preview/", "날짜": "2026-10-23"},
+    {"내용": "경기장 게이트 오픈 18:00, 경기 종료 예상 21:30경(현지시각), 대중교통 이용 권장(교통 혼잡 예상)", "출처": "https://aamipark.com.au/event/melbourne-victory-vs-melbourne-city-fc-round-2-2026-27/", "날짜": "2026-10-24"}
+  ],
+  "경기장": {
+    "이름": "AAMI Park (= Melbourne Rectangular Stadium, 공식 명칭 동일 경기장의 스폰서십 명)",
+    "출처1": "https://aamipark.com.au/event/melbourne-victory-vs-melbourne-city-fc-round-2-2026-27/",
+    "출처2": "https://football360.com.au/melbourne-victory-melbourne-city-preview/ (추가로 https://melbournevictory.com.au/news/melbourne-derby-to-open-victorys-home-campaign/ 도 AAMI Park로 동일 확인, 총 3곳 교차확인)",
+    "날짜": "2026-10-24"
+  },
+  "날씨": {
+    "기온": "최저 15℃ / 최고 23℃ (호주 기상청 BOM 기준, 팀노트 INPUTS는 21.3℃로 기록)",
+    "강수": "소나기 가능성 높음, 강수확률 90%, 예상 강수량 1~10mm(팀노트 INPUTS 1.7mm와 동일 범주), 오후~저녁 뇌우(우박·돌풍 동반 가능성) 경보성 언급",
+    "바람": "약함, 저녁 북~북동풍 15~20km/h로 전환(팀노트 INPUTS 9.4km/h와 유사 범주)",
+    "출처": "BOM(Bureau of Meteorology) 멜버른 예보 검색결과 요약 ; AccuWeather 멜버른 10월 예보 ; 팀노트 INPUTS(Open-Meteo, 2026-10-24)",
+    "날짜": "2026-10-24"
+  },
+  "엇갈림": [
+    "멜버른 시티 감독: 한 출처가 'Pedro Moreira 신임 감독'이라 서술했으나, 이는 Auckland FC 감독과의 혼동으로 확인됨(실제 멜버른 시티 감독은 Aurelio Vidmar, 2곳 이상 교차확인).",
+    "Andrew Nabbout: 한 출처가 'ACL 부상으로 결장'이라 서술했으나 fotmob 경기기록상 10/17 Auckland전에 선발 출전 후 Caputo와 교체된 사실과 상충 — 오류로 판단, 결장 목록에서 제외.",
+    "Harrison/Harry Shillington 소속팀: 한 출처는 '멜버른 시티' 결장자로, 위키피디아 및 다른 aleagues 기사(스쿼드 명단)는 '멜버른 빅토리' 소속 선수로 서술 — 불일치.",
+    "Samuel Souprayen 부상 시점: 한 검색 결과는 부상이 2025-10(전 시즌)에 발생했다고, 다른 기사 제목(Round2 Ins&Outs)은 2026-10 현재 결장으로 서술 — 날짜 혼재로 현재 결장 여부 단정 어려움.",
+    "Emiliano Marcondes·Ben Mazzeo: 10/15 팀 뉴스에서는 '부상으로 데뷔 지연'으로, 10/22 Round2 스쿼드 기사에서는 '스쿼드 포함/승격'으로 서술 — 현재는 가용 가능성.",
+    "Alessandro Lopane 부상 부위: 발목(aleagues) vs 햄스트링(bets.com.au)로 기사 간 불일치.",
+    "Medin Memeti: 10/17 경기 선발 출전 기록(팀노트 INPUTS)과 10/22 기사의 '햄스트링 결장' 서술이 상충.",
+    "빅토리 ACL2 조별리그 결과: 팀노트(10/13 조사, Thể Công-Viettel전 1-1 무)와 신규 검색결과(0-0 무 vs Viettel, 3-0 승 vs FC서울)가 스코어 불일치.",
+    "빅토리 호주컵 결승 'South Melbourne에 패배' 서술은 단일 출처(bets.com.au)에만 등장해 교차확인 실패."
+  ],
+  "못찾음": [
+    "양 팀 2026-27시즌 xG(Understat 등 공식 xG 지표) — 시즌 극초반(1경기)이라 공개된 xG 데이터 확인 안 됨",
+    "오늘 경기 공식 발표 라인업(수집 시각 기준 킥오프 약 1시간 전으로 미발표 상태)",
+    "정확한 예상 관중 수(과거 더비 평균 관중 수치만 간접 언급되었을 뿐 이번 경기 티켓 판매량/예상 관중 공식 수치는 못 찾음)"
+  ],
+  "뉴스없음": {"홈": "", "원정": ""}
+}

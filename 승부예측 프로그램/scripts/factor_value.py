@@ -104,8 +104,18 @@ def main():
         print(f"  기준선        1순위 {bh2}/{m} ({bh2/m*100:.1f}%)  RPS {br2:.4f}")
         print(f"  실제(요인 포함) 1순위 {fh2}/{m} ({fh2/m*100:.1f}%)  RPS {fr2:.4f}")
         print(f"  '{a.drop}' 뺐다면  1순위 {ah}/{m} ({ah/m*100:.1f}%)  RPS {ar:.4f}")
-        print(f"  → 1순위 {(fh2-ah)/m*100:+.1f}%p · RPS {fr2-ar:+.4f}  "
-              f"({'요인이 도움' if (fr2 < ar and fh2 >= ah) else '요인이 해로움' if (fr2 > ar or fh2 < ah) else '차이 없음'})")
+        # 판정은 **방향(1순위)**이 주지표, RPS 는 진단 보조다(CLAUDE.md: "RPS는 목표가 아니라 진단 도구").
+        # 2026-10-24 126회 회고에서 고침 — 예전 식은 `fr2 > ar or fh2 < ah` 라 RPS 가 0.0019 나빠지면
+        # 방향이 +9.6%p 좋아져도 '해로움'으로 찍었다(xG 절제에서 적발). 그대로 믿고 xG 요인을 제한했으면
+        # 주지표를 9.6%p 깎을 뻔했다.
+        dh = fh2 - ah                       # 방향 차(경기 수) — 요인 포함 − 제외
+        dr = fr2 - ar                       # RPS 차 (음수면 요인이 낫다)
+        edge = 1 if m >= 40 else 2          # 표본이 작으면 1경기 차는 흔들림으로 본다
+        vd = "도움" if dh >= edge else "해로움" if dh <= -edge else "방향 차이 없음"
+        vr = "RPS도 낫다" if dr < -0.0005 else "RPS는 나쁘다" if dr > 0.0005 else "RPS 동일"
+        print(f"  → 1순위 {dh/m*100:+.1f}%p ({dh:+d}경기) · RPS {dr:+.4f}  → **방향 {vd}** · {vr}")
+        if vd == "도움" and dr > 0.0005:
+            print("     (방향은 좋아지고 RPS 는 나빠졌다 = 확신 배분이 거칠다는 뜻이지 요인을 빼라는 뜻이 아니다)")
         byrd = collections.defaultdict(lambda: [0, 0, 0])
         for g, ab in use:
             c = byrd[g["rd"]]; c[0] += 1; c[1] += top(g["fin"]) == g["res"]; c[2] += top(ab) == g["res"]
@@ -152,6 +162,44 @@ def main():
               f"| {sum(rps(g['base'],g['res']) for g in s)/m:.4f} "
               f"| {sum(rps(g['fin'],g['res']) for g in s)/m:.4f} "
               f"| {sum(g['dres'] for g in s)/m:+.2f}%p |")
+    # ---- 요인 한 줄 단위 부호 검정 (2026-10-24 126회 회고에서 신설)
+    # 위 표는 '그 유형이 **쓰인 경기**'를 세므로 한 경기에 여러 유형이 섞이면 공이 흩어진다.
+    # 여기서는 요인 한 줄씩 본다: 영향 부호(+ = 홈 승 쪽)가 실제 결과 쪽을 가리켰나.
+    # 주의 — 이 표만 보고 요인을 빼지 마라. 반드시 `--drop <유형>` 절제로 확인한다.
+    #   실측 예(2026-10-24): xG 는 이 표에서 34%(z −2.2)로 최악인데, 절제하면 방향이 9.6%p **떨어진다**.
+    #   양 팀에 반대 부호로 짝지어 들어가고 무승부가 전부 '틀림'으로 세어지기 때문이다.
+    print(f"\n## 요인 한 줄 부호 검정 (영향≠0 인 요인 행, n≥{a.min_n})")
+    print("| 유형 | 요인수 | 맞음 | 틀림 | 무 | 승패중 적중 | 평균 |영향| | z |")
+    print("|---|---:|---:|---:|---:|---:|---:|---:|")
+    sign = collections.defaultdict(lambda: [0, 0, 0, 0.0])
+    seen = {(g["rd"], g["no"]): g["res"] for g in games}
+    for (rd, no), fs in fac.items():
+        res = seen.get((rd, no))
+        if res not in SEL:
+            continue
+        for x in fs:
+            try:
+                inf = float(x.get("영향") or 0)
+            except ValueError:
+                continue
+            if abs(inf) < 0.25:
+                continue
+            c = sign[x["유형"]]; c[3] += abs(inf)
+            if res == "무":
+                c[2] += 1
+            elif (inf > 0 and res == "승") or (inf < 0 and res == "패"):
+                c[0] += 1
+            else:
+                c[1] += 1
+    for t, (h, ms, d, mag) in sorted(sign.items(), key=lambda x: -sum(x[1][:3])):
+        n = h + ms + d; dec = h + ms
+        if n < a.min_n or not dec:
+            continue
+        pr = h / dec
+        z = (pr - 0.5) / ((0.25 / dec) ** 0.5)
+        flag = " **유의**" if abs(z) >= 2 else ""
+        print(f"| {t} | {n} | {h} | {ms} | {d} | {pr*100:.1f}% | {mag/n:.2f} | {z:+.1f}{flag} |")
+
     print(f"\n## 보정 크기별 (|최종−기준선| 최대 이동폭)")
     def mv(g):
         return max(abs(g["fin"].get(k, 0) - g["base"].get(k, 0)) for k in SEL)

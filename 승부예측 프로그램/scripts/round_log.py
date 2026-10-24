@@ -20,7 +20,7 @@
 - 순수적중/시장적중 = 각자 가장 높은 확률을 준 결과가 실제와 같으면 1.
 - RPS(낮을수록 좋음)로 순수 분석 vs 시장을 같은 경기 집합에서 비교한다. 순수 분석이 시장을 이기는 영역(종목·리그·확신도)을 찾는 게 목적.
 """
-import argparse, csv, datetime as dt, io, json, math, os, subprocess, sys
+import argparse, csv, datetime as dt, io, json, math, os, re, subprocess, sys
 
 sys.path.insert(0, os.path.dirname(__file__))
 import odds_scan as o  # noqa: E402
@@ -32,7 +32,7 @@ COLS = ["회차", "번호", "시각", "종목", "리그", "홈", "원정",
         "시장_승", "시장_무", "시장_패", "베트맨_승", "베트맨_무", "베트맨_패", "시장시각",
         "보정_승", "보정_무", "보정_패", "보정메모",
         "추천", "구매", "결과", "점수", "순수적중", "시장적중", "보정적중", "비고",
-        "적중예상도", "정합성", "깊이", "예상점수", "심판", "날씨"]   # 깊이 = 심층 / 가벼움 / 기준선(모델 자동, 분석 없음) — 2026-10-19  # 정합성 = integrity.py 등급 A/B/C (2026-10-16 사용자 지시, C는 학습 제외)
+        "적중예상도", "정합성", "깊이", "예상점수", "심판", "날씨", "홈휴식", "원정휴식"]   # 깊이 = 심층 / 가벼움 / 기준선(모델 자동, 분석 없음) — 2026-10-19  # 정합성 = integrity.py 등급 A/B/C (2026-10-16 사용자 지시, C는 학습 제외)
         # 아래 주석은 적중예상도 설명:  # 2026-10-15: hit_model.py — 순수 1순위가 맞을 확률(로지스틱). 추천 문턱 60%
 SPORT = {"SC": "축구", "BS": "야구", "BK": "농구", "VL": "배구", "IH": "하키"}
 KST = o.KST
@@ -103,21 +103,53 @@ def cmd_init(a):
     print(f"{a.round}회: {n}경기 추가 (총 {sum(1 for r in rows if r['회차'] == str(a.round))}경기)")
 
 
+# 입력 CSV 칸 검증 (2026-10-24 126회 회고에서 신설)
+# 왜: 17:40 블록 입력에서 뉴스위험을 작은따옴표로 감싸(쉼표 포함) CSV 가 칸을 쪼갰고,
+#     '변수' 텍스트가 그대로 '깊이' 칸에 들어갔는데 pure 는 아무 말 없이 저장했다.
+#     깊이가 망가지면 그 행이 학습·대조군 집계에서 통째로 잘못 분류된다 — 조용히 틀리는 게 가장 나쁘다.
+_DEPTH_OK = ("심층", "가벼움", "기준선")
+_SCORE_RE = re.compile(r"^\s*\d+(\.\d+)?\s*[:：]\s*\d+(\.\d+)?")
+
+
+def _bad_value(col, v):
+    """칸 값이 그 칸의 형식이 아니면 사유 문자열, 괜찮으면 None."""
+    v = (v or "").strip()
+    if col == "깊이" and v not in _DEPTH_OK:
+        return f"깊이는 {'/'.join(_DEPTH_OK)} 중 하나여야 한다 (받은 값: {v[:40]!r})"
+    if col == "예상점수" and not _SCORE_RE.match(v):
+        return f"예상점수는 '홈:원정' 형식이어야 한다 (받은 값: {v[:40]!r})"
+    if col in ("순수_승", "순수_무", "순수_패"):
+        try:
+            float(v)
+        except ValueError:
+            return f"{col} 는 숫자여야 한다 (받은 값: {v[:40]!r})"
+    return None
+
+
 def cmd_pure(a):
     rows = load()
     src = list(csv.DictReader(open(a.file, encoding="utf-8-sig")))
     n = 0
+    warn = []
     for s in src:
         for r in rows:
             if r["회차"] == str(a.round) and r["홈"] == s["홈"] and r["원정"] == s["원정"]:
                 # 깊이·예상점수 추가 2026-10-24: pure 가 이 둘을 안 채워 baseline_fill 의 '기준선' 표기가 남고
                 # 심층 분석 행이 통째로 학습에서 빠지는 사고가 있었다(126회 15:00 블록, 4경기 수동 교정)
                 for c in ("순수_승", "순수_무", "순수_패", "확신도", "핵심근거", "뉴스위험", "제외", "변수", "깊이", "예상점수"):  # 변수 = 태그 "선발우위:+2; 불펜연투:-1" (+는 홈 유리, 종목별분석/변수태그.md)
-                    if s.get(c, "") != "":
-                        r[c] = s[c]
+                    if s.get(c, "") == "":
+                        continue
+                    bad = _bad_value(c, s[c])
+                    if bad:
+                        warn.append(f"  [{r['번호']}] {r['홈']}-{r['원정']} '{c}' 칸 값이 이상하다 → 쓰지 않음: {bad}")
+                        continue
+                    r[c] = s[c]
                 n += 1
     save(rows)
     print(f"순수 분석 {n}행 반영")
+    if warn:
+        print("⚠ 입력 CSV 칸 오류 — 해당 칸은 저장하지 않았다(쉼표가 든 칸은 큰따옴표로 감싼다):")
+        print("\n".join(warn))
     if n and not getattr(a, "no_anchor", False):
         a.quiet = True
         cmd_anchor(a)   # 순수가 들어오면 바로 최종(보정) 확률까지 (2026-10-15)

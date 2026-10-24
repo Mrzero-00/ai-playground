@@ -201,12 +201,74 @@ def cmd_fill(a):
     return 0
 
 
+# ------------------------------------------------------------ 휴식·공백 일수 열 (2026-10-24 126회 회고에서 신설)
+# 왜: 점검표 항목 "대항전·컵 뒤 8일 이상 공백은 '휴식 상한 0' 규칙의 측정 범위 밖"이 2회 되풀이됐는데
+#     (126회 132 전북 9.8일·164 서울 9.9일, 둘 다 못 이김) **효과를 잴 수가 없었다.**
+#     상한 0 규칙이 영향을 0 으로 만들어 근거기록에 숫자가 안 남고, 휴식일은 팀노트 INPUTS 블록에만
+#     있다가 다음 회차에 덮어쓰인다. 실측 가능한 공백 행이 전체 4건뿐이었다(맞1 틀3).
+#     그래서 '확률을 바꾸는' 규칙이 아니라 '기록을 남기는' 열을 먼저 만든다 — 30건 모이면 효과를 재고,
+#     그때 피로(중3일 이하)와 공백(8일 이상)을 가를지 정한다. 지금은 영향 0 을 유지한다.
+def cmd_rest(a):
+    import round_log as R
+    rows = R.load()
+    jp = os.path.join(ROOT, "data", f"입력_{a.round}.json")
+    if not os.path.exists(jp):
+        print(f"{jp} 가 없다. 먼저 `python3 scripts/match_inputs.py --round {a.round} --date MM-DD` 를 돌린다."); return
+    inp = json.load(open(jp, encoding="utf-8"))
+    n = 0
+    for r in rows:
+        if r["회차"] != str(a.round):
+            continue
+        g = inp.get(r["번호"])
+        if not g:
+            continue
+        for side, col in (("홈", "홈휴식"), ("원정", "원정휴식")):
+            v = (g.get(side) or {}).get("휴식일")
+            if v is not None and (not (r.get(col) or "").strip() or a.refresh):
+                r[col] = str(v); n += 1
+    R.save(rows)
+    print(f"휴식일 {n}칸 채움 (회차 {a.round})")
+
+
+def cmd_restcheck(a):
+    """긴 공백(8일+) 팀이 실제로 못했는가 — 효과를 재는 쪽. 30건 넘으면 규칙화를 검토한다."""
+    import round_log as R
+    import collections, math
+    rows = [r for r in R.load() if (r.get("결과") or "").strip() in ("승", "무", "패")]
+    buck = collections.defaultdict(lambda: [0, 0])   # [경기, 그 팀이 이긴 수]
+    for r in rows:
+        for side, col, win in (("홈", "홈휴식", "승"), ("원정", "원정휴식", "패")):
+            try:
+                d = float(r.get(col) or "")
+            except ValueError:
+                continue
+            k = "0~3일(피로)" if d <= 3 else "4~7일(정상)" if d <= 7 else "8~11일(공백)" if d <= 11 else "12일+(긴 공백)"
+            b = buck[k]; b[0] += 1; b[1] += (r["결과"] == win)
+    if not buck:
+        print("휴식일 열이 빈칸이다. `context_inputs.py rest --round N` 으로 먼저 채운다."); return
+    base_n = sum(v[0] for v in buck.values()); base_w = sum(v[1] for v in buck.values())
+    p0 = base_w / base_n
+    print(f"휴식일별 해당 팀 승률 (전체 {base_w}/{base_n} = {p0*100:.1f}%)")
+    print("| 휴식일 | 팀-경기 | 승 | 승률 | z |")
+    print("|---|---:|---:|---:|---:|")
+    for k in ("0~3일(피로)", "4~7일(정상)", "8~11일(공백)", "12일+(긴 공백)"):
+        if k not in buck:
+            continue
+        n, w = buck[k]
+        z = (w / n - p0) / math.sqrt(p0 * (1 - p0) / n)
+        print(f"| {k} | {n} | {w} | {w/n*100:.1f}% | {z:+.1f}{' **유의**' if abs(z) >= 2 else ''} |")
+    print("\n→ 8일+ 구간이 30팀-경기를 넘고 |z|>=2 면 '공백'을 피로와 분리해 요인으로 되살린다. 그 전까지 영향 0 유지.")
+
+
 def main():
     ap = argparse.ArgumentParser()
     s = ap.add_subparsers(dest="c", required=True)
     p = s.add_parser("fill"); p.add_argument("--round", required=True)
     p.add_argument("--no"); p.add_argument("--refresh", action="store_true"); p.set_defaults(f=cmd_fill)
     s.add_parser("refstats").set_defaults(f=cmd_refstats)
+    p = s.add_parser("rest"); p.add_argument("--round", required=True)
+    p.add_argument("--refresh", action="store_true"); p.set_defaults(f=cmd_rest)
+    s.add_parser("restcheck").set_defaults(f=cmd_restcheck)
     a = ap.parse_args()
     return a.f(a)
 

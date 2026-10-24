@@ -1,0 +1,116 @@
+{
+ "번호": 443,
+ "홈": "애틀랜타 유나이티드FC",
+ "원정": "시카고 파이어FC",
+ "수집시각": "2026-10-25 07:55 KST",
+ "대회단계": {
+  "내용": "MLS 2026 정규시즌 매치데이 32 (정규시즌 2026-02-21~11-07, 34R). 플레이오프 아님 — 와일드카드 11/18, Round One 3전2선승 11/20~12/02, MLS컵 12/18. 각 컨퍼런스 상위 9팀 진출(1~7위 직행, 8·9위 와일드카드 단판). 내슈빌은 10/24 몬트리올 2-0 승으로 서포터스실드 확정.",
+  "시리즈형식": "해당 없음(정규시즌 단판)",
+  "시리즈전적": "해당 없음",
+  "걸린것_홈": "동부 14위 30점(30경기, 잔여 4). 플레이오프 라인(9위)까지 6점 차 — 수학적으로는 생존, 이번 경기 패해도 탈락 확정은 아님(Scarves&Spikes 10/24). 사실상 시즌 종료 분위기.",
+  "걸린것_원정": "동부 4위 48점(30경기) — **플레이오프 진출 이미 확정**(10/21 DC 패배로 확정, 2년 연속·2004~09 이후 첫 연속 진출). 남은 건 시드(상위 4위권 홈 어드밴티지) 다툼. 최근 2연패 중.",
+  "출처": [
+   "https://en.wikipedia.org/wiki/2026_Major_League_Soccer_season",
+   "https://www.mlssoccer.com/news/audi-2026-mls-cup-playoffs-key-dates-schedule-information",
+   "https://sports.yahoo.com/articles/matchday-32-clinch-playoffs-eliminated-180000884.html",
+   "https://www.frontrowsoccer.com/2026/10/22/mls-clinching-scenarios-nashville-can-win-shield-charlotte-philly-la-seattle-can-reach-playoffs/"
+  ],
+  "날짜": "2026-10-22 ~ 2026-10-24"
+ },
+ "최근폼": {
+  "홈": {
+   "최근5": "10-17 H 인터마이애미 1-3 패 / 10-14 A 몬트리올 3-0 승 / 10-10 H 신시내티 1-3 패 / 09-26 H NYCFC 2-2 무 / 09-20 A 포틀랜드 1-0 승",
+   "순위": "동부 14위 30점 8승6무16패 득실 -14 (30경기)",
+   "출처": [
+    "https://www.espn.com/soccer/standings/_/league/usa.1",
+    "https://www.espn.com/soccer/scoreboard/_/league/usa.1/date/20261024"
+   ]
+  },
+  "원정": {
+   "최근5": "10-17 A 뉴잉글랜드 0-1 패 / 10-15 H 필라델피아 1-3 패 / 10-10 H NYCFC 2-1 승 / 10-07 H 밴쿠버 3-1 승 / 09-26 A 샬럿 1-0 승",
+   "순위": "동부 4위 48점 14승6무10패 득실 +8 (30경기)",
+   "출처": [
+    "https://www.espn.com/soccer/standings/_/league/usa.1",
+    "https://www.espn.com/soccer/scoreboard/_/league/usa.1/date/20261024"
+   ]
+  }
+ },
+ "결장": [
+  {
+   "팀": "애틀랜타",
+   "선수": "Will Reilly",
+   "상태": "확정",
+   "사유": "발목 — 시즌 아웃",
+   "출처": [
+    "https://mlssoccer.com/news/mls-player-status-report-matchday-32-saturday-october-24-sunday-october-25"
+   ],
+   "날짜": "2026-10-23"
+  },
+  {
+   "팀": "시카고",
+   "선수": "Jack Elliott",
+   "상태": "확정",
+   "사유": "경고 누적 출전정지",
+   "출처": [
+    "https://mlssoccer.com/news/mls-player-status-report-matchday-32-saturday-october-24-sunday-october-25"
+   ],
+   "날짜": "2026-10-23"
+  },
+  {
+   "팀": "시카고",
+   "선수": "André Franco",
+   "상태": "확정",
+   "사유": "하체",
+   "출처": [
+    "https://mlssoccer.com/news/mls-player-status-report-matchday-32-saturday-october-24-sunday-october-25"
+   ],
+   "날짜": "2026-10-23"
+  },
+  {
+   "팀": "시카고",
+   "선수": "Robin Lod",
+   "상태": "확정",
+   "사유": "하체",
+   "출처": [
+    "https://mlssoccer.com/news/mls-player-status-report-matchday-32-saturday-october-24-sunday-october-25"
+   ],
+   "날짜": "2026-10-23"
+  },
+  {
+   "팀": "시카고",
+   "선수": "Sam Rogers",
+   "상태": "확정",
+   "사유": "하체",
+   "출처": [
+    "https://mlssoccer.com/news/mls-player-status-report-matchday-32-saturday-october-24-sunday-october-25"
+   ],
+   "날짜": "2026-10-23"
+  }
+ ],
+ "구장·날씨": {
+  "구장": "Mercedes-Benz Stadium, 애틀랜타 GA (정규 홈구장, 개폐식 지붕)",
+  "날씨": "19:30 ET 기준 17.4°C · 강수 0mm(확률 0%) · 바람 9.3km/h · 맑음 (지붕 구장이라 영향 거의 없음)",
+  "출처": [
+   "https://api.open-meteo.com/v1/forecast (Open-Meteo, 경기장 좌표 시간별 예보)",
+   "https://www.espn.com/soccer/scoreboard/_/league/usa.1/date/20261024"
+  ],
+  "날짜": "2026-10-24"
+ },
+ "뉴스": [
+  {
+   "내용": "시카고 그렉 버헐터 감독이 기술·스포팅 운영 총괄. 로베르트 레반도프스키 15경기 6골4도움(최근 6경기 2도움으로 둔화), 마렌 하일레-셀라시에 11골10도움, CB 음베케제리 음보카지(21) MLS 22U22 4위.",
+   "출처": [
+    "https://scarvesandspikes.com/2026/10/24/atlanta-united-chicago-fire-preview-lineups-injuries-prediction/"
+   ],
+   "날짜": "2026-10-24"
+  }
+ ],
+ "뉴스없음": {
+  "홈": "뉴스 없음(검색처 2곳: MLSsoccer.com 공식 Player Status Report, Front Row Soccer/Yahoo Sports MLS 매치데이32 기사 / 2026-10-25). 감독 교체·징계 추가 건 미발견",
+  "원정": "뉴스 없음(검색처 2곳: MLSsoccer.com 공식 Player Status Report, Front Row Soccer/Yahoo Sports MLS 매치데이32 기사 / 2026-10-25). 감독 교체·징계 추가 건 미발견"
+ },
+ "미확인": [
+  "양 팀 선발 명단 공식 발표 전",
+  "애틀랜타의 수학적 잔존 여부 정확한 시나리오(리그 공식 확인 안 됨)"
+ ]
+}

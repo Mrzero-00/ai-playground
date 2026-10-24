@@ -36,13 +36,70 @@ def load(rnd):
     return list(last.values())
 
 
+# ── 코어 도달 가능성 (2026-10-25 신설, 126회 08:30 블록 회고) ──────────────
+# 왜: 코어 규칙은 ① 내 1순위 = 시장 1순위 ② 배당 1.30~2.20 ③ gap(내-시장) ≤ -5 다.
+#     2-way 시장(승패·소수핸디캡·U/O)에서 내 확률이 1순위이려면 50% 를 넘어야 하는데,
+#     그러면서 시장-5 이하가 되려면 **시장 확률이 55% 를 넘어야 한다**. 산술이다.
+#     3-way(승무패)는 1순위 문턱이 ~34% 라 시장 39%+ 면 된다.
+#     즉 시장이 50/50 에 가까운 핸디캡·U-O 는 아무리 분석해도 코어가 될 수 없고,
+#     1.02~1.08 짜리 대세 경기는 배당 밴드에서 떨어진다.
+#     126회 08:30 블록은 지정 리그 16개 선택지 중 15개가 이 둘 중 하나에 걸려
+#     **분석을 다 하고 나서야** 추천 불가가 확정됐다. 블록 시작 전에 1초로 알자는 것.
+ODDS_LO, ODDS_HI, GAP = 1.30, 2.20, 5.0
+
+
+def cmd_core(a):
+    now = dt.datetime.now().strftime("%Y-%m-%d %H:%M")
+    out, nreach = [], 0
+    for r in load(a.round):
+        t = r["시각"][5:16]
+        if a.frm and t < a.frm or a.to and t > a.to:
+            continue
+        if not a.started and r["시각"][:16] <= now:
+            continue
+        try:
+            p, o = float(r["공정확률"]), float(r["베트맨"])
+        except (ValueError, TypeError):
+            continue
+        if p < 34:
+            continue
+        floor = 34.0 if r["유형"] == "승무패" else 50.0   # 내 확률이 1순위가 되려면 넘어야 하는 선
+        if p <= floor:
+            continue
+        if not (ODDS_LO <= o <= ODDS_HI):
+            why = f"✗ 배당 {o:.2f} 밴드({ODDS_LO}~{ODDS_HI}) 밖"
+        elif p < floor + GAP:
+            why = f"✗ 시장 {p:.1f}% — 내 확률이 {floor:.0f} 초과이면서 시장-{GAP:.0f} 이하일 수 없다(산술 불가)"
+        else:
+            why = f"△ 가능 — 내 확률 {floor:.1f}~{p - GAP:.1f} 구간이면 코어"
+            nreach += 1
+        g = f"{r['구분']} {r['선택']}" if r["구분"] != "일반" else r["선택"]
+        out.append((r["번호"], r["시각"][5:16], r["종목"], r["경기"], f"{r['유형']} {g}", o, p, why))
+    out.sort(key=lambda x: (x[1], x[0]))
+    print("| 번호 | 시각 | 종목 | 경기 | 선택지 | 배당 | 시장% | 코어 도달 |")
+    print("|---|---|---|---|---|---|---|---|")
+    for n, t, sp, gm, sel, o, p, why in out:
+        print(f"| {n} | {t} | {sp} | {gm} | {sel} | {o:.2f} | {p:.1f} | {why} |")
+    print(f"\n— 시장 1순위 선택지 {len(out)}개 중 **코어 도달 가능 {nreach}개**")
+    if nreach == 0:
+        print("→ 이 블록은 아무리 분석해도 코어 다리가 나올 수 없다(배당 밴드 밖이거나 시장이 50/50 에 가까움).")
+        print("  분석·기록은 그대로 하되 추천 시간은 쓰지 않는다. '구간을 피한 것'이 아니라 **산술적으로 불가**다.")
+    elif nreach == 1:
+        print("→ 도달 가능 다리가 1개뿐이다 — 2폴더 고정이라 동시간대 짝이 없으면 추천 없음.")
+    return 0
+
+
 def main():
     ap = argparse.ArgumentParser(description="1차 가벼운 선별")
     ap.add_argument("--round", type=int, required=True)
     ap.add_argument("--from", dest="frm", default="", help='킥오프 시작 "MM-DD HH:MM"')
     ap.add_argument("--to", default="", help='킥오프 끝 "MM-DD HH:MM"')
     ap.add_argument("--started", action="store_true", help="이미 시작한 경기도 포함")
+    ap.add_argument("--core", action="store_true",
+                    help="코어 도달 가능성만 본다 — 배당 밴드와 gap 밴드를 '산술적으로' 만족시킬 수 있는 선택지가 블록에 있는지")
     a = ap.parse_args()
+    if a.core:
+        return cmd_core(a)
     now = dt.datetime.now().strftime("%Y-%m-%d %H:%M")
     rows = []
     for r in load(a.round):

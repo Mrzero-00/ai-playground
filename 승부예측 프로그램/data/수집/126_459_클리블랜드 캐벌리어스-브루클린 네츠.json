@@ -1,0 +1,311 @@
+{
+  "번호": 459,
+  "홈": "클리블랜드 캐벌리어스",
+  "원정": "브루클린 네츠",
+  "수집시각": "2026-10-25 08:05 KST",
+  "수집가_주의": "사실·URL·날짜만. 확률/예측/배당 없음.",
+  "리그·구장·킥오프": {
+    "리그": "NBA 2026-27 정규시즌",
+    "구장": "Rocket Arena (Cleveland, OH) — 캐벌리어스 정규 홈구장. 특별 개최지 아님. (구명 Rocket Mortgage FieldHouse 로 표기하는 매체 있음·동일 건물)",
+    "킥오프": "현지 2026-10-24(토) 19:30 ET = 2026-10-25 08:30 KST",
+    "ESPN_경기ID": "401909854",
+    "출처": [
+      "https://site.api.espn.com/apis/site/v2/sports/basketball/nba/summary?event=401909854",
+      "https://1390thegambler.iheart.com/content/2026-10-24-nets-vs-cavaliers-injury-report-oct-24/"
+    ],
+    "날짜": "2026-10-25"
+  },
+  "시즌기록": {
+    "홈": {
+      "팀": "클리블랜드 캐벌리어스",
+      "전적": "0-1",
+      "경기수": 1,
+      "경기로그": [
+        {
+          "날짜": "2026-10-22",
+          "상대": "필라델피아 76ers",
+          "홈원정": "원정",
+          "득점": 106,
+          "실점": 114,
+          "승패": "패",
+          "구장": "Xfinity Mobile Arena"
+        }
+      ],
+      "합계": {
+        "득점": 106,
+        "실점": 114,
+        "평균득점": 106.0,
+        "평균실점": 114.0
+      },
+      "출처": [
+        "https://site.api.espn.com/apis/site/v2/sports/basketball/nba/teams/cle/schedule?season=2027&seasontype=2"
+      ],
+      "날짜": "2026-10-25"
+    },
+    "원정": {
+      "팀": "브루클린 네츠",
+      "전적": "0-1",
+      "경기수": 1,
+      "경기로그": [
+        {
+          "날짜": "2026-10-21",
+          "상대": "샬럿 호네츠",
+          "홈원정": "홈",
+          "득점": 103,
+          "실점": 110,
+          "승패": "패",
+          "구장": "Barclays Center"
+        }
+      ],
+      "합계": {
+        "득점": 103,
+        "실점": 110,
+        "평균득점": 103.0,
+        "평균실점": 110.0
+      },
+      "출처": [
+        "https://site.api.espn.com/apis/site/v2/sports/basketball/nba/teams/bkn/schedule?season=2027&seasontype=2"
+      ],
+      "날짜": "2026-10-25"
+    }
+  },
+  "선발·출전시간_실측": {
+    "설명": "지금까지 치른 경기 박스스코어 실측 (S=선발, B=벤치). 분/득점은 경기순.",
+    "클리블랜드 캐벌리어스(10/22 1경기)": [
+      {
+        "선수": "Donovan Mitchell",
+        "선발": "S",
+        "분": "35",
+        "득점": "32"
+      },
+      {
+        "선수": "Evan Mobley",
+        "선발": "S",
+        "분": "34",
+        "득점": "18"
+      },
+      {
+        "선수": "James Harden",
+        "선발": "S",
+        "분": "33",
+        "득점": "16"
+      },
+      {
+        "선수": "Peyton Watson",
+        "선발": "S",
+        "분": "30",
+        "득점": "8"
+      },
+      {
+        "선수": "Jarrett Allen",
+        "선발": "S",
+        "분": "28",
+        "득점": "14"
+      },
+      {
+        "선수": "Sam Merrill",
+        "선발": "B",
+        "분": "24",
+        "득점": "5"
+      },
+      {
+        "선수": "Jaylon Tyson",
+        "선발": "B",
+        "분": "24",
+        "득점": "3"
+      },
+      {
+        "선수": "Mario Hezonja",
+        "선발": "B",
+        "분": "19",
+        "득점": "10"
+      },
+      {
+        "선수": "Craig Porter Jr.",
+        "선발": "B",
+        "분": "8",
+        "득점": "0"
+      },
+      {
+        "선수": "Tyrese Proctor",
+        "선발": "B",
+        "분": "5",
+        "득점": "0"
+      }
+    ],
+    "브루클린 네츠(10/21 1경기)": [
+      {
+        "선수": "Julius Randle",
+        "선발": "S",
+        "분": "38",
+        "득점": "33"
+      },
+      {
+        "선수": "Michael Porter Jr.",
+        "선발": "S",
+        "분": "34",
+        "득점": "26"
+      },
+      {
+        "선수": "Keon Ellis",
+        "선발": "S",
+        "분": "34",
+        "득점": "7"
+      },
+      {
+        "선수": "Day'Ron Sharpe",
+        "선발": "S",
+        "분": "30",
+        "득점": "8"
+      },
+      {
+        "선수": "Egor Demin",
+        "선발": "S",
+        "분": "27",
+        "득점": "4"
+      },
+      {
+        "선수": "Noah Clowney",
+        "선발": "B",
+        "분": "22",
+        "득점": "9"
+      },
+      {
+        "선수": "Mikel Brown Jr.",
+        "선발": "B",
+        "분": "20",
+        "득점": "6"
+      },
+      {
+        "선수": "Moritz Wagner",
+        "선발": "B",
+        "분": "16",
+        "득점": "7"
+      },
+      {
+        "선수": "Nolan Traore",
+        "선발": "B",
+        "분": "16",
+        "득점": "3"
+      },
+      {
+        "선수": "Chaney Johnson",
+        "선발": "B",
+        "분": "5",
+        "득점": "0"
+      }
+    ],
+    "출처": [
+      "https://site.api.espn.com/apis/site/v2/sports/basketball/nba/summary?event=401909854"
+    ],
+    "날짜": "2026-10-25"
+  },
+  "결장": [
+    {
+      "팀": "클리블랜드 캐벌리어스",
+      "선수": "Nae'Qwan Tomlin",
+      "포지션": "F",
+      "상태": "OUT",
+      "사유": "허리(lower back stress reaction) — 최소 3~4주 결장 보도",
+      "지난시즌_평균득점": "미확인",
+      "지난시즌_출전시간": "미확인",
+      "비고": "10/22 개막전 박스스코어 미출전",
+      "출처": [
+        "https://1390thegambler.iheart.com/content/2026-10-24-nets-vs-cavaliers-injury-report-oct-24/",
+        "https://www.fearthesword.com/cavs-injury-report/53389/cavs-vs-nets-how-to-watch-odds-and-injury-report"
+      ],
+      "날짜": "2026-10-24"
+    },
+    {
+      "팀": "클리블랜드 캐벌리어스",
+      "선수": "Khalifa Diop",
+      "포지션": "C",
+      "상태": "OUT",
+      "사유": "왼 무릎 — day-to-day 로 분류되나 이 경기 OUT",
+      "지난시즌_평균득점": "미확인",
+      "지난시즌_출전시간": "미확인",
+      "비고": "10/22 개막전 박스스코어 미출전",
+      "출처": [
+        "https://1390thegambler.iheart.com/content/2026-10-24-nets-vs-cavaliers-injury-report-oct-24/"
+      ],
+      "날짜": "2026-10-24"
+    },
+    {
+      "팀": "클리블랜드 캐벌리어스",
+      "선수": "Ernest Udeh Jr.",
+      "포지션": "C",
+      "상태": "OUT",
+      "사유": "부상 아님 — 투웨이 계약 선수 inactive",
+      "지난시즌_평균득점": "미확인",
+      "지난시즌_출전시간": "미확인",
+      "출처": [
+        "https://www.fearthesword.com/cavs-injury-report/53389/cavs-vs-nets-how-to-watch-odds-and-injury-report"
+      ],
+      "날짜": "2026-10-24"
+    },
+    {
+      "팀": "브루클린 네츠",
+      "선수": "Tyler Bilodeau",
+      "포지션": "F",
+      "상태": "OUT",
+      "사유": "어깨 — 클리블랜드 원정 결장 확정",
+      "지난시즌_평균득점": "NBA 기록 없음(2026 신인)",
+      "지난시즌_출전시간": "NBA 기록 없음",
+      "출처": [
+        "https://site.api.espn.com/apis/site/v2/sports/basketball/nba/injuries",
+        "https://1390thegambler.iheart.com/content/2026-10-24-nets-vs-cavaliers-injury-report-oct-24/"
+      ],
+      "날짜": "2026-10-23"
+    }
+  ],
+  "결장_주의": "ESPN 인저리 피드 타임스탬프 2026-10-24T22:43:30Z(=10/25 07:43 KST) 기준. 클리블랜드는 ESPN 피드에 등재 항목 0건이었고, 위 3명은 구단 공식 리포트를 인용한 현지 매체에서 확인.",
+  "일정": {
+    "홈": {
+      "팀": "클리블랜드",
+      "직전경기일": "2026-10-22 (ET)",
+      "백투백": false,
+      "휴식일": 1,
+      "이동": "10/22 필라델피아 원정 → 홈 복귀. 이번이 시즌 홈 개막전."
+    },
+    "원정": {
+      "팀": "브루클린",
+      "직전경기일": "2026-10-21 (ET)",
+      "백투백": false,
+      "휴식일": 2,
+      "이동": "뉴욕 → 클리블랜드(약 740km, 동부시간 동일·시차 없음). 시즌 첫 원정."
+    },
+    "비고": "이 블록 5경기 중 양 팀 모두 백투백이 아닌 유일한 경기.",
+    "출처": [
+      "https://site.api.espn.com/apis/site/v2/sports/basketball/nba/teams/cle/schedule?season=2027&seasontype=2",
+      "https://site.api.espn.com/apis/site/v2/sports/basketball/nba/teams/bkn/schedule?season=2027&seasontype=2"
+    ]
+  },
+  "뉴스": [
+    {
+      "팀": "클리블랜드 캐벌리어스",
+      "내용": "2026 오프시즌: James Harden 3년 9,700만 달러 재계약, Donovan Mitchell 4년 2억7,300만 달러 연장. 3팀 트레이드로 Peyton Watson 영입(4년 8,800만), Max Strus는 클리퍼스로. Dean Wade·Dennis Schroder·Max Strus·Larry Nance Jr. 이탈, Mario Hezonja 합류.",
+      "출처": [
+        "https://www.espn.com/nba/story/_/id/49869015/cleveland-cavaliers-offseason-recap-2026-27-nba-season-preview-stats-roster-depth-chart",
+        "https://www.espn.com/nba/story/_/id/49664656/peyton-watson-cavaliers-max-strus-clippers-part-multi-team-trade-nuggets"
+      ],
+      "날짜": "2026-07 (오프시즌, 신선도 경과 — 배경 정보)"
+    },
+    {
+      "팀": "브루클린 네츠",
+      "내용": "2026 오프시즌: 3팀 트레이드로 Nic Claxton 을 보내고 Julius Randle 영입. Keon Ellis·Mikel Brown Jr.(드래프트) 합류. 감독은 3년차 Jordi Fernandez 유임.",
+      "출처": [
+        "https://www.espn.com/nba/story/_/id/49904334/brooklyn-nets-2026-27-season-preview-stats-roster-michael-porter-jr-julius-randle"
+      ],
+      "날짜": "2026-10-20 (프리뷰 기사)"
+    }
+  ],
+  "뉴스없음": {
+    "홈": "경기 당일(10/24~25) 새 트레이드·감독 변경·로테이션 발표 없음(검색처: ESPN NBA injuries 피드, iHeart 경기별 인저리 리포트, fearthesword / 확인일 2026-10-25)",
+    "원정": "경기 당일 새 트레이드·감독 변경·로테이션 발표 없음(검색처: ESPN NBA injuries 피드, iHeart 경기별 인저리 리포트 / 확인일 2026-10-25)"
+  },
+  "미확인": [
+    "Nae'Qwan Tomlin·Khalifa Diop 의 2025-26 평균 득점/출전시간(ESPN 선수 스탯 ID 미매칭)",
+    "클리블랜드·브루클린의 당일 공식 NBA 인저리 리포트 PDF 원본(시간대별 URL 미특정)",
+    "양 팀 예상 선발 라인업 공식 발표 여부 — 10/22, 10/21 실제 선발만 확인됨"
+  ]
+}

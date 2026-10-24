@@ -1,0 +1,379 @@
+{
+  "번호": 467,
+  "홈": "애틀랜타 호크스",
+  "원정": "휴스턴 로케츠",
+  "수집시각": "2026-10-25 08:05 KST",
+  "수집가_주의": "사실·URL·날짜만. 확률/예측/배당 없음.",
+  "리그·구장·킥오프": {
+    "리그": "NBA 2026-27 정규시즌",
+    "구장": "State Farm Arena (Atlanta, GA) — 호크스 정규 홈구장. 특별 개최지 아님. 애틀랜타 시즌 홈 개막전.",
+    "킥오프": "현지 2026-10-24(토) 20:30 ET = 2026-10-25 09:30 KST",
+    "ESPN_경기ID": "401909856",
+    "출처": [
+      "https://site.api.espn.com/apis/site/v2/sports/basketball/nba/summary?event=401909856",
+      "https://athlonsports.com/nba/houston-rockets/final-injury-report-for-rockets-hawks-will-fred-vanvleet-reed-sheppard-play"
+    ],
+    "날짜": "2026-10-25"
+  },
+  "시즌기록": {
+    "홈": {
+      "팀": "애틀랜타 호크스",
+      "전적": "2-0",
+      "경기수": 2,
+      "경기로그": [
+        {
+          "날짜": "2026-10-21",
+          "상대": "올랜도 매직",
+          "홈원정": "원정",
+          "득점": 132,
+          "실점": 125,
+          "승패": "승",
+          "구장": "Kia Center"
+        },
+        {
+          "날짜": "2026-10-23",
+          "상대": "샬럿 호네츠",
+          "홈원정": "원정",
+          "득점": 128,
+          "실점": 81,
+          "승패": "승",
+          "구장": "Spectrum Center"
+        }
+      ],
+      "합계": {
+        "득점": 260,
+        "실점": 206,
+        "평균득점": 130.0,
+        "평균실점": 103.0
+      },
+      "비고": "이번이 시즌 홈 개막전(앞 2경기 모두 원정).",
+      "출처": [
+        "https://site.api.espn.com/apis/site/v2/sports/basketball/nba/teams/atl/schedule?season=2027&seasontype=2"
+      ],
+      "날짜": "2026-10-25"
+    },
+    "원정": {
+      "팀": "휴스턴 로케츠",
+      "전적": "2-0",
+      "경기수": 2,
+      "경기로그": [
+        {
+          "날짜": "2026-10-21",
+          "상대": "댈러스 매버릭스",
+          "홈원정": "홈",
+          "득점": 128,
+          "실점": 110,
+          "승패": "승",
+          "구장": "Toyota Center"
+        },
+        {
+          "날짜": "2026-10-23",
+          "상대": "샌안토니오 스퍼스",
+          "홈원정": "원정",
+          "득점": 114,
+          "실점": 110,
+          "승패": "승",
+          "구장": "Moody Center (Austin, TX)"
+        }
+      ],
+      "합계": {
+        "득점": 242,
+        "실점": 220,
+        "평균득점": 121.0,
+        "평균실점": 110.0
+      },
+      "출처": [
+        "https://site.api.espn.com/apis/site/v2/sports/basketball/nba/teams/hou/schedule?season=2027&seasontype=2"
+      ],
+      "날짜": "2026-10-25"
+    }
+  },
+  "선발·출전시간_실측": {
+    "설명": "박스스코어 실측(S=선발/B=벤치), 값은 경기순(10/21·10/23).",
+    "애틀랜타 호크스": [
+      {
+        "선수": "Dyson Daniels",
+        "선발": "S/S",
+        "분": "35/23",
+        "득점": "20/11"
+      },
+      {
+        "선수": "Jalen Johnson",
+        "선발": "S/S",
+        "분": "28/29",
+        "득점": "20/19"
+      },
+      {
+        "선수": "Nickeil Alexander-Walker",
+        "선발": "S/S",
+        "분": "30/27",
+        "득점": "31/14"
+      },
+      {
+        "선수": "Onyeka Okongwu",
+        "선발": "S/S",
+        "분": "29/22",
+        "득점": "8/10"
+      },
+      {
+        "선수": "CJ McCollum",
+        "선발": "S/S",
+        "분": "25/22",
+        "득점": "19/13"
+      },
+      {
+        "선수": "Aaron Wiggins",
+        "선발": "B/B",
+        "분": "32/22",
+        "득점": "16/19"
+      },
+      {
+        "선수": "Luguentz Dort",
+        "선발": "B/B",
+        "분": "28/19",
+        "득점": "8/9"
+      },
+      {
+        "선수": "Jock Landale",
+        "선발": "B/B",
+        "분": "19/18",
+        "득점": "10/8"
+      },
+      {
+        "선수": "Kingston Flemings",
+        "선발": "B/B",
+        "분": "15/25",
+        "득점": "0/5"
+      },
+      {
+        "선수": "Corey Kispert",
+        "선발": "B",
+        "분": "10",
+        "득점": "11"
+      },
+      {
+        "선수": "Dorian Finney-Smith",
+        "선발": "B",
+        "분": "8",
+        "득점": "3"
+      }
+    ],
+    "휴스턴 로케츠": [
+      {
+        "선수": "Kevin Durant",
+        "선발": "S/S",
+        "분": "37/37",
+        "득점": "30/20"
+      },
+      {
+        "선수": "Jabari Smith Jr.",
+        "선발": "S/S",
+        "분": "36/34",
+        "득점": "30/7"
+      },
+      {
+        "선수": "Amen Thompson",
+        "선발": "S/S",
+        "분": "33/36",
+        "득점": "16/20"
+      },
+      {
+        "선수": "Alperen Sengun",
+        "선발": "S/S",
+        "분": "30/36",
+        "득점": "23/29"
+      },
+      {
+        "선수": "Fred VanVleet",
+        "선발": "S/S",
+        "분": "30/32",
+        "득점": "6/14"
+      },
+      {
+        "선수": "Marcus Smart",
+        "선발": "B/B",
+        "분": "26/21",
+        "득점": "10/5"
+      },
+      {
+        "선수": "Tari Eason",
+        "선발": "B/B",
+        "분": "3/27",
+        "득점": "2/12"
+      },
+      {
+        "선수": "Bogdan Bogdanovic",
+        "선발": "B/B",
+        "분": "13/9",
+        "득점": "5/3"
+      },
+      {
+        "선수": "Reed Sheppard",
+        "선발": "B",
+        "분": "16",
+        "득점": "3"
+      },
+      {
+        "선수": "Steven Adams",
+        "선발": "B",
+        "분": "9",
+        "득점": "4"
+      },
+      {
+        "선수": "Clint Capela",
+        "선발": "B",
+        "분": "8",
+        "득점": "0"
+      }
+    ],
+    "출처": [
+      "https://site.api.espn.com/apis/site/v2/sports/basketball/nba/summary?event=401909856"
+    ],
+    "날짜": "2026-10-25"
+  },
+  "결장": [
+    {
+      "팀": "휴스턴 로케츠",
+      "선수": "Fred VanVleet",
+      "포지션": "G",
+      "상태": "OUT",
+      "사유": "오른 무릎 관리(injury management) — 백투백 2차전 결장",
+      "지난시즌_평균득점": "2025-26 전 경기 결장(무릎) / 2024-25 HOU 14.1점",
+      "지난시즌_출전시간": "2024-25 35.2분",
+      "올시즌": "2경기 전경기 선발 30.5분 10.0점 8.0어시스트",
+      "복귀예정": "2026-10-26 전후",
+      "출처": [
+        "https://site.api.espn.com/apis/site/v2/sports/basketball/nba/injuries",
+        "https://www.cbssports.com/fantasy/basketball/news/rockets-fred-vanvleet-officially-ruled-out-saturday/",
+        "https://www.nbcsports.com/fantasy/basketball/player-news/2026-10-24/fred-vanvleet-knee-out-saturday-vs-hawks"
+      ],
+      "날짜": "2026-10-24"
+    },
+    {
+      "팀": "휴스턴 로케츠",
+      "선수": "Steven Adams",
+      "포지션": "C",
+      "상태": "OUT",
+      "사유": "왼 발목 관리 — 시즌 두 번째 결장",
+      "지난시즌_평균득점": "5.8 (2025-26 HOU, 32경기)",
+      "지난시즌_출전시간": "22.8분",
+      "올시즌": "1경기 벤치 9분 4점",
+      "복귀예정": "2026-10-26 전후",
+      "출처": [
+        "https://site.api.espn.com/apis/site/v2/sports/basketball/nba/injuries",
+        "https://athlonsports.com/nba/houston-rockets/final-injury-report-for-rockets-hawks-will-fred-vanvleet-reed-sheppard-play"
+      ],
+      "날짜": "2026-10-24"
+    },
+    {
+      "팀": "휴스턴 로케츠",
+      "선수": "Reed Sheppard",
+      "포지션": "G",
+      "상태": "QUESTIONABLE",
+      "사유": "왼 무릎 타박(bruise)",
+      "지난시즌_평균득점": "13.5 (2025-26 HOU, 82경기·21선발)",
+      "지난시즌_출전시간": "26.2분",
+      "올시즌": "1경기 벤치 16분 3점 4어시스트 (10/23 샌안토니오전 결장)",
+      "출처": [
+        "https://site.api.espn.com/apis/site/v2/sports/basketball/nba/injuries",
+        "https://clutchpoints.com/nba/rockets-hawks-injury-report-features-multiple-questionable-players"
+      ],
+      "날짜": "2026-10-24"
+    },
+    {
+      "팀": "휴스턴 로케츠",
+      "선수": "Marcus Smart",
+      "포지션": "G",
+      "상태": "QUESTIONABLE",
+      "사유": "왼 전완 염좌(forearm strain)",
+      "지난시즌_평균득점": "9.3 (2025-26 LAL, 62경기·54선발)",
+      "지난시즌_출전시간": "28.5분",
+      "올시즌": "2경기 벤치 24.0분 7.5점",
+      "출처": [
+        "https://site.api.espn.com/apis/site/v2/sports/basketball/nba/injuries",
+        "https://clutchpoints.com/nba/rockets-hawks-injury-report-features-multiple-questionable-players"
+      ],
+      "날짜": "2026-10-24"
+    },
+    {
+      "팀": "애틀랜타 호크스",
+      "선수": "Mouhamed Gueye",
+      "포지션": "F",
+      "상태": "OUT",
+      "사유": "왼 발 골절 수술 — 3~4개월 재평가",
+      "지난시즌_평균득점": "4.4 (2025-26 ATL, 77경기)",
+      "지난시즌_출전시간": "15.3분",
+      "복귀예정": "2026-11-20 전후",
+      "출처": [
+        "https://site.api.espn.com/apis/site/v2/sports/basketball/nba/injuries"
+      ],
+      "날짜": "2026-10-19 (신선도 경과 — 장기 결장건)"
+    },
+    {
+      "팀": "애틀랜타 호크스",
+      "선수": "Henri Veesaar",
+      "포지션": "C",
+      "상태": "OUT",
+      "사유": "오른 무릎 ACL 파열 — 2026-27 시즌 아웃(구단 발표)",
+      "지난시즌_평균득점": "NBA 기록 없음(2026 신인)",
+      "지난시즌_출전시간": "NBA 기록 없음",
+      "복귀예정": "2027-07 전후",
+      "출처": [
+        "https://site.api.espn.com/apis/site/v2/sports/basketball/nba/injuries"
+      ],
+      "날짜": "2026-09-21 (신선도 경과 — 시즌 아웃 확정건)"
+    }
+  ],
+  "결장_주의": "애틀랜타는 당일 새로 추가된 결장자 없음(기존 장기 결장 2명뿐). 휴스턴은 백투백 2차전으로 당일 4건 리포트. ESPN 인저리 피드 기준 시각 2026-10-24T22:43:30Z.",
+  "일정": {
+    "홈": {
+      "팀": "애틀랜타",
+      "직전경기일": "2026-10-23 (ET, 샬럿 원정)",
+      "백투백": true,
+      "휴식일": 0,
+      "이동": "샬럿 → 애틀랜타 약 390km(근거리·동일 시간대). 백투백 2차전이자 홈 개막전."
+    },
+    "원정": {
+      "팀": "휴스턴",
+      "직전경기일": "2026-10-23 (ET 21:30, 오스틴 Moody Center 원정)",
+      "백투백": true,
+      "휴식일": 0,
+      "이동": "오스틴(TX) → 애틀랜타 약 1,400km, 중부→동부 시차 +1시간. 전날 현지 21:30 늦은 경기 뒤 이동한 백투백 2차전.",
+      "추가": "10/26(현지)에 홈에서 애틀랜타와 재대결 — 이틀 간격 2연전의 1차전."
+    },
+    "비고": "양 팀 모두 백투백 2차전. 양 팀 모두 2-0 무패.",
+    "출처": [
+      "https://site.api.espn.com/apis/site/v2/sports/basketball/nba/teams/atl/schedule?season=2027&seasontype=2",
+      "https://site.api.espn.com/apis/site/v2/sports/basketball/nba/teams/hou/schedule?season=2027&seasontype=2"
+    ]
+  },
+  "뉴스": [
+    {
+      "팀": "애틀랜타 호크스",
+      "내용": "2026 오프시즌: 3팀 트레이드로 Zaccharie Risacher 를 내보내고 오클라호마시티에서 Luguentz Dort, 댈러스에서 Ryan Nembhard 영입. Aaron Wiggins 도 썬더에서 별도 영입. CJ McCollum 1년 2,100만 달러·Jock Landale 1년 재계약. 팀 중심은 Jalen Johnson.",
+      "출처": [
+        "https://www.espn.com/nba/story/_/id/49652199/atlanta-hawks-offseason-recap-2026-27-season-preview-stats-roster-depth-chart",
+        "https://www.atlantanewsfirst.com/2026/10/20/breaking-down-atlanta-hawks-2026-27-roster/"
+      ],
+      "날짜": "2026-07 (오프시즌) / 2026-10-20 (로스터 정리 기사)"
+    },
+    {
+      "팀": "휴스턴 로케츠",
+      "내용": "VanVleet 결장으로 Marcus Smart·Amen Thompson 의 볼 핸들링 비중이 커질 것이라는 보도(단, Smart 자신도 questionable).",
+      "출처": [
+        "https://athlonsports.com/nba/houston-rockets/final-injury-report-for-rockets-hawks-will-fred-vanvleet-reed-sheppard-play",
+        "https://clutchpoints.com/nba/rockets-hawks-injury-report-features-multiple-questionable-players"
+      ],
+      "날짜": "2026-10-24"
+    }
+  ],
+  "뉴스없음": {
+    "홈": "경기 당일 새 트레이드·감독 변경·결장 발표 없음(검색처: ESPN injuries 피드, Athlon Sports, ClutchPoints, Fadeaway World / 확인일 2026-10-25)",
+    "원정": "경기 당일 새 트레이드·감독 변경 없음. 당일 발표는 인저리 리포트 4건뿐(검색처: ESPN injuries 피드, CBS Sports, NBC Sports, Rotowire 헤드라인 / 확인일 2026-10-25)"
+  },
+  "미확인": [
+    "Reed Sheppard·Marcus Smart 최종 판정(둘 다 QUESTIONABLE 상태로 수집 종료)",
+    "VanVleet 결장 시 휴스턴 선발 가드 자리 공식 발표",
+    "애틀랜타 Trae Young 부재 관련 — 2026-02 데드라인에 워싱턴으로 이적했고 현재 호크스 로스터에 없음(10/21·10/23 박스스코어로 확인). 트레이드 상세 조건은 미확인"
+  ]
+}

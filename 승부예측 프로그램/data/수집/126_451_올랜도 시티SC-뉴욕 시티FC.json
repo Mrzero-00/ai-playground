@@ -1,0 +1,168 @@
+{
+ "번호": 451,
+ "홈": "올랜도 시티SC",
+ "원정": "뉴욕 시티FC",
+ "수집시각": "2026-10-25 07:55 KST",
+ "대회단계": {
+  "내용": "MLS 2026 정규시즌 매치데이 32 (정규시즌 2026-02-21~11-07, 34R). 플레이오프 아님 — 와일드카드 11/18, Round One 3전2선승 11/20~12/02, MLS컵 12/18. 각 컨퍼런스 상위 9팀 진출(1~7위 직행, 8·9위 와일드카드 단판). 내슈빌은 10/24 몬트리올 2-0 승으로 서포터스실드 확정.",
+  "시리즈형식": "해당 없음(정규시즌 단판)",
+  "시리즈전적": "해당 없음",
+  "걸린것_홈": "동부 7위 41점(30경기, 잔여 4) — 플레이오프 직행권(1~7위) 자리. 진출 미확정, 8위 신시내티(39)·9위 컬럼버스(38)와 2~3점 차. 최근 홈 4-1 대승 포함 상승세.",
+  "걸린것_원정": "동부 12위 34점(30경기, 잔여 4). 라인까지 4~5점 차 — 수학적 생존이나 사실상 벼랑. 승/무 시 몬트리올 탈락 확정에 기여.",
+  "출처": [
+   "https://en.wikipedia.org/wiki/2026_Major_League_Soccer_season",
+   "https://www.mlssoccer.com/news/audi-2026-mls-cup-playoffs-key-dates-schedule-information",
+   "https://sports.yahoo.com/articles/matchday-32-clinch-playoffs-eliminated-180000884.html",
+   "https://www.frontrowsoccer.com/2026/10/22/mls-clinching-scenarios-nashville-can-win-shield-charlotte-philly-la-seattle-can-reach-playoffs/"
+  ],
+  "날짜": "2026-10-22 ~ 2026-10-24"
+ },
+ "최근폼": {
+  "홈": {
+   "최근5": "10-17 H DC 4-1 승 / 10-14 A 토론토 3-3 무 / 10-10 H 컬럼버스 3-2 승 / 09-26 A 필라델피아 2-4 패 / 09-19 A 뉴잉글랜드 2-4 패",
+   "순위": "동부 7위 41점 12승5무13패 득실 -12 (30경기)",
+   "출처": [
+    "https://www.espn.com/soccer/standings/_/league/usa.1",
+    "https://www.espn.com/soccer/scoreboard/_/league/usa.1/date/20261024"
+   ]
+  },
+  "원정": {
+   "최근5": "10-17 H LAFC 1-1 무 / 10-14 A 인터마이애미 0-2 패 / 10-10 A 시카고 1-2 패 / 09-26 A 애틀랜타 2-2 무 / 09-18 H 레드불 0-1 패",
+   "순위": "동부 12위 34점 8승10무12패 득실 +2 (30경기)",
+   "출처": [
+    "https://www.espn.com/soccer/standings/_/league/usa.1",
+    "https://www.espn.com/soccer/scoreboard/_/league/usa.1/date/20261024"
+   ]
+  }
+ },
+ "결장": [
+  {
+   "팀": "올랜도",
+   "선수": "Griffin Dorsey",
+   "상태": "확정",
+   "사유": "허리",
+   "출처": [
+    "https://mlssoccer.com/news/mls-player-status-report-matchday-32-saturday-october-24-sunday-october-25"
+   ],
+   "날짜": "2026-10-23"
+  },
+  {
+   "팀": "올랜도",
+   "선수": "Robin Jansson",
+   "상태": "확정",
+   "사유": "발",
+   "출처": [
+    "https://mlssoccer.com/news/mls-player-status-report-matchday-32-saturday-october-24-sunday-october-25"
+   ],
+   "날짜": "2026-10-23"
+  },
+  {
+   "팀": "올랜도",
+   "선수": "Luís Otávio",
+   "상태": "확정",
+   "사유": "출전정지",
+   "출처": [
+    "https://mlssoccer.com/news/mls-player-status-report-matchday-32-saturday-october-24-sunday-october-25"
+   ],
+   "날짜": "2026-10-23"
+  },
+  {
+   "팀": "올랜도",
+   "선수": "Tyrese Spicer",
+   "상태": "확정",
+   "사유": "발",
+   "출처": [
+    "https://mlssoccer.com/news/mls-player-status-report-matchday-32-saturday-october-24-sunday-october-25"
+   ],
+   "날짜": "2026-10-23"
+  },
+  {
+   "팀": "올랜도",
+   "선수": "Vinícius Nogueira",
+   "상태": "의심",
+   "사유": "어깨",
+   "출처": [
+    "https://mlssoccer.com/news/mls-player-status-report-matchday-32-saturday-october-24-sunday-october-25"
+   ],
+   "날짜": "2026-10-23"
+  },
+  {
+   "팀": "올랜도",
+   "선수": "Bernardo Rhein",
+   "상태": "의심",
+   "사유": "하퇴부",
+   "출처": [
+    "https://mlssoccer.com/news/mls-player-status-report-matchday-32-saturday-october-24-sunday-october-25"
+   ],
+   "날짜": "2026-10-23"
+  },
+  {
+   "팀": "NYCFC",
+   "선수": "Drew Baiera",
+   "상태": "확정",
+   "사유": "다리",
+   "출처": [
+    "https://mlssoccer.com/news/mls-player-status-report-matchday-32-saturday-october-24-sunday-october-25"
+   ],
+   "날짜": "2026-10-23"
+  },
+  {
+   "팀": "NYCFC",
+   "선수": "Arnau Farnós",
+   "상태": "확정",
+   "사유": "다리",
+   "출처": [
+    "https://mlssoccer.com/news/mls-player-status-report-matchday-32-saturday-october-24-sunday-october-25"
+   ],
+   "날짜": "2026-10-23"
+  },
+  {
+   "팀": "NYCFC",
+   "선수": "Maxi Moralez",
+   "상태": "확정",
+   "사유": "다리",
+   "출처": [
+    "https://mlssoccer.com/news/mls-player-status-report-matchday-32-saturday-october-24-sunday-october-25"
+   ],
+   "날짜": "2026-10-23"
+  },
+  {
+   "팀": "NYCFC",
+   "선수": "Keaton Parks",
+   "상태": "확정",
+   "사유": "다리",
+   "출처": [
+    "https://mlssoccer.com/news/mls-player-status-report-matchday-32-saturday-october-24-sunday-october-25"
+   ],
+   "날짜": "2026-10-23"
+  },
+  {
+   "팀": "NYCFC",
+   "선수": "Kai Trewin",
+   "상태": "확정",
+   "사유": "다리",
+   "출처": [
+    "https://mlssoccer.com/news/mls-player-status-report-matchday-32-saturday-october-24-sunday-october-25"
+   ],
+   "날짜": "2026-10-23"
+  }
+ ],
+ "구장·날씨": {
+  "구장": "Inter&Co Stadium, 올랜도 FL (정규 홈구장)",
+  "날씨": "19:30 ET 기준 22.1°C · 강수 0mm(확률 17%) · 바람 17.5km/h(7경기 중 최대) · 구름많음",
+  "출처": [
+   "https://api.open-meteo.com/v1/forecast (Open-Meteo, 경기장 좌표 시간별 예보)",
+   "https://www.espn.com/soccer/scoreboard/_/league/usa.1/date/20261024"
+  ],
+  "날짜": "2026-10-24"
+ },
+ "뉴스": [],
+ "뉴스없음": {
+  "홈": "뉴스 없음(검색처 2곳: MLSsoccer.com 공식 Player Status Report, Front Row Soccer/Yahoo Sports MLS 매치데이32 기사 / 2026-10-25). 감독 교체·징계 추가 건 미발견",
+  "원정": "뉴스 없음(검색처 2곳: MLSsoccer.com 공식 Player Status Report, Front Row Soccer/Yahoo Sports MLS 매치데이32 기사 / 2026-10-25). 감독 교체·징계 추가 건 미발견"
+ },
+ "미확인": [
+  "양 팀 선발 명단 미발표",
+  "NYCFC 결장 5명의 정확한 중증도(리그 리포트에 '다리'로만 표기)"
+ ]
+}

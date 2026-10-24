@@ -1,0 +1,347 @@
+{
+  "번호": 463,
+  "홈": "필라델피아 76ers",
+  "원정": "밀워키 벅스",
+  "수집시각": "2026-10-25 08:05 KST",
+  "수집가_주의": "사실·URL·날짜만. 확률/예측/배당 없음.",
+  "리그·구장·킥오프": {
+    "리그": "NBA 2026-27 정규시즌",
+    "구장": "Xfinity Mobile Arena (Philadelphia, PA) — 76ers 정규 홈구장(구 Wells Fargo Center). 특별 개최지 아님.",
+    "킥오프": "현지 2026-10-24(토) 19:30 ET = 2026-10-25 08:30 KST",
+    "ESPN_경기ID": "401909855",
+    "출처": [
+      "https://site.api.espn.com/apis/site/v2/sports/basketball/nba/summary?event=401909855",
+      "https://foxsports1070.iheart.com/content/2026-10-24-bucks-vs-76ers-injury-report-oct-24/"
+    ],
+    "날짜": "2026-10-25"
+  },
+  "시즌기록": {
+    "홈": {
+      "팀": "필라델피아 76ers",
+      "전적": "2-0",
+      "경기수": 2,
+      "경기로그": [
+        {
+          "날짜": "2026-10-20",
+          "상대": "뉴욕 닉스",
+          "홈원정": "원정",
+          "득점": 106,
+          "실점": 100,
+          "승패": "승",
+          "구장": "Madison Square Garden"
+        },
+        {
+          "날짜": "2026-10-22",
+          "상대": "클리블랜드 캐벌리어스",
+          "홈원정": "홈",
+          "득점": 114,
+          "실점": 106,
+          "승패": "승",
+          "구장": "Xfinity Mobile Arena"
+        }
+      ],
+      "합계": {
+        "득점": 220,
+        "실점": 206,
+        "평균득점": 110.0,
+        "평균실점": 103.0
+      },
+      "출처": [
+        "https://site.api.espn.com/apis/site/v2/sports/basketball/nba/teams/phi/schedule?season=2027&seasontype=2"
+      ],
+      "날짜": "2026-10-25"
+    },
+    "원정": {
+      "팀": "밀워키 벅스",
+      "전적": "0-2",
+      "경기수": 2,
+      "경기로그": [
+        {
+          "날짜": "2026-10-21",
+          "상대": "워싱턴 위저즈",
+          "홈원정": "원정",
+          "득점": 116,
+          "실점": 128,
+          "승패": "패",
+          "구장": "Capital One Arena"
+        },
+        {
+          "날짜": "2026-10-23",
+          "상대": "시카고 불스",
+          "홈원정": "홈",
+          "득점": 125,
+          "실점": 132,
+          "승패": "패",
+          "구장": "Fiserv Forum",
+          "비고": "현지 16:00 ET 낮경기"
+        }
+      ],
+      "합계": {
+        "득점": 241,
+        "실점": 260,
+        "평균득점": 120.5,
+        "평균실점": 130.0
+      },
+      "출처": [
+        "https://site.api.espn.com/apis/site/v2/sports/basketball/nba/teams/mil/schedule?season=2027&seasontype=2"
+      ],
+      "날짜": "2026-10-25"
+    }
+  },
+  "선발·출전시간_실측": {
+    "설명": "박스스코어 실측(S=선발/B=벤치), 값은 경기순(10/20·10/22 또는 10/21·10/23).",
+    "필라델피아 76ers": [
+      {
+        "선수": "Tyrese Maxey",
+        "선발": "S/S",
+        "분": "40/42",
+        "득점": "28/32"
+      },
+      {
+        "선수": "Jaylen Brown",
+        "선발": "S/S",
+        "분": "35/38",
+        "득점": "19/21"
+      },
+      {
+        "선수": "VJ Edgecombe",
+        "선발": "S/S",
+        "분": "35/33",
+        "득점": "9/11"
+      },
+      {
+        "선수": "LeBron James",
+        "선발": "S/S",
+        "분": "34/33",
+        "득점": "14/17"
+      },
+      {
+        "선수": "Joel Embiid",
+        "선발": "S/S",
+        "분": "33/34",
+        "득점": "13/24"
+      },
+      {
+        "선수": "Kentavious Caldwell-Pope",
+        "선발": "B/B",
+        "분": "26/25",
+        "득점": "10/3"
+      },
+      {
+        "선수": "Anfernee Simons",
+        "선발": "B/B",
+        "분": "25/17",
+        "득점": "13/2"
+      },
+      {
+        "선수": "Adem Bona",
+        "선발": "B/B",
+        "분": "10/14",
+        "득점": "0/2"
+      },
+      {
+        "선수": "Jabari Walker",
+        "선발": "B/B",
+        "분": "3/4",
+        "득점": "0/2"
+      }
+    ],
+    "밀워키 벅스": [
+      {
+        "선수": "Tyler Herro",
+        "선발": "S/S",
+        "분": "32/32",
+        "득점": "24/34"
+      },
+      {
+        "선수": "Jaime Jaquez Jr.",
+        "선발": "S/S",
+        "분": "31/35",
+        "득점": "22/19"
+      },
+      {
+        "선수": "Myles Turner",
+        "선발": "S/S",
+        "분": "32/30",
+        "득점": "11/12"
+      },
+      {
+        "선수": "Kyle Kuzma",
+        "선발": "S/S",
+        "분": "27/30",
+        "득점": "5/14"
+      },
+      {
+        "선수": "Ryan Rollins",
+        "선발": "S/S",
+        "분": "24/34",
+        "득점": "9/11"
+      },
+      {
+        "선수": "Kasparas Jakucionis",
+        "선발": "B/B",
+        "분": "26/23",
+        "득점": "15/7"
+      },
+      {
+        "선수": "Ousmane Dieng",
+        "선발": "B/B",
+        "분": "21/16",
+        "득점": "5/3"
+      },
+      {
+        "선수": "AJ Green",
+        "선발": "B/B",
+        "분": "15/17",
+        "득점": "6/11"
+      },
+      {
+        "선수": "Kel'el Ware",
+        "선발": "B/B",
+        "분": "14/15",
+        "득점": "7/11"
+      },
+      {
+        "선수": "Brayden Burries",
+        "선발": "B/B",
+        "분": "16/8",
+        "득점": "12/3"
+      },
+      {
+        "선수": "Jericho Sims",
+        "선발": "B",
+        "분": "2",
+        "득점": "0"
+      }
+    ],
+    "출처": [
+      "https://site.api.espn.com/apis/site/v2/sports/basketball/nba/summary?event=401909855"
+    ],
+    "날짜": "2026-10-25"
+  },
+  "결장": [
+    {
+      "팀": "필라델피아 76ers",
+      "선수": "LeBron James",
+      "포지션": "F",
+      "상태": "OUT",
+      "사유": "허리(low back / sciatica) — 시즌 첫 결장",
+      "지난시즌_평균득점": "20.9 (2025-26 LAL, 60경기)",
+      "지난시즌_출전시간": "33.2분",
+      "올시즌": "2경기 전경기 선발 33.5분 15.5점 9.5리바운드 6.0어시스트",
+      "상태_변동": "당일 오후 리포트에는 QUESTIONABLE 로 올랐다가 이후 OUT 으로 확정(ESPN 2026-10-24T17:06Z, PhillyVoice Adam Aaronson). iHeart 리포트는 변경 전 시점이라 Questionable 로 표기.",
+      "출처": [
+        "https://site.api.espn.com/apis/site/v2/sports/basketball/nba/injuries",
+        "https://clutchpoints.com/nba/philadelphia-76ers/76ers-news-philadelphia-rules-out-lebron-james-vs-bucks-with-back-injury",
+        "https://foxsports1070.iheart.com/content/2026-10-24-bucks-vs-76ers-injury-report-oct-24/"
+      ],
+      "날짜": "2026-10-24"
+    },
+    {
+      "팀": "필라델피아 76ers",
+      "선수": "Dean Wade",
+      "포지션": "F",
+      "상태": "QUESTIONABLE",
+      "사유": "왼 발목 염좌",
+      "지난시즌_평균득점": "5.8 (2025-26 CLE, 59경기)",
+      "지난시즌_출전시간": "22.3분",
+      "비고": "올시즌 아직 출전 기록 없음",
+      "출처": [
+        "https://site.api.espn.com/apis/site/v2/sports/basketball/nba/injuries",
+        "https://foxsports1070.iheart.com/content/2026-10-24-bucks-vs-76ers-injury-report-oct-24/"
+      ],
+      "날짜": "2026-10-23"
+    },
+    {
+      "팀": "필라델피아 76ers",
+      "선수": "Tacko Fall",
+      "포지션": "C",
+      "상태": "OUT",
+      "사유": "ESPN=왼 대퇴사두근 염좌(quadriceps strain) / iHeart=Hip — 출처 불일치",
+      "지난시즌_평균득점": "NBA 기록 없음(최근 NBA 시즌 2021-22 CLE 11경기 1.1점)",
+      "지난시즌_출전시간": "5.4분(2021-22)",
+      "출처": [
+        "https://site.api.espn.com/apis/site/v2/sports/basketball/nba/injuries",
+        "https://foxsports1070.iheart.com/content/2026-10-24-bucks-vs-76ers-injury-report-oct-24/"
+      ],
+      "날짜": "2026-10-23"
+    },
+    {
+      "팀": "필라델피아 76ers",
+      "선수": "Dominick Barlow",
+      "포지션": "F",
+      "상태": "OUT",
+      "사유": "요추 bone stress response — 최소 2주",
+      "지난시즌_평균득점": "7.7 (2025-26 PHI, 71경기·59선발)",
+      "지난시즌_출전시간": "23.8분",
+      "출처": [
+        "https://site.api.espn.com/apis/site/v2/sports/basketball/nba/injuries"
+      ],
+      "날짜": "2026-10-19"
+    },
+    {
+      "팀": "필라델피아 76ers",
+      "선수": "Ariel Hukporti",
+      "포지션": "C",
+      "상태": "OUT",
+      "사유": "오른 아킬레스건 파열 — 시즌 아웃",
+      "지난시즌_평균득점": "2.2 (2025-26 NYK, 54경기)",
+      "지난시즌_출전시간": "9.2분",
+      "출처": [
+        "https://site.api.espn.com/apis/site/v2/sports/basketball/nba/injuries"
+      ],
+      "날짜": "2026-10-06 (신선도 경과 — 시즌 아웃 확정건)"
+    }
+  ],
+  "결장_주의": "밀워키 벅스는 결장자 0명. ESPN 인저리 피드(2026-10-24T22:43:30Z 갱신)에 벅스 항목 자체가 없고, iHeart 경기별 리포트도 'Bucks Injuries: None' 으로 동일. 두 출처 일치.",
+  "일정": {
+    "홈": {
+      "팀": "필라델피아",
+      "직전경기일": "2026-10-22 (ET)",
+      "백투백": false,
+      "휴식일": 1,
+      "이동": "10/20 뉴욕 원정 → 10/22 홈 → 10/24 홈. 이동 부담 없음."
+    },
+    "원정": {
+      "팀": "밀워키",
+      "직전경기일": "2026-10-23 (ET, 현지 16:00 홈경기)",
+      "백투백": true,
+      "휴식일": 0,
+      "이동": "밀워키 → 필라델피아 약 1,200km·동부시간대 이동. 백투백 2차전."
+    },
+    "출처": [
+      "https://site.api.espn.com/apis/site/v2/sports/basketball/nba/teams/phi/schedule?season=2027&seasontype=2",
+      "https://site.api.espn.com/apis/site/v2/sports/basketball/nba/teams/mil/schedule?season=2027&seasontype=2"
+    ]
+  },
+  "뉴스": [
+    {
+      "팀": "필라델피아 76ers",
+      "내용": "2026 오프시즌: Paul George + 1라운드 2장 + 2라운드 2장을 보스턴에 보내고 Jaylen Brown 영입(7/1 합의·7/6 공식). LeBron James 자유계약으로 2년 800만 달러(플레이어 옵션) 계약. Kentavious Caldwell-Pope·Anfernee Simons·Dean Wade·Ariel Hukporti 추가. 감독 Nick Nurse.",
+      "출처": [
+        "https://www.nba.com/news/2026-27-season-preview-phi",
+        "https://sports.yahoo.com/articles/why-76ers-made-jaylen-brown-210831182.html"
+      ],
+      "날짜": "2026-07 (오프시즌, 신선도 경과 — 배경 정보)"
+    },
+    {
+      "팀": "밀워키 벅스",
+      "내용": "2026 오프시즌 대형 트레이드: Giannis Antetokounmpo + Bobby Portis 를 마이애미 히트로 보내고 Tyler Herro, Jaime Jaquez Jr., Kel'el Ware, Kasparas Jakucionis + 드래프트픽 수령(2026 드래프트 전날 합의). Caris LeVert·Gary Trent Jr.(4년 6,400만) 영입, 드래프트 10순위 Brayden Burries. **감독 교체: Taylor Jenkins 신임 감독 선임.**",
+      "출처": [
+        "https://www.hoopsrumors.com/2026/07/bucks-to-trade-giannis-antetokounmpo-to-heat.html",
+        "https://www.espn.com/nba/story/_/id/49854792/milwaukee-bucks-offseason-recap-2026-27-season-preview-stats-roster-depth-chart",
+        "https://www.cbssports.com/nba/news/giannis-antetokounmpo-trade-grades-heat-bucks/"
+      ],
+      "날짜": "2026-07 (트레이드) / 2026-09-07 (ESPN 프리뷰)"
+    }
+  ],
+  "뉴스없음": {
+    "홈": "경기 당일 새 트레이드·감독 변경 없음. 로테이션 관련 당일 발표는 LeBron OUT 건뿐(검색처: ESPN injuries 피드, iHeart, ClutchPoints / 확인일 2026-10-25)",
+    "원정": "경기 당일 새 트레이드·감독 변경·결장 발표 없음(검색처: ESPN injuries 피드, iHeart 경기별 리포트, TalkBasket / 확인일 2026-10-25)"
+  },
+  "미확인": [
+    "Gary Trent Jr.·Caris LeVert 의 현재 로스터 등재/출전 여부 — 10/21·10/23 박스스코어에 미등장(결장 사유 미보도)",
+    "Dean Wade 최종 판정(QUESTIONABLE 상태로 수집 종료)",
+    "Tacko Fall 부상 부위 출처 불일치(대퇴사두근 vs 고관절)"
+  ]
+}

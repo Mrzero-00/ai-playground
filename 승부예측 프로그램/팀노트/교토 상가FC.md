@@ -1,11 +1,11 @@
 # 교토 상가FC
 
 <!-- FACTS:START -->
-## 팩트시트 (자동 수집 2026-10-20) — 조사 전 반드시 읽고, 아래 사실과 다른 뉴스 요약은 '미확인'으로 둔다
+## 팩트시트 (자동 수집 2026-10-24) — 조사 전 반드시 읽고, 아래 사실과 다른 뉴스 요약은 '미확인'으로 둔다
 - 출처: 위키 'Kyoto Sanga FC'(club), ESPN 있음
 - 감독: Ranko Popović
-- 리그 순위: 16위 10경기 2승2무6패 GD-8 승점8 (Kyoto Sanga)
-- 최근 경기(ESPN, 최대 28일): 2026-09-06 FC Tokyo 2-0 Kyoto Sanga / 2026-09-11 Kyoto Sanga 2-3 Kashiwa Reysol / 2026-09-19 Fagiano Okayama 1-2 Kyoto Sanga / 2026-10-10 Kyoto Sanga 0-1 Machida Zelvia / 2026-10-17 Sanfrecce Hiroshima 3-0 Kyoto Sanga
+- 리그 순위: 17위 11경기 2승3무6패 GD-8 승점9 (Kyoto Sanga)
+- 최근 경기(ESPN, 최대 28일): 2026-09-11 Kyoto Sanga 2-3 Kashiwa Reysol / 2026-09-19 Fagiano Okayama 1-2 Kyoto Sanga / 2026-10-10 Kyoto Sanga 0-1 Machida Zelvia / 2026-10-17 Sanfrecce Hiroshima 3-0 Kyoto Sanga / 2026-10-21 Kyoto Sanga 2-2 Kashima Antlers
 <!-- FACTS:END -->
 
 <!-- INPUTS:START -->

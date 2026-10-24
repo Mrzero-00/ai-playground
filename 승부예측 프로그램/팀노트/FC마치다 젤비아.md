@@ -1,12 +1,12 @@
 # FC마치다 젤비아 (일본, FC Machida Zelvia)
 
 <!-- FACTS:START -->
-## 팩트시트 (자동 수집 2026-10-20) — 조사 전 반드시 읽고, 아래 사실과 다른 뉴스 요약은 '미확인'으로 둔다
+## 팩트시트 (자동 수집 2026-10-24) — 조사 전 반드시 읽고, 아래 사실과 다른 뉴스 요약은 '미확인'으로 둔다
 - 출처: 위키 '2026–27 FC Machida Zelvia season'(season), ESPN 있음
 - 감독: Go Kuroda
-- 리그 순위: 2위 10경기 7승2무1패 GD+15 승점23 (Machida Zelvia)
+- 리그 순위: 1위 11경기 8승2무1패 GD+20 승점26 (Machida Zelvia)
 - 2026 여름 이적(위키 이적 표, 앞 8줄씩): IN rowspan="3" | 31 May 2026 · DF · Takumi Narasaka · Giravanz Kitakyushu · End of loan / IN MF · Kosei Ashibe · Fukushima United · End of loan / IN FW · Oh Se-hun · Shimizu S-Pulse · End of loan / IN rowspan="1" | 7 June 2026 · GK · Aki Koch · Karlsruhe SC · Free / IN rowspan="1" | 2 July 2026 · GK · Nicholas Guimarães · Ichikawa Soccer Club · Free / IN rowspan="2" | 3 July 2026 · FW · Yūsuke Matsuo · Urawa Red Diamonds · Undisclosed / IN FW · Mitchell Duke · Macarthur FC · Free / IN rowspan="1" | 9 July 2026 · DF · Takahiro Akimoto · OH Leuven · Undisclosed / OUT rowspan="1" | 31 May 2026 · FW · Tete Yengi · Livingston · End of loan / OUT rowspan="1" | 17 June 2026 · FW · Takaya Numata · Fujieda MYFC · Free / OUT rowspan="1" | 23 June 2026 · GK · Yoshiaki Arai · Urawa Red Diamonds · Free / OUT rowspan="1" | 27 June 2026 · FW · Oh Se-hun · Shimizu S-Pulse · Free
-- 최근 경기(ESPN, 최대 28일): 2026-09-06 Nagoya Grampus 1-3 Machida Zelvia / 2026-09-12 Machida Zelvia 1-1 Yokohama F. Marinos / 2026-09-20 Machida Zelvia 2-4 Kashiwa Reysol / 2026-10-10 Kyoto Sanga 0-1 Machida Zelvia / 2026-10-18 Machida Zelvia 3-0 Avispa Fukuoka
+- 최근 경기(ESPN, 최대 28일): 2026-09-12 Machida Zelvia 1-1 Yokohama F. Marinos / 2026-09-20 Machida Zelvia 2-4 Kashiwa Reysol / 2026-10-10 Kyoto Sanga 0-1 Machida Zelvia / 2026-10-18 Machida Zelvia 3-0 Avispa Fukuoka / 2026-10-21 Shimizu S-Pulse 0-5 Machida Zelvia
 <!-- FACTS:END -->
 
 <!-- INPUTS:START -->

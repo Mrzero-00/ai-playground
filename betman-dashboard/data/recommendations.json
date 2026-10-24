@@ -1,5 +1,6 @@
 {
- "current": [
+ "current": [],
+ "past": [
   {
    "round": "126",
    "title": "코어 2폴더 (B++ + B+)",
@@ -41,14 +42,12 @@
    "prob": 0.21284999999999998,
    "scored": false,
    "stale": false,
-   "started": false,
+   "started": true,
    "hit": null,
    "bought": false,
    "time": "2026-10-24 14:00",
    "n": 2
-  }
- ],
- "past": [
+  },
   {
    "round": "125",
    "title": "코어 2폴더 — 본머스·헤타페 '2골차 승 저지'",

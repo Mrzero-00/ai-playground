@@ -1,0 +1,29 @@
+{
+  "번호": "205", "홈": "감바 오사카", "원정": "교토 상가FC", "수집시각": "2026-10-24 14:30 KST",
+  "결장": [
+    {"팀": "원정", "선수": "Rafael Elias", "포지션": "FW", "이번시즌_선발/경기": "팀 핵심 득점원(10-13 조사 기준 4골/10경기)", "득점·도움": "최신 수치 미확인", "사유": "장기 결장 지속. 10/24 공식 선발 명단 미포함 확인", "상태": "의심", "복귀예정": "불명", "대체선수": "Ales Souza 선발", "출처": "https://www.jleague.jp/match/j1/2026/102409/", "날짜": "2026-10-24"},
+    {"팀": "원정", "선수": "Mitsuki Saito", "포지션": "MF", "이번시즌_선발/경기": "장기 이탈", "득점·도움": "-", "사유": "좌측 무릎 ACL+반월판 파열, 8/17 수술 — 시즌아웃급", "상태": "확정", "복귀예정": "9~10개월", "대체선수": "-", "출처": "팀노트 2026-10-13 조사 기록", "날짜": "2026-10-13(원 출처 7일 경과 — 장기 결장이라 기준선 반영)"}
+  ],
+  "라인업": {
+    "홈": {"발표여부": "확정(공식 발표)", "예상XI": "GK Jun Ichimori; DF Shota Fukuoka, Shinnosuke Nakatani, Takeru Kishimoto, Shinya Nakano; MF Tokuma Suzuki, Rin Mito, Akishiro Kado, Hibiki Sato; FW Takashi Usami, Issam Jebali", "포메이션": "4-4-2(추정)", "출처": "https://www.jleague.jp/match/j1/2026/102409/", "날짜": "2026-10-24"},
+    "원정": {"발표여부": "확정(공식 발표)", "예상XI": "GK Halls; DF Kodai Nagata, Yusuke Ishida, Weverton, Yoshinori Suzuki; MF Shimpei Fukuoka, Hiroto Morooka, Ryuma Nakano, Haruki Arai; FW Ryoya Yamashita, Ales Souza", "포메이션": "3-4-2-1(추정)", "출처": "https://www.jleague.jp/match/j1/2026/102409/", "날짜": "2026-10-24"}
+  },
+  "최근경기": [
+    {"팀": "홈", "날짜": "2026-10-21", "상대": "Avispa Fukuoka", "장소": "원정", "스코어": "2-1 승", "비고": "명신 감독 체제 연승 도전"},
+    {"팀": "홈", "날짜": "2026-10-17", "상대": "Shimizu S-Pulse", "장소": "원정", "스코어": "2-2 무", "비고": ""},
+    {"팀": "원정", "날짜": "2026-10-21", "상대": "Kashima Antlers", "장소": "홈", "스코어": "2-2 무", "비고": "슈팅 4-18, xG 0.42-2.26 — 내용 열세"},
+    {"팀": "원정", "날짜": "2026-10-17", "상대": "Sanfrecce Hiroshima", "장소": "원정", "스코어": "0-3 패", "비고": ""}
+  ],
+  "순위": {"홈": "15위 11경기 2승4무5패 득실-7 승점10", "원정": "17위 11경기 2승3무6패 득실-8 승점9", "출처": "https://www.papastablog.com/kyoto-sanga-gamba-osaka-j1-12/ , footballchannel.jp", "날짜": "2026-10-22"},
+  "감독": {"홈": "Tomokazu Myojin(明神智和) — 7월 Jens Wissing 이탈 후 선임", "원정": "Ranko Popovic", "변동": "없음(두 감독 유임)", "출처": "https://www.papastablog.com/kyoto-sanga-gamba-osaka-j1-12/", "날짜": "2026-10-22"},
+  "일정·동기·기타": [
+    {"내용": "'승점 6점 매치' — 감바(10점 15위) vs 교토(9점 17위) 직접 대결, 강등권 18위 후쿠오카(7점)와 2~3점차로 양 팀 모두 잔류 직결", "출처": "https://www.papastablog.com/kyoto-sanga-gamba-osaka-j1-12/", "날짜": "2026-10-22"},
+    {"내용": "교토 직전 가시마전 내용 열세(슈팅 4-18, xG 0.42-2.26), 수비 조직 약점 지적", "출처": "https://www.papastablog.com/kyoto-sanga-gamba-osaka-j1-12/", "날짜": "2026-10-22"},
+    {"내용": "감바 명신 감독 '치열한 경기가 될 것', 교토의 하이프레스·정비된 수비 경계", "출처": "https://news.yahoo.co.jp/articles/5ec6f430bc2c3aaefeb3b3d2b24c9c572e8b06b1", "날짜": "2026-10-22"},
+    {"내용": "감바 선발에 Takashi Usami 포함(공식 확인)", "출처": "https://www.jleague.jp/match/j1/2026/102409/", "날짜": "2026-10-24"},
+    {"내용": "양 팀 모두 10/21 경기 후 중3일(동일 조건). 구장 시립 스이타 사커 스타디움 · 원정 이동 31km · 강수 0mm · 바람 6.3km/h · 22.6℃", "출처": "match_inputs venue_env", "날짜": "2026-10-24"}
+  ],
+  "엇갈림": ["교토 선발의 Weverton/Welton Felipe, Ales Souza/Alex Negueba 로마자 표기가 출처마다 달라 동일 선수 여부 불확실 — 경기 후 명단 대조 시 유의"],
+  "못찾음": ["양 팀 xG(Understat 미수집)", "Rafael Elias·Mitsuki Saito 최신 복귀 시점 발표"],
+  "뉴스없음": {"홈": "감바 신규 결장·징계 보도(10/17 이후) 없음 — 검색처: Yahoo!뉴스, J리그 공식, goal.com", "원정": "교토 신규 출전정지 없음(과거 2025-05 처분만 검색, 현재 무효) — 검색처: Yahoo!뉴스, gekisaka, J리그 공식"}
+}

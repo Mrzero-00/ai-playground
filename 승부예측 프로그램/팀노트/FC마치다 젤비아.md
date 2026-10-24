@@ -10,8 +10,8 @@
 <!-- FACTS:END -->
 
 <!-- INPUTS:START -->
-## 입력(자동 수집 2026-10-23) — xG·휴식일·라인업·환경(이동거리·고도·날씨)은 이 숫자를 쓴다
-- 10-24 15:00 vs 비셀 고베: 휴식 2.8일(7일 2경기) · 직전 10-21 원정 vs Shimizu S-Pulse 5-0 승 [jpn.1] · xG - · 직전 선발 3-4-2-1 Kosei Tani, Daihachi Okamura, Thomas Ouwejan, Gen Shoji, Neta Lavi, Hiroyuki Mae, Takahiro Akimoto, Henry Mochizuki, Koki Ogawa, Yuki Soma, Takuma Nishimura · 구장 미사키 공원 구기장 · 이동 401km · 고도 8m(차 -75m) · 24.1℃ 강수0mm(75%) 바람16.2km/h · ⚠ 비 0mm(75%)
+## 입력(자동 수집 2026-10-24) — xG·휴식일·라인업·환경(이동거리·고도·날씨)은 이 숫자를 쓴다
+- 10-24 15:00 vs 비셀 고베: 휴식 2.8일(7일 2경기) · 직전 10-21 원정 vs Shimizu S-Pulse 5-0 승 [jpn.1] · xG - · 직전 선발 3-4-2-1 Kosei Tani, Daihachi Okamura, Thomas Ouwejan, Gen Shoji, Neta Lavi, Hiroyuki Mae, Takahiro Akimoto, Henry Mochizuki, Koki Ogawa, Yuki Soma, Takuma Nishimura · 구장 미사키 공원 구기장 · 이동 401km · 고도 8m(차 -75m) · 24.0℃ 강수0mm(69%) 바람20.2km/h
 <!-- INPUTS:END -->
 
 - 2026-10-14 조사: 2026시즌 J1리그 20팀 중 5위로 상위권. 2023년 J2 우승 후 J1 승격, 이후 가파른 상승세 — 2025년 11월 덴노하이(Emperor's Cup) 우승으로 ACL2 출전권 획득, 2026 시즌 ACL Elite 결승까지 진출한 이력(구단 역대 최고 continental 성적). 조직적 수비+생산적 공격이 특징(2023년 우승 시즌 Erik 18골). Go Kuroda 감독. 로테이션 가능성 있으나 J1 B팀이라도 동남아 클럽 대비 전력 우위로 평가. 출처: Wikipedia(FC Machida Zelvia).

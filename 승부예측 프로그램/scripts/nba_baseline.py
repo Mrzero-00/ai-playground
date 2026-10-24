@@ -19,10 +19,58 @@
       --games 0 --spread -1.5 --total 241.5 [--adj-home 1.0] [--adj-away -2.0]
 """
 import argparse
+import json
 import math
+import os
 
-LG_RTG = 115.0
-HOME_EDGE = 1.4
+# LG_RTG 는 '넣는 ORtg/DRtg 와 같은 축'이어야 한다 — 이 상수가 축과 어긋나면 **총득점만** 통째로 밀린다
+# (마진 식에서는 LG_RTG 가 소거되므로 승패·핸디캡에는 영향이 없다).
+# 2026-10-25(126회 08:30 블록) 발견: 문서·상수의 115.0 / 페이스 99.0 은 이번 시즌 축이 아니다.
+#   teamdb/nba 박스스코어 실측(포제션 = FGA + 0.44·FTA − OREB + TOV):
+#     전체 81경기 리그 ORtg 108.2 · 페이스 106.0 · 총득점 229.3
+#     정규시즌 12경기 리그 ORtg 109.0 · 페이스 105.6 · 총득점 230.1
+#   우리 장부에서도 같은 방향이 찍혀 있었다 — NBA 예상 총득점 230.1 vs 실제 220.8 (n=19, **+9.4 과대**).
+# 그래서 상수를 박아 두지 않고 **박스스코어에서 재서 쓴다**. 자료가 없으면 FALLBACK 을 쓴다.
+LG_RTG_FALLBACK = 108.5
+HOME_EDGE_FALLBACK = 1.4
+
+
+def measure_league(path=None):
+    """teamdb/nba 박스스코어에서 리그 평균 ORtg·페이스를 잰다. 실패하면 (None, None)."""
+    path = path or os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "data", "teamdb", "nba", "nba.json")
+    try:
+        db = json.load(open(path, encoding="utf-8"))
+    except Exception:
+        return None, None
+    rt, pc = [], []
+    for g in db.values():
+        if g.get("status") != "STATUS_FINAL":
+            continue
+        st = g.get("stats") or {}
+        if "home" not in st or "away" not in st:
+            continue
+        try:
+            def poss(x):
+                fga = int(x["fieldGoalsMade-fieldGoalsAttempted"].split("-")[1])
+                fta = int(x["freeThrowsMade-freeThrowsAttempted"].split("-")[1])
+                return fga + 0.44 * fta - int(x["offensiveRebounds"]) + int(x.get("totalTurnovers") or x["turnovers"])
+            p = (poss(st["home"]) + poss(st["away"])) / 2
+            pts = int(g["home"]["score"]) + int(g["away"]["score"])
+        except Exception:
+            continue
+        if p <= 0:
+            continue
+        rt.append(pts / (2 * p) * 100)
+        pc.append(p)
+    if len(rt) < 10:
+        return None, None
+    return sum(rt) / len(rt), sum(pc) / len(pc)
+
+
+_m_rtg, _m_pace = measure_league()
+LG_RTG = _m_rtg if _m_rtg else LG_RTG_FALLBACK
+LG_PACE = _m_pace
+HOME_EDGE = HOME_EDGE_FALLBACK
 SD_MARGIN = 11.5
 SD_TOTAL = 17.5
 

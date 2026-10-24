@@ -469,6 +469,11 @@ def cmd_pre(a):
 # '영향_홈승기준_%p'(오케스트레이터 프롬프트가 그렇게 줬다). 둘 다 분석 내용과 무관한 형식 문제인데
 # 합계 검사가 Σ영향=0 으로 읽혀 '합계 불일치' 심각이 떴다. 형식은 받아 주고 내용으로만 채점한다.
 IMPACT_ALIASES = ("영향", "영향_홈승기준_%p", "영향_%p", "영향_홈승기준", "영향도")
+# 농구·야구 분석가는 리포트 표기(OUT/QUESTIONABLE)를 그대로 쓴다. 실측 버킷(확정 86% / 의심 52% / 추정 41%)에
+# 1:1 로 대응하므로 뜻을 바꾸지 않고 받아 준다 — 2026-10-25, 126회 08:30 블록에서 NBA 5건이 전부 '상태 누락'으로 걸렸다.
+STATE_ALIASES = {"OUT": "확정", "O": "확정", "확정결장": "확정",
+                 "DOUBTFUL": "의심", "QUESTIONABLE": "의심", "GTD": "의심", "출전의문": "의심",
+                 "PROBABLE": "추정", "EXPECTED": "추정"}
 
 
 def normalize_evidence(data, rows=None, rnd=None):
@@ -493,6 +498,9 @@ def normalize_evidence(data, rows=None, rnd=None):
                     if k in f:
                         f["영향"] = f.pop(k)
                         break
+            st = str(f.get("상태") or "").strip()
+            if st.upper() in STATE_ALIASES:
+                f["상태"] = STATE_ALIASES[st.upper()]
         # '결론'을 안 적고 '핵심근거'만 적은 경우 — 같은 것을 요구하는 칸이라 받아 준다
         if not (e.get("결론") or "").strip() and (e.get("핵심근거") or "").strip():
             e["결론"] = e["핵심근거"]

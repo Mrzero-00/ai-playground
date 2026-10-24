@@ -313,6 +313,28 @@ def section_score(rows, out, issues):
         issues.append(f"예상점수: 득실차 오차({mar:.2f})가 총득점 오차({tot:.2f})보다 크다 — 전력 차 판정이 템포 판정보다 나쁘다(n={len(b)})")
 
 
+# 깊이 열은 123회부터 쓴다. 그 전 회차(118~122)의 빈칸은 '분석이 얕았다'가 아니라
+# **열 자체가 없던 시절**이라는 뜻이다. 이걸 '(표시없음)' 한 칸으로 묶으면 방법론이 다른
+# 구회차 351경기가 하나의 깊이 범주처럼 보여 매번 '유의 편향'으로 찍힌다(2026-10-24 126회 회고:
+# 말 48.9% vs 실제 57.3%, z=+3.1 — 깊이 편향이 아니라 시대 차이였다).
+# 그래서 구회차는 이름을 바꿔 따로 세우고, '고쳐야 할 것' 목록에는 올리지 않는다.
+DEPTH_ERA_ROUND = 123   # 깊이 열이 들어온 회차
+
+
+def depth_label(r):
+    d = (r.get("깊이") or "").strip()
+    if d:
+        return d
+    rd = str(r.get("회차") or "")
+    if rd.startswith("승무패"):
+        # 승무패(풀)은 프로토와 상품이 달라 깊이 개념을 쓰지 않는다 — 깊이 범주로 섞으면 안 된다
+        return "승무패(풀)"
+    m = re.match(r"^(\d+)$", rd)
+    if m and int(m.group(1)) < DEPTH_ERA_ROUND:
+        return "구회차(깊이열 이전)"
+    return "(표시없음)"
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--round")
@@ -333,9 +355,11 @@ def main():
     for pre in ("순수", "보정"):
         section_split(rows, pre, lambda r: r.get("종목"), "종목", out, issues)
         section_split(rows, pre, lambda r: r.get("리그"), "리그", out, issues, minn=15)
-        section_split(rows, pre, lambda r: r.get("깊이") or "(표시없음)", "분석 깊이", out, issues)
+        section_split(rows, pre, depth_label, "분석 깊이", out, issues)
     section_score(rows, out, issues)
     out.append("\n## 고쳐야 할 것 (유의한 편향만)")
+    # 구회차(깊이열 이전) 는 깊이 범주가 아니라 시대 구분이라 '고칠 것'이 아니다 — 2026-10-24 126회 회고
+    issues = [s_ for s_ in issues if not any(k in s_ for k in ("구회차(깊이열 이전)", "승무패(풀)"))]
     if issues:
         out += [f"{i + 1}. {s}" for i, s in enumerate(issues)]
         out.append("\n각 항목은 회고에서 **원인**을 적고, 기법·입력·가중치 중 무엇을 고쳤는지 남긴다. "

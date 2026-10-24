@@ -82,6 +82,16 @@ def norm_type(t):
     return "기타"
 
 
+
+# 2026-10-24(126회 심층회고): '비기기만 해도 우승·잔류'류 서사를 근거 문장에서 알아본다.
+DRAW_ENOUGH = ("비기", "무승부만", "승점 1", "승점1", "비겨도", "비기면", "무승부면", "지지만 않")
+
+
+def draw_is_enough(f):
+    t = f"{f.get('내용') or ''} {f.get('근거') or ''}"
+    return next((k for k in DRAW_ENOUGH if k in t), None)
+
+
 def norm_state(s):
     s0 = (s or "").strip()
     for st in STATES:
@@ -353,6 +363,19 @@ def evidence_checks(r, e, severe, minor):
             try:
                 if float(f.get("영향") or 0) != 0:
                     minor.append(f"'휴식' 요인에 영향 {f.get('영향')}%p (2026-10-21부터 상한 0, 기록만): {tag}")
+            except (TypeError, ValueError):
+                pass
+        # 2026-10-24(126회 심층회고): '비기기만 해도 목표 달성'인 팀의 보수적 운영을 무 가산 근거로
+        # 쓰는 서사가 한 블록에서 두 번 연속 깨졌다. 213 청두(비기면 우승) 무 +4.0·승 -3.0 → 홈 0:1 패,
+        # 221 허난(승점 1이면 잔류) 무 +4.0 → 3:4 로 총 7골. 둘 다 '압박 받는 쪽이 조심한다'는 가정인데
+        # 실제로는 실점이 늘었다. 점검표에 2회 쌓여 규칙으로 고정한다(CLAUDE.md '2회 이상이면 코드로').
+        # 동기 요인 자체는 해롭지 않다(부호검정 59.3%, z=+1.0) — 막는 것은 '비기면 된다'는 하위 서사뿐이다.
+        # 기록은 계속하되 확률은 움직이지 않는다. 효과는 다음 회고에서 재고, 안 오르면 내린다.
+        if f.get("유형") == "동기" and draw_is_enough(f):
+            try:
+                if float(f.get("영향") or 0) != 0:
+                    minor.append(f"'비기면 된다' 동기 서사에 영향 {f.get('영향')}%p "
+                                 f"(2026-10-24부터 상한 0, 기록만 — 126회 213·221): {tag}")
             except (TypeError, ValueError):
                 pass
         if f.get("유형") == "결장" and f.get("상태") == "추정":

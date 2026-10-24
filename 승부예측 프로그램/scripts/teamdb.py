@@ -309,14 +309,46 @@ def find_team(name):
     return lg, t, jload(os.path.join(DB, "understat", f"team_{tid}.json"), {}), d
 
 
+def resolve_espn_team(n, names):
+    """정규화한 이름 n 을 캐시에 실제로 있는 팀 이름 **하나**로 좁힌다.
+
+    2026-10-24(126회 심층회고): 예전 조건에 '첫 단어가 같으면 일치'라는 느슨한 절이 있어
+    **Manchester City 카드에 Manchester United 경기·선발 XI 가 섞여 들어왔다**(275 빌라-맨시티
+    분석 중 발견 — 직전 선발이 Lammens·Maguire·Mbeumo 로 통째로 맨유였고, 10-17 과 10-18 경기가
+    같이 실려 하루 간격 두 경기가 되는 모순까지 났다). 캐시 전수 점검에서 3개 리그 6팀이 섞였다:
+    맨시티↔맨유 · 도르트문트↔묀헨글라트바흐 · PSG↔파리FC. 전부 상위 팀이라 피해가 크다.
+
+    규칙: 정확 일치 > 포함 관계 > 첫 단어. **윗 단계에서 찾으면 아래 단계는 보지 않는다.**
+    첫 단어 단계는 후보가 둘 이상이면 모호하므로 **아무것도 반환하지 않는다**(섞느니 비우는 게 낫다).
+    """
+    exact = {t for t in names if norm(t) == n}
+    if len(exact) == 1:
+        return exact
+    if exact:
+        return exact
+    contain = {t for t in names if n in norm(t) or norm(t) in n}
+    if len(contain) == 1:
+        return contain
+    if contain:
+        return set()          # 포함 관계가 여럿이면 가리지 못한다 — 섞지 않는다
+    head = n.split()[0] if n.split() else ""
+    if len(head) > 4:
+        first = {t for t in names if head in norm(t).split()}
+        if len(first) == 1:
+            return first
+    return set()
+
+
 def espn_matches(team_title, code):
     db = jload(os.path.join(DB, "espn", f"{code}.json"), {})
-    n = norm(team_title); out = []
+    n = norm(team_title)
+    names = {m.get(side, {}).get("team", "") for m in db.values() for side in ("home", "away")}
+    names.discard("")
+    want = resolve_espn_team(n, names)
+    out = []
     for eid, m in db.items():
         for side in ("home", "away"):
-            t = m.get(side, {}).get("team", "")
-            tn = norm(t)
-            if tn == n or n in tn or tn in n or (len(n.split()) and n.split()[0] in tn.split() and len(n.split()[0]) > 4):
+            if m.get(side, {}).get("team", "") in want:
                 out.append((m["date"], side, eid, m))
     return sorted(out, key=lambda x: x[0])
 

@@ -464,9 +464,44 @@ def cmd_pre(a):
     print(f"분석 전 정합성: 문제 {bad}경기" + (" → team_facts.py --round N --stale 3 · match_inputs.py --round N --date MM-DD 먼저 실행" if bad else " — 통과"))
 
 
+# 2026-10-25(126회 08:30 블록): 근거 JSON 의 모양이 조금만 달라도 조용히 C 가 됐다.
+# 이번에 실제로 난 두 가지 — ① 최상위가 list 가 아니라 단일 dict ② 영향 칸 이름이
+# '영향_홈승기준_%p'(오케스트레이터 프롬프트가 그렇게 줬다). 둘 다 분석 내용과 무관한 형식 문제인데
+# 합계 검사가 Σ영향=0 으로 읽혀 '합계 불일치' 심각이 떴다. 형식은 받아 주고 내용으로만 채점한다.
+IMPACT_ALIASES = ("영향", "영향_홈승기준_%p", "영향_%p", "영향_홈승기준", "영향도")
+
+
+def normalize_evidence(data, rows=None, rnd=None):
+    """근거 JSON 을 채점기가 기대하는 모양으로 맞춘다(내용은 건드리지 않는다)."""
+    if isinstance(data, dict):
+        data = [data]
+    for e in data:
+        # 팀 칸에 '홈/원정' 대신 팀 이름을 쓴 경우 — 뉴스 확인 검사가 팀별로 돌지 않아 통째로 심각이 됐다.
+        if rows is not None:
+            r = find(rows, rnd, e)
+            if r:
+                for f in e.get("요인") or []:
+                    t = str(f.get("팀") or "").strip()
+                    if t and t not in ("홈", "원정", "공통"):
+                        if t == r["홈"] or t in r["홈"] or r["홈"] in t:
+                            f["팀"] = "홈"
+                        elif t == r["원정"] or t in r["원정"] or r["원정"] in t:
+                            f["팀"] = "원정"
+        for f in e.get("요인") or []:
+            if "영향" not in f:
+                for k in IMPACT_ALIASES:
+                    if k in f:
+                        f["영향"] = f.pop(k)
+                        break
+        # '결론'을 안 적고 '핵심근거'만 적은 경우 — 같은 것을 요구하는 칸이라 받아 준다
+        if not (e.get("결론") or "").strip() and (e.get("핵심근거") or "").strip():
+            e["결론"] = e["핵심근거"]
+    return data
+
+
 def cmd_add(a):
-    data = json.load(open(a.file, encoding="utf-8"))
     rows = R.load()
+    data = normalize_evidence(json.load(open(a.file, encoding="utf-8")), rows, a.round)
     now = dt.datetime.now(R.KST).strftime("%Y-%m-%d %H:%M")
     ev, ck, snaps = [], [], []
     for e in data:

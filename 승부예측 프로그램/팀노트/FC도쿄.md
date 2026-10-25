@@ -9,7 +9,7 @@
 <!-- FACTS:END -->
 <!-- INPUTS:START -->
 ## 입력(자동 수집 2026-10-25) — xG·휴식일·라인업·환경(이동거리·고도·날씨)은 이 숫자를 쓴다
-- 10-25 16:00 vs 미토 홀리호크: 휴식 3.9일(7일 1경기) · 직전 10-21 홈 vs Kashiwa Reysol 0-0 무 [jpn.1] · xG - · 직전 선발 4-4-2 Kim Seung-Gyu, Hayato Inamura, Alexander Scholz, Kashifu Bangunagande, Hirokazu Ishikara, Takahiro Koh, Kyota Tokiwa, Soma Anzai, Kein Sato, Motoki Nagakura, Marcelo Ryan · 구장 아지노모토 스타디움 · 이동 110km · 고도 66m(차 +26m) · 21.1℃ 강수8.7mm(82%) 바람10.0km/h · ⚠ 비 8.7mm(82%)
+- 10-25 16:00 vs 미토 홀리호크: 휴식 3.9일(7일 1경기) · 직전 10-21 홈 vs Kashiwa Reysol 0-0 무 [jpn.1] · xG - · 직전 선발 4-4-2 Kim Seung-Gyu, Hayato Inamura, Alexander Scholz, Kashifu Bangunagande, Hirokazu Ishikara, Takahiro Koh, Kyota Tokiwa, Soma Anzai, Kein Sato, Motoki Nagakura, Marcelo Ryan · 구장 아지노모토 스타디움 · 이동 110km · 고도 66m(차 +26m) · 20.9℃ 강수12.8mm(65%) 바람8.0km/h · ⚠ 비 12.8mm(65%)
 <!-- INPUTS:END -->
 
 ## 성향

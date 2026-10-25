@@ -10,6 +10,6 @@
 <!-- FACTS:END -->
 <!-- INPUTS:START -->
 ## 입력(자동 수집 2026-10-25) — xG·휴식일·라인업·환경(이동거리·고도·날씨)은 이 숫자를 쓴다
-- 10-25 11:30 vs 시애틀 사운더스FC: 휴식 7.0일 · 직전 10-18 원정 vs LA Galaxy 2-2 무 [usa.1] · xG - · 직전 선발 4-3-3 Pablo Sisniega, Manu Duah, Christopher McVey, Kieran Sargeant, Oscar Verhoeven, Aníbal Godoy, Gabriel Pirani, Alejandro Alvarado Jr., Cédric Bakambu, Elias Achouri, Anders Dreyer · 구장 스냅드래곤 스타디움 · 이동 1704km · 고도 22m(차 +12m) · 19.1℃ 강수0mm(1%) 바람6.2km/h · ⚠ 장거리 원정 1704km
+- 10-25 11:30 vs 시애틀 사운더스FC: 휴식 7.0일 · 직전 10-18 원정 vs LA Galaxy 2-2 무 [usa.1] · xG - · 선발 4-3-3 Pablo Sisniega, Manu Duah, Christopher McVey, Kieran Sargeant, Oscar Verhoeven, Aníbal Godoy, Gabriel Pirani, Alejandro Alvarado Jr., Cédric Bakambu, Amahl Pellegrino, Anders Dreyer · 직전 대비 교체 1명(Elias Achouri) · 구장 스냅드래곤 스타디움 · 이동 1704km · 고도 22m(차 +12m) · 19.9℃ 강수0mm(1%) 바람6.6km/h · ⚠ 장거리 원정 1704km
 <!-- INPUTS:END -->
 

@@ -10,7 +10,7 @@
 <!-- FACTS:END -->
 <!-- INPUTS:START -->
 ## 입력(자동 수집 2026-10-25) — xG·휴식일·라인업·환경(이동거리·고도·날씨)은 이 숫자를 쓴다
-- 10-25 23:00 vs 릴OSC: 휴식 2.8일(7일 2경기) · 직전 10-23 홈 vs SC Freiburg 3-0 승 [uefa.europa.conf] · xG 시즌7경기 xG1.13/xGA1.39 npxGD-0.05 · 최근5 0.93/1.56 (-0.33) · 홈0.34/원정-0.34 · xPts8.3 vs 승점14 · 직전 선발 4-2-3-1 Lukas Hradecky, Jordan Teze, Sadibou Sané, Christian Mawissa, Vanderson, Aleksandr Golovin, Edan Diop, Lamine Camara, Paris Brunner, Mathys Detourbet, Mamadou Coulibaly · 구장 스타드 루이 되 · 이동 831km · 고도 20m(차 -23m) · 17.7℃ 강수0mm(0%) 바람6.2km/h · ⚠ 장거리 원정 831km
+- 10-25 23:00 vs 릴OSC: 휴식 2.8일(7일 2경기) · 직전 10-23 홈 vs SC Freiburg 3-0 승 [uefa.europa.conf] · xG 시즌7경기 xG1.13/xGA1.39 npxGD-0.05 · 최근5 0.93/1.56 (-0.33) · 홈0.34/원정-0.34 · xPts8.3 vs 승점14 · 직전 선발 4-2-3-1 Lukas Hradecky, Jordan Teze, Sadibou Sané, Christian Mawissa, Vanderson, Aleksandr Golovin, Edan Diop, Lamine Camara, Paris Brunner, Mathys Detourbet, Mamadou Coulibaly · 구장 스타드 루이 되 · 이동 831km · 고도 20m(차 -23m) · 17.4℃ 강수0mm(0%) 바람7.9km/h · ⚠ 장거리 원정 831km
 <!-- INPUTS:END -->
 
 - 2026-10-14 조사: ClubElo 1798(10/14 기준). 10/16 UECL 원정 CSKA소피아전. 폴라린 발로군이 에버턴 이적 결렬(9월 데드라인데이) 여파로 UEFA 유로파컨퍼런스리그 등록 명단에서 제외(이미 반영된 사안, 당일 변수 아님). 압린·안수 파티도 9월경 결장 보도 있었으나 10월 현재 상태 재확인 안됨(오래된 뉴스, 신뢰도 낮음). 스쿼드 뎁스는 여전히 CSKA 대비 우위로 평가.

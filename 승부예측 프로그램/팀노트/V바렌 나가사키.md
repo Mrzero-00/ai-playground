@@ -10,7 +10,7 @@
 
 <!-- INPUTS:START -->
 ## 입력(자동 수집 2026-10-25) — xG·휴식일·라인업·환경(이동거리·고도·날씨)은 이 숫자를 쓴다
-- 10-25 15:00 vs 우라와 레드: 휴식 3.8일(7일 1경기) · 직전 10-21 홈 vs Sanfrecce Hiroshima 4-0 승 [jpn.1] · xG - · 직전 선발 3-4-2-1 Masaaki Goto, Ikki Arai, Kanta Doi, Takuma Ominami, Motoki Hasegawa, Hotaru Yamaguchi, Shunya Yoneda, Hijiri Onaga, Jonathan Júnior, Takashi Sawada, Matheus Jesus · 구장 사이타마 스타디움 2002 · 이동 951km · 고도 2m(차 -10m) · 20.6℃ 강수7.0mm(66%) 바람11.2km/h · ⚠ 장거리 원정 951km, 비 7.0mm(66%)
+- 10-25 15:00 vs 우라와 레드: 휴식 3.8일(7일 1경기) · 직전 10-21 홈 vs Sanfrecce Hiroshima 4-0 승 [jpn.1] · xG - · 직전 선발 3-4-2-1 Masaaki Goto, Ikki Arai, Kanta Doi, Takuma Ominami, Motoki Hasegawa, Hotaru Yamaguchi, Shunya Yoneda, Hijiri Onaga, Jonathan Júnior, Takashi Sawada, Matheus Jesus · 구장 사이타마 스타디움 2002 · 이동 951km · 고도 2m(차 -10m) · 20.8℃ 강수5.1mm(47%) 바람10.9km/h · ⚠ 장거리 원정 951km, 비 5.1mm(47%)
 <!-- INPUTS:END -->
 
 ## 성향

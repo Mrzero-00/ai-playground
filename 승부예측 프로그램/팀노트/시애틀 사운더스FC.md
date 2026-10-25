@@ -10,6 +10,6 @@
 <!-- FACTS:END -->
 <!-- INPUTS:START -->
 ## 입력(자동 수집 2026-10-25) — xG·휴식일·라인업·환경(이동거리·고도·날씨)은 이 숫자를 쓴다
-- 10-25 11:30 vs 샌디에이고FC: 휴식 7.0일 · 직전 10-18 홈 vs CF Montréal 1-1 무 [usa.1] · xG - · 직전 선발 4-2-3-1 Andy Thomas, Ryan Sailor, Yeimar Gómez, Nouhou Tolo, Alex Roldan, Albert Rusnák, Cristian Roldan, Hassani Dotson, Dejan Joveljic, Jordan Morris, Caden Clark · 구장 스냅드래곤 스타디움 · 이동 1704km · 고도 22m(차 +12m) · 19.1℃ 강수0mm(1%) 바람6.2km/h · ⚠ 장거리 원정 1704km
+- 10-25 11:30 vs 샌디에이고FC: 휴식 7.0일 · 직전 10-18 홈 vs CF Montréal 1-1 무 [usa.1] · xG - · 선발 4-2-3-1 Andy Thomas, Jackson Ragen, Alex Roldan, Nouhou Tolo, Kalani Kossa-Rienzi, Albert Rusnák, Cristian Roldan, Hassani Dotson, Dejan Joveljic, Jordan Morris, Jesús Ferreira · 직전 대비 교체 3명(Ryan Sailor, Yeimar Gómez, Caden Clark) · 구장 스냅드래곤 스타디움 · 이동 1704km · 고도 22m(차 +12m) · 19.9℃ 강수0mm(1%) 바람6.6km/h · ⚠ 장거리 원정 1704km
 <!-- INPUTS:END -->
 

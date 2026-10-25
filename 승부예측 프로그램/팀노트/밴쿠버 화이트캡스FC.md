@@ -9,6 +9,6 @@
 <!-- FACTS:END -->
 <!-- INPUTS:START -->
 ## 입력(자동 수집 2026-10-25) — xG·휴식일·라인업·환경(이동거리·고도·날씨)은 이 숫자를 쓴다
-- 10-25 10:30 vs 콜로라도 래피즈: 휴식 7.0일 · 직전 10-18 원정 vs Austin FC 2-1 승 [usa.1] · xG - · 직전 선발 4-2-3-1 Yohei Takaoka, Tristan Blackmon, Mathías Laborda, Tate Johnson, Édier Ocampo, Ryan Gauld, Aleksa Cvetković, Andrés Cubas, Brian White, Bruno Caicedo, Emmanuel Sabbi · 구장 딕스 스포팅 구즈 파크 · 이동 1780km · 고도 1586m(차 +1568m) · 8.8℃ 강수0mm(19%) 바람10.7km/h · ⚠ 장거리 원정 1780km, 고지대 +1568m
+- 10-25 10:30 vs 콜로라도 래피즈: 휴식 7.0일 · 직전 10-18 원정 vs Austin FC 2-1 승 [usa.1] · xG - · 선발 4-2-3-1 Yohei Takaoka, Ralph Priso-Mbongue, Tristan Blackmon, Tate Johnson, Édier Ocampo, Ryan Gauld, Andrés Cubas, Oliver Larraz, Brian White, Yadaly Diaby, Emmanuel Sabbi · 직전 대비 교체 3명(Mathías Laborda, Aleksa Cvetković, Bruno Caicedo) · 구장 딕스 스포팅 구즈 파크 · 이동 1780km · 고도 1586m(차 +1568m) · 7.3℃ 강수0mm(19%) 바람12.3km/h · ⚠ 장거리 원정 1780km, 고지대 +1568m
 <!-- INPUTS:END -->
 

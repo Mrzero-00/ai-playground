@@ -9,7 +9,7 @@
 <!-- FACTS:END -->
 <!-- INPUTS:START -->
 ## 입력(자동 수집 2026-10-25) — xG·휴식일·라인업·환경(이동거리·고도·날씨)은 이 숫자를 쓴다
-- 10-25 09:30 vs 새너제이 어스퀘이크스: 휴식 7.0일 · 직전 10-18 원정 vs Houston Dynamo FC 2-2 무 [usa.1] · xG - · 선발 3-4-2-1 Daniel, Sebastien Ibeagha, Osaze Urhoghide, Shaq Moore, Kaick, Ramiro, Bernard Kamungo, Herman Johansson, Petar Musa, Daniel Job, Joaquín Valiente · 직전 대비 교체 3명(Nolan Norris, Christian Cappis, Patrickson Delgado) · 구장 FC 댈러스 스타디움 · 이동 2318km · 고도 190m(차 +172m) · 24.7℃ 강수0mm(0%) 바람11.6km/h · ⚠ 장거리 원정 2318km
+- 10-25 09:30 vs 새너제이 어스퀘이크스: 휴식 7.0일 · 직전 10-18 원정 vs Houston Dynamo FC 2-2 무 [usa.1] · xG - · 선발 3-4-2-1 Daniel, Osaze Urhoghide, Shaq Moore, Sebastien Ibeagha, Ramiro, Kaick, Bernard Kamungo, Herman Johansson, Petar Musa, Daniel Job, Joaquín Valiente · 직전 대비 교체 3명(Nolan Norris, Christian Cappis, Patrickson Delgado) · 구장 FC 댈러스 스타디움 · 이동 2318km · 고도 190m(차 +172m) · 25.3℃ 강수0mm(0%) 바람13.6km/h · ⚠ 장거리 원정 2318km
 <!-- INPUTS:END -->
 
 ## 성향

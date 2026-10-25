@@ -33,6 +33,33 @@
       실측(lineup_grade): '확정' 451건 91% 적중 · '의심' 168건 55% · '추정' 17건 53%.
       조치: 의심·추정 결장은 확률 보정에 쓰지 않는다(방향을 바꾸는 근거로는 더더욱).
 
+  G8 추세 상한 초과        근거에 적은 pi기준선 대비 1순위 쪽 순이동 > +2.0%p
+      왜: 점검표의 '추세 상한 ±2.0'(단일경기 대승·대패)·'성적 기반 폼 가산 금지'가 글로만 있어서
+      분석가가 "장기 추세라 단일경기 상한 미적용"이라고 적고 그냥 넘겼다. 126회 J2/K리그2 블록에서
+      상한을 넘겨 가산한 2경기(539 센다이 +4.0 · 551 오이타 +3.0)와 성적 기반 폼을 가산한 2경기
+      (559 수원FC +3.5 · 543 도야마 +1.7)가 **4건 전부 틀렸다**. 같은 블록에서 가산을 안 쓴
+      531·547·555·563 은 4건 중 3건 적중.
+      전수 측정은 아직 약하다(근거에 'pi기준선 a/b/c'를 적은 47경기: 1순위 쪽 가산 19건 36.8% vs
+      그 경기들을 기준선대로 골랐을 때 42.1%). z 가 작아 새 규칙을 세우지는 않고, **이미 글로 있는
+      상한을 지키는지만 검문**한다. 확정 결장처럼 상한 밖 사유가 있으면 근거에 그 사유를 적고 넘긴다.
+      조치: 경고만(자동 교정 없음) — 가산 사유가 '폼·추세·동기'뿐이면 기준선으로 되돌린다.
+
+  G7 과신 상한(시장 대비)   보정 1순위가 시장보다 +2%p 이상 높다
+      왜: 사용자 지시 2026-10-22 — "60~64%라고 썼으면 왜 60~64%가 안 나오는지 고쳐야지, 그 구간을
+      추천에서 빼면 안 된다". 126회 회고에서 그 구간을 해부했더니 **전부 시장 위로 올라간 경기**였다.
+      실측(채점 517경기, 깊이=기준선 제외):
+        gap < +2    말 52.5% → 실제 62.0%   (내가 오히려 낮게 쓴다 — 손대지 않는다)
+        gap +2~+10  말 57.7% → 실제 41.6%   같은 경기 **시장 1순위도 41.6%**(McNemar 10:10)
+        gap +15↑    말 63.7% → 실제 40.5% vs 시장 59.5% (z=-2.11) ← 이건 G3 가 잡는다
+      즉 +2~+10 에서 나는 시장보다 **못 고르지도 않지만 더 잘 고르지도 않는다**. 방향은 대등한데
+      확률만 16%p 부풀려 적고 있었다. 초과분에 정보가 없다는 뜻이라 초과분만 깎는다.
+      회차군별로 -11.3p · -14.8p · -20.0p 로 전부 같은 방향이라 과적합이 아니다.
+      조치(--fix): **보정 열만** 시장 수준으로 내린다(순수는 건드리지 않는다 — 갈림·독자분석 측정용).
+      1순위는 절대 바뀌지 않게 2순위 위로 바닥을 둔다. 시뮬레이션: 방향 적중 56.5% 그대로 ·
+      Brier 0.5529 → 0.5440 · 보정 60~65 구간 격차 -8.8p → +4.9p.
+      ※ 남는 숙제: 깎고 나니 전체가 이번엔 과소다(말 51.9% vs 적중 56.5%, 55~60 구간 +16p).
+        gap < +2 쪽을 올리는 것은 추천 문턱을 움직이므로 따로 측정한 뒤에 판단한다.
+
   G6 깊이 미표기            순수 확률은 있는데 깊이 칸이 비었다
       왜: 깊이는 **학습 분리 스위치**다. 깊이=기준선 행은 calibrate(보정 계수)·hit_model 학습에서
       빠지고 보정 계수 적용도 받지 않는다. 칸이 비면 모델 자동 채움이 분석 행으로 둔갑해
@@ -56,6 +83,8 @@ HOOP_GAP = 5.0        # G2
 SMALL_GAP = 15.0      # G3
 NOMKT_P = 70.0        # G4
 SUSP_GAP = 8.0        # G5
+OVERCONF_GAP = 2.0    # G7
+TREND_CAP = 2.0       # G8 — 근거의 pi기준선 대비 1순위 쪽 순이동 상한 — 보정 1순위가 시장보다 이만큼 높으면 초과분을 깎는다
 
 
 def tri(r, pre):
@@ -99,6 +128,22 @@ def check(r):
     nw = (r.get("뉴스위험") or "")
     if gap is not None and gap >= SUSP_GAP and ("의심" in nw or "추정" in nw):
         out.append(("G5", f"'의심/추정' 결장으로 만든 과신 (+{gap:.1f}%p) — 의심 55%·추정 53% 적중", False))
+    cp = tri(r, "보정")
+    if cp and m and (r.get("깊이") or "") != "기준선":
+        ct = max(cp, key=cp.get)
+        cg = cp[ct] - m[ct]
+        if cg >= OVERCONF_GAP and _cap_target(cp, m) is not None:
+            tgt = _cap_target(cp, m)
+            out.append(("G7", f"과신 상한 — 보정 {ct} {cp[ct]:.1f} vs 시장 {m[ct]:.1f} (+{cg:.1f}%p)"
+                              f" → {tgt[ct]:.1f} 로 내린다 (실측 이 구간 말 57.7% / 실제 41.6% = 시장과 동률)", True))
+
+    base = _stated_baseline(r)
+    if base and p:
+        move = p[pt] - base.get(pt, p[pt])
+        if move > TREND_CAP:
+            out.append(("G8", f"추세 상한 초과 — 근거의 pi기준선 {pt} {base[pt]:.1f} → 순수 {p[pt]:.1f} (+{move:.1f}%p > {TREND_CAP:.1f})"
+                              f" · 사유가 폼·추세·동기뿐이면 기준선으로 되돌린다", False))
+
     if not (r.get("깊이") or "").strip() and _depth_era(r):
         auto = _looks_baseline(r)
         tail = " (기준선 표식 있음 → 자동 교정)" if auto else " (심층/가벼움/기준선 중 하나를 적어야 한다)"
@@ -107,6 +152,39 @@ def check(r):
 
 
 DEPTH_SINCE = 124      # 깊이 칸은 2026-10-19(124회)부터 쓴다 — 그 전 행의 빈칸은 교정 대상이 아니다
+
+
+_BASE_RE = __import__("re").compile(r"pi\s*기준선\s*([\d.]+)\s*/\s*([\d.]+)\s*/\s*([\d.]+)")
+
+
+def _stated_baseline(r):
+    """핵심근거에 분석가가 적은 'pi기준선 45/29/26' → {승,무,패}. 없거나 합이 이상하면 None."""
+    m = _BASE_RE.search(r.get("핵심근거") or "")
+    if not m:
+        return None
+    v = [float(x) for x in m.groups()]
+    if not 90 <= sum(v) <= 110:
+        return None
+    return dict(zip(SIDES, v))
+
+
+def _cap_target(p, m):
+    """보정 1순위를 시장 수준까지 내린 {승,무,패} — 1순위가 바뀌면 안 되므로 2순위 위에 바닥을 둔다.
+    내릴 여지가 없으면 None."""
+    t = max(p, key=p.get)
+    rest = [k for k in SIDES if k != t]
+    s = sum(p[k] for k in rest)
+    if s <= 0:
+        return None
+    mo = max(p[k] for k in rest)
+    floor = 100.0 * mo / (s + mo) + 0.1      # 이 값보다 크면 재분배 뒤에도 1순위가 유지된다
+    x = max(m[t], floor)
+    if x >= p[t] - 0.05:
+        return None
+    q = {t: round(x, 1)}
+    for k in rest:
+        q[k] = round((100.0 - x) * p[k] / s, 1)
+    return q
 
 
 def _depth_era(r):
@@ -140,6 +218,18 @@ def cmd_round(a):
                 if code == "G1" and r.get("확신도") != "기권":
                     r["확신도"] = "기권"; fixed += 1
                     print("      → 확신도=기권 으로 교정")
+                if code == "G7":
+                    cp = tri(r, "보정"); mm = tri(r, "시장")
+                    q = _cap_target(cp, mm) if cp and mm else None
+                    if q:
+                        for k in SIDES:
+                            r[f"보정_{k}"] = f"{q[k]:.1f}"
+                        memo = (r.get("보정메모") or "").strip()
+                        tag = f"과신상한(시장 {max(mm, key=mm.get)} {max(mm.values()):.1f})"
+                        if "과신상한" not in memo:
+                            r["보정메모"] = (memo + " · " + tag).strip(" ·")
+                        fixed += 1
+                        print(f"      → 보정 {max(q, key=q.get)} {max(q.values()):.1f} 로 교정")
                 if code in ("G4", "G6") and r.get("깊이") != "기준선":
                     r["깊이"] = "기준선"; fixed += 1
                     print("      → 깊이=기준선 으로 교정")

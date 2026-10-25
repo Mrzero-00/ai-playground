@@ -30,11 +30,22 @@ def num(x):
 
 
 MARGIN = {"야구": (3, 1), "농구": (10, 5), "배구": (2, 1)}   # (지배 하한, 대등 상한) — 야구 점수차, 농구 점수차, 배구 세트차
+# 축구는 ESPN 이 커버하지 않는 리그(J2·K리그1·K리그2 — jpn.2/kor.1/kor.2 전부 HTTP 400)가 있어
+# 슈팅·점유 자료가 영영 안 들어온다. 126회 채점 13경기 중 9경기(J2 6·K리그2 3)가 그래서 내용 회고에서
+# 통째로 빠졌다. 득실차를 대용으로 쓰되, 슈팅 기반 판정과 얼마나 맞는지 먼저 쟀다(축구 428경기):
+#   |득실차| 0 → 25.0% · 1 → 58.0% · 2 → 67.1% · 3 → 85.5% · 4 → 92.9% · 5+ → 100%
+# 0~1골차는 동전 던지기라 쓰지 않는다(판정 보류 = 표본에서 제외, 지금과 같음).
+# 2골차 이상만 지배로 보면 177경기에서 79.1% 가 슈팅 판정과 일치한다 — 대용으로 쓸 만하다.
+SOCCER_GD_MIN = 2
+SOCCER_GD_AGREE = "79.1%"   # 2026-10-25 측정, |득실차|>=2, n=177
 
 
 def dominant_score(sport, score):
     """내용 지표가 없는 종목(야구·농구·배구)은 점수차(배구는 세트차)로 지배를 가른다 (2026-10-19 확장).
-    접전은 '대등'으로 둬서 결과만 맞은 경기를 '운'으로 분류한다."""
+    접전은 '대등'으로 둬서 결과만 맞은 경기를 '운'으로 분류한다.
+    축구는 ESPN 미커버 리그 대용으로 2골차 이상만 판정한다 (2026-10-25, 위 측정 참조)."""
+    if sport == "축구":
+        return _soccer_gd(score)
     m = MARGIN.get(sport)
     if not m or not score or ":" not in score:
         return None, ""
@@ -49,6 +60,20 @@ def dominant_score(sport, score):
     if abs(d) <= small:
         return "대등", f"{unit}차 {abs(d)}(접전)"
     return ("홈" if d > 0 else "원정"), f"{unit}차 {abs(d)}"
+
+
+def _soccer_gd(score):
+    """슈팅 자료가 없는 축구 경기 — 2골차 이상만 지배로 본다(일치 79.1%). 0~1골차는 판정 보류."""
+    if not score or ":" not in score:
+        return None, ""
+    try:
+        h, a = (int(x) for x in score.split(":")[:2])
+    except ValueError:
+        return None, ""
+    d = h - a
+    if abs(d) < SOCCER_GD_MIN:
+        return None, ""
+    return ("홈" if d > 0 else "원정"), f"득실차 {abs(d)}(슈팅자료 없음·일치 {SOCCER_GD_AGREE})"
 
 
 def dominant(p):

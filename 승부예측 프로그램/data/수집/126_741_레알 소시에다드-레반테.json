@@ -1,0 +1,192 @@
+{
+  "번호": 741,
+  "홈": "레알 소시에다드",
+  "원정": "레반테",
+  "리그": "라리가 10라운드",
+  "구장": "레알레 아레나(아노에타, 산세바스티안) / 원문 표기 Zubieta 아님, 경기장은 아노에타",
+  "킥오프": "2026-10-26 02:30 KST (현지 10-25 18:30)",
+  "수집시각": "2026-10-25 22:40 KST",
+  "비고": "10/24 분석(승무패63_741) 갱신본 — 10/24 이후 바뀐 점: ① 레반테 Dela(아드리안 데 라 푸엔테) 결장 확정(감독 직접 확인) ② 엔조 바르델리 명단 제외 확정 ③ 심판 Javier Alberola Rojas 확정 ④ 레알 소시에다드 예상 XI에서 Barrenetxea·Soler 포함 버전 추가 확인 ⑤ 마타라초 감독 발언(상대 경시 금지) 확보. 아람부루·오드리오솔라·베이티아·에레라 상태는 10/24와 동일(아람부루·에레라는 복귀 소집, 선발 여부 미정).",
+  "결장": [
+    {
+      "팀": "레알 소시에다드",
+      "선수": "Luken Beitia",
+      "포지션": "GK",
+      "이번시즌_선발/경기": "미상",
+      "득점·도움": "미상",
+      "사유": "부상(지속)",
+      "상태": "확정",
+      "복귀예정": "미상",
+      "출처": ["https://www.noticiasdegipuzkoa.eus/reala/2026/10/25/previa-real-levante-siga-racha-sociedad-11683287.html"],
+      "날짜": "2026-10-25"
+    },
+    {
+      "팀": "레알 소시에다드",
+      "선수": "Álvaro Odriozola",
+      "포지션": "RB",
+      "이번시즌_선발/경기": "미상(시즌아웃급 장기 부상, 10/23 125회 기록)",
+      "득점·도움": "미상",
+      "사유": "부상(지속)",
+      "상태": "확정",
+      "복귀예정": "미상",
+      "출처": ["https://www.elgoldigital.com/futbol/real-sociedad/real-sociedad-levante-previa-matarazzo-aramburu-jornada-10"],
+      "날짜": "2026-10-25"
+    },
+    {
+      "팀": "레알 소시에다드",
+      "선수": "Jon Mikel Aramburu",
+      "포지션": "DF(우측)",
+      "이번시즌_선발/경기": "미상",
+      "득점·도움": "미상",
+      "사유": "부상에서 회복 — 훈련 복귀·소집 포함, 감독 '선발 여부는 경기 당일 결정'",
+      "상태": "출전가능(선발은 의심)",
+      "복귀예정": "이번 경기 소집, 선발 미정",
+      "출처": ["https://www.elgoldigital.com/futbol/real-sociedad/real-sociedad-levante-previa-matarazzo-aramburu-jornada-10"],
+      "날짜": "2026-10-25"
+    },
+    {
+      "팀": "레알 소시에다드",
+      "선수": "Yangel Herrera",
+      "포지션": "MF",
+      "이번시즌_선발/경기": "미상",
+      "득점·도움": "미상",
+      "사유": "부상에서 회복 — 소집 포함, 선발 여부 미정",
+      "상태": "출전가능(선발은 의심)",
+      "복귀예정": "이번 경기 소집, 선발 미정",
+      "출처": ["https://www.noticiasdegipuzkoa.eus/reala/2026/10/25/previa-real-levante-siga-racha-sociedad-11683287.html"],
+      "날짜": "2026-10-25"
+    },
+    {
+      "팀": "레반테",
+      "선수": "Adrián 'Dela' de la Fuente",
+      "포지션": "DF",
+      "이번시즌_선발/경기": "미상",
+      "득점·도움": "미상",
+      "사유": "근육 불편감(과부하) — 직전 애슬레틱전도 결장, 감독이 직접 결장 확정",
+      "상태": "확정",
+      "복귀예정": "미상",
+      "출처": ["https://www.jornadaperfecta.com/blog/luis-castro-previa-real-sociedad-levante-j10-26-27/", "https://www.futbolfantasy.com/laliga/noticias/153447-bardeli-y-dela-fuera-de-una-lista-con-la-presencia-de-sotelo"],
+      "날짜": "2026-10-25"
+    },
+    {
+      "팀": "레반테",
+      "선수": "Enzo Bardeli",
+      "포지션": "미상",
+      "이번시즌_선발/경기": "미상",
+      "득점·도움": "미상",
+      "사유": "명단 제외(사유 미상, 기존 의심에서 제외 확정)",
+      "상태": "확정",
+      "복귀예정": "미상",
+      "출처": ["https://www.futbolfantasy.com/laliga/noticias/153447-bardeli-y-dela-fuera-de-una-lista-con-la-presencia-de-sotelo"],
+      "날짜": "2026-10-25"
+    },
+    {
+      "팀": "레반테",
+      "선수": "Karl Etta Eyong",
+      "포지션": "FW",
+      "이번시즌_선발/경기": "미상",
+      "득점·도움": "미상",
+      "사유": "기존 장기 결장(대퇴부, 10/12부터 지속)",
+      "상태": "의심",
+      "복귀예정": "미상",
+      "출처": ["https://www.futbolfantasy.com/partidos/22520-real-sociedad-levante"],
+      "날짜": "2026-10-25"
+    },
+    {
+      "팀": "레반테",
+      "선수": "Alejandro Primo",
+      "포지션": "미상",
+      "이번시즌_선발/경기": "미상",
+      "득점·도움": "미상",
+      "사유": "어깨 부상(기존)",
+      "상태": "확정",
+      "복귀예정": "미상",
+      "출처": ["https://www.futbolfantasy.com/partidos/22520-real-sociedad-levante"],
+      "날짜": "2026-10-25"
+    },
+    {
+      "팀": "레반테",
+      "선수": "Hugo Sotelo",
+      "포지션": "미상",
+      "이번시즌_선발/경기": "미상",
+      "득점·도움": "미상",
+      "사유": "무릎 — 훈련은 정상적으로 소화 중, 교체 투입 가능성(감독 '소테로에게 출전 시간 부여' 언급)",
+      "상태": "출전가능",
+      "복귀예정": "이번 경기 교체 출전 가능",
+      "출처": ["https://www.jornadaperfecta.com/blog/luis-castro-previa-real-sociedad-levante-j10-26-27/", "https://www.futbolfantasy.com/laliga/noticias/153422-dela-sigue-fuera-del-grupo-y-hugo-sotelo-trabaja-con-normalidad"],
+      "날짜": "2026-10-25"
+    }
+  ],
+  "라인업": {
+    "홈": {
+      "발표여부": "미발표(예상 라인업)",
+      "예상XI": "Álex Remiro; Héctor Fort, Jon Martín, Mamadou Sarr, Sergio Gómez; Takefusa Kubo, Jon Gorrotxategi, Carlos Soler, Ander Barrenetxea; Mikel Oyarzabal, Orri Óskarsson",
+      "포메이션": "4-4-2",
+      "출처": ["https://www.futbolfantasy.com/partidos/22520-real-sociedad-levante"],
+      "날짜": "2026-10-25"
+    },
+    "원정": {
+      "발표여부": "미발표(예상 라인업, 매체 간 1자리 엇갈림)",
+      "예상XI": "Mathew Ryan; Jeremy Toljan, Aïssa Mandi, Ifeanyi Ndukwe, Manu Sánchez; Daniel Requena, Oriol Rey, Jon Ander Olasagasti; Víctor García(또는 Thiago Fernández), Iván Romero, Roger Brugué",
+      "포메이션": "4-3-3",
+      "출처": ["https://www.futbolfantasy.com/partidos/22520-real-sociedad-levante"],
+      "날짜": "2026-10-25"
+    }
+  },
+  "최근경기": [
+    {"팀": "레알 소시에다드", "날짜": "2026-10-23", "상대": "Lillestrøm SK(UEL)", "장소": "원정", "스코어": "6-0(소시에다드 대승)", "비고": "유로파리그, 중3일 후 레반테전, 리그 3연승 흐름"},
+    {"팀": "레알 소시에다드", "날짜": "2026-10-18", "상대": "Málaga CF", "장소": "원정", "스코어": "5-2(소시에다드 승)", "비고": "라리가"},
+    {"팀": "레알 소시에다드", "날짜": "2026-10-11", "상대": "RC Deportivo", "장소": "홈", "스코어": "3-2(소시에다드 승)", "비고": "라리가"},
+    {"팀": "레반테", "날짜": "2026-10-21/22", "상대": "Athletic Bilbao(연기경기)", "장소": "홈", "스코어": "3-1(레반테 승)", "비고": "라리가, 미드위크 승리"},
+    {"팀": "레반테", "날짜": "2026-10-17", "상대": "RC Deportivo", "장소": "원정", "스코어": "1-1", "비고": "라리가 무승부"},
+    {"팀": "레반테", "날짜": "2026-10-13", "상대": "Sevilla FC", "장소": "홈", "스코어": "3-3", "비고": "라리가 무승부"}
+  ],
+  "맞대결": {
+    "통산": "라리가 36경기, 소시에다드 13승 레반테 12승 11무",
+    "최근": "최근 5경기 맞대결 중 소시에다드 3승(모두 무실점)",
+    "출처": ["https://www.aiscore.com/head-to-head/soccer-levante-vs-real-sociedad"],
+    "날짜": "2026-10-24"
+  },
+  "일정피로": {
+    "홈": "10/23 02:00(현지 10/22) 유로파리그 원정 릴레스트룀 6-0 대승 후 중3일 홈경기",
+    "원정": "10/21~22 애슬레틱 빌바오 홈 승리(연기경기) 이후 통상 휴식 간격(중4일), 유럽대항전 없음",
+    "출처": ["https://www.futbolfantasy.com/partidos/22520-real-sociedad-levante"],
+    "날짜": "2026-10-25"
+  },
+  "순위": {
+    "홈": "라리가 5위, 9경기 16승점",
+    "원정": "라리가 11위, 9경기 10승점(elgoldigital 표기, 일부 매체는 13위로도 표기 — 엇갈림)",
+    "출처": ["https://www.elgoldigital.com/futbol/real-sociedad/real-sociedad-levante-previa-matarazzo-aramburu-jornada-10"],
+    "날짜": "2026-10-25"
+  },
+  "감독": {
+    "홈": "Pellegrino Matarazzo — '레반테는 매우 경쟁력 있는 팀, 기본기를 잘 해내는 것이 중요하다'(상대 경시 금지 발언)",
+    "원정": "Luís Castro — 'Dela는 이번 경기 결장, 소테로에게는 출전 시간을 주겠다'",
+    "변동": "없음",
+    "출처": ["https://www.elgoldigital.com/futbol/real-sociedad/real-sociedad-levante-previa-matarazzo-aramburu-jornada-10", "https://www.jornadaperfecta.com/blog/luis-castro-previa-real-sociedad-levante-j10-26-27/"],
+    "날짜": "2026-10-25"
+  },
+  "동기부여": {
+    "홈": "유럽대항전(UEL) 진출권 확보 겸 순위 안정화",
+    "원정": "원정 5경기 무패(단 득점 2골뿐) — 승점 상위권 도약 노림, 애슬레틱전 승리로 상승세",
+    "출처": ["https://www.elgoldigital.com/futbol/real-sociedad/real-sociedad-levante-previa-matarazzo-aramburu-jornada-10"],
+    "날짜": "2026-10-25"
+  },
+  "주심": {
+    "이름": "Javier Alberola Rojas",
+    "VAR": "Guillermo Cuadra",
+    "출처": ["https://onefootball.com/es/noticias/martinez-munuera-arbitrara-el-clasico-con-iglesias-villanueva-en-el-var-43663908"],
+    "날짜": "2026-10-25"
+  },
+  "날씨": {
+    "내용": "산세바스티안 17.4℃, 강수 1.4mm(강수확률 95%) — 비 가능성 높음, 바람 8.9km/h",
+    "출처": ["회차별분석/입력_126.md (Open-Meteo)"],
+    "날짜": "2026-10-25"
+  },
+  "엇갈림": [
+    "레반테 순위: elgoldigital은 11위, 입력_126.md FACTS 블록(팩트시트)는 13위 — 승점 10은 공통(라운드 수 집계 차이로 추정)",
+    "레반테 원정 공격수 자리: Víctor García vs Thiago Fernández 매체 간 1자리 불일치"
+  ],
+  "못찾음": ["양팀 결장자 전원의 이번 시즌 정확한 선발 횟수·득점·도움(모든 소스에서 미상)", "공식 발표 선발 명단(킥오프 전 미발표)", "레알 소시에다드 현지어 매체 1곳 외 추가 발언"],
+  "뉴스없음": {"홈": "위 외 추가 내부 이슈 없음(확인처: noticiasdegipuzkoa.eus, elgoldigital.com)", "원정": "Dela·Bardeli·Etta Eyong·Primo 외 추가 결장·징계 없음(확인처: futbolfantasy.com, jornadaperfecta.com)"}
+}

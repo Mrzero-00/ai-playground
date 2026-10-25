@@ -1,0 +1,206 @@
+{
+  "번호": 672,
+  "홈": "제노아(Genoa)",
+  "원정": "베네치아(Venezia)",
+  "리그": "세리에A 2026-27 8ª giornata",
+  "구장": "스타디오 루이지 페라리스(마라시, 제노바)",
+  "킥오프": "현지 10-25 15:00 CEST = 10-25 23:00 KST(환경_126/팀노트 기준, 이동 291km·고도 23m·18.3℃ 강수0mm 바람11.5km/h)",
+  "수집시각": "2026-10-25T20:30+09:00",
+  "팩트시트_입력_126_인용": {
+    "제노아.md INPUTS": "휴식 7.8일 · 직전 10-18 원정 vs AS Roma 0-2 패 · xG 시즌7경기 0.96/1.44 npxGD-0.59 · 최근5 1.09/1.36(-0.42)",
+    "베네치아.md INPUTS": "휴식 8.0일 · 직전 10-17 홈 vs Napoli 1-0 승 · xG 시즌7경기 1.77/2.55 npxGD-0.67 · 최근5 1.74/2.43(-0.54)"
+  },
+  "teamdb_card": {
+    "홈_Genoa": "순위 17위 7경기 1승1무5패 GD-8 승점4 · xPts7.0 vs 승점4(운 나쁨) · 포메이션 3-4-2-1 57%(xG2.6/xGA5.6) · 핵심선수 Osmajic(25%,78분) Colombo(21%,64분, 결장) Messias(11%,49분) · vs 백3 상대 0승0무2패",
+    "원정_Venezia": "순위 20위 7경기 1승0무6패 GD-10 승점3 · xPts7.0 vs 승점3(운 나쁨) · 포메이션 3-5-2 100% · 핵심선수 Yeboah(26%,76분) Hainaut(16%,89분) Adams(15%,84분) · vs 백3 상대 1승0무1패(시즌 중 유일한 승리 포함)"
+  },
+  "결장": [
+    {
+      "팀": "제노아",
+      "선수": "Lorenzo Colombo(로렌초 콜롬보)",
+      "포지션": "FW",
+      "이번시즌_선발/경기": "teamdb 기준 64분/경기 출전, xG+xA 기여 21%(2위) — 주축급 공격수",
+      "득점·도움": "0.9xG+1.5xA 누적(teamdb)",
+      "사유": "발목 부상, 10월말~11월초 복귀 예상(재활 진행 중, De Rossi 10/23 확인)",
+      "상태": "확정",
+      "복귀예정": "10월말~11월초",
+      "대체선수": "Osmajic 단독 최전방 또는 Baldanzi 가세",
+      "출처": ["https://www.dazn.com/it-IT/news/calcio/genoa-infortunati-indisponibili-squalificati-prossima-partita/183dn6tsd86mk1l5w1oj0rhx9h", "https://www.lavocedigenova.it/2026/10/23/leggi-notizia/argomenti/sport-6/articolo/genoa-ancora-a-caccia-di-punti-diretti-de-rossi-partita-pesante-serviranno-coraggio-e-di.html"],
+      "날짜": "2026-10-23"
+    },
+    {
+      "팀": "제노아",
+      "선수": "Ethan Meichtry(에단 메이크트리)",
+      "포지션": "MF",
+      "이번시즌_선발/경기": "teamdb 9분/경기 — 로테이션 자원, 비중 낮음",
+      "득점·도움": "0.5xG+0.0xA",
+      "사유": "고관절 근육 문제, 출전 가능 여부 재확인 필요",
+      "상태": "의심",
+      "복귀예정": "미상",
+      "대체선수": "해당없음(비중 낮은 자원)",
+      "출처": ["https://www.dazn.com/it-IT/news/calcio/genoa-infortunati-indisponibili-squalificati-prossima-partita/183dn6tsd86mk1l5w1oj0rhx9h"],
+      "날짜": "2026-10-23"
+    },
+    {
+      "팀": "제노아",
+      "선수": "Djibril Sow(지브릴 소우)",
+      "포지션": "MF",
+      "이번시즌_선발/경기": "미상(하계 이적생, 출전 비중 teamdb 핵심선수 목록 밖)",
+      "득점·도움": "미상",
+      "사유": "왼쪽 햄스트링(biceps femoris) 부상",
+      "상태": "확정",
+      "복귀예정": "10월말~11월초",
+      "대체선수": "미상",
+      "출처": ["https://www.dazn.com/it-IT/news/calcio/genoa-infortunati-indisponibili-squalificati-prossima-partita/183dn6tsd86mk1l5w1oj0rhx9h"],
+      "날짜": "2026-10-23"
+    },
+    {
+      "팀": "제노아",
+      "선수": "Tommaso Baldanzi(톰마소 발단치)",
+      "포지션": "MF",
+      "이번시즌_선발/경기": "teamdb 67분/경기, xG+xA 기여 7%",
+      "득점·도움": "0.7xG+0.1xA",
+      "사유": "주중 위장관 바이러스(virus intestinale)로 컨디션 저하 — De Rossi가 10/23 기자회견에서 '평가 필요'로 언급. 벤치 출발 예상 보도도 있음",
+      "상태": "의심",
+      "복귀예정": "경기 당일 컨디션 확인 필요",
+      "대체선수": "El Shaarawy 또는 Ellertsson 선발 가능",
+      "출처": ["https://www.lavocedigenova.it/2026/10/23/leggi-notizia/argomenti/sport-6/articolo/genoa-ancora-a-caccia-di-punti-diretti-de-rossi-partita-pesante-serviranno-coraggio-e-di.html", "https://www.tuttosport.com/news/calcio/serie-a/genoa/2026/10/25-152082717/genoa-venezia_probabili_formazioni_e_diretta_dove_si_vede_in_tv_e_streaming"],
+      "날짜": "2026-10-23~25"
+    },
+    {
+      "팀": "베네치아",
+      "선수": "Bartol Franjić(바르톨 프란지치)",
+      "포지션": "DF",
+      "이번시즌_선발/경기": "미상",
+      "득점·도움": "미상",
+      "사유": "어깨 부상으로 수술 필요, 12월까지 결장 예상",
+      "상태": "확정",
+      "복귀예정": "12월",
+      "대체선수": "미상",
+      "출처": ["https://www.trivenetogoal.it/2026/10/23/venezia-il-punto-sugli-infortunati-ancora-out-correia-busio-e-bella-kotchap-vicini-al-rientro/267360/"],
+      "날짜": "2026-10-23"
+    },
+    {
+      "팀": "베네치아",
+      "선수": "Gianluca Busio(잔루카 부시오)",
+      "포지션": "MF",
+      "이번시즌_선발/경기": "미상",
+      "득점·도움": "미상",
+      "사유": "햄스트링 부상, 10월 중순~말 복귀 가능성",
+      "상태": "의심",
+      "복귀예정": "10월 중순~말",
+      "대체선수": "미상",
+      "출처": ["https://www.trivenetogoal.it/2026/10/23/venezia-il-punto-sugli-infortunati-ancora-out-correia-busio-e-bella-kotchap-vicini-al-rientro/267360/"],
+      "날짜": "2026-10-23"
+    },
+    {
+      "팀": "베네치아",
+      "선수": "Thierry Correia(티에리 코레이아)",
+      "포지션": "DF",
+      "이번시즌_선발/경기": "미상",
+      "득점·도움": "미상",
+      "사유": "햄스트링 문제, 8라운드(이번 경기) 출전 의문",
+      "상태": "의심",
+      "복귀예정": "미상",
+      "대체선수": "Sagrado 또는 Halhal",
+      "출처": ["https://www.trivenetogoal.it/2026/10/23/venezia-il-punto-sugli-infortunati-ancora-out-correia-busio-e-bella-kotchap-vicini-al-rientro/267360/"],
+      "날짜": "2026-10-23"
+    },
+    {
+      "팀": "베네치아",
+      "선수": "Armel Bella-Kotchap(아르멜 벨라-코차프)",
+      "포지션": "DF",
+      "이번시즌_선발/경기": "미상(하계 영입, 아직 미출전 추정)",
+      "득점·도움": "미상",
+      "사유": "복귀 임박 — 이번 라운드 출전 여부 미확인",
+      "상태": "의심",
+      "복귀예정": "임박",
+      "대체선수": "해당없음",
+      "출처": ["https://www.trivenetogoal.it/2026/10/23/venezia-il-punto-sugli-infortunati-ancora-out-correia-busio-e-bella-kotchap-vicini-al-rientro/267360/"],
+      "날짜": "2026-10-23"
+    },
+    {
+      "팀": "베네치아",
+      "선수": "Marco Sverko(마르코 스베르코)",
+      "포지션": "DF",
+      "이번시즌_선발/경기": "미상",
+      "득점·도움": "미상",
+      "사유": "고관절(hip) 문제, 10월말 복귀 예상",
+      "상태": "확정",
+      "복귀예정": "10월말",
+      "대체선수": "미상",
+      "출처": ["https://sport.sky.it/calcio/serie-a/2026/10/20/serie-a-indisponibili-infortunati-squalificati-giornata-8"],
+      "날짜": "2026-10-20"
+    },
+    {
+      "팀": "베네치아",
+      "선수": "Idrissa Adorante(이드리사 아도란테)",
+      "포지션": "FW(로테이션)",
+      "이번시즌_선발/경기": "미상",
+      "득점·도움": "미상",
+      "사유": "허리 수술 후 재활, 10월말 복귀 예상",
+      "상태": "확정",
+      "복귀예정": "10월말",
+      "대체선수": "미상",
+      "출처": ["https://www.trivenetogoal.it/2026/10/23/venezia-il-punto-sugli-infortunati-ancora-out-correia-busio-e-bella-kotchap-vicini-al-rientro/267360/"],
+      "날짜": "2026-10-23"
+    }
+  ],
+  "라인업": {
+    "홈": {
+      "발표여부": "미발표(예상)",
+      "예상XI": "3-4-2-1: Bijlow(또는 Leali); Marcandalli, Østigård, Vásquez; Ellertsson, Frendrup, Traoré, Puczka; Messias, El Shaarawy; Osmajic — Colombo 결장으로 Osmajic 단독 최전방, Baldanzi 컨디션 저하로 벤치 유력",
+      "포메이션": "3-4-2-1",
+      "출처": ["https://www.tuttosport.com/news/calcio/serie-a/genoa/2026/10/25-152082717/genoa-venezia_probabili_formazioni_e_diretta_dove_si_vede_in_tv_e_streaming", "https://www.ligurianotizie.it/genoa-venezia-sfida-salvezza-a-marassi-le-scelte-di-de-rossi/2026/10/25/1285337/"],
+      "날짜": "2026-10-25"
+    },
+    "원정": {
+      "발표여부": "미발표(예상)",
+      "예상XI": "3-5-2: Stanković; Halhal, Juan Jesus, Moreno; Hainaut, Kike Pérez, Bašić, Sohm, Haps(Mazzocchi와 경합); Adams, Yeboah",
+      "포메이션": "3-5-2",
+      "출처": ["https://www.tuttosport.com/news/calcio/serie-a/genoa/2026/10/25-152082717/genoa-venezia_probabili_formazioni_e_diretta_dove_si_vede_in_tv_e_streaming"],
+      "날짜": "2026-10-25"
+    }
+  },
+  "최근경기": [
+    {"팀": "제노아", "날짜": "2026-10-17", "상대": "AS Roma(원정)", "장소": "원정", "스코어": "0-2 패", "xG": "0.51:1.41", "슈팅": "9(1):15(5)", "비고": "3-4-2-1"},
+    {"팀": "제노아", "날짜": "2026-10-10", "상대": "Fiorentina(홈)", "장소": "홈", "스코어": "2-1 승", "xG": "1.32:0.79", "슈팅": "10(4):13(3)", "비고": "4-2-3-1"},
+    {"팀": "제노아", "날짜": "2026-09-20", "상대": "Parma(원정)", "장소": "원정", "스코어": "1-2 패", "xG": "0.86:0.86", "슈팅": "12(5):5(2)", "비고": "3-4-2-1"},
+    {"팀": "베네치아", "날짜": "2026-10-17", "상대": "Napoli(홈)", "장소": "홈", "스코어": "1-0 승", "xG": "0.68:2.56", "슈팅": "9(4):29(10)", "비고": "시즌 유일 승, 결정력 반전 사례"},
+    {"팀": "베네치아", "날짜": "2026-10-12", "상대": "Atalanta(원정)", "장소": "원정", "스코어": "1-3 패", "xG": "2.69:2.92", "슈팅": "19(4):22(11)", "비고": "3-5-2"},
+    {"팀": "베네치아", "날짜": "2026-09-19", "상대": "Lazio(홈)", "장소": "홈", "스코어": "0-2 패", "xG": "1.85:1.77", "슈팅": "17(6):12(2)", "비고": "3-5-2"}
+  ],
+  "맞대결": [
+    {"내용": "세리에A 역대 9번째 맞대결(이번이 10번째), 제노아 18승 7무 베네치아 1승(1996-01-07 세리에B 1-0). 최근(2024-25) 제노아 홈 2-0 승, 베네치아는 2024-09 홈 2-0 승 기록도 있음. 최근 2번의 마라시 맞대결 모두 종료 10분 내 승부 결정, 베네치아는 마라시에서 300분 연속 무득점", "출처": "https://www.buoncalcioatutti.it/2026/10/24/genoa-venezia-i-precedenti-decimo-scontro-diretto-in-serie-a/, https://www.pianetagenoa1893.net/primo-piano/genoa-col-venezia-il-bilancio-e-nettamente-a-favore/", "날짜": "2026-10-24"}
+  ],
+  "일정_피로": [
+    {"팀": "제노아", "내용": "휴식 7.8일, 직전 10-18 원정 AS Roma전 0-2 패 이후 주중 스쿼드 내 위장관 바이러스 발생(경기 준비 차질, 영향 선수 미특정)", "출처": "teamdb/입력_126, lavocedigenova.it", "날짜": "2026-10-23"},
+    {"팀": "베네치아", "내용": "휴식 8.0일, 직전 10-17 홈 Napoli전 1-0 승(시즌 첫 승) 이후 정상 휴식 주기, 유럽대항전 없음", "출처": "teamdb/입력_126", "날짜": "2026-10-25"}
+  ],
+  "동기": [
+    {"내용": "강등권 직접 경쟁(제노아 17위 승점4 vs 베네치아 20위 승점3) — De Rossi는 10/23 기자회견에서 '우리의 직접 경쟁 상대와의 무게감 있는 경기'라고 표현", "출처": "https://www.napolimagazine.com/calcio/articolo/genoa-de-rossi-la-partita-con-il-venezia-vale-tanto-una-nostra-avversaria-diretta-23-10-2026", "날짜": "2026-10-23"},
+    {"내용": "베네치아는 승격 첫 시즌 1승0무6패로 최하위, 생존을 위한 승점이 매우 절실한 상황(시즌 첫 승을 Napoli 상대로 거둔 직후라 사기 상승)", "출처": "teamdb/trivenetogoal.it", "날짜": "2026-10-23"}
+  ],
+  "감독": {
+    "홈": "Daniele De Rossi(다니엘레 데 로시)",
+    "원정": "Giovanni Stroppa(조반니 스트로파, 선임 — 기존 팀노트의 '스트로파' 추정 표기 확정) — Nicola로 표기된 일부 최신 소스(trivenetogoal.it 10/25 예상 포메이션 기사)는 교차확인 필요(불일치)",
+    "변동": "베네치아 감독명 표기 불일치 — trivenetogoal.it 10/25 기사는 'Allenatore: Nicola'로 표기했으나 팩트시트·이전 조사는 Giovanni Stroppa. 감독 교체 여부 미확인(미확인 플래그)",
+    "출처": ["https://www.trivenetogoal.it/2026/10/25/genoa-venezia-le-probabili-formazioni-4/267564", "팀노트/베네치아.md FACTS"],
+    "날짜": "2026-10-25"
+  },
+  "날씨": {
+    "내용": "18.3℃ 강수 0mm(확률 0%) 바람 11.5km/h — 맑음, 경기 영향 요인 없음",
+    "출처": "입력_126.md/환경_126.md(자동 수집)",
+    "날짜": "2026-10-25"
+  },
+  "심판": {
+    "주심": "Simone Sozza(시모네 소차)",
+    "부심": "Passeri, Trinchieri",
+    "4심": "Daniele Chiffi(원래 Marchetti였으나 8라운드 designazioni 변경으로 교체)",
+    "VAR": "Di Paolo(AVAR: Prontera)",
+    "출처": ["https://www.trivenetogoal.it/2026/10/21/genoa-venezia-sozza-sara-larbitro-della-sfida-designata-la-squadra-arbitrale/267309/", "https://www.napolimagazine.com/calcio/articolo/serie-a-ottava-giornata-cambiano-le-designazioni-arbitrali-di-torino-monza-e-genoa-venezia-22-10-2026"],
+    "날짜": "2026-10-21~22"
+  },
+  "못찾음": ["Baldanzi 실제 출전 여부(컨디션 재확인 필요)", "베네치아 감독 Stroppa vs Nicola 표기 불일치 해소", "제노아 위장관 바이러스로 실제 결장할 선수 명단(미공개)", "메이크트리 출전 가능 여부 확정"],
+  "뉴스없음": {"홈": "해당없음(De Rossi 기자회견·결장 보도 다수)", "원정": "해당없음(infortunati 보도 다수 확인)"}
+}

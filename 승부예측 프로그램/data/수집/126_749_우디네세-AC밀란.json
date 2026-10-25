@@ -1,0 +1,241 @@
+{
+ "번호": 749,
+ "홈": "우디네세",
+ "원정": "AC밀란",
+ "수집시각": "2026-10-25 20:55 KST",
+ "경기시각": "2026-10-26 04:45 KST (이탈리아 현지 10/25 일요일 20:45, 스타디오 프리울리/다치아 아레나)",
+ "결장": [
+  {
+   "팀": "우디네세",
+   "선수": "David Alaba",
+   "포지션": "DF(CB, teamdb 직전 선발 명단 포함)",
+   "이번시즌_선발/경기": "미상",
+   "득점·도움": "미상",
+   "사유": "종아리(calf) 근육 손상",
+   "상태": "확정",
+   "복귀예정": "11월 중순",
+   "출처": ["https://www.fantamaster.it/infortunio-alaba-udinese-esami-strumentali-ultime-notizie-2026-2027/"],
+   "날짜": "2026-10-20"
+  },
+  {
+   "팀": "우디네세",
+   "선수": "Idrissa Gueye",
+   "포지션": "MF(teamdb 핵심선수, xG+xA 비중 10%, 44분/경기)",
+   "이번시즌_선발/경기": "미상",
+   "득점·도움": "1.4xG+0.2xA(시즌)",
+   "사유": "발목 수술",
+   "상태": "확정(장기)",
+   "복귀예정": "2027년 1월 중순",
+   "출처": ["https://www.fantamaster.it/infortunio-alaba-udinese-esami-strumentali-ultime-notizie-2026-2027/"],
+   "날짜": "2026-10-20"
+  },
+  {
+   "팀": "우디네세",
+   "선수": "Nicolò Zaniolo",
+   "포지션": "FW/공격형 MF",
+   "이번시즌_선발/경기": "미상",
+   "득점·도움": "미상",
+   "사유": "대퇴이두근(hamstring) 부상",
+   "상태": "확정(경계) — 복귀 시점이 10월 말로 이번 경기와 겹쳐 출전 여부 불확실",
+   "복귀예정": "10월 말",
+   "출처": ["https://www.fantamaster.it/infortunio-alaba-udinese-esami-strumentali-ultime-notizie-2026-2027/"],
+   "날짜": "2026-10-20"
+  },
+  {
+   "팀": "우디네세",
+   "선수": "Abankwah",
+   "포지션": "DF",
+   "이번시즌_선발/경기": "미상",
+   "득점·도움": "미상",
+   "사유": "근육 문제",
+   "상태": "의심(8라운드, 즉 이번 경기부터 복귀 가능성 보도)",
+   "복귀예정": "10월 말(이번 경기 복귀 가능성)",
+   "출처": ["https://www.fantamaster.it/infortunio-alaba-udinese-esami-strumentali-ultime-notizie-2026-2027/"],
+   "날짜": "2026-10-20"
+  },
+  {
+   "팀": "우디네세",
+   "선수": "Vakoun Bayo",
+   "포지션": "FW(teamdb 핵심선수, xG+xA 비중 8%, 20분/경기)",
+   "이번시즌_선발/경기": "주로 교체",
+   "득점·도움": "0.9xG+0.3xA(시즌)",
+   "사유": "오른쪽 대퇴이두근(hamstring) 부상",
+   "상태": "확정",
+   "복귀예정": "11월 중순",
+   "출처": ["https://www.fantamaster.it/infortunio-alaba-udinese-esami-strumentali-ultime-notizie-2026-2027/"],
+   "날짜": "2026-10-20"
+  },
+  {
+   "팀": "AC밀란",
+   "선수": "Adrien Rabiot",
+   "포지션": "FW/MF(teamdb 핵심선수, xG+xA 비중 11%, 69분/경기)",
+   "이번시즌_선발/경기": "주전급",
+   "득점·도움": "1.8xG+1.1xA(시즌)",
+   "사유": "오른쪽 종아리(calf) 근육 긴장",
+   "상태": "확정(소집 제외)",
+   "복귀예정": "미정(단기 결장 추정)",
+   "출처": ["https://www.sportmediaset.mediaset.it/calcio/milan-emergenza-infortuni-out-anche-rabiot-moreira-e-gila-non-convocati-con-l-udinese_118073280-202602k.shtml", "https://www.napolimagazine.com/calcio/articolo/milan-gila-rabiot-e-moreira-out-per-l-udinese-24-10-2026"],
+   "날짜": "2026-10-24"
+  },
+  {
+   "팀": "AC밀란",
+   "선수": "Diego Moreira",
+   "포지션": "DF/MF(teamdb 핵심선수, xG+xA 비중 7%, 61분/경기)",
+   "이번시즌_선발/경기": "로테이션 주전",
+   "득점·도움": "1.0xG+0.7xA(시즌)",
+   "사유": "왼쪽 햄스트링 근육 긴장",
+   "상태": "확정(소집 제외)",
+   "복귀예정": "미정(단기 결장 추정)",
+   "출처": ["https://www.sportmediaset.mediaset.it/calcio/milan-emergenza-infortuni-out-anche-rabiot-moreira-e-gila-non-convocati-con-l-udinese_118073280-202602k.shtml"],
+   "날짜": "2026-10-24"
+  },
+  {
+   "팀": "AC밀란",
+   "선수": "Mario Gila",
+   "포지션": "DF(CB)",
+   "이번시즌_선발/경기": "미상(여름 영입, 라치오 출신)",
+   "득점·도움": "미상",
+   "사유": "왼쪽 발목 과사용성 염증",
+   "상태": "확정(소집 제외)",
+   "복귀예정": "미정(단기 결장 추정)",
+   "출처": ["https://www.sportmediaset.mediaset.it/calcio/milan-emergenza-infortuni-out-anche-rabiot-moreira-e-gila-non-convocati-con-l-udinese_118073280-202602k.shtml"],
+   "날짜": "2026-10-24"
+  },
+  {
+   "팀": "AC밀란",
+   "선수": "Alexis Saelemaekers",
+   "포지션": "MF(teamdb 핵심선수, xG+xA 비중 6%, 46분/경기)",
+   "이번시즌_선발/경기": "로테이션",
+   "득점·도움": "0.2xG+1.4xA(시즌)",
+   "사유": "부상(기존 결장, 부위 미기재)",
+   "상태": "확정",
+   "복귀예정": "미정",
+   "출처": ["https://www.sportmediaset.mediaset.it/calcio/milan-emergenza-infortuni-out-anche-rabiot-moreira-e-gila-non-convocati-con-l-udinese_118073280-202602k.shtml"],
+   "날짜": "2026-10-24"
+  },
+  {
+   "팀": "AC밀란",
+   "선수": "Pietro Terracciano",
+   "포지션": "GK(백업)",
+   "이번시즌_선발/경기": "백업",
+   "득점·도움": "해당없음",
+   "사유": "부상(기존 결장, 부위 미기재)",
+   "상태": "확정",
+   "복귀예정": "미정",
+   "출처": ["https://www.sportmediaset.mediaset.it/calcio/milan-emergenza-infortuni-out-anche-rabiot-moreira-e-gila-non-convocati-con-l-udinese_118073280-202602k.shtml"],
+   "날짜": "2026-10-24"
+  },
+  {
+   "팀": "AC밀란",
+   "선수": "Matteo Gabbia",
+   "포지션": "DF(CB)",
+   "이번시즌_선발/경기": "로테이션",
+   "득점·도움": "미상",
+   "사유": "부상(기존 결장, 부위 미기재)",
+   "상태": "확정",
+   "복귀예정": "미정",
+   "출처": ["https://www.sportmediaset.mediaset.it/calcio/milan-emergenza-infortuni-out-anche-rabiot-moreira-e-gila-non-convocati-con-l-udinese_118073280-202602k.shtml"],
+   "날짜": "2026-10-24"
+  },
+  {
+   "팀": "AC밀란",
+   "선수": "Samuel Chukwueze",
+   "포지션": "DF/MF(teamdb 핵심선수, xG+xA 비중 11%, 75분/경기)",
+   "이번시즌_선발/경기": "주전급",
+   "득점·도움": "0.8xG+2.0xA(시즌)",
+   "사유": "부상(기존 결장, 부위 미기재) — 125회 회고에서 본머스전(10/23 UEL) 결장으로 이미 확인된 선수",
+   "상태": "확정",
+   "복귀예정": "미정",
+   "출처": ["https://www.sportmediaset.mediaset.it/calcio/milan-emergenza-infortuni-out-anche-rabiot-moreira-e-gila-non-convocati-con-l-udinese_118073280-202602k.shtml", "팀노트 AC밀란.md 125회 회고(2026-10-23)"],
+   "날짜": "2026-10-24"
+  }
+ ],
+ "복귀": [],
+ "라인업": {
+  "홈": {
+   "발표여부": "미발표(공식 선발은 킥오프 1시간 전)",
+   "예상XI": "3-4-2-1: Maduka Okoye; Palma, Oumar Solet, Enzo Ebosse; Mërgim Vojvoda, Jesper Karlström(또는 Piotrowski), Oier Zarraga, Hassane Kamara; Jurgen Ekkelenkamp, Giorgi Chakvetadze; Keinan Davis",
+   "포메이션": "3-4-2-1",
+   "출처": ["https://www.calciomercato.com/liste/udinese-milan-dove-vederla-in-tv-e-streaming-canale-orario-e-probabili-formazioni/bltd5ac24eabf02a4f5"],
+   "날짜": "2026-10-25"
+  },
+  "원정": {
+   "발표여부": "미발표",
+   "예상XI": "4-3-3(부상 여파로 평소 3-4-2-1/3-4-3에서 변경): Mike Maignan; Fikayo Tomori, Koni De Winter, Strahinja Pavlovic, Davide Bartesaghi; Luka Modric, Yunus Musah, Ardon Jashari; Omari Hutchinson, Gonçalo Ramos, Christian Pulisic",
+   "포메이션": "4-3-3",
+   "출처": ["https://www.calciomercato.com/liste/udinese-milan-dove-vederla-in-tv-e-streaming-canale-orario-e-probabili-formazioni/bltd5ac24eabf02a4f5", "https://sport.quotidiano.net/calcio/udinese/milan-probabili-formazioni-orario-in-tv-9c02d4ef"],
+   "날짜": "2026-10-25"
+  }
+ },
+ "최근경기": [
+  {"팀": "우디네세", "날짜": "2026-09-14", "상대": "인터밀란(A)", "장소": "원정", "스코어": "5-3 패", "비고": "Serie A"},
+  {"팀": "우디네세", "날짜": "2026-09-19", "상대": "칼리아리(H)", "장소": "홈", "스코어": "0-1 패", "비고": "Serie A"},
+  {"팀": "우디네세", "날짜": "2026-10-12", "상대": "토리노(A)", "장소": "원정", "스코어": "1-2 패", "비고": "Serie A"},
+  {"팀": "우디네세", "날짜": "2026-10-18", "상대": "레체(H)", "장소": "홈", "스코어": "0-3 패", "비고": "Serie A, 최근 3연패"},
+  {"팀": "AC밀란", "날짜": "2026-09-20", "상대": "레체(H)", "장소": "홈", "스코어": "3-0 승", "비고": "Serie A"},
+  {"팀": "AC밀란", "날짜": "2026-10-11", "상대": "사수올로(A)", "장소": "원정", "스코어": "1-1 무", "비고": "Serie A"},
+  {"팀": "AC밀란", "날짜": "2026-10-18", "상대": "아탈란타(H)", "장소": "홈", "스코어": "3-2 승", "비고": "Serie A"},
+  {"팀": "AC밀란", "날짜": "2026-10-23", "상대": "AFC본머스(A)", "장소": "원정", "스코어": "0-3 패", "비고": "UEL — 공격진 결장 겹쳐 슈팅 3·유효0·퇴장1(팀노트 125회 회고)"}
+ ],
+ "순위": {
+  "홈": "세리에A 16위 7경기 1승1무5패 GD-7 승점4 (Udinese)",
+  "원정": "세리에A 4~5위 7경기 4승3무0패 GD+7 승점15 (AC Milan)",
+  "출처": ["팀노트 FACTS(2026-10-25 자동 수집, 위키+ESPN)"],
+  "날짜": "2026-10-25"
+ },
+ "감독": {
+  "홈": "Kosta Runjaić",
+  "원정": "Ruben Amorim",
+  "변동": "없음",
+  "출처": ["팀노트 FACTS(2026-10-25)"],
+  "날짜": "2026-10-25"
+ },
+ "일정·동기·날씨·기타": [
+  {
+   "내용": "밀란은 10/23 UEL 원정(본머스 0-3 패) 직후 휴식 3.0일로 이번 경기 — 체력 소모 상태에서 원정. 우디네세는 휴식 7.4일(직전 10/18 홈 레체전 0-3 패)로 충분히 쉰 상태.",
+   "출처": "팀노트 INPUTS(2026-10-25 자동 수집)",
+   "날짜": "2026-10-25"
+  },
+  {
+   "내용": "밀란 부상 악재 집중 — 10/24 보도로 Rabiot·Moreira·Gila 3명이 동시에 소집 제외되며 기존 결장(Saelemaekers·Terracciano·Gabbia·Chukwueze)에 추가. 현지 매체(sportmediaset, napolimagazine)는 '에메르젠차(emergenza)'로 표현. UEL 로테이션 실패가 세리에A 원정에도 이어지는 모양새.",
+   "출처": ["https://www.sportmediaset.mediaset.it/calcio/milan-emergenza-infortuni-out-anche-rabiot-moreira-e-gila-non-convocati-con-l-udinese_118073280-202602k.shtml", "https://www.napolimagazine.com/calcio/articolo/milan-gila-rabiot-e-moreira-out-per-l-udinese-24-10-2026"],
+   "날짜": "2026-10-24"
+  },
+  {
+   "내용": "우디네세 xG 시즌 1.18/2.48(npxGD-1.3, 세리에A 최하위권 수비) — 밀란 xG 2.02/1.31(npxGD+0.5). 전력차가 순위차보다 더 크다.",
+   "출처": "팀노트 INPUTS/teamdb(Understat 기반)",
+   "날짜": "2026-10-25"
+  },
+  {
+   "내용": "날씨: 기온 9.8℃, 강수 0mm(강수확률 0%), 바람 4.8km/h(약풍, 영향 적음). 구장: 스타디오 프리울리(다치아 아레나). 밀란 이동거리 323km, 고도차 -27m",
+   "출처": "팀노트 INPUTS(Open-Meteo 자동 수집)",
+   "날짜": "2026-10-25"
+  },
+  {
+   "내용": "주심: Matteo Marcenaro, 부심 Colarossi·Costanzo, 4th Ayroldi, VAR Pezzuto/AVAR Aureliano. Marcenaro는 우디네세전 4회(1승1무2패), 밀란전 3회(2무1승)",
+   "출처": ["https://www.trivenetogoal.it/2026/10/21/udinese-milan-marcenaro-sara-larbitro-della-sfida-designata-la-squadra-arbitrale/267311/", "https://www.tuttoudinese.it/notizie/udinese-milan-marcenaro-precedenti-news-23-ottobre-2026-185750"],
+   "날짜": "2026-10-21~23"
+  }
+ ],
+ "엇갈림": [
+  {
+   "내용": "Jesper Karlström vs Piotrowski — 예상 선발 XI 출처마다 중앙 미드필더 한 자리가 Karlström 또는 Piotrowski로 엇갈림. Piotrowski는 심장 절제술(ablation) 후 재활 중으로 스포츠 적합 판정 대기 상태라는 별도 보도가 있어 실제 출전은 불확실 — '의심'으로 처리.",
+   "출처": ["https://www.calciomercato.com/liste/udinese-milan-dove-vederla-in-tv-e-streaming-canale-orario-e-probabili-formazioni/bltd5ac24eabf02a4f5", "https://www.fantamaster.it/infortunio-alaba-udinese-esami-strumentali-ultime-notizie-2026-2027/"],
+   "날짜": "2026-10-20~25"
+  },
+  {
+   "내용": "Zaniolo 복귀 시점이 '10월 말'로 보도돼 이번 경기와 날짜가 겹친다 — 출전 여부 확정 안 됨, 일부 라인업 예상에는 포함되지 않음.",
+   "출처": ["https://www.fantamaster.it/infortunio-alaba-udinese-esami-strumentali-ultime-notizie-2026-2027/"],
+   "날짜": "2026-10-20"
+  }
+ ],
+ "못찾음": [
+  "Rabiot·Moreira·Gila 결장의 정확한 복귀 예정일(단기 결장으로만 보도)",
+  "양팀 공식 발표 선발 명단(킥오프 1시간 전 공개 예정)",
+  "Palma(우디네세 풀백) 포지션별 상세 기록"
+ ],
+ "뉴스없음": {
+  "홈": "해당 없음(결장 뉴스 확인됨)",
+  "원정": "해당 없음(결장 뉴스 다수 확인됨)"
+ }
+}

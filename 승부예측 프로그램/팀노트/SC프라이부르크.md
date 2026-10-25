@@ -9,8 +9,8 @@
 - 최근 경기(ESPN, 최대 28일): 2026-09-05 SC Paderborn 07 0-1 SC Freiburg / 2026-09-12 SC Freiburg 5-0 Borussia Mönchengladbach / 2026-09-19 Eintracht Frankfurt 2-2 SC Freiburg / 2026-10-11 SC Freiburg 2-1 Schalke 04 / 2026-10-18 Bayer Leverkusen 2-1 SC Freiburg
 <!-- FACTS:END -->
 <!-- INPUTS:START -->
-## 입력(자동 수집 2026-10-23) — xG·휴식일·라인업·환경(이동거리·고도·날씨)은 이 숫자를 쓴다
-- 10-26 01:30 vs 바이에른 뮌헨: 휴식 2.9일(7일 1경기) · 직전 10-23 원정 vs AS Monaco 0-3 패 [uefa.europa.conf] · xG 시즌6경기 xG1.91/xGA1.04 npxGD+0.87 · 최근5 1.82/1.06 (+0.75) · 홈1.52/원정0.22 · xPts12.1 vs 승점13 · 직전 선발 4-2-3-1 Mio Backhaus, Max Rosenfelder, Matthias Ginter, Jordy Makengo, Lukas Kübler, Yuito Suzuki, Yannick Engelhardt, Maximilian Eggestein, Igor Matanovic, Vincenzo Grifo, Niklas Beste · 구장 드라이잠슈타디온 · 이동 278km · 고도 309m(차 -182m) · 11.8℃ 강수0mm(37%) 바람14.3km/h
+## 입력(자동 수집 2026-10-25) — xG·휴식일·라인업·환경(이동거리·고도·날씨)은 이 숫자를 쓴다
+- 10-26 01:30 vs 바이에른 뮌헨: 휴식 2.9일(7일 1경기) · 직전 10-23 원정 vs AS Monaco 0-3 패 [uefa.europa.conf] · xG 시즌6경기 xG1.91/xGA1.04 npxGD+0.87 · 최근5 1.82/1.06 (+0.75) · 홈1.52/원정0.22 · xPts12.1 vs 승점13 · 직전 선발 4-2-3-1 Mio Backhaus, Max Rosenfelder, Matthias Ginter, Jordy Makengo, Lukas Kübler, Yuito Suzuki, Yannick Engelhardt, Maximilian Eggestein, Igor Matanovic, Vincenzo Grifo, Niklas Beste · 구장 드라이잠슈타디온 · 이동 278km · 고도 309m(차 -182m) · 11.4℃ 강수0mm(50%) 바람15.3km/h
 <!-- INPUTS:END -->
 
 ## 성향

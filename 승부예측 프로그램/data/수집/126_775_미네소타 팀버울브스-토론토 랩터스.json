@@ -1,0 +1,92 @@
+{
+  "번호": 775,
+  "홈": "미네소타 팀버울브스",
+  "원정": "토론토 랩터스",
+  "경기정보": {
+    "일시": "2026-10-26 08:00 KST (2026-10-25 18:00 CT, 미네소타 홈개막전)",
+    "리그": "NBA 2026-27 정규시즌"
+  },
+  "수집시각": "2026-10-25T21:45+09:00",
+  "시즌전적": {
+    "홈_미네소타": "2승0패 — 10-21 마이애미 원정 승(131:106), 10-23 올랜도 원정 승(115:93)",
+    "원정_토론토": "2승0패 — 10-21 시카고 홈 승(135:92, Scottie Barnes 23점), 10-23 워싱턴 홈 승(112:102, Barnes 28점)"
+  },
+  "일정": {
+    "홈_미네소타": "직전경기 10-23(원정, 올랜도전) → 10-25 홈개막전, 휴식 1일. 다음 경기 10-26 @클리블랜드(백투백 예정)",
+    "원정_토론토": "직전경기 10-23(홈, 워싱턴전) → 10-26까지 휴식 1일, 백투백 아님. 10-28·10-30 올랜도 상대 백투백 홈경기 예정"
+  },
+  "결장": [
+    {
+      "팀": "홈(미네소타)",
+      "선수": "Donte DiVincenzo (돈테 디빈첸조)",
+      "포지션": "G",
+      "이번시즌_출전경기": "0/2 (시즌 아웃)",
+      "평균출전·득점": "해당없음",
+      "사유": "오른쪽 아킬레스건 수술(4월 수술)",
+      "상태": "확정(OUT)",
+      "복귀예정": "2026-27시즌 중 복귀 목표(10-5 본인 발언), 구체적 시점 불명",
+      "출처": "https://www.covers.com/sport/basketball/nba/teams/main/minnesota-timberwolves/injuries",
+      "날짜": "2026-10-25"
+    },
+    {
+      "팀": "홈(미네소타)",
+      "선수": "Enrique Freeman (엔리케 프리먼)",
+      "포지션": "F",
+      "이번시즌_출전경기": "못찾음",
+      "평균출전·득점": "못찾음",
+      "사유": "어깨 부상",
+      "상태": "의심(questionable)",
+      "복귀예정": "불명",
+      "출처": "https://kxno.iheart.com/content/2026-10-25-raptors-vs-timberwolves-injury-report-oct-25/",
+      "날짜": "2026-10-25"
+    },
+    {
+      "팀": "원정(토론토)",
+      "선수": "Nate Bittle (네이트 비틀)",
+      "포지션": "C",
+      "이번시즌_출전경기": "못찾음",
+      "평균출전·득점": "못찾음",
+      "사유": "오른발 열상 골절(avulsion fracture) 재활 중",
+      "상태": "확정(OUT)",
+      "복귀예정": "불명",
+      "출처": "https://sportsradio957.iheart.com/content/2026-10-25-raptors-vs-timberwolves-injury-report-oct-25/",
+      "날짜": "2026-10-25"
+    },
+    {
+      "팀": "원정(토론토)",
+      "선수": "Tristan Vukčević / Jamir Watkins",
+      "포지션": "F",
+      "이번시즌_출전경기": "못찾음",
+      "평균출전·득점": "못찾음",
+      "사유": "Vukčević: 왼쪽 고관절 충돌(impingement) / Watkins: 왼쪽 ACL 재건 재활",
+      "상태": "확정(OUT, 시즌 초 보도 — 10-25 기준 최신 재확인 필요)",
+      "복귀예정": "불명",
+      "출처": "https://www.cbssports.com/nba/teams/TOR/toronto-raptors/injuries/",
+      "날짜": "2026-10 초(최신 업데이트 미확인)"
+    },
+    {
+      "팀": "원정(토론토)",
+      "선수": "Malachi Smith (말라카이 스미스)",
+      "포지션": "G",
+      "이번시즌_출전경기": "해당없음",
+      "평균출전·득점": "해당없음",
+      "사유": "G리그(랩터스 905) 배정 — 부상 아님",
+      "상태": "출전불가(행정상)",
+      "복귀예정": "해당없음",
+      "출처": "https://sports.yahoo.com/nba/teams/toronto/injuries/",
+      "날짜": "2026-10-25"
+    }
+  ],
+  "비고": "양팀 모두 2연승으로 개막. 미네소타 홈개막전(10-25)이며, 랩터스는 10-25 경기 후 미네소타전까지 휴식 1일로 비교적 여유 있음. 미네소타는 이 경기 다음날(10-26) 클리블랜드 원정으로 백투백.",
+  "감독·이슈": {
+    "홈_미네소타": "정보 없음",
+    "원정_토론토": "정보 없음"
+  },
+  "출처": [
+    "https://fubo.tv/news/nba/toronto-raptors-at-minnesota-timberwolves-where-to-watch-stream-info-tv-channel-and-live-updates-october-25-2026",
+    "https://kxno.iheart.com/content/2026-10-25-raptors-vs-timberwolves-injury-report-oct-25/",
+    "https://sportsradio957.iheart.com/content/2026-10-25-raptors-vs-timberwolves-injury-report-oct-25/",
+    "https://www.fox9.com/sports/timberwolves-2026-27-schedule-27-national-tv-games-record-homestand",
+    "https://raptorsrepublic.com/2026/10/23/gameday-raptors-wizards-october-23/"
+  ]
+}

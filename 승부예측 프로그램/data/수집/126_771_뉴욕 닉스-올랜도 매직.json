@@ -1,0 +1,115 @@
+{
+  "번호": 771,
+  "홈": "뉴욕 닉스",
+  "원정": "올랜도 매직",
+  "경기정보": {
+    "일시": "2026-10-26 08:00 KST (2026-10-25 19:00 ET, Madison Square Garden)",
+    "리그": "NBA 2026-27 정규시즌"
+  },
+  "수집시각": "2026-10-25T21:40+09:00",
+  "시즌전적": {
+    "홈_닉스": "0승2패 — 76ers전 패(100:106, 날짜 보도 엇갈림: 10-20 표기), 10-23 보스턴 홈 패(107:103)",
+    "원정_올랜도": "0승2패 — 10-21 애틀랜타 홈 패(125:132), 10-23 미네소타 원정 패(93:115)"
+  },
+  "일정": {
+    "홈_닉스": "직전경기 10-23(홈, 보스턴전) → 10-26까지 휴식 1일, 백투백 아님",
+    "원정_올랜도": "직전경기 10-23(원정, 미네소타전) → 10-26까지 휴식 1일, 백투백 아님"
+  },
+  "결장": [
+    {
+      "팀": "홈(닉스)",
+      "선수": "Jose Alvarado (호세 알바라도)",
+      "포지션": "G",
+      "이번시즌_출전경기": "못찾음",
+      "평균출전·득점": "못찾음",
+      "사유": "발목 부상",
+      "상태": "의심(questionable), day-to-day",
+      "복귀예정": "불명",
+      "출처": "검색 종합(heavy.com 닉스 부상 업데이트 보도)",
+      "날짜": "2026-10-25"
+    },
+    {
+      "팀": "홈(닉스)",
+      "선수": "Jaden Akins / Kevin McCullar Jr. / Tyler Nickel",
+      "포지션": "G/F",
+      "이번시즌_출전경기": "못찾음",
+      "평균출전·득점": "못찾음",
+      "사유": "투웨이 계약으로 G리그 소속팀 배정 — 부상 아님",
+      "상태": "출전불가(행정상, 부상과 무관)",
+      "복귀예정": "해당없음",
+      "출처": "검색 종합",
+      "날짜": "2026-10-25"
+    },
+    {
+      "팀": "원정(올랜도)",
+      "선수": "Paolo Banchero (파올로 반케로)",
+      "포지션": "F",
+      "이번시즌_출전경기": "10-23 미네소타전 전반 중 부상 이탈",
+      "평균출전·득점": "못찾음",
+      "사유": "왼쪽 발목 중등도(low-grade high) 염좌",
+      "상태": "확정(OUT)",
+      "복귀예정": "4~6주 예상(ESPN 보도)",
+      "출처": "https://espn.com/nba/story/_/id/50266620/sources-magic-banchero-multiple-weeks-ankle-sprain",
+      "날짜": "2026-10-24"
+    },
+    {
+      "팀": "원정(올랜도)",
+      "선수": "Jonathan Isaac (조나단 아이작)",
+      "포지션": "F/C",
+      "이번시즌_출전경기": "못찾음",
+      "평균출전·득점": "못찾음",
+      "사유": "무릎 부상",
+      "상태": "확정(OUT)",
+      "복귀예정": "불명",
+      "출처": "https://957wdae.iheart.com/content/2026-10-25-magic-vs-knicks-injury-report-oct-25/",
+      "날짜": "2026-10-25"
+    },
+    {
+      "팀": "원정(올랜도)",
+      "선수": "Noah Penda (노아 펜다)",
+      "포지션": "F",
+      "이번시즌_출전경기": "못찾음",
+      "평균출전·득점": "못찾음",
+      "사유": "햄스트링 부상",
+      "상태": "확정(OUT)",
+      "복귀예정": "불명",
+      "출처": "https://957wdae.iheart.com/content/2026-10-25-magic-vs-knicks-injury-report-oct-25/",
+      "날짜": "2026-10-25"
+    },
+    {
+      "팀": "원정(올랜도)",
+      "선수": "Izaiyah Nelson (이자이아 넬슨)",
+      "포지션": "G",
+      "이번시즌_출전경기": "못찾음",
+      "평균출전·득점": "못찾음",
+      "사유": "발목 부상",
+      "상태": "확정(OUT)",
+      "복귀예정": "불명",
+      "출처": "https://957wdae.iheart.com/content/2026-10-25-magic-vs-knicks-injury-report-oct-25/",
+      "날짜": "2026-10-25"
+    },
+    {
+      "팀": "원정(올랜도)",
+      "선수": "Anthony Black (앤서니 블랙)",
+      "포지션": "G",
+      "이번시즌_출전경기": "못찾음",
+      "평균출전·득점": "못찾음",
+      "사유": "발목 부상",
+      "상태": "의심(questionable)",
+      "복귀예정": "불명",
+      "출처": "https://957wdae.iheart.com/content/2026-10-25-magic-vs-knicks-injury-report-oct-25/",
+      "날짜": "2026-10-25"
+    }
+  ],
+  "비고": "닉스 핵심 로테이션(Jalen Brunson, Karl-Anthony Towns, OG Anunoby, Mikal Bridges, Josh Hart)은 부상자 명단에 없음(건강). 올랜도는 주전급 다수(반케로·아이작·펜다·넬슨) 결장 — 매우 두꺼운 부상자 명단.",
+  "감독·이슈": {
+    "홈_닉스": "정보 없음",
+    "원정_올랜도": "반케로 부상으로 공격 구조 변화 예상(팀 기사에서 '시즌 초반 악재' 표현)"
+  },
+  "출처": [
+    "https://fubo.tv/news/nba/orlando-magic-at-new-york-knicks-where-to-watch-stream-info-tv-channel-and-live-updates-october-25-2026",
+    "https://957wdae.iheart.com/content/2026-10-25-magic-vs-knicks-injury-report-oct-25/",
+    "https://espn.com/nba/story/_/id/50266620/sources-magic-banchero-multiple-weeks-ankle-sprain",
+    "https://www.yardbarker.com/nba/articles/magic_hit_will_all_too_familiar_problem_days_into_2026_27_nba_season/s1_13132_44468532"
+  ]
+}

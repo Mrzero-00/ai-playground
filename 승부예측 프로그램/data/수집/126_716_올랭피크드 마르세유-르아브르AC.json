@@ -1,0 +1,177 @@
+{
+ "번호": 716,
+ "홈": "올랭피크드 마르세유",
+ "원정": "르아브르AC",
+ "수집시각": "2026-10-25 20:50 KST",
+ "경기시각": "2026-10-26 01:15 KST (프랑스 현지 10/25 일요일 16:15~17:15, 구장 CEPAC/오렌지 벨로드롬)",
+ "결장": [
+  {
+   "팀": "올랭피크드 마르세유",
+   "선수": "Derek Cornelius",
+   "포지션": "DF(CB)",
+   "이번시즌_선발/경기": "미상",
+   "득점·도움": "미상",
+   "사유": "캐나다 국가대표 차출 중 고관절(hip) 부상",
+   "상태": "확정(수개월 장기 결장 전망)",
+   "복귀예정": "수개월 뒤",
+   "출처": ["https://www.footballclubdemarseille.fr/om-actualites/om-infirmerie-sous-tension-2e-budget-de-ligue-1-et-un-nouveau-depart-important-dans-les-tuyaux-les-3-infos-de-ce-jeudi.html"],
+   "날짜": "2026-10-23"
+  },
+  {
+   "팀": "르아브르AC",
+   "선수": "Lionel Mpasi",
+   "포지션": "GK",
+   "이번시즌_선발/경기": "미상",
+   "득점·도움": "해당없음(GK)",
+   "사유": "아킬레스건 파열",
+   "상태": "확정(장기)",
+   "복귀예정": "미정(장기)",
+   "출처": ["https://lepetitlillois.com/2026/10/07/dans-quel-etat-sont-les-infirmeries-a-j-3-de-losc-le-havre-ac/"],
+   "날짜": "2026-10-25"
+  },
+  {
+   "팀": "르아브르AC",
+   "선수": "Félix Mambimbi",
+   "포지션": "FW",
+   "이번시즌_선발/경기": "미상(7월 말 부상 이후 시즌 내내 결장)",
+   "득점·도움": "미상",
+   "사유": "아킬레스건 파열(7월 말 훈련 중 부상)",
+   "상태": "확정(장기 — 새 결장 아님, 시즌 내내 결장 중)",
+   "복귀예정": "미정(장기)",
+   "출처": ["https://lepetitlillois.com/2026/10/07/dans-quel-etat-sont-les-infirmeries-a-j-3-de-losc-le-havre-ac/"],
+   "날짜": "2026-10-25"
+  },
+  {
+   "팀": "르아브르AC",
+   "선수": "Stephan Zagadou",
+   "포지션": "DF(CB)",
+   "이번시즌_선발/경기": "0경기(4월 이후 결장 중)",
+   "득점·도움": "미상",
+   "사유": "전방십자인대(ACL) 파열(4월부터 재활 중)",
+   "상태": "확정(장기 — 새 결장 아님)",
+   "복귀예정": "재활 중",
+   "출처": ["https://lepetitlillois.com/2026/10/07/dans-quel-etat-sont-les-infirmeries-a-j-3-de-losc-le-havre-ac/"],
+   "날짜": "2026-10-25"
+  },
+  {
+   "팀": "르아브르AC",
+   "선수": "Elias Jelert",
+   "포지션": "미상(DF 추정)",
+   "이번시즌_선발/경기": "미상",
+   "득점·도움": "미상",
+   "사유": "부상(부위 미기재, 10/10 기준 결장)",
+   "상태": "의심",
+   "복귀예정": "미정",
+   "출처": ["https://lepetitlillois.com/2026/10/10/losc-le-havre-ac-groupe-hac-connu/"],
+   "날짜": "2026-10-10"
+  },
+  {
+   "팀": "르아브르AC",
+   "선수": "Timothée Pembélé",
+   "포지션": "DF",
+   "이번시즌_선발/경기": "미상",
+   "득점·도움": "미상",
+   "사유": "근육 병변(muscular lesion), 9월 중순부터 결장",
+   "상태": "확정",
+   "복귀예정": "미정",
+   "출처": ["https://lepetitlillois.com/2026/10/07/dans-quel-etat-sont-les-infirmeries-a-j-3-de-losc-le-havre-ac/"],
+   "날짜": "2026-10-25"
+  }
+ ],
+ "복귀": [
+  {
+   "팀": "올랭피크드 마르세유",
+   "선수": "Alexi Koum",
+   "내용": "결장에서 복귀, 출전 가능",
+   "출처": ["https://www.footballclubdemarseille.fr/om-actualites/om-le-havre-onze-depart-probable-25-octobre-2026.html"],
+   "날짜": "2026-10-25"
+  }
+ ],
+ "라인업": {
+  "홈": {
+   "발표여부": "미발표(공식 선발은 킥오프 1시간 전)",
+   "예상XI": "4-2-3-1: De Lange; Weah(주장), Egan-Riley, Aguerd, Emerson; Højbjerg, Nnadi; Harit, Abdelli, Paixao; Gouiri",
+   "포메이션": "4-2-3-1",
+   "출처": ["https://www.footballclubdemarseille.fr/om-actualites/om-le-havre-onze-depart-probable-25-octobre-2026.html"],
+   "날짜": "2026-10-25"
+  },
+  "원정": {
+   "발표여부": "미발표",
+   "예상XI": "미상 포메이션: Gallon; Ouziad, Seko, Touba, Koffi; Mizuta, Ndiaye(주장), Ebonog, Richardson; Nakamura, Samatta",
+   "포메이션": "4-3-3 추정(직전 경기 기준)",
+   "출처": ["https://www.whoscored.com/articles/XdwPy29F5EmYBNHVdYMFRA/show/cng111-20261025-marseille-vs-le-havre-prediction-1792916560"],
+   "날짜": "2026-10-25"
+  }
+ },
+ "최근경기": [
+  {"팀": "올랭피크드 마르세유", "날짜": "2026-09-06", "상대": "파리FC(H)", "장소": "홈", "스코어": "2-3 패", "비고": "Ligue 1"},
+  {"팀": "올랭피크드 마르세유", "날짜": "2026-09-11", "상대": "렌(A)", "장소": "원정", "스코어": "0-1 패", "비고": "Ligue 1"},
+  {"팀": "올랭피크드 마르세유", "날짜": "2026-09-20", "상대": "PSG(H)", "장소": "홈", "스코어": "1-2 패", "비고": "Ligue 1"},
+  {"팀": "올랭피크드 마르세유", "날짜": "2026-10-11", "상대": "트루아(A)", "장소": "원정", "스코어": "2-0 승", "비고": "Ligue 1"},
+  {"팀": "올랭피크드 마르세유", "날짜": "2026-10-18", "상대": "앙제(A)", "장소": "원정", "스코어": "5-2 승", "비고": "Ligue 1 대승"},
+  {"팀": "르아브르AC", "날짜": "2026-09-19", "상대": "툴루즈(A)", "장소": "원정", "스코어": "2-3 패", "비고": "Ligue 1"},
+  {"팀": "르아브르AC", "날짜": "2026-10-10", "상대": "릴(A)", "장소": "원정", "스코어": "0-1 패", "비고": "Ligue 1"},
+  {"팀": "르아브르AC", "날짜": "2026-10-18", "상대": "AJ오세르(H)", "장소": "홈", "스코어": "1-3 패", "비고": "Ligue 1, 아직 리그 무승(0승2무5패)"}
+ ],
+ "순위": {
+  "홈": "리그1 10위 7경기 3승0무4패 GD+4 승점9 (Marseille)",
+  "원정": "리그1 18위(최하위) 7경기 0승2무5패 GD-6 승점2 (Le Havre AC) — 리그 유일 무승팀",
+  "출처": ["팀노트 FACTS(2026-10-25 자동 수집, 위키+ESPN)", "https://www.whoscored.com/articles/XdwPy29F5EmYBNHVdYMFRA/show/cng111-20261025-marseille-vs-le-havre-prediction-1792916560"],
+  "날짜": "2026-10-25"
+ },
+ "감독": {
+  "홈": "Bruno Génésio",
+  "원정": "Didier Digard",
+  "변동": "없음",
+  "출처": ["팀노트 FACTS(2026-10-25)"],
+  "날짜": "2026-10-25"
+ },
+ "일정·동기·날씨·기타": [
+  {
+   "내용": "르아브르 휴식 7.0일(직전 10/18 홈 오세르전 1-3 패). 마르세유 휴식일은 팀노트 INPUTS에 '?'로 미제공(이름 불일치로 teamdb 자동 수집 누락) — 직전 경기(10/18 앙제 원정 5-2 승) 기준 역산하면 휴식 약 7.0~7.9일 추정",
+   "출처": "팀노트 INPUTS(2026-10-25 자동 수집)",
+   "날짜": "2026-10-25"
+  },
+  {
+   "내용": "르아브르는 리그 7경기 무승(0승2무5패) 중인 유일한 팀 — 5골 득점·11실점. 마르세유는 최근 2경기 연속 승리(트루아 2-0, 앙제 5-2)로 상승세.",
+   "출처": ["https://www.whoscored.com/articles/XdwPy29F5EmYBNHVdYMFRA/show/cng111-20261025-marseille-vs-le-havre-prediction-1792916560"],
+   "날짜": "2026-10-25"
+  },
+  {
+   "내용": "구장: CEPAC/오렌지 벨로드롬(마르세유 홈) — 팀노트 INPUTS에는 '구장 ?'로 미확인 상태였으나 현지 매체로 특정함. 이동거리·고도·날씨는 자동 수집 미제공(미상)",
+   "출처": ["https://www.whoscored.com/articles/XdwPy29F5EmYBNHVdYMFRA/show/cng111-20261025-marseille-vs-le-havre-prediction-1792916560", "https://www.eurosport.fr/paris-sportifs/pronostics/marseille-le-havre-pronostics-conseils-et-cotes-ligue-1/"],
+   "날짜": "2026-10-25"
+  },
+  {
+   "내용": "주심: Clément Turpin, 부심 Nicolas Danos·Benjamin Pages, 4th Eddy Rosier, VAR Nicolas Rainville/Ludovic Rémy",
+   "출처": ["https://www.deux-zero.com/ligue-1/arbitrage-designations-journee", "L1 8e journée 공식 배정"],
+   "날짜": "2026-10-21"
+  }
+ ],
+ "엇갈림": [
+  {
+   "내용": "Pierre-Emile Højbjerg — 10월 국제대회 휴식기 중 근육 부상으로 올림피아코스·앙제전 결장 예정이라는 보도(10월 중순)가 있었으나, 10/25 르아브르전 예상 선발 XI(footballclubdemarseille.fr)에는 선발 포함됨. 그 사이 회복됐을 가능성이 있으나 출전 여부는 '의심' 수준으로 봐야 함.",
+   "출처": ["https://www.footballclubdemarseille.fr/om-actualites/om-infirmerie-sous-tension-2e-budget-de-ligue-1-et-un-nouveau-depart-important-dans-les-tuyaux-les-3-infos-de-ce-jeudi.html", "https://www.footballclubdemarseille.fr/om-actualites/om-le-havre-onze-depart-probable-25-octobre-2026.html"],
+   "날짜": "2026-10-20~25"
+  },
+  {
+   "내용": "Amine Gouiri·Himad Abdelli도 10월 A매치 휴식기 중 가벼운 부상(pépins physiques)을 겪었다는 보도가 있었으나, 두 선수 모두 10/25 예상 선발 XI에 포함됨 — 컨디션 난조 가능성 있어 '뉴스 위험'으로 표시",
+   "출처": ["https://www.footballclubdemarseille.fr/om-actualites/om-infirmerie-sous-tension-2e-budget-de-ligue-1-et-un-nouveau-depart-important-dans-les-tuyaux-les-3-infos-de-ce-jeudi.html"],
+   "날짜": "2026-10-23"
+  },
+  {
+   "내용": "Amir Richardson — 르아브르, 10월 초 부상으로 결장 보도가 있었으나 10/25 예상 선발 XI에는 포함됨(회복 추정)",
+   "출처": ["https://lepetitlillois.com/2026/10/01/quelles-sont-les-nouvelles-du-cote-du-havre-a-dix-jours-de-losc-hac/", "https://www.whoscored.com/articles/XdwPy29F5EmYBNHVdYMFRA/show/cng111-20261025-marseille-vs-le-havre-prediction-1792916560"],
+   "날짜": "2026-10-01~25"
+  }
+ ],
+ "못찾음": [
+  "마르세유 휴식일·이동거리·고도·날씨(팀노트 자동 수집 미제공, teamdb 이름 불일치)",
+  "결장자 중 부위 미기재 다수(Jelert 등)의 정확한 포지션·복귀 시점",
+  "양팀 공식 발표 선발 명단(킥오프 1시간 전 공개 예정)"
+ ],
+ "뉴스없음": {
+  "홈": "해당 없음(결장·엇갈림 뉴스 확인됨)",
+  "원정": "해당 없음(결장 뉴스 확인됨)"
+ }
+}

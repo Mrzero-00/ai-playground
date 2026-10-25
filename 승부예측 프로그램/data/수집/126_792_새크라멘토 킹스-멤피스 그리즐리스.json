@@ -1,0 +1,129 @@
+{
+  "번호": 792,
+  "홈": "새크라멘토 킹스",
+  "원정": "멤피스 그리즐리스",
+  "경기정보": {
+    "일시": "2026-10-26 10:00 KST (2026-10-25 21:00 ET경)",
+    "리그": "NBA 2026-27 정규시즌"
+  },
+  "수집시각": "2026-10-25T22:00+09:00",
+  "시즌전적": {
+    "홈_새크라멘토": "0승2패 — 10-21 클리퍼스 홈 패(96:121), 10-23 포틀랜드 패(120:128)",
+    "원정_멤피스": "2승0패 — 10-21 유타 홈 승(123:103), 10-23 골든스테이트 원정 승(111:108)"
+  },
+  "일정": {
+    "홈_새크라멘토": "직전경기 10-23(포틀랜드전) → 10-26까지 휴식 1일, 백투백 아님",
+    "원정_멤피스": "직전경기 10-23(원정, 골든스테이트전) → 10-25 새크라멘토전 백투백(연전), 다음날(10-26) 유타 원정까지 3연전"
+  },
+  "결장": [
+    {
+      "팀": "홈(새크라멘토)",
+      "선수": "Ben Simmons (벤 시몬스)",
+      "포지션": "F",
+      "이번시즌_출전경기": "0 (시즌 아웃)",
+      "평균출전·득점": "해당없음",
+      "사유": "아킬레스건 파열",
+      "상태": "확정(OUT, 시즌아웃)",
+      "복귀예정": "2026-27시즌 복귀 불가",
+      "출처": "https://www.covers.com/sport/basketball/nba/teams/main/sacramento-kings/injuries",
+      "날짜": "2026-10-25"
+    },
+    {
+      "팀": "홈(새크라멘토)",
+      "선수": "Dylan Cardwell (딜런 카드웰)",
+      "포지션": "C",
+      "이번시즌_출전경기": "못찾음",
+      "평균출전·득점": "못찾음",
+      "사유": "왼쪽 종아리 긴장",
+      "상태": "확정(OUT)",
+      "복귀예정": "2주 후 재평가",
+      "출처": "https://www.covers.com/sport/basketball/nba/teams/main/sacramento-kings/injuries",
+      "날짜": "2026-10-25"
+    },
+    {
+      "팀": "홈(새크라멘토)",
+      "선수": "Maxime Raynaud (막심 레이노)",
+      "포지션": "C",
+      "이번시즌_출전경기": "못찾음",
+      "평균출전·득점": "못찾음",
+      "사유": "오른쪽 슬개골 아탈구(patellar subluxation)",
+      "상태": "확정(OUT)",
+      "복귀예정": "2주 후 재평가",
+      "출처": "https://www.covers.com/sport/basketball/nba/teams/main/sacramento-kings/injuries",
+      "날짜": "2026-10-25"
+    },
+    {
+      "팀": "홈(새크라멘토)",
+      "선수": "Keegan Murray (키건 머레이)",
+      "포지션": "F",
+      "이번시즌_출전경기": "못찾음",
+      "평균출전·득점": "못찾음",
+      "사유": "발목 부상",
+      "상태": "의심(questionable)",
+      "복귀예정": "불명",
+      "출처": "https://foxsportsam1280.iheart.com/content/2026-10-25-grizzlies-vs-kings-injury-report-oct-25/",
+      "날짜": "2026-10-25"
+    },
+    {
+      "팀": "홈(새크라멘토)",
+      "선수": "Malik Monk (말릭 몽크)",
+      "포지션": "G",
+      "이번시즌_출전경기": "못찾음",
+      "평균출전·득점": "못찾음",
+      "사유": "왼쪽 발목 통증",
+      "상태": "의심(questionable)",
+      "복귀예정": "불명",
+      "출처": "https://www.si.com/nba/kings/onsi/sacramento-kings-news/sacramento-kings-phoenix-suns-injury-report-lists-four-starters",
+      "날짜": "2026-10-24"
+    },
+    {
+      "팀": "원정(멤피스)",
+      "선수": "Zach Edey (잭 에디)",
+      "포지션": "C",
+      "이번시즌_출전경기": "직전 10-23 경기까지 정상 출전(더블더블 근접 기록)",
+      "평균출전·득점": "못찾음",
+      "사유": "왼쪽 발목 부상 관리(백투백 1차전 휴식, 팀 공식 'Return From Injury Management')",
+      "상태": "확정(OUT) — 부상 관리 목적 로테이션 휴식, 10-26 유타전 복귀 예상",
+      "복귀예정": "10-26 유타전 복귀 예상",
+      "출처": "https://x.com/GrizzliesPR/status/2114146319749243210 ; https://www.nbcsports.com/fantasy/basketball/player-news/2026-10-24/zach-edey-ankle-ruled-out-vs-sacramento",
+      "날짜": "2026-10-25"
+    },
+    {
+      "팀": "원정(멤피스)",
+      "선수": "Cedric Coward (세드릭 코워드)",
+      "포지션": "G/F",
+      "이번시즌_출전경기": "못찾음",
+      "평균출전·득점": "못찾음",
+      "사유": "왼쪽 손목 염좌",
+      "상태": "의심(questionable)",
+      "복귀예정": "불명",
+      "출처": "https://x.com/GrizzliesPR/status/2114146319749243210",
+      "날짜": "2026-10-25"
+    },
+    {
+      "팀": "원정(멤피스)",
+      "선수": "Isaiah Stewart (아이재아 스튜어트)",
+      "포지션": "C/F",
+      "이번시즌_출전경기": "프리시즌 발목 염좌로 개막전 결장 우려 있었으나 10-24 기준 출전가능으로 클리어",
+      "평균출전·득점": "못찾음",
+      "사유": "왼쪽 발목 염좌(프리시즌 10-5 발생) — 현재는 해소",
+      "상태": "출전가능(available, 10-24 클리어 확인)",
+      "복귀예정": "이미 복귀",
+      "출처": "https://hottakes.com/articles/isaiah-stewart-shakes-off-ankle-sprain-cleared-for-friday-against-the-wa-20851ecf-4830-4ffb-a60d-aabe73a1e0a3",
+      "날짜": "2026-10-24"
+    }
+  ],
+  "비고": "멤피스는 10-23 골든스테이트전 이후 백투백으로 새크라멘토 원정, 주전 센터 Edey를 이 경기에 쉬게 하고 다음날 유타전 복귀 예정(부상 관리). 새크라멘토는 개막 후 2연패에 주전급 부상(시몬스·카드웰·레이노) 다수.",
+  "감독·이슈": {
+    "홈_새크라멘토": "정보 없음",
+    "원정_멤피스": "Tuomas Iisalo 감독, 스튜어트 컨디션에 대해 '예정대로 회복 중'이라 언급(10-20 이전 코멘트)"
+  },
+  "출처": [
+    "https://fubo.tv/news/nba/memphis-grizzlies-at-sacramento-kings-where-to-watch-stream-info-tv-channel-and-live-updates-october-25-2026",
+    "https://www.covers.com/sport/basketball/nba/teams/main/sacramento-kings/injuries",
+    "https://foxsportsam1280.iheart.com/content/2026-10-25-grizzlies-vs-kings-injury-report-oct-25/",
+    "https://x.com/GrizzliesPR/status/2114146319749243210",
+    "https://www.nbcsports.com/fantasy/basketball/player-news/2026-10-24/zach-edey-ankle-ruled-out-vs-sacramento",
+    "https://hottakes.com/articles/isaiah-stewart-shakes-off-ankle-sprain-cleared-for-friday-against-the-wa-20851ecf-4830-4ffb-a60d-aabe73a1e0a3"
+  ]
+}

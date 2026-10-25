@@ -1,0 +1,93 @@
+{
+  "번호": 767,
+  "홈": "브루클린 네츠",
+  "원정": "인디애나 페이서스",
+  "경기정보": {
+    "일시": "2026-10-26 07:00 KST (2026-10-25 18:00 ET)",
+    "리그": "NBA 2026-27 정규시즌"
+  },
+  "수집시각": "2026-10-25T21:35+09:00",
+  "시즌전적": {
+    "홈_브루클린": "0승2패 — 10-21 샬럿 홈 패(103:110), 10-24 클리블랜드 원정 패(121:125)",
+    "원정_인디애나": "1승1패 — 10-21 뉴올리언스 원정 승(123:120, 할리버튼 복귀전), 10-23 댈러스 홈 패(105:121)"
+  },
+  "일정": {
+    "홈_브루클린": "직전경기 10-24(원정, 클리블랜드전) → 10-25 홈경기, 백투백(연전) — Mikel Brown은 10-24 출전 후 10-25 백투백 휴식 예정으로 보도됨",
+    "원정_인디애나": "직전경기 10-23(홈, 댈러스전) → 10-26까지 휴식 1일, 백투백 아님"
+  },
+  "결장": [
+    {
+      "팀": "홈(브루클린)",
+      "선수": "Tyler Bilodeau (타일러 빌로도)",
+      "포지션": "F",
+      "이번시즌_출전경기": "못찾음",
+      "평균출전·득점": "못찾음",
+      "사유": "어깨 부상",
+      "상태": "의심(day-to-day) — 10-24 클리블랜드전 결장",
+      "복귀예정": "불명",
+      "출처": "https://1390thegambler.iheart.com/content/2026-10-24-nets-vs-cavaliers-injury-report-oct-24/",
+      "날짜": "2026-10-24"
+    },
+    {
+      "팀": "홈(브루클린)",
+      "선수": "Mikel Brown (마이클 브라운)",
+      "포지션": "G",
+      "이번시즌_출전경기": "못찾음",
+      "평균출전·득점": "못찾음",
+      "사유": "백투백 연전 중 휴식(부상 아님, 로테이션 관리)",
+      "상태": "의심(백투백 2차전 결장 예상)",
+      "복귀예정": "해당없음(휴식 관리)",
+      "출처": "브루클린 2026-27 스케줄/백투백 보도 종합",
+      "날짜": "2026-10-25"
+    },
+    {
+      "팀": "원정(인디애나)",
+      "선수": "Ben Sheppard (벤 셰퍼드)",
+      "포지션": "G/F",
+      "이번시즌_출전경기": "못찾음",
+      "평균출전·득점": "못찾음",
+      "사유": "왼쪽 반월판(meniscus) 부상",
+      "상태": "의심(day-to-day, 명확한 복귀 시점 없음 — 수 주 결장 가능성)",
+      "복귀예정": "불명",
+      "출처": "https://ipacers.com/2026/10/23/indiana-pacers-injury-report-aaron-nesmith-and-ben-sheppard-updates/",
+      "날짜": "2026-10-23"
+    },
+    {
+      "팀": "원정(인디애나)",
+      "선수": "Johnny Furphy (조니 퍼피)",
+      "포지션": "F",
+      "이번시즌_출전경기": "0 (시즌 아웃)",
+      "평균출전·득점": "해당없음",
+      "사유": "오른쪽 ACL 파열",
+      "상태": "확정(OUT, 시즌아웃)",
+      "복귀예정": "시즌 복귀 불가",
+      "출처": "https://ipacers.com/2026/10/23/indiana-pacers-injury-report-aaron-nesmith-and-ben-sheppard-updates/",
+      "날짜": "2026-10-23"
+    },
+    {
+      "팀": "원정(인디애나)",
+      "선수": "T.J. McConnell (티제이 맥코넬)",
+      "포지션": "G",
+      "이번시즌_출전경기": "0/2 (프리시즌·개막전 전부 결장)",
+      "평균출전·득점": "해당없음",
+      "사유": "햄스트링 부상",
+      "상태": "의심(day-to-day)",
+      "복귀예정": "불명",
+      "출처": "https://ipacers.com/2026/10/23/indiana-pacers-injury-report-aaron-nesmith-and-ben-sheppard-updates/",
+      "날짜": "2026-10-23"
+    }
+  ],
+  "비고": "인디애나 Tyrese Haliburton(할리버튼)은 2025년 NBA파이널 G7 아킬레스건 파열 이후 10-21 뉴올리언스전에서 복귀 — 23점·12어시스트로 승리 견인, 부상자 명단 아님(출전 정상). Aaron Nesmith는 개막전 햄스트링으로 결장했으나 복귀해 벤치 출전 중.",
+  "감독·이슈": {
+    "홈_브루클린": "정보 없음",
+    "원정_인디애나": "댈러스전(10-23) 121-105 패배 당시 Cooper Flagg(댈러스) 결장에도 Kyrie Irving 24점에 패배 — 인디애나 수비 문제 거론(출처 기사 내 언급)"
+  },
+  "출처": [
+    "https://fubo.tv/news/nba/indiana-pacers-at-brooklyn-nets-where-to-watch-stream-info-tv-channel-and-live-updates-october-25-2026",
+    "https://1390thegambler.iheart.com/content/2026-10-24-nets-vs-cavaliers-injury-report-oct-24/",
+    "https://ipacers.com/2026/10/23/indiana-pacers-injury-report-aaron-nesmith-and-ben-sheppard-updates/",
+    "https://www.espn.com/nba/story/_/id/50245316/tyrese-haliburton-leads-pacers-opening-night-win-vs-pelicans-emotional-return-injury",
+    "https://www.espn.com/nba/game/_/gameId/401909844/mavericks-pacers",
+    "https://www.espn.com/nba/recap?gameId=401909844"
+  ]
+}

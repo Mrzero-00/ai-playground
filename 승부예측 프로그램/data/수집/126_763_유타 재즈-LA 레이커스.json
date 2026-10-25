@@ -1,0 +1,81 @@
+{
+  "번호": 763,
+  "홈": "유타 재즈",
+  "원정": "LA 레이커스",
+  "경기정보": {
+    "일시": "2026-10-26 06:00 KST (2026-10-25 17:00 ET, Delta Center)",
+    "리그": "NBA 2026-27 정규시즌"
+  },
+  "수집시각": "2026-10-25T21:30+09:00",
+  "시즌전적": {
+    "홈_유타": "1승1패 — 10-21 멤피스 원정 패(103:123), 10-23 뉴올리언스 홈 승(120:119)",
+    "원정_LA레이커스": "2승0패 — 10-21 골든스테이트 홈 승(127:105), 10-23 LA클리퍼스 홈 승(125:117)"
+  },
+  "순위": "서부컨퍼런스 — 재즈 7위권(1-1), 레이커스 초반 2연승",
+  "일정": {
+    "홈_유타": "직전경기 10-23(홈, 뉴올리언스전) → 10-26까지 휴식 1일, 백투백 아님. 다음 경기 10-26 멤피스전",
+    "원정_LA레이커스": "직전경기 10-23(홈, 클리퍼스전) → 10-25 원정 이동 후 경기, 휴식 1일, 백투백 아님"
+  },
+  "결장": [
+    {
+      "팀": "홈(유타)",
+      "선수": "Jusuf Nurkić (유수프 누르키치)",
+      "포지션": "C",
+      "이번시즌_출전경기": "0/2 (시즌 내내 결장)",
+      "평균출전·득점": "못찾음(시즌 미출전)",
+      "사유": "오른발 2번째 발가락 부분 족저판(plantar plate) 파열",
+      "상태": "확정(OUT)",
+      "복귀예정": "최소 4주(팀 발표, 10월7일 기준)",
+      "출처": "https://www.cbssports.com/nba/teams/uta/utah-jazz/injuries/",
+      "날짜": "2026-10-25"
+    },
+    {
+      "팀": "원정(레이커스)",
+      "선수": "Cameron Carr (카메론 카)",
+      "포지션": "G/F",
+      "이번시즌_출전경기": "못찾음",
+      "평균출전·득점": "못찾음",
+      "사유": "오른쪽 옆구리(oblique) 긴장",
+      "상태": "확정(OUT)",
+      "복귀예정": "불명",
+      "출처": "https://www.si.com/nba/lakers/onsi/lakers-injury-report-brings-encouraging-news-ahead-of-jazz-game",
+      "날짜": "2026-10-25"
+    },
+    {
+      "팀": "원정(레이커스)",
+      "선수": "Adou Thiero (아두 티에로)",
+      "포지션": "F",
+      "이번시즌_출전경기": "못찾음",
+      "평균출전·득점": "못찾음",
+      "사유": "왼쪽 무릎 삼출(effusion)",
+      "상태": "확정(OUT)",
+      "복귀예정": "불명",
+      "출처": "https://www.si.com/nba/lakers/onsi/lakers-injury-report-brings-encouraging-news-ahead-of-jazz-game",
+      "날짜": "2026-10-25"
+    },
+    {
+      "팀": "원정(레이커스)",
+      "선수": "Jake LaRavia (제이크 라라비아)",
+      "포지션": "F",
+      "이번시즌_출전경기": "개막전(10-21) 발목 부상 이탈 후 복귀",
+      "평균출전·득점": "못찾음",
+      "사유": "오른쪽 발목 염좌 — 공식적으로 부상자 명단에서 제외, 출전 예정",
+      "상태": "출전가능(available)",
+      "복귀예정": "이번 경기(10-26) 출전 예정",
+      "출처": "https://www.nbcsports.com/fantasy/basketball/player-news/2026-10-24/jake-laravia-ankle-set-to-suit-up-vs-jazz",
+      "날짜": "2026-10-24"
+    }
+  ],
+  "비고": "레이커스 Luka Dončić·Austin Reaves·Walker Kessler(10-23 획득분 선수진 보도 기준)는 부상자 명단에 없음. Collin Sexton은 프리시즌·개막전 결장 후 이미 복귀.",
+  "감독·이슈": {
+    "홈_유타": "정보 없음(이번 경기 관련 감독 코멘트 검색되지 않음)",
+    "원정_LA레이커스": "정보 없음(이번 경기 관련 감독 코멘트 검색되지 않음)"
+  },
+  "출처": [
+    "https://www.espn.com/nba/game/_/gameId/401909861/lakers-jazz",
+    "https://www.cbssports.com/nba/teams/uta/utah-jazz/injuries/",
+    "https://www.cbssports.com/nba/teams/lal/los-angeles-lakers/injuries/",
+    "https://www.si.com/nba/lakers/onsi/lakers-injury-report-brings-encouraging-news-ahead-of-jazz-game",
+    "https://www.nbcsports.com/fantasy/basketball/player-news/2026-10-24/jake-laravia-ankle-set-to-suit-up-vs-jazz"
+  ]
+}

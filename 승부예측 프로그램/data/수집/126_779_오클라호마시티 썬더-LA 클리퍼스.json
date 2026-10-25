@@ -1,0 +1,104 @@
+{
+  "번호": 779,
+  "홈": "오클라호마시티 썬더",
+  "원정": "LA 클리퍼스",
+  "경기정보": {
+    "일시": "2026-10-26 08:00 KST (2026-10-25 18:00 CT경)",
+    "리그": "NBA 2026-27 정규시즌"
+  },
+  "수집시각": "2026-10-25T21:50+09:00",
+  "시즌전적": {
+    "홈_OKC": "2승0패 — 10-20 샌안토니오 원정 승(116:104), 10-22 덴버 홈 승(96:84)",
+    "원정_클리퍼스": "1승1패 — 10-21 새크라멘토 홈 승(121:96), 10-23 LA레이커스 원정 패(117:125)"
+  },
+  "일정": {
+    "홈_OKC": "직전경기 10-22(홈, 덴버전) → 10-25까지 휴식 2일(10-23·24 경기 없음), 충분히 휴식",
+    "원정_클리퍼스": "직전경기 10-23(원정, 레이커스전) → 10-25까지 휴식 1일뿐 — 상대(OKC)는 휴식 2일로 클리퍼스가 상대적으로 불리한 연전 일정(보도에 명시됨)"
+  },
+  "결장": [
+    {
+      "팀": "홈(OKC)",
+      "선수": "Otega Oweh (오테가 오웨)",
+      "포지션": "G",
+      "이번시즌_출전경기": "0 (시즌 아웃)",
+      "평균출전·득점": "해당없음",
+      "사유": "오른쪽 아킬레스건 파열(10-13 프리시즌 vs 인디애나 중 부상)",
+      "상태": "확정(OUT, 시즌아웃)",
+      "복귀예정": "2026-27시즌 복귀 불가",
+      "출처": "https://heavy.com/sports/nba/oklahoma-city-thunder/oklahoma-city-thunder-announce-devastating-injury-news-for-rookie-guard/",
+      "날짜": "2026-10-13(발표)"
+    },
+    {
+      "팀": "홈(OKC)",
+      "선수": "Nikola Topić (니콜라 토피치)",
+      "포지션": "G",
+      "이번시즌_출전경기": "0/2",
+      "평균출전·득점": "해당없음",
+      "사유": "허리 수술(low back surgery)",
+      "상태": "확정(OUT)",
+      "복귀예정": "주 단위 재평가(week-to-week), 구체적 시점 없음",
+      "출처": "https://clutchpoints.com/nba/oklahoma-city-thunder/injuries",
+      "날짜": "2026-10-25"
+    },
+    {
+      "팀": "홈(OKC)",
+      "선수": "Thomas Sorber (토마스 소버)",
+      "포지션": "C",
+      "이번시즌_출전경기": "0/2",
+      "평균출전·득점": "해당없음",
+      "사유": "오프시즌 무릎 수술 재활 중",
+      "상태": "확정(OUT, day-to-day~week-to-week)",
+      "복귀예정": "불명",
+      "출처": "https://clutchpoints.com/nba/oklahoma-city-thunder/injuries",
+      "날짜": "2026-10-25"
+    },
+    {
+      "팀": "원정(클리퍼스)",
+      "선수": "Bradley Beal (브래들리 빌)",
+      "포지션": "G",
+      "이번시즌_출전경기": "못찾음",
+      "평균출전·득점": "못찾음",
+      "사유": "오른쪽 무릎 관리(load management성)",
+      "상태": "확정(OUT)",
+      "복귀예정": "불명",
+      "출처": "https://sports.yahoo.com/articles/clippers-rule-five-players-injury-212929063.html",
+      "날짜": "2026-10-23"
+    },
+    {
+      "팀": "원정(클리퍼스)",
+      "선수": "Brandon Ingram (브랜든 잉그램)",
+      "포지션": "F",
+      "이번시즌_출전경기": "0",
+      "평균출전·득점": "해당없음",
+      "사유": "오른쪽 뒤꿈치 수술 재활",
+      "상태": "확정(OUT)",
+      "복귀예정": "불명",
+      "출처": "https://sports.yahoo.com/articles/clippers-rule-five-players-injury-212929063.html",
+      "날짜": "2026-10-23"
+    },
+    {
+      "팀": "원정(클리퍼스)",
+      "선수": "Jordan Miller / Yanic Konan Niederhauser / Max Strus",
+      "포지션": "F/C/G",
+      "이번시즌_출전경기": "0",
+      "평균출전·득점": "해당없음",
+      "사유": "각각 왼쪽 회전근개 수술, 오른쪽 리스프랑 수술, 오른쪽 족저근막 파열",
+      "상태": "확정(OUT, 전원 수술 재활)",
+      "복귀예정": "불명",
+      "출처": "https://sports.yahoo.com/articles/clippers-rule-five-players-injury-212929063.html",
+      "날짜": "2026-10-23"
+    }
+  ],
+  "비고": "클리퍼스는 주전급 다수(빌·잉그램 등)가 수술 재활로 장기 결장 중 + 백투백급 연전으로 상대적으로 불리한 일정. OKC는 로테이션 뎁스 부상(오웨·토피치·소버) 있으나 주전 라인업(SGA 등) 보도에서 결장 언급 없음.",
+  "감독·이슈": {
+    "홈_OKC": "정보 없음",
+    "원정_클리퍼스": "정보 없음"
+  },
+  "출처": [
+    "https://1340thegame.iheart.com/content/2026-10-25-clippers-vs-thunder-injury-report-oct-25/",
+    "https://clutchpoints.com/nba/oklahoma-city-thunder/injuries",
+    "https://heavy.com/sports/nba/oklahoma-city-thunder/oklahoma-city-thunder-announce-devastating-injury-news-for-rookie-guard/",
+    "https://sports.yahoo.com/articles/clippers-rule-five-players-injury-212929063.html",
+    "https://sports.yahoo.com/articles/lakers-vs-clippers-injury-report-212812771.html"
+  ]
+}

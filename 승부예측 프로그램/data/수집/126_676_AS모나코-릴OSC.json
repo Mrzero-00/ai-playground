@@ -1,0 +1,158 @@
+{
+  "번호": 676,
+  "홈": "AS모나코(AS Monaco)",
+  "원정": "릴OSC(Lille/LOSC)",
+  "리그": "리그앙(Ligue 1) 2026-27 8ème journée",
+  "구장": "스타드 루이 되(Stade Louis II, 모나코)",
+  "킥오프": "현지 10-25 15:00 CET = 10-25 23:00 KST(환경 기준 이동 831km·고도 20m·16.9℃ 강수0mm 바람5.4km/h)",
+  "수집시각": "2026-10-25T20:50+09:00",
+  "팩트시트_입력_126_인용": {
+    "AS모나코.md INPUTS": "휴식 2.8일(7일 2경기) · 직전 10-23 홈 vs SC Freiburg 3-0 승(UECL) · xG 시즌7경기 1.13/1.39 npxGD-0.05 · 최근5 0.93/1.56(-0.33) · ⚠ 장거리 원정(릴 입장에서) 831km",
+    "릴OSC.md INPUTS": "휴식 3.9일(7일 1경기) · 직전 10-22 홈 vs Galatasaray 2-4 패(UCL) · xG 시즌7경기 1.54/1.50 npxGD-0.07 · 최근5 1.68/1.38(+0.15)"
+  },
+  "teamdb_card": {
+    "홈_Monaco": "순위 5위 7경기 4승2무1패 GD+4 승점14 · xPts8.3 vs 승점14(운 좋음) · 포메이션 4-2-3-1 81% · 핵심선수 Paris Brunner(23%,79분, 복귀) Golovin(16%,88분) Abline(12%,53분, 결장 전) · vs 백4 상대 2승2무0패",
+    "원정_Lille": "순위 4위 7경기 4승2무1패 GD+5 승점14 · xPts10.2 vs 승점14(운 좋음) · 포메이션 4-2-3-1 100% · 핵심선수 E.Mbappé(13%,59분) Ueda(12%,55분, 결장) Haraldsson(12%,71분) Giroud(10%,58분) · 선발 교체 수(경기당) 4.2로 로테이션 多"
+  },
+  "결장": [
+    {
+      "팀": "AS모나코",
+      "선수": "Eric Dier(에릭 다이어)",
+      "포지션": "DF(CB)",
+      "이번시즌_선발/경기": "teamdb 90분/경기(핵심선수 목록, xG+xA 기여 5%) — 수비 핵심 로테이션",
+      "득점·도움": "0.3xG+0.4xA",
+      "사유": "오른쪽 대퇴사두근(quadriceps) 부상, 10월 중순부터",
+      "상태": "확정",
+      "복귀예정": "미상",
+      "대체선수": "Salisu 또는 Sané",
+      "출처": ["https://lepetitlillois.com/2026/10/24/as-monaco-losc-luis-deux-forfaits/"],
+      "날짜": "2026-10-24"
+    },
+    {
+      "팀": "AS모나코",
+      "선수": "Stanis Idumbo Muzambo(스타니스 이둠보 무잠보)",
+      "포지션": "MF",
+      "이번시즌_선발/경기": "teamdb 73분/경기, xG+xA 기여 9%(4위) — 로테이션 주축",
+      "득점·도움": "0.9xG+0.4xA",
+      "사유": "허리근(psoas) 통증",
+      "상태": "확정",
+      "복귀예정": "미상",
+      "대체선수": "Camara 또는 Zakaria",
+      "출처": ["https://lepetitlillois.com/2026/10/24/as-monaco-losc-luis-deux-forfaits/"],
+      "날짜": "2026-10-24"
+    },
+    {
+      "팀": "릴OSC",
+      "선수": "Tiago Santos(티아구 산투스)",
+      "포지션": "DF",
+      "이번시즌_선발/경기": "미상(장기 결장 중)",
+      "득점·도움": "해당없음",
+      "사유": "전방십자인대 파열, 2027년 6월 복귀 예상 — 시즌아웃급 장기 결장",
+      "상태": "확정",
+      "복귀예정": "2027-06",
+      "대체선수": "Ngoy 또는 Nianzou",
+      "출처": ["https://lepetitlillois.com/2026/10/24/as-monaco-losc-luis-deux-forfaits/"],
+      "날짜": "2026-10-24"
+    },
+    {
+      "팀": "릴OSC",
+      "선수": "Hamza Igamane(함자 이가만)",
+      "포지션": "FW",
+      "이번시즌_선발/경기": "미상",
+      "득점·도움": "미상",
+      "사유": "전방십자인대 부상 재활 중, 리그 페이즈 아웃급 장기 결장",
+      "상태": "확정",
+      "복귀예정": "미상(장기)",
+      "대체선수": "Giroud 또는 Ueda(단, 우에다도 결장)",
+      "출처": ["https://lepetitlillois.com/2026/10/24/as-monaco-losc-luis-deux-forfaits/"],
+      "날짜": "2026-10-24"
+    },
+    {
+      "팀": "릴OSC",
+      "선수": "Ayase Ueda(아야세 우에다)",
+      "포지션": "FW",
+      "이번시즌_선발/경기": "teamdb 55분/경기, xG+xA 기여 12%(2위) — 주축 공격수",
+      "득점·도움": "2.3xG+0.1xA",
+      "사유": "발뒤꿈치(heel) 부상",
+      "상태": "확정",
+      "복귀예정": "미상",
+      "대체선수": "Giroud 선발 예상",
+      "출처": ["https://lepetitlillois.com/2026/10/24/as-monaco-losc-luis-deux-forfaits/"],
+      "날짜": "2026-10-24"
+    },
+    {
+      "팀": "릴OSC",
+      "선수": "Osame Sahraoui(오사메 사라우이)",
+      "포지션": "FW/MF",
+      "이번시즌_선발/경기": "미상",
+      "득점·도움": "미상",
+      "사유": "발(foot) 문제로 의문이었으나 10/24 복귀(스쿼드 합류)",
+      "상태": "출전가능",
+      "복귀예정": "복귀 완료",
+      "대체선수": "해당없음",
+      "출처": ["https://lepetitlillois.com/2026/10/24/as-monaco-losc-luis-deux-forfaits/"],
+      "날짜": "2026-10-24"
+    }
+  ],
+  "복귀": [
+    {"팀": "AS모나코", "선수": "Paris Brunner(파리스 브루너)", "내용": "A매치 휴식기 이후 팀 내부 징계로 결장했으나 이번 경기 복귀 — teamdb 핵심선수 1위(23%,79분)", "출처": "https://www.vipsg.fr/news-psg/psg-vs-monaco-de-nombreux-absents-et-4-grosses-incertitudes-avant-le-choc-297385/", "날짜": "2026-10-24"},
+    {"팀": "릴OSC", "선수": "Osame Sahraoui(오사메 사라우이)", "내용": "발 부상 의문에서 복귀", "출처": "lepetitlillois.com", "날짜": "2026-10-24"},
+    {"팀": "릴OSC", "선수": "Tanguy Nianzou(탕기 니안주)", "내용": "스쿼드 복귀(회복)", "출처": "lepetitlillois.com(관련 보도)", "날짜": "2026-10-23"}
+  ],
+  "라인업": {
+    "홈": {
+      "발표여부": "미발표(예상, 소스 간 세부 차이 — 직전 UECL전 선발과 리그전 예상 XI가 다름)",
+      "예상XI": "4-2-3-1: Hradecky; Vanderson, Sadibou Sané, Mohammed Salisu, Nazinho; Lamine Camara, Denis Zakaria; Takumi Minamino, Ansu Fati, Aleksandr Golovin; Paris Brunner",
+      "포메이션": "4-2-3-1",
+      "출처": ["https://www.sportsgambler.com/betting-tips/football/monaco-vs-lille-prediction-lineups-odds-2026-10-25/"],
+      "날짜": "2026-10-25"
+    },
+    "원정": {
+      "발표여부": "미발표(예상)",
+      "예상XI": "4-2-3-1: Berke Özer; Maxima Goffi, Nathan Ngoy, Alexsandro, Romain Perraud; Nabil Bentaleb, Benjamin André; Ethan Mbappé, Hákon Haraldsson, Dilane Bakwa; Olivier Giroud — Bentaleb는 알제리 대표팀 차출 중 경미한 근육 부상으로 훈련 복귀 확인됨",
+      "포메이션": "4-2-3-1",
+      "출처": ["https://www.sportsgambler.com/betting-tips/football/monaco-vs-lille-prediction-lineups-odds-2026-10-25/", "https://lepetitlillois.com/2026/10/24/as-monaco-losc-luis-deux-forfaits/"],
+      "날짜": "2026-10-25"
+    }
+  },
+  "최근경기": [
+    {"팀": "AS모나코", "날짜": "2026-10-23", "상대": "SC Freiburg(홈, UECL)", "장소": "홈", "스코어": "3-0 승", "비고": "유럽대항전, 리그 휴식일 2.8일로 짧음"},
+    {"팀": "AS모나코", "날짜": "2026-10-18", "상대": "Lorient(원정)", "장소": "원정", "스코어": "0-1 패", "xG": "0.49:1.75", "슈팅": "15(4):9(3)", "비고": "4-2-3-1"},
+    {"팀": "AS모나코", "날짜": "2026-10-10", "상대": "Toulouse(홈)", "장소": "홈", "스코어": "2-2 무", "xG": "1.23:1.41", "비고": "4-2-3-1"},
+    {"팀": "릴OSC", "날짜": "2026-10-22", "상대": "Galatasaray(홈, UCL)", "장소": "홈", "스코어": "2-4 패", "비고": "유럽대항전, 리그 휴식일 3.9일"},
+    {"팀": "릴OSC", "날짜": "2026-10-17", "상대": "Brest(홈)", "장소": "홈", "스코어": "1-1 무", "xG": "2.05:0.79", "슈팅": "17(5):8(2)", "비고": "4-2-3-1, 내용은 우세"},
+    {"팀": "릴OSC", "날짜": "2026-10-10", "상대": "Le Havre(홈)", "장소": "홈", "스코어": "1-0 승", "xG": "1.32:0.84", "비고": "4-2-3-1"}
+  ],
+  "맞대결": [
+    {"내용": "역대 전적 모나코 47승 41무 36패(릴 우세 아님, 모나코 근소 우세) 168득 141실. 다만 최근 7경기는 릴이 4승1무2패로 우세(합계 9-5). 최근 맞대결: 2026-05-10 모나코 0-1 릴, 2025-08-24 릴 1-0 모나코, 2025-02-22 릴 2-1 모나코, 2024-10-18 모나코 0-0 릴", "출처": "https://www.asmbystf.fr/vs/fr/lille, https://footystats.org/fr/france/as-monaco-fc-vs-lille-osc-metropole-h2h-stats", "날짜": "2026-10-24"}
+  ],
+  "일정_피로": [
+    {"팀": "AS모나코", "내용": "휴식 2.8일(7일 2경기) — UECL 프라이부르크전(홈 3-0 승) 직후 연전. 릴도 UCL 미드위크 경기가 있어 양팀 모두 피로 누적 상태", "출처": "입력_126.md/teamdb", "날짜": "2026-10-25"},
+    {"팀": "릴OSC", "내용": "휴식 3.9일(7일 1경기) — UCL 갈라타사라이전 2-4 패 충격 직후 리그 복귀, 선발 교체 수(경기당 4.2)가 높아 로테이션 부담 큼. 원정 거리 831km로 장거리 이동", "출처": "입력_126.md/teamdb", "날짜": "2026-10-25"}
+  ],
+  "동기": [
+    {"내용": "두 팀 모두 14점 동률(모나코 5위, 릴 4위)로 유럽대항전(챔스/유로파) 진출권 다툼 '유럽급 승부'로 현지 매체(soccerway)가 평가. 필리프 루이스 감독은 '최고 컨디션이어야 이긴다'며 난이도 높은 경기로 전망, 테제는 '설욕전'으로 표현", "출처": "https://www.asmonaco.com/fr/news/conference-de-presse-avant-lille-filipe-luis-etre-au-sommet-de-notre-forme-pour-lemporter-contre-lille, https://lepetitlillois.com/2026/10/25/ce-sera-une-revanche-les-declarations-monegasques-avant-as-monaco-losc/", "날짜": "2026-10-24~25"}
+  ],
+  "감독": {
+    "홈": "Filipe Luís(필리프 루이스)",
+    "원정": "Davide Ancelotti(다비드 안첼로티) — 필리프 루이스는 기자회견에서 안첼로티를 '친구이자 경험 많은 훌륭한 감독'으로 평가",
+    "변동": "없음(둘 다 시즌 초 선임 체제 유지)",
+    "출처": ["https://www.asmonaco.com/fr/news/conference-de-presse-avant-lille-filipe-luis-etre-au-sommet-de-notre-forme-pour-lemporter-contre-lille"],
+    "날짜": "2026-10-24"
+  },
+  "날씨": {
+    "내용": "16.9℃ 강수 0mm(확률 0%) 바람 5.4km/h — 맑음, 경기 영향 요인 없음",
+    "출처": "입력_126.md/환경_126.md(자동 수집)",
+    "날짜": "2026-10-25"
+  },
+  "심판": {
+    "주심": "François Letexier(프랑수아 르테시에)",
+    "부심": "Mehdi Rahmouni, Cyril Mugnier",
+    "4심": "Hakim Ben El Hadj",
+    "VAR": "Mehdi Mokhtari(AVAR: Jérémie Pignard, 비디오 보조에 Elisa Daupeux 여성 심판 포함)",
+    "출처": ["https://www.ladiagonale.net/index.php/2026/10/25/letexier-pour-arbitrer-monaco-lille-une-arbitre-feminine-a-la-video-avec-pignard/", "https://lepetitlillois.com/2026/10/23/as-monaco-losc-letexier-designe-sifflet/"],
+    "날짜": "2026-10-23~25"
+  },
+  "못찾음": ["Dier·Idumbo 복귀 예정 시점", "Tiago Santos 정확한 수술 일자", "Sahraoui 선발 여부(복귀는 확인되었으나 선발 포함 여부 미확인)"],
+  "뉴스없음": {"홈": "해당없음(Dier·Idumbo 결장 확정 보도)", "원정": "해당없음(Santos·Igamane·Ueda 결장 확정 보도)"}
+}

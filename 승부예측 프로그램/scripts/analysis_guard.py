@@ -61,6 +61,11 @@
         gap < +2 쪽을 올리는 것은 추천 문턱을 움직이므로 따로 측정한 뒤에 판단한다.
 
   G6 깊이 미표기            순수 확률은 있는데 깊이 칸이 비었다
+  G9 가벼운 분석의 큰 편차    깊이=가벼움 & |순수 1순위 − 보정 1순위| >= 5%p
+        실측(2026-10-26): 가벼움 전체 49경기 40.8%(z=-2.0) 인데 편차 <5p 는 50.0%,
+        편차 >=5p 9경기는 0/9 (기준 54.7% 가정 p=0.0008). 대조로 깊이=심층 & 같은 편차는 35/71=49.3%.
+        원인은 결과가 아니라 절차다 — 가벼움은 정의상 심층 조사를 안 한 행이라 기준선을 크게 벗어날 근거가 없다.
+        교정은 확률을 덮지 않고 확신도=기권 으로만 적는다(기록·학습 표본은 보존).
       왜: 깊이는 **학습 분리 스위치**다. 깊이=기준선 행은 calibrate(보정 계수)·hit_model 학습에서
       빠지고 보정 계수 적용도 받지 않는다. 칸이 비면 모델 자동 채움이 분석 행으로 둔갑해
       조용히 학습에 섞인다 — 125회 UECL·UEL 18경기가 그렇게 섞였고(10/22 23:00 블록),
@@ -84,6 +89,7 @@ SMALL_GAP = 15.0      # G3
 NOMKT_P = 70.0        # G4
 SUSP_GAP = 8.0        # G5
 OVERCONF_GAP = 2.0    # G7
+LIGHT_DEV = 5.0       # G9 — 깊이=가벼움 행의 |순수 1순위 − 보정 1순위| 상한 (보정=순수50+pi기준선50 이라 기준선 대비 약 2배 편차)
 TREND_CAP = 2.0       # G8 — 근거의 pi기준선 대비 1순위 쪽 순이동 상한 — 보정 1순위가 시장보다 이만큼 높으면 초과분을 깎는다
 
 
@@ -143,6 +149,14 @@ def check(r):
         if move > TREND_CAP:
             out.append(("G8", f"추세 상한 초과 — 근거의 pi기준선 {pt} {base[pt]:.1f} → 순수 {p[pt]:.1f} (+{move:.1f}%p > {TREND_CAP:.1f})"
                               f" · 사유가 폼·추세·동기뿐이면 기준선으로 되돌린다", False))
+
+    if (r.get("깊이") or "").strip() == "가벼움" and cp:
+        ct = max(cp, key=cp.get)
+        dev = p.get(pt, 0.0) - cp.get(pt, 0.0)
+        if abs(dev) >= LIGHT_DEV:
+            out.append(("G9", f"가벼운 분석의 큰 편차 — 순수 {pt} {p[pt]:.1f} vs 보정 {ct} {cp[ct]:.1f} ({dev:+.1f}%p)"
+                              f" · 가벼움은 기준선을 벗어날 근거를 모은 적이 없다 (실측 0/9)"
+                              f" → 심층으로 올리거나 기준선 ±{LIGHT_DEV:.0f}%p 안으로", True))
 
     if not (r.get("깊이") or "").strip() and _depth_era(r):
         auto = _looks_baseline(r)
@@ -230,6 +244,9 @@ def cmd_round(a):
                             r["보정메모"] = (memo + " · " + tag).strip(" ·")
                         fixed += 1
                         print(f"      → 보정 {max(q, key=q.get)} {max(q.values()):.1f} 로 교정")
+                if code == "G9" and r.get("확신도") != "기권":
+                    r["확신도"] = "기권"; fixed += 1
+                    print("      → 확신도=기권 으로 교정 (확률·기록은 그대로 남긴다)")
                 if code in ("G4", "G6") and r.get("깊이") != "기준선":
                     r["깊이"] = "기준선"; fixed += 1
                     print("      → 깊이=기준선 으로 교정")
@@ -262,6 +279,24 @@ def cmd_measure(_a):
         v = b[k]
         if v[0]:
             print(f"  차 {k:6s} n={v[0]:4d}  적중 {100*v[1]/v[0]:5.1f}%")
+
+    print("\n## G9 — 깊이=가벼움: 기준선 편차별 방향 적중 (0/9 가 유지되는지)")
+    gg = collections.defaultdict(lambda: [0, 0])
+    for r in rows:
+        if (r.get("깊이") or "").strip() != "가벼움":
+            continue
+        p_, c_ = tri(r, "순수"), tri(r, "보정")
+        if not p_ or not c_:
+            continue
+        pt_ = max(p_, key=p_.get)
+        dev = abs(p_[pt_] - c_.get(pt_, p_[pt_]))
+        lab = f">={LIGHT_DEV:.0f}p" if dev >= LIGHT_DEV else f"<{LIGHT_DEV:.0f}p"
+        x = gg[lab]; x[0] += 1; x[1] += (max(c_, key=c_.get) == r["결과"])
+    for k in (f">={LIGHT_DEV:.0f}p", f"<{LIGHT_DEV:.0f}p"):
+        v = gg[k]
+        if v[0]:
+            print(f"  편차 {k:6s} n={v[0]:4d}  적중 {100*v[1]/v[0]:5.1f}%")
+    print("  → 편차>= 쪽이 편차< 쪽을 따라잡으면 G9 를 내린다.")
 
     print("\n## G2 — 농구: 내 1순위 vs 시장 1순위")
     n = ph = mh = 0

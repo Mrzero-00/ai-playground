@@ -10,6 +10,6 @@
 <!-- FACTS:END -->
 <!-- INPUTS:START -->
 ## 입력(자동 수집 2026-10-25) — xG·휴식일·라인업·환경(이동거리·고도·날씨)은 이 숫자를 쓴다
-- 10-25 23:00 vs 프로시노네: 휴식 2.8일(7일 2경기) · 직전 10-23 원정 vs Ajax Amsterdam 0-2 패 [uefa.europa.conf] · xG 시즌7경기 xG1.24/xGA2.29 npxGD-0.72 · 최근5 1.52/2.41 (-0.44) · 홈-0.42/원정-1.12 · xPts5.1 vs 승점9 · 직전 선발 4-2-3-1 Marco Carnesecchi, Relja Obric, Thomas Kristensen, Davide Zappacosta, Raoul Bellanova, Charles De Ketelaere, Éderson, Gianluca Gaetano, Gianluca Scamacca, Nicola Zalewski, Eljif Elmas · 구장 스타디오 아틀레티 아추리 디탈리아 · 이동 541km · 고도 266m(차 +58m) · 14.5℃ 강수0mm(0%) 바람7.2km/h
+- 10-25 23:00 vs 프로시노네: 휴식 2.8일(7일 2경기) · 직전 10-23 원정 vs Ajax Amsterdam 0-2 패 [uefa.europa.conf] · xG 시즌7경기 xG1.24/xGA2.29 npxGD-0.72 · 최근5 1.52/2.41 (-0.44) · 홈-0.42/원정-1.12 · xPts5.1 vs 승점9 · 직전 선발 4-2-3-1 Marco Carnesecchi, Relja Obric, Thomas Kristensen, Davide Zappacosta, Raoul Bellanova, Charles De Ketelaere, Éderson, Gianluca Gaetano, Gianluca Scamacca, Nicola Zalewski, Eljif Elmas · 구장 스타디오 아틀레티 아추리 디탈리아 · 이동 539km · 고도 266m(차 +85m) · 14.5℃ 강수0mm(0%) 바람7.2km/h
 <!-- INPUTS:END -->
 

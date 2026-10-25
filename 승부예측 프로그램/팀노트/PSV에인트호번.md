@@ -10,6 +10,6 @@
 
 <!-- INPUTS:START -->
 ## 입력(자동 수집 2026-10-25) — xG·휴식일·라인업·환경(이동거리·고도·날씨)은 이 숫자를 쓴다
-- 10-25 22:30 vs 페예노르트: 휴식 4.8일(7일 1경기) · 직전 10-21 원정 vs FC Porto 1-0 승 [uefa.champions] · xG - · 직전 선발 4-2-3-1 Matej Kovár, Yarek Gasiorowski, Lutsharel Geertruida, Filip Kostic, Sergiño Dest, Sven Mijnans, Mauro Júnior, Kodai Sano, Guus Til, Ivan Perisic, Esmir Bajraktarevic · 구장 필립스 스타디온 · 이동 82km · 고도 15m(차 +12m) · 11.6℃ 강수0.1mm(60%) 바람22.3km/h
+- 10-25 22:30 vs 페예노르트: 휴식 4.8일(7일 1경기) · 직전 10-21 원정 vs FC Porto 1-0 승 [uefa.champions] · xG - · 직전 선발 4-2-3-1 Matej Kovár, Yarek Gasiorowski, Lutsharel Geertruida, Filip Kostic, Sergiño Dest, Sven Mijnans, Mauro Júnior, Kodai Sano, Guus Til, Ivan Perisic, Esmir Bajraktarevic · 구장 필립스 스타디온 · 이동 82km · 고도 15m(차 +12m) · 11.4℃ 강수0.2mm(60%) 바람24.1km/h
 <!-- INPUTS:END -->
 

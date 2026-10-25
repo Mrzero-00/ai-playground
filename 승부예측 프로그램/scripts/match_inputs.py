@@ -249,8 +249,15 @@ def team_events(eng, before_utc, days=35, refresh=False, prefer=None):
         out = [x for x in out if x[7]]
     out = [x[:7] for x in out]
     cont = ("uefa", "afc", "conmebol", "concacaf")
+    # 같은 이름의 타국 클럽(브라질 Athletic Club, 'all' 일별 포함)만 제거한다.
+    # 2026-10-25(126회 심층회고): 이 절이 **같은 나라 컵 대회도 같이 버리고 있었다** — prefer='usa.1' 이면
+    # 'usa.open'(US오픈컵)이 cont 접두에 안 걸려 탈락했고, 126회 499 세인트루이스가 10/21 US오픈컵 결승
+    # (120분+승부차기)을 치르고도 휴식일이 7.2일로 찍혔다(실제 3.0일). eng.fa·ger.dfb_pokal·
+    # esp.copa_del_rey·ita.coppa_italia·fra.coupe_de_france·ned.cup·por.taca.portugal 전부 같은 구멍이었다.
+    # 국가 접두(prefer 의 첫 segment)가 같으면 남긴다 — 타국 클럽 제거라는 원래 목적은 그대로 지켜진다.
     if prefer and any(x[6] == prefer for x in out):
-        out = [x for x in out if x[6] == prefer or x[6].startswith(cont)]   # 같은 이름의 타국 클럽(브라질 Athletic Club, 'all' 일별 포함) 제거
+        nation = prefer.split(".")[0] + "."
+        out = [x for x in out if x[6] == prefer or x[6].startswith(nation) or x[6].startswith(cont)]
     return sorted(out, key=lambda x: x[0], reverse=True)
 
 

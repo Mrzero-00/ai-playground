@@ -131,6 +131,29 @@ def robust_band(xs, lo, hi, shift=5):
     return True
 
 
+def current_era(r):
+    """깊이 열이 들어온 뒤(123회~)의 행인가 — 지금 쓰는 방법으로 낸 확률인가.
+
+    왜 (2026-10-25, 126회 심층회고): 깊이별 표에서는 구회차를 이미 따로 세우는데(DEPTH_ERA_ROUND),
+        **1순위 신뢰도 곡선은 여전히 전 시대를 한 통에 담고 있었다.** 그 결과 순수 45~50% 칸이
+        말 47.1% vs 실제 63.6%(z=+3.3)로 '유의'하게 찍혔는데, 현행 행만 떼어 보면 같은 칸이
+        n=54·실제 56% (z≈+1.2) 로 사라진다 — 격차의 거의 전부가 119~123회(깊이 미표기) 행에서 왔다.
+        없는 편향을 쫓아 멀쩡한 입력을 건드리게 되므로, 칸이 유의하면 현행 행만으로 한 번 더 재고
+        거기서 사라지면 '구회차 쏠림'으로 내린다. 구회차 자체는 표에 그대로 남겨 참고한다.
+    """
+    return depth_label(r) not in ("구회차(깊이열 이전)", "승무패(풀)")
+
+
+def era_band(xs, lo, hi):
+    """칸의 '유의'가 **현행 회차 행만으로도 살아남는가**. True = 진짜 · False = 구회차 쏠림."""
+    b = [x for x in xs if lo <= x[0] < hi and current_era(x[3])]
+    if len(b) < 20:
+        return True                     # 현행 표본이 너무 작으면 판정 보류 — 원래 결과를 믿는다
+    sd = sum(x[0] for x in b) / len(b)
+    gt = sum(1 for x in b if x[1]) / len(b) * 100
+    return abs(z_of(sd, gt, len(b))) >= Z_SIG
+
+
 def section_curve(rows, pre, out, issues):
     bands = []
     xs = []
@@ -155,7 +178,10 @@ def section_curve(rows, pre, out, issues):
         g = sum(1 for x in b if x[1]) / len(b) * 100
         t, sig = line(f"{lo}~{hi}", len(b), s, g)
         if sig and not robust_band(xs, lo, hi):
-            t = t[:-2] + "경계 흔들림 |"      # 칸을 5%p 옮기면 사라진다 — 유의 표시를 내린다
+            t = t.replace("**유의**", "경계 흔들림")   # 칸을 5%p 옮기면 사라진다 — 유의 표시를 내린다
+            sig = False                               # (2026-10-25: 덧붙이기라 '**유의**경계 흔들림' 으로 찍히던 표시 버그 수정)
+        if sig and not era_band(xs, lo, hi):
+            t = t.replace("**유의**", "구회차 쏠림")
             sig = False
         out.append(t)
         bands.append((lo, hi, len(b), s, g))
@@ -172,13 +198,28 @@ def section_curve(rows, pre, out, issues):
         if b:
             wide.append((lo, hi, len(b), sum(x[0] for x in b) / len(b),
                          sum(1 for x in b if x[1]) / len(b) * 100))
-    inv = inversions(bands) if inversions(wide) else []
+    # 역전은 **현행 회차 행으로만** 센다(2026-10-25, 126회 심층회고). 구회차(119~122, 깊이열 이전)는
+    # 방법이 달라서, 섞으면 지금 없는 역전이 찍히고(전체 50~55 60.0% > 55~60 54.8%) 지금 있는 역전은
+    # 묻힌다(현행 45~50 58.8% > 50~55 48.9%). 고칠 대상은 지금 쓰는 방법이 만든 순서 붕괴뿐이다.
+    cur = [x for x in xs if current_era(x[3])] if len(xs) else []
+    src, tag = (cur, "현행 회차") if len(cur) >= 60 else (xs, "전체")
+    def _bands(pop, cuts):
+        bs = []
+        for lo, hi in cuts:
+            b = [x for x in pop if lo <= x[0] < hi]
+            if b:
+                bs.append((lo, hi, len(b), sum(x[0] for x in b) / len(b),
+                           sum(1 for x in b if x[1]) / len(b) * 100))
+        return bs
+    nb = _bands(src, [(0, 45), (45, 50), (50, 55), (55, 60), (60, 65), (65, 70), (70, 80), (80, 101)])
+    nw = _bands(src, [(0, 45), (45, 55), (55, 65), (65, 101)])
+    inv = inversions(nb) if inversions(nw) else []
     if inv:
-        out.append("> **뒤집힌 이웃 구간** — 확신을 더 준 구간이 오히려 덜 맞았다. 순서가 깨진 것이라 온도·보정으로는 못 고치고 입력을 고쳐야 한다.")
+        out.append(f"> **뒤집힌 이웃 구간**({tag} n={len(src)}) — 확신을 더 준 구간이 오히려 덜 맞았다. 순서가 깨진 것이라 온도·보정으로는 못 고치고 입력을 고쳐야 한다.")
         out.append("")
         for lo1, hi1, g1, lo2, hi2, g2, d in inv:
             out.append(f"> - {lo1}~{hi1}% 실제 {g1:.1f}%  →  {lo2}~{hi2}% 실제 {g2:.1f}%  ({d:+.1f}p 역전)")
-            issues.append(f"{pre} 이웃 구간 역전: {lo1}~{hi1}%({g1:.1f}%) > {lo2}~{hi2}%({g2:.1f}%) — 확률 순서가 깨짐")
+            issues.append(f"{pre} 이웃 구간 역전({tag}): {lo1}~{hi1}%({g1:.1f}%) > {lo2}~{hi2}%({g2:.1f}%) — 확률 순서가 깨짐")
         out.append("")
     out.append("> 1순위로 고른 방향별")
     out.append("")

@@ -167,7 +167,10 @@
  "카타르": "Qatar",
  "바레인": "Bahrain",
  "예멘": "Yemen",
- "뉴욕 레드불스": "New York Red Bulls",
+ "뉴욕 레드불스": [
+  "New York Red Bulls",
+  "Red Bull New York"
+ ],
  "세인트루이스 시티SC": "St. Louis City SC",
  "에콰도르": "Ecuador",
  "파나마": "Panama",
@@ -319,7 +322,10 @@
  "청두 룽청": "Chengdu",
  "톈진 진먼후": "Tianjin Jinmen Tiger",
  "라요 바예카노": "Rayo",
- "아틀레틱 빌바오": "Athletic Bilbao",
+ "아틀레틱 빌바오": [
+  "Athletic Bilbao",
+  "Athletic Club"
+ ],
  "제노아": "Genoa",
  "ACF피오렌티나": "Fiorentina",
  "TSG1899 호펜하임": "TSG Hoffenheim",

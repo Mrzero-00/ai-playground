@@ -212,6 +212,12 @@ def build(out):
             d = json.load(open(f, encoding="utf-8"))
         except Exception:
             continue
+        # 수집 JSON 은 경기당 dict 가 표준이지만, 분석가 근거 JSON 과 혼동해
+        # [ {...} ] 배열로 저장된 파일이 있다(126회 13:00 블록). 한 겹 벗겨서 받아준다.
+        if isinstance(d, list):
+            d = d[0] if len(d) == 1 and isinstance(d[0], dict) else {}
+        if not isinstance(d, dict):
+            continue
         base = os.path.basename(f)
         m = re.search(r"_\d+_(.+?)-(.+?)(?:_[^_]*)?\.json$", base)
         if not m:

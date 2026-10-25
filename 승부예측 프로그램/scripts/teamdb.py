@@ -251,16 +251,20 @@ def cmd_update(a):
             print(f"{lg}/{code}: ESPN 전용 — 완료 경기 {ne}(신규 {na}, xG 없음)")
         except Exception as e:
             print(f"{lg} 수집 실패:", e)
-    if not a.league:
+    if not a.league or a.league in ("K리그", "kleague"):
         try:
             print("K리그:", kleague_update(a.refresh))
         except Exception as e:
             print("K리그 수집 실패:", e)
-        for key in SPORTS:
-            try:
-                n, na = sport_update(key, a.refresh); print(f"{key.upper()}: 완료 경기 {n}(신규 {na})")
-            except Exception as e:
-                print(f"{key} 수집 실패:", e)
+    # 종목(MLB·NBA)은 --league 로도 고를 수 있어야 한다 —
+    # 예전에는 `--league nba` 가 아무것도 돌리지 않고 조용히 exit 0 이었다(2026-10-25 126회 10:00 블록에서 발견).
+    for key in SPORTS:
+        if a.league and a.league.lower() != key:
+            continue
+        try:
+            n, na = sport_update(key, a.refresh); print(f"{key.upper()}: 완료 경기 {n}(신규 {na})")
+        except Exception as e:
+            print(f"{key} 수집 실패:", e)
 
 
 # ---------------------------------------------------------------- 조회

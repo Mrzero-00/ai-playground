@@ -9,7 +9,7 @@
 - 최근 경기(ESPN, 최대 28일): 2026-09-05 AS Roma 2-1 Atalanta / 2026-09-12 Atalanta 1-2 Cagliari / 2026-09-20 Juventus 2-0 Atalanta / 2026-10-12 Atalanta 3-1 Venezia / 2026-10-18 AC Milan 3-2 Atalanta / 2026-10-15 Atalanta 3-1 Pafos
 <!-- FACTS:END -->
 <!-- INPUTS:START -->
-## 입력(자동 수집 2026-10-24) — xG·휴식일·라인업·환경(이동거리·고도·날씨)은 이 숫자를 쓴다
-- 10-25 23:00 vs 프로시노네: 휴식 2.8일(7일 2경기) · 직전 10-23 원정 vs Ajax Amsterdam 0-2 패 [uefa.europa.conf] · xG 시즌7경기 xG1.24/xGA2.29 npxGD-0.72 · 최근5 1.52/2.41 (-0.44) · 홈-0.42/원정-1.12 · xPts5.1 vs 승점9 · 직전 선발 4-2-3-1 Marco Carnesecchi, Relja Obric, Thomas Kristensen, Davide Zappacosta, Raoul Bellanova, Charles De Ketelaere, Éderson, Gianluca Gaetano, Gianluca Scamacca, Nicola Zalewski, Eljif Elmas · 구장 스타디오 아틀레티 아추리 디탈리아 · 이동 539km · 고도 266m(차 +85m) · 13.9℃ 강수0mm(0%) 바람6.5km/h
+## 입력(자동 수집 2026-10-25) — xG·휴식일·라인업·환경(이동거리·고도·날씨)은 이 숫자를 쓴다
+- 10-25 23:00 vs 프로시노네: 휴식 2.8일(7일 2경기) · 직전 10-23 원정 vs Ajax Amsterdam 0-2 패 [uefa.europa.conf] · xG 시즌7경기 xG1.24/xGA2.29 npxGD-0.72 · 최근5 1.52/2.41 (-0.44) · 홈-0.42/원정-1.12 · xPts5.1 vs 승점9 · 직전 선발 4-2-3-1 Marco Carnesecchi, Relja Obric, Thomas Kristensen, Davide Zappacosta, Raoul Bellanova, Charles De Ketelaere, Éderson, Gianluca Gaetano, Gianluca Scamacca, Nicola Zalewski, Eljif Elmas · 구장 스타디오 아틀레티 아추리 디탈리아 · 이동 541km · 고도 266m(차 +58m) · 14.3℃ 강수0mm(0%) 바람6.2km/h
 <!-- INPUTS:END -->
 

@@ -1,0 +1,182 @@
+{
+  "번호": 515,
+  "홈": "샌디에이고FC",
+  "원정": "시애틀 사운더스FC",
+  "수집시각": "2026-10-25 09:00 KST",
+  "대회": {
+    "이름": "2026 Major League Soccer 정규시즌 (MLS Player Status Report가 'Matchday 32'로 지칭)",
+    "라운드": "정규시즌 32라운드 — 정규시즌 잔여 4경기 시점 (MLS 플레이오프 와일드카드는 11/18 시작 예정이라 이 경기는 플레이오프가 아님)",
+    "형식": "단판, 승무패 인정(연장·승부차기 없음, 정규시즌 리그 경기)",
+    "출처": [
+      "https://mlssoccer.com/news/mls-player-status-report-matchday-32-saturday-october-24-sunday-october-25 (2026-10-24)",
+      "https://www.sounderatheart.com/2026/03/mls-unveils-2026-playoff-schedule/ (2026-03, 와일드카드 11/18~ · 라운드원 11/20~12/2 기술)",
+      "https://www.sounderatheart.com/2026/10/everything-you-need-to-know-about-san-diego-fc-sounders/ (2026-10-24, 'MLS Regular Season')",
+      "https://www.oursportscentral.com/services/releases/san-diego-fc-hosts-seattle-sounders-fc-on-fan-appreciation-night-presented-by-snapdragon/n-6423660 (2026-10, 'Fan Appreciation Night' 정규시즌 홈경기)"
+    ],
+    "날짜": "2026-10-24(미국 현지, 킥오프 19:30 PT = 2026-10-25 11:30 KST)"
+  },
+  "결장": [
+    {
+      "팀": "홈",
+      "선수": "Elias Achouri",
+      "포지션": "공격수(FW/윙어)",
+      "이번시즌_선발/경기": "미확인",
+      "득점·도움": "미확인",
+      "사유": "Lower Body",
+      "상태": "확정",
+      "복귀예정": "미정",
+      "대체선수": "Cédric Bakambu(선발 유력으로 보도)",
+      "출처": "https://mlssoccer.com/news/mls-player-status-report-matchday-32-saturday-october-24-sunday-october-25 ; https://bvmsports.com/2026/10/24/san-diego-fc-vs-sounders-preview-injuries-and-key-players/",
+      "날짜": "2026-10-24"
+    },
+    {
+      "팀": "원정",
+      "선수": "Pedro de la Vega",
+      "포지션": "공격수(FW/윙어)",
+      "이번시즌_선발/경기": "미확인",
+      "득점·도움": "미확인",
+      "사유": "Quad",
+      "상태": "확정",
+      "복귀예정": "미정",
+      "대체선수": "미확인",
+      "출처": "https://mlssoccer.com/news/mls-player-status-report-matchday-32-saturday-october-24-sunday-october-25",
+      "날짜": "2026-10-24"
+    },
+    {
+      "팀": "원정",
+      "선수": "Yeimar Gómez Andrade",
+      "포지션": "수비수(DF, 센터백)",
+      "이번시즌_선발/경기": "2026시즌 7경기 출전(350분 미만), 2026-09-26 복귀 전 6개월·26경기 결장 이력",
+      "득점·도움": "미확인",
+      "사유": "햄스트링 부상 재발 — 2026-10-22(목) 훈련 중 반대쪽(오른쪽→왼쪽) 햄스트링 통증으로 조기 퇴장",
+      "상태": "확정",
+      "복귀예정": "잔여 정규시즌 4경기 내 복귀 어려울 전망(시즌 중 복귀 불투명)",
+      "대체선수": "Alex Roldan, Kim Kee-hee, Stuart Hawkins 등 센터백 옵션",
+      "출처": "https://www.sounderatheart.com/2026/10/yeimar-suffers-another-injury-setback-return-timeline-unclear/ ; https://www.rotowire.com/soccer/headlines/yeimar-gomez-injury-hamstring-discomfort-returns-541636 ; https://mlssoccer.com/news/mls-player-status-report-matchday-32-saturday-october-24-sunday-october-25",
+      "날짜": "2026-10-23",
+      "비고": "직전 경기(10-18 vs CF Montréal)에는 선발 출전했던 선수로, 입력_126.md의 '직전 선발 XI' 자체는 정확하나 그 이후(10/22 훈련) 새로 발생한 결장임 — 교체 반영 필요"
+    },
+    {
+      "팀": "원정",
+      "선수": "Danny Musovski",
+      "포지션": "공격수(FW)",
+      "이번시즌_선발/경기": "미확인",
+      "득점·도움": "미확인",
+      "사유": "Head(두부 이슈, 뇌진탕 가능성 보도)",
+      "상태": "확정",
+      "복귀예정": "미정, 장기 결장 가능성 보도",
+      "대체선수": "미확인",
+      "출처": "https://mlssoccer.com/news/mls-player-status-report-matchday-32-saturday-october-24-sunday-october-25 ; https://rotowire.com/soccer/headlines/danny-musovski-injury-head-concern-sidelines-him-541637",
+      "날짜": "2026-10-24"
+    },
+    {
+      "팀": "원정",
+      "선수": "Nikola Petković",
+      "포지션": "미드필더(MF)",
+      "이번시즌_선발/경기": "미확인",
+      "득점·도움": "미확인",
+      "사유": "Knee",
+      "상태": "확정",
+      "복귀예정": "미정",
+      "대체선수": "미확인",
+      "출처": "https://mlssoccer.com/news/mls-player-status-report-matchday-32-saturday-october-24-sunday-october-25",
+      "날짜": "2026-10-24"
+    },
+    {
+      "팀": "원정",
+      "선수": "Paul Rothrock",
+      "포지션": "미드필더(MF/윙어)",
+      "이번시즌_선발/경기": "미확인",
+      "득점·도움": "미확인",
+      "사유": "Hamstring",
+      "상태": "의심",
+      "복귀예정": "출전 유동적(공식 리포트상 Questionable)",
+      "대체선수": "미확인",
+      "출처": "https://mlssoccer.com/news/mls-player-status-report-matchday-32-saturday-october-24-sunday-october-25 ; https://www.sounderatheart.com/2026/10/everything-you-need-to-know-about-san-diego-fc-sounders/",
+      "날짜": "2026-10-24"
+    }
+  ],
+  "라인업": {
+    "홈": {
+      "발표여부": "미발표(킥오프 2.6시간 전 기준)",
+      "예상XI": [],
+      "포메이션": "직전 경기 4-3-3(10-18 vs LA Galaxy) 기준, Achouri 결장으로 Cédric Bakambu가 선발 전환 전망",
+      "출처": "회차별분석/입력_126.md ; https://bvmsports.com/2026/10/24/san-diego-fc-vs-sounders-preview-injuries-and-key-players/",
+      "날짜": "2026-10-25"
+    },
+    "원정": {
+      "발표여부": "미발표(킥오프 2.6시간 전 기준)",
+      "예상XI": [],
+      "포메이션": "직전 경기 4-2-3-1(10-18 vs CF Montréal) 기준이나 Yeimar 결장으로 센터백 변경 불가피",
+      "출처": "회차별분석/입력_126.md ; https://www.sounderatheart.com/2026/10/yeimar-suffers-another-injury-setback-return-timeline-unclear/",
+      "날짜": "2026-10-25"
+    }
+  },
+  "최근경기": [
+    {"팀": "홈", "날짜": "2026-10-18", "상대": "LA Galaxy", "장소": "원정(Dignity Health Sports Park)", "스코어": "2-2", "비고": "San Diego가 한 골 뒤지다 동점 — 출처: https://www.oursportscentral.com/services/releases/san-diego-fc-battles-la-galaxy-to-a-2-2-draw-at-dignity-health-sports-park/n-6422566"},
+    {"팀": "홈", "날짜": "2026-10-15", "상대": "Houston Dynamo FC", "장소": "홈", "스코어": "3-3", "비고": "86분 Gabriel Pirani 동점골 — 출처: https://www.sandiegofc.com/news/match-preview-presented-by-ticketmaster-san-diego-fc-continues-playoff-push-against-la-galaxy-on-saturday"},
+    {"팀": "홈", "날짜": "2026-10-10", "상대": "Red Bull New York(NYRB)", "장소": "원정", "스코어": "1-4 패", "비고": "출처: 팀노트 샌디에이고FC.md FACTS"},
+    {"팀": "원정", "날짜": "2026-10-18", "상대": "CF Montréal", "장소": "홈(Lumen Field)", "스코어": "1-1", "비고": "전반 부진에 관중 야유, 하프타임 2명 교체(Alex Roldan→Kossa-Rienzi, Caden Clark→Sebastian Gomez) — 출처: https://www.sounderatheart.com/2026/10/not-good-enough-sounders-start-flat-salvage-point-vs-montreal/"},
+    {"팀": "원정", "날짜": "2026-10-10", "상대": "New England Revolution", "장소": "원정", "스코어": "3-0 승", "비고": "출처: 팀노트 시애틀 사운더스FC.md FACTS"},
+    {"팀": "원정", "날짜": "2026-10-02", "상대": "Sporting Kansas City", "장소": "홈", "스코어": "2-1 승", "비고": "출처: 팀노트 시애틀 사운더스FC.md FACTS"}
+  ],
+  "시즌기록": {
+    "홈": {
+      "승무패": "8승 10무 12패(30경기)",
+      "득실": "GD -3, 승점 34",
+      "홈성적": "최근 7경기 연속 2실점 이상(합계 22실점)",
+      "최근5": "3-3(Houston,홈)·2-2(LA Galaxy,원정) 등 최근 8경기 무승",
+      "출처": "https://www.sounderatheart.com/2026/10/everything-you-need-to-know-about-san-diego-fc-sounders/ ; https://yournews.com/2026/10/24/7237304/san-diego-fc-running-out-of-time-in-playoff-push",
+      "날짜": "2026-10-24"
+    },
+    "원정": {
+      "승무패": "11승 9무 10패(30경기)",
+      "득실": "GD +2, 승점 42",
+      "원정성적": "미확인(세부 분리 수치 못찾음)",
+      "최근5": "최근 7경기 14득점(시즌 내 최고 득점 페이스) — 1-1(CF Montréal,홈)·1-0패(FC Dallas,원정)·0-3승(New England,원정)·2-1승(Sporting KC,홈)·3-1승(Minnesota,홈)",
+      "출처": "https://www.sounderatheart.com/2026/10/everything-you-need-to-know-about-san-diego-fc-sounders/ ; 팀노트 시애틀 사운더스FC.md FACTS",
+      "날짜": "2026-10-24"
+    }
+  },
+  "맞대결": [
+    {"날짜": "2026-05-09", "장소": "Lumen Field(시애틀 홈)", "스코어": "1-1", "출처": "https://www.sounderatheart.com/2026/10/everything-you-need-to-know-about-san-diego-fc-sounders/ (2026시즌 1차전으로 직접 인용)"},
+    {"날짜": "미확인(2025시즌 내)", "장소": "미확인", "스코어": "San Diego-Seattle 전적 1승1무1패(통산)로 소개됨 — 세부 날짜·스코어 2건은 출처마다 달라 교차검증 실패(엇갈림 항목 참고)", "출처": "https://www.sounderatheart.com/2026/10/everything-you-need-to-know-about-san-diego-fc-sounders/"}
+  ],
+  "순위": {
+    "홈": "서부 컨퍼런스 12위, 플레이오프 라인에서 승점 5점 뒤짐 — 출처: https://www.sounderatheart.com/2026/10/everything-you-need-to-know-about-san-diego-fc-sounders/ ; https://yournews.com/2026/10/24/7237304/san-diego-fc-running-out-of-time-in-playoff-push",
+    "원정": "서부 컨퍼런스 7위(11승9무10패, 승점42) — 출처: 팀노트 시애틀 사운더스FC.md FACTS",
+    "출처": "https://www.sounderatheart.com/2026/10/everything-you-need-to-know-about-san-diego-fc-sounders/",
+    "날짜": "2026-10-24"
+  },
+  "감독": {
+    "홈": "Mikey Varas(변동 보도 없음)",
+    "원정": "Brian Schmetzer(변동 보도 없음)",
+    "변동": "없음",
+    "출처": "팀노트 샌디에이고FC.md / 시애틀 사운더스FC.md FACTS",
+    "날짜": "2026-10-23"
+  },
+  "일정·동기·기타": [
+    {"내용": "샌디에이고: 최근 8경기 무승, 플레이오프 라인 5점 뒤짐 — 이번 홈경기 패배 시 사실상 플레이오프 탈락 위기로 보도됨", "출처": "https://yournews.com/2026/10/24/7237304/san-diego-fc-running-out-of-time-in-playoff-push", "날짜": "2026-10-24"},
+    {"내용": "시애틀: 최근 7경기 14득점으로 시즌 최고 득점 페이스, 반면 수비(Yeimar 등) 줄부상", "출처": "https://www.sounderatheart.com/2026/10/everything-you-need-to-know-about-san-diego-fc-sounders/", "날짜": "2026-10-24"},
+    {"내용": "이 경기는 샌디에이고 홈 'Fan Appreciation Night presented by Snapdragon' 프로모션 경기", "출처": "https://www.oursportscentral.com/services/releases/san-diego-fc-hosts-seattle-sounders-fc-on-fan-appreciation-night-presented-by-snapdragon/n-6423660", "날짜": "2026-10"},
+    {"내용": "시애틀 원정 이동거리 약 1704km(입력_126.md 자동계산) — 장거리 원정 경고 표시됨", "출처": "회차별분석/입력_126.md", "날짜": "2026-10-25"}
+  ],
+  "구장": {
+    "이름": "Snapdragon Stadium(스냅드래곤 스타디움), San Diego, California",
+    "인조잔디여부": "천연(Bermuda grass, 2025년 Latitude 36에서 Tahoma 품종으로 교체·West Coast Turf 공급)",
+    "고도": "약 22m",
+    "출처": "https://en.wikipedia.org/wiki/Snapdragon_Stadium ; https://www.nbcsandiego.com/news/sports/snapdragon-crew-confident-in-turf-ahead-of-busy-season/3892128/ ; 회차별분석/입력_126.md",
+    "날짜": "2026-10-25"
+  },
+  "엇갈림": [
+    "San Diego FC vs Seattle 통산 맞대결 상세 스코어·날짜가 출처마다 다름(일부 2차 검색 요약은 '2025-04 샌디에이고 3-0', '2025-05-29 시애틀 1-0'을 제시했으나 1차 출처인 sounderatheart.com 기사는 '2026-05-09 1-1 무(통산 1승1무1패)'만 직접 인용 — 통산 전적(1-1-1)은 일치하나 세부 스코어·날짜는 sounderatheart 1차 출처만 신뢰하고 나머지는 보류.",
+    "Yeimar Gómez Andrade는 입력_126.md의 '직전 선발 XI'(10-18 vs CF Montréal)에 포함되어 있어 그 경기까지는 정상 출전했음이 확인됨 — 이후 10/22 훈련 중 부상으로 이번 경기 결장. 팀/선수 매칭 오류는 아니며 시점 차이에 따른 자연스러운 변화임."
+  ],
+  "못찾음": [
+    "San Diego FC·Seattle Sounders 결장 선수들의 이번 시즌 출전 횟수·득점/도움 통계",
+    "양 팀 원정 전용 성적(승무패 분리 수치)",
+    "양 팀의 이번 경기 예상 선발 명단(공식 라인업 미발표)",
+    "심판 배정 정보"
+  ],
+  "뉴스없음": {}
+}

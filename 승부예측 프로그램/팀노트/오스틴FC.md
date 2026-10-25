@@ -9,7 +9,7 @@
 - 최근 경기(ESPN, 최대 28일): 2026-09-20 FC Dallas 0-0 Austin FC / 2026-09-27 Austin FC 3-3 San Diego FC / 2026-10-11 Austin FC 1-4 Nashville SC / 2026-10-15 LAFC 3-1 Austin FC / 2026-10-18 Austin FC 1-2 Vancouver Whitecaps
 <!-- FACTS:END -->
 <!-- INPUTS:START -->
-## 입력(자동 수집 2026-10-24) — xG·휴식일·라인업·환경(이동거리·고도·날씨)은 이 숫자를 쓴다
-- 10-25 09:30 vs 스포팅 캔자스시티: 휴식 7.0일 · 직전 10-18 홈 vs Vancouver Whitecaps 1-2 패 [usa.1] · xG - · 직전 선발 3-4-3 Brad Stuver, Oleksandr Svatok, Jon Bell, Brendan Hines-Ike, Besard Sabovic, Ervin Torres, Jon Gallagher, Joseph Rosales, Brandon Vázquez, Myrto Uzuni, Christian Ramírez · 구장 스포팅 파크 · 이동 1006km · 고도 305m(차 +72m) · 20.3℃ 강수0mm(0%) 바람11.7km/h · ⚠ 장거리 원정 1006km
+## 입력(자동 수집 2026-10-25) — xG·휴식일·라인업·환경(이동거리·고도·날씨)은 이 숫자를 쓴다
+- 10-25 09:30 vs 스포팅 캔자스시티: 휴식 7.0일 · 직전 10-18 홈 vs Vancouver Whitecaps 1-2 패 [usa.1] · xG - · 선발 3-4-3 Damian Las, Joseph Rosales, Guilherme Biro, Mikkel Desler, Jorge Alastuey, Ervin Torres, Jon Gallagher, Ilie Sánchez, Facundo Torres, Myrto Uzuni, Brandon Vázquez · 직전 대비 교체 6명(Brad Stuver, Oleksandr Svatok, Jon Bell, Brendan Hines-Ike, Besard Sabovic, Christian Ramírez) · 구장 스포팅 파크 · 이동 1006km · 고도 305m(차 +72m) · 20.4℃ 강수0mm(0%) 바람10.9km/h · ⚠ 장거리 원정 1006km
 <!-- INPUTS:END -->
 

@@ -1,0 +1,237 @@
+{
+  "번호": 511,
+  "홈": "포틀랜드 팀버스",
+  "원정": "샬럿FC",
+  "수집시각": "2026-10-25 09:00 KST",
+  "대회": {
+    "이름": "2026 Major League Soccer 정규시즌 (MLS Player Status Report가 'Matchday 32'로 지칭)",
+    "라운드": "정규시즌 32라운드 — 정규시즌 잔여 4경기 시점 (MLS 플레이오프 와일드카드는 11/18 시작 예정이라 이 경기는 플레이오프가 아님)",
+    "형식": "단판, 승무패 인정(연장·승부차기 없음, 정규시즌 리그 경기)",
+    "출처": [
+      "https://mlssoccer.com/news/mls-player-status-report-matchday-32-saturday-october-24-sunday-october-25 (2026-10-24)",
+      "https://www.sounderatheart.com/2026/03/mls-unveils-2026-playoff-schedule/ (2026-03, 와일드카드 11/18~ · 라운드원 11/20~12/2 기술)",
+      "https://www.bleachernation.com/how-to-watch/2026/10/24/where-to-watch-portland-timbers-vs-charlotte-fc-tv-channel-start-time-and-live-stream/ (2026-10-24, 'regular season fixture')",
+      "https://www.timbers.com/news/matchday-timbers-set-for-battle-with-charlotte-fc-saturday-at-providence-park (2026-10-24, '2026 MLS 정규시즌 잔여 4경기')"
+    ],
+    "날짜": "2026-10-24(미국 현지, 킥오프 19:30 PT = 2026-10-25 11:30 KST)"
+  },
+  "결장": [
+    {
+      "팀": "홈",
+      "선수": "Alex Bonetig",
+      "포지션": "수비수(DF)",
+      "이번시즌_선발/경기": "미확인",
+      "득점·도움": "미확인",
+      "사유": "Shoulder",
+      "상태": "확정",
+      "복귀예정": "미정",
+      "대체선수": "미확인",
+      "출처": "https://mlssoccer.com/news/mls-player-status-report-matchday-32-saturday-october-24-sunday-october-25",
+      "날짜": "2026-10-24"
+    },
+    {
+      "팀": "홈",
+      "선수": "Brandon Bye",
+      "포지션": "수비수(DF, 백라인)",
+      "이번시즌_선발/경기": "미확인",
+      "득점·도움": "미확인",
+      "사유": "Knee",
+      "상태": "확정",
+      "복귀예정": "미정",
+      "대체선수": "미확인",
+      "출처": "https://mlssoccer.com/news/mls-player-status-report-matchday-32-saturday-october-24-sunday-october-25",
+      "날짜": "2026-10-24"
+    },
+    {
+      "팀": "홈",
+      "선수": "Zac McGraw",
+      "포지션": "수비수(DF, 센터백)",
+      "이번시즌_선발/경기": "미확인",
+      "득점·도움": "미확인",
+      "사유": "Back",
+      "상태": "확정",
+      "복귀예정": "미정",
+      "대체선수": "미확인",
+      "출처": "https://mlssoccer.com/news/mls-player-status-report-matchday-32-saturday-october-24-sunday-october-25",
+      "날짜": "2026-10-24"
+    },
+    {
+      "팀": "홈",
+      "선수": "Juan Mosquera",
+      "포지션": "수비수(DF, 라이트백)",
+      "이번시즌_선발/경기": "미확인",
+      "득점·도움": "미확인",
+      "사유": "Foot/Ankle",
+      "상태": "확정",
+      "복귀예정": "미정",
+      "대체선수": "미확인",
+      "출처": "https://mlssoccer.com/news/mls-player-status-report-matchday-32-saturday-october-24-sunday-october-25",
+      "날짜": "2026-10-24",
+      "비고": "보도에 따르면 Bye·McGraw·Mosquera 셋 모두 결장으로 포틀랜드 백라인이 '임시 편성(makeshift)' 상태"
+    },
+    {
+      "팀": "원정",
+      "선수": "Archie Goodwin",
+      "포지션": "공격수(FW)",
+      "이번시즌_선발/경기": "미확인",
+      "득점·도움": "미확인",
+      "사유": "족저판(plantar plate) 파열로 2026-10-06 수술, 시즌아웃(4~5개월 예상)",
+      "상태": "확정",
+      "복귀예정": "4~5개월(2026시즌 내 복귀 불가, 시즌아웃 리스트 등재)",
+      "대체선수": "Hugo Mbongue(Crown Legacy에서 1군 콜업, 2026-10-09 계약)",
+      "출처": "https://www.charlottefootballclub.com/news/injury-update-archie-goodwin-undergoes-successful-surgery ; https://mlssoccer.com/news/mls-player-status-report-matchday-32-saturday-october-24-sunday-october-25",
+      "날짜": "2026-10-06(수술) / 2026-10-24(상태 재확인)"
+    },
+    {
+      "팀": "원정",
+      "선수": "Aron John",
+      "포지션": "미확인",
+      "이번시즌_선발/경기": "미확인",
+      "득점·도움": "미확인",
+      "사유": "Upper Body — 시즌아웃 리스트 등재",
+      "상태": "확정",
+      "복귀예정": "2026시즌 복귀 불가",
+      "대체선수": "미확인",
+      "출처": "https://mlssoccer.com/news/mls-player-status-report-matchday-32-saturday-october-24-sunday-october-25",
+      "날짜": "2026-10-24"
+    },
+    {
+      "팀": "원정",
+      "선수": "Nimfasha Berchimas",
+      "포지션": "미확인",
+      "이번시즌_선발/경기": "미확인",
+      "득점·도움": "미확인",
+      "사유": "Lower Body",
+      "상태": "확정",
+      "복귀예정": "미정",
+      "대체선수": "미확인",
+      "출처": "https://mlssoccer.com/news/mls-player-status-report-matchday-32-saturday-october-24-sunday-october-25",
+      "날짜": "2026-10-24"
+    },
+    {
+      "팀": "원정",
+      "선수": "Brandt Bronico",
+      "포지션": "미드필더(MF)",
+      "이번시즌_선발/경기": "미확인",
+      "득점·도움": "미확인",
+      "사유": "Lower Body",
+      "상태": "확정",
+      "복귀예정": "미정",
+      "대체선수": "미확인",
+      "출처": "https://mlssoccer.com/news/mls-player-status-report-matchday-32-saturday-october-24-sunday-october-25",
+      "날짜": "2026-10-24",
+      "비고": "10월 초(FC Dallas전) 보도에서는 '리스트 제외=출전 가능'으로 나왔다가 10/24 공식 리포트에서 결장으로 전환 — 새 이슈로 보임(출처: bigdsoccer.com FC Dallas 리포트 vs mlssoccer.com 10/24)"
+    },
+    {
+      "팀": "원정",
+      "선수": "Will Cleary",
+      "포지션": "미확인",
+      "이번시즌_선발/경기": "미확인",
+      "득점·도움": "미확인",
+      "사유": "Illness",
+      "상태": "확정",
+      "복귀예정": "미정",
+      "대체선수": "미확인",
+      "출처": "https://mlssoccer.com/news/mls-player-status-report-matchday-32-saturday-october-24-sunday-october-25",
+      "날짜": "2026-10-24"
+    },
+    {
+      "팀": "원정",
+      "선수": "Abdoulaye Doucouré",
+      "포지션": "미드필더(MF)",
+      "이번시즌_선발/경기": "0경기(2026-10-10 계약, 아직 MLS 데뷔 전)",
+      "득점·도움": "없음",
+      "사유": "비자 문제 + 경기 체력 미비 — 캐나다에서 복귀 중이며 구단이 동행 여부 최종 결정 예정",
+      "상태": "의심",
+      "복귀예정": "이번 경기 동행 여부 킥오프 임박까지 미정, 설령 동행해도 선발은 아닐 전망(교체 투입 가능성)",
+      "대체선수": "해당없음(원래도 미출전)",
+      "출처": "https://www.rotowire.com/soccer/headlines/abdoulaye-doucoure-injury-remains-uncertain-for-portland-541402 (Dean Smith 감독 발언 인용)",
+      "날짜": "2026-10-22"
+    }
+  ],
+  "라인업": {
+    "홈": {
+      "발표여부": "미발표(킥오프 2.6시간 전 기준)",
+      "예상XI": [],
+      "포메이션": "직전 경기 4-3-3(10-18 vs Colorado Rapids) 기준이나 백라인 3명 결장으로 변경 가능성 — 확정 아님",
+      "출처": "회차별분석/입력_126.md; https://mlssoccer.com/news/mls-player-status-report-matchday-32-saturday-october-24-sunday-october-25",
+      "날짜": "2026-10-25"
+    },
+    "원정": {
+      "발표여부": "미발표(킥오프 2.6시간 전 기준)",
+      "예상XI": [],
+      "포메이션": "직전 경기 4-3-3(또는 4-2-3-1 표기, 10-17 vs Philadelphia Union) 기준",
+      "출처": "회차별분석/입력_126.md",
+      "날짜": "2026-10-25"
+    }
+  },
+  "최근경기": [
+    {"팀": "홈", "날짜": "2026-10-18", "상대": "Colorado Rapids", "장소": "홈(Providence Park)", "스코어": "0-0", "비고": "콜로라도가 플레이오프 마지노선 5점 앞선 상황에서 포틀랜드가 승점 필요했던 경기; 포틀랜드 홈 6경기 무득점(10월 중 4경기) — 출처: https://www.beinsports.com/en-us/soccer/mls/articles/portland-boss-cifuentes-wary-of-experienced-charlotte-side-2026-10-23"},
+    {"팀": "홈", "날짜": "2026-10-15", "상대": "LA Galaxy", "장소": "원정", "스코어": "0-2 패", "비고": "출처: rotowire(2026-10-14/22 기사 교차언급), https://www.rotowire.com/soccer/headlines/cole-bassett-injury-doesnt-play-due-to-illness-539327"},
+    {"팀": "홈", "날짜": "2026-10-11", "상대": "Sporting Kansas City", "장소": "원정", "스코어": "3-3", "비고": "출처: 회차별분석/입력_126.md 이전 기록 교차확인 및 rotowire"},
+    {"팀": "원정", "날짜": "2026-10-17", "상대": "Philadelphia Union", "장소": "원정", "스코어": "2-2", "비고": "Milan Iloski PK 24' 선제, Rodolfo Aloko 48' 동점, Idan Toklomati 62' 역전골로 샬럿이 필라델피아 연승 저지 — 출처: https://phillysoccerpage.net/2026/10/17/match-report-philadelphia-union-2-2-charlotte-fc/ (2026-10-17)"},
+    {"팀": "원정", "날짜": "2026-10-14", "상대": "Columbus Crew", "장소": "원정", "스코어": "1-3 패", "비고": "출처: 팀노트 샬럿FC.md FACTS"},
+    {"팀": "원정", "날짜": "2026-10-10", "상대": "FC Dallas", "장소": "홈", "스코어": "3-2 승", "비고": "출처: 팀노트 샬럿FC.md FACTS"}
+  ],
+  "시즌기록": {
+    "홈": {
+      "승무패": "9승 7무 14패(30경기)",
+      "득실": "GD -5, 승점 34",
+      "홈성적": "최근 홈 6경기 무득점 4경기(10월 기준)",
+      "최근5": "0-2패(LA Galaxy, 원정) · 0-0무(Colorado, 홈) 포함 최근 7경기 무승(3무4패)",
+      "출처": "https://www.beinsports.com/en-us/soccer/mls/articles/portland-boss-cifuentes-wary-of-experienced-charlotte-side-2026-10-23",
+      "날짜": "2026-10-23"
+    },
+    "원정": {
+      "승무패": "13승 8무 9패(30경기)",
+      "득실": "GD +8, 승점 47",
+      "원정성적": "미확인(세부 분리 수치 못찾음)",
+      "최근5": "2-2무(Philadelphia, 원정) · 1-3패(Columbus, 원정) · 3-2승(FC Dallas, 홈) · 0-1패(Chicago Fire, 홈) · 2-1승(D.C. United, 원정)",
+      "출처": "팀노트 샬럿FC.md FACTS; https://phillysoccerpage.net/2026/10/17/match-report-philadelphia-union-2-2-charlotte-fc/",
+      "날짜": "2026-10-23"
+    }
+  },
+  "맞대결": [
+    {"날짜": "2024-05-04", "장소": "Bank of America Stadium(샬럿 홈)", "스코어": "샬럿 2-0 포틀랜드", "출처": "https://www.timbers.com/news/recap-portland-timbers-suffer-2-0-road-loss-to-charlotte-fc"},
+    {"날짜": "2025-02-15", "장소": "프리시즌(중립/샬럿 주관)", "스코어": "샬럿 2-0 포틀랜드(프리시즌, 공식 기록 미포함)", "출처": "검색 요약(2차 출처, 원문 미확인) — 공식 MLS 전적에는 비공식 경기로 제외될 수 있음"}
+  ],
+  "순위": {
+    "홈": "서부 컨퍼런스 11위(9승7무14패, 승점34) — 출처: 팀노트 포틀랜드 팀버스.md FACTS, https://www.beinsports.com/en-us/soccer/mls/articles/portland-boss-cifuentes-wary-of-experienced-charlotte-side-2026-10-23 (2026-10-23). 전체 리그(30팀 통합) 기준으로는 22위라는 보도도 있음(단일 출처, goal.com '포틀랜드 22위, 샬럿 9위' — 컨퍼런스 기준과 통합 기준이 달라 발생한 차이로 추정, 엇갈림 항목 참고)",
+    "원정": "동부 컨퍼런스 5위(13승8무9패, 승점47) — 출처: 팀노트 샬럿FC.md FACTS, https://www.beinsports.com/en-us/soccer/mls/articles/portland-boss-cifuentes-wary-of-experienced-charlotte-side-2026-10-23",
+    "출처": "https://www.beinsports.com/en-us/soccer/mls/articles/portland-boss-cifuentes-wary-of-experienced-charlotte-side-2026-10-23",
+    "날짜": "2026-10-23"
+  },
+  "감독": {
+    "홈": "Martí Cifuentes(2026-07-21 선임, 3년 계약) — 전임 Phil Neville는 2026년 5월 경질, Jack Cassidy가 임시감독으로 공백 수행 후 Cifuentes 부임. 전 레스터시티(EFL 챔피언십) 감독, 2026년초 경질 후 포틀랜드 부임",
+    "원정": "Dean Smith(변동 보도 없음)",
+    "변동": "홈팀 시즌 중 감독 교체(Neville 경질→Cassidy 대행→Cifuentes 선임)",
+    "출처": "https://www.columbian.com/news/2026/jul/21/portland-timbers-hire-marti-cifuentes-as-next-head-coach/ ; https://www.espn.com/soccer/story/_/id/49419534/portland-timbers-hire-former-leicester-manager-cifuentes",
+    "날짜": "2026-07-21"
+  },
+  "일정·동기·기타": [
+    {"내용": "포틀랜드: 플레이오프 마지노선(서부 컨퍼런스 최종 와일드카드/플레이오프 라인)까지 콜로라도에 승점 5점 뒤진 11위, 정규시즌 4경기 남음 — 사실상 탈락권에 근접", "출처": "https://www.beinsports.com/en-us/soccer/mls/articles/portland-boss-cifuentes-wary-of-experienced-charlotte-side-2026-10-23", "날짜": "2026-10-23"},
+    {"내용": "샬럿: 동부 컨퍼런스 2위 경쟁 가능성이 남아 시딩 결정 동기부여 존재", "출처": "https://www.beinsports.com/en-us/soccer/mls/articles/portland-boss-cifuentes-wary-of-experienced-charlotte-side-2026-10-23", "날짜": "2026-10-23"},
+    {"내용": "Cifuentes 감독 발언: '경험 많은 팀(샬럿)이 상황 대처에 능하다(더 침착하다)' — 상대 존중 발언", "출처": "https://www.beinsports.com/en-us/soccer/mls/articles/portland-boss-cifuentes-wary-of-experienced-charlotte-side-2026-10-23", "날짜": "2026-10-23"},
+    {"내용": "구단 자체 매치데이 공지: 선착순 1만명 Providence Park 100주년 기념 패치 증정, PT Authentics 세일 — 경기 외적 이벤트", "출처": "https://www.timbers.com/news/matchday-timbers-set-for-battle-with-charlotte-fc-saturday-at-providence-park", "날짜": "2026-10-24"},
+    {"내용": "샬럿FC는 10/9 로스터 동결 데드라인 직전 Doucouré·Mbongue·Nathan Richmond 3명을 신규 계약, Mbongue는 Crown Legacy(2군)에서 콜업", "출처": "https://www.charlottefootballclub.com/news/charlotte-fc-signs-three-players-prior-to-mls-roster-freeze-deadline", "날짜": "2026-10-09"}
+  ],
+  "구장": {
+    "이름": "Providence Park(프로비던스 파크), Portland, Oregon",
+    "인조잔디여부": "인조(FieldTurf 계열, MLS 축구전용구장 중 유일하게 천연잔디가 아님)",
+    "고도": "약 34m",
+    "출처": "https://en.wikipedia.org/wiki/Providence_Park ; https://soccerstadiumdigest.com/providence-park-portland-timbers/ ; 회차별분석/입력_126.md",
+    "날짜": "2026-10-25"
+  },
+  "엇갈림": [
+    "샬럿FC의 '직전 경기'(vs Philadelphia Union) 날짜가 입력_126.md/팀노트 INPUTS에는 10-18로, 공식 경기 리포트(phillysoccerpage.net, charlottefootballclub.com)에는 10-17로 표기됨. 스코어(2-2)·선발 명단이 동일해 같은 경기로 판단되며, 미국 현지시각(10/17 저녁)과 UTC/자동수집 스크립트 기준일(10/18)의 표기 차이로 추정 — 팀 자체가 뒤바뀐 것은 아님.",
+    "포틀랜드 순위 표기: '서부 컨퍼런스 11위'(다수 출처)와 '리그 통합 22위'(goal.com 단일 출처)가 혼재 — 컨퍼런스별 집계와 리그 전체(30팀) 집계 차이로 추정, 모순 아님.",
+    "Brandt Bronico는 10월 초(FC Dallas전) 보도에서 '결장 명단 제외=출전 가능'이었으나 10/24 MLS 공식 리포트에는 결장(Lower Body)으로 등재 — 그 사이 새로운 이슈가 생긴 것으로 보이나 구체적 발생 시점 기사를 찾지 못함."
+  ],
+  "못찾음": [
+    "포틀랜드 결장자(Bonetig·Bye·McGraw·Mosquera)의 이번 시즌 출전 횟수·득점/도움 통계",
+    "샬럿FC 원정 전용 성적(승무패 분리 수치)",
+    "양 팀의 이번 경기 예상 선발 명단(공식 라인업 미발표)",
+    "심판 배정 정보"
+  ],
+  "뉴스없음": {}
+}

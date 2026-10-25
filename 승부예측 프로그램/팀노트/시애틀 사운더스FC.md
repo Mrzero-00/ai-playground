@@ -9,7 +9,7 @@
 - 최근 경기(ESPN, 최대 28일): 2026-09-27 Seattle Sounders FC 3-1 Minnesota United FC / 2026-10-02 Seattle Sounders FC 2-1 Sporting Kansas City / 2026-10-10 New England Revolution 0-3 Seattle Sounders FC / 2026-10-15 FC Dallas 1-0 Seattle Sounders FC / 2026-10-18 Seattle Sounders FC 1-1 CF Montréal
 <!-- FACTS:END -->
 <!-- INPUTS:START -->
-## 입력(자동 수집 2026-10-24) — xG·휴식일·라인업·환경(이동거리·고도·날씨)은 이 숫자를 쓴다
-- 10-25 11:30 vs 샌디에이고FC: 휴식 7.0일 · 직전 10-18 홈 vs CF Montréal 1-1 무 [usa.1] · xG - · 직전 선발 4-2-3-1 Andy Thomas, Ryan Sailor, Yeimar Gómez, Nouhou Tolo, Alex Roldan, Albert Rusnák, Cristian Roldan, Hassani Dotson, Dejan Joveljic, Jordan Morris, Caden Clark · 구장 스냅드래곤 스타디움 · 이동 1704km · 고도 22m(차 +12m) · 19.6℃ 강수0mm(1%) 바람6.1km/h · ⚠ 장거리 원정 1704km
+## 입력(자동 수집 2026-10-25) — xG·휴식일·라인업·환경(이동거리·고도·날씨)은 이 숫자를 쓴다
+- 10-25 11:30 vs 샌디에이고FC: 휴식 7.0일 · 직전 10-18 홈 vs CF Montréal 1-1 무 [usa.1] · xG - · 직전 선발 4-2-3-1 Andy Thomas, Ryan Sailor, Yeimar Gómez, Nouhou Tolo, Alex Roldan, Albert Rusnák, Cristian Roldan, Hassani Dotson, Dejan Joveljic, Jordan Morris, Caden Clark · 구장 스냅드래곤 스타디움 · 이동 1704km · 고도 22m(차 +12m) · 19.1℃ 강수0mm(1%) 바람6.2km/h · ⚠ 장거리 원정 1704km
 <!-- INPUTS:END -->
 

@@ -103,7 +103,14 @@ def main() -> None:
     ap.add_argument("--adj-away", type=float, default=0.0, help="원정 순 레이팅 보정 %p (상한 ±3)")
     ap.add_argument("--spread", type=float, default=None, help="홈 기준 소수핸디캡 (예: -1.5)")
     ap.add_argument("--total", type=float, default=None, help="언더오버 기준선")
+    ap.add_argument("--lg-rtg", type=float, default=None,
+                    help="리그 평균 ORtg — 넣는 ORtg/DRtg 와 같은 축이어야 한다. "
+                         "직전 시즌 basketball-reference 레이팅을 쓸 때는 그 시즌 리그 평균(예: 2025-26 = 115.8)을 넣는다. "
+                         "생략하면 teamdb 박스스코어 실측값을 쓴다(이번 시즌 축).")
     a = ap.parse_args()
+    global LG_RTG
+    if a.lg_rtg is not None:
+        LG_RTG = a.lg_rtg
 
     for name, v in (("--adj-home", a.adj_home), ("--adj-away", a.adj_away)):
         if abs(v) > 3.0 + 1e-9:

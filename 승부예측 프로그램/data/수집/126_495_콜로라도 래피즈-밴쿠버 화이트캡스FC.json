@@ -1,0 +1,69 @@
+{
+  "번호": 495,
+  "홈": "콜로라도 래피즈",
+  "원정": "밴쿠버 화이트캡스FC",
+  "수집시각": "2026-10-25 08:55 KST",
+  "대회": {
+    "이름": "메이저리그사커(MLS) 2026 정규시즌",
+    "라운드": "정규시즌 31라운드(soccerway 표기) / MLS 공식 'Matchday 32(10/24~25)' 선수현황보고서 범위 — 명칭은 소스마다 1 다르나 모두 '정규시즌'으로 일치",
+    "형식": "단판(무승부 인정, 승부차기 없음) — 플레이오프 아님. 2026 MLS Cup 플레이오프는 11-18 와일드카드부터 시작해 12-18 MLS컵으로 종료되며 Decision Day(정규시즌 최종일)는 11-07 [https://en.wikipedia.org/wiki/2026_MLS_Cup_playoffs, 2026-10-25 확인]. 즉 10-18이 시즌 최종일이라는 가정은 틀렸고, 양팀 모두 30경기 소화 후 정규시즌이 계속되는 중.",
+    "출처": [
+      "https://us.soccerway.com/game/colorado-rapids-jmBZNRn8/vancouver-whitecaps-K2dlua5N/summary/lineups/ (2026-10-25)",
+      "https://www.mlssoccer.com/news/mls-player-status-report-matchday-32-saturday-october-24-sunday-october-25 (2026-10-24)",
+      "https://en.wikipedia.org/wiki/2026_MLS_Cup_playoffs (2026-10-25)"
+    ],
+    "날짜": "2026-10-25"
+  },
+  "결장": [
+    {"팀":"홈","선수":"Reggie Cannon","포지션":"DF","이번시즌_선발/경기":"미확인","득점·도움":"미확인","사유":"다리(Leg) 부상","상태":"확정","복귀예정":"미정","대체선수":"미확인","출처":["https://www.mlssoccer.com/news/mls-player-status-report-matchday-32-saturday-october-24-sunday-october-25","https://burgundywave.com/2026/10/23/all-important-matchup-with-the-best-in-the-west-rapids-vs-vancouver-preview/"],"날짜":"2026-10-24"},
+    {"팀":"홈","선수":"Youssef Maziz","포지션":"MF","이번시즌_선발/경기":"미확인","득점·도움":"미확인","사유":"다리(Leg) 부상","상태":"확정","복귀예정":"미정","대체선수":"미확인","출처":["https://www.mlssoccer.com/news/mls-player-status-report-matchday-32-saturday-october-24-sunday-october-25","https://burgundywave.com/2026/10/23/all-important-matchup-with-the-best-in-the-west-rapids-vs-vancouver-preview/"],"날짜":"2026-10-24"},
+    {"팀":"홈","선수":"Ibrahim Sadiq","포지션":"FW","이번시즌_선발/경기":"미확인","득점·도움":"미확인","사유":"다리(Leg) 부상","상태":"확정","복귀예정":"미정","대체선수":"미확인","출처":["https://www.rotowire.com/soccer/headlines/ibrahim-sadiq-injury-leg-trouble-rules-him-out-541609","https://www.mlssoccer.com/news/mls-player-status-report-matchday-32-saturday-october-24-sunday-october-25"],"날짜":"2026-10-23"},
+    {"팀":"홈","선수":"Zack Steffen","포지션":"GK","이번시즌_선발/경기":"미확인","득점·도움":"미확인","사유":"어깨(Shoulder) 부상","상태":"확정","복귀예정":"미정","대체선수":"Nico Hansen(직전 경기 선발 GK)","출처":["https://www.mlssoccer.com/news/mls-player-status-report-matchday-32-saturday-october-24-sunday-october-25","https://burgundywave.com/2026/10/23/all-important-matchup-with-the-best-in-the-west-rapids-vs-vancouver-preview/"],"날짜":"2026-10-24"},
+    {"팀":"원정","선수":"Sam Adekugbe","포지션":"DF","이번시즌_선발/경기":"미확인","득점·도움":"미확인","사유":"햄스트링 부상","상태":"확정","복귀예정":"구단측 10/24 출전 희망 언급 있었으나(2026-10-14 보도) MLS 공식 10/24 보고서는 여전히 결장 처리","대체선수":"미확인","출처":["https://www.tsn.ca/soccer/mls/article/german-star-muller-out-for-whitecaps-match-vs-lafc-with-hamstring-injury/","https://www.mlssoccer.com/news/mls-player-status-report-matchday-32-saturday-october-24-sunday-october-25","https://canadiansoccerdaily.com/2026/10/14/no-lou-sing-ground-whitecaps-eye-insurance-win-in-gateway-to-first-showdown-in-st-louis/"],"날짜":"2026-10-24"},
+    {"팀":"원정","선수":"Kenji Cabrera","포지션":"MF","이번시즌_선발/경기":"미확인","득점·도움":"미확인","사유":"발(Foot) 부상","상태":"확정","복귀예정":"미정","대체선수":"미확인","출처":["https://www.mlssoccer.com/news/mls-player-status-report-matchday-32-saturday-october-24-sunday-october-25"],"날짜":"2026-10-24"},
+    {"팀":"원정","선수":"Belal Halbouni","포지션":"DF","이번시즌_선발/경기":"미확인","득점·도움":"미확인","사유":"무릎(Knee) 부상","상태":"확정","복귀예정":"미정","대체선수":"미확인","출처":["https://www.mlssoccer.com/news/mls-player-status-report-matchday-32-saturday-october-24-sunday-october-25"],"날짜":"2026-10-24"},
+    {"팀":"원정","선수":"Rui Modesto","포지션":"MF","이번시즌_선발/경기":"미확인","득점·도움":"미확인","사유":"허벅지(Quad) 부상","상태":"확정","복귀예정":"미정","대체선수":"미확인","출처":["https://www.mlssoccer.com/news/mls-player-status-report-matchday-32-saturday-october-24-sunday-october-25"],"날짜":"2026-10-24"},
+    {"팀":"원정","선수":"Thomas Müller","포지션":"FW/MF","이번시즌_선발/경기":"미확인","득점·도움":"미확인","사유":"햄스트링 부상","상태":"확정","복귀예정":"구단측 10/24 출전 희망 언급(2026-10-14 보도) — 그러나 MLS 공식 10/24 보고서는 여전히 결장 처리","대체선수":"미확인","출처":["https://www.tsn.ca/soccer/mls/article/german-star-muller-out-for-whitecaps-match-vs-lafc-with-hamstring-injury/","https://ca.sports.yahoo.com/news/german-star-thomas-muller-whitecaps-164214766.html","https://www.mlssoccer.com/news/mls-player-status-report-matchday-32-saturday-october-24-sunday-october-25"],"날짜":"2026-10-24"}
+  ],
+  "라인업": {
+    "홈": {"발표여부":"미발표(킥오프 1.6h 전, 회차 입력_126.md 기준)","예상XI":"Hansen(GK) / Thompson, Holding, Williams, Navarro(DF) / Ojediran, Frederick, Aaronson(MF) / Whittaker, Abu Farkhi, Philip(FW) — 4-2-3-1 추정","포메이션":"4-2-3-1(추정)","출처":["https://burgundywave.com/2026/10/23/all-important-matchup-with-the-best-in-the-west-rapids-vs-vancouver-preview/"],"날짜":"2026-10-23"},
+    "원정": {"발표여부":"미발표","예상XI":"공식 예상 선발 보도 없음 — 결장자(Adekugbe, Cabrera, Halbouni, Modesto, Müller) 제외하면 직전 경기(10-18 Austin전) 선발 중 Takaoka, Blackmon, Laborda, Johnson, Ocampo, Gauld, Cvetković, Cubas, Brian White, Sabbi 정도가 유력(추정, 공식 확인 아님)","포메이션":"4-2-3-1(직전 경기 기준, 추정)","출처":["https://verdeallday.com/match-recap-atxvvan-101726/"],"날짜":"2026-10-18"}
+  },
+  "최근경기": [
+    {"팀":"홈","날짜":"2026-09-20","상대":"Seattle Sounders FC","장소":"홈","스코어":"3-3","비고":""},
+    {"팀":"홈","날짜":"2026-09-27","상대":"LA Galaxy","장소":"원정","스코어":"2-3 패","비고":""},
+    {"팀":"홈","날짜":"2026-10-11","상대":"San Jose Earthquakes","장소":"홈","스코어":"1-1","비고":""},
+    {"팀":"홈","날짜":"2026-10-15","상대":"Minnesota United FC","장소":"홈","스코어":"2-2","비고":""},
+    {"팀":"홈","날짜":"2026-10-18","상대":"Portland Timbers","장소":"원정","스코어":"0-0","비고":"4경기 연속 무승부 중 3무1패 흐름"},
+    {"팀":"원정","날짜":"2026-09-27","상대":"D.C. United","장소":"홈","스코어":"3-3","비고":""},
+    {"팀":"원정","날짜":"2026-10-07","상대":"Chicago Fire FC","장소":"원정","스코어":"1-3 패","비고":""},
+    {"팀":"원정","날짜":"2026-10-11","상대":"LAFC","장소":"원정","스코어":"1-1","비고":""},
+    {"팀":"원정","날짜":"2026-10-15","상대":"St. Louis CITY SC","장소":"원정","스코어":"0-0","비고":""},
+    {"팀":"원정","날짜":"2026-10-18","상대":"Austin FC","장소":"원정","스코어":"2-1 승","비고":"Gauld, Diaby 득점"}
+  ],
+  "시즌기록": {
+    "홈": {"승무패":"11승6무13패","득실":"GD 0","홈성적":"미확인","최근5":"D-D-D-L-D","출처":["https://us.soccerway.com/game/colorado-rapids-jmBZNRn8/vancouver-whitecaps-K2dlua5N/summary/lineups/"],"날짜":"2026-10-24"},
+    "원정": {"승무패":"16승7무7패","득실":"GD +32","원정성적":"미확인","최근5":"W-D-D-L-D","출처":["https://us.soccerway.com/game/colorado-rapids-jmBZNRn8/vancouver-whitecaps-K2dlua5N/summary/lineups/"],"날짜":"2026-10-24"}
+  },
+  "맞대결": [
+    {"날짜":"2026-04(일자 미상)","장소":"밴쿠버(원정팀 홈)","스코어":"밴쿠버 3-1 콜로라도","출처":"WebSearch 요약(soccerpunter/footystats 계열, 2026-10-25 확인)"}
+  ],
+  "순위": {"홈":"서부 9위(30경기 39점)","원정":"서부 1위(30경기 55점)","출처":["https://us.soccerway.com/game/colorado-rapids-jmBZNRn8/vancouver-whitecaps-K2dlua5N/summary/lineups/"],"날짜":"2026-10-24"},
+  "감독": {"홈":"Matt Wells","원정":"Axel Schuster","변동":"최근 7일 내 감독 교체 뉴스 없음","출처":["팀노트 FACTS(위키 'Vancouver Whitecaps FC', '2026 Colorado Rapids season', 2026-10-23 수집)"],"날짜":"2026-10-23"},
+  "일정·동기·기타": [
+    {"내용":"콜로라도는 서부 컨퍼런스 마지막 와일드카드(9위, 39점)를 지키는 중이며 10위 Real Salt Lake(36점)와 3점 차 — 플레이오프 생존이 걸린 경기","출처":"https://www.foxsports.com/articles/soccer/colorado-rapids-bring-home-draw-streak-into-matchup-with-the-vancouver-whitecaps","날짜":"2026-10-24"},
+    {"내용":"밴쿠버는 서부 1번 시드(정규시즌 1위) 확정을 위해 경쟁 중","출처":"https://burgundywave.com/2026/10/23/all-important-matchup-with-the-best-in-the-west-rapids-vs-vancouver-preview/","날짜":"2026-10-23"},
+    {"내용":"콜로라도 최근 4경기 중 3무1패로 승리 가뭄(직전 0-0 포함)","출처":"https://us.soccerway.com/game/colorado-rapids-jmBZNRn8/vancouver-whitecaps-K2dlua5N/summary/lineups/","날짜":"2026-10-24"}
+  ],
+  "구장": {"이름":"Dick's Sporting Goods Park (딕스 스포팅 굿즈 파크), Commerce City, CO","인조잔디여부":"천연(Kentucky Bluegrass)","고도":"약 1586m(입력_126.md 자동수집값과 일치)","출처":["https://soccerstadiumdigest.com/dicks-sporting-goods-park-colorado-rapids/","https://en.wikipedia.org/wiki/Dick%27s_Sporting_Goods_Park"],"날짜":"2026-10-25"},
+  "엇갈림": [
+    "입력_126.md 표기 '딕스 스포팅 구즈 파크'는 정식 명칭 'Dick's Sporting Goods Park(딕스 스포팅 굿즈 파크)'의 음역 오기로 보이나 지시된 구장(홈=콜로라도, Commerce City) 자체는 정확함 — 큰 영향 없음.",
+    "Müller·Adekugbe는 2026-10-14 현지 매체 보도에서 '10/24(콜로라도전) 출전 희망' 뉘앙스가 있었으나, MLS 공식 선수현황 보고서(2026-10-24)는 둘 다 여전히 결장(OUT)으로 분류 — 공식 보고서를 우선으로 채택함.",
+    "입력_126.md의 '직전 선발 XI'(콜로라도, 10-18 Portland전: Hansen, Williams, Holding, Navarro, Thompson, Whittaker, Frederick, Atencio, Yapi, Minoungou, Phillip)는 sofascore·365scores 교차 확인 결과 실제 선발과 일치 — 오류 없음. Rob Holding은 2025-08 콜로라도 입단(前 아스널·크리스탈 팰리스) 확인됨, ESPN 매칭 오류 아님."
+  ],
+  "못찾음": [
+    "결장 선수 전원의 2026시즌 선발 수·득점/도움 통계(시간 제약으로 미수집)",
+    "양팀 10-25 경기 공식 발표 라인업(킥오프 임박 전까지 미발표)"
+  ],
+  "뉴스없음": {}
+}

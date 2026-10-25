@@ -9,7 +9,7 @@
 - 최근 경기(ESPN, 최대 28일): 2026-09-12 SC Cambuur 3-0 NEC Nijmegen / 2026-09-20 NEC Nijmegen 1-1 Go Ahead Eagles / 2026-10-10 Ajax Amsterdam 1-1 NEC Nijmegen / 2026-10-18 NEC Nijmegen 2-2 Fortuna Sittard / 2026-09-17 Juventus 5-0 NEC Nijmegen / 2026-10-15 NEC Nijmegen 1-1 Levski Sofia
 <!-- FACTS:END -->
 <!-- INPUTS:START -->
-## 입력(자동 수집 2026-10-24) — xG·휴식일·라인업·환경(이동거리·고도·날씨)은 이 숫자를 쓴다
-- 10-25 22:30 vs 흐로닝언: 휴식 2.9일(7일 2경기) · 직전 10-23 원정 vs Dinamo Zagreb 4-2 승 [uefa.europa] · xG - · 직전 선발 3-4-2-1 Gonzalo Crettaz, Ahmetcan Kaplan, Deveron Fonville, Perr Schuurs, Dennis Geiger, Darko Nejasmic, Clement Bischoff, Tobias Storm, Bryan Linssen, Noé Lebreton, Tjaronn Chery · 구장 Stadion de Goffert · 이동 163km · 고도 23m(차 +11m) · 11.2℃ 강수0.2mm(83%) 바람34.6km/h · ⚠ 비 0.2mm(83%), 강풍 34.6km/h
+## 입력(자동 수집 2026-10-25) — xG·휴식일·라인업·환경(이동거리·고도·날씨)은 이 숫자를 쓴다
+- 10-25 22:30 vs 흐로닝언: 휴식 2.9일(7일 2경기) · 직전 10-23 원정 vs Dinamo Zagreb 4-2 승 [uefa.europa] · xG - · 직전 선발 3-4-2-1 Gonzalo Crettaz, Ahmetcan Kaplan, Deveron Fonville, Perr Schuurs, Dennis Geiger, Darko Nejasmic, Clement Bischoff, Tobias Storm, Bryan Linssen, Noé Lebreton, Tjaronn Chery · 구장 Stadion de Goffert · 이동 163km · 고도 23m(차 +11m) · 11.6℃ 강수0.3mm(88%) 바람31.7km/h · ⚠ 비 0.3mm(88%), 강풍 31.7km/h
 <!-- INPUTS:END -->
 

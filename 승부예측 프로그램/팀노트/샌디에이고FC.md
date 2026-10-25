@@ -9,7 +9,7 @@
 - 최근 경기(ESPN, 최대 28일): 2026-09-20 Inter Miami CF 2-2 San Diego FC / 2026-09-27 Austin FC 3-3 San Diego FC / 2026-10-10 Red Bull New York 4-1 San Diego FC / 2026-10-15 San Diego FC 3-3 Houston Dynamo FC / 2026-10-18 LA Galaxy 2-2 San Diego FC
 <!-- FACTS:END -->
 <!-- INPUTS:START -->
-## 입력(자동 수집 2026-10-24) — xG·휴식일·라인업·환경(이동거리·고도·날씨)은 이 숫자를 쓴다
-- 10-25 11:30 vs 시애틀 사운더스FC: 휴식 7.0일 · 직전 10-18 원정 vs LA Galaxy 2-2 무 [usa.1] · xG - · 직전 선발 4-3-3 Pablo Sisniega, Manu Duah, Christopher McVey, Kieran Sargeant, Oscar Verhoeven, Aníbal Godoy, Gabriel Pirani, Alejandro Alvarado Jr., Cédric Bakambu, Elias Achouri, Anders Dreyer · 구장 스냅드래곤 스타디움 · 이동 1704km · 고도 22m(차 +12m) · 19.6℃ 강수0mm(1%) 바람6.1km/h · ⚠ 장거리 원정 1704km
+## 입력(자동 수집 2026-10-25) — xG·휴식일·라인업·환경(이동거리·고도·날씨)은 이 숫자를 쓴다
+- 10-25 11:30 vs 시애틀 사운더스FC: 휴식 7.0일 · 직전 10-18 원정 vs LA Galaxy 2-2 무 [usa.1] · xG - · 직전 선발 4-3-3 Pablo Sisniega, Manu Duah, Christopher McVey, Kieran Sargeant, Oscar Verhoeven, Aníbal Godoy, Gabriel Pirani, Alejandro Alvarado Jr., Cédric Bakambu, Elias Achouri, Anders Dreyer · 구장 스냅드래곤 스타디움 · 이동 1704km · 고도 22m(차 +12m) · 19.1℃ 강수0mm(1%) 바람6.2km/h · ⚠ 장거리 원정 1704km
 <!-- INPUTS:END -->
 

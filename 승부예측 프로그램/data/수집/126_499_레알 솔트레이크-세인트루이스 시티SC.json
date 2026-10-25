@@ -1,0 +1,68 @@
+{
+  "번호": 499,
+  "홈": "레알 솔트레이크",
+  "원정": "세인트루이스 시티SC",
+  "수집시각": "2026-10-25 08:55 KST",
+  "대회": {
+    "이름": "메이저리그사커(MLS) 2026 정규시즌",
+    "라운드": "정규시즌 31라운드(soccerway/whoscored 표기) / MLS 공식 'Matchday 32(10/24~25)' 선수현황보고서 범위",
+    "형식": "단판(무승부 인정, 승부차기 없음) — 플레이오프 아님. 2026 MLS Cup 플레이오프는 11-18 와일드카드부터 시작해 12-18 MLS컵으로 종료, Decision Day(정규시즌 최종일)는 11-07 [https://en.wikipedia.org/wiki/2026_MLS_Cup_playoffs, 2026-10-25 확인]. '10-18이 정규시즌 최종일'이라는 전제는 틀렸고 양팀 모두 30경기 소화 후 정규시즌 진행 중.",
+    "출처": [
+      "https://www.whoscored.com/matches/1953071/preview/usa-major-league-soccer-2026-real-salt-lake-st-louis-city (2026-10-25)",
+      "https://www.mlssoccer.com/news/mls-player-status-report-matchday-32-saturday-october-24-sunday-october-25 (2026-10-24)",
+      "https://en.wikipedia.org/wiki/2026_MLS_Cup_playoffs (2026-10-25)"
+    ],
+    "날짜": "2026-10-25"
+  },
+  "결장": [
+    {"팀":"홈","선수":"Juan Jose Arias","포지션":"MF/FW","이번시즌_선발/경기":"미확인","득점·도움":"미확인","사유":"햄스트링 부상","상태":"확정","복귀예정":"미정","대체선수":"미확인","출처":["https://www.mlssoccer.com/news/mls-player-status-report-matchday-32-saturday-october-24-sunday-october-25"],"날짜":"2026-10-24"},
+    {"팀":"홈","선수":"Emeka Eneli","포지션":"DF/MF","이번시즌_선발/경기":"미확인","득점·도움":"미확인","사유":"무릎 부상","상태":"확정","복귀예정":"미정","대체선수":"미확인","출처":["https://riyadaty.com/en/news/knee-injury-rules-eneli-out-of-real-salt-lake-squad","https://www.mlssoccer.com/news/mls-player-status-report-matchday-32-saturday-october-24-sunday-october-25"],"날짜":"2026-10-24"},
+    {"팀":"홈","선수":"Diego Luna","포지션":"MF","이번시즌_선발/경기":"미확인","득점·도움":"미확인","사유":"반월판(무릎) 파열 — 시즌아웃","상태":"확정","복귀예정":"2026시즌 잔여경기 전부 결장(시즌아웃)","대체선수":"미확인","출처":["https://www.beinsports.com/en-us/soccer/mls/articles/luna-to-miss-the-rest-of-rsls-season-with-torn-meniscus-2026-09-17","https://sports.yahoo.com/articles/rsl-luna-miss-rest-season-221023866.html"],"날짜":"2026-09-17"},
+    {"팀":"홈","선수":"Lukas Engel","포지션":"DF","이번시즌_선발/경기":"미확인","득점·도움":"미확인","사유":"햄스트링 부상","상태":"의심(MLS 공식 'Questionable')","복귀예정":"출전 여부 불투명","대체선수":"미확인","출처":["https://www.mlssoccer.com/news/mls-player-status-report-matchday-32-saturday-october-24-sunday-october-25"],"날짜":"2026-10-24"},
+    {"팀":"홈","선수":"Justen Glad","포지션":"DF","이번시즌_선발/경기":"미확인","득점·도움":"미확인","사유":"내전근(Adductor)/서혜부 부상","상태":"의심(MLS 공식 'Questionable')","복귀예정":"회복 중이나 시즌 복귀 불투명(fox13now 보도)","대체선수":"미확인","출처":["https://www.mlssoccer.com/news/mls-player-status-report-matchday-32-saturday-october-24-sunday-october-25","https://www.fox13now.com/sports/real-salt-lake-prepares-for-playoff-push-with-four-games-remaining"],"날짜":"2026-10-24"},
+    {"팀":"원정","선수":"Roman Bürki","포지션":"GK","이번시즌_선발/경기":"미확인","득점·도움":"미확인","사유":"뇌진탕 프로토콜 — 2026-10-21 US오픈컵 결승(콜럼버스전) 중 머리 충돌로 들것에 실려 퇴장","상태":"확정","복귀예정":"미정(프로토콜 경과 관찰)","대체선수":"Ben Lundt(오픈컵 결승 승부차기 투입 백업 GK, 유력)","출처":["https://www.mlssoccer.com/news/mls-player-status-report-matchday-32-saturday-october-24-sunday-october-25","https://www.espn.com/soccer/story/_/id/50243891/st-louis-gk-burki-stretchered-collision-open-cup-final","https://www.cbssports.com/soccer/news/u-s-open-cup-final-live-score-updates-st-louis-city-sc/live/"],"날짜":"2026-10-21"},
+    {"팀":"원정","선수":"Alex Matan","포지션":"MF","이번시즌_선발/경기":"미확인","득점·도움":"미확인","사유":"종아리/정강이(Lower Leg) 부상","상태":"확정","복귀예정":"미정","대체선수":"미확인","출처":["https://www.mlssoccer.com/news/mls-player-status-report-matchday-32-saturday-october-24-sunday-october-25"],"날짜":"2026-10-24"},
+    {"팀":"원정","선수":"Celio Pompeu","포지션":"MF","이번시즌_선발/경기":"미확인","득점·도움":"미확인","사유":"십자인대(무릎) 손상","상태":"확정","복귀예정":"장기 결장 예상(십자인대)","대체선수":"미확인","출처":["https://www.besoccer.com/team/injuries-suspensions/saint-louis-city","https://www.mlssoccer.com/news/mls-player-status-report-matchday-32-saturday-october-24-sunday-october-25"],"날짜":"2026-10-24"},
+    {"팀":"원정","선수":"Chris Durkin","포지션":"MF","이번시즌_선발/경기":"미확인","득점·도움":"미확인","사유":"뇌진탕 프로토콜(2026-10-14/15 밴쿠버전 중 머리 부상)","상태":"의심 — besoccer.com은 11월 중순 복귀 예정(즉 10/25 결장)이라 하나 MLS 공식 10/24 결장자 명단(Bürki·Matan·Pompeu 3명)에는 Durkin이 포함되어 있지 않아 근거 출처 간 엇갈림","복귀예정":"besoccer 기준 2026년 11월 중순","대체선수":"미확인","출처":["https://www.besoccer.com/team/injuries-suspensions/saint-louis-city","https://www.rotowire.com/soccer/headlines/chris-durkin-injury-lands-in-concussion-protocol-539840","https://www.mlssoccer.com/news/mls-player-status-report-matchday-32-saturday-october-24-sunday-october-25"],"날짜":"2026-10-24"}
+  ],
+  "라인업": {
+    "홈": {"발표여부":"미발표(킥오프 1.6h 전, 입력_126.md 기준)","예상XI":"공식 예상 선발 명단 상세 미확인 — whoscored는 포메이션만 제공","포메이션":"3-4-2-1(추정, whoscored)","출처":["https://www.whoscored.com/matches/1953071/preview/usa-major-league-soccer-2026-real-salt-lake-st-louis-city"],"날짜":"2026-10-25"},
+    "원정": {"발표여부":"미발표","예상XI":"soccerway 예측 라인업은 'Bürki, Orozco, Totland, Baumgartl, Fall, Polvara, Perez, Joyner, Jeong, Rafael Navarro, Becher'를 제시하나, Bürki는 뇌진탕 프로토콜로 공식 결장 확정 상태라 이 예측은 신뢰도 낮음(갱신 지연 추정) — 실제 선발 GK는 백업 Ben Lundt일 가능성이 높음(미확정)","포메이션":"3-4-1-2(직전 경기 기준, 추정)","출처":["https://us.soccerway.com/game/real-salt-lake-W0ealpQl/st-louis-city-4r4sKQud/summary/lineups/"],"날짜":"2026-10-25"}
+  },
+  "최근경기": [
+    {"팀":"홈","날짜":"2026-09-24","상대":"Seattle Sounders FC","장소":"원정","스코어":"0-2 패","비고":""},
+    {"팀":"홈","날짜":"2026-09-27","상대":"New England Revolution","장소":"홈","스코어":"3-0 승","비고":""},
+    {"팀":"홈","날짜":"2026-10-10","상대":"Philadelphia Union","장소":"원정","스코어":"1-2 패","비고":""},
+    {"팀":"홈","날짜":"2026-10-15","상대":"San Jose Earthquakes","장소":"홈","스코어":"1-1","비고":""},
+    {"팀":"홈","날짜":"2026-10-18","상대":"Sporting Kansas City","장소":"원정","스코어":"3-1 승","비고":"13경기 원정 무승 행진 종료"},
+    {"팀":"원정","날짜":"2026-10-17(또는 10-18 KST)","상대":"Minnesota United FC","장소":"원정","스코어":"2-3 패","비고":"St. Louis 득점 Rafael Navarro 등"},
+    {"팀":"원정","날짜":"2026-10-21","상대":"Columbus Crew","장소":"원정(US오픈컵 결승)","스코어":"0-0(연장 포함 120분) 후 PK 5-3 승","비고":"MLS 리그 경기 아닌 US오픈컵 결승 — St. Louis 구단 사상 첫 트로피. GK Bürki 결승 중 부상(들것)으로 퇴장, 백업 Ben Lundt가 승부차기에서 선방"}
+  ],
+  "시즌기록": {
+    "홈": {"승무패":"10승6무14패","득실":"GD -3","홈성적":"미확인","최근5":"미확인(세부 W/D/L 순서 미수집)","출처":["팀노트 FACTS(위키 '2026 Real Salt Lake season', 2026-10-23 수집)"],"날짜":"2026-10-23"},
+    "원정": {"승무패":"미확인(승점 기준 51점, 서부 2위)","득실":"미확인","원정성적":"미확인","최근5":"리그 19경기 포함 21경기 무패 행진 기록 보유(모든 대회)","출처":["https://www.mlssoccer.com/news/st-louis-city-savor-first-ever-us-open-cup-title-2026"],"날짜":"2026-10-22"}
+  },
+  "맞대결": [
+    {"날짜":"2026-08(일자 미상)","장소":"세인트루이스(원정팀 홈)","스코어":"1-1 무","출처":"WebSearch 요약(fotmob 계열, 2026-10-25 확인)"}
+  ],
+  "순위": {"홈":"서부 10위(30경기 36점)","원정":"서부 2위(51점)","출처":["https://sports.ksl.com/mls/real-salt-lake/student-meets-master-as-real-salt-lake-hosts-resurgent-san-jose-earthquakes/578165","https://www.oursportscentral.com/services/releases/st-louis-city-sc-heads-west-to-face-real-salt-lake-at-america-first-field-on-saturday/n-6423769"],"날짜":"2026-10-24"},
+  "감독": {"홈":"Pablo Mastroeni","원정":"Corey Wray","변동":"최근 7일 내 감독 교체 뉴스 없음","출처":["팀노트 FACTS(위키 '2026 Real Salt Lake season' 2026-10-23, 'St. Louis City SC' 2026-10-21 수집)"],"날짜":"2026-10-23"},
+  "일정·동기·기타": [
+    {"내용":"레알 솔트레이크는 서부 10위(36점)로 9위 콜로라도(39점)에 3점 뒤져 와일드카드 마지노선 바깥 — 잔여 4경기 중 최소 3승 필요한 상황으로 보도됨","출처":"https://www.fox13now.com/sports/real-salt-lake-prepares-for-playoff-push-with-four-games-remaining","날짜":"2026-10-16"},
+    {"내용":"세인트루이스는 2026-10-21(수) US오픈컵 결승에서 120분+승부차기(5-3)로 콜럼버스를 꺾고 구단 첫 트로피 획득 — 10-25 경기까지 실휴식일은 4일에 불과함. 입력_126.md의 '휴식 7.2일'은 리그 경기만 기준으로 계산되어 실제보다 길게 표기된 것으로 보임(오픈컵 결승 미반영)","출처":"https://www.ussoccer.com/stories/2026/10/usoc/match-recap-st-louis-city-vs-columbus-crew-open-cup-final","날짜":"2026-10-21"},
+    {"내용":"세인트루이스는 시즌 초반(10경기 6점, 서부 하위권)에서 전 대회 21경기 무패(리그 19경기) 행진으로 서부 2위까지 상승","출처":"https://www.mlssoccer.com/news/st-louis-city-savor-first-ever-us-open-cup-title-2026","날짜":"2026-10-22"}
+  ],
+  "구장": {"이름":"America First Field, Sandy, UT","인조잔디여부":"천연(Kentucky Bluegrass)","고도":"약 1350m(입력_126.md 자동수집값과 일치)","출처":["https://www.rsl.com/news/rsl-breaks-ground-america-first-field","https://en.wikipedia.org/wiki/America_First_Field"],"날짜":"2026-10-25"},
+  "엇갈림": [
+    "예상 선발(soccerway)이 세인트루이스 GK로 Bürki를 계속 표기하지만, MLS 공식 선수현황 보고서(2026-10-24)는 Bürki를 뇌진탕 프로토콜로 결장 확정 — 예측 라인업 사이트의 갱신 지연으로 판단, 공식 보고서를 우선 채택.",
+    "Chris Durkin: besoccer.com은 11월 중순 복귀 예정(즉 10/25 결장)이라 하나, MLS 공식 10/24 결장자 명단에는 포함되지 않음 — 이미 복귀했거나 명단 누락일 가능성, 미확정.",
+    "입력_126.md가 세인트루이스의 '직전 경기'로 10-18 Minnesota전(2-3 패, 리그)만 기재했으나, 실제 가장 최근 경기는 10-21 US오픈컵 결승(PK 승)이었음 — 휴식일 계산(7.2일)이 리그 경기만 반영해 실제(4일)보다 과대평가됨.",
+    "입력_126.md의 세인트루이스 '직전 선발 XI'(10-18 Minnesota전: Bürki, Baumgartl, Fall, Orozco, Perez, Polvara, Jeong Sang-Bin, Totland, Joyner, Navarro, Becher)는 다른 두 소스(foxsports/ESPN 요약, sportytrader)가 같은 경기에서 Edelman, MacNaughton, Santos, Matan, Holse 등 다른 5명을 선발로 표기해 엇갈림. 특히 한 요약본은 '정상빈(Jeong Sang-Bin)이 미네소타 소속으로 득점'이라 기술하는 명백한 팀 매칭 오류를 보여 그 출처의 신뢰도가 낮다고 판단됨 — 어느 쪽이 정확한지 추가 확인 필요(미확정)."
+  ],
+  "못찾음": [
+    "결장 선수 전원의 2026시즌 선발 수·득점/도움 통계(시간 제약으로 미수집)",
+    "양팀 10-25 경기 공식 발표 라인업(킥오프 임박 전까지 미발표)",
+    "레알 솔트레이크 상세 홈 성적(승무패 세부) 및 최근 5경기 순서"
+  ],
+  "뉴스없음": {}
+}

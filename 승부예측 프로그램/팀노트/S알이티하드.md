@@ -9,7 +9,7 @@
 - 최근 경기(ESPN, 최대 28일): 2026-09-14 Al-Shamal 1-1 Al Ittihad / 2026-10-13 Al Ittihad 1-2 Shabab Al Ahli
 <!-- FACTS:END -->
 <!-- INPUTS:START -->
-## 입력(자동 수집 2026-10-25) — xG·휴식일·라인업·환경(이동거리·고도·날씨)은 이 숫자를 쓴다
-- 10-26 22:45 vs 네프치 페르가나: 휴식 12.8일?(국내리그 ESPN 미제공 — 직접 확인) · 직전 10-14 홈 vs Shabab Al Ahli 1-2 패 [league stage] · xG - · 직전 선발 4-2-2-2 Predrag Rajkovic, Jan-Carlo Simic, Danilo Pereira, Abdi Faris, Ahmed Al-Julaydan, Dion Lopy, Richard Ríos, George Ilenikhena, Youssef En-Nesyri, Steven Bergwijn, Georginio Wijnaldum · 구장 Istiqlol Stadium · 이동 3697km · 고도 560m(차 +553m) · 14.0℃ 강수0mm(0%) 바람1.5km/h · ⚠ 장거리 원정 3697km
+## 입력(자동 수집 2026-10-26) — xG·휴식일·라인업·환경(이동거리·고도·날씨)은 이 숫자를 쓴다
+- 10-26 22:45 vs 네프치 페르가나: 휴식 12.8일?(국내리그 ESPN 미제공 — 직접 확인) · 직전 10-14 홈 vs Shabab Al Ahli 1-2 패 [league stage] · xG - · 직전 선발 4-2-2-2 Predrag Rajkovic, Jan-Carlo Simic, Danilo Pereira, Abdi Faris, Ahmed Al-Julaydan, Dion Lopy, Richard Ríos, George Ilenikhena, Youssef En-Nesyri, Steven Bergwijn, Georginio Wijnaldum · 구장 Istiqlol Stadium · 이동 3697km · 고도 560m(차 +553m) · 14.3℃ 강수0mm(0%) 바람1.3km/h · ⚠ 장거리 원정 3697km
 <!-- INPUTS:END -->
 

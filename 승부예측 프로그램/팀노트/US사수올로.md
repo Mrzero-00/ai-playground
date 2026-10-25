@@ -9,8 +9,8 @@
 <!-- FACTS:END -->
 
 <!-- INPUTS:START -->
-## 입력(자동 수집 2026-10-24) — xG·휴식일·라인업·환경(이동거리·고도·날씨)은 이 숫자를 쓴다
-- 10-24 22:00 vs 코모1907: 휴식 7.8일 · 직전 10-17 원정 vs Frosinone 2-4 패 [italian serie a] · xG 시즌7경기 xG1.78/xGA1.86 npxGD+0.03 · 최근5 1.65/2.12 (-0.33) · 홈-0.24/원정0.23 · xPts9.2 vs 승점8 · 직전 선발 4-2-3-1 Arijanet Muric, Duje Caleta-Car, Cas Odenthal, Josh Doig, Ignace van der Brempt, Kristian Thorstvedt, Darryl Bakola, Nemanja Matic, Sebastiano Esposito, Armand Laurienté, Domenico Berardi · 구장 Stadio Giuseppe Sinigaglia · 이동 174km · 고도 201m(차 +158m) · 16.9℃ 강수0mm(0%) 바람10.1km/h
+## 입력(자동 수집 2026-10-26) — xG·휴식일·라인업·환경(이동거리·고도·날씨)은 이 숫자를 쓴다
+- 10-28 02:30 vs SS라치오: 휴식 3.2일(7일 1경기) · 직전 10-24 원정 vs Como 0-2 패 [italian serie a] · xG 시즌8경기 xG1.59/xGA1.92 npxGD-0.23 · 최근5 1.33/1.99 (-0.5) · 홈-0.24/원정-0.23 · xPts9.3 vs 승점8 · 직전 선발 4-2-3-1 Stefano Turati, Fali Candé, Duje Caleta-Car, Rafael Obrador, Ignace van der Brempt, Darryl Bakola, Nemanja Matic, Vasilije Adzic, Kieron Bowie, Benjamín Domínguez, Domenico Berardi · 구장 마페이 스타디움 - 치타 델 트리콜로레 · 이동 342km · 고도 43m(차 +26m) · 14.1℃ 강수0mm(0%) 바람4.3km/h
 <!-- INPUTS:END -->
 
 ## 10/16 뉴스 (결장 점검)

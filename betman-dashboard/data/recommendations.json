@@ -1,11 +1,10 @@
 {
- "current": [],
- "past": [
+ "current": [
   {
    "round": "126",
    "title": "코어 2폴더",
    "track": "추천",
-   "close": "2026-10-25 16:30",
+   "close": "2026-10-25 23:00",
    "legs": [
     {
      "no": "605",
@@ -15,9 +14,9 @@
      "odds": 1.71,
      "prob": 46.4,
      "time": "2026-10-25 16:30",
-     "result": "",
-     "hit": "",
-     "actual": "",
+     "result": "3:1",
+     "hit": "1",
+     "actual": "승",
      "why": "기준선 48.4/28.2/23.4 → 요인 뉴스없음:천안 시티FC 결장·부상·징계 관(+0.0), 뉴스없음:안산 그리너스 결장·부상·징계 관(+0.0), 기타:이풍연(+0.0), 휴식:천안 직전 공식전 10/10(중1(+0.0), 폼:안산 최근 2경기 승리 — 10/(-2.0) → 최종 46.4/28.2/25.4",
      "risk": "킥오프 45분 전까지 양 팀 스타팅 XI 미게재(K리그 공식·Daum 둘 다). 양 팀 결장 공식 발표 확인 실패. kleague.com 결장 기사는 본문 날짜가 2025년이라 전체 배제",
      "review": {}
@@ -30,24 +29,56 @@
      "odds": 1.62,
      "prob": 45.6,
      "time": "2026-10-25 16:30",
-     "result": "",
-     "hit": "",
-     "actual": "",
+     "result": "1:1",
+     "hit": "0",
+     "actual": "무",
      "why": "기준선 27.1/29.2/43.7 → 요인 기타:루크 아모스(Luke Amos)(+0.0), 기타:윤현필(코치)(+0.0), 폼:파주 직전 10/17 원정 김포 (-1.0), 폼:화성 최근 3경기 무승(9/20 (+0.0), 휴식:파주 중7일(10/17→10/25(+0.0) → 최종 25.5/28.9/45.6",
      "risk": "양 팀 당일 선발 라인업 확인 실패(확정 결장자 0명). 파주 급여 지연이 선수단 집중력에 미칠 영향은 사실이나 수치화 불가. 화성 윤현필 코치 제재의 30R 유효 여부 미확인",
      "review": {}
+    },
+    {
+     "no": "653",
+     "game": "헐 시티 vs 브렌트퍼드",
+     "pick": "패",
+     "type": "축구 승무패",
+     "odds": 1.6,
+     "prob": 45.8,
+     "time": "2026-10-25 23:00",
+     "result": "",
+     "hit": "",
+     "actual": "",
+     "why": "기준선 26.0/27.0/47.0 → 요인 결장:Yehor Yarmoliuk + Vitaly Janelt(DM 2명 묶음)(+1.5), 결장:Nobel Mendy(-0.8), 결장:Jack Butland·Matt Targett·Charlie Hughes·Darko Gyabi·Ilyas Ansah(묶음)(+0), 결장:Joshua Dasilva·Antoni Milambo·Kaye Furo(묶음)(+0.3), 복귀:Mohamed-Ali Cho·Lucas Gourna-Douath(+0) → 최종 26.2/28.0/45.8",
+     "risk": "있음(10-25 21:30 수집 기준) — ① 양팀 공식 라인업 미발표(킥오프 약 1.9시간 전), 본문의 XI 는 Sports Mole 추정이라 브렌트퍼드 CB(van den Berg↔Schuster/Collins",
+     "review": {}
+    },
+    {
+     "no": "741",
+     "game": "레알 소시에다드 vs 레반테",
+     "pick": "승",
+     "type": "축구 승무패",
+     "odds": 1.49,
+     "prob": 49.6,
+     "time": "2026-10-26 02:30",
+     "result": "",
+     "hit": "",
+     "actual": "",
+     "why": "기준선 49.0/28.0/23.0 → 요인 결장:Adrián 'Dela' de la Fuente(+0.8), 결장:Enzo Bardeli(+0.3), 결장:Karl Etta Eyong · Alejandro Primo(+0), 결장:Luken Beitia(GK) · Álvaro Odriozola(RB)(+0), 복귀:Jon Mikel Aramburu · Yangel Herrera(+0) → 최종 49.6/27.8/22.6",
+     "risk": "중간 — ① 양 팀 공식 XI 미발표(킥오프 약 4시간 전 기준). ② 소시에다드 Aramburu·Herrera 가 부상에서 복귀해 소집됐으나 감독이 '선발은 경기 당일 결정'이라 명시 — 우측 수비가 Héctor ",
+     "review": {}
     }
    ],
-   "odds": 2.77,
-   "prob": 0.211584,
+   "odds": 6.6,
+   "prob": 0.048065114112,
    "scored": false,
    "stale": false,
-   "started": true,
+   "started": false,
    "hit": null,
    "bought": false,
    "time": "2026-10-25 16:30",
-   "n": 2
-  },
+   "n": 4
+  }
+ ],
+ "past": [
   {
    "round": "126",
    "title": "20:30 블록 코어 2폴더",

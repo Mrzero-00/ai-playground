@@ -1,5 +1,6 @@
 {
- "current": [
+ "current": [],
+ "past": [
   {
    "round": "126",
    "title": "코어 2폴더",
@@ -48,12 +49,16 @@
      "odds": 1.6,
      "prob": 45.8,
      "time": "2026-10-25 23:00",
-     "result": "",
-     "hit": "",
-     "actual": "",
+     "result": "1:1",
+     "hit": "0",
+     "actual": "무",
      "why": "기준선 26.0/27.0/47.0 → 요인 결장:Yehor Yarmoliuk + Vitaly Janelt(DM 2명 묶음)(+1.5), 결장:Nobel Mendy(-0.8), 결장:Jack Butland·Matt Targett·Charlie Hughes·Darko Gyabi·Ilyas Ansah(묶음)(+0), 결장:Joshua Dasilva·Antoni Milambo·Kaye Furo(묶음)(+0.3), 복귀:Mohamed-Ali Cho·Lucas Gourna-Douath(+0) → 최종 26.2/28.0/45.8",
      "risk": "있음(10-25 21:30 수집 기준) — ① 양팀 공식 라인업 미발표(킥오프 약 1.9시간 전), 본문의 XI 는 Sports Mole 추정이라 브렌트퍼드 CB(van den Berg↔Schuster/Collins",
-     "review": {}
+     "review": {
+      "quad": "오판",
+      "content": "xG 1.94:1.71",
+      "pred": "패 46%"
+     }
     },
     {
      "no": "741",
@@ -63,26 +68,28 @@
      "odds": 1.49,
      "prob": 49.6,
      "time": "2026-10-26 02:30",
-     "result": "",
-     "hit": "",
-     "actual": "",
+     "result": "2:1",
+     "hit": "1",
+     "actual": "승",
      "why": "기준선 49.0/28.0/23.0 → 요인 결장:Adrián 'Dela' de la Fuente(+0.8), 결장:Enzo Bardeli(+0.3), 결장:Karl Etta Eyong · Alejandro Primo(+0), 결장:Luken Beitia(GK) · Álvaro Odriozola(RB)(+0), 복귀:Jon Mikel Aramburu · Yangel Herrera(+0) → 최종 49.6/27.8/22.6",
      "risk": "중간 — ① 양 팀 공식 XI 미발표(킥오프 약 4시간 전 기준). ② 소시에다드 Aramburu·Herrera 가 부상에서 복귀해 소집됐으나 감독이 '선발은 경기 당일 결정'이라 명시 — 우측 수비가 Héctor ",
-     "review": {}
+     "review": {
+      "quad": "실력",
+      "content": "xG 2.92:0.75",
+      "pred": "승 50%"
+     }
     }
    ],
    "odds": 6.6,
    "prob": 0.048065114112,
-   "scored": false,
+   "scored": true,
    "stale": false,
-   "started": false,
-   "hit": null,
+   "started": true,
+   "hit": false,
    "bought": false,
    "time": "2026-10-25 16:30",
    "n": 4
-  }
- ],
- "past": [
+  },
   {
    "round": "126",
    "title": "20:30 블록 코어 2폴더",

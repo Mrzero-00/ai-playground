@@ -10,7 +10,7 @@
   "venue_qid": "Q270474"
  },
  "ADO덴하흐": {
-  "checked": "2026-10-23",
+  "checked": "2026-10-25",
   "eng": [
    "Den Haag",
    "ADO"
@@ -517,10 +517,14 @@
   "venue_qid": "Q1190418"
  },
  "네프치 페르가나": {
-  "checked": "2026-10-23",
-  "eng": "Neftchi Fergona",
-  "src": "못찾음",
-  "venue": null
+  "checked": "2026-10-25",
+  "elev": 560,
+  "lat": 40.3903,
+  "lon": 71.7496,
+  "src": "Wikidata Q870279→Q117215746 · Open-Meteo 고도",
+  "team_qid": "Q870279",
+  "venue": "Istiqlol Stadium",
+  "venue_qid": "Q117215746"
  },
  "노리치 시티": {
   "checked": "2026-10-17",
@@ -723,10 +727,14 @@
   "venue_qid": ""
  },
  "레알 소시에다드": {
-  "checked": "2026-10-23",
-  "eng": "Real Sociedad",
-  "src": "못찾음",
-  "venue": null
+  "checked": "2026-10-25",
+  "elev": 35,
+  "lat": 43.2589,
+  "lon": -2.0238,
+  "src": "Wikidata Q1067750→Q9008642 · Open-Meteo 고도",
+  "team_qid": "Q1067750",
+  "venue": "Zubieta Facilities",
+  "venue_qid": "Q9008642"
  },
  "레알 솔트레이크": {
   "checked": "2026-10-23",
@@ -1371,8 +1379,11 @@
   "venue_qid": "Q31969"
  },
  "선전 신펑청": {
-  "checked": "2026-10-24",
-  "eng": "['Shenzhen Peng City', 'Shenzhen Xinpengcheng']",
+  "checked": "2026-10-25",
+  "eng": [
+   "Shenzhen Peng City",
+   "Shenzhen Xinpengcheng"
+  ],
   "src": "못찾음",
   "venue": null
  },
@@ -1799,13 +1810,17 @@
   "venue": null
  },
  "올랜도 시티SC": {
-  "checked": "2026-10-23",
-  "eng": "Orlando City SC",
-  "src": "못찾음",
-  "venue": null
+  "checked": "2026-10-25",
+  "elev": 34,
+  "lat": 28.5411,
+  "lon": -81.389,
+  "src": "Wikidata Q15214308→Q16846942 · Open-Meteo 고도",
+  "team_qid": "Q15214308",
+  "venue": "올랜도 시티 스타디움",
+  "venue_qid": "Q16846942"
  },
  "올랭피크드 마르세유": {
-  "checked": "2026-10-23",
+  "checked": "2026-10-25",
   "eng": [
    "Olympique de Marseille",
    "Marseille"
@@ -2217,8 +2232,12 @@
   "venue_qid": ""
  },
  "칭다오 시하이안": {
-  "checked": "2026-10-24",
-  "eng": "['Qingdao West Coast', 'Qingdao Hainiu', 'Qingdao']",
+  "checked": "2026-10-25",
+  "eng": [
+   "Qingdao West Coast",
+   "Qingdao Hainiu",
+   "Qingdao"
+  ],
   "src": "못찾음",
   "venue": null
  },

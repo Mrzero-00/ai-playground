@@ -1,16 +1,16 @@
 # 릴OSC (리그앙)
 
 <!-- FACTS:START -->
-## 팩트시트 (자동 수집 2026-10-24) — 조사 전 반드시 읽고, 아래 사실과 다른 뉴스 요약은 '미확인'으로 둔다
+## 팩트시트 (자동 수집 2026-10-25) — 조사 전 반드시 읽고, 아래 사실과 다른 뉴스 요약은 '미확인'으로 둔다
 - 출처: 위키 '2026–27 Lille OSC season'(season), ESPN 있음
 - 감독: Davide Ancelotti
-- 리그 순위: 4위 7경기 4승2무1패 GD+5 승점14 (Lille)
+- 리그 순위: 3위 7경기 4승2무1패 GD+5 승점14 (Lille)
 - 2026 여름 이적(위키 이적 표, 앞 8줄씩): IN FW · Ayase Ueda · Feyenoord · €15,000,000 · 31 August 2026 / IN LW/RW · Ichem Ferrah · Pisa · Undisclosed · 7 August 2026 / OUT LW/RW · Ichem Ferrah · Pisa · Undisclosed · 7 August 2026
 - 최근 경기(ESPN, 최대 28일): 2026-09-03 Toulouse 0-1 Lille / 2026-09-13 Lille 2-0 Troyes / 2026-09-20 Nice 2-1 Lille / 2026-10-10 Lille 1-0 Le Havre AC / 2026-10-17 Lille 1-1 Brest
 <!-- FACTS:END -->
 <!-- INPUTS:START -->
 ## 입력(자동 수집 2026-10-25) — xG·휴식일·라인업·환경(이동거리·고도·날씨)은 이 숫자를 쓴다
-- 10-25 23:00 vs AS모나코: 휴식 3.9일(7일 1경기) · 직전 10-22 홈 vs Galatasaray 2-4 패 [uefa.champions] · xG 시즌7경기 xG1.54/xGA1.5 npxGD-0.07 · 최근5 1.68/1.38 (+0.15) · 홈0.51/원정-0.86 · xPts10.2 vs 승점14 · 직전 선발 4-3-3 Berke Özer, Alexsandro, Nathan Ngoy, Calvin Verdonk, Maxima Goffi, Nabil Bentaleb, Benjamin André, Ngal'ayel Mukau, Hákon Haraldsson, Soriba Diaoune, Dilane Bakwa · 구장 스타드 루이 되 · 이동 831km · 고도 20m(차 -23m) · 17.1℃ 강수0mm(0%) 바람5.2km/h · ⚠ 장거리 원정 831km
+- 10-25 23:00 vs AS모나코: 휴식 3.9일(7일 1경기) · 직전 10-22 홈 vs Galatasaray 2-4 패 [uefa.champions] · xG 시즌7경기 xG1.54/xGA1.5 npxGD-0.07 · 최근5 1.68/1.38 (+0.15) · 홈0.51/원정-0.86 · xPts10.2 vs 승점14 · 직전 선발 4-3-3 Berke Özer, Alexsandro, Nathan Ngoy, Calvin Verdonk, Maxima Goffi, Nabil Bentaleb, Benjamin André, Ngal'ayel Mukau, Hákon Haraldsson, Soriba Diaoune, Dilane Bakwa · 구장 스타드 루이 되 · 이동 831km · 고도 20m(차 -23m) · 16.9℃ 강수0mm(0%) 바람5.4km/h · ⚠ 장거리 원정 831km
 <!-- INPUTS:END -->
 
 ## 성향

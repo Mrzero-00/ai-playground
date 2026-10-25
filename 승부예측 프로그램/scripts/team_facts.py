@@ -329,6 +329,38 @@ def facts_age(team):
     return (dt.date.today() - dt.date.fromisoformat(m.group(1))).days if m else None
 
 
+def facts_from_note(team, league):
+    """이미 신선한 팀노트 FACTS 블록을 그대로 읽어 회차 팩트시트 표에 다시 싣는다.
+
+    왜 (2026-10-25, 126회 20:15 블록): `--stale N` 은 '다시 받을 팀'만 targets 로 남기는데
+    회차 표(팩트시트_NNN.md)를 그 targets 로만 다시 써서, **전원이 신선하면 표가 통째로 비었다**.
+    exit 0 이라 조용한 실패였고 10/24 22:00·10/25 15:00·10/25 19:30 세 번 반복됐다(수집가가 전원 검색으로 대체).
+    신선한 팀은 다시 받지 않되 표에는 캐시 값을 싣는다.
+    """
+    path = note_path(team)
+    f = {"팀": team, "영문": "", "리그": league, "위키": "", "종류": "", "감독": "",
+         "순위(ESPN)": "", "순위": "", "이적": [], "최근(ESPN)": []}
+    if not os.path.exists(path):
+        return f
+    m = re.search(r"<!-- FACTS:START -->(.*?)<!-- FACTS:END -->", open(path, encoding="utf-8").read(), re.S)
+    if not m:
+        return f
+    for line in m.group(1).splitlines():
+        line = line.strip()
+        if line.startswith("- 출처:"):
+            w = re.search(r"위키 '([^']*)'", line)
+            if w: f["위키"] = w.group(1)
+        elif line.startswith("- 감독:"):
+            f["감독"] = line.split(":", 1)[1].strip().replace("미확인", "")
+        elif line.startswith("- 리그 순위:"):
+            f["순위(ESPN)"] = line.split(":", 1)[1].strip().replace("미확인", "")
+        elif line.startswith("- 2026 여름 이적"):
+            f["이적"] = [x for x in line.split("): ", 1)[-1].split(" / ") if x]
+        elif line.startswith("- 최근 경기"):
+            f["최근(ESPN)"] = [x for x in line.split("): ", 1)[-1].split(" / ") if x]
+    return f
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--round"); ap.add_argument("--teams"); ap.add_argument("--stale", type=int, default=0)
@@ -346,6 +378,7 @@ def main():
                 for t in (r["홈"], r["원정"]):
                     if t not in seen:
                         seen.add(t); targets.append((t, r["리그"]))
+    fresh = []          # 신선해서 다시 받지 않은 팀 (표에는 캐시로 싣는다)
     if a.check or a.stale:
         rows = []
         for t, lg in targets:
@@ -356,6 +389,7 @@ def main():
             print(f"팩트시트 누락·7일 초과 {len(rows)}팀:")
             for t, lg, s in rows: print(f"  {t} ({lg}) — {s}")
             return
+        fresh = [(t, lg) for t, lg in targets if (t, lg) not in {(x, y) for x, y, _ in rows}]
         targets = [(t, lg) for t, lg, s in rows]
     out = []
     for t, lg in targets:
@@ -368,6 +402,11 @@ def main():
         f = facts_for(t, eng, lg); write_note(t, f); out.append(f)
         print(f"  ✓ {t} ← {f['위키'] or '위키 없음'} | 감독 {f['감독'] or '-'} | 순위 {f['순위(ESPN)'] or f['순위'] or '-'} | 이적 {len(f['이적'])}줄 | 최근 {len(f['최근(ESPN)'])}경기")
     if a.round:
+        # 신선해서 다시 받지 않은 팀도 캐시에서 읽어 표에 싣는다 (빈 표 방지, 2026-10-25)
+        done = {f["팀"] for f in out}
+        for t, lg in fresh:
+            if t not in done:
+                out.append(facts_from_note(t, lg)); done.add(t)
         p = os.path.join(ROOT, "회차별분석", f"팩트시트_{a.round}.md")
         with open(p, "w", encoding="utf-8") as fp:
             fp.write(f"# {a.round}회 팀 팩트시트 (자동 수집 {dt.date.today()})\n\n| 팀 | 리그 | 위키 문서 | 감독 | 순위 | 이적(IN/OUT 줄) | 최근 경기 |\n|---|---|---|---|---|---|---|\n")

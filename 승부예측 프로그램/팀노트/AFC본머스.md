@@ -1,15 +1,15 @@
 # AFC 본머스 (잉글랜드 프리미어리그)
 
 <!-- FACTS:START -->
-## 팩트시트 (자동 수집 2026-10-22) — 조사 전 반드시 읽고, 아래 사실과 다른 뉴스 요약은 '미확인'으로 둔다
+## 팩트시트 (자동 수집 2026-10-25) — 조사 전 반드시 읽고, 아래 사실과 다른 뉴스 요약은 '미확인'으로 둔다
 - 출처: 위키 '2026–27 AFC Bournemouth season'(season), ESPN 있음
 - 감독: Marco Rose
-- 리그 순위: 15위 7경기 1승3무3패 GD-4 승점6 (AFC Bournemouth)
-- 최근 경기(ESPN, 최대 28일): 2026-09-12 AFC Bournemouth 2-2 Brentford / 2026-09-20 AFC Bournemouth 0-1 Liverpool / 2026-10-10 Chelsea 5-1 AFC Bournemouth / 2026-10-18 AFC Bournemouth 2-0 Sunderland / 2026-09-17 Real Sociedad 1-2 AFC Bournemouth / 2026-10-15 AFC Bournemouth 3-0 SK Sturm Graz
+- 리그 순위: 17위 7경기 1승3무3패 GD-4 승점6 (AFC Bournemouth)
+- 최근 경기(ESPN, 최대 28일): 2026-09-05 Newcastle United 2-2 AFC Bournemouth / 2026-09-12 AFC Bournemouth 2-2 Brentford / 2026-09-20 AFC Bournemouth 0-1 Liverpool / 2026-10-10 Chelsea 5-1 AFC Bournemouth / 2026-10-18 AFC Bournemouth 2-0 Sunderland
 <!-- FACTS:END -->
 <!-- INPUTS:START -->
 ## 입력(자동 수집 2026-10-25) — xG·휴식일·라인업·환경(이동거리·고도·날씨)은 이 숫자를 쓴다
-- 10-25 23:00 vs 맨체스터 유나이티드: 휴식 2.8일(7일 1경기) · 직전 10-23 홈 vs AC Milan 3-0 승 [uefa.europa] · xG 시즌7경기 xG2.02/xGA1.21 npxGD+0.81 · 최근5 2.24/0.86 (+1.37) · 홈1.57/원정-0.2 · xPts12.3 vs 승점6 · 직전 선발 4-4-2 Michele Di Gregorio, António Silva, Bafodé Diakité, Adrien Truffert, James Hill, Ryan Christie, Tyler Adams, Marcus Tavernier, Ben Gannon-Doak, Evanilson, Justin Kluivert · 구장 올드 트래퍼드 · 이동 305km · 고도 18m(차 -18m) · 11.3℃ 강수0.1mm(86%) 바람34.2km/h · ⚠ 비 0.1mm(86%), 강풍 34.2km/h
+- 10-25 23:00 vs 맨체스터 유나이티드: 휴식 2.8일(7일 1경기) · 직전 10-23 홈 vs AC Milan 3-0 승 [uefa.europa] · xG 시즌7경기 xG2.02/xGA1.21 npxGD+0.81 · 최근5 2.24/0.86 (+1.37) · 홈1.57/원정-0.2 · xPts12.3 vs 승점6 · 직전 선발 4-4-2 Michele Di Gregorio, António Silva, Bafodé Diakité, Adrien Truffert, James Hill, Ryan Christie, Tyler Adams, Marcus Tavernier, Ben Gannon-Doak, Evanilson, Justin Kluivert · 구장 올드 트래퍼드 · 이동 305km · 고도 18m(차 -18m) · 11.3℃ 강수0mm(86%) 바람39.6km/h · ⚠ 비 0mm(86%), 강풍 39.6km/h
 <!-- INPUTS:END -->
 
 ## 성향

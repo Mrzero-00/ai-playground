@@ -1,11 +1,11 @@
 # AZ 알크마르 (에레디비시)
 
 <!-- FACTS:START -->
-## 팩트시트 (자동 수집 2026-10-22) — 조사 전 반드시 읽고, 아래 사실과 다른 뉴스 요약은 '미확인'으로 둔다
+## 팩트시트 (자동 수집 2026-10-25) — 조사 전 반드시 읽고, 아래 사실과 다른 뉴스 요약은 '미확인'으로 둔다
 - 출처: 위키 'AZ Alkmaar'(club), ESPN 있음
 - 감독: Lee-Roy Echteld
-- 리그 순위: 20위 2경기 1승0무1패 GD0 승점3 (AZ Alkmaar)
-- 최근 경기(ESPN, 최대 28일): 2026-09-16 Sunderland 1-0 AZ Alkmaar / 2026-10-15 AZ Alkmaar 2-1 Hapoel Be'er
+- 리그 순위: 2위 9경기 6승2무1패 GD+10 승점20 (AZ Alkmaar)
+- 최근 경기(ESPN, 최대 28일): 2026-09-06 Heerenveen 2-3 AZ Alkmaar / 2026-09-11 AZ Alkmaar 1-1 Willem II / 2026-09-20 AZ Alkmaar 1-0 Telstar / 2026-10-10 Feyenoord Rotterdam 2-0 AZ Alkmaar / 2026-10-18 SC Cambuur 2-2 AZ Alkmaar
 <!-- FACTS:END -->
 <!-- INPUTS:START -->
 ## 입력(자동 수집 2026-10-23) — xG·휴식일·라인업·환경(이동거리·고도·날씨)은 이 숫자를 쓴다

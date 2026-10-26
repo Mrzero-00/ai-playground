@@ -130,8 +130,7 @@ async function now() {
   ${s.edge_by_league && s.edge_by_league.length ? `<details class="card hblk"><summary><b>리그별 방향 적중률</b> <span class="small">15경기 이상</span></summary>
     <div class="tbl"><table><thead><tr><th>리그</th><th class="num">경기</th><th class="num">방향 적중률</th><th class="num">시장(참고)</th></tr></thead><tbody>
     ${s.edge_by_league.map((e)=>`<tr><td>${esc(e.league)}</td><td class="num">${e.n}</td><td class="num"><b>${(e.me*100).toFixed(1)}%</b></td><td class="num m">${(e.market*100).toFixed(1)}%</td></tr>`).join("")}
-    </tbody></table></div></details>` : ""}s="v">${pct(s.process_score)}</div><div class="d">내용이 예측 쪽이었던 비율 · ${s.process_n}경기</div></div>
-  </div>
+    </tbody></table></div></details>` : ""}
   <h2>현재 진행 중</h2>
   ${r.current.filter((c)=>c.track!=="도파민").length ? r.current.filter((c)=>c.track!=="도파민").map((c) => comboCard(c, false)).join("") : '<div class="empty">진행 중인 코어 조합이 없습니다. 다음 블록 분석 시각에 추가됩니다.</div>'}
   ${(() => {

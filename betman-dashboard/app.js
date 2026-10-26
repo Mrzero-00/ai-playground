@@ -33,13 +33,28 @@ function carryText(t) {
   return bits.length ? " · " + bits.join(" · ") : "";
 }
 function totoCard(t, past) {
+  const showRes = t.legs.some((l) => l.hit === "0" || l.hit === "1");
+  const cell = (l, k) => {
+    const mine = l.pick === k;
+    const act = l.actual || "";
+    const cls = act && act === k ? (act === l.pick ? " act-ok" : " act-no") : "";
+    return `<td class="ck${cls}">${mine ? `<span class="ok">✓</span>${l.prob ? ` <span class="ln">${l.prob}%</span>` : ""}` : ""}</td>`;
+  };
+  const rows = t.legs.map((l) => `<tr>
+    <td class="gm"><span class="m">${esc(l.no)}.</span> ${esc(l.game)}<div class="m">${esc(l.time.slice(5, 16))}</div></td>
+    ${["승", "무", "패"].map((k) => cell(l, k)).join("")}
+    ${showRes ? `<td class="num">${esc(l.score || "")}</td><td>${l.hit !== "" ? pill(l.hit) : '<span class="pill wait">대기</span>'}</td>` : ""}
+  </tr>`).join("");
   return `<div class="card combo"><div class="chead"><b>${esc(t.round)}회 승무패 · ${esc(t.title)}</b>
     <span class="small">${t.n}경기${t.done ? ` · ${t.hits}/${t.done} 적중` : ""}</span><span class="sp"></span>
     ${t.current ? `<span class="pill wait">진행</span>` : t.scored ? (t.hits >= 13 ? '<span class="pill hit">' : '<span class="pill miss">') + esc(t.result || `${t.hits}/${t.n}`) + "</span>" : '<span class="pill wait">채점 중</span>'}</div>
     <div class="small">${closeText(t.close)}${carryText(t)}</div>
-    <ul class="legs">${t.legs.map((l) => `<li><div class="lhead"><span class="g">${esc(l.no)}. ${esc(l.game)} <span class="m">${esc(l.time.slice(5, 16))}</span></span>
-      <span class="pk"><b>${esc(l.pick)}</b>${l.prob ? ` <span class="m">${l.prob}%</span>` : ""}</span><span>${l.result ? esc(l.result) + " " : ""}${l.hit !== "" ? pill(l.hit) : ""}</span></div>
-      ${l.why && !past ? `<div class="why"><span class="lbl">근거</span> ${esc(l.why)}</div>` : ""}</li>`).join("")}</ul></div>`;
+    <div class="tbl"><table class="combo-tbl"><thead><tr>
+      <th>경기</th><th class="ck">승</th><th class="ck">무</th><th class="ck">패</th>
+      ${showRes ? '<th class="num">결과</th><th>적중</th>' : ""}</tr></thead><tbody>${rows}</tbody></table>
+    ${showRes ? '<div class="tnote"><span class="ok">✓</span> 내 마킹 · <span class="sw act-ok"></span> 실제 결과(맞음) · <span class="sw act-no"></span> 실제 결과(빗나감)</div>' : '<div class="tnote"><span class="ok">✓</span> 내 마킹 · 옆 숫자는 내 확률</div>'}</div>
+    ${t.legs.filter((l) => l.why && !past).map((l) => `<div class="note"><div class="nh">${esc(l.no)}. ${esc(l.game)} — <b>${esc(l.pick)}</b></div>
+      <div class="why"><span class="lbl">근거</span> ${esc(l.why)}</div></div>`).join("")}</div>`;
 }
 
 function pickCells(l, past) {

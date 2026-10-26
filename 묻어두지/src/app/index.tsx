@@ -2,140 +2,170 @@ import { router } from 'expo-router';
 import { Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
-import { DugiMark } from '@/components/dugi-mark';
-import { Pill } from '@/components/pill';
-import { Colors, MaxContentWidth, Radius, Spacing } from '@/constants/theme';
+import { Capsule } from '@/components/capsule';
+import { Icon } from '@/components/icons';
+import { Button, Card, Content, Page, Tag } from '@/components/ui';
+import { Colors, Fonts, Radius, Spacing, Stroke, offsetShadow } from '@/constants/theme';
+import {
+  MAX_ITEMS_PER_MEMBER,
+  contributingMembers,
+  daysUntil,
+  deletionDate,
+  deriveStatus,
+  formatKoreanDate,
+  me,
+  type Capsule as CapsuleModel,
+  type DerivedStatus,
+} from '@/domain/capsule';
+import { useCapsuleStore } from '@/state/capsule-store';
 
 export default function HomeScreen() {
+  const { capsules } = useCapsuleStore();
+  const now = new Date();
+  const withStatus = capsules.map((capsule) => ({ capsule, status: deriveStatus(capsule, now) }));
+  const hero =
+    withStatus.find(({ capsule, status }) => status === 'collecting' && (me(capsule)?.items.length ?? 0) < MAX_ITEMS_PER_MEMBER) ??
+    withStatus.find(({ status }) => status === 'unlockable') ??
+    withStatus[0];
+  const rest = withStatus.filter((entry) => entry !== hero);
+
   return (
-    <SafeAreaView style={styles.safeArea} edges={['top']}>
-      <ScrollView contentContainerStyle={styles.scrollContent} showsVerticalScrollIndicator={false}>
-        <View style={styles.page}>
-          <View style={styles.header}>
-            <View>
-              <Text style={styles.eyebrow}>지금 묻고, 그때 만나서 열자.</Text>
+    <Page>
+      <SafeAreaView style={styles.safeArea} edges={['top']}>
+        <ScrollView contentContainerStyle={styles.scroll} showsVerticalScrollIndicator={false}>
+          <Content style={styles.content}>
+            <View style={styles.header}>
               <Text style={styles.brand}>묻어두지</Text>
+              <Pressable accessibilityRole="button" accessibilityLabel="내 계정" style={[styles.account, offsetShadow(3)]}>
+                <Text style={styles.accountLabel}>상</Text>
+              </Pressable>
             </View>
-            <View style={styles.avatar}>
-              <Text style={styles.avatarText}>나</Text>
-            </View>
-          </View>
 
-          <View style={styles.heroCard}>
-            <View style={styles.heroTop}>
-              <Pill label="두지가 보관 중" tone="leaf" />
-              <Text style={styles.more}>•••</Text>
-            </View>
-            <View style={styles.dugiWrap}>
-              <View style={styles.groundLine} />
-              <DugiMark size={116} mood="sleeping" />
-            </View>
-            <Text style={styles.heroTitle}>한 달 뒤 우리 예언</Text>
-            <Text style={styles.heroMeta}>망원한강공원 · 2026년 10월 3일</Text>
+            {hero && <HeroCard capsule={hero.capsule} status={hero.status} now={now} />}
 
-            <View style={styles.countdown}>
-              <View>
-                <Text style={styles.countdownLabel}>다시 만날 때까지</Text>
-                <Text style={styles.countdownValue}>D–32</Text>
+            {rest.length > 0 && (
+              <View style={styles.list}>
+                <Text style={styles.sectionTitle}>내 캡슐들</Text>
+                {rest.map(({ capsule, status }) => (
+                  <ListRow key={capsule.id} capsule={capsule} status={status} now={now} />
+                ))}
               </View>
-              <View style={styles.memberBlock}>
-                <View style={styles.memberDots}>
-                  {['상', '민', '유', '+1'].map((name, index) => (
-                    <View key={name} style={[styles.memberDot, { marginLeft: index === 0 ? 0 : -8 }]}>
-                      <Text style={styles.memberText}>{name}</Text>
-                    </View>
-                  ))}
-                </View>
-                <Text style={styles.memberCaption}>3/4명 넣었어요</Text>
+            )}
+
+            {capsules.length === 0 && (
+              <View style={styles.empty}>
+                <Capsule state="closed" size={180} />
+                <Text style={styles.emptyTitle}>첫 캡슐을 묻어볼까요?</Text>
               </View>
-            </View>
+            )}
+          </Content>
+        </ScrollView>
+        <Content style={styles.footer}>
+          <Button label="새 캡슐 묻기" icon="plus" onPress={() => router.push('/create')} />
+        </Content>
+      </SafeAreaView>
+    </Page>
+  );
+}
 
-            <Pressable onPress={() => router.push('/camera')} style={({ pressed }) => [styles.primaryButton, pressed && styles.pressed]}>
-              <Text style={styles.primaryButtonText}>내 예언 몰래 넣기</Text>
-              <Text style={styles.primaryButtonIcon}>→</Text>
-            </Pressable>
-          </View>
-
-          <View style={styles.sectionHeader}>
-            <Text style={styles.sectionTitle}>나의 구덩이</Text>
-            <Text style={styles.sectionCaption}>2개</Text>
-          </View>
-
-          <Pressable onPress={() => router.push('/pit/first-prophecy')} style={({ pressed }) => [styles.listCard, pressed && styles.pressed]}>
-            <View style={styles.listIcon}>
-              <Text style={styles.listIconText}>✦</Text>
-            </View>
-            <View style={styles.listCopy}>
-              <Text style={styles.listTitle}>한 달 뒤 우리 예언</Text>
-              <Text style={styles.listMeta}>3명이 기다리는 중 · D–32</Text>
-            </View>
-            <Text style={styles.chevron}>›</Text>
-          </Pressable>
-
-          <View style={styles.listCard}>
-            <View style={[styles.listIcon, styles.openIcon]}>
-              <Text style={styles.listIconText}>☀</Text>
-            </View>
-            <View style={styles.listCopy}>
-              <Text style={styles.listTitle}>부산 여행 구덩이</Text>
-              <Text style={styles.listMeta}>열어볼 수 있어요 · 4명 필요</Text>
-            </View>
-            <Pill label="공개 가능" tone="yellow" />
-          </View>
-
-          <Pressable onPress={() => router.push('/create')} style={({ pressed }) => [styles.createButton, pressed && styles.pressed]}>
-            <Text style={styles.createButtonPlus}>＋</Text>
-            <Text style={styles.createButtonText}>새 구덩이 파기</Text>
-          </Pressable>
-
-          <Text style={styles.footerNote}>앱을 닫고, 친구를 만나러 가게 만드는 중.</Text>
+function HeroCard({ capsule, status, now }: { capsule: CapsuleModel; status: DerivedStatus; now: Date }) {
+  const mine = me(capsule);
+  const mineCount = mine?.items.length ?? 0;
+  const filled = contributingMembers(capsule).length;
+  const openable = status === 'unlockable';
+  return (
+    <Card onPress={() => router.push({ pathname: '/capsule/[id]', params: { id: capsule.id } })} style={[styles.hero, offsetShadow(6)]}>
+      <View style={styles.rowBetween}>
+        {status === 'collecting' && <Tag tone="yellow" label={`채우는 중 · 마감 D-${daysUntil(capsule.deadlineAt, now)}`} />}
+        {openable && <Tag tone="sky" label="오늘 열 수 있어요!" />}
+        {status === 'sealed' && <Tag tone="white" icon="lock" label="닫힘" />}
+        {status === 'opened' && <Tag tone="mint" label="열렸어요" />}
+        {status === 'collecting' && (
+          <Text style={styles.heroCount}>
+            {filled}/{capsule.members.length}명 넣음
+          </Text>
+        )}
+      </View>
+      <View style={styles.heroBody}>
+        <Capsule state={status === 'opened' ? 'open' : status === 'sealed' ? 'buried' : 'closed'} size={124} />
+        <View style={styles.heroCopy}>
+          <Text style={styles.heroTitle}>{capsule.title}</Text>
+          <Text style={styles.heroMeta}>
+            {status === 'collecting' && `${formatKoreanDate(capsule.deadlineAt)}까지 넣을 수 있어요`}
+            {status === 'sealed' && capsule.openAt && `${formatKoreanDate(capsule.openAt, true)}에 열려요`}
+            {openable && '친구들이 기다리고 있어요'}
+            {status === 'opened' && capsule.openedAt && `${formatKoreanDate(deletionDate(capsule.openedAt))}에 사라져요`}
+          </Text>
         </View>
-      </ScrollView>
-    </SafeAreaView>
+      </View>
+      {status === 'collecting' && (
+        <View style={styles.slotRow}>
+          <View style={styles.slots}>
+            {Array.from({ length: MAX_ITEMS_PER_MEMBER }).map((_, index) => (
+              <View key={index} style={[styles.slot, index < mineCount ? (index % 2 === 0 ? styles.slotSky : styles.slotYellow) : styles.slotEmpty]} />
+            ))}
+          </View>
+          <Text style={styles.slotLabel}>
+            내 자리 {mineCount}/{MAX_ITEMS_PER_MEMBER} · 더 넣기 →
+          </Text>
+        </View>
+      )}
+    </Card>
+  );
+}
+
+function ListRow({ capsule, status, now }: { capsule: CapsuleModel; status: DerivedStatus; now: Date }) {
+  const openable = status === 'unlockable';
+  return (
+    <Card tone={openable ? 'sky' : 'white'} onPress={() => router.push({ pathname: '/capsule/[id]', params: { id: capsule.id } })} style={styles.row}>
+      <Capsule state={status === 'opened' ? 'open' : status === 'sealed' ? 'buried' : 'closed'} size={52} />
+      <View style={styles.rowCopy}>
+        <Text style={styles.rowTitle}>{capsule.title}</Text>
+        <Text style={[styles.rowMeta, openable && { color: Colors.ink }]}>
+          {status === 'collecting' && `채우는 중 · ${formatKoreanDate(capsule.deadlineAt)}까지`}
+          {status === 'sealed' && capsule.openAt && `닫힘 · ${formatKoreanDate(capsule.openAt)} 저녁에 열려요`}
+          {openable && capsule.openAt && `오늘 ${formatKoreanDate(capsule.openAt, true).slice(-5)}부터 열 수 있어요!`}
+          {status === 'opened' && capsule.openedAt && `열렸어요 · ${daysUntil(deletionDate(capsule.openedAt), now)}일 뒤 사라져요`}
+        </Text>
+      </View>
+      {status === 'sealed' && capsule.openAt && <Text style={[styles.rowDay, { color: Colors.muted }]}>D-{daysUntil(capsule.openAt, now)}</Text>}
+      {openable && <Text style={styles.rowDay}>D-0</Text>}
+      {status === 'collecting' && capsule.deadlineAt && <Text style={styles.rowDay}>D-{daysUntil(capsule.deadlineAt, now)}</Text>}
+      {status === 'opened' && <Icon name="chevron" />}
+    </Card>
   );
 }
 
 const styles = StyleSheet.create({
-  safeArea: { flex: 1, backgroundColor: Colors.canvas },
-  scrollContent: { flexGrow: 1, alignItems: 'center' },
-  page: { width: '100%', maxWidth: MaxContentWidth, padding: Spacing.lg, gap: Spacing.md },
-  header: { flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', marginBottom: Spacing.sm },
-  eyebrow: { color: Colors.muted, fontSize: 12, fontWeight: '700', marginBottom: 3 },
-  brand: { color: Colors.earthDark, fontSize: 30, fontWeight: '900', letterSpacing: -1.3 },
-  avatar: { width: 42, height: 42, borderRadius: 21, backgroundColor: Colors.leaf, alignItems: 'center', justifyContent: 'center' },
-  avatarText: { color: Colors.white, fontSize: 13, fontWeight: '800' },
-  heroCard: { backgroundColor: Colors.surface, borderRadius: Radius.lg, padding: Spacing.lg, borderWidth: 1, borderColor: Colors.line, shadowColor: Colors.earthDark, shadowOpacity: 0.08, shadowRadius: 18, shadowOffset: { width: 0, height: 8 }, elevation: 2 },
-  heroTop: { flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' },
-  more: { color: Colors.muted, fontSize: 18, letterSpacing: 2 },
-  dugiWrap: { height: 148, justifyContent: 'flex-end', alignItems: 'center', overflow: 'hidden', marginTop: Spacing.sm },
-  groundLine: { position: 'absolute', bottom: 13, width: '100%', height: 35, borderRadius: 50, backgroundColor: '#E8D4B7' },
-  heroTitle: { color: Colors.ink, fontSize: 24, fontWeight: '900', letterSpacing: -0.7, textAlign: 'center', marginTop: Spacing.sm },
-  heroMeta: { color: Colors.muted, fontSize: 14, fontWeight: '600', textAlign: 'center', marginTop: 6 },
-  countdown: { marginTop: Spacing.lg, flexDirection: 'row', justifyContent: 'space-between', alignItems: 'flex-end', borderTopWidth: 1, borderTopColor: Colors.line, paddingTop: Spacing.md },
-  countdownLabel: { color: Colors.muted, fontSize: 12, fontWeight: '700' },
-  countdownValue: { color: Colors.earthDark, fontSize: 32, fontWeight: '900', letterSpacing: -1 },
-  memberBlock: { alignItems: 'flex-end', gap: 5 },
-  memberDots: { flexDirection: 'row' },
-  memberDot: { width: 30, height: 30, borderRadius: 15, backgroundColor: Colors.leafSoft, borderWidth: 2, borderColor: Colors.surface, alignItems: 'center', justifyContent: 'center' },
-  memberText: { color: Colors.leaf, fontSize: 10, fontWeight: '900' },
-  memberCaption: { color: Colors.muted, fontSize: 11, fontWeight: '600' },
-  primaryButton: { marginTop: Spacing.lg, borderRadius: Radius.md, minHeight: 56, paddingHorizontal: Spacing.md, backgroundColor: Colors.earthDark, flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between' },
-  primaryButtonText: { color: Colors.white, fontSize: 16, fontWeight: '800' },
-  primaryButtonIcon: { color: Colors.yellow, fontSize: 22, fontWeight: '700' },
-  sectionHeader: { marginTop: Spacing.lg, flexDirection: 'row', alignItems: 'center', gap: Spacing.sm },
-  sectionTitle: { color: Colors.ink, fontSize: 20, fontWeight: '900', letterSpacing: -0.5 },
-  sectionCaption: { color: Colors.muted, fontSize: 13, fontWeight: '700' },
-  listCard: { backgroundColor: Colors.surface, borderRadius: Radius.md, padding: Spacing.md, borderWidth: 1, borderColor: Colors.line, flexDirection: 'row', alignItems: 'center', gap: Spacing.md },
-  listIcon: { width: 44, height: 44, borderRadius: 16, backgroundColor: Colors.leafSoft, alignItems: 'center', justifyContent: 'center' },
-  openIcon: { backgroundColor: '#F9E8B5' },
-  listIconText: { color: Colors.earth, fontSize: 19, fontWeight: '800' },
-  listCopy: { flex: 1, gap: 4 },
-  listTitle: { color: Colors.ink, fontSize: 15, fontWeight: '800' },
-  listMeta: { color: Colors.muted, fontSize: 12, fontWeight: '600' },
-  chevron: { color: Colors.soil, fontSize: 28, fontWeight: '300' },
-  createButton: { borderRadius: Radius.md, minHeight: 58, borderWidth: 1.5, borderStyle: 'dashed', borderColor: Colors.soil, flexDirection: 'row', alignItems: 'center', justifyContent: 'center', gap: Spacing.sm, marginTop: Spacing.sm },
-  createButtonPlus: { color: Colors.earth, fontSize: 24, fontWeight: '500' },
-  createButtonText: { color: Colors.earthDark, fontSize: 15, fontWeight: '800' },
-  footerNote: { color: Colors.muted, fontSize: 11, fontWeight: '600', textAlign: 'center', marginVertical: Spacing.lg },
-  pressed: { opacity: 0.72, transform: [{ scale: 0.99 }] },
+  safeArea: { flex: 1 },
+  scroll: { flexGrow: 1 },
+  content: { gap: Spacing.xl, paddingTop: Spacing.md, paddingBottom: Spacing.lg },
+  header: { flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between' },
+  brand: { fontFamily: Fonts.display, fontSize: 28, color: Colors.ink },
+  account: { width: 42, height: 42, borderRadius: 21, backgroundColor: Colors.yellow, borderWidth: Stroke.regular, borderColor: Colors.ink, alignItems: 'center', justifyContent: 'center' },
+  accountLabel: { fontFamily: Fonts.display, fontSize: 15, color: Colors.ink },
+  hero: { borderRadius: Radius.xl, padding: 18, gap: Spacing.md },
+  rowBetween: { flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between' },
+  heroCount: { fontFamily: Fonts.display, fontSize: 14, color: Colors.cyan },
+  heroBody: { flexDirection: 'row', alignItems: 'center', gap: Spacing.md },
+  heroCopy: { flex: 1, gap: 6 },
+  heroTitle: { fontFamily: Fonts.display, fontSize: 25, lineHeight: 29, color: Colors.ink },
+  heroMeta: { fontFamily: Fonts.body, fontSize: 13, color: Colors.muted },
+  slotRow: { flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', padding: 12, borderRadius: 16, backgroundColor: Colors.cream, borderWidth: Stroke.thin, borderColor: Colors.ink },
+  slots: { flexDirection: 'row', gap: 6 },
+  slot: { width: 18, height: 18, borderRadius: 9, borderWidth: Stroke.thin, borderColor: Colors.ink },
+  slotSky: { backgroundColor: Colors.sky },
+  slotYellow: { backgroundColor: Colors.yellow },
+  slotEmpty: { borderStyle: 'dashed' },
+  slotLabel: { fontFamily: Fonts.display, fontSize: 14, color: Colors.ink },
+  list: { gap: Spacing.md },
+  sectionTitle: { fontFamily: Fonts.display, fontSize: 18, color: Colors.ink },
+  row: { flexDirection: 'row', alignItems: 'center', gap: Spacing.md, padding: 12, paddingRight: 16, borderRadius: 20 },
+  rowCopy: { flex: 1, gap: 2 },
+  rowTitle: { fontFamily: Fonts.display, fontSize: 18, color: Colors.ink },
+  rowMeta: { fontFamily: Fonts.body, fontSize: 12, color: Colors.muted },
+  rowDay: { fontFamily: Fonts.display, fontSize: 22, color: Colors.ink },
+  empty: { alignItems: 'center', gap: Spacing.md, paddingVertical: Spacing.xxl },
+  emptyTitle: { fontFamily: Fonts.display, fontSize: 20, color: Colors.ink },
+  footer: { paddingTop: Spacing.md, paddingBottom: Spacing.md },
 });

@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240" role="img" aria-label="닫힌 타임캡슐">
+  <g transform="rotate(-35 120 120)">
+    <clipPath id="pill"><rect x="20" y="80" width="200" height="80" rx="40"/></clipPath>
+    <rect x="20" y="80" width="200" height="80" rx="40" fill="#5FDCFF"/>
+    <rect x="20" y="126" width="200" height="34" fill="#00C2F5" clip-path="url(#pill)"/>
+    <g clip-path="url(#pill)">
+      <rect x="54" y="74" width="24" height="92" fill="#FFE07A" stroke="#111" stroke-width="5"/>
+      <rect x="162" y="74" width="24" height="92" fill="#FFE07A" stroke="#111" stroke-width="5"/>
+    </g>
+    <rect x="20" y="80" width="200" height="80" rx="40" fill="none" stroke="#111" stroke-width="5"/>
+    <path d="M36 112c2-10 8-17 16-21" fill="none" stroke="#FFFFFF" stroke-width="5" stroke-linecap="round"/>
+    <circle cx="120" cy="120" r="25" fill="#F2FBFF" stroke="#111" stroke-width="5"/>
+    <path d="M110 110A14 14 0 1 1 106 126" fill="none" stroke="#111" stroke-width="4" stroke-linecap="round"/>
+    <path d="M110 110l-8 1m8-1l-1 8" fill="none" stroke="#111" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M120 112v8h6" fill="none" stroke="#111" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+</svg>

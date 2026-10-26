@@ -1,0 +1,201 @@
+import { router } from 'expo-router';
+import { Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
+
+import { Capsule } from '@/components/capsule';
+import { Icon } from '@/components/icons';
+import { Avatar, AVATAR_TONES, Body, Button, Card, Content, IconButton, NavBar, Page, Tag } from '@/components/ui';
+import { Colors, Fonts, Radius, Spacing, Stroke, offsetShadow } from '@/constants/theme';
+import {
+  ITEM_KIND_LABEL,
+  LETTER_MAX_CHARS,
+  MAX_ITEMS_PER_MEMBER,
+  VIDEO_MAX_MS,
+  VOICE_MAX_MS,
+  canSeal,
+  contributingMembers,
+  formatKoreanDate,
+  me,
+  remainingSlots,
+  type Capsule as CapsuleModel,
+  type ItemKind,
+} from '@/domain/capsule';
+
+const KIND_ORDER: ItemKind[] = ['letter', 'photo', 'voice', 'video'];
+const KIND_TONE: Record<ItemKind, string> = { letter: Colors.sky, photo: Colors.yellow, voice: Colors.mint, video: Colors.coral };
+const KIND_LIMIT: Record<ItemKind, string> = {
+  letter: `${LETTER_MAX_CHARS}자`,
+  photo: '1장',
+  voice: `${VOICE_MAX_MS / 1000}초`,
+  video: `${VIDEO_MAX_MS / 1000}초`,
+};
+
+export function ContributeScreen({ capsule, now }: { capsule: CapsuleModel; now: Date }) {
+  const mine = me(capsule);
+  const items = mine?.items ?? [];
+  const others = capsule.members.filter((member) => !member.isMe);
+  const slotsLeft = mine ? remainingSlots(mine) : 0;
+  const sealable = canSeal(capsule);
+  const isHost = mine?.isHost ?? false;
+
+  function add(kind: ItemKind) {
+    router.push({ pathname: '/capsule/[id]/add/[kind]', params: { id: capsule.id, kind } });
+  }
+
+  return (
+    <Page>
+      <SafeAreaView style={styles.safeArea} edges={['top', 'bottom']}>
+        <NavBar
+          title={capsule.title}
+          onLeft={() => router.replace('/')}
+          right={<IconButton name="share" label="친구 초대" onPress={() => router.push({ pathname: '/capsule/[id]/invite', params: { id: capsule.id } })} />}
+        />
+        <ScrollView contentContainerStyle={styles.scroll} showsVerticalScrollIndicator={false}>
+          <Content style={styles.content}>
+            <View style={styles.statusRow}>
+              <Tag tone="yellow" label={`채우는 중 · ${formatKoreanDate(capsule.deadlineAt)}까지`} />
+              <Text style={styles.statusCount}>
+                <Text style={styles.statusStrong}>
+                  {contributingMembers(capsule).length}/{capsule.members.length}
+                </Text>
+                명이 넣었어요
+              </Text>
+            </View>
+
+            <View style={styles.capsuleRow}>
+              <Capsule state="open" size={190} />
+              <Card shadow={false} style={styles.othersCard}>
+                <Text style={styles.othersTitle}>친구들이 넣은 것</Text>
+                {others.length === 0 && <Body size={12}>아직 아무도 안 왔어요</Body>}
+                {others.map((member, index) => (
+                  <View key={member.id} style={styles.otherRow}>
+                    <Avatar name={member.name} tone={AVATAR_TONES[(index + 1) % AVATAR_TONES.length]} size={22} />
+                    <Text style={styles.otherText}>
+                      {member.name} {member.items.length}개
+                    </Text>
+                  </View>
+                ))}
+                <Body size={11}>뭔지는 열 때!</Body>
+              </Card>
+            </View>
+
+            <View style={styles.mineHeader}>
+              <Text style={styles.sectionTitle}>내 자리</Text>
+              <Tag tone="sky" label={`${items.length} / ${MAX_ITEMS_PER_MEMBER}`} />
+            </View>
+            <View style={styles.slots}>
+              {Array.from({ length: MAX_ITEMS_PER_MEMBER }).map((_, index) => {
+                const item = items[index];
+                if (!item) {
+                  return (
+                    <Pressable
+                      key={`empty-${index}`}
+                      accessibilityRole="button"
+                      accessibilityLabel={`빈 칸 ${index + 1}`}
+                      onPress={() => add('letter')}
+                      style={[styles.slot, styles.slotEmpty]}>
+                      <Icon name="plus" size={20} />
+                    </Pressable>
+                  );
+                }
+                return (
+                  <Pressable
+                    key={item.id}
+                    accessibilityRole="button"
+                    accessibilityLabel={`${ITEM_KIND_LABEL[item.kind]} 고치기`}
+                    onPress={() => router.push({ pathname: '/capsule/[id]/add/[kind]', params: { id: capsule.id, kind: item.kind, itemId: item.id } })}
+                    style={[styles.slot, { backgroundColor: KIND_TONE[item.kind] }, offsetShadow(3)]}>
+                    <Icon name={item.kind} size={22} />
+                  </Pressable>
+                );
+              })}
+            </View>
+            <Body size={12}>종류 상관없이 {MAX_ITEMS_PER_MEMBER}개까지. 사진만 5장도 돼요. 마감 전엔 꺼내서 고칠 수 있어요.</Body>
+
+            <View style={styles.kinds}>
+              {KIND_ORDER.map((kind) => (
+                <Pressable
+                  key={kind}
+                  accessibilityRole="button"
+                  disabled={slotsLeft === 0}
+                  onPress={() => add(kind)}
+                  style={({ pressed }) => [styles.kind, offsetShadow(4), pressed && styles.pressed, slotsLeft === 0 && styles.disabled]}>
+                  <View style={[styles.kindIcon, { backgroundColor: KIND_TONE[kind] }]}>
+                    <Icon name={kind} size={16} />
+                  </View>
+                  <View>
+                    <Text style={styles.kindLabel}>{ITEM_KIND_LABEL[kind]}</Text>
+                    <Text style={styles.kindLimit}>{KIND_LIMIT[kind]}</Text>
+                  </View>
+                </Pressable>
+              ))}
+            </View>
+          </Content>
+        </ScrollView>
+        <Content style={styles.footer}>
+          {isHost && (
+            <Button
+              compact
+              tone={capsule.location ? 'secondary' : 'yellow'}
+              icon="photo"
+              label={capsule.location ? `심은 자리 · ${capsule.location.label}` : 'AR로 이 자리에 심기 (실험)'}
+              onPress={() => router.push({ pathname: '/capsule/[id]/plant', params: { id: capsule.id } })}
+            />
+          )}
+          {isHost ? (
+            <Button
+              label={sealable ? '닫고 여는 날 정하기' : '친구가 더 넣으면 닫을 수 있어요'}
+              icon={sealable ? 'lock' : undefined}
+              disabled={!sealable}
+              onPress={() => router.push({ pathname: '/capsule/[id]/seal', params: { id: capsule.id } })}
+            />
+          ) : (
+            <Button label="친구 부르기" icon="share" tone="secondary" onPress={() => router.push({ pathname: '/capsule/[id]/invite', params: { id: capsule.id } })} />
+          )}
+          <Body size={12} center>
+            {`${formatKoreanDate(capsule.deadlineAt, true)}에 자동으로 닫혀요`}
+          </Body>
+        </Content>
+      </SafeAreaView>
+    </Page>
+  );
+}
+
+const styles = StyleSheet.create({
+  safeArea: { flex: 1 },
+  scroll: { flexGrow: 1 },
+  content: { gap: Spacing.md, paddingTop: Spacing.md, paddingBottom: Spacing.lg },
+  statusRow: { flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between' },
+  statusCount: { fontFamily: Fonts.body, fontSize: 12, color: Colors.muted },
+  statusStrong: { fontFamily: Fonts.display, color: Colors.ink },
+  capsuleRow: { flexDirection: 'row', alignItems: 'center', justifyContent: 'center', gap: 4 },
+  othersCard: { gap: 8, padding: 12, borderRadius: Radius.md, maxWidth: 150 },
+  othersTitle: { fontFamily: Fonts.display, fontSize: 14, color: Colors.ink },
+  otherRow: { flexDirection: 'row', alignItems: 'center', gap: 8 },
+  otherText: { fontFamily: Fonts.body, fontSize: 12, color: Colors.muted },
+  mineHeader: { flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', marginTop: Spacing.sm },
+  sectionTitle: { fontFamily: Fonts.display, fontSize: 19, color: Colors.ink },
+  slots: { flexDirection: 'row', justifyContent: 'space-between' },
+  slot: { width: 58, height: 58, borderRadius: 29, borderWidth: Stroke.regular, borderColor: Colors.ink, alignItems: 'center', justifyContent: 'center', backgroundColor: Colors.white },
+  slotEmpty: { borderStyle: 'dashed' },
+  kinds: { flexDirection: 'row', flexWrap: 'wrap', gap: 10, marginTop: 2 },
+  kind: {
+    width: '48%',
+    flexGrow: 1,
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 10,
+    minHeight: 60,
+    paddingHorizontal: 14,
+    borderRadius: Radius.md,
+    backgroundColor: Colors.white,
+    borderWidth: Stroke.regular,
+    borderColor: Colors.ink,
+  },
+  kindIcon: { width: 32, height: 32, borderRadius: 16, borderWidth: Stroke.thin, borderColor: Colors.ink, alignItems: 'center', justifyContent: 'center' },
+  kindLabel: { fontFamily: Fonts.display, fontSize: 16, color: Colors.ink },
+  kindLimit: { fontFamily: Fonts.body, fontSize: 11, color: Colors.muted },
+  pressed: { transform: [{ translateX: 2 }, { translateY: 2 }], shadowOffset: { width: 2, height: 2 } },
+  disabled: { opacity: 0.45 },
+  footer: { gap: Spacing.sm, paddingTop: Spacing.md, paddingBottom: Spacing.md },
+});

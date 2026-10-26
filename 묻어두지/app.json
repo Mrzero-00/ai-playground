@@ -23,7 +23,7 @@
       "predictiveBackGestureEnabled": false
     },
     "web": {
-      "output": "static",
+      "output": "single",
       "favicon": "./assets/images/favicon.png"
     },
     "plugins": [
@@ -50,18 +50,46 @@
         }
       ],
       [
-        "expo-camera",
+        "expo-audio",
         {
-          "cameraPermission": "캡슐에 넣을 사진을 촬영하기 위해 카메라를 사용합니다.",
-          "microphonePermission": false,
-          "recordAudioAndroid": false,
-          "barcodeScannerEnabled": false
+          "microphonePermission": "캡슐에 넣을 목소리를 녹음하기 위해 마이크를 사용합니다."
+        }
+      ],
+      [
+        "expo-video",
+        {
+          "supportsBackgroundPlayback": false,
+          "supportsPictureInPicture": false
+        }
+      ],
+      [
+        "expo-image-picker",
+        {
+          "photosPermission": "캡슐에 넣을 사진과 동영상을 고르기 위해 사진 보관함을 사용합니다.",
+          "cameraPermission": "캡슐에 넣을 사진과 동영상을 찍기 위해 카메라를 사용합니다.",
+          "microphonePermission": "동영상의 소리를 녹음하기 위해 마이크를 사용합니다."
+        }
+      ],
+      [
+        "@reactvision/react-viro",
+        {
+          "android": {
+            "xRMode": "AR"
+          },
+          "ios": {
+            "cameraUsagePermission": "심어 둔 캡슐을 카메라로 찾기 위해 카메라를 사용합니다.",
+            "microphoneUsagePermission": "AR 장면에서 소리를 녹음하기 위해 마이크를 사용합니다.",
+            "photosPermission": "AR 장면을 사진으로 남기기 위해 사진 보관함을 사용합니다.",
+            "savephotosPermission": "AR 장면을 사진으로 저장하기 위해 사진 보관함을 사용합니다."
+          },
+          "iosLinkage": "static"
         }
       ]
     ],
     "experiments": {
       "typedRoutes": true,
       "reactCompiler": true
-    }
+    },
+    "splash": null
   }
 }

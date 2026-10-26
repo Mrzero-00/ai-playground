@@ -1,0 +1,316 @@
+{
+ "번호": 9273,
+ "홈": "르아브르AC",
+ "원정": "AJ오세르",
+ "수집시각": "2026-10-18 23:25 KST",
+ "결장": [
+  {
+   "팀": "르아브르",
+   "선수": "Ayumu Seko",
+   "포지션": "DF",
+   "이번시즌_선발/경기": null,
+   "득점·도움": null,
+   "사유": "릴전 퇴장으로 출장정지",
+   "상태(확정/의심)": "확정",
+   "복귀예정": "정지 1경기",
+   "대체선수": null,
+   "출처": "https://www.sportsmole.co.uk/football/le-havre/preview/le-havre-vs-auxerre-prediction-team-news-lineups_607041.html ; https://m.maxifoot.fr/ligue-1/le-havre-auxerre-les-compos-probables-foot-465906.htm",
+   "날짜": "2026-10-16"
+  },
+  {
+   "팀": "르아브르",
+   "선수": "Stephan Zagadou",
+   "포지션": "DF",
+   "이번시즌_선발/경기": null,
+   "득점·도움": null,
+   "사유": "장기 무릎 부상",
+   "상태(확정/의심)": "확정",
+   "복귀예정": null,
+   "대체선수": null,
+   "출처": "https://www.sportsmole.co.uk/football/le-havre/preview/le-havre-vs-auxerre-prediction-team-news-lineups_607041.html ; https://m.maxifoot.fr/ligue-1/le-havre-auxerre-les-compos-probables-foot-465906.htm",
+   "날짜": "2026-10-16"
+  },
+  {
+   "팀": "르아브르",
+   "선수": "Abdoulaye Touré",
+   "포지션": "MF",
+   "이번시즌_선발/경기": null,
+   "득점·도움": null,
+   "사유": "장기 무릎 부상",
+   "상태(확정/의심)": "의심",
+   "복귀예정": null,
+   "대체선수": null,
+   "출처": "https://www.sportsmole.co.uk/football/le-havre/preview/le-havre-vs-auxerre-prediction-team-news-lineups_607041.html",
+   "날짜": "2026-10-16"
+  },
+  {
+   "팀": "르아브르",
+   "선수": "Lionel Mpasi-Nzau",
+   "포지션": "GK",
+   "이번시즌_선발/경기": null,
+   "득점·도움": null,
+   "사유": "아킬레스건",
+   "상태(확정/의심)": "확정",
+   "복귀예정": null,
+   "대체선수": null,
+   "출처": "https://www.sportsmole.co.uk/football/le-havre/preview/le-havre-vs-auxerre-prediction-team-news-lineups_607041.html ; https://m.maxifoot.fr/ligue-1/le-havre-auxerre-les-compos-probables-foot-465906.htm",
+   "날짜": "2026-10-16"
+  },
+  {
+   "팀": "르아브르",
+   "선수": "Felix Mambimbi",
+   "포지션": "FW",
+   "이번시즌_선발/경기": null,
+   "득점·도움": null,
+   "사유": "아킬레스건",
+   "상태(확정/의심)": "확정",
+   "복귀예정": null,
+   "대체선수": null,
+   "출처": "https://www.sportsmole.co.uk/football/le-havre/preview/le-havre-vs-auxerre-prediction-team-news-lineups_607041.html ; https://m.maxifoot.fr/ligue-1/le-havre-auxerre-les-compos-probables-foot-465906.htm",
+   "날짜": "2026-10-16"
+  },
+  {
+   "팀": "르아브르",
+   "선수": "Timothée Pembélé",
+   "포지션": "DF",
+   "이번시즌_선발/경기": null,
+   "득점·도움": null,
+   "사유": "결장",
+   "상태(확정/의심)": "확정",
+   "복귀예정": null,
+   "대체선수": null,
+   "출처": "https://www.sportsmole.co.uk/football/le-havre/preview/le-havre-vs-auxerre-prediction-team-news-lineups_607041.html ; https://m.maxifoot.fr/ligue-1/le-havre-auxerre-les-compos-probables-foot-465906.htm",
+   "날짜": "2026-10-16"
+  },
+  {
+   "팀": "르아브르",
+   "선수": "Elias Jelert",
+   "포지션": "DF",
+   "이번시즌_선발/경기": null,
+   "득점·도움": null,
+   "사유": "결장",
+   "상태(확정/의심)": "확정",
+   "복귀예정": null,
+   "대체선수": null,
+   "출처": "https://www.sportsmole.co.uk/football/le-havre/preview/le-havre-vs-auxerre-prediction-team-news-lineups_607041.html ; https://m.maxifoot.fr/ligue-1/le-havre-auxerre-les-compos-probables-foot-465906.htm",
+   "날짜": "2026-10-16"
+  },
+  {
+   "팀": "르아브르",
+   "선수": "Josh Maja",
+   "포지션": "FW",
+   "이번시즌_선발/경기": null,
+   "득점·도움": null,
+   "사유": "불확실(한 프리뷰 의심, Sports Mole 예상 선발에는 포함)",
+   "상태(확정/의심)": "의심",
+   "복귀예정": null,
+   "대체선수": null,
+   "출처": "https://m.maxifoot.fr/ligue-1/le-havre-auxerre-les-compos-probables-foot-465906.htm",
+   "날짜": null
+  },
+  {
+   "팀": "오세르",
+   "선수": "Sékou Fofana",
+   "포지션": null,
+   "이번시즌_선발/경기": null,
+   "득점·도움": null,
+   "사유": "심한 사타구니",
+   "상태(확정/의심)": "확정",
+   "복귀예정": null,
+   "대체선수": null,
+   "출처": "https://www.sportsmole.co.uk/football/le-havre/preview/le-havre-vs-auxerre-prediction-team-news-lineups_607041.html ; https://m.maxifoot.fr/ligue-1/le-havre-auxerre-les-compos-probables-foot-465906.htm",
+   "날짜": "2026-10-16"
+  },
+  {
+   "팀": "오세르",
+   "선수": "Bryan Okoh",
+   "포지션": "DF",
+   "이번시즌_선발/경기": null,
+   "득점·도움": null,
+   "사유": "무릎",
+   "상태(확정/의심)": "확정",
+   "복귀예정": null,
+   "대체선수": null,
+   "출처": "https://www.sportsmole.co.uk/football/le-havre/preview/le-havre-vs-auxerre-prediction-team-news-lineups_607041.html ; https://m.maxifoot.fr/ligue-1/le-havre-auxerre-les-compos-probables-foot-465906.htm",
+   "날짜": "2026-10-16"
+  },
+  {
+   "팀": "오세르",
+   "선수": "Assane Dioussé",
+   "포지션": "MF",
+   "이번시즌_선발/경기": null,
+   "득점·도움": null,
+   "사유": "무릎",
+   "상태(확정/의심)": "확정",
+   "복귀예정": null,
+   "대체선수": null,
+   "출처": "https://www.sportsmole.co.uk/football/le-havre/preview/le-havre-vs-auxerre-prediction-team-news-lineups_607041.html ; https://m.maxifoot.fr/ligue-1/le-havre-auxerre-les-compos-probables-foot-465906.htm",
+   "날짜": "2026-10-16"
+  },
+  {
+   "팀": "오세르",
+   "선수": "Rémy Labeau Lascary",
+   "포지션": "MF",
+   "이번시즌_선발/경기": null,
+   "득점·도움": null,
+   "사유": "타박상, 약 한 달 결장",
+   "상태(확정/의심)": "확정",
+   "복귀예정": "약 1개월",
+   "대체선수": null,
+   "출처": "https://www.sportsmole.co.uk/football/le-havre/preview/le-havre-vs-auxerre-prediction-team-news-lineups_607041.html ; https://m.maxifoot.fr/ligue-1/le-havre-auxerre-les-compos-probables-foot-465906.htm",
+   "날짜": "2026-10-16"
+  },
+  {
+   "팀": "오세르",
+   "선수": "Raya Mandengue",
+   "포지션": null,
+   "이번시즌_선발/경기": null,
+   "득점·도움": null,
+   "사유": "결장(사유 미기재)",
+   "상태(확정/의심)": "확정",
+   "복귀예정": null,
+   "대체선수": null,
+   "출처": "https://www.sportsmole.co.uk/football/le-havre/preview/le-havre-vs-auxerre-prediction-team-news-lineups_607041.html ; https://m.maxifoot.fr/ligue-1/le-havre-auxerre-les-compos-probables-foot-465906.htm",
+   "날짜": "2026-10-16"
+  },
+  {
+   "팀": "오세르",
+   "선수": "Telli Siwe",
+   "포지션": null,
+   "이번시즌_선발/경기": null,
+   "득점·도움": null,
+   "사유": "불확실/결장(출처별 상이)",
+   "상태(확정/의심)": "의심",
+   "복귀예정": null,
+   "대체선수": null,
+   "출처": "https://www.sportsmole.co.uk/football/le-havre/preview/le-havre-vs-auxerre-prediction-team-news-lineups_607041.html ; https://m.maxifoot.fr/ligue-1/le-havre-auxerre-les-compos-probables-foot-465906.htm",
+   "날짜": "2026-10-16"
+  },
+  {
+   "팀": "오세르",
+   "선수": "Clément Akpa",
+   "포지션": "DF",
+   "이번시즌_선발/경기": null,
+   "득점·도움": null,
+   "사유": "불확실(의심/결장/선발 출처별 엇갈림)",
+   "상태(확정/의심)": "의심",
+   "복귀예정": null,
+   "대체선수": null,
+   "출처": "https://www.sportsmole.co.uk/football/le-havre/preview/le-havre-vs-auxerre-prediction-team-news-lineups_607041.html ; https://m.maxifoot.fr/ligue-1/le-havre-auxerre-les-compos-probables-foot-465906.htm",
+   "날짜": "2026-10-16"
+  },
+  {
+   "팀": "오세르",
+   "선수": "Marvin Senaya",
+   "포지션": null,
+   "이번시즌_선발/경기": null,
+   "득점·도움": null,
+   "사유": "결장(maxifoot 계열 요약)",
+   "상태(확정/의심)": "의심",
+   "복귀예정": null,
+   "대체선수": null,
+   "출처": "https://m.maxifoot.fr/ligue-1/le-havre-auxerre-les-compos-probables-foot-465906.htm",
+   "날짜": null
+  }
+ ],
+ "라인업": {
+  "홈": {
+   "발표여부": "확인 못함(확정 XI 보도 못 찾음)",
+   "예상XI": "Gallon; Ouziad, Mwanga, Touba, N'Diaye; Ndiaye, Ebonog, Richardson; Nakamura, Maja, Samatta (Sports Mole 예상)",
+   "포메이션": "예상 4-3-3 계열(출처별 3-4-2-1 상이)",
+   "출처": "https://www.sportsmole.co.uk/football/le-havre/preview/le-havre-vs-auxerre-prediction-team-news-lineups_607041.html",
+   "날짜": "2026-10-16"
+  },
+  "원정": {
+   "발표여부": "확인 못함",
+   "예상XI": "Diop; Makosso, Tuanzebe, Diomande; Sy, Piedfort, Danois, Oppegard; Namaso, Archer, Zossou (Sports Mole 예상; 다른 출처는 Faivre 중원 언급)",
+   "포메이션": "3-4-3(예상)",
+   "출처": "https://www.sportsmole.co.uk/football/le-havre/preview/le-havre-vs-auxerre-prediction-team-news-lineups_607041.html ; https://m.maxifoot.fr/ligue-1/le-havre-auxerre-les-compos-probables-foot-465906.htm",
+   "날짜": "2026-10-16"
+  }
+ },
+ "최근경기": [
+  {
+   "팀": "르아브르",
+   "날짜": "2026-10-10",
+   "상대": "Lille",
+   "장소": "원정",
+   "스코어": "0-1 패",
+   "비고": "Seko 퇴장"
+  },
+  {
+   "팀": "르아브르",
+   "날짜": "2026-09-19",
+   "상대": "Toulouse",
+   "장소": "원정",
+   "스코어": "2-3 패",
+   "비고": "팩트시트"
+  },
+  {
+   "팀": "르아브르",
+   "날짜": "2026-09-12",
+   "상대": "Angers",
+   "장소": "홈",
+   "스코어": "0-0 무",
+   "비고": "팩트시트"
+  },
+  {
+   "팀": "오세르",
+   "날짜": "2026-10-11",
+   "상대": "Rennes",
+   "장소": "원정",
+   "스코어": "1-4 패",
+   "비고": "팩트시트"
+  },
+  {
+   "팀": "오세르",
+   "날짜": "2026-09-20",
+   "상대": "Brest",
+   "장소": "홈",
+   "스코어": "2-1 승",
+   "비고": "팩트시트"
+  },
+  {
+   "팀": "오세르",
+   "날짜": "2026-09-12",
+   "상대": "Nice",
+   "장소": "홈",
+   "스코어": "1-0 승",
+   "비고": "팩트시트"
+  }
+ ],
+ "순위": {
+  "홈": "18위 최하위 6경기 0승2무4패 승점2",
+  "원정": "16위 6경기 2승0무4패 승점6 GD-8(팩트시트); Sports Mole: 강등 PO권",
+  "출처": "https://www.sportsmole.co.uk/football/le-havre/preview/le-havre-vs-auxerre-prediction-team-news-lineups_607041.html ; 팀노트 FACTS",
+  "날짜": "2026-10-16"
+ },
+ "감독": {
+  "홈": "Didier Digard",
+  "원정": "Will Still",
+  "변동": "없음",
+  "출처": "팀노트 FACTS",
+  "날짜": "2026-10-16"
+ },
+ "일정·동기·기타": [
+  {
+   "내용": "Ligue 1 7R, Stade Océane, 10-18 현지 17:15(Sports Mole는 16:15 영국시간). 르아브르 시즌 무승",
+   "출처": "https://www.sportsmole.co.uk/football/le-havre/preview/le-havre-vs-auxerre-prediction-team-news-lineups_607041.html",
+   "날짜": "2026-10-16"
+  }
+ ],
+ "엇갈림": [
+  "Akpa/Siwe/Maja 상태 출처별 상이",
+  "Touré: Sports Mole 장기 무릎"
+ ],
+ "못찾음": [
+  "확정 라인업",
+  "Digard/Still 프리매치 회견 원문",
+  "Paris-Normandie/L'Yonne Républicaine 열람 못함(검색 노출 없음)",
+  "Maxifoot 원문 날짜"
+ ],
+ "뉴스없음": {
+  "홈": "결장 보도 있음",
+  "원정": "결장 보도 있음"
+ }
+}

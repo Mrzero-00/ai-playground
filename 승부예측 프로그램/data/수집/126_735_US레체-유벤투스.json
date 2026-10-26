@@ -1,0 +1,231 @@
+{
+  "번호": 735,
+  "홈": "US레체",
+  "원정": "유벤투스",
+  "리그": "세리에A 8라운드",
+  "구장": "스타디오 비아 델 마레(레체)",
+  "킥오프": "2026-10-26 02:00 KST (현지 10-25 18:00)",
+  "수집시각": "2026-10-25 22:55 KST",
+  "결장": [
+    {
+      "팀": "US레체",
+      "선수": "Lassana Coulibaly",
+      "포지션": "MF",
+      "이번시즌_선발/경기": "미상",
+      "득점·도움": "미상",
+      "사유": "부상(사유 세부 미상)",
+      "상태": "확정",
+      "복귀예정": "미상",
+      "출처": ["https://www.tuttomercatoweb.com/probabili-formazioni/lecce-juventus-probabili-formazioni-2286326"],
+      "날짜": "2026-10-25"
+    },
+    {
+      "팀": "US레체",
+      "선수": "Alexandru Berisha",
+      "포지션": "MF",
+      "이번시즌_선발/경기": "미상",
+      "득점·도움": "미상",
+      "사유": "부상(사유 세부 미상)",
+      "상태": "확정",
+      "복귀예정": "미상",
+      "출처": ["https://www.tuttomercatoweb.com/probabili-formazioni/lecce-juventus-probabili-formazioni-2286326"],
+      "날짜": "2026-10-25"
+    },
+    {
+      "팀": "US레체",
+      "선수": "Mihailo Ilic",
+      "포지션": "MF",
+      "이번시즌_선발/경기": "미상",
+      "득점·도움": "미상",
+      "사유": "부상(사유 세부 미상)",
+      "상태": "확정",
+      "복귀예정": "미상",
+      "출처": ["https://www.tuttomercatoweb.com/probabili-formazioni/lecce-juventus-probabili-formazioni-2286326"],
+      "날짜": "2026-10-25"
+    },
+    {
+      "팀": "US레체",
+      "선수": "Francesco Pierotti",
+      "포지션": "DF/MF(측면)",
+      "이번시즌_선발/경기": "미상",
+      "득점·도움": "미상",
+      "사유": "오른쪽 발목 내과(malleolo mediale) 복합 골절 — 장기 결장",
+      "상태": "확정",
+      "복귀예정": "장기(수개월)",
+      "출처": ["https://www.pianetalecce.it/news/190143958534/juventus-infortunati-lecce-assenti-ottobre-2026"],
+      "날짜": "2026-10-24"
+    },
+    {
+      "팀": "유벤투스",
+      "선수": "Kenan Yıldız",
+      "포지션": "FW/윙",
+      "이번시즌_선발/경기": "미상(결장 전 핵심 선발, 스팔레티 체제 주축)",
+      "득점·도움": "미상",
+      "사유": "왼발 제5중족골 기저부 골절, 골접합 수술 시행",
+      "상태": "확정",
+      "복귀예정": "11월 말~12월 초",
+      "출처": ["https://www.calciomercato.com/liste/da-yildiz-a-conceicao-e-locatelli-quando-tornano-gli-infortunati-della-juventus/bltc91b76b772415951"],
+      "날짜": "2026-10-25"
+    },
+    {
+      "팀": "유벤투스",
+      "선수": "Manuel Locatelli",
+      "포지션": "MF(주장)",
+      "이번시즌_선발/경기": "미상(주장, 주전 중원)",
+      "득점·도움": "미상",
+      "사유": "반월판 부상 — 리옹에서 수술 예정",
+      "상태": "확정",
+      "복귀예정": "2027년(2~3월 전망, 조기 복귀 어려움)",
+      "출처": ["https://www.affaritaliani.it/sport/juventus-locatelli-operazione-menisco-2027.html"],
+      "날짜": "2026-10-25"
+    },
+    {
+      "팀": "유벤투스",
+      "선수": "Khéphren Thuram",
+      "포지션": "MF",
+      "이번시즌_선발/경기": "미상",
+      "득점·도움": "미상",
+      "사유": "우측 무릎 연골병증(condropatia rotulea) — 연골성형술(condroplastica) 시행",
+      "상태": "확정",
+      "복귀예정": "2027년 초",
+      "출처": ["https://www.calciomercato.com/liste/da-yildiz-a-conceicao-e-locatelli-quando-tornano-gli-infortunati-della-juventus/bltc91b76b772415951"],
+      "날짜": "2026-10-25"
+    },
+    {
+      "팀": "유벤투스",
+      "선수": "Francisco Conceição",
+      "포지션": "FW/윙(우측)",
+      "이번시즌_선발/경기": "미상",
+      "득점·도움": "미상",
+      "사유": "왼쪽 어깨 탈구 — 공식 확인 대기 중이나 '강한 위험'으로 보도",
+      "상태": "의심",
+      "복귀예정": "약 1개월",
+      "출처": ["https://www.pianetalecce.it/news/190143958534/juventus-infortunati-lecce-assenti-ottobre-2026"],
+      "날짜": "2026-10-24"
+    },
+    {
+      "팀": "유벤투스",
+      "선수": "Zeki Çelik",
+      "포지션": "DF(우측)",
+      "이번시즌_선발/경기": "미상",
+      "득점·도움": "미상",
+      "사유": "부상",
+      "상태": "확정",
+      "복귀예정": "10라운드 전후",
+      "출처": ["https://www.tuttomercatoweb.com/probabili-formazioni/lecce-juventus-probabili-formazioni-2286326"],
+      "날짜": "2026-10-25"
+    },
+    {
+      "팀": "유벤투스",
+      "선수": "Nico González",
+      "포지션": "FW/윙",
+      "이번시즌_선발/경기": "미상",
+      "득점·도움": "미상",
+      "사유": "부상",
+      "상태": "확정",
+      "복귀예정": "미상",
+      "출처": ["https://www.tuttomercatoweb.com/probabili-formazioni/lecce-juventus-probabili-formazioni-2286326"],
+      "날짜": "2026-10-25"
+    },
+    {
+      "팀": "유벤투스",
+      "선수": "Jeff Ekhator",
+      "포지션": "FW",
+      "이번시즌_선발/경기": "미상(신인)",
+      "득점·도움": "미상",
+      "사유": "부상",
+      "상태": "확정",
+      "복귀예정": "10라운드 전후",
+      "출처": ["https://www.pianetalecce.it/news/190143958534/juventus-infortunati-lecce-assenti-ottobre-2026"],
+      "날짜": "2026-10-25"
+    },
+    {
+      "팀": "유벤투스",
+      "선수": "Kamil Grabara",
+      "포지션": "GK",
+      "이번시즌_선발/경기": "미상(백업)",
+      "득점·도움": "미상",
+      "사유": "부상",
+      "상태": "확정",
+      "복귀예정": "29라운드 전후(장기)",
+      "출처": ["https://www.pianetalecce.it/news/190143958534/juventus-infortunati-lecce-assenti-ottobre-2026"],
+      "날짜": "2026-10-25"
+    }
+  ],
+  "라인업": {
+    "홈": {
+      "발표여부": "미발표(예상 라인업, 매체 간 공격수 1자리 엇갈림)",
+      "예상XI": "Wladimiro Falcone; Danilo Veiga, Tiago Gabriel, Kialonda Gaspar, Antonino Gallo; Lassine Kaba, Oumar Ngom, Youssef Maleh; Konan N'Dri, Willem Geubbels, Fadera/Fatah",
+      "포메이션": "4-3-3",
+      "출처": ["https://www.tuttomercatoweb.com/probabili-formazioni/lecce-juventus-probabili-formazioni-2286326"],
+      "날짜": "2026-10-25"
+    },
+    "원정": {
+      "발표여부": "미발표(예상 라인업, 매체 간 수비진·포메이션 엇갈림 — 3-5-2 vs 3-4-1-2)",
+      "예상XI": "Guglielmo Vicario; Federico Gatti, Bremer, Jhon Lucumí; Pierre Kalulu, Weston McKennie, Douglas Luiz, Andrea Cambiaso; Kerim Alajbegović; Randal Kolo Muani, Nick Woltemade",
+      "포메이션": "3-5-2(일부 매체 3-4-1-2)",
+      "출처": ["https://www.tuttomercatoweb.com/probabili-formazioni/lecce-juventus-probabili-formazioni-2286326", "https://news.bet365.it/it-it/article/cp-lecce-juventus-data-orario-probabili-formazioni-statistiche-precedenti-fantacalcio-dove-vederla-tv-streaming-infortunati-squalificati-arbitro/2026102314065483423"],
+      "날짜": "2026-10-25"
+    }
+  },
+  "최근경기": [
+    {"팀": "US레체", "날짜": "2026-10-18", "상대": "Udinese Calcio", "장소": "원정", "스코어": "0-3(레체 승)", "비고": "세리에A"},
+    {"팀": "US레체", "날짜": "2026-10-11", "상대": "Bologna FC", "장소": "홈", "스코어": "1-2(레체 패)", "비고": "세리에A"},
+    {"팀": "US레체", "날짜": "2026-09-20", "상대": "AC Milan", "장소": "원정", "스코어": "3-0(레체 패)", "비고": "세리에A"},
+    {"팀": "유벤투스", "날짜": "2026-10-23", "상대": "Stade Rennais(UEL)", "장소": "홈", "스코어": "2-2 무", "비고": "유로파리그, 중3일 후 레체전"},
+    {"팀": "유벤투스", "날짜": "2026-10-18", "상대": "SS Lazio", "장소": "홈", "스코어": "0-3(유벤투스 패)", "비고": "세리에A, 충격패"},
+    {"팀": "유벤투스", "날짜": "2026-10-11", "상대": "Cagliari Calcio", "장소": "원정", "스코어": "1-1 무", "비고": "세리에A"}
+  ],
+  "맞대결": {
+    "통산": "세리에A 39회 맞대결, 레체 4승 유벤투스 25승 10무",
+    "레체_홈전적": "레체는 홈 17경기 중 10패(3승4무) — 세리에A에서 레체가 홈에서 가장 많이 패한 상대",
+    "최근": "유벤투스는 최근 10회 원정 중 9회 무패(6승3무), 레체의 마지막 홈 승리는 2010-11시즌(2-0)",
+    "출처": ["https://www.footstats.it/blog/articolo/352/", "https://www.juventus.com/it/news/articoli/lecce-juventus-i-precedenti"],
+    "날짜": "2026-10-25"
+  },
+  "일정피로": {
+    "홈": "10/18 세리에A 이후 휴식 7.3일 — 유럽대항전 없음, 충분한 휴식",
+    "원정": "10/23 유로파리그 홈 렌 2-2 무 이후 중3일(휴식 3.0일) 원정 이동 1010km(장거리) — 체력 부담 요인",
+    "출처": ["회차별분석/입력_126.md"],
+    "날짜": "2026-10-25"
+  },
+  "순위": {
+    "홈": "세리에A 12위, 7경기 9승점(3승0무4패)",
+    "원정": "세리에A 9위, 7경기 11승점(3승2무2패) — 기대 대비 저조(최근 라치오전 0-3 충격패)",
+    "출처": ["팀노트/US레체.md", "팀노트/유벤투스.md"],
+    "날짜": "2026-10-25"
+  },
+  "감독": {
+    "홈": "Eusebio Di Francesco — 변동 없음",
+    "원정": "Luciano Spalletti — '좌측 측면·중원에서 여러 대체 옵션을 잃는다'는 평가(언론 보도), 직전 라치오전 0-3 패배 이후 압박 증가",
+    "변동": "없음",
+    "출처": ["https://www.pianetalecce.it/news/190143958534/juventus-infortunati-lecce-assenti-ottobre-2026"],
+    "날짜": "2026-10-25"
+  },
+  "동기부여": {
+    "홈": "강등권 탈출 및 중위권 안착",
+    "원정": "직전 라치오전 참패 이후 분위기 반전 필요, 중원·측면 핵심 대거 결장 속 순위 회복 압박",
+    "출처": ["https://www.pianetalecce.it/news/190143958534/juventus-infortunati-lecce-assenti-ottobre-2026"],
+    "날짜": "2026-10-25"
+  },
+  "주심": {
+    "이름": "Fabio Maresca(나폴리)",
+    "부심": "Luca Mondin(트레비소), Claudio Barone(로마1)",
+    "4심": "Ermanno Feliciani(테라모)",
+    "VAR": "Daniele Paterna(테라모)",
+    "AVAR": "Niccolò Baroni(피렌체)",
+    "출처": ["https://www.juveoggi.it/partite/lecce-juve-arbitra-maresca-la-designazione-completa/"],
+    "날짜": "2026-10-21"
+  },
+  "날씨": {
+    "내용": "레체 15.7℃, 강수 0mm(강수확률 0%), 바람 15.9km/h — 맑음",
+    "출처": ["회차별분석/입력_126.md (Open-Meteo)"],
+    "날짜": "2026-10-25"
+  },
+  "엇갈림": [
+    "유벤투스 예상 포메이션: 3-5-2(tuttomercatoweb) vs 3-4-1-2(bet365, Alajbegović 공격형 미드필더 배치)",
+    "레체 공격수 좌측: Fadera vs Fatah 매체 간 엇갈림"
+  ],
+  "못찾음": ["양팀 결장자 전원의 이번 시즌 정확한 선발 횟수·득점·도움(전원 미상)", "공식 발표 선발 명단(킥오프 전 미발표)", "스팔레티 감독 직접 인용문(간접 인용만 확보)"],
+  "뉴스없음": {"홈": "위 4명 외 추가 결장·징계 없음(확인처: tuttomercatoweb.com, pianetalecce.it)", "원정": "위 7명 외 추가 결장·징계 보도 없음(확인처: pianetalecce.it, tuttomercatoweb.com, calciomercato.com)"}
+}

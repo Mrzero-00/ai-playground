@@ -1,0 +1,218 @@
+{
+  "번호": 303,
+  "홈": "FSV마인츠05",
+  "원정": "베르더 브레멘",
+  "리그": "독일 분데스리가 2026-27 7라운드",
+  "구장": "메바 아레나(Mewa Arena, 교차확인: 입력_126, fussballnationalmannschaft.net)",
+  "킥오프": "2026-10-24 15:30 CEST (22:30 KST)",
+  "수집시각": "2026-10-24 22:00 KST",
+  "결장": [
+    {
+      "팀": "FSV마인츠05",
+      "선수": "Robin Zentner",
+      "포지션": "GK",
+      "이번시즌_선발/경기": "통상 주전 GK(결장으로 Schwolow 대신 출전)",
+      "득점·도움": "해당없음(GK)",
+      "사유": "손 부상",
+      "상태": "확정",
+      "복귀예정": "미정",
+      "대체선수": "Alexander Schwolow",
+      "출처": ["https://www.sportsmole.co.uk/football/mainz-05/preview/mainz-vs-werder-bremen-prediction-team-news-lineups_607494.html"],
+      "날짜": "2026-10-23~24"
+    },
+    {
+      "팀": "FSV마인츠05",
+      "선수": "Dominik Kohr",
+      "포지션": "CB/DM",
+      "이번시즌_선발/경기": "미상",
+      "득점·도움": "미상",
+      "사유": "발목 부상",
+      "상태": "확정",
+      "복귀예정": "미정",
+      "출처": ["https://www.sportsmole.co.uk/football/mainz-05/preview/mainz-vs-werder-bremen-prediction-team-news-lineups_607494.html"],
+      "날짜": "2026-10-23~24"
+    },
+    {
+      "팀": "FSV마인츠05",
+      "선수": "Otto Ruoppi",
+      "포지션": "AM",
+      "이번시즌_선발/경기": "미상",
+      "득점·도움": "미상",
+      "사유": "무릎 부상",
+      "상태": "확정",
+      "복귀예정": "미정",
+      "출처": ["https://www.sportsmole.co.uk/football/mainz-05/preview/mainz-vs-werder-bremen-prediction-team-news-lineups_607494.html"],
+      "날짜": "2026-10-23~24"
+    },
+    {
+      "팀": "FSV마인츠05",
+      "선수": "Silas",
+      "포지션": "FW",
+      "이번시즌_선발/경기": "미상",
+      "득점·도움": "미상",
+      "사유": "다리 부상",
+      "상태": "확정",
+      "복귀예정": "미정",
+      "출처": ["https://www.sportsmole.co.uk/football/mainz-05/preview/mainz-vs-werder-bremen-prediction-team-news-lineups_607494.html"],
+      "날짜": "2026-10-23~24"
+    },
+    {
+      "팀": "베르더 브레멘",
+      "선수": "Felix Agu",
+      "포지션": "DF(측면)",
+      "이번시즌_선발/경기": "미상",
+      "득점·도움": "미상",
+      "사유": "종아리 근육 부상 재발 — 복귀 시점 불투명, 다른 치료 접근법 시도 중",
+      "상태": "확정",
+      "복귀예정": "미정",
+      "출처": ["https://www.weser-kurier.de/werder/profis/werder-bremen-ndiaye-und-agu-fallen-weiter-mit-verletzungen-aus-doc885ilrhtpno1kna6tixb"],
+      "날짜": "2026-10-23"
+    },
+    {
+      "팀": "베르더 브레멘",
+      "선수": "Moussa Ndiaye",
+      "포지션": "DF",
+      "이번시즌_선발/경기": "미상",
+      "득점·도움": "미상",
+      "사유": "골반·사타구니 문제 재발 — 감독 Thioune '무기한 결장' 언급",
+      "상태": "확정",
+      "복귀예정": "무기한",
+      "출처": ["https://www.weser-kurier.de/werder/profis/werder-bremen-ndiaye-und-agu-fallen-weiter-mit-verletzungen-aus-doc885ilrhtpno1kna6tixb"],
+      "날짜": "2026-10-23"
+    },
+    {
+      "팀": "베르더 브레멘",
+      "선수": "Skelly Alvero",
+      "포지션": "미상",
+      "이번시즌_선발/경기": "미상",
+      "득점·도움": "미상",
+      "사유": "허벅지 근육 부상",
+      "상태": "확정",
+      "복귀예정": "미정",
+      "출처": ["https://www.weser-kurier.de/werder/profis/werder-bremen-ndiaye-und-agu-fallen-weiter-mit-verletzungen-aus-doc885ilrhtpno1kna6tixb"],
+      "날짜": "2026-10-23"
+    },
+    {
+      "팀": "베르더 브레멘",
+      "선수": "Musah",
+      "포지션": "미상",
+      "이번시즌_선발/경기": "미상",
+      "득점·도움": "미상",
+      "사유": "허벅지 근육 부상",
+      "상태": "확정",
+      "복귀예정": "미정",
+      "출처": ["https://www.weser-kurier.de/werder/profis/werder-bremen-ndiaye-und-agu-fallen-weiter-mit-verletzungen-aus-doc885ilrhtpno1kna6tixb"],
+      "날짜": "2026-10-23"
+    },
+    {
+      "팀": "베르더 브레멘",
+      "선수": "Jens Stage",
+      "포지션": "MF",
+      "이번시즌_선발/경기": "미상",
+      "득점·도움": "미상",
+      "사유": "허벅지 수술",
+      "상태": "확정",
+      "복귀예정": "장기",
+      "출처": ["https://www.weser-kurier.de/werder/profis/werder-bremen-ndiaye-und-agu-fallen-weiter-mit-verletzungen-aus-doc885ilrhtpno1kna6tixb"],
+      "날짜": "2026-10-23"
+    },
+    {
+      "팀": "베르더 브레멘",
+      "선수": "Niklas Stark",
+      "포지션": "CB",
+      "이번시즌_선발/경기": "미상",
+      "득점·도움": "미상",
+      "사유": "근육 문제",
+      "상태": "확정",
+      "복귀예정": "미정",
+      "출처": ["https://www.weser-kurier.de/werder/profis/werder-bremen-ndiaye-und-agu-fallen-weiter-mit-verletzungen-aus-doc885ilrhtpno1kna6tixb"],
+      "날짜": "2026-10-23"
+    },
+    {
+      "팀": "베르더 브레멘",
+      "선수": "Romano Topp",
+      "포지션": "미상",
+      "이번시즌_선발/경기": "미상",
+      "득점·도움": "미상",
+      "사유": "십자인대 파열(시즌아웃급)",
+      "상태": "확정",
+      "복귀예정": "장기",
+      "출처": ["https://www.weser-kurier.de/werder/profis/werder-bremen-ndiaye-und-agu-fallen-weiter-mit-verletzungen-aus-doc885ilrhtpno1kna6tixb"],
+      "날짜": "2026-10-23"
+    },
+    {
+      "팀": "베르더 브레멘",
+      "선수": "Felix Njinmah",
+      "포지션": "미상",
+      "이번시즌_선발/경기": "미상",
+      "득점·도움": "미상",
+      "사유": "팀 훈련 복귀 지연(구체 부상명 미기재)",
+      "상태": "확정(결장)",
+      "복귀예정": "미정",
+      "출처": ["https://www.weser-kurier.de/werder/profis/werder-bremen-ndiaye-und-agu-fallen-weiter-mit-verletzungen-aus-doc885ilrhtpno1kna6tixb"],
+      "날짜": "2026-10-23"
+    }
+  ],
+  "라인업": {
+    "홈": {
+      "발표여부": "미발표(예상)",
+      "예상XI": "3-3-2-2: Schwolow; da Costa, Posch, Potulski; Caci, Sano, Mwene; Amiri, Lee; Becker, Tietz",
+      "포메이션": "3-3-2-2(teamdb 시즌 메인 포메이션 3-5-2와 사실상 동일 구조)",
+      "출처": ["https://www.fussballnationalmannschaft.net/fussball-heute-aufstellung-mainz-bremen-fuellkrug-123312889.html"],
+      "날짜": "2026-10-24"
+    },
+    "원정": {
+      "발표여부": "미발표(예상)",
+      "예상XI": "4-2-3-1(또는 유사): Hein; Arthur, Pieper, Friedl, Deman; Regeer, Reis, Chuki; Grüll, Weiser, Füllkrug",
+      "포메이션": "4-2-3-1",
+      "출처": ["https://www.fussballnationalmannschaft.net/fussball-heute-aufstellung-mainz-bremen-fuellkrug-123312889.html"],
+      "날짜": "2026-10-24"
+    }
+  },
+  "최근경기": {
+    "홈_최근5(teamdb)": "최근5 xG2.54/xGA1.64, 직전 10-17 원정 vs Schalke 04 1-0 승, npxGD +0.89로 리그 상위권 내용",
+    "원정_최근5(teamdb)": "최근5 xG1.57/xGA1.58, 직전 10-17 홈 vs SC Paderborn 07 2-2 무, 순위 8위 2승3무1패 GD0 승점9"
+  },
+  "맞대결": {
+    "역대": "통산 41경기 브레멘 20승 마인츠 13승 8무(브레멘 우세). 최근 5경기는 브레멘 3승 1무 마인츠 1승(가장 최근 2026-03-15 마인츠 원정 2-0 승). 마인츠 홈 성적은 21전 5승4무12패로 유독 약세",
+    "출처": ["https://www.fussballdaten.de/vereine/1-fsv-mainz-05/sv-werder-bremen/"],
+    "날짜": "2026-10-24"
+  },
+  "일정": {
+    "홈": "휴식 7.0일, 대항전 없음 (입력_126)",
+    "원정": "휴식 7.0일, 대항전 없음 (입력_126)"
+  },
+  "동기": {
+    "홈": "중위권(10승점) 상위 도약 노림, 최근 내용(xG) 리그 상위권",
+    "원정": "8위 안정권이나 결장자 다수(특히 수비·측면 자원 고갈 — 기사 표현 '왼쪽 풀백은 Deman이 사실상 유일한 정상 컨디션 자원')",
+    "감독": {
+      "홈": "Urs Fischer — Bo Henriksen 경질(2025-12-03) 이후 선임, 2028년까지 계약",
+      "원정": "Daniel Thioune — 2026-02-04 Horst Steffen 경질 후 부임, 현재까지 유임",
+      "출처": ["https://www.mainz05.de/News/Urs-Fischer-neuer-05-Trainer", "https://www.bundesliga.com/de/bundesliga/news/1-fsv-mainz-05-bo-henriksen-trainer-trennung-vertrag-auflosung-35030", "https://www.werder.de/news/maenner/2025-2026/pm-thioune-04022026"],
+      "날짜": "2026-10-24"
+    }
+  },
+  "환경": {
+    "날씨": "12.0℃ 강수 0mm(확률0%) 바람 16.6km/h (입력_126 기준값 그대로, 강수 위험 낮음)",
+    "구장": "메바 아레나(마인츠)",
+    "이동": "베르더 브레멘 원정 이동 345km"
+  },
+  "심판": {
+    "주심": "Florian Badstübner",
+    "부심": ["Markus Schüller", "Philipp Hüwe"],
+    "VAR": "Nicolas Winter",
+    "출처": ["https://ig-schiedsrichter.de/bundesliga-jablonski-und-zwayer-leiten-die-topspiele-des-7-spieltags/"],
+    "날짜": "2026-10-24"
+  },
+  "뉴스없음": {
+    "홈": "해당 없음(결장 뉴스 확인됨)",
+    "원정": "해당 없음(결장 뉴스 다수 확인됨)"
+  },
+  "미확인루머": [
+    {
+      "내용": "일부 검색 결과에 'Jovan Milošević가 이번 마인츠전 결장'이라는 문구가 섞여 나왔으나, 출처 werder.de 기사(URL에 2025-2026/…13032026 — 2026년 3월 날짜) 확인 결과 이번 2026-10-24 경기가 아닌 지난 시즌(2025-26) 마인츠-브레멘 맞대결에 대한 과거 기사로 판단됨. 오래된/오배치 뉴스로 분류하여 이번 경기 결장자 명단에서 제외함.",
+      "날짜표시_출처": "2026-03-13(추정, 지난 시즌 기사)",
+      "확인일": "2026-10-24"
+    }
+  ]
+}

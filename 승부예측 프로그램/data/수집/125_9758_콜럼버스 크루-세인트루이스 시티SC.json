@@ -1,0 +1,117 @@
+{
+  "번호": 9758,
+  "홈": "콜럼버스 크루",
+  "원정": "세인트루이스 시티SC",
+  "수집시각": "2026-10-22 08:15 KST",
+  "대회맥락": {
+    "대회": "US Open Cup (Lamar Hunt U.S. Open Cup) 2026",
+    "라운드": "결승(Final), 단판(두 번째 레그/합산 아님)",
+    "1차전": "없음 (결승은 단판)",
+    "합산규칙": "해당 없음 — 단판 승부, 연장/승부차기 규정은 미확인",
+    "출처": [
+      "https://www.stlcitysc.com/news/match-preview-st-louis-city-sc-travels-to-face-columbus-crew-in-2026-us-open-cup-final",
+      "https://www.mlssoccer.com/competitions/u-s-open-cup/news/columbus-crew-vs-st-louis-city-how-to-watch-stream-us-open-cup-final-2026",
+      "https://en.wikipedia.org/wiki/2026_U.S._Open_Cup_final"
+    ],
+    "날짜": "2026-10-21"
+  },
+  "최근폼": {
+    "홈": {
+      "최근5": "2026-10-18 콜럼버스 2-0 신시내티(승) / 2026-10-14 콜럼버스 3-1 샬럿(승) / 2026-10-10 올랜도시티 3-2 콜럼버스(패) / 2026-09-27 콜럼버스 2-1 인터마이애미(승) / 2026-09-19 몬트리올 0-2 콜럼버스(승) → 4승1패",
+      "득점": 2.0,
+      "실점": 1.6,
+      "비고": "8월에 5연패 있었으나 최근 6경기 중 5승으로 반등. MLS 플레이오프 진출선과 1점 차(출처: sbisoccer.com 요약)",
+      "출처": [
+        "https://www.espn.com/soccer/team/results/_/id/183/columbus-crew",
+        "https://sports.yahoo.com/articles/columbus-crew-faces-st-louis-133000185.html"
+      ]
+    },
+    "원정": {
+      "최근5": "2026-10-11 세인트루이스 6-2 LA갤럭시(승) / 2026-10-14 세인트루이스 0-0 밴쿠버(무) / 2026-10-17 미네소타 3-2 세인트루이스(패, 원정) / 2026-09-30 세인트루이스 3-0 뉴욕레드불스(승) / 2026-09-19 세인트루이스 3-1 토론토(승) → 3승1무1패",
+      "득점": "미확인(구체 평균 미계산)",
+      "실점": "미확인",
+      "비고": "MLS 사상 최장 21경기 무패 행진을 10/17 미네소타전 패배로 마감. 서부 컨퍼런스 2위로 플레이오프 확정",
+      "출처": [
+        "https://www.espn.com/soccer/team/results/_/id/21812/st-louis-city-sc",
+        "https://www.espn.com/soccer/match/_/gameId/761876/st-louis-city-sc-minnesota-united-fc",
+        "https://www.givemesport.com/game/mls/st-louis-city-sc-vs-los-angeles-galaxy-20261011/"
+      ]
+    }
+  },
+  "결장": [
+    {
+      "팀": "세인트루이스 시티SC",
+      "선수": "Chris Durkin",
+      "포지션": "미확인(미드필더로 추정)",
+      "사유": "concussion protocol(뇌진탕 프로토콜)",
+      "상태": "결장 확정(OUT)",
+      "주전여부": "미확인",
+      "출처": ["https://www.cbssports.com/soccer/news/u-s-open-cup-live-stream-how-to-watch-columbus-crew-vs-st-louis-city-sc/"],
+      "날짜": "2026-10-21"
+    },
+    {
+      "팀": "세인트루이스 시티SC",
+      "선수": "Celio Pompeu",
+      "포지션": "미확인",
+      "사유": "무릎 부상",
+      "상태": "결장 확정(OUT)",
+      "주전여부": "미확인",
+      "출처": ["https://www.cbssports.com/soccer/news/u-s-open-cup-live-stream-how-to-watch-columbus-crew-vs-st-louis-city-sc/"],
+      "날짜": "2026-10-21"
+    },
+    {
+      "팀": "세인트루이스 시티SC",
+      "선수": "Palmer Ault",
+      "포지션": "미확인",
+      "사유": "발목 부상",
+      "상태": "결장 확정(OUT)",
+      "주전여부": "미확인",
+      "출처": ["https://www.cbssports.com/soccer/news/u-s-open-cup-live-stream-how-to-watch-columbus-crew-vs-st-louis-city-sc/"],
+      "날짜": "2026-10-21"
+    },
+    {
+      "팀": "세인트루이스 시티SC",
+      "선수": "Rafael Navarro",
+      "포지션": "공격수(디자이네이티드 플레이어)",
+      "사유": "미확인(부상/제외 사유 기사에 명시 안 됨) — 21경기 무패 행진의 핵심 자원이었음",
+      "상태": "결장 확정(USOC 결승 unavailable)",
+      "주전여부": "주전급(핵심 자원)",
+      "출처": ["https://sports.yahoo.com/articles/columbus-crew-faces-st-louis-133000185.html"],
+      "날짜": "2026-10-21"
+    }
+  ],
+  "동기": [
+    {
+      "팀": "콜럼버스 크루",
+      "내용": "2002년 이후 두 번째 US Open Cup 우승 도전. 동시에 MLS 플레이오프 진출선과 1점 차로 리그 일정도 중요 — 로테이션 가능성 존재하나 구체 코멘트는 미확인",
+      "출처": ["https://sports.yahoo.com/articles/columbus-crew-faces-st-louis-133000185.html"],
+      "날짜": "2026-10-21"
+    },
+    {
+      "팀": "세인트루이스 시티SC",
+      "내용": "구단 역사상 첫 결승 진출, 창단 이래 첫 트로피 도전. 서부 2위로 플레이오프는 이미 확정된 상태라 로테이션 부담은 상대적으로 적을 수 있음(미확인, 추정)",
+      "출처": ["https://www.stlcitysc.com/news/match-preview-st-louis-city-sc-travels-to-face-columbus-crew-in-2026-us-open-cup-final"],
+      "날짜": "2026-10-21"
+    }
+  ],
+  "맞대결": {
+    "내용": "미확인 (최근 맞대결 전적 기사 확인 안 됨)",
+    "출처": []
+  },
+  "환경": {
+    "경기장": "ScottsMiracle-Gro Field, Columbus, Ohio (콜럼버스 크루 홈구장)",
+    "날씨": "맑음, 경기 시작 시점(현지 20:00 ET) 약 18°C(64°F) → 경기 후반 11°C(51°F)까지 하강, 약풍(북풍 3~6mph)",
+    "이동거리": "세인트루이스(미주리) → 콜럼버스(오하이오) 약 740km 항공 이동(대략치, 미확인 정밀값)",
+    "출처": [
+      "https://www.accuweather.com/en/us/columbus/43215/october-weather/350128",
+      "https://www.wunderground.com/hourly/us/oh/columbus"
+    ]
+  },
+  "미확인": [
+    "콜럼버스 크루 측 구체적 결장자/부상자 명단",
+    "두 팀 최근 맞대결(H2H) 전적",
+    "연장전/승부차기 규정 여부",
+    "선발 라인업 공식 발표 (프리뷰 기준 예상 라인업만 존재: Schulte-Amundsen-Zawadzki-Moreira-Farsi-Rodriguez-Habroune-Gomes-Zaroury-Martinez-Mendez)",
+    "콜럼버스 크루의 최근 5경기 득실점 평균(기사 간 수치 불일치 — 개별 스코어로 직접 계산한 값 사용, 4승1패 vs 기사 요약 3승2패 불일치 있음)"
+  ]
+}

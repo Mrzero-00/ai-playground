@@ -1,0 +1,257 @@
+{
+ "번호": 11,
+ "홈": "RC셀타데비고",
+ "원정": "데포르티보 알라베스",
+ "수집시각": "2026-10-16 23:00 KST",
+ "결장": [
+  {
+   "팀": "홈",
+   "선수": "보르하 이글레시아스",
+   "포지션": "FW",
+   "이번시즌_선발/경기": "미확인",
+   "득점·도움": "미확인",
+   "사유": "발바닥 타박상(한 매체는 종아리로 표기-엇갈림)",
+   "상태": "결장(유벤투스전 제외, 알라베스전 결장로 표기) - 2곳 일치(comuniate 2건), 로컬 1곳",
+   "복귀예정": "미정",
+   "대체선수": "아스파스, 우고 곤살레스, 유트글라",
+   "출처": "https://www.comuniate.com/noticias/38457/celta-alaves-previa-alineaciones-probables-y-consejos-fantasy-jornada-9-de-laliga ; https://www.comuniate.com/en/noticias/38434/borja-iglesias-and-pablo-duran-injured-will-miss-juventus-clash",
+   "날짜": "2026-10-15"
+  },
+  {
+   "팀": "홈",
+   "선수": "칼 스타르펠트",
+   "포지션": "CB",
+   "이번시즌_선발/경기": "미확인",
+   "득점·도움": "미확인",
+   "사유": "부상(장기 표기, 상세 미확인)",
+   "상태": "결장(comuniate 2건; 기사는 '장기')",
+   "복귀예정": "미정",
+   "대체선수": "미확인",
+   "출처": "https://www.comuniate.com/noticias/38457/celta-alaves-previa-alineaciones-probables-y-consejos-fantasy-jornada-9-de-laliga ; https://www.comuniate.com/en/noticias/38434/borja-iglesias-and-pablo-duran-injured-will-miss-juventus-clash",
+   "날짜": "2026-10-15"
+  },
+  {
+   "팀": "홈",
+   "선수": "미겔 로만",
+   "포지션": "MF",
+   "이번시즌_선발/경기": "미확인",
+   "득점·도움": "미확인",
+   "사유": "부상(장기 표기)",
+   "상태": "결장",
+   "복귀예정": "미정",
+   "대체선수": "미확인",
+   "출처": "https://www.comuniate.com/noticias/38457/celta-alaves-previa-alineaciones-probables-y-consejos-fantasy-jornada-9-de-laliga",
+   "날짜": "2026-10-15"
+  },
+  {
+   "팀": "홈",
+   "선수": "요네스 엘압델라우이",
+   "포지션": "미확인",
+   "이번시즌_선발/경기": "미확인",
+   "득점·도움": "미확인",
+   "사유": "부상(장기)",
+   "상태": "결장",
+   "복귀예정": "미정",
+   "대체선수": "",
+   "출처": "https://www.comuniate.com/noticias/38457/celta-alaves-previa-alineaciones-probables-y-consejos-fantasy-jornada-9-de-laliga",
+   "날짜": "2026-10-15"
+  },
+  {
+   "팀": "홈",
+   "선수": "파블로 두란",
+   "포지션": "FW",
+   "이번시즌_선발/경기": "미확인",
+   "득점·도움": "미확인",
+   "사유": "종아리 불편",
+   "상태": "의심(알라베스전 '덩'; 유벤투스전은 결장)",
+   "복귀예정": "훈련 경과 따라",
+   "대체선수": "",
+   "출처": "https://www.comuniate.com/noticias/38457/celta-alaves-previa-alineaciones-probables-y-consejos-fantasy-jornada-9-de-laliga ; https://www.comuniate.com/en/noticias/38434/borja-iglesias-and-pablo-duran-injured-will-miss-juventus-clash",
+   "날짜": "2026-10-15"
+  },
+  {
+   "팀": "원정",
+   "선수": "앙헬 페레스",
+   "포지션": "우측 윙백",
+   "이번시즌_선발/경기": "미확인(10/10 아틀레티코전 선발은 팀노트 INPUTS)",
+   "득점·도움": "미확인",
+   "사유": "직접 퇴장 징계(아틀레티코전)",
+   "상태": "확정 결장(2곳: FútbolFantasy 인용·Comuniate·JornadaPerfecta)",
+   "복귀예정": "1경기 후",
+   "대체선수": "테나글리아 유력",
+   "출처": "https://www.jornadaperfecta.com/blog/quique-previa-celta-alaves-j9/ ; https://www.comuniate.com/noticias/38457/celta-alaves-previa-alineaciones-probables-y-consejos-fantasy-jornada-9-de-laliga",
+   "날짜": "2026-10-16"
+  },
+  {
+   "팀": "원정",
+   "선수": "파쿤도 가르세스",
+   "포지션": "미확인",
+   "이번시즌_선발/경기": "미확인",
+   "득점·도움": "미확인",
+   "사유": "십자인대 파열(수술)",
+   "상태": "장기 결장",
+   "복귀예정": "미정",
+   "대체선수": "",
+   "출처": "https://www.comuniate.com/noticias/38457/celta-alaves-previa-alineaciones-probables-y-consejos-fantasy-jornada-9-de-laliga",
+   "날짜": "2026-10-15"
+  },
+  {
+   "팀": "원정",
+   "선수": "미켈 로드리게스",
+   "포지션": "미확인",
+   "이번시즌_선발/경기": "미확인",
+   "득점·도움": "미확인",
+   "사유": "십자인대 파열(수술) 후 복귀 중, 퀴케 '점점 가까워짐'",
+   "상태": "장기 결장(출전 임박 언급)",
+   "복귀예정": "미정",
+   "대체선수": "",
+   "출처": "https://www.jornadaperfecta.com/blog/quique-previa-celta-alaves-j9/",
+   "날짜": "2026-10-16"
+  },
+  {
+   "팀": "원정",
+   "선수": "빌레 코스키",
+   "포지션": "CB",
+   "이번시즌_선발/경기": "미확인",
+   "득점·도움": "미확인",
+   "사유": "대표팀 합류시 대퇴사두 근육 부상",
+   "상태": "의심→회복 보도(Comuniate는 복귀해 중앙 수비 예상) - 출처 엇갈림",
+   "복귀예정": "",
+   "대체선수": "",
+   "출처": "https://www.comuniate.com/noticias/38457/celta-alaves-previa-alineaciones-probables-y-consejos-fantasy-jornada-9-de-laliga",
+   "날짜": "2026-10-15"
+  }
+ ],
+ "라인업": {
+  "홈": {
+   "발표여부": "미발표",
+   "예상XI": "기사에 XI 없음. 카세레스·갈란 기용 전망, 부르시오 피벗 50%, 아스파스/우고 곤살레스 최전방 후보. (유벤투스전 선발은 리그 베스트와 비슷)",
+   "포메이션": "미확인",
+   "출처": "https://www.comuniate.com/noticias/38457/celta-alaves-previa-alineaciones-probables-y-consejos-fantasy-jornada-9-de-laliga",
+   "날짜": "2026-10-15"
+  },
+  "원정": {
+   "발표여부": "미발표",
+   "예상XI": "테나글리아 우측 대체, 코스키 중앙 수비, 데니스 수아레스 70%, 알레냐 일부 가능. 안토니오 블랑코 최근 4경기 교체, 체력 이유",
+   "포메이션": "퀴케: 4백/5백 고정 안 함",
+   "출처": "https://www.comuniate.com/noticias/38457/celta-alaves-previa-alineaciones-probables-y-consejos-fantasy-jornada-9-de-laliga ; https://www.jornadaperfecta.com/blog/quique-previa-celta-alaves-j9/",
+   "날짜": "2026-10-16"
+  }
+ },
+ "최근경기": [
+  {
+   "팀": "셀타",
+   "날짜": "2026-10-15",
+   "상대": "유벤투스(UEL 2R)",
+   "장소": "홈 발라이도스",
+   "스코어": "1-2 패",
+   "비고": "우고 알바레스 18'(스웨드베리 어시스트), 볼테마데 59'(스카이는 58'), 콜로무아니 90+2'. 마르코스 알론소 수비 실수 2건. 출처 https://latingoles.com/1-2-el-celta-se-condena-ante-el-juventus-con-dos-errores-de-marcos-alo-21694420/ / https://sport.sky.it/calcio/europa-league/partite/2026/giornata-2/celta-vigo-juventus/risultato-gol"
+  },
+  {
+   "팀": "셀타",
+   "날짜": "2026-10-11",
+   "상대": "엘체",
+   "장소": "원정",
+   "스코어": "0-0",
+   "비고": "팀노트 FACTS(ESPN)"
+  },
+  {
+   "팀": "셀타",
+   "날짜": "2026-09-16",
+   "상대": "오모니아",
+   "장소": "원정",
+   "스코어": "0-1 패",
+   "비고": "UEL 1R"
+  },
+  {
+   "팀": "알라베스",
+   "날짜": "2026-10-10",
+   "상대": "아틀레티코",
+   "장소": "홈",
+   "스코어": "1-2 패",
+   "비고": "앙헬 페레스 직접 퇴장(출처 JornadaPerfecta). 퀴케: 패배는 모두 한 골 차"
+  }
+ ],
+ "순위": {
+  "홈": "9위 8경기 1승5무2패 승점8 (팀노트 FACTS 10/14, ESPN)",
+  "원정": "7위(퀴케 인터뷰 기준 '일곱째')",
+  "출처": "https://www.jornadaperfecta.com/blog/quique-previa-celta-alaves-j9/",
+  "날짜": "2026-10-16"
+ },
+ "감독": {
+  "홈": "클라우디오 히랄데스",
+  "원정": "퀴케 산체스 플로레스(최근 무릎 수술, 제한적으로 지휘 - FútbolFantasy 인용)",
+  "변동": "없음",
+  "출처": "https://www.jornadaperfecta.com/blog/quique-previa-celta-alaves-j9/",
+  "날짜": "2026-10-16"
+ },
+ "일정·동기·날씨·기타": [
+  {
+   "내용": "경기 킥오프 현지 10/18 16:15 = KST 23:15 (일치). 발라이도스",
+   "출처": "https://www.comuniate.com/noticias/38457/celta-alaves-previa-alineaciones-probables-y-consejos-fantasy-jornada-9-de-laliga",
+   "날짜": "2026-10-15"
+  },
+  {
+   "내용": "셀타 UEL 유벤투스전 10/15 21:00 현지 -> 리그전까지 약 2.8일(10/15 현지 21:00 → 10/18 16:15). 유벤투스는 7명 결장로 입국(1곳 보도)",
+   "출처": "https://www.comuniate.com/en/noticias/38434/borja-iglesias-and-pablo-duran-injured-will-miss-juventus-clash",
+   "날짜": "2026-10-15"
+  },
+  {
+   "내용": "퀴케: '불행하지도 행복하지도 않다', 두 차례 한 골 차 패배는 아틀레티코·발렌시아전, 전환 속도 회복 필요",
+   "출처": "https://www.jornadaperfecta.com/blog/quique-previa-celta-alaves-j9/",
+   "날짜": "2026-10-16"
+  }
+ ],
+ "이전_재확인_결과": [
+  {
+   "항목": "셀타 이글레시아스 결장",
+   "결과": "확인",
+   "출처": "https://www.comuniate.com/noticias/38457/celta-alaves-previa-alineaciones-probables-y-consejos-fantasy-jornada-9-de-laliga ; https://www.comuniate.com/en/noticias/38434/borja-iglesias-and-pablo-duran-injured-will-miss-juventus-clash",
+   "날짜": "2026-10-15"
+  },
+  {
+   "항목": "셀타 스타르펠트 결장",
+   "결과": "확인(장기 표기, 상세 미확인)",
+   "출처": "https://www.comuniate.com/noticias/38457/celta-alaves-previa-alineaciones-probables-y-consejos-fantasy-jornada-9-de-laliga",
+   "날짜": "2026-10-15"
+  },
+  {
+   "항목": "셀타 로만 결장",
+   "결과": "확인(장기)",
+   "출처": "https://www.comuniate.com/noticias/38457/celta-alaves-previa-alineaciones-probables-y-consejos-fantasy-jornada-9-de-laliga",
+   "날짜": "2026-10-15"
+  },
+  {
+   "항목": "두란 상태",
+   "결과": "의심 유지(종아리 불편, 유벤투스전은 결장)",
+   "출처": "https://www.comuniate.com/noticias/38457/celta-alaves-previa-alineaciones-probables-y-consejos-fantasy-jornada-9-de-laliga",
+   "날짜": "2026-10-15"
+  },
+  {
+   "항목": "셀타 UEL 후 일정",
+   "결과": "확인: 10/15 유벤투스에 1-2 패, 리그전까지 약 3일",
+   "출처": "https://sport.sky.it/calcio/europa-league/partite/2026/giornata-2/celta-vigo-juventus/risultato-gol",
+   "날짜": "2026-10-15"
+  },
+  {
+   "항목": "(신규) 알라베스 앙헬 페레스 징계",
+   "결과": "확인 결장",
+   "출처": "https://www.jornadaperfecta.com/blog/quique-previa-celta-alaves-j9/",
+   "날짜": "2026-10-16"
+  }
+ ],
+ "엇갈림": [
+  "이글레시아스 부상 부위: 발바닥 타박(comuniate) vs 종아리(UNI 기사)",
+  "코스키: 부상 보도 vs 회복 후 중앙 수비 예상",
+  "유벤투스 결승골 분: 59'(latingoles) vs 58'(Sky)"
+ ],
+ "못찾음": [
+  "결장자별 이번 시즌 선발/출전 수(Transfermarkt 등 미조회)",
+  "셀타 10/17 히랄데스 기자회견 내용",
+  "공식 라인업"
+ ],
+ "뉴스없음": {
+  "홈": "",
+  "원정": ""
+ }
+}

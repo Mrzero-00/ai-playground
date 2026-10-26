@@ -1,0 +1,158 @@
+{
+ "번호": 487,
+ "홈": "스포팅 캔자스시티",
+ "원정": "오스틴FC",
+ "수집시각": "2026-10-25 07:55 KST",
+ "대회단계": {
+  "내용": "MLS 2026 정규시즌 매치데이 32 (정규시즌 2026-02-21~11-07, 34R). 플레이오프 아님 — 와일드카드 11/18, Round One 3전2선승 11/20~12/02, MLS컵 12/18. 각 컨퍼런스 상위 9팀 진출(1~7위 직행, 8·9위 와일드카드 단판). 내슈빌은 10/24 몬트리올 2-0 승으로 서포터스실드 확정.",
+  "시리즈형식": "해당 없음(정규시즌 단판)",
+  "시리즈전적": "해당 없음",
+  "걸린것_홈": "서부 15위(최하위) 22점 6승4무20패 — **플레이오프 수학적 탈락 확정**(Front Row Soccer 10/22 기준 서부 유일 탈락 팀). 걸린 것 없음, 동기 부재. MLS 전체 최악의 승점.",
+  "걸린것_원정": "서부 14위 31점(30경기, 잔여 4). 9위 콜로라도(39)까지 8점 차 — **이번 주말에 탈락이 확정될 수 있는 팀**(몬트리올과 함께). 최근 3연패 중.",
+  "출처": [
+   "https://en.wikipedia.org/wiki/2026_Major_League_Soccer_season",
+   "https://www.mlssoccer.com/news/audi-2026-mls-cup-playoffs-key-dates-schedule-information",
+   "https://sports.yahoo.com/articles/matchday-32-clinch-playoffs-eliminated-180000884.html",
+   "https://www.frontrowsoccer.com/2026/10/22/mls-clinching-scenarios-nashville-can-win-shield-charlotte-philly-la-seattle-can-reach-playoffs/"
+  ],
+  "날짜": "2026-10-22 ~ 2026-10-24"
+ },
+ "최근폼": {
+  "홈": {
+   "최근5": "10-18 H 솔트레이크 1-3 패 / 10-15 A 내슈빌 0-4 패 / 10-11 H 포틀랜드 3-3 무 / 10-02 A 시애틀 1-2 패 / 09-27 A 휴스턴 2-0 승",
+   "순위": "서부 15위(최하위) 22점 6승4무20패 득실 -39 (30경기)",
+   "출처": [
+    "https://www.espn.com/soccer/standings/_/league/usa.1",
+    "https://www.espn.com/soccer/scoreboard/_/league/usa.1/date/20261024"
+   ]
+  },
+  "원정": {
+   "최근5": "10-18 H 밴쿠버 1-2 패 / 10-15 A LAFC 1-3 패 / 10-11 H 내슈빌 1-4 패 / 09-27 H 샌디에이고 3-3 무 / 09-20 A 댈러스 0-0 무",
+   "순위": "서부 14위 31점 7승10무13패 득실 -18 (30경기)",
+   "출처": [
+    "https://www.espn.com/soccer/standings/_/league/usa.1",
+    "https://www.espn.com/soccer/scoreboard/_/league/usa.1/date/20261024"
+   ]
+  }
+ },
+ "결장": [
+  {
+   "팀": "스포팅KC",
+   "선수": "Or Blorian",
+   "상태": "확정",
+   "사유": "가슴",
+   "출처": [
+    "https://mlssoccer.com/news/mls-player-status-report-matchday-32-saturday-october-24-sunday-october-25"
+   ],
+   "날짜": "2026-10-23"
+  },
+  {
+   "팀": "스포팅KC",
+   "선수": "Diego Borges",
+   "상태": "확정",
+   "사유": "내전근",
+   "출처": [
+    "https://mlssoccer.com/news/mls-player-status-report-matchday-32-saturday-october-24-sunday-october-25"
+   ],
+   "날짜": "2026-10-23"
+  },
+  {
+   "팀": "스포팅KC",
+   "선수": "Moises Mosquera",
+   "상태": "확정",
+   "사유": "햄스트링",
+   "출처": [
+    "https://mlssoccer.com/news/mls-player-status-report-matchday-32-saturday-october-24-sunday-october-25"
+   ],
+   "날짜": "2026-10-23"
+  },
+  {
+   "팀": "스포팅KC",
+   "선수": "Justin Reynolds",
+   "상태": "확정",
+   "사유": "허벅지(quad)",
+   "출처": [
+    "https://mlssoccer.com/news/mls-player-status-report-matchday-32-saturday-october-24-sunday-october-25"
+   ],
+   "날짜": "2026-10-23"
+  },
+  {
+   "팀": "스포팅KC",
+   "선수": "Lasse Berg Johnsen",
+   "상태": "의심",
+   "사유": "햄스트링",
+   "출처": [
+    "https://mlssoccer.com/news/mls-player-status-report-matchday-32-saturday-october-24-sunday-october-25"
+   ],
+   "날짜": "2026-10-23"
+  },
+  {
+   "팀": "스포팅KC",
+   "선수": "Seymour Reid",
+   "상태": "의심",
+   "사유": "햄스트링",
+   "출처": [
+    "https://mlssoccer.com/news/mls-player-status-report-matchday-32-saturday-october-24-sunday-october-25"
+   ],
+   "날짜": "2026-10-23"
+  },
+  {
+   "팀": "스포팅KC",
+   "선수": "Owen Wolff",
+   "상태": "의심",
+   "사유": "허벅지(quad)",
+   "출처": [
+    "https://mlssoccer.com/news/mls-player-status-report-matchday-32-saturday-october-24-sunday-october-25"
+   ],
+   "날짜": "2026-10-23"
+  },
+  {
+   "팀": "오스틴",
+   "선수": "Jon Bell",
+   "상태": "확정",
+   "사유": "하복부",
+   "출처": [
+    "https://mlssoccer.com/news/mls-player-status-report-matchday-32-saturday-october-24-sunday-october-25"
+   ],
+   "날짜": "2026-10-23"
+  },
+  {
+   "팀": "오스틴",
+   "선수": "Žan Kolmanič",
+   "상태": "확정",
+   "사유": "햄스트링",
+   "출처": [
+    "https://mlssoccer.com/news/mls-player-status-report-matchday-32-saturday-october-24-sunday-october-25"
+   ],
+   "날짜": "2026-10-23"
+  }
+ ],
+ "구장·날씨": {
+  "구장": "Children's Mercy Park, 캔자스시티 KS (정규 홈구장. ESPN 표기 'Sporting Park'는 구 명칭)",
+  "날씨": "20:30 ET 기준 20.4°C · 강수 0mm(확률 0%) · 바람 10.5km/h · 구름많음",
+  "출처": [
+   "https://api.open-meteo.com/v1/forecast (Open-Meteo, 경기장 좌표 시간별 예보)",
+   "https://www.espn.com/soccer/scoreboard/_/league/usa.1/date/20261024"
+  ],
+  "날짜": "2026-10-24"
+ },
+ "뉴스": [
+  {
+   "내용": "스포팅 캔자스시티는 서부에서 유일하게 플레이오프 탈락이 확정된 팀(10/22 기준). 오스틴 FC는 이번 매치데이 32에서 CF몬트리올과 함께 탈락이 확정될 수 있는 2팀 중 하나.",
+   "출처": [
+    "https://www.frontrowsoccer.com/2026/10/22/mls-clinching-scenarios-nashville-can-win-shield-charlotte-philly-la-seattle-can-reach-playoffs/",
+    "https://sports.yahoo.com/articles/matchday-32-clinch-playoffs-eliminated-180000884.html"
+   ],
+   "날짜": "2026-10-22"
+  }
+ ],
+ "뉴스없음": {
+  "홈": "뉴스 없음(검색처 2곳: MLSsoccer.com 공식 Player Status Report, Front Row Soccer/Yahoo Sports MLS 매치데이32 기사 / 2026-10-25). 감독 교체·징계 추가 건 미발견",
+  "원정": "뉴스 없음(검색처 2곳: MLSsoccer.com 공식 Player Status Report, Front Row Soccer/Yahoo Sports MLS 매치데이32 기사 / 2026-10-25). 감독 교체·징계 추가 건 미발견"
+ },
+ "미확인": [
+  "양 팀 선발 명단 미발표",
+  "스포팅KC 감독 거취 관련 공식 발표 미확인",
+  "탈락 확정 팀의 유망주 기용/로테이션 방침 미확인"
+ ]
+}

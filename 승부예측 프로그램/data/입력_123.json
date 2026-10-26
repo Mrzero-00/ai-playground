@@ -1,0 +1,8165 @@
+{
+ "8607": {
+  "번호": "8607",
+  "경기": "에스투디안테스데 라플라타 - CR플라멩구",
+  "리그": "코파 리베르타도레스",
+  "시각": "10-16 09:30",
+  "수집": "10-16 19:23",
+  "홈": {
+   "팀": "에스투디안테스데 라플라타",
+   "eng": "Estudiantes de La Plata",
+   "직전": "09-17 원정 vs Corinthians 1-0 승 [quarterfinals]",
+   "휴식일": 29.0,
+   "휴식일주의": "ESPN에 없는 리그일 수 있음(21일 내 경기 없음) — 실제 휴식일은 더 짧을 수 있음",
+   "최근7일경기": 0,
+   "직전event": "401912540",
+   "xg": null,
+   "선발": [
+    "Fernando Muslera",
+    "Ramiro Funes Mori",
+    "Santiago Núñez",
+    "Gastón Benedetti",
+    "Eros Mancuso",
+    "Alexis Castro",
+    "Ezequiel Piovi",
+    "Joaquín Tobio Burgos",
+    "Baltasar Rodríguez",
+    "Guido Carrillo",
+    "Tiago Palacios"
+   ],
+   "포메이션": "4-4-2",
+   "직전선발": [
+    "Fernando Muslera",
+    "Leandro González Pírez",
+    "Santiago Núñez",
+    "Tomás Palacios",
+    "Eros Mancuso",
+    "Alexis Castro",
+    "Ezequiel Piovi",
+    "Joaquín Tobio Burgos",
+    "Baltasar Rodríguez",
+    "Guido Carrillo",
+    "Joaquín Correa"
+   ],
+   "직전포메이션": "4-4-2",
+   "교체": 3,
+   "빠진": [
+    "Leandro González Pírez",
+    "Tomás Palacios",
+    "Joaquín Correa"
+   ]
+  },
+  "원정": {
+   "팀": "CR플라멩구",
+   "eng": "CR Flamengo",
+   "직전": "09-18 홈 vs Independiente del Valle 1-1 무 [quarterfinals]",
+   "휴식일": 28.0,
+   "휴식일주의": "ESPN에 없는 리그일 수 있음(21일 내 경기 없음) — 실제 휴식일은 더 짧을 수 있음",
+   "최근7일경기": 0,
+   "직전event": "401912526",
+   "xg": null,
+   "선발": [
+    "Agustín Rossi",
+    "Léo Pereira",
+    "Léo Ortiz",
+    "Alex Sandro",
+    "Emerson Royal",
+    "Lucas Paquetá",
+    "Saúl Ñíguez",
+    "Erick Pulgar",
+    "Bruno Henrique",
+    "Samuel Lino",
+    "Jorge Carrascal"
+   ],
+   "포메이션": "4-2-3-1",
+   "직전선발": [
+    "Agustín Rossi",
+    "Léo Pereira",
+    "Léo Ortiz",
+    "Ayrton Lucas",
+    "Emerson Royal",
+    "Lucas Paquetá",
+    "Jorginho",
+    "Erick Pulgar",
+    "Bruno Henrique",
+    "Samuel Lino",
+    "Jorge Carrascal"
+   ],
+   "직전포메이션": "4-2-3-1",
+   "교체": 2,
+   "빠진": [
+    "Ayrton Lucas",
+    "Jorginho"
+   ]
+  },
+  "라인업": "발표",
+  "event": "401912523"
+ },
+ "8611": {
+  "번호": "8611",
+  "경기": "시드니FC - 웨스턴시드니 원더러스",
+  "리그": "호주 A리그",
+  "시각": "10-16 18:00",
+  "수집": "10-16 19:23",
+  "홈": {
+   "팀": "시드니FC",
+   "eng": "Sydney FC",
+   "휴식일": null,
+   "직전": "-",
+   "최근7일경기": null,
+   "휴식일주의": "35일 내 경기 없음 — ESPN 미제공 리그(체코·폴란드·헝가리·불가리아·키프로스·이스라엘·핀란드·크로아티아·세르비아·동남아 등)이면 에이전트가 직접 확인",
+   "xg": null,
+   "선발": [
+    "Harrison Devenish-Meares",
+    "Jordan Courtney-Perkins",
+    "Alexandar Popovic",
+    "Ben Garuccio",
+    "Rhyan Grant",
+    "Tiago Quintal",
+    "Jake Hollman",
+    "Rhys Youlley",
+    "Oriola Sunday",
+    "Takahiro Sekine",
+    "Al Hassan Toure"
+   ],
+   "포메이션": "4-2-3-1"
+  },
+  "원정": {
+   "팀": "웨스턴시드니 원더러스",
+   "eng": "Western Sydney Wanderers",
+   "휴식일": null,
+   "직전": "-",
+   "최근7일경기": null,
+   "휴식일주의": "35일 내 경기 없음 — ESPN 미제공 리그(체코·폴란드·헝가리·불가리아·키프로스·이스라엘·핀란드·크로아티아·세르비아·동남아 등)이면 에이전트가 직접 확인",
+   "xg": null,
+   "선발": [
+    "Lawrence Thomas",
+    "Anthony Pantazopoulos",
+    "German Ferreyra",
+    "Alex Gersbach",
+    "Panashe Madanha",
+    "Miguel Di Pizio",
+    "Dylan Scicluna",
+    "Angus Thurgate",
+    "Awan Lual",
+    "William Gillion",
+    "Nicolas Milanovic"
+   ],
+   "포메이션": "4-2-3-1"
+  },
+  "라인업": "발표",
+  "event": "401892162"
+ },
+ "8642": {
+  "번호": "8642",
+  "경기": "허난FC - 톈진 진먼후",
+  "리그": "중국 슈퍼리그",
+  "시각": "10-16 20:35",
+  "수집": "10-16 19:23",
+  "홈": {
+   "팀": "허난FC",
+   "eng": "Henan FC",
+   "직전": "10-09 원정 vs Shenzhen Xinpengcheng 2-2 무 [chinese super league]",
+   "휴식일": 7.0,
+   "최근7일경기": 0,
+   "직전event": "401861471",
+   "xg": null,
+   "직전선발": [
+    "Shi Chenglong",
+    "Lucas Varone",
+    "Iago Maidana",
+    "Nebijan Muhmet",
+    "Shinar Yeljan",
+    "Bruno Nazario",
+    "Wang Shangyuan",
+    "Abraham Halik",
+    "Gustavo",
+    "Pedro Maranhão",
+    "Zheng Dalun"
+   ],
+   "직전포메이션": "4-2-3-1"
+  },
+  "원정": {
+   "팀": "톈진 진먼후",
+   "eng": "Tianjin Jinmen Tiger",
+   "직전": "10-10 원정 vs Chengdu Rongcheng 1-0 승 [chinese super league]",
+   "휴식일": 6.0,
+   "최근7일경기": 1,
+   "직전event": "401861473",
+   "xg": null,
+   "직전선발": [
+    "Yan Bingliang",
+    "Aitor Córdoba",
+    "Xiandiao Wang",
+    "Xie Weijun",
+    "Sun Ming-Him",
+    "Wang Zhenghao",
+    "Cristian",
+    "Chen Zhexuan",
+    "Wang Qiuming",
+    "Bruno Xadas",
+    "Alberto Quiles Piosa"
+   ],
+   "직전포메이션": "5-4-1"
+  },
+  "라인업": "미발표(킥오프 1.2h 전)",
+  "event": "401861477"
+ },
+ "8659": {
+  "번호": "8659",
+  "경기": "SC헤이렌베인 - 엑셀시오르 로테르담",
+  "리그": "네덜란드 에레디비시",
+  "시각": "10-17 03:00",
+  "수집": "10-16 22:14",
+  "홈": {
+   "팀": "SC헤이렌베인",
+   "eng": "Heerenveen",
+   "직전": "10-10 원정 vs PSV Eindhoven 0-2 패 [ned.1]",
+   "휴식일": 7.0,
+   "최근7일경기": 0,
+   "직전event": "401875592",
+   "xg": null,
+   "직전선발": [
+    "Bernt Klaverboer",
+    "Maas Willemsen",
+    "Sam Kersten",
+    "Vasilios Zagaritis",
+    "Oliver Braude",
+    "Levi Smans",
+    "Nolhan Courtens",
+    "Marcus Linday",
+    "Dylan Vente",
+    "Maxence Rivera",
+    "Jacob Trenskow"
+   ],
+   "직전포메이션": "4-2-3-1"
+  },
+  "원정": {
+   "팀": "엑셀시오르 로테르담",
+   "eng": "Excelsior",
+   "직전": "10-11 홈 vs FC Groningen 1-5 패 [ned.1]",
+   "휴식일": 5.1,
+   "최근7일경기": 1,
+   "직전event": "401875584",
+   "xg": null,
+   "직전선발": [
+    "Stijn van Gassel",
+    "Jan Plug",
+    "Casper Widell",
+    "Simon Janssen",
+    "Eric Da Silva Moreira",
+    "Rick Meissen",
+    "Lennard Hartjes",
+    "Irakli Yegoian",
+    "David Garden",
+    "Ágúst Þorsteinsson",
+    "Aymen Sliti"
+   ],
+   "직전포메이션": "4-3-3"
+  },
+  "라인업": "미발표(킥오프 4.8h 전)",
+  "event": "401875583"
+ },
+ "8663": {
+  "번호": "8663",
+  "경기": "프랑크푸르트 - 쾰른",
+  "리그": "독일 분데스리가",
+  "시각": "10-17 03:30",
+  "수집": "10-16 22:14",
+  "홈": {
+   "팀": "프랑크푸르트",
+   "eng": "Frankfurt",
+   "직전": "10-11 원정 vs RB Leipzig 0-6 패 [german bundesliga]",
+   "휴식일": 6.1,
+   "최근7일경기": 1,
+   "직전event": "401884780",
+   "xg": {
+    "n": 5,
+    "xg": 2.17,
+    "xga": 2.73,
+    "npxgd": -0.38,
+    "l5_xg": 2.17,
+    "l5_xga": 2.73,
+    "l5_npxgd": -0.38,
+    "home_xgd": 0.11,
+    "away_xgd": -0.71,
+    "xpts": 5.8,
+    "pts": 5
+   },
+   "xg_src": "Understat Bundesliga Eintracht Frankfurt",
+   "직전선발": [
+    "Noah Atubolu",
+    "Robin Koch",
+    "Lilian Brassier",
+    "Nnamdi Collins",
+    "Noël Aséko",
+    "Raphael Onyedika",
+    "Keita Kosugi",
+    "Ansgar Knauff",
+    "Jonathan Burkardt",
+    "Can Uzun",
+    "Ritsu Doan"
+   ],
+   "직전포메이션": "3-4-2-1"
+  },
+  "원정": {
+   "팀": "쾰른",
+   "eng": "['Koln', 'Cologne']",
+   "휴식일": null,
+   "직전": "-",
+   "최근7일경기": null,
+   "휴식일주의": "35일 내 경기 없음 — ESPN 미제공 리그(체코·폴란드·헝가리·불가리아·키프로스·이스라엘·핀란드·크로아티아·세르비아·동남아 등)이면 에이전트가 직접 확인",
+   "xg": {
+    "n": 5,
+    "xg": 2.1,
+    "xga": 1.95,
+    "npxgd": 0.15,
+    "l5_xg": 2.1,
+    "l5_xga": 1.95,
+    "l5_npxgd": 0.15,
+    "home_xgd": 0.44,
+    "away_xgd": -0.29,
+    "xpts": 7.5,
+    "pts": 7
+   },
+   "xg_src": "Understat Bundesliga FC Cologne"
+  },
+  "라인업": "미발표(킥오프 5.3h 전)",
+  "event": null
+ },
+ "8668": {
+  "번호": "8668",
+  "경기": "프로시노네 - US사수올로",
+  "리그": "이탈리아 세리에A",
+  "시각": "10-17 03:45",
+  "수집": "10-16 22:14",
+  "홈": {
+   "팀": "프로시노네",
+   "eng": "Frosinone",
+   "직전": "10-11 원정 vs Napoli 0-3 패 [italian serie a]",
+   "휴식일": 6.0,
+   "최근7일경기": 1,
+   "직전event": "401874754",
+   "xg": {
+    "n": 6,
+    "xg": 1.48,
+    "xga": 2.42,
+    "npxgd": -0.68,
+    "l5_xg": 1.71,
+    "l5_xga": 2.38,
+    "l5_npxgd": -0.37,
+    "home_xgd": -0.98,
+    "away_xgd": -0.39,
+    "xpts": 5.3,
+    "pts": 10
+   },
+   "xg_src": "Understat Serie_A Frosinone",
+   "직전선발": [
+    "Lorenzo Palmisani",
+    "Giorgio Cittadini",
+    "Gabriele Calvani",
+    "Gabriele Bracaglia",
+    "Anthony Oyono",
+    "Romano Schmid",
+    "Giacomo Calo",
+    "Patrizio Masini",
+    "Antonio Raimondo",
+    "Giorgi Kvernadze",
+    "Farès Ghedjemis"
+   ],
+   "직전포메이션": "4-2-3-1"
+  },
+  "원정": {
+   "팀": "US사수올로",
+   "eng": "Sassuolo",
+   "직전": "10-12 홈 vs AC Milan 1-1 무 [italian serie a]",
+   "휴식일": 5.1,
+   "최근7일경기": 1,
+   "직전event": "401874789",
+   "xg": {
+    "n": 6,
+    "xg": 1.78,
+    "xga": 1.68,
+    "npxgd": 0.22,
+    "l5_xg": 1.59,
+    "l5_xga": 1.83,
+    "l5_npxgd": -0.09,
+    "home_xgd": -0.24,
+    "away_xgd": 0.68,
+    "xpts": 8.5,
+    "pts": 8
+   },
+   "xg_src": "Understat Serie_A Sassuolo",
+   "직전선발": [
+    "Arijanet Muric",
+    "Fedde Leysen",
+    "Duje Caleta-Car",
+    "Josh Doig",
+    "Ignace van der Brempt",
+    "Nemanja Matic",
+    "Darryl Bakola",
+    "Vasilije Adzic",
+    "Sebastiano Esposito",
+    "Armand Laurienté",
+    "Domenico Berardi"
+   ],
+   "직전포메이션": "4-3-3"
+  },
+  "라인업": "미발표(킥오프 5.5h 전)",
+  "event": "401874959"
+ },
+ "8672": {
+  "번호": "8672",
+  "경기": "르망FC - 툴루즈",
+  "리그": "프랑스 리그1",
+  "시각": "10-17 03:45",
+  "수집": "10-16 22:14",
+  "홈": {
+   "팀": "르망FC",
+   "eng": "Le Mans",
+   "직전": "10-11 원정 vs Paris Saint-Germain 1-3 패 [ligue 1]",
+   "휴식일": 6.0,
+   "최근7일경기": 1,
+   "직전event": "401876442",
+   "xg": {
+    "n": 6,
+    "xg": 1.67,
+    "xga": 2.45,
+    "npxgd": -0.53,
+    "l5_xg": 1.85,
+    "l5_xga": 2.41,
+    "l5_npxgd": -0.26,
+    "home_xgd": -0.56,
+    "away_xgd": -0.49,
+    "xpts": 5.6,
+    "pts": 6
+   },
+   "xg_src": "Understat Ligue_1 Le Mans",
+   "직전선발": [
+    "Nicolas Kocik",
+    "Samuel Yohou",
+    "Harold Voyer",
+    "Noa Boissé",
+    "Alexandre Lauray",
+    "Jean Vercruysse",
+    "Lucas Bretelle",
+    "Lucas Calodat",
+    "Rayan Bamba",
+    "Louis Mafouta",
+    "Habib Diallo"
+   ],
+   "직전포메이션": "3-1-4-2"
+  },
+  "원정": {
+   "팀": "툴루즈",
+   "eng": "Toulouse",
+   "직전": "10-11 원정 vs AS Monaco 2-2 무 [ligue 1]",
+   "휴식일": 6.0,
+   "최근7일경기": 1,
+   "직전event": "401876444",
+   "xg": {
+    "n": 6,
+    "xg": 2.0,
+    "xga": 1.59,
+    "npxgd": 0.16,
+    "l5_xg": 1.97,
+    "l5_xga": 1.75,
+    "l5_npxgd": -0.09,
+    "home_xgd": 1.08,
+    "away_xgd": -0.76,
+    "xpts": 10.5,
+    "pts": 6
+   },
+   "xg_src": "Understat Ligue_1 Toulouse",
+   "직전선발": [
+    "Guillaume Restes",
+    "Mark McKenzie",
+    "Seny Koumbassa",
+    "Christ Tapé",
+    "Rafik Messali",
+    "Casper Tengstedt",
+    "Alexis Vossah",
+    "Cristian Cásseres Jr.",
+    "Jacen Russell-Rowe",
+    "Ilyas Azizi",
+    "Thomas Jørgensen"
+   ],
+   "직전포메이션": "4-2-3-1"
+  },
+  "라인업": "미발표(킥오프 5.5h 전)",
+  "event": "401876437"
+ },
+ "8676": {
+  "번호": "8676",
+  "경기": "번리 - 울버햄튼 원더러스",
+  "리그": "잉글랜드 챔피언십",
+  "시각": "10-17 04:00",
+  "수집": "10-16 22:14",
+  "홈": {
+   "팀": "번리",
+   "eng": "Burnley",
+   "직전": "10-14 홈 vs Charlton Athletic 2-2 무 [eng.2]",
+   "휴식일": 3.0,
+   "최근7일경기": 2,
+   "직전event": "401880230",
+   "xg": null,
+   "직전선발": [
+    "Grégoire Coudert",
+    "Igor Julio",
+    "Anel Ahmedhodzic",
+    "Lucas Pires",
+    "Kyle Walker",
+    "Josh Laurent",
+    "Reo Hatate",
+    "Max Alleyne",
+    "Jamie Vardy",
+    "Jacob Bruun Larsen",
+    "Largie Ramazani"
+   ],
+   "직전포메이션": "4-2-3-1"
+  },
+  "원정": {
+   "팀": "울버햄튼 원더러스",
+   "eng": "Wolverhampton",
+   "직전": "10-14 홈 vs Bolton Wanderers 1-3 패 [eng.2]",
+   "휴식일": 3.0,
+   "최근7일경기": 2,
+   "직전event": "401880226",
+   "xg": null,
+   "직전선발": [
+    "José Sá",
+    "Ladislav Krejcí",
+    "Nasser Djiga",
+    "Hugo Bueno",
+    "Kieran Trippier",
+    "Fernando López",
+    "Jordan James",
+    "André",
+    "Adam Armstrong",
+    "Mateus Mané",
+    "Jean-Ricner Bellegarde"
+   ],
+   "직전포메이션": "4-2-3-1"
+  },
+  "라인업": "미발표(킥오프 5.8h 전)",
+  "event": "401880218"
+ },
+ "8680": {
+  "번호": "8680",
+  "경기": "데포르티보 아코루냐 - 레반테",
+  "리그": "스페인 라리가",
+  "시각": "10-17 04:00",
+  "수집": "10-16 22:14",
+  "홈": {
+   "팀": "데포르티보 아코루냐",
+   "eng": "Deportivo",
+   "직전": "10-11 원정 vs Real Sociedad 2-3 패 [laliga]",
+   "휴식일": 5.2,
+   "최근7일경기": 1,
+   "직전event": "401882847",
+   "xg": {
+    "n": 8,
+    "xg": 1.34,
+    "xga": 1.47,
+    "npxgd": -0.13,
+    "l5_xg": 1.57,
+    "l5_xga": 1.56,
+    "l5_npxgd": -0.14,
+    "home_xgd": -0.15,
+    "away_xgd": -0.12,
+    "xpts": 9.9,
+    "pts": 10
+   },
+   "xg_src": "Understat La_liga Deportivo La Coruna",
+   "직전선발": [
+    "Leo Román",
+    "Bright Ede",
+    "José María Giménez",
+    "Giacomo Quagliata",
+    "Ximo Navarro",
+    "Luismi Cruz",
+    "Mario Soriano Carreno",
+    "Diego Villares",
+    "Bil Nsongo",
+    "Yeremay Hernández",
+    "David Mella"
+   ],
+   "직전포메이션": "4-2-3-1"
+  },
+  "원정": {
+   "팀": "레반테",
+   "eng": "Levante",
+   "직전": "10-13 홈 vs Sevilla 3-3 무 [laliga]",
+   "휴식일": 4.0,
+   "최근7일경기": 1,
+   "직전event": "401882852",
+   "xg": {
+    "n": 7,
+    "xg": 1.62,
+    "xga": 2.36,
+    "npxgd": -0.53,
+    "l5_xg": 1.97,
+    "l5_xga": 2.72,
+    "l5_npxgd": -0.45,
+    "home_xgd": 0.29,
+    "away_xgd": -1.14,
+    "xpts": 7.1,
+    "pts": 6
+   },
+   "xg_src": "Understat La_liga Levante",
+   "직전선발": [
+    "Mathew Ryan",
+    "Ifeanyi Ndukwe",
+    "Adrián de la Fuente",
+    "Manu Sánchez",
+    "Jeremy Toljan",
+    "Jon Ander Olasagasti",
+    "Orio Rey",
+    "Roger Brugué",
+    "Víctor García",
+    "Yanis Kasonga Musuayi",
+    "Iván Romero"
+   ],
+   "직전포메이션": "4-4-2"
+  },
+  "라인업": "미발표(킥오프 5.8h 전)",
+  "event": "401882844"
+ },
+ "8684": {
+  "번호": "8684",
+  "경기": "오클랜드FC - 멜버른 시티",
+  "리그": "호주 A리그",
+  "시각": "10-17 13:00",
+  "수집": "10-17 13:48",
+  "홈": {
+   "팀": "오클랜드FC",
+   "eng": "오클랜드FC",
+   "휴식일": null,
+   "직전": "-",
+   "최근7일경기": null,
+   "휴식일주의": "35일 내 경기 없음 — ESPN 미제공 리그(체코·폴란드·헝가리·불가리아·키프로스·이스라엘·핀란드·크로아티아·세르비아·동남아 등)이면 에이전트가 직접 확인",
+   "xg": null
+  },
+  "원정": {
+   "팀": "멜버른 시티",
+   "eng": "멜버른 시티",
+   "휴식일": null,
+   "직전": "-",
+   "최근7일경기": null,
+   "휴식일주의": "35일 내 경기 없음 — ESPN 미제공 리그(체코·폴란드·헝가리·불가리아·키프로스·이스라엘·핀란드·크로아티아·세르비아·동남아 등)이면 에이전트가 직접 확인",
+   "xg": null
+  },
+  "라인업": "미발표",
+  "event": null
+ },
+ "8688": {
+  "번호": "8688",
+  "경기": "시미즈 에스펄스 - 감바 오사카",
+  "리그": "일본 J1리그",
+  "시각": "10-17 13:00",
+  "수집": "10-17 13:48",
+  "홈": {
+   "팀": "시미즈 에스펄스",
+   "eng": "Shimizu S-Pulse",
+   "직전": "10-11 원정 vs Mito Hollyhock 2-1 승 [jpn.1]",
+   "휴식일": 5.9,
+   "최근7일경기": 1,
+   "직전event": "401877618",
+   "xg": null,
+   "선발": [
+    "Togo Umeda",
+    "Yuki Honda",
+    "Sodai Hasukawa",
+    "Mateus Brunetti Valor",
+    "Hidehiro Sugai",
+    "Masaki Yumiba",
+    "Kai Matsuzaki",
+    "Kei Koizumi",
+    "Oh Se-Hun",
+    "Kenta Inoue",
+    "Ryo Germain"
+   ],
+   "포메이션": "4-3-3",
+   "직전선발": [
+    "Togo Umeda",
+    "Yuki Honda",
+    "Yuji Takahashi",
+    "Mateus Brunetti Valor",
+    "Hidehiro Sugai",
+    "Dieguinho",
+    "Masaki Yumiba",
+    "Kai Matsuzaki",
+    "Oh Se-Hun",
+    "Kenta Inoue",
+    "Koya Kitagawa"
+   ],
+   "직전포메이션": "4-3-3",
+   "교체": 3,
+   "빠진": [
+    "Yuji Takahashi",
+    "Dieguinho",
+    "Koya Kitagawa"
+   ]
+  },
+  "원정": {
+   "팀": "감바 오사카",
+   "eng": "Gamba Osaka",
+   "직전": "10-13 원정 vs Newcastle Jets 3-1 승 [league stage]",
+   "휴식일": 3.8,
+   "최근7일경기": 1,
+   "직전event": "401912650",
+   "xg": null,
+   "선발": [
+    "Jun Ichimori",
+    "Shota Fukuoka",
+    "Shinnosuke Nakatani",
+    "Shinya Nakano",
+    "Takeru Kishimoto",
+    "Issam Jebali",
+    "Rin Mito",
+    "Shuto Abe",
+    "Yusei Toshida",
+    "Welton Felipe",
+    "Ryoya Yamashita"
+   ],
+   "포메이션": "4-2-3-1",
+   "직전선발": [
+    "Jun Ichimori",
+    "Shota Fukuoka",
+    "Shinnosuke Nakatani",
+    "Shinya Nakano",
+    "Takeru Kishimoto",
+    "Issam Jebali",
+    "Tokuma Suzuki",
+    "Shuto Abe",
+    "Yusei Toshida",
+    "Ryotaro Meshino",
+    "Eli Adams"
+   ],
+   "직전포메이션": "4-2-3-1",
+   "교체": 3,
+   "빠진": [
+    "Tokuma Suzuki",
+    "Ryotaro Meshino",
+    "Eli Adams"
+   ]
+  },
+  "라인업": "발표",
+  "event": "401877600"
+ },
+ "8696": {
+  "번호": "8696",
+  "경기": "제프 유나이티드 - 요코하마 F마리노스",
+  "리그": "일본 J1리그",
+  "시각": "10-17 14:00",
+  "수집": "10-17 13:48",
+  "홈": {
+   "팀": "제프 유나이티드",
+   "eng": "JEF United Chiba",
+   "직전": "10-11 홈 vs V-Varen Nagasaki 1-1 무 [jpn.1]",
+   "휴식일": 6.0,
+   "최근7일경기": 1,
+   "직전event": "401877576",
+   "xg": null,
+   "선발": [
+    "José Suárez",
+    "Boniface Nduka",
+    "Daisuke Suzuki",
+    "Masaru Hidaka",
+    "Rikuto Ishio",
+    "Takuya Yasui",
+    "Luiz Eduardo Fleuri Pacheco",
+    "Takumi Tsukui",
+    "Naohiro Sugiyama",
+    "Erison",
+    "Ken Yamura"
+   ],
+   "포메이션": "4-4-2",
+   "직전선발": [
+    "José Suárez",
+    "Boniface Nduka",
+    "Takashi Kawano",
+    "Masaru Hidaka",
+    "Rikuto Ishio",
+    "Takuya Yasui",
+    "Luiz Eduardo Fleuri Pacheco",
+    "Takumi Tsukui",
+    "Naohiro Sugiyama",
+    "Ken Yamura",
+    "Erison"
+   ],
+   "직전포메이션": "4-4-2",
+   "교체": 1,
+   "빠진": [
+    "Takashi Kawano"
+   ]
+  },
+  "원정": {
+   "팀": "요코하마 F마리노스",
+   "eng": "Marinos",
+   "직전": "10-10 원정 vs Cerezo Osaka 0-0 무 [jpn.1]",
+   "휴식일": 7.0,
+   "최근7일경기": 0,
+   "직전event": "401877606",
+   "xg": null,
+   "선발": [
+    "Il-Kyu Park",
+    "Kosei Suwama",
+    "Jeisson Quiñones",
+    "Toichi Suzuki",
+    "Takuto Kimura",
+    "Jun Amano",
+    "Kosuke Matsumura",
+    "Riku Yamane",
+    "Kaina Tanimura",
+    "Ryo Miyaichi",
+    "Tomoki Kondo"
+   ],
+   "포메이션": "4-2-3-1",
+   "직전선발": [
+    "Hiroki Iikura",
+    "Kosei Suwama",
+    "Jeisson Quiñones",
+    "Toichi Suzuki",
+    "Takuto Kimura",
+    "Jun Amano",
+    "Riku Yamane",
+    "Kosuke Matsumura",
+    "Kaina Tanimura",
+    "Ryo Miyaichi",
+    "Tomoki Kondo"
+   ],
+   "직전포메이션": "4-2-3-1",
+   "교체": 1,
+   "빠진": [
+    "Hiroki Iikura"
+   ]
+  },
+  "라인업": "발표",
+  "event": "401877573"
+ },
+ "8700": {
+  "번호": "8700",
+  "경기": "도쿄 베르디 - FC도쿄",
+  "리그": "일본 J1리그",
+  "시각": "10-17 14:00",
+  "수집": "10-17 14:28",
+  "홈": {
+   "팀": "도쿄 베르디",
+   "eng": "Verdy",
+   "직전": "10-11 홈 vs Sanfrecce Hiroshima 0-2 패 [jpn.1]",
+   "휴식일": 6.0,
+   "최근7일경기": 1,
+   "직전event": "401877574",
+   "xg": null,
+   "선발": [
+    "Matheus Vidotto",
+    "Maaya Sako",
+    "Naoki Hayashi",
+    "Yuta Arai",
+    "Kaito Suzuki",
+    "Kosuke Saito",
+    "Kai Shibato",
+    "Yuya Fukuda",
+    "Kanya Fujimoto",
+    "Itsuki Someno",
+    "Hyun-Woo Kim"
+   ],
+   "포메이션": "4-4-2",
+   "직전선발": [
+    "Matheus Vidotto",
+    "Maaya Sako",
+    "Naoki Hayashi",
+    "Yuta Arai",
+    "Kaito Suzuki",
+    "Kosuke Saito",
+    "Kai Shibato",
+    "Yuya Fukuda",
+    "Kanya Fujimoto",
+    "Hyun-Woo Kim",
+    "Itsuki Someno"
+   ],
+   "직전포메이션": "4-4-2",
+   "교체": 0,
+   "빠진": []
+  },
+  "원정": {
+   "팀": "FC도쿄",
+   "eng": "FC Tokyo",
+   "직전": "10-10 홈 vs Urawa Red Diamonds 3-0 승 [jpn.1]",
+   "휴식일": 7.0,
+   "최근7일경기": 1,
+   "직전event": "401877575",
+   "xg": null,
+   "선발": [
+    "Matheus Vidotto",
+    "Maaya Sako",
+    "Naoki Hayashi",
+    "Yuta Arai",
+    "Kaito Suzuki",
+    "Kosuke Saito",
+    "Kai Shibato",
+    "Yuya Fukuda",
+    "Kanya Fujimoto",
+    "Itsuki Someno",
+    "Hyun-Woo Kim"
+   ],
+   "포메이션": "4-4-2",
+   "직전선발": [
+    "Kim Seung-Gyu",
+    "Hayato Inamura",
+    "Alexander Scholz",
+    "Kashifu Bangunagande",
+    "Hirokazu Ishikara",
+    "Kyota Tokiwa",
+    "Shuto Nagano",
+    "Kota Tawaratsumida",
+    "Soma Anzai",
+    "Motoki Nagakura",
+    "Marcelo Ryan"
+   ],
+   "직전포메이션": "4-4-2",
+   "교체": 11,
+   "빠진": [
+    "Kim Seung-Gyu",
+    "Hayato Inamura",
+    "Alexander Scholz",
+    "Kashifu Bangunagande",
+    "Hirokazu Ishikara",
+    "Kyota Tokiwa",
+    "Shuto Nagano",
+    "Kota Tawaratsumida",
+    "Soma Anzai",
+    "Motoki Nagakura",
+    "Marcelo Ryan"
+   ]
+  },
+  "환경": {
+   "구장": "아지노모토 스타디움",
+   "구장고도": 66,
+   "원정홈": "아지노모토 스타디움",
+   "원정홈고도": 66,
+   "이동km": 0,
+   "고도차": 0,
+   "날씨": {
+    "기온": 23.5,
+    "습도": 40,
+    "강수mm": 0,
+    "강수확률": 0,
+    "풍속": 8.0,
+    "출처": "Open-Meteo forecast 10-17 14:28"
+   },
+   "출처": [
+    "Wikidata Q620499→Q412824 · Open-Meteo 고도",
+    "Wikidata Q856619→Q412824 · Open-Meteo 고도"
+   ],
+   "주의": []
+  },
+  "라인업": "발표",
+  "event": "401877572"
+ },
+ "8704": {
+  "번호": "8704",
+  "경기": "산프레체 히로시마 - 교토 상가FC",
+  "리그": "일본 J1리그",
+  "시각": "10-17 14:00",
+  "수집": "10-17 13:48",
+  "홈": {
+   "팀": "산프레체 히로시마",
+   "eng": "Sanfrecce Hiroshima",
+   "직전": "10-11 원정 vs Tokyo Verdy 1969 2-0 승 [jpn.1]",
+   "휴식일": 6.0,
+   "최근7일경기": 1,
+   "직전event": "401877574",
+   "xg": null,
+   "선발": [
+    "Keisuke Osako",
+    "Hayato Araki",
+    "Shunki Higashi",
+    "Shuto Nakano",
+    "Yotaro Nakajima",
+    "Hayao Kawabe",
+    "Daiki Suga",
+    "Naoto Arai",
+    "Sébastien Haller",
+    "Shun Ayukawa",
+    "Akito Suzuki"
+   ],
+   "포메이션": "3-4-2-1",
+   "직전선발": [
+    "Keisuke Osako",
+    "Hayato Araki",
+    "Kim Ju-Sung",
+    "Shuto Nakano",
+    "Yotaro Nakajima",
+    "Hayao Kawabe",
+    "Daiki Suga",
+    "Naoto Arai",
+    "Shun Ayukawa",
+    "Akito Suzuki",
+    "Mutsuki Kato"
+   ],
+   "직전포메이션": "3-4-2-1",
+   "교체": 2,
+   "빠진": [
+    "Kim Ju-Sung",
+    "Mutsuki Kato"
+   ]
+  },
+  "원정": {
+   "팀": "교토 상가FC",
+   "eng": "Kyoto",
+   "직전": "10-13 홈 vs Ratchaburi FC 1-0 승 [league stage]",
+   "휴식일": 3.8,
+   "최근7일경기": 2,
+   "직전event": "401912649",
+   "xg": null,
+   "선발": [
+    "Halls",
+    "Yoshinori Suzuki",
+    "Yusuke Ishida",
+    "Kyo Sato",
+    "Kodai Nagata",
+    "Takaaki Shichi",
+    "Yoon Sung-Jun",
+    "Hiroto Morooka",
+    "Takumi Kato",
+    "Ryuma Nakano",
+    "Haruki Arai"
+   ],
+   "포메이션": "4-2-3-1",
+   "직전선발": [
+    "Halls",
+    "Weverton",
+    "Takaaki Shichi",
+    "Hisashi Appiah Tawiah",
+    "Yoon Sung-Jun",
+    "Thiago",
+    "Kyo Sato",
+    "Ren Kato",
+    "Everton Maceió",
+    "Marco Túlio",
+    "Haruki Arai"
+   ],
+   "직전포메이션": "3-4-3",
+   "교체": 6,
+   "빠진": [
+    "Weverton",
+    "Hisashi Appiah Tawiah",
+    "Thiago",
+    "Ren Kato",
+    "Everton Maceió",
+    "Marco Túlio"
+   ]
+  },
+  "라인업": "발표",
+  "event": "401877597"
+ },
+ "8736": {
+  "번호": "8736",
+  "경기": "대구FC - 충북청주 프로축구단",
+  "리그": "K리그2",
+  "시각": "10-17 14:00",
+  "수집": "10-17 13:48",
+  "홈": {
+   "팀": "대구FC",
+   "eng": "대구FC",
+   "휴식일": null,
+   "직전": "-",
+   "최근7일경기": null,
+   "휴식일주의": "35일 내 경기 없음 — ESPN 미제공 리그(체코·폴란드·헝가리·불가리아·키프로스·이스라엘·핀란드·크로아티아·세르비아·동남아 등)이면 에이전트가 직접 확인",
+   "xg": null
+  },
+  "원정": {
+   "팀": "충북청주 프로축구단",
+   "eng": "Chungbuk Cheongju",
+   "휴식일": null,
+   "직전": "-",
+   "최근7일경기": null,
+   "휴식일주의": "35일 내 경기 없음 — ESPN 미제공 리그(체코·폴란드·헝가리·불가리아·키프로스·이스라엘·핀란드·크로아티아·세르비아·동남아 등)이면 에이전트가 직접 확인",
+   "xg": null
+  },
+  "라인업": "미발표(킥오프 0.2h 전)",
+  "event": null
+ },
+ "8740": {
+  "번호": "8740",
+  "경기": "성남FC - 수원FC",
+  "리그": "K리그2",
+  "시각": "10-17 14:00",
+  "수집": "10-17 13:48",
+  "홈": {
+   "팀": "성남FC",
+   "eng": "Seongnam FC",
+   "휴식일": null,
+   "직전": "-",
+   "최근7일경기": null,
+   "휴식일주의": "35일 내 경기 없음 — ESPN 미제공 리그(체코·폴란드·헝가리·불가리아·키프로스·이스라엘·핀란드·크로아티아·세르비아·동남아 등)이면 에이전트가 직접 확인",
+   "xg": null
+  },
+  "원정": {
+   "팀": "수원FC",
+   "eng": "Suwon FC",
+   "휴식일": null,
+   "직전": "-",
+   "최근7일경기": null,
+   "휴식일주의": "35일 내 경기 없음 — ESPN 미제공 리그(체코·폴란드·헝가리·불가리아·키프로스·이스라엘·핀란드·크로아티아·세르비아·동남아 등)이면 에이전트가 직접 확인",
+   "xg": null
+  },
+  "라인업": "미발표(킥오프 0.2h 전)",
+  "event": null
+ },
+ "8708": {
+  "번호": "8708",
+  "경기": "콘사도레 삿포로 - 블라우블리츠 아키타",
+  "리그": "일본 J2리그",
+  "시각": "10-17 14:00",
+  "수집": "10-17 13:48",
+  "홈": {
+   "팀": "콘사도레 삿포로",
+   "eng": "콘사도레 삿포로",
+   "휴식일": null,
+   "직전": "-",
+   "최근7일경기": null,
+   "휴식일주의": "35일 내 경기 없음 — ESPN 미제공 리그(체코·폴란드·헝가리·불가리아·키프로스·이스라엘·핀란드·크로아티아·세르비아·동남아 등)이면 에이전트가 직접 확인",
+   "xg": null
+  },
+  "원정": {
+   "팀": "블라우블리츠 아키타",
+   "eng": "블라우블리츠 아키타",
+   "휴식일": null,
+   "직전": "-",
+   "최근7일경기": null,
+   "휴식일주의": "35일 내 경기 없음 — ESPN 미제공 리그(체코·폴란드·헝가리·불가리아·키프로스·이스라엘·핀란드·크로아티아·세르비아·동남아 등)이면 에이전트가 직접 확인",
+   "xg": null
+  },
+  "라인업": "미발표(킥오프 0.2h 전)",
+  "event": null
+ },
+ "8712": {
+  "번호": "8712",
+  "경기": "베갈타 센다이 - 도쿠시마 보르티스",
+  "리그": "일본 J2리그",
+  "시각": "10-17 14:00",
+  "수집": "10-17 13:48",
+  "홈": {
+   "팀": "베갈타 센다이",
+   "eng": "베갈타 센다이",
+   "휴식일": null,
+   "직전": "-",
+   "최근7일경기": null,
+   "휴식일주의": "35일 내 경기 없음 — ESPN 미제공 리그(체코·폴란드·헝가리·불가리아·키프로스·이스라엘·핀란드·크로아티아·세르비아·동남아 등)이면 에이전트가 직접 확인",
+   "xg": null
+  },
+  "원정": {
+   "팀": "도쿠시마 보르티스",
+   "eng": "도쿠시마 보르티스",
+   "휴식일": null,
+   "직전": "-",
+   "최근7일경기": null,
+   "휴식일주의": "35일 내 경기 없음 — ESPN 미제공 리그(체코·폴란드·헝가리·불가리아·키프로스·이스라엘·핀란드·크로아티아·세르비아·동남아 등)이면 에이전트가 직접 확인",
+   "xg": null
+  },
+  "라인업": "미발표(킥오프 0.2h 전)",
+  "event": null
+ },
+ "8716": {
+  "번호": "8716",
+  "경기": "도치기 시티FC - 요코하마FC",
+  "리그": "일본 J2리그",
+  "시각": "10-17 14:00",
+  "수집": "10-17 13:48",
+  "홈": {
+   "팀": "도치기 시티FC",
+   "eng": "도치기 시티FC",
+   "휴식일": null,
+   "직전": "-",
+   "최근7일경기": null,
+   "휴식일주의": "35일 내 경기 없음 — ESPN 미제공 리그(체코·폴란드·헝가리·불가리아·키프로스·이스라엘·핀란드·크로아티아·세르비아·동남아 등)이면 에이전트가 직접 확인",
+   "xg": null
+  },
+  "원정": {
+   "팀": "요코하마FC",
+   "eng": "Yokohama FC",
+   "직전": "10-10 원정 vs Cerezo Osaka 0-0 무 [jpn.1]",
+   "휴식일": 7.0,
+   "최근7일경기": 0,
+   "직전event": "401877606",
+   "xg": null,
+   "직전선발": [
+    "Hiroki Iikura",
+    "Kosei Suwama",
+    "Jeisson Quiñones",
+    "Toichi Suzuki",
+    "Takuto Kimura",
+    "Jun Amano",
+    "Riku Yamane",
+    "Kosuke Matsumura",
+    "Kaina Tanimura",
+    "Ryo Miyaichi",
+    "Tomoki Kondo"
+   ],
+   "직전포메이션": "4-2-3-1"
+  },
+  "라인업": "미발표(킥오프 0.2h 전)",
+  "event": null
+ },
+ "8720": {
+  "번호": "8720",
+  "경기": "후지에다 MYFC - 몬테디오 야마가타",
+  "리그": "일본 J2리그",
+  "시각": "10-17 14:00",
+  "수집": "10-17 13:48",
+  "홈": {
+   "팀": "후지에다 MYFC",
+   "eng": "후지에다 MYFC",
+   "휴식일": null,
+   "직전": "-",
+   "최근7일경기": null,
+   "휴식일주의": "35일 내 경기 없음 — ESPN 미제공 리그(체코·폴란드·헝가리·불가리아·키프로스·이스라엘·핀란드·크로아티아·세르비아·동남아 등)이면 에이전트가 직접 확인",
+   "xg": null
+  },
+  "원정": {
+   "팀": "몬테디오 야마가타",
+   "eng": "몬테디오 야마가타",
+   "휴식일": null,
+   "직전": "-",
+   "최근7일경기": null,
+   "휴식일주의": "35일 내 경기 없음 — ESPN 미제공 리그(체코·폴란드·헝가리·불가리아·키프로스·이스라엘·핀란드·크로아티아·세르비아·동남아 등)이면 에이전트가 직접 확인",
+   "xg": null
+  },
+  "라인업": "미발표(킥오프 0.2h 전)",
+  "event": null
+ },
+ "8724": {
+  "번호": "8724",
+  "경기": "FC이마바리 - 반라우레 하치노헤FC",
+  "리그": "일본 J2리그",
+  "시각": "10-17 14:00",
+  "수집": "10-17 13:48",
+  "홈": {
+   "팀": "FC이마바리",
+   "eng": "FC이마바리",
+   "휴식일": null,
+   "직전": "-",
+   "최근7일경기": null,
+   "휴식일주의": "35일 내 경기 없음 — ESPN 미제공 리그(체코·폴란드·헝가리·불가리아·키프로스·이스라엘·핀란드·크로아티아·세르비아·동남아 등)이면 에이전트가 직접 확인",
+   "xg": null
+  },
+  "원정": {
+   "팀": "반라우레 하치노헤FC",
+   "eng": "반라우레 하치노헤FC",
+   "휴식일": null,
+   "직전": "-",
+   "최근7일경기": null,
+   "휴식일주의": "35일 내 경기 없음 — ESPN 미제공 리그(체코·폴란드·헝가리·불가리아·키프로스·이스라엘·핀란드·크로아티아·세르비아·동남아 등)이면 에이전트가 직접 확인",
+   "xg": null
+  },
+  "라인업": "미발표(킥오프 0.2h 전)",
+  "event": null
+ },
+ "8728": {
+  "번호": "8728",
+  "경기": "사간 도스 - RB오미야 아르디자",
+  "리그": "일본 J2리그",
+  "시각": "10-17 14:00",
+  "수집": "10-17 13:48",
+  "홈": {
+   "팀": "사간 도스",
+   "eng": "Sagan Tosu",
+   "휴식일": null,
+   "직전": "-",
+   "최근7일경기": null,
+   "휴식일주의": "35일 내 경기 없음 — ESPN 미제공 리그(체코·폴란드·헝가리·불가리아·키프로스·이스라엘·핀란드·크로아티아·세르비아·동남아 등)이면 에이전트가 직접 확인",
+   "xg": null
+  },
+  "원정": {
+   "팀": "RB오미야 아르디자",
+   "eng": "Omiya Ardija",
+   "휴식일": null,
+   "직전": "-",
+   "최근7일경기": null,
+   "휴식일주의": "35일 내 경기 없음 — ESPN 미제공 리그(체코·폴란드·헝가리·불가리아·키프로스·이스라엘·핀란드·크로아티아·세르비아·동남아 등)이면 에이전트가 직접 확인",
+   "xg": null
+  },
+  "라인업": "미발표(킥오프 0.2h 전)",
+  "event": null
+ },
+ "8732": {
+  "번호": "8732",
+  "경기": "오이타 트리니타 - 알비렉스 니가타",
+  "리그": "일본 J2리그",
+  "시각": "10-17 14:00",
+  "수집": "10-17 13:48",
+  "홈": {
+   "팀": "오이타 트리니타",
+   "eng": "오이타 트리니타",
+   "휴식일": null,
+   "직전": "-",
+   "최근7일경기": null,
+   "휴식일주의": "35일 내 경기 없음 — ESPN 미제공 리그(체코·폴란드·헝가리·불가리아·키프로스·이스라엘·핀란드·크로아티아·세르비아·동남아 등)이면 에이전트가 직접 확인",
+   "xg": null
+  },
+  "원정": {
+   "팀": "알비렉스 니가타",
+   "eng": "알비렉스 니가타",
+   "휴식일": null,
+   "직전": "-",
+   "최근7일경기": null,
+   "휴식일주의": "35일 내 경기 없음 — ESPN 미제공 리그(체코·폴란드·헝가리·불가리아·키프로스·이스라엘·핀란드·크로아티아·세르비아·동남아 등)이면 에이전트가 직접 확인",
+   "xg": null
+  },
+  "라인업": "미발표(킥오프 0.2h 전)",
+  "event": null
+ },
+ "8759": {
+  "번호": "8759",
+  "경기": "맥아서FC - 퍼스 글로리",
+  "리그": "호주 A리그",
+  "시각": "10-17 15:00",
+  "수집": "10-17 13:48",
+  "홈": {
+   "팀": "맥아서FC",
+   "eng": "맥아서FC",
+   "휴식일": null,
+   "직전": "-",
+   "최근7일경기": null,
+   "휴식일주의": "35일 내 경기 없음 — ESPN 미제공 리그(체코·폴란드·헝가리·불가리아·키프로스·이스라엘·핀란드·크로아티아·세르비아·동남아 등)이면 에이전트가 직접 확인",
+   "xg": null
+  },
+  "원정": {
+   "팀": "퍼스 글로리",
+   "eng": "퍼스 글로리",
+   "휴식일": null,
+   "직전": "-",
+   "최근7일경기": null,
+   "휴식일주의": "35일 내 경기 없음 — ESPN 미제공 리그(체코·폴란드·헝가리·불가리아·키프로스·이스라엘·핀란드·크로아티아·세르비아·동남아 등)이면 에이전트가 직접 확인",
+   "xg": null
+  },
+  "라인업": "미발표(킥오프 1.2h 전)",
+  "event": null
+ },
+ "8763": {
+  "번호": "8763",
+  "경기": "가시마 앤틀러스 - V바렌 나가사키",
+  "리그": "일본 J1리그",
+  "시각": "10-17 15:00",
+  "수집": "10-17 13:48",
+  "홈": {
+   "팀": "가시마 앤틀러스",
+   "eng": "Kashima Antlers",
+   "직전": "10-13 원정 vs Cong An Hanoi 1-0 승 [league stage]",
+   "휴식일": 3.7,
+   "최근7일경기": 1,
+   "직전event": "401912625",
+   "xg": null,
+   "직전선발": [
+    "Tomoki Hayakawa",
+    "Kim Tae-Hyeon",
+    "Naomichi Ueda",
+    "Ryoya Ogawa",
+    "Keisuke Tsukui",
+    "Matheus Bueno",
+    "Kento Misao",
+    "Élber",
+    "Yuta Matsumura",
+    "Léo Pereira",
+    "Yuma Suzuki"
+   ],
+   "직전포메이션": "4-4-2"
+  },
+  "원정": {
+   "팀": "V바렌 나가사키",
+   "eng": "V-Varen Nagasaki",
+   "직전": "10-11 원정 vs JEF United Ichihara-Chiba 1-1 무 [jpn.1]",
+   "휴식일": 6.0,
+   "최근7일경기": 1,
+   "직전event": "401877576",
+   "xg": null,
+   "직전선발": [
+    "Masaaki Goto",
+    "Ikki Arai",
+    "Kanta Doi",
+    "Ryosuke Shindo",
+    "Riku Yamada",
+    "Hotaru Yamaguchi",
+    "Shunya Yoneda",
+    "Asahi Masuyama",
+    "Thiago Santana",
+    "Motoki Hasegawa",
+    "Matheus Jesus"
+   ],
+   "직전포메이션": "3-4-2-1"
+  },
+  "라인업": "미발표(킥오프 1.2h 전)",
+  "event": "401877604"
+ },
+ "8767": {
+  "번호": "8767",
+  "경기": "세레소 오사카 - 가와사키 프론탈레",
+  "리그": "일본 J1리그",
+  "시각": "10-17 15:00",
+  "수집": "10-17 13:48",
+  "홈": {
+   "팀": "세레소 오사카",
+   "eng": "Cerezo",
+   "직전": "10-10 홈 vs Yokohama F. Marinos 0-0 무 [jpn.1]",
+   "휴식일": 7.0,
+   "최근7일경기": 0,
+   "직전event": "401877606",
+   "xg": null,
+   "직전선발": [
+    "Kosuke Nakamura",
+    "Rikito Inoue",
+    "Javi Hernández",
+    "Dion Cools",
+    "Jackson Irvine",
+    "Shunta Tanaka",
+    "Ayumu Ohata",
+    "Hayato Okuda",
+    "Pablo Sabbag",
+    "Yumeki Yokoyama",
+    "Lucas Fernandes"
+   ],
+   "직전포메이션": "3-4-2-1"
+  },
+  "원정": {
+   "팀": "가와사키 프론탈레",
+   "eng": "Kawasaki Frontale",
+   "직전": "10-11 홈 vs Nagoya Grampus 1-2 패 [jpn.1]",
+   "휴식일": 6.0,
+   "최근7일경기": 1,
+   "직전event": "401877608",
+   "xg": null,
+   "직전선발": [
+    "Svend Brodersen",
+    "Filip Uremovic",
+    "Pedro Romano",
+    "Sota Miura",
+    "Reon Yamahara",
+    "Yasuto Wakisaka",
+    "Yuki Yamamoto",
+    "Kento Tachibanada",
+    "Derik Lacerda",
+    "Marcinho",
+    "Tatsuya Ito"
+   ],
+   "직전포메이션": "4-2-3-1"
+  },
+  "라인업": "미발표(킥오프 1.2h 전)",
+  "event": "401877599"
+ },
+ "8771": {
+  "번호": "8771",
+  "경기": "미토 홀리호크 - 우라와 레드",
+  "리그": "일본 J1리그",
+  "시각": "10-17 16:00",
+  "수집": "10-17 13:48",
+  "홈": {
+   "팀": "미토 홀리호크",
+   "eng": "Mito",
+   "직전": "10-11 홈 vs Shimizu S-Pulse 1-2 패 [jpn.1]",
+   "휴식일": 6.0,
+   "최근7일경기": 1,
+   "직전event": "401877618",
+   "xg": null,
+   "직전선발": [
+    "Konosuke Nishikawa",
+    "Kenta Itakura",
+    "Rei Ieizumi",
+    "Kazuma Okamoto",
+    "Takumi Mase",
+    "Hugo",
+    "Taishi Senba",
+    "Yoshiki Torikai",
+    "Jin Okumura",
+    "Kaito Taniguchi",
+    "Chihiro Kato"
+   ],
+   "직전포메이션": "4-4-2"
+  },
+  "원정": {
+   "팀": "우라와 레드",
+   "eng": "Urawa Red Diamonds",
+   "직전": "10-10 원정 vs FC Tokyo 0-3 패 [jpn.1]",
+   "휴식일": 7.0,
+   "최근7일경기": 0,
+   "직전event": "401877575",
+   "xg": null,
+   "직전선발": [
+    "Shusaku Nishikawa",
+    "Kenta Nemoto",
+    "Yuta Miyamoto",
+    "Kotaro Hayashi",
+    "Miki Yamane",
+    "Tatsuki Seko",
+    "Hayate Ueki",
+    "Kaito Yasui",
+    "Harumi Minamino",
+    "Matheus Sávio",
+    "Takuro Kaneko"
+   ],
+   "직전포메이션": "4-3-3"
+  },
+  "라인업": "미발표(킥오프 2.2h 전)",
+  "event": "401877603"
+ },
+ "8775": {
+  "번호": "8775",
+  "경기": "울산 HDFC - 부천FC 1995",
+  "리그": "K리그1",
+  "시각": "10-17 16:30",
+  "수집": "10-17 14:28",
+  "홈": {
+   "팀": "울산 HDFC",
+   "eng": "Ulsan",
+   "휴식일": null,
+   "직전": "-",
+   "최근7일경기": null,
+   "휴식일주의": "35일 내 경기 없음 — ESPN 미제공 리그(체코·폴란드·헝가리·불가리아·키프로스·이스라엘·핀란드·크로아티아·세르비아·동남아 등)이면 에이전트가 직접 확인",
+   "xg": null
+  },
+  "원정": {
+   "팀": "부천FC 1995",
+   "eng": "Bucheon FC 1995",
+   "휴식일": null,
+   "직전": "-",
+   "최근7일경기": null,
+   "휴식일주의": "35일 내 경기 없음 — ESPN 미제공 리그(체코·폴란드·헝가리·불가리아·키프로스·이스라엘·핀란드·크로아티아·세르비아·동남아 등)이면 에이전트가 직접 확인",
+   "xg": null
+  },
+  "환경": {
+   "구장": "울산문수축구경기장",
+   "구장고도": 43,
+   "원정홈": "부천종합운동장",
+   "원정홈고도": 46,
+   "이동km": 310,
+   "고도차": -3,
+   "날씨": {
+    "기온": 21.6,
+    "습도": 67,
+    "강수mm": 0,
+    "강수확률": 0,
+    "풍속": 12.7,
+    "출처": "Open-Meteo forecast 10-17 14:28"
+   },
+   "출처": [
+    "Wikidata Q129673→Q482601 · Open-Meteo 고도",
+    "Wikidata Q4982682→Q4982684 · Open-Meteo 고도"
+   ],
+   "주의": []
+  },
+  "라인업": "미발표(킥오프 2.0h 전)",
+  "event": null
+ },
+ "8783": {
+  "번호": "8783",
+  "경기": "용인FC - 안산 그리너스",
+  "리그": "K리그2",
+  "시각": "10-17 16:30",
+  "수집": "10-17 13:48",
+  "홈": {
+   "팀": "용인FC",
+   "eng": "Yongin",
+   "휴식일": null,
+   "직전": "-",
+   "최근7일경기": null,
+   "휴식일주의": "35일 내 경기 없음 — ESPN 미제공 리그(체코·폴란드·헝가리·불가리아·키프로스·이스라엘·핀란드·크로아티아·세르비아·동남아 등)이면 에이전트가 직접 확인",
+   "xg": null
+  },
+  "원정": {
+   "팀": "안산 그리너스",
+   "eng": "Ansan",
+   "휴식일": null,
+   "직전": "-",
+   "최근7일경기": null,
+   "휴식일주의": "35일 내 경기 없음 — ESPN 미제공 리그(체코·폴란드·헝가리·불가리아·키프로스·이스라엘·핀란드·크로아티아·세르비아·동남아 등)이면 에이전트가 직접 확인",
+   "xg": null
+  },
+  "라인업": "미발표(킥오프 2.7h 전)",
+  "event": null
+ },
+ "8787": {
+  "번호": "8787",
+  "경기": "김포FC - 파주 프런티어",
+  "리그": "K리그2",
+  "시각": "10-17 16:30",
+  "수집": "10-17 13:48",
+  "홈": {
+   "팀": "김포FC",
+   "eng": "Gimpo",
+   "휴식일": null,
+   "직전": "-",
+   "최근7일경기": null,
+   "휴식일주의": "35일 내 경기 없음 — ESPN 미제공 리그(체코·폴란드·헝가리·불가리아·키프로스·이스라엘·핀란드·크로아티아·세르비아·동남아 등)이면 에이전트가 직접 확인",
+   "xg": null
+  },
+  "원정": {
+   "팀": "파주 프런티어",
+   "eng": "Paju",
+   "휴식일": null,
+   "직전": "-",
+   "최근7일경기": null,
+   "휴식일주의": "35일 내 경기 없음 — ESPN 미제공 리그(체코·폴란드·헝가리·불가리아·키프로스·이스라엘·핀란드·크로아티아·세르비아·동남아 등)이면 에이전트가 직접 확인",
+   "xg": null
+  },
+  "라인업": "미발표(킥오프 2.7h 전)",
+  "event": null
+ },
+ "8791": {
+  "번호": "8791",
+  "경기": "경남FC - 충남아산 프로축구단",
+  "리그": "K리그2",
+  "시각": "10-17 16:30",
+  "수집": "10-17 13:48",
+  "홈": {
+   "팀": "경남FC",
+   "eng": "Gyeongnam",
+   "휴식일": null,
+   "직전": "-",
+   "최근7일경기": null,
+   "휴식일주의": "35일 내 경기 없음 — ESPN 미제공 리그(체코·폴란드·헝가리·불가리아·키프로스·이스라엘·핀란드·크로아티아·세르비아·동남아 등)이면 에이전트가 직접 확인",
+   "xg": null
+  },
+  "원정": {
+   "팀": "충남아산 프로축구단",
+   "eng": "Asan",
+   "휴식일": null,
+   "직전": "-",
+   "최근7일경기": null,
+   "휴식일주의": "35일 내 경기 없음 — ESPN 미제공 리그(체코·폴란드·헝가리·불가리아·키프로스·이스라엘·핀란드·크로아티아·세르비아·동남아 등)이면 에이전트가 직접 확인",
+   "xg": null
+  },
+  "라인업": "미발표(킥오프 2.7h 전)",
+  "event": null
+ },
+ "8812": {
+  "번호": "8812",
+  "경기": "센트럴코스트 매리너스 - 뉴캐슬 제츠",
+  "리그": "호주 A리그",
+  "시각": "10-17 17:40",
+  "수집": "10-17 13:48",
+  "홈": {
+   "팀": "센트럴코스트 매리너스",
+   "eng": "센트럴코스트 매리너스",
+   "휴식일": null,
+   "직전": "-",
+   "최근7일경기": null,
+   "휴식일주의": "35일 내 경기 없음 — ESPN 미제공 리그(체코·폴란드·헝가리·불가리아·키프로스·이스라엘·핀란드·크로아티아·세르비아·동남아 등)이면 에이전트가 직접 확인",
+   "xg": null
+  },
+  "원정": {
+   "팀": "뉴캐슬 제츠",
+   "eng": "뉴캐슬 제츠",
+   "휴식일": null,
+   "직전": "-",
+   "최근7일경기": null,
+   "휴식일주의": "35일 내 경기 없음 — ESPN 미제공 리그(체코·폴란드·헝가리·불가리아·키프로스·이스라엘·핀란드·크로아티아·세르비아·동남아 등)이면 에이전트가 직접 확인",
+   "xg": null
+  },
+  "라인업": "미발표(킥오프 3.9h 전)",
+  "event": null
+ },
+ "8816": {
+  "번호": "8816",
+  "경기": "카탈레 도야마 - 쇼난 벨마레",
+  "리그": "일본 J2리그",
+  "시각": "10-17 18:00",
+  "수집": "10-17 13:48",
+  "홈": {
+   "팀": "카탈레 도야마",
+   "eng": "카탈레 도야마",
+   "휴식일": null,
+   "직전": "-",
+   "최근7일경기": null,
+   "휴식일주의": "35일 내 경기 없음 — ESPN 미제공 리그(체코·폴란드·헝가리·불가리아·키프로스·이스라엘·핀란드·크로아티아·세르비아·동남아 등)이면 에이전트가 직접 확인",
+   "xg": null
+  },
+  "원정": {
+   "팀": "쇼난 벨마레",
+   "eng": "Shonan Bellmare",
+   "휴식일": null,
+   "직전": "-",
+   "최근7일경기": null,
+   "휴식일주의": "35일 내 경기 없음 — ESPN 미제공 리그(체코·폴란드·헝가리·불가리아·키프로스·이스라엘·핀란드·크로아티아·세르비아·동남아 등)이면 에이전트가 직접 확인",
+   "xg": null
+  },
+  "라인업": "미발표(킥오프 4.2h 전)",
+  "event": null
+ },
+ "8825": {
+  "번호": "8825",
+  "경기": "가시와 레이솔 - 나고야 그램퍼스",
+  "리그": "일본 J1리그",
+  "시각": "10-17 19:00",
+  "수집": "10-17 13:48",
+  "홈": {
+   "팀": "가시와 레이솔",
+   "eng": "Kashiwa Reysol",
+   "직전": "10-14 홈 vs Port FC 5-1 승 [league stage]",
+   "휴식일": 3.0,
+   "최근7일경기": 1,
+   "직전event": "401912623",
+   "xg": null,
+   "직전선발": [
+    "Kengo Nagai",
+    "Taiyo Koga",
+    "Hiromu Mitsumaru",
+    "Wataru Harada",
+    "Riki Harakawa",
+    "Nobuteru Nakagawa",
+    "Kenshin Yuba",
+    "Tojiro Kubo",
+    "Yuki Kakita",
+    "Koya Yuruki",
+    "Hinata Yamauchi"
+   ],
+   "직전포메이션": "3-4-2-1"
+  },
+  "원정": {
+   "팀": "나고야 그램퍼스",
+   "eng": "Nagoya Grampus",
+   "직전": "10-11 원정 vs Kawasaki Frontale 2-1 승 [jpn.1]",
+   "휴식일": 6.1,
+   "최근7일경기": 1,
+   "직전event": "401877608",
+   "xg": null,
+   "직전선발": [
+    "Daniel Schmidt",
+    "Haruya Fujii",
+    "Tomoki Takamine",
+    "Teruki Hara",
+    "Tsukasa Morishima",
+    "Sho Inagaki",
+    "Takuya Uchida",
+    "Ryuji Izumi",
+    "Yuki Nogami",
+    "Yudai Kimura",
+    "Kensuke Nagai"
+   ],
+   "직전포메이션": "3-4-1-2"
+  },
+  "라인업": "미발표(킥오프 5.2h 전)",
+  "event": "401877602"
+ },
+ "8829": {
+  "번호": "8829",
+  "경기": "테게바자로 미야자키 - 주빌로 이와타",
+  "리그": "일본 J2리그",
+  "시각": "10-17 19:00",
+  "수집": "10-17 13:48",
+  "홈": {
+   "팀": "테게바자로 미야자키",
+   "eng": "Tegevajaro Miyazaki",
+   "휴식일": null,
+   "직전": "-",
+   "최근7일경기": null,
+   "휴식일주의": "35일 내 경기 없음 — ESPN 미제공 리그(체코·폴란드·헝가리·불가리아·키프로스·이스라엘·핀란드·크로아티아·세르비아·동남아 등)이면 에이전트가 직접 확인",
+   "xg": null
+  },
+  "원정": {
+   "팀": "주빌로 이와타",
+   "eng": "Jubilo Iwata",
+   "휴식일": null,
+   "직전": "-",
+   "최근7일경기": null,
+   "휴식일주의": "35일 내 경기 없음 — ESPN 미제공 리그(체코·폴란드·헝가리·불가리아·키프로스·이스라엘·핀란드·크로아티아·세르비아·동남아 등)이면 에이전트가 직접 확인",
+   "xg": null
+  },
+  "라인업": "미발표(킥오프 5.2h 전)",
+  "event": null
+ },
+ "8833": {
+  "번호": "8833",
+  "경기": "다롄 잉보 - 선전 신펑청",
+  "리그": "중국 슈퍼리그",
+  "시각": "10-17 20:00",
+  "수집": "10-17 13:48",
+  "홈": {
+   "팀": "다롄 잉보",
+   "eng": "['Dalian Yingbo', 'Dalian']",
+   "직전": "10-11 원정 vs Qingdao West Coast 4-0 승 [chinese super league]",
+   "휴식일": 6.0,
+   "최근7일경기": 1,
+   "직전event": "401861476",
+   "xg": null,
+   "직전선발": [
+    "Liu Wei",
+    "Yue Song",
+    "Mamadou Traore",
+    "Boxuan Feng",
+    "Lü Zhuoyi",
+    "Nicolae Stanciu",
+    "Isnik Alimi",
+    "Jintao Liao",
+    "Frank Acheampong",
+    "Luo Jing",
+    "Pedro Delgado"
+   ],
+   "직전포메이션": "4-2-3-1"
+  },
+  "원정": {
+   "팀": "선전 신펑청",
+   "eng": "['Shenzhen Peng City', 'Shenzhen Xinpengcheng']",
+   "직전": "10-09 홈 vs Henan 2-2 무 [chinese super league]",
+   "휴식일": 8.0,
+   "최근7일경기": 0,
+   "직전event": "401861471",
+   "xg": null,
+   "직전선발": [
+    "Peng",
+    "Gabriel Xavier",
+    "Yu Rui",
+    "Yao Junsheng",
+    "Xuan Zhijian",
+    "Tang Miao",
+    "Eden Karzev",
+    "Tim Chow",
+    "Albion Ademi",
+    "Deabeas Owusu",
+    "Wesley"
+   ],
+   "직전포메이션": "4-1-4-1"
+  },
+  "라인업": "미발표(킥오프 6.2h 전)",
+  "event": "401861478"
+ },
+ "8837": {
+  "번호": "8837",
+  "경기": "미들즈브러 - 카디프 시티",
+  "리그": "잉글랜드 챔피언십",
+  "시각": "10-17 20:30",
+  "수집": "10-17 19:50",
+  "홈": {
+   "팀": "미들즈브러",
+   "eng": "Middlesbrough",
+   "직전": "10-14 원정 vs Stoke City 3-2 승 [eng.2]",
+   "휴식일": 3.7,
+   "최근7일경기": 2,
+   "직전event": "401880227",
+   "xg": null,
+   "선발": [
+    "Radek Vítek",
+    "Ashley Phillips",
+    "Luke Ayling",
+    "Neto Borges",
+    "Callum Brittain",
+    "Riley McGree",
+    "Aidan Morris",
+    "Adilson Malanda",
+    "Kyle Joseph",
+    "Tommy Conway",
+    "Amario Cozier-Duberry"
+   ],
+   "포메이션": "4-2-3-1",
+   "직전선발": [
+    "Radek Vítek",
+    "Ashley Phillips",
+    "Adilson Malanda",
+    "Luke Ayling",
+    "Aidan Morris",
+    "Sebastian Berhalter",
+    "Neto Borges",
+    "Callum Brittain",
+    "Will Lankshear",
+    "Jeremy Sarmiento",
+    "Amario Cozier-Duberry"
+   ],
+   "직전포메이션": "3-4-2-1",
+   "교체": 3,
+   "빠진": [
+    "Sebastian Berhalter",
+    "Will Lankshear",
+    "Jeremy Sarmiento"
+   ]
+  },
+  "원정": {
+   "팀": "카디프 시티",
+   "eng": "Cardiff",
+   "직전": "10-14 홈 vs Watford 5-1 승 [eng.2]",
+   "휴식일": 3.7,
+   "최근7일경기": 2,
+   "직전event": "401880229",
+   "xg": null,
+   "선발": [
+    "Nathan Trott",
+    "Ollie Tanner",
+    "Jack Moylan",
+    "Krystian Bielik",
+    "Gabriel Osho",
+    "Joel Bagan",
+    "Ronan Kpakio",
+    "Alex Robertson",
+    "Cian Ashford",
+    "Chris Willock",
+    "Joel Colwill"
+   ],
+   "포메이션": "4-1-4-1",
+   "직전선발": [
+    "Nathan Trott",
+    "Gabriel Osho",
+    "Dylan Lawlor",
+    "Alex Robertson",
+    "Joel Bagan",
+    "Perry Ng",
+    "Joel Colwill",
+    "Cian Ashford",
+    "Chris Willock",
+    "Ollie Tanner",
+    "Jack Moylan"
+   ],
+   "직전포메이션": "4-1-4-1",
+   "교체": 2,
+   "빠진": [
+    "Dylan Lawlor",
+    "Perry Ng"
+   ]
+  },
+  "환경": {
+   "구장": "리버사이드 스타디움",
+   "구장고도": 21,
+   "원정홈": "카디프 시티 스타디움",
+   "원정홈고도": 11,
+   "이동km": 370,
+   "고도차": 10,
+   "날씨": {
+    "기온": 11.5,
+    "습도": 50,
+    "강수mm": 0,
+    "강수확률": 12,
+    "풍속": 17.3,
+    "출처": "Open-Meteo forecast 10-17 19:50"
+   },
+   "출처": [
+    "Wikidata Q18661→Q822886 · Open-Meteo 고도",
+    "Wikidata Q18662→Q867902 · Open-Meteo 고도"
+   ],
+   "주의": []
+  },
+  "라인업": "발표",
+  "event": "401880216"
+ },
+ "8843": {
+  "번호": "8843",
+  "경기": "밀월 - 링컨 시티",
+  "리그": "잉글랜드 챔피언십",
+  "시각": "10-17 20:30",
+  "수집": "10-17 13:48",
+  "홈": {
+   "팀": "밀월",
+   "eng": "Millwall",
+   "직전": "10-14 홈 vs Swansea City 0-1 패 [eng.2]",
+   "휴식일": 3.7,
+   "최근7일경기": 2,
+   "직전event": "401880228",
+   "xg": null,
+   "직전선발": [
+    "Filip Marschall",
+    "Jake Cooper",
+    "Caleb Taylor",
+    "Derek Mazou-Sacko",
+    "Zak Sturge",
+    "Jordi Osei-Tutu",
+    "Camiel Neghli",
+    "Jenson Metcalfe",
+    "Kyrell Lisbie",
+    "Mark Sykes",
+    "Lyndon Dykes"
+   ],
+   "직전포메이션": "4-1-4-1"
+  },
+  "원정": {
+   "팀": "링컨 시티",
+   "eng": "Lincoln City",
+   "직전": "10-15 홈 vs West Ham United 0-6 패 [eng.2]",
+   "휴식일": 2.7,
+   "최근7일경기": 2,
+   "직전event": "401880224",
+   "xg": null,
+   "직전선발": [
+    "George Wickens",
+    "Sonny Bradley",
+    "Thomas Hamer",
+    "Callum Elder",
+    "Ayodeji Elerewe",
+    "Daniel Oyegoke",
+    "Ivan Varfolomeev",
+    "Conor McGrandles",
+    "Freddie Draper",
+    "Ben House",
+    "Chiedozie Ogbene"
+   ],
+   "직전포메이션": "4-2-3-1"
+  },
+  "라인업": "미발표(킥오프 6.7h 전)",
+  "event": "401880215"
+ },
+ "8847": {
+  "번호": "8847",
+  "경기": "왓포드 - 찰턴 애슬레틱",
+  "리그": "잉글랜드 챔피언십",
+  "시각": "10-17 20:30",
+  "수집": "10-17 19:50",
+  "홈": {
+   "팀": "왓포드",
+   "eng": "Watford",
+   "직전": "10-14 원정 vs Cardiff City 1-5 패 [eng.2]",
+   "휴식일": 3.7,
+   "최근7일경기": 2,
+   "직전event": "401880229",
+   "xg": null,
+   "선발": [
+    "Federico Ravaglia",
+    "Kévin Keben",
+    "Matthew Pollock",
+    "Soumaila Coulibaly",
+    "Krépin Diatta",
+    "Myron Boadu",
+    "Hector Kyprianou",
+    "Edo Kayembe",
+    "Luca Kjerrumgaard",
+    "Iker Bravo",
+    "Marc Bola"
+   ],
+   "포메이션": "4-2-3-1",
+   "직전선발": [
+    "Federico Ravaglia",
+    "Kévin Keben",
+    "Matthew Pollock",
+    "Jordan Zemura",
+    "Omar-Haktab Traoré",
+    "Martín Payero",
+    "Hector Kyprianou",
+    "Edo Kayembe",
+    "Myron Boadu",
+    "Stephy Mavididi",
+    "Othmane Maamma"
+   ],
+   "직전포메이션": "4-2-3-1",
+   "교체": 5,
+   "빠진": [
+    "Jordan Zemura",
+    "Omar-Haktab Traoré",
+    "Martín Payero",
+    "Stephy Mavididi",
+    "Othmane Maamma"
+   ]
+  },
+  "원정": {
+   "팀": "찰턴 애슬레틱",
+   "eng": "Charlton",
+   "직전": "10-14 원정 vs Burnley 2-2 무 [eng.2]",
+   "휴식일": 3.7,
+   "최근7일경기": 1,
+   "직전event": "401880230",
+   "xg": null,
+   "선발": [
+    "Arthur Okonkwo",
+    "Billy Koumetio",
+    "Dan McNamara",
+    "Ivan Mesik",
+    "Lloyd Jones",
+    "Karlan Grant",
+    "Oliver Skipp",
+    "Kayne Ramsay",
+    "Conor Coventry",
+    "Tyreece Campbell",
+    "Miles Leaburn"
+   ],
+   "포메이션": "4-2-3-1",
+   "직전선발": [
+    "Arthur Okonkwo",
+    "Lloyd Jones",
+    "Billy Koumetio",
+    "Kayne Ramsay",
+    "Conor Coventry",
+    "Oliver Skipp",
+    "Amari'i Bell",
+    "Dan McNamara",
+    "Miles Leaburn",
+    "Tyreece Campbell",
+    "Karlan Grant"
+   ],
+   "직전포메이션": "3-4-2-1",
+   "교체": 1,
+   "빠진": [
+    "Amari'i Bell"
+   ]
+  },
+  "환경": {
+   "구장": "비커리지 로드",
+   "구장고도": 72,
+   "원정홈": "더 밸리",
+   "원정홈고도": 7,
+   "이동km": 35,
+   "고도차": 65,
+   "날씨": {
+    "기온": 11.6,
+    "습도": 63,
+    "강수mm": 0,
+    "강수확률": 2,
+    "풍속": 18.4,
+    "출처": "Open-Meteo forecast 10-17 19:50"
+   },
+   "출처": [
+    "Wikidata Q2714→Q10626 · Open-Meteo 고도",
+    "Wikidata Q19462→Q958319 · Open-Meteo 고도"
+   ],
+   "주의": []
+  },
+  "라인업": "발표",
+  "event": "401880211"
+ },
+ "8851": {
+  "번호": "8851",
+  "경기": "에버턴 - 첼시",
+  "리그": "잉글랜드 프리미어리그",
+  "시각": "10-17 20:30",
+  "수집": "10-17 14:28",
+  "홈": {
+   "팀": "에버턴",
+   "eng": "Everton",
+   "직전": "10-11 원정 vs Hull City 2-2 무 [english premier league]",
+   "휴식일": 5.9,
+   "최근7일경기": 1,
+   "직전event": "401878774",
+   "xg": {
+    "n": 6,
+    "xg": 1.86,
+    "xga": 1.46,
+    "npxgd": 0.4,
+    "l5_xg": 1.94,
+    "l5_xga": 1.3,
+    "l5_npxgd": 0.64,
+    "home_xgd": 0.3,
+    "away_xgd": 0.51,
+    "xpts": 9.9,
+    "pts": 10
+   },
+   "xg_src": "Understat EPL Everton",
+   "직전선발": [
+    "Jordan Pickford",
+    "Michael Keane",
+    "James Tarkowski",
+    "Jarrad Branthwaite",
+    "Ainsley Maitland-Niles",
+    "Kiernan Dewsbury-Hall",
+    "Harrison Armstrong",
+    "James Garner",
+    "Thierno Barry",
+    "Jack Grealish",
+    "Brennan Johnson"
+   ],
+   "직전포메이션": "4-2-3-1"
+  },
+  "원정": {
+   "팀": "첼시",
+   "eng": "Chelsea",
+   "직전": "10-10 홈 vs AFC Bournemouth 5-1 승 [english premier league]",
+   "휴식일": 6.9,
+   "최근7일경기": 1,
+   "직전event": "401878775",
+   "xg": {
+    "n": 6,
+    "xg": 1.72,
+    "xga": 2.0,
+    "npxgd": -0.28,
+    "l5_xg": 1.55,
+    "l5_xga": 2.11,
+    "l5_npxgd": -0.56,
+    "home_xgd": 0.38,
+    "away_xgd": -0.93,
+    "xpts": 7.2,
+    "pts": 10
+   },
+   "xg_src": "Understat EPL Chelsea",
+   "직전선발": [
+    "Emiliano Martínez",
+    "Maxence Lacroix",
+    "Levi Colwill",
+    "Josh Acheampong",
+    "Moisés Caicedo",
+    "Jordan Henderson",
+    "Pep Chavarría",
+    "Pedro Neto",
+    "João Pedro",
+    "Morgan Rogers",
+    "Cole Palmer"
+   ],
+   "직전포메이션": "3-4-2-1"
+  },
+  "환경": {
+   "구장": "에버턴 스타디움(구단 좌표 — 구장 미확인)",
+   "구장고도": 1,
+   "원정홈": "스탬퍼드 브리지",
+   "원정홈고도": 13,
+   "이동km": 288,
+   "고도차": -12,
+   "날씨": {
+    "기온": 10.7,
+    "습도": 63,
+    "강수mm": 0,
+    "강수확률": 0,
+    "풍속": 10.4,
+    "출처": "Open-Meteo forecast 10-17 14:28"
+   },
+   "출처": [
+    "Wikidata Q29347805→구단 · Open-Meteo 고도",
+    "Wikidata Q9616→Q171458 · Open-Meteo 고도"
+   ],
+   "주의": []
+  },
+  "라인업": "미발표(킥오프 6.0h 전)",
+  "event": "401878771"
+ },
+ "8856": {
+  "번호": "8856",
+  "경기": "칭다오 하이뉴 - 랴오닝 톄런",
+  "리그": "중국 슈퍼리그",
+  "시각": "10-17 20:35",
+  "수집": "10-17 19:50",
+  "홈": {
+   "팀": "칭다오 하이뉴",
+   "eng": "Qingdao Hainiu",
+   "직전": "10-09 홈 vs Beijing Guoan 0-3 패 [chinese super league]",
+   "휴식일": 8.0,
+   "최근7일경기": 0,
+   "직전event": "401861475",
+   "xg": null,
+   "직전선발": [
+    "Mou Pengfei",
+    "Song Long",
+    "Yangyang Jin",
+    "Li Suda",
+    "Wei Zixian",
+    "Malcom Edjouma",
+    "Ruicong Gong",
+    "Jin Yonghao",
+    "Yaw Yeboah",
+    "Lazar Tufegdžić",
+    "Liu Xinyu"
+   ],
+   "직전포메이션": "4-4-2"
+  },
+  "원정": {
+   "팀": "랴오닝 톄런",
+   "eng": "Liaoning",
+   "직전": "10-11 홈 vs Wuhan Three Towns 1-1 무 [chinese super league]",
+   "휴식일": 6.0,
+   "최근7일경기": 1,
+   "직전event": "401861508",
+   "xg": null,
+   "직전선발": [
+    "Zhang Yan",
+    "Yuan Mincheng",
+    "Haoran Li",
+    "Pan Ximing",
+    "Li Tixiang",
+    "Felipe",
+    "Takahiro Kunimoto",
+    "Chen Binbin",
+    "Dilmurat Mawlanyaz",
+    "Jeffinho",
+    "Ange Kouamé"
+   ],
+   "직전포메이션": "3-1-4-2"
+  },
+  "환경": {
+   "구장": "Qingdao Tiantai Stadium",
+   "구장고도": 12,
+   "원정홈": "랴오닝성(구단 좌표 — 구장 미확인)",
+   "원정홈고도": 48,
+   "이동km": 692,
+   "고도차": -36,
+   "날씨": {
+    "기온": 22.7,
+    "습도": 90,
+    "강수mm": 1.1,
+    "강수확률": 100,
+    "풍속": 41.9,
+    "출처": "Open-Meteo forecast 10-17 19:50"
+   },
+   "출처": [
+    "Wikidata Q1192574→Q1013812 · Open-Meteo 고도",
+    "Wikidata Q43934→구단 · Open-Meteo 고도"
+   ],
+   "주의": [
+    "비 1.1mm(100%)",
+    "강풍 41.9km/h"
+   ]
+  },
+  "라인업": "미발표(킥오프 0.7h 전)",
+  "event": "401861510"
+ },
+ "8860": {
+  "번호": "8860",
+  "경기": "윈난 위쿤 - 충칭 퉁량룽",
+  "리그": "중국 슈퍼리그",
+  "시각": "10-17 20:35",
+  "수집": "10-17 19:50",
+  "홈": {
+   "팀": "윈난 위쿤",
+   "eng": "Yunnan",
+   "직전": "10-10 원정 vs Shanghai Shenhua 1-7 패 [chinese super league]",
+   "휴식일": 7.0,
+   "최근7일경기": 0,
+   "직전event": "401861474",
+   "xg": null,
+   "직전선발": [
+    "Wang Zhifeng",
+    "Ruibao Hu",
+    "Andrei Burca",
+    "Tsui Wang Kit",
+    "Hanwen Deng",
+    "Xu Xin",
+    "Caio Vinicius",
+    "Liuyu Duan",
+    "Cleber",
+    "Oscar Taty Maritu",
+    "Alexandru Ionita"
+   ],
+   "직전포메이션": "4-3-3"
+  },
+  "원정": {
+   "팀": "충칭 퉁량룽",
+   "eng": "Chongqing",
+   "직전": "10-11 홈 vs Shandong Taishan 1-1 무 [chinese super league]",
+   "휴식일": 6.0,
+   "최근7일경기": 1,
+   "직전event": "401861509",
+   "xg": null,
+   "직전선발": [
+    "Yao Haoyang",
+    "Lucão",
+    "Zhang Yingkai",
+    "Jin Pengxiang",
+    "He Xiaoqiang",
+    "Wei Suowei",
+    "Zhang Zhixiong",
+    "Ibrahim Amadou",
+    "Liang Weipeng",
+    "George Alexandru Cimpanu",
+    "Landry Dimata"
+   ],
+   "직전포메이션": "5-4-1"
+  },
+  "환경": {
+   "구장": "윈난성(구단 좌표 — 구장 미확인)",
+   "구장고도": 1923,
+   "원정홈": "충칭시(구단 좌표 — 구장 미확인)",
+   "원정홈고도": 218,
+   "이동km": 625,
+   "고도차": 1705,
+   "날씨": {
+    "기온": 21.7,
+    "습도": 47,
+    "강수mm": 0,
+    "강수확률": 0,
+    "풍속": 9.3,
+    "출처": "Open-Meteo forecast 10-17 19:50"
+   },
+   "출처": [
+    "Wikidata Q43194→구단 · Open-Meteo 고도",
+    "Wikidata Q11725→구단 · Open-Meteo 고도"
+   ],
+   "주의": [
+    "고지대 +1705m"
+   ]
+  },
+  "라인업": "미발표(킥오프 0.7h 전)",
+  "event": "401861511"
+ },
+ "8864": {
+  "번호": "8864",
+  "경기": "산둥 타이산 - 저장FC",
+  "리그": "중국 슈퍼리그",
+  "시각": "10-17 21:00",
+  "수집": "10-17 13:48",
+  "홈": {
+   "팀": "산둥 타이산",
+   "eng": "Shandong",
+   "직전": "10-11 원정 vs Chongqing Tonglianglong 1-1 무 [chinese super league]",
+   "휴식일": 6.0,
+   "최근7일경기": 1,
+   "직전event": "401861509",
+   "xg": null,
+   "직전선발": [
+    "Wang Dalei",
+    "Pedro Álvaro",
+    "Gao Zhunyi",
+    "Peng Xiao",
+    "Guilherme Madruga",
+    "Imran Memet",
+    "Liu Yang",
+    "Xie Wenneng",
+    "Valeri Qazaishvili",
+    "Chen Pu",
+    "Maiwulang Mijiti"
+   ],
+   "직전포메이션": "3-4-3"
+  },
+  "원정": {
+   "팀": "저장FC",
+   "eng": "Zhejiang",
+   "직전": "10-09 홈 vs Shanghai Port 2-4 패 [chinese super league]",
+   "휴식일": 8.0,
+   "최근7일경기": 0,
+   "직전event": "401861472",
+   "xg": null,
+   "직전선발": [
+    "Zhao Bo",
+    "Lucas Pos",
+    "Liu Haofan",
+    "Sun Guowen",
+    "Xu Junchi",
+    "Marko Tolic",
+    "Park Jin-Seop",
+    "Jin Cheng",
+    "Hao Fang",
+    "Alexandru Mitrita",
+    "Tao Qianglong"
+   ],
+   "직전포메이션": "4-2-3-1"
+  },
+  "라인업": "미발표(킥오프 7.2h 전)",
+  "event": "401861479"
+ },
+ "8868": {
+  "번호": "8868",
+  "경기": "RCD에스파뇰 - 아틀레티코 마드리드",
+  "리그": "스페인 라리가",
+  "시각": "10-17 21:00",
+  "수집": "10-17 13:48",
+  "홈": {
+   "팀": "RCD에스파뇰",
+   "eng": "Espanyol",
+   "직전": "10-10 원정 vs Málaga 1-1 무 [laliga]",
+   "휴식일": 7.7,
+   "최근7일경기": 0,
+   "직전event": "401882851",
+   "xg": {
+    "n": 8,
+    "xg": 1.35,
+    "xga": 1.36,
+    "npxgd": -0.01,
+    "l5_xg": 1.37,
+    "l5_xga": 1.05,
+    "l5_npxgd": 0.32,
+    "home_xgd": 0.39,
+    "away_xgd": -0.42,
+    "xpts": 11.6,
+    "pts": 8
+   },
+   "xg_src": "Understat La_liga Espanyol",
+   "직전선발": [
+    "Ángel Fortuño",
+    "Leandro Cabrera",
+    "Clemens Riedel",
+    "Quilindschy Hartman",
+    "Omar El Hilali",
+    "Javi Hernandez",
+    "Edu Expósito",
+    "Pol Lozano",
+    "Roberto Fernández",
+    "Bryan Zaragoza",
+    "Tyrhys Dolan"
+   ],
+   "직전포메이션": "4-2-3-1"
+  },
+  "원정": {
+   "팀": "아틀레티코 마드리드",
+   "eng": "Atletico",
+   "직전": "10-15 홈 vs Montevideo City Torque 3-0 승 [semifinals]",
+   "휴식일": 2.6,
+   "최근7일경기": 3,
+   "직전event": "401913916",
+   "xg": {
+    "n": 8,
+    "xg": 1.96,
+    "xga": 1.18,
+    "npxgd": 0.87,
+    "l5_xg": 2.43,
+    "l5_xga": 0.92,
+    "l5_npxgd": 1.35,
+    "home_xgd": 1.37,
+    "away_xgd": 0.37,
+    "xpts": 14.9,
+    "pts": 19
+   },
+   "xg_src": "Understat La_liga Atletico Madrid",
+   "직전선발": [
+    "Gabriel Delfim",
+    "Lyanco",
+    "Vitão",
+    "Renan Lodi",
+    "Alan Franco",
+    "Victor Hugo",
+    "Kevin Castaño",
+    "Maycon",
+    "Reiner",
+    "Bernard",
+    "Tomás Cuello"
+   ],
+   "직전포메이션": "4-2-3-1"
+  },
+  "라인업": "미발표(킥오프 7.2h 전)",
+  "event": "401882843"
+ },
+ "8872": {
+  "번호": "8872",
+  "경기": "베네치아 - SSC나폴리",
+  "리그": "이탈리아 세리에A",
+  "시각": "10-17 22:00",
+  "수집": "10-17 13:48",
+  "홈": {
+   "팀": "베네치아",
+   "eng": "Venezia",
+   "직전": "10-13 원정 vs Atalanta 1-3 패 [italian serie a]",
+   "휴식일": 4.9,
+   "최근7일경기": 1,
+   "직전event": "401875005",
+   "xg": {
+    "n": 6,
+    "xg": 1.95,
+    "xga": 2.55,
+    "npxgd": -0.59,
+    "l5_xg": 1.71,
+    "l5_xga": 2.57,
+    "l5_npxgd": -0.86,
+    "home_xgd": -0.43,
+    "away_xgd": -0.76,
+    "xpts": 6.7,
+    "pts": 0
+   },
+   "xg_src": "Understat Serie_A Venezia",
+   "직전선발": [
+    "Filip Stankovic",
+    "Juan Jesus",
+    "Matías Moreno",
+    "Redouane Halhal",
+    "Toma Basic",
+    "Enrique Perez",
+    "Simon Sohm",
+    "Thierry Correia",
+    "Antoine Hainaut",
+    "Akor Adams",
+    "John Yeboah"
+   ],
+   "직전포메이션": "3-5-2"
+  },
+  "원정": {
+   "팀": "SSC나폴리",
+   "eng": "Napoli",
+   "직전": "10-14 원정 vs Villarreal 1-3 패 [uefa.champions]",
+   "휴식일": 3.8,
+   "최근7일경기": 2,
+   "직전event": "401915410",
+   "xg": {
+    "n": 6,
+    "xg": 2.07,
+    "xga": 1.23,
+    "npxgd": 0.71,
+    "l5_xg": 2.25,
+    "l5_xga": 1.38,
+    "l5_npxgd": 0.72,
+    "home_xgd": 1.33,
+    "away_xgd": 0.09,
+    "xpts": 11.7,
+    "pts": 10
+   },
+   "xg_src": "Understat Serie_A Napoli",
+   "직전선발": [
+    "Vanja Milinkovic-Savic",
+    "Amir Rrahmani",
+    "Benoît Badiashile",
+    "Rafa Marín",
+    "Scott McTominay",
+    "Billy Gilmour",
+    "Giovanni Di Lorenzo",
+    "Matteo Politano",
+    "Rasmus Højlund",
+    "Giovane",
+    "Kevin De Bruyne"
+   ],
+   "직전포메이션": "3-4-2-1"
+  },
+  "라인업": "미발표(킥오프 8.2h 전)",
+  "event": "401874760"
+ },
+ "8876": {
+  "번호": "8876",
+  "경기": "우니온 베를린 - 도르트문트",
+  "리그": "독일 분데스리가",
+  "시각": "10-17 22:30",
+  "수집": "10-17 20:35",
+  "홈": {
+   "팀": "우니온 베를린",
+   "eng": "Union Berlin",
+   "직전": "10-10 홈 vs SV Elversberg 1-0 승 [german bundesliga]",
+   "휴식일": 7.0,
+   "최근7일경기": 0,
+   "직전event": "401884775",
+   "xg": {
+    "n": 5,
+    "xg": 1.23,
+    "xga": 2.63,
+    "npxgd": -1.24,
+    "l5_xg": 1.23,
+    "l5_xga": 2.63,
+    "l5_npxgd": -1.24,
+    "home_xgd": -0.06,
+    "away_xgd": -3.02,
+    "xpts": 4.4,
+    "pts": 4
+   },
+   "xg_src": "Understat Bundesliga Union Berlin",
+   "직전선발": [
+    "Frederik Ronnow",
+    "Felix Uduokhai",
+    "Zeno Van Den Bosch",
+    "Tom Rothe",
+    "Janik Haberer",
+    "Jeong Woo-Yeong",
+    "Rani Khedira",
+    "András Schäfer",
+    "Tim Skarke",
+    "Kastriot Imeri",
+    "Michel Aebischer"
+   ],
+   "직전포메이션": "4-2-3-1"
+  },
+  "원정": {
+   "팀": "도르트문트",
+   "eng": "Borussia Dortmund",
+   "직전": "10-15 원정 vs Bodo/Glimt 0-1 패 [uefa.champions]",
+   "휴식일": 2.8,
+   "최근7일경기": 1,
+   "직전event": "401915393",
+   "xg": {
+    "n": 5,
+    "xg": 2.24,
+    "xga": 1.02,
+    "npxgd": 1.22,
+    "l5_xg": 2.24,
+    "l5_xga": 1.02,
+    "l5_npxgd": 1.22,
+    "home_xgd": 1.6,
+    "away_xgd": 0.65,
+    "xpts": 10.7,
+    "pts": 13
+   },
+   "xg_src": "Understat Bundesliga Borussia Dortmund",
+   "직전선발": [
+    "Gregor Kobel",
+    "Waldemar Anton",
+    "Ramy Bensebaini",
+    "Kouakou Gadou",
+    "Joey Veerman",
+    "Jobe Bellingham",
+    "Maximilian Beier",
+    "Daniel Svensson",
+    "Fábio Silva",
+    "Samuele Inácio",
+    "Konstantinos Karetsas"
+   ],
+   "직전포메이션": "3-4-2-1"
+  },
+  "환경": {
+   "구장": "Stadion An der Alten Försterei",
+   "구장고도": 37,
+   "원정홈": "지그날 이두나 파크(구단 좌표 — 구장 미확인)",
+   "원정홈고도": 90,
+   "이동km": 432,
+   "고도차": -53,
+   "날씨": {
+    "기온": 11.9,
+    "습도": 84,
+    "강수mm": 0,
+    "강수확률": 5,
+    "풍속": 13.4,
+    "출처": "Open-Meteo forecast 10-17 20:35"
+   },
+   "출처": [
+    "Wikidata Q141971→Q749172 · Open-Meteo 고도",
+    "Wikidata Q150928→구단 · Open-Meteo 고도"
+   ],
+   "주의": []
+  },
+  "라인업": "미발표(킥오프 1.9h 전)",
+  "event": "401884769"
+ },
+ "8881": {
+  "번호": "8881",
+  "경기": "함부르크 - VfB슈투트가르트",
+  "리그": "독일 분데스리가",
+  "시각": "10-17 22:30",
+  "수집": "10-17 20:35",
+  "홈": {
+   "팀": "함부르크",
+   "eng": "Hamburg",
+   "직전": "10-10 원정 vs TSG Hoffenheim 3-2 승 [german bundesliga]",
+   "휴식일": 7.0,
+   "최근7일경기": 0,
+   "직전event": "401884779",
+   "xg": {
+    "n": 5,
+    "xg": 1.09,
+    "xga": 2.03,
+    "npxgd": -0.94,
+    "l5_xg": 1.09,
+    "l5_xga": 2.03,
+    "l5_npxgd": -0.94,
+    "home_xgd": -1.55,
+    "away_xgd": -0.53,
+    "xpts": 4.7,
+    "pts": 6
+   },
+   "xg_src": "Understat Bundesliga Hamburger SV",
+   "직전선발": [
+    "Daniel Heuer Fernandes",
+    "Sebastiaan Bornauw",
+    "Warmed Omari",
+    "Nicolás Capaldo",
+    "Martin Adeline",
+    "Albert Sambi Lokonga",
+    "Nicolai Remberg",
+    "Louis Lemke",
+    "David Møller Wolfe",
+    "Yussuf Poulsen",
+    "Fabio Vieira"
+   ],
+   "직전포메이션": "3-5-1-1"
+  },
+  "원정": {
+   "팀": "VfB슈투트가르트",
+   "eng": "VfB Stuttgart",
+   "직전": "10-15 원정 vs Slovan Bratislava 3-0 승 [uefa.champions]",
+   "휴식일": 2.8,
+   "최근7일경기": 1,
+   "직전event": "401915405",
+   "xg": {
+    "n": 5,
+    "xg": 2.14,
+    "xga": 2.82,
+    "npxgd": -0.68,
+    "l5_xg": 2.14,
+    "l5_xga": 2.82,
+    "l5_npxgd": -0.68,
+    "home_xgd": -0.39,
+    "away_xgd": -0.87,
+    "xpts": 5.3,
+    "pts": 6
+   },
+   "xg_src": "Understat Bundesliga VfB Stuttgart",
+   "직전선발": [
+    "Fabian Bredlow",
+    "Jeff Chabot",
+    "Finn Jeltsch",
+    "Ramon Hendriks",
+    "Josha Vagnoman",
+    "Deniz Undav",
+    "Angelo Stiller",
+    "Grischa Prömel",
+    "Dzenan Pejcinovic",
+    "Chris Führich",
+    "Bilal El Khannouss"
+   ],
+   "직전포메이션": "4-2-3-1"
+  },
+  "환경": {
+   "구장": "폴크스파르크슈타디온",
+   "구장고도": 30,
+   "원정홈": "MHP아레나",
+   "원정홈고도": 219,
+   "이동km": 535,
+   "고도차": -189,
+   "날씨": {
+    "기온": 13.7,
+    "습도": 63,
+    "강수mm": 0,
+    "강수확률": 73,
+    "풍속": 14.5,
+    "출처": "Open-Meteo forecast 10-17 20:35"
+   },
+   "출처": [
+    "Wikidata Q51974→Q150933 · Open-Meteo 고도",
+    "Wikidata Q4512→Q152349 · Open-Meteo 고도"
+   ],
+   "주의": [
+    "비 0mm(73%)"
+   ]
+  },
+  "라인업": "미발표(킥오프 1.9h 전)",
+  "event": "401884767"
+ },
+ "8886": {
+  "번호": "8886",
+  "경기": "베르더 브레멘 - 파더보른07",
+  "리그": "독일 분데스리가",
+  "시각": "10-17 22:30",
+  "수집": "10-17 20:35",
+  "홈": {
+   "팀": "베르더 브레멘",
+   "eng": "Bremen",
+   "직전": "10-10 원정 vs Borussia Dortmund 2-2 무 [german bundesliga]",
+   "휴식일": 7.8,
+   "최근7일경기": 0,
+   "직전event": "401884781",
+   "xg": {
+    "n": 5,
+    "xg": 1.23,
+    "xga": 1.79,
+    "npxgd": -0.41,
+    "l5_xg": 1.23,
+    "l5_xga": 1.79,
+    "l5_npxgd": -0.41,
+    "home_xgd": 0.42,
+    "away_xgd": -0.96,
+    "xpts": 4.9,
+    "pts": 8
+   },
+   "xg_src": "Understat Bundesliga Werder Bremen",
+   "직전선발": [
+    "Karl Hein",
+    "Marco Friedl",
+    "Amos Pieper",
+    "Olivier Deman",
+    "Arthur",
+    "Chuki",
+    "Youri Regeer",
+    "Ludovit Reis",
+    "Niclas Füllkrug",
+    "Marco Grüll",
+    "Eren Dinkci"
+   ],
+   "직전포메이션": "4-2-3-1"
+  },
+  "원정": {
+   "팀": "파더보른07",
+   "eng": "Paderborn",
+   "직전": "10-10 홈 vs VfB Stuttgart 0-2 패 [german bundesliga]",
+   "휴식일": 7.0,
+   "최근7일경기": 0,
+   "직전event": "401884773",
+   "xg": {
+    "n": 5,
+    "xg": 1.03,
+    "xga": 2.03,
+    "npxgd": -0.99,
+    "l5_xg": 1.03,
+    "l5_xga": 2.03,
+    "l5_npxgd": -0.99,
+    "home_xgd": -0.42,
+    "away_xgd": -1.85,
+    "xpts": 4.0,
+    "pts": 4
+   },
+   "xg_src": "Understat Bundesliga Paderborn",
+   "직전선발": [
+    "Nahuel Nicolas Noll",
+    "Tjark Scheller",
+    "Mattes Hansen",
+    "Jano Horst",
+    "Gabriel Vidovic",
+    "Laurin Ulrich",
+    "Santiago Castaneda",
+    "Raphael Obermair",
+    "Laurin Curda",
+    "Stefano Marino",
+    "Marvin Pieringer"
+   ],
+   "직전포메이션": "3-5-2"
+  },
+  "환경": {
+   "구장": "베저슈타디온",
+   "구장고도": 3,
+   "원정홈": "Home Deluxe Arena",
+   "원정홈고도": 105,
+   "이동km": 149,
+   "고도차": -102,
+   "날씨": {
+    "기온": 14.2,
+    "습도": 55,
+    "강수mm": 0,
+    "강수확률": 3,
+    "풍속": 16.9,
+    "출처": "Open-Meteo forecast 10-17 20:35"
+   },
+   "출처": [
+    "Wikidata Q51976→Q154475 · Open-Meteo 고도",
+    "Wikidata Q160532→Q567402 · Open-Meteo 고도"
+   ],
+   "주의": []
+  },
+  "라인업": "미발표(킥오프 1.9h 전)",
+  "event": "401884766"
+ },
+ "8891": {
+  "번호": "8891",
+  "경기": "샬케04 - FSV마인츠05",
+  "리그": "독일 분데스리가",
+  "시각": "10-17 22:30",
+  "수집": "10-17 13:48",
+  "홈": {
+   "팀": "샬케04",
+   "eng": "Schalke",
+   "직전": "10-12 원정 vs SC Freiburg 1-2 패 [german bundesliga]",
+   "휴식일": 5.9,
+   "최근7일경기": 1,
+   "직전event": "401884778",
+   "xg": {
+    "n": 5,
+    "xg": 1.39,
+    "xga": 2.38,
+    "npxgd": -0.99,
+    "l5_xg": 1.39,
+    "l5_xga": 2.38,
+    "l5_npxgd": -0.99,
+    "home_xgd": -0.66,
+    "away_xgd": -1.21,
+    "xpts": 4.6,
+    "pts": 5
+   },
+   "xg_src": "Understat Bundesliga Schalke 04",
+   "직전선발": [
+    "Loris Karius",
+    "Nikola Katic",
+    "Maximilian Wöber",
+    "Hasan Kurucay",
+    "Satoshi Tanaka",
+    "Soufian El-Faouzi",
+    "Robin Gosens",
+    "Adrian Gantenbein",
+    "Junior Adamu",
+    "Kenan Karaman",
+    "Moussa Sylla"
+   ],
+   "직전포메이션": "3-4-2-1"
+  },
+  "원정": {
+   "팀": "FSV마인츠05",
+   "eng": "Mainz",
+   "직전": "10-10 홈 vs Bayer Leverkusen 3-4 패 [german bundesliga]",
+   "휴식일": 7.0,
+   "최근7일경기": 0,
+   "직전event": "401884776",
+   "xg": {
+    "n": 5,
+    "xg": 2.54,
+    "xga": 1.7,
+    "npxgd": 0.97,
+    "l5_xg": 2.54,
+    "l5_xga": 1.7,
+    "l5_npxgd": 0.97,
+    "home_xgd": -0.02,
+    "away_xgd": 2.46,
+    "xpts": 9.3,
+    "pts": 7
+   },
+   "xg_src": "Understat Bundesliga Mainz 05",
+   "직전선발": [
+    "Alexander Schwolow",
+    "Fabio Gruber",
+    "Kacper Potulski",
+    "Stefan Posch",
+    "Nadiem Amiri",
+    "Eric Martel",
+    "Kaishu Sano",
+    "Phillipp Mwene",
+    "Anthony Caci",
+    "Sheraldo Becker",
+    "Phillip Tietz"
+   ],
+   "직전포메이션": "3-5-2"
+  },
+  "라인업": "미발표(킥오프 8.7h 전)",
+  "event": "401884765"
+ },
+ "8896": {
+  "번호": "8896",
+  "경기": "엘버스베르크 - 아우크스부르크",
+  "리그": "독일 분데스리가",
+  "시각": "10-17 22:30",
+  "수집": "10-17 20:35",
+  "홈": {
+   "팀": "엘버스베르크",
+   "eng": "Elversberg",
+   "직전": "10-10 원정 vs 1. FC Union Berlin 0-1 패 [german bundesliga]",
+   "휴식일": 7.0,
+   "최근7일경기": 0,
+   "직전event": "401884775",
+   "xg": {
+    "n": 5,
+    "xg": 1.31,
+    "xga": 2.21,
+    "npxgd": -0.91,
+    "l5_xg": 1.31,
+    "l5_xga": 2.21,
+    "l5_npxgd": -0.91,
+    "home_xgd": -1.62,
+    "away_xgd": -0.43,
+    "xpts": 3.9,
+    "pts": 7
+   },
+   "xg_src": "Understat Bundesliga Elversberg",
+   "직전선발": [
+    "Nicolas Kristof",
+    "Maximilian Rohr",
+    "Lukas Finn Pinckert",
+    "Lasse Günther",
+    "Luca Sirch",
+    "Noah Darvich",
+    "Lukasz Poreba",
+    "Felix Keidel",
+    "Noel Futkeu",
+    "Tom Zimmerschied",
+    "Lukas Petkov"
+   ],
+   "직전포메이션": "4-2-3-1"
+  },
+  "원정": {
+   "팀": "아우크스부르크",
+   "eng": "Augsburg",
+   "직전": "10-10 홈 vs Bayern Munich 2-2 무 [german bundesliga]",
+   "휴식일": 7.0,
+   "최근7일경기": 0,
+   "직전event": "401884777",
+   "xg": {
+    "n": 5,
+    "xg": 2.1,
+    "xga": 2.62,
+    "npxgd": -0.52,
+    "l5_xg": 2.1,
+    "l5_xga": 2.62,
+    "l5_npxgd": -0.52,
+    "home_xgd": 0.01,
+    "away_xgd": -1.31,
+    "xpts": 4.9,
+    "pts": 8
+   },
+   "xg_src": "Understat Bundesliga Augsburg",
+   "직전선발": [
+    "Finn Dahmen",
+    "Chrislain Matsima",
+    "Calvin Brackelmann",
+    "Juma Bah",
+    "Fabian Rieder",
+    "Han-Noah Massengo",
+    "Hennes Behrens",
+    "Seol Young-Woo",
+    "Rodrigo Ribeiro",
+    "Arijon Ibrahimovic",
+    "Robin Fellhauer"
+   ],
+   "직전포메이션": "3-4-2-1"
+  },
+  "환경": {
+   "구장": "Waldstadion an der Kaiserlinde",
+   "구장고도": 355,
+   "원정홈": "WWK 아레나",
+   "원정홈고도": 504,
+   "이동km": 297,
+   "고도차": -149,
+   "날씨": {
+    "기온": 12.5,
+    "습도": 71,
+    "강수mm": 0,
+    "강수확률": 3,
+    "풍속": 15.3,
+    "출처": "Open-Meteo forecast 10-17 20:35"
+   },
+   "출처": [
+    "Wikidata Q692691→Q474858 · Open-Meteo 고도",
+    "Wikidata Q15755→Q167418 · Open-Meteo 고도"
+   ],
+   "주의": []
+  },
+  "라인업": "미발표(킥오프 1.9h 전)",
+  "event": "401884764"
+ },
+ "8901": {
+  "번호": "8901",
+  "경기": "버밍엄 시티 - 퀸즈파크 레인저스",
+  "리그": "잉글랜드 챔피언십",
+  "시각": "10-17 23:00",
+  "수집": "10-17 13:48",
+  "홈": {
+   "팀": "버밍엄 시티",
+   "eng": "Birmingham",
+   "직전": "10-14 홈 vs Preston North End 4-0 승 [eng.2]",
+   "휴식일": 3.8,
+   "최근7일경기": 1,
+   "직전event": "401880232",
+   "xg": null,
+   "직전선발": [
+    "James Beadle",
+    "Christoph Klarer",
+    "Phil Neumann",
+    "Alex Cochrane",
+    "Bright Osayi-Samuel",
+    "Jay Stansfield",
+    "Jhon Solis",
+    "Tomoki Iwata",
+    "August Priske",
+    "Liam Millar",
+    "Patrick Roberts"
+   ],
+   "직전포메이션": "4-2-3-1"
+  },
+  "원정": {
+   "팀": "퀸즈파크 레인저스",
+   "eng": "Queens Park Rangers",
+   "직전": "10-15 홈 vs Derby County 4-1 승 [eng.2]",
+   "휴식일": 2.8,
+   "최근7일경기": 1,
+   "직전event": "401880221",
+   "xg": {
+    "n": 6,
+    "xg": 1.59,
+    "xga": 1.93,
+    "npxgd": -0.21,
+    "l5_xg": 1.54,
+    "l5_xga": 2.07,
+    "l5_npxgd": -0.38,
+    "home_xgd": 0.45,
+    "away_xgd": -0.88,
+    "xpts": 7.5,
+    "pts": 7
+   },
+   "xg_src": "Understat Ligue_1 Angers",
+   "직전선발": [
+    "Pierce Charles",
+    "Ronnie Edwards",
+    "Jimmy Dunne",
+    "Boy Kemper",
+    "Kealey Adamson",
+    "Harvey Vale",
+    "Glen Kamara",
+    "Nicolas Madsen",
+    "Rayan Kolli",
+    "Alfie Lloyd",
+    "Paul Smyth"
+   ],
+   "직전포메이션": "4-2-3-1"
+  },
+  "라인업": "미발표(킥오프 9.2h 전)",
+  "event": "401880220"
+ },
+ "8905": {
+  "번호": "8905",
+  "경기": "브리스틀 시티 - 셰필드 유나이티드",
+  "리그": "잉글랜드 챔피언십",
+  "시각": "10-17 23:00",
+  "수집": "10-17 13:48",
+  "홈": {
+   "팀": "브리스틀 시티",
+   "eng": "Bristol City",
+   "직전": "10-14 홈 vs Blackburn Rovers 0-1 패 [eng.2]",
+   "휴식일": 3.8,
+   "최근7일경기": 1,
+   "직전event": "401880231",
+   "xg": null,
+   "직전선발": [
+    "Sam Tickle",
+    "Robert Atkinson",
+    "Lisav Eissat",
+    "Cameron Pring",
+    "George Tanner",
+    "Sam Greenwood",
+    "Gibson Yah",
+    "Jason Knight",
+    "Dominic Ballard",
+    "Scott Twine",
+    "Jed Wallace"
+   ],
+   "직전포메이션": "4-2-3-1"
+  },
+  "원정": {
+   "팀": "셰필드 유나이티드",
+   "eng": "Sheffield United",
+   "직전": "10-15 원정 vs Portsmouth 2-3 패 [eng.2]",
+   "휴식일": 2.8,
+   "최근7일경기": 1,
+   "직전event": "401880222",
+   "xg": null,
+   "직전선발": [
+    "Michael Cooper",
+    "Liam Kitching",
+    "Japhet Tanganga",
+    "Sam McCallum",
+    "Hamza Choudhury",
+    "Joe Rothwell",
+    "Sydie Peck",
+    "Ben Brereton Díaz",
+    "Tahith Chong",
+    "Patrick Bamford",
+    "Thomas Cannon"
+   ],
+   "직전포메이션": "4-4-2"
+  },
+  "라인업": "미발표(킥오프 9.2h 전)",
+  "event": "401880219"
+ },
+ "8909": {
+  "번호": "8909",
+  "경기": "더비 카운티 - 스토크 시티",
+  "리그": "잉글랜드 챔피언십",
+  "시각": "10-17 23:00",
+  "수집": "10-17 13:48",
+  "홈": {
+   "팀": "더비 카운티",
+   "eng": "Derby County",
+   "직전": "10-15 원정 vs Queens Park Rangers 1-4 패 [eng.2]",
+   "휴식일": 2.8,
+   "최근7일경기": 1,
+   "직전event": "401880221",
+   "xg": null,
+   "직전선발": [
+    "Josh Vickers",
+    "Dion Sanderson",
+    "Sondre Langas",
+    "Ryan Hedges",
+    "Joe Ward",
+    "Bobby Clark",
+    "Alex Mowatt",
+    "David Ozoh",
+    "Carlton Morris",
+    "Sammie Szmodics",
+    "Mohammed Fuseini"
+   ],
+   "직전포메이션": "4-2-3-1"
+  },
+  "원정": {
+   "팀": "스토크 시티",
+   "eng": "Stoke",
+   "직전": "10-14 홈 vs Middlesbrough 2-3 패 [eng.2]",
+   "휴식일": 3.8,
+   "최근7일경기": 1,
+   "직전event": "401880227",
+   "xg": null,
+   "직전선발": [
+    "Viktor Johansson",
+    "Ben Wilmot",
+    "Luke Graham",
+    "Ben Johnson",
+    "Ethan Galbraith",
+    "Djibril Soumaré",
+    "Eric Bocat",
+    "Junior Tchamadeu",
+    "Lamine Cisse",
+    "Bae Jun-Ho",
+    "Jack McGlynn"
+   ],
+   "직전포메이션": "3-4-3"
+  },
+  "라인업": "미발표(킥오프 9.2h 전)",
+  "event": "401880217"
+ },
+ "8913": {
+  "번호": "8913",
+  "경기": "노리치 시티 - 포츠머스",
+  "리그": "잉글랜드 챔피언십",
+  "시각": "10-17 23:00",
+  "수집": "10-17 13:48",
+  "홈": {
+   "팀": "노리치 시티",
+   "eng": "Norwich City",
+   "직전": "10-15 홈 vs Southampton 0-1 패 [eng.2]",
+   "휴식일": 2.8,
+   "최근7일경기": 1,
+   "직전event": "401880223",
+   "xg": null,
+   "직전선발": [
+    "Daniel Grimshaw",
+    "José Córdoba",
+    "Ruairi McConville",
+    "Benjamin Chrisene",
+    "Jack Stacey",
+    "Anis Slimane",
+    "Pelle Mattsson",
+    "Jacob Wright",
+    "Mathias Kvistgaarden",
+    "Oscar Schwartau",
+    "Andre Brooks"
+   ],
+   "직전포메이션": "4-2-3-1"
+  },
+  "원정": {
+   "팀": "포츠머스",
+   "eng": "Portsmouth FC",
+   "직전": "10-15 홈 vs Sheffield United 3-2 승 [eng.2]",
+   "휴식일": 2.8,
+   "최근7일경기": 2,
+   "직전event": "401880222",
+   "xg": null,
+   "직전선발": [
+    "Nicolas Schmid",
+    "Madiodio Dia",
+    "Regan Poole",
+    "Jayden Meghoma",
+    "Zak Swanson",
+    "Adrian Segecic",
+    "Iyad Mohamed",
+    "Marlon Pack",
+    "Marko Milovanovic",
+    "Ryan Kavuma-Mcqueen",
+    "Abu Kamara"
+   ],
+   "직전포메이션": "4-2-3-1"
+  },
+  "라인업": "미발표(킥오프 9.2h 전)",
+  "event": "401880214"
+ },
+ "8917": {
+  "번호": "8917",
+  "경기": "사우샘프턴 - 볼턴 원더러스",
+  "리그": "잉글랜드 챔피언십",
+  "시각": "10-17 23:00",
+  "수집": "10-17 20:35",
+  "홈": {
+   "팀": "사우샘프턴",
+   "eng": "Southampton FC",
+   "직전": "10-15 원정 vs Norwich City 1-0 승 [eng.2]",
+   "휴식일": 2.8,
+   "최근7일경기": 2,
+   "직전event": "401880223",
+   "xg": null,
+   "직전선발": [
+    "Daniel Peretz",
+    "Keven Schlotterbeck",
+    "Jack Stephens",
+    "Ryan Manning",
+    "Zach Abbott",
+    "Finn Azaz",
+    "Flynn Downes",
+    "James Ward-Prowse",
+    "Lewis Dobbin",
+    "Samuel Edozie",
+    "Kuryu Matsuki"
+   ],
+   "직전포메이션": "4-2-3-1"
+  },
+  "원정": {
+   "팀": "볼턴 원더러스",
+   "eng": "Bolton",
+   "직전": "10-14 원정 vs Wolverhampton Wanderers 3-1 승 [eng.2]",
+   "휴식일": 3.8,
+   "최근7일경기": 1,
+   "직전event": "401880226",
+   "xg": null,
+   "직전선발": [
+    "Gavin Bazunu",
+    "Lewis Brunt",
+    "Eoin Toal",
+    "Akin Famewo",
+    "Gaizka Larrazabal",
+    "Ethan Erhahon",
+    "Josh Sheehan",
+    "Thierry Gale",
+    "Samuel Iling-Junior",
+    "Atsuki Ito",
+    "Thelonius Bair"
+   ],
+   "직전포메이션": "4-4-2"
+  },
+  "환경": {
+   "구장": "세인트 메리스 스타디움",
+   "구장고도": 18,
+   "원정홈": "리복 스타디움",
+   "원정홈고도": 125,
+   "이동km": 307,
+   "고도차": -107,
+   "날씨": {
+    "기온": 14.1,
+    "습도": 46,
+    "강수mm": 0,
+    "강수확률": 0,
+    "풍속": 13.0,
+    "출처": "Open-Meteo forecast 10-17 20:35"
+   },
+   "출처": [
+    "Wikidata Q18732→Q567339 · Open-Meteo 고도",
+    "Wikidata Q19451→Q242772 · Open-Meteo 고도"
+   ],
+   "주의": []
+  },
+  "라인업": "미발표(킥오프 2.4h 전)",
+  "event": "401880213"
+ },
+ "8921": {
+  "번호": "8921",
+  "경기": "스완지 시티 - 웨스트햄 유나이티드",
+  "리그": "잉글랜드 챔피언십",
+  "시각": "10-17 23:00",
+  "수집": "10-17 13:48",
+  "홈": {
+   "팀": "스완지 시티",
+   "eng": "Swansea",
+   "직전": "10-14 원정 vs Millwall 1-0 승 [eng.2]",
+   "휴식일": 3.8,
+   "최근7일경기": 1,
+   "직전event": "401880228",
+   "xg": null,
+   "직전선발": [
+    "Lawrence Vigouroux",
+    "Jenson Seelt",
+    "Ben Cabango",
+    "Josh Tymon",
+    "Filip Lissah",
+    "Jay Fulton",
+    "Marko Stamenic",
+    "Elijah Just",
+    "Zan Vipotnik",
+    "Joseph Opoku",
+    "Moussa Yeo"
+   ],
+   "직전포메이션": "4-3-3"
+  },
+  "원정": {
+   "팀": "웨스트햄 유나이티드",
+   "eng": "West Ham United",
+   "직전": "10-15 원정 vs Lincoln City 6-0 승 [eng.2]",
+   "휴식일": 2.8,
+   "최근7일경기": 1,
+   "직전event": "401880224",
+   "xg": null,
+   "직전선발": [
+    "Mads Hermansen",
+    "Max Kilman",
+    "Konstantinos Mavropanos",
+    "Morato",
+    "Joël Veltman",
+    "Mohamadou Kanté",
+    "Arne Engels",
+    "Manor Solomon",
+    "Jarrod Bowen",
+    "Joël Piroe",
+    "Pablo"
+   ],
+   "직전포메이션": "4-4-1-1"
+  },
+  "라인업": "미발표(킥오프 9.2h 전)",
+  "event": "401880212"
+ },
+ "8925": {
+  "번호": "8925",
+  "경기": "웨스트브로미치 앨비언 - 블랙번 로버스",
+  "리그": "잉글랜드 챔피언십",
+  "시각": "10-17 23:00",
+  "수집": "10-17 13:48",
+  "홈": {
+   "팀": "웨스트브로미치 앨비언",
+   "eng": "West Brom",
+   "직전": "10-14 원정 vs Wrexham 2-1 승 [eng.2]",
+   "휴식일": 3.8,
+   "최근7일경기": 1,
+   "직전event": "401880225",
+   "xg": null,
+   "직전선발": [
+    "Max O'Leary",
+    "George Campbell",
+    "Chris Mepham",
+    "Callum Styles",
+    "Brayann Pereira",
+    "Toby Collyer",
+    "Jayson Molumby",
+    "Isaac Price",
+    "Harry Whitwell",
+    "Barney Stewart",
+    "Rabby Nzingoula"
+   ],
+   "직전포메이션": "4-4-1-1"
+  },
+  "원정": {
+   "팀": "블랙번 로버스",
+   "eng": "Blackburn",
+   "직전": "10-14 원정 vs Bristol City 1-0 승 [eng.2]",
+   "휴식일": 3.8,
+   "최근7일경기": 1,
+   "직전event": "401880231",
+   "xg": null,
+   "직전선발": [
+    "Balazs Toth",
+    "Hayden Carter",
+    "Sean McLoughlin",
+    "Tom Atcheson",
+    "Kristi Montgomery",
+    "Sam Morsy",
+    "Harry Pickering",
+    "Ryan Alebiousu",
+    "Todd Cantwell",
+    "Oladapo Afolayan",
+    "Ryoya Morishita"
+   ],
+   "직전포메이션": "3-4-2-1"
+  },
+  "라인업": "미발표(킥오프 9.2h 전)",
+  "event": "401880210"
+ },
+ "8929": {
+  "번호": "8929",
+  "경기": "렉섬 - 프레스턴 노스엔드",
+  "리그": "잉글랜드 챔피언십",
+  "시각": "10-17 23:00",
+  "수집": "10-17 20:35",
+  "홈": {
+   "팀": "렉섬",
+   "eng": "Wrexham",
+   "직전": "10-14 홈 vs West Bromwich Albion 1-2 패 [eng.2]",
+   "휴식일": 3.8,
+   "최근7일경기": 1,
+   "직전event": "401880225",
+   "xg": null,
+   "직전선발": [
+    "Anthony Patterson",
+    "Dominic Hyam",
+    "Callum Doyle",
+    "Zak Vyner",
+    "Jacques Ekomie",
+    "Issa Kaboré",
+    "Benjamin Whiteman",
+    "Oliver Rathbone",
+    "George Dobson",
+    "Callum O'Hare",
+    "Kieffer Moore"
+   ],
+   "직전포메이션": "5-3-2"
+  },
+  "원정": {
+   "팀": "프레스턴 노스엔드",
+   "eng": "Preston",
+   "직전": "10-14 원정 vs Birmingham City 0-4 패 [eng.2]",
+   "휴식일": 3.8,
+   "최근7일경기": 1,
+   "직전event": "401880232",
+   "xg": null,
+   "직전선발": [
+    "Daniel Iversen",
+    "Jordan Storey",
+    "Andrew Hughes",
+    "Odeluga Offiah",
+    "Jordan Thompson",
+    "Leo Leroy",
+    "Thierry Small",
+    "Stanley Mills",
+    "Callum Lang",
+    "Liam Gibbs",
+    "Alfie Devine"
+   ],
+   "직전포메이션": "3-4-2-1"
+  },
+  "환경": {
+   "구장": "레이스코스 그라운드",
+   "구장고도": 89,
+   "원정홈": "프레스턴(구단 좌표 — 구장 미확인)",
+   "원정홈고도": 45,
+   "이동km": 81,
+   "고도차": 44,
+   "날씨": {
+    "기온": 11.2,
+    "습도": 61,
+    "강수mm": 0,
+    "강수확률": 0,
+    "풍속": 10.4,
+    "출처": "Open-Meteo forecast 10-17 20:35"
+   },
+   "출처": [
+    "Wikidata Q18529→Q1202579 · Open-Meteo 고도",
+    "Wikidata Q184090→구단 · Open-Meteo 고도"
+   ],
+   "주의": []
+  },
+  "라인업": "미발표(킥오프 2.4h 전)",
+  "event": "401880209"
+ },
+ "8933": {
+  "번호": "8933",
+  "경기": "브렌트퍼드 - 리버풀",
+  "리그": "잉글랜드 프리미어리그",
+  "시각": "10-17 23:00",
+  "수집": "10-17 20:35",
+  "홈": {
+   "팀": "브렌트퍼드",
+   "eng": "Brentford",
+   "직전": "10-10 원정 vs Aston Villa 2-2 무 [english premier league]",
+   "휴식일": 7.0,
+   "최근7일경기": 0,
+   "직전event": "401878776",
+   "xg": {
+    "n": 6,
+    "xg": 1.97,
+    "xga": 1.56,
+    "npxgd": 0.41,
+    "l5_xg": 1.55,
+    "l5_xga": 1.72,
+    "l5_npxgd": -0.01,
+    "home_xgd": 1.44,
+    "away_xgd": -0.62,
+    "xpts": 9.4,
+    "pts": 10
+   },
+   "xg_src": "Understat EPL Brentford",
+   "직전선발": [
+    "Caoimhín Kelleher",
+    "Kristoffer Ajer",
+    "Jannik Schuster",
+    "El Hadji Malick Diouf",
+    "Michael Kayode",
+    "Keane Lewis-Potter",
+    "Vitaly Janelt",
+    "Yehor Yarmoliuk",
+    "Igor Thiago",
+    "Kevin Schade",
+    "Jaidon Anthony"
+   ],
+   "직전포메이션": "4-2-3-1"
+  },
+  "원정": {
+   "팀": "리버풀",
+   "eng": "Liverpool",
+   "직전": "10-15 원정 vs LASK Linz 6-3 승 [uefa.champions]",
+   "휴식일": 2.9,
+   "최근7일경기": 2,
+   "직전event": "401915415",
+   "xg": {
+    "n": 6,
+    "xg": 1.5,
+    "xga": 1.42,
+    "npxgd": 0.08,
+    "l5_xg": 1.17,
+    "l5_xga": 1.39,
+    "l5_npxgd": -0.06,
+    "home_xgd": -0.26,
+    "away_xgd": 0.42,
+    "xpts": 8.6,
+    "pts": 9
+   },
+   "xg_src": "Understat EPL Liverpool",
+   "직전선발": [
+    "Alisson Becker",
+    "Jérémy Jacquet",
+    "Ronald Araújo",
+    "Kostas Tsimikas",
+    "Jeremie Frimpong",
+    "Florian Wirtz",
+    "Trey Nyoni",
+    "Ryan Gravenberch",
+    "Lewis Koumas",
+    "Bradley Barcola",
+    "Rio Ngumoha"
+   ],
+   "직전포메이션": "4-2-3-1"
+  },
+  "환경": {
+   "구장": "그리핀 파크",
+   "구장고도": 12,
+   "원정홈": "안필드",
+   "원정홈고도": 66,
+   "이동km": 281,
+   "고도차": -54,
+   "날씨": {
+    "기온": 13.3,
+    "습도": 56,
+    "강수mm": 0,
+    "강수확률": 0,
+    "풍속": 16.2,
+    "출처": "Open-Meteo forecast 10-17 20:35"
+   },
+   "출처": [
+    "Wikidata Q19571→Q1546623 · Open-Meteo 고도",
+    "Wikidata Q1130849→Q45671 · Open-Meteo 고도"
+   ],
+   "주의": []
+  },
+  "라인업": "미발표(킥오프 2.4h 전)",
+  "event": "401879262"
+ },
+ "8938": {
+  "번호": "8938",
+  "경기": "풀럼 - 헐 시티",
+  "리그": "잉글랜드 프리미어리그",
+  "시각": "10-17 23:00",
+  "수집": "10-17 20:35",
+  "홈": {
+   "팀": "풀럼",
+   "eng": "Fulham",
+   "직전": "10-10 원정 vs Ipswich Town 1-2 패 [english premier league]",
+   "휴식일": 7.0,
+   "최근7일경기": 0,
+   "직전event": "401879265",
+   "xg": {
+    "n": 6,
+    "xg": 1.62,
+    "xga": 1.95,
+    "npxgd": -0.32,
+    "l5_xg": 1.66,
+    "l5_xga": 1.82,
+    "l5_npxgd": -0.16,
+    "home_xgd": -0.35,
+    "away_xgd": -0.3,
+    "xpts": 6.8,
+    "pts": 2
+   },
+   "xg_src": "Understat EPL Fulham",
+   "직전선발": [
+    "Bernd Leno",
+    "Calvin Bassey",
+    "David Affengruber",
+    "Ryan Sessegnon",
+    "Kenny Tete",
+    "Josh King",
+    "Shea Charles",
+    "Sander Berge",
+    "Gonzalo García",
+    "Alex Iwobi",
+    "Oscar Bobb"
+   ],
+   "직전포메이션": "4-2-3-1"
+  },
+  "원정": {
+   "팀": "헐 시티",
+   "eng": "Hull",
+   "직전": "10-11 홈 vs Everton 2-2 무 [english premier league]",
+   "휴식일": 6.0,
+   "최근7일경기": 1,
+   "직전event": "401878774",
+   "xg": {
+    "n": 6,
+    "xg": 1.21,
+    "xga": 1.66,
+    "npxgd": -0.33,
+    "l5_xg": 1.15,
+    "l5_xga": 1.64,
+    "l5_npxgd": -0.33,
+    "home_xgd": -0.79,
+    "away_xgd": 0.14,
+    "xpts": 6.0,
+    "pts": 9
+   },
+   "xg_src": "Understat EPL Hull",
+   "직전선발": [
+    "Konstantinos Tzolakis",
+    "John Egan",
+    "Nobel Mendy",
+    "Semi Ajayi",
+    "Ryan Giles",
+    "Lewie Coyle",
+    "Regan Slater",
+    "Matt Crooks",
+    "Sorba Thomas",
+    "Joe Gelhardt",
+    "Oliver McBurnie"
+   ],
+   "직전포메이션": "5-4-1"
+  },
+  "환경": {
+   "구장": "크레이븐 코티지",
+   "구장고도": 11,
+   "원정홈": "KC 스타디움",
+   "원정홈고도": 3,
+   "이동km": 253,
+   "고도차": 8,
+   "날씨": {
+    "기온": 13.5,
+    "습도": 54,
+    "강수mm": 0,
+    "강수확률": 0,
+    "풍속": 15.5,
+    "출처": "Open-Meteo forecast 10-17 20:35"
+   },
+   "출처": [
+    "Wikidata Q18708→Q318043 · Open-Meteo 고도",
+    "Wikidata Q19477→Q630160 · Open-Meteo 고도"
+   ],
+   "주의": []
+  },
+  "라인업": "미발표(킥오프 2.4h 전)",
+  "event": "401878770"
+ },
+ "8943": {
+  "번호": "8943",
+  "경기": "맨체스터 시티 - 입스위치 타운",
+  "리그": "잉글랜드 프리미어리그",
+  "시각": "10-17 23:00",
+  "수집": "10-17 13:48",
+  "홈": {
+   "팀": "맨체스터 시티",
+   "eng": "Manchester City",
+   "직전": "10-15 홈 vs Paris Saint-Germain 2-4 패 [uefa.champions]",
+   "휴식일": 2.8,
+   "최근7일경기": 2,
+   "직전event": "401915407",
+   "xg": {
+    "n": 6,
+    "xg": 2.1,
+    "xga": 1.32,
+    "npxgd": 0.78,
+    "l5_xg": 2.03,
+    "l5_xga": 1.45,
+    "l5_npxgd": 0.58,
+    "home_xgd": 0.68,
+    "away_xgd": 0.89,
+    "xpts": 11.7,
+    "pts": 18
+   },
+   "xg_src": "Understat EPL Manchester City",
+   "직전선발": [
+    "Gianluigi Donnarumma",
+    "Marc Guéhi",
+    "Rúben Dias",
+    "Josko Gvardiol",
+    "Abdukodir Khusanov",
+    "Rayan Cherki",
+    "Elliot Anderson",
+    "Enzo Fernández",
+    "Erling Haaland",
+    "Jérémy Doku",
+    "Antoine Semenyo"
+   ],
+   "직전포메이션": "4-2-3-1"
+  },
+  "원정": {
+   "팀": "입스위치 타운",
+   "eng": "Ipswich",
+   "직전": "10-10 홈 vs Fulham 2-1 승 [english premier league]",
+   "휴식일": 7.0,
+   "최근7일경기": 0,
+   "직전event": "401879265",
+   "xg": {
+    "n": 6,
+    "xg": 1.4,
+    "xga": 2.01,
+    "npxgd": -0.49,
+    "l5_xg": 1.36,
+    "l5_xga": 2.18,
+    "l5_npxgd": -0.67,
+    "home_xgd": -0.09,
+    "away_xgd": -0.89,
+    "xpts": 6.7,
+    "pts": 9
+   },
+   "xg_src": "Understat EPL Ipswich",
+   "직전선발": [
+    "Christian Walton",
+    "Dara O'Shea",
+    "Issa Diop",
+    "Leif Davis",
+    "Abdoul Ouattara",
+    "Julio Enciso",
+    "Florentino",
+    "Sasa Lukic",
+    "Emersonn",
+    "Jaden Philogene",
+    "Daizen Maeda"
+   ],
+   "직전포메이션": "4-2-3-1"
+  },
+  "라인업": "미발표(킥오프 9.2h 전)",
+  "event": "401879259"
+ },
+ "8949": {
+  "번호": "8949",
+  "경기": "비야레알 - 엘체",
+  "리그": "스페인 라리가",
+  "시각": "10-17 23:15",
+  "수집": "10-17 20:35",
+  "홈": {
+   "팀": "비야레알",
+   "eng": "Villarreal",
+   "직전": "10-14 홈 vs Napoli 3-1 승 [uefa.champions]",
+   "휴식일": 3.8,
+   "최근7일경기": 2,
+   "직전event": "401915410",
+   "xg": {
+    "n": 8,
+    "xg": 2.52,
+    "xga": 1.61,
+    "npxgd": 0.72,
+    "l5_xg": 2.87,
+    "l5_xga": 1.85,
+    "l5_npxgd": 0.88,
+    "home_xgd": 0.71,
+    "away_xgd": 0.73,
+    "xpts": 13.9,
+    "pts": 8
+   },
+   "xg_src": "Understat La_liga Villarreal",
+   "직전선발": [
+    "Luiz Júnior",
+    "Renato Veiga",
+    "Pau Navarro",
+    "Carlos Romero",
+    "Santiago Mouriño",
+    "Pape Gueye",
+    "Santi Comesaña",
+    "Alberto Moleiro",
+    "Nathan Saliba",
+    "Georges Mikautadze",
+    "Gerard Moreno"
+   ],
+   "직전포메이션": "4-4-2"
+  },
+  "원정": {
+   "팀": "엘체",
+   "eng": "Elche",
+   "직전": "10-11 홈 vs Celta Vigo 0-0 무 [laliga]",
+   "휴식일": 6.1,
+   "최근7일경기": 1,
+   "직전event": "401882854",
+   "xg": {
+    "n": 8,
+    "xg": 1.32,
+    "xga": 2.02,
+    "npxgd": -0.7,
+    "l5_xg": 1.34,
+    "l5_xga": 1.79,
+    "l5_npxgd": -0.6,
+    "home_xgd": -0.61,
+    "away_xgd": -0.78,
+    "xpts": 9.1,
+    "pts": 6
+   },
+   "xg_src": "Understat La_liga Elche",
+   "직전선발": [
+    "Matías Dituro",
+    "Víctor Chust",
+    "Roy Revivo",
+    "Javier Morcillo",
+    "Germán Valera",
+    "Rubén Sánchez",
+    "Marc Aguado",
+    "Thomas Lemar",
+    "Gonzalo Villar",
+    "Fer Niño",
+    "José Antonio Morente"
+   ],
+   "직전포메이션": "5-3-2"
+  },
+  "환경": {
+   "구장": "Ciudad Deportiva Villarreal CF",
+   "구장고도": 46,
+   "원정홈": "엘체(구단 좌표 — 구장 미확인)",
+   "원정홈고도": 89,
+   "이동km": 193,
+   "고도차": -43,
+   "날씨": {
+    "기온": 24.3,
+    "습도": 65,
+    "강수mm": 0,
+    "강수확률": 3,
+    "풍속": 15.6,
+    "출처": "Open-Meteo forecast 10-17 20:35"
+   },
+   "출처": [
+    "Wikidata Q1094113→Q2438875 · Open-Meteo 고도",
+    "Wikidata Q10509→구단 · Open-Meteo 고도"
+   ],
+   "주의": []
+  },
+  "라인업": "미발표(킥오프 2.7h 전)",
+  "event": "401882837"
+ },
+ "8953": {
+  "번호": "8953",
+  "경기": "ADO덴하흐 - PSV에인트호번",
+  "리그": "네덜란드 에레디비시",
+  "시각": "10-17 23:30",
+  "수집": "10-17 13:48",
+  "홈": {
+   "팀": "ADO덴하흐",
+   "eng": "['Den Haag', 'ADO']",
+   "휴식일": null,
+   "직전": "-",
+   "최근7일경기": null,
+   "휴식일주의": "35일 내 경기 없음 — ESPN 미제공 리그(체코·폴란드·헝가리·불가리아·키프로스·이스라엘·핀란드·크로아티아·세르비아·동남아 등)이면 에이전트가 직접 확인",
+   "xg": null
+  },
+  "원정": {
+   "팀": "PSV에인트호번",
+   "eng": "PSV",
+   "직전": "10-14 원정 vs RB Leipzig 0-1 패 [uefa.champions]",
+   "휴식일": 3.8,
+   "최근7일경기": 1,
+   "직전event": "401915434",
+   "xg": null,
+   "직전선발": [
+    "Matej Kovár",
+    "Armando Obispo",
+    "Lutsharel Geertruida",
+    "Filip Kostic",
+    "Sergiño Dest",
+    "Guus Til",
+    "Mauro Júnior",
+    "Kodai Sano",
+    "Sven Mijnans",
+    "Ruben Van Bommel",
+    "Ivan Perisic"
+   ],
+   "직전포메이션": "4-2-3-1"
+  },
+  "라인업": "미발표(킥오프 9.7h 전)",
+  "event": null
+ },
+ "9071": {
+  "번호": "9071",
+  "경기": "포틀랜드 팀버스 - 콜로라도 래피즈",
+  "리그": "미국 메이저리그사커",
+  "시각": "10-18 11:30",
+  "수집": "10-18 17:43",
+  "홈": {
+   "팀": "포틀랜드 팀버스",
+   "eng": "Portland Timbers",
+   "직전": "10-15 원정 vs LA Galaxy 0-2 패 [usa.1]",
+   "휴식일": 3.0,
+   "최근7일경기": 1,
+   "직전event": "761874",
+   "xg": null,
+   "선발": [
+    "James Pantemis",
+    "Kamal Miller",
+    "Joel Waterman",
+    "Jimer Fory",
+    "Ronald Hernández",
+    "Diego Chará",
+    "David Da Costa",
+    "Eric Izoita",
+    "Vincent Janssen",
+    "Kristoffer Velde",
+    "Omir Fernández"
+   ],
+   "포메이션": "4-3-3",
+   "직전선발": [
+    "James Pantemis",
+    "Kamal Miller",
+    "Joel Waterman",
+    "José Caicedo",
+    "Jimer Fory",
+    "Ronald Hernández",
+    "David Da Costa",
+    "Joao Ortiz",
+    "Kristoffer Velde",
+    "Ariel Lassiter",
+    "Vincent Janssen"
+   ],
+   "직전포메이션": "4-1-4-1",
+   "교체": 3,
+   "빠진": [
+    "José Caicedo",
+    "Joao Ortiz",
+    "Ariel Lassiter"
+   ]
+  },
+  "원정": {
+   "팀": "콜로라도 래피즈",
+   "eng": "Colorado Rapids",
+   "직전": "10-15 홈 vs Minnesota United FC 2-2 무 [usa.1]",
+   "휴식일": 3.0,
+   "최근7일경기": 1,
+   "직전event": "761871",
+   "xg": null,
+   "선발": [
+    "Nico Hansen",
+    "Loic Williams",
+    "Rob Holding",
+    "Miguel Navarro",
+    "Kosi Thompson",
+    "Morgan Whittaker",
+    "Wayne Frederick",
+    "Joshua Atencio",
+    "Darren Yapi",
+    "Georgi Minoungou",
+    "Donavan Phillip"
+   ],
+   "포메이션": "4-2-3-1",
+   "직전선발": [
+    "Nico Hansen",
+    "Loic Williams",
+    "Rob Holding",
+    "Miguel Navarro",
+    "Keegan Rosenberry",
+    "Paxten Aaronson",
+    "Hamzat Ojediran",
+    "Wayne Frederick",
+    "Donavan Phillip",
+    "Darren Yapi",
+    "Morgan Whittaker"
+   ],
+   "직전포메이션": "4-2-3-1",
+   "교체": 3,
+   "빠진": [
+    "Keegan Rosenberry",
+    "Paxten Aaronson",
+    "Hamzat Ojediran"
+   ]
+  },
+  "환경": {
+   "구장": "프로비던스 파크",
+   "구장고도": 34,
+   "원정홈": "딕스 스포팅 구즈 파크",
+   "원정홈고도": 1586,
+   "이동km": 1584,
+   "고도차": -1552,
+   "날씨": {
+    "기온": 14.8,
+    "습도": 61,
+    "강수mm": 0,
+    "강수확률": 0,
+    "풍속": 8.3,
+    "출처": "Open-Meteo forecast 10-18 17:47"
+   },
+   "출처": [
+    "Wikidata Q16025275→Q262291 · Open-Meteo 고도",
+    "Wikidata Q642408→Q1210268 · Open-Meteo 고도"
+   ],
+   "주의": [
+    "장거리 원정 1584km"
+   ]
+  },
+  "라인업": "발표",
+  "event": "761888"
+ },
+ "9079": {
+  "번호": "9079",
+  "경기": "시애틀 사운더스FC - CF몽레알",
+  "리그": "미국 메이저리그사커",
+  "시각": "10-18 11:30",
+  "수집": "10-18 17:43",
+  "홈": {
+   "팀": "시애틀 사운더스FC",
+   "eng": "Seattle Sounders FC",
+   "직전": "10-15 원정 vs FC Dallas 0-1 패 [usa.1]",
+   "휴식일": 3.1,
+   "최근7일경기": 1,
+   "직전event": "761867",
+   "xg": null,
+   "선발": [
+    "Andy Thomas",
+    "Ryan Sailor",
+    "Yeimar Gómez",
+    "Nouhou Tolo",
+    "Alex Roldan",
+    "Albert Rusnák",
+    "Cristian Roldan",
+    "Hassani Dotson",
+    "Dejan Joveljic",
+    "Jordan Morris",
+    "Caden Clark"
+   ],
+   "포메이션": "4-2-3-1",
+   "직전선발": [
+    "Andy Thomas",
+    "Jackson Ragen",
+    "Stuart Hawkins",
+    "Nouhou Tolo",
+    "Kalani Kossa-Rienzi",
+    "Albert Rusnák",
+    "Snyder Brunell",
+    "Cristian Roldan",
+    "Dejan Joveljic",
+    "Paul Arriola",
+    "Sebastian Gomez"
+   ],
+   "직전포메이션": "4-2-3-1",
+   "교체": 6,
+   "빠진": [
+    "Jackson Ragen",
+    "Stuart Hawkins",
+    "Kalani Kossa-Rienzi",
+    "Snyder Brunell",
+    "Paul Arriola",
+    "Sebastian Gomez"
+   ]
+  },
+  "원정": {
+   "팀": "CF몽레알",
+   "eng": "CF Montreal",
+   "직전": "10-15 홈 vs Atlanta United FC 0-3 패 [usa.1]",
+   "휴식일": 3.1,
+   "최근7일경기": 1,
+   "직전event": "761864",
+   "xg": null,
+   "선발": [
+    "Sébastian Breza",
+    "Brandan Craig",
+    "Efraín Morales",
+    "Viktor Radojevic",
+    "Jalen Neal",
+    "Fabian Herbers",
+    "Victor Loturi",
+    "Samuel Piette",
+    "Alexis Sánchez",
+    "Noah Streit",
+    "Hennadii Synchuk"
+   ],
+   "포메이션": "4-2-3-1",
+   "직전선발": [
+    "Sébastian Breza",
+    "Brandan Craig",
+    "Jalen Neal",
+    "Luca Petrasso",
+    "Dawid Bugaj",
+    "Alexis Sánchez",
+    "Dani Pereira",
+    "Matthew Longstaff",
+    "Daniel Ríos",
+    "Noah Streit",
+    "Wikelman Carmona"
+   ],
+   "직전포메이션": "4-2-3-1",
+   "교체": 6,
+   "빠진": [
+    "Luca Petrasso",
+    "Dawid Bugaj",
+    "Dani Pereira",
+    "Matthew Longstaff",
+    "Daniel Ríos",
+    "Wikelman Carmona"
+   ]
+  },
+  "환경": {
+   "구장": "루멘 필드",
+   "구장고도": 10,
+   "원정홈": "사푸토 스타디움",
+   "원정홈고도": 37,
+   "이동km": 3673,
+   "고도차": -27,
+   "날씨": {
+    "기온": 12.5,
+    "습도": 72,
+    "강수mm": 0,
+    "강수확률": 1,
+    "풍속": 12.6,
+    "출처": "Open-Meteo forecast 10-18 17:48"
+   },
+   "출처": [
+    "Wikidata Q632511→Q612736 · Open-Meteo 고도",
+    "Wikidata Q167615→Q2093647 · Open-Meteo 고도"
+   ],
+   "주의": [
+    "장거리 원정 3673km"
+   ]
+  },
+  "라인업": "발표",
+  "event": "761885"
+ },
+ "9095": {
+  "번호": "9095",
+  "경기": "대전 하나시티즌 - 광주FC",
+  "리그": "K리그1",
+  "시각": "10-18 14:00",
+  "수집": "10-18 17:43",
+  "홈": {
+   "팀": "대전 하나시티즌",
+   "eng": "Daejeon Citizen",
+   "직전": "10-13 원정 vs Shanghai Port 1-1 무 [league stage]",
+   "휴식일": 4.8,
+   "최근7일경기": 1,
+   "직전event": "401912626",
+   "xg": null,
+   "직전선발": [
+    "Joonseo Lee",
+    "Anton Krivotsyuk",
+    "Ha Chang-Rae",
+    "Kyu-hyun Park",
+    "Kang Yoon-Sung",
+    "Lee Soon-Min",
+    "Kim Bong-Soo",
+    "João Victor",
+    "Jeong Jae-Hee",
+    "Jin-Su Seo",
+    "Diogo"
+   ],
+   "직전포메이션": "4-4-2"
+  },
+  "원정": {
+   "팀": "광주FC",
+   "eng": "Gwangju",
+   "휴식일": null,
+   "직전": "-",
+   "최근7일경기": null,
+   "휴식일주의": "35일 내 경기 없음 — ESPN 미제공 리그(체코·폴란드·헝가리·불가리아·키프로스·이스라엘·핀란드·크로아티아·세르비아·동남아 등)이면 에이전트가 직접 확인",
+   "xg": null
+  },
+  "환경": {
+   "구장": "대전월드컵경기장",
+   "구장고도": 63,
+   "원정홈": "광주월드컵경기장",
+   "원정홈고도": 57,
+   "이동km": 143,
+   "고도차": 6,
+   "날씨": {
+    "기온": 23.1,
+    "습도": 81,
+    "강수mm": 4.2,
+    "강수확률": 100,
+    "풍속": 26.2,
+    "출처": "Open-Meteo forecast 10-18 17:50"
+   },
+   "출처": [
+    "Wikidata Q484584→Q482598 · Open-Meteo 고도",
+    "Wikidata Q168364→Q494758 · Open-Meteo 고도"
+   ],
+   "주의": [
+    "비 4.2mm(100%)"
+   ]
+  },
+  "라인업": "미발표",
+  "event": null
+ },
+ "9103": {
+  "번호": "9103",
+  "경기": "전북 현대모터스 - 제주 SKFC",
+  "리그": "K리그1",
+  "시각": "10-18 14:00",
+  "수집": "10-18 17:43",
+  "홈": {
+   "팀": "전북 현대모터스",
+   "eng": "Jeonbuk Motors",
+   "직전": "10-14 원정 vs Vissel Kobe 0-2 패 [league stage]",
+   "휴식일": 3.8,
+   "최근7일경기": 1,
+   "직전event": "401912645",
+   "xg": null,
+   "직전선발": [
+    "Song Bum-Keun",
+    "Yeong-Bin Kim",
+    "Ji-Su Park",
+    "Choi Woo-Jin",
+    "Kim Tae-Hyun",
+    "Kang Sang-Yun",
+    "Maeng Seong-Ung",
+    "Kim Jin-Gyu",
+    "Bruno Rodrigues",
+    "Italo",
+    "Seung-Sub Kim"
+   ],
+   "직전포메이션": "4-2-3-1"
+  },
+  "원정": {
+   "팀": "제주 SKFC",
+   "eng": "Jeju",
+   "휴식일": null,
+   "직전": "-",
+   "최근7일경기": null,
+   "휴식일주의": "35일 내 경기 없음 — ESPN 미제공 리그(체코·폴란드·헝가리·불가리아·키프로스·이스라엘·핀란드·크로아티아·세르비아·동남아 등)이면 에이전트가 직접 확인",
+   "xg": null
+  },
+  "환경": {
+   "구장": "전주월드컵경기장",
+   "구장고도": 9,
+   "원정홈": "제주월드컵경기장",
+   "원정홈고도": 70,
+   "이동km": 296,
+   "고도차": -61,
+   "날씨": {
+    "기온": 24.3,
+    "습도": 78,
+    "강수mm": 1.0,
+    "강수확률": 90,
+    "풍속": 29.1,
+    "출처": "Open-Meteo forecast 10-18 17:50"
+   },
+   "출처": [
+    "Wikidata Q483152→Q562072 · Open-Meteo 고도",
+    "Wikidata Q482617→Q482585 · Open-Meteo 고도"
+   ],
+   "주의": [
+    "비 1.0mm(90%)"
+   ]
+  },
+  "라인업": "미발표",
+  "event": null
+ },
+ "9111": {
+  "번호": "9111",
+  "경기": "수원 삼성블루윙즈 - 화성FC",
+  "리그": "K리그2",
+  "시각": "10-18 14:00",
+  "수집": "10-18 17:43",
+  "홈": {
+   "팀": "수원 삼성블루윙즈",
+   "eng": "Suwon Samsung",
+   "휴식일": null,
+   "직전": "-",
+   "최근7일경기": null,
+   "휴식일주의": "35일 내 경기 없음 — ESPN 미제공 리그(체코·폴란드·헝가리·불가리아·키프로스·이스라엘·핀란드·크로아티아·세르비아·동남아 등)이면 에이전트가 직접 확인",
+   "xg": null
+  },
+  "원정": {
+   "팀": "화성FC",
+   "eng": "Hwaseong",
+   "휴식일": null,
+   "직전": "-",
+   "최근7일경기": null,
+   "휴식일주의": "35일 내 경기 없음 — ESPN 미제공 리그(체코·폴란드·헝가리·불가리아·키프로스·이스라엘·핀란드·크로아티아·세르비아·동남아 등)이면 에이전트가 직접 확인",
+   "xg": null
+  },
+  "환경": {
+   "구장": "수원월드컵경기장",
+   "구장고도": 56,
+   "원정홈": null,
+   "원정홈고도": null,
+   "이동km": null,
+   "고도차": null,
+   "날씨": {
+    "기온": 20.0,
+    "습도": 95,
+    "강수mm": 41.9,
+    "강수확률": 100,
+    "풍속": 30.8,
+    "출처": "Open-Meteo forecast 10-18 17:51"
+   },
+   "출처": [
+    "Wikidata Q482449→Q494761 · Open-Meteo 고도",
+    "못찾음"
+   ],
+   "주의": [
+    "비 41.9mm(100%)",
+    "강풍 30.8km/h"
+   ]
+  },
+  "라인업": "미발표",
+  "event": null
+ },
+ "9115": {
+  "번호": "9115",
+  "경기": "서울 이랜드 - 김해FC 2008",
+  "리그": "K리그2",
+  "시각": "10-18 14:00",
+  "수집": "10-18 17:43",
+  "홈": {
+   "팀": "서울 이랜드",
+   "eng": "Seoul E-Land",
+   "휴식일": null,
+   "직전": "-",
+   "최근7일경기": null,
+   "휴식일주의": "35일 내 경기 없음 — ESPN 미제공 리그(체코·폴란드·헝가리·불가리아·키프로스·이스라엘·핀란드·크로아티아·세르비아·동남아 등)이면 에이전트가 직접 확인",
+   "xg": null
+  },
+  "원정": {
+   "팀": "김해FC 2008",
+   "eng": "Gimhae",
+   "휴식일": null,
+   "직전": "-",
+   "최근7일경기": null,
+   "휴식일주의": "35일 내 경기 없음 — ESPN 미제공 리그(체코·폴란드·헝가리·불가리아·키프로스·이스라엘·핀란드·크로아티아·세르비아·동남아 등)이면 에이전트가 직접 확인",
+   "xg": null
+  },
+  "환경": {
+   "구장": "목동운동장",
+   "구장고도": 20,
+   "원정홈": "김해종합운동장",
+   "원정홈고도": 93,
+   "이동km": 309,
+   "고도차": -73,
+   "날씨": {
+    "기온": 20.8,
+    "습도": 91,
+    "강수mm": 23.0,
+    "강수확률": 100,
+    "풍속": 24.0,
+    "출처": "Open-Meteo forecast 10-18 17:51"
+   },
+   "출처": [
+    "Wikidata Q16261725→Q6895259 · Open-Meteo 고도",
+    "Wikidata Q495864→Q109546499 · Open-Meteo 고도"
+   ],
+   "주의": [
+    "비 23.0mm(100%)"
+   ]
+  },
+  "라인업": "미발표",
+  "event": null
+ },
+ "9146": {
+  "번호": "9146",
+  "경기": "FC서울 - 김천상무 프로축구단",
+  "리그": "K리그1",
+  "시각": "10-18 16:30",
+  "수집": "10-18 17:43",
+  "홈": {
+   "팀": "FC서울",
+   "eng": "FC Seoul",
+   "직전": "10-14 원정 vs Melbourne Victory 0-3 패 [afc.cup]",
+   "휴식일": 4.0,
+   "최근7일경기": 1,
+   "직전event": "401912800",
+   "xg": null,
+   "직전선발": [
+    "Lim Jun-Sub",
+    "Hand-Do Lee",
+    "Sang-Min Lee",
+    "Park Soo-Il",
+    "Ahn Jae-Min",
+    "Min-Jun Kim",
+    "Park Jang Han-Gyeol",
+    "Hyeon-Woo Jeong",
+    "Gbato Samuel",
+    "Leonardo Ruiz",
+    "Cheon Seong-Hoon"
+   ],
+   "직전포메이션": "4-4-2"
+  },
+  "원정": {
+   "팀": "김천상무 프로축구단",
+   "eng": "Gimcheon",
+   "휴식일": null,
+   "직전": "-",
+   "최근7일경기": null,
+   "휴식일주의": "35일 내 경기 없음 — ESPN 미제공 리그(체코·폴란드·헝가리·불가리아·키프로스·이스라엘·핀란드·크로아티아·세르비아·동남아 등)이면 에이전트가 직접 확인",
+   "xg": null
+  },
+  "환경": {
+   "구장": null,
+   "구장고도": null,
+   "원정홈": "상주시민운동장",
+   "원정홈고도": 73,
+   "이동km": null,
+   "고도차": null,
+   "날씨": null,
+   "출처": [
+    "못찾음",
+    "Wikidata Q484536→Q7418025 · Open-Meteo 고도"
+   ],
+   "주의": []
+  },
+  "라인업": "미발표",
+  "event": null
+ },
+ "9154": {
+  "번호": "9154",
+  "경기": "강원FC - 인천 유나이티드",
+  "리그": "K리그1",
+  "시각": "10-18 16:30",
+  "수집": "10-18 17:43",
+  "홈": {
+   "팀": "강원FC",
+   "eng": "Gangwon FC",
+   "직전": "10-15 홈 vs Phnom Penh Crown 1-2 패 [afc.cup]",
+   "휴식일": 2.9,
+   "최근7일경기": 1,
+   "직전event": "401912792",
+   "xg": null,
+   "직전선발": [
+    "Kim Yu-Sung",
+    "Seong-Yun Kang",
+    "Eun-Seok Ko",
+    "Hong Chul",
+    "Kim Do-Hyun",
+    "Lee Yong-Jae",
+    "Yi-Seok Kim",
+    "Cho Won-Woo",
+    "Kang Yun-Gu",
+    "Park Sang-Hyeok",
+    "Abdulla Halaihal"
+   ],
+   "직전포메이션": "4-4-2"
+  },
+  "원정": {
+   "팀": "인천 유나이티드",
+   "eng": "Incheon United",
+   "휴식일": null,
+   "직전": "-",
+   "최근7일경기": null,
+   "휴식일주의": "35일 내 경기 없음 — ESPN 미제공 리그(체코·폴란드·헝가리·불가리아·키프로스·이스라엘·핀란드·크로아티아·세르비아·동남아 등)이면 에이전트가 직접 확인",
+   "xg": null
+  },
+  "환경": {
+   "구장": "춘천송암스포츠타운",
+   "구장고도": 84,
+   "원정홈": "인천축구전용경기장",
+   "원정홈고도": 17,
+   "이동km": 102,
+   "고도차": 67,
+   "날씨": {
+    "기온": 20.0,
+    "습도": 95,
+    "강수mm": 14.8,
+    "강수확률": 100,
+    "풍속": 21.2,
+    "출처": "Open-Meteo forecast 10-18 17:52"
+   },
+   "출처": [
+    "Wikidata Q484569→Q5116244 · Open-Meteo 고도",
+    "Wikidata Q482562→Q493545 · Open-Meteo 고도"
+   ],
+   "주의": [
+    "비 14.8mm(100%)"
+   ]
+  },
+  "라인업": "미발표",
+  "event": null
+ },
+ "9162": {
+  "번호": "9162",
+  "경기": "포항 스틸러스 - FC안양",
+  "리그": "K리그1",
+  "시각": "10-18 16:30",
+  "수집": "10-18 17:43",
+  "홈": {
+   "팀": "포항 스틸러스",
+   "eng": "Pohang Steelers",
+   "직전": "10-13 홈 vs Johor Darul Ta'zim 0-2 패 [league stage]",
+   "휴식일": 4.9,
+   "최근7일경기": 1,
+   "직전event": "401912648",
+   "xg": null,
+   "직전선발": [
+    "Hong Seong-Min",
+    "Jeon Min-Gwang",
+    "Park Chan-Yong",
+    "Ki Sung-Yueng",
+    "Wanderson Carvalho Oliveira",
+    "Kang Min-Jun",
+    "Kento Nishiya",
+    "Kim Dong-Jin",
+    "Jorge Teixeira",
+    "Paulo Rocha",
+    "Jakob Tranziska"
+   ],
+   "직전포메이션": "4-1-4-1"
+  },
+  "원정": {
+   "팀": "FC안양",
+   "eng": "Anyang",
+   "휴식일": null,
+   "직전": "-",
+   "최근7일경기": null,
+   "휴식일주의": "35일 내 경기 없음 — ESPN 미제공 리그(체코·폴란드·헝가리·불가리아·키프로스·이스라엘·핀란드·크로아티아·세르비아·동남아 등)이면 에이전트가 직접 확인",
+   "xg": null
+  },
+  "환경": {
+   "구장": "포항스틸야드",
+   "구장고도": 18,
+   "원정홈": null,
+   "원정홈고도": null,
+   "이동km": null,
+   "고도차": null,
+   "날씨": {
+    "기온": 23.3,
+    "습도": 78,
+    "강수mm": 0,
+    "강수확률": 0,
+    "풍속": 29.5,
+    "출처": "Open-Meteo forecast 10-18 17:52"
+   },
+   "출처": [
+    "Wikidata Q169985→Q485061 · Open-Meteo 고도",
+    "못찾음"
+   ],
+   "주의": []
+  },
+  "라인업": "미발표",
+  "event": null
+ },
+ "9030": {
+  "번호": "9030",
+  "경기": "애틀랜타 유나이티드FC - 인터 마이애미CF",
+  "리그": "미국 메이저리그사커",
+  "시각": "10-18 08:30",
+  "수집": "10-18 17:43",
+  "홈": {
+   "팀": "애틀랜타 유나이티드FC",
+   "eng": "Atlanta United FC",
+   "직전": "10-15 원정 vs CF Montréal 3-0 승 [usa.1]",
+   "휴식일": 3.0,
+   "최근7일경기": 1,
+   "직전event": "761864",
+   "xg": null,
+   "선발": [
+    "Lucas Hoyos",
+    "Júnior Alonso",
+    "Paulo Díaz",
+    "Elías Baez",
+    "Tomás Jacob",
+    "Mauricio Amaro",
+    "Giuliano Galoppo",
+    "Tristan Muyumba",
+    "Breel Embolo",
+    "Miguel Almirón",
+    "Alexey Miranchuk"
+   ],
+   "포메이션": "4-3-3",
+   "직전선발": [
+    "Lucas Hoyos",
+    "Júnior Alonso",
+    "Paulo Díaz",
+    "Mauricio Amaro",
+    "Elías Baez",
+    "Matt Edwards",
+    "Giuliano Galoppo",
+    "Jay Fortune",
+    "Miguel Almirón",
+    "Alexey Miranchuk",
+    "Breel Embolo"
+   ],
+   "직전포메이션": "4-1-4-1",
+   "교체": 2,
+   "빠진": [
+    "Matt Edwards",
+    "Jay Fortune"
+   ]
+  },
+  "원정": {
+   "팀": "인터 마이애미CF",
+   "eng": "Inter Miami CF",
+   "직전": "10-15 홈 vs New York City FC 2-0 승 [usa.1]",
+   "휴식일": 3.0,
+   "최근7일경기": 1,
+   "직전event": "761861",
+   "xg": {
+    "n": 7,
+    "xg": 3.15,
+    "xga": 1.38,
+    "npxgd": 1.67,
+    "l5_xg": 3.31,
+    "l5_xga": 1.62,
+    "l5_npxgd": 1.54,
+    "home_xgd": 1.48,
+    "away_xgd": 1.92,
+    "xpts": 16.4,
+    "pts": 19
+   },
+   "xg_src": "Understat Serie_A Inter",
+   "선발": [
+    "Dayne St. Clair",
+    "Micael",
+    "Casemiro",
+    "Sergio Reguilón",
+    "Gonzalo Luján",
+    "David Ayala",
+    "Matías Galarza",
+    "Rodrigo De Paul",
+    "Luis Suárez",
+    "Germán Berterame",
+    "Lionel Messi"
+   ],
+   "포메이션": "4-3-3",
+   "직전선발": [
+    "Dayne St. Clair",
+    "Micael",
+    "Casemiro",
+    "Sergio Reguilón",
+    "Gonzalo Luján",
+    "David Ayala",
+    "Matías Galarza",
+    "Rodrigo De Paul",
+    "Luis Suárez",
+    "Germán Berterame",
+    "Lionel Messi"
+   ],
+   "직전포메이션": "4-3-3",
+   "교체": 0,
+   "빠진": []
+  },
+  "환경": {
+   "구장": "메르세데스-벤츠 스타디움",
+   "구장고도": 307,
+   "원정홈": "인터 마이애미 CF 스타디움",
+   "원정홈고도": 5,
+   "이동km": 935,
+   "고도차": 302,
+   "날씨": {
+    "기온": 15.5,
+    "습도": 49,
+    "강수mm": 0,
+    "강수확률": 0,
+    "풍속": 13.7,
+    "출처": "Open-Meteo forecast 10-18 17:44"
+   },
+   "출처": [
+    "Wikidata Q16836317→Q7007552 · Open-Meteo 고도",
+    "Wikidata Q16844931→Q65240568 · Open-Meteo 고도"
+   ],
+   "주의": [
+    "장거리 원정 935km"
+   ]
+  },
+  "라인업": "발표",
+  "event": "761880"
+ },
+ "9034": {
+  "번호": "9034",
+  "경기": "뉴잉글랜드 레벌루션 - 시카고 파이어FC",
+  "리그": "미국 메이저리그사커",
+  "시각": "10-18 08:30",
+  "수집": "10-18 17:43",
+  "홈": {
+   "팀": "뉴잉글랜드 레벌루션",
+   "eng": "New England Revolution",
+   "직전": "10-15 원정 vs FC Cincinnati 3-2 승 [usa.1]",
+   "휴식일": 3.0,
+   "최근7일경기": 1,
+   "직전event": "761862",
+   "xg": null,
+   "선발": [
+    "Matt Turner",
+    "Joshua Wynder",
+    "Ethan Kohler",
+    "William Sands",
+    "Ilay Feingold",
+    "Brooklyn Raines",
+    "Matt Polster",
+    "Carles Gil",
+    "Dor Turgeman",
+    "Luca Langoni",
+    "Peyton Miller"
+   ],
+   "포메이션": "4-3-3",
+   "직전선발": [
+    "Matt Turner",
+    "Joshua Wynder",
+    "Ethan Kohler",
+    "William Sands",
+    "Ilay Feingold",
+    "Carles Gil",
+    "Brooklyn Raines",
+    "Matt Polster",
+    "Dor Turgeman",
+    "Dániel Gazdag",
+    "Peyton Miller"
+   ],
+   "직전포메이션": "4-2-3-1",
+   "교체": 1,
+   "빠진": [
+    "Dániel Gazdag"
+   ]
+  },
+  "원정": {
+   "팀": "시카고 파이어FC",
+   "eng": "Chicago Fire FC",
+   "직전": "10-15 홈 vs Philadelphia Union 1-3 패 [usa.1]",
+   "휴식일": 3.0,
+   "최근7일경기": 1,
+   "직전event": "761869",
+   "xg": null,
+   "선발": [
+    "Chris Brady",
+    "Mbekezeli Mbokazi",
+    "Andreas Hanche-Olsen",
+    "Andrew Gutman",
+    "Leonardo Barroso",
+    "D'Avilla Dje Tah",
+    "Maren Haile-Selassie",
+    "Anton Saletros",
+    "Robert Lewandowski",
+    "Jonathan Bamba",
+    "Philip Zinckernagel"
+   ],
+   "포메이션": "4-3-3",
+   "직전선발": [
+    "Chris Brady",
+    "Mbekezeli Mbokazi",
+    "Jack Elliott",
+    "Noah Allen",
+    "Jonathan Dean",
+    "Mauricio Pineda",
+    "Anton Saletros",
+    "Jonathan Bamba",
+    "Johan Gómez",
+    "Maren Haile-Selassie",
+    "Robert Lewandowski"
+   ],
+   "직전포메이션": "4-4-2",
+   "교체": 5,
+   "빠진": [
+    "Jack Elliott",
+    "Noah Allen",
+    "Jonathan Dean",
+    "Mauricio Pineda",
+    "Johan Gómez"
+   ]
+  },
+  "환경": {
+   "구장": "질레트 스타디움",
+   "구장고도": 89,
+   "원정홈": "솔저 필드",
+   "원정홈고도": 194,
+   "이동km": 1350,
+   "고도차": -105,
+   "날씨": {
+    "기온": 5.7,
+    "습도": 51,
+    "강수mm": 0,
+    "강수확률": 0,
+    "풍속": 11.0,
+    "출처": "Open-Meteo forecast 10-18 17:44"
+   },
+   "출처": [
+    "Wikidata Q309095→Q373355 · Open-Meteo 고도",
+    "Wikidata Q308683→Q1132413 · Open-Meteo 고도"
+   ],
+   "주의": [
+    "장거리 원정 1350km"
+   ]
+  },
+  "라인업": "발표",
+  "event": "761879"
+ },
+ "9038": {
+  "번호": "9038",
+  "경기": "뉴욕 시티FC - LAFC",
+  "리그": "미국 메이저리그사커",
+  "시각": "10-18 08:30",
+  "수집": "10-18 17:43",
+  "홈": {
+   "팀": "뉴욕 시티FC",
+   "eng": "New York City FC",
+   "직전": "10-15 원정 vs Inter Miami CF 0-2 패 [usa.1]",
+   "휴식일": 3.0,
+   "최근7일경기": 1,
+   "직전event": "761861",
+   "xg": null,
+   "선발": [
+    "Matt Freese",
+    "James Sands",
+    "Thiago Martins",
+    "Kevin O'Toole",
+    "Tayvon Gray",
+    "Nicolás Fernández",
+    "Andrés Perea",
+    "Aiden O'Neill",
+    "Luighi Hanri",
+    "Hannes Wolf",
+    "Agustin Ojeda"
+   ],
+   "포메이션": "4-2-3-1",
+   "직전선발": [
+    "Matt Freese",
+    "James Sands",
+    "Thiago Martins",
+    "Nico Cavallo",
+    "Tayvon Gray",
+    "Nicolás Fernández",
+    "Andrés Perea",
+    "Aiden O'Neill",
+    "Alonso Martínez",
+    "Bénie Traoré",
+    "Agustin Ojeda"
+   ],
+   "직전포메이션": "4-2-3-1",
+   "교체": 3,
+   "빠진": [
+    "Nico Cavallo",
+    "Alonso Martínez",
+    "Bénie Traoré"
+   ]
+  },
+  "원정": {
+   "팀": "LAFC",
+   "eng": "Los Angeles FC",
+   "직전": "10-15 홈 vs Austin FC 3-1 승 [usa.1]",
+   "휴식일": 2.9,
+   "최근7일경기": 2,
+   "직전event": "761873",
+   "xg": null,
+   "선발": [
+    "Hugo Lloris",
+    "Nkosi Tafari",
+    "Aaron Long",
+    "Yevhen Cheberko",
+    "Ryan Hollingshead",
+    "Son Heung-Min",
+    "Igor Jesus",
+    "Mark Delgado",
+    "Denis Bouanga",
+    "Jacob Shaffelburg",
+    "Leo Walta"
+   ],
+   "포메이션": "4-2-3-1",
+   "직전선발": [
+    "Hugo Lloris",
+    "Aaron Long",
+    "Ryan Porteous",
+    "Yevhen Cheberko",
+    "Sergi Palencia",
+    "Son Heung-Min",
+    "Igor Jesus",
+    "Mark Delgado",
+    "Denis Bouanga",
+    "Armindo Sieb",
+    "Leo Walta"
+   ],
+   "직전포메이션": "4-2-3-1",
+   "교체": 3,
+   "빠진": [
+    "Ryan Porteous",
+    "Sergi Palencia",
+    "Armindo Sieb"
+   ]
+  },
+  "환경": {
+   "구장": "양키 스타디움",
+   "구장고도": 6,
+   "원정홈": "BMO 스타디움(구단 좌표 — 구장 미확인)",
+   "원정홈고도": 60,
+   "이동km": 3947,
+   "고도차": -54,
+   "날씨": {
+    "기온": 9.4,
+    "습도": 41,
+    "강수mm": 0,
+    "강수확률": 0,
+    "풍속": 11.3,
+    "출처": "Open-Meteo forecast 10-18 17:44"
+   },
+   "출처": [
+    "Wikidata Q13361030→Q753529 · Open-Meteo 고도",
+    "Wikidata Q22096111→구단 · Open-Meteo 고도"
+   ],
+   "주의": [
+    "장거리 원정 3947km"
+   ]
+  },
+  "라인업": "발표",
+  "event": "761877"
+ },
+ "9043": {
+  "번호": "9043",
+  "경기": "뉴욕 레드불스 - 토론토FC",
+  "리그": "미국 메이저리그사커",
+  "시각": "10-18 08:30",
+  "수집": "10-18 17:43",
+  "홈": {
+   "팀": "뉴욕 레드불스",
+   "eng": "New York Red Bulls",
+   "직전": "10-15 원정 vs D.C. United 1-2 패 [usa.1]",
+   "휴식일": 3.0,
+   "최근7일경기": 1,
+   "직전event": "761863",
+   "xg": null,
+   "선발": [
+    "Ethan Horvath",
+    "Julián Bazán",
+    "Justin Che",
+    "Devin Padelford",
+    "Dylan Nealis",
+    "Adri Mehmeti",
+    "Mohammed Sofo",
+    "Ronald Donkor",
+    "Julian Hall",
+    "Cade Cowell",
+    "Cameron Harper"
+   ],
+   "포메이션": "4-3-3",
+   "직전선발": [
+    "Ethan Horvath",
+    "Julián Bazán",
+    "Justin Che",
+    "Devin Padelford",
+    "Dylan Nealis",
+    "Adri Mehmeti",
+    "Mohammed Sofo",
+    "Ronald Donkor",
+    "Julian Hall",
+    "Cade Cowell",
+    "Jorge Ruvalcaba"
+   ],
+   "직전포메이션": "4-3-3",
+   "교체": 1,
+   "빠진": [
+    "Jorge Ruvalcaba"
+   ]
+  },
+  "원정": {
+   "팀": "토론토FC",
+   "eng": "Toronto FC",
+   "직전": "10-15 홈 vs Orlando City SC 3-3 무 [usa.1]",
+   "휴식일": 3.0,
+   "최근7일경기": 1,
+   "직전event": "761860",
+   "xg": null,
+   "선발": [
+    "Luka Gavran",
+    "Nickseon Gomis",
+    "Zane Monlouis",
+    "Matheus Pereira",
+    "Kobe Franklin",
+    "Jonathan Osorio",
+    "Niklas Dorsch",
+    "Lewis Morgan",
+    "Theo Corbeanu",
+    "Djordje Mihailovic",
+    "Josh Sargent"
+   ],
+   "포메이션": "4-4-2",
+   "직전선발": [
+    "Luka Gavran",
+    "Benjamín Kuscevic",
+    "Zane Monlouis",
+    "Matheus Pereira",
+    "Richie Laryea",
+    "Niklas Dorsch",
+    "Alonso Coello",
+    "Dániel Sallói",
+    "Theo Corbeanu",
+    "Lewis Morgan",
+    "Josh Sargent"
+   ],
+   "직전포메이션": "4-4-2",
+   "교체": 4,
+   "빠진": [
+    "Benjamín Kuscevic",
+    "Richie Laryea",
+    "Alonso Coello",
+    "Dániel Sallói"
+   ]
+  },
+  "환경": {
+   "구장": "레드불 아레나",
+   "구장고도": 5,
+   "원정홈": "BMO 필드",
+   "원정홈고도": 83,
+   "이동km": 540,
+   "고도차": -78,
+   "날씨": {
+    "기온": 9.8,
+    "습도": 35,
+    "강수mm": 0,
+    "강수확률": 0,
+    "풍속": 14.8,
+    "출처": "Open-Meteo forecast 10-18 17:45"
+   },
+   "출처": [
+    "Wikidata Q204220→Q761682 · Open-Meteo 고도",
+    "Wikidata Q327238→Q796351 · Open-Meteo 고도"
+   ],
+   "주의": []
+  },
+  "라인업": "발표",
+  "event": "761878"
+ },
+ "9047": {
+  "번호": "9047",
+  "경기": "올랜도 시티SC - DC유나이티드",
+  "리그": "미국 메이저리그사커",
+  "시각": "10-18 08:30",
+  "수집": "10-18 17:43",
+  "홈": {
+   "팀": "올랜도 시티SC",
+   "eng": "Orlando City SC",
+   "직전": "10-15 원정 vs Toronto FC 3-3 무 [usa.1]",
+   "휴식일": 3.0,
+   "최근7일경기": 1,
+   "직전event": "761860",
+   "xg": null,
+   "선발": [
+    "Maxime Crépeau",
+    "Iago Teodoro",
+    "David Brekalo",
+    "Iván Angulo",
+    "Zakaria Taifi",
+    "Antoine Griezmann",
+    "Wilder Cartagena",
+    "Luis Otávio",
+    "Daryl Dike",
+    "Martín Ojeda",
+    "Eduard Atuesta"
+   ],
+   "포메이션": "4-2-3-1",
+   "직전선발": [
+    "Maxime Crépeau",
+    "Iago Teodoro",
+    "David Brekalo",
+    "Vinícius Nogueira",
+    "Eduard Atuesta",
+    "Wilder Cartagena",
+    "Luis Otávio",
+    "Harvey Sarajian",
+    "Iván Angulo",
+    "Martín Ojeda",
+    "Antoine Griezmann"
+   ],
+   "직전포메이션": "4-4-2",
+   "교체": 2,
+   "빠진": [
+    "Vinícius Nogueira",
+    "Harvey Sarajian"
+   ]
+  },
+  "원정": {
+   "팀": "DC유나이티드",
+   "eng": "D.C. United",
+   "직전": "10-15 홈 vs Red Bull New York 2-1 승 [usa.1]",
+   "휴식일": 3.0,
+   "최근7일경기": 1,
+   "직전event": "761863",
+   "xg": null,
+   "선발": [
+    "Sean Johnson",
+    "Kye Rowles",
+    "Sean Nealis",
+    "Keisuke Kurokawa",
+    "Silvan Hefti",
+    "Andre Dozzell",
+    "Kimito Nono",
+    "João Peglow",
+    "Jared Stroud",
+    "Brandon Servania",
+    "Tai Baribo"
+   ],
+   "포메이션": "4-4-2",
+   "직전선발": [
+    "Sean Johnson",
+    "Kye Rowles",
+    "Lucas Bartlett",
+    "Keisuke Kurokawa",
+    "Silvan Hefti",
+    "Andre Dozzell",
+    "Brandon Servania",
+    "Kimito Nono",
+    "Tai Baribo",
+    "Jackson Hopkins",
+    "Oscar Avilez"
+   ],
+   "직전포메이션": "4-3-3",
+   "교체": 3,
+   "빠진": [
+    "Lucas Bartlett",
+    "Jackson Hopkins",
+    "Oscar Avilez"
+   ]
+  },
+  "환경": {
+   "구장": "올랜도 시티 스타디움",
+   "구장고도": 34,
+   "원정홈": "아우디 필드",
+   "원정홈고도": 7,
+   "이동km": 1217,
+   "고도차": 27,
+   "날씨": {
+    "기온": 20.1,
+    "습도": 53,
+    "강수mm": 0,
+    "강수확률": 5,
+    "풍속": 19.8,
+    "출처": "Open-Meteo forecast 10-18 17:45"
+   },
+   "출처": [
+    "Wikidata Q15214308→Q16846942 · Open-Meteo 고도",
+    "Wikidata Q238593→Q5203387 · Open-Meteo 고도"
+   ],
+   "주의": [
+    "장거리 원정 1217km"
+   ]
+  },
+  "라인업": "발표",
+  "event": "761881"
+ },
+ "9051": {
+  "번호": "9051",
+  "경기": "오스틴FC - 밴쿠버 화이트캡스FC",
+  "리그": "미국 메이저리그사커",
+  "시각": "10-18 09:30",
+  "수집": "10-18 17:43",
+  "홈": {
+   "팀": "오스틴FC",
+   "eng": "Austin FC",
+   "직전": "10-15 원정 vs LAFC 1-3 패 [usa.1]",
+   "휴식일": 2.9,
+   "최근7일경기": 1,
+   "직전event": "761873",
+   "xg": null,
+   "선발": [
+    "Brad Stuver",
+    "Oleksandr Svatok",
+    "Jon Bell",
+    "Brendan Hines-Ike",
+    "Besard Sabovic",
+    "Ervin Torres",
+    "Jon Gallagher",
+    "Joseph Rosales",
+    "Brandon Vázquez",
+    "Myrto Uzuni",
+    "Christian Ramírez"
+   ],
+   "포메이션": "3-4-3",
+   "직전선발": [
+    "Brad Stuver",
+    "Oleksandr Svatok",
+    "Guilherme Biro",
+    "Brendan Hines-Ike",
+    "Besard Sabovic",
+    "Ervin Torres",
+    "Jon Gallagher",
+    "Joseph Rosales",
+    "Brandon Vázquez",
+    "Facundo Torres",
+    "Christian Ramírez"
+   ],
+   "직전포메이션": "3-4-3",
+   "교체": 2,
+   "빠진": [
+    "Guilherme Biro",
+    "Facundo Torres"
+   ]
+  },
+  "원정": {
+   "팀": "밴쿠버 화이트캡스FC",
+   "eng": "Vancouver Whitecaps FC",
+   "직전": "10-15 원정 vs St. Louis CITY SC 0-0 무 [usa.1]",
+   "휴식일": 3.0,
+   "최근7일경기": 2,
+   "직전event": "761868",
+   "xg": null,
+   "선발": [
+    "Yohei Takaoka",
+    "Tristan Blackmon",
+    "Mathías Laborda",
+    "Tate Johnson",
+    "Édier Ocampo",
+    "Ryan Gauld",
+    "Aleksa Cvetković",
+    "Andrés Cubas",
+    "Brian White",
+    "Bruno Caicedo",
+    "Emmanuel Sabbi"
+   ],
+   "포메이션": "4-2-3-1",
+   "직전선발": [
+    "Yohei Takaoka",
+    "Ralph Priso-Mbongue",
+    "Mathías Laborda",
+    "Tate Johnson",
+    "Édier Ocampo",
+    "Ryan Gauld",
+    "Andrés Cubas",
+    "Oliver Larraz",
+    "Brian White",
+    "Yadaly Diaby",
+    "Emmanuel Sabbi"
+   ],
+   "직전포메이션": "4-2-3-1",
+   "교체": 3,
+   "빠진": [
+    "Ralph Priso-Mbongue",
+    "Oliver Larraz",
+    "Yadaly Diaby"
+   ]
+  },
+  "환경": {
+   "구장": null,
+   "구장고도": null,
+   "원정홈": "BC 플레이스 스타디움",
+   "원정홈고도": 18,
+   "이동km": null,
+   "고도차": null,
+   "날씨": null,
+   "출처": [
+    "못찾음",
+    "Wikidata Q196107→Q612227 · Open-Meteo 고도"
+   ],
+   "주의": []
+  },
+  "라인업": "발표",
+  "event": "761882"
+ },
+ "9055": {
+  "번호": "9055",
+  "경기": "휴스턴 다이너모FC - FC댈러스",
+  "리그": "미국 메이저리그사커",
+  "시각": "10-18 09:30",
+  "수집": "10-18 17:43",
+  "홈": {
+   "팀": "휴스턴 다이너모FC",
+   "eng": "Houston Dynamo FC",
+   "직전": "10-15 원정 vs San Diego FC 3-3 무 [usa.1]",
+   "휴식일": 2.9,
+   "최근7일경기": 1,
+   "직전event": "761872",
+   "xg": null,
+   "선발": [
+    "Jonathan Bond",
+    "Agustín Resch",
+    "Lucas Halter",
+    "Franco Negri",
+    "Lawrence Ennali",
+    "Diadie Samassekou",
+    "Artur",
+    "Héctor Herrera",
+    "Lyle Foster",
+    "Guilherme Augusto",
+    "Mateusz Bogusz"
+   ],
+   "포메이션": "4-2-3-1",
+   "직전선발": [
+    "Jonathan Bond",
+    "Lucas Halter",
+    "Antônio Carlos",
+    "Franco Negri",
+    "Lawrence Ennali",
+    "Agustín Bouzat",
+    "Héctor Herrera",
+    "Artur",
+    "Lyle Foster",
+    "Guilherme Augusto",
+    "Mateusz Bogusz"
+   ],
+   "직전포메이션": "4-2-3-1",
+   "교체": 2,
+   "빠진": [
+    "Antônio Carlos",
+    "Agustín Bouzat"
+   ]
+  },
+  "원정": {
+   "팀": "FC댈러스",
+   "eng": "FC Dallas",
+   "직전": "10-15 홈 vs Seattle Sounders FC 1-0 승 [usa.1]",
+   "휴식일": 3.0,
+   "최근7일경기": 1,
+   "직전event": "761867",
+   "xg": null,
+   "선발": [
+    "Daniel",
+    "Sebastien Ibeagha",
+    "Nolan Norris",
+    "Shaq Moore",
+    "Christian Cappis",
+    "Ramiro",
+    "Bernard Kamungo",
+    "Herman Johansson",
+    "Petar Musa",
+    "Daniel Job",
+    "Patrickson Delgado"
+   ],
+   "포메이션": "3-4-2-1",
+   "직전선발": [
+    "Daniel",
+    "Osaze Urhoghide",
+    "Shaq Moore",
+    "Sebastien Ibeagha",
+    "Ramiro",
+    "Kaick",
+    "Bernard Kamungo",
+    "Ran Binyamin",
+    "Petar Musa",
+    "Santiago Moreno",
+    "Joaquín Valiente"
+   ],
+   "직전포메이션": "3-4-2-1",
+   "교체": 5,
+   "빠진": [
+    "Osaze Urhoghide",
+    "Kaick",
+    "Ran Binyamin",
+    "Santiago Moreno",
+    "Joaquín Valiente"
+   ]
+  },
+  "환경": {
+   "구장": "BBVV 컴패스 스타디움",
+   "구장고도": 12,
+   "원정홈": "FC 댈러스 스타디움",
+   "원정홈고도": 190,
+   "이동km": 404,
+   "고도차": -178,
+   "날씨": {
+    "기온": 18.9,
+    "습도": 43,
+    "강수mm": 0,
+    "강수확률": 0,
+    "풍속": 6.0,
+    "출처": "Open-Meteo forecast 10-18 17:46"
+   },
+   "출처": [
+    "Wikidata Q328313→Q176460 · Open-Meteo 고도",
+    "Wikidata Q642291→Q1140457 · Open-Meteo 고도"
+   ],
+   "주의": []
+  },
+  "라인업": "발표",
+  "event": "761883"
+ },
+ "9059": {
+  "번호": "9059",
+  "경기": "스포팅 캔자스시티 - 레알 솔트레이크",
+  "리그": "미국 메이저리그사커",
+  "시각": "10-18 09:30",
+  "수집": "10-18 17:43",
+  "홈": {
+   "팀": "스포팅 캔자스시티",
+   "eng": "Sporting Kansas City",
+   "직전": "10-15 원정 vs Nashville SC 0-4 패 [usa.1]",
+   "휴식일": 3.0,
+   "최근7일경기": 1,
+   "직전event": "761866",
+   "xg": null,
+   "선발": [
+    "Stefan Cleveland",
+    "Wyatt Meyer",
+    "Jansen Miller",
+    "Emir Karic",
+    "Jacob Bartlett",
+    "Zorhan Bassong",
+    "Kwaku Agyabeng",
+    "Calvin Harris",
+    "André Luiz",
+    "Stephen Afrifa",
+    "Taylor Calheira"
+   ],
+   "포메이션": "4-4-2",
+   "직전선발": [
+    "Stefan Cleveland",
+    "Wyatt Meyer",
+    "Jansen Miller",
+    "Jayden Reid",
+    "Ian James",
+    "Kwaku Agyabeng",
+    "Zorhan Bassong",
+    "Shapi Suleymanov",
+    "André Luiz",
+    "Seymour Reid",
+    "Ruben Ramos"
+   ],
+   "직전포메이션": "4-4-2",
+   "교체": 5,
+   "빠진": [
+    "Jayden Reid",
+    "Ian James",
+    "Shapi Suleymanov",
+    "Seymour Reid",
+    "Ruben Ramos"
+   ]
+  },
+  "원정": {
+   "팀": "레알 솔트레이크",
+   "eng": "Real Salt Lake",
+   "직전": "10-15 홈 vs San Jose Earthquakes 1-1 무 [usa.1]",
+   "휴식일": 3.0,
+   "최근7일경기": 1,
+   "직전event": "761870",
+   "xg": null,
+   "선발": [
+    "Rafael",
+    "Philip Quinton",
+    "Kobi Henry",
+    "Luc de Fougerolles",
+    "Juan Manuel Sanabria",
+    "Dominik Marczuk",
+    "Noel Caliskan",
+    "Stijn Spierings",
+    "Morgan Guilavogui",
+    "Saba Lobjanidze",
+    "Sergi Solans"
+   ],
+   "포메이션": "5-4-1",
+   "직전선발": [
+    "Rafael",
+    "Philip Quinton",
+    "Kobi Henry",
+    "Luc de Fougerolles",
+    "Stijn Spierings",
+    "Noel Caliskan",
+    "Juan Manuel Sanabria",
+    "Dominik Marczuk",
+    "Sergi Solans",
+    "Saba Lobjanidze",
+    "Morgan Guilavogui"
+   ],
+   "직전포메이션": "3-4-2-1",
+   "교체": 0,
+   "빠진": []
+  },
+  "환경": {
+   "구장": "스포팅 파크",
+   "구장고도": 305,
+   "원정홈": "아메리카 퍼스트 필드",
+   "원정홈고도": 1350,
+   "이동km": 1464,
+   "고도차": -1045,
+   "날씨": {
+    "기온": 11.6,
+    "습도": 63,
+    "강수mm": 0,
+    "강수확률": 0,
+    "풍속": 9.7,
+    "출처": "Open-Meteo forecast 10-18 17:46"
+   },
+   "출처": [
+    "Wikidata Q329812→Q1787141 · Open-Meteo 고도",
+    "Wikidata Q391353→Q1514798 · Open-Meteo 고도"
+   ],
+   "주의": [
+    "장거리 원정 1464km"
+   ]
+  },
+  "라인업": "발표",
+  "event": "761884"
+ },
+ "9063": {
+  "번호": "9063",
+  "경기": "웰링턴 피닉스 - 멜버른 빅토리",
+  "리그": "호주 A리그",
+  "시각": "10-18 11:00",
+  "수집": "10-18 17:43",
+  "홈": {
+   "팀": "웰링턴 피닉스",
+   "eng": "웰링턴 피닉스",
+   "휴식일": null,
+   "직전": "-",
+   "최근7일경기": null,
+   "휴식일주의": "35일 내 경기 없음 — ESPN 미제공 리그(체코·폴란드·헝가리·불가리아·키프로스·이스라엘·핀란드·크로아티아·세르비아·동남아 등)이면 에이전트가 직접 확인",
+   "xg": null
+  },
+  "원정": {
+   "팀": "멜버른 빅토리",
+   "eng": "Melbourne Victory",
+   "직전": "10-17 원정 vs Western Sydney  1-0 승 [regular season]",
+   "휴식일": 0.9,
+   "최근7일경기": 2,
+   "직전event": "401913253",
+   "xg": null,
+   "직전선발": [
+    "Courtney Newbon",
+    "Claudia Bunge",
+    "Kayla Ann Morrison",
+    "Zoe Ann Aislabie Mcmeeken",
+    "Alana Jancevski",
+    "Alicia Woods",
+    "Angela Beard",
+    "Anna Felicitas Katharina Sutter",
+    "Sienna Saveska",
+    "Sophie Harding",
+    "Holly Furphy"
+   ],
+   "직전포메이션": "3-4-3"
+  },
+  "환경": {
+   "구장": "웰링턴 리저널 스타디움",
+   "구장고도": 12,
+   "원정홈": "멜버른 렉탱귤러 스타디움",
+   "원정홈고도": 8,
+   "이동km": 2571,
+   "고도차": 4,
+   "날씨": {
+    "기온": 13.4,
+    "습도": 79,
+    "강수mm": 0,
+    "강수확률": 0,
+    "풍속": 8.6,
+    "출처": "Open-Meteo forecast 10-18 17:47"
+   },
+   "출처": [
+    "Wikidata Q815890→Q1348677 · Open-Meteo 고도",
+    "Wikidata Q316789→Q1381223 · Open-Meteo 고도"
+   ],
+   "주의": [
+    "장거리 원정 2571km"
+   ]
+  },
+  "라인업": "미발표",
+  "event": null
+ },
+ "9067": {
+  "번호": "9067",
+  "경기": "LA 갤럭시 - 샌디에이고FC",
+  "리그": "미국 메이저리그사커",
+  "시각": "10-18 11:30",
+  "수집": "10-18 17:43",
+  "홈": {
+   "팀": "LA 갤럭시",
+   "eng": "LA Galaxy",
+   "직전": "10-15 홈 vs Portland Timbers 2-0 승 [usa.1]",
+   "휴식일": 3.0,
+   "최근7일경기": 2,
+   "직전event": "761874",
+   "xg": null,
+   "선발": [
+    "JT Marcinkowski",
+    "Justin Haak",
+    "Carlos Garcés",
+    "John Nelson",
+    "Harbor Miller",
+    "Marco Reus",
+    "Sergi Roberto",
+    "Pablo Ruiz",
+    "João Klauss",
+    "Erik Thommy",
+    "Robert Taylor"
+   ],
+   "포메이션": "4-2-3-1",
+   "직전선발": [
+    "JT Marcinkowski",
+    "Carlos Garcés",
+    "Justin Haak",
+    "John Nelson",
+    "Calegari",
+    "Marco Reus",
+    "Sergi Roberto",
+    "Pablo Ruiz",
+    "João Klauss",
+    "Robert Taylor",
+    "Joseph Paintsil"
+   ],
+   "직전포메이션": "4-2-3-1",
+   "교체": 2,
+   "빠진": [
+    "Calegari",
+    "Joseph Paintsil"
+   ]
+  },
+  "원정": {
+   "팀": "샌디에이고FC",
+   "eng": "San Diego FC",
+   "직전": "10-15 홈 vs Houston Dynamo FC 3-3 무 [usa.1]",
+   "휴식일": 3.0,
+   "최근7일경기": 1,
+   "직전event": "761872",
+   "xg": null,
+   "선발": [
+    "Pablo Sisniega",
+    "Manu Duah",
+    "Christopher McVey",
+    "Kieran Sargeant",
+    "Oscar Verhoeven",
+    "Aníbal Godoy",
+    "Gabriel Pirani",
+    "Alejandro Alvarado Jr.",
+    "Cédric Bakambu",
+    "Elias Achouri",
+    "Anders Dreyer"
+   ],
+   "포메이션": "4-3-3",
+   "직전선발": [
+    "CJ dos Santos",
+    "Manu Duah",
+    "Christopher McVey",
+    "Kieran Sargeant",
+    "Dagur Thórhallsson",
+    "Jeppe Tverskov",
+    "Onni Valakari",
+    "Alejandro Alvarado Jr.",
+    "Cédric Bakambu",
+    "Elias Achouri",
+    "Anders Dreyer"
+   ],
+   "직전포메이션": "4-3-3",
+   "교체": 4,
+   "빠진": [
+    "CJ dos Santos",
+    "Dagur Thórhallsson",
+    "Jeppe Tverskov",
+    "Onni Valakari"
+   ]
+  },
+  "환경": {
+   "구장": "디그니티 헬스 스포츠 파크",
+   "구장고도": 23,
+   "원정홈": "스냅드래곤 스타디움",
+   "원정홈고도": 22,
+   "이동km": 160,
+   "고도차": 1,
+   "날씨": {
+    "기온": 26.0,
+    "습도": 29,
+    "강수mm": 0,
+    "강수확률": 4,
+    "풍속": 7.9,
+    "출처": "Open-Meteo forecast 10-18 17:47"
+   },
+   "출처": [
+    "Wikidata Q204357→Q200684 · Open-Meteo 고도",
+    "Wikidata Q118945347→Q100272042 · Open-Meteo 고도"
+   ],
+   "주의": []
+  },
+  "라인업": "발표",
+  "event": "761887"
+ },
+ "9075": {
+  "번호": "9075",
+  "경기": "새너제이 어스퀘이크스 - 내슈빌SC",
+  "리그": "미국 메이저리그사커",
+  "시각": "10-18 11:30",
+  "수집": "10-18 17:43",
+  "홈": {
+   "팀": "새너제이 어스퀘이크스",
+   "eng": "San Jose Earthquakes",
+   "직전": "10-15 원정 vs Real Salt Lake 1-1 무 [usa.1]",
+   "휴식일": 3.0,
+   "최근7일경기": 1,
+   "직전event": "761870",
+   "xg": null,
+   "선발": [
+    "Angus Gunn",
+    "Dave Romney",
+    "Reid Roberts",
+    "Daniel Munie",
+    "Jamar Ricketts",
+    "Jack Jasinski",
+    "Ronaldo Vieira",
+    "Eduard Löwen",
+    "Beau Leroux",
+    "Timo Werner",
+    "Preston Judd"
+   ],
+   "포메이션": "5-3-2",
+   "직전선발": [
+    "Angus Gunn",
+    "Dave Romney",
+    "Reid Roberts",
+    "Max Floriani",
+    "Jamar Ricketts",
+    "Paul Marie",
+    "Ian Harkes",
+    "Beau Leroux",
+    "Nick Fernandez",
+    "Ousseni Bouda",
+    "Preston Judd"
+   ],
+   "직전포메이션": "5-3-2",
+   "교체": 5,
+   "빠진": [
+    "Max Floriani",
+    "Paul Marie",
+    "Ian Harkes",
+    "Nick Fernandez",
+    "Ousseni Bouda"
+   ]
+  },
+  "원정": {
+   "팀": "내슈빌SC",
+   "eng": "Nashville SC",
+   "직전": "10-15 홈 vs Sporting Kansas City 4-0 승 [usa.1]",
+   "휴식일": 3.1,
+   "최근7일경기": 1,
+   "직전event": "761866",
+   "xg": null,
+   "선발": [
+    "Brian Schwake",
+    "Maxwell Woledzi",
+    "Jeisson Palacios",
+    "Daniel Lovitz",
+    "Andy Nájar",
+    "Hany Mukhtar",
+    "Matthew Corcoran",
+    "Patrick Yazbek",
+    "Sam Surridge",
+    "Shakur Mohammed",
+    "Cristian Espinoza"
+   ],
+   "포메이션": "4-2-3-1",
+   "직전선발": [
+    "Brian Schwake",
+    "Maxwell Woledzi",
+    "Jeisson Palacios",
+    "Reed Baker-Whiting",
+    "Andy Nájar",
+    "Hany Mukhtar",
+    "Matthew Corcoran",
+    "Edvard Tagseth",
+    "Sam Surridge",
+    "Elias Saad",
+    "Cristian Espinoza"
+   ],
+   "직전포메이션": "4-2-3-1",
+   "교체": 3,
+   "빠진": [
+    "Reed Baker-Whiting",
+    "Edvard Tagseth",
+    "Elias Saad"
+   ]
+  },
+  "환경": {
+   "구장": "어바이어 스타디움",
+   "구장고도": 18,
+   "원정홈": "퍼스트 테네시 파크",
+   "원정홈고도": 128,
+   "이동km": 3115,
+   "고도차": -110,
+   "날씨": {
+    "기온": 23.6,
+    "습도": 44,
+    "강수mm": 0,
+    "강수확률": 0,
+    "풍속": 6.8,
+    "출처": "Open-Meteo forecast 10-18 17:48"
+   },
+   "출처": [
+    "Wikidata Q575370→Q3046470 · Open-Meteo 고도",
+    "Wikidata Q24185298→Q15262085 · Open-Meteo 고도"
+   ],
+   "주의": [
+    "장거리 원정 3115km"
+   ]
+  },
+  "라인업": "발표",
+  "event": "761886"
+ },
+ "9083": {
+  "번호": "9083",
+  "경기": "이와키FC - 반포레 고후",
+  "리그": "일본 J2리그",
+  "시각": "10-18 13:00",
+  "수집": "10-18 17:43",
+  "홈": {
+   "팀": "이와키FC",
+   "eng": "Iwaki FC",
+   "휴식일": null,
+   "직전": "-",
+   "최근7일경기": null,
+   "휴식일주의": "35일 내 경기 없음 — ESPN 미제공 리그(체코·폴란드·헝가리·불가리아·키프로스·이스라엘·핀란드·크로아티아·세르비아·동남아 등)이면 에이전트가 직접 확인",
+   "xg": null
+  },
+  "원정": {
+   "팀": "반포레 고후",
+   "eng": "반포레 고후",
+   "휴식일": null,
+   "직전": "-",
+   "최근7일경기": null,
+   "휴식일주의": "35일 내 경기 없음 — ESPN 미제공 리그(체코·폴란드·헝가리·불가리아·키프로스·이스라엘·핀란드·크로아티아·세르비아·동남아 등)이면 에이전트가 직접 확인",
+   "xg": null
+  },
+  "환경": {
+   "구장": "Iwaki FC Park(구단 좌표 — 구장 미확인)",
+   "구장고도": 53,
+   "원정홈": "JIT Recycle Ink Stadium",
+   "원정홈고도": 257,
+   "이동km": 252,
+   "고도차": -204,
+   "날씨": {
+    "기온": 19.6,
+    "습도": 52,
+    "강수mm": 0,
+    "강수확률": 0,
+    "풍속": 7.8,
+    "출처": "Open-Meteo forecast 10-18 17:49"
+   },
+   "출처": [
+    "Wikidata Q48747137→구단 · Open-Meteo 고도",
+    "Wikidata Q1061696→Q11469670 · Open-Meteo 고도"
+   ],
+   "주의": []
+  },
+  "라인업": "미발표",
+  "event": null
+ },
+ "9091": {
+  "번호": "9091",
+  "경기": "파지아노 오카야마 - 비셀 고베",
+  "리그": "일본 J1리그",
+  "시각": "10-18 13:55",
+  "수집": "10-18 17:43",
+  "홈": {
+   "팀": "파지아노 오카야마",
+   "eng": "Fagiano Okayama",
+   "직전": "10-10 원정 vs Avispa Fukuoka 1-2 패 [jpn.1]",
+   "휴식일": 8.0,
+   "최근7일경기": 0,
+   "직전event": "401877605",
+   "xg": null,
+   "선발": [
+    "Lennart Moser",
+    "Yugo Tatsuta",
+    "Yoshitake Suzuki",
+    "Soichiro Mori",
+    "Oberdan",
+    "Eiji Miyamoto",
+    "Towa Yamane",
+    "Kosuke Shirai",
+    "Lucas Marcos Meireles",
+    "Ataru Esaka",
+    "Na Sang-Ho"
+   ],
+   "포메이션": "3-4-2-1",
+   "직전선발": [
+    "Lennart Moser",
+    "Yugo Tatsuta",
+    "Hiroshi Omori",
+    "Soichiro Mori",
+    "Yuta Kamiya",
+    "Oberdan",
+    "Towa Yamane",
+    "Kosuke Shirai",
+    "Leonardo Andriel dos Santos",
+    "Na Sang-Ho",
+    "Kota Kawano"
+   ],
+   "직전포메이션": "3-4-2-1",
+   "교체": 4,
+   "빠진": [
+    "Hiroshi Omori",
+    "Yuta Kamiya",
+    "Leonardo Andriel dos Santos",
+    "Kota Kawano"
+   ]
+  },
+  "원정": {
+   "팀": "비셀 고베",
+   "eng": "Vissel Kobe",
+   "직전": "10-14 홈 vs Jeonbuk Hyundai Motors 2-0 승 [league stage]",
+   "휴식일": 3.8,
+   "최근7일경기": 1,
+   "직전event": "401912645",
+   "xg": null,
+   "선발": [
+    "Shuichi Gonda",
+    "Thuler",
+    "Tetsushi Yamakawa",
+    "Diego",
+    "Gotoku Sakai",
+    "Yuya Kuwasaki",
+    "Erik",
+    "Yosuke Ideguchi",
+    "Yuya Osako",
+    "Katsuya Nagato",
+    "Yoshinori Muto"
+   ],
+   "포메이션": "4-3-3",
+   "직전선발": [
+    "Shuichi Gonda",
+    "Caetano",
+    "Tetsushi Yamakawa",
+    "Diego",
+    "Gotoku Sakai",
+    "Yuya Kuwasaki",
+    "Yosuke Ideguchi",
+    "Katsuya Nagato",
+    "Yoshinori Muto",
+    "Erik",
+    "Yuya Osako"
+   ],
+   "직전포메이션": "4-4-2",
+   "교체": 1,
+   "빠진": [
+    "Caetano"
+   ]
+  },
+  "환경": {
+   "구장": "오카야마 현 종합 운동장 육상 경기장",
+   "구장고도": 10,
+   "원정홈": "미사키 공원 구기장",
+   "원정홈고도": 8,
+   "이동km": 114,
+   "고도차": 2,
+   "날씨": {
+    "기온": 21.8,
+    "습도": 77,
+    "강수mm": 0,
+    "강수확률": 2,
+    "풍속": 8.9,
+    "출처": "Open-Meteo forecast 10-18 17:49"
+   },
+   "출처": [
+    "Wikidata Q595489→Q5363497 · Open-Meteo 고도",
+    "Wikidata Q844271→Q494766 · Open-Meteo 고도"
+   ],
+   "주의": []
+  },
+  "라인업": "발표",
+  "event": "401877598"
+ },
+ "9142": {
+  "번호": "9142",
+  "경기": "FC마치다 젤비아 - 아비스파 후쿠오카",
+  "리그": "일본 J1리그",
+  "시각": "10-18 16:00",
+  "수집": "10-18 17:43",
+  "홈": {
+   "팀": "FC마치다 젤비아",
+   "eng": "Machida",
+   "직전": "10-15 원정 vs BG Tampines Rovers FC 1-0 승 [afc.cup]",
+   "휴식일": 2.8,
+   "최근7일경기": 1,
+   "직전event": "401912789",
+   "xg": null,
+   "선발": [
+    "Kosei Tani",
+    "Daihachi Okamura",
+    "Thomas Ouwejan",
+    "Gen Shoji",
+    "Neta Lavi",
+    "Hiroyuki Mae",
+    "Takahiro Akimoto",
+    "Henry Mochizuki",
+    "Tete Yengi",
+    "Yuki Soma",
+    "Koki Ogawa"
+   ],
+   "포메이션": "3-4-2-1",
+   "직전선발": [
+    "Tatsuya Morita",
+    "Daihachi Okamura",
+    "Ibrahim Dresevic",
+    "Kim Min-Tae",
+    "Hokuto Shimoda",
+    "Ryohei Shirasaki",
+    "Futa Tokumura",
+    "Hotaka Nakamura",
+    "Mitchell Duke",
+    "Keiya Sento",
+    "Takuma Nishimura"
+   ],
+   "직전포메이션": "3-4-2-1",
+   "교체": 10,
+   "빠진": [
+    "Tatsuya Morita",
+    "Ibrahim Dresevic",
+    "Kim Min-Tae",
+    "Hokuto Shimoda",
+    "Ryohei Shirasaki",
+    "Futa Tokumura",
+    "Hotaka Nakamura",
+    "Mitchell Duke",
+    "Keiya Sento",
+    "Takuma Nishimura"
+   ]
+  },
+  "원정": {
+   "팀": "아비스파 후쿠오카",
+   "eng": "Avispa Fukuoka",
+   "직전": "10-10 홈 vs Fagiano Okayama 2-1 승 [jpn.1]",
+   "휴식일": 8.0,
+   "최근7일경기": 0,
+   "직전event": "401877605",
+   "xg": null,
+   "선발": [
+    "Yuma Obata",
+    "Masaya Tashiro",
+    "Yuma Tsujioka",
+    "Teppei Oka",
+    "Tomoya Miki",
+    "Keiya Shiihashi",
+    "Yota Maejima",
+    "Masato Yuzawa",
+    "Werik",
+    "Shu Morooka",
+    "Masato Shigemi"
+   ],
+   "포메이션": "3-4-2-1",
+   "직전선발": [
+    "Yuma Obata",
+    "Masaya Tashiro",
+    "Yuma Tsujioka",
+    "Teppei Oka",
+    "Kokoro Maeda",
+    "Keiya Shiihashi",
+    "Yota Maejima",
+    "Masato Yuzawa",
+    "Werik",
+    "Shu Morooka",
+    "Masato Shigemi"
+   ],
+   "직전포메이션": "3-4-2-1",
+   "교체": 1,
+   "빠진": [
+    "Kokoro Maeda"
+   ]
+  },
+  "환경": {
+   "구장": "마치다시(구단 좌표 — 구장 미확인)",
+   "구장고도": 83,
+   "원정홈": "아랍 아메리카 대학교 경기장",
+   "원정홈고도": 29,
+   "이동km": 850,
+   "고도차": 54,
+   "날씨": {
+    "기온": 21.1,
+    "습도": 63,
+    "강수mm": 0,
+    "강수확률": 0,
+    "풍속": 7.6,
+    "출처": "Open-Meteo forecast 10-18 17:51"
+   },
+   "출처": [
+    "Wikidata Q210628→구단 · Open-Meteo 고도",
+    "Wikidata Q791164→Q1366106 · Open-Meteo 고도"
+   ],
+   "주의": [
+    "장거리 원정 850km"
+   ]
+  },
+  "라인업": "발표",
+  "event": "401877601"
+ },
+ "9170": {
+  "번호": "9170",
+  "경기": "부산 아이파크 - 전남 드래곤즈",
+  "리그": "K리그2",
+  "시각": "10-18 16:30",
+  "수집": "10-18 17:43",
+  "홈": {
+   "팀": "부산 아이파크",
+   "eng": "Busan",
+   "휴식일": null,
+   "직전": "-",
+   "최근7일경기": null,
+   "휴식일주의": "35일 내 경기 없음 — ESPN 미제공 리그(체코·폴란드·헝가리·불가리아·키프로스·이스라엘·핀란드·크로아티아·세르비아·동남아 등)이면 에이전트가 직접 확인",
+   "xg": null
+  },
+  "원정": {
+   "팀": "전남 드래곤즈",
+   "eng": "Jeonnam",
+   "휴식일": null,
+   "직전": "-",
+   "최근7일경기": null,
+   "휴식일주의": "35일 내 경기 없음 — ESPN 미제공 리그(체코·폴란드·헝가리·불가리아·키프로스·이스라엘·핀란드·크로아티아·세르비아·동남아 등)이면 에이전트가 직접 확인",
+   "xg": null
+  },
+  "환경": {
+   "구장": "부산아시아드주경기장",
+   "구장고도": 35,
+   "원정홈": "광양축구전용구장",
+   "원정홈고도": 5,
+   "이동km": 124,
+   "고도차": 30,
+   "날씨": {
+    "기온": 23.4,
+    "습도": 84,
+    "강수mm": 0,
+    "강수확률": 78,
+    "풍속": 15.1,
+    "출처": "Open-Meteo forecast 10-18 17:53"
+   },
+   "출처": [
+    "Wikidata Q495027→Q482589 · Open-Meteo 고도",
+    "Wikidata Q482566→Q488404 · Open-Meteo 고도"
+   ],
+   "주의": [
+    "비 0mm(78%)"
+   ]
+  },
+  "라인업": "미발표",
+  "event": null
+ },
+ "9184": {
+  "번호": "9184",
+  "경기": "우한 싼전 - 상하이 선화",
+  "리그": "중국 슈퍼리그",
+  "시각": "10-18 19:00",
+  "수집": "10-18 17:43",
+  "홈": {
+   "팀": "우한 싼전",
+   "eng": "Wuhan",
+   "직전": "10-11 원정 vs Liaoning Tieren 1-1 무 [chinese super league]",
+   "휴식일": 6.9,
+   "최근7일경기": 1,
+   "직전event": "401861508",
+   "xg": null,
+   "직전선발": [
+    "Guo Jiayu",
+    "Zheng Kaimu",
+    "He Guan",
+    "Xu Haofeng",
+    "Ming Tian",
+    "Adriano",
+    "Zhang Xiaobin",
+    "Kilian Bevis",
+    "Jinxian Wang",
+    "Jhonder Cádiz",
+    "Xiong Jizheng"
+   ],
+   "직전포메이션": "4-4-2"
+  },
+  "원정": {
+   "팀": "상하이 선화",
+   "eng": "Shenhua",
+   "직전": "10-15 원정 vs Preah Khan Reach Svay Rieng FC 0-0 무 [afc.cup]",
+   "휴식일": 2.9,
+   "최근7일경기": 1,
+   "직전event": "401912790",
+   "xg": null,
+   "직전선발": [
+    "Ma Zhen",
+    "Yang Shuai",
+    "Jin Shunkai",
+    "Shinichi Chan",
+    "Yang Zexiang",
+    "Gao Tianyi",
+    "Wu Xi",
+    "Wang Haijian",
+    "Liu Chengyu",
+    "Xu Haoyang",
+    "Luis Nlavo"
+   ],
+   "직전포메이션": "4-2-3-1"
+  },
+  "환경": {
+   "구장": "우한시(구단 좌표 — 구장 미확인)",
+   "구장고도": 33,
+   "원정홈": "훙커우 축구장",
+   "원정홈고도": 11,
+   "이동km": 689,
+   "고도차": 22,
+   "날씨": {
+    "기온": 19.4,
+    "습도": 70,
+    "강수mm": 0,
+    "강수확률": 59,
+    "풍속": 10.0,
+    "출처": "Open-Meteo forecast 10-18 17:53"
+   },
+   "출처": [
+    "Wikidata Q11746→구단 · Open-Meteo 고도",
+    "Wikidata Q725367→Q201773 · Open-Meteo 고도"
+   ],
+   "주의": []
+  },
+  "라인업": "미발표(킥오프 1.3h 전)",
+  "event": "401861480"
+ },
+ "9188": {
+  "번호": "9188",
+  "경기": "PEC즈볼러 - 고어헤드 이글스",
+  "리그": "네덜란드 에레디비시",
+  "시각": "10-18 19:15",
+  "수집": "10-18 17:43",
+  "홈": {
+   "팀": "PEC즈볼러",
+   "eng": "Zwolle",
+   "직전": "10-11 홈 vs SC Cambuur 0-1 패 [ned.1]",
+   "휴식일": 6.9,
+   "최근7일경기": 1,
+   "직전event": "401875586",
+   "xg": null,
+   "직전선발": [
+    "Jasper Schendelaar",
+    "Nick Viergever",
+    "Simon Graves",
+    "Sherel Floranus",
+    "Olivier Aertssen",
+    "Thijs Oosting",
+    "Tobias Sommer",
+    "Ryan Thomas",
+    "Koen Kostons",
+    "Ibrahim Cissoko",
+    "Dylan Mbayo"
+   ],
+   "직전포메이션": "4-2-3-1"
+  },
+  "원정": {
+   "팀": "고어헤드 이글스",
+   "eng": "Go Ahead",
+   "직전": "10-10 홈 vs Sparta Rotterdam 3-3 무 [ned.1]",
+   "휴식일": 7.8,
+   "최근7일경기": 0,
+   "직전event": "401875590",
+   "xg": null,
+   "직전선발": [
+    "Kjetil Haug",
+    "Joris Kramer",
+    "Giovanni van Zwam",
+    "Dean James",
+    "Alfons Sampsted",
+    "Victor Edvardsen",
+    "Evert Linthorst",
+    "Melle Meulensteen",
+    "Stefan Ingi Sigurdarson",
+    "Mathis Suray",
+    "Sören Tengstedt"
+   ],
+   "직전포메이션": "4-2-3-1"
+  },
+  "환경": {
+   "구장": "즈볼러(구단 좌표 — 구장 미확인)",
+   "구장고도": 7,
+   "원정홈": "De Adelaarshorst",
+   "원정홈고도": 8,
+   "이동km": 29,
+   "고도차": -1,
+   "날씨": {
+    "기온": 9.6,
+    "습도": 92,
+    "강수mm": 0.2,
+    "강수확률": 56,
+    "풍속": 13.3,
+    "출처": "Open-Meteo forecast 10-18 17:54"
+   },
+   "출처": [
+    "Wikidata Q793→구단 · Open-Meteo 고도",
+    "Wikidata Q749589→Q777926 · Open-Meteo 고도"
+   ],
+   "주의": []
+  },
+  "라인업": "미발표(킥오프 1.5h 전)",
+  "event": "401875578"
+ },
+ "9192": {
+  "번호": "9192",
+  "경기": "우디네세 - US레체",
+  "리그": "이탈리아 세리에A",
+  "시각": "10-18 19:30",
+  "수집": "10-18 17:43",
+  "홈": {
+   "팀": "우디네세",
+   "eng": "Udinese",
+   "직전": "10-13 원정 vs Torino 1-2 패 [italian serie a]",
+   "휴식일": 5.7,
+   "최근7일경기": 1,
+   "직전event": "401874763",
+   "xg": {
+    "n": 6,
+    "xg": 1.28,
+    "xga": 2.16,
+    "npxgd": -0.88,
+    "l5_xg": 1.11,
+    "l5_xga": 2.12,
+    "l5_npxgd": -1.01,
+    "home_xgd": -0.08,
+    "away_xgd": -1.69,
+    "xpts": 5.2,
+    "pts": 4
+   },
+   "xg_src": "Understat Serie_A Udinese",
+   "직전선발": [
+    "Maduka Okoye",
+    "Oumar Solet",
+    "Enzo Ebosse",
+    "James Abankwah",
+    "Oier Zarraga",
+    "Jesper Karlström",
+    "Hassane Kamara",
+    "Mërgim Vojvoda",
+    "Unai Gómez",
+    "Giorgi Chakvetadze",
+    "Jurgen Ekkelenkamp"
+   ],
+   "직전포메이션": "3-4-2-1"
+  },
+  "원정": {
+   "팀": "US레체",
+   "eng": "Lecce",
+   "직전": "10-11 홈 vs Bologna 1-2 패 [italian serie a]",
+   "휴식일": 6.9,
+   "최근7일경기": 1,
+   "직전event": "401874776",
+   "xg": {
+    "n": 6,
+    "xg": 1.25,
+    "xga": 2.8,
+    "npxgd": -1.56,
+    "l5_xg": 1.01,
+    "l5_xga": 2.72,
+    "l5_npxgd": -1.72,
+    "home_xgd": -1.62,
+    "away_xgd": -1.49,
+    "xpts": 2.9,
+    "pts": 6
+   },
+   "xg_src": "Understat Serie_A Lecce",
+   "직전선발": [
+    "Wladimiro Falcone",
+    "Tiago Gabriel",
+    "Jamil Siebert",
+    "Antonino Gallo",
+    "Danilo Veiga",
+    "Ivan Ilic",
+    "Youssef Maleh",
+    "Lassana Coulibaly",
+    "Francisco Esteban Sánchez",
+    "Amar Ahmed",
+    "Santiago Pierotti"
+   ],
+   "직전포메이션": "4-3-3"
+  },
+  "환경": {
+   "구장": "프리울리 경기장",
+   "구장고도": 112,
+   "원정홈": "스타디오 비아 델 마레",
+   "원정홈고도": 36,
+   "이동km": 754,
+   "고도차": 76,
+   "날씨": {
+    "기온": 20.1,
+    "습도": 58,
+    "강수mm": 0,
+    "강수확률": 0,
+    "풍속": 5.8,
+    "출처": "Open-Meteo forecast 10-18 17:54"
+   },
+   "출처": [
+    "Wikidata Q2798→Q640031 · Open-Meteo 고도",
+    "Wikidata Q13391→Q684727 · Open-Meteo 고도"
+   ],
+   "주의": []
+  },
+  "라인업": "미발표(킥오프 1.8h 전)",
+  "event": "401874771"
+ },
+ "9196": {
+  "번호": "9196",
+  "경기": "베이징 궈안 - 칭다오 시하이안",
+  "리그": "중국 슈퍼리그",
+  "시각": "10-18 20:00",
+  "수집": "10-18 17:43",
+  "홈": {
+   "팀": "베이징 궈안",
+   "eng": "Beijing Guoan",
+   "직전": "10-13 원정 vs Buriram United 1-0 승 [league stage]",
+   "휴식일": 4.9,
+   "최근7일경기": 1,
+   "직전event": "401912647",
+   "xg": null,
+   "직전선발": [
+    "Hou Sen",
+    "Guilherme Ramos",
+    "Wang Gang",
+    "Bai Yang",
+    "Tze-Nam Yue",
+    "Aboubacar Konte",
+    "Dawhan",
+    "Zhang Xizhe",
+    "Jeremy Dudziak",
+    "Chadrac Akolo",
+    "Beni N'Kololo"
+   ],
+   "직전포메이션": "4-4-2"
+  },
+  "원정": {
+   "팀": "칭다오 시하이안",
+   "eng": "['Qingdao West Coast', 'Qingdao Hainiu', 'Qingdao']",
+   "직전": "10-17 홈 vs Liaoning Tieren 0-4 패 [chinese super league]",
+   "휴식일": 1.0,
+   "최근7일경기": 1,
+   "직전event": "401861510",
+   "xg": null,
+   "직전선발": [
+    "Mou Pengfei",
+    "Song Long",
+    "Yangyang Jin",
+    "Li Suda",
+    "Wei Zixian",
+    "Che Shiwei",
+    "Malcom Edjouma",
+    "Ruicong Gong",
+    "Carlos Strandberg",
+    "Jin Yonghao",
+    "Liu Guobao"
+   ],
+   "직전포메이션": "4-2-3-1"
+  },
+  "환경": {
+   "구장": "베이징 공인체육장",
+   "구장고도": 39,
+   "원정홈": null,
+   "원정홈고도": null,
+   "이동km": null,
+   "고도차": null,
+   "날씨": {
+    "기온": 12.5,
+    "습도": 56,
+    "강수mm": 0,
+    "강수확률": 0,
+    "풍속": 6.4,
+    "출처": "Open-Meteo forecast 10-18 17:54"
+   },
+   "출처": [
+    "Wikidata Q814738→Q627250 · Open-Meteo 고도",
+    "못찾음"
+   ],
+   "주의": []
+  },
+  "라인업": "미발표(킥오프 2.3h 전)",
+  "event": "401861481"
+ },
+ "9200": {
+  "번호": "9200",
+  "경기": "상하이 하이강 - 청두 룽청",
+  "리그": "중국 슈퍼리그",
+  "시각": "10-18 21:00",
+  "수집": "10-18 17:43",
+  "홈": {
+   "팀": "상하이 하이강",
+   "eng": "Shanghai Port",
+   "직전": "10-13 홈 vs Daejeon Hana Citizen 1-1 무 [league stage]",
+   "휴식일": 5.1,
+   "최근7일경기": 1,
+   "직전event": "401912626",
+   "xg": null,
+   "직전선발": [
+    "Yan Junling",
+    "Wei Zhen",
+    "Zhang Linpeng",
+    "Miguel Campos",
+    "Zhen'ao Wang",
+    "Yang Xi",
+    "Mateus Vital",
+    "Jaume Grau",
+    "Prince Obeng Ampem",
+    "Óscar Melendo",
+    "Wu Lei"
+   ],
+   "직전포메이션": "5-4-1"
+  },
+  "원정": {
+   "팀": "청두 룽청",
+   "eng": "Chengdu",
+   "직전": "10-10 홈 vs Tianjin Jinmen Tiger 0-1 패 [chinese super league]",
+   "휴식일": 8.0,
+   "최근7일경기": 0,
+   "직전event": "401861473",
+   "xg": null,
+   "직전선발": [
+    "Liu Dianzuo",
+    "Egor Sorokin",
+    "Li Yang",
+    "He Yiran",
+    "Dongsheng Wang",
+    "Rômulo",
+    "Matheus Jussa",
+    "Ming-Yang Yang",
+    "Wang Ziming",
+    "Hu Hetao",
+    "Wellington Silva"
+   ],
+   "직전포메이션": "4-2-3-1"
+  },
+  "환경": {
+   "구장": "상하이 체육장",
+   "구장고도": 8,
+   "원정홈": "Chengdu Phoenix Hill Football Stadium",
+   "원정홈고도": 505,
+   "이동km": 1654,
+   "고도차": -497,
+   "날씨": {
+    "기온": 23.8,
+    "습도": 82,
+    "강수mm": 4.3,
+    "강수확률": 51,
+    "풍속": 10.3,
+    "출처": "Open-Meteo forecast 10-18 17:55"
+   },
+   "출처": [
+    "Wikidata Q564216→Q739528 · Open-Meteo 고도",
+    "Wikidata Q19840468→Q111376899 · Open-Meteo 고도"
+   ],
+   "주의": [
+    "장거리 원정 1654km",
+    "비 4.3mm(51%)"
+   ]
+  },
+  "라인업": "미발표(킥오프 3.3h 전)",
+  "event": "401861482"
+ },
+ "9204": {
+  "번호": "9204",
+  "경기": "오사수나 - 라싱 산탄데르",
+  "리그": "스페인 라리가",
+  "시각": "10-18 21:00",
+  "수집": "10-18 17:43",
+  "홈": {
+   "팀": "오사수나",
+   "eng": "Osasuna",
+   "직전": "10-12 원정 vs Real Betis 2-5 패 [laliga]",
+   "휴식일": 6.8,
+   "최근7일경기": 1,
+   "직전event": "401882855",
+   "xg": {
+    "n": 8,
+    "xg": 1.25,
+    "xga": 1.83,
+    "npxgd": -0.76,
+    "l5_xg": 1.11,
+    "l5_xga": 2.43,
+    "l5_npxgd": -1.33,
+    "home_xgd": -0.31,
+    "away_xgd": -1.21,
+    "xpts": 9.6,
+    "pts": 8
+   },
+   "xg_src": "Understat La_liga Osasuna",
+   "직전선발": [
+    "Aitor Fernández",
+    "Unai Santos",
+    "Alejandro Catena",
+    "Abel Bretones",
+    "Iñigo Arguibide",
+    "Lucas Torró",
+    "Jon Moncayola",
+    "Moi Gómez",
+    "Rubén García",
+    "Raúl García",
+    "Ante Budimir"
+   ],
+   "직전포메이션": "4-4-2"
+  },
+  "원정": {
+   "팀": "라싱 산탄데르",
+   "eng": "Racing Santander",
+   "직전": "10-12 홈 vs Valencia 2-2 무 [laliga]",
+   "휴식일": 6.7,
+   "최근7일경기": 1,
+   "직전event": "401882850",
+   "xg": {
+    "n": 8,
+    "xg": 1.4,
+    "xga": 2.22,
+    "npxgd": -0.63,
+    "l5_xg": 1.1,
+    "l5_xga": 2.98,
+    "l5_npxgd": -1.28,
+    "home_xgd": 0.17,
+    "away_xgd": -1.44,
+    "xpts": 9.1,
+    "pts": 8
+   },
+   "xg_src": "Understat La_liga Racing Santander",
+   "직전선발": [
+    "Julen Agirrezabala",
+    "Jeanuël Belocian",
+    "Pablo Ramon",
+    "Matteo Prati",
+    "Jorge Salinas",
+    "Alvaro Mantilla",
+    "André Almeida",
+    "Iván Martín",
+    "Iñigo Vicente",
+    "Sergio Canales",
+    "Yassir Zabiri"
+   ],
+   "직전포메이션": "4-1-4-1"
+  },
+  "환경": {
+   "구장": "에스타디오 엘 사다르",
+   "구장고도": 425,
+   "원정홈": "캄포스 데 스포르트 데 엘 사르디네로",
+   "원정홈고도": 12,
+   "이동km": 191,
+   "고도차": 413,
+   "날씨": {
+    "기온": 14.0,
+    "습도": 52,
+    "강수mm": 0,
+    "강수확률": 0,
+    "풍속": 22.1,
+    "출처": "Open-Meteo forecast 10-18 17:55"
+   },
+   "출처": [
+    "Wikidata Q10286→Q735783 · Open-Meteo 고도",
+    "Wikidata Q12236→Q195391 · Open-Meteo 고도"
+   ],
+   "주의": []
+  },
+  "라인업": "미발표(킥오프 3.3h 전)",
+  "event": "401882840"
+ },
+ "9208": {
+  "번호": "9208",
+  "경기": "SC캄뷔르 - AZ알크마르",
+  "리그": "네덜란드 에레디비시",
+  "시각": "10-18 21:30",
+  "수집": "10-18 17:43",
+  "홈": {
+   "팀": "SC캄뷔르",
+   "eng": "Cambuur",
+   "직전": "10-11 원정 vs PEC Zwolle 1-0 승 [ned.1]",
+   "휴식일": 7.0,
+   "최근7일경기": 0,
+   "직전event": "401875586",
+   "xg": null,
+   "직전선발": [
+    "Thijs Jansen",
+    "Billy Van Duijl",
+    "Ismaël Baouf",
+    "Morgan Costarelli",
+    "Devid Eugene Bouah",
+    "Rafik El Arguioui",
+    "Nicky Souren",
+    "Ethan Apkakou",
+    "Mathieu Maertens",
+    "Ilyes Hamache",
+    "Fabian Kvam"
+   ],
+   "직전포메이션": "4-2-3-1"
+  },
+  "원정": {
+   "팀": "AZ알크마르",
+   "eng": "AZ Alkmaar",
+   "직전": "10-16 홈 vs Hapoel Be'er 2-1 승 [uefa.europa]",
+   "휴식일": 2.8,
+   "최근7일경기": 1,
+   "직전event": "401915573",
+   "xg": null,
+   "직전선발": [
+    "Jari De Busser",
+    "Wesley Hoedt",
+    "Wouter Goes",
+    "Mees De Wit",
+    "Seiya Maikuma",
+    "Valdemar Byskov",
+    "Peer Koopmeiners",
+    "Dave Kwakman",
+    "Bendegúz Kovács",
+    "Ro-Zangelo Daal",
+    "Ayoub Oufkir"
+   ],
+   "직전포메이션": "4-2-3-1"
+  },
+  "환경": {
+   "구장": null,
+   "구장고도": null,
+   "원정홈": "AFAS 스타디온",
+   "원정홈고도": 1,
+   "이동km": null,
+   "고도차": null,
+   "날씨": null,
+   "출처": [
+    "못찾음",
+    "Wikidata Q191264→Q291590 · Open-Meteo 고도"
+   ],
+   "주의": []
+  },
+  "라인업": "미발표(킥오프 3.8h 전)",
+  "event": "401875576"
+ },
+ "9214": {
+  "번호": "9214",
+  "경기": "AFC본머스 - 선덜랜드",
+  "리그": "잉글랜드 프리미어리그",
+  "시각": "10-18 22:00",
+  "수집": "10-18 17:43",
+  "홈": {
+   "팀": "AFC본머스",
+   "eng": "AFC Bournemouth",
+   "직전": "10-16 홈 vs SK Sturm Graz 3-0 승 [uefa.europa]",
+   "휴식일": 2.8,
+   "최근7일경기": 1,
+   "직전event": "401915571",
+   "xg": {
+    "n": 6,
+    "xg": 1.63,
+    "xga": 1.39,
+    "npxgd": 0.23,
+    "l5_xg": 1.81,
+    "l5_xga": 1.18,
+    "l5_npxgd": 0.63,
+    "home_xgd": 0.67,
+    "away_xgd": -0.2,
+    "xpts": 9.4,
+    "pts": 3
+   },
+   "xg_src": "Understat EPL Bournemouth",
+   "직전선발": [
+    "Djordje Petrovic",
+    "António Silva",
+    "Bafodé Diakité",
+    "Julio Soler",
+    "Adam Smith",
+    "Tyler Adams",
+    "Lewis Cook",
+    "Marcus Tavernier",
+    "Ben Gannon-Doak",
+    "Álvaro Rodríguez",
+    "Evanilson"
+   ],
+   "직전포메이션": "4-4-2"
+  },
+  "원정": {
+   "팀": "선덜랜드",
+   "eng": "Sunderland AFC",
+   "직전": "10-16 원정 vs Torreense 2-1 승 [uefa.europa]",
+   "휴식일": 2.8,
+   "최근7일경기": 1,
+   "직전event": "401915575",
+   "xg": {
+    "n": 6,
+    "xg": 1.82,
+    "xga": 1.75,
+    "npxgd": -0.05,
+    "l5_xg": 1.95,
+    "l5_xga": 1.78,
+    "l5_npxgd": 0.02,
+    "home_xgd": -0.05,
+    "away_xgd": -0.05,
+    "xpts": 8.5,
+    "pts": 4
+   },
+   "xg_src": "Understat EPL Sunderland",
+   "직전선발": [
+    "Robin Roefs",
+    "Omar Alderete",
+    "Luke O'Nien",
+    "Dayann Methalie",
+    "Trai Hume",
+    "Chris Rigg",
+    "Noah Sadiki",
+    "Jules Ahoka",
+    "Tymur Tutierov",
+    "Malick Fofana",
+    "Nilson Angulo"
+   ],
+   "직전포메이션": "4-2-3-1"
+  },
+  "환경": {
+   "구장": "딘 코트",
+   "구장고도": 36,
+   "원정홈": "스타디움 오브 라이트",
+   "원정홈고도": 47,
+   "이동km": 466,
+   "고도차": -11,
+   "날씨": {
+    "기온": 13.2,
+    "습도": 55,
+    "강수mm": 0,
+    "강수확률": 3,
+    "풍속": 17.3,
+    "출처": "Open-Meteo forecast 10-18 17:56"
+   },
+   "출처": [
+    "Wikidata Q19568→Q619094 · Open-Meteo 고도",
+    "Wikidata Q18739→Q31969 · Open-Meteo 고도"
+   ],
+   "주의": []
+  },
+  "라인업": "미발표(킥오프 4.3h 전)",
+  "event": "401879263"
+ },
+ "9219": {
+  "번호": "9219",
+  "경기": "브라이턴&호브 앨비언 - 크리스털 팰리스",
+  "리그": "잉글랜드 프리미어리그",
+  "시각": "10-18 22:00",
+  "수집": "10-18 20:39",
+  "홈": {
+   "팀": "브라이턴&호브 앨비언",
+   "eng": "Brighton & Hove Albion",
+   "직전": "10-16 홈 vs Kauno Zalgiris 4-0 승 [uefa.europa.conf]",
+   "휴식일": 2.8,
+   "최근7일경기": 1,
+   "직전event": "401915853",
+   "xg": {
+    "n": 6,
+    "xg": 2.42,
+    "xga": 1.58,
+    "npxgd": 0.71,
+    "l5_xg": 2.11,
+    "l5_xga": 1.84,
+    "l5_npxgd": 0.11,
+    "home_xgd": 1.53,
+    "away_xgd": -0.1,
+    "xpts": 11.2,
+    "pts": 13
+   },
+   "xg_src": "Understat EPL Brighton",
+   "직전선발": [
+    "Bart Verbruggen",
+    "Michael Svoboda",
+    "Lewis Dunk",
+    "Olivier Boscagli",
+    "Costinha",
+    "Malick Yalcouyé",
+    "Jack Hinshelwood",
+    "Pascal Gross",
+    "Georginio Rutter",
+    "Ibrahim Osman",
+    "Matt O'Riley"
+   ],
+   "직전포메이션": "4-3-3"
+  },
+  "원정": {
+   "팀": "크리스털 팰리스",
+   "eng": "Crystal Palace",
+   "직전": "10-16 원정 vs Lyon 2-3 패 [uefa.europa]",
+   "휴식일": 2.8,
+   "최근7일경기": 1,
+   "직전event": "401915566",
+   "xg": {
+    "n": 6,
+    "xg": 1.64,
+    "xga": 2.3,
+    "npxgd": -0.66,
+    "l5_xg": 1.52,
+    "l5_xga": 2.47,
+    "l5_npxgd": -0.95,
+    "home_xgd": -1.42,
+    "away_xgd": 0.1,
+    "xpts": 6.0,
+    "pts": 7
+   },
+   "xg_src": "Understat EPL Crystal Palace",
+   "직전선발": [
+    "Walter Benítez",
+    "Axel Disasi",
+    "Jaydee Canvot",
+    "Chris Richards",
+    "Quinten Timber",
+    "Adam Wharton",
+    "Tyrick Mitchell",
+    "Óscar Mingueza",
+    "Jørgen Strand Larsen",
+    "Yéremy Pino",
+    "Ismaïla Sarr"
+   ],
+   "직전포메이션": "3-4-2-1"
+  },
+  "환경": {
+   "구장": "팔머 스타디움",
+   "구장고도": 81,
+   "원정홈": "셀허스트 파크",
+   "원정홈고도": 55,
+   "이동km": 60,
+   "고도차": 26,
+   "날씨": {
+    "기온": 12.1,
+    "습도": 71,
+    "강수mm": 0.2,
+    "강수확률": 61,
+    "풍속": 15.8,
+    "출처": "Open-Meteo forecast 10-18 20:39"
+   },
+   "출처": [
+    "Wikidata Q19453→Q619409 · Open-Meteo 고도",
+    "Wikidata Q19467→Q1066373 · Open-Meteo 고도"
+   ],
+   "주의": []
+  },
+  "라인업": "미발표(킥오프 1.3h 전)",
+  "event": "401879261"
+ },
+ "9224": {
+  "번호": "9224",
+  "경기": "리즈 유나이티드 - 맨체스터 유나이티드",
+  "리그": "잉글랜드 프리미어리그",
+  "시각": "10-18 22:00",
+  "수집": "10-18 20:39",
+  "홈": {
+   "팀": "리즈 유나이티드",
+   "eng": "Leeds",
+   "직전": "10-10 원정 vs Arsenal 1-2 패 [english premier league]",
+   "휴식일": 8.1,
+   "최근7일경기": 0,
+   "직전event": "401879268",
+   "xg": {
+    "n": 6,
+    "xg": 1.4,
+    "xga": 1.46,
+    "npxgd": -0.05,
+    "l5_xg": 1.59,
+    "l5_xga": 1.62,
+    "l5_npxgd": -0.02,
+    "home_xgd": 0.33,
+    "away_xgd": -0.43,
+    "xpts": 7.9,
+    "pts": 9
+   },
+   "xg_src": "Understat EPL Leeds",
+   "선발": [
+    "James Trafford",
+    "James Justin",
+    "Nico Elvedi",
+    "Tarik Muharemovic",
+    "Ao Tanaka",
+    "Anton Stach",
+    "Noah Okafor",
+    "Jayden Bogle",
+    "Gabriel Gudmundsson",
+    "Ethan Ampadu",
+    "Dominic Calvert-Lewin"
+   ],
+   "포메이션": "3-4-2-1",
+   "직전선발": [
+    "James Trafford",
+    "Nico Elvedi",
+    "Tarik Muharemovic",
+    "James Justin",
+    "Ao Tanaka",
+    "Ethan Ampadu",
+    "Gabriel Gudmundsson",
+    "Jayden Bogle",
+    "Dominic Calvert-Lewin",
+    "Noah Okafor",
+    "Anton Stach"
+   ],
+   "직전포메이션": "3-4-2-1",
+   "교체": 0,
+   "빠진": []
+  },
+  "원정": {
+   "팀": "맨체스터 유나이티드",
+   "eng": "Manchester United",
+   "직전": "10-14 원정 vs Atlético Madrid 0-2 패 [uefa.champions]",
+   "휴식일": 4.8,
+   "최근7일경기": 1,
+   "직전event": "401915412",
+   "xg": {
+    "n": 6,
+    "xg": 1.91,
+    "xga": 1.54,
+    "npxgd": 0.24,
+    "l5_xg": 1.93,
+    "l5_xga": 1.55,
+    "l5_npxgd": 0.23,
+    "home_xgd": 0.31,
+    "away_xgd": 0.17,
+    "xpts": 8.9,
+    "pts": 6
+   },
+   "xg_src": "Understat EPL Manchester United",
+   "선발": [
+    "Senne Lammens",
+    "Diogo Dalot",
+    "Leny Yoro",
+    "Harry Maguire",
+    "Lisandro Martínez",
+    "Youri Tielemans",
+    "Carlos Baleba",
+    "Andrey Santos",
+    "Amad Diallo",
+    "Bruno Fernandes",
+    "Bryan Mbeumo"
+   ],
+   "포메이션": "4-2-3-1",
+   "직전선발": [
+    "Senne Lammens",
+    "Lisandro Martínez",
+    "Leny Yoro",
+    "Ayden Heaven",
+    "Diogo Dalot",
+    "Youri Tielemans",
+    "Carlos Baleba",
+    "Andrey Santos",
+    "Bryan Mbeumo",
+    "Marcus Rashford",
+    "Bruno Fernandes"
+   ],
+   "직전포메이션": "4-2-3-1",
+   "교체": 2,
+   "빠진": [
+    "Ayden Heaven",
+    "Marcus Rashford"
+   ]
+  },
+  "환경": {
+   "구장": "엘런드 로드",
+   "구장고도": 43,
+   "원정홈": "올드 트래퍼드",
+   "원정홈고도": 18,
+   "이동km": 59,
+   "고도차": 25,
+   "날씨": {
+    "기온": 11.5,
+    "습도": 60,
+    "강수mm": 0,
+    "강수확률": 4,
+    "풍속": 18.0,
+    "출처": "Open-Meteo forecast 10-18 21:01"
+   },
+   "출처": [
+    "Wikidata Q1128631→Q619505 · Open-Meteo 고도",
+    "Wikidata Q18656→Q83457 · Open-Meteo 고도"
+   ],
+   "주의": []
+  },
+  "라인업": "발표",
+  "event": "401879260"
+ },
+ "9229": {
+  "번호": "9229",
+  "경기": "ACF피오렌티나 - 코모1907",
+  "리그": "이탈리아 세리에A",
+  "시각": "10-18 22:00",
+  "수집": "10-18 20:39",
+  "홈": {
+   "팀": "ACF피오렌티나",
+   "eng": "Fiorentina",
+   "직전": "10-10 원정 vs Genoa 1-2 패 [italian serie a]",
+   "휴식일": 8.0,
+   "최근7일경기": 0,
+   "직전event": "401874947",
+   "xg": {
+    "n": 6,
+    "xg": 1.41,
+    "xga": 1.83,
+    "npxgd": -0.42,
+    "l5_xg": 1.63,
+    "l5_xga": 1.44,
+    "l5_npxgd": 0.19,
+    "home_xgd": -0.21,
+    "away_xgd": -0.64,
+    "xpts": 7.2,
+    "pts": 4
+   },
+   "xg_src": "Understat Serie_A Fiorentina",
+   "직전선발": [
+    "David de Gea",
+    "Luca Ranieri",
+    "Radu Dragusin",
+    "Víctor Valdepeñas",
+    "Álex Jiménez",
+    "Christ Inao Oulaï",
+    "Nicolò Fagioli",
+    "Cher Ndour",
+    "Beto",
+    "Wilfried Gnonto",
+    "Franco Mastantuono"
+   ],
+   "직전포메이션": "4-2-3-1"
+  },
+  "원정": {
+   "팀": "코모1907",
+   "eng": "Como 1907",
+   "휴식일": null,
+   "직전": "-",
+   "최근7일경기": null,
+   "휴식일주의": "35일 내 경기 없음 — ESPN 미제공 리그(체코·폴란드·헝가리·불가리아·키프로스·이스라엘·핀란드·크로아티아·세르비아·동남아 등)이면 에이전트가 직접 확인",
+   "xg": {
+    "n": 6,
+    "xg": 2.23,
+    "xga": 1.5,
+    "npxgd": 0.73,
+    "l5_xg": 2.2,
+    "l5_xga": 1.38,
+    "l5_npxgd": 0.82,
+    "home_xgd": 1.47,
+    "away_xgd": 0.36,
+    "xpts": 10.9,
+    "pts": 11
+   },
+   "xg_src": "Understat Serie_A Como"
+  },
+  "환경": {
+   "구장": "스타디오 아르테미오 프란키",
+   "구장고도": 54,
+   "원정홈": "Stadio Giuseppe Sinigaglia",
+   "원정홈고도": 201,
+   "이동km": 285,
+   "고도차": -147,
+   "날씨": {
+    "기온": 23.4,
+    "습도": 53,
+    "강수mm": 0,
+    "강수확률": 8,
+    "풍속": 8.0,
+    "출처": "Open-Meteo forecast 10-18 21:01"
+   },
+   "출처": [
+    "Wikidata Q2052→Q270474 · Open-Meteo 고도",
+    "Wikidata Q1120838→Q115372 · Open-Meteo 고도"
+   ],
+   "주의": []
+  },
+  "라인업": "미발표(킥오프 1.3h 전)",
+  "event": null
+ },
+ "9233": {
+  "번호": "9233",
+  "경기": "앙제SCO - 올랭피크드 마르세유",
+  "리그": "프랑스 리그1",
+  "시각": "10-18 22:00",
+  "수집": "10-18 17:43",
+  "홈": {
+   "팀": "앙제SCO",
+   "eng": "Angers",
+   "직전": "10-11 원정 vs Brest 1-5 패 [ligue 1]",
+   "휴식일": 7.8,
+   "최근7일경기": 0,
+   "직전event": "401876448",
+   "xg": {
+    "n": 6,
+    "xg": 1.59,
+    "xga": 1.93,
+    "npxgd": -0.21,
+    "l5_xg": 1.54,
+    "l5_xga": 2.07,
+    "l5_npxgd": -0.38,
+    "home_xgd": 0.45,
+    "away_xgd": -0.88,
+    "xpts": 7.5,
+    "pts": 7
+   },
+   "xg_src": "Understat Ligue_1 Angers",
+   "직전선발": [
+    "Anthony Lopes",
+    "Jordan Lefort",
+    "Ousmane Camara",
+    "Joseph Kalulu Kyatengwa",
+    "Marius Louãr",
+    "Haris Belkebla",
+    "Branco van den Boomen",
+    "Yassin Belkhdim",
+    "Prosper Peter",
+    "Amine Sbaï",
+    "Jim Allevinah"
+   ],
+   "직전포메이션": "4-3-3"
+  },
+  "원정": {
+   "팀": "올랭피크드 마르세유",
+   "eng": "Olympique de Marseille",
+   "휴식일": null,
+   "직전": "-",
+   "최근7일경기": null,
+   "휴식일주의": "35일 내 경기 없음 — ESPN 미제공 리그(체코·폴란드·헝가리·불가리아·키프로스·이스라엘·핀란드·크로아티아·세르비아·동남아 등)이면 에이전트가 직접 확인",
+   "xg": {
+    "n": 6,
+    "xg": 1.63,
+    "xga": 2.24,
+    "npxgd": -0.74,
+    "l5_xg": 1.48,
+    "l5_xga": 2.65,
+    "l5_npxgd": -1.16,
+    "home_xgd": -0.77,
+    "away_xgd": -0.7,
+    "xpts": 6.7,
+    "pts": 6
+   },
+   "xg_src": "Understat Ligue_1 Marseille"
+  },
+  "환경": {
+   "구장": "Stade Raymond Kopa",
+   "구장고도": 45,
+   "원정홈": "스타드 벨로드롬",
+   "원정홈고도": 10,
+   "이동km": 656,
+   "고도차": 35,
+   "날씨": {
+    "기온": 12.9,
+    "습도": 63,
+    "강수mm": 0.1,
+    "강수확률": 33,
+    "풍속": 10.5,
+    "출처": "Open-Meteo forecast 10-18 17:58"
+   },
+   "출처": [
+    "Wikidata Q845137→Q387213 · Open-Meteo 고도",
+    "Wikidata Q132885→Q202150 · Open-Meteo 고도"
+   ],
+   "주의": []
+  },
+  "라인업": "미발표(킥오프 4.3h 전)",
+  "event": null
+ },
+ "9237": {
+  "번호": "9237",
+  "경기": "바이어04 레버쿠젠 - SC프라이부르크",
+  "리그": "독일 분데스리가",
+  "시각": "10-18 22:30",
+  "수집": "10-18 20:39",
+  "홈": {
+   "팀": "바이어04 레버쿠젠",
+   "eng": "Bayer Leverkusen",
+   "직전": "10-16 원정 vs Lech Poznan 4-0 승 [uefa.europa]",
+   "휴식일": 2.9,
+   "최근7일경기": 1,
+   "직전event": "401915576",
+   "xg": {
+    "n": 5,
+    "xg": 2.55,
+    "xga": 1.12,
+    "npxgd": 1.43,
+    "l5_xg": 2.55,
+    "l5_xga": 1.12,
+    "l5_npxgd": 1.43,
+    "home_xgd": 2.38,
+    "away_xgd": 0.79,
+    "xpts": 11.1,
+    "pts": 10
+   },
+   "xg_src": "Understat Bundesliga Bayer Leverkusen",
+   "직전선발": [
+    "Mark Flekken",
+    "Edmond Tapsoba",
+    "Loïc Badé",
+    "Miguel Gutiérrez",
+    "Lucas Vázquez",
+    "Malik Tillman",
+    "Aleix García",
+    "Ezequiel Fernández",
+    "Martin Terrier",
+    "Ibrahim Maza",
+    "Nathan Tella"
+   ],
+   "직전포메이션": "4-2-3-1"
+  },
+  "원정": {
+   "팀": "SC프라이부르크",
+   "eng": "SC Freiburg",
+   "직전": "10-16 홈 vs Jablonec 3-2 승 [uefa.europa.conf]",
+   "휴식일": 2.8,
+   "최근7일경기": 2,
+   "직전event": "401915848",
+   "xg": {
+    "n": 5,
+    "xg": 2.05,
+    "xga": 0.88,
+    "npxgd": 1.17,
+    "l5_xg": 2.05,
+    "l5_xga": 0.88,
+    "l5_npxgd": 1.17,
+    "home_xgd": 1.52,
+    "away_xgd": 0.64,
+    "xpts": 11.2,
+    "pts": 13
+   },
+   "xg_src": "Understat Bundesliga Freiburg",
+   "직전선발": [
+    "Mio Backhaus",
+    "Max Rosenfelder",
+    "Matthias Ginter",
+    "Christian Günter",
+    "Lukas Kübler",
+    "Yuito Suzuki",
+    "Patrick Osterhage",
+    "Maximilian Eggestein",
+    "Lucas Höler",
+    "Vincenzo Grifo",
+    "Cyriaque Irié"
+   ],
+   "직전포메이션": "4-2-3-1"
+  },
+  "환경": {
+   "구장": "바이아레나",
+   "구장고도": 44,
+   "원정홈": "드라이잠슈타디온",
+   "원정홈고도": 309,
+   "이동km": 345,
+   "고도차": -265,
+   "날씨": {
+    "기온": 12.3,
+    "습도": 75,
+    "강수mm": 0,
+    "강수확률": 2,
+    "풍속": 8.6,
+    "출처": "Open-Meteo forecast 10-18 21:02"
+   },
+   "출처": [
+    "Wikidata Q104761→Q156630 · Open-Meteo 고도",
+    "Wikidata Q106394→Q311458 · Open-Meteo 고도"
+   ],
+   "주의": []
+  },
+  "라인업": "미발표(킥오프 1.8h 전)",
+  "event": "401884771"
+ },
+ "9242": {
+  "번호": "9242",
+  "경기": "RC셀타데비고 - 알라베스",
+  "리그": "스페인 라리가",
+  "시각": "10-18 23:15",
+  "수집": "10-18 17:43",
+  "홈": {
+   "팀": "RC셀타데비고",
+   "eng": "RC Celta de Vigo",
+   "직전": "10-16 홈 vs Juventus 1-2 패 [uefa.europa]",
+   "휴식일": 2.8,
+   "최근7일경기": 1,
+   "직전event": "401915560",
+   "xg": {
+    "n": 8,
+    "xg": 1.0,
+    "xga": 1.24,
+    "npxgd": -0.24,
+    "l5_xg": 1.24,
+    "l5_xga": 0.89,
+    "l5_npxgd": 0.19,
+    "home_xgd": -0.32,
+    "away_xgd": -0.15,
+    "xpts": 9.7,
+    "pts": 8
+   },
+   "xg_src": "Understat La_liga Celta Vigo",
+   "직전선발": [
+    "Andrei Radu",
+    "Yoel Lago",
+    "Marcos Alonso",
+    "Javi Rodríguez",
+    "Aleix Febas",
+    "Ilaix Moriba",
+    "Sergio Carreira",
+    "Javi Rueda",
+    "Ferran Jutglà",
+    "Williot Swedberg",
+    "Hugo Álvarez"
+   ],
+   "직전포메이션": "3-4-3"
+  },
+  "원정": {
+   "팀": "알라베스",
+   "eng": "Alaves",
+   "직전": "10-10 홈 vs Atlético Madrid 1-2 패 [laliga]",
+   "휴식일": 8.0,
+   "최근7일경기": 0,
+   "직전event": "401882856",
+   "xg": {
+    "n": 8,
+    "xg": 1.46,
+    "xga": 1.2,
+    "npxgd": 0.35,
+    "l5_xg": 1.25,
+    "l5_xga": 1.47,
+    "l5_npxgd": -0.07,
+    "home_xgd": 0.18,
+    "away_xgd": 0.62,
+    "xpts": 12.2,
+    "pts": 11
+   },
+   "xg_src": "Understat La_liga Alaves",
+   "직전선발": [
+    "Antonio Sivera",
+    "Nicolás Valentini",
+    "Jonny",
+    "Nahuel Tenaglia",
+    "Pablo Ibáñez",
+    "Denis Suárez",
+    "Antonio Blanco",
+    "Abde Rebbach",
+    "Ángel Pérez",
+    "Lucas Boyé",
+    "Toni Martínez"
+   ],
+   "직전포메이션": "3-5-2"
+  },
+  "환경": {
+   "구장": "에스타디오 데 발라이도스",
+   "구장고도": 13,
+   "원정홈": "에스타디오 데 멘디소로차",
+   "원정홈고도": 531,
+   "이동km": 501,
+   "고도차": -518,
+   "날씨": {
+    "기온": 22.6,
+    "습도": 34,
+    "강수mm": 0,
+    "강수확률": 0,
+    "풍속": 13.0,
+    "출처": "Open-Meteo forecast 10-18 17:59"
+   },
+   "출처": [
+    "Wikidata Q8749→Q1326578 · Open-Meteo 고도",
+    "Wikidata Q223620→Q1369390 · Open-Meteo 고도"
+   ],
+   "주의": []
+  },
+  "라인업": "미발표(킥오프 5.5h 전)",
+  "event": "401882845"
+ },
+ "9246": {
+  "번호": "9246",
+  "경기": "흐로닝언 - AFC아약스",
+  "리그": "네덜란드 에레디비시",
+  "시각": "10-18 23:45",
+  "수집": "10-18 17:43",
+  "홈": {
+   "팀": "흐로닝언",
+   "eng": "Groningen",
+   "직전": "10-11 원정 vs Excelsior 5-1 승 [ned.1]",
+   "휴식일": 7.0,
+   "최근7일경기": 0,
+   "직전event": "401875584",
+   "xg": null,
+   "직전선발": [
+    "Etienne Vaessen",
+    "Marco Rente",
+    "Thijmen Blokzijl",
+    "Hans Hateboer",
+    "Jorg Schreuders",
+    "Thom Van Bergen",
+    "Pelle Clement",
+    "Tika De Jonge",
+    "Brynjólfur Willumsson",
+    "Jacob Ondrejka",
+    "David Van Der Werff"
+   ],
+   "직전포메이션": "4-2-3-1"
+  },
+  "원정": {
+   "팀": "AFC아약스",
+   "eng": "AFC Ajax",
+   "직전": "10-16 원정 vs Hajduk Split 1-2 패 [uefa.europa.conf]",
+   "휴식일": 2.9,
+   "최근7일경기": 1,
+   "직전event": "401915861",
+   "xg": null,
+   "직전선발": [
+    "Marc-André ter Stegen",
+    "Youri Baas",
+    "Aaron Bouwman",
+    "Jofre Torrents",
+    "Thilo Kehrer",
+    "Sofyan Amrabat",
+    "Julian Brandt",
+    "Davy Klaassen",
+    "Tolu Arokodare",
+    "Abdellah Ouazane",
+    "Viktor Tsygankov"
+   ],
+   "직전포메이션": "4-3-3"
+  },
+  "환경": {
+   "구장": "흐로닝언(구단 좌표 — 구장 미확인)",
+   "구장고도": 12,
+   "원정홈": "암스테르담 아레나",
+   "원정홈고도": 17,
+   "이동km": 149,
+   "고도차": -5,
+   "날씨": {
+    "기온": 10.9,
+    "습도": 93,
+    "강수mm": 0,
+    "강수확률": 35,
+    "풍속": 18.0,
+    "출처": "Open-Meteo forecast 10-18 17:59"
+   },
+   "출처": [
+    "Wikidata Q749→구단 · Open-Meteo 고도",
+    "Wikidata Q81888→Q207109 · Open-Meteo 고도"
+   ],
+   "주의": []
+  },
+  "라인업": "미발표(킥오프 6.0h 전)",
+  "event": "401875575"
+ },
+ "9273": {
+  "번호": "9273",
+  "경기": "르아브르AC - AJ오세르",
+  "리그": "프랑스 리그1",
+  "시각": "10-19 00:15",
+  "수집": "10-18 20:39",
+  "홈": {
+   "팀": "르아브르AC",
+   "eng": "Le Havre",
+   "직전": "10-11 원정 vs Lille 0-1 패 [ligue 1]",
+   "휴식일": 8.0,
+   "최근7일경기": 0,
+   "직전event": "401876446",
+   "xg": {
+    "n": 6,
+    "xg": 1.23,
+    "xga": 1.93,
+    "npxgd": -0.57,
+    "l5_xg": 1.35,
+    "l5_xga": 1.99,
+    "l5_npxgd": -0.49,
+    "home_xgd": -0.62,
+    "away_xgd": -0.53,
+    "xpts": 5.3,
+    "pts": 2
+   },
+   "xg_src": "Understat Ligue_1 Le Havre",
+   "직전선발": [
+    "Gauthier Gallon",
+    "Ahmed Touba",
+    "Ayumu Seko",
+    "Mouhamed N'Diaye",
+    "Djibril Ouziad",
+    "Simon Ebonog",
+    "Amir Richardson",
+    "Rassoul Ndiaye",
+    "Josh Maja",
+    "Mbwana Samatta",
+    "Sota Nakamura"
+   ],
+   "직전포메이션": "4-3-3"
+  },
+  "원정": {
+   "팀": "AJ오세르",
+   "eng": "Auxerre",
+   "직전": "10-12 원정 vs Stade Rennais 1-4 패 [ligue 1]",
+   "휴식일": 7.0,
+   "최근7일경기": 0,
+   "직전event": "401876441",
+   "xg": {
+    "n": 6,
+    "xg": 1.34,
+    "xga": 2.11,
+    "npxgd": -0.64,
+    "l5_xg": 1.27,
+    "l5_xga": 1.51,
+    "l5_npxgd": -0.24,
+    "home_xgd": 0.52,
+    "away_xgd": -1.81,
+    "xpts": 6.6,
+    "pts": 6
+   },
+   "xg_src": "Understat Ligue_1 Auxerre",
+   "직전선발": [
+    "Mamadou Diop",
+    "Axel Tuanzebe",
+    "Clément Akpa",
+    "Arthur Piedfort",
+    "Kévin Danois",
+    "Naouirou Ahamada",
+    "Fredrik Oppegard",
+    "Lamine Sy",
+    "Cameron Archer",
+    "Danny Namaso",
+    "Romain Faivre"
+   ],
+   "직전포메이션": "3-4-2-1"
+  },
+  "환경": {
+   "구장": "Stade Océane",
+   "구장고도": 9,
+   "원정홈": "Stade de l'Abbé-Deschamps",
+   "원정홈고도": 97,
+   "이동km": 315,
+   "고도차": -88,
+   "날씨": {
+    "기온": 13.0,
+    "습도": 67,
+    "강수mm": 0,
+    "강수확률": 23,
+    "풍속": 13.4,
+    "출처": "Open-Meteo forecast 10-18 21:19"
+   },
+   "출처": [
+    "Wikidata Q328658→Q219462 · Open-Meteo 고도",
+    "Wikidata Q182876→Q1347183 · Open-Meteo 고도"
+   ],
+   "주의": []
+  },
+  "라인업": "미발표(킥오프 3.6h 전)",
+  "event": "401876438"
+ },
+ "9285": {
+  "번호": "9285",
+  "경기": "노팅엄 포리스트 - 아스널",
+  "리그": "잉글랜드 프리미어리그",
+  "시각": "10-19 00:30",
+  "수집": "10-18 20:39",
+  "홈": {
+   "팀": "노팅엄 포리스트",
+   "eng": "Nottingham",
+   "직전": "10-11 원정 vs Crystal Palace 1-3 패 [english premier league]",
+   "휴식일": 7.1,
+   "최근7일경기": 0,
+   "직전event": "401879266",
+   "xg": {
+    "n": 6,
+    "xg": 2.04,
+    "xga": 1.21,
+    "npxgd": 0.7,
+    "l5_xg": 2.32,
+    "l5_xga": 1.36,
+    "l5_npxgd": 0.81,
+    "home_xgd": 0.05,
+    "away_xgd": 1.35,
+    "xpts": 11.4,
+    "pts": 5
+   },
+   "xg_src": "Understat EPL Nottingham Forest",
+   "직전선발": [
+    "Matz Sels",
+    "Ousmane Diomande",
+    "Murillo",
+    "Ola Aina",
+    "James McAtee",
+    "Xaver Schlager",
+    "Neco Williams",
+    "Daniel Muñoz",
+    "Liam Delap",
+    "Dan Ndoye",
+    "Morgan Gibbs-White"
+   ],
+   "직전포메이션": "3-4-2-1"
+  },
+  "원정": {
+   "팀": "아스널",
+   "eng": "Arsenal",
+   "직전": "10-14 홈 vs Lille 3-0 승 [uefa.champions]",
+   "휴식일": 4.9,
+   "최근7일경기": 1,
+   "직전event": "401915417",
+   "xg": {
+    "n": 6,
+    "xg": 1.96,
+    "xga": 1.11,
+    "npxgd": 0.85,
+    "l5_xg": 1.98,
+    "l5_xga": 1.22,
+    "l5_npxgd": 0.76,
+    "home_xgd": 1.6,
+    "away_xgd": 0.1,
+    "xpts": 12.0,
+    "pts": 15
+   },
+   "xg_src": "Understat EPL Arsenal",
+   "직전선발": [
+    "David Raya",
+    "Gabriel Magalhães",
+    "Ezri Konsa",
+    "Myles Lewis-Skelly",
+    "Jurriën Timber",
+    "Mikel Merino",
+    "Bruno Guimarães",
+    "Declan Rice",
+    "Viktor Gyökeres",
+    "Eberechi Eze",
+    "Noni Madueke"
+   ],
+   "직전포메이션": "4-2-3-1"
+  },
+  "환경": {
+   "구장": "시티 그라운드",
+   "구장고도": 19,
+   "원정홈": "아스널 스타디움(구단 좌표 — 구장 미확인)",
+   "원정홈고도": 32,
+   "이동km": 169,
+   "고도차": -13,
+   "날씨": {
+    "기온": 10.6,
+    "습도": 82,
+    "강수mm": 1.1,
+    "강수확률": 6,
+    "풍속": 20.9,
+    "출처": "Open-Meteo forecast 10-18 21:19"
+   },
+   "출처": [
+    "Wikidata Q19490→Q593446 · Open-Meteo 고도",
+    "Wikidata Q205309→구단 · Open-Meteo 고도"
+   ],
+   "주의": []
+  },
+  "라인업": "미발표(킥오프 3.8h 전)",
+  "event": "401878769"
+ },
+ "9290": {
+  "번호": "9290",
+  "경기": "묀헨글라트바흐 - TSG1899 호펜하임",
+  "리그": "독일 분데스리가",
+  "시각": "10-19 00:30",
+  "수집": "10-18 20:39",
+  "홈": {
+   "팀": "묀헨글라트바흐",
+   "eng": "['Gladbach', 'Monchengladbach']",
+   "휴식일": null,
+   "직전": "-",
+   "최근7일경기": null,
+   "휴식일주의": "35일 내 경기 없음 — ESPN 미제공 리그(체코·폴란드·헝가리·불가리아·키프로스·이스라엘·핀란드·크로아티아·세르비아·동남아 등)이면 에이전트가 직접 확인",
+   "xg": null
+  },
+  "원정": {
+   "팀": "TSG1899 호펜하임",
+   "eng": "TSG Hoffenheim",
+   "직전": "10-16 홈 vs Besiktas 2-3 패 [uefa.europa]",
+   "휴식일": 2.9,
+   "최근7일경기": 1,
+   "직전event": "401915563",
+   "xg": {
+    "n": 5,
+    "xg": 1.93,
+    "xga": 1.97,
+    "npxgd": -0.19,
+    "l5_xg": 1.93,
+    "l5_xga": 1.97,
+    "l5_npxgd": -0.19,
+    "home_xgd": -0.05,
+    "away_xgd": -0.41,
+    "xpts": 6.6,
+    "pts": 3
+   },
+   "xg_src": "Understat Bundesliga Hoffenheim",
+   "직전선발": [
+    "Oliver Baumann",
+    "Koki Machida",
+    "Ozan Kabak",
+    "Bernardo",
+    "Vladimír Coufal",
+    "Fisnik Asllani",
+    "Leon Avdullahu",
+    "Wouter Burger",
+    "Adam Hlozek",
+    "Adam Daghim",
+    "Andrej Kramaric"
+   ],
+   "직전포메이션": "4-2-3-1"
+  },
+  "환경": {
+   "구장": "묀헨글라트바흐(구단 좌표 — 구장 미확인)",
+   "구장고도": 74,
+   "원정홈": "라인 네카어 아레나",
+   "원정홈고도": 182,
+   "이동km": 279,
+   "고도차": -108,
+   "날씨": {
+    "기온": 10.6,
+    "습도": 92,
+    "강수mm": 0.2,
+    "강수확률": 33,
+    "풍속": 9.4,
+    "출처": "Open-Meteo forecast 10-18 21:20"
+   },
+   "출처": [
+    "Wikidata Q2758→구단 · Open-Meteo 고도",
+    "Wikidata Q22707→Q129870 · Open-Meteo 고도"
+   ],
+   "주의": []
+  },
+  "라인업": "미발표(킥오프 3.8h 전)",
+  "event": null
+ },
+ "9295": {
+  "번호": "9295",
+  "경기": "AC밀란 - 아탈란타BC",
+  "리그": "이탈리아 세리에A",
+  "시각": "10-19 01:00",
+  "수집": "10-18 20:39",
+  "홈": {
+   "팀": "AC밀란",
+   "eng": "AC Milan",
+   "직전": "10-16 원정 vs RB Salzburg 4-0 승 [uefa.europa]",
+   "휴식일": 3.0,
+   "최근7일경기": 1,
+   "직전event": "401915568",
+   "xg": {
+    "n": 6,
+    "xg": 1.93,
+    "xga": 1.21,
+    "npxgd": 0.72,
+    "l5_xg": 1.96,
+    "l5_xga": 1.23,
+    "l5_npxgd": 0.74,
+    "home_xgd": 2.48,
+    "away_xgd": -0.16,
+    "xpts": 10.7,
+    "pts": 12
+   },
+   "xg_src": "Understat Serie_A AC Milan",
+   "직전선발": [
+    "Mike Maignan",
+    "Koni De Winter",
+    "Strahinja Pavlovic",
+    "Fikayo Tomori",
+    "Adrien Rabiot",
+    "Ardon Jashari",
+    "Davide Bartesaghi",
+    "Omari Hutchinson",
+    "Francesco Camarda",
+    "Alphadjo Cissè",
+    "Ruben Loftus-Cheek"
+   ],
+   "직전포메이션": "3-4-2-1"
+  },
+  "원정": {
+   "팀": "아탈란타BC",
+   "eng": "Atalanta BC",
+   "직전": "10-16 홈 vs Pafos 3-1 승 [uefa.europa.conf]",
+   "휴식일": 2.9,
+   "최근7일경기": 2,
+   "직전event": "401915746",
+   "xg": {
+    "n": 6,
+    "xg": 1.13,
+    "xga": 2.23,
+    "npxgd": -0.98,
+    "l5_xg": 1.17,
+    "l5_xga": 2.14,
+    "l5_npxgd": -0.82,
+    "home_xgd": -0.42,
+    "away_xgd": -2.1,
+    "xpts": 4.2,
+    "pts": 9
+   },
+   "xg_src": "Understat Serie_A Atalanta",
+   "직전선발": [
+    "Marco Carnesecchi",
+    "Sead Kolasinac",
+    "Thomas Kristensen",
+    "Lorenzo Bernasconi",
+    "Davide Zappacosta",
+    "Giacomo Raspadori",
+    "Mario Pasalic",
+    "Gianluca Gaetano",
+    "Gianluca Scamacca",
+    "Nicola Zalewski",
+    "Eljif Elmas"
+   ],
+   "직전포메이션": "4-2-3-1"
+  },
+  "환경": {
+   "구장": "스타디오 주세페 메아차",
+   "구장고도": 139,
+   "원정홈": "스타디오 아틀레티 아추리 디탈리아",
+   "원정홈고도": 266,
+   "이동km": 50,
+   "고도차": -127,
+   "날씨": {
+    "기온": 16.5,
+    "습도": 89,
+    "강수mm": 3.2,
+    "강수확률": 85,
+    "풍속": 5.9,
+    "출처": "Open-Meteo forecast 10-18 22:02"
+   },
+   "출처": [
+    "Wikidata Q1543→Q133566 · Open-Meteo 고도",
+    "Wikidata Q1886→Q780526 · Open-Meteo 고도"
+   ],
+   "주의": [
+    "비 3.2mm(85%)"
+   ]
+  },
+  "라인업": "미발표(킥오프 4.3h 전)",
+  "event": "401874978"
+ },
+ "9307": {
+  "번호": "9307",
+  "경기": "트벤테 - 위트레흐트",
+  "리그": "네덜란드 에레디비시",
+  "시각": "10-19 03:00",
+  "수집": "10-18 20:39",
+  "홈": {
+   "팀": "트벤테",
+   "eng": "FC Twente",
+   "직전": "10-16 홈 vs FC Thun 1-0 승 [uefa.europa.conf]",
+   "휴식일": 3.0,
+   "최근7일경기": 1,
+   "직전event": "401915851",
+   "xg": null,
+   "직전선발": [
+    "Joel Drommel",
+    "Ruud Nijstad",
+    "Robin Pröpper",
+    "Aske Adelgaard",
+    "Bart van Rooij",
+    "Younes Taha",
+    "Daouda Weidmann",
+    "Ramiz Zerrouki",
+    "Wout Weghorst",
+    "Sondre Ørjasaeter",
+    "Daan Rots"
+   ],
+   "직전포메이션": "4-2-3-1"
+  },
+  "원정": {
+   "팀": "위트레흐트",
+   "eng": "Utrecht",
+   "직전": "09-20 원정 vs Feyenoord Rotterdam 0-5 패 [ned.1]",
+   "휴식일": 28.3,
+   "휴식일주의": "ESPN에 없는 리그일 수 있음(21일 내 경기 없음) — 실제 휴식일은 더 짧을 수 있음",
+   "최근7일경기": 0,
+   "직전event": "401875596",
+   "xg": null,
+   "직전선발": [
+    "Vasilios Barkas",
+    "Matisse Didden",
+    "Nikolas Panagiotou",
+    "Siebe Horemans",
+    "Arthur Zagre",
+    "Niklas Vesterlund",
+    "Davy van den Berg",
+    "Dani de Wit",
+    "Adrian Blake",
+    "Ángel Alarcón",
+    "Artem Stepanov"
+   ],
+   "직전포메이션": "5-4-1"
+  },
+  "환경": {
+   "구장": "더 흐롤스 페스터",
+   "구장고도": 29,
+   "원정홈": "위트레흐트(구단 좌표 — 구장 미확인)",
+   "원정홈고도": 10,
+   "이동km": 118,
+   "고도차": 19,
+   "날씨": {
+    "기온": 11.1,
+    "습도": 97,
+    "강수mm": 0.7,
+    "강수확률": 11,
+    "풍속": 20.2,
+    "출처": "Open-Meteo forecast 10-18 22:02"
+   },
+   "출처": [
+    "Wikidata Q19603→Q727389 · Open-Meteo 고도",
+    "Wikidata Q803→구단 · Open-Meteo 고도"
+   ],
+   "주의": []
+  },
+  "라인업": "미발표(킥오프 6.3h 전)",
+  "event": "401875577"
+ },
+ "9313": {
+  "번호": "9313",
+  "경기": "유벤투스 - SS라치오",
+  "리그": "이탈리아 세리에A",
+  "시각": "10-19 03:45",
+  "수집": "10-18 20:39",
+  "홈": {
+   "팀": "유벤투스",
+   "eng": "Juventus FC",
+   "직전": "10-16 원정 vs Celta Vigo 2-1 승 [uefa.europa]",
+   "휴식일": 3.0,
+   "최근7일경기": 1,
+   "직전event": "401915560",
+   "xg": {
+    "n": 6,
+    "xg": 1.94,
+    "xga": 0.49,
+    "npxgd": 1.45,
+    "l5_xg": 1.8,
+    "l5_xga": 0.51,
+    "l5_npxgd": 1.29,
+    "home_xgd": 1.55,
+    "away_xgd": 1.35,
+    "xpts": 14.6,
+    "pts": 11
+   },
+   "xg_src": "Understat Serie_A Juventus",
+   "직전선발": [
+    "Guglielmo Vicario",
+    "Federico Gatti",
+    "Lloyd Kelly",
+    "Pierre Kalulu",
+    "Teun Koopmeiners",
+    "Pape Matar Sarr",
+    "Andrea Cambiaso",
+    "Weston McKennie",
+    "Nick Woltemade",
+    "Kerim Alajbegovic",
+    "Francisco Conceição"
+   ],
+   "직전포메이션": "3-4-2-1"
+  },
+  "원정": {
+   "팀": "SS라치오",
+   "eng": "Lazio",
+   "직전": "10-11 홈 vs Monza 3-1 승 [italian serie a]",
+   "휴식일": 7.2,
+   "최근7일경기": 0,
+   "직전event": "401874951",
+   "xg": {
+    "n": 6,
+    "xg": 1.88,
+    "xga": 1.49,
+    "npxgd": 0.39,
+    "l5_xg": 2.09,
+    "l5_xga": 1.37,
+    "l5_npxgd": 0.72,
+    "home_xgd": 0.83,
+    "away_xgd": -0.05,
+    "xpts": 10.0,
+    "pts": 16
+   },
+   "xg_src": "Understat Serie_A Lazio",
+   "직전선발": [
+    "Christos Mandas",
+    "Oliver Provstgaard",
+    "Danilho Doekhi",
+    "Nuno Tavares",
+    "Romano Floriani",
+    "Reda Belahyane",
+    "Kenneth Taylor",
+    "Davide Frattesi",
+    "Tijjani Noslin",
+    "Mattia Zaccagni",
+    "Gustav Isaksen"
+   ],
+   "직전포메이션": "4-3-3"
+  },
+  "환경": {
+   "구장": "유벤투스 스타디움(구단 좌표 — 구장 미확인)",
+   "구장고도": 281,
+   "원정홈": "스타디오 올림피코",
+   "원정홈고도": 17,
+   "이동km": 525,
+   "고도차": 264,
+   "날씨": {
+    "기온": 16.0,
+    "습도": 85,
+    "강수mm": 0,
+    "강수확률": 3,
+    "풍속": 10.5,
+    "출처": "Open-Meteo forecast 10-18 22:03"
+   },
+   "출처": [
+    "Wikidata Q62149→구단 · Open-Meteo 고도",
+    "Wikidata Q2609→Q159884 · Open-Meteo 고도"
+   ],
+   "주의": []
+  },
+  "라인업": "미발표(킥오프 7.1h 전)",
+  "event": "401874765"
+ }
+}

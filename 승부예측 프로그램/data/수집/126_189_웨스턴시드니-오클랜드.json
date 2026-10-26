@@ -1,0 +1,33 @@
+{
+  "번호": "189",
+  "홈": "Western Sydney Wanderers",
+  "원정": "Auckland FC",
+  "수집시각": "2026-10-24 14:10 KST",
+  "결장": [
+    {"팀": "홈", "선수": "Awan Lual", "포지션": "공격수", "이번시즌_선발/경기": "1경기 출전(10-16 vs Sydney FC)", "득점·도움": "정보없음", "사유": "햄스트링 부상(10-16 시드니 더비 중 발생)", "상태": "확정", "복귀예정": "약 6주(12월 초)", "대체선수": "Brandon Borrello(확대명단 복귀)", "출처": "https://wswanderersfc.com.au/news/lual-sidelined-with-hamstring-injury/ , https://wswanderersfc.com.au/news/ins-outs-wanderers-v-auckland-2/", "날짜": "2026-10-22"},
+    {"팀": "원정", "선수": "Cameron Howieson", "포지션": "미드필더", "이번시즌_선발/경기": "0/1(개막전 결장)", "득점·도움": "정보없음", "사유": "종아리 부상", "상태": "확정", "복귀예정": "미정", "대체선수": "명시 없음", "출처": "https://www.friendsoffootballnz.com/2026/10/23/squads-named-for-a-league-match-between-auckland-fc-and-wanderers/ , https://aleagues.com.au/news/aleague-men-ins-and-outs-matchweek-2/", "날짜": "2026-10-23"},
+    {"팀": "원정", "선수": "Aaron Calver", "포지션": "수비수", "이번시즌_선발/경기": "0/1", "득점·도움": "정보없음", "사유": "발목 부상", "상태": "확정", "복귀예정": "미정", "대체선수": "명시 없음", "출처": "https://www.friendsoffootballnz.com/2026/10/23/squads-named-for-a-league-match-between-auckland-fc-and-wanderers/", "날짜": "2026-10-23"},
+    {"팀": "원정", "선수": "Oliver Middleton", "포지션": "공격수", "이번시즌_선발/경기": "0/1", "득점·도움": "정보없음", "사유": "무릎 부상", "상태": "확정", "복귀예정": "미정", "대체선수": "명시 없음", "출처": "https://www.friendsoffootballnz.com/2026/10/23/squads-named-for-a-league-match-between-auckland-fc-and-wanderers/", "날짜": "2026-10-23"}
+  ],
+  "라인업": {
+    "홈": {"발표여부": "20명 매치데이 스쿼드만 발표(선발 XI 미확정)", "예상XI": "직전 10-16 선발 4-2-3-1 Lawrence Thomas, Panashe Madanha, Anthony Pantazopoulos, German Ferreyra, Jarrod Carluccio, Miguel Di Pizio, Angus Thurgate, Nicolas Milanovic, William Gillion, Dylan Scicluna, Brandon Borrello 기준. 신규 소집 Brandon Borrello·Marcus Savic, Awan Lual 제외", "포메이션": "직전 4-2-3-1", "출처": "https://wswanderersfc.com.au/news/ins-outs-wanderers-v-auckland-2/", "날짜": "2026-10-23"},
+    "원정": {"발표여부": "20명 스쿼드 발표 · Pedro Moreira 감독 '지난주 승리 라인업 변화 없음' 발언", "예상XI": "Michael Woud, Nando Pijnaker, Luka Vicelich, Hiroki Sakai, Francis de Vries, Lachlan Bayliss, Felipe Gallegos, Lachlan Brook, Logan Rogerson, Jake Brimmer, Sam Cosgrove", "포메이션": "직전 4-2-3-1", "출처": "https://www.friendsoffootballnz.com/2026/10/23/squads-named-for-a-league-match-between-auckland-fc-and-wanderers/", "날짜": "2026-10-23"}
+  },
+  "최근경기": [
+    {"팀": "홈", "날짜": "2026-10-16", "상대": "Sydney FC", "장소": "원정", "스코어": "0-0", "비고": "시드니 더비, 2026-27 개막전, Talay 감독 데뷔전"},
+    {"팀": "원정", "날짜": "2026-10-17", "상대": "Melbourne City FC", "장소": "홈", "스코어": "3-1", "비고": "2026-27 개막전 승리"}
+  ],
+  "순위": {"홈": "7위 · 1경기 0승1무0패 · 득실 0 · 승점 1", "원정": "1위 · 1경기 1승0무0패 · 득실 +2(3득1실) · 승점 3", "출처": "friendsoffootballnz.com + 팀노트 FACTS", "날짜": "2026-10-23"},
+  "감독": {"홈": "Ufuk Talay(변동 없음, 10-16 공식 데뷔전)", "원정": "Pedro Moreira(변동 없음)", "변동": "양 팀 모두 교체 없음", "출처": "wswanderersfc.com.au / friendsoffootballnz.com", "날짜": "2026-10-23"},
+  "일정·동기·기타": [
+    {"내용": "웨스턴시드니 2026-27 홈 개막전('Wanderland' 복귀). 여자팀 14:15 더블헤더로 큰 관중 기대", "출처": "https://wswanderersfc.com.au/news/wanderland-awaits-as-wanderers-prepare-for-auckland-fc-showdown/", "날짜": "2026-10-23"},
+    {"내용": "오클랜드FC는 디펜딩 챔피언, 개막 2연전 중 원정 연속 이동", "출처": "https://www.1news.co.nz/2026/10/16/a-league-new-look-auckland-fc-aims-to-defend-title-in-third-season/", "날짜": "2026-10-16"},
+    {"내용": "Liam Gillion은 2026-07-01 Auckland FC→웨스턴시드니 이적, 친정팀 상대", "출처": "https://wswanderersfc.com.au/news/ins-outs-wanderers-v-auckland-2/", "날짜": "2026-10-23"}
+  ],
+  "엇갈림": [
+    "경기장: INPUTS 자동수집은 'Sydney Showground Stadium'인데 웨스턴시드니 공식(10-23)·NZ 매체(10-23) 모두 'CommBank Stadium, Parramatta'. 두 독립 출처가 CommBank 로 일치 → 이동거리·날씨 좌표 재검토 필요",
+    "Awan Lual 부상 발생일은 10-16 더비, 기사는 10-22 보도"
+  ],
+  "못찾음": ["오클랜드FC 시드니 이동 일정 구체 보도", "결장 선수 복귀 확정일", "심판·공식 포메이션"],
+  "뉴스없음": {"홈": "이동·잔디 상태 별도 보도 없음 — 검색처: wswanderersfc.com.au 뉴스란, friendsoffootballnz.com, Google 웹검색", "원정": "이동 피로·도착 시각 보도 없음 — 검색처: rnz.co.nz, friendsoffootballnz.com, Google 웹검색"}
+}

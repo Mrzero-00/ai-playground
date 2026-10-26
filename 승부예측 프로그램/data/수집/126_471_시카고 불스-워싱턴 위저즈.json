@@ -1,0 +1,375 @@
+{
+  "번호": 471,
+  "홈": "시카고 불스",
+  "원정": "워싱턴 위저즈",
+  "수집시각": "2026-10-25 08:05 KST",
+  "수집가_주의": "사실·URL·날짜만. 확률/예측/배당 없음.",
+  "리그·구장·킥오프": {
+    "리그": "NBA 2026-27 정규시즌",
+    "구장": "United Center (Chicago, IL) — 불스 정규 홈구장. 특별 개최지 아님.",
+    "킥오프": "현지 2026-10-24(토) 20:00 ET = 2026-10-25 09:00 KST",
+    "ESPN_경기ID": "401909857",
+    "출처": [
+      "https://site.api.espn.com/apis/site/v2/sports/basketball/nba/summary?event=401909857",
+      "https://www.bleachernation.com/bulls/2026/10/24/bulls-vs-wizard-oct-24/"
+    ],
+    "날짜": "2026-10-25"
+  },
+  "시즌기록": {
+    "홈": {
+      "팀": "시카고 불스",
+      "전적": "1-1",
+      "경기수": 2,
+      "경기로그": [
+        {
+          "날짜": "2026-10-21",
+          "상대": "토론토 랩터스",
+          "홈원정": "원정",
+          "득점": 92,
+          "실점": 135,
+          "승패": "패",
+          "구장": "Scotiabank Arena"
+        },
+        {
+          "날짜": "2026-10-23",
+          "상대": "밀워키 벅스",
+          "홈원정": "원정",
+          "득점": 132,
+          "실점": 125,
+          "승패": "승",
+          "구장": "Fiserv Forum",
+          "비고": "현지 16:00 ET 낮경기"
+        }
+      ],
+      "합계": {
+        "득점": 224,
+        "실점": 260,
+        "평균득점": 112.0,
+        "평균실점": 130.0
+      },
+      "비고": "이번이 시즌 홈 개막전(앞 2경기 모두 원정).",
+      "출처": [
+        "https://site.api.espn.com/apis/site/v2/sports/basketball/nba/teams/chi/schedule?season=2027&seasontype=2"
+      ],
+      "날짜": "2026-10-25"
+    },
+    "원정": {
+      "팀": "워싱턴 위저즈",
+      "전적": "1-1",
+      "경기수": 2,
+      "경기로그": [
+        {
+          "날짜": "2026-10-21",
+          "상대": "밀워키 벅스",
+          "홈원정": "홈",
+          "득점": 128,
+          "실점": 116,
+          "승패": "승",
+          "구장": "Capital One Arena"
+        },
+        {
+          "날짜": "2026-10-23",
+          "상대": "토론토 랩터스",
+          "홈원정": "홈",
+          "득점": 102,
+          "실점": 112,
+          "승패": "패",
+          "구장": "Capital One Arena"
+        }
+      ],
+      "합계": {
+        "득점": 230,
+        "실점": 228,
+        "평균득점": 115.0,
+        "평균실점": 114.0
+      },
+      "비고": "이번이 시즌 첫 원정경기.",
+      "출처": [
+        "https://site.api.espn.com/apis/site/v2/sports/basketball/nba/teams/wsh/schedule?season=2027&seasontype=2"
+      ],
+      "날짜": "2026-10-25"
+    }
+  },
+  "선발·출전시간_실측": {
+    "설명": "박스스코어 실측(S=선발/B=벤치), 값은 경기순(10/21·10/23).",
+    "시카고 불스": [
+      {
+        "선수": "Caleb Wilson",
+        "선발": "S/S",
+        "분": "33/32",
+        "득점": "21/16"
+      },
+      {
+        "선수": "Norman Powell",
+        "선발": "S/S",
+        "분": "33/22",
+        "득점": "25/15"
+      },
+      {
+        "선수": "Josh Giddey",
+        "선발": "S/S",
+        "분": "25/24",
+        "득점": "6/2"
+      },
+      {
+        "선수": "Jalen Smith",
+        "선발": "S/S",
+        "분": "24/19",
+        "득점": "14/15"
+      },
+      {
+        "선수": "Matas Buzelis",
+        "선발": "S/S",
+        "분": "17/25",
+        "득점": "7/17"
+      },
+      {
+        "선수": "Leonard Miller",
+        "선발": "B/B",
+        "분": "24/26",
+        "득점": "19/4"
+      },
+      {
+        "선수": "Isaac Okoro",
+        "선발": "B/B",
+        "분": "28/18",
+        "득점": "12/4"
+      },
+      {
+        "선수": "Tre Jones",
+        "선발": "B/B",
+        "분": "24/13",
+        "득점": "11/13"
+      },
+      {
+        "선수": "Buddy Hield",
+        "선발": "B/B",
+        "분": "15/14",
+        "득점": "13/0"
+      },
+      {
+        "선수": "Noa Essengue",
+        "선발": "B/B",
+        "분": "17/10",
+        "득점": "4/1"
+      },
+      {
+        "선수": "Tobe Awaka",
+        "선발": "B",
+        "분": "14",
+        "득점": "2"
+      }
+    ],
+    "워싱턴 위저즈": [
+      {
+        "선수": "Trae Young",
+        "선발": "S/S",
+        "분": "38/37",
+        "득점": "20/22"
+      },
+      {
+        "선수": "Anthony Davis",
+        "선발": "S/S",
+        "분": "34/32",
+        "득점": "34/9"
+      },
+      {
+        "선수": "Kyshawn George",
+        "선발": "S/S",
+        "분": "29/26",
+        "득점": "18/11"
+      },
+      {
+        "선수": "Bilal Coulibaly",
+        "선발": "S/S",
+        "분": "29/26",
+        "득점": "11/11"
+      },
+      {
+        "선수": "Alex Sarr",
+        "선발": "S/S",
+        "분": "24/25",
+        "득점": "6/7"
+      },
+      {
+        "선수": "Tre Johnson",
+        "선발": "B/B",
+        "분": "19/26",
+        "득점": "8/20"
+      },
+      {
+        "선수": "Justin Champagnie",
+        "선발": "B/B",
+        "분": "21/23",
+        "득점": "8/8"
+      },
+      {
+        "선수": "Bub Carrington",
+        "선발": "B/B",
+        "분": "19/11",
+        "득점": "10/3"
+      },
+      {
+        "선수": "Deandre Ayton",
+        "선발": "B/B",
+        "분": "15/14",
+        "득점": "11/4"
+      },
+      {
+        "선수": "Khris Middleton",
+        "선발": "B/B",
+        "분": "12/16",
+        "득점": "2/6"
+      },
+      {
+        "선수": "Anthony Gill",
+        "선발": "B",
+        "분": "1",
+        "득점": "0"
+      }
+    ],
+    "출처": [
+      "https://site.api.espn.com/apis/site/v2/sports/basketball/nba/summary?event=401909857"
+    ],
+    "날짜": "2026-10-25"
+  },
+  "결장": [
+    {
+      "팀": "시카고 불스",
+      "선수": "Patrick Williams",
+      "포지션": "F",
+      "상태": "OUT",
+      "사유": "오른 사타구니 통증(groin soreness)",
+      "지난시즌_평균득점": "7.0 (2025-26 CHI, 72경기)",
+      "지난시즌_출전시간": "20.5분",
+      "비고": "올시즌 출전 기록 없음",
+      "출처": [
+        "https://site.api.espn.com/apis/site/v2/sports/basketball/nba/injuries"
+      ],
+      "날짜": "2026-10-24 (ESPN 22:22Z, Joel Lorenzi/The Athletic)"
+    },
+    {
+      "팀": "시카고 불스",
+      "선수": "Noa Essengue",
+      "포지션": "F",
+      "상태": "OUT",
+      "사유": "머리 타박(head contusion)",
+      "지난시즌_평균득점": "0.0 (2025-26 CHI, 2경기)",
+      "지난시즌_출전시간": "3.0분",
+      "올시즌": "2경기 벤치 13.5분 2.5점",
+      "상태_불일치": "ESPN 2026-10-24T22:20Z(최신, The Athletic Joel Lorenzi)=OUT / 같은 날 이른 시각 일부 프리뷰=PROBABLE. 최신 보도 기준 OUT 으로 적음.",
+      "출처": [
+        "https://site.api.espn.com/apis/site/v2/sports/basketball/nba/injuries",
+        "https://www.bulletsforever.com/washington-wizards-preview/73588/wizards-at-bulls-preview-washington-faces-chicago-on-the-road-saturday"
+      ],
+      "날짜": "2026-10-24"
+    },
+    {
+      "팀": "시카고 불스",
+      "선수": "Nic Claxton",
+      "포지션": "C",
+      "상태": "OUT",
+      "사유": "햄스트링 — 2주 뒤 재평가(K.C. Johnson, Chicago Sports Network)",
+      "지난시즌_평균득점": "11.7 (2025-26 BKN, 69경기·68선발)",
+      "지난시즌_출전시간": "27.8분",
+      "복귀예정": "2026-11-04 전후",
+      "출처": [
+        "https://site.api.espn.com/apis/site/v2/sports/basketball/nba/injuries"
+      ],
+      "날짜": "2026-10-19 (신선도 경과 — 다만 10/24 프리뷰에서도 OUT 재확인)"
+    },
+    {
+      "팀": "워싱턴 위저즈",
+      "선수": "AJ Dybantsa",
+      "포지션": "F",
+      "상태": "OUT",
+      "사유": "왼 발목 염좌",
+      "지난시즌_평균득점": "NBA 기록 없음(2026 신인)",
+      "지난시즌_출전시간": "NBA 기록 없음",
+      "출처": [
+        "https://site.api.espn.com/apis/site/v2/sports/basketball/nba/injuries",
+        "https://www.yardbarker.com/nba/articles/final_injury_report_for_wizards_bulls_will_aj_dybantsa_anthony_davis_play/s1_17615_44469357"
+      ],
+      "날짜": "2026-10-24"
+    },
+    {
+      "팀": "워싱턴 위저즈",
+      "선수": "Tristan Vukcevic",
+      "포지션": "F",
+      "상태": "OUT",
+      "사유": "왼 고관절 눌린 신경 — 4주 뒤 재평가",
+      "지난시즌_평균득점": "9.0 (2025-26 WSH, 49경기)",
+      "지난시즌_출전시간": "13.7분",
+      "복귀예정": "2026-11-02 전후",
+      "출처": [
+        "https://site.api.espn.com/apis/site/v2/sports/basketball/nba/injuries"
+      ],
+      "날짜": "2026-10-01 (신선도 경과)"
+    },
+    {
+      "팀": "워싱턴 위저즈",
+      "선수": "Jamir Watkins",
+      "포지션": "G",
+      "상태": "OUT",
+      "사유": "왼 무릎 ACL 파열 수술 — 장기 결장(9~12개월)",
+      "지난시즌_평균득점": "7.4 (2025-26 WSH, 50경기)",
+      "지난시즌_출전시간": "20.6분",
+      "복귀예정": "2027-04 전후",
+      "출처": [
+        "https://site.api.espn.com/apis/site/v2/sports/basketball/nba/injuries"
+      ],
+      "날짜": "2026-07-30 (신선도 경과)"
+    }
+  ],
+  "결장_주의": "Anthony Davis 는 백투백 2차전 출전 예정으로 보도됨(결장 명단 없음). ESPN 인저리 피드 기준 시각 2026-10-24T22:43:30Z.",
+  "일정": {
+    "홈": {
+      "팀": "시카고",
+      "직전경기일": "2026-10-23 (ET, 현지 16:00 밀워키 원정)",
+      "백투백": true,
+      "휴식일": 0,
+      "이동": "밀워키 → 시카고 약 150km(근거리). 백투백 2차전이자 홈 개막전."
+    },
+    "원정": {
+      "팀": "워싱턴",
+      "직전경기일": "2026-10-23 (ET, 홈경기)",
+      "백투백": true,
+      "휴식일": 0,
+      "이동": "워싱턴 → 시카고 약 1,100km, 동부→중부 시차 -1시간. 백투백 2차전·시즌 첫 원정."
+    },
+    "비고": "양 팀 모두 백투백 2차전.",
+    "출처": [
+      "https://site.api.espn.com/apis/site/v2/sports/basketball/nba/teams/chi/schedule?season=2027&seasontype=2",
+      "https://site.api.espn.com/apis/site/v2/sports/basketball/nba/teams/wsh/schedule?season=2027&seasontype=2"
+    ]
+  },
+  "뉴스": [
+    {
+      "팀": "시카고 불스",
+      "내용": "2026 오프시즌: Norman Powell 2년 4,500만 달러 계약. 미네소타·브루클린이 얽힌 3팀 트레이드로 Nic Claxton 영입(현재 햄스트링 결장). 프런트는 Bryson Graham 체제.",
+      "출처": [
+        "https://www.nba.com/news/nba-offseason-deals-2026",
+        "https://www.espn.com/nba/story/_/id/49590770/nba-offseason-recap-2026-27-season-previews-stats-roster-depth-chart-schedules-30-teams"
+      ],
+      "날짜": "2026-07 (오프시즌, 신선도 경과 — 배경 정보)"
+    },
+    {
+      "팀": "워싱턴 위저즈",
+      "내용": "2026 트레이드 데드라인에 Trae Young·Anthony Davis 영입(만기 계약 대가). Young 과 4년 2억1,200만 달러 계약. Deandre Ayton·Khris Middleton 로스터 보유(10/21·10/23 실제 출전 확인).",
+      "출처": [
+        "https://www.thirdapron.com/p/wizards-offseason-preview-trae-young-anthony-davis-no-1-pick",
+        "https://www.foxnews.com/sports/mavericks-send-anthony-davis-wizards-eight-player-trade-report"
+      ],
+      "날짜": "2026-02 (데드라인) / 2026-07 (계약) — 신선도 경과, 배경 정보"
+    }
+  ],
+  "뉴스없음": {
+    "홈": "경기 당일 새 트레이드·감독 변경 없음. 당일 발표는 Patrick Williams·Noa Essengue 결장 건뿐(검색처: ESPN injuries 피드, BleacherNation, The Athletic 인용 / 확인일 2026-10-25)",
+    "원정": "경기 당일 새 트레이드·감독 변경 없음. 당일 발표는 AJ Dybantsa 결장 건뿐(검색처: ESPN injuries 피드, Bullets Forever, Yardbarker / 확인일 2026-10-25)"
+  },
+  "미확인": [
+    "Khris Middleton 거취 — 일부 기사는 '만기계약으로 트레이드되었다'고 쓰나 10/21·10/23 워싱턴 박스스코어에 실제 출전. 기사 쪽이 부정확한 것으로 보이며 추가 확인 필요",
+    "시카고 Noa Essengue 최종 판정(당일 보도가 PROBABLE → OUT 으로 엇갈림)",
+    "양 팀 공식 예상 선발 라인업 발표 여부"
+  ]
+}

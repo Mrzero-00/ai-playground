@@ -1,0 +1,170 @@
+{
+  "번호": 308,
+  "홈": "쾰른",
+  "원정": "샬케04",
+  "수집시각": "2026-10-24 21:40 KST",
+  "리그_확인": "둘 다 2026-27 독일 분데스리가(1부) 소속. 샬케04는 2025-26 시즌 2.Bundesliga에서 승격해 분데스리가 복귀(teamdb.py card 'Schalke 04 (Bundesliga)' 확인, 7경기 체제 — 6경기 소화·순위 15위). 쾰른은 분데스리가 잔류팀, 12위.",
+  "결장": [
+    {
+      "팀": "쾰른",
+      "선수": "Thijs Dallinga",
+      "포지션": "FW",
+      "이번시즌_선발/경기": "teamdb 기준 시즌 2위 기여도(2.3xG+0.4xA, 전체 14%), 평균 52분/경기 — 주전급",
+      "득점·도움": "미상(정확한 득점 수 기사에 비기재)",
+      "사유": "부상(구체 부위 미상, whoscored 통계 프리뷰 결장 명단)",
+      "상태": "확정",
+      "복귀예정": "미상",
+      "대체선수": "Marius Bülter 또는 Said El Mala 전진 배치 예상",
+      "출처": ["https://www.whoscored.com/matches/1995431/preview/germany-bundesliga-2026-2027-fc-koln-schalke-04"],
+      "날짜": "2026-10-24"
+    },
+    {
+      "팀": "쾰른",
+      "선수": "Ellyes Skhiri",
+      "포지션": "MF",
+      "이번시즌_선발/경기": "teamdb 기준 0.6xG+0.6xA=6% 기여, 59분/경기 — 로테이션급",
+      "득점·도움": "미상",
+      "사유": "부상(구체 부위 미상)",
+      "상태": "확정",
+      "복귀예정": "미상",
+      "대체선수": "Tom Krauss 중원 보강 예상",
+      "출처": ["https://www.whoscored.com/matches/1995431/preview/germany-bundesliga-2026-2027-fc-koln-schalke-04"],
+      "날짜": "2026-10-24"
+    },
+    {
+      "팀": "쾰른",
+      "선수": "Imad Rondic / Timo Hübers / Rav van den Berg / Ragnar Ache",
+      "포지션": "미상",
+      "이번시즌_선발/경기": "미상(teamdb 핵심 선수 목록 밖 — 기여도 낮은 로테이션/백업 자원으로 추정)",
+      "득점·도움": "미상",
+      "사유": "부상(whoscored 결장 명단에 일괄 포함, 개별 사유 비기재)",
+      "상태": "확정",
+      "복귀예정": "미상",
+      "대체선수": "미상",
+      "출처": ["https://www.whoscored.com/matches/1995431/preview/germany-bundesliga-2026-2027-fc-koln-schalke-04"],
+      "날짜": "2026-10-24"
+    },
+    {
+      "팀": "샬케04",
+      "선수": "Moussa Sylla",
+      "포지션": "FW",
+      "이번시즌_선발/경기": "teamdb 기준 시즌 3위 기여도(1.4xG+0.2xA=11%), 72분/경기 — 주전 공격수",
+      "득점·도움": "미상",
+      "사유": "프라이부르크전 스터드(징) 부상(09-20 이후) 여파, 마인츠전도 결장했고 아직 회복 안 됨",
+      "상태": "확정",
+      "복귀예정": "미정",
+      "대체선수": "Junior Adamu / Hee-Chan Hwang",
+      "출처": ["https://wp.sport1.de/news/fussball/bundesliga/2026/10/verletzungssorgen-auf-schalke-vor-dem-spiel-gegen-koeln", "https://www.sportschau.de/regional/wdr/wdr-schalke-04-gehen-die-spieler-aus-100.html"],
+      "날짜": "2026-10-22"
+    },
+    {
+      "팀": "샬케04",
+      "선수": "Kenan Karaman",
+      "포지션": "FW/주장",
+      "이번시즌_선발/경기": "teamdb 기준 0.4xG+0.9xA=9%, 71분/경기, 직전 라운드(10-17 vs Mainz)까지 선발 출전",
+      "득점·도움": "미상",
+      "사유": "근육 문제(Muskelprobleme)",
+      "상태": "확정",
+      "복귀예정": "미상",
+      "대체선수": "Junior Adamu 또는 Hee-Chan Hwang",
+      "출처": ["https://wp.sport1.de/news/fussball/bundesliga/2026/10/verletzungssorgen-auf-schalke-vor-dem-spiel-gegen-koeln", "https://www.sportschau.de/regional/wdr/wdr-schalke-04-gehen-die-spieler-aus-100.html"],
+      "날짜": "2026-10-22"
+    },
+    {
+      "팀": "샬케04",
+      "선수": "Max Wöber",
+      "포지션": "DF",
+      "이번시즌_선발/경기": "미상",
+      "득점·도움": "미상",
+      "사유": "허벅지 부상 — 감독 Muslic은 결장이 더 길어질 수도 있다고 언급",
+      "상태": "확정",
+      "복귀예정": "불확실(장기화 가능성)",
+      "대체선수": "Nikola Katic / Timo Becker",
+      "출처": ["https://wp.sport1.de/news/fussball/bundesliga/2026/10/verletzungssorgen-auf-schalke-vor-dem-spiel-gegen-koeln"],
+      "날짜": "2026-10-22"
+    },
+    {
+      "팀": "샬케04",
+      "선수": "Dejan Ljubicic / Ron Schallenberg / Bryan Lasme",
+      "포지션": "MF/기타",
+      "이번시즌_선발/경기": "미상(teamdb 핵심 선수 목록 밖)",
+      "득점·도움": "미상",
+      "사유": "Ljubicic 무릎 부상(호전됐으나 출전 불가), Schallenberg 다리 부상, Lasme 결장(사유 비기재)",
+      "상태": "확정",
+      "복귀예정": "미상",
+      "대체선수": "미상",
+      "출처": ["https://wp.sport1.de/news/fussball/bundesliga/2026/10/verletzungssorgen-auf-schalke-vor-dem-spiel-gegen-koeln"],
+      "날짜": "2026-10-22"
+    },
+    {
+      "팀": "샬케04",
+      "선수": "Edin Dzeko",
+      "포지션": "FW",
+      "이번시즌_선발/경기": "teamdb 직전 선발(10-17 vs Mainz) 명단 포함 — 주전급이나 teamdb 상위 기여도 목록엔 없음",
+      "득점·도움": "미상",
+      "사유": "마인츠전(10-17)에서 열상(laceration) 부상 — 머리에 붕대를 감고 훈련장에 나타났고 봉합 치료를 받음. 훈련도 중간에 중단",
+      "상태": "의심",
+      "복귀예정": "출전 여부 미정",
+      "대체선수": "Junior Adamu 단독 최전방 예상",
+      "출처": ["https://www.sportschau.de/regional/wdr/wdr-schalke-04-macht-fehlende-torgefahr-kopfschmerzen-100.html", "https://wp.sport1.de/news/fussball/bundesliga/2026/10/verletzungssorgen-auf-schalke-vor-dem-spiel-gegen-koeln"],
+      "날짜": "2026-10-22"
+    }
+  ],
+  "라인업": {
+    "홈": {
+      "발표여부": "미발표(공식 선발은 킥오프 1시간 전)",
+      "예상XI": "4-3-1-2(또는 직전 5-3-2 변형) 예상: Marvin Schwäbe; Borna Sosa, Luka Lochoshvili, Jahmai Simpson-Pusey, Joel Schmied/Sebastian Sebulonsen; Tom Krauss, Ísak Jóhannesson, Linton Maina; Said El Mala; Marius Bülter, (Dallinga 결장으로) 투톱 변경 가능",
+      "포메이션": "직전 경기(10-16 vs Frankfurt) 5-3-2 또는 whoscored 예측 4-3-1-2",
+      "출처": ["teamdb.py card (직전 선발 10-16)", "https://www.whoscored.com/matches/1995431/preview/germany-bundesliga-2026-2027-fc-koln-schalke-04"],
+      "날짜": "2026-10-24"
+    },
+    "원정": {
+      "발표여부": "미발표",
+      "예상XI": "3-4-2-1 기준(직전 선발 10-17 vs Mainz): Loris Karius; Nikola Katic, Hasan Kurucay, Timo Becker; Satoshi Tanaka, Soufian El-Faouzi, Robin Gosens, Adrian Gantenbein; Adil Aouchiche, (Karaman 결장 공백은 Hwang/Adamu로 대체 예상); Edin Dzeko(의심, 결장 시 Junior Adamu 단독 최전방)",
+      "포메이션": "3-4-2-1(시즌 81% 사용)",
+      "출처": ["teamdb.py card", "https://www.sportschau.de/regional/wdr/wdr-schalke-04-macht-fehlende-torgefahr-kopfschmerzen-100.html"],
+      "날짜": "2026-10-24"
+    },
+    "주의": "whoscored.com 통계 프리뷰가 제시한 '샬케 예상 XI'는 쾰른 선수 이름이 그대로 중복 표기되는 명백한 파싱 오류가 있어 채택하지 않음. 샬케 쪽은 teamdb 직전 선발 + 결장 보정으로만 추정."
+  },
+  "최근경기": [
+    {"팀": "쾰른", "날짜": "2026-10-16", "상대": "Eintracht Frankfurt(A)", "장소": "원정", "스코어": "0-1 패", "비고": "xG 1.02:1.27, 슈팅 9(3):15(7)"},
+    {"팀": "쾰른", "날짜": "2026-10-11", "상대": "Borussia Mönchengladbach(H)", "장소": "홈", "스코어": "2-1 승", "비고": "xG 1.54:1.04"},
+    {"팀": "쾰른", "날짜": "2026-09-19", "상대": "Hamburger SV(A)", "장소": "원정", "스코어": "1-2 패", "비고": "xG 2.16:2.08"},
+    {"팀": "샬케04", "날짜": "2026-10-17", "상대": "Mainz 05(H)", "장소": "홈", "스코어": "0-1 패", "비고": "xG 0.41:1.53, 2연패째"},
+    {"팀": "샬케04", "날짜": "2026-10-11", "상대": "SC Freiburg(A)", "장소": "원정", "스코어": "1-2 패", "비고": "xG 0.38:1.62"},
+    {"팀": "샬케04", "날짜": "2026-09-20", "상대": "SV Elversberg(H)", "장소": "홈", "스코어": "0-0 무", "비고": "xG 1.27:0.80"}
+  ],
+  "맞대결": {
+    "기록": "쾰른이 최근 맞대결 2연승(겔젠키르헨 원정 3-1, 쾰른 홈 1-0), 최근 6경기 무패(5승1무)",
+    "출처": ["https://dailysports.net/predictions/can-cologne-punish-schalkes-blunt-attack-fc-koln-vs-schalke-prediction-24102026"],
+    "날짜": "2026-10-23",
+    "비고": "출처가 예측/베팅 팁 사이트지만 맞대결 전적(사실 정보)만 인용함. 승부 예측·배당 자체는 수집하지 않음"
+  },
+  "일정·동기·기타": [
+    {"내용": "둘 다 직전 경기(10-17) 이후 휴식 7.0일 — 양팀 피로도 대등 (입력_126 데이터)", "출처": "회차별분석/입력_126.md", "날짜": "2026-10-24"},
+    {"내용": "쾰른은 이번 시즌 홈 첫 3경기 무패(2승1무)로 홈에서 안정적, 반면 샬케는 리그 2연패 중이고 최근 6경기 득점 4골뿐으로 공격력 빈곤", "출처": "https://dailysports.net/predictions/can-cologne-punish-schalkes-blunt-attack-fc-koln-vs-schalke-prediction-24102026", "날짜": "2026-10-23"},
+    {"내용": "'서부 더비(West-Schlager)'로 불리는 전통의 라이벌전이 샬케의 수년간 분데스리가 부재로 오랜만에 성사됨(샬케 2026-27 승격 복귀)", "출처": "https://geissblog.koeln/2026/10/fc-gegen-schalke-darum-fehlte-dieser-klassiker-der-bundesliga/", "날짜": "2026-10-20경"},
+    {"내용": "순위상으로는 쾰른 12위(7점) vs 샬케 15위(5점)로 하위권 간 격차 좁은 승점 싸움 — 강등권 생존이 이르게 걸린 경기는 아니나 분위기 전환 필요성은 양팀 다 큼", "출처": "teamdb.py card", "날짜": "2026-10-24"}
+  ],
+  "감독": {
+    "홈": "René Wagner (2026년 3월 Lukas Kwasniok 경질 후 승격, 이번 주 교체 없음 — 오래된 인사 변동이라 이번 경기 뉴스 아님)",
+    "원정": "Miron Muslic (교체 없음)",
+    "변동": "특이 감독 이슈 없음",
+    "출처": ["https://www.zdfheute.de/sport/bundesliga-koeln-entlaesst-kwasniok-wagner-uebernimmt-100.html(2026-03 기사, 오래된 뉴스 — 참고용)", "https://wp.sport1.de/news/fussball/bundesliga/2026/10/verletzungssorgen-auf-schalke-vor-dem-spiel-gegen-koeln"],
+    "날짜": "2026-03-22(쾰른 감독 선임, 오래된 뉴스) / 2026-10-22(샬케 감독 언급)"
+  },
+  "날씨": {
+    "내용": "구장 쾰른(RheinEnergieSTADION) · 12.4℃ · 강수 0mm(확률 0%) · 바람 15.5km/h",
+    "출처": "회차별분석/입력_126.md",
+    "날짜": "2026-10-24"
+  },
+  "심판": {
+    "내용": "주심 Harm Osmers, 부심 Christian Gittelmann·Christian Dietz, 4th Dr. Florian Exner, VAR Johann Pfeifer(AVAR Markus Sinn)",
+    "출처": ["kicker.de 7. Spieltag 심판 배정 보도"],
+    "날짜": "2026-10-24"
+  },
+  "엇갈림": [],
+  "못찾음": ["쾰른·샬케 결장 선수 다수의 이번 시즌 정확한 선발 횟수·득점·도움 수치(기사 비기재)", "양팀 공식 발표 선발 명단(킥오프 1시간 전)", "샬케 Dzeko 최종 출전 여부"],
+  "뉴스없음": {"홈": "해당 없음(결장 뉴스 확인됨)", "원정": "해당 없음(결장 뉴스 다수 확인됨)"}
+}

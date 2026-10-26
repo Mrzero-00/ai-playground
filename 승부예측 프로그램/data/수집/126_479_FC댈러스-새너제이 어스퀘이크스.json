@@ -1,0 +1,159 @@
+{
+ "번호": 479,
+ "홈": "FC댈러스",
+ "원정": "새너제이 어스퀘이크스",
+ "수집시각": "2026-10-25 07:55 KST",
+ "대회단계": {
+  "내용": "MLS 2026 정규시즌 매치데이 32 (정규시즌 2026-02-21~11-07, 34R). 플레이오프 아님 — 와일드카드 11/18, Round One 3전2선승 11/20~12/02, MLS컵 12/18. 각 컨퍼런스 상위 9팀 진출(1~7위 직행, 8·9위 와일드카드 단판). 내슈빌은 10/24 몬트리올 2-0 승으로 서포터스실드 확정.",
+  "시리즈형식": "해당 없음(정규시즌 단판)",
+  "시리즈전적": "해당 없음",
+  "걸린것_홈": "서부 3위 51점(30경기, 잔여 4) — **플레이오프 진출 이미 확정**. 1위 밴쿠버(55)와 4점 차, 2위 세인트루이스(51)와 동점 — 상위 시드·홈 어드밴티지 경쟁 중.",
+  "걸린것_원정": "서부 4위 48점(30경기, 잔여 4) — **플레이오프 진출 이미 확정**. 3위 댈러스(51)와 3점 차, 5위 휴스턴(47)과 1점 차 — 시드 경쟁. 최근 4경기 무승(3무1승).",
+  "출처": [
+   "https://en.wikipedia.org/wiki/2026_Major_League_Soccer_season",
+   "https://www.mlssoccer.com/news/audi-2026-mls-cup-playoffs-key-dates-schedule-information",
+   "https://sports.yahoo.com/articles/matchday-32-clinch-playoffs-eliminated-180000884.html",
+   "https://www.frontrowsoccer.com/2026/10/22/mls-clinching-scenarios-nashville-can-win-shield-charlotte-philly-la-seattle-can-reach-playoffs/"
+  ],
+  "날짜": "2026-10-22 ~ 2026-10-24"
+ },
+ "최근폼": {
+  "홈": {
+   "최근5": "10-18 A 휴스턴 2-2 무 / 10-15 H 시애틀 1-0 승 / 10-10 A 샬럿 2-3 패 / 09-27 H LAFC 1-0 승 / 09-20 H 오스틴 0-0 무",
+   "순위": "서부 3위 51점 14승9무7패 득실 +8 (30경기)",
+   "출처": [
+    "https://www.espn.com/soccer/standings/_/league/usa.1",
+    "https://www.espn.com/soccer/scoreboard/_/league/usa.1/date/20261024"
+   ]
+  },
+  "원정": {
+   "최근5": "10-18 H 내슈빌 1-1 무 / 10-15 A 솔트레이크 1-1 무 / 10-11 A 콜로라도 1-1 무 / 09-27 H 포틀랜드 3-1 승 / 09-19 H LAFC 2-2 무",
+   "순위": "서부 4위 48점 13승9무8패 득실 +10 (30경기)",
+   "출처": [
+    "https://www.espn.com/soccer/standings/_/league/usa.1",
+    "https://www.espn.com/soccer/scoreboard/_/league/usa.1/date/20261024"
+   ]
+  }
+ },
+ "결장": [
+  {
+   "팀": "댈러스",
+   "선수": "Logan Farrington",
+   "상태": "확정",
+   "사유": "하체",
+   "출처": [
+    "https://mlssoccer.com/news/mls-player-status-report-matchday-32-saturday-october-24-sunday-october-25"
+   ],
+   "날짜": "2026-10-23"
+  },
+  {
+   "팀": "댈러스",
+   "선수": "Sam Sarver",
+   "상태": "확정",
+   "사유": "출전정지",
+   "출처": [
+    "https://mlssoccer.com/news/mls-player-status-report-matchday-32-saturday-october-24-sunday-october-25"
+   ],
+   "날짜": "2026-10-23"
+  },
+  {
+   "팀": "새너제이",
+   "선수": "Nonso Adimabua",
+   "상태": "확정",
+   "사유": "하체",
+   "출처": [
+    "https://mlssoccer.com/news/mls-player-status-report-matchday-32-saturday-october-24-sunday-october-25"
+   ],
+   "날짜": "2026-10-23"
+  },
+  {
+   "팀": "새너제이",
+   "선수": "Darius Johnson",
+   "상태": "확정",
+   "사유": "하체",
+   "출처": [
+    "https://mlssoccer.com/news/mls-player-status-report-matchday-32-saturday-october-24-sunday-october-25"
+   ],
+   "날짜": "2026-10-23"
+  },
+  {
+   "팀": "새너제이",
+   "선수": "DeJuan Jones",
+   "상태": "확정",
+   "사유": "하체",
+   "출처": [
+    "https://mlssoccer.com/news/mls-player-status-report-matchday-32-saturday-october-24-sunday-october-25"
+   ],
+   "날짜": "2026-10-23"
+  },
+  {
+   "팀": "새너제이",
+   "선수": "Preston Judd",
+   "상태": "확정",
+   "사유": "출전정지",
+   "출처": [
+    "https://mlssoccer.com/news/mls-player-status-report-matchday-32-saturday-october-24-sunday-october-25"
+   ],
+   "날짜": "2026-10-23"
+  },
+  {
+   "팀": "새너제이",
+   "선수": "Benji Kikanović",
+   "상태": "확정",
+   "사유": "하체",
+   "출처": [
+    "https://mlssoccer.com/news/mls-player-status-report-matchday-32-saturday-october-24-sunday-october-25"
+   ],
+   "날짜": "2026-10-23"
+  },
+  {
+   "팀": "새너제이",
+   "선수": "Jonathan González",
+   "상태": "의심",
+   "사유": "하체",
+   "출처": [
+    "https://mlssoccer.com/news/mls-player-status-report-matchday-32-saturday-october-24-sunday-october-25"
+   ],
+   "날짜": "2026-10-23"
+  },
+  {
+   "팀": "새너제이",
+   "선수": "Niko Tsakiris",
+   "상태": "의심",
+   "사유": "상체",
+   "출처": [
+    "https://mlssoccer.com/news/mls-player-status-report-matchday-32-saturday-october-24-sunday-october-25"
+   ],
+   "날짜": "2026-10-23"
+  },
+  {
+   "팀": "새너제이",
+   "선수": "Timo Werner",
+   "상태": "의심",
+   "사유": "하체",
+   "출처": [
+    "https://mlssoccer.com/news/mls-player-status-report-matchday-32-saturday-october-24-sunday-october-25"
+   ],
+   "날짜": "2026-10-23"
+  }
+ ],
+ "구장·날씨": {
+  "구장": "Toyota Stadium, 프리스코 TX (정규 홈구장. ESPN 표기 'Kansas'는 오기)",
+  "날씨": "20:30 ET 기준 24.3°C · 강수 0mm(확률 0%) · 바람 9.9km/h · 대체로 맑음",
+  "출처": [
+   "https://api.open-meteo.com/v1/forecast (Open-Meteo, 경기장 좌표 시간별 예보)",
+   "https://www.espn.com/soccer/scoreboard/_/league/usa.1/date/20261024"
+  ],
+  "날짜": "2026-10-24"
+ },
+ "뉴스": [],
+ "뉴스없음": {
+  "홈": "뉴스 없음(검색처 2곳: MLSsoccer.com 공식 Player Status Report, Front Row Soccer/Yahoo Sports MLS 매치데이32 기사 / 2026-10-25). 감독 교체·징계 추가 건 미발견",
+  "원정": "뉴스 없음(검색처 2곳: MLSsoccer.com 공식 Player Status Report, Front Row Soccer/Yahoo Sports MLS 매치데이32 기사 / 2026-10-25). 감독 교체·징계 추가 건 미발견"
+ },
+ "미확인": [
+  "양 팀 선발 명단 미발표",
+  "새너제이 Timo Werner 출전 여부(의심)",
+  "양 팀 모두 진출 확정 상태에서의 로테이션 강도"
+ ]
+}

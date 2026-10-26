@@ -1,0 +1,129 @@
+[
+ {
+  "번호": "7",
+  "홈": "오사수나",
+  "원정": "라싱 산탄데르",
+  "기준선": {
+   "승": 45.2,
+   "무": 29.4,
+   "패": 25.5,
+   "출처": "soccer_baseline pi-rating 2026-10-16"
+  },
+  "득점모델": {
+   "방식": "xG",
+   "λ홈": 1.65,
+   "λ원정": 1.42,
+   "출처": "팀노트 INPUTS 2026-10-15 시즌 xG/xGA: 순수 xG λ 1.735:1.615(오사수나 xG1.25·xGA1.83, 라싱 xG1.4·xGA2.22) 와 기준선 λ 1.47:1.05 를 50:50 혼합 후 홈 이점 소폭 보정. 포아송 43.1/23.8/33.1"
+  },
+  "요인": [
+   {
+    "유형": "xG",
+    "팀": "홈",
+    "선수": "",
+    "등급": "",
+    "상태": "확정",
+    "영향": -2.0,
+    "내용": "기준선 불신 보정. 8경기 표본에서 xG 기반 득실차는 홈 -0.12골 수준으로 기준선 +0.42와 차이. 양 팀 모두 xGA 높음(1.83/2.22), 오사수나 최근5 xG차 -1.33, 라싱 -1.28로 비슷. 포아송 홈승 41~44%.",
+    "출처": "팀노트 FACTS/INPUTS 2026-10-15",
+    "날짜": "2026-10-15",
+    "검색처": "Understat(팀노트)"
+   },
+   {
+    "유형": "결장",
+    "팀": "홈",
+    "선수": "Jorge Herrando",
+    "등급": "B",
+    "상태": "확정",
+    "영향": -0.7,
+    "내용": "CB. 시즌 선발수 미확인이라 B(추정). 1.5×R0.8×P1.0(10/17 Comuniate 결장 확정 표기, 이전 '수개월'과 엇갈리나 이번 글은 확정)×D0.5≈0.6~0.7. 직전 XI엔 없어 일부 반영 가정.",
+    "출처": "https://www.comuniate.com/noticias/38431/osasuna-racing-previa-alineaciones-probables-y-consejos-fantasy-jornada-9-de-laliga",
+    "날짜": "2026-10-17",
+    "검색처": "elgoldigital, Comuniate"
+   },
+   {
+    "유형": "감독",
+    "팀": "홈",
+    "선수": "",
+    "등급": "",
+    "상태": "확정",
+    "영향": 1.0,
+    "내용": "라미스 경질, 아라사테 복귀 확정(3곳+ 일치). 첫 훈련 10/14. 감독 교체 직후 홈 데뷔전 반등 소폭 가산하되 5-2 대패 직후라 +1.0만 반영.",
+    "출처": "https://www.elgoldigital.com/futbol/osasuna/arrasate-osasuna-regreso-2029-ramis-destituido-laliga-2026/ ; https://citizen.digital/article/osasuna-replace-coach-ramis-with-arrasate-n391888",
+    "날짜": "2026-10-12",
+    "검색처": "elgoldigital, Comuniate, Citizen Digital"
+   },
+   {
+    "유형": "뉴스없음",
+    "팀": "원정",
+    "선수": "",
+    "등급": "",
+    "상태": "확정",
+    "영향": 0,
+    "내용": "라싱 최신 결장: 뉴스없음. Comuniate 헤드라인 '라싱 3명 결장'은 본문 미확인이라 선수·등급 불명, 영향 0으로 두고 미확인에 적음.",
+    "출처": "https://www.comuniate.com/noticias/38408/...",
+    "날짜": "2026-10-13",
+    "검색처": "Comuniate, El Gol Digital"
+   },
+   {
+    "유형": "결장",
+    "팀": "홈",
+    "선수": "Aimar Oroz",
+    "등급": "B",
+    "상태": "확정",
+    "영향": -1.0,
+    "내용": "MF 부상 결장 확정. 시즌 선발수 미확인이라 B(추정). 1.5×R0.8×P1.0×D0.8≈1.0.",
+    "출처": "https://www.comuniate.com/noticias/38431/osasuna-racing-previa-alineaciones-probables-y-consejos-fantasy-jornada-9-de-laliga",
+    "날짜": "2026-10-17",
+    "검색처": "Comuniate"
+   },
+   {
+    "유형": "결장",
+    "팀": "홈",
+    "선수": "Kike Barja, Del Castillo, Raúl Moro",
+    "등급": "B",
+    "상태": "의심",
+    "영향": -0.8,
+    "내용": "부상 의심 3명. 선발수 미확인 B, 각 1.5×R0.8×P0.5×D0.5≈0.3, 합 0.9를 -0.8로 반영.",
+    "출처": "https://www.comuniate.com/noticias/38431/osasuna-racing-previa-alineaciones-probables-y-consejos-fantasy-jornada-9-de-laliga",
+    "날짜": "2026-10-17",
+    "검색처": "Comuniate"
+   },
+   {
+    "유형": "복귀",
+    "팀": "원정",
+    "선수": "Andrés Martín, Matteo Prati",
+    "등급": "B",
+    "상태": "추정",
+    "영향": -0.6,
+    "내용": "Martín 발렌시아전 출전 복귀, Prati 정상 훈련·선발 가능. 선발수 미확인 B, P0.5 이하로 두고 합 +0.6(원정 쪽이라 홈승 -0.6). 원정 GK2 Eriksson 소집 의심은 영향 0.",
+    "출처": "https://www.comuniate.com/noticias/38431/osasuna-racing-previa-alineaciones-probables-y-consejos-fantasy-jornada-9-de-laliga",
+    "날짜": "2026-10-17",
+    "검색처": "Comuniate"
+   }
+  ],
+  "최종": {
+   "승": 41.1,
+   "무": 27.0,
+   "패": 31.9
+  },
+  "선택지": [
+   {
+    "번호": "7",
+    "선택": "1순위 홈승(1)",
+    "확률": 41.1,
+    "계산": "기준선 승 45.2 + Σ(-2.0-0.7+1.0-1.0-0.8-0.6=-4.1)=41.1. 2순위 패 31.9, 차 9.2%p. 무 27.0(기준선 29.4에서 -2.4, ±3 이내)"
+   }
+  ],
+  "결론": "10/17 갱신: 오사수나 Oroz 결장 확정(-1.0), Herrando 확정으로 상향(-0.7), 부상 의심 3명(-0.8), 라싱 Martín·Prati 복귀(-0.6)로 홈승이 43.7에서 41.1로 내렸다. 기존 xG 불신 -2.0, 감독 +1.0은 유지. 두 팀 모두 주중 유럽대항전이 없어 일정 요인은 0이다. 감독 기자회견·공식 소집명단은 미확보다.",
+  "미확인": [
+   "공식 소집명단",
+   "아라사테 기자회견",
+   "선수별 시즌 선발수",
+   "Barja·Del Castillo·Moro 출전 여부"
+  ],
+  "추가 수집 요청": [
+   "10/17~18 공식 소집명단",
+   "선수별 시즌 선발수"
+  ]
+ }
+]

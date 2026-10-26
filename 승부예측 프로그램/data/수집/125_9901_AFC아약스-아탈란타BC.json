@@ -1,0 +1,83 @@
+{
+  "번호": 9901,
+  "홈": "AFC아약스",
+  "원정": "아탈란타BC",
+  "수집시각": "2026-10-22 22:25 KST",
+  "결장": [
+    {"팀":"아약스","선수":"Kasper Dolberg","포지션":"FW","이번시즌_선발/경기":"시즌 아웃(ACL 파열)","득점·도움":"미상","사유":"무릎 ACL 파열","상태":"확정","복귀예정":"미정(장기)","대체선수":"Tolu Arokodare","출처":["https://voetbalflitsen.com/nieuws/1qfd27/alle-blessures-bij-ajax"],"날짜":"2026-10-22"},
+    {"팀":"아약스","선수":"Steven Berghuis","포지션":"MF/FW","이번시즌_선발/경기":"미상","득점·도움":"미상","사유":"컨디션 난조/부상 회복 중, 훈련은 하나 출전 불가","상태":"확정","복귀예정":"미상","대체선수":"미상","출처":["https://www.sportsgambler.com/betting-tips/football/ajax-vs-atalanta-prediction-lineups-odds-2026-10-22/"],"날짜":"2026-10-22"},
+    {"팀":"아약스","선수":"Daley Blind","포지션":"DF","이번시즌_선발/경기":"미상(등 부상 이력)","득점·도움":"미상","사유":"등 부상 — 훈련 중이나 이번 경기 결장","상태":"확정","복귀예정":"미상","대체선수":"미상","출처":["https://www.sportsgambler.com/betting-tips/football/ajax-vs-atalanta-prediction-lineups-odds-2026-10-22/"],"날짜":"2026-10-22"},
+    {"팀":"아약스","선수":"Anton Gaaei","포지션":"DF","이번시즌_선발/경기":"미상","득점·도움":"미상","사유":"부상 회복 중","상태":"확정","복귀예정":"미상","대체선수":"Thilo Kehrer","출처":["https://www.sportsgambler.com/betting-tips/football/ajax-vs-atalanta-prediction-lineups-odds-2026-10-22/"],"날짜":"2026-10-22"},
+    {"팀":"아약스","선수":"Simon Adingra","포지션":"FW","이번시즌_선발/경기":"미상","득점·도움":"미상","사유":"발목 부상 회복 중","상태":"확정","복귀예정":"미상","대체선수":"미상","출처":["https://www.sportsgambler.com/betting-tips/football/ajax-vs-atalanta-prediction-lineups-odds-2026-10-22/"],"날짜":"2026-10-22"},
+    {"팀":"아약스","선수":"Caio Henrique","포지션":"DF","이번시즌_선발/경기":"미상(여름 모나코에서 영입, 아직 적응 중)","득점·도움":"미상","사유":"부상 회복 중(팀노트 FACTS: 좌측 수비 상태불명)","상태":"확정","복귀예정":"미상","대체선수":"Jofre Torrents","출처":["https://www.sportsgambler.com/betting-tips/football/ajax-vs-atalanta-prediction-lineups-odds-2026-10-22/"],"날짜":"2026-10-22"},
+    {"팀":"아약스","선수":"Oliver Edvardsen","포지션":"FW","이번시즌_선발/경기":"미상","득점·도움":"미상","사유":"부상 회복 중","상태":"확정","복귀예정":"미상","대체선수":"미상","출처":["https://www.sportsgambler.com/betting-tips/football/ajax-vs-atalanta-prediction-lineups-odds-2026-10-22/"],"날짜":"2026-10-22"},
+    {"팀":"아탈란타","선수":"Sead Kolasinac","포지션":"DF","이번시즌_선발/경기":"주전급(최근 선발 다수)","득점·도움":"0","사유":"우측 대퇴부 경미한 근육 손상","상태":"확정","복귀예정":"11월 초","대체선수":"Lorenzo Bernasconi/Thomas Kristensen","출처":["https://www.calcioatalanta.it/2026/10/21/atalanta-sarri-gia-a-rischio-pioli-e-tudor-tra-le-possibili-alternative/","https://www.ilsussidiario.net/news/probabili-formazioni-ajax-atalanta-quote-dea-corta-dietro-conference-league-oggi-22-ottobre-2026/3010400/"],"날짜":"2026-10-21"},
+    {"팀":"아탈란타","선수":"Giorgio Scalvini","포지션":"DF","이번시즌_선발/경기":"미상","득점·도움":"미상","사유":"부상(세부 미상)","상태":"확정","복귀예정":"미상","대체선수":"미상","출처":["https://www.ilsussidiario.net/news/probabili-formazioni-ajax-atalanta-quote-dea-corta-dietro-conference-league-oggi-22-ottobre-2026/3010400/"],"날짜":"2026-10-21"},
+    {"팀":"아탈란타","선수":"Franck Kessié","포지션":"MF","이번시즌_선발/경기":"주전급(xG+xA 비중 7%, 61분/경기)","득점·도움":"미상","사유":"우측 종아리 근육 손상","상태":"확정","복귀예정":"11월 중순","대체선수":"Gianluca Gaetano/Mario Pasalic","출처":["https://www.ilsussidiario.net/news/probabili-formazioni-ajax-atalanta-quote-dea-corta-dietro-conference-league-oggi-22-ottobre-2026/3010400/"],"날짜":"2026-10-21"},
+    {"팀":"아탈란타","선수":"Giacomo Raspadori","포지션":"FW","이번시즌_선발/경기":"로테이션 자원(xG+xA 비중 9%)","득점·도움":"미상","사유":"우측 대퇴이두근 경미한 손상, 베네치아전 결장","상태":"확정","복귀예정":"미상(단기)","대체선수":"Charles De Ketelaere/Jonathan Rowe","출처":["https://sport.sky.it/calcio/serie-a/2026/10/20/serie-a-indisponibili-infortunati-squalificati-giornata-8"],"날짜":"2026-10-20"},
+    {"팀":"아탈란타","선수":"Odilon Kossounou","포지션":"DF","이번시즌_선발/경기":"뎁스 자원","득점·도움":"미상","사유":"좌측 대퇴이두근 중~고도 손상","상태":"확정","복귀예정":"11월 하반기","대체선수":"Thomas Kristensen/Lorenzo Bernasconi","출처":["https://sport.sky.it/calcio/serie-a/2026/10/20/serie-a-indisponibili-infortunati-squalificati-giornata-8"],"날짜":"2026-10-20"},
+    {"팀":"아탈란타","선수":"Isak Hien","포지션":"DF","이번시즌_선발/경기":"주전 CB(팀노트: 핵심 결장으로 분류됨)","득점·도움":"미상","사유":"근육 손상","상태":"확정","복귀예정":"11월 A매치 브레이크","대체선수":"Thomas Kristensen","출처":["https://sport.sky.it/calcio/serie-a/2026/10/20/serie-a-indisponibili-infortunati-squalificati-giornata-8"],"날짜":"2026-10-20"},
+    {"팀":"아탈란타","선수":"Marco Pompei","포지션":"GK","이번시즌_선발/경기":"백업 GK","득점·도움":"-","사유":"부상(세부 미상)","상태":"확정","복귀예정":"미상","대체선수":"Marco Carnesecchi(주전 유지)","출처":["https://www.ilsussidiario.net/news/probabili-formazioni-ajax-atalanta-quote-dea-corta-dietro-conference-league-oggi-22-ottobre-2026/3010400/"],"날짜":"2026-10-21"},
+    {"팀":"아탈란타","선수":"Ademola/Amad Sulemana","포지션":"MF","이번시즌_선발/경기":"로테이션(경미 결장으로 팀노트 분류)","득점·도움":"미상","사유":"무릎 내측측부인대 손상","상태":"확정","복귀예정":"10월 하반기(이번 주 복귀 가능성)","대체선수":"미상","출처":["https://www.fantacalcio-online.com/it/infortunati-serie-a"],"날짜":"2026-10-20"},
+    {"팀":"아탈란타","선수":"Eljif Elmas","포지션":"MF","이번시즌_선발/경기":"주전급(10-22 입력 직전 선발 포함)","득점·도움":"미상","사유":"1경기 출전정지로 밀란전 결장 — 이미 소화, 이번 경기는 출전 가능 추정","상태":"의심","복귀예정":"이번 경기 복귀 가능","대체선수":"-","출처":["https://sport.sky.it/calcio/serie-a/2026/10/20/serie-a-indisponibili-infortunati-squalificati-giornata-8"],"날짜":"2026-10-20"}
+  ],
+  "예상XI": {
+    "홈": {
+      "포메이션": "4-3-3(두 매체 일치)",
+      "명단_A(soccernews/squawka,네덜란드매체)": ["Ter Stegen","Kehrer","Baas","Bouwman","Wijndal","Brandt","Amrabat","Klaassen","Gloukh","Tolu Arokodare","Ouazane"],
+      "명단_B(ilsussidiario,이탈리아매체)": ["Ter Stegen","Kehrer","Bouwman","Baas","Torrents","Klaassen","Amrabat","Brandt","Tsygankov","Arokodare","Ouazane"],
+      "근거": "미헬 산체스가 우측 윙(Gloukh vs Tsygankov)과 좌풀백(Wijndal vs Torrents) 기용을 놓고 막판 결정 중으로 매체마다 예상이 갈림. 공통점: GK Ter Stegen, 중앙 수비 Kehrer+Baas+Bouwman 축, 중앙 Klaassen-Amrabat-Brandt, 최전방 Arokodare(마르코스 레오나르두 대신), 좌측 Ouazane.",
+      "출처": ["https://www.soccernews.nl/news/vermoedelijke-opstelling-ajax-tegen-atalanta-michel-conference-league/","https://www.ilsussidiario.net/news/probabili-formazioni-ajax-atalanta-quote-dea-corta-dietro-conference-league-oggi-22-ottobre-2026/3010400/"],
+      "날짜": "2026-10-22"
+    },
+    "원정": {
+      "포메이션": "4-2-3-1",
+      "명단": ["Carnesecchi","Zappacosta","(CB, 이름 불확실—'Obric'로 표기된 매체 있음)","Kristensen","Bernasconi","Ederson","Gaetano","De Ketelaere","Pasalic","Rowe","Scamacca"],
+      "근거": "사리 감독이 라스파도리(부상)·콜라시나츠(부상) 대신 스카마카를 최전방에 기용할 것으로 예상(크르스토비치와 경쟁에서 우위). 8명 결장으로 수비진이 크리스텐센·베르나스코니·자파코스타 중심으로 재편.",
+      "출처": ["https://www.pazzidifanta.com/news/atalanta-probabile-formazione-ajax-conference-league-22-ottobre-2026-460103","https://www.ilsussidiario.net/news/probabili-formazioni-ajax-atalanta-quote-dea-corta-dietro-conference-league-oggi-22-ottobre-2026/3010400/"],
+      "날짜": "2026-10-21"
+    }
+  },
+  "최근5경기": {
+    "홈": [
+      {"날짜":"2026-09-12","상대":"Fortuna Sittard(원정)","결과":"아약스 5-1 승","비고":"ESPN 공식 기록"},
+      {"날짜":"2026-09-15","상대":"Willem II(홈)","결과":"아약스 5-1 승","비고":"ESPN 공식 기록"},
+      {"날짜":"2026-09-19","상대":"Excelsior(홈)","결과":"2-2 무","비고":"ESPN 공식 기록"},
+      {"날짜":"2026-10-10","상대":"NEC Nijmegen(홈)","결과":"1-1 무","비고":"ESPN 공식 기록, ClubElo 하락세 언급"},
+      {"날짜":"2026-10-16","상대":"Hajduk Split(원정, UECL)","결과":"1-2 패","비고":"3경기 무승, 미헬 감독 압박 증가 계기"}
+    ],
+    "원정": [
+      {"날짜":"2026-09-12","상대":"Cagliari(원정)","결과":"1-2 패","비고":"ESPN/Understat 기록"},
+      {"날짜":"2026-09-20","상대":"Juventus(원정)","결과":"0-2 패","비고":"ESPN/Understat 기록"},
+      {"날짜":"2026-10-12","상대":"Venezia(홈)","결과":"3-1 승","비고":"크르스토비치 멀티골, 침체 흐름 반전"},
+      {"날짜":"2026-10-15","상대":"Pafos(홈, UECL)","결과":"3-1 승","비고":"Elmas, Raspadori(PK), Scamacca 득점"},
+      {"날짜":"2026-10-18","상대":"AC Milan(원정)","결과":"2-3 패","비고":"xG 1.92:2.62, 세리에A 4연패 중 4패(최근5중)"}
+    ]
+  },
+  "일정피로": {
+    "홈": {"직전공식전":"2026-10-16 원정 Hajduk Split 1-2 패(UECL)","최근7일경기수":1,"이동거리":"미상(홈 경기)"},
+    "원정": {"직전공식전":"2026-10-18 원정 AC Milan 2-3 패(Serie A) — 단, teamdb 자동입력은 10-16 홈 Pafos 3-1 승 기준 휴식 7.0일로 계산됨(국내리그 경기 미반영 가능성, 확인 필요)","최근7일경기수":2,"이동거리":"암스테르담까지 약 811km(teamdb 자동계산)"}
+  },
+  "동기": {
+    "홈": "UECL 리그페이즈 1라운드 패배로 0점·25위 출발, 이번 경기 승점 필요. 에레디비시에서도 최근 3경기 무승(1무1무1패)으로 미헬 산체스 감독 경질 압박 증가 — 다만 구단 측은 '당장 해임은 의제 아님'이라는 보도. 팬들 사이 프랑크 더 부르 후임설 제기. 감독 본인은 '이번 일정이 트레이너직에 결정적'이라는 평가가 나옴.",
+    "원정": "UECL 1라운드 승리로 3점·공동 4위. 반면 세리에A는 11위 9점, 최근 5경기 중 4패로 사리 감독 경질설 본격화(오늘 10/22 기사 다수). 아약스-프로시노네(10/25) 두 경기가 사리 거취의 분수령으로 보도됨. 대체 후보로 피올리·투도르·티아고 모타 거론.",
+    "출처": ["https://www.fcupdate.nl/voetbalnieuws/2026/10/michel-sanchez-ajax-zwaar-programma-toekomst-trainer","https://www.footballtransfers.com/nl/transfernieuws/nl-eredivisie/2026/10/ajax-en-michel-sanchez-is-druk-na-verlies-bij-hajduk-split-terecht","https://www.calcioatalanta.it/2026/10/21/atalanta-sarri-gia-a-rischio-pioli-e-tudor-tra-le-possibili-alternative/","https://www.playermanager.info/2026/10/22/atalanta-sarri-rischia-lesonero-decisive-le-sfide-con-ajax-e-frosinone/"]
+  },
+  "환경": {
+    "경기장": "Johan Cruijff ArenA, 암스테르담",
+    "날씨": "자동수집(teamdb INPUTS) 약 9.3℃, 강수 0mm(0%), 바람 14.4km/h — 별도 검색 결과는 약 11℃(52°F)로 유사",
+    "심판": "António Nobre(포르투갈) — 2024년 2월 아약스-보되/글림트(UECL, 2-2) 주심 경력 있음",
+    "출처": ["https://www.vi.nl/nieuws/dit-zijn-de-scheidsrechters-van-ajax-az-nec-en-fc-twente-in-europa"]
+  },
+  "기타사실": [
+    {"내용":"아약스는 UECL 리그페이즈에서 Atalanta, Getafe, Midtjylland, Sint-Truidense, Hajduk Split, Thun과 조별 상대로 편성됨(각 6경기).","출처":["https://en.wikipedia.org/wiki/2026%E2%80%9327_UEFA_Conference_League"],"날짜":"2026-10-22"},
+    {"내용":"아탈란타는 UECL MD1에서 Pafos 상대 3-1 승(Elmas, Raspadori PK, Scamacca 득점), 공동 4위(3점) 그룹에 위치.","출처":["https://m.corrieredellosport.it/amp/news/calcio/conference-league/2026/10/15-151913010/buona_la_prima_per_l_atalanta_in_conference_league_sarri_piega_3-1_il_pafos"],"날짜":"2026-10-15"},
+    {"내용":"아탈란타는 10월 한 달 안에 UCL 연계 포함 다수 유럽대항전·세리에A가 밀집된 일정(10/18 밀란, 10/22 아약스, 10/25 프로시노네 등).","출처":["https://www.calcioatalanta.it/2026/10/20/atalanta-sarri-cerca-la-svolta-ajax-e-frosinone-per-ripartire/"],"날짜":"2026-10-20"}
+  ],
+  "미확인": [
+    "아약스 예상 선발 중 좌측 풀백(Wijndal vs Torrents)·우측 윙(Gloukh vs Tsygankov) 최종 확정 안 됨 — 매체 간 불일치",
+    "아탈란타 예상 수비수 한 명의 이름이 'Obric'로 표기된 매체가 있으나 스쿼드 명단과 불일치 가능성 있어 확인 필요(오타 또는 신원 미상 선수 추정)",
+    "아탈란타 Giorgio Scalvini·Marco Pompei 결장 세부 사유(부상 부위·복귀 시점) 확인 못함",
+    "두 팀의 '직전 공식전' 기준이 teamdb 자동계산(국내리그 제외, UECL 기준)과 실제 가장 최근 경기(국내리그 포함) 사이에 차이가 있어 실제 휴식일 재확인 필요"
+  ]
+}

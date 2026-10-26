@@ -1,0 +1,189 @@
+{
+  "번호": 9774,
+  "홈": "휴스턴 로케츠",
+  "원정": "댈러스 매버릭스",
+  "수집시각": "2026-10-22 08:10 KST",
+  "레이팅": {
+    "홈": {
+      "ORtg": 118.6,
+      "DRtg": 113.2,
+      "Pace": 96.1,
+      "시즌": "2025-26 (직전 시즌)",
+      "이번시즌_경기수": 0,
+      "비고": "공격 8위·수비 6위로 양쪽 다 상위권이었으나 템포는 리그 29위(매우 느림). 개막전, 이번 시즌 표본 없음",
+      "출처": "https://www.basketball-reference.com/teams/HOU/2026.html"
+    },
+    "원정": {
+      "ORtg": 111.2,
+      "DRtg": 116.5,
+      "Pace": 101.7,
+      "시즌": "2025-26 (직전 시즌, 26-56)",
+      "이번시즌_경기수": 0,
+      "비고": "개막전, 이번 시즌 표본 없음",
+      "출처": "https://www.basketball-reference.com/teams/DAL/2026.html"
+    }
+  },
+  "결장": [
+    {
+      "팀": "휴스턴 로케츠",
+      "선수": "Julian Phillips",
+      "포지션": "F",
+      "사유": "질병(illness)",
+      "상태": "questionable",
+      "직전시즌_선발/경기": "2/48",
+      "평균득점": "2.9",
+      "출처": ["https://roundtable.io/sports/nba/rockets/game-day/october-21st-injury-report-for-houston-rockets-vs-dallas-mavericks"],
+      "날짜": "2026-10-21"
+    },
+    {
+      "팀": "휴스턴 로케츠",
+      "선수": "Steven Adams",
+      "포지션": "C",
+      "사유": "종아리(calf)",
+      "상태": "questionable",
+      "직전시즌_선발/경기": "미확인(알페렌 셍귄 백업)",
+      "평균득점": "5.8 (또는 3.9 — 출처마다 수치 상이, 교차확인 필요)",
+      "출처": ["https://roundtable.io/sports/nba/rockets/game-day/october-21st-injury-report-for-houston-rockets-vs-dallas-mavericks", "https://craftednba.com/players/steven-adams"],
+      "날짜": "2026-10-21"
+    },
+    {
+      "팀": "댈러스 매버릭스",
+      "선수": "Dereck Lively II",
+      "포지션": "C",
+      "사유": "발(foot)",
+      "상태": "out",
+      "직전시즌_선발/경기": "미확인",
+      "평균득점": "미확인",
+      "비고": "복귀 시점 불명확",
+      "출처": ["https://www.si.com/nba/mavericks/onsi/news/kyrie-irving-anthony-davis-headline-dallas-mavericks-injury-report-vs-houston-rockets-"],
+      "날짜": "2026-10-21"
+    },
+    {
+      "팀": "댈러스 매버릭스",
+      "선수": "Santi Aldama",
+      "포지션": "F/C",
+      "사유": "무릎(knee)",
+      "상태": "out",
+      "직전시즌_선발/경기": "미확인",
+      "평균득점": "미확인",
+      "비고": "공식 복귀 시점 미정",
+      "출처": ["https://www.si.com/nba/mavericks/onsi/news/kyrie-irving-anthony-davis-headline-dallas-mavericks-injury-report-vs-houston-rockets-"],
+      "날짜": "2026-10-21"
+    },
+    {
+      "팀": "댈러스 매버릭스",
+      "선수": "Caleb Martin",
+      "포지션": "F",
+      "사유": "엄지손가락(thumb)",
+      "상태": "out",
+      "직전시즌_선발/경기": "미확인",
+      "평균득점": "미확인",
+      "출처": ["https://www.si.com/nba/mavericks/onsi/news/kyrie-irving-anthony-davis-headline-dallas-mavericks-injury-report-vs-houston-rockets-"],
+      "날짜": "2026-10-21"
+    },
+    {
+      "팀": "댈러스 매버릭스",
+      "선수": "Tarik Biberovic",
+      "포지션": "G",
+      "사유": "발뒤꿈치(heel)",
+      "상태": "out",
+      "직전시즌_선발/경기": "미확인",
+      "평균득점": "미확인",
+      "출처": ["https://dallassportsjournal.com/jett-howard-mavericks-injury-report-calf-rockets-season-opener/"],
+      "날짜": "2026-10-21"
+    },
+    {
+      "팀": "댈러스 매버릭스",
+      "선수": "Jett Howard",
+      "포지션": "G",
+      "사유": "종아리(calf)",
+      "상태": "questionable",
+      "직전시즌_선발/경기": "미확인",
+      "평균득점": "미확인",
+      "비고": "2026-07-20 매버릭스 로스터 합류 선수",
+      "출처": ["https://dallassportsjournal.com/jett-howard-mavericks-injury-report-calf-rockets-season-opener/"],
+      "날짜": "2026-10-21"
+    }
+  ],
+  "로스터변화": [
+    {
+      "팀": "휴스턴 로케츠",
+      "선수": "Fred VanVleet",
+      "방향": "합류(복귀)",
+      "직전시즌_선발여부": "선발(2025-26 시즌 중 ACL 파열로 시즌 아웃, 이번 경기 복귀)",
+      "평균출전시간": "미확인",
+      "출처": ["https://hoodline.com/2026/10/rockets-open-season-against-mavericks-at-toyota-center-vanvleet-set-to-return/"],
+      "날짜": "2026-10-21"
+    },
+    {
+      "팀": "휴스턴 로케츠",
+      "선수": "신규 가드(Smart, Bogdanovic 등)",
+      "방향": "합류",
+      "직전시즌_선발여부": "미확인",
+      "평균출전시간": "미확인",
+      "비고": "오프시즌 영입, 이번 경기 데뷔 예정 — 선수 풀네임·소속 추가 확인 필요",
+      "출처": ["https://athlonsports.com/nba/dallas-mavericks-at-houston-rockets-nba-prediction-picks-odds-oct21-2026"],
+      "날짜": "2026-10-21"
+    },
+    {
+      "팀": "댈러스 매버릭스",
+      "선수": "Anthony Davis",
+      "방향": "이탈",
+      "직전시즌_선발여부": "선발(2025-26 시즌 20경기만 출전 후 2월 트레이드 데드라인에 워싱턴으로 트레이드)",
+      "평균출전시간": "미확인",
+      "출처": ["https://www.spotrac.com/news/_/id/3340/dallas-mavericks-2026-offseason-preview"],
+      "날짜": "2025-26 시즌 트레이드 데드라인(2월)"
+    },
+    {
+      "팀": "댈러스 매버릭스",
+      "선수": "Kyrie Irving",
+      "방향": "합류(복귀)",
+      "직전시즌_선발여부": "2024-25 시즌 말 ACL 파열로 2025-26 시즌 전체 결장, 이번 시즌 복귀",
+      "평균출전시간": "미확인",
+      "출처": ["https://sports.yahoo.com/articles/mavericks-making-kyrie-irving-trade-160524962.html"],
+      "날짜": "2026-10-21"
+    },
+    {
+      "팀": "댈러스 매버릭스",
+      "선수": "Cooper Flagg",
+      "방향": "합류",
+      "직전시즌_선발여부": "신인(2025 드래프트 전체 1순위, 2025-26 시즌 루키 선발)",
+      "평균출전시간": "미확인",
+      "비고": "구단이 Flagg 중심 리빌딩 선언",
+      "출처": ["https://www.dallasnews.com/sports/mavericks/article/mavericks-potential-starting-lineup-depth-chart-22352547.php"],
+      "날짜": "2026 오프시즌"
+    },
+    {
+      "팀": "댈러스 매버릭스",
+      "선수": "Dusty May",
+      "방향": "합류(감독)",
+      "직전시즌_선발여부": "해당없음(신임 감독)",
+      "평균출전시간": "해당없음",
+      "비고": "이번 경기가 매버릭스 감독으로서 데뷔전",
+      "출처": ["https://athlonsports.com/nba/dallas-mavericks-at-houston-rockets-nba-prediction-picks-odds-oct21-2026"],
+      "날짜": "2026-10-21"
+    }
+  ],
+  "일정": {
+    "홈": {"이번시즌_경기수": 0, "직전경기": "없음(개막전, 홈 오프너)", "백투백": false, "비고": "이 경기 직후 산안토니오 원정 백투백이 예정돼 있음(이번 경기는 백투백 아님)"},
+    "원정": {"이번시즌_경기수": 0, "직전경기": "없음(개막전)", "백투백": false}
+  },
+  "기타": [
+    {
+      "내용": "베팅 라인: 휴스턴이 9.5점 홈 선호. 총점 라인 약 230.5",
+      "출처": ["https://www.wagertalk.com/news/nba/mavericks-vs-rockets-prediction-picks-odds-october-21-2026/", "https://www.covers.com/nba/mavericks-vs-rockets-prediction-picks-odds-oct-21-2026"],
+      "날짜": "2026-10-21"
+    },
+    {
+      "내용": "지난 시즌(2025-26) 선수 평균: Kevin Durant 26.0점·5.5리바운드·4.8어시스트, Alperen Sengun 20.4점·8.9리바운드·6.2어시스트, Amen Thompson 18.3점·7.8리바운드",
+      "출처": ["https://athlonsports.com/nba/dallas-mavericks-at-houston-rockets-nba-prediction-picks-odds-oct21-2026"],
+      "날짜": "2026-10-21"
+    }
+  ],
+  "미확인": [
+    "휴스턴 신규 영입 가드(Smart, Bogdanovic으로 추정) 풀네임·전 소속·직전 시즌 출전 기록",
+    "Steven Adams 2025-26 평균득점 수치 상이(5.8 vs 3.9) — 교차검증 필요",
+    "댈러스 결장자(Lively II·Aldama·Martin·Biberovic) 2025-26 선발 횟수·평균득점 상세",
+    "2026-27 시즌 당일(10/22) 최신 공식 injury report 갱신본 - 검색 결과는 10/21자 기준"
+  ]
+}

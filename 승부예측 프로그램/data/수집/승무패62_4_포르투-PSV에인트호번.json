@@ -1,0 +1,61 @@
+{
+  "번호": 4,
+  "홈": "포르투",
+  "원정": "PSV에인트호번",
+  "수집시각": "2026-10-20T22:30+09:00",
+  "결장": [
+    {"팀": "포르투", "선수": "William Gomes", "포지션": "윙어/공격형 MF", "이번시즌_선발/경기": "리가 7경기 459분 2골2도움, UCL 1경기 67분(팀노트 10/12 조사 기준)", "득점·도움": "2골2도움(리가, 이번 시즌)", "사유": "부상(최근 보도는 내전근/adductor, 이전 보도는 발목 염좌로 상이 — 치료 지속 중)", "상태": "확정", "복귀예정": "불명확", "대체선수": "Pepê/Borja Sainz 등 윙 자원", "출처": "https://www.abola.pt/noticias/fc-porto-preparacao-para-o-psv-com-duas-baixas-para-farioli-2026101909254354044 ; https://www.goal.com/en-us/news/watch-fc-porto-v-psv-eindhoven-live-stream-online-tv-channel/blt3eefc430b0a72bc4", "날짜": "2026-10-19"},
+    {"팀": "포르투", "선수": "Vasco Sousa", "포지션": "윙어", "이번시즌_선발/경기": "확인 안됨(장기 결장)", "득점·도움": "확인 안됨", "사유": "부상(다리 골절 계열, 현재 조건부 훈련 단계)", "상태": "확정", "복귀예정": "불명확(조건부 훈련 중이라 임박 가능성)", "대체선수": "해당없음", "출처": "https://www.abola.pt/noticias/fc-porto-preparacao-para-o-psv-com-duas-baixas-para-farioli-2026101909254354044", "날짜": "2026-10-19"},
+    {"팀": "PSV에인트호번", "선수": "Ruben van Bommel", "포지션": "LW", "이번시즌_선발/경기": "이번 시즌 다수 출전(부상 복귀 후 주전급)", "득점·도움": "확인 안됨", "사유": "부상 불명(보도상 '부상 아님'으로 기재되나 포르투 원정 명단 제외 확정)", "상태": "확정", "복귀예정": "불명확", "대체선수": "미정(예상 라인업 기사에서 거론만, 특정 안됨)", "출처": "https://www.vi.nl/nieuws/psv-moet-van-bommel-missen-in-porto-til-en-sildillia-wel-van-de-partij ; https://www.voetbalprimeur.nl/nieuws/2148582/meevaller-en-tegenvaller-psv-til-mee-naar-porto-van-bommel-niet.html", "날짜": "2026-10-19/20"},
+    {"팀": "PSV에인트호번", "선수": "Ricardo Pepi", "포지션": "ST", "이번시즌_선발/경기": "확인 안됨(장기 결장)", "득점·도움": "확인 안됨", "사유": "부상, 에인트호번에서 개인 재활 훈련 중", "상태": "확정", "복귀예정": "불명확(당분간 불가)", "대체선수": "해당없음", "출처": "https://www.footballtransfers.com/nl/transfernieuws/nl-eredivisie/2026/10/psv-kent-blessuregolf-en-mist-voor-meer-dan-100-miljoen-aan-spelers", "날짜": "2026-10 중순(추정)"},
+    {"팀": "PSV에인트호번", "선수": "Paul Wanner", "포지션": "AM", "이번시즌_선발/경기": "확인 안됨", "득점·도움": "확인 안됨", "사유": "부상", "상태": "확정", "복귀예정": "불명확", "대체선수": "해당없음", "출처": "https://www.footballtransfers.com/nl/transfernieuws/nl-eredivisie/2026/10/psv-kent-blessuregolf-en-mist-voor-meer-dan-100-miljoen-aan-spelers", "날짜": "2026-10 중순(추정)"},
+    {"팀": "PSV에인트호번", "선수": "Sami Ouaissa", "포지션": "확인 안됨", "이번시즌_선발/경기": "확인 안됨", "득점·도움": "확인 안됨", "사유": "부상", "상태": "확정", "복귀예정": "불명확", "대체선수": "해당없음", "출처": "https://www.footballtransfers.com/nl/transfernieuws/nl-eredivisie/2026/10/psv-kent-blessuregolf-en-mist-voor-meer-dan-100-miljoen-aan-spelers", "날짜": "2026-10 중순(추정)"},
+    {"팀": "PSV에인트호번", "선수": "Alassane Pléa", "포지션": "ST", "이번시즌_선발/경기": "확인 안됨", "득점·도움": "확인 안됨", "사유": "새 부상으로 수술, 올해 잔여 시즌 아웃", "상태": "확정", "복귀예정": "2026년 내 복귀 불가", "대체선수": "해당없음", "출처": "https://www.footballtransfers.com/nl/transfernieuws/nl-eredivisie/2026/10/psv-kent-blessuregolf-en-mist-voor-meer-dan-100-miljoen-aan-spelers", "날짜": "2026-10 중순(추정)"},
+    {"팀": "PSV에인트호번", "선수": "Sam Lammers", "포지션": "ST", "이번시즌_선발/경기": "0(1군 데뷔 대기 중)", "득점·도움": "0", "사유": "지속된 부상으로 데뷔 못함", "상태": "확정", "복귀예정": "불명확", "대체선수": "해당없음", "출처": "https://www.footballtransfers.com/nl/transfernieuws/nl-eredivisie/2026/10/psv-kent-blessuregolf-en-mist-voor-meer-dan-100-miljoen-aan-spelers", "날짜": "2026-10 중순(추정)"},
+    {"팀": "PSV에인트호번", "선수": "Jerdy Schouten", "포지션": "DM", "이번시즌_선발/경기": "0(장기 결장)", "득점·도움": "0", "사유": "전방십자인대(ACL) 파열, 연내 복귀 불가", "상태": "확정", "복귀예정": "2026년 내 불가", "대체선수": "해당없음", "출처": "https://www.footballtransfers.com/nl/transfernieuws/nl-eredivisie/2026/10/psv-kent-blessuregolf-en-mist-voor-meer-dan-100-miljoen-aan-spelers", "날짜": "2026-10 중순(추정)"},
+    {"팀": "PSV에인트호번", "선수": "Adamo Nagalo", "포지션": "CB", "이번시즌_선발/경기": "확인 안됨", "득점·도움": "확인 안됨", "사유": "부상(구체 부위 불명), 시즌 아웃", "상태": "확정", "복귀예정": "이번 시즌 불가", "대체선수": "해당없음", "출처": "https://www.footballtransfers.com/nl/transfernieuws/nl-eredivisie/2026/10/psv-kent-blessuregolf-en-mist-voor-meer-dan-100-miljoen-aan-spelers", "날짜": "2026-10 중순(추정)"},
+    {"팀": "PSV에인트호번", "선수": "Guus Til", "포지션": "AM(이번 시즌 팀 내 최다골, 12경기 5골)", "이번시즌_선발/경기": "12경기 출전, 팀 내 최다골 5골", "득점·도움": "5골", "사유": "ADO 덴 하흐전(1-2 패) 충돌 후 뇌진탕 유사 증상('시야 안 보임', 심한 두통 호소)", "상태": "의문", "복귀예정": "출전 여부 경기 당일 판단, 명단 포함은 됨", "대체선수": "불명", "출처": "https://www.abola.pt/noticias/preocupacao-antes-do-jogo-com-o-fc-porto-deixou-de-conseguir-ver-2026101818133138031 ; https://superportistas.pt/noticias/futebol/guus-til-em-duvida-no-psv-para-a-visita-ao-fc-porto/", "날짜": "2026-10-18"}
+  ],
+  "라인업": {
+    "홈": {"발표여부": "미발표(공식 미발표, 예상 보도만)", "예상XI": "4-3-3: Diogo Costa; Martim Fernandes, Pablo Rosario/Bednarek, Jakub Kiwior, Zaidu/Francisco Moura; Alan Varela, Victor Froholdt, Gabri Veiga; Pepê, André Silva(Samu Aghehowa가 경쟁 중), Borja Sainz — '거의 전력' 상태(결장 2명뿐)", "포메이션": "4-3-3", "출처": "https://thehardtackle.com/round-up/2026/10/19/fc-porto-vs-psv-eindhoven-preview-prediction-probable-lineups-tactics-team-news-stats/ ; https://www.record.pt/jogos-em-direto/173887/fc-porto-vs-psv-eindhoven/prejogo", "날짜": "2026-10-19"},
+    "원정": {"발표여부": "미발표(예상 보도만)", "예상XI": "4-2-3-1: Matěj Kovář; Sergiño Dest, Lutsharel Geertruida, Armando Obispo, Filip Kostić; Kodai Sano, Mauro Júnior; Ivan Perišić, Guus Til(의문)/대체자, Sven Mijnans — Van Bommel 결장으로 좌측 공격 자원 교체 필요", "포메이션": "4-2-3-1", "출처": "https://www.goal.com/en/news/predicted-psv-line-up-who-replaces-ruben-van-bommel-in-porto/blt7959f142c8204782 ; https://www.voetbalprimeur.nl/nieuws/2148842/vermoedelijke-opstelling-psv-tegen-fc-porto-van-bommel-ontbreekt.html", "날짜": "2026-10-19/20"}
+  },
+  "최근경기": [
+    {"팀": "포르투", "날짜": "2026-10-15", "상대": "Real Betis", "장소": "원정", "스코어": "2-3 패(UCL MD2)", "비고": "Samu Aghehowa 31분 출전 득점"},
+    {"팀": "포르투", "날짜": "2026-10-10", "상대": "Marítimo", "장소": "원정", "스코어": "1-2 승(리가)", "비고": "리가 8연승 행진"},
+    {"팀": "PSV에인트호번", "날짜": "2026-10-13/14", "상대": "RB Leipzig", "장소": "원정", "스코어": "0-1 패(UCL MD2)", "비고": "조별 최하위권"},
+    {"팀": "PSV에인트호번", "날짜": "최근", "상대": "ADO Den Haag", "장소": "확인 안됨", "스코어": "1-2 패(컵대회로 추정)", "비고": "Guus Til 뇌진탕 유사 증상으로 교체, 최근 4경기 중 3패"}
+  ],
+  "순위": {
+    "홈": "리가 포르투갈 1위 8경기 8승0무0패 GD+16 승점24(2026-10-19 기준) · UCL 리그페이즈 30위(최하위권) 2경기 0승0무2패 GD-3 승점0(MD3 이전)",
+    "원정": "에레디비시 3위 9경기 6승1무2패 승점19(2026-10-19/20 기준, ESPN) — ⚠ 자동수집 팩트시트의 '26위 2경기 승점1'은 에레디비시가 아닌 UCL 리그페이즈 순위를 오기재한 것으로 판단(국내리그 18개팀 체제에 26위가 존재할 수 없음) · UCL 리그페이즈 26위 2경기 0승1무1패 GD-1 승점1(MD3 이전) — 이 숫자가 정확히는 UCL 순위",
+    "출처": "https://www.espn.com/soccer/standings/_/league/ned.1 ; https://www.101greatgoals.com/football/champions-league/champions-league-predictions-schedule-standings-games/ ; 회차별분석/팩트시트_승무패62.md",
+    "날짜": "2026-10-19/20"
+  },
+  "감독": {
+    "홈": "Francesco Farioli — 팀노트 구 메모(세르지우 콘세이상)는 최신 팩트시트로 갱신됨, 파리올리가 현재 감독(변동 없음, 유지 중)",
+    "원정": "Peter Bosz — 변동 없음, 유지 중. '반드시 이겨야 한다' 발언으로 압박감 표출",
+    "변동": "포르투 쪽 팀노트의 '콘세이상' 기재는 오래된 정보로 폐기 — 현재는 파리올리",
+    "출처": "회차별분석/팩트시트_승무패62.md ; https://roundtable.io/sports/soccer/eredivisie/psv-eindhoven/news/we-have-to-win-peter-bosz-makes-psv-demands-clear-ahead-of-crucial-fc-porto-champions-league-clash",
+    "날짜": "2026-10-19"
+  },
+  "일정·동기·기타": [
+    {"내용": "포르투는 UCL 2경기 전패(0점)로 절실한 상황이나 리가에서는 8전 전승·무실점에 가까운 압도적 득실(+16)로 팀 컨디션은 최상, 구단 회장 빌라스-보아스가 최종 훈련 참관", "출처": "https://www.abola.pt/video/villas-boas-presente-no-ultimo-treino-do-fc-porto-antes-do-psv-2026101909512359956", "날짜": "2026-10-19"},
+    {"내용": "Samu Aghehowa(ACL 부상에서 223일 만에 복귀)가 최근 3경기(6분→24분→31분)로 출전시간 늘리며 선발 경쟁, 베티스전에서 득점 — 공격 로테이션 변수", "출처": "https://www.record.pt/futebol/futebol-nacional/liga-betclic/fc-porto/detalhe/samu-ja-ameaca-o-onze-e-nao-so-pelo-golo-marcado-em-sevilha ; https://superportistas.pt/noticias/futebol/jogadores/samu-pressiona-titularidade-de-andre-silva-antes-da-rececao-ao-psv/", "날짜": "2026-10-18/19"},
+    {"내용": "PSV는 최근 4경기 중 3패로 부진, '부상 홍수(blessuregolf)'로 1억 유로 이상 가치의 선수들 결장 — 보스 감독 '이렇게는 축구하기 힘들다' 발언", "출처": "https://www.footballtransfers.com/nl/transfernieuws/nl-eredivisie/2026/10/psv-kent-blessuregolf-en-mist-voor-meer-dan-100-miljoen-aan-spelers ; https://www.fcporto.ws/peter-bosz-pode-perder-estrela-para-o-jogo-do-fc-porto-fica-dificil-jogar-futebol-assim/", "날짜": "2026-10-18/19"},
+    {"내용": "Kiliann Sildillia(측면 수비)는 8월 말부터 결장했다가 최근 스쿼드 복귀 — PSV 수비 뎁스 소폭 개선", "출처": "https://www.vi.nl/nieuws/psv-moet-van-bommel-missen-in-porto-til-en-sildillia-wel-van-de-partij", "날짜": "2026-10-19/20"},
+    {"내용": "경기 환경: 이스타디우 두 드라강, PSV 이동거리 1567km, 강수 없음(쾌청)", "출처": "회차별분석/입력_승무패62.md", "날짜": "2026-10-20"}
+  ],
+  "엇갈림": [
+    "William Gomes 부상 부위 — 팀노트(2026-10-12, Record/A Bola 등)는 '발목 2도 염좌'로 기재, 최신 abola.pt(10/19)는 '내전근(adductor)' 치료로 묘사 — 둘 다 같은 결장을 가리키나 부위 설명이 다름, 최신 기사를 우선함",
+    "PSV 순위 — 자동 팩트시트의 '26위 2경기 승점1'은 표 제목상 에레디비시로 보이나 실제로는 UCL 리그페이즈 순위 숫자와 일치. 에레디비시 실제 순위는 3위(19점, 9경기)로 ESPN에서 별도 확인"
+  ],
+  "못찾음": [
+    "포르투 Samu Aghehowa의 이번 경기(PSV전) 선발 여부 — '경쟁 중'이라는 보도만 있고 확정 명단 없음",
+    "PSV의 Van Bommel 대체 선수 특정 — 예상 기사 제목에서만 언급, 구체적 교체 선수명 확인 안 됨"
+  ],
+  "뉴스없음": {
+    "홈": "해당 없음(결장 뉴스 2건 확인)",
+    "원정": "해당 없음(결장 뉴스 다수 확인)"
+  }
+}

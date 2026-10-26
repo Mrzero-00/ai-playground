@@ -1,0 +1,78 @@
+{
+ "복귀": [
+  {
+   "팀": "원정",
+   "선수": "Raphinha",
+   "상태": "소집 포함(Flick 확인). 허벅지 근육 불편/부종 표기 엇갈림. 선발보다 후반 교체 투입 예상 보도",
+   "출처": [
+    "https://www.beinsports.com/en-us/soccer/la-liga/articles-video/hansi-flick-confirms-raphinha-and-frenkie-de-jong-are-back-2026-10-16",
+    "https://cronicaglobal.elespanol.com/culemania/primer-equipo/20261016/sacrificados-hansi-flick-convocatoria-betis-barca-raphinha-jong/1003742803473_0.html"
+   ],
+   "날짜": "2026-10-16",
+   "확정도": "확정(2곳)"
+  },
+  {
+   "팀": "원정",
+   "선수": "Frenkie de Jong",
+   "상태": "무릎 부상 의료 허가, 소집 포함, 이번 시즌 아직 경기 출전 없음, 몇 분 출전 가능 정도(Flick)",
+   "출처": [
+    "https://www.beinsports.com/en-us/soccer/la-liga/articles-video/hansi-flick-confirms-raphinha-and-frenkie-de-jong-are-back-2026-10-16",
+    "https://cronicaglobal.elespanol.com/culemania/primer-equipo/20261016/sacrificados-hansi-flick-convocatoria-betis-barca-raphinha-jong/1003742803473_0.html"
+   ],
+   "날짜": "2026-10-16",
+   "확정도": "확정(2곳)"
+  }
+ ],
+ "새결장": [
+  {
+   "팀": "원정",
+   "선수": "Jesse Bisiwu, Hamza Abdelkarim",
+   "포지션": "유망주",
+   "사유": "23인 제한으로 제외(부상 아님), 후속 B팀 잔류",
+   "상태": "제외",
+   "출처": "https://cronicaglobal.elespanol.com/culemania/primer-equipo/20261016/sacrificados-hansi-flick-convocatoria-betis-barca-raphinha-jong/1003742803473_0.html",
+   "날짜": "2026-10-16"
+  }
+ ],
+ "소집명단": {
+  "원정": {
+   "인원": 23,
+   "비고": "Raphinha·De Jong 포함, Brian Fariñas 합류. 전체 명단 본문 미확인(공식 fcbarcelona.es 페이지 미확보)",
+   "출처": [
+    "https://www.beinsports.com/en-us/soccer/la-liga/articles-video/hansi-flick-confirms-raphinha-and-frenkie-de-jong-are-back-2026-10-16",
+    "https://cronicaglobal.elespanol.com/culemania/primer-equipo/20261016/sacrificados-hansi-flick-convocatoria-betis-barca-raphinha-jong/1003742803473_0.html"
+   ],
+   "날짜": "2026-10-16"
+  }
+ },
+ "라인업": {
+  "원정": {
+   "예상": "Gabriel Jesús 원톱 선발 예상(1곳), Raphinha 후반 투입",
+   "출처": "https://cronicaglobal.elespanol.com/culemania/primer-equipo/20261016/sacrificados-hansi-flick-convocatoria-betis-barca-raphinha-jong/1003742803473_0.html",
+   "날짜": "2026-10-16"
+  }
+ },
+ "일정·피로·날씨": [
+  {
+   "내용": "경기 10/17(토) 18:30 CEST, 라카르투하(Comuniate) / 기사 일부는 Villamarín 표기 — 장소 엇갈림. Comuniate 다른 페이지는 10/18 21:00 표기(오래된 값 의심)",
+   "출처": "https://www.comuniate.com/noticias/38389/betis-barcelona-previa-alineaciones-probables-y-consejos-fantasy-jornada-9-de-laliga",
+   "날짜": "2026-10-16"
+  },
+  {
+   "내용": "Flick: 다음 상대 PSG·Real Madrid 대비 경험 많은 선수 선호(1곳)",
+   "출처": "https://cronicaglobal.elespanol.com/culemania/primer-equipo/20261016/sacrificados-hansi-flick-convocatoria-betis-barca-raphinha-jong/1003742803473_0.html",
+   "날짜": "2026-10-16"
+  }
+ ],
+ "엇갈림": [
+  "경기장 La Cartuja vs Villamarín 표기 엇갈림",
+  "Raphinha 부상 표기 근육불편 vs 허벅지 부종"
+ ],
+ "변경없음": {
+  "홈(베티스)": "10/16 이후 베티스 감독 기자회견·소집 기사 미확보. 검색: WebSearch 'Betis Barcelona previa bajas Pellegrini', Comuniate 38389 (10/12 팀노트 결장 목록 유지, 상태 미확인)"
+ },
+ "번호": 5,
+ "홈": "레알 베티스",
+ "원정": "바르셀로나",
+ "수집시각": "2026-10-17 20:55 KST"
+}

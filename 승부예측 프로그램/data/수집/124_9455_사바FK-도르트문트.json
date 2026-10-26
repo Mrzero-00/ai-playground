@@ -1,0 +1,120 @@
+{
+  "번호": "9455",
+  "홈": "사바FK",
+  "원정": "보루시아 도르트문트",
+  "대회": "UEFA 챔피언스리그 리그페이즈",
+  "킥오프": "2026-10-21 01:45 KST (2026-10-20 17:45 BST / 16:45 UTC)",
+  "장소": "바쿠 올림픽 스타디움(추정, 홈 전경기 개최지) — 일부 매체는 'Azərsun Arena'로 표기(교차확인 필요)",
+  "수집시각": "2026-10-20T21:00:00+09:00",
+  "결장": [
+    {
+      "팀": "보루시아 도르트문트",
+      "선수": "Konstantinos Karetsas",
+      "포지션": "MF(공격형)",
+      "이번시즌_선발/경기": "미상(2026 여름 Genk서 영입, €30,000,000)",
+      "득점·도움": "미상",
+      "사유": "10-17 Union Berlin전에서 발목(족부) 인대 부상",
+      "상태": "확정 — 사바전·다음 분데스리가 프랑크푸르트전 결장",
+      "복귀예정": "프랑크푸르트전 이후(구체 일정 미발표)",
+      "대체선수": "Ethan Nwaneri 또는 Felix Nmecha 예상",
+      "출처": ["https://sports.yahoo.com/articles/dortmund-announce-squad-sabah-clash-081500762.html", "https://www.idman.biz/en/news/world-football/162143"],
+      "날짜": "2026-10-19"
+    },
+    {
+      "팀": "보루시아 도르트문트",
+      "선수": "Emre Can",
+      "포지션": "DM(주장)",
+      "이번시즌_선발/경기": "0경기(시즌 내내 결장 — 새 결장 아님, 갈림 근거로 쓰지 말 것)",
+      "득점·도움": "-",
+      "사유": "무릎 인대 부상 후 고관절 내전근 2차 수술",
+      "상태": "확정 — 장기 결장 지속",
+      "복귀예정": "겨울 휴식기 이후",
+      "대체선수": "-",
+      "출처": ["https://sports.yahoo.com/articles/dortmund-announce-squad-sabah-clash-081500762.html"],
+      "날짜": "2026-10-19"
+    },
+    {
+      "팀": "보루시아 도르트문트",
+      "선수": "Giannis Konstantelias",
+      "포지션": "MF",
+      "이번시즌_선발/경기": "0경기(시즌 내내 결장 추정)",
+      "득점·도움": "-",
+      "사유": "무릎 장기 부상",
+      "상태": "확정",
+      "복귀예정": "미상",
+      "대체선수": "-",
+      "출처": ["https://sports.yahoo.com/articles/dortmund-announce-squad-sabah-clash-081500762.html"],
+      "날짜": "2026-10-19"
+    },
+    {
+      "팀": "보루시아 도르트문트",
+      "선수": "Justin Lerma",
+      "포지션": "MF",
+      "이번시즌_선발/경기": "미상(2026 여름 Independiente del Valle서 영입)",
+      "득점·도움": "-",
+      "사유": "장기 부상(구체 부위 미확인)",
+      "상태": "의심(출처 1곳, UCL 프리뷰성 기사)",
+      "복귀예정": "미상",
+      "대체선수": "-",
+      "출처": ["https://sports.yahoo.com/articles/preview-sabah-vs-borussia-dortmund-164600757.html"],
+      "날짜": "2026-10-20"
+    }
+  ],
+  "라인업": {
+    "홈": {
+      "발표여부": "미발표(예상 라인업만)",
+      "예상XI": "Pokatilov; Zedadka, McCarthy, Solvet, Puchacz; Rakhmonaliev, Lepinjica; Parris, Du Queiroz, Simic; Mickels",
+      "포메이션": "4-2-3-1",
+      "비고": "10-13 슬라비아 프라하전 결승골 Kaheem Parris(49')·Joy-Lance Mickels(88') 주전 유지 예상",
+      "출처": "https://bulinews.com/sabah-borussia-dortmund-preview-team-news-and-predicted-lineups",
+      "날짜": "2026-10-19~20(발행일 미표기, 경기 임박 프리뷰)"
+    },
+    "원정": {
+      "발표여부": "미발표(예상 라인업만, 공식 23인 스쿼드만 확정)",
+      "예상XI": "Kobel; Gadou, Anton, Schlotterbeck; Ryerson, Bellingham, Nmecha, Svensson; Nwaneri, Beier; Guirassy",
+      "포메이션": "3-4-2-1",
+      "비고": "직전(10-15 Bodo/Glimt전) 선발과 비교 시 Schlotterbeck 복귀(발목 부상에서), Karetsas 결장으로 Nwaneri 선발 예상, Veerman 대신 Nmecha 예상. 23인 소집 명단은 공식 확정(Kobel·Bellingham·Guirassy·Nwaneri 포함).",
+      "출처": ["https://bulinews.com/sabah-borussia-dortmund-preview-team-news-and-predicted-lineups", "https://sports.yahoo.com/articles/dortmund-announce-squad-sabah-clash-081500762.html"],
+      "날짜": "2026-10-19~20"
+    }
+  },
+  "최근경기": [
+    {"팀": "사바FK", "날짜": "2026-10-13", "상대": "Slavia Prague", "장소": "홈(바쿠)", "스코어": "2-0", "비고": "UCL 리그페이즈 2차전, 클럽 사상 첫 UCL 승리. Parris 49' · Mickels 88' [espn.com/soccer/match/_/gameId/401915436]"},
+    {"팀": "사바FK", "날짜": "2026-10-17", "상대": "Gabala FK", "장소": "미상", "스코어": "4-0", "비고": "아제르바이잔 프리미어리그"},
+    {"팀": "보루시아 도르트문트", "날짜": "2026-10-09", "상대": "Werder Bremen", "장소": "홈", "스코어": "2-2", "비고": "분데스리가"},
+    {"팀": "보루시아 도르트문트", "날짜": "2026-10-14", "상대": "Bodø/Glimt", "장소": "원정", "스코어": "0-1 패", "비고": "UCL 리그페이즈"},
+    {"팀": "보루시아 도르트문트", "날짜": "2026-10-17", "상대": "1. FC Union Berlin", "장소": "원정", "스코어": "0-0", "비고": "분데스리가. 최근 3경기 무승(이 경기 포함)"}
+  ],
+  "순위": {
+    "홈": "아제르바이잔 프리미어리그 2위, 6경기 5승1무0패 승점16(1경기 적은 상태, 2위) — [en.wikipedia.org/wiki/2026–27_Azerbaijan_Premier_League, 조회 2026-10-20]",
+    "원정": "분데스리가 2위, 6경기 4승2무0패 GD+7 승점14 — [위키 2026–27 Borussia Dortmund season, 자동수집 2026-10-19]",
+    "출처": ["https://en.wikipedia.org/wiki/2026%E2%80%9327_Azerbaijan_Premier_League"],
+    "날짜": "2026-10-20"
+  },
+  "감독": {
+    "홈": "Valdas Dambrauskas(리투아니아)",
+    "원정": "Niko Kovač",
+    "변동": "없음",
+    "출처": "팀노트(기존 기록, 2026-10-12)",
+    "날짜": "2026-10-12"
+  },
+  "일정·동기·기타": [
+    {"내용": "사바FK는 UCL 사상 첫 본선(리그페이즈) 진출팀. 1차전 맨유 원정 0-4 패 후 2차전 슬라비아 프라하 상대 2-0으로 클럽 사상 첫 UCL 승리.", "출처": "https://www.espn.com/soccer/match/_/gameId/401915436/slavia-prague-sabah-fk", "날짜": "2026-10-13"},
+    {"내용": "도르트문트는 노르웨이(보되)·베를린(우니온)·아제르바이잔(바쿠)으로 이어지는 '7일 3연속 원정' 일정의 마지막 경기. 바쿠 이동에 경유가 필요할 수 있다는 보도(항공편 제약).", "출처": "https://www.getfootballnewsgermany.com/2026/borussia-dortmunds-julian-ryerson-suffers-fresh-injury-blow/", "날짜": "2026-10-19"},
+    {"내용": "도르트문트는 최근 3경기 무승(1무2무... 정확히는 Bodo 패 포함 3경기 무승, 최근 2경기 무득점 아님 — 득점력 저하 보도).", "출처": "https://www.idman.biz/az/news/football/162143", "날짜": "2026-10-19"},
+    {"내용": "스포팅 디렉터 Lars Ricken(또는 보도에 따라 Ole Boek으로 표기된 인물)가 바쿠 현지 기온(약 25도) 등 환경 적응을 언급.", "출처": "https://bulinews.com/sabah-borussia-dortmund-preview-team-news-and-predicted-lineups", "날짜": "2026-10-19~20"}
+  ],
+  "엇갈림": [
+    "홈 경기장 명칭: 일부 매체(bulinews)는 'Azərsun Arena'로 표기, 팀노트 기존 기록은 UEFA 기준 미충족으로 '바쿠 올림픽 스타디움' 개최라고 기록(2026-10-12) — 정확한 구장명 추가 확인 필요.",
+    "도르트문트 스포팅 디렉터 발언자 표기가 출처마다 'Lars Ricken'(Yahoo)과 'Ole Boek/Buk'(bulinews, getfootballnewsgermany)로 다르게 나옴 — 인명 교차확인 필요."
+  ],
+  "못찾음": [
+    "사바FK 이번 시즌 선수별 선발 횟수·득점 통계(개인 기록)",
+    "양팀 공식 발표 선발 XI(킥오프 임박 전까지 미발표)",
+    "정확한 경기장명(바쿠 내 구체 스타디움)"
+  ],
+  "뉴스없음": {
+    "홈": "사바FK 결장·부상 뉴스 없음 — 'clean bill of health'(완전체) 보도 2곳: https://www.whoscored.com/matches/2029247/preview/europe-champions-league-2026-2027-sabah-fk-borussia-dortmund , https://bulinews.com/sabah-borussia-dortmund-preview-team-news-and-predicted-lineups (둘 다 2026-10-19~20 발행 추정)",
+    "원정": "라미 벤세바이니(Bensebaini) 갈비뼈 부상 보도는 8월 건으로 7일 이내 기사 없음 — 현재 상태 뉴스 없음, 검색처: https://www.rotowire.com/soccer/player/nico-schlotterbeck-27656 , https://sports.yahoo.com/articles/dortmunds-schlotterbeck-bensebaini-back-team-151831040.html (복귀 훈련 합류 보도, 날짜 미확인)"
+  }
+}

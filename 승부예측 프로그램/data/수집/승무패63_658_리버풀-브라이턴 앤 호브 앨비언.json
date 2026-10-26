@@ -1,0 +1,242 @@
+{
+  "번호": 658,
+  "홈": "리버풀",
+  "원정": "브라이턴 앤 호브 앨비언",
+  "리그": "English Premier League (2026-27)",
+  "구장": "Anfield (Liverpool)",
+  "킥오프": "2026-10-25 14:00 UK / 23:00 KST (일요일)",
+  "수집시각": "2026-10-24 21:50 KST",
+  "결장": [
+    {
+      "팀": "리버풀",
+      "선수": "Dominik Szoboszlai",
+      "포지션": "MF",
+      "이번시즌_선발/경기": "미상",
+      "득점·도움": "미상",
+      "사유": "햄스트링(hamstring) 부상",
+      "상태": "확정(결장 유력)",
+      "복귀예정": "미정",
+      "대체선수": "미상",
+      "출처": ["https://www.sportsmole.co.uk/football/liverpool/injury-news/injuries-and-suspensions/will-szoboszlai-munoz-feature-liverpool-injury-suspension-list-vs-brighton_607512.html"],
+      "날짜": "2026-10-24"
+    },
+    {
+      "팀": "리버풀",
+      "선수": "Jeremie Frimpong",
+      "포지션": "DF/RB",
+      "이번시즌_선발/경기": "미상",
+      "득점·도움": "미상",
+      "사유": "근육(muscle) 부상",
+      "상태": "확정",
+      "복귀예정": "약 1개월 소요 전망",
+      "대체선수": "Armando Broja Araujo 추정(예상 XI 보도 기준, 우측 수비 변형)",
+      "출처": ["https://www.sportsmole.co.uk/football/liverpool/injury-news/injuries-and-suspensions/will-szoboszlai-munoz-feature-liverpool-injury-suspension-list-vs-brighton_607512.html"],
+      "날짜": "2026-10-24"
+    },
+    {
+      "팀": "리버풀",
+      "선수": "Giovanni Leoni",
+      "포지션": "DF",
+      "이번시즌_선발/경기": "미상",
+      "득점·도움": "미상",
+      "사유": "전방십자인대(ACL) 파열",
+      "상태": "확정(장기)",
+      "복귀예정": "시즌 중 복귀 어려움",
+      "대체선수": "-",
+      "출처": ["https://www.sportsmole.co.uk/football/liverpool/injury-news/injuries-and-suspensions/will-szoboszlai-munoz-feature-liverpool-injury-suspension-list-vs-brighton_607512.html"],
+      "날짜": "2026-10-24"
+    },
+    {
+      "팀": "리버풀",
+      "선수": "Conor Bradley",
+      "포지션": "DF",
+      "이번시즌_선발/경기": "미상",
+      "득점·도움": "미상",
+      "사유": "무릎 수술",
+      "상태": "확정(장기)",
+      "복귀예정": "미정",
+      "대체선수": "-",
+      "출처": ["https://www.sportsmole.co.uk/football/liverpool/injury-news/injuries-and-suspensions/will-szoboszlai-munoz-feature-liverpool-injury-suspension-list-vs-brighton_607512.html"],
+      "날짜": "2026-10-24"
+    },
+    {
+      "팀": "리버풀",
+      "선수": "Vitezslav Jaros",
+      "포지션": "GK",
+      "이번시즌_선발/경기": "백업 GK",
+      "득점·도움": "-",
+      "사유": "무릎 수술",
+      "상태": "확정(장기)",
+      "복귀예정": "미정",
+      "대체선수": "Alisson이 계속 선발",
+      "출처": ["https://www.sportsmole.co.uk/football/liverpool/injury-news/injuries-and-suspensions/will-szoboszlai-munoz-feature-liverpool-injury-suspension-list-vs-brighton_607512.html"],
+      "날짜": "2026-10-24"
+    },
+    {
+      "팀": "리버풀",
+      "선수": "Hugo Ekitiké",
+      "포지션": "FW",
+      "이번시즌_선발/경기": "주전급(시즌 초 다수 선발)",
+      "득점·도움": "미상(아킬레스건 파열 전까지 주전 공격수)",
+      "사유": "아킬레스건(Achilles) 파열",
+      "상태": "확정(시즌 아웃급 장기)",
+      "복귀예정": "장기",
+      "대체선수": "Alexander Isak(예상 XI 최전방)",
+      "출처": ["https://www.sportsmole.co.uk/football/liverpool/injury-news/injuries-and-suspensions/will-szoboszlai-munoz-feature-liverpool-injury-suspension-list-vs-brighton_607512.html"],
+      "날짜": "2026-10-24"
+    },
+    {
+      "팀": "리버풀",
+      "선수": "Bradley Barcola",
+      "포지션": "FW",
+      "이번시즌_선발/경기": "최근 UCL 라스크 린츠전(10/14) 해트트릭",
+      "득점·도움": "UCL 해트트릭 포함 최근 폼 상승",
+      "사유": "컨디션 이슈로 결장 우려 제기됐으나",
+      "상태": "의심 → 출전 가능 전망(훈련 소화)",
+      "복귀예정": "이번 경기 출전 유력",
+      "대체선수": "-",
+      "출처": ["https://uk.sports.yahoo.com/news/liverpool-xi-vs-brighton-confirmed-172716321.html"],
+      "날짜": "2026-10-24"
+    },
+    {
+      "팀": "리버풀",
+      "선수": "Ryan Gravenberch",
+      "포지션": "MF",
+      "이번시즌_선발/경기": "주전",
+      "득점·도움": "미상",
+      "사유": "PL 1경기 출전정지 소화 완료",
+      "상태": "복귀(출전 가능)",
+      "복귀예정": "이번 경기 복귀",
+      "대체선수": "-",
+      "출처": ["https://uk.sports.yahoo.com/news/liverpool-xi-vs-brighton-confirmed-172716321.html"],
+      "날짜": "2026-10-24"
+    },
+    {
+      "팀": "브라이턴",
+      "선수": "Mats Wieffer",
+      "포지션": "MF",
+      "이번시즌_선발/경기": "미상",
+      "득점·도움": "미상",
+      "사유": "부상(세부 사유 기사 미기재)",
+      "상태": "확정",
+      "복귀예정": "미정",
+      "대체선수": "미상",
+      "출처": ["https://www.sportsmole.co.uk/football/liverpool/injury-news/injuries-and-suspensions/will-szoboszlai-munoz-feature-liverpool-injury-suspension-list-vs-brighton_607512.html"],
+      "날짜": "2026-10-24"
+    },
+    {
+      "팀": "브라이턴",
+      "선수": "Yankuba Minteh",
+      "포지션": "FW",
+      "이번시즌_선발/경기": "미상",
+      "득점·도움": "미상",
+      "사유": "부상(세부 사유 기사 미기재)",
+      "상태": "확정",
+      "복귀예정": "미정",
+      "대체선수": "미상",
+      "출처": ["https://www.sportsmole.co.uk/football/liverpool/injury-news/injuries-and-suspensions/will-szoboszlai-munoz-feature-liverpool-injury-suspension-list-vs-brighton_607512.html"],
+      "날짜": "2026-10-24"
+    },
+    {
+      "팀": "브라이턴",
+      "선수": "Zadok Yohanna",
+      "포지션": "DF",
+      "이번시즌_선발/경기": "미상",
+      "득점·도움": "미상",
+      "사유": "부상(세부 사유 기사 미기재)",
+      "상태": "확정",
+      "복귀예정": "미정",
+      "대체선수": "미상",
+      "출처": ["https://www.sportsmole.co.uk/football/liverpool/injury-news/injuries-and-suspensions/will-szoboszlai-munoz-feature-liverpool-injury-suspension-list-vs-brighton_607512.html"],
+      "날짜": "2026-10-24"
+    },
+    {
+      "팀": "브라이턴",
+      "선수": "Kaoru Mitoma",
+      "포지션": "FW/MF",
+      "이번시즌_선발/경기": "평시 주전급 윙어",
+      "득점·도움": "미상",
+      "사유": "부상(세부 사유 기사 미기재)",
+      "상태": "확정",
+      "복귀예정": "미정",
+      "대체선수": "미상",
+      "출처": ["https://www.sportsmole.co.uk/football/liverpool/injury-news/injuries-and-suspensions/will-szoboszlai-munoz-feature-liverpool-injury-suspension-list-vs-brighton_607512.html"],
+      "날짜": "2026-10-24"
+    },
+    {
+      "팀": "브라이턴",
+      "선수": "Stefanos Tzimas",
+      "포지션": "FW",
+      "이번시즌_선발/경기": "미상",
+      "득점·도움": "미상",
+      "사유": "부상(세부 사유 기사 미기재)",
+      "상태": "확정",
+      "복귀예정": "미정",
+      "대체선수": "미상",
+      "출처": ["https://www.sportsmole.co.uk/football/liverpool/injury-news/injuries-and-suspensions/will-szoboszlai-munoz-feature-liverpool-injury-suspension-list-vs-brighton_607512.html"],
+      "날짜": "2026-10-24"
+    },
+    {
+      "팀": "브라이턴",
+      "선수": "Evan Ferguson",
+      "포지션": "FW",
+      "이번시즌_선발/경기": "미상",
+      "득점·도움": "미상",
+      "사유": "부상(세부 사유 기사 미기재)",
+      "상태": "확정",
+      "복귀예정": "미정",
+      "대체선수": "미상",
+      "출처": ["https://www.sportsmole.co.uk/football/liverpool/injury-news/injuries-and-suspensions/will-szoboszlai-munoz-feature-liverpool-injury-suspension-list-vs-brighton_607512.html"],
+      "날짜": "2026-10-24"
+    }
+  ],
+  "라인업": {
+    "홈": {
+      "발표여부": "미발표(예상 XI 보도만 존재)",
+      "예상XI": "Alisson; Araujo, Jacquet, Van Dijk, Kerkez; Mac Allister, Gravenberch; Ngumoha, Wirtz, Barcola; Isak",
+      "포메이션": "4-2-3-1 추정",
+      "출처": ["https://uk.sports.yahoo.com/news/liverpool-xi-vs-brighton-confirmed-172716321.html"],
+      "날짜": "2026-10-24"
+    },
+    "원정": {
+      "발표여부": "미발표",
+      "예상XI_또는_직전XI": "Wieffer·Minteh·Yohanna·Mitoma·Tzimas·Ferguson 6명 결장 확정 — 구체적 포지션별 대체 명단은 이번 검색에서 확인 못함",
+      "포메이션": "미상",
+      "출처": ["https://www.sportsmole.co.uk/football/liverpool/injury-news/injuries-and-suspensions/will-szoboszlai-munoz-feature-liverpool-injury-suspension-list-vs-brighton_607512.html"],
+      "날짜": "2026-10-24"
+    }
+  },
+  "최근경기": [
+    {"팀": "리버풀", "날짜": "2026-10-11", "상대": "Manchester City(A, PL)", "장소": "원정", "스코어": "0-3(패)", "비고": "패배"},
+    {"팀": "리버풀", "날짜": "2026-10-14", "상대": "LASK Linz(A, UCL MD2)", "장소": "원정", "스코어": "6-3(승)", "비고": "Barcola 해트트릭"},
+    {"팀": "리버풀", "날짜": "2026-10-17", "상대": "Brentford(H, PL)", "장소": "홈", "스코어": "2-1(승)", "비고": "승리, 상대 2명 퇴장/경고누적 유발"},
+    {"팀": "리버풀", "날짜": "2026-10-20", "상대": "Villarreal(H, UCL MD3)", "장소": "홈", "스코어": "4-3(승)", "비고": "UCL 승리"},
+    {"팀": "브라이턴", "날짜": "2026-10-10", "상대": "Sunderland(A, PL)", "장소": "원정", "스코어": "0-2(승)", "비고": "승리"},
+    {"팀": "브라이턴", "날짜": "2026-10-15", "상대": "Kauno Žalgiris(H, UECL)", "장소": "홈", "스코어": "4-0(승)", "비고": "완승"},
+    {"팀": "브라이턴", "날짜": "2026-10-18", "상대": "Crystal Palace(H, PL)", "장소": "홈", "스코어": "5-0(승)", "비고": "대승"},
+    {"팀": "브라이턴", "날짜": "2026-10-22", "상대": "Jablonec(A, UECL)", "장소": "원정(체코)", "스코어": "0-0", "비고": "무승부, 감독 Hürzeler '최고 기량 아니었다' 평가"}
+  ],
+  "순위": {
+    "홈": "프리미어리그 5위, 7경기 3승3무1패 승점12 GD+1 (Liverpool)",
+    "원정": "프리미어리그 3위, 승점16 (Brighton & Hove Albion)",
+    "출처": ["https://uk.sports.yahoo.com/news/liverpool-xi-vs-brighton-confirmed-172716321.html", "https://www.nbcsports.com/soccer/news/premier-league-table-for-2026-27-season"],
+    "날짜": "2026-10-24"
+  },
+  "감독": {
+    "홈": "미확인(이번 검색 라운드 미확인, 팀노트 FACTS 참조 필요)",
+    "원정": "Fabian Hürzeler",
+    "변동": "없음(확인처: dave.sport, 경질·교체 보도 없음)",
+    "출처": ["https://dave.sport/news/liverpool-vs-brighton-preview/"],
+    "날짜": "2026-10-24"
+  },
+  "일정·동기·기타": [
+    {"내용": "리버풀은 직전 UCL 홈 경기(10/20 vs Villarreal, 4-3 승)로부터 5일 휴식 후 브라이턴전 — 중3일 급성 피로는 아니나 최근 한 달 PL·UCL 병행으로 로테이션 변수 존재", "출처": "ESPN/경기 일정 종합", "날짜": "2026-10-24"},
+    {"내용": "브라이턴은 직전 UECL 원정(10/22 체코 Jablonec, 0-0 무)으로부터 3일 만에 안필드 원정 — 중3일 피로가 리버풀보다 큼. 감독이 '최고 기량 아니었다'고 자평", "출처": "Vavel/Wikipedia 2026-27 Brighton season", "날짜": "2026-10-24"},
+    {"내용": "브라이턴은 최근 4경기 전승(PL 2승·UECL 2승), 무실점 포함 공격력 최고조 — 리그 3위로 상승세", "출처": "ESPN Brighton results", "날짜": "2026-10-24"},
+    {"내용": "리버풀은 직전 PL 홈경기에서 맨시티에 0-3 완패 후 브렌트퍼드전 반등(2-1), UCL도 연승 중 — 팀 분위기 회복세이나 PL 득실 기복(0-3 → 2-1 → 이번 주)", "출처": "ESPN Liverpool results", "날짜": "2026-10-24"},
+    {"내용": "날씨: 일요일(10/25) 안필드 지역 흐리고 강풍(돌풍 최대 50~56mph), 오전 약한 소나기·오후 비, 강수 확률 약 60% — 측면 크로스·롱볼 정확도에 영향 가능한 수준의 바람", "출처": "https://www.accuweather.com/en/gb/anfield/l4-0/10-day-weather-forecast/196387_poi, https://www.theweatheroutlook.com/forecast/uk/liverpool", "날짜": "2026-10-24"}
+  ],
+  "엇갈림": [],
+  "못찾음": ["리버풀·브라이턴 양팀 감독 중 리버풀 감독명(이번 검색 라운드 미확인 — 팀노트 FACTS로 보강 필요)", "브라이턴 결장 선수 6명의 부상 세부 사유·복귀 예정일(기사 미기재)", "브라이턴 예상 XI 포지션별 상세 명단", "양팀 공식 발표 선발 명단(킥오프 1시간 전 공개 예정)", "심판 배정 정보(시간 제약으로 미확인)"],
+  "뉴스없음": {"홈": "해당 없음(결장 뉴스 다수 확인됨)", "원정": "해당 없음(결장 뉴스 다수 확인됨)"}
+}

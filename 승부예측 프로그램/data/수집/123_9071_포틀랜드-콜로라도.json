@@ -1,0 +1,85 @@
+{
+ "번호": 9071,
+ "홈": "포틀랜드 팀버스",
+ "원정": "콜로라도 래피즈",
+ "수집시각": "2026-10-18 09:55 KST",
+ "결장": [],
+ "라인업": {
+  "비고": "선발 기사 못 찾음. 팀노트 직전(10/15) 선발만 존재",
+  "포틀랜드_직전": "10/15 원정 LA Galaxy 0-2 패, 4-1-4-1 Pantemis, Miller, Waterman, Caicedo, Fory, Hernández, Da Costa, Ortiz, Velde, Lassiter, Janssen (팀노트)",
+  "콜로라도_직전": "10/15 홈 Minnesota 2-2, 4-2-3-1 Hansen, Williams, Holding, Navarro, Rosenberry, Aaronson, Ojediran, Frederick, Phillip, Yapi, Whittaker (팀노트)"
+ },
+ "최근경기": [
+  {
+   "팀": "포틀랜드",
+   "내용": "10/15 원정 LA Galaxy 0-2 패",
+   "출처": "https://www.timbers.com/news/recap-portland-timbers-lose-2-0-to-la-galaxy",
+   "판정": "확정(ESPN팩트시트+구단 URL 검색결과)",
+   "기사일": "날짜 미확인(10/15 경기)"
+  },
+  {
+   "팀": "콜로라도",
+   "내용": "10/15 홈 Minnesota 2-2 무(ESPN 팩트시트 1곳)",
+   "판정": "의심"
+  }
+ ],
+ "순위": {
+  "포틀랜드": "서부 10~11위, 팩트시트 29경기 9승6무14패 승점33(11위 표기). 검색요약은 9-14-6으로 승/패/무 순서 상이 가능",
+  "콜로라도": "서부 9위 팩트시트 29경기 11승5무13패 승점38",
+  "비고": "검색요약상 콜로라도가 포틀랜드 바로 위, 포틀랜드 '잔여 5경기'(2차 요약, 의심)",
+  "출처": "https://www.timbers.com/news/matchday-timbers-host-the-colorado-rapids-as-club-marks-providence-park-centennial",
+  "기사일": "2026-10-17",
+  "판정": "의심"
+ },
+ "감독": {
+  "포틀랜드": "Martí Cifuentes(팩트시트)",
+  "콜로라도": "Matt Wells(팩트시트)"
+ },
+ "일정·동기·기타": [
+  {
+   "내용": "포틀랜드 홈 Providence Park 100주년 행사, 'final home regular-season matches' 중 하나",
+   "출처": "https://www.timbers.com/news/matchday-timbers-host-the-colorado-rapids-as-club-marks-providence-park-centennial",
+   "기사일": "2026-10-17",
+   "판정": "의심"
+  },
+  {
+   "내용": "정규시즌 최종일 11/7, 이번 경기는 최종일 아님; 양팀 플레이오프 확정·탈락 여부 기사 못 찾음",
+   "판정": "뉴스없음"
+  },
+  {
+   "내용": "주중 A매치·대표 차출 언급 없음",
+   "판정": "뉴스없음"
+  },
+  {
+   "내용": "콜로라도는 Morgan Whittaker(구단 최고액 영입) 중심",
+   "출처": "https://www.timbers.com/news/matchday-timbers-host-the-colorado-rapids-as-club-marks-providence-park-centennial",
+   "기사일": "2026-10-17",
+   "판정": "의심"
+  }
+ ],
+ "맞대결": [
+  {
+   "내용": "2026 최근: 콜로라도 9/20 vs 시애틀 3-3 등은 무관. 이번 시즌 두 팀 맞대결 기사 못 찾음"
+  }
+ ],
+ "엇갈림": [],
+ "못찾음": [
+  "양팀 결장·부상 명단(2026-10 기사)",
+  "확정 선발",
+  "MLS 공식 injury report 원문",
+  "Stumptown Footy/Burgundy Wave 2026-10 기사",
+  "Oregonian",
+  "플레이오프 상황",
+  "주의: coloradorapids.com preview 한 건은 2023 시즌 기사라 폐기"
+ ],
+ "뉴스없음": {
+  "포틀랜드 결장": [
+   "timbers.com matchday",
+   "mlssoccer.com"
+  ],
+  "콜로라도 결장": [
+   "coloradorapids.com",
+   "burgundywave.com"
+  ]
+ }
+}

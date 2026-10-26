@@ -1,0 +1,54 @@
+{
+  "번호": 9919, "홈": "FK보라츠 바냐루카", "원정": "KuPS쿠오피오",
+  "수집시각": "2026-10-22 22:24 KST",
+  "결장": [
+    {"팀":"FK보라츠 바냐루카","선수":"Nikola Terzic","포지션":"FW","이번시즌_선발/경기":"미상(2025-08-10부터 장기 결장 기록)","득점·도움":"미상","사유":"측부인대(collateral ligament) 부상","상태":"확정","복귀예정":"미상","대체선수":"미상","출처":["https://www.flashscore.com/player/terzic-nikola/jiZ0kisM/injury-history","https://www.aiscore.com/player-nikola-terzic/o17pjizrm1etj7j","https://www.fotmob.com/players/1067254/nikola-terzic"],"날짜":"2026-10-22"},
+    {"팀":"FK보라츠 바냐루카","선수":"Anderson Esiti","포지션":"MF","이번시즌_선발/경기":"미상","득점·도움":"미상","사유":"이번 경기 출전 명단(matchday squad)에서 제외","상태":"확정","복귀예정":"미상","대체선수":"미상","출처":["https://www.mynet.com/borac-kups-2026-10-22-maci-oncesi-analiz-524677-myspor"],"날짜":"2026-10-22"},
+    {"팀":"FK보라츠 바냐루카","선수":"Srđan Grahovac","포지션":"DF(주장)","이번시즌_선발/경기":"이번 시즌 전경기 결장(0경기)","득점·도움":"0+0","사유":"미상(부상 추정, 사유 명시 안 됨) — 시즌 내내 결장이라 이번 주의 새 결장 뉴스는 아님","상태":"확정","복귀예정":"미상","대체선수":"미상","출처":["https://vedonlyonti.com/veikkausvihjeet/pitkavetovihjeet/konferenssiliiga-borac-banja-luka-kups"],"날짜":"2026-10-22"},
+    {"팀":"KuPS쿠오피오","선수":"Jerry Voutilainen","포지션":"미상","이번시즌_선발/경기":"미상","득점·도움":"미상","사유":"부상(사유 세부 미상)","상태":"확정","복귀예정":"미상","대체선수":"미상","출처":["https://www.mynet.com/borac-kups-2026-10-22-maci-oncesi-analiz-524677-myspor","https://vedonlyonti.com/veikkausvihjeet/pitkavetovihjeet/konferenssiliiga-borac-banja-luka-kups"],"날짜":"2026-10-22"},
+    {"팀":"KuPS쿠오피오","선수":"Saku Savolainen","포지션":"미상","이번시즌_선발/경기":"미상","득점·도움":"미상","사유":"직전 VPS전 중도 교체(경기를 끝까지 뛰지 못함), 상태 주시 필요","상태":"의심","복귀예정":"미상","대체선수":"미상","출처":["https://vedonlyonti.com/veikkausvihjeet/pitkavetovihjeet/konferenssiliiga-borac-banja-luka-kups"],"날짜":"2026-10-22"},
+    {"팀":"KuPS쿠오피오","선수":"Arttu Heinonen, Aaro Toivonen, Eemil Tanninen, Kasperi Silen","포지션":"미상","이번시즌_선발/경기":"미상","득점·도움":"미상","사유":"UEFA 등록 규정상 이번 대회 출전 불가(\"Yok Statü Gereği\" — 리스트 미등록 추정)","상태":"확정","복귀예정":"해당없음(이번 대회 한정)","대체선수":"미상","출처":["https://www.mynet.com/borac-kups-2026-10-22-maci-oncesi-analiz-524677-myspor"],"날짜":"2026-10-22"},
+    {"팀":"KuPS쿠오피오","선수":"Calvin Kabuye, Saku Heiskanen","포지션":"미상","이번시즌_선발/경기":"미상","득점·도움":"미상","사유":"이번 경기 출전 명단(matchday squad)에서 제외","상태":"확정","복귀예정":"미상","대체선수":"미상","출처":["https://www.mynet.com/borac-kups-2026-10-22-maci-oncesi-analiz-524677-myspor"],"날짜":"2026-10-22"}
+  ],
+  "뉴스확인": [
+    {"팀":"FK보라츠 바냐루카","결과":"결장자 발견(위 결장 배열 참조, Terzic·Esiti·Grahovac)","검색처":["https://www.mynet.com/borac-kups-2026-10-22-maci-oncesi-analiz-524677-myspor","https://www.flashscore.com/player/terzic-nikola/jiZ0kisM/injury-history","https://vedonlyonti.com/veikkausvihjeet/pitkavetovihjeet/konferenssiliiga-borac-banja-luka-kups","https://oslobodjenje.ba/sport/fudbal/ino-fudbal/evropska-takmicenja/borac-trazi-prvu-pobjedu-u-konferencijskoj-ligi-protiv-finskog-ku-ps-a"],"검색어":"FK Borac Banja Luka povrede/injury news October 2026; Nikola Terzic injury","날짜":"2026-10-22"},
+    {"팀":"KuPS쿠오피오","결과":"결장자 발견(위 결장 배열 참조, Voutilainen 등 7명)","검색처":["https://www.mynet.com/borac-kups-2026-10-22-maci-oncesi-analiz-524677-myspor","https://vedonlyonti.com/veikkausvihjeet/pitkavetovihjeet/konferenssiliiga-borac-banja-luka-kups","https://pallomeri.net/borac-kups-tv-22-10/"],"검색어":"KuPS Kuopio loukkaantumiset/injury news October 2026 Conference League","날짜":"2026-10-22"}
+  ],
+  "예상XI": {
+    "홈": {"포메이션":"4-2-3-1","명단":["Mladen Jurkas","Sebastian Herera","Siniša Saničanin","Branimir Cipetić","Bart Meijers","Stefan Savić","Stojan Vranješ","Sandi Ogrinec","Ante Roguljić","Miloš Jojić","Luka Juricic"],"근거":"Goal.com 예상 라인업","출처":["https://www.goal.com/en-us/news/watch-borac-banja-luka-v-kups-live-stream-online-tv-channel/bltee81c309b0a086f5"],"날짜":"2026-10-22"},
+    "원정": {"포메이션":"4-2-3-1(추정)","명단":["Johannes Kreidl","Saku Savolainen","Taneli Hämäläinen","Arttu Lötjönen","Clinton Antwi","Valentín Gasc","Samuel Pasanen","Joslyn Luyeye-Lutumba","Petteri Pennanen","Bob Nii Armah","Jaime Moreno"],"근거":"Goal.com 예상 라인업","출처":["https://www.goal.com/en-us/news/watch-borac-banja-luka-v-kups-live-stream-online-tv-channel/bltee81c309b0a086f5"],"날짜":"2026-10-22"}
+  },
+  "최근5경기": {
+    "홈": [
+      {"날짜":"2026-10-16","상대":"Panathinaikos(원정, UECL)","결과":"1-2 패","비고":"선전했다는 평가(투지 호평)"},
+      {"날짜":"미상","상대":"BSK Banja Luka","결과":"승","비고":"국내리그, 날짜 미확인"},
+      {"날짜":"미상","상대":"Zrinjski","결과":"승","비고":"국내리그, 날짜 미확인"}
+    ],
+    "원정": [
+      {"날짜":"2026-10-16","상대":"Trabzonspor(홈, UECL)","결과":"2-4 패","비고":"UECL 1차전"}
+    ]
+  },
+  "일정피로": {
+    "홈": {"직전공식전":"2026-10-16 원정 Panathinaikos 1-2 패(UECL)","최근7일경기수":1,"이동거리":"미상"},
+    "원정": {"직전공식전":"2026-10-16 홈 Trabzonspor 2-4 패(UECL)","최근7일경기수":1,"이동거리":"핀란드→보스니아 장거리"}
+  },
+  "동기": {"홈":"UECL 리그페이즈 1경기 패, 조 25위, 첫 승점 필요. 국내리그는 최근 승리 행진(BSK, Zrinjski 등).","원정":"UECL 리그페이즈 1경기 패, 조 31위(양팀 모두 무승점), 핀란드 Veikkausliiga는 10월이면 정규시즌 막바지~플레이오프 구간 가능성(세부 확인 못함).","출처":["https://www.thestatszone.com/borac-banja-luka-vs-kups-preview-prediction-2026-27-uefa-conference-league-league-phase-232003","https://dailysports.net/predictions/borac-kups-who-will-claim-their-first-points-in-the-conference-league/"]},
+  "환경": {
+    "경기장":"Gradski stadion (Banja Luka City Stadium)",
+    "잔디":"미상",
+    "날씨":"11.1℃, 강수 0mm(확률15%), 바람 2.1km/h (teamdb 10-21 수집치)",
+    "심판":"미상",
+    "출처":["https://www.goal.com/en-us/news/watch-borac-banja-luka-v-kups-live-stream-online-tv-channel/bltee81c309b0a086f5"]
+  },
+  "기타사실": [
+    {"내용":"킥오프 시각 출처 간 불일치(21:00 CET vs 15:00 KST 표기 등) — data/마감시각.json 기준(04:00 KST)을 우선한다.","출처":["https://www.goal.com/en-us/news/watch-borac-banja-luka-v-kups-live-stream-online-tv-channel/bltee81c309b0a086f5"],"날짜":"2026-10-22"},
+    {"내용":"보라츠 Miloš Jojić가 최근 득점, 팀 공격의 핵심 창출원으로 평가.","출처":["https://www.thestatszone.com/borac-banja-luka-vs-kups-preview-prediction-2026-27-uefa-conference-league-league-phase-232003"],"날짜":"2026-10-22"},
+    {"내용":"KuPS Petteri Pennanen이 최근 4경기 슈팅·찬스 생성 1위.","출처":["https://www.thestatszone.com/borac-banja-luka-vs-kups-preview-prediction-2026-27-uefa-conference-league-league-phase-232003"],"날짜":"2026-10-22"}
+  ],
+  "미확인": [
+    "심판 배정",
+    "핀란드 Veikkausliiga 시즌 진행 단계(막바지 여부)",
+    "경기장 잔디 종류",
+    "Srđan Grahovac 결장 구체 사유(부상 종류 미상, 시즌 전경기 결장이라 새 뉴스는 아님)"
+  ]
+}

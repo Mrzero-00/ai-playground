@@ -1,0 +1,200 @@
+{
+ "번호": "9188",
+ "홈": "PEC 즈볼러",
+ "원정": "고어헤드 이글스",
+ "수집시각": "2026-10-18 약 18:05 KST (킥오프 12:15 CEST = 19:15 KST, 심판 Danny Makkelie)",
+ "결장": [
+  {
+   "팀": "홈",
+   "선수": "Filip Krastev",
+   "포지션": "미확인",
+   "이번시즌_선발/경기": "미확인",
+   "득점·도움": "미확인",
+   "사유": "아킬레스건 부상",
+   "상태": "의심",
+   "복귀예정": "미확인",
+   "대체선수": "미확인",
+   "출처": "https://www.sportsmole.co.uk/football/pec-zwolle/preview/pec-zwolle-vs-go-ahead-eagles-prediction-team-news-lineups_607060.html",
+   "날짜": "2026-10-16"
+  },
+  {
+   "팀": "홈",
+   "선수": "Younes Namli",
+   "포지션": "미확인",
+   "이번시즌_선발/경기": "미확인",
+   "득점·도움": "미확인",
+   "사유": "무릎(4월 부상 이후 미출전)",
+   "상태": "의심",
+   "복귀예정": "미확인",
+   "대체선수": "미확인",
+   "출처": "https://www.sportsmole.co.uk/football/pec-zwolle/preview/pec-zwolle-vs-go-ahead-eagles-prediction-team-news-lineups_607060.html",
+   "날짜": "2026-10-16"
+  },
+  {
+   "팀": "홈",
+   "선수": "Ryan Thomas",
+   "포지션": "MF",
+   "이번시즌_선발/경기": "미확인",
+   "득점·도움": "미확인",
+   "사유": "부상 복귀, Cambuur전 선발, 선발 예상(결장 아님)",
+   "상태": "의심",
+   "복귀예정": "복귀함",
+   "대체선수": "-",
+   "출처": "https://www.sportsmole.co.uk/football/pec-zwolle/preview/pec-zwolle-vs-go-ahead-eagles-prediction-team-news-lineups_607060.html",
+   "날짜": "2026-10-16"
+  },
+  {
+   "팀": "원정",
+   "선수": "Pim Saathof",
+   "포지션": "미확인",
+   "이번시즌_선발/경기": "미확인",
+   "득점·도움": "미확인",
+   "사유": "무릎 부상",
+   "상태": "의심",
+   "복귀예정": "미확인",
+   "대체선수": "미확인",
+   "출처": "https://www.sportsmole.co.uk/football/pec-zwolle/preview/pec-zwolle-vs-go-ahead-eagles-prediction-team-news-lineups_607060.html",
+   "날짜": "2026-10-16"
+  },
+  {
+   "팀": "원정",
+   "선수": "Julius Dirksen",
+   "포지션": "미확인",
+   "이번시즌_선발/경기": "미확인",
+   "득점·도움": "미확인",
+   "사유": "Sparta전(10/10) 결장, 이번 출전 불투명(사유 미기재)",
+   "상태": "의심",
+   "복귀예정": "미확인",
+   "대체선수": "미확인",
+   "출처": "https://www.sportsmole.co.uk/football/pec-zwolle/preview/pec-zwolle-vs-go-ahead-eagles-prediction-team-news-lineups_607060.html",
+   "날짜": "2026-10-16"
+  }
+ ],
+ "라인업": {
+  "홈": {
+   "발표여부": "미발표(킥오프 1시간 전 확정 라인업 못 확인)",
+   "예상XI": "Schendelaar; Aertssen, Graves, Viergever, Floranus; Thomas, Sommer; Mbayo, Oosting, Cissoko; Kostons",
+   "포메이션": "미기재(배열상 4-2-3-1)",
+   "출처": "https://www.sportsmole.co.uk/football/pec-zwolle/preview/pec-zwolle-vs-go-ahead-eagles-prediction-team-news-lineups_607060.html (영문 1곳, 의심)",
+   "날짜": "2026-10-16"
+  },
+  "원정": {
+   "발표여부": "미발표",
+   "예상XI": "Haug; James, Kramer, Van Zwam, Sampsted; Linthorst, Meulensteen; Suray, Edvardsen, Tengstedt; Sigurdarson",
+   "포메이션": "미기재(배열상 4-2-3-1)",
+   "출처": "https://www.sportsmole.co.uk/football/pec-zwolle/preview/pec-zwolle-vs-go-ahead-eagles-prediction-team-news-lineups_607060.html (1곳, 의심)",
+   "날짜": "2026-10-16"
+  }
+ },
+ "최근경기": [
+  {
+   "팀": "홈",
+   "날짜": "2026-10-11",
+   "상대": "SC Cambuur",
+   "장소": "홈",
+   "스코어": "0-1",
+   "비고": "Nicolas Binder 83분 결승골; 이후 감독 해임(FC Update 2026-10-16)"
+  },
+  {
+   "팀": "홈",
+   "날짜": "2026-09-18",
+   "상대": "FC Groningen",
+   "장소": "원정",
+   "스코어": "0-3",
+   "비고": "ESPN 팩트시트"
+  },
+  {
+   "팀": "홈",
+   "날짜": "2026-09-13",
+   "상대": "Feyenoord",
+   "장소": "홈",
+   "스코어": "0-7",
+   "비고": "ESPN 팩트시트"
+  },
+  {
+   "팀": "홈",
+   "날짜": "2026-09-04",
+   "상대": "Sparta Rotterdam",
+   "장소": "원정",
+   "스코어": "2-2",
+   "비고": "ESPN 팩트시트"
+  },
+  {
+   "팀": "원정",
+   "날짜": "2026-10-10",
+   "상대": "Sparta Rotterdam",
+   "장소": "홈",
+   "스코어": "3-3",
+   "비고": "5경기 무승(4연속 무) — Sports Mole 2026-10-16"
+  },
+  {
+   "팀": "원정",
+   "날짜": "2026-09-20",
+   "상대": "NEC Nijmegen",
+   "장소": "원정",
+   "스코어": "1-1",
+   "비고": "위키/ESPN"
+  },
+  {
+   "팀": "원정",
+   "날짜": "2026-09-12",
+   "상대": "FC Groningen",
+   "장소": "홈",
+   "스코어": "1-1",
+   "비고": "위키/ESPN"
+  },
+  {
+   "팀": "원정",
+   "날짜": "2026-09-08",
+   "상대": "FC Utrecht",
+   "장소": "원정",
+   "스코어": "3-3",
+   "비고": "위키 주석: 9/5 1-3 중단 후 재개, 불일치 가능"
+  }
+ ],
+ "순위": {
+  "홈": "16위 8경기 1승1무6패 GD-15 승점4 (팩트시트·FC Update); VI는 18위로 표기(엇갈림)",
+  "원정": "8위 8경기 2승5무1패 GD+2 승점11 (팩트시트·VI); 위키 표는 9위",
+  "출처": "https://www.fcupdate.nl/voetbalnieuws/2026/10/rene-hake-wijst-aanbod-pec-zwolle-gerry-hamstra-af ; https://www.vi.nl/nieuws/pikante-ijsselderby-voor-interim-trainer-pec-zwolle-bijzonder-natuurlijk ; 팀노트 팩트시트",
+  "날짜": "2026-10-16"
+ },
+ "감독": {
+  "홈": "Henry van der Vegt 해임(화요일 2026-10-13, 8경기 후, 올 시즌 에레디비시 첫 해임). 임시: Dennis van der Ree(47, UEFA Pro) + Maikel van der Werff. René Hake는 제안 거절",
+  "원정": "엇갈림: 위키 팩트시트 Melvin Boel / NOS·Sports Mole 계열 Joseph Oosting(PEC MF Thijs Oosting의 아버지)",
+  "변동": "홈 감독 교체 확정(FC Update, Voetbalprimeur, VI 3곳). Van der Ree는 Go Ahead 어시스턴트 3시즌 출신, 올여름 PEC 합류",
+  "출처": "https://www.fcupdate.nl/voetbalnieuws/2026/10/rene-hake-wijst-aanbod-pec-zwolle-gerry-hamstra-af ; https://www.voetbalprimeur.nl/nieuws/2147502/dennis-van-der-ree-leidt-pec-zwolle-tegen-go-ahead-eagles.html ; https://www.vi.nl/nieuws/pikante-ijsselderby-voor-interim-trainer-pec-zwolle-bijzonder-natuurlijk ; https://nos.nl/artikel/2635424-thijs-oosting-en-vader-treffen-elkaar-in-ijsselderby-weekje-wat-minder-contact",
+  "날짜": "2026-10-16"
+ },
+ "일정·동기·기타": [
+  {
+   "내용": "IJsselderby. Van der Ree: 'Go Ahead 현 주전 전원과 함께 일했다', 공격 창의 선수들의 수비 약점 공략 계획",
+   "출처": "https://www.vi.nl/nieuws/pikante-ijsselderby-voor-interim-trainer-pec-zwolle-bijzonder-natuurlijk",
+   "날짜": "2026-10-16(기사 본문 '일요일 오후', 정확 일자 미확인)"
+  },
+  {
+   "내용": "Go Ahead Tengstedt 최근 8경기 직접 공격 포인트 8(6골 2도움)",
+   "출처": "https://www.sportsmole.co.uk/football/pec-zwolle/preview/pec-zwolle-vs-go-ahead-eagles-prediction-team-news-lineups_607060.html",
+   "날짜": "2026-10-16"
+  },
+  {
+   "내용": "직전 맞대결 2026-04-05 Go Ahead 5-0 PEC (검색 스니펫만, 원문 미확인)",
+   "출처": "https://forzapitch.com/matches/go-ahead-eagles-vs-pec-zwolle-2026-04-05",
+   "날짜": "2026-04-05"
+  }
+ ],
+ "엇갈림": [
+  "Go Ahead 감독: Melvin Boel(위키) vs Joseph Oosting(NOS·Sports Mole)",
+  "PEC 순위 16위 vs 18위(VI)",
+  "Go Ahead 순위 8위 vs 9위(위키 표)"
+ ],
+ "못찾음": [
+  "확정 라인업",
+  "Go Ahead 공식 기자회견 결장 정보",
+  "선수별 시즌 선발/득점",
+  "VI 본문(유료)"
+ ],
+ "뉴스없음": {
+  "홈": "결장 보도는 Sports Mole(영문) 1곳뿐. 현지 FC Update·Voetbalprimeur·VI 3곳은 결장 언급 없음",
+  "원정": "Sports Mole 1곳만 Saathof(무릎)·Dirksen(의심). 현지어 매체 결장 보도 못 찾음(FC Update, Voetbalprimeur, VI, NOS 확인)"
+ }
+}

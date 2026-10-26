@@ -1,0 +1,78 @@
+{
+  "번호": 9941,
+  "홈": "셀틱",
+  "원정": "RC셀타데비고",
+  "수집시각": "2026-10-22 22:20 KST",
+  "결장": [
+    {"팀":"셀틱","선수":"Cameron Carter-Vickers","포지션":"DF","이번시즌_선발/경기":"미상(복귀 훈련 중)","득점·도움":"미상","사유":"부상 재활 복귀 훈련 중, 이번 경기 제외","상태":"확정","복귀예정":"일요일 Hibernian전 가능성","대체선수":"Auston Trusty 등","출처":["https://readceltic.com/2026/10/21/celtic-celta-vigo-team-news-tv-kick-off/","https://www.67hailhail.com/news/celta-vigo-hit-by-fresh-injury-blow-as-five-players-ruled-out-of-celtic-clash/"],"날짜":"2026-10-21"},
+    {"팀":"셀틱","선수":"Alistair Johnston","포지션":"DF","이번시즌_선발/경기":"미상(복귀 훈련 중)","득점·도움":"미상","사유":"부상 재활 복귀 훈련 중, 이번 경기 제외","상태":"확정","복귀예정":"일요일 Hibernian전 가능성","대체선수":"미상","출처":["https://readceltic.com/2026/10/21/celtic-celta-vigo-team-news-tv-kick-off/"],"날짜":"2026-10-21"},
+    {"팀":"셀틱","선수":"Auston Trusty","포지션":"DF","이번시즌_선발/경기":"직전 경기(Benfica전) 선발 — 결장 아님, 시즌 꾸준히 출전","득점·도움":"미상","사유":"개인 사정(private matter)으로 결장","상태":"확정","복귀예정":"미상","대체선수":"미상","출처":["https://readceltic.com/2026/10/21/celtic-celta-vigo-team-news-tv-kick-off/"],"날짜":"2026-10-21"},
+    {"팀":"셀틱","선수":"Yang Hyun-jun","포지션":"MF/FW","이번시즌_선발/경기":"미상 — 장기 결장 상태로 보도됨(시즌 내내 결장 추정, 시장 반영 가능성 높음)","득점·도움":"미상","사유":"부상(지속)","상태":"확정","복귀예정":"미상","대체선수":"미상","출처":["https://uk.sports.yahoo.com/news/celtic-handed-triple-injury-boost-113600603.html"],"날짜":"2026-10-21"},
+    {"팀":"셀틱","선수":"Jota","포지션":"FW","이번시즌_선발/경기":"미상","득점·도움":"미상","사유":"구단이 제출한 유로파리그 스쿼드 명단에서 제외 — 부상이 아니라 등록 외","상태":"확정","복귀예정":"해당없음(이번 대회 전체 제외)","대체선수":"미상","출처":["https://uk.sports.yahoo.com/news/celtic-handed-triple-injury-boost-113600603.html"],"날짜":"2026-10-21"},
+    {"팀":"셀틱","선수":"Oliver Sørensen","포지션":"MF","이번시즌_선발/경기":"직전 Benfica전 선발 출전 기록 있음(INPUTS)","득점·도움":"미상","사유":"복귀 호재 — 스코틀랜드 복귀, 스쿼드 포함 예상(부정적 결장 아님, 참고용)","상태":"확정","복귀예정":"이번 경기 출전 예상","대체선수":"해당없음","출처":["https://uk.sports.yahoo.com/news/celtic-handed-triple-injury-boost-113600603.html"],"날짜":"2026-10-21"},
+    {"팀":"RC셀타데비고","선수":"Carl Starfelt","포지션":"DF","이번시즌_선발/경기":"미상","득점·도움":"미상","사유":"허벅지(대퇴이두근) 부상","상태":"확정","복귀예정":"미상","대체선수":"미상","출처":["https://www.67hailhail.com/news/celta-vigo-hit-by-fresh-injury-blow-as-five-players-ruled-out-of-celtic-clash/","https://www.futbolfantasy.com/laliga/noticias/153272-el-celta-se-ejercito-el-miercoles-por-la-tarde-con-cinco-bajas-por-lesion"],"날짜":"2026-10-21"},
+    {"팀":"RC셀타데비고","선수":"Borja Iglesias","포지션":"FW","이번시즌_선발/경기":"미상","득점·도움":"미상","사유":"종아리(비복근/soleo) 힘줄 파열, 약 6주 결장 예상","상태":"확정","복귀예정":"약 6주 후","대체선수":"미상(공격 자원 손실 큼)","출처":["https://metropolitano.gal/celta-de-vigo/marco-garces-baja-borja-iglesias-equipo-asolado-por-lesiones-lo-necesitamos-mucho/"],"날짜":"2026-10-21"},
+    {"팀":"RC셀타데비고","선수":"Álvaro Núñez","포지션":"DF","이번시즌_선발/경기":"미상","득점·도움":"미상","사유":"내전근 근섬유 파열","상태":"확정","복귀예정":"미상","대체선수":"미상","출처":["https://www.jornadaperfecta.com/blog/alvaro-nunez-molestias-celta/"],"날짜":"2026-10-21"},
+    {"팀":"RC셀타데비고","선수":"Miguel Román","포지션":"미상","이번시즌_선발/경기":"미상","득점·도움":"미상","사유":"무릎 관절경 수술","상태":"확정","복귀예정":"미상","대체선수":"미상","출처":["https://www.67hailhail.com/news/celta-vigo-hit-by-fresh-injury-blow-as-five-players-ruled-out-of-celtic-clash/"],"날짜":"2026-10-21"},
+    {"팀":"RC셀타데비고","선수":"Jones El-Abdellaoui","포지션":"미상","이번시즌_선발/경기":"미상","득점·도움":"미상","사유":"관절경 수술","상태":"확정","복귀예정":"미상","대체선수":"미상","출처":["https://www.67hailhail.com/news/celta-vigo-hit-by-fresh-injury-blow-as-five-players-ruled-out-of-celtic-clash/"],"날짜":"2026-10-21"},
+    {"팀":"RC셀타데비고","선수":"Pablo Durán","포지션":"FW","이번시즌_선발/경기":"최근 2경기(유벤투스·알라베스전) 결장 후 복귀","득점·도움":"미상","사유":"종아리 부종으로 결장했었으나 의료 소견서상 복귀 가능 판정","상태":"확정(복귀)","복귀예정":"이번 경기 출전 가능","대체선수":"해당없음","출처":["https://www.jornadaperfecta.com/blog/alvaro-nunez-molestias-celta/"],"날짜":"2026-10-21"}
+  ],
+  "예상XI": {
+    "홈": {
+      "포메이션": "4-2-3-1",
+      "명단": ["Viljami Sinisalo","Colby Donovan","Dane Murray","Auston Trusty","Kieran Tierney","Callum McGregor","Mika Baur","Camilo Durán","Oliver Sørensen","Sebastian Tounekti","Kasper Høgh"],
+      "근거": "복수 매체 예상 라인업 일치 — Carter-Vickers·Johnston·Yang Hyun-jun·Jota 결장으로 수비·측면 자원 부족, Durán이 최근 3경기 연속 득점으로 공격 중심축",
+      "출처": ["https://readceltic.com/2026/10/21/celtic-celta-vigo-team-news-tv-kick-off/","https://www.sportsgambler.com/betting-tips/football/celtic-vs-celta-vigo-prediction-lineups-odds-2026-10-22/"],
+      "날짜": "2026-10-21"
+    },
+    "원정": {
+      "포메이션": "3-4-3(또는 5백 변형)",
+      "명단": ["Andrei Radu","Damián Rodríguez","Yoel Lago","Marcos Alonso","Javi Rueda","Ilaix Moriba","Aleix Febas","Sergio Carreira","Hugo Álvarez","Ferran Jutglà","Williot Swedberg"],
+      "근거": "스페인 매체 예상: 원정 유로파리그용으로 5백에 가까운 수비형 3-4-3, 주전 공격수 Hugo Gonzalez 미언급(로테이션 가능성), Durán 복귀로 선택지 확대",
+      "출처": ["https://www.jornadaperfecta.com/blog/celta-alineacion-probable-celtic-j3-europa/","https://www.whoscored.com/matches/2029531/preview/europe-europa-league-2026-2027-celtic-celta-vigo"],
+      "날짜": "2026-10-21"
+    }
+  },
+  "최근5경기": {
+    "홈": [
+      {"날짜":"2026-09-17","상대":"Ferencvaros","결과":"1-3 패(UEL)","비고":"미상"},
+      {"날짜":"2026-10-15/16","상대":"Benfica(원정)","결과":"1-4 패(UEL)","비고":"미상"},
+      {"날짜":"2026-10-18~19","상대":"Hearts(홈, 리그)","결과":"7-1 승","비고":"검색 요약 상 '타이틀 라이벌 허츠 대파'로 언급 — 날짜·스코어는 간접 인용, 공식 소스 미확인"}
+    ],
+    "원정": [
+      {"날짜":"2026-09-03","상대":"Real Sociedad(원정)","결과":"0-0 무","비고":"xG 0.63:1.02"},
+      {"날짜":"2026-09-07","상대":"Getafe(원정)","결과":"1-1 무","비고":"xG 1.42:1.46"},
+      {"날짜":"2026-09-13","상대":"Málaga(홈)","결과":"1-1 무","비고":"xG 1.48:0.55"},
+      {"날짜":"2026-09-19","상대":"Racing Santander(홈)","결과":"5-0 승","비고":"xG 2.23:0.72"},
+      {"날짜":"2026-10-11","상대":"Elche(원정)","결과":"0-0 무","비고":"xG 0.43:0.73"},
+      {"날짜":"2026-10-18","상대":"Alavés(홈)","결과":"2-1 승","비고":"xG 0.76:1.18"},
+      {"날짜":"2026-10-16","상대":"Juventus(홈, UEL)","결과":"1-2 패","비고":"미상"}
+    ]
+  },
+  "일정피로": {
+    "홈": {"직전공식전":"2026-10-16 원정 Benfica전 1-4 패(UEL)","최근7일경기수":"미상(리그 경기 포함 가능성, 공식 확인 안 됨)","이동거리":"없음(홈)"},
+    "원정": {"직전공식전":"2026-10-16 홈 Juventus전 1-2 패(UEL)","최근7일경기수":1,"이동거리":"비고 — 스페인 비고에서 스코틀랜드 글래스고까지 장거리 원정, teamdb 입력상 1551km로 기록(단, 이 수치는 반대 방향 셀틱 원정 기준일 수 있어 재확인 필요)"}
+  },
+  "동기": {
+    "홈": "유로파리그 리그페이즈 2경기 전패(0점)로 탈락 위기감, 리그에서는 선두(검색 결과 '24점 선두'로 언급되나 teamdb FACTS 블록은 '2경기 전패 승점0 34위'로 상반 — 데이터 출처 불일치, 미확인 처리 필요). Martin O'Neill 감독 거취 논란 지속 중이나 구단 공식적으로는 유임 지지 표명(2026-10-20~21 보도).",
+    "원정": "유로파리그 2경기 전패(0점)로 탈락 위기, 유럽대항전 첫 승 절실. 리그는 8경기 1승5무2패 11위로 중위권.",
+    "출처": ["https://readceltic.com/2026/10/20/celtic-injury-crisis-oneill-board-celta-vigo/","https://www.jornadaperfecta.com/blog/celta-alineacion-probable-celtic-j3-europa/"]
+  },
+  "환경": {
+    "경기장": "Celtic Park(파크헤드), 글래스고",
+    "날씨": "미상(teamdb INPUTS: 7.0도, 강수 0mm, 바람 10.1km/h — 자동 수집 예보치, 재검증 안 됨)",
+    "심판": "Georgi Kabakov(불가리아), 부심 Martin Margaritov·Martin Venev, VAR Soren Strox, AVAR Robert Schroder, 4th official Nikola Popov",
+    "출처": ["https://celtsarehere.com/celtic-celta-vigo-referee-europa-league/"]
+  },
+  "기타사실": [
+    {"내용":"킥오프는 영국 현지 20:00(BST), KST 환산 익일 04:00 — 과제 지정 시각과 일치.","출처":["https://uk.sports.yahoo.com/news/celtic-handed-triple-injury-boost-113600603.html"],"날짜":"2026-10-21"},
+    {"내용":"양 팀 모두 유로파리그 리그페이즈 2경기에서 전패(승점 0)로 이번 경기에서 대회 첫 승점이 걸려 있음.","출처":["https://dailysports.net/predictions/who-will-escape-the-bottom-after-a-disastrous-european-start-celtic-vs-celta-vigo-prediction-22102026/"],"날짜":"2026-10-21"},
+    {"내용":"셀틱은 직전 Benfica 원정 1-4 패 이후 국내 리그에서 반등했다는 보도가 있으나(상대·스코어 간접 인용), 공식 박스스코어로 재확인되지 않음.","출처":["https://readceltic.com/2026/10/21/celtic-celta-vigo-team-news-tv-kick-off/"],"날짜":"2026-10-21"}
+  ],
+  "미확인": [
+    "셀틱 리그 순위·승점 — teamdb FACTS(34위, 2경기 0승0무2패 승점0)와 WebSearch 결과(24점으로 선두) 간 심한 불일치. 공식 SPFL 순위표 재확인 필요, 분석가는 두 수치 모두 쓰지 말고 재검증 요망.",
+    "셀타 비고의 핵심 공격 자원 Hugo Gonzalez의 이번 경기 선발 여부(예상 XI에서 누락됨, 로테이션인지 결장인지 불명).",
+    "셀틱 원정 이동거리(1551km) 수치가 '셀틱이 원정 가는' 기준인지 '셀타가 원정 오는' 기준인지 INPUTS 블록에서 양쪽 팀노트에 동일하게 찍혀 있어 혼동 — 이 경기는 셀틱 홈이므로 셀타 입장에서의 이동거리로 봐야 함.",
+    "경기장 실제 기상(강수·바람)은 자동 수집 예보치로 킥오프 임박 재확인 필요."
+  ]
+}

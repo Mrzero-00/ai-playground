@@ -1,0 +1,151 @@
+  ✓ 허난FC ← Henan F.C. | 감독 Daniel Ramos | 순위 13위 27경기 8승10무9패 GD-2 승점28 (Henan) | 이적 0줄 | 최근 3경기
+  ✓ 톈진 진먼후 ← Tianjin Jinmen Tiger F.C. | 감독 Yu Genwei | 순위 12위 27경기 10승8무9패 GD+5 승점28 (Tianjin Jinmen Tiger) | 이적 0줄 | 최근 3경기
+  ✓ SC헤이렌베인 ← 2026–27 SC Heerenveen season | 감독 Robin Veldman | 순위 10위 8경기 2승3무3패 GD0 승점9 (Heerenveen) | 이적 9줄 | 최근 4경기
+  ✓ 엑셀시오르 로테르담 ← Excelsior Rotterdam | 감독 Ruben den Uil | 순위 9위 8경기 3승2무3패 GD+2 승점11 (Excelsior) | 이적 0줄 | 최근 5경기
+  ✓ 프랑크푸르트 ← 2026–27 Eintracht Frankfurt season | 감독 Adi Hütter | 순위 14위 5경기 1승2무2패 GD-7 승점5 (Eintracht Frankfurt) | 이적 16줄 | 최근 4경기
+  ✓ 쾰른 ← 2026–27 1. FC Köln season | 감독 René Wagner | 순위 TBD | 이적 16줄 | 최근 0경기
+  ✓ 프로시노네 ← Frosinone Calcio | 감독 Massimiliano Alvini | 순위 9위 6경기 3승1무2패 GD+2 승점10 (Frosinone) | 이적 0줄 | 최근 4경기
+  ✓ US사수올로 ← US Sassuolo Calcio | 감독 Alberto Aquilani | 순위 11위 6경기 2승2무2패 GD0 승점8 (Sassuolo) | 이적 0줄 | 최근 4경기
+  ✓ 르망FC ← Le Mans FC | 감독 Patrick Videira | 순위 14위 6경기 1승3무2패 GD-2 승점6 (Le Mans) | 이적 0줄 | 최근 4경기
+  ✓ 툴루즈 ← Toulouse FC | 감독 Jens Berthel Askou | 순위 15위 6경기 1승3무2패 GD-2 승점6 (Toulouse) | 이적 0줄 | 최근 4경기
+  ✓ 번리 ← 2026–27 Burnley F.C. season | 감독 Nicky Hayen | 순위 21위 10경기 1승5무4패 GD-4 승점8 (Burnley) | 이적 0줄 | 최근 5경기
+  ✓ 울버햄튼 원더러스 ← 2026–27 Wolverhampton Wanderers F.C. season | 감독 César Peixoto | 순위 10위 9경기 4승2무3패 GD+2 승점14 (Wolverhampton Wanderers) | 이적 0줄 | 최근 5경기
+  ✓ 데포르티보 아코루냐 ← 2026–27 Deportivo Alavés season | 감독 Quique Sánchez Flores | 순위 8위 8경기 2승4무2패 GD+1 승점10 (Deportivo) | 이적 0줄 | 최근 5경기
+  ✓ 레반테 ← 2026–27 Levante UD season | 감독 Luís Castro | 순위 17위 7경기 1승3무3패 GD-4 승점6 (Levante) | 이적 6줄 | 최근 4경기
+  ✗ 오클랜드FC: team_names.json에 영문명 없음 — 추가 필요
+  ✗ 멜버른 시티: team_names.json에 영문명 없음 — 추가 필요
+  ✓ 감바 오사카 ← 2026–27 Gamba Osaka season | 감독 Jens Wissing (till 10 July) Tomokazu Myojin | 순위 18위 9경기 1승3무5패 GD-8 승점6 (Gamba Osaka) | 이적 15줄 | 최근 5경기
+  ✓ 제프 유나이티드 ← JEF United Chiba | 감독 Yoshiyuki Kobayashi | 순위 19위 9경기 1승2무6패 GD-11 승점5 (JEF United Ichihara-Chiba) | 이적 0줄 | 최근 5경기
+  ✓ 도쿄 베르디 ← Tokyo Verdy | 감독 Hiroshi Jofuku | 순위 20위 9경기 0승4무5패 GD-10 승점4 (Tokyo Verdy 1969) | 이적 0줄 | 최근 5경기
+  ✓ 산프레체 히로시마 ← 2026–27 Sanfrecce Hiroshima season | 감독 Bartosch Gaul | 순위 2위 9경기 6승2무1패 GD+16 승점20 (Sanfrecce Hiroshima) | 이적 16줄 | 최근 5경기
+  ✓ 교토 상가FC ← Kyoto Sanga FC | 감독 Ranko Popović | 순위 16위 9경기 2승2무5패 GD-5 승점8 (Kyoto Sanga) | 이적 0줄 | 최근 5경기
+  ✗ 대구FC: team_names.json에 영문명 없음 — 추가 필요
+  ✓ 충북청주 프로축구단 ← Chungbuk Cheongju FC | 감독 Rui Quinta | 순위 - | 이적 0줄 | 최근 0경기
+  ✓ 성남FC ← Seongnam FC | 감독 Kim Hae-woon | 순위 - | 이적 0줄 | 최근 0경기
+  ✓ 수원FC ← Suwon FC | 감독 Park Kun-ha | 순위 - | 이적 0줄 | 최근 0경기
+  ✗ 콘사도레 삿포로: team_names.json에 영문명 없음 — 추가 필요
+  ✗ 블라우블리츠 아키타: team_names.json에 영문명 없음 — 추가 필요
+  ✗ 베갈타 센다이: team_names.json에 영문명 없음 — 추가 필요
+  ✗ 도쿠시마 보르티스: team_names.json에 영문명 없음 — 추가 필요
+  ✗ 도치기 시티FC: team_names.json에 영문명 없음 — 추가 필요
+  ✗ 후지에다 MYFC: team_names.json에 영문명 없음 — 추가 필요
+  ✗ 몬테디오 야마가타: team_names.json에 영문명 없음 — 추가 필요
+  ✗ FC이마바리: team_names.json에 영문명 없음 — 추가 필요
+  ✗ 반라우레 하치노헤FC: team_names.json에 영문명 없음 — 추가 필요
+  ✓ RB오미야 아르디자 ← RB Omiya Ardija | 감독 Narcís Pèlach | 순위 - | 이적 0줄 | 최근 0경기
+  ✗ 오이타 트리니타: team_names.json에 영문명 없음 — 추가 필요
+  ✗ 알비렉스 니가타: team_names.json에 영문명 없음 — 추가 필요
+  ✗ 맥아서FC: team_names.json에 영문명 없음 — 추가 필요
+  ✗ 퍼스 글로리: team_names.json에 영문명 없음 — 추가 필요
+  ✓ 가시마 앤틀러스 ← 2026–27 Kashima Antlers season | 감독 Toru Oniki | 순위 6위 9경기 5승1무3패 GD+3 승점16 (Kashima Antlers) | 이적 16줄 | 최근 5경기
+  ✓ V바렌 나가사키 ← V-Varen Nagasaki | 감독 Takuya Takagi | 순위 14위 9경기 2승3무4패 GD-5 승점9 (V-Varen Nagasaki) | 이적 0줄 | 최근 5경기
+  ✓ 세레소 오사카 ← Cerezo Osaka | 감독 Pablo Machín | 순위 12위 9경기 3승3무3패 GD-5 승점12 (Cerezo Osaka) | 이적 0줄 | 최근 5경기
+  ✓ 울산 HDFC ← 2026 Ulsan HD FC season | 감독 stadium = Ulsan Munsu Football Stadium | 순위 cup1 = Korea Cup | 이적 16줄 | 최근 0경기
+  ✓ 부천FC 1995 ← Bucheon FC 1995 | 감독 Lee Young-min | 순위 - | 이적 0줄 | 최근 0경기
+  ✓ 용인FC ← Yongin FC | 감독 Choi Yun-kyum | 순위 - | 이적 0줄 | 최근 0경기
+  ✓ 안산 그리너스 ← Ansan | 감독 - | 순위 - | 이적 0줄 | 최근 0경기
+  ✓ 김포FC ← Gimpo FC | 감독 Ko Jeong-woon | 순위 - | 이적 0줄 | 최근 0경기
+  ✓ 파주 프런티어 ← Paju Frontier FC | 감독 Gerard Nus | 순위 - | 이적 0줄 | 최근 0경기
+  ✓ 경남FC ← Gyeongnam FC | 감독 Bae Sung-jae | 순위 - | 이적 0줄 | 최근 0경기
+  ✓ 충남아산 프로축구단 ← Chungnam Asan FC | 감독 André | 순위 - | 이적 0줄 | 최근 0경기
+  ✗ 센트럴코스트 매리너스: team_names.json에 영문명 없음 — 추가 필요
+  ✗ 뉴캐슬 제츠: team_names.json에 영문명 없음 — 추가 필요
+  ✗ 카탈레 도야마: team_names.json에 영문명 없음 — 추가 필요
+  ✓ 쇼난 벨마레 ← Shonan Bellmare | 감독 Satoshi Yamaguchi | 순위 - | 이적 0줄 | 최근 0경기
+  ✓ 테게바자로 미야자키 ← Tegevajaro Miyazaki | 감독 Yuji Okuma | 순위 - | 이적 0줄 | 최근 0경기
+  ✓ 다롄 잉보 ← Dalian Yingbo F.C. | 감독 Li Guoxu | 순위 2위 27경기 13승4무10패 GD0 승점43 (Dalian Yingbo) | 이적 0줄 | 최근 2경기
+  ✓ 선전 신펑청 ← Shenzhen Peng City F.C. | 감독 Robbie Neilson | 순위 11위 27경기 8승5무14패 GD-11 승점29 (Shenzhen Xinpengcheng) | 이적 0줄 | 최근 2경기
+  ✓ 미들즈브러 ← 2026–27 Middlesbrough F.C. season | 감독 Kim Hellberg | 순위 2위 10경기 6승3무1패 GD+6 승점21 (Middlesbrough) | 이적 0줄 | 최근 5경기
+  ✓ 카디프 시티 ← 2026–27 Cardiff City F.C. season | 감독 Brian Barry-Murphy | 순위 19위 10경기 2승4무4패 GD+1 승점10 (Cardiff City) | 이적 0줄 | 최근 5경기
+  ✓ 밀월 ← 2026–27 Millwall F.C. season | 감독 Alex Neil | 순위 11위 10경기 4승2무4패 GD0 승점14 (Millwall) | 이적 16줄 | 최근 5경기
+  ✓ 왓포드 ← 2026–27 Watford F.C. season | 감독 Alessio Dionisi | 순위 22위 10경기 2승2무6패 GD-11 승점8 (Watford) | 이적 0줄 | 최근 5경기
+  ✓ 찰턴 애슬레틱 ← 2026–27 Charlton Athletic F.C. season | 감독 Nathan Jones | 순위 13위 10경기 3승5무2패 GD-3 승점14 (Charlton Athletic) | 이적 16줄 | 최근 5경기
+  ✓ 에버턴 ← 2026–27 Everton F.C. season | 감독 David Moyes | 순위 5위 6경기 2승4무0패 GD+3 승점10 (Everton) | 이적 0줄 | 최근 4경기
+  ✓ 첼시 ← 2026–27 Chelsea F.C. season | 감독 Xabi Alonso | 순위 6위 6경기 3승1무2패 GD+2 승점10 (Chelsea) | 이적 16줄 | 최근 4경기
+  ✓ 칭다오 하이뉴 ← Qingdao Hainiu F.C. | 감독 Milan Ristić | 순위 16위 27경기 6승3무18패 GD-22 승점14 (Qingdao Hainiu) | 이적 0줄 | 최근 2경기
+  ✓ 랴오닝 톄런 ← Liaoning F.C. | 감독 league = | 순위 14위 27경기 7승5무15패 GD-13 승점26 (Liaoning Tieren) | 이적 0줄 | 최근 3경기
+  ✓ 윈난 위쿤 ← Yunnan Yukun F.C. | 감독 Jordi Vinyals | 순위 5위 27경기 11승5무11패 GD-3 승점38 (Yunnan Yukun) | 이적 0줄 | 최근 2경기
+  ✓ 충칭 퉁량룽 ← Chongqing Tonglianglong F.C. | 감독 Liu Jianye | 순위 9위 27경기 7승11무9패 GD-5 승점32 (Chongqing Tonglianglong) | 이적 0줄 | 최근 2경기
+  ✓ 산둥 타이산 ← Shandong Taishan F.C. | 감독 Tang Tian | 순위 4위 27경기 13승5무9패 GD+3 승점38 (Shandong Taishan) | 이적 0줄 | 최근 2경기
+  ✓ 저장FC ← Zhejiang Professional F.C. | 감독 Ross Aloisi | 순위 10위 27경기 10승6무11패 GD0 승점31 (Zhejiang Professional FC) | 이적 0줄 | 최근 3경기
+  ✓ RCD에스파뇰 ← 2026–27 RCD Espanyol season | 감독 Manolo González | 순위 12위 8경기 2승2무4패 GD0 승점8 (Espanyol) | 이적 12줄 | 최근 5경기
+  ✓ 아틀레티코 마드리드 ← 2026–27 Atlético Madrid season | 감독 Diego Simeone | 순위 2nd | 이적 16줄 | 최근 0경기
+  ✓ 베네치아 ← 2026–27 Venezia FC season | 감독 Giovanni Stroppa | 순위 20위 6경기 0승0무6패 GD-11 승점0 (Venezia) | 이적 16줄 | 최근 4경기
+  ✓ SSC나폴리 ← 2026–27 SSC Napoli season | 감독 Massimiliano Allegri | 순위 8위 6경기 3승1무2패 GD+4 승점10 (Napoli) | 이적 16줄 | 최근 4경기
+  ✓ 우니온 베를린 ← 2026–27 1. FC Union Berlin season | 감독 Mauro Lustrinelli | 순위 16위 5경기 1승1무3패 GD-12 승점4 (1. FC Union Berlin) | 이적 12줄 | 최근 4경기
+  ✓ 함부르크 ← 2026–27 Hamburger SV season | 감독 Merlin Polzin | 순위 12위 5경기 2승0무3패 GD-10 승점6 (Hamburg SV) | 이적 16줄 | 최근 4경기
+  ✓ 베르더 브레멘 ← 2026–27 SV Werder Bremen season | 감독 Daniel Thioune | 순위 7위 5경기 2승2무1패 GD0 승점8 (Werder Bremen) | 이적 0줄 | 최근 4경기
+  ✓ 파더보른07 ← 2026–27 SC Paderborn 07 season | 감독 Ralf Kettemann | 순위 15위 5경기 1승1무3패 GD-4 승점4 (SC Paderborn 07) | 이적 4줄 | 최근 4경기
+  ✓ 샬케04 ← 2026–27 FC Schalke 04 season | 감독 Miron Muslić | 순위 13위 5경기 1승2무2패 GD-2 승점5 (Schalke 04) | 이적 16줄 | 최근 4경기
+  ✓ FSV마인츠05 ← 2026–27 1. FSV Mainz 05 season | 감독 Urs Fischer | 순위 8위 5경기 2승1무2패 GD+3 승점7 (Mainz) | 이적 16줄 | 최근 4경기
+  ✓ 엘버스베르크 ← 2026–27 SV Elversberg season | 감독 Vincent Wagner | 순위 9위 5경기 2승1무2패 GD0 승점7 (SV Elversberg) | 이적 1줄 | 최근 4경기
+  ✓ 아우크스부르크 ← 2026–27 FC Augsburg season | 감독 Manuel Baum | 순위 6위 5경기 2승2무1패 GD+5 승점8 (FC Augsburg) | 이적 0줄 | 최근 4경기
+  ✓ 버밍엄 시티 ← 2026–27 Birmingham City F.C. season | 감독 Chris Davies | 순위 4위 10경기 4승5무1패 GD+6 승점17 (Birmingham City) | 이적 0줄 | 최근 5경기
+  ✓ 브리스틀 시티 ← 2026–27 Bristol City F.C. season | 감독 Michael Skubala | 순위 12위 10경기 4승2무4패 GD-2 승점14 (Bristol City) | 이적 0줄 | 최근 5경기
+  ✓ 스토크 시티 ← 2026–27 Stoke City F.C. season | 감독 Mark Robins | 순위 8위 10경기 5승1무4패 GD+1 승점16 (Stoke City) | 이적 16줄 | 최근 5경기
+  ✓ 볼턴 원더러스 ← 2026–27 Bolton Wanderers F.C. season | 감독 Steven Schumacher | 순위 14위 10경기 4승1무5패 GD-3 승점13 (Bolton Wanderers) | 이적 0줄 | 최근 5경기
+  ✓ 스완지 시티 ← 2026–27 Swansea City A.F.C. season | 감독 Vítor Matos | 순위 1위 10경기 7승2무1패 GD+9 승점23 (Swansea City) | 이적 0줄 | 최근 5경기
+  ✓ 웨스트브로미치 앨비언 ← 2026–27 West Bromwich Albion F.C. season | 감독 James Morrison | 순위 6위 10경기 5승2무3패 GD+2 승점17 (West Bromwich Albion) | 이적 0줄 | 최근 5경기
+  ✓ 블랙번 로버스 ← 2026–27 Blackburn Rovers F.C. season | 감독 Tony Mowbray | 순위 9위 10경기 4승3무3패 GD+2 승점15 (Blackburn Rovers) | 이적 0줄 | 최근 5경기
+  ✓ 렉섬 ← 2026–27 Wrexham A.F.C. season | 감독 Phil Parkinson | 순위 17위 10경기 2승5무3패 GD-4 승점11 (Wrexham) | 이적 0줄 | 최근 5경기
+  ✓ 프레스턴 노스엔드 ← 2026–27 Preston North End F.C. season | 감독 Graham Alexander(from 28 September)''Jason Euell''(interim)''Paul Heckingbottom''(until 13th September) | 순위 24위 10경기 1승1무8패 GD-12 승점4 (Preston North End) | 이적 0줄 | 최근 5경기
+  ✓ 헐 시티 ← 2026–27 Hull City A.F.C. season | 감독 Sergej Jakirović | 순위 8위 6경기 2승3무1패 GD+2 승점9 (Hull City) | 이적 0줄 | 최근 4경기
+  ✓ 입스위치 타운 ← 2026–27 Ipswich Town F.C. season | 감독 Gary O'Neil | 순위 10위 6경기 3승0무3패 GD-3 승점9 (Ipswich Town) | 이적 0줄 | 최근 4경기
+  ✓ ADO덴하흐 ← ADO Den Haag | 감독 Robin Peter | 순위 17위 8경기 0승3무5패 GD-10 승점3 (ADO Den Haag) | 이적 0줄 | 최근 4경기
+  ✓ PSV에인트호번 ← PSV Eindhoven | 감독 Peter Bosz | 순위 2위 8경기 6승1무1패 GD+16 승점19 (PSV Eindhoven) | 이적 0줄 | 최근 4경기
+  ✓ RC스트라스부르 ← RC Strasbourg Alsace | 감독 Hugo Oliveira | 순위 11위 6경기 2승1무3패 GD-1 승점7 (Strasbourg) | 이적 0줄 | 최근 4경기
+  ✓ 볼로냐 ← 2026–27 Bologna FC 1909 season | 감독 Domenico Tedesco | 순위 14위 6경기 1승2무3패 GD-2 승점5 (Bologna) | 이적 16줄 | 최근 4경기
+  ✓ 인테르나치오날레 밀라노 ← 2026–27 Inter Milan season | 감독 Cristian Chivu | 순위 1위 6경기 5승1무0패 GD+10 승점16 (Internazionale) | 이적 16줄 | 최근 4경기
+  ✓ 바이에른 뮌헨 ← 2026–27 FC Bayern Munich season | 감독 Vincent Kompany | 순위 3위 5경기 3승2무0패 GD+12 승점11 (Bayern Munich) | 이적 16줄 | 최근 4경기
+  ✓ RB라이프치히 ← 2026–27 RB Leipzig season | 감독 Martín Demichelis | 순위 5위 5경기 3승0무2패 GD+10 승점9 (RB Leipzig) | 이적 16줄 | 최근 4경기
+  ✓ 텔스타 ← 2026–27 SC Telstar season | 감독 Henk Brugge | 순위 15위 8경기 1승3무4패 GD-7 승점6 (Telstar) | 이적 8줄 | 최근 5경기
+  ✓ 제노아 ← 2026–27 Genoa CFC season | 감독 Daniele De Rossi | 순위 17위 6경기 1승1무4패 GD-6 승점4 (Genoa) | 이적 16줄 | 최근 4경기
+  ✓ 릴OSC ← 2026–27 Lille OSC season | 감독 Davide Ancelotti | 순위 2위 6경기 4승1무1패 GD+5 승점13 (Lille) | 이적 3줄 | 최근 4경기
+  ✓ 스타드 브레스투아29 ← Stade Brestois 29 | 감독 Julien Lachuer | 순위 7위 6경기 2승2무2패 GD+3 승점8 (Brest) | 이적 0줄 | 최근 4경기
+  ✓ 트루아AC ← ES Troyes AC | 감독 Stéphane Dumont | 순위 17위 6경기 1승1무4패 GD-9 승점4 (Troyes) | 이적 0줄 | 최근 4경기
+  ✓ RC랑스 ← RC Lens | 감독 Yannick Cahuzac | 순위 10위 6경기 2승1무3패 GD+1 승점7 (Lens) | 이적 0줄 | 최근 4경기
+  ✓ 스파르타 로테르담 ← AC Sparta Prague | 감독 Brian Priske | 순위 14위 8경기 1승3무4패 GD-7 승점6 (Sparta Rotterdam) | 이적 0줄 | 최근 4경기
+  ✓ 빌럼II ← 2026–27 Willem II Tilburg season | 감독 stdtitle = | 순위 18위 8경기 0승2무6패 GD-16 승점2 (Willem II) | 이적 14줄 | 최근 5경기
+  ✗ 웰링턴 피닉스: team_names.json에 영문명 없음 — 추가 필요
+  ✓ 이와키FC ← Iwaki FC | 감독 Kazuaki Tasaka | 순위 - | 이적 0줄 | 최근 0경기
+  ✗ 반포레 고후: team_names.json에 영문명 없음 — 추가 필요
+  ✓ 대전 하나시티즌 ← Daejeon Hana Citizen | 감독 Hwang Sun-hong | 순위 - | 이적 0줄 | 최근 0경기
+  ✓ 광주FC ← Gwangju FC | 감독 Lee Jung-kyu | 순위 - | 이적 0줄 | 최근 0경기
+  ✓ 제주 SKFC ← Jeju SK FC | 감독 Sérgio Costa | 순위 - | 이적 0줄 | 최근 0경기
+  ✓ 수원 삼성블루윙즈 ← Suwon Samsung Bluewings | 감독 Lee Jung-hyo | 순위 - | 이적 0줄 | 최근 0경기
+  ✓ 화성FC ← Hwaseong FC | 감독 Cha Du-ri | 순위 - | 이적 0줄 | 최근 0경기
+  ✓ 서울 이랜드 ← Seoul E-Land FC | 감독 Kim Do-kyun | 순위 - | 이적 0줄 | 최근 0경기
+  ✓ 김해FC 2008 ← Gimhae FC 2008 | 감독 - | 순위 - | 이적 0줄 | 최근 0경기
+  ✓ FC마치다 젤비아 ← 2026–27 FC Machida Zelvia season | 감독 Go Kuroda | 순위 3위 9경기 6승2무1패 GD+12 승점20 (Machida Zelvia) | 이적 16줄 | 최근 5경기
+  ✓ 김천상무 프로축구단 ← Gimcheon Sangmu FC | 감독 Ju Seung-jin | 순위 - | 이적 0줄 | 최근 0경기
+  ✓ 강원FC ← 2026 Gangwon FC season | 감독 Chung Kyung-ho | 순위 3rd | 이적 16줄 | 최근 0경기
+  ✓ 인천 유나이티드 ← Incheon United FC | 감독 Yoon Jong-hwan | 순위 - | 이적 0줄 | 최근 0경기
+  ✓ 포항 스틸러스 ← 2026 Pohang Steelers season | 감독 Park Tae-ha | 순위 TBD | 이적 16줄 | 최근 0경기
+  ✓ FC안양 ← FC Anyang | 감독 Ryu Byeong-hoon | 순위 - | 이적 0줄 | 최근 0경기
+  ✓ 부산 아이파크 ← Busan IPark | 감독 Jo Sung-hwan | 순위 - | 이적 0줄 | 최근 0경기
+  ✓ 전남 드래곤즈 ← Jeonnam Dragons | 감독 Lim Kwan-sik | 순위 - | 이적 0줄 | 최근 0경기
+  ✓ 우한 싼전 ← Wuhan Three Towns F.C. | 감독 Ricardo Soares | 순위 15위 27경기 5승12무10패 GD-7 승점22 (Wuhan Three Towns) | 이적 0줄 | 최근 4경기
+  ✓ 상하이 선화 ← 2026 Shanghai Shenhua F.C. season | 감독 Leonid Slutsky | 순위 8위 27경기 13승5무9패 GD+12 승점34 (Shanghai Shenhua) | 이적 16줄 | 최근 2경기
+  ✓ PEC즈볼러 ← PEC Zwolle | 감독 Vacant | 순위 16위 8경기 1승1무6패 GD-15 승점4 (PEC Zwolle) | 이적 0줄 | 최근 4경기
+  ✓ 고어헤드 이글스 ← 2026–27 Go Ahead Eagles season | 감독 Melvin Boel | 순위 8위 8경기 2승5무1패 GD+2 승점11 (Go Ahead Eagles) | 이적 12줄 | 최근 4경기
+  ✓ 우디네세 ← Udinese Calcio | 감독 Kosta Runjaić | 순위 15위 6경기 1승1무4패 GD-4 승점4 (Udinese) | 이적 0줄 | 최근 4경기
+  ✓ US레체 ← US Lecce | 감독 Eusebio Di Francesco | 순위 13위 6경기 2승0무4패 GD-6 승점6 (Lecce) | 이적 0줄 | 최근 4경기
+  ✓ 베이징 궈안 ← 2026 Beijing Guoan F.C. season | 감독 Nick Montgomery | 순위 3위 27경기 12승10무5패 GD+19 승점41 (Beijing Guoan) | 이적 16줄 | 최근 2경기
+  ✓ 칭다오 시하이안 ← Qingdao West Coast F.C. | 감독 Zheng Zhi | 순위 6위 27경기 8승14무5패 GD-5 승점38 (Qingdao West Coast) | 이적 0줄 | 최근 2경기
+  ✓ 상하이 하이강 ← 2026 Shanghai Port F.C. season | 감독 Kevin Muscat | 순위 7위 27경기 11승8무8패 GD+9 승점36 (Shanghai Port) | 이적 16줄 | 최근 2경기
+  ✓ 청두 룽청 ← Chengdu Rongcheng F.C. | 감독 John Aloisi | 순위 1위 27경기 15승7무5패 GD+20 승점52 (Chengdu Rongcheng) | 이적 0줄 | 최근 2경기
+  ✓ SC캄뷔르 ← SC Cambuur | 감독 Johan Plat | 순위 12위 8경기 2승2무4패 GD-8 승점8 (SC Cambuur) | 이적 0줄 | 최근 4경기
+  ✓ ACF피오렌티나 ← 2026–27 ACF Fiorentina season | 감독 Fabio Grosso''(until 6 September)''Paolo Vanoli''(from 7 September) | 순위 19위 6경기 1승1무4패 GD-7 승점4 (Fiorentina) | 이적 16줄 | 최근 4경기
+  ✓ 앙제SCO ← Angers SCO | 감독 Stéphane Gilli | 순위 12위 6경기 2승1무3패 GD-3 승점7 (Angers) | 이적 0줄 | 최근 4경기
+  ✓ 알라베스 ← 2026–27 Deportivo Alavés season | 감독 Quique Sánchez Flores | 순위 cup1 = Copa del Rey | 이적 0줄 | 최근 0경기
+  ✓ 흐로닝언 ← FC Groningen | 감독 Dick Lukkien | 순위 6위 8경기 4승2무2패 GD+6 승점14 (FC Groningen) | 이적 0줄 | 최근 4경기
+  ✓ 르아브르AC ← 2026–27 Le Havre AC season | 감독 Didier Digard | 순위 18위 6경기 0승2무4패 GD-4 승점2 (Le Havre AC) | 이적 15줄 | 최근 4경기
+  ✓ AJ오세르 ← AJ Auxerre | 감독 Will Still | 순위 16위 6경기 2승0무4패 GD-8 승점6 (AJ Auxerre) | 이적 0줄 | 최근 4경기
+  ✓ 로리앙 ← FC Lorient | 감독 Alexandre Dujeux | 순위 8위 6경기 2승2무2패 GD0 승점8 (Lorient) | 이적 0줄 | 최근 4경기
+  ✓ 파리FC ← 2026–27 Paris FC season | 감독 Antoine Kombouaré''(until 1 July)''Liam Rosenior''(from 2 July) | 순위 5위 6경기 3승2무1패 GD+4 승점11 (Paris FC) | 이적 16줄 | 최근 5경기
+  ✓ 묀헨글라트바흐 ← 2026–27 Borussia Mönchengladbach season | 감독 Eugen Polanski''(until 13 September 2026)'' Jan-Moritz Lichte''(Caretaker)'' Alexander Blessin''(from 22 September 2026) | 순위 18위 5경기 0승0무5패 GD-11 승점0 (Borussia Mönchengladbach) | 이적 0줄 | 최근 4경기
+  ✓ 포르튀나 시타르트 ← Fortuna Sittard | 감독 Danny Buijs | 순위 7위 8경기 4승2무2패 GD-1 승점14 (Fortuna Sittard) | 이적 0줄 | 최근 4경기
+  ✓ 위트레흐트 ← 2026–27 Jong FC Utrecht season | 감독 Mark Otten | 순위 13위 8경기 2승2무4패 GD-11 승점8 (FC Utrecht) | 이적 16줄 | 최근 4경기
+  ✓ SS라치오 ← 2026–27 SS Lazio season | 감독 Gennaro Gattuso | 순위 2위 6경기 5승1무0패 GD+7 승점16 (Lazio) | 이적 16줄 | 최근 4경기
+  ✓ OGC니스 ← OGC Nice | 감독 Olivier Pantaloni | 순위 9위 6경기 2승2무2패 GD-2 승점8 (Nice) | 이적 0줄 | 최근 4경기
+저장: /Users/sangil/Desktop/ETC/ai-playground/승부예측 프로그램/회차별분석/팩트시트_123.md

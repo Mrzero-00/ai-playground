@@ -1,0 +1,449 @@
+{
+  "번호": 475,
+  "홈": "댈러스 매버릭스",
+  "원정": "샌안토니오 스퍼스",
+  "수집시각": "2026-10-25 08:05 KST",
+  "수집가_주의": "사실·URL·날짜만. 확률/예측/배당 없음.",
+  "리그·구장·킥오프": {
+    "리그": "NBA 2026-27 정규시즌",
+    "구장": "American Airlines Center (Dallas, TX) — 매버릭스 정규 홈구장. 특별 개최지 아님. 댈러스 시즌 홈 개막전.",
+    "킥오프": "현지 2026-10-24(토) 20:00 ET / 19:00 CT = 2026-10-25 09:00 KST",
+    "ESPN_경기ID": "401909858",
+    "출처": [
+      "https://site.api.espn.com/apis/site/v2/sports/basketball/nba/summary?event=401909858",
+      "https://www.mavsmoneyball.com/dallas-mavericks-game-coverage/63186/game-preview-dallas-mavericks-2026-home-opener-against-san-antonio-spurs-cooper-flagg"
+    ],
+    "날짜": "2026-10-25"
+  },
+  "시즌기록": {
+    "홈": {
+      "팀": "댈러스 매버릭스",
+      "전적": "1-1",
+      "경기수": 2,
+      "경기로그": [
+        {
+          "날짜": "2026-10-21",
+          "상대": "휴스턴 로케츠",
+          "홈원정": "원정",
+          "득점": 110,
+          "실점": 128,
+          "승패": "패",
+          "구장": "Toyota Center"
+        },
+        {
+          "날짜": "2026-10-23",
+          "상대": "인디애나 페이서스",
+          "홈원정": "원정",
+          "득점": 121,
+          "실점": 105,
+          "승패": "승",
+          "구장": "Gainbridge Fieldhouse"
+        }
+      ],
+      "합계": {
+        "득점": 231,
+        "실점": 233,
+        "평균득점": 115.5,
+        "평균실점": 116.5
+      },
+      "출처": [
+        "https://site.api.espn.com/apis/site/v2/sports/basketball/nba/teams/dal/schedule?season=2027&seasontype=2"
+      ],
+      "날짜": "2026-10-25"
+    },
+    "원정": {
+      "팀": "샌안토니오 스퍼스",
+      "전적": "0-2",
+      "경기수": 2,
+      "경기로그": [
+        {
+          "날짜": "2026-10-20",
+          "상대": "오클라호마시티 썬더",
+          "홈원정": "홈",
+          "득점": 104,
+          "실점": 116,
+          "승패": "패",
+          "구장": "Frost Bank Center"
+        },
+        {
+          "날짜": "2026-10-23",
+          "상대": "휴스턴 로케츠",
+          "홈원정": "홈",
+          "득점": 110,
+          "실점": 114,
+          "승패": "패",
+          "구장": "Moody Center (Austin, TX) — 스퍼스의 오스틴 개최 홈경기"
+        }
+      ],
+      "합계": {
+        "득점": 214,
+        "실점": 230,
+        "평균득점": 107.0,
+        "평균실점": 115.0
+      },
+      "출처": [
+        "https://site.api.espn.com/apis/site/v2/sports/basketball/nba/teams/sa/schedule?season=2027&seasontype=2"
+      ],
+      "날짜": "2026-10-25"
+    }
+  },
+  "선발·출전시간_실측": {
+    "설명": "박스스코어 실측(S=선발/B=벤치), 값은 경기순.",
+    "댈러스 매버릭스(10/21·10/23)": [
+      {
+        "선수": "Cooper Flagg",
+        "선발": "S/S",
+        "분": "33/17",
+        "득점": "32/14",
+        "비고": "10/23 2쿼터 어깨 부상으로 조기 이탈(17분)"
+      },
+      {
+        "선수": "Kyrie Irving",
+        "선발": "S/S",
+        "분": "24/25",
+        "득점": "15/24"
+      },
+      {
+        "선수": "P.J. Washington",
+        "선발": "S/S",
+        "분": "31/33",
+        "득점": "10/20"
+      },
+      {
+        "선수": "Max Christie",
+        "선발": "S/S",
+        "분": "29/38",
+        "득점": "5/16"
+      },
+      {
+        "선수": "Daniel Gafford",
+        "선발": "S/S",
+        "분": "22/15",
+        "득점": "2/4"
+      },
+      {
+        "선수": "Naji Marshall",
+        "선발": "B/B",
+        "분": "29/33",
+        "득점": "16/15"
+      },
+      {
+        "선수": "Zaccharie Risacher",
+        "선발": "B/B",
+        "분": "27/32",
+        "득점": "4/11"
+      },
+      {
+        "선수": "Marcus Sasser",
+        "선발": "B/B",
+        "분": "24/27",
+        "득점": "17/6"
+      },
+      {
+        "선수": "Morez Johnson Jr.",
+        "선발": "B/B",
+        "분": "14/17",
+        "득점": "6/8"
+      },
+      {
+        "선수": "Sergio de Larrea",
+        "선발": "B/B",
+        "분": "7/1",
+        "득점": "0/0"
+      },
+      {
+        "선수": "Moussa Cisse",
+        "선발": "B/B",
+        "분": "3/1",
+        "득점": "3/3"
+      }
+    ],
+    "샌안토니오 스퍼스(10/20·10/23)": [
+      {
+        "선수": "Victor Wembanyama",
+        "선발": "S/S",
+        "분": "34/32",
+        "득점": "12/25"
+      },
+      {
+        "선수": "De'Aaron Fox",
+        "선발": "S/S",
+        "분": "32/34",
+        "득점": "14/19"
+      },
+      {
+        "선수": "Dylan Harper",
+        "선발": "S/S",
+        "분": "32/36",
+        "득점": "18/20"
+      },
+      {
+        "선수": "Stephon Castle",
+        "선발": "S/S",
+        "분": "28/33",
+        "득점": "24/15"
+      },
+      {
+        "선수": "Devin Vassell",
+        "선발": "S/S",
+        "분": "31/36",
+        "득점": "7/10"
+      },
+      {
+        "선수": "Julian Champagnie",
+        "선발": "B/B",
+        "분": "30/25",
+        "득점": "8/6"
+      },
+      {
+        "선수": "Keldon Johnson",
+        "선발": "B/B",
+        "분": "20/19",
+        "득점": "10/8"
+      },
+      {
+        "선수": "Luke Kornet",
+        "선발": "B/B",
+        "분": "13/16",
+        "득점": "4/7"
+      },
+      {
+        "선수": "Harrison Barnes",
+        "선발": "B/B",
+        "분": "9/5",
+        "득점": "3/0"
+      },
+      {
+        "선수": "Carter Bryant",
+        "선발": "B/B",
+        "분": "6/4",
+        "득점": "0/0"
+      },
+      {
+        "선수": "David Jones Garcia",
+        "선발": "B",
+        "분": "1",
+        "득점": "2"
+      }
+    ],
+    "출처": [
+      "https://site.api.espn.com/apis/site/v2/sports/basketball/nba/summary?event=401909858"
+    ],
+    "날짜": "2026-10-25"
+  },
+  "결장": [
+    {
+      "팀": "댈러스 매버릭스",
+      "선수": "Cooper Flagg",
+      "포지션": "F",
+      "상태": "OUT",
+      "사유": "왼 어깨 경도 염좌(MRI 확인) — 10/23 인디애나전 2쿼터 강한 파울로 넘어지며 부상. 다음 주 재평가",
+      "지난시즌_평균득점": "21.0 (2025-26 DAL, 70경기 전경기 선발)",
+      "지난시즌_출전시간": "33.5분",
+      "올시즌": "2경기 선발 25.0분 23.0점 5.0리바운드 4.0어시스트",
+      "복귀예정": "2026-11-02 전후",
+      "상태_변동": "당일 오전 일부 매체 DOUBTFUL → 이후 OUT 확정(NBC Sports·ESPN).",
+      "출처": [
+        "https://site.api.espn.com/apis/site/v2/sports/basketball/nba/injuries",
+        "https://www.nbcsports.com/fantasy/basketball/player-news/2026-10-24/cooper-flagg-shoulder-out-saturday-vs-spurs",
+        "https://www.si.com/nba/mavericks/onsi/injury-status-cooper-flagg-kyrie-irving-ahead-dallas-mavericks-san-antonio-spurs-"
+      ],
+      "날짜": "2026-10-24"
+    },
+    {
+      "팀": "댈러스 매버릭스",
+      "선수": "Kyrie Irving",
+      "포지션": "G",
+      "상태": "OUT",
+      "사유": "휴식(rest) — 왼 무릎 수술 후 관리. 백투백 2차전",
+      "지난시즌_평균득점": "2025-26 전 경기 결장(2025-03 ACL 파열) / 2024-25 DAL 24.7점",
+      "지난시즌_출전시간": "2024-25 36.1분",
+      "올시즌": "2경기 선발 24.5분 19.5점 (10/23 인디애나전 24점)",
+      "상태_변동": "당일 오후 QUESTIONABLE 로 올랐다가 ESPN 2026-10-24T22:20Z(Christian Clark/The Athletic) 에서 OUT(rest) 으로 확정.",
+      "출처": [
+        "https://site.api.espn.com/apis/site/v2/sports/basketball/nba/injuries",
+        "https://heavy.com/sports/nba/dallas-mavericks/kyrie-irving-injury-update-mavericks-spurs/",
+        "https://dallassportsjournal.com/mavericks-spurs-injury-report-kyrie-irving-cooper-flagg-10-players"
+      ],
+      "날짜": "2026-10-24"
+    },
+    {
+      "팀": "댈러스 매버릭스",
+      "선수": "Caleb Martin",
+      "포지션": "F",
+      "상태": "OUT",
+      "사유": "오른 엄지 염좌",
+      "지난시즌_평균득점": "3.9 (2025-26 DAL, 58경기)",
+      "지난시즌_출전시간": "14.8분",
+      "복귀예정": "2026-11-02 전후",
+      "출처": [
+        "https://site.api.espn.com/apis/site/v2/sports/basketball/nba/injuries"
+      ],
+      "날짜": "2026-10-24"
+    },
+    {
+      "팀": "댈러스 매버릭스",
+      "선수": "Santi Aldama",
+      "포지션": "F",
+      "상태": "OUT",
+      "사유": "오른 무릎 수술 후 회복",
+      "지난시즌_평균득점": "14.0 (2025-26 MEM, 43경기)",
+      "지난시즌_출전시간": "27.9분",
+      "복귀예정": "2026-10-28 전후",
+      "출처": [
+        "https://site.api.espn.com/apis/site/v2/sports/basketball/nba/injuries"
+      ],
+      "날짜": "2026-10-24"
+    },
+    {
+      "팀": "댈러스 매버릭스",
+      "선수": "Dereck Lively II",
+      "포지션": "C",
+      "상태": "OUT",
+      "사유": "오른 발 수술 후 회복",
+      "지난시즌_평균득점": "4.3 (2025-26 DAL, 7경기)",
+      "지난시즌_출전시간": "16.4분",
+      "복귀예정": "2026-10-28 전후",
+      "출처": [
+        "https://site.api.espn.com/apis/site/v2/sports/basketball/nba/injuries"
+      ],
+      "날짜": "2026-10-22"
+    },
+    {
+      "팀": "댈러스 매버릭스",
+      "선수": "Tarik Biberovic",
+      "포지션": "F",
+      "상태": "OUT",
+      "사유": "오른 발뒤꿈치 염증",
+      "지난시즌_평균득점": "NBA 기록 없음",
+      "지난시즌_출전시간": "NBA 기록 없음",
+      "복귀예정": "2026-11-02 전후",
+      "출처": [
+        "https://site.api.espn.com/apis/site/v2/sports/basketball/nba/injuries"
+      ],
+      "날짜": "2026-10-24"
+    },
+    {
+      "팀": "댈러스 매버릭스",
+      "선수": "Jett Howard",
+      "포지션": "G",
+      "상태": "DOUBTFUL",
+      "사유": "오른 종아리 통증",
+      "지난시즌_평균득점": "5.5 (2025-26 ORL, 55경기)",
+      "지난시즌_출전시간": "12.6분",
+      "비고": "ESPN 상태 필드는 'Out' 이지만 본문은 'listed as doubtful'. 본문 표현을 따라 DOUBTFUL 로 적음.",
+      "출처": [
+        "https://site.api.espn.com/apis/site/v2/sports/basketball/nba/injuries"
+      ],
+      "날짜": "2026-10-24"
+    },
+    {
+      "팀": "댈러스 매버릭스",
+      "선수": "Max Christie",
+      "포지션": "G",
+      "상태": "QUESTIONABLE",
+      "사유": "오른 정강이(shin)",
+      "지난시즌_평균득점": "12.3 (2025-26 DAL, 77경기·68선발)",
+      "지난시즌_출전시간": "29.1분",
+      "올시즌": "2경기 선발 33.0분 10.5점",
+      "출처": [
+        "https://site.api.espn.com/apis/site/v2/sports/basketball/nba/injuries"
+      ],
+      "날짜": "2026-10-24"
+    },
+    {
+      "팀": "댈러스 매버릭스",
+      "선수": "Zaccharie Risacher",
+      "포지션": "F",
+      "상태": "PROBABLE",
+      "사유": "오른 고관절 통증 — questionable 에서 probable 로 상향",
+      "지난시즌_평균득점": "9.6 (2025-26 ATL, 67경기·46선발)",
+      "지난시즌_출전시간": "22.4분",
+      "올시즌": "2경기 벤치 29.5분 7.5점 6.0리바운드",
+      "출처": [
+        "https://site.api.espn.com/apis/site/v2/sports/basketball/nba/injuries"
+      ],
+      "날짜": "2026-10-24"
+    },
+    {
+      "팀": "샌안토니오 스퍼스",
+      "선수": "Tobias Harris",
+      "포지션": "F",
+      "상태": "OUT",
+      "사유": "왼 종아리 염좌",
+      "지난시즌_평균득점": "13.3 (2025-26 DET, 63경기 전경기 선발)",
+      "지난시즌_출전시간": "27.7분",
+      "복귀예정": "2026-10-27 전후",
+      "비고": "올시즌 아직 출전 기록 없음",
+      "출처": [
+        "https://site.api.espn.com/apis/site/v2/sports/basketball/nba/injuries"
+      ],
+      "날짜": "2026-10-24"
+    },
+    {
+      "팀": "샌안토니오 스퍼스",
+      "선수": "Jayden Quaintance",
+      "포지션": "F",
+      "상태": "OUT",
+      "사유": "오른 무릎 수술 — 농구 활동 미승인",
+      "지난시즌_평균득점": "NBA 기록 없음(2026 신인)",
+      "지난시즌_출전시간": "NBA 기록 없음",
+      "복귀예정": "2026-12-03 전후",
+      "출처": [
+        "https://site.api.espn.com/apis/site/v2/sports/basketball/nba/injuries"
+      ],
+      "날짜": "2026-10-05 (신선도 경과)"
+    }
+  ],
+  "결장_주의": "댈러스는 당일 리포트에 10명이 올랐다는 보도도 있음(Dallas Sports Journal). 위 목록은 ESPN 인저리 피드(2026-10-24T22:43:30Z)에 등재된 9명 + 교차 확인. 상태 라벨은 보도 본문 표현 그대로 적었고, 임의로 상향하지 않음.",
+  "일정": {
+    "홈": {
+      "팀": "댈러스",
+      "직전경기일": "2026-10-23 (ET, 인디애나 원정)",
+      "백투백": true,
+      "휴식일": 0,
+      "이동": "인디애나폴리스 → 댈러스 약 1,300km, 동부→중부 시차 -1시간. 백투백 2차전이자 홈 개막전."
+    },
+    "원정": {
+      "팀": "샌안토니오",
+      "직전경기일": "2026-10-23 (ET 21:30, 오스틴 Moody Center 홈경기)",
+      "백투백": true,
+      "휴식일": 0,
+      "이동": "오스틴 → 댈러스 약 320km(근거리·동일 시간대). 백투백 2차전."
+    },
+    "비고": "양 팀 모두 백투백 2차전. 댈러스는 10/21·10/23·10/24 로 4일 3경기.",
+    "출처": [
+      "https://site.api.espn.com/apis/site/v2/sports/basketball/nba/teams/dal/schedule?season=2027&seasontype=2",
+      "https://site.api.espn.com/apis/site/v2/sports/basketball/nba/teams/sa/schedule?season=2027&seasontype=2"
+    ]
+  },
+  "뉴스": [
+    {
+      "팀": "댈러스 매버릭스",
+      "내용": "Kyrie Irving 이 2025-03 ACL 파열 이후 19개월 만에 댈러스 홈에서 정규시즌 복귀 예정이었으나 이 경기는 휴식으로 결장. 감독 Dusty May.",
+      "출처": [
+        "https://qncnews.com/2026/10/24/mavericks-host-spurs-in-home-opener-with-cooper-flagg-doubtful-and-kyrie-irving-set-for-dallas-return/",
+        "https://heavy.com/sports/nba/dallas-mavericks/kyrie-irving-injury-update-mavericks-spurs/"
+      ],
+      "날짜": "2026-10-24"
+    },
+    {
+      "팀": "댈러스 매버릭스",
+      "내용": "2026 오프시즌 3팀 트레이드로 Zaccharie Risacher 가 애틀랜타에서 댈러스로 이동(애틀랜타는 Luguentz Dort·Ryan Nembhard 수령). 2026-02 데드라인에 Anthony Davis 를 워싱턴으로 보냄.",
+      "출처": [
+        "https://www.espn.com/nba/story/_/id/49652199/atlanta-hawks-offseason-recap-2026-27-season-preview-stats-roster-depth-chart",
+        "https://www.foxnews.com/sports/mavericks-send-anthony-davis-wizards-eight-player-trade-report"
+      ],
+      "날짜": "2026-02 / 2026-07 (신선도 경과 — 배경 정보)"
+    }
+  ],
+  "뉴스없음": {
+    "홈": "경기 당일 새 트레이드·감독 변경 없음. 당일 발표는 결장 리포트뿐(검색처: ESPN injuries 피드, NBC Sports, SI Mavericks, Dallas Sports Journal / 확인일 2026-10-25)",
+    "원정": "샌안토니오는 경기 당일 새 트레이드·감독 변경·로테이션 발표 없음. 당일 발표는 Tobias Harris 결장 건뿐(검색처: ESPN injuries 피드, Yahoo Sports 프리뷰 / 확인일 2026-10-25)"
+  },
+  "미확인": [
+    "Cooper Flagg 결장으로 비는 선발 자리를 누가 메우는지 — 공식 발표 미확인",
+    "Max Christie(QUESTIONABLE)·Jett Howard(DOUBTFUL)·Zaccharie Risacher(PROBABLE) 최종 판정",
+    "샌안토니오가 10/23 오스틴(Moody Center)에서 홈경기를 치른 배경(연례 오스틴 개최 일정 여부) — 일정 자체는 ESPN 로 확인, 사유는 미확인"
+  ]
+}

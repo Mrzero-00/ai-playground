@@ -1,0 +1,157 @@
+{
+ "번호": "9295",
+ "홈": "AC밀란",
+ "원정": "아탈란타BC",
+ "수집시각": "2026-10-18 21:15 KST",
+ "결장": [
+  {
+   "팀": "원정",
+   "선수": "Giorgio Scalvini",
+   "포지션": "DF",
+   "이번시즌_선발/경기": "미확인",
+   "득점·도움": "미확인",
+   "사유": "부상(상세 미기재); Kolasinac가 대체",
+   "상태": "확정(2곳: fantamaster, pazzidifanta 요약)",
+   "복귀예정": "미확인",
+   "대체선수": "Sead Kolasinac",
+   "출처": "https://www.fantamaster.it/probabili-formazioni-7-giornata-seriea-2026-2027-titolari-ballottaggi-ultime-dai-campi/ ; https://www.pazzidifanta.com/news/milan-atalanta-probabili-formazioni-7a-giornata-serie-a-459997 (검색 요약, 페이지 직접 못 읽음)",
+   "날짜": "2026-10-18 (fantamaster 날짜는 '라운드 10/16~19' 기준 추정)"
+  },
+  {
+   "팀": "미확인",
+   "선수": "Franck Kessie",
+   "포지션": "MF",
+   "이번시즌_선발/경기": "미확인",
+   "득점·도움": "미확인",
+   "사유": "부상, 3~4주 결장(fantamaster는 Milan 항목에 기재). 단 팩트시트는 Kessie를 8/29 Al-Ahli에서 Atalanta 이적으로 기재 -> 소속팀 불일치",
+   "상태": "의심(1곳, 소속 엇갈림)",
+   "복귀예정": "약 3~4주",
+   "대체선수": "미확인",
+   "출처": "https://www.fantamaster.it/probabili-formazioni-7-giornata-seriea-2026-2027-titolari-ballottaggi-ultime-dai-campi/",
+   "날짜": "2026-10-18"
+  }
+ ],
+ "라인업": {
+  "홈": {
+   "발표여부": "미발표(확정 못 찾음; Tuttosport 10-18 페이지도 '미공개')",
+   "예상XI": "fantamaster: Maignan; Gila, De Winter, Pavlovic; Chukwueze, Musah, Modric, Moreira; Cisse, Rabiot; Gonçalo Ramos (Pulisic 벤치). pazzidifanta(검색요약): Maignan; Gila, De Winter, Pavlovic; Chukwueze, Modric, Rabiot, Estupinan; Moreira, Pulisic; Ramos",
+   "포메이션": "3-4-2-1",
+   "출처": "https://www.fantamaster.it/probabili-formazioni-7-giornata-seriea-2026-2027-titolari-ballottaggi-ultime-dai-campi/ ; https://www.pazzidifanta.com/news/milan-atalanta-probabili-formazioni-7a-giornata-serie-a-459997",
+   "날짜": "2026-10-18"
+  },
+  "원정": {
+   "발표여부": "미발표",
+   "예상XI": "fantamaster: Carnesecchi; Bellanova, Kristensen, Kolasinac, Bernasconi/Zappacosta; Samardzic, Gaetano, Ederson; De Ketelaere, Krstovic(Scamacca보다 우세), Rowe. pazzidifanta(검색요약): 4-2-3-1 Carnesecchi; Bellanova, Kristensen, Kolasinac, Bernasconi; Pasalic, Ederson; Zalewski, De Ketelaere, Rowe; Krstovic",
+   "포메이션": "4-3-3(fantamaster) / 4-2-3-1(pazzidifanta)",
+   "출처": "위와 동일",
+   "날짜": "2026-10-18"
+  }
+ },
+ "최근경기": [
+  {
+   "팀": "AC밀란",
+   "날짜": "2026-09-06",
+   "상대": "Juventus",
+   "장소": "원정",
+   "스코어": "1-1",
+   "비고": "ESPN(팩트시트 2026-10-18)"
+  },
+  {
+   "팀": "AC밀란",
+   "날짜": "2026-09-12",
+   "상대": "Lazio",
+   "장소": "원정",
+   "스코어": "2-2",
+   "비고": ""
+  },
+  {
+   "팀": "AC밀란",
+   "날짜": "2026-09-20",
+   "상대": "Lecce",
+   "장소": "홈",
+   "스코어": "3-0 승",
+   "비고": ""
+  },
+  {
+   "팀": "AC밀란",
+   "날짜": "2026-10-11",
+   "상대": "Sassuolo",
+   "장소": "원정",
+   "스코어": "1-1",
+   "비고": "이후 Europa League Salzburg전 대승(fantamaster 서술, 스코어 못 찾음)"
+  },
+  {
+   "팀": "아탈란타BC",
+   "날짜": "2026-09-05",
+   "상대": "AS Roma",
+   "장소": "원정",
+   "스코어": "1-2 패",
+   "비고": ""
+  },
+  {
+   "팀": "아탈란타BC",
+   "날짜": "2026-09-12",
+   "상대": "Cagliari",
+   "장소": "홈",
+   "스코어": "1-2 패",
+   "비고": ""
+  },
+  {
+   "팀": "아탈란타BC",
+   "날짜": "2026-09-20",
+   "상대": "Juventus",
+   "장소": "원정",
+   "스코어": "0-2 패",
+   "비고": ""
+  },
+  {
+   "팀": "아탈란타BC",
+   "날짜": "2026-10-12",
+   "상대": "Venezia",
+   "장소": "홈",
+   "스코어": "3-1 승",
+   "비고": "10-16 파포스FC전(UEL/UECL 추정) 결과 못 찾음"
+  }
+ ],
+ "순위": {
+  "홈": "6위, 6경기 3승3무0패 GD+6 승점12",
+  "원정": "10위, 6경기 3승0무3패 GD0 승점9",
+  "출처": "팩트시트(위키/ESPN)",
+  "날짜": "2026-10-18"
+ },
+ "감독": {
+  "홈": "Ruben Amorim",
+  "원정": "Maurizio Sarri",
+  "변동": "변동 보도 못 찾음",
+  "출처": "팩트시트; https://www.pazzidifanta.com/news/milan-atalanta-probabili-formazioni-7a-giornata-serie-a-459997 (검색요약)",
+  "날짜": "2026-10-18"
+ },
+ "일정·동기·기타": [
+  {
+   "내용": "세리에A 7라운드, San Siro, 현지 일요일 18:00(=KST 10-19 01:00)",
+   "출처": "https://www.fantamaster.it/probabili-formazioni-7-giornata-seriea-2026-2027-titolari-ballottaggi-ultime-dai-campi/",
+   "날짜": "2026-10-18"
+  },
+  {
+   "내용": "밀란은 최근 리그 4경기 중 3무(pazzidifanta 서술). 목요일 UEL 원정/홈 후 일정, 휴식일 약 3일",
+   "출처": "https://www.pazzidifanta.com/news/milan-atalanta-probabili-formazioni-7a-giornata-serie-a-459997 (검색요약)",
+   "날짜": "2026-10-18"
+  }
+ ],
+ "엇갈림": [
+  "Kessie: fantamaster는 Milan 부상으로 기재, 팩트시트는 Atalanta 소속",
+  "Milan 예상 XI: Musah/Cisse(fantamaster) vs Estupinan/Pulisic(pazzidifanta)",
+  "Atalanta 포메이션 4-3-3 vs 4-2-3-1, 중원 Samardzic/Gaetano vs Pasalic/Zalewski"
+ ],
+ "못찾음": [
+  "확정 선발 XI",
+  "Sky/Gazzetta/Corriere dello Sport 개별 기사 직접 확인",
+  "Milan 측 결장·징계 상세, 아탈란타 징계/경고 누적",
+  "결장 선수 이번시즌 선발/득점·도움",
+  "pazzidifanta 페이지 직접 열람(검색 요약만)"
+ ],
+ "뉴스없음": {
+  "홈": "Kessie 외 Milan 결장 보도 없음(fantamaster 1곳), 징계·경고누적 언급 없음",
+  "원정": "Scalvini 외 결장 보도 없음(fantamaster)"
+ }
+}

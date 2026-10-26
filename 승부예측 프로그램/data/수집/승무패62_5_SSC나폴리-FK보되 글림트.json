@@ -1,0 +1,76 @@
+{
+  "번호": 5,
+  "홈": "SSC 나폴리",
+  "원정": "FK 보되/글림트",
+  "수집시각": "2026-10-20 21:40 KST",
+  "결장": [
+    {"팀": "나폴리", "선수": "Alessandro Buongiorno", "포지션": "CB(주전)", "이번시즌_선발/경기": "시즌 초 이후 결장 지속(반월판 수술)", "득점·도움": "-", "사유": "무릎 반월판 수술", "상태": "확정", "복귀예정": "2027년 1월(ilnapolista 보도)", "대체선수": "Rrahmani·Rafa Marín", "출처": "https://www.ilnapolista.it/2026/10/napoli-il-recupero-degli-infortunati-prosegue-da-mercoledi-rientrano-anguissa-olivera-e-alisson/", "날짜": "2026-10-15(추정, 기사 내 보도일 명시 안 됨)"},
+    {"팀": "나폴리", "선수": "David Neres", "포지션": "윙어(로테이션)", "이번시즌_선발/경기": "미확인", "득점·도움": "-", "사유": "부상(세부 미확인, 새 이탈)", "상태": "확정", "복귀예정": "미확인", "대체선수": "Noa Lang/Giovane", "출처": "https://en.cronachedellacampania.it/2026/10/il-punto-sugli-infortuni-in-casa-napoli-rientrano-anguissa-olivera-e-alisson-ma-si-ferma-neres/; https://www.sofascore.com/football/match/ssc-napoli-bodoglimt/gnsoeb", "날짜": "2026-10-14~15"},
+    {"팀": "나폴리", "선수": "Antonio Vergara", "포지션": "로테이션 공격수", "이번시즌_선발/경기": "로테이션급", "득점·도움": "-", "사유": "종아리(기존 결장 지속)", "상태": "확정", "복귀예정": "미확인", "대체선수": "-", "출처": "https://www.goal.com/en-ca/news/live-stream-online-tv-where-to-watch-ssc-napoli-v-bodoe-glimt/blt661b4bc78146ecf5", "날짜": "2026-10-19"},
+    {"팀": "나폴리", "선수": "Alisson Santos", "포지션": "로테이션 공격수", "이번시즌_선발/경기": "로테이션급, 여름 영입", "득점·도움": "-", "사유": "햄스트링(대퇴이두근)", "상태": "확정", "복귀예정": "11월(팀노트 기존 보도)", "대체선수": "-", "출처": "https://www.calcionapoli24.it/champions_league/probabili-formazioni-napoli-bodo-glimt-allegri-verso-il-ritorno-al-4-3-3-con-olivera-knutsen-n701642.html; https://www.goal.com/en-ca/news/live-stream-online-tv-where-to-watch-ssc-napoli-v-bodoe-glimt/blt661b4bc78146ecf5", "날짜": "2026-10-19"},
+    {"팀": "나폴리", "선수": "Costantino Favasuli", "포지션": "로테이션 수비수", "이번시즌_선발/경기": "로테이션급, 여름 영입", "득점·도움": "-", "사유": "햄스트링(기존 결장, 신규 업데이트 못 찾음)", "상태": "의심", "복귀예정": "미확인", "대체선수": "-", "출처": "팀노트(기존 2026-10-13 기록)", "날짜": "2026-10-13"},
+    {"팀": "보되/글림트", "선수": "Magnus Bech Riisnæs", "포지션": "미드필더/수비수", "이번시즌_선발/경기": "미확인", "득점·도움": "-", "사유": "무릎", "상태": "확정", "복귀예정": "10월 말(팀노트 기존)", "대체선수": "-", "출처": "https://www.fotmob.com/matches/bodoglimt-vs-napoli/2rgbhu; 팀노트(2026-10-12)", "날짜": "2026-10-19~20"},
+    {"팀": "보되/글림트", "선수": "Håkon Evjen", "포지션": "미드필더", "이번시즌_선발/경기": "미확인", "득점·도움": "-", "사유": "무릎", "상태": "의심(단일 출처)", "복귀예정": "미확인", "대체선수": "-", "출처": "https://www.fotmob.com/matches/bodoglimt-vs-napoli/2rgbhu", "날짜": "2026-10-19~20"},
+    {"팀": "보되/글림트", "선수": "August Mikkelsen", "포지션": "미드필더", "이번시즌_선발/경기": "미확인", "득점·도움": "-", "사유": "사타구니", "상태": "의심(단일 출처)", "복귀예정": "미확인", "대체선수": "-", "출처": "https://www.fotmob.com/matches/bodoglimt-vs-napoli/2rgbhu", "날짜": "2026-10-19~20"},
+    {"팀": "보되/글림트", "선수": "Ole Didrik Blomberg", "포지션": "공격수", "이번시즌_선발/경기": "주전급(득점원)", "득점·도움": "시즌 2골(팀노트)", "사유": "컨디션 불명(출전 의문)", "상태": "의심", "복귀예정": "-", "대체선수": "Joel Mvuka", "출처": "Gazzetta dello Sport 인용(calcionapoli24 2차 보도)", "날짜": "2026-10-19~20"}
+  ],
+  "라인업": {
+    "홈": {
+      "발표여부": "미발표(프리뷰 단계, 킥오프 수 시간 전)",
+      "예상XI": "버전A(calcionapoli24, 4-3-3): Meret; Di Lorenzo, Rrahmani, Rafa Marín, Olivera; Lobotka, De Bruyne, McTominay; Politano, Højlund, Noa Lang. 버전B(ilsussidiario/Gazzetta, 4-2-3-1): Meret; Rafa Marín, Rrahmani, Badiashile; Di Lorenzo, McTominay, Lobotka, Spinazzola; De Bruyne, Lang(또는 Giovane); Højlund",
+      "포메이션": "4-3-3 또는 4-2-3-1(매체 간 엇갈림, 올리베라·안기사 복귀 가능성에 따라 변동)",
+      "출처": "https://www.calcionapoli24.it/champions_league/probabili-formazioni-napoli-bodo-glimt-allegri-verso-il-ritorno-al-4-3-3-con-olivera-knutsen-n701642.html; https://www.ilsussidiario.net/news/probabili-formazioni-napoli-bodo-glimt-quote-riecco-hojlund-champions-league-oggi-20-ottobre-2026/3010097/",
+      "날짜": "2026-10-19~20"
+    },
+    "원정": {
+      "발표여부": "미발표(프리뷰 단계)",
+      "예상XI": "버전A(calcionapoli24, 4-3-3): Haikin; Sjøvold, Gundersen, Bjørtuft(표기 엇갈림), Bjørkan; Auklend, Berg, Fet; Mvuka/Blomberg, Helmersen, Hauge. 버전B(Gazzetta 인용, 4-4-2): Haikin; Sjøvold, Gundersen, Aleesami, Bjørkan; Auklend, Berg, Fet, Hauge; Blomberg, Helmersen",
+      "포메이션": "4-3-3 또는 4-4-2(매체 간 엇갈림)",
+      "출처": "https://www.calcionapoli24.it/champions_league/probabili-formazioni-napoli-bodo-glimt-allegri-verso-il-ritorno-al-4-3-3-con-olivera-knutsen-n701642.html",
+      "날짜": "2026-10-19~20"
+    }
+  },
+  "최근경기": [
+    {"팀": "나폴리", "날짜": "2026-10-17", "상대": "Venezia", "장소": "원정", "스코어": "1-0 패(베네치아 승)", "비고": "세리에A"},
+    {"팀": "나폴리", "날짜": "2026-10-14", "상대": "Villarreal", "장소": "원정", "스코어": "1-3 패", "비고": "UCL MD2"},
+    {"팀": "나폴리", "날짜": "2026-10-10", "상대": "Frosinone", "장소": "홈", "스코어": "3-0 승", "비고": "세리에A"},
+    {"팀": "나폴리", "날짜": "2026-09-20", "상대": "Fiorentina", "장소": "원정", "스코어": "1-1 무", "비고": "세리에A"},
+    {"팀": "나폴리", "날짜": "2026-09-13", "상대": "Bologna", "장소": "홈", "스코어": "1-0 승", "비고": "세리에A"},
+    {"팀": "나폴리", "날짜": "2026-09-09", "상대": "Arsenal", "장소": "홈", "스코어": "0-1 패", "비고": "UCL MD1"},
+    {"팀": "보되/글림트", "날짜": "2026-10-14/15", "상대": "Borussia Dortmund", "장소": "홈", "스코어": "1-0 승", "비고": "UCL MD2, 아스프미라"},
+    {"팀": "보되/글림트", "날짜": "2026-09-10", "상대": "Bayern Munich", "장소": "원정", "스코어": "0-5 패", "비고": "UCL MD1"}
+  ],
+  "순위": {
+    "홈": "세리에A 9위 7경기 3승1무3패 GD+3 승점10 / UCL 리그페이즈 0점(2패, 32위권)",
+    "원정": "엘리테세리엔 1위(23경기 18승2무3패 득실+38 승점56, 비킹FK와 동률 선두) / UCL 리그페이즈 3점(1승1패)",
+    "출처": "https://www.corrieredellosport.it/news/scommesse/2026/10/20-152018590/il_pronostico_di_napoli-bodo_glimt_allegri_cerca_il_primo_successo_in_champions_league; Eliteserien 순위 집계 사이트(norgesfotball.com 계열)",
+    "날짜": "2026-10-19~20"
+  },
+  "감독": {
+    "홈": "Massimiliano Allegri(변동 없음)",
+    "원정": "Kjetil Knutsen(변동 없음)",
+    "변동": "없음",
+    "출처": "팩트시트_승무패62.md",
+    "날짜": "2026-10-20"
+  },
+  "일정·동기·기타": [
+    {"내용": "나폴리는 UCL 리그페이즈 2연패(0점)로 '지면 사실상 탈락권' 분위기 보도 — 이탈리아 매체가 '이기지 못하면 벼랑 끝'으로 표현", "출처": "https://www.tuttonapoli.net/rassegna-stampa/champions-league-salita-bodo-glimt-659018", "날짜": "2026-10-19"},
+    {"내용": "보되/글림트는 직전 원정에서 도르트문트를 1-0으로 꺾은 직후라 사기 높음, 엘리테세리엔도 선두 경쟁 중이라 양쪽 다 동기부여 최상", "출처": "https://www.vg.no/sport/i/zlQkn1/bodoe-glimt-tre-uker-som-kan-definere-sesongen", "날짜": "2026-10-19"},
+    {"내용": "보되/글림트 엘리테세리엔 잔여 일정: 11/8 원정 Tromsø, 11/20 원정 Molde, 11/28 홈 KFUM Oslo — 시즌 막바지, 유럽대항전과 리그 병행 피로 누적 가능", "출처": "https://www.espn.com/soccer/team/fixtures/_/id/2980/bodoglimt", "날짜": "2026-10-20"},
+    {"내용": "나폴리 Olivera·Anguissa는 10/14 전체 훈련 복귀, 이번 경기 출전 가능 범위(선발 여부는 매체 엇갈림)", "출처": "https://www.mondonapoli.it/squadra/infortunati/2026/10/14/olivera-anguissa-alisson-santos-rientro-napoli/", "날짜": "2026-10-14"}
+  ],
+  "엇갈림": [
+    "나폴리 예상 포메이션: calcionapoli24·ilsussidiario는 4-3-3/4-2-3-1 두 버전, 또 다른 보도는 3-4-2-1 가능성도 거론 — 확정 전까지 미정",
+    "보되/글림트 좌측 수비수: 일부 매체는 'Bjørtuft', 다른 매체(및 기존 팀노트)는 'Aleesami'로 표기 — 동일 포지션 선수 표기 불일치, 확인 필요",
+    "보되/글림트 추가 결장(Evjen·Mikkelsen)은 단일 집계 사이트(fotmob 기반)만 확인, 현지 매체(VG·NRK) 직접 확인 못함"
+  ],
+  "못찾음": [
+    "나폴리 Buongiorno 부상 발표 정확 기사 날짜",
+    "Favasuli·Vergara 복귀 예상일",
+    "보되/글림트 공식 확정 선발(킥오프 임박 전까지 미발표)"
+  ],
+  "뉴스없음": {
+    "홈": "해당 없음(뉴스 다수 확인)",
+    "원정": "해당 없음(뉴스 다수 확인, 단 VG·NRK 원문 직접 확인은 제한적 — 영문/집계 사이트 경유)"
+  }
+}

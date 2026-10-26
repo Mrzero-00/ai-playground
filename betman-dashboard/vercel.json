@@ -1,0 +1,39 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "cleanUrls": true,
+  "headers": [
+    {
+      "source": "/data/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=0, must-revalidate"
+        }
+      ]
+    },
+    {
+      "source": "/(app.js|styles.css)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=0, must-revalidate"
+        }
+      ]
+    },
+    {
+      "source": "/",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=0, must-revalidate"
+        }
+      ]
+    }
+  ],
+  "git": {
+    "deploymentEnabled": {
+      "pacu": false
+    }
+  },
+  "ignoreCommand": "bash -c 'ps=$(git rev-parse HEAD^@ 2>/dev/null) || exit 1; [ -z \"$ps\" ] && exit 1; for p in $ps; do git diff --quiet \"$p\" HEAD -- . || exit 1; done; exit 0'"
+}

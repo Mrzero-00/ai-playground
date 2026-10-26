@@ -1,0 +1,99 @@
+{
+ "번호": "8949",
+ "홈": "비야레알",
+ "원정": "엘체",
+ "수집시각": "2026-10-17 20:50 KST",
+ "기준": "10/16 파일 대비 신규 사실만",
+ "결장": [
+  {
+   "팀": "홈",
+   "선수": "페테르 굴라치",
+   "포지션": "GK",
+   "사유": "나폴리전(10/13) '개인 사정'으로 결장",
+   "상태": "의심 해소 아님: 엘체전 복귀 가능(1곳 Comuniate 10/14), 10/16 파일 elgoldigital과 동일 취지",
+   "출처": "https://www.comuniate.com/noticias/38433/inigo-perez-prepara-una-revolucion-en-el-once-del-villarreal-ante-el-elche",
+   "날짜": "2026-10-14",
+   "이번시즌_선발/경기": "미확인",
+   "득점·도움": "미확인"
+  },
+  {
+   "팀": "홈",
+   "선수": "후안 포이트",
+   "포지션": "DB",
+   "사유": "아킬레스건 부상 표기 vs 선발 복귀 후보",
+   "상태": "엇갈림(Comuniate 선수 페이지 '부상' vs 같은 매체 프리뷰 선발 복귀 후보)",
+   "출처": "https://www.comuniate.com/noticias/38433/inigo-perez-prepara-una-revolucion-en-el-once-del-villarreal-ante-el-elche ; 웹검색 요약",
+   "날짜": "2026-10-14",
+   "이번시즌_선발/경기": "미확인",
+   "득점·도움": "미확인"
+  },
+  {
+   "팀": "홈",
+   "선수": "레나투 베이가",
+   "포지션": "CB",
+   "사유": "누적 출전 부담(8리그+UCL 2+대표팀)",
+   "상태": "휴식 가능성(1곳, 부상 아님)",
+   "출처": "https://www.comuniate.com/noticias/38433/inigo-perez-prepara-una-revolucion-en-el-once-del-villarreal-ante-el-elche",
+   "날짜": "2026-10-14",
+   "이번시즌_선발/경기": "미확인",
+   "득점·도움": "미확인"
+  }
+ ],
+ "라인업": {
+  "홈": {
+   "발표여부": "미발표",
+   "예상XI": "Gulácsi; Freeman, Renato Veiga/Pau Navarro, Foyth, Cardona; Saliba, Gueye/Comesaña; Moleiro, Ayoze, Akhomach; Oluwaseyi (전 라인 변화; 나폴리전 선발은 Luiz Junior; Mouriño, Veiga, Navarro, Romero; Moleiro, Gueye, Comesaña, Saliba; Gerard Moreno, Mikautadze)",
+   "출처": "https://www.comuniate.com/noticias/38433/inigo-perez-prepara-una-revolucion-en-el-once-del-villarreal-ante-el-elche",
+   "날짜": "2026-10-14"
+  },
+  "원정": {
+   "발표여부": "미발표",
+   "예상XI": "Comuniate 프리뷰에 엘체 선수로 Lucas Cepeda(출전 60%, 대안 Tete), Buba Sangaré(50%, 대안 Rubén Sánchez) 언급 — 출전 불확실 후보",
+   "출처": "https://www.comuniate.com/noticias/38433/inigo-perez-prepara-una-revolucion-en-el-once-del-villarreal-ante-el-elche",
+   "날짜": "2026-10-14"
+  }
+ },
+ "최근경기": [
+  {
+   "팀": "비야레알",
+   "내용": "10/13 UCL 나폴리 3-1 승(홈, 후반 교체 Oluwaseyi 득점 언급)",
+   "출처": "https://www.comuniate.com/noticias/38433/inigo-perez-prepara-una-revolucion-en-el-once-del-villarreal-ante-el-elche",
+   "날짜": "2026-10-14"
+  }
+ ],
+ "감독": {
+  "홈": "이니고 페레스 (Fichajes.net 10/11자 발렌베르데 후임설 = 추측 보도, 구단 결정 아님)",
+  "출처": "https://www.fichajes.net/en/news/villarreal-finds-replacement-for-inigo-perez-ernesto-valverde-20261011.html",
+  "날짜": "2026-10-11"
+ },
+ "일정·동기·기타": [
+  {
+   "내용": "토 10/17 16:15 CEST 라 세라미카 DAZN, 나폴리전 후 4일 미만",
+   "출처": "https://www.comuniate.com/noticias/38433/inigo-perez-prepara-una-revolucion-en-el-once-del-villarreal-ante-el-elche",
+   "날짜": "2026-10-14"
+  },
+  {
+   "내용": "최근 맞대결: 25/26 28R 비야레알 2-1 엘체, 18R 엘체 1-3 비야레알",
+   "출처": "https://www.comuniate.com/noticias/38433/inigo-perez-prepara-una-revolucion-en-el-once-del-villarreal-ante-el-elche",
+   "날짜": "2026-10-14"
+  }
+ ],
+ "맞대결": [
+  {
+   "내용": "위 항목 참조",
+   "출처": "https://www.comuniate.com/noticias/38433/inigo-perez-prepara-una-revolucion-en-el-once-del-villarreal-ante-el-elche"
+  }
+ ],
+ "엇갈림": [
+  "포이트 부상 표기 vs 선발 복귀 후보"
+ ],
+ "못찾음": [
+  "10/16~17 이니고 페레스·엘체 감독 기자회견 본문 (Comuniate·El Gol Digital 최신 10/14)",
+  "엘체 공식 부상자 발표",
+  "Marca/AS/Mundo Deportivo 직접 기사"
+ ],
+ "뉴스없음": {
+  "원정": "엘체 10/16 이후 결장 변동: 변동없음 — 검색처 Comuniate, El Gol Digital, 웹검색",
+  "홈": "비야레알 10/16 이후 기자회견: 뉴스없음 — 검색처 Marca·AS·Mundo Deportivo(웹검색 미노출)"
+ }
+}

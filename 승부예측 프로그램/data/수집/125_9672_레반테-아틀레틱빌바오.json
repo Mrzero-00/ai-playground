@@ -1,0 +1,204 @@
+{
+  "번호": 9672,
+  "홈": "레반테",
+  "원정": "아틀레틱 빌바오",
+  "대회": "라리가 2026-27 (연기된 6라운드로 표기한 매체 다수 / comuniate는 10라운드 표기 — 레반테 8경기·아틀레틱 7경기 소화로 아틀레틱이 1경기 적음)",
+  "킥오프": "2026-10-22 03:00 KST (현지 2026-10-21 수 20:00)",
+  "수집시각": "2026-10-21 22:30 KST",
+  "결장": [
+    {
+      "팀": "아틀레틱 빌바오",
+      "선수": "Gorka Guruzeta",
+      "상태": "확정",
+      "사유": "왼무릎 전방십자인대 파열(10-17 발렌시아 원정 62분 교체 투입 6분 만에 부상). 수술 필요, 시즌 아웃(평균 회복 9.1개월, 2027 여름까지)",
+      "시즌선발비중": "정확한 선발 횟수 미확인. 직전 발렌시아전은 교체 출전(62분 투입). 주전 9번 경쟁자로 보도되나 10-18 직전 선발 XI에는 미포함 — **새로 발생한 이탈이며 리그 경기 중 부상이라 10/19 공식 발표**",
+      "출처": "https://www.futbolfantasy.com/laliga/noticias/153097-parte-medico-oficial-de-gorka-guruzeta-rotura-de-ligamento-cruzado-anterior ; https://www.eldesmarque.com/futbol/liga-1a-division/20261019/lesion-gorka-guruzeta-club-parte-medico-tiempo-baja_18_020475892.html",
+      "날짜": "2026-10-19"
+    },
+    {
+      "팀": "아틀레틱 빌바오",
+      "선수": "Oihan Sancet",
+      "상태": "확정",
+      "사유": "왼다리 가자미근(sóleo) 중등도 부상. 10/9 테르지치가 라요전 결장 확정 발표. 복귀 예정 2026년 11월 초",
+      "시즌선발비중": "10/13 이후 3경기 연속 결장(라요·발렌시아 등). 10-18 직전 선발 XI 미포함. 부상 전까지는 주전 공격형 MF — **약 3주 전 새로 이탈한 주축**",
+      "출처": "https://www.futbolfantasy.com/laliga/noticias/152502-nico-williams-y-sancet-bajas-en-la-convocatoria-de-terzic ; https://www.elgoldigital.com/futbol/athletic-club/convocatoria-athletic-levante-nico-williams-sin-guruzeta-sancet-djalo",
+      "날짜": "2026-10-09 ~ 2026-10-21"
+    },
+    {
+      "팀": "아틀레틱 빌바오",
+      "선수": "Álvaro Djaló",
+      "상태": "확정",
+      "사유": "'problemas físicos' (구체 사유 미공개)",
+      "시즌선발비중": "미확인. 10-18 직전 선발 XI 미포함, 소집명단 제외",
+      "출처": "https://www.comuniate.com/noticias/38568/convocatoria-del-athletic-ante-el-levante-vuelve-nico-williams-y-cuatro-jugadores-son-baja",
+      "날짜": "2026-10-21"
+    },
+    {
+      "팀": "아틀레틱 빌바오",
+      "선수": "Unai Egiluz",
+      "상태": "확정",
+      "사유": "전방십자인대 파열 후 무릎 수술 회복(post-operatorio). 복귀 예정 2027년 1월 중순",
+      "시즌선발비중": "장기 결장 — 시즌 내내 빠져 있던 선수(시장 기반영)",
+      "출처": "https://www.comuniate.com/noticias/38568/convocatoria-del-athletic-ante-el-levante-vuelve-nico-williams-y-cuatro-jugadores-son-baja ; https://anecdotarios.com/2026/10/21/levante-vs-athletic-bilbao-previa-horario-y-como-llegan-para-la-fecha-6-de-la-liga/",
+      "날짜": "2026-10-21"
+    },
+    {
+      "팀": "아틀레틱 빌바오",
+      "선수": "Nico Williams",
+      "상태": "복귀(소집) — 선발 가능성 낮음",
+      "사유": "스페인 대표팀 소집 중 왼쪽 대퇴직근 중등도 근육 부상(약 3주 전). 10/19~10/20 그룹 훈련 복귀, 10/21 23인 소집명단 포함. 'podría disfrutar de sus primeros minutos' = 교체 출전 전망. AS는 '부분 훈련만 소화해 선발 가능성 낮음'으로 적시",
+      "시즌선발비중": "부상 전 주전 LW. 10/13·10/17 2경기 결장(라요·발렌시아) 후 복귀",
+      "출처": "https://www.infobae.com/espana/agencias/2026/10/21/nico-williams-vuelve-a-la-convocatoria-del-athletic-para-visitar-al-levante/ ; https://www.comuniate.com/en/noticias/38566/levante-vs-athletic-likely-lineups-as-the-press-predicts",
+      "날짜": "2026-10-21"
+    },
+    {
+      "팀": "레반테",
+      "선수": "Hugo Sotelo",
+      "상태": "확정",
+      "사유": "무릎 염좌(esguince). 복귀 예정 2026년 11월 초",
+      "시즌선발비중": "장기 결장 — 10/9, 10/16, 10/21 세 경기 연속 결장으로 보도. 2026 여름 셀타 비고 임대 영입",
+      "출처": "https://www.comuniate.com/en/noticias/38566/levante-vs-athletic-likely-lineups-as-the-press-predicts ; https://anecdotarios.com/2026/10/21/levante-vs-athletic-bilbao-previa-horario-y-como-llegan-para-la-fecha-6-de-la-liga/",
+      "날짜": "2026-10-20~21"
+    },
+    {
+      "팀": "레반테",
+      "선수": "Karl Etta Eyong",
+      "상태": "의심(duda) — 복귀 임박",
+      "사유": "대퇴부 부상. 10/20 시점 'entrenando a pleno rendimiento'(정상 훈련 복귀)로 보도돼 복귀 가능성 있으나, 일부 매체(anecdotarios 10/21)는 여전히 결장으로 표기 — **상충**",
+      "시즌선발비중": "10/9·10/16 결장(기존 장기). 부상 전 주전 공격수",
+      "출처": "https://www.comuniate.com/en/noticias/38566/levante-vs-athletic-likely-lineups-as-the-press-predicts ; https://anecdotarios.com/2026/10/21/levante-vs-athletic-bilbao-previa-horario-y-como-llegan-para-la-fecha-6-de-la-liga/",
+      "날짜": "2026-10-20~21"
+    },
+    {
+      "팀": "레반테",
+      "선수": "Álex Primo",
+      "상태": "확정",
+      "사유": "어깨 부상",
+      "시즌선발비중": "장기 결장(10/9부터 지속) — 시장 기반영",
+      "출처": "https://anecdotarios.com/2026/10/21/levante-vs-athletic-bilbao-previa-horario-y-como-llegan-para-la-fecha-6-de-la-liga/",
+      "날짜": "2026-10-21"
+    }
+  ],
+  "선발": {
+    "홈": [
+      "AS 예상(4-3-3): Mathew Ryan; Jeremy Toljan, Adrián de la Fuente(Dela), Aïssa Mandi, Manu Sánchez; Oriol Rey, Jon Olasagasti; Víctor García, Iván Romero, Roger Brugué; Petar Ratkov",
+      "Mundo Deportivo 예상(4-3-3): Ryan; Toljan, Dela, Ifeanyi Ndukwe, Manu Sánchez; Olasagasti, Oriol Rey, Dani Requena; Yanis Musuayi, Iván Romero, Brugué",
+      "Bet365 예상(4-2-3-1): Mathew Ryan; Jeremy Toljan, Adrián de la Fuente, Ifeanyi Ndukwe, Manu Sánchez; Jon Olasagasti, Oriol Rey; Roger Brugué, Dani Requena, Iván Romero; Petar Ratkov",
+      "직전 실제 선발 10-17 vs Deportivo(4-3-3, 팀노트 INPUTS): Mathew Ryan, Ifeanyi Ndukwe, Adrián de la Fuente, Manu Sánchez, Nacho Pérez, Oriol Rey, Dani Requena, Enzo Bardeli, Iván Romero, Thiago Fernández, Roger Brugué"
+    ],
+    "원정": [
+      "AS 예상(4-2-3-1): Unai Simón; Andoni Areso, Yeray Álvarez, Aymeric Laporte, Yuri Berchiche; Mikel Jauregizar, Iñigo Ruiz de Galarreta; Robert Navarro, Peio Canales, Álex Berenguer; Iñaki Williams",
+      "Betfair 예상(4-2-3-1): Simón; Areso, (Daniel) Vivian/Álvarez, Laporte, Berchiche; Jauregizar, Ruiz de Galarreta; Navarro, Canales, Berenguer; Maroan Sannadi",
+      "comuniate(AS 변형): Gerenabarrena가 Ruiz de Galarreta 대신 중원 / 9번은 Iñaki Williams vs Maroan Sannadi 경쟁",
+      "직전 실제 선발 10-18 vs Valencia(4-2-3-1, 팀노트 INPUTS): Unai Simón, Aymeric Laporte, Aitor Paredes, Johaneko Louis Jean, Hugo Rincón, Peio Canales, Iñigo Ruiz de Galarreta, Beñat Gerenabarrena, Iñaki Williams, Robert Navarro, Álex Berenguer"
+    ],
+    "포메이션": { "홈": "4-3-3 (일부 매체 4-2-3-1)", "원정": "4-2-3-1" },
+    "확정여부": "미발표(언론 예상 XI). 아틀레틱 23인 소집명단은 공식 발표됨",
+    "소집명단_아틀레틱_23인": {
+      "GK": ["Unai Simón", "Álex Padilla"],
+      "DF": ["Daniel Vivian", "Aitor Paredes", "Yeray Álvarez", "Andoni Areso", "Aymeric Laporte", "Hugo Rincón", "Yuri Berchiche", "Johaneko Louis Jean"],
+      "MF": ["Beñat Prados", "Iñigo Ruiz de Galarreta", "Mikel Jauregizar", "Unai Rego", "Beñat Gerenabarrena", "Peio Canales"],
+      "FW": ["Álex Berenguer", "Iñaki Williams", "Nico Williams", "Maroan Sannadi", "Nico Serrano", "Robert Navarro", "Imga"]
+    },
+    "출처": "https://www.comuniate.com/noticias/38568/convocatoria-del-athletic-ante-el-levante-vuelve-nico-williams-y-cuatro-jugadores-son-baja ; https://www.comuniate.com/en/noticias/38566/levante-vs-athletic-likely-lineups-as-the-press-predicts ; https://news.bet365.es/es-es/article/levante-vs-athletic-alineaciones-estadisticas-horario-donde-ver/2026102010404992546"
+  },
+  "폼": {
+    "홈": {
+      "최근5": "D-L-L-D-D (09-06 Málaga 0-0 원정 / 09-13 vs Barcelona 2-4 홈 패 / 09-20 Villarreal 3-1 원정 패 / 10-12 vs Sevilla 3-3 홈 무 / 10-17 Deportivo 1-1 원정 무)",
+      "무승기록": "리그 5경기 연속 무승. 원정은 2026-01-04 이후 승리 없음(매체 표현)",
+      "리그성적": "8경기 1승4무3패 승점7, 17위, 득12 실16 GD-4 (2026-10-19 기준)",
+      "xG": "시즌 8경기 xG 1.49/경기, 최근5 1.48",
+      "xGA": "시즌 8경기 xGA 2.24/경기, 최근5 2.63 (npxGD -0.57, 최근5 -0.85)",
+      "xPts": "7.7 vs 실제 승점 7 (운 요소 거의 없음)",
+      "득점원": "Iván Romero·Roger Brugué 각 3골(10/16 기준)",
+      "출처": "https://en.wikipedia.org/wiki/2026%E2%80%9327_Levante_UD_season ; 팀노트 INPUTS(Understat/ESPN 자동수집 2026-10-21)"
+    },
+    "원정": {
+      "최근5": "무패 5경기 — 2승3무, 6득점 1실점. 확인된 결과: vs Atlético Madrid 3-0 승 / vs Elche 1-1 무 / vs Deportivo Alavés 0-0 무 / 10-17 Valencia 0-0 원정 무",
+      "리그성적": "7경기 승점9, 10~11위 (출처별 10위/11위 상충)",
+      "xG": "시즌 7경기 xG 1.69/경기, 최근5 2.02",
+      "xGA": "시즌 7경기 xGA 1.42/경기, 최근5 1.01 (npxGD +0.27, 최근5 +1.01)",
+      "xPts": "12.5 vs 실제 승점 9 (xPts 대비 3.5점 손해 — 결정력 부진)",
+      "출처": "https://www.vavel.com/ar/data/athletic-club/resultados/ ; https://es.besoccer.com/equipo/partidos/athletic-bilbao ; 팀노트 INPUTS(Understat 자동수집 2026-10-21)"
+    }
+  },
+  "홈원정성적": {
+    "홈": "레반테 홈: 위키 기준 1승0무0패(1경기 — 08-29 vs Real Betis 5-2 승)로 표기되나 10-12 vs Sevilla 3-3·09-13 vs Barcelona 2-4 가 반영되지 않은 불완전 표. 실제 확인된 홈 경기 3전 1승1무1패(득10 실9). Understat 홈 npxGD +0.29",
+    "원정": "아틀레틱 원정: 세부 분리 기록 미확인. Understat 원정 npxGD -1.16(홈 +1.34와 큰 격차 — 원정에서 기대득점 대비 실점 우위가 무너짐). 최근 원정 10-17 Valencia 0-0 무",
+    "출처": "https://en.wikipedia.org/wiki/2026%E2%80%9327_Levante_UD_season ; 팀노트 INPUTS(Understat 2026-10-21)"
+  },
+  "일정": {
+    "홈": "휴식 5일(최근 7일 1경기). 직전 10-17 원정 vs Deportivo 1-1. 주중 대항전 없음",
+    "원정": "휴식 4일(최근 7일 1경기). 직전 10-18(현지 10-17) 원정 vs Valencia 0-0. **주중 UCL/UEL 없음 — 아틀레틱은 2026-27 유럽대항전 미참가로 확인되지 않음(확인못한것 참조)**. 이번이 2연속 발렌시아 원정(메스타야 → Ciutat de València)이라 이동·원정 체류 연속",
+    "이동거리": "빌바오→발렌시아 471km (팀노트 INPUTS)",
+    "출처": "팀노트 INPUTS(자동수집 2026-10-21) ; https://es.besoccer.com/equipo/partidos/athletic-bilbao"
+  },
+  "동기": [
+    {
+      "내용": "레반테 17위, 강등권과 승점 3점 차 — 잔류 경쟁. 루이스 카스트로 감독 2년차, '올 시즌은 예년보다 더 많은 승점이 필요하다'는 인식 표명. 10/17 데포르티보전 무승부 뒤 '한 걸음 나아갔다(hemos dado un paso adelante)'며 수비 개선 강조",
+      "출처": "https://officialpress.es/luis-castro-destaca-la-mejoria-del-levante-ud-tras-empatar-ante-el-deportivo-hemos-dado-un-paso-adelante/ ; https://www.fichajes.com/equipo/levante-ud/clasificacion",
+      "날짜": "2026-10-17 ~ 2026-10-21"
+    },
+    {
+      "내용": "아틀레틱 10~11위 승점9(7경기), 선두 바르셀로나와 18점 차. 1경기를 덜 치른 상태라 승리 시 상위권 추격. 에딘 테르지치 감독 체제",
+      "출처": "https://www.fotmob.com/teams/8315/overview/athletic-club ; 팀노트 FACTS(위키 2026-27 Athletic Bilbao season)",
+      "날짜": "2026-10-21"
+    },
+    {
+      "내용": "구루세타 시즌 아웃으로 아틀레틱 9번 자원이 Iñaki Williams·Maroan Sannadi 둘로 축소. 언론은 '구루세타 대체 3가지 옵션'을 논하며 겨울 영입 필요성을 제기. Sannadi는 부상 직전까지 5경기 91분 출전에 그친 저활용 자원",
+      "출처": "https://www.fichajes.net/noticias/3-opciones-athletic-club-reemplazar-guruzeta-20261019.html",
+      "날짜": "2026-10-19"
+    },
+    {
+      "내용": "니코 윌리엄스 복귀가 소집 명단의 주된 뉴스. 테르지치가 '첫 출전 분(primeros minutos)'을 언급 — 선발보다 교체 투입 전망. 로테이션 예고는 별도로 확인되지 않음",
+      "출처": "https://www.infobae.com/espana/agencias/2026/10/21/nico-williams-vuelve-a-la-convocatoria-del-athletic-para-visitar-al-levante/",
+      "날짜": "2026-10-21"
+    }
+  ],
+  "맞대결": {
+    "내용": "Deia(2026-10-21) 기사 제목 'El notable rendimiento del Athletic en sus visitas al Levante' = 아틀레틱이 레반테 원정에서 성적이 좋다는 취지. **본문 수치는 403/406으로 접근 실패 — 구체 전적 미확보**. 지난 시즌 코파 델 레이 4강에서 양 팀이 맞붙은 기록이 검색에 남아 있으나 결과·연도 미확인",
+    "출처": "https://www.deia.eus/athletic/2026/10/21/athletic-levante-visitas-resultados-11668954.html (접근 실패)"
+  },
+  "환경": {
+    "구장": "Estadi Ciutat de València (발렌시아, 천연잔디, 고도 13m)",
+    "날씨": "21.1℃ · 강수 0mm(강수확률 0%) · 바람 6.4km/h — 자동수집 기상(2026-10-22 현지)",
+    "중계": "M+ LaLiga",
+    "출처": "팀노트 INPUTS(자동수집 2026-10-21) ; https://news.bet365.es/es-es/article/levante-vs-athletic-alineaciones-estadisticas-horario-donde-ver/2026102010404992546"
+  },
+  "기타사실": [
+    {
+      "내용": "레반테 감독은 Luís Castro(위키 2026-27 시즌 문서 확인). 과거 팀노트의 '감독 미확인' 표기는 해소됨",
+      "출처": "https://en.wikipedia.org/wiki/2026%E2%80%9327_Levante_UD_season",
+      "날짜": "2026-10-21"
+    },
+    {
+      "내용": "레반테 2026 여름 영입: Enzo Bardeli(Dunkerque, FA), Aïssa Mandi(Lille, FA), Hugo Sotelo(Celta, 임대), Yanis Musuayi(Club NXT, €3.0M), Thiago Fernández(Villarreal, 임대), Ifeanyi Ndukwe(Liverpool, 임대)",
+      "출처": "팀노트 FACTS(위키 이적 표, 자동수집 2026-10-21)",
+      "날짜": "2026-10-21"
+    },
+    {
+      "내용": "아틀레틱 2026 여름 유출: Unai Gómez(Udinese, 약 €4.5M), Ibon Sánchez(Cádiz), Iñigo Lekue(은퇴), Eder García(Córdoba 임대). 영입: Álvaro Djaló(Al Gharafa 임대 복귀), Hugo Rincón(Girona), Peio Canales(Racing Santander), Beñat Gerenabarrena(Castellón)",
+      "출처": "팀노트 FACTS(위키 이적 표, 자동수집 2026-10-21)",
+      "날짜": "2026-10-21"
+    },
+    {
+      "내용": "[미확인·주의] soccerway 기사 제목에 'Beñat Prados sufre una rotura del ligamento cruzado'가 검색됨. 그러나 Prados는 2026-10-21 아틀레틱 23인 소집명단에 포함돼 있어 **해당 기사는 과거 시즌 건으로 추정**. 현 시점 Prados는 가용",
+      "출처": "https://es.soccerway.com/noticias/benat-prados-lesion-athletic-club/rcX9kBNP (날짜 미확인)",
+      "날짜": "미확인"
+    },
+    {
+      "내용": "경기 라운드 표기 상충: comuniate '10라운드', sportaragon/anecdotarios '6라운드'. 레반테 8경기·아틀레틱 7경기 소화 사실과 합치면 **연기된 6라운드 경기**일 가능성이 높다",
+      "출처": "https://www.sportaragon.com/articulo/futbol-aragon/alineaciones-probables-levante-athletic-club-jornada-6-laliga-ea-sports/20261020095451161387.html ; https://www.comuniate.com/noticias/38547/alineaciones-probables-de-la-jornada-10-de-laliga",
+      "날짜": "2026-10-20~21"
+    }
+  ],
+  "확인못한것": [
+    "레반테 공식 소집명단(levanteud.com 기사가 과거 시즌 23라운드 건으로 반환돼 실패) — 레반테 쪽은 언론 예상 결장 정보만",
+    "아틀레틱의 레반테 원정 구체 상대전적 수치(Deia 기사 403/406 차단)",
+    "Gorka Guruzeta·Álvaro Djaló의 이번 시즌 정확한 선발 출전 횟수/비중",
+    "아틀레틱 2026-27 유럽대항전 참가 여부(UCL/UEL/UECL) — 최근 7일 1경기 기록상 주중 경기는 없었음",
+    "Etta Eyong 최종 가용 여부(매체 상충: comuniate '정상 훈련 복귀' vs anecdotarios '결장')",
+    "레반테·아틀레틱 감독 공식 기자회견 직접 인용(로테이션 예고 포함)",
+    "레반테 홈/아틀레틱 원정 분리 승·무·패 공식 집계(위키 표 불완전)"
+  ]
+}

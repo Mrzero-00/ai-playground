@@ -1,0 +1,62 @@
+{
+  "번호": 9877,
+  "홈": "슈투름 그라츠",
+  "원정": "올랭피크드 마르세유",
+  "수집시각": "2026-10-22 22:25 KST",
+  "결장": [
+    {"팀":"슈투름 그라츠","선수":"Daniil Khudiakov","포지션":"GK(주전)","이번시즌_선발/경기":"주전 골키퍼","득점·도움":"-","사유":"하퇴부(종아리/정강이) 골절 — 지난 주말 신규 부상","상태":"확정","복귀예정":"장기 결장(골절)","대체선수":"Ammar Helac","출처":["https://www.butfootballclub.fr/1706194-om-coup-de-tonnerre-avant-sturm-graz-une-grosse-absence-annoncee/","https://www.fussballnationalmannschaft.net/sturm-graz-marseille-uebertragung-europa-league-rtl-plus-2-123311089.html"],"날짜":"2026-10-22"},
+    {"팀":"슈투름 그라츠","선수":"Otar Kiteishvili","포지션":"MF(핵심)","이번시즌_선발/경기":"미상(팀 핵심 미드필더로 보도)","득점·도움":"미상","사유":"부상(세부 미상)","상태":"확정","복귀예정":"미상","대체선수":"Jon Gorenc Stankovic / Valmir Matoshi","출처":["https://sports.yahoo.com/articles/preview-sturm-graz-vs-marseille-171000897.html"],"날짜":"2026-10-22"},
+    {"팀":"슈투름 그라츠","선수":"Gizo Mamageishvili","포지션":"미상","이번시즌_선발/경기":"미상","득점·도움":"미상","사유":"부상(세부 미상)","상태":"확정","복귀예정":"미상","대체선수":"미상","출처":["https://sports.yahoo.com/articles/preview-sturm-graz-vs-marseille-171000897.html"],"날짜":"2026-10-22"},
+    {"팀":"슈투름 그라츠","선수":"Nelson Weiper","포지션":"FW(마인츠 임대)","이번시즌_선발/경기":"미상(임대 영입 자원)","득점·도움":"미상","사유":"부상(세부 미상)","상태":"확정","복귀예정":"미상","대체선수":"Belmin Beganovic / Simon Seidl","출처":["https://sports.yahoo.com/articles/preview-sturm-graz-vs-marseille-171000897.html"],"날짜":"2026-10-22"},
+    {"팀":"슈투름 그라츠","선수":"Filip Rózga","포지션":"미상","이번시즌_선발/경기":"미상","득점·도움":"미상","사유":"부상(세부 미상)","상태":"확정","복귀예정":"미상","대체선수":"미상","출처":["https://sports.yahoo.com/articles/preview-sturm-graz-vs-marseille-171000897.html"],"날짜":"2026-10-22"},
+    {"팀":"슈투름 그라츠","선수":"Seedy Jatta","포지션":"미상","이번시즌_선발/경기":"미상","득점·도움":"미상","사유":"부상(세부 미상)","상태":"확정","복귀예정":"미상","대체선수":"미상","출처":["https://sports.yahoo.com/articles/preview-sturm-graz-vs-marseille-171000897.html"],"날짜":"2026-10-22"},
+    {"팀":"슈투름 그라츠","선수":"Emran Soglo","포지션":"미상(첼시 출신 유망주)","이번시즌_선발/경기":"미상","득점·도움":"미상","사유":"부상(세부 미상)","상태":"확정","복귀예정":"미상","대체선수":"미상","출처":["https://sports.yahoo.com/articles/preview-sturm-graz-vs-marseille-171000897.html"],"날짜":"2026-10-22"},
+    {"팀":"올랭피크드 마르세유","선수":"Pierre-Emile Højbjerg","포지션":"MF","이번시즌_선발/경기":"주전급(부상 전)","득점·도움":"미상","사유":"다리 부상 회복 중 — 약 2주 결장 보도(10/13) 후 이번 경기 복귀 가능성 낮음, 사실상 신규 결장 구간 내","상태":"의심","복귀예정":"회복 중, 이번 경기 출전 가능성 낮음","대체선수":"Tochukwu Nnadi / Angel Gomes","출처":["https://www.sportsmole.co.uk/football/sturm-graz/europa-league/preview/sturm-graz-vs-marseille-prediction-team-news-lineups_607263.html","https://www.butfootballclub.fr/1706194-om-coup-de-tonnerre-avant-sturm-graz-une-grosse-absence-annoncee/"],"날짜":"2026-10-22"},
+    {"팀":"올랭피크드 마르세유","선수":"Derek Cornelius","포지션":"DF","이번시즌_선발/경기":"미상","득점·도움":"미상","사유":"엉덩이(고관절) 부상","상태":"의심","복귀예정":"출전 여부 불투명","대체선수":"Nayef Aguerd / Bamo Meïté","출처":["https://www.sportsmole.co.uk/football/sturm-graz/europa-league/preview/sturm-graz-vs-marseille-prediction-team-news-lineups_607263.html","https://www.butfootballclub.fr/1706194-om-coup-de-tonnerre-avant-sturm-graz-une-grosse-absence-annoncee/"],"날짜":"2026-10-22"},
+    {"팀":"올랭피크드 마르세유","선수":"Alexi Koum","포지션":"미상(유망주)","이번시즌_선발/경기":"미상","득점·도움":"미상","사유":"병결(컨디션 난조/질병)","상태":"확정","복귀예정":"단기 결장 추정","대체선수":"해당없음(로테이션 자원)","출처":["https://www.butfootballclub.fr/1706194-om-coup-de-tonnerre-avant-sturm-graz-une-grosse-absence-annoncee/"],"날짜":"2026-10-22"}
+  ],
+  "예상XI": {
+    "홈": {"포메이션":"3-4-1-2(또는 5-3-2 변형)","명단":["Ammar Helac","Petar Petrović","Joshua Quarshie","Arjan Malic","Jürgen Heil","Jon Gorenc Stankovic","Valmir Matoshi","Luis Balbo","Jacob Peter Hödl","Belmin Beganovic","Simon Seidl"],"근거":"영문 소스(Sports Mole)·독일어 소스 공통 — 다만 포백/백스리, 좌우 윙백 인선은 소스마다 엇갈림(Weinhandl·Koller·Diakite 거론 소스도 있음)","출처":["https://www.sportsmole.co.uk/football/sturm-graz/europa-league/preview/sturm-graz-vs-marseille-prediction-team-news-lineups_607263.html","https://www.fussballnationalmannschaft.net/sturm-graz-marseille-uebertragung-europa-league-rtl-plus-2-123311089.html"],"날짜":"2026-10-22"},
+    "원정": {"포메이션":"4-2-3-1","명단":["Jeffrey de Lange","Timothy Weah","Bamo Meïté/Nayef Aguerd","CJ Egan-Riley","Ulisses Garcia/Emerson","Himad Abdelli","Tochukwu Nnadi","Amine Harit","Angel Gomes","Igor Paixão","Amine Gouiri"],"근거":"영문·프랑스어 소스 공통, 센터백 조합(코르넬리우스 결장 대체)은 유동적","출처":["https://sports.yahoo.com/articles/preview-sturm-graz-vs-marseille-171000897.html","https://www.butfootballclub.fr/1706194-om-coup-de-tonnerre-avant-sturm-graz-une-grosse-absence-annoncee/"],"날짜":"2026-10-22"}
+  },
+  "최근5경기": {
+    "홈": [
+      {"날짜":"2026-09-16","상대":"Stade Rennais(홈, UEL)","결과":"무 0-0","비고":"유로파리그 1라운드"},
+      {"날짜":"2026-10-10","상대":"오스트리아 비엔나(원정)","결과":"승 2-0","비고":"팀노트 ClubElo 상승 반영 경기"},
+      {"날짜":"2026-10-15","상대":"AFC Bournemouth(원정, UEL)","결과":"패 0-3","비고":"유로파리그 2라운드, 장거리 원정"},
+      {"날짜":"2026-10-18","상대":"Grazer AK(홈)","결과":"승 6-1","비고":"오스트리아 분데스리가 9라운드, 직전 경기 — 대승으로 반등"}
+    ],
+    "원정": [
+      {"날짜":"2026-09-11","상대":"Stade Rennais(원정)","결과":"패 0-1","비고":"xG 1.31:2.32"},
+      {"날짜":"2026-09-20","상대":"Paris Saint-Germain(홈)","결과":"패 1-2","비고":"xG 1.87:4.67"},
+      {"날짜":"2026-10-11","상대":"Troyes(원정)","결과":"승 2-0","비고":"xG 1.27:1.25"},
+      {"날짜":"2026-10-15","상대":"Olympiacos(홈, UEL)","결과":"패 0-1","비고":"Hezze 42' 실점, 유로파리그 2경기 연속 무득점 무승점"},
+      {"날짜":"2026-10-18","상대":"Angers(원정)","결과":"승 5-2","비고":"xG 3.11:1.80, 구이리·아우아지(Angers) 등 다득점, 직전 경기 반등"}
+    ]
+  },
+  "일정피로": {
+    "홈": {"직전공식전":"2026-10-18 홈 6-1 Grazer AK(오스트리아 분데스리가)","최근7일경기수":1,"이동거리":"홈경기(이동 없음)"},
+    "원정": {"직전공식전":"2026-10-18 원정 5-2 Angers(리그1)","최근7일경기수":1,"이동거리":"약 893km(마르세유→그라츠), ⚠ 장거리 원정"}
+  },
+  "동기": {
+    "홈": "유로파리그 리그페이즈 2경기 1무1패(1점) — '첫 승 절실'로 보도됨. 오스트리아 분데스리가는 직전 그라처AK전 6-1 대승으로 분위기 상승.",
+    "원정": "유로파리그 2경기 2패(0점) 최하위권 — 역시 '첫 승 절실'. 리그1은 강등권 탈출 위해 최근 2연승(트루아·앙제)으로 반등했으나 제네시오 감독 입지 여전히 불안정(시즌 초 연패 여파).",
+    "출처": ["https://sports.yahoo.com/articles/preview-sturm-graz-vs-marseille-171000897.html","https://sport.orf.at/stories/3163854/"]
+  },
+  "환경": {
+    "경기장": "Merkur Arena, 그라츠",
+    "날씨": "12.8℃ 강수 0mm(확률 3%), 바람 11.6km/h — 맑음, 고도 348m(마르세유 대비 +338m)",
+    "심판": "Nenad Minaković(세르비아)로 보도(출처 신뢰도 중간 — 공식 UEFA 발표 페이지 직접 확인 못함). 부심 Nikola Borović·Boško Božović, 4th Danilo Nikolić, VAR Matej Jug·Ivan Bebek.",
+    "출처": ["검색 결과 종합(개별 공식 발표 링크 미확보)"]
+  },
+  "기타사실": [
+    {"내용":"두 팀 모두 유로파리그 리그페이즈 0승으로 이번 경기에서 첫 승이 절실한 상황(\"both sides are in search of a first victory\").","출처":["https://www.archyde.com/sturm-graz-aims-for-win-against-marseille-in-europa-league/","https://sport.orf.at/stories/3163854/"],"날짜":"2026-10-22"},
+    {"내용":"마르세유는 경기장 좌표 기준 893km 장거리 원정 + 고도 변화(+338m) 경고가 자동 입력 데이터에 이미 표시되어 있음(팀노트 INPUTS).","출처":["내부 데이터(data/espn_sb, weather) — teamdb/팀노트 INPUTS 블록"],"날짜":"2026-10-21"},
+    {"내용":"경기는 2026-10-22(현지) 18:45 CEST 킥오프 = 2026-10-23 01:45 KST.","출처":["https://www.befoot.net/sturm-graz-om-compos-probables-chaine-tv-heure/"],"날짜":"2026-10-22"}
+  ],
+  "미확인": [
+    "슈투름 그라츠 Kiteishvili·Mamageishvili·Rózga·Jatta·Soglo 부상 세부 부위/이번시즌 출전 비중",
+    "심판 Nenad Minaković 정보 출처가 개별 소스 교차검증 부족 — 공식 UEFA 심판 배정 발표로 재확인 필요",
+    "마르세유 센터백 조합(Aguerd/Meïté/Egan-Riley 중 선발 2명) 미확정"
+  ]
+}

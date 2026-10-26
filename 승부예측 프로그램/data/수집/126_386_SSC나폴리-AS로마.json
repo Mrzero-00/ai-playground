@@ -1,0 +1,196 @@
+{
+  "번호": 386,
+  "홈": "SSC나폴리",
+  "원정": "AS로마",
+  "리그": "세리에A 2026-27 8라운드(8ª giornata) — '일 데르비 델 솔레(Derby del Sole)'",
+  "구장": "Stadio Diego Armando Maradona — 교차확인: sport.quotidiano.net, napolimagazine.com",
+  "킥오프": "현지 10-24 18:00 CEST = 10-25 01:00 KST",
+  "수집시각": "2026-10-24 22:00 KST",
+  "팩트시트_입력_126_인용": {
+    "입력_126.md": "해당 경기(386번) 행이 아직 생성되지 않음 — 킥오프가 늦은 시각(01:00 KST)이라 2026-10-24 21:13 수집 시점 입력_126.md에 미수록. 수집 당시 가장 늦은 행은 번호 365(23:30 KST)까지였음.",
+    "팩트시트_126.md": "해당 없음 — 파일이 비어 있음(헤더만 존재, 자동 수집 전)"
+  },
+  "teamdb_card": {
+    "홈_Napoli": "순위 9위 7경기 3승1무3패 GD+3 승점10 · 시즌xG2.14/xGA1.15(npxGD+0.98) · 최근5 2.56/1.30 · xPts14.3 vs 승점10(운 나쁨 — 내용 대비 승점 손해) · 포메이션 4-3-3 46%/4-2-3-1 29%/3-4-2-1 24% · 핵심선수 De Bruyne(20%,54분), Højlund(11%,67분)",
+    "원정_Roma": "순위 3위 7경기 5승2무0패 GD+13 승점17 · 시즌xG2.66/xGA1.13(npxGD+1.53, 리그 최상위권 공수 밸런스) · 최근5 2.15/1.29 · xPts15.4(적정) · 포메이션 3-4-2-1 83% · 핵심선수 Malen(22%,67분), Dybala(19%,83분, 결장 전 기준)"
+  },
+  "결장": [
+    {
+      "팀": "SSC나폴리",
+      "선수": "Alessandro Buongiorno",
+      "포지션": "DF",
+      "이번시즌_선발/경기": "미상",
+      "득점·도움": "미상",
+      "사유": "미상(Out으로만 표기)",
+      "상태": "확정",
+      "복귀예정": "미상",
+      "대체선수": "Rafa Marín/Badiashile(예상 선발 기준)",
+      "출처": ["https://www.pazzidifanta.com/news/napoli-roma-probabili-formazioni-8a-giornata-serie-a-2026-2027-460154"],
+      "날짜": "2026-10-23"
+    },
+    {
+      "팀": "SSC나폴리",
+      "선수": "Giovanni Favasuli",
+      "포지션": "미상",
+      "이번시즌_선발/경기": "미상",
+      "득점·도움": "미상",
+      "사유": "미상",
+      "상태": "확정",
+      "복귀예정": "미상",
+      "대체선수": "미상",
+      "출처": ["https://www.pazzidifanta.com/news/napoli-roma-probabili-formazioni-8a-giornata-serie-a-2026-2027-460154"],
+      "날짜": "2026-10-23"
+    },
+    {
+      "팀": "SSC나폴리",
+      "선수": "David Neres",
+      "포지션": "FW/MF(teamdb 핵심선수 목록 등장 — 0.9xG+0.7xA, 30분/경기, 결장 전 기준)",
+      "이번시즌_선발/경기": "미상",
+      "득점·도움": "미상",
+      "사유": "미상",
+      "상태": "확정",
+      "복귀예정": "미상",
+      "대체선수": "Politano/Lang(예상 선발 기준)",
+      "출처": ["https://www.pazzidifanta.com/news/napoli-roma-probabili-formazioni-8a-giornata-serie-a-2026-2027-460154"],
+      "날짜": "2026-10-23"
+    },
+    {
+      "팀": "SSC나폴리",
+      "선수": "Alisson Santos(원문 표기 그대로 — 통상 알려진 Roma GK 'Alisson Becker'와 동일인 아님, 나폴리 소속 선수로 검색됨)",
+      "포지션": "미상",
+      "이번시즌_선발/경기": "미상",
+      "득점·도움": "미상",
+      "사유": "미상",
+      "상태": "확정이나 선수 식별 불확실(나폴리 로스터·teamdb에서 교차확인 안 됨)",
+      "복귀예정": "미상",
+      "대체선수": "미상",
+      "출처": ["https://www.pazzidifanta.com/news/napoli-roma-probabili-formazioni-8a-giornata-serie-a-2026-2027-460154"],
+      "날짜": "2026-10-23"
+    },
+    {
+      "팀": "AS로마",
+      "선수": "Mile Svilar",
+      "포지션": "GK",
+      "이번시즌_선발/경기": "미상",
+      "득점·도움": "해당없음(GK)",
+      "사유": "미상(Out)",
+      "상태": "확정",
+      "복귀예정": "미상",
+      "대체선수": "Pierluigi Gollini(예상 선발 기준)",
+      "출처": ["https://www.pazzidifanta.com/news/napoli-roma-probabili-formazioni-8a-giornata-serie-a-2026-2027-460154"],
+      "날짜": "2026-10-23"
+    },
+    {
+      "팀": "AS로마",
+      "선수": "Evan Ferguson 또는 Koné(원문 'Koné'로만 표기, 정확한 이름 불명 — Manu Koné 추정)",
+      "포지션": "MF 추정",
+      "이번시즌_선발/경기": "미상",
+      "득점·도움": "미상",
+      "사유": "미상",
+      "상태": "확정이나 이름 불완전",
+      "복귀예정": "미상",
+      "대체선수": "미상",
+      "출처": ["https://www.pazzidifanta.com/news/napoli-roma-probabili-formazioni-8a-giornata-serie-a-2026-2027-460154"],
+      "날짜": "2026-10-23"
+    },
+    {
+      "팀": "AS로마",
+      "선수": "Paulo Dybala",
+      "포지션": "FW/MF (teamdb 핵심선수 1위급 — 2.3xG+4.3xA=19%, 83분/경기, 결장 전 기준 매우 중요한 창조적 자원)",
+      "이번시즌_선발/경기": "미상(결장 전까지 주전급 출전, teamdb 2위 기여도)",
+      "득점·도움": "2.3xG+4.3xA 누적(teamdb, 결장 전 기준)",
+      "사유": "근육 부상(허벅지, 레알 마드리드전 이후 정밀검사에서 '작은 병변' 확인, Gasperini 발표: 추가 약 2주 결장)",
+      "상태": "확정(다수 소스 교차확인 — sky, eurosport, forzaroma, goal, tuttomercatoweb 등)",
+      "복귀예정": "11월 초 예상(원래보다 지연 — '2주 추가' 발언 기준). 나폴리전(10/24) 포함 최소 4경기(슬로반 브라티슬라바 UCL, 나폴리, 칼리아리, 우디네세) 결장",
+      "대체선수": "Soulé/Rodrigo Mora(예상 선발 기준)",
+      "출처": ["https://sport.sky.it/calcio/serie-a/2026/10/19/infortunio-dybala-roma-news", "https://www.tuttomercatoweb.com/serie-a/gasperini-per-dybala-almeno-settimane-stop-roma-partite-saltera-joya-2284970"],
+      "날짜": "2026-10-19~23"
+    }
+  ],
+  "의심": [
+    {
+      "팀": "SSC나폴리",
+      "선수": "Amir Rrahmani",
+      "내용": "독감(febbre/influenza)으로 훈련 불참, 목요일 휴식 요청 후 허락받음. 나폴리-로마전 소집 명단에는 포함됐으나 벤치 대기 가능성 높고 선발은 어려울 것으로 보도됨. Allegri 기자회견(10/23) 직접 확인: 'Rrahmani ha avuto la febbre'",
+      "상태": "의심",
+      "출처": ["https://sport.sky.it/calcio/serie-a/2026/10/23/napoli-roma-allegri-conferenza-video", "https://www.mondonapoli.it/squadra/infortunati/2026/10/24/rrahmani-convocato-napoli-roma-panchina/"],
+      "날짜": "2026-10-23~24"
+    },
+    {
+      "팀": "AS로마",
+      "선수": "Lorenzo Pellegrini",
+      "내용": "출전 의문(In Dubbio)",
+      "상태": "의심",
+      "출처": ["https://www.pazzidifanta.com/news/napoli-roma-probabili-formazioni-8a-giornata-serie-a-2026-2027-460154"],
+      "날짜": "2026-10-23"
+    },
+    {
+      "팀": "AS로마",
+      "선수": "Bryan Cristante",
+      "내용": "출전 의문(In Dubbio)",
+      "상태": "의심",
+      "출처": ["https://www.pazzidifanta.com/news/napoli-roma-probabili-formazioni-8a-giornata-serie-a-2026-2027-460154"],
+      "날짜": "2026-10-23"
+    }
+  ],
+  "라인업": {
+    "홈": {
+      "발표여부": "미발표(예상, 두 소스 간 GK·포백 구성 일부 차이)",
+      "예상XI": "4-3-3: [소스1] Milinkovic-Savic; Di Lorenzo, Badiashile, Rafa Marín, Olivera; Anguissa, De Bruyne, McTominay; Politano, Hojlund, Lang / [소스2, 최신] Meret; Rafa Marín, Badiashile, Di Lorenzo, Olivera; McTominay, De Bruyne, Lobotka; Politano, Højlund, Lang — GK(Milinkovic-Savic vs Meret)·중원 구성에 소스 간 차이 있음",
+      "포메이션": "4-3-3",
+      "출처": ["https://www.pazzidifanta.com/news/napoli-roma-probabili-formazioni-8a-giornata-serie-a-2026-2027-460154", "https://espndeportes.espn.com/futbol/reporte/_/juegoId/736913(ESPN 경기 요약 페이지, 최신)"],
+      "날짜": "2026-10-23~24"
+    },
+    "원정": {
+      "발표여부": "미발표(예상)",
+      "예상XI": "3-4-2-1: Gollini; Mancini/Hermoso, Ndicka, Hermoso/Mancini, (Koulierakis 가능); Wesley, de Roon, Pisilli/Lulli, Molina; Soulé, Rodrigo Mora; Malen — 수비 3인 좌우 배치가 소스마다 다름(Mancini-Ndicka-Hermoso 순서 뒤바뀜), 중원 Pisilli vs Lulli 경합",
+      "포메이션": "3-4-2-1",
+      "출처": ["https://www.pazzidifanta.com/news/napoli-roma-probabili-formazioni-8a-giornata-serie-a-2026-2027-460154", "https://espndeportes.espn.com/futbol/reporte/_/juegoId/736913"],
+      "날짜": "2026-10-23~24"
+    }
+  },
+  "최근경기": [
+    {"팀": "SSC나폴리", "날짜": "2026-10-17", "상대": "Venezia(A, 세리에A)", "장소": "원정", "스코어": "0-1", "비고": "패했으나 xG 2.56:0.68(teamdb) — 내용은 압도, 결정력 부재"},
+    {"팀": "SSC나폴리", "날짜": "2026-10-10", "상대": "Frosinone(H, 세리에A)", "장소": "홈", "스코어": "3-0", "비고": "승, xG 3.53:0.79"},
+    {"팀": "AS로마", "날짜": "2026-10-20", "상대": "AC Milan(H, 세리에A, 추정)", "장소": "미상", "스코어": "미상(아래 '7경기 무패 5승2무' 집계 기준 역산 필요)", "비고": "Dybala 부상 발생 경기(Real Madrid전, UCL) — 10/22 UCL Real Madrid전에서 부상, 다음 세리에A 10/27 Cagliari전까지 영향"},
+    {"팀": "AS로마", "날짜": "2026-10-17", "상대": "Genoa(H, 세리에A)", "장소": "홈", "스코어": "2-0", "비고": "승, xG 1.41:0.51(teamdb)"},
+    {"팀": "AS로마", "날짜": "2026-10-11", "상대": "Como(A, 세리에A)", "장소": "원정", "스코어": "0-0", "비고": "무, xG 1.14:1.85"}
+  ],
+  "맞대결": [
+    {"내용": "공식전 통산(모든 대회) 178경기: 나폴리 55승 59무 64패(로마 근소 우세)", "출처": "footballnapolinews.it, mondonapoli.it", "날짜": "2026-10-23"},
+    {"내용": "세리에A 한정 162경기: 나폴리 51승 57무 54패", "출처": "footballnapolinews.it", "날짜": "2026-10-23"},
+    {"내용": "나폴리 홈(마라도나) 91경기: 나폴리 39승 27무 25패, 최근 나폴리 홈 승리는 2024-25시즌 1-0", "출처": "footballnapolinews.it", "날짜": "2026-10-23"},
+    {"내용": "최근 맞대결 2026-02-15 마라도나 2-2 무, 2025-26시즌 1라운드 올림피코 나폴리 1-0 승. 나폴리는 로마전 최근 5경기 무패(2승3무)", "출처": "footballnapolinews.it, mondonapoli.it", "날짜": "2026-10-23"}
+  ],
+  "일정_피로": [
+    {"팀": "SSC나폴리", "내용": "유럽대항전 미참가 추정(검색상 UCL/UEL 언급 없음), 정상 휴식 주기", "출처": "teamdb.py card / 검색 정보 종합", "날짜": "2026-10-24"},
+    {"팀": "AS로마", "내용": "10/20(또는 인접 일자) UCL 레알 마드리드 원정 직후 — 해당 경기에서 Dybala 피로 누적이 작은 부상으로 악화(Gasperini 발표). 로마는 세리에A·UCL 병행 중이라 로테이션 부담 존재", "출처": "https://sport.sky.it/calcio/serie-a/2026/10/19/infortunio-dybala-roma-news", "날짜": "2026-10-19"}
+  ],
+  "동기": [
+    {"내용": "'일 데르비 델 솔레' — 로마는 7라운드까지 무패(5승2무 17점) 3위, 나폴리와 승점 7차 우위를 이번 경기로 10차까지 벌릴 기회로 보도됨. 나폴리(10점, 9위)는 Allegri 체제 반등이 필요한 시점('cerca rilancio')", "출처": ["https://www.corrieredellosport.it/news/calcio/serie-a/2026/10/24-152107217/napoli-roma_allegri_contro_gasperini_tutti_i_numeri_della_sfida_tra_i_due_tecnici", "https://sport.quotidiano.net/calcio/napoli/napoli-roma-allegri-cerca-rilancio-formazioni-e-tv-2f1cbefc"], "날짜": "2026-10-24"},
+    {"내용": "나폴리는 xPts(14.3) 대비 승점(10)이 크게 낮아 '내용은 좋은데 결과가 안 나오는' 상태 — teamdb 분석", "출처": "teamdb.py card", "날짜": "2026-10-24"}
+  ],
+  "감독": {
+    "홈": "Massimiliano Allegri(2026-07-03 공식 선임, 전임 Antonio Conte 후임, 2029년까지 계약)",
+    "원정": "Gian Piero Gasperini(2025-06-06 공식 선임, 아탈란타 감독직에서 이적)",
+    "변동": "나폴리는 시즌 전 감독 교체(Conte→Allegri)로 아직 적응기, 로마는 Gasperini 체제 2년차로 안정적 — 'Allegri vs Gasperini' 지도자 맞대결로 다수 매체가 특집 보도",
+    "출처": ["https://sport.sky.it/calciomercato/2026/07/03/allegri-napoli-allenatore-news", "https://www.corrieredellosport.it/news/calcio/serie-a/2026/10/24-152107217/napoli-roma_allegri_contro_gasperini_tutti_i_numeri_della_sfida_tra_i_due_tecnici"],
+    "날짜": "2026-07-03 / 2026-10-24"
+  },
+  "날씨": {
+    "내용": "나폴리(마라도나) 10/24 토요일 흐리고 많은 비 예보·강우 경보 발효되었으나, 경기 시간대(21:00~23:00 현지 기준 보도, 단 실제 킥오프는 18:00) 즈음은 눈에 띄는 비 없이 흐림 전망. 입력_126.md에 해당 경기 환경 데이터 미수록(킥오프 늦어 미생성) — 이 값은 웹 수집",
+    "출처": "https://www.ilmattino.it/schede/previsioni_meteo_prossima_settimana_napoli_campania_19_25_ottobre_pioggia-sabato_24_e_domenica_25_ottobre_le_previsioni_a_napoli_e_in_campania-7-9832972.html",
+    "날짜": "2026-10-24"
+  },
+  "심판": {
+    "주심": "Andrea Colombo(코모 지부)",
+    "부심": "Bindoni, Rossi",
+    "4심": "Sacchi",
+    "VAR": "Aureliano(AVAR: Meraviglia)",
+    "비고": "이번 시즌 두 번째 세리에A 주심 배정(통산 11번째 주관), 나폴리·로마 상대 통산 11경기(나폴리 7승1무3패, 로마 5승5무1패)",
+    "출처": ["https://www.napolimagazine.com/in-evidenza/articolo/serie-a-napoli-roma-arbitra-colombo-di-como-ecco-tutte-le-designazioni-nel-dettaglio-21-10-2026", "https://khelnow.com/football/napoli-vs-as-roma-preview-serie-a-202610"],
+    "날짜": "2026-10-21"
+  },
+  "못찾음": ["입력_126.md·팩트시트_126.md에 해당 경기 데이터 없음(킥오프 시각이 자동 수집 범위를 벗어남)", "Favasuli·Alisson Santos(나폴리)의 포지션·부상 사유", "로마 결장자 중 'Koné' 전체 이름 및 사유", "로마 정확한 최근 5경기 전체 스코어(일부 날짜 역산 필요)"],
+  "뉴스없음": {"홈": "해당 없음(결장·의심 뉴스 다수 확인됨)", "원정": "해당 없음(결장 뉴스 다수 확인됨, Dybala 장기 결장이 핵심 변수)"}
+}

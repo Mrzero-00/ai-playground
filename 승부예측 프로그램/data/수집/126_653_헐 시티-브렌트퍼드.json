@@ -1,0 +1,234 @@
+{
+ "번호": "653",
+ "홈": "헐 시티",
+ "원정": "브렌트퍼드",
+ "리그": "잉글랜드 프리미어리그",
+ "킥오프": "2026-10-25T23:00+09:00 (현지 14:00 GMT, MKM 스타디움)",
+ "수집시각": "2026-10-25T21:30+09:00",
+ "결장": [
+  {
+   "팀": "홈",
+   "선수": "Jack Butland(잭 버틀랜드)",
+   "포지션": "GK",
+   "사유": "부상",
+   "상태": "확정",
+   "이번시즌선발비중": "미상(검색으로 확인 못함, 1옵션 GK 아님)",
+   "출처": "https://www.sportsmole.co.uk/football/hull-city/preview/hull-city-vs-brentford-prediction-team-news-lineups_607564.html",
+   "날짜": "2026-10-25"
+  },
+  {
+   "팀": "홈",
+   "선수": "Matt Targett(맷 타겟)",
+   "포지션": "DF(LB)",
+   "사유": "부상",
+   "상태": "확정",
+   "이번시즌선발비중": "미상",
+   "출처": "https://www.sportsmole.co.uk/football/hull-city/preview/hull-city-vs-brentford-prediction-team-news-lineups_607564.html",
+   "날짜": "2026-10-25"
+  },
+  {
+   "팀": "홈",
+   "선수": "Charlie Hughes(찰리 휴스)",
+   "포지션": "DF(CB)",
+   "사유": "부상",
+   "상태": "확정",
+   "이번시즌선발비중": "미상",
+   "출처": "https://www.sportsmole.co.uk/football/hull-city/preview/hull-city-vs-brentford-prediction-team-news-lineups_607564.html",
+   "날짜": "2026-10-25"
+  },
+  {
+   "팀": "홈",
+   "선수": "Darko Gyabi(다르코 자비)",
+   "포지션": "MF",
+   "사유": "부상",
+   "상태": "확정",
+   "이번시즌선발비중": "미상",
+   "출처": "https://www.sportsmole.co.uk/football/hull-city/preview/hull-city-vs-brentford-prediction-team-news-lineups_607564.html",
+   "날짜": "2026-10-25"
+  },
+  {
+   "팀": "홈",
+   "선수": "Eliot Matazo(엘리엇 마타조)",
+   "포지션": "MF",
+   "사유": "부상",
+   "상태": "확정",
+   "이번시즌선발비중": "미상",
+   "출처": "https://www.sportsmole.co.uk/football/hull-city/preview/hull-city-vs-brentford-prediction-team-news-lineups_607564.html",
+   "날짜": "2026-10-25"
+  },
+  {
+   "팀": "홈",
+   "선수": "Ilyas Ansah(일리아스 안사)",
+   "포지션": "FW",
+   "사유": "부상",
+   "상태": "확정",
+   "이번시즌선발비중": "미상",
+   "출처": "https://www.sportsmole.co.uk/football/hull-city/preview/hull-city-vs-brentford-prediction-team-news-lineups_607564.html",
+   "날짜": "2026-10-25"
+  },
+  {
+   "팀": "홈",
+   "선수": "Nobel Mendy(노벨 멘디)",
+   "포지션": "DF(CB)",
+   "사유": "서혜부(사타구니) 부상, 10/15부터 결장",
+   "상태": "확정",
+   "이번시즌선발비중": "직전 2경기 전(10/11 에버튼전 포함)까지 주전 CB — 부상 전 선발 비중 높음. 팀은 10/31 입스위치전 복귀를 목표로 하며 10/25 브렌트퍼드전은 결장 확정",
+   "출처": "https://www.rotowire.com/soccer/headlines/nobel-mendy-injury-targeting-monday-training-return-541517 · https://sports.yahoo.com/articles/hull-city-vs-brentford-predicted-050000177.html",
+   "날짜": "2026-10-23"
+  },
+  {
+   "팀": "홈",
+   "선수": "Mohamed-Ali Cho(모하메드-알리 쇼)",
+   "포지션": "FW",
+   "사유": "부상 회복 중, 최근 2경기 결장했으나 훈련 복귀",
+   "상태": "의심",
+   "이번시즌선발비중": "미상(최근 2경기 결장 전은 로테이션 자원으로 추정)",
+   "출처": "https://sports.yahoo.com/articles/hull-city-vs-brentford-match-070043348.html",
+   "날짜": "2026-10-23"
+  },
+  {
+   "팀": "홈",
+   "선수": "Lucas Gourna-Douath(루카스 구르나-두아트)",
+   "포지션": "MF",
+   "사유": "부상 회복 중, 최근 2경기 결장했으나 훈련 복귀",
+   "상태": "의심",
+   "이번시즌선발비중": "미상",
+   "출처": "https://sports.yahoo.com/articles/hull-city-vs-brentford-match-070043348.html",
+   "날짜": "2026-10-23"
+  },
+  {
+   "팀": "원정",
+   "선수": "Yehor Yarmolyuk(예호르 야르몰류크)",
+   "포지션": "MF(DM)",
+   "사유": "징계 — 10/17 리버풀전 퇴장, 3경기 출전정지",
+   "상태": "확정",
+   "이번시즌선발비중": "직전 10/17 리버풀전 선발 출전 중 퇴장 — 팀노트 '직전 선발' 명단에 포함된 주전급",
+   "출처": "https://www.brentfordfc.com/en/news/first-team-news-hull-city-v-brentford-premier-league-25-10-2026",
+   "날짜": "2026-10-22"
+  },
+  {
+   "팀": "원정",
+   "선수": "Vitaly Janelt(비탈리 야넬트)",
+   "포지션": "MF(DM)",
+   "사유": "징계 — 10/17 리버풀전 퇴장, 1경기 출전정지",
+   "상태": "확정",
+   "이번시즌선발비중": "직전 10/17 리버풀전 선발 출전 중 퇴장 — 주전급",
+   "출처": "https://www.brentfordfc.com/en/news/first-team-news-hull-city-v-brentford-premier-league-25-10-2026",
+   "날짜": "2026-10-22"
+  },
+  {
+   "팀": "원정",
+   "선수": "Joshua Dasilva(조슈아 다실바)",
+   "포지션": "MF(CM)",
+   "사유": "부상",
+   "상태": "확정",
+   "이번시즌선발비중": "미상",
+   "출처": "https://www.brentfordfc.com/en/news/first-team-news-hull-city-v-brentford-premier-league-25-10-2026",
+   "날짜": "2026-10-22"
+  },
+  {
+   "팀": "원정",
+   "선수": "Kaye Furo(카예 퓨로)",
+   "포지션": "미상",
+   "사유": "부상",
+   "상태": "확정",
+   "이번시즌선발비중": "미상(1군 출전 기록 거의 없는 뎁스 자원으로 추정)",
+   "출처": "https://www.brentfordfc.com/en/news/first-team-news-hull-city-v-brentford-premier-league-25-10-2026",
+   "날짜": "2026-10-22"
+  },
+  {
+   "팀": "원정",
+   "선수": "Antoni Milambo(안토니 밀람보)",
+   "포지션": "MF",
+   "사유": "부상",
+   "상태": "확정",
+   "이번시즌선발비중": "미상",
+   "출처": "https://www.brentfordfc.com/en/news/first-team-news-hull-city-v-brentford-premier-league-25-10-2026",
+   "날짜": "2026-10-22"
+  }
+ ],
+ "복귀": [
+  {
+   "팀": "원정",
+   "선수": "Jannik Schuster(야닉 슈스터)",
+   "포지션": "MF/DF",
+   "상태": "출전가능",
+   "사유": "국대 차출 후유증+컨디션 난조로 10/17 리버풀전 결장, 이번 주 훈련 복귀 완료",
+   "출처": "https://www.brentfordfc.com/en/news/first-team-news-hull-city-v-brentford-premier-league-25-10-2026",
+   "날짜": "2026-10-22"
+  },
+  {
+   "팀": "원정",
+   "선수": "Nathan Collins(네이선 콜린스)",
+   "포지션": "DF(CB)",
+   "상태": "의심",
+   "사유": "부상에서 회복 단계 진행 중, 출전 여부 불투명",
+   "출처": "https://www.brentfordfc.com/en/news/first-team-news-hull-city-v-brentford-premier-league-25-10-2026",
+   "날짜": "2026-10-22"
+  },
+  {
+   "팀": "원정",
+   "선수": "Mathias Jensen(마티아스 옌센)",
+   "포지션": "MF(CM)",
+   "상태": "의심",
+   "사유": "최근 복귀(1~2주 전)해 훈련 중이나 완전 회복 불확실 — 일부 매체 예상 XI엔 포함",
+   "출처": "https://www.brentfordfc.com/en/news/first-team-news-hull-city-v-brentford-premier-league-25-10-2026",
+   "날짜": "2026-10-22"
+  }
+ ],
+ "예상XI": {
+  "홈": {
+   "포메이션": "5-4-1(추정, 시즌 내내 91% 사용)",
+   "명단": ["Konstantinos Tzolakis(GK)", "Lewie Coyle", "Semi Ajayi", "John Egan", "Lucas Herrington", "Ryan Giles", "Mohamed Belloumi", "Chidozie Iroegbunam", "Regan Slater", "Sorba Thomas", "Oliver McBurnie"],
+   "출처": "https://www.sportsmole.co.uk/football/hull-city/preview/hull-city-vs-brentford-prediction-team-news-lineups_607564.html",
+   "비고": "미발표(킥오프 1시간 전 공식 발표 예정) — Sports Mole 예상 XI"
+  },
+  "원정": {
+   "포메이션": "4-2-3-1(추정, 시즌 내내 99% 사용)",
+   "명단": ["Caoimhín Kelleher(GK)", "Michael Kayode", "Jannik Schuster", "Kristoffer Ajer", "Keane Lewis-Potter", "Mathias Jensen", "Mamadou Sangare", "Jaidon Anthony", "Mikkel Damsgaard", "Kevin Schade", "Igor Thiago"],
+   "출처": "https://www.sportsmole.co.uk/football/hull-city/preview/hull-city-vs-brentford-prediction-team-news-lineups_607564.html",
+   "비고": "Sangare는 2026-09-12 이후 첫 프리미어리그 선발 예정(구단 최고이적료 영입생)"
+  }
+ },
+ "최근경기": {
+  "홈": [
+   {"날짜": "2026-09-19", "상대": "Newcastle United", "홈원정": "원정", "스코어": "1-2 패"},
+   {"날짜": "2026-10-11", "상대": "Everton", "홈원정": "홈", "스코어": "2-2 무"},
+   {"날짜": "2026-10-17", "상대": "Fulham", "홈원정": "원정", "스코어": "0-1 패"}
+  ],
+  "원정": [
+   {"날짜": "2026-10-10", "상대": "Aston Villa", "홈원정": "원정", "스코어": "2-2 무"},
+   {"날짜": "2026-10-17", "상대": "Liverpool", "홈원정": "홈", "스코어": "1-2 패(두 명 퇴장)"}
+  ],
+  "비고": "헐은 최근 3경기 1무2패로 무득점 위기(10/17 xG 0.13). 브렌트퍼드는 10/17 리버풀전이 시즌 첫 패배이자 두 명 퇴장(야르몰류크·야넬트)으로 종료"
+ },
+ "순위": {
+  "홈": "9위 7경기 2승3무2패 GD+1 승점9 (teamdb 2026-10-25 기준)",
+  "원정": "6위 7경기 2승4무1패 GD+5 승점10"
+ },
+ "일정": {
+  "홈": "휴식 8.0일, 직전 10-17 원정 Fulham 0-1 패, 다음 경기 10-31 홈 Ipswich Town",
+  "원정": "휴식 8.0일, 직전 10-17 홈 Liverpool 1-2 패, 유럽대항전 병행 없음"
+ },
+ "감독": {
+  "홈": "Sergej Jakirović — 2026-10-23 기자회견에서 풀럼전 패배 이후 선발 변화 시사, 'will never surrender' 발언",
+  "원정": "Keith Andrews — 2026-10-22 기자회견에서 '지난 주말과 거의 동일한 선수단'이라며 추가 부상 없다고 발표"
+ },
+ "맞대결": "최근 5경기 중 헐이 4승. 다만 2020-02 MKM 스타디움에서 브렌트퍼드가 5-1로 승리한 전례 있음(세컨드티어 시절 기록)",
+ "심판": {
+  "이름": "Robert Jones",
+  "비고": "브렌트퍼드 상대 커리어 15번째 경기(2017년부터), 헐-브렌트퍼드 역대 첫 프리미어리그 맞대결 담당",
+  "출처": "https://en.yenisafak.com/sports/football/live-match/hull-city-brentford-2043521"
+ },
+ "날씨": "11.9℃ 강수0mm(0%) 바람39.2km/h — 강풍 경보(39.2km/h), 구장 KC(MKM) 스타디움",
+ "출처": [
+  "https://www.sportsmole.co.uk/football/hull-city/preview/hull-city-vs-brentford-prediction-team-news-lineups_607564.html",
+  "https://www.brentfordfc.com/en/news/first-team-news-hull-city-v-brentford-premier-league-25-10-2026",
+  "https://www.brentfordfc.com/en/news/match-previews-hull-city-v-brentford-premier-league-25-10-2026",
+  "https://sports.yahoo.com/articles/hull-city-vs-brentford-match-070043348.html",
+  "https://sports.yahoo.com/articles/hull-city-vs-brentford-predicted-050000177.html",
+  "https://www.rotowire.com/soccer/headlines/nobel-mendy-injury-targeting-monday-training-return-541517",
+  "https://en.yenisafak.com/sports/football/live-match/hull-city-brentford-2043521",
+  "data/espn + understat teamdb (scripts/teamdb.py card, 2026-10-25 수집)"
+ ]
+}

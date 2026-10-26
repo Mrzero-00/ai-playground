@@ -1,0 +1,56 @@
+{
+  "번호": 9742,
+  "홈": "워싱턴 위저즈",
+  "원정": "밀워키 벅스",
+  "종목": "농구(NBA)",
+  "킥오프": "2026-10-22 08:00 KST (2026-10-21 19:00 ET, Capital One Arena, Washington D.C.)",
+  "수집시각": "2026-10-21 22:40 KST",
+  "비고": "2026-27 NBA 정규시즌 개막전(양팀 모두 시즌 첫 경기, 0-0)",
+  "결장": [
+    {"팀":"홈","선수":"AJ Dybantsa","상태":"DAY-TO-DAY","사유":"프리시즌 최종전에서 발목 부상. 2026 드래프트 전체 1순위, 선발 예상 자원이라 개막전 출전 불확실","출처":"https://roundtable.io/sports/nba/wizards/players/aj-dybantsa-is-day-to-day-ahead-of-wizards-regular-season-opener","날짜":"2026-10-21"},
+    {"팀":"홈","선수":"Jamir Watkins","상태":"OUT (시즌 아웃)","사유":"ACL 파열","출처":"https://foxsports1070.iheart.com/content/2026-10-21-bucks-vs-wizards-injury-report-oct-21/","날짜":"2026-10-21"},
+    {"팀":"홈","선수":"Tristan Vukcevic","상태":"OUT","사유":"고관절","출처":"https://foxsports1070.iheart.com/content/2026-10-21-bucks-vs-wizards-injury-report-oct-21/","날짜":"2026-10-21"},
+    {"팀":"원정","선수":"Nate Ament","상태":"PROBABLE","사유":"왼 발목 염좌 (루키 포워드)","출처":"https://foxsports1070.iheart.com/content/2026-10-21-bucks-vs-wizards-injury-report-oct-21/","날짜":"2026-10-21"}
+  ],
+  "주축_상태_요약": [
+    {"선수":"Trae Young","팀":"홈","상태":"출전 가능 — 우측 대퇴사두근 문제에서 회복해 트레이닝캠프 풀 참가, 리포트에 없음. 2025-26에는 워싱턴 이적 후 5경기만 뛰고 시즌 아웃","출처":"https://www.cbssports.com/fantasy/basketball/news/wizards-trae-young-full-go-at-training-camp/","날짜":"2026-10-20"},
+    {"선수":"Anthony Davis","팀":"홈","상태":"출전 가능 — 리포트에 없음. 2026년 2월 댈러스에서 워싱턴으로 트레이드(2025-26 댈러스 29경기만 소화, 왼손 인대 파열로 1월 중순부터 결장)","출처":"https://nba.com/news/wizards-mavericks-anthony-davis-trade","날짜":"2026-10-21"},
+    {"선수":"Alex Sarr","팀":"홈","상태":"출전 가능, 선발 센터 예상","날짜":"2026-10-21"},
+    {"선수":"Giannis Antetokounmpo","팀":"원정","상태":"★ 벅스 소속 아님 — 2026년 6월(드래프트 전날) 마이애미 히트로 트레이드. Bobby Portis도 함께 히트행. 벅스는 Tyler Herro, Kel'el Ware, Jaime Jaquez Jr., Kasparas Jakucionis + 1라운드 픽 3장(13순위 포함) 수령","출처":"https://www.espn.com/nba/story/_/id/49149967/bucks-trading-giannis-antetokounmpo-bobby-portis-heat-tyler-herro-kelel-ware-jaime-jaquez-jr-kasparas-jakucionis-picks","날짜":"2026-06"}
+  ],
+  "선발": {
+    "홈": ["Trae Young (PG)","Kyshawn George (SG)","AJ Dybantsa (SF, 발목 Day-To-Day)","Anthony Davis (PF)","Alex Sarr (C)"],
+    "원정": ["Ryan Rollins (PG)","Tyler Herro (SG)","Jaime Jaquez Jr. (SF)","Kyle Kuzma (PF)","Myles Turner (C)"],
+    "확정여부": "예상(프로젝션). Dybantsa 결장 시 Tre Johnson 또는 Kyshawn George 대체 — George는 프리시즌 4경기 전부 선발",
+    "출처": "https://sports.yahoo.com/articles/washington-wizards-projected-starting-lineup-163151569.html ; https://sports.yahoo.com/articles/preview-wizards-host-bucks-2026-141310985.html",
+    "날짜": "2026-10-20"
+  },
+  "레이팅": {
+    "홈": {"ORtg":111.00,"DRtg":122.84,"NRtg":-11.84,"Pace":null,"전적":"17-65","시즌":"2025-26","출처":"https://www.basketball-reference.com/leagues/NBA_2026_ratings.html"},
+    "원정": {"ORtg":112.90,"DRtg":119.40,"NRtg":-6.49,"Pace":null,"전적":"32-50","시즌":"2025-26","출처":"https://www.basketball-reference.com/leagues/NBA_2026_ratings.html"}
+  },
+  "로스터변동": [
+    {"팀":"홈","내용":"2026-01-09 애틀랜타에서 Trae Young 영입(CJ McCollum + Corey Kispert 반대급부)","출처":"https://www.nba.com/news/hawks-trade-trae-young-to-wizards-for-cj-mccollum-corey-kispert","날짜":"2026-01-09"},
+    {"팀":"홈","내용":"댈러스·샬럿과 3팀 9인 트레이드로 Anthony Davis·Jaden Hardy·D'Angelo Russell·Dante Exum 영입. 내보낸 자산: Khris Middleton, AJ Johnson, Tyus Jones, Marvin Bagley III, 1라운드 픽 2장(2026 OKC·2030 GSW) + 2라운드 3장","출처":"https://nba.com/news/wizards-mavericks-anthony-davis-trade","날짜":"2026-02"},
+    {"팀":"홈","내용":"2026 드래프트 전체 1순위로 AJ Dybantsa 지명. Tre Johnson·Kyshawn George·Alex Sarr 등 2년차 유망주군과 베테랑 스타 2명의 조합으로 '플레이인 도전' 기대치 상승","출처":"https://wjla.com/sports/washington-wizards/can-aj-dybantsa-trae-young-and-anthony-davis-end-the-wizards-rebuild","날짜":"2026-10-20"},
+    {"팀":"원정","내용":"★ Giannis Antetokounmpo + Bobby Portis → 마이애미. 수령: Tyler Herro, Kel'el Ware, Jaime Jaquez Jr., Kasparas Jakucionis, 1R픽 3장. 13시즌 야니스 시대 종료, 리빌딩 선언","출처":"https://www.hoopsrumors.com/2026/07/bucks-to-trade-giannis-antetokounmpo-to-heat.html","날짜":"2026-06"},
+    {"팀":"원정","내용":"감독 교체 — 신임 Taylor Jenkins(前 멤피스 6시즌 250-214)","출처":"https://sports.inquirer.net/701842/nba-preview-bucks-begin-post-antetokounmpo-era-under-new-coach-jenkins","날짜":"2026-10"}
+  ],
+  "일정": {
+    "홈": "시즌 개막전, 직전 공식전 없음. 백투백 아님",
+    "원정": "시즌 개막전. 프리시즌 2-3(홈 0-2, 원정 2-1). 밀워키→워싱턴 이동(약 1,100km, 항공). 백투백 아님",
+    "출처": "https://sports.yahoo.com/articles/milwaukee-bucks-2026-27-nba-165021661.html"
+  },
+  "기타사실": [
+    {"내용":"벅스는 리빌딩 기조 + 출전시간 배분 불확실: 12명까지 로테이션 후보라 신임 감독이 유망주(Ryan Rollins, Brayden Burries) 육성과 베테랑(Herro, Turner, Trent) 경쟁력 사이에서 결정해야 함. 선발 2명(Turner·Kuzma)이 30세 이상","출처":"https://www.espn.com/nba/story/_/id/49854792/milwaukee-bucks-offseason-recap-2026-27-season-preview-stats-roster-depth-chart","날짜":"2026-10"},
+    {"내용":"워싱턴은 2025-26 17승 65패 리그 최하위권, DRtg 122.84로 29위(리그 최악 수준). 다만 로스터가 Young·Davis·Dybantsa 합류로 크게 바뀜 — 지난 시즌 수치의 예측력이 낮음","출처":"https://www.basketball-reference.com/leagues/NBA_2026_ratings.html","날짜":"2026-04"},
+    {"내용":"워싱턴 현지 보도: 선수단이 '높아진 기대치'를 의식하며 개막전 준비, Young·Davis 둘 다 건강하게 개막 맞이","출처":"https://www.washingtontimes.com/news/2026/oct/20/washington-wizards-duck-newfound-expectations-embrace-butterflies/","날짜":"2026-10-20"}
+  ],
+  "확인못한것": [
+    "AJ Dybantsa 개막전 출전 여부(틴오프 직전 결정 예정)",
+    "2025-26 Pace 수치(워싱턴·밀워키 모두 미확인)",
+    "Anthony Davis·Trae Young 출전시간 제한(미닛 리스트릭션) 공식 여부 — 제한 언급은 찾지 못함",
+    "양팀 공식 선발 발표",
+    "밀워키 Kel'el Ware·Kasparas Jakucionis 개막전 로테이션 포함 여부"
+  ]
+}

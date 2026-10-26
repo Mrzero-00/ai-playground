@@ -1,0 +1,41 @@
+{"경기":"AC몬차-칼리아리","번호":9379,"수집시각":"2026-10-19 22:40",
+ "결장":[
+  {"팀":"몬차","선수":"Lorenzo Lucchesi","포지션":"CB","사유":"출전정지(직전 Lazio전 퇴장)","시즌선발":"6/6 전경기 선발","신규여부":"신규이탈","출처":"tuttomercatoweb 2283908 ; calciomercato","날짜":"2026-10-18"},
+  {"팀":"몬차","선수":"Exequiel Zeballos","포지션":"AM/WF","사유":"기수술 무릎 부종","시즌선발":"1/6 선발","신규여부":"신규이탈(주축 아님)","출처":"sosfanta.com ; calciocasteddu.it","날짜":"2026-10-18"},
+  {"팀":"몬차","선수":"Yvan Maye","포지션":"MF","사유":"무릎 부상","시즌선발":"0/6 선발(교체 3)","신규여부":"신규이탈(로테이션)","출처":"sosfanta.com","날짜":"2026-10-18"},
+  {"팀":"몬차","선수":"Matteo Pessina","포지션":"CM(주장)","사유":"슬개골 병변, 11월 복귀","시즌선발":"0/6 출전 없음","신규여부":"시즌내내","출처":"sport.sky.it","날짜":"2026-10-17"},
+  {"팀":"몬차","선수":"Bartosz Ziolkowski","포지션":"DF","사유":"족저근막염, 11월 초","시즌선발":"0/6","신규여부":"시즌내내","출처":"sport.sky.it","날짜":"2026-10-17"},
+  {"팀":"몬차","선수":"Toure","포지션":"MF","사유":"무릎(기수술), 다음 주 팀훈련 합류","시즌선발":"0/6","신규여부":"시즌내내","출처":"calciomercato","날짜":"2026-10-18"},
+  {"팀":"몬차","선수":"Patrick Ciurria","포지션":"WB","사유":"근육(예상 XI 기사에 계속 결장 표기)","시즌선발":"0/6","신규여부":"시즌내내","출처":"sport.sky.it ; notiziesarde.it","날짜":"2026-10-17"},
+  {"팀":"칼리아리","선수":"Mattia Felici","포지션":"LW","사유":"ACL+반월판 수술, 2027년 5월","시즌선발":"0/6(교체 2)","신규여부":"시즌내내","출처":"sport.sky.it","날짜":"2026-10-17"},
+  {"팀":"칼리아리","선수":"Riyad Idrissi","포지션":"DF","사유":"좌 ACL, 11월 복귀","시즌선발":"0/6","신규여부":"시즌내내","출처":"sport.sky.it","날짜":"2026-10-17"},
+  {"팀":"칼리아리","선수":"Yael Trepy","포지션":"FW","사유":"사고 후 회복, 10월 말","시즌선발":"0/6","신규여부":"시즌내내","출처":"sport.sky.it ; unionesarda.it","날짜":"2026-10-19"},
+  {"팀":"칼리아리","선수":"Fabio Pisacane(감독)","포지션":"감독","사유":"출전정지 1경기 — 수석 Murelli 지휘, 본인 관중석","시즌선발":"해당없음","신규여부":"신규이탈","출처":"sardiniapost.it ; unionesarda.it","날짜":"2026-10-19"},
+  {"팀":"칼리아리","선수":"Alessandro Deiola(주장)","포지션":"CM/DF","사유":"무릎 반월판 수술 후 복귀 — 소집 가능, 벤치 출발 예상","시즌선발":"5/6 선발","신규여부":"복귀","출처":"sport.sky.it ; unionesarda.it","날짜":"2026-10-19"},
+  {"팀":"칼리아리","선수":"Kevin Carlos","포지션":"FW","사유":"대퇴사두근 회복 중, 벤치 예상","시즌선발":"0/6(교체 3)","신규여부":"복귀","출처":"monza-news.it","날짜":"2026-10-18"}
+ ],
+ "예상XI":[
+  {"팀":"몬차","포메이션":"3-4-2-1","선발":"Tornqvist; Kouadio, Goglichidze, A.Carboni; Birindelli, Akinsanmiro, Folorunsho, Mangas; Robinson, Cutrone/Mota; Varela","확실도":"예상(트레콰르티스타 2자리 Robinson/Mota/Cutrone/Ngonge 경합)","출처":"tuttomercatoweb 2283908 ; unionesarda.it ; fantacalcio.it 499403","날짜":"2026-10-19"},
+  {"팀":"칼리아리","포메이션":"4-3-1-2(두 톱 전환) 또는 4-3-2-1","선발":"Caprile; Ze Pedro, Mina, J.Rodriguez, Obert; Romano, Winks, Adopo; Maldini; Mendy, Nzola — (이설: Mendy 원톱 + Maldini/Fazzini)","확실도":"예상(매체 갈림)","출처":"unionesarda.it ; tuttomercatoweb 2283908 ; calciomercato","날짜":"2026-10-19"}
+ ],
+ "감독발언":[
+  {"팀":"몬차","요지":"Juric: 'Lucchesi, Maye, Zeballos를 잃었다'. 선발 변화 '분명히 있을 것'. 칼리아리는 6경기 3실점의 조직적인 팀, 낮게 내려 수비하고 역습이 좋다. '순위를 끌어올릴 수 있다, 낙관적이다'","출처":"sosfanta.com ; ansa.it ; primamonza.it","날짜":"2026-10-18"},
+  {"팀":"칼리아리","요지":"Pisacane: 출전정지로 관중석, 수석 Murelli가 지휘. '순위표는 보지 않는다'. 두 톱(Mendy+Nzola) 뒤 Maldini 배치 가능 — '두 공격수로 시작할 기회'. Deiola는 수비에서도 가능","출처":"sardiniapost.it ; sportmediaset ; lanuovasardegna.it","날짜":"2026-10-18~19"}
+ ],
+ "맞대결":[
+  {"날짜":"2025-03-30","결과":"칼리아리 3-0 몬차"},
+  {"날짜":"2025-01-05","결과":"몬차 1-2 칼리아리 (브리안테오)"},
+  {"날짜":"2024-03-16","결과":"몬차 1-0 칼리아리 (브리안테오)"},
+  {"날짜":"2023-11","결과":"칼리아리 1-1 몬차"}
+ ],
+ "기타":[
+  {"사실":"주심 Calzavara","출처":"tuttomercatoweb 2283908","날짜":"2026-10-19"},
+  {"사실":"칼리아리 세리에A 원정 5연승(구단 기록) 도전 중, 리그 4경기 무패","출처":"notiziesarde.it","날짜":"2026-10-19"},
+  {"사실":"Daniel Maldini 4경기 연속 득점 중, 친정 몬차 상대 5경기 연속 도전","출처":"lanuovasardegna.it","날짜":"2026-10-19"},
+  {"사실":"ESPN 로컬 집계 시즌 선발: 몬차 Lucchesi6 Carboni6 Kouadio6 Birindelli6 Mangas6 Varela5 Akinsanmiro4 Folorunsho4 Robinson3 Cutrone2 Mota1 Ngonge1 Zeballos1 Goglichidze0(교체1) Maye0(교체3) / 칼리아리 Caprile·J.Rodriguez·Obert·ZePedro·Maldini·Winks·Romano·Mendy·Adopo 각6 Deiola5 Fazzini4 Mina2 Nzola0(교체1)","출처":"로컬 data/teamdb/espn/ita.1.json","날짜":"2026-10-19"},
+  {"사실":"선발 변경 수(경기당): 몬차 2.6명 / 칼리아리 0.4명 — 칼리아리는 사실상 고정 XI","출처":"로컬 teamdb card","날짜":"2026-10-19"},
+  {"사실":"몬차 대체 포인트: CB Lucchesi→Goglichidze(시즌 선발 0회·교체 1회 신입)","출처":"tuttomercatoweb + 로컬 ESPN 집계","날짜":"2026-10-19"}
+ ],
+ "미확인":["Ciurria 최종 소집 여부","Nzola 선발 확정 여부(매체 갈림)","Deiola 실제 선발/벤치·포지션","공식 발표 라인업"],
+ "모순지적":["이탈리아 매체는 칼리아리를 13점·4위로 표기, 로컬 teamdb는 6위 — 순위 표기 불일치","Juric '칼리아리 6경기 3실점'과 로컬 xGA 1.86 불일치: 칼리아리는 xG 대비 크게 과수행(xPts 6.0 vs 승점 13) 중"]
+}

@@ -1,0 +1,103 @@
+{
+ "새결장": [
+  {
+   "팀": "홈",
+   "선수": "파스칼 스트라위크",
+   "포지션": "CB",
+   "이번시즌_선발/경기": "미확인",
+   "사유": "햄스트링, 컨퍼런스리그전 결장",
+   "상태": "의심 — 토요일 훈련 후 판단(Hurzeler 10/16). 선덜랜드전 퇴장은 항소로 취소돼 징계 없음 — Sports Mole+Sussex Express/Hayters 요약 2곳",
+   "출처": "https://www.sportsmole.co.uk/football/brighton-and-hove-albion/injury-news/news/brighton-boss-hurzeler-delivers-latest-mitoma-minteh-wieffer-injury-update_607077.html",
+   "날짜": "2026-10-16"
+  },
+  {
+   "팀": "홈",
+   "선수": "얀쿠바 민테",
+   "포지션": "RW",
+   "이번시즌_선발/경기": "미확인",
+   "사유": "부상(종류 미공개)",
+   "상태": "결장, 감독 '꽤 빠른 복귀 가능'",
+   "출처": "https://www.sportsmole.co.uk/football/brighton-and-hove-albion/injury-news/news/brighton-boss-hurzeler-delivers-latest-mitoma-minteh-wieffer-injury-update_607077.html",
+   "날짜": "2026-10-16"
+  },
+  {
+   "팀": "홈",
+   "선수": "마츠 비퍼",
+   "포지션": "MF",
+   "이번시즌_선발/경기": "미확인",
+   "사유": "무릎(8월 말부터)",
+   "상태": "결장, 감독 '꽤 빠른 복귀 가능'",
+   "출처": "https://www.sportsmole.co.uk/football/brighton-and-hove-albion/injury-news/news/brighton-boss-hurzeler-delivers-latest-mitoma-minteh-wieffer-injury-update_607077.html",
+   "날짜": "2026-10-16"
+  },
+  {
+   "팀": "홈",
+   "선수": "미토마",
+   "포지션": "LW",
+   "이번시즌_선발/경기": "미확인",
+   "사유": "햄스트링 수술",
+   "상태": "확정 결장 — 감독 '11월 A매치 휴식기 복귀 희망' (재확인: Sports Mole+구단 사이트)",
+   "출처": "https://www.sportsmole.co.uk/football/brighton-and-hove-albion/injury-news/news/brighton-boss-hurzeler-delivers-latest-mitoma-minteh-wieffer-injury-update_607077.html ; https://www.brightonandhovealbion.com/media-article/mft-match-preview-bha-crystal-palace-pl-october-2026",
+   "날짜": "2026-10-16"
+  },
+  {
+   "팀": "홈",
+   "선수": "아제즈·요한나·퍼거슨·침마스",
+   "포지션": "미확인",
+   "이번시즌_선발/경기": "미확인",
+   "사유": "햄스트링·미공개·발목·무릎",
+   "상태": "장기 결장(11월 예정, Sports Mole)",
+   "출처": "https://www.sportsmole.co.uk/football/brighton-and-hove-albion/injury-news/news/brighton-boss-hurzeler-delivers-latest-mitoma-minteh-wieffer-injury-update_607077.html",
+   "날짜": "2026-10-16"
+  }
+ ],
+ "복귀": [
+  {
+   "팀": "원정",
+   "선수": "마테타",
+   "상태": "의심 — 팰리스 감독 사주(Sage) '이번 주말 출전 가능성 약간', 리옹 원정 미동행(2곳 아님: Read Crystal Palace 1곳, 10/16 파일과 동일)",
+   "출처": "https://readcrystalpalace.com/2026/10/16/brighton-vs-crystal-palace-preview-team-news/",
+   "날짜": "2026-10-16"
+  }
+ ],
+ "라인업": {
+  "홈": {
+   "발표여부": "미발표",
+   "예상XI": "미수집",
+   "출처": "-",
+   "날짜": "-"
+  },
+  "원정": {
+   "발표여부": "미발표",
+   "예상XI": "마테타 불가 시 스트란 라르센 선두(Read Crystal Palace)",
+   "출처": "https://readcrystalpalace.com/2026/10/16/brighton-vs-crystal-palace-preview-team-news/",
+   "날짜": "2026-10-16"
+  }
+ },
+ "일정·피로": [
+  {
+   "팀": "홈",
+   "내용": "10/15(목) 컨퍼런스리그 카우노 잘기리스 4-0 승(휴식 약 3일). 리그 3연승(아스널 3-0, 선덜랜드 2-0). 감독: 신규 부상 없음",
+   "출처": "https://readcrystalpalace.com/2026/10/16/brighton-vs-crystal-palace-preview-team-news/ ; https://www.sportsmole.co.uk/football/brighton-and-hove-albion/injury-news/news/brighton-boss-hurzeler-delivers-latest-mitoma-minteh-wieffer-injury-update_607077.html",
+   "날짜": "2026-10-16"
+  },
+  {
+   "팀": "원정",
+   "내용": "10/15(목) 리옹 원정 UEL(?) 2-3 패(Read Crystal Palace 기재 '리옹에 3-2 패'), 휴식 약 3일; 직전 리그 리즈 0-0",
+   "출처": "https://readcrystalpalace.com/2026/10/16/brighton-vs-crystal-palace-preview-team-news/",
+   "날짜": "2026-10-16"
+  }
+ ],
+ "엇갈림": [
+  "스트라위크: 10/16 파일 홈 결장 목록에 없음 → 신규 의심",
+  "민테: 10/16 파일 '0경기·결장' vs 이번 감독 '빠른 복귀 가능'(결장 자체는 일치)"
+ ],
+ "변경없음": {
+  "홈": "미토마 결장 변동 없음: 구단 사이트, Sports Mole",
+  "원정": "디사시 정지·리아드 시즌아웃·마테타 의심 동일: Read Crystal Palace (2번째 출처 못 찾음)"
+ },
+ "번호": 9,
+ "홈": "브라이턴&호브 앨비언",
+ "원정": "크리스털 팰리스",
+ "수집시각": "2026-10-17 20:55 KST"
+}

@@ -1,0 +1,59 @@
+{
+  "번호": 9977, "홈": "릴레스트룀SK", "원정": "레알 소시에다드",
+  "수집시각": "2026-10-22 22:20 KST",
+  "결장": [
+    {"팀":"릴레스트룀SK","선수":"Espen Garnås","포지션":"CB","이번시즌_선발/경기":"미상","득점·도움":"미상","사유":"무릎 부상","상태":"확정","복귀예정":"미상","대체선수":"Ruben Gabrielsen 추정","출처":["https://www.sportsmole.co.uk/football/real-sociedad/europa-league/preview/lillestrom-vs-real-sociedad-prediction-team-news-lineups_607288.html","https://www.fotmob.com/matches/lillestrom-vs-real-sociedad/2eemta"],"날짜":"2026-10-22"},
+    {"팀":"릴레스트룀SK","선수":"Camil Jebara","포지션":"윙어","이번시즌_선발/경기":"미상","득점·도움":"미상","사유":"서혜부(groin) 부상","상태":"확정","복귀예정":"미상","대체선수":"미상","출처":["https://www.fotmob.com/matches/lillestrom-vs-real-sociedad/2eemta"],"날짜":"2026-10-22"},
+    {"팀":"릴레스트룀SK","선수":"Vebjørn Hoff / Kristoffer Tønnessen","포지션":"미상","이번시즌_선발/경기":"미상","득점·도움":"미상","사유":"부상(출처마다 Garnås/Jebara와 다른 이름 제시, 명단 불일치)","상태":"의심","복귀예정":"미상","대체선수":"미상","출처":["https://www.sportsmole.co.uk/football/real-sociedad/europa-league/preview/lillestrom-vs-real-sociedad-prediction-team-news-lineups_607288.html"],"날짜":"2026-10-22"},
+    {"팀":"레알 소시에다드","선수":"Álvaro Odriozola","포지션":"RB","이번시즌_선발/경기":"시즌 내내 결장(전방십자인대)","득점·도움":"0+0","사유":"전방십자인대 파열(ACL)","상태":"확정","복귀예정":"시즌 아웃 추정","대체선수":"Jon Martín / Héctor Fort","출처":["https://www.cope.es/emisoras/pais-vasco/deportes-guipuzcoa/noticias/real-busca-primera-victoria-europea-lillestrom-20261022_3460340.html"],"날짜":"2026-10-22"},
+    {"팀":"레알 소시에다드","선수":"Jon Aramburu","포지션":"RB/RWB","이번시즌_선발/경기":"미상","득점·도움":"미상","사유":"근육 부상, 원정 미동행","상태":"확정","복귀예정":"미상","대체선수":"미상","출처":["https://www.cope.es/emisoras/pais-vasco/deportes-guipuzcoa/noticias/real-busca-primera-victoria-europea-lillestrom-20261022_3460340.html"],"날짜":"2026-10-22"},
+    {"팀":"레알 소시에다드","선수":"Luken Beitia","포지션":"GK(유스)","이번시즌_선발/경기":"미상(유스/백업)","득점·도움":"미상","사유":"발목 염좌, 팀 훈련 별도","상태":"확정","복귀예정":"미상","대체선수":"미상","출처":["https://www.cope.es/emisoras/pais-vasco/deportes-guipuzcoa/noticias/real-busca-primera-victoria-europea-lillestrom-20261022_3460340.html"],"날짜":"2026-10-22"},
+    {"팀":"레알 소시에다드","선수":"Yangel Herrera","포지션":"DM","이번시즌_선발/경기":"주전급(최근 선발 포함)","득점·도움":"미상","사유":"종아리 통증, 원정 미동행","상태":"확정","복귀예정":"미상","대체선수":"Jon Gorrotxategi / Carlos Soler","출처":["https://www.cope.es/emisoras/pais-vasco/deportes-guipuzcoa/noticias/real-busca-primera-victoria-europea-lillestrom-20261022_3460340.html"],"날짜":"2026-10-22"}
+  ],
+  "예상XI": {
+    "홈": {"포메이션":"4-3-3(추정)","명단":["Dahlberg","Ranger","Gabrielsen","Kristiansen","Paintsil","Ibrahimaj","Ottosson","Nyheim","Bassi","Gulbrandsen","Vá"],"근거":"Sports Mole 프리뷰 예상 라인업","출처":["https://www.sportsmole.co.uk/football/real-sociedad/europa-league/preview/lillestrom-vs-real-sociedad-prediction-team-news-lineups_607288.html"],"날짜":"2026-10-22"},
+    "원정": {"포메이션":"4-3-3(추정)","명단":["Marrero","Sarr","Zubeldia","Martín","Gómez","Turrientes","Gorrotxategi","Ochieng","Sucic","Oyarzabal","Guedes"],"근거":"Sports Mole 프리뷰 예상 라인업 (Lebarbier 유럽 첫 소집, Pablo Marín 징계 해소 복귀)","출처":["https://www.sportsmole.co.uk/football/real-sociedad/europa-league/preview/lillestrom-vs-real-sociedad-prediction-team-news-lineups_607288.html","https://www.cope.es/emisoras/pais-vasco/deportes-guipuzcoa/noticias/real-busca-primera-victoria-europea-lillestrom-20261022_3460340.html"],"날짜":"2026-10-22"}
+  },
+  "최근5경기": {
+    "홈": [
+      {"날짜":"2026-10-16","상대":"Sparta Prague(원정, UEL)","결과":"1-1 무","비고":"UEL 2차전"},
+      {"날짜":"2026-09-17","상대":"Torreense(UEL)","결과":"1-2 패","비고":"UEL 1차전"},
+      {"날짜":"미상","상대":"미상","결과":"미상","비고":"Eliteserien 국내리그 최근 경기는 미확인 — 현재 6위 23경기 11승3무9패 승점36(2026-10 기준)"}
+    ],
+    "원정": [
+      {"날짜":"2026-10-18","상대":"Málaga(원정)","결과":"5-2 승","비고":"라리가"},
+      {"날짜":"2026-10-11","상대":"Deportivo(홈)","결과":"3-2 승","비고":"라리가, 3-0에서 추격당함, PK/퇴장 있었음"},
+      {"날짜":"2026-09-20","상대":"Valencia(원정)","결과":"3-2 승","비고":"라리가"},
+      {"날짜":"2026-09-13","상대":"Atlético Madrid(홈)","결과":"0-3 패","비고":"라리가"},
+      {"날짜":"2026-09-07","상대":"Elche(원정)","결과":"3-2 승","비고":"라리가"},
+      {"날짜":"2026-10-16","상대":"Union Saint-Gilloise(원정, UEL)","결과":"1-1 무","비고":"UEL 2차전, 중립 아닌 유니옹 실질 홈(뢰번 Den Dreef)"}
+    ]
+  },
+  "일정피로": {
+    "홈": {"직전공식전":"2026-10-16 UEL 원정 Sparta Prague 1-1 무","최근7일경기수":1,"이동거리":"미상(국내 이동 없음, 홈경기)"},
+    "원정": {"직전공식전":"2026-10-18 라리가 원정 Málaga 5-2 승","최근7일경기수":1,"이동거리":"스페인→노르웨이 장거리 원정(약 2057km, teamdb 집계)"}
+  },
+  "동기": {
+    "홈":"Eliteserien 2026 국내리그 6위·승점36·23경기(11승3무9패), 강등권과 거리 커서 안전 — 노르웨이 시즌은 10월 말~11월 종료 임박(막바지 단계). UEL 리그페이즈는 2경기 1무1패(승점1)로 첫 승 필요.",
+    "원정":"UEL 리그페이즈 2경기 1무1패(승점1)로 유럽대항전 첫 승 목표. 라리가는 9경기 5승1무3패 승점16 5위로 호조.",
+    "출처":["https://www.cope.es/emisoras/pais-vasco/deportes-guipuzcoa/noticias/real-juega-primera-victoria-europea-lillestrom-20261022_3460685.html","https://www.sportsmole.co.uk/football/real-sociedad/europa-league/preview/lillestrom-vs-real-sociedad-prediction-team-news-lineups_607288.html"]
+  },
+  "환경": {
+    "경기장":"Åråsen Stadion (릴레스트룀, 노르웨이)",
+    "잔디":"하이브리드 천연잔디(Desso GrassMaster 방식 — 천연잔디에 인조섬유를 바느질해 보강). 순수 인조잔디(kunstgress) 아님 — 검색 결과 복수 출처 일치.",
+    "날씨":"9.8℃, 강수 0.8mm(확률44%), 바람 17.6km/h (teamdb/context_inputs 10-21 수집, 경기일 10-23 04:00 KST=10-22 21:00 현지 기준 근사치)",
+    "심판":"미상",
+    "출처":["https://snl.no/%C3%85r%C3%A5sen_stadion","https://utomhus.no/wp-content/uploads/2026/05/Arasen-Stadion.2000.pdf","https://www.fotball.no/fotballdata/anlegg/hjem/?fiksId=7349"]
+  },
+  "기타사실": [
+    {"내용":"릴레스트룀은 2025시즌 1부리그 승격(2부 무패 우승) 후 엘리테세리엔 데뷔 시즌이며 현재 6위로 안착 — 팀노트 FACTS 블록의 '22위 2경기'는 2026-10-21 수집 당시 스테일(초기 UEL 조별 성적과 혼동 가능성, 국내리그 실제 순위 아님)로 보인다.","출처":["https://en.wikipedia.org/wiki/2026_Lillestr%C3%B8m_SK_season"],"날짜":"2026-10-22"},
+    {"내용":"두 팀의 UEFA 대항전 첫 맞대결.","출처":["https://www.fotmob.com/matches/lillestrom-vs-real-sociedad/2eemta"],"날짜":"2026-10-22"},
+    {"내용":"레알 소시에다드는 24명 원정 명단 동행, Álex Lebarbier 유럽 무대 첫 소집, Pablo Marín은 리그 징계 해소 후 가용.","출처":["https://www.cope.es/emisoras/pais-vasco/deportes-guipuzcoa/noticias/real-juega-primera-victoria-europea-lillestrom-20261022_3460685.html"],"날짜":"2026-10-22"}
+  ],
+  "미확인": [
+    "릴레스트룀 결장 선수 명단이 출처마다 다름(Garnås/Jebara vs Hoff/Tønnessen) — 교차검증 필요",
+    "릴레스트룀 국내리그(Eliteserien) 최근 5경기 상세 결과",
+    "심판 배정",
+    "레알 소시에다드 로테이션 폭(몇 명 교체 예상)에 대한 구체적 수치"
+  ]
+}

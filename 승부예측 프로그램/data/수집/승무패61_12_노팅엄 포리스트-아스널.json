@@ -1,0 +1,243 @@
+{
+ "번호": 12,
+ "홈": "노팅엄 포리스트",
+ "원정": "아스널",
+ "수집시각": "2026-10-16 23:10 KST",
+ "결장": [
+  {
+   "팀": "원정",
+   "선수": "William Saliba",
+   "포지션": "CB",
+   "이번시즌_선발/경기": "0(이번 시즌 미출전)",
+   "득점·도움": "미확인",
+   "사유": "허리(WC 준결승에서 악화)",
+   "상태": "확정(2곳: Sports Mole 10/12, Football365 10/16)",
+   "복귀예정": "11월 A매치 휴식기 후 거론(Sports Mole는 연내)",
+   "대체선수": "Gabriel/Konsa",
+   "출처": "https://www.sportsmole.co.uk/football/arsenal/champions-league/news/very-unfortunate-arteta-explains-hincapie-zubimendi-arsenal-injury-blows_606741.html ; https://www.football365.com/match-preview/nottingham-forest-v-arsenal-prediction-preview",
+   "날짜": "2026-10-16"
+  },
+  {
+   "팀": "원정",
+   "선수": "Piero Hincapié",
+   "포지션": "LB/CB",
+   "이번시즌_선발/경기": "미확인",
+   "득점·도움": "미확인",
+   "사유": "발목(Leeds전 직후), Arteta '더 심각', 스캔 대기",
+   "상태": "확정 결장(Football365 '수 주')이나 검색요약은 '복귀 가능성' 엇갈림",
+   "복귀예정": "수 주",
+   "대체선수": "Calafiori / Lewis-Skelly",
+   "출처": "https://www.sportsmole.co.uk/football/arsenal/champions-league/news/very-unfortunate-arteta-explains-hincapie-zubimendi-arsenal-injury-blows_606741.html ; https://www.football365.com/match-preview/nottingham-forest-v-arsenal-prediction-preview",
+   "날짜": "2026-10-16"
+  },
+  {
+   "팀": "원정",
+   "선수": "Martín Zubimendi",
+   "포지션": "DM",
+   "이번시즌_선발/경기": "미확인(첫 부상)",
+   "득점·도움": "미확인",
+   "사유": "발목 타박(훈련 중), Lille전 결장",
+   "상태": "의심(F365 '경미, 명단 복귀 예상', 검색요약 '의심')",
+   "복귀예정": "10/18 가능",
+   "대체선수": "Merino / Guimarães / Rice",
+   "출처": "https://www.sportsmole.co.uk/football/arsenal/champions-league/news/very-unfortunate-arteta-explains-hincapie-zubimendi-arsenal-injury-blows_606741.html ; https://www.football365.com/match-preview/nottingham-forest-v-arsenal-prediction-preview",
+   "날짜": "2026-10-16"
+  },
+  {
+   "팀": "원정",
+   "선수": "Christos Tzolis",
+   "포지션": "W",
+   "이번시즌_선발/경기": "미확인",
+   "득점·도움": "미확인",
+   "사유": "햄스트링",
+   "상태": "확정 결장(수 주)",
+   "복귀예정": "수 주",
+   "대체선수": "Madueke/Eze",
+   "출처": "https://www.football365.com/match-preview/nottingham-forest-v-arsenal-prediction-preview",
+   "날짜": "2026-10-16"
+  },
+  {
+   "팀": "홈",
+   "선수": "Igor Jesus",
+   "포지션": "FW",
+   "이번시즌_선발/경기": "미확인",
+   "득점·도움": "미확인",
+   "사유": "종아리",
+   "상태": "확정 결장(수 주, 2곳)",
+   "복귀예정": "수 주",
+   "대체선수": "Delap",
+   "출처": "https://www.football365.com/match-preview/nottingham-forest-v-arsenal-prediction-preview ; WebSearch 요약",
+   "날짜": "2026-10-16"
+  },
+  {
+   "팀": "홈",
+   "선수": "Nikola Milenkovic",
+   "포지션": "CB",
+   "이번시즌_선발/경기": "미확인(팀노트: 10/11 팰리스전 결장)",
+   "득점·도움": "미확인",
+   "사유": "뼈 타박상",
+   "상태": "의심(late fitness test)",
+   "복귀예정": "미정",
+   "대체선수": "Aina",
+   "출처": "https://www.football365.com/match-preview/nottingham-forest-v-arsenal-prediction-preview",
+   "날짜": "2026-10-16"
+  },
+  {
+   "팀": "홈",
+   "선수": "Nicolò Savona",
+   "포지션": "DF",
+   "이번시즌_선발/경기": "미확인",
+   "득점·도움": "미확인",
+   "사유": "3월 무릎 수술 여파",
+   "상태": "확정 결장",
+   "복귀예정": "미정",
+   "대체선수": "-",
+   "출처": "https://www.football365.com/match-preview/nottingham-forest-v-arsenal-prediction-preview",
+   "날짜": "2026-10-16"
+  }
+ ],
+ "라인업": {
+  "홈": {
+   "발표여부": "미발표",
+   "예상XI": "3백: Sels; Diomande,Murillo,Milenkovic(복귀시)/Aina; Muñoz,Schlager,Williams; Gibbs-White,McAtee/Ndoye; Delap",
+   "포메이션": "3-4-2-1",
+   "출처": "https://www.football365.com/match-preview/nottingham-forest-v-arsenal-prediction-preview ; 팀노트",
+   "날짜": "2026-10-16"
+  },
+  "원정": {
+   "발표여부": "미발표",
+   "예상XI": "Saka·Calafiori·Ødegaard·Havertz 복귀, White가 Timber 대체 가능, Eze/Madueke 좌측 경쟁(F365). Telemundo: 릴전 Ødegaard·Saka·Havertz 벤치(로테이션) 후 3-0",
+   "포메이션": "4-2-3-1",
+   "출처": "https://www.football365.com/match-preview/nottingham-forest-v-arsenal-prediction-preview ; telemundo",
+   "날짜": "2026-10-16"
+  }
+ },
+ "최근경기": [
+  {
+   "팀": "아스널",
+   "날짜": "2026-10-13",
+   "상대": "릴",
+   "장소": "홈",
+   "스코어": "3-0 승(UCL)",
+   "비고": "약 1시간 고전 후 득점, 주전 3명 벤치 시작. 새 부상 보도 없음(검색 한계)"
+  },
+  {
+   "팀": "아스널",
+   "날짜": "2026-10-10",
+   "상대": "리즈",
+   "장소": "홈",
+   "스코어": "2-1 승",
+   "비고": "경기 후 Hincapié·Zubimendi 발목"
+  },
+  {
+   "팀": "아스널",
+   "날짜": "2026-09-19",
+   "상대": "브라이턴",
+   "장소": "원정",
+   "스코어": "0-3 패",
+   "비고": "팩트시트"
+  },
+  {
+   "팀": "노팅엄",
+   "날짜": "2026-10-11",
+   "상대": "팰리스",
+   "장소": "원정",
+   "스코어": "1-3 패",
+   "비고": "F365"
+  },
+  {
+   "팀": "노팅엄",
+   "날짜": "2026-09-19",
+   "상대": "코벤트리",
+   "장소": "홈",
+   "스코어": "0-1 패",
+   "비고": "홈 무득점"
+  },
+  {
+   "팀": "노팅엄",
+   "날짜": "2026-09-05",
+   "상대": "토트넘",
+   "장소": "홈",
+   "스코어": "0-0",
+   "비고": "홈 무득점"
+  }
+ ],
+ "순위": {
+  "홈": "15위 6경기 1승2무3패 승점5",
+  "원정": "2위 승점15(5승1패)",
+  "출처": "팀노트 팩트시트(ESPN)",
+  "날짜": "2026-10-15"
+ },
+ "감독": {
+  "홈": "Oliver Glasner (Football365 10/16). 일부 요약이 Sage로 표기했으나 오류로 판단",
+  "원정": "Mikel Arteta",
+  "변동": "변동 없음",
+  "출처": "https://www.football365.com/match-preview/nottingham-forest-v-arsenal-prediction-preview",
+  "날짜": "2026-10-16"
+ },
+ "일정·동기·날씨·기타": [
+  {
+   "내용": "노팅엄 홈 3경기 무득점(Football365 '시즌 홈 3경기 득점 0'). 리그 득점 하위 2위권",
+   "출처": "https://www.football365.com/match-preview/nottingham-forest-v-arsenal-prediction-preview",
+   "날짜": "2026-10-16"
+  },
+  {
+   "내용": "아스널 UCL 릴전(10/13) 후 일요일 00:30 KST(10/19)까지 약 4.9~5일 휴식",
+   "출처": "팀노트 INPUTS",
+   "날짜": "2026-10-15"
+  }
+ ],
+ "이전_재확인_결과": [
+  {
+   "항목": "아스널 살리바",
+   "결과": "확인(결장, 이번 시즌 미출전, 11월 이후)",
+   "출처": "https://www.sportsmole.co.uk/football/arsenal/champions-league/news/very-unfortunate-arteta-explains-hincapie-zubimendi-arsenal-injury-blows_606741.html ; https://www.football365.com/match-preview/nottingham-forest-v-arsenal-prediction-preview",
+   "날짜": "2026-10-16"
+  },
+  {
+   "항목": "아스널 힌카피에",
+   "결과": "확인(발목, 수 주 결장 쪽)",
+   "출처": "https://www.sportsmole.co.uk/football/arsenal/champions-league/news/very-unfortunate-arteta-explains-hincapie-zubimendi-arsenal-injury-blows_606741.html ; https://www.football365.com/match-preview/nottingham-forest-v-arsenal-prediction-preview",
+   "날짜": "2026-10-16"
+  },
+  {
+   "항목": "아스널 수비멘디",
+   "결과": "확인(경미, 복귀 예상 쪽, 의심)",
+   "출처": "https://www.football365.com/match-preview/nottingham-forest-v-arsenal-prediction-preview",
+   "날짜": "2026-10-16"
+  },
+  {
+   "항목": "릴전 후 새 부상",
+   "결과": "미확인(보도 없음)",
+   "출처": "telemundo 리포트",
+   "날짜": "2026-10-13"
+  },
+  {
+   "항목": "노팅엄 홈 무득점 흐름",
+   "결과": "확인(홈 3경기 0골; 이전 노트의 '4경기'는 3경기로 정정)",
+   "출처": "https://www.football365.com/match-preview/nottingham-forest-v-arsenal-prediction-preview",
+   "날짜": "2026-10-16"
+  },
+  {
+   "항목": "노팅엄 감독",
+   "결과": "확인(Glasner 유지)",
+   "출처": "https://www.football365.com/match-preview/nottingham-forest-v-arsenal-prediction-preview",
+   "날짜": "2026-10-16"
+  }
+ ],
+ "엇갈림": [
+  "아스널 힌카피에: F365 수 주 결장 vs 일부 요약 복귀 가능",
+  "수비멘디: 10/12 Lille전 결장 확정 → 10/16 F365 복귀 예상",
+  "노팅엄 감독: 일부 요약 Sage vs F365 Glasner(Glasner 채택)",
+  "홈 무득점 '4경기'(기존 메모) vs F365 3경기"
+ ],
+ "못찾음": [
+  "선수별 이번시즌 선발수 (Transfermarkt/FBref 열람 못함) Saliba 제외",
+  "노팅엄 현지지(Nottingham Post) 기사",
+  "Forest 확정 결장 Jesus 출처 2곳째 URL(요약 기사만)"
+ ],
+ "뉴스없음": {
+  "홈": "",
+  "원정": ""
+ }
+}

@@ -1,0 +1,175 @@
+{
+ "새결장": [
+  {
+   "팀": "홈",
+   "선수": "엘랑가",
+   "포지션": "FW/윙",
+   "이번시즌_선발/경기": "미확인",
+   "사유": "허벅지/햄스트링(매체별 상이)",
+   "상태": "확정 결장, 감독 '수 주'(Jaissle), 이번 시즌 리그 최근 3경기 결장 — 2곳",
+   "출처": "https://readnewcastle.com/2026/10/16/newcastle-team-news-toure-elanga-aston-villa/ ; https://www.sportsmole.co.uk/football/newcastle-united/injury-news/team-news/newcastle-vs-aston-villa-injury-suspension-list-predicted-xis_606928.html",
+   "날짜": "2026-10-16"
+  },
+  {
+   "팀": "홈",
+   "선수": "리빙스턴(Livramento)",
+   "포지션": "RB",
+   "이번시즌_선발/경기": "미확인",
+   "사유": "미공개",
+   "상태": "결장(Sports Mole), 감독은 '수 주 내 복귀 낙관'(Read Newcastle) — 2곳",
+   "출처": "https://readnewcastle.com/2026/10/16/newcastle-team-news-toure-elanga-aston-villa/ ; https://www.sportsmole.co.uk/football/newcastle-united/injury-news/team-news/newcastle-vs-aston-villa-injury-suspension-list-predicted-xis_606928.html",
+   "날짜": "2026-10-16"
+  },
+  {
+   "팀": "홈",
+   "선수": "제이컵 램지",
+   "포지션": "MF",
+   "이번시즌_선발/경기": "미확인",
+   "사유": "허벅지",
+   "상태": "결장(Sports Mole 10/16), 감독 '진전 양호, 다음 주 하프 훈련 가능' — 2곳; 10/14 Sports Mole는 '큰 의문'이었음",
+   "출처": "https://readnewcastle.com/2026/10/16/newcastle-team-news-toure-elanga-aston-villa/ ; https://www.sportsmole.co.uk/football/newcastle-united/injury-news/team-news/newcastle-vs-aston-villa-injury-suspension-list-predicted-xis_606928.html",
+   "날짜": "2026-10-16"
+  },
+  {
+   "팀": "홈",
+   "선수": "에웬 자우앙(Jaouen)",
+   "포지션": "GK",
+   "이번시즌_선발/경기": "미확인",
+   "사유": "허벅지 약 2개월",
+   "상태": "결장(재확인, Sports Mole 10/14·10/16)",
+   "출처": "https://www.sportsmole.co.uk/football/newcastle-united/injury-news/team-news/newcastle-vs-aston-villa-injury-suspension-list-predicted-xis_606928.html",
+   "날짜": "2026-10-16"
+  },
+  {
+   "팀": "홈",
+   "선수": "바주마나 투레",
+   "포지션": "윙",
+   "이번시즌_선발/경기": "미확인",
+   "사유": "발목/무릎(매체별 상이)",
+   "상태": "의심 — 감독 '훈련 합류·토요일 출전 가능 낙관', 코번트리전 후반 교체 아웃",
+   "출처": "https://readnewcastle.com/2026/10/16/newcastle-team-news-toure-elanga-aston-villa/ ; https://www.sportsmole.co.uk/football/newcastle-united/injury-news/team-news/newcastle-vs-aston-villa-injury-suspension-list-predicted-xis_606928.html",
+   "날짜": "2026-10-16"
+  },
+  {
+   "팀": "원정",
+   "선수": "오나나",
+   "포지션": "MF",
+   "이번시즌_선발/경기": "미확인",
+   "사유": "무릎",
+   "상태": "결장(Sports Mole 10/16)",
+   "출처": "https://www.sportsmole.co.uk/football/newcastle-united/injury-news/team-news/newcastle-vs-aston-villa-injury-suspension-list-predicted-xis_606928.html",
+   "날짜": "2026-10-16"
+  },
+  {
+   "팀": "원정",
+   "선수": "마트센",
+   "포지션": "LB",
+   "이번시즌_선발/경기": "미확인",
+   "사유": "발목",
+   "상태": "결장(재확인: Sports Mole+FPL)",
+   "출처": "https://www.sportsmole.co.uk/football/newcastle-united/injury-news/team-news/newcastle-vs-aston-villa-injury-suspension-list-predicted-xis_606928.html ; https://www.footballdream.in/blog/newcastle-united-vs-aston-villa-gw7-premier-league-2026-27",
+   "날짜": "2026-10-16"
+  },
+  {
+   "팀": "원정",
+   "선수": "루제리",
+   "포지션": "DF",
+   "이번시즌_선발/경기": "미확인",
+   "사유": "허벅지",
+   "상태": "결장(Sports Mole 1곳)",
+   "출처": "https://www.sportsmole.co.uk/football/newcastle-united/injury-news/team-news/newcastle-vs-aston-villa-injury-suspension-list-predicted-xis_606928.html",
+   "날짜": "2026-10-16"
+  },
+  {
+   "팀": "원정",
+   "선수": "모도 시세",
+   "포지션": "미확인",
+   "이번시즌_선발/경기": "미확인",
+   "사유": "미공개",
+   "상태": "결장(Sports Mole 1곳)",
+   "출처": "https://www.sportsmole.co.uk/football/newcastle-united/injury-news/team-news/newcastle-vs-aston-villa-injury-suspension-list-predicted-xis_606928.html",
+   "날짜": "2026-10-16"
+  },
+  {
+   "팀": "원정",
+   "선수": "바클리",
+   "포지션": "MF",
+   "이번시즌_선발/경기": "미확인",
+   "사유": "미공개",
+   "상태": "의심(Sports Mole 1곳)",
+   "출처": "https://www.sportsmole.co.uk/football/newcastle-united/injury-news/team-news/newcastle-vs-aston-villa-injury-suspension-list-predicted-xis_606928.html",
+   "날짜": "2026-10-16"
+  },
+  {
+   "팀": "원정",
+   "선수": "헤밍스",
+   "포지션": "미확인",
+   "이번시즌_선발/경기": "미확인",
+   "사유": "무릎",
+   "상태": "의심 75%(FPL) + Sports Mole 의심 — 2곳",
+   "출처": "https://www.footballdream.in/blog/newcastle-united-vs-aston-villa-gw7-premier-league-2026-27 ; https://www.sportsmole.co.uk/football/newcastle-united/injury-news/team-news/newcastle-vs-aston-villa-injury-suspension-list-predicted-xis_606928.html",
+   "날짜": "2026-10-16"
+  },
+  {
+   "팀": "원정",
+   "선수": "마드조(Madjo)",
+   "포지션": "미확인",
+   "이번시즌_선발/경기": "미확인",
+   "사유": "발목",
+   "상태": "의심(Sports Mole 1곳)",
+   "출처": "https://www.sportsmole.co.uk/football/newcastle-united/injury-news/team-news/newcastle-vs-aston-villa-injury-suspension-list-predicted-xis_606928.html",
+   "날짜": "2026-10-16"
+  }
+ ],
+ "복귀": [
+  {
+   "팀": "홈",
+   "선수": "조엘링톤·번·데디치·오술라",
+   "상태": "복귀했으나 컨디션 미완(Sky Sports 요약: 조엘링톤 선발 경쟁, 번 선발은 이름)",
+   "출처": "WebSearch 요약(Sky Sports 'Newcastle vs Aston Villa how to watch...' https://www.skysports.com/football/news/13599817/newcastle-vs-aston-villa-how-to-watch-tv-channel-live-stream-now-tv-team-news-and-score-prediction), 본문 미열람 → 1곳",
+   "날짜": "2026-10-16"
+  }
+ ],
+ "라인업": {
+  "홈": {
+   "발표여부": "미발표(킥오프 10/17 17:30 BST = 한국 10/18 01:30)",
+   "예상XI": "Sports Mole: 호르니체크; 데디치, 티아우, 보트만, 홀; 조엘링톤, 곤살레스, 윌록; 머피, 오술라, 반스",
+   "출처": "https://www.sportsmole.co.uk/football/newcastle-united/injury-news/team-news/newcastle-vs-aston-villa-injury-suspension-list-predicted-xis_606928.html",
+   "날짜": "2026-10-16"
+  },
+  "원정": {
+   "발표여부": "미발표",
+   "예상XI": "Sports Mole: 스즈키; 캐시, 린델뢰프, 토레스, 완비사카; 카마라, 고메스; 맥긴, 부엔디아, 만잠비; 잭슨",
+   "출처": "https://www.sportsmole.co.uk/football/newcastle-united/injury-news/team-news/newcastle-vs-aston-villa-injury-suspension-list-predicted-xis_606928.html",
+   "날짜": "2026-10-16"
+  }
+ },
+ "일정·피로": [
+  {
+   "팀": "홈",
+   "내용": "10/12(월) 코번트리 원정 1-4 패 (휴식 약 5일, 주중 유럽대항전 없음)",
+   "출처": "https://www.sportsmole.co.uk/football/newcastle-united/injury-news/team-news/newcastle-vs-aston-villa-injury-suspension-list-predicted-xis_606928.html",
+   "날짜": "2026-10-16"
+  },
+  {
+   "팀": "원정",
+   "내용": "10/14(수) UCL 페네르바체 6-0 승 (Sports Mole 기재: 빌라 6-0 페네르바체, 휴식 약 3일) — 출전 명단은 미확인",
+   "출처": "https://www.sportsmole.co.uk/football/newcastle-united/injury-news/team-news/newcastle-vs-aston-villa-injury-suspension-list-predicted-xis_606928.html",
+   "날짜": "2026-10-16"
+  }
+ ],
+ "엇갈림": [
+  "투레 부상 부위: Sports Mole 발목 vs Read Newcastle 무릎 보도(후자는 감독 코멘트 요약)",
+  "엘랑가 부위: 허벅지(Sports Mole) vs 햄스트링(WebSearch 요약)",
+  "램지: 10/14 '큰 의문' → 10/16 '결장·다음주 하프 훈련'(악화 아닌 확정)",
+  "10/16 파일: 마트센 결장, 빌라 예상XI 4-5-1 — Sports Mole 예상XI는 토레스 포함 별도 수비라인(예상이라 불일치 가능)"
+ ],
+ "변경없음": {
+  "홈": "감독(Jaissle) 10/16 발언 확인: Read Newcastle, Sports Mole",
+  "원정": "Emery 기자회견 기사는 검색에서 못 찾음(미확인) — 검색처: WebSearch 2회, Sports Mole"
+ },
+ "번호": 4,
+ "홈": "뉴캐슬 유나이티드",
+ "원정": "애스턴 빌라",
+ "수집시각": "2026-10-17 20:55 KST"
+}

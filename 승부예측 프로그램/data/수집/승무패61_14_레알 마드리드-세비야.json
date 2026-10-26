@@ -1,0 +1,179 @@
+{
+ "번호": 14,
+ "홈": "레알 마드리드",
+ "원정": "세비야",
+ "수집시각": "2026-10-16 23:00 KST",
+ "결장": [
+  {
+   "팀": "홈",
+   "선수": "비니시우스 주니오르",
+   "포지션": "LW",
+   "이번시즌_선발/경기": "미확인(10/14 로마전 선발, 58~59' 교체)",
+   "득점·도움": "미확인",
+   "사유": "RFEF 징계위 4경기(머리채 2 + 심판 항의 2), 비야레알전 73' 직접 퇴장",
+   "상태": "확정(442, Fichajes 2곳). 리그만 해당, UCL 출전 가능",
+   "복귀예정": "세비야·바르사(10/25)·라싱·발렌시아 4경기 후",
+   "대체선수": "디오망데/귈러 등(미확인)",
+   "출처": "https://442.perfil.com/noticias/futbol/vinicius-recibio-una-dura-sancion-y-se-perdera-el-clasico-ante-barcelona.phtml ; https://www.fichajes.net/noticias/vinicius-rompe-silencio-sancion-20261015.html",
+   "날짜": "2026-10-14~15"
+  },
+  {
+   "팀": "홈",
+   "선수": "로드리고",
+   "포지션": "윙어",
+   "이번시즌_선발/경기": "미확인",
+   "득점·도움": "미확인",
+   "사유": "3월 중상",
+   "상태": "팀노트 10/12 기사(재확인 못 함)",
+   "복귀예정": "2027 초",
+   "대체선수": "",
+   "출처": "팀노트 sportsmole/goal.com 10월",
+   "날짜": "2026-10-12"
+  },
+  {
+   "팀": "홈",
+   "선수": "라울 아센시오",
+   "포지션": "CB",
+   "이번시즌_선발/경기": "미확인",
+   "득점·도움": "미확인",
+   "사유": "경골 피로골절 수술",
+   "상태": "팀노트 10/12(재확인 못 함)",
+   "복귀예정": "최장 4개월",
+   "대체선수": "",
+   "출처": "팀노트",
+   "날짜": "2026-10-12"
+  },
+  {
+   "팀": "홈",
+   "선수": "페를랑 멘디 / 밀리탕",
+   "포지션": "LB / CB",
+   "이번시즌_선발/경기": "미확인",
+   "득점·도움": "미확인",
+   "사유": "부상(팀노트 10/12), 밀리탕은 훈련 복귀했으나 로마 제외",
+   "상태": "재확인 못 함",
+   "복귀예정": "미확인",
+   "대체선수": "",
+   "출처": "팀노트",
+   "날짜": "2026-10-12"
+  },
+  {
+   "팀": "원정",
+   "선수": "(확인된 신규 결장 없음)",
+   "포지션": "",
+   "이번시즌_선발/경기": "미확인",
+   "득점·도움": "",
+   "사유": "팀노트 10/12: 스타생·마르캉 결장; 감독 벤치 징계 언급",
+   "상태": "재확인 못 함",
+   "복귀예정": "",
+   "대체선수": "",
+   "출처": "팀노트",
+   "날짜": "2026-10-12"
+  }
+ ],
+ "라인업": {
+  "홈": {
+   "발표여부": "미발표",
+   "예상XI": "미확인. 로마전 선발 4-2-3-1은 발베르데·추아메니 더블 피벗이 70분간 작동 안 함, 추아메니 교체 후 베르나르두 실바 투입으로 4-3 역전",
+   "포메이션": "로마전 4-2-3-1",
+   "출처": "https://www.espn.com/soccer/story/_/id/50185130/real-madrid-roma-jose-mourinho-uefa-champions-league ; https://meridiano.net/futbol/liga-de-campeones/real-madrid-jose-mourinho-sin-autocritica-tras-la-remontada-a-roma-202610158570",
+   "날짜": "2026-10-15"
+  },
+  "원정": {
+   "발표여부": "미발표",
+   "예상XI": "미확인",
+   "포메이션": "미확인",
+   "출처": "",
+   "날짜": ""
+  }
+ },
+ "최근경기": [
+  {
+   "팀": "레알",
+   "날짜": "2026-10-14",
+   "상대": "AS 로마(UCL 2R)",
+   "장소": "원정 올림피코",
+   "스코어": "4-3 승",
+   "비고": "1-3 열세에서 7분 만에 역전, 뤼디거 90' 결승(귈러 어시스트). 출처 https://www.espn.com/soccer/story/_/id/50185130/real-madrid-roma-jose-mourinho-uefa-champions-league ; https://www.fichajes.net/noticias/vinicius-rompe-silencio-sancion-20261015.html"
+  },
+  {
+   "팀": "레알",
+   "날짜": "2026-10-10",
+   "상대": "비야레알",
+   "장소": "홈",
+   "스코어": "1-0 승",
+   "비고": "비니시우스 73' 퇴장"
+  },
+  {
+   "팀": "세비야",
+   "날짜": "2026-10-12",
+   "상대": "레반테",
+   "장소": "원정",
+   "스코어": "3-3 무",
+   "비고": "팀노트"
+  }
+ ],
+ "순위": {
+  "홈": "4위 승점18(10/14 팀노트; 다른 페이지 3위 9점은 스냅샷 불명)",
+  "원정": "5위 승점14",
+  "출처": "팀노트 FACTS",
+  "날짜": "2026-10-14"
+ },
+ "감독": {
+  "홈": "조제 무리뉴 (ESPN·Meridiano 로마전 기자회견 기사에서 확인) - 팀노트 '아르벨로아' 성향 문단은 오류",
+  "원정": "팀노트 FACTS: 루이스 가르시아 플라사 / 팀노트 성향: 마티아스 알메이다(알메이다 2025-12 기사와 동일 인물 추정) - 엇갈림, 미해결",
+  "변동": "레알: 무리뉴 현직 확인",
+  "출처": "https://www.espn.com/soccer/story/_/id/50185130/real-madrid-roma-jose-mourinho-uefa-champions-league ; https://meridiano.net/futbol/liga-de-campeones/real-madrid-jose-mourinho-sin-autocritica-tras-la-remontada-a-roma-202610158570",
+  "날짜": "2026-10-15"
+ },
+ "일정·동기·날씨·기타": [
+  {
+   "내용": "킥오프 10/18 현지 21:00 = KST 10/19 04:00 (일치). 레알은 로마 원정 후 4일",
+   "출처": "https://www.comuniate.com/partido/26/8/9/real-madrid-sevilla",
+   "날짜": "2026-10-16"
+  },
+  {
+   "내용": "레알이 징계 항소 예정(Fichajes). 결과 미확인",
+   "출처": "https://www.fichajes.net/noticias/vinicius-rompe-silencio-sancion-20261015.html",
+   "날짜": "2026-10-15"
+  },
+  {
+   "내용": "무리뉴: 징계 통보 시점(로마전 수 시간 전) 비판",
+   "출처": "https://worldsoccertalk.com/news/mourinho-slams-spanish-referees-committee-over-vinicius-juniors-four-match-ban/",
+   "날짜": "2026-10(일자 미확인)"
+  }
+ ],
+ "이전_재확인_결과": [
+  {
+   "항목": "비니시우스 징계(확정 여부·경기 수)",
+   "결과": "확인: 4경기(세비야·바르사·라싱·발렌시아), 항소 예정",
+   "출처": "https://442.perfil.com/noticias/futbol/vinicius-recibio-una-dura-sancion-y-se-perdera-el-clasico-ante-barcelona.phtml ; https://www.fichajes.net/noticias/vinicius-rompe-silencio-sancion-20261015.html",
+   "날짜": "2026-10-15"
+  },
+  {
+   "항목": "로마전 후 부상",
+   "결과": "미확인: 로마전 후 신규 부상 보도 못 찾음(Fichajes 기사엔 부상 언급 없음)",
+   "출처": "https://www.fichajes.net/noticias/vinicius-rompe-silencio-sancion-20261015.html",
+   "날짜": "2026-10-15"
+  },
+  {
+   "항목": "레알 감독 이름",
+   "결과": "무리뉴 확인(ESPN 2026-10-15), 팀노트 아르벨로아 문단 반박",
+   "출처": "https://www.espn.com/soccer/story/_/id/50185130/real-madrid-roma-jose-mourinho-uefa-champions-league",
+   "날짜": "2026-10-15"
+  }
+ ],
+ "엇갈림": [
+  "세비야 감독 이름 가르시아 플라사 vs 알메이다",
+  "징계 기사: elgoldigital '최소 2경기' vs 442/Fichajes 4경기"
+ ],
+ "못찾음": [
+  "로마전 후 부상 공식 부상 보고서",
+  "세비야 현지 신규 결장 뉴스",
+  "결장자별 시즌 출전 수",
+  "징계 항소 결과"
+ ],
+ "뉴스없음": {
+  "홈": "로마전 후 신규 부상 못 찾음. 검색처: espn, meridiano, fichajes, comuniate",
+  "원정": "신규 결장 못 찾음. 검색처: comuniate, foxsports, lanacion"
+ }
+}

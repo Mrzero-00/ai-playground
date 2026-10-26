@@ -1,0 +1,141 @@
+{
+ "새결장": [
+  {
+   "팀": "원정",
+   "선수": "루크 쇼",
+   "포지션": "LB",
+   "이번시즌_선발/경기": "미확인",
+   "사유": "미공개, 아틀레티코전 결장",
+   "상태": "의심 — 카릭 '지켜보겠다(we'll see)' (2곳: People's Person 기자회견록, khelnow)",
+   "출처": "https://thepeoplesperson.com/2026/10/16/every-word-of-michael-carricks-leeds-united-pre-match-press-conference-319323/ ; https://khelnow.com/football/leeds-united-vs-manchester-united-preview-premier-league-202610",
+   "날짜": "2026-10-16"
+  },
+  {
+   "팀": "원정",
+   "선수": "코비 마이누",
+   "포지션": "CM",
+   "이번시즌_선발/경기": "미확인",
+   "사유": "미공개, 아틀레티코전 결장",
+   "상태": "의심 — 카릭 '지켜보겠다'(2곳)",
+   "출처": "https://thepeoplesperson.com/2026/10/16/every-word-of-michael-carricks-leeds-united-pre-match-press-conference-319323/ ; https://khelnow.com/football/leeds-united-vs-manchester-united-preview-premier-league-202610",
+   "날짜": "2026-10-16"
+  },
+  {
+   "팀": "원정",
+   "선수": "셰슈코",
+   "포지션": "ST",
+   "이번시즌_선발/경기": "미확인",
+   "사유": "정강이",
+   "상태": "결장 확정에 가까움 — 카릭 '검사 몇 가지 진행 중, 한참 더 걸림'(a little bit further away); khelnow 결장 — 2곳",
+   "출처": "https://thepeoplesperson.com/2026/10/16/every-word-of-michael-carricks-leeds-united-pre-match-press-conference-319323/ ; https://khelnow.com/football/leeds-united-vs-manchester-united-preview-premier-league-202610",
+   "날짜": "2026-10-16"
+  },
+  {
+   "팀": "원정",
+   "선수": "도르구·우가르테",
+   "포지션": "LB·DM",
+   "이번시즌_선발/경기": "미확인",
+   "사유": "미공개",
+   "상태": "결장 — khelnow 1곳(변경없음)",
+   "출처": "https://khelnow.com/football/leeds-united-vs-manchester-united-preview-premier-league-202610",
+   "날짜": "2026-10-16"
+  },
+  {
+   "팀": "원정",
+   "선수": "마즈라위",
+   "포지션": "RB",
+   "이번시즌_선발/경기": "미확인",
+   "사유": "미공개",
+   "상태": "의심 — khelnow 1곳",
+   "출처": "https://khelnow.com/football/leeds-united-vs-manchester-united-preview-premier-league-202610",
+   "날짜": "2026-10-16"
+  },
+  {
+   "팀": "홈",
+   "선수": "마테오 조제프",
+   "포지션": "FW",
+   "이번시즌_선발/경기": "미확인",
+   "사유": "무릎",
+   "상태": "결장 예상 — khelnow 1곳",
+   "출처": "https://khelnow.com/football/leeds-united-vs-manchester-united-preview-premier-league-202610",
+   "날짜": "2026-10-16"
+  },
+  {
+   "팀": "홈",
+   "선수": "조 로던",
+   "포지션": "CB",
+   "이번시즌_선발/경기": "미확인",
+   "사유": "햄스트링",
+   "상태": "결장 — khelnow + YEP 검색요약('Rodon out, 신규 부상 없음') 2곳",
+   "출처": "https://khelnow.com/football/leeds-united-vs-manchester-united-preview-premier-league-202610 ; https://www.yorkshireeveningpost.co.uk/sport/football/leeds-united/leeds-united-daniel-farke-manchester-united-dan-james-joe-rodon-9290425",
+   "날짜": "2026-10-16"
+  },
+  {
+   "팀": "홈",
+   "선수": "대니얼 제임스",
+   "포지션": "윙",
+   "이번시즌_선발/경기": "미확인",
+   "사유": "허리",
+   "상태": "의심 — 훈련 복귀, 반응 좋으면 일요일 명단 가능(YEP 검색요약) + khelnow 의심 — 2곳",
+   "출처": "https://khelnow.com/football/leeds-united-vs-manchester-united-preview-premier-league-202610 ; https://www.yorkshireeveningpost.co.uk/sport/football/leeds-united/leeds-united-daniel-farke-manchester-united-dan-james-joe-rodon-9290425",
+   "날짜": "2026-10-16"
+  }
+ ],
+ "복귀": [
+  {
+   "팀": "원정",
+   "선수": "리산드로 마르티네스",
+   "상태": "카릭: 'Martinez는 스쿼드의 일부, 아틀레티코전 발언 사태는 정리' — 명단 포함",
+   "출처": "https://thepeoplesperson.com/2026/10/16/every-word-of-michael-carricks-leeds-united-pre-match-press-conference-319323/",
+   "날짜": "2026-10-16"
+  },
+  {
+   "팀": "원정",
+   "선수": "더 리흐트",
+   "상태": "복귀 가능성(khelnow 1곳, 카릭 언급 없음)",
+   "출처": "https://khelnow.com/football/leeds-united-vs-manchester-united-preview-premier-league-202610",
+   "날짜": "2026-10-16"
+  },
+  {
+   "팀": "홈",
+   "선수": "해리 윌슨",
+   "상태": "허벅지(quad) 회복, 출전 가능성(khelnow 1곳)",
+   "출처": "https://khelnow.com/football/leeds-united-vs-manchester-united-preview-premier-league-202610",
+   "날짜": "2026-10-16"
+  }
+ ],
+ "라인업": {
+  "홈": {
+   "발표여부": "미발표",
+   "예상XI": "Sports Mole: 트래포드; 무하레모비치, 엘베디, 저스틴; 보글, 암파두, 다나카, 구드문손; 슈타흐, 오카포르; 칼버트르윈 (James는 벤치 옵션)",
+   "출처": "https://www.sportsmole.co.uk/football/leeds-united/predicted-lineups/who-joins-calvert-lewin-in-attack-how-leeds-could-line-up-against-man-united_607089.html",
+   "날짜": "2026-10-16(WebSearch 요약)"
+  },
+  "원정": {
+   "발표여부": "미발표",
+   "예상XI": "미수집",
+   "출처": "-",
+   "날짜": "-"
+  }
+ },
+ "일정·피로": [
+  {
+   "팀": "원정",
+   "내용": "10/13(화) 아틀레티코 마드리드 원정(UCL) 치름, 쇼·마이누 미동행/결장, 휴식 약 4일; 요로 UCL 퇴장은 UEFA 대회만 정지(10/16 파일 유지)",
+   "출처": "https://thepeoplesperson.com/2026/10/16/every-word-of-michael-carricks-leeds-united-pre-match-press-conference-319323/ ; https://khelnow.com/football/leeds-united-vs-manchester-united-preview-premier-league-202610",
+   "날짜": "2026-10-16"
+  }
+ ],
+ "엇갈림": [
+  "쇼·마이누: 101greatgoals 제목 '쇼·마이누 제외'(ruled out) vs 기자회견록 '지켜보겠다' → 기자회견록 원문 기준 의심",
+  "로던: 10/16 khelnow 햄스트링 / YEP 검색요약은 4월 건과 혼재 가능(날짜 확인 불가)"
+ ],
+ "변경없음": {
+  "홈": "파르케 이번 주 기자회견 원문 못 찾음(YEP 403): WebSearch 3회, khelnow",
+  "원정": "Mazraoui·de Ligt·Dorgu·Ugarte는 카릭 회견에서 언급 없음: People's Person 회견록"
+ },
+ "번호": 10,
+ "홈": "리즈 유나이티드",
+ "원정": "맨체스터 유나이티드",
+ "수집시각": "2026-10-17 20:55 KST"
+}

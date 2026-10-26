@@ -1,0 +1,147 @@
+{
+  "번호": 13,
+  "홈": "클뤼프 브뤼허",
+  "원정": "RC 랑스",
+  "수집시각": "2026-10-20 22:30 KST",
+  "결장": [
+    {
+      "팀": "RC 랑스",
+      "선수": "Maik Nawrocki",
+      "포지션": "CB",
+      "이번시즌_선발/경기": "2경기 152분(선발 비중 낮음, ACL 파열)",
+      "득점·도움": "0골 0도움",
+      "사유": "ACL 파열(시즌아웃)",
+      "상태": "확정",
+      "복귀예정": "시즌 내 복귀 어려움(이번 시즌 거의 전부 결장)",
+      "대체선수": "Kyllian Antonio 또는 Samson Baidoo",
+      "출처": ["https://fr.soccerway.com/joueur/nawrocki-maik/GGeMJSqE/historique-blessures", "팀노트 랑스.md(2026-10-12)"],
+      "날짜": "2026-10-19"
+    },
+    {
+      "팀": "RC 랑스",
+      "선수": "Abdallah Sima",
+      "포지션": "FW",
+      "이번시즌_선발/경기": "전시즌 21경기 중 6선발·711분(로테이션 자원)",
+      "득점·도움": "2골 2도움(전시즌 기준)",
+      "사유": "허벅지 부상",
+      "상태": "확정",
+      "복귀예정": "11월 말",
+      "대체선수": "Florian Thauvin 또는 Junior Kadile",
+      "출처": ["https://sport-pulse.com/lens-ol-sima-niakhate-forfaits/", "팀노트 랑스.md(2026-10-12)"],
+      "날짜": "2026-10-19"
+    },
+    {
+      "팀": "RC 랑스",
+      "선수": "Jonathan Gradit",
+      "포지션": "CB",
+      "이번시즌_선발/경기": "확인 안됨(최근 결장 지속)",
+      "득점·도움": "미상",
+      "사유": "부상(구체 부위 미확인)",
+      "상태": "확정",
+      "복귀예정": "미상",
+      "대체선수": "Pierre Ganiou 또는 Kyllian Antonio",
+      "출처": ["https://www.hommedumatch.fr/rc-lens-un-defenseur-cle-est-blesse-et-son-absence-pourrait-fragiliser-lequipe-face-au-club-bruges-2938310/", "https://www.walfoot.be/news/2026-10-20/gros-coup-dur-pour-lens-avant-daffronter-le-club-de-bruges-en-ligue-des-champions"],
+      "날짜": "2026-10-20"
+    },
+    {
+      "팀": "RC 랑스",
+      "선수": "Ismaëlo Ganiou",
+      "포지션": "DF",
+      "이번시즌_선발/경기": "미상",
+      "득점·도움": "미상",
+      "사유": "무릎 부상(knieblessure)",
+      "상태": "확정",
+      "복귀예정": "이번 경기 불가",
+      "대체선수": "Matthieu Udol(CB 전환) 또는 Saud Abdulhamid",
+      "출처": ["https://www.voetbalprimeur.be/nieuws/2149032/knieblessure-houdt-ganiou-uit-club-brugge-lens.html"],
+      "날짜": "2026-10-20"
+    },
+    {
+      "팀": "RC 랑스",
+      "선수": "Ruben Aguilar",
+      "포지션": "RB",
+      "이번시즌_선발/경기": "미상",
+      "득점·도움": "미상",
+      "사유": "토요일(10/17) 경기 중 부상, 출전 불투명",
+      "상태": "의심",
+      "복귀예정": "미정(경기 직전 판가름)",
+      "대체선수": "Saud Abdulhamid",
+      "출처": ["https://www.hommedumatch.fr/rc-lens-un-defenseur-cle-est-blesse-et-son-absence-pourrait-fragiliser-lequipe-face-au-club-bruges-2938310/"],
+      "날짜": "2026-10-20"
+    },
+    {
+      "팀": "RC 랑스",
+      "선수": "Jean-Clair Todibo",
+      "포지션": "CB",
+      "이번시즌_선발/경기": "경기 감각 부족(최근 결장 뒤 복귀 중)",
+      "득점·도움": "미상",
+      "사유": "경기 감각 부족(완전 결장은 아님, 로테이션 의문)",
+      "상태": "의심",
+      "복귀예정": "출전 가능하나 선발 불확실",
+      "대체선수": "-",
+      "출처": ["https://www.walfoot.be/news/2026-10-20/gros-coup-dur-pour-lens-avant-daffronter-le-club-de-bruges-en-ligue-des-champions"],
+      "날짜": "2026-10-20"
+    },
+    {
+      "팀": "클뤼프 브뤼허",
+      "선수": "Joel Ordóñez",
+      "포지션": "CB",
+      "이번시즌_선발/경기": "0경기(이번 시즌 전혀 출전 못함)",
+      "득점·도움": "0골 0도움",
+      "사유": "월드컵에서 입은 발 골절, 수술 뒤 재활 연장(12월 말 복귀 전망)",
+      "상태": "확정",
+      "복귀예정": "12월 말",
+      "대체선수": "Brandon Mechele / Jorne Spileers",
+      "출처": ["https://www.voetbalbelgie.be/artikel/club-brugge-langer-zonder-ordonez", "https://www.voetbalprimeur.be/nieuws/2135746/nieuwe-domper-voor-club-brugge-ordonez-dreigt-maanden-out-te-zijn.html"],
+      "날짜": "2026-10-19"
+    }
+  ],
+  "라인업": {
+    "홈": {
+      "발표여부": "미발표(킥오프 수시간 전)",
+      "예상XI": "4-5-1 또는 4-2-3-1: Yann Sommer; Kyriani Sabbe, Brandon Mechele, Jorne Spileers, Joaquin Seys; Hans Vanaken, Hugo Vetlesen, Freddie Potts; Jan Virgili, Carlos Forbs, Nicolo Tresoldi (직전 인테르전 선발 기준, Ordóñez만 장기 결장)",
+      "포메이션": "4-5-1/4-2-3-1",
+      "출처": ["팀노트 클뤼프 브뤼허.md INPUTS(2026-10-20, ESPN 직전 선발)"],
+      "날짜": "2026-10-20"
+    },
+    "원정": {
+      "발표여부": "미발표",
+      "예상XI": "3-4-2-1 추정(직전 Sporting전 선발 기반, 수비 로테이션 변동 큼): Robin Risser; Samson Baidoo, Pierre Ganiou(대체 후보), Jonathan Gradit(결장 가능) 자리에 Matthieu Udol 이동; Kyllian Antonio, Amadou Haidara, Michaël Cuisance, Saud Abdulhamid(RB); Franjo Ivanovic, Junior Kadile, Florian Thauvin",
+      "포메이션": "3-4-2-1(변형 가능, Udol 중앙 이동·Abdulhamid 우측 기용 전망)",
+      "출처": ["https://www.hommedumatch.fr/rc-lens-un-defenseur-cle-est-blesse-et-son-absence-pourrait-fragiliser-lequipe-face-au-club-bruges-2938310/", "팀노트 RC랑스.md INPUTS(2026-10-20)"],
+      "날짜": "2026-10-20"
+    }
+  },
+  "최근경기": [
+    {"팀": "클뤼프 브뤼허", "날짜": "2026-10-14", "상대": "인테르나치오날레(원정)", "장소": "산시로", "스코어": "3-4 승(브뤼허)", "비고": "UCL MD2, Tresoldi 해트트릭·Forbs 2도움"},
+    {"팀": "클뤼프 브뤼허", "날짜": "2026-10-04(추정, 리그 8라운드)", "상대": "라알 라루비에르(홈 아님, 원정 추정)", "장소": "미상", "스코어": "4-1 승", "비고": "리그 선두 유지, Vetlesen·Virgili·Tresoldi(PK)·Lemaréchal 득점"},
+    {"팀": "RC 랑스", "날짜": "2026-10-18", "상대": "트루아(홈)", "장소": "스타드 보라르-뒤엘롱", "스코어": "3-1 승", "비고": "리그1, Thauvin 2도움, 최근 2연승"},
+    {"팀": "RC 랑스", "날짜": "2026-10-14", "상대": "스포르팅 CP(홈)", "장소": "스타드 보라르-뒤엘롱", "스코어": "0-2 패", "비고": "UCL MD2"},
+    {"팀": "RC 랑스", "날짜": "2026-09-10", "상대": "슬라비아 프라하(원정)", "장소": "프라하", "스코어": "3-2 승", "비고": "UCL MD1, 유럽 원정 16경기 무승 행진 종료"}
+  ],
+  "순위": {
+    "홈": "벨기에 유필러 프로리그 1위(리그 선두, 2025-26 시즌 2위였으나 2026-27 현재 선두권) · UCL 리그페이즈 2경기 1승1패 GD 0 승점3, 18위(36팀 중) — MD2 종료 기준",
+    "원정": "프랑스 리그1 2026-27 시즌 8경기 전후 상위권 추정(3연승 포함 흐름 개선) · UCL 리그페이즈 2경기 1승1패 GD -1 승점3, 19위(36팀 중) — MD2 종료 기준",
+    "출처": "https://en.wikipedia.org/wiki/2026%E2%80%9327_UEFA_Champions_League_league_phase, 팀노트/RC랑스.md FACTS",
+    "날짜": "2026-10-20"
+  },
+  "감독": {
+    "홈": "Ivan Leko(브뤼허 감독, 변동 없음)",
+    "원정": "Yannick Cahuzac(2026-09-15 디노 톱묄러 경질 후 취임, 코치진 출신)",
+    "변동": "랑스만 시즌 중 감독 교체(최단 재임 경질 기록) — 브뤼허는 변동 없음",
+    "출처": ["팀노트/랑스.md(2026-10-12)", "https://www.voetbalkrant.com/nieuws/2026-09-15/club-brugge-heeft-extra-probleem-met-ordonez-zorgen-voor-ivan-leko"],
+    "날짜": "2026-10-20"
+  },
+  "일정·동기·기타": [
+    {"내용": "브뤼허는 10/14 산시로에서 인테르 4-3 격파 뒤 주말 리그 일정 없이(10/19 주간 경기 없음) 8일 휴식, 10/25 신트트라위던전 전 홈에서 랑스 상대", "출처": "https://www.voetbalkrant.com/nieuws/2026-10-19/snelle-kaartentrekker-en-drama-voor-cercle-brugge-dit-is-de-ref-voor-club-brugge-lens", "날짜": "2026-10-19"},
+    {"내용": "랑스는 리그1 트루아전 승리(10/18) 뒤 이틀여 만에 UCL 원정, Cahuzac는 점유율·경기 운영 미흡을 지적하며 수비 전력 손실(Nawrocki·Sima·Gradit·Ganiou·Aguilar 의문)을 우려", "출처": "https://www.mediasportif.fr/2026/10/18/rc-lens-le-club-simpose-face-a-troyes-mais-yannick-cahuzac-sinquiete-dun-manque-precis/", "날짜": "2026-10-18"},
+    {"내용": "심판은 포르투갈 Luis Godinho 배정", "출처": "https://www.voetbalkrant.com/nieuws/2026-10-19/snelle-kaartentrekker-en-drama-voor-cercle-brugge-dit-is-de-ref-voor-club-brugge-lens", "날짜": "2026-10-19"},
+    {"내용": "환경 정보(입력 수집): 얀 브레이덜 스타디온, 이동거리 88km(랑스 기준 근거리), 기온 9.0℃, 강수 2.7mm(55%), 바람 27.0km/h — 비·강풍 변수 있음", "출처": "팀노트/클뤼프 브뤼허.md INPUTS(2026-10-20)", "날짜": "2026-10-20"}
+  ],
+  "엇갈림": [
+    "Abdallah Sima 결장 기간: 팀노트 2026-10-12 기록은 단순 '확정 결장'(기간 불명)이었으나 2026-10-20 sport-pulse 기사는 '11월 말까지 결장'으로 구체화 — 최신 쪽(11월 말)을 채택.",
+    "직전 브뤼허 경기 평가: 팀노트 2026-10-13 기존 메모는 'UCL MD1 홈에서 애스턴 빌라에 2-3 패'를 가장 최근 경기로 적었으나, 실제 가장 최근 공식전은 2026-10-14 인테르 원정 4-3 승(MD2)이다 — 오래된 메모이므로 최신 경기 결과로 대체."
+  ],
+  "못찾음": ["Jonathan Gradit 부상 부위 구체 정보", "랑스 리그1 2026-27 현재 정확한 순위·승점(8라운드 기준 수치는 팀노트 구버전(6경기 7점 10위)이며 10/18 트루아전 승리 이후 갱신치 미확인)", "브뤼허 최신 리그 순위·승점 상세(선두 여부만 확인, 정확한 경기수·승점 미확인)"],
+  "뉴스없음": {}
+}

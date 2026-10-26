@@ -1,0 +1,200 @@
+[
+ {
+  "번호": "9192",
+  "홈": "우디네세",
+  "원정": "US 레체",
+  "기준선": {
+   "승": 49.3,
+   "무": 28.7,
+   "패": 22.0,
+   "출처": "soccer_baseline pi-rating ita.1 2026-10-17 (base_9192.txt)"
+  },
+  "득점모델": {
+   "방식": "xG",
+   "λ홈": 1.45,
+   "λ원정": 1.0,
+   "출처": "우디네세 xG 1.06·xGA 2.02/경기(팀노트 10/12, 5경기)만 있고 레체 xG 없음 → 레체 수치는 리그평균 가정으로 xG식 홈 1.24·원정 1.5, 이를 40% + 기준선 1.55:0.96 60% 혼합 후 자니올로·바요·게예 결장(홈 −4%)·Ilić·Berisha 결장(원정 −3%)·홈 보정 반영해 총 2.45"
+  },
+  "요인": [
+   {
+    "유형": "결장",
+    "팀": "홈",
+    "선수": "Nicolò Zaniolo",
+    "등급": "B(추정)",
+    "상태": "확정",
+    "영향": -2.0,
+    "내용": "공격형 MF/FW, 감독 회견 확정(Napoli Magazine·Sky·DAZN·Corriere 4곳). 시즌 선발 수 미확인, 팀노트 '핵심 공격수'. 대체 Ekkelenkamp/Chakvetadze",
+    "출처": "https://www.napolimagazine.com/calcio/articolo/udinese-runjaic-davis-e-zanoli-saranno-a-disposizione-zaniolo-bayo-e-gueye-non-saranno-della-gara-17-10-2026 ; https://sport.sky.it/calcio/serie-a/2026/10/17/udinese-lecce-probabili-formazioni-7-giornata ; https://www.dazn.com/it-IT/news/calcio/probabili-formazioni-serie-a-chi-gioca-indisponibili-e-squalificati/n7xdzcbuno6l1pzsf52p6y1cw",
+    "날짜": "2026-10-17"
+   },
+   {
+    "유형": "결장",
+    "팀": "홈",
+    "선수": "Bayo·Gueye",
+    "등급": "B(추정)",
+    "상태": "확정",
+    "영향": -0.8,
+    "내용": "FW·MF 결장 감독 확인, 사유·선발 수 미확인이라 합산 작게. 대체 Davis(FW)",
+    "출처": "https://www.napolimagazine.com/calcio/articolo/udinese-runjaic-davis-e-zanoli-saranno-a-disposizione-zaniolo-bayo-e-gueye-non-saranno-della-gara-17-10-2026 ; https://sport.sky.it/calcio/serie-a/2026/10/17/udinese-lecce-probabili-formazioni-7-giornata ; https://www.dazn.com/it-IT/news/calcio/probabili-formazioni-serie-a-chi-gioca-indisponibili-e-squalificati/n7xdzcbuno6l1pzsf52p6y1cw",
+    "날짜": "2026-10-17"
+   },
+   {
+    "유형": "복귀",
+    "팀": "홈",
+    "선수": "Keinan Davis",
+    "등급": "B(추정)",
+    "상태": "확정",
+    "영향": 0.8,
+    "내용": "복귀, 선발 예정(Runjaic)",
+    "출처": "https://www.napolimagazine.com/calcio/articolo/udinese-runjaic-davis-e-zanoli-saranno-a-disposizione-zaniolo-bayo-e-gueye-non-saranno-della-gara-17-10-2026 ; https://sport.sky.it/calcio/serie-a/2026/10/17/udinese-lecce-probabili-formazioni-7-giornata ; https://www.dazn.com/it-IT/news/calcio/probabili-formazioni-serie-a-chi-gioca-indisponibili-e-squalificati/n7xdzcbuno6l1pzsf52p6y1cw",
+    "날짜": "2026-10-17"
+   },
+   {
+    "유형": "복귀",
+    "팀": "홈",
+    "선수": "Zanoli",
+    "등급": "C",
+    "상태": "확정",
+    "영향": 0,
+    "내용": "출전 가능(Runjaic), Corriere는 결장 목록 엇갈림 → 0",
+    "출처": "https://www.napolimagazine.com/calcio/articolo/udinese-runjaic-davis-e-zanoli-saranno-a-disposizione-zaniolo-bayo-e-gueye-non-saranno-della-gara-17-10-2026 ; https://sport.sky.it/calcio/serie-a/2026/10/17/udinese-lecce-probabili-formazioni-7-giornata ; https://www.dazn.com/it-IT/news/calcio/probabili-formazioni-serie-a-chi-gioca-indisponibili-e-squalificati/n7xdzcbuno6l1pzsf52p6y1cw",
+    "날짜": "2026-10-17"
+   },
+   {
+    "유형": "결장",
+    "팀": "홈",
+    "선수": "Abankwah·Piotrowski",
+    "등급": "C",
+    "상태": "의심",
+    "영향": 0,
+    "내용": "Abankwah 훈련 불편감(부상 아님), Piotrowski 1곳(심장 보도 1건) → 의심, 영향 0",
+    "출처": "https://www.napolimagazine.com/calcio/articolo/udinese-runjaic-davis-e-zanoli-saranno-a-disposizione-zaniolo-bayo-e-gueye-non-saranno-della-gara-17-10-2026 ; https://sport.sky.it/calcio/serie-a/2026/10/17/udinese-lecce-probabili-formazioni-7-giornata ; https://www.dazn.com/it-IT/news/calcio/probabili-formazioni-serie-a-chi-gioca-indisponibili-e-squalificati/n7xdzcbuno6l1pzsf52p6y1cw",
+    "날짜": "2026-10-17"
+   },
+   {
+    "유형": "결장",
+    "팀": "원정",
+    "선수": "Ilić",
+    "등급": "B(추정)",
+    "상태": "확정",
+    "영향": 1.2,
+    "내용": "MF 부상 확정(Sky·DAZN·Corriere), 선발 수 미확인. 대체 Ngom",
+    "출처": "https://www.corrieresalentino.it/2026/10/udinese-lecce-formazioni-a-confronto-orfane-di-ilic-e-zaniolo/ ; https://sport.sky.it/calcio/serie-a/2026/10/17/udinese-lecce-probabili-formazioni-7-giornata ; https://www.dazn.com/it-IT/news/calcio/probabili-formazioni-serie-a-chi-gioca-indisponibili-e-squalificati/n7xdzcbuno6l1pzsf52p6y1cw",
+    "날짜": "2026-10-17"
+   },
+   {
+    "유형": "결장",
+    "팀": "원정",
+    "선수": "Berisha",
+    "등급": "B(추정)",
+    "상태": "확정",
+    "영향": 0.8,
+    "내용": "FW 결장, 사유 미기재. 대체 Fatah/Pierotti",
+    "출처": "https://www.corrieresalentino.it/2026/10/udinese-lecce-formazioni-a-confronto-orfane-di-ilic-e-zaniolo/ ; https://sport.sky.it/calcio/serie-a/2026/10/17/udinese-lecce-probabili-formazioni-7-giornata ; https://www.dazn.com/it-IT/news/calcio/probabili-formazioni-serie-a-chi-gioca-indisponibili-e-squalificati/n7xdzcbuno6l1pzsf52p6y1cw",
+    "날짜": "2026-10-17"
+   },
+   {
+    "유형": "결장",
+    "팀": "원정",
+    "선수": "Štulić",
+    "등급": "C",
+    "상태": "의심",
+    "영향": 0.2,
+    "내용": "DAZN 복귀 가능 vs 타 요약 결장 가능 엇갈림. 대체 Geubbels",
+    "출처": "https://www.corrieresalentino.it/2026/10/udinese-lecce-formazioni-a-confronto-orfane-di-ilic-e-zaniolo/ ; https://sport.sky.it/calcio/serie-a/2026/10/17/udinese-lecce-probabili-formazioni-7-giornata ; https://www.dazn.com/it-IT/news/calcio/probabili-formazioni-serie-a-chi-gioca-indisponibili-e-squalificati/n7xdzcbuno6l1pzsf52p6y1cw",
+    "날짜": "2026-10-17"
+   },
+   {
+    "유형": "xG",
+    "팀": "홈",
+    "선수": "",
+    "등급": "",
+    "상태": "추정",
+    "영향": -2.0,
+    "내용": "기준선 불신: 우디네세 xG 1.06·xGA 2.02(차 −0.96, 5경기), 리그 4연패·15위인데 pi는 홈 +0.39. 표본 작아 −2로 제한; 레체 xG는 없음",
+    "출처": "팀노트 우디네세.md 성향(2026-10-12)",
+    "날짜": "2026-10-12"
+   },
+   {
+    "유형": "뉴스없음",
+    "팀": "홈",
+    "영향": 0,
+    "검색처": "징계·경고누적 결장 없음(Sky·DAZN), 감독 변동 없음"
+   },
+   {
+    "유형": "뉴스없음",
+    "팀": "원정",
+    "영향": 0,
+    "검색처": "징계·감독 변동 없음(Di Francesco), 회견 원문은 못 찾음"
+   }
+  ],
+  "최종": {
+   "승": 47.5,
+   "무": 27.0,
+   "패": 25.5
+  },
+  "선택지": [
+   {
+    "번호": "9192",
+    "선택": "승",
+    "확률": 47.5,
+    "계산": "기준선 49.3 + Σ영향 −1.8"
+   },
+   {
+    "번호": "9192",
+    "선택": "무",
+    "확률": 27.0,
+    "계산": "기준선 28.7 −1.7(±3 이내; 포아송 26.5와 근접)"
+   },
+   {
+    "번호": "9192",
+    "선택": "패",
+    "확률": 25.5,
+    "계산": "100-47.5-27.0"
+   },
+   {
+    "번호": "9193",
+    "선택": "승",
+    "확률": 23.4,
+    "계산": "H-1 승 = 홈 2골차+ 승, 포아송 λ1.45:1.00"
+   },
+   {
+    "번호": "9193",
+    "선택": "무",
+    "확률": 24.1,
+    "계산": "H-1 무 = 홈 1골차 승, 포아송"
+   },
+   {
+    "번호": "9193",
+    "선택": "패",
+    "확률": 52.5,
+    "계산": "H-1 패 = 100-23.4-24.1 (홈 무·패 포함 27.0+25.5=52.5 정합)"
+   },
+   {
+    "번호": "9194",
+    "선택": "언더",
+    "확률": 55.7,
+    "계산": "U2.5 = P(총득점≤2), 포아송 λ1.45:1.00 (총 2.45, 리그평균 2.53 근처)"
+   },
+   {
+    "번호": "9194",
+    "선택": "오버",
+    "확률": 44.3,
+    "계산": "100-55.7"
+   }
+  ],
+  "결론": "기준선 49.3에서 자니올로·바요·게예 결장(-2.8), 다비스 복귀(+0.8), 레체 일리치·베리샤 결장(+2.0)과 우디네세 xG 불신(-2.0)을 합쳐 47.5/27.0/25.5. 우디네세 수비(xGA 2.02)가 약하고 4연패라 홈 우세폭을 줄였고, 홈 2골차+ 승은 23%로 낮다. 레체 xG 자료가 없어 득점모델 신뢰는 낮고 U2.5는 56% 근처 박빙.",
+  "미확인": [
+   "레체 xG/xGA",
+   "결장자 시즌 선발 수",
+   "Abankwah·Piotrowski·Zanoli·Štulić 가용",
+   "확정 라인업",
+   "Di Francesco 회견"
+  ],
+  "추가 수집 요청": [
+   "레체 Understat xG/xGA 시즌 수치",
+   "우디네세 6라운드 후 xG 갱신",
+   "킥오프 직전 공식 라인업"
+  ]
+ }
+]

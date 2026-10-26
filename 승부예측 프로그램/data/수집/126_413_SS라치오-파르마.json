@@ -1,0 +1,160 @@
+{
+  "번호": 413,
+  "홈": "SS라치오",
+  "원정": "파르마",
+  "리그": "세리에A 2026-27 8라운드(8ª giornata)",
+  "구장": "Stadio Olimpico(로마) — 교차확인: tuttosport.com, lazionews24.com",
+  "킥오프": "현지 10-24 20:45 CEST = 10-25 03:45 KST",
+  "수집시각": "2026-10-24 21:55 KST",
+  "팩트시트_입력_126_인용": {
+    "입력_126.md": "해당 경기(413번) 행이 아직 생성되지 않음 — 킥오프가 늦은 시각(03:45 KST)이라 2026-10-24 21:13 수집 시점 입력_126.md에 미수록. 수집 당시 가장 늦은 행은 번호 365(23:30 KST)까지였음.",
+    "팩트시트_126.md": "해당 없음 — 파일이 비어 있음(헤더만 존재, 자동 수집 전)"
+  },
+  "teamdb_card": {
+    "홈_Lazio": "순위 2위 7경기 6승1무0패 GD+10 승점19 · 시즌xG1.72/xGA1.36(npxGD+0.37) · 최근5 1.83/1.34 · xPts11.6(운 좋음) · 포메이션 4-3-3 100% · 핵심선수 Zaccagni(22%,89분), Frattesi(14%,76분)",
+    "원정_Parma": "시즌xG0.85/xGA2.01(npxGD-1.16) · 최근5 0.94/2.19 · xPts4.8 vs 승점4(적정) · 포메이션 3-4-2-1 69% · 핵심선수 Valeri(19%,90분), David Romero(13%,47분) — 순위 정보 teamdb 미출력(최하위권으로 추정, 아래 뉴스 참고 19위)"
+  },
+  "결장": [
+    {
+      "팀": "SS라치오",
+      "선수": "Matteo Rovella",
+      "포지션": "MF",
+      "이번시즌_선발/경기": "미상",
+      "득점·도움": "미상",
+      "사유": "미상(결장으로만 표기, 사유 비공개)",
+      "상태": "확정(indisponibile로 명시)",
+      "복귀예정": "미상",
+      "대체선수": "Kenneth Taylor(추정, 예상 XI 기준)",
+      "출처": ["https://www.tuttofantacalcio.it/probabili-formazioni/serie-a-probabili-formazioni-lazio-parma-fantacalcio-35038"],
+      "날짜": "2026-10-23"
+    },
+    {
+      "팀": "SS라치오",
+      "선수": "Gudmundsson(이름 전체 불명, 아이슬란드 선수 추정)",
+      "포지션": "미상",
+      "이번시즌_선발/경기": "미상",
+      "득점·도움": "미상",
+      "사유": "미상",
+      "상태": "확정(indisponibile)",
+      "복귀예정": "미상",
+      "대체선수": "미상",
+      "출처": ["https://www.tuttofantacalcio.it/probabili-formazioni/serie-a-probabili-formazioni-lazio-parma-fantacalcio-35038"],
+      "날짜": "2026-10-23"
+    },
+    {
+      "팀": "SS라치오",
+      "선수": "Adam Marusic",
+      "포지션": "DF",
+      "이번시즌_선발/경기": "미상",
+      "득점·도움": "미상",
+      "사유": "미상",
+      "상태": "확정(indisponibile)",
+      "복귀예정": "미상",
+      "대체선수": "Nuno Tavares(예상 선발 기준)",
+      "출처": ["https://www.tuttofantacalcio.it/probabili-formazioni/serie-a-probabili-formazioni-lazio-parma-fantacalcio-35038"],
+      "날짜": "2026-10-23"
+    },
+    {
+      "팀": "파르마",
+      "선수": "Simone Nicolussi Caviglia",
+      "포지션": "MF",
+      "이번시즌_선발/경기": "미상",
+      "득점·도움": "미상",
+      "사유": "미상",
+      "상태": "확정(indisponibile)",
+      "복귀예정": "미상",
+      "대체선수": "미상",
+      "출처": ["https://www.tuttofantacalcio.it/probabili-formazioni/serie-a-probabili-formazioni-lazio-parma-fantacalcio-35038"],
+      "날짜": "2026-10-23"
+    },
+    {
+      "팀": "파르마",
+      "선수": "Pontus Almqvist",
+      "포지션": "FW",
+      "이번시즌_선발/경기": "미상(teamdb 핵심선수 목록 등장 — 0.4xG+0.3xA, 14분/경기 — 출전시간 적음)",
+      "득점·도움": "미상",
+      "사유": "미상",
+      "상태": "확정(indisponibile)",
+      "복귀예정": "미상",
+      "대체선수": "미상",
+      "출처": ["https://www.tuttofantacalcio.it/probabili-formazioni/serie-a-probabili-formazioni-lazio-parma-fantacalcio-35038"],
+      "날짜": "2026-10-23"
+    },
+    {
+      "팀": "파르마",
+      "선수": "Nesta Elphege",
+      "포지션": "FW(teamdb 핵심선수 목록 등장 — 0.4xG+0.5xA, 33분/경기)",
+      "이번시즌_선발/경기": "미상",
+      "득점·도움": "미상",
+      "사유": "미상",
+      "상태": "확정(indisponibile)",
+      "복귀예정": "미상",
+      "대체선수": "미상",
+      "출처": ["https://www.tuttofantacalcio.it/probabili-formazioni/serie-a-probabili-formazioni-lazio-parma-fantacalcio-35038"],
+      "날짜": "2026-10-23"
+    }
+  ],
+  "의심": [
+    {"팀": "SS라치오", "선수": "Josip Sutalo vs Davy Doekhi", "내용": "센터백 경합 51%-49%(Sutalo 우세로 예상)", "출처": "tuttofantacalcio.it", "날짜": "2026-10-23"},
+    {"팀": "SS라치오", "선수": "Tijjani Noslin vs Andrea Pinamonti", "내용": "최전방 경합 51%-49%(Noslin 우세로 예상)", "출처": "tuttofantacalcio.it", "날짜": "2026-10-23"},
+    {"팀": "파르마", "선수": "Adrián Bernabé vs Enzo Sierro", "내용": "중원 경합 55%-45%(Bernabé 우세)", "출처": "tuttofantacalcio.it", "날짜": "2026-10-23"},
+    {"팀": "파르마", "선수": "Giovanni Fabbian vs Simone Lontani", "내용": "2선 경합 51%-49%(Fabbian 우세)", "출처": "tuttofantacalcio.it", "날짜": "2026-10-23"}
+  ],
+  "라인업": {
+    "홈": {
+      "발표여부": "미발표(예상)",
+      "예상XI": "4-3-3: Mandas; Floriani, Sutalo, Provstgaard, Tavares; Taylor, Belahyane, Frattesi; Isaksen, Noslin, Zaccagni",
+      "포메이션": "4-3-3",
+      "출처": ["https://www.tuttofantacalcio.it/probabili-formazioni/serie-a-probabili-formazioni-lazio-parma-fantacalcio-35038", "https://www.lazionews.eu/notizie/probabili-formazioni-lazio-parma/"],
+      "날짜": "2026-10-23"
+    },
+    "원정": {
+      "발표여부": "미발표(예상)",
+      "예상XI": "3-4-2-1: Corvi; Delprato, Diego Carlos, Troilo; Britschgi, Bernabè, Keità M., Valeri; Fabbian, Tourè E.; Romero",
+      "포메이션": "3-4-2-1",
+      "출처": ["https://www.tuttofantacalcio.it/probabili-formazioni/serie-a-probabili-formazioni-lazio-parma-fantacalcio-35038", "https://www.tuttosport.com/news/calcio/serie-a/parma/2026/10/23-152086695/gilardino_predica_calma_per_il_mio_parma_serve_tempo_tanti_dubbi_per_la_sfida_contro_la_lazio"],
+      "날짜": "2026-10-23"
+    }
+  },
+  "최근경기": [
+    {"팀": "SS라치오", "날짜": "2026-10-18", "상대": "Juventus(A, 세리에A)", "장소": "원정", "스코어": "3-0", "비고": "완승, xG 0.82:0.60(teamdb)"},
+    {"팀": "SS라치오", "날짜": "2026-10-11", "상대": "Monza(H, 세리에A)", "장소": "홈", "스코어": "3-1", "비고": "승, xG 2.22:1.30"},
+    {"팀": "파르마", "날짜": "2026-10-19", "상대": "Torino(H, 세리에A)", "장소": "홈", "스코어": "0-3", "비고": "패, xG 1.27:1.33(teamdb)"},
+    {"팀": "파르마", "날짜": "2026-10-10", "상대": "Internazionale(A, 세리에A)", "장소": "원정", "스코어": "0-3", "비고": "패, xG 0.41:2.90"}
+  ],
+  "맞대결": [
+    {"내용": "통산 70경기 라치오 31승 23무 16패 우세", "출처": "lalaziosiamonoi.it, lazionews.eu", "날짜": "2026-10-22"},
+    {"내용": "올림피코에서는 36경기 라치오 21승 11무 4패, 최근 10경기 라치오 무패(8승2무)", "출처": "lalaziosiamonoi.it, lazionews.eu", "날짜": "2026-10-22"},
+    {"내용": "최근 맞대결: 2026-04-04 올림피코 1-1 무승부. 2010년 이후 라치오 16승5무2패로 압도적 우세", "출처": "lazialita.com, laziostory.it", "날짜": "2026-10-22"}
+  ],
+  "일정_피로": [
+    {"팀": "SS라치오", "내용": "유럽대항전 미참가(팩트 미확인 — 검색상 언급 없음), 7일 1경기 로테이션으로 체력 부담 적음(teamdb 기준 PPDA·xG 꾸준)", "출처": "teamdb.py card", "날짜": "2026-10-24"},
+    {"팀": "파르마", "내용": "감독 교체(Cuesta→Gilardino, 9/27) 이후 재건 중, 충격 효과 아직 없음. 이번 주 특별한 중간 경기 없이 정상 휴식", "출처": "https://sport.quotidiano.net/calcio/parma/rescissione-consensuale-con-il-parma-2dcfa393", "날짜": "2026-10-24"}
+  ],
+  "동기": [
+    {"내용": "라치오 2위 19점, Gattuso 부임 이후 호성적('super Lazio di Gattuso' 표현)", "출처": "https://www.notiziariocalcio.com/serie-a/lazio-parma-presentazione-match-dove-vederla-probabili-formazioni-380165", "날짜": "2026-10-23"},
+    {"내용": "파르마 19위(최하위권) 7경기 4점, 감독 경질(Cuesta) 후 Gilardino 체제 '피엔 크리시'(in piena crisi, 완전한 위기) — Gilardino 본인도 '시간이 필요하다' 발언, 라치오전 의문부호 많다고 인정", "출처": ["https://www.notiziariocalcio.com/serie-a/lazio-parma-presentazione-match-dove-vederla-probabili-formazioni-380165", "https://www.tuttosport.com/news/calcio/serie-a/parma/2026/10/23-152086695/gilardino_predica_calma_per_il_mio_parma_serve_tempo_tanti_dubbi_per_la_sfida_contro_la_lazio"], "날짜": "2026-10-23"}
+  ],
+  "감독": {
+    "홈": "Gennaro Gattuso(2026-06-23 공식 선임, 전임 Maurizio Sarri 후임, 2028년까지 계약)",
+    "원정": "Alberto Gilardino(2026-09-29 공식 선임, 전임 Carlos Cuesta 9/27 상호 합의 결별 후 부임)",
+    "변동": "양팀 모두 이번 시즌 중 감독 교체 이력 있음 — 라치오는 시즌 전 교체, 파르마는 시즌 중(5경기 4점 부진 후) 교체",
+    "출처": ["https://www.sslazio.it/en/news/comunicati/comunicato-ufficiale-or-gennaro-gattuso", "https://sport.sky.it/calcio/serie-a/2026/09/29/alberto-gilardino-parma-allenatore-news"],
+    "날짜": "2026-06-23 / 2026-09-29"
+  },
+  "날씨": {
+    "내용": "로마(올림피코) 토요일 불안정, 흐림+오후 소나기 가능성, 최고기온 약 19℃. 입력_126.md에 해당 경기 환경 데이터 미수록(킥오프 늦어 아직 미생성) — 이 값은 웹 수집",
+    "출처": "https://moveo.telepass.com/meteo-roma-weekend-24-25-ottobre-2026/",
+    "날짜": "2026-10-24"
+  },
+  "심판": {
+    "주심": "Alberto Arena(Torre del Greco)",
+    "부심": "Ceccon, Ceolin",
+    "4심": "Doveri",
+    "VAR": "Santoro(AVAR: Mazzoleni)",
+    "출처": ["https://www.lazionews24.com/arbitro-lazio-parma-arena-sfida-8a/", "https://www.laziopress.it/news/44994054/lazio-parma-svelato-l-arbitro-del-match-sara-ruben-arena"],
+    "날짜": "2026-10-21~22"
+  },
+  "못찾음": ["입력_126.md·팩트시트_126.md에 해당 경기 데이터 없음(킥오프 시각이 자동 수집 범위를 벗어남)", "라치오 결장자(Rovella·Gudmundsson·Marusic)의 구체적 부상 부위·이번 시즌 선발 횟수", "파르마 결장자(Nicolussi Caviglia·Almqvist·Elphege)의 구체적 부상 부위", "파르마 정확한 순위(teamdb 미출력, 뉴스 기준 19위 추정)"],
+  "뉴스없음": {"홈": "해당 없음(결장 뉴스 확인됨)", "원정": "해당 없음(결장 뉴스 확인됨)"}
+}

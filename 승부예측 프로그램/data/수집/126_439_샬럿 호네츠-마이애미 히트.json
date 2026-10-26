@@ -1,0 +1,127 @@
+{
+  "번호": 439,
+  "종목": "농구(NBA)",
+  "홈": "샬럿 호네츠",
+  "원정": "마이애미 히트",
+  "리그": "NBA 2026-27 정규시즌",
+  "구장": "Spectrum Center, Charlotte",
+  "킥오프": "2026-10-25 07:00 KST (2026-10-24 18:00 ET)",
+  "수집시각": "2026-10-24 21:45 KST",
+  "시즌경기수": {
+    "홈": "2경기 (1승1패)",
+    "원정": "2경기 (0승2패)",
+    "비고": "개막 직후 — 양팀 모두 표본 2경기뿐이라 시즌 지표 신뢰도 낮음",
+    "출처": ["https://www.espn.com/nba/team/schedule/_/name/cha", "https://www.espn.com/nba/team/schedule/_/name/mia"],
+    "날짜": "2026-10-24"
+  },
+  "전경기결과": [
+    {"팀": "샬럿 호네츠", "날짜": "2026-10-21", "상대": "Brooklyn Nets", "장소": "원정", "스코어": "110-103", "결과": "승"},
+    {"팀": "샬럿 호네츠", "날짜": "2026-10-23", "상대": "Atlanta Hawks", "장소": "홈", "스코어": "81-128", "결과": "패(대패, -47점차)"},
+    {"팀": "마이애미 히트", "날짜": "2026-10-21", "상대": "Minnesota Timberwolves", "장소": "홈", "스코어": "106-131", "결과": "패"},
+    {"팀": "마이애미 히트", "날짜": "2026-10-23", "상대": "Detroit Pistons", "장소": "홈", "스코어": "111-128", "결과": "패"}
+  ],
+  "출처_전경기결과": ["https://www.espn.com/nba/team/schedule/_/name/cha", "https://www.espn.com/nba/team/schedule/_/name/mia"],
+  "날짜_전경기결과": "2026-10-24",
+  "결장": [
+    {
+      "팀": "샬럿 호네츠",
+      "선수": "Kylan Boswell",
+      "포지션": "G",
+      "이번시즌_득점·출전시간": "0경기 출전(시즌 전체 결장)",
+      "사유": "오른쪽 무릎 관절경 수술(경미한 시술이나 복귀 시점 불명확)",
+      "상태": "확정(out)",
+      "출처": ["https://www.espn.com/nba/team/injuries/_/name/cha/charlotte-hornets", "https://sports.yahoo.com/articles/charlotte-hornets-reveal-injury-report-162041606.html"],
+      "날짜": "2026-10-20"
+    },
+    {
+      "팀": "샬럿 호네츠",
+      "선수": "Grant Williams",
+      "포지션": "F",
+      "이번시즌_득점·출전시간": "0경기 출전(시즌 전체 결장)",
+      "사유": "오른쪽 햄스트링 부상",
+      "상태": "확정(out)·일부 매체는 game-time decision 표기",
+      "출처": ["https://www.espn.com/nba/team/injuries/_/name/cha/charlotte-hornets"],
+      "날짜": "2026-10-23"
+    },
+    {
+      "팀": "샬럿 호네츠",
+      "선수": "Coby White",
+      "포지션": "G",
+      "이번시즌_득점·출전시간": "0경기 출전(프리시즌부터 결장, 종아리 부상)",
+      "사유": "왼쪽 종아리 긴장(프리시즌부터)",
+      "상태": "확정(out)",
+      "출처": ["https://www.espn.com/nba/team/injuries/_/name/cha/charlotte-hornets", "https://www.nba.com/news/kon-knueppel-out-season-opener"],
+      "날짜": "2026-10-23"
+    },
+    {
+      "팀": "샬럿 호네츠",
+      "선수": "Kon Knueppel",
+      "포지션": "G",
+      "이번시즌_득점·출전시간": "0경기 출전(시즌 전체 결장, 트레이닝캠프 부상)",
+      "사유": "왼쪽 햄스트링 긴장",
+      "상태": "확정(out)",
+      "출처": ["https://www.espn.com/nba/team/injuries/_/name/cha/charlotte-hornets", "https://www.nba.com/news/kon-knueppel-out-season-opener"],
+      "날짜": "2026-10-23"
+    },
+    {
+      "팀": "마이애미 히트",
+      "선수": "없음",
+      "포지션": "-",
+      "이번시즌_득점·출전시간": "-",
+      "사유": "-",
+      "상태": "해당 없음 — 10/24 경기 기준 히트 인저리 리포트에 등재 선수 0명",
+      "출처": ["https://www.espn.com/nba/team/injuries/_/name/mia/miami-heat", "https://www.teamrankings.com/nba/matchup/heat-hornets-2026-10-24/injuries"],
+      "날짜": "2026-10-24"
+    }
+  ],
+  "라인업": {
+    "홈": {
+      "발표여부": "예상(공식 발표 전)",
+      "예상XI": "Dennis Schröder(G) - Sion James(G) - Brandon Miller(F) - Naz Reid(F) - Moussa Diabaté(C)",
+      "비고": "주전 가드 Coby White·Kon Knueppel 결장으로 Schröder·James가 백업 대신 선발 승격, Grant Williams·Boswell도 결장",
+      "출처": ["https://sports.yahoo.com/articles/hornets-vs-heat-watch-projected-120412275.html"],
+      "날짜": "2026-10-24"
+    },
+    "원정": {
+      "발표여부": "예상(공식 발표 전)",
+      "예상XI": "Davion Mitchell(G) - Klay Thompson(G) - Andrew Wiggins(F) - Giannis Antetokounmpo(F) - Bam Adebayo(C)",
+      "비고": "결장자 없이 정상 라인업 예상",
+      "출처": ["https://sports.yahoo.com/articles/hornets-vs-heat-watch-projected-120412275.html"],
+      "날짜": "2026-10-24"
+    }
+  },
+  "최근맞대결": [
+    {"날짜": "2026-03-17", "장소": "홈(샬럿)", "스코어": "136-106", "승자": "샬럿 호네츠"},
+    {"내용": "2025-26 시즌 정규시즌 4경기 맞대결 전적 호네츠 1승3패(25%). 둘 다 로스터가 트레이드로 크게 바뀌어(아래 로스터 변동 참고) 과거 전적 참고 가치는 제한적", "출처": "https://champsorchumps.us/team/nba/charlotte-hornets/head-to-head/miami-heat"}
+  ],
+  "백투백_이동": [
+    {"팀": "샬럿 호네츠", "내용": "10/23(홈 vs Atlanta) → 10/24(홈 vs Miami) 백투백 2차전, 이동 없음(연속 홈경기)"},
+    {"팀": "마이애미 히트", "내용": "10/23(홈 vs Detroit) → 10/24(원정 @ Charlotte) 백투백 2차전, 마이애미→샬럿 약 650km 이동 동반"}
+  ],
+  "출처_백투백": ["https://www.espn.com/nba/team/schedule/_/name/cha", "https://www.espn.com/nba/team/schedule/_/name/mia"],
+  "날짜_백투백": "2026-10-24",
+  "감독_로스터변동": {
+    "홈": {
+      "감독": "Charles Lee (2026-27 시즌도 유임)",
+      "오프시즌_변동": "LaMelo Ball → 미네소타 팀버울브스 트레이드(Naz Reid 영입), Miles Bridges → 피닉스 선즈 트레이드(Grayson Allen·Royce O'Neale 영입). 간판 가드 LaMelo Ball 이적으로 완전히 새로운 로스터 구성(재건/수비 정체성 표방)",
+      "출처": ["https://en.wikipedia.org/wiki/2026%E2%80%9327_Charlotte_Hornets_season", "https://www.axios.com/local/charlotte/2026/10/20/hornets-2026-2027-season", "https://www.nba.com/news/hornets-hire-charles-lee-new-coach"],
+      "날짜": "2026-10-20"
+    },
+    "원정": {
+      "감독": "확인 못함(검색 시간 내 미확인)",
+      "오프시즌_변동": "Giannis Antetokounmpo 트레이드 영입(마이애미가 Tyler Herro·Jaime Jaquez Jr.·Kel'el Ware·Kasparas Jakucionis를 밀워키에 내주고 영입). 자유계약으로 Klay Thompson(8/23), Tim Hardaway Jr.(7/6), Nick Richards(8/27) 영입. Norman Powell은 시카고 불스로 이적(FA 이탈). Bam Adebayo-Giannis 프런트코트 구성",
+      "출처": ["https://www.fantasyalarm.com/articles/nba/nba-offseason/miami-heat-2026-27-season-preview/197184", "https://sports.yahoo.com/articles/miami-heat-2026-nba-free-211134698.html", "https://www.nba.com/news/nba-offseason-deals-2026"],
+      "날짜": "2026-10-24"
+    }
+  },
+  "팀페이스_득실": {
+    "내용": "개막 2경기뿐이라 안정적 팀 페이스·효율 지표 없음. 단순 득실(2경기 합산): 호네츠 191득점/231실점(-40), 히트 217득점/259실점(-42) — 둘 다 큰 폭 실점 중이나 표본 극소(각 2경기)",
+    "출처": "위 전경기결과 계산",
+    "날짜": "2026-10-24"
+  },
+  "엇갈림": [
+    {"내용": "Grant Williams 결장 상태 표기가 매체마다 다름(ESPN은 '확정 out', 일부는 'game-time decision'). 10/23 업데이트 기준 ESPN 정식 인저리 리포트는 'Out'으로 기재", "출처": ["https://www.espn.com/nba/team/injuries/_/name/cha/charlotte-hornets", "https://www.teamrankings.com/nba/matchup/heat-hornets-2026-10-24/injuries"], "날짜": "2026-10-24"}
+  ],
+  "못찾음": ["Miami Heat 감독 이름(검색 시간 내 미확인 — 추가 확인 필요)", "결장 선수들의 이번 시즌 경기당 득점·출전시간(전원 시즌 전체 결장이라 이번 시즌 기록 없음)", "양팀 공식 발표 선발 명단(경기 당일 공개 예정)"],
+  "뉴스없음": {"홈": "해당 없음(결장 뉴스 다수 확인됨)", "원정": "결장 없음 확인 — 확인처: https://www.espn.com/nba/team/injuries/_/name/mia/miami-heat , https://www.teamrankings.com/nba/matchup/heat-hornets-2026-10-24/injuries"}
+}

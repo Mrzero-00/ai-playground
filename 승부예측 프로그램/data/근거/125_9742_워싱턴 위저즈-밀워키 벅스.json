@@ -1,0 +1,174 @@
+[
+ {
+  "번호": 9742,
+  "홈": "워싱턴 위저즈",
+  "원정": "밀워키 벅스",
+  "종목": "농구(NBA)",
+  "기준선": {
+   "승": 59.4,
+   "패": 40.6,
+   "출처": "농구.md NBA 기준선 공식(2026-10-20 신설) + b-ref 2025-26 레이팅. 페이스추정 = 양팀 미수집 → 99.0 대입. 로스터변동 조정(5항 '±3점 이내'를 팀당 순 레이팅 ±3점으로 해석 — ORtg·DRtg 각각 ±3을 동시에 주면 팀당 ±6 = 12점 스윙이 되어 조항 취지를 넘기 때문에, 각 팀 순 ±3점(ORtg ±1.5 / DRtg ∓1.5)으로 상한을 건다): 워싱턴 ORtg 111.00→112.50, DRtg 122.84→121.34 (+3 순 — Trae Young(2025-26 워싱턴 5경기만 뛰고 시즌아웃)·Anthony Davis(2026-02 트레이드, 댈러스에서 29경기·1월 중순부터 손 인대 파열 결장) 둘 다 작년 레이팅에 사실상 미포함된 올스타급 선발 2명이 건강하게 합류, 12항대로 '직전 시즌 선발·30분+' 확인됨 → 상한 적용). 밀워키 ORtg 112.90→111.40, DRtg 119.40→120.90 (−3 순 — Giannis Antetokounmpo(2026-06 마이애미행, 13시즌 프랜차이즈 선발)+Bobby Portis 이탈, 반대급부 Herro·Ware·Jaquez·Jakucionis 수령. 실제 가치 하락은 3점을 크게 넘지만 조항 상한으로 묶음). 득점_홈 118.62 : 득점_원정 115.16 → 마진 +3.45 → Φ(3.45/11.5)=61.8% → 개막 0경기 수축 ×0.80 = 59.4%"
+  },
+  "득점모델": {
+   "방식": "NBA 레이팅 기준선(농구.md 3항) — 득점_홈 = 99.0×(112.50+120.90−115.0)/100 + 1.4 = 118.6, 득점_원정 = 99.0×(111.40+121.34−115.0)/100 − 1.4 = 115.2. 요인 보정 후 마진 +2.25로 총득점 233.8을 재배분해 118.0 : 115.8. 점수차 σ11.5, 총득점 σ17.5, 핸디캡·U/O 수축 ×0.75. 양팀 DRtg가 119~123(리그 최악권)이라 총득점 기대가 높게 나온다",
+   "예상득점_홈": 118.0,
+   "예상득점_원정": 115.8,
+   "출처": "data/수집/125_9742_워싱턴위저즈-밀워키벅스.json 레이팅 블록(basketball-reference 2025-26 ratings) + 농구.md NBA 기준선 1~5항"
+  },
+  "뉴스": {
+   "홈": [
+    {"내용": "10/21자 injury report — Jamir Watkins(ACL 파열) 시즌 아웃, Tristan Vukcevic(고관절) OUT. AJ Dybantsa는 프리시즌 최종전 발목 부상으로 DAY-TO-DAY(2026 드래프트 전체 1순위·선발 예상이라 개막전 출전 불확실)", "출처": "https://foxsports1070.iheart.com/content/2026-10-21-bucks-vs-wizards-injury-report-oct-21/ ; https://roundtable.io/sports/nba/wizards/players/aj-dybantsa-is-day-to-day-ahead-of-wizards-regular-season-opener", "날짜": "2026-10-21"},
+    {"내용": "Trae Young 출전 가능 — 우측 대퇴사두근 문제에서 회복해 트레이닝캠프 풀 참가, injury report 미기재. 2025-26에는 워싱턴 이적 후 5경기만 뛰고 시즌 아웃", "출처": "https://www.cbssports.com/fantasy/basketball/news/wizards-trae-young-full-go-at-training-camp/", "날짜": "2026-10-20"},
+    {"내용": "Anthony Davis 출전 가능 — injury report 미기재. 2026년 2월 댈러스에서 워싱턴으로 트레이드, 2025-26 댈러스 29경기만 소화하고 왼손 인대 파열로 1월 중순부터 결장", "출처": "https://nba.com/news/wizards-mavericks-anthony-davis-trade", "날짜": "2026-10-21"},
+    {"내용": "로스터 — 2026-01-09 애틀랜타에서 Trae Young 영입(CJ McCollum + Corey Kispert 반대급부). 2026-02 댈러스·샬럿과 3팀 9인 트레이드로 Anthony Davis·Jaden Hardy·D'Angelo Russell·Dante Exum 영입, Khris Middleton·AJ Johnson·Tyus Jones·Marvin Bagley III + 1R픽 2장·2R픽 3장 송출", "출처": "https://www.nba.com/news/hawks-trade-trae-young-to-wizards-for-cj-mccollum-corey-kispert ; https://nba.com/news/wizards-mavericks-anthony-davis-trade", "날짜": "2026-02"},
+    {"내용": "2026 드래프트 전체 1순위로 AJ Dybantsa 지명. Tre Johnson·Kyshawn George·Alex Sarr 2년차 유망주군 + 베테랑 스타 2명으로 '플레이인 도전' 기대치 상승", "출처": "https://wjla.com/sports/washington-wizards/can-aj-dybantsa-trae-young-and-anthony-davis-end-the-wizards-rebuild", "날짜": "2026-10-20"},
+    {"내용": "예상 선발(프로젝션) — Young(PG)·Kyshawn George(SG)·Dybantsa(SF, 발목 DTD)·Davis(PF)·Alex Sarr(C). Dybantsa 결장 시 Tre Johnson 또는 George 대체, George는 프리시즌 4경기 전부 선발", "출처": "https://sports.yahoo.com/articles/washington-wizards-projected-starting-lineup-163151569.html", "날짜": "2026-10-20"},
+    {"내용": "현지 보도 — 선수단이 '높아진 기대치'를 의식하며 개막전 준비, Young·Davis 둘 다 건강하게 개막을 맞이. 2025-26은 17승 65패·DRtg 122.84(리그 29위)", "출처": "https://www.washingtontimes.com/news/2026/oct/20/washington-wizards-duck-newfound-expectations-embrace-butterflies/", "날짜": "2026-10-20"},
+    {"내용": "시즌 개막전, 직전 공식전 없음. 백투백 아님", "출처": "data/수집/125_9742_워싱턴위저즈-밀워키벅스.json 일정 블록", "날짜": "2026-10-21"}
+   ],
+   "원정": [
+    {"내용": "10/21자 injury report — Nate Ament(루키 포워드, 왼 발목 염좌) PROBABLE. 그 외 결장 보도 없음", "출처": "https://foxsports1070.iheart.com/content/2026-10-21-bucks-vs-wizards-injury-report-oct-21/", "날짜": "2026-10-21"},
+    {"내용": "★ Giannis Antetokounmpo + Bobby Portis → 마이애미 히트(2026-06 드래프트 전날). 수령: Tyler Herro, Kel'el Ware, Jaime Jaquez Jr., Kasparas Jakucionis, 1R픽 3장(13순위 포함). 13시즌 야니스 시대 종료, 리빌딩 선언", "출처": "https://www.espn.com/nba/story/_/id/49149967/bucks-trading-giannis-antetokounmpo-bobby-portis-heat-tyler-herro-kelel-ware-jaime-jaquez-jr-kasparas-jakucionis-picks ; https://www.hoopsrumors.com/2026/07/bucks-to-trade-giannis-antetokounmpo-to-heat.html", "날짜": "2026-06"},
+    {"내용": "감독 교체 — 신임 Taylor Jenkins(前 멤피스 6시즌 250승 214패)", "출처": "https://sports.inquirer.net/701842/nba-preview-bucks-begin-post-antetokounmpo-era-under-new-coach-jenkins", "날짜": "2026-10"},
+    {"내용": "리빌딩 기조 + 출전시간 배분 불확실 — 12명까지 로테이션 후보라 신임 감독이 유망주(Ryan Rollins, Brayden Burries) 육성과 베테랑(Herro, Turner, Trent) 경쟁력 사이에서 결정해야 함. 선발 2명(Turner·Kuzma)이 30세 이상", "출처": "https://www.espn.com/nba/story/_/id/49854792/milwaukee-bucks-offseason-recap-2026-27-season-preview-stats-roster-depth-chart", "날짜": "2026-10"},
+    {"내용": "예상 선발(프로젝션) — Ryan Rollins(PG)·Tyler Herro(SG)·Jaime Jaquez Jr.(SF)·Kyle Kuzma(PF)·Myles Turner(C)", "출처": "https://sports.yahoo.com/articles/preview-wizards-host-bucks-2026-141310985.html", "날짜": "2026-10-20"},
+    {"내용": "프리시즌 2승 3패(홈 0-2, 원정 2-1). 시즌 개막전이며 백투백 아님, 밀워키→워싱턴 약 1,100km 항공 이동", "출처": "https://sports.yahoo.com/articles/milwaukee-bucks-2026-27-nba-165021661.html", "날짜": "2026-10-20"}
+   ]
+  },
+  "요인": [
+   {
+    "유형": "로테이션",
+    "팀": "홈",
+    "선수": "Anthony Davis / Trae Young",
+    "등급": "S×2(팀 1·2옵션)",
+    "상태": "확정",
+    "리포트상태": "출전 가능(둘 다 injury report 제외) — 출전시간 제한 여부는 미발표",
+    "영향": -3.4,
+    "내용": "[워싱턴] 결장이 아니라 출전시간·경기감 리스크로 반영한다. Young은 2025-26 워싱턴 이적 후 5경기만 뛰고 우측 대퇴사두근으로 시즌아웃, Davis는 왼손 인대 파열로 1월 중순부터 결장해 댈러스 29경기가 마지막 — 둘 다 장기 공백 후 첫 공식전이다. 개막전 미닛 리스트릭션·리듬 미복구분 −1.0점 = −3.4%p, 폼 관련 감점 상한(−5%p) 안에서 보수적으로 잡음. 두 선수의 출전 자체는 확정이므로 결장 요인으로 쓰지 않았다",
+    "출처": "https://www.cbssports.com/fantasy/basketball/news/wizards-trae-young-full-go-at-training-camp/",
+    "날짜": "2026-10-21",
+    "검색처": "cbssports 10/20 Young 캠프 리포트, nba.com Davis 트레이드 기사, foxsports1070 10/21 injury report"
+   },
+   {
+    "유형": "라인업",
+    "팀": "홈",
+    "선수": "-(신규 선발 조합)",
+    "등급": "-",
+    "상태": "추정",
+    "리포트상태": "예상 선발 프로젝션(공식 발표 전)",
+    "영향": -2.7,
+    "내용": "[워싱턴] 선발 5인 중 3명(Young·Davis·Dybantsa)이 사실상 이번 시즌 처음 함께 뛴다 — Young 1월·Davis 2월 합류 후 둘 다 거의 결장했고 Dybantsa는 루키다. 리그 최하위(17승 65패) 잔여 전력 위에 스타 2명을 얹은 조합이라 개막전 공수 호흡 미성숙 −0.8점 = −2.7%p. 기준선에서 준 +3점 상향과 중복이 아니다(+3은 선수 가치, 이것은 조합 시차)",
+    "출처": "https://sports.yahoo.com/articles/washington-wizards-projected-starting-lineup-163151569.html",
+    "날짜": "2026-10-20",
+    "검색처": "yahoo 위저즈 선발 프로젝션 10/20, data/수집 로스터변동·기타사실 블록"
+   },
+   {
+    "유형": "결장",
+    "팀": "홈",
+    "선수": "AJ Dybantsa",
+    "등급": "B~A(2026 드래프트 전체 1순위, 선발 예상 루키)",
+    "상태": "의심",
+    "리포트상태": "DAY-TO-DAY (프리시즌 최종전 발목)",
+    "영향": 0.0,
+    "내용": "[워싱턴] 공식 계산은 등급 1.5점 × R0.6(대체 Kyshawn George가 프리시즌 4경기 전부 선발 — 동급에 가까운 대체) × P0.5(day-to-day) × D1.0 = 0.45점(≈−1.5%p)이었으나, 분석규칙의 '내 예상 우세팀에 대한 추정·미확정 결장 감점 0%p' 상한에 따라 0으로 묶는다. 워싱턴이 내 1순위라 미확정 결장을 감점에 쓰지 않는다. 틴오프 직전 결장이 확정되면 −1.5%p를 반영해 승 54.7%로 내린다",
+    "출처": "https://roundtable.io/sports/nba/wizards/players/aj-dybantsa-is-day-to-day-ahead-of-wizards-regular-season-opener",
+    "날짜": "2026-10-21",
+    "검색처": "roundtable.io 10/21 Dybantsa DTD 보도, foxsports1070 10/21 injury report"
+   },
+   {
+    "유형": "결장",
+    "팀": "홈",
+    "선수": "Jamir Watkins / Tristan Vukcevic",
+    "등급": "C(벤치)",
+    "상태": "확정",
+    "리포트상태": "OUT 시즌 아웃 (Watkins ACL 파열) / OUT (Vukcevic 고관절)",
+    "영향": 0.0,
+    "내용": "[워싱턴] Watkins는 D0(시즌 내내 이탈, 한 경기도 안 뛴 자원), Vukcevic은 등급 C이고 농구.md 12항(뎁스 이탈 = 직전 시즌 선발·30분+ 가 아니면 0)에 걸려 둘 다 0.0%p",
+    "출처": "https://foxsports1070.iheart.com/content/2026-10-21-bucks-vs-wizards-injury-report-oct-21/",
+    "날짜": "2026-10-21",
+    "검색처": "foxsports1070 10/21 Bucks-Wizards injury report"
+   },
+   {
+    "유형": "결장",
+    "팀": "원정",
+    "선수": "Nate Ament",
+    "등급": "C(루키 포워드)",
+    "상태": "의심",
+    "리포트상태": "PROBABLE (왼 발목 염좌)",
+    "영향": 0.0,
+    "내용": "[밀워키] 등급 C 0.3점 × R0.5 × P0.15(probable) × D1.0 = 0.02점 → 반올림 0.0%p. 양 팀을 모두 센 결과 결장 요인의 순 차이는 사실상 0이고, 이 경기의 판단은 전적으로 레이팅·로스터 변동·출전시간 불확실성에 달려 있다",
+    "출처": "https://foxsports1070.iheart.com/content/2026-10-21-bucks-vs-wizards-injury-report-oct-21/",
+    "날짜": "2026-10-21",
+    "검색처": "foxsports1070 10/21 Bucks-Wizards injury report"
+   },
+   {
+    "유형": "감독",
+    "팀": "원정",
+    "선수": "-",
+    "등급": "-",
+    "상태": "확정",
+    "리포트상태": "감독 교체 확정(신임 Taylor Jenkins) + 로테이션 12명 미확정",
+    "영향": 2.0,
+    "내용": "[밀워키] 신임 Taylor Jenkins(前 멤피스 6시즌 250-214) + 리빌딩 선언 + 로테이션 12명까지 후보로 미확정(유망주 Rollins·Burries 육성 vs 베테랑 Herro·Turner·Trent 경쟁, 선발 2명 30세 이상). 야니스 시대 종료 첫 경기의 조직 미성숙·출전시간 혼선을 홈 쪽 +0.6점 = +2.0%p로 반영. Giannis 이탈의 전력 가치 자체는 기준선 −3점에 이미 들어가 있어 중복 계산하지 않았다",
+    "출처": "https://sports.inquirer.net/701842/nba-preview-bucks-begin-post-antetokounmpo-era-under-new-coach-jenkins",
+    "날짜": "2026-10-21",
+    "검색처": "inquirer NBA 프리뷰 10월, ESPN 벅스 오프시즌 리캡"
+   },
+   {
+    "유형": "휴식",
+    "팀": "원정",
+    "선수": "-",
+    "등급": "-",
+    "상태": "확정",
+    "리포트상태": "백투백 아님(양팀 개막전)",
+    "영향": 0.0,
+    "내용": "양 팀 모두 시즌 개막전·백투백 아님. 밀워키 1,100km 항공 이동이지만 개막전 일정상 여유가 충분해 0. 분석규칙 2026-10-21(휴식 요인 영향 상한 0, 기록만)에 따라 확률을 움직이지 않는다. 홈 이점은 기준선 ±1.4점에 포함",
+    "출처": "https://sports.yahoo.com/articles/milwaukee-bucks-2026-27-nba-165021661.html",
+    "날짜": "2026-10-21",
+    "검색처": "yahoo 벅스 시즌 프리뷰, data/수집 일정 블록"
+   }
+  ],
+  "최종": {
+   "승": 56.2,
+   "패": 43.8
+  },
+  "선택지": [
+   {"번호": 9742, "선택": "승(워싱턴)", "확률": 56.2, "계산": "기준선 승59.4 + Σ요인(−3.4−2.7+0+0+0+2.0+0 = −4.10) = 55.3. 요인 점수합(−1.2점)을 마진에 직접 넣어 재계산한 값 Φ(2.25/11.5)=57.77% → 수축 ×0.80 = 56.2%(검산 차 +0.9%p, 허용 오차 내)"},
+   {"번호": 9742, "선택": "패(밀워키)", "확률": 43.8, "계산": "100 − 56.2. NBA는 무승부 없음"},
+   {"번호": 9742, "선택": "핸디캡 -4.5 승(워싱턴 5점 차 이상 승)", "확률": 44.2, "계산": "P(마진>4.5) = 1 − Φ((4.5−2.25)/11.5) = 42.3% → 핸디캡 수축 ×0.75 = 44.2%"},
+   {"번호": 9742, "선택": "핸디캡 -4.5 패", "확률": 55.8, "계산": "100 − 44.2"},
+   {"번호": 9742, "선택": "언더 239.5", "확률": 59.6, "계산": "예상 총득점 233.8, Φ((239.5−233.8)/17.5) = 62.8% → 수축 ×0.75 = 59.6%. ※ 양팀 페이스 미수집(99.0 대입)이라 기록용"},
+   {"번호": 9742, "선택": "오버 239.5", "확률": 40.4, "계산": "100 − 59.6. 기록용"}
+  ],
+  "파생확률": {
+   "핸디캡 -4.5": {
+    "승": 44.2,
+    "패": 55.8
+   },
+   "U/O 239.5": {
+    "언더": 59.6,
+    "오버": 40.4
+   }
+  },
+  "확신도": "낮음",
+  "결론": "추천 금지(코어 탈락) — 방향은 시장과 일치하고(양쪽 모두 워싱턴 1순위) 내 56.2 vs 시장 62.7로 gap −6.5라 '내가 시장보다 5~15%p 낮게 본' 코어 조건 ①②는 통과했지만, 베트맨 배당이 1.40이라 2026-10-21 전수 재측정에서 마진 과다로 잘라낸 1.30~1.45 구간(적중 86%·회수 미달)에 들어간다. 코어 밴드는 1.45~1.80이므로 이 다리는 가격이 나빠서 탈락이지 분석이 나빠서 탈락한 것이 아니다. 농구.md 9항의 '시즌 초 과신'에는 걸리지 않았다 — 개막전 수축 ×0.80과 출전시간 리스크 감점 덕에 오히려 시장보다 6.5%p 낮게 나왔고, 이는 코어가 선호하는 방향이다. 핸디캡 −4.5(승 44.2%)·언더오버 239.5(언더 59.6%)는 양 팀 페이스를 모두 수집하지 못해 리그평균 99.0을 대입했으므로 농구.md 7·10항에 따라 다리 금지·기록용이다.",
+  "핵심근거": "작년 숫자만 보면 워싱턴(17승 65패, NRtg −11.84)이 밀워키(32승 50패, −6.49)보다 5.35점 열세지만, 두 팀 모두 로스터가 근본적으로 바뀌어 작년 값의 예측력이 낮다. 워싱턴은 작년 레이팅에 거의 들어가지 않은 올스타급 선발 2명(Trae Young 5경기·Anthony Davis 댈러스 29경기)을 건강하게 투입하고, 밀워키는 13시즌 프랜차이즈 선발 Giannis와 Portis를 잃었다 — 방향은 명확해서 각각 조항 상한인 순 ±3점을 적용했고, 여기에 홈 2.8점을 더해 마진 +3.45점(승 59.4%)이 나온다. 다만 AD·Young의 복귀 첫 경기 출전시간 리스크(−1.0점)와 신규 라인업 호흡(−0.8점)을 밀워키의 감독 교체·로테이션 혼선(+0.6점)으로 상계해 최종 마진 +2.25점, 워싱턴 56.2%다. 변수 태그: 전력차:+1; 감독교체:+1; 로테이션:-1.",
+  "반론": "가장 큰 위험은 기준선의 ±3점 상한이 양쪽에서 동시에 임의로 쓰였다는 점이다 — Giannis 한 명의 실제 가치는 b-ref 기준 5점 이상이고 Young+Davis도 3점을 넘을 수 있어, 상한을 어디에 두느냐로 이 경기의 마진이 +0점에서 +9점까지 움직인다. 추정 폭이 결론을 지배하면 그 결론은 추천 근거가 될 수 없다. 둘째, 워싱턴은 작년 DRtg 122.84로 리그 29위였는데 Davis 한 명으로 수비가 좋아진다는 보장이 없고, Young은 수비 마이너스 자원이다 — 공격은 올라도 실점이 같이 늘어 마진이 안 바뀔 수 있다. 셋째, 개막전 표본 0경기라 어느 쪽도 검증 불가다.",
+  "미확인": [
+   "워싱턴·밀워키 2025-26 Pace 둘 다 미수집 → 리그평균 99.0 대입. 농구.md 7·10항에 따라 이 경기 U/O 239.5는 다리로 쓰지 않는다(기록만). 124회 9534에서 페이스 미수집이 U/O를 13%p 비튼 전례 있음",
+   "AJ Dybantsa 개막전 출전 여부(틴오프 직전 결정) — 결장 확정 시 −1.5%p 추가 반영 필요",
+   "Anthony Davis·Trae Young 출전시간 제한 공식 여부 — 제한 언급을 찾지 못해 −1.0점은 판단값",
+   "양 팀 공식 선발 미발표(전부 프로젝션), 밀워키 Kel'el Ware·Jakucionis 로테이션 포함 여부",
+   "기준선의 로스터 변동 ±3점 해석(순 레이팅 기준) 자체가 이번 분석에서 처음 적용한 판단 — 농구.md 5항에 ORtg/DRtg 각각인지 순 레이팅인지 명시가 없어 보수적 해석을 택했다. 회고 때 어느 해석이 맞았는지 확인할 것",
+   "개막전(표본 0경기) — 시즌 초 농구 기준선 자체를 신뢰하지 않는다"
+  ],
+  "불확실": [
+   "워싱턴·밀워키 2025-26 Pace 둘 다 미수집 → 리그평균 99.0 대입. 농구.md 7·10항에 따라 이 경기 U/O 239.5는 다리로 쓰지 않는다(기록만)",
+   "AJ Dybantsa 개막전 출전 여부(틴오프 직전 결정) — 결장 확정 시 −1.5%p 추가 반영 필요",
+   "Anthony Davis·Trae Young 출전시간 제한 공식 여부 — 제한 언급을 찾지 못해 −1.0점은 판단값",
+   "양 팀 공식 선발 미발표(전부 프로젝션), 밀워키 Kel'el Ware·Jakucionis 로테이션 포함 여부",
+   "기준선의 로스터 변동 ±3점 해석(순 레이팅 기준)이 이번 분석에서 처음 적용한 판단 — 농구.md 5항에 명시가 없어 보수적 해석을 택했다",
+   "개막전(표본 0경기) — 시즌 초 농구 기준선 자체를 신뢰하지 않는다"
+  ]
+ }
+]

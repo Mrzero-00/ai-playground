@@ -1,0 +1,146 @@
+{
+ "번호": 455,
+ "홈": "필라델피아 유니언",
+ "원정": "뉴잉글랜드 레벌루션",
+ "수집시각": "2026-10-25 07:55 KST",
+ "대회단계": {
+  "내용": "MLS 2026 정규시즌 매치데이 32 (정규시즌 2026-02-21~11-07, 34R). 플레이오프 아님 — 와일드카드 11/18, Round One 3전2선승 11/20~12/02, MLS컵 12/18. 각 컨퍼런스 상위 9팀 진출(1~7위 직행, 8·9위 와일드카드 단판). 내슈빌은 10/24 몬트리올 2-0 승으로 서포터스실드 확정.",
+  "시리즈형식": "해당 없음(정규시즌 단판)",
+  "시리즈전적": "해당 없음",
+  "걸린것_홈": "동부 6위 46점(30경기, 잔여 4). **이 경기에서 뉴잉글랜드를 이기면 플레이오프 진출 확정**(또는 레드불 결과에 따라). 직접적인 클린치 매치.",
+  "걸린것_원정": "동부 3위 52점(30경기) — **플레이오프 진출 이미 확정**. 남은 건 시드(상위 3~4위 홈 어드밴티지). 최근 2연승(신시내티 3-2, 시카고 0-1 원정승).",
+  "출처": [
+   "https://en.wikipedia.org/wiki/2026_Major_League_Soccer_season",
+   "https://www.mlssoccer.com/news/audi-2026-mls-cup-playoffs-key-dates-schedule-information",
+   "https://sports.yahoo.com/articles/matchday-32-clinch-playoffs-eliminated-180000884.html",
+   "https://www.frontrowsoccer.com/2026/10/22/mls-clinching-scenarios-nashville-can-win-shield-charlotte-philly-la-seattle-can-reach-playoffs/"
+  ],
+  "날짜": "2026-10-22 ~ 2026-10-24"
+ },
+ "최근폼": {
+  "홈": {
+   "최근5": "10-17 H 샬럿 2-2 무 / 10-15 A 시카고 3-1 승 / 10-10 H 솔트레이크 2-1 승 / 09-26 H 올랜도 4-2 승 / 09-20 A 스포팅KC 4-3 승",
+   "순위": "동부 6위 46점 13승7무10패 득실 +13 (30경기)",
+   "출처": [
+    "https://www.espn.com/soccer/standings/_/league/usa.1",
+    "https://www.espn.com/soccer/scoreboard/_/league/usa.1/date/20261024"
+   ]
+  },
+  "원정": {
+   "최근5": "10-17 H 시카고 1-0 승 / 10-14 A 신시내티 3-2 승 / 10-10 H 시애틀 0-3 패 / 09-27 A 솔트레이크 0-3 패 / 09-19 H 올랜도 4-2 승",
+   "순위": "동부 3위 52점 16승4무10패 득실 +8 (30경기)",
+   "출처": [
+    "https://www.espn.com/soccer/standings/_/league/usa.1",
+    "https://www.espn.com/soccer/scoreboard/_/league/usa.1/date/20261024"
+   ]
+  }
+ },
+ "결장": [
+  {
+   "팀": "필라델피아",
+   "선수": "Cavan Sullivan",
+   "상태": "확정",
+   "사유": "발목 — 10/17 샬럿전 2-2 무승부에서 부상, 10/23 공식 리포트 OUT",
+   "출처": [
+    "https://mlssoccer.com/news/mls-player-status-report-matchday-32-saturday-october-24-sunday-october-25"
+   ],
+   "날짜": "2026-10-23"
+  },
+  {
+   "팀": "필라델피아",
+   "선수": "Jesus Bueno",
+   "상태": "확정",
+   "사유": "햄스트링",
+   "출처": [
+    "https://mlssoccer.com/news/mls-player-status-report-matchday-32-saturday-october-24-sunday-october-25"
+   ],
+   "날짜": "2026-10-23"
+  },
+  {
+   "팀": "뉴잉글랜드",
+   "선수": "Leo Campana",
+   "상태": "확정",
+   "사유": "하체",
+   "출처": [
+    "https://mlssoccer.com/news/mls-player-status-report-matchday-32-saturday-october-24-sunday-october-25"
+   ],
+   "날짜": "2026-10-23"
+  },
+  {
+   "팀": "뉴잉글랜드",
+   "선수": "Jack Harrison",
+   "상태": "확정",
+   "사유": "허벅지(quad)",
+   "출처": [
+    "https://mlssoccer.com/news/mls-player-status-report-matchday-32-saturday-october-24-sunday-october-25"
+   ],
+   "날짜": "2026-10-23"
+  },
+  {
+   "팀": "뉴잉글랜드",
+   "선수": "Alhassan Yusuf",
+   "상태": "확정",
+   "사유": "햄스트링",
+   "출처": [
+    "https://mlssoccer.com/news/mls-player-status-report-matchday-32-saturday-october-24-sunday-october-25"
+   ],
+   "날짜": "2026-10-23"
+  },
+  {
+   "팀": "뉴잉글랜드",
+   "선수": "Mamadou Fofana",
+   "상태": "의심",
+   "사유": "하체",
+   "출처": [
+    "https://mlssoccer.com/news/mls-player-status-report-matchday-32-saturday-october-24-sunday-october-25"
+   ],
+   "날짜": "2026-10-23"
+  },
+  {
+   "팀": "뉴잉글랜드",
+   "선수": "Brooklyn Raines",
+   "상태": "의심",
+   "사유": "하체",
+   "출처": [
+    "https://mlssoccer.com/news/mls-player-status-report-matchday-32-saturday-october-24-sunday-october-25"
+   ],
+   "날짜": "2026-10-23"
+  },
+  {
+   "팀": "뉴잉글랜드",
+   "선수": "Will Sands",
+   "상태": "의심",
+   "사유": "하체",
+   "출처": [
+    "https://mlssoccer.com/news/mls-player-status-report-matchday-32-saturday-october-24-sunday-october-25"
+   ],
+   "날짜": "2026-10-23"
+  }
+ ],
+ "구장·날씨": {
+  "구장": "Subaru Park, 체스터 PA (정규 홈구장)",
+  "날씨": "19:30 ET 기준 13.1°C · 강수 0mm(확률 0%) · 바람 6.5km/h(7경기 중 최저) · 맑음",
+  "출처": [
+   "https://api.open-meteo.com/v1/forecast (Open-Meteo, 경기장 좌표 시간별 예보)",
+   "https://www.espn.com/soccer/scoreboard/_/league/usa.1/date/20261024"
+  ],
+  "날짜": "2026-10-24"
+ },
+ "뉴스": [
+  {
+   "내용": "Cavan Sullivan(필라델피아 핵심 유망주)이 발목 부상으로 뉴잉글랜드전 결장 확정 — 필라델피아 인콰이어러 10/23 보도.",
+   "출처": [
+    "https://www.inquirer.com/soccer/cavan-sullivan-injury-union-mls-table-20261023.html"
+   ],
+   "날짜": "2026-10-23"
+  }
+ ],
+ "뉴스없음": {
+  "홈": "뉴스 없음(검색처 2곳: MLSsoccer.com 공식 Player Status Report, Front Row Soccer/Yahoo Sports MLS 매치데이32 기사 / 2026-10-25). 감독 교체·징계 추가 건 미발견",
+  "원정": "뉴스 없음(검색처 2곳: MLSsoccer.com 공식 Player Status Report, Front Row Soccer/Yahoo Sports MLS 매치데이32 기사 / 2026-10-25). 감독 교체·징계 추가 건 미발견"
+ },
+ "미확인": [
+  "양 팀 선발 명단 미발표",
+  "뉴잉글랜드가 시드 확보 상황에서 로테이션을 돌릴지 여부(공식 코멘트 미확인)"
+ ]
+}

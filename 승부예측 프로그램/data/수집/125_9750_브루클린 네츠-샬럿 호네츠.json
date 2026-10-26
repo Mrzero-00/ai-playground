@@ -1,0 +1,162 @@
+{
+  "번호": 9750,
+  "홈": "브루클린 네츠",
+  "원정": "샬럿 호네츠",
+  "수집시각": "2026-10-22 08:00 KST",
+  "레이팅": {
+    "홈": {
+      "ORtg": 108.7,
+      "DRtg": 119.0,
+      "Pace": 97.1,
+      "시즌": "2025-26",
+      "순위_비고": "ORtg 30/30(리그 꼴찌), DRtg 26/30, Pace 25/30, 전적 20-62(동 13위)",
+      "이번시즌_경기수": 0,
+      "비고": "개막전 — 직전 시즌 값 사용. 2025-26 네츠는 리그 최악 공격효율팀이었음",
+      "출처": "https://www.basketball-reference.com/teams/BRK/2026.html"
+    },
+    "원정": {
+      "ORtg": 119.4,
+      "DRtg": 114.4,
+      "Pace": 96.8,
+      "시즌": "2025-26",
+      "순위_비고": "ORtg 5/30, DRtg 12/30, Pace 26/30, 전적 44-38(동 9위)",
+      "이번시즌_경기수": 0,
+      "비고": "개막전 — 직전 시즌 값 사용",
+      "출처": "https://www.basketball-reference.com/teams/CHO/2026.html"
+    }
+  },
+  "결장": [
+    {
+      "팀": "브루클린 네츠",
+      "선수": "Tyler Bilodeau",
+      "포지션": "F",
+      "사유": "어깨 염좌(shoulder sprain)",
+      "상태": "out",
+      "직전시즌_선발/경기": "2026 드래프트 2라운드(43순위) 루키 — NBA 정규시즌 출전 기록 없음",
+      "평균득점": "해당 없음(루키)",
+      "출처": ["https://netsdaily.com/nets-game-previews/114999/nets-vs-hornets-opening-night-and-the-dawn-of-a-new-era"],
+      "날짜": "2026-10-21"
+    },
+    {
+      "팀": "브루클린 네츠",
+      "선수": "Mikel Brown Jr.",
+      "포지션": "G",
+      "사유": "캠프 중 좌측 발목 접질림 — 출장시간 제한",
+      "상태": "출전하나 선발 제외, 벤치 출발 + 분당 제한",
+      "직전시즌_선발/경기": "2026 드래프트 전체 6순위 루키 — NBA 정규시즌 출전 기록 없음(서머리그 22.5분 16.7점 4.0AST)",
+      "평균득점": "서머리그 16.7점(정규시즌 기록 없음)",
+      "출처": ["https://www.mogazmasr.com/151535", "https://en.wikipedia.org/wiki/Mikel_Brown_Jr."],
+      "날짜": "2026-10-21"
+    },
+    {
+      "팀": "샬럿 호네츠",
+      "선수": "Kon Knueppel",
+      "포지션": "F/G",
+      "사유": "좌측 햄스트링 긴장(hamstring strain)",
+      "상태": "out",
+      "직전시즌_선발/경기": "2025-26시즌 81경기 중 80경기 선발(루키시즌, Sporting News 올해의 신인)",
+      "평균득점": "18.5점(리바운드 5.3, 어시스트 3.4, 3점 6.4개)",
+      "출처": ["https://www.essentiallysports.com/nba-active-basketball-news-charlotte-hornets-hit-with-double-injury-blow-as-two-key-starters-ruled-out-ahead-of-season-start-kon-knueppel-grant-williams/", "https://www.statmuse.com/nba/ask/kon-knueppel-stats-this-season"],
+      "날짜": "2026-10-21"
+    },
+    {
+      "팀": "샬럿 호네츠",
+      "선수": "Coby White",
+      "포지션": "G",
+      "사유": "좌측 종아리 긴장(calf strain)",
+      "상태": "out",
+      "직전시즌_선발/경기": "2025-26시즌 50경기 출전(시카고 26경기 선발 후 트레이드, 샬럿에서는 벤치/0선발)",
+      "평균득점": "시카고 소속 시 18.6점(26경기 선발), 샬럿 이적 후 15.6점(벤치)",
+      "출처": ["https://basketball.realgm.com/player/Coby-White/Summary/107976", "https://www.be-basketball.com/player/coby-white"],
+      "날짜": "2026-10-21"
+    },
+    {
+      "팀": "샬럿 호네츠",
+      "선수": "Grant Williams",
+      "포지션": "F",
+      "사유": "우측 햄스트링 긴장(오프시즌 코트 활동 중 부상)",
+      "상태": "out",
+      "직전시즌_선발/경기": "2025-26시즌 36경기 출전·3경기 선발(1/10 복귀 전까지 장기 결장)",
+      "평균득점": "7.0점(리바운드 3.9, 어시스트 1.6, 19.8분)",
+      "출처": ["https://www.essentiallysports.com/nba-active-basketball-news-charlotte-hornets-hit-with-double-injury-blow-as-two-key-starters-ruled-out-ahead-of-season-start-kon-knueppel-grant-williams/"],
+      "날짜": "2026-10-21"
+    },
+    {
+      "팀": "샬럿 호네츠",
+      "선수": "Kylan Boswell",
+      "포지션": "G",
+      "사유": "우측 무릎 수술(scope surgery) 회복 중",
+      "상태": "out",
+      "직전시즌_선발/경기": "2026년 드래프트 미지명 후 투웨이 계약 — NBA 정규시즌 출전 기록 없음, 로테이션 비중 낮음 전망",
+      "평균득점": "해당 없음(NBA 출전 없음)",
+      "출처": ["https://www.rotowire.com/basketball/headlines/kylan-boswell-injury-recovering-from-knee-surgery-535247", "https://www.nbcsports.com/fantasy/basketball/player-news/2026-10-05/kylan-boswell-knee-targeting-late-october-return"],
+      "날짜": "2026-10-05 / 2026-10-21"
+    }
+  ],
+  "로스터변화": [
+    {
+      "팀": "브루클린 네츠",
+      "선수": "Julius Randle",
+      "방향": "합류",
+      "직전시즌_선발여부": "주전급 포워드(미네소타 소속 시 선발)",
+      "평균출전시간": "미확인",
+      "비고": "LaMelo Ball 트레이드에 엮인 3팀(실질 4팀: 샬럿·미네소타·브루클린·시카고) 트레이드로 네츠행",
+      "출처": ["https://www.espn.com/nba/story/_/id/49904334/brooklyn-nets-2026-27-season-preview-stats-roster-michael-porter-jr-julius-randle"],
+      "날짜": "2026(오프시즌)"
+    },
+    {
+      "팀": "브루클린 네츠",
+      "선수": "Nic Claxton",
+      "방향": "이탈",
+      "직전시즌_선발여부": "2025-26시즌 68경기 선발(주전 센터)",
+      "평균출전시간": "미확인(평균 11.7점·6.9리바운드)",
+      "비고": "3팀 트레이드로 시카고행",
+      "출처": ["https://www.si.com/nba/bulls/onsi/instant-grade-bulls-grab-nets-nic-claxton-in-three-team-trade-on-draft-night-eve-22"],
+      "날짜": "2026-06-22"
+    },
+    {
+      "팀": "브루클린 네츠",
+      "선수": "Mikel Brown Jr. / Joshua Jefferson / Tyler Bilodeau",
+      "방향": "합류",
+      "직전시즌_선발여부": "2026 드래프트 신인(6순위/28순위/43순위) — 전원 NBA 출전 기록 없음",
+      "평균출전시간": "해당 없음",
+      "출처": ["https://www.espn.com/nba/story/_/id/49904334/brooklyn-nets-2026-27-season-preview-stats-roster-michael-porter-jr-julius-randle"],
+      "날짜": "2026(드래프트)"
+    },
+    {
+      "팀": "샬럿 호네츠",
+      "선수": "LaMelo Ball / Josh Green",
+      "방향": "이탈",
+      "직전시즌_선발여부": "볼은 주전 포인트가드(2025-26 20.1점·7.1AST)",
+      "평균출전시간": "미확인",
+      "비고": "미네소타로 트레이드, 반대급부로 네이즈 리드+다수 드래프트픽 수령",
+      "출처": ["https://www.nba.com/news/lamelo-ball-trade-timberwolves-2026"],
+      "날짜": "2026-06-25"
+    },
+    {
+      "팀": "샬럿 호네츠",
+      "선수": "Naz Reid",
+      "방향": "합류",
+      "직전시즌_선발여부": "미네소타 식스맨(비선발)",
+      "평균출전시간": "미확인",
+      "출처": ["https://www.espn.com/nba/story/_/id/49175343/hornets-trade-ball-timberwolves-reid-picks"],
+      "날짜": "2026-06-25"
+    }
+  ],
+  "일정": {
+    "홈": {"이번시즌_경기수": 0, "직전경기": "2026 프리시즌", "백투백": false, "비고": "정규시즌 개막전(Barclays Center)"},
+    "원정": {"이번시즌_경기수": 0, "직전경기": "2026 프리시즌", "백투백": false, "비고": "정규시즌 개막전"}
+  },
+  "기타": [
+    {
+      "내용": "두 팀 모두 2026-27 개막전. 샬럿은 White·Knueppel·Williams·Boswell 4명이 동시 결장하는 상태로 개막을 맞음(출처상 '주요 선수 다수 결장').",
+      "출처": ["https://netsdaily.com/nets-game-previews/114999/nets-vs-hornets-opening-night-and-the-dawn-of-a-new-era"],
+      "날짜": "2026-10-21"
+    }
+  ],
+  "미확인": [
+    "Julius Randle 의 2025-26시즌 정확한 선발 횟수·평균 득점(미네소타 소속 시 수치, 검색에서 구체 수치 미확인)",
+    "Mikel Brown Jr. 의 실제 출전시간 제한 구체 분(分) 수치",
+    "네츠·호네츠 개막전 최종 확정 선발 라인업(출발 전 재확인 필요)"
+  ]
+}

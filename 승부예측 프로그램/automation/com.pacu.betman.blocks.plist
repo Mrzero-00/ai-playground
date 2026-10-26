@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0"><dict>
+<key>Label</key><string>com.pacu.betman.blocks</string>
+<key>ProgramArguments</key><array><string>/bin/zsh</string><string>/Users/sonsang-il/orca/workspaces/ai/pacu/승부예측 프로그램/automation/auto_runner.sh</string><string>blocks</string></array>
+<key>StartInterval</key><integer>1200</integer>
+<key>EnvironmentVariables</key><dict><key>PACU_PERM</key><string>bypassPermissions</string><key>PATH</key><string>/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin</string></dict>
+<key>RunAtLoad</key><false/>
+<key>StandardOutPath</key><string>/Users/sonsang-il/orca/workspaces/ai/pacu/승부예측 프로그램/logs/launchd_blocks.log</string>
+<key>StandardErrorPath</key><string>/Users/sonsang-il/orca/workspaces/ai/pacu/승부예측 프로그램/logs/launchd_blocks.log</string>
+</dict></plist>

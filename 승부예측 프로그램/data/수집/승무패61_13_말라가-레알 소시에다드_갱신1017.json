@@ -1,0 +1,59 @@
+{
+ "새결장": [
+  {
+   "팀": "원정",
+   "선수": "Pablo Marín",
+   "포지션": "미확인",
+   "사유": "데포르티보전 퇴장 징계, 이번 경기 결장",
+   "상태": "확정(Comuniate+검색요약 2건)",
+   "출처": "https://www.comuniate.com/noticias/38399/malaga-real-sociedad-previa-alineaciones-probables-y-consejos-fantasy-jornada-9-de-laliga",
+   "날짜": "2026-10(10/18 전)"
+  },
+  {
+   "팀": "홈",
+   "선수": "Einar Galilea",
+   "포지션": "CB",
+   "사유": "징계(수비 라인 조정 필요, 검색요약 1곳)",
+   "상태": "의심(1곳)",
+   "출처": "https://www.comuniate.com/noticias/38399/...",
+   "날짜": "미상"
+  }
+ ],
+ "복귀": [
+  {
+   "팀": "홈",
+   "선수": "José Salinas",
+   "사유": "계약 조항으로 에스파뇰전 결장 후 소집 복귀",
+   "출처": "위 동일"
+  },
+  {
+   "팀": "홈",
+   "선수": "Diego Murillo, Jens Cajuste",
+   "상태": "복귀 근접(불확실, 다른 기사는 결장 표기)"
+  }
+ ],
+ "일정·피로·날씨": [
+  {
+   "내용": "소시에다드 10/15 UEL 위니옹전 1-1 원정(벨기에) 후 10/18 18:30 CEST 라 로살레다 — 로테이션 예상(Comuniate)",
+   "출처": "위 동일",
+   "날짜": "2026-10"
+  }
+ ],
+ "라인업": {
+  "원정": {
+   "예상": "Oyarzabal·Guedes, Barrenetxea 70% 선발 가능",
+   "출처": "위 동일"
+  }
+ },
+ "엇갈림": [
+  "말라가 결장자: Luismi·Darko vs Juan Cruz·Ochoa·Murillo·Lobete — 기사간 상충, 날짜 불명"
+ ],
+ "변경없음": {
+  "비고": "감독 기자회견·공식 소집 미확보. 검색: WebSearch 'Málaga Real Sociedad convocatoria', Comuniate 38399"
+ },
+ "번호": 13,
+ "홈": "말라가",
+ "원정": "레알 소시에다드",
+ "수집시각": "2026-10-17 20:55 KST",
+ "소집명단": {}
+}

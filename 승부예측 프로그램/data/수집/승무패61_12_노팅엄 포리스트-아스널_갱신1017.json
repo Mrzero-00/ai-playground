@@ -1,0 +1,141 @@
+{
+ "새결장": [
+  {
+   "팀": "홈",
+   "선수": "모건 깁스화이트",
+   "포지션": "MF",
+   "이번시즌_선발/경기": "미확인",
+   "사유": "경미한 근육(팰리스전)",
+   "상태": "의심 — 늦은 체력 테스트, 훈련 대부분 불참(Arsenal.com, Football365), 글라스너 언급 검색요약 — 3곳(감독명은 검색요약 기준)",
+   "출처": "https://www.football365.com/match-preview/nottingham-forest-v-arsenal-prediction-preview ; https://www.arsenal.com/news/preview-nottingham-forest-v-arsenal-age4Q4H8rLTv",
+   "날짜": "2026-10-17"
+  },
+  {
+   "팀": "홈",
+   "선수": "이고르 제주스",
+   "포지션": "FW",
+   "이번시즌_선발/경기": "미확인",
+   "사유": "종아리",
+   "상태": "결장(재확인)",
+   "출처": "https://www.football365.com/match-preview/nottingham-forest-v-arsenal-prediction-preview ; https://www.arsenal.com/news/preview-nottingham-forest-v-arsenal-age4Q4H8rLTv",
+   "날짜": "2026-10-17"
+  },
+  {
+   "팀": "홈",
+   "선수": "사바나",
+   "포지션": "DF",
+   "이번시즌_선발/경기": "미확인",
+   "사유": "무릎 수술(3월, Football365)/1월(Arsenal.com)",
+   "상태": "결장 장기",
+   "출처": "https://www.football365.com/match-preview/nottingham-forest-v-arsenal-prediction-preview ; https://www.arsenal.com/news/preview-nottingham-forest-v-arsenal-age4Q4H8rLTv",
+   "날짜": "2026-10-17"
+  },
+  {
+   "팀": "원정",
+   "선수": "부카요 사카",
+   "포지션": "W",
+   "이번시즌_선발/경기": "미확인",
+   "사유": "경미한 질병(리유전 벤치) — 아르테타 설명",
+   "상태": "출전 예상(Football365)",
+   "출처": "https://www.football365.com/match-preview/nottingham-forest-v-arsenal-prediction-preview",
+   "날짜": "2026-10-17"
+  },
+  {
+   "팀": "원정",
+   "선수": "마르틴 수비멘디",
+   "포지션": "DM",
+   "이번시즌_선발/경기": "미확인",
+   "사유": "발목 타박",
+   "상태": "의심→명단 복귀 예상(F365). Arsenal.com '아르테타 가용 희망' — 2곳",
+   "출처": "https://www.football365.com/match-preview/nottingham-forest-v-arsenal-prediction-preview ; https://www.arsenal.com/news/preview-nottingham-forest-v-arsenal-age4Q4H8rLTv",
+   "날짜": "2026-10-17"
+  },
+  {
+   "팀": "원정",
+   "선수": "힌카피에",
+   "포지션": "LB/CB",
+   "이번시즌_선발/경기": "미확인",
+   "사유": "발목",
+   "상태": "결장 '수 주'(2곳)",
+   "출처": "https://www.football365.com/match-preview/nottingham-forest-v-arsenal-prediction-preview ; https://www.arsenal.com/news/preview-nottingham-forest-v-arsenal-age4Q4H8rLTv",
+   "날짜": "2026-10-17"
+  },
+  {
+   "팀": "원정",
+   "선수": "졸리스",
+   "포지션": "W",
+   "이번시즌_선발/경기": "미확인",
+   "사유": "근육/햄스트링",
+   "상태": "결장 장기(2곳)",
+   "출처": "https://www.football365.com/match-preview/nottingham-forest-v-arsenal-prediction-preview ; https://www.arsenal.com/news/preview-nottingham-forest-v-arsenal-age4Q4H8rLTv",
+   "날짜": "2026-10-17"
+  },
+  {
+   "팀": "원정",
+   "선수": "살리바",
+   "포지션": "CB",
+   "이번시즌_선발/경기": "미확인",
+   "사유": "허리",
+   "상태": "결장(11월 A매치 후 목표, 2곳)",
+   "출처": "https://www.football365.com/match-preview/nottingham-forest-v-arsenal-prediction-preview ; https://www.arsenal.com/news/preview-nottingham-forest-v-arsenal-age4Q4H8rLTv",
+   "날짜": "2026-10-17"
+  }
+ ],
+ "복귀": [
+  {
+   "팀": "홈",
+   "선수": "밀렌코비치",
+   "상태": "훈련 복귀, 명단 복귀 가능(F365). Arsenal.com도 복귀 — 10/16 '의심'에서 상향 — 2곳",
+   "출처": "https://www.football365.com/match-preview/nottingham-forest-v-arsenal-prediction-preview ; https://www.arsenal.com/news/preview-nottingham-forest-v-arsenal-age4Q4H8rLTv",
+   "날짜": "2026-10-17"
+  },
+  {
+   "팀": "원정",
+   "선수": "사카·외데고르·하베르츠·칼라피오리",
+   "상태": "릴전 휴식, 선발 복귀 예상(2곳)",
+   "출처": "https://www.football365.com/match-preview/nottingham-forest-v-arsenal-prediction-preview ; https://www.arsenal.com/news/preview-nottingham-forest-v-arsenal-age4Q4H8rLTv",
+   "날짜": "2026-10-17"
+  },
+  {
+   "팀": "원정",
+   "선수": "팀버",
+   "상태": "출전 시간 관리, 화이트가 우측 대체 가능(F365 1곳)",
+   "출처": "https://www.football365.com/match-preview/nottingham-forest-v-arsenal-prediction-preview",
+   "날짜": "2026-10-17"
+  }
+ ],
+ "라인업": {
+  "홈": {
+   "발표여부": "미발표",
+   "예상XI": "미수집(델랍 선두 예상)",
+   "출처": "https://www.football365.com/match-preview/nottingham-forest-v-arsenal-prediction-preview",
+   "날짜": "2026-10-17"
+  },
+  "원정": {
+   "발표여부": "미발표",
+   "예상XI": "Sports Mole: 라야; 화이트, 콘사, 가브리엘, 칼라피오리; 귀마랑이스, 라이스; 사카, 외데고르, 에제; 하베르츠",
+   "출처": "https://www.sportsmole.co.uk/football/arsenal/predicted-lineups/myles-makes-way-in-quintuple-change-how-arsenal-could-line-up-against-forest_607035.html",
+   "날짜": "2026-10-16/17"
+  }
+ },
+ "일정·피로": [
+  {
+   "팀": "원정",
+   "내용": "10/15(수/목) 릴전(UCL) 승(팀버 득점) 후 휴식 약 3일, 5명 로테이션으로 주축 휴식",
+   "출처": "https://www.football365.com/match-preview/nottingham-forest-v-arsenal-prediction-preview ; Sports Mole 위 링크",
+   "날짜": "2026-10-17"
+  }
+ ],
+ "엇갈림": [
+  "10/16 파일 칼라피오리 등 언급 없음 → 이번 선발 복귀 예상",
+  "사바나 수술 시점 3월(F365) vs 1월(Arsenal.com)"
+ ],
+ "변경없음": {
+  "홈": "포리스트 감독 기자회견 원문 못 찾음: WebSearch 2회, Arsenal.com",
+  "원정": "살리바·힌카피에·졸리스 결장 유지: Football365, Arsenal.com"
+ },
+ "번호": 12,
+ "홈": "노팅엄 포리스트",
+ "원정": "아스널",
+ "수집시각": "2026-10-17 20:55 KST"
+}

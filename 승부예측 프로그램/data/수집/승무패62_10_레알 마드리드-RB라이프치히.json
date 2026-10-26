@@ -1,0 +1,159 @@
+{
+  "번호": 10,
+  "홈": "레알 마드리드",
+  "원정": "RB라이프치히",
+  "수집시각": "2026-10-20 22:30 KST",
+  "결장": [
+    {
+      "팀": "레알 마드리드",
+      "선수": "Rodrygo",
+      "포지션": "FW/RW",
+      "이번시즌_선발/경기": "미상(시즌 초반부터 결장 지속)",
+      "득점·도움": "미상",
+      "사유": "무릎 부상(장기)",
+      "상태": "확정",
+      "복귀예정": "2027년 초 목표(미정)",
+      "대체선수": "Yan Diomande",
+      "출처": ["https://www.sportsmole.co.uk/football/real-madrid/champions-league/injuries-and-suspensions/rodrygo-mendy-updates-real-madrid-injury-suspension-news-vs-leipzig_607217.html"],
+      "날짜": "2026-10-19"
+    },
+    {
+      "팀": "레알 마드리드",
+      "선수": "Ferland Mendy",
+      "포지션": "LB",
+      "이번시즌_선발/경기": "미상(시즌 초반부터 결장 지속)",
+      "득점·도움": "미상",
+      "사유": "넓적다리(허벅지) 부상",
+      "상태": "확정",
+      "복귀예정": "2026년 말쯤 예상",
+      "대체선수": "Marc Cucurella / Álvaro Carreras",
+      "출처": ["https://www.sportsmole.co.uk/football/real-madrid/champions-league/injuries-and-suspensions/rodrygo-mendy-updates-real-madrid-injury-suspension-news-vs-leipzig_607217.html"],
+      "날짜": "2026-10-19"
+    },
+    {
+      "팀": "레알 마드리드",
+      "선수": "Raúl Asencio",
+      "포지션": "CB(백업)",
+      "이번시즌_선발/경기": "미상",
+      "득점·도움": "미상",
+      "사유": "다리 피로골절 수술(이전 보도 '최장 4개월' → 최신 '약 3개월')",
+      "상태": "확정",
+      "복귀예정": "약 3개월 후(수술일 기준)",
+      "대체선수": "Ibrahima Konaté / Antonio Rüdiger",
+      "출처": ["https://www.sportsmole.co.uk/football/real-madrid/champions-league/injuries-and-suspensions/rodrygo-mendy-updates-real-madrid-injury-suspension-news-vs-leipzig_607217.html"],
+      "날짜": "2026-10-19"
+    },
+    {
+      "팀": "레알 마드리드",
+      "선수": "Vinícius Júnior",
+      "포지션": "FW/LW",
+      "이번시즌_선발/경기": "미상",
+      "득점·도움": "미상",
+      "사유": "징계이나 UCL은 무관 — 라리가 4경기 출전정지(10/10 비야레알전 레드카드, 상대 선수 Nathan Saliba 머리카락을 잡아당긴 행위로 가중 징계). 챔피언스리그는 출전 가능하며 엘클라시코(라리가, 10/25)는 결장",
+      "상태": "확정(챔스 출전 가능)",
+      "복귀예정": "이번 UCL 경기 선발 유력(무리뉴 감독 시사)",
+      "대체선수": "해당 없음(출전 가능)",
+      "출처": ["https://www.beinsports.com/en-us/soccer/la-liga/articles/vin%C3%ADcius-suspended-for-four-matches-and-will-miss-el-cl%C3%A1sico-against-barcelona-2026-10-14", "https://sports.yahoo.com/articles/suspension-champions-league-struggles-real-212311391.html"],
+      "날짜": "2026-10-14~19"
+    },
+    {
+      "팀": "RB라이프치히",
+      "선수": "Assan Ouédraogo",
+      "포지션": "CM",
+      "이번시즌_선발/경기": "미상",
+      "득점·도움": "미상",
+      "사유": "어깨 부상",
+      "상태": "확정",
+      "복귀예정": "미정",
+      "대체선수": "Ezechiel Banzuzi / Neil El Aynaoui",
+      "출처": ["https://www.sportsmole.co.uk", "https://www.goal.com/en/news/real-madrid-rb-leipzig-champions-league-preview/blt7ee234496dfbd851"],
+      "날짜": "2026-10-19"
+    },
+    {
+      "팀": "RB라이프치히",
+      "선수": "Marc Guiu",
+      "포지션": "FW(백업)",
+      "이번시즌_선발/경기": "미상",
+      "득점·도움": "미상",
+      "사유": "근육(햄스트링) 부상",
+      "상태": "확정",
+      "복귀예정": "수주 후(미정)",
+      "대체선수": "Christopher Nkunku",
+      "출처": ["https://www.goal.com/en/news/real-madrid-rb-leipzig-champions-league-preview/blt7ee234496dfbd851"],
+      "날짜": "2026-10-19"
+    },
+    {
+      "팀": "RB라이프치히",
+      "선수": "Leopold Zingerle",
+      "포지션": "GK(백업)",
+      "이번시즌_선발/경기": "미상(백업)",
+      "득점·도움": "해당 없음",
+      "사유": "징계(출전 자격 없음)",
+      "상태": "확정",
+      "복귀예정": "해당 없음(백업GK, 영향 적음)",
+      "대체선수": "Maarten Vandevoordt(주전 유지)",
+      "출처": ["https://www.mynet.com/real-madrid-rb-leipzig-2026-10-21-maci-oncesi-analiz-524513-myspor", "https://en.wikipedia.org/wiki/Leopold_Zingerle"],
+      "날짜": "2026-10-19"
+    }
+  ],
+  "복귀": [
+    {
+      "팀": "RB라이프치히",
+      "선수": "Christoph Baumgartner",
+      "포지션": "AM",
+      "내용": "햄스트링(허벅지) 부상에서 복귀 — 최종 훈련 전량 소화, 레알 마드리드 원정 명단 포함 가능",
+      "상태": "확정(현지 독일어 매체 2곳)",
+      "출처": ["https://leipzig.t-online.de/region/leipzig/id_101489410/rb-leipzig-offensivspieler-rechtzeitig-vor-spiel-gegen-real-madrid-zurueck.html", "https://absolutfussball.com/deutschland/rb-leipzig/rb-leipzig-christoph-baumgartner-vor-kader-rueckkehr-comeback-real-madrid-champions-league-94549894.html"],
+      "날짜": "2026-10-20"
+    }
+  ],
+  "라인업": {
+    "홈": {
+      "발표여부": "미발표(언론 예상)",
+      "예상XI": "4-2-3-1 예상(언론 preview, khelnow): Courtois; Valverde, Konaté, (Rüdiger/신규 CB), Carreras; Güler, Tchouaméni; Diomande, Bellingham, Vinícius; Mbappé — 단, 이 조합은 미검증 예상이며 팀노트 직전 선발(10-15 AS Roma전)과는 일부 차이(Huijsen·Güler·Carreras는 팀노트 FACTS 이적명단에 없어 교차확인 필요)",
+      "포메이션": "4-2-3-1 또는 4-3-3",
+      "출처": ["https://khelnow.com/football/real-madrid-vs-rb-leipzig-preview-champions-league-202610"],
+      "날짜": "2026-10-20"
+    },
+    "원정": {
+      "발표여부": "미발표(언론 예상)",
+      "예상XI": "4-2-3-1: Maarten Vandevoordt; Ridle Baku, Castello Lukeba, Willi Orbán, David Raum; Christopher Nkunku, Neil El Aynaoui, Ezechiel Banzuzi; Antonio Nusa, Rômulo, Brajan Gruda (Baumgartner는 복귀했으나 선발 여부 미정, 교체 투입 가능성)",
+      "포메이션": "4-2-3-1",
+      "출처": ["https://sports.yahoo.com/articles/preview-real-madrid-vs-rb-190000076.html", "https://leipzig.t-online.de/..."],
+      "날짜": "2026-10-20"
+    }
+  },
+  "최근경기": [
+    {"팀": "레알 마드리드", "날짜": "2026-10-18", "상대": "Sevilla(H, 라리가)", "장소": "홈", "스코어": "4-1", "비고": "대승(검색 요약 기준, 상세 스코어러 미확인)"},
+    {"팀": "레알 마드리드", "날짜": "2026-10-15", "상대": "AS Roma(A, UCL MD2)", "장소": "원정", "스코어": "4-3", "비고": "접전 끝 승리"},
+    {"팀": "레알 마드리드", "날짜": "2026-10-10", "상대": "Villarreal(H, 라리가)", "장소": "홈", "스코어": "1-0", "비고": "비니시우스 레드카드 퇴장 경기"},
+    {"팀": "RB라이프치히", "날짜": "2026-10-17", "상대": "Bayern Munich(A, 분데스리가)", "장소": "원정", "스코어": "1-6", "비고": "대패"},
+    {"팀": "RB라이프치히", "날짜": "2026-10-14", "상대": "PSV Eindhoven(H, UCL MD2)", "장소": "홈", "스코어": "1-0", "비고": "승리(UCL 시즌 첫 승)"},
+    {"팀": "RB라이프치히", "날짜": "2026-10-10", "상대": "Eintracht Frankfurt(H, 분데스리가)", "장소": "홈", "스코어": "6-0", "비고": "대승, 홈 극강 경향 재확인"}
+  ],
+  "순위": {
+    "홈": "라리가 4위 8경기 6승0무2패 GD+11 승점18 (Real Madrid) · UCL 리그페이즈 2승0패(승점6, GD+2, MD2 기준)",
+    "원정": "분데스리가 7위 6경기 3승0무3패 GD+5 승점9 (RB Leipzig) · UCL 리그페이즈 1승1패(승점3, GD-2, 21위/36, MD2 기준)",
+    "출처": ["팀노트 FACTS(위키 시즌문서/ESPN)", "https://www.nbcsports.com/soccer/news/uefa-champions-league-2026-27-league-phase-table-latest-standings", "https://www.foxsports.com/soccer/rb-leipzig-team-standings?type=uefa+champions+league"],
+    "날짜": "2026-10-19~20"
+  },
+  "감독": {
+    "홈": "José Mourinho",
+    "원정": "Martín Demichelis",
+    "변동": "없음(두 감독 모두 유임)",
+    "출처": ["팀노트 FACTS"],
+    "날짜": "2026-10-20"
+  },
+  "일정·동기·기타": [
+    {"내용": "레알 마드리드는 UCL 2연승(6점)으로 조 상위권, 라이프치히는 1승1패(3점, 36개팀 중 21위)로 16강 직행권 확보가 급한 처지 — 동기부여 비대칭", "출처": "https://www.nbcsports.com/soccer/news/uefa-champions-league-2026-27-league-phase-table-latest-standings", "날짜": "2026-10-19"},
+    {"내용": "라이프치히는 UCL 최근 19경기 무클린시트 기록(팀노트 기존 조사, 2026-10-13) — 최신 기사로 재확인은 못함", "출처": "팀노트 RB라이프치히.md(2026-10-13 조사, tips.gg)", "날짜": "2026-10-13"},
+    {"내용": "라이프치히는 직전 분데스리가에서 바이에른에 1-6 대패 직후 원정 — 사기·체력 변수 가능성", "출처": "팀노트 FACTS", "날짜": "2026-10-20"},
+    {"내용": "경기장 시우다드 레알 마드리드(발데베바스 훈련구장 임시 구장으로 추정 — 베르나베우 개보수 중일 가능성, 교차검증 필요), 이동거리 1722km 장거리 원정", "출처": "팀노트 INPUTS", "날짜": "2026-10-20"}
+  ],
+  "엇갈림": [
+    {"내용": "경기장 표기 불일치 — 일부 자료(사용자 제공 경기정보)는 '산티아고 베르나베우', 팀노트 INPUTS는 '시우다드 레알 마드리드'로 기재. 공식 구장 확인 필요(2026-27 시즌 베르나베우 리노베이션 관련 가능성)", "출처": "팀노트 레알 마드리드.md INPUTS", "날짜": "2026-10-20"},
+    {"내용": "예상 라인업 소스(khelnow)에 Huijsen·Güler·Carreras 등 팀노트 FACTS 이적 명단에 없는 이름이 등장 — 검증 안 된 예상으로 간주, 팀노트 직전 선발(Rüdiger·Dumfries·Cucurella·Diomande 포함) 쪽을 우선 신뢰 권고", "출처": "교차비교", "날짜": "2026-10-20"}
+  ],
+  "못찾음": ["레알 마드리드·라이프치히 결장 선수들의 이번 시즌 정확한 선발 횟수·득점·도움 수치", "양팀 공식 발표 선발 명단(킥오프 전 공개 예정)", "레알 마드리드 10/18 Sevilla전 스코어러·세부 내용"],
+  "뉴스없음": {"홈": "해당 없음(결장 뉴스 다수 확인됨)", "원정": "해당 없음(결장·복귀 뉴스 다수 확인됨)"}
+}

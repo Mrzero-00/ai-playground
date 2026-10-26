@@ -1,0 +1,136 @@
+{
+  "번호": 361,
+  "홈": "라싱 산탄데르",
+  "원정": "RCD에스파뇰",
+  "리그": "스페인 라리가 2026-27 10라운드",
+  "구장": "엘 사르디네로(Campos de Sport de El Sardinero, Santander) — 교차확인 2곳(elgoldigital.com, beinsports.com)",
+  "킥오프": "2026-10-24 23:15 KST (현지 10-24 16:15 CEST)",
+  "수집시각": "2026-10-24 21:50 KST",
+  "입력_126.md_대조": "해당 경기 행 있음(29행) — 숫자 그대로 인용: 휴식 라싱 6.1일(7일 1경기)·직전 10-18 원정 vs Osasuna 0-2 패[laliga]·xG 시즌9경기 1.27/2.31 npxGD-0.8·최근5 1.02/3.36·홈0.17/원정-1.57·xPts9.2 vs 승점8 / 에스파뇰 휴식 7.1일·직전 10-17 홈 vs Atlético Madrid 0-1 패[laliga]·xG 시즌9경기 1.25/1.41 npxGD-0.16·최근5 1.1/1.33·홈0.05/원정-0.42·xPts12.0 vs 승점8. 환경: 이동 537km·고도 12m(차-6m)·16.3℃ 강수0mm(0%) 바람10.6km/h. 라인업란은 '미발표(킥오프 2.0h 전)'로 수집 당시 기재.",
+  "팩트시트_126.md_대조": "해당 팀 행 없음(팩트시트 파일이 헤더만 있고 아직 채워지지 않음)",
+  "teamdb_card": {
+    "홈": "라싱 산탄데르 17위 9경기 2승2무5패 GD-12 승점8 · xG1.27/xGA2.31(npxGD-1.04) · 핵심선수 Yassir Zabiri(23%), Iñigo Vicente(18%), Andrés Martín(17%), Sergio Canales(8%) · 주 포메이션 4-2-3-1(67%)",
+    "원정": "에스파뇰 16위 9경기 2승2무5패 GD-1 승점8 · xG1.25/xGA1.41(npxGD-0.16, xPts12.0 vs 승점8 '운 나쁨') · 핵심선수 Roberto Fernández(29%), Javi Hernández(16%), Edu Expósito(12%) · 주 포메이션 4-2-3-1(69%), 최근 경기는 5-4-1 사용"
+  },
+  "결장": [
+    {
+      "팀": "라싱 산탄데르",
+      "선수": "Simon Eriksson",
+      "포지션": "미상",
+      "이번시즌_선발/경기": "미상(기사에 비기재)",
+      "득점·도움": "미상",
+      "사유": "오른쪽 어깨 건염(tendinopatía en el hombro derecho)",
+      "상태": "확정",
+      "복귀예정": "미상",
+      "대체선수": "미상",
+      "출처": ["https://www.elgoldigital.com/futbol/racing-de-santander/racing-santander-espanyol-previa-jornada-10-laliga-sardinero", "https://www.infobae.com/espana/agencias/2026/10/23/el-racing-espanyol-una-oportunidad-para-cambiar-las-dinamicas/"],
+      "날짜": "2026-10-23"
+    },
+    {
+      "팀": "라싱 산탄데르",
+      "선수": "Pedro Felipe",
+      "포지션": "DF(추정)",
+      "이번시즌_선발/경기": "미상",
+      "득점·도움": "미상",
+      "사유": "수요일(10/21) 훈련 중 왼쪽 허벅지 앞쪽 불편감으로 훈련 이탈",
+      "상태": "의심",
+      "복귀예정": "미정(목요일 이후 추가 보도 없음)",
+      "대체선수": "미상",
+      "출처": ["https://www.elgoldigital.com/futbol/racing-de-santander/racing-santander-espanyol-previa-jornada-10-laliga-sardinero"],
+      "날짜": "2026-10-23"
+    },
+    {
+      "팀": "RCD에스파뇰",
+      "선수": "Kike García",
+      "포지션": "FW",
+      "이번시즌_선발/경기": "미상",
+      "득점·도움": "미상",
+      "사유": "부상(구체 부위 비기재)",
+      "상태": "확정",
+      "복귀예정": "미상",
+      "대체선수": "Roberto Fernández(주전 원톱)",
+      "출처": ["WebSearch 종합(Goal.com 계열 매체, 원문 URL 직접 확인 불가 — 제목 기준 요약)"],
+      "날짜": "2026-10-22(추정, 교차확인 1곳만 — 오래된 뉴스 아님)"
+    },
+    {
+      "팀": "RCD에스파뇰",
+      "선수": "Jofre Carreras",
+      "포지션": "MF/FW",
+      "이번시즌_선발/경기": "미상",
+      "득점·도움": "미상",
+      "사유": "부상(구체 부위 비기재)",
+      "상태": "확정",
+      "복귀예정": "미상",
+      "대체선수": "미상",
+      "출처": ["WebSearch 종합(교차확인 1곳만)"],
+      "날짜": "2026-10-22(추정)"
+    },
+    {
+      "팀": "RCD에스파뇰",
+      "선수": "Javi Puado",
+      "포지션": "FW",
+      "이번시즌_선발/경기": "장기 결장 후 스쿼드 복귀(선발 횟수 미상)",
+      "득점·도움": "미상",
+      "사유": "부상에서 회복 — 스쿼드 복귀했으나 '경기력(forma competitiva)은 아직 회복 필요'로 보도",
+      "상태": "출전 가능하나 선발 불확실(의심)",
+      "복귀예정": "스쿼드 포함, 선발 여부 미정",
+      "대체선수": "해당 없음(교체 옵션)",
+      "출처": ["WebSearch 종합(교차확인 1곳만)"],
+      "날짜": "2026-10-22(추정)"
+    }
+  ],
+  "라인업": {
+    "홈": {
+      "발표여부": "미발표(킥오프 1.5시간 전 — 공식 선발 미확인, 예상 선발만 확인됨)",
+      "예상XI": "4-2-3-1: Agirrezabala; Mantilla, Pablo Ramón, Belocian, Salinas; Prati, Iván Martín; Íñigo Vicente, Canales, (Pablo García 또는 Andrés Martín), Zabiri",
+      "포메이션": "4-2-3-1",
+      "출처": ["https://www.elgoldigital.com/futbol/racing-de-santander/racing-santander-espanyol-previa-jornada-10-laliga-sardinero", "https://www.whoscored.com/matches/1993937/preview/spain-laliga-2026-2027-racing-santander-espanyol"],
+      "날짜": "2026-10-23"
+    },
+    "원정": {
+      "발표여부": "미발표",
+      "예상XI": "3-4-2-1(또는 5-4-1): Fortuño; Cabrera, Drkusic, Riedel, Hinojo; (측면 윙백 El Hilali 등); Lozano, Expósito; Zaragoza, Hernández; Roberto Fernández",
+      "포메이션": "3-4-2-1/5-4-1(매체마다 표기 차이 — teamdb 직전 경기는 5-4-1)",
+      "출처": ["https://www.whoscored.com/matches/1993937/preview/spain-laliga-2026-2027-racing-santander-espanyol", "teamdb.py card"],
+      "날짜": "2026-10-23~24"
+    }
+  },
+  "최근경기": [
+    {"팀": "라싱 산탄데르", "날짜": "2026-09-19", "상대": "Celta Vigo(A)", "장소": "원정", "스코어": "0-5", "비고": "xG 0.72:2.23(teamdb)"},
+    {"팀": "라싱 산탄데르", "날짜": "2026-10-11", "상대": "Valencia(H)", "장소": "홈", "스코어": "2-2", "비고": "xG 1.40:1.75"},
+    {"팀": "라싱 산탄데르", "날짜": "2026-10-18", "상대": "Osasuna(A)", "장소": "원정", "스코어": "0-2 패", "비고": "xG 0.22:3.08, 연패 중"},
+    {"팀": "RCD에스파뇰", "날짜": "2026-10-09", "상대": "Málaga(A)", "장소": "원정", "스코어": "1-1", "비고": "xG 1.38:0.69"},
+    {"팀": "RCD에스파뇰", "날짜": "2026-10-17", "상대": "Atlético Madrid(H)", "장소": "홈", "스코어": "0-1 패", "비고": "xG 0.49:1.78, 5-4-1 사용"}
+  ],
+  "맞대결": {
+    "내용": "최근 전적 직접 검색하지 못함 — 못찾음 항목 참고",
+    "출처": [],
+    "날짜": ""
+  },
+  "순위": {
+    "홈": "17위 9경기 2승2무5패 GD-12 승점8 — 강등권(18위 Elche)보다 1점 위",
+    "원정": "16위 9경기 2승2무5패 GD-1 승점8",
+    "비고": "두 팀 모두 승점 8점 동률, '이기는 쪽이 승점 11로 올라가는' 직접 생존 경쟁(infobae, elgoldigital 표현)",
+    "출처": ["https://www.infobae.com/espana/agencias/2026/10/23/el-racing-espanyol-una-oportunidad-para-cambiar-las-dinamicas/", "teamdb.py card"],
+    "날짜": "2026-10-23~24"
+  },
+  "감독": {
+    "홈": "José Alberto(라싱 산탄데르)",
+    "원정": "Manolo González(RCD에스파뇰, 2027년까지 재계약 확정 상태 — 경질설 없음)",
+    "변동": "없음(확인처: elgoldigital.com, rcdespanyol.com 공식 발표)",
+    "출처": ["https://www.elgoldigital.com/futbol/racing-de-santander/racing-santander-espanyol-previa-jornada-10-laliga-sardinero", "https://www.rcdespanyol.com/es/noticia/manolo-gonzalez-2027/18868"],
+    "날짜": "2026-10-23"
+  },
+  "일정·동기·기타": [
+    {"내용": "라싱은 올 시즌 승점을 전부 홈(El Sardinero)에서만 획득, 원정 승점 0 — 홈에서도 최근 연패 중이라 반등이 급함", "출처": "https://www.infobae.com/espana/agencias/2026/10/23/el-racing-espanyol-una-oportunidad-para-cambiar-las-dinamicas/", "날짜": "2026-10-23"},
+    {"내용": "복귀 선수: Giorgi Guliashvili가 종아리뼈(peroné) 골절에서 복귀", "출처": "https://www.elgoldigital.com/futbol/racing-de-santander/racing-santander-espanyol-previa-jornada-10-laliga-sardinero", "날짜": "2026-10-23"},
+    {"내용": "날씨: 킥오프 시각 기준 28℃, 강수 0mm(0%), 바람 20km/h — 맑음(입력_126.md의 16.3℃·무강수 수치와 시간대 차이로 다를 수 있음, 두 출처 모두 '강수 없음'은 일치)", "출처": "WebSearch(eltiempo.es 계열)", "날짜": "2026-10-24"}
+  ],
+  "심판": {"이름": "Jesús Gil Manzano", "출처": ["WebSearch 종합(복수 프리뷰 매체 일치)"], "날짜": "2026-10-21~24"},
+  "날씨": {"내용": "맑음, 강수 없음, 16~28℃(시간대별 출처 차이), 바람 10~20km/h", "출처": ["입력_126.md", "WebSearch(eltiempo.es)"], "날짜": "2026-10-24"},
+  "엇갈림": [
+    {"내용": "에스파뇰 순위 표기가 매체별로 15위~16위로 엇갈림(승점 8점은 공통) — 라운드 집계 시점 차이로 추정", "출처": ["elgoldigital.com", "teamdb.py(ESPN 기준)"], "날짜": "2026-10-23~24"}
+  ],
+  "못찾음": ["양팀 결장 선수들의 이번 시즌 정확한 선발 횟수·득점 수치", "두 팀 최근 맞대결(H2H) 전적", "공식 확정 선발 명단(킥오프 1.5시간 전 시점 미발표)", "라리가 공식 지정 심판 2차 교차확인(출처 1곳만 복수 매체 반복 언급)"],
+  "뉴스없음": {"홈": "해당 없음(결장 2건 확인됨)", "원정": "해당 없음(결장 3건 확인됨)"}
+}

@@ -1,0 +1,163 @@
+{
+  "번호": 729,
+  "홈": "SC프라이부르크",
+  "원정": "바이에른 뮌헨",
+  "리그": "분데스리가 9라운드",
+  "구장": "Europa-Park-Stadion(드라이잠슈타디온, 프라이부르크)",
+  "킥오프": "2026-10-26 01:30 KST (현지 10-25 17:30)",
+  "수집시각": "2026-10-25 23:05 KST",
+  "결장": [
+    {
+      "팀": "SC프라이부르크",
+      "선수": "Yannick Engelhardt",
+      "포지션": "MF",
+      "이번시즌_선발/경기": "미상(최근 선발급)",
+      "득점·도움": "미상",
+      "사유": "목요일(10/22 컨퍼런스리그 vs 모나코) 조기 교체 — 출전 여부 물음표",
+      "상태": "의심",
+      "복귀예정": "이번 경기 출전 불투명",
+      "출처": ["https://magazin.comunio.de/sc-freiburg-fc-bayern-muenchen-voraussichtliche-aufstellungen-5/"],
+      "날짜": "2026-10-25"
+    },
+    {
+      "팀": "바이에른 뮌헨",
+      "선수": "Manuel Neuer",
+      "포지션": "GK",
+      "이번시즌_선발/경기": "미상(주전 GK)",
+      "득점·도움": "-",
+      "사유": "발 힘줄 염증(Sehnenreizung im Fuß)",
+      "상태": "확정",
+      "복귀예정": "미상(단기)",
+      "출처": ["https://fcbinside.de/2026/10/25/not-elf-gegen-freiburg-so-koennte-der-fc-bayern-spielen"],
+      "날짜": "2026-10-25"
+    },
+    {
+      "팀": "바이에른 뮌헨",
+      "선수": "Joshua Kimmich",
+      "포지션": "MF",
+      "이번시즌_선발/경기": "미상(주전급)",
+      "득점·도움": "미상",
+      "사유": "가족 상(喪) 관련 사유로 결장",
+      "상태": "확정",
+      "복귀예정": "미상(개인사유)",
+      "출처": ["https://fcbinside.de/2026/10/25/not-elf-gegen-freiburg-so-koennte-der-fc-bayern-spielen"],
+      "날짜": "2026-10-25"
+    },
+    {
+      "팀": "바이에른 뮌헨",
+      "선수": "Kim Min-jae",
+      "포지션": "DF(센터백)",
+      "이번시즌_선발/경기": "미상(주전급, 직전 아스널전 선발)",
+      "득점·도움": "미상",
+      "사유": "근육 경련/긴장(Muskelzerrung)",
+      "상태": "확정",
+      "복귀예정": "미상(단기)",
+      "출처": ["https://fcbinside.de/2026/10/25/not-elf-gegen-freiburg-so-koennte-der-fc-bayern-spielen"],
+      "날짜": "2026-10-25"
+    },
+    {
+      "팀": "바이에른 뮌헨",
+      "선수": "Luis Díaz",
+      "포지션": "FW/윙",
+      "이번시즌_선발/경기": "미상",
+      "득점·도움": "미상",
+      "사유": "작은 근섬유 파열(kleiner Muskelbündelriss)",
+      "상태": "확정",
+      "복귀예정": "단기(수일~1주 내외 추정, 공식 기간 미상)",
+      "출처": ["https://fcbinside.de/2026/10/25/not-elf-gegen-freiburg-so-koennte-der-fc-bayern-spielen"],
+      "날짜": "2026-10-25"
+    },
+    {
+      "팀": "바이에른 뮌헨",
+      "선수": "Jamal Musiala",
+      "포지션": "MF/공격형",
+      "이번시즌_선발/경기": "미상(핵심 주전, 10/13 125회 기록에서도 결장 확정 언급)",
+      "득점·도움": "미상",
+      "사유": "근육 부상(지속)",
+      "상태": "확정",
+      "복귀예정": "미상(장기 가능성)",
+      "출처": ["https://fcbinside.de/2026/10/25/not-elf-gegen-freiburg-so-koennte-der-fc-bayern-spielen"],
+      "날짜": "2026-10-25"
+    }
+  ],
+  "감독_특이사항": {
+    "내용": "Vincent Kompany 감독이 쓰러지는(collapse) 사건 발생 — 이번 경기 벤치에서 제외, 수석코치 Aaron Danks가 임시 지휘. 건강 상태·원인 세부 보도는 확인 안 됨(미상), 팀 운영·전술 결정권에 영향 가능성",
+    "상태": "확정(감독 결장)",
+    "출처": ["https://fcbinside.de/2026/10/25/not-elf-gegen-freiburg-so-koennte-der-fc-bayern-spielen"],
+    "날짜": "2026-10-25"
+  },
+  "라인업": {
+    "홈": {
+      "발표여부": "미발표(예상 라인업)",
+      "예상XI": "Mio Backhaus; Merlin Röhl 없음 — Treu, Matthias Ginter, Lienhart, Jordy Makengo; Maximilian Eggestein, Yannick Engelhardt(물음표); Niklas Beste, Yuito Suzuki, Scherhant; Igor Matanović",
+      "포메이션": "4-2-3-1",
+      "출처": ["https://magazin.comunio.de/sc-freiburg-fc-bayern-muenchen-voraussichtliche-aufstellungen-5/"],
+      "날짜": "2026-10-25"
+    },
+    "원정": {
+      "발표여부": "미발표('Not-Elf(비상 라인업)' 보도, 결장 5명)",
+      "예상XI": "Jonas Urbig; Konrad Laimer, Dayot Upamecano, Josip Stanišić, Nathaniel Brown; Tom Bischof, Aleksandar Pavlović(결장설과 엇갈림); Michael Olise, Ismael Saibari/Alphonso Davies, Serge Gnabry; Harry Kane",
+      "포메이션": "4-2-3-1",
+      "출처": ["https://fcbinside.de/2026/10/25/not-elf-gegen-freiburg-so-koennte-der-fc-bayern-spielen"],
+      "날짜": "2026-10-25"
+    }
+  },
+  "최근경기": [
+    {"팀": "SC프라이부르크", "날짜": "2026-10-23", "상대": "AS Monaco(컨퍼런스리그)", "장소": "원정", "스코어": "0-3(프라이부르크 패)", "비고": "유럽대항전, 중2.9일 후 바이에른전"},
+    {"팀": "SC프라이부르크", "날짜": "2026-10-18", "상대": "Bayer Leverkusen", "장소": "원정", "스코어": "2-1(프라이부르크 패)", "비고": "분데스리가"},
+    {"팀": "SC프라이부르크", "날짜": "2026-10-11", "상대": "Schalke 04", "장소": "홈", "스코어": "2-1(프라이부르크 승)", "비고": "분데스리가(컵 추정 표기 혼재 — 원문 확인 필요)"},
+    {"팀": "바이에른 뮌헨", "날짜": "2026-10-22", "상대": "Arsenal(UCL)", "장소": "홈", "스코어": "2-2 무", "비고": "챔피언스리그, 중3.9일 후 프라이부르크전"},
+    {"팀": "바이에른 뮌헨", "날짜": "2026-10-17", "상대": "RB Leipzig", "장소": "홈", "스코어": "6-1(바이에른 대승)", "비고": "분데스리가"},
+    {"팀": "바이에른 뮌헨", "날짜": "2026-10-10", "상대": "FC Augsburg", "장소": "원정", "스코어": "2-2 무", "비고": "분데스리가"}
+  ],
+  "맞대결": {
+    "통산": "최근 30경기 바이에른 22승 2패 6무, 바이에른 78골-프라이부르크 24골(경기당 평균 3.4골)",
+    "최근": "바이에른은 2015년 이후 이 상대에게 리그 무패(16승4무). 최근 5경기 바이에른 4승1무(19골-9골). 2026년 4월 바이에른 원정 3-2 승(Europa-Park-Stadion)",
+    "출처": ["https://www.goal.com/en/news/freiburg-bayern-munich-bundesiga-preview/blt6dc7b41da855154d"],
+    "날짜": "2026-10-25"
+  },
+  "일정피로": {
+    "홈": "10/23 컨퍼런스리그 원정 모나코 0-3 패 이후 중2.9일 홈경기",
+    "원정": "10/22 챔피언스리그 홈 아스널 2-2 무 이후 중3.9일 원정, 주전 다수(Neuer·Kimmich·Kim·Díaz·Musiala) 동시 결장 + 감독 결장 겹침",
+    "출처": ["회차별분석/입력_126.md"],
+    "날짜": "2026-10-25"
+  },
+  "순위": {
+    "홈": "분데스리가 3위, 6경기 13승점(4승1무1패, 득실+9)",
+    "원정": "분데스리가 2위, 6경기 14승점(4승2무0패, 득실+17) — 승점상 프라이부르크보다 1점 위지만 경기수 동일",
+    "출처": ["팀노트/SC프라이부르크.md", "팀노트/바이에른 뮌헨.md"],
+    "날짜": "2026-10-25"
+  },
+  "감독": {
+    "홈": "Julian Schuster — 변동 없음",
+    "원정": "Vincent Kompany — 쓰러짐(collapse)으로 이번 경기 결장, Aaron Danks 대행 지휘",
+    "변동": "바이에른 감독 결장(신규, 10/25 확인)",
+    "출처": ["https://fcbinside.de/2026/10/25/not-elf-gegen-freiburg-so-koennte-der-fc-bayern-spielen"],
+    "날짜": "2026-10-25"
+  },
+  "동기부여": {
+    "홈": "유럽대항전 병행 속 리그 3위 수성, '1위(바이에른)를 상대하는 3위' 구도(goal.com 프리뷰 제목)",
+    "원정": "리그 선두 탈환 및 UCL 아스널전 부진 만회, 다만 핵심 5명+감독 결장으로 전력 약화",
+    "출처": ["https://www.goal.com/en/news/freiburg-bayern-munich-bundesiga-preview/blt6dc7b41da855154d"],
+    "날짜": "2026-10-25"
+  },
+  "주심": {
+    "이름": "Felix Zwayer",
+    "부심": "Robert Kempter, Nikolai Kimmeyer",
+    "VAR": "Christian Dingert",
+    "AVAR": "Mike Pickel",
+    "출처": ["https://www.bundesliga.com/de/bundesliga/news/schiedsrichter-ansetzungen-bundesliga-spieltag-42"],
+    "날짜": "2026-10-25"
+  },
+  "날씨": {
+    "내용": "프라이부르크 11.4℃, 강수 0mm(강수확률 50%), 바람 15.3km/h",
+    "출처": ["회차별분석/입력_126.md (Open-Meteo)"],
+    "날짜": "2026-10-25"
+  },
+  "엇갈림": [
+    "바이에른 예상 라인업 미드필더 구성: Pavlović 선발 포함(fcbinside 라인업 표) vs Pavlović '종아리 문제로 예방적 휴식'(다른 매체 absolutfussball 보도) — 출전 여부 직접 상충",
+    "바이에른 공격형 라인: Davies를 공격형 윙으로 배치하는 버전과 Saibari·Gnabry 포함 버전이 매체 간 다름"
+  ],
+  "못찾음": ["프라이부르크 Engelhardt 외 추가 결장 여부", "양팀 결장자 전원의 이번 시즌 선발 비중·득점·도움(전원 미상)", "콤파니 감독 쓰러짐의 구체적 원인·건강 상태", "공식 발표 선발 명단(킥오프 전 미발표)"],
+  "뉴스없음": {"홈": "Engelhardt 외 추가 결장·징계 없음(확인처: comunio.de)", "원정": "위 5명 선수 + 감독 결장 외 추가 이슈 없음(확인처: fcbinside.de, absolutfussball.com)"}
+}

@@ -1,0 +1,106 @@
+{
+  "번호": 313,
+  "홈": "파더보른07",
+  "원정": "함부르크",
+  "수집시각": "2026-10-24 21:40 KST",
+  "리그_확인": "둘 다 2026-27 독일 분데스리가(1부) 소속 — 둘 다 2025-26 2.Bundesliga에서 함께 승격한 신생 1부 팀(teamdb.py card 'Paderborn (Bundesliga)' / 'Hamburger SV (Bundesliga)' 확인). 파더보른 16위(5점), 함부르크 승점9로 중위권.",
+  "결장": [
+    {
+      "팀": "파더보른07",
+      "선수": "없음",
+      "포지션": "-",
+      "이번시즌_선발/경기": "-",
+      "득점·도움": "-",
+      "사유": "새로운 부상·결장 보도 없음",
+      "상태": "해당없음",
+      "복귀예정": "-",
+      "대체선수": "-",
+      "출처": ["https://www.fussballnationalmannschaft.net/fussball-heute-aufstellung-paderborn-hsv-tigges-123312896.html", "https://tipsterio.de/sportwetten-tipps/sc-paderborn-07-vs-hamburger-sv-wett-tipp-prognose-24-10-2026"],
+      "날짜": "2026-10-24"
+    },
+    {
+      "팀": "함부르크",
+      "선수": "Nicolai Remberg",
+      "포지션": "MF",
+      "이번시즌_선발/경기": "미상(teamdb 핵심 선수 목록 밖)",
+      "득점·도움": "미상",
+      "사유": "십자인대 부상(장기 결장)",
+      "상태": "확정",
+      "복귀예정": "장기 결장(복귀 시점 미보도)",
+      "대체선수": "미상",
+      "출처": ["https://www.fussballnationalmannschaft.net/fussball-heute-aufstellung-paderborn-hsv-tigges-123312896.html"],
+      "날짜": "2026-10-24"
+    },
+    {
+      "팀": "함부르크",
+      "선수": "Mario Vušković",
+      "포지션": "DF",
+      "이번시즌_선발/경기": "미상",
+      "득점·도움": "미상",
+      "사유": "징계(누적 경고 추정, 구체 사유 기사 비기재)로 결장",
+      "상태": "확정",
+      "복귀예정": "다음 경기 복귀 가능(1경기 징계로 추정)",
+      "대체선수": "Sebastiaan Bornauw / Warmed Omari 중앙 수비 조합 유지 예상",
+      "출처": ["https://www.fussballnationalmannschaft.net/fussball-heute-aufstellung-paderborn-hsv-tigges-123312896.html"],
+      "날짜": "2026-10-24"
+    }
+  ],
+  "라인업": {
+    "홈": {
+      "발표여부": "미발표(예상 라인업만 보도)",
+      "예상XI": "3-3-2-2: Nahuel Noll; Tjark Scheller, Mattes Hansen, Jano Horst; Laurin Curda, Santiago Castaneda, Raphael Obermair; Laurin Ulrich, Gabriel Vidović; Stefano Marino, Steffen Tigges",
+      "포메이션": "3-3-2-2 (직전 경기 3-1-4-2와 유사 변형)",
+      "출처": ["https://www.fussballnationalmannschaft.net/fussball-heute-aufstellung-paderborn-hsv-tigges-123312896.html"],
+      "날짜": "2026-10-24"
+    },
+    "원정": {
+      "발표여부": "미발표(예상 라인업만 보도)",
+      "예상XI": "3-4-2-1: Daniel Heuer Fernandes; Nicolás Capaldo, Sebastiaan Bornauw, Warmed Omari; (El-Ouahdi), Bilal Nadir, Miro Muheim, David Møller Wolfe; Fábio Vieira, (Grønbæk); Yussuf Poulsen",
+      "포메이션": "3-4-2-1(시즌 66% 사용)",
+      "출처": ["https://www.fussballnationalmannschaft.net/fussball-heute-aufstellung-paderborn-hsv-tigges-123312896.html", "teamdb.py card(직전 선발 10-17 vs Stuttgart 대조)"],
+      "날짜": "2026-10-24",
+      "비고": "보도의 El-Ouahdi·Grønbæk은 teamdb 직전 선발(10-17, Adeline·Lemke)과 다른 이름이라 로테이션 가능성 — 공식 발표 전까지 미확정으로 처리"
+    }
+  },
+  "최근경기": [
+    {"팀": "파더보른07", "날짜": "2026-10-17", "상대": "Werder Bremen(A)", "장소": "원정", "스코어": "2-2 무", "비고": "xG 1.37:2.67"},
+    {"팀": "파더보른07", "날짜": "2026-10-10", "상대": "VfB Stuttgart(H)", "장소": "홈", "스코어": "0-2 패", "비고": "xG 2.09:2.59"},
+    {"팀": "파더보른07", "날짜": "2026-09-20", "상대": "TSG Hoffenheim(H)", "장소": "홈", "스코어": "3-1 승", "비고": "xG 1.34:1.67"},
+    {"팀": "함부르크", "날짜": "2026-10-17", "상대": "VfB Stuttgart(H)", "장소": "홈", "스코어": "1-0 승", "비고": "3연승째, xG 1.67:2.64(기대득점상 열세였으나 승리)"},
+    {"팀": "함부르크", "날짜": "2026-10-10", "상대": "TSG Hoffenheim(A)", "장소": "원정", "스코어": "3-2 승", "비고": "xG 1.51:0.93"},
+    {"팀": "함부르크", "날짜": "2026-09-19", "상대": "FC Cologne(H)", "장소": "홈", "스코어": "2-1 승", "비고": "xG 2.08:2.16"}
+  ],
+  "맞대결": {
+    "기록": "직접 비교 기사 못 찾음(2부 시절 과거 맞대결 자료만 검색됨, 올 시즌 승격 후 첫 맞대결)",
+    "출처": [],
+    "날짜": "-"
+  },
+  "일정·동기·기타": [
+    {"내용": "둘 다 직전 경기 이후 휴식 7.0일로 피로도 대등 (입력_126 데이터)", "출처": "회차별분석/입력_126.md", "날짜": "2026-10-24"},
+    {"내용": "함부르크는 리그 3연승 중이며 이번에 이기면 17년 만에 분데스리가 4연승 달성 — 사기충천한 원정팀", "출처": "https://www.getfootballnewsgermany.com/2026/hamburg-injuries-bundesliga/", "날짜": "2026-10-23"},
+    {"내용": "파더보른은 브레멘 원정 2-2 무승부 이후 홈에서의 좋은 경기력을 승점으로 전환하는 것이 목표", "출처": "sportschau.de 프리뷰 요약(검색 스니펫)", "날짜": "2026-10-23"},
+    {"내용": "함부르크 xPts(5.5) 대비 실제 승점(9)이 높아 '운이 따른' 결과 누적 — teamdb 평가(언더라잉 지표 대비 승점 과대)", "출처": "teamdb.py card", "날짜": "2026-10-24"}
+  ],
+  "감독": {
+    "홈": "Ralf Kettemann (2025-26시즌 이후 유임, 이번 주 교체 없음)",
+    "원정": "Merlin Polzin (2024-11 이후 재임, 2027년까지 계약 — 안정적, 교체 없음)",
+    "변동": "특이 감독 이슈 없음",
+    "출처": ["https://en.wikipedia.org/wiki/2026%E2%80%9327_SC_Paderborn_07_season", "https://en.wikipedia.org/wiki/Merlin_Polzin"],
+    "날짜": "2026-10-24"
+  },
+  "날씨": {
+    "내용": "구장 Home Deluxe Arena · 10.5℃ · 강수 0mm(확률 0%) · 바람 24.2km/h",
+    "출처": "회차별분석/입력_126.md",
+    "날짜": "2026-10-24"
+  },
+  "심판": {
+    "내용": "주심 Martin Petersen, VAR Tobias Welz, 부심 Robert Wessel·Alexander Sather, 4th Daniel Schlager, AVAR Benjamin Cortus",
+    "출처": ["sportschau.de/관련 매체 심판 배정 보도"],
+    "날짜": "2026-10-24"
+  },
+  "엇갈림": [
+    {"내용": "함부르크 예상 선발에서 El-Ouahdi·Grønbæk 거론(일부 매체) vs teamdb 직전 선발의 Adeline·Lemke — 로테이션 여부 불확실", "출처": ["https://www.fussballnationalmannschaft.net/fussball-heute-aufstellung-paderborn-hsv-tigges-123312896.html", "teamdb.py card"], "날짜": "2026-10-24"}
+  ],
+  "못찾음": ["함부르크 Remberg·Vušković 이번 시즌 정확한 출전 수치", "양팀 올 시즌(2026-27) 직접 맞대결 기록", "양팀 공식 발표 선발 명단"],
+  "뉴스없음": {"홈": "확인됨 — 새 결장·이슈 없음(확인처 2곳: fussballnationalmannschaft.net, tipsterio.de)", "원정": "해당 없음(결장 뉴스 확인됨)"}
+}

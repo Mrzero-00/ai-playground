@@ -1,0 +1,178 @@
+{
+ "번호": "668",
+ "홈": "아탈란타BC",
+ "원정": "프로시노네",
+ "리그": "이탈리아 세리에A",
+ "킥오프": "2026-10-25T23:00+09:00 (현지 15:00 CET, 스타디오 아틀레티 아추리 디탈리아/New Balance Arena, 베르가모)",
+ "수집시각": "2026-10-25T21:30+09:00",
+ "결장": [
+  {
+   "팀": "홈",
+   "선수": "Isak Hien(이사크 히엔)",
+   "포지션": "DF(CB)",
+   "사유": "허벅지(반건양근) 수술 후 재활, 장기 결장",
+   "상태": "확정",
+   "이번시즌선발비중": "시즌 내내 결장(부상 장기화), 복귀는 10/29 피오렌티나 원정 전후로 예상 — 이번 경기는 확실히 결장",
+   "출처": "https://www.ilgiorno.it/bergamo/sport/atalanta/tempi-ancora-lunghi-rientro-isak-hien-c0wbnv5t · https://www.atalantaoggi.it/notizie/atalanta-emergenza-infortuni-senza-fine-contro-il-frosinone-ancora-otto-assenti/",
+   "날짜": "2026-10-23"
+  },
+  {
+   "팀": "홈",
+   "선수": "Odilon Kossounou(오딜롱 코수누)",
+   "포지션": "DF(CB)",
+   "사유": "부상",
+   "상태": "확정",
+   "이번시즌선발비중": "미상(시즌 중 주요 뎁스 CB)",
+   "출처": "https://www.atalantaoggi.it/notizie/atalanta-emergenza-infortuni-senza-fine-contro-il-frosinone-ancora-otto-assenti/",
+   "날짜": "2026-10-23"
+  },
+  {
+   "팀": "홈",
+   "선수": "Giorgio Scalvini(조르조 스칼비니)",
+   "포지션": "DF(CB)",
+   "사유": "부상",
+   "상태": "확정",
+   "이번시즌선발비중": "미상(주전급 CB로 알려짐, 부상 복귀 지연)",
+   "출처": "https://www.atalantaoggi.it/notizie/atalanta-emergenza-infortuni-senza-fine-contro-il-frosinone-ancora-otto-assenti/",
+   "날짜": "2026-10-23"
+  },
+  {
+   "팀": "홈",
+   "선수": "Sead Kolasinac(세아드 콜라시나치)",
+   "포지션": "DF(LB/CB)",
+   "사유": "부상",
+   "상태": "확정",
+   "이번시즌선발비중": "직전(10-18 밀란전) 선발 명단엔 포함돼 있었음 — teamdb 기준 10/18 경기 직전 선발에 이름 있음, 이후 부상 이탈 추정",
+   "출처": "https://www.atalantaoggi.it/notizie/atalanta-emergenza-infortuni-senza-fine-contro-il-frosinone-ancora-otto-assenti/",
+   "날짜": "2026-10-23"
+  },
+  {
+   "팀": "홈",
+   "선수": "Franck Kessié(프랑크 케시에)",
+   "포지션": "MF(CM)",
+   "사유": "부상",
+   "상태": "확정",
+   "이번시즌선발비중": "teamdb 핵심선수 명단: 0.9xG+0.2xA=7%, 61분/경기 — 로테이션급 출전 중 이탈",
+   "출처": "https://www.atalantaoggi.it/notizie/atalanta-emergenza-infortuni-senza-fine-contro-il-frosinone-ancora-otto-assenti/",
+   "날짜": "2026-10-23"
+  },
+  {
+   "팀": "홈",
+   "선수": "Giacomo Raspadori(자코모 라스파도리)",
+   "포지션": "FW",
+   "사유": "부상",
+   "상태": "확정",
+   "이번시즌선발비중": "미상(공격 로테이션 자원)",
+   "출처": "https://www.sosfanta.com/squadra/atalanta/atalanta-sarri-troppi-infortuni-calendario-assurdo-come-stanno-raspadori-bellanova-elmas-zalewski-infortunati-fantacalcio/",
+   "날짜": "2026-10-23"
+  },
+  {
+   "팀": "홈",
+   "선수": "Sulemana(술레마나)",
+   "포지션": "FW/MF(윙어, 미상 세부 포지션)",
+   "사유": "부상",
+   "상태": "확정",
+   "이번시즌선발비중": "미상(로테이션 자원)",
+   "출처": "https://www.atalantaoggi.it/notizie/atalanta-emergenza-infortuni-senza-fine-contro-il-frosinone-ancora-otto-assenti/",
+   "날짜": "2026-10-23"
+  },
+  {
+   "팀": "홈",
+   "선수": "Thomas Pompei(토마스 폼페이)",
+   "포지션": "GK",
+   "사유": "부상",
+   "상태": "확정",
+   "이번시즌선발비중": "미상(백업 GK, 2026-09 코센차에서 영입)",
+   "출처": "https://www.atalantaoggi.it/notizie/atalanta-emergenza-infortuni-senza-fine-contro-il-frosinone-ancora-otto-assenti/",
+   "날짜": "2026-10-23"
+  },
+  {
+   "팀": "원정",
+   "선수": "Florian Grillitsch(플로리안 그릴리치)",
+   "포지션": "MF(CM)",
+   "사유": "서혜부 탈장(스포츠 헤르니아) 수술(9/25), 최소 1개월 결장",
+   "상태": "확정",
+   "이번시즌선발비중": "시즌 1경기 출전·8분만 소화(8/29 피오렌티나전 데뷔) — 영향 미미한 뎁스 자원",
+   "출처": "https://cronachedi.it/frosinone-grillitsch-si-e-operato-allernia-sportiva/ · https://www.ansa.it/sito/notizie/sport/calcio/2026/10/22/frosinone-solo-il-dubbio-centrali-per-alvini-grillitsch-indisponibile_bfbd045b-c38a-491a-a05a-93ae569268b4.html",
+   "날짜": "2026-10-22"
+  }
+ ],
+ "복귀": [
+  {
+   "팀": "원정",
+   "선수": "Birligea(빌리레아)",
+   "포지션": "FW(윙어)",
+   "상태": "출전가능",
+   "사유": "부상에서 회복, 소집 명단 복귀",
+   "출처": "https://www.atalantaoggi.it/notizie/infortuni/frosinone-due-rientri-in-vista-dellatalanta-alvini-recupera-due-pedine/",
+   "날짜": "2026-10-24"
+  },
+  {
+   "팀": "원정",
+   "선수": "Bobcek(보프체크)",
+   "포지션": "FW",
+   "상태": "출전가능",
+   "사유": "부상에서 회복, 라이몬도와 스트라이커 경합",
+   "출처": "https://www.atalantaoggi.it/notizie/infortuni/frosinone-due-rientri-in-vista-dellatalanta-alvini-recupera-due-pedine/",
+   "날짜": "2026-10-24"
+  }
+ ],
+ "예상XI": {
+  "홈": {
+   "포메이션": "4-2-3-1(또는 4-3-3, 최근 경기 혼용) — 수비진 결장 다수로 변형 불가피",
+   "명단": ["Marco Carnesecchi(GK)", "Lorenzo Bernasconi", "Relja Obric", "Thomas Kristensen", "Raoul Bellanova", "Mario Pasalic(vs Gianluca Gaetano 경합)", "Éderson(확정)", "Lazar Samardzic", "Charles De Ketelaere(vs Nicola Zalewski 경합, Eljif Elmas도 옵션)", "Jonathan Rowe", "Nikola Krstovic"],
+   "비고": "Obric(20세, 슬로베니아)·Kristensen이 최근 2연패(밀란·아약스)에서 데뷔한 임시 센터백 조합 — CB 자원 고갈",
+   "출처": "https://m.tuttosport.com/amp/news/calcio/serie-a/atalanta/2026/10/23-152084901/atalanta-frosinone_probabili_formazioni_e_diretta_dove_si_vede_in_tv_e_streaming · https://www.tuttomercatoweb.com/probabili-formazioni/atalanta-frosinone-probabili-formazioni-2286323"
+  },
+  "원정": {
+   "포메이션": "4-2-3-1",
+   "명단": ["Lorenzo Palmisani(GK)", "Anthony Oyono", "Calvani(vs Monterisi/Cittadini 경합)", "Gabriele Bracaglia", "Patrizio Masini", "Giacomo Calò(vs Cichella 경합)", "Farès Ghedjemis", "Romano Schmid", "Giorgi Kvernadze", "Antonio Raimondo"],
+   "비고": "중앙 수비 조합(Calvani/Monterisi/Cittadini)이 막판까지 유동적",
+   "출처": "https://www.tuttomercatoweb.com/probabili-formazioni/atalanta-frosinone-probabili-formazioni-2286323"
+  }
+ },
+ "최근경기": {
+  "홈": [
+   {"날짜": "2026-10-12", "상대": "Venezia", "홈원정": "홈", "스코어": "3-1 승"},
+   {"날짜": "2026-10-18", "상대": "AC Milan", "홈원정": "원정", "스코어": "2-3 패"},
+   {"날짜": "2026-10-23", "상대": "Ajax Amsterdam", "홈원정": "원정(컨퍼런스리그)", "스코어": "0-2 패"}
+  ],
+  "원정": [
+   {"날짜": "2026-09-20", "상대": "Como", "홈원정": "홈", "스코어": "2-0 승"},
+   {"날짜": "2026-10-10", "상대": "Napoli", "홈원정": "원정", "스코어": "0-3 패"},
+   {"날짜": "2026-10-16", "상대": "Sassuolo", "홈원정": "홈", "스코어": "4-2 승(라이몬도 해트트릭 — 구단 세리에A 최초)"}
+  ],
+  "비고": "라이몬도(볼로냐 임대)가 시즌 13골 중 7골 기록, 10/16 사수올로전 해트트릭 — 구단 세리에A 최초 기록"
+ },
+ "순위": {
+  "홈": "11위 7경기 3승0무4패 GD-1 승점9",
+  "원정": "6위 7경기 4승1무2패 GD+4 승점13"
+ },
+ "일정": {
+  "홈": "휴식 2.8일(최근 7일 2경기) · 10/23 컨퍼런스리그 아약스 원정 0-2 패 직후 연전 · 사리 감독이 '부조리한 일정'이라 발언",
+  "원정": "휴식 8.8일 · 유럽대항전 없음 · 10/17 사수올로전 이후 충분한 휴식"
+ },
+ "감독": {
+  "홈": "Maurizio Sarri — 2026-10-23 아약스전 패배 후 기자회견에서 '부상이 모두에게 너무 많다, 부조리한 일정에 시달린다'고 발언, 거취 관련 비판 받는 상황",
+  "원정": "Massimiliano Alvini"
+ },
+ "맞대결": "세리에A 역대 6경기 아탈란타 4승1무1패, 17득점 2실점. 베르가모 3연전 전승(2015-09 2-0, 2018-08 4-0, 2024-01 5-0) — 모두 무실점. 프로시노네의 유일한 승리는 2023-08 스티르페 원정 2-1(아탈란타 9개월 뒤 5-0으로 설욕). 프로시노네는 베르가모 원정에서 승점을 가져간 적 없음",
+ "심판": {
+  "이름": "Marinelli",
+  "출처": "https://www.infobetting.com/blog/atalanta-frosinone-25-10-2026-formazioni-quote-pronostici-20262027-serie-a/"
+ },
+ "날씨": "14.6℃ 강수0mm(0%) 바람9.4km/h — 특이사항 없음, 구장 스타디오 아틀레티 아추리 디탈리아(베르가모)",
+ "출처": [
+  "https://www.atalantaoggi.it/notizie/atalanta-emergenza-infortuni-senza-fine-contro-il-frosinone-ancora-otto-assenti/",
+  "https://sport.quotidiano.net/calcio/atalanta/atalanta-frosinone-domani-alle-15-new-balance-arena-e1b9483f",
+  "https://www.ilgiorno.it/bergamo/sport/atalanta/tempi-ancora-lunghi-rientro-isak-hien-c0wbnv5t",
+  "https://cronachedi.it/frosinone-grillitsch-si-e-operato-allernia-sportiva/",
+  "https://www.ansa.it/sito/notizie/sport/calcio/2026/10/22/frosinone-solo-il-dubbio-centrali-per-alvini-grillitsch-indisponibile_bfbd045b-c38a-491a-a05a-93ae569268b4.html",
+  "https://www.atalantaoggi.it/notizie/infortuni/frosinone-due-rientri-in-vista-dellatalanta-alvini-recupera-due-pedine/",
+  "https://www.tuttomercatoweb.com/probabili-formazioni/atalanta-frosinone-probabili-formazioni-2286323",
+  "https://m.tuttosport.com/amp/news/calcio/serie-a/atalanta/2026/10/23-152084901/atalanta-frosinone_probabili_formazioni_e_diretta_dove_si_vede_in_tv_e_streaming",
+  "https://www.infobetting.com/blog/atalanta-frosinone-25-10-2026-formazioni-quote-pronostici-20262027-serie-a/",
+  "https://www.tuttoatalanta.com/serie-a/atalanta-frosinone-precedenti-17-gol-fatti-2-subiti-sfide-140360",
+  "data/espn + understat teamdb (scripts/teamdb.py card, 2026-10-25 수집)"
+ ]
+}

@@ -1,0 +1,198 @@
+[
+ {
+  "번호": 9738,
+  "홈": "올랜도 매직",
+  "원정": "애틀랜타 호크스",
+  "종목": "농구(NBA)",
+  "기준선": {
+   "승": 54.1,
+   "패": 45.9,
+   "출처": "농구.md NBA 기준선 공식(2026-10-20 신설) + b-ref 2025-26 레이팅. 페이스추정=(ORL 100.0 + ATL 99.0 대체)/2=99.5. 로스터변동 조정(5항 ±3점 이내): ORL ORtg 115.09→116.59(+1.5 — 상위 연봉 5인 Banchero·F.Wagner·Bane·Suggs·Carter Jr. 전원 잔류인데 지난 시즌 함께 뛴 시간이 182분뿐 = 작년 ORtg가 부상으로 눌려 있던 값, 건강 회복분만 보수적으로 +1.5), ATL DRtg 113.77→112.77(−1.0 — Risacher(작년 선발 윙) 내보내고 Luguentz Dort(OKC 주전급 윙 수비수) 영입, 12항대로 '직전 시즌 선발 여부'를 확인한 like-for-like 교체라 수비만 소폭 상향). ATL ORtg는 0 조정 — Trae Young 이탈이 2026-01-09이라 2025-26 레이팅에 이미 반쯤 반영돼 있고 McCollum·Kispert도 그 반년을 함께 뛰었다(중복 감점 금지). 득점_홈 115.19 : 득점_원정 113.69 → 마진 +1.50 → Φ(1.50/11.5)=55.2% → 개막 0경기 수축 ×0.80 = 54.1%"
+  },
+  "득점모델": {
+   "방식": "NBA 레이팅 기준선(농구.md 3항) — 득점_홈 = 99.5×(116.59+112.77−115.0)/100 + 1.4 = 115.2, 득점_원정 = 99.5×(116.13+114.54−115.0)/100 − 1.4 = 113.7. 요인 보정 후 마진 −0.07로 총득점 228.9를 재배분해 114.4 : 114.5. 점수차 σ11.5, 총득점 σ17.5, 핸디캡·U/O는 개막 0경기 수축 ×0.75",
+   "예상득점_홈": 114.4,
+   "예상득점_원정": 114.5,
+   "출처": "data/수집/125_9738_올랜도매직-애틀랜타호크스.json 레이팅 블록(basketball-reference 2025-26 ratings) + 농구.md NBA 기준선 1~5항"
+  },
+  "뉴스": {
+   "홈": [
+    {"내용": "10/21자 injury report — Noah Penda(햄스트링) OUT, Anthony Black(발목) OUT, Jonathan Isaac(무릎) OUT, Izaiyah Nelson(발목) OUT, Jase Richardson(허리) DAY-TO-DAY. OUT 4명은 모두 벤치 자원", "출처": "https://969thegame.iheart.com/content/2026-10-21-hawks-vs-magic-injury-report-oct-21/", "날짜": "2026-10-21"},
+    {"내용": "Franz Wagner — 프리시즌 마이애미전 3점 시도 중 오른 어깨 부상 후 10-20 전면 훈련 소화, 본인이 출전 의사 표명. 공식 injury report에는 제외됐으나 일부 집계에 Day-To-Day(Shoulder)로 남아 있음", "출처": "https://www.nbcsports.com/fantasy/basketball/player-news/2026-10-20/franz-wagner-shoulder-not-on-injury-report", "날짜": "2026-10-20"},
+    {"내용": "Paolo Banchero·Jalen Suggs·Desmond Bane 모두 injury report 미기재 = 출전 가능", "출처": "https://969thegame.iheart.com/content/2026-10-21-hawks-vs-magic-injury-report-oct-21/", "날짜": "2026-10-21"},
+    {"내용": "감독 교체 — Jamahl Mosley와 2026년 5월 결별, 신임 감독 Sean Sweeney(前 댈러스·샌안토니오 어시스턴트, NBA 수석감독 첫 시즌)", "출처": "https://www.espn.com/nba/story/_/id/49793920/orlando-magic-2026-27-season-preview-stats-roster-banchero-bane-wagner", "날짜": "2026-10"},
+    {"내용": "로스터 — Nikola Vucevic 복귀(1년 $3.9M), 그 외 FA 영입 거의 없음. 상위 연봉 5인 전원 잔류, 다만 이 5인이 지난 시즌 함께 뛴 시간은 182분뿐", "출처": "https://www.espn.com/nba/story/_/id/49793920/orlando-magic-2026-27-season-preview-stats-roster-banchero-bane-wagner", "날짜": "2026-10"},
+    {"내용": "예상 선발(공식 발표 전 프로젝션) — Suggs(PG)·Bane(SG)·F.Wagner(SF)·Banchero(PF)·Carter Jr.(C). 최근 3시즌 연속 플레이오프 1라운드 탈락으로 구단이 더 나은 성적을 요구하는 상황", "출처": "https://sports.yahoo.com/articles/orlando-magic-season-preview-lineup-094226891.html", "날짜": "2026-10-20"},
+    {"내용": "시즌 개막전, 직전 공식전 없음(프리시즌 종료). 백투백 아님", "출처": "data/수집/125_9738_올랜도매직-애틀랜타호크스.json 일정 블록", "날짜": "2026-10-21"}
+   ],
+   "원정": [
+    {"내용": "10/21자 injury report — Henri Veesaar(ACL 파열) 시즌 아웃, Mouhamed Gueye(발) OUT. Jalen Johnson은 미기재 = 출전 가능·선발 예상", "출처": "https://969thegame.iheart.com/content/2026-10-21-hawks-vs-magic-injury-report-oct-21/", "날짜": "2026-10-21"},
+    {"내용": "Trae Young은 2026-01-09 워싱턴으로 트레이드되어 현재 호크스 소속이 아님(반대급부 CJ McCollum·Corey Kispert)", "출처": "https://www.nba.com/news/hawks-trade-trae-young-to-wizards-for-cj-mccollum-corey-kispert", "날짜": "2026-01-09"},
+    {"내용": "오프시즌 영입 — Luguentz Dort(OKC 3자 트레이드), Ryan Nembhard(DAL), Aaron Wiggins, Kingston Flemings, Devin Carter, Zuby Ejiofor, Henri Veesaar. 이탈 — Zaccharie Risacher(Dort 트레이드로 발송), Jonathan Kuminga, Gabe Vincent, Keaton Wallace. CJ McCollum·Jock Landale 1년 재계약", "출처": "https://www.espn.com/nba/story/_/id/49652199/atlanta-hawks-offseason-recap-2026-27-season-preview-stats-roster-depth-chart", "날짜": "2026-09~10"},
+    {"내용": "감독 Quin Snyder 유임. 뎁스가 두꺼워 선발·로테이션이 미확정인 상태로 개막", "출처": "https://www.nba.com/news/2026-27-season-preview-atl", "날짜": "2026-10-20"},
+    {"내용": "예상 선발(프로젝션) — McCollum(G)·Nickeil Alexander-Walker(G)·Dyson Daniels(F)·Jalen Johnson(F)·Onyeka Okongwu(C). Okongwu vs Jock Landale 센터 경쟁 미결", "출처": "https://www.si.com/nba/hawks/onsi/final-atlanta-hawks-starting-lineup-and-rotation-projection-ahead-of-the-2026-27-season-01m5dbn54mcs", "날짜": "2026-10-20"},
+    {"내용": "프리시즌 4승 1패(홈 1-1, 원정 3-0). 시즌 개막전이며 백투백 아님, 애틀랜타→올랜도 약 650km 이동", "출처": "https://www.yardbarker.com/nba/articles/atlanta_hawks_2026_27_nba_preseason_preview/s1_17659_44383054", "날짜": "2026-10-20"},
+    {"내용": "2025-26 정규시즌 46승 36패로 매직(45-37)보다 1승 앞섰고 NRtg도 +2.36 vs +0.56으로 우위", "출처": "https://www.basketball-reference.com/leagues/NBA_2026_ratings.html", "날짜": "2026-04"}
+   ]
+  },
+  "요인": [
+   {
+    "유형": "결장",
+    "팀": "홈",
+    "선수": "Anthony Black",
+    "등급": "B(로테이션 가드, 22~30분)",
+    "상태": "확정",
+    "리포트상태": "OUT",
+    "영향": -2.8,
+    "내용": "[올랜도] 10/21 injury report OUT(발목). 등급 1.0점 × R0.8(대체 Jase Richardson도 허리 DAY-TO-DAY라 가드 뎁스가 얇음, 다만 Suggs·Bane·Wagner 선발진은 온전) × P1.0(OUT 확정) × D1.0(개막전 = 작년 레이팅에 전혀 안 들어간 새 공백) = 0.80점 → ×3.46%p/점 = −2.8%p",
+    "출처": "https://969thegame.iheart.com/content/2026-10-21-hawks-vs-magic-injury-report-oct-21/",
+    "날짜": "2026-10-21",
+    "검색처": "969thegame 10/21 Hawks-Magic injury report, data/수집/125_9738_올랜도매직-애틀랜타호크스.json"
+   },
+   {
+    "유형": "결장",
+    "팀": "홈",
+    "선수": "Jonathan Isaac",
+    "등급": "B 하단(수비 스페셜리스트, 17~20분)",
+    "상태": "확정",
+    "리포트상태": "OUT",
+    "영향": -1.4,
+    "내용": "[올랜도] 10/21 injury report OUT(무릎). 등급 0.6점 × R0.8(Vucevic 복귀로 빅맨 머릿수는 확보, 수비 대체재는 없음) × P1.0 × D0.7(무릎 만성 이슈라 일부는 이미 알려진 정보) × 다중결장보정 1.15(같은 프런트코트 2번째 이탈) = 0.39점 = −1.4%p",
+    "출처": "https://969thegame.iheart.com/content/2026-10-21-hawks-vs-magic-injury-report-oct-21/",
+    "날짜": "2026-10-21",
+    "검색처": "969thegame 10/21 Hawks-Magic injury report"
+   },
+   {
+    "유형": "결장",
+    "팀": "홈",
+    "선수": "Jase Richardson",
+    "등급": "C~B(백업 가드)",
+    "상태": "의심",
+    "리포트상태": "DAY-TO-DAY",
+    "영향": -0.8,
+    "내용": "[올랜도] 10/21 injury report DAY-TO-DAY(허리). 등급 0.5점 × R0.8 × P0.5(day-to-day) × D1.0 × 다중보정 1.15 = 0.23점 = −0.8%p. 결장으로 단정하지 않고 P로만 반영(119회 교훈)",
+    "출처": "https://969thegame.iheart.com/content/2026-10-21-hawks-vs-magic-injury-report-oct-21/",
+    "날짜": "2026-10-21",
+    "검색처": "969thegame 10/21 Hawks-Magic injury report"
+   },
+   {
+    "유형": "결장",
+    "팀": "홈",
+    "선수": "Noah Penda / Izaiyah Nelson",
+    "등급": "C(22분 미만 벤치·루키)",
+    "상태": "확정",
+    "리포트상태": "OUT (Penda 햄스트링 / Nelson 발목)",
+    "영향": 0.0,
+    "내용": "[올랜도] 등급 C = 기본 0~0.5점 중 0 적용. 농구.md 12항(뎁스 이탈을 전력 감점으로 쓰지 않는다 — 직전 시즌 선발·30분+ 가 아니면 0)에 따라 영향 0. 수집 파일도 OUT 4명을 모두 '벤치 자원'으로 적시",
+    "출처": "https://969thegame.iheart.com/content/2026-10-21-hawks-vs-magic-injury-report-oct-21/",
+    "날짜": "2026-10-21",
+    "검색처": "969thegame 10/21 Hawks-Magic injury report"
+   },
+   {
+    "유형": "결장",
+    "팀": "홈",
+    "선수": "Franz Wagner",
+    "등급": "S(팀 2옵션, 사용률 상위)",
+    "상태": "의심",
+    "리포트상태": "공식 injury report 제외 / 일부 집계 Day-To-Day(Shoulder)",
+    "영향": -1.6,
+    "내용": "[올랜도] 프리시즌 어깨 부상 후 10-20 전면 훈련 소화·본인 출전 의사 표명, 공식 리포트에는 빠졌다. 등급 3.0점 × R1.0(S급 대체 불가, Vucevic/Queta로 역할만 메움) × P0.15 × D1.0 = 0.45점 = −1.6%p. 출전 자체보다 출전시간 제한 리스크분",
+    "출처": "https://www.nbcsports.com/fantasy/basketball/player-news/2026-10-20/franz-wagner-shoulder-not-on-injury-report",
+    "날짜": "2026-10-20",
+    "검색처": "nbcsports player-news 10/20, 969thegame 10/21 injury report"
+   },
+   {
+    "유형": "결장",
+    "팀": "원정",
+    "선수": "Mouhamed Gueye / Henri Veesaar",
+    "등급": "C(백업 빅맨 / 루키)",
+    "상태": "확정",
+    "리포트상태": "OUT (Gueye 발) / OUT 시즌 아웃 (Veesaar ACL 파열)",
+    "영향": 1.38,
+    "내용": "[애틀랜타] Gueye 등급 0.5점 × R0.8(Okongwu·Landale·Ejiofor로 센터 뎁스 유지) × P1.0 × D1.0 = 0.40점 → 홈 기준 +1.4%p. Veesaar는 D0(시즌 내내 이탈·한 경기도 안 뛴 루키) → 0. 양 팀을 모두 센다는 원칙(122회 셀타 사례)에 따라 홈 결장과 상계",
+    "출처": "https://969thegame.iheart.com/content/2026-10-21-hawks-vs-magic-injury-report-oct-21/",
+    "날짜": "2026-10-21",
+    "검색처": "969thegame 10/21 Hawks-Magic injury report"
+   },
+   {
+    "유형": "감독",
+    "팀": "홈",
+    "선수": "-",
+    "등급": "-",
+    "상태": "확정",
+    "리포트상태": "감독 교체 확정(2026-05 Mosley 결별 → Sean Sweeney 선임)",
+    "영향": -1.7,
+    "내용": "[올랜도] 신임 Sean Sweeney는 NBA 수석감독 첫 시즌이다. 새 시스템 개막전의 공수 조직 미성숙 −0.5점 = −1.7%p, 폼 관련 감점 상한(−5%p) 안에서 보수적으로 잡음. 반대로 '45승 로스터 그대로 + 구단의 성적 요구'라는 상승 서사는 숫자로 쓰지 않았다",
+    "출처": "https://www.espn.com/nba/story/_/id/49793920/orlando-magic-2026-27-season-preview-stats-roster-banchero-bane-wagner",
+    "날짜": "2026-10-21",
+    "검색처": "ESPN 2026-27 매직 시즌 프리뷰, data/수집 로스터변동 블록"
+   },
+   {
+    "유형": "로테이션",
+    "팀": "원정",
+    "선수": "-",
+    "등급": "-",
+    "상태": "추정",
+    "리포트상태": "로테이션 미확정(선발 경쟁 진행 중)",
+    "영향": 1.38,
+    "내용": "[애틀랜타] Quin Snyder 유임은 연속성 이점이지만, 수집 파일대로 '뎁스가 두꺼워 선발·로테이션 미확정 상태로 개막'(Dort·Nembhard·Wiggins·Carter 대거 영입, Okongwu vs Landale 센터 경쟁 미결). 개막전 출전시간 배분 혼선 +0.4점을 홈 쪽으로 = +1.4%p",
+    "출처": "https://www.nba.com/news/2026-27-season-preview-atl",
+    "날짜": "2026-10-20",
+    "검색처": "nba.com 2026-27 ATL 프리뷰, SI 호크스 선발 프로젝션"
+   },
+   {
+    "유형": "휴식",
+    "팀": "원정",
+    "선수": "-",
+    "등급": "-",
+    "상태": "확정",
+    "리포트상태": "백투백 아님(양팀 개막전)",
+    "영향": 0.0,
+    "내용": "양 팀 모두 시즌 개막전·백투백 아님, 애틀랜타 이동 650km(당일 이동 부담 낮음) → 피로 차 0. 분석규칙 2026-10-21(휴식 요인 영향 상한 0, 기록만)에 따라 확률을 움직이지 않는다. 홈 이점은 기준선 공식의 ±1.4점에 이미 포함",
+    "출처": "https://www.yardbarker.com/nba/articles/atlanta_hawks_2026_27_nba_preseason_preview/s1_17659_44383054",
+    "날짜": "2026-10-21",
+    "검색처": "yardbarker 호크스 프리시즌 프리뷰, data/수집 일정 블록"
+   }
+  ],
+  "최종": {
+   "승": 49.8,
+   "패": 50.2
+  },
+  "선택지": [
+   {"번호": 9738, "선택": "승(올랜도)", "확률": 49.8, "계산": "기준선 승54.1 + Σ요인(−2.8−1.4−0.8+0−1.6+1.38−1.7+1.38+0 = −5.54) = 48.6. 요인 점수합(−1.57점)을 마진에 직접 넣어 재계산한 값 Φ(−0.07/11.5)=49.75% → 수축 ×0.80 = 49.8%(검산 차 +1.2%p, 허용 오차 내)"},
+   {"번호": 9738, "선택": "패(애틀랜타)", "확률": 50.2, "계산": "100 − 49.8. NBA는 무승부 없음"},
+   {"번호": 9738, "선택": "핸디캡 -3.5 승(올랜도 4점 차 이상 승)", "확률": 40.9, "계산": "P(마진>3.5) = 1 − Φ((3.5−(−0.07))/11.5) = 37.8% → 핸디캡 수축 ×0.75 = 40.9%"},
+   {"번호": 9738, "선택": "핸디캡 -3.5 패", "확률": 59.1, "계산": "100 − 40.9"},
+   {"번호": 9738, "선택": "언더 235.5", "확률": 61.1, "계산": "예상 총득점 228.9, Φ((235.5−228.9)/17.5) = 64.7% → 수축 ×0.75 = 61.1%. ※ ATL 페이스 미수집(99.0 대입)이라 기록용"},
+   {"번호": 9738, "선택": "오버 235.5", "확률": 38.9, "계산": "100 − 61.1. 기록용"}
+  ],
+  "파생확률": {
+   "핸디캡 -3.5": {
+    "승": 40.9,
+    "패": 59.1
+   },
+   "U/O 235.5": {
+    "언더": 61.1,
+    "오버": 38.9
+   }
+  },
+  "확신도": "낮음",
+  "결론": "추천 금지(코어 탈락) — 방향은 시장과 일치하지만(양쪽 모두 올랜도 1순위) 내 49.8 vs 시장 53.7로 gap이 −3.9라, 2026-10-21 `core_backtest.py` 전수 재측정에서 회수 84~93%로 잘라낸 gap −5~+2 구간에 정확히 들어간다. 시장과 사실상 같게 본 다리에는 가치가 없다는 측정 결과 그대로이므로 2폴더 다리로 쓰지 않는다. 농구.md 9항의 '시즌 초 과신'에는 걸리지 않았다 — 오히려 내가 시장보다 낮게 봤고, 그 방향 자체는 코어가 선호하는 쪽이지만 폭이 −5%p에 못 미쳐 선별 기준 아래다. 핸디캡 −3.5(승 40.9%)·언더오버 235.5(언더 61.1%)는 애틀랜타 페이스를 수집하지 못해 리그평균 99.0을 대입했으므로 농구.md 7·10항에 따라 다리 금지·기록용이다(124회 9534에서 페이스 미수집이 U/O를 13%p 비튼 전례).",
+  "핵심근거": "b-ref 2025-26 레이팅으로는 애틀랜타가 오히려 우위(NRtg +2.36 vs +0.56, 46승 vs 45승)여서 홈 이점 2.8점을 더해도 마진은 +1.5점(승 54.1%)에 불과하다. 여기에 결장이 올랜도 쪽으로 기울어 있다 — OUT 4명은 전부 벤치지만 Black·Isaac·Richardson이 겹쳐 뎁스가 1.4점어치 줄고, Franz Wagner의 어깨 잔여 리스크(P0.15)까지 더하면 −1.87점이다. 신임 감독 Sean Sweeney의 개막전(−0.5점)과 애틀랜타의 로테이션 미확정(+0.4점)을 상계하면 최종 마진 −0.07점, 사실상 동전던지기(올랜도 49.8%)다. 변수 태그: 전력차:-1; 결장핵심:-2; 감독교체:-1; 로테이션:+1.",
+  "반론": "올랜도의 2025-26 ORtg 115.09는 상위 5인이 함께 뛴 시간이 182분뿐인 '부상 시즌' 값이라 건강한 라인업의 실제 천장은 +1.5 조정보다 훨씬 높을 수 있다(5항 ±3점 상한이 조정을 묶어 둔 것). 그렇다면 홈 우세가 맞고 내 49.8%가 과소평가다. 반대 방향 리스크도 있다 — 애틀랜타는 작년 반년치 레이팅에 Trae Young이 들어가 있어 ORtg 116.13이 과대일 수 있다. 둘 다 표본 0경기라 검증 불가.",
+  "미확인": [
+   "애틀랜타 2025-26 Pace 미수집 → 리그평균 99.0 대입. 농구.md 7·10항에 따라 이 경기 U/O 235.5는 다리로 쓰지 않는다(기록만)",
+   "Franz Wagner 출전시간 제한(미닛 리스트릭션) 공식 여부 — '풀 워크로드 예상' 보도만 존재",
+   "양 팀 공식 선발(틴오프 30분 전) 미발표, 선발은 전부 프로젝션",
+   "Okongwu vs Landale 애틀랜타 센터 경쟁 결론, 호크스 프리시즌 개별 출전시간",
+   "개막전(표본 0경기) — 농구.md 9항대로 시즌 초 농구 기준선 자체를 신뢰하지 않는다"
+  ],
+  "불확실": [
+   "애틀랜타 2025-26 Pace 미수집 → 리그평균 99.0 대입. 농구.md 7·10항에 따라 이 경기 U/O 235.5는 다리로 쓰지 않는다(기록만)",
+   "Franz Wagner 출전시간 제한(미닛 리스트릭션) 공식 여부 — '풀 워크로드 예상' 보도만 존재",
+   "양 팀 공식 선발(틴오프 30분 전) 미발표, 선발은 전부 프로젝션",
+   "Okongwu vs Landale 애틀랜타 센터 경쟁 결론, 호크스 프리시즌 개별 출전시간",
+   "개막전(표본 0경기) — 농구.md 9항대로 시즌 초 농구 기준선 자체를 신뢰하지 않는다"
+  ]
+ }
+]

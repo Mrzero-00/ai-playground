@@ -1,0 +1,199 @@
+{
+  "번호": 9754,
+  "홈": "토론토 랩터스",
+  "원정": "시카고 불스",
+  "수집시각": "2026-10-22 08:00 KST",
+  "레이팅": {
+    "홈": {
+      "ORtg": 115.9,
+      "DRtg": 113.0,
+      "Pace": 98.4,
+      "시즌": "2025-26",
+      "순위_비고": "ORtg 15/30, DRtg 5/30, Pace 20/30, 전적 46-36(동 5위)",
+      "이번시즌_경기수": 0,
+      "비고": "개막전 — 직전 시즌 값 사용",
+      "출처": "https://www.basketball-reference.com/teams/TOR/2026.html"
+    },
+    "원정": {
+      "ORtg": 113.0,
+      "DRtg": 118.1,
+      "Pace": 102.5,
+      "시즌": "2025-26",
+      "순위_비고": "ORtg 23/30, DRtg 22/30, Pace 2/30, 전적 31-51(동 12위)",
+      "이번시즌_경기수": 0,
+      "비고": "개막전 — 직전 시즌 값 사용",
+      "출처": "https://www.basketball-reference.com/teams/CHI/2026.html"
+    }
+  },
+  "결장": [
+    {
+      "팀": "토론토 랩터스",
+      "선수": "Nate Bittle",
+      "포지션": "C",
+      "사유": "우측 발 열상 골절(avulsion fracture) 회복 중 — 프리시즌 전체 결장",
+      "상태": "out",
+      "직전시즌_선발/경기": "2026 드래프트 신인(오리건大 출신) — NBA 정규시즌 출전 기록 없음",
+      "평균득점": "해당 없음(루키)",
+      "출처": ["https://roundtable.io/sports/nba/raptors/news/toronto-raptors-injury-report-and-analysis-vs-chicago-bulls"],
+      "날짜": "2026-10-21"
+    },
+    {
+      "팀": "시카고 불스",
+      "선수": "Nic Claxton",
+      "포지션": "C",
+      "사유": "햄스트링 부상 — 복귀 예상 시점 11월 초(2주 타임라인, 최소 다음 6경기 결장)",
+      "상태": "out",
+      "직전시즌_선발/경기": "2025-26시즌(브루클린 소속) 68경기 선발",
+      "평균득점": "11.7점(리바운드 6.9, 어시스트 3.7, 야투 57.1%)",
+      "출처": ["https://sports.yahoo.com/articles/bulls-center-nic-claxton-gets-015521330.html"],
+      "날짜": "2026-10-21"
+    },
+    {
+      "팀": "시카고 불스",
+      "선수": "Jordan Hawkins",
+      "포지션": "G",
+      "사유": "장염/복통(gastrointestinal illness, stomach bug)",
+      "상태": "out",
+      "직전시즌_선발/경기": "2025-26시즌 멤피스 트레이드 후 웨이버 → 2026-27 투웨이로 불스 합류, NBA 정규시즌(불스) 출전 기록 없음",
+      "평균득점": "미확인(과거 뉴올리언스 시절 수치 미확인)",
+      "출처": ["https://www.nbcsports.com/fantasy/basketball/player-news/2026-10-21/jordan-hawkins-dailyn-swain-out-wednesday"],
+      "날짜": "2026-10-21"
+    },
+    {
+      "팀": "시카고 불스",
+      "선수": "Dailyn Swain",
+      "포지션": "G",
+      "사유": "질병(illness)",
+      "상태": "doubtful",
+      "직전시즌_선발/경기": "2026 드래프트 15순위 루키(텍사스大) — NBA 정규시즌 출전 기록 없음",
+      "평균득점": "해당 없음(루키)",
+      "출처": ["https://www.nbcsports.com/fantasy/basketball/player-news/2026-10-21/jordan-hawkins-dailyn-swain-out-wednesday"],
+      "날짜": "2026-10-21"
+    },
+    {
+      "팀": "시카고 불스",
+      "선수": "Leonard Miller",
+      "포지션": "F",
+      "사유": "우측 내전근 긴장(adductor strain)",
+      "상태": "probable",
+      "직전시즌_선발/경기": "미확인",
+      "평균득점": "미확인",
+      "출처": ["https://athlonsports.com/nba/chicago-bulls/final-injury-report-for-bulls-raptors-will-nic-claxton-isaac-okoro-play"],
+      "날짜": "2026-10-21"
+    },
+    {
+      "팀": "시카고 불스",
+      "선수": "Isaac Okoro",
+      "포지션": "F",
+      "사유": "무릎(knee)",
+      "상태": "probable",
+      "직전시즌_선발/경기": "2025-26시즌 초반 4경기만 출전 후 이후 비중 확대(구체 선발 횟수 미확인)",
+      "평균득점": "9.3점(리바운드 2.7, 어시스트 1.6, 3점 1.2개)",
+      "출처": ["https://athlonsports.com/nba/chicago-bulls/final-injury-report-for-bulls-raptors-will-nic-claxton-isaac-okoro-play", "https://www.foxsports.com/nba/isaac-okoro-player-stats?category=scoring&seasonType=reg"],
+      "날짜": "2026-10-21"
+    },
+    {
+      "팀": "시카고 불스",
+      "선수": "Zach Collins",
+      "포지션": "C/F",
+      "사유": "발가락(toe) — 2025-26시즌 발가락 수술로 시즌아웃 전력",
+      "상태": "probable",
+      "직전시즌_선발/경기": "2025-26시즌 부상으로 10경기만 출전(수술 후 시즌 종료)",
+      "평균득점": "9.7점(리바운드 5.6, 어시스트 1.5, 18.4분)",
+      "출처": ["https://nbcsports.com/fantasy/basketball/player-news/2026-10-20/zach-collins-quad-probable-vs-toronto"],
+      "날짜": "2026-10-20"
+    },
+    {
+      "팀": "시카고 불스",
+      "선수": "Tobe Awaka",
+      "포지션": "F",
+      "사유": "무릎(knee)",
+      "상태": "probable",
+      "직전시즌_선발/경기": "미확인",
+      "평균득점": "미확인",
+      "출처": ["https://athlonsports.com/nba/chicago-bulls/final-injury-report-for-bulls-raptors-will-nic-claxton-isaac-okoro-play"],
+      "날짜": "2026-10-21"
+    }
+  ],
+  "로스터변화": [
+    {
+      "팀": "토론토 랩터스",
+      "선수": "Kawhi Leonard",
+      "방향": "합류",
+      "직전시즌_선발여부": "LA 클리퍼스 주전 에이스(건강 시)",
+      "평균출전시간": "미확인",
+      "비고": "클리퍼스로부터 트레이드(브랜든 잉그램·그레이디 딕·향후 1라운드픽 2장+스왑1+2라운드픽2장 반대급부). 2년 1억1500만 달러 재계약. 2018-19 우승 멤버 복귀",
+      "출처": ["https://www.nba.com/news/raptors-clippers-kawhi-leonard-trade", "https://bleacherreport.com/articles/25499785-kawhi-leonard-raptors-agree-new-contract-after-clippers-trade-details-revealed"],
+      "날짜": "2026-06-30 합의 / 2026-09-14 최종 성사"
+    },
+    {
+      "팀": "토론토 랩터스",
+      "선수": "Brandon Ingram / Gradey Dick",
+      "방향": "이탈",
+      "직전시즌_선발여부": "잉그램은 주전급, 딕은 로테이션",
+      "평균출전시간": "미확인",
+      "비고": "카와이 레너드 트레이드로 클리퍼스행",
+      "출처": ["https://www.nba.com/news/raptors-clippers-kawhi-leonard-trade"],
+      "날짜": "2026-06-30/09-14"
+    },
+    {
+      "팀": "시카고 불스",
+      "선수": "Nic Claxton",
+      "방향": "합류",
+      "직전시즌_선발여부": "2025-26시즌(브루클린) 68경기 선발 주전센터",
+      "평균출전시간": "미확인(11.7점·6.9리바운드)",
+      "비고": "4팀(LaMelo Ball 트레이드 연계) 트레이드로 시카고 영입, 개막전부터 햄스트링으로 결장",
+      "출처": ["https://pippenainteasy.com/bulls-quietly-fleeced-sneaky-nba-draft-trade-free-agency"],
+      "날짜": "2026-06-22"
+    },
+    {
+      "팀": "시카고 불스",
+      "선수": "Norman Powell",
+      "방향": "합류",
+      "직전시즌_선발여부": "마이애미 주전급 슈터(2년 FA 계약)",
+      "평균출전시간": "미확인",
+      "출처": ["https://roundtable.io/sports/nba/bulls/players/how-bryson-graham-is-reshaping-the-chicago-bulls-in-one-offseason"],
+      "날짜": "2026(오프시즌)"
+    },
+    {
+      "팀": "시카고 불스",
+      "선수": "Buddy Hield",
+      "방향": "합류",
+      "직전시즌_선발여부": "미확인",
+      "평균출전시간": "미확인",
+      "비고": "롭 딜링햄을 내주고 영입",
+      "출처": ["https://roundtable.io/sports/nba/bulls/players/how-bryson-graham-is-reshaping-the-chicago-bulls-in-one-offseason"],
+      "날짜": "2026(오프시즌)"
+    },
+    {
+      "팀": "시카고 불스",
+      "선수": "Caleb Wilson / Dailyn Swain",
+      "방향": "합류",
+      "직전시즌_선발여부": "2026 드래프트 신인(4순위/15순위) — NBA 출전 기록 없음",
+      "평균출전시간": "해당 없음",
+      "출처": ["https://roundtable.io/sports/nba/bulls/players/how-bryson-graham-is-reshaping-the-chicago-bulls-in-one-offseason"],
+      "날짜": "2026(드래프트)"
+    }
+  ],
+  "일정": {
+    "홈": {"이번시즌_경기수": 0, "직전경기": "2026 프리시즌", "백투백": false, "비고": "정규시즌 개막전, 카와이 레너드 토론토 복귀전"},
+    "원정": {"이번시즌_경기수": 0, "직전경기": "2026 프리시즌", "백투백": false, "비고": "정규시즌 개막전, 루키 Caleb Wilson 데뷔전"}
+  },
+  "기타": [
+    {
+      "내용": "시카고는 프리시즌 예상 선발 라인업: Giddey, Powell, Buzelis, Wilson, Claxton — 단 Claxton이 개막전부터 햄스트링으로 결장하여 센터 자리 변경 불가피.",
+      "출처": ["https://roundtable.io/sports/nba/bulls/players/how-bryson-graham-is-reshaping-the-chicago-bulls-in-one-offseason"],
+      "날짜": "2026-10-21"
+    },
+    {
+      "내용": "토론토는 Nate Bittle(루키 센터) 결장 외 로테이션은 건강. 카와이 레너드의 토론토 복귀전(2018-19 우승 이후)으로 주목받는 경기.",
+      "출처": ["https://roundtable.io/sports/nba/raptors/news/toronto-raptors-injury-report-and-analysis-vs-chicago-bulls"],
+      "날짜": "2026-10-21"
+    }
+  ],
+  "미확인": [
+    "Tobe Awaka, Leonard Miller 의 2025-26시즌 선발/출전 기록 및 평균 득점(검색에서 확인 못함 — 대부분 NBA 경험이 적은 선수로 추정)",
+    "Claxton 결장 시 불스의 실제 센터 선발 교체 카드(확정 공식 발표 미확인)",
+    "토론토·시카고 개막전 최종 확정 선발 라인업(킥오프 직전 재확인 필요)"
+  ]
+}

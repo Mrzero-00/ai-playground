@@ -1,0 +1,216 @@
+{
+  "번호": 503,
+  "홈": "웰링턴 피닉스",
+  "원정": "센트럴코스트 매리너스",
+  "수집시각": "2026-10-25T09:40:00+09:00",
+  "대회": {
+    "이름": "A-League Men 2026-27 (호주 A리그 남자부) 정규시즌",
+    "라운드": "Matchweek 2 (2라운드)",
+    "형식": "홈&어웨이 리그",
+    "출처": ["https://wellingtonphoenix.com/news/a-league-men-matchweek-2-preview/", "https://aleagues.com.au/news/aleague-men-ins-and-outs-matchweek-2/"],
+    "날짜": "2026-10-23"
+  },
+  "결장": [
+    {
+      "팀": "홈",
+      "선수": "Fin Roa Conchie",
+      "포지션": "미상",
+      "이번시즌_선발/경기": "미상",
+      "득점·도움": "미상",
+      "사유": "부상",
+      "상태": "확정",
+      "복귀예정": "미상",
+      "대체선수": "미상",
+      "출처": ["https://aleagues.com.au/news/aleague-men-ins-and-outs-matchweek-2/", "https://www.friendsoffootballnz.com/2026/10/24/squads-for-mens-a-league-clash-between-phoenix-and-mariners/"],
+      "날짜": "2026-10-24"
+    },
+    {
+      "팀": "홈",
+      "선수": "Isaac Hughes",
+      "포지션": "수비수",
+      "이번시즌_선발/경기": "0/1 (시즌 개막전부터 결장)",
+      "득점·도움": "-",
+      "사유": "햄스트링 부상 — 최대 12주 결장 전망으로 보도되었고 개막전(10-18)부터 이미 결장 중, 최근 복귀 임박 보도도 있음(시즌 내내 빠져 있던 선수로 새 결장 아님)",
+      "상태": "확정",
+      "복귀예정": "회복 임박 보도(정확한 날짜 미상)",
+      "대체선수": "미상",
+      "출처": ["https://www.stuff.co.nz/sport/361041817/deficits-mount-wellington-phoenix-key-defender-sidelined", "https://www.friendsoffootballnz.com/2026/10/24/squads-for-mens-a-league-clash-between-phoenix-and-mariners/"],
+      "날짜": "2026-10-24"
+    },
+    {
+      "팀": "홈",
+      "선수": "Jayden Smith",
+      "포지션": "미상",
+      "이번시즌_선발/경기": "미상",
+      "득점·도움": "미상",
+      "사유": "부상",
+      "상태": "확정",
+      "복귀예정": "미상",
+      "대체선수": "미상",
+      "출처": ["https://aleagues.com.au/news/aleague-men-ins-and-outs-matchweek-2/", "https://www.friendsoffootballnz.com/2026/10/24/squads-for-mens-a-league-clash-between-phoenix-and-mariners/"],
+      "날짜": "2026-10-24"
+    },
+    {
+      "팀": "홈",
+      "선수": "Alex Rufer",
+      "포지션": "미드필더(주장)",
+      "이번시즌_선발/경기": "0/1 (1라운드 전 경기 결장)",
+      "득점·도움": "-",
+      "사유": "병(glandular fever 병력 있어 구단이 신중, 1라운드 전 훈련 3회 결석). 2라운드 출전 여부 '검토 중/미정'으로 보도",
+      "상태": "확정 (결장 자체는 확정, 2라운드 출전 가능성은 '의심')",
+      "복귀예정": "이번 경기 출전 가능성 있음(미정)",
+      "대체선수": "미상",
+      "출처": ["https://www.friendsoffootballnz.com/2026/10/24/squads-for-mens-a-league-clash-between-phoenix-and-mariners/", "https://www.stuff.co.nz/sport/361048126/why-chris-greenacre-held-back-alex-rufer-debutant-steps-wellington-phoenixs-first-round-victory"],
+      "날짜": "2026-10-24"
+    },
+    {
+      "팀": "홈",
+      "선수": "Rafael Durán",
+      "포지션": "공격수",
+      "이번시즌_선발/경기": "1/1 선발(1라운드 선발, 28분 발목 부상으로 교체 아웃)",
+      "득점·도움": "-",
+      "사유": "1라운드(10-18) 중 발목을 접질려 28분 교체. 이후 전체 훈련 소화했으나 감독은 이번 주 출전을 기대하지 않는다고 언급 — 스쿼드엔 포함",
+      "상태": "확정 (부상 발생은 확정, 이번 경기 결장 여부는 '의심' — 감독 발언상 결장 가능성 높음)",
+      "복귀예정": "미정(감독은 이번 경기 출전 비관적)",
+      "대체선수": "미상",
+      "출처": ["https://www.friendsoffootballnz.com/2026/10/24/squads-for-mens-a-league-clash-between-phoenix-and-mariners/"],
+      "날짜": "2026-10-24"
+    },
+    {
+      "팀": "원정",
+      "선수": "Trent Sainsbury",
+      "포지션": "수비수",
+      "이번시즌_선발/경기": "0/1 (장기 결장)",
+      "득점·도움": "-",
+      "사유": "아킬레스건 부상(2025-04부터 결장 중, 2026-02 복귀 임박 보도 있었으나 2026-10까지도 미복귀 — 시즌 내내 빠져 있던 선수로 새 결장 아님)",
+      "상태": "확정",
+      "복귀예정": "미상(장기 지연)",
+      "대체선수": "미상",
+      "출처": ["https://aleagues.com.au/news/central-coast-mariners-trent-sainsbury-injury-updates-latest-news-a-league/", "https://aleagues.com.au/news/aleague-men-ins-and-outs-matchweek-2/"],
+      "날짜": "2026-10-24"
+    },
+    {
+      "팀": "원정",
+      "선수": "Taiyo Hisamatsu",
+      "포지션": "미상",
+      "이번시즌_선발/경기": "0/1",
+      "득점·도움": "-",
+      "사유": "비자 발급 대기 중 (신규 영입 선수로 추정, 입단 후 아직 출전 없음)",
+      "상태": "확정",
+      "복귀예정": "비자 처리 후",
+      "대체선수": "미상",
+      "출처": ["https://aleagues.com.au/news/aleague-men-ins-and-outs-matchweek-2/", "https://www.friendsoffootballnz.com/2026/10/24/squads-for-mens-a-league-clash-between-phoenix-and-mariners/"],
+      "날짜": "2026-10-24"
+    }
+  ],
+  "라인업": {
+    "홈": {
+      "발표여부": "미발표(21명 스쿼드만 공개, 선발 XI 미정)",
+      "예상XI": "미상 — Alex Rufer·Rafael Durán 포함 여부가 관건. 1라운드(10-18) 선발: Henry Gray, Lukas Kelly-Heald, Bill Tuiloma, James McGarry, Matthew Sheridan, Kazuki Nagasawa, Luke James Mitchell, Max Anderson, Corban Piper, Rafael Durán, Bryce Duke (4-3-3)",
+      "포메이션": "직전 경기 4-3-3 (예상 변동 가능 — Durán 결장 시 Nathan Walker 투입 가능성, 현지 매체 언급)",
+      "출처": ["https://www.friendsoffootballnz.com/2026/10/24/squads-for-mens-a-league-clash-between-phoenix-and-mariners/"],
+      "날짜": "2026-10-24"
+    },
+    "원정": {
+      "발표여부": "미발표(21명 스쿼드만 공개, 선발 XI 미정)",
+      "예상XI": "미상. 1라운드(10-17) 선발: Andrew Redmayne, Noah Mccann, Diesel Herrington, Lucas Mauragis, Storm Roux, Chris Donnell, Haine Eames, Alexander Jesse Bolton, Ali Auglah, Oliver Lavale, Bailey Brandtman (4-4-2)",
+      "포메이션": "직전 경기 4-4-2",
+      "출처": ["https://www.friendsoffootballnz.com/2026/10/24/squads-for-mens-a-league-clash-between-phoenix-and-mariners/"],
+      "날짜": "2026-10-24"
+    }
+  },
+  "최근경기": [
+    {
+      "팀": "홈",
+      "날짜": "2026-10-18",
+      "상대": "Melbourne Victory",
+      "장소": "홈(Hnry Stadium, 당시 명칭 Sky Stadium 혼용 보도)",
+      "스코어": "2-1 승",
+      "비고": "개막전. Riley Bidois 77분 결승골(어시스트 Nathan Walker, 복귀 후 첫 출전). Rafael Durán 28분 발목 부상 교체. 8년 만의 개막전 승리",
+      "출처": "https://www.stuff.co.nz/sport/361026256/live-wellington-phoenix-v-melbourne-victory-league-men-round-one"
+    },
+    {
+      "팀": "원정",
+      "날짜": "2026-10-17",
+      "상대": "Newcastle Jets",
+      "장소": "홈",
+      "스코어": "2-2 무",
+      "비고": "개막전",
+      "출처": "aus.1 (내부 입력파일 표기)"
+    }
+  ],
+  "시즌기록": {
+    "홈": {
+      "승무패": "1승 0무 0패",
+      "득실": "2득 1실 (+1)",
+      "홈성적": "1경기 1승 (개막전 홈 승)",
+      "최근5": "미상(2026-27 시즌 1경기뿐)",
+      "출처": "https://en.wikipedia.org/wiki/2026%E2%80%9327_A-League_Men",
+      "날짜": "2026-10-24"
+    },
+    "원정": {
+      "승무패": "0승 1무 0패",
+      "득실": "2득 2실 (0)",
+      "홈성적": "미상(2026-27 시즌 1경기뿐, 해당 경기는 홈 경기였음)",
+      "최근5": "미상(2026-27 시즌 1경기뿐)",
+      "출처": "https://en.wikipedia.org/wiki/2026%E2%80%9327_A-League_Men",
+      "날짜": "2026-10-24"
+    }
+  },
+  "맞대결": [
+    {
+      "날짜": "미상(건수만 확인)",
+      "장소": "미상",
+      "스코어": "미상",
+      "출처": "https://insights.betfred.com/football/australian-a-league/wellington-phoenix-vs-central-coast-mariners-prediction-betting-tips-sunday-25-october-2026/ (최근 5경기 피닉스 2승2무1패라는 요약만 확인, 개별 경기 날짜·스코어는 못 찾음 — 참고용, 2차 소스)"
+    }
+  ],
+  "순위": {
+    "홈": "3위 · 1경기 1승0무0패 · 승점3 · 득실차+1 (2026-10-24 기준)",
+    "원정": "7위 · 1경기 0승1무0패 · 승점1 · 득실차0 (2026-10-24 기준)",
+    "출처": "https://en.wikipedia.org/wiki/2026%E2%80%9327_A-League_Men",
+    "날짜": "2026-10-24"
+  },
+  "감독": {
+    "홈": "Chris Greenacre",
+    "원정": "John Hutchinson",
+    "변동": "없음(두 감독 모두 유임, 신규 선임 뉴스 없음)",
+    "출처": "https://wellingtonphoenix.com/news/a-league-men-matchweek-2-preview/",
+    "날짜": "2026-10-23"
+  },
+  "일정·동기·기타": [
+    {
+      "내용": "Greenacre 감독 코멘트: '우리는 기초로 돌아간다. 매 경기 단계적으로 진행하는 것뿐이다.' 매리너스에 대해 '아무도 그들에게 기회를 주지 않지만 주말에 우리에게 문제를 일으킬 것'이라 언급",
+      "출처": "https://wellingtonphoenix.com/news/a-league-men-matchweek-2-preview/",
+      "날짜": "2026-10-23"
+    },
+    {
+      "내용": "센트럴코스트 매리너스 스쿼드 변경: Max Naylor 1군 승격 포함, John-Kymani Gordon·Kristian Popović 제외",
+      "출처": "https://aleagues.com.au/news/aleague-men-ins-and-outs-matchweek-2/",
+      "날짜": "2026-10-23"
+    },
+    {
+      "내용": "두 팀 모두 개막전(10-17/10-18)과 이번 경기 사이 약 7~8일 휴식으로 양측 조건 동일. 양 팀 다 개막전에서 공격력을 보였다는 현지 프리뷰 평가(2차 소스)",
+      "출처": "https://www.freetips.com/football/wellington-phoenix-vs-central-coast-mariners-tips-20261024-0026/",
+      "날짜": "2026-10-24"
+    }
+  ],
+  "구장": {
+    "이름": "Hnry Stadium (2026-03-01부로 개명, 구명 Sky Stadium / Westpac Stadium / Wellington Regional Stadium — 동일 경기장)",
+    "인조잔디여부": "천연(perennial ryegrass 2종 혼합 천연 잔디, USGA 사양 샌드 프로파일 300mm)",
+    "날씨": "일요일 웰링턴 대체로 맑음, 기온 13~17℃, 저녁 소나기 가능성. 바람은 북풍 계열로 강함 — marine forecast 기준 북서 25노트, 남쪽은 북풍 35노트까지 상승 예보. 다른 소스는 북풍 42km/h 수준의 '바람 강한 날(windy)'로 보도. 내부 입력파일(기상 API)의 38.3km/h와 대체로 부합하는 강풍 조건",
+    "출처": ["https://www.espncricinfo.com/cricket-grounds/hnry-stadium-wellington-58899", "https://www.yr.no/en/forecast/daily-table/2-2179537/New%20Zealand/Wellington%20Region/Wellington%20City/Wellington", "https://www.weatherwatch.co.nz/forecasts/wellington"],
+    "날짜": "2026-10-25"
+  },
+  "엇갈림": [
+    "구장명: 내부 입력파일·회차표는 '웰링턴 리저널 스타디움'으로 표기하나, 2026-03-01부로 공식 명칭이 'Hnry Stadium'으로 변경됨(구 Sky Stadium). 동일 경기장이므로 지리적 데이터는 그대로 유효.",
+    "wellingtonphoenix.com의 'squads-ins-out' 상설 URL 패턴을 조회했더니 2022-10-16 번리/매리너스 과거 경기 캐시 콘텐츠가 반환됨(해당 URL은 이번 경기 자료로 사용하지 않음, 못찾음 처리) — 같은 URL 슬러그가 과거 글에 재사용된 것으로 보이는 사이트 구조 문제."
+  ],
+  "못찾음": [
+    "양팀 직접 맞대결의 개별 경기 날짜·스코어 목록(1차 소스로 확인 못함, 2차 소스의 '최근 5경기 2승2무1패' 요약만 있음)",
+    "이번 경기 심판 배정",
+    "Fin Roa Conchie, Jayden Smith의 구체적 부상 부위·복귀 예정일",
+    "양 팀 확정 선발 XI(경기 당일 발표 예정, 수집 시점 미발표)"
+  ],
+  "뉴스없음": {}
+}

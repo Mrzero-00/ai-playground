@@ -1,0 +1,67 @@
+{
+  "번호": 6,
+  "홈": "VfB 슈투트가르트",
+  "원정": "아틀레티코 마드리드",
+  "수집시각": "2026-10-20 21:40 KST",
+  "결장": [
+    {"팀": "슈투트가르트", "선수": "Maximilian Mittelstädt", "포지션": "LB(주전)", "이번시즌_선발/경기": "주전급", "득점·도움": "-", "사유": "오른쪽 발뒤꿈치 열상(파더보른전 태클 부상, 봉합)", "상태": "엇갈림(아래 참고)", "복귀예정": "미정(구단 공식 '당분간 결장')", "대체선수": "Josha Vagnoman(역할 이동) 또는 교체", "출처": "https://www.vfb.de/de/vfb/aktuell/neues/profis/2627/maximilian-mittelstaedt-zieht-sich-risswunde-zu/", "날짜": "2026-10-10"},
+    {"팀": "슈투트가르트", "선수": "Justin Diehl", "포지션": "미확인", "이번시즌_선발/경기": "미확인", "득점·도움": "-", "사유": "장기 결장(세부 미확인)", "상태": "의심(단일 출처)", "복귀예정": "미확인", "대체선수": "-", "출처": "https://magazin.comunio.de/verletzten-update-gute-nachrichten-beim-vfb-stuttgart-schlechte-fuer-gladbach-hoffenheim/", "날짜": "2026-10-19~20(추정)"},
+    {"팀": "슈투트가르트", "선수": "Jarzinho Malanga", "포지션": "미확인", "이번시즌_선발/경기": "미확인", "득점·도움": "-", "사유": "복근 부상", "상태": "의심(단일 출처)", "복귀예정": "미확인", "대체선수": "-", "출처": "https://magazin.comunio.de/verletzten-update-gute-nachrichten-beim-vfb-stuttgart-schlechte-fuer-gladbach-hoffenheim/", "날짜": "2026-10-19~20(추정)"},
+    {"팀": "슈투트가르트", "선수": "Tiago Tomas", "포지션": "공격수", "이번시즌_선발/경기": "로테이션", "득점·도움": "-", "사유": "개인 재활 중, UCL 출전 불투명", "상태": "의심(단일 출처)", "복귀예정": "미확인", "대체선수": "-", "출처": "https://magazin.comunio.de/verletzten-update-gute-nachrichten-beim-vfb-stuttgart-schlechte-fuer-gladbach-hoffenheim/", "날짜": "2026-10-19~20(추정)"},
+    {"팀": "아틀레티코", "선수": "Koke Resurrección", "포지션": "MF(주전급)", "이번시즌_선발/경기": "미확인", "득점·도움": "-", "사유": "대퇴이두근(햄스트링) 근육 부상", "상태": "확정", "복귀예정": "미확인", "대체선수": "Johnny Cardoso/Pablo Barrios", "출처": "https://www.telemadrid.es/programas/deportes-tn/El-Atletico-de-Madrid-en-Stuttgart-con-el-alta-de-Johnny-y-las-bajas-de-Romero-y-Koke-2-2936126389--20261019033721.html; https://www.estoesatleti.es/articulo/noticias/alivio-atletico-madrid-champions-vuelta-clave-stuttgart/20261020080000042396.html", "날짜": "2026-10-19~20"},
+    {"팀": "아틀레티코", "선수": "Cristian 'Cuti' Romero", "포지션": "CB(주전)", "이번시즌_선발/경기": "주전급(여름 영입)", "득점·도움": "-", "사유": "내전근(사타구니) 근육 부상, 에스파뇰전(10/17)에서 부상", "상태": "확정", "복귀예정": "슈투트가르트전+다음 라리가(데포르티보전)까지 결장", "대체선수": "Hancko/Le Normand", "출처": "https://foro3d.com/2026/octubre/cuti-romero-causa-baja-en-el-atletico-ante-el-stuttgart-por-distension.html; https://www.sportaragon.com/articulo/futbol-aragon/dos-bajas-regreso-muy-esperado-atletico-madrid-partido-champions-league-stuttgart/20261019130738161336.html", "날짜": "2026-10-19"}
+  ],
+  "라인업": {
+    "홈": {
+      "발표여부": "미발표(프리뷰 단계)",
+      "예상XI": "Bredlow; Vagnoman, Hendriks, Chabot, Mittelstädt(또는 교체); Prömel, Stiller; Führich, El Khannouss, Leweling; Demirovic/Undav — 매체 간 포메이션 표기 약간 다름(4-2-3-1 계열)",
+      "포메이션": "4-2-3-1",
+      "출처": "https://www.si.com/es-us/stuttgart-vs-atletico-de-madrid-previa-predicciones-y-alineaciones", "날짜": "2026-10-19~20"
+    },
+    "원정": {
+      "발표여부": "미발표(프리뷰 단계)",
+      "예상XI": "Oblak; Llorente, Marc Pubill, Hancko, Grimaldo; Giuliano Simeone, Johnny Cardoso, Pablo Barrios, Álex Baena; Julián Álvarez, Lee Kang-in",
+      "포메이션": "4-4-2 다이아몬드 또는 4-2-3-1 계열",
+      "출처": "https://www.si.com/es-us/la-posible-alineacion-titular-del-atletico-de-madrid-para-enfrentar-al-stuttgart-20-10-2026; https://www.elgoldigital.com/futbol/atletico-de-madrid/stuttgart-atletico-alineaciones-previstas-pubill-champions", "날짜": "2026-10-20"
+    }
+  },
+  "최근경기": [
+    {"팀": "슈투트가르트", "날짜": "2026-10-17", "상대": "Hamburg SV", "장소": "원정", "스코어": "1-0 패(함부르크 승)", "비고": "분데스리가"},
+    {"팀": "슈투트가르트", "날짜": "2026-10-14/15", "상대": "Slovan Bratislava", "장소": "원정", "스코어": "3-0 승", "비고": "UCL MD2"},
+    {"팀": "슈투트가르트", "날짜": "2026-10-10", "상대": "SC Paderborn 07", "장소": "원정", "스코어": "2-0 승", "비고": "분데스리가, Mittelstädt 부상 발생 경기"},
+    {"팀": "슈투트가르트", "날짜": "2026-09-19", "상대": "Borussia Dortmund", "장소": "홈", "스코어": "0-1 패", "비고": "분데스리가"},
+    {"팀": "슈투트가르트", "날짜": "2026-09-12", "상대": "TSG Hoffenheim", "장소": "원정", "스코어": "1-2 패", "비고": "분데스리가"},
+    {"팀": "슈투트가르트", "날짜": "2026-09-09", "상대": "Viking FK", "장소": "홈", "스코어": "3-1 승", "비고": "UCL MD1"},
+    {"팀": "아틀레티코", "날짜": "2026-10-17", "상대": "Espanyol", "장소": "원정", "스코어": "0-1 승(아틀레티코, Baena 89')", "비고": "라리가, 6연승 중"},
+    {"팀": "아틀레티코", "날짜": "2026-10-13", "상대": "Manchester United", "장소": "홈(추정, 입력_승무패62 참고)", "스코어": "2-0 승", "비고": "UCL MD2"}
+  ],
+  "순위": {
+    "홈": "분데스리가 13위 6경기 2승0무4패 GD-2 승점6 / UCL 리그페이즈 4위 6점(2승0무0패 GD+5)",
+    "원정": "라리가 2위 9경기 승점22(6연승 포함) / UCL 리그페이즈 15위 3점(1승1패 GD+1)",
+    "출처": "https://tips.gg/article/stuttgart-vs-atletico-madrid-20-10-2026/; 팩트시트_승무패62.md", "날짜": "2026-10-19~20"
+  },
+  "감독": {
+    "홈": "Sebastian Hoeneß(변동 없음)",
+    "원정": "Diego Simeone(변동 없음)",
+    "변동": "없음",
+    "출처": "팩트시트_승무패62.md", "날짜": "2026-10-20"
+  },
+  "일정·동기·기타": [
+    {"내용": "슈투트가르트는 UCL 2연승(비킹 3-1, 슬로반 브라티슬라바 3-0)으로 리그페이즈 4위 호조, 반대로 분데스리가는 13위로 상반된 흐름 — '유럽대항전에서 더 강하다'는 자국 매체 평", "출처": "https://www.sofascore.com/news/vfb-stuttgart-vs-atletico-madrid-can-the-hosts-halt-a-6-game-streak", "날짜": "2026-10-19~20"},
+    {"내용": "아틀레티코는 전 대회 통산 6연승 중(라리가 포함) 이 흐름을 이어가려는 동기, 다만 Koke·Romero 결장 겹쳐 수비·중원 로테이션 불가피", "출처": "https://www.estoesatleti.es/articulo/noticias/atletico-madrid-stuttgart-champions-league-reto-simeone/20261019173247042393.html", "날짜": "2026-10-19"},
+    {"내용": "경기장은 MHP아레나(슈투트가르트 홈), 아틀레티코는 원정 1387km 이동", "출처": "입력_승무패62.md", "날짜": "2026-10-20"}
+  ],
+  "엇갈림": [
+    "Mittelstädt 출전 가능 여부: 구단 공식 사이트(10/10)는 '당분간 결장'이라 했으나 10/19~20 프리뷰 매체(si.com 등) 예상 선발 명단에는 그대로 포함 — 회복해 복귀했을 가능성과 매체가 오래된 명단을 재사용했을 가능성 둘 다 있어 확인 필요",
+    "입력_승무패62.md의 아틀레티코 '직전 선발' 데이터는 'Montevideo City Torque 3-0 승 [semifinals]'로 기록돼 있으나, 이는 아틀레티코 마드리드의 실제 최근 경기가 아님(명백한 데이터 오류/팀 매칭 오류로 추정) — 실제 최근 경기는 10/17 에스파뇰 원정 0-1 승(아틀레티코), 10/13 UCL MD2 맨유전 2-0 승임. 분석가는 이 INPUTS 줄을 사용하지 말 것"
+  ],
+  "못찾음": [
+    "Diehl·Malanga·Tomas 부상 발생 정확 날짜 및 복귀 예정일",
+    "슈투트가르트·아틀레티코 공식 확정 선발(킥오프 임박 전까지 미발표)",
+    "독일 현지 매체(Stuttgarter Zeitung) 원문 직접 확인 — kicker 경유만 확인"
+  ],
+  "뉴스없음": {
+    "홈": "해당 없음(뉴스 다수 확인)",
+    "원정": "해당 없음(뉴스 다수 확인)"
+  }
+}

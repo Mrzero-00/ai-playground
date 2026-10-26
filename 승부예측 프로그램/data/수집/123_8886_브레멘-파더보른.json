@@ -1,0 +1,155 @@
+{
+ "번호": "8886",
+ "홈": "베르더 브레멘",
+ "원정": "파더보른07",
+ "수집시각": "2026-10-17 20:55 KST",
+ "결장": [
+  {
+   "팀": "홈",
+   "선수": "Felix Agu",
+   "포지션": "RB/LB",
+   "이번시즌_선발/경기": "미확인(kicker/transfermarkt 직접 조회 못함)",
+   "사유": "부상(사유 불명; 이전 근육 문제 보도)",
+   "상태": "확정(statszone·bulinews·squawka계 다수)",
+   "대체선수": "미확인",
+   "출처": "https://www.thestatszone.com/werder-bremen-vs-paderborn-preview-team-news-prediction-231007 ; https://bulinews.com/werder-bremen-paderborn-preview-the-good-times-continue-the-weserstadion",
+   "날짜": "2026-10-16~17"
+  },
+  {
+   "팀": "홈",
+   "선수": "Moussa N'Diaye",
+   "포지션": "?",
+   "이번시즌_선발/경기": "미확인(kicker/transfermarkt 직접 조회 못함)",
+   "사유": "부상",
+   "상태": "확정(2곳)",
+   "대체선수": "미확인",
+   "출처": "https://bulinews.com/werder-bremen-paderborn-preview-the-good-times-continue-the-weserstadion ; statszone",
+   "날짜": "2026-10-16~17"
+  },
+  {
+   "팀": "홈",
+   "선수": "Jens Stage",
+   "포지션": "CM",
+   "이번시즌_선발/경기": "미확인(kicker/transfermarkt 직접 조회 못함)",
+   "사유": "부상",
+   "상태": "확정(2곳)",
+   "대체선수": "미확인",
+   "출처": "bulinews ; statszone",
+   "날짜": "2026-10-16~17"
+  },
+  {
+   "팀": "홈",
+   "선수": "Justin Njinmah",
+   "포지션": "FW",
+   "이번시즌_선발/경기": "미확인(kicker/transfermarkt 직접 조회 못함)",
+   "사유": "부상",
+   "상태": "확정(2곳)",
+   "대체선수": "미확인",
+   "출처": "bulinews ; statszone",
+   "날짜": "2026-10-16~17"
+  },
+  {
+   "팀": "홈",
+   "선수": "Keke Topp",
+   "포지션": "FW",
+   "이번시즌_선발/경기": "미확인(kicker/transfermarkt 직접 조회 못함)",
+   "사유": "부상",
+   "상태": "확정(2곳)",
+   "대체선수": "미확인",
+   "출처": "bulinews ; statszone",
+   "날짜": "2026-10-16~17"
+  },
+  {
+   "팀": "홈",
+   "선수": "Musah, Alvero",
+   "포지션": "MF",
+   "이번시즌_선발/경기": "미확인(kicker/transfermarkt 직접 조회 못함)",
+   "사유": "부상(statszone만 기재)",
+   "상태": "의심(1곳)",
+   "대체선수": "미확인",
+   "출처": "https://www.thestatszone.com/werder-bremen-vs-paderborn-preview-team-news-prediction-231007",
+   "날짜": "2026-10-17"
+  },
+  {
+   "팀": "홈",
+   "선수": "Senne Lynen",
+   "포지션": "DM",
+   "이번시즌_선발/경기": "미확인(kicker/transfermarkt 직접 조회 못함)",
+   "사유": "복부 부상, 출전 가능성 있음",
+   "상태": "의심",
+   "대체선수": "미확인",
+   "출처": "statszone ; bulinews(결장 목록)",
+   "날짜": "2026-10-17"
+  },
+  {
+   "팀": "홈",
+   "선수": "Amos Pieper",
+   "포지션": "CB",
+   "이번시즌_선발/경기": "미확인(kicker/transfermarkt 직접 조회 못함)",
+   "사유": "footballwhispers만 결장 주장, 나머지 예상XI엔 포함",
+   "상태": "의심/엇갈림",
+   "대체선수": "미확인",
+   "출처": "https://footballwhispers.com/blog/werder-bremen-vs-paderborn-prediction-17-10-2026/",
+   "날짜": "2026-10-17"
+  },
+  {
+   "팀": "원정",
+   "선수": "Awortwie-Grant, Gayret, Hoffmeier, Klaas",
+   "포지션": "각종",
+   "이번시즌_선발/경기": "미확인(kicker/transfermarkt 직접 조회 못함)",
+   "사유": "부상(사유 불명) 4명",
+   "상태": "확정(bulinews·statszone 등 일치)",
+   "대체선수": "미확인",
+   "출처": "https://bulinews.com/werder-bremen-paderborn-preview-the-good-times-continue-the-weserstadion ; statszone",
+   "날짜": "2026-10-16~17"
+  }
+ ],
+ "라인업": {
+  "홈": {
+   "발표여부": "아니오(예상)",
+   "예상XI": "4-3-3 Hein; Arthur, Pieper, Friedl, Deman; Reis, Regeer, Chuki; Dinkçi, Füllkrug, Grüll (직전 XI와 동일)",
+   "포메이션": "4-3-3(직전 4-2-3-1)",
+   "출처": "statszone ; bulinews ; onefootball",
+   "날짜": "2026-10-17"
+  },
+  "원정": {
+   "발표여부": "아니오(예상)",
+   "예상XI": "3-5-2 Noll; ter Horst, Scheller, Hansen; Curda, Ulrich, Castañeda, Vidovic, Obermair; Marino/Philippe, Pieringer",
+   "포메이션": "3-5-2",
+   "출처": "statszone ; bulinews ; yahoo",
+   "날짜": "2026-10-17"
+  }
+ },
+ "최근경기": [
+  "브레멘 4경기 무패(홈 라이프치히 3-1, 아우크스 3-2 승 / 쾰른·도르트문트 원정 무)",
+  "파더보른 10-10 홈 슈투트가르트 0-2 패; 5경기 중 1경기만 득점, 리그 최소 득점"
+ ],
+ "순위": {
+  "브레멘": "7위 8점",
+  "파더보른": "15위 4점 1승1무3패(승격팀, 홈 호펜하임 3-1 승만)"
+ },
+ "감독": {
+  "브레멘": "Daniel Thioune",
+  "파더보른": "Ralf Kettemann"
+ },
+ "일정·동기·기타": [
+  "파더보른 승격팀 O (bulinews)",
+  "브레멘 평일 유럽경기 없음, 휴식 7.8일(INPUTS)",
+  "킥오프 15:30 CEST"
+ ],
+ "맞대결": [
+  "bulinews: 이전 맞대결 기록 페이지에 없음(2024-10 DFB포칼 브레멘-파더보른은 90min 검색 결과로만 언급)"
+ ],
+ "엇갈림": [
+  "Pieper 결장 여부 1곳만 결장 주장",
+  "Lynen: 결장목록(bulinews) vs doubtful(statszone)"
+ ],
+ "못찾음": [
+  "선발 수/출전(결장자 전원)",
+  "독일 매체(kicker/ligainsider/bulinews/sport1/구단) 검색에 10월 기사 안 잡힘; 영문 프리뷰만 확보",
+  "Thioune 기자회견 10월(검색에 이전 시즌 기사만)"
+ ],
+ "뉴스없음": {
+  "Thioune PK": "뉴스없음. 검색처: werder.de, weser-kurier.de — 10월 기사 미검출"
+ }
+}

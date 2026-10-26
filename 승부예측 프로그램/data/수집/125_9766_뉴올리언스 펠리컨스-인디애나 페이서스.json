@@ -1,0 +1,161 @@
+{
+  "번호": 9766,
+  "홈": "뉴올리언스 펠리컨스",
+  "원정": "인디애나 페이서스",
+  "수집시각": "2026-10-22 08:10 KST",
+  "레이팅": {
+    "홈": {
+      "ORtg": 114.4,
+      "DRtg": 118.9,
+      "Pace": 100.3,
+      "시즌": "2025-26 (직전 시즌)",
+      "이번시즌_경기수": 0,
+      "비고": "2026-27 시즌 개막전(KST 10/22 09:00 = 현지 10/21 저녁 20:00 ET), 이번 시즌 표본 없음",
+      "출처": "https://www.basketball-reference.com/teams/NOP/2026.html"
+    },
+    "원정": {
+      "ORtg": 110.9,
+      "DRtg": 118.8,
+      "Pace": 101.0,
+      "시즌": "2025-26 (직전 시즌, 19-63)",
+      "이번시즌_경기수": 0,
+      "비고": "리그 최하위권 공격력(29위). 개막전, 이번 시즌 표본 없음",
+      "출처": "https://www.basketball-reference.com/teams/IND/2026.html"
+    }
+  },
+  "결장": [
+    {
+      "팀": "뉴올리언스 펠리컨스",
+      "선수": "없음",
+      "포지션": "",
+      "사유": "",
+      "상태": "",
+      "직전시즌_선발/경기": "",
+      "평균득점": "",
+      "비고": "검색 시점 기준 펠리컨스 injury report에 등재된 선수 0명",
+      "출처": ["https://www.fubo.tv/news/nba/indiana-pacers-at-new-orleans-pelicans-where-to-watch-stream-info-tv-channel-and-live-updates-october-21-2026/"],
+      "날짜": "2026-10-21"
+    },
+    {
+      "팀": "인디애나 페이서스",
+      "선수": "Johnny Furphy",
+      "포지션": "F",
+      "사유": "오른쪽 무릎 전방십자인대(ACL) 파열 복귀 과정",
+      "상태": "out",
+      "직전시즌_선발/경기": "21/35",
+      "평균득점": "5.1",
+      "출처": ["https://sports.yahoo.com/articles/indiana-pacers-announce-injury-report-154206082.html"],
+      "날짜": "2026-10-21"
+    },
+    {
+      "팀": "인디애나 페이서스",
+      "선수": "Aaron Nesmith",
+      "포지션": "F",
+      "사유": "왼쪽 햄스트링 염좌",
+      "상태": "out",
+      "직전시즌_선발/경기": "42/45",
+      "평균득점": "13.8",
+      "출처": ["https://sports.yahoo.com/articles/indiana-pacers-announce-injury-report-154206082.html"],
+      "날짜": "2026-10-21"
+    },
+    {
+      "팀": "인디애나 페이서스",
+      "선수": "T.J. McConnell",
+      "포지션": "G",
+      "사유": "오른쪽 햄스트링 긴장",
+      "상태": "out",
+      "직전시즌_선발/경기": "4/56",
+      "평균득점": "9.4",
+      "비고": "시즌 개막전 결장 확정",
+      "출처": ["https://sports.yahoo.com/articles/indiana-pacers-announce-injury-report-154206082.html"],
+      "날짜": "2026-10-21"
+    }
+  ],
+  "로스터변화": [
+    {
+      "팀": "인디애나 페이서스",
+      "선수": "Ivica Zubac",
+      "방향": "합류",
+      "직전시즌_선발여부": "선발(LA 클리퍼스 주전 센터 출신, 트레이드 데드라인 영입)",
+      "평균출전시간": "미확인",
+      "비고": "Haliburton·Siakam과 함께 '빅3' 구성 예정, 개막전 선발 예상",
+      "출처": ["https://www.cbssports.com/nba/news/pascal-siakam-trade-pacers-finalize-deal-to-acquire-all-star-forward-from-raptors"],
+      "날짜": "2025-26 시즌 트레이드 데드라인"
+    },
+    {
+      "팀": "인디애나 페이서스",
+      "선수": "Myles Turner",
+      "방향": "이탈",
+      "직전시즌_선발여부": "선발(장기 주전 센터)",
+      "평균출전시간": "미확인",
+      "비고": "FA로 팀 이탈",
+      "출처": ["https://sports.yahoo.com/articles/pacers-pascal-siakam-ranked-19th-170022883.html"],
+      "날짜": "2026 오프시즌"
+    },
+    {
+      "팀": "뉴올리언스 펠리컨스",
+      "선수": "AJ Johnson, Taj Gibson",
+      "방향": "합류",
+      "직전시즌_선발여부": "미확인",
+      "평균출전시간": "미확인",
+      "비고": "멤피스와의 트레이드로 영입(펠리컨스→멤피스: Jordan Hawkins, Micah Peavy + 2031·2032 2라운드픽)",
+      "출처": ["https://www.hoopsrumors.com/2026/09/nba-2026-offseason-check-in-new-orleans-pelicans.html"],
+      "날짜": "2026 오프시즌"
+    },
+    {
+      "팀": "뉴올리언스 펠리컨스",
+      "선수": "Bennedict Mathurin",
+      "방향": "합류",
+      "직전시즌_선발여부": "미확인(FA 서명, 2년 1,600만$ 플레이어옵션)",
+      "평균출전시간": "미확인",
+      "출처": ["https://www.hoopsrumors.com/2026/09/nba-2026-offseason-check-in-new-orleans-pelicans.html"],
+      "날짜": "2026 오프시즌"
+    },
+    {
+      "팀": "뉴올리언스 펠리컨스",
+      "선수": "Jordan Hawkins, Micah Peavy",
+      "방향": "이탈",
+      "직전시즌_선발여부": "미확인",
+      "평균출전시간": "미확인",
+      "비고": "멤피스로 트레이드",
+      "출처": ["https://www.hoopsrumors.com/2026/09/nba-2026-offseason-check-in-new-orleans-pelicans.html"],
+      "날짜": "2026 오프시즌"
+    },
+    {
+      "팀": "뉴올리언스 펠리컨스",
+      "선수": "Trey Alexander, Kevon Looney",
+      "방향": "이탈",
+      "직전시즌_선발여부": "비선발급",
+      "평균출전시간": "미확인",
+      "비고": "Alexander는 유타, Looney는 LA레이커스로 FA 이적",
+      "출처": ["https://www.hoopsrumors.com/2026/09/nba-2026-offseason-check-in-new-orleans-pelicans.html"],
+      "날짜": "2026 오프시즌"
+    }
+  ],
+  "일정": {
+    "홈": {"이번시즌_경기수": 0, "직전경기": "없음(개막전, Jamahl Mosley 체제 첫 경기)", "백투백": false},
+    "원정": {"이번시즌_경기수": 0, "직전경기": "없음(개막전)", "백투백": false}
+  },
+  "기타": [
+    {
+      "내용": "베팅 라인: 페이서스가 3.5점 원정 선호, 펠리컨스 홈 언더독. 총점 라인 239.5",
+      "출처": ["https://www.si.com/nba/scoreboard/pacers-vs-pelicans-10-21-2026-1500", "https://www.bleachernation.com/picks/2026/10/21/pacers-vs-pelicans-predictions-best-bets-and-odds-wednesday-october-21-2026/"],
+      "날짜": "2026-10-21"
+    },
+    {
+      "내용": "예상 선발 - 펠리컨스: Dejounte Murray, Herb Jones, Trey Murphy III, Zion Williamson, Yves Missi / 페이서스: Tyrese Haliburton, Andrew Nembhard, Pascal Siakam, Jarace Walker, Ivica Zubac",
+      "출처": ["https://sports.yahoo.com/articles/game-preview-orleans-pelicans-vs-165206282.html"],
+      "날짜": "2026-10-21"
+    },
+    {
+      "내용": "Tyrese Haliburton이 시즌 개막전에 복귀(부상 이후)",
+      "출처": ["https://sports.yahoo.com/articles/pacers-vs-pelicans-live-updates-220020249.html"],
+      "날짜": "2026-10-21"
+    }
+  ],
+  "미확인": [
+    "AJ Johnson·Taj Gibson·Bennedict Mathurin 2025-26 선발 횟수·평균출전시간",
+    "Ivica Zubac 올해 펠리컨스전 선발 확정 여부(예상 선발 명단 기준)",
+    "2026-27 시즌 당일(10/22) 최신 공식 injury report 갱신본 - 검색 결과는 10/21자 기준"
+  ]
+}

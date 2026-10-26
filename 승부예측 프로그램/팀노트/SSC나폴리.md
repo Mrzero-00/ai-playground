@@ -1,0 +1,20 @@
+# SSC나폴리
+
+<!-- FACTS:START -->
+## 팩트시트 (자동 수집 2026-10-24) — 조사 전 반드시 읽고, 아래 사실과 다른 뉴스 요약은 '미확인'으로 둔다
+- 출처: 위키 '2026–27 SSC Napoli season'(season), ESPN 있음
+- 감독: Massimiliano Allegri
+- 리그 순위: 10위 7경기 3승1무3패 GD+3 승점10 (Napoli)
+- 2026 여름 이적(위키 이적 표, 앞 8줄씩): IN 1 July 2026 · GK · Vanja Milinković-Savić · Torino · €21,000,000 / IN 1 July 2026 · FW · Rasmus Højlund · Manchester United · €44,000,000 / IN 1 July 2026 · FW · Alisson Santos · Sporting CP · €16,500,000 / IN 3 August 2026 · FW · Mattia Esposito · Sorrento · €700,000 / IN 19 August 2026 · DF · Costantino Favasuli · Catanzaro · €1,000,000 / IN 22 August 2026 · DF · Benoît Badiashile · Chelsea · €4,000,000 / IN 30 June 2026 · GK · Claudio Turi · Team Altamura · Free / IN 30 June 2026 · DF · Luca Marianucci · Torino · Free / OUT 1 July 2026 · DF · Juan Jesus · Unattached · Free / OUT 1 July 2026 · DF · Alessandro Zanoli · Udinese · €5,000,000 / OUT 1 July 2026 · FW · Giovanni Simeone · Torino · €6,000,000 / OUT 24 July 2026 · MF · Luis Hasa · Frosinone · €2,500,000
+- 최근 경기(ESPN, 최대 28일): 2026-09-05 Internazionale 3-2 Napoli / 2026-09-13 Napoli 1-0 Bologna / 2026-09-20 Fiorentina 1-1 Napoli / 2026-10-10 Napoli 3-0 Frosinone / 2026-10-17 Venezia 1-0 Napoli
+<!-- FACTS:END -->
+
+<!-- INPUTS:START -->
+## 입력(자동 수집 2026-10-24) — xG·휴식일·라인업·환경(이동거리·고도·날씨)은 이 숫자를 쓴다
+- 10-25 01:00 vs AS로마: 휴식 3.9일(7일 1경기) · 직전 10-21 홈 vs Bodo/Glimt 4-3 승 [uefa.champions] · xG 시즌7경기 xG2.14/xGA1.15 npxGD+0.77 · 최근5 2.56/1.3 (+0.96) · 홈1.33/원정0.34 · xPts14.3 vs 승점10 · 직전 선발 4-3-3 Alex Meret, Rafa Marín, Amir Rrahmani, Leonardo Spinazzola, Giovanni Di Lorenzo, Kevin De Bruyne, Scott McTominay, Frank Anguissa, Rasmus Højlund, Noa Lang, Matteo Politano · 구장 스타디오 디에고 아르만도 마라도나 · 이동 190km · 고도 35m(차 +18m) · 19.3℃ 강수0mm(18%) 바람17.1km/h
+<!-- INPUTS:END -->
+
+### 2026-10-21 회고 — 124회 9508 보되 글림트전 4:3 승 (적중, 추천 다리)
+- **맞은 근거(강화)**: 기준선 33.8%는 보되(엘리테세리엔)를 과대평가한 값이라 보고 +13.5%p 올려 47.3%로 추천했다. 시장(59.7%)보다 낮게 본 B 다리였고 적중 — '내가 시장보다 낮게 본 경기가 잘 맞는다'의 사례.
+- 단서: 그래도 **3실점**(보되 유효 6·점유 56.8%)이다. 보되가 약해서 이긴 게 아니라 나폴리 화력으로 이겼다 → 같은 대진에서 **언더·클린시트 쪽은 피한다**.
+- 리그 보정: **노르웨이 엘리테세리엔 팀의 pi-rating은 UCL에서 과대평가된다**(보되). `euro_baseline` 리그 강도 오프셋 후보로 적어 둔다.

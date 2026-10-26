@@ -1,0 +1,74 @@
+{
+  "번호": 7,
+  "홈": "릴OSC",
+  "원정": "갈라타사라이",
+  "수집시각": "2026-10-20 23:50 KST",
+  "결장": [
+    {"팀": "릴OSC", "선수": "Tiago Santos", "포지션": "풀백", "이번시즌_선발/경기": "미확인(시즌 초 부상)", "득점·도움": "-", "사유": "전방십자인대 파열(시즌 아웃)", "상태": "확정", "복귀예정": "시즌 복귀 불투명", "대체선수": "Alexsandro/Romain Perraud", "출처": "https://lepetitlillois.com/2026/10/20/ancelotti-absences-losc-galatasaray-sk/ ; https://www.mynet.com/lille-galatasaray-2026-10-21-maci-oncesi-analiz-524504-myspor", "날짜": "2026-10-20"},
+    {"팀": "릴OSC", "선수": "Hamza Igamane", "포지션": "공격수", "이번시즌_선발/경기": "미확인", "득점·도움": "-", "사유": "무릎 부상 · UEFA 챔피언스리그 등록 명단 제외(복귀 단계)", "상태": "확정", "복귀예정": "미확인", "대체선수": "Olivier Giroud/Ayase Ueda(단, 우에다도 결장)", "출처": "https://lepetitlillois.com/2026/10/20/ancelotti-absences-losc-galatasaray-sk/", "날짜": "2026-10-20"},
+    {"팀": "릴OSC", "선수": "Ethan Mbappé", "포지션": "미드필더", "이번시즌_선발/경기": "미확인", "득점·도움": "-", "사유": "레알 베티스전 퇴장에 따른 출장정지(징계)", "상태": "확정", "복귀예정": "이번 경기 1경기 정지 후 복귀 가능", "대체선수": "Nabil Bentaleb/Benjamin André", "출처": "https://lepetitlillois.com/2026/10/20/ancelotti-absences-losc-galatasaray-sk/ ; https://www.mynet.com/lille-galatasaray-2026-10-21-maci-oncesi-analiz-524504-myspor", "날짜": "2026-10-20"},
+    {"팀": "릴OSC", "선수": "Ayase Ueda", "포지션": "공격수", "이번시즌_선발/경기": "미확인(직전 경기 선발)", "득점·도움": "-", "사유": "발바닥 판(족저판) 파열", "상태": "확정", "복귀예정": "미확인", "대체선수": "Olivier Giroud(예상 선발 전환)", "출처": "https://lepetitlillois.com/2026/10/20/ancelotti-absences-losc-galatasaray-sk/", "날짜": "2026-10-20"},
+    {"팀": "릴OSC", "선수": "Osame Sahraoui", "포지션": "공격수(윙어)", "이번시즌_선발/경기": "미확인", "득점·도움": "-", "사유": "훈련 중 발 부상 — 안첼로티 감독 \"아직 준비 안 됨, 훈련 복귀 전\"", "상태": "확정", "복귀예정": "미확인", "대체선수": "Dilane Bakwa/Hákon Haraldsson", "출처": "https://lepetitlillois.com/2026/10/20/ancelotti-absences-losc-galatasaray-sk/ ; https://www.rotowire.com/soccer/headlines/osame-sahraoui-injury-doubtful-for-galatasaray-clash-540815", "날짜": "2026-10-20"},
+    {"팀": "릴OSC", "선수": "Berke Özer", "포지션": "골키퍼", "이번시즌_선발/경기": "주전(직전 경기 선발)", "득점·도움": "-", "사유": "컨디션 의문(구체 부상명 미확인)", "상태": "의심", "복귀예정": "미확인", "대체선수": "백업 GK", "출처": "https://www.mynet.com/lille-galatasaray-2026-10-21-maci-oncesi-analiz-524504-myspor", "날짜": "2026-10-20"},
+    {"팀": "갈라타사라이", "선수": "Rafael Leão", "포지션": "공격수(윙어)", "이번시즌_선발/경기": "주전급(직전 바르셀로나전 선발)", "득점·도움": "미확인", "사유": "서혜부/근육 경미~중등도 염좌(MRI 확인)", "상태": "확정(결장)", "복귀예정": "단기 결장 예상", "대체선수": "Yunus Akgün", "출처": "https://www.rotowire.com/soccer/headlines/rafael-leao-injury-uncertain-for-lille-clash-540612 ; https://www.mynet.com/lille-galatasaray-2026-10-21-maci-oncesi-analiz-524504-myspor", "날짜": "2026-10-20"},
+    {"팀": "갈라타사라이", "선수": "Wilfried Singo", "포지션": "수비수", "이번시즌_선발/경기": "0선발/2경기(41분, 시즌 누적)", "득점·도움": "-", "사유": "허벅지(대퇴) 부상", "상태": "의심", "복귀예정": "펜어바흐체전 이후 복귀 거론(테스트 결과 대기)", "대체선수": "Eren Elmalı", "출처": "https://www.aspor.com.tr/galatasaray/2026/10/01/galatasarayda-singo-gelismesi-iste-sahalara-donus-tarihi ; https://lepetitlillois.com/2026/10/20/ancelotti-absences-losc-galatasaray-sk/", "날짜": "2026-10-20"},
+    {"팀": "갈라타사라이", "선수": "Lucas Torreira", "포지션": "미드필더", "이번시즌_선발/경기": "미확인", "득점·도움": "-", "사유": "부상(구체 부위 미확인) — 단, 일부 예상 라인업엔 선발 포함(엇갈림)", "상태": "의심", "복귀예정": "미확인", "대체선수": "Mario Lemina와 조합/대체 미확인", "출처": "https://www.mynet.com/lille-galatasaray-2026-10-21-maci-oncesi-analiz-524504-myspor", "날짜": "2026-10-20"},
+    {"팀": "갈라타사라이", "선수": "Günay Güvenç", "포지션": "골키퍼(백업)", "이번시즌_선발/경기": "백업(비주전)", "득점·도움": "-", "사유": "무릎 부상(경미)", "상태": "확정", "복귀예정": "미확인", "대체선수": "해당없음(백업 GK)", "출처": "팀노트 2026-10-12 조사(fanatik.com.tr) — 최신 재확인 안 됨", "날짜": "2026-10-12"},
+    {"팀": "갈라타사라이", "선수": "Victor Osimhen", "포지션": "공격수(스트라이커)", "이번시즌_선발/경기": "주전(6골, 시즌)", "득점·도움": "6골", "사유": "서혜부/내전근 부상에서 회복 — 복귀 후 선발 출전 전망", "상태": "확정(출전 예상)", "복귀예정": "이번 경기 출전 예상", "대체선수": "해당없음", "출처": "https://www.sporx.com/lille-galatasaray-maci-kadrolar-6106312 ; https://spor.haber7.com/sampiyonlar-ligi/haber/3669678-galatasarayda-lille-macinda-oynamayacak-isimler-osimhen-detayi", "날짜": "2026-10-20"}
+  ],
+  "라인업": {
+    "홈": {
+      "발표여부": "미발표(예상)",
+      "예상XI": "4-3-3: Berke Özer; Maxima Goffi, Nathan Ngoy, Alexsandro Ribeiro, Romain Perraud; Ngal'ayel Mukau, Nabil Bentaleb, Benjamin André; Dilane Bakwa, Olivier Giroud, Hákon Haraldsson",
+      "포메이션": "4-3-3",
+      "출처": "https://www.sporx.com/lille-galatasaray-maci-kadrolar-6106312",
+      "날짜": "2026-10-20"
+    },
+    "원정": {
+      "발표여부": "미발표(예상, 매체 간 엇갈림 존재)",
+      "예상XI": "4-2-3-1: Uğurcan Çakır; Barış Alper Yılmaz, Davinson Sánchez, Ismail Jakobs, Eren Elmalı; Lucas Torreira, Mario Lemina; Yunus Akgün, Alexey Batrakov, Rafael Leão(일부 매체 포함·결장 보도와 엇갈림); Victor Osimhen",
+      "포메이션": "4-2-3-1",
+      "출처": "https://www.sporx.com/lille-galatasaray-maci-kadrolar-6106312",
+      "날짜": "2026-10-20"
+    }
+  },
+  "최근경기": [
+    {"팀": "릴OSC", "날짜": "2026-09-08", "상대": "Real Betis(H)", "장소": "홈", "스코어": "2-3 패", "비고": "UCL MD1"},
+    {"팀": "릴OSC", "날짜": "2026-09-13", "상대": "Troyes", "장소": "미확인", "스코어": "2-0 승", "비고": "리그앙"},
+    {"팀": "릴OSC", "날짜": "2026-09-20", "상대": "Nice(A)", "장소": "원정", "스코어": "1-2 패", "비고": "리그앙"},
+    {"팀": "릴OSC", "날짜": "2026-10-10", "상대": "Le Havre AC", "장소": "홈", "스코어": "1-0 승", "비고": "리그앙"},
+    {"팀": "릴OSC", "날짜": "2026-10-13", "상대": "Arsenal(A)", "장소": "원정", "스코어": "0-3 패", "비고": "UCL MD2"},
+    {"팀": "릴OSC", "날짜": "2026-10-17", "상대": "Brest", "장소": "미확인", "스코어": "1-1 무", "비고": "리그앙"},
+    {"팀": "갈라타사라이", "날짜": "2026-09-09", "상대": "Sporting CP(A)", "장소": "원정", "스코어": "1-3 패", "비고": "UCL MD1"},
+    {"팀": "갈라타사라이", "날짜": "2026-10-14", "상대": "Barcelona(H)", "장소": "홈", "스코어": "1-4 패", "비고": "UCL MD2"},
+    {"팀": "갈라타사라이", "날짜": "2026-10-18", "상대": "Gençlerbirliği(A)", "장소": "원정", "스코어": "1-0 승(89분 자책골)", "비고": "슈페르리그"}
+  ],
+  "순위": {
+    "홈": "리그앙 4위 7경기 4승2무1패 승점14(팩트시트) · UCL 리그페이즈 34위 0점(2패)",
+    "원정": "슈페르리그 1위 승점19(2026-10-19 기준) · UCL 리그페이즈 35위 0점(2패)",
+    "출처": "https://www.mynet.com/lille-galatasaray-2026-10-21-maci-oncesi-analiz-524504-myspor ; https://www.turkgun.com/futbol/super-lig-puan-durumu-19-ekim-2026-8-hafta/408528",
+    "날짜": "2026-10-20"
+  },
+  "감독": {
+    "홈": "Davide Ancelotti(유임, 변동 없음)",
+    "원정": "Okan Buruk(유임, 변동 없음)",
+    "변동": "없음",
+    "출처": "https://lepetitlillois.com/2026/10/20/ancelotti-absences-losc-galatasaray-sk/ ; 팀노트 2026-10-12 조사",
+    "날짜": "2026-10-20"
+  },
+  "일정·동기·기타": [
+    {"내용": "양팀 모두 UCL 리그페이즈 2경기 전패(0점) — 이번 경기가 첫 승점 확보의 분수령으로 보도됨", "출처": "https://www.mynet.com/lille-galatasaray-2026-10-21-maci-oncesi-analiz-524504-myspor", "날짜": "2026-10-20"},
+    {"내용": "갈라타사라이 원정 이동거리 2248km(장거리 원정)", "출처": "입력_승무패62(팀노트 INPUTS 자동수집)", "날짜": "2026-10-20"},
+    {"내용": "Victor Osimhen은 과거 릴에서 뛴 적이 있는 상대는 아니나(나폴리 출신), 시즌 6골로 갈라타사라이 공격 주도 — 복귀 시 즉시 선발 예상", "출처": "https://www.sporx.com/lille-galatasaray-maci-kadrolar-6106312", "날짜": "2026-10-20"},
+    {"내용": "릴은 결장이 5명(Mbappé·Santos·Igamane·Ueda·Sahraoui)으로 공격진 선택지가 Giroud·Bakwa·Haraldsson로 제한", "출처": "https://lepetitlillois.com/2026/10/20/ancelotti-absences-losc-galatasaray-sk/", "날짜": "2026-10-20"}
+  ],
+  "엇갈림": [
+    "갈라타사라이 예상 선발에 Rafael Leão가 포함된 매체(sporx)와 Leão 결장(서혜부 부상)을 보도한 매체(rotowire, mynet)가 상충 — Leão 결장 쪽이 다수(2곳) 확인이라 '확정 결장'으로 처리",
+    "Lucas Torreira가 '부상으로 결장 의심'(mynet)으로 보도되었으나 sporx 예상 라인업엔 선발로 포함 — 라인업 발표 전까지 의심 상태 유지"
+  ],
+  "못찾음": [
+    "갈라타사라이 Roland Sallai의 2026-10-13 이후 최신 복귀 상태(최신 기사 미발견, 2026-10-12 기준 '부분 훈련 복귀' 정보가 가장 최근)",
+    "릴 Berke Özer의 구체적 부상/컨디션 사유"
+  ],
+  "뉴스없음": {"홈": "해당없음(결장·라인업 뉴스 다수 확인됨)", "원정": "해당없음(결장·라인업 뉴스 다수 확인됨)"}
+}

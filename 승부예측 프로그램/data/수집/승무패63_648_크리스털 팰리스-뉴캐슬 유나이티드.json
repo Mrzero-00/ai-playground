@@ -1,0 +1,189 @@
+{
+  "번호": 648,
+  "홈": "크리스털 팰리스",
+  "원정": "뉴캐슬 유나이티드",
+  "수집시각": "2026-10-24 21:45 KST",
+  "리그·구장·킥오프": {
+    "리그": "잉글랜드 프리미어리그",
+    "구장": "Selhurst Park",
+    "킥오프": "2026-10-25 23:00 KST = 현지(BST/GMT 전환 전) 2026-10-25 14:00 UTC(2:00 PM)",
+    "출처": ["https://www.flashscore.com/match/football/crystal-palace-AovF1Mia/newcastle-utd-p6ahwuwJ/"],
+    "날짜": "2026-10-24"
+  },
+  "결장": [
+    {
+      "팀": "크리스털 팰리스",
+      "선수": "Axel Disasi",
+      "포지션": "CB",
+      "이번시즌_선발/경기": "미상",
+      "득점·도움": "미상",
+      "사유": "출전정지(징계)",
+      "상태": "확정",
+      "복귀예정": "다음 경기부터",
+      "대체선수": "미상",
+      "출처": ["https://www.sportsmole.co.uk/football/newcastle-united/injury-news/news/will-newcastles-elanga-ramsey-return-from-injury-for-crystal-palace-clash_607575.html"],
+      "날짜": "2026-10-24"
+    },
+    {
+      "팀": "크리스털 팰리스",
+      "선수": "Chadi Riad",
+      "포지션": "CB",
+      "이번시즌_선발/경기": "미상",
+      "득점·도움": "미상",
+      "사유": "무릎 부상",
+      "상태": "확정",
+      "복귀예정": "미상",
+      "대체선수": "미상",
+      "출처": ["https://www.sportsmole.co.uk/football/newcastle-united/injury-news/news/will-newcastles-elanga-ramsey-return-from-injury-for-crystal-palace-clash_607575.html"],
+      "날짜": "2026-10-24"
+    },
+    {
+      "팀": "크리스털 팰리스",
+      "선수": "Jean-Philippe Mateta",
+      "포지션": "ST",
+      "이번시즌_선발/경기": "미상(주전 공격수)",
+      "득점·도움": "미상",
+      "사유": "허벅지 부상",
+      "상태": "의심(출전 불투명)",
+      "복귀예정": "미정",
+      "대체선수": "미상",
+      "출처": ["https://www.sportsmole.co.uk/football/newcastle-united/injury-news/news/will-newcastles-elanga-ramsey-return-from-injury-for-crystal-palace-clash_607575.html"],
+      "날짜": "2026-10-24"
+    },
+    {
+      "팀": "크리스털 팰리스",
+      "선수": "Ben Chilwell",
+      "포지션": "LB",
+      "이번시즌_선발/경기": "미상",
+      "득점·도움": "미상",
+      "사유": "무릎 부상",
+      "상태": "의심",
+      "복귀예정": "미정",
+      "대체선수": "미상",
+      "출처": ["https://www.sportsmole.co.uk/football/newcastle-united/injury-news/news/will-newcastles-elanga-ramsey-return-from-injury-for-crystal-palace-clash_607575.html"],
+      "날짜": "2026-10-24"
+    },
+    {
+      "팀": "크리스털 팰리스",
+      "선수": "Dean Henderson",
+      "포지션": "GK",
+      "이번시즌_선발/경기": "미상(주전 GK)",
+      "득점·도움": "-",
+      "사유": "발목/발 부상",
+      "상태": "의심",
+      "복귀예정": "미정",
+      "대체선수": "백업 GK",
+      "출처": ["https://www.sportsmole.co.uk/football/newcastle-united/injury-news/news/will-newcastles-elanga-ramsey-return-from-injury-for-crystal-palace-clash_607575.html"],
+      "날짜": "2026-10-24"
+    },
+    {
+      "팀": "크리스털 팰리스",
+      "선수": "Takehiro Tomiyasu",
+      "포지션": "RB/CB",
+      "이번시즌_선발/경기": "미상",
+      "득점·도움": "미상",
+      "사유": "종아리/정강이/발뒤꿈치 부상",
+      "상태": "의심",
+      "복귀예정": "미정",
+      "대체선수": "미상",
+      "출처": ["https://www.sportsmole.co.uk/football/newcastle-united/injury-news/news/will-newcastles-elanga-ramsey-return-from-injury-for-crystal-palace-clash_607575.html"],
+      "날짜": "2026-10-24"
+    },
+    {
+      "팀": "뉴캐슬 유나이티드",
+      "선수": "Anthony Elanga",
+      "포지션": "WG",
+      "이번시즌_선발/경기": "주전급(최근 4경기 결장)",
+      "득점·도움": "미상",
+      "사유": "햄스트링 부상, 최근 훈련 복귀",
+      "상태": "의심(감독: '90분 소화는 무리, 스쿼드 합류는 가능할 것')",
+      "복귀예정": "이번 경기 스쿼드 포함 가능, 선발은 불확실",
+      "대체선수": "미상",
+      "출처": ["https://www.sportsmole.co.uk/football/newcastle-united/injury-news/news/will-newcastles-elanga-ramsey-return-from-injury-for-crystal-palace-clash_607575.html"],
+      "날짜": "2026-10-24"
+    },
+    {
+      "팀": "뉴캐슬 유나이티드",
+      "선수": "Jacob Ramsey",
+      "포지션": "MF",
+      "이번시즌_선발/경기": "미상",
+      "득점·도움": "미상",
+      "사유": "부상에서 이번 주 훈련 복귀",
+      "상태": "의심",
+      "복귀예정": "스쿼드 합류 가능, 계속 모니터링",
+      "대체선수": "미상",
+      "출처": ["https://www.sportsmole.co.uk/football/newcastle-united/injury-news/news/will-newcastles-elanga-ramsey-return-from-injury-for-crystal-palace-clash_607575.html"],
+      "날짜": "2026-10-24"
+    },
+    {
+      "팀": "뉴캐슬 유나이티드",
+      "선수": "Ewen Jaouen",
+      "포지션": "DF",
+      "이번시즌_선발/경기": "미상",
+      "득점·도움": "미상",
+      "사유": "햄스트링 부상",
+      "상태": "확정",
+      "복귀예정": "12월 예상",
+      "대체선수": "미상",
+      "출처": ["https://www.sportsmole.co.uk/football/newcastle-united/injuries-and-suspensions/elanga-ramsey-latest-newcastle-injury-suspension-list-vs-crystal-palace_607454.html"],
+      "날짜": "2026-10-24"
+    },
+    {
+      "팀": "뉴캐슬 유나이티드",
+      "선수": "Valentino Livramento",
+      "포지션": "RB",
+      "이번시즌_선발/경기": "미상",
+      "득점·도움": "미상",
+      "사유": "무릎 부상",
+      "상태": "확정",
+      "복귀예정": "미상",
+      "대체선수": "미상",
+      "출처": ["https://www.sportsmole.co.uk/football/newcastle-united/injuries-and-suspensions/elanga-ramsey-latest-newcastle-injury-suspension-list-vs-crystal-palace_607454.html"],
+      "날짜": "2026-10-24"
+    }
+  ],
+  "라인업": {
+    "홈": {
+      "발표여부": "미발표",
+      "예상XI": "미상(기사에 포메이션·XI 세부 미기재, Disasi 결장·Riad 부상으로 센터백 자원 부족, Henderson 결장 시 백업 GK 선발)",
+      "포메이션": "미상",
+      "출처": ["https://www.sportsmole.co.uk/football/newcastle-united/injury-news/news/will-newcastles-elanga-ramsey-return-from-injury-for-crystal-palace-clash_607575.html"],
+      "날짜": "2026-10-24"
+    },
+    "원정": {
+      "발표여부": "미발표",
+      "예상XI": "미상(Elanga·Ramsey 결장 가능성 높음, 결장 시 측면·중원 로테이션 예상)",
+      "포메이션": "미상",
+      "출처": ["https://www.sportsmole.co.uk/football/newcastle-united/injury-news/news/will-newcastles-elanga-ramsey-return-from-injury-for-crystal-palace-clash_607575.html"],
+      "날짜": "2026-10-24"
+    }
+  },
+  "최근경기": [
+    {"팀": "크리스털 팰리스", "날짜": "2026-10-22", "상대": "Besiktas(A, 유로파리그)", "장소": "원정", "스코어": "2-2(무)", "비고": ""},
+    {"팀": "크리스털 팰리스", "날짜": "2026-10-18", "상대": "Brighton & Hove Albion(A, PL)", "장소": "원정", "스코어": "0-5(패)", "비고": "대패"},
+    {"팀": "크리스털 팰리스", "날짜": "2026-10-15", "상대": "Lyon(A, 유로파리그)", "장소": "원정", "스코어": "2-3(패)", "비고": ""},
+    {"팀": "크리스털 팰리스", "날짜": "2026-10-11", "상대": "Nottingham Forest(H, PL)", "장소": "홈", "스코어": "3-1(승)", "비고": ""},
+    {"팀": "뉴캐슬 유나이티드", "날짜": "2026-10-17", "상대": "Aston Villa(H, PL)", "장소": "홈", "스코어": "0-1(패)", "비고": "홈에서 득점 없이 패배, 최근 4경기 중 3패"},
+    {"팀": "뉴캐슬 유나이티드", "날짜": "2026-10-12", "상대": "Coventry City(PL 또는 컵대회, 장소 미확인)", "장소": "미상", "스코어": "1-4(패)", "비고": "장소·대회 명칭 기사마다 표현 상이, 추가 확인 필요"}
+  ],
+  "맞대결": [
+    {"날짜": "2026-04-12", "대회": "프리미어리그", "스코어": "크리스털 팰리스 2-1 뉴캐슬"},
+    {"날짜": "2026-01-04", "대회": "프리미어리그", "스코어": "뉴캐슬 5-0 크리스털 팰리스"},
+    {"날짜": "2025-04-16", "대회": "프리미어리그", "스코어": "뉴캐슬 5-0 크리스털 팰리스"},
+    {"날짜": "2024-11-30", "대회": "프리미어리그", "스코어": "크리스털 팰리스 1-1 뉴캐슬"},
+    {"날짜": "2024-04-24", "대회": "프리미어리그", "스코어": "크리스털 팰리스 2-0 뉴캐슬"}
+  ],
+  "일정·동기·기타": [
+    {"내용": "크리스털 팰리스 감독은 Pierre Sage(2026년 6월 선임, Oliver Glasner는 2026-07-06 노팅엄 포레스트로 이적). 10/18 브라이튼전 0-5 대패 후 'crucial two games'로 경질설 거론될 만큼 압박 받는 상황", "출처": ["https://sports.yahoo.com/articles/under-pressure-palace-manager-pierre-175848035.html", "https://www.espn.com/soccer/story/_/id/49250725/oliver-glasner-nottingham-forest-manager"], "날짜": "2026-10-24"},
+    {"내용": "뉴캐슬 감독 Matthias Jaissle도 7경기 8점에 그치며 10/17 아스톤 빌라전 패배 후 홈 팬들의 야유를 받는 등 부진", "출처": "https://sports.yahoo.com/articles/matthias-jaissle-eight-points-seven-164521282.html", "날짜": "2026-10-23"},
+    {"내용": "순위: 뉴캐슬 11위 8점, 크리스털 팰리스 14위 7점(2026-10-23 기준) — 양팀 모두 하위권에서 승점이 급한 경기", "출처": "https://sports.yahoo.com/articles/matthias-jaissle-eight-points-seven-164521282.html", "날짜": "2026-10-23"},
+    {"내용": "크리스털 팰리스는 10/22 유로파리그 베식타쉬 원정(무) 뒤 중3일 만에 리그 경기 — 유럽대항전 병행으로 체력 부담 있음. 뉴캐슬은 10/17 이후 이번 경기까지 주중 경기 없이 휴식(상대적으로 더 길게 쉼)", "출처": "https://footballwhispers.com/blog/crystal-palace-vs-newcastle-united-prediction-25-10-2026/", "날짜": "2026-10-24"},
+    {"내용": "날씨(런던/셀허스트 파크): 예보가 갈림 — 한 소스는 맑음 최고13도·최저9도, 다른 소스는 약한 비(5.3mm) 가능성에 14도/9도, 바람 약 31km/h로 다소 강함", "출처": ["https://ukweather24.co.uk/weather/London/2026-10-25"], "날짜": "2026-10-24"}
+  ],
+  "엇갈림": [
+    {"내용": "경기 날짜를 일부 소스는 '2026-10-24(토)'로, 다수 소스(flashscore·일정표)는 '2026-10-25(일) 14:00 UTC'로 표기 — 다수·구체적 소스(일요일 2pm UTC)를 채택, 토요일 표기는 오래된/오기로 판단", "출처": ["https://www.flashscore.com/match/football/crystal-palace-AovF1Mia/newcastle-utd-p6ahwuwJ/", "https://sports.yahoo.com/articles/matthias-jaissle-eight-points-seven-164521282.html"], "날짜": "2026-10-23~24"},
+    {"내용": "뉴캐슬 10/12 경기 상대·장소(Coventry City) 표기가 소스마다 상이(대회명·홈원정 불명확) — 추가 확인 필요", "출처": ["https://www.espn.com/soccer/team/results/_/id/361/newcastle-united"], "날짜": "2026-10-24"}
+  ],
+  "못찾음": ["양팀 이번 시즌 결장 선수들의 정확한 선발 횟수·득점 수치", "공식 예상 포메이션·XI", "뉴캐슬 10/12 경기의 정확한 대회명·홈/원정", "심판 배정"],
+  "뉴스없음": {"홈": "해당 없음(결장·감독 압박 뉴스 다수 확인됨)", "원정": "해당 없음(결장·감독 압박 뉴스 다수 확인됨)"}
+}

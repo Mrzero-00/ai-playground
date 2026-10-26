@@ -154,14 +154,24 @@ LEAGUE_TO_ESPN = {"Premier League": "eng.1", "EFL Championship": "eng.2", "Champ
 
 def espn(code, eng):
     """순위 + 최근 5경기. 팀명은 ESPN displayName과 토큰 일치로 찾는다."""
-    toks = [t for t in re.split(r"[\s\-/]+", eng.lower()) if len(t) > 2 and t not in ("fc", "cf", "sc", "afc", "club", "united", "city", "de", "the", "real")]
+    STOP = ("fc", "cf", "sc", "afc", "club", "united", "city", "de", "the", "real")
+    toks = [t for t in re.split(r"[\s\-/]+", eng.lower()) if len(t) > 2 and t not in STOP]
     def score(name):
-        n = name.lower(); e = re.sub(r"\b(fc|cf|sc|afc|club)\b", "", eng.lower()).strip()
-        base = sum(1 for t in toks if t in n) if toks else int(eng.lower() in n)
+        n = re.sub(r"[\-/]+", " ", name.lower()); e = re.sub(r"\b(fc|cf|sc|afc|club)\b", "", re.sub(r"[\-/]+", " ", eng.lower())).strip()
+        base = sum(1 for t in toks if t in n) if toks else int(e in n)
+        # 2026-10-27(127회 825 회고): 'Al-Ahli'(토큰 ahli 하나)가 'Shabab Al Ahli'(UAE)에도 같은 점수로 걸려 사우디 알아흘리
+        # 팩트시트에 UAE 클럽 순위·결과가 섞였다. ESPN 이름에 내 이름에 없는 의미 토큰(shabab 등)이 있으면 감점해
+        # 정확한 이름이 이기게 하고, 감점으로 1 미만이 되면 match() 가 거른다.
+        sig = [t for t in re.split(r"\s+", n) if len(t) > 2 and t not in STOP]
+        extra = [t for t in sig if t not in toks and not any(t in x or x in t for x in toks)]
+        if base and sig and toks and sig[0] in extra:
+            return 0          # 'Shabab Al Ahli' 처럼 내 이름 앞에 다른 구단명이 붙은 것은 다른 팀이다
+        if base and extra:
+            base -= 0.5 * len(extra)   # 'Al-Ittihad Jeddah' 같은 도시 접미는 감점만(정확한 이름이 있으면 그쪽이 이긴다)
         return base + (10 if (e and (e in n or n in e)) else 0)
     def match(name):
         return score(name) >= max(1, len(toks) - (1 if len(toks) >= 3 else 0))
-    pos = ""
+    pos = ""; chosen = ""
     try:
         d = json.loads(curl(f"https://site.api.espn.com/apis/v2/sports/soccer/{code}/standings"))
         groups = d.get("children") or [{"standings": d.get("standings", {})}]
@@ -173,6 +183,7 @@ def espn(code, eng):
                     best = (sc, e)
         if best and match(best[1]["team"]["displayName"]):
             e = best[1]; st = {s["name"]: s.get("displayValue") for s in e["stats"]}
+            chosen = e["team"]["displayName"]   # 최근 경기도 이 정확한 이름으로만 고른다(2026-10-27)
             pos = f"{st.get('rank')}위 {st.get('gamesPlayed')}경기 {st.get('wins')}승{st.get('ties')}무{st.get('losses')}패 GD{st.get('pointDifferential')} 승점{st.get('points')} ({e['team']['displayName']})"
     except Exception:
         pass
@@ -188,7 +199,8 @@ def espn(code, eng):
             if not c["status"]["type"].get("completed"):
                 continue
             h = [x for x in c["competitors"] if x["homeAway"] == "home"][0]; a = [x for x in c["competitors"] if x["homeAway"] == "away"][0]
-            if match(h["team"]["displayName"]) or match(a["team"]["displayName"]):
+            ok = (lambda nm: nm == chosen) if chosen else match
+            if ok(h["team"]["displayName"]) or ok(a["team"]["displayName"]):
                 recent.append(f"{e['date'][:10]} {h['team']['displayName']} {h.get('score')}-{a.get('score')} {a['team']['displayName']}")
     except Exception:
         pass

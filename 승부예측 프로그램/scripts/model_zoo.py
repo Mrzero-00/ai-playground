@@ -215,10 +215,16 @@ def cmd_log(a):
                          "1순위": t, "결과": g["결과"], "적중": "1" if t == g["결과"] else "0",
                          "시장1순위": mtop, "시장최대": mmax, "기록일": today})
     os.makedirs(os.path.dirname(PRED), exist_ok=True)
+    # 2026-10-27: predict_engine.run 이 같은 파일에 elo·poisson·시장앵커 등 엔진 기법을 쌓는데, 여기서 통째로
+    # 덮어써 엔진 행(6,246행)이 매번 사라졌다(daily 순서 run→log→fair 라 fair 는 늘 7기법만 비교). 내 기법 행만 교체한다.
+    mine = {r["기법"] for r in rows}
+    keep = []
+    if os.path.exists(PRED):
+        keep = [x for x in csv.DictReader(open(PRED, encoding="utf-8-sig")) if x.get("기법") not in mine]
     w = csv.DictWriter(open(PRED, "w", encoding="utf-8", newline=""), fieldnames=PCOLS)
     w.writeheader()
-    for r in rows:
-        w.writerow(r)
+    for r in keep + rows:
+        w.writerow({c: r.get(c, "") for c in PCOLS})
     meth = collections.Counter(r["기법"] for r in rows)
     print(f"경기 {len(games)} × 기법 {len(meth)} → {len(rows)}행")
     for m, n in meth.most_common():

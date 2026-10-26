@@ -564,6 +564,46 @@ def normalize_evidence(data, rows=None, rnd=None):
     return data
 
 
+EV_KEY = ("회차", "번호", "구분", "유형", "팀", "선수", "영향", "내용", "기준선", "최종", "결론")
+
+
+def _ev_key(x):
+    return tuple((x.get(k) or "").strip() for k in EV_KEY)
+
+
+def _drop_dup_evidence(ev):
+    """이미 근거기록에 있는(내용까지 같은) 행과 이번 묶음 안의 중복을 뺀다."""
+    seen = set()
+    if os.path.exists(EVI):
+        seen = {_ev_key(x) for x in csv.DictReader(open(EVI, encoding="utf-8-sig"))}
+    out = []
+    for x in ev:
+        k = _ev_key(x)
+        if k in seen:
+            continue
+        seen.add(k); out.append(x)
+    return out
+
+
+def cmd_dedupe(a):
+    """근거기록·결장검증의 완전 중복 행을 한 번 정리한다(첫 행만 남김)."""
+    for path, keyf in ((EVI, _ev_key), (os.path.join(ROOT, "data", "결장검증.csv"),
+                                        lambda x: tuple((x.get(k) or "") for k in ("회차", "번호", "팀", "선수", "요인상태", "실제")))):
+        if not os.path.exists(path):
+            continue
+        rs = list(csv.DictReader(open(path, encoding="utf-8-sig")))
+        cols = list(rs[0].keys()) if rs else []
+        seen, keep = set(), []
+        for x in rs:
+            k = keyf(x)
+            if k in seen:
+                continue
+            seen.add(k); keep.append(x)
+        with open(path, "w", encoding="utf-8", newline="") as f:
+            w = csv.DictWriter(f, fieldnames=cols, lineterminator="\n"); w.writeheader(); w.writerows(keep)
+        print(f"{os.path.relpath(path, ROOT)}: {len(rs)}행 → {len(keep)}행 (중복 {len(rs)-len(keep)} 제거)")
+
+
 def cmd_add(a):
     rows = R.load()
     data = normalize_evidence(json.load(open(a.file, encoding="utf-8")), rows, a.round)
@@ -604,6 +644,11 @@ def cmd_add(a):
                    "심각": " / ".join(severe), "경미": " / ".join(minor)})
         print(f"[{g}] {r['번호']} {game}" + (f" — 심각: {' / '.join(severe)}" if severe else "") + (f" — 경미: {' / '.join(minor)}" if minor else ""))
     R.save(rows)
+    # 2026-10-27(126·127회 심층회고): 같은 근거 JSON 을 두 번 add 하면(등급 재판정·재실행) 근거기록에
+    # 같은 행이 두 번 쌓였다 — 전수 4,749행 중 1,546행(33%)이 완전 중복. factor_fit·model_zoo 는 요인 '영향'을
+    # (회차,번호,유형)으로 합산하므로 중복 행은 영향을 2배로 세고, postmatch 결장검증도 같은 선수를 두 번 대조했다.
+    # → 내용까지 같은 행은 건너뛴다(재분석으로 내용·영향이 바뀐 행은 새 행으로 남는다).
+    ev = _drop_dup_evidence(ev)
     append(EVI, EVI_COLS, ev)
     append(CHK, CHK_COLS, ck)
     append(SNAP, SNAP_COLS, snaps)   # 덮어쓰지 않는 예측 기록 — 초기·라인업 후 재분석을 모두 남긴다
@@ -716,8 +761,9 @@ def main():
     p = sp.add_parser("grade"); p.add_argument("round")
     sp.add_parser("report")
     sp.add_parser("normalize")
+    sp.add_parser("dedupe")
     a = ap.parse_args()
-    {"pre": cmd_pre, "add": cmd_add, "mark": cmd_mark, "grade": cmd_grade, "report": cmd_report, "normalize": cmd_normalize}[a.cmd](a)
+    {"pre": cmd_pre, "add": cmd_add, "mark": cmd_mark, "grade": cmd_grade, "report": cmd_report, "normalize": cmd_normalize, "dedupe": cmd_dedupe}[a.cmd](a)
 
 
 if __name__ == "__main__":

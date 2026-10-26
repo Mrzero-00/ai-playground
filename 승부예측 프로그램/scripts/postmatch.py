@@ -69,8 +69,21 @@ def main():
         eid = (inp.get(r["번호"]) or {}).get("event")
         if not eid:
             ko = M.kickoff(r["시각"], dt.datetime.now(M.KST))
-            eh = str(names.get(r["홈"]) or r["홈"]); ea = str(names.get(r["원정"]) or r["원정"])
-            eid = M.find_event(ko, eh, ea) if ko else None
+            # 2026-10-27: team_names.json 값이 별칭 목록(list)이면 str() 이 "['Olympique Lyonnais', 'Lyon']" 가 돼
+            # 매칭이 항상 실패했다(127회 2070 PSG-리옹 event 없음 → 결장검증 전부 '미확인'). 별칭을 하나씩 시도한다.
+            def aliases(k):
+                v = names.get(k) or k
+                return [str(x) for x in v] if isinstance(v, list) else [str(v)]
+            eid = None
+            if ko:
+                for eh in aliases(r["홈"]):
+                    for ea in aliases(r["원정"]):
+                        eid = M.find_event(ko, eh, ea)
+                        if eid:
+                            break
+                    if eid:
+                        break
+            eh, ea = aliases(r["홈"])[0], aliases(r["원정"])[0]
         g = {"경기": f"{r['홈']} - {r['원정']}", "점수": r["점수"], "event": eid, "수집": now, "홈": {}, "원정": {}}
         if eid:
             j = summary(eid) or {}
@@ -168,6 +181,7 @@ def main():
                 real = "출전(선발)" if st else "명단 포함(벤치)" if hits else ("미확인(이름 매칭 실패)" if weak else "결장 맞음")
             ab.append({"회차": rnd, "번호": e["번호"], "경기": e["경기"], "팀": e["팀"], "선수": e["선수"], "요인상태": e["상태"], "실제": real,
                        "근거": "ESPN 명단", "수집": now})
+            seen.add((rnd, e["번호"], e["선수"]))   # 2026-10-27: 근거기록에 같은 선수가 두 번 있으면 한 실행 안에서도 두 번 쌓였다(1240행 중 508 중복)
     with open(ABS_CSV, "w", encoding="utf-8", newline="") as f:
         w = csv.DictWriter(f, fieldnames=ACOLS); w.writeheader(); w.writerows(ab)
     from collections import Counter

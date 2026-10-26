@@ -14,3 +14,4 @@
 <!-- INPUTS:END -->
 
 - 2026-10-26 수집(127회 809): 결장 Hassan Kadesh(미확인,확정); Hamed Al-Ghamdi(수비수(추정, 미확인),확정); Ahmed Sharahili(미확인,의심); Roger Fernandes(미확인,의심); Mahamadou Doumbia(미확인,의심) · 라인업 미발표 — data/수집/127_809_*.json
+- 2026-10-27 회고(127회 809, 원정 vs 네프치 1:2 승 ✓ 근거대로): 티어차 1.1골 기준선대로 슈팅 14:7·유효 5:2·점유 64% 지배했으나 결승골은 90+3' En-Nesyri 프리킥 — 결과 분산 큼. 선발: Rajković; Al-Shanqiti, Al-Mousa, Danilo Pereira, Faris Abdi; Ríos, Lopy; Bergwijn, Aouar, Wijnaldum; Ilenikhena. Benzema·Kanté 명단 제외(사유 미확인). 결장 Kadesh·Hamed Al Ghamdi·Sharahili 맞음.

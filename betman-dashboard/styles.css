@@ -1,3 +1,6 @@
+.why.big{font-size:13.5px;line-height:1.55}
+.why .learn{margin-top:5px;padding-top:5px;border-top:1px dashed var(--line);color:var(--text)}
+.why.pre{margin-top:6px;padding-top:6px;border-top:1px dashed var(--line);color:var(--muted)}
 table.combo-tbl th.ck:first-of-type,table.combo-tbl td.ck.an{width:38px}
 table.combo-tbl td.ck.an{background:none}
 .carry{color:var(--s4)}

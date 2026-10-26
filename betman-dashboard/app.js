@@ -83,20 +83,34 @@ function comboTable(c, past) {
     ${past ? '<th class="num">결과</th><th>적중</th>' : ""}</tr></thead><tbody>${rows}</tbody></table>
     ${past ? '<div class="tnote"><span class="ok">✓</span> 내가 고른 방향 · <span class="sw act-ok"></span> 실제 결과(맞음) · <span class="sw act-no"></span> 실제 결과(빗나감)</div>' : ""}</div>`;
 }
-function legNotes(c, past) {
+function legNotes(c, past, mode) {
+  const retro = mode === "retro";
   return c.legs.map((l) => {
     const rv = l.review || {};
     const why = l.why || "";
-    const rev = past && (rv.quad || rv.내용 || rv.content || rv.판정 || rv.배울점);
+    const body = esc(rv.내용 || rv.content || "");
+    const rev = past && (rv.quad || body || rv.판정 || rv.배울점);
+    const head = `<div class="nh">${esc(l.game)} — <b>${esc(l.pick)}</b> ${esc((l.type || "").replace(/`[^`]*`/, "").trim())}
+      ${l.hit === "1" ? '<span class="pill hit">적중</span>' : l.hit === "0" ? '<span class="pill miss">실패</span>' : ""}</div>`;
+    if (retro) {
+      // 회고 탭에서는 회고 내용이 먼저다. 그때 적은 추천 이유는 접어서 뒤에 둔다.
+      return `<div class="note">${head}
+        ${rev ? `<div class="why big"><span class="lbl">회고</span> ${quadPill(rv.quad)} ${esc(rv.판정 || "")} ${body}${rv.배울점 ? `<div class="learn"><b>배울 점</b> ${esc(rv.배울점)}</div>` : ""}</div>`
+              : '<div class="why m">회고 미기록 — 다음 루프에서 이 경기를 해부합니다.</div>'}
+        ${why ? `<div class="why pre"><span class="lbl">그때 적은 추천 이유</span> ${esc(why)}</div>` : ""}
+        ${l.risk ? `<div class="why warn"><span class="lbl">그때 본 변수</span> ${esc(l.risk)}</div>` : ""}
+      </div>`;
+    }
     if (!why && !rev && !l.risk) return "";
-    return `<div class="note"><div class="nh">${esc(l.game)} — <b>${esc(l.pick)}</b> ${esc((l.type || "").replace(/`[^`]*`/, "").trim())}</div>
+    return `<div class="note">${head}
       ${why ? `<div class="why"><span class="lbl">추천 이유</span> ${esc(why)}</div>` : ""}
       ${l.risk && !past ? `<div class="why warn"><span class="lbl">변수</span> ${esc(l.risk)}</div>` : ""}
-      ${rev ? `<div class="why"><span class="lbl">회고</span> ${quadPill(rv.quad)} ${esc(rv.판정 || "")} ${esc(rv.내용 || rv.content || "")}${rv.배울점 ? ` · 배울 점: ${esc(rv.배울점)}` : ""}</div>` : ""}
+      ${rev ? `<div class="why"><span class="lbl">회고</span> ${quadPill(rv.quad)} ${esc(rv.판정 || "")} ${body}${rv.배울점 ? ` · 배울 점: ${esc(rv.배울점)}` : ""}</div>` : ""}
     </div>`;
   }).join("");
 }
-function comboCard(c, past) {
+
+function comboCard(c, past, mode) {
   const st = past ? (c.scored ? pill(c.hit) : '<span class="pill wait">결과 대기</span>') : '<span class="pill wait">진행</span>';
   return `<div class="card combo">
     <div class="chead"><b>${esc(c.round)}회 · ${esc(c.title)}</b>
@@ -104,7 +118,7 @@ function comboCard(c, past) {
       ${c.track === "도파민" ? '<span class="pill q운">도파민</span>' : ""}<span class="sp"></span>${st}${c.bought ? ' <span class="pill">실구매</span>' : ""}</div>
     <div class="small">${closeText(c.close)}</div>
     ${comboTable(c, past)}
-    ${legNotes(c, past)}</div>`;
+    ${legNotes(c, past, mode)}</div>`;
 }
 
 async function now() {
@@ -247,7 +261,7 @@ async function retro(file) {
     $("#rlist").innerHTML = xs.map((g) => {
       const hit = g.cs.filter((c) => c.hit).length;
       return `<section class="rround"><h2>${esc(g.rd)}회 <span class="small">조합 ${hit}/${g.cs.length} 적중${g.ds.length ? ` · 회고 문서 ${g.ds.length}건` : ""}</span></h2>
-      ${g.cs.length ? g.cs.map((c) => comboCard(c, true)).join("") : '<div class="empty">채점된 조합 없음</div>'}
+      ${g.cs.length ? g.cs.map((c) => comboCard(c, true, "retro")).join("") : '<div class="empty">채점된 조합 없음</div>'}
       ${g.ds.map((d) => `<details class="card hblk"><summary><b>${esc(d.title)}</b> <span class="pill">${esc(d.kind)}</span><span class="sp"></span><span class="small">${esc(d.date)} · ${Math.round(d.chars / 100) / 10}천자</span></summary>
         <div class="doc">${mdLite(d.body)}</div></details>`).join("")}</section>`;
     }).join("") || '<div class="empty">없음</div>';

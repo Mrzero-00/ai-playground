@@ -131,7 +131,7 @@ npm run build:web
 빌드 설정은 `vercel.json`에 두고, Vercel 프로젝트의 Root Directory는 `묻어두지`, 프로덕션 브랜치는 `main`이다.
 
 - 한 저장소에 여러 프로젝트가 붙어 있어 다른 폴더만 고친 푸시에도 빌드가 돌았다. Ignored Build Step을 Root Directory 기준으로 둔다.
-  `git diff --quiet HEAD^ HEAD -- .` (0=건너뜀, 1=빌드)
+  모든 부모(`HEAD^@`)와 `git diff --quiet <부모> HEAD -- .` 를 비교해 하나라도 다르면 빌드하고, 부모를 못 읽으면 빌드한다(0=건너뜀, 1=빌드). `HEAD^` 하나만 보면 병합 커밋에서 다른 부모로 들어온 변경을 놓친다. betman-dashboard 와 같은 방식이다.
 - 자동 루프가 하루 수십 번 푸시하는 `pacu` 브랜치는 `git.deploymentEnabled`로 끈다.
 - 묻어두지 폴더가 `main`에 있어야 프로덕션 배포가 동작한다. 작업 브랜치에서만 고치면 배포되지 않는다.
 

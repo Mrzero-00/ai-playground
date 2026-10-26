@@ -3,7 +3,7 @@
   "buildCommand": "npm run build:web",
   "installCommand": "npm ci",
   "outputDirectory": "dist",
-  "ignoreCommand": "git diff --quiet HEAD^ HEAD -- .",
+  "ignoreCommand": "bash -c 'ps=$(git rev-parse HEAD^@ 2>/dev/null) || exit 1; [ -z \"$ps\" ] && exit 1; for p in $ps; do git diff --quiet \"$p\" HEAD -- . || exit 1; done; exit 0'",
   "git": {
     "deploymentEnabled": {
       "pacu": false
@@ -13,19 +13,28 @@
     {
       "source": "/_expo/static/(.*)",
       "headers": [
-        { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
       ]
     },
     {
       "source": "/maplibre/(.*)",
       "headers": [
-        { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
       ]
     },
     {
       "source": "/",
       "headers": [
-        { "key": "Cache-Control", "value": "public, max-age=0, must-revalidate" }
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=0, must-revalidate"
+        }
       ]
     }
   ]

@@ -34,10 +34,16 @@ python3 scripts/grade_all.py >/dev/null 2>&1
 eval "$(python3 scripts/loop_state.py)"
 echo "회고 판정: 새 결과 ${NEW}경기 · RETRO=${RETRO} · 대상 [${ROUNDS}] · 완결 [${DONE}]"
 
+# 주간 방향 점검(사용자 지시 2026-10-26): 회고는 틀 안에서 가중치만 고친다.
+# 틀 자체가 맞는지는 일주일에 한 번 따로 묻는다. due 가 0이면 이번 주 차례.
+REVIEW=0
+if [ "$MODE" = "daily" ] && python3 scripts/direction_review.py due >/dev/null 2>&1; then REVIEW=1; fi
+echo "주간 방향 점검: $([ "$REVIEW" = 1 ] && echo '이번 주 차례' || echo '아직')"
+
 DUE="$(python3 scripts/round_watch.py due 2>/dev/null | grep -v '^$' | grep -v '^없음$' | grep -vi 'no due' || true)"
 if [ -n "$DUE" ]; then echo "분석 대기 블록: $DUE"; else echo "분석 대기 블록 없음"; fi
 
-if [ "$RETRO" = "0" ] && [ -z "$DUE" ] && [ "$MODE" != "daily" ]; then
+if [ "$RETRO" = "0" ] && [ -z "$DUE" ] && [ "$REVIEW" = "0" ] && [ "$MODE" != "daily" ]; then
   echo "할 일 없음 — 종료(비용 0)"; exit 0
 fi
 
@@ -49,6 +55,7 @@ read -r -d '' RULES <<'PACU_RULES_EOF'
    요인 보정은 시장 대비 −5.0p 로 오히려 깎고 있다. 그래서 ① 사전확률은 시장에서 출발 ② 기본 보정 0, 검증 가능한
    사실이 있는 소수 경기만 개입 ③ factor_weights.json 에서 weight>0 인 유형만 확률을 움직임(나머지는 기록만)
    ④ 판정은 '개입한 경기에서 사전확률 대비 개선폭'(prior.py report). 분석할 때는 prior.py apply 로 사전확률+검증요인만 얹는다. 시장은 목표가 아니라 그 위에 올려야 넘어서는 바닥이다.
+· 회고와 주간 점검은 다르다. 회고는 틀 안에서 가중치·문턱을 고치고, 주간 방향 점검(direction_review.py)은 틀 자체를 유지·조정·전환으로 판정한다. 점검에서 '전환'이 나오면 회고 결과보다 그쪽을 따른다.
 ★★ 목표는 단 하나다: 단일 경기 방향 예측 100%. 시장은 목표가 아니라 진단용 눈금이다 — '시장 수준'을 목표로 적지 않는다.
    모든 변경은 '방향 적중률이 올랐는가'로만 채택·기각한다. 회수율·RPS·Brier 는 보조 진단일 뿐이다.
    측정은 분석한 경기로만 한다(깊이=기준선 자동 채움은 대조군으로 분리).
@@ -82,7 +89,18 @@ fi
 
 if [ "$RETRO" = "1" ]; then STEP12_OUT="$STEP12"; else STEP12_OUT="[1~2단계] 새 결과 ${NEW}건으로 회고 임계(8건) 미달 — 건너뛴다."; fi
 
+if [ "$REVIEW" = "1" ]; then
+  STEP0="[0단계 주간 방향 점검] python3 scripts/direction_review.py run 을 돌려 회차별분석/방향점검_<날짜>.md 를 만든다.
+그 안의 1~4절 숫자를 읽고 **5. 판정** 칸을 직접 채운다 — 유지 / 조정 / 전환 중 하나를 고르고 근거 숫자를 적는다.
+고른 판정은 **그 자리에서 실행한다**(조정이면 구성요소를 교체하고, 전환이면 분석 방향을 바꾸고 CLAUDE.md 에 기록).
+이 점검은 회고와 다르다 — 회고는 틀 안에서 가중치를 고치고, 이 점검은 **틀 자체를 바꿀 수 있다**.
+'유지'를 고를 때도 왜 유지인지 숫자로 적는다. 다음 점검에서 무엇이 몇 %p 올라야 성공인지도 적는다."
+else
+  STEP0="[0단계] 주간 방향 점검은 이번 주 차례가 아니다 — 건너뛴다."
+fi
+
 PROMPT="[자동 루프 ${MODE}] 아래 단계를 순서대로 수행한다.
+${STEP0}
 ${STEP12_OUT}
 ${STEP3}
 [4단계 배포] 커밋·푸시(origin pacu, pacu:main) → sh ../betman-dashboard/deploy.sh 로 대시보드 갱신·배포 → PushNotification 한 줄 알림(추천 유무·일반 승률·도파민 승률). round_watch.py done 으로 블록 상태도 닫는다.

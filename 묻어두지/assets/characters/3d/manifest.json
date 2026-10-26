@@ -1,0 +1,39 @@
+{
+  "name": "Dooji local Blender motion prototype",
+  "version": 1,
+  "generator": "scripts/build-dooji.py",
+  "externalUploads": false,
+  "paidGeneration": false,
+  "reference": "../concepts/2026-09-17/dooji-b-cheeky-v1.png",
+  "clips": [
+    {
+      "name": "Idle",
+      "seconds": 3.417
+    },
+    {
+      "name": "DigLoop",
+      "seconds": 2.583
+    },
+    {
+      "name": "Bury",
+      "seconds": 5.583
+    },
+    {
+      "name": "Retrieve",
+      "seconds": 5.708
+    },
+    {
+      "name": "LockedDisappointed",
+      "seconds": 4.0
+    }
+  ],
+  "triangles": 32816,
+  "bones": 23,
+  "glbBytes": 1392280,
+  "notes": [
+    "Original simplified clay-style interpretation, not a reconstruction of the furry concept.",
+    "Rigid-weighted segmented rig; no facial blendshapes or hair simulation.",
+    "Virtual soil patch only. Real-world occlusion and native AR playback need device QA.",
+    "Capsule content is not included. Animations do not grant permission to open anything."
+  ]
+}

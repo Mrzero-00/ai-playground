@@ -1,0 +1,80 @@
+{
+  "번호": "850",
+  "홈": "Cleveland Cavaliers",
+  "원정": "Minnesota Timberwolves",
+  "리그": "NBA",
+  "킥오프_KST": "2026-10-27 08:00",
+  "수집시각": "2026-10-26 22:00 KST",
+  "수집자": "collect-nba",
+  "레이팅_2025-26": {
+    "홈": {
+      "ORtg": 119.2,
+      "DRtg": 115.1,
+      "Pace": 99.9,
+      "전적": "52-30",
+      "출처": "https://www.basketball-reference.com/teams/CLE/2026.html",
+      "날짜": "2025-26 시즌 최종"
+    },
+    "원정": {
+      "ORtg": 116.8,
+      "DRtg": 113.5,
+      "Pace": 100.5,
+      "전적": "49-33, Western Conference 6위",
+      "출처": "https://www.basketball-reference.com/teams/MIN/2026.html",
+      "날짜": "2025-26 시즌 최종"
+    }
+  },
+  "이번시즌": {
+    "홈": {
+      "전적": "못찾음(10/24 Brooklyn전 승 확인, 그 외 경기 결과 시간 부족으로 미수집)",
+      "경기": [
+        {"날짜": "2026-10-24", "상대": "Brooklyn Nets", "장소": "불명(추정 홈)", "점수": "125-121 승 (Donovan Mitchell 22점, Jarrett Allen 21점)"}
+      ]
+    },
+    "원정": {
+      "전적": "3-0 (10/25 기준 2-0에서 Toronto전 승리 후 추정)",
+      "경기": [
+        {"날짜": "2026-10-25", "상대": "Toronto Raptors", "장소": "홈(홈 개막전)", "점수": "117-94 승 (Anthony Edwards 26점/27분)"}
+      ]
+    }
+  },
+  "결장": [
+    {"팀": "홈", "선수": "Nae'Qwan Tomlin", "포지션": "F", "이번시즌_출전/평균득점": "못찾음", "직전시즌_선발여부": "비선발(추정)", "사유": "허리 스트레스 반응, 10/20 발표 기준 최소 3~4주 결장", "상태": "확정", "출처": "https://www.fearthesword.com/cavs-injury-report/53238/cavs-give-injury-update-on-multiple-players", "날짜": "2026-10-20"},
+    {"팀": "홈", "선수": "Khalifa Diop", "포지션": "C", "이번시즌_출전/평균득점": "못찾음", "직전시즌_선발여부": "비선발", "사유": "무릎 부상", "상태": "확정", "출처": "https://www.fearthesword.com/cavs-injury-report/53492/cavs-vs-timberwolves-how-to-watch-odds-and-injury-report", "날짜": "2026-10-26"},
+    {"팀": "원정", "선수": "Donte DiVincenzo", "포지션": "G", "이번시즌_출전/평균득점": "0 (시즌 아웃)", "직전시즌_선발여부": "못찾음", "사유": "오른쪽 아킬레스건 수술(2026년 4월), 재활 중", "상태": "확정", "출처": "https://raptorsrepublic.com/2026/10/25/gameday-raptors-timberwolves-october-25/ ; https://kfan.iheart.com/content/2026-10-25-raptors-vs-timberwolves-injury-report-oct-25/", "날짜": "2026-10-25"}
+  ],
+  "로스터변화": [
+    {"팀": "원정", "선수": "LaMelo Ball", "방향": "IN", "직전시즌_역할(선발/분)": "Charlotte 선발 가드", "출처": "https://en.wikipedia.org/wiki/2026%E2%80%9327_Charlotte_Hornets_season (2026-07-10 Charlotte에서 트레이드)", "날짜": "2026-07-10"},
+    {"팀": "원정", "선수": "Naz Reid", "방향": "OUT", "직전시즌_역할(선발/분)": "Minnesota 식스맨 빅맨(추정)", "출처": "WebSearch 종합(10/23 Charlotte-Atlanta 박스스코어에 Naz Reid가 Hornets 쪽으로 집계) — 1차 트레이드 기사 미확인", "날짜": "불명확"},
+    {"팀": "홈", "선수": "못찾음", "방향": "못찾음", "직전시즌_역할(선발/분)": "못찾음", "출처": "시간 부족으로 Cleveland 로스터 변화 검색 미완료", "날짜": "못찾음"}
+  ],
+  "라인업": {
+    "홈": {
+      "발표여부": "미발표(예상)",
+      "예상선발5": ["James Harden", "Donovan Mitchell", "Peyton Watson", "Evan Mobley", "Jarrett Allen"],
+      "출처": "https://www.therx.com/nba/timberwolves-vs-cavaliers-prediction-october-26-2026-nba-picks/53796/",
+      "날짜": "2026-10-26"
+    },
+    "원정": {
+      "발표여부": "미발표(예상)",
+      "예상선발5": ["LaMelo Ball", "Anthony Edwards", "Jaden McDaniels", "Julius Randle(추정, 원문에 McDaniels 중복 기재된 오류 있어 4번 포지션 불확실)", "Rudy Gobert"],
+      "출처": "https://www.therx.com/nba/timberwolves-vs-cavaliers-prediction-october-26-2026-nba-picks/53796/",
+      "날짜": "2026-10-26"
+    }
+  },
+  "일정": {
+    "홈": "백투백 아님. 직전 경기 2026-10-24(Brooklyn전 승). 휴식 1일(10/25 경기 없음).",
+    "원정": "백투백 경기. 직전 경기 2026-10-25 Toronto전(홈, 117-94 승) 치르고 바로 다음날 Cleveland 원정."
+  },
+  "일정·동기·기타": [
+    {"내용": "Minnesota는 10/25 Toronto 홈 개막전 승리 직후 10/26 Cleveland 원정이라 백투백 일정. Cleveland는 10/25 휴식.", "출처": "https://raptorsrepublic.com/2026/10/25/gameday-raptors-timberwolves-october-25/ ; https://www.espn.com/nba/game/_/gameId/401909854/nets-cavaliers", "날짜": "2026-10-25/26"}
+  ],
+  "엇갈림": [],
+  "못찾음": [
+    "Cleveland Cavaliers 이번 시즌(2026-27) 전체 전적 및 10/24 이전 경기 결과.",
+    "Minnesota Timberwolves 이번 시즌 전체 전적(2-0 → 10/25 승리로 3-0 추정이나 확정 못함) 및 10/24 이전 경기 결과.",
+    "Cleveland Cavaliers 2026 여름 로스터 변화(트레이드/영입·방출) — 검색 시간 부족.",
+    "Minnesota 예상 선발 4번(파워포워드) 포지션 — 출처 기사가 Jaden McDaniels를 두 번 기재하는 오류가 있어 확정 못함(Julius Randle 추정).",
+    "Charlotte→Minnesota, Minnesota→Charlotte 트레이드(LaMelo Ball ↔ Naz Reid 추정)의 1차 공식 트레이드 기사."
+  ]
+}

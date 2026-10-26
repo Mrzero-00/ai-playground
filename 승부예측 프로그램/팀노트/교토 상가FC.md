@@ -10,7 +10,7 @@
 
 <!-- INPUTS:START -->
 ## 입력(자동 수집 2026-10-26) — xG·휴식일·라인업·환경(이동거리·고도·날씨)은 이 숫자를 쓴다
-- 10-27 19:00 vs 뉴캐슬 제츠: 휴식 14.0일?(국내리그 ESPN 미제공 — 직접 확인) · 직전 10-13 홈 vs Ratchaburi FC 1-0 승 [league stage] · xG - · 직전 선발 3-4-3 Halls, Weverton, Takaaki Shichi, Hisashi Appiah Tawiah, Yoon Sung-Jun, Thiago, Kyo Sato, Ren Kato, Everton Maceió, Marco Túlio, Haruki Arai · 구장 교토시(구단 좌표 — 구장 미확인) · 이동 7735km · 고도 51m(차 +41m) · 18.6℃ 강수0mm(5%) 바람8.4km/h · ⚠ 장거리 원정 7735km
+- 10-27 19:00 vs 뉴캐슬 제츠: 휴식 14.0일?(국내리그 ESPN 미제공 — 직접 확인) · 직전 10-13 홈 vs Ratchaburi FC 1-0 승 [league stage] · xG - · 직전 선발 3-4-3 Halls, Weverton, Takaaki Shichi, Hisashi Appiah Tawiah, Yoon Sung-Jun, Thiago, Kyo Sato, Ren Kato, Everton Maceió, Marco Túlio, Haruki Arai · 구장 교토시(구단 좌표 — 구장 미확인) · 이동 7735km · 고도 51m(차 +41m) · 19.3℃ 강수0mm(0%) 바람8.7km/h · ⚠ 장거리 원정 7735km
 <!-- INPUTS:END -->
 
 - 2026-10-13 조사: 2025 J1 3위(38경기 19승11무8패 득점62·실점40, 득실+22, 강팀). 2026시즌 란코 포포비치 신임감독 체제로 선수단·코칭스태프 대폭 개편, 현재 14위(8경기 2승2무4패 득점11·실점15, 득실-4) — 저득점·무승 흐름. 핵심MF 미츠키 사이토 좌측 무릎 전방십자인대+반월판 파열, 8/17 수술, 9~10개월 장기결장(시즌아웃급). 공격수 라파엘 엘리아스 직전 마치다전 29분 교체 후 이번 경기 결장 가능성 높음(대체: 알렉스 소우자). ACLE MD1(9/15) 대전 하나시티즌(한국)에 홈에서 0-1 패. 출처: [starnewskorea](https://www.starnewskorea.com/sports/2026/09/15/2026091521252630537), [sportsgambler.com](https://www.sportsgambler.com/betting-tips/football/kyoto-sanga-vs-machida-zelvia-prediction-lineups-odds-2026-10-10/), [jleague.jp](https://www.jleague.jp/en/news/article/34838/)

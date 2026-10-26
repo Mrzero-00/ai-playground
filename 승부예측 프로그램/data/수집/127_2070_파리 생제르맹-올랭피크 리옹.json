@@ -1,0 +1,164 @@
+{
+  "번호": "2070",
+  "홈": "파리 생제르맹",
+  "원정": "올랭피크 리옹",
+  "리그": "프랑스 리그1",
+  "킥오프_KST(확인된 값·출처)": "2026-10-27 04:30 KST = 2026-10-26(월) 20:30 파리 현지시각(리그1 8라운드, Parc des Princes). 팀노트 INPUTS의 '10-26 04:45'는 오류이며 베트맨 표기(2026-10-27 04:30)가 맞다. [https://dicodusport.fr/blog/psg-lyon-sur-quelle-chaine-a-quelle-heure-et-avec-quelles-compositions-ligue-1-2026-2027/, 2026-10-26][https://www.kickfootball.fr/ligue-1/psg/psg-ol-les-compositions-probables-203212, 2026-10-26]",
+  "수집시각": "2026-10-26 21:57 KST",
+  "수집자": "collect-eu",
+  "결장": [
+    {
+      "팀": "홈",
+      "선수": "Khvicha Kvaratskhelia",
+      "포지션": "FW(좌측 윙어)",
+      "이번시즌_선발/경기": "리그1 7경기(선발 다수)",
+      "득점·도움": "리그1 1골 1도움, UCL 2경기 0골0도움(전 대회 10경기 1골1도움)",
+      "사유": "우측 무릎 전방십자인대(ACL) 파열, 10-21 바르셀로나전 중 부상, 수술 예정으로 사실상 시즌아웃",
+      "상태": "확정",
+      "복귀예정": "2026-27시즌 복귀 불투명(사실상 시즌 종료급)",
+      "대체선수": "Ferran Torres / Désiré Doué",
+      "출처": "https://www.kickfootball.fr/ligue-1/psg/psg-dembele-et-marquinhos-absents-plusieurs-semaines-saison-terminee-pour-kvara-203038 ; https://www.cnews.fr/sport/2026-10-21/psg-ousmane-dembele-et-marquinhos-touches-la-cuisse-et-absents-plusieurs-semaines",
+      "날짜": "2026-10-21"
+    },
+    {
+      "팀": "홈",
+      "선수": "Ousmane Dembélé",
+      "포지션": "FW(우측 윙어)",
+      "이번시즌_선발/경기": "미집계(부상 전 주전)",
+      "득점·도움": "확인 못함(부상 전 시즌 수치 미상)",
+      "사유": "좌측 허벅지(대퇴부) 부상, 10-20 바르셀로나전 직전/중 발생",
+      "상태": "확정",
+      "복귀예정": "약 3주 후(최대 2026-11-10 전후, 국가대표 휴식기)",
+      "대체선수": "Maghnes Akliouche / Ferran Torres",
+      "출처": "https://www.cnews.fr/sport/2026-10-21/psg-ousmane-dembele-et-marquinhos-touches-la-cuisse-et-absents-plusieurs-semaines ; https://fr.news.yahoo.com/sport/psg-absence-trois-semaines-demb%C3%A9l%C3%A9-193908041.html",
+      "날짜": "2026-10-21"
+    },
+    {
+      "팀": "홈",
+      "선수": "Marquinhos",
+      "포지션": "DF(센터백)",
+      "이번시즌_선발/경기": "미집계(부상 전 주전 센터백)",
+      "득점·도움": "확인 못함",
+      "사유": "우측 허벅지 부상, 10-20 바르셀로나전 중 발생",
+      "상태": "확정",
+      "복귀예정": "3~4주 후(2026-11-21 니스전 복귀 목표라는 비공식 보도, 구단 공식 확정 아님)",
+      "대체선수": "Illia Zabarnyi",
+      "출처": "https://www.culturepsg.com/news/infirmerie/quelle-duree-d-absence-pour-dembele-marquinhos-mendes-et-kvara/61274 ; https://canal-supporters.com/illia-zabarnyi-un-cap-a-franchir-en-labsence-de-marquinhos",
+      "날짜": "2026-10-21"
+    },
+    {
+      "팀": "홈",
+      "선수": "Nuno Mendes",
+      "포지션": "DF(좌측 풀백)",
+      "이번시즌_선발/경기": "미집계(부상 전 주전 좌측 풀백)",
+      "득점·도움": "확인 못함",
+      "사유": "좌측 허벅지 부상, 10-17 스트라스부르전 53분 교체 아웃",
+      "상태": "확정",
+      "복귀예정": "수 주 후(정확한 날짜 미공식)",
+      "대체선수": "Lucas Digne",
+      "출처": "https://www.washingtontimes.com/news/2026/oct/18/blow-psg-left-back-nuno-mendes-faces-weeks-injury-miss-barcelona-game/ ; https://www.foxsports.com/articles/soccer/blow-for-psg-as-left-back-nuno-mendes-faces-weeks-out-with-injury-and-will-miss-barcelona-game",
+      "날짜": "2026-10-18"
+    },
+    {
+      "팀": "원정",
+      "선수": "Loïs Openda",
+      "포지션": "FW(스트라이커)",
+      "이번시즌_선발/경기": "확인 못함",
+      "득점·도움": "확인 못함",
+      "사유": "우측 종아리뼈(fibula) 균열, 10-09 랑스전 중 부상",
+      "상태": "확정",
+      "복귀예정": "국제 A매치 주간 이후(최소 2026-11월 중순)",
+      "대체선수": "Tyler Morton류 재편/Himbert, Rodriguez 등 전방 옵션 변경",
+      "출처": "https://www.lyonfoot.com/article/14464/ol-fissure-du-perone-pour-lois-openda-le-joueur-indisponible-au-moins-un-mois ; https://www.ol.fr/fr/actualites/communique-medical-lois-openda",
+      "날짜": "2026-10-10"
+    },
+    {
+      "팀": "원정",
+      "선수": "Pavel Šulc",
+      "포지션": "MF",
+      "이번시즌_선발/경기": "확인 못함(시즌 초 주전급으로 평가)",
+      "득점·도움": "확인 못함",
+      "사유": "우측 무릎 반월판(메니스커스) 부상, 10-22 호펜하임 원정 전 훈련 중 발생, 수술 예정",
+      "상태": "확정",
+      "복귀예정": "약 4개월(2027년 2월 이전 복귀 어려움)",
+      "대체선수": "미상",
+      "출처": "https://www.footmercato.net/a6156245690250687557-lol-annonce-une-absence-de-4-mois-pour-pavel-sulc ; https://www.lyonfoot.com/article/14598/ol-pavel-sulc-touche-au-menisque-quatre-mois-d-absence-annonces",
+      "날짜": "2026-10-23"
+    },
+    {
+      "팀": "원정",
+      "선수": "Keito Nakamura",
+      "포지션": "FW/MF(윙어)",
+      "이번시즌_선발/경기": "확인 못함",
+      "득점·도움": "확인 못함",
+      "사유": "10-18 니스전 70분 하이킥 파울로 퇴장(징계 1경기 출장정지+1경기 집행유예), PSG전 결장",
+      "상태": "확정",
+      "복귀예정": "리그1 기준 PSG전만 결장, 이후 복귀",
+      "대체선수": "미상",
+      "출처": "https://www.lyonfoot.com/article/14577/keito-nakamura-ol-fixe-apres-sa-suspension-contre-nice ; https://news.footeo.com/2026/10/22/lyon-le-rouge-de-nakamura-valide-lol-prive-de-lui-face-au-psg-15501",
+      "날짜": "2026-10-22"
+    },
+    {
+      "팀": "원정",
+      "선수": "Nicolas Tagliafico, Mohamed Ouédraogo, Steeve Kango",
+      "포지션": "미상(각각 DF/MF/MF 추정, 스쿼드 depth)",
+      "이번시즌_선발/경기": "확인 못함",
+      "득점·도움": "확인 못함",
+      "사유": "미상세(PSG전 발표 소집 명단에서 제외)",
+      "상태": "의심",
+      "복귀예정": "미상",
+      "대체선수": "미상",
+      "출처": "https://sportnewsafrica.com/actualites/psg-lyon-paris-tete-quatre-absences-26-octobre-2026/",
+      "날짜": "2026-10-26"
+    }
+  ],
+  "복귀": [],
+  "라인업": {
+    "홈": {
+      "발표여부": "비공식 예상(공식 발표 전)",
+      "예상XI": "Safonov; Hakimi, Pacho, Zabarnyi, Digne; Zaïre-Emery, Vitinha, Ruiz; Akliouche, Torres, Doué",
+      "포메이션": "4-3-3",
+      "출처": "https://www.kickfootball.fr/ligue-1/psg/psg-ol-les-compositions-probables-203212",
+      "날짜": "2026-10-26"
+    },
+    "원정": {
+      "발표여부": "비공식 예상(공식 발표 전)",
+      "예상XI": "Greif; Athekame, Bacher, Niakhaté, Abner; Bidstrup, Tessmann, Tolisso; Boudache, Nuamah, Duranville",
+      "포메이션": "4-3-3",
+      "출처": "https://www.kickfootball.fr/ligue-1/psg/psg-ol-les-compositions-probables-203212",
+      "날짜": "2026-10-26"
+    }
+  },
+  "최근경기": [
+    {"팀": "홈", "날짜": "2026-10-21", "상대": "Barcelona", "장소": "홈(UCL)", "스코어": "4-2", "비고": "Marquinhos·Dembélé·Nuno Mendes 등 부상 다수 발생"},
+    {"팀": "홈", "날짜": "2026-10-17", "상대": "Strasbourg", "장소": "원정", "스코어": "3-1(승)", "비고": "Nuno Mendes 53분 부상 교체"},
+    {"팀": "원정", "날짜": "2026-10-22", "상대": "Hoffenheim", "장소": "원정(UEL)", "스코어": "0-3(패)", "비고": "완패, 슈팅 8-21 열세"},
+    {"팀": "원정", "날짜": "2026-10-18", "상대": "Nice", "장소": "홈", "스코어": "2-1(승)", "비고": "Nakamura 70분 퇴장"}
+  ],
+  "순위": {
+    "홈": "2위, 7경기 4승2무1패 득실+5 승점14",
+    "원정": "1위(득실차 우위), 7경기 4승2무1패 득실+8 승점14",
+    "출처": "위키 '2026–27 Paris Saint-Germain FC season' / '2026–27 Olympique Lyonnais season'; https://news.footeo.com/2026/10/26/psg-ol-une-avalanche-dabsents-les-compos-probables-du-choc-au-sommet-15928",
+    "날짜": "2026-10-26"
+  },
+  "감독": {
+    "홈": "Luis Enrique(변동 없음)",
+    "원정": "Paulo Fonseca(변동 없음)",
+    "변동": "없음",
+    "출처": "팀노트 FACTS(2026-10-22/23 수집)",
+    "날짜": "2026-10-23"
+  },
+  "일정·동기·기타": [
+    {"내용": "PSG 다음 UCL 일정은 2026-11-03(화) 21시 Villarreal 원정(10/28~29에는 UCL 경기 없음) — 이번 리그1 경기 직전 로테이션을 강제할 유럽 일정은 없음", "출처": "https://www.cnews.fr/sport/2026-08-30/ligue-des-champions-2026-2027-dates-horaires-le-calendrier-complet-du-psg-1911344", "날짜": "2026-08-30"},
+    {"내용": "리옹은 10-22 UEL 호펜하임 원정 0-3 완패 뒤 4일 휴식으로 PSG 원정 — 체력·사기 저하 우려", "출처": "https://www.footmercato.net/live/4145978824913423929-hoffenheim-vs-lyon", "날짜": "2026-10-22"},
+    {"내용": "양팀 승점 14점 동률, 득실차로 리옹이 1위·PSG 2위 — '선두 대결' 성격", "출처": "https://news.footeo.com/2026/10/26/psg-ol-une-avalanche-dabsents-les-compos-probables-du-choc-au-sommet-15928", "날짜": "2026-10-26"}
+  ],
+  "엇갈림": [
+    "PSG 선발진 후보 중 일부 구버전 기사(getfootballnewsfrance 등)는 '뎀벨레 출전+발롱도르 시상식 참석' 식의 과거(혹은 다른 시점) 내용을 섞어 보도하고 있어, 10-21 이후 확정된 '뎀벨레 결장' 사실과 배치됨 — 최신(10-21 이후) 다건 보도를 우선 채택."
+  ],
+  "못찾음": [
+    "Dembélé·Marquinhos·Nuno Mendes의 이번 시즌 선발 수·득점/도움 수치(공식 집계 미확인)",
+    "Tagliafico·Ouédraogo·Kango의 정확한 결장 사유·포지션"
+  ],
+  "뉴스없음": {}
+}

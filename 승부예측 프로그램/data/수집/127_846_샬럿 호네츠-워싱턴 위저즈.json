@@ -1,0 +1,93 @@
+{
+  "번호": "846",
+  "홈": "Charlotte Hornets",
+  "원정": "Washington Wizards",
+  "리그": "NBA",
+  "킥오프_KST": "2026-10-27 08:00",
+  "수집시각": "2026-10-26 22:00 KST",
+  "수집자": "collect-nba",
+  "레이팅_2025-26": {
+    "홈": {
+      "ORtg": 119.4,
+      "DRtg": 114.4,
+      "Pace": 96.8,
+      "전적": "44-38, Eastern Conference 9위",
+      "출처": "https://www.basketball-reference.com/teams/CHO/2026.html",
+      "날짜": "2025-26 시즌 최종"
+    },
+    "원정": {
+      "ORtg": 111.0,
+      "DRtg": 122.7,
+      "Pace": 101.4,
+      "전적": "17-65, Eastern Conference 15위",
+      "출처": "https://www.basketball-reference.com/teams/WAS/2026.html",
+      "날짜": "2025-26 시즌 최종"
+    }
+  },
+  "이번시즌": {
+    "홈": {
+      "전적": "2-1",
+      "경기": [
+        {"날짜": "2026-10-21", "상대": "Brooklyn Nets", "장소": "홈", "점수": "110-103 승"},
+        {"날짜": "2026-10-23", "상대": "Atlanta Hawks", "장소": "원정(추정)", "점수": "81-128 패"},
+        {"날짜": "2026-10-24", "상대": "Miami Heat", "장소": "홈(추정)", "점수": "115-110 승"}
+      ]
+    },
+    "원정": {
+      "전적": "2-1",
+      "경기": [
+        {"날짜": "2026-10-21", "상대": "Milwaukee Bucks", "장소": "홈", "점수": "128-116 승"},
+        {"날짜": "2026-10-23", "상대": "Toronto Raptors", "장소": "홈", "점수": "112-102 패"},
+        {"날짜": "2026-10-24", "상대": "Chicago Bulls", "장소": "원정", "점수": "124-120 승"}
+      ]
+    }
+  },
+  "결장": [
+    {"팀": "홈", "선수": "Kon Knueppel", "포지션": "G", "이번시즌_출전/평균득점": "못찾음", "직전시즌_선발여부": "루키(2026 드래프트)", "사유": "햄스트링 부상", "상태": "확정", "출처": "https://athlonsports.com/nba/charlotte-hornets/final-injury-report-for-heat-hornets-will-kon-knueppel-coby-white-play", "날짜": "2026-10-26"},
+    {"팀": "홈", "선수": "Coby White", "포지션": "G", "이번시즌_출전/평균득점": "못찾음", "직전시즌_선발여부": "선발급", "사유": "종아리 부상", "상태": "확정", "출처": "https://athlonsports.com/nba/charlotte-hornets/final-injury-report-for-heat-hornets-will-kon-knueppel-coby-white-play", "날짜": "2026-10-26"},
+    {"팀": "홈", "선수": "Grant Williams", "포지션": "F", "이번시즌_출전/평균득점": "못찾음", "직전시즌_선발여부": "못찾음", "사유": "햄스트링 부상, day-to-day, 10/24 결장", "상태": "의심", "출처": "https://athlonsports.com/nba/charlotte-hornets/final-injury-report-for-heat-hornets-will-kon-knueppel-coby-white-play", "날짜": "2026-10-24"},
+    {"팀": "홈", "선수": "Kylan Boswell", "포지션": "G", "이번시즌_출전/평균득점": "못찾음", "직전시즌_선발여부": "못찾음", "사유": "무릎 부상, day-to-day, 10/24 결장", "상태": "의심", "출처": "https://athlonsports.com/nba/charlotte-hornets/final-injury-report-for-heat-hornets-will-kon-knueppel-coby-white-play", "날짜": "2026-10-24"},
+    {"팀": "원정", "선수": "AJ Dybantsa", "포지션": "F", "이번시즌_출전/평균득점": "못찾음(루키)", "직전시즌_선발여부": "없음(2026 드래프트 1순위 루키)", "사유": "왼쪽 발목 부상, 4경기 연속 결장", "상태": "확정", "출처": "https://heavy.com/sports/nba/washington-wizards/aj-dybantsa-ruled-out-hornets-injury/ ; https://www.bulletsforever.com/washington-wizards-injury/73641/aj-dybantsa-washington-wizards-status-ankle-injury", "날짜": "2026-10-26"},
+    {"팀": "원정", "선수": "Tristan Vukcevic", "포지션": "F/C", "이번시즌_출전/평균득점": "못찾음", "직전시즌_선발여부": "못찾음", "사유": "왼쪽 고관절 충돌 증후군", "상태": "확정", "출처": "https://www.cbssports.com/nba/teams/WAS/washington-wizards/injuries/", "날짜": "2026-10-26"},
+    {"팀": "원정", "선수": "Jamir Watkins", "포지션": "F", "이번시즌_출전/평균득점": "0 (시즌 아웃)", "직전시즌_선발여부": "못찾음", "사유": "왼쪽 ACL 수술, 시즌 아웃", "상태": "확정", "출처": "https://www.cbssports.com/nba/teams/WAS/washington-wizards/injuries/", "날짜": "2026-10-26"}
+  ],
+  "로스터변화": [
+    {"팀": "홈", "선수": "LaMelo Ball", "방향": "OUT", "직전시즌_역할(선발/분)": "선발 가드", "출처": "https://en.wikipedia.org/wiki/2026%E2%80%9327_Charlotte_Hornets_season (2026-07-10 Minnesota로 트레이드)", "날짜": "2026-07-10"},
+    {"팀": "홈", "선수": "Naz Reid", "방향": "IN", "직전시즌_역할(선발/분)": "Minnesota 식스맨 빅맨(추정, LaMelo Ball 트레이드 반대급부로 추정)", "출처": "WebSearch 종합(10/23 경기 득점 기록 'Naz Reid 17점'이 Hornets 쪽에 집계됨) — 직접 트레이드 기사 미확인, 교차검증 필요", "날짜": "불명확"},
+    {"팀": "원정", "선수": "AJ Dybantsa", "방향": "IN", "직전시즌_역할(선발/분)": "없음(신인, 2026 드래프트 전체 1순위)", "출처": "https://www.espn.com/nba/story/_/id/49783369/washington-wizards-offseason-recap-2026-27-season-preview-stats-roster-depth-chart", "날짜": "2026 드래프트"},
+    {"팀": "원정", "선수": "Trae Young", "방향": "IN", "직전시즌_역할(선발/분)": "Atlanta 선발 가드", "출처": "https://sports.yahoo.com/articles/3-players-wizards-must-trade-015213963.html (CJ McCollum·Corey Kispert와 트레이드, 4년 2억1200만$ 연장 서명)", "날짜": "2026 여름"},
+    {"팀": "원정", "선수": "Anthony Davis", "방향": "IN", "직전시즌_역할(선발/분)": "Dallas 선발 빅맨", "출처": "https://www.espn.com/nba/story/_/id/47828120/anthony-davis-trade-grade-whats-next-dallas-mavericks-washington-wizards", "날짜": "2026 여름"},
+    {"팀": "원정", "선수": "CJ McCollum", "방향": "OUT", "직전시즌_역할(선발/분)": "선발 가드", "출처": "https://sports.yahoo.com/articles/3-players-wizards-must-trade-015213963.html (Trae Young 트레이드 반대급부)", "날짜": "2026 여름"},
+    {"팀": "원정", "선수": "Corey Kispert", "방향": "OUT", "직전시즌_역할(선발/분)": "로테이션 포워드", "출처": "https://sports.yahoo.com/articles/3-players-wizards-must-trade-015213963.html", "날짜": "2026 여름"}
+  ],
+  "라인업": {
+    "홈": {
+      "발표여부": "미발표(예상)",
+      "예상선발5": ["Dennis Schröder", "Sion James", "Brandon Miller", "Naz Reid", "Moussa Diabaté"],
+      "출처": "https://www.aol.com/articles/hornets-vs-wizards-watch-injury-110306000.html ; https://www.lineups.com/nba/lineups/charlotte-hornets/",
+      "날짜": "2026-10-26"
+    },
+    "원정": {
+      "발표여부": "미발표(예상)",
+      "예상선발5": ["Trae Young", "Kyshawn George", "Bilal Coulibaly", "Anthony Davis", "Alex Sarr"],
+      "출처": "https://www.aol.com/articles/hornets-vs-wizards-watch-injury-110306000.html",
+      "날짜": "2026-10-26"
+    }
+  },
+  "일정": {
+    "홈": "백투백 아님. 직전 경기 2026-10-24(홈, Miami전 승). 휴식 1일.",
+    "원정": "백투백 아님. 직전 경기 2026-10-24(원정, Chicago전 승). 휴식 1일."
+  },
+  "일정·동기·기타": [
+    {"내용": "두 팀 모두 2-1로 개막 3경기를 치른 상태. Washington은 Trae Young·Anthony Davis·AJ Dybantsa 영입 후 '컨텐더' 기대를 받는 분위기(TWSN 칼럼).", "출처": "https://twsn.net/2026/10/25/the-washington-wizards-are-legit-contenders", "날짜": "2026-10-25"},
+    {"내용": "경기 장소: Spectrum Center, Charlotte. 킥오프 2026-10-26 19:00 ET.", "출처": "https://1049foxsports.iheart.com/content/2026-10-26-wizards-vs-hornets-time-tv-stream-oct-26/", "날짜": "2026-10-26"}
+  ],
+  "엇갈림": [
+    {"내용": "Washington 로스터 변화 기사 간 상충: 한 기사는 Anthony Davis 트레이드로 Khris Middleton·AJ Johnson·Malaki Branham·Marvin Bagley III을 보내고 Davis·Jaden Hardy·D'Angelo Russell·Dante Exum을 받았다고 함. 다른 기사(ESPN 시즌 프리뷰)는 '주요 영입: AJ Dybantsa, Khris Middleton, Deandre Ayton, Tre Mann' '주요 방출: Cam Whitmore, D'Angelo Russell, Jaden Hardy'라고 하여 Middleton·Russell·Hardy의 IN/OUT 방향이 서로 반대로 기술됨. 추가 트레이드(2차 거래)로 Russell·Hardy를 다시 내보내고 Middleton·Ayton·Mann을 받은 것으로 추정되나 직접 확인 기사를 찾지 못함.", "출처": "https://www.espn.com/nba/story/_/id/49783369 vs https://sports.yahoo.com/articles/3-players-wizards-must-trade-015213963.html", "날짜": "2026-10 (오프시즌)"}
+  ],
+  "못찾음": [
+    "Charlotte 'Naz Reid IN' 트레이드의 1차 출처(공식 트레이드 기사) — 10/23 박스스코어에서 Naz Reid 득점이 Hornets 쪽으로 집계된 간접 정황만 확인, 시간 부족으로 직접 트레이드 기사 미검색.",
+    "Kon Knueppel·Coby White·Grant Williams·Kylan Boswell의 이번 시즌 출전 수/평균 득점 수치.",
+    "AJ Dybantsa·Tristan Vukcevic·Jamir Watkins의 이번 시즌 출전 기록(평균 득점 등)."
+  ]
+}

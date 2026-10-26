@@ -1,0 +1,115 @@
+{
+  "번호": "809",
+  "홈": "네프치 페르가나",
+  "원정": "S알이티하드",
+  "리그": "AFC 챔피언스리그 엘리트",
+  "킥오프_KST": "2026-10-26 22:45",
+  "수집시각": "2026-10-26 21:55 KST",
+  "수집자": "collect-afc1",
+  "결장": [
+    {
+      "팀": "원정",
+      "선수": "Hassan Kadesh",
+      "포지션": "미확인",
+      "이번시즌_선발/경기": "미확인",
+      "득점·도움": "미확인",
+      "사유": "타박상(contusion), 복귀예정 2026-10-31",
+      "상태": "확정",
+      "출처": "https://ysscores.com/en/news/14079099/bergwijn-returns-to-ittihad-options-ahead-of-neftchi-clash ; https://www.fotmob.com/matches/al-ittihad-vs-neftchi-fargona/2tdhp6s",
+      "날짜": "2026-10-26"
+    },
+    {
+      "팀": "원정",
+      "선수": "Hamed Al-Ghamdi",
+      "포지션": "수비수(추정, 미확인)",
+      "이번시즌_선발/경기": "미확인",
+      "득점·도움": "미확인",
+      "사유": "십자인대 부상, 재활 약 10개월",
+      "상태": "확정",
+      "출처": "https://ysscores.com/en/news/14079099/bergwijn-returns-to-ittihad-options-ahead-of-neftchi-clash ; https://www.fotmob.com/matches/al-ittihad-vs-neftchi-fargona/2tdhp6s",
+      "날짜": "2026-10-26"
+    },
+    {
+      "팀": "원정",
+      "선수": "Ahmed Sharahili",
+      "포지션": "미확인",
+      "이번시즌_선발/경기": "미확인",
+      "득점·도움": "미확인",
+      "사유": "부상(세부 미확인)",
+      "상태": "의심",
+      "출처": "https://www.fotmob.com/matches/al-ittihad-vs-neftchi-fargona/2tdhp6s",
+      "날짜": "2026-10-26"
+    },
+    {
+      "팀": "원정",
+      "선수": "Roger Fernandes",
+      "포지션": "미확인",
+      "이번시즌_선발/경기": "미확인",
+      "득점·도움": "미확인",
+      "사유": "전방십자인대 파열, 약 6개월",
+      "상태": "의심",
+      "출처": "https://ysscores.com/en/news/14079099/bergwijn-returns-to-ittihad-options-ahead-of-neftchi-clash",
+      "날짜": "2026-10-26"
+    },
+    {
+      "팀": "원정",
+      "선수": "Mahamadou Doumbia",
+      "포지션": "미확인",
+      "이번시즌_선발/경기": "미확인",
+      "득점·도움": "미확인",
+      "사유": "전방십자인대 파열, 복귀예정 2027-02-05",
+      "상태": "의심",
+      "출처": "https://ysscores.com/en/news/14079099/bergwijn-returns-to-ittihad-options-ahead-of-neftchi-clash",
+      "날짜": "2026-10-26"
+    }
+  ],
+  "라인업": {
+    "홈": {
+      "발표여부": "미발표",
+      "예상XI": "미확인 (직전 경기 공식 XI 확인 안 됨)",
+      "포메이션": "미확인",
+      "출처": "https://www.fotmob.com/matches/al-ittihad-vs-neftchi-fargona/2tdhp6s",
+      "날짜": "2026-10-26"
+    },
+    "원정": {
+      "발표여부": "미발표",
+      "예상XI": "Predrag Rajkovic, Jan-Carlo Simic, Danilo Pereira, Abdi Faris, Ahmed Al-Julaydan, Dion Lopy, Richard Rios, George Ilenikhena, Youssef En-Nesyri, Steven Bergwijn, Georginio Wijnaldum (직전 리그 경기 XI, 2026-10-13 vs Shabab Al Ahli 기준)",
+      "포메이션": "4-2-2-2",
+      "출처": "팀노트/S알이티하드.md INPUTS(자동수집, ESPN)",
+      "날짜": "2026-10-26"
+    }
+  },
+  "최근경기": [
+    {"팀": "홈", "날짜": "2026-10-12", "상대": "Al-Quwa Al-Jawiya(이라크)", "대회": "ACLE MD1", "장소": "원정", "스코어": "1-0 승(네프치)"},
+    {"팀": "원정", "날짜": "2026-09-14", "상대": "Al-Shamal", "대회": "리그/컵 추정", "장소": "원정", "스코어": "1-1 무"},
+    {"팀": "원정", "날짜": "2026-10-14", "상대": "Shabab Al Ahli", "대회": "ACLE MD2", "장소": "홈", "스코어": "1-2 패"}
+  ],
+  "순위": {
+    "ACLE": {"홈": "서부 7위(기존 MD1 직후 6위에서 변동, 승점 3 추정)", "원정": "서부 11위, 2경기 0승1무1패 승점1 GD-1"},
+    "국내": {"홈": "우즈베키스탄 수페르리그 선두권(10월 초 1위, 최신 순위 미확인)", "원정": "사우디 프로리그 순위 미확인(10월 중 상위권 흐름: 알디리야·알에티파크 연승 보도)"},
+    "출처": "https://www.fotmob.com/matches/al-ittihad-vs-neftchi-fargona/2tdhp6s ; 팀노트/S알이티하드.md FACTS",
+    "날짜": "2026-10-26"
+  },
+  "감독": {
+    "홈": "Islom Ismoilov",
+    "원정": "Jens Wissing(변동 여부 미확인 — 팀노트 FACTS에는 공란)",
+    "변동": "미확인",
+    "출처": "https://www.fotmob.com/matches/al-ittihad-vs-neftchi-fargona/2tdhp6s",
+    "날짜": "2026-10-26"
+  },
+  "일정·동기·기타": [
+    {"내용": "네프치 홈 '결장자 없음'(fotmob 팀뉴스)", "출처": "https://www.fotmob.com/matches/al-ittihad-vs-neftchi-fargona/2tdhp6s", "날짜": "2026-10-26"},
+    {"내용": "Al-Ittihad는 사우디 프로리그 최근 2연승(알디리야·알에티파크) 흐름 속 ACLE 원정", "출처": "https://www.fotmob.com/matches/al-ittihad-vs-neftchi-fargona/2tdhp6s", "날짜": "2026-10-26"},
+    {"내용": "스티븐 베르흐베인(Bergwijn)은 직전 알디리야전 장염으로 결장했으나 이번 네프치전 출전 가능 상태로 복귀", "출처": "https://ysscores.com/en/news/14079099/bergwijn-returns-to-ittihad-options-ahead-of-neftchi-clash", "날짜": "2026-10-26"},
+    {"내용": "네프치는 우즈베키스탄→사우디(실제 경기지는 페르가나 홈, Istiqlol Stadium)로 Al-Ittihad가 장거리 원정(약 3697km) 이동", "출처": "팀노트/네프치 페르가나.md INPUTS(자동수집)", "날짜": "2026-10-26"}
+  ],
+  "엇갈림": [
+    "Al-Ittihad 선수 결장 명단이 출처마다 다름(fotmob: Kadish·Al-Ghamdi·Sharahili / ysscores: Kadesh·Fernandes·Al-Ghamdi·Doumbia) — 공통된 Hassan Kadesh·Hamed Al-Ghamdi만 '확정'으로 처리"
+  ],
+  "못찾음": [
+    "양 팀 포지션별 상세 결장 선수의 이번 시즌 선발 수·득점 기록",
+    "네프치 페르가나 2026-10 최신 국내리그 순위(수페르리가) 정확한 최신 수치",
+    "양팀 공식 예상 선발(발표 전)"
+  ],
+  "뉴스없음": {}
+}

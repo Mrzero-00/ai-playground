@@ -1,0 +1,130 @@
+{
+  "번호": "841",
+  "홈": "세비야",
+  "원정": "오사수나",
+  "리그": "스페인 라리가",
+  "킥오프_KST(확인된 값·출처)": "2026-10-27 05:00 KST = 2026-10-26(월) 21:00 마드리드 현지시각(라리가 10라운드, Estadio Ramón Sánchez-Pizjuán). 베트맨 표기(2026-10-27 05:00)와 일치 확인. [https://www.sportaragon.com/futbol-aragon/alineaciones-probables-sevilla-osasuna-jornada-10-laliga-easports/20261026093503161743.html, 2026-10-26]",
+  "수집시각": "2026-10-26 21:58 KST",
+  "수집자": "collect-eu",
+  "결장": [
+    {
+      "팀": "홈",
+      "선수": "Miguel Sierra",
+      "포지션": "DF(센터백)",
+      "이번시즌_선발/경기": "확인 못함",
+      "득점·도움": "확인 못함",
+      "사유": "우측 어깨 견봉쇄골관절 탈구, 10-12 레반테전 중 부상, 수술(마드리드)",
+      "상태": "확정",
+      "복귀예정": "2027년 1월(약 3개월)",
+      "대체선수": "Kike Salas / Andrés Castrín",
+      "출처": "https://www.elpespunte.es/articulo/sevilla-fc/miguel-sierra-tendra-que-pasar-quirofano-lesion-hombro/20261013190657156241.html ; https://www.lacolinadenervion.com/miguel-sierra-ko-que-lesion-tiene-y-cual-es-su-pronostico/",
+      "날짜": "2026-10-13"
+    },
+    {
+      "팀": "홈",
+      "선수": "Marcão",
+      "포지션": "DF(센터백)",
+      "이번시즌_선발/경기": "확인 못함",
+      "득점·도움": "확인 못함",
+      "사유": "대퇴직근(rectus anterior) 부상, 10-02부터",
+      "상태": "확정",
+      "복귀예정": "11월 초",
+      "대체선수": "Castrín / Suazo",
+      "출처": "https://www.futbolfantasy.com/laliga/lesionados",
+      "날짜": "2026-10-26"
+    },
+    {
+      "팀": "원정",
+      "선수": "Jorge Herrando",
+      "포지션": "DF(측면수비수 추정, 포지션 상세 확인 못함)",
+      "이번시즌_선발/경기": "확인 못함",
+      "득점·도움": "확인 못함",
+      "사유": "좌측 내전근 부상(8-31부터), 수개월 결장",
+      "상태": "확정",
+      "복귀예정": "11월경",
+      "대체선수": "미상",
+      "출처": "https://www.elgoldigital.com/futbol/osasuna/aimar-oroz-herrando-osasuna-lesion-baja-2026/",
+      "날짜": "2026-10-25"
+    },
+    {
+      "팀": "원정",
+      "선수": "Aimar Oroz",
+      "포지션": "MF(포지션 상세 확인 못함)",
+      "이번시즌_선발/경기": "확인 못함",
+      "득점·도움": "확인 못함",
+      "사유": "부상(상세 미확인), 국제 A매치 휴식기 복귀 불발",
+      "상태": "확정",
+      "복귀예정": "미상",
+      "대체선수": "미상",
+      "출처": "https://www.elgoldigital.com/futbol/osasuna/aimar-oroz-herrando-osasuna-lesion-baja-2026/",
+      "날짜": "2026-10-25"
+    },
+    {
+      "팀": "원정",
+      "선수": "Romain Del Castillo",
+      "포지션": "FW(윙어)",
+      "이번시즌_선발/경기": "확인 못함",
+      "득점·도움": "확인 못함",
+      "사유": "좌측 내전근 경미 부상(10월 초), '의문'에서 '결장 확정'으로 전환",
+      "상태": "확정",
+      "복귀예정": "미상",
+      "대체선수": "미상",
+      "출처": "https://www.futbolfantasy.com/laliga/noticias/153279-del-castillo-herrando-y-aimar-oroz-siguen-al-margen-del-grupo-este-jueves",
+      "날짜": "2026-10-25"
+    }
+  ],
+  "복귀": [
+    {"팀": "홈", "선수": "Giorgi Kochorashvili", "내용": "부상 회복 후 10-26 소집 명단 복귀(선발 여부 미정)", "상태": "확정", "출처": "https://www.futbolfantasy.com/laliga/noticias/153530-stassin-guridi-y-kochorashvili-vuelven-a-una-convocatoria", "날짜": "2026-10-26"},
+    {"팀": "홈", "선수": "Jon Guridi", "내용": "내전근 부상에서 회복, 10-26 소집 명단 복귀", "상태": "확정", "출처": "https://www.muchodeporte.com/sevilla-fc/stassin-kochorashvili-y-guridi-en-la-convocatoria-del-sevilla", "날짜": "2026-10-26"},
+    {"팀": "홈", "선수": "Lucas Stassin", "내용": "주중 일부 개별훈련 후 10-26 소집 명단 포함", "상태": "확정", "출처": "https://www.elsevillista.es/2026/10/stassin-guridi-y-kochorashvili-las.html", "날짜": "2026-10-26"}
+  ],
+  "라인업": {
+    "홈": {
+      "발표여부": "비공식 예상(공식 발표 전)",
+      "예상XI": "Vlachodimos; Suazo, Salas, Castrín, Iglesias; Agoumé, Fofana; Peque, Correia, Vargas; Ure",
+      "포메이션": "4-2-3-1",
+      "출처": "https://www.sportaragon.com/futbol-aragon/alineaciones-probables-sevilla-osasuna-jornada-10-laliga-easports/20261026093503161743.html ; https://www.comuniate.com/noticias/38529/sevilla-osasuna-previa-alineaciones-probables-y-consejos-fantasy-jornada-10-de-laliga",
+      "날짜": "2026-10-26"
+    },
+    "원정": {
+      "발표여부": "비공식 예상(공식 발표 전)",
+      "예상XI": "Fernández; Bretones, Catena, Santos, Osambela; Arguibide, Moncayola, Muñoz; R. García, Dubasin, Budimir",
+      "포메이션": "4-3-3",
+      "출처": "https://www.sportaragon.com/futbol-aragon/alineaciones-probables-sevilla-osasuna-jornada-10-laliga-easports/20261026093503161743.html",
+      "날짜": "2026-10-26"
+    }
+  },
+  "최근경기": [
+    {"팀": "홈", "날짜": "2026-10-18", "상대": "Real Madrid", "장소": "원정", "스코어": "1-4(패)", "비고": ""},
+    {"팀": "홈", "날짜": "2026-10-12", "상대": "Levante", "장소": "원정", "스코어": "3-3(무)", "비고": "Miguel Sierra 부상 발생 경기"},
+    {"팀": "원정", "날짜": "2026-10-18", "상대": "Racing Santander", "장소": "홈", "스코어": "2-0(승)", "비고": ""},
+    {"팀": "원정", "날짜": "2026-10-11", "상대": "Real Betis", "장소": "원정", "스코어": "2-5(패)", "비고": ""}
+  ],
+  "순위": {
+    "홈": "6위, 9경기 4승2무3패 득실-2 승점14",
+    "원정": "12위, 9경기 3승2무4패 득실-8 승점11",
+    "출처": "위키 '2026–27 Sevilla FC season' / '2026–27 CA Osasuna season'",
+    "날짜": "2026-10-26"
+  },
+  "감독": {
+    "홈": "Luis García Plaza",
+    "원정": "Luis Miguel Ramis(변동 없음)",
+    "변동": "세비야는 팀노트 FACTS(2026-10-26 수집) 기준 Luis García Plaza. 과거 팀노트 메모(2026-10-12 기록, 당시 감독 Matías Almeida 벤치 출전정지 언급)는 구버전 정보로 보이며 그 사이 감독 교체가 있었던 것으로 판단됨(교체 시점·사유 확인 못함)",
+    "출처": "팀노트 FACTS(2026-10-26 자동수집)",
+    "날짜": "2026-10-26"
+  },
+  "일정·동기·기타": [
+    {"내용": "양 팀 모두 8일 이상 휴식(직전 라운드 이후 미드위크 유럽대항전 없음) — 체력 변수는 크지 않음", "출처": "팀노트 INPUTS(2026-10-26 자동수집)", "날짜": "2026-10-26"},
+    {"내용": "세비야는 직전 라운드 레알마드리드 원정 1-4 대패, 최근 홈 득실(xG 홈-0.83)이 저조 — 반등 동기", "출처": "팀노트 INPUTS(2026-10-26 자동수집)", "날짜": "2026-10-26"},
+    {"내용": "오사수나는 직전 라운드 레알베티스 원정 2-5 대패 후 홈에서 라싱 산탄데르 2-0 승리로 반등, 원정 득실은 저조(xG 원정-1.21)", "출처": "팀노트 INPUTS(2026-10-26 자동수집)", "날짜": "2026-10-26"}
+  ],
+  "엇갈림": [
+    "오사수나 예상 수비라인: 팀노트 INPUTS(10-18 vs Racing 직전 선발)는 Boyomo·Catena·Bretones·Rosier인데, 10-26 프리뷰 기사(sportaragon)는 Bretones·Catena·Santos·Osambela로 2명이 다름 — 공식 라인업 발표 전 예상 보도 간 불일치.",
+    "세비야 감독: 과거 팀노트(2026-10-12)의 'Matías Almeida' vs 현재 FACTS(2026-10-26)의 'Luis García Plaza' — 자료 시점 차이로 보이며 현재 시점 최신 정보(Luis García Plaza)를 채택."
+  ],
+  "못찾음": [
+    "Miguel Sierra·Jorge Herrando·Aimar Oroz·Romain Del Castillo의 이번 시즌 선발 수·득점/도움 수치",
+    "세비야 감독 교체 정확한 시점·사유"
+  ],
+  "뉴스없음": {}
+}

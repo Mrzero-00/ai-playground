@@ -10,6 +10,7 @@
 <!-- FACTS:END -->
 <!-- INPUTS:START -->
 ## 입력(자동 수집 2026-10-26) — xG·휴식일·라인업·환경(이동거리·고도·날씨)은 이 숫자를 쓴다
-- 10-27 03:15 vs 알와슬: 휴식 14.0일?(국내리그 ESPN 미제공 — 직접 확인) · 직전 10-13 홈 vs Neftchi Fergana 3-1 승 [league stage] · xG - · 직전 선발 4-4-2 Bento, Iñigo Martínez, Mohamed Simakan, Awad Aman, Nawaf Boushal, Ângelo Gabriel, Samú Costa, Sadio Mané, Kingsley Coman, Cristiano Ronaldo, João Félix · 구장 킹 사우드 대학 경기장 · 이동 878km · 고도 666m(차 +661m) · 29.1℃ 강수0mm(0%) 바람9.0km/h · ⚠ 장거리 원정 878km
+- 10-27 03:15 vs 알와슬: 휴식 14.0일?(국내리그 ESPN 미제공 — 직접 확인) · 직전 10-13 홈 vs Neftchi Fergana 3-1 승 [league stage] · xG - · 직전 선발 4-4-2 Bento, Iñigo Martínez, Mohamed Simakan, Awad Aman, Nawaf Boushal, Ângelo Gabriel, Samú Costa, Sadio Mané, Kingsley Coman, Cristiano Ronaldo, João Félix · 구장 킹 사우드 대학 경기장 · 이동 878km · 고도 666m(차 +661m) · 28.8℃ 강수0mm(0%) 바람6.7km/h · ⚠ 장거리 원정 878km
 <!-- INPUTS:END -->
 
+- 2026-10-26 수집(127회 833): 결장 Sultan Al Ghannam(미상,의심); Mohamed Simakan(수비수,의심); Kingsley Coman(공격수,의심); Cristiano Ronaldo(공격수,의심(엇갈림 참고)) · 라인업 미발표(경기 자체 연기 가능성으로 라인업 뉴스 사실상 중단) — data/수집/127_833_*.json

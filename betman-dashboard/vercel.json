@@ -34,5 +34,6 @@
     "deploymentEnabled": {
       "pacu": false
     }
-  }
+  },
+  "ignoreCommand": "git diff --quiet HEAD^ HEAD -- ."
 }

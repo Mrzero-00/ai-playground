@@ -34,5 +34,6 @@
     "deploymentEnabled": {
       "pacu": false
     }
-  }
+  },
+  "ignoreCommand": "bash -c 'ps=$(git rev-parse HEAD^@ 2>/dev/null) || exit 1; [ -z \"$ps\" ] && exit 1; for p in $ps; do git diff --quiet \"$p\" HEAD -- . || exit 1; done; exit 0'"
 }

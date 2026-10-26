@@ -1,0 +1,40 @@
+.dooji-atlas, .dooji-map-surface { position: absolute; inset: 0; background: #eaf1ed; }
+.dooji-atlas { isolation: isolate; overflow: hidden; }
+.dooji-atlas > .dooji-map-surface { position: absolute; inset: 0; z-index: 0; font-family: inherit; }
+.dooji-map-distance-haze { position: absolute; inset: 0 0 auto; height: 26%; pointer-events: none; background: linear-gradient(#e4ede7cc, #e4ede738 60%, transparent); }
+.dooji-atlas[data-perspective="flat"] .dooji-map-distance-haze { display: none; }
+.dooji-map-pin { width: 194px; height: 174px; border: 0; background: transparent; pointer-events: none !important; }
+.dooji-map-pin:focus-visible { outline: none; z-index: 10000 !important; }
+.dooji-map-pin:focus-visible .dooji-capsule-clock { outline: 3px solid #316c85; outline-offset: 3px; }
+.dooji-map-pin:hover { z-index: 10000 !important; }
+.dooji-floating-capsule { position: relative; width: 194px; height: 174px; color: #354a52; font-family: system-ui, sans-serif; }
+/* Animate an inner child: the map owns the outer marker's projection transform. */
+.dooji-capsule-float { position: absolute; top: 8px; width: 100%; display: flex; flex-direction: column; align-items: center; animation: dooji-capsule-bob 2.8s ease-in-out infinite; }
+.dooji-capsule-clock { position: relative; box-sizing: border-box; min-width: 170px; max-width: 194px; padding: 7px 10px 8px; border: 1px solid #c7dbe2; border-radius: 13px; background: #fffefaf5; box-shadow: 0 3px 12px #354a521f; text-align: center; white-space: nowrap; pointer-events: auto; cursor: pointer; }
+.dooji-capsule-clock::after { content: ''; position: absolute; left: calc(50% - 4px); bottom: -5px; width: 8px; height: 8px; transform: rotate(45deg); border-right: 1px solid #c7dbe2; border-bottom: 1px solid #c7dbe2; background: #fffefa; }
+.dooji-capsule-clock-title { display: block; max-width: 170px; overflow: hidden; text-overflow: ellipsis; font-size: 9px; font-weight: 500; line-height: 13px; color: #657b84; margin-bottom: 2px; }
+.dooji-capsule-countdown { display: block; font-size: 12px; line-height: 17px; letter-spacing: -.25px; font-weight: 750; font-variant-numeric: tabular-nums; color: #316c85; }
+.dooji-capsule-figure { margin-top: 7px; height: 82px; filter: drop-shadow(0 4px 3px #354a521a); pointer-events: auto; cursor: pointer; }
+.dooji-capsule-ground { position: absolute; left: 50%; top: 153px; transform: translateX(-50%); width: 57px; height: 19px; border: 1.5px solid #fffefabf; border-radius: 50%; background: #c7dbe22e; pointer-events: auto; cursor: pointer; }
+.dooji-capsule-shadow { position: absolute; left: 8px; top: 4px; width: 38px; height: 9px; border-radius: 50%; background: #354a5233; animation: dooji-capsule-shadow 2.8s ease-in-out infinite; }
+.dooji-capsule-point { position: absolute; left: 25px; top: 6px; width: 5px; height: 5px; border-radius: 50%; background: #fffefa; }
+.dooji-floating-capsule[data-state="ready"] .dooji-capsule-clock { background: #fff5d9; border-color: #d6b77a; }
+.dooji-floating-capsule[data-state="ready"] .dooji-capsule-clock::after { background: #fff5d9; border-color: #d6b77a; }
+.dooji-floating-capsule[data-state="ready"] .dooji-capsule-countdown { color: #806024; }
+.dooji-floating-capsule[data-state="ready"] .dooji-capsule-ground { border-color: #fff2ba; background: #eaca7740; }
+.dooji-floating-capsule[data-state="opened"] .dooji-capsule-clock { background: #edf1ed; border-color: #cedbd3; }
+.dooji-floating-capsule[data-state="opened"] .dooji-capsule-clock::after { background: #edf1ed; border-color: #cedbd3; }
+.dooji-floating-capsule[data-state="opened"] .dooji-capsule-countdown { color: #5b7768; }
+.dooji-floating-capsule[data-state="opened"] .dooji-capsule-figure { opacity: .7; }
+.dooji-floating-capsule[data-state="unknown"] .dooji-capsule-countdown { color: #657b84; }
+.dooji-atlas[data-paused="true"] .dooji-capsule-float, .dooji-atlas[data-paused="true"] .dooji-capsule-shadow { animation-play-state: paused; }
+@keyframes dooji-capsule-bob { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
+@keyframes dooji-capsule-shadow { 0%, 100% { transform: scale(1); opacity: .8; } 50% { transform: scale(.75); opacity: .45; } }
+@media (prefers-reduced-motion: reduce) {
+  .dooji-capsule-float, .dooji-capsule-shadow { animation: none; }
+}
+.dooji-map-credits { position: absolute; z-index: 10; left: 8px; padding: 3px 6px; border-radius: 4px; background: #fffefaeF; font: 10px/15px system-ui, sans-serif; color: #354a52; }
+.dooji-map-credits a { color: #316c85; text-decoration: underline; }
+.dooji-map-message { position: absolute; z-index: 10; top: 44%; left: 20px; right: 20px; padding: 14px; border-radius: 12px; background: #fffefa; color: #354a52; font: 13px/21px system-ui, sans-serif; }
+.dooji-map-message button { display: block; margin-top: 10px; min-height: 44px; border: 0; background: #edf5f8; color: #316c85; border-radius: 8px; padding: 10px 14px; cursor: pointer; }
+[data-testid="capsule-list-handle"] { touch-action: none; }

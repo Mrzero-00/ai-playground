@@ -77,7 +77,7 @@
     python3 scripts/analysis_guard.py --round 125 --fix    # G1 확신도·G4 깊이를 자동 교정
     python3 scripts/analysis_guard.py --measure            # 위 숫자를 현재 데이터로 재측정
 """
-import argparse, collections, os, sys
+import argparse, collections, os, re, sys
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import round_log as rl
@@ -89,6 +89,33 @@ SMALL_GAP = 15.0      # G3
 NOMKT_P = 70.0        # G4
 SUSP_GAP = 8.0        # G5
 OVERCONF_GAP = 2.0    # G7
+
+# G5b (2026-10-26, 127회 심층회고) — G5 의 집행 구멍 막기.
+#   G5 는 `gap = 내 − 시장` 이 있어야 울린다. 그래서 **시장 확률이 없는 경기**(베트맨 미발표·
+#   Pinnacle 미등재)에서는 '의심/추정' 결장으로 확률을 움직여도 아무도 막지 못했다.
+#   126회 787 LAFC-갤럭시가 그 구멍으로 빠졌다 — 로사노·후루하시 '의심' 결장에 +2%p 를 주고
+#   2:2 무로 틀렸다(슈팅 21:10 으로 지배하고도). 점검표에도 "G5 를 뉴스위험 문구가 아니라
+#   **요인 적용 여부**로 검문해야 한다"가 이미 올라와 있었다.
+#   그래서 근거 본문을 읽어 '의심/추정' 과 0 이 아닌 %p 보정이 같은 절에 있으면 잡는다.
+#   새 규칙이 아니라 이미 실측된 G5(n=712: 확정 86% · 의심 55% · 추정 43%)의 적용 범위를 넓히는 것이다.
+#   과거 866행 중 6행만 걸려 오경보는 적다.
+_SUSP_W = re.compile(r"(의심|추정|가능성)")
+_SUSP_ZERO = re.compile(r"(G5|신규성|D=0|영향 없음|미반영|반영하지 않|제외|쓰지 않|0\.0\s*%p|로 0|으로 0|가산 0|상계)")
+_SUSP_AMT = re.compile(r"([+\-±]\s?\d+(?:\.\d+)?)\s*%p")
+
+
+def susp_adjust(txt):
+    """근거에서 '의심/추정' 결장에 0 이 아닌 %p 를 매긴 절을 돌려준다."""
+    for cl in re.split(r"[·/。\n]|(?<=다)\s|(?<=\.)\s", txt or ""):
+        if not _SUSP_W.search(cl) or _SUSP_ZERO.search(cl):
+            continue
+        for m in _SUSP_AMT.finditer(cl):
+            try:
+                if abs(float(m.group(1).replace("±", "").replace(" ", ""))) > 0:
+                    return cl.strip(), m.group(0)
+            except ValueError:
+                pass
+    return None
 LIGHT_DEV = 5.0       # G9 — 깊이=가벼움 행의 |순수 1순위 − 보정 1순위| 상한 (보정=순수50+pi기준선50 이라 기준선 대비 약 2배 편차)
 TREND_CAP = 2.0       # G8 — 근거의 pi기준선 대비 1순위 쪽 순이동 상한 — 보정 1순위가 시장보다 이만큼 높으면 초과분을 깎는다
 
@@ -134,6 +161,11 @@ def check(r):
     nw = (r.get("뉴스위험") or "")
     if gap is not None and gap >= SUSP_GAP and ("의심" in nw or "추정" in nw):
         out.append(("G5", f"'의심/추정' 결장으로 만든 과신 (+{gap:.1f}%p) — 의심 55%·추정 53% 적중", False))
+    sa = susp_adjust(r.get("핵심근거"))
+    if sa and (gap is None or gap < SUSP_GAP):
+        # G5 가 못 보는 자리(시장 확률 없음·gap 미달)에서 '의심/추정'에 값을 매긴 경우
+        out.append(("G5b", f"'의심/추정' 결장에 {sa[1]} 를 매겼다 — 실측 의심 55%·추정 43%라 "
+                           f"확률을 움직이지 않는다(영향 0으로): \"{sa[0][:70]}\"", False))
     cp = tri(r, "보정")
     if cp and m and (r.get("깊이") or "") != "기준선":
         ct = max(cp, key=cp.get)

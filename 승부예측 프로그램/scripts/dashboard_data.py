@@ -457,9 +457,37 @@ def build(out):
     # 깊이=기준선 은 분석이 들어가지 않은 자동 채움이다(모델이 기계로 넣는다).
     # 이걸 섞으면 지표가 분석력이 아니라 '자동 채움 비중'을 따라 움직인다 — 실측 분석 56.6% vs 기준선 44.7%.
     # 그래서 본 지표는 분석한 경기만 쓰고, 기준선은 대조군으로 따로 낸다(사용자 지시 2026-10-26).
-    dir_rows = [g for g in games if g.get("결과") in ("승", "무", "패")]
+    def _kick(g):
+        """시각은 대부분 'MM-DD HH:MM'(연도 없음)이다. 미래가 되지 않는 가장 가까운 해로 읽는다."""
+        t = (g.get("시각") or "").strip()
+        m = re.match(r"^(\d{4})-(\d{1,2})-(\d{1,2})", t)
+        if m:
+            try:
+                return dt.date(int(m.group(1)), int(m.group(2)), int(m.group(3)))
+            except ValueError:
+                return None
+        m = re.match(r"^(\d{1,2})-(\d{1,2})", t)
+        if not m:
+            return None
+        mo, da = int(m.group(1)), int(m.group(2))
+        for y in (now.year, now.year - 1):
+            try:
+                d = dt.date(y, mo, da)
+            except ValueError:
+                continue
+            if d <= now.date() + dt.timedelta(days=2):
+                return d
+        return None
+
+    # 사용자 지시 2026-10-26: 적중률을 처음부터 전부 누적하면 개선이 묻혀 움직이지 않는다.
+    # 본 지표는 **최근 3주**로 자른다(전체 누적은 보조로 함께 내보낸다).
+    WINDOW_DAYS = 21
+    since = now.date() - dt.timedelta(days=WINDOW_DAYS)
+    dir_all = [g for g in games if g.get("결과") in ("승", "무", "패")]
+    dir_rows = [g for g in dir_all if (_kick(g) or dt.date(1900, 1, 1)) >= since]
     analyzed = [g for g in dir_rows if (g.get("깊이") or "") != "기준선"]
     basern = [g for g in dir_rows if (g.get("깊이") or "") == "기준선"]
+    analyzed_all = [g for g in dir_all if (g.get("깊이") or "") != "기준선"]
 
     def _acc(rows):
         xs = [(g, _top(g, "보정") or _top(g, "순수")) for g in rows]
@@ -473,6 +501,7 @@ def build(out):
 
     dir_n, dir_rate, head_n, dir_me, dir_mk = _acc(analyzed)
     base_n, base_rate, _, base_me, base_mk = _acc(basern)
+    allt_n, allt_rate, _, allt_me, allt_mk = _acc(analyzed_all)
     # 사용자 지시 2026-10-26: "시장과 동일하게 가는 거면 의미가 없다. 시장보다 더 잘 맞춰야 의미가 있다."
     # 그래서 본 판정값은 적중률 자체가 아니라 **같은 경기에서 시장과의 격차**다.
     dir_edge = (dir_me - dir_mk) if (dir_me is not None and dir_mk is not None) else None
@@ -500,6 +529,8 @@ def build(out):
                "dir_head_n": head_n, "dir_me": dir_me, "dir_market": dir_mk,
                "base_n": base_n, "base_rate": base_rate, "base_market": base_mk,
                "dir_edge": dir_edge, "edge_series": edge_series, "edge_by_league": by_league,
+               "dir_window_days": WINDOW_DAYS, "dir_since": since.isoformat(),
+               "dir_all_n": allt_n, "dir_all_rate": allt_rate, "dir_all_market": allt_mk,
                "combos_total": len(core), "combos_scored": len(sc), "combos_hit": sum(1 for c in sc if c["hit"]), "combo_rate": combo_rate,
                "fun_total": len(fun), "fun_scored": len(scf), "fun_hit": sum(1 for c in scf if c["hit"]), "fun_rate": fun_rate,
                "legs_scored": len(legs_scored), "leg_rate": leg_rate, "by_round": by_round,

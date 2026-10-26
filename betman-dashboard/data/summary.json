@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-26 11:11",
+ "updated": "2026-10-26 12:46",
  "mode": "가상 추천 중(실투자 없음)",
  "dir_n": 637,
  "dir_rate": 0.5572998430141287,
@@ -203,6 +203,11 @@
    "edge": -0.07692307692307687
   }
  ],
+ "dir_window_days": 21,
+ "dir_since": "2026-10-05",
+ "dir_all_n": 637,
+ "dir_all_rate": 0.5572998430141287,
+ "dir_all_market": 0.5679862306368331,
  "combos_total": 27,
  "combos_scored": 24,
  "combos_hit": 6,

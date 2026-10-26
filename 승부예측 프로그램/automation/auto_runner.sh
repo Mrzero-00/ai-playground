@@ -76,7 +76,7 @@ read -r -d '' RULES <<'PACU_RULES_EOF'
 · 보고는 ① 추천 다리 적중률 ② 분석한 전 경기 1순위 적중률(시장 대비) 두 줄을 적는다. ②가 1번 목표의 지표다.
 PACU_RULES_EOF
 
-STEP12="[1단계 회고] 새로 채점된 경기 ${NEW}건(회차 ${ROUNDS}${DONE:+, 완결 ${DONE}}). 회차운영절차 심층 회고를 수행한다: postmatch.py --round <회차> → process_grade.py --all → **맞은 경기 포함 경기별 내용 회고**(내 근거가 실제 선발·xG·슈팅·흐름에 나타났는가 / 실력·운·분산·오판 / 맞은 근거는 팀노트·종목 파일에 보충 — 이 세 줄 없이는 회고 미완) → **calib_report.py --save**(내가 쓴 확률이 그대로 나왔는지, |z|>=2 인 유의 편향만 추림) → **result_log.py pending** 으로 채점된 경기를 **적중·실패 모두** 끌어와 하나씩 result_log.py add --요인 --판정 --점검 기록(실패=가능/부분/불가, 적중=근거대로/운; 가능·부분이면 점검 항목 필수. 판정은 증거를 보고 네가 정한다) → **result_log.py checklist** 로 분석전_점검표.md 갱신 → result_log.py report 로 근거대로 비율·되풀이 항목 확인 → **lineup_grade.py report**(결장 주장·예상 XI 적중) 확인 → 사실 오류 점검 → own_model report·fast_learn·bet_hit·calibrate fit·hit_model fit·baseline_fill --all 갱신 → **factor_fit.py report**(요인 가중치 재추정) → **prior.py report**(본 지표: 개입한 경기에서 사전확률 대비 개선폭 — 음수면 그 개입을 되돌린다) → **direction_lab.py run**(모델 계층 상한 재확인, 분기마다). 산출: 회차별분석/<날짜>_<회차>_심층회고.md.
+STEP12="[1단계 회고] 새로 채점된 경기 ${NEW}건(회차 ${ROUNDS}${DONE:+, 완결 ${DONE}}). 회차운영절차 심층 회고를 수행한다: postmatch.py --round <회차> → process_grade.py --all → **맞은 경기 포함 경기별 내용 회고**(내 근거가 실제 선발·xG·슈팅·흐름에 나타났는가 / 실력·운·분산·오판 / 맞은 근거는 팀노트·종목 파일에 보충 — 이 세 줄 없이는 회고 미완) → **calib_report.py --save**(내가 쓴 확률이 그대로 나왔는지, |z|>=2 인 유의 편향만 추림) → **result_log.py pending** 으로 채점된 경기를 **적중·실패 모두** 끌어와 하나씩 result_log.py add --요인 --판정 --점검 기록(실패=가능/부분/불가, 적중=근거대로/운; 가능·부분이면 점검 항목 필수. 판정은 증거를 보고 네가 정한다) → **result_log.py checklist** 로 분석전_점검표.md 갱신 → result_log.py report 로 근거대로 비율·되풀이 항목 확인 → **lineup_grade.py report**(결장 주장·예상 XI 적중) 확인 → 사실 오류 점검 → own_model report·fast_learn·bet_hit·calibrate fit·hit_model fit·baseline_fill --all 갱신 → **factor_fit.py report**(요인 가중치 재추정) → **prior.py report**(본 지표: 개입한 경기에서 사전확률 대비 개선폭 — 음수면 그 개입을 되돌린다) → **predict_engine.py run**(전 기법 예측 적재) → **model_zoo.py log** → **model_zoo.py fair**(공통 경기 비교) → **direction_lab.py run**(모델 계층 상한 재확인, 분기마다). 산출: 회차별분석/<날짜>_<회차>_심층회고.md.
 [2단계 개선] 판정 기준은 방향 적중률 하나다 — 회고에서 나온 원인이 코드로 막을 수 있으면 **그 자리에서 스크립트를 고친다**(기준선·보정·입력 수집·채점·정합성·추천 판정 pick_table.leg_type). 규칙 후보는 만든 회차를 뺀 이전 회차로 백테스트한 뒤 등급을 정해 분석규칙에 반영한다. 추천 기준 자체도 측정이 더 나은 쪽을 가리키면 바꾼다. 문서만 쌓고 코드를 안 고치면 같은 실수가 반복된다. **어긋난 확률 구간을 추천에서 빼는 식의 '덮는' 변경은 금지**(사용자 지시 2026-10-22) — 원인을 찾아 기법·입력·가중치를 고친다. 점검표에서 2회 이상 되풀이된 항목은 규칙이나 스크립트로 고정하고, 넣은 뒤 효과를 다음 회고에서 재서 안 오르면 내린다."
 
 if [ "$MODE" = "daily" ]; then
@@ -90,7 +90,7 @@ fi
 if [ "$RETRO" = "1" ]; then STEP12_OUT="$STEP12"; else STEP12_OUT="[1~2단계] 새 결과 ${NEW}건으로 회고 임계(8건) 미달 — 건너뛴다."; fi
 
 if [ "$REVIEW" = "1" ]; then
-  STEP0="[0단계 주간 방향 점검] python3 scripts/direction_review.py run 을 돌려 회차별분석/방향점검_<날짜>.md 를 만든다.
+  STEP0="[0단계 주간 방향 점검] python3 scripts/predict_engine.py run && python3 scripts/model_zoo.py log && python3 scripts/model_zoo.py eval && python3 scripts/model_zoo.py fair && python3 scripts/direction_review.py run 을 돌려 회차별분석/방향점검_<날짜>.md 를 만든다.
 그 안의 1~4절 숫자를 읽고 **5. 판정** 칸을 직접 채운다 — 유지 / 조정 / 전환 중 하나를 고르고 근거 숫자를 적는다.
 고른 판정은 **그 자리에서 실행한다**(조정이면 구성요소를 교체하고, 전환이면 분석 방향을 바꾸고 CLAUDE.md 에 기록).
 이 점검은 회고와 다르다 — 회고는 틀 안에서 가중치를 고치고, 이 점검은 **틀 자체를 바꿀 수 있다**.

@@ -6,6 +6,11 @@ const path = require('node:path');
 const { stubMapTiles } = require('./map-test-fixtures.cjs');
 
 const TOKEN = process.env.REVIEW_TOKEN;
+if (!TOKEN) {
+  console.error('REVIEW_TOKEN 이 필요합니다. 켜 둔 개발 서버에서 세션을 하나 만들어 쓰세요.');
+  console.error("  REVIEW_TOKEN=$(curl -s -X POST http://localhost:8787/sessions | node -pe \"JSON.parse(require('fs').readFileSync(0)).token\") node scripts/ui-review.cjs");
+  process.exit(1);
+}
 const OUT = process.env.REVIEW_OUT || path.resolve(__dirname, '../.build/ui-review');
 
 const findings = [];

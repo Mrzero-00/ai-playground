@@ -1,0 +1,58 @@
+{
+ "fitted": "2026-10-26",
+ "n_train": 515,
+ "n_test": 222,
+ "acc_market_only": 55.41,
+ "acc_with_factors": 50.45,
+ "types": {
+  "결장": {
+   "n": 203,
+   "effect": -0.0275,
+   "verdict": "역부호",
+   "weight": 0.0
+  },
+  "폼": {
+   "n": 112,
+   "effect": 0.1077,
+   "verdict": "정보",
+   "weight": 1.0
+  },
+  "휴식": {
+   "n": 73,
+   "effect": -0.2405,
+   "verdict": "역부호",
+   "weight": 0.0
+  },
+  "기타": {
+   "n": 69,
+   "effect": 0.4351,
+   "verdict": "정보",
+   "weight": 1.0
+  },
+  "동기": {
+   "n": 41,
+   "effect": -0.6429,
+   "verdict": "역부호",
+   "weight": 0.0
+  },
+  "xG": {
+   "n": 36,
+   "effect": -0.0234,
+   "verdict": "역부호",
+   "weight": 0.0
+  },
+  "맞대결": {
+   "n": 31,
+   "effect": -0.5852,
+   "verdict": "역부호",
+   "weight": 0.0
+  },
+  "기준선불신": {
+   "n": 31,
+   "effect": 0.0877,
+   "verdict": "정보",
+   "weight": 1.0
+  }
+ },
+ "note": "weight=0 인 유형은 수집·기록은 하되 확률을 움직이지 않는다. 표본이 늘면 재추정한다."
+}

@@ -424,18 +424,52 @@ def build(out):
             try: v[k] = float(x)
             except ValueError: return None
         return max(v, key=v.get)
+    # 깊이=기준선 은 분석이 들어가지 않은 자동 채움이다(모델이 기계로 넣는다).
+    # 이걸 섞으면 지표가 분석력이 아니라 '자동 채움 비중'을 따라 움직인다 — 실측 분석 56.6% vs 기준선 44.7%.
+    # 그래서 본 지표는 분석한 경기만 쓰고, 기준선은 대조군으로 따로 낸다(사용자 지시 2026-10-26).
     dir_rows = [g for g in games if g.get("결과") in ("승", "무", "패")]
-    mine = [(g, _top(g, "보정") or _top(g, "순수")) for g in dir_rows]
-    mine = [(g, t) for g, t in mine if t]
-    dir_rate = (sum(1 for g, t in mine if t == g["결과"]) / len(mine)) if mine else None
-    head = [(g, t, _top(g, "시장")) for g, t in mine]
-    head = [(g, t, m) for g, t, m in head if m]
-    dir_me = (sum(1 for g, t, m in head if t == g["결과"]) / len(head)) if head else None
-    dir_mk = (sum(1 for g, t, m in head if m == g["결과"]) / len(head)) if head else None
+    analyzed = [g for g in dir_rows if (g.get("깊이") or "") != "기준선"]
+    basern = [g for g in dir_rows if (g.get("깊이") or "") == "기준선"]
+
+    def _acc(rows):
+        xs = [(g, _top(g, "보정") or _top(g, "순수")) for g in rows]
+        xs = [(g, t) for g, t in xs if t]
+        rate = (sum(1 for g, t in xs if t == g["결과"]) / len(xs)) if xs else None
+        hd = [(g, t, _top(g, "시장")) for g, t in xs]
+        hd = [(g, t, m) for g, t, m in hd if m]
+        me = (sum(1 for g, t, m in hd if t == g["결과"]) / len(hd)) if hd else None
+        mk = (sum(1 for g, t, m in hd if m == g["결과"]) / len(hd)) if hd else None
+        return len(xs), rate, len(hd), me, mk
+
+    dir_n, dir_rate, head_n, dir_me, dir_mk = _acc(analyzed)
+    base_n, base_rate, _, base_me, base_mk = _acc(basern)
+    # 사용자 지시 2026-10-26: "시장과 동일하게 가는 거면 의미가 없다. 시장보다 더 잘 맞춰야 의미가 있다."
+    # 그래서 본 판정값은 적중률 자체가 아니라 **같은 경기에서 시장과의 격차**다.
+    dir_edge = (dir_me - dir_mk) if (dir_me is not None and dir_mk is not None) else None
+    # 회차별 격차 추이 — 고친 것이 듣는지 보려면 한 숫자가 아니라 흐름이 필요하다
+    edge_series = []
+    for rnd in sorted({g["회차"] for g in analyzed if str(g.get("회차", "")).isdigit()}, key=int):
+        g2 = [g for g in analyzed if g["회차"] == rnd]
+        n2, _, h2, me2, mk2 = _acc(g2)
+        if h2 >= 20 and me2 is not None and mk2 is not None:
+            edge_series.append({"round": rnd, "n": h2, "me": me2, "market": mk2, "edge": me2 - mk2})
+    edge_series = edge_series[-10:]
+    # 리그별 격차 — 어디서 이기고 어디서 지는지
+    by_league = []
+    lg_map = collections.defaultdict(list)
+    for g in analyzed:
+        lg_map[(g.get("리그") or "기타")].append(g)
+    for lg, gs in lg_map.items():
+        n2, _, h2, me2, mk2 = _acc(gs)
+        if h2 >= 15 and me2 is not None and mk2 is not None:
+            by_league.append({"league": lg, "n": h2, "me": me2, "market": mk2, "edge": me2 - mk2})
+    by_league.sort(key=lambda x: -x["edge"])
 
     summary = {"updated": now.strftime("%Y-%m-%d %H:%M"), "mode": "가상 추천 중(실투자 없음)",
-               "dir_n": len(mine), "dir_rate": dir_rate,
-               "dir_head_n": len(head), "dir_me": dir_me, "dir_market": dir_mk,
+               "dir_n": dir_n, "dir_rate": dir_rate,
+               "dir_head_n": head_n, "dir_me": dir_me, "dir_market": dir_mk,
+               "base_n": base_n, "base_rate": base_rate, "base_market": base_mk,
+               "dir_edge": dir_edge, "edge_series": edge_series, "edge_by_league": by_league,
                "combos_total": len(core), "combos_scored": len(sc), "combos_hit": sum(1 for c in sc if c["hit"]), "combo_rate": combo_rate,
                "fun_total": len(fun), "fun_scored": len(scf), "fun_hit": sum(1 for c in scf if c["hit"]), "fun_rate": fun_rate,
                "legs_scored": len(legs_scored), "leg_rate": leg_rate, "by_round": by_round,

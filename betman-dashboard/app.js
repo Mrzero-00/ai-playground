@@ -85,12 +85,27 @@ async function now() {
   const s = await load("summary"), r = await load("recommendations");
   app.innerHTML = `
   <h1>추천 조합</h1><p class="sub">${esc(s.mode)} · 갱신 ${esc(s.updated)}</p>
+  <div class="grid two">
+    <div class="tile big"><div class="k">단일 경기 방향 적중률</div><div class="v">${pct(s.dir_rate,1)}</div>
+      <div class="d">분석한 ${s.dir_n}경기 · 목표 100%</div>
+      <div class="d ref">같은 경기 시장 ${pct(s.dir_market,1)} <span class="gap ${s.dir_edge>=0?"up":"down"}">${s.dir_edge>=0?"+":""}${(s.dir_edge*100).toFixed(1)}p</span> <span class="m">참고선</span></div></div>
+    <div class="tile big"><div class="k">조합 추천 적중률</div><div class="v">${pct(s.combo_rate,1)}</div>
+      <div class="d">추천 ${s.combos_scored}조합 중 ${s.combos_hit}개 적중 · 목표 100%</div>
+      <div class="d ref">추천 다리 ${pct(s.leg_rate,1)} (${s.legs_scored}다리)</div></div>
+  </div>
   <div class="grid">
-    <div class="tile"><div class="k">조합 성공률</div><div class="v">${pct(s.combo_rate)}</div><div class="d">${s.combos_hit}/${s.combos_scored} 조합 적중 · 재개 기준 80%</div></div>
-    <div class="tile"><div class="k">다리 적중률</div><div class="v">${pct(s.leg_rate)}</div><div class="d">${s.legs_scored}다리 채점</div></div>
-    <div class="tile"><div class="k">코어 조합 총계</div><div class="v">${s.combos_total}</div><div class="d">진행 ${r.current.filter((c)=>c.track!=="도파민").length} · 채점 ${s.combos_scored}</div></div>
-    <div class="tile"><div class="k">방향 적중률 (전 경기)</div><div class="v">${pct(s.dir_rate)}</div><div class="d">${s.dir_n}경기 · 같은 경기 시장 ${pct(s.dir_market)} vs 내 ${pct(s.dir_me)}</div></div>
     <div class="tile"><div class="k">과정 점수</div><div class="v">${pct(s.process_score)}</div><div class="d">내용이 예측 쪽이었던 비율 · ${s.process_n}경기</div></div>
+    <div class="tile"><div class="k">대조군(자동 채움)</div><div class="v">${pct(s.base_rate,1)}</div><div class="d">분석 없이 모델만 ${s.base_n}경기 · 분석이 더한 몫 ${((s.dir_rate-s.base_rate)*100).toFixed(1)}p</div></div>
+    <div class="tile"><div class="k">추천 조합 총계</div><div class="v">${s.combos_total}</div><div class="d">진행 ${r.current.length} · 채점 ${s.combos_scored}</div></div>
+  </div>
+  ${s.edge_series && s.edge_series.length ? `<details class="card hblk"><summary><b>회차별 추이</b> <span class="small">방향 적중률과 참고선</span></summary>
+    <div class="tbl"><table><thead><tr><th>회차</th><th class="num">분석 경기</th><th class="num">방향 적중률</th><th class="num">시장(참고)</th></tr></thead><tbody>
+    ${s.edge_series.map((e)=>`<tr><td>${esc(e.round)}회</td><td class="num">${e.n}</td><td class="num"><b>${(e.me*100).toFixed(1)}%</b></td><td class="num m">${(e.market*100).toFixed(1)}%</td></tr>`).join("")}
+    </tbody></table></div></details>` : ""}
+  ${s.edge_by_league && s.edge_by_league.length ? `<details class="card hblk"><summary><b>리그별 방향 적중률</b> <span class="small">15경기 이상</span></summary>
+    <div class="tbl"><table><thead><tr><th>리그</th><th class="num">경기</th><th class="num">방향 적중률</th><th class="num">시장(참고)</th></tr></thead><tbody>
+    ${s.edge_by_league.map((e)=>`<tr><td>${esc(e.league)}</td><td class="num">${e.n}</td><td class="num"><b>${(e.me*100).toFixed(1)}%</b></td><td class="num m">${(e.market*100).toFixed(1)}%</td></tr>`).join("")}
+    </tbody></table></div></details>` : ""}s="v">${pct(s.process_score)}</div><div class="d">내용이 예측 쪽이었던 비율 · ${s.process_n}경기</div></div>
   </div>
   <h2>현재 진행 중</h2>
   ${r.current.filter((c)=>c.track!=="도파민").length ? r.current.filter((c)=>c.track!=="도파민").map((c) => comboCard(c, false)).join("") : '<div class="empty">진행 중인 코어 조합이 없습니다. 다음 블록 분석 시각에 추가됩니다.</div>'}

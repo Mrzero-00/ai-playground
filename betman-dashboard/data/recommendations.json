@@ -20,7 +20,11 @@
      "actual": "승",
      "why": "기준선 48.4/28.2/23.4 → 요인 뉴스없음:천안 시티FC 결장·부상·징계 관(+0.0), 뉴스없음:안산 그리너스 결장·부상·징계 관(+0.0), 기타:이풍연(+0.0), 휴식:천안 직전 공식전 10/10(중1(+0.0), 폼:안산 최근 2경기 승리 — 10/(-2.0) → 최종 46.4/28.2/25.4",
      "risk": "킥오프 45분 전까지 양 팀 스타팅 XI 미게재(K리그 공식·Daum 둘 다). 양 팀 결장 공식 발표 확인 실패. kleague.com 결장 기사는 본문 날짜가 2025년이라 전체 배제",
-     "review": {}
+     "review": {
+      "quad": "실력",
+      "content": "득실차 2(슈팅자료 없음·일치 79.1%)",
+      "pred": "승 46%"
+     }
     },
     {
      "no": "613",
@@ -50,7 +54,11 @@
      "actual": "무",
      "why": "기준선 26.0/27.0/47.0 → 요인 결장:Yehor Yarmoliuk + Vitaly Janelt(DM 2명 묶음)(+1.5), 결장:Nobel Mendy(-0.8), 결장:Jack Butland·Matt Targett·Charlie Hughes·Darko Gyabi·Ilyas Ansah(묶음)(+0), 결장:Joshua Dasilva·Antoni Milambo·Kaye Furo(묶음)(+0.3), 복귀:Mohamed-Ali Cho·Lucas Gourna-Douath(+0) → 최종 26.2/28.0/45.8",
      "risk": "있음(10-25 21:30 수집 기준) — ① 양팀 공식 라인업 미발표(킥오프 약 1.9시간 전), 본문의 XI 는 Sports Mole 추정이라 브렌트퍼드 CB(van den Berg↔Schuster/Collins",
-     "review": {}
+     "review": {
+      "quad": "오판",
+      "content": "xG 1.94:1.71",
+      "pred": "패 46%"
+     }
     },
     {
      "no": "741",
@@ -65,7 +73,11 @@
      "actual": "승",
      "why": "기준선 49.0/28.0/23.0 → 요인 결장:Adrián 'Dela' de la Fuente(+0.8), 결장:Enzo Bardeli(+0.3), 결장:Karl Etta Eyong · Alejandro Primo(+0), 결장:Luken Beitia(GK) · Álvaro Odriozola(RB)(+0), 복귀:Jon Mikel Aramburu · Yangel Herrera(+0) → 최종 49.6/27.8/22.6",
      "risk": "중간 — ① 양 팀 공식 XI 미발표(킥오프 약 4시간 전 기준). ② 소시에다드 Aramburu·Herrera 가 부상에서 복귀해 소집됐으나 감독이 '선발은 경기 당일 결정'이라 명시 — 우측 수비가 Héctor ",
-     "review": {}
+     "review": {
+      "quad": "실력",
+      "content": "xG 2.92:0.75",
+      "pred": "승 50%"
+     }
     }
    ],
    "odds": 6.6,
@@ -97,7 +109,11 @@
      "actual": "승",
      "why": "[심층] 기준선 pi 20.3/25.7/54.1 (λ1.05:1.83). ★양 팀 공식 XI 발표 교차확인(101GreatGoals·CityXtra). 시티 4-2-3-1 Donnarumma·Khusanov·Dias(C)·Guehi·Gvardiol·E.Anderson·Enzo·Ndiaye·Cherki·Doku·Haaland — Foden 는 UCL 해트트릭에도 벤치. ★시티 확정결장 4명(R",
      "risk": "확인함: 공식 XI 2곳 교차(101GreatGoals·CityXtra 10-24) + ESPN 프리뷰. 양 팀 결장 전부 확정 상태로 확인. 미해소: 없음",
-     "review": {}
+     "review": {
+      "quad": "분산",
+      "content": "xG 0.65:2.29",
+      "pred": "패 52%"
+     }
     },
     {
      "no": "280",
@@ -112,7 +128,11 @@
      "actual": "패",
      "why": "[심층] 기준선 pi 50.5/27.5/21.9 (λ1.65:1.02). ①엘체 최근5 xG 0.81·xGA 2.08, 직전 2경기 연속 0-0(10-11 셀타 xG0.73, 10-17 비야레알 슈팅7(1):20(7)), 원정 npxGD -1.04, PPDA 17.4 초수동 저블록 — 5경기 흐름이라 단일경기 상한(±2) 아닌 폼 +2.5. ②반대 방향도 같이 건다: 엘체 xPts 9.2 v",
      "risk": "확인함: FutbolFantasy·UnionRayo(10-23) 라요 24인 소집명단 원문, TeleElx·JornadaPerfecta·VAVEL·SportsMole 4곳으로 엘체 'Aguado 가 유일한 확정 결장",
-     "review": {}
+     "review": {
+      "quad": "오판",
+      "content": "xG 1.23:2.40",
+      "pred": "승 50%"
+     }
     }
    ],
    "odds": 2.52,
@@ -159,7 +179,11 @@
      "actual": "패",
      "why": "기준선 22.7/28.1/49.3 → 요인 결장:에드가(Edgar)(+1.8), 결장:미상(가해 선수, 퇴단)(+0.0), 동기·전력:고재현·박세진(전역 복귀)+승격PO 동기(-3.0), 폼·분위기:-(-2.0), 날씨:-(+0.0) → 최종 19.5/31.0/49.5",
      "risk": "확인함 — 대구 에드가 부상 결장 확정(10/23). 전남 가해선수 10/22 퇴단(주전 여부 미상). 양팀 공식 선발 미발표. 구장이 광양→순천팔마로 변경돼 날씨 수치는 광양 좌표 참고값",
-     "review": {}
+     "review": {
+      "quad": "실력",
+      "content": "득실차 2(슈팅자료 없음·일치 79.1%)",
+      "pred": "패 50%"
+     }
     }
    ],
    "odds": 2.67,
@@ -238,7 +262,11 @@
      "actual": "패",
      "why": "기준선 66.5/0/33.5 → 요인 라인업:Ivica Zubac(합류) / Myles Turner(이탈)(+0.0), 복귀:Tyrese Haliburton(-6.0), 결장:Aaron Nesmith(+2.5), 결장:T.J. McConnell(+1.0), 결장:Johnny Furphy(+0.3) → 최종 64.3/0/35.7",
      "risk": "Haliburton 출전시간 제한 가능",
-     "review": {}
+     "review": {
+      "quad": "오판",
+      "content": "점차 3(접전)",
+      "pred": "승 64%"
+     }
     }
    ],
    "odds": 2.15,
@@ -411,7 +439,11 @@
      "actual": "승",
      "why": "기준선 38.2/31.3/30.5 → 요인 결장:Gorka Guruzeta(+0.9), 결장:Oihan Sancet(+1.2), 결장:Álvaro Djaló(+0.0), 결장:Unai Egiluz(+0.0), 복귀:Nico Williams(-0.5) → 최종 36.1/33.3/30.6",
      "risk": "Nico Williams 투입 시점·Etta Eyong 매체 상충",
-     "review": {}
+     "review": {
+      "quad": "실력",
+      "content": "유효 7:4",
+      "pred": "승 36%"
+     }
     }
    ],
    "odds": 9.0,
@@ -552,7 +584,11 @@
      "actual": "패",
      "why": "pi-rating 기준선 자동(2026-10-21) — 뉴스·결장 반영 없음, 방향 기록용",
      "risk": "",
-     "review": {}
+     "review": {
+      "quad": "분산",
+      "content": "유효 3:3·슈팅 15:7",
+      "pred": "승 36%"
+     }
     }
    ],
    "odds": 7.2,
@@ -1552,7 +1588,11 @@
      "actual": "승",
      "why": "승무패60 최종: 1차 61/24/15 유지, 앙상블 67/21/12·58/23/19 일치. 맨유 데 리흐트·우가르테·도르구 확정 결장, 아틀레티코 전원 가용",
      "risk": "맨유 추가 결장·라인업은 23:00 마감 후 발표",
-     "review": {}
+     "review": {
+      "quad": "운",
+      "content": "유효 5:4",
+      "pred": "승 62%"
+     }
     }
    ],
    "odds": 2.63,
@@ -1614,7 +1654,11 @@
      "actual": "승",
      "why": "[2차 10/12 20:40] 2차 상향 45→53, 독립 56/24/20: CB 히엔·코수누 결장이나 베네치아 확정 결장 4(부지오 주장)·5경기 0점 최하위; 결장 3+ 예외로 8%p 경고 해제 | 1차 30/25/45 → 2차 반론 수정 45/28/27: 베네치아 확정 결장 4(핵심 부지오 1)·바시치·벨라-코차프 출전 가능, 아탈란타 베르가모 베네치아전 26경기 15승6무5패(2004",
      "risk": "공식 라인업 전·아탈란타 8월 이후 무승",
-     "review": {}
+     "review": {
+      "quad": "운",
+      "content": "xG 2.92:2.69",
+      "pred": "승 53%"
+     }
     }
    ],
    "odds": 3.15,
@@ -1661,7 +1705,11 @@
      "actual": "패",
      "why": "[2차 10/12 20:40] 2차 유지·독립 14/22/64 일치, 확정 결장 없음 | 10/12 조사 기준선 16/23/61 → 14/23/63. 알아인 UAE 2위 4연승·MD1 알나스르 4-0 vs 에어포스 이라크 9위(2승5무2패, 무 5)·MD1 0-1. 홈을 바그다드 대신 바스라 국제경기장에서 개최(홈 이점 불확실)",
      "risk": "바스라 더위·원정 이동, 라인업 미확정",
-     "review": {}
+     "review": {
+      "quad": "실력",
+      "content": "유효 2:8",
+      "pred": "패 62%"
+     }
     }
    ],
    "odds": 2.15,
@@ -1786,7 +1834,11 @@
      "actual": "승",
      "why": "렌 전원 가용 오세르 수비 결장",
      "risk": "오세르 원정 8실점",
-     "review": {}
+     "review": {
+      "quad": "실력",
+      "content": "유효 11:5",
+      "pred": "승 52%"
+     }
     },
     {
      "no": "7749",
@@ -1801,7 +1853,11 @@
      "actual": "승",
      "why": "오사수나 5경기 무승·3명 결장, 베티스 피르포 결장",
      "risk": "",
-     "review": {}
+     "review": {
+      "quad": "실력",
+      "content": "xG 2.66:1.15",
+      "pred": "승 53%"
+     }
     }
    ],
    "odds": 2.0,
@@ -1989,7 +2045,11 @@
      "actual": "승",
      "why": "르아브르 GK 음파시 등 6명 결장 은디아예 불투명",
      "risk": "르아브르 의문 1명",
-     "review": {}
+     "review": {
+      "quad": "실력",
+      "content": "xG 1.32:0.84",
+      "pred": "승 67%"
+     }
     },
     {
      "no": "7403",
@@ -2019,7 +2079,11 @@
      "actual": "무",
      "why": "모나코 1위 홈강세 툴루즈 무실점0",
      "risk": "브룬너 징계 골로빈 의문",
-     "review": {}
+     "review": {
+      "quad": "오판",
+      "content": "xG 1.23:1.41",
+      "pred": "승 62%"
+     }
     }
    ],
    "odds": 2.76,
@@ -2301,43 +2365,43 @@
      "no": "1",
      "game": "AC밀란 - 볼로냐",
      "time": "2026-10-29 02:30",
-     "pick": "",
-     "prob": null,
-     "analyzed": false,
+     "pick": "승",
+     "prob": 52,
+     "analyzed": true,
      "league": "이탈리아 세리에A",
      "result": "",
      "actual": "",
      "score": "",
      "hit": "",
-     "why": ""
+     "why": "pi-rating 기준선 자동(2026-10-26) — 뉴스·결장 반영 없음, 방향 기록용"
     },
     {
      "no": "2",
      "game": "파르마 - 우디네세",
      "time": "2026-10-29 02:30",
-     "pick": "",
-     "prob": null,
-     "analyzed": false,
+     "pick": "패",
+     "prob": 36,
+     "analyzed": true,
      "league": "이탈리아 세리에A",
      "result": "",
      "actual": "",
      "score": "",
      "hit": "",
-     "why": ""
+     "why": "pi-rating 기준선 자동(2026-10-26) — 뉴스·결장 반영 없음, 방향 기록용"
     },
     {
      "no": "3",
      "game": "제노아 - 유벤투스",
      "time": "2026-10-29 04:45",
-     "pick": "",
-     "prob": null,
-     "analyzed": false,
+     "pick": "패",
+     "prob": 57,
+     "analyzed": true,
      "league": "이탈리아 세리에A",
      "result": "",
      "actual": "",
      "score": "",
      "hit": "",
-     "why": ""
+     "why": "pi-rating 기준선 자동(2026-10-26) — 뉴스·결장 반영 없음, 방향 기록용"
     },
     {
      "no": "4",
@@ -2399,15 +2463,15 @@
      "no": "8",
      "game": "토론토FC - DC유나이",
      "time": "2026-10-29 08:30",
-     "pick": "",
-     "prob": null,
-     "analyzed": false,
+     "pick": "승",
+     "prob": 51,
+     "analyzed": true,
      "league": "미국 메이저리그사커",
      "result": "",
      "actual": "",
      "score": "",
      "hit": "",
-     "why": ""
+     "why": "pi-rating 기준선 자동(2026-10-26) — 뉴스·결장 반영 없음, 방향 기록용"
     },
     {
      "no": "9",
@@ -2499,7 +2563,7 @@
    "hits": 0,
    "scored": false,
    "result": "",
-   "analyzed_n": 0,
+   "analyzed_n": 4,
    "current": true,
    "carry_n": 0,
    "carry_amt": 0,

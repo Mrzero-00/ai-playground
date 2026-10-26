@@ -1,7 +1,7 @@
 import React, { useEffect, useMemo, useRef, useState } from 'react';
 import { ActivityIndicator, Animated, PanResponder, Pressable, RefreshControl, ScrollView, StyleSheet, Text, View } from 'react-native';
 import type { CapsuleSummary, LocationFix } from '../shared/contracts';
-import { capsuleState, filterCapsules, type TimelineFilter } from '../lib/timeline';
+import { capsuleState, filterCapsules, shortDate, type TimelineFilter } from '../lib/timeline';
 import { drawerHeights, mapCenter, snapDrawer } from '../lib/mapHome';
 import type { MapPerspective } from '../lib/mapPresentation';
 import { colors as C } from '../theme';
@@ -68,8 +68,8 @@ export default function CapsuleHome(props: Props) {
         <Pressable accessibilityRole="button" accessibilityLabel="함께 묻기" onPress={props.onGroups} style={s.topAction}><Text style={s.topIcon}>♧</Text><Text style={s.topActionText}>함께</Text></Pressable>
         <Pressable accessibilityRole="button" accessibilityLabel="실험실" onPress={props.onLab} style={s.topAction}><Text style={s.topIcon}>⚙</Text><Text style={s.topActionText}>설정</Text></Pressable>
       </View>
-      <View style={s.mapCaption}><Text style={s.mapCaptionText}>{props.fix ? '마지막으로 확인한 내 위치' : props.capsules.length ? '내 캡슐 주변 지도' : '기본 지도 · 서울'}</Text></View>
-      <View style={s.actions}>
+      {!expanded && <View style={s.mapCaption}><Text style={s.mapCaptionText}>{props.fix ? '마지막으로 확인한 내 위치' : props.capsules.length ? '내 캡슐 주변 지도' : '기본 지도 · 서울'}</Text></View>}
+      {!expanded && <View style={s.actions}>
         <Pressable accessibilityRole="button" accessibilityLabel="캡슐 묻기" onPress={props.onCompose} style={({ pressed }) => [s.bury, pressed && s.pressed]}>
           <Text style={s.buryPlus}>＋</Text><Text style={s.buryText}>캡슐 묻기</Text>
         </Pressable>
@@ -80,8 +80,8 @@ export default function CapsuleHome(props: Props) {
           onPress={() => setPerspective(value => value === 'quarter' ? 'flat' : 'quarter')} style={s.location}>
           <Text style={s.perspectiveText}>{perspective === 'quarter' ? '2D' : '3D'}</Text>
         </Pressable>
-      </View>
-      {locationError && <View style={s.locationError} accessibilityRole="alert"><Text style={s.locationErrorText}>{locationError}</Text><Pressable accessibilityRole="button" accessibilityLabel="위치 안내 닫기" onPress={() => setLocationError(null)} style={s.dismiss}><Text style={s.closeText}>×</Text></Pressable></View>}
+      </View>}
+      {!expanded && locationError && <View style={s.locationError} accessibilityRole="alert"><Text style={s.locationErrorText}>{locationError}</Text><Pressable accessibilityRole="button" accessibilityLabel="위치 안내 닫기" onPress={() => setLocationError(null)} style={s.dismiss}><Text style={s.closeText}>×</Text></Pressable></View>}
       <Animated.View style={[s.drawer, { height: drawer }]} testID="capsule-list-drawer">
         <View {...pan.panHandlers} style={s.dragArea} testID="capsule-list-handle">
           <Pressable accessibilityRole="button" accessibilityLabel={expanded ? '내 캡슐 목록 접기' : '내 캡슐 목록 펼치기'} accessibilityState={{ expanded }}
@@ -91,21 +91,25 @@ export default function CapsuleHome(props: Props) {
           </Pressable>
         </View>
         {expanded && <View accessibilityRole="tablist" style={s.filters}>{filters.map(item => <Pressable key={item.key} accessibilityRole="tab" aria-selected={filter === item.key} accessibilityState={{ selected: filter === item.key }} onPress={() => setFilter(item.key)} style={[s.filter, item.key === filter && s.filterSelected]}><Text style={[s.filterText, item.key === filter && s.filterTextSelected]}>{item.label}</Text></Pressable>)}</View>}
-        <ScrollView style={s.list} contentContainerStyle={s.listContent} scrollEnabled={expanded} refreshControl={expanded ? <RefreshControl refreshing={props.loading} onRefresh={() => void props.onRefresh()} tintColor={C.primary}/> : undefined}>
+        <ScrollView style={s.list} contentContainerStyle={[s.listContent, expanded && s.listContentExpanded]} scrollEnabled={expanded} refreshControl={expanded ? <RefreshControl refreshing={props.loading} onRefresh={() => void props.onRefresh()} tintColor={C.primary}/> : undefined}>
           {props.loading && !props.capsules.length ? <View style={s.empty}><ActivityIndicator color={C.primary}/><Text style={s.emptyHint}>묻어둔 캡슐을 찾고 있어요.</Text></View>
             : !props.serverOk ? <View style={s.empty}><Text style={s.emptyTitle}>캡슐을 불러오지 못했어요</Text>{expanded && props.error && <Text style={s.emptyHint}>{props.error}</Text>}<Pressable accessibilityRole="button" onPress={() => void props.onRefresh()} style={s.retry}><Text style={s.link}>다시 불러오기</Text></Pressable></View>
-              : !visible.length ? <View style={s.empty}><Text style={s.emptyTitle}>{props.capsules.length ? '이 상태의 캡슐은 아직 없어요.' : '아직은 깨끗한 땅이에요.'}</Text><Text style={s.emptyHint}>{props.capsules.length ? '다른 상태를 선택해 보세요.' : '오른쪽 캡슐 묻기로 첫 기억을 남겨요.'}</Text></View>
+              : !visible.length ? <View style={s.empty}><Text style={s.emptyTitle}>{props.capsules.length ? '이 상태의 캡슐은 아직 없어요.' : '아직은 깨끗한 땅이에요.'}</Text><Text style={s.emptyHint}>{props.capsules.length ? '다른 상태를 선택해 보세요.' : expanded ? '아래 캡슐 묻기로 첫 기억을 남겨요.' : '오른쪽 캡슐 묻기로 첫 기억을 남겨요.'}</Text></View>
                 : visible.map(capsule => {
                   const state = capsuleState(capsule, props.now);
                   return <Pressable key={capsule.id} accessibilityRole="button" accessibilityLabel={`${capsule.title}, ${capsule.placeName}, 약속 보기`} onPress={() => props.onSelect(capsule)} style={({ pressed }) => [s.card, pressed && s.pressed]}>
                     <View style={[s.capsuleIcon, state === 'opened' && { backgroundColor: C.peach }]}><CapsuleArt size={54} small/></View>
                     <View style={s.cardCopy}><View style={s.cardHeading}><Text style={s.cardStatus}>{state === 'opened' ? '열어본 캡슐' : state === 'ready' ? '꺼낼 시간이 됐어요' : '기다리는 중'}</Text><Text style={s.party}>{capsule.groupId ? `함께 ${capsule.participantCount}명` : '나 혼자'}</Text></View>
-                      <Text style={s.cardTitle} numberOfLines={1}>{capsule.title}</Text><Text style={s.cardPlace} numberOfLines={1}>{capsule.placeName} · {new Date(capsule.opensAt).toLocaleDateString('ko-KR', { month: 'short', day: 'numeric' })}</Text></View>
+                      <Text style={s.cardTitle} numberOfLines={1}>{capsule.title}</Text><Text style={s.cardPlace} numberOfLines={1}>{shortDate(capsule.opensAt, props.now)} · {capsule.placeName}</Text></View>
                     <Text style={s.chevron}>›</Text>
                   </Pressable>;
                 })}
           {expanded && <><Text style={s.footnote}>시간이 지나도, 묻은 장소에서만 열려요.{ '\n' }공동 캡슐은 약속한 사람 모두 함께.</Text><Pressable accessibilityRole="button" accessibilityLabel="캡슐 목록 새로고침" onPress={() => void props.onRefresh()} style={s.retry}><Text style={s.link}>목록 새로고침</Text></Pressable></>}
         </ScrollView>
+        {expanded && <Pressable accessibilityRole="button" accessibilityLabel="캡슐 묻기" onPress={props.onCompose}
+          style={({ pressed }) => [s.bury, s.drawerBury, pressed && s.pressed]}>
+          <Text style={s.buryPlus}>＋</Text><Text style={s.buryText}>캡슐 묻기</Text>
+        </Pressable>}
       </Animated.View>
     </>}
   </View>;
@@ -126,8 +130,10 @@ const s = StyleSheet.create({
   dragArea: { minHeight: 73 },
   drawerHandle: { paddingHorizontal: 22, paddingTop: 11, paddingBottom: 14, minHeight: 73 }, grabber: { alignSelf: 'center', width: 34, height: 4, borderRadius: 2, backgroundColor: '#CAD8DE', marginBottom: 17 },
   drawerHeading: { flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', gap: 8 }, drawerTitle: { color: C.ink, fontSize: 18, fontWeight: '700' }, count: { color: C.primary, fontWeight: '500' }, drawerHint: { color: C.muted, fontSize: 10 },
-  filters: { flexDirection: 'row', gap: 5, paddingHorizontal: 16, paddingBottom: 13 }, filter: { flex: 1, minHeight: 37, justifyContent: 'center', alignItems: 'center', borderRadius: 10, backgroundColor: '#F0F3F3' }, filterSelected: { backgroundColor: C.sky }, filterText: { fontSize: 11, color: C.muted }, filterTextSelected: { color: C.primary, fontWeight: '700' },
+  filters: { flexDirection: 'row', gap: 5, paddingHorizontal: 16, paddingBottom: 13 }, filter: { flex: 1, minHeight: 44, justifyContent: 'center', alignItems: 'center', borderRadius: 10, backgroundColor: '#F0F3F3' }, filterSelected: { backgroundColor: C.sky }, filterText: { fontSize: 11, color: C.muted }, filterTextSelected: { color: C.primary, fontWeight: '700' },
   list: { flex: 1 }, listContent: { paddingHorizontal: 18, paddingBottom: 18 },
+  listContentExpanded: { paddingBottom: 86 },
+  drawerBury: { position: 'absolute', right: 18, bottom: 18 },
   card: { flexDirection: 'row', alignItems: 'center', gap: 10, paddingVertical: 15, borderBottomWidth: 1, borderBottomColor: C.line }, capsuleIcon: { width: 57, height: 60, borderRadius: 17, alignItems: 'center', justifyContent: 'center', backgroundColor: C.sky },
   cardCopy: { flex: 1 }, cardHeading: { flexDirection: 'row', gap: 7, alignItems: 'center', flexWrap: 'wrap' }, cardStatus: { fontSize: 10, color: C.primary }, party: { fontSize: 10, color: C.muted }, cardTitle: { color: C.ink, fontSize: 15, fontWeight: '600', marginTop: 7 }, cardPlace: { color: C.muted, fontSize: 11, marginTop: 7 }, chevron: { fontSize: 24, color: C.muted },
   empty: { paddingTop: 10, paddingBottom: 14, alignItems: 'center', gap: 9 }, emptyTitle: { color: C.ink, fontSize: 14, fontWeight: '600' }, emptyHint: { color: C.muted, fontSize: 12, lineHeight: 20, textAlign: 'center' },

@@ -1,6 +1,23 @@
 # 기능 검증 기록
 
-이 기록은 개발 Mac에서 수행한 결과와 아직 수행하지 못한 실기기 테스트를 구분한다. 최신 검증일: 2026-09-17.
+이 기록은 개발 Mac에서 수행한 결과와 아직 수행하지 못한 실기기 테스트를 구분한다. 최신 검증일: 2026-10-26.
+
+## 2026-10-26 — 화면 검수와 AR 준비 상태 점검
+
+화면 쪽을 393·320 너비에서 직접 눌러 보며 검수하고, 실기기 AR을 시작하기 전에 네이티브 준비 상태를 확인했다.
+
+- `scripts/ui-review.cjs`를 추가해 두 너비에서 가로 스크롤·요소 겹침·가려진 조작·44px 미만 터치 영역을 훑었다. **고치기 전 42건, 고친 뒤 0건.** 브라우저 오류·경고 0개.
+- 가장 큰 것은 서랍을 펼쳤을 때 `캡슐 묻기`·현재 위치·2D 가 서랍 뒤로 들어가 **보이지도 눌리지도 않던 것**이다. Playwright 가 `drawer subtree intercepts pointer events` 로 클릭에 실패했다. 펼친 동안 지도 조작을 걷어내고 기본 동작만 서랍 안에 띄우도록 바꿨다. 같은 상태에서 지도 캡션 칩이 OpenStreetMap 저작자 표시를 덮던 것도 함께 고쳤다.
+- 목록·상세 날짜에 연도가 없어 300일 뒤 캡슐이 `8월 22일` 로만 보이던 것, 이미 열어본 캡슐의 상세가 `두지가 지키는 중` 이라고 하던 것, 봉인·모임 버튼이 이유 없이 회색이던 것을 고쳤다. 필터 탭 37px → 44px.
+- `npm run check`: 타입 검사와 **72/72 통과**. `check-map-home.cjs`, `check-capsule-composer.cjs`, `check-group-ui.cjs` 모두 재통과.
+- `npx expo export --platform all`: 웹·iOS·Android 번들 통과. 화면 수정이 네이티브 번들을 깨지 않았다.
+- `npx expo prebuild` + `pod install`: **ViroKit 1.0 · ViroReact 2.57.3 포함 108개 pod 설치 성공.** AR 네이티브 의존성은 정상적으로 해결된다.
+- 생성된 `Info.plist` 에서 Expo·Viro 기본값으로 들어가던 영어 안내문 세 개를 걷어냈다. `NSLocationAlwaysUsageDescription`·`NSLocationAlwaysAndWhenInUseUsageDescription` 은 앱이 한 번도 요청하지 않으므로 제거했고, `NSPhotoLibraryAddUsageDescription`·`NSFaceIDUsageDescription` 은 각각 한국어로 바꾸거나 제거했다. 지금 Info.plist 에는 카메라·위치(사용 중)·마이크·사진·사진 저장·로컬 네트워크만 남는다.
+- Android 매니페스트는 `com.google.ar.core = optional` 과 카메라·자이로 `required=false` 다. 코드가 `isARSupportedOnDevice()` 로 미지원 기기를 안내하므로 이 조합이 맞다.
+
+**이번에도 실기기 AR은 검증하지 못했다.** 이 Mac 에 연결된 iPhone 과 Android 기기가 없고(`npm run doctor`: `iPhone 연결: No devices found`), ARKit 은 시뮬레이터에서 동작하지 않는다. `npm run ios:check` 의 네이티브 컴파일도 Xcode 26.1.1 에 **iOS 26.1 플랫폼 구성요소가 설치되어 있지 않아** 중단됐다(`iOS 26.1 is not installed. Please download and install the platform from Xcode > Settings > Components`). prebuild 와 pod install 까지는 통과했다.
+
+실기기 AR 을 진행하려면 순서대로: ① Xcode > Settings > Components 에서 iOS 26.1 설치 → ② `npm run ios:check` 로 서명 없이 컴파일 확인 → ③ iPhone 연결·개발자 모드·기기 신뢰 → ④ `npm run server`, `npm start`, `npm run ios` → ⑤ [실기기 테스트 절차](DEVICE_TEST.md). 웹 검사 통과를 AR 성공으로 표현하지 않는다.
 
 ## 2026-09-17 — 포켓몬고를 참고한 쿼터뷰 시점
 

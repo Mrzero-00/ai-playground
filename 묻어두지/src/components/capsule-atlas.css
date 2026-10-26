@@ -34,7 +34,7 @@
   .dooji-capsule-float, .dooji-capsule-shadow { animation: none; }
 }
 .dooji-map-credits { position: absolute; z-index: 10; left: 8px; padding: 3px 6px; border-radius: 4px; background: #fffefaeF; font: 10px/15px system-ui, sans-serif; color: #354a52; }
-.dooji-map-credits a { color: #316c85; text-decoration: underline; }
+.dooji-map-credits a { color: #316c85; text-decoration: underline; display: inline-block; padding: 5px 3px; margin: -5px 0; }
 .dooji-map-message { position: absolute; z-index: 10; top: 44%; left: 20px; right: 20px; padding: 14px; border-radius: 12px; background: #fffefa; color: #354a52; font: 13px/21px system-ui, sans-serif; }
 .dooji-map-message button { display: block; margin-top: 10px; min-height: 44px; border: 0; background: #edf5f8; color: #316c85; border-radius: 8px; padding: 10px 14px; cursor: pointer; }
 [data-testid="capsule-list-handle"] { touch-action: none; }

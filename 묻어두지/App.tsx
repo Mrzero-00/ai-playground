@@ -14,6 +14,7 @@ import CapsuleAR from './src/components/CapsuleAR';
 import CapsuleComposer from './src/components/CapsuleComposer';
 import OpenedMedia from './src/components/OpenedMedia';
 import GroupLobby from './src/components/GroupLobby';
+import { fullDateTime } from './src/lib/timeline';
 import { useAttendance } from './src/lib/useAttendance';
 import { api, API_URL, ApiError } from './src/lib/api';
 import { currentLocation } from './src/lib/location';
@@ -24,7 +25,7 @@ import { MAX_LOCATION_ACCURACY_METERS, type CapsuleGroup, type CapsuleCreateResp
 type Screen = 'home' | 'compose' | 'detail' | 'opened' | 'lab' | 'sealing' | 'groups';
 const durations = [{ label: '15초', value: 15 }, { label: '1분', value: 60 }, { label: '5분', value: 300 }, { label: '하루', value: 86400 }, { label: '30일', value: 2592000 }];
 const errorText = (error: unknown) => error instanceof Error ? error.message : '잠시 후 다시 시도해 주세요.';
-const dateLabel = (date: string) => new Date(date).toLocaleString('ko-KR', { month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit' });
+const dateLabel = (date: string, now: number = Date.now()) => fullDateTime(date, now);
 function remainingLabel(opensAt: string, now: number) {
   const seconds = Math.max(0, Math.ceil((Date.parse(opensAt) - now) / 1000));
   if (seconds === 0) return '만날 시간이 됐어요';
@@ -284,6 +285,12 @@ function Mudeoduji() {
     } finally { operation.current = false; setBusy(false); }
   };
 
+  const sealBlocker = recordingBusy ? '녹음을 끝낸 뒤 봉인할 수 있어요.'
+    : !title.trim() ? '캡슐 이름을 적으면 묻을 수 있어요.'
+      : !letter.trim() && !photo && !audio && !video ? '편지·사진·음성·영상 중 하나 이상을 담아 주세요.'
+        : groupMode && !draftGroup ? '함께 열 모임을 먼저 골라 주세요.'
+          : groupMode && draftGroup && draftGroup.members.length !== draftGroup.expectedCount ? `${draftGroup.expectedCount}명 전원이 참여한 뒤에 봉인할 수 있어요. 지금 ${draftGroup.members.length}명이에요.`
+            : null;
   const back = () => navigate(screen === 'opened' ? 'detail' : 'home');
   return <SafeAreaView style={styles.safe}>
     <StatusBar style="dark" />
@@ -346,13 +353,14 @@ function Mudeoduji() {
             <View style={styles.durationRow}>{durations.map(item => <Pressable key={item.value} accessibilityRole="radio" aria-checked={duration === item.value} accessibilityState={{ checked: duration === item.value }} onPress={() => setDuration(item.value)} style={[styles.duration, duration === item.value && styles.durationSelected]}><Text style={[styles.durationText, duration === item.value && styles.durationTextSelected]}>{item.label}</Text></Pressable>)}</View>
             <View style={styles.note}><Text style={styles.noteText}>봉인한 순간부터 시간을 세어요. 개봉 시간이 지나면 이곳의 반경 50m 안에서 AR로 열 수 있어요.</Text></View>
             {lastFix && <Text style={styles.fieldHint}>마지막 위치 정확도 · 약 {Math.round(lastFix.accuracy)}m</Text>}
-            <Button onPress={startBury} loading={busy} disabled={recordingBusy || !title.trim() || (!letter.trim() && !photo && !audio && !video) || (groupMode && (!draftGroup || draftGroup.members.length !== draftGroup.expectedCount))}>현재 장소에서 AR로 묻기  ↗</Button>
+            <Button onPress={startBury} loading={busy} disabled={!!sealBlocker}>현재 장소에서 AR로 묻기  ↗</Button>
+            {sealBlocker && <Text accessibilityLiveRegion="polite" style={styles.fieldHint}>{sealBlocker}</Text>}
             {Platform.OS === 'web' && <Text style={styles.webNote}>화면 미리보기예요. 실제 AR 봉인은 아이폰·안드로이드 개발 빌드에서 진행해요.</Text>}
           </>}
 
           {screen === 'detail' && selected && <>
-            <Text style={styles.pageEyebrow}>두지가 지키는 중</Text><Text style={styles.pageTitle}>{selected.title}</Text>
-            <Text style={styles.description}>{selected.placeName}에 묻었어요. 두지도 내용은 몰라요.</Text>
+            <Text style={styles.pageEyebrow}>{selected.openedAt ? '한 번 꺼내본 약속' : '두지가 지키는 중'}</Text><Text style={styles.pageTitle}>{selected.title}</Text>
+            <Text style={styles.description}>{selected.placeName}에 묻었어요. {selected.openedAt ? '꺼내본 내용은 앱에 남기지 않아서, 다시 보려면 이곳에서 조건을 또 확인해요.' : '두지도 내용은 몰라요.'}</Text>
             {selected.groupId && <View style={styles.labPanel}>
               <Text style={styles.labTitle}>우리 {selected.participantCount}명, 모두 모이면</Text>
               <Text style={styles.labBody}>각자 이 캡슐을 열고 ‘함께 열기 참여’를 눌러 주세요. 반경 {selected.radiusMeters}m 안에 전원이 있어야 꺼낼 수 있어요.</Text>
@@ -364,18 +372,18 @@ function Mudeoduji() {
               {attendance.participating && <Button secondary onPress={() => { attendance.stop(); setGate(null); }}>참석 확인 그만하기</Button>}
             </View>}
             {notice && <View style={styles.success}><Text style={styles.successText}>{notice}</Text></View>}
-            <View style={styles.sealedArt}><CapsuleArt size={205}/><Text style={styles.sealedBadge}>{remainingLabel(selected.opensAt, now)}</Text></View>
-            <View style={styles.details}><View style={styles.detailLine}><Text style={styles.detailKey}>다시 만날 날</Text><Text style={styles.detailValue}>{dateLabel(selected.opensAt)}</Text></View><View style={styles.detailLine}><Text style={styles.detailKey}>묻은 날</Text><Text style={styles.detailValue}>{dateLabel(selected.createdAt)}</Text></View><View style={styles.detailLine}><Text style={styles.detailKey}>열 수 있는 곳</Text><Text style={styles.detailValue}>묻은 위치에서 {selected.radiusMeters}m 이내</Text></View></View>
+            <View style={styles.sealedArt}><CapsuleArt size={205}/><Text style={styles.sealedBadge}>{selected.openedAt ? '열어본 캡슐' : remainingLabel(selected.opensAt, now)}</Text></View>
+            <View style={styles.details}><View style={styles.detailLine}><Text style={styles.detailKey}>다시 만날 날</Text><Text style={styles.detailValue}>{dateLabel(selected.opensAt, now)}</Text></View><View style={styles.detailLine}><Text style={styles.detailKey}>묻은 날</Text><Text style={styles.detailValue}>{dateLabel(selected.createdAt, now)}</Text></View>{selected.openedAt && <View style={styles.detailLine}><Text style={styles.detailKey}>열어본 날</Text><Text style={styles.detailValue}>{dateLabel(selected.openedAt, now)}</Text></View>}<View style={styles.detailLine}><Text style={styles.detailKey}>열 수 있는 곳</Text><Text style={styles.detailValue}>묻은 위치에서 {selected.radiusMeters}m 이내</Text></View></View>
             <SectionLabel>다시 찾아올 장소</SectionLabel><CapsuleMap latitude={selected.latitude} longitude={selected.longitude} radius={selected.radiusMeters} title={selected.placeName}/>
             <View style={styles.note}><Text style={styles.noteText}>내용은 개봉 조건을 확인한 뒤에만 불러와요. 봉인한 편지·사진·음성·영상은 지금 볼 수 없어요.</Text></View>
             {gate && <View accessibilityLiveRegion="polite" style={gate.eligible ? styles.success : styles.note}><Text style={styles.noteText}>{gateMessage(gate)}</Text></View>}
-            <Button onPress={checkOpen} loading={busy}>{selected.groupId ? attendance.participating ? gate?.eligible ? '모두 모였어요 · AR로 꺼내기  ↗' : '참석 상태 다시 확인' : '함께 열기 참여' : Date.parse(selected.opensAt) > now ? '개봉 조건 확인하기' : '이곳에서 AR로 꺼내기  ↗'}</Button>
+            <Button onPress={checkOpen} loading={busy}>{selected.groupId ? attendance.participating ? gate?.eligible ? '모두 모였어요 · AR로 꺼내기  ↗' : '참석 상태 다시 확인' : '함께 열기 참여' : Date.parse(selected.opensAt) > now ? '개봉 조건 확인하기' : selected.openedAt ? '이곳에서 다시 꺼내보기  ↗' : '이곳에서 AR로 꺼내기  ↗'}</Button>
             <Text style={styles.webNote}>현재 위치와 개봉 시간은 서버에서 다시 확인해요.</Text>
           </>}
 
           {screen === 'opened' && opened && <>
             <Text style={styles.pageEyebrow}>드디어 꺼내봤지</Text><Text style={styles.pageTitle}>이걸 내가 썼다고요?</Text>
-            <Text style={styles.description}>{dateLabel(opened.capsule.createdAt)}의 내가 남겼어요.</Text>
+            <Text style={styles.description}>{dateLabel(opened.capsule.createdAt, now)}의 내가 남겼어요.</Text>
             {opened.content.photo && <Image source={{ uri: `data:${opened.content.photo.mimeType};base64,${opened.content.photo.base64}` }} style={styles.openedPhoto} resizeMode="contain"/>}
             {opened.content.audio && <OpenedMedia key={`${opened.capsule.id}-audio`} kind="audio" attachment={opened.content.audio}/>}
             {opened.content.video && <OpenedMedia key={`${opened.capsule.id}-video`} kind="video" attachment={opened.content.video}/>}
@@ -387,7 +395,7 @@ function Mudeoduji() {
           {screen === 'lab' && <>
             <Text style={styles.pageEyebrow}>작은 삽부터 시험 중</Text><Text style={styles.pageTitle}>두지의 실험실</Text>
             <Text style={styles.description}>실제 위치와 AR이 잘 연결되는지 확인해요.{ '\n' }개인 사진 대신 테스트 자료를 담아 주세요.</Text>
-            <View style={styles.labPanel}><Text style={styles.labTitle}>서버 연결</Text><Text style={styles.labValue}>{serverOk ? '연결되어 있어요' : '연결을 확인해 주세요'}</Text><Text selectable style={styles.endpoint}>{API_URL}</Text><Button secondary loading={busy} onPress={() => void act(async () => { const result = await api.health(); syncClock(result.serverNow); setServerOk(result.ok); setLabMessage(`서버 응답 확인 · ${dateLabel(result.serverNow)}`); })}>연결 확인</Button></View>
+            <View style={styles.labPanel}><Text style={styles.labTitle}>서버 연결</Text><Text style={styles.labValue}>{serverOk ? '연결되어 있어요' : '연결을 확인해 주세요'}</Text><Text selectable style={styles.endpoint}>{API_URL}</Text><Button secondary loading={busy} onPress={() => void act(async () => { const result = await api.health(); syncClock(result.serverNow); setServerOk(result.ok); setLabMessage(`서버 응답 확인 · ${dateLabel(result.serverNow, now)}`); })}>연결 확인</Button></View>
             <View style={styles.labPanel}><Text style={styles.labTitle}>현재 위치</Text><Text style={styles.labValue}>{lastFix ? `오차 약 ${Math.round(lastFix.accuracy)}m` : '아직 확인하지 않았어요'}</Text>{lastFix && <Text selectable style={styles.endpoint}>{lastFix.latitude.toFixed(6)}, {lastFix.longitude.toFixed(6)}</Text>}<Button secondary loading={busy} onPress={() => void act(async () => { const fix = await currentLocation(); setLastFix(fix); setLabMessage(`위치를 확인했어요. 오차 ${MAX_LOCATION_ACCURACY_METERS}m 이하에서 봉인할 수 있어요.`); })}>실제 위치 확인</Button></View>
             {labMessage && <View style={styles.success}><Text style={styles.successText}>{labMessage}</Text></View>}
             <View style={styles.labPanel}><Text style={styles.labTitle}>이번 실험의 범위</Text><Text style={styles.labBody}>• 개인 캡슐 또는 2~20명 공동 캡슐{ '\n' }• 편지와 사진·음성·영상 각 1개{ '\n' }• 초대 코드 참여와 봉인 후 명단 고정{ '\n' }• 공동 개봉 시 전원 참석 재검사{ '\n' }• 개봉 시간 + 반경 50m 확인{ '\n' }• 현장 바닥에 AR 캡슐 배치</Text><Text style={styles.fieldHint}>AR·녹음·미디어 재생은 휴대폰 개발 빌드에서 확인해야 해요. 예전에 놓았던 바닥의 정확한 한 점을 복원하지는 않아요.</Text></View>

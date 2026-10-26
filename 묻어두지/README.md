@@ -49,6 +49,7 @@
 - 위치 확인 전에는 첫 캡슐 주변 또는 ‘기본 지도 · 서울’을 보여준다. 기본 좌표를 내 위치라고 표시하지 않는다. 현재 위치 버튼의 결과는 일회성 측정이며 실시간 추적이 아니다.
 - 캡슐이 있으면 가까운 주변을 확대해 보여준다. 그림만 위아래로 움직이고 바닥 표시와 저장 좌표는 고정된다. 매우 가까운 캡슐은 확대하거나 아래 목록에서 선택한다. 같은 좌표 캡슐의 자동 묶음/펼치기는 아직 없다.
 - 웹의 지도 서버에는 화면에 보이는 지역의 타일 요청이 전달된다. 캡슐 본문·제목·명단·인증 토큰을 지도 서버에 보내지는 않는다. 운영 시 지도 제공자 및 위치 정보 고지를 별도로 확정해야 한다.
+- 오른쪽 플로팅 버튼 뒤로 캡슐 말풍선이 지나갈 수 있다. 특히 320px 너비에서는 버튼 줄이 화면의 3분의 1을 차지해 `299일 23시간 48분 02초` 같은 긴 카운트다운이 가려진다. 지도 앱에서 흔한 동작이라 그대로 두었고, 가려지면 확대하거나 아래 목록에서 캡슐을 고른다. 고치려면 지도 카메라에 오른쪽 padding 을 주어 재중심 때 캡슐이 버튼 아래로 가지 않게 해야 한다.
 - 지도 출처는 서랍 위에 표시한다. 자동 UI 검사에는 외부 타일 대신 표시된 테스트 대역을 사용하며, 대량 수집/오프라인 다운로드는 구현하지 않는다. 공용 서버의 운영 제한과 보장 범위는 [OpenStreetMap 타일 정책](https://operations.osmfoundation.org/policies/tiles/)을 따른다.
 - 지도 모듈/worker는 설치한 패키지에서 `public/maplibre/<version>/`으로 준비하여 같은 서버에서 제공한다. `npm install`, `npm start`, `npm run web`, `npm run export`에서 자동 준비하며, `--ignore-scripts` 설치 또는 직접 Expo 명령 사용 전에는 `npm run prepare:map`을 실행한다. 웹 내보내기는 `npm run export -- --output-dir dist-preview`를 사용한다. WebGL/지도 연결 실패 시 안내와 다시 불러오기를 표시하며 캡슐 목록은 계속 사용할 수 있다.
 
@@ -118,6 +119,16 @@ npm run android
 
 앱 내부 Google 지도를 사용하려면 `.env`에 `EXPO_PUBLIC_GOOGLE_MAPS_API_KEY`를 넣고 재빌드한다. 키가 없어도 위치 측정/거리 확인/AR 코드 테스트 경로는 사용할 수 있고, 장소 요약에서 외부 지도 앱을 열 수 있다. Android 실기기 동작은 별도 검증해야 한다.
 
+## 배포 경로
+
+AR이 핵심이라 **독립 앱(App Store·Play)** 을 기본 경로로 본다. 같은 저장소의 다른
+프로젝트가 쓰는 앱인토스는 서드파티 네이티브 모듈을 넣을 수 없고 AR·실시간 카메라·지도·
+녹음·영상 API를 제공하지 않아 지금의 묻어두지를 올릴 수 없다. 미니앱을 독립 앱의 입구로
+쓰는 것도 정책상 금지다. 근거와 선택지는 [앱인토스 배포 가능성 검토](docs/APPS_IN_TOSS.md)
+에 정리했다.
+
+아래 Vercel 배포는 출시 경로가 아니라 화면 확인용이다.
+
 ## 웹 미리보기 배포 (Vercel)
 
 화면 확인용 웹 빌드만 Vercel `mudeodooji` 프로젝트로 올린다. **AR 봉인/개봉과 PoC 서버는 배포본에 없다.** 서버는 로컬/LAN 전용이므로 배포된 웹에서 캡슐 목록·봉인·개봉 요청은 실패한다. 배포본을 기능 검증 완료로 표현하지 않는다.
@@ -143,6 +154,19 @@ node --import tsx scripts/smoke-mvp.ts
 npx expo export --platform all --output-dir dist --max-workers 2
 npm run prebuild
 ```
+
+화면 검사는 `scripts/check-map-home.cjs`, `check-capsule-composer.cjs`, `check-group-ui.cjs`, `ui-review.cjs` 네 개다. 앞의 세 개는 정해진 흐름을 확인하고, `ui-review.cjs`는 393·320 너비에서 가로 스크롤·겹침·가려진 조작·44px 미만 터치 영역을 훑는다. 네 개 모두 `playwright`와 `sharp`가 필요한데 **`package.json`에 넣지 않았다**. Vercel 의 `npm ci`가 devDependencies까지 설치해 배포 때마다 Chromium을 내려받기 때문이다. 검사 전에만 따로 설치한다.
+
+```sh
+mkdir -p /tmp/mudeoduji-ui && (cd /tmp/mudeoduji-ui && PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD=1 npm install playwright sharp)
+ln -sfn /tmp/mudeoduji-ui/node_modules/playwright node_modules/playwright
+ln -sfn /tmp/mudeoduji-ui/node_modules/sharp node_modules/sharp
+npm run build:web && npx serve -s dist -l 8082 &
+npm run server &            # ui-review.cjs 만 실제 서버가 필요하다
+REVIEW_TOKEN=<세션 토큰> node scripts/ui-review.cjs
+```
+
+브라우저는 설치된 Chrome 을 쓴다(`CHROME_PATH`). 지도 타일은 공개 OSM 서버 대신 `scripts/map-test-fixtures.cjs`의 표시된 테스트 대역을 쓴다.
 
 자동 검사는 시간·거리·권한·저장·재전송 규칙을 확인한다. 카메라가 바닥을 안정적으로 인식하는지와 실제 GPS 오차는 자동 검사로 대체할 수 없다. [실기기 테스트 절차](docs/DEVICE_TEST.md), [검증 기록](docs/VERIFICATION.md)을 참고한다.
 

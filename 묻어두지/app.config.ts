@@ -34,9 +34,18 @@ const config: ExpoConfig = {
   web: { name: '묻어두지 · 기능 검증', bundler: 'metro' },
   plugins: [
     'expo-dev-client',
-    'expo-secure-store',
+    // The session token is stored without biometrics, so no Face ID prompt exists.
+    ['expo-secure-store', { configureAndroidBackup: true, faceIDPermission: false }],
     ['expo-camera', { cameraPermission: '캡슐을 묻고 다시 찾을 때 AR 카메라를 사용해요.', recordAudioAndroid: false }],
-    ['expo-location', { locationWhenInUsePermission: '캡슐을 묻은 장소를 기록하고, 같은 장소에 돌아왔는지 확인해요.' }],
+    // The app only ever asks while in use. Leaving the Always keys in ships
+    // Expo's English placeholder text and declares access we never request.
+    ['expo-location', {
+      locationWhenInUsePermission: '캡슐을 묻은 장소를 기록하고, 같은 장소에 돌아왔는지 확인해요.',
+      locationAlwaysPermission: false,
+      locationAlwaysAndWhenInUsePermission: false,
+      isIosBackgroundLocationEnabled: false,
+      isAndroidBackgroundLocationEnabled: false,
+    }],
     ['expo-image-picker', {
       photosPermission: '타임캡슐에 담을 사진과 영상을 선택해요.',
       cameraPermission: '캡슐을 묻고 다시 찾을 때 AR 카메라를 사용해요.',
@@ -47,6 +56,9 @@ const config: ExpoConfig = {
       ios: {
         cameraUsagePermission: '캡슐을 묻고 다시 찾을 때 AR 카메라를 사용해요.',
         photosPermission: '타임캡슐에 담을 사진과 영상을 선택해요.',
+        // Viro fills this with English placeholder text when it is left out.
+        savePhotosPermission: '꺼내본 캡슐의 사진을 기기에 저장할 때 사용해요.',
+        microphoneUsagePermission: '미래에 전할 목소리를 녹음할 때 마이크를 사용해요.',
       },
     }],
     ['expo-audio', {

@@ -144,6 +144,19 @@ npx expo export --platform all --output-dir dist --max-workers 2
 npm run prebuild
 ```
 
+화면 검사는 `scripts/check-map-home.cjs`, `check-capsule-composer.cjs`, `check-group-ui.cjs`, `ui-review.cjs` 네 개다. 앞의 세 개는 정해진 흐름을 확인하고, `ui-review.cjs`는 393·320 너비에서 가로 스크롤·겹침·가려진 조작·44px 미만 터치 영역을 훑는다. 네 개 모두 `playwright`와 `sharp`가 필요한데 **`package.json`에 넣지 않았다**. Vercel 의 `npm ci`가 devDependencies까지 설치해 배포 때마다 Chromium을 내려받기 때문이다. 검사 전에만 따로 설치한다.
+
+```sh
+mkdir -p /tmp/mudeoduji-ui && (cd /tmp/mudeoduji-ui && PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD=1 npm install playwright sharp)
+ln -sfn /tmp/mudeoduji-ui/node_modules/playwright node_modules/playwright
+ln -sfn /tmp/mudeoduji-ui/node_modules/sharp node_modules/sharp
+npm run build:web && npx serve -s dist -l 8082 &
+npm run server &            # ui-review.cjs 만 실제 서버가 필요하다
+REVIEW_TOKEN=<세션 토큰> node scripts/ui-review.cjs
+```
+
+브라우저는 설치된 Chrome 을 쓴다(`CHROME_PATH`). 지도 타일은 공개 OSM 서버 대신 `scripts/map-test-fixtures.cjs`의 표시된 테스트 대역을 쓴다.
+
 자동 검사는 시간·거리·권한·저장·재전송 규칙을 확인한다. 카메라가 바닥을 안정적으로 인식하는지와 실제 GPS 오차는 자동 검사로 대체할 수 없다. [실기기 테스트 절차](docs/DEVICE_TEST.md), [검증 기록](docs/VERIFICATION.md)을 참고한다.
 
 `smoke-mvp.ts`는 기존 사용자 DB와 분리된 임시 DB에서 실제 15초를 기다려 편지·사진·음성·영상의 왕복, 시간/위치/소유권 차단, 재시작, 중복 방지를 확인한다. 테스트가 만든 임시 DB만 종료 시 정리하고 요약은 `.build/mvp-check/api-smoke.json`에 남긴다.

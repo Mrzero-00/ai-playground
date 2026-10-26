@@ -59,6 +59,7 @@ export default function GroupLobby({ onChoose, onOpen }: {
         const result = await api.createGroup(title.trim(), Number(count), name.trim());
         if (mounted.current) setGroups(previous => [result.group, ...previous.filter(g => g.id !== result.group.id)]);
       }), !name.trim() || !title.trim())}
+      {(!name.trim() || !title.trim()) && <Text accessibilityLiveRegion="polite" style={styles.fieldHint}>{!name.trim() ? '모임에서 부를 내 이름을 먼저 적어 주세요.' : '모임 이름을 적으면 초대 코드를 만들 수 있어요.'}</Text>}
     </View>
     <View style={styles.labPanel}>
       <Text style={styles.labTitle}>초대받은 모임 참여하기</Text>
@@ -68,6 +69,7 @@ export default function GroupLobby({ onChoose, onOpen }: {
         if (mounted.current) setCode('');
         await refresh();
       }), !name.trim() || code.length !== 12, true)}
+      {(!name.trim() || code.length !== 12) && <Text accessibilityLiveRegion="polite" style={styles.fieldHint}>{!name.trim() ? '모임에서 부를 내 이름을 먼저 적어 주세요.' : `초대 코드 12자리를 모두 입력해 주세요. 지금 ${code.length}자리예요.`}</Text>}
     </View>
     <View style={styles.listHeader}><Text style={styles.sectionLabel}>참여 중인 모임</Text>{busy && <ActivityIndicator color={C.primary}/>}</View>
     {button('모임 새로고침', () => void run(refresh), false, true)}
@@ -78,7 +80,7 @@ export default function GroupLobby({ onChoose, onOpen }: {
       <Text style={styles.labBody}>{group.members.map(m => `${m.name}${m.isMe ? ' (나)' : ''}`).join(' · ')}</Text>
       {group.inviteCode && <><Text style={styles.fieldHint}>길게 눌러 복사할 수 있어요</Text><Text selectable accessibilityLabel={`초대 코드 ${group.inviteCode}`} style={styles.endpoint}>{group.inviteCode}</Text></>}
       {group.capsuleId ? button('묻어둔 캡슐 보기', () => onOpen(group.capsuleId!), false, true)
-        : group.isHost ? button('이 모임의 캡슐 담기', () => onChoose(group), group.members.length !== group.expectedCount)
+        : group.isHost ? <>{button('이 모임의 캡슐 담기', () => onChoose(group), group.members.length !== group.expectedCount)}{group.members.length !== group.expectedCount && <Text style={styles.fieldHint}>{group.expectedCount}명 전원이 참여하면 내용을 담을 수 있어요. 지금 {group.members.length}명이에요.</Text>}</>
           : <Text style={styles.fieldHint}>모임을 만든 사람이 내용을 담고 봉인하면 내 약속에도 나타나요.</Text>}
     </View>)}
     <Text style={styles.webNote}>MVP는 기기별 세션으로 참여자를 구분해요. 앱 데이터 삭제·재설치 시 기존 참여 자격을 복구하는 기능은 아직 없어요.</Text>

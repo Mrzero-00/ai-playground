@@ -12,6 +12,7 @@
     "prestart": "npm run prepare:map",
     "preweb": "npm run prepare:map",
     "export": "npm run prepare:map && expo export --platform all",
+    "build:web": "npm run prepare:map && expo export --platform web --output-dir dist",
     "start": "expo start --dev-client",
     "web": "expo start --web --port 8081",
     "ios": "bash scripts/ios.sh",

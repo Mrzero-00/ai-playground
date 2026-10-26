@@ -118,6 +118,23 @@ npm run android
 
 앱 내부 Google 지도를 사용하려면 `.env`에 `EXPO_PUBLIC_GOOGLE_MAPS_API_KEY`를 넣고 재빌드한다. 키가 없어도 위치 측정/거리 확인/AR 코드 테스트 경로는 사용할 수 있고, 장소 요약에서 외부 지도 앱을 열 수 있다. Android 실기기 동작은 별도 검증해야 한다.
 
+## 웹 미리보기 배포 (Vercel)
+
+화면 확인용 웹 빌드만 Vercel `mudeodooji` 프로젝트로 올린다. **AR 봉인/개봉과 PoC 서버는 배포본에 없다.** 서버는 로컬/LAN 전용이므로 배포된 웹에서 캡슐 목록·봉인·개봉 요청은 실패한다. 배포본을 기능 검증 완료로 표현하지 않는다.
+
+```sh
+npm run build:web
+```
+
+`prepare:map` 후 `expo export --platform web --output-dir dist`를 실행한다. `public/maplibre/<version>/`도 함께 내보낸다.
+
+빌드 설정은 `vercel.json`에 두고, Vercel 프로젝트의 Root Directory는 `묻어두지`, 프로덕션 브랜치는 `main`이다.
+
+- 한 저장소에 여러 프로젝트가 붙어 있어 다른 폴더만 고친 푸시에도 빌드가 돌았다. Ignored Build Step을 Root Directory 기준으로 둔다.
+  `git diff --quiet HEAD^ HEAD -- .` (0=건너뜀, 1=빌드)
+- 자동 루프가 하루 수십 번 푸시하는 `pacu` 브랜치는 `git.deploymentEnabled`로 끈다.
+- 묻어두지 폴더가 `main`에 있어야 프로덕션 배포가 동작한다. 작업 브랜치에서만 고치면 배포되지 않는다.
+
 ## 검사
 
 ```sh

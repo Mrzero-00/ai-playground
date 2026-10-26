@@ -4,7 +4,7 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 
 import { Capsule } from '@/components/capsule';
 import { Icon } from '@/components/icons';
-import { Button, Card, Content, Page, Tag } from '@/components/ui';
+import { Button, Card, Content, IconButton, Page, Tag } from '@/components/ui';
 import { Colors, Fonts, Radius, Spacing, Stroke, offsetShadow } from '@/constants/theme';
 import {
   MAX_ITEMS_PER_MEMBER,
@@ -36,9 +36,12 @@ export default function HomeScreen() {
           <Content style={styles.content}>
             <View style={styles.header}>
               <Text style={styles.brand}>묻어두지</Text>
-              <Pressable accessibilityRole="button" accessibilityLabel="내 계정" style={[styles.account, offsetShadow(3)]}>
-                <Text style={styles.accountLabel}>상</Text>
-              </Pressable>
+              <View style={styles.headerActions}>
+                <IconButton name="people" label="우리 동네 지도" onPress={() => router.push('/map')} />
+                <Pressable accessibilityRole="button" accessibilityLabel="내 계정" style={[styles.account, offsetShadow(3)]}>
+                  <Text style={styles.accountLabel}>상</Text>
+                </Pressable>
+              </View>
             </View>
 
             {hero && <HeroCard capsule={hero.capsule} status={hero.status} now={now} />}
@@ -141,6 +144,7 @@ const styles = StyleSheet.create({
   scroll: { flexGrow: 1 },
   content: { gap: Spacing.xl, paddingTop: Spacing.md, paddingBottom: Spacing.lg },
   header: { flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between' },
+  headerActions: { flexDirection: 'row', alignItems: 'center', gap: Spacing.sm },
   brand: { fontFamily: Fonts.display, fontSize: 28, color: Colors.ink },
   account: { width: 42, height: 42, borderRadius: 21, backgroundColor: Colors.yellow, borderWidth: Stroke.regular, borderColor: Colors.ink, alignItems: 'center', justifyContent: 'center' },
   accountLabel: { fontFamily: Fonts.display, fontSize: 15, color: Colors.ink },

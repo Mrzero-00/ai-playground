@@ -41,4 +41,10 @@ example
 # generated native folders
 /ios
 /android
-.vercel
+
+# served MapLibre modules, copied from node_modules on install
+public/maplibre/
+.data/
+
+# local check output (screenshots, logs)
+.build/

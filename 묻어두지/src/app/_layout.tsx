@@ -26,6 +26,7 @@ export default function RootLayout() {
       <StatusBar style="dark" />
       <Stack screenOptions={{ headerShown: false, contentStyle: { backgroundColor: Colors.cream } }}>
         <Stack.Screen name="index" />
+        <Stack.Screen name="map" />
         <Stack.Screen name="create" />
         <Stack.Screen name="capsule/[id]/index" />
         <Stack.Screen name="capsule/[id]/add/[kind]" options={{ presentation: 'modal' }} />

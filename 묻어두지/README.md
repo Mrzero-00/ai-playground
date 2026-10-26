@@ -30,6 +30,8 @@ Expo SDK 57 기반 로컬 프로토타입. 1차 범위(시간 잠금 타임캡�
 - 웹에서는 AR 대신 GPS만 쓰는 대체 화면(`*.web.tsx`)이 뜬다. AR은 연출이지 잠금 조건이 아니다.
 - **Expo Go에서는 동작하지 않는다.** `npx expo prebuild` 후 `npx expo run:ios` / `run:android` 개발 빌드가 필요하다(iOS 15.1+, ARKit; Android ARCore 지원 기기).
 - 지오 앵커(위·경도에 고정)는 ReactVision Platform 키가 필요해 아직 붙이지 않았다. 지금은 GPS 반경 판정 + 카메라 앞 표시까지다.
+- `map`: 우리 동네 지도. 심은 캡슐이 저장 좌표 위에 떠 있고 말풍선에 남은 시간이 매초 갱신된다. 네이티브는 `react-native-maps`(Google provider, 키는 `.env`), 웹은 MapLibre + OpenFreeMap 벡터 타일(`scripts/prepare-map-assets.mjs`가 설치 때 `public/maplibre/`로 복사). 2D/3D(쿼터뷰) 전환.
+- `server/`: 로컬 PoC API(Node `node:http` + `node:sqlite`, `pnpm server`, :8787). 시각·반경 150m·정확도 판정, 불변 봉인, 멱등 재시도, 공동 캡슐 참석 확인을 서버 쪽에서 구현해 두었다(`pnpm test`가 서버 통합 테스트 60개를 함께 돌린다). **앱 화면은 아직 이 서버에 연결돼 있지 않다.** 계약(`src/shared/contracts.ts`)이 편지+사진 1장 기준이라, 1인당 5개 물건 모델로 계약을 넓힌 뒤 `src/lib/api.ts`로 붙인다.
 
 
 ## 문서 지도
@@ -44,8 +46,10 @@ Expo SDK 57 기반 로컬 프로토타입. 1차 범위(시간 잠금 타임캡�
 Expo SDK 57은 Node.js 22.13 이상이 필요합니다.
 
 ```bash
-pnpm install
-pnpm start
+pnpm install          # 설치 때 웹 지도 모듈이 public/maplibre/ 로 복사된다
+pnpm web              # 웹으로 화면 확인 (AR·지도 네이티브 모듈 제외)
+pnpm start            # 개발 빌드용 Metro (Expo Go 불가)
+pnpm server           # (선택) 로컬 PoC API :8787 — 아직 앱 화면과 연결 전
 ```
 
 실기기에서 Expo Go로 QR 코드를 스캔하거나 다음 명령을 사용할 수 있습니다.

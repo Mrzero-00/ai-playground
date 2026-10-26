@@ -13,7 +13,7 @@
 
 ## 현재 단계
 
-현재 코드는 Expo SDK 57 기반 V0 클릭형 프로토타입이다. 로컬 상태, 하드코딩된 멤버와 장소, 클라이언트 거리 판정을 실제 서버 기능으로 설명하지 않는다.
+현재 코드는 Expo SDK 57 기반 프로토타입이고, 2026-10-26 부터 로컬 PoC 서버(`server/`)와 AR 꺼내기가 붙어 있다. 구덩이 목록·봉인·공개 조건은 서버가 판정하고, 앱은 기기 세션 토큰으로 접근한다. 멤버 초대·정족수·QR·Supabase 는 아직 없다. 로컬 PoC 서버를 운영 서버로 설명하지 않는다.
 
 V1의 기준 범위는 다음과 같다.
 
@@ -34,6 +34,8 @@ Expo는 빠르게 바뀐다. Expo API를 작성하거나 수정하기 전에 반
 - pnpm 8.15.6
 - Expo SDK 57 / React Native 0.86 / React 19
 - Expo Router 57
+- `@reactvision/react-viro` 3.x (RN 0.86 전용), `react-native-maps` 1.27 (Google provider), `maplibre-gl` 6 (웹)
+- 네이티브 모듈이 있으므로 `expo-dev-client` 개발 빌드로 돌린다. Expo Go 에서는 AR·지도가 뜨지 않는다.
 
 다른 메이저 버전의 예시를 그대로 사용하지 않는다. 의존성은 `expo install` 호환 버전을 우선한다.
 
@@ -89,9 +91,10 @@ Expo는 빠르게 바뀐다. Expo API를 작성하거나 수정하기 전에 반
 현재 앱 기본 검증:
 
 ```bash
-pnpm typecheck
-pnpm lint
-pnpm test
+pnpm check                 # typecheck + lint + test (단위 + 서버 통합)
+pnpm build:web             # 웹 내보내기
+pnpm server                # 로컬 PoC 서버 (:8787)
+node scripts/web-smoke.cjs # 서버·웹 빌드를 켜 둔 뒤, 홈→지도→묻기→봉인을 브라우저로 한 바퀴 (playwright 필요)
 ```
 
 네이티브 설정 또는 라우팅 변경은 iOS·Android·web export까지 확인한다. 카메라, 위치, 딥링크, 푸시는 실제 기기 증거 없이 완료로 표시하지 않는다.

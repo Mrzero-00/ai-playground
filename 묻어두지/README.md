@@ -8,16 +8,14 @@
 
 ## 현재 구현
 
-- 브랜드 홈과 대기 중인 구덩이 목록
-- `한 달 뒤 우리 예언` 구덩이 생성 흐름
-- foreground 위치 권한 요청과 현재 장소 등록
-- 카메라 권한 요청, 사진 촬영, 예언 작성
-- 대기 화면과 참여 진행 상태
-- 망원한강공원 기준 150m 현장 체크인 데모
-- 생성 값과 촬영 기여를 현재 앱 세션에서 유지하는 로컬 프로토타입 상태
-- iOS, Android, web 라우팅
+- 브랜드 홈: 서버에 봉인된 구덩이 목록, 공개 가능한 구덩이를 맨 앞에
+- **동네 지도**(`/map`): 포켓몬고처럼 기울어진 파스텔 지도 위에 캡슐이 떠 있고, 말풍선에 남은 시간이 매초 갱신. 네이티브는 Google 지도 커스텀 스타일, 웹은 MapLibre + OpenFreeMap 벡터 타일
+- **어디에든 묻기**: 만들기에서 지도를 눌러 핀을 찍거나 현재 위치를 쓴다. 묻을 때는 그 자리에 없어도 된다. 사진 한 장 + 180자
+- **지도에서 눌러 꺼내기**(`/open/[id]`): 서버가 시간·반경 150m·GPS 정확도를 판정하고, 통과하면 카메라 AR 에 캡슐이 나타나 `캡슐 열기`. 미충족이면 왜 안 되는지(며칠 남음 / 몇 m 떨어짐 / 오차 큼)를 보여준다
+- 로컬 PoC 서버(`server/`): 기기 세션, 불변 봉인, 멱등 재시도, 공동 캡슐 참석 확인. SQLite 한 파일
+- iOS, Android, web 라우팅. 웹은 화면 확인용 — 묻기까지만 되고 AR 은 실기기 개발 빌드
 
-현재 데이터는 제품 흐름을 확인하기 위한 로컬 샘플이며 앱을 종료하면 사라집니다. 로그인, 초대, 영구 저장, 서버 시간 잠금, 공동 공개는 Supabase와 제한된 Cloud Run 작업 계층을 연결하는 V1에서 구현합니다. 운영 아키텍처와 보안 경계는 [docs/architecture.md](docs/architecture.md)에 정리했습니다.
+로그인, 초대 웹, 정족수·QR, Supabase 는 아직 없습니다. 운영 아키텍처와 보안 경계는 [docs/architecture.md](docs/architecture.md)에 정리했습니다. 2026-10-26 이식 기록은 [docs/AR_PORT.md](docs/AR_PORT.md)에 있습니다.
 
 ## 문서 지도
 
@@ -28,22 +26,24 @@
 
 ## 실행
 
-Expo SDK 57은 Node.js 22.13 이상이 필요합니다.
+Expo SDK 57은 Node.js 22.13 이상이 필요합니다. 설치하면 웹용 MapLibre 모듈이 `public/maplibre/` 에 복사됩니다.
 
 ```bash
 pnpm install
-pnpm start
+pnpm server        # 터미널 1: 로컬 PoC API (:8787)
+pnpm start         # 터미널 2: Metro (개발 빌드용)
 ```
 
-실기기에서 Expo Go로 QR 코드를 스캔하거나 다음 명령을 사용할 수 있습니다.
+AR 과 지도는 네이티브 모듈이라 **Expo Go 로는 안 되고 개발 빌드가 필요합니다.** iPhone 을 연결하고:
 
 ```bash
-pnpm ios
-pnpm android
-pnpm web
+cp .env.example .env   # Google 지도 키(선택), API 주소
+pnpm ios               # expo run:ios --device
+pnpm android           # expo run:android --device
+pnpm web               # 브라우저 화면 확인용
 ```
 
-카메라는 iOS·Android 시뮬레이터가 아니라 실제 기기에서 확인해야 합니다.
+Google Maps 키가 없으면 iOS 는 Apple 기본 지도(스타일 없음), Android 는 지도 대신 링크를 보여줍니다. ARKit/ARCore 는 시뮬레이터에서 동작하지 않습니다.
 
 ## 검증
 

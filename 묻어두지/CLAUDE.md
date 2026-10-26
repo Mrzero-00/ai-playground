@@ -19,14 +19,20 @@
 
 ## 스택
 
-- Expo SDK 57, React Native 0.86, React 19, TypeScript
+- Expo SDK 57, React Native 0.86, React 19, TypeScript, pnpm 8.15.6
 - Expo Router
-- expo-location, expo-camera
+- expo-location, expo-camera, expo-dev-client (AR 때문에 Expo Go 로는 못 돌린다)
+- 지도: `react-native-maps` Google provider + 커스텀 스타일(`src/constants/map-style.ts`), 웹은 MapLibre + OpenFreeMap 벡터 타일(`src/lib/map-style.web.ts`). 두 엔진이 같은 파스텔 팔레트를 쓴다.
+- AR: `@reactvision/react-viro` 3.x. 꺼낼 때만 쓴다. 묻을 때는 지도 핀이라 AR 이 없다.
+- PoC 서버: `server/` — Node `node:http` + `node:sqlite`. 시각·반경 150m·정확도 판정·공동 참석은 전부 여기서 한다. 로컬/LAN 전용.
 - 계획: Supabase Auth/Postgres/PostGIS, Next.js 초대·운영 웹, 역할별 Cloud Run API/worker, Cloud Scheduler/Tasks와 private Google Cloud Storage
 
 ## 개발 규칙
 
 - SDK API를 사용하기 전 `https://docs.expo.dev/versions/v57.0.0/`의 정확한 버전 문서를 확인한다.
+- 앱/서버 계약은 `src/shared/contracts.ts` 하나다. 메타데이터 응답에 편지·사진·파일명을 넣지 않는다.
+- 캡슐을 지도에서 누르면 바로 `app/open/[id]` 로 간다. 서버 `eligibility` 가 허락한 뒤에만 AR 의 `캡슐 열기` 가 켜진다. 클라이언트 카운트다운은 안내일 뿐이다.
+- 웹 빌드는 화면 확인용이다. 브라우저에서는 묻기까지만 되고 AR 꺼내기는 실기기 개발 빌드에서만 한다. 웹 통과를 AR 검증으로 적지 않는다.
 - 잠금 해제, 날짜, 반경, 필요 인원은 서버가 최종 판정한다. 클라이언트 계산은 UX 미리보기일 뿐이다.
 - 공개 전 GCS object 경로나 signed URL을 클라이언트에 보내지 않는다.
 - 사용자의 현재 좌표 원문은 불필요하게 저장하지 않는다.

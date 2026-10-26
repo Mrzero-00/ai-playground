@@ -1,32 +1,31 @@
 import { CameraView, useCameraPermissions } from 'expo-camera';
-import { router, useLocalSearchParams } from 'expo-router';
+import { router } from 'expo-router';
 import { useRef, useState } from 'react';
-import { ActivityIndicator, Image, KeyboardAvoidingView, Linking, Platform, Pressable, StyleSheet, Text, TextInput, View } from 'react-native';
+import { ActivityIndicator, Image, Linking, Platform, Pressable, StyleSheet, Text, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 import { Colors, MaxContentWidth, Radius, Spacing } from '@/constants/theme';
-import { usePitStore } from '@/state/pit-store';
+import { useCapsuleStore, type DraftPhoto } from '@/state/capsule-store';
 
+/** One photo for the capsule being written. The bytes stay in memory until sealing. */
 export default function CameraScreen() {
-  const { pitId } = useLocalSearchParams<{ pitId?: string }>();
-  const { contributions, saveContribution } = usePitStore();
-  const resolvedPitId = pitId ?? 'first-prophecy';
-  const contribution = contributions[resolvedPitId] ?? null;
+  const { draft, updateDraft } = useCapsuleStore();
   const cameraRef = useRef<CameraView>(null);
   const [permission, requestPermission] = useCameraPermissions();
   const [cameraReady, setCameraReady] = useState(false);
   const [takingPhoto, setTakingPhoto] = useState(false);
-  const [capturedUri, setCapturedUri] = useState<string | null>(contribution?.photoUri ?? null);
+  const [captured, setCaptured] = useState<DraftPhoto | null>(draft.photo);
   const [cameraError, setCameraError] = useState<string | null>(null);
-  const [message, setMessage] = useState(contribution?.message ?? '한 달 뒤 우리 중 가장 많이 변해 있을 사람은…');
 
   async function takePhoto() {
     if (!cameraReady || !cameraRef.current || takingPhoto) return;
     setTakingPhoto(true);
     setCameraError(null);
     try {
-      const photo = await cameraRef.current.takePictureAsync({ quality: 0.72 });
-      setCapturedUri(normalizePhotoUri(photo.uri));
+      const photo = await cameraRef.current.takePictureAsync({ quality: 0.72, base64: true, skipProcessing: Platform.OS === 'android' });
+      if (!photo.base64) throw new Error('no base64');
+      const base64 = photo.base64.replace(/^data:[^,]*,/, '').replace(/\s/g, '');
+      setCaptured({ uri: Platform.OS === 'web' ? `data:image/jpeg;base64,${base64}` : photo.uri, base64, mimeType: 'image/jpeg' });
     } catch {
       setCameraError('사진을 찍지 못했어요. 카메라를 다시 열어볼까요?');
     } finally {
@@ -43,51 +42,36 @@ export default function CameraScreen() {
     return (
       <SafeAreaView style={styles.permissionPage} edges={['bottom']}>
         <View style={styles.permissionIcon}><Text style={styles.permissionIconText}>▣</Text></View>
-        <Text style={styles.permissionTitle}>사진을 몰래 넣으려면{`\n`}카메라가 필요해요</Text>
-        <Text style={styles.permissionBody}>이 프로토타입에서는 촬영한 사진을 앱의 임시 캐시에만 보관하고 서버로 전송하지 않습니다.</Text>
-        <Pressable onPress={askForPermission} style={({ pressed }) => [styles.permissionButton, pressed && styles.pressed]}>
+        <Text style={styles.permissionTitle}>사진을 넣으려면{`\n`}카메라가 필요해요</Text>
+        <Text style={styles.permissionBody}>찍은 사진은 봉인할 때 한 번 서버로 보내고, 꺼낼 때까지 아무도 볼 수 없어요.</Text>
+        <Pressable accessibilityRole="button" onPress={askForPermission} style={({ pressed }) => [styles.permissionButton, pressed && styles.pressed]}>
           <Text style={styles.permissionButtonText}>{permission.canAskAgain ? '카메라 허용하기' : '설정에서 카메라 열기'}</Text>
         </Pressable>
       </SafeAreaView>
     );
   }
 
-  if (capturedUri) {
+  if (captured) {
     return (
-      <KeyboardAvoidingView style={styles.reviewPage} behavior={Platform.OS === 'ios' ? 'padding' : undefined}>
+      <View style={styles.reviewPage}>
         <View style={styles.reviewContent}>
-          <Image source={{ uri: capturedUri }} style={styles.previewImage} resizeMode="cover" />
+          <Image source={{ uri: captured.uri }} style={styles.previewImage} resizeMode="cover" />
           <View style={styles.reviewCopy}>
             <Text style={styles.reviewEyebrow}>미래의 친구들에게</Text>
-            <Text style={styles.reviewTitle}>사진과 함께 예언을 남겨주세요.</Text>
-            <TextInput
-              value={message}
-              onChangeText={setMessage}
-              maxLength={180}
-              multiline
-              style={styles.messageInput}
-              placeholder="나중에 열어볼 한마디"
-              placeholderTextColor={Colors.muted}
-            />
-            <Text style={styles.characterCount}>{message.length}/180</Text>
+            <Text style={styles.reviewTitle}>이 사진으로 할까요?</Text>
           </View>
           <View style={styles.reviewActions}>
-            <Pressable onPress={() => setCapturedUri(null)} style={({ pressed }) => [styles.secondaryButton, pressed && styles.pressed]}>
+            <Pressable accessibilityRole="button" onPress={() => setCaptured(null)} style={({ pressed }) => [styles.secondaryButton, pressed && styles.pressed]}>
               <Text style={styles.secondaryButtonText}>다시 찍기</Text>
             </Pressable>
-            <Pressable
-              disabled={!message.trim()}
-              onPress={() => {
-                saveContribution(resolvedPitId, { photoUri: capturedUri, message: message.trim() });
-                router.replace({ pathname: '/pit/[id]', params: { id: resolvedPitId } });
-              }}
-              style={({ pressed }) => [styles.submitButton, !message.trim() && styles.disabled, pressed && styles.pressed]}>
-              <Text style={styles.submitButtonText}>두지에게 맡기기</Text>
+            <Pressable accessibilityRole="button"
+              onPress={() => { updateDraft({ photo: captured }); router.back(); }}
+              style={({ pressed }) => [styles.submitButton, pressed && styles.pressed]}>
+              <Text style={styles.submitButtonText}>이 사진 넣기</Text>
             </Pressable>
           </View>
-          <Text style={styles.sealedNote}>현재는 로컬 프로토타입입니다. 실제 봉인·업로드는 서버 연결 단계에서 적용됩니다.</Text>
         </View>
-      </KeyboardAvoidingView>
+      </View>
     );
   }
 
@@ -108,10 +92,10 @@ export default function CameraScreen() {
         </View>
         <View style={styles.shutterRow}>
           <View style={styles.shutterSpacer} />
-          <Pressable
+          <Pressable accessibilityRole="button"
             accessibilityLabel="사진 촬영"
             disabled={!cameraReady || takingPhoto}
-            onPress={takePhoto}
+            onPress={() => void takePhoto()}
             style={({ pressed }) => [styles.shutterOuter, pressed && styles.shutterPressed]}>
             {takingPhoto ? <ActivityIndicator color={Colors.earthDark} /> : <View style={styles.shutterInner} />}
           </Pressable>
@@ -120,7 +104,7 @@ export default function CameraScreen() {
         {cameraError && (
           <View style={styles.cameraError}>
             <Text style={styles.cameraErrorText}>{cameraError}</Text>
-            <Pressable onPress={() => router.back()} style={styles.cameraErrorButton}>
+            <Pressable accessibilityRole="button" onPress={() => router.back()} style={styles.cameraErrorButton}>
               <Text style={styles.cameraErrorButtonText}>돌아가기</Text>
             </Pressable>
           </View>
@@ -128,11 +112,6 @@ export default function CameraScreen() {
       </SafeAreaView>
     </View>
   );
-}
-
-function normalizePhotoUri(uri: string) {
-  if (Platform.OS !== 'web' || uri.startsWith('data:') || uri.startsWith('blob:')) return uri;
-  return `data:image/jpeg;base64,${uri}`;
 }
 
 const styles = StyleSheet.create({
@@ -166,14 +145,10 @@ const styles = StyleSheet.create({
   reviewCopy: { marginTop: Spacing.lg },
   reviewEyebrow: { color: Colors.leaf, fontSize: 12, fontWeight: '900' },
   reviewTitle: { color: Colors.ink, fontSize: 21, fontWeight: '900', marginTop: 5, letterSpacing: -0.4 },
-  messageInput: { minHeight: 118, marginTop: Spacing.md, padding: Spacing.md, borderRadius: Radius.md, borderWidth: 1, borderColor: Colors.line, backgroundColor: Colors.surface, color: Colors.ink, fontSize: 15, lineHeight: 22, textAlignVertical: 'top' },
-  characterCount: { color: Colors.muted, fontSize: 11, textAlign: 'right', marginTop: 6 },
   reviewActions: { flexDirection: 'row', gap: Spacing.sm, marginTop: 'auto', paddingTop: Spacing.lg },
   secondaryButton: { flex: 1, minHeight: 56, borderRadius: Radius.md, borderWidth: 1, borderColor: Colors.earthDark, alignItems: 'center', justifyContent: 'center' },
   secondaryButtonText: { color: Colors.earthDark, fontSize: 14, fontWeight: '900' },
   submitButton: { flex: 2, minHeight: 56, borderRadius: Radius.md, backgroundColor: Colors.earthDark, alignItems: 'center', justifyContent: 'center' },
   submitButtonText: { color: Colors.white, fontSize: 14, fontWeight: '900' },
-  disabled: { opacity: 0.45 },
-  sealedNote: { color: Colors.muted, fontSize: 11, textAlign: 'center', marginTop: Spacing.md },
   pressed: { opacity: 0.72 },
 });

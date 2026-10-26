@@ -1,0 +1,42 @@
+.dooji-atlas, .dooji-map-surface { position: absolute; inset: 0; background: #d9e7c8; }
+.dooji-atlas { isolation: isolate; overflow: hidden; }
+.dooji-atlas > .dooji-map-surface { position: absolute; inset: 0; z-index: 0; font-family: inherit; }
+.dooji-map-distance-haze { position: absolute; inset: 0 0 auto; height: 26%; pointer-events: none; background: linear-gradient(#f6f0e3cc, #f6f0e338 60%, transparent); }
+.dooji-atlas[data-perspective="flat"] .dooji-map-distance-haze { display: none; }
+.dooji-atlas[data-picking="true"] .dooji-map-surface { cursor: crosshair; }
+.dooji-atlas[data-picking="true"] .dooji-map-pin, .dooji-atlas[data-picking="true"] .dooji-map-pin * { pointer-events: none !important; cursor: inherit; }
+.dooji-map-pin { width: 194px; height: 174px; border: 0; background: transparent; pointer-events: none !important; }
+.dooji-map-pin:focus-visible { outline: none; z-index: 10000 !important; }
+.dooji-map-pin:focus-visible .dooji-capsule-clock { outline: 3px solid #4d3428; outline-offset: 3px; }
+.dooji-map-pin:hover { z-index: 10000 !important; }
+.dooji-floating-capsule { position: relative; width: 194px; height: 174px; color: #27241f; font-family: system-ui, sans-serif; }
+/* Animate an inner child: the map owns the outer marker's projection transform. */
+.dooji-capsule-float { position: absolute; top: 8px; width: 100%; display: flex; flex-direction: column; align-items: center; animation: dooji-capsule-bob 2.8s ease-in-out infinite; }
+.dooji-capsule-clock { position: relative; box-sizing: border-box; min-width: 170px; max-width: 194px; padding: 7px 10px 8px; border: 2px solid #4d3428; border-radius: 13px; background: #fffdf8; box-shadow: 0 4px 0 #4d3428; text-align: center; white-space: nowrap; pointer-events: auto; cursor: pointer; }
+.dooji-capsule-clock::after { content: ''; position: absolute; left: calc(50% - 5px); bottom: -7px; width: 9px; height: 9px; transform: rotate(45deg); border-right: 2px solid #4d3428; border-bottom: 2px solid #4d3428; background: #fffdf8; }
+.dooji-capsule-clock-title { display: block; max-width: 170px; overflow: hidden; text-overflow: ellipsis; font-size: 9px; font-weight: 700; line-height: 13px; color: #777066; margin-bottom: 2px; }
+.dooji-capsule-countdown { display: block; font-size: 12px; line-height: 17px; letter-spacing: -.25px; font-weight: 900; font-variant-numeric: tabular-nums; color: #4d3428; }
+.dooji-capsule-figure { margin-top: 8px; height: 82px; filter: drop-shadow(0 4px 3px #4d342833); pointer-events: auto; cursor: pointer; }
+.dooji-capsule-ground { position: absolute; left: 50%; top: 153px; transform: translateX(-50%); width: 57px; height: 19px; border: 1.5px solid #fffdf8bf; border-radius: 50%; background: #4d342822; pointer-events: auto; cursor: pointer; }
+.dooji-capsule-shadow { position: absolute; left: 8px; top: 4px; width: 38px; height: 9px; border-radius: 50%; background: #4d342840; animation: dooji-capsule-shadow 2.8s ease-in-out infinite; }
+.dooji-capsule-point { position: absolute; left: 25px; top: 6px; width: 5px; height: 5px; border-radius: 50%; background: #fffdf8; }
+.dooji-floating-capsule[data-state="ready"] .dooji-capsule-clock { background: #fff1c2; }
+.dooji-floating-capsule[data-state="ready"] .dooji-capsule-clock::after { background: #fff1c2; }
+.dooji-floating-capsule[data-state="ready"] .dooji-capsule-countdown { color: #76513b; }
+.dooji-floating-capsule[data-state="ready"] .dooji-capsule-ground { border-color: #fff2ba; background: #f4c95d55; }
+.dooji-floating-capsule[data-state="opened"] .dooji-capsule-clock { background: #dde6d5; border-color: #5a734e; box-shadow: 0 4px 0 #5a734e; }
+.dooji-floating-capsule[data-state="opened"] .dooji-capsule-clock::after { background: #dde6d5; border-color: #5a734e; }
+.dooji-floating-capsule[data-state="opened"] .dooji-capsule-countdown { color: #5a734e; }
+.dooji-floating-capsule[data-state="opened"] .dooji-capsule-figure { opacity: .7; }
+.dooji-floating-capsule[data-state="unknown"] .dooji-capsule-countdown { color: #777066; }
+.dooji-atlas[data-paused="true"] .dooji-capsule-float, .dooji-atlas[data-paused="true"] .dooji-capsule-shadow { animation-play-state: paused; }
+@keyframes dooji-capsule-bob { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
+@keyframes dooji-capsule-shadow { 0%, 100% { transform: scale(1); opacity: .8; } 50% { transform: scale(.75); opacity: .45; } }
+@media (prefers-reduced-motion: reduce) { .dooji-capsule-float, .dooji-capsule-shadow { animation: none; } }
+.dooji-pick-pin { width: 60px; height: 44px; display: flex; flex-direction: column; align-items: center; pointer-events: none; }
+.dooji-pick-pin-head { background: #4d3428; color: #f4c95d; font: 900 12px/1 system-ui, sans-serif; border-radius: 999px; padding: 8px 12px; }
+.dooji-pick-pin-leg { width: 3px; height: 16px; background: #4d3428; border-radius: 2px; }
+.dooji-map-credits { position: absolute; z-index: 10; left: 8px; padding: 3px 6px; border-radius: 4px; background: #fffdf8ef; font: 10px/15px system-ui, sans-serif; color: #27241f; }
+.dooji-map-credits a { color: #76513b; text-decoration: underline; display: inline-block; padding: 5px 3px; margin: -5px 0; }
+.dooji-map-message { position: absolute; z-index: 10; top: 44%; left: 20px; right: 20px; padding: 14px; border-radius: 12px; background: #fffdf8; color: #27241f; font: 13px/21px system-ui, sans-serif; border: 2px solid #4d3428; }
+.dooji-map-message button { display: block; margin-top: 10px; min-height: 44px; border: 0; background: #4d3428; color: #fff; font-weight: 800; border-radius: 10px; padding: 10px 14px; cursor: pointer; }

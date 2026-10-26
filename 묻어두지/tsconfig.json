@@ -9,12 +9,28 @@
       "@/assets/*": [
         "./assets/*"
       ]
-    }
+    },
+    "moduleSuffixes": [
+      ".ios",
+      ".android",
+      ".native",
+      ""
+    ],
+    "resolveJsonModule": true,
+    "types": [
+      "node",
+      "react"
+    ]
   },
   "include": [
     "**/*.ts",
     "**/*.tsx",
     ".expo/types/**/*.ts",
     "expo-env.d.ts"
+  ],
+  "exclude": [
+    "node_modules",
+    "dist",
+    "public"
   ]
 }

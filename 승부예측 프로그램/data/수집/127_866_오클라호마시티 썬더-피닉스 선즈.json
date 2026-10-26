@@ -1,0 +1,109 @@
+{
+  "번호": 866,
+  "홈": "오클라호마시티 썬더",
+  "원정": "피닉스 선즈",
+  "리그": "NBA",
+  "킥오프_KST": {
+    "값": "2026-10-27 09:00 KST (ET 2026-10-26 20:00 / CDT 19:00, Paycom Center, Oklahoma City)",
+    "출처": "https://www.essentiallysports.com/nba-active-basketball-news-thunder-vs-suns-where-to-watch-injury-report-and-everything-you-need-to-know/",
+    "날짜": "2026-10-26"
+  },
+  "수집시각": "2026-10-27 08:xx KST",
+  "수집자": "collect-b",
+  "레이팅_2025-26": {
+    "홈": {
+      "ORtg": 118.9, "DRtg": 107.7, "Pace": 99.3, "NetRtg": 11.1, "SRS": 11.04,
+      "전적": "64-18 (서부 1위; ORtg 7위·DRtg 1위·Net 1위). 1라운드에서 PHX 스윕",
+      "출처": "https://www.basketball-reference.com/teams/OKC/2026.html",
+      "날짜": "2026-10-27 조회",
+      "비고": "2025-26 출전 상위: SGA 33.2 MPG(68G) / Holmgren 28.9(69G) / J. Williams 28.4(33G) / Dort 26.8(69G, 2026 여름 ATL 이적) / Wallace 26.6(77G)"
+    },
+    "원정": {
+      "ORtg": 115.4, "DRtg": 113.9, "Pace": 97.2, "NetRtg": 1.5, "SRS": 1.75,
+      "전적": "45-37 (서부; ORtg 16위·DRtg 10위·Pace 24위). 플레이오프 1R OKC에 0-4",
+      "출처": "https://www.basketball-reference.com/teams/PHO/2026.html",
+      "날짜": "2026-10-27 조회",
+      "비고": "2025-26 출전 상위: Booker 33.5 / Brooks 30.4 / Gillespie 28.5 / O'Neale 28.4(이적) / G. Allen 28.8(이적) MPG"
+    }
+  },
+  "이번시즌": {
+    "홈": {
+      "전적": "3-0 (서부 1위)",
+      "최근경기": [
+        "2026-10-20 @SAS 116-104 승",
+        "2026-10-22 vs DEN 96-84 승",
+        "2026-10-25 vs LAC 108-101 승 (J. Williams 1:14 남기고 부상 퇴장, Wallace 조기 퇴장)"
+      ],
+      "출처": "https://www.basketball-reference.com/teams/OKC/2027_games.html",
+      "날짜": "2026-10-27 조회"
+    },
+    "원정": {
+      "전적": "1-1 (서부 7위)",
+      "최근경기": [
+        "2026-10-21 @POR 83-124 패",
+        "2026-10-24 vs GSW 131-122 승"
+      ],
+      "출처": "https://www.basketball-reference.com/teams/PHO/2027_games.html",
+      "날짜": "2026-10-27 조회"
+    }
+  },
+  "결장": [
+    {"팀": "홈", "선수": "Jalen Williams", "포지션": "F/G", "역할": "선발 (2025-26 33G 출전)", "사유": "왼쪽 하퇴부 중상 — 10/25 LAC전 1:14 남기고 덩크 시도 중 Dunn·Jones Jr. 사이 공중 충돌 후 착지, 들것 퇴장. 공식 진단 미발표", "상태": "확정", "복귀예정": "미정(장기 예상 보도)", "출처": "https://abcnews.com/Sports/wireStory/thunder-lose-jalen-williams-lower-leg-injury-late-137561654 ; https://www.si.com/nba/suns/onsi/oklahhoma-city-thunder-rule-out-3-starters-phoenix-suns", "날짜": "2026-10-25/26"},
+    {"팀": "홈", "선수": "Chet Holmgren", "포지션": "C/F", "역할": "선발 (2025-26 69G)", "사유": "오른 슬개건염(patellar tendinitis) — 시즌 첫 결장", "상태": "확정", "복귀예정": "미정", "출처": "https://www.nbcsports.com/fantasy/basketball/player-news/2026-10-26/chet-holmgren-knee-out-monday-vs-suns ; https://www.si.com/nba/suns/onsi/oklahhoma-city-thunder-rule-out-3-starters-phoenix-suns", "날짜": "2026-10-26"},
+    {"팀": "홈", "선수": "Cason Wallace", "포지션": "G", "역할": "선발 (2025-26 77G; 2026-10 루키 연장계약)", "사유": "왼 어깨 통증 — 10/25 LAC전 조기 퇴장", "상태": "확정", "복귀예정": "미정", "출처": "https://www.si.com/nba/suns/onsi/oklahhoma-city-thunder-rule-out-3-starters-phoenix-suns", "날짜": "2026-10-26"},
+    {"팀": "홈", "선수": "Nikola Topic", "포지션": "G", "역할": "벤치", "사유": "허리 수술", "상태": "확정", "복귀예정": "미정", "출처": "https://www.si.com/nba/suns/onsi/oklahhoma-city-thunder-rule-out-3-starters-phoenix-suns", "날짜": "2026-10-26"},
+    {"팀": "홈", "선수": "Thomas Sorber", "포지션": "C", "역할": "벤치", "사유": "오른 무릎 수술", "상태": "확정", "복귀예정": "미정", "출처": "https://www.si.com/nba/suns/onsi/oklahhoma-city-thunder-rule-out-3-starters-phoenix-suns", "날짜": "2026-10-26"},
+    {"팀": "홈", "선수": "Jaylin Williams", "포지션": "F/C", "역할": "벤치", "사유": "손목 — day-to-day", "상태": "의심", "복귀예정": "", "출처": "https://foxsportsabq.iheart.com/content/2026-10-26-suns-vs-thunder-injury-report-oct-26/", "날짜": "2026-10-26"},
+    {"팀": "원정", "선수": "Mark Williams", "포지션": "C", "역할": "선발급 센터 (2026 여름 3년 $38M 재계약)", "사유": "왼 어깨 수술(관절와순 파열)", "상태": "확정", "복귀예정": "미정", "출처": "https://www.si.com/nba/suns/onsi/oklahhoma-city-thunder-rule-out-3-starters-phoenix-suns", "날짜": "2026-10-26"},
+    {"팀": "원정", "선수": "Oso Ighodaro", "포지션": "C/F", "역할": "로테이션 빅맨 (2026-10-19 연장계약)", "사유": "오른 복사근 염좌 — doubtful → Out 으로 하향, 2경기 연속 결장", "상태": "확정", "복귀예정": "미정", "출처": "https://www.si.com/nba/suns/onsi/oklahhoma-city-thunder-rule-out-3-starters-phoenix-suns", "날짜": "2026-10-26"},
+    {"팀": "원정", "선수": "Drew Timme", "포지션": "F/C", "역할": "투웨이", "사유": "G리그 배정", "상태": "확정", "복귀예정": "", "출처": "https://roundtable.io/sports/nba/suns/news/major-injury-shakes-up-suns-thunder-matchup", "날짜": "2026-10-26"}
+  ],
+  "로스터변화": [
+    {"팀": "홈", "선수": "Luguentz Dort", "IN|OUT": "OUT", "내용": "2026 여름 애틀랜타로 트레이드(세컨드 에이프런 회피)", "출처": "https://www.hoopsrumors.com/2026/08/nba-2026-offseason-check-in-oklahoma-city-thunder.html", "날짜": "2026 여름"},
+    {"팀": "홈", "선수": "Aaron Wiggins", "IN|OUT": "OUT", "내용": "애틀랜타로 트레이드", "출처": "https://www.hoopsrumors.com/2026/08/nba-2026-offseason-check-in-oklahoma-city-thunder.html", "날짜": "2026 여름"},
+    {"팀": "홈", "선수": "Isaiah Joe", "IN|OUT": "OUT", "내용": "디트로이트로 트레이드", "출처": "https://www.hoopsrumors.com/2026/08/nba-2026-offseason-check-in-oklahoma-city-thunder.html", "날짜": "2026 여름"},
+    {"팀": "홈", "선수": "Isaiah Hartenstein", "IN|OUT": "IN(재계약)", "내용": "3년 $75M 재계약", "출처": "https://www.hoopsrumors.com/2026/08/nba-2026-offseason-check-in-oklahoma-city-thunder.html", "날짜": "2026 여름"},
+    {"팀": "홈", "선수": "Aday Mara (#12) / Bennett Stirtz (#16) / Spencer Jones(FA, 2년 $12M)", "IN|OUT": "IN", "내용": "2026 드래프트·FA 영입", "출처": "https://www.hoopsrumors.com/2026/08/nba-2026-offseason-check-in-oklahoma-city-thunder.html", "날짜": "2026 여름"},
+    {"팀": "원정", "선수": "Miles Bridges", "IN|OUT": "IN", "내용": "2026-07-13 샬럿에서 트레이드 영입(대가 Grayson Allen·Royce O'Neale·지명권)", "출처": "https://www.hoopsrumors.com/2026/08/nba-2026-offseason-check-in-phoenix-suns.html", "날짜": "2026-07-13"},
+    {"팀": "원정", "선수": "Grayson Allen / Royce O'Neale", "IN|OUT": "OUT", "내용": "Bridges 트레이드로 샬럿 이적 (둘 다 2025-26 28+ MPG)", "출처": "https://www.hoopsrumors.com/2026/08/nba-2026-offseason-check-in-phoenix-suns.html", "날짜": "2026-07-13"},
+    {"팀": "원정", "선수": "Collin Gillespie(4년 $48M) / Mark Williams(3년 $38M) / Jordan Goodwin(3년 $19M) 재계약, Luke Kennard(2년 $12.4M) 영입, Dillon Brooks 연장, Koa Peat(#30) 드래프트", "IN|OUT": "IN", "내용": "2026 오프시즌", "출처": "https://www.hoopsrumors.com/2026/08/nba-2026-offseason-check-in-phoenix-suns.html", "날짜": "2026 여름"},
+    {"팀": "원정", "선수": "감독 Jordan Ott", "IN|OUT": "유지", "내용": "2025 여름 선임, 2년차 (KD 트레이드 후 45승 반등)", "출처": "https://www.nba.com/news/2026-27-season-preview-phx", "날짜": "2026-10"}
+  ],
+  "라인업": {
+    "홈": {
+      "예상선발": ["Shai Gilgeous-Alexander (G)", "Isaiah Hartenstein (C)", "Alex Caruso (G/F, J. Williams 대체 후보)", "나머지 2자리 미확인 — Holmgren·Wallace Out 으로 Kenrich Williams / Aday Mara / Ajay Mitchell 등 후보"],
+      "발표여부": "미발표. 경기 전 프리뷰(essentiallysports)의 SGA·Wallace·J.Williams·Holmgren·Hartenstein 5인은 이후 3명 Out 으로 무효",
+      "출처": "https://roundtable.io/sports/nba/suns/news/major-injury-shakes-up-suns-thunder-matchup ; https://www.si.com/nba/suns/onsi/oklahhoma-city-thunder-rule-out-3-starters-phoenix-suns",
+      "날짜": "2026-10-26"
+    },
+    "원정": {
+      "예상선발": ["Jalen Green (G)", "Devin Booker (G)", "Dillon Brooks (F)", "Miles Bridges (F)", "Khaman Maluach (C)"],
+      "발표여부": "미발표(프리뷰 예상). 센터 뎁스: Maluach 주전, Duop Reath 백업 (M. Williams·Ighodaro Out)",
+      "출처": "https://www.essentiallysports.com/nba-active-basketball-news-thunder-vs-suns-where-to-watch-injury-report-and-everything-you-need-to-know/ ; https://roundtable.io/sports/nba/suns/news/major-injury-shakes-up-suns-thunder-matchup",
+      "날짜": "2026-10-26"
+    }
+  },
+  "일정": {
+    "홈": {"직전경기": "2026-10-25(ET) vs LAC 108-101 승 — 백투백 2일차(홈 연속)", "출처": "https://www.basketball-reference.com/teams/OKC/2027_games.html ; https://sports.yahoo.com/articles/thunder-lose-two-more-key-212741315.html", "날짜": "2026-10-27 조회"},
+    "원정": {"직전경기": "2026-10-24(ET) vs GSW 131-122 승 — 백투백 아님(1일 휴식), 피닉스→OKC 이동", "출처": "https://www.basketball-reference.com/teams/PHO/2027_games.html", "날짜": "2026-10-27 조회"}
+  },
+  "일정·동기·기타": [
+    {"사실": "SGA 경기 후 인터뷰: 'We have a team for a reason, guys that are ready to step in place' — 선즈전 앞두고", "출처": "https://www.si.com/nba/suns/onsi/oklahhoma-city-thunder-rule-out-3-starters-phoenix-suns", "날짜": "2026-10-26"},
+    {"사실": "이번 경기는 2026 플레이오프 1R OKC 4-0 스윕 이후 첫 맞대결", "출처": "https://www.si.com/nba/suns/onsi/oklahhoma-city-thunder-rule-out-3-starters-phoenix-suns", "날짜": "2026-10-26"},
+    {"사실": "Thunder 감독 Mark Daigneault 유지; Caruso 선발 투입 가능성 언급", "출처": "https://roundtable.io/sports/nba/suns/news/major-injury-shakes-up-suns-thunder-matchup", "날짜": "2026-10-26"},
+    {"사실": "OKC 2025-26 세 경기 실점 104·84·101 (3경기 평균 96.3 실점)", "출처": "https://www.basketball-reference.com/teams/OKC/2027_games.html", "날짜": "2026-10-27 조회"}
+  ],
+  "엇갈림": [
+    {"항목": "Jalen Williams 부상 부위", "A": "iheart(foxsportsabq): Out (Ankle)", "B": "ABC/CBS/SI: 왼쪽 하퇴부(lower left leg) 중상, 들것", "판단": "B 다수·현장 보도 우선. Out 은 공통"},
+    {"항목": "Holmgren·Wallace 상태", "A": "essentiallysports 프리뷰: 선발 예상에 포함, 부상자 명단 Topić·Sorber 뿐", "B": "SI/NBC/Yahoo(이후 보도): 둘 다 Out", "판단": "B(늦은 보도) 우선 — 3선발 Out"},
+    {"항목": "Oso Ighodaro", "A": "essentiallysports/iheart: doubtful(hip/oblique)", "B": "SI(수정판): Out 으로 하향", "판단": "B 우선"},
+    {"항목": "Topić·Sorber 상태", "A": "iheart: day-to-day", "B": "SI·essentiallysports: Out(수술)", "판단": "B 우선"}
+  ],
+  "못찾음": [
+    "NBA 공식 injury report PDF(10/26 3PM) 직접 열람 실패(타임아웃)",
+    "OKC 실제 선발 5인(3명 Out 대체자 공식 확인 안 됨)",
+    "Jalen Williams 공식 진단명·결장 기간",
+    "Holmgren·Wallace 결장 기간",
+    "Suns 선수별 2025-26 선발 경기수(Bridges·Maluach 선발 비중)"
+  ]
+}

@@ -1,0 +1,290 @@
+{
+ "번호": 858,
+ "홈": "마이애미 히트",
+ "원정": "댈러스 매버릭스",
+ "리그": "NBA",
+ "킥오프_KST": {
+  "값": "2026-10-27 08:30 KST (ET 2026-10-26 19:30, Kaseya Center)",
+  "출처": "https://www.espn.com/nba/game/_/gameId/401909871/mavericks-heat",
+  "날짜": "2026-10-26"
+ },
+ "수집시각": "2026-10-27 07:50 KST",
+ "수집자": "collect-a",
+ "레이팅_2025-26": {
+  "홈": {
+   "ORtg": 116.7,
+   "DRtg": 114.5,
+   "Pace": 103.4,
+   "NetRtg": 2.2,
+   "전적": "43-39 (동부 10위)",
+   "코치": "Erik Spoelstra",
+   "출처": "https://www.basketball-reference.com/teams/MIA/2026.html",
+   "날짜": "2026-10-27"
+  },
+  "원정": {
+   "ORtg": 111.2,
+   "DRtg": 116.5,
+   "Pace": 101.7,
+   "NetRtg": -5.4,
+   "전적": "26-56 (서부 12위)",
+   "코치": "Jason Kidd(2025-26 기준)",
+   "출처": "https://www.basketball-reference.com/teams/DAL/2026.html",
+   "날짜": "2026-10-27"
+  }
+ },
+ "이번시즌": {
+  "홈": {
+   "전적": "0-3 (홈 0-2) — Spoelstra 19년 재임 첫 0-3 출발",
+   "최근경기": [
+    "2026-10-21 vs MIN 106-131 L",
+    "2026-10-23 vs DET 111-128 L",
+    "2026-10-24 @CHA 110-115 L (Giannis 14점 파울아웃)"
+   ],
+   "출처": "https://www.basketball-reference.com/teams/MIA/2027_games.html ; https://www.tsn.ca/nba/article/antetokounmpo-fouls-out-vs-hornets-as-heat-tumble-to-0-3-n1-50272348/",
+   "날짜": "2026-10-27"
+  },
+  "원정": {
+   "전적": "1-2 (원정 1-1)",
+   "최근경기": [
+    "2026-10-21 @HOU 110-128 L",
+    "2026-10-23 @IND 121-105 W (Irving 24점/24:55분)",
+    "2026-10-24 vs SAS 106-122 L (Irving·Flagg 결장)"
+   ],
+   "출처": "https://www.basketball-reference.com/teams/DAL/2027_games.html ; https://www.yardbarker.com/nba/articles/mavericks_make_2_starting_lineup_changes_with_kyrie_irving_cooper_flagg_out_vs_spurs/s1_17810_44470013",
+   "날짜": "2026-10-27"
+  }
+ },
+ "결장": [
+  {
+   "팀": "원정",
+   "선수": "Cooper Flagg",
+   "포지션": "F",
+   "역할": "선발 (평소 선발 SF)",
+   "사유": "왼쪽 어깨 염좌(10/23 IND전), 10/24 SAS전 결장, 10/26 슛어라운드 참가",
+   "상태": "의심",
+   "복귀예정": "이 경기 Probable(Yahoo 10/26) / Questionable(roundtable·covers 10/26)",
+   "출처": "https://sports.yahoo.com/articles/cooper-flagg-playing-tonight-mavericks-164305227.html ; https://roundtable.io/sports/nba/heat/news/important-notes-miami-heat-vs-dallas-mavericks-preview-injury-report-betting-and-more",
+   "날짜": "2026-10-26"
+  },
+  {
+   "팀": "원정",
+   "선수": "Caleb Martin",
+   "포지션": "F",
+   "역할": "로테이션",
+   "사유": "오른쪽 엄지 염좌",
+   "상태": "확정",
+   "복귀예정": "ESPN 추정 11/2",
+   "출처": "https://www.espn.com/nba/game/_/gameId/401909871/mavericks-heat ; https://sports.yahoo.com/articles/cooper-flagg-playing-tonight-mavericks-164305227.html",
+   "날짜": "2026-10-26"
+  },
+  {
+   "팀": "원정",
+   "선수": "Santi Aldama",
+   "포지션": "F",
+   "역할": "로테이션(2026-07 MEM에서 영입)",
+   "사유": "오른쪽 무릎 수술",
+   "상태": "확정",
+   "복귀예정": "ESPN 추정 11/2",
+   "출처": "https://www.espn.com/nba/game/_/gameId/401909871/mavericks-heat",
+   "날짜": "2026-10-26"
+  },
+  {
+   "팀": "원정",
+   "선수": "Tarik Biberovic",
+   "포지션": "F",
+   "역할": "벤치",
+   "사유": "오른쪽 발꿈치 점액낭염",
+   "상태": "확정",
+   "복귀예정": "ESPN 추정 11/2",
+   "출처": "https://www.espn.com/nba/game/_/gameId/401909871/mavericks-heat",
+   "날짜": "2026-10-26"
+  },
+  {
+   "팀": "원정",
+   "선수": "Dereck Lively II",
+   "포지션": "C",
+   "역할": "선발급 센터(장기 결장)",
+   "사유": "오른쪽 발 수술(2025-12), 복귀 시점 미정",
+   "상태": "확정",
+   "복귀예정": "미정",
+   "출처": "https://www.espn.com/nba/game/_/gameId/401909871/mavericks-heat ; https://www.yardbarker.com/nba/articles/dallas_mavericks_media_day_takeaways_2026_kyrie_irving_cooper_flagg_dereck_lively_ii_masai_ujiri_and_more/s1_17810_44349521",
+   "날짜": "2026-10-26"
+  },
+  {
+   "팀": "원정",
+   "선수": "Naji Marshall",
+   "포지션": "F",
+   "역할": "로테이션(10/24 SAS전 선발 대체)",
+   "사유": "질병",
+   "상태": "확정",
+   "복귀예정": "ESPN 추정 10/28",
+   "출처": "https://www.espn.com/nba/game/_/gameId/401909871/mavericks-heat",
+   "날짜": "2026-10-26"
+  },
+  {
+   "팀": "원정",
+   "선수": "Kyrie Irving",
+   "포지션": "G",
+   "역할": "선발 PG",
+   "사유": "왼쪽 무릎 관리(2025-03 ACL 복귀 과정), 10/24 백투백 2일차 휴식. 이 경기 부상보고 명단 없음 → 출전 예정, 분수 제한 가능",
+   "상태": "출전예정(보고 없음)",
+   "복귀예정": "이 경기",
+   "출처": "https://www.covers.com/nba/mavericks-vs-heat-prediction-picks-odds-oct-26-2026 ; https://sports.yahoo.com/articles/cooper-flagg-playing-tonight-mavericks-164305227.html",
+   "날짜": "2026-10-26"
+  },
+  {
+   "팀": "홈",
+   "선수": "Pelle Larsson",
+   "포지션": "G/F",
+   "역할": "로테이션(10/24 CHA전 15점)",
+   "사유": "왼쪽 손가락 염좌 → Available로 상향",
+   "상태": "출전가능",
+   "복귀예정": "이 경기",
+   "출처": "https://roundtable.io/sports/nba/heat/news/important-notes-miami-heat-vs-dallas-mavericks-preview-injury-report-betting-and-more",
+   "날짜": "2026-10-26"
+  }
+ ],
+ "로스터변화": [
+  {
+   "팀": "홈",
+   "선수": "Giannis Antetokounmpo",
+   "IN|OUT": "IN",
+   "내용": "2026-07-06 MIL에서 트레이드(Bobby Portis 동반) — Herro·Jaquez·Jakucionis·Ware 방출",
+   "출처": "https://www.hoopsrumors.com/2026/09/nba-2026-offseason-check-in-miami-heat.html",
+   "날짜": "2026-09"
+  },
+  {
+   "팀": "홈",
+   "선수": "Tyler Herro",
+   "IN|OUT": "OUT",
+   "내용": "2026-07-06 MIL로 트레이드",
+   "출처": "https://www.hoopsrumors.com/2026/09/nba-2026-offseason-check-in-miami-heat.html",
+   "날짜": "2026-09"
+  },
+  {
+   "팀": "홈",
+   "선수": "Norman Powell",
+   "IN|OUT": "OUT",
+   "내용": "FA로 CHI 이적(2년 $45M)",
+   "출처": "https://www.hoopsrumors.com/2026/09/nba-2026-offseason-check-in-miami-heat.html",
+   "날짜": "2026-09"
+  },
+  {
+   "팀": "홈",
+   "선수": "Klay Thompson",
+   "IN|OUT": "IN",
+   "내용": "FA 2년 $11.48M, 선발 SG",
+   "출처": "https://basketball.realgm.com/nba/teams/Miami-Heat/15/offseason",
+   "날짜": "2026-07"
+  },
+  {
+   "팀": "홈",
+   "선수": "Tim Hardaway Jr. / Nick Richards / Simone Fontecchio",
+   "IN|OUT": "IN",
+   "내용": "FA 1년 계약",
+   "출처": "https://basketball.realgm.com/nba/teams/Miami-Heat/15/offseason",
+   "날짜": "2026-07"
+  },
+  {
+   "팀": "원정",
+   "선수": "Anthony Davis",
+   "IN|OUT": "OUT",
+   "내용": "2026-02-04 WAS로 트레이드(시즌 중)",
+   "출처": "https://sports.yahoo.com/articles/mavericks-found-unexpected-way-flip-135203282.html",
+   "날짜": "2026-07"
+  },
+  {
+   "팀": "원정",
+   "선수": "Santi Aldama",
+   "IN|OUT": "IN",
+   "내용": "2026-07-01 MEM에서 트레이드(AJ Johnson + 2030 1R 등) — 현재 무릎 수술 결장",
+   "출처": "https://www.nba.com/news/mavericks-grizzlies-santi-aldama-trade",
+   "날짜": "2026-07-01"
+  },
+  {
+   "팀": "원정",
+   "선수": "Zaccharie Risacher",
+   "IN|OUT": "IN",
+   "내용": "2026-07-19 ATL·OKC 3팀 트레이드로 영입(Nembhard·Dort ATL행). Flagg 결장 시 선발, 3경기 8.7점 5.3리바",
+   "출처": "https://www.mavsmoneyball.com/mavericks-news/60948/dallas-mavericks-acquire-zaccharie-risacher-in-three-team-trade-with-atlanta-hawks-oklahoma-city-thunder",
+   "날짜": "2026-07-19"
+  },
+  {
+   "팀": "원정",
+   "선수": "Ryan Nembhard",
+   "IN|OUT": "OUT",
+   "내용": "Risacher 트레이드로 ATL행",
+   "출처": "https://www.mavsmoneyball.com/mavericks-news/60948/dallas-mavericks-acquire-zaccharie-risacher-in-three-team-trade-with-atlanta-hawks-oklahoma-city-thunder",
+   "날짜": "2026-07-19"
+  },
+  {
+   "팀": "원정",
+   "선수": "Marcus Sasser",
+   "IN|OUT": "IN",
+   "내용": "DET에서 영입(2026-07-06 모라토리엄 해제 후)",
+   "출처": "https://x.com/TheSteinLine/status/2072456586379846001",
+   "날짜": "2026-07"
+  }
+ ],
+ "라인업": {
+  "홈": {
+   "예상선발": [
+    "Davion Mitchell",
+    "Klay Thompson",
+    "Andrew Wiggins",
+    "Giannis Antetokounmpo",
+    "Bam Adebayo"
+   ],
+   "발표여부": "예상(10/24 CHA전과 동일)",
+   "출처": "https://roundtable.io/sports/nba/heat/news/important-notes-miami-heat-vs-dallas-mavericks-preview-injury-report-betting-and-more ; https://sports.yahoo.com/articles/watch-miami-heat-charlotte-hornets-145918131.html",
+   "날짜": "2026-10-26"
+  },
+  "원정": {
+   "예상선발": [
+    "Kyrie Irving",
+    "Max Christie",
+    "Cooper Flagg(불가 시 Zaccharie Risacher)",
+    "P.J. Washington",
+    "Daniel Gafford"
+   ],
+   "발표여부": "예상(미발표). 10/24 SAS전 실제 선발: Marshall·Christie·Risacher·Washington·Gafford",
+   "출처": "https://roundtable.io/sports/nba/heat/news/important-notes-miami-heat-vs-dallas-mavericks-preview-injury-report-betting-and-more ; https://www.yardbarker.com/nba/articles/mavericks_make_2_starting_lineup_changes_with_kyrie_irving_cooper_flagg_out_vs_spurs/s1_17810_44470013",
+   "날짜": "2026-10-26"
+  }
+ },
+ "일정": {
+  "홈": {
+   "직전경기": "2026-10-24(ET) @CHA — 1일 휴식, 홈 복귀",
+   "백투백": "아님",
+   "출처": "https://www.basketball-reference.com/teams/MIA/2027_games.html",
+   "날짜": "2026-10-27"
+  },
+  "원정": {
+   "직전경기": "2026-10-24(ET) vs SAS(홈, 백투백 2일차였음) — 1일 휴식 후 마이애미 원정",
+   "백투백": "아님",
+   "출처": "https://www.basketball-reference.com/teams/DAL/2027_games.html",
+   "날짜": "2026-10-27"
+  }
+ },
+ "일정·동기·기타": [
+  "Spoelstra: 팀에 '영감'이 필요하다고 언급. 히트 3경기 외곽 수비 3P 허용 42% — roundtable (2026-10-26)",
+  "매버릭스 감독으로 'Dusty May' 인용(10/24 yardbarker) — 2025-26 basketball-reference 코치는 Jason Kidd. 감독 교체는 별도 확인 못함",
+  "매버릭스 미디어데이 기사 제목에 Masai Ujiri 언급(프런트 합류 추정) — https://www.yardbarker.com/nba/articles/dallas_mavericks_media_day_takeaways_2026_kyrie_irving_cooper_flagg_dereck_lively_ii_masai_ujiri_and_more/s1_17810_44349521 (2026-09/10)",
+  "히트 2025-26 레이팅은 Herro·Powell 포함 로스터, 2026-27은 Giannis·Klay·Portis 합류로 로스터 연속성 낮음 — hoopsrumors (2026-09)",
+  "매버릭스 2025-26 레이팅은 Davis 2월 트레이드 전후 혼합, Flagg 루키 시즌 — basketball-reference/yahoo"
+ ],
+ "엇갈림": [
+  "Cooper Flagg 상태: Probable(Yahoo 10/26) vs Questionable(roundtable·covers 10/26). 공식 PDF 미확인",
+  "Caleb Martin: Out(ESPN·Yahoo) vs Doubtful(roundtable)",
+  "매버릭스 감독: Dusty May(yardbarker 10/24 인용) vs Jason Kidd(basketball-reference 2025-26)",
+  "10/24 SAS전 점수: basketball-reference 106-122 vs roundtable 106-112"
+ ],
+ "못찾음": [
+  "NBA 공식 부상보고 PDF 원문(타임아웃)",
+  "확정 선발 발표",
+  "Kyrie Irving 분수 제한 구체 수치",
+  "Mavericks 2026-27 감독 교체 공식 확인",
+  "Bobby Portis·Hardaway 등 히트 벤치 출전 현황",
+  "Flagg·Washington·Gafford 직전시즌 선발 경기수"
+ ]
+}

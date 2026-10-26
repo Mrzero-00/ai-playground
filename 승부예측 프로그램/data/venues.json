@@ -181,7 +181,7 @@
   "venue": null
  },
  "KIA 타이거즈": {
-  "checked": "2026-10-26",
+  "checked": "2026-10-27",
   "eng": "KIA Tigers",
   "src": "못찾음",
   "venue": null
@@ -552,6 +552,12 @@
   "venue": "김해종합운동장",
   "venue_qid": "Q109546499"
  },
+ "꽁안 하노이": {
+  "checked": "2026-10-27",
+  "eng": "",
+  "src": "못찾음",
+  "venue": null
+ },
  "나고야 그램퍼스": {
   "checked": "2026-10-17",
   "elev": 6,
@@ -763,10 +769,14 @@
   "venue_qid": "Q983806"
  },
  "랏차부리": {
-  "checked": "2026-10-26",
-  "eng": "랏차부리",
-  "src": "못찾음",
-  "venue": null
+  "checked": "2026-10-27",
+  "elev": 17,
+  "lat": 13.5217,
+  "lon": 99.7696,
+  "src": "Wikidata Q4352413→Q25221768 · Open-Meteo 고도",
+  "team_qid": "Q4352413",
+  "venue": "Ratchaburi Stadium",
+  "venue_qid": "Q25221768"
  },
  "랴오닝 톄런": {
   "checked": "2026-10-17",
@@ -1923,6 +1933,16 @@
   "venue": "오이타 스포츠 공원 종합경기장",
   "venue_qid": "Q482581"
  },
+ "오클라호마시티 썬더": {
+  "checked": "2026-10-27",
+  "elev": 390,
+  "lat": 35.4633,
+  "lon": -97.515,
+  "src": "Wikidata Q180950→Q665434 · Open-Meteo 고도",
+  "team_qid": "Q180950",
+  "venue": "페이콤 센터",
+  "venue_qid": "Q665434"
+ },
  "오클랜드FC": {
   "checked": "2026-10-24",
   "elev": 23,
@@ -1969,7 +1989,7 @@
   "venue_qid": "Q10626"
  },
  "요코하마 DeNA베이스타스": {
-  "checked": "2026-10-25",
+  "checked": "2026-10-27",
   "eng": "",
   "src": "못찾음",
   "venue": null
@@ -2272,8 +2292,8 @@
   "venue_qid": "Q938966"
  },
  "조호르 다룰탁짐": {
-  "checked": "2026-10-26",
-  "eng": "조호르 다룰탁짐",
+  "checked": "2026-10-27",
+  "eng": "",
   "src": "못찾음",
   "venue": null
  },
@@ -2658,6 +2678,16 @@
   "team_qid": "Q19604",
   "venue": "프래턴 파크",
   "venue_qid": "Q619531"
+ },
+ "포트FC": {
+  "checked": "2026-10-27",
+  "elev": 7,
+  "lat": 13.7151,
+  "lon": 100.5597,
+  "src": "Wikidata Q580378→Q4925368 · Open-Meteo 고도",
+  "team_qid": "Q580378",
+  "venue": "PAT Stadium",
+  "venue_qid": "Q4925368"
  },
  "포틀랜드 트레일블레이저스": {
   "checked": "2026-10-24",

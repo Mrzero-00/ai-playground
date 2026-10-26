@@ -41,18 +41,19 @@ function totoCard(t, past) {
     return `<td class="ck${cls}">${mine ? `<span class="ok">✓</span>${l.prob ? ` <span class="ln">${l.prob}%</span>` : ""}` : ""}</td>`;
   };
   const rows = t.legs.map((l) => `<tr>
-    <td class="gm"><span class="m">${esc(l.no)}.</span> ${esc(l.game)}<div class="m">${esc(l.time.slice(5, 16))}</div></td>
+    <td class="gm"><span class="m">${esc(l.no)}.</span> ${esc(l.game)}<div class="m">${esc(l.time.slice(5, 16))}${l.league ? " · " + esc(l.league) : ""}</div></td>
+    <td class="ck an">${l.analyzed ? '<span class="ok">☑</span>' : '<span class="m">☐</span>'}</td>
     ${["승", "무", "패"].map((k) => cell(l, k)).join("")}
     ${showRes ? `<td class="num">${esc(l.score || "")}</td><td>${l.hit !== "" ? pill(l.hit) : '<span class="pill wait">대기</span>'}</td>` : ""}
   </tr>`).join("");
   return `<div class="card combo"><div class="chead"><b>${esc(t.round)}회 승무패 · ${esc(t.title)}</b>
-    <span class="small">${t.n}경기${t.done ? ` · ${t.hits}/${t.done} 적중` : ""}</span><span class="sp"></span>
+    <span class="small">${t.n}경기 · 분석 ${t.analyzed_n}/${t.n}${t.done ? ` · ${t.hits}/${t.done} 적중` : ""}</span><span class="sp"></span>
     ${t.current ? `<span class="pill wait">진행</span>` : t.scored ? (t.hits >= 13 ? '<span class="pill hit">' : '<span class="pill miss">') + esc(t.result || `${t.hits}/${t.n}`) + "</span>" : '<span class="pill wait">채점 중</span>'}</div>
     <div class="small">${closeText(t.close)}${carryText(t)}</div>
     <div class="tbl"><table class="combo-tbl"><thead><tr>
-      <th>경기</th><th class="ck">승</th><th class="ck">무</th><th class="ck">패</th>
+      <th>경기</th><th class="ck">분석</th><th class="ck">승</th><th class="ck">무</th><th class="ck">패</th>
       ${showRes ? '<th class="num">결과</th><th>적중</th>' : ""}</tr></thead><tbody>${rows}</tbody></table>
-    ${showRes ? '<div class="tnote"><span class="ok">✓</span> 내 마킹 · <span class="sw act-ok"></span> 실제 결과(맞음) · <span class="sw act-no"></span> 실제 결과(빗나감)</div>' : '<div class="tnote"><span class="ok">✓</span> 내 마킹 · 옆 숫자는 내 확률</div>'}</div>
+    ${showRes ? '<div class="tnote"><span class="ok">✓</span> 내 마킹 · <span class="sw act-ok"></span> 실제 결과(맞음) · <span class="sw act-no"></span> 실제 결과(빗나감)</div>' : `<div class="tnote">☑ 분석 완료 · <span class="ok">✓</span> 내 마킹(옆 숫자는 내 확률)${t.analyzed_n < t.n ? ` · 나머지 ${t.n - t.analyzed_n}경기는 마감 2시간 전에 분석합니다` : ""}</div>`}</div>
     ${t.legs.filter((l) => l.why && !past).map((l) => `<div class="note"><div class="nh">${esc(l.no)}. ${esc(l.game)} — <b>${esc(l.pick)}</b></div>
       <div class="why"><span class="lbl">근거</span> ${esc(l.why)}</div></div>`).join("")}</div>`;
 }
@@ -136,6 +137,7 @@ async function now() {
   ${(() => {
     const cur = (r.toto || []).filter((t) => t.current);
     if (cur.length) return `<h2>현재 진행 중 — 승무패</h2>` + cur.map((t) => totoCard(t, false)).join("");
+
     const pin = (r.toto || []).find((t) => t.pinned);
     if (pin) return `<h2>승무패 — 직전 회차 <span class="small">다음 회차가 열리면 교체됩니다</span></h2>` + totoCard(pin, true);
     return `<h2>현재 진행 중 — 승무패</h2><div class="empty">진행 중인 승무패 마킹이 없습니다. 마감 2시간 전 분석 뒤 올라옵니다.</div>`;

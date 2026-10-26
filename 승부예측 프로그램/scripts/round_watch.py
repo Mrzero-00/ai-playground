@@ -195,6 +195,41 @@ def cmd_toto():
     for g in new:
         print(f"승무패 {g['gmOsidTs']}회 판매 중 — 미분석 (gmTs {g.get('gmTs')}, 연도 {g.get('gmOsidTsYear')})")
         toto_plan(g, hdr, ck)
+        toto_register(g, hdr, ck)
+
+
+def toto_register(g, hdr, ck):
+    """판매 시작 시점에 14경기를 전체경기기록에 **방향 없이** 먼저 넣는다 (사용자 지시 2026-10-26).
+    전에는 분석이 끝나야 기록이 생겨서, 회차가 열려 있는데도 대시보드에 승무패가 아예 안 보였다.
+    경기만 먼저 등록해 두면 분석 전에도 목록이 보이고, 분석이 끝나면 그 자리에 방향·확률이 채워진다."""
+    import json as _json
+    rnd = f"승무패{g['gmOsidTs']}"
+    rows = rl.load()
+    if any(r["회차"] == rnd for r in rows):
+        print(f"  {rnd} 경기 이미 등록됨"); return
+    d = o.curl("https://www.betman.co.kr/buyPsblGame/gameInfoInq.do", hdr,
+               _json.dumps({"gmId": "G011", "gmTs": g.get("gmTs"), "gameYear": g.get("gmOsidTsYear"),
+                            "_sbmInfo": {"_sbmInfo": {"debugMode": "false"}}}), ck)
+    sched = d.get("schedulesList") or []
+    if not sched:
+        print("  ⚠ 경기 목록(schedulesList) 없음 — 등록 건너뜀"); return
+    n = 0
+    for x in sched:
+        gd = x.get("gameDate")
+        when = dt.datetime.fromtimestamp(gd / 1000, o.KST).strftime("%Y-%m-%d %H:%M") if gd else ""
+        home = (x.get("homeFullName") or x.get("homeName") or "").strip()
+        away = (x.get("awayFullName") or x.get("awayName") or "").strip()
+        if not (home and away):
+            continue
+        n += 1
+        rows.append({"회차": rnd, "번호": str(x.get("matchSeq") or n), "시각": when,
+                     "종목": "축구", "리그": (x.get("leagueName") or "").strip(),
+                     "홈": home, "원정": away, "깊이": "미분석",
+                     "비고": (x.get("meetStadiumFullName") or "").strip()})
+    if not n:
+        print("  ⚠ 팀명을 못 읽어 등록 건너뜀 — schedulesList 키 확인 필요"); return
+    rl.save(rows)
+    print(f"  {rnd} {n}경기를 기록에 등록(방향 없음) — 분석 전에도 대시보드에 보인다")
 
 
 POOL = os.path.join(ROOT, "data", "승무패_이월판매.csv")

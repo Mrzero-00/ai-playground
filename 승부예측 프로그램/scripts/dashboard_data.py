@@ -381,7 +381,10 @@ def build(out):
             hit = None
             if res in ("승", "무", "패") and pick:
                 hit = res in pick.split("/"); done += 1; hits += 1 if hit else 0
+            # 사용자 지시 2026-10-26: 분석 전에도 경기를 보여 주고, 분석했으면 체크한다.
+            analyzed = bool(sum(pu.values())) and (g.get("깊이") or "") != "미분석"
             legs.append({"no": g["번호"], "game": f"{g['홈']} - {g['원정']}", "time": g.get("시각", ""), "pick": pick, "prob": round(pu[top]) if top else None,
+                         "analyzed": analyzed, "league": (g.get("리그") or ""),
                          "result": (res + (" " + g["점수"] if g.get("점수") else "")).strip(),
                          "actual": res if res in ("승", "무", "패") else "",   # 표에서 실제 결과 칸을 칠하는 데 쓴다
                          "score": g.get("점수", ""),
@@ -389,6 +392,7 @@ def build(out):
         close = plan_close.get(tr, "")
         toto.append({"round": tr, "title": (mark["ticket"] if mark else "마킹") + (f" · {mark['stake']}원" if mark and fnum(mark.get("stake")) else ""), "close": close,
                      "legs": legs, "n": len(legs), "done": done, "hits": hits, "scored": done == len(legs) and len(legs) > 0, "result": (mark or {}).get("result", ""),
+                     "analyzed_n": sum(1 for l in legs if l["analyzed"]),
                      "current": bool(close) and close >= now.strftime("%Y-%m-%d %H:%M")})
     # 이월 정보 (data/승무패_이월판매.csv — 회차별 마지막 확인값)
     carry = {}

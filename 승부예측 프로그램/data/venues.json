@@ -181,7 +181,7 @@
   "venue": null
  },
  "KIA 타이거즈": {
-  "checked": "2026-10-25",
+  "checked": "2026-10-26",
   "eng": "KIA Tigers",
   "src": "못찾음",
   "venue": null
@@ -356,6 +356,16 @@
   "venue": "킹 사우드 대학 경기장",
   "venue_qid": "Q20421103"
  },
+ "S알이티하드": {
+  "checked": "2026-10-26",
+  "elev": 7,
+  "lat": 21.7626,
+  "lon": 39.1651,
+  "src": "Wikidata Q309480→Q6411211 · Open-Meteo 고도",
+  "team_qid": "Q309480",
+  "venue": "킹 압둘라 스포츠 시티 스타디움",
+  "venue_qid": "Q6411211"
+ },
  "TSG1899 호펜하임": {
   "checked": "2026-10-23",
   "elev": 182,
@@ -463,7 +473,7 @@
   "venue_qid": "Q493801"
  },
  "고양소노 스카이거너스": {
-  "checked": "2026-10-24",
+  "checked": "2026-10-26",
   "eng": "Goyang Sono Skygunners",
   "src": "못찾음",
   "venue": null

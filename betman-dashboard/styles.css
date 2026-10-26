@@ -1,3 +1,4 @@
+.carry{color:var(--s4)}
 .grid.two{grid-template-columns:repeat(auto-fit,minmax(260px,1fr));margin-bottom:10px}
 .tile.big .v{font-size:40px;line-height:1.1}
 .tile .d.ref{margin-top:6px;padding-top:6px;border-top:1px solid var(--line);color:var(--faint)}

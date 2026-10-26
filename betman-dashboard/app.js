@@ -22,11 +22,21 @@ function closeText(c) {
   const h = Math.floor(diff / 60), m = Math.round(diff % 60);
   return `<b>구매 마감 ${when}</b> (${h > 0 ? h + "시간 " : ""}${m}분 남음)`;
 }
+const won = (n) => n >= 100000000 ? (n/100000000).toFixed(1).replace(/\.0$/,"") + "억" : n >= 10000 ? Math.round(n/10000).toLocaleString() + "만" : n.toLocaleString();
+function carryText(t) {
+  if (!t) return "";
+  const bits = [];
+  if (t.carry_n > 0) bits.push(`<b class="carry">${t.carry_n}번 이월</b> ${t.carry_amt ? won(t.carry_amt) + "원" : ""}`);
+  else if (t.carry_n === 0 && t.carry_at) bits.push('<span class="m">이월 없음</span>');
+  if (t.sales) bits.push(`판매 ${won(t.sales)}원`);
+  if (t.top_prize) bits.push(`1등 예상 ${won(t.top_prize)}원`);
+  return bits.length ? " · " + bits.join(" · ") : "";
+}
 function totoCard(t, past) {
   return `<div class="card combo"><div class="chead"><b>${esc(t.round)}회 승무패 · ${esc(t.title)}</b>
     <span class="small">${t.n}경기${t.done ? ` · ${t.hits}/${t.done} 적중` : ""}</span><span class="sp"></span>
     ${t.current ? `<span class="pill wait">진행</span>` : t.scored ? (t.hits >= 13 ? '<span class="pill hit">' : '<span class="pill miss">') + esc(t.result || `${t.hits}/${t.n}`) + "</span>" : '<span class="pill wait">채점 중</span>'}</div>
-    <div class="small">${closeText(t.close)}</div>
+    <div class="small">${closeText(t.close)}${carryText(t)}</div>
     <ul class="legs">${t.legs.map((l) => `<li><div class="lhead"><span class="g">${esc(l.no)}. ${esc(l.game)} <span class="m">${esc(l.time.slice(5, 16))}</span></span>
       <span class="pk"><b>${esc(l.pick)}</b>${l.prob ? ` <span class="m">${l.prob}%</span>` : ""}</span><span>${l.result ? esc(l.result) + " " : ""}${l.hit !== "" ? pill(l.hit) : ""}</span></div>
       ${l.why && !past ? `<div class="why"><span class="lbl">근거</span> ${esc(l.why)}</div>` : ""}</li>`).join("")}</ul></div>`;
@@ -109,8 +119,13 @@ async function now() {
   </div>
   <h2>현재 진행 중</h2>
   ${r.current.filter((c)=>c.track!=="도파민").length ? r.current.filter((c)=>c.track!=="도파민").map((c) => comboCard(c, false)).join("") : '<div class="empty">진행 중인 코어 조합이 없습니다. 다음 블록 분석 시각에 추가됩니다.</div>'}
-  <h2>현재 진행 중 — 승무패</h2>
-  ${(r.toto || []).filter((t) => t.current).length ? (r.toto || []).filter((t) => t.current).map((t) => totoCard(t, false)).join("") : '<div class="empty">진행 중인 승무패 마킹이 없습니다. 마감 2시간 전 분석 뒤 올라옵니다.</div>'}`;
+  ${(() => {
+    const cur = (r.toto || []).filter((t) => t.current);
+    if (cur.length) return `<h2>현재 진행 중 — 승무패</h2>` + cur.map((t) => totoCard(t, false)).join("");
+    const pin = (r.toto || []).find((t) => t.pinned);
+    if (pin) return `<h2>승무패 — 직전 회차 <span class="small">다음 회차가 열리면 교체됩니다</span></h2>` + totoCard(pin, true);
+    return `<h2>현재 진행 중 — 승무패</h2><div class="empty">진행 중인 승무패 마킹이 없습니다. 마감 2시간 전 분석 뒤 올라옵니다.</div>`;
+  })()}`;
 }
 async function past() {
   const s = await load("summary"), r = await load("recommendations");

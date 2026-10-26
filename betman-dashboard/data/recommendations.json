@@ -2443,7 +2443,13 @@
    "hits": 0,
    "scored": false,
    "result": "",
-   "current": false
+   "current": false,
+   "carry_n": 1,
+   "carry_amt": 395471500,
+   "sales": 2378791000,
+   "top_prize": 990169250,
+   "carry_at": "2026-10-24 21:12",
+   "pinned": true
   },
   {
    "round": "승무패62",
@@ -2596,7 +2602,12 @@
    "hits": 0,
    "scored": false,
    "result": "",
-   "current": false
+   "current": false,
+   "carry_n": 0,
+   "carry_amt": 0,
+   "sales": 904131000,
+   "top_prize": 226032750,
+   "carry_at": "2026-10-20 21:10"
   },
   {
    "round": "승무패61",
@@ -2749,7 +2760,12 @@
    "hits": 9,
    "scored": true,
    "result": "낙첨 확정(4오답)",
-   "current": false
+   "current": false,
+   "carry_n": 0,
+   "carry_amt": 0,
+   "sales": 1629898000,
+   "top_prize": 407474500,
+   "carry_at": "2026-10-17 20:38"
   },
   {
    "round": "승무패60",
@@ -2902,7 +2918,12 @@
    "hits": 11,
    "scored": true,
    "result": "4등×2",
-   "current": false
+   "current": false,
+   "carry_n": 0,
+   "carry_amt": 0,
+   "sales": 0,
+   "top_prize": 0,
+   "carry_at": ""
   },
   {
    "round": "승무패59",
@@ -3055,7 +3076,12 @@
    "hits": 10,
    "scored": true,
    "result": "4등",
-   "current": false
+   "current": false,
+   "carry_n": 0,
+   "carry_amt": 0,
+   "sales": 0,
+   "top_prize": 0,
+   "carry_at": ""
   }
  ]
 }

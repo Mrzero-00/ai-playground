@@ -387,7 +387,30 @@ def build(out):
         toto.append({"round": tr, "title": (mark["ticket"] if mark else "마킹") + (f" · {mark['stake']}원" if mark and fnum(mark.get("stake")) else ""), "close": close,
                      "legs": legs, "n": len(legs), "done": done, "hits": hits, "scored": done == len(legs) and len(legs) > 0, "result": (mark or {}).get("result", ""),
                      "current": bool(close) and close >= now.strftime("%Y-%m-%d %H:%M")})
-    toto.sort(key=lambda t: t["round"], reverse=True)
+    # 이월 정보 (data/승무패_이월판매.csv — 회차별 마지막 확인값)
+    carry = {}
+    for r in rows("data/승무패_이월판매.csv"):
+        rr = (r.get("회차") or "").strip()
+        if rr:
+            carry[rr] = r
+    for t in toto:
+        key = t["round"] if str(t["round"]).startswith("승무패") else f"승무패{t['round']}"
+        c = carry.get(key) or carry.get(str(t["round"])) or {}
+        t["carry_n"] = int(fnum(c.get("이월횟수")) or 0)
+        t["carry_amt"] = int(fnum(c.get("이월금")) or 0)
+        t["sales"] = int(fnum(c.get("판매액")) or 0)
+        t["top_prize"] = int(fnum(c.get("1등예상(현재판매액기준)")) or 0)
+        t["carry_at"] = (c.get("확인시각") or "")[:16]
+
+    def _rk(t):
+        import re as _re
+        m = _re.search(r"(\d+)", str(t["round"]))
+        return int(m.group(1)) if m else 0
+    toto.sort(key=_rk, reverse=True)
+    # 사용자 지시 2026-10-26: 다음 승무패 회차가 나오기 전까지 직전 회차 분석을 계속 보여 준다.
+    # 마감이 지났다고 사라지면 그 사이 화면이 비어 "분석이 없어진 것"처럼 보인다.
+    if toto and not any(t["current"] for t in toto):
+        toto[0]["pinned"] = True
     # ---- 회고 문서 목록·본문 (사용자 요청 2026-10-19)
     import glob as _g
     retros = []

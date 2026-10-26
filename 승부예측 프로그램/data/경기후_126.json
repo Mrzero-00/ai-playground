@@ -11001,5 +11001,107 @@
   },
   "전반점수": "0:1",
   "xG출처": "Understat La_liga"
+ },
+ "787": {
+  "경기": "LAFC - LA 갤럭시",
+  "점수": "2:2",
+  "event": "761904",
+  "수집": "2026-10-26 13:47",
+  "홈": {
+   "팀": "LAFC",
+   "슈팅": "21",
+   "유효": "5",
+   "점유": "57.4",
+   "퇴장": "0",
+   "선발": [
+    "Hugo Lloris",
+    "Aaron Long",
+    "Ryan Porteous",
+    "Yevhen Cheberko",
+    "Sergi Palencia",
+    "Son Heung-Min",
+    "Igor Jesus",
+    "Mark Delgado",
+    "Denis Bouanga",
+    "Armindo Sieb",
+    "Leo Walta"
+   ],
+   "교체투입": [
+    "Mathieu Choinière",
+    "Tyler Boyd",
+    "Sergio Vásquez",
+    "Nkosi Tafari"
+   ],
+   "명단": [
+    "Hugo Lloris",
+    "Aaron Long",
+    "Ryan Porteous",
+    "Yevhen Cheberko",
+    "Sergi Palencia",
+    "Son Heung-Min",
+    "Igor Jesus",
+    "Mark Delgado",
+    "Denis Bouanga",
+    "Armindo Sieb",
+    "Leo Walta",
+    "Mathieu Choinière",
+    "Jeremy Ebobisse",
+    "Tyler Boyd",
+    "Eddie Segura",
+    "Sergio Vásquez",
+    "Jacob Shaffelburg",
+    "Thomas Hasal",
+    "Nkosi Tafari",
+    "Ryan Hollingshead"
+   ]
+  },
+  "원정": {
+   "팀": "LA Galaxy",
+   "슈팅": "10",
+   "유효": "4",
+   "점유": "42.6",
+   "퇴장": "0",
+   "선발": [
+    "JT Marcinkowski",
+    "Justin Haak",
+    "Carlos Garcés",
+    "John Nelson",
+    "Harbor Miller",
+    "Erik Thommy",
+    "Sergi Roberto",
+    "Pablo Ruiz",
+    "João Klauss",
+    "Joseph Paintsil",
+    "Robert Taylor"
+   ],
+   "교체투입": [
+    "Lucas Sanabria",
+    "Calegari",
+    "Jakob Glesnes",
+    "Maya Yoshida"
+   ],
+   "명단": [
+    "JT Marcinkowski",
+    "Justin Haak",
+    "Carlos Garcés",
+    "John Nelson",
+    "Harbor Miller",
+    "Erik Thommy",
+    "Sergi Roberto",
+    "Pablo Ruiz",
+    "João Klauss",
+    "Joseph Paintsil",
+    "Robert Taylor",
+    "Lucas Sanabria",
+    "Troy Elgersma",
+    "Novak Micovic",
+    "Calegari",
+    "Julián Aude",
+    "Jakob Glesnes",
+    "Maya Yoshida",
+    "Elijah Wynder"
+   ]
+  },
+  "전반점수": "0:1"
  }
 }

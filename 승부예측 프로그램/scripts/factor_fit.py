@@ -13,8 +13,20 @@
   0 근처면 잡음이고, 음이면 부호가 반대다.
   판정은 **방향 적중률**로만 한다(시간 순 분할, 과거로 학습해 미래를 맞힌다).
 
+2026-10-26 (127회 심층회고) — **게이트를 계수 문턱에서 '실측 2관문'으로 바꿨다.**
+  왜: 이전 게이트는 `effect > 0.02` 하나였다. 로그오즈 0.02 는 표준오차(0.12~0.37)보다 훨씬 작아
+  잡음이 그대로 통과했다. 실제로 회차마다 판정이 뒤집혔다 — 결장이 '역부호'→'정보', 기준선불신이
+  '정보'→'잡음'. 그 상태로 weight=1.0 을 받은 세 유형(결장·폼·기타)을 시험셋에서 재 보니
+  **전부 방향 적중률을 깎고 있었다**(결장 -1.3p · 폼 -0.4p · 기타 -3.1p, 시장만 57.1% 기준).
+  그래서 유형이 확률을 움직이려면 두 관문을 다 통과해야 한다:
+    ① 부호 안정성 — 학습 구간 부트스트랩 400회에서 같은 부호가 95% 이상.
+    ② 시험셋 기여 — 그 유형 하나만 시장 위에 얹었을 때 방향 적중률이 올라간다(> 0).
+  둘 중 하나라도 못 넘으면 weight=0 — **수집·기록은 하되 확률을 움직이지 않는다**.
+  이것은 '덮는' 변경이 아니다. 어느 구간을 추천에서 빼는 게 아니라, 정보가 없다고 실측된 보정을
+  끄는 것이다. 표본이 늘면 같은 관문으로 다시 재서 켠다.
+
     python3 scripts/factor_fit.py report
-    python3 scripts/factor_fit.py report --min 40
+    python3 scripts/factor_fit.py report --min 40 --boot 400
 """
 import argparse, collections, csv, math, os, sys
 
@@ -101,40 +113,89 @@ def cmd_report(a):
     print(f"{'시장만':<28} {len(y)-cut:>8} {a0:>9.1f}%")
     print(f"{'시장 + 요인(실측 가중)':<28} {len(y)-cut:>8} {a1:>9.1f}%   {a1-a0:+.1f}p")
 
-    print("\n-- 유형별 계수 (홈승 방향, 양수면 시장이 모르는 정보를 담고 있다)")
-    print(f"{'유형':<12} {'등장':>5} {'홈승 계수':>10} {'원정승 계수':>11}  판정")
     cls = list(m1.classes_)
     ih, ia = cls.index(0), cls.index(2)
-    for j, t in enumerate(keep):
-        ch = m1.coef_[ih][2 + j]; ca = m1.coef_[ia][2 + j]
-        eff = ch - ca
-        verdict = "정보 있음" if eff > 0.02 else ("부호 반대" if eff < -0.02 else "잡음")
-        print(f"{t:<12} {types[t]:>5} {ch:>+10.3f} {ca:>+11.3f}  {verdict}")
-    import json
+
+    # 관문 ① 부호 안정성 — 학습 구간을 재표집해 effect 부호가 흔들리는지 본다.
+    #   표준오차가 effect 보다 크면 그 유형은 '정보'가 아니라 그 회차의 우연이다.
+    rng = np.random.default_rng(a.seed)
+    boot = np.zeros((a.boot, len(keep)))
+    for b in range(a.boot):
+        idx = rng.integers(0, cut, cut)
+        try:
+            mb = LogisticRegression(max_iter=2000, C=0.5).fit(X[tr][idx], y[tr][idx])
+        except Exception:
+            boot[b] = np.nan; continue
+        cb = list(mb.classes_)
+        boot[b] = mb.coef_[cb.index(0)][2:] - mb.coef_[cb.index(2)][2:]
+
+    # 관문 ② 시험셋 기여 — 그 유형 하나만 시장 위에 얹어 방향 적중률이 오르는지 본다.
+    def solo(j):
+        c = [0, 1, 2 + j]
+        m = LogisticRegression(max_iter=2000, C=0.5).fit(X[tr][:, c], y[tr])
+        return (m.predict(X[te][:, c]) == y[te]).mean() * 100
+
+    print("\n-- 유형별 판정 (관문 ① 부호 안정성 95%+ · 관문 ② 시험셋 방향 적중 기여 > 0)")
+    print(f"{'유형':<12} {'등장':>5} {'effect':>8} {'표준오차':>8} {'양수비율':>8} {'단독 시험':>9} {'차':>7}  판정")
     w = {}
     for j, t in enumerate(keep):
-        eff = m1.coef_[ih][2 + j] - m1.coef_[ia][2 + j]
-        w[t] = {"n": types[t], "effect": round(float(eff), 4),
-                "verdict": "정보" if eff > 0.02 else ("역부호" if eff < -0.02 else "잡음"),
-                "weight": 1.0 if eff > 0.02 else (0.0 if eff > -0.02 else 0.0)}
+        eff = float(m1.coef_[ih][2 + j] - m1.coef_[ia][2 + j])
+        col = boot[:, j]; col = col[~np.isnan(col)]
+        se = float(col.std()) if len(col) else float("nan")
+        pos = float((col > 0).mean()) if len(col) else float("nan")
+        s_acc = solo(j); d = s_acc - a0
+        stable = pos >= 0.95            # 양의 정보라고 말할 수 있는가
+        helps = d > 0                   # 실제로 미래 경기를 더 맞히는가
+        if stable and helps:
+            verdict, weight = "정보(채택)", 1.0
+        elif pos <= 0.05:
+            verdict, weight = "역부호", 0.0
+        elif not stable:
+            verdict, weight = "잡음(부호 불안정)", 0.0
+        else:
+            verdict, weight = "기여 없음", 0.0
+        print(f"{t:<12} {types[t]:>5} {eff:>+8.3f} {se:>8.3f} {pos:>7.1%} "
+              f"{s_acc:>8.1f}% {d:>+6.1f}p  {verdict}")
+        w[t] = {"n": types[t], "effect": round(eff, 4), "se": round(se, 4),
+                "sign_stability": round(pos, 3), "solo_test_acc": round(s_acc, 2),
+                "solo_delta": round(d, 2), "verdict": verdict, "weight": weight}
+
+    kept = [t for t in keep if w[t]["weight"]]
+    # 채택된 유형만 얹었을 때 시험셋 적중 — json 의 acc_with_factors 가 실제 운용값을 가리키게 한다.
+    cols = [0, 1] + [2 + keep.index(t) for t in kept]
+    if kept:
+        mk = LogisticRegression(max_iter=2000, C=0.5).fit(X[tr][:, cols], y[tr])
+        a_kept = (mk.predict(X[te][:, cols]) == y[te]).mean() * 100
+    else:
+        a_kept = a0                      # 채택 0 = 사전확률 그대로 = 시장만
+    print(f"\n{'채택 유형만 적용':<28} {len(y)-cut:>8} {a_kept:>9.1f}%   {a_kept-a0:+.1f}p"
+          f"   ({', '.join(kept) if kept else '채택 0 — 보정 없음'})")
+
+    import json
     out = {"fitted": __import__("datetime").date.today().isoformat(),
-           "n_train": cut, "n_test": len(y) - cut,
-           "acc_market_only": round(a0, 2), "acc_with_factors": round(a1, 2),
+           "n_train": cut, "n_test": len(y) - cut, "boot": a.boot,
+           "acc_market_only": round(a0, 2), "acc_all_factors": round(a1, 2),
+           "acc_with_factors": round(a_kept, 2),
+           "gate": "부호 안정성 95%+ AND 단독 시험셋 기여 > 0",
            "types": w,
            "note": "weight=0 인 유형은 수집·기록은 하되 확률을 움직이지 않는다. 표본이 늘면 재추정한다."}
     json.dump(out, open(os.path.join(ROOT, "data", "factor_weights.json"), "w", encoding="utf-8"),
               ensure_ascii=False, indent=1)
-    print(f"\n→ data/factor_weights.json ({sum(1 for v in w.values() if v['weight'])}/{len(w)} 유형만 확률에 반영)")
+    print(f"→ data/factor_weights.json ({len(kept)}/{len(keep)} 유형만 확률에 반영)")
     print("\n계수는 '내가 매긴 %p 1점이 결과 로그오즈를 얼마나 움직였나'다.")
-    print("판정이 '잡음'인 유형은 수집은 하되 확률 조정에 쓰지 않는 쪽이 낫다.")
-    print("판정이 '부호 반대'면 지금 반대로 적용하고 있다는 뜻이라 즉시 고친다.")
+    print("두 관문을 다 넘지 못한 유형은 수집·기록만 하고 확률은 사전확률 그대로 둔다 — 보정 0 이 기본값이다.")
+    print("'역부호'는 반대로 적용하고 있다는 뜻이지만, 뒤집어 쓰지 않는다(표본이 적어 부호만 바꾸면 과적합이다).")
     return 0
 
 
 def main():
     ap = argparse.ArgumentParser()
     s = ap.add_subparsers(dest="c", required=True)
-    p = s.add_parser("report"); p.add_argument("--min", type=int, default=30); p.set_defaults(f=cmd_report)
+    p = s.add_parser("report")
+    p.add_argument("--min", type=int, default=30)
+    p.add_argument("--boot", type=int, default=400, help="부호 안정성 부트스트랩 횟수")
+    p.add_argument("--seed", type=int, default=7)
+    p.set_defaults(f=cmd_report)
     a = ap.parse_args()
     return a.f(a)
 

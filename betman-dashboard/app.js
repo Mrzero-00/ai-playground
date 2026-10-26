@@ -22,14 +22,39 @@ function closeText(c) {
   const h = Math.floor(diff / 60), m = Math.round(diff % 60);
   return `<b>구매 마감 ${when}</b> (${h > 0 ? h + "시간 " : ""}${m}분 남음)`;
 }
+const won = (n) => n >= 100000000 ? (n/100000000).toFixed(1).replace(/\.0$/,"") + "억" : n >= 10000 ? Math.round(n/10000).toLocaleString() + "만" : n.toLocaleString();
+function carryText(t) {
+  if (!t) return "";
+  const bits = [];
+  if (t.carry_n > 0) bits.push(`<b class="carry">${t.carry_n}번 이월</b> ${t.carry_amt ? won(t.carry_amt) + "원" : ""}`);
+  else if (t.carry_n === 0 && t.carry_at) bits.push('<span class="m">이월 없음</span>');
+  if (t.sales) bits.push(`판매 ${won(t.sales)}원`);
+  if (t.top_prize) bits.push(`1등 예상 ${won(t.top_prize)}원`);
+  return bits.length ? " · " + bits.join(" · ") : "";
+}
 function totoCard(t, past) {
+  const showRes = t.legs.some((l) => l.hit === "0" || l.hit === "1");
+  const cell = (l, k) => {
+    const mine = l.pick === k;
+    const act = l.actual || "";
+    const cls = act && act === k ? (act === l.pick ? " act-ok" : " act-no") : "";
+    return `<td class="ck${cls}">${mine ? `<span class="ok">✓</span>${l.prob ? ` <span class="ln">${l.prob}%</span>` : ""}` : ""}</td>`;
+  };
+  const rows = t.legs.map((l) => `<tr>
+    <td class="gm"><span class="m">${esc(l.no)}.</span> ${esc(l.game)}<div class="m">${esc(l.time.slice(5, 16))}</div></td>
+    ${["승", "무", "패"].map((k) => cell(l, k)).join("")}
+    ${showRes ? `<td class="num">${esc(l.score || "")}</td><td>${l.hit !== "" ? pill(l.hit) : '<span class="pill wait">대기</span>'}</td>` : ""}
+  </tr>`).join("");
   return `<div class="card combo"><div class="chead"><b>${esc(t.round)}회 승무패 · ${esc(t.title)}</b>
     <span class="small">${t.n}경기${t.done ? ` · ${t.hits}/${t.done} 적중` : ""}</span><span class="sp"></span>
     ${t.current ? `<span class="pill wait">진행</span>` : t.scored ? (t.hits >= 13 ? '<span class="pill hit">' : '<span class="pill miss">') + esc(t.result || `${t.hits}/${t.n}`) + "</span>" : '<span class="pill wait">채점 중</span>'}</div>
-    <div class="small">${closeText(t.close)}</div>
-    <ul class="legs">${t.legs.map((l) => `<li><div class="lhead"><span class="g">${esc(l.no)}. ${esc(l.game)} <span class="m">${esc(l.time.slice(5, 16))}</span></span>
-      <span class="pk"><b>${esc(l.pick)}</b>${l.prob ? ` <span class="m">${l.prob}%</span>` : ""}</span><span>${l.result ? esc(l.result) + " " : ""}${l.hit !== "" ? pill(l.hit) : ""}</span></div>
-      ${l.why && !past ? `<div class="why"><span class="lbl">근거</span> ${esc(l.why)}</div>` : ""}</li>`).join("")}</ul></div>`;
+    <div class="small">${closeText(t.close)}${carryText(t)}</div>
+    <div class="tbl"><table class="combo-tbl"><thead><tr>
+      <th>경기</th><th class="ck">승</th><th class="ck">무</th><th class="ck">패</th>
+      ${showRes ? '<th class="num">결과</th><th>적중</th>' : ""}</tr></thead><tbody>${rows}</tbody></table>
+    ${showRes ? '<div class="tnote"><span class="ok">✓</span> 내 마킹 · <span class="sw act-ok"></span> 실제 결과(맞음) · <span class="sw act-no"></span> 실제 결과(빗나감)</div>' : '<div class="tnote"><span class="ok">✓</span> 내 마킹 · 옆 숫자는 내 확률</div>'}</div>
+    ${t.legs.filter((l) => l.why && !past).map((l) => `<div class="note"><div class="nh">${esc(l.no)}. ${esc(l.game)} — <b>${esc(l.pick)}</b></div>
+      <div class="why"><span class="lbl">근거</span> ${esc(l.why)}</div></div>`).join("")}</div>`;
 }
 
 function pickCells(l, past) {
@@ -85,17 +110,36 @@ async function now() {
   const s = await load("summary"), r = await load("recommendations");
   app.innerHTML = `
   <h1>추천 조합</h1><p class="sub">${esc(s.mode)} · 갱신 ${esc(s.updated)}</p>
-  <div class="grid">
-    <div class="tile"><div class="k">조합 성공률</div><div class="v">${pct(s.combo_rate)}</div><div class="d">${s.combos_hit}/${s.combos_scored} 조합 적중 · 재개 기준 80%</div></div>
-    <div class="tile"><div class="k">다리 적중률</div><div class="v">${pct(s.leg_rate)}</div><div class="d">${s.legs_scored}다리 채점</div></div>
-    <div class="tile"><div class="k">코어 조합 총계</div><div class="v">${s.combos_total}</div><div class="d">진행 ${r.current.filter((c)=>c.track!=="도파민").length} · 채점 ${s.combos_scored}</div></div>
-    <div class="tile"><div class="k">방향 적중률 (전 경기)</div><div class="v">${pct(s.dir_rate)}</div><div class="d">${s.dir_n}경기 · 같은 경기 시장 ${pct(s.dir_market)} vs 내 ${pct(s.dir_me)}</div></div>
-    <div class="tile"><div class="k">과정 점수</div><div class="v">${pct(s.process_score)}</div><div class="d">내용이 예측 쪽이었던 비율 · ${s.process_n}경기</div></div>
+  <div class="grid two">
+    <div class="tile big"><div class="k">단일 경기 방향 적중률</div><div class="v">${pct(s.dir_rate,1)}</div>
+      <div class="d">분석한 ${s.dir_n}경기 · 목표 100%</div>
+      <div class="d ref">같은 경기 시장 ${pct(s.dir_market,1)} <span class="gap ${s.dir_edge>=0?"up":"down"}">${s.dir_edge>=0?"+":""}${(s.dir_edge*100).toFixed(1)}p</span> <span class="m">참고선</span></div></div>
+    <div class="tile big"><div class="k">조합 추천 적중률</div><div class="v">${pct(s.combo_rate,1)}</div>
+      <div class="d">추천 ${s.combos_scored}조합 중 ${s.combos_hit}개 적중 · 목표 100%</div>
+      <div class="d ref">추천 다리 ${pct(s.leg_rate,1)} (${s.legs_scored}다리)</div></div>
   </div>
+  <div class="grid">
+    <div class="tile"><div class="k">과정 점수</div><div class="v">${pct(s.process_score)}</div><div class="d">내용이 예측 쪽이었던 비율 · ${s.process_n}경기</div></div>
+    <div class="tile"><div class="k">대조군(자동 채움)</div><div class="v">${pct(s.base_rate,1)}</div><div class="d">분석 없이 모델만 ${s.base_n}경기 · 분석이 더한 몫 ${((s.dir_rate-s.base_rate)*100).toFixed(1)}p</div></div>
+    <div class="tile"><div class="k">추천 조합 총계</div><div class="v">${s.combos_total}</div><div class="d">진행 ${r.current.length} · 채점 ${s.combos_scored}</div></div>
+  </div>
+  ${s.edge_series && s.edge_series.length ? `<details class="card hblk"><summary><b>회차별 추이</b> <span class="small">방향 적중률과 참고선</span></summary>
+    <div class="tbl"><table><thead><tr><th>회차</th><th class="num">분석 경기</th><th class="num">방향 적중률</th><th class="num">시장(참고)</th></tr></thead><tbody>
+    ${s.edge_series.map((e)=>`<tr><td>${esc(e.round)}회</td><td class="num">${e.n}</td><td class="num"><b>${(e.me*100).toFixed(1)}%</b></td><td class="num m">${(e.market*100).toFixed(1)}%</td></tr>`).join("")}
+    </tbody></table></div></details>` : ""}
+  ${s.edge_by_league && s.edge_by_league.length ? `<details class="card hblk"><summary><b>리그별 방향 적중률</b> <span class="small">15경기 이상</span></summary>
+    <div class="tbl"><table><thead><tr><th>리그</th><th class="num">경기</th><th class="num">방향 적중률</th><th class="num">시장(참고)</th></tr></thead><tbody>
+    ${s.edge_by_league.map((e)=>`<tr><td>${esc(e.league)}</td><td class="num">${e.n}</td><td class="num"><b>${(e.me*100).toFixed(1)}%</b></td><td class="num m">${(e.market*100).toFixed(1)}%</td></tr>`).join("")}
+    </tbody></table></div></details>` : ""}
   <h2>현재 진행 중</h2>
   ${r.current.filter((c)=>c.track!=="도파민").length ? r.current.filter((c)=>c.track!=="도파민").map((c) => comboCard(c, false)).join("") : '<div class="empty">진행 중인 코어 조합이 없습니다. 다음 블록 분석 시각에 추가됩니다.</div>'}
-  <h2>현재 진행 중 — 승무패</h2>
-  ${(r.toto || []).filter((t) => t.current).length ? (r.toto || []).filter((t) => t.current).map((t) => totoCard(t, false)).join("") : '<div class="empty">진행 중인 승무패 마킹이 없습니다. 마감 2시간 전 분석 뒤 올라옵니다.</div>'}`;
+  ${(() => {
+    const cur = (r.toto || []).filter((t) => t.current);
+    if (cur.length) return `<h2>현재 진행 중 — 승무패</h2>` + cur.map((t) => totoCard(t, false)).join("");
+    const pin = (r.toto || []).find((t) => t.pinned);
+    if (pin) return `<h2>승무패 — 직전 회차 <span class="small">다음 회차가 열리면 교체됩니다</span></h2>` + totoCard(pin, true);
+    return `<h2>현재 진행 중 — 승무패</h2><div class="empty">진행 중인 승무패 마킹이 없습니다. 마감 2시간 전 분석 뒤 올라옵니다.</div>`;
+  })()}`;
 }
 async function past() {
   const s = await load("summary"), r = await load("recommendations");

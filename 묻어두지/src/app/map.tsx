@@ -1,5 +1,5 @@
 import { router } from 'expo-router';
-import { useEffect, useMemo, useState } from 'react';
+import { useCallback, useEffect, useMemo, useState } from 'react';
 import { Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
@@ -35,8 +35,7 @@ export default function MapScreen() {
     return () => clearInterval(timer);
   }, []);
 
-  async function locate() {
-    if (locating) return;
+  const locate = useCallback(async () => {
     setLocating(true);
     setNotice(null);
     try {
@@ -47,7 +46,15 @@ export default function MapScreen() {
     } finally {
       setLocating(false);
     }
-  }
+  }, []);
+
+  // 지도를 열면 바로 내 위치를 한 번 찾는다. 앱을 쓰는 동안에만, 추적은 하지 않는다(CHK-01).
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      void locate();
+    }, 0);
+    return () => clearTimeout(timer);
+  }, [locate]);
 
   function open(id: string) {
     const capsule = capsules.find((item) => item.id === id);
@@ -81,13 +88,15 @@ export default function MapScreen() {
               style={[styles.perspective, offsetShadow(3)]}>
               <Text style={styles.perspectiveLabel}>{perspective === 'quarter' ? '2D' : '3D'}</Text>
             </Pressable>
-            <IconButton name="people" label="내 위치로" onPress={locate} />
+            <IconButton name="locate" label={locating ? '내 위치 찾는 중' : '내 위치로'} onPress={() => { if (!locating) void locate(); }} />
           </View>
         </View>
 
         <View style={[styles.sheet, { height: SHEET_HEIGHT }]}>
           <View style={styles.handle} />
           {notice && <Body size={12}>{notice}</Body>}
+          {!notice && fix && <Body size={12}>내 위치를 찾았어요 · 오차 약 {Math.round(fix.accuracy)}m</Body>}
+          {!notice && !fix && locating && <Body size={12}>내 위치를 찾는 중…</Body>}
           {summaries.length === 0 ? (
             <View style={styles.empty}>
               <CapsuleArt state="buried" size={84} />

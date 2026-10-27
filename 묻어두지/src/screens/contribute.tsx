@@ -115,24 +115,6 @@ export function ContributeScreen({ capsule, now }: { capsule: CapsuleModel; now:
             </View>
             <Body size={12}>종류 상관없이 {MAX_ITEMS_PER_MEMBER}개까지. 사진만 5장도 돼요. 마감 전엔 꺼내서 고칠 수 있어요.</Body>
 
-            <View style={styles.kinds}>
-              {KIND_ORDER.map((kind) => (
-                <Pressable
-                  key={kind}
-                  accessibilityRole="button"
-                  disabled={slotsLeft === 0}
-                  onPress={() => add(kind)}
-                  style={({ pressed }) => [styles.kind, offsetShadow(4), pressed && styles.pressed, slotsLeft === 0 && styles.disabled]}>
-                  <View style={[styles.kindIcon, { backgroundColor: KIND_TONE[kind] }]}>
-                    <Icon name={kind} size={16} />
-                  </View>
-                  <View>
-                    <Text style={styles.kindLabel}>{ITEM_KIND_LABEL[kind]}</Text>
-                    <Text style={styles.kindLimit}>{KIND_LIMIT[kind]}</Text>
-                  </View>
-                </Pressable>
-              ))}
-            </View>
           </Content>
         </ScrollView>
         <Content style={styles.footer}>
@@ -218,7 +200,6 @@ const styles = StyleSheet.create({
   slots: { flexDirection: 'row', justifyContent: 'space-between' },
   slot: { width: 58, height: 58, borderRadius: 29, borderWidth: Stroke.regular, borderColor: Colors.ink, alignItems: 'center', justifyContent: 'center', backgroundColor: Colors.white },
   slotEmpty: { borderStyle: 'dashed' },
-  kinds: { flexDirection: 'row', flexWrap: 'wrap', gap: 10, marginTop: 2 },
   kind: {
     width: '48%',
     flexGrow: 1,
@@ -232,9 +213,6 @@ const styles = StyleSheet.create({
     borderWidth: Stroke.regular,
     borderColor: Colors.ink,
   },
-  kindIcon: { width: 32, height: 32, borderRadius: 16, borderWidth: Stroke.thin, borderColor: Colors.ink, alignItems: 'center', justifyContent: 'center' },
-  kindLabel: { fontFamily: Fonts.display, fontSize: 16, color: Colors.ink },
-  kindLimit: { fontFamily: Fonts.body, fontSize: 11, color: Colors.muted },
   pressed: { transform: [{ translateX: 2 }, { translateY: 2 }], shadowOffset: { width: 2, height: 2 } },
   disabled: { opacity: 0.45 },
   footer: { gap: Spacing.sm, paddingTop: Spacing.md, paddingBottom: Spacing.md },

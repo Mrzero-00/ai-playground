@@ -1,11 +1,10 @@
 # FC서울
 
 <!-- FACTS:START -->
-## 팩트시트 (자동 수집 2026-10-23) — 조사 전 반드시 읽고, 아래 사실과 다른 뉴스 요약은 '미확인'으로 둔다
-- 출처: 위키 '2026 FC Seoul season'(season), ESPN 없음
+## 팩트시트 (자동 수집 2026-10-27) — 조사 전 반드시 읽고, 아래 사실과 다른 뉴스 요약은 '미확인'으로 둔다
+- 출처: 위키 'FC Seoul'(club), ESPN 없음
 - 감독: Kim Gi-dong
-- 리그 순위: cup1 = Korea Cup
-- 2026 여름 이적(위키 이적 표, 앞 8줄씩): IN rowspan="1" | 24 December 2025 · GK · Gu Sung-yun · Seoul E-Land · Free / IN rowspan="1" | 25 December 2025 · MF · Kang Seong-jin · Suwon Samsung Bluewings · End of loan / IN rowspan="2" | 31 December 2025 · GK · Lee Seung-hwan · Chungbuk Cheongju FC · End of loan / IN MF · Aleksandar Palocevic · Nantong Zhiyun · End of loan / IN rowspan="1" | 1 January 2026 · FW · Leonardo Acevedo · Seongnam FC · Free / IN rowspan="1" | 9 January 2026 · MF · Hrvoje Babec · NK Osijek · Undisclosed / IN rowspan="1" | 21 January 2026 · FW · Song Min-kyu · Jeonbuk Hyundai Motors · Free / IN rowspan="1" | 27 January 2026 · MF · Juan Antonio Ros · Tianjin Jinmen Tiger · Free / OUT rowspan="1" | 26 December 2025 · MF · Kang Seong-jin · Suwon Samsung Bluewings · Free / OUT rowspan="8" | 31 December 2025 · GK · Choi Chul-won · Gyeongju KHNP · Free / OUT DF · Choi Jun-yeong · Gimhae FC 2008 · Free / OUT DF · Jeong Tae-wook · Jeonbuk Hyundai Motors · End of loan
+- 리그 순위: 미확인
 <!-- FACTS:END -->
 <!-- INPUTS:START -->
 ## 입력(자동 수집 2026-10-26) — xG·휴식일·라인업·환경(이동거리·고도·날씨)은 이 숫자를 쓴다

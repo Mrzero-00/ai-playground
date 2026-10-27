@@ -1,11 +1,11 @@
 # US사수올로
 
 <!-- FACTS:START -->
-## 팩트시트 (자동 수집 2026-10-23) — 조사 전 반드시 읽고, 아래 사실과 다른 뉴스 요약은 '미확인'으로 둔다
+## 팩트시트 (자동 수집 2026-10-27) — 조사 전 반드시 읽고, 아래 사실과 다른 뉴스 요약은 '미확인'으로 둔다
 - 출처: 위키 'US Sassuolo Calcio'(club), ESPN 있음
 - 감독: Alberto Aquilani
-- 리그 순위: 13위 7경기 2승2무3패 GD-2 승점8 (Sassuolo)
-- 최근 경기(ESPN, 최대 28일): 2026-09-06 Bologna 2-2 Sassuolo / 2026-09-13 Sassuolo 3-2 Juventus / 2026-09-18 Monza 2-1 Sassuolo / 2026-10-11 Sassuolo 1-1 AC Milan / 2026-10-16 Frosinone 4-2 Sassuolo
+- 리그 순위: 14위 8경기 2승2무4패 GD-4 승점8 (Sassuolo)
+- 최근 경기(ESPN, 최대 28일): 2026-09-13 Sassuolo 3-2 Juventus / 2026-09-18 Monza 2-1 Sassuolo / 2026-10-11 Sassuolo 1-1 AC Milan / 2026-10-16 Frosinone 4-2 Sassuolo / 2026-10-24 Como 2-0 Sassuolo
 <!-- FACTS:END -->
 
 <!-- INPUTS:START -->

@@ -129,7 +129,7 @@ export function ContributeScreen({ capsule, now }: { capsule: CapsuleModel; now:
           )}
           {isHost ? (
             <Button
-              label={sealable ? '닫고 여는 날 정하기' : '친구가 더 넣으면 닫을 수 있어요'}
+              label={sealable ? '지금 닫기' : '친구가 더 넣으면 닫을 수 있어요'}
               icon={sealable ? 'lock' : undefined}
               disabled={!sealable}
               onPress={() => router.push({ pathname: '/capsule/[id]/seal', params: { id: capsule.id } })}
@@ -138,7 +138,8 @@ export function ContributeScreen({ capsule, now }: { capsule: CapsuleModel; now:
             <Button label="친구 부르기" icon="share" tone="secondary" onPress={() => router.push({ pathname: '/capsule/[id]/invite', params: { id: capsule.id } })} />
           )}
           <Body size={12} center>
-            {`${formatKoreanDate(capsule.deadlineAt, true)}에 자동으로 닫혀요`}
+            {`${formatKoreanDate(capsule.deadlineAt, true)}에, 또는 모두 ${MAX_ITEMS_PER_MEMBER}개씩 다 넣으면 저절로 닫혀요`}
+            {capsule.openAt ? ` · ${formatKoreanDate(capsule.openAt, true)}에 열려요` : ''}
           </Body>
         </Content>
       </SafeAreaView>

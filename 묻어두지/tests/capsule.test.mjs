@@ -14,6 +14,10 @@ import {
   remainingSlots,
   revealOrder,
   withSubjectParticle,
+  autoSealReason,
+  generateInviteCode,
+  isEveryoneFull,
+  isValidOpenAtForCreate,
 } from '../src/domain/capsule.ts';
 
 const item = (kind, id) => ({ id, kind, createdAt: '2026-10-20T00:00:00.000Z' });
@@ -83,4 +87,35 @@ test('REV-03: 꺼내는 순서는 사람 순서가 아니라 섞인 물건 순�
   const second = revealOrder(capsule).map((entry) => entry.item.id);
   assert.deepEqual(first, second);
   assert.deepEqual([...first].sort(), ['a1', 'a2', 'b1', 'b2']);
+});
+
+test('SEAL-01: 마감이 지나거나 전원이 5개를 다 넣으면 저절로 닫힌다', () => {
+  const five = (prefix) => Array.from({ length: 5 }, (_, i) => item('photo', `${prefix}${i}`));
+  const deadlineAt = '2026-11-02T10:00:00.000Z';
+  const before = new Date('2026-11-01T10:00:00.000Z');
+  const after = new Date('2026-11-02T10:00:00.000Z');
+  const partial = { status: 'collecting', deadlineAt, members: [{ items: [item('letter', 'a')] }, { items: [item('letter', 'b')] }] };
+  assert.equal(autoSealReason(partial, before), null);
+  assert.equal(autoSealReason(partial, after), 'deadline');
+  const full = { status: 'collecting', deadlineAt, members: [{ items: five('a') }, { items: five('b') }] };
+  assert.equal(isEveryoneFull(full), true);
+  assert.equal(autoSealReason(full, before), 'everyone-full');
+  const lonely = { status: 'collecting', deadlineAt, members: [{ items: five('a') }] };
+  assert.equal(autoSealReason(lonely, after), null, '혼자면 마감이 지나도 닫지 않는다(취소 대상)');
+  assert.equal(autoSealReason({ ...partial, status: 'sealed' }, after), null);
+});
+
+test('INV-03: 초대 코드는 헷갈리는 글자 없이 6자리', () => {
+  const code = generateInviteCode();
+  assert.match(code, /^[ABCDEFGHJKLMNPQRSTUVWXYZ23456789]{6}$/);
+  assert.equal(generateInviteCode(() => 0), 'AAAAAA');
+});
+
+test('PIT-01: 여는 시각은 만든 날 기준 30일 이후이면서 넣기 마감보다 뒤', () => {
+  const local = (y, m, d, h = 0) => new Date(y, m - 1, d, h).toISOString();
+  const createdAt = local(2026, 10, 27, 19);
+  const deadlineAt = local(2026, 11, 3, 19);
+  assert.equal(isValidOpenAtForCreate(createdAt, deadlineAt, local(2026, 11, 26, 19)), true);
+  assert.equal(isValidOpenAtForCreate(createdAt, deadlineAt, local(2026, 11, 20, 19)), false);
+  assert.equal(isValidOpenAtForCreate(createdAt, local(2026, 12, 1, 19), local(2026, 11, 26, 19)), false, '마감보다 먼저 열 수 없다');
 });

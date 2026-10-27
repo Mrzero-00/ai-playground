@@ -26,7 +26,7 @@ export default function InviteScreen() {
     const url = ExpoLinking.createURL(`/i/${capsule.id}`);
     setFeedback(null);
     try {
-      await Share.share({ title: `${capsule.title} 초대`, message: `묻어두지에서 같이 캡슐 묻을래? ${url}`, url });
+      await Share.share({ title: `${capsule.title} 초대`, message: `묻어두지에서 같이 캡슐 묻을래? 초대 코드 ${capsule.inviteCode} · ${url}`, url });
     } catch {
       if (Platform.OS === 'web' && globalThis.navigator?.clipboard) {
         try {
@@ -50,6 +50,13 @@ export default function InviteScreen() {
             <View style={styles.intro}>
               <Title>같이 묻을 친구를 불러요</Title>
               <Body>링크를 받은 친구는 앱 없이도 바로 넣을 수 있어요. 받는 사람에게는 아래 카드만 보여요.</Body>
+            </View>
+
+            <View style={[styles.codeBox, offsetShadow(4)]}>
+              <View style={styles.codeCopy}>
+                <Text style={styles.codeLabel}>초대 코드 · 앱에서 넣으면 바로 들어와요</Text>
+                <Text style={styles.code}>{capsule.inviteCode}</Text>
+              </View>
             </View>
 
             <Card tone="sky" style={[styles.invite, offsetShadow(6)]}>
@@ -120,6 +127,10 @@ const styles = StyleSheet.create({
   scroll: { flexGrow: 1 },
   content: { gap: Spacing.xl, paddingTop: Spacing.lg, paddingBottom: Spacing.lg },
   intro: { gap: 6 },
+  codeBox: { padding: 14, paddingLeft: 18, borderRadius: Radius.lg, backgroundColor: Colors.white, borderWidth: Stroke.regular, borderColor: Colors.ink },
+  codeCopy: { gap: 2 },
+  codeLabel: { fontFamily: Fonts.body, fontSize: 11, color: Colors.muted },
+  code: { fontFamily: Fonts.display, fontSize: 30, letterSpacing: 4, color: Colors.ink },
   invite: { gap: Spacing.md, borderRadius: Radius.xl, padding: 18 },
   inviteHeader: { flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between' },
   inviteBrand: { fontFamily: Fonts.display, fontSize: 14, color: Colors.ink },

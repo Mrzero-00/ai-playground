@@ -39,6 +39,8 @@ export type Capsule = {
   openedAt: string | null;
   members: Member[];
   location?: PlantedLocation | null;
+  /** 친구가 참여할 때 쓰는 6자리 초대 코드. 서버가 붙으면 토큰 해시로 바뀐다. */
+  inviteCode: string;
 };
 
 export type DerivedStatus = CapsuleStatus | 'unlockable';
@@ -121,6 +123,37 @@ export function totalItems(capsule: Pick<Capsule, 'members'>) {
 
 export function canSeal(capsule: Pick<Capsule, 'members' | 'status'>) {
   return capsule.status === 'collecting' && contributingMembers(capsule).length >= MIN_MEMBERS;
+}
+
+/** 모든 멤버가 5칸을 다 채웠는가. 2명 이상일 때만 의미가 있다. */
+export function isEveryoneFull(capsule: Pick<Capsule, 'members'>) {
+  return capsule.members.length >= MIN_MEMBERS && capsule.members.every((member) => member.items.length >= MAX_ITEMS_PER_MEMBER);
+}
+
+export type AutoSealReason = 'deadline' | 'everyone-full';
+
+/**
+ * 저절로 닫히는 조건(SEAL-01): 넣기 마감이 지났거나, 전원이 5개를 다 넣었을 때.
+ * 두 경우 모두 물건을 넣은 멤버가 2명 이상이어야 한다. 방장이 직접 닫는 건 별도.
+ */
+export function autoSealReason(capsule: Pick<Capsule, 'members' | 'status' | 'deadlineAt'>, now: Date): AutoSealReason | null {
+  if (!canSeal(capsule)) return null;
+  if (isEveryoneFull(capsule)) return 'everyone-full';
+  if (now.getTime() >= new Date(capsule.deadlineAt).getTime()) return 'deadline';
+  return null;
+}
+
+const INVITE_ALPHABET = 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789';
+
+export function generateInviteCode(random: () => number = Math.random) {
+  let code = '';
+  for (let index = 0; index < 6; index += 1) code += INVITE_ALPHABET[Math.floor(random() * INVITE_ALPHABET.length)];
+  return code;
+}
+
+/** 여는 시각은 만든 날 기준 30~180일 안이고, 넣기 마감보다 뒤여야 한다(PIT-01, PIT-02). */
+export function isValidOpenAtForCreate(createdAt: string, deadlineAt: string, openAt: string) {
+  return isValidOpenAt(createdAt, openAt) && new Date(openAt).getTime() > new Date(deadlineAt).getTime();
 }
 
 export function deriveStatus(capsule: Pick<Capsule, 'status' | 'openAt'>, now: Date): DerivedStatus {

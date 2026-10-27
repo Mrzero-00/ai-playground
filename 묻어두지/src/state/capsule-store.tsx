@@ -4,7 +4,8 @@ import {
   addDays,
   canAddItem,
   canSeal,
-  isValidOpenAt,
+  generateInviteCode,
+  isValidOpenAtForCreate,
   type Capsule,
   type CapsuleItem,
   type ItemKind,
@@ -23,11 +24,12 @@ type Action =
 type CapsuleStoreValue = {
   capsules: Capsule[];
   getCapsule: (id: string) => Capsule | null;
-  createCapsule: (input: { title: string; deadlineDays: number }) => Capsule;
+  createCapsule: (input: { title: string; deadlineDays: number; openAt: string; location?: PlantedLocation | null }) => Capsule | null;
   addItem: (capsuleId: string, input: { kind: ItemKind; text?: string; uri?: string; durationMs?: number }) => CapsuleItem | null;
   updateItem: (capsuleId: string, item: CapsuleItem) => void;
   removeItem: (capsuleId: string, itemId: string) => void;
-  sealCapsule: (capsuleId: string, openAt: string) => boolean;
+  /** 방장이 직접 닫거나(자동 닫힘 조건 충족 시 화면이 호출) 닫는다. 여는 시각은 만들 때 정한 값을 쓴다. */
+  sealCapsule: (capsuleId: string, openAt?: string) => boolean;
   openCapsule: (capsuleId: string) => void;
   plantCapsule: (capsuleId: string, location: PlantedLocation) => void;
 };
@@ -86,18 +88,22 @@ export function CapsuleStoreProvider({ children, initialCapsules }: { children: 
     return {
       capsules,
       getCapsule,
-      createCapsule: ({ title, deadlineDays }) => {
+      createCapsule: ({ title, deadlineDays, openAt, location }) => {
         const createdAt = new Date().toISOString();
+        const deadlineAt = addDays(createdAt, deadlineDays);
+        if (!isValidOpenAtForCreate(createdAt, deadlineAt, openAt)) return null;
         const capsule: Capsule = {
           id: newId('cap'),
           title: title.trim(),
           createdAt,
-          deadlineAt: addDays(createdAt, deadlineDays),
+          deadlineAt,
           status: 'collecting',
           sealedAt: null,
-          openAt: null,
+          openAt,
           openedAt: null,
           members: [{ id: 'me', name: '상길', isMe: true, isHost: true, items: [] }],
+          location: location ?? null,
+          inviteCode: generateInviteCode(),
         };
         dispatch({ type: 'create', capsule });
         return capsule;
@@ -115,8 +121,9 @@ export function CapsuleStoreProvider({ children, initialCapsules }: { children: 
       sealCapsule: (capsuleId, openAt) => {
         const capsule = getCapsule(capsuleId);
         const sealedAt = new Date().toISOString();
-        if (!capsule || !canSeal(capsule) || !isValidOpenAt(sealedAt, openAt)) return false;
-        dispatch({ type: 'seal', capsuleId, openAt, sealedAt });
+        const resolvedOpenAt = openAt ?? capsule?.openAt ?? null;
+        if (!capsule || !canSeal(capsule) || !resolvedOpenAt) return false;
+        dispatch({ type: 'seal', capsuleId, openAt: resolvedOpenAt, sealedAt });
         return true;
       },
       openCapsule: (capsuleId) => dispatch({ type: 'open', capsuleId, openedAt: new Date().toISOString() }),

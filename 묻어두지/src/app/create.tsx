@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { ScrollView, StyleSheet, Text, TextInput, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
-import { Capsule } from '@/components/capsule';
+import { Image } from 'expo-image';
 import { Icon } from '@/components/icons';
 import { Body, Button, Card, Chip, Content, NavBar, Page, Title } from '@/components/ui';
 import { Colors, Fonts, Radius, Spacing, Stroke, offsetShadow } from '@/constants/theme';
@@ -29,7 +29,7 @@ export default function CreateCapsuleScreen() {
         <ScrollView contentContainerStyle={styles.scroll} keyboardShouldPersistTaps="handled">
           <Content style={styles.content}>
             <View style={styles.intro}>
-              <Capsule state="closed" size={110} />
+              <Image source={require("../../assets/capsule/egg-closed.png")} style={{ width: 120, height: 120, marginLeft: -10 }} contentFit="contain" accessibilityLabel="타임캡슐" />
               <View style={styles.introCopy}>
                 <Title>무엇을 묻어둘까요?</Title>
                 <Body>친구들이 알아볼 이름이면 충분해요. 언제 열지는 닫을 때 같이 정해요.</Body>

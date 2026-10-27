@@ -1,9 +1,9 @@
 import { router, useFocusEffect } from 'expo-router';
 import { useCallback, useState } from 'react';
-import { Pressable, StyleSheet, Text, View } from 'react-native';
+import { Pressable, StyleSheet, Text, View, useWindowDimensions } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
-import { OpeningCapsule } from '@/components/opening-capsule';
+import { CAPSULE_ASPECT, OpeningCapsule } from '@/components/opening-capsule';
 import { Button, Content, IconButton, Page } from '@/components/ui';
 import { Colors, Fonts, Spacing } from '@/constants/theme';
 import { MAX_ITEMS_PER_MEMBER, deriveStatus, me } from '@/domain/capsule';
@@ -12,6 +12,9 @@ import { useCapsuleStore } from '@/state/capsule-store';
 /** 홈: 캡슐 하나와 ‘타임캡슐 심기’. 누르면 뚜껑이 열리며 설정 화면으로 간다. */
 export default function HomeScreen() {
   const { capsules } = useCapsuleStore();
+  const { width: windowWidth, height: windowHeight } = useWindowDimensions();
+  // 화면 절반 이상을 캡슐이 차지하되 가로 여백 16px는 남긴다.
+  const capsuleWidth = Math.round(Math.min(windowWidth - 32, (windowHeight * 0.6) / CAPSULE_ASPECT));
   const [opening, setOpening] = useState(false);
   const todo = capsules.filter((capsule) => {
     const status = deriveStatus(capsule, new Date());
@@ -51,7 +54,7 @@ export default function HomeScreen() {
             disabled={opening}
             onPress={() => setOpening(true)}
             style={({ pressed }) => [styles.capsule, pressed && styles.capsulePressed]}>
-            <OpeningCapsule size={300} open={opening} onOpened={goCreate} />
+            <OpeningCapsule width={capsuleWidth} open={opening} onOpened={goCreate} />
           </Pressable>
           <Text style={styles.caption}>{opening ? '뚜껑을 여는 중…' : '지금 묻고, 그때 같이 열자.'}</Text>
         </Content>

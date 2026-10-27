@@ -96,7 +96,7 @@ function ItemView({ item }: { item: CapsuleItem }) {
     ) : (
       <View style={[styles.media, styles.mediaPlaceholder]}>
         <Icon name="photo" size={28} />
-        <Body size={12}>[사진 · 서버 정규화본 · 5분 URL]</Body>
+        <Body size={12}>사진을 불러오는 중이에요</Body>
       </View>
     );
   }
@@ -126,7 +126,7 @@ function VoiceView({ item }: { item: CapsuleItem }) {
           <View key={index} style={[styles.bar, { height, backgroundColor: index / bars.length < progress ? Colors.ink : Colors.faint }]} />
         ))}
       </View>
-      {!item.uri && <Body size={11}>[음성 · 샘플 자리]</Body>}
+      {!item.uri && <Body size={11}>녹음을 불러오는 중이에요</Body>}
     </View>
   );
 }
@@ -139,7 +139,7 @@ function VideoItemView({ item }: { item: CapsuleItem }) {
     return (
       <View style={[styles.media, styles.mediaPlaceholder]}>
         <Icon name="video" size={28} />
-        <Body size={12}>[동영상 · 샘플 자리]</Body>
+        <Body size={12}>동영상을 불러오는 중이에요</Body>
       </View>
     );
   }

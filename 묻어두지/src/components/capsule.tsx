@@ -17,22 +17,26 @@ type CapsuleProps = {
  * closed = 닫힌 계란, open = 뚜껑이 들린 계란과 내용물, buried = 흙더미에 반쯤 묻힌 계란.
  */
 export function Capsule({ state = 'closed', size = 200 }: CapsuleProps) {
-  const width = Math.round(size / CAPSULE_ASPECT);
+  // 열린 상태는 뚜껑이 위로 26% 들리므로, 슬롯 밖으로 삐져나가지 않게 계란을 그만큼 줄여 아래에 붙인다.
+  const open = state === 'open';
+  const height = open ? Math.round(size / 1.3) : size;
+  const width = Math.round(height / CAPSULE_ASPECT);
   return (
-    <View style={[styles.slot, { width: size, height: size }]} accessibilityLabel={LABEL[state]} accessibilityRole="image">
-      <View style={{ width, height: size }}>
-        <OpeningCapsule width={width} open={state === 'open'} />
-        {state === 'buried' && (
-          <Svg width={width} height={size} viewBox="0 0 240 340" style={StyleSheet.absoluteFill} pointerEvents="none">
-            <Path d="M-12 232C36 178 92 184 122 196C154 178 206 182 252 232L252 352L-12 352Z" fill={Colors.soil} stroke={Colors.ink} strokeWidth={6} strokeLinejoin="round" />
-            <Circle cx={60} cy={270} r={5} fill={Colors.soilDeep} />
-            <Circle cx={150} cy={286} r={6} fill={Colors.soilDeep} />
-            <Circle cx={200} cy={262} r={4} fill={Colors.soilDeep} />
-            <Path d="M30 206c-14-7-11-24 2-21 7 1 9 9 5 19" fill={Colors.mint} stroke={Colors.ink} strokeWidth={4} strokeLinejoin="round" />
-            <Path d="M214 198c14-7 11-24-2-21-7 1-9 9-5 19" fill={Colors.mint} stroke={Colors.ink} strokeWidth={4} strokeLinejoin="round" />
-          </Svg>
-        )}
+    <View style={[styles.slot, open && styles.slotOpen, { width: size, height: size }]} accessibilityLabel={LABEL[state]} accessibilityRole="image">
+      <View style={{ width, height }}>
+        <OpeningCapsule width={width} open={open} />
       </View>
+      {state === 'buried' && (
+        // 흙더미는 계란보다 넓어야 하므로 계란 상자가 아니라 슬롯 전체에 그린다.
+        <Svg width={size} height={size} viewBox="0 0 100 100" style={StyleSheet.absoluteFill} pointerEvents="none">
+          <Path d="M6 72C18 54 36 58 50 61C64 58 82 54 94 72V86C94 92 88 96 80 96H20C12 96 6 92 6 86Z" fill={Colors.soil} stroke={Colors.ink} strokeWidth={2.6} strokeLinejoin="round" />
+          <Circle cx={24} cy={82} r={2} fill={Colors.soilDeep} />
+          <Circle cx={60} cy={88} r={2.4} fill={Colors.soilDeep} />
+          <Circle cx={80} cy={80} r={1.8} fill={Colors.soilDeep} />
+          <Path d="M14 62c-6-3-4-10 1-9 3 .5 4 4 2 8" fill={Colors.mint} stroke={Colors.ink} strokeWidth={1.8} strokeLinejoin="round" />
+          <Path d="M88 60c6-3 4-10-1-9-3 .5-4 4-2 8" fill={Colors.mint} stroke={Colors.ink} strokeWidth={1.8} strokeLinejoin="round" />
+        </Svg>
+      )}
     </View>
   );
 }
@@ -41,4 +45,5 @@ const LABEL: Record<CapsuleState, string> = { closed: '닫힌 타임캡슐', ope
 
 const styles = StyleSheet.create({
   slot: { alignItems: 'center', justifyContent: 'center' },
+  slotOpen: { justifyContent: 'flex-end' },
 });

@@ -112,9 +112,9 @@ export default function InviteScreen() {
         <Content style={styles.footer}>
           <Button label="초대 링크 보내기" icon="share" onPress={share} />
           {isHost && canSeal(capsule) ? (
-            <Button label="닫고 여는 날 정하기" tone="ghost" onPress={() => router.push({ pathname: '/capsule/[id]/seal', params: { id: capsule.id } })} />
+            <Button label="지금 닫기" tone="ghost" onPress={() => router.push({ pathname: '/capsule/[id]/seal', params: { id: capsule.id } })} />
           ) : (
-            <Body size={12} center>물건을 넣은 친구가 2명 이상이면 닫을 수 있어요.</Body>
+            <Body size={12} center>물건을 넣은 사람이 2명 이상이면 방장이 닫을 수 있어요.</Body>
           )}
         </Content>
       </SafeAreaView>

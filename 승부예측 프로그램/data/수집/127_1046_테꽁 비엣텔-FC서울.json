@@ -1,0 +1,82 @@
+{
+  "번호": "1046",
+  "홈": "테꽁 비엣텔",
+  "원정": "FC서울",
+  "수집시각": "2026-10-27",
+  "결장": [
+    {
+      "팀": "테꽁 비엣텔",
+      "선수": "Doãn Ngọc Tân(도안 응옥 떤)",
+      "포지션": "MF",
+      "이번시즌_선발/경기": "불명",
+      "득점·도움": "불명",
+      "사유": "9/10 V리그 2라운드서 도안 반하우(Đoàn Văn Hậu) 태클로 발목 인대 파열 — 10/8 하 띤전에는 복귀했으나, 10/8 하 띤 충격패 기사 제목에 '도안 응옥 떤 재이탈 위기' 표현 있음(세부 사유 본문 미확인)",
+      "상태": "의심",
+      "복귀예정": "불명",
+      "대체선수": "불명",
+      "출처": ["https://tuoitre.vn/the-cong-viettel-thua-soc-ha-tinh-nguy-co-mat-doan-ngoc-tan-lan-nua-100261008202809096.htm", "https://vietnamnet.vn/doan-ngoc-tan-chan-thuong-nang-sau-cu-dap-cua-van-hau-2554070.html"],
+      "날짜": "2026-10-08"
+    }
+  ],
+  "라인업": {
+    "홈": {
+      "발표여부": "미발표(언론 예상 라인업만)",
+      "예상XI": "추정(thanhnien/fotmob): Văn Việt(GK); Viết Tú, Chí Khải, Paulo Tapeu, Tuấn Tài; Văn Tú, Nhật Nam; Văn Khang(Khuất Văn Khang), Việt Hưng, Ribamar; Rimario(Allando Gordon)",
+      "포메이션": "4-2-3-1(추정)",
+      "출처": "https://thanhnien.vn/nhan-dinh-du-doan-the-cong-viettel-seoul-tao-dia-chan-truoc-vo-dich-k-league-185261026114031082.htm",
+      "날짜": "2026-10-26"
+    },
+    "원정": {
+      "발표여부": "미발표(언론 예상 라인업만, 10/14 MD2 멜버른전 선발과 다름 — 변동 가능성 큼)",
+      "예상XI": "추정(fotmob): Gu Sung-yun(구성윤, GK); Choi Jun, Lee Sang-min, Al-Arab Yazan, Kim Jin-su; Jeong Seung-won, Bebec; Son Jeong-beom, Leonardo Ruiz, Anderson Oliveira; Klimala — 단일 출처뿐이라 신뢰도 낮음, K리그 우승 확정 후 핵심 전력 투입 전망 보도와 부합",
+      "포메이션": "4-2-3-1(추정)",
+      "출처": "https://www.fotmob.com/id/matches/fc-seoul-vs-viettel/4gf3bsk8",
+      "날짜": "2026-10-27"
+    }
+  },
+  "최근경기": [
+    {"팀": "테꽁 비엣텔", "날짜": "2026-10-08", "상대": "Hà Tĩnh", "장소": "불명", "스코어": "패(스코어 못찾음, '충격패'로 보도)", "비고": "V리그 2026-27 3라운드"},
+    {"팀": "테꽁 비엣텔", "날짜": "2026-10-14", "상대": "Persib Bandung", "장소": "원정(인도네시아 소레앙)", "스코어": "0-1 패", "비고": "ACL2 MD2"},
+    {"팀": "FC서울", "날짜": "2026-10-14", "상대": "Melbourne Victory", "장소": "원정(호주)", "스코어": "0-3 패", "비고": "ACL2 MD2"},
+    {"팀": "FC서울", "날짜": "불명(10월 중순 이후)", "상대": "불명", "장소": "불명", "스코어": "K리그1 조기 우승 확정(날짜 미확인)", "비고": "김기동 감독 '서울이 K리그 챔피언' 발언 보도"}
+  ],
+  "대회전적": {
+    "홈": [
+      {"MD": "MD1", "상대": "Melbourne Victory(호주, 홈)", "결과": "1-1 무(클라리스마리오 산투스 선제 → 루카스 리바마르 동점, 9/16)"},
+      {"MD": "MD2", "상대": "Persib Bandung(인도네시아, 원정)", "결과": "0-1 패", "날짜": "2026-10-14"}
+    ],
+    "원정": [
+      {"MD": "MD1", "상대": "Persib Bandung(홈)", "결과": "0-1 패(줄리오 세자르 결승골)"},
+      {"MD": "MD2", "상대": "Melbourne Victory(원정)", "결과": "0-3 패", "날짜": "2026-10-14"}
+    ]
+  },
+  "순위": {
+    "홈": "ACL2 그룹E 3위(2전 1무1패, 승점1)",
+    "원정": "ACL2 그룹E 4위/최하위(2전 2패, 승점0) · 국내 K리그1은 1위로 조기 우승 확정(10/26경 기준 33경기 20승7무6패 승점67, 득실+32권)",
+    "출처": "https://www.cnnindonesia.com/olahraga/20261014213314-142-1415417/klasemen-acl-2-setelah-persib-mengalahkan-the-cong-viettel , https://sports.daum.net/record/kl",
+    "날짜": "2026-10-14(ACL2) / 2026-10-26(K리그1)"
+  },
+  "감독": {
+    "홈": "Velizar Popov(벨리자르 포포프)",
+    "원정": "김기동(Kim Gi-dong)",
+    "변동": "없음",
+    "출처": "https://tuoitre.vn/hlv-popov-the-cong-viettel-dang-rat-kho-khan-100260915122154396.htm",
+    "날짜": "2026-09-15"
+  },
+  "일정·동기·기타": [
+    {"내용": "포포프 감독 '서울이 조 최강이지만 테꽁 비엣텔은 반드시 이겨야 한다' — 테꽁은 조 3위로 16강 희망을 이어가려면 승점 필요(탈락 위기)", "출처": "https://thethaovanhoa.vn/hlv-popov-fc-seoul-manh-nhat-bang-nhung-the-cong-viettel-phai-thang-20261027112236693.htm", "날짜": "2026-10-27"},
+    {"내용": "테꽁 비엣텔은 전 대회 포함 최근 6경기 무승(부진)", "출처": "https://thanhnien.vn/nhan-dinh-du-doan-the-cong-viettel-seoul-tao-dia-chan-truoc-vo-dich-k-league-185261026114031082.htm", "날짜": "2026-10-26"},
+    {"내용": "김기동 감독 K리그1 조기 우승 확정 후 'ACL2에서도 서울이 챔피언임을 증명하겠다' 발언 — 로테이션 없이 주력 투입 시사", "출처": "https://www.fourfourtwo.co.kr/news/articleView.html?idxno=99922", "날짜": "확인 안됨(기사 내 날짜 미표기, 10월 하순 추정)"},
+    {"내용": "항더이 경기장은 하노이FC·하노이경찰·테꽁 비엣텔 3개 구단이 공용하여 잔디 상태 저하 문제가 지속 지적됨(인조잔디 여부는 확인 안 됨, 천연잔디 추정이나 관리 부실)", "출처": "https://news.laodong.vn/bong-da/the-cong-viettel-kho-so-vi-san-thi-dau-1495739.ldo", "날짜": "날짜 미확인(과거 기사)"},
+    {"내용": "FC서울 원정 이동거리 약 2736km(한국→하노이)", "출처": "team note INPUTS 2026-10-27", "날짜": "2026-10-27"},
+    {"내용": "양팀 역대 맞대결 전적 없음(이번이 첫 맞대결)", "출처": "team note 2026-10-13 자동수집 교차확인", "날짜": "2026-10-13"}
+  ],
+  "엇갈림": [
+    "FC서울 원정 예상 XI(fotmob, Klimala·Anderson Oliveira 등)가 10/14 MD2 선발 명단(Gbato Samuel, Leonardo Ruiz, Cheon Seong-hoon 등)과 선수 구성이 크게 달라 단일 출처 신뢰도만으로는 확정하기 어려움 — 로스터 변경인지 번역/표기 차이인지 불명"
+  ],
+  "못찾음": ["테꽁 비엣텔 10/8 하띤전 정확한 스코어", "도안 응옥 떤 10/8 이후 구체적 부상 상태(확정 여부)", "항더이 경기장 인조잔디 여부(공식 확인 안 됨)"],
+  "뉴스없음": {
+    "홈": "도안 응옥 떤 외 추가 결장·부상 공식 발표 없음(확인처: Tuoi Tre, VietnamNet)",
+    "원정": "FC서울 측 10/20 이후 결장·부상 공식 발표 없음(확인처: 나무위키 FC서울 문서, fourfourtwo 코리아, 네이트스포츠)"
+  }
+}

@@ -1,0 +1,69 @@
+{
+  "번호": "961",
+  "홈": "도르트문트",
+  "원정": "베르더 브레멘",
+  "수집시각": "2026-10-27T12:56:00Z",
+  "결장": [
+    {"팀":"도르트문트","선수":"Ramy Bensebaini","포지션":"DF","이번시즌_선발/경기":"불명","득점·도움":"불명","사유":"Franz Beckenbauer Supercup에서 받은 징계 마지막 경기 출전정지","상태":"확정(2곳: sportsmole, khelnow 계열 요약)","복귀예정":"다음 경기부터 가능","대체선수":"Waldemar Anton/Nico Schlotterbeck 추정","출처":"https://www.sportsmole.co.uk/football/borussia-dortmund/dfb-pokal/preview/dortmund-vs-werder-bremen-prediction-team-news-lineups_607685.html","날짜":"2026-10-26"},
+    {"팀":"도르트문트","선수":"Konstantinos Karetsas","포지션":"MF","이번시즌_선발/경기":"여름 영입(Genk, €30M)","득점·도움":"불명","사유":"결장(부상 추정, 사유 미상세)","상태":"확정","복귀예정":"불명","대체선수":"불명","출처":"https://www.sportsmole.co.uk/football/borussia-dortmund/dfb-pokal/preview/dortmund-vs-werder-bremen-prediction-team-news-lineups_607685.html","날짜":"2026-10-26"},
+    {"팀":"도르트문트","선수":"Giannis Konstantelias","포지션":"불명","이번시즌_선발/경기":"불명","득점·도움":"불명","사유":"결장(사유 미상세)","상태":"확정","복귀예정":"불명","대체선수":"불명","출처":"https://www.sportsmole.co.uk/football/borussia-dortmund/dfb-pokal/preview/dortmund-vs-werder-bremen-prediction-team-news-lineups_607685.html","날짜":"2026-10-26"},
+    {"팀":"도르트문트","선수":"Justin Lerma","포지션":"MF","이번시즌_선발/경기":"여름 영입(Independiente del Valle)","득점·도움":"불명","사유":"결장(사유 미상세)","상태":"의심(1곳)","복귀예정":"불명","대체선수":"불명","출처":"WebSearch 요약(복수 프리뷰)","날짜":"2026-10-26"},
+    {"팀":"도르트문트","선수":"Kauã Prates","포지션":"불명","이번시즌_선발/경기":"여름 영입(Cruzeiro)","득점·도움":"불명","사유":"결장(사유 미상세)","상태":"의심(1곳)","복귀예정":"불명","대체선수":"불명","출처":"WebSearch 요약(복수 프리뷰)","날짜":"2026-10-26"},
+    {"팀":"도르트문트","선수":"Emre Can","포지션":"MF/DF","이번시즌_선발/경기":"불명","득점·도움":"불명","사유":"결장(사유 미상세)","상태":"의심(1곳)","복귀예정":"불명","대체선수":"불명","출처":"WebSearch 요약(복수 프리뷰)","날짜":"2026-10-26"},
+    {"팀":"도르트문트","선수":"Alexander Meyer(백업 GK)","포지션":"GK","이번시즌_선발/경기":"백업","득점·도움":"불명","사유":"발열·감기로 훈련 불참, 벤치 등록 심각한 의문(severe doubt)","상태":"의심","복귀예정":"불명","대체선수":"불명","출처":"WebSearch 요약","날짜":"2026-10-26"},
+    {"팀":"도르트문트","선수":"Carney Chukwuemeka","포지션":"MF","이번시즌_선발/경기":"불명","득점·도움":"불명","사유":"워크로드 관리로 주 초반 훈련 불참했으나 Kovač 감독이 출전 가능 공식 승인(cleared to play)","상태":"출전 가능(복귀)","복귀예정":"이번 경기 출전 가능","대체선수":"해당없음","출처":"WebSearch 요약(복수 프리뷰)","날짜":"2026-10-26"},
+    {"팀":"베르더 브레멘","선수":"Keke Topp","포지션":"FW","이번시즌_선발/경기":"불명","득점·도움":"불명","사유":"결장(사유 미상세)","상태":"확정","복귀예정":"불명","대체선수":"불명","출처":"https://www.sportsmole.co.uk/football/borussia-dortmund/dfb-pokal/preview/dortmund-vs-werder-bremen-prediction-team-news-lineups_607685.html","날짜":"2026-10-26"},
+    {"팀":"베르더 브레멘","선수":"Justin Njinmah","포지션":"FW","이번시즌_선발/경기":"불명","득점·도움":"불명","사유":"결장(사유 미상세)","상태":"확정","복귀예정":"불명","대체선수":"불명","출처":"https://www.sportsmole.co.uk/football/borussia-dortmund/dfb-pokal/preview/dortmund-vs-werder-bremen-prediction-team-news-lineups_607685.html","날짜":"2026-10-26"}
+  ],
+  "라인업": {
+    "홈": {
+      "발표여부": "미발표(예상)",
+      "예상XI": "Ostrzinski; Gadou, Anton, Ritter; Ryerson, Bellingham, Chukwuemeka, Svensson; Nwaneri, Beier; Albert",
+      "포메이션": "4-3-3 예상(teamdb 직전 리그 선발 포메이션은 3-4-2-1, 86% 시간 비중 — 컵 경기에서 백4·로테이션 변화 예고. 1선발 GK Kobel 대신 백업 Ostrzinski 예상, 주전 Guirassy·Veerman 등 제외된 예상 라인업)",
+      "출처": "https://www.sportsmole.co.uk/football/borussia-dortmund/dfb-pokal/preview/dortmund-vs-werder-bremen-prediction-team-news-lineups_607685.html",
+      "날짜": "2026-10-26"
+    },
+    "원정": {
+      "발표여부": "미발표(예상)",
+      "예상XI": "Hein; Arthur, Schmetgens, Pieper, Deman; Regeer, Lynen; Weiser, Chuki, Grüll; Füllkrug",
+      "포메이션": "4-2-3-1 예상(teamdb 직전 리그 선발과 거의 동일 — Lynen 추가, 주전 유지 신호, 로테이션 적음)",
+      "출처": "https://www.sportsmole.co.uk/football/borussia-dortmund/dfb-pokal/preview/dortmund-vs-werder-bremen-prediction-team-news-lineups_607685.html",
+      "날짜": "2026-10-26"
+    }
+  },
+  "최근경기": [
+    {"팀":"도르트문트","날짜":"2026-10-24","상대":"Eintracht Frankfurt","장소":"홈","스코어":"1-0 승","비고":"리그, xG 1.72:0.85(teamdb)"},
+    {"팀":"도르트문트","날짜":"2026-10-17","상대":"1. FC Union Berlin","장소":"원정","스코어":"0-0 무","비고":"리그, xG 0.99:0.94"},
+    {"팀":"도르트문트","날짜":"2026-10-09","상대":"Werder Bremen","장소":"홈","스코어":"2-2 무","비고":"리그 맞대결, xG 2.62:0.85 — 도르트문트가 xG 우위에도 2-2 무(베르더 결정력)"},
+    {"팀":"베르더 브레멘","날짜":"2026-10-24","상대":"Mainz","장소":"원정","스코어":"3-2 승","비고":"리그, xG 2.95:1.86"},
+    {"팀":"베르더 브레멘","날짜":"2026-10-17","상대":"SC Paderborn 07","장소":"홈","스코어":"2-2 무","비고":"리그, xG 2.67:1.37"}
+  ],
+  "순위": {
+    "홈": "도르트문트 2위, 7경기 5승2무0패, 득실+8, 승점17",
+    "원정": "베르더 브레멘 6위(일부 매체 8위 표기, 엇갈림), 7경기 3승3무1패, 득실+1, 승점12",
+    "출처": "teamdb.py card / 팀노트 FACTS",
+    "날짜": "2026-10-27"
+  },
+  "감독": {
+    "홈": "Niko Kovač",
+    "원정": "Daniel Thioune",
+    "변동": "없음(팩트시트 기준)",
+    "출처": "팀노트 FACTS",
+    "날짜": "2026-10-27"
+  },
+  "일정·동기·기타": [
+    {"내용":"도르트문트는 리그 무패(언빗튼) 기록 유지 중 — 프리뷰에서 '국내 대회 무패 기록 보존' 목표로 언급. 2026-10-09 리그 맞대결에서 양팀 2-2 무승부 기록 있어 베르더 상대 약점 아님을 시사","출처":"https://www.sportsmole.co.uk/football/borussia-dortmund/dfb-pokal/preview/dortmund-vs-werder-bremen-prediction-team-news-lineups_607685.html","날짜":"2026-10-26"},
+    {"내용":"Kovač 감독, Chukwuemeka 워크로드 관리 종료·출전 승인 발표. Joane Gadou 선발 복귀 확정 보도","출처":"WebSearch 요약(sports.yahoo/khelnow 계열 프리뷰)","날짜":"2026-10-26"},
+    {"내용":"컵 단판 토너먼트 특성상 무승부 시 연장·승부차기 — 양팀 모두 최근 맞대결 포함 무승부 비율이 높아(7경기 중 도르트문트 2무, 베르더 3무) 연장 가능성 염두","출처":"teamdb.py card(리그 전적 기반 분석팀 자체 메모, 공신력 기사 아님 — 참고용)","날짜":"2026-10-27"}
+  ],
+  "엇갈림": [
+    "베르더 브레멘 리그 순위가 팀노트 FACTS는 '8위'로, teamdb.py는 '6위'로 표기(수집 시점 차이로 추정, 최신은 teamdb 6위)",
+    "도르트문트 추가 결장자(Lerma·Prates·Can)는 단일 출처(검색 요약)만 확인되어 sportsmole 본문과 교차 확인 안 됨"
+  ],
+  "못찾음": [
+    "도르트문트·베르더 공식 매치데이 스쿼드(벤치 포함)",
+    "Alexander Meyer 최종 출전 여부",
+    "양팀 다음 리그 경기 정확한 날짜·상대"
+  ],
+  "뉴스없음": {}
+}

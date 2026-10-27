@@ -1,0 +1,34 @@
+{
+  "번호": "944",
+  "홈": "US사수올로",
+  "원정": "SS라치오",
+  "수집시각": "2026-10-27T21:56:00+09:00",
+  "결장": [
+    {"팀": "US사수올로", "선수": "Jeremy Toljan", "포지션": "DF", "이번시즌_선발/경기": "미확인", "득점·도움": "미확인", "사유": "예상 XI 미포함(Bakola·Lipani·Thorstvedt·Berardi·Esposito·Laurienté 체제)", "상태": "의심", "복귀예정": "미확인", "대체선수": "Cinquegrano/Odenthal", "출처": "https://sport.sky.it/calcio/serie-a/2026/10/26/sassuolo-lazio-probabili-formazioni-9-giornata", "날짜": "2026-10-26"},
+    {"팀": "US사수올로", "선수": "Fali Candé", "포지션": "DF", "이번시즌_선발/경기": "미확인", "득점·도움": "미확인", "사유": "10/24 Como전까지 선발 기록(팀노트)이나 10/26 예상 XI에는 미포함 — 오래된 부상 기사(십자인대)와 최근 출전 기록이 충돌", "상태": "의심", "복귀예정": "미확인", "대체선수": "Odenthal", "출처": "https://sport.sky.it/calcio/serie-a/2026/10/26/sassuolo-lazio-probabili-formazioni-9-giornata", "날짜": "2026-10-26"},
+    {"팀": "SS라치오", "선수": "Nicolò Rovella", "포지션": "MF", "사유": "부상(국가대표 소집 기간 중)", "상태": "확정", "복귀예정": "미확인", "대체선수": "Belahyane/Taylor", "출처": "https://www.corrieredellosport.it/news/calcio/serie-a/lazio/2026/10/10-151772070/la_lazio_tira_le_somme_degli_infortunati_come_stanno_rovella_marusic_gudmundsson_e_cancellieri", "날짜": "2026-10-10"},
+    {"팀": "SS라치오", "선수": "Albert Gudmundsson", "포지션": "FW", "사유": "어깨 탈구(국가대표 소집 중 부상), 재활 중", "상태": "확정", "복귀예정": "미확인", "대체선수": "Noslin/Isaksen", "출처": "https://www.fantacalcio.it/news/calcio-italia/27_10_2026/lazio-gattuso-punta-sui-fedelissimi-un-solo-cambio-di-formazione-499812", "날짜": "2026-10-27"},
+    {"팀": "SS라치오", "선수": "Adam Marusic", "포지션": "DF", "사유": "종아리 부상 회복 중(운동량 단계적 증량)", "상태": "확정", "복귀예정": "미확인", "대체선수": "Nuno Tavares", "출처": "https://www.fantacalcio.it/news/calcio-italia/27_10_2026/lazio-gattuso-punta-sui-fedelissimi-un-solo-cambio-di-formazione-499812", "날짜": "2026-10-27"}
+  ],
+  "라인업": {
+    "홈": {"발표여부": "예상(미발표)", "예상XI": "Turati; Cinquegrano, Caleta-Car, Odenthal, Doig; Bakola, Lipani, Thorstvedt; Berardi, Esposito, Laurienté", "포메이션": "4-3-3", "출처": "https://sport.sky.it/calcio/serie-a/2026/10/26/sassuolo-lazio-probabili-formazioni-9-giornata ; https://www.eurosport.it/calcio/serie-a/2026-2027/sassuolo-lazio-probabili-formazioni-statistiche-quando-e-dove-vederla_sto23349496/story.shtml", "날짜": "2026-10-26"},
+    "원정": {"발표여부": "예상(미발표)", "예상XI": "Mandas; Floriani Mussolini, Sutalo, Diogo Leite, Nuno Tavares; Frattesi, Belahyane, Taylor; Isaksen, Noslin, Zaccagni", "포메이션": "4-3-3", "출처": "https://www.fantacalcio.it/news/calcio-italia/27_10_2026/lazio-gattuso-punta-sui-fedelissimi-un-solo-cambio-di-formazione-499812 ; https://sport.sky.it/calcio/serie-a/2026/10/26/sassuolo-lazio-probabili-formazioni-9-giornata", "날짜": "2026-10-27"}
+  },
+  "최근경기": [
+    {"팀": "US사수올로", "날짜": "2026-10-11", "상대": "AC Milan", "장소": "홈", "스코어": "1-1", "비고": "무"},
+    {"팀": "US사수올로", "날짜": "2026-10-16", "상대": "Frosinone", "장소": "원정", "스코어": "2-4", "비고": "패"},
+    {"팀": "US사수올로", "날짜": "2026-10-24", "상대": "Como", "장소": "원정", "스코어": "0-2", "비고": "패, 2연패"},
+    {"팀": "SS라치오", "날짜": "2026-10-11", "상대": "Monza", "장소": "홈", "스코어": "3-1", "비고": "승"},
+    {"팀": "SS라치오", "날짜": "2026-10-18", "상대": "Juventus", "장소": "원정", "스코어": "3-0", "비고": "승"},
+    {"팀": "SS라치오", "날짜": "2026-10-24", "상대": "Parma", "장소": "홈", "스코어": "2-1", "비고": "승, 4연승"}
+  ],
+  "순위": {"홈": "14위 8경기 2승2무4패 GD-4 승점8", "원정": "2위 8경기 7승1무0패 GD+11 승점22", "출처": "팀노트 FACTS(2026-10-27 자동수집)", "날짜": "2026-10-27"},
+  "감독": {"홈": "Alberto Aquilani(변동없음)", "원정": "Gennaro Gattuso(변동없음)", "변동": "없음", "출처": "팀노트 FACTS", "날짜": "2026-10-27"},
+  "일정·동기·기타": [
+    {"내용": "경기는 현지시간 10/27(화) 18:30 킥오프(마페이 스타디움), 세리에A 9라운드", "출처": "https://www.lapresse.it/calcio/2026/10/27/sassuolo-lazio-oggi-in-serie-a-in-campo-anche-roma-e-como-orario-probabili-formazioni-e-dove-vederla-in-tv/", "날짜": "2026-10-27"},
+    {"내용": "라치오 4연승 행진, 사수올로 최근 4경기 중 3패(2연패)", "출처": "WebSearch 요약(복수 매체)", "날짜": "2026-10-26"}
+  ],
+  "엇갈림": ["Fali Candé가 10/24 Como전 직전 선발 명단(팀노트)에는 있었으나 10/26 예상 라인업 보도에는 빠져 있음 — 로테이션인지 부상 재발인지 불명"],
+  "못찾음": ["사수올로 측 10/20 이후 신규 결장 공식 발표(징계 등) 확인 못함", "심판 배정 확인 못함"],
+  "뉴스없음": {"홈": "신규 징계(퇴장누적 등) 보도 없음 — 검색처: sport.sky.it, tuttosport.com", "원정": "신규 징계 보도 없음 — 검색처: corrieredellosport.it, fantacalcio.it"}
+}

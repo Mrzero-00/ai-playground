@@ -1,0 +1,28 @@
+{
+  "번호": "936",
+  "홈": "샤바브 알아흘리두바이",
+  "원정": "에스테그랄 테헤란",
+  "수집시각": "2026-10-27 21:58 KST",
+  "순위": {
+    "홈": "UAE 프로리그 1위, 15경기 12승2무1패 38점 [https://www.goal.com/en-qa/saudi-pro-league/table 유사출처 확인, tribuna.com UAE Pro League table, 2026-10-27]",
+    "원정": "이란 페르시안걸프프로리그 순위 못찾음",
+    "출처": "tribuna.com/goal.com",
+    "날짜": "2026-10-27"
+  },
+  "대회전적": {
+    "홈": ["ACLE 2경기 2승 승점6(퍼펙트) — 최근 5경기 중 4승 무패(전 대회 포함) [https://www.voiceofemirates.com/en/emirates/2026/10/27/todays-match-schedule-tuesday-and-broadcast-channels-shabab-al-ahli-faces-esteghlal-tehran/, 2026-10-27]"],
+    "원정": ["ACLE 2경기 2승 승점6(조 2위) — Al-Sadd전 3-0 승, Al-Gharafa전 승리 [https://www.tehrantimes.com/news/531019/Esteghlal-beat-Al-Gharafa-in-2026-27-ACL-Elite, 2026-10-27]"]
+  },
+  "최근경기": [
+    "Shabab Al Ahli 최근 5경기 4승0패(UAE 프로리그 1위 유지)",
+    "Esteghlal ACLE Al-Sadd전 3-0 승, Al-Gharafa전 승리"
+  ],
+  "결장": ["검색처 2곳(goal.com, tehrantimes.com)에서 결장 보도 확인 안 됨"],
+  "일정·동기·기타": [
+    "경기 장소: Rashid Stadium, 두바이(UAE) [https://www.tehrantimes.com/news/531517/Esteghlal-face-Shabab-Al-Ahli-in-AFC-Champions-League-Elite-clash, 2026-10-27]",
+    "양팀 모두 조별리그 2경기 전승으로 맞대결 — 양팀 모두 동기부여 높음",
+    "Esteghlal 감독 Sohrab Bakhtiarizadeh"
+  ],
+  "못찾음": ["Esteghlal 이란 국내리그 순위", "구체적 결장자 명단"],
+  "뉴스없음": {"홈": "결장 보도 없음(검색 2곳)", "원정": "결장 보도 없음(검색 2곳)"}
+}

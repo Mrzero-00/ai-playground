@@ -1,0 +1,29 @@
+{
+  "번호": "949",
+  "홈": "알쇼르타",
+  "원정": "J알후세인",
+  "수집시각": "2026-10-27 21:58 KST",
+  "비고": "ACL Two 2026-27 Group D — 932번(알시브클럽 vs 이스트벵골)과 같은 조. 936/953과 다른 대회(ACLE)이므로 혼동 주의.",
+  "순위": {
+    "홈": "이라크 스타즈리그 — 작년(2025-26) 시즌 최종 2위(34경기 22승7무5패, 득실+37, 73점). 이번 시즌 현재 순위 못찾음 [https://en.wikipedia.org/wiki/2025%E2%80%9326_Iraq_Stars_League, 2026-10-27]",
+    "원정": "요르단 프로리그 2025-26 시즌 3연패(우승), 디펜딩챔피언 [https://en.wikipedia.org/wiki/Al-Hussein_SC_(Irbid), 2026-10-27]",
+    "출처": "tntsports.co.uk / wikipedia",
+    "날짜": "2026-10-27"
+  },
+  "대회전적": {
+    "홈": ["ACL Two Group D 2경기 2승0무0패 승점6(조 1위) — East Bengal전 3-2 승 [khelnow.com, 2026-10-27]"],
+    "원정": ["ACL Two Group D 2경기 1승1무0패 승점4(조 2위) — 직전 원정 Al-Seeb전 3-0 승(해트트릭) [https://www.the-afc.com/en/club/afc_champions_league_two.html/news/group-d-al-seeb-club-oma-0-3-al-hussein-jor, 2026-10-27]"]
+  },
+  "최근경기": [
+    "Al Shorta: East Bengal전 3-2 승(ACL Two)",
+    "Al-Hussein: Al-Seeb 원정 3-0 승(ACL Two, 공격수 해트트릭)"
+  ],
+  "결장": ["검색처 2곳(goal.com, beinsports.com)에서 결장 보도 확인 안 됨"],
+  "일정·동기·기타": [
+    "경기 장소: Al-Zawraa Stadium, 바그다드(이라크) — Al Shorta 홈 [https://www.the-aiff.com/article/east-bengal-drawn-with-al-hussein-al-shorta-al-seeb-in-acl-two-group-stage, 2026-10-27]",
+    "조 1위(Al Shorta) vs 2위(Al-Hussein) 맞대결, 순위 걸린 중요 경기",
+    "Al-Hussein은 최근 요르단 대 이라크 클럽전 무패 기록 보유(과거 데이터) [https://www.ysscores.com/en/news/14080965/, 2026-10-27]"
+  ],
+  "못찾음": ["양팀 이번 시즌 국내리그 현재 순위(경기수·승점)", "구체적 결장자 명단"],
+  "뉴스없음": {"홈": "결장 보도 없음(검색 2곳)", "원정": "결장 보도 없음(검색 2곳)"}
+}

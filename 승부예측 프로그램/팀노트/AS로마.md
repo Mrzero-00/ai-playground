@@ -9,8 +9,8 @@
 - 최근 경기(ESPN, 최대 28일): 2026-09-14 Torino 0-2 AS Roma / 2026-09-19 AS Roma 2-2 Internazionale / 2026-10-11 Como 0-0 AS Roma / 2026-10-17 AS Roma 2-0 Genoa / 2026-10-24 Napoli 3-3 AS Roma
 <!-- FACTS:END -->
 <!-- INPUTS:START -->
-## 입력(자동 수집 2026-10-26) — xG·휴식일·라인업·환경(이동거리·고도·날씨)은 이 숫자를 쓴다
-- 10-28 04:45 vs 칼리아리: 휴식 3.2일(7일 1경기) · 직전 10-25 원정 vs Napoli 3-3 무 [italian serie a] · xG 시즌8경기 xG2.58/xGA1.36 npxGD+1.21 · 최근5 1.83/1.73 (+0.11) · 홈1.72/원정0.71 · xPts16.2 vs 승점18 · 직전 선발 3-5-2 Pierluigi Gollini, Evan Ndicka, Mario Hermoso, Gianluca Mancini, Niccolò Pisilli, Marten de Roon, Bryan Cristante, Wesley, Devyne Rensch, Donyell Malen, Matìas Soulè · 구장 스타디오 올림피코 · 이동 413km · 고도 17m(차 +16m) · 15.8℃ 강수0mm(0%) 바람3.0km/h
+## 입력(자동 수집 2026-10-27) — xG·휴식일·라인업·환경(이동거리·고도·날씨)은 이 숫자를 쓴다
+- 10-28 04:45 vs 칼리아리: 휴식 3.2일(7일 1경기) · 직전 10-25 원정 vs Napoli 3-3 무 [italian serie a] · xG 시즌8경기 xG2.58/xGA1.36 npxGD+1.21 · 최근5 1.83/1.73 (+0.11) · 홈1.72/원정0.71 · xPts16.2 vs 승점18 · 직전 선발 3-5-2 Pierluigi Gollini, Evan Ndicka, Mario Hermoso, Gianluca Mancini, Niccolò Pisilli, Marten de Roon, Bryan Cristante, Wesley, Devyne Rensch, Donyell Malen, Matìas Soulè · 구장 스타디오 올림피코 · 이동 413km · 고도 17m(차 +16m) · 15.4℃ 강수0mm(0%) 바람2.5km/h
 <!-- INPUTS:END -->
 
 ### 2026-10-21 회고 — 124회 9492 슬로반 브라티슬라바전 4:0 승 (적중, '실력')

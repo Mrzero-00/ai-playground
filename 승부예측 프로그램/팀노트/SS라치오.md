@@ -9,7 +9,7 @@
 - 최근 경기(ESPN, 최대 28일): 2026-09-12 Lazio 2-2 AC Milan / 2026-09-19 Venezia 0-2 Lazio / 2026-10-11 Lazio 3-1 Monza / 2026-10-18 Juventus 0-3 Lazio / 2026-10-24 Lazio 2-1 Parma
 <!-- FACTS:END -->
 <!-- INPUTS:START -->
-## 입력(자동 수집 2026-10-26) — xG·휴식일·라인업·환경(이동거리·고도·날씨)은 이 숫자를 쓴다
-- 10-28 02:30 vs US사수올로: 휴식 2.9일(7일 1경기) · 직전 10-25 홈 vs Parma 2-1 승 [italian serie a] · xG 시즌8경기 xG1.72/xGA1.31 npxGD+0.41 · 최근5 1.77/1.37 (+0.4) · 홈0.8/원정0.02 · xPts13.5 vs 승점22 · 직전 선발 4-3-3 Christos Mandas, Oliver Provstgaard, Josip Sutalo, Nuno Tavares, Romano Floriani, Reda Belahyane, Kenneth Taylor, Davide Frattesi, Tijjani Noslin, Mattia Zaccagni, Gustav Isaksen · 구장 마페이 스타디움 - 치타 델 트리콜로레 · 이동 342km · 고도 43m(차 +26m) · 14.1℃ 강수0mm(0%) 바람4.3km/h
+## 입력(자동 수집 2026-10-27) — xG·휴식일·라인업·환경(이동거리·고도·날씨)은 이 숫자를 쓴다
+- 10-28 02:30 vs US사수올로: 휴식 2.9일(7일 1경기) · 직전 10-25 홈 vs Parma 2-1 승 [italian serie a] · xG 시즌8경기 xG1.72/xGA1.31 npxGD+0.41 · 최근5 1.77/1.37 (+0.4) · 홈0.8/원정0.02 · xPts13.5 vs 승점22 · 직전 선발 4-3-3 Christos Mandas, Oliver Provstgaard, Josip Sutalo, Nuno Tavares, Romano Floriani, Reda Belahyane, Kenneth Taylor, Davide Frattesi, Tijjani Noslin, Mattia Zaccagni, Gustav Isaksen · 구장 마페이 스타디움 - 치타 델 트리콜로레 · 이동 342km · 고도 43m(차 +26m) · 13.0℃ 강수0mm(0%) 바람3.5km/h
 <!-- INPUTS:END -->
 

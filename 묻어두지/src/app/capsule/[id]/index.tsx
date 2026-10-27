@@ -10,7 +10,7 @@ import { useCapsuleStore } from '@/state/capsule-store';
 
 export default function CapsuleScreen() {
   const { id } = useLocalSearchParams<{ id: string }>();
-  const { getCapsule, sealCapsule } = useCapsuleStore();
+  const { getCapsule, refresh, loading } = useCapsuleStore();
   const capsule = id ? getCapsule(id) : null;
   const [now, setNow] = useState(() => new Date());
 
@@ -19,14 +19,15 @@ export default function CapsuleScreen() {
     return () => clearInterval(timer);
   }, []);
 
+  // 불러오는 중에는 기다리고, 다 불러왔는데도 없으면(초대 안 된 캡슐 등) 홈으로.
   useEffect(() => {
-    if (!capsule) router.replace('/');
-  }, [capsule]);
+    if (!capsule && !loading) router.replace('/');
+  }, [capsule, loading]);
 
-  // 저절로 닫히는 조건(마감 도달, 전원 5개 완료)은 서버가 판정할 일이지만, 로컬 프로토타입에서는 화면이 대신한다.
+  // 저절로 닫히는 조건(마감 도달, 전원 5개 완료)은 백엔드가 판정한다. 조건이 보이면 다시 불러와 반영한다.
   useEffect(() => {
-    if (capsule && autoSealReason(capsule, now)) sealCapsule(capsule.id);
-  }, [capsule, now, sealCapsule]);
+    if (capsule && autoSealReason(capsule, now)) void refresh();
+  }, [capsule, now, refresh]);
 
   if (!capsule) return null;
 

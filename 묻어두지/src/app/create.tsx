@@ -11,7 +11,7 @@ import { Body, Button, Card, Chip, Content, NavBar, Page, Tag, Title } from '@/c
 import { Colors, Fonts, Radius, Spacing, Stroke, offsetShadow } from '@/constants/theme';
 import { DEADLINE_DAY_OPTIONS, MAX_ITEMS_PER_MEMBER, MAX_MEMBERS, MIN_MEMBERS, addDays, formatKoreanDate, generateInviteCode, isValidOpenAtForCreate, type CapsuleMode, type PlantedLocation } from '@/domain/capsule';
 import { currentLocation } from '@/lib/location';
-import { useCapsuleStore } from '@/state/capsule-store';
+import { describeError, useCapsuleStore } from '@/state/capsule-store';
 
 type LocationChoice = { status: 'none' } | { status: 'loading' } | { status: 'ready'; location: PlantedLocation; source: 'here' | 'map' } | { status: 'error'; message: string };
 
@@ -27,17 +27,25 @@ export default function CreateCapsuleScreen() {
   const [picking, setPicking] = useState(false);
   const [placeLabel, setPlaceLabel] = useState('');
   const [shareNote, setShareNote] = useState<string | null>(null);
+  const [saving, setSaving] = useState(false);
+  const [saveError, setSaveError] = useState<string | null>(null);
 
   const deadline = addDays(now.toISOString(), deadlineDays);
   const openAtDate = openAtToDate(openAt);
   const openAtValid = isValidOpenAtForCreate(now.toISOString(), deadline, openAtDate.toISOString());
-  const canCreate = title.trim().length > 0 && openAtValid;
+  const canCreate = title.trim().length > 0 && openAtValid && !saving;
 
-  function create() {
+  async function create() {
     const location = place.status === 'ready' ? { ...place.location, label: placeLabel.trim() || place.location.label } : null;
-    const capsule = createCapsule({ title, deadlineDays, openAt: openAtDate.toISOString(), mode, location });
-    if (!capsule) return;
-    router.replace({ pathname: '/capsule/[id]', params: { id: capsule.id } });
+    setSaving(true);
+    setSaveError(null);
+    try {
+      const capsule = await createCapsule({ title, deadlineDays, openAt: openAtDate.toISOString(), mode, location });
+      router.replace({ pathname: '/capsule/[id]', params: { id: capsule.id } });
+    } catch (cause) {
+      setSaveError(describeError(cause));
+      setSaving(false);
+    }
   }
 
   async function useHere() {
@@ -157,8 +165,8 @@ export default function CreateCapsuleScreen() {
           </Content>
         </ScrollView>
         <Content style={styles.footer}>
-          <Button label="캡슐 만들기" onPress={create} disabled={!canCreate} />
-          <Body size={12} center>만든 뒤 이름·마감·여는 날은 바꿀 수 없어요. 닫기 전까지 취소만 돼요.</Body>
+          <Button label={saving ? '만드는 중…' : '캡슐 만들기'} onPress={() => void create()} disabled={!canCreate} />
+          {saveError ? <Text style={styles.noteError}>{saveError}</Text> : <Body size={12} center>만든 뒤 이름·마감·여는 날은 바꿀 수 없어요. 닫기 전까지 취소만 돼요.</Body>}
         </Content>
       </SafeAreaView>
       <PlacePicker

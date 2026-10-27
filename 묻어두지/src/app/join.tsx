@@ -6,26 +6,24 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import { Capsule } from '@/components/capsule';
 import { Body, Button, Content, NavBar, Page, Title } from '@/components/ui';
 import { Colors, Fonts, Radius, Spacing, Stroke, offsetShadow } from '@/constants/theme';
-import { MAX_MEMBERS, normalizeInviteCode } from '@/domain/capsule';
+import { normalizeInviteCode } from '@/domain/capsule';
 import { useCapsuleStore } from '@/state/capsule-store';
-
-const REASON_MESSAGE = {
-  'not-found': '그런 코드의 캡슐이 없어요. 글자를 다시 확인해 주세요.',
-  closed: '이 캡슐은 이미 닫혔어요. 다음 캡슐에 같이 들어가요.',
-  full: `이 캡슐은 이미 ${MAX_MEMBERS}명이 꽉 찼어요.`,
-} as const;
 
 /** 친구가 알려 준 6자리 초대 코드로 캡슐에 들어간다 (INV-02). */
 export default function JoinScreen() {
   const { joinCapsule } = useCapsuleStore();
   const [input, setInput] = useState('');
   const [error, setError] = useState<string | null>(null);
+  const [joining, setJoining] = useState(false);
   const code = normalizeInviteCode(input);
 
-  function join() {
-    const result = joinCapsule(code);
+  async function join() {
+    if (joining || code.length !== 6) return;
+    setJoining(true);
+    const result = await joinCapsule(code);
+    setJoining(false);
     if (!result.ok) {
-      setError(REASON_MESSAGE[result.reason]);
+      setError(result.message);
       return;
     }
     setError(null);
@@ -53,13 +51,13 @@ export default function JoinScreen() {
               placeholderTextColor={Colors.faint}
               style={[styles.input, offsetShadow(4)]}
               returnKeyType="go"
-              onSubmitEditing={join}
+              onSubmitEditing={() => void join()}
             />
             <Text style={[styles.hint, error ? styles.hintError : null]}>{error ?? `${code.length} / 6`}</Text>
           </Content>
         </ScrollView>
         <Content style={styles.footer}>
-          <Button label="들어가기" icon="arrow" onPress={join} disabled={code.length !== 6} />
+          <Button label={joining ? '들어가는 중…' : '들어가기'} icon="arrow" onPress={() => void join()} disabled={code.length !== 6 || joining} />
         </Content>
       </SafeAreaView>
     </Page>

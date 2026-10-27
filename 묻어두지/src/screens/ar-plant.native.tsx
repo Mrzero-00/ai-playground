@@ -62,7 +62,7 @@ export function ArPlantScreen({ capsule }: { capsule: Capsule }) {
 
   function plant() {
     if (!canPlant || gps.latitude === undefined || gps.longitude === undefined) return;
-    plantCapsule(capsule.id, { latitude: gps.latitude, longitude: gps.longitude, accuracy: gps.accuracy ?? null, label: label.trim(), plantedAt: new Date().toISOString() });
+    void plantCapsule(capsule.id, { latitude: gps.latitude, longitude: gps.longitude, accuracy: gps.accuracy ?? null, label: label.trim(), plantedAt: new Date().toISOString() });
     router.back();
   }
 

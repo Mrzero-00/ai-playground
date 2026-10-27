@@ -11,7 +11,7 @@ import { Icon } from '@/components/icons';
 import { Body, Button, Content, NavBar, Page, Tag, Title } from '@/components/ui';
 import { Colors, Fonts, Radius, Spacing, Stroke, offsetShadow } from '@/constants/theme';
 import { ITEM_KIND_LABEL, LETTER_MAX_CHARS, VIDEO_MAX_MS, VOICE_MAX_MS, isLetterValid, letterLength, me, type ItemKind } from '@/domain/capsule';
-import { useCapsuleStore } from '@/state/capsule-store';
+import { describeError, useCapsuleStore } from '@/state/capsule-store';
 
 const KINDS: ItemKind[] = ['letter', 'photo', 'voice', 'video'];
 
@@ -21,30 +21,51 @@ export default function AddItemScreen() {
   const capsule = params.id ? getCapsule(params.id) : null;
   const kind = (KINDS.includes(params.kind as ItemKind) ? params.kind : 'letter') as ItemKind;
   const existing = capsule ? (me(capsule)?.items.find((item) => item.id === params.itemId) ?? null) : null;
+  const [busy, setBusy] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
   if (!capsule) return null;
 
-  function save(input: { text?: string; uri?: string; durationMs?: number }) {
-    if (!capsule) return;
-    if (existing) updateItem(capsule.id, { ...existing, ...input });
-    else if (!addItem(capsule.id, { kind, ...input })) return;
-    router.back();
+  async function save(input: { text?: string; uri?: string; durationMs?: number }) {
+    if (!capsule || busy) return;
+    setBusy(true);
+    setError(null);
+    try {
+      if (existing) await updateItem(capsule.id, existing.id, { kind, ...input });
+      else await addItem(capsule.id, { kind, ...input });
+      router.back();
+    } catch (cause) {
+      setError(describeError(cause));
+      setBusy(false);
+    }
   }
 
-  function remove() {
-    if (capsule && existing) removeItem(capsule.id, existing.id);
-    router.back();
+  async function remove() {
+    if (!capsule || !existing || busy) return;
+    setBusy(true);
+    try {
+      await removeItem(capsule.id, existing.id);
+      router.back();
+    } catch (cause) {
+      setError(describeError(cause));
+      setBusy(false);
+    }
   }
 
   return (
     <Page>
       <SafeAreaView style={styles.safeArea} edges={['top', 'bottom']}>
         <NavBar left="close" title={`${ITEM_KIND_LABEL[kind]} ${existing ? '고치기' : '넣기'}`} />
+        {(error || busy) && (
+          <Content>
+            <Text style={error ? styles.saveError : styles.saveBusy}>{error ?? '캡슐에 넣는 중…'}</Text>
+          </Content>
+        )}
         <KeyboardAvoidingView style={styles.flex} behavior={Platform.OS === 'ios' ? 'padding' : undefined}>
-          {kind === 'letter' && <LetterEditor initial={existing?.text ?? ''} onSave={(text) => save({ text })} onRemove={existing ? remove : undefined} />}
-          {kind === 'photo' && <PhotoEditor initial={existing?.uri ?? null} onSave={(uri) => save({ uri })} onRemove={existing ? remove : undefined} />}
-          {kind === 'voice' && <VoiceEditor initial={existing ?? null} onSave={(uri, durationMs) => save({ uri, durationMs })} onRemove={existing ? remove : undefined} />}
-          {kind === 'video' && <VideoEditor initial={existing ?? null} onSave={(uri, durationMs) => save({ uri, durationMs })} onRemove={existing ? remove : undefined} />}
+          {kind === 'letter' && <LetterEditor initial={existing?.text ?? ''} onSave={(text) => void save({ text })} onRemove={existing ? () => void remove() : undefined} />}
+          {kind === 'photo' && <PhotoEditor initial={existing?.uri ?? null} onSave={(uri) => void save({ uri })} onRemove={existing ? () => void remove() : undefined} />}
+          {kind === 'voice' && <VoiceEditor initial={existing ?? null} onSave={(uri, durationMs) => void save({ uri, durationMs })} onRemove={existing ? () => void remove() : undefined} />}
+          {kind === 'video' && <VideoEditor initial={existing ?? null} onSave={(uri, durationMs) => void save({ uri, durationMs })} onRemove={existing ? () => void remove() : undefined} />}
         </KeyboardAvoidingView>
       </SafeAreaView>
     </Page>
@@ -301,4 +322,6 @@ const styles = StyleSheet.create({
   error: { gap: Spacing.sm, alignItems: 'flex-start', padding: Spacing.md, borderRadius: Radius.sm, backgroundColor: Colors.white, borderWidth: Stroke.thin, borderColor: Colors.coral },
   errorText: { fontFamily: Fonts.body, fontSize: 13, lineHeight: 20, color: Colors.ink },
   footer: { gap: 4, paddingTop: Spacing.md, paddingBottom: Spacing.md },
+  saveError: { fontFamily: Fonts.body, fontSize: 13, color: Colors.coral, textAlign: 'center' },
+  saveBusy: { fontFamily: Fonts.body, fontSize: 13, color: Colors.muted, textAlign: 'center' },
 });

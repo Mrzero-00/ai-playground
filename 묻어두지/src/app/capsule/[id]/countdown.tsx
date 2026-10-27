@@ -43,8 +43,8 @@ export default function CountdownScreen() {
   const reveal = useCallback(() => {
     if (finished.current || !capsule) return;
     finished.current = true;
-    openCapsule(capsule.id);
-    router.replace({ pathname: '/capsule/[id]', params: { id: capsule.id } });
+    // 서버가 거절해도(아직 시각 전 등) 캡슐 화면이 실제 상태를 보여 준다.
+    void openCapsule(capsule.id).finally(() => router.replace({ pathname: '/capsule/[id]', params: { id: capsule.id } }));
   }, [capsule, openCapsule]);
 
   if (!capsule) return null;

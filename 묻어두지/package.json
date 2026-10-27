@@ -70,7 +70,8 @@
     "reset-project": "node ./scripts/reset-project.js",
     "lint": "expo lint",
     "typecheck": "tsc --noEmit",
-    "test": "node --experimental-strip-types --test tests/*.test.mjs && tsx --test server/*.test.ts",
+    "test": "tsx --test tests/*.test.mjs && tsx --test server/*.test.ts",
+    "test:unit": "tsx --test tests/*.test.mjs",
     "test:server": "tsx --test server/*.test.ts",
     "check": "pnpm typecheck && pnpm lint && pnpm test"
   },

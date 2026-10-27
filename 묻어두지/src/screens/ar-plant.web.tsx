@@ -28,7 +28,7 @@ export function ArPlantScreen({ capsule }: { capsule: Capsule }) {
     }
     try {
       const current = await Location.getCurrentPositionAsync({ accuracy: Location.Accuracy.High });
-      plantCapsule(capsule.id, { latitude: current.coords.latitude, longitude: current.coords.longitude, accuracy: current.coords.accuracy, label: label.trim(), plantedAt: new Date().toISOString() });
+      void plantCapsule(capsule.id, { latitude: current.coords.latitude, longitude: current.coords.longitude, accuracy: current.coords.accuracy, label: label.trim(), plantedAt: new Date().toISOString() });
       router.back();
     } catch {
       setStatus('error');

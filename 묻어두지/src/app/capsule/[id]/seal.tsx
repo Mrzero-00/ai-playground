@@ -1,4 +1,5 @@
 import { router, useLocalSearchParams } from 'expo-router';
+import { useState } from 'react';
 import { ScrollView, StyleSheet, Text, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
@@ -6,22 +7,31 @@ import { Capsule } from '@/components/capsule';
 import { Avatar, AVATAR_TONES, Body, Button, Card, Content, NavBar, Page, Tag, Title } from '@/components/ui';
 import { Colors, Fonts, Radius, Spacing, Stroke } from '@/constants/theme';
 import { MAX_ITEMS_PER_MEMBER, canSeal, contributingMembers, formatKoreanDate, totalItems } from '@/domain/capsule';
-import { useCapsuleStore } from '@/state/capsule-store';
+import { describeError, useCapsuleStore } from '@/state/capsule-store';
 
 /** 방장이 직접 닫는 확인 화면. 여는 날은 만들 때 정했으니 보여주기만 한다. */
 export default function SealScreen() {
   const { id } = useLocalSearchParams<{ id: string }>();
   const { getCapsule, sealCapsule } = useCapsuleStore();
   const capsule = id ? getCapsule(id) : null;
+  const [busy, setBusy] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
   if (!capsule) return null;
   const sealable = canSeal(capsule);
   const contributors = contributingMembers(capsule).length;
   const idle = capsule.members.filter((member) => member.items.length === 0);
 
-  function seal() {
-    if (!capsule || !sealCapsule(capsule.id)) return;
-    router.replace({ pathname: '/capsule/[id]', params: { id: capsule.id } });
+  async function seal() {
+    if (!capsule || busy) return;
+    setBusy(true);
+    try {
+      await sealCapsule(capsule.id);
+      router.replace({ pathname: '/capsule/[id]', params: { id: capsule.id } });
+    } catch (cause) {
+      setError(describeError(cause));
+      setBusy(false);
+    }
   }
 
   return (
@@ -71,7 +81,8 @@ export default function SealScreen() {
           </Content>
         </ScrollView>
         <Content style={styles.footer}>
-          <Button label="닫고 묻어두기" icon="lock" onPress={seal} disabled={!sealable} />
+          {error && <Body size={12} center>{error}</Body>}
+          <Button label={busy ? '닫는 중…' : '닫고 묻어두기'} icon="lock" onPress={() => void seal()} disabled={!sealable || busy} />
           <Button label="조금 더 기다릴게요" tone="ghost" onPress={() => router.back()} />
         </Content>
       </SafeAreaView>

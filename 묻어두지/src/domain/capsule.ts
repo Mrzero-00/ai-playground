@@ -86,8 +86,17 @@ export function addDays(iso: string, days: number) {
   return new Date(new Date(iso).getTime() + days * DAY_MS).toISOString();
 }
 
+function startOfLocalDay(iso: string) {
+  const date = new Date(iso);
+  return new Date(date.getFullYear(), date.getMonth(), date.getDate());
+}
+
+/** 닫은 날(현지 자정 기준)부터 30일째 00:00 ~ 180일째 23:59:59. 시각이 아니라 날짜로 센다. */
 export function openWindow(sealedAt: string) {
-  return { min: addDays(sealedAt, MIN_OPEN_DAYS), max: addDays(sealedAt, MAX_OPEN_DAYS) };
+  const base = startOfLocalDay(sealedAt);
+  const min = new Date(base.getFullYear(), base.getMonth(), base.getDate() + MIN_OPEN_DAYS);
+  const max = new Date(base.getFullYear(), base.getMonth(), base.getDate() + MAX_OPEN_DAYS + 1, 0, 0, 0, -1);
+  return { min: min.toISOString(), max: max.toISOString() };
 }
 
 export function isValidOpenAt(sealedAt: string, openAt: string) {

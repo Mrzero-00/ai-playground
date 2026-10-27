@@ -36,14 +36,16 @@ test('CON-01: 편지는 공백 제외 1자 이상 180자 이하', () => {
   assert.equal(isLetterValid('가'.repeat(181)), false);
 });
 
-test('PIT-02: 여는 시각은 닫은 시점부터 30~180일', () => {
-  const sealedAt = '2026-10-20T10:00:00.000Z';
+test('PIT-02: 여는 날은 닫은 날부터 30~180일째, 시각이 아니라 날짜로 센다', () => {
+  const local = (y, m, d, h = 0, min = 0) => new Date(y, m - 1, d, h, min).toISOString();
+  const sealedAt = local(2026, 10, 20, 19, 17);
   const { min, max } = openWindow(sealedAt);
-  assert.equal(min, '2026-11-19T10:00:00.000Z');
-  assert.equal(max, '2027-04-18T10:00:00.000Z');
-  assert.equal(isValidOpenAt(sealedAt, '2026-11-18T10:00:00.000Z'), false);
-  assert.equal(isValidOpenAt(sealedAt, '2026-11-19T10:00:00.000Z'), true);
-  assert.equal(isValidOpenAt(sealedAt, '2027-04-19T10:00:00.000Z'), false);
+  assert.equal(min, local(2026, 11, 19));
+  assert.equal(new Date(max).getTime(), new Date(2027, 3, 19).getTime() - 1);
+  assert.equal(isValidOpenAt(sealedAt, local(2026, 11, 18, 23, 30)), false);
+  assert.equal(isValidOpenAt(sealedAt, local(2026, 11, 19, 8, 0)), true, '30일째 아침은 닫은 시각보다 일러도 된다');
+  assert.equal(isValidOpenAt(sealedAt, local(2027, 4, 18, 23, 0)), true);
+  assert.equal(isValidOpenAt(sealedAt, local(2027, 4, 19, 8, 0)), false);
 });
 
 test('SEAL-01: 물건을 넣은 멤버가 2명 이상이어야 닫을 수 있다', () => {

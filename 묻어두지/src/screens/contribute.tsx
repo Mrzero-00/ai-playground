@@ -1,5 +1,6 @@
 import { router } from 'expo-router';
-import { Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
+import { useState } from 'react';
+import { Modal, Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 import { Capsule } from '@/components/capsule';
@@ -37,8 +38,10 @@ export function ContributeScreen({ capsule, now }: { capsule: CapsuleModel; now:
   const slotsLeft = mine ? remainingSlots(mine) : 0;
   const sealable = canSeal(capsule);
   const isHost = mine?.isHost ?? false;
+  const [picking, setPicking] = useState(false);
 
   function add(kind: ItemKind) {
+    setPicking(false);
     router.push({ pathname: '/capsule/[id]/add/[kind]', params: { id: capsule.id, kind } });
   }
 
@@ -91,8 +94,8 @@ export function ContributeScreen({ capsule, now }: { capsule: CapsuleModel; now:
                     <Pressable
                       key={`empty-${index}`}
                       accessibilityRole="button"
-                      accessibilityLabel={`빈 칸 ${index + 1}`}
-                      onPress={() => add('letter')}
+                      accessibilityLabel={`빈 칸 ${index + 1} · 넣을 것 고르기`}
+                      onPress={() => setPicking(true)}
                       style={[styles.slot, styles.slotEmpty]}>
                       <Icon name="plus" size={20} />
                     </Pressable>
@@ -157,11 +160,48 @@ export function ContributeScreen({ capsule, now }: { capsule: CapsuleModel; now:
           </Body>
         </Content>
       </SafeAreaView>
+
+      <Modal visible={picking} transparent animationType="fade" onRequestClose={() => setPicking(false)}>
+        <Pressable accessibilityRole="button" accessibilityLabel="닫기" onPress={() => setPicking(false)} style={styles.scrim}>
+          <Pressable onPress={() => {}} style={styles.pickerSheet}>
+            <View style={styles.pickerHandle} />
+            <Text style={styles.pickerTitle}>무엇을 넣을까요?</Text>
+            <Body size={12}>
+              남은 칸 {slotsLeft}개 · 같은 종류를 여러 개 넣어도 돼요
+            </Body>
+            <View style={styles.pickerGrid}>
+              {KIND_ORDER.map((kind) => (
+                <Pressable
+                  key={kind}
+                  accessibilityRole="button"
+                  onPress={() => add(kind)}
+                  style={({ pressed }) => [styles.pickerOption, offsetShadow(4), pressed && styles.pressed]}>
+                  <View style={[styles.pickerIcon, { backgroundColor: KIND_TONE[kind] }]}>
+                    <Icon name={kind} size={22} />
+                  </View>
+                  <Text style={styles.pickerLabel}>{ITEM_KIND_LABEL[kind]}</Text>
+                  <Text style={styles.pickerLimit}>{KIND_LIMIT[kind]}</Text>
+                </Pressable>
+              ))}
+            </View>
+            <Button label="다음에 넣을게요" tone="ghost" onPress={() => setPicking(false)} />
+          </Pressable>
+        </Pressable>
+      </Modal>
     </Page>
   );
 }
 
 const styles = StyleSheet.create({
+  scrim: { flex: 1, backgroundColor: 'rgba(17,17,17,0.45)', justifyContent: 'flex-end' },
+  pickerSheet: { backgroundColor: Colors.cream, borderTopLeftRadius: Radius.xl, borderTopRightRadius: Radius.xl, borderTopWidth: Stroke.regular, borderTopColor: Colors.ink, padding: Spacing.xl, paddingBottom: 34, gap: Spacing.sm },
+  pickerHandle: { width: 40, height: 5, borderRadius: 3, backgroundColor: Colors.ink, opacity: 0.35, alignSelf: 'center', marginBottom: 4 },
+  pickerTitle: { fontFamily: Fonts.display, fontSize: 22, color: Colors.ink },
+  pickerGrid: { flexDirection: 'row', flexWrap: 'wrap', gap: 10, marginTop: Spacing.sm, marginBottom: 4 },
+  pickerOption: { width: '48%', flexGrow: 1, alignItems: 'center', gap: 6, paddingVertical: 16, borderRadius: Radius.lg, backgroundColor: Colors.white, borderWidth: Stroke.regular, borderColor: Colors.ink },
+  pickerIcon: { width: 48, height: 48, borderRadius: 24, borderWidth: Stroke.thin, borderColor: Colors.ink, alignItems: 'center', justifyContent: 'center' },
+  pickerLabel: { fontFamily: Fonts.display, fontSize: 17, color: Colors.ink },
+  pickerLimit: { fontFamily: Fonts.body, fontSize: 11, color: Colors.muted },
   safeArea: { flex: 1 },
   scroll: { flexGrow: 1 },
   content: { gap: Spacing.md, paddingTop: Spacing.md, paddingBottom: Spacing.lg },

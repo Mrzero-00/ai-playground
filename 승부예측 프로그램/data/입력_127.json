@@ -593,7 +593,7 @@
   "경기": "대전 하나시티즌 - 비셀 고베",
   "리그": "AFC 챔피언스리그 엘리트",
   "시각": "10-27 19:00",
-  "수집": "10-27 16:59",
+  "수집": "10-27 20:19",
   "홈": {
    "팀": "대전 하나시티즌",
    "eng": "Daejeon Citizen",
@@ -603,6 +603,20 @@
    "최근7일경기": 0,
    "직전event": "401912626",
    "xg": null,
+   "선발": [
+    "Lee Chang-Geun",
+    "Anton Krivotsyuk",
+    "Jo Seong-Kwon",
+    "Lee Myung-Jae",
+    "Kim Moon-Hwan",
+    "Kim Jun-beom",
+    "Lee Soon-Min",
+    "Kim Bong-Soo",
+    "Diogo",
+    "João Victor",
+    "Jeong Jae-Hee"
+   ],
+   "포메이션": "4-2-3-1",
    "직전선발": [
     "Joonseo Lee",
     "Anton Krivotsyuk",
@@ -616,7 +630,15 @@
     "Jin-Su Seo",
     "Diogo"
    ],
-   "직전포메이션": "4-4-2"
+   "직전포메이션": "4-4-2",
+   "교체": 5,
+   "빠진": [
+    "Joonseo Lee",
+    "Ha Chang-Rae",
+    "Kyu-hyun Park",
+    "Kang Yoon-Sung",
+    "Jin-Su Seo"
+   ]
   },
   "원정": {
    "팀": "비셀 고베",
@@ -627,6 +649,20 @@
    "최근7일경기": 0,
    "직전event": "401912645",
    "xg": null,
+   "선발": [
+    "Shuichi Gonda",
+    "Takuya Iwanami",
+    "Tetsushi Yamakawa",
+    "Katsuya Nagato",
+    "Gotoku Sakai",
+    "Yuya Kuwasaki",
+    "Yuta Goke",
+    "Kouta Watanabe",
+    "Ren Komatsu",
+    "Jean Patric",
+    "Mitsuki Hidaka"
+   ],
+   "포메이션": "4-3-3",
    "직전선발": [
     "Shuichi Gonda",
     "Caetano",
@@ -640,7 +676,16 @@
     "Erik",
     "Yuya Osako"
    ],
-   "직전포메이션": "4-4-2"
+   "직전포메이션": "4-4-2",
+   "교체": 6,
+   "빠진": [
+    "Caetano",
+    "Diego",
+    "Yosuke Ideguchi",
+    "Yoshinori Muto",
+    "Erik",
+    "Yuya Osako"
+   ]
   },
   "환경": {
    "구장": "대전월드컵경기장",
@@ -654,8 +699,8 @@
     "습도": 60,
     "강수mm": 0,
     "강수확률": 0,
-    "풍속": 13.3,
-    "출처": "Open-Meteo forecast 10-27 16:59"
+    "풍속": 14.0,
+    "출처": "Open-Meteo forecast 10-27 20:19"
    },
    "출처": [
     "Wikidata Q484584→Q482598 · Open-Meteo 고도",
@@ -663,7 +708,7 @@
    ],
    "주의": []
   },
-  "라인업": "미발표(킥오프 2.0h 전)",
+  "라인업": "발표",
   "event": "401912636"
  },
  "899": {
@@ -671,7 +716,7 @@
   "경기": "교토 상가FC - 뉴캐슬 제츠",
   "리그": "AFC 챔피언스리그 엘리트",
   "시각": "10-27 19:00",
-  "수집": "10-27 16:59",
+  "수집": "10-27 20:19",
   "홈": {
    "팀": "교토 상가FC",
    "eng": "Kyoto",
@@ -681,6 +726,20 @@
    "최근7일경기": 0,
    "직전event": "401912649",
    "xg": null,
+   "선발": [
+    "Halls",
+    "Weverton",
+    "Takaaki Shichi",
+    "Hisashi Appiah Tawiah",
+    "João Pedro Mendes",
+    "Shimpei Fukuoka",
+    "Kyo Sato",
+    "Yoon Sung-Jun",
+    "Papagaio",
+    "Marco Túlio",
+    "Everton Maceió"
+   ],
+   "포메이션": "3-4-2-1",
    "직전선발": [
     "Halls",
     "Weverton",
@@ -694,7 +753,13 @@
     "Marco Túlio",
     "Haruki Arai"
    ],
-   "직전포메이션": "3-4-3"
+   "직전포메이션": "3-4-3",
+   "교체": 3,
+   "빠진": [
+    "Thiago",
+    "Ren Kato",
+    "Haruki Arai"
+   ]
   },
   "원정": {
    "팀": "뉴캐슬 제츠",
@@ -705,6 +770,20 @@
    "최근7일경기": 0,
    "직전event": "401912650",
    "xg": null,
+   "선발": [
+    "James Delianov",
+    "Thomas Aquilina",
+    "Joe Shaughnessy",
+    "Max Burgess",
+    "Daniel Wilmering",
+    "Joel Bertolissio",
+    "Julian Recchia",
+    "Zane Schreiber",
+    "Xavier Bertoncello",
+    "Joe Lolley",
+    "Patrick Wood"
+   ],
+   "포메이션": "4-1-4-1",
    "직전선발": [
     "James Delianov",
     "Thomas Aquilina",
@@ -718,7 +797,13 @@
     "Will Dobson",
     "Nikolaos Vergos"
    ],
-   "직전포메이션": "4-1-4-1"
+   "직전포메이션": "4-1-4-1",
+   "교체": 3,
+   "빠진": [
+    "Zach Clough",
+    "Will Dobson",
+    "Nikolaos Vergos"
+   ]
   },
   "환경": {
    "구장": "교토시(구단 좌표 — 구장 미확인)",
@@ -728,12 +813,12 @@
    "이동km": 7735,
    "고도차": 41,
    "날씨": {
-    "기온": 18.8,
+    "기온": 18.6,
     "습도": 78,
     "강수mm": 0,
     "강수확률": 0,
-    "풍속": 7.9,
-    "출처": "Open-Meteo forecast 10-27 16:59"
+    "풍속": 7.0,
+    "출처": "Open-Meteo forecast 10-27 20:19"
    },
    "출처": [
     "Wikidata Q34600→구단 · Open-Meteo 고도",
@@ -743,7 +828,7 @@
     "장거리 원정 7735km"
    ]
   },
-  "라인업": "미발표(킥오프 2.0h 전)",
+  "라인업": "발표",
   "event": "401912637"
  },
  "903": {
@@ -751,7 +836,7 @@
   "경기": "조호르 다룰탁짐 - 포트FC",
   "리그": "AFC 챔피언스리그 엘리트",
   "시각": "10-27 19:00",
-  "수집": "10-27 16:59",
+  "수집": "10-27 20:19",
   "홈": {
    "팀": "조호르 다룰탁짐",
    "eng": "조호르 다룰탁짐",
@@ -812,7 +897,7 @@
    ],
    "주의": []
   },
-  "라인업": "미발표(킥오프 2.0h 전)",
+  "라인업": "미발표",
   "event": null
  },
  "907": {
@@ -820,7 +905,7 @@
   "경기": "상하이 하이강 - 꽁안 하노이",
   "리그": "AFC 챔피언스리그 엘리트",
   "시각": "10-27 19:00",
-  "수집": "10-27 16:59",
+  "수집": "10-27 20:19",
   "홈": {
    "팀": "상하이 하이강",
    "eng": "Shanghai Port",
@@ -867,7 +952,7 @@
     "강수mm": 0,
     "강수확률": 0,
     "풍속": 10.0,
-    "출처": "Open-Meteo forecast 10-27 16:59"
+    "출처": "Open-Meteo forecast 10-27 20:19"
    },
    "출처": [
     "Wikidata Q564216→Q739528 · Open-Meteo 고도",
@@ -875,7 +960,7 @@
    ],
    "주의": []
   },
-  "라인업": "미발표(킥오프 2.0h 전)",
+  "라인업": "미발표",
   "event": null
  },
  "916": {
@@ -883,7 +968,7 @@
   "경기": "랏차부리 - 가시와 레이솔",
   "리그": "AFC 챔피언스리그 엘리트",
   "시각": "10-27 21:15",
-  "수집": "10-27 16:59",
+  "수집": "10-27 20:19",
   "홈": {
    "팀": "랏차부리",
    "eng": "랏차부리",
@@ -928,9 +1013,9 @@
     "기온": 28.1,
     "습도": 80,
     "강수mm": 0,
-    "강수확률": 39,
+    "강수확률": 14,
     "풍속": 8.3,
-    "출처": "Open-Meteo forecast 10-27 16:59"
+    "출처": "Open-Meteo forecast 10-27 20:19"
    },
    "출처": [
     "Wikidata Q4352413→Q25221768 · Open-Meteo 고도",
@@ -940,7 +1025,7 @@
     "장거리 원정 4711km"
    ]
   },
-  "라인업": "미발표(킥오프 4.3h 전)",
+  "라인업": "미발표(킥오프 0.9h 전)",
   "event": null
  },
  "920": {
@@ -948,7 +1033,7 @@
   "경기": "베이징 궈안 - 전북 현대모터스",
   "리그": "AFC 챔피언스리그 엘리트",
   "시각": "10-27 21:15",
-  "수집": "10-27 16:59",
+  "수집": "10-27 20:19",
   "홈": {
    "팀": "베이징 궈안",
    "eng": "Beijing Guoan",
@@ -1010,7 +1095,7 @@
     "강수mm": 0,
     "강수확률": 0,
     "풍속": 11.8,
-    "출처": "Open-Meteo forecast 10-27 17:00"
+    "출처": "Open-Meteo forecast 10-27 20:19"
    },
    "출처": [
     "Wikidata Q814738→Q627250 · Open-Meteo 고도",
@@ -1020,7 +1105,7 @@
     "장거리 원정 1035km"
    ]
   },
-  "라인업": "미발표(킥오프 4.3h 전)",
+  "라인업": "미발표(킥오프 0.9h 전)",
   "event": "401912621"
  },
  "932": {

@@ -99,7 +99,7 @@ export function OpeningCapsule({ width = 300, open, onOpened }: Props) {
         </Svg>
       </Animated.View>
 
-      <Animated.View style={[styles.half, { top: 0, height: lidHeight, width }, lidStyle]} pointerEvents="none">
+      <Animated.View testID="capsule-lid" style={[styles.half, { top: 0, height: lidHeight, width }, lidStyle]} pointerEvents="none">
         <Image source={EGG} style={{ width: img, height: img, marginTop: -offsetY, marginLeft: -offsetX }} contentFit="contain" accessibilityLabel="" />
       </Animated.View>
     </View>

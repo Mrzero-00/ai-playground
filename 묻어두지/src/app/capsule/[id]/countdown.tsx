@@ -1,9 +1,9 @@
 import { router, useLocalSearchParams } from 'expo-router';
-import { useEffect, useRef, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
-import { Capsule } from '@/components/capsule';
+import { OpeningCapsule } from '@/components/opening-capsule';
 import { Content, Page, Tag } from '@/components/ui';
 import { Colors, Fonts, Spacing, Stroke } from '@/constants/theme';
 import { COUNTDOWN_MS } from '@/domain/capsule';
@@ -23,6 +23,8 @@ export default function CountdownScreen() {
   const capsule = id ? getCapsule(id) : null;
   const startedAt = useRef<number | null>(null);
   const [remainingMs, setRemainingMs] = useState(COUNTDOWN_MS);
+  // 0초가 되면 닫혀 있던 캡슐이 홈과 같은 모션으로 열리고, 다 열린 뒤에 열린 화면으로 간다.
+  const [opening, setOpening] = useState(false);
   const finished = useRef(false);
 
   useEffect(() => {
@@ -30,14 +32,19 @@ export default function CountdownScreen() {
     const timer = setInterval(() => {
       const left = Math.max(0, COUNTDOWN_MS - (Date.now() - (startedAt.current ?? Date.now())));
       setRemainingMs(left);
-      if (left === 0 && !finished.current && capsule) {
-        finished.current = true;
+      if (left === 0) {
         clearInterval(timer);
-        openCapsule(capsule.id);
-        router.replace({ pathname: '/capsule/[id]', params: { id: capsule.id } });
+        setOpening(true);
       }
     }, 100);
     return () => clearInterval(timer);
+  }, []);
+
+  const reveal = useCallback(() => {
+    if (finished.current || !capsule) return;
+    finished.current = true;
+    openCapsule(capsule.id);
+    router.replace({ pathname: '/capsule/[id]', params: { id: capsule.id } });
   }, [capsule, openCapsule]);
 
   if (!capsule) return null;
@@ -62,9 +69,15 @@ export default function CountdownScreen() {
           <Tag tone="white" label={`${names} 함께 열고 있어요`} />
         </View>
         <View style={styles.center}>
-          <Capsule state="open" size={250} />
-          <Text style={styles.number}>{seconds}</Text>
-          <Text style={styles.caption}>초 뒤에 열려요</Text>
+          <OpeningCapsule width={230} open={opening} onOpened={reveal} />
+          {opening ? (
+            <Text style={styles.captionOpening}>열리는 중…</Text>
+          ) : (
+            <>
+              <Text style={styles.number}>{seconds}</Text>
+              <Text style={styles.caption}>초 뒤에 열려요</Text>
+            </>
+          )}
           <View style={styles.dots}>
             {Array.from({ length: COUNTDOWN_MS / 1000 }).map((_, index) => (
               <View key={index} style={[styles.dot, index < elapsedSteps ? styles.dotDone : styles.dotPending]} />
@@ -87,6 +100,7 @@ const styles = StyleSheet.create({
   center: { flex: 1, alignItems: 'center', justifyContent: 'center', gap: 8 },
   number: { fontFamily: Fonts.display, fontSize: 150, lineHeight: 160, color: Colors.white, textShadowColor: Colors.ink, textShadowOffset: { width: 5, height: 5 }, textShadowRadius: 0 },
   caption: { fontFamily: Fonts.display, fontSize: 18, color: Colors.ink },
+  captionOpening: { fontFamily: Fonts.display, fontSize: 28, lineHeight: 160, color: Colors.white, textShadowColor: Colors.ink, textShadowOffset: { width: 3, height: 3 }, textShadowRadius: 0 },
   dots: { flexDirection: 'row', gap: 6, marginTop: 6 },
   dot: { width: 22, height: 8, borderRadius: 4, borderWidth: Stroke.thin, borderColor: Colors.ink },
   dotDone: { backgroundColor: Colors.yellow },

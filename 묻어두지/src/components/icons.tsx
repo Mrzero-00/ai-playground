@@ -19,7 +19,9 @@ export type IconName =
   | 'arrow'
   | 'people'
   | 'mic'
-  | 'stop';
+  | 'stop'
+  | 'map'
+  | 'inbox';
 
 type IconProps = {
   name: IconName;
@@ -86,6 +88,8 @@ export function Icon({ name, size = 20, color = Colors.ink, strokeWidth = 2.5 }:
       {name === 'play' && <Path d="M8 5v14l11-7z" fill={color} />}
       {name === 'stop' && <Rect x={6} y={6} width={12} height={12} rx={2} fill={color} />}
       {name === 'heart' && <Path d="M12 20s-7-4.5-7-10a4 4 0 0 1 7-2.5A4 4 0 0 1 19 10c0 5.5-7 10-7 10z" {...common} />}
+      {name === 'map' && <Path d="M3 6l6-2 6 2 6-2v14l-6 2-6-2-6 2zM9 4v14M15 6v14" {...common} />}
+      {name === 'inbox' && <Path d="M4 13l2-7h12l2 7v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1v-5zM4 13h5l1 2h4l1-2h5" {...common} />}
       {name === 'people' && (
         <>
           <Circle cx={9} cy={8} r={3} {...common} />

@@ -6,8 +6,10 @@ import { Capsule } from '@/components/capsule';
 import { Avatar, AVATAR_TONES, Body, Button, Card, Content, Display, NavBar, Page, Tag } from '@/components/ui';
 import { Colors, Fonts, Radius, Spacing, Stroke } from '@/constants/theme';
 import { OPENED_RETENTION_DAYS, addDays, daysUntil, formatKoreanDate, type Capsule as CapsuleModel } from '@/domain/capsule';
+import { useCapsuleStore } from '@/state/capsule-store';
 
 export function WaitingScreen({ capsule, now }: { capsule: CapsuleModel; now: Date }) {
+  const { profile } = useCapsuleStore();
   const openAt = capsule.openAt ?? now.toISOString();
   const reminders = [
     { date: addDays(openAt, -7), label: '7일 전 알림' },
@@ -34,7 +36,7 @@ export function WaitingScreen({ capsule, now }: { capsule: CapsuleModel; now: Da
             <Card style={styles.members}>
               {capsule.members.map((member, index) => (
                 <View key={member.id} style={[styles.memberRow, index < capsule.members.length - 1 && styles.memberDivider]}>
-                  <Avatar name={member.name} tone={AVATAR_TONES[index % AVATAR_TONES.length]} size={30} />
+                  <Avatar name={member.name} tone={member.isMe ? profile.tone : AVATAR_TONES[index % AVATAR_TONES.length]} size={30} />
                   <Text style={styles.memberName}>
                     {member.name}
                     {member.isMe && <Text style={styles.memberMe}> · 나</Text>}

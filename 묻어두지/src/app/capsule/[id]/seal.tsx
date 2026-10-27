@@ -12,7 +12,7 @@ import { describeError, useCapsuleStore } from '@/state/capsule-store';
 /** 방장이 직접 닫는 확인 화면. 여는 날은 만들 때 정했으니 보여주기만 한다. */
 export default function SealScreen() {
   const { id } = useLocalSearchParams<{ id: string }>();
-  const { getCapsule, sealCapsule } = useCapsuleStore();
+  const { getCapsule, sealCapsule, profile } = useCapsuleStore();
   const capsule = id ? getCapsule(id) : null;
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -66,7 +66,7 @@ export default function SealScreen() {
             <View style={styles.members}>
               {capsule.members.map((member, index) => (
                 <View key={member.id} style={styles.memberRow}>
-                  <Avatar name={member.name} tone={AVATAR_TONES[index % AVATAR_TONES.length]} size={30} />
+                  <Avatar name={member.name} tone={member.isMe ? profile.tone : AVATAR_TONES[index % AVATAR_TONES.length]} size={30} />
                   <Text style={styles.memberName}>
                     {member.name}
                     {member.isMe && <Text style={styles.memberMe}> · 나</Text>}

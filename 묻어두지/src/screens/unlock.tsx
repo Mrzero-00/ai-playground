@@ -6,8 +6,10 @@ import { Capsule } from '@/components/capsule';
 import { Avatar, AVATAR_TONES, Body, Button, Card, Content, NavBar, Page, Tag } from '@/components/ui';
 import { Colors, Fonts, Radius, Spacing } from '@/constants/theme';
 import { formatKoreanDate, type Capsule as CapsuleModel } from '@/domain/capsule';
+import { useCapsuleStore } from '@/state/capsule-store';
 
 export function UnlockScreen({ capsule }: { capsule: CapsuleModel }) {
+  const { profile } = useCapsuleStore();
   const online = capsule.members.slice(0, Math.max(1, capsule.members.length - 1));
   const offline = capsule.members.slice(online.length);
   const sealedDays = capsule.sealedAt && capsule.openAt ? Math.round((new Date(capsule.openAt).getTime() - new Date(capsule.sealedAt).getTime()) / 86_400_000) : null;
@@ -38,7 +40,7 @@ export function UnlockScreen({ capsule }: { capsule: CapsuleModel }) {
               </View>
               <View style={styles.avatars}>
                 {online.map((member, index) => (
-                  <Avatar key={member.id} name={member.name} tone={AVATAR_TONES[index % AVATAR_TONES.length]} size={36} />
+                  <Avatar key={member.id} name={member.name} tone={member.isMe ? profile.tone : AVATAR_TONES[index % AVATAR_TONES.length]} size={36} />
                 ))}
                 {offline.map((member) => (
                   <Avatar key={member.id} name={member.name} tone="empty" size={36} />

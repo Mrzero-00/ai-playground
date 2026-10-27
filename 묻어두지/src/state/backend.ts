@@ -35,4 +35,6 @@ export interface CapsuleBackend {
   seal(capsuleId: string): Promise<Capsule>;
   open(capsuleId: string): Promise<Capsule>;
   plant(capsuleId: string, location: PlantedLocation): Promise<Capsule>;
+  /** 캡슐에 보일 내 이름을 바꾼다. 이미 들어 있는 캡슐의 내 멤버 이름도 함께 바뀐다. */
+  setDisplayName(name: string): Promise<void>;
 }

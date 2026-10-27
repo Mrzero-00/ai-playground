@@ -30,7 +30,7 @@ export class LocalBackend implements CapsuleBackend {
   readonly source = 'local' as const;
   private all: Capsule[];
   private readonly now: () => Date;
-  private readonly displayName: string;
+  private displayName: string;
 
   constructor({ initial, now = () => new Date(), displayName = '상길' }: Options) {
     this.all = initial;
@@ -138,6 +138,11 @@ export class LocalBackend implements CapsuleBackend {
     if (capsule.status !== 'sealed' || !capsule.openAt) throw new BackendError('NOT_SEALED', '아직 닫히지 않은 캡슐이에요.');
     if (this.now().getTime() < new Date(capsule.openAt).getTime()) throw new BackendError('TOO_EARLY', '아직 열 수 있는 시각이 아니에요.');
     return this.replace({ ...capsule, status: 'opened', openedAt: this.now().toISOString() });
+  }
+
+  async setDisplayName(name: string) {
+    this.displayName = name.trim() || this.displayName;
+    this.all = this.all.map((capsule) => ({ ...capsule, members: capsule.members.map((member) => (member.isMe ? { ...member, name: this.displayName } : member)) }));
   }
 
   async plant(capsuleId: string, location: PlantedLocation) {

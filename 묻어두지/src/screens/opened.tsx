@@ -11,8 +11,10 @@ import { Icon } from '@/components/icons';
 import { Avatar, AVATAR_TONES, Body, Button, Content, IconButton, NavBar, Page, Tag } from '@/components/ui';
 import { Colors, Fonts, Radius, Spacing, Stroke, offsetShadow } from '@/constants/theme';
 import { ITEM_KIND_LABEL, daysUntil, deletionDate, formatKoreanDate, revealOrder, withSubjectParticle, type Capsule as CapsuleModel, type CapsuleItem } from '@/domain/capsule';
+import { useCapsuleStore } from '@/state/capsule-store';
 
 export function OpenedScreen({ capsule, now }: { capsule: CapsuleModel; now: Date }) {
+  const { profile } = useCapsuleStore();
   const order = revealOrder(capsule);
   const [index, setIndex] = useState(0);
   const entry = order[index];
@@ -54,7 +56,7 @@ export function OpenedScreen({ capsule, now }: { capsule: CapsuleModel; now: Dat
                 <View style={[styles.card, offsetShadow(6)]}>
                   <ItemView item={entry.item} />
                   <View style={styles.author}>
-                    <Avatar name={entry.memberName} tone={AVATAR_TONES[Math.max(0, memberIndex) % AVATAR_TONES.length]} size={36} />
+                    <Avatar name={entry.memberName} tone={capsule.members[memberIndex]?.isMe ? profile.tone : AVATAR_TONES[Math.max(0, memberIndex) % AVATAR_TONES.length]} size={36} />
                     <Text style={styles.authorName}>{entry.memberName}</Text>
                     <View style={styles.spacer} />
                     <Text style={styles.authorMeta}>

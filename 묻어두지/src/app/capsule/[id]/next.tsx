@@ -12,7 +12,7 @@ import { useCapsuleStore } from '@/state/capsule-store';
 
 export default function NextCapsuleScreen() {
   const { id } = useLocalSearchParams<{ id: string }>();
-  const { getCapsule } = useCapsuleStore();
+  const { getCapsule, profile } = useCapsuleStore();
   const capsule = id ? getCapsule(id) : null;
   const [quick, setQuick] = useState<number>(60);
   const [sameFriends, setSameFriends] = useState(true);
@@ -31,7 +31,7 @@ export default function NextCapsuleScreen() {
                 <View style={styles.avatars}>
                   {capsule.members.map((member, index) => (
                     <View key={member.id} style={index > 0 && styles.avatarOverlap}>
-                      <Avatar name={member.name} tone={AVATAR_TONES[index % AVATAR_TONES.length]} size={28} />
+                      <Avatar name={member.name} tone={member.isMe ? profile.tone : AVATAR_TONES[index % AVATAR_TONES.length]} size={28} />
                     </View>
                   ))}
                   <Text style={styles.avatarCaption}>{totalItems(capsule)}개를 다 꺼냈어요</Text>

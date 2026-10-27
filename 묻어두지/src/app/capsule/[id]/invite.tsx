@@ -12,7 +12,7 @@ import { useCapsuleStore } from '@/state/capsule-store';
 
 export default function InviteScreen() {
   const { id } = useLocalSearchParams<{ id: string }>();
-  const { getCapsule } = useCapsuleStore();
+  const { getCapsule, profile } = useCapsuleStore();
   const capsule = id ? getCapsule(id) : null;
   const [feedback, setFeedback] = useState<string | null>(null);
 
@@ -87,7 +87,7 @@ export default function InviteScreen() {
               <Card shadow={false} style={styles.memberCard}>
                 {capsule.members.map((member, index) => (
                   <View key={member.id} style={[styles.memberRow, index < capsule.members.length - 1 && styles.memberDivider]}>
-                    <Avatar name={member.name} tone={AVATAR_TONES[index % AVATAR_TONES.length]} />
+                    <Avatar name={member.name} tone={member.isMe ? profile.tone : AVATAR_TONES[index % AVATAR_TONES.length]} />
                     <Text style={styles.memberName}>
                       {member.name}
                       {(member.isMe || member.isHost) && (

@@ -4,14 +4,14 @@ import { Pressable, StyleSheet, Text, View, useWindowDimensions } from 'react-na
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 import { CAPSULE_ASPECT, OpeningCapsule } from '@/components/opening-capsule';
-import { Button, Content, IconButton, Page } from '@/components/ui';
-import { Colors, Fonts, Spacing } from '@/constants/theme';
+import { Avatar, Button, Content, IconButton, Page } from '@/components/ui';
+import { Colors, Fonts, Spacing, Stroke, offsetShadow } from '@/constants/theme';
 import { MAX_ITEMS_PER_MEMBER, deriveStatus, me } from '@/domain/capsule';
 import { useCapsuleStore } from '@/state/capsule-store';
 
 /** 홈: 캡슐 하나와 ‘타임캡슐 심기’. 누르면 뚜껑이 열리며 설정 화면으로 간다. */
 export default function HomeScreen() {
-  const { capsules } = useCapsuleStore();
+  const { capsules, profile } = useCapsuleStore();
   const { width: windowWidth, height: windowHeight } = useWindowDimensions();
   // 화면 절반 이상을 캡슐이 차지하되 가로 여백 16px는 남긴다.
   const capsuleWidth = Math.round(Math.min(windowWidth - 32, (windowHeight * 0.6) / CAPSULE_ASPECT));
@@ -35,13 +35,18 @@ export default function HomeScreen() {
     <Page>
       <SafeAreaView style={styles.safeArea} edges={['top', 'bottom']}>
         <View style={styles.header}>
-          <View>
-            <IconButton name="inbox" label="초대받은 캡슐 목록" onPress={() => router.push('/capsules')} />
-            {todo > 0 && (
-              <View style={styles.badge} pointerEvents="none">
-                <Text style={styles.badgeLabel}>{todo}</Text>
-              </View>
-            )}
+          <View style={styles.headerLeft}>
+            <View>
+              <IconButton name="inbox" label="초대받은 캡슐 목록" onPress={() => router.push('/capsules')} />
+              {todo > 0 && (
+                <View style={styles.badge} pointerEvents="none">
+                  <Text style={styles.badgeLabel}>{todo}</Text>
+                </View>
+              )}
+            </View>
+            <Pressable accessibilityRole="button" accessibilityLabel="내 프로필" onPress={() => router.push('/profile')} style={({ pressed }) => [styles.profileButton, offsetShadow(3), pressed && styles.profilePressed]}>
+              <Avatar name={profile.name || '?'} tone={profile.tone} size={36} />
+            </Pressable>
           </View>
           <Text style={styles.brand}>묻어두지</Text>
           <IconButton name="map" label="우리 동네 지도" onPress={() => router.push('/map')} />
@@ -57,6 +62,11 @@ export default function HomeScreen() {
             <OpeningCapsule width={capsuleWidth} open={opening} onOpened={goCreate} />
           </Pressable>
           <Text style={styles.caption}>{opening ? '뚜껑을 여는 중…' : '지금 묻고, 그때 같이 열자.'}</Text>
+          {!profile.name && !opening && (
+            <Pressable accessibilityRole="button" onPress={() => router.push('/profile')} style={[styles.namePrompt, offsetShadow(3)]}>
+              <Text style={styles.namePromptLabel}>캡슐에 보일 내 이름을 정해 주세요 →</Text>
+            </Pressable>
+          )}
         </Content>
 
         <Content style={styles.footer}>
@@ -71,6 +81,11 @@ export default function HomeScreen() {
 const styles = StyleSheet.create({
   safeArea: { flex: 1 },
   header: { flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', paddingHorizontal: 14, paddingTop: Spacing.sm },
+  headerLeft: { flexDirection: 'row', alignItems: 'center', gap: 8 },
+  profileButton: { width: 44, height: 44, borderRadius: 22, backgroundColor: Colors.white, borderWidth: Stroke.regular, borderColor: Colors.ink, alignItems: 'center', justifyContent: 'center' },
+  profilePressed: { transform: [{ translateX: 2 }, { translateY: 2 }] },
+  namePrompt: { paddingVertical: 10, paddingHorizontal: 16, borderRadius: 999, backgroundColor: Colors.yellow, borderWidth: Stroke.regular, borderColor: Colors.ink },
+  namePromptLabel: { fontFamily: Fonts.display, fontSize: 14, color: Colors.ink },
   brand: { fontFamily: Fonts.display, fontSize: 22, color: Colors.ink },
   badge: { position: 'absolute', top: -4, right: -4, minWidth: 20, height: 20, paddingHorizontal: 5, borderRadius: 10, backgroundColor: Colors.coral, borderWidth: 2, borderColor: Colors.ink, alignItems: 'center', justifyContent: 'center' },
   badgeLabel: { fontFamily: Fonts.display, fontSize: 11, color: Colors.white },

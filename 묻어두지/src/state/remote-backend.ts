@@ -70,6 +70,10 @@ export class RemoteBackend implements CapsuleBackend {
     return absolutize((await capsuleClient.open(capsuleId)).capsule);
   }
 
+  async setDisplayName(name: string) {
+    await capsuleClient.setDisplayName(name);
+  }
+
   async plant(capsuleId: string, location: PlantedLocation) {
     return absolutize((await capsuleClient.plant(capsuleId, location)).capsule);
   }

@@ -4,7 +4,7 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 
 import { Capsule } from '@/components/capsule';
 import { Icon } from '@/components/icons';
-import { Body, Card, Content, NavBar, Page, Tag } from '@/components/ui';
+import { Body, Button, Card, Content, NavBar, Page, Tag } from '@/components/ui';
 import { Colors, Fonts, Radius, Spacing } from '@/constants/theme';
 import { MAX_ITEMS_PER_MEMBER, contributingMembers, daysUntil, deletionDate, deriveStatus, formatKoreanDate, me, type Capsule as CapsuleModel, type DerivedStatus } from '@/domain/capsule';
 import { useCapsuleStore } from '@/state/capsule-store';
@@ -21,14 +21,14 @@ export default function CapsuleListScreen() {
   return (
     <Page>
       <SafeAreaView style={styles.safeArea} edges={['top', 'bottom']}>
-        <NavBar title="초대받은 캡슐" onLeft={() => router.replace('/')} />
+        <NavBar title="내 캡슐" onLeft={() => router.replace('/')} right={<Button compact tone="yellow" label="코드 입력" onPress={() => router.push('/join')} />} />
         <ScrollView contentContainerStyle={styles.scroll} showsVerticalScrollIndicator={false}>
           <Content style={styles.content}>
             {rows.length === 0 && (
               <View style={styles.empty}>
                 <Capsule state="closed" size={160} />
-                <Text style={styles.emptyTitle}>아직 초대받은 캡슐이 없어요</Text>
-                <Body center>친구가 초대 링크를 보내면 여기에 나타나요.</Body>
+                <Text style={styles.emptyTitle}>아직 캡슐이 없어요</Text>
+                <Body center>직접 심거나, 친구가 보낸 초대 코드를 넣으면 여기에 나타나요.</Body>
               </View>
             )}
             {rows.map(({ capsule, status }) => (
@@ -64,6 +64,7 @@ function Row({ capsule, status, now }: { capsule: CapsuleModel; status: DerivedS
           {status === 'sealed' && capsule.openAt && <Tag tone="white" icon="lock" label={`D-${daysUntil(capsule.openAt, now)}`} />}
           {openable && <Tag tone="yellow" label="D-0" />}
           {status === 'opened' && <Tag tone="mint" label="열림" />}
+          {capsule.mode === 'solo' && <Tag tone="white" label="혼자" />}
           {capsule.location && <Tag tone="white" icon="map" label={capsule.location.label} />}
         </View>
       </View>

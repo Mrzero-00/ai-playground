@@ -67,7 +67,7 @@ export default function SealScreen() {
             </View>
 
             {idle.length > 0 && sealable && <Body size={12}>{idle.map((member) => member.name).join(', ')}은(는) 아직 아무것도 안 넣었어요. 지금 닫으면 빈손으로 열게 돼요.</Body>}
-            {!sealable && <Body size={12}>물건을 넣은 사람이 {contributors}명뿐이에요. 2명 이상 넣어야 닫을 수 있어요.</Body>}
+            {!sealable && <Body size={12}>{capsule.mode === 'solo' ? '아직 아무것도 안 넣었어요. 하나라도 넣어야 닫을 수 있어요.' : `물건을 넣은 사람이 ${contributors}명뿐이에요. 2명 이상 넣어야 닫을 수 있어요.`}</Body>}
           </Content>
         </ScrollView>
         <Content style={styles.footer}>

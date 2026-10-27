@@ -22,6 +22,7 @@ export const SEED_CAPSULES: Capsule[] = [
     openAt: addDays(now, 45),
     openedAt: null,
     inviteCode: 'JEJU26',
+    mode: 'group',
     members: [
       { id: 'me', name: '상길', isMe: true, isHost: true, items: [] },
       { id: 'minji', name: '민지', isMe: false, isHost: false, items: [letter('m1', '…'), media('m2', 'photo')] },
@@ -40,6 +41,7 @@ export const SEED_CAPSULES: Capsule[] = [
     openedAt: null,
     location: { latitude: 35.1532, longitude: 129.1186, accuracy: 9, label: '광안리 해변 입구', plantedAt: addDays(now, -40) },
     inviteCode: 'BUSAN1',
+    mode: 'group',
     members: [
       { id: 'me', name: '상길', isMe: true, isHost: true, items: [letter('b-me-1', '제주 가서도 우리 다 같이 새벽 라면은 꼭 먹자. 그때도 도윤이는 분명 먼저 잠들어 있을 거고, 민지는 사진만 백 장 찍고 있을 거야. 32일 뒤의 우리, 아직도 이러고 있니?'), media('b-me-2', 'photo')] },
       { id: 'minji', name: '민지', isMe: false, isHost: false, items: [media('b-m-1', 'photo'), letter('b-m-2', '광안리 불꽃 보면서 했던 말, 기억나? 나는 아직도 그 약속 유효하다고 생각해.')] },
@@ -57,6 +59,7 @@ export const SEED_CAPSULES: Capsule[] = [
     openAt: addDays(now, 32),
     openedAt: null,
     inviteCode: 'TWENTY',
+    mode: 'group',
     members: [
       { id: 'me', name: '상길', isMe: true, isHost: false, items: [letter('t-me', '…'), media('t-me-2', 'photo'), media('t-me-3', 'voice', 30_000)] },
       { id: 'minji', name: '민지', isMe: false, isHost: true, items: [letter('t-m', '…'), media('t-m-2', 'photo')] },
@@ -74,6 +77,7 @@ export const SEED_CAPSULES: Capsule[] = [
     openAt: addDays(now, -18),
     openedAt: addDays(now, -18),
     inviteCode: 'GRAD25',
+    mode: 'group',
     members: [
       { id: 'me', name: '상길', isMe: true, isHost: false, items: [letter('g-me', '졸업하고도 우리 매달 한 번은 보자. 안 보면 내가 찾아간다.')] },
       { id: 'minji', name: '민지', isMe: false, isHost: true, items: [letter('g-m', '마지막 밤이라니, 아직 실감이 안 나. 근데 이거 열 때쯤이면 다들 어른인 척하고 있겠지.'), media('g-m-2', 'photo')] },
@@ -92,6 +96,7 @@ export const SEED_CAPSULES: Capsule[] = [
     openAt: addDays(now, 40),
     openedAt: null,
     inviteCode: 'FOREST',
+    mode: 'group',
     location: { latitude: 37.5612, longitude: 126.9252, accuracy: 10, label: '경의선숲길 연남동 입구', plantedAt: addDays(now, -2) },
     members: [
       { id: 'me', name: '상길', isMe: true, isHost: true, items: [letter('yf-me', '…')] },
@@ -109,6 +114,7 @@ export const SEED_CAPSULES: Capsule[] = [
     openAt: addDays(now, 20),
     openedAt: null,
     inviteCode: 'HONGDA',
+    mode: 'group',
     location: { latitude: 37.5571, longitude: 126.9245, accuracy: 14, label: '홍대입구역 9번 출구', plantedAt: addDays(now, -20) },
     members: [
       { id: 'me', name: '상길', isMe: true, isHost: false, items: [media('hs-me', 'photo'), media('hs-me-2', 'voice', 25_000)] },
@@ -125,6 +131,7 @@ export const SEED_CAPSULES: Capsule[] = [
     openAt: addDays(now, -0.2),
     openedAt: null,
     inviteCode: 'MANGWO',
+    mode: 'group',
     location: { latitude: 37.5556, longitude: 126.8998, accuracy: 8, label: '망원한강공원 2주차장 앞', plantedAt: addDays(now, -35) },
     members: [
       { id: 'me', name: '상길', isMe: true, isHost: true, items: [letter('mr-me', '치킨은 역시 망원이지. 다음엔 내가 쏠게.'), media('mr-me-2', 'photo')] },
@@ -142,6 +149,7 @@ export const SEED_CAPSULES: Capsule[] = [
     openAt: addDays(now, -10),
     openedAt: addDays(now, -10),
     inviteCode: 'HAPJNG',
+    mode: 'group',
     location: { latitude: 37.5497, longitude: 126.9138, accuracy: 12, label: '합정역 5번 출구', plantedAt: addDays(now, -60) },
     members: [
       { id: 'me', name: '상길', isMe: true, isHost: false, items: [letter('hj-me', '세 번째 카페 라떼가 제일 맛있었다. 기억나?')] },
@@ -150,20 +158,34 @@ export const SEED_CAPSULES: Capsule[] = [
   },
   {
     id: 'sangsu',
-    title: '상수동 야장',
+    title: '상수동, 나한테 쓰는 편지',
     createdAt: addDays(now, -1),
     deadlineAt: addDays(now, 13),
     status: 'collecting',
     sealedAt: null,
-    openAt: addDays(now, 90),
+    openAt: addDays(now, 100),
     openedAt: null,
+    location: { latitude: 37.5478, longitude: 126.9227, accuracy: 11, label: '상수역 1번 출구 벤치', plantedAt: addDays(now, -1) },
     inviteCode: 'SANGSU',
-    location: { latitude: 37.5478, longitude: 126.9227, accuracy: 9, label: '상수동 골목 야장', plantedAt: addDays(now, -1) },
+    mode: 'solo',
+    members: [{ id: 'me', name: '상길', isMe: true, isHost: true, items: [letter('ss-me', '백 일 뒤의 나야, 아직도 상수동 산책 좋아하니?')] }],
+  },
+  {
+    // 아직 들어가지 않은 친구 캡슐. 초대 코드 RIVER7 을 넣으면 들어간다.
+    id: 'river-picnic',
+    title: '한강 피크닉 멤버',
+    createdAt: addDays(now, -2),
+    deadlineAt: addDays(now, 5),
+    status: 'collecting',
+    sealedAt: null,
+    openAt: addDays(now, 60),
+    openedAt: null,
+    location: { latitude: 37.5538, longitude: 126.9046, accuracy: 8, label: '망원한강공원 잔디밭', plantedAt: addDays(now, -2) },
+    inviteCode: 'RIVER7',
+    mode: 'group',
     members: [
-      { id: 'me', name: '상길', isMe: true, isHost: false, items: [] },
-      { id: 'doyun', name: '도윤', isMe: false, isHost: true, items: [media('ss-d', 'photo'), media('ss-d-2', 'photo')] },
-      { id: 'minji', name: '민지', isMe: false, isHost: false, items: [letter('ss-m', '…')] },
-      { id: 'yujin', name: '유진', isMe: false, isHost: false, items: [] },
+      { id: 'minji', name: '민지', isMe: false, isHost: true, items: [media('rp-m', 'photo'), letter('rp-m-2', '…')] },
+      { id: 'yujin', name: '유진', isMe: false, isHost: false, items: [media('rp-y', 'voice', 21_000)] },
     ],
   },
 ];

@@ -61,6 +61,7 @@ export default function HomeScreen() {
 
         <Content style={styles.footer}>
           <Button label="타임캡슐 심기" icon="plus" disabled={opening} onPress={() => setOpening(true)} />
+          <Button label="초대 코드로 들어가기" tone="ghost" disabled={opening} onPress={() => router.push('/join')} />
         </Content>
       </SafeAreaView>
     </Page>
@@ -77,5 +78,5 @@ const styles = StyleSheet.create({
   capsule: { alignItems: 'center', justifyContent: 'center' },
   capsulePressed: { transform: [{ scale: 0.98 }] },
   caption: { fontFamily: Fonts.display, fontSize: 18, color: Colors.muted },
-  footer: { paddingTop: Spacing.md, paddingBottom: Spacing.md },
+  footer: { gap: 4, paddingTop: Spacing.md, paddingBottom: Spacing.md },
 });

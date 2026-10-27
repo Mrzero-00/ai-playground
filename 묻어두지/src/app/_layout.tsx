@@ -29,6 +29,7 @@ export default function RootLayout() {
         <Stack.Screen name="map" />
         <Stack.Screen name="capsules" />
         <Stack.Screen name="create" />
+        <Stack.Screen name="join" options={{ presentation: 'modal' }} />
         <Stack.Screen name="capsule/[id]/index" />
         <Stack.Screen name="capsule/[id]/add/[kind]" options={{ presentation: 'modal' }} />
         <Stack.Screen name="capsule/[id]/invite" />

@@ -18,6 +18,8 @@ import {
   generateInviteCode,
   isEveryoneFull,
   isValidOpenAtForCreate,
+  findByInviteCode,
+  normalizeInviteCode,
 } from '../src/domain/capsule.ts';
 
 const item = (kind, id) => ({ id, kind, createdAt: '2026-10-20T00:00:00.000Z' });
@@ -58,6 +60,26 @@ test('SEAL-01: 물건을 넣은 멤버가 2명 이상이어야 닫을 수 있다
   assert.equal(canSeal(one), false);
   assert.equal(canSeal(two), true);
   assert.equal(canSeal({ ...two, status: 'sealed' }), false);
+});
+
+test('SEAL-01: 혼자 묻는 캡슐은 내가 하나만 넣어도 닫히고, 5개를 다 넣으면 저절로 닫힌다', () => {
+  const deadlineAt = '2026-11-02T10:00:00.000Z';
+  const before = new Date('2026-11-01T10:00:00.000Z');
+  const empty = { status: 'collecting', mode: 'solo', deadlineAt, members: [{ items: [] }] };
+  const one = { ...empty, members: [{ items: [item('letter', '1')] }] };
+  const full = { ...empty, members: [{ items: Array.from({ length: 5 }, (_, i) => item('photo', `s${i}`)) }] };
+  assert.equal(canSeal(empty), false);
+  assert.equal(canSeal(one), true);
+  assert.equal(autoSealReason(one, before), null);
+  assert.equal(autoSealReason(full, before), 'everyone-full');
+});
+
+test('INV-02: 초대 코드는 소문자·공백·하이픈을 섞어 넣어도 찾는다', () => {
+  const capsules = [{ inviteCode: 'RIVER7' }, { inviteCode: 'JEJU26' }];
+  assert.equal(normalizeInviteCode(' riv-er 7 '), 'RIVER7');
+  assert.equal(findByInviteCode(capsules, 'river7'), capsules[0]);
+  assert.equal(findByInviteCode(capsules, 'JEJU2'), null);
+  assert.equal(findByInviteCode(capsules, 'NOPE00'), null);
 });
 
 test('REV: unlockable은 저장 상태가 아니라 여는 시각 이후에 계산된다', () => {

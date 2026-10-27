@@ -12,7 +12,7 @@ const app = createCapsuleServer({
 app.server.listen(port, host, () => {
   console.info(`묻어두지 테스트 API: http://${host}:${port}`);
   console.info('같은 Wi-Fi의 iPhone에서는 이 Mac의 LAN IP를 사용하세요.');
-  console.info('개발 검증 전용: 편지와 사진이 이 Mac의 SQLite 파일에 암호화 없이 저장됩니다. 테스트 자료만 넣으세요.');
+  console.info('개발 검증 전용: 편지·사진·음성·동영상이 이 Mac의 SQLite 파일에 암호화 없이 저장됩니다. 테스트 자료만 넣으세요.');
 });
 
 app.server.on('error', (error) => {

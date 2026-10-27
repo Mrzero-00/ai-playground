@@ -26,6 +26,12 @@ export default function AddItemScreen() {
 
   if (!capsule) return null;
 
+  // 링크로 바로 들어온 경우엔 돌아갈 곳이 없으니 캡슐 화면으로 간다.
+  function leave() {
+    if (router.canGoBack()) router.back();
+    else if (capsule) router.replace({ pathname: '/capsule/[id]', params: { id: capsule.id } });
+  }
+
   async function save(input: { text?: string; uri?: string; durationMs?: number }) {
     if (!capsule || busy) return;
     setBusy(true);
@@ -33,7 +39,7 @@ export default function AddItemScreen() {
     try {
       if (existing) await updateItem(capsule.id, existing.id, { kind, ...input });
       else await addItem(capsule.id, { kind, ...input });
-      router.back();
+      leave();
     } catch (cause) {
       setError(describeError(cause));
       setBusy(false);
@@ -45,7 +51,7 @@ export default function AddItemScreen() {
     setBusy(true);
     try {
       await removeItem(capsule.id, existing.id);
-      router.back();
+      leave();
     } catch (cause) {
       setError(describeError(cause));
       setBusy(false);

@@ -1,9 +1,27 @@
 import {
-  MAX_AUDIO_BYTES,
-  MAX_VIDEO_BYTES,
-  type AudioAttachment,
-  type VideoAttachment,
-} from '../src/shared/contracts';
+  MEDIA_LIMITS_BYTES,
+  type PhotoMimeType,
+  type VideoMimeType,
+  type VoiceMimeType,
+} from '../src/shared/capsule-api';
+
+export type MediaKind = 'photo' | 'voice' | 'video';
+export type ParsedMedia = { mimeType: PhotoMimeType | VoiceMimeType | VideoMimeType; bytes: Buffer };
+
+export const MEDIA_MIME_TYPES: Record<MediaKind, readonly string[]> = {
+  photo: ['image/jpeg', 'image/png', 'image/webp'],
+  voice: ['audio/mp4', 'audio/mpeg', 'audio/wav', 'audio/webm'],
+  video: ['video/mp4', 'video/quicktime', 'video/webm'],
+};
+
+const LABEL: Record<MediaKind, string> = { photo: '사진', voice: '음성', video: '동영상' };
+
+/** Thrown for a structurally wrong upload; the server maps the reason to an HTTP error. */
+export class MediaError extends Error {
+  constructor(readonly reason: 'VALIDATION' | 'MEDIA_INVALID' | 'TOO_LARGE', message: string) {
+    super(message);
+  }
+}
 
 // These are bounded container checks, not a codec decoder. Device playback is
 // still the final compatibility check for the user's particular media codec.
@@ -90,38 +108,69 @@ function isMp3(bytes: Buffer): boolean {
     && (second & 0x06) !== 0 && (third & 0xf0) !== 0 && (third & 0xf0) !== 0xf0 && (third & 0x0c) !== 0x0c;
 }
 
-export function parseMedia(value: unknown, kind: 'audio', reject: (message: string) => never): AudioAttachment | null;
-export function parseMedia(value: unknown, kind: 'video', reject: (message: string) => never): VideoAttachment | null;
-export function parseMedia(value: unknown, kind: 'audio' | 'video', reject: (message: string) => never): AudioAttachment | VideoAttachment | null {
-  if (value === undefined || value === null) return null;
-  const label = kind === 'audio' ? '음성' : '영상';
-  const limit = kind === 'audio' ? MAX_AUDIO_BYTES : MAX_VIDEO_BYTES;
-  if (typeof value !== 'object' || Array.isArray(value)) reject(`${label} 파일 형식이 올바르지 않습니다.`);
-  const { base64, mimeType, fileName } = value as Record<string, unknown>;
-  const allowed = kind === 'audio' ? ['audio/mp4', 'audio/mpeg', 'audio/wav'] : ['video/mp4', 'video/quicktime'];
-  if (typeof mimeType !== 'string' || !allowed.includes(mimeType)) {
-    reject(kind === 'audio' ? 'M4A, MP3 또는 WAV 음성 파일을 넣어 주세요.' : 'MP4 또는 MOV 영상 파일을 넣어 주세요.');
+function isJpeg(bytes: Buffer): boolean {
+  return bytes.length >= 4 && bytes[0] === 0xff && bytes[1] === 0xd8 && bytes[2] === 0xff;
+}
+
+const PNG_HEADER = Buffer.from([137, 80, 78, 71, 13, 10, 26, 10]);
+function isPng(bytes: Buffer): boolean {
+  return bytes.length > 8 && bytes.subarray(0, 8).equals(PNG_HEADER);
+}
+
+function isWebp(bytes: Buffer): boolean {
+  return bytes.length >= 16 && bytes.toString('ascii', 0, 4) === 'RIFF' && bytes.toString('ascii', 8, 12) === 'WEBP'
+    && /^VP8[ LX]$/.test(bytes.toString('ascii', 12, 16));
+}
+
+/** Matroska/WebM: EBML magic, and a `webm` DocType inside the EBML header. */
+function isWebm(bytes: Buffer): boolean {
+  if (bytes.length < 16 || bytes.readUInt32BE(0) !== 0x1a45dfa3) return false;
+  return bytes.subarray(0, Math.min(bytes.length, 64)).includes('webm', 0, 'ascii');
+}
+
+function sniff(mimeType: string, bytes: Buffer): boolean {
+  switch (mimeType) {
+    case 'image/jpeg': return isJpeg(bytes);
+    case 'image/png': return isPng(bytes);
+    case 'image/webp': return isWebp(bytes);
+    case 'audio/wav': return isWave(bytes);
+    case 'audio/mpeg': return isMp3(bytes);
+    case 'audio/webm':
+    case 'video/webm': return isWebm(bytes);
+    case 'audio/mp4': {
+      const media = isoMediaKind(bytes);
+      return !!media && media.audio && !media.video && !media.quickTime;
+    }
+    case 'video/mp4':
+    case 'video/quicktime': {
+      const media = isoMediaKind(bytes);
+      return !!media && media.video && media.quickTime === (mimeType === 'video/quicktime');
+    }
+    default: return false;
   }
-  if (typeof fileName !== 'string' || !fileName.trim() || fileName.length > 160
-    || /[\\/\u0000-\u001f\u007f-\u009f\u202a-\u202e\u2066-\u2069]/.test(fileName)
-    || fileName === '.' || fileName === '..') {
-    reject(`${label} 파일 이름이 올바르지 않습니다.`);
+}
+
+/**
+ * Validates a `MediaUpload` for an item kind: mime family, Base64 shape, decoded size
+ * (MEDIA_LIMITS_BYTES) and the leading bytes of the file itself.
+ */
+export function parseMedia(value: unknown, kind: MediaKind): ParsedMedia {
+  const label = LABEL[kind];
+  if (value === null || typeof value !== 'object' || Array.isArray(value)) throw new MediaError('VALIDATION', `${label} 파일을 넣어 주세요.`);
+  const { base64, mimeType } = value as Record<string, unknown>;
+  if (typeof mimeType !== 'string' || !MEDIA_MIME_TYPES[kind].includes(mimeType)) {
+    throw new MediaError('VALIDATION', `${label}에는 ${MEDIA_MIME_TYPES[kind].join(', ')} 파일만 넣을 수 있어요.`);
   }
-  if (typeof base64 !== 'string' || base64.length === 0 || base64.length > Math.ceil(limit / 3) * 4
-    || base64.length % 4 !== 0 || !/^[A-Za-z0-9+/]*={0,2}$/.test(base64)) {
-    reject(`${label} 파일은 ${limit / 1024 / 1024}MB 이하의 올바른 Base64 파일이어야 합니다.`);
+  const limit = MEDIA_LIMITS_BYTES[kind];
+  const megabytes = limit / 1024 / 1024;
+  if (typeof base64 !== 'string' || base64.length === 0 || base64.length % 4 !== 0 || !/^[A-Za-z0-9+/]*={0,2}$/.test(base64)) {
+    throw new MediaError('MEDIA_INVALID', `${label} 파일을 읽을 수 없어요. 다시 골라 주세요.`);
   }
+  if (base64.length > Math.ceil(limit / 3) * 4) throw new MediaError('TOO_LARGE', `${label}은(는) ${megabytes}MB 이하로 넣어 주세요.`);
   const bytes = Buffer.from(base64, 'base64');
-  if (bytes.length > limit || bytes.toString('base64') !== base64) reject(`${label} 파일은 ${limit / 1024 / 1024}MB 이하여야 합니다.`);
-  let matches: boolean;
-  if (mimeType === 'audio/wav') matches = isWave(bytes);
-  else if (mimeType === 'audio/mpeg') matches = isMp3(bytes);
-  else {
-    const media = isoMediaKind(bytes);
-    matches = !!media && (kind === 'audio'
-      ? media.audio && !media.video && !media.quickTime
-      : media.video && media.quickTime === (mimeType === 'video/quicktime'));
+  if (bytes.length > limit) throw new MediaError('TOO_LARGE', `${label}은(는) ${megabytes}MB 이하로 넣어 주세요.`);
+  if (!sniff(mimeType, bytes)) {
+    throw new MediaError('MEDIA_INVALID', `${label} 파일과 형식이 맞지 않거나 파일이 손상됐어요. 다른 파일로 다시 넣어 주세요.`);
   }
-  if (!matches) reject(`${label} 파일과 선택한 형식이 일치하지 않거나 파일이 손상되었습니다.`);
-  return { base64, mimeType, fileName } as AudioAttachment | VideoAttachment;
+  return { mimeType: mimeType as ParsedMedia['mimeType'], bytes };
 }

@@ -1,309 +1,161 @@
-import { createHash, randomBytes, randomUUID, timingSafeEqual } from 'node:crypto';
+import { createHash, createHmac, randomBytes, randomUUID, timingSafeEqual } from 'node:crypto';
 import { chmodSync, mkdirSync } from 'node:fs';
 import { createServer, type IncomingMessage, type ServerResponse } from 'node:http';
 import { dirname } from 'node:path';
 import { DatabaseSync } from 'node:sqlite';
 
 import {
-  CAPSULE_RADIUS_METERS,
-  MAX_LOCATION_ACCURACY_METERS,
-  MAX_LOCATION_AGE_MS,
-  MAX_AUDIO_BYTES,
-  MAX_PHOTO_BYTES,
-  MAX_VIDEO_BYTES,
-  MAX_GROUP_MEMBERS,
-  ATTENDANCE_TTL_MS,
-  type CapsuleGroup,
-  type AttendanceStatus,
-  type AudioMimeType,
-  type ApiErrorBody,
-  type CapsuleContent,
-  type CapsuleSummary,
-  type Coordinates,
-  type CreateCapsuleInput,
-  type Eligibility,
-  type LocationFix,
-  type VideoMimeType,
-} from '../src/shared/contracts';
-import { classifyRevealRadius } from '../src/domain/pit';
-import { parseMedia } from './media';
+  DEADLINE_DAY_OPTIONS,
+  LETTER_MAX_CHARS,
+  MAX_ITEMS_PER_MEMBER,
+  MAX_MEMBERS,
+  VIDEO_MAX_MS,
+  VOICE_MAX_MS,
+  addDays,
+  autoSealReason,
+  canAddItem,
+  canSeal,
+  generateInviteCode,
+  isLetterValid,
+  isValidOpenAtForCreate,
+  normalizeInviteCode,
+  type Capsule,
+  type CapsuleItem,
+  type CapsuleMode,
+  type CapsuleStatus,
+  type ItemKind,
+  type Member,
+  type PlantedLocation,
+} from '../src/domain/capsule';
+import { MEDIA_LIMITS_BYTES, MEDIA_URL_TTL_MS, type ApiErrorBody, type ApiErrorCode } from '../src/shared/capsule-api';
+import { MediaError, parseMedia, type ParsedMedia } from './media';
 
-// A small allowance handles capture/transport clock jitter. Larger clock drift
-// must be corrected on the phone; a future timestamp must not bypass freshness.
-export const MAX_LOCATION_FUTURE_MS = 5_000;
-const MAX_REQUEST_BYTES = [MAX_PHOTO_BYTES, MAX_AUDIO_BYTES, MAX_VIDEO_BYTES]
-  .reduce((sum, limit) => sum + Math.ceil(limit / 3) * 4, 100_000);
-const MAX_UNLOCK_SECONDS = 365 * 24 * 60 * 60;
+const SCHEMA_VERSION = 2;
+const SMALL_BODY_BYTES = 16 * 1024;
+/** Item routes carry one Base64 attachment; the largest allowed one is a video. */
+const ITEM_BODY_BYTES = Math.ceil(MEDIA_LIMITS_BYTES.video / 3) * 4 + 64 * 1024;
 const JSON_CONTENT_TYPE = /^application\/json(?:\s*;|$)/i;
 const LOCAL_ORIGIN = /^https?:\/\/(?:localhost|127\.0\.0\.1|\[::1\])(?::\d{1,5})?$/;
+const DEFAULT_DISPLAY_NAME = '나';
+const DISPLAY_NAME_MAX = 12;
+const TITLE_MAX = 30;
+const PLACE_LABEL_MAX = 60;
+const ID = '([A-Za-z0-9-]{1,64})';
 
-type CapsuleMetadataRow = {
+type SessionRow = { id: string; display_name: string };
+type CapsuleRow = {
   id: string;
   title: string;
-  place_name: string;
-  created_at: number;
-  opens_at: number;
-  opened_at: number | null;
-  latitude: number;
-  longitude: number;
-  radius_meters: number;
-  has_photo: number;
-  has_audio: number;
-  has_video: number;
-  group_id: string | null;
-  participant_count: number;
+  mode: CapsuleMode;
+  status: CapsuleStatus;
+  created_at: string;
+  deadline_at: string;
+  open_at: string;
+  sealed_at: string | null;
+  opened_at: string | null;
+  invite_code: string;
+  host_session_id: string;
+  latitude: number | null;
+  longitude: number | null;
+  accuracy: number | null;
+  place_label: string | null;
+  planted_at: string | null;
 };
-
-type CapsuleContentRow = {
-  letter: string;
-  photo_base64: string | null;
-  photo_mime_type: 'image/jpeg' | 'image/png' | null;
-  audio_base64: string | null;
-  audio_mime_type: AudioMimeType | null;
-  audio_file_name: string | null;
-  video_base64: string | null;
-  video_mime_type: VideoMimeType | null;
-  video_file_name: string | null;
+type MemberRow = { session_id: string; member_id: string; display_name: string; is_host: number };
+type ItemRow = {
+  id: string;
+  session_id: string;
+  kind: ItemKind;
+  created_at: string;
+  text: string | null;
+  duration_ms: number | null;
+  media_mime: string | null;
+  media_bytes: number | null;
 };
-
-// Large Base64 fields remain inside SQLite for metadata and gate requests.
-// Only a successful /open query transfers attachment bytes into Node memory.
-const METADATA_COLUMNS = `id, title, place_name, created_at, opens_at, opened_at,
-  latitude, longitude, radius_meters,
-  photo_base64 IS NOT NULL AS has_photo,
-  audio_base64 IS NOT NULL AS has_audio,
-  video_base64 IS NOT NULL AS has_video, group_id,
-  COALESCE((SELECT expected_count FROM capsule_groups WHERE id = capsules.group_id), 1) AS participant_count`;
 
 class ApiError extends Error {
-  constructor(
-    readonly status: number,
-    readonly code: string,
-    message: string,
-    readonly eligibility?: Eligibility,
-  ) {
+  constructor(readonly status: number, readonly code: ApiErrorCode, message: string) {
     super(message);
   }
 }
 
-function rejectInput(message: string): never {
-  throw new ApiError(400, 'INVALID_INPUT', message);
+function invalid(message: string): never {
+  throw new ApiError(400, 'VALIDATION', message);
 }
 
 function isRecord(value: unknown): value is Record<string, unknown> {
   return value !== null && typeof value === 'object' && !Array.isArray(value);
 }
 
-function boundedText(value: unknown, name: string, max: number): string {
-  if (typeof value !== 'string') rejectInput(`${name}을(를) 입력해 주세요.`);
-  const result = value.trim();
-  if (!result || result.length > max) rejectInput(`${name}은(는) 1~${max}자로 입력해 주세요.`);
-  return result;
-}
-
 function finiteNumber(value: unknown): value is number {
   return typeof value === 'number' && Number.isFinite(value);
 }
 
-function parseLocation(value: unknown): LocationFix {
-  if (!isRecord(value)) rejectInput('현재 위치가 필요합니다.');
-  const { latitude, longitude, accuracy, timestamp, mocked } = value;
-  if (!finiteNumber(latitude) || latitude < -90 || latitude > 90) {
-    rejectInput('올바른 위도가 필요합니다.');
-  }
-  if (!finiteNumber(longitude) || longitude < -180 || longitude > 180) {
-    rejectInput('올바른 경도가 필요합니다.');
-  }
-  if (!finiteNumber(accuracy) || accuracy < 0) rejectInput('올바른 위치 정확도가 필요합니다.');
-  if (!finiteNumber(timestamp) || timestamp <= 0) rejectInput('올바른 위치 측정 시각이 필요합니다.');
-  if (mocked !== undefined && typeof mocked !== 'boolean') rejectInput('잘못된 위치 정보입니다.');
-  return { latitude, longitude, accuracy, timestamp, mocked };
+function boundedText(value: unknown, label: string, max: number): string {
+  if (typeof value !== 'string') invalid(`${label}을(를) 입력해 주세요.`);
+  const text = value.trim();
+  if (!text || text.length > max) invalid(`${label}은(는) 1~${max}자로 입력해 주세요.`);
+  return text;
 }
 
-/** The burial spot. A pin anywhere on the map is allowed: nobody has to stand there to bury. */
-function parseCoordinates(value: unknown): Coordinates {
-  if (!isRecord(value)) rejectInput('묻을 장소가 필요합니다.');
-  const { latitude, longitude } = value;
-  if (!finiteNumber(latitude) || latitude < -90 || latitude > 90) rejectInput('올바른 위도가 필요합니다.');
-  if (!finiteNumber(longitude) || longitude < -180 || longitude > 180) rejectInput('올바른 경도가 필요합니다.');
-  return { latitude, longitude };
+function parseDisplayName(value: unknown, fallback?: string): string {
+  if (value === undefined && fallback !== undefined) return fallback;
+  return boundedText(value, '이름', DISPLAY_NAME_MAX);
 }
 
-function parsePhoto(value: unknown): CapsuleContent['photo'] {
-  if (value === null) return null;
-  if (!isRecord(value)) rejectInput('사진 형식이 올바르지 않습니다.');
-  const { base64, mimeType } = value;
-  if (mimeType !== 'image/jpeg' && mimeType !== 'image/png') {
-    rejectInput('JPEG 또는 PNG 사진만 넣을 수 있습니다.');
+function parseLocation(value: unknown, plantedAt: string): PlantedLocation {
+  if (!isRecord(value)) invalid('심을 자리를 지도에서 골라 주세요.');
+  const { latitude, longitude, accuracy, label } = value;
+  if (!finiteNumber(latitude) || latitude < -90 || latitude > 90) invalid('올바른 위도가 필요해요.');
+  if (!finiteNumber(longitude) || longitude < -180 || longitude > 180) invalid('올바른 경도가 필요해요.');
+  if (accuracy !== null && accuracy !== undefined && (!finiteNumber(accuracy) || accuracy < 0)) invalid('위치 정확도가 올바르지 않아요.');
+  if (label !== undefined && typeof label !== 'string') invalid('장소 이름이 올바르지 않아요.');
+  const trimmed = (label ?? '').trim();
+  if (trimmed.length > PLACE_LABEL_MAX) invalid(`장소 이름은 ${PLACE_LABEL_MAX}자 이하로 적어 주세요.`);
+  return { latitude, longitude, accuracy: accuracy ?? null, label: trimmed, plantedAt };
+}
+
+function parseDuration(value: unknown, kind: ItemKind): number | null {
+  if (kind !== 'voice' && kind !== 'video') return null;
+  if (value === undefined || value === null) return null;
+  if (!finiteNumber(value) || !Number.isInteger(value) || value < 0) invalid('길이(durationMs)가 올바르지 않아요.');
+  const max = kind === 'voice' ? VOICE_MAX_MS : VIDEO_MAX_MS;
+  if (value > max) invalid(kind === 'voice' ? `음성은 ${VOICE_MAX_MS / 1000}초까지 넣을 수 있어요.` : `동영상은 ${VIDEO_MAX_MS / 1000}초까지 넣을 수 있어요.`);
+  return value;
+}
+
+function parseLetter(value: unknown): string {
+  if (typeof value !== 'string' || !isLetterValid(value)) invalid(`편지는 1~${LETTER_MAX_CHARS}자로 적어 주세요.`);
+  return value;
+}
+
+function parseItemMedia(value: unknown, kind: Exclude<ItemKind, 'letter'>): ParsedMedia {
+  try {
+    return parseMedia(value, kind);
+  } catch (error) {
+    if (!(error instanceof MediaError)) throw error;
+    if (error.reason === 'TOO_LARGE') throw new ApiError(413, 'PAYLOAD_TOO_LARGE', error.message);
+    throw new ApiError(400, error.reason, error.message);
   }
-  if (
-    typeof base64 !== 'string' ||
-    base64.length === 0 ||
-    base64.length > Math.ceil(MAX_PHOTO_BYTES / 3) * 4 ||
-    base64.length % 4 !== 0 ||
-    !/^[A-Za-z0-9+/]*={0,2}$/.test(base64)
-  ) {
-    rejectInput('사진은 4MB 이하의 올바른 Base64 파일이어야 합니다.');
-  }
-  const bytes = Buffer.from(base64, 'base64');
-  if (bytes.length > MAX_PHOTO_BYTES || bytes.toString('base64') !== base64) {
-    rejectInput('사진은 4MB 이하여야 합니다.');
-  }
-  const pngHeader = Buffer.from([137, 80, 78, 71, 13, 10, 26, 10]);
-  const isPng = bytes.length >= 8 && timingSafeEqual(bytes.subarray(0, 8), pngHeader);
-  const isJpeg = bytes.length >= 3 && bytes[0] === 0xff && bytes[1] === 0xd8 && bytes[2] === 0xff;
-  if ((mimeType === 'image/png' && !isPng) || (mimeType === 'image/jpeg' && !isJpeg)) {
-    rejectInput('사진 파일과 이미지 형식이 일치하지 않습니다.');
-  }
-  return { base64, mimeType };
 }
 
-function parseCreateInput(value: unknown): CreateCapsuleInput {
-  if (!isRecord(value)) rejectInput('캡슐 정보가 필요합니다.');
-  const title = boundedText(value.title, '캡슐 이름', 80);
-  const placeName = boundedText(value.placeName, '장소 이름', 120);
-  const unlockAfterSeconds = value.unlockAfterSeconds;
-  const groupId = value.groupId;
-  if (groupId !== undefined && (typeof groupId !== 'string' || !/^[a-f0-9-]{36}$/.test(groupId))) rejectInput('공동 캡슐 모임을 확인해 주세요.');
-  if (
-    !finiteNumber(unlockAfterSeconds) ||
-    !Number.isInteger(unlockAfterSeconds) ||
-    unlockAfterSeconds < 15 ||
-    unlockAfterSeconds > MAX_UNLOCK_SECONDS
-  ) {
-    rejectInput('개봉 시간은 15초부터 1년 사이로 설정해 주세요.');
-  }
-  if (!isRecord(value.content) || typeof value.content.letter !== 'string') {
-    rejectInput('편지 내용이 올바르지 않습니다.');
-  }
-  if (value.content.letter.length > 10_000) rejectInput('편지는 10,000자 이하로 작성해 주세요.');
-  const photo = parsePhoto(value.content.photo);
-  const audio = parseMedia(value.content.audio, 'audio', rejectInput);
-  const video = parseMedia(value.content.video, 'video', rejectInput);
-  if (!value.content.letter.trim() && !photo && !audio && !video) rejectInput('편지, 사진, 음성 또는 영상을 하나 이상 넣어 주세요.');
-  return {
-    title,
-    placeName,
-    unlockAfterSeconds,
-    location: parseCoordinates(value.location),
-    fix: parseLocation(value.fix),
-    content: { letter: value.content.letter, photo, ...(audio ? { audio } : {}), ...(video ? { video } : {}) },
-    ...(groupId ? { groupId: groupId as string } : {}),
-  };
-}
-
-function createRequestKey(request: IncomingMessage): string | null {
-  const key = request.headers['idempotency-key'];
-  if (key === undefined) return null;
-  if (typeof key !== 'string' || !/^[A-Za-z0-9_-]{16,128}$/.test(key)) {
-    rejectInput('봉인 요청 식별자가 올바르지 않습니다.');
-  }
-  return key;
-}
-
-function createRequestHash(input: CreateCapsuleInput): string {
-  // A retry may carry a newer GPS fix; the fix is never part of the identity.
-  // The chosen spot is user-authored, so it is.
-  return createHash('sha256').update(JSON.stringify({
-    title: input.title,
-    placeName: input.placeName,
-    unlockAfterSeconds: input.unlockAfterSeconds,
-    location: { latitude: input.location.latitude, longitude: input.location.longitude },
-    ...(input.groupId ? { groupId: input.groupId } : {}),
-    // Omit absent new fields so pre-media requests keep their original hash.
-    content: {
-      letter: input.content.letter,
-      photo: input.content.photo,
-      ...(input.content.audio ? { audio: input.content.audio } : {}),
-      ...(input.content.video ? { video: input.content.video } : {}),
-    },
-  })).digest('hex');
-}
-
-export function distanceMeters(a: Pick<LocationFix, 'latitude' | 'longitude'>, b: Pick<LocationFix, 'latitude' | 'longitude'>): number {
-  const radians = (degrees: number) => (degrees * Math.PI) / 180;
-  const deltaLatitude = radians(b.latitude - a.latitude);
-  const deltaLongitude = radians(b.longitude - a.longitude);
-  const haversine = Math.sin(deltaLatitude / 2) ** 2
-    + Math.cos(radians(a.latitude)) * Math.cos(radians(b.latitude)) * Math.sin(deltaLongitude / 2) ** 2;
-  return 6_371_008.8 * 2 * Math.atan2(Math.sqrt(Math.min(1, haversine)), Math.sqrt(Math.max(0, 1 - haversine)));
-}
-
-function locationGate(location: LocationFix, now: number): Eligibility['code'] | null {
-  if (location.mocked) return 'MOCKED_LOCATION';
-  if (now - location.timestamp > MAX_LOCATION_AGE_MS || location.timestamp - now > MAX_LOCATION_FUTURE_MS) {
-    return 'STALE_LOCATION';
-  }
-  if (location.accuracy > MAX_LOCATION_ACCURACY_METERS) return 'INACCURATE_LOCATION';
-  return null;
-}
-
-const GATE_MESSAGES: Record<Exclude<Eligibility['code'], 'READY'>, string> = {
-  TOO_EARLY: '아직 공개 시간이 되지 않았어요.',
-  TOO_FAR: `구덩이를 판 장소의 ${CAPSULE_RADIUS_METERS}m 안으로 와 주세요.`,
-  UNCERTAIN_LOCATION: 'GPS 오차 때문에 아직 판정하지 않았어요. 하늘이 보이는 곳에서 다시 측정해 주세요.',
-  INACCURATE_LOCATION: `위치 오차가 ${MAX_LOCATION_ACCURACY_METERS}m를 넘어요. 하늘이 보이는 곳에서 정확한 위치를 다시 확인해 주세요.`,
-  STALE_LOCATION: '위치를 다시 측정해 주세요. 계속 실패하면 휴대폰의 날짜와 시간을 자동으로 설정해 주세요.',
-  MOCKED_LOCATION: '모의 위치로는 캡슐을 묻거나 열 수 없어요.',
-  WAITING_PARTICIPANTS: '참여자 전원이 이 장소에서 함께 열기에 참여해야 해요.',
-};
-
-function summary(row: CapsuleMetadataRow): CapsuleSummary {
-  // Deliberately enumerate public fields: never spread a database row here.
-  return {
-    id: row.id,
-    title: row.title,
-    placeName: row.place_name,
-    createdAt: new Date(row.created_at).toISOString(),
-    opensAt: new Date(row.opens_at).toISOString(),
-    openedAt: row.opened_at === null ? null : new Date(row.opened_at).toISOString(),
-    latitude: row.latitude,
-    longitude: row.longitude,
-    radiusMeters: row.radius_meters,
-    hasPhoto: row.has_photo === 1,
-    hasAudio: row.has_audio === 1,
-    hasVideo: row.has_video === 1,
-    groupId: row.group_id,
-    participantCount: row.participant_count,
-  };
-}
-
-/** PRD CHK-02: distance and accuracy are judged together. The band in between is "measure again". */
-function withinRadius(location: LocationFix, row: Pick<CapsuleMetadataRow, 'latitude' | 'longitude' | 'radius_meters'>, now: number): boolean {
-  return !locationGate(location, now) && classifyRevealRadius(distanceMeters(location, row), location.accuracy, row.radius_meters) === 'inside';
-}
-
-function eligibility(row: CapsuleMetadataRow, location: LocationFix, now: number): Eligibility {
-  const distance = distanceMeters(location, row);
-  const remainingSeconds = Math.max(0, Math.ceil((row.opens_at - now) / 1_000));
-  const band = classifyRevealRadius(distance, location.accuracy, row.radius_meters);
-  const code = locationGate(location, now)
-    ?? (now < row.opens_at ? 'TOO_EARLY' : band === 'inside' ? 'READY' : band === 'outside' ? 'TOO_FAR' : 'UNCERTAIN_LOCATION');
-  return {
-    eligible: code === 'READY',
-    code,
-    distanceMeters: Math.round(distance * 10) / 10,
-    radiusMeters: row.radius_meters,
-    remainingSeconds,
-    serverNow: new Date(now).toISOString(),
-  };
-}
-
-function readJson(request: IncomingMessage, maxBytes = 100_000): Promise<unknown> {
-  if (!JSON_CONTENT_TYPE.test(request.headers['content-type'] ?? '')) {
-    throw new ApiError(415, 'UNSUPPORTED_MEDIA_TYPE', 'application/json 요청이 필요합니다.');
-  }
+function readJson(request: IncomingMessage, maxBytes: number): Promise<Record<string, unknown>> {
   return new Promise((resolve, reject) => {
     let size = 0;
     let settled = false;
     const chunks: Buffer[] = [];
+    const fail = (error: unknown) => {
+      if (settled) return;
+      settled = true;
+      chunks.length = 0;
+      reject(error);
+    };
     request.on('data', (chunk: Buffer) => {
       if (settled) return;
       size += chunk.length;
       if (size > maxBytes) {
-        settled = true;
-        chunks.length = 0;
-        reject(new ApiError(413, 'PAYLOAD_TOO_LARGE', '요청이 너무 커요. 사진 4MB, 음성 10MB, 영상 25MB 이하로 넣어 주세요.'));
+        fail(new ApiError(413, 'PAYLOAD_TOO_LARGE', '요청이 너무 커요. 사진 8MB, 음성 4MB, 동영상 40MB 이하로 넣어 주세요.'));
+        request.resume();
         return;
       }
       chunks.push(chunk);
@@ -311,22 +163,21 @@ function readJson(request: IncomingMessage, maxBytes = 100_000): Promise<unknown
     request.on('end', () => {
       if (settled) return;
       settled = true;
+      const raw = Buffer.concat(chunks).toString('utf8');
+      if (!raw.trim()) return resolve({});
+      if (!JSON_CONTENT_TYPE.test(request.headers['content-type'] ?? '')) {
+        return reject(new ApiError(400, 'VALIDATION', 'application/json 요청이 필요해요.'));
+      }
       try {
-        resolve(JSON.parse(Buffer.concat(chunks).toString('utf8')));
+        const parsed: unknown = JSON.parse(raw);
+        if (!isRecord(parsed)) return reject(new ApiError(400, 'VALIDATION', 'JSON 객체가 필요해요.'));
+        resolve(parsed);
       } catch {
-        reject(new ApiError(400, 'INVALID_JSON', 'JSON 요청을 읽을 수 없습니다.'));
+        reject(new ApiError(400, 'VALIDATION', 'JSON 요청을 읽을 수 없어요.'));
       }
     });
-    request.on('error', (error) => {
-      if (settled) return;
-      settled = true;
-      reject(error);
-    });
-    request.on('aborted', () => {
-      if (settled) return;
-      settled = true;
-      reject(new ApiError(400, 'REQUEST_ABORTED', '요청이 중단되었습니다.'));
-    });
+    request.on('error', fail);
+    request.on('aborted', () => fail(new ApiError(400, 'VALIDATION', '요청이 중단됐어요.')));
   });
 }
 
@@ -340,383 +191,529 @@ function respond(response: ServerResponse, status: number, body?: unknown): void
   response.end(body === undefined ? undefined : JSON.stringify(body));
 }
 
+function hashToken(token: string): string {
+  return createHash('sha256').update(token).digest('hex');
+}
+
+function parseOrigins(value: string | undefined): string[] {
+  return (value ?? '').split(',').map((origin) => origin.trim().replace(/\/+$/, '')).filter(Boolean);
+}
+
 export type CapsuleServerOptions = {
   databasePath: string;
   now?: () => number;
   onError?: (error: unknown) => void;
+  /** Extra allowed browser origins. Defaults to env CORS_ORIGINS (comma separated). */
+  corsOrigins?: string[];
+  /** HMAC key for media URLs. Defaults to env MEDIA_SIGNING_SECRET, else random per process. */
+  mediaSigningSecret?: string;
 };
 
-export function createCapsuleServer({ databasePath, now = Date.now, onError = console.error }: CapsuleServerOptions) {
+export function createCapsuleServer({
+  databasePath,
+  now = Date.now,
+  onError = console.error,
+  corsOrigins = parseOrigins(process.env.CORS_ORIGINS),
+  mediaSigningSecret = process.env.MEDIA_SIGNING_SECRET || randomBytes(32).toString('hex'),
+}: CapsuleServerOptions) {
   if (databasePath !== ':memory:') mkdirSync(dirname(databasePath), { recursive: true, mode: 0o700 });
   const database = new DatabaseSync(databasePath);
   if (databasePath !== ':memory:') chmodSync(databasePath, 0o600);
-  database.exec(`
-    PRAGMA foreign_keys = ON;
-    PRAGMA journal_mode = DELETE;
-    PRAGMA synchronous = FULL;
-    CREATE TABLE IF NOT EXISTS sessions (
-      id TEXT PRIMARY KEY,
-      token_hash TEXT NOT NULL UNIQUE,
-      created_at INTEGER NOT NULL
-    );
-    CREATE TABLE IF NOT EXISTS capsules (
-      id TEXT PRIMARY KEY,
-      owner_id TEXT NOT NULL REFERENCES sessions(id),
-      title TEXT NOT NULL,
-      place_name TEXT NOT NULL,
-      created_at INTEGER NOT NULL,
-      opens_at INTEGER NOT NULL,
-      opened_at INTEGER,
-      latitude REAL NOT NULL,
-      longitude REAL NOT NULL,
-      radius_meters REAL NOT NULL,
-      letter TEXT NOT NULL,
-      photo_base64 TEXT,
-      photo_mime_type TEXT
-    );
-    CREATE INDEX IF NOT EXISTS capsules_owner_created ON capsules(owner_id, created_at DESC);
-    CREATE TABLE IF NOT EXISTS creation_requests (
-      owner_id TEXT NOT NULL REFERENCES sessions(id),
-      request_key TEXT NOT NULL,
-      request_hash TEXT NOT NULL,
-      capsule_id TEXT NOT NULL REFERENCES capsules(id),
-      PRIMARY KEY (owner_id, request_key)
-    );
-    CREATE TABLE IF NOT EXISTS capsule_groups (
-      id TEXT PRIMARY KEY,
-      host_id TEXT NOT NULL REFERENCES sessions(id),
-      title TEXT NOT NULL,
-      expected_count INTEGER NOT NULL CHECK(expected_count BETWEEN 2 AND 20),
-      invite_code TEXT NOT NULL UNIQUE,
-      capsule_id TEXT UNIQUE REFERENCES capsules(id),
-      created_at INTEGER NOT NULL
-    );
-    CREATE TABLE IF NOT EXISTS group_members (
-      id TEXT NOT NULL UNIQUE,
-      group_id TEXT NOT NULL REFERENCES capsule_groups(id),
-      session_id TEXT NOT NULL REFERENCES sessions(id),
-      display_name TEXT NOT NULL,
-      joined_at INTEGER NOT NULL,
-      PRIMARY KEY (group_id, session_id),
-      UNIQUE (group_id, display_name)
-    );
-    CREATE INDEX IF NOT EXISTS group_members_session ON group_members(session_id);
-  `);
+  const allowedOrigins = new Set(parseOrigins(corsOrigins.join(',')));
 
-  // Nullable additive migration preserves all existing capsules, sessions and
-  // idempotency keys. A transaction makes partially applied upgrades atomic.
-  const columns = new Set((database.prepare('PRAGMA table_info(capsules)').all() as { name: string }[]).map(column => column.name));
-  database.exec('BEGIN IMMEDIATE');
   try {
-    for (const column of ['audio_base64', 'audio_mime_type', 'audio_file_name', 'video_base64', 'video_mime_type', 'video_file_name']) {
-      if (!columns.has(column)) database.exec(`ALTER TABLE capsules ADD COLUMN ${column} TEXT`);
+    database.exec('PRAGMA journal_mode = DELETE; PRAGMA synchronous = FULL;');
+    const { user_version: version } = database.prepare('PRAGMA user_version').get() as { user_version: number };
+    if (version < SCHEMA_VERSION) {
+      // The pre-v2 PoC stored one letter per "pit" with groups and attendance. That data model
+      // cannot be mapped onto member-owned items, so local PoC tables are dropped.
+      database.exec(`
+        PRAGMA foreign_keys = OFF;
+        DROP TABLE IF EXISTS group_members;
+        DROP TABLE IF EXISTS capsule_groups;
+        DROP TABLE IF EXISTS creation_requests;
+        DROP TABLE IF EXISTS items;
+        DROP TABLE IF EXISTS members;
+        DROP TABLE IF EXISTS capsules;
+        DROP TABLE IF EXISTS sessions;
+      `);
     }
-    if (!columns.has('group_id')) database.exec('ALTER TABLE capsules ADD COLUMN group_id TEXT REFERENCES capsule_groups(id)');
-    database.exec('CREATE UNIQUE INDEX IF NOT EXISTS capsules_group ON capsules(group_id) WHERE group_id IS NOT NULL');
-    database.exec('COMMIT');
+    database.exec(`
+      PRAGMA foreign_keys = ON;
+      CREATE TABLE IF NOT EXISTS sessions (
+        id TEXT PRIMARY KEY,
+        token_hash TEXT NOT NULL UNIQUE,
+        display_name TEXT NOT NULL,
+        created_at TEXT NOT NULL
+      );
+      CREATE TABLE IF NOT EXISTS capsules (
+        id TEXT PRIMARY KEY,
+        title TEXT NOT NULL,
+        mode TEXT NOT NULL CHECK (mode IN ('solo', 'group')),
+        status TEXT NOT NULL CHECK (status IN ('collecting', 'sealed', 'opened')),
+        created_at TEXT NOT NULL,
+        deadline_at TEXT NOT NULL,
+        open_at TEXT NOT NULL,
+        sealed_at TEXT,
+        opened_at TEXT,
+        invite_code TEXT NOT NULL UNIQUE,
+        host_session_id TEXT NOT NULL REFERENCES sessions(id),
+        latitude REAL,
+        longitude REAL,
+        accuracy REAL,
+        place_label TEXT,
+        planted_at TEXT
+      );
+      CREATE TABLE IF NOT EXISTS members (
+        capsule_id TEXT NOT NULL REFERENCES capsules(id) ON DELETE CASCADE,
+        session_id TEXT NOT NULL REFERENCES sessions(id),
+        member_id TEXT NOT NULL UNIQUE,
+        display_name TEXT NOT NULL,
+        is_host INTEGER NOT NULL DEFAULT 0,
+        joined_at TEXT NOT NULL,
+        PRIMARY KEY (capsule_id, session_id)
+      );
+      CREATE INDEX IF NOT EXISTS members_session ON members(session_id);
+      CREATE TABLE IF NOT EXISTS items (
+        id TEXT PRIMARY KEY,
+        capsule_id TEXT NOT NULL REFERENCES capsules(id) ON DELETE CASCADE,
+        session_id TEXT NOT NULL REFERENCES sessions(id),
+        kind TEXT NOT NULL CHECK (kind IN ('letter', 'photo', 'voice', 'video')),
+        created_at TEXT NOT NULL,
+        text TEXT,
+        duration_ms INTEGER,
+        media_mime TEXT,
+        media_blob BLOB,
+        media_bytes INTEGER
+      );
+      CREATE INDEX IF NOT EXISTS items_capsule_session ON items(capsule_id, session_id);
+      PRAGMA user_version = ${SCHEMA_VERSION};
+    `);
   } catch (error) {
-    database.exec('ROLLBACK');
     database.close();
     throw error;
   }
 
-  function owner(request: IncomingMessage): string {
+  const iso = (time = now()) => new Date(time).toISOString();
+
+  function transaction<T>(work: () => T): T {
+    database.exec('BEGIN IMMEDIATE');
+    try {
+      const result = work();
+      database.exec('COMMIT');
+      return result;
+    } catch (error) {
+      database.exec('ROLLBACK');
+      throw error;
+    }
+  }
+
+  function authenticate(request: IncomingMessage): SessionRow {
     const authorization = request.headers.authorization;
     if (!authorization || !/^Bearer [A-Za-z0-9_-]{43}$/.test(authorization)) {
-      throw new ApiError(401, 'UNAUTHORIZED', '기기 인증이 필요합니다. 다시 연결해 주세요.');
+      throw new ApiError(401, 'UNAUTHORIZED', '기기 인증이 필요해요. 앱을 다시 열어 주세요.');
     }
-    const tokenHash = createHash('sha256').update(authorization.slice(7)).digest('hex');
-    const session = database.prepare('SELECT id FROM sessions WHERE token_hash = ?').get(tokenHash) as { id: string } | undefined;
-    if (!session) throw new ApiError(401, 'UNAUTHORIZED', '기기 인증이 만료되었거나 올바르지 않습니다.');
-    return session.id;
+    const session = database.prepare('SELECT id, display_name FROM sessions WHERE token_hash = ?')
+      .get(hashToken(authorization.slice(7))) as SessionRow | undefined;
+    if (!session) throw new ApiError(401, 'UNAUTHORIZED', '기기 인증이 만료됐거나 올바르지 않아요. 앱을 다시 열어 주세요.');
+    return session;
   }
 
-  function ownedCapsule(id: string, ownerId: string): CapsuleMetadataRow {
-    const capsule = database.prepare(`SELECT ${METADATA_COLUMNS} FROM capsules WHERE id = ? AND
-      (owner_id = ? OR EXISTS (SELECT 1 FROM group_members WHERE group_id = capsules.group_id AND session_id = ?))`)
-      .get(id, ownerId, ownerId) as CapsuleMetadataRow | undefined;
-    if (!capsule) throw new ApiError(404, 'NOT_FOUND', '캡슐을 찾을 수 없습니다.');
-    return capsule;
+  const capsuleRow = (id: string) => database.prepare('SELECT * FROM capsules WHERE id = ?').get(id) as CapsuleRow | undefined;
+  const membersOf = (capsuleId: string) => database.prepare(
+    'SELECT session_id, member_id, display_name, is_host FROM members WHERE capsule_id = ? ORDER BY joined_at, rowid',
+  ).all(capsuleId) as MemberRow[];
+  const itemsOf = (capsuleId: string) => database.prepare(
+    `SELECT id, session_id, kind, created_at, text, duration_ms, media_mime, media_bytes
+     FROM items WHERE capsule_id = ? ORDER BY created_at, rowid`,
+  ).all(capsuleId) as ItemRow[];
+  const itemCount = (capsuleId: string, sessionId: string) => (database.prepare(
+    'SELECT COUNT(*) AS count FROM items WHERE capsule_id = ? AND session_id = ?',
+  ).get(capsuleId, sessionId) as { count: number }).count;
+
+  /** Item counts only — enough for canSeal / autoSealReason without touching contents. */
+  function judgeable(row: CapsuleRow) {
+    const items = itemsOf(row.id);
+    return {
+      status: row.status,
+      mode: row.mode,
+      deadlineAt: row.deadline_at,
+      members: membersOf(row.id).map((member): Member => ({
+        id: member.member_id,
+        name: member.display_name,
+        isMe: false,
+        isHost: member.is_host === 1,
+        items: items
+          .filter((item) => item.session_id === member.session_id)
+          .map((item) => ({ id: item.id, kind: item.kind, createdAt: item.created_at })),
+      })),
+    };
   }
 
-  type GroupRow = { id: string; host_id: string; title: string; expected_count: number; invite_code: string; capsule_id: string | null };
-  type MemberRow = { id: string; session_id: string; display_name: string };
-  const membersOf = (groupId: string) => database.prepare('SELECT id, session_id, display_name FROM group_members WHERE group_id = ? ORDER BY joined_at, id').all(groupId) as MemberRow[];
-  function groupForMember(id: string, sessionId: string): GroupRow {
-    const row = database.prepare(`SELECT * FROM capsule_groups WHERE id = ? AND EXISTS
-      (SELECT 1 FROM group_members WHERE group_id = capsule_groups.id AND session_id = ?)`)
-      .get(id, sessionId) as GroupRow | undefined;
-    if (!row) throw new ApiError(404, 'NOT_FOUND', '참여한 모임을 찾을 수 없어요.');
-    return row;
-  }
-  function groupSummary(row: GroupRow, sessionId: string): CapsuleGroup {
-    return { id: row.id, title: row.title, expectedCount: row.expected_count, isHost: row.host_id === sessionId,
-      inviteCode: row.capsule_id ? null : row.invite_code, capsuleId: row.capsule_id,
-      members: membersOf(row.id).map(m => ({ id: m.id, name: m.display_name, isMe: m.session_id === sessionId })) };
+  /** Persists an automatic seal (deadline passed or everyone full) before anything reads or writes the capsule. */
+  function settle(row: CapsuleRow): CapsuleRow {
+    if (row.status !== 'collecting') return row;
+    if (!autoSealReason(judgeable(row), new Date(now()))) return row;
+    const sealedAt = iso();
+    database.prepare("UPDATE capsules SET status = 'sealed', sealed_at = ? WHERE id = ? AND status = 'collecting'").run(sealedAt, row.id);
+    return { ...row, status: 'sealed', sealed_at: sealedAt };
   }
 
-  // Ephemeral leases: raw attendance coordinates never enter SQLite or public
-  // responses. Restarting the server requires everybody to check in again.
-  type Presence = { token: string; location: LocationFix; seenAt: number; sequence: number };
-  const presence = new Map<string, Presence>();
-  const presenceKey = (capsuleId: string, sessionId: string) => `${capsuleId}:${sessionId}`;
-  function attendance(capsule: CapsuleMetadataRow, sessionId: string, currentTime: number): AttendanceStatus {
-    const members = membersOf(capsule.group_id!).map(member => {
-      const p = presence.get(presenceKey(capsule.id, member.session_id));
-      const present = !!p && currentTime >= p.seenAt && currentTime - p.seenAt < ATTENDANCE_TTL_MS
-        && withinRadius(p.location, capsule, currentTime);
-      return { id: member.id, name: member.display_name, isMe: member.session_id === sessionId, present };
+  /** Loads a capsule the caller belongs to (404 otherwise) and settles it. */
+  function memberCapsule(id: string, sessionId: string): CapsuleRow {
+    const row = capsuleRow(id);
+    if (!row || !database.prepare('SELECT 1 FROM members WHERE capsule_id = ? AND session_id = ?').get(id, sessionId)) {
+      throw new ApiError(404, 'NOT_FOUND', '캡슐을 찾을 수 없어요.');
+    }
+    return settle(row);
+  }
+
+  function sign(capsuleId: string, itemId: string, memberId: string, exp: number): string {
+    return createHmac('sha256', mediaSigningSecret).update(`${capsuleId}:${itemId}:${memberId}:${exp}`).digest('hex');
+  }
+
+  function mediaPath(capsuleId: string, itemId: string, memberId: string): string {
+    const exp = now() + MEDIA_URL_TTL_MS;
+    const query = new URLSearchParams({ m: memberId, exp: String(exp), sig: sign(capsuleId, itemId, memberId, exp) });
+    return `/capsules/${capsuleId}/items/${itemId}/media?${query}`;
+  }
+
+  /** Contract visibility: own items while collecting, nobody's while sealed, everyone's once opened. */
+  const contentVisible = (status: CapsuleStatus, isOwn: boolean) => status === 'opened' || (status === 'collecting' && isOwn);
+
+  function serializeItem(row: CapsuleRow, item: ItemRow, viewerSessionId: string, viewerMemberId: string | null): CapsuleItem {
+    const result: CapsuleItem = { id: item.id, kind: item.kind, createdAt: item.created_at };
+    if (item.duration_ms !== null) result.durationMs = item.duration_ms;
+    if (!contentVisible(row.status, item.session_id === viewerSessionId)) return result;
+    if (item.text !== null) result.text = item.text;
+    if (item.media_mime !== null && viewerMemberId) result.uri = mediaPath(row.id, item.id, viewerMemberId);
+    return result;
+  }
+
+  function serializeCapsule(stored: CapsuleRow, sessionId: string): Capsule {
+    const row = settle(stored);
+    const members = membersOf(row.id);
+    const items = itemsOf(row.id);
+    const viewer = members.find((member) => member.session_id === sessionId) ?? null;
+    const location: PlantedLocation | null = row.latitude !== null && row.longitude !== null
+      ? { latitude: row.latitude, longitude: row.longitude, accuracy: row.accuracy, label: row.place_label ?? '', plantedAt: row.planted_at ?? row.created_at }
+      : null;
+    return {
+      id: row.id,
+      title: row.title,
+      mode: row.mode,
+      createdAt: row.created_at,
+      deadlineAt: row.deadline_at,
+      status: row.status,
+      sealedAt: row.sealed_at,
+      openAt: row.open_at,
+      openedAt: row.opened_at,
+      inviteCode: row.invite_code,
+      location,
+      members: members.map((member) => ({
+        id: member.member_id,
+        name: member.display_name,
+        isMe: member.session_id === sessionId,
+        isHost: member.is_host === 1,
+        items: items
+          .filter((item) => item.session_id === member.session_id)
+          .map((item) => serializeItem(row, item, sessionId, viewer?.member_id ?? null)),
+      })),
+    };
+  }
+
+  const capsuleResponse = (id: string, sessionId: string) => ({ capsule: serializeCapsule(capsuleRow(id)!, sessionId), serverNow: iso() });
+
+  function requireCollecting(row: CapsuleRow) {
+    if (row.status !== 'collecting') throw new ApiError(409, 'CAPSULE_CLOSED', '이미 닫힌 캡슐이에요. 이제는 넣거나 고칠 수 없어요.');
+  }
+
+  function requireHost(row: CapsuleRow, sessionId: string) {
+    if (row.host_session_id !== sessionId) throw new ApiError(403, 'NOT_HOST', '방장만 할 수 있어요.');
+  }
+
+  function ownItem(capsuleId: string, itemId: string, sessionId: string): ItemRow {
+    const item = database.prepare(
+      `SELECT id, session_id, kind, created_at, text, duration_ms, media_mime, media_bytes
+       FROM items WHERE id = ? AND capsule_id = ? AND session_id = ?`,
+    ).get(itemId, capsuleId, sessionId) as ItemRow | undefined;
+    if (!item) throw new ApiError(404, 'NOT_FOUND', '내가 넣은 물건을 찾을 수 없어요.');
+    return item;
+  }
+
+  function itemResponse(capsuleId: string, item: ItemRow, sessionId: string) {
+    const capsule = serializeCapsule(capsuleRow(capsuleId)!, sessionId);
+    const row = capsuleRow(capsuleId)!;
+    const viewer = capsule.members.find((member) => member.isMe)!;
+    return { item: serializeItem(row, item, sessionId, viewer.id), capsule, serverNow: iso() };
+  }
+
+  function createCapsule(session: SessionRow, body: Record<string, unknown>) {
+    const title = boundedText(body.title, '캡슐 이름', TITLE_MAX);
+    const mode = body.mode;
+    if (mode !== 'solo' && mode !== 'group') invalid('혼자 묻을지, 함께 묻을지 골라 주세요.');
+    const deadlineDays = body.deadlineDays;
+    if (!(DEADLINE_DAY_OPTIONS as readonly unknown[]).includes(deadlineDays)) {
+      invalid(`넣기 마감은 ${DEADLINE_DAY_OPTIONS.join('·')}일 중에서 골라 주세요.`);
+    }
+    const createdAt = iso();
+    const deadlineAt = addDays(createdAt, deadlineDays as number);
+    const openTime = typeof body.openAt === 'string' ? Date.parse(body.openAt) : NaN;
+    if (!Number.isFinite(openTime)) invalid('여는 날을 골라 주세요.');
+    const openAt = new Date(openTime).toISOString();
+    if (!isValidOpenAtForCreate(createdAt, deadlineAt, openAt)) {
+      invalid('여는 날은 오늘부터 30~180일 사이, 넣기 마감 뒤로 골라 주세요.');
+    }
+    const location = body.location === undefined || body.location === null ? null : parseLocation(body.location, createdAt);
+    const id = randomUUID();
+    transaction(() => {
+      for (let attempt = 0; ; attempt += 1) {
+        const code = generateInviteCode(() => randomBytes(1)[0] / 256);
+        if (database.prepare('SELECT 1 FROM capsules WHERE invite_code = ?').get(code)) {
+          if (attempt > 20) throw new Error('Could not allocate an invite code.');
+          continue;
+        }
+        database.prepare(`INSERT INTO capsules
+          (id, title, mode, status, created_at, deadline_at, open_at, invite_code, host_session_id, latitude, longitude, accuracy, place_label, planted_at)
+          VALUES (?, ?, ?, 'collecting', ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`)
+          .run(id, title, mode, createdAt, deadlineAt, openAt, code, session.id,
+            location?.latitude ?? null, location?.longitude ?? null, location?.accuracy ?? null,
+            location?.label ?? null, location?.plantedAt ?? null);
+        break;
+      }
+      database.prepare('INSERT INTO members (capsule_id, session_id, member_id, display_name, is_host, joined_at) VALUES (?, ?, ?, ?, 1, ?)')
+        .run(id, session.id, randomUUID(), session.display_name, createdAt);
     });
-    return { requiredCount: capsule.participant_count, presentCount: members.filter(m => m.present).length,
-      validForSeconds: ATTENDANCE_TTL_MS / 1000, members };
+    return id;
   }
-  function fullGate(capsule: CapsuleMetadataRow, location: LocationFix, sessionId: string, currentTime: number): Eligibility {
-    const gate = eligibility(capsule, location, currentTime);
-    if (!capsule.group_id) return gate;
-    const status = attendance(capsule, sessionId, currentTime);
-    return { ...gate, attendance: status,
-      ...(gate.eligible && (status.presentCount !== status.requiredCount || status.members.length !== status.requiredCount)
-        ? { code: 'WAITING_PARTICIPANTS' as const, eligible: false } : {}) };
-  }
-  function currentLease(capsuleId: string, sessionId: string, token: unknown): Presence {
-    const p = presence.get(presenceKey(capsuleId, sessionId));
-    if (!p || typeof token !== 'string' || p.token !== token) {
-      throw new ApiError(409, 'ATTENDANCE_EXPIRED', '함께 열기 참여가 끝났어요. 다시 참여해 주세요.');
+
+  function joinCapsule(session: SessionRow, body: Record<string, unknown>) {
+    if (typeof body.code !== 'string') invalid('초대 코드를 입력해 주세요.');
+    const code = normalizeInviteCode(body.code);
+    const found = code.length === 6 ? database.prepare('SELECT * FROM capsules WHERE invite_code = ?').get(code) as CapsuleRow | undefined : undefined;
+    if (!found) throw new ApiError(404, 'INVITE_NOT_FOUND', '그 초대 코드로는 캡슐을 찾지 못했어요. 코드 6자리를 다시 확인해 주세요.');
+    if (database.prepare('SELECT 1 FROM members WHERE capsule_id = ? AND session_id = ?').get(found.id, session.id)) {
+      return { id: found.id, already: true };
     }
-    return p;
+    const row = settle(found);
+    if (row.status !== 'collecting') throw new ApiError(409, 'CAPSULE_CLOSED', '이미 닫힌 캡슐이라 들어갈 수 없어요.');
+    if (row.mode === 'solo') throw new ApiError(409, 'CAPSULE_CLOSED', '혼자 묻는 캡슐에는 들어갈 수 없어요.');
+    if (membersOf(row.id).length >= MAX_MEMBERS) throw new ApiError(409, 'CAPSULE_FULL', `한 캡슐에는 ${MAX_MEMBERS}명까지만 함께할 수 있어요.`);
+    database.prepare('INSERT INTO members (capsule_id, session_id, member_id, display_name, is_host, joined_at) VALUES (?, ?, ?, ?, 0, ?)')
+      .run(row.id, session.id, randomUUID(), session.display_name, iso());
+    return { id: row.id, already: false };
+  }
+
+  function addItem(session: SessionRow, row: CapsuleRow, body: Record<string, unknown>) {
+    requireCollecting(row);
+    const kind = body.kind;
+    if (kind !== 'letter' && kind !== 'photo' && kind !== 'voice' && kind !== 'video') invalid('넣을 물건 종류를 골라 주세요.');
+    if (!canAddItem({ items: new Array<CapsuleItem>(itemCount(row.id, session.id)) })) {
+      throw new ApiError(409, 'SLOTS_FULL', `한 사람은 ${MAX_ITEMS_PER_MEMBER}개까지 넣을 수 있어요. 하나를 빼고 다시 넣어 주세요.`);
+    }
+    const text = kind === 'letter' ? parseLetter(body.text) : null;
+    const durationMs = parseDuration(body.durationMs, kind);
+    const media = kind === 'letter' ? null : parseItemMedia(body.media, kind);
+    const id = randomUUID();
+    database.prepare(`INSERT INTO items (id, capsule_id, session_id, kind, created_at, text, duration_ms, media_mime, media_blob, media_bytes)
+      VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`)
+      .run(id, row.id, session.id, kind, iso(), text, durationMs, media?.mimeType ?? null, media?.bytes ?? null, media?.bytes.length ?? null);
+    return ownItem(row.id, id, session.id);
+  }
+
+  function updateItem(session: SessionRow, row: CapsuleRow, itemId: string, body: Record<string, unknown>) {
+    const item = ownItem(row.id, itemId, session.id);
+    requireCollecting(row);
+    if (item.kind === 'letter') {
+      if (body.text !== undefined) database.prepare('UPDATE items SET text = ? WHERE id = ?').run(parseLetter(body.text), item.id);
+    } else {
+      if (body.durationMs !== undefined) database.prepare('UPDATE items SET duration_ms = ? WHERE id = ?').run(parseDuration(body.durationMs, item.kind), item.id);
+      if (body.media !== undefined) {
+        const media = parseItemMedia(body.media, item.kind);
+        database.prepare('UPDATE items SET media_mime = ?, media_blob = ?, media_bytes = ? WHERE id = ?')
+          .run(media.mimeType, media.bytes, media.bytes.length, item.id);
+      }
+    }
+    return ownItem(row.id, item.id, session.id);
+  }
+
+  function serveMedia(request: IncomingMessage, response: ServerResponse, url: URL, capsuleId: string, itemId: string) {
+    const deny = () => new ApiError(403, 'UNAUTHORIZED', '이 파일은 지금 볼 수 없어요. 캡슐을 다시 불러와 주세요.');
+    const memberId = url.searchParams.get('m') ?? '';
+    const expText = url.searchParams.get('exp') ?? '';
+    const sig = url.searchParams.get('sig') ?? '';
+    const exp = Number(expText);
+    if (!/^\d{1,16}$/.test(expText) || !/^[a-f0-9]{64}$/.test(sig) || exp < now()) throw deny();
+    const expected = Buffer.from(sign(capsuleId, itemId, memberId, exp), 'hex');
+    if (!timingSafeEqual(expected, Buffer.from(sig, 'hex'))) throw deny();
+    const member = database.prepare('SELECT session_id FROM members WHERE member_id = ? AND capsule_id = ?')
+      .get(memberId, capsuleId) as { session_id: string } | undefined;
+    const stored = capsuleRow(capsuleId);
+    if (!member || !stored) throw deny();
+    const row = settle(stored);
+    const item = database.prepare('SELECT session_id, media_mime, media_blob FROM items WHERE id = ? AND capsule_id = ?')
+      .get(itemId, capsuleId) as { session_id: string; media_mime: string | null; media_blob: Uint8Array | null } | undefined;
+    if (!item || !item.media_blob || !item.media_mime || !contentVisible(row.status, item.session_id === member.session_id)) throw deny();
+
+    const blob = Buffer.from(item.media_blob);
+    const headers: Record<string, string | number> = {
+      'Content-Type': item.media_mime,
+      'Cache-Control': 'private, no-store',
+      'X-Content-Type-Options': 'nosniff',
+      'Accept-Ranges': 'bytes',
+    };
+    // Safari's <video> insists on byte ranges.
+    const range = /^bytes=(\d*)-(\d*)$/.exec(request.headers.range ?? '');
+    if (range && (range[1] || range[2])) {
+      let start = range[1] ? Number(range[1]) : Math.max(0, blob.length - Number(range[2]));
+      let end = range[1] && range[2] ? Math.min(Number(range[2]), blob.length - 1) : blob.length - 1;
+      if (start >= blob.length || start > end) {
+        response.writeHead(416, { ...headers, 'Content-Range': `bytes */${blob.length}` });
+        response.end();
+        return;
+      }
+      start = Math.max(0, start);
+      end = Math.max(start, end);
+      response.writeHead(206, { ...headers, 'Content-Range': `bytes ${start}-${end}/${blob.length}`, 'Content-Length': end - start + 1 });
+      response.end(request.method === 'HEAD' ? undefined : blob.subarray(start, end + 1));
+      return;
+    }
+    response.writeHead(200, { ...headers, 'Content-Length': blob.length });
+    response.end(request.method === 'HEAD' ? undefined : blob);
   }
 
   const server = createServer(async (request, response) => {
-    const receivedAt = now();
     try {
       const origin = request.headers.origin;
       if (origin) {
-        if (!LOCAL_ORIGIN.test(origin)) throw new ApiError(403, 'ORIGIN_NOT_ALLOWED', '이 서버는 로컬 개발용입니다.');
+        if (!LOCAL_ORIGIN.test(origin) && !allowedOrigins.has(origin)) {
+          throw new ApiError(403, 'ORIGIN_NOT_ALLOWED', '허용되지 않은 웹 주소에서 온 요청이에요.');
+        }
         response.setHeader('Access-Control-Allow-Origin', origin);
         response.setHeader('Vary', 'Origin');
-        response.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
-        response.setHeader('Access-Control-Allow-Headers', 'Authorization, Content-Type, Idempotency-Key');
+        response.setHeader('Access-Control-Allow-Methods', 'GET, POST, PATCH, DELETE, OPTIONS');
+        response.setHeader('Access-Control-Allow-Headers', 'Authorization, Content-Type');
+        response.setHeader('Access-Control-Max-Age', '600');
       }
       if (request.method === 'OPTIONS') return respond(response, 204);
-      const pathname = new URL(request.url ?? '/', 'http://localhost').pathname;
+      const url = new URL(request.url ?? '/', 'http://localhost');
+      const { pathname } = url;
+      const method = request.method ?? 'GET';
 
-      if (request.method === 'GET' && pathname === '/health') {
-        return respond(response, 200, { ok: true, serverNow: new Date(now()).toISOString() });
-      }
-      if (request.method === 'POST' && pathname === '/sessions') {
+      if (method === 'GET' && pathname === '/health') return respond(response, 200, { ok: true, serverNow: iso() });
+
+      const mediaRoute = new RegExp(`^/capsules/${ID}/items/${ID}/media$`).exec(pathname);
+      if ((method === 'GET' || method === 'HEAD') && mediaRoute) return serveMedia(request, response, url, mediaRoute[1], mediaRoute[2]);
+
+      if (method === 'POST' && pathname === '/sessions') {
+        const body = await readJson(request, SMALL_BODY_BYTES);
+        const displayName = parseDisplayName(body.displayName, DEFAULT_DISPLAY_NAME);
         const token = randomBytes(32).toString('base64url');
-        database.prepare('INSERT INTO sessions (id, token_hash, created_at) VALUES (?, ?, ?)')
-          .run(randomUUID(), createHash('sha256').update(token).digest('hex'), now());
-        return respond(response, 201, { token });
+        database.prepare('INSERT INTO sessions (id, token_hash, display_name, created_at) VALUES (?, ?, ?, ?)')
+          .run(randomUUID(), hashToken(token), displayName, iso());
+        return respond(response, 201, { token, displayName });
       }
 
-      const ownerId = owner(request);
-      if (request.method === 'GET' && pathname === '/groups') {
-        const rows = database.prepare(`SELECT * FROM capsule_groups WHERE EXISTS
-          (SELECT 1 FROM group_members WHERE group_id = capsule_groups.id AND session_id = ?) ORDER BY created_at DESC, id`)
-          .all(ownerId) as GroupRow[];
-        return respond(response, 200, { groups: rows.map(row => groupSummary(row, ownerId)), serverNow: new Date(now()).toISOString() });
+      const session = authenticate(request);
+
+      if (method === 'PATCH' && pathname === '/sessions/me') {
+        const body = await readJson(request, SMALL_BODY_BYTES);
+        const displayName = parseDisplayName(body.displayName);
+        transaction(() => {
+          database.prepare('UPDATE sessions SET display_name = ? WHERE id = ?').run(displayName, session.id);
+          database.prepare('UPDATE members SET display_name = ? WHERE session_id = ?').run(displayName, session.id);
+        });
+        return respond(response, 200, { displayName });
       }
-      if (request.method === 'POST' && pathname === '/groups') {
-        const body = await readJson(request);
-        if (!isRecord(body)) rejectInput('모임 정보가 필요해요.');
-        const title = boundedText(body.title, '모임 이름', 80);
-        const displayName = boundedText(body.displayName, '내 이름', 24);
-        const count = body.expectedCount;
-        if (!finiteNumber(count) || !Number.isInteger(count) || count < 2 || count > MAX_GROUP_MEMBERS) {
-          rejectInput(`함께 열 사람은 본인을 포함해 2~${MAX_GROUP_MEMBERS}명으로 정해 주세요.`);
+
+      if (method === 'GET' && pathname === '/capsules') {
+        const rows = database.prepare(`SELECT capsules.* FROM capsules JOIN members ON members.capsule_id = capsules.id
+          WHERE members.session_id = ? ORDER BY capsules.created_at DESC, capsules.rowid DESC`).all(session.id) as CapsuleRow[];
+        return respond(response, 200, { capsules: rows.map((row) => serializeCapsule(row, session.id)), serverNow: iso() });
+      }
+      if (method === 'POST' && pathname === '/capsules') {
+        const id = createCapsule(session, await readJson(request, SMALL_BODY_BYTES));
+        return respond(response, 201, capsuleResponse(id, session.id));
+      }
+      if (method === 'POST' && pathname === '/capsules/join') {
+        const { id, already } = joinCapsule(session, await readJson(request, SMALL_BODY_BYTES));
+        return respond(response, 200, { ...capsuleResponse(id, session.id), already });
+      }
+
+      const capsuleRoute = new RegExp(`^/capsules/${ID}$`).exec(pathname);
+      if (method === 'GET' && capsuleRoute) {
+        memberCapsule(capsuleRoute[1], session.id);
+        return respond(response, 200, capsuleResponse(capsuleRoute[1], session.id));
+      }
+
+      const itemsRoute = new RegExp(`^/capsules/${ID}/items$`).exec(pathname);
+      if (method === 'POST' && itemsRoute) {
+        const row = memberCapsule(itemsRoute[1], session.id);
+        const body = await readJson(request, ITEM_BODY_BYTES);
+        // Re-read after the upload: the deadline may have passed while bytes were arriving.
+        const item = addItem(session, memberCapsule(row.id, session.id), body);
+        return respond(response, 201, itemResponse(row.id, item, session.id));
+      }
+
+      const itemRoute = new RegExp(`^/capsules/${ID}/items/${ID}$`).exec(pathname);
+      if ((method === 'PATCH' || method === 'DELETE') && itemRoute) {
+        const [, capsuleId, itemId] = itemRoute;
+        memberCapsule(capsuleId, session.id);
+        if (method === 'PATCH') {
+          const body = await readJson(request, ITEM_BODY_BYTES);
+          const item = updateItem(session, memberCapsule(capsuleId, session.id), itemId, body);
+          return respond(response, 200, itemResponse(capsuleId, item, session.id));
         }
-        const id = randomUUID();
-        database.exec('BEGIN IMMEDIATE');
-        try {
-          database.prepare('INSERT INTO capsule_groups(id, host_id, title, expected_count, invite_code, created_at) VALUES (?, ?, ?, ?, ?, ?)')
-            .run(id, ownerId, title, count, randomBytes(6).toString('hex').toUpperCase(), now());
-          database.prepare('INSERT INTO group_members(id, group_id, session_id, display_name, joined_at) VALUES (?, ?, ?, ?, ?)')
-            .run(randomUUID(), id, ownerId, displayName, now());
-          database.exec('COMMIT');
-        } catch (error) { database.exec('ROLLBACK'); throw error; }
-        return respond(response, 201, { group: groupSummary(groupForMember(id, ownerId), ownerId), serverNow: new Date(now()).toISOString() });
+        const row = memberCapsule(capsuleId, session.id);
+        const item = ownItem(capsuleId, itemId, session.id);
+        requireCollecting(row);
+        database.prepare('DELETE FROM items WHERE id = ?').run(item.id);
+        const capsule = serializeCapsule(capsuleRow(capsuleId)!, session.id);
+        const removed: CapsuleItem = { id: item.id, kind: item.kind, createdAt: item.created_at };
+        if (item.text !== null) removed.text = item.text;
+        if (item.duration_ms !== null) removed.durationMs = item.duration_ms;
+        return respond(response, 200, { item: removed, capsule, serverNow: iso() });
       }
-      if (request.method === 'POST' && pathname === '/groups/join') {
-        const body = await readJson(request);
-        if (!isRecord(body)) rejectInput('초대 코드와 이름을 입력해 주세요.');
-        const code = boundedText(body.inviteCode, '초대 코드', 12).toUpperCase();
-        const displayName = boundedText(body.displayName, '내 이름', 24);
-        const row = database.prepare('SELECT * FROM capsule_groups WHERE invite_code = ?').get(code) as GroupRow | undefined;
-        if (!row) throw new ApiError(404, 'NOT_FOUND', '참여 가능한 초대 코드를 찾을 수 없어요.');
-        const members = membersOf(row.id);
-        if (members.some(m => m.session_id === ownerId)) {
-          return respond(response, 200, { group: groupSummary(row, ownerId), serverNow: new Date(now()).toISOString() });
-        }
-        if (row.capsule_id) throw new ApiError(409, 'GROUP_SEALED', '이미 봉인된 캡슐의 참여자는 바꿀 수 없어요.');
-        if (members.length >= row.expected_count) throw new ApiError(409, 'GROUP_FULL', '정해진 인원이 모두 참여했어요.');
-        if (members.some(m => m.display_name === displayName)) throw new ApiError(409, 'NAME_TAKEN', '모임에서 구별할 수 있는 다른 이름을 입력해 주세요.');
-        // No await between the capacity check and insert: this synchronous
-        // SQLite operation is serialized with sealing and other joins.
-        database.prepare('INSERT INTO group_members(id, group_id, session_id, display_name, joined_at) VALUES (?, ?, ?, ?, ?)')
-          .run(randomUUID(), row.id, ownerId, displayName, now());
-        return respond(response, 200, { group: groupSummary(row, ownerId), serverNow: new Date(now()).toISOString() });
-      }
-      const recoveryRoute = /^\/capsules\/by-request\/([A-Za-z0-9_-]{16,128})$/.exec(pathname);
-      if (request.method === 'GET' && recoveryRoute) {
-        const previous = database.prepare('SELECT capsule_id FROM creation_requests WHERE owner_id = ? AND request_key = ?')
-          .get(ownerId, recoveryRoute[1]) as { capsule_id: string } | undefined;
-        if (!previous) throw new ApiError(404, 'NOT_FOUND', '이 봉인 요청으로 저장한 캡슐을 아직 찾지 못했어요.');
-        return respond(response, 200, { capsule: summary(ownedCapsule(previous.capsule_id, ownerId)), serverNow: new Date(now()).toISOString() });
-      }
-      if (request.method === 'GET' && pathname === '/capsules') {
-        const rows = database.prepare(`SELECT ${METADATA_COLUMNS} FROM capsules WHERE owner_id = ? OR EXISTS
-          (SELECT 1 FROM group_members WHERE group_id = capsules.group_id AND session_id = ?) ORDER BY created_at DESC, id ASC`)
-          .all(ownerId, ownerId) as CapsuleMetadataRow[];
-        return respond(response, 200, { capsules: rows.map(summary), serverNow: new Date(now()).toISOString() });
-      }
-      if (request.method === 'POST' && pathname === '/capsules') {
-        const requestKey = createRequestKey(request);
-        const input = parseCreateInput(await readJson(request, MAX_REQUEST_BYTES));
-        const currentTime = now();
-        const requestHash = requestKey ? createRequestHash(input) : null;
-        if (requestKey) {
-          const previous = database.prepare('SELECT request_hash, capsule_id FROM creation_requests WHERE owner_id = ? AND request_key = ?')
-            .get(ownerId, requestKey) as { request_hash: string; capsule_id: string } | undefined;
-          if (previous) {
-            if (previous.request_hash !== requestHash) {
-              throw new ApiError(409, 'IDEMPOTENCY_CONFLICT', '이미 봉인한 요청의 내용은 바꿀 수 없어요. 기존 캡슐을 확인해 주세요.');
+
+      const actionRoute = new RegExp(`^/capsules/${ID}/(seal|open|plant)$`).exec(pathname);
+      if (method === 'POST' && actionRoute) {
+        const [, capsuleId, action] = actionRoute;
+        const row = memberCapsule(capsuleId, session.id);
+        if (action === 'seal') {
+          requireHost(row, session.id);
+          // A retry, or a seal that the deadline already performed, returns the sealed capsule.
+          if (row.status === 'collecting') {
+            if (!canSeal(judgeable(row))) {
+              throw new ApiError(409, 'CANNOT_SEAL', row.mode === 'solo'
+                ? '물건을 하나 이상 넣은 뒤 닫을 수 있어요.'
+                : '물건을 넣은 사람이 2명 이상이어야 닫을 수 있어요. 친구에게 초대 코드를 보내 주세요.');
             }
-            // This only returns metadata for a completed operation. It does not
-            // bury again or grant content access, even if the GPS fix is old.
-            return respond(response, 200, { capsule: summary(ownedCapsule(previous.capsule_id, ownerId)), serverNow: new Date(currentTime).toISOString() });
+            database.prepare("UPDATE capsules SET status = 'sealed', sealed_at = ? WHERE id = ? AND status = 'collecting'").run(iso(), row.id);
           }
-        }
-        // Uploads can take longer than GPS freshness. Check the creator's fix at
-        // request arrival; the immutable seal/opening times use actual commit
-        // time. The fix is only a liveness check (no distance: a pin can be
-        // anywhere) and is discarded after this line.
-        const locationFailure = locationGate(input.fix, receivedAt);
-        if (locationFailure && locationFailure !== 'READY') {
-          throw new ApiError(403, locationFailure, GATE_MESSAGES[locationFailure]);
-        }
-        const id = randomUUID();
-        database.exec('BEGIN IMMEDIATE');
-        try {
-          if (input.groupId) {
-            const group = groupForMember(input.groupId, ownerId);
-            if (group.host_id !== ownerId) throw new ApiError(403, 'HOST_REQUIRED', '모임을 만든 사람만 내용을 담고 봉인할 수 있어요.');
-            if (group.capsule_id) throw new ApiError(409, 'GROUP_SEALED', '이 모임은 이미 캡슐을 봉인했어요.');
-            if (membersOf(group.id).length !== group.expected_count) throw new ApiError(409, 'GROUP_INCOMPLETE', '초대한 인원이 모두 참여한 뒤 봉인해 주세요.');
+        } else if (action === 'open') {
+          if (row.status === 'collecting') throw new ApiError(409, 'NOT_SEALED', '아직 닫히지 않은 캡슐이에요. 먼저 닫아야 열 날을 기다릴 수 있어요.');
+          if (row.status === 'sealed') {
+            if (now() < Date.parse(row.open_at)) throw new ApiError(409, 'TOO_EARLY', '아직 여는 날이 아니에요. 조금만 더 기다려 주세요.');
+            database.prepare("UPDATE capsules SET status = 'opened', opened_at = ? WHERE id = ? AND status = 'sealed'").run(iso(), row.id);
           }
-          database.prepare(`INSERT INTO capsules
-            (id, owner_id, title, place_name, created_at, opens_at, latitude, longitude, radius_meters, letter, photo_base64, photo_mime_type,
-              audio_base64, audio_mime_type, audio_file_name, video_base64, video_mime_type, video_file_name, group_id)
-            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`)
-            .run(id, ownerId, input.title, input.placeName, currentTime,
-              currentTime + input.unlockAfterSeconds * 1_000, input.location.latitude,
-              input.location.longitude, CAPSULE_RADIUS_METERS, input.content.letter,
-              input.content.photo?.base64 ?? null, input.content.photo?.mimeType ?? null,
-              input.content.audio?.base64 ?? null, input.content.audio?.mimeType ?? null, input.content.audio?.fileName ?? null,
-              input.content.video?.base64 ?? null, input.content.video?.mimeType ?? null, input.content.video?.fileName ?? null, input.groupId ?? null);
-          if (input.groupId) database.prepare('UPDATE capsule_groups SET capsule_id = ? WHERE id = ?').run(id, input.groupId);
-          if (requestKey) {
-            database.prepare('INSERT INTO creation_requests (owner_id, request_key, request_hash, capsule_id) VALUES (?, ?, ?, ?)')
-              .run(ownerId, requestKey, requestHash!, id);
-          }
-          database.exec('COMMIT');
-        } catch (error) {
-          database.exec('ROLLBACK');
-          throw error;
+        } else {
+          requireHost(row, session.id);
+          const body = await readJson(request, SMALL_BODY_BYTES);
+          const location = parseLocation(body.location, iso());
+          database.prepare('UPDATE capsules SET latitude = ?, longitude = ?, accuracy = ?, place_label = ?, planted_at = ? WHERE id = ?')
+            .run(location.latitude, location.longitude, location.accuracy, location.label, location.plantedAt, row.id);
         }
-        return respond(response, 201, { capsule: summary(ownedCapsule(id, ownerId)), serverNow: new Date(currentTime).toISOString() });
+        return respond(response, 200, capsuleResponse(capsuleId, session.id));
       }
 
-      const attendanceRoute = /^\/capsules\/([a-f0-9-]{36})\/attendance\/(start|heartbeat|leave)$/.exec(pathname);
-      if (request.method === 'POST' && attendanceRoute) {
-        const capsule = ownedCapsule(attendanceRoute[1], ownerId);
-        if (!capsule.group_id) throw new ApiError(400, 'PERSONAL_CAPSULE', '개인 캡슐에는 참석 확인이 필요하지 않아요.');
-        const body = await readJson(request);
-        if (!isRecord(body)) rejectInput('참석 확인 정보가 필요해요.');
-        const key = presenceKey(capsule.id, ownerId);
-        if (attendanceRoute[2] === 'leave') {
-          // An old screen must not revoke a newer screen's attendance lease.
-          if (presence.get(key)?.token === body.attendanceToken) presence.delete(key);
-          return respond(response, 200, { ok: true });
-        }
-        const previous = attendanceRoute[2] === 'heartbeat' ? currentLease(capsule.id, ownerId, body.attendanceToken) : undefined;
-        const sequence = body.sequence;
-        if (previous && (!finiteNumber(sequence) || !Number.isSafeInteger(sequence) || sequence <= previous.sequence)) {
-          throw new ApiError(409, 'ATTENDANCE_OUTDATED', '이전 참석 확인 요청이에요.');
-        }
-        let location: LocationFix;
-        try { location = parseLocation(body.location); }
-        catch (error) { presence.delete(key); throw error; }
-        const currentTime = now();
-        const locationFailure = locationGate(location, currentTime);
-        const band = classifyRevealRadius(distanceMeters(location, capsule), location.accuracy, capsule.radius_meters);
-        if (locationFailure || band !== 'inside') {
-          presence.delete(key);
-          const gate = fullGate(capsule, location, ownerId, currentTime);
-          const code = locationFailure ?? (band === 'outside' ? 'TOO_FAR' : 'UNCERTAIN_LOCATION');
-          throw new ApiError(403, code, GATE_MESSAGES[code as Exclude<Eligibility['code'], 'READY'>], { ...gate, eligible: false, code });
-        }
-        const entry: Presence = { token: previous?.token ?? randomBytes(24).toString('base64url'), location, seenAt: currentTime, sequence: previous ? sequence as number : 0 };
-        presence.set(key, entry);
-        return respond(response, 200, { attendanceToken: entry.token, eligibility: fullGate(capsule, location, ownerId, currentTime) });
-      }
-
-      const route = /^\/capsules\/([a-f0-9-]{36})\/(eligibility|open)$/.exec(pathname);
-      if (request.method === 'POST' && route) {
-        // Scope by owner before evaluating or parsing anything capsule-specific.
-        const capsule = ownedCapsule(route[1], ownerId);
-        const body = await readJson(request);
-        if (!isRecord(body)) rejectInput('현재 위치가 필요합니다.');
-        let location: LocationFix;
-        try { location = parseLocation(body.location); }
-        catch (error) { if (capsule.group_id) presence.delete(presenceKey(capsule.id, ownerId)); throw error; }
-        const currentTime = now();
-        if (route[2] === 'open' && capsule.group_id) {
-          currentLease(capsule.id, ownerId, body.attendanceToken);
-        }
-        if (capsule.group_id && !withinRadius(location, capsule, currentTime)) {
-          // A newly reported departure invalidates the caller's old check-in
-          // immediately, including when reported via /open or /eligibility.
-          presence.delete(presenceKey(capsule.id, ownerId));
-        }
-        const gate = fullGate(capsule, location, ownerId, currentTime);
-        if (route[2] === 'eligibility') return respond(response, 200, gate);
-        if (!gate.eligible && gate.code !== 'READY') {
-          throw new ApiError(403, gate.code, GATE_MESSAGES[gate.code], gate);
-        }
-        // Opening once does not waive time/location checks on later requests.
-        if (capsule.opened_at === null) {
-          database.prepare('UPDATE capsules SET opened_at = ? WHERE id = ? AND opened_at IS NULL')
-            .run(currentTime, capsule.id);
-        }
-        const opened = ownedCapsule(capsule.id, ownerId);
-        const stored = database.prepare(`SELECT letter, photo_base64, photo_mime_type,
-          audio_base64, audio_mime_type, audio_file_name, video_base64, video_mime_type, video_file_name
-          FROM capsules WHERE id = ?`).get(capsule.id) as CapsuleContentRow;
-        const content: CapsuleContent = {
-          letter: stored.letter,
-          photo: stored.photo_base64 && stored.photo_mime_type
-            ? { base64: stored.photo_base64, mimeType: stored.photo_mime_type }
-            : null,
-          ...(stored.audio_base64 && stored.audio_mime_type && stored.audio_file_name
-            ? { audio: { base64: stored.audio_base64, mimeType: stored.audio_mime_type, fileName: stored.audio_file_name } }
-            : {}),
-          ...(stored.video_base64 && stored.video_mime_type && stored.video_file_name
-            ? { video: { base64: stored.video_base64, mimeType: stored.video_mime_type, fileName: stored.video_file_name } }
-            : {}),
-        };
-        return respond(response, 200, { capsule: summary(opened), content, serverNow: new Date(currentTime).toISOString() });
-      }
-
-      throw new ApiError(404, 'NOT_FOUND', '지원하지 않는 요청입니다.');
+      throw new ApiError(404, 'NOT_FOUND', '지원하지 않는 요청이에요.');
     } catch (error) {
       if (error instanceof ApiError) {
         const body: ApiErrorBody = { error: { code: error.code, message: error.message } };
-        if (error.eligibility) body.eligibility = error.eligibility;
         respond(response, error.status, body);
       } else {
         onError(error);
-        respond(response, 500, { error: { code: 'INTERNAL_ERROR', message: '서버에서 요청을 처리하지 못했습니다.' } });
+        respond(response, 500, { error: { code: 'INTERNAL_ERROR', message: '서버가 요청을 처리하지 못했어요. 잠시 뒤 다시 시도해 주세요.' } });
       }
     }
   });
@@ -729,7 +726,7 @@ export function createCapsuleServer({ databasePath, now = Date.now, onError = co
       if (closed) return;
       closed = true;
       if (server.listening) {
-        await new Promise<void>((resolve, reject) => server.close((error) => error ? reject(error) : resolve()));
+        await new Promise<void>((resolve, reject) => server.close((error) => (error ? reject(error) : resolve())));
       }
       database.close();
     },

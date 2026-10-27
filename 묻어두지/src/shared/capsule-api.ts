@@ -6,7 +6,7 @@
  * - 응답의 Capsule 은 호출자 기준으로 직렬화한다: 내 멤버는 isMe=true, 멤버 id 는 공개용 랜덤 id(세션 id 노출 금지).
  * - 내용물 노출: 채우는 중(collecting)에는 내 물건만 text/uri 를 받는다. 다른 멤버의 물건은 id/kind/createdAt/durationMs 만.
  *   닫힌 뒤(sealed)에는 아무도 text/uri 를 받지 못한다. 열린 뒤(opened)에는 모두 받는다.
- * - item.uri 는 서버 상대 경로 `/capsules/:id/items/:itemId/media?exp=<ms>&sig=<hex>` 이며 10분간 유효하다. 앱이 API_URL 을 앞에 붙인다.
+ * - item.uri 는 서버 상대 경로 `/capsules/:id/items/:itemId/media?m=<memberId>&exp=<ms>&sig=<hex>` 이며 10분간 유효하다(서명은 capsuleId:itemId:memberId:exp). 앱이 API_URL 을 앞에 붙인다.
  * - 저절로 닫힘(마감 경과, 전원 5개)은 서버가 읽기·쓰기 때마다 판정한다(autoSealReason). 열 수 있음(unlockable)은 저장 상태가 아니라 openAt 경과로 계산한다.
  * - 서버는 serverNow 를 항상 돌려준다. 클라이언트 시계는 안내용이다.
  */

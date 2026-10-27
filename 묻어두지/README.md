@@ -31,7 +31,33 @@ Expo SDK 57 기반 로컬 프로토타입. 1차 범위(시간 잠금 타임캡�
 - **Expo Go에서는 동작하지 않는다.** `npx expo prebuild` 후 `npx expo run:ios` / `run:android` 개발 빌드가 필요하다(iOS 15.1+, ARKit; Android ARCore 지원 기기).
 - 지오 앵커(위·경도에 고정)는 ReactVision Platform 키가 필요해 아직 붙이지 않았다. 지금은 GPS 반경 판정 + 카메라 앞 표시까지다.
 - `map`: 우리 동네 지도. 심은 캡슐이 저장 좌표 위에 떠 있고 말풍선에 남은 시간이 매초 갱신된다. 네이티브는 `react-native-maps`(Google provider, 키는 `.env`), 웹은 MapLibre + OpenFreeMap 벡터 타일(`scripts/prepare-map-assets.mjs`가 설치 때 `public/maplibre/`로 복사). 2D/3D(쿼터뷰) 전환.
-- `server/`: 로컬 PoC API(Node `node:http` + `node:sqlite`, `pnpm server`, :8787). 시각·반경 150m·정확도 판정, 불변 봉인, 멱등 재시도, 공동 캡슐 참석 확인을 서버 쪽에서 구현해 두었다(`pnpm test`가 서버 통합 테스트 60개를 함께 돌린다). **앱 화면은 아직 이 서버에 연결돼 있지 않다.** 계약(`src/shared/contracts.ts`)이 편지+사진 1장 기준이라, 1인당 5개 물건 모델로 계약을 넓힌 뒤 `src/lib/api.ts`로 붙인다.
+- `server/`: 로컬 API(Node `node:http` + `node:sqlite`, `pnpm server`, :8787). 계약은 `src/shared/capsule-api.ts` 하나이고, 닫힘·저절로 닫힘·열기·개수 제한 판정은 `src/domain/capsule.ts` 규칙을 그대로 가져다 서버가 최종 판정한다. 아래 "서버 API" 참고.
+
+### 서버 API
+
+기기 세션 토큰(`Authorization: Bearer`) 하나로 접근한다. 오류는 `{ error: { code, message } }`, 캡슐 응답에는 늘 `serverNow`가 붙는다.
+
+| 라우트 | 하는 일 |
+| --- | --- |
+| `POST /sessions` `{displayName}` | 기기 세션 발급(이름 1~12자, 없으면 `나`). 토큰은 해시만 저장 |
+| `PATCH /sessions/me` `{displayName}` | 내 이름 바꾸기 |
+| `GET /capsules` | 내가 멤버인 캡슐 전부, 최신순 |
+| `POST /capsules` `{title, mode, deadlineDays, openAt, location?}` | 만들기. 마감 1·3·7·14일, 여는 날은 30~180일·마감 뒤 |
+| `POST /capsules/join` `{code}` | 초대 코드로 들어가기(소문자·하이픈 OK, 최대 8명, 혼자 캡슐·닫힌 캡슐 불가) |
+| `GET /capsules/:id` | 캡슐 하나. 읽을 때마다 저절로 닫힘(마감 경과·전원 5개)을 판정 |
+| `POST /capsules/:id/items` · `PATCH`/`DELETE …/items/:itemId` | 물건 넣기·고치기·빼기. 내 것만, 채우는 중에만, 한 사람 5개 |
+| `POST /capsules/:id/seal` · `/open` · `/plant` | 닫기(방장) · 열기(여는 시각 이후 누구나) · 심을 자리 저장(방장) |
+| `GET /capsules/:id/items/:itemId/media?m&exp&sig` | 사진·음성·동영상 파일. 10분짜리 서명 URL이라 `<img>`·`<video>`가 헤더 없이 쓴다 |
+| `GET /health` | 살아 있는지 + 서버 시각 |
+
+내용물은 채우는 중에는 내 것만, 닫힌 뒤에는 아무도, 열린 뒤에는 모두 본다. 업로드는 파일 앞 바이트로 형식을 확인한다(사진 JPEG·PNG·WebP 8MB, 음성 M4A·MP3·WAV·WebM 4MB, 동영상 MP4·MOV·WebM 40MB).
+
+| 환경 변수 | 기본값 | 설명 |
+| --- | --- | --- |
+| `PORT` / `HOST` | `8787` / `0.0.0.0` | |
+| `CAPSULE_DATABASE_PATH` | `.data/capsules.sqlite` | 예전 PoC(구덩이·모임·참석) 스키마 파일이면 비우고 새로 만든다 |
+| `CORS_ORIGINS` | (없음) | localhost 외에 허용할 웹 주소, 쉼표 구분. 예: `https://mudeodooji.vercel.app` |
+| `MEDIA_SIGNING_SECRET` | 부팅마다 랜덤 | 미디어 URL 서명 키. 비우면 서버를 다시 켤 때 이전 URL이 무효가 된다(앱이 캡슐을 다시 불러오면 새 URL을 받는다) |
 
 
 ## 문서 지도
@@ -41,6 +67,14 @@ Expo SDK 57 기반 로컬 프로토타입. 1차 범위(시간 잠금 타임캡�
 - [구현 계획](docs/IMPLEMENTATION_PLAN.md): Codex 작업 패킷, 순서, 테스트와 완료 보고 양식
 - [에이전트 지침](AGENTS.md): Codex가 작업 전에 따라야 할 저장소 규칙
 
+## 백엔드 연결 방식
+
+앱 화면은 `src/state/capsule-store.tsx` 의 스토어만 보고, 스토어는 `CapsuleBackend`(`src/state/backend.ts`) 위에서 돈다.
+
+- `EXPO_PUBLIC_API_URL` 이 있거나 localhost·Expo 개발 서버에서 열면 **원격 백엔드**(`src/state/remote-backend.ts` → `server/`)를 쓴다. 세션 토큰은 기기에만 저장하고, 사진·음성·동영상은 base64 로 올린다.
+- 그 외(배포된 Vercel 웹)는 **로컬 백엔드**(`src/state/local-backend.ts`)로 시드 데이터를 보여 준다. 새로고침하면 사라진다. 서버 호스팅이 정해지면 Vercel 에 `EXPO_PUBLIC_API_URL`, 서버에 `CORS_ORIGINS` 만 넣으면 된다.
+- 두 백엔드는 같은 계약(`src/shared/capsule-api.ts`)과 같은 도메인 규칙(`src/domain/capsule.ts`)을 따른다. 닫기 조건·저절로 닫힘·열 수 있는 시각은 백엔드가 판정한다.
+
 ## 실행
 
 Expo SDK 57은 Node.js 22.13 이상이 필요합니다.
@@ -49,7 +83,7 @@ Expo SDK 57은 Node.js 22.13 이상이 필요합니다.
 pnpm install          # 설치 때 웹 지도 모듈이 public/maplibre/ 로 복사된다
 pnpm web              # 웹으로 화면 확인 (AR·지도 네이티브 모듈 제외)
 pnpm start            # 개발 빌드용 Metro (Expo Go 불가)
-pnpm server           # (선택) 로컬 PoC API :8787 — 아직 앱 화면과 연결 전
+pnpm server           # (선택) 로컬 API :8787
 ```
 
 실기기에서 Expo Go로 QR 코드를 스캔하거나 다음 명령을 사용할 수 있습니다.

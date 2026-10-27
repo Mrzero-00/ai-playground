@@ -1,0 +1,24 @@
+{
+  "번호": "984",
+  "홈": "샌안토니오 스퍼스",
+  "원정": "새크라멘토 킹스",
+  "수집시각": "2026-10-28 08:21 KST",
+  "기준수집": "data/수집/127_984_샌안토니오 스퍼스-새크라멘토 킹스.json",
+  "선발발표": {
+    "홈": {"발표여부": "미발표", "선발5": [], "출처": "", "날짜": ""},
+    "원정": {"발표여부": "미발표", "선발5": [], "출처": "", "날짜": ""}
+  },
+  "상태변경": [
+    {"팀": "홈", "선수": "Tobias Harris", "어제상태": "의심(Day-to-day, 종아리)", "오늘상태(확정/의심/출전)": "확정(Out)", "포지션": "F", "이번시즌_선발/경기": "불명(시즌 개막 후 4경기 연속 결장 예정)", "사유": "왼쪽 종아리 긴장(strain) — 공식적으로 Out 확정, 이번 경기까지 시즌 개막 4경기 연속 결장. 다음 출전 기회는 수요일(10/29) 유타전.", "출처": "https://www.rotowire.com/basketball/headlines/tobias-harris-injury-wont-play-tuesday-536193 ; https://www.si.com/nba/kings/onsi/kings-injury-report-4-players-ruled-out-vs-spurs", "날짜": "2026-10-27 09:53(현지)"}
+  ],
+  "신규결장": [],
+  "변동없음": {
+    "홈": "Jayden Quaintance(무릎, 확정 Out) 그대로. https://www.espn.com/nba/game/_/gameId/401909879 (2026-10-27), https://airalamo.com/spurs-kings-injury-report-keegan-murray-ben-simmons-and-more-to-know-before-tip (2026-10-27)",
+    "원정": "Ben Simmons(시즌아웃)·Keegan Murray(발목, 10~14일 재평가)·Dylan Cardwell(종아리, 최소 1주+)·Maxime Raynaud(무릎, 데뷔 전) 모두 변동 없음. https://www.si.com/nba/kings/onsi/kings-injury-report-4-players-ruled-out-vs-spurs (2026-10-27), https://airalamo.com/spurs-kings-injury-report-keegan-murray-ben-simmons-and-more-to-know-before-tip (2026-10-27)"
+  },
+  "기타": [
+    {"내용": "새크라멘토는 이번 경기에서 Murray·Raynaud·Cardwell·Simmons 4명이 모두 결장 확정된 상태로 로테이션이 매우 짧음(SI.com '4 players ruled out' 제목).", "출처": "https://www.si.com/nba/kings/onsi/kings-injury-report-4-players-ruled-out-vs-spurs", "날짜": "2026-10-27"}
+  ],
+  "엇갈림": [],
+  "못찾음": ["양팀 확정 선발 라인업"]
+}

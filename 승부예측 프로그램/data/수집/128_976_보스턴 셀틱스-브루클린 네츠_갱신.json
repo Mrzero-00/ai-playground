@@ -1,0 +1,25 @@
+{
+  "번호": "976",
+  "홈": "보스턴 셀틱스",
+  "원정": "브루클린 네츠",
+  "수집시각": "2026-10-28 08:21 KST",
+  "기준수집": "data/수집/127_976_보스턴 셀틱스-브루클린 네츠.json",
+  "선발발표": {
+    "홈": {"발표여부": "미발표", "선발5": [], "출처": "", "날짜": ""},
+    "원정": {"발표여부": "미발표", "선발5": [], "출처": "", "날짜": ""}
+  },
+  "상태변경": [],
+  "신규결장": [],
+  "변동없음": {
+    "홈": "Devin Carter(단핵구증, Out) 외 신규 결장 없음 — https://celticsblog.com/boston-celtics-game-previews/148659/brooklyn-nets-0-3-at-boston-celtics-2-1-game-4-10-27-26 (2026-10-27), https://abc7ny.com/post/brooklyn-takes-boston-aims-break-3-game-skid/19984009/ (2026-10-27)",
+    "원정": "Tyler Bilodeau 여전히 day-to-day/의심(어깨) — 확정 Out/출전 전환 소식 없음. https://www.fubo.tv/news/nba/brooklyn-nets-at-boston-celtics-where-to-watch-stream-info-tv-channel-and-live-updates-october-27-2026/ (2026-10-27), https://www.celticsblog.com/boston-celtics-game-previews/148659/brooklyn-nets-0-3-at-boston-celtics-2-1-game-4-10-27-26 (2026-10-27)"
+  },
+  "기타": [
+    {"내용": "Boston Derrick White가 hip synovitis로 probable 등재(새 이름, 어제 결장 목록엔 없었음) — 경기 출전 가능성 높은 'probable'이라 결장 가능성은 낮음.", "출처": "https://www.covers.com/sport/basketball/nba/injuries", "날짜": "2026-10-27"},
+    {"내용": "ESPN BKN 부상자 페이지는 'Bilodeau가 일요일(10/25) 인디애나전 결장' 문구만 노출 — 오늘(화요일 보스턴전) 최신 갱신이 아닌 것으로 보임, 참고만.", "출처": "https://www.espn.com/nba/team/injuries/_/name/bkn/brooklyn-nets", "날짜": "조회 2026-10-28"}
+  ],
+  "엇갈림": [
+    {"내용": "Tyler Bilodeau 상태 표현이 매체별로 'day-to-day'(fubo, nbcsports류)와 'questionable'(celticsblog)로 혼용됨 — 둘 다 경기 당일 판정 의미로 실질적 차이 없음.", "출처": "https://www.fubo.tv/news/nba/brooklyn-nets-at-boston-celtics-where-to-watch-stream-info-tv-channel-and-live-updates-october-27-2026/ ; https://www.celticsblog.com/boston-celtics-game-previews/148659/brooklyn-nets-0-3-at-boston-celtics-2-1-game-4-10-27-26"}
+  ],
+  "못찾음": ["Tyler Bilodeau 최종(경기 직전) 출전/결장 확정 발표 — 08:21 KST 시점까지 공식 최종판정 기사 없음", "양팀 확정 선발 라인업"]
+}

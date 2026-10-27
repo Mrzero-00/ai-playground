@@ -1,0 +1,104 @@
+{
+  "번호": "924",
+  "홈": "탬파베이 레이스",
+  "원정": "밀워키 브루어스",
+  "리그": "MLB",
+  "수집시각": "2026-10-28 08:26 KST",
+  "시리즈": {
+    "3차전결과": "2026-10-27(ET 10/26 저녁) @TB Tropicana Field — 브루어스 10, 레이스 1. 브루어스가 2사 이후 7연속 안타·8득점으로 월드시리즈 신기록(2아웃 연속안타·2아웃 득점)을 세우며 대승",
+    "시리즈상황": "밀워키 3-0 리드 (7전4선승). 월드시리즈 역사상 0-3 리버스는 전무, 7전제 시리즈 전체 중 0-3 역전은 2004 ALCS 보스턴 1회뿐",
+    "출처": "https://sports.yahoo.com/mlb/live/brewers-rays-box-score-live-updates-world-series-game-3-lineups-starting-pitchers-news-highlights-where-to-watch-230000283.html ; https://www.npr.org/2026/10/27/nx-s1-6019094/mlb-world-series-tuesday ; https://www.cnn.com/2026/10/26/sport/live-news/world-series-game-3",
+    "날짜": "2026-10-27"
+  },
+  "선발투수": {
+    "홈": {
+      "이름": "Griffin Jax (RHP)",
+      "확정여부": "확정 (레이스 공식 발표, MLB.com)",
+      "최근등판": [
+        {"경기": "ALCS (vs CLE)", "날짜": "2026-10-15", "내용": "최근 등판 — 포스트시즌 2경기(1선발) 6이닝 4자책"}
+      ],
+      "비고": "정규시즌 34경기(23선발) ERA 3.53 — 시즌 중 선발·불펜 겸업 투수. 이번 등판은 전통적 선발 역할이나, 감독 Kevin Cash는 '시즌이 걸린 경기라 일찍부터 불펜 총동원' 짧은 리드(short leash) 방침을 밝힘 — 이상적 시나리오는 Jax가 4~5이닝 리드 유지 후 불펜 총력전",
+      "출처": "https://clutchpoints.com/mlb/tampa-bay-rays/rays-news-tampa-bay-griffin-jax-world-series-game-4 ; https://www.si.com/fannation/mlb/fastball/news/probable-pitchers-in-rays-do-or-die-world-series-game-4-against-brewers-justin3",
+      "날짜": "2026-10-26~27"
+    },
+    "원정": {
+      "이름": "Dustin May (RHP)",
+      "확정여부": "확정 (브루어스 공식 발표, ESPN/MLB.com) — 불펜게임(bullpen game) 성격의 선발, 정규 선발이 아닌 '오프닝' 역할",
+      "최근등판": [
+        {"경기": "WS Game 2", "날짜": "2026-10-24", "내용": "1이닝 무실점 구원 등판 (5-4 브루어스 승리 경기)"}
+      ],
+      "비고": "정규시즌 7승9패 ERA 4.70 144탈삼진. 포스트시즌 4경기(1선발) 8이닝 ERA 5.63. 이번 등판은 'bullpen game plan'으로 명시됨(ESPN) — 짧게 던지고 불펜 총동원 예상",
+      "출처": "https://www.espn.com/mlb/story/_/id/50300459/brewers-start-dustin-possible-world-series-clincher ; https://fox11online.com/sports/brewers-and-mlb/may-to-start-game-4-for-brewers",
+      "날짜": "2026-10-26~27"
+    }
+  },
+  "3차전투수운용": {
+    "홈": [
+      {"투수": "Freddy Peralta (선발)", "이닝": "4.2이닝 조기강판", "투구수": "87구(4회까지 64구, 그중 볼 35개) — 5실점 7피안타 3볼넷, 타순 3회 상대까지 끌고가다 강판"},
+      {"투수": "Cam Booser", "이닝": "불펜 등판(Peralta 강판 직후 Brice Turang 상대)", "투구수": "미확인"},
+      {"투수": "Cole Sulser", "이닝": "불펜 등판 — 브루어스 2아웃 이후 7연속 안타 랠리 중 피안타 허용", "투구수": "미확인(연전 소모 투수로 거론됨)"}
+    ],
+    "원정": [
+      {"투수": "Robert Gasser (선발)", "이닝": "6이닝 무실점·1피안타(최소타자 상대 기록급 완벽투)", "투구수": "75구(1볼넷 3탈삼진)"},
+      {"투수": "Antonio Senzatela", "이닝": "Gasser 이후 등판, 상대한 6타자 전원 처리", "투구수": "미확인"},
+      {"투수": "Brandon Woodruff", "이닝": "경기 마지막 이닝 등판(7월 부상 복귀 후 첫 포스트시즌 실전 등판으로 보임)", "투구수": "미확인"}
+    ],
+    "출처": "https://www.pinstripealley.com/mlb-news/213349/world-series-score-brewers-rays-game-3-chourio-contreras-yelich-turang-gasser-peralta-mlb-playoffs ; https://www.mlb.com/news/brewers-rays-world-series-game-4-starting-lineups-and-pitching-matchup ; https://www.bleacherreport.com/liveblogs/25520770-brewers-vs-rays-mlb-world-series-game-3-live-updates-results-highlights-and-reaction",
+    "날짜": "2026-10-26~27"
+  },
+  "라인업": {
+    "홈": {
+      "발표여부": "발표됨",
+      "타순": ["1 Yandy Diaz DH", "2 Jonathan Aranda 1B", "3 Junior Caminero 3B", "4 Liam Hicks C", "5 Jonny DeLuca CF", "6 Chandler Simpson LF", "7 Ryan Vilade RF", "8 Richie Palacios 2B", "9 Taylor Walls SS"],
+      "비고": "3차전(좌투 Gasser 상대) 대비 변경 — Hicks가 C로 복귀(Fortes 제외), Aranda가 1B 선발(Vilade는 RF로 이동), Caminero 3번으로 상향, Palacios가 2B(Williamson 제외), Victor Mesa Jr. 라인업 제외. 우완 Jax 상대라 3차전과 다른 조합(플래툰 변경)",
+      "출처": "https://sports.yahoo.com/mlb/live/brewers-rays-box-score-live-updates-world-series-game-4-lineups-starting-pitchers-news-highlights-where-to-watch-223000629.html ; https://www.mlb.com/news/brewers-rays-world-series-game-4-starting-lineups-and-pitching-matchup",
+      "날짜": "2026-10-27"
+    },
+    "원정": {
+      "발표여부": "발표됨",
+      "타순": ["1 Jackson Chourio LF", "2 Jake Bauers 1B", "3 Christian Yelich DH", "4 William Contreras C", "5 Brice Turang 2B", "6 Sal Frelick RF", "7 Cooper Pratt SS", "8 Garrett Mitchell CF", "9 David Hamilton 3B"],
+      "비고": "3차전 대비 1곳 변경 — Frelick이 6번(기존 8번)으로 상향, Mitchell이 8번(기존 6번)으로 하향. 나머지 동일",
+      "출처": "https://www.mlb.com/news/brewers-rays-world-series-game-4-starting-lineups-and-pitching-matchup",
+      "날짜": "2026-10-27"
+    }
+  },
+  "결장": [
+    {"팀": "원정", "선수": "Grant Anderson", "포지션": "RHP", "사유": "팔꿈치(이두근) 15일 IL", "상태": "확정(시즌 내내)", "출처": "https://www.covers.com/sport/baseball/mlb/matchup/395578", "날짜": "2026-10-27"},
+    {"팀": "원정", "선수": "Brian Fitzpatrick", "포지션": "RHP", "사유": "팔꿈치 60일 IL", "상태": "확정(시즌 내내)", "출처": "https://www.covers.com/sport/baseball/mlb/matchup/395578", "날짜": "2026-10-27"},
+    {"팀": "원정", "선수": "Quinn Priester", "포지션": "RHP", "사유": "손목 60일 IL", "상태": "확정(시즌 내내)", "출처": "https://www.covers.com/sport/baseball/mlb/matchup/395578", "날짜": "2026-10-27"},
+    {"팀": "원정", "선수": "Angel Zerpa", "포지션": "LHP", "사유": "팔뚝 60일 IL", "상태": "확정(시즌 내내)", "출처": "https://www.covers.com/sport/baseball/mlb/matchup/395578", "날짜": "2026-10-27"},
+    {"팀": "홈", "선수": "Gavin Lux", "포지션": "IF", "사유": "어깨 60일 IL", "상태": "확정(시즌 내내)", "출처": "https://www.covers.com/sport/baseball/mlb/matchup/395578", "날짜": "2026-10-27"},
+    {"팀": "홈", "선수": "Jon Heasley", "포지션": "RHP", "사유": "팔꿈치 60일 IL", "상태": "확정(시즌 내내)", "출처": "https://www.covers.com/sport/baseball/mlb/matchup/395578", "날짜": "2026-10-27"},
+    {"팀": "홈", "선수": "Shane McClanahan", "포지션": "LHP", "사유": "팔뚝 부상 — 포스트시즌 전체 제외 확정", "상태": "확정", "출처": "https://www.mlb.com/news/brewers-rays-world-series-game-4-starting-lineups-and-pitching-matchup ; https://www.covers.com/sport/baseball/mlb/matchup/395578", "날짜": "2026-10-27"},
+    {"팀": "홈", "선수": "Edwin Uceta", "포지션": "RHP", "사유": "어깨 60일 IL", "상태": "확정(시즌 내내)", "출처": "https://www.covers.com/sport/baseball/mlb/matchup/395578", "날짜": "2026-10-27"},
+    {"팀": "홈", "선수": "Jacob Melton", "포지션": "OF", "사유": "햄스트링 60일 IL", "상태": "확정(시즌 내내)", "출처": "https://www.covers.com/sport/baseball/mlb/matchup/395578", "날짜": "2026-10-27"},
+    {"팀": "홈", "선수": "Ryan Pepiot", "포지션": "RHP", "사유": "엉덩이 60일 IL", "상태": "확정(시즌 내내)", "출처": "https://www.covers.com/sport/baseball/mlb/matchup/395578", "날짜": "2026-10-27"},
+    {"팀": "홈", "선수": "Victor Mesa Jr.", "포지션": "OF", "사유": "4차전 라인업 제외(부상 보도 없음, 선발 제외일 뿐)", "상태": "의심", "출처": "https://www.mlb.com/news/brewers-rays-world-series-game-4-starting-lineups-and-pitching-matchup", "날짜": "2026-10-27"}
+  ],
+  "불펜": [
+    {"팀": "원정(브루어스)", "내용": "핵심 불펜 Aaron Ashby, Abner Uribe, Trevor Megill은 3차전에서 쉬어 4차전 전원 가용. Brandon Woodruff가 3차전 마지막 이닝을 던져 7월 부상 복귀 후 첫 실전 등판 — 연투(이틀 연속) 가능성은 낮다고 보도됨", "출처": "https://www.mlb.com/news/brewers-rays-world-series-game-4-starting-lineups-and-pitching-matchup", "날짜": "2026-10-27"},
+    {"팀": "홈(레이스)", "내용": "Kevin Cash의 '신뢰 트리'가 사실상 Bryan Baker·Cam Booser 둘로 축소 — 이번 포스트시즌 내내 Baker를 1이닝 넘게, Booser를 17구 넘게 쓴 적이 없음. Cole Sulser는 3차전 레이스의 8실점 랠리 이닝에 등판해 피안타(연전 소모). 베테랑 선발 Nick Martinez(1차전 선발)가 멀티이닝 가능 자원으로 대기, Baker가 1이닝 이상 등판할 가능성 거론됨. 감독은 '시즌이 걸린 경기'라 짧은 리드(short leash)로 Jax를 조기 강판하고 불펜 총동원 방침", "출처": "https://sports.yahoo.com/articles/pitcher-rays-calling-save-season-044611705.html ; https://blogs.fangraphs.com/how-do-the-bullpens-line-up-for-world-series-game-4/ ; https://www.foxsports.com/stories/mlb/world-series-brewers-rays-pitchers-line-up-pitchers", "날짜": "2026-10-27"}
+  ],
+  "날씨·심판": {
+    "구장": "Tropicana Field (St. Petersburg, FL) — 고정 돔구장, 날씨 영향 없음",
+    "날씨": "돔(실내, 해당 없음)",
+    "주심": "James Hoye (2026 월드시리즈 심판조 크루치프, 4차전 주심 배정). 1루 Dan Bellino, 2루 Tripp Gibson, 3루 Gabe Morales, 좌익 Jim Wolf, 우익 Nic Lentz, 예비 Vic Carapazza",
+    "출처": "https://sports.yahoo.com/articles/2026-world-series-umpire-crew-205550880.html",
+    "날짜": "2026-10-22"
+  },
+  "일정·동기·기타": [
+    {"내용": "밀워키 3-0 리드, 승리 시 구단 역사상 첫 월드시리즈 우승 + LCS·WS 동시 스윕이라는 사상 첫 기록. 역대 0-3 리버스는 전무(7전제 전체 포함해도 2004 ALCS 1회뿐, '성공률 98%+가 아니라 0%' 수준으로 보도)", "출처": "https://sports.yahoo.com/mlb/live/brewers-rays-box-score-live-updates-world-series-game-4-lineups-starting-pitchers-news-highlights-where-to-watch-223000629.html", "날짜": "2026-10-27"},
+    {"내용": "레이스는 0-3 궁지에서 벼랑 끝(win-or-go-home) 경기. 3차전 10-1 대패로 분위기 최악", "출처": "https://clutchpoints.com/mlb/tampa-bay-rays/rays-news-tampa-bay-griffin-jax-world-series-game-4", "날짜": "2026-10-26"},
+    {"내용": "양 팀 모두 4차전 선발을 '전통적 선발'이 아닌 변칙 운용(레이스는 선발·불펜 겸업 Jax, 브루어스는 구원 전문 May를 오프너로) — 사실상 양 팀 다 불펜 싸움으로 흐를 가능성 보도", "출처": "https://www.espn.com/mlb/story/_/id/50300459/brewers-start-dustin-possible-world-series-clincher", "날짜": "2026-10-27"}
+  ],
+  "엇갈림": [
+    "홈플레이트 심판: 10/22 사전 배정 기사(Yahoo)는 4차전 주심을 James Hoye로 명시. 별도 검색된 'WS Game 4 홈플레이트 심판 혹평' 기사는 Doug Eddings·2025시즌(다저스-블루제이스) 건으로 연도가 달라 본 경기와 무관 — James Hoye를 채택"
+  ],
+  "못찾음": [
+    "Cam Booser·Cole Sulser·Antonio Senzatela·Brandon Woodruff의 3차전 개별 투구수",
+    "Griffin Jax의 ALCS(10/15) 등판 투구수",
+    "Dustin May 3차전 이전 포스트시즌 각 등판의 개별 투구수 내역",
+    "4차전 라인업에서 Victor Mesa Jr.·Ben Williamson·Nick Fortes 제외 사유(부상 여부 vs 단순 매치업 로테이션)"
+  ],
+  "뉴스없음": {"홈": "", "원정": ""}
+}

@@ -1,0 +1,27 @@
+{
+  "번호": "980",
+  "홈": "뉴욕 닉스",
+  "원정": "디트로이트 피스톤스",
+  "수집시각": "2026-10-28 08:21 KST",
+  "기준수집": "data/수집/127_980_뉴욕 닉스-디트로이트 피스톤스.json",
+  "선발발표": {
+    "홈": {"발표여부": "미발표", "선발5": [], "출처": "", "날짜": ""},
+    "원정": {"발표여부": "미발표", "선발5": [], "출처": "", "날짜": ""}
+  },
+  "상태변경": [
+    {"팀": "원정", "선수": "Ausar Thompson", "어제상태": "의심(Questionable)", "오늘상태(확정/의심/출전)": "의심(변동없음, 긍정적 신호)", "포지션": "F", "이번시즌_선발/경기": "직전 시즌 올디펜시브급 주전", "사유": "오른쪽 발목 염좌 — 월요일 공식 인저리리포트에서 'Out 가능성'에서 'Questionable'로 상향됐었고(10/26), 오늘 경기 당일 아침 슈트어라운드(shootaround)에 참가해 슈팅 훈련 — 출전 가능성 신호지만 여전히 공식 최종판정 전", "출처": "https://www.nbcsports.com/fantasy/basketball/player-news/2026-10-26/ausar-thompson-ankle-questionable-vs-new-york ; https://heavy.com/sports/nba/detroit-pistons/positive-injury-update-thompson-joe-jalen-duren-news-knicks-game/", "날짜": "2026-10-26~27"},
+    {"팀": "원정", "선수": "Isaiah Joe", "어제상태": "의심(Questionable)", "오늘상태(확정/의심/출전)": "의심(변동없음, 긍정적 신호)", "포지션": "G", "이번시즌_선발/경기": "확인 안됨", "사유": "오른쪽 힙 컨투전 — 공식 인저리리포트상 여전히 Questionable, 다만 오늘 아침 슈트어라운드 참가해 슈팅 훈련함(긍정 신호)", "출처": "https://heavy.com/sports/nba/detroit-pistons/positive-injury-update-thompson-joe-jalen-duren-news-knicks-game/ ; https://www.nbcsports.com/fantasy/basketball/player-news/2026-10-26/isaiah-joe-hip-questionable-vs-new-york", "날짜": "2026-10-26~27"}
+  ],
+  "신규결장": [],
+  "변동없음": {
+    "홈": "Jose Alvarado(발목, 확정 Out) 그대로 — 신규 결장 없음. https://heavy.com/sports/nba/new-york-knicks/key-injury-update-ausar-thompson-pistons-tuesday-game/ (2026-10-27)",
+    "원정": "Jalen Duren(햄스트링, 확정 Out, 약 2주) 그대로 변동 없음. https://detroitsportsnation.com/pistons-injury-report-jalen-duren-out-knicks/gkaplan/detroit-pistons/10/27/2026/502850/ (2026-10-27), https://athlonsports.com/nba/detroit-pistons/final-injury-report-for-pistons-knicks-will-jalen-duren-ausar-thompson-play (2026-10-27)"
+  },
+  "기타": [
+    {"내용": "Ausar Thompson·Isaiah Joe 둘 다 경기 당일 아침 슈트어라운드에 나와 슈팅 훈련 — 출전 쪽에 긍정적이나 Detroit는 결장 시 대비해 Javonte Green·Kevin Huerter를 백업으로 보유.", "출처": "https://heavy.com/sports/nba/detroit-pistons/positive-injury-update-thompson-joe-jalen-duren-news-knicks-game/", "날짜": "2026-10-27"}
+  ],
+  "엇갈림": [
+    {"내용": "일부 자동요약 검색 결과가 'Thompson 최종 Out 확정'으로 표현했으나, fantasypros·nbcsports·cbssports·yahoo 등 다수 1차 매체는 공통으로 'Questionable(최종 미정)'로만 표기 — 다수 매체 쪽을 채택.", "출처": "https://www.fantasypros.com/nba/news/616099/ausar-thompson-ankle-questionable-tuesday.php ; https://www.cbssports.com/fantasy/basketball/news/pistons-isaiah-joe-iffy-for-tuesday/"}
+  ],
+  "못찾음": ["Ausar Thompson·Isaiah Joe 경기 직전 최종(출전/결장) 공식 확정 — 08:21 KST 시점까지 미공개", "양팀 확정 선발 라인업"]
+}

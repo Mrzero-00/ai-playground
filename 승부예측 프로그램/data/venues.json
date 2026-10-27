@@ -489,8 +489,8 @@
   "venue_qid": "Q777926"
  },
  "골고하르 시르잔": {
-  "checked": "2026-10-26",
-  "eng": "골고하르 시르잔",
+  "checked": "2026-10-28",
+  "eng": "",
   "src": "못찾음",
   "venue": null
  },
@@ -554,6 +554,12 @@
  },
  "꽁안 하노이": {
   "checked": "2026-10-27",
+  "eng": "",
+  "src": "못찾음",
+  "venue": null
+ },
+ "나가사키 벨카": {
+  "checked": "2026-10-28",
   "eng": "",
   "src": "못찾음",
   "venue": null
@@ -651,7 +657,7 @@
   "venue_qid": "Q59556849"
  },
  "대구한국가스공사 페가수스": {
-  "checked": "2026-10-25",
+  "checked": "2026-10-28",
   "eng": "Daegu Kogas Pegasus",
   "src": "못찾음",
   "venue": null
@@ -818,6 +824,12 @@
   "venue": "레이스코스 그라운드",
   "venue_qid": "Q1202579"
  },
+ "류큐 골든킹스": {
+  "checked": "2026-10-28",
+  "eng": "",
+  "src": "못찾음",
+  "venue": null
+ },
  "리버풀": {
   "checked": "2026-10-17",
   "elev": 66,
@@ -857,6 +869,12 @@
   "team_qid": "Q169138",
   "venue": "카세야 센터",
   "venue_qid": "Q420129"
+ },
+ "마카오 호우촌": {
+  "checked": "2026-10-28",
+  "eng": "",
+  "src": "못찾음",
+  "venue": null
  },
  "맥아서FC": {
   "checked": "2026-10-24",
@@ -1143,6 +1161,16 @@
   "team_qid": "Q19451",
   "venue": "리복 스타디움",
   "venue_qid": "Q242772"
+ },
+ "부리람 유나이티드": {
+  "checked": "2026-10-28",
+  "elev": 172,
+  "lat": 14.9667,
+  "lon": 103.0961,
+  "src": "Wikidata Q252065→Q1771247 · Open-Meteo 고도",
+  "team_qid": "Q252065",
+  "venue": "뉴아이모바일 스타디움",
+  "venue_qid": "Q1771247"
  },
  "부산 아이파크": {
   "checked": "2026-10-25",
@@ -1665,6 +1693,12 @@
   "venue": "유나이티드 센터",
   "venue_qid": "Q639975"
  },
+ "아르카다그": {
+  "checked": "2026-10-28",
+  "eng": "",
+  "src": "못찾음",
+  "venue": null
+ },
  "아비스파 후쿠오카": {
   "checked": "2026-10-24",
   "elev": 29,
@@ -1989,7 +2023,7 @@
   "venue_qid": "Q10626"
  },
  "요코하마 DeNA베이스타스": {
-  "checked": "2026-10-27",
+  "checked": "2026-10-28",
   "eng": "",
   "src": "못찾음",
   "venue": null
@@ -2107,7 +2141,7 @@
   "venue_qid": "Q223240"
  },
  "원주DB 프로미": {
-  "checked": "2026-10-25",
+  "checked": "2026-10-28",
   "eng": "Wonju Dongbu Promy",
   "src": "못찾음",
   "venue": null
@@ -2493,6 +2527,12 @@
   "venue": "쾰른(구단 좌표 — 구장 미확인)",
   "venue_qid": ""
  },
+ "쿠웨이트SC": {
+  "checked": "2026-10-28",
+  "eng": "",
+  "src": "못찾음",
+  "venue": null
+ },
  "퀸즈파크 레인저스": {
   "checked": "2026-10-17",
   "elev": 11,
@@ -2522,6 +2562,12 @@
   "team_qid": "Q162990",
   "venue": "로켓 아레나",
   "venue_qid": "Q387157"
+ },
+ "타오위안 파우이안 파일러츠": {
+  "checked": "2026-10-28",
+  "eng": "",
+  "src": "못찾음",
+  "venue": null
  },
  "탬파베이 레이스": {
   "checked": "2026-10-24",
@@ -2644,10 +2690,14 @@
   "venue_qid": "Q978904"
  },
  "페르십 반둥": {
-  "checked": "2026-10-26",
-  "eng": "Persib Bandung",
-  "src": "못찾음",
-  "venue": null
+  "checked": "2026-10-28",
+  "elev": 711,
+  "lat": -6.9103,
+  "lon": 107.6194,
+  "src": "Wikidata Q1630834→Q4810265 · Open-Meteo 고도",
+  "team_qid": "Q1630834",
+  "venue": "Siliwangi Stadium",
+  "venue_qid": "Q4810265"
  },
  "페예노르트": {
   "checked": "2026-10-25",
@@ -2710,10 +2760,14 @@
   "venue_qid": "Q262291"
  },
  "포항 스틸러스": {
-  "checked": "2026-10-24",
-  "eng": "Pohang Steelers",
-  "src": "못찾음",
-  "venue": null
+  "checked": "2026-10-28",
+  "elev": 18,
+  "lat": 35.9977,
+  "lon": 129.3844,
+  "src": "Wikidata Q169985→Q485061 · Open-Meteo 고도",
+  "team_qid": "Q169985",
+  "venue": "포항스틸야드",
+  "venue_qid": "Q485061"
  },
  "풀럼": {
   "checked": "2026-10-17",

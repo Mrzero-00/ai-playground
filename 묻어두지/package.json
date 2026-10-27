@@ -10,6 +10,7 @@
     "@expo-google-fonts/gowun-dodum": "^0.4.1",
     "@expo-google-fonts/jua": "^0.4.1",
     "@expo/ui": "~57.0.14",
+    "@react-native-picker/picker": "2.11.4",
     "@reactvision/react-viro": "3.0.3",
     "@reactvision/viro-web-renderer": "^1.0.1",
     "expo": "~57.0.18",

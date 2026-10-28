@@ -1,0 +1,36 @@
+{
+ "번호":"1009","홈":"가시마 앤틀러스","원정":"포항 스틸러스","수집시각":"2026-10-28 18:55",
+ "대회":"AFC 챔피언스리그 엘리트 리그스테이지 MD3 (단판, 가시마 사커 스타디움, 19:00 KST)",
+ "결장":[
+  {"팀":"가시마 앤틀러스","선수":"Leo Ceara(レオ・セアラ)","포지션":"FW","이번시즌_선발/경기":"불명","득점·도움":"J1 12골(127회 파일, 득점 1위)","사유":"햄스트링 통증(10/21 교토전 교체)","상태":"확정: 출전 가능하나 선발 제외, 벤치(등번호 9)","복귀예정":"10/27 훈련 합류, 오니키 감독 '예상보다 양호'","대체선수":"선발 FW 34 Homare Tokuda(徳田誉), 77 Aleksandar Cavric","출처":["https://www.footballchannel.jp/2026/10/28/post1041591/","스포니치 아넥스 via Yahoo!ニュース 2026-10-27(제목: 鹿島 28日ACLE浦項戦前に朗報 レオ・セアラが練習合流 鬼木監督「思った以上に良好」)"],"날짜":"2026-10-28"},
+  {"팀":"가시마 앤틀러스","선수":"Yan Matheus(얀 마테우스)","포지션":"FW","이번시즌_선발/경기":"불명","득점·도움":"불명","사유":"부상(127회 파일)","상태":"의심(이번 수집에서 재확인 못함; 28일 벤치 명단에도 없음)","복귀예정":"불명","대체선수":"불명","출처":["127 파일 yahoo 2026-10-22"],"날짜":"2026-10-22"},
+  {"팀":"가시마 앤틀러스","선수":"Kyosuke Tagawa(田川亨介)","포지션":"FW","이번시즌_선발/경기":"불명","득점·도움":"불명","사유":"부상(127회 파일)","상태":"의심(벤치 명단에 없음)","복귀예정":"불명","대체선수":"불명","출처":["127 파일 yahoo 2026-10-22"],"날짜":"2026-10-22"}
+ ],
+ "라인업":{
+  "홈":{"발표여부":"발표됨(footballchannel 2026-10-28 18:18)","선발XI":"GK 1 Tomoki Hayakawa(早川友基); DF 4 Kaito Chida(千田海人), 5 Ikuma Sekigawa(関川郁万), 7 Ryoya Ogawa(小川諒也), 37 Rikuto Hirose(広瀬陸斗); MF 8 Matheus Bueno, 17 Élber, 24 Haruki Hayashi(林晴己), 35 Anthony Motosuna(元砂晏翔仁ウデンバ); FW 34 Homare Tokuda(徳田誉), 77 Aleksandar Cavric","포메이션":"기사 미표기(4-4-2 추정, 직전 선발 형태)","직전경기 대비 교체":"10/13 CAHN전 선발 대비: 일부 변경; 벤치 9 Leo Ceara, 10 Gaku Shibasaki, 14 Yuta Higuchi, 23 Keisuke Tsukui, 25 Ryota Koike, 27 Yuta Matsumura, 28 Yugo Okawa, 30 Minato Yoshida, 40 Yuma Suzuki, 42 Rui Onuki, 55 Naomichi Ueda, GK 21 Daiki Yamada. 선발에서 빠진 주력: Ueda, Kim Tae-Hyeon(명단에 없음), Misao, Matsumura, Suzuki Yuma, Leo Ceara. (127 파일 예상 XI와 큰 차이: Leo Ceara·Yuma Suzuki 벤치)","출처":"https://www.footballchannel.jp/2026/10/28/post1041591/","날짜":"2026-10-28"},
+  "원정":{"발표여부":"발표됨(같은 기사)","선발XI":"GK 21 Hwang In-Jae(황인재); DF 5 Jin Si-Woo(진시우), 33 Jo Sung-Wook(조성욱), 20 Park Chan-Yong(박찬용), 77 Wanderson(완더손), 13 Kang Min-Jun(강민준); MF 8 Kim Seung-Ho(김승호), 16 Kim Dong-Jin(김동진), 31 Kento Nishiya(西矢健人); FW 25 Jorge Teixeira(조르지), 10 Jakob Tranziska(트란지스카)","포메이션":"기사 미표기","직전경기 대비 교체":"10/13 JDT전 선발(황인재·진시우·완더손·박찬용·조성욱·강민준·김승호·니시야·김동진·조르지·트란지스카) 11명 모두 동일 — 10/13 대비 변경 없음. 벤치: GK 1 Yoon Pyung-Guk, DF 3 Kim Ye-Sung, 17 Shin Kwang-Hun, 32 Cho Young-Jun, 14 Lee Chang-Woo, MF 36 Kim Ho-Jin, 22 Kim Kwang-Won, FW 9 An Jae-Jun, 11 Junior Rocha(Paulo Rocha), 18 Cho Sang-Hyuk, 30 Kim Young-Hak, 37 Jeong Han-Min. 기성용·홍성민·전민광 등은 명단에 보이지 않음","출처":"https://www.footballchannel.jp/2026/10/28/post1041591/","날짜":"2026-10-28"}
+ },
+ "최근경기":[
+  {"팀":"가시마 앤틀러스","날짜":"2026-09-15","상대":"Newcastle Jets","장소":"홈","스코어":"7-1 승","비고":"ACLE MD1 (footballchannel 2026-10-28)"},
+  {"팀":"가시마 앤틀러스","날짜":"2026-10-09","상대":"Gamba Osaka","장소":"홈","스코어":"2-0 승","비고":"J1"},
+  {"팀":"가시마 앤틀러스","날짜":"2026-10-13","상대":"Cong An Ha Noi","장소":"원정","스코어":"1-0 승","비고":"ACLE MD2, 자책골"},
+  {"팀":"가시마 앤틀러스","날짜":"2026-10-17","상대":"V-Varen Nagasaki","장소":"홈","스코어":"2-0 승","비고":"J1"},
+  {"팀":"가시마 앤틀러스","날짜":"2026-10-21","상대":"Kyoto Sanga","장소":"원정","스코어":"2-2","비고":"J1, Leo Ceara 교체"},
+  {"팀":"가시마 앤틀러스","날짜":"2026-10-24","상대":"Kashiwa Reysol","장소":"홈","스코어":"2-3 패","비고":"J1 (ESPN/팀노트 FACTS; 127 파일은 스코어 못찾음)"},
+  {"팀":"포항 스틸러스","날짜":"2026-09-15","상대":"Beijing Guoan","장소":"원정","스코어":"1-3 패","비고":"ACLE MD1"},
+  {"팀":"포항 스틸러스","날짜":"2026-10-13","상대":"Johor Darul Ta'zim","장소":"홈","스코어":"0-2 패","비고":"ACLE MD2"},
+  {"팀":"포항 스틸러스","날짜":"2026-10-09","상대":"Incheon United","장소":"원정","스코어":"0-3 패","비고":"K리그1 (팀노트 조사 10/13). 10월 하순 K리그 결과는 못찾음"}
+ ],
+ "대회전적":{"가시마":"MD1 7-1 Newcastle Jets(H), MD2 1-0 @Cong An Ha Noi","포항":"MD1 1-3 @Beijing Guoan, MD2 0-2 Johor(H)","출처":"https://www.footballchannel.jp/2026/10/28/post1006392/ ; https://www.jleague.jp/en/news/article/35210/ (2026-10-26)","날짜":"2026-10-28"},
+ "순위":{"홈":"ACLE 2전2승 득8실1 승점6; J1 8위 12경기 6승2무4패 승점20(팀노트 FACTS, ESPN 기준. 127 파일의 '동부지구 선두 18경기 13승4무1패'와 상충 — 팩트시트 우선)","원정":"ACLE 14위 2전2패 득1실5 승점0; K리그1 중하위(10/13 기준 31R 40점 11승7무13패, 팀노트)","출처":"https://www.jleague.jp/en/acle/standings/","날짜":"2026-10-28"},
+ "감독":{"홈":"Toru Oniki(鬼木達)","원정":"Park Tae-ha(박태하)","변동":"없음","출처":"팀노트 FACTS; jleague.jp","날짜":"2026-10-28"},
+ "일정·동기·기타":[
+  {"내용":"가시마 Leo Ceara 훈련 합류, 오니키 '思った以上に良好' — 결국 벤치 배치(출전 대기)","출처":"스포니치 via Yahoo!ニュース / livedoor (Google News RSS), https://www.footballchannel.jp/2026/10/28/post1041591/","날짜":"2026-10-27/28"},
+  {"내용":"가시마는 3연승 시 조 상위 유리, 포항 2연패 탈락 위기. Shibasaki Gaku가 가시마 벤치(주전 로테이션 시사)","출처":"https://www.jleague.jp/en/news/article/35210/","날짜":"2026-10-26"},
+  {"내용":"가시마 Ogawa Ryoya: 10/24 Kashiwa전 어시스트 기록, ACLE 3연승 의욕(인포시크 기사)","출처":"Google News RSS 경유 Infoseek","날짜":"2026-10-27"},
+  {"내용":"일본 블로그 요약: 직전 대비 Leo Ceara·Yoshida·Bueno 대신 Tokuda·Hayashi·Shibasaki 투입 추정 — 공식 명단과 일부 불일치(Bueno는 선발, Shibasaki는 벤치), 블로그는 신뢰 낮음","출처":"WebSearch 결과 스니펫(개인 블로그)","날짜":"2026-10-28"}
+ ],
+ "엇갈림":["127 파일 예상 XI와 확정 XI 불일치 큼: 가시마 Leo Ceara·Yuma Suzuki·Ueda·Matsumura 벤치","127 파일 가시마 순위 '18경기 13승4무1패'는 팀노트 FACTS(12경기 6승2무4패)와 상충","확정 명단에서 포항 기성용·홍성민·Paulo Rocha 선발 제외(Rocha는 Junior Rocha 11번 벤치로 추정)"],
+ "못찾음":["포항 한국 매체의 10/27~28 결장 기사(WebSearch 2회 결과 없음)","가시마 포메이션 공식 표기","Yan Matheus·Tagawa 최신 상태 재확인"],
+ "뉴스없음":{"홈":"Leo Ceara 외 신규 결장 확정 뉴스 없음(footballchannel 확정 명단, jleague.jp 프리뷰, Google News RSS)","원정":"검색처: 한국어 WebSearch 2회(박태하/결장), jleague.jp 프리뷰 → 포항 신규 결장 뉴스 없음; 확정 명단상 10/13 선발 11명 그대로"}
+}

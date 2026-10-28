@@ -1,0 +1,77 @@
+{
+  "번호": "1042",
+  "홈": "페르십 반둥",
+  "원정": "멜버른 빅토리",
+  "리그": "AFC 챔피언스리그2 2026-27 그룹E 3차전(MD3)",
+  "수집시각": "2026-10-28 19:30 KST",
+  "결장": [
+    {"팀": "페르십 반둥", "선수": "Marc Klok", "포지션": "MF(주장)", "이번시즌_선발/경기": "불명(주전급)", "득점·도움": "불명", "사유": "10/14 MD2 테꽁 비엣텔전(1-0 승) 퇴장 — 그룹스테이지 출장정지", "상태": "확정", "복귀예정": "이번 경기 결장, 이후 복귀", "대체선수": "불명(fotmob 예상 XI에는 Klok이 그대로 포함돼 있어 출처 간 모순 — 엇갈림 참고)", "출처": "https://melbournevictory.com.au/news/piecing-together-persib/", "날짜": "2026-10-26"},
+    {"팀": "페르십 반둥", "선수": "Teja Paku Alam", "포지션": "GK", "이번시즌_선발/경기": "불명(주전 GK)", "득점·도움": "-", "사유": "부상으로 10/25 가루다약사전 결장(suaragarut.id 'Cedera Teja')", "상태": "확정(10/25 기준)", "복귀예정": "불명, 오늘 복귀 여부 미확인", "대체선수": "Rhaka Syafaka(예상)", "출처": "https://suaragarut.id/persib-hadapi-garudayaksa-cedera-teja", "날짜": "2026-10-25"},
+    {"팀": "페르십 반둥", "선수": "Beckham Putra, Ragnar Oratmangoen", "포지션": "MF/FW", "이번시즌_선발/경기": "불명", "득점·도움": "불명", "사유": "부상에서 회복 후 10/25 가루다약사전 복귀(출전 여부는 복귀 명단 포함 수준)", "상태": "복귀(결장 아님)", "복귀예정": "복귀함", "대체선수": "-", "출처": "https://suaragarut.id/persib-hadapi-garudayaksa-cedera-teja", "날짜": "2026-10-25"},
+    {"팀": "멜버른 빅토리", "선수": "Louis D'Arrigo, Matheus Rossetto(종아리), Ben Mazzeo(발목), Alessandro Lopane(햄스트링), Ryan Kalms(무릎)", "포지션": "복수", "이번시즌_선발/경기": "불명", "득점·도움": "불명", "사유": "10/27 어제 수집에서 확정 결장 보도(aleagues.com.au) — 오늘 추가 변동 보도는 못 찾음(carry-over, 어제와 동일 추정)", "상태": "확정(10/27 기준, 오늘 재확인 못함)", "복귀예정": "불명", "대체선수": "불명", "출처": "https://aleagues.com.au/news/a-league-injury-news-nishan-velupillay-melbourne-victory-arthur-diles-reaction-highlights-socceroos/", "날짜": "2026-10-27"}
+  ],
+  "라인업": {
+    "홈": {
+      "발표여부": "미발표(양 구단 모두 공식 명단 미확정 — fotmob 명시)",
+      "선발XI 또는 예상XI": "fotmob 예상(4-3-3): Rhaka Syafaka(GK); Eliano Reijnders, Julio Cesar, Kakang Rudianto; Marc Klok, Nazriel Alfaro, Ragnar Oratmangoen, Thom Haye; Balsa Sekulic, Beckham Putra — ※ Klok은 출장정지 보도와 모순(엇갈림 참고), Rhaka Syafaka 선발은 Teja 부상과 합치",
+      "포메이션": "4-3-3(예상)",
+      "직전경기 대비 교체": "10/25 리그 가루다약사전(2-1 승, 국내리그) 대비 다수 로테이션 예상 — ACL2는 별도 베스트 멤버로 임할 가능성, 미확정",
+      "출처": "https://www.fotmob.com/matches/melbourne-victory-vs-persib-bandung/6r05bah",
+      "날짜": "2026-10-28"
+    },
+    "원정": {
+      "발표여부": "미발표",
+      "선발XI 또는 예상XI": "fotmob 예상(4-2-3-1): Jack Warshawsky(GK); Franco Lino, Tom Lockyer, Xavier Stella; Michael Ghossaini, Harrison Sawyer; Clarismario Santos 등 — ※ 10/24 멜버른시티전 실제 선발(Jack Duncan, Jason Davidson, Philipp Ziereis, Harrison Shillington, Joshua Inserra, Matthew Grimaldi, Denis Genreau, Jordi Valadon, Charles Nduka, Keegan Jelacic, Guillermo May)과 선수 구성이 크게 다름 — 신뢰도 낮음(엇갈림 참고)",
+      "포메이션": "4-2-3-1(예상)",
+      "직전경기 대비 교체": "불명 — 10/24 멜버른시티전과 예상 XI 명단이 거의 겹치지 않아 로테이션 폭 가늠 어려움",
+      "출처": "https://www.fotmob.com/matches/melbourne-victory-vs-persib-bandung/6r05bah",
+      "날짜": "2026-10-28"
+    }
+  },
+  "최근경기": [
+    {"팀": "페르십 반둥", "날짜": "2026-10-25", "상대": "Garudayaksa FC", "장소": "홈(Stadion Pakansari)", "스코어": "2-1 승", "비고": "BRI 수퍼리그(인니 1부) 7라운드, 드라마틱한 역전승"},
+    {"팀": "멜버른 빅토리", "날짜": "2026-10-24", "상대": "Melbourne City FC", "장소": "홈", "스코어": "1-1 무", "비고": "A리그 2026-27"},
+    {"팀": "멜버른 빅토리", "날짜": "2026-10-18", "상대": "Wellington Phoenix", "장소": "원정", "스코어": "1-2 패", "비고": "A리그 2026-27 — 10/18~10/24 백투백 뒤 오늘 5094km 원정"}
+  ],
+  "순위": {
+    "홈": "BRI 수퍼리그 2026-27 5위, 7경기 4승1무2패 승점13(10/25 경기 반영, 인니 1부) — 어제 수집치(8위 4경기)에서 갱신", "원정": "A리그 2026-27 8위, 2경기 0승1무1패 승점1(10/24 기준, FACTS 블록과 동일 — 추가 라운드 소식 못 찾음)",
+    "출처": "https://www.jpnn.com/news/persib-bandung-menang-dramatis-atas-garudayaksa-fc-posisi-di-klasemen-ikut-berubah ; 팀노트 FACTS(ESPN) 2026-10-27",
+    "날짜": "2026-10-25 / 2026-10-27"
+  },
+  "대회전적": {
+    "홈": "ACL2 그룹E 2전 2승(조 1위, 승점6, 득실+2) — MD1 FC서울 원정 1-0 승, MD2 테꽁비엣텔 홈 1-0 승",
+    "원정": "ACL2 그룹E 2전 1승1무(2위, 승점4, 득실+3) — MD1 테꽁비엣텔 원정 1-1 무, MD2 FC서울 홈 3-0 승"
+  },
+  "진출경우의수": "그룹E 4팀 중 상위 2팀이 16강 진출(AFC 챔피언스리그2 통상 포맷 — 공식 규정 원문 확인은 못함). 현재 1위 Persib(6점)·2위 Melbourne(4점)이 유리, 오늘 승자가 사실상 진출 확정권에 근접. MD4는 11/4 멜버른에서 역순 재대결 예정.",
+  "감독": {
+    "홈": "Igor Tolic — BRI 수퍼리그 최근 7경기 중 4승, ACL2 전승 기록 중(2전 2승)",
+    "원정": "Giovanni Savarese — 변동 없음",
+    "변동": "없음",
+    "출처": "https://melbournevictory.com.au/news/piecing-together-persib/",
+    "날짜": "2026-10-26"
+  },
+  "일정·동기·기타": [
+    {"내용": "경기장이 Stadion Gelora Bandung Lautan Api(GBLA)에서 Si Jalak Harupat Stadium(소레앙, 반둥 외곽)으로 변경됨 — 멜버른 빅토리 구단 공식 확인, 변경 사유는 기사에 명시 안 됨", "출처": "https://melbournevictory.com.au/news/venue-change-for-victorys-trip-to-persib/", "날짜": "2026-10-26"},
+    {"내용": "킥오프 2026-10-28 19:15 WIB(21:15 KST) / 11:15pm AEDT, 장소 Si Jalak Harupat Stadium", "출처": "https://www.fotmob.com/matches/melbourne-victory-vs-persib-bandung/6r05bah", "날짜": "2026-10-28"},
+    {"내용": "MD4 역대결은 2026-11-04 18:45 AEDT(멜버른 Rectangular Stadium)로 예정", "출처": "https://melbournevictory.com.au/news/piecing-together-persib/", "날짜": "2026-10-26"},
+    {"내용": "멜버른 빅토리는 10/18 웰링턴 원정, 10/24 홈 멜버른시티전에 이어 10/28 인도네시아 원정(이동 5094km) — 짧은 간격의 3연전 뒤 장거리 원정", "출처": "팀노트 INPUTS(자동수집) 2026-10-28", "날짜": "2026-10-28"}
+  ],
+  "환경": {
+    "구장": "Si Jalak Harupat Stadium(반둥 레젠시/소레앙) — GBLA에서 변경 확정",
+    "잔디": "천연잔디(위키 Si Jalak Harupat Stadium 기준, 오늘 별도 확인 못함)",
+    "심판": "못찾음",
+    "날씨": "소레앙 지역 10/28 강수확률 70~94%, 기온 25~26℃(windbornesystems/weather-forecast.com 예보 — 팀노트 INPUTS 강수 0.3mm/100% 수치와 방향 일치)",
+    "출처": "https://windbornesystems.com/weather/indonesia/soreang/ ; https://www.weather-forecast.com/locations/Soreang/forecasts/latest"
+  },
+  "엇갈림": [
+    "Persib 예상 XI(fotmob)에 출장정지 보도된 Marc Klok이 포함돼 있음 — 출장정지가 맞다면 fotmob 예상이 구버전 캐시일 가능성",
+    "Melbourne Victory 예상 XI(fotmob: Jack Warshawsky 등)가 10/24 실제 선발(Jack Duncan 등)과 선수 구성이 거의 겹치지 않음 — 신뢰도 낮음"
+  ],
+  "못찾음": [
+    "오늘 경기 심판 배정",
+    "멜버른 빅토리 10/27 이후 결장자 명단 추가 변동 여부(오늘자 업데이트 못 찾음)",
+    "Persib GBLA→Si Jalak Harupat 구장 변경의 구체적 사유",
+    "그룹E 공식 진출 규정 원문(상위 몇 팀 진출인지 AFC 공식 발표 문서)"
+  ],
+  "뉴스없음": {"홈": "", "원정": ""}
+}

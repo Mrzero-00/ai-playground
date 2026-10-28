@@ -9,7 +9,7 @@
 <!-- FACTS:END -->
 <!-- INPUTS:START -->
 ## 입력(자동 수집 2026-10-28) — xG·휴식일·라인업·환경(이동거리·고도·날씨)은 이 숫자를 쓴다
-- 10-29 04:45 vs 애스턴 빌라: 휴식 3.2일(7일 2경기) · 직전 10-25 원정 vs Manchester United 3-0 승 [english premier league] · xG 시즌8경기 xG2.09/xGA1.16 npxGD+0.93 · 최근5 2.42/0.88 (+1.54) · 홈1.57/원정0.28 · xPts14.9 vs 승점9 · 직전 선발 4-2-3-1 Djordje Petrovic, António Silva, James Hill, Adrien Truffert, Adam Smith, Justin Kluivert, Lewis Cook, Tyler Adams, Evanilson, Marcus Tavernier, Rayan · 구장 딘 코트 · 이동 197km · 고도 36m(차 -65m) · 13.1℃ 강수0mm(0%) 바람8.3km/h
+- 10-29 04:45 vs 애스턴 빌라: 휴식 3.2일(7일 2경기) · 직전 10-25 원정 vs Manchester United 3-0 승 [english premier league] · xG 시즌8경기 xG2.09/xGA1.16 npxGD+0.93 · 최근5 2.42/0.88 (+1.54) · 홈1.57/원정0.28 · xPts14.9 vs 승점9 · 직전 선발 4-2-3-1 Djordje Petrovic, António Silva, James Hill, Adrien Truffert, Adam Smith, Justin Kluivert, Lewis Cook, Tyler Adams, Evanilson, Marcus Tavernier, Rayan · 구장 딘 코트 · 이동 197km · 고도 36m(차 -65m) · 12.8℃ 강수0mm(0%) 바람6.8km/h
 <!-- INPUTS:END -->
 
 ## 성향

@@ -1,0 +1,299 @@
+{
+ "번호": "1110",
+ "홈": "제노아",
+ "원정": "유벤투스",
+ "수집시각": "2026-10-28 22시대 KST",
+ "결장": [
+  {
+   "팀": "유벤투스",
+   "선수": "Nico González",
+   "포지션": "MF/FW",
+   "이번시즌_선발/경기": "미확인(이번 조사에서 수치 미수집)",
+   "득점·도움": "미확인(이번 조사에서 수치 미수집)",
+   "사유": "Lesione basso grado soleo destro",
+   "상태": "확정",
+   "복귀예정": "dopo la sosta di novembre",
+   "대체선수": "뉴스없음(스팔레티 예상: 3-5-2 코어 Kalulu/McKennie/Douglas Luiz/Koopmeiners/Cambiaso)",
+   "출처": "https://sport.sky.it/calcio/serie-a/infortunati-juventus-formazione-news ; https://it.headtopics.com/news/live-tra-poco-la-conferenza-stampa-di-spalletti-verso-89255824",
+   "날짜": "2026-10-23 ; 2026-10-27"
+  },
+  {
+   "팀": "유벤투스",
+   "선수": "Zeki Çelik",
+   "포지션": "DF",
+   "이번시즌_선발/경기": "미확인(이번 조사에서 수치 미수집)",
+   "득점·도움": "미확인(이번 조사에서 수치 미수집)",
+   "사유": "Lesione basso grado bicipite femorale sinistro",
+   "상태": "확정",
+   "복귀예정": "dopo la sosta di novembre",
+   "대체선수": "뉴스없음(스팔레티 예상: 3-5-2 코어 Kalulu/McKennie/Douglas Luiz/Koopmeiners/Cambiaso)",
+   "출처": "https://sport.sky.it/calcio/serie-a/infortunati-juventus-formazione-news ; https://it.headtopics.com/news/live-tra-poco-la-conferenza-stampa-di-spalletti-verso-89255824",
+   "날짜": "2026-10-23 ; 2026-10-27"
+  },
+  {
+   "팀": "유벤투스",
+   "선수": "Francisco Conceição",
+   "포지션": "FW",
+   "이번시즌_선발/경기": "미확인(이번 조사에서 수치 미수집)",
+   "득점·도움": "미확인(이번 조사에서 수치 미수집)",
+   "사유": "Lussazione spalla sinistra",
+   "상태": "확정",
+   "복귀예정": "dopo la sosta di novembre",
+   "대체선수": "뉴스없음(스팔레티 예상: 3-5-2 코어 Kalulu/McKennie/Douglas Luiz/Koopmeiners/Cambiaso)",
+   "출처": "https://sport.sky.it/calcio/serie-a/infortunati-juventus-formazione-news ; https://it.headtopics.com/news/live-tra-poco-la-conferenza-stampa-di-spalletti-verso-89255824",
+   "날짜": "2026-10-23 ; 2026-10-27"
+  },
+  {
+   "팀": "유벤투스",
+   "선수": "Jeff Ekhator",
+   "포지션": "FW",
+   "이번시즌_선발/경기": "미확인(이번 조사에서 수치 미수집)",
+   "득점·도움": "미확인(이번 조사에서 수치 미수집)",
+   "사유": "Lesione medio grado semitendinoso destro",
+   "상태": "확정",
+   "복귀예정": "novembre",
+   "대체선수": "뉴스없음(스팔레티 예상: 3-5-2 코어 Kalulu/McKennie/Douglas Luiz/Koopmeiners/Cambiaso)",
+   "출처": "https://sport.sky.it/calcio/serie-a/infortunati-juventus-formazione-news ; https://it.headtopics.com/news/live-tra-poco-la-conferenza-stampa-di-spalletti-verso-89255824",
+   "날짜": "2026-10-23 ; 2026-10-27"
+  },
+  {
+   "팀": "유벤투스",
+   "선수": "Manuel Locatelli",
+   "포지션": "MF",
+   "이번시즌_선발/경기": "미확인(이번 조사에서 수치 미수집)",
+   "득점·도움": "미확인(이번 조사에서 수치 미수집)",
+   "사유": "Lesione menisco ginocchio destro, operato",
+   "상태": "확정",
+   "복귀예정": "febbraio-marzo 2027",
+   "대체선수": "뉴스없음(스팔레티 예상: 3-5-2 코어 Kalulu/McKennie/Douglas Luiz/Koopmeiners/Cambiaso)",
+   "출처": "https://sport.sky.it/calcio/serie-a/infortunati-juventus-formazione-news ; https://it.headtopics.com/news/live-tra-poco-la-conferenza-stampa-di-spalletti-verso-89255824",
+   "날짜": "2026-10-23 ; 2026-10-27"
+  },
+  {
+   "팀": "유벤투스",
+   "선수": "Kamil Grabara",
+   "포지션": "GK",
+   "이번시즌_선발/경기": "미확인(이번 조사에서 수치 미수집)",
+   "득점·도움": "미확인(이번 조사에서 수치 미수집)",
+   "사유": "Rottura LCA ginocchio destro",
+   "상태": "확정",
+   "복귀예정": "stagione praticamente finita",
+   "대체선수": "뉴스없음(스팔레티 예상: 3-5-2 코어 Kalulu/McKennie/Douglas Luiz/Koopmeiners/Cambiaso)",
+   "출처": "https://sport.sky.it/calcio/serie-a/infortunati-juventus-formazione-news ; https://it.headtopics.com/news/live-tra-poco-la-conferenza-stampa-di-spalletti-verso-89255824",
+   "날짜": "2026-10-23 ; 2026-10-27"
+  },
+  {
+   "팀": "유벤투스",
+   "선수": "Kenan Yıldız",
+   "포지션": "FW",
+   "이번시즌_선발/경기": "미확인(이번 조사에서 수치 미수집)",
+   "득점·도움": "미확인(이번 조사에서 수치 미수집)",
+   "사유": "Frattura base 5° metatarso piede sinistro, operato",
+   "상태": "확정",
+   "복귀예정": "seconda metà novembre",
+   "대체선수": "뉴스없음(스팔레티 예상: 3-5-2 코어 Kalulu/McKennie/Douglas Luiz/Koopmeiners/Cambiaso)",
+   "출처": "https://sport.sky.it/calcio/serie-a/infortunati-juventus-formazione-news ; https://it.headtopics.com/news/live-tra-poco-la-conferenza-stampa-di-spalletti-verso-89255824",
+   "날짜": "2026-10-23 ; 2026-10-27"
+  },
+  {
+   "팀": "유벤투스",
+   "선수": "Khéphren Thuram",
+   "포지션": "MF",
+   "이번시즌_선발/경기": "미확인(이번 조사에서 수치 미수집)",
+   "득점·도움": "미확인(이번 조사에서 수치 미수집)",
+   "사유": "Condropatia rotulea ginocchio destro, operato",
+   "상태": "확정",
+   "복귀예정": "2027 (~4 mesi)",
+   "대체선수": "뉴스없음(스팔레티 예상: 3-5-2 코어 Kalulu/McKennie/Douglas Luiz/Koopmeiners/Cambiaso)",
+   "출처": "https://sport.sky.it/calcio/serie-a/infortunati-juventus-formazione-news ; https://it.headtopics.com/news/live-tra-poco-la-conferenza-stampa-di-spalletti-verso-89255824",
+   "날짜": "2026-10-23 ; 2026-10-27"
+  },
+  {
+   "팀": "유벤투스",
+   "선수": "Milik (풀네임 미확인)",
+   "포지션": "FW",
+   "이번시즌_선발/경기": "미확인(이번 조사에서 수치 미수집)",
+   "득점·도움": "미확인(이번 조사에서 수치 미수집)",
+   "사유": "세리에A 등록명단 제외(headtopics 요약)",
+   "상태": "의심",
+   "복귀예정": "미상",
+   "대체선수": "",
+   "출처": "https://it.headtopics.com/news/live-tra-poco-la-conferenza-stampa-di-spalletti-verso-89255824",
+   "날짜": "2026-10-27"
+  },
+  {
+   "팀": "제노아",
+   "선수": "Franz-Ethan Meichtry",
+   "포지션": "MF",
+   "이번시즌_선발/경기": "미확인(이번 조사에서 수치 미수집)",
+   "득점·도움": "미확인(이번 조사에서 수치 미수집)",
+   "사유": "부상 거의 회복·재활 중, 소집 예상(De Rossi)",
+   "상태": "의심",
+   "복귀예정": "소집 가능성",
+   "대체선수": "",
+   "출처": "https://www.genoaoggi.it/notizie/genoa-de-rossi-fa-il-punto-sugli-infortunati-meichtry-verso-la-convocazione-da-valutare-baldanzi-e-colombo/ ; https://www.fantacalcio.it/news/calcio-italia/23_10_2026/genoa-buone-notizie-per-de-rossi-recuperi-in-vista-annuncio-in-conferenza-499654",
+   "날짜": "2026-10-23 (연도 기사본문 미기재, fantacalcio URL로 2026 확인)"
+  },
+  {
+   "팀": "제노아",
+   "선수": "Samuele Baldanzi / Lorenzo Colombo",
+   "포지션": "MF / FW",
+   "이번시즌_선발/경기": "미확인(이번 조사에서 수치 미수집)",
+   "득점·도움": "미확인(이번 조사에서 수치 미수집)",
+   "사유": "장염 바이러스(10/23 기준 컨디션 확인중). 10/27 예상XI에는 Baldanzi 포함, Colombo는 벤치 전망",
+   "상태": "의심(10/23 기사, 이후 업데이트로 Baldanzi 출전 예상)",
+   "복귀예정": "미상",
+   "대체선수": "",
+   "출처": "https://www.fantacalcio.it/news/calcio-italia/23_10_2026/genoa-buone-notizie-per-de-rossi-recuperi-in-vista-annuncio-in-conferenza-499654 ; https://www.pianetagenoa1893.net/primo-piano/genoa-juventus-le-probabili-formazioni-4/",
+   "날짜": "2026-10-23 ; 2026-10-27"
+  },
+  {
+   "팀": "제노아",
+   "선수": "Samuel Wiafe",
+   "포지션": "MF",
+   "이번시즌_선발/경기": "미확인(이번 조사에서 수치 미수집)",
+   "득점·도움": "미확인(이번 조사에서 수치 미수집)",
+   "사유": "'da valutare'(사유 미기재)",
+   "상태": "의심",
+   "복귀예정": "미상",
+   "대체선수": "",
+   "출처": "https://www.pianetagenoa1893.net/primo-piano/genoa-juventus-le-probabili-formazioni-4/",
+   "날짜": "2026-10-27"
+  },
+  {
+   "팀": "제노아",
+   "선수": "Leo Østigard",
+   "포지션": "DF",
+   "이번시즌_선발/경기": "미확인(이번 조사에서 수치 미수집)",
+   "득점·도움": "미확인(이번 조사에서 수치 미수집)",
+   "사유": "결장 아님 — 경고누적 위험(diffidato), 벤치 가능성 언급",
+   "상태": "의심(출전은 가능)",
+   "복귀예정": "-",
+   "대체선수": "",
+   "출처": "https://www.pianetagenoa1893.net/primo-piano/genoa-juventus-le-probabili-formazioni-4/",
+   "날짜": "2026-10-27"
+  }
+ ],
+ "라인업": {
+  "홈": {
+   "발표여부": "공식 미발표(예상만)",
+   "예상XI": {
+    "Sky Sport 4-2-3-1": "Bijlow; Ehizibue, Marcandalli, Østigård, Vásquez; Frendrup, Amorim; Baldanzi, Vitinha, Ellertsson; Osmajić",
+    "PianetaGenoa 3-4-1-2": "Bijlow; Marcandalli, Otoa, Vásquez; Ellertsson, Frendrup, Traoré, Puczka; Baldanzi; Osmajić, Vitinha",
+    "Fantamaster 3-4-2-1": "Bijlow; Otoa/Marcandalli, Østigård, Vásquez; Ellertsson, Traoré/Amorim, Frendrup, Mitaj/Puczka; Messias/Baldanzi, El Shaarawy/Colombo; Osmajić",
+    "Pedullà(10-27 22:00) 3-5-2": "Vitinha·Osmajić 투톱, Baldanzi 중원, Messias 제외"
+   },
+   "포메이션": "출처별 상이(4-2-3-1 / 3-4-1-2 / 3-4-2-1 / 3-5-2)",
+   "출처": "https://sport.sky.it/calcio/serie-a/2026/10/27/genoa-juventus-probabili-formazioni-9-giornata ; https://www.pianetagenoa1893.net/primo-piano/genoa-juventus-le-probabili-formazioni-4/ ; https://www.fantamaster.it/probabili-formazioni-genoa-juventus-seriea-2026-2027-notizie-fantacalcio/ ; https://www.alfredopedulla.com/2le-ultimissime-sulle-probabili-formazioni-di-genoa-juventus-8/",
+   "날짜": "2026-10-27"
+  },
+  "원정": {
+   "발표여부": "공식 미발표(예상만)",
+   "예상XI": {
+    "Sky Sport 3-5-1-1": "Vicario; Gatti, Bremer, Lucumí; Kalulu, McKennie, Douglas Luiz, Koopmeiners, Cambiaso; Alajbegović; Woltemade (Alajbegović vs Kolo Muani 경쟁)",
+    "PianetaGenoa 3-5-2": "Vicario; Gatti, Bremer, Lucumí; Kalulu, McKennie, Douglas Luiz, Koopmeiners, Cambiaso; Alajbegović, Woltemade",
+    "Fantamaster 3-5-2": "Vicario; Gatti, Bremer, Lucumí/Kelly; Kalulu, McKennie, Douglas Luiz, Sarr, Cambiaso/Cabal; Woltemade, Kolo Muani/Alajbegović",
+    "Spalletti 기자회견 요약(headtopics)": "리체 원정 승리 선발 유지, 3-5-2; Douglas Luiz vs Sarr 경쟁"
+   },
+   "포메이션": "3-5-2 계열(Sky는 3-5-1-1)",
+   "출처": "https://sport.sky.it/calcio/serie-a/2026/10/27/genoa-juventus-probabili-formazioni-9-giornata ; https://www.pianetagenoa1893.net/primo-piano/genoa-juventus-le-probabili-formazioni-4/ ; https://it.headtopics.com/news/live-tra-poco-la-conferenza-stampa-di-spalletti-verso-89255824",
+   "날짜": "2026-10-27"
+  }
+ },
+ "최근경기": [
+  {
+   "팀": "제노아",
+   "날짜": "2026-10-25",
+   "상대": "Venezia",
+   "장소": "홈",
+   "스코어": "1-0 승",
+   "비고": "팀노트 INPUTS 기준. 외부 재확인 안 함(Sky 순위표상 제노아 8경기 7점)"
+  },
+  {
+   "팀": "제노아",
+   "날짜": "2026-10-17",
+   "상대": "AS Roma",
+   "장소": "원정",
+   "스코어": "0-2 패",
+   "비고": "팀노트 FACTS(ESPN)"
+  },
+  {
+   "팀": "제노아",
+   "날짜": "2026-10-10",
+   "상대": "Fiorentina",
+   "장소": "홈",
+   "스코어": "2-1 승",
+   "비고": "팀노트 FACTS(ESPN)"
+  },
+  {
+   "팀": "유벤투스",
+   "날짜": "2026-10-26",
+   "상대": "Lecce",
+   "장소": "원정",
+   "스코어": "2-0 승",
+   "비고": "팀노트 INPUTS; headtopics(10-27)도 리체 승리 언급"
+  },
+  {
+   "팀": "유벤투스",
+   "날짜": "2026-10-18",
+   "상대": "Lazio",
+   "장소": "홈",
+   "스코어": "0-3 패",
+   "비고": "팀노트 FACTS(ESPN)"
+  },
+  {
+   "팀": "유벤투스",
+   "날짜": "2026-10-11",
+   "상대": "Cagliari",
+   "장소": "원정",
+   "스코어": "1-1 무",
+   "비고": "팀노트 FACTS(ESPN)"
+  }
+ ],
+ "순위": {
+  "홈": "제노아 16위 · 승점7 · 8경기 · 득점6 실점13 (GD-7)",
+  "원정": "유벤투스 7위 · 승점14 · 8경기 · 득점11 실점8 (GD+3)",
+  "출처": "https://sport.sky.it/calcio/serie-a/classifica (Sky 10-27 22:41 갱신 표기)",
+  "날짜": "2026-10-27",
+  "비고": "팀노트 팩트시트(10-25)의 제노아 17위/승점4, 유벤 9위/승점11는 이후 경기 반영 전 수치 — Sky 최신표가 우선"
+ },
+ "감독": {
+  "홈": "Daniele De Rossi",
+  "원정": "Luciano Spalletti",
+  "변동": "없음(팩트시트·Sky/headtopics 기사와 일치)",
+  "출처": "팀노트 FACTS(위키 2026–27 시즌 문서) ; https://it.headtopics.com/news/live-tra-poco-la-conferenza-stampa-di-spalletti-verso-89255824",
+  "날짜": "2026-10-25 ; 2026-10-27"
+ },
+ "일정·동기·기타": [
+  {
+   "내용": "경기: 2026-10-28 20:45(현지) 루이지 페라리스, 세리에A 9라운드(KST 10-29 04:45), DAZN 중계",
+   "출처": "https://www.corrieredellosport.it/news/calcio/serie-a/2026/10/28-152219034/dove_vedere_genoa-juve_in_tv_dazn_o_sky_orario ; https://www.fantamaster.it/probabili-formazioni-genoa-juventus-seriea-2026-2027-notizie-fantacalcio/",
+   "날짜": "2026-10-28 ; 2026-10-27"
+  },
+  {
+   "내용": "Spalletti 발언: 제노아는 '아주 까다로운 상대' — Osmajić·Østigård 피지컬, Messias·Baldanzi·Vitinha·El Shaarawy 1대1 능력 언급; De Rossi를 '내 팔(armato in campo)'이라 지칭",
+   "출처": "https://it.headtopics.com/news/live-tra-poco-la-conferenza-stampa-di-spalletti-verso-89255824",
+   "날짜": "2026-10-27"
+  },
+  {
+   "내용": "제노아 Ekhator는 올여름 유벤투스로 이적(팀노트), 현재 유벤 소속으로 부상 결장 — 이적 확인 완료",
+   "출처": "팀노트 FACTS + https://sport.sky.it/calcio/serie-a/infortunati-juventus-formazione-news",
+   "날짜": "2026-10-23"
+  }
+ ],
+ "엇갈림": [
+  "제노아 예상 포메이션이 4-2-3-1(Sky) / 3-4-1-2(PianetaGenoa) / 3-4-2-1(Fantamaster) / 3-5-2(Pedullà)로 엇갈림. Messias·El Shaarawy 선발 여부: PianetaGenoa는 '기술적 선택으로 제외', Fantamaster는 후보로 포함",
+  "Baldanzi·Colombo 장염: 10/23 기사는 확인중, 10/27 예상XI는 Baldanzi 포함(Colombo 벤치)",
+  "Sky 예상 Genoa에 Ehizibue/Amorim 포함 vs 타 출처 Mitaj/Puczka/Traoré — 라인업은 미확정"
+ ],
+ "못찾음": [
+  "제노아 De Rossi의 유벤전 직전 기자회견(10-27/28) 본문 — 못 찾음",
+  "Genoa 개별 결장자의 정확한 사유·복귀일(Meichtry 외) — 못 찾음",
+  "선수별 이번시즌 선발/득점·도움 수치 — 수집하지 않음(결장 선수 대부분 개막 이후 출전 데이터 미조회)",
+  "Milik 정확한 사유 — headtopics 한 줄 요약뿐"
+ ],
+ "뉴스없음": {
+  "홈": "제노아 공식 확정 결장자 명단 뉴스없음(검색처: genoaoggi.it, fantacalcio.it, pianetagenoa1893.net)",
+  "원정": "-(유벤 결장은 위 목록; Sky 10-23 이후 추가 부상 보도는 못 찾음)"
+ }
+}

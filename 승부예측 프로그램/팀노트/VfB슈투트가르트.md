@@ -10,6 +10,6 @@
 <!-- FACTS:END -->
 <!-- INPUTS:START -->
 ## 입력(자동 수집 2026-10-28) — xG·휴식일·라인업·환경(이동거리·고도·날씨)은 이 숫자를 쓴다
-- 10-29 02:00 vs 파더보른07: 휴식 4.9일(7일 1경기) · 직전 10-24 홈 vs Borussia Mönchengladbach 2-3 패 [german bundesliga] · xG 시즌7경기 xG2.19/xGA2.63 npxGD-0.44 · 최근5 2.11/2.29 (-0.18) · 홈-0.48/원정-0.41 · xPts8.2 vs 승점6 · 직전 선발 4-2-3-1 Dennis Seimen, Ramon Hendriks, Finn Jeltsch, Maximilian Mittelstädt, Lorenz Assignon, Ermedin Demirovic, Angelo Stiller, Atakan Karazor, Dzenan Pejcinovic, Chris Führich, Leo Sauer · 구장 Home Deluxe Arena · 이동 329km · 고도 105m(차 -114m) · 9.5℃ 강수0mm(0%) 바람4.7km/h
+- 10-29 02:00 vs 파더보른07: 휴식 4.9일(7일 1경기) · 직전 10-24 홈 vs Borussia Mönchengladbach 2-3 패 [german bundesliga] · xG 시즌7경기 xG2.19/xGA2.63 npxGD-0.44 · 최근5 2.11/2.29 (-0.18) · 홈-0.48/원정-0.41 · xPts8.2 vs 승점6 · 직전 선발 4-2-3-1 Dennis Seimen, Ramon Hendriks, Finn Jeltsch, Maximilian Mittelstädt, Lorenz Assignon, Ermedin Demirovic, Angelo Stiller, Atakan Karazor, Dzenan Pejcinovic, Chris Führich, Leo Sauer · 구장 Home Deluxe Arena · 이동 329km · 고도 105m(차 -114m) · 9.7℃ 강수0mm(0%) 바람4.8km/h
 <!-- INPUTS:END -->
 

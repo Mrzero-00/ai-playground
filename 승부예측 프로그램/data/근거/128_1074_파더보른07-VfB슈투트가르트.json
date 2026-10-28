@@ -1,0 +1,160 @@
+[
+ {
+  "번호": "1074",
+  "홈": "파더보른07",
+  "원정": "VfB슈투트가르트",
+  "분석시각": "2026-10-28 22시대 KST (마감 후 학습 전용)",
+  "기준선": {
+   "승": 24.3,
+   "무": 25.0,
+   "패": 50.7,
+   "출처": "ger.1 pi-rating 기대득점 1.27:1.90, 자료 838경기 2026-10-25"
+  },
+  "득점모델": {
+   "방식": "5대 리그 팀끼리 INPUTS xG λ: 홈=(1.13+2.63)/2×1.07, 원정=(2.19+1.89)/2÷1.07",
+   "λ홈": 2.01,
+   "λ원정": 1.91,
+   "출처": "팀노트 INPUTS(시즌 7경기 경기당 xG/xGA)"
+  },
+  "요인": [
+   {
+    "유형": "라인업",
+    "팀": "원정",
+    "선수": "Fabian Bredlow(GK, Seimen 대신)",
+    "등급": "A(GK 한 등급 상향)",
+    "상태": "확정",
+    "영향": 2.0,
+    "내용": "컵 로테이션으로 GK Bredlow 선발 확정(NW·SZ·ZVW 3곳). Seimen은 직전 리그 선발. 등급 B→A(GK 상향) 3.0×R0.8(백업 GK, 실력 격차는 미확인이라 보수적)×P1.0×D1.0=2.4에서 컵 90분 단판·격차 불확실로 2.0 적용. 원정 결장 성격 = 홈 +.",
+    "출처": "https://www.nw.de/sport/fussball/sc_paderborn_07/24449686_Schwaechelnde-Schwaben-Paderborns-Pokalgegner-VfB-Stuttgart-unter-der-Lupe.html ; https://www.stuttgarter-zeitung.de/sport/vfb-stuttgart/aufstellung-des-vfb-stuttgart-so-will-sebastian-hoeness-beim-sc-paderborn-spielen-lassen-79615974.html",
+    "날짜": "2026-10-28"
+   },
+   {
+    "유형": "결장",
+    "팀": "원정",
+    "선수": "Tomas·Nartey(Oberschenkel)",
+    "등급": "C(시즌 선발 수치 미확인, 예상 XI에 이름 없음)",
+    "상태": "확정",
+    "영향": 0.8,
+    "내용": "둘 다 확정 결장이나 이번 시즌 선발/경기 '미확인'. 예상 XI 3종 모두 이름이 없어 B/C 로 보고 합산 B 1.5×R0.6×D1.0×0.9(두 명 합) 수준 0.8만 반영.",
+    "출처": "https://www.stuttgarter-zeitung.de/sport/vfb-stuttgart/aufstellung-des-vfb-stuttgart-so-will-sebastian-hoeness-beim-sc-paderborn-spielen-lassen-79615974.html ; https://sports.yahoo.com/articles/sc-paderborn-vs-vfb-stuttgart-153000561.html",
+    "날짜": "2026-10-28"
+   },
+   {
+    "유형": "결장",
+    "팀": "원정",
+    "선수": "Zagadou(CB)·Vagnoman(RB)",
+    "등급": "C",
+    "상태": "확정",
+    "영향": 0.2,
+    "내용": "Zagadou CB는 A 미만이라 점수 없음(규칙: CB는 A 이상만). Vagnoman 자리는 직전 리그전에서 이미 Assignon이 RB 선발(INPUTS) → 신규성·대체 격차 거의 없음. 영향 0.2(합산 반올림).",
+    "출처": "https://www.stuttgarter-zeitung.de/sport/vfb-stuttgart/aufstellung-des-vfb-stuttgart-so-will-sebastian-hoeness-beim-sc-paderborn-spielen-lassen-79615974.html ; https://sports.yahoo.com/articles/sc-paderborn-vs-vfb-stuttgart-153000561.html",
+    "날짜": "2026-10-28"
+   },
+   {
+    "유형": "결장",
+    "팀": "원정",
+    "선수": "Justin Diehl",
+    "등급": "C",
+    "상태": "의심",
+    "영향": 0.0,
+    "내용": "복귀 직전 'probably not ready', Yahoo 단일 출처. 의심 상한 1%p 이하인데 백업급이라 0.",
+    "출처": "https://sports.yahoo.com/articles/sc-paderborn-vs-vfb-stuttgart-153000561.html",
+    "날짜": "2026-10-27"
+   },
+   {
+    "유형": "결장",
+    "팀": "홈",
+    "선수": "Klaas·Gayret·Hoffmeier·Awortwie-Grant",
+    "등급": "B(추정, 선발 수치 미확인)",
+    "상태": "의심",
+    "영향": -0.8,
+    "내용": "4명 모두 Yahoo 단일 출처 '의심'. Klaas·Gayret·Hoffmeier·Awortwie-Grant 는 Yahoo 예상 XI에 없음(Hoffmeier는 Götze/수비라인 가능성 미확인). NW는 결장 언급 없음. 의심 합산 |1|%p 이하 규칙에 따라 -0.8.",
+    "출처": "https://sports.yahoo.com/articles/sc-paderborn-vs-vfb-stuttgart-153000561.html ; https://www.nw.de/sport/fussball/sc_paderborn_07/24449686_Schwaechelnde-Schwaben-Paderborns-Pokalgegner-VfB-Stuttgart-unter-der-Lupe.html",
+    "날짜": "2026-10-27"
+   },
+   {
+    "유형": "뉴스없음",
+    "팀": "홈",
+    "선수": "",
+    "등급": "-",
+    "상태": "추정",
+    "영향": 0,
+    "내용": "Paderborn 쪽 독일어 매체 결장 보도 없음(NW 언급 없음) — 복수 출처 확인 불가라 추가 검색처 기재",
+    "출처": "nw.de, kicker.de, scp07.de",
+    "날짜": "2026-10-28"
+   },
+   {
+    "유형": "동기",
+    "팀": "공통",
+    "선수": "",
+    "등급": "-",
+    "상태": "확정",
+    "영향": 0.0,
+    "내용": "DFB-Pokal 2라운드 단판, 90분 기준. Paderborn 동기 큼(Kettemann '언더독'), VfB는 리그 15위·Gladbach전 패배 후 'Kampfmodus'. 방향 모호하여 0.",
+    "출처": "https://www.nw.de/sport/fussball/sc_paderborn_07/24449686_Schwaechelnde-Schwaben-Paderborns-Pokalgegner-VfB-Stuttgart-unter-der-Lupe.html",
+    "날짜": "2026-10-28"
+   },
+   {
+    "유형": "휴식",
+    "팀": "공통",
+    "선수": "",
+    "등급": "-",
+    "상태": "확정",
+    "영향": 0.0,
+    "내용": "Paderborn 4.1일 vs VfB 4.9일, 이동 329km. 규칙상 영향 0.",
+    "출처": "팀노트 INPUTS",
+    "날짜": "2026-10-28"
+   },
+   {
+    "유형": "기타",
+    "팀": "공통",
+    "선수": "",
+    "등급": "-",
+    "상태": "확정",
+    "영향": 0.0,
+    "내용": "기준선불신 검토: Paderborn 승격팀(NW 기술)이나 이번 시즌 분데스리가 7경기(≥5)·pi-rating 자료 838경기라 불신 요인 미적용. 폼(Paderborn W-D-W 최근3 / VfB L-L-L 최근3)은 기준선에 반영 가정, 별도 가감 없음.",
+    "출처": "팀노트 FACTS",
+    "날짜": "2026-10-28"
+   }
+  ],
+  "최종": {
+   "승": 26.5,
+   "무": 24.3,
+   "패": 49.2
+  },
+  "선택지": [
+   {
+    "번호": "1074",
+    "선택": "승무패 일반 패",
+    "확률": 49.2,
+    "계산": "기준선 24.3/25.0/50.7 + Σ영향 +2.2(승), 승 -1.5:상대 +1.0:무 +0.5 비율로 무 -0.7·패 -1.5"
+   },
+   {
+    "번호": "1075",
+    "선택": "일반 정수핸디캡 H+1 승",
+    "확률": 62.4,
+    "계산": "홈 안 짐. xG λ(2.01:1.91) 포아송 승+무=62.4. 참고: 최종 승+무=50.8(기준선 λ 1.27:1.90 에서는 47.9). 두 모델 모두 승이 1순위"
+   },
+   {
+    "번호": "1076",
+    "선택": "U/O 3.5 오버",
+    "확률": 55.1,
+    "계산": "xG λ 합 3.92 포아송 4골 이상 55.1%. 기준선 λ 합 3.17 이면 오버 39.1(언더 61) — 득점 모델 간 방향 충돌"
+   }
+  ],
+  "예상점수": "1.9:2.0",
+  "확신도": "낮음 — 1X2 최종(패 49.2)은 기준선에서 출발했으나 xG λ(7경기 표본, VfB xGA 2.63 과대 가능)는 거의 대등(41.5/20.9/37.6)을 가리켜 모델 간 충돌. 오버 3.5 방향은 λ 선택에 좌우됨. 컵 단판·GK 로테이션·예상 XI 3종 불일치.",
+  "결론": "기준선은 VfB 우세(패 50.7)이고 VfB는 GK 로테이션(Bredlow)과 허벅지 결장 4명으로 홈 쪽 +2.2%p만 이동해 패 49.2·승 26.5·무 24.3. 다만 7경기 xG는 두 팀 득점이 비슷하게 많을 것을 가리켜 H+1 승(홈 안 짐)과 오버 3.5 방향은 모델 의존적이다.",
+  "미확인": [
+   "결장 선수들의 시즌 선발/경기·득점·도움",
+   "공식 라인업(미발표)",
+   "Paderborn 부상 복수 출처",
+   "연장·PK 규정(90분 기준만 분석)"
+  ],
+  "추가 수집 요청": [
+   "킥오프 직전 공식 라인업(Bredlow 외 수비·공격 라인 확인)",
+   "Paderborn 결장 kicker·scp07.de 확인",
+   "Tomas·Nartey·Zagadou·Vagnoman 이번 시즌 선발 수치"
+  ]
+ }
+]

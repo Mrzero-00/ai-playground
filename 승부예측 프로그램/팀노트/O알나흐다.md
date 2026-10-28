@@ -9,6 +9,6 @@
 
 <!-- INPUTS:START -->
 ## 입력(자동 수집 2026-10-28) — xG·휴식일·라인업·환경(이동거리·고도·날씨)은 이 숫자를 쓴다
-- 10-29 01:00 vs 알라이얀: 휴식 0.8일(7일 287경기) · 직전 10-28 홈 vs Pontevedra 2-0 승 [first round] · xG 시즌8경기 xG1.19/xGA1.92 npxGD-0.72 · 최근5 1.47/1.8 (-0.33) · 홈-1.01/원정-0.44 · xPts8.3 vs 승점11 · 직전 선발 4-4-2 José María Leobalde, Samu Santos, Carlos Pacheco, Alexandre Fraga Garrido, Carlos Torrado, Marcos Remeseiro, Antón Concheiro, Martín Diz, Inaki Martínez, José Rivera, Alejandro Rey Cantero · 구장 ? · 이동 ?(구장 미확인) · 고도 ?m · 날씨 -
+- 10-29 01:00 vs 알라이얀: 휴식 13.9일?(국내리그 ESPN 미제공 — 직접 확인) · 직전 10-15 원정 vs Al-Faisaly SC 0-2 패 [afc.cup] · xG - · 직전 선발 4-2-3-1 Faiyz Al Rusheidi, Mohammed Faraj Al-Rawahi, Ghanim Al-Habashi, Ahmed Al Kaabi, Amjad Al Harthi, Djavan Anderson, Petrus Boumal, Harib Al-Saadi, Mohammed Al Ghafri, Yusaif Nasser Sulaiman Nasser Al Mukhaini, Jameel Al-Yahmadi · 구장 프린스 모하메드 빈 파흐드 스타디움 · 이동 173km · 고도 12m(차 -25m) · 30.3℃ 강수0mm(0%) 바람7.4km/h · ⚠ 기온 30.3℃
 <!-- INPUTS:END -->
 

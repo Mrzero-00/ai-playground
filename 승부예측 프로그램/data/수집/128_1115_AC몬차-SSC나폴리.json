@@ -1,0 +1,298 @@
+{
+ "번호": "1115",
+ "홈": "AC몬차",
+ "원정": "SSC나폴리",
+ "수집시각": "2026-10-28 22시대 KST",
+ "결장": [
+  {
+   "팀": "AC몬차",
+   "선수": "Matteo Pessina",
+   "포지션": "MF",
+   "이번시즌_선발/경기": "미확인(이번 조사에서 수치 미수집)",
+   "득점·도움": "미확인(이번 조사에서 수치 미수집)",
+   "사유": "무릎(슬개골) 문제, 8월 20일부터 결장; 10월 말~11월 초 복귀 시도 예정이었음(Aiscore). 10-27 Calcio Napoli 1926 결장 명단에 포함",
+   "상태": "의심(Aiscore 날짜불명 + 1926 열거 = 2곳이나 사유 일부)",
+   "복귀예정": "10월말~11월초 전망",
+   "대체선수": "",
+   "출처": "https://www.fantamaster.it/monza-pessina-varela-ziolkowski-toure-cutrone-nuovi-tempi-recupero/ ; https://www.calcionapoli1926.it/formazioni/monza-napoli-le-probabili-formazioni-allegri-fa-turnover-un-ballottaggio-a-centrocampo/",
+   "날짜": "2026-10-27(1926) / 발행일 미확인(fantamaster·Aiscore)"
+  },
+  {
+   "팀": "AC몬차",
+   "선수": "Kamil Ziółkowski",
+   "포지션": "DF",
+   "이번시즌_선발/경기": "미확인(이번 조사에서 수치 미수집)",
+   "득점·도움": "미확인(이번 조사에서 수치 미수집)",
+   "사유": "족저근막(fascia plantare) 부상 장기 결장(Aiscore/fantamaster 검색요약); 1926 명단 열거",
+   "상태": "의심",
+   "복귀예정": "장기",
+   "대체선수": "",
+   "출처": "https://www.calcionapoli1926.it/formazioni/monza-napoli-le-probabili-formazioni-allegri-fa-turnover-un-ballottaggio-a-centrocampo/ ; https://www.fantamaster.it/monza-pessina-varela-ziolkowski-toure-cutrone-nuovi-tempi-recupero/",
+   "날짜": "2026-10-27 / 발행일 미확인"
+  },
+  {
+   "팀": "AC몬차",
+   "선수": "Maye",
+   "포지션": "미확인",
+   "이번시즌_선발/경기": "미확인(이번 조사에서 수치 미수집)",
+   "득점·도움": "미확인(이번 조사에서 수치 미수집)",
+   "사유": "Calcio Napoli 1926 결장 명단에 열거, 사유 미기재 (타 출처엔 부상 표시 없음)",
+   "상태": "의심",
+   "복귀예정": "미상",
+   "대체선수": "",
+   "출처": "https://www.calcionapoli1926.it/formazioni/monza-napoli-le-probabili-formazioni-allegri-fa-turnover-un-ballottaggio-a-centrocampo/",
+   "날짜": "2026-10-27"
+  },
+  {
+   "팀": "AC몬차",
+   "선수": "Idrissa Touré / Exequiel Zeballos",
+   "포지션": "MF / FW",
+   "이번시즌_선발/경기": "미확인(이번 조사에서 수치 미수집)",
+   "득점·도움": "미확인(이번 조사에서 수치 미수집)",
+   "사유": "Juric: 둘 다 회복, 출전 준비됨(결장 아님)",
+   "상태": "확정(가용)",
+   "복귀예정": "-",
+   "대체선수": "",
+   "출처": "https://www.calciobox.it/monza-juric-prima-del-napoli-allegri-e-cambiato-sulle-condizioni-di-toure-e-zeballos/",
+   "날짜": "2026-10-27"
+  },
+  {
+   "팀": "AC몬차",
+   "선수": "Eddy Kouadio",
+   "포지션": "DF",
+   "이번시즌_선발/경기": "미확인(이번 조사에서 수치 미수집)",
+   "득점·도움": "미확인(이번 조사에서 수치 미수집)",
+   "사유": "Juric: '아껴야 했다(preservarlo)'—사유 미명시, 수비 변화 시사. Tuttosport 예상엔 벤치",
+   "상태": "의심",
+   "복귀예정": "-",
+   "대체선수": "",
+   "출처": "https://www.calciobox.it/monza-juric-prima-del-napoli-allegri-e-cambiato-sulle-condizioni-di-toure-e-zeballos/ ; https://www.tuttosport.com/news/calcio/serie-a/2026/10/27-152180910/monza-napoli_probabili_formazioni_e_diretta_dove_si_vede_in_tv_e_streaming",
+   "날짜": "2026-10-27"
+  },
+  {
+   "팀": "AC몬차",
+   "선수": "Folorunsho (풀네임 미확인)",
+   "포지션": "MF",
+   "이번시즌_선발/경기": "미확인(이번 조사에서 수치 미수집)",
+   "득점·도움": "미확인(이번 조사에서 수치 미수집)",
+   "사유": "일부 출처에서 결장/불확실로 표기(검색요약), Tuttosport는 벤치",
+   "상태": "의심(단일 요약)",
+   "복귀예정": "미상",
+   "대체선수": "Foe Ondoa",
+   "출처": "검색요약(Tuttosport/Europacalcio 등); https://www.tuttosport.com/news/calcio/serie-a/2026/10/27-152180910/monza-napoli_probabili_formazioni_e_diretta_dove_si_vede_in_tv_e_streaming",
+   "날짜": "2026-10-27"
+  },
+  {
+   "팀": "SSC나폴리",
+   "선수": "Benoît Badiashile",
+   "포지션": "DF",
+   "이번시즌_선발/경기": "미확인(이번 조사에서 수치 미수집)",
+   "득점·도움": "미확인(이번 조사에서 수치 미수집)",
+   "사유": "stop 4-6 settimane (tipo infortunio non specificato); salta Monza, Juventus, Porto, Lazio",
+   "상태": "확정",
+   "복귀예정": "fine novembre (Sassuolo-Napoli)",
+   "대체선수": "Rafa Marín / Rrahmani / Marianucci(예상)",
+   "출처": "https://www.corrieredellosport.it/news/calcio/serie-a/napoli/2026/10/26-152170567/napoli_badiashile_e_spinazzola_ko_i_tempi_di_recupero_e_quante_partite_saltano ; https://www.calcionews24.com/squalifica-allegri-napoli-rinuncia-ricorso-parole-conferenza-pre-monza/ ; https://www.calcionapoli1926.it/formazioni/monza-napoli-le-probabili-formazioni-allegri-fa-turnover-un-ballottaggio-a-centrocampo/",
+   "날짜": "2026-10-26 ; 2026-10-27"
+  },
+  {
+   "팀": "SSC나폴리",
+   "선수": "Leonardo Spinazzola",
+   "포지션": "DF",
+   "이번시즌_선발/경기": "미확인(이번 조사에서 수치 미수집)",
+   "득점·도움": "미확인(이번 조사에서 수치 미수집)",
+   "사유": "infortunio (tipo non specificato); salta Monza, Juventus, Porto",
+   "상태": "확정",
+   "복귀예정": "dopo la sosta (Torino); Lazio a rischio",
+   "대체선수": "Olivera(예상)",
+   "출처": "https://www.corrieredellosport.it/news/calcio/serie-a/napoli/2026/10/26-152170567/napoli_badiashile_e_spinazzola_ko_i_tempi_di_recupero_e_quante_partite_saltano ; https://www.tuttosport.com/news/calcio/serie-a/2026/10/27-152180910/monza-napoli_probabili_formazioni_e_diretta_dove_si_vede_in_tv_e_streaming",
+   "날짜": "2026-10-26 ; 2026-10-27"
+  },
+  {
+   "팀": "SSC나폴리",
+   "선수": "Buongiorno, Favasuli, Neres, Alisson Santos (묶음)",
+   "포지션": "DF/DF/FW/FW",
+   "이번시즌_선발/경기": "미확인(이번 조사에서 수치 미수집)",
+   "득점·도움": "미확인(이번 조사에서 수치 미수집)",
+   "사유": "Calcio Napoli 1926(10-27)가 결장 명단에 열거. Buongiorno: 장기부상(10-9 ilnapolista, 2027년 1월 복귀 전망); Favasuli: 우측 대퇴직근 2도 손상(10-9, 11월 A매치 휴식기 이후); Neres: '또 멈춤'(calcionews24 10-27, 사유 미기재, 휴식기 이후 복귀 전망 ilnapolista); Alisson Santos: 사유 미기재(10-9 기사는 베네치아전 복귀 전망이었으나 이후 확인 못함)",
+   "상태": "확정(명단 열거)·세부 일부 의심",
+   "복귀예정": "Buongiorno 2027-01 / Favasuli 11월 휴식기 이후 / Neres 휴식기 이후",
+   "대체선수": "",
+   "출처": "https://www.calcionapoli1926.it/formazioni/monza-napoli-le-probabili-formazioni-allegri-fa-turnover-un-ballottaggio-a-centrocampo/ ; https://www.ilnapolista.it/2026/10/infortuni-napoli-allegri-ne-ha-fuori-ancora-sei-i-loro-tempi-di-recupero/ ; https://www.calcionews24.com/squalifica-allegri-napoli-rinuncia-ricorso-parole-conferenza-pre-monza/",
+   "날짜": "2026-10-27 ; 2026-10-09 ; 2026-10-27"
+  },
+  {
+   "팀": "SSC나폴리",
+   "선수": "Massimiliano Allegri (감독)",
+   "포지션": "감독",
+   "이번시즌_선발/경기": "미확인(이번 조사에서 수치 미수집)",
+   "득점·도움": "미확인(이번 조사에서 수치 미수집)",
+   "사유": "레드카드(로마전 3-3 종료 직전) → 2경기 출장정지, 항소 포기. 몬차·유벤투스전 벤치 불가. 벤치는 Marco Landucci(일부 출처)",
+   "상태": "확정",
+   "복귀예정": "3라운드부터(유벤전 이후)",
+   "대체선수": "Marco Landucci(코치)",
+   "출처": "https://www.calcionews24.com/squalifica-allegri-napoli-rinuncia-ricorso-parole-conferenza-pre-monza/ ; https://www.tuttosport.com/news/calcio/serie-a/2026/10/27-152180910/monza-napoli_probabili_formazioni_e_diretta_dove_si_vede_in_tv_e_streaming ; https://www.ilmattino.it/sport/sscnapoli/monza_napoli_conferenza_stampa_allegri_dove_vederla_serie_a_probabili_formazioni_ultime_notizie-9851717.html",
+   "날짜": "2026-10-27"
+  },
+  {
+   "팀": "SSC나폴리",
+   "선수": "Mathías Olivera / Rrahmani / Vergara / Anguissa",
+   "포지션": "DF/DF/MF/MF",
+   "이번시즌_선발/경기": "미확인(이번 조사에서 수치 미수집)",
+   "득점·도움": "미확인(이번 조사에서 수치 미수집)",
+   "사유": "결장 아님으로 보도: Rrahmani 독감 후 10-27 아침 복귀·가용; Vergara 회복(Allegri); Anguissa 가용(장기 이탈 후 컨디션 회복 중); McTominay는 선발 예상",
+   "상태": "확정(가용)",
+   "복귀예정": "-",
+   "대체선수": "",
+   "출처": "https://www.calcionews24.com/squalifica-allegri-napoli-rinuncia-ricorso-parole-conferenza-pre-monza/ ; https://www.ilnapolista.it/2026/10/monza-napoli-allegri-conferenza-live/",
+   "날짜": "2026-10-27"
+  },
+  {
+   "팀": "SSC나폴리",
+   "선수": "Giovanni Di Lorenzo",
+   "포지션": "DF",
+   "이번시즌_선발/경기": "미확인(이번 조사에서 수치 미수집)",
+   "득점·도움": "미확인(이번 조사에서 수치 미수집)",
+   "사유": "'non al meglio'(컨디션 완전하지 않음, 벤치 가능성 — 사유 미기재)",
+   "상태": "의심",
+   "복귀예정": "-",
+   "대체선수": "Marianucci(예상 55%)",
+   "출처": "https://www.calcionapoli1926.it/formazioni/monza-napoli-le-probabili-formazioni-allegri-fa-turnover-un-ballottaggio-a-centrocampo/",
+   "날짜": "2026-10-27"
+  }
+ ],
+ "라인업": {
+  "홈": {
+   "발표여부": "공식 미발표(예상만)",
+   "예상XI": {
+    "Tuttosport 3-4-2-1": "Törnqvist; Goglichidze, Lucchesi, Carboni; Bakoune, Akinsanmiro, Foe Ondoa, Mangas; Ngonge, Robinson; Varela",
+    "Calcio Napoli 1926 3-4-2-1": "Törnqvist; Kouadio, Goglichidze, Carboni; Birindelli, Akinsanmiro, Folorunsho, Mangas; Mota, Robinson; Varela"
+   },
+   "포메이션": "3-4-2-1",
+   "출처": "https://www.tuttosport.com/news/calcio/serie-a/2026/10/27-152180910/monza-napoli_probabili_formazioni_e_diretta_dove_si_vede_in_tv_e_streaming ; https://www.calcionapoli1926.it/formazioni/monza-napoli-le-probabili-formazioni-allegri-fa-turnover-un-ballottaggio-a-centrocampo/",
+   "날짜": "2026-10-27"
+  },
+  "원정": {
+   "발표여부": "공식 미발표(예상만)",
+   "예상XI": {
+    "Tuttosport 3-5-2": "Meret; Marianucci, Rrahmani, Rafa Marín; Politano, Anguissa, Lobotka, McTominay, Olivera; Giovane, Lucca (벤치: Milinković-Savić, De Bruyne, Højlund, Lang, Di Lorenzo 등)",
+    "Calcio Napoli 1926 4-3-3": "Milinković-Savić; Marianucci, Rrahmani, Rafa Marín, Olivera; Anguissa, Lobotka, McTominay; Politano, Højlund, Giovane (경쟁: Marianucci/Di Lorenzo 55:45, Lobotka/De Bruyne 55:45, Giovane/Lang 55:45)",
+    "검색요약(Il Difforme 등)": "Milinković-Savić 선발 다수, Meret은 Tuttosport만 선발"
+   },
+   "포메이션": "출처별 상이(3-5-2 / 4-3-3)",
+   "출처": "https://www.tuttosport.com/news/calcio/serie-a/2026/10/27-152180910/monza-napoli_probabili_formazioni_e_diretta_dove_si_vede_in_tv_e_streaming ; https://www.calcionapoli1926.it/formazioni/monza-napoli-le-probabili-formazioni-allegri-fa-turnover-un-ballottaggio-a-centrocampo/ ; https://ildifforme.it/sport/calcio/monza-napoli-probabili-formazioni",
+   "날짜": "2026-10-27"
+  }
+ },
+ "최근경기": [
+  {
+   "팀": "AC몬차",
+   "날짜": "2026-10-23/24",
+   "상대": "Torino",
+   "장소": "원정",
+   "스코어": "2-3 패",
+   "비고": "ESPN 10-23, INPUTS 10-24로 날짜 엇갈림(킥오프 현지/KST 차이 추정)"
+  },
+  {
+   "팀": "AC몬차",
+   "날짜": "2026-10-19",
+   "상대": "Cagliari",
+   "장소": "홈",
+   "스코어": "4-0 승",
+   "비고": "calciobox 10-27에도 4-0 언급"
+  },
+  {
+   "팀": "AC몬차",
+   "날짜": "2026-10-11",
+   "상대": "Lazio",
+   "장소": "원정",
+   "스코어": "1-3 패",
+   "비고": "팀노트 FACTS"
+  },
+  {
+   "팀": "SSC나폴리",
+   "날짜": "2026-10-24/25",
+   "상대": "AS Roma",
+   "장소": "홈",
+   "스코어": "3-3 무",
+   "비고": "종료 직전 Allegri 퇴장(→2경기 징계). 날짜 ESPN 10-24 vs INPUTS 10-25 엇갈림"
+  },
+  {
+   "팀": "SSC나폴리",
+   "날짜": "2026-10-17",
+   "상대": "Venezia",
+   "장소": "원정",
+   "스코어": "0-1 패",
+   "비고": "팀노트 FACTS"
+  },
+  {
+   "팀": "SSC나폴리",
+   "날짜": "2026-10-10",
+   "상대": "Frosinone",
+   "장소": "홈",
+   "스코어": "3-0 승",
+   "비고": "팀노트 FACTS"
+  },
+  {
+   "팀": "SSC나폴리",
+   "날짜": "2026-10-21",
+   "상대": "Bodø/Glimt",
+   "장소": "홈(팀노트 회고상)",
+   "스코어": "4-3 승(UCL)",
+   "비고": "팀노트 SSC나폴리.md 회고(10-21 UCL 보되 4:3 승) — 외부 재확인 안 함"
+  }
+ ],
+ "순위": {
+  "홈": "AC몬차 15위 · 승점7 · 8경기 · 득점15 실점18 (GD-3)",
+  "원정": "SSC나폴리 10위 · 승점11 · 8경기 · 득점13 실점10 (GD+3)",
+  "출처": "https://sport.sky.it/calcio/serie-a/classifica (10-27 22:41 갱신 표기)",
+  "날짜": "2026-10-27",
+  "비고": "팀노트와 일치. Parma 4점으로 몬차와 3점 차(calciobox 10-27)"
+ },
+ "감독": {
+  "홈": "Ivan Jurić",
+  "원정": "Massimiliano Allegri (출장정지 → 벤치 Marco Landucci)",
+  "변동": "감독 변동 없음. 단 Allegri 2경기 징계로 몬차·유벤전 벤치 부재",
+  "출처": "https://www.calcionews24.com/squalifica-allegri-napoli-rinuncia-ricorso-parole-conferenza-pre-monza/ ; https://www.tuttosport.com/news/calcio/serie-a/2026/10/27-152180910/monza-napoli_probabili_formazioni_e_diretta_dove_si_vede_in_tv_e_streaming ; 팀노트 FACTS(위키)",
+  "날짜": "2026-10-27"
+ },
+ "일정·동기·기타": [
+  {
+   "내용": "경기: 2026-10-28 20:45(현지) Stadio Brianteo(U-Power), 세리에A 9라운드",
+   "출처": "https://www.tuttosport.com/news/calcio/serie-a/2026/10/27-152180910/monza-napoli_probabili_formazioni_e_diretta_dove_si_vede_in_tv_e_streaming",
+   "날짜": "2026-10-27"
+  },
+  {
+   "내용": "Varela(몬차) 세리에A 득점 선두, 최근 8경기(코파 포함) 중 6경기 득점",
+   "출처": "https://www.calciobox.it/monza-juric-prima-del-napoli-allegri-e-cambiato-sulle-condizioni-di-toure-e-zeballos/",
+   "날짜": "2026-10-27"
+  },
+  {
+   "내용": "나폴리 10위, 챔피언스리그권과 7점 차. 몬차는 홈 2연승(Cagliari 4-0 포함) 후 Torino 원정 패",
+   "출처": "calciobox 위 URL",
+   "날짜": "2026-10-27"
+  },
+  {
+   "내용": "Allegri 징계 후 항소 포기('이 일을 끝내고 싶다'), 나폴리 UCL 포르투전 등 일정 지속",
+   "출처": "https://www.calcionews24.com/squalifica-allegri-napoli-rinuncia-ricorso-parole-conferenza-pre-monza/ ; https://www.corrieredellosport.it/news/calcio/serie-a/napoli/2026/10/26-152170567/napoli_badiashile_e_spinazzola_ko_i_tempi_di_recupero_e_quante_partite_saltano",
+   "날짜": "2026-10-27 ; 2026-10-26"
+  }
+ ],
+ "엇갈림": [
+  "나폴리 예상 시스템/GK: Tuttosport 3-5-2·Meret 선발 vs Calcio Napoli 1926·Il Difforme 4-3-3·Milinković-Savić 선발",
+  "Anguissa: Tuttosport 선발 예상 / 일부 출처 벤치·경쟁 / calcionews24는 '오래 결장' 표현 / ilnapolista 컨퍼런스 요약은 가용",
+  "Folorunsho: Calcio Napoli 1926 선발, Tuttosport 벤치(검색요약은 결장·불확실 표기)",
+  "Neres: Calcio Napoli 1926 결장 명단, 나머지 라인업 기사에 언급 없음",
+  "결장 명단 불일치: Tuttosport는 Badiashile·Spinazzola만, 1926은 Buongiorno·Favasuli·Neres·Alisson Santos·Pessina·Ziółkowski·Maye까지 열거"
+ ],
+ "못찾음": [
+  "Jurić의 나폴리전 결장 확정 전체 목록(Pessina/Ziółkowski/Maye 사유의 10월 말 기사)",
+  "몬차 개별 결장자 복귀일",
+  "Neres·Alisson Santos 최신(10월 말) 부상 사유",
+  "선수별 이번시즌 선발/득점·도움 — 수집하지 않음"
+ ],
+ "뉴스없음": {
+  "홈": "몬차 징계자 뉴스없음(검색처: tuttosport.com, calciobox.it, calcionapoli1926.it)",
+  "원정": "-"
+ }
+}

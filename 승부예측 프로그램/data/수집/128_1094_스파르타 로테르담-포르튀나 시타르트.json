@@ -1,0 +1,229 @@
+{
+ "번호": 1094,
+ "홈": "스파르타 로테르담",
+ "원정": "포르튀나 시타르트",
+ "수집시각": "2026-10-28 22시대 KST",
+ "결장": [
+  {
+   "팀": "스파르타 로테르담",
+   "선수": "Shunsuke Mito",
+   "포지션": "FW/MF",
+   "이번시즌_선발/경기": "미확인",
+   "득점·도움": "미확인",
+   "사유": "부상(종류 미기재)",
+   "상태(확정/의심)": "확정(출처 2: opstellingvandaag 10-27, 검색요약 bet365 라인업에서 제외 — 단 ITWM 기사는 구감독 언급이라 구버전 의심)",
+   "복귀예정": "미확인",
+   "대체선수": "미확인",
+   "출처": "https://opstellingvandaag.nl/knvb-beker/sparta-rotterdam-fortuna-sittard-28-10-2026/",
+   "날짜": "2026-10-27"
+  },
+  {
+   "팀": "포르튀나 시타르트",
+   "선수": "Ramazan Bayram",
+   "포지션": "DF",
+   "이번시즌_선발/경기": "미확인",
+   "득점·도움": "미확인",
+   "사유": "무릎 부상",
+   "상태(확정/의심)": "의심(출처 1: opstellingvandaag)",
+   "복귀예정": "미확인",
+   "대체선수": "미확인",
+   "출처": "https://opstellingvandaag.nl/knvb-beker/sparta-rotterdam-fortuna-sittard-28-10-2026/",
+   "날짜": "2026-10-27"
+  },
+  {
+   "팀": "포르튀나 시타르트",
+   "선수": "Lequincio Zeefuik",
+   "포지션": "FW",
+   "이번시즌_선발/경기": "미확인",
+   "득점·도움": "미확인",
+   "사유": "opstellingvandaag: 출전 불가(사유 미기재) / Fortuna Online: 부상 복귀, Buijs '역할 가능하나 크지 않음'",
+   "상태(확정/의심)": "엇갈림(출처 2)",
+   "복귀예정": "미확인",
+   "대체선수": "미확인",
+   "출처": "https://opstellingvandaag.nl/knvb-beker/sparta-rotterdam-fortuna-sittard-28-10-2026/ ; https://fortuna-online.nl/voorbeschouwing-sparta-uit-beker-2/",
+   "날짜": "2026-10-28"
+  },
+  {
+   "팀": "포르튀나 시타르트",
+   "선수": "Anthony Descotte",
+   "포지션": "FW",
+   "이번시즌_선발/경기": "미확인",
+   "득점·도움": "미확인",
+   "사유": "병 회복 중, Excelsior전 결장, 선발 예상",
+   "상태(확정/의심)": "의심(출처 1)",
+   "복귀예정": "미확인",
+   "대체선수": "미확인",
+   "출처": "https://fortuna-online.nl/voorbeschouwing-sparta-uit-beker-2/",
+   "날짜": "2026-10-28"
+  }
+ ],
+ "라인업": {
+  "홈": {
+   "발표여부": "미발표",
+   "예상XI": "Brouwer; Kuipers, Martins Indi, Verschuren, Young, Martes; Van Cruijsen, Toornstra, Hatenboer, Babadi; Zonneveld (대안 Van Bergen, Terho, Kostić). 직전 10-26 Ajax전 선발도 5-4-1 동일 구성",
+   "포메이션": "5-4-1",
+   "출처": "https://opstellingvandaag.nl/knvb-beker/sparta-rotterdam-fortuna-sittard-28-10-2026/",
+   "날짜": "2026-10-27"
+  },
+  "원정": {
+   "발표여부": "미발표",
+   "예상XI(opstellingvandaag)": "Branderhorst; Pinto, Guth, Hubner, De Groot, Van Ottele; Brittijn, Michut, Simons; Peterson, 't Zand (대안 Reitmaier, Dahlhaus, Márquez, Oukili, Romeny)",
+   "예상XI(Fortuna Online)": "Branderhorst; Pinto, Guth, Hubner, De Groot(또는 Dahlhaus); Van Ottele, Brittijn, 't Zand; Simons, Descotte, Peterson(또는 Oukili)",
+   "로테이션/출전시간 제한(Fortuna Online)": "Dahlhaus·Sinkgraven 약 45분, Márquez·Oukili 약 30분, Romeny·Michut·Ihattaren 역할 제한/불명",
+   "포메이션": "5-3-2(opstellingvandaag)",
+   "출처": "https://opstellingvandaag.nl/knvb-beker/sparta-rotterdam-fortuna-sittard-28-10-2026/ ; https://fortuna-online.nl/voorbeschouwing-sparta-uit-beker-2/",
+   "날짜": "2026-10-28"
+  }
+ },
+ "최근경기": [
+  {
+   "팀": "스파르타 로테르담",
+   "날짜": "2026-09-04",
+   "상대": "PEC Zwolle",
+   "장소": "홈",
+   "스코어": "2-2",
+   "비고": "팩트시트"
+  },
+  {
+   "팀": "스파르타 로테르담",
+   "날짜": "2026-09-13",
+   "상대": "PSV",
+   "장소": "원정",
+   "스코어": "1-4 패",
+   "비고": "팩트시트"
+  },
+  {
+   "팀": "스파르타 로테르담",
+   "날짜": "2026-09-19",
+   "상대": "Heerenveen",
+   "장소": "홈",
+   "스코어": "0-4 패",
+   "비고": "팩트시트"
+  },
+  {
+   "팀": "스파르타 로테르담",
+   "날짜": "2026-10-10",
+   "상대": "Go Ahead Eagles",
+   "장소": "원정",
+   "스코어": "3-3",
+   "비고": "팩트시트"
+  },
+  {
+   "팀": "스파르타 로테르담",
+   "날짜": "2026-10-17",
+   "상대": "Willem II",
+   "장소": "홈",
+   "스코어": "3-2 승",
+   "비고": "팩트시트"
+  },
+  {
+   "팀": "스파르타 로테르담",
+   "날짜": "2026-10-26",
+   "상대": "Ajax",
+   "장소": "홈",
+   "스코어": "1-2 패",
+   "비고": "INPUTS·voetbalkrant 10-25 요약. 날짜 엇갈림(10-25 기사에 이미 언급)"
+  },
+  {
+   "팀": "포르튀나 시타르트",
+   "날짜": "2026-09-06",
+   "상대": "ADO Den Haag",
+   "장소": "원정",
+   "스코어": "3-2 승",
+   "비고": "팩트시트"
+  },
+  {
+   "팀": "포르튀나 시타르트",
+   "날짜": "2026-09-12",
+   "상대": "Ajax",
+   "장소": "홈",
+   "스코어": "1-5 패",
+   "비고": "팩트시트"
+  },
+  {
+   "팀": "포르튀나 시타르트",
+   "날짜": "2026-09-19",
+   "상대": "Willem II",
+   "장소": "원정",
+   "스코어": "1-0 승",
+   "비고": "팩트시트"
+  },
+  {
+   "팀": "포르튀나 시타르트",
+   "날짜": "2026-10-10",
+   "상대": "FC Twente",
+   "장소": "홈",
+   "스코어": "1-1",
+   "비고": "팩트시트"
+  },
+  {
+   "팀": "포르튀나 시타르트",
+   "날짜": "2026-10-18",
+   "상대": "NEC Nijmegen",
+   "장소": "원정",
+   "스코어": "2-2",
+   "비고": "팩트시트"
+  },
+  {
+   "팀": "포르튀나 시타르트",
+   "날짜": "2026-10-25",
+   "상대": "Excelsior",
+   "장소": "홈",
+   "스코어": "1-0 승",
+   "비고": "INPUTS; Buijs 인터뷰 voetbalprimeur"
+  }
+ ],
+ "순위": {
+  "홈": "Eredivisie 14위, 9~10경기, 승점9 (팩트시트 9경기 2승3무4패 GD-6; voetbalkrant 10경기 9점)",
+  "원정": "Eredivisie 6위, 승점15(9경기, 4승3무2패 GD-1, 팩트시트) → Excelsior전 후 10경기 18점(voetbalkrant)",
+  "출처": "팩트시트 ESPN ; https://voetbalkrant.com/nieuws/2026-10-25/belgische-tiener-zet-analist-aan-het-denken-hij-is-een-must (검색요약)",
+  "날짜": "2026-10-25"
+ },
+ "감독": {
+  "홈": "미확인 — 팩트시트는 Brian Priske이나 출처가 위키 'AC Sparta Prague'(다른 클럽)라 오류 의심. 검색에서는 2026 소스 확인 못함(구기사는 Maurice Steijn, 'Meijer' 언급도 있음)",
+  "원정": "Danny Buijs (voetbaluitslagen.be 2026 확인, Buijs 인터뷰 voetbalprimeur 10월)",
+  "변동": "스파르타 감독 확인 불가 → 사용 전 재검증 필요",
+  "출처": "https://voetbaluitslagen.be/voetbalclub/fortuna-sittard/ ; 팩트시트",
+  "날짜": "2026-10-28"
+ },
+ "일정·동기·기타": [
+  {
+   "내용": "KNVB Beker 1라운드(본선 첫 경기), 현지 10-28 18:45 CET(=KST 10-29 02:45), Sparta Stadion Het Kasteel. Fortuna Online: VAR 없음. 연장·PK 규정은 기사에서 확인 못함",
+   "출처": "https://opstellingvandaag.nl/knvb-beker/sparta-rotterdam-fortuna-sittard-28-10-2026/ ; https://fortuna-online.nl/voorbeschouwing-sparta-uit-beker-2/",
+   "날짜": "2026-10-28"
+  },
+  {
+   "내용": "양 팀 3일 간격 일정: Sparta 10-26 Ajax전, Fortuna 10-25 Excelsior전 (INPUTS 휴식 3.1일/3.3일)",
+   "출처": "팀노트 INPUTS",
+   "날짜": "2026-10-28"
+  },
+  {
+   "내용": "Sparta 5-4-1 최근 5경기 중 3회, Fortuna 5-4-1 최근 5경기 중 2회",
+   "출처": "https://opstellingvandaag.nl/knvb-beker/sparta-rotterdam-fortuna-sittard-28-10-2026/",
+   "날짜": "2026-10-27"
+  },
+  {
+   "내용": "bet365 기사 라인업 Sparta: Brouwer, Martes, Young, Verschuren, Martins Indi, Kuipers, Van Cruijsen, Toornstra, Hatenboer, Babadi, Zonneveld (검색요약, 원문 403)",
+   "출처": "https://news.bet365.nl/nl-nl/article/sparta-rotterdam-fortuna-sittard-in-knvb-beker-blessures-opstellingen-h2h-tv-gids-vorm-voorspellingen-en-meer/2026102608372327735",
+   "날짜": "2026-10-26"
+  }
+ ],
+ "엇갈림": [
+  "Zeefuik 상태: 불가(opstellingvandaag) vs 복귀·제한 출전(Fortuna Online)",
+  "Sparta 감독 Priske(팩트시트) vs 미확인",
+  "Sparta Ajax전 날짜 10-26 vs 10-25 기사"
+ ],
+ "못찾음": [
+  "Sparta 감독 2026 확인",
+  "양 팀 공식 PK/라인업",
+  "Sparta 이적·시즌 위키(404)",
+  "연장·PK 규정",
+  "Mito 부상 종류·복귀",
+  "결장 선수 시즌 선발/득점 수치",
+  "Sparta 쪽 복수 출처 확인(Mito)"
+ ],
+ "뉴스없음": {
+  "홈": "Mito 외 추가 결장 뉴스없음 — 검색처: opstellingvandaag.nl, sparta-rotterdam.nl, itwm.nl",
+  "원정": "Bayram 외 추가 뉴스는 위 기재"
+ }
+}

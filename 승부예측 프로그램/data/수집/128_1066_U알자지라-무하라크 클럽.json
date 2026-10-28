@@ -1,0 +1,168 @@
+{
+ "번호": "1066",
+ "홈": "U알자지라",
+ "원정": "무하라크 클럽",
+ "수집시각": "2026-10-28 22시대 KST",
+ "결장": [
+  {
+   "팀": "알자지라",
+   "선수": "-",
+   "포지션": "-",
+   "이번시즌_선발/경기": "-",
+   "득점·도움": "-",
+   "사유": "결장 보도 못찾음(10/13 emaratalyoum 기사에 결장 언급 없음)",
+   "상태(확정/의심)": "뉴스없음",
+   "복귀예정": "-",
+   "대체선수": "-",
+   "출처": "https://www.emaratalyoum.com/sports/local/2026-10-13-1.2092083",
+   "날짜": "2026-10-13"
+  },
+  {
+   "팀": "무하라크 클럽",
+   "선수": "-",
+   "포지션": "-",
+   "이번시즌_선발/경기": "-",
+   "득점·도움": "-",
+   "사유": "결장 보도 못찾음(10/11·10/24 기사에 부상 언급 없음)",
+   "상태(확정/의심)": "뉴스없음",
+   "복귀예정": "-",
+   "대체선수": "-",
+   "출처": "https://www.newsofbahrain.com/en/article/al-khaldiya-muharraq-chase-first-asian-wins; https://www.gdnonline.com/Details/1410665",
+   "날짜": "2026-10-24"
+  }
+ ],
+ "라인업": {
+  "홈": {
+   "발표여부": "못찾음",
+   "예상XI": "참고용 직전(10/14 vs 아르카다그) 4-5-1: Ersin Destanoglu, Ravil Tagir, Khalifa Al-Hammadi, Josephine Wilson, Mohammed Rabii, Kristjan Asllani, Anthony Dennis, Bruno, Felicio Milson, Malcom, Ali Almemari. 스쿼드 외국인: Kristjan Asllani, Felício Milson, Malcom, Talisca(위키 10/16; Simon Banza는 제외/이적 표기)",
+   "포메이션": "4-5-1(직전)",
+   "출처": "팀노트/U알자지라.md INPUTS; https://en.wikipedia.org/wiki/2026%E2%80%9327_UAE_Pro_League",
+   "날짜": "2026-10-28 / 2026-10-16"
+  },
+  "원정": {
+   "발표여부": "못찾음",
+   "예상XI": "참고용 직전(10/14 vs 골고하르) 4-2-3-1: Vladan Dekic, Amine Benaddi, Ahmed Bughammar, Hasan Ali Alkarrani, Bruno Santos, Arthur, Anderson Leite, Mohamed Al-Hardan, Juninho Piauiense, Soufiane Mahrouq, Elliot Simoes. 득점 확인: Arthur Rezende(PK), Facundo Tobares(MD2); 국내 Soufiane Mahrouk, Edimar Ribeiro da Costa Junior, Elliot Simoes",
+   "포메이션": "4-2-3-1(직전)",
+   "출처": "팀노트/무하라크 클럽.md INPUTS; gdnonline 2026-10-24",
+   "날짜": "2026-10-28"
+  }
+ },
+ "최근경기": [
+  {
+   "팀": "알자지라",
+   "날짜": "2026-10-14",
+   "상대": "아르카다그",
+   "장소": "홈 아부다비",
+   "스코어": "2-1 승",
+   "비고": "ACL2 MD2, 90+5 결승골, 슈팅 25(유효10), 점유 70%+"
+  },
+  {
+   "팀": "알자지라",
+   "날짜": "2026-09-15",
+   "상대": "골고하르",
+   "장소": "중립 타지키스탄",
+   "스코어": "0-0",
+   "비고": "ACL2 MD1, 슈팅 20 무득점 (alkhaleej 2026-09-17)"
+  },
+  {
+   "팀": "알자지라",
+   "날짜": "2026-08-11 전후",
+   "상대": "Al Ittihad(사우디)",
+   "장소": "홈",
+   "스코어": "패(스코어 미확인)",
+   "비고": "ACL엘리트 플레이오프 탈락 후 ACL2 강등. 감독 Cosmin Olăroiu 'cold shower' 발언(albayan 2026-09-15 계열)"
+  },
+  {
+   "팀": "무하라크 클럽",
+   "날짜": "2026-10-24",
+   "상대": "East Riffa",
+   "장소": "Khalifa Sports City",
+   "스코어": "1-0 승",
+   "비고": "리그 6R, Mahrouk 42' 헤더, Edimar PK 실축. 2연승"
+  },
+  {
+   "팀": "무하라크 클럽",
+   "날짜": "2026-10-19",
+   "상대": "Malkiya",
+   "장소": "Riffa National Stadium",
+   "스코어": "3-0 승",
+   "비고": "리그 5R, Simoes 13', Edimar 45+', 60'"
+  },
+  {
+   "팀": "무하라크 클럽",
+   "날짜": "2026-10-14",
+   "상대": "골고하르",
+   "장소": "중립 오만 Al Seeb",
+   "스코어": "2-0 승",
+   "비고": "ACL2 MD2, Arthur Rezende PK, Tobares 90+4"
+  },
+  {
+   "팀": "무하라크 클럽",
+   "날짜": "2026-09-15",
+   "상대": "아르카다그",
+   "장소": "원정",
+   "스코어": "0-1 패",
+   "비고": "ACL2 MD1"
+  }
+ ],
+ "순위": {
+  "홈": "UAE 프로리그: 5라운드 후 1위 13점(4승1무, 무패, 2026-09-15 emaratalyoum). 이후 현재 순위·경기수 못찾음(10/13 기사: '첫 8경기 중 5승', 전 대회 포함 추정, 알이티하드전 패 언급)",
+  "원정": "바레인 프리미어리그 2026-27: 10/19 기준 12팀 중 9위 승점 5(5경기 1승, 승점 3 삭감 반영), 10/24 6R 승리 후 승점 8, '상위 절반 진입'(정확 순위 미확인). 챔피언 방어 시즌 초반 부진",
+  "출처": [
+   "https://www.emaratalyoum.com/sports/local/2026-09-15-1.2082987",
+   "https://www.gdnonline.com/Details/1410103",
+   "https://www.gdnonline.com/Details/1410665"
+  ],
+  "날짜": "UAE 2026-09-15 / 바레인 2026-10-24"
+ },
+ "감독": {
+  "홈": "Cosmin Olăroiu (팀노트와 일치; emaratalyoum 2026-10-13, Wikipedia 2026-10-16 두 곳 확정, 2028년까지 계약 보도)",
+  "원정": "Helder Cristovao (포르투갈인, 신임, 시즌 초 부진으로 최근 선임) — 팀노트 FACTS의 'Isa Alsadoon'과 다름 → 팩트시트가 옛 정보일 가능성 큼(newsofbahrain 2026-10-11, gdnonline 2026-10-15 두 곳)",
+  "변동": "무하라크: 시즌 초 감독 교체(Cristovao 선임). 알자지라 변동 없음",
+  "출처": [
+   "https://www.newsofbahrain.com/en/article/al-khaldiya-muharraq-chase-first-asian-wins",
+   "https://www.gdnonline.com/Details/1409768/Muharraq-win,-Al-Khaldiya-fall"
+  ],
+  "날짜": "2026-10-11~15"
+ },
+ "일정·동기·기타": [
+  {
+   "내용": "ACL2 B조 MD3: 알자지라 vs 무하라크 2026-10-29 01:00 KST(10/28), 알자지라 모하메드 빈 자예드 스타디움, 아부다비",
+   "출처": "https://www.gdnonline.com/Details/1409768/Muharraq-win,-Al-Khaldiya-fall",
+   "날짜": "2026-10-15"
+  },
+  {
+   "내용": "B조 MD2 후: 알자지라 4점(1위), 아르카다그 3점, 무하라크 3점, 골고하르 1점. MD1: 아르카다그 1-0 무하라크, 골고하르 0-0 알자지라. MD2: 알자지라 2-1 아르카다그, 무하라크 2-0 골고하르",
+   "출처": "gdnonline 1409768; emaratalyoum 2026-10-13",
+   "날짜": "2026-10-15"
+  },
+  {
+   "내용": "무하라크 리그 승점 3 삭감(자격 미달 선수 기용, vs Manama), 시즌 초 1승 전 무승. 최근 리그 2연승·ACL2 1승",
+   "출처": "https://www.gdnonline.com/Details/1410103",
+   "날짜": "2026-10-19"
+  },
+  {
+   "내용": "알자지라 선수 Willian Rocha: 알이티하드전 패배 후 반등, 올해 목표 우승 경쟁, 감독 영입 효과 언급",
+   "출처": "https://www.emaratalyoum.com/sports/local/2026-10-13-1.2092083",
+   "날짜": "2026-10-13"
+  },
+  {
+   "내용": "장소 기온 30.7℃(팀노트 INPUTS)",
+   "출처": "팀노트 INPUTS",
+   "날짜": "2026-10-28"
+  }
+ ],
+ "엇갈림": [
+  "무하라크 감독: 팀노트 Isa Alsadoon vs 언론 Helder Cristovao"
+ ],
+ "못찾음": [
+  "알자지라 현재 UAE 리그 순위·경기·승무패 득실",
+  "무하라크 바레인 리그 정확 순위",
+  "양팀 라인업/결장 공식",
+  "알자지라 아랍어 결장 기사(alkhaleej 2026-10-16 '공격 쿠즈민 우려' 403 차단으로 미열람)"
+ ],
+ "뉴스없음": {
+  "홈": "결장 뉴스없음 — 검색처: emaratalyoum, 아랍어 웹검색(alkhaleej/albayan)",
+  "원정": "결장 뉴스없음 — 검색처: gdnonline, newsofbahrain"
+ }
+}

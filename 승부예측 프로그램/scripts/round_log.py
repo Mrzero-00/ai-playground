@@ -54,17 +54,36 @@ def save(rows):
 
 
 def fetch_round(rnd, year=None):
-    """베트맨 회차 전체 행 (판매 전·후 모두 조회 가능)."""
+    """베트맨 회차 전체 행 (판매 전·후 모두 조회 가능).
+    '승무패NN' 이면 축구토토 승무패(G011)로 조회한다 — 2026-10-26 수정 전까지 프로토(G101)로만 조회해
+    승무패 회차는 결과가 한 번도 채워지지 않았고, 그래서 채점·회고가 통째로 빠져 있었다."""
     year = year or dt.datetime.now(KST).year
+    rs = str(rnd)
+    toto = rs.startswith("승무패")
+    gid = "G011" if toto else "G101"
+    num = int(re.sub(r"\D", "", rs) or 0)
     cookie = os.path.join(ROOT, "data", ".betman_cookie")
-    url = "https://www.betman.co.kr/main/mainPage/gamebuy/gameSlip.do?frameType=typeA&gmId=G101"
+    url = f"https://www.betman.co.kr/main/mainPage/gamebuy/gameSlip.do?frameType=typeA&gmId={gid}"
     subprocess.run(["curl", "-sS", "-m", "30", "-A", o.UA, "-c", cookie, "-o", "/dev/null", url])
     hdr = ["Content-Type: application/json; charset=UTF-8", "Accept: application/json",
            "X-Requested-With: XMLHttpRequest", "Origin: https://www.betman.co.kr", f"Referer: {url}"]
     sbm = {"_sbmInfo": {"_sbmInfo": {"debugMode": "false"}}}
-    gm_ts = int(f"{str(year)[2:]}{int(rnd):04d}")
+    gm_ts = int(f"{str(year)[2:]}{num:04d}")
     d = o.curl("https://www.betman.co.kr/buyPsblGame/gameInfoInq.do", hdr,
-               json.dumps({"gmId": "G101", "gmTs": gm_ts, "gameYear": year, **sbm}), cookie)
+               json.dumps({"gmId": gid, "gmTs": gm_ts, "gameYear": year, **sbm}), cookie)
+    if toto:
+        # 승무패는 schedulesList 로 온다. 프로토 compSchedules 와 열 이름을 맞춰 준다.
+        out = []
+        for x in (d.get("schedulesList") or []):
+            out.append({"homeName": x.get("homeFullName") or x.get("homeName"),
+                        "awayName": x.get("awayFullName") or x.get("awayName"),
+                        "matchSeq": x.get("matchSeq"), "gameResult": x.get("gameResult"),
+                        "mchScore": x.get("mchScore"), "protoStatus": x.get("protoStatus"),
+                        # main_markets 가 요구하는 열을 채워 준다(itemCode·gameDate·betTypNm).
+                        "itemCode": x.get("itemCode") or "SC", "gameDate": x.get("gameDate"),
+                        "betTypNm": "승무패", "betNm": "승무패",
+                        "winHandi": None, "loseHandi": None, "handi": x.get("handi")})
+        return out
     cs = d.get("compSchedules") or {"keys": [], "datas": []}
     return [dict(zip(cs["keys"], r)) for r in cs["datas"]]
 
@@ -400,7 +419,10 @@ def cmd_results(a):
     for g in main_markets(raw):
         res[(g["homeName"], g["awayName"])] = (g.get("gameResult"), g.get("mchScore"), g.get("protoStatus"))
         res_no[str(g.get("matchSeq"))] = res[(g["homeName"], g["awayName"])]  # 같은 대진 2경기(MLB G3/G4)는 번호로 — 2026-10-08
-    code = {"0": "승", "1": "무", "2": "패", "4": "적특"}
+    # 프로토(G101)는 0/1/2, 승무패(G011)는 A/B/D 로 온다.
+    # A=승 B=무 D=패 — 승무패63 실제 점수와 대조해 확인(2:0→A, 1:1→B, 0:1→D).
+    code = {"0": "승", "1": "무", "2": "패", "4": "적특",
+            "A": "승", "B": "무", "D": "패"}
     n = 0
     for r in rows:
         if r["회차"] != str(a.round):
@@ -413,7 +435,11 @@ def cmd_results(a):
         if r.get("결과"):
             continue
         x = res_no.get(str(r.get("번호"))) if r.get("번호") else res.get((r["홈"], r["원정"]))
-        if not x or x[2] != "4" or x[0] in (None, ""):
+        # 프로토는 protoStatus=="4"(종료)를 확인한다. 승무패(G011)는 그 필드가 없으므로
+        # gameResult 가 채워진 것만 보고 받아들인다(2026-10-26 — 이 조건 때문에 승무패가 통째로 걸러졌다).
+        if not x or x[0] in (None, ""):
+            continue
+        if x[2] not in (None, "") and x[2] != "4":
             continue
         r["결과"], r["점수"] = code.get(x[0], x[0]), x[1] or ""
         for pre, col in (("순수", "순수적중"), ("시장", "시장적중"), ("보정", "보정적중")):
@@ -501,8 +527,10 @@ def cmd_review(a):
 def main():
     ap = argparse.ArgumentParser()
     sub = ap.add_subparsers(dest="cmd", required=True)
-    for c in ("init", "market", "results", "review"):
+    for c in ("init", "market", "review"):
         s = sub.add_parser(c); s.add_argument("round", type=int)
+    # results 는 '승무패NN' 도 받는다(2026-10-26) — 승무패 회차가 통째로 채점에서 빠져 있었다
+    s = sub.add_parser("results"); s.add_argument("round")
     s = sub.add_parser("adjust"); s.add_argument("round", type=int); s.add_argument("--news", action="append", help="'홈,원정,승조정%%p,메모' (최대 ±5)"); s.add_argument("--quiet", action="store_true", help="계산만, 경기별 출력 생략")
     s = sub.add_parser("pure"); s.add_argument("round", type=int); s.add_argument("file"); s.add_argument("--no-anchor", action="store_true")
     s = sub.add_parser("anchor"); s.add_argument("round", type=int); s.add_argument("--quiet", action="store_true")

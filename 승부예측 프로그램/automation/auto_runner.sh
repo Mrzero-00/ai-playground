@@ -13,6 +13,9 @@ LOG="$PROJ/logs/auto_$(date +%Y%m%d).log"
 LOCK="/tmp/pacu_auto_runner.lock"
 MODE="${1:-blocks}"
 PERM="${PACU_PERM:-acceptEdits}"
+# 모델 고정(2026-10-29 사용자 지시). 지정이 없으면 기본 모델로 돌았고, 그게 Fable 이라
+# 10/28 21시 승무패64 블록이 "You've reached your Fable limit" 으로 세 번 연속 실패했다.
+MODEL="${PACU_MODEL:-opus}"
 mkdir -p "$PROJ/logs"
 cd "$PROJ" || exit 1
 exec >>"$LOG" 2>&1
@@ -55,6 +58,7 @@ read -r -d '' RULES <<'PACU_RULES_EOF'
    요인 보정은 시장 대비 −5.0p 로 오히려 깎고 있다. 그래서 ① 사전확률은 시장에서 출발 ② 기본 보정 0, 검증 가능한
    사실이 있는 소수 경기만 개입 ③ factor_weights.json 에서 weight>0 인 유형만 확률을 움직임(나머지는 기록만)
    ④ 판정은 '개입한 경기에서 사전확률 대비 개선폭'(prior.py report). 분석할 때는 prior.py apply 로 사전확률+검증요인만 얹는다. 시장은 목표가 아니라 그 위에 올려야 넘어서는 바닥이다.
+· 에이전트를 띄울 때 model 을 반드시 명시한다 — 수집가·조사는 sonnet, 분석가·2차 반론·앙상블 등 판단이 들어가는 것은 전부 opus. 지정을 빼면 부모 모델을 상속해 한도를 같이 태운다(2026-10-28 사고).
 · 회고와 주간 점검은 다르다. 회고는 틀 안에서 가중치·문턱을 고치고, 주간 방향 점검(direction_review.py)은 틀 자체를 유지·조정·전환으로 판정한다. 점검에서 '전환'이 나오면 회고 결과보다 그쪽을 따른다.
 ★★ 목표는 단 하나다: 단일 경기 방향 예측 100%. 시장은 목표가 아니라 진단용 눈금이다 — '시장 수준'을 목표로 적지 않는다.
    모든 변경은 '방향 적중률이 올랐는가'로만 채택·기각한다. 회수율·RPS·Brier 는 보조 진단일 뿐이다.
@@ -106,6 +110,13 @@ ${STEP3}
 [4단계 배포] 커밋·푸시(origin pacu, pacu:main) → sh ../betman-dashboard/deploy.sh 로 대시보드 갱신·배포 → PushNotification 한 줄 알림(추천 유무·일반 승률·도파민 승률). round_watch.py done 으로 블록 상태도 닫는다.
 ${RULES}"
 
-caffeinate -i -s claude -p "$PROMPT" --permission-mode "$PERM" --output-format text --max-turns 400 2>&1 | tail -c 20000
+echo "모델: $MODEL"
+OUT="$(caffeinate -i -s claude -p "$PROMPT" --model "$MODEL" --permission-mode "$PERM" --output-format text --max-turns 400 2>&1)"
+echo "$OUT" | tail -c 20000
+# 한도·인증 실패는 조용히 끝나면 며칠 뒤에야 발견된다. 눈에 띄게 남긴다(2026-10-29).
+if printf '%s' "$OUT" | grep -qiE "reached your .* limit|usage limit|rate limit|credit balance|Invalid API key|authentication"; then
+  echo "!!! 모델 호출 실패(한도/인증) — 이 블록은 분석되지 않았다. 모델=$MODEL"
+  echo "$(date '+%F %T') $MODE 모델호출실패 model=$MODEL" >> "$PROJ/logs/실패알림.log"
+fi
 python3 scripts/loop_state.py --commit >/dev/null 2>&1
 echo "=== $(date '+%F %T') 끝"

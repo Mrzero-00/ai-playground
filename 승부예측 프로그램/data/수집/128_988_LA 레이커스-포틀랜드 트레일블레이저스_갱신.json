@@ -1,0 +1,135 @@
+{
+  "번호": "988",
+  "홈": "LA 레이커스",
+  "원정": "포틀랜드 트레일블레이저스",
+  "수집시각": "2026-10-28 11:10 KST",
+  "기준수집": "data/수집/127_988_LA 레이커스-포틀랜드 트레일블레이저스.json",
+  "선발발표": {
+    "홈": {
+      "발표여부": "미발표(11:10 KST 기준, 팁오프 12:00 KST — 공식 선발은 보통 30분 전 발표)",
+      "선발5": [],
+      "출처": "https://fantasydata.com/nba/starting-lineups (예상 선발만 게시: Luka Dončić, Quentin Grimes, Austin Reaves, Sandro Mamukelashvili, Walker Kessler — 확정/예상 표기 없음)",
+      "날짜": "조회 2026-10-28"
+    },
+    "원정": {
+      "발표여부": "미발표(11:10 KST 기준)",
+      "선발5": [],
+      "출처": "https://fantasydata.com/nba/starting-lineups (예상 선발만 게시: Ja Morant, Damian Lillard, Deni Avdija, Toumani Camara, Donovan Clingan — 확정/예상 표기 없음)",
+      "날짜": "조회 2026-10-28"
+    }
+  },
+  "상태변경": [
+    {
+      "팀": "원정(POR)",
+      "선수": "Branden Carlson",
+      "어제": "Questionable(뇌진탕 프로토콜)",
+      "오늘": "Available — 뇌진탕 프로토콜 해제, 시즌 첫 출전 가능(센터 서열 3번째 이하로 출전시간 제한적 예상)",
+      "출처": "https://www.nbcsports.com/fantasy/basketball/player-news/2026-10-27/branden-carlson-concussion-available-tuesday",
+      "날짜": "2026-10-27",
+      "비고": "같은 날 22:00 UTC 발행 Athlon/Yahoo 최종 리포트에는 여전히 Questionable 로 표기 — 매체 간 엇갈림(엇갈림 항목 참조)"
+    },
+    {
+      "팀": "원정(POR)",
+      "선수": "Chris Youngblood",
+      "어제": "Out(사유 불명)",
+      "오늘": "Out — 사유 '발목(ankle)·투웨이 선수' 로 명시, 예상 복귀 10/29",
+      "출처": "https://www.espn.com/nba/team/injuries/_/name/por/portland-trail-blazers ; https://www.cbssports.com/nba/teams/POR/portland-trail-blazers/injuries/",
+      "날짜": "2026-10-27"
+    },
+    {
+      "팀": "홈(LAL)",
+      "선수": "Cameron Carr",
+      "어제": "Out(복사근)",
+      "오늘": "Out 유지 — 단, 10/27 G리그(Coachella Valley Lakers)에서 콜업(recall)됨. 출전은 불가",
+      "출처": "https://www.espn.com/nba/team/injuries/_/name/lal/los-angeles-lakers",
+      "날짜": "2026-10-27"
+    }
+  ],
+  "신규결장": [
+    {
+      "팀": "원정(POR)",
+      "선수": "Jayson Kent",
+      "상태": "Out",
+      "사유": "G리그 투웨이 배정(G League Two-Way)",
+      "출처": "https://sports.yahoo.com/articles/final-injury-report-trail-blazers-220000092.html",
+      "날짜": "2026-10-27"
+    },
+    {
+      "팀": "원정(POR)",
+      "선수": "John Tonje",
+      "상태": "Out",
+      "사유": "G리그 투웨이 배정(G League Two-Way)",
+      "출처": "https://sports.yahoo.com/articles/final-injury-report-trail-blazers-220000092.html",
+      "날짜": "2026-10-27"
+    }
+  ],
+  "변동없음": {
+    "홈": "Cameron Carr(오른쪽 복사근 염좌, Out)·Adou Thiero(왼쪽 무릎 부종/effusion, Out) 그대로. Walker Kessler 는 왼손 손가락 스플린트 착용 상태로 Available(개막 3경기 전부 출전). Luka Dončić·Austin Reaves·Deandre Ayton 은 부상 리포트에 이름 없음(Ayton 은 어느 리포트에도 언급 없음). 출처: https://sports.yahoo.com/articles/portland-trail-blazers-scoot-henderson-175312902.html (2026-10-27 17:53 UTC), https://www.cbssports.com/nba/teams/LAL/los-angeles-lakers/injuries/ (갱신 2026-10-27), https://ripcityradio.iheart.com/content/2026-10-27-trail-blazers-vs-lakers-injury-report-oct-27/ (2026-10-27)",
+    "원정": "Scoot Henderson 여전히 Questionable(왼쪽 발목 통증, 게임타임 결정) — 11:10 KST 까지 최종 출전/결장 발표 없음. 10/27 22:00 UTC 발행 최종 리포트도 Questionable 유지('시즌 첫 결장 위기'·결장 시 Jrue Holiday·Vít Krejčí 역할 확대 전망). Shaedon Sharpe Out(오른쪽 반월판 수술, 6개월, ESPN 예상 복귀 3/2). Jrue Holiday·Jerami Grant·Deni Avdija·Donovan Clingan 은 부상 리포트에 이름 없음. 출처: https://sports.yahoo.com/articles/final-injury-report-trail-blazers-220000092.html (2026-10-27 22:00 UTC), https://www.espn.com/nba/team/injuries/_/name/por/portland-trail-blazers (Henderson 코멘트 10/26, Youngblood 10/27), https://www.rotowire.com/basketball/player/scoot-henderson-5377 (10/26), https://www.blazersedge.com/trail-blazers-injury-report/117542/portland-trail-blazers-los-angeles-lakers-nba-injury-report-scoot-henderson-branden-carlson-news (10/27)"
+  },
+  "직전경기·백투백": {
+    "홈": {
+      "직전경기": "2026-10-25(미국) 원정 Utah Jazz 132-123 승 (3승 0패)",
+      "백투백": "오늘은 백투백 1일차(2일차 아님) — 내일 10/28(미국) LA Clippers 원정 22:30 ET 이어짐. 10/30 Golden State 원정.",
+      "출처": "https://www.espn.com/nba/team/schedule/_/name/lal/los-angeles-lakers ; https://sports.yahoo.com/articles/lakers-vs-blazers-preview-taking-013609171.html ('first night of a back-to-back for the purple and gold')",
+      "날짜": "조회 2026-10-28 / 기사 2026-10-27"
+    },
+    "원정": {
+      "직전경기": "2026-10-23(미국) 원정 Sacramento Kings 128-120 승 (2승 0패)",
+      "백투백": "아님 — 4일 휴식 후 경기. 다음 경기는 10/31(토) Utah 원정. 어제 파일의 '내일(10/28) 새크라멘토 원정 백투백 1일차' 기술은 ESPN 일정표와 불일치 → 정정(10/28 경기 없음).",
+      "출처": "https://www.espn.com/nba/team/schedule/_/name/por/portland-trail-blazers ; https://sports.yahoo.com/articles/lakers-vs-blazers-preview-taking-013609171.html ('Blazers are coming off four days of rest')",
+      "날짜": "조회 2026-10-28 / 기사 2026-10-27"
+    }
+  },
+  "로스터거래": {
+    "홈": "10/24~10/28 NBA 로스터 거래 없음(ESPN 최근 거래 10/19 Dalton Knecht 웨이브). Cameron Carr G리그 콜업(10/27)은 부상 리포트 코멘트로만 확인. 'Rafael Castro Exhibit 10 계약 후 웨이브'·'Kalifa Sakho G리그 권리 인수' 보도는 G리그 소속(South Bay/Coachella Valley) 관련으로 NBA 15인 로스터 변동 아님 — 본문 403으로 세부 미확인. 출처: https://www.espn.com/nba/team/transactions/_/name/lal/los-angeles-lakers (조회 2026-10-28), https://basketnews.com/news-257116-lakers-sign-new-center-waive-another-big-man-in-pair-of-roster-moves.html (403, 검색 요약만)",
+    "원정": "10/24~10/28 거래 없음(ESPN 최근 거래 10/17 Jeremy Sochan 웨이브). 출처: https://www.espn.com/nba/team/transactions/_/name/por/portland-trail-blazers (조회 2026-10-28)"
+  },
+  "기타": [
+    {
+      "내용": "Rui Hachimura 는 레이커스 로스터에 없음 — 2026-27 LA Clippers 소속으로 확인(basketball-reference 2026-27 클리퍼스 로스터 28번 PF, 2년 $28M 계약). 어제 '미검증' 항목 해소.",
+      "출처": "https://www.basketball-reference.com/teams/LAC/2027.html ; https://www.spotrac.com/nba/player/_/id/31566/rui-hachimura",
+      "날짜": "조회 2026-10-28"
+    },
+    {
+      "내용": "Scoot Henderson 이번 시즌 2경기 출전, 평균 9.5점 1.5리바 1.5어시 19.9분(피닉스전 15점·새크라멘토전 4점). 새크라멘토전(10/23) 이후 발목 통증.",
+      "출처": "https://sports.yahoo.com/articles/portland-trail-blazers-scoot-henderson-175312902.html",
+      "날짜": "2026-10-27"
+    },
+    {
+      "내용": "Walker Kessler 개막 3경기 평균 16.7점 8.0리바 1.3어시, FG 82% (손가락 스플린트 착용 중 결장 없음).",
+      "출처": "https://sports.yahoo.com/articles/los-angeles-lakers-announce-injury-064346175.html",
+      "날짜": "2026-10-27"
+    },
+    {
+      "내용": "레이커스 개막 3경기 선발은 전부 Luka Dončić·Austin Reaves·Ziaire Williams·Walker Kessler·Matisse Thybulle (검색 요약 기준).",
+      "출처": "https://sports.yahoo.com/articles/los-angeles-lakers-announce-injury-064346175.html ; https://heavy.com/sports/nba/los-angeles-lakers/injury-report-vs-blazers-october-27/ (본문 403)",
+      "날짜": "2026-10-27"
+    },
+    {
+      "내용": "ESPN 경기 페이지(401909880): 11:10 KST 기준 경기 전 상태(스코어 없음). POR 2-0(원정 1-0), LAL 3-0(홈 2-0).",
+      "출처": "https://www.espn.com/nba/game/_/gameId/401909880/trail-blazers-lakers",
+      "날짜": "조회 2026-10-28"
+    }
+  ],
+  "엇갈림": [
+    {
+      "내용": "Branden Carlson: NBC Sports(10/27)는 '뇌진탕 프로토콜 해제·Available', Athlon/Yahoo 최종 리포트(10/27 22:00 UTC)·ripcityradio(10/27)는 'Questionable(concussion protocol)'. 어느 쪽이 더 늦은 갱신인지 시각 비교 불가(NBC 기사 시각 미표기).",
+      "출처": "https://www.nbcsports.com/fantasy/basketball/player-news/2026-10-27/branden-carlson-concussion-available-tuesday ; https://sports.yahoo.com/articles/final-injury-report-trail-blazers-220000092.html"
+    },
+    {
+      "내용": "레이커스 예상 선발: fantasydata 는 Grimes·Mamukelashvili 포함 5인, 다른 매체·개막 3경기 실제 선발은 Williams·Thybulle. fantasydata 표기는 예상치로 보이며 공식 발표 아님.",
+      "출처": "https://fantasydata.com/nba/starting-lineups ; https://sports.yahoo.com/articles/los-angeles-lakers-announce-injury-064346175.html"
+    },
+    {
+      "내용": "포틀랜드 백투백: 어제 수집 파일 '10/28 새크라멘토 원정' vs ESPN 일정표 '다음 경기 10/31 유타 원정' + Yahoo '4일 휴식'. 오늘 확인값(백투백 아님)을 채택.",
+      "출처": "https://www.espn.com/nba/team/schedule/_/name/por/portland-trail-blazers ; https://sports.yahoo.com/articles/lakers-vs-blazers-preview-taking-013609171.html"
+    }
+  ],
+  "못찾음": [
+    "Scoot Henderson 최종 출전/결장 확정 발표(11:10 KST 기준 없음 — 슛어라운드·워밍업 후 결정 예정)",
+    "양팀 공식 확정 선발 5인(팁오프 12:00 KST 약 30분 전 발표 예상)",
+    "Athlon·Heavy·basketnews 원문(403) — 검색 요약/Yahoo 미러로 대체",
+    "Deandre Ayton 관련 언급(부상 리포트·프리뷰 어디에도 없음 — 현재 로스터 소속 여부 자체를 이번 검색으로 확인하지 못함)"
+  ]
+}

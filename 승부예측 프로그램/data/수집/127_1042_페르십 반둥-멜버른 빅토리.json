@@ -1,0 +1,27 @@
+{
+  "번호": "1042",
+  "홈": "페르십 반둥",
+  "원정": "멜버른 빅토리",
+  "수집시각": "2026-10-27 21:58 KST",
+  "순위": {
+    "홈": "인도네시아 Liga 1 1위권(직전 시즌 기준 24승7무3패 79점, 이번 시즌 5경기 3승1무1패 추정치 혼재 — 확인 필요) [https://m.aiscore.com/team-persib-bandung/standings, 2026-10-27]",
+    "원정": "호주 A리그 순위 못찾음",
+    "출처": "aiscore.com",
+    "날짜": "2026-10-27"
+  },
+  "대회전적": {
+    "홈": ["ACL Two Group E 2경기 2승0무0패(조 1위) — 조별리그 2연승 [https://jabar.antaranews.com/berita/715323/, 2026-10-27]"],
+    "원정": ["ACL Two Group E 2경기 1승1무0패 승점4 [https://www.cnnindonesia.com/olahraga/20261026154259-142-1419776/, 2026-10-27]"]
+  },
+  "최근경기": ["Persib 조별리그 2연승으로 그룹 E 선두", "Melbourne Victory 1무1승으로 2위"],
+  "결장": [
+    "Melbourne Victory: Louis D'Arrigo 결장(확정), Matheus Rossetto(종아리) 결장(확정), Ben Mazzeo(발목) 결장(확정), Alessandro Lopane(햄스트링) 결장(확정), Ryan Kalms(무릎) 결장(확정) — 다수 부상자 [https://aleagues.com.au/news/a-league-injury-news-nishan-velupillay-melbourne-victory-arthur-diles-reaction-highlights-socceroos/, 2026-10-27]",
+    "Melbourne Victory: Emiliano Marcondes 부상 복귀, Julio Cascante 1군 승격"
+  ],
+  "일정·동기·기타": [
+    "경기 장소: Stadion Si Jalak Harupat, 반둥(인도네시아) — Persib 홈 [https://scoretab.in/matches/football/2026-10-28/afc-champions-league-two/persib-bandung-vs-melbourne-victory/, 2026-10-27]",
+    "ACL Two Group E 3라운드, 조 1위(Persib) vs 2위(Melbourne Victory)"
+  ],
+  "못찾음": ["Melbourne Victory A리그 국내 순위", "Persib 결장자 정보"],
+  "뉴스없음": {"홈": "결장 보도 없음(검색 2곳)", "원정": ""}
+}

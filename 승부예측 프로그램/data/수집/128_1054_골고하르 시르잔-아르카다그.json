@@ -1,0 +1,153 @@
+{
+ "번호": "1054",
+ "홈": "골고하르 시르잔",
+ "원정": "아르카다그",
+ "수집시각": "2026-10-28 22시대 KST (킥오프 22:45 KST 직전/직후, 결과·라이브 미확인)",
+ "결장": [
+  {
+   "팀": "골고하르 시르잔",
+   "선수": "Mohammad Erfan Masoumi",
+   "포지션": "미드필더",
+   "이번시즌_선발/경기": "미확인",
+   "득점·도움": "미확인",
+   "사유": "10/14 ACL2 MD2 vs 무하라크에서 후반 55분 경고누적 퇴장(2번째 옐로) — 규정상 다음 ACL2 경기 출장정지 가능성(출장정지 공식 확인 못함)",
+   "상태(확정/의심)": "의심(퇴장은 확정=2곳, 정지 적용은 미확인)",
+   "복귀예정": "미확인",
+   "대체선수": "미확인",
+   "출처": [
+    "https://www.gdnonline.com/Details/1409768/Muharraq-win,-Al-Khaldiya-fall",
+    "https://www.newsofbahrain.com/en/article/muharraq-beat-gol-gohar-as-al-khaldiya-fall-in-kuwait"
+   ],
+   "날짜": "2026-10-15"
+  }
+ ],
+ "라인업": {
+  "홈": {
+   "발표여부": "킥오프 전 발표 자료 못찾음",
+   "예상XI": "참고용 직전(10/14 vs 무하라크) 선발 5-4-1: Alireza Alizadeh, Mojtaba Najarian, Louay Ben Hassine, Masih Zahedi, Farzin Karousian, Omid Alishah, Pedram Ghazipour, Mohammadreza Abbasi Nasrabadi, Ahmadreza Zendehrooh, Mohammad Amin Kazemian, Soheil Sahraei (팀노트 INPUTS, 날짜 2026-10-28 수집분)",
+   "포메이션": "5-4-1(직전)",
+   "출처": "팀노트/골고하르 시르잔.md INPUTS",
+   "날짜": "2026-10-28"
+  },
+  "원정": {
+   "발표여부": "킥오프 전 발표 자료 못찾음",
+   "예상XI": "참고용 직전(10/14 vs 알자지라) 선발 5-4-1: Kakageldi Berdiýew, Arzuvguly Sapargulyyev, Annaguliyev Guychmyrat, Ybrayym Mammedow, Bashimov Abdy, Mekan Saparov, Myratberdiyev Rahman, Ahmet Atayev, Resul Hojayev, Yazgylych Gurbanov, Dayanch Meredov",
+   "포메이션": "5-4-1(직전)",
+   "출처": "팀노트/아르카다그.md INPUTS",
+   "날짜": "2026-10-28"
+  }
+ },
+ "최근경기": [
+  {
+   "팀": "골고하르 시르잔",
+   "날짜": "2026-10-14",
+   "상대": "무하라크 클럽",
+   "장소": "원정(중립, 오만 무스카트 Al Seeb Stadium)",
+   "스코어": "0-2 패",
+   "비고": "ACL2 MD2. Masoumi 퇴장. 출처 gdnonline 2026-10-15"
+  },
+  {
+   "팀": "골고하르 시르잔",
+   "날짜": "2026-09-15",
+   "상대": "알자지라",
+   "장소": "중립(타지키스탄 Hisor)",
+   "스코어": "0-0",
+   "비고": "ACL2 MD1. 출처 gdnonline Muharraq fall in ACL Two opener / alkhaleej 2026-09-15"
+  },
+  {
+   "팀": "골고하르 시르잔",
+   "날짜": "2026-10-25 이전(국내리그)",
+   "상대": "Wikipedia 격자: Aluminium 0-2 H패, Chadormalou 3-0 H승, Esteghlal Khuzestan 3-0 H승, Nassaji 1-0 H승, Esteghlal 0-1 A패, Paykan 0-0 A무, Sepahan 0-2 A패, Shams Azar 3-2 A승, Tractor 0-1 A패",
+   "장소": "-",
+   "스코어": "9경기 파싱(10경기 중 1경기 누락, 날짜 순서 불명)",
+   "비고": "출처 https://en.wikipedia.org/wiki/2026%E2%80%9327_Persian_Gulf_Pro_League (갱신 2026-10-25)"
+  },
+  {
+   "팀": "아르카다그",
+   "날짜": "2026-10-14",
+   "상대": "알자지라",
+   "장소": "원정(아부다비)",
+   "스코어": "1-2 패",
+   "비고": "ACL2 MD2, 알자지라 90+5분 결승골. 출처 emaratalyoum/alkhaleej 및 검색요약, 2026-10-13~16"
+  },
+  {
+   "팀": "아르카다그",
+   "날짜": "2026-09-15",
+   "상대": "무하라크 클럽",
+   "장소": "홈 표기(Mekan Saparov? 52분 결승골)",
+   "스코어": "1-0 승",
+   "비고": "ACL2 MD1, 득점자 Mekan Saparow 52'. 출처 gdnonline 1406576"
+  },
+  {
+   "팀": "아르카다그",
+   "날짜": "2026-10-03 이전",
+   "상대": "국내 요카리리가 마지막 확인 라운드 28R(10/3)",
+   "장소": "-",
+   "스코어": "미확인",
+   "비고": "국내리그는 10/11 이전 우승 확정, 이후 경기 미확인"
+  }
+ ],
+ "순위": {
+  "홈": "이란 페르시안걸프 프로리그 2026-27: 9위, 10경기 4승1무5패, 득실 10-9(+1), 승점 13 (Wikipedia 2026-10-25 갱신; TNT Sports 표도 동일, 날짜 미표기). 상위 1~4위 승점 20, Foolad 19. 2경기 이상 격차 가능(Tractor 9경기)",
+  "원정": "투르크메니스탄 요카리리가 2026: 1위 우승 확정(4연패), 25경기 25승0무0패, 득실 101-12, 승점 75 (RSSSF 2026-10-11 갱신, 28R 10/3까지 반영). 2위 Altyn Asyr 20경기 44점 (자국리그 수준 낮음, 8개팀)",
+  "출처": [
+   "https://en.wikipedia.org/wiki/2026%E2%80%9327_Persian_Gulf_Pro_League",
+   "https://www.tntsports.co.uk/football/iran-pro-league/standings.shtml",
+   "https://rsssf.org/tablest/turkm2026.html"
+  ],
+  "날짜": "이란 2026-10-25 / 투르크 2026-10-11"
+ },
+ "감독": {
+  "홈": "Mehdi Rahmati (팀노트 + 이란 매체 최근 인터뷰 언급, 변동 없음; 이란 등록 'Seyed Mehdi Rahmati')",
+  "원정": "Mergen Orazov (팀노트/Wikipedia 2026년 취임 기재; 최근 뉴스로 재확인 못함=한 곳 수준)",
+  "변동": "뉴스없음(변동 보도 못찾음)",
+  "출처": [
+   "https://en.wikipedia.org/wiki/Mergen_Orazov",
+   "https://www.mizanonline.ir/fa/news/4924433/"
+  ],
+  "날짜": "2026-10(위키 갱신일 미확인)"
+ },
+ "일정·동기·기타": [
+  {
+   "내용": "ACL2 2026-27 B조 MD3: 골고하르 시르잔 vs 아르카다그 2026-10-28 22:45 KST (13:45 UTC), 중계 AFC Hub. 장소 미확인(이란 클럽은 중립/해외 개최 전례: MD1 타지키스탄, MD2 오만)",
+   "출처": "https://www.wheresthematch.com/Football/Gol-Gohar-Sirjan.asp",
+   "날짜": "2026-10"
+  },
+  {
+   "내용": "B조 MD2 종료 후 순위: 알자지라 4점(1무1승), 아르카다그 3점(1승1패), 무하라크 3점(1패1승), 골고하르 1점(1무1패). MD1: 아르카다그 1-0 무하라크, 골고하르 0-0 알자지라. MD2: 알자지라 2-1 아르카다그, 무하라크 2-0 골고하르",
+   "출처": "https://www.gdnonline.com/Details/1409768/Muharraq-win,-Al-Khaldiya-fall; https://www.emaratalyoum.com/sports/local/2026-10-13-1.2092083",
+   "날짜": "2026-10-15"
+  },
+  {
+   "내용": "역상대전: 아르카다그-골고하르 홈앤어웨이 재대결 2026-11-04(일정 사이트 표기, 홈/원정 반대 추정)",
+   "출처": "https://sportscafe.in/football/live/international/afc-cup/arkadag-vs-sir-6717701/match-details",
+   "날짜": "2026-10"
+  },
+  {
+   "내용": "골고하르는 국내 리그+Hazfi+ACL2 병행 일정 부담, 감독 Rahmati가 선수층(46경기) 우려 언급(날짜 불명 인터뷰). 해외 개최 이동 부담 언급",
+   "출처": "https://www.mizanonline.ir/fa/news/4924433/",
+   "날짜": "미확인(7일 초과 가능)"
+  },
+  {
+   "내용": "이란 현지 매체(etemadonline 795301 '골고하르 무하라크전 패배' 기사 존재, 본문 미열람)",
+   "출처": "https://www.etemadonline.com/بخش-ورزش-18/795301",
+   "날짜": "2026-10-15 추정"
+  }
+ ],
+ "엇갈림": [
+  "아르카다그 MD1 장소: 일부 요약은 아르카다그 홈으로 표기, 투르크 개최지 미확인",
+  "골고하르 국내 순위 9위: 팀노트 FACTS '미확인'을 Wikipedia/TNT로 보완(두 곳 일치)"
+ ],
+ "못찾음": [
+  "킥오프 전 공식 라인업",
+  "골고하르 부상자 명단(최근 7일)",
+  "아르카다그 부상·결장 뉴스",
+  "경기장 및 날씨",
+  "골고하르 직전 국내 경기 결과 정확한 날짜",
+  "Masoumi 출장정지 공식 확인"
+ ],
+ "뉴스없음": {
+  "홈": "결장·라인업(퇴장 제외) 뉴스없음 — 검색처: Wikipedia, Google/WebSearch 페르시아어(asriran, etemadonline, mizanonline), gdnonline",
+  "원정": "결장·라인업·감독 뉴스없음 — 검색처: Wikipedia, 러시아어/영어 웹검색, RSSSF"
+ }
+}

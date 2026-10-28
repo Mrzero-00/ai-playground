@@ -260,6 +260,84 @@ def overconf_check(r, severe, minor):
         minor.append(f"과신 +{gap:.1f}%p (내 {t} {mine[t]:.1f} vs 시장 {m:.1f})")
 
 
+ROSTER_KW = re.compile(r"(합류|영입|이적|트레이드|사인|계약|acquir|sign|trade|join)", re.I)
+
+
+def roster_check(r, e, minor):
+    """농구(직전시즌 레이팅 기준선)에서 수집가가 '로스터변화·못찾음·엇갈림'에 스타급 합류를 올렸는데
+    분석가가 그 팀의 로스터 순보정을 0 으로 둔 채 방향을 확정하는 것을 잡는다.
+    (2026-10-28, 127·128회 988 LA 레이커스-포틀랜드: 수집가가 'Lillard·Morant 백코트'를 적고 합류 경위를
+     못찾음에 올렸는데 분석가는 '--adj-away 0 (확인된 이적·영입 없음)' 으로 61% 를 적었다 → 129:136 패.
+     반사실: Randle IN 선례 척도 +1.7 이면 56.1, 상한 +3 이면 52.5 로 G1 기권 구간.)
+    직전시즌 레이팅은 '그 시즌 로스터'의 값이라, 선발급 합류를 0 으로 두면 기준선 자체가 다른 팀을 가리킨다.
+    걸리면 경미(B) — 수집 JSON 의 해당 문장을 그대로 보여 주어 분석가가 확인·보정하거나 기권하게 한다."""
+    if r.get("종목") != "농구":
+        return
+    base = json.dumps(e.get("기준선") or {}, ensure_ascii=False)
+    zero = {}
+    for side, key in (("홈", "adj-home"), ("원정", "adj-away")):
+        m = re.search(r"--?" + key + r"[ =]+(-?\d+(?:\.\d+)?)", base)
+        if m and abs(float(m.group(1))) < 1e-9:
+            zero[side] = True
+    if not zero:
+        return
+    sujip = os.path.join(ROOT, "data", "수집")
+    if not os.path.isdir(sujip):
+        return
+    # 팀 식별 — 한글명·영문명(team_names.json)·영문 약어(도시 3글자 / 첫 글자 조합) 로 '홈/원정' 을 가른다.
+    try:
+        tn = json.load(open(os.path.join(ROOT, "data", "team_names.json"), encoding="utf-8"))
+    except Exception:
+        tn = {}
+    def keys(side):
+        ko = r[side]
+        en = tn.get(ko, "")
+        ks = {ko, ko.split()[0]}
+        if en:
+            w = en.split()
+            ks |= {en, w[0], w[0][:3].upper(), "".join(x[0] for x in w).upper(), (w[0][0] + w[1][:2]).upper() if len(w) > 1 else ""}
+            if en.startswith("Los Angeles"):
+                ks |= {"LA" + w[2][0].upper() if len(w) > 2 else "LA"}
+        return {k for k in ks if len(k) >= 2}
+    kh, ka = keys("홈"), keys("원정")
+    def side_of(text):
+        h = any(k in text for k in kh); a_ = any(k in text for k in ka)
+        if h and not a_:
+            return "홈"
+        if a_ and not h:
+            return "원정"
+        return None
+    pref = f"{r['회차']}_{r['번호']}_"
+    hits = []
+    for fn in sorted(os.listdir(sujip)):
+        if not fn.startswith(pref) or not fn.endswith(".json"):
+            continue
+        try:
+            d = json.load(open(os.path.join(sujip, fn), encoding="utf-8"))
+        except Exception:
+            continue
+        items = d if isinstance(d, list) else [d]
+        for it in items:
+            if not isinstance(it, dict):
+                continue
+            for k in ("못찾음", "엇갈림", "로스터변화", "로스터거래"):
+                v = it.get(k)
+                if not v:
+                    continue
+                for x in (v if isinstance(v, list) else [v]):
+                    t = json.dumps(x, ensure_ascii=False) if not isinstance(x, str) else x
+                    if not ROSTER_KW.search(t):
+                        continue
+                    side = side_of(str(x.get("팀", ""))) if isinstance(x, dict) else None
+                    if side is None:
+                        side = side_of(t)
+                    if side in zero:
+                        hits.append(f"{k}({side}): {t[:90]}")
+    if hits:
+        minor.append("로스터 순보정 0 인데 수집가가 합류·영입을 올렸다(직전시즌 레이팅은 그 시즌 로스터 값 — "
+                     "확인해 선례 척도로 보정하거나 G1 기권): " + " / ".join(hits[:3]))
+
+
 def note_checks(r, severe, minor):
     news_check(r, severe)
     overconf_check(r, severe, minor)
@@ -564,6 +642,46 @@ def normalize_evidence(data, rows=None, rnd=None):
     return data
 
 
+EV_KEY = ("회차", "번호", "구분", "유형", "팀", "선수", "영향", "내용", "기준선", "최종", "결론")
+
+
+def _ev_key(x):
+    return tuple(str(x.get(k) or "").strip() for k in EV_KEY)
+
+
+def _drop_dup_evidence(ev):
+    """이미 근거기록에 있는(내용까지 같은) 행과 이번 묶음 안의 중복을 뺀다."""
+    seen = set()
+    if os.path.exists(EVI):
+        seen = {_ev_key(x) for x in csv.DictReader(open(EVI, encoding="utf-8-sig"))}
+    out = []
+    for x in ev:
+        k = _ev_key(x)
+        if k in seen:
+            continue
+        seen.add(k); out.append(x)
+    return out
+
+
+def cmd_dedupe(a):
+    """근거기록·결장검증의 완전 중복 행을 한 번 정리한다(첫 행만 남김)."""
+    for path, keyf in ((EVI, _ev_key), (os.path.join(ROOT, "data", "결장검증.csv"),
+                                        lambda x: tuple((x.get(k) or "") for k in ("회차", "번호", "팀", "선수", "요인상태", "실제")))):
+        if not os.path.exists(path):
+            continue
+        rs = list(csv.DictReader(open(path, encoding="utf-8-sig")))
+        cols = list(rs[0].keys()) if rs else []
+        seen, keep = set(), []
+        for x in rs:
+            k = keyf(x)
+            if k in seen:
+                continue
+            seen.add(k); keep.append(x)
+        with open(path, "w", encoding="utf-8", newline="") as f:
+            w = csv.DictWriter(f, fieldnames=cols, lineterminator="\n"); w.writeheader(); w.writerows(keep)
+        print(f"{os.path.relpath(path, ROOT)}: {len(rs)}행 → {len(keep)}행 (중복 {len(rs)-len(keep)} 제거)")
+
+
 def cmd_add(a):
     rows = R.load()
     data = normalize_evidence(json.load(open(a.file, encoding="utf-8")), rows, a.round)
@@ -577,6 +695,7 @@ def cmd_add(a):
         severe, minor = [], []
         note_checks(r, severe, minor)
         evidence_checks(r, e, severe, minor)
+        roster_check(r, e, minor)
         g = grade_of(severe, minor)
         r["정합성"] = g
         # 2026-10-22(125회 심층회고): 근거 JSON 이 있으면 그 경기는 정의상 심층 분석이다.
@@ -604,6 +723,11 @@ def cmd_add(a):
                    "심각": " / ".join(severe), "경미": " / ".join(minor)})
         print(f"[{g}] {r['번호']} {game}" + (f" — 심각: {' / '.join(severe)}" if severe else "") + (f" — 경미: {' / '.join(minor)}" if minor else ""))
     R.save(rows)
+    # 2026-10-27(126·127회 심층회고): 같은 근거 JSON 을 두 번 add 하면(등급 재판정·재실행) 근거기록에
+    # 같은 행이 두 번 쌓였다 — 전수 4,749행 중 1,546행(33%)이 완전 중복. factor_fit·model_zoo 는 요인 '영향'을
+    # (회차,번호,유형)으로 합산하므로 중복 행은 영향을 2배로 세고, postmatch 결장검증도 같은 선수를 두 번 대조했다.
+    # → 내용까지 같은 행은 건너뛴다(재분석으로 내용·영향이 바뀐 행은 새 행으로 남는다).
+    ev = _drop_dup_evidence(ev)
     append(EVI, EVI_COLS, ev)
     append(CHK, CHK_COLS, ck)
     append(SNAP, SNAP_COLS, snaps)   # 덮어쓰지 않는 예측 기록 — 초기·라인업 후 재분석을 모두 남긴다
@@ -716,8 +840,9 @@ def main():
     p = sp.add_parser("grade"); p.add_argument("round")
     sp.add_parser("report")
     sp.add_parser("normalize")
+    sp.add_parser("dedupe")
     a = ap.parse_args()
-    {"pre": cmd_pre, "add": cmd_add, "mark": cmd_mark, "grade": cmd_grade, "report": cmd_report, "normalize": cmd_normalize}[a.cmd](a)
+    {"pre": cmd_pre, "add": cmd_add, "mark": cmd_mark, "grade": cmd_grade, "report": cmd_report, "normalize": cmd_normalize, "dedupe": cmd_dedupe}[a.cmd](a)
 
 
 if __name__ == "__main__":

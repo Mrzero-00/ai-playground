@@ -1,0 +1,94 @@
+{
+  "번호": "821",
+  "홈": "알아인",
+  "원정": "트락토르",
+  "리그": "AFC 챔피언스리그 엘리트",
+  "킥오프_KST": "2026-10-27 01:00",
+  "수집시각": "2026-10-26 21:58 KST",
+  "수집자": "collect-afc1",
+  "결장": [
+    {
+      "팀": "원정",
+      "선수": "Mehdi Hashemnejad",
+      "포지션": "미확인",
+      "이번시즌_선발/경기": "미확인",
+      "득점·도움": "미확인",
+      "사유": "서혜부(groin) 부상, 2026-08-13부터",
+      "상태": "의심",
+      "출처": "https://m.aiscore.com/team-tractor-s-c-/oj7x9irz58hr7g3/squad",
+      "날짜": "2026-10-26"
+    },
+    {
+      "팀": "원정",
+      "선수": "Mehdi Torabi",
+      "포지션": "미확인",
+      "이번시즌_선발/경기": "미확인",
+      "득점·도움": "미확인",
+      "사유": "전방십자인대 부상, 2026-08-28부터",
+      "상태": "의심",
+      "출처": "https://m.aiscore.com/team-tractor-s-c-/oj7x9irz58hr7g3/squad",
+      "날짜": "2026-10-26"
+    },
+    {
+      "팀": "홈",
+      "선수": "박용우",
+      "포지션": "미드필더",
+      "이번시즌_선발/경기": "미확인(2026-10 현재 복귀 여부 재확인 안 됨)",
+      "득점·도움": "미확인",
+      "사유": "십자인대 파열(2025년 보도), 복귀 여부 구식 정보 가능성",
+      "상태": "의심",
+      "출처": "팀노트/알아인.md (sportsdunia.com/fotmob.com, 구식 가능성 — 2026-10 재검색 결과 추가 확인 안 됨)",
+      "날짜": "2026-10-26"
+    }
+  ],
+  "라인업": {
+    "홈": {
+      "발표여부": "미발표",
+      "예상XI": "Khalid Eisa, Ramy Rabia, Djordje Skoko, Yahya Ben Khaleq, Rafael Rodrigues, Valentino Lazaro, Abdoul Traore, Matias Palacios, Alejandro Romero Gamarra, Houssine Rahimi, Soufiane Rahimi (직전 ACLE MD2, 2026-10-13 vs Al-Quwa Al-Jawiya 4-1 승 기준)",
+      "포메이션": "5-3-2",
+      "출처": "팀노트/알아인.md INPUTS(자동수집, ESPN)",
+      "날짜": "2026-10-26"
+    },
+    "원정": {
+      "발표여부": "미발표",
+      "예상XI": "Parsa Jafari, Shoja Khalilzadeh, Farshad Faraji, Mohammad Naderi, Daniel Esmaeilifar, Tibor Halilovic, Odiljon Xamrobekov, Milad Zakipour, Seyed Mehdi Hosseini, Amirhossein Hosseinzadeh, Shahriyar Moghanloo (직전 리그 경기, 2026-10-13 vs Al-Shamal 0-0 기준)",
+      "포메이션": "4-4-2",
+      "출처": "팀노트/트락토르.md INPUTS(자동수집, ESPN)",
+      "날짜": "2026-10-26"
+    }
+  },
+  "최근경기": [
+    {"팀": "홈", "날짜": "2026-09-15", "상대": "Al Nassr", "대회": "ACLE MD1", "장소": "홈", "스코어": "4-0 승"},
+    {"팀": "홈", "날짜": "2026-10-12", "상대": "Al-Quwa Al-Jawiya", "대회": "ACLE MD2", "장소": "원정", "스코어": "4-1 승"},
+    {"팀": "원정", "날짜": "2026-09-14", "상대": "Shabab Al Ahli", "대회": "ACLE MD1", "장소": "원정", "스코어": "0-1 패"},
+    {"팀": "원정", "날짜": "2026-10-12", "상대": "Al-Shamal", "대회": "ACLE MD2(중립, 오만 무스카트)", "장소": "중립", "스코어": "0-0 무"}
+  ],
+  "순위": {
+    "ACLE": {"홈": "서부 1위, 2경기 2승0무0패 GD+7 승점6", "원정": "서부 12위, 2경기 0승1무1패 GD-1 승점1"},
+    "국내": {"홈": "UAE 프로리그 선두권(10월 초 2위, 4경기 4승 — 알자지라와 승점 동률)", "원정": "이란 페르시안걸프 프로리그 순위 미확인"},
+    "출처": "팀노트/알아인.md FACTS·팀노트/트락토르.md FACTS",
+    "날짜": "2026-10-26"
+  },
+  "감독": {
+    "홈": "Vladimir Ivic",
+    "원정": "Javad Nekounam",
+    "변동": "없음(미확인된 변동 없음)",
+    "출처": "팀노트/알아인.md FACTS·팀노트/트락토르.md FACTS",
+    "날짜": "2026-10-26"
+  },
+  "일정·동기·기타": [
+    {"내용": "알아인은 ACLE 2경기 전승(서부 1위)이나 국내 ADNOC 프로리그·대통령컵에서 최근 연패로 모멘텀 저하 보도", "출처": "https://www.goal.com/en/news/live-stream-online-tv-where-to-watch-al-ain-v-tractor/blt7874aea633a15729", "날짜": "2026-10-26"},
+    {"내용": "트락토르는 ACLE 2경기 1점에 그쳐 서부 최하위권, 반등이 시급한 상황으로 보도", "출처": "https://www.goal.com/en/news/live-stream-online-tv-where-to-watch-al-ain-v-tractor/blt7874aea633a15729", "날짜": "2026-10-26"},
+    {"내용": "이 경기는 UAE 알아인 하자 빈 자예드 경기장(알아인 홈) 개최로 확인 — 이전 트락토르 '홈' 경기(vs 알샤말)만 지정학적 사유로 오만 중립 개최였고, 이번 알아인전은 정상적인 알아인 홈경기", "출처": "https://www.goal.com/en/news/live-stream-online-tv-where-to-watch-al-ain-v-tractor/blt7874aea633a15729", "날짜": "2026-10-26"}
+  ],
+  "엇갈림": [],
+  "못찾음": [
+    "트락토르 결장자 확정 여부(구단 공식 발표 확인 안 됨)",
+    "박용우 2026-10 최신 복귀 상태",
+    "양팀 공식 예상 선발(발표 전)",
+    "트락토르 국내리그(페르시안걸프 프로리그) 최신 순위"
+  ],
+  "뉴스없음": {
+    "원정": "트락토르 구단 공식 결장 발표 — the-afc.com 공식 프리뷰, Transfermarkt 부상표에서 추가 확인 안 됨(검색처: aiscore.com, possible11.com)"
+  }
+}

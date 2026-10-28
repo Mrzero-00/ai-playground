@@ -1,0 +1,66 @@
+{
+  "번호": "940",
+  "홈": "함부르크",
+  "원정": "프랑크푸르트",
+  "수집시각": "2026-10-27T12:56:00Z",
+  "결장": [
+    {"팀":"함부르크","선수":"Bilal Nadir","포지션":"MF","이번시즌_선발/경기":"불명","득점·도움":"불명","사유":"근육 부상(muscle problem)","상태":"확정","복귀예정":"불명","대체선수":"불명","출처":"https://www.sportsmole.co.uk/football/hamburger-sv/dfb-pokal/preview/hamburger-sv-vs-frankfurt-prediction-team-news-lineups_607696.html / https://sports.yahoo.com/articles/hamburger-sv-vs-eintracht-frankfurt-145000496.html","날짜":"2026-10-26"},
+    {"팀":"함부르크","선수":"Nicolai Remberg","포지션":"MF","이번시즌_선발/경기":"불명","득점·도움":"불명","사유":"십자인대 부상(cruciate ligament)","상태":"확정","복귀예정":"장기","대체선수":"불명","출처":"https://www.sportsmole.co.uk/football/hamburger-sv/dfb-pokal/preview/hamburger-sv-vs-frankfurt-prediction-team-news-lineups_607696.html","날짜":"2026-10-26"},
+    {"팀":"함부르크","선수":"Fábio Vieira","포지션":"FW/MF","이번시즌_선발/경기":"teamdb: 54분/경기, 15% xG+xA 비중(핵심 선수)","득점·도움":"1.2xG+0.9xA(teamdb 누적)","사유":"허벅지 부상(주말 경기 중 발생)","상태":"확정(2곳: sportsmole, yahoo)","복귀예정":"불명","대체선수":"Albert Grønbæk 추정","출처":"https://www.sportsmole.co.uk/football/hamburger-sv/dfb-pokal/preview/hamburger-sv-vs-frankfurt-prediction-team-news-lineups_607696.html / https://sports.yahoo.com/articles/hamburger-sv-vs-eintracht-frankfurt-145000496.html","날짜":"2026-10-26"},
+    {"팀":"함부르크","선수":"Patson Daka","포지션":"FW","이번시즌_선발/경기":"teamdb: 52분/경기, 9% 비중","득점·도움":"1.1xG+0.1xA(teamdb)","사유":"허벅지 부상 의심(doubt)","상태":"의심","복귀예정":"불명","대체선수":"Terem Moffi 추정 선발","출처":"https://www.sportsmole.co.uk/football/hamburger-sv/dfb-pokal/preview/hamburger-sv-vs-frankfurt-prediction-team-news-lineups_607696.html","날짜":"2026-10-26"},
+    {"팀":"함부르크","선수":"Yussuf Poulsen","포지션":"FW","이번시즌_선발/경기":"teamdb: 45분/경기, 19% 비중(최다 기여)","득점·도움":"2.6xG+0.1xA(teamdb)","사유":"고관절 부상(hip injury) — 다른 기사(kicker 검색 요약)에서만 언급, sportsmole엔 없음","상태":"의심(1곳만 확인)","복귀예정":"불명","대체선수":"불명","출처":"WebSearch 요약(kicker/eurosport 계열, 원문 URL 미확보)","날짜":"2026-10-26"},
+    {"팀":"프랑크푸르트","선수":"Malik Pimpong","포지션":"FW","이번시즌_선발/경기":"18세, 여름 영입(Midtjylland)","득점·도움":"불명","사유":"부상(세부 불명)","상태":"확정","복귀예정":"불명","대체선수":"불명","출처":"https://www.sportsmole.co.uk/football/hamburger-sv/dfb-pokal/preview/hamburger-sv-vs-frankfurt-prediction-team-news-lineups_607696.html / https://sports.yahoo.com/articles/hamburger-sv-vs-eintracht-frankfurt-145000496.html","날짜":"2026-10-26"},
+    {"팀":"프랑크푸르트","선수":"Jessic Ngankam","포지션":"FW","이번시즌_선발/경기":"불명(여름 임대 복귀)","득점·도움":"불명","사유":"허벅지 부상","상태":"확정","복귀예정":"불명","대체선수":"불명","출처":"https://www.sportsmole.co.uk/football/hamburger-sv/dfb-pokal/preview/hamburger-sv-vs-frankfurt-prediction-team-news-lineups_607696.html","날짜":"2026-10-26"}
+  ],
+  "라인업": {
+    "홈": {
+      "발표여부": "미발표(예상)",
+      "예상XI": "Tangvik; Nandja, Bornauw, Omari; Jatta, Sambi Lokonga, Grønbæk, Muheim, Lemke; Stange, Moffi (4-3-3 예상, 매체마다 포메이션 표기 상이 — 3-4-2-1 표기 매체도 있음)",
+      "포메이션": "4-3-3(sportsmole) / 3-4-2-1(일부 매체, teamdb 직전 리그 선발도 3-5-2 계열)",
+      "출처": "https://www.sportsmole.co.uk/football/hamburger-sv/dfb-pokal/preview/hamburger-sv-vs-frankfurt-prediction-team-news-lineups_607696.html",
+      "날짜": "2026-10-26"
+    },
+    "원정": {
+      "발표여부": "미발표(예상)",
+      "예상XI": "Kaua(GK); Baum, Koch, Brassier, Kosugi; Onyedika; Amaimouni-Echghouyab, Uzun; Götze; Ebnoutalib, Knauff (sportsmole 예상 — 리그 직전 선발 4-4-2: Atubolu,Brassier,Koch,Baum,Collins,Aséko,Onyedika,Chaïbi,Doan,Ebnoutalib,Burkardt 와 다수 교체 예상, 컵 로테이션 신호)",
+      "포메이션": "4-2-3-1(예상)",
+      "출처": "https://www.sportsmole.co.uk/football/hamburger-sv/dfb-pokal/preview/hamburger-sv-vs-frankfurt-prediction-team-news-lineups_607696.html",
+      "날짜": "2026-10-26"
+    }
+  },
+  "최근경기": [
+    {"팀":"함부르크","날짜":"2026-10-24","상대":"SC Paderborn 07","장소":"원정","스코어":"0-1 패","비고":"xG 0.42:1.36(teamdb), 리그"},
+    {"팀":"함부르크","날짜":"2026-10-17","상대":"VfB Stuttgart","장소":"홈","스코어":"1-0 승","비고":"xG 1.67:2.64(teamdb), 리그"},
+    {"팀":"프랑크푸르트","날짜":"2026-10-24","상대":"Borussia Dortmund","장소":"원정","스코어":"0-1 패","비고":"xG 0.85:1.72(teamdb), 리그"},
+    {"팀":"프랑크푸르트","날짜":"2026-10-16","상대":"FC Cologne","장소":"홈","스코어":"1-0 승","비고":"xG 1.27:1.02(teamdb), 리그"}
+  ],
+  "순위": {
+    "홈": "함부르크 11위, 7경기 3승0무4패, 득실-10, 승점9",
+    "원정": "프랑크푸르트 14위, 7경기 2승2무3패, 득실-7, 승점8 (teamdb)",
+    "출처": "팀노트 FACTS(위키 season)/teamdb.py",
+    "날짜": "2026-10-27"
+  },
+  "감독": {
+    "홈": "Merlin Polzin",
+    "원정": "Adi Hütter",
+    "변동": "없음(팩트시트 기준)",
+    "출처": "팀노트 FACTS",
+    "날짜": "2026-10-27"
+  },
+  "일정·동기·기타": [
+    {"내용":"함부르크 다음 경기: 리그(상대 불명, 분석팀 추가 확인 필요). 직전 리그 연패(10/24 패) 속 컵 로테이션 가능성 — sportsmole: 'HSV could rotate significantly'","출처":"https://www.sportsmole.co.uk/football/hamburger-sv/dfb-pokal/preview/hamburger-sv-vs-frankfurt-prediction-team-news-lineups_607696.html","날짜":"2026-10-26"},
+    {"내용":"프랑크푸르트는 주중 2연전(리그 10/24 도르트문트전 직후 컵) 체력 부담 — 'changes from the lineup in Dortmund for both performance reasons and fixture congestion' 언급","출처":"WebSearch 요약(bulinews 계열 프리뷰)","날짜":"2026-10-26"},
+    {"내용":"경기는 DFB-Pokal 2라운드, Volksparkstadion, 10/27 17:00(CET, 기사 표기) — KST 환산 시 10/28 01:00 전후로 추정되며 사용자 제공 02:00과 근접(시간대 환산 매체별 표기 차이 존재, 엇갈림 참조)","출처":"https://www.sportsmole.co.uk/football/hamburger-sv/dfb-pokal/preview/hamburger-sv-vs-frankfurt-prediction-team-news-lineups_607696.html","날짜":"2026-10-26"}
+  ],
+  "엇갈림": [
+    "함부르크 예상 포메이션이 매체마다 4-3-3 / 3-4-2-1로 다름",
+    "Yussuf Poulsen 결장 여부는 1개 출처(검색요약)만 확인, sportsmole 본문엔 없어 '의심'으로 둠",
+    "경기 날짜 표기가 매체마다 10-27/10-28, 시각도 17:00/18:00로 갈림(시간대 표기 혼선으로 추정)"
+  ],
+  "못찾음": [
+    "양 팀 현재 리그 순위 포인트 외 공식 벤치 명단(매치데이 스쿼드)",
+    "승부차기 관련 선수 개별 통계(PK 키커 순서)",
+    "함부르크·프랑크푸르트 다음 경기 정확한 날짜"
+  ],
+  "뉴스없음": {}
+}

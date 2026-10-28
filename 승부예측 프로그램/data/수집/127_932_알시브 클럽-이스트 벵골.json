@@ -1,0 +1,33 @@
+{
+  "번호": "932",
+  "홈": "알시브 클럽",
+  "원정": "이스트 벵골",
+  "수집시각": "2026-10-27 21:58 KST",
+  "비고": "팀명 정정: 사용자 입력 '알시브 클럽(방글라데시?)'는 확인 결과 Al-Seeb Club(오만)으로 추정됨. ACL Two 2026-27 Group D 소속(East Bengal과 동일 조, Al Shorta·Al-Hussein도 같은 조 — 949번 경기와 같은 그룹). [https://www.the-afc.com/en/club/afc_champions_league_two.html/news/group-d-al-seeb-club-oma-0-3-al-hussein-jor, 2026-10-27]",
+  "순위": {
+    "홈": "Al-Seeb(오만) 국내리그 순위 못찾음",
+    "원정": "East Bengal(인도 ISL) 국내리그 순위 못찾음 — 최근 국내 5경기 중 3승1패(Inter Kashi 5-1 승 10/23, Churchill Brothers 4-0 승 포함) [https://khelnow.com/football/indian-football-2026-27-afc-champions-league-two-al-seeb-vs-east-bengal-fc-preview, 2026-10-27]",
+    "출처": "khelnow.com",
+    "날짜": "2026-10-27"
+  },
+  "대회전적": {
+    "홈": ["ACL Two 2경기 0승0무2패 승점0(조 최하위) — Al-Hussein 원정 0-3 패(해트트릭 실점) [https://www.the-afc.com/en/club/afc_champions_league_two.html/news/group-d-al-seeb-club-oma-0-3-al-hussein-jor, 2026-10-27]"],
+    "원정": ["ACL Two 2경기 0승1무1패 승점1(조 3위) — Al Shorta 전 2-3 패 [https://khelnow.com/football/indian-football-2026-27-afc-champions-league-two-al-seeb-vs-east-bengal-fc-preview, 2026-10-27]"]
+  },
+  "최근경기": [
+    "East Bengal 10-23 Inter Kashi 5-1 승(국내)",
+    "East Bengal 10월 초 Churchill Brothers 4-0 승(국내)",
+    "East Bengal ACL Two Al Shorta전 2-3 패",
+    "Al-Seeb ACL Two Al-Hussein전 0-3 패(최근 공식 기록)"
+  ],
+  "결장": [
+    "East Bengal: Naorem Mahesh Singh 장기 결장(부상, 확정), Mohamad Rakip 부상 회복 중(의심), Effiong Nsungusi 스쿼드 미합류 [https://khelnow.com/football/indian-football-2026-27-afc-champions-league-two-al-seeb-vs-east-bengal-fc-preview, 2026-10-27]"
+  ],
+  "일정·동기·기타": [
+    "East Bengal: 조 3위로 탈락 위기, 오만 머스캇 원정에서 ACL Two 첫 승 절실 [https://revsportz.in/east-bengal-vs-al-seeb-qualification-hopes-on-the-line-as-red-and-gold-brigade-seek-first-win-in-muscat/, 2026-10-27]",
+    "Al-Seeb: 조 최하위, 3연패 시 탈락권 확정 위기 [https://khelnow.com/football/indian-football-2026-27-afc-champions-league-two-al-seeb-sc-players-to-watch-vs-east-bengal-fc, 2026-10-27]",
+    "경기 장소: 오만 알시브 스타디움(홈 Al-Seeb)"
+  ],
+  "못찾음": ["Al-Seeb 국내리그(오만 프로리그) 순위·결장 정보", "경기장 특이점(인조잔디 등) 확인 못함"],
+  "뉴스없음": {"홈": "Al-Seeb 결장 보도 검색 2곳(khelnow, the-afc) 확인 — 없음", "원정": ""}
+}

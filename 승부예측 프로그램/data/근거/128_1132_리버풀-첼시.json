@@ -1,0 +1,187 @@
+[
+ {
+  "번호": "1132",
+  "홈": "리버풀",
+  "원정": "첼시",
+  "분석시각": "2026-10-28 22:50 KST",
+  "기준선": {
+   "승": 47.6,
+   "무": 27.2,
+   "패": 25.2,
+   "출처": "eng.1 pi-rating (scratchpad/bl/1132.txt)"
+  },
+  "득점모델": {
+   "방식": "INPUTS xG λ(홈=(1.48+1.69)/2×홈보정≈1.71, 원정=(1.55+1.34)/2×원정보정≈1.34)와 기준선 λ 1.67:1.16 비교. xG는 8경기 표본·첼시 xGA 1.69 이상치·로테이션으로 과대 위험, 기준선은 1024경기 pi 기반이나 결장 미반영 → 절충 후 첼시 공격 결장(Palmer·JP) 반영해 원정 하향",
+   "λ홈": 1.72,
+   "λ원정": 1.15,
+   "출처": "팀노트 INPUTS + 기준선; 포아송"
+  },
+  "요인": [
+   {
+    "유형": "징계",
+    "팀": "원정",
+    "선수": "Cole Palmer",
+    "등급": "S/A",
+    "상태": "확정",
+    "영향": 2.4,
+    "내용": "10-24 토트넘전 퇴장으로 이 컵 경기 출전정지(확정). 등급 S 4.5×R0.6(Rogers/Neto 대체)×P1.0×D1.0(새 소식)=2.7, 다중결장 보정 전 약 2.4",
+    "출처": [
+     "https://www.si.com/soccer/why-cole-palmer-allowed-to-face-man-utd-after-red-card",
+     "https://dave.sport/news/liverpool-vs-chelsea-predicted-lineups/"
+    ],
+    "날짜": "2026-10-27"
+   },
+   {
+    "유형": "결장",
+    "팀": "원정",
+    "선수": "Emiliano Martínez",
+    "등급": "A→S(GK)",
+    "상태": "확정",
+    "영향": 1.5,
+    "내용": "턱뼈 골절 수술, Penders 선발 예상. 4.5×R0.8×D0.5(Everton전 이후 2경기째)=1.8, 컵에서 Penders 기용 가능성이 높아 1.5로 축소",
+    "출처": [
+     "https://www.si.com/soccer/why-cole-palmer-allowed-to-face-man-utd-after-red-card",
+     "https://dave.sport/news/liverpool-vs-chelsea-predicted-lineups/"
+    ],
+    "날짜": "2026-10-27"
+   },
+   {
+    "유형": "결장",
+    "팀": "원정",
+    "선수": "João Pedro",
+    "등급": "A",
+    "상태": "확정",
+    "영향": 1.0,
+    "내용": "허벅지 부상 수 주 결장, Welbeck 대체. 3.0×R0.8×D0.5=1.2 → 장기화 일부 기반영으로 1.0",
+    "출처": [
+     "https://www.aol.co.uk/articles/chelsea-xi-vs-liverpool-confirmed-151115000.html",
+     "https://khelnow.com/football/liverpool-vs-chelsea-preview-carabao-cup-202610"
+    ],
+    "날짜": "2026-10-27"
+   },
+   {
+    "유형": "결장",
+    "팀": "원정",
+    "선수": "Jamie Gittens",
+    "등급": "B",
+    "상태": "확정",
+    "영향": 0.5,
+    "내용": "치료 중 결장 확정. 1.5×R0.7×D0.5",
+    "출처": [
+     "https://www.aol.co.uk/articles/chelsea-xi-vs-liverpool-confirmed-151115000.html",
+     "https://khelnow.com/football/liverpool-vs-chelsea-preview-carabao-cup-202610"
+    ],
+    "날짜": "2026-10-27"
+   },
+   {
+    "유형": "결장",
+    "팀": "홈",
+    "선수": "Hugo Ekitike",
+    "등급": "A",
+    "상태": "확정",
+    "영향": -1.0,
+    "내용": "부상 결장 확정(khelnow·AOL, dave.sport 미언급). 3.0×R0.6×D0.6; 예상 XI는 Isak 원톱이라 격차 작음",
+    "출처": [
+     "https://www.aol.co.uk/articles/chelsea-xi-vs-liverpool-confirmed-151115000.html",
+     "https://khelnow.com/football/liverpool-vs-chelsea-preview-carabao-cup-202610"
+    ],
+    "날짜": "2026-10-27"
+   },
+   {
+    "유형": "결장",
+    "팀": "홈",
+    "선수": "Conor Bradley/Jeremie Frimpong",
+    "등급": "B+B",
+    "상태": "확정",
+    "영향": -1.0,
+    "내용": "우측 풀백 2명 동시 결장(확정). 1.5×2×R0.6×D0.5에 다중결장 ×1.15; Araujo가 RB, 리버풀 RB 약점 선례(10-21 회고)",
+    "출처": [
+     "https://www.aol.co.uk/articles/chelsea-xi-vs-liverpool-confirmed-151115000.html",
+     "https://khelnow.com/football/liverpool-vs-chelsea-preview-carabao-cup-202610"
+    ],
+    "날짜": "2026-10-27"
+   },
+   {
+    "유형": "결장",
+    "팀": "홈",
+    "선수": "Dominik Szoboszlai",
+    "등급": "A",
+    "상태": "의심",
+    "영향": -1.0,
+    "내용": "AOL 결장 확정 / khelnow doubtful 엇갈림 → 의심 상한 |1|",
+    "출처": [
+     "https://www.aol.co.uk/articles/chelsea-xi-vs-liverpool-confirmed-151115000.html",
+     "https://khelnow.com/football/liverpool-vs-chelsea-preview-carabao-cup-202610"
+    ],
+    "날짜": "2026-10-27"
+   },
+   {
+    "유형": "라인업",
+    "팀": "공통",
+    "선수": "양 팀 로테이션",
+    "등급": "-",
+    "상태": "추정",
+    "영향": 0,
+    "내용": "리버풀 Mamardashvili·유망주, 첼시 Penders·유망주 예상. 예상 XI는 추정이고 양쪽 대칭 → 상쇄 0",
+    "출처": [
+     "https://www.si.com/soccer/why-cole-palmer-allowed-to-face-man-utd-after-red-card",
+     "https://dave.sport/news/liverpool-vs-chelsea-predicted-lineups/"
+    ],
+    "날짜": "2026-10-27"
+   },
+   {
+    "유형": "휴식",
+    "팀": "공통",
+    "선수": "-",
+    "등급": "-",
+    "상태": "확정",
+    "영향": 0,
+    "내용": "휴식 리버풀 3.2일/첼시 4.1일 — 휴식·이동 영향 0 규칙",
+    "출처": [
+     "팀노트 INPUTS"
+    ],
+    "날짜": "2026-10-28"
+   }
+  ],
+  "최종": {
+   "승": 50.7,
+   "무": 26.2,
+   "패": 23.1
+  },
+  "선택지": [
+   {
+    "번호": "1132",
+    "선택": "승",
+    "확률": 50.7,
+    "계산": "기준선 47.6+순영향 3.1(첼시 5.4−리버풀 2.3 → 상한 내) = 50.7; 무 −1.0(26.2), 패 −2.1(23.1)"
+   },
+   {
+    "번호": "1133",
+    "선택": "H-1 패",
+    "확률": 49.3,
+    "계산": "포아송 λ1.72:1.15: 홈 2골차 이상 승 27.6 / 1골차 승(무) 23.2 / 그 외(패) 49.3"
+   },
+   {
+    "번호": "1134",
+    "선택": "U/O 3.5 언더",
+    "확률": 67.6,
+    "계산": "포아송 λ1.72:1.15 총득점 ≤3 = 67.6, 오버 32.4"
+   }
+  ],
+  "예상점수": "1.7:1.2",
+  "확신도": "낮음 — 단판 컵, 양 팀 대폭 로테이션 예상(라인업 미발표·추정), 시즌 초 xG 표본 작음, 연장/PK 규정 미확인",
+  "결론": "리버풀이 첼시의 확정 결장(Palmer 출전정지·Martínez·João Pedro)과 홈 이점으로 승 50.7%로 우세하나 우측 풀백·Ekitike 결장으로 격차는 제한적이다. 1순위 홈 승, 핸디 H-1은 패(1골차 승·무·패 포함) 쪽, 언더오버 3.5는 언더. 로테이션 대칭이라 보정하지 않았다.",
+  "미확인": [
+   "공식 선발 XI",
+   "컵 연장/PK 규정",
+   "Szoboszlai·Muñoz·Wirtz·Emegha 출전 여부",
+   "결장 선수별 이번 시즌 선발/득점 통계",
+   "Ekitike·Leoni 결장 2곳 이상 확인 여부"
+  ],
+  "추가 수집 요청": [
+   "킥오프 직전 발표 선발 XI(양 팀)",
+   "Ekitike·Leoni·Szoboszlai 최종 결장 여부",
+   "선수별 시즌 선발/xG+xA(등급 확정용)"
+  ]
+ }
+]

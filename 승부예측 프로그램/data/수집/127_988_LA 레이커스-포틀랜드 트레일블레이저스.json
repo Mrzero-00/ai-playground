@@ -1,0 +1,74 @@
+{
+ "번호": "988",
+ "홈": "LA 레이커스",
+ "원정": "포틀랜드 트레일블레이저스",
+ "수집시각": "2026-10-27T(미국 10/27 오전, KST 기준 127회 수집)",
+ "레이팅_2025-26": {
+  "홈": {"ORtg": 118.2, "DRtg": 116.4, "Pace": 98.3, "출처": "https://www.basketball-reference.com/teams/LAL/2026.html", "날짜": "2025-26시즌 종료 기준(저장소 기존값, 오늘 재접속 확인은 시간 제약으로 생략)"},
+  "원정": {"ORtg": 114.4, "DRtg": 114.7, "Pace": 100.5, "출처": "https://www.basketball-reference.com/teams/POR/2026.html", "날짜": "2025-26시즌 종료 기준(저장소 기존값, 오늘 재접속 확인은 시간 제약으로 생략)"}
+ },
+ "이번시즌전적": {
+  "홈": {
+   "승패": "3승 0패 (정규시즌, 2026-27, 개막 3연승·무패)",
+   "경기": [
+    {"날짜": "2026-10-21(미국)", "상대": "Golden State Warriors", "장소": "홈", "스코어": "127-105 승"},
+    {"날짜": "2026-10-23(미국)", "상대": "LA Clippers", "장소": "홈", "스코어": "125-117 승"},
+    {"날짜": "2026-10-25(미국)", "상대": "Utah Jazz", "장소": "원정", "스코어": "132-123 승"}
+   ],
+   "비고": "data/teamdb/nba/nba.json 박스스코어 기준. 프리시즌 경기(10/6~10/17)는 전적에서 제외. 외부 기사(silverscreenandroll 등)도 '3-0 무패' 공통 확인."
+  },
+  "원정": {
+   "승패": "2승 0패 (정규시즌, 2026-27)",
+   "경기": [
+    {"날짜": "2026-10-21(미국)", "상대": "Phoenix Suns", "장소": "홈", "스코어": "124-83 승"},
+    {"날짜": "2026-10-23(미국)", "상대": "Sacramento Kings", "장소": "원정", "스코어": "128-120 승"}
+   ],
+   "비고": "sportstwo.com 게임스레드 제목 'GAME #3'으로 오늘이 포틀랜드 시즌 3번째 경기(2승 0패)임을 교차 확인."
+  }
+ },
+ "결장": [
+  {"팀": "홈(LAL)", "선수": "Cameron Carr", "포지션": "G/F(루키)", "상태": "확정(Out, 시즌 데뷔 전)", "사유": "오른쪽 복사근(oblique) 부상", "이번시즌_선발/경기": "0/0(NBA 데뷔 전)", "평균출전": "0분", "복귀예정": "불명", "출처": "https://sports.yahoo.com/articles/los-angeles-lakers-announce-injury-064346175.html", "날짜": "2026-10-27"},
+  {"팀": "홈(LAL)", "선수": "Adou Thiero", "포지션": "F", "상태": "확정(Out)", "사유": "왼쪽 무릎 부종(swelling)", "이번시즌_선발/경기": "불명", "평균출전": "불명", "복귀예정": "불명", "출처": "https://sports.yahoo.com/articles/los-angeles-lakers-announce-injury-064346175.html", "날짜": "2026-10-27"},
+  {"팀": "홈(LAL)", "선수": "Walker Kessler", "포지션": "C", "상태": "출전 가능(부상 리스트 등재되었으나 Available)", "사유": "손가락 부상(스플린트 착용, 규정상 리포트 등재)", "이번시즌_선발/경기": "불명(영입 후 로테이션 빅맨)", "평균출전": "불명", "복귀예정": "오늘 경기 출전 예정", "출처": "https://sports.yahoo.com/articles/los-angeles-lakers-announce-injury-064346175.html", "날짜": "2026-10-27"},
+  {"팀": "원정(POR)", "선수": "Shaedon Sharpe", "포지션": "G", "상태": "확정(Out)", "사유": "반월판(meniscus) 파열 — 2026년 8월 발표 당시 6개월 예상 복귀 시점", "이번시즌_선발/경기": "0/0", "평균출전": "0분", "복귀예정": "약 2027년 2월경(8월 발표 기준 6개월)", "출처": "https://www.blazersedge.com/trail-blazers-injury-report/117542/portland-trail-blazers-los-angeles-lakers-nba-injury-report-scoot-henderson-branden-carlson-news", "날짜": "2026-10-27"},
+  {"팀": "원정(POR)", "선수": "Scoot Henderson", "포지션": "G", "상태": "의심(Questionable)", "사유": "왼쪽 발목 통증", "이번시즌_선발/경기": "주전급(개막 로스터)", "평균출전": "불명", "복귀예정": "당일 게임타임 결정", "출처": "https://www.blazersedge.com/trail-blazers-injury-report/117542/portland-trail-blazers-los-angeles-lakers-nba-injury-report-scoot-henderson-branden-carlson-news", "날짜": "2026-10-27"},
+  {"팀": "원정(POR)", "선수": "Branden Carlson", "포지션": "C", "상태": "의심(Questionable)", "사유": "뇌진탕 프로토콜(concussion protocol)", "이번시즌_선발/경기": "백업", "평균출전": "불명", "복귀예정": "당일 결정", "출처": "https://www.blazersedge.com/trail-blazers-injury-report/117542/portland-trail-blazers-los-angeles-lakers-nba-injury-report-scoot-henderson-branden-carlson-news", "날짜": "2026-10-27"},
+  {"팀": "원정(POR)", "선수": "Chris Youngblood", "포지션": "G", "상태": "확정(Out)", "사유": "불명(세부 사유 기사에 명시 안 됨)", "이번시즌_선발/경기": "백업", "평균출전": "불명", "복귀예정": "불명", "출처": "https://www.cbssports.com/nba/teams/POR/portland-trail-blazers/injuries/", "날짜": "2026-10-27"}
+ ],
+ "백투백": {
+  "홈": "아님(직전 경기 2026-10-25 원정 유타전, 2일 휴식). 단, 오늘이 레이커스 백투백 1일차 — 내일(10/28) LA 클리퍼스 원정이 이어짐.",
+  "원정": "아님(직전 경기 2026-10-23 원정 새크라멘토전). 단, 오늘이 포틀랜드 '이번 주 두 번째 백투백'의 1일차 — 내일(10/28) 새크라멘토 원정이 이어짐."
+ },
+ "로스터변화": [
+  {"팀": "LAL", "선수": "LeBron James", "입/출": "출(오프시즌 이적)", "직전시즌 역할": "주전 포워드(에이스급)", "출처": "https://www.si.com/nba/lakers/onsi/lakers-receive-latest-injury-news (본문 중 'LeBron James' offseason departure' 언급)", "날짜": "2026-10-27 기사 내 언급"},
+  {"팀": "LAL", "선수": "Luka Dončić", "입/출": "잔류·역할 확대(팀 리더)", "직전시즌 역할": "주전 가드", "출처": "https://www.si.com/nba/lakers/onsi/lakers-receive-latest-injury-news", "날짜": "2026-10-27"},
+  {"팀": "LAL", "선수": "Walker Kessler", "입/출": "입(오프시즌 영입)", "직전시즌 역할": "타팀 센터", "출처": "https://sports.yahoo.com/articles/los-angeles-lakers-announce-injury-064346175.html", "날짜": "2026-10-27"},
+  {"팀": "LAL", "선수": "Rui Hachimura", "입/출": "출(저장소 기존 기록, 오늘 검색으로 직접 재확인은 못함)", "직전시즌 역할": "로테이션 포워드", "출처": "저장소 기존 기록(팀노트), 2026-10-27 재검증 못함", "날짜": "미확인"},
+  {"팀": "POR", "선수": "Micah Nori", "입/출": "입(신임 정식 감독)", "직전시즌 역할": "해당없음(신규)", "출처": "https://www.espn.com/nba/story/_/id/49072541/sources-bulls-finalizing-hire-tiago-splitter-head-coach", "날짜": "2026시즌 전 오프시즌"}
+ ],
+ "감독": {
+  "홈": "JJ Redick (유임)",
+  "원정": "Micah Nori (신임 정식 감독, 2026-27시즌부터)",
+  "변동": "포틀랜드: 2025-10-23 Chauncey Billups가 불법 도박 조직 연루 혐의로 체포되며 NBA가 직무정지, Tiago Splitter가 대행 감독 선임 → Splitter가 이후 시카고 불스 정식 감독으로 떠나며 포틀랜드는 Micah Nori를 2026-27시즌 정식 감독으로 선임. 레이커스는 JJ Redick 체제 유지.",
+  "출처": "https://www.kgw.com/article/sports/nba/blazers/tiago-splitter-interim-trail-blazers-coach-following-arrest-billups/283-7ae13f6f-3a03-40bf-b4ff-7f4e7d2e99c1 ; https://www.espn.com/nba/story/_/id/49072541/sources-bulls-finalizing-hire-tiago-splitter-head-coach ; https://www.si.com/nba/lakers/onsi/lakers-receive-latest-injury-news",
+  "날짜": "체포 2025-10-23 / 감독 교체 보도 2026 시즌 전"
+ },
+ "일정·동기·기타": [
+  {"내용": "레이커스 Luka Dončić, 직전 유타전(10/25)에서 커리어 10번째 50득점 경기 기록 — 컨디션 매우 좋음", "출처": "https://www.espn.com/nba/game/_/gameId/401909880/trail-blazers-lakers", "날짜": "2026-10-27"},
+  {"내용": "레이커스는 오늘 경기 포함 개막 3연승·무패, 포틀랜드는 2연승 무패로 두 팀 다 좋은 흐름 속 맞대결", "출처": "https://www.silverscreenandroll.com/lakers-game-previews/127872/lakers-vs-blazers-discussion-injury-report-how-to-watch-tv-stream-start-time-luka-doncic-damian-lillard", "날짜": "2026-10-27"},
+  {"내용": "포틀랜드는 백코트에 Damian Lillard·Ja Morant 조합을 내세워 지난 시즌 플레이오프 돌풍을 이어가려는 시도로 소개됨", "출처": "https://www.wagertalk.com/news/nba/trail-blazers-vs-lakers-odds-picks-and-prediction-for-october-27-2026/", "날짜": "2026-10-27"}
+ ],
+ "엇갈림": [
+  "'지난 시즌 포틀랜드 플레이오프 돌풍' 서술(wagertalk)은 실제 과거 NBA 기록과 상충되는 듯해 액면 그대로 적되 교차 확인 1곳뿐 — 의심으로 표시",
+  "Rui Hachimura 이적 사실은 오늘 검색에서 직접 재확인하지 못함(저장소 기존값만 인용)"
+ ],
+ "못찾음": [
+  "Walker Kessler·Cameron Carr·Adou Thiero의 이번 시즌 선발/평균 출전시간 세부 수치",
+  "basketball-reference 2025-26 ORtg/DRtg/Pace 오늘자 재접속 재확인(저장소 기존값 그대로 인용, 사이트 재크롤 미실시)",
+  "Damian Lillard·Ja Morant 포틀랜드 합류 경위 및 현재 부상 상태(이번 검색에서 결장 명단에는 없었으나 출전시간 수치 미확인)"
+ ],
+ "뉴스없음": {
+  "홈": "해당없음 — 결장·로스터·감독 뉴스 다수 확인됨",
+  "원정": "해당없음 — 결장·감독교체·로스터 뉴스 다수 확인됨"
+ }
+}

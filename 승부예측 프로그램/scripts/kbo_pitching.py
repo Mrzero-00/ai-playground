@@ -191,6 +191,37 @@ _league = None
 _team_ra = {}   # 팀명 -> (경기수, 실점)  — league() 가 같은 페이지에서 채운다
 _team_rd = None
 
+# 정규시즌 합계 캐시 (2026-10-28, 127회 심층회고 — 887 삼성-KIA PO 2차전)
+#   왜: 포스트시즌이 시작되면 KBO 팀 기록 페이지(Basic1.aspx)가 ddlSeries=플레이오프 로 열리고
+#   정규시즌(0)으로 포스트백해도 빈 표만 돌아온다(2026-10-28 확인: 헤더 1행, 합계 없음 / BasicOld 는
+#   PO 4팀 2경기 합계). 그래서 10/26 796·10/27 887 두 블록 연속 FIP 상수·리그 평균·팀 득실차가 전부
+#   기본값(득실차 항 0)으로 떨어졌고 분석가가 수기 가정치(40이닝 대칭)로 기준선을 세웠다.
+#   고침: 정규시즌 합계를 받을 수 있을 때(ip>500) 리그 상수·팀 실점·팀 득실차 지수를 여기에 저장하고,
+#   못 받으면 같은 시즌 캐시를 쓴다(기본값은 캐시도 없을 때만). 포스트시즌 동안 정규시즌 최종 집계가 유지된다.
+LEAGUE_CACHE = os.path.join(ROOT, "data", "kbo_league_cache.json")
+
+
+def _cache_read():
+    try:
+        with open(LEAGUE_CACHE, encoding="utf-8") as f:
+            c = json.load(f)
+        if int(c.get("season", 0)) == datetime.now(KST).year:
+            return c
+    except (OSError, ValueError, TypeError):
+        pass
+    return None
+
+
+def _cache_write(**kw):
+    c = _cache_read() or {}
+    c.update(season=datetime.now(KST).year, saved=datetime.now(KST).strftime("%Y-%m-%d"), **kw)
+    try:
+        os.makedirs(os.path.dirname(LEAGUE_CACHE), exist_ok=True)
+        with open(LEAGUE_CACHE, "w", encoding="utf-8") as f:
+            json.dump(c, f, ensure_ascii=False, indent=1)
+    except OSError as e:
+        print(f"[경고] 리그 캐시 저장 실패: {e}", file=sys.stderr)
+
 
 def league():
     global _league
@@ -210,8 +241,18 @@ def league():
             raw = (13 * num(tot["HR"]) + 3 * (num(tot["BB"]) + num(tot["HBP"])) - 2 * num(tot["SO"])) / ip
             if ip > 500:
                 _league = {"const": era - raw, "fip": era, "src": f"KBO 합계 {ip:.0f}이닝"}
+                _cache_write(league=_league, team_ra={k: list(v) for k, v in _team_ra.items()})
+            else:
+                raise ValueError(f"합계 이닝 {ip:.0f} < 500 (시즌 초·포스트시즌 페이지)")
         except (NetError, StopIteration, KeyError, ValueError, ZeroDivisionError, TypeError) as e:
-            print(f"[경고] 리그 합계 실패, 기본 FIP 상수 사용: {e}", file=sys.stderr)
+            c = _cache_read()
+            if c and c.get("league"):
+                _league = dict(c["league"], src=f"캐시 {c.get('saved')} 정규시즌 합계")
+                _team_ra.update({k: tuple(v) for k, v in (c.get("team_ra") or {}).items()})
+                print(f"[안내] 리그 합계 페이지 비어 있음({e or '빈 표'}) → 정규시즌 캐시 사용({c.get('saved')})",
+                      file=sys.stderr)
+            else:
+                print(f"[경고] 리그 합계 실패, 기본 FIP 상수 사용(캐시 없음): {e}", file=sys.stderr)
     return _league
 
 
@@ -231,8 +272,17 @@ def team_rd():
                 if g["팀명"] in _team_ra:
                     gp, ra = _team_ra[g["팀명"]]
                     _team_rd[g["팀명"]] = (num(g["R"]) - ra) / (gp + RD_SHRINK_G)
+            if _team_rd and (_league or {}).get("src", "").startswith("KBO 합계"):
+                _cache_write(team_rd=_team_rd)
         except (NetError, KeyError, TypeError) as e:
-            print(f"[경고] 팀 득실차 실패, 득실차 항 0: {e}", file=sys.stderr)
+            print(f"[경고] 팀 득실차 실패: {e}", file=sys.stderr)
+        if not _team_rd:
+            c = _cache_read()
+            if c and c.get("team_rd"):
+                _team_rd = {k: float(v) for k, v in c["team_rd"].items()}
+                print(f"[안내] 팀 득실차 페이지 비어 있음 → 정규시즌 캐시 사용({c.get('saved')})", file=sys.stderr)
+            else:
+                print("[경고] 팀 득실차 없음(캐시 없음), 득실차 항 0", file=sys.stderr)
     return _team_rd
 
 

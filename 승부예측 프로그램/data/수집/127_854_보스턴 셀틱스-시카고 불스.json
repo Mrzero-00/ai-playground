@@ -1,0 +1,251 @@
+{
+ "번호": 854,
+ "홈": "보스턴 셀틱스",
+ "원정": "시카고 불스",
+ "리그": "NBA",
+ "킥오프_KST": {
+  "값": "2026-10-27 08:30 KST (ET 2026-10-26 19:30, TD Garden)",
+  "출처": "https://www.espn.com/nba/game/_/gameId/401909870",
+  "날짜": "2026-10-26"
+ },
+ "수집시각": "2026-10-27 07:50 KST",
+ "수집자": "collect-a",
+ "레이팅_2025-26": {
+  "홈": {
+   "ORtg": 120.8,
+   "DRtg": 112.7,
+   "Pace": 94.8,
+   "NetRtg": 8.1,
+   "전적": "56-26 (동부 2위, 1라운드 PHI에 3-4 탈락)",
+   "코치": "Joe Mazzulla",
+   "출처": "https://www.basketball-reference.com/teams/BOS/2026.html",
+   "날짜": "2026-10-27"
+  },
+  "원정": {
+   "ORtg": 113.0,
+   "DRtg": 118.1,
+   "Pace": 102.5,
+   "NetRtg": -5.1,
+   "전적": "31-51 (동부 12위)",
+   "코치": "Billy Donovan",
+   "출처": "https://www.basketball-reference.com/teams/CHI/2026.html",
+   "날짜": "2026-10-27"
+  }
+ },
+ "이번시즌": {
+  "홈": {
+   "전적": "1-1 (홈 1-0)",
+   "최근경기": [
+    "2026-10-20 @DET 113-121 L",
+    "2026-10-23 vs NYK 107-103 W"
+   ],
+   "출처": "https://www.basketball-reference.com/teams/BOS/2027_games.html",
+   "날짜": "2026-10-27"
+  },
+  "원정": {
+   "전적": "1-2 (원정 1-1)",
+   "최근경기": [
+    "2026-10-21 @TOR 92-135 L",
+    "2026-10-23 @MIL 132-125 W",
+    "2026-10-24 vs WAS 120-124 L"
+   ],
+   "출처": "https://www.basketball-reference.com/teams/CHI/2027_games.html",
+   "날짜": "2026-10-27"
+  }
+ },
+ "결장": [
+  {
+   "팀": "원정",
+   "선수": "Nic Claxton",
+   "포지션": "C",
+   "역할": "선발 예정 주전 센터(2026-07 3팀 트레이드로 영입, 불스에서 아직 미출전)",
+   "사유": "왼쪽 햄스트링 염좌(훈련캠프 부상), 최소 1주 후 재검진. ESPN 예상 복귀 11/4",
+   "상태": "확정",
+   "복귀예정": "2026-11-04 (ESPN 추정)",
+   "출처": "https://sports.yahoo.com/articles/celtics-good-news-bulls-injury-214650319.html ; https://www.espn.com/nba/game/_/gameId/401909870",
+   "날짜": "2026-10-26"
+  },
+  {
+   "팀": "원정",
+   "선수": "Patrick Williams",
+   "포지션": "F",
+   "역할": "로테이션/선발급 포워드(10/24 WAS전 결장)",
+   "사유": "오른쪽 내전근·사타구니 통증",
+   "상태": "의심",
+   "복귀예정": "ESPN 추정 10/28",
+   "출처": "https://sports.yahoo.com/articles/boston-celtics-vs-chicago-bulls-164714468.html (Questionable) ; https://www.espn.com/nba/game/_/gameId/401909870 (Out)",
+   "날짜": "2026-10-26"
+  },
+  {
+   "팀": "원정",
+   "선수": "Noa Essengue",
+   "포지션": "F",
+   "역할": "벤치(10/24 WAS전 결장)",
+   "사유": "오른쪽 머리 타박(10/23 MIL전)",
+   "상태": "의심",
+   "복귀예정": "미상",
+   "출처": "https://sports.yahoo.com/articles/boston-celtics-vs-chicago-bulls-164714468.html",
+   "날짜": "2026-10-26"
+  },
+  {
+   "팀": "홈",
+   "선수": "Devin Carter",
+   "포지션": "G",
+   "역할": "투웨이 가드(핵심 로테이션 아님)",
+   "사유": "단핵구증(mononucleosis), 복귀 시점 미정",
+   "상태": "확정",
+   "복귀예정": "ESPN 추정 11/8",
+   "출처": "https://heavy.com/sports/nba/boston-celtics/celtics-injury-report-ahead-bulls-game/ ; https://www.espn.com/nba/game/_/gameId/401909870",
+   "날짜": "2026-10-26"
+  }
+ ],
+ "로스터변화": [
+  {
+   "팀": "홈",
+   "선수": "Jaylen Brown",
+   "IN|OUT": "OUT",
+   "내용": "2026-07-06 PHI로 트레이드(Paul George + 1라운드 2장 + 2라운드 2장 받음)",
+   "출처": "https://www.hoopsrumors.com/2026/08/nba-2026-offseason-check-in-boston-celtics.html",
+   "날짜": "2026-08"
+  },
+  {
+   "팀": "홈",
+   "선수": "Paul George",
+   "IN|OUT": "IN",
+   "내용": "2026-07-06 PHI에서 영입(Brown 트레이드), 선발 포워드",
+   "출처": "https://www.nbcsportsboston.com/nba/boston-celtics/updated-roster-depth-chart-contracts-jaylen-brown-trade/794057/",
+   "날짜": "2026-07"
+  },
+  {
+   "팀": "홈",
+   "선수": "Mitchell Robinson",
+   "IN|OUT": "IN",
+   "내용": "FA 3년 $47.4M(NT-MLE), 선발 센터",
+   "출처": "https://basketball.realgm.com/nba/teams/Boston-Celtics/2/offseason",
+   "날짜": "2026-07"
+  },
+  {
+   "팀": "홈",
+   "선수": "Mike Conley Jr.",
+   "IN|OUT": "IN",
+   "내용": "FA 1년 최소계약",
+   "출처": "https://basketball.realgm.com/nba/teams/Boston-Celtics/2/offseason",
+   "날짜": "2026-07"
+  },
+  {
+   "팀": "홈",
+   "선수": "Nikola Vucevic",
+   "IN|OUT": "OUT",
+   "내용": "ORL과 FA 계약",
+   "출처": "https://www.hoopsrumors.com/2026/08/nba-2026-offseason-check-in-boston-celtics.html",
+   "날짜": "2026-08"
+  },
+  {
+   "팀": "원정",
+   "선수": "Nic Claxton",
+   "IN|OUT": "IN",
+   "내용": "2026-06 드래프트 전야 3팀 트레이드(BKN·MIN)로 영입, 선발 센터 예정 — 현재 부상",
+   "출처": "https://sports.yahoo.com/articles/bulls-land-defensive-anchor-nic-022249154.html",
+   "날짜": "2026-06"
+  },
+  {
+   "팀": "원정",
+   "선수": "Norman Powell",
+   "IN|OUT": "IN",
+   "내용": "FA 2년 $45M (MIA에서), 선발 가드",
+   "출처": "https://www.hoopsrumors.com/2026/09/nba-2026-offseason-check-in-chicago-bulls.html",
+   "날짜": "2026-09"
+  },
+  {
+   "팀": "원정",
+   "선수": "Buddy Hield",
+   "IN|OUT": "IN",
+   "내용": "CHA에서 트레이드 영입",
+   "출처": "https://www.hoopsrumors.com/2026/09/nba-2026-offseason-check-in-chicago-bulls.html",
+   "날짜": "2026-09"
+  },
+  {
+   "팀": "원정",
+   "선수": "Zach Collins",
+   "IN|OUT": "IN",
+   "내용": "재계약 2년 $17M",
+   "출처": "https://www.hoopsrumors.com/2026/09/nba-2026-offseason-check-in-chicago-bulls.html",
+   "날짜": "2026-09"
+  },
+  {
+   "팀": "원정",
+   "선수": "Anfernee Simons",
+   "IN|OUT": "OUT",
+   "내용": "FA로 PHI 이적",
+   "출처": "https://www.hoopsrumors.com/2026/09/nba-2026-offseason-check-in-chicago-bulls.html",
+   "날짜": "2026-09"
+  },
+  {
+   "팀": "원정",
+   "선수": "Coby White / Ayo Dosunmu / Nikola Vucevic",
+   "IN|OUT": "OUT",
+   "내용": "2026-02 트레이드 데드라인(2/1~2/5 7건)으로 전원 방출 — 2025-26 레이팅은 이 로스터 기준",
+   "출처": "https://www.hoopsrumors.com/2026/09/nba-2026-offseason-check-in-chicago-bulls.html",
+   "날짜": "2026-09"
+  }
+ ],
+ "라인업": {
+  "홈": {
+   "예상선발": [
+    "Derrick White",
+    "Jordan Walsh",
+    "Jayson Tatum",
+    "Paul George",
+    "Mitchell Robinson"
+   ],
+   "발표여부": "예상(미발표)",
+   "비고": "Tatum·George·Robinson 전원 출전 가능(이전 부상 우려 해소)",
+   "출처": "https://sports.yahoo.com/articles/boston-celtics-vs-chicago-bulls-164714468.html",
+   "날짜": "2026-10-26"
+  },
+  "원정": {
+   "예상선발": [
+    "Josh Giddey",
+    "Norm Powell",
+    "Jalen Smith",
+    "Caleb Wilson",
+    "Matas Buzelis"
+   ],
+   "발표여부": "예상(미발표)",
+   "비고": "Claxton 결장으로 Jalen Smith 센터",
+   "출처": "https://sports.yahoo.com/articles/boston-celtics-vs-chicago-bulls-164714468.html",
+   "날짜": "2026-10-26"
+  }
+ },
+ "일정": {
+  "홈": {
+   "직전경기": "2026-10-23(ET) vs NYK — 2일 휴식. 이 경기가 시즌 첫 백투백 1일차(10/27 @BKN)",
+   "백투백": "1일차",
+   "출처": "https://www.celticsblog.com/boston-celtics-game-previews/148582/chicago-bulls-1-2-at-boston-celtics-1-1-game-3-10-26-26",
+   "날짜": "2026-10-26"
+  },
+  "원정": {
+   "직전경기": "2026-10-24(ET) vs WAS(홈) — 1일 휴식, 원정 이동",
+   "백투백": "아님",
+   "출처": "https://www.basketball-reference.com/teams/CHI/2027_games.html",
+   "날짜": "2026-10-27"
+  }
+ },
+ "일정·동기·기타": [
+  "시즌 4번 맞대결 중 첫 경기. 심판: Zach Zarba, Jacyn Goble, Klajdi Mulla — https://sports.yahoo.com/articles/boston-celtics-vs-chicago-bulls-164714468.html (2026-10-26)",
+  "셀틱스 2025-26 Pace 94.8(30위) vs 불스 102.5(2위) — basketball-reference (2026-10-27)",
+  "불스는 2025-26 데드라인에 로스터를 대폭 개편(7건)해 2025-26 시즌 레이팅의 로스터 연속성이 낮음 — hoopsrumors (2026-09)",
+  "셀틱스 2025-26 Jaylen Brown 포함 레이팅 → 2026-27은 Brown 없이 Paul George·Mitchell Robinson 합류 — realgm/nbcsportsboston (2026-07)"
+ ],
+ "엇갈림": [
+  "Patrick Williams: ESPN 게임페이지 'Out(복귀 10/28 추정)' vs Yahoo/Heavy 10/26 'Questionable'. 공식 NBA 부상보고 PDF(03:00PM·05:30PM) 타임아웃으로 미확인 → '의심'으로 기록",
+  "Noa Essengue 사유: 'right head contusion'(Yahoo 10/26) vs 'right hand contusion'(Yahoo 프리뷰)"
+ ],
+ "못찾음": [
+  "NBA 공식 부상보고 PDF 원문(타임아웃)",
+  "확정 선발 발표(틱오프 전 미발표)",
+  "Jordan Walsh·Caleb Wilson 직전시즌 선발 경기수",
+  "Claxton 부상 전 백업 센터 로테이션 분배(Collins/Smith 분)",
+  "셀틱스 백투백 1일차 주전 출전시간 관리 계획"
+ ]
+}

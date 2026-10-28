@@ -1,0 +1,67 @@
+{
+  "번호": "957",
+  "홈": "쾰른",
+  "원정": "우니온 베를린",
+  "수집시각": "2026-10-27T12:56:00Z",
+  "결장": [
+    {"팀":"쾰른","선수":"Rav van den Berg","포지션":"DF","이번시즌_선발/경기":"불명","득점·도움":"불명","사유":"부상","상태":"확정","복귀예정":"불명","대체선수":"불명","출처":"WebSearch(fotmob 요약)","날짜":"2026-10-26"},
+    {"팀":"쾰른","선수":"Timo Hübers","포지션":"DF","이번시즌_선발/경기":"불명","득점·도움":"불명","사유":"부상","상태":"확정","복귀예정":"불명","대체선수":"불명","출처":"WebSearch(fotmob 요약)","날짜":"2026-10-26"},
+    {"팀":"쾰른","선수":"Ellyes Skhiri","포지션":"MF","이번시즌_선발/경기":"불명","득점·도움":"불명","사유":"부상","상태":"확정","복귀예정":"불명","대체선수":"Tom Krauß 추정","출처":"WebSearch(fotmob 요약)","날짜":"2026-10-26"},
+    {"팀":"쾰른","선수":"Imad Rondić","포지션":"불명","이번시즌_선발/경기":"불명","득점·도움":"불명","사유":"부상","상태":"확정","복귀예정":"불명","대체선수":"불명","출처":"WebSearch(fotmob 요약)","날짜":"2026-10-26"},
+    {"팀":"쾰른","선수":"Ragnar Ache","포지션":"FW","이번시즌_선발/경기":"불명","득점·도움":"불명","사유":"부상 — 단, bulinews 프리뷰는 '이번 경기 복귀 가능성(could be set for his return)' 언급 — 엇갈림","상태":"의심","복귀예정":"이번 경기 가능성 있음","대체선수":"불명","출처":"WebSearch(fotmob 요약) vs bulinews(https://bulinews.com/1-koln-1-union-berlin-dfb-pokal-preview-team-news-and-predicted-lineups)","날짜":"2026-10-26"},
+    {"팀":"쾰른","선수":"Thijs Dallinga","포지션":"FW","이번시즌_선발/경기":"teamdb: 52분/경기, 13% xG+xA 비중","득점·도움":"2.3xG+0.4xA(teamdb)","사유":"부상","상태":"확정","복귀예정":"불명","대체선수":"Said El Mala/Marius Bülter 추정","출처":"WebSearch(fotmob 요약)","날짜":"2026-10-26"},
+    {"팀":"우니온 베를린","선수":"Andrej Ilic","포지션":"불명","이번시즌_선발/경기":"불명","득점·도움":"불명","사유":"결장 사유 불명","상태":"의심(1곳)","복귀예정":"불명","대체선수":"불명","출처":"WebSearch(fotmob 요약)","날짜":"2026-10-26"},
+    {"팀":"우니온 베를린","선수":"Stanley Nsoki","포지션":"DF","이번시즌_선발/경기":"여름 영입(Hoffenheim)","득점·도움":"불명","사유":"결장 사유 불명","상태":"의심(1곳)","복귀예정":"불명","대체선수":"불명","출처":"WebSearch(fotmob 요약)","날짜":"2026-10-26"},
+    {"팀":"우니온 베를린","선수":"Josip Juranović","포지션":"DF","이번시즌_선발/경기":"불명","득점·도움":"불명","사유":"결장 사유 불명","상태":"의심(1곳)","복귀예정":"불명","대체선수":"불명","출처":"WebSearch(fotmob 요약)","날짜":"2026-10-26"},
+    {"팀":"우니온 베를린","선수":"Felix Uduokhai","포지션":"DF","이번시즌_선발/경기":"teamdb 직전 리그 선발(10/24 vs Augsburg)","득점·도움":"불명","사유":"10/24 Augsburg전 퇴장(red card) → 일요일 분데스리가 맞대결은 징계로 결장, 화요일 컵 경기는 부상으로 결장(두 사유 중복 보도)","상태":"확정(2곳: bulinews, berliner-zeitung)","복귀예정":"불명","대체선수":"Zeno Van Den Bosch 추정","출처":"https://bulinews.com/1-koln-1-union-berlin-dfb-pokal-preview-team-news-and-predicted-lineups / https://www.berliner-zeitung.de/article/1-fc-union-berlin-rotation-oder-kontinuitaet-in-koeln-10531840","날짜":"2026-10-26"}
+  ],
+  "라인업": {
+    "홈": {
+      "발표여부": "미발표(예상)",
+      "예상XI": "Schwäbe(C); Castro-Montes, Simpson-Pusey, Lochoshvili, Sosa; Jóhannesson, Krauß; Maina, Moore; Bülter, El Mala",
+      "포메이션": "4-2-3-1 예상(teamdb 직전 리그 선발도 4-2-3-1 동일 포메이션 — 로테이션 제한적 신호)",
+      "출처": "https://bulinews.com/1-koln-1-union-berlin-dfb-pokal-preview-team-news-and-predicted-lineups",
+      "날짜": "2026-10-26"
+    },
+    "원정": {
+      "발표여부": "미발표(예상)",
+      "예상XI": "Rönnow; Haberer, Querfeld, Van Den Bosch, Rothe; Schäfer, Khedira(C); Burke, Aebischer, Burcu; Skarke",
+      "포메이션": "4-2-3-1 예상(teamdb 직전 리그 선발과 동일 라인 다수 — Haberer·Rothe·Schäfer·Skarke 포함, Trimmel 빠짐)",
+      "출처": "https://bulinews.com/1-koln-1-union-berlin-dfb-pokal-preview-team-news-and-predicted-lineups",
+      "날짜": "2026-10-26"
+    }
+  },
+  "최근경기": [
+    {"팀":"쾰른","날짜":"2026-10-24","상대":"Schalke 04","장소":"홈","스코어":"0-0 무","비고":"리그, 최근 6경기 중 1승만(1무2패 포함) — bulinews: '최근 6경기 중 1승, 최근 2연속 무승'"},
+    {"팀":"쾰른","날짜":"2026-10-16","상대":"Eintracht Frankfurt","장소":"원정","스코어":"0-1 패","비고":"리그, xG 1.02:1.27"},
+    {"팀":"우니온 베를린","날짜":"2026-10-24","상대":"FC Augsburg","장소":"원정","스코어":"1-1 무","비고":"양팀 10명, Uduokhai 퇴장 후 Haberer 득점으로 동점 — bulinews/berliner-zeitung"},
+    {"팀":"우니온 베를린","날짜":"2026-10-17","상대":"Borussia Dortmund","장소":"홈","스코어":"0-0 무","비고":"리그, xG 0.94:0.99"}
+  ],
+  "순위": {
+    "홈": "쾰른 12위, 7경기 2승2무3패, 득실-3, 승점8",
+    "원정": "우니온 베를린 17위, 7경기 1승3무3패, 득실-12, 승점6",
+    "출처": "teamdb.py card",
+    "날짜": "2026-10-27"
+  },
+  "감독": {
+    "홈": "René Wagner",
+    "원정": "Mauro Lustrinelli",
+    "변동": "없음(팩트시트 기준)",
+    "출처": "팀노트 FACTS",
+    "날짜": "2026-10-27"
+  },
+  "일정·동기·기타": [
+    {"내용":"우니온 베를린은 일요일(분데스리가, 쾰른 상대로 추정) 직후 화요일 컵 경기 — '쾰른 더블헤더' 1부로 보도. Lustrinelli 감독 기자회견: '연속성(continuity)이 최우선이나 휴식이 필요한 선수를 가까이 본다'","출처":"https://www.berliner-zeitung.de/article/1-fc-union-berlin-rotation-oder-kontinuitaet-in-koeln-10531840 / https://berliner-abendblatt.de/berlin-news/teil-1-des-koeln-doppelpacks-union-will-ins-achtelfinale-id352806","날짜":"2026-10-26"},
+    {"내용":"쾰른은 최근 6경기 중 1승(3패2무), 홈 이점을 살려야 한다는 분석(부진)","출처":"https://bulinews.com/1-koln-1-union-berlin-dfb-pokal-preview-team-news-and-predicted-lineups","날짜":"2026-10-26"}
+  ],
+  "엇갈림": [
+    "Ragnar Ache 결장 여부 — fotmob 요약은 결장자 명단에, bulinews는 복귀 가능성 언급(엇갈림, 미확정으로 '의심' 처리)",
+    "Andrej Ilic·Stanley Nsoki·Josip Juranović 결장 사유(부상/징계) 구체 출처 1곳만 확인"
+  ],
+  "못찾음": [
+    "쾰른·우니온 양팀 공식 결장 사유 상세(출처 2곳 교차 확인 어려움)",
+    "승부차기 관련 개별 선수 통계",
+    "양팀 다음 리그 일정 정확한 날짜(일요일 맞대결 외 추가 일정)"
+  ],
+  "뉴스없음": {}
+}

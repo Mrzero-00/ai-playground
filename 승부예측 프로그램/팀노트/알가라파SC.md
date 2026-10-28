@@ -9,6 +9,7 @@
 <!-- FACTS:END -->
 <!-- INPUTS:START -->
 ## 입력(자동 수집 2026-10-26) — xG·휴식일·라인업·환경(이동거리·고도·날씨)은 이 숫자를 쓴다
-- 10-27 01:00 vs 알아흘리 사우디: 휴식 13.9일?(국내리그 ESPN 미제공 — 직접 확인) · 직전 10-13 홈 vs Esteghlal FC 1-2 패 [league stage] · xG - · 직전 선발 3-4-3 Ahmed Kone, Ayoub Al-Oui, Dame Traoré, Seydou Sano, Fabricio Díaz, Ferjani Sassi, Saifeldeen Fadlalla, Abdulrahman Faiz Al Rashidi, Frank Magri, Yacine Brahimi, Adam Ounas · 구장 킹 압둘라 스포츠 시티 스타디움 · 이동 1312km · 고도 7m(차 -8m) · 31.3℃ 강수0mm(0%) 바람9.9km/h · ⚠ 장거리 원정 1312km, 기온 31.3℃
+- 10-27 01:00 vs 알아흘리 사우디: 휴식 13.9일?(국내리그 ESPN 미제공 — 직접 확인) · 직전 10-13 홈 vs Esteghlal FC 1-2 패 [league stage] · xG - · 직전 선발 3-4-3 Ahmed Kone, Ayoub Al-Oui, Dame Traoré, Seydou Sano, Fabricio Díaz, Ferjani Sassi, Saifeldeen Fadlalla, Abdulrahman Faiz Al Rashidi, Frank Magri, Yacine Brahimi, Adam Ounas · 구장 킹 압둘라 스포츠 시티 스타디움 · 이동 1312km · 고도 7m(차 -8m) · 31.9℃ 강수0mm(1%) 바람11.9km/h · ⚠ 장거리 원정 1312km, 기온 31.9℃
 <!-- INPUTS:END -->
 
+- 2026-10-26 수집(127회 825): 결장 보도 없음 · 라인업 미발표 — data/수집/127_825_*.json

@@ -200,6 +200,19 @@ def cmd_add(a):
     return 0
 
 
+def _dedup_resale(xs):
+    """같은 경기가 두 회차에 재판매되면(127·128회 승계) 해부도 두 줄이 된다 — 횟수는 경기 단위로 센다.
+    키 = (경기, 실제, 내1순위): 같은 대진이라도 결과가 다르면 다른 경기다. (2026-10-28 심층회고)"""
+    seen, out = set(), []
+    for x in xs:
+        k = (x["경기"], x["실제"], x["내1순위"], x["점검항목"])
+        if k in seen:
+            continue
+        seen.add(k)
+        out.append(x)
+    return out
+
+
 def cmd_report(a):
     rs = logs()
     if not rs:
@@ -222,7 +235,7 @@ def cmd_report(a):
         print(f"   가능 {c.get('가능', 0)} · 부분(사건이지만 사전 신호 있었음) {c.get('부분', 0)} · 불가 {c.get('불가', 0)}\n")
 
     print("-- 되풀이되는 점검항목 (점검표로 올라가는 판정만)")
-    k = collections.Counter(x["점검항목"] for x in rs if x["판정"] in ON_LIST and x["점검항목"])
+    k = collections.Counter(x["점검항목"] for x in _dedup_resale([x for x in rs if x["판정"] in ON_LIST and x["점검항목"]]))
     for item, n in k.most_common():
         print(f"   {n:2d}회  {item}")
     print("\n-- 종목·리그별 실패")
@@ -236,7 +249,7 @@ def cmd_report(a):
 
 def cmd_checklist(a):
     rs = [x for x in logs() if x["판정"] in ON_LIST and x["점검항목"]]
-    k = collections.Counter(x["점검항목"] for x in rs)
+    k = collections.Counter(x["점검항목"] for x in _dedup_resale(rs))   # 재판매 중복은 1회로
     byitem = collections.defaultdict(list)
     for x in rs:
         byitem[x["점검항목"]].append(x)

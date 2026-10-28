@@ -1,0 +1,96 @@
+{
+  "번호": "825",
+  "홈": "알아흘리 사우디",
+  "원정": "알가라파SC",
+  "리그": "AFC 챔피언스리그 엘리트",
+  "킥오프_KST": "2026-10-27 01:00",
+  "수집시각": "2026-10-26 22:02 KST",
+  "수집자": "collect-afc1",
+  "결장": [
+    {
+      "팀": "홈",
+      "선수": "Ivan Toney",
+      "포지션": "공격수",
+      "이번시즌_선발/경기": "로샨리그 득점 1위(11골 1도움, 2026-10 초 기준)",
+      "득점·도움": "11골 1도움(로샨리그, 2026-10 초 기준)",
+      "사유": "골반 관절(pelvic/hip joint) 부상으로 결장했다가 이후 알칼리지전에서 복귀해 2골 기록 — 2026-10-26 현재 컨디션 양호 추정이나 구단 공식 확정 안 됨",
+      "상태": "의심",
+      "출처": "https://www.ysscores.com/en/news/14073814/al-ahli-announce-ivan-toney-injury ; https://www.ysscores.com/en/news/14076788/toney-returns-to-al-ahly-fc-training-ahead-of-clash-with-al-khaleej",
+      "날짜": "2026-10-26"
+    },
+    {
+      "팀": "홈",
+      "선수": "Edouard Mendy",
+      "포지션": "골키퍼",
+      "이번시즌_선발/경기": "미확인",
+      "득점·도움": "해당없음(GK)",
+      "사유": "부상 재활 후 훈련 복귀, 선발 여부 미정",
+      "상태": "확정(결장 중이었다가 훈련복귀, 선발 여부는 의심)",
+      "출처": "https://khelnow.com/football/world-football-al-ahli-vs-al-gharafa-preview-202510",
+      "날짜": "2026-10-24"
+    },
+    {
+      "팀": "홈",
+      "선수": "Wenderson Galeno",
+      "포지션": "윙어",
+      "이번시즌_선발/경기": "미확인",
+      "득점·도움": "미확인",
+      "사유": "부상 재활 후 훈련 복귀, 선발 여부 미정",
+      "상태": "확정(결장 중이었다가 훈련복귀, 선발 여부는 의심)",
+      "출처": "https://khelnow.com/football/world-football-al-ahli-vs-al-gharafa-preview-202510",
+      "날짜": "2026-10-24"
+    }
+  ],
+  "라인업": {
+    "홈": {
+      "발표여부": "미발표",
+      "예상XI": "Abdulrahman Al-Sanbi, Roger Ibanez, Merih Demiral, Saad Balobaid, Saeed Baattia, Eduard Spertsyan, Ziyad Al-Johani, Valentin Atangana, Ivan Toney, Waheb Saleh, Francisco Trincao (직전 ACLE MD2, 2026-10-13 vs Al Wasl 3-1 승 기준 — Toney 선발 포함, 복귀 반영 가능성)",
+      "포메이션": "4-2-3-1",
+      "출처": "팀노트/알아흘리 사우디.md INPUTS(자동수집, ESPN)",
+      "날짜": "2026-10-26"
+    },
+    "원정": {
+      "발표여부": "미발표",
+      "예상XI": "Ahmed Kone, Ayoub Al-Oui, Dame Traore, Seydou Sano, Fabricio Diaz, Ferjani Sassi, Saifeldeen Fadlalla, Abdulrahman Faiz Al Rashidi, Frank Magri, Yacine Brahimi, Adam Ounas (직전 ACLE MD2, 2026-10-13 vs Esteghlal FC 1-2 패 기준)",
+      "포메이션": "3-4-3",
+      "출처": "팀노트/알가라파SC.md INPUTS(자동수집, ESPN)",
+      "날짜": "2026-10-26"
+    }
+  },
+  "최근경기": [
+    {"팀": "홈", "날짜": "2026-09-14", "상대": "Pakhtakor", "대회": "ACLE MD1", "장소": "홈", "스코어": "1-1 무"},
+    {"팀": "홈", "날짜": "2026-10-13", "상대": "Al Wasl", "대회": "ACLE MD2", "장소": "원정", "스코어": "3-1 승"},
+    {"팀": "원정", "날짜": "2026-09-15", "상대": "Al Hilal", "대회": "ACLE MD1", "장소": "원정", "스코어": "1-2 패"},
+    {"팀": "원정", "날짜": "2026-10-12", "상대": "Esteghlal FC", "대회": "ACLE MD2", "장소": "홈", "스코어": "1-2 패"}
+  ],
+  "순위": {
+    "ACLE": {"홈": "서부 5위, 2경기 1승1무0패 GD+2 승점4(※ 팀노트 FACTS의 '4위 승점6'은 Shabab Al Ahli 데이터와 혼선된 것으로 판단, 아래 엇갈림 참조)", "원정": "서부 13위, 2경기 0승0무2패 GD-2 승점0"},
+    "국내": {"홈": "사우디 로샨리그 상위권(Toney 득점 1위 보도)", "원정": "카타르 스타스리그 순위 미확인"},
+    "출처": "https://khelnow.com/football/world-football-al-ahli-vs-al-gharafa-preview-202510 ; 팀노트/알아흘리 사우디.md FACTS",
+    "날짜": "2026-10-24"
+  },
+  "감독": {
+    "홈": "Marino Pusic",
+    "원정": "Pedro Martins",
+    "변동": "없음(미확인된 변동 없음)",
+    "출처": "https://khelnow.com/football/world-football-al-ahli-vs-al-gharafa-preview-202510 ; 팀노트/알가라파SC.md FACTS",
+    "날짜": "2026-10-24"
+  },
+  "일정·동기·기타": [
+    {"내용": "알아흘리는 최근 5경기 중 4승(전 대회 포함), 패배는 FIFA 인터컨티넨탈컵 마멜로디 선다운즈전 1패뿐 — 상승세", "출처": "https://khelnow.com/football/world-football-al-ahli-vs-al-gharafa-preview-202510", "날짜": "2026-10-24"},
+    {"내용": "알가라파는 ACLE 개막 2연패(무득점 포함 아님, 2-1 2경기)로 승점 0, 조기 탈락 위기 — '진출권을 위해 승점이 시급한' 상황으로 보도", "출처": "https://khelnow.com/football/world-football-al-ahli-vs-al-gharafa-preview-202510", "날짜": "2026-10-24"},
+    {"내용": "알아흘리는 ACLE 타이틀 2연패(디펜딩 챔피언) 팀으로 자국 홈(킹 압둘라 스포츠시티, 제다) 개최", "출처": "팀노트/알아흘리 사우디.md", "날짜": "2026-10-26"}
+  ],
+  "엇갈림": [
+    "팀노트/알아흘리 사우디.md FACTS 블록의 '4위 2경기 2승0무0패 GD+2 승점6'은 구단명이 '(Shabab Al Ahli)'로 표기되어 있어 자동수집 과정에서 Shabab Al Ahli(UAE, 동명이의 클럽)와 혼동된 것으로 판단됨. khelnow.com 기사 기준 실제 Al Ahli Saudi는 서부 5위·1승1무·승점4가 맞는 수치로 보임"
+  ],
+  "못찾음": [
+    "Toney 2026-10-26 현재 100% 출전 가능 여부(구단 공식 미확인)",
+    "Mendy·Galeno 선발 포함 여부",
+    "알가라파 결장/부상자 명단(검색상 특이사항 없음)",
+    "알가라파 카타르 스타스리그 국내 순위"
+  ],
+  "뉴스없음": {
+    "원정": "알가라파SC 결장·부상 관련 뉴스 — the-afc.com 공식 프리뷰, goal.com에서 알가라파 자체 결장 보도 확인 안 됨(검색처: goal.com, ysscores.com)"
+  }
+}

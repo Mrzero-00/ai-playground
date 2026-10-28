@@ -1,0 +1,322 @@
+{
+ "번호": 1128,
+ "홈": "선덜랜드",
+ "원정": "브렌트퍼드",
+ "수집시각": "2026-10-28 22:40 KST",
+ "대회": "2026-27 EFL Carabao Cup 4라운드(16강), Stadium of Light, 현지 10-28(수) 19:45 GMT = 10-29 04:45 KST, Sky Sports+. 승자 8강(단판). 브렌트퍼드 구단 기사: VAR 없음('이전 라운드와 동일'). 연장/PK 규정은 기사에 없음(미확인)",
+ "결장": [
+  {
+   "팀": "선덜랜드",
+   "선수": "Yehor Yarmolyuk",
+   "포지션": "MF",
+   "이번시즌_선발/경기": "미확인",
+   "득점·도움": "미확인",
+   "사유": "3경기 출전정지 중 2번째 경기(리버풀전 직접 퇴장) — 주의: Yarmolyuk은 2025년 기준 브렌트퍼드 소속이었는데 기사는 선덜랜드 결장으로 서술(onefootball). 선덜랜드 이적 여부 위키 미검증",
+   "상태": "확정(1곳 onefootball; vavel/Brentford 미언급) -> 의심",
+   "복귀예정": "정지 종료 후",
+   "대체선수": "",
+   "출처": [
+    "https://onefootball.com/en/news/sunderland-v-brentford-carabao-cup-team-news-injuries-and-suspensions-43682013"
+   ],
+   "날짜": "2026-10-27"
+  },
+  {
+   "팀": "선덜랜드",
+   "선수": "Kevin Danso",
+   "포지션": "CB",
+   "이번시즌_선발/경기": "미확인",
+   "득점·도움": "미확인",
+   "사유": "1경기 정지(Bournemouth전 DOGSO) 종료, 출전 가능. 컵 규정 변경으로 이전 팀(Tottenham) 출전에도 불구하고 컵 출전 가능(Echo 검색요약·onefootball)",
+   "상태": "가용(결장 아님)",
+   "복귀예정": "",
+   "대체선수": "",
+   "출처": [
+    "https://onefootball.com/en/news/sunderland-v-brentford-carabao-cup-team-news-injuries-and-suspensions-43682013",
+    "Sunderland Echo 9312971(검색요약, 403)"
+   ],
+   "날짜": "2026-10-27"
+  },
+  {
+   "팀": "선덜랜드",
+   "선수": "Thomas Meunier",
+   "포지션": "RB",
+   "이번시즌_선발/경기": "미확인",
+   "득점·도움": "미확인",
+   "사유": "브라이턴전 부상 교체, 지난주 단독훈련; 수요일 출전 가능성 더 높다(vavel)",
+   "상태": "의심",
+   "복귀예정": "당일 판단",
+   "대체선수": "Luke O'Nien / Trai Hume",
+   "출처": [
+    "https://www.vavel.com/en/football/2026/10/27/sunderland/1276999-pre-match-analysis-sunderland-host-brentford-in-carabao-cup-clash.html"
+   ],
+   "날짜": "2026-10-27"
+  },
+  {
+   "팀": "선덜랜드",
+   "선수": "Wilson Isidor",
+   "포지션": "FW",
+   "이번시즌_선발/경기": "미확인",
+   "득점·도움": "미확인",
+   "사유": "단독훈련, 토요일(Coventry전) 복귀 예상 — 수요일 결장 시사(vavel)",
+   "상태": "의심(1곳)",
+   "복귀예정": "10-31 Coventry전",
+   "대체선수": "",
+   "출처": [
+    "https://www.vavel.com/en/football/2026/10/27/sunderland/1276999-pre-match-analysis-sunderland-host-brentford-in-carabao-cup-clash.html"
+   ],
+   "날짜": "2026-10-27"
+  },
+  {
+   "팀": "선덜랜드",
+   "선수": "Chemsdine Talbi",
+   "포지션": "FW",
+   "이번시즌_선발/경기": "미확인",
+   "득점·도움": "미확인",
+   "사유": "유럽 2경기 결장 후 복귀, 컵에서 기회 예상(vavel/onefootball)",
+   "상태": "가용 예상",
+   "복귀예정": "",
+   "대체선수": "",
+   "출처": [
+    "https://www.vavel.com/en/football/2026/10/27/sunderland/1276999-pre-match-analysis-sunderland-host-brentford-in-carabao-cup-clash.html",
+    "https://onefootball.com/en/news/sunderland-v-brentford-carabao-cup-team-news-injuries-and-suspensions-43682013"
+   ],
+   "날짜": "2026-10-27"
+  },
+  {
+   "팀": "브렌트퍼드",
+   "선수": "Rico Henry",
+   "포지션": "LB",
+   "이번시즌_선발/경기": "미확인",
+   "득점·도움": "미확인",
+   "사유": "훈련 중 hip·quad 부상, '수 주' 결장, 11월 A매치 휴식기 이후 복귀 예상",
+   "상태": "확정(구단 + onefootball + 요약)",
+   "복귀예정": "11월 A매치 이후",
+   "대체선수": "Keane Lewis-Potter 등",
+   "출처": [
+    "https://www.brentfordfc.com/en/news/first-team-news-sunderland-v-brentford-carabao-cup-rico-henry-injury-mikkel-damsgaard",
+    "https://www.brentfordfc.com/en/news/match-previews-sunderland-v-brentford-carabao-cup-28-10-2026",
+    "https://onefootball.com/en/news/sunderland-v-brentford-carabao-cup-team-news-injuries-and-suspensions-43682013"
+   ],
+   "날짜": "2026-10-27"
+  },
+  {
+   "팀": "브렌트퍼드",
+   "선수": "Kaye Furo",
+   "포지션": "미확인",
+   "이번시즌_선발/경기": "미확인",
+   "득점·도움": "미확인",
+   "사유": "중족골 부상, 7~10일째 부츠 벗음, 아직 잔디 훈련 전",
+   "상태": "확정",
+   "복귀예정": "미정(수일~)",
+   "대체선수": "",
+   "출처": [
+    "https://www.brentfordfc.com/en/news/first-team-news-sunderland-v-brentford-carabao-cup-rico-henry-injury-mikkel-damsgaard",
+    "https://www.brentfordfc.com/en/news/match-previews-sunderland-v-brentford-carabao-cup-28-10-2026",
+    "https://www.thamesgazette.com/breaking-news/sunderland-brentford-carabao-cup-fourth-round/"
+   ],
+   "날짜": "2026-10-27"
+  },
+  {
+   "팀": "브렌트퍼드",
+   "선수": "Josh Dasilva",
+   "포지션": "MF",
+   "이번시즌_선발/경기": "미확인",
+   "득점·도움": "미확인",
+   "사유": "햄스트링, 훈련 점진 복귀",
+   "상태": "확정(결장 가능성 높음)",
+   "복귀예정": "미정",
+   "대체선수": "",
+   "출처": [
+    "https://www.brentfordfc.com/en/news/first-team-news-sunderland-v-brentford-carabao-cup-rico-henry-injury-mikkel-damsgaard",
+    "https://www.brentfordfc.com/en/news/match-previews-sunderland-v-brentford-carabao-cup-28-10-2026",
+    "https://www.thamesgazette.com/breaking-news/sunderland-brentford-carabao-cup-fourth-round/"
+   ],
+   "날짜": "2026-10-27"
+  },
+  {
+   "팀": "브렌트퍼드",
+   "선수": "Antoni Milambo",
+   "포지션": "MF",
+   "이번시즌_선발/경기": "미확인",
+   "득점·도움": "미확인",
+   "사유": "토요일·화요일 팀훈련 참여, 명단 근처('in and around')",
+   "상태": "의심",
+   "복귀예정": "임박",
+   "대체선수": "",
+   "출처": [
+    "https://www.brentfordfc.com/en/news/first-team-news-sunderland-v-brentford-carabao-cup-rico-henry-injury-mikkel-damsgaard",
+    "https://www.brentfordfc.com/en/news/match-previews-sunderland-v-brentford-carabao-cup-28-10-2026",
+    "https://www.thamesgazette.com/breaking-news/sunderland-brentford-carabao-cup-fourth-round/"
+   ],
+   "날짜": "2026-10-27"
+  },
+  {
+   "팀": "브렌트퍼드",
+   "선수": "Mikkel Damsgaard",
+   "포지션": "MF",
+   "이번시즌_선발/경기": "미확인",
+   "득점·도움": "미확인",
+   "사유": "국대 경기 중 태클로 오른발 통증, 통증 완화, Andrews '출전 가능(good to go)'",
+   "상태": "가용",
+   "복귀예정": "",
+   "대체선수": "",
+   "출처": [
+    "https://www.brentfordfc.com/en/news/first-team-news-sunderland-v-brentford-carabao-cup-rico-henry-injury-mikkel-damsgaard"
+   ],
+   "날짜": "2026-10-27"
+  },
+  {
+   "팀": "브렌트퍼드",
+   "선수": "Vitaly Janelt",
+   "포지션": "MF",
+   "이번시즌_선발/경기": "미확인",
+   "득점·도움": "미확인",
+   "사유": "1경기 정지(Hull전에서 소화) 종료, 출전 가능",
+   "상태": "가용",
+   "복귀예정": "",
+   "대체선수": "",
+   "출처": [
+    "https://onefootball.com/en/news/sunderland-v-brentford-carabao-cup-team-news-injuries-and-suspensions-43682013"
+   ],
+   "날짜": "2026-10-27"
+  }
+ ],
+ "라인업": {
+  "홈": {
+   "발표여부": "미발표",
+   "예상XI": {
+    "vavel(부분)": "GK Melker Ellborg 예상; Jenson Jones가 부상 때문에 풀백/센터백 기용 가능; Juan Riquelme 첫 선발 가능; Talbi 출전 유력; 대폭 로테이션·U21 선수 출전 가능; Danso는 O'Nien 휴식 위해 선발 가능(onefootball)"
+   },
+   "포메이션": "미확인",
+   "출처": [
+    "https://www.vavel.com/en/football/2026/10/27/sunderland/1276999-pre-match-analysis-sunderland-host-brentford-in-carabao-cup-clash.html",
+    "https://onefootball.com/en/news/sunderland-v-brentford-carabao-cup-team-news-injuries-and-suspensions-43682013"
+   ],
+   "날짜": "2026-10-27",
+   "참고": "Le Bris(Echo 검색요약, 9월 Hull전 때): 9~10명 교체. 이번 경기 기자회견 직접 로테이션 발언은 Echo 403으로 열람 실패; Thames Gazette 인용: 'consistency is still key. We have another game on Wednesday then Coventry and the objective is to get better'. 직전 리그(10-26 홈 Leeds 0-0) 선발 4-2-3-1: Roefs; O'Nien, Mukiele, Reinildo, Hume; Le Fée, Sadiki, Xhaka; Brobbey, Angulo, Rigg (팀노트 INPUTS)"
+  },
+  "원정": {
+   "발표여부": "미발표",
+   "예상XI": "예상XI 기사 못 찾음(Andrews는 이번 컵 경기를 Hull전만큼 중요하다고 발언, 로테이션 세부 언급 없음)",
+   "포메이션": "미확인",
+   "출처": [
+    "https://www.brentfordfc.com/en/news/match-previews-sunderland-v-brentford-carabao-cup-28-10-2026",
+    "https://www.thamesgazette.com/breaking-news/sunderland-brentford-carabao-cup-fourth-round/"
+   ],
+   "날짜": "2026-10-27",
+   "참고": "직전 리그(10-25 원정 Hull 1-1) 선발 4-2-3-1: Kelleher; Ajer, van den Berg, Lewis-Potter, Kayode; Jensen, Hickey, Sangare; Thiago, Schade, Ouattara (팀노트 INPUTS). 컵 2R Birmingham 6-1 승, 3R Hull전(vavel). Callum Wilson 컵 2경기 2골(vavel) — Wilson 브렌트퍼드 소속 여부 위키 미검증"
+  }
+ },
+ "최근경기": [
+  {
+   "팀": "선덜랜드",
+   "날짜": "2026-10-26",
+   "상대": "Leeds United",
+   "장소": "홈",
+   "스코어": "0-0",
+   "비고": "팀노트 INPUTS; vavel도 0-0 무"
+  },
+  {
+   "팀": "선덜랜드",
+   "날짜": "2026-10-18",
+   "상대": "AFC Bournemouth",
+   "장소": "원정",
+   "스코어": "0-2 패",
+   "비고": "팩트시트"
+  },
+  {
+   "팀": "선덜랜드",
+   "날짜": "2026-10-10",
+   "상대": "Brighton",
+   "장소": "홈",
+   "스코어": "0-2 패",
+   "비고": "vavel: 10명 브라이턴에 패"
+  },
+  {
+   "팀": "선덜랜드",
+   "날짜": "2026-09 (3R)",
+   "상대": "Hull City",
+   "장소": "홈",
+   "스코어": "1-0 승(컵 3R, Talbi 골)",
+   "비고": "irishnews 검색요약"
+  },
+  {
+   "팀": "브렌트퍼드",
+   "날짜": "2026-10-25",
+   "상대": "Hull City",
+   "장소": "원정",
+   "스코어": "1-1",
+   "비고": "팀노트 INPUTS"
+  },
+  {
+   "팀": "브렌트퍼드",
+   "날짜": "2026-10-17",
+   "상대": "Brentford-Liverpool",
+   "장소": "홈",
+   "스코어": "1-2 패",
+   "비고": "팩트시트; Janelt 옐로 2장 정지"
+  },
+  {
+   "팀": "브렌트퍼드",
+   "날짜": "2026-10-10",
+   "상대": "Aston Villa",
+   "장소": "원정",
+   "스코어": "2-2",
+   "비고": "팩트시트"
+  },
+  {
+   "팀": "상호",
+   "날짜": "2026-09-05",
+   "상대": "Brentford 1-1 Sunderland(PL)",
+   "장소": "브렌트퍼드 홈",
+   "스코어": "1-1",
+   "비고": "Janelt 57분 선제, Le Fée 후반 막판 PK 동점(Lewis-Potter가 Isidor 파울). 선덜랜드 슈팅14/유효5로 우세. 출처 BP"
+  }
+ ],
+ "순위": {
+  "홈": "선덜랜드 PL 20위 7경기 1승1무5패 GD-8 승점4 (팩트시트 10-25; 10-26 Leeds 0-0 반영 시 승점 5; vavel '최하위')",
+  "원정": "브렌트퍼드 PL 7위 7경기 2승4무1패 GD+5 승점10 (팩트시트 10-25, 10-25 Hull 1-1 반영 전)",
+  "출처": "팀노트 FACTS + vavel",
+  "날짜": "2026-10-28"
+ },
+ "감독": {
+  "홈": "Régis Le Bris",
+  "원정": "Keith Andrews",
+  "변동": "변동 없음(팩트시트·기사 일치)",
+  "출처": "팀노트 FACTS, BF, TG",
+  "날짜": "2026-10-28"
+ },
+ "일정·동기·기타": [
+  {
+   "내용": "선덜랜드 승리 시 5년 만의 컵 8강; 브렌트퍼드는 3년 연속 8강 도전. 선덜랜드는 UEL 리그페이즈 병행(vavel: 무패 유지/9위), 토요일 Coventry전(19위 vs 20위) 중요 (vavel, thamesgazette)",
+   "출처": [
+    "https://www.vavel.com/en/football/2026/10/27/sunderland/1276999-pre-match-analysis-sunderland-host-brentford-in-carabao-cup-clash.html",
+    "https://www.thamesgazette.com/breaking-news/sunderland-brentford-carabao-cup-fourth-round/"
+   ],
+   "날짜": "2026-10-27"
+  },
+  {
+   "내용": "Hume '풀 스로틀' 컵 의지(Echo 헤드라인)",
+   "출처": [
+    "https://www.sunderlandecho.com/sport/football/sunderland-afc/sunderland-defender-trai-hume-makes-carabao-cup-stance-clear-with-full-throttle-brentford-vow-9308558"
+   ],
+   "날짜": "2026-10(정확한 날짜 미확인)"
+  }
+ ],
+ "엇갈림": [
+  "Yarmolyuk 정지: onefootball만 선덜랜드 선수로 기재, 2025년 기억상 브렌트퍼드 소속 -> 이적 검증 필요",
+  "vavel 순위 서술 내부 모순(무패 vs 4연패 표현), 브렌트퍼드 구단 기사 내 '1월 3-0' 언급이 9월 1-1과 충돌 — 요약 도구 오류 가능",
+  "Milambo/Dasilva: 구단 기사 간 '부상' vs '훈련 복귀'"
+ ],
+ "못찾음": [
+  "Sunderland Echo 본문 3건 403(팀뉴스·기자회견·EFL 규정) — 검색요약으로만 확인",
+  "브렌트퍼드 예상 XI, Andrews 로테이션 직접 발언",
+  "컵 연장·PK 규정",
+  "선수별 시즌 통계",
+  "위키 시즌 이적 표로 Yarmolyuk·Danso·Meunier·Wilson 소속 검증"
+ ],
+ "뉴스없음": {
+  "홈": "",
+  "원정": ""
+ }
+}

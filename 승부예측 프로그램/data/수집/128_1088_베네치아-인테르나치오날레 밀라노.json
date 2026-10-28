@@ -1,0 +1,264 @@
+{
+ "번호": 1088,
+ "홈": "베네치아",
+ "원정": "인테르나치오날레 밀라노",
+ "수집시각": "2026-10-28 22시대 KST",
+ "결장": [
+  {
+   "팀": "베네치아",
+   "선수": "Marin Sverko",
+   "포지션": "DF",
+   "이번시즌_선발/경기": "미확인",
+   "득점·도움": "미확인",
+   "사유": "사유 미기재",
+   "상태(확정/의심)": "확정",
+   "복귀예정": "미정",
+   "대체선수": "미확인",
+   "출처": "https://sport.sky.it/calcio/serie-a/2026/10/27/probabili-formazioni-serie-a-giornata-9-ultime-news ; https://sport.sky.it/calcio/serie-a/2026/10/27/venezia-inter-probabili-formazioni-9-giornata",
+   "날짜": "2026-10-27"
+  },
+  {
+   "팀": "베네치아",
+   "선수": "Bartol Franjić",
+   "포지션": "DF",
+   "이번시즌_선발/경기": "미확인",
+   "득점·도움": "미확인",
+   "사유": "어깨 수술(개막 레체전 부상), 회복 약 3개월",
+   "상태(확정/의심)": "확정",
+   "복귀예정": "약 3개월(날짜 미정)",
+   "대체선수": "미확인",
+   "출처": "https://www.fantacalcio.it/amp/news/calcio-italia/09_09_2026/venezia-bella-kotchap-e-franjic-infortunati-i-tempi-di-recupero-497726 ; https://sport.sky.it/calcio/serie-a/2026/10/27/probabili-formazioni-serie-a-giornata-9-ultime-news",
+   "날짜": "2026-09-09"
+  },
+  {
+   "팀": "베네치아",
+   "선수": "Thierry Correia",
+   "포지션": "DF/MF",
+   "이번시즌_선발/경기": "미확인",
+   "득점·도움": "미확인",
+   "사유": "왼 햄스트링 근육 손상, 회복기간 검사 중(Nicola 첫 훈련 시점 기사)",
+   "상태(확정/의심)": "확정",
+   "복귀예정": "미정",
+   "대체선수": "미확인",
+   "출처": "https://www.tuttomercatoweb.com/serie-a/allenamento-nicola-venezia-assenti-approfondimenti-correia-2283686 ; https://sport.sky.it/calcio/serie-a/2026/10/27/probabili-formazioni-serie-a-giornata-9-ultime-news",
+   "날짜": "2026-10-14경(정확일 미확인)"
+  },
+  {
+   "팀": "베네치아",
+   "선수": "Andrea Adorante",
+   "포지션": "FW",
+   "이번시즌_선발/경기": "미확인",
+   "득점·도움": "미확인",
+   "사유": "재활 중, 볼 터치 시작 단계",
+   "상태(확정/의심)": "확정",
+   "복귀예정": "미정",
+   "대체선수": "미확인",
+   "출처": "https://www.pazzidifanta.com/indisponibili/venezia-nicola-adorante-condizioni-seriea-news-2026-2027-460085 ; https://sport.sky.it/calcio/serie-a/2026/10/27/probabili-formazioni-serie-a-giornata-9-ultime-news",
+   "날짜": "2026-10(정확일 미확인)"
+  },
+  {
+   "팀": "베네치아",
+   "선수": "Busio",
+   "포지션": "MF",
+   "이번시즌_선발/경기": "미확인",
+   "득점·도움": "미확인",
+   "사유": "부상 복귀했으나 100% 아님, 벤치 예상",
+   "상태(확정/의심)": "의심",
+   "복귀예정": "복귀함",
+   "대체선수": "미확인",
+   "출처": "https://www.sosfanta.com/news/venezia-inter-probabili-formazioni-fantacalcio/",
+   "날짜": "2026-10-27"
+  },
+  {
+   "팀": "인테르",
+   "선수": "Lautaro Martínez",
+   "포지션": "FW",
+   "이번시즌_선발/경기": "미확인",
+   "득점·도움": "미확인",
+   "사유": "결장(사유 이번 조사에서 미확인)",
+   "상태(확정/의심)": "확정",
+   "복귀예정": "미정",
+   "대체선수": "미확인",
+   "출처": "https://sport.sky.it/calcio/serie-a/2026/10/27/probabili-formazioni-serie-a-giornata-9-ultime-news ; https://sport.sky.it/calcio/serie-a/2026/10/27/venezia-inter-probabili-formazioni-9-giornata",
+   "날짜": "2026-10-27"
+  },
+  {
+   "팀": "인테르",
+   "선수": "Stones",
+   "포지션": "DF",
+   "이번시즌_선발/경기": "미확인",
+   "득점·도움": "미확인",
+   "사유": "결장(사유 미기재)",
+   "상태(확정/의심)": "확정",
+   "복귀예정": "미정",
+   "대체선수": "미확인",
+   "출처": "https://sport.sky.it/calcio/serie-a/2026/10/27/probabili-formazioni-serie-a-giornata-9-ultime-news ; https://sport.sky.it/calcio/serie-a/2026/10/27/venezia-inter-probabili-formazioni-9-giornata",
+   "날짜": "2026-10-27"
+  },
+  {
+   "팀": "인테르",
+   "선수": "Pavard",
+   "포지션": "DF",
+   "이번시즌_선발/경기": "미확인",
+   "득점·도움": "미확인",
+   "사유": "결장(사유 미기재)",
+   "상태(확정/의심)": "확정",
+   "복귀예정": "미정",
+   "대체선수": "미확인",
+   "출처": "https://sport.sky.it/calcio/serie-a/2026/10/27/probabili-formazioni-serie-a-giornata-9-ultime-news ; https://sport.sky.it/calcio/serie-a/2026/10/27/venezia-inter-probabili-formazioni-9-giornata",
+   "날짜": "2026-10-27"
+  },
+  {
+   "팀": "인테르",
+   "선수": "Luis Henrique",
+   "포지션": "DF/MF",
+   "이번시즌_선발/경기": "미확인",
+   "득점·도움": "미확인",
+   "사유": "결장(사유 미기재)",
+   "상태(확정/의심)": "확정",
+   "복귀예정": "미정",
+   "대체선수": "미확인",
+   "출처": "https://sport.sky.it/calcio/serie-a/2026/10/27/probabili-formazioni-serie-a-giornata-9-ultime-news ; https://sport.sky.it/calcio/serie-a/2026/10/27/venezia-inter-probabili-formazioni-9-giornata",
+   "날짜": "2026-10-27"
+  },
+  {
+   "팀": "인테르",
+   "선수": "C. Jones",
+   "포지션": "-",
+   "이번시즌_선발/경기": "미확인",
+   "득점·도움": "미확인",
+   "사유": "결장 목록에 있음(사유 미기재, 한 곳)",
+   "상태(확정/의심)": "의심",
+   "복귀예정": "미정",
+   "대체선수": "미확인",
+   "출처": "https://sport.sky.it/calcio/serie-a/2026/10/27/probabili-formazioni-serie-a-giornata-9-ultime-news",
+   "날짜": "2026-10-27"
+  },
+  {
+   "팀": "인테르",
+   "선수": "Thuram / Calhanoglu / Akanji",
+   "포지션": "FW/MF/DF",
+   "이번시즌_선발/경기": "미확인",
+   "득점·도움": "미확인",
+   "사유": "부상 아님, 10/31 밀란 derby 대비 로테이션 휴식 가능",
+   "상태(확정/의심)": "의심",
+   "복귀예정": "-",
+   "대체선수": "Pio Esposito, Bonny 등",
+   "출처": "https://sport.sky.it/calcio/serie-a/2026/10/27/venezia-inter-probabili-formazioni-9-giornata ; https://sport.sky.it/calcio/serie-a/2026/10/27/probabili-formazioni-serie-a-giornata-9-ultime-news",
+   "날짜": "2026-10-28"
+  }
+ ],
+ "라인업": {
+  "홈": {
+   "발표여부": "공식 미발표(예상)",
+   "예상XI": "F. Stanković; Halhal, Moreno, Juan Jesus; Hainaut, Kike Pérez, Basić, Sohm, Mazzocchi(or Haps); Yeboah, Adams",
+   "포메이션": "3-5-2",
+   "출처": "https://sport.sky.it/calcio/serie-a/2026/10/27/venezia-inter-probabili-formazioni-9-giornata ; https://www.fantamaster.it/probabili-formazioni-venezia-inter-seriea-2026-2027-notizie-fantacalcio/ ; https://www.sosfanta.com/news/venezia-inter-probabili-formazioni-fantacalcio/",
+   "날짜": "2026-10-27~28"
+  },
+  "원정": {
+   "발표여부": "공식 미발표(예상)",
+   "예상XI": "Sky: Provedel; Bisseck, Bastoni, Carlos Augusto; Spence, Barella, A. Stanković, Zieliński, Dimarco; Bonny, Pio Esposito (Akanji 벤치, Calhanoglu 휴식 가능) / Fantamaster: Provedel; Bisseck, Akanji, Carlos Augusto; Diouf, Sučić, Zieliński, Mkhitaryan/Stanković, Dimarco; Esposito, Bonny",
+   "포메이션": "3-5-2",
+   "출처": "https://sport.sky.it/calcio/serie-a/2026/10/27/venezia-inter-probabili-formazioni-9-giornata ; https://www.fantamaster.it/probabili-formazioni-venezia-inter-seriea-2026-2027-notizie-fantacalcio/ ; https://www.sosfanta.com/news/venezia-inter-probabili-formazioni-fantacalcio/",
+   "날짜": "2026-10-27~28"
+  }
+ },
+ "최근경기": [
+  {
+   "팀": "베네치아",
+   "날짜": "2026-10-25",
+   "상대": "제노아",
+   "장소": "원정",
+   "스코어": "0-1 패",
+   "비고": "팀노트 INPUTS"
+  },
+  {
+   "팀": "베네치아",
+   "날짜": "2026-10-17",
+   "상대": "나폴리",
+   "장소": "홈",
+   "스코어": "1-0 승",
+   "비고": "Nicola 데뷔전 예정이었음, 시즌 첫 승"
+  },
+  {
+   "팀": "베네치아",
+   "날짜": "2026-10-12",
+   "상대": "아탈란타",
+   "장소": "원정",
+   "스코어": "1-3 패",
+   "비고": "Stroppa 경질 계기로 보도"
+  },
+  {
+   "팀": "인테르",
+   "날짜": "2026-10-25",
+   "상대": "피오렌티나",
+   "장소": "홈",
+   "스코어": "2-1 승",
+   "비고": "팀노트 INPUTS"
+  },
+  {
+   "팀": "인테르",
+   "날짜": "2026-10-17",
+   "상대": "볼로냐",
+   "장소": "원정",
+   "스코어": "3-1 승",
+   "비고": "팩트시트"
+  },
+  {
+   "팀": "인테르",
+   "날짜": "2026-10-10",
+   "상대": "파르마",
+   "장소": "홈",
+   "스코어": "3-0 승",
+   "비고": "팩트시트"
+  }
+ ],
+ "순위": {
+  "홈": "20위 8경기 1승0무7패 6-17 승점3",
+  "원정": "2위 8경기 7승1무0패 23-10 승점22",
+  "출처": "https://sport.sky.it/calcio/serie-a/classifica",
+  "날짜": "2026-10-27 (갱신 22:41)"
+ },
+ "감독": {
+  "홈": "Davide Nicola",
+  "원정": "Cristian Chivu",
+  "변동": "베네치아: Stroppa 경질(10월 중순, 6연패 승점0) 후 Davide Nicola 부임(10/17 나폴리전 데뷔 예정 보도, 계약 2028-06-30까지 보도). 팀노트 팩트시트의 Stroppa는 구정보. 인테르 Chivu는 기사 기준이며 위키 직접 확인 안 함",
+  "출처": "https://www.fantamaster.it/venezia-ufficiale-stroppa-esonerato-scelto-sostituto-nicola/ ; https://sport.sky.it/calcio/serie-a/2026/10/27/venezia-inter-probabili-formazioni-9-giornata ; https://sport.sky.it/calcio/serie-a/2026/10/27/probabili-formazioni-serie-a-giornata-9-ultime-news",
+  "날짜": "2026-10-13~28"
+ },
+ "일정·동기·기타": [
+  {
+   "내용": "킥오프 10/28 현지 18:30(KST 10/29 02:30) 펜초 구장. (Sky 종합기사의 20:45는 오기재 추정)",
+   "출처": "https://sport.sky.it/calcio/serie-a/2026/10/27/venezia-inter-probabili-formazioni-9-giornata ; https://www.fantamaster.it/probabili-formazioni-venezia-inter-seriea-2026-2027-notizie-fantacalcio/",
+   "날짜": "2026-10-28"
+  },
+  {
+   "내용": "인테르 10/31 토요일 AC밀란 derby 앞두고 로테이션 예상",
+   "출처": "https://sport.sky.it/calcio/serie-a/2026/10/27/venezia-inter-probabili-formazioni-9-giornata",
+   "날짜": "2026-10-28"
+  },
+  {
+   "내용": "Stanković 형제 맞대결(베네치아 GK Filip vs 인테르 MF Aleksandar)",
+   "출처": "https://sport.sky.it/calcio/serie-a/2026/10/27/venezia-inter-probabili-formazioni-9-giornata",
+   "날짜": "2026-10-28"
+  }
+ ],
+ "엇갈림": [
+  "Inter 선발: Sky(Spence, Barella, Stanković) vs Fantamaster(Diouf, Sučić, Mkhitaryan) 상이",
+  "Thuram 선발 여부 기사마다 상이(휴식 우세)",
+  "Venezia 좌측 Mazzocchi vs Haps",
+  "킥오프: Sky 종합 20:45 vs 개별기사 18:30",
+  "팩트시트 Stroppa vs 기사 Nicola(경질 보도 다수라 기사 채택)"
+ ],
+ "못찾음": [
+  "선수별 시즌 기록",
+  "Lautaro·Stones·Pavard·Luis Henrique·Jones 부상 사유/복귀일",
+  "Sverko 사유",
+  "Chivu 위키 직접 확인"
+ ],
+ "뉴스없음": {
+  "홈": "",
+  "원정": ""
+ }
+}

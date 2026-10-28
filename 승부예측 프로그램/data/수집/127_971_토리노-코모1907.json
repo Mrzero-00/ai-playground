@@ -1,0 +1,33 @@
+{
+  "번호": "971",
+  "홈": "토리노",
+  "원정": "코모1907",
+  "수집시각": "2026-10-27T21:59:00+09:00",
+  "결장": [
+    {"팀": "토리노", "선수": "Rolando Mandragora", "포지션": "MF", "이번시즌_선발/경기": "주전급(직전 선발 명단 포함 이력)", "사유": "근육 부상, 코모전·프로시노네 원정전 결장 예상", "상태": "확정", "복귀예정": "11월 초", "대체선수": "Gineitis/Cacciamani", "출처": "https://tribuna.com/it/news/2026-10-25-brutte-notizie-per-abate-il-torino-perde-mandragora-per-infortunio-i-tempi-di-recupero/ ; https://www.goal.com/it/notizie/formazioni-torino-como-le-ultime-sulla-partita-e-dove-vederla-in-tv-e-streaming/blt3abe59f2cc11ad87(“Abate senza Mandragora”)", "날짜": "2026-10-25"},
+    {"팀": "토리노", "선수": "Ricardo Rodriguez", "포지션": "DF", "사유": "허벅지 굴근 경미한 건 손상(muscle problem)", "상태": "의심", "복귀예정": "미확인", "대체선수": "Coco/Ismajli", "출처": "https://www.calcionews24.com/torino-infortunio-rodriguez-abate-opzioni-difesa/", "날짜": "2026-10-22"},
+    {"팀": "코모1907", "선수": "Trevoh Chalobah", "포지션": "DF", "사유": "부상, 약 2주·4경기 결장 예상", "상태": "확정", "복귀예정": "11월 초", "대체선수": "Kempf/Kaiki", "출처": "https://www.fantamaster.it/infortunati-como-chalobah-diao-kean-ultime-notizie-rifinitura-2026-2027/ ; https://www.fcinternews.it/news/como-rodriguez-chalobah-allarme-infortuni-fabregas-1021240", "날짜": "2026-10-24"},
+    {"팀": "코모1907", "선수": "Assane Diao", "포지션": "MF/FW", "사유": "부상, 국가대표 휴식기 이후 복귀 예상", "상태": "확정", "복귀예정": "11월 국가대표 휴식기 이후", "대체선수": "Baturina/Addai", "출처": "https://www.fantamaster.it/infortunati-como-chalobah-diao-kean-ultime-notizie-rifinitura-2026-2027/ ; https://www.fcinternews.it/news/como-rodriguez-chalobah-allarme-infortuni-fabregas-1021240", "날짜": "2026-10-24"},
+    {"팀": "코모1907", "선수": "Jesus Rodriguez", "포지션": "FW", "사유": "부상(경미하지 않아 보임, 평가 중)", "상태": "확정", "복귀예정": "미확인", "대체선수": "Baturina", "출처": "https://www.playermanager.info/2026/10/20/il-como-perde-le-ali-fabregas-jesus-rodriguez-si-e-fatto-male-non-sembra-un-infortunio-lieve/ ; https://www.fcinternews.it/news/como-rodriguez-chalobah-allarme-infortuni-fabregas-1021240", "날짜": "2026-10-20"}
+  ],
+  "라인업": {
+    "홈": {"발표여부": "예상(미발표)", "예상XI": "Perri; Coco, Ismajli, Comuzzo; Belghali, Bragança, Gineitis, Cacciamani; Vlasic; Simeone, Adams", "포메이션": "3-4-2-1", "출처": "https://sport.sky.it/calcio/serie-a/2026/10/26/torino-como-probabili-formazioni-9-giornata ; https://www.tuttosport.com/news/calcio/serie-a/2026/10/26-152166268/torino-como_probabili_formazioni_orario_e_dove_vedere_in_tv_e_streaming_la_serie_a", "날짜": "2026-10-26"},
+    "원정": {"발표여부": "예상(미발표)", "예상XI": "Butez; Couto, Ramon, Kempf, Valle; Milla, Da Cunha; Caqueret, Nico Paz, Baturina; Douvikas", "포메이션": "4-2-3-1", "출처": "https://sport.sky.it/calcio/serie-a/2026/10/26/torino-como-probabili-formazioni-9-giornata", "날짜": "2026-10-26"}
+  },
+  "최근경기": [
+    {"팀": "토리노", "날짜": "2026-10-12", "상대": "Udinese", "장소": "홈", "스코어": "2-1", "비고": "승"},
+    {"팀": "토리노", "날짜": "2026-10-19", "상대": "Parma", "장소": "원정", "스코어": "3-0", "비고": "승"},
+    {"팀": "토리노", "날짜": "2026-10-23", "상대": "Monza", "장소": "홈", "스코어": "3-2", "비고": "승, 3연승"},
+    {"팀": "코모1907", "날짜": "2026-10-11", "상대": "AS Roma", "장소": "홈", "스코어": "0-0", "비고": "무"},
+    {"팀": "코모1907", "날짜": "2026-10-18", "상대": "Fiorentina", "장소": "원정", "스코어": "3-1", "비고": "승"},
+    {"팀": "코모1907", "날짜": "2026-10-24", "상대": "Sassuolo", "장소": "홈", "스코어": "2-0", "비고": "승"}
+  ],
+  "순위": {"홈": "8위 8경기 4승1무3패 GD+2 승점13", "원정": "5위 8경기 5승2무1패 GD+7 승점17", "출처": "팀노트 FACTS(2026-10-27 자동수집)", "날짜": "2026-10-27"},
+  "감독": {"홈": "Ignazio Abate(변동없음)", "원정": "Cesc Fàbregas(변동없음)", "변동": "없음", "출처": "팀노트 FACTS", "날짜": "2026-10-27"},
+  "일정·동기·기타": [
+    {"내용": "경기 10/27(화) 현지시간 저녁, 세리에A 9라운드, 올림피코 디 토리노. 토리노 3연승 중, 코모는 UCL 맨유전·세리에 일정 병행으로 로테이션 폭 큼(최근 6경기 선발 교체 4.6명/경기)", "출처": "https://www.torinotoday.it/sport/calcio/torino-como-formazioni-dove-vederla.html", "날짜": "2026-10-27"}
+  ],
+  "엇갈림": ["Yan Couto가 predicted XI(Sky 10/26)에는 선발로 나오나, playermanager(10/20)는 '코모가 Couto와 Jesus Rodriguez를 부상으로 잃었다'고 보도 — Couto 결장설과 선발 예상이 충돌, Couto는 복귀한 것으로 추정되나 미확정", "fantamaster(10/24) 기사 제목에 'Kean'이 코모 훈련 불참자로 언급되나 Kean은 피오렌티나 소속 선수로 소속팀 오류 가능성 — 신뢰하지 않음(기록만)"],
+  "못찾음": ["토리노 Zapata 컨디션 10/27 시점 최신 업데이트(10/10 기사 이후)", "심판 배정"],
+  "뉴스없음": {"홈": "징계(카드 누적) 보도 없음 — 검색처: tuttoudinese.it, sosfanta.com", "원정": "징계 보도 없음 — 검색처: calcionews24.com, spaziocalcio.it"}
+}

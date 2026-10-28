@@ -2,7 +2,9 @@
 """경기 후 사실 수집 (사용자 지시 2026-10-18 — 데이터 개선 ⑤)
 왜: '선수 A 결장'을 요인으로 넣었는데 실제로 A가 빠졌는지, 진 팀이 내용도 나빴는지(운 vs 분석)를 확인하지 않았다.
     이게 없으면 맞는 요인을 버리거나 틀린 요인을 유지하게 된다.
-무엇(축구, 결과 나온 경기):
+무엇(축구·NBA, 결과 나온 경기):
+  - [NBA, 2026-10-27 추가] ESPN basketball/nba summary: 실제 선발 5인·출전 명단·DNP(부상/감독 결정), FG%·3P·리바운드·턴오버·최대 리드, 전반 점수.
+    127회 회고에서 NBA 8경기 결장 주장 51건을 손으로 대조해야 했다 — 축구만 자동이라 농구 '확정 결장' 적중률이 lineup_grade 에 쌓이지 않았다.
   - ESPN summary: 실제 선발 XI·교체 투입, 슈팅·유효슈팅·점유율·퇴장(boxscore), 전반 점수(header linescores)
   - Understat(5대 리그): 경기 xG (getLeagueData dates)
   - 근거기록의 '결장' 요인(선수 이름이 있는 것) → 실제 명단에 있었는지 대조 → data/결장검증.csv
@@ -33,6 +35,84 @@ def summary(eid):
     return M.cached(os.path.join(M.SB_DIR, f"sum_{eid}_post.json"), f"https://site.api.espn.com/apis/site/v2/sports/soccer/all/summary?event={eid}", 24 * 30)
 
 
+NBA_SB = "https://site.api.espn.com/apis/site/v2/sports/basketball/nba/scoreboard?dates={d}"
+NBA_SUM = "https://site.api.espn.com/apis/site/v2/sports/basketball/nba/summary?event={eid}"
+
+
+def nba_summary(eid):
+    return M.cached(os.path.join(M.SB_DIR, f"nba_sum_{eid}_post.json"), NBA_SUM.format(eid=eid), 24 * 30)
+
+
+def nba_find_event(ko_utc, home_eng, away_eng):
+    """ESPN NBA 스코어보드(미국 날짜 기준이라 KST 킥오프의 UTC 날짜와 전날을 본다)에서 홈·원정 이름 토큰으로 event id."""
+    def tk(x):
+        return set(t for t in plain(x).split() if len(t) >= 3)
+    best = None
+    for d in {ko_utc.strftime("%Y%m%d"), (ko_utc - dt.timedelta(days=1)).strftime("%Y%m%d")}:
+        j = M.cached(os.path.join(M.SB_DIR, f"nba_sb_{d}.json"), NBA_SB.format(d=d), 24 * 30) or {}
+        for e in j.get("events", []):
+            c = (e.get("competitions") or [{}])[0]
+            side = {t.get("homeAway"): t for t in c.get("competitors", [])}
+            h, a = side.get("home") or {}, side.get("away") or {}
+            hn, an = (h.get("team") or {}).get("displayName", ""), (a.get("team") or {}).get("displayName", "")
+            sc = len(tk(hn) & tk(home_eng)) + len(tk(an) & tk(away_eng))
+            if sc >= 2 and tk(hn) & tk(home_eng) and tk(an) & tk(away_eng):
+                try:
+                    tdiff = abs((dt.datetime.fromisoformat(e["date"].replace("Z", "+00:00")) - ko_utc).total_seconds())
+                except (KeyError, ValueError):
+                    tdiff = 0
+                if tdiff <= 6 * 3600 and (best is None or tdiff < best[0]):
+                    best = (tdiff, e["id"])
+    return best[1] if best else None
+
+
+def nba_fill(g, eid):
+    """NBA summary → g['홈'/'원정'] 에 선발·명단(출전)·DNP·팀 스탯. 결장 검증은 '명단'(실제 출전자+감독결정 DNP)·'선발' 로 한다.
+    부상 DNP 는 명단에서 빼서 '결장 맞음'으로 세고, 감독 결정 DNP 는 명단에 넣어 '명단 포함(벤치)' 로 센다."""
+    j = nba_summary(eid) or {}
+    try:
+        hc = ((j.get("header") or {}).get("competitions") or [{}])[0]
+        ht = {}
+        for c in hc.get("competitors", []):
+            ls = c.get("linescores") or []
+            if len(ls) >= 2:
+                ht["홈" if c.get("homeAway") == "home" else "원정"] = int(float(ls[0].get("displayValue") or ls[0].get("value") or 0)) + int(float(ls[1].get("displayValue") or ls[1].get("value") or 0))
+        if "홈" in ht and "원정" in ht:
+            g["전반점수"] = f"{ht['홈']}:{ht['원정']}"
+    except (KeyError, IndexError, TypeError, ValueError):
+        pass
+    bs = j.get("boxscore") or {}
+    keys = {"fieldGoalPct": "FG%", "threePointFieldGoalsMade-threePointFieldGoalsAttempted": "3P", "totalRebounds": "리바운드", "turnovers": "턴오버",
+            "largestLead": "최대리드", "pointsInPaint": "페인트", "fastBreakPoints": "속공", "freeThrowsMade-freeThrowsAttempted": "FT"}
+    for t in bs.get("teams", []):
+        side = "홈" if t.get("homeAway") == "home" else "원정"
+        st = {x.get("name"): x.get("displayValue") for x in t.get("statistics", [])}
+        g[side].update({"팀": t["team"]["displayName"], "퇴장": "0"})
+        g[side].update({v: st.get(k, "") for k, v in keys.items()})
+    for p in bs.get("players", []):
+        side = "홈" if p.get("homeAway") == "home" else "원정"
+        if "homeAway" not in p:   # players 블록엔 homeAway 가 없을 때가 있다 → 팀 이름으로
+            side = "홈" if p.get("team", {}).get("displayName") == g["홈"].get("팀") else "원정"
+        for grp in p.get("statistics", []):
+            names = grp.get("names", [])
+            starters, played, dnp_inj, dnp_coach = [], [], [], []
+            for a in grp.get("athletes", []):
+                nm = a["athlete"]["displayName"]
+                if a.get("didNotPlay"):
+                    (dnp_coach if "COACH" in (a.get("reason") or "").upper() else dnp_inj).append(nm)
+                    continue
+                stt = dict(zip(names, a.get("stats", [])))
+                played.append(f"{nm} {stt.get('MIN', '')}m {stt.get('PTS', '')}p")
+                if a.get("starter"):
+                    starters.append(nm)
+            g[side]["선발"] = starters
+            g[side]["출전"] = played
+            g[side]["DNP_부상"] = dnp_inj
+            g[side]["DNP_감독"] = dnp_coach
+            g[side]["명단"] = [x.rsplit(" ", 2)[0] for x in played] + dnp_coach
+    return g
+
+
 def stat(team, name):
     for s in team.get("statistics", []):
         if s.get("name") == name:
@@ -59,18 +139,40 @@ def main():
     rnd = str(a.round)
     names = json.load(open(os.path.join(ROOT, "data", "team_names.json"), encoding="utf-8"))
     inp = json.load(open(os.path.join(ROOT, "data", f"입력_{rnd}.json"), encoding="utf-8")) if os.path.exists(os.path.join(ROOT, "data", f"입력_{rnd}.json")) else {}
-    rows = [r for r in csv.DictReader(open(REC, encoding="utf-8-sig")) if r["회차"] == rnd and r["종목"] == "축구" and re.fullmatch(r"\d+:\d+", r.get("점수") or "")]
+    rows = [r for r in csv.DictReader(open(REC, encoding="utf-8-sig")) if r["회차"] == rnd and (r["종목"] == "축구" or r.get("리그") == "NBA") and re.fullmatch(r"\d+:\d+", r.get("점수") or "")]
     jp = os.path.join(ROOT, "data", f"경기후_{rnd}.json")
     store = json.load(open(jp, encoding="utf-8")) if os.path.exists(jp) else {}
     now = dt.datetime.now(M.KST).strftime("%Y-%m-%d %H:%M")
     for r in rows:
         if r["번호"] in store:
             continue
+        if r.get("리그") == "NBA":
+            ko = M.kickoff(r["시각"], dt.datetime.now(M.KST))
+            eh, ea = str(names.get(r["홈"]) or r["홈"]), str(names.get(r["원정"]) or r["원정"])
+            eid = nba_find_event(ko, eh, ea) if ko else None
+            g = {"경기": f"{r['홈']} - {r['원정']}", "점수": r["점수"], "event": eid, "수집": now, "종목": "농구", "홈": {}, "원정": {}}
+            if eid:
+                nba_fill(g, eid)
+            store[r["번호"]] = g
+            continue
         eid = (inp.get(r["번호"]) or {}).get("event")
         if not eid:
             ko = M.kickoff(r["시각"], dt.datetime.now(M.KST))
-            eh = str(names.get(r["홈"]) or r["홈"]); ea = str(names.get(r["원정"]) or r["원정"])
-            eid = M.find_event(ko, eh, ea) if ko else None
+            # 2026-10-27: team_names.json 값이 별칭 목록(list)이면 str() 이 "['Olympique Lyonnais', 'Lyon']" 가 돼
+            # 매칭이 항상 실패했다(127회 2070 PSG-리옹 event 없음 → 결장검증 전부 '미확인'). 별칭을 하나씩 시도한다.
+            def aliases(k):
+                v = names.get(k) or k
+                return [str(x) for x in v] if isinstance(v, list) else [str(v)]
+            eid = None
+            if ko:
+                for eh in aliases(r["홈"]):
+                    for ea in aliases(r["원정"]):
+                        eid = M.find_event(ko, eh, ea)
+                        if eid:
+                            break
+                    if eid:
+                        break
+            eh, ea = aliases(r["홈"])[0], aliases(r["원정"])[0]
         g = {"경기": f"{r['홈']} - {r['원정']}", "점수": r["점수"], "event": eid, "수집": now, "홈": {}, "원정": {}}
         if eid:
             j = summary(eid) or {}
@@ -168,6 +270,7 @@ def main():
                 real = "출전(선발)" if st else "명단 포함(벤치)" if hits else ("미확인(이름 매칭 실패)" if weak else "결장 맞음")
             ab.append({"회차": rnd, "번호": e["번호"], "경기": e["경기"], "팀": e["팀"], "선수": e["선수"], "요인상태": e["상태"], "실제": real,
                        "근거": "ESPN 명단", "수집": now})
+            seen.add((rnd, e["번호"], e["선수"]))   # 2026-10-27: 근거기록에 같은 선수가 두 번 있으면 한 실행 안에서도 두 번 쌓였다(1240행 중 508 중복)
     with open(ABS_CSV, "w", encoding="utf-8", newline="") as f:
         w = csv.DictWriter(f, fieldnames=ACOLS); w.writeheader(); w.writerows(ab)
     from collections import Counter

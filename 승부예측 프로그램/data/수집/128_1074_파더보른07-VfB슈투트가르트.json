@@ -1,0 +1,299 @@
+{
+ "번호": 1074,
+ "홈": "파더보른07",
+ "원정": "VfB슈투트가르트",
+ "수집시각": "2026-10-28 22시대 KST",
+ "결장": [
+  {
+   "팀": "VfB슈투트가르트",
+   "선수": "Josha Vagnoman",
+   "포지션": "RB",
+   "이번시즌_선발/경기": "미확인",
+   "득점·도움": "미확인",
+   "사유": "Oberschenkel(허벅지; Yahoo는 hamstring)",
+   "상태(확정/의심)": "확정(출처 3: NW 10-28, SZ 10-28, Yahoo 10-27)",
+   "복귀예정": "미확인",
+   "대체선수": "Lorenz Assignon 선발 예상",
+   "출처": "https://www.nw.de/sport/fussball/sc_paderborn_07/24449686_Schwaechelnde-Schwaben-Paderborns-Pokalgegner-VfB-Stuttgart-unter-der-Lupe.html ; https://www.stuttgarter-zeitung.de/sport/vfb-stuttgart/aufstellung-des-vfb-stuttgart-so-will-sebastian-hoeness-beim-sc-paderborn-spielen-lassen-79615974.html ; https://sports.yahoo.com/articles/sc-paderborn-vs-vfb-stuttgart-153000561.html",
+   "날짜": "2026-10-28"
+  },
+  {
+   "팀": "VfB슈투트가르트",
+   "선수": "Nikolas Nartey",
+   "포지션": "MF",
+   "이번시즌_선발/경기": "미확인",
+   "득점·도움": "미확인",
+   "사유": "Oberschenkel/muscle",
+   "상태(확정/의심)": "확정(출처 2: SZ, Yahoo)",
+   "복귀예정": "미확인",
+   "대체선수": "미확인",
+   "출처": "https://www.stuttgarter-zeitung.de/sport/vfb-stuttgart/aufstellung-des-vfb-stuttgart-so-will-sebastian-hoeness-beim-sc-paderborn-spielen-lassen-79615974.html ; https://sports.yahoo.com/articles/sc-paderborn-vs-vfb-stuttgart-153000561.html",
+   "날짜": "2026-10-28"
+  },
+  {
+   "팀": "VfB슈투트가르트",
+   "선수": "Tiago Tomas",
+   "포지션": "FW",
+   "이번시즌_선발/경기": "미확인",
+   "득점·도움": "미확인",
+   "사유": "Oberschenkel/muscle",
+   "상태(확정/의심)": "확정(출처 2: SZ, Yahoo)",
+   "복귀예정": "미확인",
+   "대체선수": "미확인",
+   "출처": "https://www.stuttgarter-zeitung.de/sport/vfb-stuttgart/aufstellung-des-vfb-stuttgart-so-will-sebastian-hoeness-beim-sc-paderborn-spielen-lassen-79615974.html ; https://sports.yahoo.com/articles/sc-paderborn-vs-vfb-stuttgart-153000561.html",
+   "날짜": "2026-10-28"
+  },
+  {
+   "팀": "VfB슈투트가르트",
+   "선수": "Dan-Axel Zagadou",
+   "포지션": "DF",
+   "이번시즌_선발/경기": "미확인",
+   "득점·도움": "미확인",
+   "사유": "Oberschenkel/hamstring",
+   "상태(확정/의심)": "확정(출처 2: SZ, Yahoo; 'expected to be out')",
+   "복귀예정": "미확인",
+   "대체선수": "미확인",
+   "출처": "https://www.stuttgarter-zeitung.de/sport/vfb-stuttgart/aufstellung-des-vfb-stuttgart-so-will-sebastian-hoeness-beim-sc-paderborn-spielen-lassen-79615974.html ; https://sports.yahoo.com/articles/sc-paderborn-vs-vfb-stuttgart-153000561.html",
+   "날짜": "2026-10-28"
+  },
+  {
+   "팀": "VfB슈투트가르트",
+   "선수": "Justin Diehl",
+   "포지션": "FW",
+   "이번시즌_선발/경기": "미확인",
+   "득점·도움": "미확인",
+   "사유": "복귀 직전, 아직 준비 안 된 듯(probably not ready)",
+   "상태(확정/의심)": "의심(출처 1: Yahoo)",
+   "복귀예정": "미확인",
+   "대체선수": "미확인",
+   "출처": "https://sports.yahoo.com/articles/sc-paderborn-vs-vfb-stuttgart-153000561.html",
+   "날짜": "2026-10-27"
+  },
+  {
+   "팀": "VfB슈투트가르트",
+   "선수": "Dennis Seimen",
+   "포지션": "GK",
+   "이번시즌_선발/경기": "직전 리그전 선발(팩트시트 INPUTS)",
+   "득점·도움": "미확인",
+   "사유": "부상 아님·로테이션: Hoeneß '일정이 빡빡', Fabian Bredlow 선발 확정",
+   "상태(확정/의심)": "확정(출처 3: NW, SZ, ZVW)",
+   "복귀예정": "-",
+   "대체선수": "Fabian Bredlow",
+   "출처": "https://www.nw.de/sport/fussball/sc_paderborn_07/24449686_Schwaechelnde-Schwaben-Paderborns-Pokalgegner-VfB-Stuttgart-unter-der-Lupe.html ; https://www.zvw.de/vfb-stuttgart/dfb-pokalspiel-beim-sc-paderborn-so-ist-die-personallage-beim-vfb-stuttgart_arid-935278",
+   "날짜": "2026-10-28"
+  },
+  {
+   "팀": "파더보른07",
+   "선수": "Marcel Hoffmeier",
+   "포지션": "DF/MF",
+   "이번시즌_선발/경기": "미확인",
+   "득점·도움": "미확인",
+   "사유": "근육",
+   "상태(확정/의심)": "의심(출처 1: Yahoo)",
+   "복귀예정": "미확인",
+   "대체선수": "미확인",
+   "출처": "https://sports.yahoo.com/articles/sc-paderborn-vs-vfb-stuttgart-153000561.html",
+   "날짜": "2026-10-27"
+  },
+  {
+   "팀": "파더보른07",
+   "선수": "Nyamekye Awortwie-Grant",
+   "포지션": "FW/MF",
+   "이번시즌_선발/경기": "미확인",
+   "득점·도움": "미확인",
+   "사유": "무릎",
+   "상태(확정/의심)": "의심(출처 1: Yahoo)",
+   "복귀예정": "미확인",
+   "대체선수": "미확인",
+   "출처": "https://sports.yahoo.com/articles/sc-paderborn-vs-vfb-stuttgart-153000561.html",
+   "날짜": "2026-10-27"
+  },
+  {
+   "팀": "파더보른07",
+   "선수": "Sebastian Klaas",
+   "포지션": "MF",
+   "이번시즌_선발/경기": "미확인",
+   "득점·도움": "미확인",
+   "사유": "사타구니(groin)",
+   "상태(확정/의심)": "의심(출처 1: Yahoo)",
+   "복귀예정": "미확인",
+   "대체선수": "미확인",
+   "출처": "https://sports.yahoo.com/articles/sc-paderborn-vs-vfb-stuttgart-153000561.html",
+   "날짜": "2026-10-27"
+  },
+  {
+   "팀": "파더보른07",
+   "선수": "Timur Gayret",
+   "포지션": "MF",
+   "이번시즌_선발/경기": "미확인",
+   "득점·도움": "미확인",
+   "사유": "무릎",
+   "상태(확정/의심)": "의심(출처 1: Yahoo)",
+   "복귀예정": "미확인",
+   "대체선수": "미확인",
+   "출처": "https://sports.yahoo.com/articles/sc-paderborn-vs-vfb-stuttgart-153000561.html",
+   "날짜": "2026-10-27"
+  }
+ ],
+ "라인업": {
+  "홈": {
+   "발표여부": "미발표(킥오프 약 1시간 전 발표 예정; 수집 시점 미확인)",
+   "예상XI": "Noll; Ter Horst, Scheller, Götze; Curda, Castañeda, Obermair; Ulrich, Vidovic; Marino, Tigges (Yahoo 예상). 팩트시트 직전(리그 10-24) 선발: Noll, Scheller, Hansen, Horst, Vidovic, Ulrich, Castaneda, Obermair, Curda, Tigges, Marino",
+   "포메이션": "3-3-2-2(Yahoo 예상) / 직전 3-5-2",
+   "출처": "https://sports.yahoo.com/articles/sc-paderborn-vs-vfb-stuttgart-153000561.html",
+   "날짜": "2026-10-27"
+  },
+  "원정": {
+   "발표여부": "미발표. GK Fabian Bredlow 선발은 구단/감독 확인(ZVW 10-26, NW 10-28)",
+   "예상XI": "Bredlow; Assignon, Jeltsch, Hendriks, Mittelstädt; Karazor, Stiller; Sauer, Demirovic, Führich; Pejcinovic (Yahoo). SZ 예상: Bredlow; Assignon, Chabot, Jeltsch, Mittelstädt; Prömel, Stiller, El Khannouss; Führich, Demirovic, (Undav 역할 불명). Kicker 예상(Yahoo 인용): Bredlow, Assignon, Jeltsch, Chabot, Mittelstädt, Prömel, Stiller, Leweling, El Khannouss, Führich, Undav → 출처 간 엇갈림",
+   "포메이션": "4-2-3-1(Yahoo)",
+   "출처": "https://sports.yahoo.com/articles/sc-paderborn-vs-vfb-stuttgart-153000561.html ; https://www.stuttgarter-zeitung.de/sport/vfb-stuttgart/aufstellung-des-vfb-stuttgart-so-will-sebastian-hoeness-beim-sc-paderborn-spielen-lassen-79615974.html",
+   "날짜": "2026-10-28"
+  }
+ },
+ "최근경기": [
+  {
+   "팀": "파더보른07",
+   "날짜": "2026-09-12",
+   "상대": "Borussia Dortmund",
+   "장소": "원정",
+   "스코어": "0-3 패",
+   "비고": "ESPN(팩트시트)"
+  },
+  {
+   "팀": "파더보른07",
+   "날짜": "2026-09-20",
+   "상대": "TSG Hoffenheim",
+   "장소": "홈",
+   "스코어": "3-1 승",
+   "비고": "팩트시트"
+  },
+  {
+   "팀": "파더보른07",
+   "날짜": "2026-10-10",
+   "상대": "VfB Stuttgart",
+   "장소": "홈",
+   "스코어": "0-2 패",
+   "비고": "Stuttgart 득점 Chabot, Führich (Rheinpfalz/검색요약)"
+  },
+  {
+   "팀": "파더보른07",
+   "날짜": "2026-10-17",
+   "상대": "Werder Bremen",
+   "장소": "원정",
+   "스코어": "2-2 무",
+   "비고": "팩트시트"
+  },
+  {
+   "팀": "파더보른07",
+   "날짜": "2026-10-24",
+   "상대": "Hamburg SV",
+   "장소": "홈",
+   "스코어": "1-0 승",
+   "비고": "팩트시트"
+  },
+  {
+   "팀": "VfB슈투트가르트",
+   "날짜": "2026-09-12",
+   "상대": "TSG Hoffenheim",
+   "장소": "원정",
+   "스코어": "1-2 패",
+   "비고": "팩트시트"
+  },
+  {
+   "팀": "VfB슈투트가르트",
+   "날짜": "2026-09-19",
+   "상대": "Borussia Dortmund",
+   "장소": "홈",
+   "스코어": "0-1 패",
+   "비고": "팩트시트"
+  },
+  {
+   "팀": "VfB슈투트가르트",
+   "날짜": "2026-10-10",
+   "상대": "SC Paderborn 07",
+   "장소": "원정",
+   "스코어": "2-0 승",
+   "비고": "팩트시트"
+  },
+  {
+   "팀": "VfB슈투트가르트",
+   "날짜": "2026-10-17",
+   "상대": "Hamburg SV",
+   "장소": "원정",
+   "스코어": "0-1 패",
+   "비고": "팩트시트"
+  },
+  {
+   "팀": "VfB슈투트가르트",
+   "날짜": "2026-10-23",
+   "상대": "Borussia Mönchengladbach",
+   "장소": "홈",
+   "스코어": "2-3 패",
+   "비고": "팩트시트(INPUTS는 10-24로 표기, 날짜 엇갈림). NW: Gladbach는 최하위"
+  }
+ ],
+ "순위": {
+  "홈": "Bundesliga 13위, 7경기 2승2무3패, 득실-3, 승점8 (팩트시트; NW는 Paderborn을 승격팀으로 기술)",
+  "원정": "Bundesliga 15위, 7경기 2승0무5패, 득실-3, 승점6 (팩트시트). NW: 5패, 챔스리그 3경기 승점7(Atlético 1-1 포함)",
+  "출처": "팩트시트 ESPN + https://www.nw.de/sport/fussball/sc_paderborn_07/24449686_Schwaechelnde-Schwaben-Paderborns-Pokalgegner-VfB-Stuttgart-unter-der-Lupe.html",
+  "날짜": "2026-10-28"
+ },
+ "감독": {
+  "홈": "Ralf Kettemann",
+  "원정": "Sebastian Hoeneß",
+  "변동": "없음(팩트시트 위키 2026-27 시즌 기준, NW·Rheinpfalz 기사에서 두 감독 이름 확인)",
+  "출처": "https://www.nw.de/sport/fussball/sc_paderborn_07/24449686_Schwaechelnde-Schwaben-Paderborns-Pokalgegner-VfB-Stuttgart-unter-der-Lupe.html ; 팩트시트",
+  "날짜": "2026-10-28"
+ },
+ "일정·동기·기타": [
+  {
+   "내용": "DFB-Pokal 2라운드 단판, 현지 10-28 18:00 CET(=KST 10-29 02:00), Home Deluxe Arena, 약 15,000 매진 예상·VfB 팬 약 1,500. 연장·PK 규정은 기사에서 확인 못함",
+   "출처": "https://www.nw.de/sport/fussball/sc_paderborn_07/24449686_Schwaechelnde-Schwaben-Paderborns-Pokalgegner-VfB-Stuttgart-unter-der-Lupe.html ; https://www.radiohochstift.de/on-air/studioblog/kettemann-fordert-pokal-euphorie-sc-paderborn-will-vfb-stuttgart-schlagen.html",
+   "날짜": "2026-10-28"
+  },
+  {
+   "내용": "Kettemann: 'Stuttgart는 favorit, wir sind Underdog'. Hoeneß: Gladbach전 패배는 'großer Warnschuss', 'Kampfmodus' 필요 (검색요약 인용)",
+   "출처": "https://www.radiohochstift.de/on-air/studioblog/kettemann-fordert-pokal-euphorie-sc-paderborn-will-vfb-stuttgart-schlagen.html ; https://www.rheinpfalz.de/startseite_artikel,-hoene%C3%9F-erleichtert-stuttgarter-arbeitssieg-in-paderborn-_arid,5937531.html",
+   "날짜": "2026-10-28"
+  },
+  {
+   "내용": "역대 맞대결 6회(1무5패 Paderborn), DFB-Pokal 3회 모두 Stuttgart 승(2007, 2020, 2023). VfB 리그 최근 4경기 중 3패 후 Gladbach 2-3. Demirovic 공식전 11경기 7골(SZ)",
+   "출처": "https://www.nw.de/sport/fussball/sc_paderborn_07/24449686_Schwaechelnde-Schwaben-Paderborns-Pokalgegner-VfB-Stuttgart-unter-der-Lupe.html ; https://www.stuttgarter-zeitung.de/sport/vfb-stuttgart/aufstellung-des-vfb-stuttgart-so-will-sebastian-hoeness-beim-sc-paderborn-spielen-lassen-79615974.html",
+   "날짜": "2026-10-28"
+  },
+  {
+   "내용": "Paderborn 컵 2라운드 진출로 684,566유로 수령, 16강 진출 시 912,755유로 추가",
+   "출처": "https://www.nw.de/sport/fussball/sc_paderborn_07/24449686_Schwaechelnde-Schwaben-Paderborns-Pokalgegner-VfB-Stuttgart-unter-der-Lupe.html",
+   "날짜": "2026-10-28"
+  },
+  {
+   "내용": "VfB 2026 여름 이적 IN: El Khannouss, Prömel, Funk, van der Leij, Sauer, Pejčinović; OUT: Olivier, Milošević 등. Paderborn IN: Baack, Batista Meier, ter Horst, Pieringer 등 (팩트시트 위키). 결장 선수는 모두 이적 명단에 없음",
+   "출처": "팩트시트(위키 2026–27 시즌)",
+   "날짜": "2026-10-28"
+  },
+  {
+   "내용": "휴식: Paderborn 4.1일, VfB 4.9일. xG 시즌7경기 Paderborn 1.13/1.89, VfB 2.19/2.63 (팩트시트 INPUTS)",
+   "출처": "팀노트",
+   "날짜": "2026-10-28"
+  }
+ ],
+ "엇갈림": [
+  "VfB 예상XI 3종 불일치(Yahoo vs SZ vs Kicker 인용: 중앙 수비 Hendriks vs Chabot, 윙 Sauer vs Leweling, Undav 유무)",
+  "Vagnoman 등 부상 부위 hamstring(Yahoo) vs Oberschenkel(SZ) — 동일 허벅지 계통",
+  "Gladbach전 날짜 10-23(ESPN 사실) vs 10-24(INPUTS)"
+ ],
+ "못찾음": [
+  "Kicker 원문 예상XI(검색요약으로만 인용)",
+  "공식 라인업(미발표)",
+  "Paderborn 부상 복수 출처 확인(Yahoo 단일, NW는 '언급 없음')",
+  "연장·PK 규정 명시 기사",
+  "Vagnoman 등 복귀일",
+  "결장 선수의 시즌 선발/경기·득점·도움 수치",
+  "Paderborn 쪽 독일어 매체 결장 보도(NW는 결장 언급 없음)"
+ ],
+ "뉴스없음": {
+  "홈": "Paderborn 결장은 Yahoo 1곳만 — 추가 검색처: nw.de, kicker.de, scp07.de",
+  "원정": "해당 없음(결장 보도 있음)"
+ }
+}

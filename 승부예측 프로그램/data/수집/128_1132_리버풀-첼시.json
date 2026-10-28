@@ -1,0 +1,417 @@
+{
+ "번호": 1132,
+ "홈": "리버풀",
+ "원정": "첼시",
+ "수집시각": "2026-10-28 22:40 KST",
+ "대회": "2026-27 EFL Carabao Cup 4라운드(16강), 안필드, 현지 10-28(수) 20:00 GMT = 10-29 05:00 KST. 승자 8강 진출(단판). 연장/PK 규정은 수집된 기사에 언급 없음(미확인, 통상 90분 무승부 시 연장 없이 PK로 알려져 있으나 이번 시즌 규정 미검증). khelnow는 VAR 사용 명시",
+ "결장": [
+  {
+   "팀": "첼시",
+   "선수": "Cole Palmer",
+   "포지션": "AM",
+   "이번시즌_선발/경기": "미확인",
+   "득점·도움": "미확인",
+   "사유": "퇴장(10-24 토트넘전 옐로 2장) 1경기 출전정지 — 이번 컵 경기에서 소화, 10-31 맨유전 복귀",
+   "상태": "확정",
+   "복귀예정": "2026-10-31 맨유전",
+   "대체선수": "Morgan Rogers / Pedro Neto 등(예상XI에 따라 상이)",
+   "출처": [
+    "https://www.si.com/soccer/why-cole-palmer-allowed-to-face-man-utd-after-red-card",
+    "https://rushthekop.com/liverpool-vs-chelsea-carabao-cup-preview-predictions-team-news-and-tv-info",
+    "https://khelnow.com/football/liverpool-vs-chelsea-preview-carabao-cup-202610",
+    "https://dave.sport/news/liverpool-vs-chelsea-predicted-lineups/"
+   ],
+   "날짜": "2026-10-27"
+  },
+  {
+   "팀": "첼시",
+   "선수": "João Pedro",
+   "포지션": "FW",
+   "이번시즌_선발/경기": "미확인",
+   "득점·도움": "미확인",
+   "사유": "허벅지 부상, 수 주 결장; Alonso '다음 경기들엔 준비 안 됨'(AOL). khelnow는 '결장 가능성' 표기",
+   "상태": "확정(몇 주)",
+   "복귀예정": "수 주",
+   "대체선수": "Danny Welbeck / Emmanuel Emegha",
+   "출처": [
+    "https://www.aol.co.uk/articles/chelsea-xi-vs-liverpool-confirmed-151115000.html",
+    "https://dave.sport/news/liverpool-vs-chelsea-predicted-lineups/",
+    "https://rushthekop.com/liverpool-vs-chelsea-carabao-cup-preview-predictions-team-news-and-tv-info",
+    "https://khelnow.com/football/liverpool-vs-chelsea-preview-carabao-cup-202610"
+   ],
+   "날짜": "2026-10-27"
+  },
+  {
+   "팀": "첼시",
+   "선수": "Reece James",
+   "포지션": "RB",
+   "이번시즌_선발/경기": "미확인",
+   "득점·도움": "미확인",
+   "사유": "무릎 수술 후 재활",
+   "상태": "확정",
+   "복귀예정": "미정",
+   "대체선수": "Marco Palestra / Gusto",
+   "출처": [
+    "https://www.aol.co.uk/articles/chelsea-xi-vs-liverpool-confirmed-151115000.html",
+    "https://dave.sport/news/liverpool-vs-chelsea-predicted-lineups/",
+    "https://rushthekop.com/liverpool-vs-chelsea-carabao-cup-preview-predictions-team-news-and-tv-info",
+    "https://khelnow.com/football/liverpool-vs-chelsea-preview-carabao-cup-202610"
+   ],
+   "날짜": "2026-10-27"
+  },
+  {
+   "팀": "첼시",
+   "선수": "Emiliano Martínez",
+   "포지션": "GK",
+   "이번시즌_선발/경기": "미확인",
+   "득점·도움": "미확인",
+   "사유": "턱뼈 골절(Everton전), 수술",
+   "상태": "확정",
+   "복귀예정": "미정",
+   "대체선수": "Mike Penders(예상 선발)",
+   "출처": [
+    "https://dave.sport/news/liverpool-vs-chelsea-predicted-lineups/",
+    "https://www.aol.co.uk/articles/chelsea-xi-vs-liverpool-confirmed-151115000.html",
+    "https://rushthekop.com/liverpool-vs-chelsea-carabao-cup-preview-predictions-team-news-and-tv-info",
+    "https://khelnow.com/football/liverpool-vs-chelsea-preview-carabao-cup-202610"
+   ],
+   "날짜": "2026-10-27"
+  },
+  {
+   "팀": "첼시",
+   "선수": "Jamie Gittens",
+   "포지션": "LW",
+   "이번시즌_선발/경기": "미확인",
+   "득점·도움": "미확인",
+   "사유": "치료 중, 복귀 임박",
+   "상태": "확정(결장)",
+   "복귀예정": "임박(미정)",
+   "대체선수": "",
+   "출처": [
+    "https://www.aol.co.uk/articles/chelsea-xi-vs-liverpool-confirmed-151115000.html",
+    "https://dave.sport/news/liverpool-vs-chelsea-predicted-lineups/",
+    "https://khelnow.com/football/liverpool-vs-chelsea-preview-carabao-cup-202610"
+   ],
+   "날짜": "2026-10-27"
+  },
+  {
+   "팀": "첼시",
+   "선수": "Pep Chavarría",
+   "포지션": "LB",
+   "이번시즌_선발/경기": "미확인",
+   "득점·도움": "미확인",
+   "사유": "부상, 불투명(doubtful)/khelnow는 out",
+   "상태": "의심",
+   "복귀예정": "미정",
+   "대체선수": "",
+   "출처": [
+    "https://www.aol.co.uk/articles/chelsea-xi-vs-liverpool-confirmed-151115000.html",
+    "https://khelnow.com/football/liverpool-vs-chelsea-preview-carabao-cup-202610",
+    "https://rushthekop.com/liverpool-vs-chelsea-carabao-cup-preview-predictions-team-news-and-tv-info"
+   ],
+   "날짜": "2026-10-27"
+  },
+  {
+   "팀": "첼시",
+   "선수": "Emmanuel Emegha",
+   "포지션": "ST",
+   "이번시즌_선발/경기": "미확인",
+   "득점·도움": "미확인",
+   "사유": "엇갈림: khelnow=부상 결장 / dave.sport·AOL=원정 명단 포함, 선발 가능성 낮음",
+   "상태": "의심(엇갈림)",
+   "복귀예정": "미정",
+   "대체선수": "",
+   "출처": [
+    "https://khelnow.com/football/liverpool-vs-chelsea-preview-carabao-cup-202610",
+    "https://dave.sport/news/liverpool-vs-chelsea-predicted-lineups/",
+    "https://www.aol.co.uk/articles/chelsea-xi-vs-liverpool-confirmed-151115000.html"
+   ],
+   "날짜": "2026-10-27"
+  },
+  {
+   "팀": "리버풀",
+   "선수": "Conor Bradley",
+   "포지션": "RB",
+   "이번시즌_선발/경기": "미확인",
+   "득점·도움": "미확인",
+   "사유": "부상(사유 미기재)",
+   "상태": "확정",
+   "복귀예정": "미정",
+   "대체선수": "Joe Gomez / Ronald Araujo",
+   "출처": [
+    "https://khelnow.com/football/liverpool-vs-chelsea-preview-carabao-cup-202610",
+    "https://dave.sport/news/liverpool-vs-chelsea-predicted-lineups/",
+    "https://www.aol.co.uk/articles/liverpool-xi-vs-chelsea-confirmed-133140000.html"
+   ],
+   "날짜": "2026-10-27"
+  },
+  {
+   "팀": "리버풀",
+   "선수": "Jeremie Frimpong",
+   "포지션": "RB/RW",
+   "이번시즌_선발/경기": "미확인",
+   "득점·도움": "미확인",
+   "사유": "부상(사유 미기재)",
+   "상태": "확정",
+   "복귀예정": "미정",
+   "대체선수": "",
+   "출처": [
+    "https://khelnow.com/football/liverpool-vs-chelsea-preview-carabao-cup-202610",
+    "https://dave.sport/news/liverpool-vs-chelsea-predicted-lineups/",
+    "https://www.aol.co.uk/articles/liverpool-xi-vs-chelsea-confirmed-133140000.html"
+   ],
+   "날짜": "2026-10-27"
+  },
+  {
+   "팀": "리버풀",
+   "선수": "Hugo Ekitike",
+   "포지션": "FW",
+   "이번시즌_선발/경기": "미확인",
+   "득점·도움": "미확인",
+   "사유": "부상(사유 미기재)",
+   "상태": "확정(khelnow·AOL; dave.sport 미언급)",
+   "복귀예정": "미정",
+   "대체선수": "Alexander Isak 등",
+   "출처": [
+    "https://khelnow.com/football/liverpool-vs-chelsea-preview-carabao-cup-202610",
+    "https://www.aol.co.uk/articles/liverpool-xi-vs-chelsea-confirmed-133140000.html"
+   ],
+   "날짜": "2026-10-27"
+  },
+  {
+   "팀": "리버풀",
+   "선수": "Giovanni Leoni",
+   "포지션": "CB",
+   "이번시즌_선발/경기": "미확인",
+   "득점·도움": "미확인",
+   "사유": "부상(사유 미기재)",
+   "상태": "의심(khelnow 1곳)",
+   "복귀예정": "미정",
+   "대체선수": "",
+   "출처": [
+    "https://khelnow.com/football/liverpool-vs-chelsea-preview-carabao-cup-202610"
+   ],
+   "날짜": "2026-10-27"
+  },
+  {
+   "팀": "리버풀",
+   "선수": "Dominik Szoboszlai",
+   "포지션": "MF",
+   "이번시즌_선발/경기": "미확인",
+   "득점·도움": "미확인",
+   "사유": "엇갈림: AOL=결장확정 / khelnow=doubtful / RTK·dave='출전 가능성 낮음'. 사유 미기재",
+   "상태": "의심(출전 불투명, 높게 결장 쪽)",
+   "복귀예정": "미정",
+   "대체선수": "",
+   "출처": [
+    "https://www.aol.co.uk/articles/liverpool-xi-vs-chelsea-confirmed-133140000.html",
+    "https://khelnow.com/football/liverpool-vs-chelsea-preview-carabao-cup-202610",
+    "https://rushthekop.com/liverpool-vs-chelsea-carabao-cup-preview-predictions-team-news-and-tv-info",
+    "https://dave.sport/news/liverpool-vs-chelsea-predicted-lineups/"
+   ],
+   "날짜": "2026-10-27"
+  },
+  {
+   "팀": "리버풀",
+   "선수": "Víctor Muñoz",
+   "포지션": "FW",
+   "이번시즌_선발/경기": "미확인",
+   "득점·도움": "미확인",
+   "사유": "엇갈림: AOL=결장 / khelnow=doubtful / RTK·dave='출전 가능성 낮음'. 사유 별도(미확인)",
+   "상태": "의심(출전 불투명, 높게 결장 쪽)",
+   "복귀예정": "미정",
+   "대체선수": "",
+   "출처": [
+    "https://www.aol.co.uk/articles/liverpool-xi-vs-chelsea-confirmed-133140000.html",
+    "https://khelnow.com/football/liverpool-vs-chelsea-preview-carabao-cup-202610",
+    "https://rushthekop.com/liverpool-vs-chelsea-carabao-cup-preview-predictions-team-news-and-tv-info",
+    "https://dave.sport/news/liverpool-vs-chelsea-predicted-lineups/"
+   ],
+   "날짜": "2026-10-27"
+  },
+  {
+   "팀": "리버풀",
+   "선수": "Florian Wirtz",
+   "포지션": "AM",
+   "이번시즌_선발/경기": "미확인",
+   "득점·도움": "미확인",
+   "사유": "브라이턴전(10-25) 발목 접질림; Iraola '꽤 낙관적'(dave.sport). AOL=회복했으나 휴식 가능",
+   "상태": "의심(출전 가능성 있음)",
+   "복귀예정": "당일 판단",
+   "대체선수": "",
+   "출처": [
+    "https://dave.sport/news/liverpool-vs-chelsea-predicted-lineups/",
+    "https://www.aol.co.uk/articles/liverpool-xi-vs-chelsea-confirmed-133140000.html",
+    "https://rushthekop.com/liverpool-vs-chelsea-carabao-cup-preview-predictions-team-news-and-tv-info",
+    "https://khelnow.com/football/liverpool-vs-chelsea-preview-carabao-cup-202610"
+   ],
+   "날짜": "2026-10-27"
+  }
+ ],
+ "라인업": {
+  "홈": {
+   "발표여부": "미발표(킥오프 약 6시간 전 기준, 예상XI만)",
+   "예상XI": {
+    "dave.sport(4-2-3-1)": "Mamardashvili; Araujo, Jacquet, Van Dijk, Kerkez; Mac Allister, Gravenberch; Ngumoha, Nyoni, Barcola; Isak",
+    "AOL(4-2-3-1)": "Mamardashvili; Araujo, Jacquet, Van Dijk, Kerkez; Mac Allister, Gravenberch; Ngumoha, Nyoni, Barcola; Isak (동일; 'Iraola는 컵에서 GK 로테이션 선호'라 Mamardashvili 예상)",
+    "Rush the Kop": "Mamardashvili; Araújo, Gomez, Endō, Tsimikas; Gravenberch, Nyoni, Wirtz; Chiesa, Koumas, Ngumoha",
+    "khelnow(4-2-3-1)": "Alisson; Araujo, Jacquet, Van Dijk, Kerkez; Gravenberch, Mac Allister; Barcola, Gakpo, Ngumoha; Isak"
+   },
+   "포메이션": "4-2-3-1 다수(RTK는 미표기)",
+   "출처": [
+    "https://dave.sport/news/liverpool-vs-chelsea-predicted-lineups/",
+    "https://www.aol.co.uk/articles/liverpool-xi-vs-chelsea-confirmed-133140000.html",
+    "https://rushthekop.com/liverpool-vs-chelsea-carabao-cup-preview-predictions-team-news-and-tv-info",
+    "https://khelnow.com/football/liverpool-vs-chelsea-preview-carabao-cup-202610"
+   ],
+   "날짜": "2026-10-27",
+   "참고": "liverpool.com 예상라인업(Ngumoha·Wirtz 결정)은 402/리디렉트로 열람 실패. 3라운드 토트넘전(3-1)에서 Iraola가 10명 교체, Koumas·Ngumoha·Nyoni·McConnell 등 유망주 기용, 교체 이유 '에너지 부족, 신선한 다리 필요'(liverpoolfc.com 기자회견·AOL)"
+  },
+  "원정": {
+   "발표여부": "미발표(예상XI만)",
+   "예상XI": {
+    "dave.sport(3-4-2-1)": "Penders; Acheampong, Fofana, Colwill; Gusto, Lavia, Barco, Palestra; Estevão, Quenda; Welbeck",
+    "AOL(3-4-2-1)": "Penders; Acheampong, Colwill, Fofana; Gusto, Lavia, Caicedo, Palestra; Rogers, Estevão; Welbeck (Alonso: Henderson은 최근 3경기 풀타임이라 Lavia가 대체 예상; Welbeck·Estevão 선발 예상, Emegha 명단 포함·선발 가능성 낮음)",
+    "Rush the Kop(3-4-2-1)": "Penders; Fofana, Lacroix, Colwill; Neto, Henderson, Caicedo, Hato; Estêvão, Rogers; Welbeck",
+    "khelnow(3-4-2-1)": "Penders; Acheampong, Lacroix, Colwill; Neto, Caicedo, Henderson, Hato; Estevão, Rogers; Welbeck"
+   },
+   "포메이션": "3-4-2-1(전 매체 일치)",
+   "출처": [
+    "https://www.aol.co.uk/articles/chelsea-xi-vs-liverpool-confirmed-151115000.html",
+    "https://dave.sport/news/liverpool-vs-chelsea-predicted-lineups/",
+    "https://rushthekop.com/liverpool-vs-chelsea-carabao-cup-preview-predictions-team-news-and-tv-info",
+    "https://khelnow.com/football/liverpool-vs-chelsea-preview-carabao-cup-202610"
+   ],
+   "날짜": "2026-10-27",
+   "참고": "Penders GK는 4곳 일치. 직전 리그(10-25 토트넘전 0-2) 선발 3-4-2-1: Penders; Lacroix, Colwill, Acheampong; Henderson, Caicedo, Hato, Neto; Rogers, Quenda; Palmer (팀노트 INPUTS)"
+  }
+ },
+ "최근경기": [
+  {
+   "팀": "리버풀",
+   "날짜": "2026-10-25",
+   "상대": "Brighton",
+   "장소": "홈",
+   "스코어": "2-0 승",
+   "비고": "직전 선발 4-2-3-1 Alisson; Van Dijk, Jacquet, Kerkez, Araujo; Wirtz, Mac Allister, Gravenberch; Isak, Gakpo, Barcola (팀노트 INPUTS). 이 경기에서 Wirtz 발목. 출처: 팀노트 + RTK"
+  },
+  {
+   "팀": "리버풀",
+   "날짜": "2026-10-17",
+   "상대": "Brentford",
+   "장소": "원정",
+   "스코어": "2-1 승",
+   "비고": "팩트시트(ESPN)"
+  },
+  {
+   "팀": "리버풀",
+   "날짜": "2026-10-11",
+   "상대": "Manchester City",
+   "장소": "홈",
+   "스코어": "0-3 패",
+   "비고": "팩트시트"
+  },
+  {
+   "팀": "리버풀",
+   "날짜": "2026-09(3R)",
+   "상대": "Tottenham",
+   "장소": "미확인",
+   "스코어": "3-1 승(컵 3라운드)",
+   "비고": "10명 교체, Szoboszlai 추가시간 장거리골 (liverpoolfc.com 기자회견 요약)"
+  },
+  {
+   "팀": "첼시",
+   "날짜": "2026-10-24(팩트시트는 10-25 표기 혼재)",
+   "상대": "Tottenham",
+   "장소": "홈",
+   "스코어": "0-2 패",
+   "비고": "Palmer 퇴장"
+  },
+  {
+   "팀": "첼시",
+   "날짜": "2026-10-17",
+   "상대": "Everton",
+   "장소": "원정",
+   "스코어": "2-0 승",
+   "비고": "Martínez 턱뼈 골절"
+  },
+  {
+   "팀": "첼시",
+   "날짜": "2026-10-10",
+   "상대": "AFC Bournemouth",
+   "장소": "홈",
+   "스코어": "5-1 승",
+   "비고": "팩트시트"
+  },
+  {
+   "팀": "첼시",
+   "날짜": "컵 3라운드",
+   "상대": "Leeds",
+   "장소": "미확인",
+   "스코어": "6-3 승",
+   "비고": "검색 요약(adomonline 등 드로 기사); 날짜 미확인"
+  }
+ ],
+ "순위": {
+  "홈": "리버풀 PL 5위 7경기 3승3무1패 GD+1 승점12 (10-25 브라이턴전 승 반영 전/후 불명 — 팩트시트 10-25 기준)",
+  "원정": "첼시 PL 5위 8경기 4승1무3패 GD+2 승점13 (팩트시트 10-28)",
+  "출처": "팀노트 FACTS(위키/ESPN)",
+  "날짜": "2026-10-28"
+ },
+ "감독": {
+  "홈": "Andoni Iraola",
+  "원정": "Xabi Alonso",
+  "변동": "리버풀: 시즌 초 Arne Slot -> Iraola 교체(팀노트 10-14 조사, 다수 소스). 팩트시트와 일치. 두 감독은 어린 시절 친구/전 유스 동료(britbrief 등)",
+  "출처": "팀노트 FACTS + liverpoolfc.com 기자회견 + britbrief/SI",
+  "날짜": "2026-10-28"
+ },
+ "일정·동기·기타": [
+  {
+   "내용": "Iraola 컵 성향: 3R에서 10명 교체·유망주(Koumas, Ngumoha, Nyoni, McConnell) 기용, GK 컵 로테이션 선호 -> 예상 GK Mamardashvili(khelnow만 Alisson). 이번 경기 직접 기자회견 인용은 찾지 못함",
+   "출처": [
+    "https://www.aol.co.uk/articles/liverpool-xi-vs-chelsea-confirmed-133140000.html",
+    "https://www.liverpoolfc.com/news/andoni-iraola-press-conference-carabao-cup-win-lewis-koumas-and-szoboszlai-worldie"
+   ],
+   "날짜": "2026-10-27"
+  },
+  {
+   "내용": "Chelsea는 3R Leeds 6-3. 첼시는 최근 리버풀 상대 3경기 무패(khelnow)",
+   "출처": [
+    "https://khelnow.com/football/liverpool-vs-chelsea-preview-carabao-cup-202610"
+   ],
+   "날짜": "2026-10-27"
+  },
+  {
+   "내용": "리버풀 다음: 맨시티전 언급(irishnews). 첼시 다음: 10-31 홈 맨유전",
+   "출처": [
+    "https://www.si.com/soccer/why-cole-palmer-allowed-to-face-man-utd-after-red-card"
+   ],
+   "날짜": "2026-10-27"
+  },
+  {
+   "내용": "휴식: 리버풀 3.2일, 첼시 4.1일(팀노트 INPUTS)",
+   "출처": [
+    "팀노트"
+   ],
+   "날짜": "2026-10-28"
+  }
+ ],
+ "엇갈림": [
+  "Szoboszlai·Muñoz: AOL 결장확정 vs khelnow doubtful vs RTK/dave 출전 가능성 낮음",
+  "Emegha: khelnow 부상결장 vs dave/AOL 명단 포함",
+  "Ekitike·Leoni 결장은 khelnow(+AOL은 Ekitike)만",
+  "리버풀 GK: Mamardashvili(dave·AOL·RTK) vs Alisson(khelnow)",
+  "첼시 예상: Rogers/Neto/Henderson 포함(RTK·khelnow) vs Lavia/Barco/Quenda(dave)"
+ ],
+ "못찾음": [
+  "Liverpool Echo·football.london·BBC 지역지 직접 기사(검색 노출 안 됨; liverpool.com 402)",
+  "Iraola/Alonso의 이번 경기 전 기자회견 직접 발언(Alonso는 AOL 경유 2차 인용만)",
+  "컵 연장·PK 규정",
+  "공식 선발 XI(미발표)",
+  "선수별 시즌 선발/득점·도움 통계"
+ ],
+ "뉴스없음": {
+  "홈": "",
+  "원정": ""
+ }
+}

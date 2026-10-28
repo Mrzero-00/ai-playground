@@ -1,0 +1,62 @@
+{
+  "번호": 870,
+  "홈": "휴스턴 로케츠 (Houston Rockets)",
+  "원정": "애틀랜타 호크스 (Atlanta Hawks)",
+  "리그": "NBA",
+  "킥오프_KST": {"값": "2026-10-27 09:30 (ET 10-26 20:30, Toyota Center, Houston)", "출처": "https://www.espn.com/nba/preview?gameId=401909874", "날짜": "2026-10-26"},
+  "수집시각": "2026-10-27 08:xx KST",
+  "수집자": "collect-c",
+  "레이팅_2025-26": {
+    "홈": {"ORtg": 118.6, "DRtg": 113.2, "Pace": 96.1, "NetRtg": 5.4, "전적": "52-30", "출처": "https://www.basketball-reference.com/teams/HOU/2026.html", "날짜": "2026-10-27 조회"},
+    "원정": {"ORtg": 116.1, "DRtg": 113.7, "Pace": 101.7, "NetRtg": 2.4, "전적": "46-36", "출처": "https://www.basketball-reference.com/teams/ATL/2026.html", "날짜": "2026-10-27 조회"}
+  },
+  "이번시즌": {
+    "홈": {"전적": "3-0 (홈 1-0)", "최근경기": ["2026-10-21 vs DAL 128-110 승 (Durant 30pts, VanVleet 11ast)", "2026-10-23 vs SAS 114-110 승 (Austin Moody Center 개최, Sengun 29pts)", "2026-10-24 @ATL 121-114 승 (Durant 22, Sheppard 19, Eason 19, Thompson 17/11, Sengun 17/10; 7명 두자릿수)"], "출처": ["https://www.espn.com/nba/recap?gameId=401909856", "https://www.espn.com/nba/team/schedule/_/name/hou", "https://www.espn.com/nba/preview?gameId=401909874"], "날짜": "2026-10-24~26"},
+    "원정": {"전적": "2-1 (원정 2-0)", "최근경기": ["2026-10-21 @ORL 132-125 승", "2026-10-23 @CHO 128-81 승 (J.Johnson 19pts 8ast, Wiggins 19 벤치)", "2026-10-24 vs HOU 114-121 패 (홈 개막전, 20점차 뒤지다 5점차까지 추격; J.Johnson 26, Alexander-Walker 18, Wiggins 16)"], "출처": ["https://sports.yahoo.com/articles/2026-27-atlanta-hawks-season-161559731.html", "https://www.peachtreehoops.com/recaps/73219/hawks-cant-keep-up-with-rockets-in-home-opener-lose-121-114", "https://www.espn.com/nba/recap?gameId=401909856"], "날짜": "2026-10-24~26"},
+    "맞대결_직전": {"결과": "2026-10-24 (ET) ATL 홈에서 HOU 121-114 승. 이번 경기는 시즌 2번째 맞대결(리매치)", "출처": "https://www.espn.com/nba/game?gameId=401909856", "날짜": "2026-10-24"}
+  },
+  "결장": [
+    {"팀": "홈", "선수": "Fred VanVleet", "포지션": "PG", "역할": "선발 (2025-26 ACL 파열로 시즌 전체 결장, 2026-27 복귀 — 10/21·10/23 출전, 2경기 16ast 0TO)", "사유": "휴식/오른 무릎 injury management (10/24 ATL전도 결장)", "상태": "확정", "복귀예정": "미상 (무릎 관리로 간헐 결장 중)", "출처": "https://www.espn.com/nba/preview?gameId=401909874 ; https://am1300thezone.iheart.com/content/2026-10-26-hawks-vs-rockets-injury-report-oct-26/ ; https://sports.yahoo.com/articles/rockets-hawks-injury-report-features-210154697.html", "날짜": "2026-10-26"},
+    {"팀": "홈", "선수": "Steven Adams", "포지션": "C", "역할": "벤치 (백업 C)", "사유": "휴식/왼 발목 injury management (10/24 ATL전도 결장)", "상태": "확정", "복귀예정": "미상", "출처": "https://www.espn.com/nba/preview?gameId=401909874 ; https://am1300thezone.iheart.com/content/2026-10-26-hawks-vs-rockets-injury-report-oct-26/", "날짜": "2026-10-26"},
+    {"팀": "홈", "선수": "Marcus Smart", "포지션": "G", "역할": "선발/주전급 가드 (2026 여름 영입, 10/24 ATL전 결장)", "사유": "팔뚝(forearm) 부상", "상태": "의심", "복귀예정": "미상", "출처": "https://clutchpoints.com/nba/houston-rockets/hawks-vs-rockets-injury-report-marcus-smart-listed-in-rematch-showdown (questionable) ; https://am1300thezone.iheart.com/content/2026-10-26-hawks-vs-rockets-injury-report-oct-26/ (out)", "날짜": "2026-10-26"},
+    {"팀": "홈", "선수": "Reed Sheppard", "포지션": "G", "역할": "선발 (10/24 선발 출전 19pts)", "사유": "10/24 보고서에 왼 무릎 타박·골멍으로 questionable 이었으나 출전함. 10/26 ESPN 부상 명단엔 없음", "상태": "추정(출전 가능으로 보임)", "복귀예정": "-", "출처": "https://sports.yahoo.com/articles/rockets-hawks-injury-report-features-210154697.html ; https://www.espn.com/nba/preview?gameId=401909874", "날짜": "2026-10-24/26"},
+    {"팀": "원정", "선수": "Henri Veesaar", "포지션": "C/F", "역할": "벤치(신인급)", "사유": "오른 ACL 파열 — 시즌 아웃", "상태": "확정", "복귀예정": "2026-27 시즌 아웃", "출처": "https://www.espn.com/nba/preview?gameId=401909874", "날짜": "2026-10-26"},
+    {"팀": "원정", "선수": "Mouhamed Gueye", "포지션": "F", "역할": "벤치", "사유": "왼발 골절", "상태": "확정", "복귀예정": "미상", "출처": "https://www.espn.com/nba/preview?gameId=401909874 ; https://sports.yahoo.com/articles/rockets-hawks-injury-report-features-210154697.html", "날짜": "2026-10-26"},
+    {"팀": "원정", "선수": "RayJ Dennis / Keshon Gilbert / Jalen Wilson", "포지션": "G/F", "역할": "투웨이", "사유": "G리그 배정 (10/24 보고서)", "상태": "추정", "복귀예정": "-", "출처": "https://sports.yahoo.com/articles/rockets-hawks-injury-report-features-210154697.html", "날짜": "2026-10-24"}
+  ],
+  "로스터변화": [
+    {"팀": "원정", "선수": "Trae Young", "IN|OUT": "OUT", "내용": "2026-01-09 워싱턴 위저즈로 트레이드 (CJ McCollum, Corey Kispert 영입). 2026-27 호크스 로스터에 없음", "출처": "https://sports.yahoo.com/articles/2026-27-atlanta-hawks-season-161559731.html ; https://www.atlantanewsfirst.com/2026/08/13/hawks-2026-27-schedule-young-risacher-could-make-returns-state-farm-arena/", "날짜": "2026-01-09 / 2026-08-13"},
+    {"팀": "원정", "선수": "Zaccharie Risacher", "IN|OUT": "OUT", "내용": "2026-07 3팀 트레이드로 댈러스行", "출처": "https://www.hoopsrumors.com/2026/07/dort-to-hawks-risacher-to-mavericks-in-three-team-trade.html", "날짜": "2026-07"},
+    {"팀": "원정", "선수": "Luguentz Dort", "IN|OUT": "IN", "내용": "OKC에서 3팀 트레이드로 영입", "출처": "https://www.hoopsrumors.com/2026/07/dort-to-hawks-risacher-to-mavericks-in-three-team-trade.html", "날짜": "2026-07"},
+    {"팀": "원정", "선수": "Aaron Wiggins", "IN|OUT": "IN", "내용": "OKC에서 드래프트 고려사항 대가로 영입 (벤치 득점원, 10/23 19pts, 10/24 16pts)", "출처": "https://www.si.com/nba/hawks/onsi/every-move-the-atlanta-hawks-made-this-offseason-signings-trades-departures-01kz1txfgd90", "날짜": "2026 여름"},
+    {"팀": "원정", "선수": "Ryan Nembhard", "IN|OUT": "IN", "내용": "댈러스에서 3팀 트레이드로 영입", "출처": "https://www.hoopsrumors.com/2026/07/dort-to-hawks-risacher-to-mavericks-in-three-team-trade.html", "날짜": "2026-07"},
+    {"팀": "홈", "선수": "Kevin Durant", "IN|OUT": "유지", "내용": "2025 여름 트레이드 영입, 2025-26 78경기 26.0pts. 2026 여름 연장계약 이슈(8월 기준 미체결). 10/21·24 출전 확인", "출처": "https://www.hoopsrumors.com/2026/08/nba-2026-offseason-check-in-houston-rockets.html ; https://www.espn.com/nba/recap?gameId=401909856", "날짜": "2026-08 / 2026-10-24"},
+    {"팀": "홈", "선수": "Tari Eason", "IN|OUT": "유지", "내용": "2026-07 초 5년 $81.5M 재계약", "출처": "https://www.hoopsrumors.com/2026/08/nba-2026-offseason-check-in-houston-rockets.html", "날짜": "2026-07"},
+    {"팀": "홈", "선수": "Marcus Smart, Bogdan Bogdanovic", "IN|OUT": "IN", "내용": "2026 여름 볼핸들링·패싱 보강용 영입 (GM Rafael Stone 발언)", "출처": "https://www.hoopsrumors.com/2026/08/nba-2026-offseason-check-in-houston-rockets.html", "날짜": "2026-08"},
+    {"팀": "홈", "선수": "Fred VanVleet", "IN|OUT": "복귀", "내용": "2025-26 ACL 파열로 전 시즌 결장 후 2026-27 복귀", "출처": "https://www.fantasyalarm.com/articles/nba/nba-offseason/houston-rockets-2026-27-season-preview/196836", "날짜": "2026-10"}
+  ],
+  "라인업": {
+    "홈": {"예상선발": ["Kevin Durant", "Jabari Smith Jr.", "Alperen Sengun", "Amen Thompson", "Reed Sheppard"], "발표여부": "미발표 — 10/24 ATL전 실제 선발(VanVleet·Smart 결장 시 구성)", "출처": "https://www.espn.com/nba/boxscore/_/gameId/401909856", "날짜": "2026-10-24"},
+    "원정": {"예상선발": ["Onyeka Okongwu", "Jalen Johnson", "CJ McCollum", "Nickeil Alexander-Walker", "Dyson Daniels"], "발표여부": "미발표 — 10/24 HOU전 실제 선발", "출처": "https://www.espn.com/nba/boxscore/_/gameId/401909856", "날짜": "2026-10-24"}
+  },
+  "일정": {
+    "홈": {"직전경기": "2026-10-24 (ET) @ATL — 1일 휴식, 백투백 아님. 10/21 홈, 10/23 오스틴(중립), 10/24 애틀랜타 원정 후 홈 복귀", "출처": "https://www.espn.com/nba/preview?gameId=401909874", "날짜": "2026-10-26"},
+    "원정": {"직전경기": "2026-10-24 (ET) vs HOU 홈 — 1일 휴식, 백투백 아님. 다음 10/28 vs MIA, 10/29 vs CLE (백투백)", "출처": "https://sports.yahoo.com/articles/2026-27-atlanta-hawks-season-161559731.html", "날짜": "2026-08~10"}
+  },
+  "일정·동기·기타": [
+    "양 팀 모두 10/24 서로 맞붙은 뒤 하루 쉬고 장소만 애틀랜타→휴스턴으로 바꿔 리매치 (출처 ESPN preview, 2026-10-26)",
+    "호크스 10/24 패배가 시즌 첫 패·홈 개막전 패 (peachtreehoops, 2026-10-24)",
+    "Durant 인용: 'Fred와 Marcus Smart가 있으면 3점 라인에서 수비를 견제할 수 있다' — 두 명 결장 상태 언급 (clutchpoints, 2026-10-26)"
+  ],
+  "엇갈림": [
+    "Marcus Smart 상태: clutchpoints(10/26) 'questionable' vs iheart(10/26) 'out'. ESPN preview는 'forearm'만 표기. NBA 공식 PDF(10/26 3PM) 접근 타임아웃으로 미확인",
+    "VanVleet·Adams 사유: 10/24 보고서는 '무릎/발목 injury management', 10/26 ESPN preview는 'rest'",
+    "ESPN preview 본문이 직전 맞대결을 'October 25'로 적었으나 박스스코어·recap 모두 10/24 (ET)"
+  ],
+  "못찾음": [
+    "NBA 공식 injury report PDF(2026-10-26 03:00PM) — 타임아웃",
+    "10/26 경기 발표 선발 라인업 (경기 전 미발표)",
+    "Smart·VanVleet·Adams의 2025-26 선발 경기수 정확 수치",
+    "Bogdan Bogdanovic 출전 여부·역할"
+  ]
+}

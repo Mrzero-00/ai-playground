@@ -1,0 +1,33 @@
+{
+  "번호": "965",
+  "홈": "AS로마",
+  "원정": "칼리아리",
+  "수집시각": "2026-10-27T21:58:00+09:00",
+  "결장": [
+    {"팀": "AS로마", "선수": "Paulo Dybala", "포지션": "FW/MF", "이번시즌_선발/경기": "8경기 중 다수 선발(결장 전)", "득점·도움": "2.3xG+4.3xA(팀 내 2위 비중)", "사유": "레알 마드리드전 재발한 근육 부상 — MRI상 소폭 손상, 국제경기 휴식기 이후 복귀 예상", "상태": "확정", "복귀예정": "11월 국가대표 휴식기 이후", "대체선수": "Soulé/Mora", "출처": "https://www.lapresse.it/calcio/2026/10/19/roma-dybala-infortunato-gasperini-speravo-fosse-piu-veloce-il-suo-recupero/ ; https://www.fantacalcio.it/news/calcio-italia/26_10_2026/roma-gasperini-recupero-dybala-ecco-la-situazione-su-allegri-499779", "날짜": "2026-10-26"},
+    {"팀": "AS로마", "선수": "Manu Koné", "포지션": "MF", "사유": "근육 부상(결장)", "상태": "확정", "복귀예정": "미확인", "대체선수": "Pisilli/de Roon", "출처": "https://www.playermanager.info/2026/10/17/roma-dybala-e-kone-infortunati-gasperini-cambia-formazione/", "날짜": "2026-10-17"},
+    {"팀": "칼리아리", "선수": "Harry Winks", "포지션": "MF", "이번시즌_선발/경기": "직전 선발(팀노트 10/24 기준)", "사유": "요통(lombalgia)으로 결장", "상태": "확정", "복귀예정": "미확인", "대체선수": "Adopo/Romano", "출처": "https://www.fantacalcio.it/news/calcio-italia/26_10_2026/cagliari-pisacane-winks-out-perdiamo-tanto-ecco-come-sta-mina-e-chi-gioca-in-attacco-499778 ; https://laroma24.it/campionato-campionato/cagliari-pisacane-winks-non-sara-a-disposizione-per-il-resto-sono-tutti-arruolabili", "날짜": "2026-10-26"},
+    {"팀": "칼리아리", "선수": "Felici", "포지션": "미확인", "사유": "부상 결장(10월 내내 지속)", "상태": "확정", "복귀예정": "미확인", "대체선수": "미확인", "출처": "https://www.fantacalcio.it/news/calcio-italia/26_10_2026/cagliari-pisacane-winks-out-perdiamo-tanto-ecco-come-sta-mina-e-chi-gioca-in-attacco-499778", "날짜": "2026-10-26"}
+  ],
+  "라인업": {
+    "홈": {"발표여부": "예상(미발표)", "예상XI": "Gollini; Ghilardi, Ndicka, Balerdi; Lulli, Cristante, Pisilli, Molina; Soulé, Mora; Malen", "포메이션": "3-4-2-1", "출처": "https://sport.quotidiano.net/calcio/roma/roma-cagliari-gasp-contro-pisacane-per-ritrovare-i-tre-punti-formazioni-e-orari-tv-ae4db775 ; https://www.sosfanta.com/news/probabili-formazioni-roma-cagliari-fantacalcio/", "날짜": "2026-10-27"},
+    "원정": {"발표여부": "예상(미발표)", "예상XI": "Caprile; Sugawara, Mina, Rodriguez, Obert; Romano, Deiola; Adopo, Maldini, Fazzini; Mendy", "포메이션": "4-2-3-1", "출처": "https://sport.quotidiano.net/calcio/roma/roma-cagliari-gasp-contro-pisacane-per-ritrovare-i-tre-punti-formazioni-e-orari-tv-ae4db775", "날짜": "2026-10-27"}
+  },
+  "최근경기": [
+    {"팀": "AS로마", "날짜": "2026-10-11", "상대": "Como", "장소": "원정", "스코어": "0-0", "비고": "무"},
+    {"팀": "AS로마", "날짜": "2026-10-17", "상대": "Genoa", "장소": "홈", "스코어": "2-0", "비고": "승"},
+    {"팀": "AS로마", "날짜": "2026-10-24", "상대": "Napoli", "장소": "원정", "스코어": "3-3", "비고": "무, 3연승 흐름 뒤 첫 무"},
+    {"팀": "칼리아리", "날짜": "2026-10-11", "상대": "Juventus", "장소": "홈", "스코어": "1-1", "비고": "무"},
+    {"팀": "칼리아리", "날짜": "2026-10-19", "상대": "Monza", "장소": "원정", "스코어": "0-4", "비고": "패"},
+    {"팀": "칼리아리", "날짜": "2026-10-24", "상대": "Bologna", "장소": "홈", "스코어": "0-2", "비고": "패, 2연패"}
+  ],
+  "순위": {"홈": "3위 8경기 5승3무0패 GD+13 승점18", "원정": "9위 8경기 4승1무3패 GD-3 승점13", "출처": "팀노트 FACTS(2026-10-27 자동수집)", "날짜": "2026-10-27"},
+  "감독": {"홈": "Gian Piero Gasperini(변동없음)", "원정": "Fabio Pisacane(변동없음)", "변동": "없음", "출처": "팀노트 FACTS", "날짜": "2026-10-27"},
+  "일정·동기·기타": [
+    {"내용": "경기 10/27(화) 20:45 현지시간 올림피코, 세리에A 9라운드. 로마는 공격진·미드필더 구멍(디발라·코네·크리스탄테 회복 중)으로 어려움", "출처": "https://www.playermanager.info/2026/10/17/roma-dybala-e-kone-infortunati-gasperini-cambia-formazione/", "날짜": "2026-10-17"},
+    {"내용": "칼리아리 Trepy 여름 사고 이후 복귀(스쿼드 복귀, 결장 명단 아님)", "출처": "https://www.sosfanta.com/news/probabili-formazioni-roma-cagliari-fantacalcio/", "날짜": "2026-10-27"}
+  ],
+  "엇갈림": ["Cristante는 10/17 기사에서 '회복 중'으로 언급됐으나 10/27 예상 선발 명단에는 포함 — 복귀 완료 추정이나 명확한 '전원 가용' 발표는 못 찾음"],
+  "못찾음": ["칼리아리 Idrissi·Trepy 10/27 시점 최종 가용 여부 확정 보도", "심판 배정"],
+  "뉴스없음": {"홈": "말렌·소울레 외 추가 신규 결장 보도 없음 — 검색처: forzaroma.info, ilromanista.eu", "원정": "미나(Mina) 관련 추가 악화 보도 없음 — 검색처: cagliaripad.it, cagliaritoday.it"}
+}

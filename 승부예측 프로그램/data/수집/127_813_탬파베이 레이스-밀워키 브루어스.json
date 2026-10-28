@@ -1,0 +1,60 @@
+{
+  "번호": 813,
+  "홈": "탬파베이 레이스 (Tampa Bay Rays)",
+  "원정": "밀워키 브루어스 (Milwaukee Brewers)",
+  "리그": "MLB",
+  "킥오프_KST": {"값": "2026-10-27 09:00 (ET 10-26 20:00, Tropicana Field, St. Petersburg) — 월드시리즈 3차전", "출처": "https://www.mlb.com/news/brewers-rays-world-series-game-3-starting-lineups-and-pitching-matchup ; https://www.espn.com/mlb/story/_/id/50240960/world-series-game-3-brewers-rays-live-updates-takeaways", "날짜": "2026-10-26"},
+  "수집시각": "2026-10-27 08:xx KST",
+  "수집자": "collect-c",
+  "시리즈상황": {
+    "시리즈": "밀워키 2-0 리드 (7전4선승)",
+    "1차전": "2026-10-23 @MIL — MIL 3-2 TB. 1회 Yelich 3루타·Contreras 적시타로 2점(Rays 선발 Nick Martinez 상대), 7회 Chourio 적시타 3-1. 9회 Rays 2사 2·3루에서 Megill이 DeLuca 삼진(비디오 판독으로 더블플레이 번복 후)",
+    "2차전": "2026-10-24 @MIL — MIL 5-4 TB. Rays 1회 4득점(Liam Hicks 2점 홈런) 후 무득점. Frelick 6회 동점 홈런, Cooper Pratt 7회 결승 적시타. Ashby와 불펜이 마무리",
+    "출처": ["https://www.espn.com/mlb/recap?gameId=401908042", "https://www.espn.com/mlb/game/_/gameId/401908043/rays-brewers", "https://www.mlb.com/news/brewers-win-world-series-game-2-2026"],
+    "날짜": "2026-10-23 / 2026-10-24"
+  },
+  "선발투수": {
+    "홈": {"이름": "Freddy Peralta (RHP)", "확정여부": "확정 (양 팀 발표)", "2026정규시즌": "32선발 ERA 4.42 (NYM 22선발 5-9 4.99 / TB 10선발 5-2 3.25). 8/26 이후 10경기(9선발) 7-0 ERA 0.89. Tropicana Field 7선발 37.1IP ERA 1.45 31K. FIP 미확인", "포스트시즌": "2-0 ERA 1.08 12K (3차전 전 기준). ALCS vs CLE: G2 6IP 무실점(3-1 승), G4 구원 2아웃(7-3 승), G6 5.1IP 1실점(7-3 승) → ALCS 12IP 1실점 ERA 0.75, ALCS MVP", "직전등판": "2026-10-19 ALCS G6 5.1IP 1실점 (투구수 미확인). 이후 7일 휴식(ALCS 뒤 추가 휴식)", "기타": "2018~2025 밀워키 8시즌 소속, 2026-08 데드라인 NYM→TB 트레이드(Gary Gill Hill, Aidan Smith, Émilien Pitre 대가). 친정 상대 등판", "출처": ["https://www.mlb.com/news/brewers-rays-world-series-game-3-starting-lineups-and-pitching-matchup", "https://www.cbssports.com/mlb/news/rays-freddy-peralta-alcs-mvp-2026-mlb-playoffs/", "https://en.wikipedia.org/wiki/Freddy_Peralta", "https://www.si.com/fannation/mlb/fastball/news/probable-starting-pitchers-for-brewers-and-rays-in-game-3-of-2026-world-series-justin3"], "날짜": "2026-10-19~26"},
+    "원정": {"이름": "Robert Gasser (LHP)", "확정여부": "확정 (양 팀 발표)", "2026정규시즌": "21경기(20선발) 5-5 ERA 3.87 109.1IP 103K WHIP 1.19. 8/26 이후 8경기(정규+PS) 2-0 ERA 1.51. FIP 미확인", "포스트시즌": "2선발 9IP 1실점. NLCS G3 (2026-10-14 @LAD) 5IP 무실점 (MIL 6-2 승, 마지막 이닝 15구)", "직전등판": "2026-10-14 NLCS G3 5IP (총 투구수 미확인) — 12일 휴식", "출처": ["https://www.si.com/fannation/mlb/fastball/news/probable-starting-pitchers-for-brewers-and-rays-in-game-3-of-2026-world-series-justin3", "https://www.mlb.com/news/brewers-rays-world-series-game-3-starting-lineups-and-pitching-matchup", "https://dodgersdigest.com/2026/10/14/brewers-6-dodgers-2-2026-nlcs-game-3-another-lead-given-back-immediately-and-the-season-is-now-on-the-brink/", "https://www.espn.com/mlb/player/gamelog/_/id/4918251/robert-gasser"], "날짜": "2026-10-14~26"}
+  },
+  "불펜": {
+    "홈": {"현황": "10/25 휴식일 후 전원 가용 예상 (마무리 Bryan Baker까지). Baker 정규 ERA 1.44, PS 7IP 무실점 5세이브. Tyler Wells(정규 18IP ERA 1.50), Ian Seymour(LHP 멀티이닝), Cam Booser(PS 4.2IP 무실점), Kevin Kelly(사이드암, 정규 ERA 2.44). Rays 구원진 평균 93.2mph(PS 팀 중 최저), 헛스윙률 29%·K% 26.7%", "최근3일투구수": "1·2차전 개별 투구수 미확인", "마무리가용": "가용 (휴식일 후)", "출처": ["https://www.mlb.com/news/brewers-rays-2026-world-series-bullpen-breakdown", "https://www.cbssports.com/mlb/news/three-biggest-questions-world-series-game-3-rays-brewers/"], "날짜": "2026-10-21 / 2026-10-26"},
+    "원정": {"현황": "Abner Uribe 1·2차전 모두 4아웃, Aaron Ashby 1·2차전 모두 5아웃 — 감독 Pat Murphy 2차전 후 '상위 불펜이 지쳤다(on fumes)' 발언. Trevor Megill(마무리) 1차전 PS 5번째 세이브. Ashby PS 12.1IP 무실점(10/21 기준). JoJo Romero(LHP) PS 19타자 9K 1실점, Dustin May 멀티이닝, DL Hall PS 5.1IP 무실점. Brewers 구원진 평균 98mph, PS ERA 1.33(10/21 기준). Brandon Woodruff 7월 어깨 부상 후 3.5개월 미등판 상태로 WS 로스터 포함(수술 회피, 9주 재활)", "최근3일투구수": "개별 투구수 미확인. 10/25 휴식일", "마무리가용": "Megill 가용(10/26 BP에서 Tropicana 지붕 비판 발언으로 현장 확인)", "출처": ["https://www.mlb.com/news/brewers-rays-2026-world-series-bullpen-breakdown", "https://www.cbssports.com/mlb/news/three-biggest-questions-world-series-game-3-rays-brewers/", "https://sports.yahoo.com/articles/brewers-pitcher-criticizes-rays-stadium-160125946.html", "https://sports.yahoo.com/mlb/article/brewers-add-pitcher-brandon-woodruff-to-world-series-roster-after-apparent-season-ending-injury-in-july-203157265.html"], "날짜": "2026-10-21~26"}
+  },
+  "타선·결장": [
+    {"팀": "홈", "선수": "Brandon Lowe", "내용": "2026 피츠버그로 이적 — 로스터 아님", "상태": "확정", "출처": "https://en.wikipedia.org/wiki/Brandon_Lowe", "날짜": "2026"},
+    {"팀": "홈", "선수": "Josh Lowe", "내용": "2026-01-16 LAA로 이적 — 로스터 아님", "상태": "확정", "출처": "https://en.wikipedia.org/wiki/Josh_Lowe", "날짜": "2026-01-16"},
+    {"팀": "홈", "선수": "Liam Hicks", "내용": "2차전 1회 2점 홈런. 3차전 라인업에는 미포함(포수 Nick Fortes 선발)", "상태": "확정(라인업 기준)", "출처": "https://www.mlb.com/news/brewers-win-world-series-game-2-2026 ; https://www.espn.com/mlb/story/_/id/50240960/world-series-game-3-brewers-rays-live-updates-takeaways", "날짜": "2026-10-24/26"},
+    {"팀": "홈", "선수": "Jonathan Aranda, Richie Palacios, Jorge Mateo", "내용": "WS 로스터 내야/외야 포함(3차전 선발 아님 — 좌투 Gasser 상대 우타 위주 라인업)", "상태": "확정", "출처": "https://sports.yahoo.com/articles/tampa-bay-rays-players-playing-155950585.html", "날짜": "2026-10"},
+    {"팀": "원정", "선수": "Brandon Woodruff", "내용": "7월 어깨 부상 후 WS 로스터 복귀(미등판 3.5개월). 재부상 시 교체 불가 리스크", "상태": "확정(로스터)", "출처": "https://sports.yahoo.com/mlb/article/brewers-add-pitcher-brandon-woodruff-to-world-series-roster-after-apparent-season-ending-injury-in-july-203157265.html", "날짜": "2026-10-23"},
+    {"팀": "양팀", "선수": "-", "내용": "MLB.com 3차전 FAQ: 양 팀 '중대한 부상 없음'", "상태": "확정", "출처": "https://www.mlb.com/news/brewers-rays-world-series-game-3-starting-lineups-and-pitching-matchup", "날짜": "2026-10-26"}
+  ],
+  "라인업": {
+    "홈": {"발표라인업": ["1 Yandy Diaz DH", "2 Ryan Vilade 1B", "3 Chandler Simpson LF", "4 Junior Caminero 3B", "5 Ben Williamson 2B", "6 Jonny DeLuca CF", "7 Victor Mesa Jr. RF", "8 Nick Fortes C", "9 Taylor Walls SS"], "비고": "발표됨 (좌투 Gasser 상대 우타 중심)", "출처": "https://www.espn.com/mlb/story/_/id/50240960/world-series-game-3-brewers-rays-live-updates-takeaways ; https://www.mlb.com/news/brewers-rays-world-series-game-3-starting-lineups-and-pitching-matchup", "날짜": "2026-10-26"},
+    "원정": {"발표라인업": ["1 Jackson Chourio LF", "2 Jake Bauers 1B", "3 Christian Yelich DH", "4 William Contreras C", "5 Brice Turang 2B", "6 Garrett Mitchell CF", "7 Cooper Pratt SS", "8 Sal Frelick RF", "9 David Hamilton 3B"], "비고": "발표됨, 1·2차전과 동일", "출처": "https://www.mlb.com/news/brewers-rays-world-series-game-3-starting-lineups-and-pitching-matchup", "날짜": "2026-10-26"}
+  },
+  "구장·날씨": {
+    "구장명": "Tropicana Field (St. Petersburg, FL) — 2025년 허리케인 밀턴 지붕 파손으로 Steinbrenner Field 사용 후 2026년 복귀. 2008 WS 이후 첫 WS 개최",
+    "지붕/야외": "고정 돔(실내) — 날씨 영향 없음",
+    "킥오프날씨": "실내라 해당 없음 (외부 날씨 미수집)",
+    "출처": "https://en.wikipedia.org/wiki/2026_World_Series ; https://en.wikipedia.org/wiki/2026_Tampa_Bay_Rays_season ; https://www.mlb.com/news/brewers-rays-world-series-game-3-starting-lineups-and-pitching-matchup",
+    "날짜": "2026-10-26"
+  },
+  "일정·동기·기타": [
+    "10/25 휴식일(이동일). 3~5차전 10/26·27·28 Tropicana (WTSP, 2026-10)",
+    "Rays 0-2 뒤진 채 홈 복귀. 1차전 선발 Nick Martinez, 2차전 Rays 1회 4득점 후 역전패 (ESPN/MLB.com)",
+    "Peralta는 친정 밀워키 상대 등판, ALCS 후 추가 휴식 (MLB.com 10/26)",
+    "Brewers Megill 10/26 BP에서 Tropicana 지붕(시야) 비판 발언 (Yahoo/thebiglead 10/26)",
+    "Brewers 상위 불펜(Uribe·Ashby) 1·2차전 연투 후 피로 언급 — 휴식일 1일 (CBS 10/26)"
+  ],
+  "엇갈림": [
+    "Peralta 정규 ERA: 위키 합산 4.42(32선발) — NYM 4.99·TB 3.25 분할과 일치. MLB.com '8/26 이후 0.89'는 구간 수치"
+  ],
+  "못찾음": [
+    "Peralta·Gasser 2026 FIP",
+    "Peralta ALCS G6(10/19) 투구수, Gasser NLCS G3(10/14) 총 투구수",
+    "1·2차전 양 팀 구원투수 개별 투구수",
+    "Rays 1·2차전 라인업 전문(3차전과의 변경점)",
+    "Brewers 타선 결장자(없다고 보도되나 선수별 확인 못함)"
+  ]
+}

@@ -1,15 +1,15 @@
 # FC댈러스 (MLS)
 
 <!-- FACTS:START -->
-## 팩트시트 (자동 수집 2026-10-23) — 조사 전 반드시 읽고, 아래 사실과 다른 뉴스 요약은 '미확인'으로 둔다
+## 팩트시트 (자동 수집 2026-10-28) — 조사 전 반드시 읽고, 아래 사실과 다른 뉴스 요약은 '미확인'으로 둔다
 - 출처: 위키 '2026 Dallas Trinity FC fall season'(season), ESPN 있음
 - 감독: Lee Nguyen
-- 리그 순위: 3위 30경기 14승9무7패 GD+8 승점51 (FC Dallas)
-- 최근 경기(ESPN, 최대 28일): 2026-09-20 FC Dallas 0-0 Austin FC / 2026-09-27 FC Dallas 1-0 LAFC / 2026-10-10 Charlotte FC 3-2 FC Dallas / 2026-10-15 FC Dallas 1-0 Seattle Sounders FC / 2026-10-18 Houston Dynamo FC 2-2 FC Dallas
+- 리그 순위: 2위 31경기 15승9무7패 GD+11 승점54 (FC Dallas)
+- 최근 경기(ESPN, 최대 28일): 2026-09-27 FC Dallas 1-0 LAFC / 2026-10-10 Charlotte FC 3-2 FC Dallas / 2026-10-15 FC Dallas 1-0 Seattle Sounders FC / 2026-10-18 Houston Dynamo FC 2-2 FC Dallas / 2026-10-25 FC Dallas 3-0 San Jose Earthquakes
 <!-- FACTS:END -->
 <!-- INPUTS:START -->
-## 입력(자동 수집 2026-10-25) — xG·휴식일·라인업·환경(이동거리·고도·날씨)은 이 숫자를 쓴다
-- 10-25 09:30 vs 새너제이 어스퀘이크스: 휴식 7.0일 · 직전 10-18 원정 vs Houston Dynamo FC 2-2 무 [usa.1] · xG - · 선발 3-4-2-1 Daniel, Osaze Urhoghide, Shaq Moore, Sebastien Ibeagha, Ramiro, Kaick, Bernard Kamungo, Herman Johansson, Petar Musa, Daniel Job, Joaquín Valiente · 직전 대비 교체 3명(Nolan Norris, Christian Cappis, Patrickson Delgado) · 구장 FC 댈러스 스타디움 · 이동 2318km · 고도 190m(차 +172m) · 25.3℃ 강수0mm(0%) 바람13.6km/h · ⚠ 장거리 원정 2318km
+## 입력(자동 수집 2026-10-28) — xG·휴식일·라인업·환경(이동거리·고도·날씨)은 이 숫자를 쓴다
+- 10-29 09:30 vs 콜럼버스 크루: 휴식 4.0일(7일 1경기) · 직전 10-25 홈 vs San Jose Earthquakes 3-0 승 [usa.1] · xG - · 직전 선발 3-4-2-1 Daniel, Osaze Urhoghide, Shaq Moore, Sebastien Ibeagha, Ramiro, Kaick, Bernard Kamungo, Herman Johansson, Petar Musa, Daniel Job, Joaquín Valiente · 구장 FC 댈러스 스타디움 · 이동 1446km · 고도 190m(차 -28m) · 23.8℃ 강수0mm(1%) 바람12.0km/h · ⚠ 장거리 원정 1446km
 <!-- INPUTS:END -->
 
 ## 성향

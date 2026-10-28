@@ -1,0 +1,53 @@
+{
+  "번호": "976",
+  "홈": "보스턴 셀틱스",
+  "원정": "브루클린 네츠",
+  "수집시각": "2026-10-27T21:57:00+09:00",
+  "레이팅_2025-26": {
+    "홈": {"ORtg": 120.8, "DRtg": 112.7, "Pace": 94.8, "출처": "https://www.basketball-reference.com/teams/BOS/2026.html", "날짜": "저장소 기존값"},
+    "원정": {"ORtg": 108.7, "DRtg": 119.0, "Pace": 97.1, "출처": "https://www.basketball-reference.com/teams/BRK/2026.html", "날짜": "저장소 기존값"}
+  },
+  "이번시즌전적": {
+    "홈": {
+      "승패": "2026-27 정규시즌 2승1패(2026-10-27 기준, 10/26 시카고전 결과 teamdb 미반영분 포함)",
+      "경기": [
+        {"날짜": "2026-10-20(ET)", "상대": "디트로이트 피스톤스", "장소": "원정", "스코어": "113-121 패(22점차 뒤집힘)", "비고": "teamdb 확인"},
+        {"날짜": "2026-10-23(ET)", "상대": "뉴욕 닉스", "장소": "홈", "스코어": "107-103 승", "비고": "teamdb 확인"},
+        {"날짜": "2026-10-26(ET)", "상대": "시카고 불스", "장소": "원정 또는 홈(미확인)", "스코어": "134-99 승(대승)", "비고": "[https://www.bleachernation.com/picks/2026/10/27/celtics-vs-nets-prediction-expert-picks-odds-stats-and-best-bets-tuesday-october-27-2026/, 2026-10-27] teamdb에는 아직 없음, 상세 장소 미확인"}
+      ]
+    },
+    "원정": {
+      "승패": "2026-27 정규시즌 0승3패(2026-10-27 기준)",
+      "경기": [
+        {"날짜": "2026-10-21(ET)", "상대": "샬럿 호네츠", "장소": "홈", "스코어": "103-110 패", "비고": "teamdb 확인"},
+        {"날짜": "2026-10-24(ET)", "상대": "클리블랜드 캐벌리어스", "장소": "원정", "스코어": "121-125 패", "비고": "teamdb 확인"},
+        {"날짜": "2026-10-25(ET)", "상대": "인디애나 페이서스", "장소": "홈", "스코어": "109-136 패", "비고": "teamdb 확인, 백투백 중 둘째 날 패배"}
+      ]
+    }
+  },
+  "결장": [
+    {"팀": "보스턴 셀틱스", "선수": "Devin Carter", "포지션": "G(투웨이)", "상태": "확정(Out)", "사유": "전염성 단핵구증(mononucleosis) 회복 중, 복귀 시점 미정", "이번시즌_선발/경기": "확인 안됨", "평균출전": "확인 안됨", "복귀예정": "미정", "출처": "https://www.sportskeeda.com/basketball/nba-injury-report-today-27th-october-thompson-game-time-call-unbeaten-pistons-visit-winless-knicks ; https://www.fubo.tv/news/nba/brooklyn-nets-at-boston-celtics-where-to-watch-stream-info-tv-channel-and-live-updates-october-27-2026/", "날짜": "2026-10-27"},
+    {"팀": "브루클린 네츠", "선수": "Tyler Bilodeau", "포지션": "F(투웨이)", "상태": "의심(Questionable)", "사유": "어깨(shoulder) 문제", "이번시즌_선발/경기": "확인 안됨(투웨이, G리그 왕복)", "평균출전": "확인 안됨", "복귀예정": "경기 당일 판정 예정", "출처": "https://www.fubo.tv/news/nba/brooklyn-nets-at-boston-celtics-where-to-watch-stream-info-tv-channel-and-live-updates-october-27-2026/", "날짜": "2026-10-27"}
+  ],
+  "백투백": {
+    "홈": "맞다 — 10/26(ET) 시카고전 승리 다음날 10/27 홈경기, 백투백 둘째 날 [https://www.fubo.tv/news/nba/brooklyn-nets-at-boston-celtics-where-to-watch-stream-info-tv-channel-and-live-updates-october-27-2026/, 2026-10-27]",
+    "원정": "아니다 — 직전 경기 10/25(ET) 인디애나 패배(백투백 둘째날)였고 10/26은 휴식, 추가 휴식일 확보 후 10/27 경기 [동일 출처, 2026-10-27]"
+  },
+  "로스터변화": [
+    {"팀": "브루클린 네츠", "선수": "Julius Randle", "입/출": "입단(트레이드 영입)", "직전시즌 역할": "미네소타에서 주전 포워드/스코어러(직전 미네소타 소속)", "출처": "https://www.espn.com/nba/story/_/id/49904334/brooklyn-nets-2026-27-season-preview-stats-roster-michael-porter-jr-julius-randle", "날짜": "2026 오프시즌"},
+    {"팀": "브루클린 네츠", "선수": "Nic Claxton", "입/출": "방출(4팀 트레이드로 시카고 불스행)", "직전시즌 역할": "네츠 주전 센터", "출처": "https://www.espn.com/nba/story/_/id/49904334/brooklyn-nets-2026-27-season-preview-stats-roster-michael-porter-jr-julius-randle", "날짜": "2026 오프시즌"},
+    {"팀": "브루클린 네츠", "선수": "Mikel Brown Jr.", "입/출": "입단(루키, 드래프트)", "직전시즌 역할": "해당없음(신인 가드)", "출처": "https://www.espn.com/nba/story/_/id/49904334/brooklyn-nets-2026-27-season-preview-stats-roster-michael-porter-jr-julius-randle", "날짜": "2026 오프시즌"}
+  ],
+  "감독": {"홈": "Joe Mazzulla(유임, 변동 확인 안됨)", "원정": "Jordi Fernandez(3년차, 유임)", "변동": "둘 다 감독 교체 뉴스 없음(확인 안됨 범주)", "출처": "https://www.espn.com/nba/story/_/id/49904334/brooklyn-nets-2026-27-season-preview-stats-roster-michael-porter-jr-julius-randle", "날짜": "2026-10-27"},
+  "일정·동기·기타": [
+    {"내용": "보스턴은 동부 5위 2승1패, 전날(10/26) 시카고 134-99 대승 후 백투백 둘째 날 홈경기.", "출처": "https://www.bleachernation.com/picks/2026/10/27/celtics-vs-nets-prediction-expert-picks-odds-stats-and-best-bets-tuesday-october-27-2026/", "날짜": "2026-10-27"},
+    {"내용": "브루클린은 3경기 전패(0-3), 동부 14위. 직전 인디애나 전 백투백 패배 후 하루 더 쉬고 보스턴 원정.", "출처": "https://www.fubo.tv/news/nba/brooklyn-nets-at-boston-celtics-where-to-watch-stream-info-tv-channel-and-live-updates-october-27-2026/", "날짜": "2026-10-27"},
+    {"내용": "Jayson Tatum(아킬레스건 파열 재활 후 복귀)은 3경기 연속 선발 예정, 건강 확인됨. 경기당 24.0득점.", "출처": "https://www.boston.com/sports/boston-celtics/2026/10/09/jayson-tatum-celtics-injury-recovery/", "날짜": "2026-10-09/2026-10-27"},
+    {"내용": "Julius Randle이 브루클린 득점(22.0)·리바운드(7.0)·어시스트(6.3) 견인.", "출처": "https://www.fubo.tv/news/nba/brooklyn-nets-at-boston-celtics-where-to-watch-stream-info-tv-channel-and-live-updates-october-27-2026/", "날짜": "2026-10-27"}
+  ],
+  "엇갈림": [
+    {"내용": "Tyler Bilodeau 소속팀 표기가 검색 결과에서 보스턴/브루클린 양쪽에 혼재되어 표시됨 — 실제로는 브루클린 네츠 투웨이 선수로 판단(원 소속 기준). 재확인 필요.", "출처": "https://www.sportskeeda.com/basketball/nba-injury-report-today-27th-october-thompson-game-time-call-unbeaten-pistons-visit-winless-knicks ; https://www.fubo.tv/news/nba/brooklyn-nets-at-boston-celtics-where-to-watch-stream-info-tv-channel-and-live-updates-october-27-2026/"}
+  ],
+  "못찾음": ["보스턴 10/26 시카고전 홈/원정 여부 및 상세 박스스코어", "브루클린 백투백 상대 세부(인디애나전 백투백 첫 경기 상대·날짜)", "양팀 감독 교체 여부 명시적 확인"],
+  "뉴스없음": {}
+}

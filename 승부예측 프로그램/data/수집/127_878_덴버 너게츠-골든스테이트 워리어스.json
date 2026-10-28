@@ -1,0 +1,75 @@
+{
+  "번호": 878,
+  "홈": "덴버 너게츠 (Denver Nuggets)",
+  "원정": "골든스테이트 워리어스 (Golden State Warriors)",
+  "리그": "NBA",
+  "킥오프_KST": {"값": "2026-10-27 11:00 (ET 10-26 21:00, Ball Arena, Denver)", "출처": "https://sports.yahoo.com/articles/10-players-listed-nuggets-vs-152250701.html", "날짜": "2026-10-26"},
+  "수집시각": "2026-10-27 08:50 KST",
+  "수집자": "collect-878",
+  "레이팅_2025-26": {
+    "홈": {"ORtg": 122.6, "DRtg": 117.4, "Pace": 98.4, "NetRtg": 5.2, "전적": "54-28 (서부 3위)", "출처": "https://www.basketball-reference.com/teams/DEN/2026.html", "날짜": "2026-10-27 조회"},
+    "원정": {"ORtg": 115.0, "DRtg": 115.6, "Pace": 99.0, "NetRtg": -0.6, "전적": "37-45 (서부 10위)", "출처": "https://www.basketball-reference.com/teams/GSW/2026.html", "날짜": "2026-10-27 조회"}
+  },
+  "이번시즌": {
+    "홈": {"전적": "1-1 (홈 1-0)", "최근경기": [
+      "2026-10-22 vs OKC 84-96 패 (개막전, Aaron Gordon 20pts, Trevon Brazile 12reb)",
+      "2026-10-24 vs NOP 141-135 승 (OT, 23점차 뒤집고 역전승. Jokic 35pts/15reb/10ast — 정규시즌 통산 199번째 트리플더블, Murray 42pts, 루키 Brazile 17pts(OT 7pts, 홈 데뷔전), DeRozan·Bagley 벤치)"
+    ], "출처": ["https://www.espn.com/nba/game/_/gameId/401909094/nuggets-thunder", "https://www.espn.com/nba/recap?gameId=401909859", "https://www.denverstiffs.com/recap-denver-nuggets-pull-off-one-of-the-biggest-comebacks-in-franchise-history-and-beat-new-orleans-pelicans-141-135/"], "날짜": "2026-10-22~24"},
+    "원정": {"전적": "0-3 (원정 0-3)", "최근경기": [
+      "2026-10-21 @LAL 105-127 패 (개막전, Curry 23pts(1쿼터16), Doncic 28pts)",
+      "2026-10-23 @MEM 108-111 패 (Cameron Boozer 버저비터성 역전 점퍼, 그리즐리스 17-0런 역전승)",
+      "2026-10-24 @PHO 122-131 패 (Booker 43pts. 4일 3경기차 피로로 Curry·Draymond·Podziemski·Horford 전원 휴식 — B.Williams·Will Richard·Lendeborg·Santos·Graham Ike 선발, Lendeborg 26pts)"
+    ], "출처": ["https://www.espn.com/nba/boxscore/_/gameId/401909092", "https://www.espn.com/nba/recap/_/gameId/401909860", "https://basketball.realgm.com/nba/boxscore/2026-10-24/Golden-State-at-Phoenix/530622"], "날짜": "2026-10-21~24"},
+    "맞대결_직전": {"결과": "2025-26 시즌 맞대결 기록 못찾음(검색 범위 밖). 이번 시즌 첫 맞대결", "출처": "-", "날짜": "-"}
+  },
+  "결장": [
+    {"팀": "홈", "선수": "Cameron Johnson", "포지션": "SF/PF", "역할": "선발 (2025-26 Nets 소속, 2025-07-08 MPJ 트레이드로 덴버 영입 후 개막전부터 선발)", "사유": "오른 발목 염좌 — NOP전 조기 아웃 후 'doubtful'로 상향(호전 시사)", "상태": "확정(의심→doubtful, 출전 불투명)", "복귀예정": "미상", "출처": "https://clutchpoints.com/nba/denver-nuggets/warriors-vs-nuggets-injury-report-cam-johnson-set-miss-another-game ; https://roundtable.io/sports/nba/nuggets/news/nuggets-announce-concerning-injury-report-for-warriors-game", "날짜": "2026-10-26"},
+    {"팀": "홈", "선수": "Alpha Diallo", "포지션": "F", "역할": "벤치 (NBA 데뷔전 직후)", "사유": "오른 손목 염좌 + 개인 사유", "상태": "확정(doubtful)", "복귀예정": "미상", "출처": "https://roundtable.io/sports/nba/nuggets/news/nuggets-announce-concerning-injury-report-for-warriors-game", "날짜": "2026-10-26"},
+    {"팀": "홈", "선수": "Spencer Jones", "포지션": "F", "역할": "벤치", "사유": "양쪽 햄스트링 관리 (개막전 이후 계속 결장)", "상태": "확정(out)", "복귀예정": "미상", "출처": "https://roundtable.io/sports/nba/nuggets/news/nuggets-announce-concerning-injury-report-for-warriors-game", "날짜": "2026-10-26"},
+    {"팀": "홈", "선수": "Julian Strawther", "포지션": "G/F", "역할": "벤치(로테이션)", "사유": "왼 무릎 염좌 — 약 6주 결장 예상(10월 중순 부상)", "상태": "확정(out, 장기)", "복귀예정": "약 2026-11월 말~12월 초", "출처": "https://roundtable.io/sports/nba/nuggets/news/nuggets-announce-concerning-injury-report-for-warriors-game", "날짜": "2026-10-26"},
+    {"팀": "원정", "선수": "Jimmy Butler", "포지션": "F", "역할": "선발(주전급 윙)", "사유": "ACL 수술(2026년 1월) 후 재활", "상태": "확정(out, 장기)", "복귀예정": "2027년 초 예상", "출처": "https://athlonsports.com/nba/golden-state-warriors/final-injury-report-for-warriors-nuggets-will-stephen-curry-cameron-johnson-play", "날짜": "2026-10-26"},
+    {"팀": "원정", "선수": "Moses Moody", "포지션": "G/F", "역할": "벤치(로테이션)", "사유": "슬개건(patellar tendon) 수술 후 재활", "상태": "확정(out, 장기)", "복귀예정": "2027년 초 예상", "출처": "https://athlonsports.com/nba/golden-state-warriors/final-injury-report-for-warriors-nuggets-will-stephen-curry-cameron-johnson-play", "날짜": "2026-10-26"},
+    {"팀": "원정", "선수": "Kristaps Porzingis", "포지션": "C", "역할": "선발급 센터(2026-02 Kuminga·Hield↔Porzingis 트레이드로 영입)", "사유": "팀 이탈 상태 — POTS(체위성 기립빈맥증후군) 재발 추정, 선수 본인 거취(은퇴 포함) 고민 보도. 구단은 트레이드 모색 중이며 '건강 문제·거취에 대해 언급 않겠다'는 공식 입장", "상태": "확정(out, 무기한 결장·팀 이탈)", "복귀예정": "미상(트레이드 가능성)", "출처": "https://www.nbcsports.com/nba/news/warriors-reportedly-exploring-trading-kristaps-porzingis-as-he-remains-away-from-team ; https://www.espn.com/nba/story/_/id/50239169/sources-warriors-exploring-trade-options-kristaps-porzingis ; https://athlonsports.com/nba/golden-state-warriors/final-injury-report-for-warriors-nuggets-will-stephen-curry-cameron-johnson-play", "날짜": "2026-10-25~26"},
+    {"팀": "원정", "선수": "Gui Santos", "포지션": "F", "역할": "임시선발(10/24 Suns전 휴식 로테이션 때 선발)", "사유": "왼 무릎 건염(tendinitis)", "상태": "확정(questionable)", "복귀예정": "출전 가능성 있음", "출처": "https://athlonsports.com/nba/golden-state-warriors/final-injury-report-for-warriors-nuggets-will-stephen-curry-cameron-johnson-play", "날짜": "2026-10-26"},
+    {"팀": "원정", "선수": "Charles Bassey", "포지션": "C", "역할": "벤치(백업 빅맨, 10/24 Suns전 10pts7reb 시즌데뷔)", "사유": "오른 슬개건병증(patellar tendinopathy) 관리 차원", "상태": "확정(probable, 출전 유력)", "복귀예정": "-", "출처": "https://athlonsports.com/nba/golden-state-warriors/final-injury-report-for-warriors-nuggets-will-stephen-curry-cameron-johnson-play", "날짜": "2026-10-26"},
+    {"팀": "원정", "선수": "Brandon Williams", "포지션": "G", "역할": "벤치(10/24 Suns전 선발 20pts5ast)", "사유": "허리 하부 통증 관리", "상태": "확정(probable, 출전 유력)", "복귀예정": "-", "출처": "https://athlonsports.com/nba/golden-state-warriors/final-injury-report-for-warriors-nuggets-will-stephen-curry-cameron-johnson-play", "날짜": "2026-10-26"},
+    {"팀": "원정", "선수": "Stephen Curry / Draymond Green / Al Horford / Brandin Podziemski", "포지션": "G/F/C/G", "역할": "선발 4명(주전 핵심)", "사유": "2026-10-24 Suns전(4일 3경기째) 휴식·부상관리(허리 통증 등)로 전원 결장 — 10/26 복귀 발표", "상태": "확정(복귀, 정상 출전 예정)", "복귀예정": "2026-10-26 복귀 확정", "출처": "https://athlonsports.com/nba/golden-state-warriors/final-injury-report-for-warriors-nuggets-will-stephen-curry-cameron-johnson-play ; https://www.espn.com/nba/recap/_/gameId/401909860", "날짜": "2026-10-24~26"}
+  ],
+  "로스터변화": [
+    {"팀": "홈", "선수": "Cameron Johnson", "IN|OUT": "IN", "내용": "2025-07-08 Michael Porter Jr.+2032 비보호 1라운드픽을 내주고 브루클린에서 영입. MPJ 계약 부담(25-26 $38.3M/26-27 $40.8M) 해소 목적. 개막 후 선발 출전 중 부상", "출처": "https://www.espn.com/nba/story/_/id/45622594/denver-trading-michael-porter-jr-nets-cam-johnson-sources-say", "날짜": "2025-07-08"},
+    {"팀": "홈", "선수": "Michael Porter Jr.", "IN|OUT": "OUT", "내용": "2025-07-08 브루클린 네츠로 트레이드 (Cameron Johnson 대가). 2026-27 덴버 로스터 아님", "출처": "https://www.espn.com/nba/story/_/id/45622594/denver-trading-michael-porter-jr-nets-cam-johnson-sources-say", "날짜": "2025-07-08"},
+    {"팀": "홈", "선수": "Bruce Brown", "IN|OUT": "IN", "내용": "MPJ 트레이드 직후 1년 계약으로 재영입 (2023 우승 멤버 복귀, 수비형 윙)", "출처": "https://sports.yahoo.com/nba/breaking-news/article/nuggets-reportedly-trading-michael-porter-jr-to-the-nets-for-cam-johnson-immediately-reunite-with-bruce-brown-231019710.html", "날짜": "2025-07"},
+    {"팀": "홈", "선수": "Trevon Brazile / Bryce Hopkins", "IN|OUT": "IN", "내용": "2025 드래프트 루키, 개막 로스터 합류 — 현재 로테이션(벤치/부상자 대체) 투입 중", "출처": "https://roundtable.io/sports/nba/nuggets/news/nuggets-announce-concerning-injury-report-for-warriors-game", "날짜": "2026-10"},
+    {"팀": "원정", "선수": "Jonathan Kuminga", "IN|OUT": "OUT", "내용": "2026년 1월 트레이드 요구 후 2026-02 초 Buddy Hield와 함께 애틀랜타로 트레이드, Kristaps Porzingis 영입. 2026-27 워리어스 로스터 아님", "출처": "https://www.cbssports.com/nba/news/warriors-hawks-trade-jonathan-kuminga-buddy-hield-kristaps-porzingis/", "날짜": "2026-02"},
+    {"팀": "원정", "선수": "Buddy Hield", "IN|OUT": "OUT", "내용": "위 트레이드로 애틀랜타 이적", "출처": "https://www.cbssports.com/nba/news/warriors-hawks-trade-jonathan-kuminga-buddy-hield-kristaps-porzingis/", "날짜": "2026-02"},
+    {"팀": "원정", "선수": "Kristaps Porzingis", "IN|OUT": "IN(그러나 현재 팀 이탈)", "내용": "Kuminga·Hield 트레이드로 영입. 2026년 6월 2년 $40M 연장계약(2년차 비보장 다수 — 사실상 트레이드용 설계) 후 현재 팀과 거리 두고 트레이드 대상", "출처": "https://www.hoopsrumors.com/2026/10/warriors-exploring-trade-avenues-for-kristaps-porzingis.html", "날짜": "2026-10"}
+  ],
+  "라인업": {
+    "홈": {"예상선발": ["Jamal Murray", "Christian Braun", "Cameron Johnson(결장 가능성)", "Aaron Gordon", "Nikola Jokic"], "발표여부": "감독 David Adelman이 시즌 전 선발 5명으로 공식화(Murray-Braun-Johnson-Gordon-Jokic). 단, Johnson 'doubtful'이라 결장 시 대체자(Brown/Brazile 등) 투입 예상 — 경기 당일 미발표", "출처": "https://sports.yahoo.com/articles/nuggets-head-coach-david-adelman-113454118.html ; https://roundtable.io/sports/nba/nuggets/news/nuggets-announce-concerning-injury-report-for-warriors-game", "날짜": "2026-10 / 2026-10-26"},
+    "원정": {"예상선발": ["Stephen Curry", "Brandin Podziemski", "Draymond Green", "Al Horford", "선발 5번째 미상(Jimmy Butler 결장으로 공백, Moody도 결장)"], "발표여부": "미발표 — 4인 복귀만 확정, 10/24 Suns전은 전원 휴식 로테이션(Williams-Richard-Lendeborg-Santos-Ike)이라 정규 선발과 다름", "출처": "https://athlonsports.com/nba/golden-state-warriors/final-injury-report-for-warriors-nuggets-will-stephen-curry-cameron-johnson-play", "날짜": "2026-10-26"}
+  },
+  "일정": {
+    "홈": {"직전경기": "2026-10-24 (ET) vs NOP, OT혈투 — 1일 휴식, 백투백 아님. 개막 후 1-1", "다음경기": "미확인", "출처": "https://www.espn.com/nba/recap?gameId=401909859", "날짜": "2026-10-24"},
+    "원정": {"직전경기": "2026-10-24 (ET) @PHO — 1일 휴식, 백투백 아님. 단 10/21·10/23·10/24 '4일 3경기'로 누적 피로 커 10/24 주전 전원 휴식, 10/26 복귀. 덴버 고도(약 1,600m, Ball Arena) 적응 부담 추가", "다음경기": "미확인", "출처": "https://www.espn.com/nba/recap/_/gameId/401909860", "날짜": "2026-10-24"}
+  },
+  "감독": {
+    "홈": {"이름": "David Adelman", "변동": "2025-26 시즌 도중/후 정식 감독 부임, 2026-27 두 번째 풀시즌. 목표 '서부 6위 이내' 언급", "출처": "https://sports.yahoo.com/articles/david-adelman-one-clear-goal-134041176.html", "날짜": "2026-10"},
+    "원정": {"이름": "Steve Kerr", "변동": "2년 재계약 체결, 2026-27시즌이 워리어스 13년차. '시스템 재구상' 보도", "출처": "https://www.nbcsportsbayarea.com/nba/golden-state-warriors/steve-kerr-reimagining-coaching-system/1967432/", "날짜": "2026 여름"}
+  },
+  "일정·동기·기타": [
+    "워리어스는 2026-27 시즌을 19년 만에 처음으로 0-3으로 시작(10/21 LAL·10/23 MEM·10/24 PHO 모두 패)", "출처 nbcsportsbayarea 요약 재인용, 날짜 2026-10-24",
+    "126회(10/24 전후) 멤피스전 '주전 3명 이상 동시결장'은 실제로는 10/24 Suns전으로 확인됨 — Curry·Draymond·Podziemski·Horford 4명 동시 결장(멤피스전 10/23은 주전 출전, 피닉스전 10/24에 휴식)",
+    "덴버는 10/24 NOP전 23점차 역전승으로 기세 상승, Jokic 시즌 초반부터 트리플더블급 활약"
+  ],
+  "엇갈림": [
+    "126회 지시문의 '골든스테이트-멤피스 주전 3명+결장'은 날짜 혼선 가능성 — 확인된 바로는 10/23 MEM전은 주전이 뛰었고(Curry 등 출전 추정, 명시 박스스코어 미확인), 전원 결장은 10/24 PHO전이었다. 10/23 MEM전 워리어스 선발 라인업은 못찾음(코치 로테이션 자료 부족)",
+    "Cameron Johnson 상태: clutchpoints(10/26) 'doubtful로 상향(호전 신호)' vs 일부 예상 기사(bleacher nation 접근불가로 교차확인 제한)"
+  ],
+  "못찾음": [
+    "덴버·워리어스 2025-26 시즌 맞대결(시즌 시리즈) 전적",
+    "2026-10-26 경기 당일 공식 발표 선발 라인업(경기 전 미발표)",
+    "워리어스 10/23 멤피스전 실제 선발 라인업 박스스코어",
+    "경기 후 결과(최종 스코어) — 수집 시점(KST 08:50) 기준 경기 미시작(킥오프 11:00 KST)이라 결과 없음. 검색 결과 중 'Nuggets 126-114 Warriors' 언급은 사전 예측(projection)이며 실제 결과 아님",
+    "NBA 공식 injury report PDF 원본(10/26) — 2차 매체(roundtable.io, athlonsports) 요약으로 대체"
+  ]
+}

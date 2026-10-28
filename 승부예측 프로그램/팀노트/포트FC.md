@@ -9,7 +9,7 @@
 - 최근 경기(ESPN, 최대 28일): 2026-09-15 Ratchaburi FC 4-6 Shanghai Port FC / 2026-09-16 Port FC 1-2 Vissel Kobe / 2026-10-13 Shanghai Port FC 1-1 Daejeon Hana Citizen FC / 2026-10-14 Kashiwa Reysol 5-1 Port FC
 <!-- FACTS:END -->
 <!-- INPUTS:START -->
-## 입력(자동 수집 2026-10-26) — xG·휴식일·라인업·환경(이동거리·고도·날씨)은 이 숫자를 쓴다
+## 입력(자동 수집 2026-10-27) — xG·휴식일·라인업·환경(이동거리·고도·날씨)은 이 숫자를 쓴다
 - 10-27 19:00 vs 조호르 다룰탁짐: 휴식 13.0일?(국내리그 ESPN 미제공 — 직접 확인) · 직전 10-14 원정 vs Kashiwa Reysol 1-5 패 [league stage] · xG 시즌10경기 xG1.44/xGA1.46 npxGD-0.01 · 최근5 1.63/1.19 (+0.29) · 홈0.06/원정-0.09 · xPts13.4 vs 승점11 · 직전 선발 4-4-2 Michael Falkesgaard, Manuel Bihr, Erik Sviatchenko, Chaiyaphon Otton, Suphanan Bureerat, Peeradol Chamrasamee, Shimura Noboru, Bruno Moreira, Rui Costa, Issam Al Sabhi, Teerasak Poeiphimai · 구장 ? · 이동 ?(구장 미확인) · 고도 ?m · 날씨 -
 <!-- INPUTS:END -->
 

@@ -1,0 +1,50 @@
+{
+  "번호": "829",
+  "홈": "알카디시야",
+  "원정": "알사드SC",
+  "리그": "AFC 챔피언스리그 엘리트",
+  "킥오프_KST": "2026-10-27 03:15",
+  "개최지": "모하메드 알하마드 스타디움(담맘, 사우디) — 알카디시야 홈경기, 중립 아님",
+  "수집시각": "2026-10-26 21:45",
+  "수집자": "collect-afc2",
+  "결장": [
+    {"팀":"홈","선수":"Waleed Al-Ahmad","포지션":"미상","이번시즌_선발/경기":"미확인","득점·도움":"미확인","사유":"부상(결장 확정 보도)","상태":"의심","출처":"https://www.mightytips.com/football-predictions/al-qadsiah-vs-al-sadd-prediction-26-10-2026/","날짜":"2026-10-26"},
+    {"팀":"홈","선수":"Nacho Fernandez","포지션":"미상","이번시즌_선발/경기":"미확인","득점·도움":"미확인","사유":"부상 의심, 킥오프 임박 확정","상태":"의심","출처":"https://www.mightytips.com/football-predictions/al-qadsiah-vs-al-sadd-prediction-26-10-2026/","날짜":"2026-10-26"},
+    {"팀":"홈","선수":"Nahitan Nandez","포지션":"수비수","이번시즌_선발/경기":"미확인","득점·도움":"미확인","사유":"부상 의심(단, 같은 기사의 예상 XI엔 포함돼 출전 가능성도 있음)","상태":"의심","출처":"https://www.mightytips.com/football-predictions/al-qadsiah-vs-al-sadd-prediction-26-10-2026/","날짜":"2026-10-26"},
+    {"팀":"홈","선수":"Abdulaziz Al-Elawai","포지션":"미상","이번시즌_선발/경기":"미확인","득점·도움":"미확인","사유":"부상 의심","상태":"의심","출처":"https://www.mightytips.com/football-predictions/al-qadsiah-vs-al-sadd-prediction-26-10-2026/","날짜":"2026-10-26"},
+    {"팀":"원정","선수":"Marcelo Brozovic","포지션":"미드필더","이번시즌_선발/경기":"미확인","득점·도움":"미확인","사유":"부상, 담맘 원정 결장(10/13 알힐랄전에도 결장 보도 — 2차례 보도로 확정에 가까움)","상태":"확정","출처":"https://www.mightytips.com/football-predictions/al-qadsiah-vs-al-sadd-prediction-26-10-2026/ ; alyaum.com(2026-10-13, 팀노트 알사드.md 인용)","날짜":"2026-10-26"},
+    {"팀":"원정","선수":"Rafa Mujica","포지션":"공격수","이번시즌_선발/경기":"미확인","득점·도움":"미확인","사유":"부상, 담맘 원정 제외","상태":"의심","출처":"https://www.mightytips.com/football-predictions/al-qadsiah-vs-al-sadd-prediction-26-10-2026/","날짜":"2026-10-26"},
+    {"팀":"원정","선수":"Abdessamed Bounacer","포지션":"미상","이번시즌_선발/경기":"미확인","득점·도움":"미확인","사유":"부상, 담맘 원정 제외","상태":"의심","출처":"https://www.mightytips.com/football-predictions/al-qadsiah-vs-al-sadd-prediction-26-10-2026/","날짜":"2026-10-26"}
+  ],
+  "라인업": {
+    "홈": {"발표여부":"미발표(경기 전날 매체 예상)", "예상XI":"Koen Casteels(GK); Nahitan Nandez, Jahed Thakri, Gaston Alvarez(DF); Mohammed Abu Al-Shamat, Musab Al-Juwayr, Tijjani Reijnders, Julian Weigl, Christopher Bonsu Baah(MF); Mateo Retegui, Julian Quinones(FW)", "포메이션":"3-5-2 추정(기사 표기 없음, 명단 구성상 추정)", "출처":"https://www.mightytips.com/football-predictions/al-qadsiah-vs-al-sadd-prediction-26-10-2026/", "날짜":"2026-10-26"},
+    "원정": {"발표여부":"미발표(일부 포지션만 보도)", "예상XI":"미드필더: Claudinho, Mohamed Manai, Mohamed Camara / 공격수: Giovani, Roberto Firmino, Akram Afif (GK·수비진 미보도)", "포메이션":"미상(공격진 3명·미드필더 3명만 확인)", "출처":"https://www.mightytips.com/football-predictions/al-qadsiah-vs-al-sadd-prediction-26-10-2026/", "날짜":"2026-10-26"}
+  },
+  "최근경기": [
+    {"팀":"홈","날짜":"미상(ACLE MD1~2)","상대":"미확인(ACLE)","대회":"AFC 챔피언스리그 엘리트","장소":"미상","스코어":"MD1~2 누적 1승1무(득2실1 추정, 서부 테이블 3위권)"},
+    {"팀":"원정","날짜":"미상(ACLE MD1)","상대":"에스테그랄(이란)","대회":"AFC 챔피언스리그 엘리트","장소":"원정","스코어":"0-3 패"},
+    {"팀":"원정","날짜":"2026-10-13","상대":"알힐랄","대회":"AFC 챔피언스리그 엘리트 MD2","장소":"홈(도하)","스코어":"결과 미확인(프리뷰만 확인)"},
+    {"팀":"원정","날짜":"미상(최근 국내리그)","상대":"알아라비","대회":"카타르 스타스리그","장소":"미상","스코어":"2-3 패(2경기 연속 3실점)"}
+  ],
+  "순위": {
+    "ACLE": {"홈":"서부 지역 2경기 1승1무 득3실2 승점4 (상위권)", "원정":"서부 지역 1경기 패(MD1 0-3) 기준 하위권, MD2 결과 미확인으로 정확한 순위 미확정"},
+    "국내": {"홈":"미확인(사우디 프로리그 순위 미수집)", "원정":"카타르 스타스리그 2위(2026-10 기준, 6경기 12점 — 선두와 1점차 선두였던 시점 보도 혼재)"},
+    "출처": "ESPN/Wikipedia ACLE 테이블; thepeninsulaqatar.com(2026-10-26); 팀노트 알사드.md",
+    "날짜": "2026-10-26"
+  },
+  "감독": {"홈":"Sergio/현직 미확인 — 선수단 코멘트에 'Rodgers'(스티븐 로저스 추정) 감독 발언 보도(기사 제목 'Rodgers: Al-Qadsiah ready for Al-Sadd...')", "원정":"미확인", "변동":"알카디시야 감독이 'Rodgers'로 보도돼 기존 알려진 정보와 다를 수 있음 — 재확인 필요", "출처":"https://ysscores.com/en/news/14079875/rodgers-al-qadsiah-ready-for-al-sadd-challenge-and-our-goal-is-to-please-our-fans", "날짜":"2026-10-26"},
+  "일정·동기·기타": [
+    {"내용":"알카디시야는 담맘 홈에서 ACLE 3차전을 치르며 최근 국내리그 연속 실점 이슈 보도 있음.", "출처":"https://www.mightytips.com/football-predictions/al-qadsiah-vs-al-sadd-prediction-26-10-2026/", "날짜":"2026-10-26"},
+    {"내용":"알사드는 아시아 챔피언스리그 엘리트에서 'Asian turnaround'(반전)을 노린다고 프리뷰 보도 — MD1 대패(0-3) 이후 분위기 전환 필요성 시사.", "출처":"https://thepeninsulaqatar.com/article/26/10/2026/al-sad-eye-asian-turnaround-al-gharafa-face-al-ahli-saudi", "날짜":"2026-10-26"}
+  ],
+  "엇갈림": [
+    "알카디시야 감독명이 기사 제목에서 'Rodgers'로 표기 — 팀노트에 기존 감독 정보 없어 교체 여부 미확정(검색 추가 필요).",
+    "알사드 예상 XI가 공격·중원 6명만 보도되고 수비진·GK 정보 없음 — 두 매체 교차확인 못함."
+  ],
+  "못찾음": [
+    "알카디시야 ACLE MD1·MD2 정확한 스코어·상대",
+    "알사드 ACLE MD2(알힐랄전) 실제 결과",
+    "알카디시야 사우디 프로리그 순위",
+    "양 팀 평균 휴식일·이동거리(ESPN 리그 미제공으로 INPUTS에 '?' 표시된 상태 그대로)"
+  ]
+}

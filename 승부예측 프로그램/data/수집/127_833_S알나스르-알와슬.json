@@ -1,0 +1,48 @@
+{
+  "번호": "833",
+  "홈": "S알나스르",
+  "원정": "알와슬",
+  "리그": "AFC 챔피언스리그 엘리트",
+  "킥오프_KST": "2026-10-27 03:15",
+  "개최지": "킹 사우드 대학 경기장(리야드) — 예정 홈경기였으나 아래 '연기' 참고",
+  "수집시각": "2026-10-26 21:45",
+  "수집자": "collect-afc2",
+  "⚠경기연기_중요": "AFC가 알와슬의 리야드행 항공편 차질(flight disruptions)을 이유로 이 경기를 공식 연기(postponed)한다고 다수 매체가 10-26 보도함. 새 일정 미발표. 베트맨 127회 833번 경기가 예정대로 2026-10-27 03:15에 열리는지 자체가 불확실하므로 추천/분석 전 재확인 필요.",
+  "결장": [
+    {"팀":"홈","선수":"Sultan Al Ghannam","포지션":"미상","이번시즌_선발/경기":"미확인","득점·도움":"미확인","사유":"부상으로 결장","상태":"의심","출처":"https://worldsoccertalk.com/news/cristiano-ronaldos-al-nassr-receives-fresh-injury-update-on-kingsley-coman-and-mohamed-simakan-ahead-of-crucial-saudi-pro-league-clash-vs-al-wasl/","날짜":"2026-10-26"},
+    {"팀":"홈","선수":"Mohamed Simakan","포지션":"수비수","이번시즌_선발/경기":"직전 경기(10/13 vs Neftchi) 선발 출전 기록 있음(팀노트 INPUTS)","득점·도움":"미확인","사유":"컨디션 불확실(fitness doubt)","상태":"의심","출처":"https://worldsoccertalk.com/news/cristiano-ronaldos-al-nassr-receives-fresh-injury-update-on-kingsley-coman-and-mohamed-simakan-ahead-of-crucial-saudi-pro-league-clash-vs-al-wasl/","날짜":"2026-10-26"},
+    {"팀":"홈","선수":"Kingsley Coman","포지션":"공격수","이번시즌_선발/경기":"직전 경기(10/13 vs Neftchi) 선발 출전 기록 있음(팀노트 INPUTS)","득점·도움":"미확인","사유":"컨디션 불확실(fitness doubt)","상태":"의심","출처":"https://worldsoccertalk.com/news/cristiano-ronaldos-al-nassr-receives-fresh-injury-update-on-kingsley-coman-and-mohamed-simakan-ahead-of-crucial-saudi-pro-league-clash-vs-al-wasl/","날짜":"2026-10-26"},
+    {"팀":"홈","선수":"Cristiano Ronaldo","포지션":"공격수","이번시즌_선발/경기":"직전 경기(10/13 vs Neftchi) 선발 출전 기록 있음(팀노트 INPUTS)","득점·도움":"미확인","사유":"골반 근육 부상 재활 중(개인 훈련, 팀 훈련 불참) — 단, 같은 매체가 '최근 알파이살리전 3-1 승 때 득점하며 주전으로 활약 중'이라는 상반된 서술도 함께 보도","상태":"의심(엇갈림 참고)","출처":"https://worldsoccertalk.com/news/cristiano-ronaldos-al-nassr-receives-fresh-injury-update-on-kingsley-coman-and-mohamed-simakan-ahead-of-crucial-saudi-pro-league-clash-vs-al-wasl/","날짜":"2026-10-26"}
+  ],
+  "라인업": {
+    "홈": {"발표여부":"미발표(경기 자체 연기 가능성으로 라인업 뉴스 사실상 중단)", "예상XI":"직전 경기(10/13 홈 vs Neftchi Fergana, 4-4-2): Bento; Iñigo Martínez, Mohamed Simakan, Awad Aman; Nawaf Boushal, Ângelo Gabriel, Samú Costa, Sadio Mané; Kingsley Coman, Cristiano Ronaldo, João Félix", "포메이션":"4-4-2(직전 경기 기준)", "출처":"팀노트 S알나스르.md INPUTS(자동수집 2026-10-26)", "날짜":"2026-10-13"},
+    "원정": {"발표여부":"미발표", "예상XI":"직전 경기(10/13 홈 vs Al Ahli, 1-3패, 4-2-3-1): Dinko Horkas; Adryelson, Soufiane Bouftini, Hugo, Pedro Malheiro; Nicolás Gimenez, Abdulrasaq Ridwan Popoola; Siaka Sidibe, Mehdi Taremi, Serginho; Brahian Palacios", "포메이션":"4-2-3-1(직전 경기 기준)", "출처":"팀노트 알와슬.md INPUTS(자동수집 2026-10-26)", "날짜":"2026-10-13"}
+  },
+  "최근경기": [
+    {"팀":"홈","날짜":"2026-09-15","상대":"Al Ain","대회":"ACLE MD1","장소":"원정","스코어":"0-4 패"},
+    {"팀":"홈","날짜":"2026-10-12/13","상대":"Neftchi Fergana","대회":"ACLE MD2(리그스테이지)","장소":"홈","스코어":"3-1 승"},
+    {"팀":"원정","날짜":"미상(ACLE MD1)","상대":"알카디시야","대회":"AFC 챔피언스리그 엘리트","장소":"원정","스코어":"1-2 패(레안드로 스파다시오 득점)"},
+    {"팀":"원정","날짜":"2026-10-13","상대":"Al Ahli(사우디)","대회":"ACLE MD2","장소":"홈","스코어":"1-3 패"}
+  ],
+  "순위": {
+    "ACLE": {"홈":"서부 지역, MD1 0-4 패 이후 MD2 3-1 승으로 1승1패 — 정확한 순위는 서부 테이블 재확인 필요", "원정":"서부 지역, MD1·MD2 전패(0-2) — 하위권"},
+    "국내": {"홈":"사우디 프로리그 8위, 2경기 1승0무1패 GD-2 승점3(팀노트 FACTS, 2026-10-26 자동수집) ※ 이전(10/12) 수집치인 '3위 7경기 5승1무1패'와 표본 수가 달라 최신 자동수집 값(8위·2경기)을 우선", "원정":"UAE 프로리그 순위 미확인(중위권으로 추정, 팀노트 추정치)"},
+    "출처": "팀노트 S알나스르.md FACTS(자동수집); 팀노트 알와슬.md",
+    "날짜": "2026-10-26"
+  },
+  "감독": {"홈":"Ange Postecoglou(현직, 팩트시트 확인)", "원정":"미확인", "변동":"없음(알나스르 — 팩트시트 기준 변동 없음)", "출처":"팀노트 S알나스르.md FACTS; worldsoccertalk.com", "날짜":"2026-10-26"},
+  "일정·동기·기타": [
+    {"내용":"AFC가 알와슬의 리야드행 항공편 차질을 이유로 알나스르-알와슬 ACLE 3차전을 공식 연기(postponed) — 새 일정 미발표.", "출처":"https://english.ajel.sa/sports/fyk6mvj1i ; https://gulfnews.com/sport/football/al-nassr-al-wasl-asian-champions-league-clash-postponed-over-flight-disruptions-1.500723230 ; https://ysscores.com/en/news/14079886/officially-postponement-of-al-nassr-vs-al-wasl-match-in-afc-champions-league-elite", "날짜":"2026-10-26"},
+    {"내용":"사우디축구협회(SAFF)가 연기 관련 공식 성명 발표.", "출처":"https://www.ysscores.com/en/news/14080130/official-statement-from-the-saudi-arabian-football-federation-regarding-the-postponement-of-the-al-nassr-and-al-wasl-match-in-the-afc-champions-league-elite", "날짜":"2026-10-26"},
+    {"내용":"알나스르는 팀노트상 878km 장거리 이동·고도차 보정 이슈가 있었으나, 이번엔 알나스르가 홈이라 해당 없음(해당 INPUTS는 과거/다른 경기용으로 보임 — 혼동 주의).", "출처":"팀노트 S알나스르.md INPUTS", "날짜":"2026-10-26"}
+  ],
+  "엇갈림": [
+    "경기 연기 보도(다수 매체, 항공편 차질)와 사용자 제공 킥오프(2026-10-27 03:15 KST, 베트맨 127회 833번) 사이 불일치 — 베트맨이 아직 일정을 갱신하지 않았거나, 연기 보도가 다른 날짜의 AFC 경기(예: 알나스르의 다른 대회 경기)를 잘못 지칭했을 가능성도 배제 못함. 메인 세션에서 베트맨/AFC 공식 일정 재확인 필요.",
+    "호날두 컨디션: 같은 매체 내에서 '골반 부상으로 개인 재활 중(팀 훈련 불참)'과 '최근 경기 풀타임 출전·득점, 다시 주장을 맡을 것으로 예상'이라는 상반된 문장이 동시에 보도됨."
+  ],
+  "못찾음": [
+    "연기 시 대체 일정",
+    "알와슬 결장자/라인업 뉴스",
+    "알와슬 UAE 프로리그 정확한 순위"
+  ]
+}

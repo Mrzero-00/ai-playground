@@ -1,0 +1,62 @@
+{
+  "번호": "1009",
+  "홈": "가시마 앤틀러스",
+  "원정": "포항 스틸러스",
+  "수집시각": "2026-10-28",
+  "기준수집": "data/수집/127_1009_가시마 앤틀러스-포항 스틸러스.json",
+  "선발발표": {
+    "홈": {
+      "발표여부": "미발표(공식 선발 XI 미공개, 추정치만 존재)",
+      "선발XI": "fotmob 예측(predicted, 공식 아님): Hayakawa(GK); Hirose, Motosuna, Sekigawa, Ogawa; Cavric, Hayashi, Bueno, Élber; Tokuda, Chida",
+      "포메이션": "4-4-2(예측)",
+      "벤치": "fotmob 예측 벤치: Yamada(GK), Koike, Ueda, Okawa, Tsukui, Shibasaki, Matsumura, Higuchi, Suzuki, Leo(=Leo Ceara 추정), Yoshida, Onuki",
+      "출처": "https://www.fotmob.com/matches/kashima-antlers-vs-pohang-steelers/2z16l3o",
+      "날짜": "2026-10-28"
+    },
+    "원정": {
+      "발표여부": "미발표(공식 선발 XI 미공개, 추정치만 존재)",
+      "선발XI": "fotmob 예측(predicted, 공식 아님) 5-3-2: Hwang Jae-hwan(GK); Jo Sung-wook, Park Chan-yong, Jin Si-woo, Kang Min-jun, Wanderson; Nishiya, Kim Seung-ho, Kim Dong-jin; Tranziska, Teixeira",
+      "포메이션": "5-3-2(예측, 기준수집 10/13 라인업과 거의 동일)",
+      "벤치": "fotmob 예측 벤치: Yoon Pyeong-gook(GK), Shin Gwang-hoon, Lee Chang-woo, Kim Ye-seong, Kim Ho-jin, Kim Kwang-won, Kim Yong-hak, Jeong Han-min, Jo Sang-hyeok, An Jae-jun, Juninho, Jo Yeong-jun",
+      "출처": "https://www.fotmob.com/matches/kashima-antlers-vs-pohang-steelers/2z16l3o",
+      "날짜": "2026-10-28"
+    }
+  },
+  "상태변경": [
+    {
+      "팀": "가시마 앤틀러스",
+      "선수": "Leo Ceara(레오 세아라)",
+      "어제(127 기준)": "10/21 가시와전 중 부상 교체(의심), 10/27 전체훈련 합류 확인했으나 포항전 출전 여부 미정으로 기록",
+      "오늘": "10/24 가시와 레이솔전에서는 '메인 선발/후보 명단 완전 제외'(메ンバー外) — 전치 7일 뒤에도 스쿼드에서 빠졌던 것으로 확인. 10/28 포항전 공식 선발·벤치 발표는 아직 없음(fotmob 예측상 벤치 포함이나 공식 아님)",
+      "출처": ["https://sakanowa.jp/topics/113937", "https://www.fotmob.com/matches/kashima-antlers-vs-pohang-steelers/2z16l3o"],
+      "날짜": "2026-10-24 / 2026-10-28"
+    }
+  ],
+  "신규결장": [],
+  "변동없음": {
+    "홈": "Yan Matheus, Kyosuke Tagawa 장기 이탈 상태 지속 — 기준수집(127) 이후 복귀·추가 악화 뉴스 없음(확인처: antlers.co.jp, jleague.jp, Yahoo스포츠)",
+    "원정": "기성용·파울로 로샤·전민광·홍성민 관련 10/20 이후 신규 결장 공식 발표 없음(확인처: 데일리안, 뉴스1, 일간스포츠)"
+  },
+  "최근경기": [
+    {"팀": "가시마 앤틀러스", "날짜": "2026-10-24", "상대": "Kashiwa Reysol(가시와 레이솔)", "장소": "홈", "스코어": "2-3 패(카시마: Tokuda 14', Enomoto 35' / 가시와: Enomoto 35', Yamauchi 45+1', 59')", "비고": "가시와의 약 6년 만의 가시마 원정 승리. Leo Ceara·Fujio Shota 둘 다 스쿼드 제외", "출처": "https://news.yahoo.co.jp/articles/808e1f5d5e7af8318d4d3c7307d1096a77cae0cd", "날짜출처": "2026-10-25"},
+    {"팀": "포항 스틸러스", "날짜": "2026-10-13", "상대": "Johor Darul Ta'zim", "장소": "홈", "스코어": "0-2 패", "비고": "기준수집과 동일, 10/13 이후 포항의 K리그 경기 일정/결과는 검색에서 확인 못함(최근경기 기사 모두 ACLE 프리뷰 중심)"}
+  ],
+  "순위": {
+    "홈": "기준수집(127)과 변동 없음 — J1 2026시즌(ESPN 기준 FACTS) 8위 12경기 6승2무4패 GD+4 승점20",
+    "원정": "ACLE 리그스테이지: 2전 2패 상태에서 10/28 승리 시 8위와 승점 1점 차로 좁혀진다는 보도 확인(네이트스포츠, '그룹B에 갇힌 포항, 가시마 잡으면 ACLE 8위와 1점 차')",
+    "출처": "https://sports.news.nate.com/view/20261028n12066",
+    "날짜": "2026-10-28"
+  },
+  "기타": [
+    {"내용": "포항 박태하 감독 10/27 가시마 스타디움 사전 기자회견: '가시마는 공수 양면에서 조직력이 뛰어난 좋은 팀, 원정이 쉽지 않겠지만 좋은 결과를 가져오겠다'", "출처": "https://isplus.com/article/view/isp202610280006", "날짜": "2026-10-28"},
+    {"내용": "가시마는 작년 38경기 31실점이었는데 올해는 12경기만에 21실점으로 수비 불안이 커졌다는 지적(마츠무라 유타 발언 인용 칼럼)", "출처": "https://topics.smt.docomo.ne.jp/article/footballchannel/sports/footballchannel-1040274", "날짜": "2026-10-26"}
+  ],
+  "엇갈림": [
+    "fotmob 예측 라인업에서 'Leo'(등번호 표기 없음)가 가시마 벤치 명단 안에 있음 — 포항 벤치 목록이 아님을 재확인. 단, fotmob 라인업은 명시적으로 'predicted'(예측)이며 10/13 CAHN전 선발과 거의 동일 구성이라 당일 뉴스 반영이 아닌 과거 경기 기반 추정으로 판단됨"
+  ],
+  "못찾음": ["포항 10/13 이후(10월 중하순) K리그1 국내 경기 일정·결과", "가시마-포항 역대 맞대결 전적", "양팀 10/28 공식 선발 XI(킥오프 전 미발표)"],
+  "뉴스없음": {
+    "홈": "레오 세아라 외 신규 결장 확정 뉴스 없음(확인처: jleague.jp 공식, antlers.co.jp 공식, Yahoo스포츠, sakanowa)",
+    "원정": "10/20 이후 신규 부상·결장 공식 발표 없음(확인처: 뉴스1, 일간스포츠, Best Eleven)"
+  }
+}

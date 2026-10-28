@@ -1,0 +1,240 @@
+##### own_model.py report
+# 독자 분석 현황 (2026-10-28)
+
+순수 분석(배당 보기 전 확률) vs 시장. RPS 낮을수록 좋음. w = 최종 확률에서 순수 분석 비중. 표본 적으면 0.10 쪽으로 줄인 값이 '권장'.
+
+| 구간 | n | 순수 RPS | 시장 RPS | 순수가 나음? | 순수 1순위 적중 | 시장 1순위 적중 | w 최적 | **w 권장** |
+|---|---|---|---|---|---|---|---|---|
+| 전체:전체 | 605 | 0.208 | 0.194 | 아니오 | 341/605 | 348/605 | 0.00 | **0.05** |
+| 종목:축구 | 470 | 0.203 | 0.188 | 아니오 | 255/470 | 262/470 | 0.00 | **0.05** |
+| 종목:농구 | 81 | 0.222 | 0.203 | 아니오 | 51/81 | 54/81 | 0.00 | **0.07** |
+| 종목:야구 | 45 | 0.243 | 0.246 | 예 | 28/45 | 25/45 | 0.80 | **0.26** |
+| 종목:배구 | 9 | 0.145 | 0.145 | 예 | 7/9 | 7/9 | 0.50 | **0.12** |
+| 리그:농구·NBA | 59 | 0.211 | 0.190 | 아니오 | 40/59 | 41/59 | 0.00 | **0.07** |
+| 리그:축구·K리그 | 43 | 0.226 | 0.206 | 아니오 | 23/43 | 23/43 | 0.00 | **0.08** |
+| 리그:축구·미국 메이저리그사커 | 43 | 0.215 | 0.196 | 아니오 | 21/43 | 21/43 | 0.00 | **0.08** |
+저장: /Users/sonsang-il/orca/workspaces/ai/pacu-auto/승부예측 프로그램/scripts/../회차별분석/독자분석_현황_2026-10-28.md / /Users/sonsang-il/orca/workspaces/ai/pacu-auto/승부예측 프로그램/scripts/../data/own_weights.json
+##### calibrate.py fit
+# 순수 확률 보정 계수 (2026-10-28)
+
+원본 = 순수 확률 그대로. 보정 = 로짓에 온도 T 를 곱하고 홈·무 편향을 더한 뒤 정규화. 5-fold 교차검증 RPS 가 원본보다 낮을 때만 채택.
+표본 적으면 n/(n+100) 만큼만 적용(T→1, b→0 쪽으로 축소).
+
+| 종목 | n | T | 홈 편향 | 무 편향 | 원본 RPS | 보정 RPS(학습) | 원본 CV | 보정 CV | 채택 |
+|---|---|---|---|---|---|---|---|---|---|
+| 축구 | 462 | 1.25→1.21 | +0.15→+0.12 | +0.00→+0.00 | 0.2059 | 0.2034 | 0.2059 | 0.2046 | 예 |
+| 야구 | 39 | 0.60→0.89 | +0.03→+0.01 | - | 0.2484 | 0.2476 | 0.2484 | 0.2839 | 아니오 |
+| 농구 | 84 | 0.93→0.97 | -0.22→-0.10 | - | 0.2292 | 0.2261 | 0.2292 | 0.2520 | 아니오 |
+| 배구 | 10 | - | - | - | - | - | - | - | 표본 부족 |
+
+### 축구 신뢰도 (1순위 확률 구간별: 예측 평균 → 실제 적중)
+
+| 구간 | 원본 n | 원본 예측 | 원본 실제 | 보정 n | 보정 예측 | 보정 실제 |
+|---|---|---|---|---|---|---|
+| 30~39% | 96 | 37% | 35% | 61 | 38% | 43% |
+| 40~49% | 188 | 44% | 54% | 160 | 45% | 46% |
+| 50~59% | 109 | 54% | 58% | 115 | 55% | 59% |
+| 60~69% | 52 | 64% | 69% | 78 | 64% | 62% |
+| 70~79% | 15 | 73% | 73% | 37 | 74% | 70% |
+| 80~89% | 2 | 82% | 100% | 11 | 83% | 91% |
+
+60%+ 통과: 원본 69경기 적중 49 (71%) → 보정 126경기 적중 84 (67%)
+
+적용: pick_table.py --own 에 넣은 내 확률은 자동으로 이 계수로 보정된 값이 표·추천기록에 쓰인다(원본은 괄호). block_report.py 는 '보정' 열을 보여 준다.
+재학습: 회차 결과 채점 후 `python3 scripts/calibrate.py fit`. 계수가 CV에서 지면 자동으로 미채택(원본 그대로).
+
+→ /Users/sonsang-il/orca/workspaces/ai/pacu-auto/승부예측 프로그램/data/calibration.json
+→ /Users/sonsang-il/orca/workspaces/ai/pacu-auto/승부예측 프로그램/회차별분석/보정계수_2026-10-28.md
+##### hit_model.py fit
+
+계수: 상수 -0.37, 순수1순위x10 -0.16, 1-2순위차x10 +0.43, 홈픽 +0.11, 무픽 +0.16, 보정1순위일치 +0.39
+
+| 적중 예상도(CV) | 다리 | 실제 적중 |
+|---|---|---|
+| 0~50% | 191 | 75 (39%) |
+| 50~60% | 136 | 87 (64%) |
+| 60~65% | 50 | 25 (50%) |
+| 65~70% | 37 | 26 (70%) |
+| 70~75% | 29 | 19 (66%) |
+| 75~100% | 19 | 15 (79%) |
+
+| 추천 문턱 | 다리 | 적중 |
+|---|---|---|
+| 60%+ | 135 | 85 (63%) |
+| 65%+ | 85 | 60 (71%) |
+| 70%+ | 48 | 34 (71%) |
+
+70% 문턱 승격 조건(20다리+·실제 70%+): 충족
+
+- 야구: 39경기, 표본 부족(40 미만) → 보정 1순위 확률을 적중 예상도로 대체
+## 농구 (n=84)
+
+계수: 상수 -0.61, 순수1순위x10 +0.08, 1-2순위차x10 +0.15, 홈픽 -0.27, 무픽 +0.00, 보정1순위일치 +0.41
+
+| 적중 예상도(CV) | 다리 | 실제 적중 |
+|---|---|---|
+| 0~50% | 7 | 4 (57%) |
+| 50~60% | 25 | 14 (56%) |
+| 60~65% | 29 | 17 (59%) |
+| 65~70% | 6 | 6 (100%) |
+| 70~75% | 6 | 3 (50%) |
+| 75~100% | 11 | 8 (73%) |
+
+| 추천 문턱 | 다리 | 적중 |
+|---|---|---|
+| 60%+ | 52 | 34 (65%) |
+| 65%+ | 23 | 17 (74%) |
+| 70%+ | 17 | 11 (65%) |
+
+70% 문턱 승격 조건(20다리+·실제 70%+): 미충족
+
+- 배구: 10경기, 표본 부족(40 미만) → 보정 1순위 확률을 적중 예상도로 대체
+→ /Users/sonsang-il/orca/workspaces/ai/pacu-auto/승부예측 프로그램/data/hit_model.json
+→ /Users/sonsang-il/orca/workspaces/ai/pacu-auto/승부예측 프로그램/회차별분석/적중예상도_2026-10-28.md
+##### baseline_fill.py --all
+  ESPN 받는 중: ita.1 2026
+  ESPN 받는 중: aus.1 2026
+기준선 채움 22경기 (기준선 미지원 리그 건너뜀 77)
+종목·깊이별 방향 정확도:
+  농구 기준선: 4/5 (80%)
+  농구 분석: 5/17 (29%)
+  농구 심층: 49/72 (68%)
+  배구 기준선: 1/1 (100%)
+  배구 분석: 3/3 (100%)
+  배구 심층: 7/10 (70%)
+  야구 가벼움: 0/1 (0%)
+  야구 분석: 20/35 (57%)
+  야구 심층: 9/12 (75%)
+  축구 가벼움: 19/50 (38%)
+  축구 기준선: 71/157 (45%)
+  축구 분석: 181/312 (58%)
+  축구 심층: 86/168 (51%)
+
+축구 분석 vs 기준선 — 리그권 통제 (기준선은 '아무도 안 고른 경기'라 리그 구성이 다르다):
+  전체   분석 286/530 (54.0%)     기준선 71/157 (45.2%)     차 +8.7%p
+  지정   분석 189/314 (60.2%)     기준선 39/71 (54.9%)      차 +5.3%p
+  비지정  분석 97/216 (44.9%)      기준선 32/86 (37.2%)      차 +7.7%p
+  같은 회차에 둘 다 있는 경기만:
+    지정   분석 118/204 (57.8%)   기준선 39/71 (54.9%)   차 +2.9%p
+    비지정  분석 18/36 (50.0%)   기준선 32/85 (37.6%)   차 +12.4%p
+##### factor_fit.py report
+/Users/sonsang-il/Library/Python/3.9/lib/python/site-packages/sklearn/linear_model/_linear_loss.py:203: RuntimeWarning: invalid value encountered in matmul
+  raw_prediction = X @ weights.T + intercept  # ndarray, likely C-contiguous
+/Users/sonsang-il/Library/Python/3.9/lib/python/site-packages/sklearn/linear_model/_linear_loss.py:336: RuntimeWarning: divide by zero encountered in matmul
+  grad[:, :n_features] = grad_pointwise.T @ X + l2_reg_strength * weights
+/Users/sonsang-il/Library/Python/3.9/lib/python/site-packages/sklearn/linear_model/_linear_loss.py:336: RuntimeWarning: overflow encountered in matmul
+  grad[:, :n_features] = grad_pointwise.T @ X + l2_reg_strength * weights
+/Users/sonsang-il/Library/Python/3.9/lib/python/site-packages/sklearn/linear_model/_linear_loss.py:336: RuntimeWarning: invalid value encountered in matmul
+  grad[:, :n_features] = grad_pointwise.T @ X + l2_reg_strength * weights
+/Users/sonsang-il/Library/Python/3.9/lib/python/site-packages/sklearn/linear_model/_linear_loss.py:203: RuntimeWarning: divide by zero encountered in matmul
+  raw_prediction = X @ weights.T + intercept  # ndarray, likely C-contiguous
+/Users/sonsang-il/Library/Python/3.9/lib/python/site-packages/sklearn/linear_model/_linear_loss.py:203: RuntimeWarning: overflow encountered in matmul
+  raw_prediction = X @ weights.T + intercept  # ndarray, likely C-contiguous
+/Users/sonsang-il/Library/Python/3.9/lib/python/site-packages/sklearn/linear_model/_linear_loss.py:203: RuntimeWarning: invalid value encountered in matmul
+  raw_prediction = X @ weights.T + intercept  # ndarray, likely C-contiguous
+/Users/sonsang-il/Library/Python/3.9/lib/python/site-packages/sklearn/linear_model/_linear_loss.py:336: RuntimeWarning: divide by zero encountered in matmul
+  grad[:, :n_features] = grad_pointwise.T @ X + l2_reg_strength * weights
+/Users/sonsang-il/Library/Python/3.9/lib/python/site-packages/sklearn/linear_model/_linear_loss.py:336: RuntimeWarning: overflow encountered in matmul
+  grad[:, :n_features] = grad_pointwise.T @ X + l2_reg_strength * weights
+/Users/sonsang-il/Library/Python/3.9/lib/python/site-packages/sklearn/linear_model/_linear_loss.py:336: RuntimeWarning: invalid value encountered in matmul
+  grad[:, :n_features] = grad_pointwise.T @ X + l2_reg_strength * weights
+시장 확률이 있는 783경기 · 학습 548 / 시험 235 (시간 순)
+요인 유형 8종 (30경기 이상 등장): 결장, 폼, 휴식, 기타, 동기, xG, 맞대결, 기준선불신
+
+입력                              시험 경기     방향 적중률
+--------------------------------------------------
+시장만                               235      58.3%
+시장 + 요인(실측 가중)                    235      54.5%   -3.8p
+
+-- 유형별 판정 (관문 ① 부호 안정성 95%+ · 관문 ② 시험셋 방향 적중 기여 > 0)
+유형              등장   effect     표준오차     양수비율     단독 시험       차  판정
+결장             204   +0.073    0.111   76.0%     56.6%   -1.7p  잡음(부호 불안정)
+폼              113   +0.137    0.297   72.5%     57.0%   -1.3p  잡음(부호 불안정)
+휴식              73   +0.135    0.292   63.5%     58.7%   +0.4p  잡음(부호 불안정)
+기타              70   -0.126    0.267   22.2%     57.9%   -0.4p  잡음(부호 불안정)
+동기              41   -0.475    0.368   11.0%     56.6%   -1.7p  잡음(부호 불안정)
+xG              36   -0.191    0.173    5.8%     58.7%   +0.4p  잡음(부호 불안정)
+맞대결             31   -0.180    0.511   31.8%     58.7%   +0.4p  잡음(부호 불안정)
+기준선불신           31   +0.010    0.141   48.8%     58.3%   +0.0p  잡음(부호 불안정)
+
+채택 유형만 적용                         235      58.3%   +0.0p   (채택 0 — 보정 없음)
+→ data/factor_weights.json (0/8 유형만 확률에 반영)
+
+계수는 '내가 매긴 %p 1점이 결과 로그오즈를 얼마나 움직였나'다.
+두 관문을 다 넘지 못한 유형은 수집·기록만 하고 확률은 사전확률 그대로 둔다 — 보정 0 이 기본값이다.
+'역부호'는 반대로 적용하고 있다는 뜻이지만, 뒤집어 쓰지 않는다(표본이 적어 부호만 바꾸면 과적합이다).
+##### prior.py report
+분석 경기 627건 — 사전확률(시장) 대비
+
+구분                            경기     내 적중      사전확률      개선폭
+------------------------------------------------------------
+사전확률 그대로 둠                   568    59.5%     59.5%    +0.0p
+개입해서 방향을 바꿈                   59    40.7%     42.4%    -1.7p
+전체                           627    57.7%     57.9%    -0.2p
+
+개입 비율 9.4% (59/627)
+본 지표는 '개입해서 방향을 바꾼' 줄의 개선폭이다. 음수면 그 개입은 손해였다.
+
+-- 개입한 경기를 회차별로
+   승무패59회  개입  4건  내  50.0%  사전확률   0.0%  +50.0p
+   121회  개입  4건  내  50.0%  사전확률  50.0%   +0.0p
+   122회  개입 14건  내  35.7%  사전확률  42.9%   -7.1p
+   123회  개입  5건  내   0.0%  사전확률  80.0%  -80.0p
+   124회  개입  6건  내  33.3%  사전확률  33.3%   +0.0p
+   125회  개입  5건  내  40.0%  사전확률  40.0%   +0.0p
+   126회  개입 11건  내  45.5%  사전확률  54.5%   -9.1p
+   127회  개입  3건  내  33.3%  사전확률  66.7%  -33.3p
+##### predict_engine.py run
+연대기 14265경기 (2019-08-09 ~ 2026-10-28)
+우리 기록 경기 933건에 대해 기법 예측 생성
+
+/Users/sonsang-il/orca/workspaces/ai/pacu-auto/승부예측 프로그램/scripts/../data/기법별예측.csv — 총 11801행
+  홈 고정             n= 924  적중  45.8%
+  우리 순수 분석         n= 832  적중  53.6%
+  market           n= 783  적중  57.6%
+  시장               n= 774  적중  57.5%
+  시장+검증요인          n= 774  적중  57.5%
+  시장+전체요인          n= 774  적중  57.0%
+  elo              n= 728  적중  44.5%
+  elo_goal         n= 728  적중  45.6%
+  pi               n= 728  적중  40.1%
+  poisson          n= 728  적중  45.7%
+  dixon_coles      n= 728  적중  45.7%
+  합의(모델평균)         n= 728  적중  45.1%
+  우리 보정            n= 703  적중  55.2%
+  보정+시장 평균         n= 629  적중  57.9%
+  시장앵커±6           n= 620  적중  54.4%
+  갈림→무가중           n= 620  적중  55.6%
+##### model_zoo.py log
+경기 933 × 기법 7 → 5473행
+  홈 고정             n= 933  적중  46.1%
+  우리 순수 분석         n= 841  적중  53.9%
+  시장               n= 783  적중  57.6%
+  시장+검증요인          n= 783  적중  57.6%
+  시장+전체요인          n= 783  적중  57.1%
+  우리 보정            n= 712  적중  55.5%
+  보정+시장 평균         n= 638  적중  58.0%
+→ /Users/sonsang-il/orca/workspaces/ai/pacu-auto/승부예측 프로그램/scripts/../data/기법별예측.csv
+##### model_zoo.py fair
+공통 경기 498건 · 기법 16종 (같은 경기에서만 비교)
+
+  기법                     적중률    vs 시장
+  보정+시장 평균             56.0%    +0.6p
+  market               55.4%         
+  갈림→무가중               55.4%    +0.0p
+  시장                   55.4%         
+  시장+검증요인              55.4%    +0.0p
+  시장+전체요인              55.4%    +0.0p
+  시장앵커±6               55.0%    -0.4p
+  우리 보정                53.6%    -1.8p
+  우리 순수 분석             52.8%    -2.6p
+  elo_goal             46.8%    -8.6p
+  dixon_coles          46.4%    -9.0p
+  poisson              46.4%    -9.0p
+  elo                  46.0%    -9.4p
+  홈 고정                 46.0%    -9.4p
+  합의(모델평균)             45.8%    -9.6p
+  pi                   41.6%   -13.9p
+
+  표본 498경기 · 1기법 2SE ≈ ±4.5p — 이보다 작은 차이는 우연과 구분되지 않는다
+DONE

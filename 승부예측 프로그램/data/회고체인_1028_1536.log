@@ -1,0 +1,73 @@
+##### own_model.py report
+/Applications/Xcode.app/Contents/Developer/usr/bin/python3: can't open file '/Users/sonsang-il/orca/workspaces/ai/pacu-auto/승부예측 프로그램/scripts/own_model.py report': [Errno 2] No such file or directory
+##### fast_learn.py
+# 빠른 학습 신호 (2026-10-28) — 마감 시장을 정답 대용으로
+
+결과를 기다리지 않고 채점한다. '순수가 마감에 더 가까움' 비율이 높고, 갈린 경기의 방향 적중률이 50%를 넘으면 그 구간에서 내 분석이 시장보다 먼저 정보를 잡는다는 신호.
+
+| 구간 | 경기 | 순수→마감 거리 | 오픈→마감 거리 | 순수가 더 가까움 | 갈린 경기(≥4%p) | 방향 적중 |
+|---|---|---|---|---|---|---|
+
+## 갈린 경기 상세 (시장 1순위 기준, %)
+
+| 회차 | 경기 | 순수 | 오픈 | 마감 | 시장 이동 | 순수 쪽? |
+|---|---|---|---|---|---|---|
+저장: /Users/sonsang-il/orca/workspaces/ai/pacu-auto/승부예측 프로그램/회차별분석/빠른학습_2026-10-28.md
+##### bet_hit.py
+| 구분 | 다리 | 적중 | 평균 배당 | 단식 ROI |
+|---|---|---|---|---|
+| 120회 | 22 | 15 (68%) | 1.43 | -2% |
+| 121회 | 11 | 8 (73%) | 1.53 | +12% |
+| 122회 | 5 | 3 (60%) | 1.52 | -14% |
+| 123회 | 12 | 4 (33%) | 1.40 | -56% |
+| 124회 | 4 | 3 (75%) | 1.54 | +14% |
+| 125회 | 4 | 3 (75%) | 1.71 | +28% |
+| 126회 | 8 | 3 (38%) | 1.61 | -40% |
+| 구매한 다리 | 25 | 17 (68%) | 1.45 | -3% |
+| 미구매 추천 | 41 | 22 (54%) | 1.52 | -19% |
+| 구분 | 다리 | 적중 | 평균 배당 | 단식 ROI |
+|---|---|---|---|---|
+| 농구 | 2 | 0 (0%) | 1.33 | -100% |
+| 야구 | 7 | 4 (57%) | 1.47 | -17% |
+| 축구 | 57 | 35 (61%) | 1.50 | -9% |
+| 구분 | 다리 | 적중 | 평균 배당 | 단식 ROI |
+|---|---|---|---|---|
+| 확률 60~65 | 25 | 18 (72%) | 1.47 | +5% |
+| 확률 65~70 | 15 | 7 (47%) | 1.41 | -34% |
+| 확률 70~100 | 6 | 4 (67%) | 1.33 | -10% |
+| 배당 1.2~1.35 | 8 | 5 (62%) | 1.29 | -19% |
+| 배당 1.35~1.5 | 32 | 21 (66%) | 1.43 | -6% |
+| 배당 1.5~9 | 26 | 13 (50%) | 1.64 | -19% |
+
+## 도파민 트랙 (기록 전용·단식·금액 0) — 별도 집계
+**9/28 = 32.1% · 단식 회수 77%** (승격 조건: 100건 또는 회수 110%가 두 회차 연속)
+| 구분 | 다리 | 적중 | 평균 배당 | 단식 ROI |
+|---|---|---|---|---|
+| 124회 | 15 | 3 (20%) | 2.46 | -56% |
+| 125회 | 13 | 6 (46%) | 2.50 | +15% |
+| 역배 | 18 | 6 (33%) | 2.37 | -28% |
+| 무 | 9 | 3 (33%) | 2.75 | -3% |
+| 전반 다리 | 10 | 4 (40%) | 2.38 | -8% |
+
+기준 상향 시뮬레이션(추천 당시 확률 기준):
+- 확률 60%+ 만 추천했다면: 29/46 = 63%
+- 확률 65%+ 만 추천했다면: 11/21 = 52%
+- 확률 70%+ 만 추천했다면: 4/6 = 67%
+- 확률 75%+ 만 추천했다면: 2/3 = 67%
+##### calibrate.py fit
+/Applications/Xcode.app/Contents/Developer/usr/bin/python3: can't open file '/Users/sonsang-il/orca/workspaces/ai/pacu-auto/승부예측 프로그램/scripts/calibrate.py fit': [Errno 2] No such file or directory
+##### hit_model.py fit
+/Applications/Xcode.app/Contents/Developer/usr/bin/python3: can't open file '/Users/sonsang-il/orca/workspaces/ai/pacu-auto/승부예측 프로그램/scripts/hit_model.py fit': [Errno 2] No such file or directory
+##### baseline_fill.py --all
+/Applications/Xcode.app/Contents/Developer/usr/bin/python3: can't open file '/Users/sonsang-il/orca/workspaces/ai/pacu-auto/승부예측 프로그램/scripts/baseline_fill.py --all': [Errno 2] No such file or directory
+##### factor_fit.py report
+/Applications/Xcode.app/Contents/Developer/usr/bin/python3: can't open file '/Users/sonsang-il/orca/workspaces/ai/pacu-auto/승부예측 프로그램/scripts/factor_fit.py report': [Errno 2] No such file or directory
+##### prior.py report
+/Applications/Xcode.app/Contents/Developer/usr/bin/python3: can't open file '/Users/sonsang-il/orca/workspaces/ai/pacu-auto/승부예측 프로그램/scripts/prior.py report': [Errno 2] No such file or directory
+##### predict_engine.py run
+/Applications/Xcode.app/Contents/Developer/usr/bin/python3: can't open file '/Users/sonsang-il/orca/workspaces/ai/pacu-auto/승부예측 프로그램/scripts/predict_engine.py run': [Errno 2] No such file or directory
+##### model_zoo.py log
+/Applications/Xcode.app/Contents/Developer/usr/bin/python3: can't open file '/Users/sonsang-il/orca/workspaces/ai/pacu-auto/승부예측 프로그램/scripts/model_zoo.py log': [Errno 2] No such file or directory
+##### model_zoo.py fair
+/Applications/Xcode.app/Contents/Developer/usr/bin/python3: can't open file '/Users/sonsang-il/orca/workspaces/ai/pacu-auto/승부예측 프로그램/scripts/model_zoo.py fair': [Errno 2] No such file or directory
+DONE

@@ -260,6 +260,84 @@ def overconf_check(r, severe, minor):
         minor.append(f"과신 +{gap:.1f}%p (내 {t} {mine[t]:.1f} vs 시장 {m:.1f})")
 
 
+ROSTER_KW = re.compile(r"(합류|영입|이적|트레이드|사인|계약|acquir|sign|trade|join)", re.I)
+
+
+def roster_check(r, e, minor):
+    """농구(직전시즌 레이팅 기준선)에서 수집가가 '로스터변화·못찾음·엇갈림'에 스타급 합류를 올렸는데
+    분석가가 그 팀의 로스터 순보정을 0 으로 둔 채 방향을 확정하는 것을 잡는다.
+    (2026-10-28, 127·128회 988 LA 레이커스-포틀랜드: 수집가가 'Lillard·Morant 백코트'를 적고 합류 경위를
+     못찾음에 올렸는데 분석가는 '--adj-away 0 (확인된 이적·영입 없음)' 으로 61% 를 적었다 → 129:136 패.
+     반사실: Randle IN 선례 척도 +1.7 이면 56.1, 상한 +3 이면 52.5 로 G1 기권 구간.)
+    직전시즌 레이팅은 '그 시즌 로스터'의 값이라, 선발급 합류를 0 으로 두면 기준선 자체가 다른 팀을 가리킨다.
+    걸리면 경미(B) — 수집 JSON 의 해당 문장을 그대로 보여 주어 분석가가 확인·보정하거나 기권하게 한다."""
+    if r.get("종목") != "농구":
+        return
+    base = json.dumps(e.get("기준선") or {}, ensure_ascii=False)
+    zero = {}
+    for side, key in (("홈", "adj-home"), ("원정", "adj-away")):
+        m = re.search(r"--?" + key + r"[ =]+(-?\d+(?:\.\d+)?)", base)
+        if m and abs(float(m.group(1))) < 1e-9:
+            zero[side] = True
+    if not zero:
+        return
+    sujip = os.path.join(ROOT, "data", "수집")
+    if not os.path.isdir(sujip):
+        return
+    # 팀 식별 — 한글명·영문명(team_names.json)·영문 약어(도시 3글자 / 첫 글자 조합) 로 '홈/원정' 을 가른다.
+    try:
+        tn = json.load(open(os.path.join(ROOT, "data", "team_names.json"), encoding="utf-8"))
+    except Exception:
+        tn = {}
+    def keys(side):
+        ko = r[side]
+        en = tn.get(ko, "")
+        ks = {ko, ko.split()[0]}
+        if en:
+            w = en.split()
+            ks |= {en, w[0], w[0][:3].upper(), "".join(x[0] for x in w).upper(), (w[0][0] + w[1][:2]).upper() if len(w) > 1 else ""}
+            if en.startswith("Los Angeles"):
+                ks |= {"LA" + w[2][0].upper() if len(w) > 2 else "LA"}
+        return {k for k in ks if len(k) >= 2}
+    kh, ka = keys("홈"), keys("원정")
+    def side_of(text):
+        h = any(k in text for k in kh); a_ = any(k in text for k in ka)
+        if h and not a_:
+            return "홈"
+        if a_ and not h:
+            return "원정"
+        return None
+    pref = f"{r['회차']}_{r['번호']}_"
+    hits = []
+    for fn in sorted(os.listdir(sujip)):
+        if not fn.startswith(pref) or not fn.endswith(".json"):
+            continue
+        try:
+            d = json.load(open(os.path.join(sujip, fn), encoding="utf-8"))
+        except Exception:
+            continue
+        items = d if isinstance(d, list) else [d]
+        for it in items:
+            if not isinstance(it, dict):
+                continue
+            for k in ("못찾음", "엇갈림", "로스터변화", "로스터거래"):
+                v = it.get(k)
+                if not v:
+                    continue
+                for x in (v if isinstance(v, list) else [v]):
+                    t = json.dumps(x, ensure_ascii=False) if not isinstance(x, str) else x
+                    if not ROSTER_KW.search(t):
+                        continue
+                    side = side_of(str(x.get("팀", ""))) if isinstance(x, dict) else None
+                    if side is None:
+                        side = side_of(t)
+                    if side in zero:
+                        hits.append(f"{k}({side}): {t[:90]}")
+    if hits:
+        minor.append("로스터 순보정 0 인데 수집가가 합류·영입을 올렸다(직전시즌 레이팅은 그 시즌 로스터 값 — "
+                     "확인해 선례 척도로 보정하거나 G1 기권): " + " / ".join(hits[:3]))
+
+
 def note_checks(r, severe, minor):
     news_check(r, severe)
     overconf_check(r, severe, minor)
@@ -617,6 +695,7 @@ def cmd_add(a):
         severe, minor = [], []
         note_checks(r, severe, minor)
         evidence_checks(r, e, severe, minor)
+        roster_check(r, e, minor)
         g = grade_of(severe, minor)
         r["정합성"] = g
         # 2026-10-22(125회 심층회고): 근거 JSON 이 있으면 그 경기는 정의상 심층 분석이다.

@@ -99,8 +99,8 @@ def main() -> None:
     ap.add_argument("--away-drtg", type=float, required=True)
     ap.add_argument("--away-pace", type=float, required=True)
     ap.add_argument("--games", type=int, default=0, help="두 팀 중 적은 쪽의 이번 시즌 경기 수")
-    ap.add_argument("--adj-home", type=float, default=0.0, help="홈 순 레이팅 보정 %p (상한 ±3)")
-    ap.add_argument("--adj-away", type=float, default=0.0, help="원정 순 레이팅 보정 %p (상한 ±3)")
+    ap.add_argument("--adj-home", type=float, default=0.0, help="홈 순 레이팅 보정 %%p (상한 ±3)")
+    ap.add_argument("--adj-away", type=float, default=0.0, help="원정 순 레이팅 보정 %%p (상한 ±3)")
     ap.add_argument("--spread", type=float, default=None, help="홈 기준 소수핸디캡 (예: -1.5)")
     ap.add_argument("--total", type=float, default=None, help="언더오버 기준선")
     ap.add_argument("--lg-rtg", type=float, default=None,

@@ -3,16 +3,12 @@ import { useEffect, useState } from 'react';
 import { Animated, Easing, StyleSheet, View } from 'react-native';
 import Svg, { Circle, G, Path, Rect } from 'react-native-svg';
 
+import { CapsuleArt } from '@/constants/capsule-art';
 import { Colors } from '@/constants/theme';
 
 export const OPEN_DURATION_MS = 1000;
 
-/** 생성 이미지(1024²) 안에서 계란이 차지하는 범위. 가로 209~812, 세로 74~949, 이음새 561~592. */
-const EGG_LEFT = 209 / 1024;
-const EGG_WIDTH = (812 - 209) / 1024;
-const EGG_TOP = 74 / 1024;
-const EGG_HEIGHT = (949 - 74) / 1024;
-const SEAM = 576 / 1024;
+const { image: EGG, left: EGG_LEFT, width: EGG_WIDTH, top: EGG_TOP, height: EGG_HEIGHT, seam: SEAM } = CapsuleArt;
 
 /** 상자 가로 1에 대한 세로 비율. 계란 비율(1.45)보다 살짝 여유를 둔다. */
 export const CAPSULE_ASPECT = 1.42;
@@ -24,8 +20,6 @@ type Props = {
   open: boolean;
   onOpened?: () => void;
 };
-
-const EGG = require('../../assets/capsule/egg-closed.png');
 
 /**
  * 계란형 타임캡슐. 한 장의 이미지를 이음새에서 위·아래로 나눠, 뚜껑(위)만 들어 올리고

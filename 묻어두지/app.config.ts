@@ -4,6 +4,8 @@ import type { ExpoConfig } from 'expo/config';
 // They are not secrets but they stay out of git: copy .env.example to .env.
 const googleMapsIos = process.env.EXPO_PUBLIC_GOOGLE_MAPS_IOS_KEY;
 const googleMapsAndroid = process.env.EXPO_PUBLIC_GOOGLE_MAPS_ANDROID_KEY;
+// 시안(EXPO_PUBLIC_THEME): sticker(A, 기본) | analog90(B). 스플래시·아이콘 바탕색만 여기서 맞춘다.
+const cream = process.env.EXPO_PUBLIC_THEME === 'analog90' ? '#EDE6D3' : '#FFF6E5';
 
 const config: ExpoConfig = {
   name: '묻어두지',
@@ -35,7 +37,7 @@ const config: ExpoConfig = {
   android: {
     package: 'com.mudeodooji.app',
     adaptiveIcon: {
-      backgroundColor: '#FFF6E5',
+      backgroundColor: cream,
       foregroundImage: './assets/images/android-icon-foreground.png',
       backgroundImage: './assets/images/android-icon-background.png',
       monochromeImage: './assets/images/android-icon-monochrome.png',
@@ -49,7 +51,7 @@ const config: ExpoConfig = {
     'expo-router',
     'expo-dev-client',
     'expo-apple-authentication',
-    ['expo-splash-screen', { backgroundColor: '#FFF6E5', image: './assets/images/splash-icon.png', imageWidth: 76 }],
+    ['expo-splash-screen', { backgroundColor: cream, image: './assets/images/splash-icon.png', imageWidth: 76 }],
     [
       'expo-location',
       {

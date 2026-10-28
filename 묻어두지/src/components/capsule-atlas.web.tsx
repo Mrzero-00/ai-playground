@@ -1,3 +1,4 @@
+import type React from 'react';
 import type * as MapLibre from 'maplibre-gl';
 import { version as mapVersion } from 'maplibre-gl/package.json';
 import { useEffect, useId, useRef, useState } from 'react';
@@ -12,6 +13,7 @@ import type { CapsuleSummary } from '@/shared/contracts';
 
 import 'maplibre-gl/dist/maplibre-gl.css';
 import './capsule-atlas.css';
+import { Colors, THEME } from '@/constants/theme';
 
 function FloatingCapsule({ capsule, now, element }: { capsule: CapsuleSummary; now: number; element: HTMLElement }) {
   const countdown = capsuleCountdown(capsule, now);
@@ -30,6 +32,26 @@ function FloatingCapsule({ capsule, now, element }: { capsule: CapsuleSummary; n
     </div>
   );
 }
+
+
+/** 시안 팔레트를 CSS 변수로 넘긴다(capsule-atlas.css 가 var(--dooji-*) 로 읽는다). */
+const ATLAS_VARS = {
+  '--dooji-ink': Colors.ink,
+  '--dooji-ink-20': `${Colors.ink}33`,
+  '--dooji-ink-13': `${Colors.ink}22`,
+  '--dooji-ink-25': `${Colors.ink}40`,
+  '--dooji-white': Colors.white,
+  '--dooji-white-75': `${Colors.white}bf`,
+  '--dooji-white-94': `${Colors.white}ef`,
+  '--dooji-muted': Colors.muted,
+  '--dooji-yellow': Colors.yellow,
+  '--dooji-yellow-40': `${Colors.yellow}66`,
+  '--dooji-cyan-ink': Colors.cyanInk,
+  '--dooji-mint': Colors.mint,
+  '--dooji-water': THEME === 'analog90' ? '#BFD6D2' : '#CFEFF8',
+  '--dooji-haze-a': `${Colors.cream}cc`,
+  '--dooji-haze-b': `${Colors.cream}38`,
+} as React.CSSProperties;
 
 export function CapsuleAtlas({ capsules, fix, center, recenterKey, bottomInset, active, now, perspective, onSelect, pin, onPick }: CapsuleAtlasProps) {
   const host = useRef<HTMLDivElement>(null);
@@ -163,7 +185,7 @@ export function CapsuleAtlas({ capsules, fix, center, recenterKey, bottomInset, 
     view.touchZoomRotate.disableRotation(); view.keyboard.disableRotation();
   }, [active, ready]);
   return (
-    <div className="dooji-atlas" aria-label="구덩이 지도" inert={!active} data-paused={!active || hidden} data-perspective={perspective} data-picking={!!onPick}>
+    <div className="dooji-atlas" aria-label="구덩이 지도" inert={!active} data-paused={!active || hidden} data-perspective={perspective} data-picking={!!onPick} style={ATLAS_VARS}>
       <div ref={host} className="dooji-map-surface" data-ready={ready} />
       <div className="dooji-map-distance-haze" aria-hidden="true" />
       {markerRoots.map(({ capsule, element }) => createPortal(<FloatingCapsule capsule={capsule} now={now} element={element} />, element, capsule.id))}

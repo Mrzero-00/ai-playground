@@ -5,6 +5,7 @@ import { Platform, ScrollView, Share, StyleSheet, Text, TextInput, View } from '
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 import { Icon } from '@/components/icons';
+import { CapsuleArt } from '@/constants/capsule-art';
 import { PlacePicker } from '@/components/place-picker';
 import { defaultOpenAt, OpenAtPicker, openAtToDate, type OpenAtValue } from '@/components/open-at-picker';
 import { Body, Button, Card, Chip, Content, NavBar, Page, Tag, Title } from '@/components/ui';
@@ -84,7 +85,7 @@ export default function CreateCapsuleScreen() {
         <ScrollView contentContainerStyle={styles.scroll} keyboardShouldPersistTaps="handled" showsVerticalScrollIndicator={false}>
           <Content style={styles.content}>
             <View style={styles.intro}>
-              <Image source={require('../../assets/capsule/egg-closed.png')} style={styles.egg} contentFit="contain" accessibilityLabel="타임캡슐" />
+              <Image source={CapsuleArt.image} style={styles.egg} contentFit="contain" accessibilityLabel="타임캡슐" />
               <View style={styles.introCopy}>
                 <Title>무엇을 묻어둘까요?</Title>
                 <Body>이름, 넣는 기간, 여는 날, 혼자인지 함께인지, 자리를 정해요.</Body>

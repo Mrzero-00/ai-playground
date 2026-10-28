@@ -9,7 +9,7 @@
 
 <!-- INPUTS:START -->
 ## 입력(자동 수집 2026-10-28) — xG·휴식일·라인업·환경(이동거리·고도·날씨)은 이 숫자를 쓴다
-- 10-28 22:45 vs PFC나사프: 휴식 ?(ESPN 미제공 리그 — 직접 확인) · 직전 - · xG - · 구장 마르카지 경기장 · 이동 ?(구장 미확인) · 고도 384m · 11.3℃ 강수3.4mm(53%) 바람7.5km/h · ⚠ 비 3.4mm(53%)
+- 10-28 22:45 vs PFC나사프: 휴식 13.9일?(국내리그 ESPN 미제공 — 직접 확인) · 직전 10-15 홈 vs Al-Khaldiya SC 3-1 승 [afc.cup] · xG - · 직전 선발 4-1-4-1 Saud Al Hoshan, Arsene Zola Kiaku, Oumar Gonzalez, El Mehdi Barrahma, Meshari Ghanam, Mohammad Frieh, Ali Pour Dara, Faisal Zayed Al-Harbi, Amoory, Mohammad Daham, Taha Yassine Khenissi · 구장 마르카지 경기장 · 이동 ?(구장 미확인) · 고도 384m · 10.3℃ 강수3.3mm(48%) 바람11.0km/h · ⚠ 비 3.3mm(48%)
 <!-- INPUTS:END -->
 
 ## 성향

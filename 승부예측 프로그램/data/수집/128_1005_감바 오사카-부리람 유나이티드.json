@@ -1,0 +1,36 @@
+{
+ "번호":"1005","홈":"감바 오사카","원정":"부리람 유나이티드","수집시각":"2026-10-28 18:55",
+ "대회":"AFC 챔피언스리그 엘리트 리그스테이지 MD3 (단판, 스이타 시티 풋볼 스타디움, 19:00 KST)",
+ "결장":[
+  {"팀":"감바 오사카","선수":"Kenta Miura(DF)","포지션":"DF","이번시즌_선발/경기":"불명","득점·도움":"불명","사유":"우측 무릎 연골 손상(7/24~ 장기)","상태":"의심(10/28 신규 기사로 재확인 못함, 10/13 팀노트 조사)","복귀예정":"불명","대체선수":"불명","출처":["팀노트 감바 오사카.md 2026-10-13 조사(goal.com/jleague.jp)"],"날짜":"2026-10-13"},
+  {"팀":"감바 오사카","선수":"Kanji Okunuki(MF)","포지션":"MF","이번시즌_선발/경기":"불명","득점·도움":"불명","사유":"좌측 족부 종자골 부상 장기","상태":"의심(재확인 못함)","복귀예정":"불명","대체선수":"불명","출처":["팀노트 2026-10-13 조사"],"날짜":"2026-10-13"}
+ ],
+ "라인업":{
+  "홈":{"발표여부":"확인 못함(킥오프 직전 발표분 미발견; footballchannel·gekisaka·gamba-osaka.net·Google News RSS 모두 스타메인 기사 미노출)","선발XI":null,"포메이션":null,"직전경기 대비 교체":null,"참고_직전 ACLE(10/13 @Newcastle Jets 3-1) 선발(팀노트 INPUTS, ESPN)":"4-2-3-1 Jun Ichimori, Ryo Hatsuse, Shinnosuke Nakatani, Shogo Sasaki, Soya Fujiwara, Ryotaro Meshino, Juanpe, Shuto Abe, Welton Felipe, Eli Adams, Yusei Toshida","출처":"https://www.gamba-osaka.net/news/index/no/21161/ (프리뷰에 선발 없음)","날짜":"2026-10-27"},
+  "원정":{"발표여부":"확인 못함","선발XI":null,"포메이션":null,"직전경기 대비 교체":null,"참고_직전 ACLE(10/13 vs Beijing Guoan 0-1) 선발(팀노트 INPUTS)":"4-2-3-1 Neil Etheridge, Curtis Good, Caju, Nathan Cardoso, Eduardo dos Santos, Antonio Moya, Darlan Mendes, Kenneth Dougall, Kingsley Schindler, Goran Causic, Bissoli","출처":"팀노트 INPUTS","날짜":"2026-10-28"}
+ },
+ "최근경기":[
+  {"팀":"감바 오사카","날짜":"2026-10-09","상대":"Kashima Antlers","장소":"원정","스코어":"0-2 패","비고":"J1 (ESPN/팀노트 FACTS)"},
+  {"팀":"감바 오사카","날짜":"2026-10-13","상대":"Newcastle Jets","장소":"원정","스코어":"3-1 승","비고":"ACLE MD2"},
+  {"팀":"감바 오사카","날짜":"2026-10-17","상대":"Shimizu S-Pulse","장소":"원정","스코어":"2-2","비고":"J1"},
+  {"팀":"감바 오사카","날짜":"2026-10-21","상대":"Avispa Fukuoka","장소":"원정","스코어":"2-1 승","비고":"J1 (ESPN 표기 Fukuoka 1-2 Gamba)"},
+  {"팀":"감바 오사카","날짜":"2026-10-24","상대":"Kyoto Sanga","장소":"홈","스코어":"2-2","비고":"J1 R12, 종료 직전 실점·수적 열세 경기(gamba-osaka.net 프리뷰 2026-10-27)"},
+  {"팀":"감바 오사카","날짜":"2026-09-15","상대":"Cong An Ha Noi","장소":"홈","스코어":"4-1 승","비고":"ACLE MD1"},
+  {"팀":"부리람 유나이티드","날짜":"2026-09-15","상대":"Johor Darul Ta'zim","장소":"원정","스코어":"1-1","비고":"ACLE MD1"},
+  {"팀":"부리람 유나이티드","날짜":"2026-10-13","상대":"Beijing Guoan","장소":"홈","스코어":"0-1 패","비고":"ACLE MD2, 찬스는 많이 만들었으나 패배(gamba-osaka.net 프리뷰). 태국 리그 최근 경기는 못찾음"}
+ ],
+ "대회전적":{"감바":"MD1 4-1 CAHN(H), MD2 3-1 @Newcastle Jets","부리람":"MD1 1-1 @Johor, MD2 0-1 Beijing Guoan(H)","출처":"https://www.footballchannel.jp/2026/10/28/post1006392/ (ACLE 일정·결과, 2026-10-28)"},
+ "순위":{"홈":"ACLE EAST 2위권 2전2승 득7실2 승점6 / J1 15위(12경기 2승5무5패 승점11, 팀노트 FACTS)","원정":"ACLE 12위 2전 1무1패 득1실2 승점1(jleague.jp standings 2026-10-28); 태국 리그 12위 2경기 승점1(팀노트 FACTS, 위키, 상충 가능)","출처":"https://www.jleague.jp/en/acle/standings/","날짜":"2026-10-28"},
+ "감독":{"홈":"Tomokazu Myojin(明神智和)","원정":"Mário Silva(팀노트 FACTS: Mark Jackson→Emerson→Mário Silva, 9/5~9/8 교체)","변동":"부리람 9월 초 감독 교체 2회(팀노트 위키 기반, 개별 기사 미확인)","출처":"https://www.gamba-osaka.net/news/index/no/21161/ ; 팀노트","날짜":"2026-10-27"},
+ "일정·동기·기타":[
+  {"내용":"묘진 감독: 부리람 경계 대상으로 FW Guilherme Bissoli(비솔리)·MF Paulinho 지목, 베이징전 선발 중 9명이 외국인","출처":"https://www.gamba-osaka.net/news/index/no/21161/","날짜":"2026-10-27"},
+  {"내용":"감바는 승리 시 조 1위 가능. 3일 뒤 J1 마치다 원정(리그 선두). 이치모리 GK '부리람 개인기량 높아 공격 시 리스크 관리 필요'","출처":"https://www.gamba-osaka.net/news/index/no/21161/","날짜":"2026-10-27"},
+  {"내용":"신입 MF Juanpe(후안페)가 부리람전에서 ACLE 데뷔 가능성, '컨디션 완성' (스포니치; 제목만 확인, 본문 미열람)","출처":"Google News RSS 경유 Yahoo!ニュース/livedoor 2026-10-27","날짜":"2026-10-27"},
+  {"내용":"Tsuchinobu(FW) 교토전 미출전, ACLE 3경기 연속 득점 의욕","출처":"https://www.gamba-osaka.net/news/index/no/21161/","날짜":"2026-10-27"},
+  {"내용":"감바-부리람 8월 전략적 파트너십 체결(아카데미 협력)","출처":"https://www.gamba-osaka.net/news/index/no/20648/","날짜":"2026-08-05"},
+  {"내용":"부리람은 직전 두 시즌 ACLE 8강 진출","출처":"https://www.gamba-osaka.net/news/index/no/21161/","날짜":"2026-10-27"}
+ ],
+ "엇갈림":["127회 파일은 감바 10/21 'Fukuoka전 2-1 승' 표기, ESPN은 'Fukuoka 1-2 Gamba'로 동일 결과(원정). 10/24 교토전 2-2는 127 파일에 없음","127 파일의 'Uekanaka 9/7 부상'은 이번 수집에서 재확인 못함","127 파일은 ACLE 감바 순위 2위/풋볼채널 MD별 스코어와 일치"],
+ "못찾음":["감바·부리람 확정 선발 XI(18:30~18:55 시점 기사 미노출)","부리람 현지(태국어) 매체의 2026-10 결장·라인업 기사(Sanook, Thairath, Khaosod 검색 시 2015 기사만 노출)","감바·부리람 신규 결장 확정 뉴스","Shuto Abe, Welton, Usami 등 개별 결장 여부"],
+ "뉴스없음":{"홈":"검색처: gamba-osaka.net 프리뷰(10/27), jleague.jp 프리뷰(10/26), Google News RSS, footballchannel → 신규 결장 확정 뉴스 없음(프리뷰는 부상 언급 없음)","원정":"검색처: 태국어 WebSearch(Sanook/ThaiPost/Khaosod), 일본 프리뷰 → 2026-10 부리람 결장 뉴스 못 찾음(확인 시도했으나 결과 없음)"}
+}

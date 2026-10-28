@@ -48,3 +48,4 @@ public/maplibre/
 
 # local check output (screenshots, logs)
 .build/
+dist-b/

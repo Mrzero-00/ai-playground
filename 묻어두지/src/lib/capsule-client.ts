@@ -11,6 +11,9 @@ import type {
   CreateCapsuleInput,
   ItemResponse,
   JoinResponse,
+  LoginInput,
+  LoginResponse,
+  MeResponse,
   SessionResponse,
   UpdateItemInput,
 } from '@/shared/capsule-api';
@@ -108,4 +111,7 @@ export const capsuleClient = {
   open: (id: string) => authenticated<CapsuleResponse>('POST', path(id, '/open'), {}),
   plant: (id: string, location: PlantedLocation) => authenticated<CapsuleResponse>('POST', path(id, '/plant'), { location }),
   setDisplayName: (displayName: string) => authenticated<{ displayName: string }>('PATCH', '/sessions/me', { displayName }),
+  me: () => authenticated<MeResponse>('GET', '/auth/me'),
+  login: (input: LoginInput) => authenticated<LoginResponse>('POST', '/auth/login', input),
+  logout: () => authenticated<{ ok: boolean }>('POST', '/auth/logout', {}),
 };

@@ -69,9 +69,37 @@ export type ApiErrorCode =
   | 'TOO_EARLY'
   | 'MEDIA_INVALID'
   | 'ORIGIN_NOT_ALLOWED'
+  | 'AUTH_FAILED'
+  | 'PROVIDER_DISABLED'
   | 'INTERNAL_ERROR';
 
 export type ApiErrorBody = { error: { code: ApiErrorCode; message: string } };
 
 export const MEDIA_LIMITS_BYTES = { photo: 8 * 1024 * 1024, voice: 4 * 1024 * 1024, video: 40 * 1024 * 1024 } as const;
 export const MEDIA_URL_TTL_MS = 10 * 60 * 1000;
+
+/* ───────────────────────── 인증 ─────────────────────────
+ * 기기 세션(익명)은 그대로 두고, 소셜 로그인으로 세션을 계정에 묶는다.
+ * - 같은 계정의 모든 세션은 같은 캡슐을 본다(멤버십은 세션 단위로 저장하되, 계정의 세션 집합으로 조회).
+ * - 한 계정의 세션 여러 개가 같은 캡슐에 들어 있으면 응답에서는 멤버 하나(isMe)로 합친다.
+ * - 로그아웃하면 세션은 계정에서 떨어져 새 익명 상태가 된다(이 세션이 익명일 때 만든 캡슐만 보인다).
+ */
+export type AuthProvider = 'google' | 'apple' | 'kakao' | 'dev';
+export type Account = { id: string; provider: AuthProvider; displayName: string; avatarUrl: string | null };
+
+/**
+ * POST /auth/login → 200
+ * - google: { provider:'google', idToken }  서버가 tokeninfo 로 검증, aud ∈ GOOGLE_CLIENT_IDS
+ * - apple:  { provider:'apple', idToken, fullName? }  서버가 Apple JWKS 로 검증, aud ∈ APPLE_CLIENT_IDS
+ * - kakao:  { provider:'kakao', accessToken }  서버가 kapi.kakao.com/v2/user/me 로 확인
+ * - dev:    { provider:'dev', name }  서버 env DEV_LOGIN=1 일 때만. 로컬 테스트 전용
+ */
+export type LoginInput =
+  | { provider: 'google'; idToken: string }
+  | { provider: 'apple'; idToken: string; fullName?: string | null }
+  | { provider: 'kakao'; accessToken: string }
+  | { provider: 'dev'; name: string };
+export type LoginResponse = { account: Account; displayName: string; serverNow: string };
+/** GET /auth/me → { account: Account | null; displayName: string; providers: AuthProvider[] (서버에 설정된 제공자) } */
+export type MeResponse = { account: Account | null; displayName: string; providers: AuthProvider[] };
+/** POST /auth/logout → { ok: true } */

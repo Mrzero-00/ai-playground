@@ -2,7 +2,7 @@ import { createContext, useCallback, useContext, useEffect, useMemo, useState, t
 
 import type { Capsule, CapsuleItem, PlantedLocation } from '@/domain/capsule';
 import { FALLBACK_NAME, profile as profileStorage, type Profile } from '@/lib/profile';
-import type { CreateCapsuleInput } from '@/shared/capsule-api';
+import type { Account, AuthProvider, CreateCapsuleInput, LoginInput } from '@/shared/capsule-api';
 
 import { BackendError, type CapsuleBackend, type ItemPatch, type NewItemInput } from './backend';
 
@@ -17,6 +17,12 @@ type CapsuleStoreValue = {
   /** 기기에 저장된 내 이름·아바타 색. name 이 비어 있으면 아직 안 정한 것. */
   profile: Profile;
   saveProfile: (next: Profile) => Promise<void>;
+  /** 세션에 묶인 계정. null 이면 이 기기만의 익명 세션. */
+  account: Account | null;
+  /** 백엔드가 받아 주는 로그인 제공자. 비어 있으면 로그인 화면을 숨긴다. */
+  providers: AuthProvider[];
+  login: (input: LoginInput) => Promise<Account>;
+  logout: () => Promise<void>;
   refresh: () => Promise<void>;
   getCapsule: (id: string) => Capsule | null;
   createCapsule: (input: CreateCapsuleInput) => Promise<Capsule>;
@@ -45,6 +51,8 @@ export function CapsuleStoreProvider({ children, backend }: { children: ReactNod
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [profile, setProfile] = useState<Profile>({ name: '', tone: 'yellow' });
+  const [account, setAccount] = useState<Account | null>(null);
+  const [providers, setProviders] = useState<AuthProvider[]>([]);
 
   const refresh = useCallback(async () => {
     try {
@@ -65,6 +73,19 @@ export function CapsuleStoreProvider({ children, backend }: { children: ReactNod
         const stored = await profileStorage.load();
         setProfile(stored);
         if (stored.name) await backend.setDisplayName(stored.name).catch(() => {});
+        await backend
+          .account()
+          .then(async (state) => {
+            setAccount(state.account);
+            setProviders(state.providers);
+            // 계정에 이름이 있으면(다른 기기에서 정했으면) 기기 프로필에도 맞춘다.
+            if (state.account && state.displayName && state.displayName !== stored.name) {
+              const next = { ...stored, name: state.displayName };
+              await profileStorage.save(next);
+              setProfile(next);
+            }
+          })
+          .catch(() => {});
         await refresh();
       })();
     }, 0);
@@ -92,6 +113,26 @@ export function CapsuleStoreProvider({ children, backend }: { children: ReactNod
         await profileStorage.save(trimmed);
         setProfile(trimmed);
         await backend.setDisplayName(trimmed.name || FALLBACK_NAME);
+        await refresh();
+      },
+      account,
+      providers,
+      login: async (input) => {
+        const state = await backend.login(input);
+        setAccount(state.account);
+        setProviders(state.providers);
+        if (state.displayName) {
+          const next = { ...profile, name: state.displayName };
+          await profileStorage.save(next);
+          setProfile(next);
+        }
+        await refresh();
+        if (!state.account) throw new BackendError('AUTH_FAILED', '로그인하지 못했어요.');
+        return state.account;
+      },
+      logout: async () => {
+        await backend.logout();
+        setAccount(null);
         await refresh();
       },
       refresh,
@@ -125,7 +166,7 @@ export function CapsuleStoreProvider({ children, backend }: { children: ReactNod
       openCapsule: async (capsuleId) => upsert(await backend.open(capsuleId)),
       plantCapsule: async (capsuleId, location) => upsert(await backend.plant(capsuleId, location)),
     };
-  }, [backend, capsules, loading, error, profile, refresh]);
+  }, [backend, capsules, loading, error, profile, account, providers, refresh]);
 
   return <CapsuleStoreContext.Provider value={value}>{children}</CapsuleStoreContext.Provider>;
 }

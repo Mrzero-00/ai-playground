@@ -27,10 +27,19 @@ import {
   type Member,
   type PlantedLocation,
 } from '../src/domain/capsule';
-import { MEDIA_LIMITS_BYTES, MEDIA_URL_TTL_MS, type ApiErrorBody, type ApiErrorCode } from '../src/shared/capsule-api';
+import {
+  MEDIA_LIMITS_BYTES,
+  MEDIA_URL_TTL_MS,
+  type Account,
+  type ApiErrorBody,
+  type ApiErrorCode,
+  type AuthProvider,
+} from '../src/shared/capsule-api';
+import { AuthError, authConfigFromEnv, createVerifier, enabledProviders, type AuthConfig, type VerifiedIdentity } from './auth';
 import { MediaError, parseMedia, type ParsedMedia } from './media';
 
-const SCHEMA_VERSION = 2;
+/** v2: 1차 타임캡슐 모델. v3: users + sessions.user_id (소셜 로그인), v2 데이터를 그대로 두고 열을 더한다. */
+const SCHEMA_VERSION = 3;
 const SMALL_BODY_BYTES = 16 * 1024;
 /** Item routes carry one Base64 attachment; the largest allowed one is a video. */
 const ITEM_BODY_BYTES = Math.ceil(MEDIA_LIMITS_BYTES.video / 3) * 4 + 64 * 1024;
@@ -41,8 +50,16 @@ const DISPLAY_NAME_MAX = 12;
 const TITLE_MAX = 30;
 const PLACE_LABEL_MAX = 60;
 const ID = '([A-Za-z0-9-]{1,64})';
+const CREDENTIAL_MAX = 8192;
+const PROVIDER_FALLBACK_NAMES: Record<AuthProvider, string> = { google: '구글 사용자', apple: '사과 사용자', kakao: '카카오 사용자', dev: '개발 사용자' };
 
-type SessionRow = { id: string; display_name: string };
+type SessionRow = { id: string; display_name: string; user_id: string | null };
+type UserRow = { id: string; provider: AuthProvider; subject: string; display_name: string; avatar_url: string | null; created_at: string };
+/**
+ * The caller: the device session plus every session id that counts as "me" (principalSessions).
+ * Anonymous → just this session. Logged in → all sessions of the same user.
+ */
+type Viewer = { session: SessionRow; user: UserRow | null; ids: string[]; name: string };
 type CapsuleRow = {
   id: string;
   title: string;
@@ -61,7 +78,9 @@ type CapsuleRow = {
   place_label: string | null;
   planted_at: string | null;
 };
-type MemberRow = { session_id: string; member_id: string; display_name: string; is_host: number };
+type MemberRow = { session_id: string; member_id: string; display_name: string; is_host: number; user_id: string | null; user_name: string | null };
+/** One visible member: member rows whose sessions belong to the same user are collapsed into one. */
+type MemberGroup = { memberId: string; name: string; isHost: boolean; sessionIds: string[] };
 type ItemRow = {
   id: string;
   session_id: string;
@@ -195,6 +214,20 @@ function hashToken(token: string): string {
   return createHash('sha256').update(token).digest('hex');
 }
 
+const marks = (values: readonly unknown[]) => values.map(() => '?').join(', ');
+
+/** Shortens a provider-supplied name to the display-name limit without splitting a code point. */
+function clipName(name: string): string {
+  const chars = Array.from(name.trim());
+  while (chars.join('').length > DISPLAY_NAME_MAX) chars.pop();
+  return chars.join('');
+}
+
+function credential(value: unknown): string {
+  if (typeof value !== 'string' || !value.trim() || value.length > CREDENTIAL_MAX) invalid('로그인 토큰이 필요해요.');
+  return value.trim();
+}
+
 function parseOrigins(value: string | undefined): string[] {
   return (value ?? '').split(',').map((origin) => origin.trim().replace(/\/+$/, '')).filter(Boolean);
 }
@@ -207,6 +240,10 @@ export type CapsuleServerOptions = {
   corsOrigins?: string[];
   /** HMAC key for media URLs. Defaults to env MEDIA_SIGNING_SECRET, else random per process. */
   mediaSigningSecret?: string;
+  /** Outbound HTTP to Google / Apple / Kakao. Defaults to global fetch. */
+  fetchImpl?: typeof fetch;
+  /** Login providers. Each field defaults to env (GOOGLE_CLIENT_IDS, APPLE_CLIENT_IDS, KAKAO_ENABLED=1, DEV_LOGIN=1). */
+  auth?: Partial<AuthConfig>;
 };
 
 export function createCapsuleServer({
@@ -215,7 +252,12 @@ export function createCapsuleServer({
   onError = console.error,
   corsOrigins = parseOrigins(process.env.CORS_ORIGINS),
   mediaSigningSecret = process.env.MEDIA_SIGNING_SECRET || randomBytes(32).toString('hex'),
+  fetchImpl = globalThis.fetch,
+  auth = {},
 }: CapsuleServerOptions) {
+  const authConfig: AuthConfig = { ...authConfigFromEnv(), ...auth };
+  const providers = enabledProviders(authConfig);
+  const verifier = createVerifier(authConfig, fetchImpl, now);
   if (databasePath !== ':memory:') mkdirSync(dirname(databasePath), { recursive: true, mode: 0o700 });
   const database = new DatabaseSync(databasePath);
   if (databasePath !== ':memory:') chmodSync(databasePath, 0o600);
@@ -224,7 +266,7 @@ export function createCapsuleServer({
   try {
     database.exec('PRAGMA journal_mode = DELETE; PRAGMA synchronous = FULL;');
     const { user_version: version } = database.prepare('PRAGMA user_version').get() as { user_version: number };
-    if (version < SCHEMA_VERSION) {
+    if (version < 2) {
       // The pre-v2 PoC stored one letter per "pit" with groups and attendance. That data model
       // cannot be mapped onto member-owned items, so local PoC tables are dropped.
       database.exec(`
@@ -240,11 +282,21 @@ export function createCapsuleServer({
     }
     database.exec(`
       PRAGMA foreign_keys = ON;
+      CREATE TABLE IF NOT EXISTS users (
+        id TEXT PRIMARY KEY,
+        provider TEXT NOT NULL,
+        subject TEXT NOT NULL,
+        display_name TEXT NOT NULL,
+        avatar_url TEXT,
+        created_at TEXT NOT NULL,
+        UNIQUE (provider, subject)
+      );
       CREATE TABLE IF NOT EXISTS sessions (
         id TEXT PRIMARY KEY,
         token_hash TEXT NOT NULL UNIQUE,
         display_name TEXT NOT NULL,
-        created_at TEXT NOT NULL
+        created_at TEXT NOT NULL,
+        user_id TEXT REFERENCES users(id)
       );
       CREATE TABLE IF NOT EXISTS capsules (
         id TEXT PRIMARY KEY,
@@ -287,6 +339,14 @@ export function createCapsuleServer({
         media_bytes INTEGER
       );
       CREATE INDEX IF NOT EXISTS items_capsule_session ON items(capsule_id, session_id);
+    `);
+    // v2 → v3: keep every capsule, just attach sessions to (optional) accounts.
+    const sessionColumns = database.prepare('PRAGMA table_info(sessions)').all() as { name: string }[];
+    if (!sessionColumns.some((column) => column.name === 'user_id')) {
+      database.exec('ALTER TABLE sessions ADD COLUMN user_id TEXT REFERENCES users(id)');
+    }
+    database.exec(`
+      CREATE INDEX IF NOT EXISTS sessions_user ON sessions(user_id);
       PRAGMA user_version = ${SCHEMA_VERSION};
     `);
   } catch (error) {
@@ -313,23 +373,73 @@ export function createCapsuleServer({
     if (!authorization || !/^Bearer [A-Za-z0-9_-]{43}$/.test(authorization)) {
       throw new ApiError(401, 'UNAUTHORIZED', '기기 인증이 필요해요. 앱을 다시 열어 주세요.');
     }
-    const session = database.prepare('SELECT id, display_name FROM sessions WHERE token_hash = ?')
+    const session = database.prepare('SELECT id, display_name, user_id FROM sessions WHERE token_hash = ?')
       .get(hashToken(authorization.slice(7))) as SessionRow | undefined;
     if (!session) throw new ApiError(401, 'UNAUTHORIZED', '기기 인증이 만료됐거나 올바르지 않아요. 앱을 다시 열어 주세요.');
     return session;
   }
 
+  const userRow = (id: string) => database.prepare('SELECT * FROM users WHERE id = ?').get(id) as UserRow | undefined;
+  const sessionsOfUser = (userId: string) => (database.prepare('SELECT id FROM sessions WHERE user_id = ? ORDER BY created_at, rowid')
+    .all(userId) as { id: string }[]).map((row) => row.id);
+
+  /** Every session id that counts as the same person as `sessionId`: its user's sessions when logged in, else itself. */
+  function principalSessions(sessionId: string): string[] {
+    const row = database.prepare('SELECT user_id FROM sessions WHERE id = ?').get(sessionId) as { user_id: string | null } | undefined;
+    return row?.user_id ? sessionsOfUser(row.user_id) : [sessionId];
+  }
+
+  function viewerOf(session: SessionRow): Viewer {
+    const user = session.user_id ? userRow(session.user_id) ?? null : null;
+    return { session, user, ids: user ? sessionsOfUser(user.id) : [session.id], name: user?.display_name ?? session.display_name };
+  }
+
+  const accountOf = (user: UserRow): Account => ({ id: user.id, provider: user.provider, displayName: user.display_name, avatarUrl: user.avatar_url });
+
   const capsuleRow = (id: string) => database.prepare('SELECT * FROM capsules WHERE id = ?').get(id) as CapsuleRow | undefined;
   const membersOf = (capsuleId: string) => database.prepare(
-    'SELECT session_id, member_id, display_name, is_host FROM members WHERE capsule_id = ? ORDER BY joined_at, rowid',
+    `SELECT members.session_id, members.member_id, members.display_name, members.is_host, sessions.user_id, users.display_name AS user_name
+     FROM members JOIN sessions ON sessions.id = members.session_id LEFT JOIN users ON users.id = sessions.user_id
+     WHERE members.capsule_id = ? ORDER BY members.joined_at, members.rowid`,
   ).all(capsuleId) as MemberRow[];
+
+  /**
+   * Visible members of a capsule. Rows whose sessions share a user collapse into one member whose public id is the
+   * user's earliest row (stable across devices, and URLs signed before login keep working).
+   */
+  function groupsOf(capsuleId: string): MemberGroup[] {
+    const groups = new Map<string, MemberGroup>();
+    for (const member of membersOf(capsuleId)) {
+      const key = member.user_id ? `user:${member.user_id}` : `session:${member.session_id}`;
+      const group = groups.get(key);
+      if (group) {
+        group.sessionIds.push(member.session_id);
+        group.isHost ||= member.is_host === 1;
+      } else {
+        groups.set(key, {
+          memberId: member.member_id,
+          name: member.user_name ?? member.display_name,
+          isHost: member.is_host === 1,
+          sessionIds: [member.session_id],
+        });
+      }
+    }
+    return [...groups.values()];
+  }
+
+  /** The caller's earliest member row in the capsule — new items are stored under it so they follow the member. */
+  function anchorSession(capsuleId: string, ids: string[]): string | undefined {
+    const row = database.prepare(`SELECT session_id FROM members WHERE capsule_id = ? AND session_id IN (${marks(ids)}) ORDER BY joined_at, rowid LIMIT 1`)
+      .get(capsuleId, ...ids) as { session_id: string } | undefined;
+    return row?.session_id;
+  }
   const itemsOf = (capsuleId: string) => database.prepare(
     `SELECT id, session_id, kind, created_at, text, duration_ms, media_mime, media_bytes
      FROM items WHERE capsule_id = ? ORDER BY created_at, rowid`,
   ).all(capsuleId) as ItemRow[];
-  const itemCount = (capsuleId: string, sessionId: string) => (database.prepare(
-    'SELECT COUNT(*) AS count FROM items WHERE capsule_id = ? AND session_id = ?',
-  ).get(capsuleId, sessionId) as { count: number }).count;
+  const itemCount = (capsuleId: string, ids: string[]) => (database.prepare(
+    `SELECT COUNT(*) AS count FROM items WHERE capsule_id = ? AND session_id IN (${marks(ids)})`,
+  ).get(capsuleId, ...ids) as { count: number }).count;
 
   /** Item counts only — enough for canSeal / autoSealReason without touching contents. */
   function judgeable(row: CapsuleRow) {
@@ -338,13 +448,13 @@ export function createCapsuleServer({
       status: row.status,
       mode: row.mode,
       deadlineAt: row.deadline_at,
-      members: membersOf(row.id).map((member): Member => ({
-        id: member.member_id,
-        name: member.display_name,
+      members: groupsOf(row.id).map((group): Member => ({
+        id: group.memberId,
+        name: group.name,
         isMe: false,
-        isHost: member.is_host === 1,
+        isHost: group.isHost,
         items: items
-          .filter((item) => item.session_id === member.session_id)
+          .filter((item) => group.sessionIds.includes(item.session_id))
           .map((item) => ({ id: item.id, kind: item.kind, createdAt: item.created_at })),
       })),
     };
@@ -359,10 +469,10 @@ export function createCapsuleServer({
     return { ...row, status: 'sealed', sealed_at: sealedAt };
   }
 
-  /** Loads a capsule the caller belongs to (404 otherwise) and settles it. */
-  function memberCapsule(id: string, sessionId: string): CapsuleRow {
+  /** Loads a capsule the caller (any of their sessions) belongs to (404 otherwise) and settles it. */
+  function memberCapsule(id: string, viewer: Viewer): CapsuleRow {
     const row = capsuleRow(id);
-    if (!row || !database.prepare('SELECT 1 FROM members WHERE capsule_id = ? AND session_id = ?').get(id, sessionId)) {
+    if (!row || !anchorSession(id, viewer.ids)) {
       throw new ApiError(404, 'NOT_FOUND', '캡슐을 찾을 수 없어요.');
     }
     return settle(row);
@@ -381,20 +491,20 @@ export function createCapsuleServer({
   /** Contract visibility: own items while collecting, nobody's while sealed, everyone's once opened. */
   const contentVisible = (status: CapsuleStatus, isOwn: boolean) => status === 'opened' || (status === 'collecting' && isOwn);
 
-  function serializeItem(row: CapsuleRow, item: ItemRow, viewerSessionId: string, viewerMemberId: string | null): CapsuleItem {
+  function serializeItem(row: CapsuleRow, item: ItemRow, viewerIds: string[], viewerMemberId: string | null): CapsuleItem {
     const result: CapsuleItem = { id: item.id, kind: item.kind, createdAt: item.created_at };
     if (item.duration_ms !== null) result.durationMs = item.duration_ms;
-    if (!contentVisible(row.status, item.session_id === viewerSessionId)) return result;
+    if (!contentVisible(row.status, viewerIds.includes(item.session_id))) return result;
     if (item.text !== null) result.text = item.text;
     if (item.media_mime !== null && viewerMemberId) result.uri = mediaPath(row.id, item.id, viewerMemberId);
     return result;
   }
 
-  function serializeCapsule(stored: CapsuleRow, sessionId: string): Capsule {
+  function serializeCapsule(stored: CapsuleRow, viewer: Viewer): Capsule {
     const row = settle(stored);
-    const members = membersOf(row.id);
+    const groups = groupsOf(row.id);
     const items = itemsOf(row.id);
-    const viewer = members.find((member) => member.session_id === sessionId) ?? null;
+    const mine = groups.find((group) => group.sessionIds.some((id) => viewer.ids.includes(id))) ?? null;
     const location: PlantedLocation | null = row.latitude !== null && row.longitude !== null
       ? { latitude: row.latitude, longitude: row.longitude, accuracy: row.accuracy, label: row.place_label ?? '', plantedAt: row.planted_at ?? row.created_at }
       : null;
@@ -410,45 +520,45 @@ export function createCapsuleServer({
       openedAt: row.opened_at,
       inviteCode: row.invite_code,
       location,
-      members: members.map((member) => ({
-        id: member.member_id,
-        name: member.display_name,
-        isMe: member.session_id === sessionId,
-        isHost: member.is_host === 1,
+      members: groups.map((group) => ({
+        id: group.memberId,
+        name: group.name,
+        isMe: group === mine,
+        isHost: group.isHost,
         items: items
-          .filter((item) => item.session_id === member.session_id)
-          .map((item) => serializeItem(row, item, sessionId, viewer?.member_id ?? null)),
+          .filter((item) => group.sessionIds.includes(item.session_id))
+          .map((item) => serializeItem(row, item, viewer.ids, mine?.memberId ?? null)),
       })),
     };
   }
 
-  const capsuleResponse = (id: string, sessionId: string) => ({ capsule: serializeCapsule(capsuleRow(id)!, sessionId), serverNow: iso() });
+  const capsuleResponse = (id: string, viewer: Viewer) => ({ capsule: serializeCapsule(capsuleRow(id)!, viewer), serverNow: iso() });
 
   function requireCollecting(row: CapsuleRow) {
     if (row.status !== 'collecting') throw new ApiError(409, 'CAPSULE_CLOSED', '이미 닫힌 캡슐이에요. 이제는 넣거나 고칠 수 없어요.');
   }
 
-  function requireHost(row: CapsuleRow, sessionId: string) {
-    if (row.host_session_id !== sessionId) throw new ApiError(403, 'NOT_HOST', '방장만 할 수 있어요.');
+  function requireHost(row: CapsuleRow, viewer: Viewer) {
+    if (!viewer.ids.includes(row.host_session_id)) throw new ApiError(403, 'NOT_HOST', '방장만 할 수 있어요.');
   }
 
-  function ownItem(capsuleId: string, itemId: string, sessionId: string): ItemRow {
+  function ownItem(capsuleId: string, itemId: string, ids: string[]): ItemRow {
     const item = database.prepare(
       `SELECT id, session_id, kind, created_at, text, duration_ms, media_mime, media_bytes
-       FROM items WHERE id = ? AND capsule_id = ? AND session_id = ?`,
-    ).get(itemId, capsuleId, sessionId) as ItemRow | undefined;
+       FROM items WHERE id = ? AND capsule_id = ? AND session_id IN (${marks(ids)})`,
+    ).get(itemId, capsuleId, ...ids) as ItemRow | undefined;
     if (!item) throw new ApiError(404, 'NOT_FOUND', '내가 넣은 물건을 찾을 수 없어요.');
     return item;
   }
 
-  function itemResponse(capsuleId: string, item: ItemRow, sessionId: string) {
-    const capsule = serializeCapsule(capsuleRow(capsuleId)!, sessionId);
+  function itemResponse(capsuleId: string, item: ItemRow, viewer: Viewer) {
+    const capsule = serializeCapsule(capsuleRow(capsuleId)!, viewer);
     const row = capsuleRow(capsuleId)!;
-    const viewer = capsule.members.find((member) => member.isMe)!;
-    return { item: serializeItem(row, item, sessionId, viewer.id), capsule, serverNow: iso() };
+    const mine = capsule.members.find((member) => member.isMe)!;
+    return { item: serializeItem(row, item, viewer.ids, mine.id), capsule, serverNow: iso() };
   }
 
-  function createCapsule(session: SessionRow, body: Record<string, unknown>) {
+  function createCapsule({ session, name }: Viewer, body: Record<string, unknown>) {
     const title = boundedText(body.title, '캡슐 이름', TITLE_MAX);
     const mode = body.mode;
     if (mode !== 'solo' && mode !== 'group') invalid('혼자 묻을지, 함께 묻을지 골라 주세요.');
@@ -482,33 +592,31 @@ export function createCapsuleServer({
         break;
       }
       database.prepare('INSERT INTO members (capsule_id, session_id, member_id, display_name, is_host, joined_at) VALUES (?, ?, ?, ?, 1, ?)')
-        .run(id, session.id, randomUUID(), session.display_name, createdAt);
+        .run(id, session.id, randomUUID(), name, createdAt);
     });
     return id;
   }
 
-  function joinCapsule(session: SessionRow, body: Record<string, unknown>) {
+  function joinCapsule(viewer: Viewer, body: Record<string, unknown>) {
     if (typeof body.code !== 'string') invalid('초대 코드를 입력해 주세요.');
     const code = normalizeInviteCode(body.code);
     const found = code.length === 6 ? database.prepare('SELECT * FROM capsules WHERE invite_code = ?').get(code) as CapsuleRow | undefined : undefined;
     if (!found) throw new ApiError(404, 'INVITE_NOT_FOUND', '그 초대 코드로는 캡슐을 찾지 못했어요. 코드 6자리를 다시 확인해 주세요.');
-    if (database.prepare('SELECT 1 FROM members WHERE capsule_id = ? AND session_id = ?').get(found.id, session.id)) {
-      return { id: found.id, already: true };
-    }
+    if (anchorSession(found.id, viewer.ids)) return { id: found.id, already: true };
     const row = settle(found);
     if (row.status !== 'collecting') throw new ApiError(409, 'CAPSULE_CLOSED', '이미 닫힌 캡슐이라 들어갈 수 없어요.');
     if (row.mode === 'solo') throw new ApiError(409, 'CAPSULE_CLOSED', '혼자 묻는 캡슐에는 들어갈 수 없어요.');
-    if (membersOf(row.id).length >= MAX_MEMBERS) throw new ApiError(409, 'CAPSULE_FULL', `한 캡슐에는 ${MAX_MEMBERS}명까지만 함께할 수 있어요.`);
+    if (groupsOf(row.id).length >= MAX_MEMBERS) throw new ApiError(409, 'CAPSULE_FULL', `한 캡슐에는 ${MAX_MEMBERS}명까지만 함께할 수 있어요.`);
     database.prepare('INSERT INTO members (capsule_id, session_id, member_id, display_name, is_host, joined_at) VALUES (?, ?, ?, ?, 0, ?)')
-      .run(row.id, session.id, randomUUID(), session.display_name, iso());
+      .run(row.id, viewer.session.id, randomUUID(), viewer.name, iso());
     return { id: row.id, already: false };
   }
 
-  function addItem(session: SessionRow, row: CapsuleRow, body: Record<string, unknown>) {
+  function addItem(viewer: Viewer, row: CapsuleRow, body: Record<string, unknown>) {
     requireCollecting(row);
     const kind = body.kind;
     if (kind !== 'letter' && kind !== 'photo' && kind !== 'voice' && kind !== 'video') invalid('넣을 물건 종류를 골라 주세요.');
-    if (!canAddItem({ items: new Array<CapsuleItem>(itemCount(row.id, session.id)) })) {
+    if (!canAddItem({ items: new Array<CapsuleItem>(itemCount(row.id, viewer.ids)) })) {
       throw new ApiError(409, 'SLOTS_FULL', `한 사람은 ${MAX_ITEMS_PER_MEMBER}개까지 넣을 수 있어요. 하나를 빼고 다시 넣어 주세요.`);
     }
     const text = kind === 'letter' ? parseLetter(body.text) : null;
@@ -517,12 +625,12 @@ export function createCapsuleServer({
     const id = randomUUID();
     database.prepare(`INSERT INTO items (id, capsule_id, session_id, kind, created_at, text, duration_ms, media_mime, media_blob, media_bytes)
       VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`)
-      .run(id, row.id, session.id, kind, iso(), text, durationMs, media?.mimeType ?? null, media?.bytes ?? null, media?.bytes.length ?? null);
-    return ownItem(row.id, id, session.id);
+      .run(id, row.id, anchorSession(row.id, viewer.ids)!, kind, iso(), text, durationMs, media?.mimeType ?? null, media?.bytes ?? null, media?.bytes.length ?? null);
+    return ownItem(row.id, id, viewer.ids);
   }
 
-  function updateItem(session: SessionRow, row: CapsuleRow, itemId: string, body: Record<string, unknown>) {
-    const item = ownItem(row.id, itemId, session.id);
+  function updateItem(viewer: Viewer, row: CapsuleRow, itemId: string, body: Record<string, unknown>) {
+    const item = ownItem(row.id, itemId, viewer.ids);
     requireCollecting(row);
     if (item.kind === 'letter') {
       if (body.text !== undefined) database.prepare('UPDATE items SET text = ? WHERE id = ?').run(parseLetter(body.text), item.id);
@@ -534,7 +642,7 @@ export function createCapsuleServer({
           .run(media.mimeType, media.bytes, media.bytes.length, item.id);
       }
     }
-    return ownItem(row.id, item.id, session.id);
+    return ownItem(row.id, item.id, viewer.ids);
   }
 
   function serveMedia(request: IncomingMessage, response: ServerResponse, url: URL, capsuleId: string, itemId: string) {
@@ -553,7 +661,8 @@ export function createCapsuleServer({
     const row = settle(stored);
     const item = database.prepare('SELECT session_id, media_mime, media_blob FROM items WHERE id = ? AND capsule_id = ?')
       .get(itemId, capsuleId) as { session_id: string; media_mime: string | null; media_blob: Uint8Array | null } | undefined;
-    if (!item || !item.media_blob || !item.media_mime || !contentVisible(row.status, item.session_id === member.session_id)) throw deny();
+    const memberIds = principalSessions(member.session_id);
+    if (!item || !item.media_blob || !item.media_mime || !contentVisible(row.status, memberIds.includes(item.session_id))) throw deny();
 
     const blob = Buffer.from(item.media_blob);
     const headers: Record<string, string | number> = {
@@ -580,6 +689,47 @@ export function createCapsuleServer({
     }
     response.writeHead(200, { ...headers, 'Content-Length': blob.length });
     response.end(request.method === 'HEAD' ? undefined : blob);
+  }
+
+  /** Verifies the provider credential, upserts the account and attaches this session to it. */
+  async function login(viewer: Viewer, body: Record<string, unknown>): Promise<UserRow> {
+    const provider = body.provider;
+    if (provider !== 'google' && provider !== 'apple' && provider !== 'kakao' && provider !== 'dev') invalid('로그인 방법을 골라 주세요.');
+    if (!providers.includes(provider)) throw new ApiError(400, 'PROVIDER_DISABLED', '이 서버에서는 그 로그인 방법을 쓸 수 없어요.');
+    let identity: VerifiedIdentity;
+    try {
+      if (provider === 'google') identity = await verifier.google(credential(body.idToken));
+      else if (provider === 'kakao') identity = await verifier.kakao(credential(body.accessToken));
+      else if (provider === 'apple') {
+        if (body.fullName !== undefined && body.fullName !== null && typeof body.fullName !== 'string') invalid('이름 형식이 올바르지 않아요.');
+        identity = { ...await verifier.apple(credential(body.idToken)), name: typeof body.fullName === 'string' ? body.fullName.trim() || null : null };
+      } else {
+        const name = parseDisplayName(body.name);
+        identity = { provider: 'dev', subject: name, name, avatarUrl: null };
+      }
+    } catch (error) {
+      if (error instanceof AuthError) throw new ApiError(error.kind === 'network' ? 502 : 401, 'AUTH_FAILED', error.message);
+      throw error;
+    }
+    return transaction(() => {
+      let user = database.prepare('SELECT * FROM users WHERE provider = ? AND subject = ?').get(identity.provider, identity.subject) as UserRow | undefined;
+      if (!user) {
+        // First login: keep the name this device already chose, else what the provider says (Apple sends it only now).
+        const sessionName = viewer.session.display_name;
+        const displayName = sessionName !== DEFAULT_DISPLAY_NAME
+          ? sessionName
+          : clipName(identity.name ?? '') || PROVIDER_FALLBACK_NAMES[identity.provider];
+        const id = randomUUID();
+        database.prepare('INSERT INTO users (id, provider, subject, display_name, avatar_url, created_at) VALUES (?, ?, ?, ?, ?, ?)')
+          .run(id, identity.provider, identity.subject, displayName, identity.avatarUrl, iso());
+        user = userRow(id)!;
+      } else if (identity.avatarUrl && identity.avatarUrl !== user.avatar_url) {
+        database.prepare('UPDATE users SET avatar_url = ? WHERE id = ?').run(identity.avatarUrl, user.id);
+        user = userRow(user.id)!;
+      }
+      database.prepare('UPDATE sessions SET user_id = ? WHERE id = ?').run(user.id, viewer.session.id);
+      return user;
+    });
   }
 
   const server = createServer(async (request, response) => {
@@ -614,61 +764,77 @@ export function createCapsuleServer({
         return respond(response, 201, { token, displayName });
       }
 
-      const session = authenticate(request);
+      const viewer = viewerOf(authenticate(request));
+      const { session } = viewer;
 
       if (method === 'PATCH' && pathname === '/sessions/me') {
         const body = await readJson(request, SMALL_BODY_BYTES);
         const displayName = parseDisplayName(body.displayName);
         transaction(() => {
-          database.prepare('UPDATE sessions SET display_name = ? WHERE id = ?').run(displayName, session.id);
-          database.prepare('UPDATE members SET display_name = ? WHERE session_id = ?').run(displayName, session.id);
+          // Logged in: the name lives on the account and follows it to every device.
+          if (viewer.user) database.prepare('UPDATE users SET display_name = ? WHERE id = ?').run(displayName, viewer.user.id);
+          database.prepare(`UPDATE sessions SET display_name = ? WHERE id IN (${marks(viewer.ids)})`).run(displayName, ...viewer.ids);
+          database.prepare(`UPDATE members SET display_name = ? WHERE session_id IN (${marks(viewer.ids)})`).run(displayName, ...viewer.ids);
         });
         return respond(response, 200, { displayName });
       }
 
+      if (method === 'GET' && pathname === '/auth/me') {
+        return respond(response, 200, { account: viewer.user ? accountOf(viewer.user) : null, displayName: viewer.name, providers });
+      }
+      if (method === 'POST' && pathname === '/auth/login') {
+        const user = await login(viewer, await readJson(request, SMALL_BODY_BYTES));
+        return respond(response, 200, { account: accountOf(user), displayName: user.display_name, serverNow: iso() });
+      }
+      if (method === 'POST' && pathname === '/auth/logout') {
+        database.prepare('UPDATE sessions SET user_id = NULL WHERE id = ?').run(session.id);
+        return respond(response, 200, { ok: true });
+      }
+
       if (method === 'GET' && pathname === '/capsules') {
-        const rows = database.prepare(`SELECT capsules.* FROM capsules JOIN members ON members.capsule_id = capsules.id
-          WHERE members.session_id = ? ORDER BY capsules.created_at DESC, capsules.rowid DESC`).all(session.id) as CapsuleRow[];
-        return respond(response, 200, { capsules: rows.map((row) => serializeCapsule(row, session.id)), serverNow: iso() });
+        const rows = database.prepare(`SELECT * FROM capsules
+          WHERE id IN (SELECT capsule_id FROM members WHERE session_id IN (${marks(viewer.ids)}))
+          ORDER BY created_at DESC, rowid DESC`).all(...viewer.ids) as CapsuleRow[];
+        return respond(response, 200, { capsules: rows.map((row) => serializeCapsule(row, viewer)), serverNow: iso() });
       }
       if (method === 'POST' && pathname === '/capsules') {
-        const id = createCapsule(session, await readJson(request, SMALL_BODY_BYTES));
-        return respond(response, 201, capsuleResponse(id, session.id));
+        const id = createCapsule(viewer, await readJson(request, SMALL_BODY_BYTES));
+        return respond(response, 201, capsuleResponse(id, viewer));
       }
       if (method === 'POST' && pathname === '/capsules/join') {
-        const { id, already } = joinCapsule(session, await readJson(request, SMALL_BODY_BYTES));
-        return respond(response, 200, { ...capsuleResponse(id, session.id), already });
+        const { id, already } = joinCapsule(viewer, await readJson(request, SMALL_BODY_BYTES));
+        return respond(response, 200, { ...capsuleResponse(id, viewer), already });
       }
 
       const capsuleRoute = new RegExp(`^/capsules/${ID}$`).exec(pathname);
       if (method === 'GET' && capsuleRoute) {
-        memberCapsule(capsuleRoute[1], session.id);
-        return respond(response, 200, capsuleResponse(capsuleRoute[1], session.id));
+        memberCapsule(capsuleRoute[1], viewer);
+        return respond(response, 200, capsuleResponse(capsuleRoute[1], viewer));
       }
 
       const itemsRoute = new RegExp(`^/capsules/${ID}/items$`).exec(pathname);
       if (method === 'POST' && itemsRoute) {
-        const row = memberCapsule(itemsRoute[1], session.id);
+        const row = memberCapsule(itemsRoute[1], viewer);
         const body = await readJson(request, ITEM_BODY_BYTES);
         // Re-read after the upload: the deadline may have passed while bytes were arriving.
-        const item = addItem(session, memberCapsule(row.id, session.id), body);
-        return respond(response, 201, itemResponse(row.id, item, session.id));
+        const item = addItem(viewer, memberCapsule(row.id, viewer), body);
+        return respond(response, 201, itemResponse(row.id, item, viewer));
       }
 
       const itemRoute = new RegExp(`^/capsules/${ID}/items/${ID}$`).exec(pathname);
       if ((method === 'PATCH' || method === 'DELETE') && itemRoute) {
         const [, capsuleId, itemId] = itemRoute;
-        memberCapsule(capsuleId, session.id);
+        memberCapsule(capsuleId, viewer);
         if (method === 'PATCH') {
           const body = await readJson(request, ITEM_BODY_BYTES);
-          const item = updateItem(session, memberCapsule(capsuleId, session.id), itemId, body);
-          return respond(response, 200, itemResponse(capsuleId, item, session.id));
+          const item = updateItem(viewer, memberCapsule(capsuleId, viewer), itemId, body);
+          return respond(response, 200, itemResponse(capsuleId, item, viewer));
         }
-        const row = memberCapsule(capsuleId, session.id);
-        const item = ownItem(capsuleId, itemId, session.id);
+        const row = memberCapsule(capsuleId, viewer);
+        const item = ownItem(capsuleId, itemId, viewer.ids);
         requireCollecting(row);
         database.prepare('DELETE FROM items WHERE id = ?').run(item.id);
-        const capsule = serializeCapsule(capsuleRow(capsuleId)!, session.id);
+        const capsule = serializeCapsule(capsuleRow(capsuleId)!, viewer);
         const removed: CapsuleItem = { id: item.id, kind: item.kind, createdAt: item.created_at };
         if (item.text !== null) removed.text = item.text;
         if (item.duration_ms !== null) removed.durationMs = item.duration_ms;
@@ -678,9 +844,9 @@ export function createCapsuleServer({
       const actionRoute = new RegExp(`^/capsules/${ID}/(seal|open|plant)$`).exec(pathname);
       if (method === 'POST' && actionRoute) {
         const [, capsuleId, action] = actionRoute;
-        const row = memberCapsule(capsuleId, session.id);
+        const row = memberCapsule(capsuleId, viewer);
         if (action === 'seal') {
-          requireHost(row, session.id);
+          requireHost(row, viewer);
           // A retry, or a seal that the deadline already performed, returns the sealed capsule.
           if (row.status === 'collecting') {
             if (!canSeal(judgeable(row))) {
@@ -697,13 +863,13 @@ export function createCapsuleServer({
             database.prepare("UPDATE capsules SET status = 'opened', opened_at = ? WHERE id = ? AND status = 'sealed'").run(iso(), row.id);
           }
         } else {
-          requireHost(row, session.id);
+          requireHost(row, viewer);
           const body = await readJson(request, SMALL_BODY_BYTES);
           const location = parseLocation(body.location, iso());
           database.prepare('UPDATE capsules SET latitude = ?, longitude = ?, accuracy = ?, place_label = ?, planted_at = ? WHERE id = ?')
             .run(location.latitude, location.longitude, location.accuracy, location.label, location.plantedAt, row.id);
         }
-        return respond(response, 200, capsuleResponse(capsuleId, session.id));
+        return respond(response, 200, capsuleResponse(capsuleId, viewer));
       }
 
       throw new ApiError(404, 'NOT_FOUND', '지원하지 않는 요청이에요.');

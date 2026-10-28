@@ -17,6 +17,7 @@ const config: ExpoConfig = {
     icon: './assets/expo.icon',
     bundleIdentifier: 'com.mudeodooji.app',
     supportsTablet: false,
+    usesAppleSignIn: true,
     ...(googleMapsIos ? { config: { googleMapsApiKey: googleMapsIos } } : {}),
     infoPlist: {
       // The PoC API lives on the developer's Mac. Production replaces it with HTTPS
@@ -47,6 +48,7 @@ const config: ExpoConfig = {
   plugins: [
     'expo-router',
     'expo-dev-client',
+    'expo-apple-authentication',
     ['expo-splash-screen', { backgroundColor: '#FFF6E5', image: './assets/images/splash-icon.png', imageWidth: 76 }],
     [
       'expo-location',

@@ -1,5 +1,7 @@
 import type { Capsule, CapsuleItem, ItemKind, PlantedLocation } from '@/domain/capsule';
-import type { ApiErrorCode, CreateCapsuleInput } from '@/shared/capsule-api';
+import type { Account, ApiErrorCode, AuthProvider, CreateCapsuleInput, LoginInput } from '@/shared/capsule-api';
+
+export type AccountState = { account: Account | null; displayName: string; providers: AuthProvider[] };
 
 export type BackendErrorCode = ApiErrorCode | 'NETWORK';
 
@@ -37,4 +39,9 @@ export interface CapsuleBackend {
   plant(capsuleId: string, location: PlantedLocation): Promise<Capsule>;
   /** 캡슐에 보일 내 이름을 바꾼다. 이미 들어 있는 캡슐의 내 멤버 이름도 함께 바뀐다. */
   setDisplayName(name: string): Promise<void>;
+  /** 지금 세션에 묶인 계정과 서버가 지원하는 로그인 제공자. */
+  account(): Promise<AccountState>;
+  /** 소셜 로그인으로 세션을 계정에 묶는다. 같은 계정의 다른 기기 캡슐이 보이기 시작한다. */
+  login(input: LoginInput): Promise<AccountState>;
+  logout(): Promise<void>;
 }

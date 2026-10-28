@@ -2,7 +2,7 @@ import { Platform } from 'react-native';
 
 import type { Capsule, ItemKind, PlantedLocation } from '@/domain/capsule';
 import { absolutize, capsuleClient } from '@/lib/capsule-client';
-import type { CreateCapsuleInput, MediaUpload } from '@/shared/capsule-api';
+import type { CreateCapsuleInput, LoginInput, MediaUpload } from '@/shared/capsule-api';
 
 import { BackendError, type CapsuleBackend, type ItemPatch, type NewItemInput } from './backend';
 
@@ -72,6 +72,21 @@ export class RemoteBackend implements CapsuleBackend {
 
   async setDisplayName(name: string) {
     await capsuleClient.setDisplayName(name);
+  }
+
+  async account() {
+    const { account, displayName, providers } = await capsuleClient.me();
+    return { account, displayName, providers };
+  }
+
+  async login(input: LoginInput) {
+    const { account, displayName } = await capsuleClient.login(input);
+    const { providers } = await capsuleClient.me();
+    return { account, displayName, providers };
+  }
+
+  async logout() {
+    await capsuleClient.logout();
   }
 
   async plant(capsuleId: string, location: PlantedLocation) {

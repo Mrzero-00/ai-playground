@@ -35,12 +35,15 @@ Expo SDK 57 기반 로컬 프로토타입. 1차 범위(시간 잠금 타임캡�
 
 ### 서버 API
 
-기기 세션 토큰(`Authorization: Bearer`) 하나로 접근한다. 오류는 `{ error: { code, message } }`, 캡슐 응답에는 늘 `serverNow`가 붙는다.
+기기 세션 토큰(`Authorization: Bearer`) 하나로 접근한다. 세션은 처음엔 익명이고, 소셜 로그인(`/auth/login`)을 하면 계정에 묶인다. 같은 계정의 세션들은 같은 캡슐을 보고, 한 캡슐 안에서는 멤버 하나로 합쳐진다(물건 5칸·방장 권한·이름 공유). 로그아웃하면 그 세션은 다시 익명이 되어 그 세션이 익명일 때 들어간 캡슐만 보인다. 오류는 `{ error: { code, message } }`, 캡슐 응답에는 늘 `serverNow`가 붙는다.
 
 | 라우트 | 하는 일 |
 | --- | --- |
 | `POST /sessions` `{displayName}` | 기기 세션 발급(이름 1~12자, 없으면 `나`). 토큰은 해시만 저장 |
-| `PATCH /sessions/me` `{displayName}` | 내 이름 바꾸기 |
+| `PATCH /sessions/me` `{displayName}` | 내 이름 바꾸기. 로그인 상태면 계정 이름이 바뀌어 모든 기기에 따라간다 |
+| `POST /auth/login` `{provider, …}` | 소셜 로그인으로 이 세션을 계정에 묶기. `google`·`apple`은 `idToken`(애플은 첫 로그인 때 `fullName`), `kakao`는 `accessToken`, `dev`는 `name`. 검증 실패 `AUTH_FAILED`(401, 제공자 서버 불통은 502), 서버에 안 켜진 제공자는 `PROVIDER_DISABLED` |
+| `GET /auth/me` | `{ account \| null, displayName, providers }` — 지금 계정과 이 서버에서 쓸 수 있는 로그인 방법 |
+| `POST /auth/logout` | 이 세션만 계정에서 떼기 |
 | `GET /capsules` | 내가 멤버인 캡슐 전부, 최신순 |
 | `POST /capsules` `{title, mode, deadlineDays, openAt, location?}` | 만들기. 마감 1·3·7·14일, 여는 날은 30~180일·마감 뒤 |
 | `POST /capsules/join` `{code}` | 초대 코드로 들어가기(소문자·하이픈 OK, 최대 8명, 혼자 캡슐·닫힌 캡슐 불가) |
@@ -55,9 +58,13 @@ Expo SDK 57 기반 로컬 프로토타입. 1차 범위(시간 잠금 타임캡�
 | 환경 변수 | 기본값 | 설명 |
 | --- | --- | --- |
 | `PORT` / `HOST` | `8787` / `0.0.0.0` | |
-| `CAPSULE_DATABASE_PATH` | `.data/capsules.sqlite` | 예전 PoC(구덩이·모임·참석) 스키마 파일이면 비우고 새로 만든다 |
+| `CAPSULE_DATABASE_PATH` | `.data/capsules.sqlite` | 예전 PoC(구덩이·모임·참석) 스키마 파일이면 비우고 새로 만든다. v2(로그인 이전) 파일은 캡슐을 그대로 두고 `users` 테이블과 `sessions.user_id` 열만 더한다 |
 | `CORS_ORIGINS` | (없음) | localhost 외에 허용할 웹 주소, 쉼표 구분. 예: `https://mudeodooji.vercel.app` |
 | `MEDIA_SIGNING_SECRET` | 부팅마다 랜덤 | 미디어 URL 서명 키. 비우면 서버를 다시 켤 때 이전 URL이 무효가 된다(앱이 캡슐을 다시 불러오면 새 URL을 받는다) |
+| `GOOGLE_CLIENT_IDS` | (없음) | 구글 로그인을 켠다. 받아들일 OAuth 클라이언트 ID(iOS·Android·웹), 쉼표 구분. 서버가 `oauth2.googleapis.com/tokeninfo`로 ID 토큰을 확인하고 `aud`가 이 목록에 있어야 통과 |
+| `APPLE_CLIENT_IDS` | (없음) | 애플 로그인을 켠다. 받아들일 번들 ID·Services ID, 쉼표 구분. Apple JWKS로 RS256 서명·`iss`·`aud`·`exp`를 확인 |
+| `KAKAO_ENABLED` | (꺼짐) | `1`이면 카카오 로그인을 켠다. 서버 비밀은 필요 없고 `kapi.kakao.com/v2/user/me`로 액세스 토큰을 확인한다 |
+| `DEV_LOGIN` | (꺼짐) | `1`이면 이름만으로 로그인하는 `dev` 제공자를 켠다. 로컬 테스트 전용, 공개 서버에서는 절대 켜지 않는다 |
 
 
 ## 문서 지도

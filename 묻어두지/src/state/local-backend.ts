@@ -12,7 +12,7 @@ import {
   type CapsuleItem,
   type PlantedLocation,
 } from '@/domain/capsule';
-import type { CreateCapsuleInput } from '@/shared/capsule-api';
+import type { Account, CreateCapsuleInput, LoginInput } from '@/shared/capsule-api';
 
 import { BackendError, type CapsuleBackend, type ItemPatch, type NewItemInput } from './backend';
 
@@ -31,6 +31,7 @@ export class LocalBackend implements CapsuleBackend {
   private all: Capsule[];
   private readonly now: () => Date;
   private displayName: string;
+  private current: Account | null = null;
 
   constructor({ initial, now = () => new Date(), displayName = '상길' }: Options) {
     this.all = initial;
@@ -138,6 +139,24 @@ export class LocalBackend implements CapsuleBackend {
     if (capsule.status !== 'sealed' || !capsule.openAt) throw new BackendError('NOT_SEALED', '아직 닫히지 않은 캡슐이에요.');
     if (this.now().getTime() < new Date(capsule.openAt).getTime()) throw new BackendError('TOO_EARLY', '아직 열 수 있는 시각이 아니에요.');
     return this.replace({ ...capsule, status: 'opened', openedAt: this.now().toISOString() });
+  }
+
+  /** 로컬 백엔드는 서버가 없으니 '개발용' 로그인만 흉내 낸다. 기기 안에서만 의미가 있다. */
+  async account() {
+    return { account: this.current, displayName: this.displayName, providers: ['dev' as const] };
+  }
+
+  async login(input: LoginInput) {
+    if (input.provider !== 'dev') throw new BackendError('PROVIDER_DISABLED', '서버 없이 보는 미리보기에서는 소셜 로그인을 쓸 수 없어요.');
+    const name = input.name.trim();
+    if (!name) throw new BackendError('VALIDATION', '이름을 적어 주세요.');
+    this.current = { id: `dev-${name}`, provider: 'dev', displayName: name, avatarUrl: null };
+    await this.setDisplayName(name);
+    return this.account();
+  }
+
+  async logout() {
+    this.current = null;
   }
 
   async setDisplayName(name: string) {

@@ -13,7 +13,7 @@ import type { CapsuleSummary } from '@/shared/contracts';
 
 import 'maplibre-gl/dist/maplibre-gl.css';
 import './capsule-atlas.css';
-import { Colors, THEME } from '@/constants/theme';
+import { Colors, Fonts, THEME } from '@/constants/theme';
 
 function FloatingCapsule({ capsule, now, element }: { capsule: CapsuleSummary; now: number; element: HTMLElement }) {
   const countdown = capsuleCountdown(capsule, now);
@@ -51,6 +51,8 @@ const ATLAS_VARS = {
   '--dooji-water': THEME === 'analog90' ? '#BFD6D2' : '#CFEFF8',
   '--dooji-haze-a': `${Colors.cream}cc`,
   '--dooji-haze-b': `${Colors.cream}38`,
+  '--dooji-font-display': Fonts.display,
+  '--dooji-font-body': Fonts.body,
 } as React.CSSProperties;
 
 export function CapsuleAtlas({ capsules, fix, center, recenterKey, bottomInset, active, now, perspective, onSelect, pin, onPick }: CapsuleAtlasProps) {

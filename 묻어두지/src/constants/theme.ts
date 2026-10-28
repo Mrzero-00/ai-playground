@@ -30,18 +30,18 @@ const STICKER: Palette = {
 
 /** 90년대: 누렇게 바랜 아이보리 플라스틱 바탕, 틸 그린·오렌지·머스터드 포인트, 잉크는 검정 대신 짙은 먹색. */
 const ANALOG90: Palette = {
-  cream: '#EDE6D3',
-  white: '#F7F3E8',
-  sky: '#8FC6D2',
-  cyan: '#3F8C8C',
-  cyanInk: '#103F43',
-  yellow: '#F0C75E',
-  yellowDeep: '#D9A441',
-  ink: '#2B2B33',
-  muted: '#6B6478',
-  faint: '#C9C1B2',
-  coral: '#E8703A',
-  mint: '#7DB58A',
+  cream: '#E9E1CF',
+  white: '#F4EFE3',
+  sky: '#8EB3BB',
+  cyan: '#3F7F80',
+  cyanInk: '#12383A',
+  yellow: '#D9B45B',
+  yellowDeep: '#B9933E',
+  ink: '#2A2622',
+  muted: '#6E6358',
+  faint: '#BDB4A3',
+  coral: '#C96B3C',
+  mint: '#8FA98E',
   soil: '#A3794B',
   soilDeep: '#7E5A33',
 };
@@ -57,30 +57,36 @@ export const Spacing = {
   xxl: 32,
 } as const;
 
-export const Radius = {
-  sm: 14,
-  md: 18,
-  lg: 22,
-  xl: 28,
-  pill: 999,
-} as const;
+/** A안은 스티커처럼 둥글고 두껍게, B안은 인쇄물·라벨처럼 모서리를 세우고 선을 얇게. */
+export const Radius =
+  THEME === 'analog90'
+    ? ({ sm: 6, md: 8, lg: 10, xl: 14, pill: 8 } as const)
+    : ({ sm: 14, md: 18, lg: 22, xl: 28, pill: 999 } as const);
 
-export const Stroke = {
-  thin: 2,
-  regular: 2.5,
-} as const;
+export const Stroke = THEME === 'analog90' ? ({ thin: 1, regular: 1.5 } as const) : ({ thin: 2, regular: 2.5 } as const);
 
-export const Fonts = {
-  display: 'Jua_400Regular',
-  body: 'GowunDodum_400Regular',
-} as const;
+/** B안 글꼴: 제목은 명조(90년대 인쇄물), 본문은 고딕. */
+export const Fonts =
+  THEME === 'analog90'
+    ? ({ display: 'NanumMyeongjo_800ExtraBold', body: 'NanumGothic_400Regular' } as const)
+    : ({ display: 'Jua_400Regular', body: 'GowunDodum_400Regular' } as const);
 
 export const Screen = {
   maxContentWidth: 560,
   horizontal: 22,
 } as const;
 
+/** A안: 스티커의 딱딱한 오프셋 그림자. B안: 종이가 살짝 뜬 듯한 부드러운 그림자. */
 export function offsetShadow(size: 4 | 3 | 5 | 6 = 4) {
+  if (THEME === 'analog90') {
+    return {
+      shadowColor: Colors.ink,
+      shadowOpacity: 0.16,
+      shadowRadius: size * 1.5,
+      shadowOffset: { width: 0, height: Math.round(size * 0.6) },
+      elevation: 2,
+    } as const;
+  }
   return {
     shadowColor: Colors.ink,
     shadowOpacity: 1,

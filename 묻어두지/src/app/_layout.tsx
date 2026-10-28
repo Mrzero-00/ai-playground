@@ -1,5 +1,7 @@
 import { GowunDodum_400Regular } from '@expo-google-fonts/gowun-dodum';
 import { Jua_400Regular } from '@expo-google-fonts/jua';
+import { NanumGothic_400Regular, NanumGothic_700Bold } from '@expo-google-fonts/nanum-gothic';
+import { NanumMyeongjo_800ExtraBold } from '@expo-google-fonts/nanum-myeongjo';
 import { useFonts } from 'expo-font';
 import { Stack } from 'expo-router';
 import * as SplashScreen from 'expo-splash-screen';
@@ -16,7 +18,7 @@ import { SEED_CAPSULES } from '@/state/seed';
 SplashScreen.preventAutoHideAsync().catch(() => {});
 
 export default function RootLayout() {
-  const [fontsLoaded] = useFonts({ Jua_400Regular, GowunDodum_400Regular });
+  const [fontsLoaded] = useFonts({ Jua_400Regular, GowunDodum_400Regular, NanumMyeongjo_800ExtraBold, NanumGothic_400Regular, NanumGothic_700Bold });
   // 서버 주소가 있으면 서버, 없으면(배포 웹 미리보기) 시드 데이터를 가진 로컬 백엔드.
   const [backend] = useState(() => (API_URL ? new RemoteBackend() : new LocalBackend({ initial: SEED_CAPSULES })));
 

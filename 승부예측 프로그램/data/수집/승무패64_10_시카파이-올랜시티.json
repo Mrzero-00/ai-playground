@@ -1,0 +1,26 @@
+{"번호":10,"홈":"시카파이","원정":"올랜시티","리그":"MLS","구장":"Soldier Field (시카고)","킥오프":"2026-10-29 09:30 KST","수집시각":"2026-10-28 22:20 KST",
+ "결장":[
+  {"팀":"홈","선수":"Robin Lod","포지션":"MF/FW","이번시즌_선발/경기":"미상","득점·도움":"미상","사유":"부상(지속)","상태":"확정","복귀예정":"미상","대체선수":"미상","출처":["https://www.sportskeeda.com/football/chicago-fire-vs-orlando-city-prediction-betting-tips-28th-october-2026"],"날짜":"2026-10-27"},
+  {"팀":"홈","선수":"Sam Rogers","포지션":"CB","이번시즌_선발/경기":"미상","득점·도움":"미상","사유":"부상(지속)","상태":"확정","복귀예정":"미상","대체선수":"미상","출처":["https://www.sportskeeda.com/football/chicago-fire-vs-orlando-city-prediction-betting-tips-28th-october-2026"],"날짜":"2026-10-27"},
+  {"팀":"원정","선수":"Eduard Atuesta","포지션":"MF","이번시즌_선발/경기":"최근 6경기 5회 선발(직전 10/24 선발)","득점·도움":"미상","사유":"경고 누적 출장정지","상태":"확정","복귀예정":"다음 경기 복귀","대체선수":"미상","출처":["https://www.sportskeeda.com/football/chicago-fire-vs-orlando-city-prediction-betting-tips-28th-october-2026"],"날짜":"2026-10-27"},
+  {"팀":"원정","선수":"Griffin Dorsey","포지션":"RB/DF","이번시즌_선발/경기":"올랜도 이적 전 휴스턴에서 21경기 3골1도움, 올랜도 합류 후 선발 비중 미상","득점·도움":"3골 1도움(이적 전 포함 시즌 합계)","사유":"허리 부상 지속","상태":"확정","복귀예정":"미상","대체선수":"미상","출처":["https://www.rotowire.com/soccer/headlines/griffin-dorsey-injury-remains-doubtful-with-back-issue-537803","https://www.mlssoccer.com/news/mls-player-status-report-matchday-33-wednesday-october-28"],"날짜":"2026-10-28"}
+ ],
+ "라인업":{"홈":{"발표여부":"미발표","예상XI":"4-3-3 예상(직전 10/24 선발 베이스): Brady; Mbokazi, Hanche-Olsen, Allen, Dean; Dje Tah, Saletros, Haile-Selassie; Lewandowski, Bamba, Zinckernagel","포메이션":"4-3-3","출처":"회차별분석/MLS요약_승무패64.md(10/24 직전 선발)","날짜":"2026-10-24"},"원정":{"발표여부":"미발표","예상XI":"4-2-3-1 예상(직전 10/24 선발 베이스, Atuesta 결장): Crépeau; Teodoro, Brekalo, Nogueira, Angulo; Cartagena, Ojeda(B); Griezmann, Ojeda(M), Ellis; (Atuesta 대신 미상 선수)","포메이션":"4-2-3-1","출처":"회차별분석/MLS요약_승무패64.md(10/24 직전 선발)","날짜":"2026-10-24"}},
+ "최근경기":[
+  {"팀":"시카파이","날짜":"2026-10-17","상대":"New England Revolution","장소":"A","스코어":"0-1 패","비고":""},
+  {"팀":"시카파이","날짜":"2026-10-24","상대":"Atlanta United FC","장소":"A","스코어":"3-2 승","비고":""},
+  {"팀":"올랜시티","날짜":"2026-10-17","상대":"D.C. United","장소":"H","스코어":"4-1 승","비고":""},
+  {"팀":"올랜시티","날짜":"2026-10-24","상대":"New York City FC","장소":"H","스코어":"2-2 무","비고":""}
+ ],
+ "순위":{"홈":"동부 4위 31경기 15승6무10패 승점51. 플레이오프 진출 이미 확정(동부 클린치 4팀 중 하나: 내슈빌·뉴잉글랜드·마이애미·시카고). 이번 경기는 1라운드 홈어드밴티지가 걸린 4위 자리 수성용","원정":"동부 7위 31경기 12승6무13패 승점42. 플레이인 구역 간신히 유지 중 — 탈락권과 가깝고 직접적 플레이오프 경쟁 상황","출처":"https://sports.yahoo.com/articles/matchday-33-clinch-playoffs-eliminated-150000794.html , https://www.dailysports.net/predictions/can-chicago-stay-in-the-eastern-conference-top-four-mls-match-prediction-chicago-vs-orlando/","날짜":"2026-10-28"},
+ "감독":{"홈":"Gregg Berhalter","원정":"Martín Perelman (임시감독)","변동":"올랜도 — 임시체제 유지, 신임 발표 없음","출처":"회차별분석/팩트시트_승무패64.md","날짜":"2026-10-28"},
+ "일정·동기·기타":[
+  {"내용":"시카고는 승점 51로 이미 플레이오프 확정, 이번 경기는 4위(1라운드 홈어드밴티지) 수성 목적 — 동기는 있으나 생존 경기는 아님. 올랜도는 플레이인권 유지가 급함","출처":"https://www.dailysports.net/predictions/can-chicago-stay-in-the-eastern-conference-top-four-mls-match-prediction-chicago-vs-orlando/","날짜":"2026-10-27"},
+  {"내용":"시카고는 올해 양 팀 맞대결(원정 2-1 승 포함) 최근 3연승 중(2025-05 이후), 상대 전적 우위","출처":"https://www.dailysports.net/predictions/can-chicago-stay-in-the-eastern-conference-top-four-mls-match-prediction-chicago-vs-orlando/","날짜":"2026-10-27"},
+  {"내용":"양 팀 모두 휴식 4일(10/24 경기 후 동일)","출처":"회차별분석/MLS요약_승무패64.md","날짜":"2026-10-28"}
+ ],
+ "날씨·구장":{"내용":"10/29(목) 시카고 지역은 기온 70도대(화씨, 섭씨 20도 내외)로 따뜻하고 강수 가능성 있음(비 올 수도)","출처":["https://countryherald.com/illinois/chicago/chicago-il-weather-oct-26-29-highs-climb-to-76-rain-returns","https://www.yahoo.com/news/articles/sunday-forecast-cloudy-windy-chance-002039232.html"],"날짜":"2026-10-27"},
+ "엇갈림":["Eduard Atuesta·Griffin Dorsey 출장정지/부상 보도가 양 팀 통합 프리뷰 기사에 섞여 있었으나, 올랜도 직전 선발 명단(MLS요약)과 이적 기사로 둘 다 올랜도 소속임을 재확인함"],
+ "못찾음":["시카고·올랜도 공식 예상 선발(미발표)","올랜도 Atuesta 결장 시 대체 선발 예상자"],
+ "뉴스없음":{"홈":"","원정":""},
+ "검증":"감독 ○(올랜도 임시체제 확인)/이적 △(올랜도 Dorsey 영입만 확인, 전체 이적표는 팩트시트에 없음)/결장 출처 3개(2026-10-27, 2026-10-28)"}

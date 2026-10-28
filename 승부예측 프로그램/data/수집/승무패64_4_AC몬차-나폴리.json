@@ -1,0 +1,39 @@
+{"번호":4,"홈":"AC몬차","원정":"나폴리","리그":"이탈리아 세리에A 9라운드","구장":"U-Power Stadium(Stadio Brianteo)","킥오프":"2026-10-29 04:45 KST","수집시각":"2026-10-28 22:50 KST",
+"결장":[
+ {"팀":"홈","선수":"Matteo Pessina","포지션":"MF","이번시즌_선발/경기":"미상","득점·도움":"미상","사유":"미상(출전불가 명단)","상태":"확정","복귀예정":"미상","대체선수":"","출처":["https://www.espn.com/soccer/match/_/gameId/679143/napoli-monza"],"날짜":"2026-10-27"},
+ {"팀":"홈","선수":"Armando Maye","포지션":"DF","이번시즌_선발/경기":"미상","득점·도움":"미상","사유":"미상(출전불가 명단)","상태":"확정","복귀예정":"미상","대체선수":"","출처":["https://www.espn.com/soccer/match/_/gameId/679143/napoli-monza"],"날짜":"2026-10-27"},
+ {"팀":"홈","선수":"Stanisław Ziółkowski","포지션":"DF","이번시즌_선발/경기":"미상","득점·도움":"미상","사유":"미상(출전불가 명단)","상태":"확정","복귀예정":"미상","대체선수":"","출처":["https://www.espn.com/soccer/match/_/gameId/679143/napoli-monza"],"날짜":"2026-10-27"},
+ {"팀":"홈","선수":"Michael Folorunsho","포지션":"MF","이번시즌_선발/경기":"주전급(정확 수치 미상)","득점·도움":"미상","사유":"소집 명단 제외 보도(사유 미상) — 한 매체는 선발 XI 포함, 엇갈림","상태":"의심","복귀예정":"미상","대체선수":"Akinsanmiro","출처":["https://www.pazzidifanta.com/news/monza-convocati-juric-vista-sfida-napoli-assente-folorunsho-460263"],"날짜":"2026-10-27"},
+ {"팀":"원정","선수":"Alessandro Buongiorno","포지션":"DF(주전 CB)","이번시즌_선발/경기":"미상(핵심 선수)","득점·도움":"미상","사유":"반월판 수술","상태":"확정","복귀예정":"2027년 초","대체선수":"Rafa Marín","출처":["https://www.mondonapoli.it/squadra/infortunati/2026/10/28/napoli-sei-assenti-allegri-fino-sosta/"],"날짜":"2026-10-28"},
+ {"팀":"원정","선수":"Benoît Badiashile","포지션":"DF","이번시즌_선발/경기":"미상(최근 합류)","득점·도움":"미상","사유":"신규 부상","상태":"확정","복귀예정":"4~6주","대체선수":"Rafa Marín","출처":["https://napolissimo.it/infortuni-napoli-2026-lista"],"날짜":"2026-10-27"},
+ {"팀":"원정","선수":"Leonardo Spinazzola","포지션":"DF","이번시즌_선발/경기":"미상","득점·도움":"미상","사유":"부상(최소 20일)","상태":"확정","복귀예정":"11월 중순 추정","대체선수":"Olivera","출처":["https://www.mondonapoli.it/squadra/infortunati/2026/10/28/napoli-sei-assenti-allegri-fino-sosta/"],"날짜":"2026-10-28"},
+ {"팀":"원정","선수":"David Neres","포지션":"FW","이번시즌_선발/경기":"미상","득점·도움":"미상","사유":"부상 재발","상태":"확정","복귀예정":"11월 중순(A매치 휴지기 직후)","대체선수":"Lang","출처":["https://www.ilnapolista.it/2026/10/napoli-infortunati-neres-e-spinazzola/"],"날짜":"2026-10-27"},
+ {"팀":"원정","선수":"Alisson Santos","포지션":"FW","이번시즌_선발/경기":"미상(로테이션)","득점·도움":"미상","사유":"왼쪽 대퇴이두근 손상","상태":"확정","복귀예정":"미상(매체 엇갈림: 11월 초~중순)","대체선수":"","출처":["https://www.mondonapoli.it/squadra/infortunati/2026/10/28/napoli-sei-assenti-allegri-fino-sosta/"],"날짜":"2026-10-28"},
+ {"팀":"원정","선수":"Costantino Favasuli","포지션":"DF(로테이션)","이번시즌_선발/경기":"미상","득점·도움":"미상","사유":"오른쪽 대퇴직근 손상, 장기 결장","상태":"확정","복귀예정":"12월 초","대체선수":"","출처":["https://napolissimo.it/infortuni-napoli-2026-lista"],"날짜":"2026-10-27"}
+],
+"라인업":{
+ "홈":{"발표여부":"미발표","예상XI":"Tornqvist; Kouadio, Goglichidze, Lucchesi; Bakoune, Akinsanmiro, Folorunsho(소집제외 보도와 엇갈림), Mangas; Cutrone, Robinson; Varela","포메이션":"3-4-2-1","출처":"fantamaster.it","날짜":"2026-10-27"},
+ "원정":{"발표여부":"미발표","예상XI":"Milinković-Savić; Di Lorenzo, Rafa Marín, Rrahmani, Olivera; De Bruyne, Lobotka, McTominay; Politano, Hojlund, Lang (Di Lorenzo·De Bruyne는 로테이션 위험 거론)","포메이션":"4-3-3","출처":"pazzidifanta.com / calcionapoli1926.it","날짜":"2026-10-27"}
+},
+"최근경기":[
+ {"팀":"홈","날짜":"2026-10-11","상대":"Lazio","장소":"A","스코어":"1-3 패","비고":""},
+ {"팀":"홈","날짜":"2026-10-19","상대":"Cagliari","장소":"H","스코어":"4-0 승","비고":""},
+ {"팀":"홈","날짜":"2026-10-23","상대":"Torino","장소":"A","스코어":"2-3 패","비고":""},
+ {"팀":"원정","날짜":"2026-10-10","상대":"Frosinone","장소":"H","스코어":"3-0 승","비고":""},
+ {"팀":"원정","날짜":"2026-10-17","상대":"Venezia","장소":"A","스코어":"0-1 패","비고":""},
+ {"팀":"원정","날짜":"2026-10-24","상대":"AS Roma","장소":"H","스코어":"3-3 무","비고":"89분 발레르디 동점골. 알레그리, 2차 후반 45분 심판에 모욕 발언 + 경기 후 라커룸서 로마 구단 관계자에 공격적 행동으로 퇴장·징계"}
+],
+"순위":{"홈":"15위 8경기 2승1무5패 GD-3 승점7 (Monza)","원정":"10위 8경기 3승2무3패 GD+3 승점11 (Napoli)","출처":"팩트시트_승무패64.md","날짜":"2026-10-28"},
+"감독":{"홈":"Ivan Jurić(유임)","원정":"Massimiliano Allegri — 10/24 나폴리-로마전 퇴장으로 2경기 출장정지(벌금 1만유로), 항소 포기, 몬차전·유벤투스전 벤치 착석 불가 → 보조코치가 지휘","변동":"Allegri 벤치 출장정지(선수단 변동 아님, 사이드라인 지휘자만 변경)","출처":"https://sport.sky.it/calcio/serie-a/2026/10/26/allegri-napoli-squalifica-news","날짜":"2026-10-26"},
+"일정·동기·기타":[
+ {"내용":"Allegri 10/27 기자회견(벤치 출장정지 상태로 사전 진행): '항소 포기, 이제 순위를 끌어올려야 한다' — 팀 결집 메시지, 특별한 로테이션 예고 없음","출처":"https://www.ilnapolista.it/2026/10/monza-napoli-allegri-conferenza-live/","날짜":"2026-10-27"},
+ {"내용":"나폴리 결장 6명 확정(Buongiorno·Alisson Santos·Neres·Favasuli·Badiashile·Spinazzola) — 수비·공격 모두 로테이션 불가피, 알레그리 본인도 '부상자가 많다'고 인정","출처":"https://www.mondonapoli.it/squadra/infortunati/2026/10/28/napoli-sei-assenti-allegri-fino-sosta/","날짜":"2026-10-28"},
+ {"내용":"Olivera·Vergara는 10/13자 결장 기록과 달리 이번 예상 XI·소집 명단에 포함 — 복귀 확인됨(알레그리: '베르가라는 컨디션 좋고 기용 가능')","출처":"https://www.fantacalcio.it/news/calcio-italia/27_10_2026/monza-napoli-conferenza-stampa-prepartita-allegri-499824","날짜":"2026-10-27"},
+ {"내용":"세리에A 시즌 첫 미드위크 라운드 — 양팀 모두 10/23~25 주말 경기 후 사흘 만의 경기","출처":"https://www.fantamaster.it/probabili-formazioni-monza-napoli-9-giornata-seriea-2026-2027/","날짜":"2026-10-27"}
+],
+"날씨·구장":{"내용":"못찾음","출처":"","날짜":""},
+"엇갈림":["몬차 Folorunsho 예상 선발 포함(fantamaster) vs 소집 명단 제외 보도(pazzidifanta) 엇갈림","나폴리 Alisson Santos 복귀 시점 매체 간 엇갈림(11월 초 vs 중순)"],
+"못찾음":["날씨 정보","몬차 Pessina·Maye·Ziółkowski 결장 구체 사유(부상 종류 등 상세 미확인)"],
+"뉴스없음":{"홈":"","원정":""},
+"검증":"감독 ○(Allegri 벤치 출장정지 확인, 교체 아님)/이적 해당없음/결장 출처 3개(10/27~28, 날짜 일치)"
+}

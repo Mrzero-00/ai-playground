@@ -1,0 +1,26 @@
+{"번호":5,"홈":"인터마이","원정":"FC신시내","리그":"MLS","구장":"Chase Stadium (Fort Lauderdale, 홈구장 — 공식 정보, 뉴스 아님)","킥오프":"2026-10-29 08:30 KST","수집시각":"2026-10-28 22:40 KST",
+ "결장":[
+   {"팀":"홈","선수":"Fricio Caicedo","포지션":"미상","이번시즌_선발/경기":"미상","득점·도움":"미상","사유":"knock(경미한 부상)","상태":"의심","복귀예정":"미상","대체선수":"미상","출처":["https://www.fotmob.com/matches/fc-cincinnati-vs-inter-miami-cf/i2lpg9il","https://khelnow.com/football/inter-miami-vs-fc-cincinnati-preview-mls-202610"],"날짜":"2026-10-27"},
+   {"팀":"홈","선수":"Mateo Silvetti","포지션":"미상","이번시즌_선발/경기":"미상","득점·도움":"미상","사유":"무릎 부상","상태":"의심","복귀예정":"미상","대체선수":"미상","출처":["https://www.fotmob.com/matches/fc-cincinnati-vs-inter-miami-cf/i2lpg9il"],"날짜":"2026-10-27"},
+   {"팀":"홈","선수":"Tadeo Allende","포지션":"미상","이번시즌_선발/경기":"미상","득점·도움":"미상","사유":"무릎 부상","상태":"의심","복귀예정":"미상","대체선수":"미상","출처":["https://www.fotmob.com/matches/fc-cincinnati-vs-inter-miami-cf/i2lpg9il"],"날짜":"2026-10-27"}
+ ],
+ "라인업":{
+   "홈":{"발표여부":"미발표(예상만)","예상XI":"Lionel Messi 선발 복귀 유력(10/24 RBNY전 로테이션 휴식 뒤), Rodrigo De Paul·Luis Suárez 선발 유력","포메이션":"4-3-3(teamdb 직전 선발 기준)","출처":"https://www.latestly.com/sports/football/will-lionel-messi-play-in-inter-miami-vs-fc-cincinnati-mls-2026-match-7659228.html ; https://www.101greatgoals.com/match-previews/mls-matches/inter-miami-v-fc-cincinnati-preview-expected-line-ups-stats-stream-where-to-watch/","날짜":"2026-10-27"},
+   "원정":{"발표여부":"미발표","예상XI":"미상(teamdb 직전 선발: Celentano, Hadebe, Nwobodo, Bucha, Evander, Denkey, Barlow 등 — 1차 소스 아님, 참고용)","포메이션":"3-5-2(teamdb 직전 선발 기준)","출처":"","날짜":""}
+ },
+ "최근경기":[
+   {"팀":"홈","날짜":"2026-10-24","상대":"New York Red Bulls","장소":"A","스코어":"0-2 패","비고":"Messi 선발 제외(원정·여행 피로 휴식)"},
+   {"팀":"원정","날짜":"2026-10-24","상대":"D.C. United","장소":"A","스코어":"2-0 승"}
+ ],
+ "순위":{"홈":"동부 3위 31경기 15승10무6패 승점55 — 플레이오프 확정(9개 클럽 확정 중 하나)","원정":"동부 8위 31경기 11승9무11패 승점42 — 7위 이상이면 와일드카드 없이 직행 확정, 신시내티가 이기고 컬럼버스가 댈러스전 패하면 최소 플레이인(와일드카드) 확정","출처":"https://sports.yahoo.com/articles/mls-playoff-picture-lafc-philadelphia-110129726.html ; https://sports.yahoo.com/articles/matchday-33-clinch-playoffs-eliminated-150000794.html","날짜":"2026-10-27"},
+ "감독":{"홈":"Kily González(9/15부터 정식, 그 전 Hoyos 임시·Mascherano 4/14까지)","원정":"Pat Noonan(4번째 시즌)","변동":"없음(기존과 동일, 신규 뉴스 없음)","출처":"https://en.wikipedia.org/wiki/Pat_Noonan","날짜":"2026-10-27"},
+ "일정·동기·기타":[
+   {"내용":"Messi는 10/24 RBNY 원정에서 스페인 아스투리아스 공주상 수상 참석에 따른 여행 피로로 벤치 대기, 복귀 선발 유력 — 인터마이애미는 이미 플레이오프 확정이라 동기는 '시딩'(현재 동부 3위) 수준","출처":"https://www.thedailystar.net/sports/football/news/messi-expected-start-miamis-crucial-cincinnati-clash-4309601","날짜":"2026-10-27"},
+   {"내용":"FC신시내티는 7위 이상 직행 확정이 걸린 '중요 경기'로 보도됨. 노넌 감독 '신선한 다리가 필요하다'(로테이션 피로 언급)","출처":"https://yournews.com/2026/10/27/7241659/lionel-messi-miami-to-face-evander-cincinnati-in-high-stakes-clash/","날짜":"2026-10-27"},
+   {"내용":"Evander(신시내티)는 10월 초 몬트리올전 부상 우려 있었으나 10/13 기준 부상 등재 없음·정상 훈련 복귀 — 이번 경기 결장 보도 없음(간접 확인, 직접 최신 기사 아님)","출처":"https://www.rotowire.com/soccer/headlines/evander-news-no-injury-designation-539076","날짜":"2026-10-13"}
+ ],
+ "날씨·구장":{"내용":"못찾음(Fort Lauderdale 10월 말 저녁 — 일반적으로 고온다습, 구체적 예보 미확인)","출처":"","날짜":""},
+ "엇갈림":[],
+ "못찾음":["신시내티 측 10/27~28자 공식 Availability Report(결장자 명단) 미확인","양 팀 공식 발표 라인업(킥오프 임박 전 미공개)","구장 당일 날씨 예보"],
+ "뉴스없음":{"홈":"","원정":""},
+ "검증":"감독 ○/이적 관련 특이사항 없음/결장 출처 2개(인터마이 2026-10-27, teamdb는 직전 경기 기준이라 결장 아님) — 신시내티 결장 명단은 미확인(못찾음 처리)"}

@@ -1,0 +1,32 @@
+{"번호":11,"홈":"FC댈러스","원정":"콜럼크루","리그":"MLS","구장":"Toyota Stadium (Frisco, TX)","킥오프":"2026-10-29 09:30 KST","수집시각":"2026-10-28 21:25 KST",
+ "결장":[
+  {"팀":"원정","선수":"Sekou Bangoura (Sékou Tidiany Bangoura)","포지션":"MF","이번시즌_선발/경기":"직전 경기(10/24) 포함 최근 6경기 4회+ 선발","득점·도움":"미상","사유":"출장정지(Suspended)","상태":"확정","복귀예정":"","대체선수":"","출처":["https://www.mlssoccer.com/news/mls-player-status-report-matchday-33-wednesday-october-28"],"날짜":"2026-10-28"},
+  {"팀":"원정","선수":"Wessam Abou Ali","포지션":"FW","이번시즌_선발/경기":"미상","득점·도움":"미상","사유":"무릎 부상(knee)","상태":"확정","복귀예정":"","대체선수":"","출처":["https://www.mlssoccer.com/news/mls-player-status-report-matchday-33-wednesday-october-28"],"날짜":"2026-10-28"},
+  {"팀":"원정","선수":"Rudy Camacho","포지션":"DF","이번시즌_선발/경기":"미상","득점·도움":"미상","사유":"몸통 부상(torso)","상태":"확정","복귀예정":"","대체선수":"","출처":["https://www.mlssoccer.com/news/mls-player-status-report-matchday-33-wednesday-october-28"],"날짜":"2026-10-28"},
+  {"팀":"원정","선수":"Eric Bailly","포지션":"DF","이번시즌_선발/경기":"미상","득점·도움":"미상","사유":"종아리 부상(lower leg), 출전 불투명","상태":"의심","복귀예정":"당일 결정 가능","대체선수":"","출처":["https://www.mlssoccer.com/news/mls-player-status-report-matchday-33-wednesday-october-28"],"날짜":"2026-10-28"},
+  {"팀":"원정","선수":"Brais Méndez","포지션":"MF","이번시즌_선발/경기":"최근 6경기 5회 선발, 팀 내 최다 찬스 생성급 핵심 플레이메이커","득점·도움":"미상","사유":"허벅지 부상(thigh), 출전 불투명","상태":"의심","복귀예정":"당일 결정 가능","대체선수":"","출처":["https://www.mlssoccer.com/news/mls-player-status-report-matchday-33-wednesday-october-28"],"날짜":"2026-10-28"},
+  {"팀":"홈","선수":"Kaka Scabin","포지션":"미상","이번시즌_선발/경기":"미상","득점·도움":"미상","사유":"시즌아웃 부상(season-ending injury list)","상태":"확정","복귀예정":"없음(시즌아웃)","대체선수":"","출처":["https://www.bigdsoccer.com/fc-dallas-injury-report-vs-columbus-crew-2026/"],"날짜":"2026-10-28"},
+  {"팀":"홈","선수":"Logan Farrington","포지션":"FW","이번시즌_선발/경기":"공동 30골 기여(Musa와 합산) 핵심 공격수","득점·도움":"미상","사유":"하체 부상(lower body) — 단, 다른 매체는 '출전 가능'으로 보도해 엇갈림","상태":"의심","복귀예정":"","대체선수":"","출처":["https://www.bigdsoccer.com/fc-dallas-injury-report-vs-columbus-crew-2026/","https://www.squawka.com/us/news/mls/match-preview-fc-dallas-vs-columbus-crew-10-28-26-mls/"],"날짜":"2026-10-28"},
+  {"팀":"홈","선수":"Sam Sarver","포지션":"미상","이번시즌_선발/경기":"미상","득점·도움":"미상","사유":"출장정지(Suspended)","상태":"확정","복귀예정":"","대체선수":"","출처":["https://www.bigdsoccer.com/fc-dallas-injury-report-vs-columbus-crew-2026/"],"날짜":"2026-10-28"}
+ ],
+ "라인업":{"홈":{"발표여부":"미발표","예상XI":"직전(10/25) 3-4-2-1: Daniel, Osaze Urhoghide, Shaq Moore, Sebastien Ibeagha, Ramiro, Kaick, Bernard Kamungo, Herman Johansson, Petar Musa, Daniel Job, Joaquín Valiente","포메이션":"3-4-2-1(직전 기준)","출처":"teamdb/ESPN(회차별분석/MLS요약_승무패64.md)","날짜":"2026-10-25"},"원정":{"발표여부":"미발표","예상XI":"직전(10/24) 4-4-2: Patrick Schulte, Malte Amundsen, Sean Zawadzki, Anass Zaroury, Steven Moreira, Dylan Chambost, Sékou Tidiany Bangoura(이번 경기 결장), Santiago Rodríguez, Mohamed Farsi, Gonzalo Tapia, Taha Habroune","포메이션":"4-4-2(직전 기준, 방고우라 결장으로 변경 불가피)","출처":"teamdb/ESPN(회차별분석/MLS요약_승무패64.md)","날짜":"2026-10-24"}},
+ "최근경기":[
+  {"팀":"홈","날짜":"2026-10-15","상대":"Seattle Sounders FC","장소":"H","스코어":"1-0","비고":"승"},
+  {"팀":"홈","날짜":"2026-10-18","상대":"Houston Dynamo FC","장소":"A","스코어":"2-2","비고":"무"},
+  {"팀":"홈","날짜":"2026-10-25","상대":"San Jose Earthquakes","장소":"H","스코어":"3-0","비고":"승, 휴식 ~4일"},
+  {"팀":"원정","날짜":"2026-10-14","상대":"Charlotte FC","장소":"H","스코어":"3-1","비고":"승"},
+  {"팀":"원정","날짜":"2026-10-18","상대":"FC Cincinnati","장소":"A","스코어":"2-0","비고":"승"},
+  {"팀":"원정","날짜":"2026-10-24","상대":"Toronto FC","장소":"H","스코어":"4-2","비고":"승, 3연승, 휴식 ~4일"}
+ ],
+ "순위":{"홈":"서부 콘퍼런스 플레이오프 이미 확정(클린칭 명단 포함, 3경기 남기고 확정). 리그 전체 2위 31경기 15승9무7패 GD+11 승점54(팩트시트)·서부 3위 표기 매체도 있음(엇갈림)","원정":"동부 콘퍼런스 플레이오프 커트라인과 1점 차, 10위 11승5무15패 GD+1 승점38(팩트시트). 직전 3연승으로 플레이오프 레이스 한복판","출처":"https://www.mlssoccer.com/news/playoff-spots-clinched-messi-magic-more-from-matchday-31 ; https://www.squawka.com/us/news/mls/match-preview-fc-dallas-vs-columbus-crew-10-28-26-mls/ ; 팩트시트_승무패64.md","날짜":"2026-10-28"},
+ "감독":{"홈":"Lee Nguyen (팩트시트)","원정":"Laurent Courtois (interim, 팩트시트)","변동":"콜럼버스는 시즌 중 경질 후 임시감독 체제(이전 조사분 확인, 이번 수집에서 추가 변동 뉴스 없음)","출처":"회차별분석/팩트시트_승무패64.md","날짜":"2026-10-28"},
+ "일정·동기":[
+  {"내용":"FC댈러스는 플레이오프 확정 상태라 시딩 외 동기 낮을 수 있음(로테이션 가능성), 다만 홈 8승2무5패로 홈 성적 우수해 베스트 전력 유지 가능성도 있음 — 확정된 로테이션 발표는 없음","출처":"https://www.squawka.com/us/news/mls/match-preview-fc-dallas-vs-columbus-crew-10-28-26-mls/","날짜":"2026-10-28"},
+  {"내용":"콜럼버스는 플레이오프 진출이 걸린 '머스트윈'급 경기, 3연승 상승세로 원정","출처":"https://cwcolumbus.com/sports/columbus-crew-take-win-streak-into-match-with-dallas","날짜":"2026-10-28"},
+  {"내용":"콜럼버스 임시감독(Lennon으로 추정되는 코치진 발언, '플레이오프에 너무 일찍 집중하지 말라' 경고 기사) — 클럽 내부 긴장감 시사, 다만 기사 본문 상세는 확인 못함","출처":"https://www.beinsports.com/en-us/soccer/mls/articles/lennon-warns-columbus-not-to-focus-on-the-playoffs-too-early-2026-10-28","날짜":"2026-10-28"}
+ ],
+ "날씨·구장":{"내용":"구장: Toyota Stadium(Frisco, TX), 천연잔디 실외. 10월 말 텍사스 저녁 날씨는 대체로 온화(구체적 시간별 예보는 확인 못함)","출처":"https://www.bigdsoccer.com/scouting-columbus-crew-fc-dallas-2026/","날짜":"2026-10-28"},
+ "엇갈림":["FC댈러스 콘퍼런스 순위: 전체 2위(팩트시트) vs 서부 3위(squawka) — 집계 기준(전체/콘퍼런스) 차이로 추정, 확인 못함","Logan Farrington 결장 여부: bigdsoccer는 '하체 부상으로 아웃', squawka는 'Musa와 함께 출전 가능'으로 보도 — 상반됨, 최종 라인업으로 확인 필요"],
+ "못찾음":["양팀 확정 선발 라인업(킥오프 1시간 전 발표 예정)","FC댈러스 로테이션 여부 공식 확인","경기 시각대 상세 기온·강수 예보"],
+ "뉴스없음":{"홈":"","원정":""},
+ "검증":"감독 ○/이적 미확인(해당없음)/결장 출처 2개(2026-10-28, mlssoccer.com·bigdsoccer.com)"}

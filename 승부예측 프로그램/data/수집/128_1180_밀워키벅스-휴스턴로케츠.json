@@ -1,0 +1,109 @@
+{
+  "번호": "1180",
+  "홈": "Milwaukee Bucks",
+  "원정": "Houston Rockets",
+  "종목": "농구",
+  "리그": "NBA",
+  "수집시각": "2026-10-29 08시대 KST",
+  "결장": [
+    {
+      "팀": "Houston Rockets",
+      "선수": "Alperen Sengun",
+      "포지션": "C",
+      "상태": "확정",
+      "사유": "Back (허리)",
+      "이번시즌_경기당출전분_득점": "4경기 출전, 평균 34.0분·24.5득점·9.0리바운드·7.0어시스트 (팀 핵심 센터)",
+      "출처": "https://www.espn.com/nba/injuries ; https://www.si.com/nba/rockets/onsi/rockets-face-center-shortage-vs-bucks-preview-starters-injuries-how-to-watch-01m61gbm0840",
+      "날짜": "2026-10-27"
+    },
+    {
+      "팀": "Houston Rockets",
+      "선수": "Steven Adams",
+      "포지션": "C",
+      "상태": "확정",
+      "사유": "Right soleus strain (오른쪽 가자미근), 복귀 예상 11월 2일 이후",
+      "이번시즌_경기당출전분_득점": "미확인(이번 세션 내 2026-27시즌 출전 기록 조회 실패)",
+      "출처": "https://www.espn.com/nba/injuries ; https://www.si.com/nba/rockets/onsi/rockets-injury-updates-latest-on-marcus-smart-steven-adams-01m5x989v0gz",
+      "날짜": "2026-10-27"
+    },
+    {
+      "팀": "Houston Rockets",
+      "선수": "Marcus Smart",
+      "포지션": "G",
+      "상태": "확정",
+      "사유": "Left forearm strain (왼쪽 전완근)",
+      "이번시즌_경기당출전분_득점": "2경기 출전, 평균 24.0분·7.5득점·2.5리바운드·1.5어시스트",
+      "출처": "https://www.nbcsports.com/fantasy/basketball/player-news/2026-10-26/marcus-smart-forearm-is-game-to-game ; https://rotowire.com/basketball/headlines/marcus-smart-injury-sidelined-again-wednesday-536476",
+      "날짜": "2026-10-28",
+      "비고": "ESPN 공식 인저리 리포트(10/27)에는 '확정(Out)'으로 표기, 10/26 NBC스포츠는 '경기 당일 컨디션에 달림(game-to-game)'으로 보도했으나 10/28 RotoWire는 '3경기 연속 결장 확정'으로 업데이트 — 가장 최신 보도(10/28) 기준 확정 결장."
+    }
+  ],
+  "예상선발5": {
+    "홈": ["Tyler Herro", "Ryan Rollins", "Kyle Kuzma", "Jaime Jaquez Jr.", "Myles Turner"],
+    "원정": ["Fred VanVleet", "Amen Thompson", "Kevin Durant", "Tari Eason", "Jabari Smith"],
+    "출처": "https://sports.yahoo.com/articles/bucks-tested-vs-perfect-rockets-153733705.html (WebSearch 요약)",
+    "날짜": "2026-10-28",
+    "비고": "Sengun·Adams 결장으로 로케츠는 정규 센터 없이 Jabari Smith를 5번으로 기용할 가능성(출처: https://www.si.com/nba/rockets/onsi/rockets-face-center-shortage-vs-bucks-preview-starters-injuries-how-to-watch-01m61gbm0840, 2026-10-28)."
+  },
+  "최근폼": {
+    "홈_Bucks": {
+      "시즌전적": "1승 3패 (2026-10-28 기준, 센트럴 디비전 5위)",
+      "최근5경기": [
+        {"날짜": "2026-10-26", "상대": "vs Indiana Pacers", "결과": "승 110-102"},
+        {"날짜": "2026-10-24", "상대": "@ Philadelphia 76ers", "결과": "패 116-127"},
+        {"날짜": "2026-10-23", "상대": "vs Chicago Bulls", "결과": "패 125-132"},
+        {"날짜": "2026-10-21", "상대": "@ Washington Wizards", "결과": "패 116-128"}
+      ],
+      "홈원정전적": "미확인",
+      "출처": "https://www.covers.com/sport/basketball/nba/teams/main/milwaukee-bucks",
+      "날짜": "2026-10-28 조회"
+    },
+    "원정_Rockets": {
+      "시즌전적": "4승 0패 (2026-10-28 기준, 서던웨스트 디비전 1위, 리그 유일 무패)",
+      "최근5경기": [
+        {"날짜": "2026-10-26", "상대": "vs Atlanta Hawks", "결과": "승 120-110"},
+        {"날짜": "2026-10-24", "상대": "@ Atlanta Hawks", "결과": "승 121-114"},
+        {"날짜": "2026-10-23", "상대": "@ San Antonio Spurs", "결과": "승 114-110"},
+        {"날짜": "2026-10-21", "상대": "vs Dallas Mavericks", "결과": "승 128-110"}
+      ],
+      "홈원정전적": "원정 2승 0패(10/23, 10/24) 포함 4승 0패",
+      "출처": "https://www.covers.com/sport/basketball/nba/teams/main/houston-rockets",
+      "날짜": "2026-10-28 조회"
+    }
+  },
+  "공수지표": {
+    "미확인": "팀별 ORtg/DRtg/Pace 수치를 이번 세션(20분 제한) 내 확인하지 못함. 벅스 4경기, 로케츠 4경기 소화(시즌 극초반, 표본 매우 적음) — 분석가는 소표본 유의."
+  },
+  "일정피로": {
+    "홈_Bucks": {
+      "백투백여부": "아니오(직전 경기 10/26, 이번 경기 10/28 — 하루 휴식)",
+      "직전경기날짜": "2026-10-26",
+      "최근7일경기수(10/22~10/28)": "3경기(10/23, 10/24, 10/26) + 이번 경기",
+      "이동": "홈경기"
+    },
+    "원정_Rockets": {
+      "백투백여부": "아니오(직전 경기 10/26, 이번 경기 10/28 — 하루 휴식)",
+      "직전경기날짜": "2026-10-26",
+      "최근7일경기수(10/22~10/28)": "3경기(10/23, 10/24, 10/26) + 이번 경기",
+      "이동": "휴스턴 → 애틀랜타(원정 2연전) → 휴스턴(홈) → 밀워키(원정) 이동 — 최근 7일 4경기 소화한 빡빡한 일정(미확인: 정확한 이동 거리·시차)"
+    }
+  },
+  "맞대결": {
+    "미확인": "이번 시즌 맞대결 없음(양팀 올 시즌 미대결). 최근 시즌 맞대결 기록은 이번 세션에서 조회하지 못함."
+  },
+  "기타뉴스": [
+    {
+      "내용": "벅스는 2026년 6월 지아니스 안테토쿤보를 마이애미 히트로 트레이드(반대급부로 Tyler Herro·Kel'el Ware·Jaime Jaquez Jr.·Kasparas Jakučionis·2026 1라운드 13픽 등 수령). 이번 시즌 벅스 로스터에 지아니스 없음 — 현재 선발진은 Herro·Kuzma·Turner·Rollins·Jaquez 중심.",
+      "출처": "https://www.olympics.com/en/news/giannis-antetokounmpo-traded-to-miami-heat-from-bucks-nba",
+      "날짜": "2026-06 (트레이드 완료 보도, 정확 일자 미확인)",
+      "오래됨": true
+    },
+    {
+      "내용": "벅스는 2026년 4월 Doc Rivers 사임 후 4월 30일 Taylor Jenkins를 신임 감독으로 선임. 이번 시즌(2026-27) 첫 풀시즌 지휘.",
+      "출처": "https://www.hoopsrumors.com/2026/04/doc-rivers-will-not-return-as-bucks-coach.html",
+      "날짜": "2026-04-30",
+      "오래됨": true
+    }
+  ],
+  "뉴스위험": "로케츠 센터 2명(Sengun·Adams) 동시 결장 확정 + 주전 가드 Marcus Smart도 결장(등급 보도 엇갈림, 최신 보도는 확정) — 로케츠 선발 라인업 변동 가능성 큼(Jabari Smith 5번 기용설, 미확정). 벅스는 인저리 리포트상 결장자 없음."
+}

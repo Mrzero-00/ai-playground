@@ -1,0 +1,177 @@
+{
+  "번호": "1188",
+  "홈": "New Orleans Pelicans",
+  "원정": "Denver Nuggets",
+  "종목": "농구",
+  "리그": "NBA",
+  "수집시각": "2026-10-29 08시대 KST",
+  "결장": [
+    {
+      "팀": "홈",
+      "선수": "Yves Missi",
+      "포지션": "C",
+      "상태": "확정",
+      "사유": "왼쪽 무릎 타박상/골좌상",
+      "이번시즌_경기당출전분_득점": "미확인",
+      "출처": "https://sports.yahoo.com/articles/nuggets-injury-report-denver-still-170003728.html",
+      "날짜": "2026-10-28"
+    },
+    {
+      "팀": "홈",
+      "선수": "Malik Dia",
+      "포지션": "미확인",
+      "상태": "의심",
+      "사유": "투웨이 계약 G리그 배정 관련",
+      "이번시즌_경기당출전분_득점": "미확인",
+      "출처": "https://sports.yahoo.com/articles/nuggets-injury-report-denver-still-170003728.html",
+      "날짜": "2026-10-28"
+    },
+    {
+      "팀": "홈",
+      "선수": "Jaron Pierre Jr.",
+      "포지션": "미확인",
+      "상태": "의심",
+      "사유": "투웨이 계약 G리그 배정 관련",
+      "이번시즌_경기당출전분_득점": "미확인",
+      "출처": "https://sports.yahoo.com/articles/nuggets-injury-report-denver-still-170003728.html",
+      "날짜": "2026-10-28"
+    },
+    {
+      "팀": "홈",
+      "선수": "Jordan Poole",
+      "포지션": "SG",
+      "상태": "출전가능(probable)",
+      "사유": "질병",
+      "이번시즌_경기당출전분_득점": "미확인",
+      "출처": "https://sports.yahoo.com/articles/nuggets-injury-report-denver-still-170003728.html",
+      "날짜": "2026-10-28"
+    },
+    {
+      "팀": "홈",
+      "선수": "Julian Reese",
+      "포지션": "미확인",
+      "상태": "출전가능(probable)",
+      "사유": "미확인",
+      "이번시즌_경기당출전분_득점": "미확인",
+      "출처": "https://sports.yahoo.com/articles/nuggets-injury-report-denver-still-170003728.html",
+      "날짜": "2026-10-28"
+    },
+    {
+      "팀": "원정",
+      "선수": "Cameron Johnson",
+      "포지션": "SF/PF",
+      "상태": "의심",
+      "사유": "오른쪽 발목 염좌",
+      "이번시즌_경기당출전분_득점": "미확인",
+      "출처": "https://sports.yahoo.com/articles/nuggets-injury-report-denver-still-170003728.html",
+      "날짜": "2026-10-28"
+    },
+    {
+      "팀": "원정",
+      "선수": "Alpha Diallo",
+      "포지션": "SF",
+      "상태": "확정",
+      "사유": "개인 사유(personal reasons)",
+      "이번시즌_경기당출전분_득점": "미확인",
+      "출처": "https://sports.yahoo.com/articles/nuggets-injury-report-denver-still-170003728.html",
+      "날짜": "2026-10-28"
+    },
+    {
+      "팀": "원정",
+      "선수": "Spencer Jones",
+      "포지션": "SF",
+      "상태": "확정",
+      "사유": "양측 햄스트링 부상 관리",
+      "이번시즌_경기당출전분_득점": "미확인",
+      "출처": "https://sports.yahoo.com/articles/nuggets-injury-report-denver-still-170003728.html",
+      "날짜": "2026-10-28"
+    },
+    {
+      "팀": "원정",
+      "선수": "Julian Strawther",
+      "포지션": "SG/SF",
+      "상태": "확정",
+      "사유": "왼쪽 무릎 염좌",
+      "이번시즌_경기당출전분_득점": "미확인",
+      "출처": "https://sports.yahoo.com/articles/nuggets-injury-report-denver-still-170003728.html",
+      "날짜": "2026-10-28"
+    }
+  ],
+  "예상선발5": {
+    "홈": ["Dejounte Murray", "Bennedict Mathurin", "Saddiq Bey", "Zion Williamson", "Derik Queen"],
+    "원정": ["Jamal Murray", "Christian Braun", "DeMar DeRozan", "Aaron Gordon", "Nikola Jokić"],
+    "출처": "https://fantasydata.com/nba/starting-lineups",
+    "날짜": "2026-10-28",
+    "비고": "Yves Missi(홈 C) 결장으로 DeAndre Jordan이 센터로 선발 출전할 가능성이 있다는 보도가 있으나(출처: Yahoo Sports 기사), 라인업 사이트는 여전히 Derik Queen을 C로 표기 — 센터 선발은 두 소스가 엇갈려 불확실. Cameron Johnson(원정 '의심') 결장 시 Bryce Hopkins가 포워드로 대체 투입될 것으로 보도됨(Trevon Brazile는 Spencer Jones 자리 벤치 대체)."
+  },
+  "최근폼": {
+    "홈": {
+      "최근5경기": [
+        {"날짜": "2026-10-21", "상대": "vs IND (개막전, 홈)", "결과": "패 120-123"},
+        {"날짜": "2026-10-23", "상대": "@UTA", "결과": "패 119-120"},
+        {"날짜": "2026-10-24", "상대": "@DEN", "결과": "패 135-141 (OT)"}
+      ],
+      "시즌전적": "0승 3패(3경기, 개막 이후)",
+      "홈전적": "0승 1패",
+      "원정전적": "0승 2패"
+    },
+    "원정": {
+      "최근5경기": [
+        {"날짜": "2026-10-22", "상대": "@OKC", "결과": "패 84-96"},
+        {"날짜": "2026-10-24", "상대": "vs NOP(홈)", "결과": "승 141-135 (OT)"},
+        {"날짜": "2026-10-26", "상대": "vs GSW(홈)", "결과": "패 114-134"}
+      ],
+      "시즌전적": "1승 2패(3경기)",
+      "홈전적": "1승 1패",
+      "원정전적": "0승 1패"
+    },
+    "출처": "https://www.basketball-reference.com/boxscores/202610240DEN.html ; https://sports.yahoo.com/articles/pelicans-drop-season-opener-pacers-024155595.html ; https://www.espn.com/nba/game/_/gameId/401909849/pelicans-jazz",
+    "날짜": "2026-10-29 검색 기준"
+  },
+  "공수지표": {
+    "홈": {
+      "ORtg": "미확인",
+      "DRtg": "미확인",
+      "Pace": "미확인",
+      "경기수": "3경기(시즌 초반, 표본 매우 작음)"
+    },
+    "원정": {
+      "ORtg": "미확인",
+      "DRtg": "미확인",
+      "Pace": "미확인",
+      "경기수": "3경기(시즌 초반, 표본 매우 작음)"
+    },
+    "비고": "시간 제약으로 해당 지표 원출처 확인 못함"
+  },
+  "일정피로": {
+    "홈": {
+      "백투백": false,
+      "직전경기날짜": "2026-10-24 (vs DEN, OT패, 홈)",
+      "최근7일경기수": 3,
+      "이동": "10/25~10/27 사흘 휴식 후 10/28 홈 경기 — 원정 측 대비 체력적으로 여유 있음. 10/29 새크라멘토전이 예정되어 있어 이 경기가 백투백의 1차전이 됨(사실만 기록, 영향 판단은 분석가 몫)"
+    },
+    "원정": {
+      "백투백": false,
+      "직전경기날짜": "2026-10-26 (vs GSW, 홈, 패)",
+      "최근7일경기수": 3,
+      "이동": "덴버(홈)에서 뉴올리언스 원정 이동, 중간 하루 휴식. 10/28 뉴올리언스 이후 10/30 피닉스 원정이 예정되어 2연전 원정 로드트립의 첫 경기"
+    },
+    "출처": "https://sports.yahoo.com/articles/nuggets-aim-victory-against-winless-124747763.html",
+    "날짜": "2026-10-29 검색 기준"
+  },
+  "맞대결": {
+    "이번시즌": "2026-10-24 덴버 141 : 135 뉴올리언스(연장) — 4일 전 같은 매치업, 이번이 시즌 2차전",
+    "최근": "미확인(과거 시즌 맞대결 전적 직접 확인 못함)",
+    "출처": "https://www.basketball-reference.com/boxscores/202610240DEN.html",
+    "날짜": "2026-10-24"
+  },
+  "기타뉴스": [
+    {
+      "내용": "뉴올리언스는 개막 이후 3연패로 아직 무승(0승 3패), 10/29 기사 제목에 'winless Pelicans'로 언급됨",
+      "출처": "https://sports.yahoo.com/articles/nuggets-aim-victory-against-winless-124747763.html",
+      "날짜": "2026-10-29",
+      "오래됨": false
+    }
+  ],
+  "뉴스위험": "뉴올리언스 센터 선발(Missi 결장 시 대체자)이 DeAndre Jordan인지 Derik Queen인지 출처 간 엇갈림. 덴버 Cameron Johnson(의심)·Jordan Poole(출전가능) 등 다수가 상태만 '의심/가능'이라 최종 출전 여부가 경기 임박 시점까지 유동적임."
+}

@@ -4,8 +4,9 @@ import { Pressable, StyleSheet, Text, View, useWindowDimensions } from 'react-na
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 import { CAPSULE_ASPECT, OpeningCapsule } from '@/components/opening-capsule';
+import { DateStamp, Lcd } from '@/components/device';
 import { Avatar, Button, Content, IconButton, Page } from '@/components/ui';
-import { Colors, Fonts, Spacing, Stroke, offsetShadow } from '@/constants/theme';
+import { Colors, DEVICE, Fonts, Spacing, Stroke, offsetShadow } from '@/constants/theme';
 import { MAX_ITEMS_PER_MEMBER, deriveStatus, me } from '@/domain/capsule';
 import { useCapsuleStore } from '@/state/capsule-store';
 
@@ -16,6 +17,7 @@ export default function HomeScreen() {
   // 화면 절반 이상을 캡슐이 차지하되 가로 여백 16px는 남긴다.
   const capsuleWidth = Math.round(Math.min(windowWidth - 32, (windowHeight * 0.6) / CAPSULE_ASPECT));
   const [opening, setOpening] = useState(false);
+  const openable = capsules.filter((capsule) => deriveStatus(capsule, new Date()) === 'unlockable').length;
   const todo = capsules.filter((capsule) => {
     const status = deriveStatus(capsule, new Date());
     return status === 'unlockable' || (status === 'collecting' && (me(capsule)?.items.length ?? 0) < MAX_ITEMS_PER_MEMBER);
@@ -37,7 +39,7 @@ export default function HomeScreen() {
         <View style={styles.header}>
           <View style={styles.headerLeft}>
             <View>
-              <IconButton name="inbox" label="초대받은 캡슐 목록" onPress={() => router.push('/capsules')} />
+              <IconButton name="inbox" label="내 캡슐 목록" onPress={() => router.push('/capsules')} />
               {todo > 0 && (
                 <View style={styles.badge} pointerEvents="none">
                   <Text style={styles.badgeLabel}>{todo}</Text>
@@ -48,8 +50,8 @@ export default function HomeScreen() {
               <Avatar name={profile.name || '?'} tone={profile.tone} size={36} />
             </Pressable>
           </View>
-          <Text style={styles.brand}>묻어두지</Text>
-          <IconButton name="map" label="우리 동네 지도" onPress={() => router.push('/map')} />
+          {DEVICE ? <Lcd size={13} style={styles.brandLcd}>{`캡슐 ${capsules.length}  ·  열 수 있음 ${openable}`}</Lcd> : <Text style={styles.brand}>묻어두지</Text>}
+          <IconButton name="map" label="지도" onPress={() => router.push('/map')} />
         </View>
 
         <Content style={styles.body}>
@@ -61,7 +63,7 @@ export default function HomeScreen() {
             style={({ pressed }) => [styles.capsule, pressed && styles.capsulePressed]}>
             <OpeningCapsule width={capsuleWidth} open={opening} onOpened={goCreate} />
           </Pressable>
-          <Text style={styles.caption}>{opening ? '뚜껑을 여는 중…' : '지금 묻고, 그때 같이 열자.'}</Text>
+          <Text style={styles.caption}>{opening ? '캡슐을 여는 중…' : '지금 묻고, 그때 같이 열자.'}</Text>
           {!profile.name && !opening && (
             <Pressable accessibilityRole="button" onPress={() => router.push('/profile')} style={[styles.namePrompt, offsetShadow(3)]}>
               <Text style={styles.namePromptLabel}>캡슐에 보일 내 이름을 정해 주세요 →</Text>
@@ -72,6 +74,7 @@ export default function HomeScreen() {
         <Content style={styles.footer}>
           <Button label="타임캡슐 심기" icon="plus" disabled={opening} onPress={() => setOpening(true)} />
           <Button label="초대 코드로 들어가기" tone="ghost" disabled={opening} onPress={() => router.push('/join')} />
+          {DEVICE && <DateStamp date={new Date()} style={styles.stamp} />}
         </Content>
       </SafeAreaView>
     </Page>
@@ -87,6 +90,7 @@ const styles = StyleSheet.create({
   namePrompt: { paddingVertical: 10, paddingHorizontal: 16, borderRadius: 999, backgroundColor: Colors.yellow, borderWidth: Stroke.regular, borderColor: Colors.ink },
   namePromptLabel: { fontFamily: Fonts.display, fontSize: 14, color: Colors.ink },
   brand: { fontFamily: Fonts.display, fontSize: 22, color: Colors.ink },
+  brandLcd: { flex: 1, marginHorizontal: 10, paddingVertical: 9 },
   badge: { position: 'absolute', top: -4, right: -4, minWidth: 20, height: 20, paddingHorizontal: 5, borderRadius: 10, backgroundColor: Colors.coral, borderWidth: 2, borderColor: Colors.ink, alignItems: 'center', justifyContent: 'center' },
   badgeLabel: { fontFamily: Fonts.display, fontSize: 11, color: Colors.white },
   body: { flex: 1, alignItems: 'center', justifyContent: 'center', gap: Spacing.lg },
@@ -94,4 +98,5 @@ const styles = StyleSheet.create({
   capsulePressed: { transform: [{ scale: 0.98 }] },
   caption: { fontFamily: Fonts.display, fontSize: 18, color: Colors.muted },
   footer: { gap: 4, paddingTop: Spacing.md, paddingBottom: Spacing.md },
+  stamp: { position: 'absolute', right: 22, bottom: 18 },
 });

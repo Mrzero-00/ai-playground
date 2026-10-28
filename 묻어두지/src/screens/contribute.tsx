@@ -75,7 +75,7 @@ export function ContributeScreen({ capsule, now }: { capsule: CapsuleModel; now:
               {!solo && (
                 <Card shadow={false} style={styles.othersCard}>
                   <Text style={styles.othersTitle}>친구들이 넣은 것</Text>
-                  {others.length === 0 && <Body size={12}>아직 아무도 안 왔어요</Body>}
+                  {others.length === 0 && <Body size={12}>아직 들어온 친구가 없어요</Body>}
                   {others.map((member, index) => (
                     <View key={member.id} style={styles.otherRow}>
                       <Avatar name={member.name} tone={AVATAR_TONES[(index + 1) % AVATAR_TONES.length]} size={22} />
@@ -84,7 +84,7 @@ export function ContributeScreen({ capsule, now }: { capsule: CapsuleModel; now:
                       </Text>
                     </View>
                   ))}
-                  <Body size={11}>뭔지는 열 때!</Body>
+                  <Body size={11}>내용은 열 때 공개돼요</Body>
                 </Card>
               )}
             </View>
@@ -120,7 +120,7 @@ export function ContributeScreen({ capsule, now }: { capsule: CapsuleModel; now:
                 );
               })}
             </View>
-            <Body size={12}>종류 상관없이 {MAX_ITEMS_PER_MEMBER}개까지. 사진만 5장도 돼요. 마감 전엔 꺼내서 고칠 수 있어요.</Body>
+            <Body size={12}>종류 상관없이 {MAX_ITEMS_PER_MEMBER}개까지 넣을 수 있어요. 마감 전에는 꺼내서 고칠 수 있어요.</Body>
 
           </Content>
         </ScrollView>
@@ -130,22 +130,22 @@ export function ContributeScreen({ capsule, now }: { capsule: CapsuleModel; now:
               compact
               tone={capsule.location ? 'secondary' : 'yellow'}
               icon="photo"
-              label={capsule.location ? `심은 자리 · ${capsule.location.label}` : 'AR로 이 자리에 심기 (실험)'}
+              label={capsule.location ? `심은 자리 · ${capsule.location.label}` : 'AR로 심기 (실험)'}
               onPress={() => router.push({ pathname: '/capsule/[id]/plant', params: { id: capsule.id } })}
             />
           )}
           {isHost ? (
             <Button
-              label={sealable ? '지금 닫기' : solo ? '하나라도 넣으면 닫을 수 있어요' : '친구가 더 넣으면 닫을 수 있어요'}
+              label={sealable ? '타임캡슐 닫기' : solo ? '물건을 하나라도 넣으면 닫을 수 있어요' : '친구가 물건을 넣으면 닫을 수 있어요'}
               icon={sealable ? 'lock' : undefined}
               disabled={!sealable}
               onPress={() => router.push({ pathname: '/capsule/[id]/seal', params: { id: capsule.id } })}
             />
           ) : (
-            <Button label="친구 부르기" icon="share" tone="secondary" onPress={() => router.push({ pathname: '/capsule/[id]/invite', params: { id: capsule.id } })} />
+            <Button label="친구 초대하기" icon="share" tone="secondary" onPress={() => router.push({ pathname: '/capsule/[id]/invite', params: { id: capsule.id } })} />
           )}
           <Body size={12} center>
-            {`${formatKoreanDate(capsule.deadlineAt, true)}에, 또는 ${solo ? `${MAX_ITEMS_PER_MEMBER}개를` : `모두 ${MAX_ITEMS_PER_MEMBER}개씩`} 다 넣으면 저절로 닫혀요`}
+            {`${formatKoreanDate(capsule.deadlineAt, true)}에, 또는 ${solo ? `${MAX_ITEMS_PER_MEMBER}개를` : `모두 ${MAX_ITEMS_PER_MEMBER}개씩`} 다 넣으면 자동으로 닫혀요`}
             {capsule.openAt ? ` · ${formatKoreanDate(capsule.openAt, true)}에 열려요` : ''}
           </Body>
         </Content>

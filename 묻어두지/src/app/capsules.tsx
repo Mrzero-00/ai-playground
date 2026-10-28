@@ -28,7 +28,7 @@ export default function CapsuleListScreen() {
               <View style={styles.empty}>
                 <Capsule state="closed" size={160} />
                 <Text style={styles.emptyTitle}>아직 캡슐이 없어요</Text>
-                <Body center>직접 심거나, 친구가 보낸 초대 코드를 넣으면 여기에 나타나요.</Body>
+                <Body center>직접 만들거나 친구의 초대 코드로 들어오면 여기에 나타나요.</Body>
               </View>
             )}
             {rows.map(({ capsule, status }) => (

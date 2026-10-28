@@ -70,7 +70,7 @@ export function PlacePicker({ visible, initial, initialLabel, onClose, onConfirm
         <SafeAreaView style={styles.overlay} edges={['top', 'bottom']} pointerEvents="box-none">
           <View style={styles.top} pointerEvents="box-none">
             <IconButton name="close" label="고르기 취소" onPress={onClose} />
-            <Tag tone="white" icon="map" label="지도를 눌러 자리를 찍어요" />
+            <Tag tone="white" icon="map" label="지도를 눌러 자리를 정해요" />
             <IconButton name="locate" label={locating ? '내 위치 찾는 중' : '내 위치로'} onPress={() => { if (!locating) void locate(); }} />
           </View>
 

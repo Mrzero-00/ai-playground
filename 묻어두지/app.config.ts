@@ -5,7 +5,7 @@ import type { ExpoConfig } from 'expo/config';
 const googleMapsIos = process.env.EXPO_PUBLIC_GOOGLE_MAPS_IOS_KEY;
 const googleMapsAndroid = process.env.EXPO_PUBLIC_GOOGLE_MAPS_ANDROID_KEY;
 // 시안(EXPO_PUBLIC_THEME): sticker(A, 기본) | analog90(B). 스플래시·아이콘 바탕색만 여기서 맞춘다.
-const cream = process.env.EXPO_PUBLIC_THEME === 'analog90' ? '#EDE6D3' : '#FFF6E5';
+const cream = process.env.EXPO_PUBLIC_THEME === 'analog90' ? '#D9CFB8' : '#FFF6E5';
 
 const config: ExpoConfig = {
   name: '묻어두지',

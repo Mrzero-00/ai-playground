@@ -100,7 +100,7 @@ export default function MapScreen() {
       <SafeAreaView style={styles.overlay} edges={['top', 'bottom']} pointerEvents="box-none">
         <View style={styles.top} pointerEvents="box-none">
           <IconButton name="back" label="뒤로" onPress={() => (router.canGoBack() ? router.back() : router.replace('/'))} />
-          <Tag tone="white" label={`우리 동네 · 심은 캡슐 ${summaries.length}개`} />
+          <Tag tone="white" label={`근처에 심은 캡슐 ${summaries.length}개`} />
           <View style={styles.topRight}>
             <Pressable
               accessibilityRole="button"

@@ -82,7 +82,7 @@ function Footer({ primary, onPrimary, disabled, onRemove }: { primary: string; o
   return (
     <Content style={styles.footer}>
       <Button label={primary} onPress={onPrimary} disabled={disabled} />
-      {onRemove ? <Button label="캡슐에서 꺼내기" tone="ghost" onPress={onRemove} /> : <Body size={12} center>마감 전까지 꺼내서 고칠 수 있어요. 닫히면 나도 못 봐요.</Body>}
+      {onRemove ? <Button label="캡슐에서 꺼내기" tone="ghost" onPress={onRemove} /> : <Body size={12} center>마감 전까지는 꺼내서 고칠 수 있어요. 닫힌 뒤에는 나도 볼 수 없어요.</Body>}
     </Content>
   );
 }

@@ -57,7 +57,7 @@ export function WaitingScreen({ capsule, now }: { capsule: CapsuleModel; now: Da
           </Content>
         </ScrollView>
         <Content style={styles.footer}>
-          <Button label="캘린더에 넣기" icon="calendar" tone="secondary" />
+          <Button label="캘린더에 저장" icon="calendar" tone="secondary" />
           <Text style={styles.footerNote}>여는 날이 되면 이 자리에 ‘열기’ 버튼이 생겨요</Text>
         </Content>
       </SafeAreaView>

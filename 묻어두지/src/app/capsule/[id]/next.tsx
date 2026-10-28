@@ -39,7 +39,7 @@ export default function NextCapsuleScreen() {
                 <Title>이 친구들과 한 번 더 묻을까요?</Title>
               </View>
             </View>
-            <Body>열어본 바로 지금이 다음 약속을 잡기 가장 쉬운 때예요. 날짜만 먼저 정해요.</Body>
+            <Body>열어본 지금이 다음 약속을 잡기 가장 좋은 때예요. 날짜만 먼저 정해요.</Body>
 
             <View style={styles.field}>
               <Text style={styles.label}>다음엔 언제 열까요</Text>

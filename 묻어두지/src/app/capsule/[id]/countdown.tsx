@@ -86,7 +86,7 @@ export default function CountdownScreen() {
         </View>
         <Content style={styles.bottom}>
           <Text style={styles.title}>{capsule.title}</Text>
-          <Text style={styles.note}>서버 시각 기준 · 되돌릴 수 없어요</Text>
+          <Text style={styles.note}>한 번 열면 되돌릴 수 없어요</Text>
         </Content>
       </SafeAreaView>
     </Page>

@@ -48,13 +48,13 @@ export default function InviteScreen() {
         <ScrollView contentContainerStyle={styles.scroll} showsVerticalScrollIndicator={false}>
           <Content style={styles.content}>
             <View style={styles.intro}>
-              <Title>같이 묻을 친구를 불러요</Title>
-              <Body>링크를 받은 친구는 앱 없이도 바로 넣을 수 있어요. 받는 사람에게는 아래 카드만 보여요.</Body>
+              <Title>함께할 친구를 초대해요</Title>
+              <Body>초대 코드를 받은 친구는 앱에서 코드를 입력하고 들어와요. 아래 카드가 친구에게 보여요.</Body>
             </View>
 
             <View style={[styles.codeBox, offsetShadow(4)]}>
               <View style={styles.codeCopy}>
-                <Text style={styles.codeLabel}>초대 코드 · 앱에서 넣으면 바로 들어와요</Text>
+                <Text style={styles.codeLabel}>초대 코드 · 친구에게 알려 주세요</Text>
                 <Text style={styles.code}>{capsule.inviteCode}</Text>
               </View>
             </View>
@@ -110,9 +110,9 @@ export default function InviteScreen() {
           </Content>
         </ScrollView>
         <Content style={styles.footer}>
-          <Button label="초대 링크 보내기" icon="share" onPress={share} />
+          <Button label="초대 코드 보내기" icon="share" onPress={share} />
           {isHost && canSeal(capsule) ? (
-            <Button label="지금 닫기" tone="ghost" onPress={() => router.push({ pathname: '/capsule/[id]/seal', params: { id: capsule.id } })} />
+            <Button label="타임캡슐 닫기" tone="ghost" onPress={() => router.push({ pathname: '/capsule/[id]/seal', params: { id: capsule.id } })} />
           ) : (
             <Body size={12} center>물건을 넣은 사람이 2명 이상이면 방장이 닫을 수 있어요.</Body>
           )}

@@ -56,7 +56,7 @@ export function UnlockScreen({ capsule }: { capsule: CapsuleModel }) {
           {capsule.location && (
             <Button compact tone="yellow" icon="photo" label={`카메라로 찾기 · ${capsule.location.label}`} onPress={() => router.push({ pathname: '/capsule/[id]/find', params: { id: capsule.id } })} />
           )}
-          <Button label="지금 함께 열기" icon="lock" onPress={() => router.push({ pathname: '/capsule/[id]/countdown', params: { id: capsule.id } })} />
+          <Button label="타임캡슐 열기" icon="lock" onPress={() => router.push({ pathname: '/capsule/[id]/countdown', params: { id: capsule.id } })} />
           <Button label="조금만 더 기다릴게요" tone="ghost" onPress={() => router.replace('/')} />
         </Content>
       </SafeAreaView>

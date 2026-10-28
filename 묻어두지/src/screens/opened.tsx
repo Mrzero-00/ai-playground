@@ -72,9 +72,9 @@ export function OpenedScreen({ capsule, now }: { capsule: CapsuleModel; now: Dat
           <View style={styles.actions}>
             <IconButton name="back" label="이전 물건" onPress={() => setIndex((current) => Math.max(0, current - 1))} />
             {isLast ? (
-              <Button style={styles.grow} label="다음 캡슐 묻으러 가기" icon="arrow" onPress={() => router.push({ pathname: '/capsule/[id]/next', params: { id: capsule.id } })} />
+              <Button style={styles.grow} label="새 타임캡슐 만들기" icon="arrow" onPress={() => router.push({ pathname: '/capsule/[id]/next', params: { id: capsule.id } })} />
             ) : (
-              <Button style={styles.grow} label="다음 거 꺼내기!" onPress={() => setIndex((current) => Math.min(order.length - 1, current + 1))} />
+              <Button style={styles.grow} label="다음 물건 꺼내기" onPress={() => setIndex((current) => Math.min(order.length - 1, current + 1))} />
             )}
           </View>
         </Content>

@@ -61,7 +61,7 @@ export default function ProfileScreen() {
               <View style={[styles.avatarRing, offsetShadow(5)]}>
                 <Avatar name={trimmed || '?'} tone={tone} size={96} />
               </View>
-              <Title size={24}>{trimmed ? `${trimmed}님` : '누구세요?'}</Title>
+              <Title size={24}>{trimmed ? `${trimmed}님` : '이름을 정해 주세요'}</Title>
               <Body center>친구들 캡슐에 이 이름과 색으로 보여요. 언제든 바꿀 수 있어요.</Body>
             </View>
 

@@ -38,8 +38,8 @@ export default function JoinScreen() {
           <Content style={styles.content}>
             <View style={styles.hero}>
               <Capsule state="closed" size={150} />
-              <Title size={24}>친구 캡슐에 같이 묻어요</Title>
-              <Body center>친구가 보낸 6자리 코드를 넣으면 바로 그 캡슐로 들어가요.</Body>
+              <Title size={24}>초대받은 캡슐에 들어가요</Title>
+              <Body center>친구가 보낸 6자리 초대 코드를 입력하면 그 캡슐로 들어가요.</Body>
             </View>
             <TextInput
               value={input}

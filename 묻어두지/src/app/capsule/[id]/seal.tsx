@@ -42,7 +42,7 @@ export default function SealScreen() {
           <Content style={styles.content}>
             <View style={styles.hero}>
               <Capsule state="closed" size={190} />
-              <Title size={24}>지금 닫을까요?</Title>
+              <Title size={24}>타임캡슐을 닫을까요?</Title>
               <Body center>닫히면 나를 포함해 아무도 안을 볼 수 없고, 더 넣을 수도 없어요.</Body>
             </View>
 
@@ -58,7 +58,7 @@ export default function SealScreen() {
                 </Text>
               </View>
               <View style={styles.fact}>
-                <Text style={styles.factLabel}>원래 마감</Text>
+                <Text style={styles.factLabel}>넣기 마감</Text>
                 <Text style={styles.factValue}>{formatKoreanDate(capsule.deadlineAt, true)}</Text>
               </View>
             </Card>
@@ -82,7 +82,7 @@ export default function SealScreen() {
         </ScrollView>
         <Content style={styles.footer}>
           {error && <Body size={12} center>{error}</Body>}
-          <Button label={busy ? '닫는 중…' : '닫고 묻어두기'} icon="lock" onPress={() => void seal()} disabled={!sealable || busy} />
+          <Button label={busy ? '닫는 중…' : '타임캡슐 닫기'} icon="lock" onPress={() => void seal()} disabled={!sealable || busy} />
           <Button label="조금 더 기다릴게요" tone="ghost" onPress={() => router.back()} />
         </Content>
       </SafeAreaView>

@@ -1,0 +1,177 @@
+[
+ {
+  "번호": "1078",
+  "홈": "AC밀란",
+  "원정": "볼로냐",
+  "분석시각": "2026-10-28 22:50 KST (마감 후 학습 전용)",
+  "기준선": {
+   "승": 52.5,
+   "무": 27.6,
+   "패": 19.9,
+   "출처": "ita.1 pi-rating (scratchpad bl/1078.txt), 기대득점 1.64:0.93"
+  },
+  "득점모델": {
+   "방식": "INPUTS xG: 홈=(밀란 xG2.18+볼로냐 xGA1.38)/2=1.78 ×홈보정1.04≈1.85, 원정=(볼로냐 xG1.59+밀란 xGA1.25)/2=1.42 ×0.96≈1.36; 밀란 결장(Gila·Rabiot 확정, Ramos 의심) 반영해 홈 1.83으로 소폭 하향. 승무패는 기준선 경로, 핸디·언더오버는 이 λ의 포아송",
+   "λ홈": 1.83,
+   "λ원정": 1.36,
+   "출처": "팀노트 AC밀란/볼로냐 INPUTS(2026-10-28); 기준선 λ 1.64:0.93 와 비교(합 3.19 vs 2.57, 시즌 8경기 표본이라 과대 가능)"
+  },
+  "요인": [
+   {
+    "유형": "결장",
+    "팀": "홈",
+    "선수": "Mario Gila",
+    "등급": "B(추정, 이번시즌 출전 미확인)",
+    "상태": "확정",
+    "영향": -0.5,
+    "내용": "CB 영입생 발목 염증, 예상 XI 제외(벤치). 선발 비중 미확인이라 B, 대체 Tomori/De Winter/Pavlovic 평균 R0.6, D0.5",
+    "출처": "https://sport.sky.it/calcio/serie-a/2026/10/27/probabili-formazioni-serie-a-giornata-9-ultime-news ; https://www.tuttomercatoweb.com/probabili-formazioni/milan-bologna-probabili-formazioni-amorim-spera-gila-panchina-dovbyk-2287420",
+    "날짜": "2026-10-28"
+   },
+   {
+    "유형": "결장",
+    "팀": "홈",
+    "선수": "Adrien Rabiot",
+    "등급": "B(추정)",
+    "상태": "확정",
+    "영향": -0.5,
+    "내용": "MF 종아리 과부하, 예상 XI엔 Musah·Jashari 중원. 비중 미확인 B×R0.6×D0.5",
+    "출처": "https://sport.sky.it/calcio/serie-a/2026/10/27/probabili-formazioni-serie-a-giornata-9-ultime-news ; https://www.tuttomercatoweb.com/probabili-formazioni/milan-bologna-probabili-formazioni-amorim-spera-gila-panchina-dovbyk-2287420",
+    "날짜": "2026-10-28"
+   },
+   {
+    "유형": "결장",
+    "팀": "홈",
+    "선수": "Diego Moreira",
+    "등급": "C",
+    "상태": "확정",
+    "영향": 0,
+    "내용": "햄스트링, 로테이션급 가정",
+    "출처": "https://sport.sky.it/calcio/serie-a/2026/10/27/probabili-formazioni-serie-a-giornata-9-ultime-news ; https://www.tuttomercatoweb.com/probabili-formazioni/milan-bologna-probabili-formazioni-amorim-spera-gila-panchina-dovbyk-2287420",
+    "날짜": "2026-10-28"
+   },
+   {
+    "유형": "결장",
+    "팀": "홈",
+    "선수": "Gonçalo Ramos",
+    "등급": "A(추정)",
+    "상태": "의심",
+    "영향": -1.0,
+    "내용": "종아리 회복 중, Sky만 언급(TMW·Fantamaster는 선발 예상). 의심 상한 1%p",
+    "출처": "https://sport.sky.it/calcio/serie-a/2026/10/27/milan-bologna-probabili-formazioni-9-giornata",
+    "날짜": "2026-10-28"
+   },
+   {
+    "유형": "결장",
+    "팀": "원정",
+    "선수": "Riccardo Orsolini",
+    "등급": "A(추정)",
+    "상태": "의심",
+    "영향": 1.0,
+    "내용": "Sky 결장 목록, 사유 미기재. TMW 예상 XI엔 없음. 의심 상한 1%p",
+    "출처": "https://sport.sky.it/calcio/serie-a/2026/10/27/probabili-formazioni-serie-a-giornata-9-ultime-news ; https://www.tuttomercatoweb.com/probabili-formazioni/milan-bologna-probabili-formazioni-amorim-spera-gila-panchina-dovbyk-2287420",
+    "날짜": "2026-10-28"
+   },
+   {
+    "유형": "결장",
+    "팀": "원정",
+    "선수": "Federico Piccoli, Jay Enem",
+    "등급": "C",
+    "상태": "확정",
+    "영향": 0,
+    "내용": "Piccoli 확정 결장(백업 FW), Enem 아킬레스 의심, Dovbyk 선발 아님. 영향 0",
+    "출처": "https://sport.sky.it/calcio/serie-a/2026/10/27/probabili-formazioni-serie-a-giornata-9-ultime-news ; https://www.tuttomercatoweb.com/probabili-formazioni/milan-bologna-probabili-formazioni-amorim-spera-gila-panchina-dovbyk-2287420",
+    "날짜": "2026-10-28"
+   },
+   {
+    "유형": "감독",
+    "팀": "원정",
+    "선수": "Raffaele Palladino",
+    "등급": "-",
+    "상태": "확정",
+    "영향": 0,
+    "내용": "9/17 부임, 3-4-2-1 유지 예상. 승점 8(13위)이나 xPts13.1로 불운 쪽. 영향 0",
+    "출처": "팀노트 볼로냐 FACTS",
+    "날짜": "2026-10-28"
+   },
+   {
+    "유형": "폼",
+    "팀": "공통",
+    "선수": "양 팀",
+    "등급": "-",
+    "상태": "확정",
+    "영향": 0,
+    "내용": "밀란 10/26 우디네세 원정 2-0·18일 아탈란타 3-2(리그 5승3무0패 홈1.38xG), 볼로냐 10/24 칼리아리 원정 2-0·17일 인테르 1-3. 양 팀 나란히 승세로 차이 미미, 영향 0",
+    "출처": "팀노트 INPUTS/FACTS",
+    "날짜": "2026-10-28"
+   },
+   {
+    "유형": "휴식",
+    "팀": "공통",
+    "선수": "-",
+    "등급": "-",
+    "상태": "확정",
+    "영향": 0,
+    "내용": "밀란 2.9일(원정 직전)·볼로냐 4.2일. 휴식 영향 0 규칙, 10/31 인테르 더비 앞 로테이션 가능성은 Modric 휴식 보도 정도(예상일 뿐)",
+    "출처": "팀노트 INPUTS",
+    "날짜": "2026-10-28"
+   },
+   {
+    "유형": "xG",
+    "팀": "공통",
+    "선수": "-",
+    "등급": "-",
+    "상태": "확정",
+    "영향": 0,
+    "내용": "밀란 시즌 xG2.18/xGA1.25(홈 1.38 xGD), 볼로냐 1.59/1.38(원정 0.14). 홈 우위는 이미 기준선 승률에 반영되어 승무패에는 가산 안 함, 득점 λ에만 사용",
+    "출처": "팀노트 INPUTS",
+    "날짜": "2026-10-28"
+   }
+  ],
+  "최종": {
+   "승": 51.5,
+   "무": 28.0,
+   "패": 20.5
+  },
+  "선택지": [
+   {
+    "번호": "1078",
+    "선택": "승무패 일반 승",
+    "확률": 51.5,
+    "계산": "기준선 52.5 + 결장 순영향 -1.0(밀란 -2.0 / 볼로냐 의심 +1.0) = 51.5; 무 28.0, 패 20.5"
+   },
+   {
+    "번호": "1079",
+    "선택": "H-1 패",
+    "확률": 51.0,
+    "계산": "λ1.83:1.36 포아송: 홈 2골차+승 26.9 / 1골차 승(무승부 취급 아님, 정의상 무) 21.7 / 패(무·원정승) 51.4. 기준선 λ로는 패 45.9(1위 동일). 포아송 무승부 과소분 감안 시 패 쪽이 더 유리"
+   },
+   {
+    "번호": "1080",
+    "선택": "H-2 패",
+    "확률": 73.0,
+    "계산": "홈 3골차+ 승 12.1 / 2골차 무 14.7 / 패 73.1 (기준선 λ 70.8)"
+   },
+   {
+    "번호": "1081",
+    "선택": "언더오버 2.5 오버",
+    "확률": 58.0,
+    "계산": "xG λ 합 3.19 → 오버 61.8 / 언더 38.2. 기준선 λ(합 2.57) 언더 52.5와 정반대 → 시즌 8경기 xG 과대 가능성과 세리에A 저득점 감안해 반반 섞어 오버 ~56~58로 축소(낮은 확신)"
+   }
+  ],
+  "예상점수": "1.8:1.3",
+  "확신도": "중간 — 홈 승이 1순위인 점은 기준선·xG 모두 일치(승 49~52%). 다만 언더오버는 기준선(언더 52.5)과 xG(오버 62)가 엇갈려 낮음, 결장 공식 정보 대부분이 선발비중 미확인(등급 추정)",
+  "결론": "밀란 홈 승이 1순위(약 51%)이고 무 28%, 패 21%. 결장은 밀란이 Gila·Rabiot 확정 + Ramos 의심으로 더 많지만 등급·대체 격차상 소폭이라 양 팀 순영향 -1%p에 그쳤다. 핸디 H-1 패(밀란이 2골차 이상 못 이김)·H-2 패가 가장 높고, 득점은 xG상 오버 쪽으로 기울지만 기준선과 엇갈려 확신이 낮다.",
+  "미확인": [
+   "밀란 결장자(Gila·Rabiot·Moreira) 이번 시즌 선발/출전시간·득점",
+   "Sky 종합 목록의 추가 결장 5명(Saelemaekers·Gabbia·Chukwueze·Terracciano·Loftus-Cheek) 실제 결장 여부",
+   "Orsolini 결장 사유와 실제 선발 여부",
+   "공식 킥오프 라인업"
+  ],
+  "추가 수집 요청": [
+   "밀란 8경기 선수별 선발/출전시간(Gila·Rabiot·Moreira·Ramos), 볼로냐 Orsolini 출전시간",
+   "킥오프 전 공식 라인업(Ramos·Orsolini·Modric 선발 여부)",
+   "Sky 목록 추가 결장 5명 사유"
+  ]
+ }
+]

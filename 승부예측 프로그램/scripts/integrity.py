@@ -646,7 +646,7 @@ EV_KEY = ("회차", "번호", "구분", "유형", "팀", "선수", "영향", "�
 
 
 def _ev_key(x):
-    return tuple((x.get(k) or "").strip() for k in EV_KEY)
+    return tuple(str(x.get(k) or "").strip() for k in EV_KEY)
 
 
 def _drop_dup_evidence(ev):

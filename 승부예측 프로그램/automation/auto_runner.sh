@@ -13,6 +13,9 @@ LOG="$PROJ/logs/auto_$(date +%Y%m%d).log"
 LOCK="/tmp/pacu_auto_runner.lock"
 MODE="${1:-blocks}"
 PERM="${PACU_PERM:-acceptEdits}"
+# 모델 고정(2026-10-29 사용자 지시). 지정이 없으면 기본 모델로 돌았고, 그게 Fable 이라
+# 10/28 21시 승무패64 블록이 "You've reached your Fable limit" 으로 세 번 연속 실패했다.
+MODEL="${PACU_MODEL:-opus}"
 mkdir -p "$PROJ/logs"
 cd "$PROJ" || exit 1
 exec >>"$LOG" 2>&1
@@ -106,6 +109,13 @@ ${STEP3}
 [4단계 배포] 커밋·푸시(origin pacu, pacu:main) → sh ../betman-dashboard/deploy.sh 로 대시보드 갱신·배포 → PushNotification 한 줄 알림(추천 유무·일반 승률·도파민 승률). round_watch.py done 으로 블록 상태도 닫는다.
 ${RULES}"
 
-caffeinate -i -s claude -p "$PROMPT" --permission-mode "$PERM" --output-format text --max-turns 400 2>&1 | tail -c 20000
+echo "모델: $MODEL"
+OUT="$(caffeinate -i -s claude -p "$PROMPT" --model "$MODEL" --permission-mode "$PERM" --output-format text --max-turns 400 2>&1)"
+echo "$OUT" | tail -c 20000
+# 한도·인증 실패는 조용히 끝나면 며칠 뒤에야 발견된다. 눈에 띄게 남긴다(2026-10-29).
+if printf '%s' "$OUT" | grep -qiE "reached your .* limit|usage limit|rate limit|credit balance|Invalid API key|authentication"; then
+  echo "!!! 모델 호출 실패(한도/인증) — 이 블록은 분석되지 않았다. 모델=$MODEL"
+  echo "$(date '+%F %T') $MODE 모델호출실패 model=$MODEL" >> "$PROJ/logs/실패알림.log"
+fi
 python3 scripts/loop_state.py --commit >/dev/null 2>&1
 echo "=== $(date '+%F %T') 끝"

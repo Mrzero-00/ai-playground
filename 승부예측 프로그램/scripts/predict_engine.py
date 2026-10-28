@@ -129,6 +129,32 @@ def from_ours():
 
 
 # ----------------------------------------------------------- 확률 변환
+PARAM = os.path.join(ROOT, "data", "기법파라미터.json")
+DEFAULTS = {
+    "elo":         {"k": 20.0, "home": 70.0, "draw_w": 120.0},
+    "elo_goal":    {"k": 20.0, "home": 70.0, "draw_w": 120.0, "gmul": 0.5},
+    "pi":          {"lr": 0.06, "base": 1.35, "draw_w": 0.0},
+    "poisson":     {"lr": 0.045, "gamma": 0.25, "mu": 0.30},
+    "dixon_coles": {"lr": 0.045, "gamma": 0.25, "mu": 0.30, "rho": -0.07},
+    "시장앵커±6":    {"cap": 6.0},
+    "갈림→무가중":    {"scale": 0.5, "cap": 8.0},
+}
+
+
+def load_params():
+    """기법별 파라미터. 각 기법이 자기 회고로 스스로 고친 값이 여기 쌓인다."""
+    d = {k: dict(v) for k, v in DEFAULTS.items()}
+    if os.path.exists(PARAM):
+        try:
+            cur = (json.load(open(PARAM, encoding="utf-8")) or {}).get("current") or {}
+            for k, v in cur.items():
+                if k in d and isinstance(v, dict):
+                    d[k].update({x: y for x, y in v.items() if x in d[k]})
+        except Exception:
+            pass
+    return d
+
+
 def pois(lh, la, rho=0.0):
     ph = [math.exp(-lh) * lh ** k / math.factorial(k) for k in range(MAXG)]
     pa = [math.exp(-la) * la ** k / math.factorial(k) for k in range(MAXG)]
@@ -163,13 +189,14 @@ def _norm(p):
     return {k: v / t * 100 for k, v in p.items()}
 
 
-def my_methods(r, base):
+def my_methods(r, base, P=None):
     """사용자 위임 2026-10-26: "정립된 기법 외에 네가 직접 만들어도 된다."
     측정에서 나온 사실 위에 세운다 —
       ① 시장이 단일 기법으로 가장 강하다(53.4% vs 모델 51~52%).
       ② 모델을 시장과 섞으면 시장보다 조금 낮아진다 → 모델을 '대체'가 아니라 '소폭 이탈'로 써야 한다.
       ③ 기법들이 갈릴 때가 바로 어려운 경기다 → 갈림 정도 자체가 정보다.
     """
+    P = P or load_params()
     out = {}
     models = {k: v for k, v in base.items() if k != "market"}
     mk = base.get("market")
@@ -191,14 +218,16 @@ def my_methods(r, base):
         cons = out["합의(모델평균)"]
         anc = {}
         for k in LAB:
-            d = max(-6.0, min(6.0, cons[k] - mk[k]))
+            cap = P["시장앵커±6"]["cap"]
+            d = max(-cap, min(cap, cons[k] - mk[k]))
             anc[k] = max(0.5, mk[k] + d)
         out["시장앵커±6"] = _norm(anc)
 
         # 합의이탈 — 모델 합의가 시장과 크게 갈리면 그 경기는 무가 늘어난다(실측: 접전 구간 무 31%).
         # 갈림 크기에 비례해 무를 키우고 양끝을 깎는다. 방향은 시장을 따른다.
         gap = max(abs(cons[k] - mk[k]) for k in LAB)
-        bump = min(8.0, gap * 0.5)
+        gp = P["갈림→무가중"]
+        bump = min(gp["cap"], gap * gp["scale"])
         dv = {"승": max(0.5, mk["승"] - bump / 2), "무": mk["무"] + bump,
               "패": max(0.5, mk["패"] - bump / 2)}
         out["갈림→무가중"] = _norm(dv)
@@ -206,12 +235,15 @@ def my_methods(r, base):
 
 
 # ----------------------------------------------------------- 엔진
-def run(rows):
+def run(rows, P=None, want=None):
+    """want 를 주면 그 기법만 계산한다(튜닝 때 빠르게)."""
+    P = P or load_params()
     elo = collections.defaultdict(lambda: 1500.0)
     elo_g = collections.defaultdict(lambda: 1500.0)
     pi_h = collections.defaultdict(float); pi_a = collections.defaultdict(float)
     att = collections.defaultdict(float); dfn = collections.defaultdict(float)
-    mu, gamma, LR = math.log(1.35), 0.25, 0.045
+    pe, pg, pp, pd, pi_p = P["elo"], P["elo_goal"], P["poisson"], P["dixon_coles"], P["pi"]
+    mu, gamma, LR = math.log(1.0 + pp["mu"] + 0.05), pp["gamma"], pp["lr"]
     preds = []
     for r in rows:
         h, a = r["h"], r["a"]
@@ -225,27 +257,29 @@ def run(rows):
         cand = {}
         if (r.get("sport") or "축구") == "축구":
             cand.update({
-                "elo": from_rating_gap(elo[h] + 70 - elo[a]),
-                "elo_goal": from_rating_gap(elo_g[h] + 70 - elo_g[a]),
-                "pi": pois(max(.15, 1.35 + gd / 2), max(.15, 1.35 - gd / 2)),
+                "elo": from_rating_gap(elo[h] + pe["home"] - elo[a], pe["draw_w"]),
+                "elo_goal": from_rating_gap(elo_g[h] + pg["home"] - elo_g[a], pg["draw_w"]),
+                "pi": pois(max(.15, pi_p["base"] + gd / 2), max(.15, pi_p["base"] - gd / 2)),
                 "poisson": pois(lh, la),
-                "dixon_coles": pois(lh, la, rho=-0.07),
+                "dixon_coles": pois(lh, la, rho=pd["rho"]),
             })
+            if want:
+                cand = {k: v for k, v in cand.items() if k in want}
         if r["mk"]:
             cand["market"] = r["mk"]
-        cand.update(my_methods(r, cand))
+        cand.update(my_methods(r, cand, P))
         preds.append((r, cand))
         # --- 결과로 상태 갱신
         if r["hg"] is None or r["ag"] is None:
             continue
         hg, ag = r["hg"], r["ag"]
         sc = 1.0 if hg > ag else (0.5 if hg == ag else 0.0)
-        for tbl, kmul in ((elo, 1.0), (elo_g, 1 + 0.5 * min(abs(hg - ag), 3))):
-            ex = 1 / (1 + 10 ** (-(tbl[h] + 70 - tbl[a]) / 400))
-            k = 20 * kmul
-            tbl[h] += k * (sc - ex); tbl[a] -= k * (sc - ex)
+        for tbl, kk, hadv in ((elo, pe["k"], pe["home"]),
+                              (elo_g, pg["k"] * (1 + pg["gmul"] * min(abs(hg - ag), 3)), pg["home"])):
+            ex = 1 / (1 + 10 ** (-(tbl[h] + hadv - tbl[a]) / 400))
+            tbl[h] += kk * (sc - ex); tbl[a] -= kk * (sc - ex)
         err = (hg - ag) - gd
-        pi_h[h] += 0.06 * err; pi_a[a] -= 0.06 * err
+        pi_h[h] += pi_p["lr"] * err; pi_a[a] -= pi_p["lr"] * err
         att[h] += LR * (hg - lh); dfn[a] -= LR * (hg - lh)
         att[a] += LR * (ag - la); dfn[h] -= LR * (ag - la)
         for t in (h, a):

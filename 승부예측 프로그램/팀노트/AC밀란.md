@@ -1,12 +1,12 @@
 # AC 밀란 (세리에A)
 
 <!-- FACTS:START -->
-## 팩트시트 (자동 수집 2026-10-25) — 조사 전 반드시 읽고, 아래 사실과 다른 뉴스 요약은 '미확인'으로 둔다
+## 팩트시트 (자동 수집 2026-10-30) — 조사 전 반드시 읽고, 아래 사실과 다른 뉴스 요약은 '미확인'으로 둔다
 - 출처: 위키 '2026–27 AC Milan season'(season), ESPN 있음
 - 감독: Ruben Amorim
-- 리그 순위: 5위 7경기 4승3무0패 GD+7 승점15 (AC Milan)
+- 리그 순위: 5위 9경기 5승3무1패 GD+7 승점18 (AC Milan)
 - 2026 여름 이적(위키 이적 표, 앞 8줄씩): IN style="text-align:center"|FW · Andrej Kostić · style="text-align:center" · Partizan · style="text-align:center / IN align=center| FW · Gonçalo Ramos · align=center · Paris Saint-Germain · align=center|€74,000,000 / IN align=center| DF · Mario Gila · align=center · Lazio · align=center|€25,000,000 / IN align="center" |DF · Sankhoun Diawara · align="center" |20 · Troyes · align="center" |€3,000,000 / IN 19 August 2026 · align="center" |MF · Diego Moreira · align="center" |22 · Strasbourg / IN style="text-align:center"|FW · Omari Hutchinson · style="text-align:center" · Nottingham Forest · style="text- / IN align=center| FW · Francesco Camarda · align=center · Lecce · align=center|€1,000,000 / IN style="text-align:center"|DF · Filippo Terracciano · style="text-align:center" · Cremonese · style="text-align / OUT style="text-align:center"|DF · Álex Jiménez · style="text-align:center" · Bournemouth · style="text-align:cent / OUT style="text-align:center"|MF · Tommaso Pobega · style="text-align:center" · Bologna · style="text-align:center / OUT style="text-align:center"|FW · Lorenzo Colombo · style="text-align:center" · Genoa · style="text-align:center" / OUT style="text-align:center"|MF · Chaka Traorè · style="text-align:center" · Partizan · style="text-align:center"
-- 최근 경기(ESPN, 최대 28일): 2026-09-06 Juventus 1-1 AC Milan / 2026-09-12 Lazio 2-2 AC Milan / 2026-09-20 AC Milan 3-0 Lecce / 2026-10-11 Sassuolo 1-1 AC Milan / 2026-10-18 AC Milan 3-2 Atalanta
+- 최근 경기(ESPN, 최대 28일): 2026-09-20 AC Milan 3-0 Lecce / 2026-10-11 Sassuolo 1-1 AC Milan / 2026-10-18 AC Milan 3-2 Atalanta / 2026-10-25 Udinese 0-2 AC Milan / 2026-10-28 AC Milan 2-4 Bologna
 <!-- FACTS:END -->
 <!-- INPUTS:START -->
 ## 입력(자동 수집 2026-10-28) — xG·휴식일·라인업·환경(이동거리·고도·날씨)은 이 숫자를 쓴다

@@ -1,11 +1,11 @@
 # PSV에인트호번
 
 <!-- FACTS:START -->
-## 팩트시트 (자동 수집 2026-10-25) — 조사 전 반드시 읽고, 아래 사실과 다른 뉴스 요약은 '미확인'으로 둔다
+## 팩트시트 (자동 수집 2026-10-30) — 조사 전 반드시 읽고, 아래 사실과 다른 뉴스 요약은 '미확인'으로 둔다
 - 출처: 위키 'PSV Eindhoven'(club), ESPN 있음
 - 감독: Peter Bosz
-- 리그 순위: 3위 9경기 6승1무2패 GD+15 승점19 (PSV Eindhoven)
-- 최근 경기(ESPN, 최대 28일): 2026-09-05 Ajax Amsterdam 1-3 PSV Eindhoven / 2026-09-13 PSV Eindhoven 4-1 Sparta Rotterdam / 2026-09-20 FC Twente 3-2 PSV Eindhoven / 2026-10-09 PSV Eindhoven 2-0 Heerenveen / 2026-10-17 ADO Den Haag 2-1 PSV Eindhoven
+- 리그 순위: 3위 10경기 6승2무2패 GD+15 승점20 (PSV Eindhoven)
+- 최근 경기(ESPN, 최대 28일): 2026-09-13 PSV Eindhoven 4-1 Sparta Rotterdam / 2026-09-20 FC Twente 3-2 PSV Eindhoven / 2026-10-09 PSV Eindhoven 2-0 Heerenveen / 2026-10-17 ADO Den Haag 2-1 PSV Eindhoven / 2026-10-25 PSV Eindhoven 1-1 Feyenoord Rotterdam
 <!-- FACTS:END -->
 
 <!-- INPUTS:START -->

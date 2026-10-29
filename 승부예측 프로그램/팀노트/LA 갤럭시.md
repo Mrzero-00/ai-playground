@@ -1,11 +1,11 @@
 # LA 갤럭시
 
 <!-- FACTS:START -->
-## 팩트시트 (자동 수집 2026-10-25) — 조사 전 반드시 읽고, 아래 사실과 다른 뉴스 요약은 '미확인'으로 둔다
+## 팩트시트 (자동 수집 2026-10-30) — 조사 전 반드시 읽고, 아래 사실과 다른 뉴스 요약은 '미확인'으로 둔다
 - 출처: 위키 'LA Galaxy'(club), ESPN 있음
 - 감독: Greg Vanney
-- 리그 순위: 9위 31경기 10승10무11패 GD-9 승점40 (LA Galaxy)
-- 최근 경기(ESPN, 최대 28일): 2026-09-20 Minnesota United FC 2-3 LA Galaxy / 2026-09-27 LA Galaxy 3-2 Colorado Rapids / 2026-10-11 St. Louis CITY SC 6-2 LA Galaxy / 2026-10-15 LA Galaxy 2-0 Portland Timbers / 2026-10-18 LA Galaxy 2-2 San Diego FC
+- 리그 순위: 10위 32경기 10승11무11패 GD-9 승점41 (LA Galaxy)
+- 최근 경기(ESPN, 최대 28일): 2026-09-27 LA Galaxy 3-2 Colorado Rapids / 2026-10-11 St. Louis CITY SC 6-2 LA Galaxy / 2026-10-15 LA Galaxy 2-0 Portland Timbers / 2026-10-18 LA Galaxy 2-2 San Diego FC / 2026-10-26 LAFC 2-2 LA Galaxy
 <!-- FACTS:END -->
 <!-- INPUTS:START -->
 ## 입력(자동 수집 2026-10-26) — xG·휴식일·라인업·환경(이동거리·고도·날씨)은 이 숫자를 쓴다

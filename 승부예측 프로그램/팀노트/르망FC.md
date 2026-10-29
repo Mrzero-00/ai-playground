@@ -1,11 +1,11 @@
 # 르망FC
 
 <!-- FACTS:START -->
-## 팩트시트 (자동 수집 2026-10-25) — 조사 전 반드시 읽고, 아래 사실과 다른 뉴스 요약은 '미확인'으로 둔다
+## 팩트시트 (자동 수집 2026-10-30) — 조사 전 반드시 읽고, 아래 사실과 다른 뉴스 요약은 '미확인'으로 둔다
 - 출처: 위키 'Le Mans FC'(club), ESPN 있음
 - 감독: Patrick Videira
-- 리그 순위: 16위 7경기 1승3무3패 GD-5 승점6 (Le Mans)
-- 최근 경기(ESPN, 최대 28일): 2026-09-05 Nice 1-1 Le Mans / 2026-09-13 Le Mans 2-2 Lens / 2026-09-19 Le Mans 2-1 Lorient / 2026-10-10 Paris Saint-Germain 3-1 Le Mans / 2026-10-16 Le Mans 0-3 Toulouse
+- 리그 순위: 15위 8경기 1승4무3패 GD-5 승점7 (Le Mans)
+- 최근 경기(ESPN, 최대 28일): 2026-09-13 Le Mans 2-2 Lens / 2026-09-19 Le Mans 2-1 Lorient / 2026-10-10 Paris Saint-Germain 3-1 Le Mans / 2026-10-16 Le Mans 0-3 Toulouse / 2026-10-25 AJ Auxerre 1-1 Le Mans
 <!-- FACTS:END -->
 
 <!-- INPUTS:START -->

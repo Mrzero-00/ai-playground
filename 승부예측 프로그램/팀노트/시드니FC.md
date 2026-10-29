@@ -1,12 +1,12 @@
 # 시드니FC (호주, Sydney FC)
 
 <!-- FACTS:START -->
-## 팩트시트 (자동 수집 2026-10-23) — 조사 전 반드시 읽고, 아래 사실과 다른 뉴스 요약은 '미확인'으로 둔다
-- 출처: 위키 '2026–27 Sydney FC season'(season), ESPN 있음
-- 감독: Patrick Kisnorbo
-- 리그 순위: 6위 1경기 0승1무0패 GD0 승점1 (Sydney FC)
-- 2026 여름 이적(위키 이적 표, 앞 8줄씩): IN style="text-align:center;"|15 · style="text-align:center;" · Unattached · Free transfer · 3 years / IN style="text-align:center;"|16 · style="text-align:center;" · Perth Glory · Free transfer · 2 years / IN style="text-align:center;"|3 · style="text-align:center;" · {{sort|Kanchanaburi Power| Kanchanaburi Power}} ·  / IN style="text-align:center;"|14 · style="text-align:center;" · {{sort|Sekine, Takahiro| Takahiro Sekine}} · {{so / IN style="text-align:center;"|9 · style="text-align:center;" · {{sort|Sunday, Oriola| Oriola Sunday}} · {{sort|RB / IN style="text-align:center;"|18 · style="text-align:center;" · Brisbane Roar Youth · Free transfer · 3 years / IN style="text-align:center;"|2 · style="text-align:center;" · {{sort|Manchester United Youth| Manchester United  / IN style="text-align:center;"|5 · style="text-align:center;" · {{sort|Portsmouth| Portsmouth}} · Loan · 1 year / OUT style="text-align:center;"|6 · style="text-align:center;"| ! scope="row" · Unattached · End of contract · 30 J / OUT style="text-align:center;"|7 · style="text-align:center;"| ! scope="row" |{{sort|Quispe, Piero| Piero Quispe}} / OUT style="text-align:center;"|10 · style="text-align:center;"| ! scope="row" |{{sort|Lolley, Joe| Joe Lolley}} ·  / OUT style="text-align:center;"|13 · style="text-align:center;"| ! scope="row" · Newcastle Jets · End of contract ·
-- 최근 경기(ESPN, 최대 28일): 2026-10-16 Sydney FC 0-0 Western Sydney Wanderers
+## 팩트시트 (자동 수집 2026-10-30) — 조사 전 반드시 읽고, 아래 사실과 다른 뉴스 요약은 '미확인'으로 둔다
+- 출처: 위키 '2026–27 Western Sydney Wanderers FC season'(season), ESPN 있음
+- 감독: Ufuk Talay
+- 리그 순위: 4위 2경기 1승1무0패 GD+1 승점4 (Sydney FC)
+- 2026 여름 이적(위키 이적 표, 앞 8줄씩): IN Central Coast Mariners · Free transfer · 2 years · 1 July 2026 / IN {{sort|Gillion, Liam| Liam Gillion}} · Auckland FC · Free transfer · 2 years · 1 July 2026 / IN Adelaide United · Free transfer · 2 years · 1 July 2026 / IN {{sort|Aberdeen| Aberdeen}} · Undisclosed · 3 years · 8 July 2026 / IN {{sort|Ferreyra, Germán| Germán Ferreyra}} · Unattached · Free transfer · 3 years · 15 July 2026 / IN 2-year contract · } === Transfers out === {| class="wikitable plainrowheaders sortable" style="text-align:cent / IN {{sort|Bankstown City| Bankstown City}} · End of contract · 26 June 2026 / IN {{sort|Barbarouses, Kosta| Kosta Barbarouses}} · Unattached · End of contract · 30 June 2026 / OUT {{sort|Bankstown City| Bankstown City}} · End of contract · 26 June 2026 / OUT {{sort|Barbarouses, Kosta| Kosta Barbarouses}} · Unattached · End of contract · 30 June 2026 / OUT {{sort|Portsmouth| Portsmouth}} · End of loan · 30 June 2026 / OUT {{sort|Kraev, Bozhidar| Bozhidar Kraev}} · Unattached · End of contract · 30 June 2026
+- 최근 경기(ESPN, 최대 28일): 2026-10-16 Sydney FC 0-0 Western Sydney Wanderers FC / 2026-10-25 Sydney FC 2-1 Adelaide United FC
 <!-- FACTS:END -->
 <!-- INPUTS:START -->
 ## 입력(자동 수집 2026-10-25) — xG·휴식일·라인업·환경(이동거리·고도·날씨)은 이 숫자를 쓴다

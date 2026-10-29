@@ -1,12 +1,12 @@
 # 맥아서FC
 
 <!-- FACTS:START -->
-## 팩트시트 (자동 수집 2026-10-23) — 조사 전 반드시 읽고, 아래 사실과 다른 뉴스 요약은 '미확인'으로 둔다
+## 팩트시트 (자동 수집 2026-10-30) — 조사 전 반드시 읽고, 아래 사실과 다른 뉴스 요약은 '미확인'으로 둔다
 - 출처: 위키 '2026–27 Macarthur FC season'(season), ESPN 있음
 - 감독: Sasa Ognenovski
-- 리그 순위: 3위 1경기 1승0무0패 GD+1 승점3 (Macarthur FC)
+- 리그 순위: 3위 2경기 1승1무0패 GD+1 승점4 (Macarthur FC)
 - 2026 여름 이적(위키 이적 표, 앞 8줄씩): IN !scope="row" · Central Coast Mariners · Free transfer · 1 year · 1 July 2026 / IN !scope="row" · Newcastle Jets · Free transfer · 1 year · 1 July 2026 / IN !scope="row" · Melbourne Victory · Free transfer · 1 year · 1 July 2026 / IN !scope="row" · Unattached · Free transfer · 1 year · 1 July 2026 / IN !scope="row" · Auckland FC · Free transfer · 1 year · 1 July 2026 / IN !scope="row" · Newcastle Jets · Free transfer · 1 year · 1 July 2026 / IN !scope="row" · Unattached · Free transfer · 7 July 2026 / IN !scope="row"|{{sort|Kennedy, Kai| Kai Kennedy}} · Unattached · Free transfer · 1 year · 3 August 2026 / OUT !scope="row"| {{sort|Da Silva, Damien| Damien Da Silva}} · colspan="2"|''Retired · 24 April 2026 / OUT !scope="row" · {{sort|Bankstown City| Bankstown City}} · End of contract · 26 June 2026 / OUT !scope="row" · {{sort|Sutherland Sharks| Sutherland Sharks}} · End of contract · 30 June 2026 / OUT !scope="row"| {{sort|Gržan, Šime| Šime Gržan}} · Unattached · End of contract · 30 June 2026 · {{cite web|url=
-- 최근 경기(ESPN, 최대 28일): 2026-10-17 Macarthur FC 2-1 Perth Glory
+- 최근 경기(ESPN, 최대 28일): 2026-10-17 Macarthur FC 2-1 Perth Glory FC / 2026-10-24 Newcastle Jets 1-1 Macarthur FC
 <!-- FACTS:END -->
 
 <!-- INPUTS:START -->

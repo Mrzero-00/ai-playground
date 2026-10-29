@@ -1,11 +1,11 @@
 # V바렌 나가사키 (J1)
 
 <!-- FACTS:START -->
-## 팩트시트 (자동 수집 2026-10-24) — 조사 전 반드시 읽고, 아래 사실과 다른 뉴스 요약은 '미확인'으로 둔다
+## 팩트시트 (자동 수집 2026-10-30) — 조사 전 반드시 읽고, 아래 사실과 다른 뉴스 요약은 '미확인'으로 둔다
 - 출처: 위키 'V-Varen Nagasaki'(club), ESPN 있음
 - 감독: Takuya Takagi
-- 리그 순위: 14위 11경기 3승3무5패 GD-3 승점12 (V-Varen Nagasaki)
-- 최근 경기(ESPN, 최대 28일): 2026-09-12 V-Varen Nagasaki 2-0 Nagoya Grampus / 2026-09-19 V-Varen Nagasaki 1-1 Cerezo Osaka / 2026-10-11 JEF United Ichihara-Chiba 1-1 V-Varen Nagasaki / 2026-10-17 Kashima Antlers 2-0 V-Varen Nagasaki / 2026-10-21 V-Varen Nagasaki 4-0 Sanfrecce Hiroshima
+- 리그 순위: 14위 12경기 3승3무6패 GD-4 승점12 (V-Varen Nagasaki)
+- 최근 경기(ESPN, 최대 28일): 2026-09-19 V-Varen Nagasaki 1-1 Cerezo Osaka / 2026-10-11 JEF United Ichihara-Chiba 1-1 V-Varen Nagasaki / 2026-10-17 Kashima Antlers 2-0 V-Varen Nagasaki / 2026-10-21 V-Varen Nagasaki 4-0 Sanfrecce Hiroshima / 2026-10-25 Urawa Red Diamonds 1-0 V-Varen Nagasaki
 <!-- FACTS:END -->
 
 <!-- INPUTS:START -->

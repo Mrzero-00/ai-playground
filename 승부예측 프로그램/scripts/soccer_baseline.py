@@ -528,8 +528,12 @@ def knorm(s):
     return s
 
 
-def match_team_table(query, teams, table):
-    """공식 사이트 소스(대표 이름이 한글): 별칭 정확 일치 → 없으면 유사도 0.75 이상 최고."""
+def match_team_table(query, teams, table, min_score=0.0):
+    """공식 사이트 소스(대표 이름이 한글): 별칭 정확 일치 → 없으면 유사도 0.75 이상 최고.
+
+    min_score 는 match_team 과 같은 척도로 읽는다 — 별칭 정확 일치만 3.0 이고 퍼지 일치는 ratio(<1.0).
+    즉 min_score=1.5 를 주면 **정확 일치만** 통과한다(resolve_team 1차 패스용).
+    """
     alias = {}
     for v in table.values():
         if v[0] in teams:
@@ -540,7 +544,9 @@ def match_team_table(query, teams, table):
     q = knorm(query)
     if q in alias:
         return alias[q]
-    best, best_s = None, 0.75
+    if min_score > 1.0:  # 정확 일치만 허용
+        return None
+    best, best_s = None, max(0.75, min_score)
     for a, t in alias.items():
         r = difflib.SequenceMatcher(None, q, a).ratio()
         if r > best_s:
@@ -548,10 +554,14 @@ def match_team_table(query, teams, table):
     return best
 
 
-def match_team(query, teams, names, table=None):
-    """query(한글 또는 영문) → ESPN 팀명(또는 공식 소스 대표 이름). 실패 시 None."""
+def match_team(query, teams, names, table=None, min_score=0.0):
+    """query(한글 또는 영문) → ESPN 팀명(또는 공식 소스 대표 이름). 실패 시 None.
+
+    min_score: 구조적 일치(완전일치 3.0 / 단어경계 2.0+ / 토큰포함 1.8+ / 부분문자열 1.5)만
+    받고 싶을 때 1.5 를 준다. resolve_team 의 '현행 엔티티 우선' 1차 패스가 쓴다.
+    """
     if table:
-        return match_team_table(query, teams, table)
+        return match_team_table(query, teams, table, min_score)
     cands = hints_for(names, query) if re.search(r"[가-힣]", query) else [query]
     if not cands:
         return None
@@ -574,7 +584,43 @@ def match_team(query, teams, names, table=None):
                     continue
             if s > best_s:
                 best, best_s = t, s
-    return best
+    return best if best_s >= min_score else None
+
+
+def current_teams(lg, days=200):
+    """리그 최신 경기 기준 최근 days 일 안에 뛴 팀.
+
+    teams() 의 400일 창은 '돌아온 팀 재시작'을 위해 두 시즌을 덮는데, ESPN 이 시즌 사이에
+    팀 표기를 바꾸면(2026 중국 슈퍼리그: 'Shanghai Shenhua' → 'Shanghai Shenhua FC')
+    같은 팀이 두 엔티티로 공존한다. 이때 완전일치(3.0)가 구 엔티티에 걸려 **직전 시즌 레이팅**이
+    쓰인다 — 2026-10-29 실측: 상하이 선화 pi +0.963(2025, 마지막 경기 2025-11-22) vs
+    현행 'Shanghai Shenhua FC' pi −0.138, 1.10 pi 차이.
+    """
+    if not lg.games:
+        return set()
+    ref = lg.games[-1]["t"]
+    s = set()
+    for g in lg.games:
+        if (ref - g["t"]).days <= days:
+            s.add(g["home"]); s.add(g["away"])
+    return s
+
+
+def resolve_team(lg, query, names):
+    """현행 엔티티를 먼저 본 뒤 전체로 떨어진다(구 표기 오매칭 방지).
+
+    1차 패스는 **구조적 일치(min_score 1.5)** 만 받는다 — 퍼지 매칭까지 허용하면
+    강등·이탈 팀 질의가 엉뚱한 현역 팀에 붙는다.
+    """
+    teams = lg.teams()
+    cur = getattr(lg, "_cur_teams", None)
+    if cur is None:
+        cur = lg._cur_teams = sorted(current_teams(lg))
+    if cur and len(cur) < len(teams):
+        hit = match_team(query, cur, names, lg.table, min_score=1.5)
+        if hit:
+            return hit
+    return match_team(query, teams, names, lg.table)
 
 
 # ---------------------------------------------------------------- 공통: 경기 하나 예측
@@ -641,7 +687,7 @@ def cmd_single(args, names):
         sys.exit(f"{code} ({LEAGUES[code]}) 는 결과 데이터가 없어 기준선을 낼 수 없다.")
     lg = League(code, args.refresh)
     teams = lg.teams()
-    h, a = match_team(args.home, teams, names, lg.table), match_team(args.away, teams, names, lg.table)
+    h, a = resolve_team(lg, args.home, names), resolve_team(lg, args.away, names)
     if not h or not a:
         sys.exit(f"팀 매칭 실패: home={args.home}->{h}, away={args.away}->{a}\n가능한 팀: {', '.join(teams)}")
     out, par = baseline(lg, h, a)
@@ -751,7 +797,7 @@ def row_baseline(r, names, cache, now=None, refresh=False):
     ko = kickoff(r.get("시각", ""), now)
     cutoff = ko - dt.timedelta(hours=2) if ko else None
     teams = lg.teams(before=cutoff)
-    h, a = match_team(r["홈"], teams, names, lg.table), match_team(r["원정"], teams, names, lg.table)
+    h, a = resolve_team(lg, r["홈"], names), resolve_team(lg, r["원정"], names)
     if not h or not a:
         return None
     b, _ = baseline(lg, h, a, cutoff)
@@ -779,7 +825,7 @@ def cmd_round(args, names):
         ko = kickoff(r["시각"], now)
         cutoff = ko - dt.timedelta(hours=2) if ko else None
         teams = lg.teams(before=cutoff)
-        h, a = match_team(r["홈"], teams, names, lg.table), match_team(r["원정"], teams, names, lg.table)
+        h, a = resolve_team(lg, r["홈"], names), resolve_team(lg, r["원정"], names)
         if not h:
             unmatched.append((r["리그"], r["홈"]))
         if not a:

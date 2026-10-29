@@ -11,7 +11,7 @@
 
 <!-- INPUTS:START -->
 ## 입력(자동 수집 2026-10-29) — xG·휴식일·라인업·환경(이동거리·고도·날씨)은 이 숫자를 쓴다
-- 10-29 21:15 vs 상하이 선화: 휴식 5.3일(7일 1경기) · 직전 10-24 원정 vs Vissel Kobe 0-0 무 [jpn.1] · xG - · 직전 선발 3-4-2-1 Kosei Tani, Daihachi Okamura, Thomas Ouwejan, Gen Shoji, Neta Lavi, Hiroyuki Mae, Takahiro Akimoto, Henry Mochizuki, Koki Ogawa, Yuki Soma, Takuma Nishimura · 구장 훙커우 축구장 · 이동 1731km · 고도 11m(차 -72m) · 17.6℃ 강수0mm(33%) 바람3.5km/h · ⚠ 장거리 원정 1731km
+- 10-29 21:15 vs 상하이 선화: 휴식 5.3일(7일 1경기) · 직전 10-24 원정 vs Vissel Kobe 0-0 무 [jpn.1] · xG - · 직전 선발 3-4-2-1 Kosei Tani, Daihachi Okamura, Thomas Ouwejan, Gen Shoji, Neta Lavi, Hiroyuki Mae, Takahiro Akimoto, Henry Mochizuki, Koki Ogawa, Yuki Soma, Takuma Nishimura · 구장 훙커우 축구장 · 이동 1731km · 고도 11m(차 -72m) · 17.6℃ 강수1.3mm(37%) 바람6.3km/h · ⚠ 장거리 원정 1731km
 <!-- INPUTS:END -->
 
 - 2026-10-14 조사: 2026시즌 J1리그 20팀 중 5위로 상위권. 2023년 J2 우승 후 J1 승격, 이후 가파른 상승세 — 2025년 11월 덴노하이(Emperor's Cup) 우승으로 ACL2 출전권 획득, 2026 시즌 ACL Elite 결승까지 진출한 이력(구단 역대 최고 continental 성적). 조직적 수비+생산적 공격이 특징(2023년 우승 시즌 Erik 18골). Go Kuroda 감독. 로테이션 가능성 있으나 J1 B팀이라도 동남아 클럽 대비 전력 우위로 평가. 출처: Wikipedia(FC Machida Zelvia).

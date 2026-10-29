@@ -1,0 +1,262 @@
+{
+  "경기": "댈러스 매버릭스 vs 오클라호마시티 썬더",
+  "틥오프_KST": "2026-10-29 10:30",
+  "틥오프_현지": "2026-10-28 20:30(21:30 ET 추정 — 출처마다 8:30 PM CT / 9:30 PM ET 혼재, American Airlines Center, Dallas)",
+  "수집_시각_KST": "2026-10-29 09:12",
+  "주의": [
+    "타겟 경기(OKC@DAL, 10/28)가 아직 미종료 상태(수집 시점 기준 게임 당일 오전)라 박스스코어·최종 스코어는 존재하지 않음.",
+    "Cooper Flagg 이번 경기 출전 여부에 대해 출처 간 불일치 있음(일부는 결장 보도, 일부는 PF 선발 포함 보도, prop 베팅 기사는 출전 전제) — 분석가는 최신 공식 인액티브 리스트로 재확인 필요.",
+    "Mavericks Make 2 Starting Lineup Changes With Kyrie Irving, Cooper Flagg Out vs. Spurs' 기사 제목은 10/24 스퍼스전(과거 경기)을 가리키는 것으로 보이며 이번 10/28 OKC전과 혼동하지 않도록 주의."
+  ],
+  "부상_결장": [
+    {
+      "선수": "Kyrie Irving",
+      "팀": "댈러스 매버릭스",
+      "상태등급": "의심",
+      "상태": "Questionable, 좌측 무릎 관리(knee injury management)",
+      "비고": "일부 매체는 '출전 가능'으로, 공식 인저리 리포트는 'Questionable'로 표기 — 불일치",
+      "출처": [
+        "https://sports.yahoo.com/articles/dallas-mavericks-kyrie-irving-injury-015324070.html",
+        "https://www.news9.com/oklahoma-city-thunder/battered-but-unbeaten-thunder-face-another-test-against-mavericks"
+      ],
+      "날짜": "2026-10-28"
+    },
+    {
+      "선수": "Caleb Martin",
+      "팀": "댈러스 매버릭스",
+      "상태등급": "의심",
+      "상태": "Questionable, 우측 엄지 염좌",
+      "출처": ["https://www.news9.com/oklahoma-city-thunder/battered-but-unbeaten-thunder-face-another-test-against-mavericks"],
+      "날짜": "2026-10-28"
+    },
+    {
+      "선수": "Naji Marshall",
+      "팀": "댈러스 매버릭스",
+      "상태등급": "의심",
+      "상태": "Doubtful, 컨디션 난조(illness)",
+      "출처": [
+        "https://dallassportsjournal.com/naji-marshall-doubtful-mavericks-thunder-injury-report/",
+        "https://www.news9.com/oklahoma-city-thunder/battered-but-unbeaten-thunder-face-another-test-against-mavericks"
+      ],
+      "날짜": "2026-10-28"
+    },
+    {
+      "선수": "Santi Aldama",
+      "팀": "댈러스 매버릭스",
+      "상태등급": "확정",
+      "상태": "Out, 우측 무릎 수술 회복",
+      "비고": "시즌 내내 결장 중인 선수 — 이미 시장에 반영된 정보",
+      "출처": ["https://www.news9.com/oklahoma-city-thunder/battered-but-unbeaten-thunder-face-another-test-against-mavericks"],
+      "날짜": "2026-10-28"
+    },
+    {
+      "선수": "Tarik Biberović",
+      "팀": "댈러스 매버릭스",
+      "상태등급": "확정",
+      "상태": "Out, 우측 발뒤꿈치 윤활낭염",
+      "출처": ["https://www.news9.com/oklahoma-city-thunder/battered-but-unbeaten-thunder-face-another-test-against-mavericks"],
+      "날짜": "2026-10-28"
+    },
+    {
+      "선수": "Sergio De Larrea",
+      "팀": "댈러스 매버릭스",
+      "상태등급": "확정",
+      "상태": "Out, 우측 무릎 염좌",
+      "출처": ["https://sports.yahoo.com/articles/thunder-mavs-preview-injuries-odds-151106103.html"],
+      "날짜": "2026-10-28"
+    },
+    {
+      "선수": "Dereck Lively II",
+      "팀": "댈러스 매버릭스",
+      "상태등급": "확정",
+      "상태": "Out, 우측 발 수술 회복 (시즌 내내 결장 추정)",
+      "비고": "시즌 초부터 결장 중 — 새 결장 아님, 시장 반영 기정사실",
+      "출처": ["https://sports.yahoo.com/articles/thunder-mavs-preview-injuries-odds-151106103.html"],
+      "날짜": "2026-10-28"
+    },
+    {
+      "선수": "Cooper Flagg",
+      "팀": "댈러스 매버릭스",
+      "상태등급": "추정(불일치)",
+      "상태": "일부 매체는 '결장(unavailable)' 보도, 다른 매체(선발 라인업 보도·prop 베팅 기사)는 출전 전제로 PF 선발 포함 — 공식 인저리 리포트에는 등재 안 됨(= 원칙적으로 출전 가능 상태였을 가능성)",
+      "이번시즌_출전": "이번 시즌 평균 25.0점 6.3어시스트 3.67스틸, 직전 경기(10/26 마이애미)에서 29점 11어시스트로 핵심 선수 — 결장이 사실이면 '새 결장'으로 시장 미반영 가능성 큼",
+      "출처": [
+        "https://www.yardbarker.com/nba/articles/mavericks_make_2_starting_lineup_changes_with_kyrie_irving_cooper_flagg_out_vs_spurs/s1_17810_44470013",
+        "https://www.si.com/nba/thunder/news/okc-thunder-vs-dallas-mavericks-game-preview-betting-odds-how-to-watch-jan-17-25",
+        "https://www.tonyspicks.com/2026/10/28/thunder-vs-mavericks-cooper-flagg-over-305-points-assists-at-121-10282026/",
+        "https://www.espn.com/nba/boxscore/_/gameId/401909871"
+      ],
+      "날짜": "2026-10-28"
+    },
+    {
+      "선수": "Ajay Mitchell",
+      "팀": "OKC 썬더",
+      "상태등급": "의심",
+      "상태": "Questionable, 우측 발목 염좌",
+      "비고": "직전 경기(10/26 피닉스전)에서 커리어하이 30점 기록 — 핵심 백업/선발급 선수라 의심 상태는 중요 변수",
+      "출처": ["https://www.espn.com/articles/injury-report-okc-thunder-see-120007441.html", "https://www.news9.com/oklahoma-city-thunder/battered-but-unbeaten-thunder-face-another-test-against-mavericks"],
+      "날짜": "2026-10-28"
+    },
+    {
+      "선수": "Alex Caruso",
+      "팀": "OKC 썬더",
+      "상태등급": "확정",
+      "상태": "Out, 우측 발목 염좌",
+      "출처": ["https://www.news9.com/oklahoma-city-thunder/battered-but-unbeaten-thunder-face-another-test-against-mavericks"],
+      "날짜": "2026-10-28"
+    },
+    {
+      "선수": "Chet Holmgren",
+      "팀": "OKC 썬더",
+      "상태등급": "확정",
+      "상태": "Out, 우측 무릎 슬개건염(patellar tendinitis)",
+      "비고": "주전 센터/파워포워드, 시즌 초반 대체로 반영 안 된 결장일 수 있음 — 이사이아 하튼스타인이 대신 선발",
+      "출처": ["https://www.news9.com/oklahoma-city-thunder/battered-but-unbeaten-thunder-face-another-test-against-mavericks", "https://athlonsports.com/nba/oklahoma-city-thunder/final-injury-report-for-thunder-mavericks-will-chet-holmgren-kyrie-irving-play"],
+      "날짜": "2026-10-28"
+    },
+    {
+      "선수": "Thomas Sorber",
+      "팀": "OKC 썬더",
+      "상태등급": "확정",
+      "상태": "Out, 우측 무릎 수술 회복 (시즌 내내 결장 추정)",
+      "출처": ["https://www.news9.com/oklahoma-city-thunder/battered-but-unbeaten-thunder-face-another-test-against-mavericks"],
+      "날짜": "2026-10-28"
+    },
+    {
+      "선수": "Nikola Topić",
+      "팀": "OKC 썬더",
+      "상태등급": "확정",
+      "상태": "Out, 허리 수술 회복 (시즌 내내 결장 추정)",
+      "출처": ["https://www.news9.com/oklahoma-city-thunder/battered-but-unbeaten-thunder-face-another-test-against-mavericks"],
+      "날짜": "2026-10-28"
+    },
+    {
+      "선수": "Cason Wallace",
+      "팀": "OKC 썬더",
+      "상태등급": "확정",
+      "상태": "Out, 좌측 어깨 관절와순 파열(labral tear)",
+      "비고": "주전급 선수 장기 결장으로 보임 — 시즌 초반 이미 결장 중이라면 시장 반영 기정사실일 가능성",
+      "출처": ["https://www.news9.com/oklahoma-city-thunder/battered-but-unbeaten-thunder-face-another-test-against-mavericks"],
+      "날짜": "2026-10-28"
+    },
+    {
+      "선수": "Jalen Williams",
+      "팀": "OKC 썬더",
+      "상태등급": "확정",
+      "상태": "Out, 좌측 발목 골절",
+      "비고": "핵심 올스타급 선수의 장기 결장 — 시즌 내내 결장 중으로 추정(기존 뉴스에서 '2022 드래프트 동기 없이' 등으로 언급됨)",
+      "출처": ["https://www.si.com/nba/thunder/news/injury-report-okc-without-2022-rookie-class-against-dallas"],
+      "날짜": "2026-10-28"
+    }
+  ],
+  "선발_라인업": {
+    "오클라호마시티_썬더": {
+      "확정여부": "이번 경기 공식 선발 미확인. 아래는 직전 경기(10/26 피닉스전, 동일하게 주요 결장자 겹침) 실제 선발 기록으로 참고 가치 높음.",
+      "직전경기(10/26)_선발": ["Shai Gilgeous-Alexander (PG)", "Ajay Mitchell (SG)", "Jared McCain (SF)", "Kenrich Williams (PF)", "Isaiah Hartenstein (C)"],
+      "비고": "Ajay Mitchell이 이번 경기엔 '의심(발목)'으로 리스트업돼 직전 경기와 동일한 선발 유지 여부 불확실",
+      "출처": ["https://www.espn.com/nba/boxscore/_/gameId/401909873"],
+      "날짜": "2026-10-26"
+    },
+    "댈러스_매버릭스": {
+      "확정여부": "미발표/출처 불일치. 아래는 부분 확인된 조각 정보.",
+      "부분확인": ["Kyrie Irving (PG, 출전시 의심상태)", "Max Christie (SG)", "P.J. Washington (PF)", "Cooper Flagg (PF, 출전 여부 불일치)"],
+      "직전경기(10/26, 마이애미전)_활약상위": ["Cooper Flagg 29점 11어시스트", "P.J. Washington 9리바운드"],
+      "비고": "SF·C 포지션 선발 미확인. Dereck Lively 결장 중이라 Daniel Gafford가 C로 선발될 가능성 있으나 미확인.",
+      "출처": [
+        "https://heavy.com/sports/nba/dallas-mavericks/starters-cooper-flagg-kyrie-irving-news/",
+        "https://www.espn.com/nba/boxscore/_/gameId/401909871"
+      ],
+      "날짜": "2026-10-26 / 28"
+    }
+  },
+  "시즌_전적_최근경기": {
+    "댈러스_매버릭스": {
+      "2026_27_전적": "2승 2패",
+      "최근경기": [
+        {"날짜": "2026-10-21", "상대": "휴스턴(원정, 개막전)", "결과": "패 110-128"},
+        {"날짜": "2026-10-23", "상대": "인디애나", "결과": "승 121-105"},
+        {"날짜": "2026-10-24", "상대": "샌안토니오(홈개막)", "결과": "패 106-122"},
+        {"날짜": "2026-10-26", "상대": "마이애미(원정)", "결과": "승 113-109"}
+      ],
+      "2026_27_ORtg_DRtg_Pace": "확인 불가 (표본 4경기)",
+      "2025_26_시즌": {
+        "전적": "26승 56패 (.317), 서부 12위, 플레이오프 탈락",
+        "ORtg": "108.5 (리그 22위)",
+        "DRtg": "112.3 (리그 23위)",
+        "Pace": "101.75",
+        "비고": "시즌 중(2026-02-04) Anthony Davis를 워싱턴으로 트레이드, Cooper Flagg 신인왕 수상, 단장 Nico Harrison 2025-11-11 경질"
+      },
+      "출처": [
+        "https://en.wikipedia.org/wiki/2025%E2%80%9326_Dallas_Mavericks_season",
+        "https://www.dallasnews.com/sports/mavericks/2026/02/04/dallas-mavericks-anthony-davis-trade-depth-chart-cooper-flagg-nba/",
+        "https://www.foxsports.com/articles/nba/2025-26-nba-offensive-rating-team-offense-rankings-and-efficiency-stats"
+      ]
+    },
+    "오클라호마시티_썬더": {
+      "2026_27_전적": "4승 0패 (전승, 수집 시점 기준 리그 최고 전적 중 하나)",
+      "최근경기": [
+        {"날짜": "2026-10-20", "상대": "샌안토니오(홈)", "결과": "승 116-104"},
+        {"날짜": "2026-10-22", "상대": "덴버", "결과": "승 96-84"},
+        {"날짜": "2026-10-25", "상대": "LA클리퍼스", "결과": "승 108-101"},
+        {"날짜": "2026-10-26", "상대": "피닉스(홈)", "결과": "승 125-114"}
+      ],
+      "2026_27_ORtg_DRtg_Pace": "확인 불가 (표본 4경기)",
+      "2025_26_시즌": {
+        "전적": "64승 18패 (.780), 서부 1위, 노스웨스트 디비전 1위",
+        "ORtg": "116.2 (리그 3위)",
+        "DRtg": "104.9 (리그 2위)",
+        "플레이오프": "1라운드 피닉스 4-0 → 2라운드 LA레이커스 4-0 → 서부결승 샌안토니오에 3-4 패"
+      },
+      "출처": [
+        "https://en.wikipedia.org/wiki/2025%E2%80%9326_Oklahoma_City_Thunder_season",
+        "https://www.foxsports.com/articles/nba/2025-26-nba-offensive-rating-team-offense-rankings-and-efficiency-stats",
+        "https://www.foxsports.com/articles/nba/2025-26-nba-defensive-rating-team-defense-rankings-and-efficiency-stats"
+      ]
+    }
+  },
+  "일정_백투백": {
+    "댈러스_매버릭스": {
+      "직전경기": "2026-10-26 마이애미 원정 (승 113-109)",
+      "휴식일": "1일 휴식 (10/27 이동/휴식, 10/28 홈경기) — 백투백 아님",
+      "이동": "마이애미 → 댈러스 복귀 후 홈경기"
+    },
+    "오클라호마시티_썬더": {
+      "직전경기": "2026-10-26 피닉스(홈, OKC)",
+      "휴식일": "1일 휴식 — 백투백 아님",
+      "이동": "오클라호마시티 → 댈러스 원정 이동",
+      "출처": ["https://www.espn.com/nba/boxscore/_/gameId/401909873", "https://www.dailythunder.com/pregame-0022600142-thunder-mavericks/"]
+    }
+  },
+  "여름_로스터_변동": {
+    "댈러스_매버릭스": [
+      "2026-02-04(2025-26 시즌 중) Anthony Davis를 워싱턴 위저즈로 트레이드, Khris Middleton + 드래프트픽 5장 수령, D'Angelo Russell·Jaden Hardy·Dante Exum 동반 이적, Marvin Bagley III·Malaki Branham·AJ Johnson 영입",
+      "사치세 라인 대비 약 3860만 달러 캡 여유 확보 (AD 트레이드로 생긴 2080만 달러 TPE 포함)",
+      "2025 드래프트 전체 1순위 Cooper Flagg 중심 리빌드, 2025-26 신인왕 수상"
+    ],
+    "오클라호마시티_썬더": [
+      "Isaiah Hartenstein 3년 재계약(7500만 달러)",
+      "Cason Wallace 5년 1억3900만 달러 연장 계약 (현재 부상으로 결장 중)",
+      "Kenrich Williams 1년 재계약",
+      "Branden Carlson 트레일블레이저스로 FA 이적",
+      "Isaiah Joe·Aaron Wiggins·Luguentz Dort를 애틀랜타로 트레이드",
+      "2026 드래프트: Aday Mara(12순위), Bennett Stirtz(16순위, 17→16 픽업트레이드) 지명",
+      "2025-26 시즌 서부 1위 후 서부결승에서 샌안토니오에 3-4 패"
+    ],
+    "출처": [
+      "https://www.dallasnews.com/sports/mavericks/2026/02/04/dallas-mavericks-anthony-davis-trade-depth-chart-cooper-flagg-nba/",
+      "https://www.spotrac.com/news/_/id/3340/dallas-mavericks-2026-offseason-preview",
+      "https://www.hoopsrumors.com/2026/08/nba-2026-offseason-check-in-oklahoma-city-thunder.html"
+    ]
+  },
+  "기타_뉴스": [
+    "OKC는 Holmgren·Jalen Williams·Cason Wallace·Alex Caruso·Topić·Sorber까지 6명이 결장 중인 '극심한 로테이션 공백' 상태로 보도됨 — 사실상 SGA·Hartenstein·Ajay Mitchell·McCain·Kenrich Williams 등 소수 인원으로 4연승 중.",
+    "이 경기는 Dallas의 2026-27 시즌 첫 ESPN 전국중계(national TV) 경기로 보도됨."
+  ],
+  "확인불가_항목": [
+    "양 팀 2026-27 시즌 실측 ORtg/DRtg/Pace",
+    "댈러스 매버릭스 이번 경기 공식 선발 5인 전체(SF·C 미확인)",
+    "Cooper Flagg 최종 출전 여부(출처 불일치, 공식 인저리 리포트 명단에는 없었음 — 즉 출전 가능 상태였을 가능성이 높아 보이나 이후 경기 전 스크래치 보도도 존재해 확정 불가)",
+    "심판 배정, 날씨(실내 경기라 통상 해당 없음)",
+    "경기 시작 시각의 ET/CT 환산 불일치(8:30 PM CT vs 9:30 PM ET 혼재 보도 — 실제로는 같은 시각이므로 표기 오류로 추정되나 원문 그대로 병기함)"
+  ]
+}

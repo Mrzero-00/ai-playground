@@ -2393,29 +2393,29 @@
      "no": "3",
      "game": "코번트리 - 선덜랜드",
      "time": "2026-11-01 00:00",
-     "pick": "",
-     "prob": null,
-     "analyzed": false,
+     "pick": "패",
+     "prob": 38,
+     "analyzed": true,
      "league": "잉글랜드 프리미어리그",
      "result": "",
      "actual": "",
      "score": "",
      "hit": "",
-     "why": ""
+     "why": "pi-rating 기준선 자동(2026-10-30) — 뉴스·결장 반영 없음, 방향 기록용"
     },
     {
      "no": "4",
      "game": "헐시티 - 입스위치",
      "time": "2026-11-01 00:00",
-     "pick": "",
-     "prob": null,
-     "analyzed": false,
+     "pick": "승",
+     "prob": 42,
+     "analyzed": true,
      "league": "잉글랜드 프리미어리그",
      "result": "",
      "actual": "",
      "score": "",
      "hit": "",
-     "why": ""
+     "why": "pi-rating 기준선 자동(2026-10-30) — 뉴스·결장 반영 없음, 방향 기록용"
     },
     {
      "no": "5",
@@ -2449,15 +2449,15 @@
      "no": "7",
      "game": "토트넘 - 크리스털",
      "time": "2026-11-01 02:30",
-     "pick": "",
-     "prob": null,
-     "analyzed": false,
+     "pick": "승",
+     "prob": 44,
+     "analyzed": true,
      "league": "잉글랜드 프리미어리그",
      "result": "",
      "actual": "",
      "score": "",
      "hit": "",
-     "why": ""
+     "why": "pi-rating 기준선 자동(2026-10-30) — 뉴스·결장 반영 없음, 방향 기록용"
     },
     {
      "no": "8",
@@ -2491,15 +2491,15 @@
      "no": "10",
      "game": "헤타페 - 세비야",
      "time": "2026-11-01 22:00",
-     "pick": "",
-     "prob": null,
-     "analyzed": false,
+     "pick": "승",
+     "prob": 41,
+     "analyzed": true,
      "league": "스페인 라리가",
      "result": "",
      "actual": "",
      "score": "",
      "hit": "",
-     "why": ""
+     "why": "pi-rating 기준선 자동(2026-10-30) — 뉴스·결장 반영 없음, 방향 기록용"
     },
     {
      "no": "11",
@@ -2519,29 +2519,29 @@
      "no": "12",
      "game": "리버풀 - 아스널",
      "time": "2026-11-02 01:30",
-     "pick": "",
-     "prob": null,
-     "analyzed": false,
+     "pick": "패",
+     "prob": 44,
+     "analyzed": true,
      "league": "잉글랜드 프리미어리그",
      "result": "",
      "actual": "",
      "score": "",
      "hit": "",
-     "why": ""
+     "why": "pi-rating 기준선 자동(2026-10-30) — 뉴스·결장 반영 없음, 방향 기록용"
     },
     {
      "no": "13",
      "game": "엘체 - 발렌시아",
      "time": "2026-11-02 02:30",
-     "pick": "",
-     "prob": null,
-     "analyzed": false,
+     "pick": "승",
+     "prob": 47,
+     "analyzed": true,
      "league": "스페인 라리가",
      "result": "",
      "actual": "",
      "score": "",
      "hit": "",
-     "why": ""
+     "why": "pi-rating 기준선 자동(2026-10-30) — 뉴스·결장 반영 없음, 방향 기록용"
     },
     {
      "no": "14",
@@ -2563,13 +2563,13 @@
    "hits": 0,
    "scored": false,
    "result": "",
-   "analyzed_n": 0,
+   "analyzed_n": 6,
    "current": true,
    "carry_n": 1,
    "carry_amt": 298280750,
-   "sales": 29535000,
-   "top_prize": 305664500,
-   "carry_at": "2026-10-29 15:05"
+   "sales": 123391000,
+   "top_prize": 329128500,
+   "carry_at": "2026-10-30 08:08"
   },
   {
    "round": "승무패64",

@@ -22,6 +22,7 @@ import argparse
 import json
 import math
 import os
+import sys
 
 # LG_RTG 는 '넣는 ORtg/DRtg 와 같은 축'이어야 한다 — 이 상수가 축과 어긋나면 **총득점만** 통째로 밀린다
 # (마진 식에서는 LG_RTG 가 소거되므로 승패·핸디캡에는 영향이 없다).
@@ -67,12 +68,95 @@ def measure_league(path=None):
     return sum(rt) / len(rt), sum(pc) / len(pc)
 
 
+def _poss(x):
+    fga = int(x["fieldGoalsMade-fieldGoalsAttempted"].split("-")[1])
+    fta = int(x["freeThrowsMade-freeThrowsAttempted"].split("-")[1])
+    return fga + 0.44 * fta - int(x["offensiveRebounds"]) + int(x.get("totalTurnovers") or x["turnovers"])
+
+
+def team_ratings(as_of=None, path=None):
+    """teamdb/nba 박스스코어로 팀별 ORtg·DRtg·페이스를 잰다 → {팀영문명: {o,d,pace,g}}.
+
+    as_of('YYYY-MM-DD' 또는 date/datetime)를 주면 **그 날짜 전에 끝난 경기만** 쓴다.
+    기준선에 그 경기 자신이나 이후 결과가 섞이면 채점이 분석력이 아니라 누수를 재게 된다
+    (predict_engine 의 시간순 원칙과 같다)."""
+    path = path or os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "data", "teamdb", "nba", "nba.json")
+    try:
+        db = json.load(open(path, encoding="utf-8"))
+    except Exception:
+        return {}
+    if as_of is not None and not isinstance(as_of, str):
+        as_of = as_of.strftime("%Y-%m-%d")
+    agg = {}
+    for g in db.values():
+        if g.get("status") != "STATUS_FINAL":
+            continue
+        day = (g.get("date") or "")[:10]
+        if as_of and (not day or day >= as_of):
+            continue
+        st = g.get("stats") or {}
+        if "home" not in st or "away" not in st:
+            continue
+        try:
+            ph, pa = _poss(st["home"]), _poss(st["away"])
+            sh, sa = int(g["home"]["score"]), int(g["away"]["score"])
+            th, ta = g["home"]["team"], g["away"]["team"]
+        except Exception:
+            continue
+        if ph <= 0 or pa <= 0 or not th or not ta:
+            continue
+        for team, own_pts, own_poss, opp_pts, opp_poss in (
+                (th, sh, ph, sa, pa), (ta, sa, pa, sh, ph)):
+            x = agg.setdefault(team, [0.0, 0.0, 0.0, 0.0, 0])
+            x[0] += own_pts; x[1] += own_poss; x[2] += opp_pts; x[3] += opp_poss; x[4] += 1
+    out = {}
+    for team, (op, opo, dp, dpo, n) in agg.items():
+        if opo <= 0 or dpo <= 0:
+            continue
+        out[team] = {"o": op / opo * 100, "d": dp / dpo * 100,
+                     "pace": (opo + dpo) / (2 * n), "g": n}
+    return out
+
+
+def auto_baseline(home_en, away_en, as_of=None, min_games=3, ratings=None):
+    """팀 영문명만으로 기준선을 낸다(보정 0·뉴스 미반영). 자료가 모자라면 None.
+
+    왜 필요한가: 분석하지 않은 농구 경기는 방향이 통째로 비어 채점에서 빠졌다
+    (128회 채점 45경기 중 9경기). 축구는 soccer_baseline 이 이 자리를 메우고 있었다."""
+    r = ratings if ratings is not None else team_ratings(as_of)
+    h, a = r.get(home_en), r.get(away_en)
+    if not h or not a:
+        return None
+    games = min(h["g"], a["g"])
+    if games < min_games:
+        return None
+    lg = sum(v["o"] * v["g"] for v in r.values()) / sum(v["g"] for v in r.values())
+    pace = (h["pace"] + a["pace"]) / 2.0
+    pts_h = pace * (h["o"] + a["d"] - lg) / 100.0 + HOME_EDGE
+    pts_a = pace * (a["o"] + h["d"] - lg) / 100.0 - HOME_EDGE
+    # SD_MARGIN(11.5)은 '레이팅을 정확히 안다'는 전제의 경기별 마진 산포다. 여기 레이팅은 이번 시즌
+    # n경기로 직접 추정한 값이고 뉴스·결장도 보지 않으므로 두 가지가 더 얹힌다:
+    #   ① 추정오차  2·SD²/n  (양 팀 각각 SD/√n)
+    #   ② 모형오차  AUTO_MODEL_SD²  (뉴스 미반영·페이스/ORtg 분해 오차 — n이 늘어도 안 준다)
+    # ②는 실측값이다 — 소급 66경기에서 '말한 평균 74.0% vs 실제 65.2%'(−8.9p) 였고,
+    # 아래 식이 −0.8p 로 맞춘다. 방향은 수축·SD에 불변이라 이 변경은 확률의 정직함만 고친다.
+    sd = math.sqrt(SD_MARGIN ** 2 + AUTO_MODEL_SD ** 2 + 2 * SD_MARGIN ** 2 / games)
+    p_home = ncdf((pts_h - pts_a) / sd) * 100.0
+    return {"p_home": p_home, "pts_h": pts_h, "pts_a": pts_a,
+            "games": games, "pace": pace, "lg_rtg": lg, "sd": sd}
+
+
 _m_rtg, _m_pace = measure_league()
 LG_RTG = _m_rtg if _m_rtg else LG_RTG_FALLBACK
 LG_PACE = _m_pace
 HOME_EDGE = HOME_EDGE_FALLBACK
 SD_MARGIN = 11.5
 SD_TOTAL = 17.5
+# auto_baseline 전용 모형오차 — 뉴스를 보지 않고 이번 시즌 6~9경기로 레이팅을 직접 추정하는 데서 오는,
+# 표본이 늘어도 줄지 않는 오차. 2026-10-29 NBA 66경기 실측으로 18.0 (격차 −8.9p → −1.6p).
+# 분석가가 직전시즌 레이팅·결장 보정을 직접 넣는 CLI 경로에는 적용하지 않는다(그쪽은 SD_MARGIN 그대로).
+# 재측정: python3 scripts/nba_baseline.py --calib   (표본 120경기마다)
+AUTO_MODEL_SD = 18.0
 
 
 def ncdf(x: float) -> float:
@@ -90,7 +174,53 @@ def shrink(p: float, games: int, kind: str) -> float:
     return (p - 50.0) * k + 50.0
 
 
+def calib() -> None:
+    """auto_baseline 의 확률이 실제와 맞는지 재측정하고 AUTO_MODEL_SD 후보를 보여 준다.
+    방향 적중률은 SD 에 불변이므로 여기서 고치는 것은 '내가 말한 확률의 정직함'뿐이다."""
+    import csv as _csv, re as _re
+    root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+    rows = list(_csv.DictReader(open(os.path.join(root, "전체경기기록.csv"), encoding="utf-8")))
+    cache, data = {}, []
+    for r in rows:
+        if r.get("종목") != "농구" or r.get("리그") != "NBA" or r.get("결과") not in ("승", "패"):
+            continue
+        m = _re.match(r"(\d{2})-(\d{2})", r.get("시각") or "")
+        if not m:
+            continue
+        d = f"2026-{m.group(1)}-{m.group(2)}"
+        if d not in cache:
+            cache[d] = team_ratings(d)
+        rt = cache[d]
+        import teamdb as _T
+        h, a = rt.get(_T.en_name(r["홈"])), rt.get(_T.en_name(r["원정"]))
+        if not h or not a or min(h["g"], a["g"]) < 3:
+            continue
+        g = min(h["g"], a["g"])
+        lg = sum(v["o"] * v["g"] for v in rt.values()) / sum(v["g"] for v in rt.values())
+        pace = (h["pace"] + a["pace"]) / 2.0
+        mg = (pace * (h["o"] + a["d"] - lg) / 100.0 + HOME_EDGE) - (pace * (a["o"] + h["d"] - lg) / 100.0 - HOME_EDGE)
+        data.append((mg, g, r["결과"] == "승"))
+    if not data:
+        print("대조할 경기가 없다."); return
+    hit = sum(1 for mg, g, w in data if (mg >= 0) == w) / len(data) * 100
+    print(f"NBA auto_baseline 소급 {len(data)}경기 · 방향 적중 {hit:.1f}% (SD 에 불변)")
+    print(f"현행 AUTO_MODEL_SD = {AUTO_MODEL_SD}")
+    best = None
+    for E in range(6, 31, 2):
+        ps = [ncdf(mg / math.sqrt(SD_MARGIN ** 2 + E ** 2 + 2 * SD_MARGIN ** 2 / g)) * 100 for mg, g, _ in data]
+        said = sum(max(p, 100 - p) for p in ps) / len(ps)
+        br = sum(((p / 100) - (1 if w else 0)) ** 2 for p, (_, _, w) in zip(ps, data)) / len(ps)
+        gap = hit - said
+        mark = ""
+        if best is None or abs(gap) < abs(best[1]):
+            best = (E, gap); mark = ""
+        print(f"  모형SD {E:2d} → 말한평균 {said:5.1f}%  격차 {gap:+5.1f}p  Brier {br:.4f}")
+    print(f"→ 격차가 가장 작은 값: AUTO_MODEL_SD = {best[0]} ({best[1]:+.1f}p)")
+
+
 def main() -> None:
+    if "--calib" in sys.argv:
+        return calib()
     ap = argparse.ArgumentParser()
     ap.add_argument("--home-ortg", type=float, required=True)
     ap.add_argument("--home-drtg", type=float, required=True)

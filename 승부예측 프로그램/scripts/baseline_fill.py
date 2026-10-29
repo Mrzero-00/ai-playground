@@ -2,8 +2,12 @@
 """기준선 자동 채움 — 분석하지 않은 경기에도 방향(승/무/패)을 남긴다 (사용자 지시 2026-10-19)
 왜: 단일 경기 방향 정확도 100%가 목표인데, 결과가 나온 581경기 중 176경기(30%)는 내 확률이 없어 채점에서 빠졌다.
     추천하지 않더라도 방향을 정해 기록해야 표본이 쌓이고, 어디서 틀리는지 보인다.
-무엇: 순수 확률이 비어 있는 축구 경기에 `soccer_baseline` pi-rating 기준선을 넣고 `깊이=기준선`으로 표시한다.
-    - 기준선 지원 리그(25개)만. 그 외는 그대로 둔다.
+무엇: 순수 확률이 비어 있는 경기에 기준선을 넣고 `깊이=기준선`으로 표시한다.
+    - 축구: `soccer_baseline` pi-rating (지원 리그 25개).
+    - 농구 NBA: `nba_baseline.auto_baseline` — teamdb 박스스코어 포제션 레이팅, **경기 전날까지의 경기만**
+      (2026-10-29 128회 회고에서 추가. 그 전까지 농구는 기준선이 없어 미분석 경기가 방향 없이 버려졌다 —
+       128회 채점 45경기 중 9경기, 누적 농구 23경기. 소급 66경기 실측 방향 65% = 내 심층 분석 66%·시장 71%).
+    - 그 외 종목·리그는 그대로 둔다.
     - 이미 사람·에이전트가 분석한 경기(깊이 심층/가벼움)는 건드리지 않는다.
     - **학습 분리**: 깊이=기준선 행은 `calibrate.py`(보정 계수)·`hit_model.py` 학습에서 제외한다. 채점·방향 정확도 집계에는 쓴다.
 사용: python3 scripts/baseline_fill.py [--round 124] [--all] [--dry]
@@ -14,10 +18,82 @@ HERE = os.path.dirname(os.path.abspath(__file__)); sys.path.insert(0, HERE)
 ROOT = os.path.dirname(HERE)
 import round_log as rl
 import soccer_baseline as sb
+import nba_baseline as nb
+import teamdb as T
+
+NBA_LEAGUES = {"NBA"}      # teamdb/nba 박스스코어가 있는 리그만. KBL 은 아직 원천이 없다.
+
+
+def _match_date(r):
+    """전체경기기록 '시각'('MM-DD HH:MM')을 'YYYY-MM-DD' 로. 연도는 회차 기록에 없어 경기일 기준 연도를 추정한다."""
+    t = (r.get("시각") or "").strip()
+    if len(t) >= 5 and t[2] == "-":
+        today = dt.date.today()
+        mm, dd = int(t[:2]), int(t[3:5])
+        y = today.year
+        # 12월 경기를 1월에 채울 때 연도가 한 해 밀리는 것만 막는다.
+        if mm - today.month > 6:
+            y -= 1
+        elif today.month - mm > 6:
+            y += 1
+        try:
+            return dt.date(y, mm, dd).strftime("%Y-%m-%d")
+        except ValueError:
+            return None
+    return None
+
+
+def fill_basketball(rows, a):
+    """농구(NBA) 기준선. 축구와 같은 규칙 — 깊이=기준선, 1·2순위 차 10%p 미만은 확신도 '기권'."""
+    cache = {}
+    n = skip_lg = no_data = 0
+    auto_tag = "포제션 레이팅 기준선 자동"
+    for r in rows:
+        if r["종목"] != "농구" or (a.round and r["회차"] != str(a.round)):
+            continue
+        # --refresh: 전에 이 스크립트가 채운 행은 다시 계산한다(계수를 고친 뒤 소급 적용용).
+        if r.get("순수_승"):
+            # 사람·에이전트가 분석한 행(심층·가벼움)은 --refresh 라도 절대 덮지 않는다.
+            # pure 가 깊이만 올리고 핵심근거를 비워 두면 꼬리표가 남아 있을 수 있다.
+            if r.get("깊이") in ("심층", "가벼움"):
+                continue
+            if not (getattr(a, "refresh", False) and auto_tag in (r.get("핵심근거") or "")):
+                continue
+            r["순수_승"] = r["순수_무"] = r["순수_패"] = ""
+            r["예상점수"] = ""
+            keep = [x.strip() for x in (r.get("핵심근거") or "").split(" / ") if auto_tag not in x]
+            r["핵심근거"] = " / ".join(keep)
+        if not a.all and r.get("결과") not in ("승", "무", "패", "", "예정"):
+            continue
+        if r["리그"] not in NBA_LEAGUES:
+            skip_lg += 1; continue
+        d = _match_date(r)
+        if not d:
+            no_data += 1; continue
+        if d not in cache:
+            cache[d] = nb.team_ratings(d)      # 경기일 '전'까지만 — 미래 누수 금지
+        b = nb.auto_baseline(T.en_name(r["홈"]), T.en_name(r["원정"]), d, ratings=cache[d])
+        if not b:
+            no_data += 1; continue
+        ph = round(b["p_home"], 1)
+        r["순수_승"], r["순수_무"], r["순수_패"] = ph, 0.0, round(100 - ph, 1)
+        r["확신도"] = "기권" if abs(2 * ph - 100) < 10 else (r.get("확신도") or "낮음")
+        r["깊이"] = "기준선"
+        r["예상점수"] = r.get("예상점수") or f"{b['pts_h']:.0f}:{b['pts_a']:.0f}"
+        # 꼬리표는 '있으면 둔다'가 아니라 **항상 붙인다** — 붙어 있어야 --refresh 가 이 행을 다시 찾는다.
+        # (128회 1172 는 블록 메모가 이미 있어 꼬리표가 안 붙었고, 계수를 고친 뒤 혼자 옛 값으로 남았다.)
+        tag = f"NBA 포제션 레이팅 기준선 자동({dt.date.today()}, 직전 {b['games']}경기) — 뉴스·결장 반영 없음, 방향 기록용"
+        prev = (r.get("핵심근거") or "").strip()
+        r["핵심근거"] = tag if not prev else f"{prev} / {tag}"
+        if r.get("결과") in ("승", "무", "패"):
+            pk = rl.argmax(r, "순수"); r["순수적중"] = int(pk == r["결과"]) if pk else ""
+        n += 1
+    return n, skip_lg, no_data
 
 
 def main():
     ap = argparse.ArgumentParser(); ap.add_argument("--round"); ap.add_argument("--all", action="store_true"); ap.add_argument("--dry", action="store_true")
+    ap.add_argument("--refresh", action="store_true", help="이 스크립트가 전에 채운 기준선 행을 다시 계산한다")
     a = ap.parse_args()
     rows = rl.load()
     names = sb.load_names(); cache = {}
@@ -48,9 +124,11 @@ def main():
         if r.get("결과") in ("승", "무", "패"):
             pk = rl.argmax(r, "순수"); r["순수적중"] = int(pk == r["결과"]) if pk else ""
         n += 1
+    bn, bskip, bnod = fill_basketball(rows, a)
     if not a.dry:
         rl.save(rows)
-    print(f"기준선 채움 {n}경기 (기준선 미지원 리그 건너뜀 {skip_lg}){' [dry]' if a.dry else ''}")
+    print(f"기준선 채움 축구 {n}경기 (미지원 리그 건너뜀 {skip_lg})"
+          f" · 농구 {bn}경기 (미지원 리그 {bskip} · 자료부족 {bnod}){' [dry]' if a.dry else ''}")
     # 깊이별 방향 정확도
     acc = {}
     for r in rows:

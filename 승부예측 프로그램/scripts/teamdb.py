@@ -290,27 +290,48 @@ def en_name(name):
     return _NAMES.get(first, name)
 
 
+# 2026-10-29(128회 16:45 블록): find_team 에 resolve_espn_team 이 2026-10-24 에 이미 고친 것과
+# **똑같은 느슨한 절**이 남아 있었다 — "단어가 하나라도 겹치면 일치(sc=1)". 그래서
+# `teamdb.py card "애들레이드 유나이티드"` 가 'united' 한 단어로 **Newcastle United 카드를 통째로**
+# 돌려줬다(순위·xG·선발 XI 전부 남의 팀). 분석가는 카드를 먼저 읽으라고 돼 있으므로 이대로 두면
+# 호주 A리그 팀 분석에 EPL 8위 팀 수치가 들어간다. 조용히 틀리는 게 가장 나쁘다.
+# 규칙을 resolve_espn_team 과 같게 맞춘다: 정확 일치 > 포함 관계 > (일반명사를 뺀) 단어 겹침.
+# **윗 단계에서 찾으면 아래는 보지 않고, 같은 단계에서 후보가 둘 이상이면 아무것도 돌려주지 않는다.**
+_GENERIC = {"united", "city", "town", "athletic", "atletico", "real", "sporting", "deportivo",
+            "olympique", "borussia", "bayer", "bayern", "dynamo", "lokomotiv", "rovers",
+            "wanderers", "albion", "county", "rangers", "celtic", "racing", "nacional",
+            "internacional", "juniors", "stade", "union", "eintracht", "werder", "hertha",
+            "saint", "st", "royal", "royale", "new", "north", "south", "east", "west"}
+
+
 def find_team(name):
-    """Understat 팀 → (리그, 팀 dict, 팀 상세 dict)"""
-    n = norm(en_name(name)); best = None
+    """Understat 팀 → (리그, 팀 dict, 팀 상세 dict). 못 가리면 섞지 말고 None."""
+    n = norm(en_name(name))
     if not n:  # 한글 등 매핑 실패 — 아무 팀이나 부분일치로 잡히는 것을 막는다
         return None
+    nw = set(n.split())
+    tiers = {3: [], 2: [], 1: []}
     for lg in LEAGUES:
         d = jload(os.path.join(DB, "understat", f"{lg}_{SEASON}.json"), {})
         for tid, t in (d.get("teams") or {}).items():
-            tn = norm(t["title"]); sc = 0
+            tn = norm(t["title"])
             if tn == n:
                 sc = 3
             elif n in tn or tn in n:
                 sc = 2
-            elif set(n.split()) & set(tn.split()):
-                sc = 1
-            if sc and (best is None or sc > best[0]):
-                best = (sc, lg, tid, t, d)
-    if not best:
-        return None
-    _, lg, tid, t, d = best
-    return lg, t, jload(os.path.join(DB, "understat", f"team_{tid}.json"), {}), d
+            elif (nw & set(tn.split())) - _GENERIC:
+                sc = 1          # 'united'·'city' 같은 일반명사만 겹치는 것은 일치가 아니다
+            else:
+                continue
+            tiers[sc].append((lg, tid, t, d))
+    for sc in (3, 2, 1):
+        cand = tiers[sc]
+        if len(cand) == 1:
+            lg, tid, t, d = cand[0]
+            return lg, t, jload(os.path.join(DB, "understat", f"team_{tid}.json"), {}), d
+        if cand:
+            return None         # 같은 등급 후보가 여럿이면 가리지 못한다 — 섞느니 비운다
+    return None
 
 
 def resolve_espn_team(n, names):

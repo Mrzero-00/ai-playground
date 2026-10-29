@@ -90,6 +90,19 @@ def _p(g, pre):
             return None
     return v
 
+def _ours(g, pre):
+    """'우리' 기법(순수·보정) 값 — 단, 깊이=기준선 행은 돌려주지 않는다.
+
+    왜 (2026-10-29, 128회 심층회고): `깊이=기준선` 은 baseline_fill 이 자동으로 채운 **대조군**이지
+    우리가 한 분석이 아니다. `own_model.py` 는 전부터 이 행을 빼고 세는데 여기서는 세고 있어서
+    같은 '우리 순수 분석'이 두 보고서에서 다른 표본(916 vs 647)을 가리켰다.
+    2026-10-29 부터 기준선 행의 보정_* 에는 **시장 사전확률**이 들어가므로, 그대로 두면
+    '우리 보정'이 시장을 베낀 값으로 부풀어 기법 비교가 망가진다. 한쪽으로 통일한다.
+    """
+    if (g.get("깊이") or "").strip() == "기준선":
+        return None
+    return _p(g, pre)
+
 
 def track_b(window_days=None):
     """우리 기록에서 '같은 경기'에 대해 여러 기법의 1순위를 비교한다."""
@@ -117,7 +130,7 @@ def track_b(window_days=None):
 
     methods = collections.defaultdict(lambda: [0, 0])
     for g in games:
-        mk, pu, bo = _p(g, "시장"), _p(g, "순수"), _p(g, "보정")
+        mk, pu, bo = _p(g, "시장"), _ours(g, "순수"), _ours(g, "보정")
         if not mk:
             continue                      # 시장이 없으면 비교 불가 — 같은 경기 원칙
         res = g["결과"]
@@ -152,7 +165,7 @@ PCOLS = ["회차", "번호", "경기", "시각", "종목", "리그", "기법", "
 
 def candidates(g, wt, fac):
     """한 경기에 대해 쓸 수 있는 모든 기법의 확률. 새 기법은 여기 한 줄 추가하면 전부에 반영된다."""
-    mk, pu, bo = _p(g, "시장"), _p(g, "순수"), _p(g, "보정")
+    mk, pu, bo = _p(g, "시장"), _ours(g, "순수"), _ours(g, "보정")
     out = {}
     if mk:
         out["시장"] = mk

@@ -23,6 +23,55 @@ import teamdb as T
 
 NBA_LEAGUES = {"NBA"}      # teamdb/nba 박스스코어가 있는 리그만. KBL 은 아직 원천이 없다.
 
+# 자동 기준선 꼬리표 — --refresh 가 '내가 채운 행'을 되찾는 열쇠다.
+AUTO_TAGS = ("pi-rating 기준선 자동", "NBA 포제션 레이팅 기준선 자동", "시장 사전확률 기준선 자동")
+
+
+def market_prior(r):
+    """시장 공정확률을 사전확률로 돌려준다. 없으면 None.
+
+    왜 (2026-10-29, 128회 심층회고 — 실측):
+        깊이=기준선 축구 행 중 시장 확률이 같이 있는 128경기에서
+          pi-rating 1순위 43.8%  vs  시장 1순위 53.1%  (−9.3%p)
+        불일치쌍은 **기준선만 맞음 0건 / 시장만 맞음 12건** — McNemar chi2 10.08 (p<0.01).
+        즉 pi 기준선이 시장을 이긴 경기가 **한 건도 없다**. 완전 열위라 표본 흔들림이 아니다.
+        1·2순위 차 10%p 미만(기권 구간) 27경기에서는 4/27(14.8%) vs 11/27(40.7%) 로 격차가 더 크다.
+        이것은 2026-10-26 구조 전환('사전확률은 가장 정확한 것 = 시장에서 출발한다')이
+        **분석 경기에만 적용되고 자동 채움 계층에는 적용되지 않은 채 남아 있던 구멍**이다.
+    무엇을 어디에 쓰나:
+        순수_*  ← pi-rating 그대로 둔다. 그건 '기법 원장'이고 지우지 않는다(2026-10-26 사용자 지시).
+        보정_*  ← 시장 사전확률. 보정은 '내가 실제로 쓸 최종 확률'이고,
+                  분석하지 않은 경기에서 우리가 실제로 따르는 것은 시장이다.
+    """
+    try:
+        w, d, l = float(r.get("시장_승") or 0), float(r.get("시장_무") or 0), float(r.get("시장_패") or 0)
+    except ValueError:
+        return None
+    t = w + d + l
+    if t < 90 or t > 110:          # 비거나 깨진 값
+        return None
+    return {"승": round(w * 100 / t, 1), "무": round(d * 100 / t, 1), "패": round(l * 100 / t, 1)}
+
+
+def apply_market_prior(r):
+    """기준선 행에 시장 사전확률을 보정_* 로 적는다. 적었으면 True."""
+    mk = market_prior(r)
+    if not mk:
+        return False
+    r["보정_승"], r["보정_무"], r["보정_패"] = mk["승"], mk["무"], mk["패"]
+    memo = "시장 사전확률 기준선 자동 — 분석하지 않은 경기의 최종 확률은 시장에서 출발한다(2026-10-29 실측 pi 43.8% vs 시장 53.1%, 불일치 0:12)"
+    prev = (r.get("보정메모") or "").strip()
+    # anchor 가 찍은 옛 메모는 '대체됨'으로 한 번만 남기고, 재실행해도 계속 길어지지 않게 한다.
+    if prev and "시장 사전확률 기준선 자동" not in prev:
+        memo = f"{memo} [대체: {prev}]"
+    elif prev:
+        memo = prev
+    r["보정메모"] = memo
+    if r.get("결과") in ("승", "무", "패"):
+        pk = rl.argmax(r, "보정")
+        r["보정적중"] = int(pk == r["결과"]) if pk else ""
+    return True
+
 
 def _match_date(r):
     """전체경기기록 '시각'('MM-DD HH:MM')을 'YYYY-MM-DD' 로. 연도는 회차 기록에 없어 경기일 기준 연도를 추정한다."""
@@ -125,10 +174,24 @@ def main():
             pk = rl.argmax(r, "순수"); r["순수적중"] = int(pk == r["결과"]) if pk else ""
         n += 1
     bn, bskip, bnod = fill_basketball(rows, a)
+    # 기준선 행의 최종 확률(보정)은 **시장 사전확률**로 둔다 — 종목·리그·채움 시점과 무관하게 한 군데서.
+    # 08시 정기 채움은 배당이 뜨기 전에 돌 때가 많아, 나중에 시장이 들어온 행을 여기서 따라잡는다.
+    # 깊이=기준선 행의 보정메모는 전부 `round_log anchor` 가 기계로 찍은 것이다
+    # ("순수·기준선(보정 미적용)" / "순수50+기준선50(...)"). 사람·에이전트가 쓴 글이 아니므로 덮는다.
+    # (처음에는 '메모가 있으면 건너뛴다'로 뒀다가 128회 기준선 19행이 전부 걸러져 버렸다 — anchor 가
+    #  항상 메모를 남기기 때문이다. 기준선 행에 사람 글이 올 일은 없다 — 사람이 손대면 깊이가 올라간다.)
+    mp = 0
+    for r in rows:
+        if r.get("깊이") != "기준선":
+            continue
+        if apply_market_prior(r):
+            mp += 1
     if not a.dry:
         rl.save(rows)
     print(f"기준선 채움 축구 {n}경기 (미지원 리그 건너뜀 {skip_lg})"
-          f" · 농구 {bn}경기 (미지원 리그 {bskip} · 자료부족 {bnod}){' [dry]' if a.dry else ''}")
+          f" · 농구 {bn}경기 (미지원 리그 {bskip} · 자료부족 {bnod})"
+          f" · 시장 사전확률 적용 {mp}행{' [dry]' if a.dry else ''}")
+    baseline_prior_compare(rows)
     # 깊이별 방향 정확도
     acc = {}
     for r in rows:
@@ -210,6 +273,38 @@ def depth_compare(rows):
     g_all, g_big = gap("전체"), gap("지정")
     if g_all is not None and g_big is not None and g_all - g_big > 5:
         print(f"  ⚠ 원표의 차({g_all:+.1f}%p)는 리그 구성 때문에 부풀어 있다 — 추천 범위(지정 리그)에서는 {g_big:+.1f}%p.")
+
+
+def baseline_prior_compare(rows):
+    """기준선 행에서 pi-rating 과 시장 사전확률 중 어느 쪽이 방향을 더 맞혔나 — 바꾼 뒤 효과를 매번 다시 잰다.
+
+    되돌리는 조건: 시장이 pi 보다 낫지 않게 되면(불일치쌍에서 pi 쪽이 더 많아지면) 이 계층을 pi 로 되돌린다.
+    """
+    pi_h = mk_h = n = pi_only = mk_only = 0
+    for r in rows:
+        if r.get("깊이") != "기준선" or r.get("결과") not in ("승", "무", "패"):
+            continue
+        pk, mk = rl.argmax(r, "순수"), rl.argmax(r, "보정")
+        if not pk or not mk:
+            continue
+        n += 1
+        a_ok, b_ok = pk == r["결과"], mk == r["결과"]
+        pi_h += a_ok; mk_h += b_ok
+        pi_only += a_ok and not b_ok
+        mk_only += b_ok and not a_ok
+    if not n:
+        return
+    print(f"\n기준선 계층 — pi-rating vs 시장 사전확률 (채점 {n}경기):")
+    print(f"  pi-rating  {pi_h}/{n} ({pi_h / n * 100:.1f}%)")
+    print(f"  시장 사전확률 {mk_h}/{n} ({mk_h / n * 100:.1f}%)   차 {(mk_h - pi_h) / n * 100:+.1f}%p")
+    print(f"  불일치쌍: pi 만 맞음 {pi_only} / 시장만 맞음 {mk_only}", end="")
+    d = pi_only + mk_only
+    if d:
+        print(f"  (McNemar chi2 {((abs(pi_only - mk_only) - 1) ** 2) / d:.2f}, 3.84=p .05)")
+    else:
+        print()
+    if pi_only > mk_only:
+        print("  ⚠ pi 가 앞선다 — 2026-10-29 변경을 되돌릴 것(보정 채움 중단).")
 
 
 if __name__ == "__main__":

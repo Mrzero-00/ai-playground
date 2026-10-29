@@ -1,0 +1,49 @@
+{
+  "경기": "뉴올리언스 펠리컨스 vs 새크라멘토 킹스",
+  "수집시각": "2026-10-29 22:15",
+  "대회_라운드": "NBA 2026-27 정규시즌 · 킥오프 2026-10-30 09:00 KST(2026-10-29 20:00 ET) · Smoothie King Center(New Orleans)",
+  "전적": [
+    {"팀": "뉴올리언스 펠리컨스", "W-L": "0-4", "경기수": 4, "출처": "https://www.basketball-reference.com/teams/NOP/2027.html", "날짜": "2026-10-29"},
+    {"팀": "새크라멘토 킹스", "W-L": "0-4", "경기수": 4, "출처": "https://www.basketball-reference.com/teams/SAC/2027.html", "날짜": "2026-10-27"}
+  ],
+  "효율": [
+    {"팀": "뉴올리언스 펠리컨스", "ORtg": 111.4, "DRtg": 116.9, "Net": -5.5, "Pace": 101.7, "출처": "https://www.basketball-reference.com/teams/NOP/2027.html", "날짜": "2026-10-29"},
+    {"팀": "새크라멘토 킹스", "ORtg": 107.0, "DRtg": 124.6, "Net": -17.6, "Pace": 100.7, "출처": "https://www.basketball-reference.com/teams/SAC/2027.html", "날짜": "2026-10-27"}
+  ],
+  "결장": [
+    {"팀": "새크라멘토 킹스", "선수": "Maxime Raynaud", "포지션": "C", "상태": "Out", "사유": "Knee, 재평가까지 약 2주", "등급": "확정", "출처": "https://www.espn.com/nba/team/injuries/_/name/sac/sacramento-kings", "날짜": "2026-10-26"},
+    {"팀": "새크라멘토 킹스", "선수": "Dylan Cardwell", "포지션": "C", "상태": "Out", "사유": "Calf, 1주 뒤 재평가", "등급": "확정", "출처": "https://www.espn.com/nba/team/injuries/_/name/sac/sacramento-kings", "날짜": "2026-10-26"},
+    {"팀": "새크라멘토 킹스", "선수": "Keegan Murray", "포지션": "F", "상태": "Out", "사유": "Ankle, 10~14일 뒤 재평가", "등급": "확정", "출처": "https://www.espn.com/nba/team/injuries/_/name/sac/sacramento-kings", "날짜": "2026-10-26"},
+    {"팀": "새크라멘토 킹스", "선수": "Ben Simmons", "포지션": "G", "상태": "Out", "사유": "우측 아킬레스건 파열, 수술 후 시즌 아웃", "등급": "확정", "출처": "https://www.espn.com/nba/team/injuries/_/name/sac/sacramento-kings", "날짜": "2026-10-21"},
+    {"팀": "뉴올리언스 펠리컨스", "선수": "Yves Missi", "포지션": "C", "상태": "Out", "사유": "좌측 무릎 골타박상, 장기 결장 예상", "등급": "확정", "출처": "https://www.espn.com/nba/team/injuries/_/name/no/new-orleans-pelicans", "날짜": "2026-10-24"},
+    {"팀": "뉴올리언스 펠리컨스", "선수": "Jordan Poole", "포지션": "G", "상태": "Questionable", "사유": "발목, 10/28 덴버전 도중 교체 아웃", "등급": "의심", "출처": "https://www.espn.com/nba/team/injuries/_/name/no/new-orleans-pelicans", "날짜": "2026-10-28"}
+  ],
+  "일정": [
+    {"팀": "뉴올리언스 펠리컨스", "직전경기": "2026-10-28 vs 덴버 너기츠 패(91-104, 홈)", "휴식일": 0, "백투백": true, "이동": "홈경기 연속(이동 없음)", "다음경기": "미확인", "출처": "https://www.basketball-reference.com/teams/NOP/2027.html"},
+    {"팀": "새크라멘토 킹스", "직전경기": "2026-10-27 @ 샌안토니오 스퍼스 패(103-130, 원정)", "휴식일": 1, "백투백": false, "이동": "샌안토니오→뉴올리언스 원정 이동(약 800마일)", "다음경기": "미확인", "출처": "https://www.basketball-reference.com/teams/SAC/2027.html"}
+  ],
+  "최근폼": [
+    {"팀": "뉴올리언스 펠리컨스", "최근5": "10/21 vs IND 패120-123, 10/23 vs UTA 패119-120, 10/24 vs DEN 패135-141, (10/27 vs BOS 패 - 미확인 스코어), 10/28 vs DEN 패91-104", "팀득점평균": 111.5, "팀실점평균": 122.0, "출처": "https://www.basketball-reference.com/teams/NOP/2027.html", "날짜": "2026-10-29"},
+    {"팀": "새크라멘토 킹스", "최근5": "10/21 @LAC 패96-121, 10/23 vs POR 패120-128, 10/25 vs MEM 패112-123, 10/27 @SAS 패103-130", "팀득점평균": 107.8, "팀실점평균": 125.5, "출처": "https://www.basketball-reference.com/teams/SAC/2027.html", "날짜": "2026-10-27"}
+  ],
+  "맞대결": [
+    {"날짜": "2026-02-09", "장소": "미확인", "스코어": "뉴올리언스 120-94 승", "출처": "WebSearch(2차 출처, URL 미특정)"},
+    {"날짜": "2026-03-05", "장소": "미확인", "스코어": "뉴올리언스 133-123 승", "출처": "WebSearch(2차 출처, URL 미특정)"},
+    {"날짜": "2026-04-03", "장소": "미확인", "스코어": "새크라멘토 117-113 승", "출처": "WebSearch(2차 출처, URL 미특정)"}
+  ],
+  "총득점_최근3": [
+    {"팀": "뉴올리언스 펠리컨스", "합계점수": ["239(10/23, 119-120)", "276(10/24, 135-141)", "195(10/28, 91-104)"], "출처": "https://www.basketball-reference.com/teams/NOP/2027.html"},
+    {"팀": "새크라멘토 킹스", "합계점수": ["248(10/23, 120-128)", "235(10/25, 112-123)", "233(10/27, 103-130)"], "출처": "https://www.basketball-reference.com/teams/SAC/2027.html"}
+  ],
+  "뉴스": [
+    {"팀": "뉴올리언스 펠리컨스", "내용": "Zion Williamson은 10/24 산안토니오전 이후 좌측 발 부위 타박상 느꼈으나 10/27 보스턴전만 결장, 10/28 덴버전 복귀해 25득점(시즌 최다) 기록 — 이번 경기 결장 리스트에 없음", "출처": "https://www.espn.com/nba/story/_/id/48069733/pelicans-zion-williamson-tweaks-ankle-win-jazz", "날짜": "2026-10-28"},
+    {"팀": "새크라멘토 킹스", "내용": "양 팀 모두 0-4로 시즌 초반 최하위권, 새크라멘토는 수비효율(DRtg 124.6) 리그 29위로 최악 수준", "출처": "https://www.basketball-reference.com/teams/SAC/2027.html", "날짜": "2026-10-27"}
+  ],
+  "미확인": [
+    "펠리컨스 10/27 보스턴전 정확한 스코어",
+    "두 팀 다음 경기 일정",
+    "맞대결 기록의 정확한 경기장(홈/원정) — 2차 출처(WebSearch 요약)만 확보, 원문 URL 미특정",
+    "킥오프 임박 공식 NBA injury report(최종본) 미확보",
+    "선발 라인업(스타팅 5) 공식 발표 전"
+  ]
+}

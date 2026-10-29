@@ -1,0 +1,45 @@
+{
+  "경기": "프로시노네 vs US레체",
+  "수집시각": "2026-10-29 21:40",
+  "대회_라운드": "이탈리아 세리에A(2026-27 시즌) 9라운드(IXª giornata) · 킥오프 2026-10-30 02:30 KST(현지 2026-10-29 18:30 CET) · 경기장 Benito Stirpe Stadium(프로시노네)",
+  "순위": [
+    {"팀": "프로시노네", "순위": 6, "승점": 14, "득실": "+4 (8경기 4승2무2패)", "출처": "팀노트/프로시노네.md 팩트시트(위키 'Frosinone Calcio', ESPN)", "날짜": "2026-10-29"},
+    {"팀": "US레체", "순위": 14, "승점": 9, "득실": "-5 (8경기 3승0무5패)", "출처": "팀노트/US레체.md 팩트시트(위키 'US Lecce', ESPN)", "날짜": "2026-10-29"}
+  ],
+  "결장": [
+    {"팀": "프로시노네", "선수": "Florian Grillitsch", "포지션": "MF", "사유": "부상(구체 부위 기사에 미기재)", "등급": "확정", "출처": "https://www.fantacalcio.it/news/calcio-italia/29_10_2026/frosinone-lecce-le-probabili-formazioni-e-dove-vederla-in-tv-499919", "날짜": "2026-10-29"},
+    {"팀": "US레체", "선수": "Kialonda Gaspar", "포지션": "DF(CB)", "사유": "징계(레체-유벤투스전 추가시간 퇴장, 2경기 출장정지 + 벌금 15,000유로, 심판 모욕 포함)", "등급": "확정", "출처": "https://www.ansa.it/puglia/notizie/2026/10/26/serie-a-due-giornate-di-squalifica-a-gaspar-del-lecce_a59bc3b8-eaf0-4f3c-b10d-05b5ca0b4c7c.html", "날짜": "2026-10-26"},
+    {"팀": "US레체", "선수": "Medon Berisha", "포지션": "미확인", "사유": "부상", "등급": "확정", "출처": "https://www.fantacalcio.it/news/calcio-italia/29_10_2026/frosinone-lecce-le-probabili-formazioni-e-dove-vederla-in-tv-499919", "날짜": "2026-10-29"},
+    {"팀": "US레체", "선수": "Lassana Coulibaly", "포지션": "MF", "사유": "부상", "등급": "확정", "출처": "https://www.fantacalcio.it/news/calcio-italia/29_10_2026/frosinone-lecce-le-probabili-formazioni-e-dove-vederla-in-tv-499919", "날짜": "2026-10-29"},
+    {"팀": "US레체", "선수": "Marin Ilić", "포지션": "미확인", "사유": "부상", "등급": "확정", "출처": "https://www.fantacalcio.it/news/calcio-italia/29_10_2026/frosinone-lecce-le-probabili-formazioni-e-dove-vederla-in-tv-499919", "날짜": "2026-10-29"},
+    {"팀": "US레체", "선수": "Antonino Pierotti", "포지션": "미확인", "사유": "부상", "등급": "확정", "출처": "https://www.fantacalcio.it/news/calcio-italia/29_10_2026/frosinone-lecce-le-probabili-formazioni-e-dove-vederla-in-tv-499919", "날짜": "2026-10-29"},
+    {"팀": "US레체", "선수": "Tiago Gabriel", "포지션": "DF(CB)", "사유": "컨디션 불확실(출전 여부 불투명 — 그러나 일부 매체 예상 XI에는 선발 포함)", "등급": "의심", "출처": "https://www.fantacalcio.it/news/calcio-italia/29_10_2026/frosinone-lecce-le-probabili-formazioni-e-dove-vederla-in-tv-499919", "날짜": "2026-10-29"}
+  ],
+  "예상XI": [
+    {"팀": "프로시노네", "포메이션": "4-2-3-1", "선수": ["Lorenzo Palmisani", "Anthony Oyono", "Gabriele Calvani", "Pietro Monterisi", "Gabriele Bracaglia", "Giacomo Calò", "Patrizio Masini", "Farès Ghedjemis", "Romano Schmid", "Giorgi Kvernadze", "Antonio Raimondo"], "근거": "현지 매체 예상 선발(공식 발표 아님)", "출처": "https://www.fantacalcio.it/news/calcio-italia/29_10_2026/frosinone-lecce-le-probabili-formazioni-e-dove-vederla-in-tv-499919", "날짜": "2026-10-29"},
+    {"팀": "US레체", "포메이션": "4-3-3", "선수": ["Wladimiro Falcone", "Danilo Veiga", "Lucas Siebert", "Tiago Gabriel", "Antonino Gallo", "Mohamed Kaba", "Oumar Ngom", "Youssef Maleh", "Konan N'Dri", "Willem Geubbels", "Hamza Fatah"], "근거": "현지 매체 예상 선발(공식 발표 아님). Gaspar 출장정지로 중앙수비 교체 필요 — Siebert·Tiago Gabriel 동시 기재된 매체도 있어 실제 조합은 미확정", "출처": "https://www.fantacalcio.it/news/calcio-italia/29_10_2026/frosinone-lecce-le-probabili-formazioni-e-dove-vederla-in-tv-499919", "날짜": "2026-10-29"}
+  ],
+  "최근폼": [
+    {"팀": "프로시노네", "최근5": "팩트시트 참조: Genoa 1-1(09-12) / Como 2-0승(09-20) / Napoli 0-3패(10-10) / Sassuolo 4-2승(10-16) / Atalanta 4-4무(10-25)", "득점": "", "실점": "", "xG": "시즌8경기 xG1.67/xGA2.58 (팀노트 INPUTS)", "출처": "팀노트/프로시노네.md", "날짜": "2026-10-29"},
+    {"팀": "US레체", "최근5": "Monza 3-2승(09-13) / AC Milan 0-3패(09-20) / Bologna 1-2패(10-11) / Udinese 3-0승(10-18) / Juventus 0-2패(10-25)", "득점": "", "실점": "", "xG": "시즌8경기 xG1.58/xGA2.28 (팀노트 INPUTS)", "출처": "팀노트/US레체.md", "날짜": "2026-10-29"}
+  ],
+  "맞대결": [
+    {"날짜": "역대 통산 28경기(연도 미상세)", "대회": "Serie A/B 통산", "장소": "", "스코어": "레체 13승 8무 프로시노네 7승 (레체 47득점-23실점, 최근 6경기 레체 무패)", "출처": "https://www.calcio.com/squadre/lecce/precedenti/frosinone"}
+  ],
+  "일정": [
+    {"팀": "프로시노네", "직전경기": "2026-10-25 원정 vs Atalanta 4-4 무 (Serie A)", "휴식일": 4.1, "다음경기": "미확인", "출처": "팀노트/프로시노네.md INPUTS"},
+    {"팀": "US레체", "직전경기": "2026-10-26 홈 vs Juventus 0-2 패 (Serie A)", "휴식일": 4.0, "다음경기": "Genoa (Gaspar 징계 복귀 예정 경기로 역산, 정확한 날짜 미확인)", "출처": "팀노트/US레체.md INPUTS; https://www.bottadiculo.it/lecce-gaspar-squalificato-salta-il-frosinone-rientro-previsto-col-genoa/"}
+  ],
+  "동기_이슈": [
+    {"팀": "US레체", "내용": "10/26 레체-유벤투스전 추가시간 Gaspar 퇴장(심판 모욕 포함) 및 응원석 플레어 발화로 구단 15,000유로 벌금 — 팀 내 긴장·수비 불안정 우려", "출처": "https://www.ansa.it/puglia/notizie/2026/10/26/serie-a-due-giornate-di-squalifica-a-gaspar-del-lecce_a59bc3b8-eaf0-4f3c-b10d-05b5ca0b4c7c.html", "날짜": "2026-10-26"}
+  ],
+  "심판": {"이름": "Rosario Abisso(팔레르모) — 부심 Stefano Alassio·Giuseppe Di Giacinto, 4th Fabio Maresca, VAR Marco Piccinini, AVAR Paolo Mazzoleni", "출처": "https://www.frosinonecalcio.com/frosinone-lecce-arbitra-il-signor-rosario-abisso/"},
+  "날씨": {"기온": "14.5℃", "강수": "0mm(0%)", "바람": "4.7km/h", "출처": "팀노트/프로시노네.md INPUTS(Open-Meteo, 구장 좌표 기준 자동 수집)"},
+  "미확인": [
+    "레체 수비진에서 Gaspar(징계)·Tiago Gabriel(컨디션 의심) 공백을 누가 메울지 확정 안 됨(Siebert 유력하나 매체마다 다름)",
+    "두 팀 모두 공식 라인업은 킥오프 1시간 전 발표 예정 — 현재는 전부 '예상'",
+    "프로시노네 다음 경기 일정 미확인",
+    "심판 배정 기사들이 '세리에A' 9라운드로 통일 기재 — 베트맨 표기(세리에A)와 일치, 세리에B 아님",
+    "최근 5경기 정확한 승무패 기호(W-D-L) 문자열은 팩트시트 요약에서 직접 산출하지 못해 경기 결과 나열로 대체"
+  ]
+}

@@ -1,0 +1,44 @@
+{
+  "경기": "포틀랜드 트레일블레이저스 vs 멤피스 그리즐리스",
+  "수집시각": "2026-10-29 22:20",
+  "대회_라운드": "NBA 2026-27 정규시즌 · 킥오프 2026-10-30 11:00 KST(2026-10-29 22:00 ET) · Moda Center(Portland)",
+  "전적": [
+    {"팀": "포틀랜드 트레일블레이저스", "W-L": "3-0", "경기수": 3, "출처": "https://www.basketball-reference.com/teams/POR/2027.html", "날짜": "2026-10-29"},
+    {"팀": "멤피스 그리즐리스", "W-L": "4-0", "경기수": 4, "출처": "https://www.basketball-reference.com/teams/MEM/2027.html", "날짜": "2026-10-29"}
+  ],
+  "효율": [
+    {"팀": "포틀랜드 트레일블레이저스", "ORtg": 128.7, "DRtg": 110.1, "Net": 18.6, "Pace": 100.5, "출처": "https://www.basketball-reference.com/teams/POR/2027.html", "날짜": "2026-10-29"},
+    {"팀": "멤피스 그리즐리스", "ORtg": 117.5, "DRtg": 107.7, "Net": 9.8, "Pace": 99.4, "출처": "https://www.basketball-reference.com/teams/MEM/2027.html", "날짜": "2026-10-29"}
+  ],
+  "결장": [
+    {"팀": "포틀랜드 트레일블레이저스", "선수": "Shaedon Sharpe", "포지션": "", "상태": "Out", "사유": "무릎 반월판 파열, 약 6개월 결장 예상", "등급": "확정", "출처": "https://www.espn.com/nba/team/injuries/_/name/por/portland-trail-blazers", "날짜": "2026-08-24"},
+    {"팀": "포틀랜드 트레일블레이저스", "선수": "Chris Youngblood", "포지션": "", "상태": "Questionable", "사유": "발목(투웨이 선수), 10/29 복귀 추정", "등급": "의심", "출처": "https://www.espn.com/nba/team/injuries/_/name/por/portland-trail-blazers", "날짜": "2026-10-27"},
+    {"팀": "멤피스 그리즐리스", "선수": "", "포지션": "", "상태": "", "사유": "ESPN·공식 리스트 기준 결장자 없음(No Data Available)", "등급": "미확인", "출처": "https://www.espn.com/nba/team/injuries/_/name/mem/memphis-grizzlies", "날짜": "2026-10-29"}
+  ],
+  "일정": [
+    {"팀": "포틀랜드 트레일블레이저스", "직전경기": "2026-10-27 @ LA 레이커스 승(136-129, 원정)", "휴식일": 1, "백투백": false, "이동": "LA→포틀랜드 귀환 이동", "다음경기": "2026-10-31 @ 유타 재즈", "출처": "https://www.basketball-reference.com/teams/POR/2027.html"},
+    {"팀": "멤피스 그리즐리스", "직전경기": "2026-10-26 @ 유타 재즈 승(110-105, 원정)", "휴식일": 2, "백투백": false, "이동": "유타→포틀랜드 원정 이동(약 760마일)", "다음경기": "미확인", "출처": "https://www.basketball-reference.com/teams/MEM/2027.html"}
+  ],
+  "최근폼": [
+    {"팀": "포틀랜드 트레일블레이저스", "최근5": "10/21 vs PHO 승124-83, 10/23 @SAC 승128-120, 10/27 @LAL 승136-129 (3경기 모두 승, 10월 4경기째 미확인)", "팀득점평균": 129.3, "팀실점평균": 110.7, "출처": "https://www.basketball-reference.com/teams/POR/2027.html", "날짜": "2026-10-29"},
+    {"팀": "멤피스 그리즐리스", "최근5": "10/21 vs UTA 승123-103, 10/23 @GSW 승111-108, 10/25 @SAC 승123-112, 10/26 @UTA 승110-105", "팀득점평균": 116.75, "팀실점평균": 107.0, "출처": "https://www.basketball-reference.com/teams/MEM/2027.html", "날짜": "2026-10-29"}
+  ],
+  "맞대결": [],
+  "총득점_최근3": [
+    {"팀": "포틀랜드 트레일블레이저스", "합계점수": ["207(10/21, 124-83)", "248(10/23, 128-120)", "265(10/27, 136-129)"], "출처": "https://www.basketball-reference.com/teams/POR/2027.html"},
+    {"팀": "멤피스 그리즐리스", "합계점수": ["219(10/23, 111-108)", "235(10/25, 123-112)", "215(10/26, 110-105)"], "출처": "https://www.basketball-reference.com/teams/MEM/2027.html"}
+  ],
+  "뉴스": [
+    {"팀": "포틀랜드 트레일블레이저스", "내용": "2026년 여름(6월) 트레이드로 Ja Morant를 Jerami Grant·Kris Murray(+현금 100만 달러)와 교환해 멤피스에서 영입. 이번 경기가 Morant의 친정팀(멤피스) 상대 첫 경기", "출처": "https://www.espn.com/nba/story/_/id/49218970/sources-grizzlies-trading-star-ja-morant-trail-blazers", "날짜": "2026-06 (보도), 2026-10-29(경기 당일 재확인)"},
+    {"팀": "포틀랜드 트레일블레이저스", "내용": "Morant는 올 시즌 포틀랜드에서 경기당 16.3득점 6.3어시스트, 야투 58.8%, 직전 10/27 LA레이커스전 23득점. 친정팀 상대 특별한 적개심 없다고 발언('그냥 일정상의 또 다른 경기')", "출처": "https://www.blazersedge.com/practice-report/117629/portland-trail-blazers-ja-morant-memphis-grizzlies-first-matchup-grudges-nba-news-interview", "날짜": "2026-10-29"},
+    {"팀": "멤피스 그리즐리스", "내용": "트레이드로 Jerami Grant·Kris Murray 영입, 코치 Tuomas Iisalo 체제로 4연승 시작(순득실차 약 +9.8)", "출처": "https://www.basketball-reference.com/teams/MEM/2027.html", "날짜": "2026-10-29"}
+  ],
+  "미확인": [
+    "최근 시즌 맞대결(H2H) 전적 — Morant 트레이드로 로스터가 바뀌어 과거 맞대결 의미 제한적, 구체적 날짜별 스코어 미확보",
+    "포틀랜드 10월 4번째 경기(있었는지) 스코어",
+    "멤피스 다음 경기 일정",
+    "두 팀 공식 킥오프 임박 injury report 최종본",
+    "선발 라인업(스타팅 5) 공식 발표 전",
+    "Jerami Grant(멤피스 이적 후) 현재 건강 상태 — 별도 결장 보도 없음, 교차 확인 못함"
+  ]
+}

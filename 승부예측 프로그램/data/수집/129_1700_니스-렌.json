@@ -1,0 +1,52 @@
+{
+  "경기": "OGC 니스 vs 스타드 렌",
+  "번호": 1700,
+  "수집시각": "2026-10-30 21:40",
+  "결장": [
+    {"팀": "OGC니스", "선수": "Jean-Clair Todibo", "상태": "추정", "포지션": "DF(센터백, 'Bombito'로도 표기)", "시즌선발": "확인 못 함", "사유": "부상 — 상세 미확인", "출처": "https://www.kickfootball.fr/news/nice-rennes-les-compositions-probables-plusieurs-absents-pour-le-choc-de-ligue-1-203324", "날짜": "2026-10-30"},
+    {"팀": "OGC니스", "선수": "Mendy", "상태": "추정", "포지션": "DF", "시즌선발": "확인 못 함", "사유": "부상 — 상세 미확인", "출처": "https://www.kickfootball.fr/news/nice-rennes-les-compositions-probables-plusieurs-absents-pour-le-choc-de-ligue-1-203324", "날짜": "2026-10-30"},
+    {"팀": "OGC니스", "선수": "Abdi (Ali Abdi)", "상태": "확정", "포지션": "MF/DF", "시즌선발": "확인 못 함", "사유": "허벅지 부상 — 회복 초기 단계, 첫 단체훈련 막 완료(경기 출전 시기상조)", "출처": "https://www.nicemag.fr/article/8072/ogc-nice-clauss-rassure-deux-absents-contre-rennes", "날짜": "2026-10-29"},
+    {"팀": "OGC니스", "선수": "Abergel", "상태": "추정", "포지션": "DF", "시즌선발": "확인 못 함", "사유": "부상 — 상세 미확인", "출처": "https://www.kickfootball.fr/news/nice-rennes-les-compositions-probables-plusieurs-absents-pour-le-choc-de-ligue-1-203324", "날짜": "2026-10-30"},
+    {"팀": "OGC니스", "선수": "Alidu Seidu", "상태": "확정", "포지션": "DF", "시즌선발": "확인 못 함", "사유": "렌 완전임대 이적 시 계약서에 포함된 '원소속팀 상대 출전 금지' 조항으로 이번 경기 결장 — 친정팀(렌) 상대 규정상 불가, 부상 아님", "출처": "https://www.butfootballclub.fr/1708207-stade-rennais-une-bonne-et-une-mauvaise-nouvelle-tombent-avant-logc-nice/ ; https://www.rotowire.com/soccer/headlines/alidu-seidu-injury-loan-locked-to-play-friday-542414", "날짜": "2026-10-27"},
+    {"팀": "스타드 렌", "선수": "Brice Samba", "상태": "확정", "포지션": "GK", "시즌선발": "확인 못 함", "사유": "부상 — 상세 미확인(직전 10-25 Strasbourg전은 선발 출전 기록 있음, 이후 부상 추정)", "출처": "https://www.kickfootball.fr/news/nice-rennes-les-compositions-probables-plusieurs-absents-pour-le-choc-de-ligue-1-203324", "날짜": "2026-10-30"},
+    {"팀": "스타드 렌", "선수": "Estéban Lepaul", "상태": "확정", "포지션": "FW(기사 원문은 DF로 표기하나 실제 포지션은 공격수)", "시즌선발": "확인 못 함", "사유": "부상 — 상세 미확인", "출처": "https://www.kickfootball.fr/news/nice-rennes-les-compositions-probables-plusieurs-absents-pour-le-choc-de-ligue-1-203324", "날짜": "2026-10-30"}
+  ],
+  "라인업": {
+    "홈": {
+      "발표여부": "비공식(현지 매체 예상, 2건 유사)",
+      "XI": ["kickfootball(10-30, 3-4-3): Diouf; Abdelmonem, Ndayishimiye, Mandza; Clauss, Boudaoui, Witsel(c), Nkounkou; Diop, Wahi, Amoura",
+             "footix(3-4-2-1 추정): Diouf; Abdelmonem, Ndayishimiye, Mandza; Nkounkou, Boudaoui, Witsel, Clauss; Diop/Hein, Amoura; Wahi — 3백 변형 가능성 언급"],
+      "출처": "https://www.kickfootball.fr/news/nice-rennes-les-compositions-probables-plusieurs-absents-pour-le-choc-de-ligue-1-203324 ; https://www.footix.fr/ligue-1-nice-devrait-aligner-trois-centraux-face-a-rennes-haise-retrouve-son-ex-club",
+      "날짜": "2026-10-30"
+    },
+    "원정": {
+      "발표여부": "비공식(현지 매체 예상)",
+      "XI": ["kickfootball(10-30, 5-3-2): Lemaître; Reynolds, Aït Boudlal, Cresswell, Rouault, Nagida; Szymanski, Rongier(c), Thomasson; Dia, Al-Tamari"],
+      "출처": "https://www.kickfootball.fr/news/nice-rennes-les-compositions-probables-plusieurs-absents-pour-le-choc-de-ligue-1-203324",
+      "날짜": "2026-10-30"
+    }
+  },
+  "감독_이슈": [
+    {"팀": "OGC니스", "내용": "Jonathan Clauss 발목 부상 우려 있었으나 Pantaloni 감독 확인: \"Jonathan devrait être là, j'ai redouté une entorse à la cheville, mais plus de peur que de mal\"(인대 손상 아님, 출전 가능). Brest전에서 헛디뎌 악화된 발뒤꿈치 통증도 호전 중.", "출처": "https://www.nicemag.fr/article/8072/ogc-nice-clauss-rassure-deux-absents-contre-rennes", "날짜": "2026-10-29"},
+    {"팀": "스타드 렌", "내용": "감독 Franck Haise는 2024년 7월~2025년 12월 OGC니스 감독 재임 후 렌 감독으로 부임 — 이번 경기는 자신의 전 소속팀(니스) 상대 복귀전. 서사적 의미 있음.", "출처": "https://en.wikipedia.org/wiki/Franck_Haise ; https://www.footix.fr/ligue-1-nice-devrait-aligner-trois-centraux-face-a-rennes-haise-retrouve-son-ex-club", "날짜": "2026-10-30"}
+  ],
+  "동기": [
+    {"팀": "OGC니스", "내용": "순위 10위, 8경기 3승2무3패 승점11 — 시즌 초(9월) 한때 리그 최하위까지 떨어졌으나 최근 4경기 중 3승으로 반등(10-11 Strasbourg 승, 10-18 Lyon 패, 10-23/24 Brest 원정 승 등)", "출처": "팀노트 FACTS ; https://www.kickfootball.fr/news/nice-rennes-les-compositions-probables-plusieurs-absents-pour-le-choc-de-ligue-1-203324", "날짜": "2026-10-30"},
+    {"팀": "스타드 렌", "내용": "순위 2위, 8경기 5승1무2패 승점16 — 리그1 상위권(타이틀 경쟁권) 유지가 걸린 경기. ClubElo 기준으로도 상위권 평가(10-14 스냅샷 1759)", "출처": "팀노트(스타드 렌) 기존 기록", "날짜": "2026-10-14"}
+  ],
+  "최근5": {
+    "홈": ["09-12 원정 AJ Auxerre 1-0 Nice(패)", "09-20 홈 Nice 2-1 Lille(승)", "10-11 홈 Nice 2-1 Strasbourg(승)", "10-18 원정 Lyon 2-1 Nice(패)", "10-23/24 원정 Brest 1-2 Nice(승, 니스 원정 승)"],
+    "원정": ["09-11 홈 Stade Rennais 1-0 Marseille(승)", "09-19 원정 Lyon 4-0 Stade Rennais(패)", "10-11 홈 Stade Rennais 4-1 AJ Auxerre(승)", "10-18 원정 Paris FC 4-3 Stade Rennais(패)", "10-25/26 홈 Stade Rennais 3-0 Strasbourg(승)"]
+  },
+  "현지매체": [
+    {"매체": "kickfootball.fr", "제목": "Nice-Rennes : les compositions probables, plusieurs absents pour le choc de Ligue 1", "요약": "양 팀 결장자 및 예상 선발 종합. 니스 4명 부상(Bombito/Todibo·Mendy·Abdi·Abergel) + Seidu 계약상 결장, 렌 2명 부상(Samba·Lepaul)", "URL": "https://www.kickfootball.fr/news/nice-rennes-les-compositions-probables-plusieurs-absents-pour-le-choc-de-ligue-1-203324", "날짜": "2026-10-30"},
+    {"매체": "footix.fr", "제목": "Ligue 1 : Nice devrait aligner trois centraux face à Rennes, Haise retrouve son ex-club", "요약": "니스가 결장 다수로 3백 변형 가능성, Haise 감독의 친정팀 복귀 서사", "URL": "https://www.footix.fr/ligue-1-nice-devrait-aligner-trois-centraux-face-a-rennes-haise-retrouve-son-ex-club", "날짜": "2026-10-30"},
+    {"매체": "nicemag.fr", "제목": "OGC Nice : Clauss rassure, deux absents contre Rennes", "요약": "Clauss 출전 가능 확인, Abdi·Seidu 결장 상세", "URL": "https://www.nicemag.fr/article/8072/ogc-nice-clauss-rassure-deux-absents-contre-rennes", "날짜": "2026-10-29"},
+    {"매체": "butfootballclub.fr", "제목": "Stade Rennais : une bonne et une mauvaise nouvelle tombent avant l'OGC Nice", "요약": "렌 입장에서 '좋은 소식'(Seidu 결장) / '나쁜 소식'(Clauss 정상 출전) 프레이밍", "URL": "https://www.butfootballclub.fr/1708207-stade-rennais-une-bonne-et-une-mauvaise-nouvelle-tombent-avant-logc-nice/", "날짜": "2026-10-27"}
+  ],
+  "기타": [
+    "니스 결장자 명단에서 'Bombito'로 통칭되는 선수는 Jean-Clair Todibo로 추정되나 기사 원문 표기 그대로 남김 — 교차 확인 못 함.",
+    "렌의 Lepaul은 기사에서 'Defender'로 표기됐으나 실제로는 공격수(스트라이커)로 알려져 있음 — 원문 오기 가능성, 포지션 교차검증 못 함.",
+    "니스 홈 결장 5명(Todibo/Bombito·Mendy·Abdi·Abergel·Seidu) vs 렌 결장 2명(Samba·Lepaul) — 니스 쪽 결장 폭이 더 큼."
+  ]
+}

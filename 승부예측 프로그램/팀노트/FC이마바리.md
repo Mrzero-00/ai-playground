@@ -9,6 +9,6 @@
 
 <!-- INPUTS:START -->
 ## 입력(자동 수집 2026-10-30) — xG·휴식일·라인업·환경(이동거리·고도·날씨)은 이 숫자를 쓴다
-- 10-31 14:05 vs 반포레 고후: 휴식 ?(ESPN 미제공 리그 — 직접 확인) · 직전 - · xG - · 구장 Arigato Service Dream Stadium · 이동 543km · 고도 92m(차 -165m) · 20.9℃ 강수0mm(0%) 바람14.1km/h
+- 10-31 14:05 vs 반포레 고후: 휴식 ?(ESPN 미제공 리그 — 직접 확인) · 직전 - · xG - · 구장 Arigato Service Dream Stadium · 이동 543km · 고도 92m(차 -165m) · 20.5℃ 강수0mm(0%) 바람13.6km/h
 <!-- INPUTS:END -->
 

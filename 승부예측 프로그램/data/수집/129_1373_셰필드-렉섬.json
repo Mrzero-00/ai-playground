@@ -1,0 +1,58 @@
+{
+  "경기": "셰필드 유나이티드 vs 렉섬",
+  "번호": 1373,
+  "대회": "잉글랜드 챔피언십 2026-27시즌",
+  "수집시각": "2026-10-30 21:40",
+  "결장": [
+    {"팀": "셰필드 유나이티드", "선수": "Ryan One", "상태": "확정", "포지션": "FW/MF", "시즌선발": "확인 못 함(최근 복귀 직후 재발)", "사유": "햄스트링 부상 재발(기존 부상과 동일 부위) — 감독 Chris Wilder '같은 부위 재발, 몇 주간 결장' 코멘트", "출처": "https://hayters.com/wilder-reveals-fresh-sheffield-united-injury-blow/", "날짜": "2026-10-29"},
+    {"팀": "셰필드 유나이티드", "선수": "Matt Doherty", "상태": "확정", "포지션": "DF", "시즌선발": "확인 못 함", "사유": "결장(구체 사유 미상, 복수 매체 '결장' 명단에 포함)", "출처": "검색 결과 요약(복수 프리뷰 매체, 1차 출처 직접 확인 못 함)", "날짜": "2026-10-29/30"},
+    {"팀": "셰필드 유나이티드", "선수": "Jamie Shackleton", "상태": "확정", "포지션": "MF", "시즌선발": "확인 못 함", "사유": "결장(구체 사유 미상)", "출처": "검색 결과 요약(복수 프리뷰 매체, 1차 출처 직접 확인 못 함)", "날짜": "2026-10-29/30"},
+    {"팀": "셰필드 유나이티드", "선수": "Patrick Bamford", "상태": "의심(출전 쪽에 무게)", "포지션": "FW", "시즌선발": "확인 못 함", "사유": "10-24 더비 카운티전에서 어깨 부상으로 교체 — hayters.com(10-29)은 '출전 가능 예상', 다른 매체(thestar.co.uk)는 여전히 '의문(doubt)'으로 표기해 매체 간 불일치 — 확정 발표 전까지 '의심'으로 둠", "출처": "https://hayters.com/wilder-reveals-fresh-sheffield-united-injury-blow/ (출전 기대) / thestar.co.uk 기사 제목(접근 차단 403으로 본문 미확인, 제목만 확인: Bamford update)", "날짜": "2026-10-29"},
+    {"팀": "셰필드 유나이티드", "선수": "Mark McGuinness", "상태": "확정(복귀)", "포지션": "DF(센터백)", "시즌선발": "확인 못 함", "사유": "머리 부상으로 더비전 결장했으나 이번 경기 복귀 예상", "출처": "https://hayters.com/wilder-reveals-fresh-sheffield-united-injury-blow/", "날짜": "2026-10-29"},
+    {"팀": "렉섬", "선수": "Josh Windass", "상태": "확정", "포지션": "FW/MF", "시즌선발": "확인 못 함", "사유": "발목 부상으로 최근 3경기 결장, 이번 경기도 '시기상조(too soon)'로 결장 예상", "출처": "검색 결과 요약(복수 프리뷰 매체 집계, 10-29/30)", "날짜": "2026-10-29/30"},
+    {"팀": "렉섬", "선수": "George Thomason", "상태": "확정", "포지션": "MF", "시즌선발": "확인 못 함", "사유": "근육 긴장(muscle strain)", "출처": "검색 결과 요약(복수 프리뷰 매체 집계)", "날짜": "2026-10-29/30"},
+    {"팀": "렉섬", "선수": "Max Cleworth", "상태": "확정", "포지션": "DF", "시즌선발": "확인 못 함", "사유": "햄스트링 부상", "출처": "검색 결과 요약(복수 프리뷰 매체 집계)", "날짜": "2026-10-29/30"},
+    {"팀": "렉섬", "선수": "Sebastian Revan", "상태": "확정", "포지션": "DF", "시즌선발": "확인 못 함", "사유": "햄스트링 부상", "출처": "검색 결과 요약(복수 프리뷰 매체 집계)", "날짜": "2026-10-29/30"},
+    {"팀": "렉섬", "선수": "Nathan Broadhead", "상태": "확정", "포지션": "FW", "시즌선발": "확인 못 함", "사유": "허벅지 부상", "출처": "검색 결과 요약(복수 프리뷰 매체 집계)", "날짜": "2026-10-29/30"},
+    {"팀": "렉섬", "선수": "Liberato Cacace", "상태": "확정", "포지션": "DF", "시즌선발": "확인 못 함", "사유": "종아리 부상", "출처": "검색 결과 요약(복수 프리뷰 매체 집계)", "날짜": "2026-10-29/30"}
+  ],
+  "라인업": {
+    "홈": {
+      "발표여부": "미발표(예상 라인업, 매체 간 일부 불일치)",
+      "XI": ["Michael Cooper", "Hamza Choudhury", "Japhet Tanganga", "Liam Kitching", "Harrison Burrows", "Oliver Arblaster", "Kalvin Phillips", "Tahith Chong", "Romelle Donovan(또는 다른 매체 Ben Brereton Díaz 선발)", "Ben Brereton Díaz", "Thomas Cannon"],
+      "출처": "https://www.whoscored.com/articles/aRqjH96SsUu-WLw7nP-1RA/show/cng111-20261030-sheffield-utd-vs-wrexham-prediction-1793362084 , https://www.thestar.co.uk (제목만 확인)",
+      "날짜": "2026-10-30",
+      "비고": "4-2-3-1 포메이션 유력. 일부 매체는 Bamford 대신 Brereton Díaz·Cannon 투톱 예상, 일부는 Ayew 포함 — 공식 발표 전 전망 엇갈림"
+    },
+    "원정": {
+      "발표여부": "미발표(예상 라인업)",
+      "XI": ["Anthony Patterson", "Callum Doyle", "Joe Worrall", "Dominic Hyam", "Jacques Ekomié", "Benjamin Whiteman", "Ben Sheaf", "Danny Imray", "Callum O'Hare", "Sam Smith", "Kieffer Moore"],
+      "출처": "https://www.whoscored.com/articles/aRqjH96SsUu-WLw7nP-1RA/show/cng111-20261030-sheffield-utd-vs-wrexham-prediction-1793362084",
+      "날짜": "2026-10-30",
+      "비고": "직전 경기(10-24 블랙번전) 선발과 비교해 Issa Kaboré·Matty James·Joe Worrall 등 일부 변동 가능성 — 공식 미발표"
+    }
+  },
+  "감독_이슈": [
+    "셰필드 유나이티드: 감독 Chris Wilder 체제 유지, 교체 이슈 없음.",
+    "렉섬: 감독 Phil Parkinson 체제 유지, 교체 이슈 없음.",
+    "주목 포인트: 렉섬의 Callum O'Hare가 지난 여름 셰필드 유나이티드에서 약 700만 파운드(£7m)에 이적해 온 선수로, 이번 경기가 브레이몰 레인(구단) 복귀 첫 경기 — 감정적 요소로 보도됨."
+  ],
+  "동기": [
+    "셰필드 유나이티드: 챔피언십 12위(4승4무4패, 승점16), 플레이오프권(8위)과 4점 차. 국제 브레이크 이후 4경기 중 3승1패로 호조(최근 패배 1회뿐).",
+    "렉섬: 챔피언십 17위(3승5무4패, 승점14), 강등권(22위)과 6점 차로 안전권이지만 여유는 크지 않음. 최근 8경기 중 2승에 그쳐 폼 저하, 직전 블랙번 원정 0-2 패."
+  ],
+  "최근5": {
+    "홈": ["2026-09-19 Stoke City 2-1 Sheffield United (원정)", "2026-10-10 Sheffield United 3-0 Lincoln City (홈)", "2026-10-14 Portsmouth 3-2 Sheffield United (원정)", "2026-10-17 Bristol City 0-1 Sheffield United (원정)", "2026-10-24 Sheffield United 1-1 Derby County (홈)"],
+    "원정": ["2026-09-19 Wrexham 2-1 Southampton (홈)", "2026-10-10 Derby County 1-1 Wrexham (원정)", "2026-10-13 Wrexham 1-2 West Bromwich Albion (홈)", "2026-10-17 Wrexham 4-1 Preston North End (홈)", "2026-10-24 Blackburn Rovers 2-0 Wrexham (원정)"]
+  },
+  "현지매체": [
+    "Hayters(영국 스포츠통신) — Wilder 인터뷰, Ryan One·Bamford·McGuinness 부상 업데이트 (2026-10-29 17:17): https://hayters.com/wilder-reveals-fresh-sheffield-united-injury-blow/",
+    "The Star(셰필드 지역지) — 예상 XI·Bamford 업데이트 기사(제목 확인, 본문은 403 차단으로 미확인): https://www.thestar.co.uk/sport/football/sheffield-united/sheffield-united-predicted-xi-v-wrexham-amid-romelle-donovan-calls-seriki-bamford-update-9318743",
+    "Sports Mole — 프리뷰·팀뉴스 (2026-10-30 무렵): https://www.sportsmole.co.uk/football/sheffield-united/preview/sheff-utd-vs-wrexham-prediction-team-news-lineups_607877.html"
+  ],
+  "기타": [
+    "경기 시간: 2026-10-30 금요일 현지 16:00(일부 매체 20:00 표기, 상이 — 마감시각.json 등 공식 자료 재확인 필요)으로 보도되어 매체 간 불일치. 장소: 브레이몰 레인(Bramall Lane). KST 변환은 2026-10-31 05:00.",
+    "양팀 모두 xG 데이터 미확인(팀노트 INPUTS에 'xG -'로 비어 있음, Understat 챔피언십 미지원 추정).",
+    "확인 못 함: Matt Doherty·Jamie Shackleton 결장 사유 1차 출처, 양팀 선수별 이번 시즌 정확한 선발 횟수."
+  ]
+}

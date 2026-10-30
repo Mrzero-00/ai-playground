@@ -9,6 +9,6 @@
 <!-- FACTS:END -->
 <!-- INPUTS:START -->
 ## 입력(자동 수집 2026-10-30) — xG·휴식일·라인업·환경(이동거리·고도·날씨)은 이 숫자를 쓴다
-- 10-31 05:05 vs 릴OSC: 휴식 6.1일(7일 1경기) · 직전 10-25 홈 vs Paris FC 2-1 승 [ligue 1] · xG 시즌8경기 xG2.06/xGA1.44 npxGD+0.43 · 최근5 1.46/1.38 (+0.08) · 홈0.77/원정0.09 · xPts13.4 vs 승점13 · 직전 선발 3-4-2-1 Robin Risser, Samson Baidoo, Jean-Clair Todibo, Ruben Aguilar, Amadou Haidara, Michaël Cuisance, Matthieu Udol, Saud Abdulhamid, Franjo Ivanovic, Florian Sotoca, Florian Thauvin · 구장 스타드 피에르 모루아 · 이동 30km · 고도 43m(차 +1m) · 8.7℃ 강수0mm(0%) 바람12.6km/h
+- 10-31 05:05 vs 릴OSC: 휴식 6.1일(7일 1경기) · 직전 10-25 홈 vs Paris FC 2-1 승 [ligue 1] · xG 시즌8경기 xG2.06/xGA1.44 npxGD+0.43 · 최근5 1.46/1.38 (+0.08) · 홈0.77/원정0.09 · xPts13.4 vs 승점13 · 직전 선발 3-4-2-1 Robin Risser, Samson Baidoo, Jean-Clair Todibo, Ruben Aguilar, Amadou Haidara, Michaël Cuisance, Matthieu Udol, Saud Abdulhamid, Franjo Ivanovic, Florian Sotoca, Florian Thauvin · 구장 스타드 피에르 모루아 · 이동 30km · 고도 43m(차 +1m) · 8.5℃ 강수0mm(0%) 바람10.4km/h
 <!-- INPUTS:END -->
 

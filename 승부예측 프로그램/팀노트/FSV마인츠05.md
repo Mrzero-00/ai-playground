@@ -11,6 +11,6 @@
 
 <!-- INPUTS:START -->
 ## 입력(자동 수집 2026-10-30) — xG·휴식일·라인업·환경(이동거리·고도·날씨)은 이 숫자를 쓴다
-- 10-31 04:30 vs 엘버스베르크: 휴식 3.1일(7일 2경기) · 직전 10-28 원정 vs VfL Bochum 0-2 패 [second round] · xG 시즌7경기 xG2.3/xGA1.69 npxGD+0.91 · 최근5 2.26/2.18 (+0.5) · 홈0.09/원정2.01 · xPts12.4 vs 승점10 · 직전 선발 3-5-2 Alexander Schwolow, Stefan Posch, Kacper Potulski, Danny da Costa, Lee Jae-Sung, Paul Nebel, Kaishu Sano, Phillipp Mwene, Silvan Widmer, Phillip Tietz, Sheraldo Becker · 구장 Waldstadion an der Kaiserlinde · 이동 109km · 고도 355m(차 +222m) · 6.9℃ 강수0mm(0%) 바람11.3km/h
+- 10-31 04:30 vs 엘버스베르크: 휴식 3.1일(7일 2경기) · 직전 10-28 원정 vs VfL Bochum 0-2 패 [second round] · xG 시즌7경기 xG2.3/xGA1.69 npxGD+0.91 · 최근5 2.26/2.18 (+0.5) · 홈0.09/원정2.01 · xPts12.4 vs 승점10 · 직전 선발 3-5-2 Alexander Schwolow, Stefan Posch, Kacper Potulski, Danny da Costa, Lee Jae-Sung, Paul Nebel, Kaishu Sano, Phillipp Mwene, Silvan Widmer, Phillip Tietz, Sheraldo Becker · 구장 Waldstadion an der Kaiserlinde · 이동 109km · 고도 355m(차 +222m) · 7.0℃ 강수0mm(0%) 바람11.8km/h
 <!-- INPUTS:END -->
 

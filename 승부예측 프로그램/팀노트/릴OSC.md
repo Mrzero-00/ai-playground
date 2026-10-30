@@ -10,7 +10,7 @@
 <!-- FACTS:END -->
 <!-- INPUTS:START -->
 ## 입력(자동 수집 2026-10-30) — xG·휴식일·라인업·환경(이동거리·고도·날씨)은 이 숫자를 쓴다
-- 10-31 05:05 vs RC랑스: 휴식 5.3일(7일 1경기) · 직전 10-25 원정 vs AS Monaco 1-1 무 [ligue 1] · xG 시즌8경기 xG1.42/xGA1.55 npxGD-0.22 · 최근5 1.59/1.16 (+0.28) · 홈0.51/원정-0.96 · xPts10.6 vs 승점15 · 직전 선발 4-3-3 Berke Özer, Alexsandro, Tanguy Nianzou, Romain Perraud, Nathan Ngoy, Nabil Bentaleb, Benjamin André, Ngal'ayel Mukau, Hákon Haraldsson, Soriba Diaoune, Ethan Mbappé · 구장 스타드 피에르 모루아 · 이동 30km · 고도 43m(차 +1m) · 8.7℃ 강수0mm(0%) 바람12.6km/h
+- 10-31 05:05 vs RC랑스: 휴식 5.3일(7일 1경기) · 직전 10-25 원정 vs AS Monaco 1-1 무 [ligue 1] · xG 시즌8경기 xG1.42/xGA1.55 npxGD-0.22 · 최근5 1.59/1.16 (+0.28) · 홈0.51/원정-0.96 · xPts10.6 vs 승점15 · 직전 선발 4-3-3 Berke Özer, Alexsandro, Tanguy Nianzou, Romain Perraud, Nathan Ngoy, Nabil Bentaleb, Benjamin André, Ngal'ayel Mukau, Hákon Haraldsson, Soriba Diaoune, Ethan Mbappé · 구장 스타드 피에르 모루아 · 이동 30km · 고도 43m(차 +1m) · 8.5℃ 강수0mm(0%) 바람10.4km/h
 <!-- INPUTS:END -->
 
 ## 성향

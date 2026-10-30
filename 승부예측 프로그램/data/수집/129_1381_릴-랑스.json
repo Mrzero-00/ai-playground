@@ -1,0 +1,58 @@
+{
+  "경기": "릴 OSC(LOSC Lille) vs RC 랑스(RC Lens)",
+  "번호": 1381,
+  "대회": "프랑스 리그1 9라운드 (북부 더비, Derby du Nord)",
+  "수집시각": "2026-10-30 21:56",
+  "결장": [
+    {"팀":"릴", "선수":"Tanguy Nianzou", "상태":"확정", "포지션":"센터백", "시즌선발":"확인 못 함", "사유":"AS모나코전 레드카드 퇴장 → 징계 정지(1경기+유예1경기)", "출처":"https://lepetitlillois.com/2026/10/29/ueda-quatre-absents-losc-lens/", "날짜":"2026-10-29"},
+    {"팀":"릴", "선수":"Tiago Santos", "상태":"확정", "포지션":"풀백", "시즌선발":"확인 못 함", "사유":"무릎 수술, 복귀 미정", "출처":"https://lepetitlillois.com/2026/10/29/ueda-quatre-absents-losc-lens/", "날짜":"2026-10-29"},
+    {"팀":"릴", "선수":"Hamza Igamane", "상태":"확정", "포지션":"공격수", "시즌선발":"확인 못 함", "사유":"부상 회복 중(십자인대 계열), 복귀 목표 2026년 12월", "출처":"https://lepetitlillois.com/2026/10/29/ueda-quatre-absents-losc-lens/", "날짜":"2026-10-29"},
+    {"팀":"릴", "선수":"Ayase Ueda", "상태":"확정", "포지션":"공격수", "시즌선발":"확인 못 함", "사유":"발 부상(아스널전 이후), 감독 코멘트: 랑스전 복귀가 목표지만 불가능하면 이후 휴식 — 11월 이후로 추정", "출처":"https://lepetitlillois.com/2026/10/29/ueda-quatre-absents-losc-lens/", "날짜":"2026-10-29"},
+    {"팀":"랑스", "선수":"Odsonne Edouard", "상태":"확정", "포지션":"공격수", "시즌선발":"확인 못 함", "사유":"내전근 수술, 약 2개월 결장", "출처":"https://www.mediasportif.fr/2026/10/16/rc-lens-losc-un-coup-dur-pourrait-frapper-le-club-lillois-juste-avant-le-derby-du-nord/", "날짜":"2026-10-16"},
+    {"팀":"랑스", "선수":"Abdallah Sima", "상태":"확정", "포지션":"공격수", "시즌선발":"확인 못 함", "사유":"허벅지 부상", "출처":"https://www.butfootballclub.fr/1708749-rc-lens-plusieurs-absents-dans-le-groupe-de-cahuzac-pour-le-derby-du-nord/", "날짜":"2026-10-29"},
+    {"팀":"랑스", "선수":"Ismaëlo Ganiou", "상태":"확정", "포지션":"확인 못 함", "시즌선발":"확인 못 함", "사유":"무릎 부상(최근 발생)", "출처":"https://www.butfootballclub.fr/1708749-rc-lens-plusieurs-absents-dans-le-groupe-de-cahuzac-pour-le-derby-du-nord/", "날짜":"2026-10-29"},
+    {"팀":"랑스", "선수":"Maik Nawrocki", "상태":"확정", "포지션":"센터백", "시즌선발":"확인 못 함", "사유":"무릎 부상", "출처":"https://www.butfootballclub.fr/1708749-rc-lens-plusieurs-absents-dans-le-groupe-de-cahuzac-pour-le-derby-du-nord/", "날짜":"2026-10-29"}
+  ],
+  "라인업": {
+    "홈": {
+      "발표여부": "예상(미공식)",
+      "XI": ["Berke Özer","Maxima Goffi","Nathan Ngoy","Alexsandro","Romain Perraud","Ngal'ayel Mukau","Nabil Bentaleb","Benjamin André","Ethan Mbappé","Olivier Giroud","Dilane Bakwa"],
+      "포메이션": "4-3-3",
+      "출처": "https://lepetitlillois.com/2026/10/30/compositions-probables-losc-rc-lens/",
+      "날짜": "2026-10-30",
+      "비고": "다른 매체(kickfootball)는 Goffi 대신 Nianzou(징계로 실제 제외) 라인을 쓰기도 함 — 공식 발표 전이라 변동 가능. Giroud 선발 포함(FACTS상 직전 Monaco전 선발 명단에는 없었음, 로테이션 변화 가능성)."
+    },
+    "원정": {
+      "발표여부": "예상(미공식, 매체 간 엇갈림)",
+      "XI": ["Robin Risser","Jonathan Gradit","Samson Baidoo","Jean-Clair Todibo","Ruben Aguilar","Michaël Cuisance","Amadou Haidara","Matthieu Udol","Florian Thauvin","Thorgan Hazard","Florian Sotoca"],
+      "포메이션": "3-4-3",
+      "출처": "https://lepetitlillois.com/2026/10/30/compositions-probables-losc-rc-lens/ , https://www.foot-sur7.fr/790656-lille-lens-heure-chaine-gradit",
+      "날짜": "2026-10-30",
+      "비고": "foot-sur7 제목이 'Gradit 복귀(grand retour)'를 강조 — Gradit는 결장이 아니라 복귀 호재. 다른 매체(kickfootball)는 Gradit 대신 Kyllian Antonio, Hazard/Sotoca 대신 Franjo Ivanovic를 예상해 엇갈림. 확정 라인업 아님."
+    }
+  },
+  "감독_이슈": [
+    "릴 감독 Davide Ancelotti 유지, 경질 소식 없음.",
+    "랑스 감독 Yannick Cahuzac 유지, 경질 소식 없음.",
+    "Ueda 관련 감독 코멘트: '랑스전 복귀가 목표, 불가능하면 이후 휴식' (2026-10-29)."
+  ],
+  "동기": [
+    "릴: 리그 3위(8경기 4승3무1패 승점15), 상위권 경쟁 중.",
+    "랑스: 리그 7위(8경기 4승1무3패 승점13)지만 최근 리그 3연승으로 상승세(lepetitlillois 2026-10-30).",
+    "북부 더비(Derby du Nord) 자체가 양팀 모두에게 상징적 동기부여."
+  ],
+  "최근5": {
+    "홈": ["2026-09-13 Lille 2-0 Troyes","2026-09-20 Nice 2-1 Lille","2026-10-10 Lille 1-0 Le Havre AC","2026-10-17 Lille 1-1 Brest","2026-10-25 AS Monaco 1-1 Lille"],
+    "원정": ["2026-09-13 Le Mans 2-2 Lens","2026-09-18 AS Monaco 2-1 Lens","2026-10-09 Lens 2-1 Lyon","2026-10-17 Troyes 1-3 Lens","2026-10-24 Lens 2-1 Paris FC"]
+  },
+  "현지매체": [
+    "lepetitlillois.com (릴 전문 매체, 2026-10-29·10-30 결장/라인업 기사)",
+    "foot-sur7.fr (2026-10-30, Gradit 복귀 보도)",
+    "mediasportif.fr, butfootballclub.fr (랑스 결장자 보도, 2026-10-16·10-29)"
+  ],
+  "기타": [
+    "경기장: 스타드 피에르 모루아(릴 홈구장), 랑스 원정 이동 약 30km — FACTS/INPUTS와 일치.",
+    "라인업은 양 팀 모두 '예상(probable)'이며 매체 간 2~3명 엇갈림 — 공식 발표(통상 킥오프 1시간 전)는 수집 시점(2026-10-30 21:56 KST, 경기는 2026-10-31 05:05 KST)에 아직 나오지 않음. 재확인 필요.",
+    "대회 형식: 리그1 정규리그, 연장전·승부차기 없음(무승부 가능)."
+  ]
+}

@@ -11,6 +11,6 @@
 
 <!-- INPUTS:START -->
 ## 입력(자동 수집 2026-10-30) — xG·휴식일·라인업·환경(이동거리·고도·날씨)은 이 숫자를 쓴다
-- 10-31 17:40 vs 웨스턴시드니 원더러스: 휴식 7.2일 · 직전 10-24 원정 vs Newcastle Jets 1-1 무 [aus.1] · xG - · 직전 선발 4-2-3-1 Alex Robinson, Jonathan Aspropotamitis, Tatsuki Nara, Nathan Paull, Callum Talbot, Dean Bosnjak, Oliver Randazzo, Liam Rose, Apostolos Stamatelopoulos, Bernardo Dias, Connor Pain · 구장 캠벨타운 스타디움 · 이동 32km · 고도 58m(차 +43m) · 23.3℃ 강수0.1mm(67%) 바람16.2km/h
+- 10-31 17:40 vs 웨스턴시드니 원더러스: 휴식 7.2일 · 직전 10-24 원정 vs Newcastle Jets 1-1 무 [aus.1] · xG - · 직전 선발 4-2-3-1 Alex Robinson, Jonathan Aspropotamitis, Tatsuki Nara, Nathan Paull, Callum Talbot, Dean Bosnjak, Oliver Randazzo, Liam Rose, Apostolos Stamatelopoulos, Bernardo Dias, Connor Pain · 구장 캠벨타운 스타디움 · 이동 32km · 고도 58m(차 +43m) · 20.6℃ 강수0.5mm(75%) 바람10.7km/h · ⚠ 비 0.5mm(75%)
 <!-- INPUTS:END -->
 

@@ -10,7 +10,7 @@
 <!-- FACTS:END -->
 <!-- INPUTS:START -->
 ## 입력(자동 수집 2026-10-30) — xG·휴식일·라인업·환경(이동거리·고도·날씨)은 이 숫자를 쓴다
-- 10-31 23:30 vs 샬케04: 휴식 3.9일(7일 1경기) · 직전 10-28 원정 vs Rot-Weiss Essen 2-1 승 [second round] · xG 시즌7경기 xG2.46/xGA1.82 npxGD+0.63 · 최근5 2.37/2.14 (+0.24) · 홈2.38/원정-1.7 · xPts13.3 vs 승점12 · 직전 선발 4-2-3-1 Ørjan Nyland, Castello Lukeba, Willi Orbán, David Raum, Ridle Baku, Andrija Maksimovic, Ezechiel Banzuzi, Nicolas Seiwald, Rômulo, Tidiam Gomis, Rocco Reitz · 구장 펠틴스 아레나 · 이동 368km · 고도 50m(차 -77m) · 11.3℃ 강수0mm(0%) 바람9.0km/h
+- 10-31 23:30 vs 샬케04: 휴식 3.9일(7일 1경기) · 직전 10-28 원정 vs Rot-Weiss Essen 2-1 승 [second round] · xG 시즌7경기 xG2.46/xGA1.82 npxGD+0.63 · 최근5 2.37/2.14 (+0.24) · 홈2.38/원정-1.7 · xPts13.3 vs 승점12 · 직전 선발 4-2-3-1 Ørjan Nyland, Castello Lukeba, Willi Orbán, David Raum, Ridle Baku, Andrija Maksimovic, Ezechiel Banzuzi, Nicolas Seiwald, Rômulo, Tidiam Gomis, Rocco Reitz · 구장 펠틴스 아레나 · 이동 368km · 고도 50m(차 -77m) · 11.5℃ 강수0mm(0%) 바람9.4km/h
 <!-- INPUTS:END -->
 
 ## 2026-10-22 회고 (125회 9685, UCL 1:4 레알 원정 패)

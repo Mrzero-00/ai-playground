@@ -207,12 +207,21 @@ def sport_update(key, refresh=False, months=None):
             if not c["status"]["type"].get("completed"):
                 continue
             eid = e["id"]
-            if eid in db and not refresh:
-                continue
+            if eid in db:
+                # 이미 받아 둔 경기라도 seasontype 이 비어 있으면 채운다 — scoreboard 응답에 이미 들어 있어
+                # 요약 API 재호출이 필요 없다(2026-10-31 소급 채움).
+                if db[eid].get("seasontype") is None:
+                    db[eid]["seasontype"] = (e.get("season") or {}).get("type")
+                if not refresh:
+                    continue
             j = curl(f"https://site.api.espn.com/apis/site/v2/sports/{sport}/{code}/summary?event={eid}")
             rec = compact_sport(sport, j) if j else None
             if rec:
                 rec["probables"] = {x["homeAway"]: [pp.get("athlete", {}).get("displayName") for pp in x.get("probables", [])] for x in c.get("competitors", [])}
+                # ESPN season.type — 1 프리시즌 · 2 정규시즌 · 3 포스트시즌 (2026-10-31 추가).
+                # 없으면 nba_baseline 이 프리시즌 경기를 레이팅에 섞는다. 129회 10/31 08:30 블록에서
+                # 측정: 혼합 레이팅은 bref 순레이팅 대비 평균오차 5.18점(최대 11.8), 정규시즌만 쓰면 1.51점(최대 2.6).
+                rec["seasontype"] = (e.get("season") or {}).get("type")
                 db[eid] = rec; added += 1
     jsave(p, db)
     sp = os.path.join(DB, key, f"standings_{code}.json")

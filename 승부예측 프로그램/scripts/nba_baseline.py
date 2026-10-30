@@ -44,8 +44,14 @@ def measure_league(path=None):
     except Exception:
         return None, None
     rt, pc = [], []
+    # 리그 평균 축도 정규시즌만으로 잰다 — 팀 레이팅과 같은 자를 써야 ORtg+DRtg−LgRtg 가 성립한다
+    # (2026-10-31 프리시즌 제외와 같은 이유. team_ratings 머리말 참조).
+    strict = 2 in [g.get("seasontype") for g in db.values()]
     for g in db.values():
         if g.get("status") != "STATUS_FINAL":
+            continue
+        st_ = g.get("seasontype")
+        if strict and st_ is not None and st_ != 2:
             continue
         st = g.get("stats") or {}
         if "home" not in st or "away" not in st:
@@ -88,8 +94,21 @@ def team_ratings(as_of=None, path=None):
     if as_of is not None and not isinstance(as_of, str):
         as_of = as_of.strftime("%Y-%m-%d")
     agg = {}
+    # ── 프리시즌 제외 (2026-10-31, 129회 10/31 08:30 블록에서 발견) ──────────────────
+    # teamdb/nba 는 ESPN scoreboard 를 월 단위로 긁어 와서 **프리시즌 경기가 그대로 섞여 있었다**
+    # (2026-27 시즌: 10/03~10/17 프리시즌, 10/20 개막). 팀당 3~6경기가 프리시즌이라 레이팅이 통째로 흔들린다.
+    # 측정(블록 14개 팀, basketball-reference 2027 팀 페이지를 참값으로):
+    #     순레이팅(ORtg−DRtg) 평균절대오차  혼합 5.18점(최대 11.8)  →  정규시즌만 1.51점(최대 2.6)
+    # 농구.md 1-1항이 "프리시즌을 섞으면 주전 출전시간이 달라 더 나빠진다"고 이미 적어 뒀는데
+    # 자동 기준선 경로에서는 지켜지지 않고 있었다. seasontype==2(정규시즌)만 쓴다.
+    # seasontype 이 없는 옛 기록은 버리지 않고 쓰되, 하나라도 2가 보이면 그 종목은 엄격 모드로 전환한다.
+    vals = [g.get("seasontype") for g in db.values()]
+    strict = 2 in vals
     for g in db.values():
         if g.get("status") != "STATUS_FINAL":
+            continue
+        st_ = g.get("seasontype")
+        if strict and st_ is not None and st_ != 2:
             continue
         day = (g.get("date") or "")[:10]
         if as_of and (not day or day >= as_of):

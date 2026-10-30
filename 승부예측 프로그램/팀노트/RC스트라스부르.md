@@ -1,11 +1,11 @@
 # RC스트라스부르
 
 <!-- FACTS:START -->
-## 팩트시트 (자동 수집 2026-10-25) — 조사 전 반드시 읽고, 아래 사실과 다른 뉴스 요약은 '미확인'으로 둔다
+## 팩트시트 (자동 수집 2026-10-30) — 조사 전 반드시 읽고, 아래 사실과 다른 뉴스 요약은 '미확인'으로 둔다
 - 출처: 위키 'RC Strasbourg Alsace'(club), ESPN 있음
 - 감독: Hugo Oliveira
-- 리그 순위: 14위 7경기 2승1무4패 GD-3 승점7 (Strasbourg)
-- 최근 경기(ESPN, 최대 28일): 2026-09-06 Troyes 2-6 Strasbourg / 2026-09-12 Strasbourg 1-1 AS Monaco / 2026-09-19 Paris FC 2-1 Strasbourg / 2026-10-11 Nice 2-1 Strasbourg / 2026-10-17 Strasbourg 1-3 Paris Saint-Germain
+- 리그 순위: 16위 8경기 2승1무5패 GD-6 승점7 (Strasbourg)
+- 최근 경기(ESPN, 최대 28일): 2026-09-12 Strasbourg 1-1 AS Monaco / 2026-09-19 Paris FC 2-1 Strasbourg / 2026-10-11 Nice 2-1 Strasbourg / 2026-10-17 Strasbourg 1-3 Paris Saint-Germain / 2026-10-25 Stade Rennais 3-0 Strasbourg
 <!-- FACTS:END -->
 <!-- INPUTS:START -->
 ## 입력(자동 수집 2026-10-25) — xG·휴식일·라인업·환경(이동거리·고도·날씨)은 이 숫자를 쓴다

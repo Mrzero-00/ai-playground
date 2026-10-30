@@ -1,7 +1,7 @@
 # LAFC
 
 <!-- FACTS:START -->
-## 팩트시트 (자동 수집 2026-10-25) — 조사 전 반드시 읽고, 아래 사실과 다른 뉴스 요약은 '미확인'으로 둔다
+## 팩트시트 (자동 수집 2026-10-30) — 조사 전 반드시 읽고, 아래 사실과 다른 뉴스 요약은 '미확인'으로 둔다
 - 출처: 위키 '2026 Los Angeles FC season'(season), ESPN 없음
 - 감독: Marc Dos Santos''(until September 27)''Xavi Tamarit''(interim, from October 1)
 - 리그 순위: Conference: ''6th'' Overall: ''12th

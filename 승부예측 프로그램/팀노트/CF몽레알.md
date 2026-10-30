@@ -7,8 +7,8 @@
 - 리그 순위: cup1 = MLS Cup playoffs
 <!-- FACTS:END -->
 <!-- INPUTS:START -->
-## 입력(자동 수집 2026-10-28) — xG·휴식일·라인업·환경(이동거리·고도·날씨)은 이 숫자를 쓴다
-- 10-29 08:30 vs 샬럿FC: 휴식 4.2일(7일 1경기) · 직전 10-25 홈 vs Nashville SC 0-2 패 [usa.1] · xG - · 직전 선발 4-2-3-1 Samsy Keita, Brayan Vera, Efraín Morales, Viktor Radojevic, Dawid Bugaj, Olger Escobar, Dani Pereira, Samuel Piette, Alexis Sánchez, Dante Sealy, Hennadii Synchuk · 구장 ? · 이동 ?(구장 미확인) · 고도 ?m · 날씨 -
+## 입력(자동 수집 2026-10-30) — xG·휴식일·라인업·환경(이동거리·고도·날씨)은 이 숫자를 쓴다
+- 11-01 03:00 vs 뉴욕 시티FC: 휴식 2.8일(7일 1경기) · 직전 10-29 원정 vs Charlotte FC 0-4 패 [usa.1] · xG - · 직전 선발 4-3-3 Samsy Keita, Brayan Vera, Efraín Morales, Luca Petrasso, Dawid Bugaj, Matthew Longstaff, Victor Loturi, Wikelman Carmona, Daniel Ríos, Noah Streit, Hennadii Synchuk · 구장 양키 스타디움 · 이동 527km · 고도 6m(차 -31m) · 13.4℃ 강수0mm(0%) 바람8.0km/h
 <!-- INPUTS:END -->
 
 - 2026-10-14 조사: 10/15 08:30(KST) 홈 애틀랜타 유나이티드전, 정규시즌 마지막 매치데이. 기준선 승/무/패 43.4/26.4/30.2%, 핸디캡 홈−1 23.5/19.9/56.6%, 오버 2.5 59.5% — 출처: 자체 모델

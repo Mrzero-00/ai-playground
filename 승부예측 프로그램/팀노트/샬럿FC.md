@@ -8,8 +8,8 @@
 - 최근 경기(ESPN, 최대 28일): 2026-09-26 Charlotte FC 0-1 Chicago Fire FC / 2026-10-10 Charlotte FC 3-2 FC Dallas / 2026-10-14 Columbus Crew 3-1 Charlotte FC / 2026-10-17 Philadelphia Union 2-2 Charlotte FC / 2026-10-25 Portland Timbers 3-2 Charlotte FC
 <!-- FACTS:END -->
 <!-- INPUTS:START -->
-## 입력(자동 수집 2026-10-28) — xG·휴식일·라인업·환경(이동거리·고도·날씨)은 이 숫자를 쓴다
-- 10-29 08:30 vs CF몽레알: 휴식 3.9일(7일 1경기) · 직전 10-25 원정 vs Portland Timbers 2-3 패 [usa.1] · xG - · 직전 선발 4-2-3-1 Kristijan Kahlina, Henry Kessler, Morrison Agyemang, David Schnegg, Nathan Byrne, Pep Biel, Djibril Diani, Ashley Westwood, Idan Toklomati, Liel Abada, Rodolfo Aloko · 구장 ? · 이동 ?(구장 미확인) · 고도 ?m · 날씨 -
+## 입력(자동 수집 2026-10-30) — xG·휴식일·라인업·환경(이동거리·고도·날씨)은 이 숫자를 쓴다
+- 11-01 02:00 vs 올랜도 시티SC: 휴식 2.7일(7일 2경기) · 직전 10-29 홈 vs CF Montréal 4-0 승 [usa.1] · xG - · 직전 선발 4-2-3-1 Kristijan Kahlina, Henry Kessler, Morrison Agyemang, Harry Toffolo, Nathan Byrne, Pep Biel, Djibril Diani, Ashley Westwood, Idan Toklomati, Allan Saint-Maximin, Rodolfo Aloko · 구장 뱅크 오브 아메리카 스타디움 · 이동 745km · 고도 220m(차 +186m) · 19.0℃ 강수0mm(0%) 바람15.3km/h
 <!-- INPUTS:END -->
 
 - 2026-10-14 조사: 10/15 08:30(KST) 원정 콜럼버스 크루전, 정규시즌 마지막 매치데이. 기준선(콜럼버스 기준) 승/무/패 38.5/27.0/34.5% → 샬럿 승 34.5%. 핸디캡 홈−1 기준 샬럿(원정) 61.5% — 출처: 자체 모델

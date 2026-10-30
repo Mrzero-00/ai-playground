@@ -10,8 +10,8 @@
 <!-- FACTS:END -->
 
 <!-- INPUTS:START -->
-## 입력(자동 수집 2026-10-28) — xG·휴식일·라인업·환경(이동거리·고도·날씨)은 이 숫자를 쓴다
-- 10-29 04:45 vs AC몬차: 휴식 4.2일(7일 1경기) · 직전 10-25 홈 vs AS Roma 3-3 무 [italian serie a] · xG 시즌8경기 xG2.24/xGA1.26 npxGD+0.8 · 최근5 2.69/0.93 (+1.45) · 홈1.25/원정0.34 · xPts16.3 vs 승점11 · 직전 선발 4-3-3 Alex Meret, Benoît Badiashile, Rafa Marín, Mathías Olivera, Giovanni Di Lorenzo, Kevin De Bruyne, Scott McTominay, Frank Anguissa, Rasmus Højlund, Noa Lang, Matteo Politano · 구장 Stadio Brianteo · 이동 660km · 고도 171m(차 +136m) · 12.6℃ 강수0mm(0%) 바람3.0km/h
+## 입력(자동 수집 2026-10-30) — xG·휴식일·라인업·환경(이동거리·고도·날씨)은 이 숫자를 쓴다
+- 11-02 04:45 vs 유벤투스: 휴식 4.0일(7일 1경기) · 직전 10-29 원정 vs Monza 4-1 승 [italian serie a] · xG 시즌9경기 xG2.27/xGA1.22 npxGD+0.88 · 최근5 2.74/1.09 (+1.34) · 홈1.25/원정0.58 · xPts18.8 vs 승점14 · 직전 선발 4-3-3 Vanja Milinkovic-Savic, Rafa Marín, Amir Rrahmani, Mathías Olivera, Giovanni Di Lorenzo, Stanislav Lobotka, Scott McTominay, Frank Anguissa, Rasmus Højlund, Noa Lang, Matteo Politano · 구장 유벤투스 스타디움(구단 좌표 — 구장 미확인) · 이동 714km · 고도 281m(차 +246m) · 5.2℃ 강수0mm(11%) 바람4.3km/h
 <!-- INPUTS:END -->
 
 ### 2026-10-21 회고 — 124회 9508 보되 글림트전 4:3 승 (적중, 추천 다리)

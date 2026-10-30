@@ -9,8 +9,8 @@
 - 최근 경기(ESPN, 최대 28일): 2026-10-16 Sydney FC 0-0 Western Sydney Wanderers FC / 2026-10-25 Sydney FC 2-1 Adelaide United FC
 <!-- FACTS:END -->
 <!-- INPUTS:START -->
-## 입력(자동 수집 2026-10-25) — xG·휴식일·라인업·환경(이동거리·고도·날씨)은 이 숫자를 쓴다
-- 10-25 13:00 vs 애들레이드 유나이티드: 휴식 8.8일 · 직전 10-16 홈 vs Western Sydney Wanderers FC 0-0 무 [aus.1] · xG - · 선발 4-4-1-1 Harrison Devenish-Meares, Jordan Courtney-Perkins, Alexandar Popovic, Ben Garuccio, Rhyan Grant, Wataru Kamijo, Rhys Youlley, Takahiro Sekine, Al Hassan Toure, Oriola Sunday, Tiago Quintal · 직전 대비 교체 1명(Jake Hollman) · 구장 시드니 풋볼 스타디움 · 이동 1166km · 고도 38m(차 +20m) · 28.5℃ 강수1.0mm(71%) 바람19.2km/h · ⚠ 장거리 원정 1166km, 비 1.0mm(71%)
+## 입력(자동 수집 2026-10-30) — xG·휴식일·라인업·환경(이동거리·고도·날씨)은 이 숫자를 쓴다
+- 10-31 15:00 vs 멜버른 시티: 휴식 6.1일(7일 1경기) · 직전 10-25 홈 vs Adelaide United FC 2-1 승 [aus.1] · xG - · 직전 선발 4-4-2 Harrison Devenish-Meares, Jordan Courtney-Perkins, Alexandar Popovic, Ben Garuccio, Rhyan Grant, Wataru Kamijo, Rhys Youlley, Takahiro Sekine, Al Hassan Toure, Oriola Sunday, Tiago Quintal · 구장 멜버른 렉탱귤러 스타디움 · 이동 712km · 고도 8m(차 -30m) · 19.6℃ 강수0mm(92%) 바람22.2km/h · ⚠ 비 0mm(92%)
 <!-- INPUTS:END -->
 
 - 2026-10-14 조사: 2026-27 A리그 개막전(10/16, 홈, 시드니 더비) 앞둠. 주장 Tobin 수비 복귀, 2026-27 스쿼드 번호 공개·스폰서(Sports Direct Australia) 계약 연장 발표 등 안정적 운영. 여자팀 Jada Whyman 2년 재계약 등 구단 전반 활발한 움직임이나, 신규 전력 보강 소식은 상대적으로 적음. baseline(pi-rating, aus.1) 기준 홈승 46.5%. 출처: Google News RSS(영문, 호주).

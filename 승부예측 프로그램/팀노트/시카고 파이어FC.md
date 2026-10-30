@@ -8,7 +8,7 @@
 - 최근 경기(ESPN, 최대 28일): 2026-10-07 Chicago Fire FC 3-1 Vancouver Whitecaps / 2026-10-10 Chicago Fire FC 2-1 New York City FC / 2026-10-15 Chicago Fire FC 1-3 Philadelphia Union / 2026-10-17 New England Revolution 1-0 Chicago Fire FC / 2026-10-24 Atlanta United FC 2-3 Chicago Fire FC
 <!-- FACTS:END -->
 <!-- INPUTS:START -->
-## 입력(자동 수집 2026-10-28) — xG·휴식일·라인업·환경(이동거리·고도·날씨)은 이 숫자를 쓴다
-- 10-29 09:30 vs 올랜도 시티SC: 휴식 4.0일(7일 1경기) · 직전 10-25 원정 vs Atlanta United FC 3-2 승 [usa.1] · xG - · 직전 선발 4-3-3 Chris Brady, Mbekezeli Mbokazi, Andreas Hanche-Olsen, Noah Allen, Jonathan Dean, D'Avilla Dje Tah, Maren Haile-Selassie, Anton Saletros, Robert Lewandowski, Jonathan Bamba, Philip Zinckernagel · 구장 솔저 필드 · 이동 1585km · 고도 194m(차 +160m) · 18.1℃ 강수0mm(2%) 바람14.1km/h · ⚠ 장거리 원정 1585km
+## 입력(자동 수집 2026-10-30) — xG·휴식일·라인업·환경(이동거리·고도·날씨)은 이 숫자를 쓴다
+- 11-01 10:30 vs 콜로라도 래피즈: 휴식 3.0일(7일 1경기) · 직전 10-29 홈 vs Orlando City SC 2-2 무 [usa.1] · xG - · 직전 선발 4-3-3 Chris Brady, Jack Elliott, Andreas Hanche-Olsen, Andrew Gutman, Leonardo Barroso, Anzor Mekvabishvili, Anton Saletros, Sergio Oregel, Robert Lewandowski, Maren Haile-Selassie, Philip Zinckernagel · 구장 딕스 스포팅 구즈 파크 · 이동 1469km · 고도 1586m(차 +1392m) · 13.8℃ 강수0mm(1%) 바람8.3km/h · ⚠ 장거리 원정 1469km, 고지대 +1392m
 <!-- INPUTS:END -->
 

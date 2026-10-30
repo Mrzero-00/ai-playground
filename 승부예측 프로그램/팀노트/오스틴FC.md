@@ -9,7 +9,7 @@
 - 최근 경기(ESPN, 최대 28일): 2026-09-27 Austin FC 3-3 San Diego FC / 2026-10-11 Austin FC 1-4 Nashville SC / 2026-10-15 LAFC 3-1 Austin FC / 2026-10-18 Austin FC 1-2 Vancouver Whitecaps / 2026-10-25 Sporting Kansas City 1-2 Austin FC
 <!-- FACTS:END -->
 <!-- INPUTS:START -->
-## 입력(자동 수집 2026-10-28) — xG·휴식일·라인업·환경(이동거리·고도·날씨)은 이 숫자를 쓴다
-- 10-29 09:30 vs 레알 솔트레이크: 휴식 4.0일(7일 1경기) · 직전 10-25 원정 vs Sporting Kansas City 2-1 승 [usa.1] · xG - · 직전 선발 3-4-3 Damian Las, Ilie Sánchez, Guilherme Biro, Mikkel Desler, Jorge Alastuey, Ervin Torres, Jon Gallagher, Joseph Rosales, Brandon Vázquez, Facundo Torres, Myrto Uzuni · 구장 Q2 스타디움 · 이동 1708km · 고도 233m(차 -1117m) · 21.7℃ 강수0mm(8%) 바람7.2km/h · ⚠ 장거리 원정 1708km
+## 입력(자동 수집 2026-10-30) — xG·휴식일·라인업·환경(이동거리·고도·날씨)은 이 숫자를 쓴다
+- 11-01 06:00 vs LA 갤럭시: 휴식 2.9일(7일 2경기) · 직전 10-29 홈 vs Real Salt Lake 1-2 패 [usa.1] · xG - · 직전 선발 3-4-3 Damian Las, Ilie Sánchez, Guilherme Biro, Mikkel Desler, Jorge Alastuey, Besard Sabovic, Jon Gallagher, Joseph Rosales, Brandon Vázquez, Facundo Torres, Myrto Uzuni · 구장 디그니티 헬스 스포츠 파크 · 이동 1969km · 고도 23m(차 -210m) · 20.9℃ 강수0.2mm(43%) 바람14.9km/h · ⚠ 장거리 원정 1969km
 <!-- INPUTS:END -->
 

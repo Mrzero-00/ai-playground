@@ -8,7 +8,7 @@
 - 최근 경기(ESPN, 최대 28일): 2026-09-13 Lille 2-0 Troyes / 2026-09-19 Angers 2-0 Troyes / 2026-10-11 Troyes 0-2 Marseille / 2026-10-17 Troyes 1-3 Lens / 2026-10-25 Toulouse 0-0 Troyes
 <!-- FACTS:END -->
 <!-- INPUTS:START -->
-## 입력(자동 수집 2026-10-25) — xG·휴식일·라인업·환경(이동거리·고도·날씨)은 이 숫자를 쓴다
-- 10-26 01:15 vs 툴루즈: 휴식 7.9일 · 직전 10-18 홈 vs Lens 1-3 패 [ligue 1] · xG 시즌7경기 xG1.27/xGA1.95 npxGD-0.68 · 최근5 1.38/2.21 (-0.69) · 홈-0.43/원정-1.01 · xPts6.3 vs 승점4 · 직전 선발 4-3-3 Patrick Beach, Michel Diaz, Adrien Monfray, Paolo Gozzi Iweru, Lucas Maronnier, Dermane Karim, Mouhamed Diop, Antoine Mille, Renaud Ripart, Timothé Nkada, Merwan Ifnaoui · 구장 스타디움 뮈니시팔 · 이동 564km · 고도 140m(차 +36m) · 17.4℃ 강수0mm(48%) 바람19.8km/h
+## 입력(자동 수집 2026-10-30) — xG·휴식일·라인업·환경(이동거리·고도·날씨)은 이 숫자를 쓴다
+- 11-01 04:45 vs 르망FC: 휴식 6.1일(7일 1경기) · 직전 10-26 원정 vs Toulouse 0-0 무 [ligue 1] · xG 시즌8경기 xG1.16/xGA1.77 npxGD-0.62 · 최근5 0.92/1.62 (-0.55) · 홈-0.43/원정-0.8 · xPts7.3 vs 승점5 · 직전 선발 4-3-3 Hillel Konaté, Michel Diaz, Adrien Monfray, Paolo Gozzi Iweru, Lucas Maronnier, Dermane Karim, Mouhamed Diop, Antoine Mille, Renaud Ripart, Timothé Nkada, Merwan Ifnaoui · 구장 Stade de l'Aube · 이동 290km · 고도 104m(차 +44m) · 7.9℃ 강수0mm(0%) 바람8.7km/h
 <!-- INPUTS:END -->
 

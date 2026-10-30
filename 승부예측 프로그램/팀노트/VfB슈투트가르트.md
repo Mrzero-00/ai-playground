@@ -9,7 +9,7 @@
 - 최근 경기(ESPN, 최대 28일): 2026-09-12 TSG Hoffenheim 2-1 VfB Stuttgart / 2026-09-19 VfB Stuttgart 0-1 Borussia Dortmund / 2026-10-10 SC Paderborn 07 0-2 VfB Stuttgart / 2026-10-17 Hamburg SV 1-0 VfB Stuttgart / 2026-10-23 VfB Stuttgart 2-3 Borussia Mönchengladbach
 <!-- FACTS:END -->
 <!-- INPUTS:START -->
-## 입력(자동 수집 2026-10-28) — xG·휴식일·라인업·환경(이동거리·고도·날씨)은 이 숫자를 쓴다
-- 10-29 02:00 vs 파더보른07: 휴식 4.9일(7일 1경기) · 직전 10-24 홈 vs Borussia Mönchengladbach 2-3 패 [german bundesliga] · xG 시즌7경기 xG2.19/xGA2.63 npxGD-0.44 · 최근5 2.11/2.29 (-0.18) · 홈-0.48/원정-0.41 · xPts8.2 vs 승점6 · 직전 선발 4-2-3-1 Dennis Seimen, Ramon Hendriks, Finn Jeltsch, Maximilian Mittelstädt, Lorenz Assignon, Ermedin Demirovic, Angelo Stiller, Atakan Karazor, Dzenan Pejcinovic, Chris Führich, Leo Sauer · 구장 Home Deluxe Arena · 이동 329km · 고도 105m(차 -114m) · 9.7℃ 강수0mm(0%) 바람4.8km/h
+## 입력(자동 수집 2026-10-30) — xG·휴식일·라인업·환경(이동거리·고도·날씨)은 이 숫자를 쓴다
+- 10-31 23:30 vs 바이어04 레버쿠젠: 휴식 2.9일(7일 1경기) · 직전 10-29 원정 vs SC Paderborn 07 1-0 승 [second round] · xG 시즌7경기 xG2.19/xGA2.63 npxGD-0.44 · 최근5 2.11/2.29 (-0.18) · 홈-0.48/원정-0.41 · xPts8.2 vs 승점6 · 직전 선발 4-2-3-1 Fabian Bredlow, Jeff Chabot, Ramon Hendriks, Maximilian Mittelstädt, Lorenz Assignon, Deniz Undav, Angelo Stiller, Grischa Prömel, Ermedin Demirovic, Jamie Leweling, Bilal El Khannouss · 구장 바이아레나 · 이동 296km · 고도 44m(차 -175m) · 12.8℃ 강수0mm(0%) 바람6.5km/h
 <!-- INPUTS:END -->
 

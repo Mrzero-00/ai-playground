@@ -9,7 +9,7 @@
 - 최근 경기(ESPN, 최대 28일): 2026-09-13 Celta Vigo 1-1 Málaga / 2026-09-19 Celta Vigo 5-0 Racing Santander / 2026-10-11 Elche 0-0 Celta Vigo / 2026-10-18 Celta Vigo 2-1 Alavés / 2026-10-25 Celta Vigo 0-0 Real Betis
 <!-- FACTS:END -->
 <!-- INPUTS:START -->
-## 입력(자동 수집 2026-10-25) — xG·휴식일·라인업·환경(이동거리·고도·날씨)은 이 숫자를 쓴다
-- 10-26 00:15 vs 레알 베티스: 휴식 2.8일(7일 1경기) · 직전 10-23 원정 vs Celtic 2-1 승 [uefa.europa] · xG 시즌9경기 xG0.98/xGA1.23 npxGD-0.26 · 최근5 1.26/0.93 (+0.19) · 홈-0.34/원정-0.15 · xPts10.7 vs 승점11 · 직전 선발 3-4-3 Andrei Radu, Sebastián Cáceres, Marcos Alonso, Javi Rodríguez, Hugo Burcio, Aleix Febas, Sergio Carreira, Javi Rueda, Ferran Jutglà, Hugo Álvarez, Iago Aspas · 구장 에스타디오 데 발라이도스 · 이동 589km · 고도 13m(차 +9m) · 17.9℃ 강수0mm(0%) 바람7.2km/h
+## 입력(자동 수집 2026-10-30) — xG·휴식일·라인업·환경(이동거리·고도·날씨)은 이 숫자를 쓴다
+- 11-01 00:15 vs 라요 바예카노: 휴식 6.0일(7일 1경기) · 직전 10-26 홈 vs Real Betis 0-0 무 [laliga] · xG 시즌10경기 xG0.96/xGA1.22 npxGD-0.26 · 최근5 1.14/0.85 (+0.14) · 홈-0.33/원정-0.15 · xPts11.8 vs 승점12 · 직전 선발 3-4-3 Andrei Radu, Yoel Lago, Marcos Alonso, Javi Rodríguez, Aleix Febas, Ilaix Moriba, Javi Galán, Javi Rueda, Pablo Durán, Hugo Álvarez, Hugo Gonzalez · 구장 캄포 데 푸트볼 데 바예카스 · 이동 470km · 고도 642m(차 +629m) · 20.7℃ 강수0mm(0%) 바람3.6km/h
 <!-- INPUTS:END -->
 

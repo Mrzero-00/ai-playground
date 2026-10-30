@@ -8,7 +8,7 @@
 - 최근 경기(ESPN, 최대 28일): 2026-09-13 Le Mans 2-2 Lens / 2026-09-18 AS Monaco 2-1 Lens / 2026-10-09 Lens 2-1 Lyon / 2026-10-17 Troyes 1-3 Lens / 2026-10-24 Lens 2-1 Paris FC
 <!-- FACTS:END -->
 <!-- INPUTS:START -->
-## 입력(자동 수집 2026-10-24) — xG·휴식일·라인업·환경(이동거리·고도·날씨)은 이 숫자를 쓴다
-- 10-25 03:45 vs 파리FC: 휴식 3.0일(7일 1경기) · 직전 10-22 원정 vs Club Brugge 0-3 패 [uefa.champions] · xG 시즌7경기 xG2.25/xGA1.54 npxGD+0.49 · 최근5 1.54/1.45 (+0.09) · 홈1.03/원정0.09 · xPts12.2 vs 승점10 · 직전 선발 3-4-2-1 Robin Risser, Samson Baidoo, Matthieu Udol, Ruben Aguilar, Amadou Haidara, Michaël Cuisance, Michal Skoras, Saud Abdulhamid, Franjo Ivanovic, Thorgan Hazard, Junior Kadile · 구장 스타드 펠릭스 볼라르트 · 이동 183km · 고도 42m(차 -15m) · 9.6℃ 강수5.1mm(100%) 바람37.1km/h · ⚠ 비 5.1mm(100%), 강풍 37.1km/h
+## 입력(자동 수집 2026-10-30) — xG·휴식일·라인업·환경(이동거리·고도·날씨)은 이 숫자를 쓴다
+- 10-31 05:05 vs 릴OSC: 휴식 6.1일(7일 1경기) · 직전 10-25 홈 vs Paris FC 2-1 승 [ligue 1] · xG 시즌8경기 xG2.06/xGA1.44 npxGD+0.43 · 최근5 1.46/1.38 (+0.08) · 홈0.77/원정0.09 · xPts13.4 vs 승점13 · 직전 선발 3-4-2-1 Robin Risser, Samson Baidoo, Jean-Clair Todibo, Ruben Aguilar, Amadou Haidara, Michaël Cuisance, Matthieu Udol, Saud Abdulhamid, Franjo Ivanovic, Florian Sotoca, Florian Thauvin · 구장 스타드 피에르 모루아 · 이동 30km · 고도 43m(차 +1m) · 8.7℃ 강수0mm(0%) 바람12.6km/h
 <!-- INPUTS:END -->
 

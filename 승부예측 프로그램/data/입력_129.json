@@ -4,7 +4,7 @@
   "경기": "브리즈번 로어 - 오클랜드FC",
   "리그": "호주 A리그",
   "시각": "10-30 18:00",
-  "수집": "10-30 08:25",
+  "수집": "10-30 17:09",
   "홈": {
    "팀": "브리즈번 로어",
    "eng": "Brisbane Roar",
@@ -13,6 +13,20 @@
    "최근7일경기": 0,
    "직전event": "401892156",
    "xg": null,
+   "선발": [
+    "George Plusnin",
+    "Milorad Stajic",
+    "Tom Aldred",
+    "Joel King",
+    "Tate Russell",
+    "Nam Tae-Hee",
+    "Tyrese Francois",
+    "Noah Maieroni",
+    "Justin Vidic",
+    "Virgiliu Postolachi",
+    "Sabit Ngor"
+   ],
+   "포메이션": "4-2-3-1",
    "직전선발": [
     "George Plusnin",
     "Tom Aldred",
@@ -26,7 +40,9 @@
     "Justin Vidic",
     "Virgiliu Postolachi"
    ],
-   "직전포메이션": "3-5-2"
+   "직전포메이션": "3-5-2",
+   "교체": 0,
+   "빠진": []
   },
   "원정": {
    "팀": "오클랜드FC",
@@ -36,6 +52,20 @@
    "최근7일경기": 1,
    "직전event": "401892154",
    "xg": null,
+   "선발": [
+    "Michael Woud",
+    "Nando Pijnaker",
+    "Ronan Wynne",
+    "Francis de Vries",
+    "Hiroki Sakai",
+    "Felipe Gallegos",
+    "Jake Brimmer",
+    "Jonty Bidois",
+    "Logan Rogerson",
+    "Lachlan Bayliss",
+    "Lachlan Brook"
+   ],
+   "포메이션": "4-4-2",
    "직전선발": [
     "Michael Woud",
     "Nando Pijnaker",
@@ -49,7 +79,12 @@
     "Lachlan Bayliss",
     "Sam Cosgrove"
    ],
-   "직전포메이션": "4-4-2"
+   "직전포메이션": "4-4-2",
+   "교체": 2,
+   "빠진": [
+    "Luka Vicelich",
+    "Sam Cosgrove"
+   ]
   },
   "환경": {
    "구장": "선콥 스타디움",
@@ -63,8 +98,8 @@
     "습도": 75,
     "강수mm": 0,
     "강수확률": 0,
-    "풍속": 6.6,
-    "출처": "Open-Meteo forecast 10-30 08:25"
+    "풍속": 6.2,
+    "출처": "Open-Meteo forecast 10-30 17:10"
    },
    "출처": [
     "Wikidata Q839997→Q643328 · Open-Meteo 고도",
@@ -74,7 +109,7 @@
     "장거리 원정 2298km"
    ]
   },
-  "라인업": "미발표(킥오프 9.6h 전)",
+  "라인업": "발표",
   "event": "401892150"
  },
  "1362": {

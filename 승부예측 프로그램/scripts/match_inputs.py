@@ -120,6 +120,9 @@ CODES = ["eng.1", "eng.2", "esp.1", "esp.2", "ita.1", "ita.2", "ger.1", "ger.2",
          "uefa.champions", "uefa.europa", "uefa.europa.conf", "eng.fa", "eng.league_cup", "esp.copa_del_rey", "ger.dfb_pokal", "ita.coppa_italia",
          "fra.coupe_de_france", "ned.cup", "por.taca.portugal", "afc.champions", "afc.cup", "conmebol.libertadores", "conmebol.sudamericana",
          "concacaf.champions_cup", "usa.open"]
+# ESPN 에 '리그는 있는데 국내컵이 없는' 리그 — 중간 컵 경기가 안 잡혀 휴식일이 과대평가된다(2026-10-31 확인:
+# ESPN leagues dropdown 에 jpn.1·jpn.world_challenge 만 있고 jpn.league_cup·jpn.emperor 는 404).
+CUPLESS = {"jpn.1", "aus.1", "chn.1", "ksa.1", "mex.1", "arg.1", "bra.1", "ind.1", "rus.1", "tur.1", "gre.1"}
 _POOL = None
 
 
@@ -346,6 +349,15 @@ def game_inputs(r, names, now, refresh=False):
             d["휴식일"] = round((ko - last[0]).total_seconds() / 86400, 1) if ko else None
             if d["휴식일"] is not None and d["휴식일"] > 12:
                 d["휴식일주의"] = "ESPN에 없는 리그일 수 있음(21일 내 경기 없음) — 실제 휴식일은 더 짧을 수 있음"
+            elif d["휴식일"] is not None and d["휴식일"] >= 5 and code in CUPLESS:
+                # 2026-10-31(129회 1519 고베-나고야): 나고야가 10/28 르방컵(연장 120분)을 치렀는데 휴식일이
+                # 6.0 으로 찍혔다(실제 3일). 원인은 our 매칭 버그가 아니라 **ESPN 자체에 르방컵·천황배 피드가
+                # 없기 때문**이다 — dropdown 에 jpn.1 과 jpn.world_challenge 뿐이고 jpn.league_cup·jpn.emperor
+                # 슬러그는 404 다. 같은 구멍이 aus.1(호주컵)·chn.1·ksa.1 에도 있다. 국내컵이 ESPN 에 없는
+                # 리그는 **중간 컵 경기가 통째로 안 보이므로 휴식일이 구조적으로 과대평가된다.**
+                # 5일 이상일 때만 띄운다 — 중간 컵이 끼면 보통 3~4일로 찍히므로, 5일 이상이면서 실제로는
+                # 컵을 치렀을 때가 바로 놓치는 구간이다. 확률을 움직이지 말고 '확인하라'는 표시만 남긴다.
+                d["휴식일주의"] = f"{code} 는 ESPN 에 국내컵(일본 르방컵·천황배 등) 피드가 없다 — 중간 컵 경기가 있었으면 이 휴식일은 과대평가다. 직접 확인"
             d["최근7일경기"] = sum(1 for x in ev if (ko - x[0]).days < 7)
             d["직전event"] = last[2]
         else:

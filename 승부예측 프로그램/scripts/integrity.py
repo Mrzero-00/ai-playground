@@ -656,6 +656,25 @@ def normalize_evidence(data, rows=None, rnd=None):
         for alias in ("핵심근거", "근거요약"):
             if not (e.get("결론") or "").strip() and (e.get(alias) or "").strip():
                 e["결론"] = e[alias]
+        # 2026-10-26 구조 전환으로 출발 확률의 이름이 '기준선' → '사전확률'(시장) 로 바뀌었는데
+        # 채점기는 여전히 '기준선' 키를 찾아 없으면 심각(C) 을 매겼다 — 129회 10/31 16:00 블록 1535 가
+        # 이 사유 하나로 거짓 C 였다. 이름만 다른 같은 칸이라 받아 준다(2026-10-31).
+        if not (e.get("기준선") or {}):
+            for alias in ("사전확률", "사전_확률", "prior"):
+                v = e.get(alias)
+                if isinstance(v, dict) and any(k in v for k in ("승", "패")):
+                    e["기준선"] = {k: v[k] for k in ("승", "무", "패") if k in v}
+                    break
+        # '선택지'를 {"1338 승무패 패": 42.6} 같은 dict 나 문자열로 적으면 evidence_checks 가
+        # c.get() 에서 AttributeError 로 죽어 그 경기가 통째로 기록되지 않았다(129회 4경기).
+        # 모양만 리스트[dict] 로 맞춰 준다 — 내용은 건드리지 않는다(2026-10-31).
+        sel = e.get("선택지")
+        if isinstance(sel, dict):
+            e["선택지"] = [{"선택": k, "확률": v} for k, v in sel.items()]
+        elif isinstance(sel, str):
+            e["선택지"] = [{"선택": sel}] if sel.strip() else []
+        elif isinstance(sel, list):
+            e["선택지"] = [c if isinstance(c, dict) else {"선택": str(c)} for c in sel]
     return data
 
 

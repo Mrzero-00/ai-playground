@@ -10,7 +10,7 @@
 <!-- FACTS:END -->
 <!-- INPUTS:START -->
 ## 입력(자동 수집 2026-10-31) — xG·휴식일·라인업·환경(이동거리·고도·날씨)은 이 숫자를 쓴다
-- 10-31 23:30 vs 아우크스부르크: 휴식 2.9일(7일 2경기) · 직전 10-29 홈 vs VfL Wolfsburg 3-2 승 [second round] · xG 시즌7경기 xG1.76/xGA1.34 npxGD+0.42 · 최근5 1.75/1.53 (+0.21) · 홈0.57/원정0.22 · xPts12.3 vs 승점13 · 직전 선발 4-2-3-1 Florian Müller, Max Rosenfelder, Matthias Ginter, Christian Günter, Philipp Treu, Yuito Suzuki, Yannick Engelhardt, Maximilian Eggestein, Igor Matanovic, Vincenzo Grifo, Cyriaque Irié · 구장 WWK 아레나 · 이동 225km · 고도 504m(차 +195m) · 9.6℃ 강수0mm(0%) 바람10.9km/h
+- 10-31 23:30 vs 아우크스부르크: 휴식 2.9일(7일 2경기) · 직전 10-29 홈 vs VfL Wolfsburg 3-2 승 [second round] · xG 시즌7경기 xG1.76/xGA1.34 npxGD+0.42 · 최근5 1.75/1.53 (+0.21) · 홈0.57/원정0.22 · xPts12.3 vs 승점13 · 직전 선발 4-2-3-1 Florian Müller, Max Rosenfelder, Matthias Ginter, Christian Günter, Philipp Treu, Yuito Suzuki, Yannick Engelhardt, Maximilian Eggestein, Igor Matanovic, Vincenzo Grifo, Cyriaque Irié · 구장 WWK 아레나 · 이동 225km · 고도 504m(차 +195m) · 9.5℃ 강수0mm(0%) 바람11.5km/h
 <!-- INPUTS:END -->
 
 ## 성향

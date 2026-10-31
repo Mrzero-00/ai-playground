@@ -276,7 +276,20 @@ def depth_compare(rows):
         pk = rl.argmax(r, "순수")
         if not pk:
             continue
-        d = "기준선" if r.get("깊이") == "기준선" else "분석"
+        # 2026-10-31: 꼬리표 하나만 믿지 않는다. 근거 JSON 이 붙은 행(정합성 등급 A/B/C 가 있는 행)은
+        # 수집가+분석가를 다 돈 경기라 분석가가 깊이="기준선" 이라 적었어도 대조군이 아니다
+        # (129회 심층회고에서 70행이 이렇게 섞여 있었다 — 분자에서 빠지고 분모에 더해져 양쪽이 오염된다).
+        analysed = bool((r.get("정합성") or "").strip()) or r.get("깊이") != "기준선"
+        d = "분석" if analysed else "기준선"
+        # 2026-10-31: 분석 줄에 G1 기권(1·2순위 차 10%p 미만)이 섞여 있으면 '분석의 가치'가 과소평가된다
+        # (실측 분석 형성 57.0% vs 기권 38.5%). 기준선과 나란히 둘 값은 **방향을 실제로 고른 줄**이다.
+        try:
+            pv = sorted([float(r.get("순수_승") or 0), float(r.get("순수_무") or 0), float(r.get("순수_패") or 0)], reverse=True)
+            formed = (pv[0] - pv[1]) >= 10
+        except Exception:
+            formed = True
+        if analysed and not formed:
+            d = "분석기권"
         for key in ((tier(r), d), ("전체", d), (r["회차"], tier(r), d)):
             x = cells.setdefault(key, [0, 0]); x[0] += 1; x[1] += 1 if pk == r["결과"] else 0
 
@@ -284,17 +297,36 @@ def depth_compare(rows):
         v = cells.get(key)
         return f"{label} {v[1]}/{v[0]} ({v[1] / v[0] * 100:.1f}%)" if v and v[0] else f"{label} -"
 
-    def gap(t):
-        a, b = cells.get((t, "분석")), cells.get((t, "기준선"))
+    def gap(t, da="분석"):
+        a, b = cells.get((t, da)), cells.get((t, "기준선"))
         if not a or not b or not a[0] or not b[0]:
             return None
         return a[1] / a[0] * 100 - b[1] / b[0] * 100
+
+    # 꼬리표 오염 감시(2026-10-31): 근거 JSON 이 있는데 깊이가 '기준선' 인 행은 0 이어야 한다.
+    # integrity.py cmd_add 가 덮어쓰게 고쳤지만, 손으로 CSV 를 고치면 다시 섞일 수 있으니 매번 센다.
+    mixed = sum(1 for r in rows if (r.get("정합성") or "").strip() and r.get("깊이") == "기준선")
+    if mixed:
+        print(f"\n⚠ 꼬리표 오염 {mixed}행 — 근거 JSON 이 있는데 깊이=기준선(대조군)이다. 분석 쪽으로 세고 있으니 CSV 를 고쳐라.")
 
     print("\n축구 분석 vs 기준선 — 리그권 통제 (기준선은 '아무도 안 고른 경기'라 리그 구성이 다르다):")
     for t in ("전체", "지정", "비지정"):
         g = gap(t)
         print(f"  {t:<4} {line((t, '분석'), '분석'):<22} {line((t, '기준선'), '기준선'):<22}"
               f" 차 {f'{g:+.1f}%p' if g is not None else '-'}")
+    print("  방향을 실제로 고른 줄만 (G1 기권 분리 — 기준선과 나란히 둘 값은 이쪽이다):")
+    for t in ("전체", "지정", "비지정"):
+        g = gap(t, "분석")
+        a, b = cells.get((t, "분석")), cells.get((t, "기준선"))
+        z = ""
+        if a and b and a[0] and b[0]:
+            p1, n1 = a[1] / a[0], a[0]
+            p2, n2 = b[1] / b[0], b[0]
+            se = (p1 * (1 - p1) / n1 + p2 * (1 - p2) / n2) ** 0.5
+            if se:
+                z = f"  z={(p1 - p2) / se:+.2f}" + ("" if abs((p1 - p2) / se) >= 2 else " (표본 흔들림)")
+        print(f"    {t:<4} {line((t, '분석'), '형성'):<22} {line((t, '분석기권'), '기권'):<22}"
+              f" {line((t, '기준선'), '기준선'):<22} 차 {f'{g:+.1f}%p' if g is not None else '-'}{z}")
 
     # 같은 회차 안에서만 비교 (회차마다 경기 풀이 다른 교란 제거)
     rounds = sorted({k[0] for k in cells if len(k) == 3})

@@ -728,6 +728,18 @@ def cmd_add(a):
         if r is None:
             print(f"? 경기 없음: {e.get('번호')} {e.get('홈')}-{e.get('원정')}")
             continue
+        # 근거 JSON 이 들고 온 칸을 행에 옮긴 뒤 검사한다(2026-10-31).
+        # 왜: news_check 는 전체경기기록 행의 '뉴스위험' 칸을 보는데 cmd_add 는 그 칸을 옮기지 않았다.
+        #     분석가가 JSON 에 뉴스위험을 성실히 적어도, 행이 baseline_fill 로 자동 생성돼 칸이 비어 있으면
+        #     그 경기는 '확인 안 함' 으로 심각 C 가 되고 학습에서 통째로 빠진다
+        #     (129회 1544 — 분석가가 뉴스위험 3건을 적었는데 C). 정보는 있는데 경로가 없어서 버린 것이다.
+        #     같은 종류(근거 JSON 내용이 채점기에 닿지 않는 문제)의 다섯 번째 교정이라 코드로 고정한다.
+        for key in ("뉴스위험", "예상점수"):
+            v = e.get(key)
+            if isinstance(v, (int, float)):
+                v = str(v)
+            if isinstance(v, str) and v.strip() and not (r.get(key) or "").strip():
+                r[key] = v.strip()
         severe, minor = [], []
         note_checks(r, severe, minor)
         evidence_checks(r, e, severe, minor)

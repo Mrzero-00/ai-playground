@@ -1479,7 +1479,7 @@
   "경기": "블라우블리츠 아키타 - 후지에다 MYFC",
   "리그": "일본 J2리그",
   "시각": "10-31 14:00",
-  "수집": "10-31 14:57",
+  "수집": "10-31 16:42",
   "홈": {
    "팀": "블라우블리츠 아키타",
    "eng": "Blaublitz Akita",
@@ -1511,7 +1511,7 @@
     "강수mm": 2.3,
     "강수확률": 100,
     "풍속": 12.6,
-    "출처": "Open-Meteo forecast 10-31 14:58"
+    "출처": "Open-Meteo forecast 10-31 16:42"
    },
    "출처": [
     "Wikidata Q882425→Q4701236 · Open-Meteo 고도",
@@ -1833,7 +1833,7 @@
   "경기": "멜버른 시티 - 시드니FC",
   "리그": "호주 A리그",
   "시각": "10-31 15:00",
-  "수집": "10-31 14:57",
+  "수집": "10-31 16:42",
   "홈": {
    "팀": "멜버른 시티",
    "eng": "Melbourne City",
@@ -1845,16 +1845,16 @@
    "xg": null,
    "선발": [
     "James Nieuwenhuizen",
-    "Nathaniel Atkinson",
-    "Julio Cascante",
     "Harrison Delbridge",
+    "Julio Cascante",
     "Aziz Behich",
+    "Nathaniel Atkinson",
     "Quinn Macnicol",
-    "Medin Memeti",
-    "Awer Mabil",
     "Kavian Rahmani",
     "Besian Kutleshi",
-    "Andrew Nabbout"
+    "Andrew Nabbout",
+    "Awer Mabil",
+    "Medin Memeti"
    ],
    "포메이션": "4-2-3-1",
    "직전선발": [
@@ -1888,16 +1888,16 @@
    "xg": null,
    "선발": [
     "Harrison Devenish-Meares",
-    "Alexandar Popovic",
     "Jordan Courtney-Perkins",
-    "Rhyan Grant",
+    "Alexandar Popovic",
     "Ben Garuccio",
-    "Rhys Youlley",
-    "Akol Akon",
-    "Wataru Kamijo",
+    "Rhyan Grant",
     "Takahiro Sekine",
-    "Al Hassan Toure",
-    "Oriola Sunday"
+    "Wataru Kamijo",
+    "Rhys Youlley",
+    "Oriola Sunday",
+    "Akol Akon",
+    "Al Hassan Toure"
    ],
    "포메이션": "4-2-3-1",
    "직전선발": [
@@ -1932,7 +1932,7 @@
     "강수mm": 0,
     "강수확률": 96,
     "풍속": 22.8,
-    "출처": "Open-Meteo forecast 10-31 14:58"
+    "출처": "Open-Meteo forecast 10-31 16:42"
    },
    "출처": [
     "Wikidata Q748725→Q1381223 · Open-Meteo 고도",
@@ -1950,7 +1950,7 @@
   "경기": "가시마 앤틀러스 - 세레소 오사카",
   "리그": "일본 J1리그",
   "시각": "10-31 15:00",
-  "수집": "10-31 14:57",
+  "수집": "10-31 16:42",
   "홈": {
    "팀": "가시마 앤틀러스",
    "eng": "Kashima Antlers",
@@ -1969,8 +1969,8 @@
     "Yuta Higuchi",
     "Élber",
     "Yuta Matsumura",
-    "Léo Pereira",
-    "Yuma Suzuki"
+    "Yuma Suzuki",
+    "Léo Pereira"
    ],
    "포메이션": "4-4-2",
    "직전선발": [
@@ -2053,7 +2053,7 @@
     "강수mm": 0,
     "강수확률": 27,
     "풍속": 8.4,
-    "출처": "Open-Meteo forecast 10-31 14:58"
+    "출처": "Open-Meteo forecast 10-31 16:42"
    },
    "출처": [
     "Wikidata Q16932→Q494769 · Open-Meteo 고도",
@@ -2069,7 +2069,7 @@
   "경기": "비셀 고베 - 나고야 그램퍼스",
   "리그": "일본 J1리그",
   "시각": "10-31 15:00",
-  "수집": "10-31 14:57",
+  "수집": "10-31 16:42",
   "홈": {
    "팀": "비셀 고베",
    "eng": "Vissel Kobe",
@@ -2080,16 +2080,16 @@
    "xg": null,
    "선발": [
     "Shuichi Gonda",
-    "Tetsushi Yamakawa",
     "Thuler",
+    "Tetsushi Yamakawa",
     "Katsuya Nagato",
     "Gotoku Sakai",
     "Yuan Iwamoto",
     "Yuta Goke",
     "Yosuke Ideguchi",
     "Yuya Osako",
-    "Erik",
-    "Yoshinori Muto"
+    "Yoshinori Muto",
+    "Erik"
    ],
    "포메이션": "4-3-3",
    "직전선발": [
@@ -2127,16 +2127,16 @@
    "xg": null,
    "선발": [
     "Daniel Schmidt",
-    "Haruya Fujii",
     "Yota Sato",
-    "Teruki Hara",
-    "Ryuji Izumi",
-    "Sho Inagaki",
-    "Katsuhiro Nakayama",
     "Yuki Nogami",
+    "Haruya Fujii",
+    "Sho Inagaki",
+    "Takuya Uchida",
+    "Katsuhiro Nakayama",
+    "Teruki Hara",
     "Kensuke Nagai",
     "Yudai Kimura",
-    "Takuya Uchida"
+    "Ryuji Izumi"
    ],
    "포메이션": "3-4-2-1",
    "직전선발": [
@@ -2174,7 +2174,7 @@
     "강수mm": 0,
     "강수확률": 4,
     "풍속": 19.8,
-    "출처": "Open-Meteo forecast 10-31 14:58"
+    "출처": "Open-Meteo forecast 10-31 16:42"
    },
    "출처": [
     "Wikidata Q844271→Q494766 · Open-Meteo 고도",
@@ -2190,7 +2190,7 @@
   "경기": "가시와 레이솔 - 우라와 레드",
   "리그": "일본 J1리그",
   "시각": "10-31 16:00",
-  "수집": "10-31 14:57",
+  "수집": "10-31 16:42",
   "홈": {
    "팀": "가시와 레이솔",
    "eng": "Kashiwa Reysol",
@@ -2199,6 +2199,20 @@
    "최근7일경기": 1,
    "직전event": "401912635",
    "xg": null,
+   "선발": [
+    "Kengo Nagai",
+    "Tomoya Inukai",
+    "Daiki Sugioka",
+    "Wataru Harada",
+    "Nobuteru Nakagawa",
+    "Sachiro Toshima",
+    "Keita Endo",
+    "Kenshin Yuba",
+    "Yuki Kakita",
+    "Makoto Mitsuta",
+    "Yoshio Koizumi"
+   ],
+   "포메이션": "3-4-2-1",
    "직전선발": [
     "Kengo Nagai",
     "Taiyo Koga",
@@ -2212,7 +2226,19 @@
     "Koya Yuruki",
     "Hinata Yamauchi"
    ],
-   "직전포메이션": "3-4-2-1"
+   "직전포메이션": "3-4-2-1",
+   "교체": 9,
+   "빠진": [
+    "Taiyo Koga",
+    "Hiromu Mitsumaru",
+    "Yusei Yamanouchi",
+    "Riki Harakawa",
+    "Yudai Konishi",
+    "Tojiro Kubo",
+    "Shota Fujio",
+    "Koya Yuruki",
+    "Hinata Yamauchi"
+   ]
   },
   "원정": {
    "팀": "우라와 레드",
@@ -2223,6 +2249,20 @@
    "최근7일경기": 1,
    "직전event": "401877586",
    "xg": null,
+   "선발": [
+    "Shusaku Nishikawa",
+    "Yuta Miyamoto",
+    "Kota Kudo",
+    "Danilo Boza",
+    "Hayate Ueki",
+    "Tatsuki Seko",
+    "Yoichi Naganuma",
+    "Kotaro Hayashi",
+    "Harumi Minamino",
+    "Matheus Sávio",
+    "Takuro Kaneko"
+   ],
+   "포메이션": "3-4-3",
    "직전선발": [
     "Shusaku Nishikawa",
     "Kenta Nemoto",
@@ -2236,7 +2276,13 @@
     "Matheus Sávio",
     "Takuro Kaneko"
    ],
-   "직전포메이션": "4-3-3"
+   "직전포메이션": "4-3-3",
+   "교체": 3,
+   "빠진": [
+    "Kenta Nemoto",
+    "Samuel Gustafsson",
+    "Ado Onaiwu"
+   ]
   },
   "환경": {
    "구장": "히타치 가시와 축구장",
@@ -2251,7 +2297,7 @@
     "강수mm": 0,
     "강수확률": 15,
     "풍속": 6.9,
-    "출처": "Open-Meteo forecast 10-31 14:58"
+    "출처": "Open-Meteo forecast 10-31 16:43"
    },
    "출처": [
     "Wikidata Q844931→Q1366075 · Open-Meteo 고도",
@@ -2259,7 +2305,7 @@
    ],
    "주의": []
   },
-  "라인업": "미발표(킥오프 1.0h 전)",
+  "라인업": "발표",
   "event": "401877563"
  },
  "1338": {
@@ -2267,7 +2313,7 @@
   "경기": "광주FC - 김천상무 프로축구단",
   "리그": "K리그1",
   "시각": "10-31 16:30",
-  "수집": "10-31 14:57",
+  "수집": "10-31 16:42",
   "홈": {
    "팀": "광주FC",
    "eng": "Gwangju",
@@ -2299,7 +2345,7 @@
     "강수mm": 0,
     "강수확률": 0,
     "풍속": 12.9,
-    "출처": "Open-Meteo forecast 10-31 14:58"
+    "출처": "Open-Meteo forecast 10-31 16:43"
    },
    "출처": [
     "Wikidata Q168364→Q494758 · Open-Meteo 고도",
@@ -2307,7 +2353,7 @@
    ],
    "주의": []
   },
-  "라인업": "미발표(킥오프 1.5h 전)",
+  "라인업": "미발표",
   "event": null
  },
  "1531": {
@@ -2315,7 +2361,7 @@
   "경기": "충남아산 프로축구단 - 김포FC",
   "리그": "K리그2",
   "시각": "10-31 16:30",
-  "수집": "10-31 14:57",
+  "수집": "10-31 16:42",
   "홈": {
    "팀": "충남아산 프로축구단",
    "eng": "Asan",
@@ -2347,7 +2393,7 @@
     "강수mm": 0,
     "강수확률": 0,
     "풍속": 15.3,
-    "출처": "Open-Meteo forecast 10-31 14:58"
+    "출처": "Open-Meteo forecast 10-31 16:43"
    },
    "출처": [
     "수동 — 이순신종합운동장(아산시 남성1길 170). 기존 Wikidata 구단좌표가 인도네시아 Aceh(5.297,96.03)로 오매칭",
@@ -2355,7 +2401,7 @@
    ],
    "주의": []
   },
-  "라인업": "미발표(킥오프 1.5h 전)",
+  "라인업": "미발표",
   "event": null
  },
  "1535": {
@@ -2363,7 +2409,7 @@
   "경기": "대구FC - 수원 삼성블루윙즈",
   "리그": "K리그2",
   "시각": "10-31 16:30",
-  "수집": "10-31 14:57",
+  "수집": "10-31 16:42",
   "홈": {
    "팀": "대구FC",
    "eng": "Daegu FC",
@@ -2395,7 +2441,7 @@
     "강수mm": 0,
     "강수확률": 0,
     "풍속": 11.5,
-    "출처": "Open-Meteo forecast 10-31 14:58"
+    "출처": "Open-Meteo forecast 10-31 16:43"
    },
    "출처": [
     "Wikidata Q483044→Q59556849 · Open-Meteo 고도",
@@ -2403,7 +2449,7 @@
    ],
    "주의": []
   },
-  "라인업": "미발표(킥오프 1.5h 전)",
+  "라인업": "미발표",
   "event": null
  },
  "1544": {
@@ -2411,7 +2457,7 @@
   "경기": "맥아서FC - 웨스턴시드니 원더러스",
   "리그": "호주 A리그",
   "시각": "10-31 17:40",
-  "수집": "10-31 14:57",
+  "수집": "10-31 16:42",
   "홈": {
    "팀": "맥아서FC",
    "eng": "Macarthur FC",
@@ -2421,6 +2467,20 @@
    "최근7일경기": 0,
    "직전event": "401892155",
    "xg": null,
+   "선발": [
+    "Alex Robinson",
+    "Tatsuki Nara",
+    "Nathan Paull",
+    "Jonathan Aspropotamitis",
+    "Liam Rose",
+    "Dylan Rose",
+    "Dean Bosnjak",
+    "Callum Talbot",
+    "Apostolos Stamatelopoulos",
+    "Connor Pain",
+    "Luke Vickery"
+   ],
+   "포메이션": "3-4-3",
    "직전선발": [
     "Alex Robinson",
     "Jonathan Aspropotamitis",
@@ -2434,7 +2494,12 @@
     "Bernardo Dias",
     "Connor Pain"
    ],
-   "직전포메이션": "4-2-3-1"
+   "직전포메이션": "4-2-3-1",
+   "교체": 2,
+   "빠진": [
+    "Oliver Randazzo",
+    "Bernardo Dias"
+   ]
   },
   "원정": {
    "팀": "웨스턴시드니 원더러스",
@@ -2445,6 +2510,20 @@
    "최근7일경기": 0,
    "직전event": "401892154",
    "xg": null,
+   "선발": [
+    "Lawrence Thomas",
+    "Nathan Barrie",
+    "German Ferreyra",
+    "Jarrod Carluccio",
+    "Panashe Madanha",
+    "Miguel Di Pizio",
+    "Angus Thurgate",
+    "Dylan Scicluna",
+    "Brandon Borrello",
+    "William Gillion",
+    "Nicolas Milanovic"
+   ],
+   "포메이션": "4-2-3-1",
    "직전선발": [
     "Lawrence Thomas",
     "Anthony Pantazopoulos",
@@ -2458,7 +2537,11 @@
     "William Gillion",
     "Nicolas Milanovic"
    ],
-   "직전포메이션": "4-3-3"
+   "직전포메이션": "4-3-3",
+   "교체": 1,
+   "빠진": [
+    "Anthony Pantazopoulos"
+   ]
   },
   "환경": {
    "구장": "캠벨타운 스타디움",
@@ -2473,7 +2556,7 @@
     "강수mm": 0.3,
     "강수확률": 52,
     "풍속": 11.5,
-    "출처": "Open-Meteo forecast 10-31 14:58"
+    "출처": "Open-Meteo forecast 10-31 16:43"
    },
    "출처": [
     "Wikidata Q59773416→Q5028227 · Open-Meteo 고도",
@@ -2481,7 +2564,7 @@
    ],
    "주의": []
   },
-  "라인업": "미발표(킥오프 2.7h 전)",
+  "라인업": "발표",
   "event": "401892147"
  },
  "1553": {
@@ -2489,7 +2572,7 @@
   "경기": "링컨 시티 - 버밍엄 시티",
   "리그": "잉글랜드 챔피언십",
   "시각": "10-31 21:30",
-  "수집": "10-31 14:57",
+  "수집": "10-31 16:42",
   "홈": {
    "팀": "링컨 시티",
    "eng": "Lincoln City",
@@ -2549,7 +2632,7 @@
     "강수mm": 0,
     "강수확률": 0,
     "풍속": 9.4,
-    "출처": "Open-Meteo forecast 10-31 14:58"
+    "출처": "Open-Meteo forecast 10-31 16:43"
    },
    "출처": [
     "Wikidata Q18519→Q619105 · Open-Meteo 고도",
@@ -2557,7 +2640,7 @@
    ],
    "주의": []
   },
-  "라인업": "미발표(킥오프 6.5h 전)",
+  "라인업": "미발표(킥오프 4.8h 전)",
   "event": "401880194"
  },
  "1557": {
@@ -2565,7 +2648,7 @@
   "경기": "노리치 시티 - 왓포드",
   "리그": "잉글랜드 챔피언십",
   "시각": "10-31 21:30",
-  "수집": "10-31 14:57",
+  "수집": "10-31 16:42",
   "홈": {
    "팀": "노리치 시티",
    "eng": "Norwich City",
@@ -2625,7 +2708,7 @@
     "강수mm": 0,
     "강수확률": 0,
     "풍속": 8.6,
-    "출처": "Open-Meteo forecast 10-31 14:58"
+    "출처": "Open-Meteo forecast 10-31 16:43"
    },
    "출처": [
     "Wikidata Q18721→Q123017 · Open-Meteo 고도",
@@ -2633,7 +2716,7 @@
    ],
    "주의": []
   },
-  "라인업": "미발표(킥오프 6.5h 전)",
+  "라인업": "미발표(킥오프 4.8h 전)",
   "event": "401880191"
  },
  "1561": {
@@ -2641,7 +2724,7 @@
   "경기": "스토크 시티 - 프레스턴 노스엔드",
   "리그": "잉글랜드 챔피언십",
   "시각": "10-31 21:30",
-  "수집": "10-31 14:57",
+  "수집": "10-31 16:42",
   "홈": {
    "팀": "스토크 시티",
    "eng": "Stoke",
@@ -2701,7 +2784,7 @@
     "강수mm": 0,
     "강수확률": 0,
     "풍속": 11.5,
-    "출처": "Open-Meteo forecast 10-31 14:58"
+    "출처": "Open-Meteo forecast 10-31 16:43"
    },
    "출처": [
     "Wikidata Q18736→Q500922 · Open-Meteo 고도",
@@ -2709,7 +2792,7 @@
    ],
    "주의": []
   },
-  "라인업": "미발표(킥오프 6.5h 전)",
+  "라인업": "미발표(킥오프 4.8h 전)",
   "event": "401880188"
  },
  "1565": {
@@ -2717,7 +2800,7 @@
   "경기": "첼시 - 맨체스터 유나이티드",
   "리그": "잉글랜드 프리미어리그",
   "시각": "10-31 21:30",
-  "수집": "10-31 14:57",
+  "수집": "10-31 16:42",
   "홈": {
    "팀": "첼시",
    "eng": "Chelsea",
@@ -2803,7 +2886,7 @@
     "강수mm": 0,
     "강수확률": 0,
     "풍속": 11.5,
-    "출처": "Open-Meteo forecast 10-31 14:58"
+    "출처": "Open-Meteo forecast 10-31 16:43"
    },
    "출처": [
     "Wikidata Q9616→Q171458 · Open-Meteo 고도",
@@ -2811,7 +2894,7 @@
    ],
    "주의": []
   },
-  "라인업": "미발표(킥오프 6.5h 전)",
+  "라인업": "미발표(킥오프 4.8h 전)",
   "event": "401879248"
  },
  "1570": {
@@ -2819,7 +2902,7 @@
   "경기": "레반테 - 아틀레티코 마드리드",
   "리그": "스페인 라리가",
   "시각": "10-31 22:00",
-  "수집": "10-31 14:57",
+  "수집": "10-31 16:42",
   "홈": {
    "팀": "레반테",
    "eng": "Levante",
@@ -2905,7 +2988,7 @@
     "강수mm": 0.6,
     "강수확률": 50,
     "풍속": 10.3,
-    "출처": "Open-Meteo forecast 10-31 14:58"
+    "출처": "Open-Meteo forecast 10-31 16:43"
    },
    "출처": [
     "Wikidata Q8823→Q1122715 · Open-Meteo 고도",
@@ -2913,7 +2996,7 @@
    ],
    "주의": []
   },
-  "라인업": "미발표(킥오프 7.0h 전)",
+  "라인업": "미발표(킥오프 5.3h 전)",
   "event": "401882820"
  },
  "1574": {
@@ -2921,7 +3004,7 @@
   "경기": "볼로냐 - AC몬차",
   "리그": "이탈리아 세리에A",
   "시각": "10-31 23:00",
-  "수집": "10-31 14:57",
+  "수집": "10-31 16:42",
   "홈": {
    "팀": "볼로냐",
    "eng": "Bologna",
@@ -3007,7 +3090,7 @@
     "강수mm": 0,
     "강수확률": 0,
     "풍속": 3.7,
-    "출처": "Open-Meteo forecast 10-31 14:58"
+    "출처": "Open-Meteo forecast 10-31 16:43"
    },
    "출처": [
     "Wikidata Q1893→Q757182 · Open-Meteo 고도",
@@ -3015,7 +3098,7 @@
    ],
    "주의": []
   },
-  "라인업": "미발표(킥오프 8.0h 전)",
+  "라인업": "미발표(킥오프 6.3h 전)",
   "event": "401874798"
  },
  "1578": {
@@ -3023,7 +3106,7 @@
   "경기": "바이어04 레버쿠젠 - VfB슈투트가르트",
   "리그": "독일 분데스리가",
   "시각": "10-31 23:30",
-  "수집": "10-31 14:57",
+  "수집": "10-31 16:42",
   "홈": {
    "팀": "바이어04 레버쿠젠",
    "eng": "Bayer Leverkusen",
@@ -3109,7 +3192,7 @@
     "강수mm": 0,
     "강수확률": 0,
     "풍속": 6.8,
-    "출처": "Open-Meteo forecast 10-31 14:58"
+    "출처": "Open-Meteo forecast 10-31 16:43"
    },
    "출처": [
     "Wikidata Q104761→Q156630 · Open-Meteo 고도",
@@ -3117,7 +3200,7 @@
    ],
    "주의": []
   },
-  "라인업": "미발표(킥오프 8.5h 전)",
+  "라인업": "미발표(킥오프 6.8h 전)",
   "event": "401884753"
  },
  "1583": {
@@ -3125,7 +3208,7 @@
   "경기": "아우크스부르크 - SC프라이부르크",
   "리그": "독일 분데스리가",
   "시각": "10-31 23:30",
-  "수집": "10-31 14:57",
+  "수집": "10-31 16:42",
   "홈": {
    "팀": "아우크스부르크",
    "eng": "Augsburg",
@@ -3211,7 +3294,7 @@
     "강수mm": 0,
     "강수확률": 0,
     "풍속": 11.5,
-    "출처": "Open-Meteo forecast 10-31 14:58"
+    "출처": "Open-Meteo forecast 10-31 16:43"
    },
    "출처": [
     "Wikidata Q15755→Q167418 · Open-Meteo 고도",
@@ -3219,7 +3302,7 @@
    ],
    "주의": []
   },
-  "라인업": "미발표(킥오프 8.5h 전)",
+  "라인업": "미발표(킥오프 6.8h 전)",
   "event": "401884751"
  },
  "1588": {
@@ -3227,7 +3310,7 @@
   "경기": "묀헨글라트바흐 - 파더보른07",
   "리그": "독일 분데스리가",
   "시각": "10-31 23:30",
-  "수집": "10-31 14:57",
+  "수집": "10-31 16:42",
   "홈": {
    "팀": "묀헨글라트바흐",
    "eng": "['Gladbach', 'Monchengladbach']",
@@ -3286,7 +3369,7 @@
     "강수mm": 0,
     "강수확률": 0,
     "풍속": 6.1,
-    "출처": "Open-Meteo forecast 10-31 14:58"
+    "출처": "Open-Meteo forecast 10-31 16:43"
    },
    "출처": [
     "Wikidata Q2758→구단 · Open-Meteo 고도",
@@ -3294,7 +3377,7 @@
    ],
    "주의": []
   },
-  "라인업": "미발표(킥오프 8.5h 전)",
+  "라인업": "미발표(킥오프 6.8h 전)",
   "event": null
  },
  "1593": {
@@ -3302,7 +3385,7 @@
   "경기": "베르더 브레멘 - TSG1899 호펜하임",
   "리그": "독일 분데스리가",
   "시각": "10-31 23:30",
-  "수집": "10-31 14:57",
+  "수집": "10-31 16:42",
   "홈": {
    "팀": "베르더 브레멘",
    "eng": "Bremen",
@@ -3388,7 +3471,7 @@
     "강수mm": 0,
     "강수확률": 0,
     "풍속": 4.8,
-    "출처": "Open-Meteo forecast 10-31 14:58"
+    "출처": "Open-Meteo forecast 10-31 16:43"
    },
    "출처": [
     "Wikidata Q51976→Q154475 · Open-Meteo 고도",
@@ -3396,7 +3479,7 @@
    ],
    "주의": []
   },
-  "라인업": "미발표(킥오프 8.5h 전)",
+  "라인업": "미발표(킥오프 6.8h 전)",
   "event": "401884748"
  },
  "1598": {
@@ -3404,7 +3487,7 @@
   "경기": "샬케04 - RB라이프치히",
   "리그": "독일 분데스리가",
   "시각": "10-31 23:30",
-  "수집": "10-31 14:57",
+  "수집": "10-31 16:42",
   "홈": {
    "팀": "샬케04",
    "eng": "Schalke",
@@ -3490,7 +3573,7 @@
     "강수mm": 0,
     "강수확률": 0,
     "풍속": 12.2,
-    "출처": "Open-Meteo forecast 10-31 14:58"
+    "출처": "Open-Meteo forecast 10-31 16:43"
    },
    "출처": [
     "Wikidata Q32494→Q150961 · Open-Meteo 고도",
@@ -3498,7 +3581,7 @@
    ],
    "주의": []
   },
-  "라인업": "미발표(킥오프 8.5h 전)",
+  "라인업": "미발표(킥오프 6.8h 전)",
   "event": "401884747"
  },
  "1635": {

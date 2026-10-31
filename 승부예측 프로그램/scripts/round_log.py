@@ -183,6 +183,19 @@ def cmd_pure(a):
     if n and not getattr(a, "no_anchor", False):
         a.quiet = True
         cmd_anchor(a)   # 순수가 들어오면 바로 최종(보정) 확률까지 (2026-10-15)
+    elif n:
+        # --no-anchor 경로에서도 검문은 돈다 (2026-10-31, 129회 심층회고).
+        # 왜: 2026-10-26 구조 전환 뒤 블록 분석이 `pure --no-anchor` + 보정=사전확률 로 바뀌면서
+        #     anchor 안에 있던 analysis_guard 호출이 통째로 건너뛰어졌다. 그 결과 G1(1·2순위 차
+        #     10%p 미만 = 방향 미형성)인데 확신도가 '기권'으로 안 찍힌 행이 129회에만 39건 쌓였고,
+        #     그중 1308(0.3%p차)·1330(1.3%p차)은 둘 다 1순위가 아닌 쪽으로 끝나 '가능' 실패가 됐다.
+        #     점검표에서 10회로 1위인 항목이 계속 되풀이된 이유가 '검문이 안 돌아서'였다.
+        try:
+            import analysis_guard
+            print()
+            analysis_guard.cmd_round(argparse.Namespace(round=str(a.round), fix=True))
+        except Exception as e:
+            print(f"(검문 건너뜀: {e})")
 
 
 def cmd_market(a):

@@ -206,7 +206,50 @@ def main():
     for k in sorted(acc):
         t, h = acc[k]
         print(f"  {k[0]} {k[1]}: {h}/{t} ({h / t * 100:.0f}%)")
+    abstain_split(rows)
     depth_compare(rows)
+
+
+MARGIN_MIN = 10.0   # analysis_guard G1 과 같은 문턱
+
+
+def abstain_split(rows):
+    """방향이 '형성된' 경기와 '기권(G1)' 경기를 갈라서 적중률을 낸다 (2026-10-31, 129회 심층회고).
+
+    왜: analysis_guard G1 이 1·2순위 차 10%p 미만 행에 확신도='기권'을 찍어 주는데,
+        그 표시를 **쓰는 지표가 하나도 없었다**. 그래서 '방향을 고르지 않은 경기'가 방향
+        적중률 분모에 그대로 들어가 있었고, 점검표 1위 항목(10회)이 계속 되풀이됐다.
+        129회에만 G1 39건이 쌓였고 그중 1308(0.3%p차)·1330(1.3%p차)은 둘 다 1순위가
+        아닌 쪽으로 끝났으며, 1296·1385·1381 세 적중은 전부 '운'으로 판정됐다.
+    실측(2026-10-31, 깊이=기준선 제외 400경기): G1 127경기 44.9% · 형성 273경기 60.1%.
+        섞으면 55.2% 다 — 분석력이 아니라 '그 회차에 호각 경기가 몇 개였나'를 재게 된다.
+    G1 구간을 숨기려는 게 아니다. 따로 찍어 두고 그 줄이 올라가는지를 본다
+        (추천에서 빼는 식으로 덮지 않는다 — 사용자 지시 2026-10-22)."""
+    split = {}
+    for r in rows:
+        if r.get("결과") not in ("승", "무", "패"):
+            continue
+        if (r.get("깊이") or "") in ("기준선", ""):
+            continue
+        pre = "보정" if r.get("보정_승") else "순수"
+        t = {k: float(r[f"{pre}_{k}"]) for k in ("승", "무", "패")
+             if (r.get(f"{pre}_{k}") or "").strip()}
+        if len(t) < 2:
+            continue
+        v = sorted(t.values(), reverse=True)
+        key = "기권(G1, 차<10%p)" if v[0] - v[1] < MARGIN_MIN else "방향형성(차>=10%p)"
+        x = split.setdefault(key, [0, 0]); x[0] += 1; x[1] += 1 if max(t, key=t.get) == r["결과"] else 0
+    if not split:
+        return
+    print("\n분석 행 — 방향 형성 여부별 (analysis_guard G1 문턱 10%p, 기준선 행 제외):")
+    tot = [0, 0]
+    for k in sorted(split):
+        t, h = split[k]
+        print(f"  {k:22s} {h}/{t} ({h / t * 100:.1f}%)")
+        tot[0] += t; tot[1] += h
+    print(f"  {'섞어서 세면':22s} {tot[1]}/{tot[0]} ({tot[1] / tot[0] * 100:.1f}%)")
+    print("  → 보고의 '분석한 전 경기 1순위 적중률'은 **방향형성 줄**로 말한다."
+          " 기권 줄은 고칠 대상으로 따로 둔다(숨기지 않는다).")
 
 
 # 지정 리그(추천 다리를 뽑는 범위) — CLAUDE.md 2026-10-19 리그 제한

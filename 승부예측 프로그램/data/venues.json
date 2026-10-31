@@ -9,6 +9,12 @@
   "venue": "스타디오 아르테미오 프란키",
   "venue_qid": "Q270474"
  },
+ "AC몬차": {
+  "checked": "2026-10-31",
+  "eng": "Monza",
+  "src": "못찾음",
+  "venue": null
+ },
  "AC밀란": {
   "checked": "2026-10-30",
   "elev": 139,
@@ -199,7 +205,7 @@
   "venue_qid": "Q392494"
  },
  "GS칼텍스 서울Kixx": {
-  "checked": "2026-10-17",
+  "checked": "2026-10-31",
   "eng": "",
   "src": "못찾음",
   "venue": null
@@ -763,7 +769,7 @@
   "venue_qid": "Q59556849"
  },
  "대구한국가스공사 페가수스": {
-  "checked": "2026-10-28",
+  "checked": "2026-10-31",
   "eng": "Daegu Kogas Pegasus",
   "src": "못찾음",
   "venue": null
@@ -779,7 +785,7 @@
   "venue_qid": "Q482598"
  },
  "대한항공 점보스": {
-  "checked": "2026-10-25",
+  "checked": "2026-10-31",
   "eng": "Incheon Jumbos",
   "src": "못찾음",
   "venue": null
@@ -1622,6 +1628,16 @@
   "venue": "펠틴스 아레나",
   "venue_qid": "Q150961"
  },
+ "서울 이랜드": {
+  "checked": "2026-10-31",
+  "elev": 20,
+  "lat": 37.5305,
+  "lon": 126.883,
+  "src": "Wikidata Q16261725→Q6895259 · Open-Meteo 고도",
+  "team_qid": "Q16261725",
+  "venue": "목동운동장",
+  "venue_qid": "Q6895259"
+ },
  "서울SK 나이츠": {
   "checked": "2026-10-24",
   "elev": 25,
@@ -2166,10 +2182,14 @@
   "venue_qid": "Q1426996"
  },
  "올랜도 매직": {
-  "checked": "2026-10-24",
-  "eng": "Orlando Magic",
-  "src": "못찾음",
-  "venue": null
+  "checked": "2026-10-31",
+  "elev": 31,
+  "lat": 28.5392,
+  "lon": -81.3836,
+  "src": "Wikidata Q161337→Q481795 · Open-Meteo 고도",
+  "team_qid": "Q161337",
+  "venue": "KIA 센터",
+  "venue_qid": "Q481795"
  },
  "올랜도 시티SC": {
   "checked": "2026-10-25",
@@ -2313,7 +2333,7 @@
   "venue_qid": "Q482601"
  },
  "울산현대모비스 피버스": {
-  "checked": "2026-10-24",
+  "checked": "2026-10-31",
   "eng": "Mobis Phoebus",
   "src": "못찾음",
   "venue": null
@@ -2329,7 +2349,7 @@
   "venue_qid": "Q223240"
  },
  "원주DB 프로미": {
-  "checked": "2026-10-28",
+  "checked": "2026-10-31",
   "eng": "Wonju Dongbu Promy",
   "src": "못찾음",
   "venue": null
@@ -2690,11 +2710,8 @@
   "venue_qid": "Q842077"
  },
  "콘사도레 삿포로": {
-  "checked": "2026-10-30",
-  "eng": [
-   "Consadole Sapporo",
-   "Hokkaido Consadole Sapporo"
-  ],
+  "checked": "2026-10-31",
+  "eng": "['Consadole Sapporo', 'Hokkaido Consadole Sapporo']",
   "src": "못찾음",
   "venue": null
  },
@@ -3070,6 +3087,16 @@
   "venue": "풋프린트 센터",
   "venue_qid": "Q1538690"
  },
+ "필라델피아 76s": {
+  "checked": "2026-10-31",
+  "elev": 10,
+  "lat": 39.9012,
+  "lon": -75.172,
+  "src": "Wikidata Q138089→Q818735 · Open-Meteo 고도",
+  "team_qid": "Q138089",
+  "venue": "엑스피니티 모바일 아레나",
+  "venue_qid": "Q818735"
+ },
  "필라델피아 유니언": {
   "checked": "2026-10-23",
   "elev": 10,
@@ -3081,7 +3108,7 @@
   "venue_qid": "Q1637843"
  },
  "한국도로공사 하이패스": {
-  "checked": "2026-10-17",
+  "checked": "2026-10-31",
   "eng": "",
   "src": "못찾음",
   "venue": null
@@ -3143,7 +3170,7 @@
   "venue_qid": "Q929109"
  },
  "현대캐피탈 스카이워커스": {
-  "checked": "2026-10-25",
+  "checked": "2026-10-31",
   "eng": "Cheonan Skywalkers",
   "src": "못찾음",
   "venue": null

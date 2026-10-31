@@ -403,10 +403,14 @@
   "venue_qid": "Q311458"
  },
  "SC헤이렌베인": {
-  "checked": "2026-10-30",
-  "eng": "Heerenveen",
-  "src": "못찾음",
-  "venue": null
+  "checked": "2026-10-31",
+  "elev": 10,
+  "lat": 52.9389,
+  "lon": 5.9425,
+  "src": "Wikidata Q599521→Q1371953 · Open-Meteo 고도",
+  "team_qid": "Q599521",
+  "venue": "티알프",
+  "venue_qid": "Q1371953"
  },
  "SSC나폴리": {
   "checked": "2026-10-17",
@@ -2212,7 +2216,7 @@
   "venue_qid": "Q1980"
  },
  "올랭피크드 마르세유": {
-  "checked": "2026-10-30",
+  "checked": "2026-10-31",
   "eng": [
    "Olympique de Marseille",
    "Marseille"

@@ -308,12 +308,39 @@ def note_path(team):
     return direct
 
 
+_OVERRIDE = None
+
+
+def overrides(team):
+    """손교정 팩트 (2026-10-31 신설, 129회 13:00 블록).
+
+    위키 인포박스 파싱이 **구조적으로** 틀리는 페이지가 있다. 1330 전북 현대모터스가 그 사례로,
+    '2026 Jeonbuk Hyundai Motors season' 에서 감독이 전임 Gus Poyet 으로, 리그 순위가
+    'cup1 = Korea Cup' 으로 뽑힌다 — 한 필드만 틀린 게 아니라 인포박스 매핑이 어긋나 있다.
+    팩트시트는 '사전 지식(2025년)보다 팩트시트가 맞다'는 전제로 분석가에게 주어지므로,
+    틀린 팩트시트는 그 전제를 역으로 쓴다(2026-10-14 로드리 오판과 같은 구조).
+
+    그래서 `data/facts_override.json` 에 **근거와 발견 경위를 적은 채로만** 덮는다.
+    블록에는 '손교정' 표시를 남겨 자동 수집값과 구별되게 한다."""
+    global _OVERRIDE
+    if _OVERRIDE is None:
+        path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "data", "facts_override.json")
+        try:
+            _OVERRIDE = json.load(open(path, encoding="utf-8"))
+        except Exception:
+            _OVERRIDE = {}
+    return {k: v for k, v in (_OVERRIDE.get(team) or {}).items() if not k.startswith("_")}
+
+
 def write_note(team, f):
     path = note_path(team)
     today = dt.date.today().isoformat()
+    ov = overrides(team)
+    for k, v in ov.items():
+        f[k] = v
     lines = [f"<!-- FACTS:START -->", f"## 팩트시트 (자동 수집 {today}) — 조사 전 반드시 읽고, 아래 사실과 다른 뉴스 요약은 '미확인'으로 둔다",
              f"- 출처: 위키 '{f['위키']}'({f['종류'] or '없음'}), ESPN {'있음' if f['순위(ESPN)'] or f['최근(ESPN)'] else '없음'}",
-             f"- 감독: {f['감독'] or '미확인'}",
+             f"- 감독: {f['감독'] or '미확인'}" + ("  ← 손교정(data/facts_override.json)" if "감독" in ov else ""),
              f"- 리그 순위: {f['순위(ESPN)'] or f['순위'] or '미확인'}"]
     if f["이적"]:
         lines.append("- 2026 여름 이적(위키 이적 표, 앞 8줄씩): " + " / ".join(f["이적"][:12]))

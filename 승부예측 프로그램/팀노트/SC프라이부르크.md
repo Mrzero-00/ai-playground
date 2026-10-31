@@ -1,7 +1,7 @@
 # SC프라이부르크 (분데스리가)
 
 <!-- FACTS:START -->
-## 팩트시트 (자동 수집 2026-10-30) — 조사 전 반드시 읽고, 아래 사실과 다른 뉴스 요약은 '미확인'으로 둔다
+## 팩트시트 (자동 수집 2026-10-31) — 조사 전 반드시 읽고, 아래 사실과 다른 뉴스 요약은 '미확인'으로 둔다
 - 출처: 위키 '2026–27 SC Freiburg season'(season), ESPN 있음
 - 감독: Julian Schuster
 - 리그 순위: 3위 7경기 4승1무2패 GD+7 승점13 (SC Freiburg)
@@ -9,8 +9,8 @@
 - 최근 경기(ESPN, 최대 28일): 2026-09-12 SC Freiburg 5-0 Borussia Mönchengladbach / 2026-09-19 Eintracht Frankfurt 2-2 SC Freiburg / 2026-10-11 SC Freiburg 2-1 Schalke 04 / 2026-10-18 Bayer Leverkusen 2-1 SC Freiburg / 2026-10-25 SC Freiburg 1-3 Bayern Munich
 <!-- FACTS:END -->
 <!-- INPUTS:START -->
-## 입력(자동 수집 2026-10-30) — xG·휴식일·라인업·환경(이동거리·고도·날씨)은 이 숫자를 쓴다
-- 10-31 23:30 vs 아우크스부르크: 휴식 2.9일(7일 2경기) · 직전 10-29 홈 vs VfL Wolfsburg 3-2 승 [second round] · xG 시즌7경기 xG1.76/xGA1.34 npxGD+0.42 · 최근5 1.75/1.53 (+0.21) · 홈0.57/원정0.22 · xPts12.3 vs 승점13 · 직전 선발 4-2-3-1 Florian Müller, Max Rosenfelder, Matthias Ginter, Christian Günter, Philipp Treu, Yuito Suzuki, Yannick Engelhardt, Maximilian Eggestein, Igor Matanovic, Vincenzo Grifo, Cyriaque Irié · 구장 WWK 아레나 · 이동 225km · 고도 504m(차 +195m) · 9.1℃ 강수0mm(0%) 바람10.2km/h
+## 입력(자동 수집 2026-10-31) — xG·휴식일·라인업·환경(이동거리·고도·날씨)은 이 숫자를 쓴다
+- 10-31 23:30 vs 아우크스부르크: 휴식 2.9일(7일 2경기) · 직전 10-29 홈 vs VfL Wolfsburg 3-2 승 [second round] · xG 시즌7경기 xG1.76/xGA1.34 npxGD+0.42 · 최근5 1.75/1.53 (+0.21) · 홈0.57/원정0.22 · xPts12.3 vs 승점13 · 직전 선발 4-2-3-1 Florian Müller, Max Rosenfelder, Matthias Ginter, Christian Günter, Philipp Treu, Yuito Suzuki, Yannick Engelhardt, Maximilian Eggestein, Igor Matanovic, Vincenzo Grifo, Cyriaque Irié · 구장 WWK 아레나 · 이동 225km · 고도 504m(차 +195m) · 9.6℃ 강수0mm(0%) 바람10.9km/h
 <!-- INPUTS:END -->
 
 ## 성향

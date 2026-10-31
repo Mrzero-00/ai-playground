@@ -1,11 +1,11 @@
 # 샬럿FC (MLS 동부)
 
 <!-- FACTS:START -->
-## 팩트시트 (자동 수집 2026-10-28) — 조사 전 반드시 읽고, 아래 사실과 다른 뉴스 요약은 '미확인'으로 둔다
+## 팩트시트 (자동 수집 2026-10-31) — 조사 전 반드시 읽고, 아래 사실과 다른 뉴스 요약은 '미확인'으로 둔다
 - 출처: 위키 '2026 Charlotte FC season'(season), ESPN 있음
 - 감독: Dean Smith
-- 리그 순위: 5위 31경기 13승8무10패 GD+7 승점47 (Charlotte FC)
-- 최근 경기(ESPN, 최대 28일): 2026-09-26 Charlotte FC 0-1 Chicago Fire FC / 2026-10-10 Charlotte FC 3-2 FC Dallas / 2026-10-14 Columbus Crew 3-1 Charlotte FC / 2026-10-17 Philadelphia Union 2-2 Charlotte FC / 2026-10-25 Portland Timbers 3-2 Charlotte FC
+- 리그 순위: 5위 32경기 14승8무10패 GD+11 승점50 (Charlotte FC)
+- 최근 경기(ESPN, 최대 28일): 2026-10-10 Charlotte FC 3-2 FC Dallas / 2026-10-14 Columbus Crew 3-1 Charlotte FC / 2026-10-17 Philadelphia Union 2-2 Charlotte FC / 2026-10-25 Portland Timbers 3-2 Charlotte FC / 2026-10-28 Charlotte FC 4-0 CF Montréal
 <!-- FACTS:END -->
 <!-- INPUTS:START -->
 ## 입력(자동 수집 2026-10-30) — xG·휴식일·라인업·환경(이동거리·고도·날씨)은 이 숫자를 쓴다

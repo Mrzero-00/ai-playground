@@ -1,7 +1,7 @@
 # 교토 상가FC
 
 <!-- FACTS:START -->
-## 팩트시트 (자동 수집 2026-10-30) — 조사 전 반드시 읽고, 아래 사실과 다른 뉴스 요약은 '미확인'으로 둔다
+## 팩트시트 (자동 수집 2026-10-31) — 조사 전 반드시 읽고, 아래 사실과 다른 뉴스 요약은 '미확인'으로 둔다
 - 출처: 위키 'Kyoto Sanga FC'(club), ESPN 있음
 - 감독: Ranko Popović
 - 리그 순위: 16위 12경기 2승4무6패 GD-8 승점10 (Kyoto Sanga)
@@ -9,8 +9,8 @@
 <!-- FACTS:END -->
 
 <!-- INPUTS:START -->
-## 입력(자동 수집 2026-10-30) — xG·휴식일·라인업·환경(이동거리·고도·날씨)은 이 숫자를 쓴다
-- 10-31 14:00 vs 시미즈 에스펄스: 휴식 3.8일(7일 2경기) · 직전 10-27 홈 vs Newcastle Jets 5-2 승 [league stage] · xG - · 직전 선발 3-4-2-1 Halls, Weverton, Takaaki Shichi, Hisashi Appiah Tawiah, João Pedro Mendes, Shimpei Fukuoka, Kyo Sato, Yoon Sung-Jun, Papagaio, Marco Túlio, Everton Maceió · 구장 교토시(구단 좌표 — 구장 미확인) · 이동 247km · 고도 51m(차 -7m) · 21.6℃ 강수0mm(0%) 바람9.0km/h
+## 입력(자동 수집 2026-10-31) — xG·휴식일·라인업·환경(이동거리·고도·날씨)은 이 숫자를 쓴다
+- 10-31 14:00 vs 시미즈 에스펄스: 휴식 3.8일(7일 2경기) · 직전 10-27 홈 vs Newcastle Jets 5-2 승 [league stage] · xG - · 직전 선발 3-4-2-1 Halls, Weverton, Takaaki Shichi, Hisashi Appiah Tawiah, João Pedro Mendes, Shimpei Fukuoka, Kyo Sato, Yoon Sung-Jun, Papagaio, Marco Túlio, Everton Maceió · 구장 교토시(구단 좌표 — 구장 미확인) · 이동 247km · 고도 51m(차 -7m) · 21.9℃ 강수0mm(0%) 바람9.1km/h
 <!-- INPUTS:END -->
 
 - 2026-10-13 조사: 2025 J1 3위(38경기 19승11무8패 득점62·실점40, 득실+22, 강팀). 2026시즌 란코 포포비치 신임감독 체제로 선수단·코칭스태프 대폭 개편, 현재 14위(8경기 2승2무4패 득점11·실점15, 득실-4) — 저득점·무승 흐름. 핵심MF 미츠키 사이토 좌측 무릎 전방십자인대+반월판 파열, 8/17 수술, 9~10개월 장기결장(시즌아웃급). 공격수 라파엘 엘리아스 직전 마치다전 29분 교체 후 이번 경기 결장 가능성 높음(대체: 알렉스 소우자). ACLE MD1(9/15) 대전 하나시티즌(한국)에 홈에서 0-1 패. 출처: [starnewskorea](https://www.starnewskorea.com/sports/2026/09/15/2026091521252630537), [sportsgambler.com](https://www.sportsgambler.com/betting-tips/football/kyoto-sanga-vs-machida-zelvia-prediction-lineups-odds-2026-10-10/), [jleague.jp](https://www.jleague.jp/en/news/article/34838/)

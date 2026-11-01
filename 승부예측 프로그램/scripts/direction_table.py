@@ -67,13 +67,13 @@ def main():
             "내확률": "" if no else f"{mine['승']:.0f}/{mine['무']:.0f}/{mine['패']:.0f}",
             "시장방향": ktop or "—",
             "시장확률": f"{mk['승']:.0f}/{mk['무']:.0f}/{mk['패']:.0f}" if mk else "",
-            "갈림": "" if no or not ktop else ("" if mtop == ktop else "갈림"),
+            "일치": "—" if (no or not ktop) else ("일치" if mtop == ktop else "갈림"),
             "깊이": "분석 없음" if no else (dep or "가벼움"),
             "결과": res, "적중": "" if not (mtop and res in SIDES) else ("O" if mtop == res else "X"),
         })
 
-    hdr = ["번호", "경기", "시각", "내 방향", "내 확률(승/무/패)", "시장 방향", "시장 확률", "", "깊이", "결과", "적중"]
-    keys = ["번호", "경기", "시각", "내방향", "내확률", "시장방향", "시장확률", "갈림", "깊이", "결과", "적중"]
+    hdr = ["번호", "경기", "시각", "내 방향", "내 확률(승/무/패)", "시장 방향", "시장 확률", "시장과", "깊이", "결과", "적중"]
+    keys = ["번호", "경기", "시각", "내방향", "내확률", "시장방향", "시장확률", "일치", "깊이", "결과", "적중"]
     if a.md:
         print(f"### {a.round}회 경기별 방향 — **방향은 내 분석이 정한다. 시장은 참고.**\n")
         print("| " + " | ".join(hdr) + " |")
@@ -81,7 +81,7 @@ def main():
         for x in rows:
             print("| " + " | ".join(str(x[k]) for k in keys) + " |")
     else:
-        w = [4, 34, 11, 6, 14, 8, 12, 5, 9, 5, 4]
+        w = [4, 32, 11, 6, 14, 8, 12, 6, 9, 5, 4]
         print(f"{a.round}회 — 방향은 내 분석이 정한다. 시장 열은 눈금일 뿐 판단에 쓰지 않는다.\n")
         print("  " + " ".join(h[:ww].ljust(ww) for h, ww in zip(hdr, w)))
         print("  " + " ".join("-" * ww for ww in w))
@@ -93,6 +93,13 @@ def main():
         print(f"시장과 같은 방향 {agree}/{both} ({agree/both*100:.0f}%) · 갈림 {both-agree}건")
     if done:
         print(f"채점 {done}경기 · 내 분석 적중 {hit} ({hit/done*100:.1f}%)")
+        sp = [x for x in rows if x["일치"] == "갈림" and x["적중"]]
+        sa = [x for x in rows if x["일치"] == "일치" and x["적중"]]
+        if sa:
+            print(f"  시장과 일치한 {len(sa)}경기 적중 {sum(1 for x in sa if x['적중']=='O')/len(sa)*100:.0f}%")
+        if sp:
+            print(f"  시장과 갈린 {len(sp)}경기 적중 {sum(1 for x in sp if x['적중']=='O')/len(sp)*100:.0f}%"
+                  "  ← 분석력이 드러나는 곳")
     return 0
 
 

@@ -29,10 +29,23 @@ STATE = os.path.join(ROOT, "data", ".direction_review.json")
 EVERY_DAYS = 7
 
 
+# sklearn/numpy 경고가 stderr 로 수천 줄 나와 보고서를 덮은 사고(2026-11-02, 방향점검 5004행 중 4818행이 경고).
+# 경고는 버리고 진짜 오류만 남긴다.
+_NOISE = ("Warning:", "warnings.warn", "raw_prediction =", "grad[:, :n_features]",
+          "ret = a @ b", "  raw_prediction", "self.n_iter_")
+
+
+def _drop_warnings(s):
+    return "\n".join(l for l in s.splitlines() if not any(t in l for t in _NOISE))
+
+
 def _run(cmd):
     try:
-        p = subprocess.run([sys.executable] + cmd, cwd=ROOT, capture_output=True, text=True, timeout=900)
-        return (p.stdout or "") + (p.stderr or "")
+        env = dict(os.environ, PYTHONWARNINGS="ignore")
+        p = subprocess.run([sys.executable] + cmd, cwd=ROOT, capture_output=True,
+                           text=True, timeout=900, env=env)
+        err = _drop_warnings(p.stderr or "").strip()
+        return (p.stdout or "") + (("\n" + err) if err else "")
     except Exception as e:
         return f"(실행 실패: {e})"
 

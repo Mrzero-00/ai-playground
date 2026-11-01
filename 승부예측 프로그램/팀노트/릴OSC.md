@@ -9,8 +9,8 @@
 - 최근 경기(ESPN, 최대 28일): 2026-09-13 Lille 2-0 Troyes / 2026-09-20 Nice 2-1 Lille / 2026-10-10 Lille 1-0 Le Havre AC / 2026-10-17 Lille 1-1 Brest / 2026-10-25 AS Monaco 1-1 Lille
 <!-- FACTS:END -->
 <!-- INPUTS:START -->
-## 입력(자동 수집 2026-10-30) — xG·휴식일·라인업·환경(이동거리·고도·날씨)은 이 숫자를 쓴다
-- 10-31 05:05 vs RC랑스: 휴식 5.3일(7일 1경기) · 직전 10-25 원정 vs AS Monaco 1-1 무 [ligue 1] · xG 시즌8경기 xG1.42/xGA1.55 npxGD-0.22 · 최근5 1.59/1.16 (+0.28) · 홈0.51/원정-0.96 · xPts10.6 vs 승점15 · 직전 선발 4-3-3 Berke Özer, Alexsandro, Tanguy Nianzou, Romain Perraud, Nathan Ngoy, Nabil Bentaleb, Benjamin André, Ngal'ayel Mukau, Hákon Haraldsson, Soriba Diaoune, Ethan Mbappé · 구장 스타드 피에르 모루아 · 이동 30km · 고도 43m(차 +1m) · 8.5℃ 강수0mm(0%) 바람10.4km/h
+## 입력(자동 수집 2026-11-02) — xG·휴식일·라인업·환경(이동거리·고도·날씨)은 이 숫자를 쓴다
+- 11-04 05:00 vs FK보되 글림트: 휴식 13.1일?(국내리그 ESPN 미제공 — 직접 확인) · 직전 10-22 홈 vs Galatasaray 2-4 패 [uefa.champions] · xG 시즌9경기 xG1.5/xGA1.42 npxGD-0.01 · 최근5 1.61/1.17 (+0.29) · 홈0.76/원정-0.96 · xPts13.2 vs 승점18 · 직전 선발 4-3-3 Berke Özer, Alexsandro, Nathan Ngoy, Calvin Verdonk, Maxima Goffi, Nabil Bentaleb, Benjamin André, Ngal'ayel Mukau, Hákon Haraldsson, Soriba Diaoune, Dilane Bakwa · 구장 Aspmyra Stadion · 이동 1955km · 고도 19m(차 -24m) · 8.8℃ 강수1.4mm(100%) 바람45.7km/h · ⚠ 장거리 원정 1955km, 비 1.4mm(100%), 강풍 45.7km/h
 <!-- INPUTS:END -->
 
 ## 성향

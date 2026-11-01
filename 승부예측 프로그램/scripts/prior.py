@@ -13,6 +13,9 @@
     python3 scripts/prior.py apply --mk 52/26/22 --fac "결장:+3.0,폼:-1.5"
     python3 scripts/prior.py report              # 개입 채점(본 지표)
     python3 scripts/prior.py weights             # 지금 쓰는 유형별 가중치
+
+  사전확률은 시장과 '우리 보정'의 50/50 평균이다(2026-11-02 조정, --own 으로 전달).
+  --own 을 생략하면 시장 단독 — 되돌릴 때 쓴다.
 """
 import argparse, collections, csv, json, os, sys
 
@@ -72,13 +75,34 @@ def cmd_apply(a):
             skipped.append((t, v, (info or {}).get("verdict", "미검증")))
     s = sum(mk)
     base = [x / s * 100 for x in mk]
+
+    # 2026-11-02 주간 방향 점검(조정): 사전확률 = 시장과 '우리 보정'의 50/50 평균.
+    # 쌍대 비교 710경기 — 우리 보정 단독은 시장 대비 -0.8%p(z=-0.87)지만,
+    # 50/50 평균은 +0.8%p 이고 1순위가 갈린 6경기에서 6승 0패(McNemar 정확검정 p=0.031).
+    # 방향을 바꾸는 경기가 0.8%뿐이라 비용은 거의 없고, 되돌릴 때는 --own 을 빼면 된다.
+    own = None
+    if getattr(a, "own", None):
+        try:
+            own = [float(x) for x in a.own.replace("/", " ").split()]
+            assert len(own) == 3 and sum(own) > 0
+            so = sum(own); own = [x / so * 100 for x in own]
+        except Exception:
+            print("--own 은 '승/무/패' 백분율 (예: 48/27/25)", file=sys.stderr); return 1
+        base = [(m + o) / 2 for m, o in zip(base, own)]
+
     out = list(base)
     # 홈 기준 부호: 승에 더하고 패에서 뺀다(무는 건드리지 않는다 — 실측상 무 조작은 손해였다)
     out[0] = max(0.5, out[0] + delta)
     out[2] = max(0.5, out[2] - delta)
     t2 = sum(out)
     out = [x / t2 * 100 for x in out]
-    print(f"사전확률(시장) {base[0]:.1f}/{base[1]:.1f}/{base[2]:.1f}")
+    if own is not None:
+        mkt = [x / s * 100 for x in mk]
+        print(f"시장           {mkt[0]:.1f}/{mkt[1]:.1f}/{mkt[2]:.1f}")
+        print(f"우리 보정       {own[0]:.1f}/{own[1]:.1f}/{own[2]:.1f}")
+        print(f"사전확률(50/50) {base[0]:.1f}/{base[1]:.1f}/{base[2]:.1f}")
+    else:
+        print(f"사전확률(시장) {base[0]:.1f}/{base[1]:.1f}/{base[2]:.1f}")
     if used:
         print("반영한 요인: " + ", ".join(f"{t} {v:+.1f}" for t, v in used) + f"  (합계 {delta:+.1f}%p)")
     else:
@@ -147,6 +171,7 @@ def main():
     ap = argparse.ArgumentParser()
     s = ap.add_subparsers(dest="c", required=True)
     p = s.add_parser("apply"); p.add_argument("--mk", required=True); p.add_argument("--fac", default="")
+    p.add_argument("--own", default="", help="우리 보정 확률 '승/무/패' — 주면 시장과 50/50 평균을 사전확률로 쓴다")
     p.set_defaults(f=cmd_apply)
     s.add_parser("report").set_defaults(f=cmd_report)
     s.add_parser("weights").set_defaults(f=cmd_weights)

@@ -11,6 +11,10 @@ ROOT = os.path.dirname(HERE)
 DEFAULT_OUT = os.path.join(os.path.dirname(ROOT), "betman-dashboard", "data")
 import teamdb as tdb
 
+# 조사가 들어가지 않은 깊이 — 성적·학습 집계에서 뺀다(2026-11-02).
+# 기준선 = 모델 자동, 시장복사 = 시장 확률 그대로, 미분석 = 등록만 된 상태.
+NO_ANALYSIS = ("기준선", "시장복사", "미분석")
+
 LG_KO = {"EPL": "프리미어리그", "La_liga": "라리가", "Serie_A": "세리에A", "Bundesliga": "분데스리가", "Ligue_1": "리그1"}
 
 
@@ -382,9 +386,12 @@ def build(out):
             if res in ("승", "무", "패") and pick:
                 hit = res in pick.split("/"); done += 1; hits += 1 if hit else 0
             # 사용자 지시 2026-10-26: 분석 전에도 경기를 보여 주고, 분석했으면 체크한다.
-            analyzed = bool(sum(pu.values())) and (g.get("깊이") or "") != "미분석"
+            # 체크는 '내가 방향을 적었는가'다. 다만 기준선·시장복사는 **조사가 들어간 분석이 아니다** —
+            # 승무패64가 14경기 전부 기준선/시장복사였는데 화면에선 분석된 것처럼 보였다(2026-11-02).
+            dep = (g.get("깊이") or "").strip()
+            analyzed = bool(sum(pu.values())) and dep not in ("미분석", "기준선", "시장복사")
             legs.append({"no": g["번호"], "game": f"{g['홈']} - {g['원정']}", "time": g.get("시각", ""), "pick": pick, "prob": round(pu[top]) if top else None,
-                         "analyzed": analyzed, "league": (g.get("리그") or ""),
+                         "analyzed": analyzed, "depth": dep, "league": (g.get("리그") or ""),
                          "result": (res + (" " + g["점수"] if g.get("점수") else "")).strip(),
                          "actual": res if res in ("승", "무", "패") else "",   # 표에서 실제 결과 칸을 칠하는 데 쓴다
                          "score": g.get("점수", ""),
@@ -485,9 +492,9 @@ def build(out):
     since = now.date() - dt.timedelta(days=WINDOW_DAYS)
     dir_all = [g for g in games if g.get("결과") in ("승", "무", "패")]
     dir_rows = [g for g in dir_all if (_kick(g) or dt.date(1900, 1, 1)) >= since]
-    analyzed = [g for g in dir_rows if (g.get("깊이") or "") != "기준선"]
-    basern = [g for g in dir_rows if (g.get("깊이") or "") == "기준선"]
-    analyzed_all = [g for g in dir_all if (g.get("깊이") or "") != "기준선"]
+    analyzed = [g for g in dir_rows if (g.get("깊이") or "") not in NO_ANALYSIS]
+    basern = [g for g in dir_rows if (g.get("깊이") or "") in NO_ANALYSIS]
+    analyzed_all = [g for g in dir_all if (g.get("깊이") or "") not in NO_ANALYSIS]
 
     def _acc(rows):
         xs = [(g, _top(g, "보정") or _top(g, "순수")) for g in rows]

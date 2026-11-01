@@ -16,6 +16,10 @@
 """
 import argparse, collections, csv, json, os, sys
 
+# 조사가 들어가지 않은 깊이 — 성적·학습 집계에서 뺀다(2026-11-02).
+# 기준선 = 모델 자동, 시장복사 = 시장 확률 그대로, 미분석 = 등록만 된 상태.
+NO_ANALYSIS = ("기준선", "시장복사", "미분석")
+
 ROOT = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..")
 W = os.path.join(ROOT, "data", "factor_weights.json")
 SIDES = ("승", "무", "패")
@@ -106,7 +110,7 @@ def _top(g, pre):
 
 def cmd_report(a):
     gs = [g for g in rows("전체경기기록.csv")
-          if g.get("결과") in SIDES and (g.get("깊이") or "") != "기준선"]
+          if g.get("결과") in SIDES and (g.get("깊이") or "") not in NO_ANALYSIS]
     xs = []
     for g in gs:
         me, mk = _top(g, "보정") or _top(g, "순수"), _top(g, "시장")

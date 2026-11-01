@@ -26,6 +26,10 @@
 """
 import argparse, collections, csv, datetime as dt, math, os, sys
 
+# 조사가 들어가지 않은 깊이 — 성적·학습 집계에서 뺀다(2026-11-02).
+# 기준선 = 모델 자동, 시장복사 = 시장 확률 그대로, 미분석 = 등록만 된 상태.
+NO_ANALYSIS = ("기준선", "시장복사", "미분석")
+
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.join(HERE, "..")
 sys.path.insert(0, HERE)
@@ -96,7 +100,7 @@ def track_b(window_days=None):
     import json
     p = os.path.join(ROOT, "전체경기기록.csv")
     games = [g for g in csv.DictReader(open(p, encoding="utf-8-sig"))
-             if g.get("결과") in ("승", "무", "패") and (g.get("깊이") or "") != "기준선"]
+             if g.get("결과") in ("승", "무", "패") and (g.get("깊이") or "") not in NO_ANALYSIS]
     try:
         W = json.load(open(os.path.join(ROOT, "data", "factor_weights.json"), encoding="utf-8"))
         wt = {t: v for t, v in (W.get("types") or {}).items() if v.get("weight")}

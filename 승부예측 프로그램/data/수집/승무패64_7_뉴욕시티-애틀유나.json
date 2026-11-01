@@ -1,0 +1,23 @@
+{"번호":7,"홈":"뉴욕시티","원정":"애틀유나","리그":"MLS","구장":"Citi Field (Queens) — 뉴욕시티FC 홈경기는 양키스타디움·시티필드 분산 사용, 이번 경기는 시티필드로 확인","킥오프":"2026-10-29 08:30 KST","수집시각":"2026-10-28 22:50 KST",
+ "결장":[
+   {"팀":"원정","선수":"Enea Mihaj","포지션":"미드필더","이번시즌_선발/경기":"미상","득점·도움":"미상","사유":"엉덩이(hip) 부상, 이번 Availability Report 신규 추가","상태":"확정","복귀예정":"미상","대체선수":"미상","출처":["https://www.atlutd.com/news/availability-report-squad-travels-empire-state-nycfc-match-october-2026"],"날짜":"2026-10-27"},
+   {"팀":"원정","선수":"Will Reilly","포지션":"수비수","이번시즌_선발/경기":"미상","득점·도움":"미상","사유":"발목 부상 — Martino 감독이 '시즌 아웃'이라 밝힘","상태":"확정","복귀예정":"시즌 아웃","대체선수":"미상","출처":["https://www.atlutd.com/news/availability-report-squad-travels-empire-state-nycfc-match-october-2026"],"날짜":"2026-10-27"}
+ ],
+ "라인업":{
+   "홈":{"발표여부":"미발표","예상XI":"미상(teamdb 직전 선발: Freese, Sands, Martins, Perea, Fernández, Martínez, Wolf, Ojeda 등 — 참고용). 주의: 'NYCFC 5명 결장' 제목의 자사 뉴스 페이지를 확인했으나 2024시즌 7/17 경기 기사로 날짜 불일치 — 이번 경기 결장 정보로 사용 불가","포메이션":"4-3-3(teamdb 직전 선발 기준)","출처":"https://www.newyorkcityfc.com/news/injury-report-five-missing-vs-atlanta","날짜":"확인불가(페이지 내용 2024시즌 기사로 추정, 발행일 불명)"},
+   "원정":{"발표여부":"미발표","예상XI":"미상(teamdb 직전 선발: Hoyos, Alonso, Díaz, Galoppo, Embolo, Almirón, Miranchuk 등 — 참고용)","포메이션":"4-3-3(teamdb 직전 선발 기준)","출처":"","날짜":""}
+ },
+ "최근경기":[
+   {"팀":"홈","날짜":"2026-10-24","상대":"Orlando City SC","장소":"A","스코어":"2-2 무"},
+   {"팀":"원정","날짜":"2026-10-24","상대":"Chicago Fire FC","장소":"H","스코어":"2-3 패"}
+ ],
+ "순위":{"홈":"동부 12위 31경기 8승11무12패 승점35 — 플레이오프 진출 희박, 이번 경기 지거나 비기고 동시에 RBNY가 뉴잉글랜드 원정에서 승리하면 탈락, 또는 뉴욕시티가 패하고 컬럼버스가 댈러스 원정 승리해도 탈락","원정":"동부 14위(최하위권) 31경기 8승6무17패 승점30 — 뉴욕시티 원정에서 지거나 비기면 탈락, 또는 RBNY가 뉴잉글랜드서 승리·무승부해도 탈락, 또는 컬럼버스가 댈러스서 이겨도 탈락","출처":"https://www.frontrowsoccer.com/2026/10/27/on-the-brink-heres-how-nycfc-can-be-eliminated-from-mls-playoff-contention/","날짜":"2026-10-27"},
+ "감독":{"홈":"Pascal Jansen","원정":"Gerardo 'Tata' Martino","변동":"없음(확인된 교체 뉴스 없음)","출처":"","날짜":""},
+ "일정·동기·기타":[
+   {"내용":"두 팀 모두 사실상 '지면 탈락'에 가까운 벼랑 끝 경기로 보도됨(제목: 'Nothing to lose for NYCFC, Atlanta in last gasp for playoff bid') — 동기부여는 최고 수준이나 두 팀 다 시즌 중 부진(뉴욕시티 12위, 애틀랜타 14위)이라 탈락 가능성이 더 높다는 뉘앙스","출처":"https://yournews.com/2026/10/27/7241656/nothing-to-lose-for-nycfc-atlanta-in-last-gasp-for/","날짜":"2026-10-27"}
+ ],
+ "날씨·구장":{"내용":"못찾음(뉴욕 퀸즈 10월 말 저녁 — 일반적으로 쌀쌀, 구체적 예보 미확인)","출처":"","날짜":""},
+ "엇갈림":["뉴욕시티FC 자사 사이트의 'Injury Report: Five missing vs Atlanta' 페이지는 내용상 2024시즌 7/17 경기(Nick Cushing 감독 시절, James Sands 출장정지 등)로 보이며 이번 2026-10-28 경기와 무관 — 결장 정보로 채택하지 않음"],
+ "못찾음":["뉴욕시티FC 금번(10/27~28자) 공식 결장자 명단","양 팀 공식 발표 라인업","날씨 예보"],
+ "뉴스없음":{"홈":"","원정":""},
+ "검증":"감독 ○/이적 특이사항 없음/결장 출처 1개(애틀랜타 공식 Availability Report, 2026-10-27) — 뉴욕시티 결장은 미확인(자사 페이지 날짜 불일치로 폐기)"}

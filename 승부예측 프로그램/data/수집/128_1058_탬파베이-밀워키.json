@@ -1,0 +1,83 @@
+{
+  "번호": "1058",
+  "홈": "탬파베이 레이스 (Tampa Bay Rays)",
+  "원정": "밀워키 브루어스 (Milwaukee Brewers)",
+  "종목": "야구",
+  "리그": "MLB",
+  "수집시각": "2026-10-29 KST (경기 ET 2026-10-28 20:00, Tropicana Field)",
+  "(야구)시리즈정보": {
+    "시리즈": "2026 월드시리즈 5차전. 밀워키 3승 1패 리드 — 4차전(10/27, ET)에서 레이스가 12회 연장 끝 Ben Williamson 끝내기 안타로 4-3 승리해 스윕을 면함",
+    "4차전요약": "쿠퍼 프랫 12회초 밀워키에 솔로포로 3-2 리드 → 레이스 12회말 역전 끝내기(4-3). 양팀 합계 투수 15명·367구 투입, 경기시간 4시간20분. 9회 비디오판독 논란(브루어스 위협 무산) 포함",
+    "레이스상황": "0승 3패 후 4차전 승리로 궁지 탈출, 5차전도 win-or-go-home(패하면 밀워키 우승)",
+    "출처": "https://www.foxsports.com/mlb/world-series-game-4-milwaukee-brewers-vs-tampa-bay-rays-oct-27-2026-game-boxscore-97239 ; https://sports.yahoo.com/mlb/live/brewers-rays-box-score-live-updates-world-series-game-4-lineups-starting-pitchers-news-highlights-where-to-watch-223000629.html ; https://www.si.com/mlb/2026-world-series-game-4-rays-rise-from-the-dead-in-extra-innings-to-keep-title-dream-alive ; https://www.cnn.com/2026/10/28/sport/live-news/game-4-world-series",
+    "날짜": "2026-10-28"
+  },
+  "(야구)선발투수": {
+    "홈": {
+      "이름": "Drew Rasmussen (RHP)",
+      "확정여부": "확정 — 레이스 공식 발표(3일 휴식 단축등판, '시즌이 걸린' 등판)",
+      "2026정규시즌": "ERA 2.67, 170이닝, 올스타 선정(2년 연속)",
+      "포스트시즌": "5차전 전까지 3선발 ERA 1.29, 21이닝 23탈삼진",
+      "직전등판": "2026-10-24(ET) 2차전 선발 — 3.2이닝 3실점 89구. 이후 3일 휴식 후 등판(통상 휴식보다 짧음)",
+      "출처": "https://sports.yahoo.com/mlb/breaking-news/article/world-series-2026-rays-to-start-ace-drew-rasmussen-in-game-5-with-season-on-the-line-191629635.html ; https://www.espn.com/mlb/story/_/id/50310280/rays-drew-rasmussen-start-world-series-game-5-short-rest ; https://www.washingtonpost.com/sports/mlb/2026/10/28/drew-rasmussen-world-series-3-days-rest/c208879a-d306-11f1-9931-2a41b76fc976_story.html",
+      "날짜": "2026-10-28"
+    },
+    "원정": {
+      "이름": "Jacob Misiorowski (RHP)",
+      "확정여부": "확정 — 브루어스 공식 발표",
+      "2026정규시즌": "16승5패 ERA 1.80, MLB 최다 252탈삼진/174이닝",
+      "포스트시즌": "ERA 2.75, 13.1이닝 4자책 14탈삼진(5차전 전까지)",
+      "직전등판": "2026-10-23(ET) 1차전 선발 — 5이닝 1자책 승리투수. 통상 휴식(4~5일)",
+      "비고": "ESPN 기준 '4일 휴식'으로 정상 로테이션 등판(Rasmussen과 달리 단축등판 아님)",
+      "출처": "https://sports.yahoo.com/articles/brewers-jacob-misiorowski-decision-pivotal-140900736.html ; https://wausaupilotandreview.com/2026/10/28/jacob-misiorowski-to-start-world-series-game-5-after-brewers-fail-to-sweep-rays/ ; https://www.mlb.com/news/2026-world-series-game-5-storylines-brewers-rays",
+      "날짜": "2026-10-28"
+    }
+  },
+  "불펜": [
+    {"팀": "홈(레이스)", "내용": "4차전서 Bryan Baker·Kevin Kelly·Cam Booser 등판했으나 '무리하지 않음(didn't labor)'으로 평가 — 5차전 가용. 반면 Nick Martinez(1차전 선발)는 4차전 불펜 2이닝 33구 투입돼 5차전은 선발 불가(단축등판 옵션 소진), Freddy Peralta(3차전 선발)는 정상 휴식 필요해 5차전 조기 투입 어려움 — 즉 선발 Rasmussen 조기강판 시 레이스는 사실상 '불펜게임' 리스크", "출처": "https://www.espn.com/mlb/story/_/id/50241136/world-series-game-5-brewers-rays-live-updates-takeaways", "날짜": "2026-10-28"},
+    {"팀": "원정(브루어스)", "내용": "4차전서 Aaron Ashby(2.1이닝 31구, 전원 범타 처리 — 5차전 1이닝 이상 가용), Abner Uribe(2이닝 19구 — 가용), Trevor Megill(1타자 5구 — 감독 Pat Murphy가 '더 쓰고 싶다' 언급, 가용). 다만 4차전에서만 양팀 합계 15명·367구를 투입한 혈투라 브루어스도 불펜 소모 심함 — Murphy는 Misiorowski 이후 4~5이닝을 불펜으로 메워야 할 것으로 전망됨", "출처": "https://www.espn.com/mlb/story/_/id/50241136/world-series-game-5-brewers-rays-live-updates-takeaways", "날짜": "2026-10-28"}
+  ],
+  "결장": [
+    {"팀": "홈", "선수": "Shane McClanahan", "포지션": "LHP", "사유": "팔뚝 부상 — 포스트시즌 전체 제외", "상태": "확정", "출처": "https://www.mlb.com/news/brewers-rays-world-series-game-4-starting-lineups-and-pitching-matchup", "날짜": "2026-10-27"},
+    {"팀": "홈", "선수": "Gavin Lux·Jon Heasley·Edwin Uceta·Jacob Melton·Ryan Pepiot", "포지션": "다수", "사유": "시즌 중 60일 IL(어깨·팔꿈치·햄스트링·엉덩이) — 월드시리즈 로스터 제외 지속", "상태": "확정(시즌 내내)", "출처": "https://www.covers.com/sport/baseball/mlb/matchup/395578", "날짜": "2026-10-27"},
+    {"팀": "원정", "선수": "Grant Anderson·Brian Fitzpatrick·Quinn Priester·Angel Zerpa", "포지션": "RHP/LHP", "사유": "시즌 중 IL(팔꿈치·손목·팔뚝) — 로스터 제외 지속", "상태": "확정(시즌 내내)", "출처": "https://www.covers.com/sport/baseball/mlb/matchup/395578", "날짜": "2026-10-27"},
+    {"팀": "원정", "선수": "Brandon Woodruff", "포지션": "RHP", "사유": "7월 어깨부상, 3.5개월 미등판 후 WS 로스터 복귀·4차전 등판 — 재부상 리스크 지속 거론", "상태": "로스터 포함(가용, 과부하 주의)", "출처": "https://sports.yahoo.com/mlb/article/brewers-add-pitcher-brandon-woodruff-to-world-series-roster-after-apparent-season-ending-injury-in-july-203157265.html", "날짜": "2026-10-23"}
+  ],
+  "라인업": {
+    "홈": {
+      "발표여부": "발표됨",
+      "타순": ["1 Yandy Diaz DH", "2 Jonathan Aranda 1B", "3 Junior Caminero 3B", "4 Liam Hicks C", "5 Jonny DeLuca CF", "6 Chandler Simpson LF", "7 Ben Williamson 2B", "8 Ryan Vilade RF", "9 Taylor Walls SS"],
+      "비고": "4차전 끝내기 주인공 Ben Williamson이 2B로 선발 승격",
+      "출처": "https://sports.yahoo.com/articles/brewers-vs-rays-live-updates-202413765.html",
+      "날짜": "2026-10-28"
+    },
+    "원정": {
+      "발표여부": "발표됨",
+      "타순": ["1 Jackson Chourio LF", "2 Jake Bauers 1B", "3 Christian Yelich DH", "4 William Contreras C", "5 Brice Turang 2B", "6 Sal Frelick RF", "7 Cooper Pratt SS", "8 Garrett Mitchell CF", "9 David Hamilton 3B"],
+      "비고": "NBC Sports 보도: 브루어스는 4차전과 동일 라인업 유지",
+      "출처": "https://www.nbcsports.com/fantasy/baseball/player-news/2026-10-28/brewers-roll-with-game-4-lineup-in-game-5",
+      "날짜": "2026-10-28"
+    }
+  },
+  "구장·날씨": {
+    "구장명": "Tropicana Field (St. Petersburg, FL) — 고정 돔구장",
+    "날씨": "실내 돔경기, 날씨 영향 없음",
+    "주심": "Vic Carapazza (5차전 홈플레이트). 1루 Tripp Gibson, 2루 Gabe Morales, 3루 Jim Wolf, 좌익 Nic Lentz, 우익 James Hoye(크루치프), 예비 Dan Bellino",
+    "출처": "https://en.wikipedia.org/wiki/Nic_Lentz ; https://www.espn.com/mlb/story/_/id/50251942/umpires-nic-lentz-gabe-morales-make-world-series-debuts",
+    "날짜": "2026-10-28"
+  },
+  "일정·동기·기타": [
+    {"내용": "밀워키는 구단 역사상 첫 월드시리즈 우승이 걸린 경기(5차전에서 우승 확정 가능). 레이스는 3연패 뒤 win-or-go-home이 다시 반복(4차전과 동일하게 지면 시즌 종료)", "출처": "https://www.cnn.com/2026/10/28/sport/live-news/game-5-world-series", "날짜": "2026-10-28"},
+    {"내용": "4차전이 4시간20분·15투수·367구의 소모전이라 5차전은 양팀 다 선발 조기강판 시 불펜 싸움이 매우 얇아질 수 있다는 점이 복수 매체(ESPN 등)에서 핵심 변수로 지목됨", "출처": "https://www.espn.com/mlb/story/_/id/50241136/world-series-game-5-brewers-rays-live-updates-takeaways", "날짜": "2026-10-28"},
+    {"내용": "Misiorowski는 정상 로테이션(4일 휴식)인 반면 Rasmussen은 단축등판(3일 휴식) — 선발 소모 측면에서 비대칭", "출처": "https://www.washingtonpost.com/sports/mlb/2026/10/28/drew-rasmussen-world-series-3-days-rest/c208879a-d306-11f1-9931-2a41b76fc976_story.html", "날짜": "2026-10-28"}
+  ],
+  "엇갈림": [
+    "일부 검색 스니펫이 Misiorowski의 '직전 등판'을 '토요일 구원 5이닝'으로 표현했으나, ESPN·Yahoo 등 다수 매체는 '1차전(10/23) 선발 5이닝 1자책 승리'로 명확히 보도 — 1차전 선발 등판이 맞고 '구원'·'토요일' 표현은 검색엔진 요약 오류로 판단, 채택하지 않음"
+  ],
+  "못찾음": [
+    "4차전 Rays·Brewers 불펜 투수별 정확한 등판 순서(일부만 확인)",
+    "5차전 라인업 중 Rays 변경분이 4차전과 완전히 동일한지(Williamson 승격 외 추가 변경 여부)",
+    "경기 당일(10/28) 돔 내부 환경 변수(해당 없음, 고정 돔이라 실질적 영향 없음)"
+  ],
+  "뉴스위험": "선발(Rasmussen·Misiorowski) 자체는 확정이나, 4차전에서 양팀 불펜을 극단적으로 소모(367구·15투수)해 5차전 중반 이후 불펜 운용이 유동적이다. 조기강판 시 어느 투수가 투입될지 경기 전 확정하기 어려움 — 특히 Rays는 Nick Martinez·Peralta 둘 다 즉시 투입 불가 상태라 선발 붕괴 시 약점 노출 가능성 있음."
+}

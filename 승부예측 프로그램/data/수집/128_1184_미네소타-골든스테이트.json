@@ -1,0 +1,156 @@
+{
+  "번호": "1184",
+  "홈": "Minnesota Timberwolves",
+  "원정": "Golden State Warriors",
+  "종목": "농구",
+  "리그": "NBA",
+  "수집시각": "2026-10-29 08시대 KST",
+  "결장": [
+    {
+      "팀": "홈",
+      "선수": "Anthony Edwards",
+      "포지션": "SG/SF",
+      "상태": "확정",
+      "사유": "오른쪽 무릎 관절경 수술 예정, 약 2개월 결장 전망",
+      "이번시즌_경기당출전분_득점": "미확인(공식 스탯 페이지 직접 확인 못함)",
+      "출처": "https://www.goldenstateofmind.com/warriors-injury-report/112993/warriors-timberwolves-injury-report-yaxel-lendeborg-anthony-edwards",
+      "날짜": "2026-10-28"
+    },
+    {
+      "팀": "홈",
+      "선수": "Donte DiVincenzo",
+      "포지션": "SG",
+      "상태": "확정",
+      "사유": "아킬레스건 부상",
+      "이번시즌_경기당출전분_득점": "미확인",
+      "출처": "https://www.goldenstateofmind.com/warriors-injury-report/112993/warriors-timberwolves-injury-report-yaxel-lendeborg-anthony-edwards",
+      "날짜": "2026-10-28"
+    },
+    {
+      "팀": "원정",
+      "선수": "Moses Moody",
+      "포지션": "SG",
+      "상태": "확정",
+      "사유": "무릎(좌측 슬개건 파열) 재활 중, 12월~1월 복귀 목표",
+      "이번시즌_경기당출전분_득점": "미확인",
+      "출처": "https://heavy.com/sports/nba/golden-state-warriors/injury-report-vs-timberwolves-october-28/",
+      "날짜": "2026-10-28"
+    },
+    {
+      "팀": "원정",
+      "선수": "Jimmy Butler III",
+      "포지션": "SF",
+      "상태": "확정",
+      "사유": "오른쪽 ACL 파열 재활 중, 1월~2월 복귀 목표",
+      "이번시즌_경기당출전분_득점": "미확인",
+      "출처": "https://heavy.com/sports/nba/golden-state-warriors/injury-report-vs-timberwolves-october-28/",
+      "날짜": "2026-10-28"
+    },
+    {
+      "팀": "원정",
+      "선수": "Kristaps Porzingis",
+      "포지션": "C",
+      "상태": "확정",
+      "사유": "질병(체위성 기립성 빈맥 증후군, POTS)",
+      "이번시즌_경기당출전분_득점": "미확인",
+      "출처": "https://heavy.com/sports/nba/golden-state-warriors/injury-report-vs-timberwolves-october-28/",
+      "날짜": "2026-10-28"
+    },
+    {
+      "팀": "원정",
+      "선수": "Yaxel Lendeborg",
+      "포지션": "PF",
+      "상태": "의심",
+      "사유": "발 부상",
+      "이번시즌_경기당출전분_득점": "미확인",
+      "출처": "https://www.goldenstateofmind.com/warriors-injury-report/112993/warriors-timberwolves-injury-report-yaxel-lendeborg-anthony-edwards",
+      "날짜": "2026-10-28"
+    }
+  ],
+  "예상선발5": {
+    "홈": ["LaMelo Ball", "Ayo Dosunmu", "Jaden McDaniels", "Jonathan Kuminga", "Rudy Gobert"],
+    "원정": ["Stephen Curry", "Brandin Podziemski", "Draymond Green", "Graham Ike", "Yaxel Lendeborg(의심, 결장 시 대체 미확인)"],
+    "출처": "https://fantasydata.com/nba/starting-lineups",
+    "날짜": "2026-10-28",
+    "비고": "Anthony Edwards(홈) 시즌아웃으로 기존 주전에서 제외됨. 포지션 표기는 출처 사이트 라벨을 그대로 옮긴 것이라 PF 중복 등 부정확할 수 있음(명단 자체는 신뢰)."
+  },
+  "최근폼": {
+    "홈": {
+      "최근5경기": [
+        {"날짜": "2026-10-21", "상대": "@MIA", "결과": "승 131-106"},
+        {"날짜": "2026-10-23", "상대": "@ORL", "결과": "승 115-93"},
+        {"날짜": "2026-10-25", "상대": "vs TOR", "결과": "승 117-94"},
+        {"날짜": "2026-10-26", "상대": "@CLE", "결과": "패 125-127 (OT)"}
+      ],
+      "시즌전적": "3승 1패(4경기, 2026 시즌 개막 이후)",
+      "홈전적": "미확인(홈 단독 전적 분리 확인 못함)",
+      "원정전적": "미확인"
+    },
+    "원정": {
+      "최근5경기": [
+        {"날짜": "2026-10-21", "상대": "@LAL", "결과": "패 105-127"},
+        {"날짜": "2026-10-23", "상대": "vs MEM", "결과": "패 108-111"},
+        {"날짜": "2026-10-24", "상대": "@PHO", "결과": "패 122-131"},
+        {"날짜": "2026-10-26", "상대": "@DEN", "결과": "승 134-114"}
+      ],
+      "시즌전적": "1승 3패(4경기)",
+      "홈전적": "미확인",
+      "원정전적": "미확인",
+      "비고": "일부 검색 결과는 '0-3'으로 표기(10/26 승리 반영 전 캐시로 추정) — 경기별 박스스코어 기준 1승3패가 더 신뢰도 높음"
+    },
+    "출처": "https://www.statmuse.com/nba/ask/warriors-last-5-games-record ; https://www.statmuse.com/nba/ask/timberwolves-score-last-five-games ; https://www.espn.com/nba/team/schedule/_/name/min",
+    "날짜": "2026-10-29 검색 기준"
+  },
+  "공수지표": {
+    "홈": {
+      "ORtg": "117.8(리그 8위)",
+      "DRtg": "101.4(리그 2위)",
+      "Pace": "101.0(리그 18위)",
+      "경기수": "4경기(시즌 초반, 표본 매우 작음)",
+      "비고": "원출처 페이지 직접 확인 못함 — 검색 엔진 요약 기반, 신뢰도 낮음으로 참고만"
+    },
+    "원정": {
+      "ORtg": "미확인",
+      "DRtg": "미확인",
+      "Pace": "미확인",
+      "경기수": "4경기"
+    },
+    "출처": "https://craftednba.com/teams/minnesota ; https://www.basketball-reference.com/teams/MIN/2027.html",
+    "날짜": "2026-10-29 검색 기준"
+  },
+  "일정피로": {
+    "홈": {
+      "백투백": false,
+      "직전경기날짜": "2026-10-26 (@CLE, OT패)",
+      "최근7일경기수": 2,
+      "이동": "클리블랜드 원정 후 홈 복귀, 특이 장거리 연전 없음"
+    },
+    "원정": {
+      "백투백": false,
+      "직전경기날짜": "2026-10-26 (@DEN, 승)",
+      "최근7일경기수": 3,
+      "이동": "LA→멤피스(홈)→피닉스→덴버→미네소타, 사실상 원정 연전(개막 후 거의 전 경기 원정) — 체력 부담 가능성 있으나 '사실'로만 기록, 영향 평가는 분석가 몫"
+    },
+    "출처": "https://www.statmuse.com/nba/ask/warriors-last-5-games-record",
+    "날짜": "2026-10-29 검색 기준"
+  },
+  "맞대결": {
+    "이번시즌": "미확인(아직 맞대결 없음으로 추정)",
+    "최근": "미확인(최근 시즌 맞대결 결과 직접 확인 못함)"
+  },
+  "기타뉴스": [
+    {
+      "내용": "Jonathan Kuminga가 미네소타 소속으로 선발 출전 명단에 등장 — 오프시즌 트레이드로 이적한 것으로 보이나 트레이드 공식 발표 기사 직접 확인은 못함(미확인)",
+      "출처": "https://fantasydata.com/nba/starting-lineups",
+      "날짜": "2026-10-28",
+      "오래됨": false
+    },
+    {
+      "내용": "Anthony Edwards 무릎 관절경 수술 예정, 약 2개월 결장",
+      "출처": "https://www.goldenstateofmind.com/warriors-injury-report/112993/warriors-timberwolves-injury-report-yaxel-lendeborg-anthony-edwards",
+      "날짜": "2026-10-28",
+      "오래됨": false
+    }
+  ],
+  "뉴스위험": "미네소타 Jonathan Kuminga의 로스터 이적 배경(트레이드 상세)을 1차 공식 발표 기사로 확인 못함 — 출전 자체는 라인업 출처에서 확인됨. 골든스테이트 Yaxel Lendeborg는 '의심(foot)'인데 동일 출처 라인업표에는 선발로 표기되어 있어 실제 출전 여부가 불확실함."
+}

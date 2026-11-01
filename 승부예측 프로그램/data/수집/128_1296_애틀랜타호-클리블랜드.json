@@ -1,0 +1,48 @@
+{
+  "경기": "애틀랜타 호크스 vs 클리블랜드 캐벌리어스",
+  "수집시각": "2026-10-29 22:10",
+  "대회_라운드": "NBA 2026-27 정규시즌 · 킥오프 2026-10-30 09:00 KST(2026-10-29 20:00 ET) · State Farm Arena(Atlanta)",
+  "전적": [
+    {"팀": "애틀랜타 호크스", "W-L": "2-3", "경기수": 5, "출처": "https://www.basketball-reference.com/teams/ATL/2027.html", "날짜": "2026-10-29"},
+    {"팀": "클리블랜드 캐벌리어스", "W-L": "3-1", "경기수": 4, "출처": "https://www.basketball-reference.com/teams/CLE/2027.html", "날짜": "2026-10-29"}
+  ],
+  "효율": [
+    {"팀": "애틀랜타 호크스", "ORtg": 116.2, "DRtg": 111.3, "Net": 4.8, "Pace": 103.5, "출처": "https://www.basketball-reference.com/teams/ATL/2027.html", "날짜": "2026-10-29"},
+    {"팀": "클리블랜드 캐벌리어스", "ORtg": 114.2, "DRtg": 112.3, "Net": 1.9, "Pace": 102.2, "출처": "https://www.basketball-reference.com/teams/CLE/2027.html", "날짜": "2026-10-29"}
+  ],
+  "결장": [
+    {"팀": "애틀랜타 호크스", "선수": "Mouhamed Gueye", "포지션": "F", "상태": "Out", "사유": "Fractured left foot, underwent surgery", "등급": "확정", "출처": "https://www.espn.com/nba/team/injuries/_/name/atl/atlanta-hawks", "날짜": "2026-10-19"},
+    {"팀": "애틀랜타 호크스", "선수": "Henri Veesaar", "포지션": "C", "상태": "Out", "사유": "Torn right ACL, out for season", "등급": "확정", "출처": "https://www.espn.com/nba/team/injuries/_/name/atl/atlanta-hawks", "날짜": "2026-09-21"},
+    {"팀": "애틀랜타 호크스", "선수": "Jock Johnson", "포지션": "", "상태": "Out", "사유": "Right Achilles injury (이번 경기 결장 보도)", "등급": "의심", "출처": "https://www.si.com/nba/hawks/onsi/news/hawks-injury-report-released-ahead-of-wednesday-s-matchup-vs-cleveland-01knmqa3htdd", "날짜": "2026-10-29"},
+    {"팀": "클리블랜드 캐벌리어스", "선수": "Nae'Qwan Tomlin", "포지션": "", "상태": "Out", "사유": "Lower back stress reaction, 3-4주 결장 예상", "등급": "확정", "출처": "https://www.fearthesword.com/cavs-injury-report/47750/cavs-donovan-mitchell-cleveland-cavaliers-atlanta-hawks-sam-merrill-jarrett-allen-kenny-atkinson-jaylon-tyson", "날짜": "2026-10-29"},
+    {"팀": "클리블랜드 캐벌리어스", "선수": "Khalifa Diop", "포지션": "", "상태": "Doubtful", "사유": "Knee injury (직전 워싱턴전 Out, 호크스전은 day-to-day 보도)", "등급": "의심", "출처": "https://www.espn.com/nba/team/injuries/_/name/cle/cleveland-cavaliers", "날짜": "2026-10-28"}
+  ],
+  "일정": [
+    {"팀": "애틀랜타 호크스", "직전경기": "2026-10-28 vs 마이애미 히트 패(117-129, 홈)", "휴식일": 0, "백투백": true, "이동": "홈경기 연속(이동 없음)", "다음경기": "미확인", "출처": "https://www.basketball-reference.com/teams/ATL/2027.html"},
+    {"팀": "클리블랜드 캐벌리어스", "직전경기": "2026-10-28 vs 워싱턴 위저즈 승(121-111, 홈 클리블랜드)", "휴식일": 0, "백투백": true, "이동": "클리블랜드→애틀랜타 원정 이동(약 540마일)", "다음경기": "미확인", "출처": "https://www.basketball-reference.com/teams/CLE/2027.html"}
+  ],
+  "최근폼": [
+    {"팀": "애틀랜타 호크스", "최근5": "10/21 @ORL 승132-125, 10/23 @CHA 승128-81, 10/24 vs HOU 패114-121, 10/26 @HOU 패110-120, 10/28 vs MIA 패117-129", "팀득점평균": 120.2, "팀실점평균": 115.2, "출처": "https://www.basketball-reference.com/teams/ATL/2027.html", "날짜": "2026-10-29"},
+    {"팀": "클리블랜드 캐벌리어스", "최근5": "10/22 @PHI 패106-114, 10/24 vs BRK 승125-121, 10/26 vs MIN 승127-125, 10/28 vs WAS 승121-111, 10/29 @ATL 예정", "팀득점평균": 119.8, "팀실점평균": 117.8, "출처": "https://www.basketball-reference.com/teams/CLE/2027.html", "날짜": "2026-10-29"}
+  ],
+  "맞대결": [
+    {"날짜": "2025-11-02", "장소": "클리블랜드(원정 호크스)", "스코어": "클리블랜드 117-109 승", "출처": "https://champsorchumps.us/team/nba/atlanta-hawks/head-to-head/cleveland-cavaliers"},
+    {"날짜": "2025-11-28", "장소": "애틀랜타(홈 호크스)", "스코어": "애틀랜타 130-123 승", "출처": "https://champsorchumps.us/team/nba/atlanta-hawks/head-to-head/cleveland-cavaliers"},
+    {"날짜": "2026-04-08", "장소": "클리블랜드(원정 호크스)", "스코어": "클리블랜드 122-116 승", "출처": "https://champsorchumps.us/team/nba/atlanta-hawks/head-to-head/cleveland-cavaliers"},
+    {"날짜": "2026-04-10", "장소": "애틀랜타(홈 호크스)", "스코어": "애틀랜타 124-102 승", "출처": "https://champsorchumps.us/team/nba/atlanta-hawks/head-to-head/cleveland-cavaliers"}
+  ],
+  "총득점_최근3": [
+    {"팀": "애틀랜타 호크스", "합계점수": ["235(10/24, 114-121)", "230(10/26, 110-120)", "246(10/28, 117-129)"], "출처": "https://www.basketball-reference.com/teams/ATL/2027.html"},
+    {"팀": "클리블랜드 캐벌리어스", "합계점수": ["246(10/24, 125-121)", "252(10/26, 127-125)", "232(10/28, 121-111)"], "출처": "https://www.basketball-reference.com/teams/CLE/2027.html"}
+  ],
+  "뉴스": [
+    {"팀": "애틀랜타 호크스", "내용": "Mouhamed Gueye가 좌측 족부 골절로 수술 받아 시즌 상당 기간 결장, Henri Veesaar는 우측 ACL 파열로 시즌 아웃", "출처": "https://www.espn.com/nba/team/injuries/_/name/atl/atlanta-hawks", "날짜": "2026-10-19"},
+    {"팀": "클리블랜드 캐벌리어스", "내용": "Nae'Qwan Tomlin 허리 스트레스 반응으로 3~4주 결장 예상", "출처": "https://www.fearthesword.com/cavs-injury-report/47750/cavs-donovan-mitchell-cleveland-cavaliers-atlanta-hawks-sam-merrill-jarrett-allen-kenny-atkinson-jaylon-tyson", "날짜": "2026-10-29"},
+    {"팀": "클리블랜드 캐벌리어스", "내용": "Donovan Mitchell 경기당 24.8득점으로 연승 견인, 이번 경기 결장 보도 없음", "출처": "https://sports.yahoo.com/articles/minnesota-timberwolves-vs-cleveland-cavaliers-175852311.html", "날짜": "2026-10-26"}
+  ],
+  "미확인": [
+    "호크스·캐벌리어스 다음 경기 일정",
+    "두 팀 모두 공식 NBA 상대팀 배포 injury report(킥오프 수 시간 전 최종본) 미확보 — ESPN/보도 기반 2차 출처만 확보",
+    "선발 라인업(스타팅 5) 공식 발표 전"
+  ]
+}

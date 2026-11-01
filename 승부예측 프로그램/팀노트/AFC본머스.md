@@ -1,15 +1,15 @@
 # AFC 본머스 (잉글랜드 프리미어리그)
 
 <!-- FACTS:START -->
-## 팩트시트 (자동 수집 2026-10-25) — 조사 전 반드시 읽고, 아래 사실과 다른 뉴스 요약은 '미확인'으로 둔다
+## 팩트시트 (자동 수집 2026-10-31) — 조사 전 반드시 읽고, 아래 사실과 다른 뉴스 요약은 '미확인'으로 둔다
 - 출처: 위키 '2026–27 AFC Bournemouth season'(season), ESPN 있음
 - 감독: Marco Rose
-- 리그 순위: 17위 7경기 1승3무3패 GD-4 승점6 (AFC Bournemouth)
-- 최근 경기(ESPN, 최대 28일): 2026-09-05 Newcastle United 2-2 AFC Bournemouth / 2026-09-12 AFC Bournemouth 2-2 Brentford / 2026-09-20 AFC Bournemouth 0-1 Liverpool / 2026-10-10 Chelsea 5-1 AFC Bournemouth / 2026-10-18 AFC Bournemouth 2-0 Sunderland
+- 리그 순위: 13위 8경기 2승3무3패 GD-1 승점9 (AFC Bournemouth)
+- 최근 경기(ESPN, 최대 28일): 2026-09-12 AFC Bournemouth 2-2 Brentford / 2026-09-20 AFC Bournemouth 0-1 Liverpool / 2026-10-10 Chelsea 5-1 AFC Bournemouth / 2026-10-18 AFC Bournemouth 2-0 Sunderland / 2026-10-25 Manchester United 0-3 AFC Bournemouth
 <!-- FACTS:END -->
 <!-- INPUTS:START -->
-## 입력(자동 수집 2026-10-28) — xG·휴식일·라인업·환경(이동거리·고도·날씨)은 이 숫자를 쓴다
-- 10-29 04:45 vs 애스턴 빌라: 휴식 3.2일(7일 2경기) · 직전 10-25 원정 vs Manchester United 3-0 승 [english premier league] · xG 시즌8경기 xG2.09/xGA1.16 npxGD+0.93 · 최근5 2.42/0.88 (+1.54) · 홈1.57/원정0.28 · xPts14.9 vs 승점9 · 직전 선발 4-2-3-1 Djordje Petrovic, António Silva, James Hill, Adrien Truffert, Adam Smith, Justin Kluivert, Lewis Cook, Tyler Adams, Evanilson, Marcus Tavernier, Rayan · 구장 딘 코트 · 이동 197km · 고도 36m(차 -65m) · 12.8℃ 강수0mm(0%) 바람6.8km/h
+## 입력(자동 수집 2026-10-30) — xG·휴식일·라인업·환경(이동거리·고도·날씨)은 이 숫자를 쓴다
+- 11-01 00:00 vs 리즈 유나이티드: 휴식 2.8일(7일 2경기) · 직전 10-29 홈 vs Aston Villa 3-0 승 [fourth round] · xG 시즌8경기 xG2.09/xGA1.16 npxGD+0.93 · 최근5 2.42/0.88 (+1.54) · 홈1.57/원정0.28 · xPts14.9 vs 승점9 · 직전 선발 4-1-4-1 Michele Di Gregorio, António Silva, Bafodé Diakité, Lewis Cook, Julio Soler, Juanlu Sanchez, Ryan Christie, Marcus Tavernier, Amine Adli, Ben Gannon-Doak, Álvaro Rodríguez · 구장 딘 코트 · 이동 339km · 고도 36m(차 -7m) · 14.6℃ 강수0mm(0%) 바람10.1km/h
 <!-- INPUTS:END -->
 
 ## 성향

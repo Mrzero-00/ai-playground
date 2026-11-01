@@ -1,0 +1,27 @@
+{"번호":13,"홈":"내슈빌SC","원정":"필라유니","리그":"MLS","구장":"GEODIS Park (Nashville)","킥오프":"2026-10-29 09:30 KST","수집시각":"2026-10-28 22:50 KST",
+ "결장":[
+   {"팀":"홈","선수":"Famara Camara","포지션":"미상","이번시즌_선발/경기":"미상","득점·도움":"미상","사유":"미상(명단 제외)","상태":"확정","복귀예정":"미상","대체선수":"미상","출처":["https://yournews.com/2026/10/27/7241638/points-record-within-reach-for-nashville-as-short-handed-union-visit/"],"날짜":"2026-10-27"},
+   {"팀":"홈","선수":"Owen Presthus","포지션":"미상","이번시즌_선발/경기":"미상","득점·도움":"미상","사유":"미상(명단 제외)","상태":"확정","복귀예정":"미상","대체선수":"미상","출처":["https://yournews.com/2026/10/27/7241638/points-record-within-reach-for-nashville-as-short-handed-union-visit/"],"날짜":"2026-10-27"},
+   {"팀":"원정","선수":"Milan Iloski","포지션":"FW(주전, 직전 선발)","이번시즌_선발/경기":"다수(팀 리딩 스코어러)","득점·도움":"19골(팀 1위)","사유":"햄스트링 부상","상태":"확정","복귀예정":"미상","대체선수":"미상","출처":["https://yournews.com/2026/10/27/7241638/points-record-within-reach-for-nashville-as-short-handed-union-visit/"],"날짜":"2026-10-27"},
+   {"팀":"원정","선수":"Bruno Damiani","포지션":"FW(주전, 직전 선발)","이번시즌_선발/경기":"다수(팀 2위 스코어러)","득점·도움":"12골","사유":"경고누적 1경기 출장정지","상태":"확정","복귀예정":"이번 경기 결장, 다음 경기 복귀","대체선수":"미상","출처":["https://yournews.com/2026/10/27/7241638/points-record-within-reach-for-nashville-as-short-handed-union-visit/"],"날짜":"2026-10-27"},
+   {"팀":"원정","선수":"Cavan Sullivan","포지션":"MF/FW","이번시즌_선발/경기":"최근 6경기 4회 출전(직전 결장)","득점·도움":"미상","사유":"발목 부상(직전 주말 결장)","상태":"의심(복귀 가능성, 이번 경기도 결장 위험)","복귀예정":"이번 경기 출전 여부 불투명","대체선수":"미상","출처":["https://yournews.com/2026/10/27/7241638/points-record-within-reach-for-nashville-as-short-handed-union-visit/"],"날짜":"2026-10-27"},
+   {"팀":"원정","선수":"Jesus Bueno","포지션":"미상","이번시즌_선발/경기":"미상","득점·도움":"미상","사유":"햄스트링","상태":"확정","복귀예정":"미상","대체선수":"미상","출처":["https://www.mlssoccer.com/news/mls-player-status-report-matchday-33-wednesday-october-28"],"날짜":"2026-10-28"}
+ ],
+ "라인업":{"홈":{"발표여부":"미발표","예상XI":"직전 선발(10/24, 4-2-3-1) 기준 유지 가능성: Brian Schwake, Maxwell Woledzi, Jeisson Palacios, Reed Baker-Whiting, Andy Nájar, Hany Mukhtar, Matthew Corcoran, Patrick Yazbek, Sam Surridge, Elias Saad, Cristian Espinoza","포메이션":"4-2-3-1(직전)","출처":"회차별분석/MLS요약_승무패64.md","날짜":"2026-10-24"},
+   "원정":{"발표여부":"미발표","예상XI":"직전 선발(10/24, 4-4-2)에서 Iloski·Damiani 제외 교체 필요: Andre Blake, Nathan Harriel, Neil Pierre, Kai Wagner, Frankie Westfield, Jovan Lukic, Danley Jean Jacques, Indiana Vassilev, Quinn Sullivan + 교체 2명(미상)","포메이션":"4-4-2(직전, 공격진 교체 예상)","출처":"회차별분석/MLS요약_승무패64.md + yournews.com","날짜":"2026-10-27"}},
+ "최근경기":[
+   {"팀":"홈","날짜":"2026-10-24","상대":"CF Montréal","장소":"A","스코어":"2-0 승","비고":"Supporters' Shield 우승 확정 경기, 7경기 연속 무패, 최근 아울고소 18-4"},
+   {"팀":"원정","날짜":"2026-10-24","상대":"New England Revolution","장소":"H","스코어":"1-2 패","비고":"15경기 연속 무패 행진 종료"}
+ ],
+ "순위":{"홈":"동부 1위 31경기 21승7무3패 GD+43 승점70, Supporters' Shield 확정(2026-10-24), 플레이오프 홈어드밴티지 전체 확보, MLS 포인트 기록(74점) 경신 도전 중 3경기 남음","원정":"동부 6위 31경기 13승7무11패 GD+12 승점46, 플레이오프 미확정(4위컷과 2점차) — 이번 경기 승리 시 플레이오프 진출 확정 가능","출처":"https://sports.yahoo.com/articles/philadelphia-union-look-clinch-playoff-135604808.html , https://www.metrophiladelphia.com/stories/union-playoff-clinching-scenarios-2026,159548","날짜":"2026-10-27"},
+ "감독":{"홈":"B. J. Callaghan","원정":"Ryan Richter (interim)","변동":"필라델피아 임시감독 체제 유지(교체 뉴스 없음)","출처":"회차별분석/팩트시트_승무패64.md","날짜":"2026-10-28"},
+ "일정·동기·기타":[
+   {"내용":"내슈빌은 Supporters' Shield를 이미 확정했고 플레이오프 시딩도 확보해, 이번 경기는 MLS 한 시즌 최다 승점 기록(74점, 현재 70점) 경신과 폼 유지가 주 동기 — 주전 로테이션 가능성 있음(다만 결장 2명 외 큰 변화 보도 없음)","출처":"https://www.nashvillesc.com/news/geodis-preview-nashville-sc-philadelphia-union-supporters-shield-winners-cavan-sullivan-mls , https://yournews.com/2026/10/27/7241638/points-record-within-reach-for-nashville-as-short-handed-union-visit/","날짜":"2026-10-27"},
+   {"내용":"필라델피아는 이번 경기 승리 시(또는 샬럿·시카고 동반 패배 조합) 플레이오프 진출 확정 — 동기부여 매우 강함. 리딩스코어러·2순위 스코어러 둘 다 결장(부상+출장정지)이라 전력 손실 큼","출처":"https://sports.yahoo.com/articles/philadelphia-union-look-clinch-playoff-135604808.html","날짜":"2026-10-27"},
+   {"내용":"10월 A매치 기간은 종료됨(10월 중순) — 이번 라운드 대표팀 차출 이슈 없음(관련 보도 없음)","출처":"검색 결과 종합(별도 차출 기사 없음)","날짜":"2026-10-28"}
+ ],
+ "날씨·구장":{"내용":"GEODIS Park(Nashville) 천연잔디 야외 구장. 날씨 특이사항 보도 없음","출처":"회차별분석/MLS요약_승무패64.md","날짜":"2026-10-28"},
+ "엇갈림":[],
+ "못찾음":["필라델피아 예상 XI 교체 2명(Iloski·Damiani 대체) 구체 명단","날씨 수치(기온·강수)"],
+ "뉴스없음":{"홈":"","원정":""},
+ "검증":"감독 ○/이적 해당없음/결장 출처 3개(yournews 10/27, mlssoccer 10/28) — 내슈빌 Shield 확정·필라델피아 플레이오프 미확정 사실 교차 확인(sports.yahoo, metrophiladelphia, nashvillesc.com)"}

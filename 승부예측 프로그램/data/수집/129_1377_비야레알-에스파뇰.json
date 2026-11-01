@@ -1,0 +1,57 @@
+{
+  "경기": "비야레알 vs RCD 에스파뇰",
+  "번호": 1377,
+  "대회": "스페인 라리가 (2026-27시즌 11라운드) — 코파 델 레이 아님",
+  "대회_확인근거": "두 팀 모두 10-28 코파 델 레이 1라운드에서 하위리그 팀과 대결(비야레알 5-0 마노르 승리로 2라운드 진출 확정 / 에스파뇰 3-4 세스타오 리버 패배로 코파 탈락). 코파 2라운드 추첨은 2026년 11월, 경기는 12월 예정 — 따라서 10-31 05:00 KST(현지 10-30 20:00~21:00) 경기는 라리가 2026-27시즌 J11(matchday 11)이 맞다. ESPN gameId 401882817(Villarreal vs Espanyol, Oct 30 2026)로 동일 경기 확인.",
+  "수집시각": "2026-10-30 21:40",
+  "결장": [
+    {"팀": "비야레알", "선수": "Pape Gueye", "상태": "확정", "포지션": "MF", "시즌선발": "확인 못 함(주전급)", "사유": "발렌시아(메스타야)전 퇴장으로 1경기 출장정지", "출처": "https://sportaragon.com/futbol-aragon/lesionados-villarreal-hoy-espanyol-akhomach-saliba/20261030110611162080.html", "날짜": "2026-10-30"},
+    {"팀": "비야레알", "선수": "Ilias Akhomach", "상태": "확정", "포지션": "FW/MF(윙어)", "시즌선발": "확인 못 함", "사유": "근육 부상, 복귀 시점 미정", "출처": "https://sportaragon.com/futbol-aragon/lesionados-villarreal-hoy-espanyol-akhomach-saliba/20261030110611162080.html", "날짜": "2026-10-30"},
+    {"팀": "비야레알", "선수": "Nathan Saliba", "상태": "확정", "포지션": "MF", "시즌선발": "확인 못 함", "사유": "근육 문제, 단체훈련 일부 소화했으나 출전 허가 못 받음", "출처": "https://sportaragon.com/futbol-aragon/lesionados-villarreal-hoy-espanyol-akhomach-saliba/20261030110611162080.html", "날짜": "2026-10-30"},
+    {"팀": "비야레알", "선수": "Tajon Buchanan", "상태": "확정(복귀)", "포지션": "윙어/윙백", "시즌선발": "확인 못 함", "사유": "10월 중순 국가대표 차출 중 햄스트링 부상으로 레알 마드리드전(10-10) 결장했었으나, 이번 경기(10-30) 예상 선발 명단에 포함 — 복귀로 판단. 팀노트의 '결장' 기록은 구 정보(10-12 작성)로 현재는 무효", "출처": "https://www.jornadaperfecta.com/partido/13422/villarreal-espanyol (예상 라인업), getfootballnewsspain.com(10월 중순 원 기사)", "날짜": "2026-10-30"},
+    {"팀": "에스파뇰", "선수": "Kike García", "상태": "확정", "포지션": "FW(스트라이커)", "시즌선발": "0/10 (여름 수술 후 미복귀)", "사유": "대퇴이두근(biceps femoris) 여름 수술 회복 중, 12월 복귀 예상", "출처": "https://sportaragon.com/futbol-aragon/lesionados-villarreal-hoy-espanyol-akhomach-saliba/20261030110611162080.html", "날짜": "2026-10-30"},
+    {"팀": "에스파뇰", "선수": "Jofre Carreras", "상태": "의심", "포지션": "MF/FW(다용도)", "시즌선발": "확인 못 함", "사유": "오른쪽 내전근(adductor) 불편감으로 출전 의문", "출처": "https://sportaragon.com/futbol-aragon/lesionados-villarreal-hoy-espanyol-akhomach-saliba/20261030110611162080.html", "날짜": "2026-10-30"},
+    {"팀": "비야레알", "선수": "Nicolas Pépé", "상태": "확정(복귀)", "포지션": "윙어", "시즌선발": "안구 수술로 약 6경기 결장 뒤 복귀, 코파(10-28) 득점하며 복귀전 치름", "사유": "안구 수술 회복 완료, 이번 경기 출전 가능 — 감독 이니고 페레스 '나머지는 내일 경기 가능'", "출처": "https://sportaragon.com/futbol-aragon/lesionados-villarreal-hoy-espanyol-akhomach-saliba/20261030110611162080.html", "날짜": "2026-10-30"},
+    {"팀": "비야레알", "선수": "Carlos Romero", "상태": "확정(복귀)", "포지션": "DF", "시즌선발": "확인 못 함", "사유": "내전근 문제에서 회복, 코파전 복귀", "출처": "https://www.jornadaperfecta.com/partido/13422/villarreal-espanyol", "날짜": "2026-10-30"}
+  ],
+  "라인업": {
+    "홈": {
+      "발표여부": "미발표(예상 라인업만, 공식 발표 전)",
+      "XI": ["Péter Gulácsi", "Renato Veiga", "Santiago Mouriño", "Juan Foyth", "Alex Freeman", "Carlos Maciá", "Santi Comesaña", "Alberto Moleiro", "Tajon Buchanan", "Georges Mikautadze", "Gerard Moreno"],
+      "출처": "https://www.jornadaperfecta.com/blog/alineaciones-villarreal-espanyol-j11-26-27/ , https://www.sportaragon.com/futbol-aragon/alineaciones-probables-villarreal-espanyol-jornada-11-laliga-ea-sports/20261030090407161990.html",
+      "날짜": "2026-10-30",
+      "비고": "Gueye 출장정지로 Maciá가 Comesaña와 중원 조합. Buchanan·Moleiro가 측면, Mikautadze-Gerard Moreno 투톱 유력"
+    },
+    "원정": {
+      "발표여부": "미발표(예상 라인업)",
+      "XI": ["Marko Dmitrovic", "Quilindschy Hartman", "Leandro Cabrera", "Vanja Drkušić", "Omar El Hilali", "Pol Lozano", "Edu Expósito"],
+      "출처": "https://www.futbolfantasy.com/laliga/noticias/153722-alineaciones-probables-y-previa-fantasy-del-villarreal-espanyol",
+      "날짜": "2026-10-30",
+      "비고": "4-2-3-1 예상이나 신임 감독(Sergio García) 데뷔전이라 변동 가능성 있음. 전방 3인·최전방 미확정(Kike 부상, Jofre 의심)"
+    }
+  },
+  "감독_이슈": [
+    "에스파뇰: Manolo González 감독이 2026-10-28(화) 경질됨. 직접 사유는 코파 델 레이 1라운드에서 4부리그 세스타오 리버에 연장 끝 3-4 패배(3년 연속 하위리그 팀에게 컵 탈락)이나, 근본 원인은 리그 부진(10경기 8점, 강등권). 3시즌 넘게(2024년 3월 부임) 107경기 지휘. 2026-27시즌 라리가에서 발렌시아(코르베란)·오사수나(라미스)에 이은 세 번째 감독 경질 사례.",
+    "에스파뇰: 2군 감독이던 Sergio García(바르셀로나 출신, 선수로 에스파뇰 2기 통산 231경기 50골, 전 주장)가 임시 감독으로 선임. 10-28(수) 1군 훈련 첫 지휘, 10-30 비야레알전이 감독 데뷔전. 구단은 '임시' 체제이며 영구 감독 물색 중이라고 공식 언급.",
+    "비야레알: 감독 이니고 페레스(Iñigo Pérez) 체제 유지, 경질·교체 이슈 없음. (참고: 팀노트에 과거 '마르셀리노 가르시아 토랄'로 적힌 메모가 있었으나 이는 오기/구정보이며, 2026-10 현재 감독은 이니고 페레스로 다수 매체에서 일치)."
+  ],
+  "동기": [
+    "비야레알: 라리가 10위(3승3무4패, 승점12), 최근 발렌시아 원정 2-1 승리(미카우타제 극장골)로 2연승 흐름. UCL 리그페이즈 참가 중 — 다음 UCL 경기는 2026-11-03(화) 홈에서 PSG전, 2026-11-25 슬라비아 프라하 원정. 이번 에스파뇰전 이후 UCL 중요 일정이 임박해 로테이션 가능성 있으나 이미 Gueye 결장 등으로 베스트에 가까운 라인업 예상.",
+    "에스파뇰: 리그 18위(2승2무6패, 승점8), 강등권. 코파 탈락 직후 감독 경질로 팀 전체가 위기 국면. 최근 5경기 사실상 전무한 성과(팀노트 참조: 레이요 패, 엘체 패, 말라가 무, 아틀레티코 패, 라싱 산탄데르 패)."
+  ],
+  "최근5": {
+    "홈": ["2026-09-17 Málaga 1-3 Villarreal (원정)", "2026-09-20 Villarreal 3-1 Levante (홈)", "2026-10-10 Real Madrid 1-0 Villarreal (원정)", "2026-10-17 Villarreal 0-0 Elche (홈)", "2026-10-24 Valencia 1-2 Villarreal (원정)"],
+    "원정": ["2026-09-15 Rayo Vallecano 2-1 Espanyol (원정)", "2026-09-18 Espanyol 1-3 Elche (홈)", "2026-10-09 Málaga 1-1 Espanyol (원정)", "2026-10-17 Espanyol 0-1 Atlético Madrid (홈)", "2026-10-24 Racing Santander 2-1 Espanyol (원정)"]
+  },
+  "현지매체": [
+    "Infobae(스페인판) — Sergio García 임시 감독 선임 보도 (2026-10-28): https://www.infobae.com/espana/agencias/2026/10/28/sergio-garcia-asume-de-forma-interina-el-banquillo-del-espanyol-tras-la-destitucion-de-manolo-gonzalez/",
+    "VAVEL España — Sergio García 배경·감독 데뷔전 분석 (2026-10-28): https://www.vavel.com/es/futbol/2026/10/28/espanyol/1277107-sergio-garcia-interim-coach-espanyol-villarreal.html",
+    "SportAragon — 양팀 부상자·예상 라인업 정리 (2026-10-29~30): https://sportaragon.com/futbol-aragon/lesionados-villarreal-hoy-espanyol-akhomach-saliba/20261030110611162080.html",
+    "JornadaPerfecta — 예상 라인업·판타지 프리뷰 (2026-10-30): https://www.jornadaperfecta.com/partido/13422/villarreal-espanyol"
+  ],
+  "기타": [
+    "비야레알은 에스파뇰 상대 전 대회 통산 최근 7연승 중(복수 매체 일치).",
+    "경기 시간: 2026-10-30 20:00(일부 매체 21:00) UK/현지 기준 → KST 2026-10-31 05:00. 장소: 에스타디오 데 라 세라미카(Estadio de la Cerámica) — 팀노트 INPUTS 블록의 '구장 Ciudad Deportiva Villarreal CF'는 훈련장 명칭으로 보이며 실제 경기장이 아닐 가능성이 있음(오기/지오코딩 오류로 추정, 분석가는 실제 경기장이 세라미카임을 참고).",
+    "확인 못 함: 양팀 선수별 이번 시즌 정확한 선발 출전 횟수(n/11) — 출처에서 구체 숫자 제공 안 함."
+  ]
+}

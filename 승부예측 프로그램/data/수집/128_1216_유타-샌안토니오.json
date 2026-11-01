@@ -1,0 +1,221 @@
+{
+  "경기": "유타 재즈 vs 샌안토니오 스퍼스",
+  "틥오프_KST": "2026-10-29 10:00",
+  "틥오프_현지": "2026-10-28 저녁 (Delta Center, Salt Lake City)",
+  "수집_시각_KST": "2026-10-29 09:12",
+  "주의": [
+    "일부 2차 검색 결과(AI 요약)에서 유타 재즈 선발 라인업에 'Kenrich Williams', 'Isaiah Hartenstein'이 섞여 나왔는데, 이 두 선수는 OKC 썬더 소속이다. 검색엔진 요약 오염으로 판단해 해당 라인업 정보는 채택하지 않았다.",
+    "라인업·부상 정보는 전부 출처 URL의 1차 사실(기사 본문)에 근거했고, 교차 검증된 항목만 적었다."
+  ],
+  "부상_결장": [
+    {
+      "선수": "Jaren Jackson Jr.",
+      "팀": "유타 재즈",
+      "상태등급": "확정",
+      "상태": "Out (우측 무릎 MCL 완전 파열, 6~8주 결장 예상)",
+      "이번시즌_출전": "4경기 전부 선발 출전 (2026-27 시즌, 10/26 멤피스전 2쿼터 중 부상)",
+      "비고": "2026년 2월 트레이드 데드라인에 멤피스에서 유타로 트레이드된 선수. 올 시즌 내내 뛰다 바로 직전 경기(10/26)에서 새로 이탈 — 시장에 반영 안 됐을 가능성 높은 '새 결장'.",
+      "출처": [
+        "https://www.sltrib.com/sports/jazz/2026/10/27/utah-jazz-forward-jaren-jackson-jr/",
+        "https://sports.yahoo.com/nba/breaking-news/article/jazz-c-jaren-jackson-jr-has-torn-mcl-out-at-least-6-weeks-lauri-markkanen-day-to-day-with-wrist-sprain-201339761.html",
+        "https://www.espn.com/nba/story/_/id/50300264/jazz-jaren-jackson-jr-knee-6-8-weeks-sources-say"
+      ],
+      "날짜": "2026-10-27"
+    },
+    {
+      "선수": "Jusuf Nurkić",
+      "팀": "유타 재즈",
+      "상태등급": "확정",
+      "상태": "Out (우측 발 2번째 발가락 족저판 부분 파열, 최소 4주/11월 4일경 복귀 예상)",
+      "이번시즌_출전": "시즌 재계약(2년 2200만 달러) 후 주전 센터로 출전하던 중 이탈 — 시즌 초반 새 결장",
+      "출처": [
+        "https://x.com/mattgzman/status/2115511171109576978",
+        "https://www.espn.com/nba/game/_/gameId/401909890/spurs-jazz"
+      ],
+      "날짜": "2026-10-28"
+    },
+    {
+      "선수": "Lauri Markkanen",
+      "팀": "유타 재즈",
+      "상태등급": "의심",
+      "상태": "Questionable/GTD, 우측 손목 염좌 (day-to-day). 10/26 멤피스전 1쿼터에 이탈",
+      "이번시즌_출전": "부상 전까지 주전 포워드로 출전. 올 시즌 핵심 선수라 새 이탈",
+      "출처": [
+        "https://sports.yahoo.com/articles/utah-jazz-lauri-markkanen-injury-022344652.html",
+        "https://www.cbssports.com/fantasy/basketball/news/jazzs-lauri-markkanen-questionable-for-wednesday-536398/",
+        "https://www.espn.com/nba/game/_/gameId/401909890/spurs-jazz"
+      ],
+      "날짜": "2026-10-27"
+    },
+    {
+      "선수": "Jaxson Hayes",
+      "팀": "유타 재즈",
+      "상태등급": "의심",
+      "상태": "Questionable/GTD, 어깨 부상",
+      "이번시즌_출전": "확인 불가 (경기별 출전 횟수 미확인)",
+      "출처": ["https://www.espn.com/nba/game/_/gameId/401909890/spurs-jazz"],
+      "날짜": "2026-10-28"
+    },
+    {
+      "선수": "Trey Alexander",
+      "팀": "유타 재즈",
+      "상태등급": "확정",
+      "상태": "Out, 투웨이 계약, 무릎 부상 (11/6경 복귀 예상)",
+      "출처": ["https://x.com/mattgzman/status/2115511171109576978", "https://www.espn.com/nba/game/_/gameId/401909890/spurs-jazz"],
+      "날짜": "2026-10-28"
+    },
+    {
+      "선수": "Kobe Bufkin",
+      "팀": "유타 재즈",
+      "상태등급": "확정",
+      "상태": "Out, 투웨이 계약",
+      "출처": ["https://x.com/mattgzman/status/2115511171109576978"],
+      "날짜": "2026-10-28"
+    },
+    {
+      "선수": "Harrison Ingram",
+      "팀": "유타 재즈",
+      "상태등급": "확정",
+      "상태": "Out, 투웨이 계약",
+      "출처": ["https://x.com/mattgzman/status/2115511171109576978"],
+      "날짜": "2026-10-28"
+    },
+    {
+      "선수": "Tobias Harris",
+      "팀": "샌안토니오 스퍼스",
+      "상태등급": "확정",
+      "상태": "Out, 종아리 부상 (복귀 예상 10/31)",
+      "이번시즌_출전": "2026 FA로 새로 영입된 선수. 시즌 초반 결장",
+      "출처": [
+        "https://www.espn.com/nba/game/_/gameId/401909890/spurs-jazz",
+        "https://x.com/mattgzman/status/2115511171109576978"
+      ],
+      "날짜": "2026-10-28"
+    },
+    {
+      "선수": "Jayden Quaintance",
+      "팀": "샌안토니오 스퍼스",
+      "상태등급": "확정",
+      "상태": "Out, 무릎 부상 (복귀 예상 12/3)",
+      "이번시즌_출전": "2026 드래프트 지명 루키, 시즌 내내 결장 중 — 이미 시장에 반영된 정보로 추정",
+      "출처": ["https://www.espn.com/nba/game/_/gameId/401909890/spurs-jazz"],
+      "날짜": "2026-10-28"
+    }
+  ],
+  "선발_라인업": {
+    "샌안토니오_스퍼스": {
+      "확정여부": "복수 매체 교차 확인(언론 발표 수준, 공식 발표 PDF 직접 확인은 아님)",
+      "라인업": ["De'Aaron Fox (PG)", "Stephon Castle (SG)", "Dylan Harper (SF)", "Devin Vassell (PF)", "Victor Wembanyama (C)"],
+      "출처": ["https://sports.yahoo.com/articles/spurs-vs-jazz-watch-game-182908056.html"],
+      "날짜": "2026-10-28"
+    },
+    "유타_재즈": {
+      "확정여부": "미발표 — 핵심 선수(마카넨·너키치·헤이스) 상태 미정이라 공식 선발 미확정. 아래는 시즌 기본 뎁스차트와 직전 경기(10/26 멤피스전) 출전 상위 선수 기반 추정 참고용.",
+      "시즌_기본_뎁스차트": ["Keyonte George (PG)", "Ace Bailey (SG)", "Lauri Markkanen (SF)", "Jaren Jackson Jr. (PF)", "Jusuf Nurkić (C)"],
+      "직전경기(10/26)_활약_상위선수": ["Keyonte George (26점)", "Ace Bailey (17점 10리바운드)", "Darryn Peterson (14점)", "Mo Bamba (시즌 데뷔, 14점 7리바운드)"],
+      "비고": "JJJ·너키치·마카넨·헤이스가 전부 결장/의심이라 실제 선발은 조지·베일리·피터슨·뱀바·콜리어/필리포스키 조합 중 하나로 변형될 가능성 — 공식 발표 전 확정 불가",
+      "출처": [
+        "https://www.sportskeeda.com/basketball/utah-jazz/depth-chart",
+        "https://www.espn.com/nba/boxscore/_/gameId/401909875"
+      ],
+      "날짜": "2026-10-26 / 27"
+    }
+  },
+  "시즌_전적_최근경기": {
+    "유타_재즈": {
+      "2026_27_전적": "1승 3패 (서부 12위)",
+      "최근경기": [
+        {"날짜": "2026-10-21", "상대": "멤피스", "결과": "패 103-123"},
+        {"날짜": "2026-10-23", "상대": "뉴올리언스", "결과": "승 120-119"},
+        {"날짜": "2026-10-25", "상대": "LA 레이커스", "결과": "패 123-132"},
+        {"날짜": "2026-10-26", "상대": "멤피스(홈)", "결과": "패 105-110"}
+      ],
+      "2026_27_ORtg_DRtg_Pace": "확인 불가 (경기 수 적어 안정적 집계 자료 미확인)",
+      "2025_26_시즌": {
+        "전적": "22승 60패 (.268)",
+        "ORtg": "111.2 (리그 7위)",
+        "DRtg": "119.1 (리그 30위, 최하위)",
+        "Pace": "102.3 (리그 3위)",
+        "비고": "플레이오프 탈락 (3/18 확정)"
+      },
+      "출처": [
+        "https://en.wikipedia.org/wiki/2026%E2%80%9327_Utah_Jazz_season",
+        "https://en.wikipedia.org/wiki/2025%E2%80%9326_Utah_Jazz_season",
+        "https://www.foxsports.com/articles/nba/2025-26-nba-offensive-rating-team-offense-rankings-and-efficiency-stats",
+        "https://www.foxsports.com/articles/nba/2025-26-nba-defensive-rating-team-defense-rankings-and-efficiency-stats"
+      ],
+      "날짜": "2026-10-29 검색 시점 기준"
+    },
+    "샌안토니오_스퍼스": {
+      "2026_27_전적": "2승 2패 (원정 1승 0패)",
+      "최근경기": [
+        {"날짜": "2026-10-20", "상대": "OKC(원정)", "결과": "패 104-116"},
+        {"날짜": "2026-10-23", "상대": "휴스턴", "결과": "패 110-114"},
+        {"날짜": "2026-10-24", "상대": "댈러스", "결과": "승 122-106"},
+        {"날짜": "2026-10-27", "상대": "새크라멘토(홈, Frost Bank Center)", "결과": "승 130-103, 웸반야마 29점 10리바운드"}
+      ],
+      "2026_27_ORtg_DRtg_Pace": "확인 불가 (경기 수 적음)",
+      "2025_26_시즌": {
+        "전적": "62승 20패 (.756), 서부 2위, 사우스웨스트 디비전 1위",
+        "ORtg": "114.7 (리그 6위)",
+        "DRtg": "108.5 (리그 7위)",
+        "플레이오프": "1라운드 포틀랜드 4-1 → 2라운드 미네소타 4-2 → 서부결승 OKC 4-3 → NBA파이널 뉴욕 닉스에 1-4 패 (1996년대 이후/2014년 이후 첫 서부 우승·파이널 진출)"
+      },
+      "출처": [
+        "https://en.wikipedia.org/wiki/2026%E2%80%9327_San_Antonio_Spurs_season",
+        "https://en.wikipedia.org/wiki/2025%E2%80%9326_San_Antonio_Spurs_season",
+        "https://www.espn.com/nba/recap?gameId=401909879",
+        "https://www.foxsports.com/articles/nba/2025-26-nba-offensive-rating-team-offense-rankings-and-efficiency-stats"
+      ],
+      "날짜": "2026-10-29 검색 시점 기준"
+    }
+  },
+  "일정_백투백": {
+    "유타_재즈": {
+      "직전경기": "2026-10-26 (홈, 멤피스전)",
+      "휴식일": "1일 휴식 (10/27 휴식, 10/28 홈경기) — 백투백 아님",
+      "이동": "홈경기 연속 (Delta Center) — 이동 없음"
+    },
+    "샌안토니오_스퍼스": {
+      "직전경기": "2026-10-27 (홈, 새크라멘토전, Frost Bank Center 샌안토니오)",
+      "휴식일": "0일 — 백투백 2연전 두 번째 경기",
+      "이동": "샌안토니오 → 솔트레이크시티 원정 이동 (백투백 + 이동 부담)",
+      "출처": ["https://www.espn.com/nba/recap?gameId=401909879", "https://www.espn.com/nba/game/_/gameId/401909890/spurs-jazz"]
+    }
+  },
+  "여름_로스터_변동": {
+    "유타_재즈": [
+      "2026 드래프트 전체 2순위 Darryn Peterson 지명",
+      "Jusuf Nurkić 재계약 (2년 2200만 달러)",
+      "Jaxson Hayes 영입 (2년 1200만 달러, 2년차 팀옵션)",
+      "Josh Okogie 영입 (2년 1200만 달러)",
+      "Keyonte George 5년 1억5750만 달러 루키 연장 계약",
+      "센터 Walker Kessler를 LA 레이커스로 사인&트레이드 (유타는 2031·2033 무보호 1라운드 픽 + 2028·2030 스왑권 수령)",
+      "2026년 2월 트레이드 데드라인: 멤피스로부터 Jaren Jackson Jr., John Konchar, Jock Landale, Vince Williams Jr. 영입 (유타는 Walter Clayton Jr., Kyle Anderson, Taylor Hendricks, Georges Niang + 미래 1라운드 픽 3장 송출)",
+      "Minnesota로부터 Josh Green 영입 (John Konchar·Cody Williams 송출)"
+    ],
+    "샌안토니오_스퍼스": [
+      "Victor Wembanyama 맥스 계약 연장",
+      "Julian Champagnie, Harrison Barnes 재계약",
+      "Tobias Harris FA 영입",
+      "2026 드래프트: Jayden Quaintance, Tarris Reed Jr. 지명",
+      "De'Aaron Fox 트레이드설 있었으나 잔류, 주전 유지 (Dylan Harper는 식스맨 역할 예상)"
+    ],
+    "출처": [
+      "https://www.hoopsrumors.com/2026/08/nba-2026-offseason-check-in-utah-jazz.html",
+      "https://heavy.com/sports/nba/utah-jazz/roster-moves-blake-hinson-kobe-bufkin/",
+      "https://basketnews.com/news-240346-grizzlies-trade-jaren-jackson-jr-to-utah-jazz.html",
+      "https://www.be-basketball.com/san-antonio-spurs-2026-27-roster",
+      "https://www.si.com/nba/spurs-offseason-preview-victor-wembanyama-extension-eventual-crossroads-deaaron-fox"
+    ]
+  },
+  "기타_뉴스": [
+    "유타는 JJJ(MCL 파열, 6~8주)·너키치(발, 4주+)·마카넨(손목, 의심)·헤이스(어깨, 의심)까지 겹쳐 '부상 몸살' 상태로 보도됨 (slcdunk.com 'Injury Plagued Utah Jazz').",
+    "스퍼스는 10/27 새크라멘토전이 '시즌 첫 홈 승리'였다는 보도 있음 — 직전까지 원정 위주 일정이었을 가능성, 추가 확인 필요."
+  ],
+  "확인불가_항목": [
+    "양 팀 2026-27 시즌 실측 ORtg/DRtg/Pace (표본 4경기 내외라 공신력 있는 수치 미확인)",
+    "유타 재즈 이번 경기 공식 선발 5인 (핵심 선수 다수 GTD로 경기 직전 확정 예상)",
+    "심판 배정, 경기장 날씨/실내 변수(돔 경기라 통상 해당 없음)"
+  ]
+}

@@ -366,7 +366,24 @@ def evidence_checks(r, e, severe, minor):
     # 어차히 같은 정규화를 하므로, 채점과 기록이 서로 다른 값을 보던 것 자체가 결함이다.
     # '상태'는 정규화하지 않는다 — norm_state 가 빈칸을 '추정'으로 바꿔 '상태 누락' 검사가 무력화되기 때문.
     e = dict(e)
-    e["요인"] = [{**f, "유형": norm_type(f.get("유형", ""))} for f in (e.get("요인") or [])]
+    # 2026-10-31(129회 13:00 블록): '팀' 칸도 정규화한다.
+    # 아래 뉴스 검사는 `f["팀"] == "홈"/"원정"` 으로 **문자열 완전일치**를 보는데, 분석가가 팀 이름을
+    # 그대로 적으면("전북 현대모터스") 그 팀의 뉴스 요인이 통째로 안 읽혀 '뉴스 확인 기록 없음' 심각이
+    # 뜬다 — 뉴스를 안 찾은 게 아니라 이름으로 적었을 뿐인데 C(추천 금지·학습 제외)가 된다.
+    # 바로 위 유형 정규화가 2026-10-21 에 같은 이유로 들어왔고(9672·9738·9742 가 어휘만 바꿔 전부 A),
+    # 128회에도 같은 사유로 C9→A4B5 교정이 있었다. 같은 덫을 세 번째로 밟았으니 코드로 막는다.
+    # 숫자는 하나도 바뀌지 않는다 — 어느 팀의 요인인지 읽는 방법만 고친다.
+    def _norm_side(v):
+        v = (v or "").strip()
+        if v in ("홈", "원정", "양팀", "-", ""):
+            return v
+        for side in ("홈", "원정"):
+            name = (r.get(side) or "").strip()
+            if name and (v == name or v in name or name in v):
+                return side
+        return v
+    e["요인"] = [{**f, "유형": norm_type(f.get("유형", "")), "팀": _norm_side(f.get("팀"))}
+                 for f in (e.get("요인") or [])]
     if not e.get("요인") or len(e["요인"]) < 2:
         severe.append("근거 요인 2개 미만")
     if not (e.get("결론") or e.get("핵심근거") or e.get("근거요약") or "").strip():
@@ -639,6 +656,25 @@ def normalize_evidence(data, rows=None, rnd=None):
         for alias in ("핵심근거", "근거요약"):
             if not (e.get("결론") or "").strip() and (e.get(alias) or "").strip():
                 e["결론"] = e[alias]
+        # 2026-10-26 구조 전환으로 출발 확률의 이름이 '기준선' → '사전확률'(시장) 로 바뀌었는데
+        # 채점기는 여전히 '기준선' 키를 찾아 없으면 심각(C) 을 매겼다 — 129회 10/31 16:00 블록 1535 가
+        # 이 사유 하나로 거짓 C 였다. 이름만 다른 같은 칸이라 받아 준다(2026-10-31).
+        if not (e.get("기준선") or {}):
+            for alias in ("사전확률", "사전_확률", "prior"):
+                v = e.get(alias)
+                if isinstance(v, dict) and any(k in v for k in ("승", "패")):
+                    e["기준선"] = {k: v[k] for k in ("승", "무", "패") if k in v}
+                    break
+        # '선택지'를 {"1338 승무패 패": 42.6} 같은 dict 나 문자열로 적으면 evidence_checks 가
+        # c.get() 에서 AttributeError 로 죽어 그 경기가 통째로 기록되지 않았다(129회 4경기).
+        # 모양만 리스트[dict] 로 맞춰 준다 — 내용은 건드리지 않는다(2026-10-31).
+        sel = e.get("선택지")
+        if isinstance(sel, dict):
+            e["선택지"] = [{"선택": k, "확률": v} for k, v in sel.items()]
+        elif isinstance(sel, str):
+            e["선택지"] = [{"선택": sel}] if sel.strip() else []
+        elif isinstance(sel, list):
+            e["선택지"] = [c if isinstance(c, dict) else {"선택": str(c)} for c in sel]
     return data
 
 
@@ -692,6 +728,18 @@ def cmd_add(a):
         if r is None:
             print(f"? 경기 없음: {e.get('번호')} {e.get('홈')}-{e.get('원정')}")
             continue
+        # 근거 JSON 이 들고 온 칸을 행에 옮긴 뒤 검사한다(2026-10-31).
+        # 왜: news_check 는 전체경기기록 행의 '뉴스위험' 칸을 보는데 cmd_add 는 그 칸을 옮기지 않았다.
+        #     분석가가 JSON 에 뉴스위험을 성실히 적어도, 행이 baseline_fill 로 자동 생성돼 칸이 비어 있으면
+        #     그 경기는 '확인 안 함' 으로 심각 C 가 되고 학습에서 통째로 빠진다
+        #     (129회 1544 — 분석가가 뉴스위험 3건을 적었는데 C). 정보는 있는데 경로가 없어서 버린 것이다.
+        #     같은 종류(근거 JSON 내용이 채점기에 닿지 않는 문제)의 다섯 번째 교정이라 코드로 고정한다.
+        for key in ("뉴스위험", "예상점수"):
+            v = e.get(key)
+            if isinstance(v, (int, float)):
+                v = str(v)
+            if isinstance(v, str) and v.strip() and not (r.get(key) or "").strip():
+                r[key] = v.strip()
         severe, minor = [], []
         note_checks(r, severe, minor)
         evidence_checks(r, e, severe, minor)
@@ -702,7 +750,14 @@ def cmd_add(a):
         # 그런데 '깊이' 칸을 분석가가 따로 적어야 해서 125회 UCL 9경기를 포함해 빈칸이 많았고,
         # baseline_fill 의 '분석 vs 기준선' 표에서 그 경기들이 '분석' 쪽에 세어지지 않았다
         # (125회 빈칸 10경기 7적중 70% — 분석의 가치를 재는 표에서 가장 잘 맞은 경기가 빠져 있었다).
-        if not (r.get("깊이") or "").strip():
+        # 2026-10-31(129회 심층회고): 분석가가 '사전확률에서 총 이동 0.0%p' 를 표현하려고
+        # 근거 JSON 에 깊이="기준선" 을 직접 적는 일이 늘었다(129회만 19행, 누적 70행).
+        # 그런데 '기준선' 은 baseline_fill 이 **아무도 분석하지 않은 경기**에 자동으로 붙이는
+        # 대조군 꼬리표다. 수집가+분석가 파이프라인을 다 돈 경기가 대조군으로 세어지면
+        # 분석 vs 기준선 비교가 양쪽에서 동시에 오염된다 — 분자에서 빠지고 분모에 더해진다.
+        # 근거 JSON 이 있으면 정의상 심층 분석이므로 분석가가 뭐라 적었든 '심층' 으로 덮는다.
+        # '이동 0' 이라는 사실은 보정메모(총 이동 0.0%p)와 요인 기록에 이미 남는다.
+        if (r.get("깊이") or "").strip() in ("", "기준선"):
             r["깊이"] = "심층"
         game = f"{r['홈']}-{r['원정']}"
         base = {"회차": r["회차"], "번호": r["번호"], "경기": game, "기록시각": now}

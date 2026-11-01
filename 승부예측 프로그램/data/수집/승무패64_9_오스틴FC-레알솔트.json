@@ -1,0 +1,27 @@
+{"번호":9,"홈":"오스틴FC","원정":"레알솔트","리그":"MLS","구장":"Q2 Stadium (오스틴, 텍사스)","킥오프":"2026-10-29 09:30 KST","수집시각":"2026-10-28 22:15 KST",
+ "결장":[
+  {"팀":"홈","선수":"Chris Applewhite","포지션":"미상","이번시즌_선발/경기":"미상","득점·도움":"미상","사유":"허벅지(quad) 부상","상태":"확정","복귀예정":"미상","대체선수":"미상","출처":["https://www.mlssoccer.com/news/mls-player-status-report-matchday-33-wednesday-october-28"],"날짜":"2026-10-28"},
+  {"팀":"홈","선수":"Jon Bell","포지션":"DF","이번시즌_선발/경기":"미상","득점·도움":"미상","사유":"복부 하단 부상","상태":"확정","복귀예정":"미상","대체선수":"미상","출처":["https://www.mlssoccer.com/news/mls-player-status-report-matchday-33-wednesday-october-28"],"날짜":"2026-10-28"},
+  {"팀":"홈","선수":"Ervin Torres","포지션":"MF","이번시즌_선발/경기":"최근 6경기 6회 선발","득점·도움":"미상","사유":"발목 부상","상태":"확정","복귀예정":"미상","대체선수":"미상","출처":["https://www.mlssoccer.com/news/mls-player-status-report-matchday-33-wednesday-october-28"],"날짜":"2026-10-28"},
+  {"팀":"홈","선수":"Zan Kolmanic","포지션":"DF","이번시즌_선발/경기":"미상","득점·도움":"미상","사유":"햄스트링 — 부상 명단에서 제외되어 출전 가능 전환","상태":"확정(복귀 가능)","복귀예정":"이번 경기 출전 가능","대체선수":"","출처":["https://www.rotowire.com/soccer/headlines/zan-kolmanic-injury-removed-from-injury-report-542738"],"날짜":"2026-10-27"},
+  {"팀":"원정","선수":"Lukas Engel","포지션":"DF","이번시즌_선발/경기":"미상","득점·도움":"미상","사유":"햄스트링 — 의심에서 출전 가능 쪽으로 상향(훈련량 늘려옴)","상태":"의심","복귀예정":"출전 가능성 있음","대체선수":"","출처":["https://www.rotowire.com/soccer/headlines/lukas-engel-injury-now-questionable-542763"],"날짜":"2026-10-27"}
+ ],
+ "라인업":{"홈":{"발표여부":"미발표","예상XI":"3-4-3 예상(직전 10/25 선발 베이스, Ervin Torres 결장 변수): Las; Sánchez, Biro, Desler; Alastuey, Torres(결장 가능), Gallagher, Rosales; Vázquez, F.Torres, Uzuni","포메이션":"3-4-3","출처":"회차별분석/MLS요약_승무패64.md(10/25 직전 선발)","날짜":"2026-10-25"},"원정":{"발표여부":"미발표","예상XI":"5-4-1 예상(직전 10/25 선발 베이스): Rafael; Quinton, Henry, de Fougerolles, Sanabria; Marczuk, Caliskan, Spierings, Solans; Guilavogui; Lobjanidze","포메이션":"5-4-1","출처":"회차별분석/MLS요약_승무패64.md(10/25 직전 선발)","날짜":"2026-10-25"}},
+ "최근경기":[
+  {"팀":"오스틴FC","날짜":"2026-10-18","상대":"Vancouver Whitecaps","장소":"H","스코어":"1-2 패","비고":""},
+  {"팀":"오스틴FC","날짜":"2026-10-25","상대":"Sporting Kansas City","장소":"A","스코어":"2-1 승","비고":"Myrto Uzuni 후반 2골(브레이스)로 역전승"},
+  {"팀":"레알솔트","날짜":"2026-10-18","상대":"Sporting Kansas City","장소":"A","스코어":"3-1 승","비고":""},
+  {"팀":"레알솔트","날짜":"2026-10-25","상대":"St. Louis CITY SC","장소":"H","스코어":"3-0 승","비고":"2연승"}
+ ],
+ "순위":{"홈":"서부 14위 31경기 8승10무13패 승점34. 9위 LA 갤럭시와 7점 차 — 이번 경기 패 또는 무승부 시 플레이오프 탈락 확정(매치데이33 시나리오). LA 갤럭시가 10/31 오스틴전 승리 시에도 공식 탈락 가능","원정":"서부 10위 31경기 11승6무14패 승점39. 아직 수학적 탈락 아님, 최근 2연승으로 상승세, 자력 진출 가능성은 낮으나 생존","출처":"https://www.mlssoccer.com/news/matchday-33-who-can-clinch-playoffs-or-be-eliminated-2026 , https://www.squawka.com/us/news/mls/match-preview-austin-fc-vs-real-salt-lake-10-28-26-mls/","날짜":"2026-10-28"},
+ "감독":{"홈":"Davy Arnaud (임시감독, 5/18부터 Nico Estévez 후임)","원정":"Pablo Mastroeni","변동":"오스틴 — 5월 이후 임시체제 유지, 신임 발표 없음","출처":"회차별분석/팩트시트_승무패64.md","날짜":"2026-10-28"},
+ "일정·동기·기타":[
+  {"내용":"오스틴은 사실상 '반드시 승리해야 하는' 경기(패 또는 무승부면 탈락), 레알솔트는 최근 2연승 상승세지만 자력 진출권은 희박 — 동기는 오스틴이 더 급함","출처":"https://www.squawka.com/us/news/mls/match-preview-austin-fc-vs-real-salt-lake-10-28-26-mls/","날짜":"2026-10-27"},
+  {"내용":"양 팀 모두 깨끗한 부상 명단에 가까워(경미한 결장만) 선발 로테이션보다 선택 문제로 보임","출처":"https://www.sportskeeda.com/football/austin-fc-vs-real-salt-lake-prediction-betting-tips-28th-october-2026","날짜":"2026-10-27"},
+  {"내용":"레알솔트 원정 이동 거리 1708km, 오스틴 고도 대비 고도차 -1117m(팀노트 INPUTS 기준)","출처":"팀노트/레알솔트.md INPUTS","날짜":"2026-10-28"}
+ ],
+ "날씨·구장":{"내용":"Q2 Stadium 당일 날씨 세부 정보 못 찾음(검색 2곳: 일반 포털 날씨 사이트는 지역 월간 예보만 제공, 경기 전용 예보 없음)","출처":["https://www.easeweather.com/north-america/united-states/illinois/cook-county/chicago/october"],"날짜":"2026-10-28"},
+ "엇갈림":[],
+ "못찾음":["오스틴·레알솔트 공식 예상 선발(미발표)","Q2 Stadium 10/29 당일 기온·강수 예보"],
+ "뉴스없음":{"홈":"","원정":""},
+ "검증":"감독 ○(오스틴 임시체제 확인)/이적 ○(팩트시트 기존)/결장 출처 3개(2026-10-28, 2026-10-27 x2)"}

@@ -1,0 +1,57 @@
+{
+  "경기": "르아브르AC vs 파리 생제르맹",
+  "번호": 1362,
+  "수집시각": "2026-10-30 21:40",
+  "결장": [
+    {"팀": "PSG", "선수": "Khvicha Kvaratskhelia", "상태": "확정", "포지션": "FW(좌측 윙어)", "시즌선발": "확인 못 함", "사유": "우측 무릎 인대 수술(화요일 도하에서 수술), 11월 A매치 휴식기까지 결장 전망", "출처": "https://www.culturepsg.com/news/match/deja-7-absents-pour-le-havre-psg-probablement-plus/61344", "날짜": "2026-10-28"},
+    {"팀": "PSG", "선수": "Ousmane Dembélé", "상태": "확정", "포지션": "FW(우측 윙어)", "시즌선발": "확인 못 함", "사유": "허벅지 부상, 11월 A매치 휴식기까지 결장 전망", "출처": "https://www.culturepsg.com/news/match/deja-7-absents-pour-le-havre-psg-probablement-plus/61344", "날짜": "2026-10-28"},
+    {"팀": "PSG", "선수": "Marquinhos", "상태": "확정", "포지션": "DF(센터백)", "시즌선발": "확인 못 함", "사유": "허벅지 부상, 11월 A매치 휴식기까지 결장 전망", "출처": "https://www.culturepsg.com/news/match/deja-7-absents-pour-le-havre-psg-probablement-plus/61344", "날짜": "2026-10-28"},
+    {"팀": "PSG", "선수": "Nuno Mendes", "상태": "확정", "포지션": "DF(좌측 풀백)", "시즌선발": "확인 못 함", "사유": "허벅지(근육) 부상, 11월 A매치 휴식기까지 결장 전망", "출처": "https://www.culturepsg.com/news/match/deja-7-absents-pour-le-havre-psg-probablement-plus/61344", "날짜": "2026-10-28"},
+    {"팀": "PSG", "선수": "Alessandro Longoni", "상태": "의심", "포지션": "GK", "시즌선발": "확인 못 함", "사유": "이번 주 팀 훈련 복귀, 출전 가능성 있음(백업 GK, 주전 Safonov엔 영향 없음)", "출처": "https://www.culturepsg.com/news/match/deja-7-absents-pour-le-havre-psg-probablement-plus/61344", "날짜": "2026-10-28"},
+    {"팀": "PSG", "선수": "Mika Godts", "상태": "추정", "포지션": "FW/윙어", "시즌선발": "확인 못 함", "사유": "목요일 훈련 불참 — 배우자 출산 임박으로 인한 개인 사유(부상 아님, 경기 출전 여부 불확실)", "출처": "https://www.goal.com/fr/news/le-groupe-du-psg-contre-le-havre-avec-plusieurs-absents/blt4a4faaf4291645be", "날짜": "2026-10-29"},
+    {"팀": "르아브르AC", "선수": "Ayumu Seko", "상태": "확정", "포지션": "DF(센터백/수비형)", "시즌선발": "확인 못 함", "사유": "10-25 마르세유전 종료 직전 받은 옐로카드 누적으로 PSG전 출장정지 — 감독 Digard 본인 발언(\"sera suspendu pour le match du PSG\")으로 직접 확인됨. ※단, 10-30 culturepsg 선발 예상 기사는 Seko를 선발 명단에 포함시켜 모순 있음(아래 '기타' 참고)", "출처": "https://www.footmercato.net/a5828797030045114855-hac-didier-digard-fustige-larbitrage-apres-la-defaite-a-marseille", "날짜": "2026-10-25"},
+    {"팀": "르아브르AC", "선수": "Lionel Mpasi", "상태": "확정", "포지션": "GK", "시즌선발": "확인 못 함", "사유": "아킬레스건 파열(9월)", "출처": "https://www.culturepsg.com/news/match/deja-7-absents-pour-le-havre-psg-probablement-plus/61344", "날짜": "2026-10-28"},
+    {"팀": "르아브르AC", "선수": "Stephan Zagadou", "상태": "확정", "포지션": "DF", "시즌선발": "확인 못 함", "사유": "전십자인대 파열(4월)", "출처": "https://www.culturepsg.com/news/match/deja-7-absents-pour-le-havre-psg-probablement-plus/61344", "날짜": "2026-10-28"},
+    {"팀": "르아브르AC", "선수": "Felix Mambimbi", "상태": "확정", "포지션": "FW", "시즌선발": "확인 못 함", "사유": "아킬레스건 파열(7월)", "출처": "https://www.culturepsg.com/news/match/deja-7-absents-pour-le-havre-psg-probablement-plus/61344", "날짜": "2026-10-28"},
+    {"팀": "르아브르AC", "선수": "Elias Jelert", "상태": "의심", "포지션": "DF", "시즌선발": "확인 못 함", "사유": "10월 초 허벅지 부상, 복귀 가능성 있음", "출처": "https://www.culturepsg.com/news/match/deja-7-absents-pour-le-havre-psg-probablement-plus/61344", "날짜": "2026-10-28"},
+    {"팀": "르아브르AC", "선수": "Timothée Pembélé", "상태": "의심", "포지션": "DF", "시즌선발": "확인 못 함", "사유": "내전근 부상, 9월 이후 미출전", "출처": "https://www.culturepsg.com/news/match/deja-7-absents-pour-le-havre-psg-probablement-plus/61344", "날짜": "2026-10-28"}
+  ],
+  "라인업": {
+    "홈": {
+      "발표여부": "비공식(현지 매체 예상, 2건 상충)",
+      "XI": ["culturepsg(10-30, 3-5-2): Bodart; Seko, Mwanga, Touba; Ouziad, Ebonog, R. Ndiaye(c), Mizuta, M. Ndiaye; Fofana, Maja",
+             "paris-supporters(10-30): Gallon; Ouziad, Seko, Touba, Mwanga, M. N'Diaye; R. Ndiaye, Ebonog, Richardson; Maja, Samatta"],
+      "출처": "https://www.culturepsg.com/news/match/les-compositions-de-le-havre-psg-selon-la-presse/61365 ; https://paris-supporters.fr/2026/10/30/infos-psg/le-havre-psg-la-composition-probable-3-115748.html",
+      "날짜": "2026-10-30"
+    },
+    "원정": {
+      "발표여부": "비공식(현지 매체 예상, 공격진 세부 포지션 엇갈림)",
+      "XI": ["culturepsg(10-30, 4-3-3): Safonov; Zaïre-Emery(c), Zabarnyi, Hernandez, Digne; Neves, Beraldo, Dro; Akliouche, Mayulu, Ndjantou/Torres (L'Équipe: Torres 우측·Ndjantou 좌측 / Le Parisien: Akliouche 우측·Torres 좌측)",
+             "paris-supporters(10-30): Safonov; Zaïre-Emery, Zabarnyi, Hernandez, Digne; Fernandez, Beraldo, Neves; Torres, Mayulu, Ndjantou"],
+      "출처": "https://www.culturepsg.com/news/match/les-compositions-de-le-havre-psg-selon-la-presse/61365 ; https://paris-supporters.fr/2026/10/30/infos-psg/le-havre-psg-la-composition-probable-3-115748.html",
+      "날짜": "2026-10-30"
+    }
+  },
+  "감독_이슈": [
+    {"팀": "PSG", "내용": "Luis Enrique 공식 기자회견(10-29): \"Le Havre 원정은 전에도 쉬운 적이 없었고 이번도 예외는 아니다\" — 순위표(1위)에 안주하지 않겠다는 취지. Godts 결근은 배우자 출산 임박 때문이라고 직접 언급. Doué의 높은 활동량·겸손함 강조. Safonov를 \"현대 축구가 원하는 스타일에 매우 잘 적응했다\"고 평가하며 빌드업 역할 강조. 근육 부상 재발에 대해 \"고강도 축구에서 예방이 쉽지 않다\"고 언급.", "출처": "https://www.culturepsg.com/news/match/godts-papa-doue-travailleur-safonov-adapte-etc-la-conf-complete-de-luis-enrique-avant-le-havre-psg/61355", "날짜": "2026-10-29"},
+    {"팀": "르아브르AC", "내용": "감독 Didier Digard, 10-25 마르세유전(3-4 패배) 후 심판 판정(핸드볼 노팁·Seko 옐로카드)에 강하게 항의 — \"이중 처벌\"이라 비판", "출처": "https://sports.orange.fr/football/ligue-1/article/le-havre-pour-moi-il-y-a-main-digard-s-estime-floue-par-l-arbitrage-exclu-CNT000002tnTPA.html", "날짜": "2026-10-25"}
+  ],
+  "동기": [
+    {"팀": "PSG", "내용": "순위 1위, 8경기 5승2무1패 승점17 — 리그 선두 수성, 주전 다수 결장 속 로테이션 운용", "출처": "팀노트 FACTS(위키 2026-27 시즌)", "날짜": "2026-10-30"},
+    {"팀": "르아브르AC", "내용": "순위 18위(최하위) 8경기 0승2무6패 승점2 — 잔류를 위한 승점 확보가 절실한 상황, 직전 마르세유전에서 4-0 뒤지다 3골 추격해 아깝게 패배(투지는 있었음)", "출처": "팀노트 FACTS ; https://www.footmercato.net/a5828797030045114855-hac-didier-digard-fustige-larbitrage-apres-la-defaite-a-marseille", "날짜": "2026-10-25"}
+  ],
+  "최근5": {
+    "홈": ["09-12 홈 Le Havre 0-0 Angers", "09-19 원정 Toulouse 3-2 Le Havre(패)", "10-10 원정 Lille 1-0 Le Havre(패)", "10-18 홈 Le Havre 1-3 AJ Auxerre(패)", "10-25 원정 Marseille 4-3 Le Havre(패)"],
+    "원정": ["09-13 원정 Brest 0-1 PSG(승)", "09-20 원정 Marseille 1-2 PSG(승)", "10-10 홈 PSG 3-1 Le Mans(승)", "10-17 원정 Strasbourg 1-3 PSG(승)", "10-26 홈 PSG 2-0 Lyon(승)"]
+  },
+  "현지매체": [
+    {"매체": "CulturePSG", "제목": "Déjà 7 absents pour Le Havre/PSG, probablement plus", "요약": "양 팀 결장자 종합 — PSG 4명 확정(크바라츠켈리아·뎀벨레·마르키뉴스·누누 멘데스) + Longoni 의심, 르아브르 3명 확정(Mpasi·Zagadou·Mambimbi) + 2명 의심(Jelert·Pembélé)", "URL": "https://www.culturepsg.com/news/match/deja-7-absents-pour-le-havre-psg-probablement-plus/61344", "날짜": "2026-10-28"},
+    {"매체": "CulturePSG", "제목": "Godts papa, Doué travailleur, Safonov adapté, etc, la conf complète de Luis Enrique avant Le Havre/PSG", "요약": "엔리케 기자회견 전문 요약 — 위 감독_이슈 참고", "URL": "https://www.culturepsg.com/news/match/godts-papa-doue-travailleur-safonov-adapte-etc-la-conf-complete-de-luis-enrique-avant-le-havre-psg/61355", "날짜": "2026-10-29"},
+    {"매체": "footmercato", "제목": "HAC : Didier Digard fustige l'arbitrage après la défaite à Marseille", "요약": "Digard가 직접 \"Seko가 PSG전 출장정지\"라고 언급(핸드볼 노팁 항의 과정에서)", "URL": "https://www.footmercato.net/a5828797030045114855-hac-didier-digard-fustige-larbitrage-apres-la-defaite-a-marseille", "날짜": "2026-10-25"},
+    {"매체": "CulturePSG", "제목": "Les compositions de Le Havre/PSG selon la presse", "요약": "양 팀 예상 선발 종합. 르아브르 선발 명단에 Seko 포함(위 '확정 결장'과 상충)", "URL": "https://www.culturepsg.com/news/match/les-compositions-de-le-havre-psg-selon-la-presse/61365", "날짜": "2026-10-30"}
+  ],
+  "기타": [
+    "모순 1건 확인: Seko 출장정지 여부 — Digard 감독 본인이 10-25 직접 \"Seko는 PSG전 출장정지\"라고 말한 1차 발언(footmercato)과, 10-30 현지 매체 예상 선발 명단(culturepsg, paris-supporters)에 Seko가 포함되어 있는 점이 상충함. 1차 발언이 더 신뢰도 높은 소스(감독 직접 인용)이나, 예상 XI가 더 최신(경기 하루 전)이라 항소/경감 가능성도 배제 못 함. 분석가가 판단 필요.",
+    "PSG는 결장 4명(크바라츠켈리아·뎀벨레·마르키뉴스·누누 멘데스) 모두 11월 A매치 휴식기까지 결장 예상 — 단기 반등 요인 아님(장기 결장)."
+  ]
+}

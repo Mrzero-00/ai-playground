@@ -9,7 +9,7 @@
 - 최근 경기(ESPN, 최대 28일): 2026-10-02 Seattle Sounders FC 2-1 Sporting Kansas City / 2026-10-10 New England Revolution 0-3 Seattle Sounders FC / 2026-10-15 FC Dallas 1-0 Seattle Sounders FC / 2026-10-18 Seattle Sounders FC 1-1 CF Montréal / 2026-10-25 San Diego FC 2-2 Seattle Sounders FC
 <!-- FACTS:END -->
 <!-- INPUTS:START -->
-## 입력(자동 수집 2026-10-28) — xG·휴식일·라인업·환경(이동거리·고도·날씨)은 이 숫자를 쓴다
-- 10-29 11:30 vs 휴스턴 다이너모FC: 휴식 4.0일(7일 1경기) · 직전 10-25 원정 vs San Diego FC 2-2 무 [usa.1] · xG - · 직전 선발 4-2-3-1 Andy Thomas, Jackson Ragen, Alex Roldan, Nouhou Tolo, Kalani Kossa-Rienzi, Albert Rusnák, Cristian Roldan, Hassani Dotson, Dejan Joveljic, Jordan Morris, Jesús Ferreira · 구장 루멘 필드 · 이동 3042km · 고도 10m(차 -2m) · 7.9℃ 강수2.9mm(17%) 바람13.7km/h · ⚠ 장거리 원정 3042km, 비 2.9mm(17%)
+## 입력(자동 수집 2026-10-30) — xG·휴식일·라인업·환경(이동거리·고도·날씨)은 이 숫자를 쓴다
+- 11-02 05:30 vs 밴쿠버 화이트캡스FC: 휴식 3.8일(7일 1경기) · 직전 10-29 홈 vs Houston Dynamo FC 0-1 패 [usa.1] · xG - · 직전 선발 4-2-3-1 Andy Thomas, Jackson Ragen, Alex Roldan, Nouhou Tolo, Kalani Kossa-Rienzi, Albert Rusnák, Cristian Roldan, Hassani Dotson, Dejan Joveljic, Sebastian Gomez, Jesús Ferreira · 구장 BC 플레이스 스타디움 · 이동 196km · 고도 18m(차 +8m) · 9.4℃ 강수0mm(1%) 바람6.7km/h
 <!-- INPUTS:END -->
 

@@ -1,0 +1,174 @@
+{
+  "번호": 1308,
+  "홈": "브리즈번 로어",
+  "원정": "오클랜드FC",
+  "리그": "호주 A-League Men 2026-27 (Matchweek 3)",
+  "킥오프": "2026-10-30 18:00 KST (현지 19:00 AEST, 뉴질랜드 22:00 NZT)",
+  "수집시각": "2026-10-30 17:30 KST",
+
+  "라인업": {
+    "홈": {
+      "발표여부": "미발표(예상 라인업만 보도, 수집 시점 킥오프 30분 전)",
+      "포메이션_예상": "3-5-2",
+      "XI_예상": ["George Plusnin", "Milorad Stajić", "Tom Aldred", "Noah Maieroni", "Tate Russell", "Sabit Ngor", "Nam Tae-hee", "Tyrese Francois", "Joel King", "Justin Vidic", "Virgiliu Postolachi"],
+      "출처": "https://www.bets.com.au/soccer/a-league/brisbane-roar-vs-auckland-fc-a-league-round-3-tips-prediction-20261028-0002/",
+      "날짜": "2026-10-28"
+    },
+    "원정": {
+      "발표여부": "미발표(예상 라인업만 보도, 수집 시점 킥오프 30분 전)",
+      "포메이션_예상": "4-4-2",
+      "XI_예상": ["Michael Woud", "Hiroki Sakai", "Luka Vicelich", "Nando Pijnaker", "Francis de Vries", "Lachlan Brook", "Luis Felipe Gallegos", "Jake Brimmer", "Logan Rogerson", "Jonty Bidois", "Lachlan Bayliss"],
+      "출처": "https://www.bets.com.au/soccer/a-league/brisbane-roar-vs-auckland-fc-a-league-round-3-tips-prediction-20261028-0002/",
+      "날짜": "2026-10-28"
+    }
+  },
+
+  "결장": [
+    {
+      "팀": "브리즈번 로어",
+      "이름": "Dimitri Valkanis",
+      "포지션": "수비수(CB)",
+      "상태": "확정(leg injury / hamstring, 장기 결장)",
+      "원문": "Dimitri Valkanis is unavailable due to a leg injury. / 'Brisbane Roar defender Valkanis suffers serious hamstring injury' — 8월 호주컵 시드니FC전에서 부상, 복귀 훈련 중 재발.",
+      "시즌선발": "2026-27 시즌 선발 0회 (개막 전부터 결장)",
+      "출처": "https://brisbaneroar.com.au/news/alm-mw3-preview-brisbane-roar-vs-auckland-fc/ ; https://aleagues.com.au/news/news-brisbane-roar-dimitri-valkanis-injury/",
+      "날짜": "2026-10-29"
+    },
+    {
+      "팀": "오클랜드FC",
+      "이름": "Sam Cosgrove",
+      "포지션": "공격수(스트라이커)",
+      "상태": "확정(징계 출장정지)",
+      "원문": "Sam Cosgrove is missing from the squad due to serving a suspension after his spray at a football writer. / 'Auckland striker Sam Cosgrove has been suspended for Friday's match.' / 'star striker Sam Cosgrove set to be sidelined for the next two games for his verbal alternation with a journalist ahead of Round 1'",
+      "시즌선발": "라운드1 선발 출장(2026-10-16), 이후 2경기 출장정지",
+      "출처": "https://www.friendsoffootballnz.com/2026/10/30/squads-named-for-auckland-fcs-mens-a-league-against-brisbane-roar/ ; https://www.bets.com.au/soccer/a-league/brisbane-roar-vs-auckland-fc-a-league-round-3-tips-prediction-20261028-0002/",
+      "날짜": "2026-10-29"
+    },
+    {
+      "팀": "오클랜드FC",
+      "이름": "Cameron Howieson",
+      "포지션": "미드필더",
+      "상태": "확정(부상)",
+      "원문": "midfielder Cam Howieson is sidelined with a calf injury / 'Cameron Howieson (calf)'",
+      "시즌선발": "확인 불가",
+      "출처": "https://www.friendsoffootballnz.com/2026/10/30/squads-named-for-auckland-fcs-mens-a-league-against-brisbane-roar/",
+      "날짜": "2026-10-29"
+    },
+    {
+      "팀": "오클랜드FC",
+      "이름": "Aaron Calver",
+      "포지션": "수비수",
+      "상태": "확정(부상)",
+      "원문": "'Aaron Calver (ankle)' miss out for the Black Knights for the Brisbane match",
+      "시즌선발": "확인 불가",
+      "출처": "https://www.friendsoffootballnz.com/2026/10/30/squads-named-for-auckland-fcs-mens-a-league-against-brisbane-roar/",
+      "날짜": "2026-10-29"
+    },
+    {
+      "팀": "오클랜드FC",
+      "이름": "Oliver Middleton",
+      "포지션": "공격수",
+      "상태": "확정(부상)",
+      "원문": "'Oliver Middleton (knee)' miss out for the Black Knights for the Brisbane match",
+      "시즌선발": "확인 불가",
+      "출처": "https://www.friendsoffootballnz.com/2026/10/30/squads-named-for-auckland-fcs-mens-a-league-against-brisbane-roar/",
+      "날짜": "2026-10-29"
+    }
+  ],
+
+  "복귀": [
+    {
+      "팀": "브리즈번 로어",
+      "이름": "Jordan Lauton",
+      "내용": "Round 2 스쿼드에서 'ins' 처리되어 복귀(승격). 'Roar welcome back Jordan Lauton'",
+      "출처": "https://aleagues.com.au/news/aleague-men-ins-and-outs-matchweek-3/",
+      "날짜": "2026-10-29"
+    }
+  ],
+
+  "순위": {
+    "홈": {"순위": "5위", "승점": 3, "경기": 1, "승무패": "1승 0무 0패", "득실": "2:1 (+1)", "출처": "https://www.espn.com/soccer/standings/_/league/aus.1", "날짜": "2026-10-30 기준(2026-27시즌 매치위크3, 브리즈번은 라운드1만 소화)"},
+    "원정": {"순위": "6위", "승점": 3, "경기": 2, "승무패": "1승 0무 1패", "득실": "5:6 (-1)", "출처": "https://www.espn.com/soccer/standings/_/league/aus.1", "날짜": "2026-10-30 기준"}
+  },
+
+  "최근5": {
+    "홈": [
+      {"날짜": "2026-10-23", "대회": "A-League Men 2026-27 R1", "상대": "Perth Glory", "스코어": "2:1 승", "홈원정": "홈", "비고": "Justin Vidic·Nam Tae-hee 득점"},
+      {"날짜": "2026-04-25", "대회": "A-League Men 2025-26 (전 시즌 마지막 경기)", "상대": "Perth Glory", "스코어": "1:2 패", "홈원정": "확인 불가", "비고": "시즌 11위로 마감(6승8무12패)"},
+      {"날짜": "2026-04-18", "대회": "A-League Men 2025-26", "상대": "Melbourne City FC", "스코어": "2:3 패", "홈원정": "확인 불가"},
+      {"날짜": "2026-04-02", "대회": "A-League Men 2025-26", "상대": "Sydney FC", "스코어": "0:0 무", "홈원정": "확인 불가"}
+    ],
+    "원정": [
+      {"날짜": "2026-10-24", "대회": "A-League Men 2026-27 R2", "상대": "Western Sydney Wanderers", "스코어": "2:5 패", "홈원정": "원정", "비고": "Luka Vicelich·Brandon Borrello(자책) 득점, 시즌 첫 패"},
+      {"날짜": "2026-10-16", "대회": "A-League Men 2026-27 R1", "상대": "Melbourne City FC", "스코어": "3:1 승", "홈원정": "홈", "비고": "Luka Vicelich(18세) 구단 역대 최연소 득점자"},
+      {"날짜": "2026-05-23", "대회": "2026 A-League Men 그랜드파이널", "상대": "Sydney FC", "스코어": "1:0 승", "홈원정": "홈(Go Media Stadium, 관중 28,374명)", "비고": "Cam Howieson 결승골, 뉴질랜드 구단 최초 우승"},
+      {"날짜": "2026-05-15", "대회": "2026 준결승 2차전", "상대": "Adelaide United", "스코어": "3:0 승", "홈원정": "원정", "비고": "합계 승리로 결승 진출"},
+      {"날짜": "2026-05-09", "대회": "2026 준결승 1차전", "상대": "Adelaide United", "스코어": "1:1 무", "홈원정": "홈"}
+    ]
+  },
+
+  "맞대결": [
+    {"날짜": "2026-01-09", "장소": "Suncorp Stadium(브리즈번)", "스코어": "브리즈번 0:2 오클랜드", "출처": "https://aleagues.com.au/news/alm-mw3-preview-brisbane-roar-vs-auckland-fc/ (요약), https://www.footboom1.com/en/football/game/brisbane-roar-fc-auckland-fc-2026-01-09"},
+    {"날짜": "2025-11-23", "장소": "오클랜드", "스코어": "오클랜드 1:1 브리즈번", "출처": "https://www.aiscore.com/head-to-head/soccer-auckland-fc-vs-brisbane-roar"},
+    {"날짜": "2025-03-30", "장소": "브리즈번", "스코어": "브리즈번 0:2 오클랜드", "출처": "https://www.aiscore.com/head-to-head/soccer-auckland-fc-vs-brisbane-roar"},
+    {"날짜": "2024-10-19", "장소": "오클랜드", "스코어": "오클랜드 2:0 브리즈번", "출처": "https://www.aiscore.com/head-to-head/soccer-auckland-fc-vs-brisbane-roar"}
+  ],
+  "맞대결_요약": "통산 4차례 맞대결: 오클랜드 3승 1무, 브리즈번 0승(미승). 브리즈번은 이 중 3경기에서 무득점. 수익시즌 중 브리즈번 홈 2경기 모두 오클랜드가 2:0 승리.",
+
+  "감독": {
+    "홈": {"이름": "Michael Valkanis", "부임": "2025년 5월 부임(전임 Ruben Zadkovich 후임)", "출처": "https://aleagues.com.au/news/brisbane-roar-appoint-michael-valkanis-head-coach-details-latest-news-a-league/", "비고": "결장자 Dimitri Valkanis의 부친"},
+    "원정": {"이름": "Pedro Moreira", "부임": "2026-27 시즌을 앞두고 신규 부임(전 AS로마·포르투·브라가 코치, 직전 우즈베키스탄 Pakhtakor FC 감독)", "출처": "https://aucklandfc.co.nz/news/auckland-fc-announce-pedro-moreira-as-new-head-coach/"}
+  },
+
+  "경기장": {
+    "이름": "Suncorp Stadium, Milton (브리즈번)",
+    "특이": "브리즈번 로어 홈구장, 특이사항(연기·장소변경·잔디 이상) 보도 확인 안 됨",
+    "출처": "https://brisbaneroar.com.au/news/alm-mw3-preview-brisbane-roar-vs-auckland-fc/"
+  },
+
+  "일정": {
+    "홈": {"직전경기": "2026-10-23 Perth Glory전(홈, 승)", "최근7일경기수": 0, "비고": "2026-27 시즌 R1만 소화(라운드2 매치가 없었던 것으로 확인됨 — 정확한 사유는 확인 불가)"},
+    "원정": {"직전경기": "2026-10-24 Western Sydney Wanderers전(원정, 패)", "최근7일경기수": 1, "비고": "브리즈번 원정까지 이동"}
+  },
+
+  "동기": "오클랜드FC는 2025-26시즌 그랜드파이널 우승팀(디펜딩 챔피언)으로 타이틀 방어 중이나 개막 후 R2에서 시즌 최다 실점(2:5) 패배를 당해 '설욕'이 거론됨(기사 표현: 'Auckland seeking redemption after Round 1 loss'). 브리즈번은 신임 감독 Michael Valkanis 체제 첫 시즌으로 개막 2연승을 노리는 상황이며, 통산 오클랜드전 무승(4전 무승) 기록을 깨려는 동기가 거론됨.",
+
+  "심판": {"이름": "확인 불가", "출처": "Football Australia·PFRA 심판 배정표에서 해당 경기(2026-27 R3 브리즈번vs오클랜드) 배정 미확인"},
+
+  "현지프리뷰": [
+    {
+      "매체": "Brisbane Roar 공식 사이트(brisbaneroar.com.au)",
+      "URL": "https://brisbaneroar.com.au/news/alm-mw3-preview-brisbane-roar-vs-auckland-fc/",
+      "날짜": "2026-10-29",
+      "사실요약": "브리즈번 20인 스쿼드 명단 공개, Dimitri Valkanis 결장(leg injury), 오클랜드 Sam Cosgrove 출장정지, 통산 맞대결 오클랜드 3승1무(브리즈번 무승), 최근 맞대결 2026-01-09 Suncorp에서 오클랜드 2:0 승"
+    },
+    {
+      "매체": "Auckland FC 공식 사이트(aucklandfc.co.nz)",
+      "URL": "https://aucklandfc.co.nz/news/matchweek-3-preview-brisbane-roar-vs-auckland-fc/",
+      "날짜": "2026-10-29",
+      "사실요약": "오클랜드FC는 R2에서 WSW에 2:5 패배 후 원정으로 브리즈번行, 브리즈번은 10시즌 중 2번째 개막전 승리, Luka Vicelich(18세)가 구단 역대 최연소 득점자 기록, 과거 브리즈번 원정 2경기 모두 오클랜드 2:0 승"
+    },
+    {
+      "매체": "Friends of Football NZ",
+      "URL": "https://www.friendsoffootballnz.com/2026/10/30/squads-named-for-auckland-fcs-mens-a-league-against-brisbane-roar/",
+      "날짜": "2026-10-30",
+      "사실요약": "양 팀 확정 스쿼드(출전 엔트리) 명단 공개 — 브리즈번 20인(2명 제외 예정), 오클랜드 19~20인(1명 제외 예정). 오클랜드 결장: Howieson(calf)·Calver(ankle)·Middleton(knee)·Cosgrove(출장정지)"
+    },
+    {
+      "매체": "bets.com.au",
+      "URL": "https://www.bets.com.au/soccer/a-league/brisbane-roar-vs-auckland-fc-a-league-round-3-tips-prediction-20261028-0002/",
+      "날짜": "2026-10-28",
+      "사실요약": "양 팀 예상 선발 라인업(브리즈번 3-5-2, 오클랜드 4-4-2) 게재. 브리즈번은 작년 마지막 12경기 무승(지난 시즌 기록)."
+    }
+  ],
+
+  "확인불가": [
+    "양 팀 공식 확정 선발 라인업(수집 시점 킥오프 30분 전, 예상 라인업만 보도됨)",
+    "이번 경기 심판 배정",
+    "경기장 날씨·잔디 상태",
+    "관중 수 예상",
+    "오클랜드 결장 선수들(Howieson·Calver·Middleton)의 이번 시즌 선발 횟수",
+    "2025-26시즌 4월 Melbourne City전·Sydney FC전의 홈/원정 여부",
+    "브리즈번이 2026-27시즌 '라운드2'를 치르지 않고 바로 '매치위크3'를 맞이한 정확한 사유(경기 수 불일치: ESPN 순위표 기준 브리즈번 1경기, 오클랜드 2경기 소화)"
+  ]
+}

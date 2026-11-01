@@ -9,7 +9,7 @@
 - 최근 경기(ESPN, 최대 28일): 2026-09-27 Seattle Sounders FC 3-1 Minnesota United FC / 2026-10-11 Minnesota United FC 2-2 Houston Dynamo FC / 2026-10-15 Colorado Rapids 2-2 Minnesota United FC / 2026-10-17 Minnesota United FC 3-2 St. Louis CITY SC / 2026-10-25 Houston Dynamo FC 0-0 Minnesota United FC
 <!-- FACTS:END -->
 <!-- INPUTS:START -->
-## 입력(자동 수집 2026-10-28) — xG·휴식일·라인업·환경(이동거리·고도·날씨)은 이 숫자를 쓴다
-- 10-29 09:30 vs 스포팅 캔자스시티: 휴식 4.0일(7일 1경기) · 직전 10-25 원정 vs Houston Dynamo FC 0-0 무 [usa.1] · xG - · 직전 선발 3-4-3 Drake Callender, Jefferson Díaz, Morris Duggan, Cherrion Valerius, Owen Gene, Nectarios Triantis, Anthony Markanich, Bongokuhle Hlongwane, Kelvin Yeboah, Mauricio Gonzalez, Aziel Jackson · 구장 알리안츠 필드 · 이동 663km · 고도 281m(차 -24m) · 17.2℃ 강수3.2mm(70%) 바람21.7km/h · ⚠ 비 3.2mm(70%)
+## 입력(자동 수집 2026-10-30) — xG·휴식일·라인업·환경(이동거리·고도·날씨)은 이 숫자를 쓴다
+- 11-02 10:30 vs LAFC: 휴식 4.0일(7일 1경기) · 직전 10-29 홈 vs Sporting Kansas City 3-1 승 [usa.1] · xG - · 직전 선발 4-4-2 Drake Callender, Morris Duggan, Jefferson Díaz, Anthony Markanich, Cherrion Valerius, Owen Gene, Nectarios Triantis, Mauricio Gonzalez, Bongokuhle Hlongwane, Kelvin Yeboah, Aziel Jackson · 구장 BMO 스타디움(구단 좌표 — 구장 미확인) · 이동 2460km · 고도 60m(차 -221m) · 20.1℃ 강수0mm(6%) 바람11.9km/h · ⚠ 장거리 원정 2460km
 <!-- INPUTS:END -->
 

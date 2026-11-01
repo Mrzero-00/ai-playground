@@ -1,0 +1,21 @@
+{"번호":6,"홈":"뉴잉레벌","원정":"뉴욕레드","리그":"MLS","구장":"Gillette Stadium (Foxborough)","킥오프":"2026-10-29 08:30 KST","수집시각":"2026-10-28 22:45 KST",
+ "결장":[],
+ "라인업":{
+   "홈":{"발표여부":"미발표","예상XI":"미상(teamdb 직전 선발: Turner, Kohler, Polster, Gil, Turgeman, Gazdag, Langoni 등 — 참고용)","포메이션":"4-3-3(teamdb 직전 선발 기준)","출처":"","날짜":""},
+   "원정":{"발표여부":"미발표","예상XI":"미상(teamdb 직전 선발: Horvath, Nealis, Sofo, Cowell 등 — 참고용)","포메이션":"4-3-3(teamdb 직전 선발 기준)","출처":"","날짜":""}
+ },
+ "최근경기":[
+   {"팀":"홈","날짜":"2026-10-24","상대":"Philadelphia Union","장소":"A","스코어":"2-1 승","비고":"3연승째(10/14,10/17,10/24)"},
+   {"팀":"원정","날짜":"2026-10-24","상대":"Inter Miami CF","장소":"H","스코어":"2-0 승","비고":"메시 보유 인터마이애미 상대 완승"}
+ ],
+ "순위":{"홈":"동부 2위 31경기 17승4무10패 승점55 — 플레이오프 이미 확정(9개 클럽 확정 중 하나)","원정":"동부 9위 31경기 11승6무14패 승점39 — 현재 마지막 와일드카드 자리, 13위 DC유나이티드에 승점 6 앞섬. 3경기 남음, 탈락 위기 가능성 있다고 보도","출처":"https://sports.yahoo.com/articles/matchday-33-clinch-playoffs-eliminated-150000794.html ; https://www.sportskeeda.com/football/new-england-revolution-vs-new-york-red-bulls-prediction-betting-tips-october-28th-2026","날짜":"2026-10-27"},
+ "감독":{"홈":"Pablo Moreira","원정":"뉴욕레드불스 감독 이름 미확인(위키 공석 표시, 교체 뉴스 못찾음)","변동":"없음(확인된 변동 없음)","출처":"","날짜":""},
+ "일정·동기·기타":[
+   {"내용":"뉴잉글랜드 레볼루션은 이미 플레이오프 확정 상태로 '새 결장 없음(no fresh absences)' — 부상 이슈 없이 로테이션 가능성은 있으나 동기 저하 명시 보도는 없음, 최근 3연승 중이라 기세 유지 목적 가능","출처":"https://www.sportskeeda.com/football/new-england-revolution-vs-new-york-red-bulls-prediction-betting-tips-october-28th-2026","날짜":"2026-10-27"},
+   {"내용":"뉴욕 레드불스는 마지막 와일드카드 경쟁 중 — 승점 유지가 필수적이라는 보도(플레이오프 탈락 위험 언급)","출처":"https://www.sportskeeda.com/football/new-england-revolution-vs-new-york-red-bulls-prediction-betting-tips-october-28th-2026","날짜":"2026-10-27"}
+ ],
+ "날씨·구장":{"내용":"못찾음","출처":"","날짜":""},
+ "엇갈림":[],
+ "못찾음":["양 팀 10/27~28자 공식 Availability Report(결장자 명단)","뉴욕 레드불스 현재 감독 이름 및 교체 여부","공식 발표 라인업","날씨 예보"],
+ "뉴스없음":{"홈":"검색했으나 결장·부상 보도 없음(새 결장 없음이라는 보도 자체가 확인) — 검색처: sportskeeda, whoscored","원정":"공식 Availability Report 미확인 — 검색처: newyorkredbulls.com 프리뷰, whoscored(결장 명단 언급 없음)"},
+ "검증":"감독 ○(원정 미확인)/이적 특이사항 없음/결장 출처 0개(결장 보도 자체가 없음, 확정 아님)"}

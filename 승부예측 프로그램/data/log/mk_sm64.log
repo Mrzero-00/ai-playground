@@ -1,0 +1,2 @@
+usage: round_log.py market [-h] round
+round_log.py market: error: argument round: invalid int value: '승무패64'

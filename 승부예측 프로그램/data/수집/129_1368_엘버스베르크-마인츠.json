@@ -1,0 +1,58 @@
+{
+  "경기": "SV 엘버스베르크(SV Elversberg) vs FSV 마인츠05(Mainz 05)",
+  "번호": 1368,
+  "대회": "★중요 정정★ 독일 1.분데스리가 8라운드(정규리그) — DFB-포칼 아님",
+  "수집시각": "2026-10-30 22:05",
+  "결장": [
+    {"팀":"엘버스베르크", "선수":"Jan Gyamerah", "상태":"확정", "포지션":"라이트백", "시즌선발":"확인 못 함", "사유":"햄스트링 부상", "출처":"https://www.sportsmole.co.uk/football/elversberg/preview/elversberg-vs-mainz-prediction-team-news-lineups_607863.html", "날짜":"2026-10-30"},
+    {"팀":"엘버스베르크", "선수":"Luis Seifert", "상태":"확정", "포지션":"수비수", "시즌선발":"확인 못 함", "사유":"발목 부상", "출처":"https://www.sportsmole.co.uk/football/elversberg/preview/elversberg-vs-mainz-prediction-team-news-lineups_607863.html", "날짜":"2026-10-30"},
+    {"팀":"엘버스베르크", "선수":"Tom Zimmerschied", "상태":"확정", "포지션":"윙어", "시즌선발":"확인 못 함", "사유":"발목 인대 부상", "출처":"https://www.sportsmole.co.uk/football/elversberg/preview/elversberg-vs-mainz-prediction-team-news-lineups_607863.html", "날짜":"2026-10-30"},
+    {"팀":"엘버스베르크", "선수":"Lasse Günther / Lukas Pinckert / Noah Darvich", "상태":"의심→사실상 해소", "포지션":"다양", "시즌선발":"확인 못 함", "사유":"DFB포칼 2라운드(10-28 다름슈타트전)에서 근육 문제로 점검 대상이었으나, 독일 매체(absolutfussball)는 '마인츠전 출전 가능(fit)'으로 보도 — 다만 Günther는 Sports Mole에선 여전히 '점검 필요'로 남아 있어 엇갈림", "출처":"https://www.absolutfussball.com/deutschland/sv-elversberg/sv-elversberg-trio-um-lukas-pinckert-nach-dfb-pokal-aus-verletzung-fit-fuer-fsv-mainz-bundesliga-94566354.html", "날짜":"2026-10-30"},
+    {"팀":"마인츠", "선수":"Dominik Kohr", "상태":"확정", "포지션":"센터백", "시즌선발":"확인 못 함", "사유":"발목 부상, 2027년 1월까지 결장 예정", "출처":"https://www.sportsmole.co.uk/football/elversberg/preview/elversberg-vs-mainz-prediction-team-news-lineups_607863.html", "날짜":"2026-10-30"},
+    {"팀":"마인츠", "선수":"Silas Katompa Mvumpa", "상태":"확정", "포지션":"공격수", "시즌선발":"확인 못 함", "사유":"다리 골절, 2027년 1월까지 결장 예정(장기)", "출처":"https://www.sportsmole.co.uk/football/elversberg/preview/elversberg-vs-mainz-prediction-team-news-lineups_607863.html", "날짜":"2026-10-30"},
+    {"팀":"마인츠", "선수":"Nadiem Amiri", "상태":"의심", "포지션":"미드필더", "시즌선발":"확인 못 함", "사유":"무릎 문제, 출전 여부 막판 결정(late decision) — 일부 예상 라인업엔 포함됨", "출처":"https://www.sportsmole.co.uk/football/elversberg/preview/elversberg-vs-mainz-prediction-team-news-lineups_607863.html", "날짜":"2026-10-30"},
+    {"팀":"마인츠", "선수":"Ruoppi", "상태":"추정", "포지션":"확인 못 함", "시즌선발":"확인 못 함", "사유":"훈련 결손(training deficit)으로 결장 추정", "출처":"https://www.fussballnationalmannschaft.net/aufstellung-elversberg-mainz-bundesliga-123318491.html", "날짜":"2026-10-30"}
+  ],
+  "라인업": {
+    "홈": {
+      "발표여부": "예상(미공식)",
+      "XI": ["Nicolas Kristof","Luca Sirch","Lukas Finn Pinckert","Rohr","Lasse Günther","Keidel","Lukasz Poręba","Lukas Petkov","Onyeka","Krattenmacher","Mokwa"],
+      "포메이션": "4-2-3-1",
+      "출처": "https://magazin.comunio.de/sv-elversberg-1-fsv-mainz-05-voraussichtliche-aufstellungen/ , https://www.sportsmole.co.uk/football/elversberg/preview/elversberg-vs-mainz-prediction-team-news-lineups_607863.html",
+      "날짜": "2026-10-30",
+      "비고": "직전 라이프치히 원정(0-4 패) 대비 2명 교체 예상: Gyamerah 대신 Sirch, Schmahl 대신 Onyeka. 10-28 포칼전(다름슈타트 0-2 패) 선발과도 다름(로테이션 가능성)."
+    },
+    "원정": {
+      "발표여부": "예상(미공식, 매체 간 포지션·포메이션 소폭 엇갈림)",
+      "XI": ["Robin Zentner","Danny da Costa","Stefan Posch","Kacper Potulski","Fabio Gruber","Philipp Caci","Kaishu Sano","Phillipp Mwene","Nadiem Amiri","Lee Jae-Sung","Sheraldo Becker","Phillip Tietz"],
+      "포메이션": "3-3-2-2 (매체별로 3-5-2 변형 표기)",
+      "출처": "https://www.sportsmole.co.uk/football/elversberg/preview/elversberg-vs-mainz-prediction-team-news-lineups_607863.html , https://www.fussballnationalmannschaft.net/aufstellung-elversberg-mainz-bundesliga-123318491.html",
+      "날짜": "2026-10-30",
+      "비고": "핵심 변화: 골키퍼 Robin Zentner 복귀(직전 10-24 베르더 브레멘전은 Schwolow 선발이었음 — FACTS/INPUTS 대비 변경점). Gruber가 백3에 들어가며 da Costa를 대체한다는 보도(comunio)도 있어 da Costa 선발 여부 엇갈림. Tietz-Becker 투톱 조합은 복수 매체 일치."
+    }
+  },
+  "감독_이슈": [
+    "엘버스베르크 감독 Vincent Wagner 유지 — 1부리그 데뷔 시즌 치고 선전 중(마인츠 바로 아래 순위, 승점 10 동률).",
+    "마인츠 감독 Urs Fischer 유지.",
+    "양 팀 모두 10-28 DFB포칼 2라운드에서 2-0 패배로 탈락(엘버스베르크는 다름슈타트에, 마인츠는 보훔에) — 최근 4경기 중 3패로 양 팀 모두 부진한 흐름."
+  ],
+  "동기": [
+    "엘버스베르크: 승격 첫 시즌(신생 1부리그 클럽)으로 선전 중이며 마인츠 바로 아래 순위라 직접 추월 기회.",
+    "마인츠: 포칼 탈락 직후 분위기 반전 필요."
+  ],
+  "최근5": {
+    "홈": ["2026-09-13 SV Elversberg 1-2 Bayern Munich","2026-09-20 Schalke 04 0-0 SV Elversberg","2026-10-10 1. FC Union Berlin 1-0 SV Elversberg","2026-10-17 SV Elversberg 4-3 FC Augsburg","2026-10-24 RB Leipzig 4-0 SV Elversberg"],
+    "원정": ["2026-09-12 Mainz 1-3 Eintracht Frankfurt","2026-09-19 Borussia Mönchengladbach 3-4 Mainz","2026-10-10 Mainz 3-4 Bayer Leverkusen","2026-10-17 Schalke 04 0-1 Mainz","2026-10-24 Mainz 2-3 Werder Bremen"]
+  },
+  "현지매체": [
+    "kicker.de (대진·일정 확인)",
+    "absolutfussball.com (2026-10-30, 엘버스베르크 부상자 복귀 보도)",
+    "fussballnationalmannschaft.net (2026-10-30, 중계·예상 라인업)"
+  ],
+  "기타": [
+    "★대회 재확인 결과: 이 경기는 DFB-포칼이 아니라 **1.분데스리가 정규리그 8라운드**다. 양 팀 모두 DFB-포칼 2라운드는 이미 2026-10-28에 치렀고 둘 다 2-0으로 패해 탈락했다(엘버스베르크 0-2 vs SV Darmstadt 98, 마인츠 0-2 vs VfL Bochum). 팀노트 INPUTS의 '[second round]' 표기는 10-28 경기(포칼)를 가리키는 것이며, 10-30/31 마인츠전은 별개의 리그 경기다.",
+    "★팀 소속 재확인: 엘버스베르크는 2025-26시즌 2.분데스리가에서 승격해 2026-27시즌은 **1.분데스리가** 소속이다(과제 설명의 '2.분데스리가 팀'은 최신 사실과 다름 — Sports Mole 등 복수 매체가 'newly promoted'·'debut top-flight campaign'으로 명시). 최근5 상대(바이에른, 샬케, 우니온 베를린, 아우크스부르크, 라이프치히)도 전부 1부리그 팀.",
+    "경기 시각: 현지 2026-10-30 19:30(독일시간) = KST 2026-10-31 03:30~04:30대(팀노트 04:30과 대략 일치, 소스 일부는 19:30/20:30 혼재 — 베트맨 발표 04:30을 기준으로 둠).",
+    "대회 형식: 분데스리가 정규리그, 연장전·승부차기 없음(무승부 가능)."
+  ]
+}

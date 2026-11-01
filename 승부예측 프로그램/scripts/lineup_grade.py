@@ -221,6 +221,12 @@ def cmd_xi(a):
         got = {}
         for side in ("홈", "원정"):
             pred = (lu.get(side) or {}).get("예상XI") or ""
+            if isinstance(pred, (list, tuple)):      # 수집가가 배열로 적는 경우가 있다
+                pred = "; ".join(str(x) for x in pred)
+            elif isinstance(pred, dict):
+                pred = "; ".join(str(v) for v in pred.values())
+            elif not isinstance(pred, str):
+                pred = str(pred)
             names = {surname(x) for x in re.split(r"[;,/]", re.sub(r"^[^:]*:", "", pred)) if surname(x)}
             got[side] = names
         recs.append({"회차": rnd, "번호": no, "예상": got, "실제": xi, "g": g,

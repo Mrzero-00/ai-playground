@@ -1,0 +1,54 @@
+{
+  "경기": "ACF피오렌티나 vs 아탈란타BC",
+  "수집시각": "2026-10-29 21:40",
+  "대회_라운드": "이탈리아 세리에A(2026-27 시즌) 9라운드(nona giornata) · 킥오프 2026-10-30 04:45 KST(현지 2026-10-29 20:45 CET) · 경기장 스타디오 아르테미오 프란키(피렌체)",
+  "순위": [
+    {"팀": "ACF피오렌티나", "순위": 19, "승점": 4, "득실": "-10 (8경기 1승1무6패)", "출처": "팀노트/ACF피오렌티나.md 팩트시트(위키 '2026–27 ACF Fiorentina season', ESPN)", "날짜": "2026-10-29"},
+    {"팀": "아탈란타BC", "순위": 12, "승점": 10, "득실": "-1 (8경기 3승1무4패)", "출처": "팀노트/아탈란타BC.md 팩트시트(위키 '2026–27 Atalanta BC season', ESPN)", "날짜": "2026-10-29"}
+  ],
+  "결장": [
+    {"팀": "ACF피오렌티나", "선수": "Luca Ranieri", "포지션": "DF", "사유": "부상", "등급": "확정", "출처": "https://www.violanews.com/formazioni/fiorentina-atalanta-probabili-formazioni-torna-goncalves-spazio-a-gnonto/", "날짜": "2026-10-29"},
+    {"팀": "ACF피오렌티나", "선수": "Christ Inao Oulaï(Atta)", "포지션": "MF", "사유": "부상", "등급": "확정", "출처": "https://www.violanews.com/formazioni/fiorentina-atalanta-probabili-formazioni-torna-goncalves-spazio-a-gnonto/", "날짜": "2026-10-29"},
+    {"팀": "ACF피오렌티나", "선수": "Fabiano Parisi", "포지션": "DF", "사유": "부상", "등급": "확정", "출처": "https://www.violanews.com/formazioni/fiorentina-atalanta-probabili-formazioni-torna-goncalves-spazio-a-gnonto/", "날짜": "2026-10-29"},
+    {"팀": "ACF피오렌티나", "선수": "Marin Pongračić", "포지션": "DF", "사유": "넓적다리(대퇴이두근) 통증으로 추가 이탈", "등급": "확정", "출처": "https://www.violanews.com/formazioni/fiorentina-atalanta-probabili-formazioni-torna-goncalves-spazio-a-gnonto/", "날짜": "2026-10-29"},
+    {"팀": "아탈란타BC", "선수": "Odilon Kossounou", "포지션": "DF", "사유": "장기 부상", "등급": "확정", "출처": "https://www.violanews.com/formazioni/fiorentina-atalanta-probabili-formazioni-torna-goncalves-spazio-a-gnonto/", "날짜": "2026-10-29"},
+    {"팀": "아탈란타BC", "선수": "Isak Hien", "포지션": "DF", "사유": "장기 부상", "등급": "확정", "출처": "https://www.violanews.com/formazioni/fiorentina-atalanta-probabili-formazioni-torna-goncalves-spazio-a-gnonto/", "날짜": "2026-10-29"},
+    {"팀": "아탈란타BC", "선수": "Giorgio Scalvini", "포지션": "DF", "사유": "장기 부상", "등급": "확정", "출처": "https://www.violanews.com/formazioni/fiorentina-atalanta-probabili-formazioni-torna-goncalves-spazio-a-gnonto/", "날짜": "2026-10-29"},
+    {"팀": "아탈란타BC", "선수": "Sead Kolašinac", "포지션": "DF", "사유": "장기 부상", "등급": "확정", "출처": "https://www.violanews.com/formazioni/fiorentina-atalanta-probabili-formazioni-torna-goncalves-spazio-a-gnonto/", "날짜": "2026-10-29"},
+    {"팀": "아탈란타BC", "선수": "Franck Kessié", "포지션": "MF", "사유": "장기 부상", "등급": "확정", "출처": "https://www.violanews.com/formazioni/fiorentina-atalanta-probabili-formazioni-torna-goncalves-spazio-a-gnonto/", "날짜": "2026-10-29"},
+    {"팀": "아탈란타BC", "선수": "Giacomo Raspadori", "포지션": "FW", "사유": "장기 부상", "등급": "확정", "출처": "https://www.violanews.com/formazioni/fiorentina-atalanta-probabili-formazioni-torna-goncalves-spazio-a-gnonto/", "날짜": "2026-10-29"},
+    {"팀": "아탈란타BC", "선수": "Ademola Sulemana", "포지션": "미확인", "사유": "장기 부상", "등급": "확정", "출처": "https://www.violanews.com/formazioni/fiorentina-atalanta-probabili-formazioni-torna-goncalves-spazio-a-gnonto/", "날짜": "2026-10-29"},
+    {"팀": "아탈란타BC", "선수": "Gianluca Scamacca", "포지션": "FW(주전 스트라이커)", "사유": "프로시노네전 우측 대퇴부 굴근 손상(10-25 경기 중 교체투입 15분 만에 이상), 2~3주 결장 전망 — 이번 경기 결장 확정, 11-08 몬차전 복귀 시도 가능성·11월 A매치 휴식기 이후 복귀 유력", "등급": "확정", "출처": "https://www.fantacalcio.it/news/calcio-italia/27_10_2026/atalanta-il-bollettino-medico-su-scamacca-e-bellanova-499840", "날짜": "2026-10-27"},
+    {"팀": "아탈란타BC", "선수": "Raoul Bellanova", "포지션": "DF(우측 풀백, 직전 선발)", "사유": "부상(바로 위 기사와 동일 발표 — 피오렌티나전 결장)", "등급": "확정", "출처": "https://www.fantacalcio.it/news/calcio-italia/27_10_2026/atalanta-il-bollettino-medico-su-scamacca-e-bellanova-499840", "날짜": "2026-10-27"}
+  ],
+  "예상XI": [
+    {"팀": "ACF피오렌티나", "포메이션": "4-3-2-1", "선수": ["David de Gea", "Álex Jiménez", "Radu Drăgușin", "Viery", "Víctor Valdepeñas", "Cher Ndour", "Nicolò Fagioli", "Marco Brescianini", "Franco Mastantuono", "Wilfried Gnonto", "Mateo Pellegrino"], "근거": "현지 매체 예상 선발(공식 발표 아님). 직전 경기(4-3-3) 대비 변화 — Gnonto 선발 복귀 예상", "출처": "https://www.violanews.com/formazioni/fiorentina-atalanta-probabili-formazioni-torna-goncalves-spazio-a-gnonto/", "날짜": "2026-10-29"},
+    {"팀": "아탈란타BC", "포메이션": "4-2-3-1", "선수": ["Marco Carnesecchi", "Davide Zappacosta", "Thomas Kristensen", "Relja Obrić", "Honest Ahanor/Bernasconi", "Mario Pašalić", "Éderson", "Eljif Elmas", "Charles De Ketelaere", "Jon Rowe", "Nikola Krstović"], "근거": "현지 매체 예상 선발(공식 발표 아님). Scamacca 결장으로 Krstović 최전방, Bellanova 결장으로 우측 풀백 교체 필요", "출처": "https://www.violanews.com/formazioni/fiorentina-atalanta-probabili-formazioni-torna-goncalves-spazio-a-gnonto/", "날짜": "2026-10-29"}
+  ],
+  "최근폼": [
+    {"팀": "ACF피오렌티나", "최근5": "Venezia전 2-4승(09-11) / Napoli 1-1무(09-20) / Genoa 2-1패(10-10) / Como 1-3패(10-18) / Internazionale 1-2패(10-25)", "득점": "", "실점": "", "xG": "시즌8경기 xG1.44/xGA1.98 (팀노트 INPUTS)", "출처": "팀노트/ACF피오렌티나.md", "날짜": "2026-10-29"},
+    {"팀": "아탈란타BC", "최근5": "Cagliari 1-2패(09-12) / Juventus 0-2패(09-20) / Venezia 3-1승(10-12) / AC Milan 2-3패(10-18) / Frosinone 4-4무(10-25)", "득점": "", "실점": "", "xG": "시즌8경기 xG1.62/xGA2.19 (팀노트 INPUTS)", "출처": "팀노트/아탈란타BC.md", "날짜": "2026-10-29"}
+  ],
+  "맞대결": [
+    {"날짜": "2026-05-22", "대회": "Serie A", "장소": "피렌체(홈)", "스코어": "피오렌티나 1-1 아탈란타", "출처": "https://www.calcioatalanta.it/2026/10/29/atalanta-il-franchi-resta-un-tabu-a-firenze-non-vince-dal-2021/"},
+    {"날짜": "2025-11-30", "대회": "Serie A", "장소": "베르가모(원정)", "스코어": "아탈란타 2-0 피오렌티나", "출처": "https://www.calcioatalanta.it/2026/10/29/atalanta-il-franchi-resta-un-tabu-a-firenze-non-vince-dal-2021/"},
+    {"날짜": "2025-03-30", "대회": "Serie A", "장소": "피렌체(홈)", "스코어": "피오렌티나 1-0 아탈란타", "출처": "https://www.calcioatalanta.it/2026/10/29/atalanta-il-franchi-resta-un-tabu-a-firenze-non-vince-dal-2021/"},
+    {"날짜": "참고", "대회": "", "장소": "", "스코어": "아탈란타는 2021년 이후 프란키 원정 승리가 없음(최근 5경기 2승 2패 1무로 균형이나, 프란키 구장 자체에서는 약세)", "출처": "https://www.calcioatalanta.it/2026/10/29/atalanta-il-franchi-resta-un-tabu-a-firenze-non-vince-dal-2021/"}
+  ],
+  "일정": [
+    {"팀": "ACF피오렌티나", "직전경기": "2026-10-25 원정 vs Internazionale 1-2 패 (Serie A)", "휴식일": 4.3, "다음경기": "미확인", "출처": "팀노트/ACF피오렌티나.md INPUTS"},
+    {"팀": "아탈란타BC", "직전경기": "2026-10-25 홈 vs Frosinone 4-4 무 (Serie A)", "휴식일": 4.2, "다음경기": "Monza(11-08, Scamacca 복귀 시도 기준 역산 — 정확한 상대·날짜는 간접 추정)", "출처": "팀노트/아탈란타BC.md INPUTS; https://www.fantamaster.it/atalanta-infortunio-scamacca-e-arrivato-il-verdetto-tempi-di-recupero/"}
+  ],
+  "동기_이슈": [
+    {"팀": "ACF피오렌티나", "내용": "시즌 초 Fabio Grosso 경질(9/6) 후 Paolo Vanoli 부임(9/7). 현재 19위(최하위권) 승점4로 강등권 탈출이 시급한 상황", "출처": "팀노트/ACF피오렌티나.md 팩트시트", "날짜": "2026-10-29"},
+    {"팀": "아탈란타BC", "내용": "수비진(Kossounou·Hien·Scalvini·Kolašinac)과 공격진(Kessié·Raspadori·Sulemana·Scamacca·Bellanova) 동시다발 결장으로 '피에나 에메르젠차(완전 비상사태)'로 현지 매체 표현 — 선수단 로테이션 여력 부족", "출처": "https://www.sportmediaset.mediaset.it/calcio/atalanta-in-emergenza-sarri-perde-anche-bellanova-e-scamacca-il-report-medico-del-club_118215661-202602k.shtml", "날짜": "2026-10-27"}
+  ],
+  "심판": {"이름": "Federico La Penna(로마1) — 부심 Khaled Bahri·Davide Moro, 4th Livio Marinelli, VAR Matteo Gariglio, AVAR Federico Dionisi", "출처": "https://www.laviola.it/fiorentina-atalanta-arbitra-la-penna-al-var-gariglio-e-dionisi"},
+  "날씨": {"기온": "13.6℃", "강수": "0mm(0%)", "바람": "4.4km/h", "출처": "팀노트/ACF피오렌티나.md INPUTS(Open-Meteo, 구장 좌표 기준 자동 수집)"},
+  "미확인": [
+    "아탈란타 우측 풀백 Bellanova 공백을 메울 선발 명단(두 매체에 Ahanor/Bernasconi로 이름이 엇갈림) 미확정",
+    "두 팀 모두 공식 라인업은 킥오프 1시간 전 발표 예정 — 현재는 전부 '예상'",
+    "피오렌티나 다음 경기 일정 미확인",
+    "일부 검색 엔진 캐시 날짜가 '2026-10-29'로 혼재 표기되어 있었으나(쿼리 자동보정으로 '10-30' 요청이 '10-29'로 응답됨) 이는 현지시각(CET) 기준 표기이며 KST 기준 2026-10-30 04:45 킥오프와 모순되지 않음(CET 20:45 = KST 익일 04:45)"
+  ]
+}

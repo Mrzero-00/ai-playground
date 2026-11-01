@@ -1,17 +1,17 @@
 # SC헤이렌베인
 
 <!-- FACTS:START -->
-## 팩트시트 (자동 수집 2026-10-23) — 조사 전 반드시 읽고, 아래 사실과 다른 뉴스 요약은 '미확인'으로 둔다
+## 팩트시트 (자동 수집 2026-10-31) — 조사 전 반드시 읽고, 아래 사실과 다른 뉴스 요약은 '미확인'으로 둔다
 - 출처: 위키 '2026–27 SC Heerenveen season'(season), ESPN 있음
 - 감독: Robin Veldman
-- 리그 순위: 8위 9경기 3승3무3패 GD+4 승점12 (Heerenveen)
+- 리그 순위: 7위 10경기 4승3무3패 GD+5 승점15 (Heerenveen)
 - 2026 여름 이적(위키 이적 표, 앞 8줄씩): IN align="center" · Darling Bladi · Betis Deportivo · Undisclosed · } === Out === {| class="wikitable plainrowhea / IN align="center" · Lasse Nordås · Luton Town · Loan return / IN align="center" · Amourricho van Axel Dongen · Ajax · Loan return / IN align="center" · Nordin Bakker · Midtjylland · Undisclosed / IN align="center" · Jan Bekkema · } / OUT align="center" · Lasse Nordås · Luton Town · Loan return / OUT align="center" · Amourricho van Axel Dongen · Ajax · Loan return / OUT align="center" · Nordin Bakker · Midtjylland · Undisclosed / OUT align="center" · Jan Bekkema · }
-- 최근 경기(ESPN, 최대 28일): 2026-09-06 Heerenveen 2-3 AZ Alkmaar / 2026-09-13 Heerenveen 0-0 Telstar / 2026-09-19 Sparta Rotterdam 0-4 Heerenveen / 2026-10-09 PSV Eindhoven 2-0 Heerenveen / 2026-10-16 Heerenveen 4-0 Excelsior
+- 최근 경기(ESPN, 최대 28일): 2026-09-13 Heerenveen 0-0 Telstar / 2026-09-19 Sparta Rotterdam 0-4 Heerenveen / 2026-10-09 PSV Eindhoven 2-0 Heerenveen / 2026-10-16 Heerenveen 4-0 Excelsior / 2026-10-24 ADO Den Haag 2-3 Heerenveen
 <!-- FACTS:END -->
 
 <!-- INPUTS:START -->
-## 입력(자동 수집 2026-10-24) — xG·휴식일·라인업·환경(이동거리·고도·날씨)은 이 숫자를 쓴다
-- 10-25 04:00 vs ADO덴하흐: 휴식 8.0일 · 직전 10-17 홈 vs Excelsior 4-0 승 [ned.1] · xG - · 직전 선발 4-2-3-1 Bernt Klaverboer, Maas Willemsen, Sam Kersten, Vasilios Zagaritis, Oliver Braude, Levi Smans, Nolhan Courtens, Marcus Linday, Dylan Vente, Maxence Rivera, Jacob Trenskow · 구장 ? · 이동 ?(구장 미확인) · 고도 ?m · 날씨 -
+## 입력(자동 수집 2026-10-30) — xG·휴식일·라인업·환경(이동거리·고도·날씨)은 이 숫자를 쓴다
+- 11-01 02:45 vs NEC네이메헌: 휴식 2.9일(7일 2경기) · 직전 10-29 원정 vs Excelsior Maassluis 2-0 승 [first round] · xG - · 직전 선발 4-2-3-1 Bernt Klaverboer, Hristiyan Petrov, Sam Kersten, Vasilios Zagaritis, Oliver Braude, Ringo Meerveld, Nolhan Courtens, Marcus Linday, Dylan Vente, Maxence Rivera, Jacob Trenskow · 구장 티알프 · 이동 124km · 고도 10m(차 -13m) · 11.5℃ 강수0mm(0%) 바람6.1km/h
 <!-- INPUTS:END -->
 
 ## 10/16 뉴스 (결장 점검)

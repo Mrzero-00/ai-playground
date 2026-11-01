@@ -1,0 +1,218 @@
+{
+  "경기": "LA 클리퍼스(홈) vs LA 레이커스(원정)",
+  "리그": "NBA 2026-27 정규시즌",
+  "일시": "2026-10-29 11:30 KST (현지 2026-10-28 19:30 PT / 22:30 ET)",
+  "구장": "Intuit Dome, Inglewood, CA",
+  "수집일시": "2026-10-29 09:12 KST",
+  "주의": "일부 자동생성/저품질 매체(essentiallysports, fadeawayworld, statmuse 요약 등)가 서로 모순되는 선발 라인업·과거 로스터 정보를 냈다. 복수 출처로 교차검증한 사실만 '확인'으로 표시하고, 단일 출처·모순 있는 항목은 '미확정'으로 표시했다.",
+  "부상자_결장": {
+    "레이커스": [
+      {
+        "선수": "Luka Dončić",
+        "상태": "확정 (Out)",
+        "사유": "허리 뻣뻣함(back tightness)",
+        "비고": "2026-27시즌 첫 4경기 전부 출전(평균 36점, 직전 2경기 41·52점). 이번이 시즌 첫 결장 — 새 이탈. 구단은 금요일 골든스테이트전을 앞둔 예방적 조치로 설명.",
+        "출처": "https://www.silverscreenandroll.com/lakers-injury-report/128030/lakers-injury-report-luka-doncic-back-clippers-ziaire-williams-cameron-carr-update-status ; https://lakersnation.com/lakers-injury-report-luka-doncic-ziaire-williams-out-vs-clippers/ ; https://x.com/jovanbuha/status/2115535177053299182",
+        "날짜": "2026-10-28"
+      },
+      {
+        "선수": "Ziaire Williams",
+        "상태": "확정 (Out)",
+        "사유": "왼쪽 발 통증(foot soreness)",
+        "비고": "프리시즌에도 같은 발 타박상으로 결장 이력. 예방적 조치로 보도됨.",
+        "출처": "https://lakersnation.com/lakers-injury-report-luka-doncic-ziaire-williams-out-vs-clippers/ ; https://heavy.com/sports/nba/los-angeles-lakers/lakers-injury-report-ziaire-williams-clippers/",
+        "날짜": "2026-10-28"
+      },
+      {
+        "선수": "Cameron Carr (루키)",
+        "상태": "확정 (Out)",
+        "사유": "오른쪽 옆구리(oblique) 긴장",
+        "비고": "이번 시즌 '아직 한 경기도 출전하지 못함'(has not played this season). 최근 G리그 산하팀(Coachella Valley Lakers)과 연습.",
+        "출처": "https://www.si.com/nba/lakers/onsi/lakers-rule-out-4-players-ahead-of-clippers-rematch",
+        "날짜": "2026-10-28"
+      },
+      {
+        "선수": "Adou Thiero",
+        "상태": "확정 (Out)",
+        "사유": "왼쪽 무릎 부종(swelling)/관리",
+        "비고": "복귀 시점 불확실하다고 보도됨.",
+        "출처": "https://www.si.com/nba/lakers/onsi/lakers-rule-out-4-players-ahead-of-clippers-rematch ; https://www.essentiallysports.com/nba-active-basketball-news-lakers-vs-clippers-oct-twenty-eight-where-to-watch-injury-report-and-everything-you-need-to-know/",
+        "날짜": "2026-10-28"
+      },
+      {
+        "선수": "LeBron James",
+        "상태": "해당없음 - 현재 레이커스 소속 아님",
+        "사유": "2026년 7월 필라델피아 세븐티식서스와 2년 계약 체결, 오프시즌 이적. 2017-18시즌 이후 처음으로 레이커스 로스터에 없음.",
+        "출처": "https://en.wikipedia.org/wiki/2026%E2%80%9327_Los_Angeles_Lakers_season",
+        "날짜": "2026 오프시즌(7월)"
+      }
+    ],
+    "클리퍼스": [
+      {
+        "선수": "Bradley Beal",
+        "상태": "확정 (Out)",
+        "사유": "오른쪽 무릎 관리(injury management)",
+        "비고": "현재 클리퍼스 로스터 소속(ESPN 로스터 확인).",
+        "출처": "https://sportssd.iheart.com/content/2026-10-28-lakers-vs-clippers-injury-report-oct-28/ ; https://roundtable.io/sports/nba/clippers/game-day/clippers-injury-report-rules-out-six-players-vs-lakers",
+        "날짜": "2026-10-28"
+      },
+      {
+        "선수": "Rui Hachimura",
+        "상태": "확정 (Out)",
+        "사유": "왼쪽 대퇴사두근(quad) 통증",
+        "비고": "2026-27 로스터 신규 합류(아래 로스터 변동 참고).",
+        "출처": "https://sportssd.iheart.com/content/2026-10-28-lakers-vs-clippers-injury-report-oct-28/",
+        "날짜": "2026-10-28"
+      },
+      {
+        "선수": "Brandon Ingram",
+        "상태": "확정 (Out)",
+        "사유": "오른쪽 발뒤꿈치/아킬레스 — 수술 후 회복",
+        "비고": "2026-09-14 콰이 레너드 트레이드로 클리퍼스 합류. 수술 회복 중이라 이번 시즌 아직 출전 기록 없는 것으로 보임(확인 필요).",
+        "출처": "https://sportssd.iheart.com/content/2026-10-28-lakers-vs-clippers-injury-report-oct-28/ ; https://213hoops.com/clippers-vs-lakers-preview-a-quick-rematch/",
+        "날짜": "2026-10-28"
+      },
+      {
+        "선수": "Max Strus",
+        "상태": "확정 (Out)",
+        "사유": "오른쪽 족저근막 부분 파열(plantar fascia partial tear)",
+        "출처": "https://sportssd.iheart.com/content/2026-10-28-lakers-vs-clippers-injury-report-oct-28/",
+        "날짜": "2026-10-28"
+      },
+      {
+        "선수": "Jordan Miller",
+        "상태": "확정 (Out)",
+        "사유": "어깨/회전근개 수술 회복 (일부 보도는 종아리로 표기 — 교차검증 필요)",
+        "출처": "https://sportssd.iheart.com/content/2026-10-28-lakers-vs-clippers-injury-report-oct-28/ ; https://213hoops.com/clippers-vs-lakers-preview-a-quick-rematch/",
+        "날짜": "2026-10-28"
+      },
+      {
+        "선수": "Yanic Konan Niederhauser",
+        "상태": "확정 (Out)",
+        "사유": "오른쪽 리스프랑 수술 회복",
+        "출처": "https://sportssd.iheart.com/content/2026-10-28-lakers-vs-clippers-injury-report-oct-28/",
+        "날짜": "2026-10-28"
+      },
+      {
+        "선수": "Kawhi Leonard",
+        "상태": "해당없음 - 현재 클리퍼스 소속 아님",
+        "사유": "2026-09-14 토론토 랩터스로 트레이드(반대급부: Brandon Ingram·Gradey Dick·향후 1라운드 지명권 5장). NBA가 연봉상한 우회 조사 결과를 발표한 직후 성사. 콰이가 클리퍼스를 떠난 건 2019-20시즌 이후 처음.",
+        "출처": "https://en.wikipedia.org/wiki/2026%E2%80%9327_Los_Angeles_Clippers_season ; https://www.cnbc.com/2026/09/02/nba-suspends-clippers-ballmer-kawhi-leonard-salary-cap.html",
+        "날짜": "2026-09-14 (트레이드) / 2026-09-02 (NBA 조사 결과 발표)"
+      },
+      {
+        "선수": "James Harden",
+        "상태": "해당없음 - 현재 클리퍼스 소속 아님",
+        "사유": "2026년 2월 4일(지난 시즌 트레이드 마감) 클리블랜드 캐벌리어스로 트레이드, 반대급부로 Darius Garland + 2026 2라운드 지명권 영입. 현재 클리블랜드 소속.",
+        "출처": "https://www.espn.com/nba/story/_/id/47808860/james-harden-darius-garland-trade-grade-whats-next ; https://lamag.com/sports/clippers-trade-harden-for-26-year-old-guard-and-second-round-pick/",
+        "날짜": "2026-02-04"
+      },
+      {
+        "선수": "Ivica Zubac",
+        "상태": "해당없음 - 현재 클리퍼스 소속 아님",
+        "사유": "2026년 2월(지난 시즌 트레이드 마감) 인디애나 페이서스로 트레이드, 반대급부 Bennedict Mathurin·Isaiah Jackson·1라운드 지명권 2장. Isaiah Jackson은 현재 클리퍼스 소속(이번 경기 선발 후보).",
+        "출처": "https://www.espn.com/nba/story/_/id/47840423/sources-clippers-trading-center-ivica-zubac-pacers",
+        "날짜": "2026-02 (정확 일자 확인 불가)"
+      }
+    ]
+  },
+  "확정_또는_유력_선발": {
+    "레이커스": {
+      "상태": "미확정 — 매체 간 모순",
+      "후보1_AI생성매체": ["Luka Dončić(결장자 오기 추정)", "Austin Reaves", "Matisse Thybulle", "Ziaire Williams(결장자 오기 추정)", "Walker Kessler"],
+      "후보2_속보매체": "Dončić 결장으로 Collin Sexton(PG) · Austin Reaves(SG) · Quentin Grimes 중 일부가 선발 합류 예상 — 구체적 5인 미확정",
+      "직전경기(10/27 vs POR) 선발": "확인 불가(박스스코어 미확인)",
+      "비고": "essentiallysports·213hoops 두 매체 모두 '선발'에 결장 확정 선수(Dončić, Williams)를 포함시키는 자기모순 오류가 있어 신뢰도 낮음. NBC Sports·heavy.com 기준으로 Sexton/Grimes가 Dončić 대체 선발로 유력.",
+      "출처": "https://www.essentiallysports.com/nba-active-basketball-news-lakers-vs-clippers-oct-twenty-eight-where-to-watch-injury-report-and-everything-you-need-to-know/ ; https://213hoops.com/clippers-vs-lakers-preview-a-quick-rematch/ ; https://www.nbcsports.com/fantasy/basketball/player-news/2026-10-28/luka-doncic-back-ruled-out-vs-clippers",
+      "날짜": "2026-10-28"
+    },
+    "클리퍼스": {
+      "상태": "유력 (2개 매체 일치)",
+      "선발5": ["Darius Garland", "Kris Dunn", "Derrick Jones Jr.", "Kobe Sanders", "Isaiah Jackson"],
+      "비고": "Beal·Ingram·Hachimura·Strus 전원 결장으로 Kobe Sanders가 Hachimura 대신 선발 합류. Brook Lopez가 매치업에 따라 선발 가능성도 언급됨. 벤치 자원으로 Keaton Wagler(루키) 비중 확대 보도.",
+      "출처": "https://www.essentiallysports.com/nba-active-basketball-news-lakers-vs-clippers-oct-twenty-eight-where-to-watch-injury-report-and-everything-you-need-to-know/ ; https://213hoops.com/clippers-vs-lakers-preview-a-quick-rematch/",
+      "날짜": "2026-10-28"
+    }
+  },
+  "전적_최근경기_레이팅": {
+    "2026-27_전적": {
+      "레이커스": "3-1 (서부 5위)",
+      "클리퍼스": "1-2 (서부 9위, 홈 1-0·원정 0-2)"
+    },
+    "레이커스_최근경기": [
+      {"날짜": "2026-10-21", "상대": "골든스테이트(홈)", "결과": "W 127-105"},
+      {"날짜": "2026-10-23", "상대": "클리퍼스(홈)", "결과": "W 125-117", "비고": "Austin Reaves 28점9어시, Walker Kessler 22점6블록, Darius Garland(클리퍼스) 26점6어시"},
+      {"날짜": "2026-10-25", "상대": "유타(원정)", "결과": "W 132-123"},
+      {"날짜": "2026-10-27", "상대": "포틀랜드(홈, Crypto.com Arena)", "결과": "L 129-136", "비고": "Luka Dončić 41점9어시 — 시즌 첫 패배. 포틀랜드는 전승 유지"}
+    ],
+    "클리퍼스_최근경기": [
+      {"날짜": "2026-10-21", "상대": "새크라멘토(홈)", "결과": "W 121-96"},
+      {"날짜": "2026-10-23", "상대": "레이커스(원정)", "결과": "L 117-125"},
+      {"날짜": "2026-10-25", "상대": "오클라호마시티(원정)", "결과": "L 101-108"}
+    ],
+    "2026-27_레이팅_실측_소표본": {
+      "레이커스": {"ORtg": "126.8 (리그 2위)", "DRtg": "118.8 (리그 23위)", "Pace": "101.2 (리그 16위)", "Net Rtg": "+7.9 (리그 8위)"},
+      "클리퍼스": {"ORtg": "110.6 (리그 19위)", "DRtg": "107.3 (리그 6위)", "Pace": "102.2 (리그 12위)"},
+      "비고": "둘 다 3~4경기 표본이라 변동성 매우 큼. 출처마다 소수점 오차 있음(110.5~110.6 등)."
+    },
+    "2025-26_시즌_최종": {
+      "레이커스": {"전적": "53-29 (서부 4위)", "ORtg": "118.2 (9위)", "DRtg": "116.4 (19위)", "Pace": "98.3 (22위)", "SRS": "1.68 (15위)"},
+      "클리퍼스": {"전적": "42-40 (서부 9위)", "ORtg": "117.3 (11위)", "DRtg": "116.1 (18위)", "Pace": "96.5 (28위)", "SRS": "0.96 (16위)"}
+    },
+    "출처": "https://www.basketball-reference.com/teams/LAC/2027.html ; https://www.basketball-reference.com/teams/LAL/2027.html ; https://www.basketball-reference.com/teams/LAC/2026.html ; https://www.basketball-reference.com/teams/LAL/2026.html ; https://www.espn.com/nba/game/_/gameId/401909851/clippers-lakers ; https://www.espn.com/nba/game/_/gameId/401909880/trail-blazers-lakers",
+    "날짜": "조회 2026-10-29"
+  },
+  "백투백_이동": {
+    "레이커스": "백투백(2연전) 두 번째 경기. 10/27 포틀랜드전(홈, Crypto.com Arena)에서 패배 후 바로 다음날 10/28 Intuit Dome 원정. 이동 거리는 같은 LA 권역이라 짧음(Crypto.com Arena↔Intuit Dome 약 20km). 시즌 첫 백투백으로 보도됨.",
+    "클리퍼스": "백투백 아님 — 직전 경기 10/25 오클라호마시티 원정(패) 이후 10/26·27 이틀 휴식 후 10/28 홈 경기. 휴식 우위.",
+    "출처": "https://www.essentiallysports.com/nba-active-basketball-news-lakers-vs-clippers-oct-twenty-eight-where-to-watch-injury-report-and-everything-you-need-to-know/ ; https://lasportsreport.com/lakers/258918/lakers-lose-luka-doncic-for-clippers-game-on-second-night-of-back-to-back/",
+    "날짜": "2026-10-28"
+  },
+  "여름_로스터_변동": {
+    "레이커스": {
+      "이탈": ["LeBron James (2026-07 FA, 필라델피아 세븐티식서스와 2년 계약)", "Deandre Ayton (워싱턴으로 트레이드)", "Jaxson Hayes (FA)", "Luke Kennard (FA)", "Marcus Smart (FA)", "Rui Hachimura (FA, 현재 클리퍼스)"],
+      "영입": ["Walker Kessler (유타에서 사인&트레이드)", "Quentin Grimes (필라델피아 FA)", "Sandro Mamukelashvili", "Collin Sexton", "Kevon Looney", "Ziaire Williams"],
+      "기타": "구단주 교체 — 2026년 8월 Bob Iger·Josh Kushner 컨소시엄이 125억 달러에 구단 지분 인수. 감독 JJ Redick 체제 2년차.",
+      "출처": "https://en.wikipedia.org/wiki/2026%E2%80%9327_Los_Angeles_Lakers_season"
+    },
+    "클리퍼스": {
+      "이탈": ["Kawhi Leonard (2026-09-14 토론토로 트레이드)"],
+      "영입": ["Brandon Ingram (콰이 트레이드 반대급부, 토론토발)", "Gradey Dick (콰이 트레이드 반대급부, 토론토발)", "향후 1라운드 지명권 5장 추가 확보"],
+      "그_이전_시즌내_트레이드(2026-02, 참고용)": [
+        "James Harden → 클리블랜드, Darius Garland + 2026 2라운드픽 영입",
+        "Ivica Zubac → 인디애나, Bennedict Mathurin·Isaiah Jackson·1라운드픽 2장·2라운드픽 1장 영입(Kobe Brown도 인디애나로 이적)"
+      ],
+      "구단_제재": "2026-09-02 NBA가 클리퍼스-콰이 연봉상한 우회(살러리캡 서컴벤션) 조사 결과 발표: 벌금 3천만 달러, 향후 1라운드 지명권 5장 박탈, 구단주 Steve Ballmer 1년 전체 활동 정지, 농구부문 사장 Lawrence Frank 6개월 무급 정지, 비즈니스부문 사장 Gillian Zucker 1년 정지. 콰이 레너드 개인도 70만 달러 벌금.",
+      "감독": "Tyronn Lue (유임)",
+      "출처": "https://en.wikipedia.org/wiki/2026%E2%80%9327_Los_Angeles_Clippers_season ; https://www.cnbc.com/2026/09/02/nba-suspends-clippers-ballmer-kawhi-leonard-salary-cap.html ; https://www.espn.com/nba/story/_/id/49806356/nba-announces-punishments-clippers-kawhi-probe ; https://espn.com/nba/story/_/id/50247214/clippers-open-season-owner-steve-ballmer-rout-kings"
+    }
+  },
+  "그_밖_뉴스": [
+    {
+      "내용": "클리퍼스는 구단주 Ballmer 부재 상태로 시즌을 시작(새크라멘토전 대승 포함). 조직 리더십 공백 속 Tyronn Lue 감독이 로테이션 전권 행사 중.",
+      "출처": "https://espn.com/nba/story/_/id/50247214/clippers-open-season-owner-steve-ballmer-rout-kings",
+      "날짜": "2026-10-21 전후"
+    },
+    {
+      "내용": "클리퍼스 직전 1차전(10/23) 패배 요인으로 turnover 26개 → 레이커스 33실점 허용이 roundtable.io 기사에서 지적됨. 이번 재대결에서 턴오버 관리가 핵심 변수로 보도.",
+      "출처": "https://roundtable.io/sports/nba/clippers/game-day/clippers-injury-report-rules-out-six-players-vs-lakers",
+      "날짜": "2026-10-28"
+    },
+    {
+      "내용": "클리퍼스 루키 Keaton Wagler가 결장 다수로 출전 시간 확대, 긍정적 평가를 받고 있다고 213hoops 보도.",
+      "출처": "https://213hoops.com/clippers-vs-lakers-preview-a-quick-rematch/",
+      "날짜": "2026-10-28"
+    },
+    {
+      "내용": "minutes restriction(출전시간 제한) 관련 보도는 확인 불가.",
+      "날짜": "확인 불가"
+    }
+  ],
+  "확인_불가_항목": [
+    "레이커스 10/28 경기 확정 선발 5인(매체마다 상이)",
+    "레이커스 10/27 포틀랜드전 정확한 선발 라인업",
+    "Jordan Miller 결장 부위(어깨/회전근개 vs 종아리, 매체 간 불일치)",
+    "Brandon Ingram의 2026-27시즌 실제 출전 경기 수(부상으로 전경기 결장 추정되나 1차 확인 자료 없음)",
+    "양팀 심판 배정, 날씨(실내 경기라 해당 없음 가능성 높음 — 미확인)"
+  ]
+}

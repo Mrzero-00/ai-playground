@@ -1,0 +1,52 @@
+{
+  "경기": "에버턴 vs 뉴캐슬 유나이티드",
+  "수집시각": "2026-10-29 15:40",
+  "대회_라운드": "EFL 리그컵(Carabao Cup) 2026/27 4라운드(16강) · 킥오프 2026-10-30 04:45 KST(현지 2026-10-29 19:45 GMT) · 경기장 Hill Dickinson Stadium(에버턴 신축 홈구장, 리버풀) · 1라운드~8강(준결승 1차전 포함)은 90분 무승부 시 연장 없이 바로 승부차기, 연장전은 준결승 2차전과 결승에서만 적용",
+  "순위": [
+    {"팀": "에버턴", "순위": 11, "승점": 10, "득실": "8경기 2승4무2패 GD-1", "출처": "팀노트 FACTS(위키 2026–27 Everton F.C. season, ESPN)", "날짜": "2026-10-29"},
+    {"팀": "뉴캐슬 유나이티드", "순위": 8, "승점": 11, "득실": "8경기 3승2무3패 GD-2", "출처": "팀노트 FACTS(위키 2026–27 Newcastle United F.C. season, ESPN)", "날짜": "2026-10-29"}
+  ],
+  "결장": [
+    {"팀": "에버턴", "선수": "Jarrad Branthwaite", "포지션": "CB", "사유": "뇌진탕 프로토콜", "등급": "확정", "출처": "https://britbrief.co.uk/sports/football/everton-injury-doubts-grealish-branthwaite-mykolenko-for-newcastle.html", "날짜": "2026-10-29"},
+    {"팀": "에버턴", "선수": "Jack Grealish", "포지션": "AM/FW", "사유": "컨디션 난조(병치레 회복중)", "등급": "의심", "출처": "https://britbrief.co.uk/sports/football/everton-injury-doubts-grealish-branthwaite-mykolenko-for-newcastle.html", "날짜": "2026-10-29"},
+    {"팀": "에버턴", "선수": "Vitaliy Mykolenko", "포지션": "LB", "사유": "10-24 Arsenal전 부상, 로테이션 휴식 가능성", "등급": "의심", "출처": "https://www.shieldsgazette.com/sport/football/newcastle-united/everton-newcastle-united-team-news-9316832", "날짜": "2026-10-28"},
+    {"팀": "뉴캐슬 유나이티드", "선수": "Ewen Jaouen", "포지션": "GK", "사유": "햄스트링 부상(약 2개월, 백업 GK)", "등급": "확정", "출처": "팀노트 FACTS/기존 수집(coventrytelegraph.net, themag.co.uk 2026-10-12)", "날짜": "2026-10-12"},
+    {"팀": "뉴캐슬 유나이티드", "선수": "Tino Livramento", "포지션": "RB", "사유": "무릎 부상", "등급": "확정", "출처": "https://www.shieldsgazette.com/sport/football/newcastle-united/everton-newcastle-united-team-news-9316832", "날짜": "2026-10-28"},
+    {"팀": "뉴캐슬 유나이티드", "선수": "Lewis Miley", "포지션": "MF", "사유": "둔근(글루트) 부상", "등급": "의심", "출처": "https://www.shieldsgazette.com/sport/football/newcastle-united/everton-newcastle-united-team-news-9316832", "날짜": "2026-10-28"},
+    {"팀": "뉴캐슬 유나이티드", "선수": "Matias Fernandez-Pardo", "포지션": "FW", "사유": "컨디션 난조(병치레 회복중)", "등급": "의심", "출처": "https://www.shieldsgazette.com/sport/football/newcastle-united/everton-newcastle-united-team-news-9316832", "날짜": "2026-10-28"}
+  ],
+  "로테이션": [
+    {"팀": "에버턴", "감독발언": "David Moyes는 이번 경기 전 정식 기자회견을 열지 않았음(공식 발언 미확인). 수비수 James Tarkowski는 '로테이션할 수 있는 선수단 규모가 크지 않다'고 언급해 주전급 다수가 재출전할 가능성 시사.", "지난라운드XI": "3라운드(10-23경 vs Wolverhampton Wanderers, 승리 진출): 4-2-3-1 Pickford(C); Maitland-Niles, O'Brien, Keane, Mykolenko; Garner, Hackney; Dibling, Dewsbury-Hall, Grealish; Barry. (교체: Travers, King, Branthwaite, Tarkowski, George, Johnson, Alcaraz, Graham, Olayiwola)", "출처": "https://sports.yahoo.com/articles/moyes-rotate-carabao-cup-tie-164443340.html ; https://lastwordonsports.com/football/2026/09/16/everton-vs-wolves-carabao-cup-confirmed-lineups/", "날짜": "2026-10-29"},
+    {"팀": "뉴캐슬 유나이티드", "감독발언": "미확인(Matthias Jaissle의 이번 경기 로테이션 관련 직접 발언 검색 안 됨)", "지난라운드XI": "3라운드 상대는 Millwall(원정)이었으나 구체적 선발 XI는 검색으로 확인하지 못함", "출처": "https://sports.yahoo.com/articles/newcastle-play-millwall-away-carabao-150000561.html", "날짜": "2026-10-29"}
+  ],
+  "예상XI": [
+    {"팀": "에버턴", "포메이션": "4-2-3-1(예측)", "선수": ["Pickford", "Maitland-Niles", "O'Brien", "Keane", "Mykolenko", "Hackney", "Armstrong", "Dibling", "Alcaraz", "George", "Barry"], "근거": "현지 매체 예측 라인업(공식 발표 전)", "출처": "https://khelnow.com/football/everton-vs-newcastle-united-preview-carabao-cup-202610", "날짜": "2026-10-29"},
+    {"팀": "뉴캐슬 유나이티드", "포메이션": "4-2-3-1(예측)", "선수": ["Hornicek", "Dedic", "Thiaw", "Botman", "Hall", "Gonzalez", "Ramsey", "Elanga", "Wissa", "Barnes", "Osula"], "근거": "현지 매체 예측 라인업(공식 발표 전)", "출처": "https://khelnow.com/football/everton-vs-newcastle-united-preview-carabao-cup-202610", "날짜": "2026-10-29"}
+  ],
+  "최근폼": [
+    {"팀": "에버턴", "최근5": "1승2무2패 (T.Hotspur 0-0 / Everton 1-0 Ipswich / Hull 2-2 Everton / Everton 0-2 Chelsea / Arsenal 2-0 Everton)", "득점": 3, "실점": 6, "xG": "시즌 8경기 xG1.56/xGA1.58(npxGD-0.02)", "출처": "팀노트 FACTS·INPUTS(ESPN·위키, 자동수집 2026-10-29)", "날짜": "2026-10-29"},
+    {"팀": "뉴캐슬 유나이티드", "최근5": "2승0무3패 (Leeds 4-1 / Newcastle 2-1 Hull / Coventry 4-1 / Newcastle 0-1 Villa / C.Palace 0-2 Newcastle)", "득점": 6, "실점": 10, "xG": "시즌 8경기 xG1.25/xGA1.89(npxGD-0.55)", "출처": "팀노트 FACTS·INPUTS(ESPN·위키, 자동수집 2026-10-29)", "날짜": "2026-10-29"}
+  ],
+  "맞대결": [
+    {"날짜": "2026-08-12", "대회": "프리시즌 친선경기", "장소": "미확인", "스코어": "에버턴 3-1 뉴캐슬(친선, 공식전 아님)", "출처": "검색 결과 요약(URL 특정 안 됨, 구글 뉴스 스니펫)"},
+    {"날짜": "2026-02-28", "대회": "프리미어리그", "장소": "St James' Park(뉴캐슬 홈)", "스코어": "뉴캐슬 2-3 에버턴 (83분 Thierno Barry 결승골)", "출처": "https://www.espn.com/soccer/match/_/gameId/740874/everton-newcastle-united"}
+  ],
+  "일정": [
+    {"팀": "에버턴", "직전경기": "2026-10-24 원정 Arsenal 2-0 패(PL)", "휴식일": 5.2, "다음경기": "미확인(다음 PL 라운드, 11월 초 추정)", "출처": "팀노트 INPUTS(자동수집)"},
+    {"팀": "뉴캐슬 유나이티드", "직전경기": "2026-10-25 원정 Crystal Palace 0-2 승(PL)", "휴식일": 4.2, "다음경기": "미확인(다음 PL 라운드, 11월 초 추정)", "출처": "팀노트 INPUTS(자동수집)"}
+  ],
+  "동기_이슈": [
+    {"팀": "공통", "내용": "승자는 리그컵 8강(quarter-final) 진출 — 조추첨 이미 예정됨", "출처": "https://www.shieldsgazette.com/sport/football/newcastle-united/everton-newcastle-united-carabao-cup-tv-channel-9317477", "날짜": "2026-10-29"},
+    {"팀": "에버턴", "내용": "감독 David Moyes에 대한 압박 관련 기사 제목 다수 포착(talkSPORT 등)되었으나, 구체적 경질설·내용은 확인하지 못함 — 미확인으로 분류", "출처": "미확인", "날짜": "2026-10-29"}
+  ],
+  "심판": {"이름": "Farai Hallam (주심) · 부심 James Mainwaring, Constantine Hatzidakis · 4th official Sam Barrott", "출처": "https://www.newcastleunited.com/en/news/hallam-to-referee-magpies-carabao-cup-tie-at-everton"},
+  "날씨": {"기온": "13.1℃", "강수": "0mm(확률 0%)", "바람": "10.4km/h", "출처": "팀노트 INPUTS(회차별분석/입력_128.md, Open-Meteo 자동수집, 좌표는 구단 좌표 — 정확한 구장 좌표 미확인)"},
+  "미확인": [
+    "양팀 공식 확정 라인업(발표 전, 킥오프 6.9시간 전 기준)",
+    "뉴캐슬 3라운드(vs Millwall) 실제 선발 XI",
+    "Matthias Jaissle의 이번 경기 로테이션 관련 직접 발언",
+    "에버턴·뉴캐슬 다음 프리미어리그 경기 정확한 일자·상대",
+    "Moyes 경질설 등 내부 이슈의 구체적 내용",
+    "Mykolenko 실제 선발 여부(기사 간 '출전 불가 가능성'과 '예측 라인업 선발' 상충)"
+  ]
+}

@@ -9,8 +9,8 @@
 - 최근 경기(ESPN, 최대 28일): 2026-09-27 Nashville SC 2-0 Toronto FC / 2026-10-10 Toronto FC 2-1 CF Montréal / 2026-10-14 Toronto FC 3-3 Orlando City SC / 2026-10-17 Red Bull New York 0-2 Toronto FC / 2026-10-24 Columbus Crew 4-2 Toronto FC
 <!-- FACTS:END -->
 <!-- INPUTS:START -->
-## 입력(자동 수집 2026-10-28) — xG·휴식일·라인업·환경(이동거리·고도·날씨)은 이 숫자를 쓴다
-- 10-29 08:30 vs DC유나이티드: 휴식 4.2일(7일 1경기) · 직전 10-25 원정 vs Columbus Crew 2-4 패 [usa.1] · xG - · 직전 선발 4-3-3 Luka Gavran, Zane Monlouis, Benjamín Kuscevic, Matheus Pereira, Richie Laryea, Djordje Mihailovic, Jonathan Osorio, Niklas Dorsch, Josh Sargent, Lewis Morgan, Theo Corbeanu · 구장 BMO 필드 · 이동 567km · 고도 83m(차 +76m) · 10.8℃ 강수0mm(2%) 바람9.8km/h
+## 입력(자동 수집 2026-10-30) — xG·휴식일·라인업·환경(이동거리·고도·날씨)은 이 숫자를 쓴다
+- 11-02 06:30 vs 애틀랜타 유나이티드FC: 휴식 3.9일(7일 1경기) · 직전 10-29 홈 vs D.C. United 2-1 승 [usa.1] · xG - · 직전 선발 4-3-3 Luka Gavran, Nickseon Gomis, Benjamín Kuscevic, Matheus Pereira, Richie Laryea, Niklas Dorsch, Djordje Mihailovic, Jonathan Osorio, Josh Sargent, Dániel Sallói, Theo Corbeanu · 구장 메르세데스-벤츠 스타디움 · 이동 1180km · 고도 307m(차 +224m) · 18.4℃ 강수0.6mm(19%) 바람16.2km/h · ⚠ 장거리 원정 1180km
 <!-- INPUTS:END -->
 
 - 2026-10-14 조사: 10/15 08:30(KST) 홈 올랜도 시티전, 정규시즌 마지막 매치데이. 기준선 승/무/패 41.5/26.7/31.8%, 핸디캡 홈−1 22.1/19.5/58.5%, 오버 2.5 59.2% — 출처: 자체 모델

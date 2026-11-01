@@ -1,0 +1,35 @@
+{"번호":12,"홈":"미네유나","원정":"스포캔자","리그":"MLS","구장":"Allianz Field (Saint Paul, MN)","킥오프":"2026-10-29 09:30 KST","수집시각":"2026-10-28 21:30 KST",
+ "결장":[
+  {"팀":"홈","선수":"Peter Stroud","포지션":"MF","이번시즌_선발/경기":"미상(26시즌 영입생)","득점·도움":"미상","사유":"하지 부상(lower extremity)","상태":"확정","복귀예정":"","대체선수":"","출처":["https://www.sportingkc.com/news/player-availability-report-minvskc-oct-28-2026"],"날짜":"2026-10-28"},
+  {"팀":"홈","선수":"Wil Trapp","포지션":"MF","이번시즌_선발/경기":"최근 6경기 5회 선발(핵심 미드필더)","득점·도움":"미상","사유":"뇌진탕 프로토콜(concussion protocol)","상태":"확정","복귀예정":"불투명(프로토콜 통과 필요)","대체선수":"","출처":["https://www.sportingkc.com/news/player-availability-report-minvskc-oct-28-2026"],"날짜":"2026-10-28"},
+  {"팀":"홈","선수":"Alec Smir","포지션":"GK","이번시즌_선발/경기":"미상(백업 추정)","득점·도움":"","사유":"하지 부상, 출전 불투명","상태":"의심","복귀예정":"","대체선수":"","출처":["https://www.sportingkc.com/news/player-availability-report-minvskc-oct-28-2026"],"날짜":"2026-10-28"},
+  {"팀":"원정","선수":"Or Blorian","포지션":"DF","이번시즌_선발/경기":"미상","득점·도움":"","사유":"가슴 부상(chest)","상태":"확정","복귀예정":"","대체선수":"","출처":["https://www.sportingkc.com/news/player-availability-report-minvskc-oct-28-2026"],"날짜":"2026-10-28"},
+  {"팀":"원정","선수":"Diego Borges","포지션":"DF","이번시즌_선발/경기":"미상","득점·도움":"","사유":"내전근 부상(adductor)","상태":"확정","복귀예정":"","대체선수":"","출처":["https://www.sportingkc.com/news/player-availability-report-minvskc-oct-28-2026"],"날짜":"2026-10-28"},
+  {"팀":"원정","선수":"Jack Kortkamp","포지션":"GK","이번시즌_선발/경기":"미상","득점·도움":"","사유":"'국가대표 차출(International Duty)'로 표기 — 10월 A매치 기간 종료 후라 이례적, 확인 필요","상태":"확정(클럽 발표지만 사유 이례적)","복귀예정":"","대체선수":"Stefan Cleveland(직전 경기 선발 GK)","출처":["https://www.sportingkc.com/news/player-availability-report-minvskc-oct-28-2026"],"날짜":"2026-10-28"},
+  {"팀":"원정","선수":"Moises Mosquera","포지션":"DF","이번시즌_선발/경기":"미상","득점·도움":"","사유":"햄스트링(hamstring)","상태":"확정","복귀예정":"","대체선수":"","출처":["https://www.sportingkc.com/news/player-availability-report-minvskc-oct-28-2026"],"날짜":"2026-10-28"},
+  {"팀":"원정","선수":"Seymour Reid","포지션":"FW","이번시즌_선발/경기":"미상","득점·도움":"","사유":"햄스트링(hamstring)","상태":"확정","복귀예정":"","대체선수":"","출처":["https://www.sportingkc.com/news/player-availability-report-minvskc-oct-28-2026"],"날짜":"2026-10-28"},
+  {"팀":"원정","선수":"Justin Reynolds","포지션":"DF","이번시즌_선발/경기":"미상","득점·도움":"","사유":"대퇴사두근(quad)","상태":"확정","복귀예정":"","대체선수":"","출처":["https://www.sportingkc.com/news/player-availability-report-minvskc-oct-28-2026"],"날짜":"2026-10-28"},
+  {"팀":"원정","선수":"Zorhan Bassong","포지션":"MF","이번시즌_선발/경기":"최근 6경기 4회 선발(직전 경기 선발)","득점·도움":"","사유":"햄스트링, 출전 불투명","상태":"의심","복귀예정":"","대체선수":"","출처":["https://www.sportingkc.com/news/player-availability-report-minvskc-oct-28-2026"],"날짜":"2026-10-28"},
+  {"팀":"원정","선수":"Lasse Berg Johnsen","포지션":"MF","이번시즌_선발/경기":"미상","득점·도움":"","사유":"햄스트링, 출전 불투명","상태":"의심","복귀예정":"","대체선수":"","출처":["https://www.sportingkc.com/news/player-availability-report-minvskc-oct-28-2026"],"날짜":"2026-10-28"}
+ ],
+ "라인업":{"홈":{"발표여부":"미발표","예상XI":"직전(10/25) 3-4-3: Drake Callender, Jefferson Díaz, Morris Duggan, Cherrion Valerius, Owen Gene, Nectarios Triantis, Anthony Markanich, Bongokuhle Hlongwane, Kelvin Yeboah, Mauricio Gonzalez, Aziel Jackson — 단 Wil Trapp(최근 6경기 4회+ 선발)이 뇌진탕으로 이번 결장","포메이션":"3-4-3(직전 기준)","출처":"teamdb/ESPN(회차별분석/MLS요약_승무패64.md)","날짜":"2026-10-25"},"원정":{"발표여부":"미발표","예상XI":"직전(10/25) 4-4-2: Stefan Cleveland, Wyatt Meyer, Jansen Miller, Emir Karic, Jacob Davis, Zorhan Bassong(이번 경기 결장 의심), Kwaku Agyabeng, Capita, André Luiz, Stephen Afrifa, Taylor Calheira","포메이션":"4-4-2(직전 기준)","출처":"teamdb/ESPN(회차별분석/MLS요약_승무패64.md)","날짜":"2026-10-25"}},
+ "최근경기":[
+  {"팀":"홈","날짜":"2026-10-15","상대":"Colorado Rapids","장소":"A","스코어":"2-2","비고":"무"},
+  {"팀":"홈","날짜":"2026-10-17","상대":"St. Louis CITY SC","장소":"H","스코어":"3-2","비고":"승"},
+  {"팀":"홈","날짜":"2026-10-25","상대":"Houston Dynamo FC","장소":"A","스코어":"0-0","비고":"무, 휴식 ~3일"},
+  {"팀":"원정","날짜":"2026-10-15","상대":"Nashville SC","장소":"A","스코어":"0-4","비고":"패"},
+  {"팀":"원정","날짜":"2026-10-18","상대":"Real Salt Lake","장소":"H","스코어":"1-3","비고":"패"},
+  {"팀":"원정","날짜":"2026-10-25","상대":"Austin FC","장소":"H","스코어":"1-2","비고":"패, 3연패(최근 9실점/2득점), 휴식 ~3일"}
+ ],
+ "순위":{"홈":"13위 31경기 8승11무12패 GD-8 승점35(팩트시트). 서부 와일드카드 컷과 6점 차, 잔여 3경기 — 이번 경기 반드시 승리해야 플레이오프 생존(무승부 이하면 사실상 탈락권 근접)","원정":"10/14(4-0 패 Nashville 포함 결과) 기준 2026-10-14 공식 플레이오프 탈락 확정 — 리그 최초 수학적 탈락팀, 15위 31경기 6승4무21패 GD-40 승점22(팩트시트), 역대 한 시즌 최다 실점 구단 기록 경신(31경기 77실점급)","출처":"https://fieldlevelmedia.com/mls/clinging-to-playoff-hopes-minnesota-faces-last-place-sporting-kc/ ; https://fox4kc.com/sports/sporting-kc/sporting-kc-officially-eliminated-from-mls-cup-playoffs-contention/ ; 팩트시트_승무패64.md","날짜":"2026-10-28"},
+ "감독":{"홈":"Cameron Knowles — 2026-01-12 정식(정규) 감독으로 임명(전 감독 Eric Ramsay가 웨스트브롬행으로 이탈), 임시감독 아님. 최근 부진에 팬 경질 요구 있었으나 구단 단장(Khaled El-Ahmad)이 유임 의사 표명 — 팩트시트의 '감독 미확인'을 정정함","원정":"Raphaël Wicky(팩트시트, 변동 뉴스 없음)","변동":"미네소타: 팩트시트 '미확인'→Cameron Knowles로 확인","출처":["https://www.mnufc.com/club/technical-staff/cameron-knowles","https://www.duluthnewstribune.com/sports/pro/boos-continue-but-coach-cameron-knowles-job-safe-with-mnufc"],"날짜":"2026-10-28"},
+ "일정·동기":[
+  {"내용":"미네소타: 사실상 '머스트윈' — 와일드카드 6점 차, 3경기 남음. 패하거나 비기면 탈락 근접","출처":"https://fieldlevelmedia.com/mls/clinging-to-playoff-hopes-minnesota-faces-last-place-sporting-kc/","날짜":"2026-10-28"},
+  {"내용":"스포팅 캔자스시티: 플레이오프 탈락 확정(10/14)으로 동기는 '최하위(wooden spoon) 탈출'뿐, 3연패 중 최근 2경기 2득점 9실점으로 수비 붕괴 상태","출처":"https://fox4kc.com/sports/sporting-kc/sporting-kc-officially-eliminated-from-mls-cup-playoffs-contention/ ; https://kcsoccerjournal.com/10/27/2026/on-the-brink-sporting-kc-visits-minnesota-united/","날짜":"2026-10-28"},
+  {"내용":"미네소타 홈 성적 3승5무7패로 리그 최소 홈승 수준(스포팅KC 원정 3승9무4패와 공동 최소), 홈 이점이 뚜렷하지 않다는 지적","출처":"https://fieldlevelmedia.com/mls/clinging-to-playoff-hopes-minnesota-faces-last-place-sporting-kc/","날짜":"2026-10-28"}
+ ],
+ "날씨·구장":{"내용":"세인트폴 Allianz Field(천연잔디 실외). 10/28 저녁 St. Paul 현지 예보: 강수 확률 90%(소나기·뇌우 가능), 저녁 최저기온 화씨 40대 후반(약 8~10℃), 남풍 5~10mph가 자정 이후 북서풍으로 전환 — 우천·쌀쌀한 환경, 경기 템포·득점 저하 요인 가능","출처":["https://www.accuweather.com/en/us/st-paul/55102/weather-forecast/348795"],"날짜":"2026-10-28"},
+ "엇갈림":["Jack Kortkamp 결장 사유가 'International Duty'로 명시됐으나 10월 A매치 기간이 끝난 시점이라 이례적 — 추가 확인 못함"],
+ "못찾음":["양팀 확정 선발 라인업(킥오프 1시간 전 발표 예정)","콜럼버스/스포팅KC 측 추가 동기 부여 요소(개별 선수 계약·이적 시장 이슈)"],
+ "뉴스없음":{"홈":"","원정":""},
+ "검증":"감독 ○(정정: Knowles)/이적 해당없음/결장 출처 2개(2026-10-28, sportingkc.com·fox4kc.com)"}

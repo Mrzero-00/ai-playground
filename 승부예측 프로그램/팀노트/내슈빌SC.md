@@ -8,8 +8,8 @@
 - 최근 경기(ESPN, 최대 28일): 2026-09-27 Nashville SC 2-0 Toronto FC / 2026-10-11 Austin FC 1-4 Nashville SC / 2026-10-15 Nashville SC 4-0 Sporting Kansas City / 2026-10-18 San Jose Earthquakes 1-1 Nashville SC / 2026-10-24 CF Montréal 0-2 Nashville SC
 <!-- FACTS:END -->
 <!-- INPUTS:START -->
-## 입력(자동 수집 2026-10-28) — xG·휴식일·라인업·환경(이동거리·고도·날씨)은 이 숫자를 쓴다
-- 10-29 09:30 vs 필라델피아 유니언: 휴식 4.3일(7일 1경기) · 직전 10-25 원정 vs CF Montréal 2-0 승 [usa.1] · xG - · 직전 선발 4-2-3-1 Brian Schwake, Maxwell Woledzi, Jeisson Palacios, Reed Baker-Whiting, Andy Nájar, Hany Mukhtar, Matthew Corcoran, Patrick Yazbek, Sam Surridge, Elias Saad, Cristian Espinoza · 구장 퍼스트 테네시 파크 · 이동 1078km · 고도 128m(차 +118m) · 19.3℃ 강수0mm(1%) 바람9.4km/h · ⚠ 장거리 원정 1078km
+## 입력(자동 수집 2026-10-30) — xG·휴식일·라인업·환경(이동거리·고도·날씨)은 이 숫자를 쓴다
+- 11-02 06:30 vs 뉴욕 레드불스: 휴식 3.9일(7일 1경기) · 직전 10-29 홈 vs Philadelphia Union 0-0 무 [usa.1] · xG - · 직전 선발 4-4-2 Brian Schwake, Maxwell Woledzi, Jeisson Palacios, Daniel Lovitz, Reed Baker-Whiting, Edvard Tagseth, Patrick Yazbek, Alex Muyl, Cristian Espinoza, Ahmed Qasim, Warren Madrigal · 구장 퍼스트 테네시 파크 · 이동 1210km · 고도 128m(차 +123m) · 14.7℃ 강수0.1mm(60%) 바람12.9km/h · ⚠ 장거리 원정 1210km
 <!-- INPUTS:END -->
 
 ## 성향

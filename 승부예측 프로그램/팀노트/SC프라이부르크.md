@@ -1,16 +1,16 @@
 # SC프라이부르크 (분데스리가)
 
 <!-- FACTS:START -->
-## 팩트시트 (자동 수집 2026-10-25) — 조사 전 반드시 읽고, 아래 사실과 다른 뉴스 요약은 '미확인'으로 둔다
+## 팩트시트 (자동 수집 2026-10-31) — 조사 전 반드시 읽고, 아래 사실과 다른 뉴스 요약은 '미확인'으로 둔다
 - 출처: 위키 '2026–27 SC Freiburg season'(season), ESPN 있음
 - 감독: Julian Schuster
-- 리그 순위: 3위 6경기 4승1무1패 GD+9 승점13 (SC Freiburg)
+- 리그 순위: 3위 7경기 4승1무2패 GD+7 승점13 (SC Freiburg)
 - 2026 여름 이적(위키 이적 표, 앞 8줄씩): IN align=center · {{sort|Backhaus, Mio| Mio Backhaus}} · Werder Bremen · Undisclosed / IN align=center · {{sort|Yilmaz, Berkay| Berkay Yilmaz}} · 1. FC Nürnberg · End of loan / IN align=center · {{sort|Engelhardt, Yannik| Yannik Engelhardt}} · Como · Undisclosed / IN align=center · {{sort|Goto, Keisuke| Keisuke Goto}} · Anderlecht · Undisclosed / IN align=center · {{sort|Ben Farhat, Louey| Louey Ben Farhat}} · Karlsruher SC · Undisclosed · } === Out === {| c / IN align=center · {{sort|Weißhaupt, Noah| Noah Weißhaupt}} · Darmstadt 98 · Undisclosed / IN align=center · {{sort|Wagner, Robert| Robert Wagner}} · Dynamo Dresden · Undisclosed / IN align=center · {{sort|Röhl, Merlin| Merlin Röhl}} · Everton · Undisclosed / OUT align=center · {{sort|Weißhaupt, Noah| Noah Weißhaupt}} · Darmstadt 98 · Undisclosed / OUT align=center · {{sort|Wagner, Robert| Robert Wagner}} · Dynamo Dresden · Undisclosed / OUT align=center · {{sort|Röhl, Merlin| Merlin Röhl}} · Everton · Undisclosed / OUT align=center · {{sort|Manzambi, Johan| Johan Manzambi}} · Aston Villa · Undisclosed
-- 최근 경기(ESPN, 최대 28일): 2026-09-05 SC Paderborn 07 0-1 SC Freiburg / 2026-09-12 SC Freiburg 5-0 Borussia Mönchengladbach / 2026-09-19 Eintracht Frankfurt 2-2 SC Freiburg / 2026-10-11 SC Freiburg 2-1 Schalke 04 / 2026-10-18 Bayer Leverkusen 2-1 SC Freiburg
+- 최근 경기(ESPN, 최대 28일): 2026-09-12 SC Freiburg 5-0 Borussia Mönchengladbach / 2026-09-19 Eintracht Frankfurt 2-2 SC Freiburg / 2026-10-11 SC Freiburg 2-1 Schalke 04 / 2026-10-18 Bayer Leverkusen 2-1 SC Freiburg / 2026-10-25 SC Freiburg 1-3 Bayern Munich
 <!-- FACTS:END -->
 <!-- INPUTS:START -->
-## 입력(자동 수집 2026-10-25) — xG·휴식일·라인업·환경(이동거리·고도·날씨)은 이 숫자를 쓴다
-- 10-26 01:30 vs 바이에른 뮌헨: 휴식 2.9일(7일 1경기) · 직전 10-23 원정 vs AS Monaco 0-3 패 [uefa.europa.conf] · xG 시즌6경기 xG1.91/xGA1.04 npxGD+0.87 · 최근5 1.82/1.06 (+0.75) · 홈1.52/원정0.22 · xPts12.1 vs 승점13 · 직전 선발 4-2-3-1 Mio Backhaus, Max Rosenfelder, Matthias Ginter, Jordy Makengo, Lukas Kübler, Yuito Suzuki, Yannick Engelhardt, Maximilian Eggestein, Igor Matanovic, Vincenzo Grifo, Niklas Beste · 구장 드라이잠슈타디온 · 이동 278km · 고도 309m(차 -182m) · 11.4℃ 강수0mm(50%) 바람15.3km/h
+## 입력(자동 수집 2026-10-31) — xG·휴식일·라인업·환경(이동거리·고도·날씨)은 이 숫자를 쓴다
+- 10-31 23:30 vs 아우크스부르크: 휴식 2.9일(7일 2경기) · 직전 10-29 홈 vs VfL Wolfsburg 3-2 승 [second round] · xG 시즌7경기 xG1.76/xGA1.34 npxGD+0.42 · 최근5 1.75/1.53 (+0.21) · 홈0.57/원정0.22 · xPts12.3 vs 승점13 · 직전 선발 4-2-3-1 Florian Müller, Max Rosenfelder, Matthias Ginter, Christian Günter, Philipp Treu, Yuito Suzuki, Yannick Engelhardt, Maximilian Eggestein, Igor Matanovic, Vincenzo Grifo, Cyriaque Irié · 구장 WWK 아레나 · 이동 225km · 고도 504m(차 +195m) · 9.5℃ 강수0mm(0%) 바람11.5km/h
 <!-- INPUTS:END -->
 
 ## 성향

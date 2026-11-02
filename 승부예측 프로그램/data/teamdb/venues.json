@@ -1,0 +1,1266 @@
+{
+ "1. FC Union Berlin": {
+  "city": "Berlin",
+  "country": "Germany",
+  "lat": 52.52437,
+  "lon": 13.41053,
+  "source": "espn:ger.1",
+  "venue": "Stadion An der Alten Försterei"
+ },
+ "AC Milan": {
+  "city": "Milano",
+  "country": "Italy",
+  "lat": 42.78235,
+  "lon": 12.59836,
+  "source": "espn:ita.1",
+  "venue": "San Siro"
+ },
+ "AFC Bournemouth": {
+  "city": "Bournemouth",
+  "country": "England",
+  "lat": 50.72048,
+  "lon": -1.8795,
+  "source": "espn:eng.1",
+  "venue": "Vitality Stadium"
+ },
+ "AJ Auxerre": {
+  "city": "Auxerre",
+  "country": "France",
+  "lat": 47.7996,
+  "lon": 3.57033,
+  "source": "espn:fra.1",
+  "venue": "Stade de l'Abbé-Deschamps"
+ },
+ "Alavés": {
+  "city": "Vitoria-Gasteiz",
+  "country": "Spain",
+  "lat": 42.84998,
+  "lon": -2.67268,
+  "source": "espn:esp.1",
+  "venue": "Mendizorrotza"
+ },
+ "Angers": {
+  "city": "Angers",
+  "country": "France",
+  "lat": 47.47156,
+  "lon": -0.55202,
+  "source": "espn:fra.1",
+  "venue": "Stade Raymond Kopa"
+ },
+ "Arsenal": {
+  "city": "London",
+  "country": "England",
+  "lat": 51.50853,
+  "lon": -0.12574,
+  "source": "espn:eng.1",
+  "venue": "Emirates Stadium"
+ },
+ "Aston Villa": {
+  "city": "Birmingham",
+  "country": "England",
+  "lat": 52.48142,
+  "lon": -1.89983,
+  "source": "espn:eng.1",
+  "venue": "Villa Park"
+ },
+ "Atalanta": {
+  "city": "Bergamo",
+  "country": "Italy",
+  "lat": 45.69601,
+  "lon": 9.66721,
+  "source": "espn:ita.1",
+  "venue": "New Balance Arena"
+ },
+ "Athletic Club": {
+  "city": "Bilbao",
+  "country": "Spain",
+  "lat": 43.26271,
+  "lon": -2.92528,
+  "source": "espn:esp.1",
+  "venue": "San Mamés"
+ },
+ "Atlanta United FC": {
+  "city": "Atlanta, Georgia",
+  "country": "USA",
+  "lat": 33.749,
+  "lon": -84.38798,
+  "source": "espn:usa.1",
+  "venue": "Mercedes-Benz Stadium"
+ },
+ "Atlético Madrid": {
+  "city": "Madrid",
+  "country": "Spain",
+  "lat": 40.4165,
+  "lon": -3.70256,
+  "source": "espn:esp.1",
+  "venue": "Riyadh Air Metropolitano"
+ },
+ "Austin FC": {
+  "city": "Austin, Texas",
+  "country": "USA",
+  "lat": 30.26715,
+  "lon": -97.74306,
+  "source": "espn:usa.1",
+  "venue": "Q2 Stadium"
+ },
+ "Barcelona": {
+  "city": "Barcelona",
+  "country": "Spain",
+  "lat": 41.38879,
+  "lon": 2.15899,
+  "source": "espn:esp.1",
+  "venue": "Spotify Camp Nou"
+ },
+ "Bayer Leverkusen": {
+  "city": "Leverkusen",
+  "country": "Germany",
+  "lat": 51.0303,
+  "lon": 6.98432,
+  "source": "espn:ger.1",
+  "venue": "BayArena"
+ },
+ "Birmingham City": {
+  "city": "Birmingham",
+  "country": "England",
+  "lat": 52.48142,
+  "lon": -1.89983,
+  "source": "espn:eng.2",
+  "venue": "St. Andrew's Stadium"
+ },
+ "Blackburn Rovers": {
+  "city": "Blackburn",
+  "country": "England",
+  "lat": 53.75,
+  "lon": -2.48333,
+  "source": "espn:eng.2",
+  "venue": "Ewood Park"
+ },
+ "Bologna": {
+  "city": "Bologna",
+  "country": "Italy",
+  "lat": 44.49381,
+  "lon": 11.33875,
+  "source": "espn:ita.1",
+  "venue": "Renato Dall'Ara"
+ },
+ "Bolton Wanderers": {
+  "city": "Bolton",
+  "country": "England",
+  "lat": 53.58333,
+  "lon": -2.43333,
+  "source": "espn:eng.2",
+  "venue": "Toughsheet Community Stadium"
+ },
+ "Borussia Dortmund": {
+  "city": "Aue",
+  "country": "Germany",
+  "lat": 50.59034,
+  "lon": 12.70657,
+  "source": "espn:ger.1",
+  "venue": "Signal Iduna Park"
+ },
+ "Brentford": {
+  "city": "Brentford",
+  "country": "England",
+  "lat": 51.48619,
+  "lon": -0.3083,
+  "source": "espn:eng.1",
+  "venue": "Gtech Community Stadium"
+ },
+ "Brest": {
+  "city": "Brest",
+  "country": "France",
+  "lat": 48.39029,
+  "lon": -4.48628,
+  "source": "espn:fra.1",
+  "venue": "Stade Francis-Le Blé"
+ },
+ "Brighton & Hove Albion": {
+  "city": "Falmer",
+  "country": "England",
+  "lat": 50.86529,
+  "lon": -0.07733,
+  "source": "espn:eng.1",
+  "venue": "American Express Stadium"
+ },
+ "Bristol City": {
+  "city": "Bristol",
+  "country": "England",
+  "lat": 51.45523,
+  "lon": -2.59665,
+  "source": "espn:eng.2",
+  "venue": "Ashton Gate"
+ },
+ "Burnley": {
+  "city": "Burnley",
+  "country": "England",
+  "lat": 53.8,
+  "lon": -2.23333,
+  "source": "espn:eng.2",
+  "venue": "Turf Moor"
+ },
+ "CF Montréal": {
+  "city": "Montreal",
+  "country": "Canada",
+  "lat": 45.50884,
+  "lon": -73.58781,
+  "source": "espn:usa.1",
+  "venue": "Stade Saputo"
+ },
+ "Cagliari": {
+  "city": "Cagliari",
+  "country": "Italy",
+  "lat": 39.23054,
+  "lon": 9.11917,
+  "source": "espn:ita.1",
+  "venue": "Unipol Domus"
+ },
+ "Cardiff City": {
+  "city": "Cardiff",
+  "country": "Wales",
+  "lat": 51.48,
+  "lon": -3.18,
+  "source": "espn:eng.2",
+  "venue": "Cardiff City Stadium"
+ },
+ "Celta Vigo": {
+  "city": "Vigo",
+  "country": "Spain",
+  "lat": 42.23282,
+  "lon": -8.72264,
+  "source": "espn:esp.1",
+  "venue": "Balaidos"
+ },
+ "Cerezo Osaka": {
+  "city": "Osaka",
+  "country": "Japan",
+  "lat": 34.69379,
+  "lon": 135.50107,
+  "source": "espn:jpn.1",
+  "venue": "Yodoko Sakura Stadium"
+ },
+ "Charlotte FC": {
+  "city": "Charlotte, North Carolina",
+  "country": "USA",
+  "lat": 35.22709,
+  "lon": -80.84313,
+  "source": "espn:usa.1",
+  "venue": "Bank of America Stadium"
+ },
+ "Charlton Athletic": {
+  "city": "London",
+  "country": "England",
+  "lat": 51.50853,
+  "lon": -0.12574,
+  "source": "espn:eng.2",
+  "venue": "The Valley"
+ },
+ "Chelsea": {
+  "city": "London",
+  "country": "England",
+  "lat": 51.50853,
+  "lon": -0.12574,
+  "source": "espn:eng.1",
+  "venue": "Stamford Bridge"
+ },
+ "Chicago Fire FC": {
+  "city": "Chicago, Illinois",
+  "country": "USA",
+  "lat": 41.85003,
+  "lon": -87.65005,
+  "source": "espn:usa.1",
+  "venue": "Soldier Field"
+ },
+ "Colorado Rapids": {
+  "city": "Commerce City, Colorado",
+  "country": "USA",
+  "lat": 39.80832,
+  "lon": -104.93387,
+  "source": "espn:usa.1",
+  "venue": "Dick's Sporting Goods Park"
+ },
+ "Columbus Crew": {
+  "city": "Columbus, Ohio",
+  "country": "USA",
+  "lat": 39.96118,
+  "lon": -82.99879,
+  "source": "espn:usa.1",
+  "venue": "ScottsMiracle-Gro Field"
+ },
+ "Como": {
+  "city": "Como",
+  "country": "Italy",
+  "lat": 45.80819,
+  "lon": 9.0832,
+  "source": "espn:ita.1",
+  "venue": "Giuseppe Sinigaglia"
+ },
+ "Coventry City": {
+  "city": "Coventry",
+  "country": "England",
+  "lat": 52.40656,
+  "lon": -1.51217,
+  "source": "espn:eng.1",
+  "venue": "Coventry Building Society Arena"
+ },
+ "Crystal Palace": {
+  "city": "London",
+  "country": "England",
+  "lat": 51.50853,
+  "lon": -0.12574,
+  "source": "espn:eng.1",
+  "venue": "Selhurst Park"
+ },
+ "D.C. United": {
+  "city": "Washington, District of Columbia",
+  "country": "USA",
+  "lat": 38.89511,
+  "lon": -77.03637,
+  "source": "espn:usa.1",
+  "venue": "Audi Field"
+ },
+ "Derby County": {
+  "city": "Derby",
+  "country": "England",
+  "lat": 52.92277,
+  "lon": -1.47663,
+  "source": "espn:eng.2",
+  "venue": "Pride Park"
+ },
+ "Eintracht Frankfurt": {
+  "city": "Frankfurt",
+  "country": "Germany",
+  "lat": 50.11552,
+  "lon": 8.68417,
+  "source": "espn:ger.1",
+  "venue": "Deutsche Bank Park"
+ },
+ "Elche": {
+  "city": "Elche",
+  "country": "Spain",
+  "lat": 38.26218,
+  "lon": -0.70107,
+  "source": "espn:esp.1",
+  "venue": "Estadio Martínez Valero"
+ },
+ "Espanyol": {
+  "city": "Barcelona",
+  "country": "Spain",
+  "lat": 41.38879,
+  "lon": 2.15899,
+  "source": "espn:esp.1",
+  "venue": "RCDE Stadium"
+ },
+ "Everton": {
+  "city": "Liverpool",
+  "country": "England",
+  "lat": 53.41058,
+  "lon": -2.97794,
+  "source": "espn:eng.1",
+  "venue": "Hill Dickinson Stadium"
+ },
+ "FC Augsburg": {
+  "city": "Augsburg",
+  "country": "Germany",
+  "lat": 48.37154,
+  "lon": 10.89851,
+  "source": "espn:ger.1",
+  "venue": "WWK Arena"
+ },
+ "FC Cincinnati": {
+  "city": "Cincinnati, Ohio",
+  "country": "USA",
+  "lat": 39.12711,
+  "lon": -84.51439,
+  "source": "espn:usa.1",
+  "venue": "TQL Stadium"
+ },
+ "FC Cologne": {
+  "city": "Cologne",
+  "country": "Germany",
+  "lat": 50.93333,
+  "lon": 6.95,
+  "source": "espn:ger.1",
+  "venue": "RheinEnergieStadion"
+ },
+ "FC Tokyo": {
+  "city": "Tokyo",
+  "country": "Japan",
+  "lat": 35.6895,
+  "lon": 139.69171,
+  "source": "espn:jpn.1",
+  "venue": "Tokyo Stadium"
+ },
+ "Fagiano Okayama": {
+  "city": "Okayama",
+  "country": "Japan",
+  "lat": 34.65,
+  "lon": 133.93333,
+  "source": "espn:jpn.1",
+  "venue": "City Light Stadium"
+ },
+ "Fiorentina": {
+  "city": "Firenze",
+  "country": "Italy",
+  "lat": 43.80077,
+  "lon": 11.23441,
+  "source": "espn:ita.1",
+  "venue": "Stadio Artemio Franchi"
+ },
+ "Frosinone": {
+  "city": "Frosinone",
+  "country": "Italy",
+  "lat": 41.63976,
+  "lon": 13.34109,
+  "source": "espn:ita.1",
+  "venue": "Stadio Benito Stirpe"
+ },
+ "Fulham": {
+  "city": "London",
+  "country": "England",
+  "lat": 51.50853,
+  "lon": -0.12574,
+  "source": "espn:eng.1",
+  "venue": "Craven Cottage"
+ },
+ "Gamba Osaka": {
+  "city": "Osaka",
+  "country": "Japan",
+  "lat": 34.69379,
+  "lon": 135.50107,
+  "source": "espn:jpn.1",
+  "venue": "Suita City Football Stadium"
+ },
+ "Genoa": {
+  "city": "Genova",
+  "country": "Italy",
+  "lat": 45.21604,
+  "lon": 11.87211,
+  "source": "espn:ita.1",
+  "venue": "Stadio Luigi Ferraris"
+ },
+ "Getafe": {
+  "city": "Getafe",
+  "country": "Spain",
+  "lat": 40.30571,
+  "lon": -3.73295,
+  "source": "espn:esp.1",
+  "venue": "Estadio Coliseum"
+ },
+ "Houston Dynamo FC": {
+  "city": "Houston, Texas",
+  "country": "USA",
+  "lat": 29.76328,
+  "lon": -95.36327,
+  "source": "espn:usa.1",
+  "venue": "Shell Energy Stadium"
+ },
+ "Hull City": {
+  "city": "Hull",
+  "country": "England",
+  "lat": 53.7446,
+  "lon": -0.33525,
+  "source": "espn:eng.1",
+  "venue": "The MKM Stadium"
+ },
+ "Inter Miami CF": {
+  "city": "Miami, Florida",
+  "country": "USA",
+  "lat": 25.77427,
+  "lon": -80.19366,
+  "source": "espn:usa.1",
+  "venue": "Nu Stadium"
+ },
+ "Internazionale": {
+  "city": "Milano",
+  "country": "Italy",
+  "lat": 42.78235,
+  "lon": 12.59836,
+  "source": "espn:ita.1",
+  "venue": "San Siro"
+ },
+ "Ipswich Town": {
+  "city": "Ipswich",
+  "country": "England",
+  "lat": 52.05917,
+  "lon": 1.15545,
+  "source": "espn:eng.1",
+  "venue": "Portman Road"
+ },
+ "JEF United Ichihara-Chiba": {
+  "city": "Chiba",
+  "country": "Japan",
+  "lat": 35.6,
+  "lon": 140.11667,
+  "source": "espn:jpn.1",
+  "venue": "Fukuda Denshi Arena"
+ },
+ "Juventus": {
+  "city": "Torino",
+  "country": "Italy",
+  "lat": 45.07049,
+  "lon": 7.68682,
+  "source": "espn:ita.1",
+  "venue": "Allianz Stadium"
+ },
+ "Kashima Antlers": {
+  "city": "Kashima",
+  "country": "Japan",
+  "lat": 33.10611,
+  "lon": 130.09056,
+  "source": "espn:jpn.1",
+  "venue": "Kashima Soccer Stadium"
+ },
+ "Kashiwa Reysol": {
+  "city": "Kashiwa",
+  "country": "Japan",
+  "lat": 35.86224,
+  "lon": 139.97733,
+  "source": "espn:jpn.1",
+  "venue": "Sankyo Frontier Kashiwa Stadium"
+ },
+ "Kawasaki Frontale": {
+  "city": "Kawasaki",
+  "country": "Japan",
+  "lat": 35.52056,
+  "lon": 139.71722,
+  "source": "espn:jpn.1",
+  "venue": "Uvance Todoroki Stadium by Fujitsu"
+ },
+ "Kyoto Sanga": {
+  "city": "Kyoto",
+  "country": "Japan",
+  "lat": 35.02107,
+  "lon": 135.75385,
+  "source": "espn:jpn.1",
+  "venue": "Sanga Stadium by Kyocera"
+ },
+ "LA Galaxy": {
+  "city": "Carson, California",
+  "country": "USA",
+  "lat": 33.83141,
+  "lon": -118.28202,
+  "source": "espn:usa.1",
+  "venue": "Dignity Health Sports Park"
+ },
+ "LAFC": {
+  "city": "Los Angeles, California",
+  "country": "USA",
+  "lat": 34.05223,
+  "lon": -118.24368,
+  "source": "espn:usa.1",
+  "venue": "BMO Stadium"
+ },
+ "Le Havre AC": {
+  "city": "Le Havre",
+  "country": "France",
+  "lat": 49.49346,
+  "lon": 0.10785,
+  "source": "espn:fra.1",
+  "venue": "Stade Océane"
+ },
+ "Le Mans": {
+  "city": "Le Mans",
+  "country": "France",
+  "lat": 48.0021,
+  "lon": 0.20251,
+  "source": "espn:fra.1",
+  "venue": "Stade Marie-Marvingt"
+ },
+ "Lecce": {
+  "city": "Lecce",
+  "country": "Italy",
+  "lat": 40.35481,
+  "lon": 18.17244,
+  "source": "espn:ita.1",
+  "venue": "Via Del Mare"
+ },
+ "Leeds United": {
+  "city": "Leeds",
+  "country": "England",
+  "lat": 53.79648,
+  "lon": -1.54785,
+  "source": "espn:eng.1",
+  "venue": "Elland Road"
+ },
+ "Lens": {
+  "city": "Lens",
+  "country": "France",
+  "lat": 50.43302,
+  "lon": 2.82791,
+  "source": "espn:fra.1",
+  "venue": "Stade Bollaert-Delelis"
+ },
+ "Levante": {
+  "city": "Manises",
+  "country": "Spain",
+  "lat": 39.49139,
+  "lon": -0.46349,
+  "source": "espn:esp.1",
+  "venue": "Estadi Ciutat de València"
+ },
+ "Lille": {
+  "city": "Lille",
+  "country": "France",
+  "lat": 50.63391,
+  "lon": 3.05512,
+  "source": "espn:fra.1",
+  "venue": "Decathlon Arena - Stade Pierre-Mauroy"
+ },
+ "Lincoln City": {
+  "city": "Lincoln",
+  "country": "England",
+  "lat": 53.22683,
+  "lon": -0.53792,
+  "source": "espn:eng.2",
+  "venue": "LNER Stadium"
+ },
+ "Liverpool": {
+  "city": "Liverpool",
+  "country": "England",
+  "lat": 53.41058,
+  "lon": -2.97794,
+  "source": "espn:eng.1",
+  "venue": "Anfield"
+ },
+ "Lorient": {
+  "city": "Lorient",
+  "country": "France",
+  "lat": 47.74817,
+  "lon": -3.37177,
+  "source": "espn:fra.1",
+  "venue": "Stade du Moustoir - Yves Allainmat"
+ },
+ "Lyon": {
+  "city": "Lyon",
+  "country": "France",
+  "lat": 45.74906,
+  "lon": 4.84789,
+  "source": "espn:fra.1",
+  "venue": "Groupama Stadium"
+ },
+ "Machida Zelvia": {
+  "city": "Tokyo",
+  "country": "Japan",
+  "lat": 35.6895,
+  "lon": 139.69171,
+  "source": "espn:jpn.1",
+  "venue": "Japan National Stadium"
+ },
+ "Mainz": {
+  "city": "Mainz",
+  "country": "Germany",
+  "lat": 49.98185,
+  "lon": 8.28008,
+  "source": "espn:ger.1",
+  "venue": "MEWA ARENA"
+ },
+ "Manchester City": {
+  "city": "Manchester",
+  "country": "England",
+  "lat": 53.48095,
+  "lon": -2.23743,
+  "source": "espn:eng.1",
+  "venue": "Etihad Stadium"
+ },
+ "Manchester United": {
+  "city": "Manchester",
+  "country": "England",
+  "lat": 53.48095,
+  "lon": -2.23743,
+  "source": "espn:eng.1",
+  "venue": "Old Trafford"
+ },
+ "Marseille": {
+  "city": "Marseille",
+  "country": "France",
+  "lat": 43.29695,
+  "lon": 5.38107,
+  "source": "espn:fra.1",
+  "venue": "Stade Vélodrome"
+ },
+ "Middlesbrough": {
+  "city": "Middlesbrough",
+  "country": "England",
+  "lat": 54.57623,
+  "lon": -1.23483,
+  "source": "espn:eng.2",
+  "venue": "Riverside Stadium"
+ },
+ "Millwall": {
+  "city": "London",
+  "country": "England",
+  "lat": 51.50853,
+  "lon": -0.12574,
+  "source": "espn:eng.2",
+  "venue": "The Den"
+ },
+ "Minnesota United FC": {
+  "city": "Saint Paul, Minnesota",
+  "country": "USA",
+  "lat": 44.94441,
+  "lon": -93.09327,
+  "source": "espn:usa.1",
+  "venue": "Allianz Field"
+ },
+ "Monza": {
+  "city": "Monza",
+  "country": "Italy",
+  "lat": 45.58005,
+  "lon": 9.27246,
+  "source": "espn:ita.1",
+  "venue": "U-Power Stadium"
+ },
+ "Málaga": {
+  "city": "Malaga",
+  "country": "Spain",
+  "lat": 36.72016,
+  "lon": -4.42034,
+  "source": "espn:esp.1",
+  "venue": "La Rosaleda"
+ },
+ "Nagoya Grampus": {
+  "city": "Toyota",
+  "country": "Japan",
+  "lat": 35.08333,
+  "lon": 137.15,
+  "source": "espn:jpn.1",
+  "venue": "Toyota Stadium (Japan)"
+ },
+ "Napoli": {
+  "city": "Napoli",
+  "country": "Italy",
+  "lat": 40.87618,
+  "lon": 14.5195,
+  "source": "espn:ita.1",
+  "venue": "Stadio Diego Armando Maradona"
+ },
+ "Nashville SC": {
+  "city": "Nashville, Tennessee",
+  "country": "USA",
+  "lat": 36.16589,
+  "lon": -86.78444,
+  "source": "espn:usa.1",
+  "venue": "GEODIS Park"
+ },
+ "New England Revolution": {
+  "city": "Foxborough, Massachusetts",
+  "country": "USA",
+  "lat": 42.06538,
+  "lon": -71.24783,
+  "source": "espn:usa.1",
+  "venue": "Gillette Stadium"
+ },
+ "New York City FC": {
+  "city": "New York City",
+  "country": "USA",
+  "lat": 40.71427,
+  "lon": -74.00597,
+  "source": "espn:usa.1",
+  "venue": "Yankee Stadium"
+ },
+ "Newcastle United": {
+  "city": "Newcastle-upon-Tyne",
+  "country": "England",
+  "lat": 54.97328,
+  "lon": -1.61396,
+  "source": "espn:eng.1",
+  "venue": "St. James' Park"
+ },
+ "Nice": {
+  "city": "Nice",
+  "country": "France",
+  "lat": 43.70313,
+  "lon": 7.26608,
+  "source": "espn:fra.1",
+  "venue": "Allianz Riviera"
+ },
+ "Norwich City": {
+  "city": "Norwich",
+  "country": "England",
+  "lat": 52.62783,
+  "lon": 1.29834,
+  "source": "espn:eng.2",
+  "venue": "Carrow Road"
+ },
+ "Nottingham Forest": {
+  "city": "Nottingham",
+  "country": "England",
+  "lat": 52.9536,
+  "lon": -1.15047,
+  "source": "espn:eng.1",
+  "venue": "The City Ground"
+ },
+ "Orlando City SC": {
+  "city": "Orlando, Florida",
+  "country": "USA",
+  "lat": 28.53834,
+  "lon": -81.37924,
+  "source": "espn:usa.1",
+  "venue": "Inter&Co Stadium"
+ },
+ "Osasuna": {
+  "city": "Pamplona",
+  "country": "Spain",
+  "lat": 42.81687,
+  "lon": -1.64323,
+  "source": "espn:esp.1",
+  "venue": "El Sadar"
+ },
+ "Paris FC": {
+  "city": "Paris",
+  "country": "France",
+  "lat": 48.85341,
+  "lon": 2.3488,
+  "source": "espn:fra.1",
+  "venue": "Stade Jean Bouin"
+ },
+ "Paris Saint-Germain": {
+  "city": "Paris",
+  "country": "France",
+  "lat": 48.85341,
+  "lon": 2.3488,
+  "source": "espn:fra.1",
+  "venue": "Parc des Princes"
+ },
+ "Parma": {
+  "city": "Parma",
+  "country": "Italy",
+  "lat": 44.79935,
+  "lon": 10.32618,
+  "source": "espn:ita.1",
+  "venue": "Ennio Tardini"
+ },
+ "Philadelphia Union": {
+  "city": "Chester, Pennsylvania",
+  "country": "USA",
+  "lat": 39.84753,
+  "lon": -75.35785,
+  "source": "espn:usa.1",
+  "venue": "Subaru Park"
+ },
+ "Portland Timbers": {
+  "city": "Portland, Oregon",
+  "country": "USA",
+  "lat": 45.52345,
+  "lon": -122.67621,
+  "source": "espn:usa.1",
+  "venue": "Providence Park"
+ },
+ "Portsmouth": {
+  "city": "Portsmouth",
+  "country": "England",
+  "lat": 50.79899,
+  "lon": -1.09125,
+  "source": "espn:eng.2",
+  "venue": "Fratton Park"
+ },
+ "Preston North End": {
+  "city": "Preston",
+  "country": "England",
+  "lat": 53.76282,
+  "lon": -2.70452,
+  "source": "espn:eng.2",
+  "venue": "Deepdale"
+ },
+ "Queens Park Rangers": {
+  "city": "London",
+  "country": "England",
+  "lat": 51.50853,
+  "lon": -0.12574,
+  "source": "espn:eng.2",
+  "venue": "MATRADE Loftus Road"
+ },
+ "RB Leipzig": {
+  "city": "Leipzig",
+  "country": "Germany",
+  "lat": 51.33962,
+  "lon": 12.37129,
+  "source": "espn:ger.1",
+  "venue": "Red Bull Arena"
+ },
+ "Racing Santander": {
+  "city": "Santander",
+  "country": "Spain",
+  "lat": 43.46589,
+  "lon": -3.80493,
+  "source": "espn:esp.1",
+  "venue": "El Sardineros"
+ },
+ "Real Betis": {
+  "city": "Sevilla",
+  "country": "Spain",
+  "lat": 37.38283,
+  "lon": -5.97317,
+  "source": "espn:esp.1",
+  "venue": "Estadio La Cartuja"
+ },
+ "Real Madrid": {
+  "city": "Madrid",
+  "country": "Spain",
+  "lat": 40.4165,
+  "lon": -3.70256,
+  "source": "espn:esp.1",
+  "venue": "Santiago Bernabéu"
+ },
+ "Real Salt Lake": {
+  "city": "Sandy, Utah",
+  "country": "USA",
+  "lat": 40.59161,
+  "lon": -111.8841,
+  "source": "espn:usa.1",
+  "venue": "America First Field"
+ },
+ "Real Sociedad": {
+  "city": "San Sebastian",
+  "country": "Spain",
+  "lat": 43.56667,
+  "lon": -5.9,
+  "source": "espn:esp.1",
+  "venue": "Reale Arena"
+ },
+ "Red Bull New York": {
+  "city": "Harrison, New Jersey",
+  "country": "USA",
+  "lat": 40.74649,
+  "lon": -74.15626,
+  "source": "espn:usa.1",
+  "venue": "Sports Illustrated Stadium"
+ },
+ "SC Freiburg": {
+  "city": "Freiburg im Breisgau",
+  "country": "Germany",
+  "lat": 47.9959,
+  "lon": 7.85222,
+  "source": "espn:ger.1",
+  "venue": "Europa-Park Stadion"
+ },
+ "SC Paderborn 07": {
+  "city": "Paderborn",
+  "country": "Germany",
+  "lat": 51.71905,
+  "lon": 8.75439,
+  "source": "espn:ger.1",
+  "venue": "Home Deluxe Arena"
+ },
+ "SV Elversberg": {
+  "city": "Spiesen-Elversberg",
+  "country": "Germany",
+  "lat": 49.31667,
+  "lon": 7.13333,
+  "source": "espn:ger.1",
+  "venue": "URSAPHARM-Arena an der Kaiserlinde"
+ },
+ "San Diego FC": {
+  "city": "San Diego, California",
+  "country": "USA",
+  "lat": 32.71571,
+  "lon": -117.16472,
+  "source": "espn:usa.1",
+  "venue": "Snapdragon Stadium"
+ },
+ "San Jose Earthquakes": {
+  "city": "San Jose, California",
+  "country": "USA",
+  "lat": 37.33939,
+  "lon": -121.89496,
+  "source": "espn:usa.1",
+  "venue": "PayPal Park"
+ },
+ "Sanfrecce Hiroshima": {
+  "city": "Hiroshima",
+  "country": "Japan",
+  "lat": 34.4,
+  "lon": 132.45,
+  "source": "espn:jpn.1",
+  "venue": "Edion Peace Wing Hiroshima"
+ },
+ "Sassuolo": {
+  "city": "Reggio Emilia",
+  "country": "Italy",
+  "lat": 44.69825,
+  "lon": 10.63125,
+  "source": "espn:ita.1",
+  "venue": "Mapei Stadium"
+ },
+ "Schalke 04": {
+  "city": "Gelsenkirchen",
+  "country": "Germany",
+  "lat": 51.50508,
+  "lon": 7.09654,
+  "source": "espn:ger.1",
+  "venue": "Veltins Arena"
+ },
+ "Seattle Sounders FC": {
+  "city": "Seattle, Washington",
+  "country": "USA",
+  "lat": 47.60621,
+  "lon": -122.33207,
+  "source": "espn:usa.1",
+  "venue": "Lumen Field"
+ },
+ "Sevilla": {
+  "city": "Sevilla",
+  "country": "Spain",
+  "lat": 37.38283,
+  "lon": -5.97317,
+  "source": "espn:esp.1",
+  "venue": "Ramón Sánchez Pizjuán Stadium"
+ },
+ "Sheffield United": {
+  "city": "Sheffield",
+  "country": "England",
+  "lat": 53.38297,
+  "lon": -1.4659,
+  "source": "espn:eng.2",
+  "venue": "Bramall Lane"
+ },
+ "Southampton": {
+  "city": "Southampton",
+  "country": "England",
+  "lat": 50.90395,
+  "lon": -1.40428,
+  "source": "espn:eng.2",
+  "venue": "St. Mary's Stadium"
+ },
+ "Sporting Kansas City": {
+  "city": "Kansas City, Kansas",
+  "country": "USA",
+  "lat": 39.11417,
+  "lon": -94.62746,
+  "source": "espn:usa.1",
+  "venue": "Sporting Park"
+ },
+ "St. Louis CITY SC": {
+  "city": "St. Louis, Missouri",
+  "country": "USA",
+  "lat": 38.62727,
+  "lon": -90.19789,
+  "source": "espn:usa.1",
+  "venue": "Energizer Park"
+ },
+ "Stade Rennais": {
+  "city": "Rennes",
+  "country": "France",
+  "lat": 48.11109,
+  "lon": -1.67431,
+  "source": "espn:fra.1",
+  "venue": "Roazhon Park"
+ },
+ "Stoke City": {
+  "city": "Stoke-on-Trent",
+  "country": "England",
+  "lat": 53.00415,
+  "lon": -2.18538,
+  "source": "espn:eng.2",
+  "venue": "bet365 Stadium"
+ },
+ "Strasbourg": {
+  "city": "Strasbourg",
+  "country": "France",
+  "lat": 48.58392,
+  "lon": 7.74553,
+  "source": "espn:fra.1",
+  "venue": "Stade de la Meinau"
+ },
+ "Sunderland": {
+  "city": "Sunderland",
+  "country": "England",
+  "lat": 54.90465,
+  "lon": -1.38222,
+  "source": "espn:eng.1",
+  "venue": "Stadium of Light"
+ },
+ "Swansea City": {
+  "city": "Swansea",
+  "country": "Wales",
+  "lat": 51.62079,
+  "lon": -3.94323,
+  "source": "espn:eng.2",
+  "venue": "Swansea.com Stadium"
+ },
+ "TSG Hoffenheim": {
+  "city": "Sinsheim",
+  "country": "Germany",
+  "lat": 49.2529,
+  "lon": 8.87867,
+  "source": "espn:ger.1",
+  "venue": "PreZero Arena"
+ },
+ "Tokyo Verdy 1969": {
+  "city": "Tokyo",
+  "country": "Japan",
+  "lat": 35.6895,
+  "lon": 139.69171,
+  "source": "espn:jpn.1",
+  "venue": "Tokyo Stadium"
+ },
+ "Torino": {
+  "city": "Torino",
+  "country": "Italy",
+  "lat": 45.07049,
+  "lon": 7.68682,
+  "source": "espn:ita.1",
+  "venue": "Stadio Olimpico Grande Torino"
+ },
+ "Toronto FC": {
+  "city": "Toronto",
+  "country": "Canada",
+  "lat": 43.70643,
+  "lon": -79.39864,
+  "source": "espn:usa.1",
+  "venue": "BMO Field"
+ },
+ "Tottenham Hotspur": {
+  "city": "London",
+  "country": "England",
+  "lat": 51.50853,
+  "lon": -0.12574,
+  "source": "espn:eng.1",
+  "venue": "Tottenham Hotspur Stadium"
+ },
+ "Toulouse": {
+  "city": "Toulouse",
+  "country": "France",
+  "lat": 43.60426,
+  "lon": 1.44367,
+  "source": "espn:fra.1",
+  "venue": "Stadium Municipal de Toulouse"
+ },
+ "Troyes": {
+  "city": "Paris",
+  "country": "France",
+  "lat": 48.85341,
+  "lon": 2.3488,
+  "source": "espn:fra.1",
+  "venue": "Stade de l'Aube"
+ },
+ "Udinese": {
+  "city": "Udine",
+  "country": "Italy",
+  "lat": 46.0693,
+  "lon": 13.23715,
+  "source": "espn:ita.1",
+  "venue": "Stadio Friuli"
+ },
+ "Urawa Red Diamonds": {
+  "city": "Saitama",
+  "country": "Japan",
+  "lat": 35.90807,
+  "lon": 139.65657,
+  "source": "espn:jpn.1",
+  "venue": "Saitama Stadium 2002"
+ },
+ "V-Varen Nagasaki": {
+  "city": "Nagasaki",
+  "country": "Japan",
+  "lat": 32.75,
+  "lon": 129.88333,
+  "source": "espn:jpn.1",
+  "venue": "PEACE STADIUM Connected by SoftBank"
+ },
+ "Valencia": {
+  "city": "Manises",
+  "country": "Spain",
+  "lat": 39.49139,
+  "lon": -0.46349,
+  "source": "espn:esp.1",
+  "venue": "Mestalla Stadium"
+ },
+ "Vancouver Whitecaps": {
+  "city": "Vancouver",
+  "country": "Canada",
+  "lat": 49.24966,
+  "lon": -123.11934,
+  "source": "espn:usa.1",
+  "venue": "BC Place"
+ },
+ "Venezia": {
+  "city": "Venezia",
+  "country": "Italy",
+  "lat": 44.42329,
+  "lon": 11.17365,
+  "source": "espn:ita.1",
+  "venue": "Stadio Pier Luigi Penzo"
+ },
+ "VfB Stuttgart": {
+  "city": "Stuttgart",
+  "country": "Germany",
+  "lat": 48.78232,
+  "lon": 9.17702,
+  "source": "espn:ger.1",
+  "venue": "MHPArena"
+ },
+ "Villarreal": {
+  "city": "Villarreal",
+  "country": "Spain",
+  "lat": 38.72572,
+  "lon": -7.21533,
+  "source": "espn:esp.1",
+  "venue": "Estadio de la Cerámica"
+ },
+ "Vissel Kobe": {
+  "city": "Kobe",
+  "country": "Japan",
+  "lat": 34.6913,
+  "lon": 135.183,
+  "source": "espn:jpn.1",
+  "venue": "Kobe Wing Stadium"
+ },
+ "Watford": {
+  "city": "Watford",
+  "country": "England",
+  "lat": 51.65531,
+  "lon": -0.39602,
+  "source": "espn:eng.2",
+  "venue": "Vicarage Road"
+ },
+ "Werder Bremen": {
+  "city": "Bremen",
+  "country": "Germany",
+  "lat": 53.07582,
+  "lon": 8.80717,
+  "source": "espn:ger.1",
+  "venue": "Weserstadion"
+ },
+ "West Bromwich Albion": {
+  "city": "West Bromwich",
+  "country": "England",
+  "lat": 52.51868,
+  "lon": -1.9945,
+  "source": "espn:eng.2",
+  "venue": "The Hawthorns"
+ },
+ "West Ham United": {
+  "city": "London",
+  "country": "England",
+  "lat": 51.50853,
+  "lon": -0.12574,
+  "source": "espn:eng.2",
+  "venue": "London Stadium"
+ },
+ "Wolverhampton Wanderers": {
+  "city": "Wolverhampton",
+  "country": "England",
+  "lat": 52.58547,
+  "lon": -2.12296,
+  "source": "espn:eng.2",
+  "venue": "Molineux Stadium"
+ },
+ "Wrexham": {
+  "city": "Wrexham",
+  "country": "Wales",
+  "lat": 53.04664,
+  "lon": -2.99132,
+  "source": "espn:eng.2",
+  "venue": "STōK Cae Ras"
+ },
+ "Yokohama F. Marinos": {
+  "city": "Tokyo",
+  "country": "Japan",
+  "lat": 35.6895,
+  "lon": 139.69171,
+  "source": "espn:jpn.1",
+  "venue": "Japan National Stadium"
+ }
+}

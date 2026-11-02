@@ -10,7 +10,7 @@
   python3 scripts/teamdb.py card <홈 영문> <원정 영문>                 # 경기 카드 두 팀 + 맞대결
   다른 스크립트: from teamdb import profile_md
 """
-import argparse, csv, datetime as dt, json, os, re, subprocess, sys, time, unicodedata
+import argparse, csv, datetime as dt, io, json, os, re, subprocess, sys, time, unicodedata
 
 HERE = os.path.dirname(os.path.abspath(__file__)); sys.path.insert(0, HERE)
 ROOT = os.path.dirname(HERE)
@@ -313,14 +313,70 @@ _GENERIC = {"united", "city", "town", "athletic", "atletico", "real", "sporting"
             "saint", "st", "royal", "royale", "new", "north", "south", "east", "west"}
 
 
-def find_team(name):
-    """Understat 팀 → (리그, 팀 dict, 팀 상세 dict). 못 가리면 섞지 말고 None."""
+# 2026-11-02(주간 점검 중 발견): 같은 사고가 세 번째다. `card "인터 마이애미CF"` 가
+# **세리에A Inter 카드**(순위 2위·xG 2.92·선발 XI 전부)를 돌려줬다 — norm 이 'inter miami' 가 되고
+# Understat 의 'inter' 가 부분일치(sc=2)로 걸린다. 문자열만으로는 'Inter Milan'→Inter(맞음)과
+# 'Inter Miami'→Inter(틀림)을 가를 수 없다. 둘 다 '한 단어 더 긴 포함 관계'다.
+# **가르는 것은 리그다.** MLS 경기는 Understat(5대 리그)에 애초에 없어야 한다.
+# 그래서 find_team 은 리그를 받고, 그 리그가 Understat 리그가 아니면 **찾지 않고 None 을 돌려준다**.
+_LG_KO = {
+    "잉글랜드 프리미어리그": "EPL", "스페인 라리가": "La_liga", "이탈리아 세리에A": "Serie_A",
+    "독일 분데스리가": "Bundesliga", "프랑스 리그1": "Ligue_1",
+}
+
+
+def league_of(name):
+    """베트맨 한글 팀명 → 우리 기록에 적힌 리그명(가장 최근). 못 찾으면 None."""
+    global _TEAM_LG
+    try:
+        _TEAM_LG
+    except NameError:
+        _TEAM_LG = None
+    if _TEAM_LG is None:
+        _TEAM_LG = {}
+        base = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+        for fn, h, a in (("전체경기기록.csv", "홈", "원정"), (os.path.join("data", "스캔기록.csv"), None, None)):
+            p = os.path.join(base, fn)
+            if not os.path.exists(p):
+                continue
+            try:
+                with io.open(p, encoding="utf-8") as f:
+                    for r in csv.DictReader(f):
+                        lg = (r.get("리그") or "").strip()
+                        if not lg:
+                            continue
+                        if h and r.get(h):
+                            for t in (r.get(h, ""), r.get(a, "")):
+                                if t.strip():
+                                    _TEAM_LG[t.strip()] = lg
+                        elif r.get("경기"):
+                            for t in str(r["경기"]).split(" vs "):
+                                if t.strip():
+                                    _TEAM_LG[t.strip()] = lg
+            except Exception:
+                pass
+    return _TEAM_LG.get(str(name).strip())
+
+
+def find_team(name, league=None):
+    """Understat 팀 → (리그, 팀 dict, 팀 상세 dict). 못 가리면 섞지 말고 None.
+
+    league: 그 경기의 리그명(한글). 주면 그 리그 안에서만 찾고,
+            Understat 이 다루지 않는 리그(MLS·챔피언십·J1·ACL 등)면 **찾지 않는다**.
+    """
     n = norm(en_name(name))
     if not n:  # 한글 등 매핑 실패 — 아무 팀이나 부분일치로 잡히는 것을 막는다
         return None
+    if league is None:
+        league = league_of(name)
+    only = None
+    if league:
+        only = _LG_KO.get(str(league).strip())
+        if only is None:
+            return None     # 5대 리그 밖 경기 — Understat 에 있을 수 없다. 남의 팀을 주지 않는다.
     nw = set(n.split())
     tiers = {3: [], 2: [], 1: []}
-    for lg in LEAGUES:
+    for lg in (only and [only]) or LEAGUES:
         d = jload(os.path.join(DB, "understat", f"{lg}_{SEASON}.json"), {})
         for tid, t in (d.get("teams") or {}).items():
             tn = norm(t["title"])
@@ -387,9 +443,85 @@ def espn_matches(team_title, code):
     return sorted(out, key=lambda x: x[0])
 
 
-def profile_md(name, absent=None):
-    f = find_team(name)
+def _espn_lines(title, code):
+    """ESPN 캐시로 최근 경기·선발·상대 포메이션별 성적 줄을 만든다.
+
+    2026-11-02: 원래 5대 리그 프로필 안에만 있던 블록을 꺼냈다. MLS·챔피언십·J1 은
+    Understat 이 없어 카드가 통째로 비어 있었는데(`teamdb 에 없음`), 정작 우리가 시장에
+    가장 많이 뒤지는 리그가 그 셋이다(CLAUDE.md 개선안 3번). xG 는 없지만 결과·슈팅·선발은 있다.
+    """
+    out = []
+    ms = espn_matches(title, code)
+    if ms:
+        last = ms[-3:]
+        parts = []
+        prev_xi = None; changes = []
+        for d, side, eid, m in ms[-6:]:
+            xi = {p["n"] for p in m.get("rosters", {}).get(side, {}).get("starters", [])}
+            if prev_xi and xi:
+                changes.append(len(prev_xi - xi))
+            if xi:
+                prev_xi = xi
+        for d, side, eid, m in last:
+            opp = m["away" if side == "home" else "home"]; me = m[side]
+            s = m.get("stats", {}).get(side, {}); so = m.get("stats", {}).get("away" if side == "home" else "home", {})
+            parts.append(f"{d[5:10]} {'홈' if side == 'home' else '원정'} vs {opp['team']} {me.get('score')}-{opp.get('score')} 슈팅 {s.get('totalShots')}({s.get('shotsOnTarget')}):{so.get('totalShots')}({so.get('shotsOnTarget')}) {m.get('rosters', {}).get(side, {}).get('formation', '')}")
+        out.append("- 최근 3경기(ESPN): " + " / ".join(parts) + (f" · 선발 교체 수(경기당) {sum(changes) / len(changes):.1f}" if changes else ""))
+        xi = ms[-1][3].get("rosters", {}).get(ms[-1][1], {})
+        if xi.get("starters"):
+            out.append(f"- 직전 선발 {xi.get('formation', '')}: " + ", ".join(p["n"] for p in xi["starters"]))
+        # 상대 포메이션별 성적(백3 vs 백4, 세부 포메이션)
+        byf = {}
+        for d, side, eid, m in ms:
+            opp = "away" if side == "home" else "home"
+            f = (m.get("rosters", {}).get(opp, {}) or {}).get("formation") or "?"
+            back = "백3" if f.startswith(("3", "5")) else "백4" if f.startswith("4") else "?"
+            try:
+                gf, ga = int(m[side]["score"]), int(m[opp]["score"])
+            except (TypeError, ValueError):
+                continue
+            s_ = m.get("stats", {}).get(side, {}); so = m.get("stats", {}).get(opp, {})
+            for k in (back, f):
+                r = byf.setdefault(k, {"n": 0, "w": 0, "d": 0, "l": 0, "gf": 0, "ga": 0, "sot": 0, "sota": 0})
+                r["n"] += 1; r["gf"] += gf; r["ga"] += ga
+                r["w" if gf > ga else "d" if gf == ga else "l"] += 1
+                r["sot"] += num(s_.get("shotsOnTarget")) or 0; r["sota"] += num(so.get("shotsOnTarget")) or 0
+        parts = [f"vs {k}: {v['w']}승{v['d']}무{v['l']}패 {v['gf']}-{v['ga']} (유효 {v['sot']:.0f}:{v['sota']:.0f})" for k, v in sorted(byf.items(), key=lambda kv: -kv[1]["n"]) if v["n"] >= 2]
+        if parts:
+            out.append("- 상대 포메이션별: " + " / ".join(parts[:6]))
+    return out
+
+
+# 한글 리그명 → ESPN 전용 리그 코드(Understat 없음)
+_LG_ESPN = {"잉글랜드 챔피언십": "eng.2", "일본 J1리그": "jpn.1", "미국 메이저리그사커": "usa.1"}
+
+
+def _espn_only_md(name, league):
+    """Understat 밖 리그(MLS·챔피언십·J1) 팀 카드 — ESPN 기록만으로."""
+    code = _LG_ESPN.get(str(league or "").strip())
+    if not code:
+        return None
+    db = jload(os.path.join(DB, "espn", f"{code}.json"), {})
+    titles = {m.get(side, {}).get("team", "") for m in db.values() for side in ("home", "away")}
+    titles.discard("")
+    want = resolve_espn_team(norm(en_name(name)), titles)
+    if not want:
+        return None
+    title = sorted(want)[0]
+    lines = _espn_lines(title, code)
+    if not lines:
+        return None
+    return "\n".join([f"### {title} ({league}) — teamdb {dt.date.today()} · ESPN 전용(xG 없음)"] + lines)
+
+
+def profile_md(name, absent=None, league=None):
+    if league is None:
+        league = league_of(name)
+    f = find_team(name, league=league)
     if not f:
+        md = _espn_only_md(name, league)
+        if md:
+            return md
         return f"- {name}: teamdb 에 없음(5대 리그 밖이거나 이름 불일치)"
     lg, t, td, league = f
     code = LEAGUES[lg]
@@ -435,44 +567,7 @@ def profile_md(name, absent=None):
         fs = sorted(fm.items(), key=lambda kv: -float(kv[1].get("time", 0)))[:3]
         L.append("- 포메이션(시간 비중): " + ", ".join(f"{k} {float(v.get('time', 0)) / max(1, sum(float(x.get('time', 0)) for x in fm.values())) * 100:.0f}% (xG {float(v.get('xG', 0)):.1f}/xGA {float(v.get('against', {}).get('xG', 0)) if isinstance(v.get('against'), dict) else 0:.1f})" for k, v in fs))
     # ESPN 최근 경기 선발·슈팅
-    ms = espn_matches(t["title"], code)
-    if ms:
-        last = ms[-3:]
-        parts = []
-        prev_xi = None; changes = []
-        for d, side, eid, m in ms[-6:]:
-            xi = {p["n"] for p in m.get("rosters", {}).get(side, {}).get("starters", [])}
-            if prev_xi and xi:
-                changes.append(len(prev_xi - xi))
-            if xi:
-                prev_xi = xi
-        for d, side, eid, m in last:
-            opp = m["away" if side == "home" else "home"]; me = m[side]
-            s = m.get("stats", {}).get(side, {}); so = m.get("stats", {}).get("away" if side == "home" else "home", {})
-            parts.append(f"{d[5:10]} {'홈' if side == 'home' else '원정'} vs {opp['team']} {me.get('score')}-{opp.get('score')} 슈팅 {s.get('totalShots')}({s.get('shotsOnTarget')}):{so.get('totalShots')}({so.get('shotsOnTarget')}) {m.get('rosters', {}).get(side, {}).get('formation', '')}")
-        L.append("- 최근 3경기(ESPN): " + " / ".join(parts) + (f" · 선발 교체 수(경기당) {sum(changes) / len(changes):.1f}" if changes else ""))
-        xi = ms[-1][3].get("rosters", {}).get(ms[-1][1], {})
-        if xi.get("starters"):
-            L.append(f"- 직전 선발 {xi.get('formation', '')}: " + ", ".join(p["n"] for p in xi["starters"]))
-        # 상대 포메이션별 성적(백3 vs 백4, 세부 포메이션)
-        byf = {}
-        for d, side, eid, m in ms:
-            opp = "away" if side == "home" else "home"
-            f = (m.get("rosters", {}).get(opp, {}) or {}).get("formation") or "?"
-            back = "백3" if f.startswith(("3", "5")) else "백4" if f.startswith("4") else "?"
-            try:
-                gf, ga = int(m[side]["score"]), int(m[opp]["score"])
-            except (TypeError, ValueError):
-                continue
-            s_ = m.get("stats", {}).get(side, {}); so = m.get("stats", {}).get(opp, {})
-            for k in (back, f):
-                r = byf.setdefault(k, {"n": 0, "w": 0, "d": 0, "l": 0, "gf": 0, "ga": 0, "sot": 0, "sota": 0})
-                r["n"] += 1; r["gf"] += gf; r["ga"] += ga
-                r["w" if gf > ga else "d" if gf == ga else "l"] += 1
-                r["sot"] += num(s_.get("shotsOnTarget")) or 0; r["sota"] += num(so.get("shotsOnTarget")) or 0
-        parts = [f"vs {k}: {v['w']}승{v['d']}무{v['l']}패 {v['gf']}-{v['ga']} (유효 {v['sot']:.0f}:{v['sota']:.0f})" for k, v in sorted(byf.items(), key=lambda kv: -kv[1]["n"]) if v["n"] >= 2]
-        if parts:
-            L.append("- 상대 포메이션별: " + " / ".join(parts[:6]))
+    L += _espn_lines(t["title"], code)
     return "\n".join(L)
 
 
@@ -491,15 +586,18 @@ def h2h_md(home, away):
 def main():
     ap = argparse.ArgumentParser(); sub = ap.add_subparsers(dest="cmd", required=True)
     s = sub.add_parser("update"); s.add_argument("--league"); s.add_argument("--refresh", action="store_true")
-    s = sub.add_parser("profile"); s.add_argument("team"); s.add_argument("--absent")
-    s = sub.add_parser("card"); s.add_argument("home"); s.add_argument("away"); s.add_argument("--absent-home"); s.add_argument("--absent-away")
+    s = sub.add_parser("profile"); s.add_argument("team"); s.add_argument("--absent"); s.add_argument("--league")
+    s = sub.add_parser("card"); s.add_argument("home"); s.add_argument("away"); s.add_argument("--absent-home"); s.add_argument("--absent-away"); s.add_argument("--league")
     a = ap.parse_args()
     if a.cmd == "update":
         cmd_update(a)
     elif a.cmd == "profile":
-        print(profile_md(a.team, a.absent.split(",") if a.absent else None))
+        print(profile_md(a.team, a.absent.split(",") if a.absent else None, league=a.league))
     else:
-        print(profile_md(a.home, a.absent_home.split(",") if a.absent_home else None)); print(); print(profile_md(a.away, a.absent_away.split(",") if a.absent_away else None)); print(); print(h2h_md(a.home, a.away))
+        lg = a.league or league_of(a.home) or league_of(a.away)
+        print(profile_md(a.home, a.absent_home.split(",") if a.absent_home else None, league=lg)); print()
+        print(profile_md(a.away, a.absent_away.split(",") if a.absent_away else None, league=lg)); print()
+        print(h2h_md(a.home, a.away))
 
 
 if __name__ == "__main__":

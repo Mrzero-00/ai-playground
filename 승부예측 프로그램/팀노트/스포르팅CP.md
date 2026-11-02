@@ -1,10 +1,9 @@
 # 스포르팅CP
 
 <!-- INPUTS:START -->
-## 입력(자동 수집 2026-10-21) — xG·휴식일·라인업·환경(이동거리·고도·날씨)은 이 숫자를 쓴다
-- 10-22 04:00 vs LASK: 휴식 8.1일 · 직전 10-14 원정 vs Lens 2-0 승 [uefa.champions] · xG - · 직전 선발 4-3-3 Kaique, Gonçalo Inácio, Eduardo Quaresma, Maxi Araújo, Iván Fresneda, Sergi Altimira, Issa Doumbia, João Simões, Luis Suárez, Nestory Irankunda, Geny Catamo · 구장 ? · 이동 ?(구장 미확인) · 고도 ?m · 날씨 -
+## 입력(자동 수집 2026-11-02) — xG·휴식일·라인업·환경(이동거리·고도·날씨)은 이 숫자를 쓴다
+- 11-04 02:45 vs 샤흐타르 도네츠크: 휴식 12.9일?(국내리그 ESPN 미제공 — 직접 확인) · 직전 10-22 홈 vs LASK Linz 2-3 패 [uefa.champions] · xG - · 직전 선발 4-3-3 Kaique, Gonçalo Inácio, Eduardo Quaresma, Maxi Araújo, Iván Fresneda, Sergi Altimira, Issa Doumbia, João Simões, Luis Suárez, Nestory Irankunda, Geny Catamo · 구장 돈바스 아레나 · 이동 ?(구장 미확인) · 고도 185m · 11.0℃ 강수0mm(10%) 바람6.8km/h
 <!-- INPUTS:END -->
-
 
 ## 2026-10-22 회고 (125회 9702, UCL 2:3 LASK 패) — **125회 최대 오차 (정합성 C)**
 - 예측 승 78.3% → 2:3 패. 슈팅 16:11이지만 **유효 4:7** — LASK가 효율로 이겼다.

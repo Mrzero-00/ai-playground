@@ -9,8 +9,8 @@
 - 최근 경기(ESPN, 최대 28일): 2026-09-19 AS Roma 2-2 Internazionale / 2026-10-11 Como 0-0 AS Roma / 2026-10-17 AS Roma 2-0 Genoa / 2026-10-24 Napoli 3-3 AS Roma / 2026-10-27 AS Roma 4-2 Cagliari
 <!-- FACTS:END -->
 <!-- INPUTS:START -->
-## 입력(자동 수집 2026-10-30) — xG·휴식일·라인업·환경(이동거리·고도·날씨)은 이 숫자를 쓴다
-- 11-01 02:00 vs 우디네세: 휴식 3.9일(7일 1경기) · 직전 10-28 홈 vs Cagliari 4-2 승 [italian serie a] · xG 시즌9경기 xG2.72/xGA1.49 npxGD+1.32 · 최근5 2.14/2.08 (+0.21) · 홈1.8/원정0.71 · xPts18.4 vs 승점21 · 직전 선발 3-5-2 Pierluigi Gollini, Evan Ndicka, Konstantinos Koulierakis, Gianluca Mancini, Niccolò Pisilli, Bryan Cristante, Marten de Roon, Nahuel Molina, Emanuele Lulli, Santiago Castro, Matìas Soulè · 구장 프리울리 경기장 · 이동 465km · 고도 112m(차 +95m) · 13.3℃ 강수0.1mm(9%) 바람3.6km/h
+## 입력(자동 수집 2026-11-02) — xG·휴식일·라인업·환경(이동거리·고도·날씨)은 이 숫자를 쓴다
+- 11-04 05:00 vs 맨체스터 유나이티드: 휴식 14.0일?(국내리그 ESPN 미제공 — 직접 확인) · 직전 10-21 홈 vs Slovan Bratislava 4-0 승 [uefa.champions] · xG 시즌10경기 xG2.76/xGA1.49 npxGD+1.35 · 최근5 2.31/1.87 (+0.59) · 홈1.8/원정0.9 · xPts20.8 vs 승점24 · 직전 선발 3-4-2-1 Pierluigi Gollini, Leonardo Balerdi, Mario Hermoso, Daniele Ghilardi, Niccolò Pisilli, Marten de Roon, Wesley, Nahuel Molina, Donyell Malen, Lorenzo Pellegrini, Rodrigo Mora · 구장 올드 트래퍼드 · 이동 1685km · 고도 18m(차 +1m) · 10.2℃ 강수0mm(0%) 바람10.3km/h · ⚠ 장거리 원정 1685km
 <!-- INPUTS:END -->
 
 ### 2026-10-21 회고 — 124회 9492 슬로반 브라티슬라바전 4:0 승 (적중, '실력')

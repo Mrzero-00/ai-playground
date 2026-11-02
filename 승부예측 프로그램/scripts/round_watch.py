@@ -290,6 +290,24 @@ def toto_plan(g, hdr, ck):
     print(f"  {rnd}: 마감 {end_dt:%m/%d %H:%M}, 경기 {first}~{last} → 분석일정에 분석 {at:%m/%d %H:%M} 한 줄 추가")
 
 
+def cmd_missed():
+    """마감이 지났는데 아직 '대기'인 블록 — 놓친 분석을 드러낸다 (2026-11-02).
+    지금까지는 그냥 대기로 남아 아무도 몰랐다. 10/31~11/01 이틀치 8블록 121경기가 그렇게 비었다."""
+    now = dt.datetime.now(o.KST).strftime("%Y-%m-%d %H:%M")
+    rows = [r for r in load_plan()
+            if (r.get("상태") or "") == "대기" and (r.get("끝마감") or "") and r["끝마감"] < now]
+    if not rows:
+        print("놓친 블록 없음")
+        return 0
+    rows.sort(key=lambda r: r["끝마감"])
+    n = sum(int(r.get("경기수") or 0) for r in rows)
+    print(f"!!! 놓친 블록 {len(rows)}건 · 경기 {n} — 마감이 지났는데 분석되지 않았다")
+    for r in rows[-12:]:
+        print(f"    {r['회차']:<9} {r.get('블록',''):<18} 마감 {r['끝마감']}  {r.get('경기수','')}경기")
+    print("    → 추천은 불가능하지만 기준선 방향은 지금도 채울 수 있다(깊이=기준선, 대조군).")
+    return len(rows)
+
+
 def cmd_plan(due_only=False):
     rows = [r for r in load_plan() if r["상태"] == "대기"]
     if due_only:
@@ -359,6 +377,8 @@ def main():
             print(f"  {r['블록']}: {r['경기수']}경기({r['종목']}) 마감 {r['첫마감'][5:]}~{r['끝마감'][11:]} → 분석 {r['분석시각'][5:]}")
     elif a[0] == "toto":
         cmd_toto()
+    elif a[0] == "missed":
+        cmd_missed()
     elif a[0] == "done":
         cmd_done(a[1], a[2], " ".join(a[3:]))
     else:

@@ -43,6 +43,10 @@ REVIEW=0
 if [ "$MODE" = "daily" ] && python3 scripts/direction_review.py due >/dev/null 2>&1; then REVIEW=1; fi
 echo "주간 방향 점검: $([ "$REVIEW" = 1 ] && echo '이번 주 차례' || echo '아직')"
 
+# 놓친 블록(마감 지났는데 대기)을 매번 드러낸다 — 조용히 쌓이면 며칠 뒤에야 안다(2026-11-02).
+MISSED="$(python3 scripts/round_watch.py missed 2>/dev/null | head -1)"
+case "$MISSED" in *"놓친 블록"*) echo "$MISSED"; echo "$(date '+%F %T') $MISSED" >> "$PROJ/logs/실패알림.log";; esac
+
 DUE="$(python3 scripts/round_watch.py due 2>/dev/null | grep -v '^$' | grep -v '^없음$' | grep -vi 'no due' || true)"
 if [ -n "$DUE" ]; then echo "분석 대기 블록: $DUE"; else echo "분석 대기 블록 없음"; fi
 
@@ -54,6 +58,7 @@ fi
 # 전에는 RULES='...' 안에 '없음' 같은 작은따옴표가 들어가 문자열이 조기에 닫히고
 # 뒤쪽이 셸 명령으로 실행돼 매 블록이 'command not found / RULES: parameter not set' 로 죽었다.
 read -r -d '' RULES <<'PACU_RULES_EOF'
+· **분석이 끝나면 항상 커밋하고 원격에 푸시한다**(사용자 지시 2026-11-02). 푸시가 빠지면 대시보드가 바뀌지 않아 작업이 없던 일이 된다.
 ★★★ 구조 전환(2026-10-26): 보정 상수를 맞추는 틀로는 목표에 못 간다. 모델 계층은 51~52%에서 한계(시장 53.4%),
    요인 보정은 시장 대비 −5.0p 로 오히려 깎고 있다. 그래서 ① 사전확률은 시장에서 출발 ② 기본 보정 0, 검증 가능한
    사실이 있는 소수 경기만 개입 ③ factor_weights.json 에서 weight>0 인 유형만 확률을 움직임(나머지는 기록만)

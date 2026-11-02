@@ -562,7 +562,18 @@ def match_team(query, teams, names, table=None, min_score=0.0):
     """
     if table:
         return match_team_table(query, teams, table, min_score)
-    cands = hints_for(names, query) if re.search(r"[가-힣]", query) else [query]
+    # 2026-11-02: 한글이 아니면 별칭표를 통째로 건너뛰고 있었다. 베트맨이 'PSG'·'LASK' 처럼
+    # 영문 약칭을 주면 영원히 매칭에 실패한다(승무패66 비야레알-PSG). 약칭도 별칭을 본다.
+    if re.search(r"[가-힣]", query):
+        cands = hints_for(names, query)
+    else:
+        cands = []
+        v = names.get(query)
+        if isinstance(v, str):
+            cands.append(v)
+        elif isinstance(v, (list, tuple)):
+            cands += list(v)
+        cands.append(query)
     if not cands:
         return None
     best, best_s = None, 0.0

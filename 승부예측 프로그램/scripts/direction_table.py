@@ -59,9 +59,12 @@ def main():
         mtop = max(mine, key=mine.get) if mine else ""
         ktop = max(mk, key=mk.get) if mk else ""
         res = (r.get("결과") or "").strip()
-        if mtop and ktop:
+        # 2026-11-03: 집계가 no(분석 없음) 를 안 보고 mtop 만 봤다. 그래서 표에는 14경기 전부
+        # '분석 없음'으로 찍히는 승무패65 가 요약에서는 '채점 6경기 · 내 분석 적중 50.0%'로 나왔다.
+        # 깊이가 기준선·시장복사·미분석인 행은 분석이 아니므로 **모든 채점에서 뺀다**(스킬 규칙).
+        if not no and mtop and ktop:
             both += 1; agree += (mtop == ktop)
-        if mtop and res in SIDES:
+        if not no and mtop and res in SIDES:
             done += 1; hit += (mtop == res)
         rows.append({
             "번호": r["번호"],
@@ -74,7 +77,8 @@ def main():
             "시장확률": f"{mk['승']:.0f}/{mk['무']:.0f}/{mk['패']:.0f}" if mk else "",
             "일치": "—" if (no or not ktop) else ("일치" if mtop == ktop else "갈림"),
             "깊이": "분석 없음" if no else (dep or "가벼움"),
-            "결과": res, "적중": "" if not (mtop and res in SIDES) else ("O" if mtop == res else "X"),
+            "결과": res,
+            "적중": "" if (no or not (mtop and res in SIDES)) else ("O" if mtop == res else "X"),
         })
 
     hdr = ["번호", "경기", "시각", "내 방향", "내 확률(승/무/패)", "시장 방향", "시장 확률", "시장과", "깊이", "결과", "적중"]

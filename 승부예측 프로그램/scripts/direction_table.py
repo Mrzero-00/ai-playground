@@ -48,7 +48,12 @@ def main():
     agree = both = done = hit = 0
     for r in rs:
         dep = (r.get("깊이") or "").strip()
-        mine = probs(r, "보정") or probs(r, "순수")
+        # 2026-11-03: 여기서 '보정'을 먼저 읽고 있었다. 보정은 analysis_guard G7 이
+        # 시장 확률로 클램프하는 층이라, 이 표가 내 방향을 시장과 같게 보이게 만들고
+        # '시장과 일치' 비율을 구조적으로 부풀렸다(승무패66에서 88%로 찍혔다).
+        # 최상위 원칙은 '방향은 자체 분석이 정한다'이므로 **순수**를 먼저 읽는다.
+        # 보정은 순수가 비어 있는 과거 행에만 쓴다.
+        mine = probs(r, "순수") or probs(r, "보정")
         mk = probs(r, "시장")
         no = dep in NO_ANALYSIS or not mine
         mtop = max(mine, key=mine.get) if mine else ""

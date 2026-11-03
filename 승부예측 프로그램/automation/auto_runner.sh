@@ -45,7 +45,20 @@ echo "주간 방향 점검: $([ "$REVIEW" = 1 ] && echo '이번 주 차례' || e
 
 # 놓친 블록(마감 지났는데 대기)을 매번 드러낸다 — 조용히 쌓이면 며칠 뒤에야 안다(2026-11-02).
 MISSED="$(python3 scripts/round_watch.py missed 2>/dev/null | head -1)"
-case "$MISSED" in *"놓친 블록"*) echo "$MISSED"; echo "$(date '+%F %T') $MISSED" >> "$PROJ/logs/실패알림.log";; esac
+# 건수가 늘었을 때만 '신규'로 표시한다 — 20분마다 같은 경고를 알리면 알림이 무시된다(2026-11-04)
+MISS_STATE="$PROJ/data/.missed_count"
+MISS_N="$(printf '%s' "$MISSED" | sed -n 's/.*놓친 블록 \([0-9]*\)건.*/\1/p')"
+MISS_N="${MISS_N:-0}"
+MISS_PREV="$(cat "$MISS_STATE" 2>/dev/null || echo 0)"
+case "$MISSED" in *"놓친 블록"*)
+  echo "$MISSED"
+  echo "$(date '+%F %T') $MISSED" >> "$PROJ/logs/실패알림.log"
+  if [ "$MISS_N" -gt "$MISS_PREV" ] 2>/dev/null; then MISSED_NEW="$MISSED"; else MISSED_NEW=""; fi
+  printf '%s' "$MISS_N" > "$MISS_STATE"
+  ;;
+*) MISSED_NEW=""; printf '0' > "$MISS_STATE" ;;
+esac
+if [ -n "$MISSED_NEW" ]; then echo "놓친 블록 신규 증가 ($MISS_PREV → $MISS_N) — 알림 대상"; fi
 
 DUE="$(python3 scripts/round_watch.py due 2>/dev/null | grep -v '^$' | grep -v '^없음$' | grep -vi 'no due' || true)"
 if [ -n "$DUE" ]; then echo "분석 대기 블록: $DUE"; else echo "분석 대기 블록 없음"; fi
@@ -97,9 +110,9 @@ read -r -d '' STEP12 <<PACU_STEP12_EOF
 PACU_STEP12_EOF
 
 if [ "$MODE" = "daily" ]; then
-  STEP3="[3단계 분석] 회차 감시: teamdb.py update(5대 리그+K리그+챔피언십·J1·MLS) → round_watch.py check → team_facts.py --round <판매 중 회차> --stale 3 → match_inputs.py --round <회차> → context_inputs.py fill --round <회차>(심판·날씨) → plan(분석일정에만 남긴다) → 분석 시각이 된 블록이 있으면 블록분석_절차.md B 절차로 추천 조합까지. 분석가는 **분석전_점검표.md 를 먼저 읽고** 항목별 해당 여부를 근거에 남기며, 경기마다 **예상점수**를 적는다. round_watch.py toto(승무패 새 회차면 팩트시트·입력·teamdb 후 14경기 패널; 무 복수는 '시장 1순위<45% & 시장 무 28%+' 경기에)."
+  STEP3="[3단계 분석] 회차 감시: teamdb.py update(5대 리그+K리그+챔피언십·J1·MLS) → round_watch.py check → team_facts.py --round <판매 중 회차> --stale 3 → match_inputs.py --round <회차> → context_inputs.py fill --round <회차>(심판·날씨) → plan(분석일정에만 남긴다) → 분석 시각이 된 블록이 있으면 블록분석_절차.md B 절차로 추천 조합까지. 분석가는 **분석전_점검표.md 를 먼저 읽고** 항목별 해당 여부를 근거에 남기며, 경기마다 **예상점수**를 적는다.  분석을 마친 뒤 **python3 scripts/safe_picks.py --round <회차> --md** 를 돌려 '정배 중 이변·무 위험이 낮은 경기' 후보와 합계배당 1.8+ 조합을 보고에 붙인다 — 이것이 알림 대상이다(후보 0개면 알림 없음). round_watch.py toto(승무패 새 회차면 팩트시트·입력·teamdb 후 14경기 패널; 무 복수는 '시장 1순위<45% & 시장 무 28%+' 경기에)."
 else
-  STEP3="[3단계 분석] 아래 블록을 블록분석_절차.md B(오케스트레이터: integrity.py pre → 수집가 → 분석가(검색 금지, 근거 JSON) → integrity.py add)로 처리하고 추천 표·근거 요약을 기록한다. 보고에는 **direction_table.py --round <회차> --md** 를 붙인다 — 모든 경기에 대해 내 분석이 정한 방향을 왼쪽에, 시장이 본 방향을 오른쪽에 나란히 적는다(시장은 눈금, 판단에 쓰지 않는다). 분석가는 **분석전_점검표.md 를 먼저 읽고** 항목별 해당 여부를 근거에 남기며, 경기마다 **예상점수**를 적는다. 승무패 회차면 14경기 패널 → 마킹.
+  STEP3="[3단계 분석] 아래 블록을 블록분석_절차.md B(오케스트레이터: integrity.py pre → 수집가 → 분석가(검색 금지, 근거 JSON) → integrity.py add)로 처리하고 추천 표·근거 요약을 기록한다. 보고에는 **direction_table.py --round <회차> --md** 를 붙인다 — 모든 경기에 대해 내 분석이 정한 방향을 왼쪽에, 시장이 본 방향을 오른쪽에 나란히 적는다(시장은 눈금, 판단에 쓰지 않는다). 분석가는 **분석전_점검표.md 를 먼저 읽고** 항목별 해당 여부를 근거에 남기며, 경기마다 **예상점수**를 적는다. 승무패 회차면 14경기 패널 → 마킹. 분석을 마친 뒤 **python3 scripts/safe_picks.py --round <회차> --md** 를 돌려 '정배 중 이변·무 위험이 낮은 경기' 후보와 합계배당 1.8+ 조합을 보고에 붙인다 — 이것이 알림 대상이다(후보 0개면 알림 없음).
 처리 대상:
 ${DUE:-(없음 — 3단계 건너뜀)}"
 fi
@@ -120,7 +133,18 @@ PROMPT="[자동 루프 ${MODE}] 아래 단계를 순서대로 수행한다.
 ${STEP0}
 ${STEP12_OUT}
 ${STEP3}
-[4단계 배포] 커밋·푸시(origin pacu, pacu:main) → sh ../betman-dashboard/deploy.sh 로 대시보드 갱신·배포 → PushNotification 한 줄 알림(추천 유무·일반 승률·도파민 승률). round_watch.py done 으로 블록 상태도 닫는다.
+[4단계 배포] 커밋·푸시(origin pacu, pacu:main) → sh ../betman-dashboard/deploy.sh 로 대시보드 갱신·배포 → round_watch.py done 으로 블록 상태를 닫는다.
+
+[알림 규칙 — 사용자 지시 2026-11-04: 휴대폰으로만, 보낼 것이 있을 때만]
+PushNotification 은 **아래 둘 중 하나에 해당할 때만** 보낸다. 그 외에는 보내지 않는다 —
+20분마다 도는 루프라 빈 알림이 쌓이면 알림 자체가 무시된다.
+  (1) safe_picks.py --round <회차> 가 후보를 1개 이상 찾았을 때
+      → 한 줄에 [회차 · 후보 N경기 · 가장 빠른 구매 마감 · 합계배당 1.8+ 최상위 조합 1개] 를 적는다.
+        예) '131회 안전정배 4경기 · 마감 오늘 23:00 · 추천 2748승+2701패 합계1.99 적중59%'
+  (2) 놓친 블록이 **새로 늘었을 때만** — 아래 '놓친블록신규' 가 비어 있으면 보내지 않는다.
+      → 'N블록 M경기 마감 지나 미분석' 한 줄.
+      놓친블록신규: ${MISSED_NEW:-(없음)}
+보낼 것이 없으면 조용히 로그만 남긴다. 200자 이내 한 줄, 마크다운 금지.
 ${RULES}"
 
 echo "모델: $MODEL"

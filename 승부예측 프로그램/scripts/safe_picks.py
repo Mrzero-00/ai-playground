@@ -41,6 +41,40 @@ SPORTS = ("축구",)          # 검증된 종목만. 농구·배구는 사용자
 DEF = dict(mp=60.0, odds=1.2, draw=24.0, agree=True)
 
 
+def no_offset_leagues(round_):
+    """euro_baseline 의 리그 강도 오프셋 표에 없는 리그(=보정 0 으로 처리됨) 팀이 끼인 경기 번호.
+    2026-11-04: 오프셋 표는 15개 리그뿐이라 체코·헝가리·불가리아·세르비아·폴란드·크로아티아·
+    스웨덴·리투아니아·카자흐스탄·키프로스·보스니아·안도라·아제르바이잔 등이 빠진다.
+    131회 축구 22경기가 여기 걸렸고 안전정배 후보 10개 중 4개가 포함됐다.
+    빠진 리그 팀은 '평균 리그' 로 취급돼 과대·과소평가 어느 쪽으로도 틀어질 수 있으므로
+    후보 목록에 반드시 표시한다 — 선별이 쓰는 무 확률이 불완전한 모델에서 나온다."""
+    import io, contextlib
+    try:
+        import sys as _s
+        _s.path.insert(0, os.path.join(ROOT, "scripts"))
+        import euro_baseline as eb, soccer_baseline as sb
+        with contextlib.redirect_stdout(io.StringIO()):
+            _, _, _, _, _, off = eb.state(quiet=True)
+            names = sb.load_names(); teams = eb.teams_recent()
+    except Exception:
+        return set()
+    bad = set()
+    for r in csv.DictReader(open(LOG, encoding="utf-8-sig")):
+        if r["회차"] != str(round_) or r["종목"] != "축구":
+            continue
+        try:
+            h = sb.match_team(r["홈"], teams, names); a = sb.match_team(r["원정"], teams, names)
+            if not (h and a):
+                continue
+            with contextlib.redirect_stdout(io.StringIO()):
+                b, _ = eb.predict_pair(h, a)
+            if b.get("홈리그") is None or b.get("원정리그") is None:
+                bad.add(r["번호"])
+        except Exception:
+            continue
+    return bad
+
+
 def deadlines(round_):
     """분석일정.csv 의 블록 끝마감. 경기 시각이 속한 블록의 마감을 돌려준다.
     (사용자 고정: 조합은 같은 시간대 우선 — 2026-10-13)"""
@@ -208,21 +242,24 @@ def cmd_pick(a):
               f"(깊이·시장확률·배당·순수 중 빠진 것이 있는지 확인한다)", file=sys.stderr)
         return 1
     dl = deadlines(a.round)
+    nooff = no_offset_leagues(a.round)
     for g in G:
         g["dl"] = dl(g["row"].get("시각"))
+        g["nooff"] = g["row"]["번호"] in nooff
     sel = [g for g in G if passes(g, c)]
     sel.sort(key=lambda g: (g["dl"] or __import__("datetime").datetime.max, -g["mp"]))
     head = (f"### {a.round}회 안전 정배 후보 — 시장 1순위 {c['mp']:.0f}%+ · 배당 {c['odds']}+ "
             f"· 내 무<{c['draw']:.0f}%" + (" · 1순위 일치" if c["agree"] else ""))
     if a.md:
         print(head + "\n")
-        print("| 번호 | 경기 | 선택 | 배당 | 시장 1순위 | 내 확률 | 무 확률 | 킥오프 | 구매 마감 |")
-        print("|---|---|---|---:|---:|---:|---:|---|---|")
+        print("| 번호 | 경기 | 선택 | 배당 | 시장 1순위 | 내 확률 | 무 확률 | 킥오프 | 구매 마감 | 주의 |")
+        print("|---|---|---|---:|---:|---:|---:|---|---|---|")
         for g in sel:
             r = g["row"]
             print(f"| {r['번호']} | {r['홈']} vs {r['원정']} | {g['mt']} | {g['od'][g['mt']]:.2f} "
                   f"| {g['mp']:.1f}% | {g['my'][g['mt']]:.1f}% | {g['my']['무']:.1f}% "
-                  f"| {(r.get('시각') or '')[:11]} | {g['dl'].strftime('%m-%d %H:%M') if g['dl'] else '?'} |")
+                  f"| {(r.get('시각') or '')[:11]} | {g['dl'].strftime('%m-%d %H:%M') if g['dl'] else '?'} "
+                  f"| {'⚠ 리그 오프셋 없음' if g['nooff'] else ''} |")
     else:
         print(head)
         print(f"{'번호':>5} {'경기':<30}{'선택':>4}{'배당':>7}{'시장':>7}{'내확률':>7}{'무':>7}  구매마감")
@@ -230,8 +267,11 @@ def cmd_pick(a):
             r = g["row"]
             print(f"{r['번호']:>5} {(r['홈']+' vs '+r['원정'])[:29]:<30}{g['mt']:>4}"
                   f"{g['od'][g['mt']]:>7.2f}{g['mp']:>6.1f}%{g['my'][g['mt']]:>6.1f}%"
-                  f"{g['my']['무']:>6.1f}%  {g['dl'].strftime('%m-%d %H:%M') if g['dl'] else '?'}")
-    print(f"\n후보 {len(sel)}/{len(G)}경기")
+                  f"{g['my']['무']:>6.1f}%  {g['dl'].strftime('%m-%d %H:%M') if g['dl'] else '?'}"
+                  f"{'  ⚠리그오프셋없음' if g['nooff'] else ''}")
+    nb = sum(1 for g in sel if g["nooff"])
+    print(f"\n후보 {len(sel)}/{len(G)}경기" +
+          (f"  ·  ⚠ 그중 {nb}경기는 리그 강도 오프셋이 없는 팀이 끼여 무 확률이 불완전하다" if nb else ""))
     if len(sel) < 2:
         print("조합을 만들려면 2경기 이상 필요하다. --relax 로 조건을 완화하거나 다음 블록을 기다린다.")
         return 0

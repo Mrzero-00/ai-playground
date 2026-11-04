@@ -361,6 +361,17 @@ def section_score(rows, out, issues):
 # 그래서 구회차는 이름을 바꿔 따로 세우고, '고쳐야 할 것' 목록에는 올리지 않는다.
 DEPTH_ERA_ROUND = 123   # 깊이 열이 들어온 회차
 
+# 2026-11-05: 리그별·구간별 표가 깊이=기준선 행을 섞어 세고 있었다. 그래서 UCL 이
+# "말 55.9% vs 실제 67.6% (+11.6p, z=+2.0) 유의"로 찍혔는데, 분석 행만으로 재면
+# +9.0p·z=+1.3 (n=49) 로 잡음이다. 그 오염된 숫자로 스킬 규칙 두 개를 만들었다가 되돌렸다.
+# 스킬 원칙: '측정은 분석한 경기로만 한다 — 깊이=기준선은 대조군이다.'
+NO_ANALYSIS_DEPTH = ("기준선", "시장복사", "미분석", "")
+
+
+def is_analyzed(r):
+    """깊이가 심층·가벼움인 행만 분석으로 센다."""
+    return (r.get("깊이") or "").strip() not in NO_ANALYSIS_DEPTH
+
 
 def depth_label(r):
     d = (r.get("깊이") or "").strip()
@@ -394,8 +405,12 @@ def main():
         section_curve(rows, pre, out, issues if pre != "시장" else [])
         section_margin(rows, pre, out, issues if pre != "시장" else [])
     for pre in ("순수", "보정"):
-        section_split(rows, pre, lambda r: r.get("종목"), "종목", out, issues)
-        section_split(rows, pre, lambda r: r.get("리그"), "리그", out, issues, minn=15)
+        # 2026-11-05: 종목별·리그별은 **분석 행만**으로 센다. 기준선 행을 섞으면 UCL 이
+        # +11.6p·z=+2.0 '유의'로 찍히는데 분석 행만으로는 +9.0p·z=+1.3 잡음이다.
+        # 깊이별 표(아래)는 기준선과의 비교가 목적이므로 전 행을 그대로 쓴다.
+        ana = [r for r in rows if is_analyzed(r)]
+        section_split(ana, pre, lambda r: r.get("종목"), "종목(분석 행만)", out, issues)
+        section_split(ana, pre, lambda r: r.get("리그"), "리그(분석 행만)", out, issues, minn=15)
         section_split(rows, pre, depth_label, "분석 깊이", out, issues)
     section_score(rows, out, issues)
     out.append("\n## 고쳐야 할 것 (유의한 편향만)")

@@ -18,6 +18,14 @@
   ※ 2SE ±11.1p 로 **아직 유의하지 않다**. 그리고 회수율의 상당 부분은 '시장 60%+ 정배를
     산다' 자체에서 온다 — 무 필터가 더하는 몫은 +5~12p 다. 표본을 쌓으며 쓴다.
 
+★★ 후보로 뽑힌 경기는 **반드시 심층 분석을 거친 뒤에만 추천한다** (사용자 지시 2026-11-05).
+  기준선만으로 추천하면 안 된다 — 2026-11-05 에 후보 4경기를 심층으로 열었더니 **네 번 다 내려갔다**:
+    2748 78.3→74.0(-4.3) · 2760 69.3→64.3(-5.0) · 2701 75.7→67.7(-8.0) · 2807 71.1→63.1(-8.0)
+  특히 **2807 은 과신 검문(+8p)에 걸리지도 않았는데(+5.5p) 8p 내려갔다** — 선덜랜드가
+  프리미어리그 20위 최하위인데 리그보정이 예측의 92%를 차지해 eng.1 +1.07 을 온전히 받고 있었다.
+  즉 **검문을 통과한 기준선도 믿을 수 없다.** 후보는 전부 열어 본다.
+  → 이 스크립트는 깊이=심층이 아닌 후보를 '추천 불가(심층 필요)'로 갈라 찍는다.
+
 ★ 선별 회수율은 **수익 지표**이고, 방향 적중률 100% 목표는 **분석력 지표**다. 섞지 않는다.
   선별은 쉬운 경기만 골라 돈을 버는 실무 수단이고, 목표는 어려운 경기도 맞히는 것이다.
 
@@ -248,6 +256,10 @@ def cmd_pick(a):
         g["nooff"] = g["row"]["번호"] in nooff
     sel = [g for g in G if passes(g, c)]
     sel.sort(key=lambda g: (g["dl"] or __import__("datetime").datetime.max, -g["mp"]))
+    # 2026-11-05 사용자 지시: 추천은 심층을 거친 다리로만 한다.
+    DEEP = ("심층",)
+    deep = [g for g in sel if (g["depth"] or "").strip() in DEEP]
+    shallow = [g for g in sel if g not in deep]
     head = (f"### {a.round}회 안전 정배 후보 — 시장 1순위 {c['mp']:.0f}%+ · 배당 {c['odds']}+ "
             f"· 내 무<{c['draw']:.0f}%" + (" · 1순위 일치" if c["agree"] else ""))
     if a.md:
@@ -272,6 +284,14 @@ def cmd_pick(a):
     nb = sum(1 for g in sel if g["nooff"])
     print(f"\n후보 {len(sel)}/{len(G)}경기" +
           (f"  ·  ⚠ 그중 {nb}경기는 리그 강도 오프셋이 없는 팀이 끼여 무 확률이 불완전하다" if nb else ""))
+    print(f"  ├ 심층 검증됨(추천 가능) {len(deep)}경기: " +
+          (", ".join(g["row"]["번호"] for g in deep) or "없음"))
+    print(f"  └ 기준선만(추천 불가, 심층 필요) {len(shallow)}경기: " +
+          (", ".join(g["row"]["번호"] for g in shallow) or "없음"))
+    if shallow:
+        print("\n  ※ 기준선만 있는 후보는 추천하지 않는다 — 2026-11-05 에 후보 4경기를 열었더니")
+        print("     네 번 다 내려갔다(-4.3 ~ -8.0%p). 과신 검문을 통과한 것도 8p 내려갔다.")
+        print("     위 번호들에 수집→심층 분석을 돌린 뒤 다시 이 스크립트를 실행한다.")
     if len(sel) < 2:
         print("조합을 만들려면 2경기 이상 필요하다. --relax 로 조건을 완화하거나 다음 블록을 기다린다.")
         return 0
@@ -281,10 +301,11 @@ def cmd_pick(a):
     for g in sel:
         grp[g["dl"]].append(g)
     for d in sorted(grp, key=lambda x: (x is None, x)):
-        gs = grp[d]
+        gs = [g for g in grp[d] if g in deep]   # 심층만 조합에 넣는다
         label = d.strftime("%m-%d %H:%M") if d else "마감 미상"
         if len(gs) < 2:
-            print(f"\n[구매 마감 {label}] 후보 {len(gs)}경기 — 조합에 2경기가 필요하다")
+            tot = len([g for g in grp[d]])
+            print(f"\n[구매 마감 {label}] 심층 검증 {len(gs)}경기 (후보 {tot}) — 조합에 심층 2경기가 필요하다")
             continue
         combos = []
         for k in (2, 3):
@@ -295,7 +316,7 @@ def cmd_pick(a):
                 pp = math.prod(g["my"][g["mt"]] / 100 for g in cb)
                 combos.append((pp * o, pp, o, cb))
         combos.sort(key=lambda x: -x[1])
-        print(f"\n[구매 마감 {label}] 후보 {len(gs)}경기 · 합계배당 1.8+ 조합 (적중 확률 높은 순)")
+        print(f"\n[구매 마감 {label}] 심층 검증 {len(gs)}경기 (후보 {len(grp[d])}) · 합계배당 1.8+ 조합")
         if not combos:
             print("  합계 배당 1.8 을 넘는 조합이 없다 — 후보 배당이 전부 낮다는 뜻이다.")
         for ev, pp, o, cb in combos[:5]:

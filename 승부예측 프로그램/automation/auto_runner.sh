@@ -1,4 +1,16 @@
 #!/bin/zsh
+# ============================================================================
+#  ⛔ 사용자 지시로 꺼져 있다 (2026-11-04)
+#     "그냥 모든 자동화랑 알림 꺼줘. 내가 그때그때 물어볼게."
+#  launchd 에이전트는 bootout·disable 했고 plist 는 ~/Library/LaunchAgents/
+#  com.pacu.betman.{daily,blocks}.plist.off 로 옮겨 뒀다.
+#  PushNotification 알림도 보내지 않는다.
+#  되살리려면 사용자가 요청할 때만:
+#    mv ~/Library/LaunchAgents/com.pacu.betman.daily.plist.off  ...daily.plist
+#    launchctl enable gui/$(id -u)/com.pacu.betman.daily
+#    launchctl bootstrap gui/$(id -u) ~/Library/LaunchAgents/com.pacu.betman.daily.plist
+#  이 파일을 지우지 않는다 — 다시 켤 때 그대로 쓴다.
+# ============================================================================
 # 자동 루프 실행기 (사용자 지시 2026-10-19 — 매 갱신마다 아래 순서로 반복)
 #   1) 회고할 내용이 있는지 파악 → 있으면 심층 회고(분석이 맞았는지 정확한 데이터 산출)
 #   2) 회고 결과로 분석 방식·스킬·도구(코드) 개선

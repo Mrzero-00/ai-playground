@@ -37,8 +37,38 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, HERE)
 OUT = os.path.join(HERE, "..", "data", "home_edge.json")
 REC = os.path.join(HERE, "..", "전체경기기록.csv")
-MIN_GAMES = 12          # 팀을 표에 올리는 최소 홈·원정 경기 수
+MIN_GAMES = 12          # (5대 리그는 아래 MIN_GAMES_FD)
+MIN_GAMES_FD = 40       # 팀을 표에 올리는 최소 홈·원정 경기 수
 MIN_TEAMS = 8           # 리그 신뢰도를 추정할 최소 팀 수
+
+
+# 5대 리그는 football-data 7시즌(2019-20~)을 쓴다 — ESPN 2시즌보다 팀당 홈경기가 2.3배 많아
+# 표본오차분산이 작아지고, 참분산이 있으면 더 잘 드러난다. 그래도 EPL·라리가·세리에A 는 0 이었다.
+FD_CODES = {"E0": "eng.1", "SP1": "esp.1", "I1": "ita.1", "D1": "ger.1", "F1": "fra.1"}
+
+
+def load_fd(code):
+    """football-data 시즌 파일들을 soccer_baseline 과 같은 dict 모양으로 돌려준다."""
+    import glob
+    here = os.path.join(HERE, "..", "data")
+    out = []
+    for f in sorted(glob.glob(os.path.join(here, code + "_*.csv"))):
+        season = os.path.basename(f).split("_")[1].split(".")[0]
+        for r in csv.DictReader(io.open(f, encoding="utf-8-sig")):
+            try:
+                hg, ag = int(r["FTHG"]), int(r["FTAG"])
+            except Exception:
+                continue
+            h, a = (r.get("HomeTeam") or "").strip(), (r.get("AwayTeam") or "").strip()
+            if not h or not a:
+                continue
+            d = (r.get("Date") or "").strip()          # dd/mm/yyyy
+            iso = ""
+            if len(d) == 10 and d[2] == "/":
+                iso = d[6:10] + "-" + d[3:5] + "-" + d[0:2]
+            out.append(dict(home=h, away=a, hg=hg, ag=ag, neutral=False, date=iso, season=season))
+    out.sort(key=lambda x: x["date"])
+    return out
 
 
 def pts(h, a):
@@ -57,7 +87,7 @@ def split(games):
     return H, A
 
 
-def league_fit(games):
+def league_fit(games, big5=False):
     """리그 하나의 팀별 홈이점 + 신뢰도(경험적 베이즈 수축계수)."""
     H, A = split(games)
     LAST = {}
@@ -70,7 +100,8 @@ def league_fit(games):
                 LAST[t] = d
     raw = {}
     for t in H:
-        if len(H[t]) < MIN_GAMES or len(A[t]) < MIN_GAMES:
+        need = MIN_GAMES_FD if big5 else MIN_GAMES
+        if len(H[t]) < need or len(A[t]) < need:
             continue
         hp = sum(H[t]) / len(H[t])
         ap = sum(A[t]) / len(A[t])
@@ -95,18 +126,29 @@ def league_fit(games):
 def fit_all(verbose=True):
     import soccer_baseline as sb
     res = {}
+    fd = {v: k for k, v in FD_CODES.items()}
     for lg in sb.LEAGUES:
-        try:
-            g = sb.load_results(lg)
-        except Exception:
-            continue
-        f = league_fit(g)
+        src = "ESPN 2시즌"
+        g = None
+        if lg in fd:                       # 5대 리그는 7시즌 자료를 우선한다
+            try:
+                g = load_fd(fd[lg])
+                src = "football-data 7시즌"
+            except Exception:
+                g = None
+        if not g:
+            try:
+                g = sb.load_results(lg)
+            except Exception:
+                continue
+        f = league_fit(g, big5=(src.startswith('football-data')))
+        f["source"] = src
         if not f["teams"]:
             continue
         res[lg] = f
         if verbose:
-            print(f"  {lg:8s} 팀 {len(f['teams']):2d}  리그평균 {f['mean']:+.2f}  "
-                  f"관측분산 {f['v_obs']:.4f}  오차분산 {f['v_err']:.4f}  신뢰도 {f['rel']:.3f}"
+            print(f"  {lg:8s} 팀 {len(f['teams']):2d}  평균 {f['mean']:+.2f}  "
+                  f"관측 {f['v_obs']:.4f}  오차 {f['v_err']:.4f}  신뢰도 {f['rel']:.3f}  [{f['source']}]"
                   + ("  ← 팀 차이 측정 안 됨(리그 평균 사용)" if f["rel"] < 0.05 else ""))
     json.dump(res, io.open(OUT, "w", encoding="utf-8"), ensure_ascii=False, indent=1)
     if verbose:
@@ -147,8 +189,12 @@ def _is_latin(k):
     return bool(k) and all(c.isdigit() or ("a" <= c <= "z") for c in k)
 
 
-def resolve(name, data):
-    """한글/영문 팀명 -> (리그, 팀명). 같은 팀이 여러 리그에 있으면 가장 최근에 뛴 리그."""
+def resolve(name, data, league=None):
+    """한글/영문 팀명 -> (리그, 팀명).
+
+    league 를 주면 그 리그 안에서만 찾는다 — 회차 기록의 리그 칸이 정답이므로
+    승격·강등팀이 옛 리그 자료로 잡히는 것을 막는다(선덜랜드가 챔피언십으로 잡혔다).
+    못 찾으면 (league, None) 을 돌려주고, 호출자는 그 리그 평균을 쓴다."""
     try:
         import soccer_baseline as sb
         names = sb.load_names()
@@ -163,12 +209,13 @@ def resolve(name, data):
     keys = {_norm(c) for c in cands}
     keys.discard("")
     if not keys:
-        return None, None
+        return (league, None) if league else (None, None)
+    scope = {league: data[league]} if (league and league in data) else data
 
     def best(hits):
         return max(hits, key=lambda x: data[x[0]]["teams"][x[1]].get("last", ""))
 
-    hits = [(lg, t) for lg, f in data.items() for t in f["teams"] if _norm(t) in keys]
+    hits = [(lg, t) for lg, f in scope.items() for t in f["teams"] if _norm(t) in keys]
     if hits:
         return best(hits)
 
@@ -177,7 +224,7 @@ def resolve(name, data):
     lat = {k for k in keys if _is_latin(k) and len(k) >= 6}
     if lat:
         hits = []
-        for lg, f in data.items():
+        for lg, f in scope.items():
             for t in f["teams"]:
                 nt = _norm(t)
                 if not (_is_latin(nt) and len(nt) >= 6):
@@ -186,7 +233,7 @@ def resolve(name, data):
                     hits.append((lg, t))
         if hits:
             return best(hits)
-    return None, None
+    return (league, None) if league else (None, None)
 
 def fmt_team(lg, t, f, side):
     r = f["teams"][t]
@@ -236,12 +283,21 @@ def cmd_round(a):
     print(f"### {a.round} 팀별 홈 이점\n")
     print("| 번 | 홈 | 원정 | 홈팀 관측 | 홈팀 쓸 값 | 리그평균 | 신뢰도 | 판정 |")
     print("|---|---|---|---:|---:|---:|---:|---|")
+    KLG = {"잉글랜드 프리미어리그": "eng.1", "스페인 라리가": "esp.1", "이탈리아 세리에A": "ita.1",
+           "독일 분데스리가": "ger.1", "프랑스 리그1": "fra.1", "네덜란드 에레디비시": "ned.1",
+           "미국 메이저리그사커": "usa.1", "일본 J1리그": "jpn.1", "K리그1": "kor.1"}
     for r in sorted(rows, key=lambda x: int(x["번호"])):
-        lg, t = resolve(r["홈"], data)
-        if not t:
-            print(f"| {r['번호']} | {r['홈']} | {r['원정']} | — | — | — | — | 자료 없음 |")
+        hint = KLG.get((r.get("리그") or "").strip())
+        lg, t = resolve(r["홈"], data, league=hint)
+        if not lg or lg not in data:
+            print(f"| {r['번호']} | {r['홈']} | {r['원정']} | — | — | — | — | 리그 미등록 |")
             continue
-        f = data[lg]; d = f["teams"][t]
+        f = data[lg]
+        if not t:                      # 팀 표본 부족 → 그 리그 평균이 답이다
+            print(f"| {r['번호']} | {r['홈']} | {r['원정']} | — | {f['mean']:+.2f} | "
+                  f"{f['mean']:+.2f} | {f['rel']:.3f} | 팀 표본 부족 → 리그평균 |")
+            continue
+        d = f["teams"][t]
         verdict = "리그평균 사용" if f["rel"] < 0.05 else ("홈 강" if d["dev"] > 0.05 else ("홈 약" if d["dev"] < -0.05 else "평균"))
         print(f"| {r['번호']} | {r['홈']} | {r['원정']} | {d['edge']:+.2f} | {d['shrunk']:+.2f} | "
               f"{f['mean']:+.2f} | {f['rel']:.3f} | {verdict} |")

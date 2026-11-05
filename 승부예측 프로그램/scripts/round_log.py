@@ -548,14 +548,14 @@ def main():
     ap = argparse.ArgumentParser()
     sub = ap.add_subparsers(dest="cmd", required=True)
     for c in ("init", "market", "review"):
-        s = sub.add_parser(c); s.add_argument("round", type=int)
+        s = sub.add_parser(c); s.add_argument("round")
     # results 는 '승무패NN' 도 받는다(2026-10-26) — 승무패 회차가 통째로 채점에서 빠져 있었다
     s = sub.add_parser("results"); s.add_argument("round")
-    s = sub.add_parser("adjust"); s.add_argument("round", type=int); s.add_argument("--news", action="append", help="'홈,원정,승조정%%p,메모' (최대 ±5)"); s.add_argument("--quiet", action="store_true", help="계산만, 경기별 출력 생략")
+    s = sub.add_parser("adjust"); s.add_argument("round"); s.add_argument("--news", action="append", help="'홈,원정,승조정%%p,메모' (최대 ±5)"); s.add_argument("--quiet", action="store_true", help="계산만, 경기별 출력 생략")
     # 승무패NN 도 받는다(2026-11-02) — results 와 같은 이유로 int 제약을 푼다
     s = sub.add_parser("pure"); s.add_argument("round"); s.add_argument("file"); s.add_argument("--no-anchor", action="store_true")
     s = sub.add_parser("anchor"); s.add_argument("round"); s.add_argument("--quiet", action="store_true")
-    s = sub.add_parser("market-from-scanlog"); s.add_argument("round", type=int)
+    s = sub.add_parser("market-from-scanlog"); s.add_argument("round")
     s.add_argument("--force", action="store_true", help="이미 값이 있어도 더 늦은 스캔이면 덮어쓴다")
     a = ap.parse_args()
     {"init": cmd_init, "pure": cmd_pure, "market": cmd_market, "results": cmd_results, "review": cmd_review, "adjust": cmd_adjust,

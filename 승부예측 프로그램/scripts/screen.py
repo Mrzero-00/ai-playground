@@ -91,7 +91,7 @@ def cmd_core(a):
 
 def main():
     ap = argparse.ArgumentParser(description="1차 가벼운 선별")
-    ap.add_argument("--round", type=int, required=True)
+    ap.add_argument("--round", required=True)
     ap.add_argument("--from", dest="frm", default="", help='킥오프 시작 "MM-DD HH:MM"')
     ap.add_argument("--to", default="", help='킥오프 끝 "MM-DD HH:MM"')
     ap.add_argument("--started", action="store_true", help="이미 시작한 경기도 포함")

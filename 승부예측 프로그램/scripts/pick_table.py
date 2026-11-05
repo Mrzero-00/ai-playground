@@ -410,7 +410,7 @@ def save_rec(by_no, rnd, items):
 
 def main():
     ap = argparse.ArgumentParser(description="추천 선택지를 베트맨 화면 형태 표로")
-    ap.add_argument("--round", type=int, required=True)
+    ap.add_argument("--round", required=True)
     ap.add_argument("combos", nargs="*", help='"제목=번호:선택,번호:선택"')
     ap.add_argument("--save", action="store_true")
     ap.add_argument("--skip", nargs="*", default=[], help='"번호:선택=이유"')

@@ -146,7 +146,7 @@ def set_state(rows, key, state, memo):
 
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument("--round", type=int)
+    ap.add_argument("--round")
     ap.add_argument("--combo")
     ap.add_argument("--due", action="store_true")
     ap.add_argument("--no-scan", action="store_true")

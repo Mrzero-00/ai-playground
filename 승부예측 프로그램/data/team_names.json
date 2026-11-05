@@ -18,12 +18,17 @@
  "AJ오세르": "Auxerre",
  "AS로마": "AS Roma",
  "AS모나코": "AS Monaco",
- "AT마드": "Atletico Madrid",
+ "AT마드": [
+  "Atlético Madrid",
+  "Atletico Madrid"
+ ],
  "AZ알크마르": "AZ Alkmaar",
- "A빌라": "Aston Villa",
+ "A빌라": [
+  "Aston Villa"
+ ],
  "A빌바오": [
-  "Athletic Bilbao",
-  "Athletic Club"
+  "Athletic Club",
+  "Athletic Bilbao"
  ],
  "BG빠툼": "BG Pathum United",
  "BG빠툼 유나이티드": "BG Pathum United",
@@ -140,7 +145,9 @@
  "노르웨이": "Norway",
  "노리치 시티": "Norwich City",
  "노팅엄 포리스트": "Nottingham",
- "노팅엄F": "Nottingham Forest",
+ "노팅엄F": [
+  "Nottingham Forest"
+ ],
  "뉴올리언스 펠리컨스": "New Orleans Pelicans",
  "뉴욕 닉스": "New York Knicks",
  "뉴욕 레드불스": [
@@ -154,7 +161,9 @@
  "뉴질랜드": "New Zealand",
  "뉴캐슬 유나이티드": "Newcastle United",
  "뉴캐슬 제츠": "Newcastle Jets",
- "뉴캐슬U": "Newcastle United",
+ "뉴캐슬U": [
+  "Newcastle United"
+ ],
  "니카라과": "Nicaragua",
  "닛폰햄": "Nippon",
  "닛폰햄 파이터스": "Nippon Ham",
@@ -176,7 +185,11 @@
  "더비 카운티": "Derby County",
  "데포르티보 아코루냐": "Deportivo",
  "데포르티보 알라베스": "Alaves",
- "데포아코": "Alaves",
+ "데포아코": [
+  "Alaves",
+  "Deportivo Alavés",
+  "Alavés"
+ ],
  "덴마크": "Denmark",
  "덴버 너게츠": "Denver Nuggets",
  "도르트문": "Borussia Dortmund",
@@ -192,7 +205,10 @@
  "디트로이트 피스톤스": "Detroit Pistons",
  "라싱 산탄데르": "Racing Santander",
  "라요 바예카노": "Rayo",
- "라요바예": "Rayo",
+ "라요바예": [
+  "Rayo Vallecano",
+  "Rayo"
+ ],
  "라이언시티 세일러스": "Lion City Sailors",
  "라이프치": "RB Leipzig",
  "라쿠텐": "Rakuten",
@@ -233,8 +249,12 @@
  "말라가": "Malaga",
  "말레이시아": "Malaysia",
  "맥아서FC": "Macarthur FC",
- "맨체스C": "Manchester City",
- "맨체스U": "Manchester United",
+ "맨체스C": [
+  "Manchester City"
+ ],
+ "맨체스U": [
+  "Manchester United"
+ ],
  "맨체스터 시티": "Manchester City",
  "맨체스터 유나이티드": "Manchester United",
  "멕시코": "Mexico",
@@ -262,6 +282,9 @@
  "밀워키 브루어스": "Brewers",
  "밀월": "Millwall",
  "바레인": "Bahrain",
+ "바르셀로": [
+  "Barcelona"
+ ],
  "바르셀로나": "Barcelona",
  "바이뮌헨": "Bayern Munich",
  "바이어04 레버쿠젠": "Bayer Leverkusen",
@@ -309,8 +332,15 @@
   "North Korea"
  ],
  "불가리아": "Bulgaria",
+ "브라이턴": [
+  "Brighton & Hove Albion",
+  "Brighton"
+ ],
  "브라이턴&호브 앨비언": "Brighton & Hove Albion",
  "브라질": "Brazil",
+ "브렌트퍼": [
+  "Brentford"
+ ],
  "브렌트퍼드": "Brentford",
  "브루클린 네츠": "Brooklyn Nets",
  "브리스틀 시티": "Bristol City",
@@ -350,7 +380,10 @@
  "서울SK 나이츠": "Seoul SK Knights",
  "서울삼성": "Seoul Samsung",
  "서울삼성 썬더스": "Seoul Samsung Thunders",
- "선덜랜드": "Sunderland AFC",
+ "선덜랜드": [
+  "Sunderland",
+  "Sunderland AFC"
+ ],
  "선전 신펑청": [
   "Shenzhen Peng City",
   "Shenzhen Xinpengcheng"
@@ -364,10 +397,15 @@
  "세인트루이스 시티SC": "St. Louis City SC",
  "세인트루이스 카디널스": "Cardinals",
  "센트럴코스트 매리너스": "Central Coast Mariners",
- "셀타비고": "RC Celta de Vigo",
+ "셀타비고": [
+  "Celta Vigo",
+  "RC Celta de Vigo"
+ ],
  "셀틱": "Celtic FC",
  "셰필드 유나이티드": "Sheffield United",
- "소시에다": "Real Sociedad",
+ "소시에다": [
+  "Real Sociedad"
+ ],
  "소프트뱅크": "SoftBank",
  "소프트뱅크 호크스": "SoftBank Hawks",
  "쇼난 벨마레": "Shonan Bellmare",
@@ -546,6 +584,10 @@
  "인테르나치오날레 밀라노": "Internazionale",
  "일본": "Japan",
  "일본_남자": "Japan",
+ "입스위치": [
+  "Ipswich Town",
+  "Ipswich"
+ ],
  "입스위치 타운": "Ipswich",
  "잉글랜드": "England",
  "자메이카": "Jamaica",
@@ -623,6 +665,9 @@
  "퀸즈파크 레인저스": "Queens Park Rangers",
  "크로아티": "Croatia",
  "크로아티아": "Croatia",
+ "크리스털": [
+  "Crystal Palace"
+ ],
  "크리스털 팰리스": "Crystal Palace",
  "클뤼브뤼": "Club Brugge",
  "클뤼프 브뤼허": "Club Brugge",

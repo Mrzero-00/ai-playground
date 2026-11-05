@@ -927,7 +927,7 @@ def cmd_round(args, names):
 def main():
     ap = argparse.ArgumentParser(description="축구 pi-rating 기준선 (ESPN / K리그 / J리그 공식 결과)")
     ap.add_argument("--league"); ap.add_argument("--home"); ap.add_argument("--away")
-    ap.add_argument("--round", type=int)
+    ap.add_argument("--round")   # 2026-11-05: int 제약 제거 — 승무패NN 도 받는다(round_log·results 와 같은 이유로 세 번째 같은 버그)
     ap.add_argument("--csv")
     ap.add_argument("--calib", action="store_true")
     ap.add_argument("--weeks", type=int, default=10)

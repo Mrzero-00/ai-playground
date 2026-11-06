@@ -331,7 +331,7 @@ def main():
     ap.add_argument("--round", help="회차 (예: 131, 승무패67)")
     ap.add_argument("--backtest", action="store_true", help="근거 숫자를 다시 잰다")
     ap.add_argument("--md", action="store_true")
-    ap.add_argument("--relax", action="store_true", help="시장 55%+ · 내 무<26% 로 완화")
+    ap.add_argument("--relax", action="store_true", help="시장 55%%+ · 내 무<26%% 로 완화")
     ap.add_argument("--mp", type=float, help="시장 1순위 확률 하한")
     ap.add_argument("--odds", type=float, help="배당 하한")
     ap.add_argument("--draw", type=float, help="내 무 확률 상한")

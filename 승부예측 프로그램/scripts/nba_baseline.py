@@ -171,11 +171,28 @@ LG_PACE = _m_pace
 HOME_EDGE = HOME_EDGE_FALLBACK
 SD_MARGIN = 11.5
 SD_TOTAL = 17.5
-# auto_baseline 전용 모형오차 — 뉴스를 보지 않고 이번 시즌 6~9경기로 레이팅을 직접 추정하는 데서 오는,
-# 표본이 늘어도 줄지 않는 오차. 2026-10-29 NBA 66경기 실측으로 18.0 (격차 −8.9p → −1.6p).
-# 분석가가 직전시즌 레이팅·결장 보정을 직접 넣는 CLI 경로에는 적용하지 않는다(그쪽은 SD_MARGIN 그대로).
+# 모형오차 — 뉴스를 보지 않고 이번 시즌 n경기로 레이팅을 직접 추정하는 데서 오는,
+# 표본이 늘어도 줄지 않는 오차. 2026-11-10 NBA 87경기 재측정으로 18.0 → 20.0
+# (격차 −1.0p → +0.1p, Brier 0.2185 → 0.2179). 이전 값 18.0 은 66경기 측정.
+#
+# ★ 2026-11-10: CLI 경로에도 적용한다 (133회에서 드러난 구조적 과신의 원인).
+# 원래 주석은 "분석가가 직전시즌 레이팅·결장 보정을 직접 넣는 CLI 경로에는 적용하지 않는다"였다.
+# 그런데 실제 운영은 그 전제와 다르다 — 2026-10-26 구조 전환으로 **보정 0 이 기본값**이 되었고,
+# 분석가는 이번 시즌 레이팅을 그대로 넣는다. 즉 auto_baseline 과 같은 상황인데 SD 만 절반이었다.
+# 그 결과 133회에서 기준선이 시장을 크게 넘었다 — 댈러스 84.1%(시장 62.0%) · 휴스턴 77.2%(60.5%) ·
+# 샌안토니오 88.2%(77.0%) · 닉스 96.9%. 농구 141경기 실측으로 내-시장 +15%p 이상 구간의
+# 실제 적중이 35.0%(n=20, 내 말 68.4%)여서 그 구간 다리를 전부 버려야 했다.
+# 레이팅에 없는 정보를 분석가가 실제로 더한 경우에만 --exact-ratings 로 끈다.
 # 재측정: python3 scripts/nba_baseline.py --calib   (표본 120경기마다)
-AUTO_MODEL_SD = 18.0
+AUTO_MODEL_SD = 20.0
+
+
+def cli_sd(games, exact=False):
+    """CLI 경로의 마진 SD. exact=True 면 '레이팅을 정확히 안다' 전제(옛 동작)."""
+    if exact:
+        return SD_MARGIN
+    g = max(1, games)
+    return math.sqrt(SD_MARGIN ** 2 + AUTO_MODEL_SD ** 2 + 2 * SD_MARGIN ** 2 / g)
 
 
 def ncdf(x: float) -> float:
@@ -252,6 +269,9 @@ def main() -> None:
     ap.add_argument("--adj-away", type=float, default=0.0, help="원정 순 레이팅 보정 %%p (상한 ±3)")
     ap.add_argument("--spread", type=float, default=None, help="홈 기준 소수핸디캡 (예: -1.5)")
     ap.add_argument("--total", type=float, default=None, help="언더오버 기준선")
+    ap.add_argument("--exact-ratings", action="store_true",
+                    help="레이팅에 없는 정보(직전시즌 보정·결장 반영)를 직접 넣은 경우에만. "
+                         "모형오차를 빼고 SD_MARGIN 만 쓴다 — 2026-11-10 이전의 옛 동작")
     ap.add_argument("--lg-rtg", type=float, default=None,
                     help="리그 평균 ORtg — 넣는 ORtg/DRtg 와 같은 축이어야 한다. "
                          "직전 시즌 basketball-reference 레이팅을 쓸 때는 그 시즌 리그 평균(예: 2025-26 = 115.8)을 넣는다. "
@@ -279,13 +299,17 @@ def main() -> None:
     print(f"수축: 표본 {a.games}경기 → 승패 ×{0.80 if a.games<=2 else (0.90 if a.games<=9 else 1.0):.2f}, "
           f"라인 ×{0.75 if a.games<=2 else (0.90 if a.games<=9 else 1.0):.2f}")
 
-    p_home = ncdf(margin / SD_MARGIN) * 100.0
+    sd = cli_sd(a.games, a.exact_ratings)
+    if not a.exact_ratings:
+        print(f"마진 SD {sd:.1f} = 경기산포 {SD_MARGIN} + 모형오차 {AUTO_MODEL_SD} + 추정오차(n={a.games})"
+              f"   [--exact-ratings 로 끄면 {SD_MARGIN}]")
+    p_home = ncdf(margin / sd) * 100.0
     p_home_s = shrink(p_home, a.games, "wl")
     print(f"승/패:  홈 {p_home_s:.1f}%  원정 {100-p_home_s:.1f}%   (수축 전 {p_home:.1f})")
 
     if a.spread is not None:
         # 홈 H{spread} 승 = 홈 마진 + spread > 0
-        p = ncdf((margin + a.spread) / SD_MARGIN) * 100.0
+        p = ncdf((margin + a.spread) / sd) * 100.0
         ps = shrink(p, a.games, "line")
         print(f"핸디캡 H{a.spread:+.1f}:  홈 {ps:.1f}%  원정 {100-ps:.1f}%   (수축 전 {p:.1f})")
 

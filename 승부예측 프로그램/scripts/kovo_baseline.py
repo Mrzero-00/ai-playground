@@ -45,17 +45,42 @@ V리그 정규 홈 승률 61.5%(n=13) vs KOVO컵 47.8%(n=23) 로 문서와 일�
 import argparse
 import math
 
-PRIOR_SD = 0.045        # 팀 간 세트 승률 참 산포 — 가정값, 실측 필요
+# 팀 간 세트 승률의 **참** 산포 — 2026-11-11 실측.
+# V-리그 정규리그 최종 순위표의 세트 득실률(SR)로 분산성분을 냈다.
+# 남자부 5시즌 35팀시즌 · 여자부 4시즌 28팀시즌, 팀당 36경기 ≈ 140세트
+# (표본오차분산 0.25/140 = 0.00179 을 관측분산에서 뺀 값):
+#     남자  관측 0.01089 - 오차 0.00179 = 참 0.00910 → SD 0.095
+#     여자  관측 0.01380 - 오차 0.00179 = 참 0.01202 → SD 0.110
+#     합계                                          → SD 0.102
+# 이전 가정값 0.045 는 **2.3배 작았다**(V리그 세트 득실률 범위를 0.75~1.35 로
+# 좁게 잡은 탓. 실제로는 2024-25 현대캐피탈 2.743, 2025-26 삼성화재 0.388 처럼
+# 훨씬 넓다). 그 결과 시즌 초 확률이 과하게 50% 로 끌려갔다.
+# 재추정: 시즌이 끝날 때마다 최종 순위표 SR 을 넣어 다시 돌린다.
+PRIOR_SD_M = 0.095      # 남자부
+PRIOR_SD_W = 0.110      # 여자부
+PRIOR_SD = 0.102        # 성별 미지정 기본값(합계)
+
+# ★ 시즌 간 지속성 — 2026-11-11 실측.
+# 직전 시즌 세트 승률 s 가 다음 시즌 s 를 얼마나 예측하는가.
+# V-리그 남자 5시즌 + 여자 4시즌의 **연속 팀-시즌 49쌍**:
+#     r = +0.477 (SE 0.147, z = +3.24) → 유의
+#     회귀계수 b = r·(sy/sx) = 0.471
+# 즉 직전 시즌 s 를 그대로 쓰면 안 되고 0.5 쪽으로 53% 되돌려야 한다.
+#     사전분포 중심 = 0.5 + 0.471 × (직전시즌 s − 0.5)
+# 시즌 초에는 이 중심으로 수축하는 것이 0.5 로 수축하는 것보다 낫다
+# (농구.md 5항 '시즌 초에는 직전 시즌 레이팅을 쓴다'와 같은 구조).
+# 직전 시즌 SR 을 모르면 중심이 0.5 가 되고, 그때는 그냥 표본만 쓰는 셈이다.
+SEASON_CARRY = 0.471
 # 배구.md 1-2 세트 수별 총점 범위 (25점제 3~4세트 + 15점제 5세트)
 TOTAL_RANGE = {3: (130, 150), 4: (170, 200), 5: (200, 230)}
 
 
-def shrink_s(s, sets):
+def shrink_s(s, sets, prior_sd=PRIOR_SD):
     """세트 승률을 0.5 쪽으로 수축. sets 가 작으면 거의 0.5 로 간다."""
     if not sets or sets <= 0:
         return s, 0.0
     se2 = 0.25 / sets
-    rel = PRIOR_SD ** 2 / (PRIOR_SD ** 2 + se2)
+    rel = prior_sd ** 2 / (prior_sd ** 2 + se2)
     return 0.5 + rel * (s - 0.5), rel
 
 
@@ -85,6 +110,12 @@ def main():
                          "아직 n=13 으로 측정 불가(2SE ±27p). KOVO컵은 중립이라 0")
     ap.add_argument("--total", type=float, help="언더오버 기준 총점")
     ap.add_argument("--no-shrink", action="store_true", help="수축 끄기(비교용)")
+    ap.add_argument("--women", action="store_true", help="여자부 (PRIOR_SD 0.110, 기본 남자부 0.095)")
+    ap.add_argument("--prior-sd", type=float, help="PRIOR_SD 직접 지정(민감도 확인용)")
+    ap.add_argument("--home-prev", type=float,
+                    help="홈팀 **직전 시즌** 세트 득실률. 시즌 초에 특히 중요하다 — "
+                         "주면 0.5 대신 이 값에서 수축한다(실측 지속성 r=+0.477)")
+    ap.add_argument("--away-prev", type=float, help="원정팀 직전 시즌 세트 득실률")
     a = ap.parse_args()
 
     # R 구하기
@@ -100,11 +131,25 @@ def main():
 
     sh_raw = Rh / (1 + Rh)
     sa_raw = Ra / (1 + Ra)
+    psd = a.prior_sd if a.prior_sd else (PRIOR_SD_W if a.women else PRIOR_SD_M)
+
+    def center(prev):
+        """사전분포 중심 — 직전 시즌이 있으면 그것을 0.5 쪽으로 되돌린 값."""
+        if prev is None:
+            return 0.5
+        return 0.5 + SEASON_CARRY * (prev / (1 + prev) - 0.5)
+
+    ch, ca = center(a.home_prev), center(a.away_prev)
     if a.no_shrink or not a.sets:
         sh, sa, rel = sh_raw, sa_raw, 1.0
     else:
-        sh, rel = shrink_s(sh_raw, a.sets)
-        sa, _ = shrink_s(sa_raw, a.sets)
+        se2 = 0.25 / a.sets
+        rel = psd ** 2 / (psd ** 2 + se2)
+        sh = ch + rel * (sh_raw - ch)
+        sa = ca + rel * (sa_raw - ca)
+    if a.home_prev is not None or a.away_prev is not None:
+        print(f"직전 시즌 중심  홈 {ch:.3f}  원정 {ca:.3f}  "
+              f"(지속성 {SEASON_CARRY} 적용 — 직전 시즌을 0.5 쪽으로 53% 되돌린 값)")
     sh = min(0.95, max(0.05, sh + a.home_edge))
 
     oh = sh / (1 - sh)

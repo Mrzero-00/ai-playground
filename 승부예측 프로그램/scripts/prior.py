@@ -110,6 +110,9 @@ def _top(g, pre):
     for k in SIDES:
         x = g.get(f"{pre}_{k}")
         if x in (None, ""):
+            if k == "무":          # 2026-11-11: 무 빈칸(농구·배구)을 0 으로 읽는다. 전에는 세 칸 중 하나라도 비면 None 을 돌려줘서 2선택지 종목이 통째로 빠졌다.
+                v[k] = 0.0
+                continue
             return None
         try:
             v[k] = float(x)

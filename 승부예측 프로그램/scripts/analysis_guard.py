@@ -83,7 +83,15 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import round_log as rl
 
 SIDES = ("승", "무", "패")
-MARGIN_MIN = 10.0     # G1
+MARGIN_MIN = 10.0     # G1 (3선택지 종목 = 축구)
+# G1b — 2선택지 종목(농구·배구)은 무작위가 50% 라 10%p 문턱이 턱없이 느슨하다.
+# 2026-11-11 실측(농구+배구 분석·채점 115경기, 1·2순위 차 구간별 적중):
+#   0~5p   n=  9  66.7% ±31.4   |  5~10p  n= 15  60.0% ±25.3
+#   10~20p n= 24  58.3% ±20.1   |  20~30p n= 19  47.4% ±22.9  (무작위 아래)
+#   30p+   n= 48  77.1% ±12.1   ← 2SE 를 빼도 50% 를 넘는 유일한 구간
+# 즉 1순위 65% 미만에서는 방향에 정보가 없다. 기록은 남기되 방향을 세우지 않는다.
+MARGIN_MIN_2WAY = 30.0
+TWO_WAY_SPORTS = ("농구", "배구")
 HOOP_GAP = 5.0        # G2
 SMALL_GAP = 15.0      # G3
 NOMKT_P = 70.0        # G4
@@ -125,6 +133,9 @@ def tri(r, pre):
     for k in SIDES:
         x = r.get(f"{pre}_{k}")
         if x in (None, ""):
+            if k == "무":          # 2026-11-11: 무 빈칸(농구·배구)을 0 으로 읽는다. 전에는 세 칸 중 하나라도 비면 None 을 돌려줘서 2선택지 종목이 통째로 빠졌다.
+                v[k] = 0.0
+                continue
             return None
         try:
             v[k] = float(x)
@@ -150,8 +161,12 @@ def check(r):
     mt = max(m, key=m.get) if m else None
     gap = p[pt] - m[pt] if m else None
 
-    if mar < MARGIN_MIN:
-        out.append(("G1", f"방향 미형성 — 1·2순위 차 {mar:.1f}%p < {MARGIN_MIN:.0f} (실측 이 구간 33~47%)", True))
+    two_way = r.get("종목") in TWO_WAY_SPORTS
+    lim = MARGIN_MIN_2WAY if two_way else MARGIN_MIN
+    if mar < lim:
+        why = ("실측 이 구간 47~67%, 무작위 50% 와 구분 안 됨 — 30p+ 만 77.1%"
+               if two_way else "실측 이 구간 33~47%")
+        out.append(("G1", f"방향 미형성 — 1·2순위 차 {mar:.1f}%p < {lim:.0f} ({why})", True))
     if r.get("종목") == "농구" and gap is not None and abs(gap) >= HOOP_GAP:
         out.append(("G2", f"농구 시즌초 과신 — 내 {p[pt]:.1f} vs 시장 {m[pt]:.1f} ({gap:+.1f}%p)·시장을 기준선으로", False))
     if mt and pt != mt and gap is not None and gap >= SMALL_GAP:

@@ -69,6 +69,9 @@ def build(minn):
         for s in SIDES:
             x = g.get(f"시장_{s}")
             if x in (None, ""):
+                if s == "무":      # 2026-11-11: 무 빈칸(농구·배구)을 0 으로 읽는다. 전에는 세 칸 중 하나라도 비면 None 을 돌려줘서 2선택지 종목이 통째로 빠졌다.
+                    mk[s] = 0.005
+                    continue
                 ok = False; break
             try:
                 mk[s] = max(float(x), 0.5) / 100

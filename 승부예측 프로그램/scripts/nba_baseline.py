@@ -296,26 +296,34 @@ def main() -> None:
     total = pts_h + pts_a
 
     print(f"페이스추정 {pace:.1f}  예상 {pts_h:.1f} : {pts_a:.1f}  (마진 {margin:+.1f} · 총득점 {total:.1f})")
-    print(f"수축: 표본 {a.games}경기 → 승패 ×{0.80 if a.games<=2 else (0.90 if a.games<=9 else 1.0):.2f}, "
-          f"라인 ×{0.75 if a.games<=2 else (0.90 if a.games<=9 else 1.0):.2f}")
+    if a.exact_ratings:
+        print(f"수축: 표본 {a.games}경기 → 승패 ×{0.80 if a.games<=2 else (0.90 if a.games<=9 else 1.0):.2f}, "
+              f"라인 ×{0.75 if a.games<=2 else (0.90 if a.games<=9 else 1.0):.2f}  (농구.md 5항)")
 
     sd = cli_sd(a.games, a.exact_ratings)
-    if not a.exact_ratings:
+    # ★ 2026-11-11: 표본 수축(농구.md 5항)은 --exact-ratings 일 때만 건다.
+    # 5항의 근거는 "직전 시즌 효율은 (이번 시즌 로스터에 대한) 추정치일 뿐"이다.
+    # 이번 시즌 레이팅을 넣는 기본 경로에서는 그 불확실성이 cli_sd 의 추정오차
+    # 2·SD_MARGIN²/n 으로 이미 모형화돼 있다. 둘을 같이 걸면 이중 계산이다.
+    if a.exact_ratings:
+        p_home = ncdf(margin / sd) * 100.0
+        p_home_s = shrink(p_home, a.games, "wl")
+        print(f"승/패:  홈 {p_home_s:.1f}%  원정 {100-p_home_s:.1f}%   (수축 전 {p_home:.1f})")
+    else:
         print(f"마진 SD {sd:.1f} = 경기산포 {SD_MARGIN} + 모형오차 {AUTO_MODEL_SD} + 추정오차(n={a.games})"
-              f"   [--exact-ratings 로 끄면 {SD_MARGIN}]")
-    p_home = ncdf(margin / sd) * 100.0
-    p_home_s = shrink(p_home, a.games, "wl")
-    print(f"승/패:  홈 {p_home_s:.1f}%  원정 {100-p_home_s:.1f}%   (수축 전 {p_home:.1f})")
+              f"   [--exact-ratings 로 끄면 {SD_MARGIN} + 수축]")
+        p_home = p_home_s = ncdf(margin / sd) * 100.0
+        print(f"승/패:  홈 {p_home_s:.1f}%  원정 {100-p_home_s:.1f}%")
 
     if a.spread is not None:
         # 홈 H{spread} 승 = 홈 마진 + spread > 0
         p = ncdf((margin + a.spread) / sd) * 100.0
-        ps = shrink(p, a.games, "line")
+        ps = shrink(p, a.games, "line") if a.exact_ratings else p
         print(f"핸디캡 H{a.spread:+.1f}:  홈 {ps:.1f}%  원정 {100-ps:.1f}%   (수축 전 {p:.1f})")
 
     if a.total is not None:
         p_over = (1.0 - ncdf((a.total - total) / SD_TOTAL)) * 100.0
-        ps = shrink(p_over, a.games, "line")
+        ps = shrink(p_over, a.games, "line") if a.exact_ratings else p_over
         print(f"U/O {a.total}:  오버 {ps:.1f}%  언더 {100-ps:.1f}%   (수축 전 오버 {p_over:.1f})")
 
 

@@ -207,9 +207,20 @@ def fetch_year(league, year):
             hg, ag = int(t["home"]["score"]), int(t["away"]["score"])
         except (TypeError, ValueError):
             continue
-        out.append({"date": e["date"], "home": t["home"]["team"]["displayName"], "away": t["away"]["team"]["displayName"],
-                    "hg": hg, "ag": ag, "status": st, "neutral": bool(comp.get("neutralSite")),
-                    "season": (e.get("season") or {}).get("slug", "")})
+        row = {"date": e["date"], "home": t["home"]["team"]["displayName"], "away": t["away"]["team"]["displayName"],
+               "hg": hg, "ag": ag, "status": st, "neutral": bool(comp.get("neutralSite")),
+               "season": (e.get("season") or {}).get("slug", "")}
+        # 2026-11-11: 슈팅·유효슈팅도 같이 받는다(일정 응답의 statistics 에 들어 있다). 레이팅을 골만으로
+        # 굴리는 것보다 골과 슈팅을 반씩 섞는 쪽이 방향 적중이 높다(baseline_lab --fd, +0.40p).
+        for side, pre in (("home", "h"), ("away", "a")):
+            stt = {x.get("name"): x.get("displayValue") for x in (t[side].get("statistics") or [])}
+            try:
+                sh, so = float(stt["totalShots"]), float(stt["shotsOnTarget"])
+            except (KeyError, TypeError, ValueError):
+                continue
+            if sh >= so >= 0 and sh > 0:
+                row[pre + "s"], row[pre + "st"] = sh, so
+        out.append(row)
     return out
 
 
@@ -323,6 +334,9 @@ def load_results(league, refresh=False, quiet=False, with_upper=False):
         ys = str(y)
         age_h = (time.time() - cache["fetched"].get(ys, 0)) / 3600
         stale = ys not in cache["years"] or (y in live and age_h > CURRENT_TTL_H)
+        # 슈팅 열이 생기기 전에 받은 ESPN 캐시는 한 번 다시 받는다(공식 사이트 소스 리그는 슈팅이 없다)
+        if not stale and league not in SOURCES and cache.get("shots_v", {}).get(ys) != 1:
+            stale = True
         if stale:
             src = SOURCES.get(league)
             if not quiet:
@@ -337,6 +351,7 @@ def load_results(league, refresh=False, quiet=False, with_upper=False):
                 print(f"  [경고] {league} {y} 받기 실패", file=sys.stderr)
                 continue
             cache["years"][ys], cache["fetched"][ys] = rows, time.time()
+            cache.setdefault("shots_v", {})[ys] = 1
             changed = True
     if changed:
         json.dump(cache, open(path, "w", encoding="utf-8"), ensure_ascii=False)
@@ -369,6 +384,28 @@ def relegated(team, t, upper):
     return bool(upper) and any(team in v for y, v in upper.items() if y < t.year)
 
 
+# 레이팅을 굴릴 때 쓰는 '실효 득점' = 골과 슈팅 기반 대용치의 혼합 (2026-11-11 채택)
+#   대용치 = SHOT_K_ON·유효슈팅 + SHOT_K_OFF·빗나간 슈팅.  SHOT_W = 골의 비중.
+# 근거(baseline_lab.py, 시간순·회귀는 과거로만 재적합): 골만 쓰는 현행 대비
+#   5대 리그 7시즌 11,142경기  방향 +0.40p(갈린 437경기 241승 196패) · RPS 0.2010 → 0.1997
+#   리그 결과 캐시 10,102경기   방향 +0.27p(갈린 391경기 209승 182패) · RPS 0.2115 → 0.2103
+# 두 자료를 합치면 갈린 경기 450승 378패(z≈2.5). 슈팅만 쓰면(W=0) −0.45p, 30/70 은 +0.06~0.24p 로 덜하다.
+# 슈팅이 없는 경기(K리그·J2 공식 사이트 소스, 옛 캐시)는 골을 그대로 쓴다.
+# 리그 회귀(fit_league)와 채점은 실제 골로 한다 — 바뀌는 것은 레이팅 갱신에 쓰는 관측값뿐이다.
+SHOT_W = 0.5
+SHOT_K_ON = 0.30
+SHOT_K_OFF = 0.03
+
+
+def eff_goals(g, side):
+    """side = 'h' | 'a'"""
+    goals = g["hg"] if side == "h" else g["ag"]
+    sh, so = g.get(side + "s"), g.get(side + "st")
+    if SHOT_W >= 1.0 or sh is None or so is None:
+        return goals
+    return SHOT_W * goals + (1 - SHOT_W) * (SHOT_K_ON * so + SHOT_K_OFF * max(sh - so, 0))
+
+
 def run_pi(games, cutoff=None, upper=None, returning=False):
     """games 를 시간순으로 처리. 각 경기의 경기 전 pred 를 g['pred'] 에 기록. cutoff 이후 경기는 처리하지 않는다.
     upper = {연도: 상위 리그 팀 집합} 이면 새로 나온 강등팀은 NEW_TEAM_Q_DOWN 분위에서 시작.
@@ -398,7 +435,7 @@ def run_pi(games, cutoff=None, upper=None, returning=False):
                     rh[tm], ra[tm] = 0.0, 0.0
         pred = rh[h] - ra[a]
         g["pred"] = pred
-        obs = g["hg"] - g["ag"]
+        obs = eff_goals(g, "h") - eff_goals(g, "a")
         e = abs(obs - pred)
         psi = C_PSI * math.log10(1 + e)
         dh = psi * (1 if obs > pred else -1) * LAMBDA

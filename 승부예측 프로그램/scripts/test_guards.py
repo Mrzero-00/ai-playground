@@ -31,6 +31,10 @@ def main():
     k = sb.kickoff("2026-11-05 05:00", dt.datetime(2026, 11, 11, tzinfo=kst))
     check("kickoff: 'YYYY-MM-DD HH:MM' 형식", k is not None and k.astimezone(kst).day == 5, k)
 
+    g = {"hg": 2, "ag": 0, "hs": 10.0, "hst": 4.0}
+    check("eff_goals: 슈팅이 있으면 골과 반씩", abs(sb.eff_goals(g, "h") - (0.5 * 2 + 0.5 * (0.30 * 4 + 0.03 * 6))) < 1e-9)
+    check("eff_goals: 슈팅이 없으면 골 그대로", sb.eff_goals(g, "a") == 0)
+
     import match_inputs as mi
     for eng, lg in (("Queens Park Rangers", "잉글랜드 챔피언십"), ("Inter Miami CF", "미국 메이저리그사커"),
                     ("Port FC", "AFC 챔피언스리그2")):

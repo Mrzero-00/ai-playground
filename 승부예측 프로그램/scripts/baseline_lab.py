@@ -18,7 +18,10 @@ REFIT 경기마다 **그때까지의 경기만으로** 다시 맞춘다. 예열(
     전부 현행 대비 ±0.5p 안(2SE 0.2~0.5p)이다. 상수를 더 맞출 곳이 없다.
   · 슈팅을 섞으면 조금 오른다. 5대 리그 11,142경기: 골만 52.58% → 골50+슈팅50 52.98%(+0.40p, 2SE 0.38,
     갈린 437경기 241승 196패) · RPS 0.2010 → 0.1997. 마감 시장은 53.99%. 남은 격차 1.0p.
-    슈팅만 쓰면 오히려 −0.45p. 리그 결과 캐시에는 슈팅이 없어 아직 기준선에 넣지 못했다.
+    슈팅만 쓰면 오히려 −0.45p. → 같은 날 ESPN 일정 응답에서 슈팅을 받아 기준선에 넣었다
+    (soccer_baseline.SHOT_W = 0.5). 리그 결과 캐시 10,102경기에서도 +0.27p · RPS 0.2115 → 0.2103 으로 재현됐고,
+    학습률 λ.035 는 캐시에서 +0.28p 였지만 5대 리그 자료에서 −0.04p 라 채택하지 않았다.
+    우리 기록 748경기: 기준선 50.4% → 50.9%.
   · 선별 신호는 잔차를 가르지 못한다. 시장 60%+ 정배 3,071경기에서 모델 무<24% 는 적중 73.7% vs
     무≥24% 67.8% 지만 시장이 말한 확률이 71.6% vs 64.7% 로 그만큼 다르다(잔차 +2.1p vs +3.1p).
     즉 '무 확률이 낮은 정배'는 그냥 더 센 정배이고 배당도 그만큼 낮다. 모델−시장 격차도 U 자로 들쭉날쭉하다.
@@ -54,9 +57,13 @@ def walk(games, rate, burn=sb.BURN_IN_DAYS, min_fit=120):
     return out
 
 
-def pi_rater(lam=None, gam=None, c=None, cap=None):
+def pi_rater(lam=None, gam=None, c=None, cap=None, shots=False):
+    """shots=False 면 골만으로 굴린다(2026-11-11 이전 기준선). True 면 soccer_baseline 의 현행 혼합."""
     def rate(games):
         L0, G0, C0 = sb.LAMBDA, sb.GAMMA, sb.C_PSI
+        W0 = sb.SHOT_W
+        if not shots:
+            sb.SHOT_W = 1.0
         if lam is not None: sb.LAMBDA = lam
         if gam is not None: sb.GAMMA = gam
         if c is not None: sb.C_PSI = c
@@ -72,6 +79,7 @@ def pi_rater(lam=None, gam=None, c=None, cap=None):
             return [g.get("pred") for g in gs]
         finally:
             sb.LAMBDA, sb.GAMMA, sb.C_PSI = L0, G0, C0
+            sb.SHOT_W = W0
     return rate
 
 
@@ -169,7 +177,7 @@ def shot_rater(w=0.5, k_on=0.30, k_off=0.03, lam=None):
 
 
 FD_VARIANTS = {
-    "현행 pi (골만)": pi_rater(),
+    "골만 (옛 기준선)": pi_rater(),
     "골 70 + 슈팅 30": shot_rater(0.7),
     "골 50 + 슈팅 50": shot_rater(0.5),
     "골 30 + 슈팅 70": shot_rater(0.3),
@@ -180,7 +188,8 @@ FD_VARIANTS = {
 
 
 VARIANTS = {
-    "현행 pi (λ.05 γ1.0)": pi_rater(),
+    "골만 (옛 기준선)": pi_rater(),
+    "현행 (골50+슈팅50)": pi_rater(shots=True),
     "pi λ.035": pi_rater(lam=0.035),
     "pi λ.07": pi_rater(lam=0.07),
     "pi γ.7": pi_rater(gam=0.7),
@@ -188,6 +197,10 @@ VARIANTS = {
     "elo 골차가중": elo_rater(),
     "elo k30": elo_rater(k=30.0),
     "pi+elo 평균": blend(pi_rater(), elo_rater()),
+    "골 70 + 슈팅 30": shot_rater(0.7),
+    "골 50 + 슈팅 50": shot_rater(0.5),
+    "골 30 + 슈팅 70": shot_rater(0.3),
+    "골 50 + 슈팅 50, λ.07": shot_rater(0.5, lam=0.07),
 }
 
 

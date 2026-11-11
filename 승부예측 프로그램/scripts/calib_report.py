@@ -32,7 +32,13 @@ def dedupe(rs):
     for r in rs:
         k = (r.get("종목"), r.get("홈"), r.get("원정"), (r.get("시각") or "")[:5])
         prev = keep.get(k)
-        if prev is None or str(r.get("회차")) > str(prev.get("회차")):
+        # 2026-11-11: 회차를 문자열로 비교해 '승무패63' > '126' 이 참이 됐고, 같은 경기면 늘 승무패 행
+        # (깊이 빈칸·기준선)이 남아 심층 분석 행이 빠졌다. 분석이 깊은 행을 먼저, 그다음 늦은 회차.
+        def rank(x):
+            dep = {"심층": 3, "가벼움": 2}.get((x.get("깊이") or "").strip(), 1 if x.get("순수_승") else 0)
+            rn = str(x.get("회차") or "")
+            return (dep, int(rn) if rn.isdigit() else 0)
+        if prev is None or rank(r) > rank(prev):
             keep[k] = r
     return list(keep.values())
 

@@ -622,6 +622,7 @@ def cmd_pre(a):
             bad += 1
             print(f"✗ {r['번호']} {r['홈']}-{r['원정']}: " + " / ".join(sev))
     print(f"분석 전 정합성: 문제 {bad}경기" + (" → team_facts.py --round N --stale 3 · match_inputs.py --round N --date MM-DD 먼저 실행" if bad else " — 통과"))
+    return 1 if bad else 0
 
 
 # 2026-10-25(126회 08:30 블록): 근거 JSON 의 모양이 조금만 달라도 조용히 C 가 됐다.
@@ -908,7 +909,9 @@ def main():
     sp.add_parser("normalize")
     sp.add_parser("dedupe")
     a = ap.parse_args()
-    {"pre": cmd_pre, "add": cmd_add, "mark": cmd_mark, "grade": cmd_grade, "report": cmd_report, "normalize": cmd_normalize, "dedupe": cmd_dedupe}[a.cmd](a)
+    rc = {"pre": cmd_pre, "add": cmd_add, "mark": cmd_mark, "grade": cmd_grade, "report": cmd_report, "normalize": cmd_normalize, "dedupe": cmd_dedupe}[a.cmd](a)
+    if a.cmd == "pre" and rc:      # 사전 검사에 문제가 남아 있으면 종료 코드로도 알린다(전에는 늘 0)
+        sys.exit(1)
 
 
 if __name__ == "__main__":

@@ -161,9 +161,13 @@ def main():
             return
         q = collections.Counter(x["4분면"] for x in sel)
         hit = sum(x["결과적중"] for x in sel)
-        clean = [x for x in sel if not x["퇴장"]]   # 퇴장 경기는 과정 점수에서 제외(내용 검증 불가)
+        # 2026-11-11: 슈팅 자료가 없는 축구 경기는 2골차 이상만 남기는데, 그러면 '지배한 팀 = 이긴 팀'이라
+        # 내용 적중이 결과 적중과 같아진다(운·분산이 구조적으로 0). 축구 545행 중 321행이 이 대체 판정이었고
+        # 과정 점수를 끌어올렸다. 과정 점수에서는 빼고 몇 경기인지 적는다.
+        nosh = [x for x in sel if "슈팅자료 없음" in (x.get("내용근거") or "")]
+        clean = [x for x in sel if not x["퇴장"] and "슈팅자료 없음" not in (x.get("내용근거") or "")]
         con = sum(x["내용적중"] for x in clean)
-        L.append(f"## {title} (n={n}) — 결과 적중 {hit}/{n} ({hit/n*100:.0f}%) · **과정 점수 {con}/{len(clean)} ({(con/len(clean)*100 if clean else 0):.0f}%, 퇴장 {n-len(clean)}경기 제외)** · 실력 {q['실력']} · 운 {q['운']} · 분산 {q['분산']} · 오판 {q['오판']}")
+        L.append(f"## {title} (n={n}) — 결과 적중 {hit}/{n} ({hit/n*100:.0f}%) · **과정 점수 {con}/{len(clean)} ({(con/len(clean)*100 if clean else 0):.0f}%, 퇴장·슈팅자료 없음 {n-len(clean)}경기 제외 — 그중 슈팅자료 없음 {len(nosh)})** · 실력 {q['실력']} · 운 {q['운']} · 분산 {q['분산']} · 오판 {q['오판']}")
         L.append("")
     table("전체", rows)
     for sp in sorted({x["종목"] for x in rows}):

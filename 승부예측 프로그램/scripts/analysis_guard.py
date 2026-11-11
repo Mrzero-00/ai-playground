@@ -249,10 +249,13 @@ def _cap_target(p, m):
 
 
 def _depth_era(r):
+    rn = str(r.get("회차") or "").strip()
     try:
-        return int(str(r.get("회차") or "").strip()) >= DEPTH_SINCE
+        return int(rn) >= DEPTH_SINCE
     except ValueError:
-        return False      # 승무패NN 등 비숫자 회차는 제외
+        # 2026-11-11: 승무패 회차를 통째로 뺐더니 순수 확률은 있는데 깊이가 빈 승무패 행 41개가
+        # 검문 없이 분석 집계에 섞였다. 깊이 칸을 쓰기 시작한 뒤의 승무패 회차(62회~)는 본다.
+        return rn.startswith("승무패") and rn[3:].isdigit() and int(rn[3:]) >= 62
 
 
 def _looks_baseline(r):
@@ -279,7 +282,9 @@ def cmd_round(a):
                 if code == "G1" and r.get("확신도") != "기권":
                     r["확신도"] = "기권"; fixed += 1
                     print("      → 확신도=기권 으로 교정")
-                if code == "G7":
+                # 2026-11-11: G7 자동 교정은 보정 확률을 **시장 수준으로 끌어내리는** 것이라 11-02 사용자 지시
+                # (시장을 사전확률·추천 근거로 쓰지 않는다)와 반대다. 경고는 남기고 값은 건드리지 않는다.
+                if code == "G7" and False:
                     cp = tri(r, "보정"); mm = tri(r, "시장")
                     q = _cap_target(cp, mm) if cp and mm else None
                     if q:
@@ -294,7 +299,9 @@ def cmd_round(a):
                 if code == "G9" and r.get("확신도") != "기권":
                     r["확신도"] = "기권"; fixed += 1
                     print("      → 확신도=기권 으로 교정 (확률·기록은 그대로 남긴다)")
-                if code in ("G4", "G6") and r.get("깊이") != "기준선":
+                # G4(시장 대조 없음)는 깊이를 내리지 않는다 — 조사를 했으면 심층으로 남긴다(SKILL 최상위 원칙 3,
+                # 2026-11-03 승무패66 11번). 자동으로 내리는 것은 G6(기준선처럼 보이는데 미표기)뿐이다.
+                if code == "G6" and r.get("깊이") != "기준선":
                     r["깊이"] = "기준선"; fixed += 1
                     print("      → 깊이=기준선 으로 교정")
     if a.fix and fixed:
@@ -306,6 +313,7 @@ def cmd_round(a):
         print(f"  {k} {hits[k]}건")
     if a.fix:
         print(f"\n자동 교정 {fixed}건")
+    return 1 if hits and not a.fix else 0      # 위반이 남아 있으면 종료 코드로도 알린다
 
 
 def cmd_measure(_a):
@@ -382,8 +390,8 @@ def main():
     ap.add_argument("--fix", action="store_true")
     ap.add_argument("--measure", action="store_true")
     a = ap.parse_args()
-    (cmd_measure if a.measure else cmd_round)(a)
+    return (cmd_measure if a.measure else cmd_round)(a) or 0
 
 
 if __name__ == "__main__":
-    main()
+    sys.exit(main())

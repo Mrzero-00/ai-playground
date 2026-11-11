@@ -490,7 +490,7 @@ def scan(a):
             if rnd.startswith("_"):
                 continue
             for k, why in d.items():
-                ex[(int(rnd), k)] = why
+                ex[(int(rnd) if rnd.isdigit() else rnd, k)] = why   # '승무패67' 같은 비숫자 회차 키에도 죽지 않는다
     words = [w.strip() for w in a.exclude.split(",") if w.strip()]
     def excluded(g):
         key = f"{g['홈']}-{g['원정']}"

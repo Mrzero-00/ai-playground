@@ -206,7 +206,11 @@ def build(out):
     for c in sorted(sc, key=lambda c: c["round"]):
         d = by_round.setdefault(c["round"], {"n": 0, "hit": 0}); d["n"] += 1; d["hit"] += 1 if c["hit"] else 0
     # 과정 점수
-    clean = [p for p in proc if p.get("퇴장") in ("0", "", None)]
+    # 2026-11-11: 기준선 행(분석 안 한 경기)과 슈팅 자료 없는 대체 판정이 섞여 65.0% 로 찍혔다
+    # (심층·가벼움만 61.2%). 분석한 경기의 실제 내용 판정만 센다.
+    clean = [p for p in proc if p.get("퇴장") in ("0", "", None)
+             and (p.get("깊이") or "") not in ("기준선", "시장복사", "미분석")
+             and "슈팅자료 없음" not in (p.get("내용근거") or "")]
     proc_score = (sum(int(p["내용적중"]) for p in clean) / len(clean)) if clean else None
     quad = collections.Counter(p["4분면"] for p in proc)
     # ---- 팀 상태 텍스트

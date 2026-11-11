@@ -255,7 +255,7 @@ def report(save_md=True):
     # 전략: 경기당 최고 확률 선택지 (--best 와 같은 규칙, 배당 1.2 이상)
     best = {}
     for r in rows:
-        if r["o"] is None or r["o"] < 1.3:
+        if r["o"] is None or r["o"] < 1.2:      # 2026-11-11: 제목은 1.2 인데 코드는 1.3 이었다
             continue
         k = (r["회차"], r["경기"], r["시각"])
         if k not in best or r["p"] > best[k]["p"]:

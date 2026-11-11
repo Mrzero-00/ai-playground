@@ -398,6 +398,14 @@ def save_rec(by_no, rnd, items):
             continue
         k = (str(rnd), no, pick)
         prev = keep.get(k, {})
+        # 2026-11-11: 한 다리가 두 조합에 들어가면 뒤 조합 이름이 앞 것을 덮어써서 조합 단위 채점이
+        # 불가능했다(132회 3108 이 3폴더·2폴더 양쪽 다리였는데 한쪽만 남았다). 조합 이름을 ' | ' 로 잇는다.
+        if kind_ == "추천" and prev.get("구분") == "추천" and prev.get("조합") and combo:
+            names = [x.strip() for x in prev["조합"].split("|")]
+            if combo not in names:
+                combo = " | ".join(names + [combo])
+            else:
+                combo = prev["조합"]
         keep[k] = {"회차": rnd, "번호": no, "선택": pick, "시각": sel["시각"], "종목": sel["종목"], "리그": sel["리그"],
                    "경기": sel["경기"], "게임": kind(sel), "배당": sel["베트맨"], "확률": OWN.get((no, pick), sel["공정확률"]), "구분": kind_,
                    "조합": combo, "이유": why, "구매": buy or prev.get("구매", ""),
@@ -439,6 +447,20 @@ def main():
         picks = [tuple(x.strip().split(":")) for x in body.split(",") if x.strip()]
         print(table(by_no, title, picks) + "\n")
         kind = "도파민" if ("도파민" in title or "[D]" in title) else "추천"   # 코어/위성 분리 집계 (2026-10-19)
+        # 2026-11-11: 사용자 고정 조건(2폴더 이상 · 합계 배당 1.8 이상)을 경고만 하고 그대로 저장하고 있었다.
+        # 미달 조합은 표는 보여 주되 추천기록·구매일정에 남기지 않는다.
+        if a.save and kind == "추천":
+            tot = 1.0
+            for no, pk in picks:
+                o = next((x for x in (by_no.get(no) or []) if x["선택"] == pk), None)
+                try:
+                    tot *= float(o["베트맨"]) if o else 0.0
+                except ValueError:
+                    tot = 0.0
+            if len(picks) < 2 or tot < MIN_COMBO_ODDS:
+                print(f"✗ 저장 안 함: '{title}' — {len(picks)}폴더 · 합계 {tot:.2f} "
+                      f"(고정 조건: 2폴더 이상 · 합계 {MIN_COMBO_ODDS} 이상)\n")
+                continue
         amt = "" if kind == "도파민" else buys.get(title, "")   # 도파민은 기록 전용·금액 0 (사용자 결정 2026-10-19)
         items += [(no, pk, kind, title, "", amt) for no, pk in picks]
         combos_.append((title, picks))

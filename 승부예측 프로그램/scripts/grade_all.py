@@ -66,7 +66,10 @@ def write(p, rows, cols, bom):
 def main():
     ap = argparse.ArgumentParser(); ap.add_argument("--round")
     ap.add_argument("--verify", action="store_true", help="이미 채점된 행도 다시 계산해 불일치를 보고(고치지는 않음)")
+    ap.add_argument("--combos", action="store_true", help="채점하지 않고 조합 단위 성적표만 본다")
     a = ap.parse_args()
+    if a.combos:
+        return combo_report()
     score = {}
     for r in csv.DictReader(open(REC, encoding="utf-8-sig")):
         if re.fullmatch(r"\d+:\d+", r.get("점수") or ""):
@@ -128,6 +131,55 @@ def main():
                 r["점수"] = f"{s[0]}:{s[1]}"; r["결과"] = "승" if s[0] > s[1] else "무" if s[0] == s[1] else "패"; k += 1
         write(SNAP, rows, cols, bom)
         print(f"예측스냅샷: {k}건 결과 채움")
+    if not a.verify:
+        combo_report()
+
+
+def combo_report():
+    """조합 단위 성적 — 목표(조합 성공률·합계 1.8+)를 재는 유일한 표.
+    다리 적중률만 보면 조합이 깨진 것을 못 본다. 한 다리가 여러 조합에 들어가면 조합 칸이 ' | ' 로 이어져 있다.
+    2026-11-11 이전에는 뒤 조합이 앞 조합 이름을 덮어써서 다리가 빠진 조합이 있다 — 1다리로 남은 것은 '불완전'으로 뺀다."""
+    import collections, math
+    rows, _, _ = read(PICK)
+    cb = collections.defaultdict(list)
+    for r in rows:
+        if r.get("구분") != "추천" or not r.get("조합"):
+            continue
+        for name in r["조합"].split("|"):
+            cb[(r["회차"], name.strip())].append(r)
+    done, pend, broken = [], 0, 0
+    for (rnd, name), legs in cb.items():
+        if len(legs) < 2:
+            broken += 1; continue
+        if any(l.get("적중") not in ("0", "1") for l in legs):
+            pend += 1; continue
+        try:
+            tot = math.prod(float(l["배당"]) for l in legs)
+        except ValueError:
+            continue
+        done.append((rnd, name, len(legs), tot, all(l["적중"] == "1" for l in legs),
+                     sum(l["적중"] == "1" for l in legs)))
+    print(f"\n== 조합 단위 (채점 완료 {len(done)} · 대기 {pend} · 다리가 빠져 못 재는 조합 {broken})")
+    print(f"{'회차':<6}{'조합':<34}{'폴더':>3}{'합계배당':>8}{'다리':>6}  결과")
+    for rnd, name, k, tot, ok, h in sorted(done, key=lambda x: (len(x[0]), x[0])):
+        print(f"{rnd:<6}{name[:32]:<34}{k:>3}{tot:>8.2f}{h:>4}/{k}  {'적중' if ok else '낙첨'}"
+              + ("" if tot >= 1.8 else "  ⚠ 합계 1.8 미만"))
+
+    def summ(lab, sub):
+        if not sub:
+            return
+        n = len(sub); h = sum(1 for x in sub if x[4]); ret = sum(x[3] for x in sub if x[4]) / n
+        print(f"{lab:<22} {n:>3}조합  성공 {h}/{n} = {h/n*100:5.1f}% ±{200*math.sqrt(max(h/n*(1-h/n),1e-9)/n):4.1f}"
+              f"  평균 합계배당 {sum(x[3] for x in sub)/n:.2f}  회수율 {ret*100:6.1f}%")
+    print()
+    summ("전체", done)
+    summ("2폴더", [x for x in done if x[2] == 2])
+    summ("3폴더 이상", [x for x in done if x[2] >= 3])
+    summ("합계 1.8 이상만", [x for x in done if x[3] >= 1.8])
+    legs = [r for r in rows if r.get("구분") == "추천" and r.get("적중") in ("0", "1")]
+    if legs:
+        h = sum(r["적중"] == "1" for r in legs)
+        print(f"{'추천 다리':<22} {len(legs):>3}다리  적중 {h}/{len(legs)} = {h/len(legs)*100:5.1f}%")
 
 
 if __name__ == "__main__":

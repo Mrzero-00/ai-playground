@@ -782,12 +782,27 @@ def fnum(x):
 
 
 def kickoff(s, now):
+    # 2026-11-11: 'YYYY-MM-DD HH:MM' 형식(승무패64~67 의 56행)은 정규식에 안 걸려 cutoff 가 None 이 됐고,
+    # 결과가 난 뒤 채우면 자기 결과까지 쓴 기준선이 나왔다. 연도가 있으면 그대로 읽는다.
+    m4 = re.match(r"(\d{4})-(\d{1,2})-(\d{1,2}) (\d{1,2}):(\d{2})", s or "")
+    if m4:
+        y, mo, d, hh, mm = map(int, m4.groups())
+        return dt.datetime(y, mo, d, hh, mm, tzinfo=KST).astimezone(dt.timezone.utc)
     m = re.match(r"(\d{1,2})-(\d{1,2}) (\d{1,2}):(\d{2})", s or "")
     if not m:
         return None
     mo, d, hh, mm = map(int, m.groups())
-    y = now.year if mo <= now.month + 1 else now.year - 1
-    return dt.datetime(y, mo, d, hh, mm, tzinfo=KST).astimezone(dt.timezone.utc)
+    # 연도 없는 'MM-DD': now 에서 가장 가까운 해를 고른다. 전에는 12월에 1월 경기를 보면
+    # 작년 1월로 읽어(mo <= now.month+1 이 13 을 못 넘김) 1년 묵은 레이팅을 조용히 썼다.
+    best = None
+    for y in (now.year - 1, now.year, now.year + 1):
+        try:
+            c = dt.datetime(y, mo, d, hh, mm, tzinfo=KST)
+        except ValueError:
+            continue
+        if best is None or abs((c - now).total_seconds()) < abs((best - now).total_seconds()):
+            best = c
+    return best.astimezone(dt.timezone.utc) if best else None
 
 
 def row_baseline(r, names, cache, now=None, refresh=False):

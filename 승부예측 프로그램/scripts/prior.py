@@ -121,6 +121,17 @@ def _top(g, pre):
     return max(v, key=v.get)
 
 
+def _day(g):
+    """시각 칸을 'YYYY-MM-DD' 로. 대부분 'MM-DD HH:MM' 이라 연도가 없다 — 기록이 2026-10 에
+    시작했으므로 10~12월은 2026, 1~9월은 2027 로 읽는다."""
+    t = (g.get("시각") or "").strip()
+    if len(t) >= 10 and t[4] == "-":
+        return t[:10]
+    if len(t) >= 5 and t[2] == "-":
+        return ("2026-" if t[:2] >= "10" else "2027-") + t[:5]
+    return ""
+
+
 def cmd_report(a):
     """본 지표 — **내 분석이 자체 모델 기준선보다 나았는가.**
     시장과 비교하지 않는다(2026-11-02 사용자 지시: "시장 확률대로 가지 않고 분석하는 힘을 기르는 것").
@@ -135,18 +146,35 @@ def cmd_report(a):
         eng[(r["회차"], r["번호"])][r["기법"]] = r["1순위"]
     gs = [g for g in rows("전체경기기록.csv")
           if g.get("결과") in SIDES and (g.get("깊이") or "") not in NO_ANALYSIS]
-    xs = []
+    # 2026-11-11: 기준선을 predict_engine 의 dixon_coles 로 읽어 왔는데, 그 엔진은 우리 경기 팀명(한글)을
+    # 영문 연대기와 잇지 못해 **거의 학습되지 않은 모델**이었다(팀당 사전 갱신 중앙값 2경기).
+    # 그래서 '기준선 47% → 분석 54%, +7.2p' 는 분석력이 아니라 빈 모델과의 차이였다.
+    # 분석가가 실제로 출발하는 soccer_baseline 을 누수 없이 재현한 값(baseline_replay.py)으로 바꾼다.
+    # 내 분석도 순수 열로 읽는다 — 보정 열은 기준선 행에서 시장값으로 덮인 적이 있다.
+    try:
+        sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+        import baseline_replay
+        real = baseline_replay.load()
+    except Exception:
+        real = {}
+    if not real:
+        print("data/기준선재현.csv 없음 — python3 scripts/baseline_replay.py 를 먼저 돌린다"); return 1
+    xs, seen = [], set()
     for g in gs:
-        me = _top(g, "보정") or _top(g, "순수")
-        e = eng.get((g.get("회차"), g.get("번호")), {})
-        base = e.get("dixon_coles") or e.get("poisson") or e.get("pi")
+        me = _top(g, "순수")
+        key = (g.get("회차"), g.get("번호"))
+        dup = (_day(g), g.get("홈"), g.get("원정"))
+        if dup in seen:                  # 같은 경기가 두 회차에 실리면 한 번만
+            continue
+        base = (real.get(key) or {}).get("1순위")
         if me and base:
-            xs.append((g, me, base, e.get("market")))
+            seen.add(dup)
+            xs.append((g, me, base, _top(g, "시장")))
     if not xs:
         print("비교 가능한 경기 없음 — predict_engine.py run 으로 기준선을 먼저 만든다"); return 1
     keep = [x for x in xs if x[1] == x[2]]
     moved = [x for x in xs if x[1] != x[2]]
-    print(f"분석 경기 {len(xs)}건 — **자체 모델 기준선 대비** (시장은 참고)\n")
+    print(f"분석 경기 {len(xs)}건 — **실제 기준선(soccer_baseline 재현) 대비** · 축구 리그 경기만 (시장은 참고)\n")
     print(f"{'구분':<26} {'경기':>5} {'내 분석':>8} {'기준선':>8} {'개선폭':>8} {'시장':>8}")
     print("-" * 70)
     def line(lab, b):
@@ -161,8 +189,39 @@ def cmd_report(a):
     line("분석해서 방향을 바꿈", moved)
     line("전체", xs)
     print(f"\n개입 비율 {len(moved)/len(xs)*100:.1f}% ({len(moved)}/{len(xs)})")
-    print("본 지표는 '분석해서 방향을 바꿈' 줄의 개선폭이다. 음수면 그 개입은 손해였다.")
     print("시장 열은 눈금일 뿐 목표가 아니다 — 시장을 따라가는 것이 아니라 기준선을 넘는 것이 과제다.")
+
+    # 2026-11-11: 위 표는 서로 다른 분석 방식의 기록을 한데 섞는다. 11-02 전의 '내 분석'은
+    # 시장 확률을 본(10-26~11-01 은 아예 시장을 사전확률로 삼은) 결과라서, 거기서 기준선을
+    # 이긴 것은 자체 분석력이 아니라 시장 정보일 수 있다. 지금 방식의 증거는 마지막 줄뿐이다.
+    def paired(lab, b):
+        if not b:
+            print(f"{lab:<24} 경기 0"); return
+        d = [(me == g["결과"]) - (bs == g["결과"]) for g, me, bs, _ in b]
+        n = len(d); m = sum(d) / n
+        se = (sum((x - m) ** 2 for x in d) / max(n - 1, 1) / n) ** 0.5
+        mv = sum(1 for g, me, bs, _ in b if me != bs)
+        a1 = sum(1 for g, me, _, _ in b if me == g["결과"]) / n * 100
+        mk = [x for x in b if x[3]]
+        a3 = (sum(1 for g, _, _, mm in mk if mm == g["결과"]) / len(mk) * 100) if mk else float("nan")
+        print(f"{lab:<24} {n:>4} {a1:>6.1f}% {m*100:>+7.1f}p ±{2*se*100:>4.1f} {mv:>5} {a3:>7.1f}%")
+    print("\n-- 분석 방식 시기별 (전체 분석 경기 기준 · 개선폭은 2SE 와 같이 읽는다)")
+    print(f"{'시기':<24} {'경기':>4} {'내 분석':>6} {'개선폭':>7} {'2SE':>5} {'개입':>5} {'시장':>7}")
+    eras = (("10-25 까지 (시장 혼합·참조)", lambda t: t < "2026-10-26"),
+            ("10-26~11-01 (시장=사전확률)", lambda t: "2026-10-26" <= t < "2026-11-02"),
+            ("★ 11-02 이후 (자체 기준선)", lambda t: t >= "2026-11-02"))
+    for lab, f in eras:
+        paired(lab, [x for x in xs if f(_day(x[0]))])
+    now = [x for x in xs if _day(x[0]) >= "2026-11-02"]
+    print("본 지표는 ★ 줄이다. 그 앞 두 줄은 시장을 본 분석이라 지금 방식의 증거가 아니다.")
+    if now:
+        print("\n-- ★ 11-02 이후를 종목별로")
+        for sp in sorted({x[0].get("종목", "") for x in now}):
+            paired("   " + sp, [x for x in now if x[0].get("종목", "") == sp])
+        nb = sum(1 for g in gs if _day(g) >= "2026-11-02") - len(now)
+        if nb:
+            print(f"   (11-02 이후 분석 {nb}경기는 재현 가능한 기준선이 없어 빠졌다 — "
+                  "유럽대항전·컵·농구·배구·야구. 이 경기들은 방향 적중률만 따로 본다)")
     if moved:
         print("\n-- 개입을 회차별로")
         d = collections.defaultdict(lambda: [0, 0, 0])

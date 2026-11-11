@@ -46,7 +46,23 @@ def load(prefix=None):
     return games, pred
 
 
+_REAL = None
+
+
 def baseline(pred, g):
+    # 2026-11-11: predict_engine 의 dixon_coles 는 우리 경기에 대해 거의 학습되지 않은 모델이었다
+    # (한글 팀명이 영문 연대기와 안 이어짐). 실제 기준선 재현값이 있으면 그것을 쓴다.
+    global _REAL
+    if _REAL is None:
+        try:
+            sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+            import baseline_replay
+            _REAL = baseline_replay.load()
+        except Exception:
+            _REAL = {}
+    b = _REAL.get((g["회차"], g["번호"]))
+    if b:
+        return b["1순위"]
     e = pred.get((g["회차"], g["번호"]), {})
     for k in BASE_ORDER:
         if k in e:

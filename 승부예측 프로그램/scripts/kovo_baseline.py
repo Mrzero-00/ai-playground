@@ -143,6 +143,11 @@ def main():
         return 0.5 + SEASON_CARRY * (prev / (1 + prev) - 0.5)
 
     ch, ca = center(a.home_prev), center(a.away_prev)
+    # 2026-11-11: 세트 수를 --home-sets/--home-lost 로 줬는데 --sets 를 빠뜨리면 수축이 조용히 꺼졌다
+    # (6-1 vs 2-6 → 경기 승률 99.6%). 준 세트 수에서 적은 쪽을 스스로 센다.
+    if not a.sets and None not in (a.home_sets, a.home_lost, a.away_sets, a.away_lost):
+        a.sets = min(a.home_sets + a.home_lost, a.away_sets + a.away_lost)
+        print(f"(--sets 생략 — 입력한 세트 수에서 {a.sets} 로 잡아 수축한다)")
     if a.no_shrink or not a.sets:
         sh, sa, rel = sh_raw, sa_raw, 1.0
     else:

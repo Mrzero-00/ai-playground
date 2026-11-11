@@ -303,10 +303,24 @@ def us_league(lg, refresh=False):
 
 
 _US = {}
-def us_team(eng, refresh=False):
-    """모든 상위 5리그에서 제목 매칭 → (리그, history) 또는 None"""
+def us_team(eng, refresh=False, league=None):
+    """Understat 제목 매칭 → (리그, history) 또는 None.
+
+    2026-11-11 리그 게이트: league(그 경기의 한글 리그명)가 5대 리그면 **그 리그 안에서만** 찾고,
+    5대 리그 밖 경기(대항전·컵·MLS·챔피언십 등)면 이름이 **완전히 같은 팀만** 받는다.
+    전에는 리그를 가리지 않고 부분 문자열로 붙여서 퀸즈파크 레인저스(챔피언십)에 Angers(리그1),
+    인터 마이애미에 Inter(세리에A), 포트FC 에 Deportivo 의 xG 가 팀노트 INPUTS 로 들어갔다
+    (teamdb 가 11-02 에 막은 사고가 이 경로에 그대로 남아 있었다)."""
     best = None
-    for lg in US_LEAGUES:
+    only = None
+    if league is not None:
+        try:
+            import teamdb as _T
+            only = _T._LG_KO.get(str(league).strip())
+        except Exception:
+            only = None
+    exact_only = league is not None and only is None
+    for lg in ([only] if only else US_LEAGUES):
         if lg not in _US:
             d = us_league(lg, refresh) or {}
             _US[lg] = (d.get("teams") or {})
@@ -314,6 +328,8 @@ def us_team(eng, refresh=False):
         for t in _US[lg].values():
             n = norm(t["title"]); s = score(eng, t["title"])
             loose = bool(e and n) and (e in n or n in e) and min(len(e), len(n)) >= 4
+            if exact_only and " ".join(e.split()) != " ".join(n.split()):
+                continue
             if s and (matcher(eng)(t["title"]) or loose) and (best is None or s > best[0]):
                 best = (s, lg, t)
     return (best[1], best[2]) if best else None
@@ -337,7 +353,12 @@ def xg_summary(hist, before_utc=None, n=5):
 def game_inputs(r, names, now, refresh=False):
     code = tf.ESPN.get(r["리그"])
     h, a = r["홈"], r["원정"]
-    eh = str(names.get(h) or names.get(h.split()[0]) or h); ea = str(names.get(a) or names.get(a.split()[0]) or a)
+    # 2026-11-11: 별칭 값이 목록인 46팀(리버풀·첼시·비야레알 등)은 str() 이 "['Liverpool']" 을 만들어
+    # 매칭이 통째로 실패하고 'ESPN 미제공 리그'로 잘못 적혔다. 목록이면 첫 이름을 쓴다.
+    def _one(k):
+        v = names.get(k) or names.get(k.split()[0]) or k
+        return str(v[0] if isinstance(v, (list, tuple)) and v else v)
+    eh, ea = _one(h), _one(a)
     ko = kickoff(r["시각"], now)
     out = {"번호": r["번호"], "경기": f"{h} - {a}", "리그": r["리그"], "시각": r["시각"], "수집": now.strftime("%m-%d %H:%M"), "홈": {}, "원정": {}}
     for side, team, eng in (("홈", h, eh), ("원정", a, ea)):
@@ -363,7 +384,7 @@ def game_inputs(r, names, now, refresh=False):
         else:
             d["휴식일"] = None; d["직전"] = "-"; d["최근7일경기"] = None
             d["휴식일주의"] = "35일 내 경기 없음 — ESPN 미제공 리그(체코·폴란드·헝가리·불가리아·키프로스·이스라엘·핀란드·크로아티아·세르비아·동남아 등)이면 에이전트가 직접 확인"
-        u = us_team(eng, refresh)
+        u = us_team(eng, refresh, league=r.get("리그"))
         if u:
             d["xg"] = xg_summary(u[1]["history"], ko)
             d["xg_src"] = f"Understat {u[0]} {u[1]['title']}"

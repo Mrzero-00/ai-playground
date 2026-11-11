@@ -145,6 +145,10 @@ def set_state(rows, key, state, memo):
 
 
 def main():
+    # 2026-11-11: 자동 점검(autoscan --due·알림)은 삭제됐다. 이 스크립트의 대체 후보 기준(시장 60%+·1.2+)과
+    # '내 확률 대비 시장 하락' 경고는 10-16 판이라 현행 다리에서는 거의 울리지 않는다. 손으로 돌릴 때만 쓰고,
+    # 조합을 다시 짤 때는 safe_picks.py 를 쓴다.
+    print("※ 옛 기준 도구다 — 조합 재구성은 `python3 scripts/safe_picks.py --round N`.\n", file=sys.stderr)
     ap = argparse.ArgumentParser()
     ap.add_argument("--round")
     ap.add_argument("--combo")

@@ -90,6 +90,9 @@ def cmd_core(a):
 
 
 def main():
+    # 2026-11-11: 이 스크립트의 기준(시장 60%+ B 후보 · 1.30~2.20 코어 · A 자리)은 10-15~19 판이다.
+    # 현행 후보 선별은 safe_picks.py 다(CLAUDE.md '2026-11-11 추천·회고 점검'). 옛 기록을 다시 볼 때만 쓴다.
+    print("※ 옛 기준 도구다 — 현행 후보 선별은 `python3 scripts/safe_picks.py --round N`.\n", file=sys.stderr)
     ap = argparse.ArgumentParser(description="1차 가벼운 선별")
     ap.add_argument("--round", required=True)
     ap.add_argument("--from", dest="frm", default="", help='킥오프 시작 "MM-DD HH:MM"')

@@ -115,7 +115,7 @@ def timing(by_no, picks):
         return ""
     close, buy, end, spread = t
     f = lambda d: d.strftime("%m/%d %H:%M")
-    out = f"\n🕒 **구매 시각 {f(buy)}** (베트맨 판매 마감 {f(close)}) · 결과 예상 {f(end)} — 이 시각에 최종 재분석 후 다시 알림"
+    out = f"\n🕒 **구매 시각 {f(buy)}** (베트맨 판매 마감 {f(close)}) · 결과 예상 {f(end)} — 사기 직전에 라인업·배당을 한 번 더 확인한다"
     kos = [by_no[no][0]["시각"][11:16] for no, _ in picks if by_no.get(no)]
     dawn = kos and all("00:00" <= k <= "05:00" for k in kos)   # 사용자 2026-10-15: 00~05시 킥오프는 한 묶음
     if spread > END_SPREAD_MAX and not dawn:
@@ -284,6 +284,45 @@ def leg_type_fun(p, mk, pick, top, odds, raw=None, mk_all=None, kind=None, sport
 _GRADE = None
 
 
+_ROWS = None
+BAD_LEGS = []          # table() 이 ✗ 로 판정한 다리 — main 이 저장 여부를 정할 때 본다
+
+
+def game_row(r):
+    """선택지 r 에 해당하는 전체경기기록 행(깊이·확신도 확인용)."""
+    global _ROWS
+    if _ROWS is None:
+        _ROWS = {}
+        p = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "전체경기기록.csv")
+        for x in csv.DictReader(open(p, encoding="utf-8-sig")):
+            _ROWS[(x["회차"], f"{x['홈']} vs {x['원정']}")] = x
+    return _ROWS.get((str(r.get("회차", "")), r.get("경기", "")), {})
+
+
+def leg_now(p, mk, pick, top, odds, own_top=None, own_margin=None, two_way=False, depth="", conf=""):
+    """현행 추천 다리 판정 (2026-11-11). leg_type 은 10-21 코어 밴드라 core_backtest 용 이력으로만 남긴다.
+
+    현행 기준은 CLAUDE.md '2026-11-11 추천·회고 점검' 절: 시장 1순위 정배 · 내 1순위와 일치 · 방향 형성(G1) ·
+    심층 · 배당 1.2+. 큰 표본에서 값을 더하는 선별 신호는 없었고(무 확률·격차 모두 기각),
+    시장 60~70% 구간이 잔차가 가장 커서(+3.5p) 2폴더 다리로 먼저 쓴다."""
+    if p is None or mk is None or odds is None:
+        return "-"
+    if top and pick != top:
+        return "✗ 역배(시장 1순위 아님)"
+    if own_top and pick != own_top:
+        return "✗ 내 1순위 아님(내가 %s를 더 높게 봄)" % own_top
+    need = 30.0 if two_way else 10.0
+    if conf == "기권" or (own_margin is not None and own_margin < need):
+        return "✗ 기권(G1 — 내 1·2순위 차 %s < %.0f%%p)" % ("%.1f" % own_margin if own_margin is not None else "?", need)
+    if mk < 60:
+        return "✗ 시장 60% 미만"
+    if odds < 1.2:
+        return "✗ 배당 1.2 미만"
+    if depth != "심층":
+        return "✗ 심층 아님(%s)" % (depth or "깊이 빈칸")
+    return "★ 2폴더 다리(시장 60~70%)" if mk < 70 else "정배(시장 70%+ · 배당이 낮아 3폴더가 되기 쉽다)"
+
+
 def integrity_grade(r):
     """전체경기기록 '정합성' 등급 (integrity.py add). 선택지 번호와 경기 번호가 달라 경기명(홈 vs 원정)으로 찾는다."""
     global _GRADE
@@ -360,15 +399,25 @@ def table(by_no, title, picks):
             top = max(opts, key=lambda o: float(o["공정확률"] or 0))["선택"] if all(o.get("공정확률") for o in opts) else None
             own_top = own_first(no, pick, p, opts)
             om = own_margin(no, pick, raw if raw is not None else p, opts)
-            ty = leg_type(p, mk, pick, top, float(sel["베트맨"]) if sel else None, raw, own_top, om)
-            g = integrity_grade(r)   # 2026-10-16 사용자 지시: 데이터 정합성 C(오래된·잘못된 자료)·미검사는 다리 금지
-            if g != "A" and g != "B":
-                ty = f"✗ 정합성 {g or '미검사'}"
+            gr = game_row(r)
+            plain = r["유형"] in ("승무패", "승패") and not r["구분"].startswith("전반")
+            ty = leg_now(p, mk, pick, top, float(sel["베트맨"]) if sel else None, own_top, om,
+                         two_way=len(opts) == 2, depth=(gr.get("깊이") or "").strip(),
+                         conf=(gr.get("확신도") or "").strip())
+            if not plain and not ty.startswith("✗"):
+                ty = "✗ 경기결과 다리 아님(핸디캡·언더오버 — 축구 언더오버 실측 회수 84.8%)"
+            g = integrity_grade(r)   # 2026-10-16 사용자 지시: 데이터 정합성 C(오래된·잘못된 자료)는 다리 금지
+            if g == "C":
+                ty = "✗ 정합성 C"
+            elif g not in ("A", "B") and not ty.startswith("✗"):
+                ty += " · ⚠ 근거 JSON 없음(integrity.py add)"
+            if ty.startswith("✗"):
+                BAD_LEGS.append((title, no, pick, ty))
             lines.append(f"| {no} | {game_cell} | {kind(r)} | {c[0]} | {c[1]} | {c[2]} | {ps} | {f'{mk:.1f}%' if mk is not None else '-'} | {ty} |")
         else:
             lines.append(f"| {no} | {game_cell} | {kind(r)} | {c[0]} | {c[1]} | {c[2]} | {ps} |")
     if OWN:
-        lines.append("\n유형 A = 시장과 갈림(1순위 다름 또는 내 확률 ≥ 시장+8%p): 확인된 사실 근거 + 배당 1.2+ · B = 일치: 내 60%+·시장 60%+·배당 1.2+ (기대값 조건 폐지 2026-10-16) · ✗ = 둘 다 아님(추천 금지) · ✗ 정합성 = integrity.py 등급 C·미검사(추천 금지, 2026-10-16)")
+        lines.append("\n유형: ★ = 시장 60~70% 정배(2폴더 다리) · 정배 = 시장 70%+ · ✗ = 추천 금지(역배 · 내 1순위 아님 · G1 기권 · 시장 60% 미만 · 심층 아님 · 경기결과 다리 아님 · 정합성 C). ✗ 가 든 조합은 저장하지 않는다.")
     lines.append("\n앱에서는 팀명이 단축 표기(예: 콜로래피·미네소타U)라 **게임번호**로 찾는다.")
     t = timing(by_no, picks)
     if t:
@@ -425,6 +474,9 @@ def main():
     ap.add_argument("--buy", nargs="*", default=[], help='"제목=금액"')
     ap.add_argument("--own", nargs="*", default=[], help='"번호:선택=내 분석 확률(%%)" — 표·기록의 확률을 내 분석으로 (2026-10-13부터 필수)')
     a = ap.parse_args()
+    if a.save and a.combos and not a.own:
+        # --own 없이 저장하면 확률 칸에 시장 공정확률이 들어가 '시장 복사 추천'이 기록된다(2026-11-02 지시 위반).
+        sys.exit("--save 에는 --own \"번호:선택=내 확률\" 이 필요하다 — 시장 확률을 내 확률로 저장하지 않는다.")
     by_no = load(a.round)
     fin = final_probs(a.round)
     for x in a.own:
@@ -460,6 +512,14 @@ def main():
             if len(picks) < 2 or tot < MIN_COMBO_ODDS:
                 print(f"✗ 저장 안 함: '{title}' — {len(picks)}폴더 · 합계 {tot:.2f} "
                       f"(고정 조건: 2폴더 이상 · 합계 {MIN_COMBO_ODDS} 이상)\n")
+                continue
+            names = [(by_no.get(no) or [{}])[0].get("경기", no) for no, _ in picks]
+            if len(set(names)) < len(names):
+                print(f"✗ 저장 안 함: '{title}' — 같은 경기의 다리가 두 번 들어 있다\n")
+                continue
+            bad = [b for b in BAD_LEGS if b[0] == title]
+            if bad:
+                print(f"✗ 저장 안 함: '{title}' — " + " / ".join(f"{no}:{pk} {ty}" for _, no, pk, ty in bad) + "\n")
                 continue
         amt = "" if kind == "도파민" else buys.get(title, "")   # 도파민은 기록 전용·금액 0 (사용자 결정 2026-10-19)
         items += [(no, pk, kind, title, "", amt) for no, pk in picks]

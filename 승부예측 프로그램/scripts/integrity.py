@@ -392,7 +392,9 @@ def evidence_checks(r, e, severe, minor):
     if not b or not fin:
         severe.append("기준선 또는 최종 확률 없음")
     else:
-        s = sum(float(f.get("영향") or 0) for f in e.get("요인", []))
+        # 2026-11-11: "반영": false 인 요인은 추정치만 기록하고 확률에는 넣지 않은 것이다(weight 0 유형).
+        # 합 검사에서 뺀다 — 그래야 분석가가 0 대신 추정치를 적을 수 있고, 그 요인이 맞았는지 나중에 잴 수 있다.
+        s = sum(float(f.get("영향") or 0) for f in e.get("요인", []) if f.get("반영", True) is not False)
         gap = float(fin["승"]) - (float(b["승"]) + s)
         if abs(gap) > 2 * TOL_SUM:
             severe.append(f"합계 불일치: 기준선 {b['승']} + 영향 {s:+.1f} ≠ 최종 {fin['승']} (차 {gap:+.1f})")

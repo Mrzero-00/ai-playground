@@ -183,6 +183,15 @@ def cmd_pure(a):
                         warn.append(f"  [{r['번호']}] {r['홈']}-{r['원정']} 깊이 미지정 → '가벼움'으로 둠(심층이면 JSON 에 깊이를 적을 것)")
                 n += 1
     save(rows)
+    # 2026-11-11: 131회부터 심층 분석이 근거 JSON 없이 이 명령으로만 기록돼, 근거기록·정합성 등급·
+    # 예측 스냅샷이 통째로 끊겼다(131~134회 심층 42행 전부 정합성 빈칸). 나중에 '무엇을 보고 그 확률을
+    # 냈는지'를 되짚을 수 없으면 회고가 배울 것이 없다. 빠진 경기를 그 자리에서 알린다.
+    miss = [r for r in rows if r["회차"] == str(a.round) and (r.get("깊이") or "") == "심층"
+            and not (r.get("정합성") or "").strip() and r.get("결과") not in ("승", "무", "패")]
+    if miss:
+        print(f"⚠ 심층인데 근거 JSON 이 없는 경기 {len(miss)}건: " + ", ".join(r["번호"] for r in miss[:20]))
+        print(f"   → 수집 JSON 은 data/수집/, 근거 JSON 은 data/근거/ 에 저장하고 "
+              f"`python3 scripts/integrity.py add {a.round} <근거.json>` 을 돌린다.")
     print(f"순수 분석 {n}행 반영")
     if warn:
         print("⚠ 입력 CSV 칸 오류 — 해당 칸은 저장하지 않았다(쉼표가 든 칸은 큰따옴표로 감싼다):")

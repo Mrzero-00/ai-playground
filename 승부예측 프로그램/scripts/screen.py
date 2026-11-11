@@ -20,6 +20,7 @@ import argparse
 import csv
 import datetime as dt
 import os
+import sys
 
 ROOT = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..")
 SCAN = os.path.join(ROOT, "data", "스캔기록.csv")

@@ -198,7 +198,9 @@ def build(out):
     scf = [c for c in fun if c["scored"] and c["n"] >= 2]
     combo_rate = (sum(1 for c in sc if c["hit"]) / len(sc)) if sc else None
     fun_rate = (sum(1 for c in scf if c["hit"]) / len(scf)) if scf else None
-    legs_scored = [r for r in recs if r.get("적중") in ("0", "1")]
+    # 2026-11-11: recs 에는 도파민 다리도 들어 있어 '추천 다리 적중률'이 51.1% 로 찍혔다
+    # (추천 59.1% + 도파민 32.1%). 도파민은 2026-10-22 에 집계에서 빼기로 했다.
+    legs_scored = [r for r in recs if r.get("적중") in ("0", "1") and r.get("구분") == "추천"]
     leg_rate = (sum(int(r["적중"]) for r in legs_scored) / len(legs_scored)) if legs_scored else None
     by_round = collections.OrderedDict()
     for c in sorted(sc, key=lambda c: c["round"]):

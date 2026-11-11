@@ -110,7 +110,17 @@ def team_ratings(as_of=None, path=None):
         st_ = g.get("seasontype")
         if strict and st_ is not None and st_ != 2:
             continue
-        day = (g.get("date") or "")[:10]
+        # 2026-11-11: date 는 ESPN 의 UTC 시각이고 as_of 는 KST 경기일이다. 앞 10자만 비교하면
+        # UTC 19~23시 개막 경기(= KST 다음 날 04~08시)가 하루 앞 날짜로 읽혀 **그 경기 자신이**
+        # 레이팅에 들어갔다(채점된 NBA 94행 중 42행). KST 날짜로 바꿔서 비교한다.
+        raw = g.get("date") or ""
+        day = raw[:10]
+        try:
+            import datetime as _dt
+            day = (_dt.datetime.fromisoformat(raw.replace("Z", "+00:00"))
+                   .astimezone(_dt.timezone(_dt.timedelta(hours=9))).date().isoformat())
+        except ValueError:
+            pass
         if as_of and (not day or day >= as_of):
             continue
         st = g.get("stats") or {}
@@ -184,7 +194,10 @@ SD_TOTAL = 17.5
 # 실제 적중이 35.0%(n=20, 내 말 68.4%)여서 그 구간 다리를 전부 버려야 했다.
 # 레이팅에 없는 정보를 분석가가 실제로 더한 경우에만 --exact-ratings 로 끈다.
 # 재측정: python3 scripts/nba_baseline.py --calib   (표본 120경기마다)
-AUTO_MODEL_SD = 20.0
+# 2026-11-11: 위 20.0 은 누수 섞인 표본으로 고른 값이었다(as_of 의 UTC/KST 혼동으로 94행 중 42행에
+# 자기 경기가 레이팅에 들어감 → 실제보다 잘 맞는 것처럼 보여 SD 가 작게 나왔다). 누수를 걷어낸
+# 89경기 재측정: SD 20 격차 −1.4p(Brier 0.2246) → SD 22 격차 −0.4p(0.2240) → SD 24 +0.5p(0.2236).
+AUTO_MODEL_SD = 22.0
 
 
 def cli_sd(games, exact=False):

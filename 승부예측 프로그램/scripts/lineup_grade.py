@@ -43,18 +43,28 @@ def cmd_absence(a):
     if not rs:
         print("data/결장검증.csv 없음 — postmatch.py 를 먼저 돌린다")
         return 1
+    # 2026-11-11: ① 같은 (회차, 번호, 선수)가 분석 버전마다 한 줄씩 있어 300행 중 102행이 중복이었고
+    # ② 적중률 분모에 '확인 실패'(출전 여부를 못 찾은 행)가 들어가 '의심 51% = 동전 던지기'로 읽혔다.
+    # 확인된 건만 세면 의심은 약 79%, 확정은 약 96% 다. 마지막 줄만 남기고, 분모는 확인된 건으로 한다.
+    last = {}
+    for r in rs:
+        last[(r.get("회차"), r.get("번호"), (r.get("선수") or "").strip())] = r
+    dup = len(rs) - len(last)
+    rs = list(last.values())
     d = collections.defaultdict(lambda: collections.Counter())
     for r in rs:
         d[(r.get("요인상태") or "?").strip()][(r.get("실제") or "?").strip()] += 1
-    print(f"결장 주장 {len(rs)}건\n")
-    print("| 내가 적은 상태 | 건수 | 결장 맞음 | 실제 출전 | 확인 실패 |")
-    print("|---|---:|---:|---:|---:|")
+    print(f"결장 주장 {len(rs)}건 (같은 선수 중복 {dup}행 제거)\n")
+    print("| 내가 적은 상태 | 건수 | 결장 맞음 | 실제 출전 | 확인 실패 | 적중률(확인된 건) |")
+    print("|---|---:|---:|---:|---:|---:|")
     for st in sorted(d, key=lambda k: -sum(d[k].values())):
         c = d[st]; n = sum(c.values())
         ok = c.get("결장 맞음", 0)
         played = sum(v for k, v in c.items() if "출전" in k or "선발" in k)
         unk = n - ok - played
-        print(f"| {st} | {n} | {ok} ({ok/n*100:.0f}%) | {played} | {unk} |")
+        known = ok + played
+        rate = f"{ok/known*100:.0f}% ({ok}/{known})" if known else "—"
+        print(f"| {st} | {n} | {ok} | {played} | {unk} | {rate} |")
     print("\n'확정'이라고 적었는데 실제로 뛴 건 분석이 틀린 것이다 — 점검표 후보.")
     bad = [r for r in rs if (r.get("요인상태") or "").strip() == "확정"
            and "출전" in (r.get("실제") or "")]

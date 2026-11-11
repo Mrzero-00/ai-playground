@@ -425,7 +425,14 @@ def cmd_pick(a):
     for g in G:
         g["dl"] = dl(g["row"].get("시각"))
         g["nooff"] = g["row"]["번호"] in nooff
-    sel = [g for g in G if passes(g, c)]
+    # 2026-11-11: 무 확률 문턱은 후보를 **거르지 않고 표시만** 한다. 큰 표본(시장 60%+ 정배 3,071경기)에서
+    # 무<24% 와 ≥24% 의 잔차가 같았다(+2.1p vs +3.1p) — 무 문턱은 더 센(=배당이 더 낮은) 정배를 고를 뿐이라
+    # 후보가 1.2~1.3 배당에 몰리고 2폴더로 합계 1.8 을 못 넘겨 3폴더가 된다(다리마다 환급 손실이 곱해진다).
+    # 시장 60~70% 구간이 잔차가 가장 크고(+3.5p, z=+3.01) 2폴더로 1.8 을 넘긴다. 장부의 통과/탈락은
+    # 옛 문턱 그대로 남겨 전진 시험을 이어 간다.
+    sel = [g for g in G if passes(g, dict(c, draw=101.0))]
+    for g in sel:
+        g["low_draw"] = g["my"]["무"] < c["draw"]
     sel.sort(key=lambda g: (g["dl"] or __import__("datetime").datetime.max, -g["mp"]))
     if c == DEF:        # 기본 조건으로 볼 때만 장부에 남긴다(완화·실험 조건은 전진 시험을 오염시킨다)
         import datetime as _dt
@@ -437,8 +444,8 @@ def cmd_pick(a):
     DEEP = ("심층",)
     deep = [g for g in sel if (g["depth"] or "").strip() in DEEP]
     shallow = [g for g in sel if g not in deep]
-    head = (f"### {a.round}회 안전 정배 후보 — 시장 1순위 {c['mp']:.0f}%+ · 배당 {c['odds']}+ "
-            f"· 내 무<{c['draw']:.0f}%" + (" · 1순위 일치" if c["agree"] else ""))
+    head = (f"### {a.round}회 정배 후보 — 시장 1순위 {c['mp']:.0f}%+ · 배당 {c['odds']}+"
+            + (" · 1순위 일치" if c["agree"] else "") + f"  (무<{c['draw']:.0f}% 는 표시만: ●)")
     if a.md:
         print(head + "\n")
         print("| 번호 | 경기 | 선택 | 배당 | 시장 1순위 | 내 확률 | 무 확률 | 킥오프 | 구매 마감 | 주의 |")
@@ -448,7 +455,7 @@ def cmd_pick(a):
             print(f"| {r['번호']} | {r['홈']} vs {r['원정']} | {g['mt']} | {g['od'][g['mt']]:.2f} "
                   f"| {g['mp']:.1f}% | {g['my'][g['mt']]:.1f}% | {g['my']['무']:.1f}% "
                   f"| {(r.get('시각') or '')[:11]} | {g['dl'].strftime('%m-%d %H:%M') if g['dl'] else '?'} "
-                  f"| {'⚠ 리그 오프셋 없음' if g['nooff'] else ''} |")
+                  f"| {'● ' if g['low_draw'] else ''}{'⚠ 리그 오프셋 없음' if g['nooff'] else ''} |")
     else:
         print(head)
         print(f"{'번호':>5} {'경기':<30}{'선택':>4}{'배당':>7}{'시장':>7}{'내확률':>7}{'무':>7}  구매마감")
@@ -457,7 +464,7 @@ def cmd_pick(a):
             print(f"{r['번호']:>5} {(r['홈']+' vs '+r['원정'])[:29]:<30}{g['mt']:>4}"
                   f"{g['od'][g['mt']]:>7.2f}{g['mp']:>6.1f}%{g['my'][g['mt']]:>6.1f}%"
                   f"{g['my']['무']:>6.1f}%  {g['dl'].strftime('%m-%d %H:%M') if g['dl'] else '?'}"
-                  f"{'  ⚠리그오프셋없음' if g['nooff'] else ''}")
+                  f"{'  ●' if g['low_draw'] else ''}{'  ⚠리그오프셋없음' if g['nooff'] else ''}")
     nb = sum(1 for g in sel if g["nooff"])
     print(f"\n후보 {len(sel)}/{len(G)}경기" +
           (f"  ·  ⚠ 그중 {nb}경기는 리그 강도 오프셋이 없는 팀이 끼여 무 확률이 불완전하다" if nb else ""))
@@ -465,6 +472,10 @@ def cmd_pick(a):
           (", ".join(g["row"]["번호"] for g in deep) or "없음"))
     print(f"  └ 기준선만(추천 불가, 심층 필요) {len(shallow)}경기: " +
           (", ".join(g["row"]["번호"] for g in shallow) or "없음"))
+    two = [g for g in shallow if g["od"][g["mt"]] >= 1.34]
+    if two:
+        print("  ★ 심층 우선순위 — 배당 1.34+ (둘이면 2폴더로 합계 1.8 을 넘는다): "
+              + ", ".join(g["row"]["번호"] for g in sorted(two, key=lambda g: -g["mp"])))
     if shallow:
         print("\n  ※ 기준선만 있는 후보는 추천하지 않는다 — 2026-11-05 에 후보 4경기를 열었더니")
         print("     네 번 다 내려갔다(-4.3 ~ -8.0%p). 과신 검문을 통과한 것도 8p 내려갔다.")

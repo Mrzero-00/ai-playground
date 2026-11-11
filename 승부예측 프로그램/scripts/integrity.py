@@ -201,7 +201,16 @@ def note_dates(team):
     """팀노트의 FACTS·INPUTS 수집 날짜 (없으면 None)."""
     p = os.path.join(NOTES, f"{team}.md")
     if not os.path.exists(p):
-        return None, None
+        # 2026-11-11: 승무패 회차는 팀명이 약칭(맨체스U·A빌라·AT마드·바르셀로)이라 원문 이름으로는 노트를
+        # 영영 못 찾았다 — 승무패67 은 14경기 전부 '팩트시트 없음'이었고, 그래서 승무패 행에는 정합성
+        # 등급이 붙지 않았다(60·63·64·66·67회 전부 빈칸). team_facts 가 쓰는 별칭 경로로 한 번 더 찾는다.
+        try:
+            import team_facts
+            p = team_facts.note_path(team)
+        except Exception:
+            return None, None
+        if not p or not os.path.exists(p):
+            return None, None
     s = open(p, encoding="utf-8").read()
     f = re.search(r"FACTS:START -->\s*\n## 팩트시트 \(자동 수집 (\d{4}-\d{2}-\d{2})", s)
     i = re.search(r"INPUTS:START -->\s*\n## 입력\(자동 수집 (\d{4}-\d{2}-\d{2})", s)

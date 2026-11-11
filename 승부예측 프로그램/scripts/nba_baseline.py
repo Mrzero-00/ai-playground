@@ -80,6 +80,15 @@ def _poss(x):
     return fga + 0.44 * fta - int(x["offensiveRebounds"]) + int(x.get("totalTurnovers") or x["turnovers"])
 
 
+# team_names.json 의 영문명과 ESPN 표기가 다른 팀. 2026-11-11: 'LA 클리퍼스' → 'Los Angeles Clippers' 인데
+# ESPN 은 'LA Clippers' 라서 클리퍼스 경기는 기준선이 매번 조용히 빠졌다(30팀 중 이 하나).
+ESPN_ALIAS = {"Los Angeles Clippers": "LA Clippers"}
+
+
+def espn_name(en):
+    return ESPN_ALIAS.get(en, en)
+
+
 def team_ratings(as_of=None, path=None):
     """teamdb/nba 박스스코어로 팀별 ORtg·DRtg·페이스를 잰다 → {팀영문명: {o,d,pace,g}}.
 
@@ -241,7 +250,7 @@ def calib() -> None:
             cache[d] = team_ratings(d)
         rt = cache[d]
         import teamdb as _T
-        h, a = rt.get(_T.en_name(r["홈"])), rt.get(_T.en_name(r["원정"]))
+        h, a = rt.get(espn_name(_T.en_name(r["홈"]))), rt.get(espn_name(_T.en_name(r["원정"])))
         if not h or not a or min(h["g"], a["g"]) < 3:
             continue
         g = min(h["g"], a["g"])

@@ -53,20 +53,24 @@ def market_prior(r):
     return {"승": round(w * 100 / t, 1), "무": round(d * 100 / t, 1), "패": round(l * 100 / t, 1)}
 
 
+OWN_MEMO = "자체 기준선 그대로 — 시장 복사 금지(2026-11-02 사용자 지시)"
+
+
 def apply_market_prior(r):
-    """기준선 행에 시장 사전확률을 보정_* 로 적는다. 적었으면 True."""
-    mk = market_prior(r)
-    if not mk:
+    """(이름만 남았다) 기준선 행의 보정_* 를 **자체 기준선(순수_*)** 으로 둔다. 적었으면 True.
+
+    2026-11-11: 10-29 에 이 함수가 기준선 행의 보정에 시장 확률을 적기 시작했는데, 11-02 사용자 지시
+    ("시장 확률을 그대로 쓰지 말고 자체 분석만으로")와 반대다. 게다가 근거 JSON 이 있는 분석 행 25개의
+    보정까지 시장값으로 덮었고(그중 19행은 지금 깊이=심층), calib_report 의 '보정 정합' 표본 1,140행 중
+    282행이 사실상 시장을 잰 값이 됐다. 시장은 시장_* 열에 그대로 있다 — 보정에 또 적을 이유가 없다."""
+    try:
+        v = [float(r.get(f"순수_{k}") or 0) for k in ("승", "무", "패")]
+    except ValueError:
         return False
-    r["보정_승"], r["보정_무"], r["보정_패"] = mk["승"], mk["무"], mk["패"]
-    memo = "시장 사전확률 기준선 자동 — 분석하지 않은 경기의 최종 확률은 시장에서 출발한다(2026-10-29 실측 pi 43.8% vs 시장 53.1%, 불일치 0:12)"
-    prev = (r.get("보정메모") or "").strip()
-    # anchor 가 찍은 옛 메모는 '대체됨'으로 한 번만 남기고, 재실행해도 계속 길어지지 않게 한다.
-    if prev and "시장 사전확률 기준선 자동" not in prev:
-        memo = f"{memo} [대체: {prev}]"
-    elif prev:
-        memo = prev
-    r["보정메모"] = memo
+    if sum(v) < 90:
+        return False
+    r["보정_승"], r["보정_무"], r["보정_패"] = r.get("순수_승", ""), r.get("순수_무", ""), r.get("순수_패", "")
+    r["보정메모"] = OWN_MEMO
     if r.get("결과") in ("승", "무", "패"):
         pk = rl.argmax(r, "보정")
         r["보정적중"] = int(pk == r["결과"]) if pk else ""
@@ -121,7 +125,7 @@ def fill_basketball(rows, a):
             no_data += 1; continue
         if d not in cache:
             cache[d] = nb.team_ratings(d)      # 경기일 '전'까지만 — 미래 누수 금지
-        b = nb.auto_baseline(T.en_name(r["홈"]), T.en_name(r["원정"]), d, ratings=cache[d])
+        b = nb.auto_baseline(nb.espn_name(T.en_name(r["홈"])), nb.espn_name(T.en_name(r["원정"])), d, ratings=cache[d])
         if not b:
             no_data += 1; continue
         ph = round(b["p_home"], 1)
@@ -182,7 +186,9 @@ def main():
     #  항상 메모를 남기기 때문이다. 기준선 행에 사람 글이 올 일은 없다 — 사람이 손대면 깊이가 올라간다.)
     mp = 0
     for r in rows:
-        if r.get("깊이") != "기준선":
+        # 기준선 행, 그리고 전에 시장값으로 덮였던 행(지금은 심층이어도)을 자체 확률로 되돌린다
+        was_market = "시장 사전확률 기준선 자동" in (r.get("보정메모") or "")
+        if r.get("깊이") != "기준선" and not was_market:
             continue
         if apply_market_prior(r):
             mp += 1
@@ -190,7 +196,7 @@ def main():
         rl.save(rows)
     print(f"기준선 채움 축구 {n}경기 (미지원 리그 건너뜀 {skip_lg})"
           f" · 농구 {bn}경기 (미지원 리그 {bskip} · 자료부족 {bnod})"
-          f" · 시장 사전확률 적용 {mp}행{' [dry]' if a.dry else ''}")
+          f" · 보정=자체 기준선으로 맞춘 행 {mp}{' [dry]' if a.dry else ''}")
     baseline_prior_compare(rows)
     # 깊이별 방향 정확도
     acc = {}
@@ -258,7 +264,12 @@ BIG_SOCCER = ("프리미어", "라리가", "세리에A", "분데스리가", "리
 
 
 def tier(r):
-    return "지정" if any(k in r.get("리그", "") for k in BIG_SOCCER) else "비지정"
+    # 2026-11-11: 부분 문자열이라 '챔피언스리그' 가 AFC 챔피언스리그 엘리트·2 (61행)에도 걸렸다.
+    # 대항전 낱말은 UEFA 대회일 때만 지정으로 센다.
+    lg = r.get("리그", "")
+    if any(k in lg for k in ("챔피언스리그", "유로파", "컨퍼런스리그")):
+        return "지정" if lg.startswith("UEFA") else "비지정"
+    return "지정" if any(k in lg for k in BIG_SOCCER) else "비지정"
 
 
 def depth_compare(rows):
@@ -279,7 +290,13 @@ def depth_compare(rows):
         # 2026-10-31: 꼬리표 하나만 믿지 않는다. 근거 JSON 이 붙은 행(정합성 등급 A/B/C 가 있는 행)은
         # 수집가+분석가를 다 돈 경기라 분석가가 깊이="기준선" 이라 적었어도 대조군이 아니다
         # (129회 심층회고에서 70행이 이렇게 섞여 있었다 — 분자에서 빠지고 분모에 더해져 양쪽이 오염된다).
-        analysed = bool((r.get("정합성") or "").strip()) or r.get("깊이") != "기준선"
+        # 2026-11-11: 깊이 빈칸(구회차·승무패 312행)과 시장복사·미분석까지 '분석'으로 세고 있었다
+        # (지정 '분석 형성 355행' 중 141행이 빈칸 행이고 그 적중률 68.8%가 평균을 끌어올렸다).
+        # 분석 = 근거 JSON 이 있거나 깊이가 심층·가벼움인 행만. 나머지는 이 표에서 뺀다.
+        dep = (r.get("깊이") or "").strip()
+        analysed = bool((r.get("정합성") or "").strip()) or dep in ("심층", "가벼움")
+        if not analysed and dep != "기준선":
+            continue
         d = "분석" if analysed else "기준선"
         # 2026-10-31: 분석 줄에 G1 기권(1·2순위 차 10%p 미만)이 섞여 있으면 '분석의 가치'가 과소평가된다
         # (실측 분석 형성 57.0% vs 기권 38.5%). 기준선과 나란히 둘 값은 **방향을 실제로 고른 줄**이다.
@@ -288,8 +305,10 @@ def depth_compare(rows):
             formed = (pv[0] - pv[1]) >= 10
         except Exception:
             formed = True
-        if analysed and not formed:
-            d = "분석기권"
+        # 기권 분리는 **양쪽에 똑같이** 건다. 전에는 분석 쪽에서만 기권을 빼고 기준선은 그대로 둬서
+        # 지정 리그 '+5.9%p' 가 나왔다 — 같은 조건으로 재면 −0.6%p 다.
+        if not formed:
+            d = "분석기권" if analysed else "기준선기권"
         for key in ((tier(r), d), ("전체", d), (r["회차"], tier(r), d)):
             x = cells.setdefault(key, [0, 0]); x[0] += 1; x[1] += 1 if pk == r["결과"] else 0
 
@@ -326,7 +345,8 @@ def depth_compare(rows):
             if se:
                 z = f"  z={(p1 - p2) / se:+.2f}" + ("" if abs((p1 - p2) / se) >= 2 else " (표본 흔들림)")
         print(f"    {t:<4} {line((t, '분석'), '형성'):<22} {line((t, '분석기권'), '기권'):<22}"
-              f" {line((t, '기준선'), '기준선'):<22} 차 {f'{g:+.1f}%p' if g is not None else '-'}{z}")
+              f" {line((t, '기준선'), '기준선 형성'):<26} {line((t, '기준선기권'), '기준선 기권'):<24}"
+              f" 차 {f'{g:+.1f}%p' if g is not None else '-'}{z}")
 
     # 같은 회차 안에서만 비교 (회차마다 경기 풀이 다른 교란 제거)
     rounds = sorted({k[0] for k in cells if len(k) == 3})

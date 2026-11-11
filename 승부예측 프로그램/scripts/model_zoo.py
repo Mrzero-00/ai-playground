@@ -125,7 +125,8 @@ def track_b(window_days=None):
     fac = collections.defaultdict(lambda: collections.defaultdict(float))
     fp = os.path.join(ROOT, "data", "근거기록.csv")
     if os.path.exists(fp):
-        for r in csv.DictReader(open(fp, encoding="utf-8-sig")):
+        import evidence
+        for r in evidence.latest(list(csv.DictReader(open(fp, encoding="utf-8-sig")))):
             if r.get("구분") != "요인":
                 continue
             try:
@@ -207,7 +208,8 @@ def cmd_log(a):
     fac = collections.defaultdict(lambda: collections.defaultdict(float))
     fp = os.path.join(ROOT, "data", "근거기록.csv")
     if os.path.exists(fp):
-        for r in csv.DictReader(open(fp, encoding="utf-8-sig")):
+        import evidence
+        for r in evidence.latest(list(csv.DictReader(open(fp, encoding="utf-8-sig")))):
             if r.get("구분") != "요인":
                 continue
             try:
@@ -406,12 +408,6 @@ def cmd_fair(a):
     """**모든 기법이 값을 낸 공통 경기**에서만 비교한다. 표본이 다르면 숫자를 나란히 두지 않는다."""
     if not os.path.exists(PRED):
         print("먼저 predict_engine.py run / model_zoo.py log 를 돌린다"); return 1
-    # 2026-11-11 감사: 아래 표의 레이팅 계열(elo·elo_goal·pi·poisson·dixon_coles)과 그것을 쓰는
-    # 합의·시장앵커·갈림→무가중 줄은 **학습되지 않은 모델**이다. predict_engine 이 우리 경기를 한글 팀명으로
-    # 넣어 영문 연대기와 이어지지 않는다(팀당 사전 갱신 중앙값 2경기). 같은 경기가 두 회차에 실린 85쌍은
-    # 둘째 행이 자기 결과를 본 예측이기도 하다. 레이팅 기법끼리의 우열은 baseline_lab.py 로 본다.
-    print("⚠ 레이팅 계열 줄(elo·pi·poisson·dixon_coles·합의·시장앵커·갈림→무가중)은 학습 안 된 모델을 잰 값이다 "
-          "— 순위 근거로 쓰지 않는다. 기법 비교는 `python3 scripts/baseline_lab.py`.\n")
     rs = list(csv.DictReader(open(PRED, encoding="utf-8-sig")))
     by = collections.defaultdict(dict)
     for r in rs:

@@ -45,8 +45,7 @@ LAB = ("승", "무", "패")
 
 
 def corpus():
-    rows = E.from_footballdata() + E.from_teamdb() + E.from_ours()
-    rows.sort(key=lambda r: r["d"])
+    rows, _ = E.chronology()     # 2026-11-11: 우리 경기를 리그 캐시 팀 이름과 이은 연대기
     return rows
 
 

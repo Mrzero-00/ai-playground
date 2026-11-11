@@ -128,6 +128,82 @@ def from_ours():
     return out
 
 
+def from_cache():
+    """soccer_baseline 의 리그 결과 캐시(ESPN·K리그·J2, 약 3시즌) — 우리 경기와 **같은 팀 이름 공간**이다."""
+    import io, contextlib
+    import soccer_baseline as sb
+    out = []
+    for code in sb.LEAGUES:
+        with contextlib.redirect_stderr(io.StringIO()):
+            try:
+                games = sb.load_results(code, quiet=True)
+            except (Exception, SystemExit):
+                continue
+        for g in games:
+            out.append({"d": g["t"].date(), "ts": g["t"], "lg": code, "sport": "축구", "h": g["home"], "a": g["away"],
+                        "hg": g["hg"], "ag": g["ag"], "mk": None, "own": None})
+    return out
+
+
+def link_ours(rows):
+    """우리 기록 축구 경기의 한글 팀명을 리그 캐시의 팀 이름으로 잇는다 (2026-11-11).
+
+    전에는 한글 이름 그대로 넣어서 영문 연대기와 이어지지 않았다 — 우리 축구 1,169행에서 팀당 사전
+    갱신 횟수 중앙값이 2 였고, 레이팅 기법 줄은 사실상 빈 모델의 예측이었다.
+    · 이어진 경기는 **예측만** 한다(noupd). 같은 경기가 캐시에도 있어 상태 갱신은 그쪽이 한다.
+      정렬 시각을 3시간 당겨 캐시 쪽 갱신보다 반드시 먼저 예측되게 한다.
+    · 같은 경기가 두 회차에 실린 것(85쌍)은 마지막 줄만 상태를 갱신한다 — 전에는 첫 줄의 결과로
+      갱신한 뒤 둘째 줄을 예측해서 둘째 줄이 자기 결과를 본 예측이었다."""
+    import soccer_baseline as sb
+    names, cache = sb.load_names(), {}
+    now = dt.datetime.now(sb.KST)
+    linked = 0
+    for r in rows:
+        g = r["own"]
+        ko = sb.kickoff(g.get("시각", ""), now)
+        r["ts"] = ko or dt.datetime(r["d"].year, r["d"].month, r["d"].day, 12, tzinfo=dt.timezone.utc)
+        if r["sport"] != "축구":
+            continue
+        code = sb.KO_LEAGUE.get(g.get("리그", ""))
+        if not code or code in sb.UNSUPPORTED:
+            continue
+        if code not in cache:
+            try:
+                cache[code] = sb.League(code)
+            except (Exception, SystemExit):
+                cache[code] = None
+        lg = cache[code]
+        if lg is None or not lg.games:
+            continue
+        h, a = sb.resolve_team(lg, g["홈"], names), sb.resolve_team(lg, g["원정"], names)
+        if h and a and h != a:
+            r["h"], r["a"], r["lg"], r["noupd"] = h, a, code, True
+            r["ts"] = r["ts"] - dt.timedelta(hours=3)
+            linked += 1
+    last = {}
+    for i, r in enumerate(rows):
+        last[(r["ts"], r["h"], r["a"])] = i
+    for i, r in enumerate(rows):
+        if last[(r["ts"], r["h"], r["a"])] != i:
+            r["noupd"] = True
+    return linked
+
+
+def chronology(quick=False):
+    """시간 순 연대기. football-data(5대 리그 7시즌, 자기 이름 공간) + 리그 결과 캐시 + 우리 기록."""
+    rows = from_footballdata()
+    for r in rows:
+        r["ts"] = dt.datetime(r["d"].year, r["d"].month, r["d"].day, 12, tzinfo=dt.timezone.utc)
+    n_link = 0
+    if not quick:
+        rows += from_cache()
+        ours = from_ours()
+        n_link = link_ours(ours)
+        rows += ours
+    rows.sort(key=lambda r: (r["ts"], 0 if r["own"] is not None else 1))
+    return rows, n_link
+
+
 # ----------------------------------------------------------- 확률 변환
 PARAM = os.path.join(ROOT, "data", "기법파라미터.json")
 DEFAULTS = {
@@ -270,7 +346,7 @@ def run(rows, P=None, want=None):
         cand.update(my_methods(r, cand, P))
         preds.append((r, cand))
         # --- 결과로 상태 갱신
-        if r["hg"] is None or r["ag"] is None:
+        if r["hg"] is None or r["ag"] is None or r.get("noupd"):
             continue
         hg, ag = r["hg"], r["ag"]
         sc = 1.0 if hg > ag else (0.5 if hg == ag else 0.0)
@@ -289,11 +365,8 @@ def run(rows, P=None, want=None):
 
 
 def cmd_run(a):
-    rows = from_footballdata()
-    if not a.quick:
-        rows += from_teamdb() + from_ours()
-    rows.sort(key=lambda r: r["d"])
-    print(f"연대기 {len(rows)}경기 ({rows[0]['d']} ~ {rows[-1]['d']})")
+    rows, n_link = chronology(a.quick)
+    print(f"연대기 {len(rows)}경기 ({rows[0]['d']} ~ {rows[-1]['d']}) · 우리 축구 경기 중 리그 캐시와 이어진 것 {n_link}건")
     preds = run(rows)
     mine = [(r, c) for r, c in preds if r["own"] is not None and r["own"].get("결과") in LAB]
     print(f"우리 기록 경기 {len(mine)}건에 대해 기법 예측 생성")

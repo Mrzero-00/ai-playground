@@ -48,7 +48,8 @@ def main():
     ap.add_argument("--round"); ap.add_argument("--min-n", type=int, default=8)
     ap.add_argument("--drop", help="이 요인 유형을 뺐을 때와 비교(절제 실험)")
     a = ap.parse_args()
-    rows = list(csv.DictReader(open(EVI, encoding="utf-8-sig")))
+    import evidence
+    rows = evidence.latest(list(csv.DictReader(open(EVI, encoding="utf-8-sig"))))   # 경기마다 최신 버전만
     # 경기별 요인 유형 모으기
     fac = collections.defaultdict(list)
     for r in rows:

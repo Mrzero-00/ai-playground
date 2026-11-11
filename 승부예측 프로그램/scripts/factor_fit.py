@@ -39,10 +39,20 @@ def rows(p):
     return list(csv.DictReader(open(f, encoding="utf-8-sig"))) if os.path.exists(f) else []
 
 
+def _day(g):
+    t = (g.get("시각") or "").strip()
+    if len(t) >= 10 and t[4] == "-":
+        return t[:10]
+    if len(t) >= 5 and t[2] == "-":
+        return ("2026-" if t[:2] >= "10" else "2027-") + t[:5]
+    return ""
+
+
 def build(minn):
     games = {(g["회차"], g["번호"]): g for g in rows("전체경기기록.csv")}
     fac = collections.defaultdict(lambda: collections.defaultdict(float))
-    for r in rows("data/근거기록.csv"):
+    import evidence
+    for r in evidence.latest(rows("data/근거기록.csv")):   # 경기마다 가장 늦은 분석 버전만 (중복 합산 방지)
         if r.get("구분") != "요인":
             continue
         try:
@@ -61,6 +71,7 @@ def build(minn):
     keep.sort(key=lambda t: -types[t])
 
     X, y, meta = [], [], []
+    seen_games = set()
     for key, g in games.items():
         if g.get("결과") not in SIDES:
             continue
@@ -80,12 +91,22 @@ def build(minn):
         if not ok:
             continue
         d = fac.get(key, {})
+        # 2026-11-11: 요인을 하나도 적지 않은 경기는 뺀다. 전에는 전 경기를 넣고 뒤 30% 를 시험으로 썼는데,
+        # weight 0 결정 뒤 분석가가 영향을 0 으로 적기 시작해 시험 구간(128~132회) 365경기에 요인 값이
+        # 사실상 없었다(7종이 전부 0). 그 상태의 '시험셋 기여'는 시장 계수 재적합의 잡음일 뿐이라
+        # 어떤 요인도 다시 채택될 수 없었다. 요인을 주장한 경기 안에서만 시간 순으로 가른다.
+        if not d:
+            continue
+        dup = (_day(g), g.get("홈"), g.get("원정"))
+        if dup in seen_games:          # 같은 경기가 두 회차에 실리면 한 번만
+            continue
+        seen_games.add(dup)
         # 시장 로그오즈(무 기준) 2개 + 요인 유형별 합계
         f = [math.log(mk["승"] / mk["무"]), math.log(mk["패"] / mk["무"])]
         f += [d.get(t, 0.0) for t in keep]
         X.append(f)
         y.append(SIDES.index(g["결과"]))
-        meta.append({"회차": g["회차"], "번호": g["번호"], "시각": g.get("시각", ""), "n_fac": len(d)})
+        meta.append({"회차": g["회차"], "번호": g["번호"], "시각": g.get("시각", ""), "n_fac": len(d), "day": _day(g)})
     return X, y, meta, keep, types
 
 
@@ -96,12 +117,12 @@ def cmd_report(a):
     if len(y) < 150:
         print(f"표본 부족 ({len(y)}경기)", file=sys.stderr); return 1
     X = np.array(X); y = np.array(y)
-    order = sorted(range(len(y)), key=lambda i: (int(meta[i]["회차"]) if meta[i]["회차"].isdigit() else 0,
-                                                 meta[i]["번호"]))
+    # 경기 날짜 순. 전에는 회차 번호로 세워 승무패 회차(비숫자)가 전부 0 = 학습 구간 맨 앞으로 갔다.
+    order = sorted(range(len(y)), key=lambda i: (meta[i]["day"], meta[i]["회차"], meta[i]["번호"]))
     X, y = X[order], y[order]
     cut = int(len(y) * 0.7)
     tr, te = slice(0, cut), slice(cut, len(y))
-    print(f"시장 확률이 있는 {len(y)}경기 · 학습 {cut} / 시험 {len(y)-cut} (시간 순)")
+    print(f"요인을 적은 경기 중 시장 확률이 있는 {len(y)}경기 · 학습 {cut} / 시험 {len(y)-cut} (경기 날짜 순)")
     print(f"요인 유형 {len(keep)}종 ({a.min}경기 이상 등장): {', '.join(keep)}\n")
 
     # 1) 시장만

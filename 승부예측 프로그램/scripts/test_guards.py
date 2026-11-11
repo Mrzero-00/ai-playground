@@ -62,6 +62,13 @@ def main():
     import nba_baseline as nb
     check("nba: AUTO_MODEL_SD 는 누수 제거 후 값", nb.AUTO_MODEL_SD >= 22.0, nb.AUTO_MODEL_SD)
 
+    import intl_baseline as ib
+    b1, b2 = ib.baseline("잉글랜드", "크로아티아", date="2026-01-01"), ib.baseline("잉글랜드", "크로아티아", date="2020-01-01")
+    check("intl: 날짜 cutoff 가 레이팅을 바꾼다(사후 누수 없음)", b1 and b2 and b1["n_h"] > b2["n_h"])
+    check("intl: 승무패 4자 약칭도 찾는다", ib.name("카자흐스") == "Kazakhstan" and ib.name("없는팀") is None)
+    p = ib.probs(0.0)
+    check("intl: 확률 합 1 · 동률이면 대칭", abs(sum(p) - 1) < 1e-9 and abs(p[0] - p[2]) < 1e-9)
+
     print(f"\n{'전부 통과' if not FAIL else f'실패 {len(FAIL)}건: ' + ', '.join(FAIL)}")
     return 1 if FAIL else 0
 

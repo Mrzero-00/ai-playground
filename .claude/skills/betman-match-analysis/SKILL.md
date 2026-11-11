@@ -14,6 +14,8 @@ description: 베트맨 축구토토 승무패(14경기)·프로토 승부식 회
 
 1. **방향은 자체 분석이 정한다.** 사전확률은 **자체 기준선**에서 출발한다.
    축구 `soccer_baseline`(pi-rating→포아송) · 유럽대항전 `euro_baseline` ·
+   **국가대표 `intl_baseline`**(Elo→순서형 로지스틱, 2026-11-12 신설 — 시험 2020~ 6,461경기 방향 60.5%·잔차 −0.3p,
+   친선 60~70% 구간은 −6.7p 과신. 선수단·중립 구장을 모른다. `card <홈> <원정> [--neutral]`) ·
    야구 `kbo_pitching`/`mlb_pitching` · 농구 `nba_baseline` ·
    **배구 `kovo_baseline`**(세트 득실률→세트 승률 p→3선승, 2026-11-10 신설).
    아울러 축구는 `home_edge.py card` 로 그 홈팀의 홈 이점을 확인한다.

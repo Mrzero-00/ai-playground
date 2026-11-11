@@ -94,6 +94,7 @@ python3 scripts/prior.py report         # ★ 줄(11-02 이후)만 본 지표. �
 **요인 채택 0/8** — 보정 0 이 기본값이고 수집·기록만 한다.
 
 **채택한 조정**: 사전확률 = **자체 기준선**(`soccer_baseline`·`euro_baseline`·`kbo/mlb_pitching`·`nba_baseline`).
+국가대표 경기는 `intl_baseline`(2026-11-12 신설, Elo — 시험 6,461경기 방향 60.5%·잔차 −0.3p, `baseline_fill` 이 자동 사용).
 시장은 옆에 적기만 한다. 기준선이 없으면 **확률을 만들지 않고 빈칸으로 둔다 — 시장 복사 금지**.
 판정 지표도 시장 대비가 아니라 **자체 기준선 대비 개선폭**(`prior.py report`). 측정 519경기: 기준선 46.8% → 분석 53.8%(+6.9p).
 

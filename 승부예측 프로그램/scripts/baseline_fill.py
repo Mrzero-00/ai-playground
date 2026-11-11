@@ -19,6 +19,7 @@ ROOT = os.path.dirname(HERE)
 import round_log as rl
 import soccer_baseline as sb
 import nba_baseline as nb
+import intl_baseline as ib
 import teamdb as T
 
 NBA_LEAGUES = {"NBA"}      # teamdb/nba 박스스코어가 있는 리그만. KBL 은 아직 원천이 없다.
@@ -157,14 +158,23 @@ def main():
             continue
         if not a.all and r.get("결과") not in ("승", "무", "패", "", "예정"):
             continue
-        if r["리그"] not in sb.KO_LEAGUE:
+        intl = r["리그"] not in sb.KO_LEAGUE and ib.is_intl(r)
+        if r["리그"] not in sb.KO_LEAGUE and not intl:
             skip_lg += 1; continue
         try:
-            b = sb.row_baseline(r, names, cache, now)
+            if intl:
+                # 국가대표 Elo(2026-11-12). 경기일 '전'까지의 결과만 쓴다. 중립 여부는 기록에 없어 홈으로 둔다.
+                t = (r.get("시각") or "").strip()
+                b = ib.baseline(r["홈"], r["원정"], date=t[:10] if len(t) >= 10 and t[4] == "-" else _match_date(r))
+            else:
+                b = sb.row_baseline(r, names, cache, now)
         except Exception:
             b = None
         if not b:
             continue
+        if intl:
+            r["핵심근거"] = (r.get("핵심근거") or "") or (f"국가대표 Elo 기준선 자동({dt.date.today()}, Elo {b['elo_h']:.0f}-{b['elo_a']:.0f})"
+                                                     " — 선수단·결장·중립 여부 반영 없음, 방향 기록용")
         r["순수_승"], r["순수_무"], r["순수_패"] = round(b["승"] * 100, 1), round(b["무"] * 100, 1), round(b["패"] * 100, 1)
         # 1·2순위 차가 10%p 미만이면 기준선이 **방향을 형성하지 못한** 것이다 (2026-10-23 125회 회고).
         # 실측: 깊이=기준선 × 차<10%p 29건 17.2% · 차 20%p+ 57.9%. 확률의 절대값은 비단조라 못 쓰지만

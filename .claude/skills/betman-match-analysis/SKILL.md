@@ -673,6 +673,10 @@ python3 scripts/round_watch.py missed       # 마감 지났는데 대기인 블�
 
 ## 스킬 자체를 고칠 때 (사용자 지시 2026-11-02)
 
+**스크립트를 고친 뒤에는 `python3 scripts/test_guards.py` 와 `python3 scripts/test_home_edge.py` 를 돌린다.**
+이 저장소의 결함은 대부분 오류 없이 틀린 숫자를 내는 종류였다(다른 팀 xG, 1년 전 레이팅, 꺼진 수축,
+자기 경기가 들어간 레이팅). 그런 결함을 고칠 때마다 `test_guards.py` 에 한 줄을 더한다.
+
 회고에서 규칙이 바뀌면 **이 파일도 그 자리에서 고치고 이력을 남긴다.**
 
 ```

@@ -1,0 +1,115 @@
+{
+ "번호": 3865,
+ "홈": "잉글랜드",
+ "원정": "크로아티아",
+ "리그": "UEFA 네이션스리그 리그A 그룹3 5차전",
+ "구장": "Wembley Stadium, 런던 — 잉글랜드 자국, 중립 아님",
+ "킥오프": "2026-11-13 04:45 KST (11/12 19:45 GMT)",
+ "수집시각": "2026-11-12 KST",
+ "최근결과_10월이후": [
+  {
+   "팀": "잉글랜드",
+   "날짜": "2026-10-06",
+   "상대": "체코",
+   "장소": "H(웸블리)",
+   "스코어": "확인 안 됨(승 추정은 순위표 3승1패만 근거 — 스코어 미확인)",
+   "대회": "네이션스리그"
+  },
+  {
+   "팀": "크로아티아",
+   "날짜": "2026-10-06",
+   "상대": "스페인",
+   "장소": "H(스플리트 Poljud)",
+   "스코어": "1-2 패",
+   "득점": "Perišić 17'; Merino 61', 88'",
+   "대회": "네이션스리그",
+   "출처": "https://www.aljazeera.com/sports/2026/10/6/spains-merino-nets-twice-to-avoid-croatia-shock-and-maintain-perfect-start"
+  }
+ ],
+ "참고_10월7일이전": "2026-10-03 크로아티아 0-7 잉글랜드(리예카; Kane 2~, Bellingham, Gordon, Saka 2, Rogers 보도). 9/26 잉글랜드 대 스페인 패(스코어 3-2 보도, 방향 출처 간 표기 모호), 9/29 체코 0-2 잉글랜드(프라하), 9/26 체코 1-2 크로아티아, 9/29 스페인 4-1 크로아티아.",
+ "대회맥락": "그룹3(10/6 기준, 위키 전체순위표): 스페인 4경기 12점(8강 확정 표기), 잉글랜드 4경기 9점(14-3), 크로아티아 4경기 3점(4-14), 체코 0점. Goal 프리뷰: 잉글랜드는 무승부 이상이면 8강 확정, 크로아티아는 사실상 8강 희망 소멸. 6차전 11/15 스페인-잉글랜드(마드리드), 크로아티아-체코(오시예크). 11/12 체코-스페인 동시 진행으로 보임(확인 안 됨).",
+ "결장": [
+  {
+   "팀": "잉글랜드",
+   "선수": "Trevoh Chalobah",
+   "포지션": "DF",
+   "소속": "Chelsea",
+   "사유": "부상, Ben White 대체 소집",
+   "상태": "확정",
+   "출처": [
+    "https://www.sportsmole.co.uk/football/england/uefa-nations-league/news/palmer-white-king-decisions-england-squad-for-november-confirmed_608569.html"
+   ],
+   "날짜": "2026-11-06"
+  },
+  {
+   "팀": "잉글랜드",
+   "선수": "Ezri Konsa",
+   "포지션": "DF",
+   "소속": "Arsenal",
+   "사유": "슬라비아 프라하전 부상, 소집은 포함, 심각하지 않아 보인다는 보도",
+   "상태": "의심",
+   "출처": [
+    "https://www.sportsmole.co.uk/football/england/uefa-nations-league/news/palmer-white-king-decisions-england-squad-for-november-confirmed_608569.html"
+   ],
+   "날짜": "2026-11-06"
+  },
+  {
+   "팀": "잉글랜드",
+   "선수": "Marcus Rashford",
+   "사유": "고관절 부상 회복 중, 제외",
+   "상태": "확정"
+  },
+  {
+   "팀": "잉글랜드",
+   "선수": "Cole Palmer, Phil Foden, Kobbie Mainoo, Noni Madueke, Dean Henderson, Jordan Henderson",
+   "사유": "감독 선택 제외(Palmer는 완전 건강 보도), Saka도 미선발 보도",
+   "상태": "확정(전술적 제외)",
+   "출처": [
+    "https://www.sportsmole.co.uk/football/england/uefa-nations-league/news/palmer-white-king-decisions-england-squad-for-november-confirmed_608569.html"
+   ],
+   "날짜": "2026-11-06"
+  },
+  {
+   "팀": "잉글랜드",
+   "내용": "Rice·Spence 복귀, Ben White 3월 이후 첫 복귀, Jobe Bellingham·Josh King 첫 소집. 25명 소집. Kane는 이번 출전 시 125경기로 Shilton 기록 경신",
+   "출처": "위와 동일"
+  },
+  {
+   "팀": "크로아티아",
+   "내용": "11월 최종 명단·결장 확인 안 됨. 예비 32명(10/27 발표): GK Livaković 등, DF Gvardiol, Šutalo, Ćaleta-Car, Stanišić, Pongračić, Vušković, Smolčić, Hrgović / MF Modrić, Kovačić, M.Pašalić, Vlašić, Majer, Baturina, P.Sučić, L.Sučić, Jakić, Fruk, Mišić / FW Perišić, Kramarić, Budimir, Marco Pašalić, Matanović, Musa, Ivanović, Beljo, Šotiček",
+   "상태": "미확인",
+   "출처": [
+    "https://total-croatia-news.com/?p=200890"
+   ],
+   "날짜": "2026-10-27"
+  }
+ ],
+ "라인업": "11/12 예상 선발 확인 안 됨. 10/3 경기 전 예상(참고용)은 해당 경기 것",
+ "감독": {
+  "잉글랜드": "Thomas Tuchel",
+  "크로아티아": "Slaven Bilić (신임; Goal 프리뷰·HNS 기재)"
+ },
+ "일정": "크로아티아는 경기 후 런던에서 오시예크로 이동, 11/15 체코전. 잉글랜드 11/15 마드리드 원정(스페인).",
+ "맞대결": "2026-10-03 잉글랜드 7-0 크로아티아(리예카); 2026 월드컵 조별리그 잉글랜드 4-2 크로아티아(sportsmole 기재)",
+ "출처": [
+  "https://www.sportsmole.co.uk/football/england/uefa-nations-league/news/palmer-white-king-decisions-england-squad-for-november-confirmed_608569.html",
+  "https://www.goal.com/en/news/england-croatia-uefa-nations-league-preview/blt30be8a572ac86500",
+  "https://total-croatia-news.com/?p=200890",
+  "https://en.wikipedia.org/wiki/2026%E2%80%9327_UEFA_Nations_League_A"
+ ],
+ "엇갈림": [
+  "Goal 프리뷰: 잉글랜드 9점이 스페인 12점과 '동률'이라는 표기 오류 있음",
+  "Goal 프리뷰는 잉글랜드 선발 후보에 Alexander-Arnold, Rice 포함(예상)"
+ ],
+ "못찾음": [
+  "크로아티아 11월 최종 명단·결장",
+  "예상 선발",
+  "심판",
+  "날씨",
+  "잉글랜드-체코 10/6 스코어"
+ ],
+ "뉴스확인": {
+  "잉글랜드": "sportsmole, goal, worldsoccertalk: 위 외 특이 뉴스 없음",
+  "크로아티아": "total-croatia-news, goal, 일반검색 2회: 11월 결장 뉴스 못 찾음(미확인)"
+ }
+}

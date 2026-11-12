@@ -1,0 +1,139 @@
+[
+ {
+  "번호": 3,
+  "홈": "룩셈부르",
+  "원정": "에스토니",
+  "리그": "UEFA 네이션스리그 C리그 4조",
+  "분석시각": "2026-11-12 KST",
+  "기준선": {
+   "승": 41.7,
+   "무": 30.7,
+   "패": 27.6,
+   "출처": "intl_baseline.py card 룩셈부르크 에스토니아 — Elo 1397 vs 1459, 홈 이점 +125(Stade de Luxembourg 자국 개최, 중립 아님 → 교정 없음)"
+  },
+  "득점모델": {
+   "방식": "최근 A매치 득실 + Elo 차 근사(정밀 λ 아님)",
+   "λ홈": 0.9,
+   "λ원정": 0.8,
+   "출처": "룩셈부르크 최근 8경기 4득 11실, 에스토니아 5득 4실(최근 4경기 3무) — 저득점, 홈 이점 포함 Elo 차 +63"
+  },
+  "점검표확인": [
+   "G1: 1·2순위(승 41.7 vs 무 30.7) 차 11.0%p ≥10 → 방향 형성(경계값 근처), 확신도 낮음",
+   "무 2순위·차 11.0p(<30) → 무포켓 표시만, 무를 1순위로 올리지 않음",
+   "폼 가산 금지: 룩셈부르크 3연패·2경기 무득점, 에스토니아 6경기 무패 — Elo 에 반영, 영향 0(방향과 반대 서사지만 가산하지 않음)",
+   "'비기면 되는' 무 가산 금지: 에스토니아는 승리 시 승격 PO 가능 — 무 가산에 쓰지 않음",
+   "중립·장소 변경·날씨 규칙: 해당 없음/미확인"
+  ],
+  "요인": [
+   {
+    "유형": "징계",
+    "팀": "홈",
+    "선수": "Dick Carlson(DF)",
+    "상태": "확정",
+    "영향": -1.0,
+    "반영": false,
+    "내용": "경고 누적 1경기 출장정지",
+    "출처": "https://www.sportsmole.co.uk/football/luxembourg/uefa-nations-league/preview/luxembourg-vs-estonia-prediction-team-news-lineups_608892.html",
+    "날짜": "2026-11-11"
+   },
+   {
+    "유형": "복귀",
+    "팀": "홈",
+    "선수": "Laurent Jans(주장, RB)",
+    "상태": "의심",
+    "영향": 0.5,
+    "반영": false,
+    "내용": "직전 2경기 부상 결장, 복귀 가능 — 예상 선발 포함",
+    "출처": "https://www.sportsmole.co.uk/football/luxembourg/uefa-nations-league/preview/luxembourg-vs-estonia-prediction-team-news-lineups_608892.html",
+    "날짜": "2026-11-11"
+   },
+   {
+    "유형": "결장",
+    "팀": "원정",
+    "선수": "Marten Kuusk",
+    "상태": "확정",
+    "영향": 0.5,
+    "반영": false,
+    "내용": "명단 제외(사유 불명)",
+    "출처": "https://www.sportsmole.co.uk/football/luxembourg/uefa-nations-league/preview/luxembourg-vs-estonia-prediction-team-news-lineups_608892.html",
+    "날짜": "2026-11-11"
+   },
+   {
+    "유형": "결장",
+    "팀": "원정",
+    "선수": "Robi Saarma(윙백)",
+    "상태": "확정",
+    "영향": 0.5,
+    "반영": false,
+    "내용": "명단 제외(10월 불가리아전 부상 교체 이력)",
+    "출처": "https://www.sportsmole.co.uk/football/luxembourg/uefa-nations-league/preview/luxembourg-vs-estonia-prediction-team-news-lineups_608892.html",
+    "날짜": "2026-11-11"
+   },
+   {
+    "유형": "동기",
+    "팀": "원정",
+    "영향": 0,
+    "반영": false,
+    "내용": "에스토니아 2위(약 6점) — 승리+아이슬란드 승 시 승격 PO 확정, 룩셈부르크 최하위(3점). 동기 가중치 0",
+    "출처": "https://www.sportsmole.co.uk/football/luxembourg/uefa-nations-league/preview/luxembourg-vs-estonia-prediction-team-news-lineups_608892.html",
+    "날짜": "2026-11-11"
+   },
+   {
+    "유형": "맞대결",
+    "팀": "공통",
+    "영향": 0,
+    "반영": false,
+    "내용": "10-03 에스토니아 1-0 룩셈부르크(탈린) — 기록만",
+    "출처": "https://www.sportsmole.co.uk/football/luxembourg/uefa-nations-league/preview/luxembourg-vs-estonia-prediction-team-news-lineups_608892.html",
+    "날짜": "2026-11-11"
+   },
+   {
+    "유형": "폼",
+    "팀": "공통",
+    "영향": -3.0,
+    "반영": false,
+    "내용": "룩셈부르크 3연패·최근 2경기 무득점 vs 에스토니아 6경기 무패 — 결과 기반 폼은 Elo 반영분이라 가산 금지",
+    "출처": "https://www.sportsmole.co.uk/football/luxembourg/uefa-nations-league/preview/luxembourg-vs-estonia-prediction-team-news-lineups_608892.html",
+    "날짜": "2026-11-11"
+   }
+  ],
+  "최종": {
+   "승": 41.7,
+   "무": 30.7,
+   "패": 27.6
+  },
+  "예상점수": "0.9:0.8",
+  "선택지": [
+   {
+    "번호": 3,
+    "선택": "승",
+    "확률": 41.7,
+    "계산": "Elo 기준선 그대로(요인 반영 false)"
+   },
+   {
+    "번호": 3,
+    "선택": "무",
+    "확률": 30.7,
+    "계산": "Elo 기준선 그대로(요인 반영 false)"
+   },
+   {
+    "번호": 3,
+    "선택": "패",
+    "확률": 27.6,
+    "계산": "Elo 기준선 그대로(요인 반영 false)"
+   }
+  ],
+  "뉴스위험": "중간 — 1·2순위 차 11.0%p로 기권 경계 바로 위, 저득점 양 팀이라 무 위험 큼. 홈 폼 부진(3연패)이 Elo 홈 우위와 반대 방향. 검색처: sportsmole(11-11), chronicle.lu, balticfootballnews",
+  "기권": false,
+  "확신도": "낮음",
+  "무포켓": true,
+  "결론": "룩셈부르크 자국 개최라 홈 이점 +125를 포함한 Elo 기준선 승41.7/무30.7/패27.6을 그대로 쓴다. Elo 차는 62로 원정 우위지만 홈 이점이 뒤집어 홈 1순위이고 1·2순위 차 11.0%p로 방향은 간신히 형성된다. 확정 사실(Carlson 징계, 에스토니아 Kuusk·Saarma 명단 제외)은 서로 상쇄되는 수준이고 요인 가중치 0이라 기록만 했다. 룩셈부르크 3연패·에스토니아 6경기 무패는 Elo 에 반영된 폼이라 가산하지 않았다 — 무 2순위(무포켓)·확신도 낮음.",
+  "미확인": [
+   "공식 순위표",
+   "11월 확정 명단 전체",
+   "공식 선발",
+   "날씨·심판"
+  ],
+  "깊이": "심층"
+ }
+]

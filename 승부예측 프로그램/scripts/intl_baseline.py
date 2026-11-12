@@ -22,6 +22,7 @@ import argparse, csv, json, math, os, sys, urllib.request
 
 ROOT = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..")
 SRC = os.path.join(ROOT, "data", "intl", "results.csv")
+EXTRA = os.path.join(ROOT, "data", "intl", "extra.csv")
 NAMES = os.path.join(ROOT, "data", "intl", "names.json")
 LOG = os.path.join(ROOT, "전체경기기록.csv")
 URL = "https://raw.githubusercontent.com/martj42/international_results/master/results.csv"
@@ -67,7 +68,11 @@ def games():
     if _G:
         return _G
     out = []
-    for r in csv.DictReader(open(SRC, encoding="utf-8")):
+    rows = list(csv.DictReader(open(SRC, encoding="utf-8")))
+    last = max(r["date"] for r in rows)
+    if os.path.exists(EXTRA):      # 원자료가 아직 싣지 않은 최근 결과(수집가가 채운다). 원자료 마지막 날짜 뒤만 쓴다
+        rows += [r for r in csv.DictReader(open(EXTRA, encoding="utf-8")) if r["date"] > last]
+    for r in rows:
         try:
             out.append((r["date"], r["home_team"], r["away_team"], int(r["home_score"]), int(r["away_score"]),
                         r["tournament"], r["neutral"].upper() == "TRUE"))

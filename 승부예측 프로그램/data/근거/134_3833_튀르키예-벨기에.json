@@ -1,0 +1,37 @@
+[{"번호": 3833, "홈": "튀르키예", "원정": "벨기에", "리그": "UEFA 네이션스리그 A리그 1조", "분석시각": "2026-11-12 KST",
+ "기준선": {"승": 26.6, "무": 30.5, "패": 42.9, "출처": "intl_baseline.py card 튀르키예 벨기에 — Elo 1840 vs 2038, 홈 이점 +125 (이즈미르 자국 개최라 --neutral 미적용)"},
+ "득점모델": {"방식": "최근 득실 + Elo 차 근사(정밀 λ 아님)", "λ홈": 0.9, "λ원정": 1.4, "출처": "튀르키예 최근 8경기 득 7·실 14(네이션스리그 4경기 2득 11실), 벨기에 최근 8경기 득 16·실 11, 실효 Elo 차 73(원정 우위)"},
+ "점검표확인": [
+   "G1: 1·2순위(패 42.9·무 30.5) 차 12.4%p → 기권 아님, 확신도 낮음",
+   "기준선 1순위 55% 미만 — 하향 상한 대상 아님. 요인 가중 0 규칙으로 결장·감독 교체 모두 미반영",
+   "기준선 55:45 미만 호각에 가까움 — 정성 요인(신임 감독 데뷔·동기)으로 1순위를 뒤집지 않음",
+   "원정 강팀 확정결장 감점 전 직전 경기 확인: Courtois는 10월 튀르키예전 결장 여부 미확인(10월 예상 XI GK Lammens) → 신규성 불확실, 영향 소폭만 기록",
+   "무포켓: 무가 2순위이고 1순위와 차 30%p 미만 → 표시만",
+   "성적 기반 폼(튀르키예 4연패) 가산 금지 — Elo에 이미 반영(10월 2경기 카드에 포함)"
+ ],
+ "요인": [
+   {"유형": "결장", "팀": "홈", "선수": "Kenan Yıldız", "상태": "확정", "영향": -1.5, "반영": false, "내용": "FW/MF(유벤투스), 부상으로 소집 제외 — 튀르키예 공격 핵심급. 요인 가중 0 규칙으로 기록만", "출처": "https://www.turkiyetoday.com/sports/turkiye-coach-sergen-yalcin-names-turkiye-squad-for-belgium-france-matches-3231872", "날짜": "2026-11-06"},
+   {"유형": "결장", "팀": "홈", "선수": "Muhammed Şengezer", "상태": "확정", "영향": -0.3, "반영": false, "내용": "GK(바샥셰히르), 부상 막판 제외 — 주전 GK 여부 미확인", "출처": "https://www.turkiyetoday.com/sports/turkiye-coach-sergen-yalcin-names-turkiye-squad-for-belgium-france-matches-3231872", "날짜": "2026-11-06"},
+   {"유형": "라인업", "팀": "홈", "선수": "Kerem Aktürkoğlu·İrfan Can Kahveci·Altay Bayındır 등 10명", "상태": "확정", "영향": -0.5, "반영": false, "내용": "신임 감독 선택으로 소집 제외(부상 여부 미확인). 기존 주축 일부가 빠져 전력 변화 방향 불명", "출처": "https://www.yeniasir.com.tr/spor/2026/11/06/a-milli-takimda-kadroya-alinmayan-futbolcular-belli-oldu-sergen-yalcinin-listesinde-kimler-yok-a-milli-takima-cagirilmayan-futbolcular-kim", "날짜": "2026-11-06"},
+   {"유형": "감독", "팀": "홈", "상태": "확정", "영향": 0, "반영": false, "내용": "Montella 경질(네이션스리그 4연패 후), Sergen Yalçın 데뷔전. Elo가 못 본 신규 정보지만 신임 감독 효과의 방향·크기 근거 없음 → 0", "출처": "https://sporza.be/nl/2026/10/20/duel-met-rode-duivels-wordt-zijn-vuurdoop-turkije-legt-lot-in-h~1792506300671/", "날짜": "2026-10-20"},
+   {"유형": "결장", "팀": "원정", "선수": "Thibaut Courtois", "상태": "확정", "영향": 1.0, "반영": false, "내용": "GK, 대표팀 휴식 합의로 불참(홈 승 기준 +). 10월 예상 XI GK가 Lammens라 이미 주전이 아니었을 수 있음 — 신규성 불확실", "출처": "https://www.beinsports.com/en-us/soccer/uefa-nations-league/articles/doku-back-in-boost-to-belgiums-nations-league-squad-2026-11-06", "날짜": "2026-11-06"},
+   {"유형": "결장", "팀": "원정", "선수": "Koni De Winter", "상태": "확정", "영향": 0.3, "반영": false, "내용": "DF, 소집 거부. 대체 Josue Kongolo(Genk, 첫 소집)", "출처": "https://www.beinsports.com/en-us/soccer/uefa-nations-league/articles/doku-back-in-boost-to-belgiums-nations-league-squad-2026-11-06", "날짜": "2026-11-06"},
+   {"유형": "복귀", "팀": "원정", "선수": "Jeremy Doku", "상태": "확정", "영향": -0.5, "반영": false, "내용": "종아리 부상 회복 후 소집 복귀(홈 승 기준 −). 같은 저울로 결장과 함께 셈 — 원정 순합 +0.8", "출처": "https://www.beinsports.com/en-us/soccer/uefa-nations-league/articles/doku-back-in-boost-to-belgiums-nations-league-squad-2026-11-06", "날짜": "2026-11-06"},
+   {"유형": "동기", "팀": "공통", "영향": 0, "반영": false, "내용": "튀르키예 0점(4패)으로 직강등 위기, 벨기에 6점 3위 수성·2위 추격. 양쪽 다 걸린 것이 있어 비대칭 약함 → 0"},
+   {"유형": "맞대결", "팀": "공통", "영향": 0, "반영": false, "내용": "10-02 벨기에 3-0 튀르키예(리에주) — Elo에 반영됨"},
+   {"유형": "일정", "팀": "공통", "영향": 0, "반영": false, "내용": "양 팀 모두 3일 뒤 경기(튀르키예 프랑스 원정, 벨기에 이탈리아 홈) — 휴식 영향 0 규칙"}
+ ],
+ "최종": {"승": 26.6, "무": 30.5, "패": 42.9},
+ "예상점수": "0.9:1.4",
+ "선택지": [
+   {"번호": 3833, "선택": "승", "확률": 26.6, "계산": "기준선 승 26.6 + Σ반영 0 = 26.6 (기록된 영향 합 −0.7은 미반영)"},
+   {"번호": 3833, "선택": "무", "확률": 30.5, "계산": "기준선 그대로"},
+   {"번호": 3833, "선택": "패", "확률": 42.9, "계산": "기준선 그대로"}
+ ],
+ "무포켓": true,
+ "뉴스위험": "높음 — 튀르키예 신임 감독 데뷔전 + 소집 구성 대폭 변경(Yıldız 부상·주축 10명 제외), 벨기에 Courtois·De Winter 불참과 Doku 복귀, 양 팀 11월 예상 선발 미확인. 검색처: Türkiye Today, Sporza, Yeni Asır, beIN Sports, 11v11",
+ "기권": false, "확신도": "낮음",
+ "결론": "Elo 기준선은 튀르키예 승 26.6 / 무 30.5 / 패 42.9로 벨기에 1순위·무 2순위다(이즈미르 자국 개최라 중립 교정 없음). 확인된 사실 중 방향에 걸리는 것은 튀르키예 Kenan Yıldız 부상 제외와 신임 감독 Yalçın 데뷔, 벨기에 Courtois 휴식·De Winter 불참·Doku 복귀인데, 홈·원정 결장 영향이 서로 상쇄되는 쪽이고 요인 가중 0 규칙으로 전부 기록만 했다. 1·2순위 차 12.4%p로 기권선은 넘지만 확신도는 낮고 무포켓으로 표시한다. 네이션스리그 실측 방향 적중이 53.1%로 낮은 대회다.",
+ "미확인": ["양 팀 11월 예상·발표 선발과 전체 26인 명단(Arda Güler·Lukaku·Trossard 포함 여부)", "Courtois가 10월 경기에 뛰었는지(결장 신규성)", "Can Uzun 상태", "경기장 정식명·날씨·심판", "킥오프 현지 20:00 vs 18:00 엇갈림"],
+ "깊이": "심층"
+}]

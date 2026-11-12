@@ -1,0 +1,184 @@
+{
+ "번호": 3841,
+ "홈": "체코",
+ "원정": "스페인",
+ "리그": "UEFA 네이션스리그 리그A 3조 5라운드",
+ "회차": 134,
+ "구장": "epet Arena(Letná), 프라하 — 체코 홈 개최, 중립 아님 (RFEF 공지: Letná Stadium Prague 20:45 CET)",
+ "구장출처": [
+  "https://rfef.es/en/news/spains-squad-final-uefa-nations-league-group-stage-matches",
+  "https://www.goal.com/en/news/czechia-spain-uefa-nations-league-preview/blt45cbbe8b2225b2a8",
+  "https://tips.gg/article/czechia-vs-spain-predicted-lineups-2026-11-12/"
+ ],
+ "구장엇갈림": "일부 티켓 사이트는 Stadion Letná/기타 표기(같은 경기장 별칭 가능성), 한 편성표는 Olomouc Andrův stadion 표기(소수 출처, 불일치)",
+ "킥오프": "2026-11-12 19:45 CET = 2026-11-13 04:45 KST",
+ "수집시각": "2026-11-12 KST",
+ "감독": {
+  "홈": "Santi Denia",
+  "원정": "Luis de la Fuente",
+  "변동": "확인 안 됨(변경 보도 없음)"
+ },
+ "결장": [
+  {
+   "팀": "원정",
+   "선수": "Lamine Yamal",
+   "포지션": "FW",
+   "소속": "Barcelona",
+   "사유": "무릎 이상(보도별 'knee strain in training' / 정확한 사유 엇갈림). 11/6 소집명단에는 포함됐다가 11/9 RFEF가 체코전 제외 발표",
+   "상태": "확정(체코전 결장), 일요일 잉글랜드전 복귀 목표",
+   "비고": "대표팀 주전급(윙). goal.com 기사는 이유 미기재",
+   "출처": [
+    "https://africasoccer.com/?p=654156",
+    "https://www.flashscore.com/news/spain-duo-lamine-yamal-and-mikel-oyarzabal-out-of-czech-nations-league-clash/hjH7hfIU/"
+   ],
+   "날짜": "2026-11-09"
+  },
+  {
+   "팀": "원정",
+   "선수": "Mikel Oyarzabal",
+   "포지션": "FW",
+   "소속": "Real Sociedad",
+   "사유": "신체 불편/독감(출처별 엇갈림)",
+   "상태": "확정(체코전 결장)",
+   "비고": "잉글랜드전 복귀 예정",
+   "출처": [
+    "https://africasoccer.com/?p=654156",
+    "https://rfef.es/en/noticias/oyarzabal-to-leave-spain-camp-due-to-injury"
+   ],
+   "날짜": "2026-11-09"
+  },
+  {
+   "팀": "원정",
+   "선수": "Rodri",
+   "포지션": "MF",
+   "소속": "미상(기사 표기 'Barcelona 경기 중 부상', 확인 필요)",
+   "사유": "부상, 한 달 이상 결장, 11/6 명단 제외",
+   "상태": "확정",
+   "비고": "주장, 10/3 경기 선발. 소속팀 표기는 기사 그대로",
+   "출처": [
+    "https://khelnow.com/football/spain-november-nations-league-squad-202611"
+   ],
+   "날짜": "2026-11-06"
+  },
+  {
+   "팀": "홈",
+   "선수": "Robin Hranáč",
+   "포지션": "DF",
+   "소속": "미상",
+   "사유": "부상 명단 기재(상세 미상)",
+   "상태": "확정(goal.com 기재)",
+   "비고": "",
+   "출처": [
+    "https://www.goal.com/en/news/czechia-spain-uefa-nations-league-preview/blt45cbbe8b2225b2a8"
+   ],
+   "날짜": "2026-11-11"
+  },
+  {
+   "팀": "홈",
+   "선수": "Pavel Šulc",
+   "포지션": "MF",
+   "소속": "미상",
+   "사유": "부상 명단 기재(10월 잉글랜드전 퇴장 이력)",
+   "상태": "확정(goal.com 기재)",
+   "비고": "",
+   "출처": [
+    "https://www.goal.com/en/news/czechia-spain-uefa-nations-league-preview/blt45cbbe8b2225b2a8"
+   ],
+   "날짜": "2026-11-11"
+  },
+  {
+   "팀": "홈",
+   "선수": "Ondřej Lingr",
+   "포지션": "MF",
+   "소속": "미상",
+   "사유": "부상 명단 기재",
+   "상태": "확정(goal.com 기재)",
+   "비고": "10/3 예상 선발이었던 선수",
+   "출처": [
+    "https://www.goal.com/en/news/czechia-spain-uefa-nations-league-preview/blt45cbbe8b2225b2a8"
+   ],
+   "날짜": "2026-11-11"
+  },
+  {
+   "팀": "홈",
+   "선수": "Ondřej Kričfaluši",
+   "포지션": "DF",
+   "소속": "미상",
+   "사유": "부상 명단 기재",
+   "상태": "확정(goal.com 기재)",
+   "비고": "",
+   "출처": [
+    "https://www.goal.com/en/news/czechia-spain-uefa-nations-league-preview/blt45cbbe8b2225b2a8"
+   ],
+   "날짜": "2026-11-11"
+  },
+  {
+   "팀": "홈",
+   "선수": "Adam Karabec",
+   "포지션": "MF/FW",
+   "소속": "미상",
+   "사유": "부상 명단 기재",
+   "상태": "확정(goal.com 기재)",
+   "비고": "",
+   "출처": [
+    "https://www.goal.com/en/news/czechia-spain-uefa-nations-league-preview/blt45cbbe8b2225b2a8"
+   ],
+   "날짜": "2026-11-11"
+  },
+  {
+   "팀": "홈",
+   "선수": "Michal Sadílek",
+   "포지션": "MF",
+   "소속": "미상",
+   "사유": "징계(출장정지), 11월 중순까지",
+   "상태": "확정(tips.gg·goal.com 일치; goal.com은 'Sácek' 부상도 병기, 이름 혼선)",
+   "비고": "10/3 예상 선발",
+   "출처": [
+    "https://www.goal.com/en/news/czechia-spain-uefa-nations-league-preview/blt45cbbe8b2225b2a8",
+    "https://tips.gg/article/czechia-vs-spain-predicted-lineups-2026-11-12/"
+   ],
+   "날짜": "2026-11-11"
+  }
+ ],
+ "스페인_소집명단_11_6": "GK Simón, Raya, Joan García, Valles / DF Cucurella, Grimaldo, Cubarsí, Laporte, Pubill, Porro, Huijsen, Jacobo Ramón(첫 선발) / MF Zubimendi, Pedri, Merino, Fabián Ruiz, Baena, Fermín, Barrios, Roca / FW N.Williams, Yamal(제외), F.Torres, Oyarzabal(제외), Pino, Barrenetxea, R.Fernández",
+ "스페인명단출처": "https://khelnow.com/football/spain-november-nations-league-squad-202611",
+ "라인업": {
+  "홈": {
+   "발표여부": "미발표",
+   "예상XI": "4-2-3-1: Kinský; Coufal, Chaloupek, Krejčí, Sláma; Král, Souček; Červ, Ambros, Daněk; Hložek",
+   "출처": "https://tips.gg/article/czechia-vs-spain-predicted-lineups-2026-11-12/",
+   "날짜": "2026-11-11"
+  },
+  "원정": {
+   "발표여부": "미발표",
+   "예상XI": "4-2-3-1: Simón; Porro, Cubarsí, Laporte, Cucurella; Pedri, Fabián Ruiz; N.Williams, Fermín López, Baena; F.Torres",
+   "출처": "https://tips.gg/article/czechia-vs-spain-predicted-lineups-2026-11-12/",
+   "날짜": "2026-11-11",
+   "비고": "매체 예상, Yamal/Oyarzabal 결장 반영"
+  }
+ },
+ "최근결과_10월이후": "2026-10-07 이후 두 팀 A매치 없음(10월 소집은 10/6 종료). 참고(10월 소집): 10/3 스페인 3-1 체코(Oviedo), 10/6 크로아티아 1-2 스페인(Merino 2골), 10/6 잉글랜드 3-0 체코. 9월: 스페인 3-2 잉글랜드, 4-1 크로아티아. 체코 0-2패 잉글랜드, 1-2 크로아티아.",
+ "최근결과출처": [
+  "https://www.sportsmole.co.uk/football/spain/uefa-nations-league/preview/spain-vs-czech-republic-prediction-team-news-lineups_606066.html",
+  "https://www.uefa.com/uefanationsleague/news/02aa-21bfd72342bb-2092e5a5aba6-1000--uefa-nations-league-matchday-4-highlights-spain-into-quarte/"
+ ],
+ "대회맥락": "3조: 스페인 1위·이미 8강 확정(RFEF: 12점), 체코 최하위 0점(전패, 11/11 goal.com). 이번이 5라운드(마지막 직전), 15일 스페인은 홈에서 잉글랜드전(Madrid). 체코 5연패(tips.gg 11/11 기술).",
+ "일정": "스페인 11/15 잉글랜드전(홈, 마드리드 20:45 CET). 체코 15일 경기 확인 안 됨. 체코 홈 개최라 스페인 원정 이동.",
+ "맞대결": "10/3 스페인 3-1 체코(Oviedo; Yamal·Rodri·Merino / Sláma, Krejčí 퇴장). 2022-06 스페인 2-0(출처 sportsmole 기재).",
+ "날씨": "확인 안 됨",
+ "심판": "확인 안 됨",
+ "엇갈림": [
+  "Yamal: 11/6 명단 포함 vs 11/9 RFEF 결장 발표(이후 정보가 우선, 사유 보도 엇갈림)",
+  "Rodri 소속팀 표기",
+  "체코 부상 명단 goal.com 6명 vs tips.gg 징계 1명만"
+ ],
+ "못찾음": [
+  "체코 11월 소집명단 원문(FAČR)",
+  "경기 당일 날씨·심판",
+  "확정 선발"
+ ],
+ "뉴스확인": {
+  "홈": "검색 goal.com(11/11)·tips.gg(11/11): 부상 6/징계 1 보도, FAČR 원문 못 찾음",
+  "원정": "검색 khelnow(11/6)·africasoccer/flashscore/rfef(11/9): Yamal·Oyarzabal·Rodri 결장"
+ }
+}

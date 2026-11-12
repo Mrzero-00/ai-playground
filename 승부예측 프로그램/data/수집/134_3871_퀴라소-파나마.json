@@ -1,0 +1,98 @@
+{
+ "번호": 3871,
+ "홈": "퀴라소",
+ "원정": "파나마",
+ "리그": "CONCACAF 네이션스리그 2026-27 8강 1차전(2연전)",
+ "구장": "Estadio Ergilio Hato (빌렘스타트, 퀴라소) — 퀴라소 자국 홈, 중립 아님",
+ "킥오프": "2026-11-12 현지(파나마 19:00 / 퀴라소 20:00) = 11-13 약 09:00 KST (사용자 제시 09:30 KST; 출처상 킥오프 7pm 파나마시간)",
+ "수집시각": "2026-11-12 KST",
+ "대회맥락": [
+  {
+   "내용": "8강 홈앤어웨이. 1차전 11-12 퀴라소, 2차전 11-15(일) 18:00 파나마시티 Rommel Fernández. 합산 승자가 파이널4(2027-03-25~28 SoFi)와 2027 골드컵 진출. 동률 시 정규시간 원정골 우선, 이후 2차전 연장·승부차기. 파나마는 랭킹으로 8강 직행(4번 시드), 퀴라소는 A조 1위(10점, 3승1무 추정: 코스타리카 4-3, 니카라과 6-1, 트리니다드토바고 1-0).",
+   "출처": [
+    "https://www.prensa.com/deportes/panama-enfrentara-a-curazao-por-un-boleto-al-final-four-y-la-copa-oro-2027/",
+    "https://www.prensa.com/deportes/curazao-anuncia-sus-23-convocados-para-enfrentar-a-panama-en-la-liga-de-naciones/"
+   ],
+   "날짜": "2026-10-12 / 2026-10-30"
+  }
+ ],
+ "감독": {
+  "홈": "Dick Advocaat",
+  "원정": "Thomas Christiansen (계약 2030까지)",
+  "출처": "https://www.prensa.com/deportes/curazao-anuncia-sus-23-convocados-para-enfrentar-a-panama-en-la-liga-de-naciones/",
+  "날짜": "2026-10-30"
+ },
+ "결장": [
+  {
+   "팀": "홈",
+   "선수": "Jürgen Locadia",
+   "포지션": "FW(미확인)",
+   "이번시즌_선발/경기": "미상",
+   "사유": "이번 A매치 기간 소집 불가(사유 미공개)",
+   "상태": "확정(소집 제외, 사유 확인 안 됨)",
+   "출처": [
+    "https://www.prensa.com/deportes/curazao-anuncia-sus-23-convocados-para-enfrentar-a-panama-en-la-liga-de-naciones/"
+   ],
+   "날짜": "2026-10-30"
+  },
+  {
+   "팀": "원정",
+   "선수": "Aníbal Godoy",
+   "포지션": "MF(주장급)",
+   "사유": "10월 개인사유 불참 보도(이번 소집 명단 24명에 이름 없음, 이번 불참 사유 확인 안 됨)",
+   "상태": "의심",
+   "출처": [
+    "https://espndeportes.espn.com/futbol/guatemala/nota/_/id/12705371/baja-sensible-seleccion-panama-capitan-anibal-godoy-no-jugara-ante-guatemala"
+   ],
+   "날짜": "기사일 미확인 — 이전 소집 건일 수 있음"
+  }
+ ],
+ "명단": {
+  "퀴라소": "23명 발표(2026-10-30). 언급: Armando Obispo(PSV), Livano Comenencia(FC Zürich), Tahith Chong(Sheffield Utd), Nigel Thomas(ADO Den Haag), Deveron Fonville·Godfried Roemeratoe 복귀. 전체 명단 확인 안 됨.",
+  "파나마": "11-05 발표(25명 보도, 실제 24명 열거): GK Mosquera, De León, Roberts / DF Blackman, J.Gutiérrez, Andrade, A.Murillo, Valencia, Krug, Córdoba, Ramos / MF Harvey, Carrasquilla, C.Martínez, J.L.Rodríguez, Griffith, D.Murillo, Morán, Herbert, Bárcenas / FW Ismael Díaz, Fajardo, Vergara(19, Gent), Kadir Barría(19, Botafogo). 부상 이탈 언급 없음. 10월 아시아 투어 3경기 중 3명 U23 포함.",
+  "출처": [
+   "https://www.panamaamerica.com.pa/deportes/kadir-barria-y-josue-yayita-vergara-entre-los-25-convocados-de-panama-ante-curazao-1281655"
+  ],
+  "날짜": "2026-11-05"
+ },
+ "최근결과_10월이후": {
+  "파나마": [
+   {
+    "날짜": "2026-10 (정확한 날짜 확인 안 됨)",
+    "상대": "인도",
+    "스코어": "1-1",
+    "장소": "아시아 투어(중립/원정)"
+   },
+   {
+    "상대": "뉴질랜드",
+    "스코어": "1-1",
+    "장소": "아시아 투어"
+   },
+   {
+    "상대": "에콰도르(키린컵 3위전)",
+    "스코어": "1-1 정규시간, 승부차기 승",
+    "장소": "일본"
+   }
+  ],
+  "퀴라소": "2026-10-07 이후 A매치 결과 확인 안 됨(네이션스리그 A조는 10월 이전 종료로 보임)"
+ },
+ "맞대결": "크리스티안센 부임 후 파나마 2승1무. 최근: 2023-10-13 빌렘스타트 파나마 2-1 원정승",
+ "일정": "2차전 11-15 파나마시티(3일 뒤)",
+ "예상선발": "확인 안 됨",
+ "날씨·심판": "확인 안 됨",
+ "엇갈림": [
+  "킥오프 표기: sportytrader/일부 사이트 12일 19:00(현지), 다른 사이트 13일 00:00(UTC 추정)"
+ ],
+ "뉴스확인": {
+  "퀴라소": "prensa.com(10-30), sportsmole 검색 — 결장은 Locadia 외 확인 안 됨",
+  "파나마": "panamaamerica(11-05), prensa.com(10-12), telemetro 검색 — 특이 부상 뉴스 없음"
+ },
+ "못찾음": [
+  "퀴라소 전체 23인 명단",
+  "퀴라소 10월 이후 A매치",
+  "예상 선발",
+  "날씨",
+  "심판",
+  "1차전 진행 중/결과 미확인"
+ ]
+}

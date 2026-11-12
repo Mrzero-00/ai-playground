@@ -1,0 +1,105 @@
+{
+ "번호": 3917,
+ "홈": "싱가포르",
+ "원정": "파라과이",
+ "리그": "국제친선 (Mizuho Blue Challenge, 4개국 대회)",
+ "구장": "National Stadium, Kallang (싱가포르) — 싱가포르 자국 홈",
+ "킥오프": "2026-11-13 20:00 SGT = 21:00 KST",
+ "수집시각": "2026-11-12 KST",
+ "대회맥락": [
+  {
+   "내용": "FIFA 매치데이 11-13~17 4개국(싱가포르·파라과이·브라질·일본). 싱가포르는 13일 파라과이, 17일 브라질(18:00, 안첼로티 감독). 파라과이는 17일 일본전. 친선이며 파라과이는 데뷔 신인 테스트 예정 보도.",
+   "출처": [
+    "https://mustsharenews.com/lions-squad-list-for-nov-friendlies/amp/",
+    "https://infonegocios.com.py/default/la-albirroja-cierra-un-ano-historico-singapur-y-japon-los-ultimos-desafios-en-2026"
+   ],
+   "날짜": "2026-11-04 / 2026-11-07"
+  }
+ ],
+ "감독": {
+  "홈": "Gavin Lee",
+  "원정": "Gustavo Alfaro",
+  "출처": "https://mustsharenews.com/lions-squad-list-for-nov-friendlies/amp/"
+ },
+ "결장": [
+  {
+   "팀": "홈",
+   "선수": "Nur Adam Abdullah",
+   "포지션": "미상",
+   "소속": "Lion City Sailors",
+   "사유": "ACL 부상(10-11)",
+   "상태": "확정",
+   "출처": [
+    "https://mustsharenews.com/lions-squad-list-for-nov-friendlies/amp/"
+   ],
+   "날짜": "2026-11-04"
+  },
+  {
+   "팀": "홈",
+   "선수": "Ikhsan Fandi",
+   "포지션": "FW",
+   "소속": "Thespa Gunma",
+   "사유": "부상",
+   "상태": "확정",
+   "출처": [
+    "https://mustsharenews.com/lions-squad-list-for-nov-friendlies/amp/"
+   ],
+   "날짜": "2026-11-04"
+  },
+  {
+   "팀": "홈",
+   "선수": "Perry Ng",
+   "포지션": "DF",
+   "소속": "Cardiff City",
+   "사유": "첫 아이 출산 예정(개인 사유)",
+   "상태": "확정",
+   "출처": [
+    "https://mustsharenews.com/lions-squad-list-for-nov-friendlies/amp/"
+   ],
+   "날짜": "2026-11-04"
+  },
+  {
+   "팀": "홈",
+   "선수": "Irfan Fandi",
+   "포지션": "DF",
+   "소속": "Tampines Rovers",
+   "사유": "감독 선택 제외(사유 미확정; 10-29 5-1 패 후 SNS 논란 또는 폼 추측)",
+   "상태": "확정(제외)",
+   "출처": [
+    "https://mustsharenews.com/lions-squad-list-for-nov-friendlies/amp/"
+   ],
+   "날짜": "2026-11-04"
+  }
+ ],
+ "명단": {
+  "싱가포르": "24명(11-04 발표), 주장 Hariss Harun, Lion City Sailors 10명, 신규 Woo Chun Wei(21, Balestier). 정통 FW는 Ilhan Fandi·Shawal Anuar 2명뿐.",
+  "파라과이": "27명 소집(Alfaro). Eduardo Delmas(Olimpia) 포함, Allan Wlk·Facundo Insfrán 등 데뷔 후보. 전체 명단·부상 이탈 확인 안 됨(la tribuna 페이지 403).",
+  "출처": [
+   "https://www.latribuna.hn/2026/11/07/alfaro-convoca-a-estrella-del-olimpia-eduardo-delmas-para-amistosos/"
+  ],
+  "날짜": "2026-11-07"
+ },
+ "최근결과_10월이후": {
+  "싱가포르": "FIFA ASEAN Cup(10월 종료)에 참가했다는 언급뿐, 스코어 확인 안 됨. 2026-06-05 중국에 1-2 패(skysports 표기). 클럽 Tampines는 10-29 Svay Rieng에 1-5 패.",
+  "파라과이": "확인 안 됨 — 검색에 나온 '콜롬비아 1-0(10-02)·한국 0-2(10-14)·일본 2-2' 기사들은 연도가 2025년일 가능성이 있어 2026-10 결과로 채택하지 않음(미검증)"
+ },
+ "맞대결": "첫 맞대결(출처 표기)",
+ "일정": "싱가포르 17일 브라질전, 파라과이 17일 일본전(4일 뒤). 파라과이는 이전에 2026 월드컵 참가(32강 독일 승 보도 1건 — 단일 출처, 미검증)",
+ "이동": "파라과이 남미→싱가포르 장거리 원정",
+ "예상선발": "확인 안 됨",
+ "날씨·심판": "확인 안 됨",
+ "엇갈림": [
+  "킥오프 표기 여러 개(CET 07:00 vs 13:00 등) — mustsharenews 20:00 SGT 채택"
+ ],
+ "뉴스확인": {
+  "싱가포르": "mustsharenews(11-04), littlebigreddot 검색",
+  "파라과이": "latribuna(검색 요약), infonegocios 검색 — 부상 보도 못 찾음"
+ },
+ "못찾음": [
+  "파라과이 전체 명단·결장",
+  "파라과이 10월 A매치",
+  "예상선발",
+  "날씨",
+  "심판"
+ ]
+}

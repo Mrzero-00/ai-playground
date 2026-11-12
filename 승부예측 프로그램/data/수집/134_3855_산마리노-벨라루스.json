@@ -1,0 +1,78 @@
+{
+ "번호": 3855,
+ "홈": "산마리노",
+ "원정": "벨라루스",
+ "리그": "UEFA 네이션스리그 리그C 그룹1 5차전",
+ "구장": "San Marino Stadium (Serravalle, 산마리노) — 산마리노 자국 개최, 중립 아님",
+ "킥오프": "2026-11-13 04:45 KST (20:45 CET 11/12)",
+ "수집시각": "2026-11-12 KST",
+ "최근결과_10월이후": [
+  {
+   "팀": "벨라루스",
+   "날짜": "2026-10-06",
+   "상대": "핀란드",
+   "장소": "중립(부다페스트 Illovszky Rudolf Stadion; 벨라루스 홈경기를 헝가리에서 개최)",
+   "스코어": "1-0 승",
+   "대회": "네이션스리그",
+   "출처": "https://en.wikipedia.org/wiki/2026%E2%80%9327_UEFA_Nations_League_C"
+  },
+  {
+   "팀": "산마리노",
+   "날짜": "2026-10-06",
+   "상대": "알바니아",
+   "장소": "A(티라나)",
+   "스코어": "1-2 패",
+   "대회": "네이션스리그",
+   "출처": "https://en.wikipedia.org/wiki/2026%E2%80%9327_UEFA_Nations_League_C"
+  }
+ ],
+ "참고_10월7일이전": [
+  {
+   "날짜": "2026-10-03",
+   "경기": "벨라루스 4-0 산마리노(부다페스트, 벨라루스 홈)",
+   "출처": "위키 동일; 일부 라이브 페이지는 3-0 표기(경기 중 기록)"
+  },
+  {
+   "날짜": "2026-09-26/29",
+   "경기": "산마리노 0-7 핀란드, 산마리노 0-3 알바니아, 알바니아 2-0 벨라루스, 핀란드 0-0 벨라루스"
+  }
+ ],
+ "대회맥락": "그룹1 순위(10/6 기준, 위키): 알바니아 4경기 9점, 벨라루스 4경기 7점(5득2실), 핀란드 4경기 7점, 산마리노 4경기 0점(1득16실) 승격 불가. 5차전 11/12 알바니아-핀란드 동시 진행, 6차전 11/15 벨라루스-알바니아(부다페스트), 핀란드-산마리노(헬싱키). 벨라루스는 승격 PO권 경쟁(알바니아 승격 확정 표기). 11/12 이후 순위 변동 없음(이번 경기 전 순위는 10/6 기준 확인; 11월 이전 추가 경기 없음).",
+ "결장": [
+  {
+   "팀": "양팀",
+   "내용": "11월 소집 명단·결장 정보 확인 안 됨. 10/1 프리뷰(sportsmole): 벨라루스 부상 보고 없음, 산마리노 Golinucci 징계 복귀",
+   "상태": "미확인",
+   "출처": [
+    "https://www.sportsmole.co.uk/football/belarus/uefa-nations-league/preview/belarus-vs-san-marino-prediction-team-news-lineups_606073.html"
+   ],
+   "날짜": "2026-10-01"
+  }
+ ],
+ "라인업": {
+  "산마리노_10월예상": "Colombo; Benvenuti, Cevoli, Rossi, Giocondi; Mularoni, L.Capicchioni, Golinucci, Pancotti; Nanni, G.Capicchioni",
+  "벨라루스_10월예상": "Lapoukhov; Kalinin, Volkov, Gomanov, Pechenin; Lukashov, Selyava, Ebong, Shumansky; Barkovskiy, Lisakovich",
+  "주의": "10/3 경기 전 예상이며 11/12 예상 아님. 11/12 발표 라인업 확인 안 됨"
+ },
+ "감독": {
+  "산마리노": "Roberto Cevoli",
+  "벨라루스": "Viktor Goncharenko (2026-01-06 선임, 2029 말 계약)"
+ },
+ "기타": "산마리노 최근 대표팀 성적: 10/1 프리뷰 기준 최근 17경기 16패, 2024-11 리히텐슈타인전 이후 승리 없음, 네이션스리그 14경기 연속 무득점이라는 프리뷰 서술 있음(출처 베팅 프리뷰). 맞대결: 2018-19 벨라루스 5-0, 2-0 승; 2026-10-03 4-0. 이 경기 3일 뒤 6차전: 벨라루스 11/15, 산마리노 11/15 원정(헬싱키).",
+ "날씨_심판": "확인 안 됨",
+ "출처": [
+  "https://en.wikipedia.org/wiki/2026%E2%80%9327_UEFA_Nations_League_C",
+  "https://www.sportsmole.co.uk/football/belarus/uefa-nations-league/preview/belarus-vs-san-marino-prediction-team-news-lineups_606073.html",
+  "https://www.365scores.com/football/match/uefa-nations-league-7016/belarus-san-marino-5036-5053-7016"
+ ],
+ "못찾음": [
+  "11월 소집 명단·결장",
+  "11/12 예상 선발",
+  "심판",
+  "날씨"
+ ],
+ "뉴스확인": {
+  "산마리노": "sportsmole, 일반검색 2회: 11월 특이 뉴스 못 찾음",
+  "벨라루스": "fotmob/nashaniva 검색: 11월 명단 못 찾음, 특이 뉴스 없음(미확인)"
+ }
+}

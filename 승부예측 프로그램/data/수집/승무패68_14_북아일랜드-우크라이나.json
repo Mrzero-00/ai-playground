@@ -1,0 +1,146 @@
+{
+ "번호": 14,
+ "홈": "북아일랜드",
+ "원정": "우크라이나",
+ "리그": "UEFA 네이션스리그 리그B 2조",
+ "구장": "Windsor Park(National Football Stadium), 벨파스트 — 북아일랜드 자국 개최, 경기 매진(lovebelfast 2026-11-03)",
+ "킥오프": "2026-11-15 04:45 KST (11/14 19:45 GMT). 우크라이나 매체 하나는 현지 21:45로 표기 — 엇갈림",
+ "수집시각": "2026-11-12 KST",
+ "최근결과_10월이후": [
+  "2026-10-07 이후 A매치 결과 확인 안 됨(직전 윈도 10/2~10/5 종료)",
+  "참고(10/7 이전): 북아일랜드 10/2 우크라이나 원정(슬로바키아 개최) 결과 및 10/5 조지아전 — 점수 확인 안 됨; 현 4경기 2승2무 4득점 0실점 클린시트 4(lovebelfast)",
+  "참고: 우크라이나 4경기 1승1무2패 2득점5실점, 헝가리를 최소 득점차로 이김·조지아와 무(ukrinform 요약)"
+ ],
+ "결장": [
+  {
+   "팀": "홈",
+   "선수": "Daniel Ballard",
+   "포지션": "DF",
+   "소속": "Sunderland",
+   "사유": "부상(Irish FA)",
+   "상태": "확정",
+   "출처": [
+    "https://lovebelfast.co.uk/northern-ireland-squad-ukraine-hungary-mee-kenny/"
+   ],
+   "날짜": "2026-11-03"
+  },
+  {
+   "팀": "홈",
+   "선수": "Eoin Toal",
+   "포지션": "DF",
+   "소속": "Bolton",
+   "사유": "부상",
+   "상태": "확정",
+   "출처": [
+    "https://lovebelfast.co.uk/northern-ireland-squad-ukraine-hungary-mee-kenny/"
+   ],
+   "날짜": "2026-11-03"
+  },
+  {
+   "팀": "홈",
+   "선수": "Jamie McDonnell",
+   "포지션": "MF",
+   "소속": "Oxford United",
+   "사유": "부상",
+   "상태": "확정",
+   "출처": [
+    "https://lovebelfast.co.uk/northern-ireland-squad-ukraine-hungary-mee-kenny/"
+   ],
+   "날짜": "2026-11-03"
+  },
+  {
+   "팀": "홈",
+   "선수": "Alistair McCann",
+   "소속": "Preston",
+   "사유": "부상 지속",
+   "상태": "확정",
+   "출처": [
+    "https://lovebelfast.co.uk/northern-ireland-squad-ukraine-hungary-mee-kenny/"
+   ],
+   "날짜": "2026-11-03"
+  },
+  {
+   "팀": "홈",
+   "선수": "Ceadach O'Neill",
+   "포지션": "FW",
+   "소속": "Arsenal",
+   "사유": "부상으로 소집 철회(검색 요약, 원문 미확인)",
+   "상태": "단일출처",
+   "출처": [
+    "https://www.newsletter.co.uk/sport/football/northern-ireland/michael-oneill-makes-nine-changes-and-additions-to-northern-ireland-squad-for-nations-league-fixtures-9055394"
+   ],
+   "날짜": "2026-11"
+  },
+  {
+   "팀": "원정",
+   "선수": "Viktor Tsygankov",
+   "포지션": "MF/FW",
+   "사유": "부상으로 소집 제외",
+   "상태": "확정",
+   "출처": [
+    "https://weukraine.tv/sport/ukrajina-oholosila-sklad-zbirnoji-na-listopadovi-matchi-lihi-natsij"
+   ],
+   "날짜": "2026-11-04"
+  },
+  {
+   "팀": "원정",
+   "선수": "Andriy Lunin",
+   "포지션": "GK",
+   "소속": "Real Madrid",
+   "사유": "미소집(사유 확인 안 됨)",
+   "상태": "확정",
+   "출처": [
+    "https://weukraine.tv/sport/ukrajina-oholosila-sklad-zbirnoji-na-listopadovi-matchi-lihi-natsij"
+   ],
+   "날짜": "2026-11-04"
+  },
+  {
+   "팀": "원정",
+   "선수": "Andriy Yarmolenko",
+   "포지션": "FW",
+   "소속": "Dynamo",
+   "사유": "미소집",
+   "상태": "확정",
+   "출처": [
+    "https://weukraine.tv/sport/ukrajina-oholosila-sklad-zbirnoji-na-listopadovi-matchi-lihi-natsij"
+   ],
+   "날짜": "2026-11-04"
+  },
+  {
+   "팀": "원정",
+   "선수": "Artem Dovbyk / Vladyslav Vanat",
+   "포지션": "FW",
+   "사유": "25인 본 명단 제외, 예비 9인에 포함",
+   "상태": "확정",
+   "출처": [
+    "https://weukraine.tv/sport/ukrajina-oholosila-sklad-zbirnoji-na-listopadovi-matchi-lihi-natsij"
+   ],
+   "날짜": "2026-11-04"
+  }
+ ],
+ "우크라이나_소집": "25인 본 명단+예비 9인(2026-11-04, UAF). GK Trubin·Riznyk·Yermakov; DF Matviyenko, Bondar, Zabarnyi, Mykolenko(10월엔 부상 이탈이었으나 11월 본 명단 포함), Mykhavko 등; FW Sudakov, Zubkov, Sikan, Yaremchuk, Synchuk, Kashchuk(첫 소집).",
+ "대회맥락": "리그B 2조 4경기 후: 북아일랜드 8점(2승2무, 4-0) 선두, 헝가리 7점, 우크라이나 4점, 조지아 2점(skysports/primatips/lovebelfast). 이 경기와 같은 날 조지아-헝가리. 마지막 11/17 북아일랜드는 헝가리 원정(Puskás Aréna), 우크라이나는 조지아전(홈 표기, 개최지 확인 안 됨). 승격/강등 확정 여부는 확인 안 됨.",
+ "일정·이동": "11/17 두 팀 모두 경기 3일 뒤. 우크라이나는 자국 개최 불가로 중립 홈 개최(10월은 슬로바키아). 이번은 원정.",
+ "감독": {
+  "홈": "Michael O'Neill (변동 없음)",
+  "원정": "Andrea Maldera (변동 없음)"
+ },
+ "예상선발": "확인 안 됨",
+ "맞대결": "2026-10-02 우크라이나(홈 지정, 슬로바키아)-북아일랜드, 점수 확인 안 됨",
+ "날씨·심판": "확인 안 됨",
+ "엇갈림": [
+  "킥오프 현지 시각 19:45 vs 21:45",
+  "NI 엔트리 25인 중 Ceadach O'Neill 철회 보도는 단일 출처"
+ ],
+ "뉴스확인": {
+  "홈": "lovebelfast, irishfa.com(9월), newsletter.co.uk 확인",
+  "원정": "weukraine.tv, unn.ua, ukrinform/suspilne 검색 — Tsygankov 외 특이 없음"
+ },
+ "못찾음": [
+  "10월 NI-우크라이나 점수",
+  "예상 선발",
+  "심판",
+  "날씨",
+  "2026-10-07 이후 A매치"
+ ]
+}

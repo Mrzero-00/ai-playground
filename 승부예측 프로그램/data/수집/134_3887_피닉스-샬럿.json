@@ -1,0 +1,237 @@
+{
+ "번호": 3887,
+ "홈": "피닉스 선즈",
+ "원정": "샬럿 호네츠",
+ "리그": "NBA",
+ "킥오프": "2026-11-13 11:00 KST (현지 11-12 19:00 MST? ESPN 9:00 PM ET)",
+ "수집시각": "2026-11-12 KST",
+ "결장": [
+  {
+   "팀": "홈",
+   "선수": "Mark Williams",
+   "포지션": "C",
+   "이번시즌_출전": "시즌 통계표에 없음(0경기 추정, 확인 안 됨)",
+   "득점": "미상",
+   "사유": "좌측 어깨 관절와순 파열 수술",
+   "상태": "OUT",
+   "복귀예정": "2027-02-03 이후",
+   "연속결장": "시즌 내내(출전 0)",
+   "출처": [
+    "https://www.espn.com/nba/injuries",
+    "https://www.cbssports.com/nba/injuries/"
+   ],
+   "날짜": "2026-09-11"
+  },
+  {
+   "팀": "원정",
+   "선수": "Brandon Miller",
+   "포지션": "F/SG",
+   "이번시즌_출전": "10경기 31.0MPG",
+   "득점": "20.6ppg",
+   "사유": "사타구니",
+   "상태": "OUT",
+   "복귀예정": "11-15 이후",
+   "연속결장": "11경기 중 10경기 출전, 이번 경기가 첫 결장으로 보임(확인 안 됨)",
+   "출처": [
+    "https://www.espn.com/nba/injuries",
+    "https://www.cbssports.com/nba/injuries/"
+   ],
+   "날짜": "2026-11-11"
+  },
+  {
+   "팀": "원정",
+   "선수": "Grant Williams",
+   "포지션": "PF",
+   "이번시즌_출전": "시즌 통계표에 없음(0경기 추정, 확인 안 됨)",
+   "득점": "미상",
+   "사유": "햄스트링",
+   "상태": "probable(ESPN 목록 status는 Out이나 노트는 probable, 출처 간 엇갈림) / CBS: game-time decision",
+   "복귀예정": "11-12",
+   "연속결장": "미상",
+   "출처": [
+    "https://www.espn.com/nba/injuries",
+    "https://www.cbssports.com/nba/injuries/"
+   ],
+   "날짜": "2026-11-11"
+  },
+  {
+   "팀": "원정",
+   "선수": "Moussa Diabate",
+   "포지션": "C",
+   "이번시즌_출전": "9경기 28.8MPG",
+   "득점": "8.9ppg",
+   "사유": "대퇴사두근",
+   "상태": "probable / game-time decision",
+   "복귀예정": "11-12",
+   "연속결장": "11경기 중 9경기 출전",
+   "출처": [
+    "https://www.espn.com/nba/injuries",
+    "https://www.cbssports.com/nba/injuries/"
+   ],
+   "날짜": "2026-11-11"
+  },
+  {
+   "팀": "원정",
+   "선수": "Dennis Schroder",
+   "포지션": "PG",
+   "이번시즌_출전": "9경기 29.9MPG",
+   "득점": "10.2ppg",
+   "사유": "좌측 햄스트링",
+   "상태": "OUT",
+   "복귀예정": "11-25 이후(2주 후 재평가)",
+   "연속결장": "11-09 클리블랜드전 포함 최근 결장 여부 미상, 9경기 출전",
+   "출처": [
+    "https://www.espn.com/nba/injuries",
+    "https://www.cbssports.com/nba/injuries/"
+   ],
+   "날짜": "2026-11-08"
+  },
+  {
+   "팀": "원정",
+   "선수": "Kon Knueppel",
+   "포지션": "SF",
+   "이번시즌_출전": "1경기 6.0MPG",
+   "득점": "3.0ppg",
+   "사유": "좌측 햄스트링",
+   "상태": "OUT",
+   "복귀예정": "12-12 이후(4주 후 재평가)",
+   "연속결장": "11경기 중 1경기 출전",
+   "출처": [
+    "https://www.espn.com/nba/injuries",
+    "https://www.cbssports.com/nba/injuries/"
+   ],
+   "날짜": "2026-11-08"
+  }
+ ],
+ "라인업": {
+  "홈": {
+   "발표여부": "미발표",
+   "예상XI": "확인 안 됨. 참고: Booker 33.9, Bridges 30.1, Brooks 29.8, Green 27.7, Maluach 19.8",
+   "출처": "https://www.espn.com/nba/team/stats/_/name/phx"
+  },
+  "원정": {
+   "발표여부": "미발표",
+   "예상XI": "확인 안 됨. 참고: Miller 31.0(결장), Reid 29.5, Allen 26.6, Schroder 29.9(결장), Diabate 28.8, James 25.5",
+   "출처": "https://www.espn.com/nba/team/stats/_/name/cha"
+  }
+ },
+ "순위": {
+  "홈": "4승6패(홈 4-3, 원정 0-3, L10 4-6, W1: 직전 11-10 승, ESPN 순위 표엔 W1)",
+  "원정": "4승7패(홈 3-4, 원정 1-3, L10 3-7, W1)",
+  "출처": "https://www.espn.com/nba/standings",
+  "날짜": "2026-11-12"
+ },
+ "최근경기": [
+  {
+   "팀": "피닉스",
+   "날짜": "2026-11-02",
+   "상대": "@Golden State",
+   "스코어": "113-116 패"
+  },
+  {
+   "팀": "피닉스",
+   "날짜": "2026-11-04",
+   "상대": "Portland(H)",
+   "스코어": "119-132 패"
+  },
+  {
+   "팀": "피닉스",
+   "날짜": "2026-11-05",
+   "상대": "Orlando(H)",
+   "스코어": "117-104 승(ESPN 점수 표기 모호, 승으로 기록)"
+  },
+  {
+   "팀": "피닉스",
+   "날짜": "2026-11-07",
+   "상대": "Houston(H)",
+   "스코어": "102-99 승"
+  },
+  {
+   "팀": "피닉스",
+   "날짜": "2026-11-09",
+   "상대": "San Antonio(H)",
+   "스코어": "96-122 패"
+  },
+  {
+   "팀": "피닉스",
+   "날짜": "2026-11-10",
+   "상대": "LA Clippers(H)",
+   "스코어": "133-110 승"
+  },
+  {
+   "팀": "샬럿",
+   "날짜": "2026-10-31",
+   "상대": "Philadelphia(H)",
+   "스코어": "104-109 패"
+  },
+  {
+   "팀": "샬럿",
+   "날짜": "2026-11-02",
+   "상대": "Detroit(H)",
+   "스코어": "91-124 패"
+  },
+  {
+   "팀": "샬럿",
+   "날짜": "2026-11-04",
+   "상대": "@Brooklyn",
+   "스코어": "104-114 패"
+  },
+  {
+   "팀": "샬럿",
+   "날짜": "2026-11-06",
+   "상대": "Boston(H)",
+   "스코어": "80-119 패"
+  },
+  {
+   "팀": "샬럿",
+   "날짜": "2026-11-09",
+   "상대": "Cleveland(H)",
+   "스코어": "124-112 승"
+  }
+ ],
+ "일정·동기·기타": [
+  {
+   "내용": "백투백: 피닉스 없음(11-10 후 1일 휴식, 11-09·11-10은 연속 홈 백투백이었음); 샬럿 11-09 후 2일 휴식(백투백 아님)",
+   "출처": [
+    "https://www.espn.com/nba/team/schedule/_/name/phx",
+    "https://www.espn.com/nba/team/schedule/_/name/cha"
+   ],
+   "날짜": "2026-11-12"
+  },
+  {
+   "내용": "이동: 샬럿 최근 홈 5경기 중 4경기 홈 -> 원정 피닉스(먼 이동). 피닉스는 최근 5경기 홈 연속, 원정 0-3",
+   "출처": [
+    "https://www.espn.com/nba/team/schedule/_/name/cha",
+    "https://www.espn.com/nba/team/schedule/_/name/phx"
+   ],
+   "날짜": "2026-11-12"
+  },
+  {
+   "내용": "ESPN 점수 방향이 승자 우선 표기라 피닉스 득실 일부(11-05 ORL, 11-09 SAS)는 W/L로 재배열; 확인 필요",
+   "출처": [
+    "https://www.espn.com/nba/team/schedule/_/name/phx"
+   ],
+   "날짜": "2026-11-12"
+  }
+ ],
+ "맞대결": "올 시즌 첫 맞대결",
+ "뉴스확인": {
+  "피닉스": [
+   "https://www.espn.com/nba/injuries",
+   "https://www.cbssports.com/nba/injuries/",
+   "https://www.espn.com/nba/team/schedule/_/name/phx"
+  ],
+  "샬럿": [
+   "https://www.espn.com/nba/injuries",
+   "https://www.cbssports.com/nba/injuries/",
+   "https://www.espn.com/nba/team/schedule/_/name/cha"
+  ]
+ },
+ "못찾음": [
+  "공식 NBA 인저리 리포트 최종본(당일 오후 발표 전, 확인 안 됨)",
+  "예상 선발(공식/Rotowire 비공개, 확인 안 됨)",
+  "Grant Williams 이번 시즌 출전 통계",
+  "Suns Jalen Green 등 건강 상태 공식 확인"
+ ],
+ "검증": "ESPN+CBS 부상 목록 일치(샬럿 G.Williams 표기 차이 기록)"
+}

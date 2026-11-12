@@ -1,0 +1,105 @@
+{
+ "번호": 3829,
+ "홈": "아랍에미리트",
+ "원정": "온두라스",
+ "리그": "국제친선",
+ "구장": "Mohammed bin Zayed Stadium, 아부다비 (일부 사이트는 Sheikh Zayed Stadium 표기) — UAE 자국 홈",
+ "킥오프": "2026-11-13 23:10 KST (= 18:10 UAE; 현지 시각은 출처에서 직접 확인 못 함, 사용자 제시값)",
+ "수집시각": "2026-11-12 KST",
+ "대회맥락": [
+  {
+   "내용": "친선. UAE는 11-09~17 아부다비·알아인 캠프, 13일 온두라스, 17일 시리아(알아인 Hazza bin Zayed)와 평가전. 목적은 체력 점검·전술 테스트, 2027 아시안컵 대비(아시안컵이 연기됐다는 보도). 온두라스는 13일 UAE, 17일 쿠웨이트(쿠웨이트시티).",
+   "출처": [
+    "https://www.albayan.ae/sports/uae-stadiums/1563186",
+    "https://www.laprensa.hn/deportes/honduras-bryan-rochez-jose-molina-emiratos-arabes-unidos-kuwait-convocatoria-DB32553347"
+   ],
+   "날짜": "2026-11-05~09"
+  }
+ ],
+ "감독": {
+  "홈": "Zlatko Dalić (검색 요약 보도, albayan 본문에는 미명시 — 단일 출처 주의)",
+  "원정": "José Francisco Molina (스페인인; Reinaldo Rueda 아님)",
+  "출처": "https://www.elheraldo.hn/deportes/seleccion-honduras-viaja-medio-oriente-amistosos-emiratos-arabes-kuwait-MD32578271"
+ },
+ "결장": [
+  {
+   "팀": "원정",
+   "선수": "Bryan Róchez",
+   "포지션": "FW",
+   "소속": "Leixões(포르투갈 2부)",
+   "사유": "포르투갈 거주 관련 사유로 소집 제외",
+   "상태": "확정",
+   "출처": [
+    "https://www.laprensa.hn/deportes/honduras-bryan-rochez-jose-molina-emiratos-arabes-unidos-kuwait-convocatoria-DB32553347"
+   ],
+   "날짜": "2026-11-05"
+  },
+  {
+   "팀": "원정",
+   "선수": "Clever Portillo",
+   "포지션": "미상",
+   "소속": "Motagua",
+   "사유": "소집 제외(사유 미확인)",
+   "상태": "확정",
+   "출처": [
+    "https://www.laprensa.hn/deportes/honduras-bryan-rochez-jose-molina-emiratos-arabes-unidos-kuwait-convocatoria-DB32553347"
+   ],
+   "날짜": "2026-11-05"
+  },
+  {
+   "팀": "원정",
+   "선수": "Luis Ortiz",
+   "포지션": "미상",
+   "사유": "제외, Enrique Facussé로 교체",
+   "상태": "확정",
+   "출처": [
+    "https://www.elheraldo.hn/deportes/jose-molina-confirma-baja-bryan-rochez-emiratos-kuwait-roberto-osorto-BB32553741"
+   ],
+   "날짜": "2026-11-05"
+  },
+  {
+   "팀": "원정",
+   "선수": "Kervin Arriaga",
+   "포지션": "MF",
+   "사유": "대표팀 계속 안 하기로 결정(라프렌사 보도)",
+   "상태": "확정",
+   "출처": [
+    "https://www.laprensa.hn/deportes/honduras-bryan-rochez-jose-molina-emiratos-arabes-unidos-kuwait-convocatoria-DB32553347"
+   ],
+   "날짜": "2026-11-05"
+  }
+ ],
+ "명단": {
+  "UAE": "26명 캠프 소집(GK Khalid Eisa, Hamad Al Muqbali, Fahad Al Dhanhani; Khalid Al Dhanhani, Marcus Meloni, Sasha Ivković, Yousef Al Marzooqi, Caio Pereira 등). 결장 언급 없음.",
+  "온두라스": "약 26명, Roberto Osorto(20, Real España) 합류, Darlin Mencía·Rigoberto Rivas 복귀, 리그 선수+해외파 혼합.",
+  "출처": [
+   "https://www.albayan.ae/sports/uae-stadiums/1563186"
+  ],
+  "날짜": "2026-11-09"
+ },
+ "최근결과_10월이후": {
+  "온두라스": "2026-10-05 자메이카 1-1(네이션스리그, A리그 잔류) / 10-10 벨리즈전 1-0 보도(스코어 미확정·1건 출처, 날짜 불확실)",
+  "UAE": "확인 안 됨"
+ },
+ "맞대결": "2018-10 바르셀로나 친선 1-1",
+ "일정": "UAE 17일 시리아, 온두라스 17일 쿠웨이트",
+ "이동": "온두라스 중미→아부다비 장거리",
+ "예상선발": "확인 안 됨",
+ "날씨·심판": "확인 안 됨",
+ "엇갈림": [
+  "구장명 Mohammed bin Zayed vs Sheikh Zayed (albayan은 Mohammed bin Zayed)",
+  "Dalić 감독 표기는 요약 단일 출처"
+ ],
+ "뉴스확인": {
+  "UAE": "albayan(11-09), emaratalyoum 검색",
+  "온두라스": "laprensa.hn·elheraldo.hn(11-05)"
+ },
+ "못찾음": [
+  "UAE 10월 이후 A매치",
+  "온두라스 전체 명단",
+  "예상선발",
+  "날씨",
+  "심판",
+  "정확한 현지 킥오프"
+ ]
+}

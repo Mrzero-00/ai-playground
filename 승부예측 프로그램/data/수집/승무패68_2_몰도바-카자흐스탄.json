@@ -1,0 +1,74 @@
+{
+ "번호": 2,
+ "홈": "몰도바",
+ "원정": "카자흐스탄",
+ "리그": "UEFA 네이션스리그 C리그 3조",
+ "수집시각": "2026-11-12 KST",
+ "킥오프": "2026-11-14 02:00 KST 요청값. 출처: 11-13 현지 19:00(=KST 11-14 02:00) 표기, 14:45·18:00 등 엇갈림",
+ "구장": "Stadionul Zimbru, 키시너우(몰도바) — 몰도바 자국 개최, 중립 아님",
+ "출처_구장": [
+  "https://www.sportsmole.co.uk/football/kazakhstan/uefa-nations-league/preview/kazakhstan-vs-moldova-prediction-team-news-lineups_606036.html",
+  "https://karlobag.eu/en/sports/news/moldova-vs-kazakhstan-nations-league-tickets-2026-usrcj/"
+ ],
+ "최근결과_10월이후": {
+  "몰도바": [
+   "2026-10-02 카자흐스탄 2-1 승 (원정, NL; 득점 Clescenco 45+1', Popescu 50')",
+   "2026-10-06 슬로바키아 0-4 패 (홈 키시너우, NL; Strelec 8', Suslov 44', Hancko 60', Haraslin 75')"
+  ],
+  "카자흐스탄": [
+   "2026-10-02 몰도바 1-2 패 (홈, 득점 Alip 64')",
+   "2026-10-06 경기: 확인 안 됨(ESPN 순위상 0승2무2패 승점 2)"
+  ]
+ },
+ "출처_최근결과": [
+  "https://www.espn.com/soccer/match/_/gameId/401861144/slovakia-moldova (2026-10-06)",
+  "https://ipn.md/en/moldova-defeated-0-4-by-slovakia-in-the-nations-league/"
+ ],
+ "대회맥락": "C3조 ESPN 기준(10-06 직후): 슬로바키아 3승1무 승점10, 페로제도 4무 승점4, 몰도바 1승1무2패 승점4(득실 -5), 카자흐스탄 2무2패 승점2. 11월 두 경기 남음(13일 몰도바-카자흐, 슬로바키아-페로 13일 보도). 강등 플레이아웃 위치 관련 세부는 확인 안 됨",
+ "감독": {
+  "몰도바": "Lilian Popescu(2025-09부터)",
+  "카자흐스탄": "John van 't Schip(신임)"
+ },
+ "결장": [
+  {
+   "팀": "홈",
+   "내용": "Stefan Bitca(FW) 부상, 8월24일부터 aiscore 표기 — 현재 상태 불명",
+   "상태": "의심",
+   "출처": [
+    "https://www.aiscore.com/team-moldova/59gklzi2nwf17xd"
+   ]
+  },
+  {
+   "팀": "원정",
+   "내용": "10월 기사: Islambek Kuat 근육부상, Dastan Satpaev 허벅지 — 11월 상태 확인 안 됨",
+   "상태": "의심(구보도 10-02)",
+   "출처": [
+    "https://www.sportsmole.co.uk/football/kazakhstan/uefa-nations-league/preview/kazakhstan-vs-moldova-prediction-team-news-lineups_606036.html"
+   ]
+  }
+ ],
+ "라인업": {
+  "예상선발": "11월 매체 예상 확인 안 됨. 10-02 예상(참고): 몰도바 Celeadnic; Cucos, Iovu, Gherasimencov; Forov, Fratea, Baboglo, Stina, Reabciuk; Mandricenco; Popescu",
+  "11월명단": "몰도바 26명 11월 초 발표 보도(24·28명 표기도 있음) 상세 확인 안 됨"
+ },
+ "맞대결": "2026-10-02 카자흐스탄 1-2 몰도바 (몰도바 NL 최근 승리가 2년 전이라는 보도)",
+ "FIFA랭킹": "카자흐스탄 111위, 몰도바 159위 (10월 기사)",
+ "날씨": "확인 안 됨",
+ "심판": "확인 안 됨",
+ "이동": "카자흐스탄 → 키시너우 원정(장거리), 정확 거리 확인 안 됨",
+ "뉴스확인": {
+  "몰도바": "sportsmole, aiscore, ipn.md 검색 — 특이 뉴스 없음(11월 소집 상세 확인 안 됨)",
+  "카자흐스탄": "sportsmole, kff.kz 검색 — 11월 뉴스 확인 안 됨"
+ },
+ "엇갈림": [
+  "킥오프 현지시각 14:45~19:00 엇갈림",
+  "10-06 슬로바키아전 스코어 일부 매체 2-0/0-4 혼재(ESPN·ipn 0-4 채택)"
+ ],
+ "못찾음": [
+  "11월 확정 명단·부상",
+  "카자흐스탄 10-06 결과",
+  "최신 순위표",
+  "공식 선발",
+  "날씨·심판"
+ ]
+}

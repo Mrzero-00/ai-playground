@@ -1,0 +1,312 @@
+{
+ "번호": 3875,
+ "홈": "필라델피아 76ers",
+ "원정": "토론토 랩터스",
+ "리그": "NBA",
+ "킥오프": "2026-11-13 09:00 KST (미국 현지 11-12 19:00 ET), Xfinity Mobile Center",
+ "수집시각": "2026-11-12 KST",
+ "결장": [
+  {
+   "팀": "홈",
+   "선수": "Joel Embiid",
+   "포지션": "C",
+   "이번시즌_출전": "10경기 31.8MPG",
+   "득점": "17.7ppg",
+   "사유": "우측 발 족저근막 관리(plantar fascia injury management)",
+   "상태": "questionable(CBS: 경기 직전 결정, 일부 매체 probable 표기로 엇갈림)",
+   "복귀예정": "11-12 당일 확정 필요",
+   "연속결장": "12경기 중 10경기 출전(2경기 결장, 어느 경기인지 확인 안 됨)",
+   "출처": [
+    "https://www.phillyvoice.com/sixers-vs-raptors-76ers-injury-report-news-analysis-lebron-james-updatepjoel-embiid-status-kawhi-leonard-nba/",
+    "https://www.nbcsports.com/fantasy/basketball/player-news/2026-11-11/joel-embiid-foot-questionable-thursday-vs-tor",
+    "https://www.cbssports.com/nba/injuries/"
+   ],
+   "날짜": "2026-11-11"
+  },
+  {
+   "팀": "홈",
+   "선수": "LeBron James",
+   "포지션": "F",
+   "이번시즌_출전": "10경기 32.6MPG",
+   "득점": "15.1ppg",
+   "사유": "허리/좌골신경통(sciatica) 관리",
+   "상태": "questionable(CBS: 경기 직전 결정)",
+   "복귀예정": "11-12 당일 확정 필요",
+   "연속결장": "12경기 중 10경기 출전",
+   "출처": [
+    "https://www.nbcsports.com/fantasy/basketball/player-news/2026-11-11/lebron-james-sciatica-questionable-thursday",
+    "https://www.phillyvoice.com/sixers-vs-raptors-76ers-injury-report-news-analysis-lebron-james-updatepjoel-embiid-status-kawhi-leonard-nba/"
+   ],
+   "날짜": "2026-11-11"
+  },
+  {
+   "팀": "홈",
+   "선수": "Adem Bona",
+   "포지션": "C",
+   "이번시즌_출전": "9경기 14.2MPG",
+   "득점": "2.1ppg",
+   "사유": "경추 염좌(11-04 디트로이트전 부상)",
+   "상태": "OUT",
+   "복귀예정": "11-18 이후",
+   "연속결장": "최근 3경기 결장(이번이 4번째)",
+   "출처": [
+    "https://www.phillyvoice.com/sixers-vs-raptors-76ers-injury-report-news-analysis-lebron-james-updatepjoel-embiid-status-kawhi-leonard-nba/",
+    "https://www.espn.com/nba/injuries"
+   ],
+   "날짜": "2026-11-11"
+  },
+  {
+   "팀": "홈",
+   "선수": "Dominick Barlow",
+   "포지션": "F",
+   "이번시즌_출전": "시즌 통계표에 없음(0경기 추정, 확인 안 됨)",
+   "득점": "미상",
+   "사유": "허리",
+   "상태": "OUT",
+   "복귀예정": "11-18 이후(닉 널스 11-04: 10~12일 더)",
+   "연속결장": "한 달 넘게 결장(PhillyVoice), 정확한 경기수 확인 안 됨",
+   "출처": [
+    "https://www.espn.com/nba/injuries",
+    "https://www.legionreport.com/?p=50189"
+   ],
+   "날짜": "2026-11-04"
+  },
+  {
+   "팀": "홈",
+   "선수": "Ariel Hukporti",
+   "포지션": "C",
+   "이번시즌_출전": "시즌 통계표에 없음(0경기 추정, 확인 안 됨)",
+   "득점": "미상",
+   "사유": "우측 아킬레스건 파열",
+   "상태": "OUT(시즌 아웃)",
+   "복귀예정": "시즌 종료",
+   "연속결장": "시즌 내내",
+   "출처": [
+    "https://www.espn.com/nba/injuries"
+   ],
+   "날짜": "2026-10-06"
+  },
+  {
+   "팀": "원정",
+   "선수": "Kawhi Leonard",
+   "포지션": "F",
+   "이번시즌_출전": "2경기 26.0MPG",
+   "득점": "19.5ppg",
+   "사유": "무릎",
+   "상태": "OUT",
+   "복귀예정": "11-23 이후(11-10 최소 1주 더 결장 확정)",
+   "연속결장": "11경기 중 2경기만 출전, 최근 약 9경기 결장(10-25 이후로 추정, 확인 안 됨)",
+   "출처": [
+    "https://www.phillyvoice.com/sixers-vs-raptors-76ers-injury-report-news-analysis-lebron-james-updatepjoel-embiid-status-kawhi-leonard-nba/",
+    "https://www.espn.com/nba/injuries",
+    "https://www.cbssports.com/nba/injuries/"
+   ],
+   "날짜": "2026-11-11"
+  },
+  {
+   "팀": "원정",
+   "선수": "Scottie Barnes",
+   "포지션": "F",
+   "이번시즌_출전": "8경기 33.3MPG",
+   "득점": "23.5ppg",
+   "사유": "사타구니(groin)",
+   "상태": "game-time decision (11-10 ESPN은 11-11 보스턴전 OUT)",
+   "복귀예정": "11-12 토론토 공식 리포트 미확인",
+   "연속결장": "11경기 중 8경기 출전, 11-11 보스턴전 결장 확인(ESPN)",
+   "출처": [
+    "https://www.cbssports.com/nba/injuries/",
+    "https://www.espn.com/nba/injuries"
+   ],
+   "날짜": "2026-11-11"
+  },
+  {
+   "팀": "원정",
+   "선수": "Trayce Jackson-Davis",
+   "포지션": "C",
+   "이번시즌_출전": "9경기 7.4MPG",
+   "득점": "3.1ppg",
+   "사유": "질병",
+   "상태": "game-time decision(11-11 보스턴전 OUT)",
+   "복귀예정": "미상",
+   "연속결장": "미상",
+   "출처": [
+    "https://www.cbssports.com/nba/injuries/",
+    "https://www.espn.com/nba/injuries"
+   ],
+   "날짜": "2026-11-11"
+  },
+  {
+   "팀": "원정",
+   "선수": "Nate Bittle",
+   "포지션": "C",
+   "이번시즌_출전": "시즌 통계표에 없음(0경기 추정, 확인 안 됨)",
+   "득점": "미상",
+   "사유": "발",
+   "상태": "OUT",
+   "복귀예정": "11-15 이후",
+   "연속결장": "미상",
+   "출처": [
+    "https://www.cbssports.com/nba/injuries/",
+    "https://www.espn.com/nba/injuries"
+   ],
+   "날짜": "2026-11-08"
+  },
+  {
+   "팀": "원정",
+   "선수": "Jakob Poeltl",
+   "포지션": "C",
+   "이번시즌_출전": "8경기 22.8MPG",
+   "득점": "8.5ppg",
+   "사유": "SportBusy 기준 day-to-day, ESPN/CBS 목록엔 없음(엇갈림)",
+   "상태": "확인 안 됨",
+   "복귀예정": "미상",
+   "연속결장": "미상",
+   "출처": [
+    "https://www.sportbusy.com/games/nba/14315868-toronto-raptors-at-philadelphia-76ers-2026-11-12/"
+   ],
+   "날짜": "2026-11-12"
+  }
+ ],
+ "라인업": {
+  "홈": {
+   "발표여부": "미발표",
+   "예상XI": "확인 안 됨(Rotowire 11-12 라인업은 유료/미공개). 참고: 시즌 출전시간 상위 Maxey 36.3, Brown 34.9, Embiid 31.8, LeBron 32.6, Edgecombe 33.5(Embiid/LeBron 결장 시 변동)",
+   "출처": "https://www.espn.com/nba/team/stats/_/name/phi"
+  },
+  "원정": {
+   "발표여부": "미발표",
+   "예상XI": "확인 안 됨. 참고: Barnes 33.3, Barrett 33.3, Quickley 31.8, Walter 29.6 + Poeltl/Murray-Boyles (Barnes 결장 가능)",
+   "출처": "https://www.espn.com/nba/team/stats/_/name/tor"
+  }
+ },
+ "순위": {
+  "홈": "9승3패(홈 4-2, 원정 5-1, L10 7-3, 직전 1패 연속 L1)",
+  "원정": "5승6패(홈 2-3, 원정 3-3, L10 4-6, L2)",
+  "출처": "https://www.espn.com/nba/standings",
+  "날짜": "2026-11-12"
+ },
+ "최근경기": [
+  {
+   "팀": "필라델피아",
+   "날짜": "2026-10-31",
+   "상대": "@Charlotte",
+   "스코어": "109-104 승"
+  },
+  {
+   "팀": "필라델피아",
+   "날짜": "2026-11-02",
+   "상대": "Chicago(H)",
+   "스코어": "126-107 승"
+  },
+  {
+   "팀": "필라델피아",
+   "날짜": "2026-11-04",
+   "상대": "@Detroit",
+   "스코어": "112-106 승"
+  },
+  {
+   "팀": "필라델피아",
+   "날짜": "2026-11-06",
+   "상대": "@Cleveland",
+   "스코어": "95-119 패"
+  },
+  {
+   "팀": "필라델피아",
+   "날짜": "2026-11-08",
+   "상대": "@Chicago",
+   "스코어": "127-121 승"
+  },
+  {
+   "팀": "필라델피아",
+   "날짜": "2026-11-10",
+   "상대": "Boston(H)",
+   "스코어": "101-123 패"
+  },
+  {
+   "팀": "토론토",
+   "날짜": "2026-11-01",
+   "상대": "@LA Lakers",
+   "스코어": "125-131 패(ESPN 표기 131-125 L)"
+  },
+  {
+   "팀": "토론토",
+   "날짜": "2026-11-02",
+   "상대": "@LA Clippers",
+   "스코어": "125-118 승"
+  },
+  {
+   "팀": "토론토",
+   "날짜": "2026-11-04",
+   "상대": "@Denver",
+   "스코어": "109-128 패"
+  },
+  {
+   "팀": "토론토",
+   "날짜": "2026-11-06",
+   "상대": "@Milwaukee",
+   "스코어": "121-107 승"
+  },
+  {
+   "팀": "토론토",
+   "날짜": "2026-11-09",
+   "상대": "Memphis(H)",
+   "스코어": "102-118 패"
+  },
+  {
+   "팀": "토론토",
+   "날짜": "2026-11-11",
+   "상대": "Boston(H)",
+   "스코어": "93-98 패"
+  }
+ ],
+ "일정·동기·기타": [
+  {
+   "내용": "백투백: 토론토 YES — 11-11 홈 보스턴전(패 93-98, 미국 현지 수요일) 다음날 11-12 원정 필라델피아. 필라델피아는 11-10 홈 보스턴전 후 1일 휴식(백투백 아님)",
+   "출처": [
+    "https://www.espn.com/nba/team/schedule/_/name/tor",
+    "https://www.espn.com/nba/team/schedule/_/name/phi"
+   ],
+   "날짜": "2026-11-12"
+  },
+  {
+   "내용": "이동: 토론토 홈(토론토)->필라델피아 원정, 직전 연속 홈 2경기(11-09, 11-11) 후 이동. 필라델피아는 홈 경기",
+   "출처": [
+    "https://www.espn.com/nba/team/schedule/_/name/tor"
+   ],
+   "날짜": "2026-11-12"
+  },
+  {
+   "내용": "토론토 11-11 보스턴전: Barnes(사타구니)·Jackson-Davis(질병)·Leonard·Bittle 결장(ESPN 11-10/11 노트)",
+   "출처": [
+    "https://www.espn.com/nba/injuries"
+   ],
+   "날짜": "2026-11-11"
+  },
+  {
+   "내용": "토론토 4-3에서 5-6으로 하락(최근 연패 L2). 직전 L10 4-6",
+   "출처": "https://www.espn.com/nba/standings",
+   "날짜": "2026-11-12"
+  }
+ ],
+ "맞대결": "올 시즌 첫 맞대결(양 팀 일정상 11-12가 첫 경기). 지난 시즌 2025-11-19 TOR 121-112 PHI(PHI 홈, CBS 확인), 2026-01-11 TOR 116-115 OT PHI@TOR(CBS) 등은 참고",
+ "뉴스확인": {
+  "필라델피아": [
+   "https://www.phillyvoice.com/sixers-vs-raptors-76ers-injury-report-news-analysis-lebron-james-updatepjoel-embiid-status-kawhi-leonard-nba/",
+   "https://www.nbcsports.com/fantasy/basketball/player-news/2026-11-11/joel-embiid-foot-questionable-thursday-vs-tor",
+   "https://www.cbssports.com/nba/injuries/",
+   "https://www.espn.com/nba/injuries"
+  ],
+  "토론토": [
+   "https://www.espn.com/nba/injuries",
+   "https://www.cbssports.com/nba/injuries/",
+   "https://www.sportbusy.com/games/nba/14315868-toronto-raptors-at-philadelphia-76ers-2026-11-12/"
+  ]
+ },
+ "못찾음": [
+  "공식 NBA 인저리 리포트 최종본(11-12 당일 오후 발표 전, 확인 안 됨)",
+  "예상 선발(공식/Rotowire 비공개)",
+  "Embiid/LeBron/Barnes 당일 출전 여부",
+  "Barlow 정확한 결장 경기수"
+ ],
+ "검증": "결장 출처 2곳 이상(ESPN, CBS, PhillyVoice, NBC Sports); ESPN 일정은 점수 순서가 승자 우선이라 패 경기 점수는 재배열; Embiid는 probable/questionable 엇갈림"
+}

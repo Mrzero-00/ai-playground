@@ -1,0 +1,115 @@
+{
+ "번호": 3931,
+ "홈": "카타르",
+ "원정": "호주",
+ "리그": "국제친선 (2027 아시안컵 대비)",
+ "구장": "카타르축구협회 공식 발표 Jassim Bin Hamad Stadium vs Qatar Tribune 보도 Abdullah Bin Khalifa Stadium — 출처 엇갈림, 도하 개최, 카타르 자국 홈",
+ "킥오프": "2026-11-13 17:45 도하(Qatar Tribune) = 23:45 KST; starting11은 14:45 GMT(=17:45 도하)로 일치",
+ "수집시각": "2026-11-12 KST",
+ "대회맥락": [
+  {
+   "내용": "친선. 카타르는 11-17 한국전, 12-27 사우디전(알코바르)도 예정. 호주는 11-13 카타르전 후 3일 뒤 요르단전(암만, 11-16/17 추정, 날짜 미확정). 호주 요르단전은 치안 우려로 재조정·불참 논란(선수노조 PFA가 일정 변경/이전 요구, 인도네시아는 요르단 친선 취소). 아시안컵이 2027-12~2028-01로 연기됐다는 보도.",
+   "출처": [
+    "https://www.qatar-tribune.com/article/260562/sports/qatar-to-meet-australia-south-korea-and-saudi-in-international-friendlies",
+    "https://www.abc.net.au/news/2026-11-08/socceroos-monitoring-security-ahead-of-friendlies/107360560",
+    "https://www.abc.net.au/news/2026-11-10/football-popovic-wont-blacklist-socceroos-jordan-friendlies/107365692"
+   ],
+   "날짜": "2026-10-23 / 11-08 / 11-10"
+  }
+ ],
+ "감독": {
+  "홈": "Julen Lopetegui (Qatar Tribune 10-23)",
+  "원정": "Tony Popovic",
+  "출처": "https://www.qatar-tribune.com/article/260562/sports/qatar-to-meet-australia-south-korea-and-saudi-in-international-friendlies"
+ },
+ "결장": [
+  {
+   "팀": "원정",
+   "선수": "Mat Ryan",
+   "포지션": "GK(주장)",
+   "대표팀주전": "월드컵서 Patrick Beach에 주전 내줌",
+   "사유": "감독 선택 제외 2회 연속(10월 브라질전도 제외). Popovic: '구도에서 완전히 빠진 것은 아님'",
+   "상태": "확정(제외)",
+   "출처": [
+    "https://football360.com.au/socceroos-squad-analysis-tony-popovic-call-ups-omissions/"
+   ],
+   "날짜": "2026-11-07"
+  },
+  {
+   "팀": "원정",
+   "선수": "Jackson Irvine",
+   "포지션": "MF",
+   "사유": "신인 기용 위해 제외(88캡, 부상 아님으로 보도)",
+   "상태": "확정(제외)",
+   "출처": [
+    "https://football360.com.au/socceroos-squad-analysis-tony-popovic-call-ups-omissions/"
+   ],
+   "날짜": "2026-11-07"
+  },
+  {
+   "팀": "원정",
+   "선수": "Milos Degenek",
+   "포지션": "DF",
+   "사유": "Gianni Stensness 기용으로 제외",
+   "상태": "확정(제외)",
+   "출처": [
+    "https://football360.com.au/socceroos-squad-analysis-tony-popovic-call-ups-omissions/"
+   ],
+   "날짜": "2026-11-07"
+  },
+  {
+   "팀": "원정",
+   "선수": "Aiden O'Neill",
+   "포지션": "MF",
+   "사유": "제외, 이유 불명(치안 불참 여부 불분명)",
+   "상태": "확정(제외)",
+   "출처": [
+    "https://www.abc.net.au/news/2026-11-08/socceroos-monitoring-security-ahead-of-friendlies/107360560"
+   ],
+   "날짜": "2026-11-08"
+  },
+  {
+   "팀": "원정",
+   "선수": "Mohamed Toure",
+   "포지션": "FW",
+   "사유": "어깨 수술 회복 중",
+   "상태": "확정",
+   "출처": [
+    "https://football360.com.au/socceroos-squad-analysis-tony-popovic-call-ups-omissions/"
+   ],
+   "날짜": "2026-11-07"
+  }
+ ],
+ "명단": {
+  "호주": "25명, 비캡 7명(Herrington 형제 포함 신규 Waddingham, Klein, Diesel Herrington), 8명 변경(Gauci, Glover, Stensness, Klein, Arzani, Waddingham, D.Herrington, K.Yengi). 핵심 잔류: Souttar, Circati, Behich, McGree, Metcalfe, Irankunda, Beach. 경험 적은 스쿼드로 평가됨. 로테이션형 실험 성격.",
+  "카타르": "11-09 Raya '28명 11월 첫 명단' 헤드라인만 확인(본문 403), 구성·결장 확인 안 됨.",
+  "출처": [
+   "https://footballaustralia.com.au/news/eight-changes-commbank-socceroos-november-fifa-international-window"
+  ],
+  "날짜": "2026-11-07"
+ },
+ "최근결과_10월이후": {
+  "호주": "2026-10 브라질과 친선 2경기를 치른 것으로 보이나 스코어 확인 안 됨(football360 '10월 브라질전'; 9월 브라질전 언급도 있어 시점 엇갈림)",
+  "카타르": "10월 이후 A매치 확인 안 됨"
+ },
+ "맞대결": "마지막 친선 2014 카타르 1-0 (출처 표기)",
+ "일정": "카타르 17일 한국전, 호주 3일 뒤 요르단전",
+ "이동": "호주 오세아니아→도하 장거리",
+ "예상선발": "확인 안 됨",
+ "날씨·심판": "확인 안 됨",
+ "엇갈림": [
+  "구장: Jassim Bin Hamad(QFA 공식) vs Abdullah Bin Khalifa(Qatar Tribune)",
+  "Mat Ryan이 10월 브라질전 제외 vs 9월 브라질전 — 시점 표기 엇갈림"
+ ],
+ "뉴스확인": {
+  "카타르": "qatar-tribune(10-23), qna 검색, raya(403) — 카타르 부상 뉴스 못 찾음",
+  "호주": "footballaustralia(11-07), abc.net.au(11-08, 11-10), football360"
+ },
+ "못찾음": [
+  "카타르 명단·결장",
+  "카타르·호주 10월 이후 A매치 스코어",
+  "예상선발",
+  "날씨",
+  "심판"
+ ]
+}

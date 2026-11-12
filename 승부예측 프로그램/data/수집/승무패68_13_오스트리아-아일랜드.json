@@ -1,0 +1,166 @@
+{
+ "번호": 13,
+ "홈": "오스트리아",
+ "원정": "아일랜드",
+ "리그": "UEFA 네이션스리그 리그B 3조",
+ "구장": "Raiffeisen Arena, 린츠(오스트리아) — 오스트리아 자국 개최, 중립 아님. 오스트리아는 이 구장 7경기 6승(20득점 4실점)·린츠 무패(ligaportal/irelandnow류 기사)",
+ "킥오프": "2026-11-15 04:45 KST (11/14 20:45 현지 CET)",
+ "수집시각": "2026-11-12 KST",
+ "최근결과_10월이후": [
+  "2026-10-07 이후 두 팀의 A매치 결과 확인 안 됨(9~10월 윈도는 10/5~6 종료로 보임; 직전 윈도 정보만 확인)",
+  "참고(10/7 이전): 10/1 아일랜드 2-2 오스트리아(더블린, 아일랜드가 2-0 리드 후 동점 허용) — barneracing 프리뷰 2026-11",
+  "참고: 오스트리아 직전 4경기 2승2무 무패 8점; 마지막 홈 패배는 2023 벨기에전(barneracing)",
+  "참고: 아일랜드 4경기 5점(코소보 원정 첫 경기 패, 이스라엘전 리드 놓침 — 점수 확인 안 됨)"
+ ],
+ "결장": [
+  {
+   "팀": "홈",
+   "선수": "David Alaba",
+   "포지션": "DF/주장",
+   "사유": "종아리 부상으로 소집 제외",
+   "상태": "확정(salzburg24 APA 2026-11-02)",
+   "출처": [
+    "https://www.salzburg24.at/sport/fussball/showdown-um-nations-league-aufstieg-ralf-rangnick-nominiert-vier-salzburger-fuer-oefb-team-art-343276"
+   ],
+   "날짜": "2026-11-02"
+  },
+  {
+   "팀": "홈",
+   "선수": "Christoph Baumgartner",
+   "포지션": "MF",
+   "사유": "힘줄 부상 후 복귀로 소집됨(salzburg24 11/02). 반면 다른 요약 기사(검색 요약)는 불가로 적음 — 엇갈림",
+   "상태": "엇갈림",
+   "출처": [
+    "https://www.salzburg24.at/sport/fussball/showdown-um-nations-league-aufstieg-ralf-rangnick-nominiert-vier-salzburger-fuer-oefb-team-art-343276",
+    "https://bettingnews.baroneracing.com/2026/11/austria-v-ireland-match-preview-team-news-predicted-lineups-betting-tips"
+   ],
+   "날짜": "2026-11-02"
+  },
+  {
+   "팀": "홈",
+   "선수": "Marco Grüll",
+   "포지션": "FW/MF",
+   "사유": "barneracing은 불참(Chukwuemeka와 함께 withdrew)이라 적음; salzburg24 11/02 는 Salzburger 선수로 Grüll을 소집 명단에 언급 — 엇갈림",
+   "상태": "엇갈림",
+   "출처": [
+    "https://bettingnews.baroneracing.com/2026/11/austria-v-ireland-match-preview-team-news-predicted-lineups-betting-tips"
+   ],
+   "날짜": "2026-11"
+  },
+  {
+   "팀": "홈",
+   "선수": "Carney Chukwuemeka",
+   "포지션": "MF",
+   "사유": "소집 철회(withdrew), 사유 확인 안 됨",
+   "상태": "단일출처",
+   "출처": [
+    "https://bettingnews.baroneracing.com/2026/11/austria-v-ireland-match-preview-team-news-predicted-lineups-betting-tips"
+   ],
+   "날짜": "2026-11"
+  },
+  {
+   "팀": "홈",
+   "선수": "Marco Friedl",
+   "포지션": "DF",
+   "사유": "소집 명단에서 예비명단 이동, Michael Svoboda 대체 소집",
+   "상태": "확정",
+   "출처": [
+    "https://www.salzburg24.at/sport/fussball/showdown-um-nations-league-aufstieg-ralf-rangnick-nominiert-vier-salzburger-fuer-oefb-team-art-343276"
+   ],
+   "날짜": "2026-11-02"
+  },
+  {
+   "팀": "홈",
+   "선수": "Sascha Horvath",
+   "포지션": "MF",
+   "사유": "출전 의심(doubt)",
+   "상태": "의심",
+   "출처": [
+    "검색요약 thejournal/irishexaminer 계열 (원문 미확인)"
+   ],
+   "날짜": "2026-11"
+  },
+  {
+   "팀": "원정",
+   "선수": "Gavin Bazunu",
+   "포지션": "GK",
+   "사유": "허벅지(quad) 부상, 9월 이스라엘전 소집 철회 → Mark Travers 대체",
+   "상태": "확정",
+   "출처": [
+    "https://www.thejournal.ie/ireland-squad-20-2-7216511-Nov2026/"
+   ],
+   "날짜": "2026-11-05"
+  },
+  {
+   "팀": "원정",
+   "선수": "Evan Ferguson / Josh Cullen / Jaden Umeh",
+   "포지션": "FW / MF / ?",
+   "사유": "부상 지속으로 불가(검색 요약)",
+   "상태": "단일출처",
+   "출처": [
+    "https://www.irishexaminer.com/sport/soccer/arid-41933583.html"
+   ],
+   "날짜": "2026-11-05"
+  },
+  {
+   "팀": "원정",
+   "선수": "Seamus Coleman",
+   "포지션": "DF",
+   "사유": "38세, 선수 아닌 'hybrid' 코칭 역할로 합류, 출전 안 함",
+   "상태": "확정",
+   "출처": [
+    "https://www.thejournal.ie/ireland-squad-20-2-7216511-Nov2026/"
+   ],
+   "날짜": "2026-11-05"
+  },
+  {
+   "팀": "원정",
+   "선수": "Nathan Collins(주장)",
+   "포지션": "DF",
+   "사유": "종아리 부상 후 복귀, 소집됨",
+   "상태": "복귀",
+   "출처": [
+    "https://www.thejournal.ie/ireland-squad-20-2-7216511-Nov2026/"
+   ],
+   "날짜": "2026-11-05"
+  },
+  {
+   "팀": "원정",
+   "선수": "Harvey Vale",
+   "포지션": "MF",
+   "사유": "재활 마치고 복귀 소집",
+   "상태": "복귀",
+   "출처": [
+    "https://www.thejournal.ie/ireland-squad-20-2-7216511-Nov2026/"
+   ],
+   "날짜": "2026-11-05"
+  }
+ ],
+ "대회맥락": "리그B 3조 4경기 후: 오스트리아 8점 선두(2승2무, 무패), 아일랜드·코소보 5점(아일랜드 득실 우위 표기), 이스라엘 2점. 이 경기 오스트리아 승리 시 리그A 승격 조기 확정(salzburg24, ligaportal 2026-11-09). 아일랜드 목표는 조 2위(Hallgrímsson, 2승 필요 발언). 코소보-이스라엘 같은 날 별도 경기. 근거 https://www.skysports.com/football/republic-of-ireland-vs-austria/table/554038 (10/29 갱신), https://dave.sport/news/nations-league-what-wales-scotland-northern-ireland-need/",
+ "일정·이동": "오스트리아: 11/17 이스라엘전 원정(데브레첸, 헝가리) — 3일 뒤. 아일랜드: 11/17 더블린 홈 코소보전 — 3일 뒤, 린츠 원정 이동. 출처 salzburg24, rte.ie, thejournal.ie",
+ "감독": {
+  "홈": "Ralf Rangnick (변동 없음)",
+  "원정": "Heimir Hallgrímsson (변동 없음)"
+ },
+ "예상선발": {
+  "출처": "barneracing 프리뷰(매체 예상, 미확정) 2026-11",
+  "홈": "A.Schlager; Posch, Lienhart, Danso, Wöber; Seiwald, X.Schlager; Wimmer, Baumgartner, Schmid; Adamu",
+  "원정": "Kelleher; O'Brien, Collins, O'Shea, Egan, Manning; Molumby, Knight; Moylan, Parrott, Ogbene"
+ },
+ "맞대결": "2026-10-01 더블린 2-2(아일랜드 2-0 리드); 2017 더블린 1-1; 2016-11 빈 아일랜드 1-0 (McClean). 출처 barneracing",
+ "날씨·심판": "확인 안 됨",
+ "엇갈림": [
+  "Alaba 불참은 salzburg24 확정, 일부 요약은 Baumgartner도 불가로 적음(salzburg24는 복귀 소집) — 라인업 발표 때 확인 필요",
+  "Grüll 소집 여부 엇갈림"
+ ],
+ "뉴스확인": {
+  "홈": "salzburg24, ligaportal.at(11/09), barneracing 확인 — 위 결장 외 특이 뉴스 없음",
+  "원정": "thejournal.ie, irishexaminer, irishnews, rte.ie 확인 — 'squad fully fit'(irishnews) 표현과 Bazunu 등 개별 부상 병존"
+ },
+ "못찾음": [
+  "심판",
+  "날씨",
+  "2026-10-07 이후 A매치 결과(있다면)",
+  "공식 발표 라인업"
+ ]
+}

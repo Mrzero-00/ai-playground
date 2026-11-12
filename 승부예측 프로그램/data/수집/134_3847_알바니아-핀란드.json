@@ -1,0 +1,102 @@
+{
+ "번호": 3847,
+ "홈": "알바니아",
+ "원정": "핀란드",
+ "리그": "UEFA 네이션스리그 리그C 1조 5라운드",
+ "회차": 134,
+ "구장": "Air Albania Stadium, 티라나(알바니아 홈, 중립 아님) — 구장명은 검색 요약 기준, 공식 확인 안 됨",
+ "구장출처": [
+  "https://www.trtbalkan.com/albanian/article/2f372b33680e",
+  "https://boldnews.al/2026/11/02/shqiperia-nis-pergatitjet-per-sfidat-me-finlanden-dhe-bjellorusine/"
+ ],
+ "킥오프": "2026-11-12 20:45 CET(ESPN 2:45PM ET) = 2026-11-13 04:45 KST",
+ "수집시각": "2026-11-12 KST",
+ "감독": {
+  "홈": "Rolando Maran(알바니아, 11월 명단 발표)",
+  "원정": "Jacob Friis",
+  "변동": "알바니아 감독이 Sylvinho(2025)에서 Maran으로 바뀐 상태. 교체 시점 확인 안 됨"
+ },
+ "결장": [
+  {
+   "팀": "홈",
+   "선수": "Armando Broja",
+   "포지션": "FW",
+   "소속": "미상",
+   "사유": "부상 결장(검색 요약, 원문 미확인)",
+   "상태": "의심/확인 필요",
+   "비고": "상세 출처 직접 확인 못 함",
+   "출처": [
+    "https://www.epokaere.com/shqiperia-publikon-listen-per-dy-ndeshjet-e-nentorit/"
+   ],
+   "날짜": "2026-11"
+  },
+  {
+   "팀": "홈",
+   "선수": "Thomas Strakosha",
+   "포지션": "GK",
+   "소속": "미상",
+   "사유": "부상 결장(검색 요약, 원문 미확인)",
+   "상태": "의심/확인 필요",
+   "비고": "명단에는 Berisha·Sherri·Dajsinani GK",
+   "출처": [
+    "https://www.epokaere.com/shqiperia-publikon-listen-per-dy-ndeshjet-e-nentorit/"
+   ],
+   "날짜": "2026-11"
+  },
+  {
+   "팀": "홈",
+   "선수": "Etrit Berisha",
+   "포지션": "GK",
+   "소속": "미상",
+   "사유": "10/3 핀란드전 22분 퇴장(징계 여부 확인 안 됨)",
+   "상태": "확인 안 됨",
+   "비고": "11월 명단에는 포함",
+   "출처": [
+    "https://www.sportsmole.co.uk/football/finland/uefa-nations-league/preview/finland-vs-albania-prediction-team-news-lineups_606070.html"
+   ],
+   "날짜": "2026-10-03"
+  }
+ ],
+ "결장비고": "핀란드 11월 25인 명단 발표에 부상 결장 보도 없음. Antman·Skytta는 9~10월 결장 후 복귀.",
+ "알바니아_소집명단": "GK Berisha, Sherri, Dajsinani / DF Gjimshiti, Ajeti, Ismajli, Çake, Sina, Hysaj, Ismaili(신규), Mitaj, Pilo, Aliji / MF Asllani, Ramadani, Laçi, Shehu, Hasa, Fetai, Qefalija, Muçi, Hoxha, Seferi / FW Manaj, Uzuni, Daku, Shpendi (27명)",
+ "핀란드_소집명단": "GK Bergström, Hradecky, Sinisalo / DF Ivanov, Koski, Lähteenmäki, Mahuta, Miettinen, Ståhl, Tenho / MF Hyrylainen, Jensen, Kairinen, Markhiev, Suhonen, Valakari, Väänänen, Walta / FW Antman, Hakans, Keskinen, Kallman, Pohjanpalo, Skytta, Svanbäck (25명)",
+ "명단출처": [
+  "https://www.trtbalkan.com/albanian/article/2f372b33680e",
+  "https://www.flashscore.com/news/soccer-uefa-nations-league-antman-and-skytta-return-for-finland-ahead-of-key-nations-league-clashes/nZNmg74M/"
+ ],
+ "라인업": {
+  "홈": {
+   "발표여부": "미발표",
+   "예상XI": "확인 안 됨",
+   "출처": ""
+  },
+  "원정": {
+   "발표여부": "미발표",
+   "예상XI": "확인 안 됨",
+   "출처": ""
+  }
+ },
+ "최근결과_10월이후": "2026-10-07 이후 A매치 없음. 참고(10월 소집): 10/3 핀란드 2-1 알바니아(Helsinki; Walta 2, Kairinen / Manaj; 알바니아 Berisha 퇴장, sportsmole 헤더 기준). 알바니아 2-0 벨라루스, 3-0 산마리노(9월/10월 초). 핀란드 7-0 산마리노, 0-0 벨라루스. 10/6 알바니아-산마리노·벨라루스-핀란드 결과 확인 안 됨.",
+ "최근결과출처": [
+  "https://www.sportsmole.co.uk/football/finland/uefa-nations-league/preview/finland-vs-albania-prediction-team-news-lineups_606070.html"
+ ],
+ "대회맥락": "1조 알바니아·핀란드·벨라루스·산마리노. 알바니아 목표는 조 1위=리그B 승격(balkanweb 9/16). 핀란드는 flashscore 보도상 현재 3위, 이 경기를 져도 승격 가능성은 완전히 끝나지 않는다고 기술. 정확한 현재 순위표 확인 안 됨.",
+ "일정": "알바니아 11/15 벨라루스전(원정, 헝가리 개최 보도). 핀란드 11/15 산마리노전(홈).",
+ "맞대결": "통산 핀란드 4승1무2패(7전), 알바니아가 1980년 이후 핀란드 못 이김(sportsmole 기재, 10/3 결과 반영 전 수치일 수 있음). 10/3 핀란드 2-1.",
+ "날씨": "확인 안 됨",
+ "심판": "확인 안 됨",
+ "엇갈림": [
+  "10/3 경기 sportsmole 본문 순위(알바니아 6점·핀란드 4점)와 flashscore '핀란드 3위' 불일치(시점 차이 가능)",
+  "Broja·Strakosha 결장은 검색 요약에만 나옴"
+ ],
+ "못찾음": [
+  "현재 조 순위표",
+  "알바니아 확정 결장 원문",
+  "예상 선발",
+  "날씨·심판"
+ ],
+ "뉴스확인": {
+  "홈": "TRT Balkan·epokaere·boldnews(알바니아어) 검색: 명단 27명, Broja·Strakosha 부상 언급",
+  "원정": "flashscore·balkanweb 검색: 25인 명단, 특이 결장 보도 없음"
+ }
+}

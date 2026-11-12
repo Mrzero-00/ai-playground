@@ -1,0 +1,96 @@
+{
+ "번호": 3,
+ "홈": "룩셈부르크",
+ "원정": "에스토니아",
+ "리그": "UEFA 네이션스리그 C리그 4조",
+ "수집시각": "2026-11-12 KST",
+ "킥오프": "2026-11-13 20:45 현지 = 11-14 04:45 KST",
+ "구장": "Stade de Luxembourg(룩셈부르크 자국, 중립 아님)",
+ "출처_구장": [
+  "https://www.sportsmole.co.uk/football/luxembourg/uefa-nations-league/preview/luxembourg-vs-estonia-prediction-team-news-lineups_608892.html (2026-11-11)"
+ ],
+ "최근결과_10월이후": {
+  "룩셈부르크": [
+   "2026-10-03 에스토니아 0-1 패 (원정)",
+   "2026-10-06 불가리아 0-2 패 (홈 여부 확인 안 됨; 3연패, 최근 2경기 무득점)"
+  ],
+  "에스토니아": [
+   "2026-10-03 룩셈부르크 1-0 승 (홈, Peetson 5')",
+   "2026-10-06 아이슬란드 0-0 무 (원정으로 추정, 확인 안 됨); 6경기 무패"
+  ]
+ },
+ "출처_최근결과": [
+  "https://www.sportsmole.co.uk/football/luxembourg/uefa-nations-league/preview/luxembourg-vs-estonia-prediction-team-news-lineups_608892.html (2026-11-11)",
+  "https://www.sportsmole.co.uk/football/estonia/uefa-nations-league/preview/estonia-vs-luxembourg-prediction-team-news-lineups_606078.html"
+ ],
+ "대회맥락": "C4조: 아이슬란드 1위(약 8점), 에스토니아 2위 약 6점(1승3무), 룩셈부르크 최하위 3점(1승3패), 불가리아 약 4점. 각 팀 2경기 남음(13일·16일). 에스토니아는 승리 + 아이슬란드의 불가리아 원정 승리 시 상위 2위=승격 플레이오프 확정. 룩셈부르크는 승리 시 에스토니아와 승점 동률",
+ "감독": {
+  "룩셈부르크": "Jeff Strasser",
+  "에스토니아": "Jurgen Henn"
+ },
+ "결장": [
+  {
+   "팀": "홈",
+   "선수": "Dick Carlson",
+   "포지션": "DF",
+   "사유": "옐로 2장 누적 1경기 출장정지",
+   "상태": "확정",
+   "출처": [
+    "sportsmole 11-11"
+   ]
+  },
+  {
+   "팀": "홈",
+   "선수": "Laurent Jans(주장, RB)",
+   "사유": "직전 2경기 부상 결장, 복귀 가능",
+   "상태": "의심(복귀 가능)",
+   "출처": [
+    "sportsmole 11-11"
+   ]
+  },
+  {
+   "팀": "원정",
+   "선수": "Marten Kuusk",
+   "사유": "명단 제외(사유 불명)",
+   "상태": "확정",
+   "출처": [
+    "sportsmole 11-11"
+   ]
+  },
+  {
+   "팀": "원정",
+   "선수": "Robi Saarma(윙백)",
+   "사유": "명단 제외(10월 불가리아전 부상 교체 이력)",
+   "상태": "확정",
+   "출처": [
+    "sportsmole 11-11"
+   ]
+  }
+ ],
+ "라인업": {
+  "룩셈부르크_예상(Sports Mole)": "Moris; Jans, Bohnert, Selimovic, Veiga; Cruz; Natami, V Thill, Dos Santos, Kadamani; Videira",
+  "에스토니아_예상(Sports Mole)": "Igonen; Mets, Paskotsi, Tougjas; Peetson, Palumets, Kristal, Poom, Saliste; Mustmaa, Mannilaan",
+  "출처": "https://www.sportsmole.co.uk/football/luxembourg/uefa-nations-league/preview/luxembourg-vs-estonia-prediction-team-news-lineups_608892.html",
+  "날짜": "2026-11-11"
+ },
+ "맞대결": "2026-10-03 에스토니아 1-0 룩셈부르크 (4조 1차전 맞대결)",
+ "날씨": "확인 안 됨",
+ "심판": "확인 안 됨",
+ "이동": "에스토니아 원정, 장거리(탈린-룩셈부르크, 거리 수치 확인 안 됨)",
+ "뉴스확인": {
+  "룩셈부르크": "sportsmole 11-11, chronicle.lu 검색 — 위 결장 외 특이 뉴스 없음",
+  "에스토니아": "sportsmole 11-11, balticfootballnews 검색 — 위 명단 제외 외 특이 뉴스 없음"
+ },
+ "엇갈림": [
+  "UEFA 목록 일부는 'Luxembourg/Malta' 표기(플레이오프 잔재로 추정)",
+  "표 점수는 Sports Mole 결과로 역산한 값, 공식 표 확인 안 됨",
+  "이전 Sports Mole(10-03 프리뷰)의 예상 라인업은 구정보"
+ ],
+ "못찾음": [
+  "공식 순위표",
+  "11월 확정 명단 전체",
+  "공식 선발",
+  "날씨·심판",
+  "불가리아전 10-06 홈/원정 여부"
+ ]
+}

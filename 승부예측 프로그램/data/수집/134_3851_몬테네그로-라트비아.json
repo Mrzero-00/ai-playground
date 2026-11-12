@@ -1,0 +1,112 @@
+{
+ "번호": 3851,
+ "홈": "몬테네그로",
+ "원정": "라트비아",
+ "리그": "UEFA 네이션스리그 리그C 2조 5라운드",
+ "회차": 134,
+ "구장": "Podgorica(몬테네그로 홈, 중립 아님). 경기장은 Stadion pod Goricom(Gradski stadion)로 표기(티켓 가이드·UEFA 요약, 직접 확인 안 됨)",
+ "구장출처": [
+  "https://cetinjskilist.com/vucinic-objavio-spisak-za-novembarske-meceve-povratak-adama-marusica-debituje-aleksa-maras/",
+  "https://www.uefa.com/uefanationsleague/teams/92853--montenegro/matches",
+  "https://karlobag.eu/en/sports/news/montenegro-latvia-tickets-nations-league-2026-27-af48m/"
+ ],
+ "킥오프": "2026-11-12 20:45 CET = 2026-11-13 04:45 KST",
+ "수집시각": "2026-11-12 KST",
+ "감독": {
+  "홈": "Mirko Vučinić",
+  "원정": "Paolo Nicolato",
+  "변동": "확인 안 됨(보도 없음). 3월 기사에서 Nicolato 계약 4월까지 연장, 거취는 플레이오프 결과에 달렸다고 보도(2026-03-26)"
+ },
+ "결장": [
+  {
+   "팀": "홈",
+   "선수": "Adam Marušić",
+   "포지션": "DF",
+   "소속": "Lazio",
+   "사유": "9~10월 부상으로 결장했으나 11월 명단 복귀",
+   "상태": "복귀(출전 가능)",
+   "비고": "대표팀 주전급 풀백",
+   "출처": [
+    "https://cetinjskilist.com/vucinic-objavio-spisak-za-novembarske-meceve-povratak-adama-marusica-debituje-aleksa-maras/"
+   ],
+   "날짜": "2026-11"
+  },
+  {
+   "팀": "홈",
+   "선수": "Milan Vukotić",
+   "포지션": "MF",
+   "소속": "Partizan",
+   "사유": "이전 소집 중 키프로스전 이후 부상으로 이탈, 회복해 복귀",
+   "상태": "복귀",
+   "비고": "",
+   "출처": [
+    "https://cetinjskilist.com/vucinic-objavio-spisak-za-novembarske-meceve-povratak-adama-marusica-debituje-aleksa-maras/"
+   ],
+   "날짜": "2026-11"
+  },
+  {
+   "팀": "홈",
+   "선수": "Sead Hakšabanović",
+   "포지션": "MF",
+   "소속": "Malmö",
+   "사유": "이전 소집 힘줄 부상으로 이탈, 이번 명단 포함",
+   "상태": "복귀(컨디션 미상)",
+   "비고": "",
+   "출처": [
+    "https://cetinjskilist.com/vucinic-objavio-spisak-za-novembarske-meceve-povratak-adama-marusica-debituje-aleksa-maras/"
+   ],
+   "날짜": "2026-11"
+  },
+  {
+   "팀": "원정",
+   "선수": "(라트비아 11월 결장자)",
+   "포지션": "",
+   "소속": "",
+   "사유": "라트비아 11월 소집명단·결장 보도 못 찾음",
+   "상태": "확인 안 됨",
+   "비고": "",
+   "출처": [],
+   "날짜": ""
+  }
+ ],
+ "몬테네그로_소집명단": "GK Petković, Nikić, Popović / DF Savić, Marušić, Vešović, Vujačić, Radunović, Rubežić, Roganović, Gašević, Đurić, Tomašević / MF Janković, Hakšabanović, Lončar, Brnović, Vukotić, Bulatović, Adžić / FW Jovetić, Osmajić, Krstović, Đukanović, Vuković, Latković, Maraš(첫 선발)",
+ "명단출처": "https://cetinjskilist.com/vucinic-objavio-spisak-za-novembarske-meceve-povratak-adama-marusica-debituje-aleksa-maras/",
+ "라트비아_UEFA공식명단(매치페이지, 날짜 표기 없음, 경기용 추정)": "GK Puriņš, Orols, Matrevics / DF Balodis, Savaļnieks, Jurkovskis, Cigaņiks, Toņiševs / MF Žaleiko, Vientiess, Rubenis, Patijčuks, Dašķevičs, Emsis, Vapne, Zelenkovs, Čudars, Strods, Meļņiks, Saveļjevs / FW Gutkovskis, Aleksanjans, Uldriķis",
+ "라트비아명단출처": "https://www.uefa.com/uefanationsleague/match/2047875--montenegro-vs-latvia/lineups",
+ "라인업": {
+  "홈": {
+   "발표여부": "미발표",
+   "예상XI": "확인 안 됨(10/2 예상: Popović; Roganović, Đurić, Savić, Gašević; Vuković, Lončar, Janković, Bulatović; Osmajić, Krstović — 10월 예상이라 참고만)",
+   "출처": "sportsmole 10/2"
+  },
+  "원정": {
+   "발표여부": "미발표",
+   "예상XI": "확인 안 됨",
+   "출처": ""
+  }
+ },
+ "최근결과_10월이후": "2026-10-07 이후 A매치 없음. 참고(9~10월): 몬테네그로 2-1 키프로스(9/25 홈), 3-2 아르메니아(9/28 원정), 2-1 라트비아(10/2 원정, Adžić 2골), 0-0 아르메니아(10/5 Podgorica) = 4경기 10점 1위. 라트비아 0-2 아르메니아(9/25), 0-0 키프로스(9/28 홈), 1-2 몬테네그로(10/2 홈, Strods), 10/5 경기는 출처 엇갈림(scores24 '키프로스 2-1 라트비아', 다른 출처 확인 불가).",
+ "최근결과출처": [
+  "https://www.sportsmole.co.uk/football/latvia/uefa-nations-league/preview/latvia-vs-montenegro-prediction-team-news-lineups_606029.html",
+  "https://www.sportaran.com/en/post/latviya-sohranila-mesto-v-lige-nacij-i-stala-sopernikom-armenii-po-gruppe",
+  "https://www.uefa.com/uefanationsleague/teams/92853--montenegro/matches"
+ ],
+ "대회맥락": "2조(Montenegro·Latvia·Cyprus·Armenia). 몬테네그로 4경기 10점 1위, 키프로스보다 3점 앞섬(cetinjskilist). 승격/강등 확정 여부 확인 안 됨. 라트비아는 3월 플레이오프(vs 지브롤터)로 리그C 잔류, 9월 시점 최하위(10/2 기준 3경기 1점).",
+ "일정": "몬테네그로 11/15 키프로스전(Limassol 원정). 라트비아 11/15 아르메니아전(홈). 캠프 11/8 시작.",
+ "맞대결": "10/2 라트비아 1-2 몬테네그로(Riga). 이전 4번 몬테네그로 무패(2승, sportsmole).",
+ "날씨": "확인 안 됨",
+ "심판": "확인 안 됨",
+ "엇갈림": [
+  "라트비아 10/5 결과 출처 불일치",
+  "몬테네그로-키프로스 점수 출처 불일치(2-1 vs 1-2/2-0) — 몬테네그로 10점이 2-1 승과 합치"
+ ],
+ "못찾음": [
+  "라트비아 11월 소집 원문과 결장자(LFF 원문 접근 못 함)",
+  "순위표 전체",
+  "예상 선발·날씨·심판"
+ ],
+ "뉴스확인": {
+  "홈": "cetinjskilist·UEFA·b92·aktuelno.me 검색: 부상 복귀 3명 외 특이 결장 보도 없음",
+  "원정": "balticfootballnews·UEFA·fotmob·sportaran 검색: 11월 보도 없음(검색 미흡). 라트비아어 검색 못 함"
+ }
+}

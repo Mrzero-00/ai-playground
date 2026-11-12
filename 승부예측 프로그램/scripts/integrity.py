@@ -347,10 +347,25 @@ def roster_check(r, e, minor):
                      "확인해 선례 척도로 보정하거나 G1 기권): " + " / ".join(hits[:3]))
 
 
+def _is_intl(r):
+    return r.get("종목") == "축구" and any(k in (r.get("리그") or "") for k in
+                                         ("국제친선", "네이션스리그", "월드컵", "아시안컵", "유로", "코파", "A매치", "골드컵", "네이션스컵"))
+
+
 def note_checks(r, severe, minor):
     news_check(r, severe)
     overconf_check(r, severe, minor)
     if r.get("종목") != "축구":
+        return
+    if _is_intl(r):
+        # 국가대표 경기(2026-11-12): 팀노트 FACTS·INPUTS 는 클럽용(위키 시즌 문서·Understat xG)이라 만들 수 없다.
+        # 대신 그 경기의 수집 JSON(소집 명단·결장·구장·대회 맥락)이 3일 안에 만들어졌는지를 본다.
+        import glob, time
+        fs = glob.glob(os.path.join(ROOT, "data", "수집", f"{r['회차']}_{r['번호']}_*.json"))
+        if not fs:
+            severe.append("국가대표 경기 수집 JSON 없음")
+        elif time.time() - max(os.path.getmtime(f) for f in fs) > FACTS_DAYS * 86400:
+            severe.append("국가대표 경기 수집 JSON 이 3일 넘음")
         return
     ref = ref_date(r)
     for side in ("홈", "원정"):
@@ -449,6 +464,10 @@ def evidence_checks(r, e, severe, minor):
     for f in e.get("요인", []):
         if f.get("유형") == "뉴스없음":
             continue
+        if f.get("반영", True) is False:
+            # 2026-11-12: "반영": false 는 추정 영향만 적고 확률은 움직이지 않은 요인이다(SKILL 4단계).
+            # 아래 '영향이 0 이 아니면 심각' 검사들은 확률을 움직였을 때의 규칙이므로 영향 0 으로 본다.
+            f = {**f, "영향": 0}
         tag = f"{f.get('유형')}·{f.get('선수') or f.get('내용', '')[:15]}"
         if not f.get("출처"):
             (severe if f.get("유형") in NEWS_TYPES else minor).append(f"출처 없음: {tag}")

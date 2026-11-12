@@ -1,0 +1,145 @@
+{
+ "번호": 3861,
+ "홈": "이탈리아",
+ "원정": "프랑스",
+ "리그": "UEFA 네이션스리그 리그A 그룹1 5차전",
+ "구장": "Stadio Giuseppe Meazza(산시로), 밀라노 — 이탈리아 자국, 중립 아님",
+ "킥오프": "2026-11-13 04:45 KST (20:45 CET 11/12)",
+ "수집시각": "2026-11-12 KST",
+ "최근결과_10월이후": [
+  {
+   "팀": "프랑스",
+   "날짜": "2026-10-05",
+   "상대": "벨기에",
+   "장소": "H(스타드 드 프랑스)",
+   "스코어": "4-1 승",
+   "득점": "Doué 77', Cherki 81', Olise 88', 90+1'; 벨기에 Lukébakio 35'",
+   "대회": "네이션스리그"
+  },
+  {
+   "팀": "이탈리아",
+   "날짜": "2026-10-05",
+   "상대": "튀르키예",
+   "장소": "H(볼로냐)",
+   "스코어": "3-1 승",
+   "득점": "Scamacca 26', Calafiori 64', P.Esposito 87'; 튀르키예 Şimşir 61'",
+   "대회": "네이션스리그",
+   "출처": "https://en.wikipedia.org/wiki/2026%E2%80%9327_UEFA_Nations_League_A"
+  }
+ ],
+ "참고_10월7일이전": "프랑스-이탈리아 1-1(10/2 생드니; Olise 55', Bastoni 68'). 이탈리아 0-2 벨기에(9/25), 튀르키예 1-4 이탈리아(9/28). 프랑스 1-0 튀르키예(9/25, Mbappé), 1-0 벨기에 원정(9/28). 10/5 이후 11/12 전까지 두 팀 A매치 추가 없음(확인 범위 내).",
+ "대회맥락": "그룹1 순위(10/5 기준): 프랑스 4경기 10점(7-2) 8강 확정, 이탈리아 4경기 7점(8-5) 8강권(직접강등 안전), 벨기에 6점, 튀르키예 0점. 11/12 동시: 튀르키예-벨기에(이즈미르 18:00 CET). 6차전 11/15 벨기에-이탈리아(브뤼셀), 프랑스-튀르키예(보르도). 위키 표기상 프랑스 8강 확정, 이탈리아 8강 진출 자리 표기(최종 순위 미확정은 위키 표기 기준). 이탈리아는 산시로 최근 3경기 연속 패배(FIGC). 2024-11 같은 장소 3-1 프랑스 승.",
+ "결장": [
+  {
+   "팀": "프랑스",
+   "선수": "Ousmane Dembélé",
+   "포지션": "FW",
+   "소속": "PSG",
+   "사유": "부상",
+   "상태": "확정(소집 제외)",
+   "출처": [
+    "https://khelnow.com/football/france-november-uefa-nations-league-squad-202611"
+   ],
+   "날짜": "2026-11-06"
+  },
+  {
+   "팀": "프랑스",
+   "선수": "Maghnes Akliouche",
+   "소속": "PSG",
+   "사유": "부상(Zidane: 'a little problem')",
+   "상태": "확정",
+   "출처": [
+    "https://www.flashscore.com/news/soccer-uefa-nations-league-zidane-hands-first-call-up-to-striker-pagis-as-he-announces-squad-for-nations-league/IFkBoORj/"
+   ],
+   "날짜": "2026-11-06"
+  },
+  {
+   "팀": "프랑스",
+   "선수": "William Saliba",
+   "포지션": "DF",
+   "소속": "Arsenal",
+   "사유": "허리 부상, 시즌 클럽 미출전",
+   "상태": "확정",
+   "출처": [
+    "https://www.flashscore.com/news/soccer-uefa-nations-league-zidane-hands-first-call-up-to-striker-pagis-as-he-announces-squad-for-nations-league/IFkBoORj/"
+   ],
+   "날짜": "2026-11-06"
+  },
+  {
+   "팀": "프랑스",
+   "선수": "Jules Koundé, Maxence Lacroix, Manu Koné, Estéban Lepaul",
+   "사유": "부상(khelnow 기재)",
+   "상태": "확정",
+   "출처": [
+    "https://khelnow.com/football/france-november-uefa-nations-league-squad-202611"
+   ],
+   "날짜": "2026-11-06"
+  },
+  {
+   "팀": "프랑스",
+   "선수": "Kylian Mbappé",
+   "사유": "9월 무릎 부상 후 복귀, 소집 포함(주장 보도 있음). 일부 비일자 기사에 감기 증세 결석 언급 — 11월 건 확인 안 됨",
+   "상태": "출전 가능 쪽(미확정)",
+   "출처": [
+    "https://www.flashscore.com/news/soccer-uefa-nations-league-zidane-hands-first-call-up-to-striker-pagis-as-he-announces-squad-for-nations-league/IFkBoORj/"
+   ],
+   "날짜": "2026-11-06"
+  },
+  {
+   "팀": "이탈리아",
+   "선수": "Gianluca Mancini",
+   "포지션": "DF",
+   "소속": "Roma",
+   "사유": "근육 부상, 교체 소집 Palma",
+   "상태": "확정",
+   "출처": [
+    "https://sport.sky.it/calcio/nazionale/convocati-italia-mancini-nazionale-nations-league-novembre-2026"
+   ],
+   "날짜": "2026-11"
+  },
+  {
+   "팀": "이탈리아",
+   "선수": "Nicolò Zaniolo",
+   "사유": "개인 사유로 캠프 이탈",
+   "상태": "확정",
+   "출처": [
+    "https://sport.sky.it/calcio/nazionale/convocati-italia-mancini-nazionale-nations-league-novembre-2026"
+   ],
+   "날짜": "2026-11"
+  },
+  {
+   "팀": "이탈리아",
+   "선수": "Di Lorenzo, Ruggeri, Mandragora, Raspadori, Kean, Zaccagni 등",
+   "사유": "소집 제외(사유 확인 안 됨; Sisal 기사 접근 403)",
+   "상태": "미확인"
+  }
+ ],
+ "소집명단": {
+  "프랑스(23명)": "GK Maignan, Restes, Risser / DF Diouf, Gusto, Jacquet, Kalulu, Konaté, Truffert, Upamecano, Yoro / MF Camavinga, Cherki, Da Cunha, Rabiot, Tchouaméni, Zaïre-Emery / FW Barcola, Doué, Mbappé, Olise, Pagis, Thuram",
+  "이탈리아(31~32명)": "GK Carnesecchi, Donnarumma, Vicario / DF Ahanor, Bastoni, Calafiori, Dimarco, Gatti, Ghilardi, Kayode, Palma, Palestra, Scalvini / MF Barella, Cassano, Doumbia, Fagioli, Frattesi, Pisilli, Ricci, Romano, Tonali / FW Cambiaghi, Cisse, Pio Esposito, S.Esposito, Koleosho, Liberali, Scamacca, Vergara"
+ },
+ "감독": {
+  "이탈리아": "Roberto Mancini (2026-09 복귀)",
+  "프랑스": "Zinedine Zidane (신임)"
+ },
+ "일정": "이 경기 3일 뒤 11/15: 이탈리아 원정 벨기에(브뤼셀), 프랑스 홈 튀르키예(보르도). 프랑스는 8강 확정 상태라 동기·로테이션은 확인 안 됨(발언 없음).",
+ "라인업": "11/12 예상 선발 확인 안 됨",
+ "맞대결": "2026-10-02 1-1(생드니); 2024-11-17 이탈리아 1-3 프랑스(밀라노)",
+ "출처": [
+  "https://en.wikipedia.org/wiki/2026%E2%80%9327_UEFA_Nations_League_A",
+  "https://www.figc.it/en/national-teams/news/uefa-nations-league-italy-to-face-france-in-milan-on-12-november-as-the-azzurri-return-to-the-meazza-lw3kmp7p",
+  "https://sport.sky.it/calcio/nazionale/convocati-italia-mancini-nazionale-nations-league-novembre-2026",
+  "https://khelnow.com/football/france-november-uefa-nations-league-squad-202611"
+ ],
+ "못찾음": [
+  "예상 선발",
+  "심판",
+  "날씨",
+  "이탈리아 제외 선수 사유",
+  "경기 당일 결장 추가"
+ ],
+ "뉴스확인": {
+  "이탈리아": "sky.it, figc.it, sportsmole: 위 결장 외 특이 뉴스 못 찾음",
+  "프랑스": "khelnow, flashscore, 일반검색: 위 결장 외 특이 뉴스 못 찾음"
+ }
+}

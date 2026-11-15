@@ -1,0 +1,38 @@
+{
+ "번호": 4372,
+ "홈": "독일", "원정": "네덜란드",
+ "리그": "UEFA 네이션스리그 2026-27 리그A 2조(A2) 최종 6차전",
+ "수집시각": "2026-11-16 KST",
+ "구장": "Olympiastadion, 베를린, 독일 — 홈팀 자국(중립 아님). 킥오프 현지 11/16 20:45 CET = KST 11/17 04:45 (https://www.sportsmole.co.uk/football/germany/uefa-nations-league/preview/germany-vs-netherlands-prediction-team-news-lineups_609122.html, 2026-11-15)",
+ "순위와걸린것": "5경기 후: 네덜란드 11점(3승2무0패), 그리스 8점, 독일 8점(2승2무1패), 세르비아 0점. 상위 2팀 8강. 그리스-독일 승점 동률 시 상대전적 우선이며 그리스가 독일에 1-0 승·0-0 무로 앞섬(https://www.aljazeera.com/sports/2026/11/15/germany-vs-netherlands-nations-league-preview-team-news-predictions, 2026-11-15). 매체 요약: 독일은 이기지 못하면 8강이 어렵고, 세르비아가 그리스 원정에서 이기는 경우는 예외; 네덜란드는 무승부 이상이면 사실상 통과, 대패해야 탈락(sportsmole·aljazeera·101greatgoals 2026-11-13~15). 같은 시각 그리스-세르비아(볼로스) 병행.",
+ "결장": [
+  {"팀": "홈", "선수": "Jamal Musiala", "포지션": "공격형 미드필더", "주전": true, "상태": "확정", "사유": "근육 부상 (9월 워밍업 중 부상, 11월 소집 제외 및 이번 경기 불가)", "출처": "https://www.aljazeera.com/sports/2026/11/15/germany-vs-netherlands-nations-league-preview-team-news-predictions", "날짜": "2026-11-15"},
+  {"팀": "홈", "선수": "Serge Gnabry", "포지션": "윙어", "주전": "확인 안 됨", "상태": "확정", "사유": "근육 문제로 불가", "출처": "동일", "날짜": "2026-11-15"},
+  {"팀": "홈", "선수": "Waldemar Anton, Assan Ouedraogo, Angelo Stiller", "포지션": "수비/미드필더", "주전": "확인 안 됨", "상태": "의심", "사유": "한 프리뷰(bulinews)에서 부상 결장으로 언급되었으나 소집 명단 기사와 엇갈림(Anton은 명단에 있음). 미확정", "출처": "https://bulinews.com/serbia-germany-preview-team-news-and-predicted-lineups", "날짜": "2026-11-12경(날짜 확인 안 됨)"},
+  {"팀": "원정", "선수": "Frenkie de Jong", "포지션": "미드필더", "주전": true, "상태": "확정", "사유": "11/13 그리스전 중 등 부상으로 교체, 소속팀 바르셀로나 복귀해 치료. 대체는 Koopmeiners 예상", "출처": "https://www.aljazeera.com/sports/2026/11/15/germany-vs-netherlands-nations-league-preview-team-news-predictions", "날짜": "2026-11-15"},
+  {"팀": "원정", "선수": "Virgil van Dijk", "포지션": "센터백(주장)", "주전": true, "상태": "확정", "사유": "부상/컨디션 문제로 불가. 센터백은 Van de Ven·Van Hecke 예상", "출처": "동일; https://www.sportsmole.co.uk/football/netherlands/uefa-nations-league/preview/netherlands-vs-greece-prediction-team-news-lineups_608925.html (11/12에도 부상 결장 기재)", "날짜": "2026-11-15"},
+  {"팀": "원정", "선수": "Ryan Gravenberch, Kenneth Taylor, Brian Brobbey", "포지션": "미드필더/공격수", "주전": "Gravenberch 주전", "상태": "확정", "사유": "11/13 그리스전 전 부상 결장 보도. 이번 경기 상태는 확인 안 됨", "출처": "https://www.sportsmole.co.uk/football/netherlands/uefa-nations-league/preview/netherlands-vs-greece-prediction-team-news-lineups_608925.html", "날짜": "2026-11-12"}
+ ],
+ "직전경기": {
+  "홈": "11/13(금) 세르비아 1-3 독일 (원정, 베오그라드). 득점: Babic 자책(Havertz 코너), Wirtz, Gruda(데뷔골). 세르비아 두 명 퇴장(Dragojevic 74~76' VAR, Zivkovic 89'). 비 내림. 선발 11명 확인 안 됨 (https://www.vavel.com/en-us/soccer/2026/11/13/1279075-serbia-vs-germany-live-score-2026-27-uefa-nations-league.html, https://sports.yahoo.com/articles/germany-dominate-serbia-rain-soaked-214300507.html, 2026-11-13~14)",
+  "원정": "11/13(금) 네덜란드 7-0 그리스 (홈, 암스테르담). Summerville 6', Reijnders 12'·18'·33', J.Timber 40'·59', Malen 61'. xG 4.39 대 0.44. de Jong 등 부상 교체 (https://www.beinsports.com/en-us/soccer/uefa-nations-league/articles/netherlands-7-0-greece-reijnders-hat-trick-in-nations-league-rout-2026-11-13, 2026-11-13)"
+ },
+ "최근5경기": {
+  "홈": ["11/13 세르비아 1-3 독일 (원정, 승)", "독일 0-0 그리스 (홈, 무, 날짜 확인 안 됨)", "그리스 1-0 독일 (원정, 독일 패, 날짜 확인 안 됨; 매체 표기 혼재)", "독일 승 세르비아전 (날짜·점수 확인 안 됨)", "9/24 네덜란드 1-1 독일 (원정, 무, Gakpo 추가시간 동점)", "sportsmole 폼: 오래된 순 D, L, W, D, W"],
+  "원정": ["11/13 네덜란드 7-0 그리스 (홈, 승)", "10/1 그리스 2-2 네덜란드 (원정, 무; Ioannidis, Masouras / Van Dijk, Reijnders 89')", "네덜란드 2-1 세르비아 (승, 날짜 확인 안 됨)", "세르비아 1-2 네덜란드 (원정, 승, 날짜 확인 안 됨)", "9/24 네덜란드 1-1 독일 (홈, 무); sportsmole 폼 D, W, D, W, W"]
+ },
+ "맞대결": ["2026-09-24 네덜란드 1-1 독일 (암스테르담, 이번 네이션스리그 1차전, Gakpo 추가시간 동점; Havertz·Brobbey 경기 중 부상) https://www.bundesliga.com/en/bundesliga/news/netherlands-germany-live-blog-nations-league-klopp-musiala-gakpo-van-dijk-39296 ; https://www.espn.com/soccer/story/_/id/50021468/netherlands-germany-nations-league-commentary-analysis-score-goals-result", "sportsmole: 네덜란드는 독일 원정 최근 6경기 중 1승(2026-11-15)"],
+ "감독": {
+  "홈": "Jurgen Klopp (2026 여름 Nagelsmann 사임 후 4년 계약, 월드컵 32강 탈락 이후). 인용: \"We wanted to set up a final against the Netherlands in Berlin, and now we have it.\" (aljazeera 2026-11-15). 11월 24명 소집으로 축소.",
+  "원정": "Xavi (이번 시즌 부임)."
+ },
+ "일정": "독일 11/13 베오그라드 → 11/16 베를린, 중 2일 휴식(3일 간격). 네덜란드 11/13 암스테르담 홈 → 11/16 베를린 원정, 3일 간격. 두 팀 모두 11/13 경기가 큰 이동 없음.",
+ "사실": [
+  "예상 선발(sportsmole 2026-11-15, 공식 확정 아님) 독일: Ter Stegen; Treu, Thiaw, Tah, Mittelstadt; Kimmich, Pavlovic; Gruda, Wirtz, Scherhant; Havertz. 네덜란드: Verbruggen; Dumfries, Van Hecke, Van de Ven, Timber; Veerman, Koopmeiners; Summerville, Reijnders, Gakpo; Malen.",
+  "Klopp 11월 소집: Fullkrug 복귀, Wael Mohya 첫 소집 (https://www.bundesliga.com/en/bundesliga/news/wael-mohya-niclas-fullkrug-germany-squad-jurgen-klopp-serbia-netherlands-39888).",
+  "독일 3-1 세르비아는 비 내린 경기, 상대 2명 퇴장 이후 수적 우위 (yahoo 2026-11-14)."
+ ],
+ "확인안됨": ["독일 11/13 선발 11명·교체", "독일 Anton·Ouedraogo·Stiller 결장 확정 여부", "Gravenberch·Taylor·Brobbey 11/16 상태", "독일·네덜란드 최근 5경기 일부 날짜와 점수", "심판·날씨", "감독 로테이션 발언", "네덜란드 Xavi 최근 인용"],
+ "출처": ["https://www.sportsmole.co.uk/football/germany/uefa-nations-league/preview/germany-vs-netherlands-prediction-team-news-lineups_609122.html", "https://www.aljazeera.com/sports/2026/11/15/germany-vs-netherlands-nations-league-preview-team-news-predictions", "https://www.sportsmole.co.uk/football/netherlands/uefa-nations-league/preview/netherlands-vs-greece-prediction-team-news-lineups_608925.html", "https://www.vavel.com/en-us/soccer/2026/11/13/1279075-serbia-vs-germany-live-score-2026-27-uefa-nations-league.html", "https://sports.yahoo.com/articles/germany-dominate-serbia-rain-soaked-214300507.html", "https://www.beinsports.com/en-us/soccer/uefa-nations-league/articles/netherlands-7-0-greece-reijnders-hits-hat-trick-in-nations-league-rout-2026-11-13", "https://www.bundesliga.com/en/bundesliga/news/netherlands-germany-live-blog-nations-league-klopp-musiala-gakpo-van-dijk-39296", "https://www.espn.com/soccer/story/_/id/50021468/netherlands-germany-nations-league-commentary-analysis-score-goals-result", "https://www.bundesliga.com/en/bundesliga/news/wael-mohya-niclas-fullkrug-germany-squad-jurgen-klopp-serbia-netherlands-39888", "https://bulinews.com/serbia-germany-preview-team-news-and-predicted-lineups"],
+ "배당": "보지 않음"
+}

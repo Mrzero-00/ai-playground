@@ -1,0 +1,34 @@
+{
+ "번호": 4350,
+ "홈": "아이슬란드", "원정": "룩셈부르크",
+ "리그": "UEFA 네이션스리그 리그C 4조 6차전(최종전)",
+ "수집시각": "2026-11-16 KST",
+ "구장": "라우가르달스뵐뤼르(Laugardalsvöllur), 레이캬비크, 아이슬란드 — 홈팀 자국(중립 아님). 현지 월요일 17:00(=KST 02:00 11/17). 예보 영하 3도, 그라운드 하부난방 가동으로 서리 없음(fotbolti.net 2026-11-14)",
+ "순위와걸린것": "11/13 경기 후 승점: 아이슬란드 11(5경기 3승2무), 에스토니아 9(5경기), 불가리아 4, 룩셈부르크 3(0-1 에스토니아 패 이후; 계산상). 아이슬란드가 에스토니아에 2점 앞선 조 1위. 기사: 아이슬란드는 룩셈부르크전 승리 시 조 1위 확정, 무승부도 충분할 수 있음(mbl/Vísir 계열 요약 2026-11-14). 에스토니아-불가리아전은 같은 시각 동시 킥오프. 에스토니아는 최소 승격 플레이오프 확보, 자동 승격은 에스토니아 승 + 아이슬란드 비승 필요(Sports Mole 2026-11-14). 룩셈부르크는 승점 3(4위권)으로 조 최하위 위험. 불가리아 강등 이미 확정(Sports Mole). 조 최하위 강등/순위 확정 세부 규정은 확인 안 됨.",
+ "결장": [
+  {"팀": "홈", "선수": "스테판 테이튀르 소르다르손(Stefán Teitur Þórðarson, Hannover 96)", "포지션": "수비/미드(DV 명단에는 수비수로 분류)", "주전": "확인 안 됨(11/13 불가리아전 출전)", "상태": "확정", "사유": "11/13 불가리아전 부상, 룩셈부르크전 불가", "출처": "https://www.fotbolti.net/news/14-11-2026/thrir-kalladir-inn-i-landslidid", "날짜": "2026-11-14"},
+  {"팀": "홈", "선수": "크리스탈 마니 잉가손(Kristall Máni Ingason, SK Brann)", "포지션": "미드필더", "주전": "확인 안 됨(11/13 출전)", "상태": "확정", "사유": "11/13 불가리아전 부상, 다음 날 스캔 예정(기사 헤드라인에 십자인대 최악 시나리오 언급)", "출처": "https://www.fotbolti.net/news/14-11-2026/landslidid-maett-heim-i-kuldann-ekkert-frost-i-vellinum", "날짜": "2026-11-14"},
+  {"팀": "홈", "선수": "회르뒤르 뵤르귄 마그누손(Hörður Björgvin Magnússon, Atromitos)", "포지션": "수비수", "주전": "확인 안 됨(11/13 출전, 57캡)", "상태": "확정", "사유": "11/13 경고 누적으로 출전정지(룩셈부르크전)", "출처": "https://www.fotbolti.net/news/14-11-2026/landslidid-maett-heim-i-kuldann-ekkert-frost-i-vellinum", "날짜": "2026-11-14"},
+  {"팀": "홈", "선수": "알베르트 구드문손(Albert Guðmundsson)", "포지션": "공격", "주전": true, "상태": "확정", "사유": "부상으로 11월 소집 제외(11/4 명단 발표 기사)", "출처": "https://www.dv.is/433/2026/11/04/landslidshopur-islands-fatt-kemur-a-ovart-gylfi-og-aron-einar-med", "날짜": "2026-11-04"},
+  {"팀": "홈", "선수": "다니엘 레오 그레타르손(Daníel Leó Grétarsson, AGF)", "포지션": "수비수", "주전": "확인 안 됨", "상태": "의심", "사유": "소속팀 개인 휴가 중인데 명단에 포함됨(11/4 DV). 이후 출전 여부 확인 안 됨", "출처": "https://www.dv.is/433/2026/11/04/landslidshopur-islands-fatt-kemur-a-ovart-gylfi-og-aron-einar-med", "날짜": "2026-11-04"},
+  {"팀": "원정", "선수": "(룩셈부르크 11월 결장 정보)", "포지션": "-", "주전": "-", "상태": "확인 안 됨", "사유": "11월 명단·부상 기사 찾지 못함(9월 시점 코락 ACL 시즌아웃 보도만 있음 — 오래됨)", "출처": "https://www.sportsmole.co.uk/football/luxembourg/uefa-nations-league/preview/luxembourg-vs-iceland-prediction-team-news-lineups_605860.html", "날짜": "2026-09 오래됨"}
+ ],
+ "명단변경": "11/14 대체 소집: 브륀야르 잉기 비아르나손(Brynjar Ingi Bjarnason, Sönderjyske), 효르투르 헤르만손(Hjörtur Hermannsson, Gautaborg), 새바르 아틀리 마그누손(Sævar Atli Magnússon, Brann). 사유 기사에 부상2+정지1 3명 대체로 보도. 출처 https://www.fotbolti.net/news/14-11-2026/thrir-kalladir-inn-i-landslidid (2026-11-14). 감독 아르나르는 예상 선발에서 가능한 한 적게 바꾸고 싶어 한다는 헤드라인(fotbolti.net 2026-11-14, 본문 인용 미확인).",
+ "직전경기": {"홈": "11/13 불가리아 0-5 아이슬란드(원정, 플로브디프 또는 소피아 — 출처 엇갈림). 3일 휴식. 이후 플로브디프발 귀국 비행. 선발 11명 확인 안 됨. 출처 vavel https://www.vavel.com/en/data/iceland/results/ , Sports Mole 2026-11-14", "원정": "11/13 룩셈부르크 0-1 에스토니아(룩셈부르크 홈, 득점자·장소 세부 확인 안 됨). 출처 https://www.vavel.com/en/data/luxembourg/results/"},
+ "최근5경기": {
+  "홈": ["9/26 아이슬란드 1-1 에스토니아(홈)", "9/29 룩셈부르크 0-3 아이슬란드(원정)", "10/3 아이슬란드 3-0 불가리아(홈)", "10/6 에스토니아 0-0 아이슬란드(원정)", "11/13 불가리아 0-5 아이슬란드(원정)"],
+  "원정": ["9/26 불가리아 1-2 룩셈부르크(원정)", "9/29 룩셈부르크 0-3 아이슬란드(홈)", "10/3 에스토니아 1-0 룩셈부르크(원정)", "10/6 룩셈부르크 0-2 불가리아(홈)", "11/13 룩셈부르크 0-1 에스토니아(홈)"]
+ },
+ "맞대결": ["2026-09-29 룩셈부르크 0-3 아이슬란드(룩셈부르크). 아이슬란드 GK 엘리아스 라픈 올라프손 신장 수술로 안톤 아리 에이나르손 대체(9월 기사, 오래됨)"],
+ "감독": {"홈": "아르나르 군나우그손(Arnar Gunnlaugsson)", "원정": "예프 슈트라세르(Jeff Strasser, Sports Mole 2026-10-01 기준)"},
+ "일정": "아이슬란드 11/13 후 3일 휴식, 원정 귀국 이동 있음. 룩셈부르크 11/13 홈 경기 후 3일 휴식(이동 정보 확인 안 됨).",
+ "사실": [
+  "11/4 아이슬란드 명단 25명(GK 3·DF 8·MF 8·FW 4) — 기사 시점 순위 승점 아이슬란드8·에스토니아6·불가리아4·룩셈부르크3(4경기 후) (DV 2026-11-04)",
+  "11/4 명단에 기오피 시귀르드손(Víkingur), 아론 에이나르 군나르손(111캡), 오르리 스테인, 안드리 루카스 등 포함 (DV)",
+  "11/4 키스티안 뇌크비 복귀(부상 후) (mbl.is 2026-11-04)",
+  "룩셈부르크는 최근 5경기 NL 4패(룩셈부르크 홈 0-3·0-2·0-1 포함), 마지막 원정 승은 9/26 불가리아전 2-1(vavel)"
+ ],
+ "확인안됨": ["룩셈부르크 11월 소집 명단과 결장자", "11/13 아이슬란드 선발 11명", "정확한 순위 규정 및 무승부 시 조 1위 타이브레이크", "심판"],
+ "출처": ["https://www.fotbolti.net/news/14-11-2026/thrir-kalladir-inn-i-landslidid", "https://www.fotbolti.net/news/14-11-2026/landslidid-maett-heim-i-kuldann-ekkert-frost-i-vellinum", "https://www.dv.is/433/2026/11/04/landslidshopur-islands-fatt-kemur-a-ovart-gylfi-og-aron-einar-med", "https://www.vavel.com/en/data/iceland/results/", "https://www.vavel.com/en/data/luxembourg/results/", "https://www.sportsmole.co.uk/football/estonia/uefa-nations-league/preview/estonia-vs-bulgaria-prediction-team-news-lineups_609090.html"],
+ "배당": "보지 않음"
+}

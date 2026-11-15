@@ -1,0 +1,33 @@
+{
+ "번호": 4447,
+ "홈": "중국", "원정": "바레인",
+ "리그": "남자축구 국제친선 (2026 CFA 중국之队·肇庆 국제 초청전, 4개국: 중국·바레인·말레이시아·예멘)",
+ "수집시각": "2026-11-16 KST",
+ "구장": "肇庆新区体育中心(Zhaoqing New District Sports Center), 광둥성 자오칭, 중국 — 홈팀 자국(중립 아님). 원래 광저우 톈허로 보도됐다가 자오칭으로 변경(sina 11/10 기사). 11/17 20:00 중국 현지 킥오프",
+ "순위와걸린것": "친선(초청전). 바레인은 2경기만 치름(11/14 예멘, 11/17 중국). 중국은 아시안컵 전 연습 성격으로 보도됨.",
+ "결장": [
+  {"팀": "중국", "선수": "韦世豪(웨이스하오)", "포지션": "공격수", "주전": "확인 안 됨", "상태": "확정", "사유": "충칭 초청전 퇴장 및 리그 징계로 정지, 명단 제외", "출처": "https://sports.sina.cn/2026-11-10/detail-iniyfkmh9423370.d.html", "날짜": "2026-11-10"},
+  {"팀": "바레인", "선수": "Mohammed Al Rumaihi", "포지션": "공격수", "주전": "확인 안 됨", "상태": "확정", "사유": "훈련 중 부상, Saud Mohsen으로 교체", "출처": "https://www.newsofbahrain.com/en/article/bahrain-begin-china-friendlies-preparations-under-felix-sanchez-bas", "날짜": "2026-11-10"}
+ ],
+ "직전경기": {
+  "홈": "11/14 중국 2-0 말레이시아 (자오칭, 20시). 王钰栋 10분 헤더, 张玉宁 19분. 44분 양측 충돌(VAR 후 옐로). 말레이시아는 주전 약 20명 불참, 말레이시아 Fergus Tierney 추가시간 경고누적 퇴장. 선발 풀 명단 확인 안 됨. 출처 https://sohu.com/a/1101979328_122341251 , https://k.sina.com.cn/article_7879995911_1d5af3207068033tn8.html (11/14-16)",
+  "원정": "11/14 바레인 3-1 예멘 (자오칭) — sohu 한 기사 근거(https://sohu.com/a/1101979328_122341251), 단독 출처. 선발 확인 안 됨"
+ },
+ "최근5경기": {
+  "홈": ["11/14 말레이시아 2-0 승(중립 아님 홈)", "이전 A매치 기간: 뉴질랜드 0-3 패, 팔레스타인 0-5 패, 타지키스탄 0-1 패 (순서·날짜·장소 확인 안 됨; 3연패 무득점 9실점, sina 2026-11-10) ", "충칭 초청전 1승3패(날짜 확인 안 됨, 같은 sina 기사 요약)"],
+  "원정": ["11/14 예멘 3-1 승(자오칭)", "2026-09-30 걸프컵 조별리그 바레인 2-5 예멘 패(제다, https://www.omanobserver.om/ampArticle/1197074)", "그 밖 확인 안 됨"]
+ },
+ "맞대결": ["2024-11 월드컵 예선: 중국이 张玉宁 후반 결승골로 바레인 승(점수 미확인, https://www.thestar.com.my/news/world/2024/11/15/china-edges-bahrain-in-fifa-world-cup-qualifier-on-striker-zhang039s-late-winner)", "2025-06-10 월드컵 예선 중국 vs 바레인 개최 확인(점수 확인 안 됨)"],
+ "감독": {"홈": "邵佳一(샤오자이) — 2026-01-04 중국 대표팀 감독 취임, 자오칭에서 기자회견", "원정": "Felix Sanchez Bas(스페인) — 이번 소집이 첫 지휘(gdnonline 2026-11-10)"},
+ "일정": "중국: 11/14 → 11/17 (3일 휴식), 같은 도시(자오칭) 이동 없음. 바레인: 11/14 → 11/17 (3일), 11/18 귀국. 바레인 선수 일부(Abdulla Yusuf, Mohammed Marhoon)는 쿠웨이트에서 직접 합류.",
+ "사실": [
+  "중국 26인 명단: 吴曦(37세) 2년 9개월 만에 복귀, 신규 소집 12명(아시안게임 대표 9명), 蒋圣龙 부상 복귀, 张玉宁·王钰栋·胡荷韬 포함 (sina 2026-11-10 https://sports.sina.cn/2026-11-10/detail-iniyfkmh9423370.d.html)",
+  "중국 선수단 일정 11/9~11/18 자오칭 (sina 2026-11-10)",
+  "邵佳一은 말레이시아전 하프타임에 득점자(王钰栋)를 교체했다는 기사 존재 https://k.sina.cn/article_7879995911_1d5af3207068033mee.html (2026-11-14~15)",
+  "바레인 30인 소집, 첫 경기 지휘 Sanchez (https://www.gdnonline.com/Details/1412009/Sanchez-names-Bahrain-squad)",
+  "중국 언론은 바레인을 '신체 접촉 강한 팀'으로 묘사(sina 2026-11-10)"
+ ],
+ "확인안됨": ["양 팀 11/17 선발·최종 결장", "바레인 선발·예멘전 상세", "중국 26인 전체 명단", "심판·날씨", "중국 최근 5경기 날짜·장소 정확치"],
+ "출처": ["https://sports.sina.cn/2026-11-10/detail-iniyfkmh9423370.d.html", "https://www.newsofbahrain.com/en/article/bahrain-begin-china-friendlies-preparations-under-felix-sanchez-bas", "https://www.nst.com.my/amp/sports/football/2026/10/1558223/hostile-territory-awaits-malaysia-china-international-football", "https://sohu.com/a/1101979328_122341251", "https://www.gdnonline.com/Details/1412380", "https://k.sina.com.cn/article_7879995911_1d5af3207068033vs6.html"],
+ "배당": "보지 않음"
+}

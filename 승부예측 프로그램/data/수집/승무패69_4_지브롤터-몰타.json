@@ -1,0 +1,33 @@
+{
+ "번호": 4368,
+ "홈": "지브롤터", "원정": "몰타",
+ "리그": "UEFA 네이션스리그 리그D 1조 6차전(최종전)",
+ "수집시각": "2026-11-16 KST",
+ "구장": "Europa Point Stadium(=Europa Sports Park 표기도 있음), 지브롤터 — 지브롤터 자국 개최(중립 아님). 현지 11/16(월) 20:45 CET = KST 11/17 04:45. 구장 이름 표기가 출처마다 다름(같은 구장으로 보이나 확인 안 됨). Goal.com 은 시각 14:45 로 적어 엇갈림",
+ "순위와걸린것": "1조 순위(11/13 기준, Wikipedia): 몰타 3경기 7점(2승1무, 4득2실) · 안도라 4경기 4점 · 지브롤터 3경기 2점(2무1패, 1득3실). 안도라는 4경기를 모두 마쳤고 몰타는 이미 조 1위 확정(Sports Mole). 지브롤터가 이기면 5점으로 안도라(4점)를 넘어 2위. 리그D는 폐지 — 모든 팀이 리그C로 승격(Wikipedia 규정; 이 대회는 최종 종합순위에만 반영: 조 1위 49~50위, 2위 51~52위, 3위 53~54위). Victory Suites(업데이트 오래됨)는 'Gibraltar 8점 vs Malta 7점' 등 현재 상황과 안 맞는 계산이라 무시",
+ "결장": [
+  {"팀": "홈", "선수": "Tjay De Barr", "포지션": "공격(추정 FW)", "주전": true, "상태": "확정", "사유": "경고 누적 출전정지(Sports Mole 기재)", "출처": "https://www.sportsmole.co.uk/football/gibraltar/preview/gibraltar-vs-malta-prediction-team-news-lineups_609101.html", "날짜": "2026-11-15"},
+  {"팀": "홈", "선수": "Ethan Jolley", "포지션": "확인 안 됨", "주전": "확인 안 됨", "상태": "의심", "사유": "안도라전에서 부상으로 교체 아웃, 출전 불투명. Louie Annesley 가 대체 예상", "출처": "https://www.sportsmole.co.uk/football/gibraltar/preview/gibraltar-vs-malta-prediction-team-news-lineups_609101.html", "날짜": "2026-11-15"},
+  {"팀": "원정", "선수": "Alexander Satariano", "포지션": "확인 안 됨", "주전": "확인 안 됨", "상태": "확정", "사유": "1경기 출전정지(최종전 결장)", "출처": "https://www.sportsmole.co.uk/football/gibraltar/preview/gibraltar-vs-malta-prediction-team-news-lineups_609101.html", "날짜": "2026-11-15"}
+ ],
+ "직전경기": {
+  "홈": "11/13 안도라 2-0 지브롤터(원정, Encamp) 득점 López 24', Rosas 35' (Wikipedia; 관중 710). 이번 경기까지 3일 휴식. Sports Mole 예상 선발(미확정): Hankins; Annesley, Bent, Lopes, Valarino; Pozo, Ronan; Richards, Scanlon, Mason; Borge. 안도라전 실제 선발은 확인 안 됨(사전 예상: Banda; Bent, Lopes, Valarino; Ronan, Mason, Torrilla, Pozo, Scanlon; De Barr, Borge)",
+  "원정": "11/12(목) 에스와티니와 친선(Sports Mole: 1-1 무, 에스와티니 Gift Gamedze 퇴장으로 10명; 몰타는 선발을 대폭 로테이션). 점수·장소는 Sports Mole 단독 출처, Dutch matchcenter 는 0-0 자리표시. 몰타 이번 경기까지 4일 휴식. Sports Mole 예상 선발(미확정): Bonello; Lonardelli, Muscat, Shaw, Beerman; Guillaumier, Paiber; Mbong, Teuma, Chouaref; Tuma (Teuma·Chouaref·Paiber 복귀 가능, Basil Tuma 선발 예상)"
+ },
+ "최근5경기": {
+  "홈": ["11/13 안도라 0-2 (원정, NL)", "10/01 몰타 1-1 (원정, NL, James Scanlon 득점)", "09/27 안도라 0-0 (홈, NL, 관중 1,382)", "그 이전: 리히텐슈타인 원정 2-0 승(Sports Mole, 일자 확인 안 됨)", "Sports Mole 안도라전 프리뷰 기준 전 대회 최근 폼 W W D D D W(순서·일자 확인 안 됨)"],
+  "원정": ["11/12 에스와티니 1-1(친선, Sports Mole)", "10/04 안도라 1-0 (홈, NL, 관중 5,894)", "10/01 지브롤터 1-1 (홈, NL, 관중 4,090)", "09/24 안도라 2-1 (원정, NL)", "리히텐슈타인 2-0 승(Sports Mole, 일자·장소 확인 안 됨)"]
+ },
+ "맞대결": ["2026-10-01 몰타 1-1 지브롤터, National Stadium Ta' Qali (Wikipedia)"],
+ "감독": {"홈": "Scott Wiseman", "원정": "Emilio De Leo"},
+ "일정": "지브롤터 3일 휴식(11/13 안도라 원정), 몰타 4일 휴식(11/12 친선, 홈 몰타 개최로 보이나 확인 안 됨). 지브롤터-안도라 이동은 짧지 않은 원정(Encamp)",
+ "사실": [
+  "Wikipedia 일정표는 이 경기를 Europa Sports Park, CET 20:45 로 표기 (https://en.wikipedia.org/wiki/2026%E2%80%9327_UEFA_Nations_League_D, 2026-11-13 기준)",
+  "11/13 안도라전 득점 López 24', Rosas 35' (Wikipedia)",
+  "Goal.com 은 'Gibraltar 홈 0-2 안도라' 라고 적었으나 Wikipedia·Sports Mole 은 안도라 원정(Encamp) — 엇갈림, Wikipedia 채택 (https://www.goal.com/en/news/live-stream-online-tv-where-to-watch-gibraltar-v-malta/blt5218aafb14835b34)",
+  "몰타는 이번 NL 조에서 3경기 무패, 안도라전 1-0 · 2-1 승"
+ ],
+ "확인안됨": ["지브롤터의 11/13 안도라전 실제 선발·교체", "몰타 에스와티니전 실제 선발·정확 점수 확인(Sports Mole 단독)", "Jolley·Satariano 포지션과 주전 여부", "공식 11월 소집 명단 발표", "심판·날씨", "몰타 11월 소집 중 부상자"],
+ "출처": ["https://www.sportsmole.co.uk/football/gibraltar/preview/gibraltar-vs-malta-prediction-team-news-lineups_609101.html", "https://en.wikipedia.org/wiki/2026%E2%80%9327_UEFA_Nations_League_D", "https://victorysuites.gi/blog/gibraltar-football-internationals-2026", "https://www.sportsmole.co.uk/football/andorra/uefa-nations-league/preview/andorra-vs-gibraltar-prediction-team-news-lineups_608916.html", "https://www.goal.com/en/news/live-stream-online-tv-where-to-watch-gibraltar-v-malta/blt5218aafb14835b34"],
+ "배당": "보지 않음"
+}

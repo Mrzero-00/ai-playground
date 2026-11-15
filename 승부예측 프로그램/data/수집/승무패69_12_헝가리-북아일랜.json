@@ -1,0 +1,35 @@
+{
+ "번호": 4485,
+ "홈": "헝가리", "원정": "북아일랜드",
+ "리그": "UEFA 네이션스리그 2026-27 리그B 2조 6차전(최종전), 11/17 20:45 CET = 11/18 04:45 KST",
+ "수집시각": "2026-11-16 KST",
+ "구장": "푸스카시 아레나, 부다페스트, 헝가리 — 홈팀 자국(중립 아님) (출처 Sports Mole·Khelnow, 날짜 미표기, 11월 경기 프리뷰)",
+ "순위와걸린것": "Sports Mole 프리뷰: 북아일랜드 1위 승점 11, 헝가리 2위 승점 10. 둘 다 2위 이내 확정, 자동 승격(리그A)은 1위만. Khelnow는 두 팀 모두 리그A 승격으로 서술(승점 미기재) — 출처 엇갈림. 조 1위 결정이 이 경기에 걸려 있음(Sports Mole 기준).",
+ "결장": [
+  {"팀": "홈", "선수": "밀란 비탈리스", "포지션": "수비", "주전": "확인 안 됨", "상태": "확정(출전정지)", "사유": "Sports Mole 프리뷰: suspended", "출처": "https://www.sportsmole.co.uk/football/hungary/nations-league-predictions/preview/hungary-vs-n-ireland-prediction-team-news-lineups_609115.html", "날짜": "2026-11 (정확한 날짜 미표기)"},
+  {"팀": "홈", "선수": "빌리 오르반", "포지션": "센터백", "주전": "확인 안 됨(10/2 헝가리-조지아 풀타임 출전 보도)", "상태": "확정(출전정지)", "사유": "Sports Mole 프리뷰: suspended", "출처": "https://www.sportsmole.co.uk/football/hungary/nations-league-predictions/preview/hungary-vs-n-ireland-prediction-team-news-lineups_609115.html", "날짜": "2026-11 (정확한 날짜 미표기)"},
+  {"팀": "홈", "선수": "도미니크 소보슬러이", "포지션": "미드필더", "주전": true, "상태": "의심→출전 예상", "사유": "조지아전 준비 중 경미한 문제, 출전 예상", "출처": "https://khelnow.com/football/hungary-vs-northern-ireland-preview-uefa-nations-league-202611", "날짜": "2026-11 (미표기)"},
+  {"팀": "원정", "선수": "제이미 돈리", "포지션": "공격", "주전": "확인 안 됨", "상태": "확정(출전정지)", "사유": "우크라이나전 경고 누적", "출처": "https://www.sportsmole.co.uk/football/hungary/nations-league-predictions/preview/hungary-vs-n-ireland-prediction-team-news-lineups_609115.html", "날짜": "2026-11 (미표기)"},
+  {"팀": "원정", "선수": "(전원)", "포지션": "-", "주전": "-", "상태": "Khelnow: 전원 건강", "사유": "-", "출처": "https://khelnow.com/football/hungary-vs-northern-ireland-preview-uefa-nations-league-202611", "날짜": "2026-11 (미표기)"}
+ ],
+ "직전경기": {
+  "홈": "11/14(토) 헝가리 2-0 조지아 (Sports Mole 프리뷰 기재; 장소 확인 안 됨). 네이션스리그 3연승 중.",
+  "원정": "11/14(토) 북아일랜드 1-0 우크라이나 (테리 데블린 중거리골, Sports Mole 프리뷰; 장소 확인 안 됨)."
+ },
+ "최근5경기": {
+  "홈": ["네이션스리그 흐름 L-D-W-W-W (Sports Mole·Khelnow). 9/25 헝가리 0-1 우크라이나(홈, 시칸 전반 종료 직전 골; Sports Mole 9월 프리뷰 기재, 같은 기사에 '경기 전날 업데이트') ", "9/28 북아일랜드 vs 헝가리 0-0 (벨파스트 윈저파크; 점수는 Sports Mole 위젯·Khelnow 직전 맞대결 0-0 서술 근거)", "10/2 헝가리 1-0 조지아 (푸스카시, 커르케즈 35분; 검색결과 요약)", "나머지 날짜별 점수 확인 안 됨", "11/14 헝가리 2-0 조지아(Sports Mole)"],
+  "원정": ["네이션스리그 흐름 W-D-W-D-W, 2026-27 네이션스리그 무패 (Khelnow)", "9/28 북아일랜드 0-0 헝가리", "11/14 북아일랜드 1-0 우크라이나", "나머지 날짜별 점수 확인 안 됨"]
+ },
+ "맞대결": ["2026-09-28 북아일랜드 0-0 헝가리 (윈저파크, 벨파스트; Sports Mole 위젯 FT 0-0 + Khelnow '직전 맞대결 무득점 무승부'; Sports Mole는 9/29로도 서술해 날짜 엇갈림)", "통산 8경기 헝가리 5승 2무 북아일랜드 1승 (Khelnow)", "북아일랜드가 헝가리를 마지막으로 이긴 것은 2014년 9월 (Sports Mole 9월 프리뷰)"],
+ "감독": {"홈": "마르코 로시 (교체 없음, 9/28 Daily News Hungary에서 '3점을 원한다' 발언)", "원정": "마이클 오닐"},
+ "일정": "양 팀 모두 11/14 경기 후 3일 휴식(11/17 경기). 이동 정보 확인 안 됨.",
+ "사실": [
+  "9/28 경기 전 헝가리 불참: 바르너버시 바르가·로란드 샬러이 부상 결장, 라이문드 토트·요제프 살러이 미동행, 데미르 레지치 우크라이나전 후 이탈 (https://dailynewshungary.com/hungary-northern-ireland-marco-rossi/ , 2026-09-28). 11월 명단 상태는 확인 안 됨",
+  "바르가는 국제 17호 골을 노린다(Sports Mole 11월 프리뷰). 11월 출전 가능 여부 확인 안 됨",
+  "북아일랜드 예상 라인업(Sports Mole): 마제니스 원톱, 갤브레이스·프라이스 측면, 샤를 앵커. 아트틸러 살러이가 중앙수비 이동 가능",
+  "Khelnow 킥오프 표기 11/17 19:45 GMT, VAR 사용, 심판 미정"
+ ],
+ "확인안됨": ["공식 11월 소집명단·부상(MLSZ·IFA)", "심판·날씨", "정확한 최근 5경기 점수·날짜 전부", "Sports Mole 프리뷰 게재일", "9/28 맞대결 공식 최종 스코어 (복수 출처 모순 없이 0-0)"],
+ "출처": ["https://www.sportsmole.co.uk/football/hungary/nations-league-predictions/preview/hungary-vs-n-ireland-prediction-team-news-lineups_609115.html", "https://khelnow.com/football/hungary-vs-northern-ireland-preview-uefa-nations-league-202611", "https://dailynewshungary.com/hungary-northern-ireland-marco-rossi/", "https://www.sportsmole.co.uk/football/northern-ireland/uefa-nations-league/preview/n-ireland-vs-hungary-prediction-team-news-lineups_605869.html"],
+ "배당": "보지 않음"
+}

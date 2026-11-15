@@ -1,0 +1,40 @@
+{
+ "번호": 4376,
+ "홈": "그리스", "원정": "세르비아",
+ "리그": "UEFA 네이션스리그 2026-27 리그A 2조(A2) 최종 6차전",
+ "수집시각": "2026-11-16 KST",
+ "구장": "Panthessaliko Stadium(Dimotiko Stadio Neapolis Volou 표기도 있음), 볼로스, 그리스 — 홈팀 자국(중립 아님). 킥오프 현지 11/16 20:45 CET = KST 11/17 04:45 (https://www.sportsmole.co.uk/football/greece/uefa-nations-league/preview/greece-vs-serbia-prediction-team-news-lineups_609121.html, 2026-11-15). 구장명은 소스마다 다름: 헤더 Dimotiko Stadio Neapolis Volou, 본문 Panthessaliko",
+ "순위와걸린것": "5경기 후 A2 순위: 네덜란드 11점(3승2무0패), 그리스 8점(2승2무1패), 독일 8점(2승2무1패), 세르비아 0점(0승0무5패) (https://www.101greatgoals.com/football/internationals/netherlands-7-0-greece-oranje-all-but-secure-quarter-final-spot/, 2026-11-13). 상위 2팀 8강. 그리스-독일 동률 시 승점 동률팀 간 상대전적 우선(그리스가 독일에 1-0 승·0-0 무로 상대전적 앞섬: https://www.aljazeera.com/sports/2026/11/15/germany-vs-netherlands-nations-league-preview-team-news-predictions, 2026-11-15). 같은 시각 독일-네덜란드(베를린) 병행. 세르비아는 5연패 최하위로 리그B 강등 위기, 4위팀들 간 비교에서 튀르키예·체코·크로아티아보다 위면 A/B 플레이오프 가능(sportsmole 2026-11-15). 그리스 매체: 세르비아전 승리 시 독일이 네덜란드를 못 이기면 8강 가능(ground.news 요약 2026-11-14).",
+ "결장": [
+  {"팀": "홈", "선수": "Dimitrios Kourbelis", "포지션": "미드필더", "주전": true, "상태": "확정", "사유": "발목 부상(11/13 네덜란드전 워밍업 불편으로 선발 명단에서 빠진 것으로 보도)", "출처": "https://www.sportsmole.co.uk/football/greece/uefa-nations-league/preview/greece-vs-serbia-prediction-team-news-lineups_609121.html", "날짜": "2026-11-15"},
+  {"팀": "홈", "선수": "Christos Tzolis", "포지션": "윙어", "주전": true, "상태": "복귀", "사유": "MRI 결과 이상 없음, 출전 가능이라는 보도(제목 기준). 원문은 403으로 본문 확인 못함", "출처": "https://greekcitytimes.com/2026/11/16/tzolis-mri-all-clear-greece-serbia", "날짜": "2026-11-16"},
+  {"팀": "홈", "선수": "Fotis Ioannidis", "포지션": "공격수", "주전": true, "상태": "의심", "사유": "검색 요약에 출전 불투명로 언급, 상세 근거 확인 안 됨", "출처": "https://greekcitytimes.com/2026/11/16/tzolis-mri-all-clear-greece-serbia (검색 요약)", "날짜": "2026-11-16"},
+  {"팀": "홈", "선수": "Christos Zafeiris, Manolis Saliakas", "포지션": "미드필더/수비", "주전": "확인 안 됨", "상태": "확인 안 됨", "사유": "네덜란드전(11/13) 프리뷰에 '2번째 경고로 징계'로 기재됨. 11/13 경기 결장 사유이며 이번 경기 영향은 확인 안 됨. 다른 기사에서 확인 못함", "출처": "https://www.sportsmole.co.uk/football/netherlands/uefa-nations-league/preview/netherlands-vs-greece-prediction-team-news-lineups_608925.html", "날짜": "2026-11-12"},
+  {"팀": "원정", "선수": "Vanja Dragojevic", "포지션": "교체 출전 선수", "주전": "확인 안 됨", "상태": "확정", "사유": "11/13 독일전 74~76분 VAR 후 퇴장 → 출전 정지", "출처": "https://www.vavel.com/en-us/soccer/2026/11/13/1279075-serbia-vs-germany-live-score-2026-27-uefa-nations-league.html; https://www.sportsmole.co.uk/football/greece/uefa-nations-league/preview/greece-vs-serbia-prediction-team-news-lineups_609121.html", "날짜": "2026-11-13"},
+  {"팀": "원정", "선수": "Andrija Zivkovic", "포지션": "미드필더", "주전": "확인 안 됨", "상태": "확정", "사유": "11/13 독일전 89분 퇴장(항의로 옐로우가 레드로) → 출전 정지", "출처": "동일", "날짜": "2026-11-13"},
+  {"팀": "원정", "선수": "Mitrovic 등", "포지션": "공격수", "주전": true, "상태": "오래됨", "사유": "9월 프리뷰에서 Vlahovic·Milenkovic·Rajkovic·Mitrovic 부상 결장. 11월 상태 확인 안 됨(sportsmole 11월 예상 선발에는 Milenkovic 포함)", "출처": "https://www.sportsmole.co.uk/football/serbia/uefa-nations-league/preview/serbia-vs-greece-prediction-team-news-lineups_605618.html", "날짜": "2026-09-23"}
+ ],
+ "직전경기": {
+  "홈": "11/13(금) 네덜란드 7-0 그리스 (원정, 요한 크라위프 아레나, 암스테르담). 득점 전부 네덜란드: Summerville 6', Reijnders 12'·18'·33', J.Timber 40'·59', Malen 61'(62' 표기도 있음). 하프타임 5-0. xG 네덜란드 4.39 대 그리스 0.44, 슈팅 17대9, 유효슈팅 13대1(https://www.beinsports.com/en-us/soccer/uefa-nations-league/articles/netherlands-7-0-greece-reijnders-hits-hat-trick-in-nations-league-rout-2026-11-13 등). 퇴장 보도 없음(101greatgoals 2026-11-13). 그리스 선발은 소스마다 다름: greekcitytimes 기준 Tzolakis, Rota, Tsimikas, Retsos, Mavropanos, Triantis, Androutsos, Karetsas, Tzolis, Pavlidis(주장)·Ioannidis 계열이며 정확한 11명 확정은 확인 안 됨(https://greekcitytimes.com/2026/11/14/netherlands-humiliate-greece-with-7-0-nations-league-defeat/, https://m.dongqiudi.com/en/match/54419546). 교체: Masouras(Karetsas 대신), Bakasetas·Douvikas(Pavlidis·Ioannidis 대신), Koutsoupias(Triantis 대신 약 73'). Kourbelis는 선발 명단에 올랐다가 워밍업 불편으로 빠진 것으로 보도. Mavropanos가 첫 골 상황에서 공을 빼앗김. 그리스 4-4-2, GK Tzolakis 6세이브(Sofascore 2026-11-13). 그리스가 마지막으로 이긴 경기 이후 첫 패배이자 이 대회 첫 패.",
+  "원정": "11/13(금) 세르비아 1-3 독일 (홈, 베오그라드). 독일 득점: Babic 자책(하베르츠 코너), Wirtz, Gruda(대표팀 데뷔). 세르비아 득점: Babic. 세르비아 2-0 뒤진 상태였고 후반 Dragojevic 퇴장(74~76'), Zivkovic 퇴장(89') 두 명 퇴장으로 9명 (https://www.vavel.com/en-us/soccer/2026/11/13/1279075-serbia-vs-germany-live-score-2026-27-uefa-nations-league.html, 2026-11-13). 세르비아 5연패."
+ },
+ "최근5경기": {
+  "홈": ["11/13 네덜란드 7-0 그리스 (원정, 패)", "그리스 0-0 독일 (홈, 무, 날짜 확인 안 됨)", "그리스 2-2 네덜란드 (10/1 홈, 무)", "그리스 1-0 독일 (원정, 승, 날짜 확인 안 됨)", "9/24 세르비아 1-2 그리스 (원정, 승, 추가시간 결승골)"],
+  "원정": ["11/13 세르비아 1-3 독일 (홈, 패)", "세르비아 1-2 네덜란드 (홈, 패, 날짜 확인 안 됨)", "네덜란드 2-1 세르비아 (원정 또는 홈 표기 혼재, 패, 날짜 확인 안 됨)", "9/24 세르비아 1-2 그리스 (홈, 패)", "독일전 포함 5연패, 최근 5경기 5패. 5경기 승점 0 (sportsmole 2026-11-15)"]
+ },
+ "맞대결": ["2026-09-24 세르비아 1-2 그리스 (베오그라드, 이번 네이션스리그, 그리스가 종료 직전 결승골로 역전) https://neoskosmos.com/en/2026/09/25/sport/football/greece-stun-serbia-with-injury-time-winner-in-nations-league-opener/ (ESPN gameId 401861042도 동일 스코어)"],
+ "감독": {
+  "홈": "Ivan Jovanovic. 11/13 경기 후 기자회견 108초·질문 1개로 종료(https://voetbalfocus.be/jovanovic-griekenland-7-0-persconferentie-108-seconden/). 인용(Goal.com, 2026-11-14): 이 패배는 '오랫동안 우리를 아프게 할 것', '많은 사람을 실망시켰다', 초반 3-0은 '작은 충격'이었고 회복 못 함, 팀이 '준비되지 않았고 매우 약했다', '결과와 이미지 모두에서 결과를 감수할 것'. 세르비아전은 '3일 뒤 중요한 경기', 이후 2~3일은 '가장 쉽지 않은 시간'이라고 발언(Kurir/B92 보도 요약). https://www.goal.com/en-gb/news/ivan-jovanovic-netherlands-defeat-greece/blt37a4dc6c2daf0679",
+  "원정": "Veljko Paunovic (sportsmole 2026-11-15). 최근 발언 확인 안 됨."
+ },
+ "일정": "그리스 11/13 암스테르담 → 11/16 볼로스 홈, 중 2일 휴식(3일 간격, 이동은 암스테르담→그리스 항공). 세르비아 11/13 베오그라드 홈 경기 → 11/16 그리스 원정, 3일 간격.",
+ "사실": [
+  "예상 선발(sportsmole 2026-11-15, 공식 확정 아님) 그리스: Tzolakis; Rota, Mavropanos, Retsos, Tsimikas; Karetsas, Triantis, Androutsos, Tzolis; Pavlidis, Ioannidis. 세르비아: V.Milinkovic-Savic; Nedeljkovic, Gudelj, Milenkovic, Babic, Sukacev; Samardzic, Dzodic, S.Milinkovic-Savic; Cvetkovic, Tadic.",
+  "네덜란드전에서 그리스는 유효슈팅 1개, xG 0.44 (beinsports 2026-11-13).",
+  "11/13 이후 같은 날 독일 3-1 세르비아, 네덜란드 7-0 그리스로 그리스는 2위에서 독일과 8점 동률 (101greatgoals 2026-11-13).",
+  "세르비아는 이 조에서 승점 0, 5경기 모두 패배(sportsmole 2026-11-15)."
+ ],
+ "확인안됨": ["그리스 11/13 선발 11명 확정(소스 간 불일치)", "Ioannidis 의심 상태의 근거", "Zafeiris·Saliakas가 11/16에도 징계인지", "세르비아 선발·결장 상세(Mitrovic 등)", "그리스 11월 소집 명단 전체", "심판·날씨", "11/13 경기 중 그리스 부상 교체 여부", "그리스 최근 5경기 중 일부 날짜"],
+ "출처": ["https://www.sportsmole.co.uk/football/greece/uefa-nations-league/preview/greece-vs-serbia-prediction-team-news-lineups_609121.html", "https://www.sportsmole.co.uk/football/netherlands/uefa-nations-league/preview/netherlands-vs-greece-prediction-team-news-lineups_608925.html", "https://www.101greatgoals.com/football/internationals/netherlands-7-0-greece-oranje-all-but-secure-quarter-final-spot/", "https://www.beinsports.com/en-us/soccer/uefa-nations-league/articles/netherlands-7-0-greece-reijnders-hits-hat-trick-in-nations-league-rout-2026-11-13", "https://www.sofascore.com/news/netherlands-7-0-greece-ruthless-oranje-light-up-amsterdam", "https://greekcitytimes.com/2026/11/14/netherlands-humiliate-greece-with-7-0-nations-league-defeat/", "https://www.goal.com/en-gb/news/ivan-jovanovic-netherlands-defeat-greece/blt37a4dc6c2daf0679", "https://voetbalfocus.be/jovanovic-griekenland-7-0-persconferentie-108-seconden/", "https://www.vavel.com/en-us/soccer/2026/11/13/1279075-serbia-vs-germany-live-score-2026-27-uefa-nations-league.html", "https://www.aljazeera.com/sports/2026/11/15/germany-vs-netherlands-nations-league-preview-team-news-predictions", "https://neoskosmos.com/en/2026/09/25/sport/football/greece-stun-serbia-with-injury-time-winner-in-nations-league-opener/", "https://greekcitytimes.com/2026/11/16/tzolis-mri-all-clear-greece-serbia"],
+ "배당": "보지 않음"
+}

@@ -1,0 +1,29 @@
+{
+ "번호": 4386,
+ "홈": "북마케도니아", "원정": "슬로베니아",
+ "리그": "UEFA 네이션스리그 리그B 1조 6차전(최종전)",
+ "수집시각": "2026-11-16 KST",
+ "구장": "Toše Proeski Arena, 스코페, 북마케도니아 — 홈팀 자국 개최(중립 아님). 현지 11/16(월) 20:45 CET = KST 11/17 04:45 (Wikipedia). Sports Mole 은 19:45 로 표기(시간대 차이로 보임)",
+ "순위와걸린것": "1조 순위(11/13 기준, Wikipedia): 스위스 5경기 13점(승격 확정) · 슬로베니아 5경기 8점(2승2무1패, 5득3실) · 스코틀랜드 5경기 7점 · 북마케도니아 5경기 0점(5패, 1득12실, 리그C 강등 플레이오프권). 슬로베니아는 2위(승격 플레이오프권), 스코틀랜드와 1점 차. 최종 6차전 동시 경기: 스위스-스코틀랜드(St. Gallen, 20:45 CET). 2위는 3월 리그A 3·4위팀과 승격 플레이오프, 3위는 리그B 잔류, 4위는 리그C 2위팀과 강등 플레이오프. 북마케도니아는 현재 4위(Wikipedia 상 Relegation play-offs). 이미 0점이라 순위는 4위로 사실상 고정이나 공식 확정 표기는 확인 안 됨",
+ "결장": [],
+ "직전경기": {
+  "홈": "11/13 스코틀랜드 2-1 북마케도니아(원정, Hampden Park). McGinn 54', 74'(pen.) / Rastoder 57'. 5연패. 선발 11명 확인 안 됨(Sports Mole 사전 예상: Dimitrievski; Ilievski, Meljichi, Musliu, Alioski; Elmas, Atanasov, Mitrovski, Bardhi, Doriev; Rastoder — 미확정). 이번 경기까지 3일 휴식, 글래스고→스코페 이동",
+  "원정": "11/13 슬로베니아 0-0 스위스(홈, Ljudski vrt, Maribor). 선발 확인 안 됨. 이번 경기까지 3일 휴식. Sports Mole 이번 경기 예상 선발(미확정): Oblak; Kuzmic, Drkusic, Bijol, Zaletel, Karnicnik; Matko, Zabukovnik, Cerin, Sturm; Vipotnik. 북마케도니아 예상(미확정): Dimitrievski; Ilievski, Mladenovski, Musliu, Alioski; Gastarov, Elmas; Churlinov, Bardhi, Doriev; Rastoder"
+ },
+ "최근5경기": {
+  "홈": ["11/13 스코틀랜드 1-2 (원정, NL)", "10/06 스위스 0-3 (원정, NL)", "10/03 스코틀랜드 0-2 (홈, NL, Bowie 7', McGinn 70' pen.)", "09/29 슬로베니아 0-2 (원정, NL)", "09/26 스위스 0-3 (홈, NL)"],
+  "원정": ["11/13 스위스 0-0 (홈 Maribor, NL)", "10/06 스코틀랜드 2-1 승 (원정 Hampden, NL, Matko 56', Šturm 71')", "10/03 스위스 1-2 패 (원정 Lucerne, NL, Vipotnik 2')", "09/29 북마케도니아 2-0 승 (홈 Ljubljana, NL, Lovrić 55', Matko 82')", "09/26 스코틀랜드 0-0 (홈 Ljubljana, NL)"]
+ },
+ "맞대결": ["2026-09-29 슬로베니아 2-0 북마케도니아, Stožice Stadium Ljubljana (Lovrić 55', Matko 82') — Wikipedia"],
+ "감독": {"홈": "Goce Sedloski (2025-12 부임, 아직 첫 승 없음 — Sports Mole)", "원정": "Boštjan Cesar (Kek 이후 부임, 6월 이후 매 경기 선발 구성 다르게 사용 — Siol 보도)"},
+ "일정": "양 팀 모두 11/13 이후 3일 휴식. 북마케도니아는 Glasgow→Skopje 이동, 슬로베니아는 Maribor 홈경기 후 Skopje 원정",
+ "사실": [
+  "북마케도니아: 5경기 0득점 이하 아님(1득점: Rastoder 11/13), 전 대회 13경기 무승(마지막 승리 2025-09 리히텐슈타인 5-0), 이번 조 12실점(2번째로 많은 팀보다 6점 더 많음) — Sports Mole 2026-11 프리뷰 https://www.sportsmole.co.uk/football/macedonia/uefa-nations-league/preview/n-macedonia-vs-slovenia-prediction-team-news-lineups_609097.html",
+  "슬로베니아 NL 4경기 무실점 아님: 5경기 3실점 (Wikipedia)",
+  "Sports Mole 프리뷰에 양 팀 부상·결장 언급 없음",
+  "Fotmob/Siol 등 슬로베니아 11월 소집 명단 기사는 찾지 못함"
+ ],
+ "확인안됨": ["양 팀 11월 소집 명단과 결장·부상 선수 (공식 발표 못 찾음)", "슬로베니아 Šeško, Čeh 등 핵심 선수 상태", "11/13 경기 실제 선발·퇴장·경고누적 출전정지자", "북마케도니아 Meljichi 10월 부상(10/03 프리뷰 언급) 현재 상태", "심판·날씨"],
+ "출처": ["https://www.sportsmole.co.uk/football/macedonia/uefa-nations-league/preview/n-macedonia-vs-slovenia-prediction-team-news-lineups_609097.html", "https://en.wikipedia.org/wiki/2026%E2%80%9327_UEFA_Nations_League_B", "https://www.vavel.com/en/data/slovenia/results/", "https://www.vavel.com/en/data/north-macedonia/results/", "https://www.sportsmole.co.uk/football/scotland/uefa-nations-league/preview/scotland-vs-n-macedonia-prediction-team-news-lineups_608913.html"],
+ "배당": "보지 않음"
+}

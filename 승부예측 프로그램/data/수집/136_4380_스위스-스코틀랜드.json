@@ -1,0 +1,43 @@
+{
+ "번호": 4380,
+ "홈": "스위스", "원정": "스코틀랜드",
+ "리그": "UEFA 네이션스리그 2026-27 리그B 조1(출처별 'Group E'로도 표기) 6차전(최종전)",
+ "수집시각": "2026-11-16 KST",
+ "구장": "Berit Sitterstadion(= Kybunpark), 장크트갈렌, 스위스 — 홈팀 자국(중립 아님). 현지 11/16(월) 19:45 GMT = KST 11/17 04:45. 출처: https://www.racingpost.com/sport/football-tips/nations-league/switzerland-vs-scotland-predictions-team-news-odds-betting-tips-bet-builder-aYQnp7B0i7o1/ (2026-11-15경); https://www.bluewin.ch/en/sport/football/national-team-to-conclude-2026-season-in-st.-gallen-li.3530972 (2026-07-16)",
+ "순위와걸린것": "스위스: 조 1위·리그A 승격 이미 확정, 이 경기는 조 최종전(걸린 것 없음). 승점은 출처 엇갈림: 13점(Racing Post, 4승1무) vs 11/13 슬로베니아전 전 12점(Vavel)+무승부 1점=13점으로 일치. 스코틀랜드: 조 3위(슬로베니아보다 승점 1 뒤, TNT Sports). 승격 플레이오프 진출 조건 = 스위스전 승리 + 슬로베니아가 북마케도니아 원정에서 승리하지 못함(Racing Post, TNT Sports 2026-11-15경). 슬로베니아는 11/13 스위스와 0-0(마리보르).",
+ "결장": [
+  {"팀": "홈", "선수": "그라니트 자카", "포지션": "MF(주장)", "주전": true, "상태": "확정", "사유": "9월 소집 철회 후 계속 제외(백신 증명서 건 보도). 11월 기사는 종아리 부상(TNT)이라고도 함 — 사유 출처 엇갈림", "출처": "https://www.racingpost.com/sport/football-tips/nations-league/switzerland-vs-scotland-predictions-team-news-odds-betting-tips-bet-builder-aYQnp7B0i7o1/ ; https://www.tntsports.co.uk/betting/tips/switzerland-vs-scotland-prediction-tips-and-odds-nations-league-16-11-26/", "날짜": "2026-11-15"},
+  {"팀": "홈", "선수": "조한 만잠비", "포지션": "MF", "주전": "확인 안 됨", "상태": "확정", "사유": "종아리 부상으로 소집 이탈", "출처": "https://www.racingpost.com/sport/football-tips/nations-league/switzerland-vs-scotland-predictions-team-news-odds-betting-tips-bet-builder-aYQnp7B0i7o1/", "날짜": "2026-11-15"},
+  {"팀": "홈", "선수": "미로 무헤임", "포지션": "DF", "주전": "확인 안 됨", "상태": "확정", "사유": "부상", "출처": "https://www.tntsports.co.uk/betting/tips/switzerland-vs-scotland-prediction-tips-and-odds-nations-league-16-11-26/", "날짜": "2026-11-15"},
+  {"팀": "홈", "선수": "마누엘 아칸지, 단 은도예", "포지션": "DF / FW", "주전": true, "상태": "확인 안 됨", "사유": "Racing Post는 '소집에서 이탈'이라 적음. 다른 검색 요약은 은도예를 주목 선수로 적어 엇갈림 — 확정 아님", "출처": "https://www.racingpost.com/sport/football-tips/nations-league/switzerland-vs-scotland-predictions-team-news-odds-betting-tips-bet-builder-aYQnp7B0i7o1/", "날짜": "2026-11-15"},
+  {"팀": "홈", "선수": "루벤 바르가스", "포지션": "FW", "주전": true, "상태": "의심", "사유": "질병(TNT) — 11/13 슬로베니아전 결장", "출처": "https://www.tntsports.co.uk/betting/tips/switzerland-vs-scotland-prediction-tips-and-odds-nations-league-16-11-26/", "날짜": "2026-11-15"},
+  {"팀": "홈", "선수": "윈슬리 보텔리", "포지션": "FW", "주전": "확인 안 됨", "상태": "의심", "사유": "체력 문제 가능성", "출처": "https://khelnow.com/football/switzerland-vs-scotland-preview-uefa-nations-league-202611", "날짜": "2026-11-15"},
+  {"팀": "원정", "선수": "스티븐 웰시", "포지션": "DF", "주전": "확인 안 됨", "상태": "확정", "사유": "소집 철회(무릎 우려/근육 부상, 출처 엇갈림)", "출처": "https://www.tntsports.co.uk/betting/tips/switzerland-vs-scotland-prediction-tips-and-odds-nations-league-16-11-26/", "날짜": "2026-11-15"},
+  {"팀": "원정", "선수": "루이스 빈스", "포지션": "DF", "주전": "확인 안 됨", "상태": "확정", "사유": "소집 철회", "출처": "https://www.tntsports.co.uk/betting/tips/switzerland-vs-scotland-prediction-tips-and-odds-nations-league-16-11-26/", "날짜": "2026-11-15"},
+  {"팀": "원정", "선수": "스콧 맥케나", "포지션": "DF", "주전": "확인 안 됨", "상태": "확정", "사유": "허리 근육 부상", "출처": "https://www.tntsports.co.uk/betting/tips/switzerland-vs-scotland-prediction-tips-and-odds-nations-league-16-11-26/", "날짜": "2026-11-15"},
+  {"팀": "원정", "선수": "맥토미니, 티어니, 체 애덤스", "포지션": "MF/DF/FW", "주전": true, "상태": "복귀", "사유": "부상에서 복귀. 맥토미니는 11/13 북마케도니아전 출전(앞선 4경기 결장 후). 포초뇰리 감독은 소집 명단에 포함", "출처": "https://www.tntsports.co.uk/betting/tips/switzerland-vs-scotland-prediction-tips-and-odds-nations-league-16-11-26/ ; https://www.racingpost.com/sport/football-tips/nations-league/switzerland-vs-scotland-predictions-team-news-odds-betting-tips-bet-builder-aYQnp7B0i7o1/", "날짜": "2026-11-15"}
+ ],
+ "직전경기": {
+  "홈": "11/13(금) 슬로베니아 0-0 스위스(원정, 마리보르 Ljudski vrt). 스위스 승격 확정. 선발 명단은 확인 안 됨. 슬로베니아 측 에이스 셰슈코 결장. 11/13→11/16 휴식 3일. (https://www.vavel.com/en-us/soccer/2026/11/13/1278927-slovenia-vs-switzerland-live-score-uefa-nations-league.html 2026-11-13; https://www.livescore.com/en/news/football/more/murat-yakin-admits-relief-as-switzerland-seal-nations-league-a-promotion-despite-surprising-slovenia-tactics-goal/ 2026-11-13)",
+  "원정": "11/13(금) 스코틀랜드 2-1 북마케도니아(홈). 맥토미니 출전. 선발 명단 확인 안 됨. 휴식 3일. (https://www.tntsports.co.uk/betting/tips/switzerland-vs-scotland-prediction-tips-and-odds-nations-league-16-11-26/ 2026-11-15)"
+ },
+ "최근5경기": {
+  "홈": ["TNT/khelnow: 최근 5경기 W-W-W-W-D(최신 0-0 슬로베니아 원정)", "10/03 스위스 2-1 슬로베니아(홈, 루체른, 은도예 결승골; ESPN/Flashscore)", "09/29 스코틀랜드 0-3 스위스(원정, 햄던) — 스위스 승(스코틀랜드 10명 보도: flashscore)", "나머지 날짜·상대는 확인 안 됨"],
+  "원정": ["khelnow: 최근 5경기 D-L-W-L-W(최신 2-1 북마케도니아)", "09/29 스코틀랜드 0-3 스위스(홈)", "슬로베니아에 1-2 패(TNT/Racing Post, 날짜 확인 안 됨)", "나머지 날짜·상대는 확인 안 됨"]
+ },
+ "맞대결": ["2026-09-29 스코틀랜드 0-3 스위스, 햄던파크 글래스고(네이션스리그 1차전 맞대결; 스코틀랜드가 퇴장으로 10명이 됐다고 Flashscore 보도: https://www.flashscore.com/news/switzerland-outclass-10-man-scotland-to-curise-to-routine-nations-league-win/SrlFMa4n/)"],
+ "감독": {
+  "홈": "무라트 야킨. 11/13 후 인용: 스코틀랜드전은 '안정감이 필요하지만 확실히 몇 명 바꿀 것'(\"we'll definitely make a few changes\"), 비주전 선수에게 더 많은 시간 부여 계획 (livescore 2026-11-13)",
+  "원정": "세바스티앙 포코뇰리(Racing Post/khelnow 표기, 새 체제 적응 중이라는 보도; 스티브 클락 후임). 로테이션 발언은 확인 안 됨"
+ },
+ "일정": "양 팀 모두 11/13에서 3일 휴식. 스위스는 슬로베니아 원정(마리보르) 후 홈 이동, 스코틀랜드는 홈 경기 후 스위스 이동. 킥오프 현지 20:45 CET(=19:45 GMT).",
+ "사실": [
+  "예상 스위스 선발(전망, 확정 아님): 코벨; 아테카메, 엘베디, 코메르트, 로드리게스; 자카리아, 프로일러; 암두니, 리더, 에비셔; 엠볼로 (Racing Post 2026-11-15)",
+  "예상 스코틀랜드(전망): 건; 포르테우스, 그레이엄, 티어니; 가논-두악, 길모어, 퍼거슨, 로버트슨; 맥긴, 맥토미니; 애덤스 (Racing Post 2026-11-15)",
+  "스위스 이번 조 성적: 5경기 4승1무, 1실점(Racing Post 2026-11-15)",
+  "심판·날씨: 확인 안 됨"
+ ],
+ "확인안됨": ["실제 선발 11명(11/13 양 팀)", "심판", "날씨", "아칸지·은도예 결장 사실 여부(출처 엇갈림)", "스위스·스코틀랜드 승점 정확한 수치(스코틀랜드)", "스코틀랜드 포코뇰리 로테이션 발언"],
+ "출처": ["https://www.racingpost.com/sport/football-tips/nations-league/switzerland-vs-scotland-predictions-team-news-odds-betting-tips-bet-builder-aYQnp7B0i7o1/", "https://www.tntsports.co.uk/betting/tips/switzerland-vs-scotland-prediction-tips-and-odds-nations-league-16-11-26/", "https://khelnow.com/football/switzerland-vs-scotland-preview-uefa-nations-league-202611", "https://www.livescore.com/en/news/football/more/murat-yakin-admits-relief-as-switzerland-seal-nations-league-a-promotion-despite-surprising-slovenia-tactics-goal/", "https://www.vavel.com/en-us/soccer/2026/11/13/1278927-slovenia-vs-switzerland-live-score-uefa-nations-league.html", "https://www.bluewin.ch/en/sport/football/national-team-to-conclude-2026-season-in-st.-gallen-li.3530972"],
+ "배당": "보지 않음"
+}

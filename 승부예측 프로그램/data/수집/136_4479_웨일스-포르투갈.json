@@ -1,0 +1,44 @@
+{
+ "번호": 4479,
+ "홈": "웨일스", "원정": "포르투갈",
+ "리그": "UEFA 네이션스리그 2026-27 리그A 조4 6차전(최종전)",
+ "수집시각": "2026-11-16 KST",
+ "구장": "Cardiff City Stadium, 카디프, 웨일스 — 홈팀 자국(중립 아님). 현지 11/17(화) 19:45 GMT = KST 11/18 04:45. 일부 출처가 스완지로 적은 곳이 있으나 다수·portugoal(2026-11-09)은 카디프. https://portugoal.net/selecao/6254-weekend-injuries-take-their-toll-on-portugal-squad-rafael-leao-nuno-tavares-and-tomas-araujo-out-flavio-nazinho-and-goncalo-inacio-in",
+ "순위와걸린것": "조4 순위(11/14 후, ESPN/UEFA 요약): 포르투갈 5경기 4승1패 12점 · 덴마크 9점 · 노르웨이 6점 · 웨일스 3점(1승4패). 포르투갈은 8강(퀴터파이널) 진출 이미 확정. 포르투갈은 웨일스전 무승부 이상이면 조 1위 확정(Sports Mole/Flashscore 2026-11-15). 패하고 덴마크가 11/17 노르웨이를 이기면 덴마크 승점 12 동률, 덴마크가 상대전적 우위(포르투갈 2-4 덴마크 10/1, 1-4 11/14)로 1위 가능(Sports Mole 2026-11-15). 웨일스는 승리해도 6점으로 노르웨이·덴마크와 동률이 될 수 있으나 상대전적이 불리해 최하위 확정(Yahoo 2026-11-14). 무승부(승점 1) 이상이면 강등 플레이오프 확정, 승점 못 따면 세르비아·튀르키예·체코 중 2팀이 마지막 경기를 이기느냐에 달림(Sports Mole 2026-11-15; 출처 간 표현 상이).",
+ "결장": [
+  {"팀": "홈", "선수": "에단 암파두", "포지션": "MF(주장급)", "주전": true, "상태": "확정", "사유": "11/14 노르웨이전 경고 누적(대회 2번째 경고)으로 1경기 출장정지", "출처": "https://www.sportsmole.co.uk/football/portugal/uefa-nations-league/preview/wales-vs-portugal-prediction-team-news-lineups_609143.html ; https://www.livescore.com/en/news/football/uefa-nations-league/wales-portugal-predictions-nations-league/", "날짜": "2026-11-15"},
+  {"팀": "홈", "선수": "네코 윌리엄스", "포지션": "RB", "주전": true, "상태": "확정", "사유": "11/14 노르웨이전 부상 교체. 코너 로버츠가 대체 예상(로버츠는 노르웨이전 PK 파울)", "출처": "https://www.sportsmole.co.uk/football/portugal/uefa-nations-league/preview/wales-vs-portugal-prediction-team-news-lineups_609143.html", "날짜": "2026-11-15"},
+  {"팀": "홈", "선수": "키퍼 무어(소집 이탈, 대체 아론 콜린스), 조던 제임스, 딜런 로러, 네이선 브로드헤드", "포지션": "FW/MF/DF/FW", "주전": "확인 안 됨", "상태": "의심", "사유": "일부 프리뷰의 부상 목록. 노르웨이전 이전 기사라 최신 여부 불명", "출처": "https://www.3addedminutes.com/international-football/wales/wales-predicted-lineup-portugal-wilson-rodon-9169882 (9월 기사일 가능성, 오래됨)", "날짜": "확인 안 됨"},
+  {"팀": "원정", "선수": "루벤 디아스", "포지션": "CB", "주전": true, "상태": "확정", "사유": "출장정지(11/14 덴마크전 경고 누적으로 보도). 안토니우 실바가 대체 예상", "출처": "https://www.sportsmole.co.uk/football/portugal/uefa-nations-league/preview/wales-vs-portugal-prediction-team-news-lineups_609143.html ; https://www.livescore.com/en/news/football/uefa-nations-league/wales-portugal-predictions-nations-league/ ; https://khelnow.com/football/wales-vs-portugal-preview-uefa-nations-league-202611", "날짜": "2026-11-15"},
+  {"팀": "원정", "선수": "주앙 팔리냐", "포지션": "MF", "주전": "확인 안 됨", "상태": "의심", "사유": "Khelnow·Livescore 계열 검색 요약은 출장정지라고 적음. Sports Mole는 언급 없음 — 출처 엇갈림", "출처": "https://khelnow.com/football/wales-vs-portugal-preview-uefa-nations-league-202611", "날짜": "2026-11-15"},
+  {"팀": "원정", "선수": "프란시스쿠 콘세이상", "포지션": "FW", "주전": "확인 안 됨", "상태": "확정", "사유": "10월 노르웨이전 퇴장으로 UEFA 3경기 출장정지(11/6 소집 발표 때 언급)", "출처": "https://www.beinsports.com/en-au/football/uefa-nations-league/articles/portugal-rings-changes-after-ronaldo-s-retirement-2026-11-06 (검색 요약 기준; 페이지 직접 확인 못함)", "날짜": "2026-11-06"},
+  {"팀": "원정", "선수": "누누 멘데스", "포지션": "LB", "주전": true, "상태": "확정", "사유": "부상으로 11월 소집 제외(PSG)", "출처": "https://portugoal.net/selecao/6254-weekend-injuries-take-their-toll-on-portugal-squad-rafael-leao-nuno-tavares-and-tomas-araujo-out-flavio-nazinho-and-goncalo-inacio-in", "날짜": "2026-11-09"},
+  {"팀": "원정", "선수": "하파엘 레앙, 누누 타바레스, 토마스 아라우주", "포지션": "FW / LB / CB", "주전": "확인 안 됨", "상태": "확정", "사유": "주말 부상으로 포르투갈 축구협회 건강성과부가 '출전 불가' 판정, 소집 해제. 대체: 플라비우 나지뉴(모나코 LB, 첫 소집), 곤살로 이나시우. (portugoal 단일 출처, 타 매체 원 명단엔 레앙·타바레스 포함으로 적음)", "출처": "https://portugoal.net/selecao/6254-weekend-injuries-take-their-toll-on-portugal-squad-rafael-leao-nuno-tavares-and-tomas-araujo-out-flavio-nazinho-and-goncalo-inacio-in", "날짜": "2026-11-09"},
+  {"팀": "원정", "선수": "베르나르두 실바", "포지션": "MF", "주전": true, "상태": "의심", "사유": "Khelnow는 부상 결장이라 적음. 그러나 11/14 덴마크전에서 득점(90+3분)했고 Sports Mole는 선발 후보로 언급 — 엇갈림", "출처": "https://khelnow.com/football/wales-vs-portugal-preview-uefa-nations-league-202611", "날짜": "2026-11-15"},
+  {"팀": "원정", "선수": "크리스티아누 호날두", "포지션": "FW", "주전": true, "상태": "확정", "사유": "국가대표 은퇴(11/5 은퇴 확정 보도), 9월 말부터 대표팀 합류 안 함. 11/14 경기 전 헌정 행사(전 선수 7번 셔츠 착용)", "출처": "https://www.tntsports.co.uk/football/uefa-nations-league/2026-2027/live-portugal-denmark_mtc20005914/live-commentary.shtml ; https://www.moroccoworldnews.com/2026/11/346480/portugal-coach-jesus-on-missing-ronaldo-only-to-keep-me-company/", "날짜": "2026-11-14"}
+ ],
+ "직전경기": {
+  "홈": "11/14(토) 노르웨이 3-1 웨일스(원정, 오슬로 Ullevaal). 노르웨이 득점 누사·셸데루프·할란드(PK, 코너 로버츠 파울), 웨일스 데이비드 브룩스(후반 79분경). 웨일스 선발 확인 안 됨. 암파두 경고 누적, 윌리엄스 부상. 휴식 3일(11/14→11/17) + 오슬로→카디프 이동. (https://sports.yahoo.com/articles/norway-dent-wales-nations-league-191840518.html 2026-11-14)",
+  "원정": "11/14(토) 포르투갈 1-4 덴마크(홈, 브라가 Estádio Municipal, 헌정 행사 후 역대 최다 홈 경기 대회 패배라는 ESPN 보도). 득점 덴마크: 회이비에르 PK 43'~44', 회이룬 49~51'·57~58', 안데르센 75~76'; 포르투갈: 베르나르두 실바 90+3'~+4'(ESPN 슛맵은 시간/득점자 표기가 달라 일부 엇갈림). 전반 0-1. 퇴장 언급 없음. 선발(ESPN, 4-2-3-1): 디오구 코스타; 달롯, 후벤 디아스, 알베르투 코스타, 레나투 베이가; 후벤 네베스, 비티냐; 페드루 네투, 브루누 페르난드스, 주앙 펠릭스; 곤살루 하무스. (https://www.espn.com/soccer/match/_/gameId/401861167/denmark-portugal 2026-11-14). 휴식 3일 후 브라가→카디프 이동."
+ },
+ "최근5경기": {
+  "홈": ["11/14 노르웨이 3-1 웨일스(원정)", "10월 웨일스 1-0 노르웨이(홈, 카디프) — 날짜 확인 안 됨", "09/24 포르투갈 1-0 웨일스(원정, 리스본, 펠릭스 골)", "khelnow 최근 5경기 L-L-W-L-L, Sports Mole: 최근 9경기(3월 이후) 1승", "덴마크전(10월 초 원정) 등 나머지는 확인 안 됨"],
+  "원정": ["11/14 포르투갈 1-4 덴마크(홈, 브라가)", "10/01 덴마크 2-4 포르투갈(원정, 코펜하겐 파르켄; 칸셀루·하무스·비티냐·펠릭스 득점)", "09/24 포르투갈 1-0 웨일스(홈)", "노르웨이전 2-1 승(9월 말~10월 초, 콘세이상 퇴장 경기)", "11/14 이전 4연승 후 첫 패(Sports Mole 2026-11-15)"]
+ },
+ "맞대결": ["2026-09-24 포르투갈 1-0 웨일스, 리스본, 주앙 펠릭스 골 (https://www.aljazeera.com/sports/2026/9/24/portugal-beat-wales-1-0-as-nations-league-defence-begins). 역대 5경기 포르투갈 4승 웨일스 1승(Livescore)"],
+ "감독": {
+  "홈": "크레이그 벨라미. 로테이션·결장 관련 발언은 확인 안 됨",
+  "원정": "조르제 제주스. 11/14 경기 후: 원래 웨일스전에서 일부 선수를 기용할 계획이었으나 상황을 다르게 봐야 한다('I had been planning to introduce some players against Wales, but we have to look at the situation differently'); 8강 진출이 이미 확정된 줄 알았다면 다른 선수를 썼을 것. Sports Mole는 패배로 인해 첫 4경기 승리 멤버에 더 의존할 수 있다고 해석(기사 해석이며 제주스 직접 발언 아님). 포르투갈 8강 진출 확정 여부: Sports Mole 2026-11-15는 '이미 8강 진출 확정'으로 적음. 출처: https://www.sportsmole.co.uk/football/portugal/news/portugal-suffer-historic-home-humiliation-on-cristiano-ronaldo-tribute-night-as-jorge-jesus-responds_609145.html ; https://www.flashscore.com/news/portugal-coach-jorge-jesus-praises-danes-after-braga-blow-they-never-allowed-us-to-play/nqFHTpp4/ (2026-11-14~15)"
+ },
+ "일정": "포르투갈 11/14 브라가 → 11/17 카디프(3일 휴식, 영국 이동). 웨일스 11/14 오슬로 → 카디프(3일 휴식). 킥오프 현지 19:45 GMT.",
+ "사실": [
+  "예상 웨일스 선발(전망): 달로; 로버츠, 로돈, 데이비스, 다실바; 컬런, 시한; 존슨, 브룩스, 윌슨; 쿠미스 (Sports Mole 2026-11-15, 확정 아님)",
+  "예상 포르투갈 선발(전망): D.코스타; A.코스타, A.실바, 베이가, 달롯; J.네베스, 비티냐; B.실바, 펠릭스, 페르난드스; 하무스 (Sports Mole 2026-11-15, 확정 아님; 제주스 로테이션 가능성, 나지뉴 옵션)",
+  "포르투갈 11월 소집: 11/6 28명 발표, 7명 교체(은퇴한 호날두 이후 첫 소집), 알베르투 코스타·구스타부 바렐라 첫 소집. 11/9 레앙·타바레스·아라우주 이탈 보도(출처 portugoal 단일). 출처: https://www.goal.com/en/news/portugal-squad-ramos-and-leao-included-first-call-up-for-varela/blta4a3908fc757b349 ; https://portugoal.net/selecao/6254-weekend-injuries-take-their-toll-on-portugal-squad-rafael-leao-nuno-tavares-and-tomas-araujo-out-flavio-nazinho-and-goncalo-inacio-in",
+  "웨일스 조4 득점 3골로 조 최저, 포르투갈·웨일스 모두 5경기 8실점(Livescore 2026-11-15)",
+  "심판·날씨: 확인 안 됨"
+ ],
+ "확인안됨": ["11/14 포르투갈 실제 경고 현황과 디아스 정지 사유(복수 출처가 정지라 했으나 경고 기록 원문은 못 찾음)", "팔리냐 정지 여부", "베르나르두 실바 부상 여부", "웨일스 11/14 선발 11명", "제주스 공식 로테이션 예고(직접 인용은 위 한 건뿐)", "심판", "날씨", "웨일스 장기 부상자(무어·제임스·로러·브로드헤드) 최신 상태"],
+ "출처": ["https://www.sportsmole.co.uk/football/portugal/uefa-nations-league/preview/wales-vs-portugal-prediction-team-news-lineups_609143.html", "https://www.livescore.com/en/news/football/uefa-nations-league/wales-portugal-predictions-nations-league/", "https://khelnow.com/football/wales-vs-portugal-preview-uefa-nations-league-202611", "https://www.espn.com/soccer/match/_/gameId/401861167/denmark-portugal", "https://www.tntsports.co.uk/football/uefa-nations-league/2026-2027/live-portugal-denmark_mtc20005914/live-commentary.shtml", "https://sports.yahoo.com/articles/norway-dent-wales-nations-league-191840518.html", "https://portugoal.net/selecao/6254-weekend-injuries-take-their-toll-on-portugal-squad-rafael-leao-nuno-tavares-and-tomas-araujo-out-flavio-nazinho-and-goncalo-inacio-in", "https://www.sportsmole.co.uk/football/portugal/news/portugal-suffer-historic-home-humiliation-on-cristiano-ronaldo-tribute-night-as-jorge-jesus-responds_609145.html", "https://www.flashscore.com/news/portugal-coach-jorge-jesus-praises-danes-after-braga-blow-they-never-allowed-us-to-play/nqFHTpp4/"],
+ "배당": "보지 않음"
+}

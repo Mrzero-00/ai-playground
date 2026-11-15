@@ -1,0 +1,27 @@
+{
+ "번호": 4364,
+ "홈": "안도라", "원정": "아제르바이잔",
+ "리그": "남자축구 국제친선경기 (11/16 현지 19:00 추정 / KST 11/17 03:00 — 킥오프 표기 사이트별로 엇갈림)",
+ "수집시각": "2026-11-16 KST",
+ "구장": "Estadi de la FAF(Estadi Nacional/Nou Estadi), 엥캄프 또는 안도라라베야 — 안도라 자국(중립 아님). 출처별 구장명 엇갈림(Nou Estadi Encamp vs Estadi de la FAF). 출처: https://starting11.com/fixtures/andorra-vs-azerbaijan (2026-11-16)",
+ "순위와걸린것": "친선경기. 대회 걸린 것 없음. 일부 사이트: 양 팀 올 시즌 마지막 친선.",
+ "결장": [],
+ "직전경기": {
+  "홈": "안도라: 11/13 지브롤터 원정 2-0 승(네이션스리그, ESPN Deportes https://espndeportes.espn.com/futbol/equipo/resultados/_/id/587 , 2026-11-16 조회). 2일 휴식.",
+  "원정": "아제르바이잔: 11/12~16 사이 경기 확인 안 됨. 직전 확인 경기는 10/4 리투아니아 홈 1-1 또는 0-1 표기 엇갈림."
+ },
+ "최근5경기": {
+  "홈": ["11/13 지브롤터 원정 2-0 승", "10/4 몰타 홈 0-1 패", "9/30 리투아니아 홈 0-3 패(친선)", "9/27 지브롤터 홈 0-0 무", "9/24 몰타 원정 1-2 패"],
+  "원정": ["(footballcritic 표기, 날짜 없음, 최신순) 프랑스 1-3 패(월드컵 예선 표기 — 오래된 경기 가능)", "리투아니아 1-1 무", "리히텐슈타인 0-0 무", "리투아니아 1-0 승", "리히텐슈타인 원정 1-0 승 — 날짜 불명, 네이션스리그. ESPN: 아제르바이잔 2조 1위 8점"]
+ },
+ "맞대결": ["2008~2016 사이 3회(무 2, 아제르바이잔 승 1 표기, 스코어 표기 엇갈림), 2016-05-26 아제르바이잔 0-0 안도라(footballcritic). 최근 맞대결 확인 안 됨."],
+ "감독": {"홈": "콜도 알바레스 데 에울라테(Koldo Álvarez de Eulate) — 2027년 12월까지 계약 연장(alto.ad, 2026-01-20)", "원정": "확인 안 됨"},
+ "일정": "안도라 11/13 후 3일 만에(원정 지브롤터 -> 홈). 안도라 올해 2026 A매치 10경기 중 승 2 무 3 패 5(ESPN Deportes 목록). 아제르바이잔 일정 확인 안 됨.",
+ "사실": [
+  "starting11: 양 팀 최근 5경기 선발 유지율 안도라 37%, 아제르바이잔 54%, 둘 다 로테이션 성향 표기.",
+  "2026년 안도라 결과: 3/27 몬테네그로 0-2 패, 3/31 산마리노 0-0, 5/29 이라크 0-1 패, 6/4 리히텐슈타인 원정 2-0 승, 6/7 코소보 0-3 패(ESPN Deportes)."
+ ],
+ "확인안됨": ["11월 소집 명단·결장자", "아제르바이잔 직전 경기·감독·명단", "정확한 킥오프·구장", "심판·날씨", "아제르바이잔 최근5경기 날짜"],
+ "출처": ["https://espndeportes.espn.com/futbol/equipo/resultados/_/id/587", "https://starting11.com/fixtures/andorra-vs-azerbaijan", "https://www.alto.ad/other/andorra-extends-coach-koldo-lvarez-de-eulat-260120", "https://www.footballcritic.com/fifa-friendlies-azerbaijan-andorra/preview/607677", "https://foot-africa.com/en/match/andorra-vs-azerbaijan-2/"],
+ "배당": "보지 않음"
+}

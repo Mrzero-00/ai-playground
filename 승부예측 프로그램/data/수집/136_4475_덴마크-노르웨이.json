@@ -1,0 +1,124 @@
+{
+ "번호": 4475,
+ "홈": "덴마크",
+ "원정": "노르웨이",
+ "리그": "UEFA 네이션스리그 2026/27 리그A 4조 6차전(최종전)",
+ "수집시각": "2026-11-16 KST",
+ "구장": "텔리아 파르켄(Telia Parken), 코펜하겐, 덴마크 — 홈팀 자국(중립 아님). 11/17 20:45 CET = 11/18 04:45 KST (출처: https://en.wikipedia.org/wiki/2026%E2%80%9327_UEFA_Nations_League_A 2026-11-15 기준, https://espreso.tv/futbol-ispaniya-priymae-angliyu-ukraina-grae-z-gruzieyu-rozklad-ta-rezultati-matchiv-virishalnogo-turu-ligi-natsiy 2026-11-15)",
+ "순위와걸린것": "A4조 5경기 후: 1 포르투갈 12점(8강 확정) / 2 덴마크 9점(3승2패, 11득8실, +3) / 3 노르웨이 6점(2승3패, 9-9) / 4 웨일스 3점(강등 플레이오프 확정). 위키: 덴마크·노르웨이 모두 직접 강등 면제(X). 상위 2팀 8강(2027년 3월 2차전). 보도(TNT 프리뷰, 베팅 사이트 아님 부분만 인용): 노르웨이가 이기면 9점 동률이며 맞대결 우위로 2위 — 덴마크는 무승부만 해도 2위. 9월 24일 노르웨이 3-2 덴마크(오슬로)로 노르웨이가 상대전적 앞섬. 같은 날 웨일스-포르투갈(카디프).",
+ "결장": [
+  {
+   "팀": "홈",
+   "선수": "안드레아스 크리스텐센",
+   "포지션": "DF",
+   "주전": true,
+   "상태": "확정",
+   "사유": "9월 중순부터 이어진 부상, 11월 명단 발표 시점에도 결장(Flashscore). 기사 날짜 미표기(11월 소집 명단 발표 수요일 기사)",
+   "출처": "https://www.flashscore.com/news/soccer-uefa-nations-league-lindstrom-and-osula-back-as-riemer-reshuffles-squad-for-crucial-nations-league-clashes/SCkzoUgC/",
+   "날짜": "2026-11 초(날짜 미표기)"
+  },
+  {
+   "팀": "홈",
+   "선수": "카스페르 회이",
+   "포지션": "FW",
+   "주전": false,
+   "상태": "의심",
+   "사유": "11월 명단에서 제외, 사유 미기재",
+   "출처": "https://www.flashscore.com/news/soccer-uefa-nations-league-lindstrom-and-osula-back-as-riemer-reshuffles-squad-for-crucial-nations-league-clashes/SCkzoUgC/",
+   "날짜": "2026-11 초(날짜 미표기)"
+  },
+  {
+   "팀": "홈",
+   "선수": "알렉산더 바·카스페르 돌베르",
+   "포지션": "DF/FW",
+   "주전": false,
+   "상태": "오래됨",
+   "사유": "9월 오슬로 경기 전 결장 보도. 11월 상태 확인 안 됨",
+   "출처": "https://www.flashscore.com/news/danish-coach-with-his-back-to-the-wall-before-huge-oslo-test-against-haaland-and-odegaard/lzGrbbC5/",
+   "날짜": "2026-09 (오래됨)"
+  },
+  {
+   "팀": "원정",
+   "선수": "마르틴 외데가르드",
+   "포지션": "MF",
+   "주전": true,
+   "상태": "복귀",
+   "사유": "웨일스전 전날 밤 질병이 있었으나 선발 출전. 이번 경기 컨디션 회복 기대라고 보도",
+   "출처": "https://www.sportsmole.co.uk/football/denmark/preview/denmark-vs-norway-prediction-team-news-lineups_609154.html",
+   "날짜": "2026-11-15"
+  },
+  {
+   "팀": "원정",
+   "선수": "알렉산데르 쇠를로트",
+   "포지션": "FW",
+   "주전": true,
+   "상태": "복귀",
+   "사유": "8월 프리시즌 근육 부상으로 9·10월 결장, 11월 소집 복귀(Atlético Madrid)",
+   "출처": "https://www.flashscore.com/news/soccer-uefa-nations-league-norway-boosted-by-the-return-of-atletico-madrid-striker-for-vital-clash-against-denmark/d64ecbat/",
+   "날짜": "2026-11 (날짜 미표기)"
+  },
+  {
+   "팀": "원정",
+   "선수": "엘링 홀란",
+   "포지션": "FW",
+   "주전": true,
+   "상태": "확인 안 됨",
+   "사유": "소집 명단 포함. 웨일스전 뒤 '덴마크전 동기부여를 찾기 어렵다'고 발언(Complete Sports 보도)",
+   "출처": "https://www.completesports.com/nations-league-haaland-struggling-for-motivation-ahead-of-denmark-clash/",
+   "날짜": "2026-11-15 경"
+  }
+ ],
+ "직전경기": {
+  "홈": "11/14 포르투갈 1-4 덴마크(원정, 브라가). 회이비에르 PK 43'(VAR, 후벵 디아스 핸드볼), 호일룬 49'·57', 요아킴 안데르센 75'(미켈 옌센 프리킥 헤더); 포르투갈 베르나르두 실바 90+3'. 퇴장 없음 (https://aa.com.tr/en/sports/denmark-stun-portugal-4-1-to-hand-hosts-1st-nations-league-defeat/4125457 2026-11-15). 호일룬 B조 5경기 5골. 11/17까지 3일 휴식, 브라가→코펜하겐 이동.",
+  "원정": "11/14 노르웨이 3-1 웨일스(홈, 오슬로 울레볼). 외데가르드 질병 후 선발, 시엘데루프 교체 득점(Sports Mole 2026-11-15). 3일 휴식, 오슬로→코펜하겐 단거리."
+ },
+ "최근5경기": {
+  "홈": [
+   "11/14 포르투갈 1-4 덴마크(원정)",
+   "10/4 웨일스 0-1 덴마크(원정)",
+   "10/1 덴마크 2-4 포르투갈(홈)",
+   "9/27 덴마크 2-0 웨일스(홈)",
+   "9/24 노르웨이 3-2 덴마크(원정)"
+  ],
+  "원정": [
+   "11/14 노르웨이 3-1 웨일스(홈)",
+   "10/4 포르투갈 2-1 노르웨이(원정)",
+   "10/1 웨일스 2-1 노르웨이(원정)",
+   "9/27 노르웨이 1-2 포르투갈(홈)",
+   "9/24 노르웨이 3-2 덴마크(홈)"
+  ]
+ },
+ "맞대결": [
+  "2026-09-24 노르웨이 3-2 덴마크, 울레볼 스타디움, 오슬로 (위키 A조 결과표)",
+  "(참고) 2024 친선 덴마크 3-1 노르웨이, 덴마크가 1998년 이후 노르웨이에 진 적 없다고 보도(Flashscore 9월 기사) — 9/24 경기로 이 기록 종료"
+ ],
+ "감독": {
+  "홈": "브리안 리메르(Brian Riemer). 9월 기사: 월드컵 예선 실패로 입지 불안, 11월 이후 해임 가능성 보도(Flashscore, 2026-09). 11월 명단: 니콜라이센·마티아스 옌센·린드스트룀·오수라 복귀(4명 신규 소집). 슈마이켈 은퇴, 헤르만센 1번 GK로 보도.",
+  "원정": "스톨레 솔바켄(Ståle Solbakken). 11/4~ 쇠를로트 복귀 소집."
+ },
+ "일정": "양 팀 11/14(토) 경기 후 11/17(화) 최종전, 휴식 3일. 덴마크는 포르투갈 원정(브라가), 노르웨이는 홈 경기 후 코펜하겐 이동. 덴마크 예상 라인업(Sports Mole 11/15, 추정): 헤르만센; 크리스텐센K·안데르센·넬손·메흘레; 호이비에르·휠만; 이삭센·담스고르·스코우올센; 호일룬. 노르웨이 예상: 셀비크; 라이어슨·아예르·헤겜·울프; 베리·베르게; 보브·외데가르드·누사; 홀란.",
+ "사실": [
+  "A4조 전체 결과: 9/24 포르투갈 1-0 웨일스; 9/27 노르웨이 1-2 포르투갈; 10/4 포르투갈 2-1 노르웨이 등 (위키 2026-11-15).",
+  "덴마크는 직전 4-1 승으로 2위(9점) 유지. 포르투갈은 이미 8강 확정, 웨일스는 강등 플레이오프 확정 — 두 팀 모두 같은 날 경기(웨일스-포르투갈, 카디프).",
+  "예상 라인업 기사에 부상·징계 확정 없음(Sports Mole 2026-11-15 14:52)."
+ ],
+ "확인안됨": [
+  "덴마크 11월 소집 최종 명단 전체와 11/14 이후 부상·징계(경고누적)",
+  "노르웨이 11월 전체 명단·결장",
+  "심판·날씨",
+  "크리스텐센 11월 명단 기사의 정확한 날짜",
+  "11/14 덴마크 선발 11명"
+ ],
+ "출처": [
+  "https://en.wikipedia.org/wiki/2026%E2%80%9327_UEFA_Nations_League_A",
+  "https://aa.com.tr/en/sports/denmark-stun-portugal-4-1-to-hand-hosts-1st-nations-league-defeat/4125457",
+  "https://www.sportsmole.co.uk/football/denmark/preview/denmark-vs-norway-prediction-team-news-lineups_609154.html",
+  "https://www.flashscore.com/news/soccer-uefa-nations-league-lindstrom-and-osula-back-as-riemer-reshuffles-squad-for-crucial-nations-league-clashes/SCkzoUgC/",
+  "https://www.flashscore.com/news/soccer-uefa-nations-league-norway-boosted-by-the-return-of-atletico-madrid-striker-for-vital-clash-against-denmark/d64ecbat/",
+  "https://www.flashscore.com/news/danish-coach-with-his-back-to-the-wall-before-huge-oslo-test-against-haaland-and-odegaard/lzGrbbC5/",
+  "https://www.completesports.com/nations-league-haaland-struggling-for-motivation-ahead-of-denmark-clash/",
+  "https://www.skysports.com/football/denmark-vs-wales/table/554008",
+  "https://espreso.tv/futbol-ispaniya-priymae-angliyu-ukraina-grae-z-gruzieyu-rozklad-ta-rezultati-matchiv-virishalnogo-turu-ligi-natsiy"
+ ],
+ "배당": "보지 않음"
+}

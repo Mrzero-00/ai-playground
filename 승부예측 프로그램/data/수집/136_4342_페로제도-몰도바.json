@@ -1,0 +1,29 @@
+{
+ "번호": 4342,
+ "홈": "페로제도", "원정": "몰도바",
+ "리그": "UEFA 네이션스리그 2026/27 리그 C 3조 6차전(최종전)",
+ "수집시각": "2026-11-16 KST",
+ "구장": "퇴르스뵐뢰르(Tórsvøllur), 토르스하운, 페로제도 — 홈팀 자국 개최(중립 아님). 킥오프 11/16 15:00 GMT(=KST 11/17 00:00)로 여러 곳이 일치, ESPN만 10:00 표기",
+ "순위와걸린것": "3조 순위(11/13 경기 후, 5경기씩): 1 슬로바키아 11점(3승2무0패 11-4, 이미 리그B 승격 확정) / 2 몰도바 7점(2승1무2패 5-9) / 3 페로제도 5점(0승5무0패 7-7, 5경기 전부 무승부) / 4 카자흐스탄 2점. 위키: 몰도바·페로제도는 '최선의 경우 승격 플레이오프(2027년 3월)'. 조 2위가 승격 PO. 이 경기 결과로 2위 결정(승점 몰도바 7 vs 페로 5). 4위 카자흐스탄은 위키 범례상 (Q) 표기, 단계명은 확인 안 됨. 같은 시각 카자흐스탄-슬로바키아 동시 진행. 출처: https://en.wikipedia.org/wiki/2026%E2%80%9327_UEFA_Nations_League_C (11/13 경기 반영본)",
+ "결장": [],
+ "직전경기": {
+  "홈": "11/13 슬로바키아 2-2 페로제도(원정). 득점: 17' Prekop(SVK), 30' V.Davidsen(FAR, PK), 47~48' Á.Samuelsen(FAR), 74' Haraslín(SVK). 구장은 출처 엇갈림(Košice 기술 / Bratislava 기술) — 확인 안 됨. 출처 https://www.sportzcraazy.com/slo-vs-far-slovakia-v-faroe-islands-drawn-2-2/ , https://tips.gg/article/faroe-islands-vs-moldova-16-11-2026/ (2026-11-14). 골키퍼 Mattias Lamhauge 90분 풀타임(tips.gg)",
+  "원정": "11/13 몰도바 2-1 카자흐스탄(홈, 키시나우 Zimbru Stadium, 관중 6,783). 골키퍼 Dumitru Celeadnic 90분 풀타임(tips.gg). 출처 위키 + https://www.vavel.com/en-us/data/moldova/results/"
+ },
+ "최근5경기": {
+  "홈": ["11/13 슬로바키아 2-2 페로제도(원정)", "10/06 카자흐스탄 2-2 페로제도(원정, 아스타나)", "10/02 페로제도 1-1 슬로바키아(홈, 관중 2,853)", "09/29 몰도바 1-1 페로제도(원정, 키시나우)", "09/26 페로제도 1-1 카자흐스탄(홈, 관중 2,458). 출처 https://www.vavel.com/en/data/faroe-islands/results/ + 위키 (2026-11 갱신)"],
+  "원정": ["11/13 몰도바 2-1 카자흐스탄(홈)", "10/06 몰도바 0-4 슬로바키아(홈, 키시나우)", "10/02 카자흐스탄 1-2 몰도바(원정, 아스타나)", "09/29 몰도바 1-1 페로제도(홈)", "09/26 슬로바키아 2-0 몰도바(원정, 프레쇼우). 출처 https://www.vavel.com/en-us/data/moldova/results/ + 위키"]
+ },
+ "맞대결": ["이번 대회 1차: 2026-09-29 몰도바 1-1 페로제도, Zimbru Stadium 키시나우, 관중 4,542 (페로 득점은 PK라는 보도, sportsmole 계열). 출처 위키 / https://www.11v11.com/matches/moldova-v-faroe-islands-29-september-2026-394928/"],
+ "감독": {"홈": "Eyðun Klakstein (10/01 sportsmole 프리뷰에 기재; 11/02 24명 명단 발표라는 보도는 저품질 사이트 karlobag.eu)", "원정": "Lilian Popescu — 11월 26명 소집이라는 보도는 저품질 사이트 karlobag.eu 단독, 확인 안 됨"},
+ "일정": "페로제도: 11/13 슬로바키아 원정(2-2) 후 11/16 홈 — 휴식 3일(경기일 기준), 페로 이동 필요. 몰도바: 11/13 홈(키시나우) 후 11/16 페로제도 원정 — 휴식 3일, 장거리 이동.",
+ "사실": [
+  "페로제도는 이번 조 5경기 전부 무승부(7득점 7실점). 11/13 2-2 직전 경기에서도 무. (위키, 2026-11)",
+  "몰도바는 10/02 카자흐스탄 원정 2-1, 11/13 카자흐스탄 홈 2-1로 2승. 슬로바키아에 0-2, 0-4 패. (위키)",
+  "10/02 페로-슬로바키아 프리뷰 시점 페로 '2026년 지금까지 패배 1회'(sportsmole 2026-10-01). 이후 5경기 전부 무승부.",
+  "tips.gg 프리뷰(2026-11-14): 몰도바 Petru Popescu 최근 5경기 2골(날짜·출처 신뢰도 낮음)"
+ ],
+ "확인안됨": ["11월 소집 명단·결장자(두 팀 모두 공식 명단 미공개, UEFA 매치 페이지 'Official squad list not available')", "심판", "날씨", "실제 선발 11명", "페로제도 직전경기 구장 출처 불일치"],
+ "출처": ["https://en.wikipedia.org/wiki/2026%E2%80%9327_UEFA_Nations_League_C", "https://www.vavel.com/en/data/faroe-islands/results/", "https://www.vavel.com/en-us/data/moldova/results/", "https://tips.gg/article/faroe-islands-vs-moldova-16-11-2026/", "https://www.sportzcraazy.com/slo-vs-far-slovakia-v-faroe-islands-drawn-2-2/", "https://www.uefa.com/uefanationsleague/match/2047910--faroe-islands-vs-moldova/lineups", "https://www.sportsmole.co.uk/football/faroe-islands/uefa-nations-league/preview/faroe-islands-vs-slovakia-prediction-team-news-lineups_606037.html"],
+ "배당": "보지 않음"
+}

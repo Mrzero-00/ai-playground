@@ -1,0 +1,35 @@
+{
+ "번호": 4354,
+ "홈": "에스토니아", "원정": "불가리아",
+ "리그": "UEFA 네이션스리그 리그C 4조 6차전(최종전)",
+ "수집시각": "2026-11-16 KST",
+ "구장": "A. Le Coq Arena, 탈린, 에스토니아 — 홈팀 자국(중립 아님). 현지 월요일 17:00 GMT 표기(=KST 02:00 11/17). Sports Mole 본문은 구장명을 Lillekula Stadium으로도 적음(엇갈림, 공식 UEFA/ERR는 Le Coq Arena)",
+ "순위와걸린것": "11/13 후 에스토니아 2위(승점 9, 아이슬란드 11), 불가리아 승점 4(5경기)·최대 3위·4위 룩셈부르크와 1점 차(Sports Mole 2026-11-14). 에스토니아는 최소 승격 플레이오프 확보, 자동 승격은 에스토니아 승 + 아이슬란드가 룩셈부르크에 비승 필요. 불가리아는 강등 이미 확정, 조 최하위 위험. 아이슬란드-룩셈부르크 동시 킥오프.",
+ "결장": [
+  {"팀": "홈", "선수": "라우노 사피넨(Rauno Sappinen)", "포지션": "공격", "주전": "확인 안 됨", "상태": "확정", "사유": "건강 사유로 11월 명단 제외", "출처": "https://sport.err.ee/1610184526/henn-avalikustas-jalgpallikoondise-koosseisu-novembrikuu-mangudeks", "날짜": "2026-11-10경"},
+  {"팀": "홈", "선수": "블라시 신야프스키(Vlasi Sinjavski)", "포지션": "확인 안 됨", "주전": "확인 안 됨", "상태": "확정", "사유": "건강 사유 제외", "출처": "https://sport.err.ee/1610184526/henn-avalikustas-jalgpallikoondise-koosseisu-novembrikuu-mangudeks", "날짜": "2026-11-10경"},
+  {"팀": "홈", "선수": "마르텐 쿠스크(Märten Kuusk)", "포지션": "수비", "주전": "확인 안 됨", "상태": "확정", "사유": "건강 사유 제외", "출처": "https://sport.err.ee/1610184526/henn-avalikustas-jalgpallikoondise-koosseisu-novembrikuu-mangudeks", "날짜": "2026-11-10경"},
+  {"팀": "홈", "선수": "마르쿠스 소오메츠(Markus Soomets)", "포지션": "미드필더", "주전": "확인 안 됨(Sports Mole 9월 예상 선발에 이름)", "상태": "확정", "사유": "건강 사유 제외", "출처": "https://sport.err.ee/1610184526/henn-avalikustas-jalgpallikoondise-koosseisu-novembrikuu-mangudeks", "날짜": "2026-11-10경"},
+  {"팀": "홈", "선수": "로비 사르마(Robi Saarma)", "포지션": "윙백", "주전": "확인 안 됨(9월 불가리아전 부상 교체 보도)", "상태": "확정", "사유": "건강 사유 제외", "출처": "https://sport.err.ee/1610184526/henn-avalikustas-jalgpallikoondise-koosseisu-novembrikuu-mangudeks", "날짜": "2026-11-10경"},
+  {"팀": "홈", "선수": "마르쿠스 푸옴(Markus Poom)", "포지션": "미드필더", "주전": "확인 안 됨", "상태": "복귀", "사유": "자녀 출생으로 이전 경기 결장, 복귀해 팀 합류, 우려 없다고 감독 발언(검색 요약, 출처 soccernet.ee 계열)", "출처": "https://soccernet.ee/artikkel/henn-tahame-aasta-lopetada-samasuguse-meeskonnana-keda-on-alates-suvest-naha-olnud", "날짜": "2026-11 (정확한 일자 확인 안 됨)"},
+  {"팀": "원정", "선수": "마르틴 민체프(Martin Minchev)", "포지션": "확인 안 됨", "주전": "확인 안 됨", "상태": "확정", "사유": "부상으로 소집 철회", "출처": "https://www.sportsmole.co.uk/football/estonia/uefa-nations-league/preview/estonia-vs-bulgaria-prediction-team-news-lineups_609090.html", "날짜": "2026-11-14"},
+  {"팀": "원정", "선수": "크리스티안 디미트로프(Kristian Dimitrov, 레프스키 주장)", "포지션": "확인 안 됨", "주전": "확인 안 됨", "상태": "의심", "사유": "소집 명단에서 빠짐(사유 확인 안 됨, 단일 검색 요약)", "출처": "검색 요약(출처 URL 특정 못함)", "날짜": "2026-11"}
+ ],
+ "직전경기": {"홈": "11/13 룩셈부르크 0-1 에스토니아(원정 승). 3일 휴식. 선발 11명 확인 안 됨. 11/16 선발은 11/13 선발 유지 가능성 언급(Sports Mole 2026-11-14). 출처 https://www.vavel.com/en/data/estonia/results/", "원정": "11/13 불가리아 0-5 아이슬란드(홈, 소피아 또는 플로브디프 — 출처 엇갈림). 3일 휴식 + 탈린 이동. 선발 확인 안 됨. 출처 https://www.vavel.com/en/data/bulgaria/results/"},
+ "최근5경기": {
+  "홈": ["9/26 아이슬란드 1-1 에스토니아(원정)", "9/29 불가리아 0-0 에스토니아(원정)", "10/3 에스토니아 1-0 룩셈부르크(홈, 득점 라스무스 페에트손 5분)", "10/6 에스토니아 0-0 아이슬란드(홈)", "11/13 룩셈부르크 0-1 에스토니아(원정)"],
+  "원정": ["9/26 불가리아 1-2 룩셈부르크(홈)", "9/29 불가리아 0-0 에스토니아(홈)", "10/3 아이슬란드 3-0 불가리아(원정)", "10/6 룩셈부르크 0-2 불가리아(원정)", "11/13 불가리아 0-5 아이슬란드(홈)"]
+ },
+ "맞대결": ["2026-09-29 불가리아 0-0 에스토니아(불가리아 홈, vavel). Sports Mole 9월 기사에는 에스토니아 윙백 사르마 부상 교체 언급(오래됨)"],
+ "감독": {"홈": "위르겐 헨(Jürgen Henn). 11월 발언: '올여름부터 보여 온 같은 팀으로 해를 마무리하고 싶다'(soccernet.ee 제목, 날짜 11월 추정)", "원정": "리바르스키(Atanas Ribarski, 단일 출처; Sports Mole는 'Ribarski'만 표기)"},
+ "일정": "양팀 11/13 후 3일 휴식. 불가리아는 탈린 원정 이동.",
+ "사실": [
+  "에스토니아 11월 소집 25명, 샤인 로코 로베르트·파알베르크 합류 (ERR 2026-11-10경)",
+  "에스토니아 NL 5경기 무실점 4경기·실점 1(1-1 아이슬란드), 득점 2골(1-0 두 번, 나머지 0-0·0-0·1-1) — 위 결과로부터 계산",
+  "불가리아는 최근 4경기 중 3경기 무득점, 11/13 0-5 패(Sports Mole 2026-11-14)",
+  "불가리아 선발 후보 언급: Turitsov, Velkovski, Petkov, Chochev, Lazarov (Sports Mole 2026-11-14)"
+ ],
+ "확인안됨": ["11/13 선발 11명 양팀", "심판·날씨", "Bulgaria 감독 풀네임(출처 1곳)", "에스토니아 결장 5명 포지션 상세·주전 여부", "디미트로프 제외 사유"],
+ "출처": ["https://www.sportsmole.co.uk/football/estonia/uefa-nations-league/preview/estonia-vs-bulgaria-prediction-team-news-lineups_609090.html", "https://sport.err.ee/1610184526/henn-avalikustas-jalgpallikoondise-koosseisu-novembrikuu-mangudeks", "https://www.vavel.com/en/data/estonia/results/", "https://www.vavel.com/en/data/bulgaria/results/", "https://www.vavel.com/en/data/luxembourg/results/"],
+ "배당": "보지 않음"
+}

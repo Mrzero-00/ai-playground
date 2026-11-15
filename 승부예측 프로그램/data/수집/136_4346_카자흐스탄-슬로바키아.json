@@ -1,0 +1,28 @@
+{
+ "번호": 4346,
+ "홈": "카자흐스탄", "원정": "슬로바키아",
+ "리그": "UEFA 네이션스리그 2026/27 리그 C 3조 6차전(최종전)",
+ "수집시각": "2026-11-16 KST",
+ "구장": "Astana Arena, 아스타나, 카자흐스탄 — 홈팀 자국 개최(중립 아님). 아스타나 아레나 표기는 Starting11/ESPN 계열 요약 기준, UEFA 페이지엔 구장 미표기. 킥오프 15:00 GMT(=KST 11/17 00:00, 현지 20:00)로 다수 일치, ESPN만 10:00 표기",
+ "순위와걸린것": "3조(11/13 경기 후, 5경기씩): 1 슬로바키아 11점(3승2무 11-4, 이미 리그B 승격 확정) / 2 몰도바 7점 / 3 페로제도 5점 / 4 카자흐스탄 2점(0승2무3패 6-9). 슬로바키아는 승격 확정 상태라 순위 변동 걸린 것 없음, 카자흐스탄은 꼴찌 상태(위키 범례 (Q), 단계명은 확인 안 됨). 같은 시각 페로-몰도바가 2위 결정. 출처 https://en.wikipedia.org/wiki/2026%E2%80%9327_UEFA_Nations_League_C",
+ "결장": [],
+ "직전경기": {
+  "홈": "11/13 몰도바 2-1 카자흐스탄(원정, 키시나우 Zimbru Stadium, 관중 6,783). 출처 위키, https://www.vavel.com/en/data/kazakhstan/results/",
+  "원정": "11/13 슬로바키아 2-2 페로제도(홈). 득점 17' Prekop(어시스트 D.Hancko), 74' Haraslín / FAR 30' V.Davidsen PK, 47~48' Samuelsen. 구장은 출처 엇갈림(Košice 기술 / Bratislava 기술) — 확인 안 됨. 출처 https://www.sportzcraazy.com/slo-vs-far-slovakia-v-faroe-islands-drawn-2-2/"
+ },
+ "최근5경기": {
+  "홈": ["11/13 몰도바 2-1 카자흐스탄(원정) 패", "10/06 카자흐스탄 2-2 페로제도(홈, 아스타나, 관중 10,315) 무", "10/02 카자흐스탄 1-2 몰도바(홈, 아스타나, 관중 20,119) 패", "09/29 슬로바키아 2-1 카자흐스탄(원정, 코시체) 패", "09/26 페로제도 1-1 카자흐스탄(원정) 무. 출처 vavel/위키"],
+  "원정": ["11/13 슬로바키아 2-2 페로제도(홈) 무", "10/06 몰도바 0-4 슬로바키아(원정, 키시나우) 승", "10/02 페로제도 1-1 슬로바키아(원정, 토르스하운) 무", "09/29 슬로바키아 2-1 카자흐스탄(홈, 코시체, 관중 9,109) 승", "09/26 슬로바키아 2-0 몰도바(홈, 프레쇼우) 승. 출처 https://www.vavel.com/en/data/slovakia/results/ + 위키"]
+ },
+ "맞대결": ["이번 대회 1차: 2026-09-29 슬로바키아 2-1 카자흐스탄, 코시체 Košická futbalová aréna, 관중 9,109 (위키)"],
+ "감독": {"홈": "John van 't Schip — Vavel: 2026-08 연맹이 합의 발표 (https://www.vavel.com/en/data/kazakhstan/bio/ ). FotMob은 Talgat Baysufinov 표기(오래된 스냅샷 추정) — 엇갈림", "원정": "Vladimír Weiss — 2기, 2026-05 선임, 10/01 시점 4경기 3승1무(sportsmole 2026-10-01 프리뷰). 이후 3경기 1승2무 추가(vavel 결과 기준)"},
+ "일정": "카자흐스탄: 11/13 키시나우 원정(2-1 패) 후 11/16 아스타나 홈 — 휴식 3일, 몰도바→카자흐스탄 장거리 이동(약 4,000km 이상 추정, 미확인). 슬로바키아: 11/13 홈 경기 후 11/16 아스타나 원정 — 휴식 3일, 중앙아시아 장거리 이동·시차 +4~5시간.",
+ "사실": [
+  "슬로바키아는 이번 조 5경기 무패(3승2무), 11득점 4실점. 단 10/01 sportsmole: '최근 원정 7경기 중 6패'. 이번 조 원정은 10/06 몰도바 4-0, 10/02 페로 1-1.",
+  "카자흐스탄은 이번 조 5경기 무승(0승2무3패), 6득점 9실점. 홈 2경기: 1-2 몰도바, 2-2 페로제도.",
+  "10/02 슬로바키아 예상 라인업 프리뷰에 Skriniar·Bozenik 부상 언급(FotMob 요약) 혹은 선발 예상에 Skriniar 포함(sportsmole) — 서로 엇갈림, 11월 상태 확인 안 됨"
+ ],
+ "확인안됨": ["11월 소집 명단·결장자(공식 명단 미공개, 두 팀 모두)", "슬로바키아 11월 부상·징계(11/13 경기 퇴장·부상 교체 여부 포함)", "카자흐스탄 감독 최종 확인", "심판", "날씨(11월 아스타나)", "실제 선발 11명"],
+ "출처": ["https://en.wikipedia.org/wiki/2026%E2%80%9327_UEFA_Nations_League_C", "https://www.vavel.com/en/data/kazakhstan/results/", "https://www.vavel.com/en/data/slovakia/results/", "https://www.vavel.com/en/data/kazakhstan/bio/", "https://www.sportzcraazy.com/slo-vs-far-slovakia-v-faroe-islands-drawn-2-2/", "https://starting11.com/fixtures/kazakhstan-vs-slovakia", "https://www.sportsmole.co.uk/football/faroe-islands/uefa-nations-league/preview/faroe-islands-vs-slovakia-prediction-team-news-lineups_606037.html"],
+ "배당": "보지 않음"
+}

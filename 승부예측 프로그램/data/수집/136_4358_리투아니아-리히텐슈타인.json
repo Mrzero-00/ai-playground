@@ -1,0 +1,29 @@
+{
+ "번호": 4358,
+ "홈": "리투아니아", "원정": "리히텐슈타인",
+ "리그": "UEFA 네이션스리그 2026-27 리그D 2조 (최종 6차전 추정, 11/16 현지 19:00 / KST 11/17 02:00)",
+ "수집시각": "2026-11-16 KST",
+ "구장": "Darius and Girėnas Stadium(다리우스-기레나스), 카우나스, 리투아니아 — 홈팀 자국(중립 아님). 단 다른 출처는 Marijampolės futbolo arenos(마리얌폴레)로 표기 — 엇갈림. 출처: ESPN https://africa.espn.com/football/match/_/gameId/401861184/liechtenstein-lithuania / Weekend Goals(마리얌폴레) (날짜 2026-11-16 시점)",
+ "순위와걸린것": "ESPN 표기: 2조 1위 아제르바이잔 8점, 2위 리투아니아 4점(1승1무1패), 3위 리히텐슈타인 1점(0승1무2패). 승격·강등 영향은 확인 안 됨. 일부 사이트는 양 팀 이번 시즌 네이션스리그 마지막 경기라고 적음(단일 예측 사이트 주장).",
+ "결장": [],
+ "직전경기": {
+  "홈": "리투아니아: 9/30 안도라 3-0 (친선, 안도라 원정 표기 ESPN 안도라 페이지상 안도라 홈) / 10/4 아제르바이잔 원정 0-1(ESPN 표기). 11/12~16 사이 경기 확인 안 됨.",
+  "원정": "리히텐슈타인: 10월 초 이후 경기 확인 안 됨(ESPN: 최근 5경기 중 아제르바이잔 0-1 패, 지브롤터 0-2 패). 11/12~16 사이 경기 확인 안 됨."
+ },
+ "최근5경기": {
+  "홈": ["(ESPN 표기, 날짜 미표기, 최신순) 수리남 0-0 무", "아제르바이잔 원정 0-1 패", "안도라 3-0 승", "아제르바이잔 원정 1-1 무(순서/장소 표기 불일치 가능)", "리히텐슈타인 원정 2-0 승(9/24)"],
+  "원정": ["(ESPN 표기, 날짜 미표기, 최신순) 아제르바이잔 0-1 패", "지브롤터 0-2 패", "아제르바이잔 원정 0-0 무", "몰타 원정 0-2 패", "리투아니아 0-2 패(9/24 홈)"]
+ },
+ "맞대결": ["2026-09-24 리히텐슈타인 0-2 리투아니아, Rheinpark Stadion, 파두츠 (UEFA·ESPN·Sofascore 페이지 확인)"],
+ "감독": {"홈": "에드가라스 얀카우스카스(Edgaras Jankauskas) — 2026-03 시점 위키 미러 기준, 이후 교체 소식은 못 찾음", "원정": "확인 안 됨"},
+ "일정": "리투아니아 마지막 경기 10/4(아제르바이잔 원정) 이후 6주 공백 가능성(11월 창에서 다른 경기 확인 안 됨). 구체 휴식일 확인 안 됨.",
+ "사실": [
+  "Sofascore 9/24 프리뷰 예상 라인업(미확정, 9월 경기용): 리투아니아 4-2-3-1 GK Gertmonas, Gineitis, Vorobjovas, Michelbrink 등. https://www.sofascore.com/de/news/liechtenstein-vs-lithuania-preview-lineups-h2h-form",
+  "aiscore: Giedrius Matulevičius 십자인대 부상 2026-04-05부터 결장 표기(오래됨, 11월 상태 불명). https://www.aiscore.com/team-lithuania/g63kv9in0ztp7ez",
+  "UEFA 일정: 9/24 리히텐슈타인-리투아니아, 9/27 리투아니아-아제르바이잔, 10/4 아제르바이잔-리투아니아, 11/16 리투아니아-리히텐슈타인. https://www.uefa.com/uefanationsleague/teams/56557--lithuania/matches/",
+  "킥오프 표기 엇갈림: 현지 19:00(Weekend Goals), 17:00 GMT(ESPN Africa), 18:00 CET(oddscalendar)."
+ ],
+ "확인안됨": ["11월 소집 명단·결장자", "11/12~16 사이 경기", "정확한 구장(카우나스 vs 마리얌폴레)", "리히텐슈타인 감독", "심판·날씨", "경기별 날짜가 있는 최근5경기 상세", "승격·강등 걸린 것"],
+ "출처": ["https://africa.espn.com/football/match/_/gameId/401861184/liechtenstein-lithuania", "https://www.uefa.com/uefanationsleague/teams/56557--lithuania/matches/", "https://www.sofascore.com/de/news/liechtenstein-vs-lithuania-preview-lineups-h2h-form", "https://www.weekendgoals.com/matches/lithuania-vs-liechtenstein-uefa-nations-league-/69a8b5b0f0f71869f6db891e", "https://www.aiscore.com/team-lithuania/g63kv9in0ztp7ez"],
+ "배당": "보지 않음"
+}

@@ -1,0 +1,37 @@
+{
+ "번호": 4428,
+ "홈": "싱가포르", "원정": "브라질",
+ "리그": "남자축구 국제친선 (Mizuho Blue Challenge – The Kallang Football Series, 싱가포르 국립경기장, 4개국 11/13~11/17)",
+ "수집시각": "2026-11-16 KST",
+ "구장": "National Stadium, The Kallang, 싱가포르 — 싱가포르 자국(중립 아님). 11/17 현지 18:00 킥오프(더블헤더, 이어 일본-파라과이 21:10). 양 팀 첫 시니어 맞대결 보도(검색 요약)",
+ "순위와걸린것": "친선. 브라질은 2026년 마지막 경기. 브라질 감독 Ancelotti가 11/14 일본전 퇴장당함(아래).",
+ "결장": [
+  {"팀": "브라질", "선수": "Marquinhos", "포지션": "수비수", "주전": "확인 안 됨", "상태": "확정", "사유": "부상으로 명단 제외(검색 요약, 1차 기사 미확인)", "출처": "https://foot-africa.com/en/news/brazil-ancelotti-announces-his-squad-to-face-japan-and-singapore-1403453/", "날짜": "2026-10-29(오래됨)"},
+  {"팀": "브라질", "선수": "Flamengo·Palmeiras 소속 전원", "포지션": "-", "주전": "확인 안 됨", "상태": "확정", "사유": "CBF가 이번 윈도에서 제외(국내 일정)", "출처": "https://littlebigreddot.com/brazil-squad-japan-singapore-the-kallang-november-2026/", "날짜": "2026-10-29(오래됨)"},
+  {"팀": "브라질", "선수": "Raphinha", "포지션": "윙/공격", "주전": true, "상태": "의심", "사유": "11/14 일본전에서 항의로 퇴장(레드) — 정지 일수 규정 상 17일 출전 가능 여부 확인 안 됨. 같은 경기 Ancelotti도 퇴장(벤치 지휘 가능 여부 확인 안 됨)", "출처": "https://www.dawn.com/news/2044580/japan-score-in-injury-time-to-stun-brazil-3-2-in-singapore", "날짜": "2026-11-15"},
+  {"팀": "싱가포르", "선수": "Ikhsan Fandi", "포지션": "공격수", "주전": true, "상태": "확정", "사유": "부상(파라과이전 프리뷰 기준)", "출처": "https://www.sportsmole.co.uk/football/singapore/preview/singapore-vs-paraguay-prediction-team-news-lineups_608909.html", "날짜": "2026-11-11"},
+  {"팀": "싱가포르", "선수": "Nur Adam Abdullah", "포지션": "확인 안 됨", "주전": "확인 안 됨", "상태": "확정", "사유": "부상", "출처": "https://www.sportsmole.co.uk/football/singapore/preview/singapore-vs-paraguay-prediction-team-news-lineups_608909.html", "날짜": "2026-11-11"},
+  {"팀": "싱가포르", "선수": "Perry Ng", "포지션": "수비수(카디프)", "주전": "확인 안 됨", "상태": "확정", "사유": "첫 아이 출산으로 불참(파라과이전 기준, 브라질전 여부 확인 안 됨)", "출처": "https://www.sportsmole.co.uk/football/singapore/preview/singapore-vs-paraguay-prediction-team-news-lineups_608909.html", "날짜": "2026-11-11"}
+ ],
+ "직전경기": {
+  "홈": "11/13 싱가포르 vs 파라과이 — 스코어 1-4 파라과이(sportsmole 페이지 헤더 표기, 단일 출처, 본문 설명과 불일치 주석 있음). 선발 확인 안 됨",
+  "원정": "11/14 일본 3-2 브라질 (싱가포르 국립경기장). 구보·나카무라로 일본 2-0, Vinicius Jr 2골 동점, 교체 Sakamoto 추가시간 결승골(VAR 유지). Raphinha·Ancelotti 항의 퇴장. Endrick 교체 투입 크로스바. 출전 확인: Vinicius, Estevao, Jair, André(데뷔), Raphinha(주장), João Gomes. 선발 11 전체 확인 안 됨. 출처 https://www.dawn.com/news/2044580/japan-score-in-injury-time-to-stun-brazil-3-2-in-singapore , https://www.goal.com/en-sg/news/carlo-ancelotti-referee-brazil-japan/bltaaedd0d25a91c1f3 (11/14-15)"
+ },
+ "최근5경기": {
+  "홈": ["11/13 파라과이 1-4 패(홈, 단일 출처)", "10월 말레이시아 0-6 패(ASEAN Cup, 날짜 확인 안 됨)", "그 외 sportsmole 목록(날짜·장소 불명): 페로제도 0-0, 몽골 4-0 승, 중국 1-2 패"],
+  "원정": ["11/14 일본 2-3 패(싱가포르)", "6/29 월드컵 32강 브라질 2-1 일본(휴스턴)", "그 밖 최근 경기 확인 안 됨"]
+ },
+ "맞대결": ["양 팀 첫 시니어 맞대결 (검색 요약; 2014-10-14 브라질 4-0 싱가포르는 별개의 대표팀 친선 기록으로 검색됨 — 상대가 어느 팀이었는지 확인 안 됨)"],
+ "감독": {"홈": "Gavin Lee(sportsmole 프리뷰, 2026-11-11)", "원정": "Carlo Ancelotti — 11/14 퇴장. 일본전 후 비판 보도 있음(Romário 퇴진 촉구 기사, goal.com)"},
+ "일정": "싱가포르: 11/13 → 11/17 (4일 휴식, 홈). 브라질: 11/14 → 11/17 (3일 휴식), 같은 도시. 브라질 소집 11/10~11 훈련 시작.",
+ "사실": [
+  "브라질 26인 명단 10/29 발표(리우): Vinicius, Raphinha, Endrick, Estevao, Bruno Guimarães, Gabriel Magalhães, João Gomes, Andrey Santos 등. 5명 미캡 신인, 26명 중 15명 23세 이하 (https://littlebigreddot.com/brazil-squad-japan-singapore-the-kallang-november-2026/, https://www.newkerala.com 검색 요약)",
+  "Ancelotti: 미드필더 부족이 최대 고민(10/29 기사)",
+  "Estevao는 월드컵 부상 결장 후 복귀 (littlebigreddot, 2026-10-29)",
+  "싱가포르 21세 미드필더 Woo Chun Wei 첫 시니어 소집; Saifullah Akbar·Joshua Pereira·Darren Teh 복귀 (sportsmole 2026-11-11)",
+  "FIFA 랭킹: 싱가포르 149위(프리뷰 기재), 파라과이 33위"
+ ],
+ "확인안됨": ["브라질 11/17 선발·Raphinha 정지 여부와 Ancelotti 벤치 여부", "일본전 후 부상자", "싱가포르 파라과이전 정확한 결과·선발", "심판·날씨", "싱가포르 최근 5경기 날짜"],
+ "출처": ["https://www.thekallang.com.sg/en/media-centre/mizuho-blue-challenge-the-kallang-football-series-singapore.html", "https://littlebigreddot.com/brazil-squad-japan-singapore-the-kallang-november-2026/", "https://www.dawn.com/news/2044580/japan-score-in-injury-time-to-stun-brazil-3-2-in-singapore", "https://www.goal.com/en-sg/news/carlo-ancelotti-referee-brazil-japan/bltaaedd0d25a91c1f3", "https://www.sportsmole.co.uk/football/singapore/preview/singapore-vs-paraguay-prediction-team-news-lineups_608909.html", "https://mothership.sg/2026/09/singapore-brazil-football-friendly-national-stadium/"],
+ "배당": "보지 않음"
+}

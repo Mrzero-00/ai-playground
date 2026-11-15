@@ -1,0 +1,35 @@
+{
+ "번호": 4467,
+ "홈": "보스니아 헤르체고비나", "원정": "루마니아",
+ "리그": "UEFA 네이션스리그 2026-27 리그B 4조 최종(6)라운드",
+ "수집시각": "2026-11-16 KST",
+ "구장": "Bilino Polje, 제니차, 보스니아 헤르체고비나 — 홈팀 자국(중립 아님). 킥오프 루마니아 시각 21:45 = CET 20:45 = KST 04:45 (골라조/NFSBiH 보도)",
+ "순위와걸린것": "4조(위키 11/14 기준, 5경기): 스웨덴 13(승격 확정), 보스니아 8(2승2무1패, 득실 8-6, 승격 플레이오프 진출 표시 Q), 폴란드 4(1승1무3패), 루마니아 3(1승0무4패, 득실 5-14, 강등 플레이오프 표시). 루마니아 측 보도: 강등 플레이오프 피하려면 보스니아 원정에서 이겨야 함. 루마니아는 2002년 이후 보스니아 원정 승리 없음(골라조 보도). 위키 표의 폴란드 Z 표기와 엇갈림, 조 최종 순위 산식은 확인 안 됨. 같은 날 폴란드-스웨덴(브로츠와프)",
+ "결장": [
+  {"팀": "홈(보스니아)", "선수": "Haris Tabaković", "포지션": "공격수", "주전": "확인 안 됨", "상태": "확정", "사유": "스웨덴전(11/14)에서 무릎 인대 부상(Barbarez 발언), 추가 검사, 루마니아전 출전 거의 불가 / 캠프 이탈 가능성 보도", "출처": "https://n1info.ba/sport/nogomet/novi-problem-za-barbareza-zmajevi-bi-protiv-rumunije-mogli-ostati-bez-vaznog-napadaca", "날짜": "2026-11-15 전후(기사 날짜 정확히 확인 안 됨)"},
+  {"팀": "홈(보스니아)", "선수": "Jovo Lukić", "포지션": "미확인", "주전": "확인 안 됨", "상태": "의심", "사유": "결장 가능 보도(루마니아 매체 골라조)", "출처": "https://golazo.ro/tudor-baluta-razvan-marin-suspendare-romania-bosnia-192119", "날짜": "2026-11-15 전후"},
+  {"팀": "원정(루마니아)", "선수": "Tudor Băluță", "포지션": "MF", "주전": true, "상태": "확정", "사유": "네이션스리그 두 번째 경고 누적으로 이 경기 출전 정지(폴란드전 48' 경고)", "출처": "https://golazo.ro/tudor-baluta-razvan-marin-suspendare-romania-bosnia-192119", "날짜": "2026-11-15 전후"},
+  {"팀": "원정(루마니아)", "선수": "Ionuț Radu", "포지션": "GK", "주전": "확인 안 됨", "상태": "확정", "사유": "소속팀에서 치료 중(소집 제외)", "출처": "https://golazo.ro/tudor-baluta-razvan-marin-suspendare-romania-bosnia-192119", "날짜": "2026-11-15 전후"},
+  {"팀": "원정(루마니아)", "선수": "Nicușor Stanciu, Valentin Mihăilă", "포지션": "MF/FW", "주전": "확인 안 됨", "상태": "확정", "사유": "부상 결장", "출처": "https://golazo.ro/tudor-baluta-razvan-marin-suspendare-romania-bosnia-192119", "날짜": "2026-11-15 전후"},
+  {"팀": "원정(루마니아)", "선수": "Răzvan Marin", "포지션": "MF", "주전": "확인 안 됨", "상태": "복귀", "사유": "정지 마치고 복귀(보도)", "출처": "https://golazo.ro/tudor-baluta-razvan-marin-suspendare-romania-bosnia-192119", "날짜": "2026-11-15 전후"}
+ ],
+ "직전경기": {
+  "홈": "11/14 스웨덴 3-2 보스니아 (원정, 솔나). 선발·득점자·퇴장 여부 확인 안 됨. 이 경기에서 Tabaković 부상. 출처 위키 https://en.wikipedia.org/wiki/2026–27_UEFA_Nations_League_B (2026-11-14)",
+  "원정": "11/14 루마니아 2-1 폴란드 (홈, 부쿠레슈티 Arena Națională). 득점: Cicâldău 68', Man 72' / Poland Regula 82'. 선발(4-3-1-2): Hindrich(GK), Eissat, Drăgușin, Coubiș, Rațiu, Dragomir, Băluță, Cicâldău, I.Hagi, Man, Coman. 경고 5명: Drăgușin 2', Băluță 48', I.Hagi 57', Rațiu 61', Eissat 90+2'. 퇴장 없음. 출처 https://www.foxsports.com/soccer/nations-league-romania-vs-poland-nov-14-2026-game-boxscore-689063 (2026-11-14). Băluță 외 다른 경고누적 정지자 여부는 확인 안 됨"
+ },
+ "최근5경기": {
+  "홈": ["11/14 스웨덴 3-2 보스니아 (원정)", "10/5 보스니아 1-0 폴란드 (제니차)", "10/2 보스니아 1-1 스웨덴 (제니차; 득점 Alajbegović, Gyökeres)", "9/28 루마니아 2-4 보스니아 (부쿠레슈티, 무관중)", "9/25 폴란드 0-0 보스니아 (바르샤바)"],
+  "원정": ["11/14 루마니아 2-1 폴란드 (부쿠레슈티)", "10/5 루마니아 0-1 스웨덴 (부쿠레슈티)", "10/2 폴란드 6-0 루마니아 (바르샤바, Drăgușin 전반 퇴장, Lewandowski 해트트릭)", "9/28 루마니아 2-4 보스니아 (부쿠레슈티, 무관중)", "9/25 스웨덴 2-1 루마니아 (솔나)"]
+ },
+ "맞대결": ["9/28 루마니아 2-4 보스니아, 부쿠레슈티 (무관중). 출처 위키 2026-11-14 기준"],
+ "감독": {"홈": "Sergej Barbarez (26명 소집, 17세 Matej Deket 신규 발탁, Dženis Burnić 복귀. GK Zlomislić, Hamzić, Jurkas). Džeko 포함 여부는 출처 엇갈려 확인 안 됨", "원정": "Gheorghe (Gică) Hagi (폭스스포츠·루마니아 매체 보도)"},
+ "일정": "양 팀 모두 11/14 경기 후 3일 휴식. 보스니아 직전 솔나(스웨덴) 원정 후 귀국, 루마니아 홈(부쿠레슈티) 경기 후 제니차 이동.",
+ "사실": [
+  "루마니아 11/14 폴란드전 5명 경고(Băluță 누적으로 정지)",
+  "폴란드가 10/2 루마니아에 6-0 승리(Drăgușin 퇴장)",
+  "루마니아는 2002년 이후 보스니아 원정 미승(golazo 보도, 이번 기사 확인 안 된 부분 포함)"
+ ],
+ "확인안됨": ["보스니아 11/14 스웨덴전 선발·득점자·경고", "보스니아 11월 최종 결장자 전체 및 Džeko 포함 여부", "루마니아 11월 소집 명단 전체", "심판·날씨", "11/14 보스니아 경고 누적 정지자", "조 최종 순위 산식(위키 표기와 루마니아 매체 표현 상이)"],
+ "출처": ["https://en.wikipedia.org/wiki/2026–27_UEFA_Nations_League_B", "https://www.foxsports.com/soccer/nations-league-romania-vs-poland-nov-14-2026-game-boxscore-689063", "https://golazo.ro/tudor-baluta-razvan-marin-suspendare-romania-bosnia-192119", "https://n1info.ba/sport/nogomet/novi-problem-za-barbareza-zmajevi-bi-protiv-rumunije-mogli-ostati-bez-vaznog-napadaca", "https://n1info.ba/sport/nogomet/barbarez-objavio-spisak-za-svedsku-i-rumuniju", "https://www.11v11.com/matches/bosnia-and-herzegovina-v-sweden-02-october-2026-395472/"],
+ "배당": "보지 않음"
+}

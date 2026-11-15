@@ -1,0 +1,38 @@
+{
+ "번호": 4410,
+ "홈": "캐나다", "원정": "과테말라",
+ "리그": "CONCACAF 네이션스리그 2026-27 8강 2차전(2경기 합산)",
+ "수집시각": "2026-11-16 KST",
+ "구장": "BMO 필드, 토론토, 캐나다 — 홈팀 자국(중립 아님). 11/16 월요일 밤 현지(= 11/17 10:00 KST 과제 기준). 정확한 킥오프 시각은 기사에서 확인 안 됨 (https://www.tsn.ca/soccer/article/canada-wins-opening-leg-against-guatemala-but-loses-captain-davies-to-injury/, 2026-11-13). 일부 기사는 2차전 날짜를 11/17로 적음(불일치).",
+ "순위와걸린것": "1차전 캐나다 3-2 과테말라(원정). 합산 캐나다 1골 앞, 원정 득점 3. 합산 승자는 2027년 3월 네이션스리그 파이널(로스앤젤레스; Yahoo는 '준결승'으로 표기, 불일치)과 2027 골드컵 본선 직행. 패자는 골드컵 예선 라운드(TSN 11/13, CBC 11/13). 조별리그 순위: 과테말라 B조 1위로 8강 진출(sportsmole 11/11).",
+ "결장": [
+  {"팀": "홈", "선수": "알폰소 데이비스", "포지션": "LB/윙(주장)", "주전": true, "상태": "확정", "사유": "1차전 5분 만에 하체 부상 교체, 캐나다축구협회가 2차전 결장·뮌헨 복귀 발표(CBC 요약: headtopics 제목 'Davies Out of Second Leg'). 보조코치 비엘로: '하체 부상'", "출처": "https://www.cbc.ca/sports/soccer/alphonso-davies-injury-nov-13-9.7422005", "날짜": "2026-11-13"},
+  {"팀": "홈", "선수": "조나단 오소리오", "포지션": "MF", "주전": true, "상태": "확정", "사유": "MLS 최종 주 부상, 8강 결장", "출처": "https://www.tsn.ca/soccer/article/osorio-shaffelburg-injured-as-canada-faces-guatemala-in-nations-league/", "날짜": "2026-11-09"},
+  {"팀": "홈", "선수": "제이콥 샤펠버그", "포지션": "윙", "주전": "확인 안 됨", "상태": "확정", "사유": "LAFC 경기 79분 태클 부상, 8강 결장", "출처": "https://www.tsn.ca/soccer/article/osorio-shaffelburg-injured-as-canada-faces-guatemala-in-nations-league/", "날짜": "2026-11-09"},
+  {"팀": "홈", "선수": "사이릴 라린", "포지션": "FW", "주전": true, "상태": "확정", "사유": "햄스트링(타 기사는 허리 불편)으로 미선발", "출처": "https://www.tsn.ca/soccer/article/osorio-shaffelburg-injured-as-canada-faces-guatemala-in-nations-league/", "날짜": "2026-11-09"},
+  {"팀": "홈", "선수": "스티븐 에우스타키우·데렉 코르넬리우스·알피 존스·알리스터 존스턴", "포지션": "MF/CB/CB/RB", "주전": "에우스타키우·존스턴·코르넬리우스는 통상 주전급(기사 표기 없음)", "상태": "확정", "사유": "기존 부상 결장", "출처": "https://www.tsn.ca/soccer/article/osorio-shaffelburg-injured-as-canada-faces-guatemala-in-nations-league/", "날짜": "2026-11-09"},
+  {"팀": "홈", "선수": "제시 마쉬 감독", "포지션": "감독", "주전": false, "상태": "의심", "사유": "1차전 64분 레드카드 퇴장 — 2차전 벤치 정지 여부 기사에 없음", "출처": "https://www.tsn.ca/soccer/article/canada-wins-opening-leg-against-guatemala-but-loses-captain-davies-to-injury/", "날짜": "2026-11-13"},
+  {"팀": "원정", "선수": "조나단 프랑코·카를로스 에스트라다", "포지션": "확인 안 됨", "주전": "확인 안 됨", "상태": "확정", "사유": "수리남전 후 충돌로 3경기 정지(1차전 전 기준; 2차전까지 유효 여부는 확인 안 됨)", "출처": "https://www.sportsmole.co.uk/football/guatemala/preview/guatemala-vs-canada-prediction-team-news-lineups_608883.html", "날짜": "2026-11-11"},
+  {"팀": "원정", "선수": "오스카르 산티스", "포지션": "확인 안 됨", "주전": "확인 안 됨", "상태": "의심", "사유": "햄스트링 염좌 보도(sportsmole 11/11)였으나 1차전 54분 득점함 — 출전 확인", "출처": "https://www.tsn.ca/soccer/article/canada-wins-opening-leg-against-guatemala-but-loses-captain-davies-to-injury/", "날짜": "2026-11-13"}
+ ],
+ "직전경기": {
+  "홈": "11/13 과테말라 2-3 캐나다(원정, 과테말라시티 에스타디오 엘 트레볼). 득점: 올루와세이 18', 밀러 28', 조나단 데이비드 전반 추가시간, 후반 과테말라 산티스 54', 데 푸제롤스 자책 추가시간. 데이비스 5분 부상 교체. 마쉬 64분 퇴장. 3일 휴식(11/13→11/16) + 과테말라→토론토 이동. 직전 선발(예상, sportsmole): 크레포; 라리아, 데 푸제롤스, 이바니셰비치, 데이비스; 뷰캐넌, 살리바, 쇼이니에르, 밀러; J.데이비드, 올루와세이.",
+  "원정": "11/13 캐나다 3-2 과테말라(홈 엘 트레볼). 54' 산티스 득점, 캐나다 자책골로 추가시간 2점째. 3일 휴식 + 토론토 원정 이동."
+ },
+ "최근5경기": {
+  "홈": ["11/13 과테말라 3-2 승(원정)", "(sportsmole 폼 표기, 정리 불확실) 모로코 0-3 패, 칠레 1-0 승, 페루 2-0 승, 미국 0-1 패 — 날짜·홈원정 확인 안 됨, 월드컵 및 가을 친선 혼재 가능"],
+  "원정": ["11/13 캐나다 2-3 패(홈)", "네이션스리그 B조: 자메이카 원정 2-3 패, 엘살바도르 6-0 승, 수리남 원정 0-0 무, 수리남 홈 1-0 승 (sportsmole 11/11, 날짜 불명)"]
+ },
+ "맞대결": ["2026-11-13 과테말라 2-3 캐나다 (과테말라시티, 이번 대회 8강 1차전)", "2025-06-29 골드컵 8강 캐나다 1-1 과테말라, 승부차기 과테말라 승(캐나다 샤펠버그 퇴장 10명) (CBC https://www.cbc.ca/lite/story/1.7573928) — 참고용 과거"],
+ "감독": {"홈": "제시 마쉬(Jesse Marsch). 1차전 64분 퇴장; 보조코치 마우로 비엘로가 '교체 중이었는데 놀랐다'고 발언(TSN 11/13). 2차전 벤치 정지 여부 확인 안 됨", "원정": "확인 안 됨(기사에 이름 없음)"},
+ "일정": "양 팀 모두 11/13 → 11/16 3일 간격. 캐나다는 홈 이동 없음(과테말라→토론토 귀국), 과테말라는 캐나다 원정 이동. 캐나다는 토론토 구장 BMO 필드에서 2차전, 하프타임에 훌리안 데 구스만 헌액 행사(TSN 11/9).",
+ "사실": [
+  "11/9 캐나다 8강 명단에 추가: DF 조르한 바송, FW 브림, FW 테오 코르베아누 (오소리오·샤펠버그 대체)(TSN 2026-11-09)",
+  "캐나다 FIFA 랭킹 27위, 과테말라 95위(TSN 2026-11-09)",
+  "데이비스는 월드컵 중 햄스트링으로 대부분 결장, 가을 친선도 결장했다가 11/10 마쉬가 '완전 회복'이라 발언(CP24 2026-11-10) → 11/13 5분 부상으로 다시 이탈",
+  "캐나다는 1차전 전반 3-0 이후 후반 2실점"
+ ],
+ "확인안됨": ["2차전 정확한 킥오프 시각", "마쉬 정지 여부·벤치 감독 대행", "캐나다 11/16 예상/발표 선발", "데이비스 정밀검사 결과", "과테말라 감독 이름·정지자 최신(프랑코·에스트라다 3경기 정지의 2차전 적용 여부)", "과테말라 최근 5경기 날짜", "심판·날씨"],
+ "출처": ["https://www.tsn.ca/soccer/article/canada-wins-opening-leg-against-guatemala-but-loses-captain-davies-to-injury/", "https://www.cbc.ca/sports/soccer/alphonso-davies-injury-nov-13-9.7422005", "https://www.tsn.ca/soccer/article/osorio-shaffelburg-injured-as-canada-faces-guatemala-in-nations-league/", "https://www.sportsmole.co.uk/football/guatemala/preview/guatemala-vs-canada-prediction-team-news-lineups_608883.html", "https://www.cp24.com/news/sports/2026/11/10/canada-coach-marsch-says-davies-back-at-full-strength-for-nations-league-quarterfinal/", "https://sports.yahoo.com/articles/davies-hurt-again-canada-edges-191200247.html"],
+ "배당": "보지 않음"
+}

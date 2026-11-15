@@ -15,6 +15,7 @@
   python3 scripts/intl_baseline.py card 잉글랜드 크로아티아 [--neutral] [--date 2026-11-13]
   python3 scripts/intl_baseline.py round 134          # 회차의 국가대표 경기 전부
   python3 scripts/intl_baseline.py --update           # 결과 자료 다시 받기
+  python3 scripts/intl_baseline.py --sync             # 원자료가 아직 모르는 최근 결과를 전체경기기록에서 extra.csv 로
 
 한계: 선수단·결장·동기(친선 로테이션)를 모른다. 친선전은 시험 구간 적중률이 대회 경기보다 낮다(--backtest).
 """
@@ -30,7 +31,9 @@ URL = "https://raw.githubusercontent.com/martj42/international_results/master/re
 HOME = 125.0     # 홈 이점(Elo 점) — fit() 로 맞춘 값
 B = 0.00500      # 순서형 로지스틱 기울기
 C = 0.650        # 무 폭
+CLUB_LEAGUES = ("유로파", "컨퍼런스", "챔피언스", "리베르타", "수다메리카", "클럽")
 START = 1500.0
+YEAR = "2026"    # 전체경기기록의 'MM-DD HH:MM' 시각에 붙일 해 (sync 전용)
 INTL_LEAGUES = ("국제친선", "네이션스리그", "월드컵", "아시안컵", "유로", "코파", "A매치", "골드컵", "네이션스컵")
 
 
@@ -153,6 +156,54 @@ def backtest():
     return 0
 
 
+TOUR = (("네이션스리그", "Nations League"), ("월드컵", "FIFA World Cup qualification"), ("친선", "Friendly"))
+
+
+def sync():
+    """원자료(results.csv)가 끝난 뒤의 A매치 결과를 전체경기기록에서 extra.csv 로 옮긴다 (2026-11-16).
+
+    원자료가 10-06 에서 멈춰 Elo 가 직전 A매치 주간 결과를 모른 채 다음 경기를 냈다(134·승무패68 회고).
+    이미 있는 줄은 건드리지 않는다 — 중립 여부를 손으로 고친 값이 남아야 한다.
+    새 줄의 중립은 비고·핵심근거에 '중립'이 있을 때만 TRUE, 날짜는 한국 시각 기준이다.
+    """
+    src = list(csv.DictReader(open(SRC, encoding="utf-8")))
+    last = max(r["date"] for r in src)
+    # 원자료는 현지 날짜, 우리 기록은 한국 시각이라 경계의 같은 경기가 하루 뒤 날짜로 또 들어온다
+    tail = {(r["home_team"], r["away_team"], r["home_score"], r["away_score"]) for r in src if r["date"] >= last[:8] + "01"}
+    head = ["date", "home_team", "away_team", "home_score", "away_score", "tournament", "city", "country", "neutral"]
+    old = list(csv.DictReader(open(EXTRA, encoding="utf-8"))) if os.path.exists(EXTRA) else []
+    have = {(r["date"], r["home_team"], r["away_team"]) for r in old}
+    new, skip = [], set()
+    for g in csv.DictReader(open(LOG, encoding="utf-8-sig")):
+        if not is_intl(g) or ":" not in (g.get("점수") or ""):
+            continue
+        d = g["시각"][:10] if g["시각"][:2] == "20" else f"{YEAR}-{g['시각'][:5]}"
+        h, a = name(g["홈"]), name(g["원정"])
+        if d <= last:
+            continue
+        if not h or not a:
+            skip.add(g["홈"] if not h else g["원정"]); continue
+        if (d, h, a) in have:
+            continue
+        hs, as_ = [x.strip() for x in g["점수"].split(":")[:2]]
+        if d <= last[:8] + f"{int(last[8:]) + 1:02d}" and (h, a, hs, as_) in tail:
+            continue
+        have.add((d, h, a))
+        t = next((en for ko, en in TOUR if ko in g["리그"]), "Friendly")
+        if "네이션스리그" in g["리그"]:
+            t = g["리그"].split()[0] + " Nations League"
+        note = (g.get("비고") or "") + (g.get("핵심근거") or "")
+        neu = any(k in note for k in ("중립 구장", "중립 개최", "중립 기준선", "--neutral"))
+        new.append(dict(zip(head, [d, h, a, hs, as_, t, "", "", "TRUE" if neu else "FALSE"])))
+    rows = sorted(old + new, key=lambda r: r["date"])
+    with open(EXTRA, "w", encoding="utf-8", newline="") as f:
+        w = csv.DictWriter(f, fieldnames=head); w.writeheader(); w.writerows(rows)
+    print(f"extra.csv: 새로 {len(new)}경기 · 누적 {len(rows)}경기 (원자료 마지막 {last})")
+    if skip:
+        print("팀명 매핑 없음 — names.json 에 추가:", ", ".join(sorted(skip)))
+    return 0
+
+
 def name(ko):
     m = json.load(open(NAMES, encoding="utf-8")) if os.path.exists(NAMES) else {}
     ko = ko.strip()
@@ -194,7 +245,8 @@ def card(home, away, neutral, date):
 
 
 def is_intl(g):
-    return g.get("종목") == "축구" and any(k in (g.get("리그") or "") for k in INTL_LEAGUES)
+    lg = g.get("리그") or ""      # '유로'는 UEFA 유로파리그(클럽)에도 걸린다
+    return g.get("종목") == "축구" and any(k in lg for k in INTL_LEAGUES) and not any(k in lg for k in CLUB_LEAGUES)
 
 
 def round_(rnd):
@@ -215,10 +267,13 @@ def main():
     ap.add_argument("cmd", nargs="?"); ap.add_argument("args", nargs="*")
     ap.add_argument("--backtest", action="store_true"); ap.add_argument("--fit", action="store_true")
     ap.add_argument("--update", action="store_true"); ap.add_argument("--neutral", action="store_true")
+    ap.add_argument("--sync", action="store_true")
     ap.add_argument("--date")
     a = ap.parse_args()
     if a.update:
         urllib.request.urlretrieve(URL, SRC); print("받음:", SRC); return 0
+    if a.sync:
+        return sync()
     if a.fit:
         return fit()
     if a.backtest:

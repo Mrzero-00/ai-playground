@@ -85,6 +85,29 @@ def chart(series, labels, colors, w=640, h=200):
     return f'<svg viewBox="0 0 {w} {h}" class="chart">{axis}{lines}</svg><div class="legend">{legend}</div>'
 
 
+def compare(start):
+    """ml.py 가 남긴 표본 외 일간 수익으로, start 에 100만원(BTC·ETH 50만씩) 넣었을 때 평가액."""
+    path = ROOT / "data/ml/oos_daily.csv"
+    if not path.exists():
+        return ""
+    d = list(csv.DictReader(path.open()))
+    d = [r for r in d if r["date"] >= start]
+    names = [("앙상블", "앙상블 (실전 봇)", "var(--c2)"), ("L-A", "ML 거르기", "var(--c4)"), ("보유", "그냥 보유", "var(--c3)")]
+    series, summary = [], []
+    for key, label, _ in names:
+        eq = {m: 500_000.0 for m in MARKETS}
+        line = []
+        for r in d:
+            for m in MARKETS:
+                eq[m] *= 1 + float(r[f"{key}_{m}"])
+            line.append(sum(eq.values()))
+        series.append(line)
+        summary.append(f"<tr><td>{label}</td><td>{line[-1]:,.0f}원</td><td>{pct(line[-1] / 1e6 - 1, 0)}</td><td>{pct(mdd(line), 0)}</td></tr>")
+    svg = chart(series, [n[1] for n in names], [n[2] for n in names])
+    table = "<table><tr><th>전략</th><th>평가액</th><th>수익률</th><th>MDD</th></tr>" + "".join(summary) + "</table>"
+    return f'{svg}<div class="muted">{d[0]["date"]} ~ {d[-1]["date"]}</div>{table}'
+
+
 def pct(v, digits=2):
     return "—" if v is None else f"{v * 100:+.{digits}f}%"
 
@@ -186,6 +209,13 @@ th,td{{padding:7px 9px;border-bottom:1px solid var(--line);text-align:right;whit
 <p class="muted">앙상블 비중 × [로지스틱 회귀의 '5일 뒤 오를 확률' &gt; 0.5]. 사전 등록 6개 중 유일하게 통과, 실전 전 3개월 병행 검증 중.</p>
 {"".join(f'<p class="muted">{html.escape(l)}</p>' for l in ml_lines)}
 {trade_table(ml_tr, ["시각", "마켓", "구분", "목표비중_전", "목표비중_후", "체결가", "원화", "중간가대비_불리"])}
+
+<h2>전략 비교: 2025-01 에 100만원을 넣었다면</h2>
+{compare("2025-01-01")}
+
+<h2>전략 비교: 2023-01 에 100만원을 넣었다면</h2>
+{compare("2023-01-01")}
+<p class="muted">워크포워드 표본 외 백테스트, 편도 비용 0.10%. ML 은 2022년까지의 데이터로만 학습한 뒤 매달 다시 학습했다. 2023년 이전은 학습 데이터가 너무 짧아 ML 비교를 하지 않는다.</p>
 
 <h2>백테스트 기준선 (표본 외 2023~)</h2>
 <table><tr><th>방식</th><th>연복리</th><th>샤프</th><th>MDD</th></tr>

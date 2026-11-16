@@ -115,6 +115,19 @@ def stats(r):
     return {"연복리": eq.iloc[-1] ** (365 / len(r)) - 1, "샤프": r.mean() * 365 / vol, "MDD": (eq / eq.cummax() - 1).min()}
 
 
+def save_daily(pos_sets, cost=COSTS[0]):
+    """마켓별 일간 수익을 data/ml/oos_daily.csv 로 남긴다. 리포트가 시작일을 바꿔 가며 평가액을 그린다."""
+    out = {}
+    for m in MARKETS:
+        d = load(m)
+        ret = d.close.pct_change()
+        out[f"보유_{m}"] = ret.loc[OOS:]
+        for name, pos in pos_sets.items():
+            p = pos[m].reindex(d.index).shift(1)
+            out[f"{name}_{m}"] = (p * ret - p.diff().abs() * cost).loc[OOS:]
+    pd.DataFrame(out).dropna().to_csv(ML / "oos_daily.csv", index_label="date")
+
+
 def main():
     df = features()
     ens = {m: df[df.market == m].ens for m in MARKETS}
@@ -154,6 +167,7 @@ def main():
             x["샤프 23-24"] >= base["샤프 23-24"] and x["샤프 25-26"] >= base["샤프 25-26"],
         ]
         x["채택"] = "통과" if all(ok) else "기각 (" + ",".join(str(i + 1) for i, v in enumerate(ok) if not v) + ")"
+    save_daily({"앙상블": variants["앙상블 (현행)"], "L-A": variants["L-A 거르기"]})
     t = pd.DataFrame({k: {c: v for c, v in x.items() if not c.startswith("_")} for k, x in rows.items()}).T
     print(f"\n표본 외 {OOS} ~ {base['_r'].index[-1].date()}, 편도 비용 0.10% (샤프@0.25% 만 0.25%)")
     print(t.to_string())

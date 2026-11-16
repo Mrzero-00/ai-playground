@@ -1,28 +1,119 @@
 {
  "번호": 4493,
- "홈": "아일랜드공화국", "원정": "코소보",
+ "홈": "아일랜드공화국",
+ "원정": "코소보",
  "리그": "UEFA 네이션스리그 리그B 조3 (6차전, 최종전)",
- "수집시각": "2026-11-16 KST",
+ "수집시각": "2026-11-17 KST (갱신)",
  "구장": "아비바 스타디움, 더블린, 아일랜드 — 홈팀 자국(중립 아님). 2026-11-17 19:45 현지(GMT) = 11/18 04:45 KST (출처 https://www.irishexaminer.com/sport/soccer/arid-41933583.html, 2026-11-05)",
  "순위와걸린것": "B3조: 오스트리아 1위 확정·리그A 승격 확정(11/14 아일랜드 1-0 승, 출처 Irish Times/RTE 11/14). 코소보 승점 6(5경기, 2위, 11/14 이스라엘 0-0 후; africasoccer/Washington Post 11/14). 아일랜드 승점 5(5경기, 3위; Irish News 11/11 '코소보와 승점 5 동률, 코소보가 골득실 앞'+11/14 패배 → 승점 5 유지). 이스라엘 승점 3으로 최하위(2위 이내 수학적 탈락). 아일랜드가 코소보를 이기면 최소 2위 확보 → 리그A 3/4위팀과 승격·강등 플레이오프 + 유로2028 예선 조추첨 2번 포트(Irish Times 11/14). 3위면 리그B 잔류, 4위면 리그C 준우승팀과 강등 방지 플레이오프. 코소보 입장의 걸린 것(승점 6 vs 아일랜드 5, 무승부 시 순위)은 확인 안 됨(공식 최종표 미확인).",
  "결장": [
-  {"팀": "홈", "선수": "네이선 콜린스(CB, 주장)", "포지션": "CB", "주전": true, "상태": "의심", "사유": "11/14 오스트리아전 넘어진 뒤 무릎 통증으로 교체 아웃, 11/15 일요일 정밀검사 예정(감독: 예방 차원). 검사 결과 확인 안 됨. 직전 4경기는 종아리 부상으로 결장했다가 복귀한 상태", "출처": "https://www.rte.ie/sport/soccer/2026/1114/1599243-refereeing-calls-a-source-of-irritation-after-linz-loss/", "날짜": "2026-11-14"},
-  {"팀": "홈", "선수": "가빈 바주누(GK)", "포지션": "GK", "주전": false, "상태": "확정", "사유": "부상으로 소집 제외, 마크 트래버스 대체 (주전 GK는 케일러허로 보임)", "출처": "https://www.irishexaminer.com/sport/soccer/arid-41933583.html", "날짜": "2026-11-05"},
-  {"팀": "홈", "선수": "조쉬 컬런(MF)", "포지션": "MF", "주전": "확인 안 됨", "상태": "확정", "사유": "체력 회복 위해 이번 소집 불참", "출처": "https://www.irishexaminer.com/sport/soccer/arid-41933583.html", "날짜": "2026-11-05"},
-  {"팀": "홈", "선수": "제이슨 몰룸비·리암 스케일스·라이언 매닝·애덤 이다·코너 코벤트리", "포지션": "MF/DF/FW", "주전": "몰룸비·스케일스·매닝·이다는 11/14 선발", "상태": "확정", "사유": "경고 누적 1장 남음 — 코소보전 출전 정지 위험(이미 정지 상태는 아님, 이번 경기 경고 시 다음 경기 정지이며 이 경기가 대회 최종전이라 실효 불명). 11/14 경기에서 경고 보고 없음", "출처": "https://www.irishtimes.com/sport/soccer/2026/11/14/live-republic-of-ireland-v-austria-updates-heimir-hallgrimssons-side-in-linz-for-nations-league-clash/", "날짜": "2026-11-14"},
-  {"팀": "원정", "선수": "벨딘 호자(Veldin Hodza)", "포지션": "확인 안 됨", "주전": "11/14 출전", "상태": "의심", "사유": "11/14 이스라엘전 67분 두 번째 경고로 퇴장 — 정지 징계 여부·경기 수 기사에 없음(통상 1경기 정지이나 미확인)", "출처": "https://www.jpost.com/sports/article-914992", "날짜": "2026-11-14"},
-  {"팀": "원정", "선수": "크레슈니크 하이리지(Kreshnik Hajrizi)", "포지션": "DF", "주전": "확인 안 됨", "상태": "오래됨", "사유": "5월 수술 후 완전 회복 못 해 네이션스리그 4경기 모두 결장 예상(9월 프리뷰 기준)", "출처": "https://www.sportsmole.co.uk/football/kosovo/uefa-nations-league/preview/kosovo-vs-republic-of-ireland-prediction-team-news-lineups_605624.html", "날짜": "2026-09"}
+  {
+   "팀": "홈",
+   "선수": "네이선 콜린스(CB, 주장)",
+   "포지션": "CB",
+   "주전": true,
+   "상태": "의심",
+   "사유": "11/14 오스트리아전 넘어진 뒤 무릎 통증으로 교체 아웃, 11/15 일요일 정밀검사 예정(감독: 예방 차원). 검사 결과 확인 안 됨. 직전 4경기는 종아리 부상으로 결장했다가 복귀한 상태",
+   "출처": "https://www.rte.ie/sport/soccer/2026/1114/1599243-refereeing-calls-a-source-of-irritation-after-linz-loss/",
+   "날짜": "2026-11-14"
+  },
+  {
+   "팀": "홈",
+   "선수": "가빈 바주누(GK)",
+   "포지션": "GK",
+   "주전": false,
+   "상태": "확정",
+   "사유": "부상으로 소집 제외, 마크 트래버스 대체 (주전 GK는 케일러허로 보임)",
+   "출처": "https://www.irishexaminer.com/sport/soccer/arid-41933583.html",
+   "날짜": "2026-11-05"
+  },
+  {
+   "팀": "홈",
+   "선수": "조쉬 컬런(MF)",
+   "포지션": "MF",
+   "주전": "확인 안 됨",
+   "상태": "확정",
+   "사유": "체력 회복 위해 이번 소집 불참",
+   "출처": "https://www.irishexaminer.com/sport/soccer/arid-41933583.html",
+   "날짜": "2026-11-05"
+  },
+  {
+   "팀": "홈",
+   "선수": "제이슨 몰룸비·리암 스케일스·라이언 매닝·애덤 이다·코너 코벤트리",
+   "포지션": "MF/DF/FW",
+   "주전": "몰룸비·스케일스·매닝·이다는 11/14 선발",
+   "상태": "확정",
+   "사유": "경고 누적 1장 남음 — 코소보전 출전 정지 위험(이미 정지 상태는 아님, 이번 경기 경고 시 다음 경기 정지이며 이 경기가 대회 최종전이라 실효 불명). 11/14 경기에서 경고 보고 없음",
+   "출처": "https://www.irishtimes.com/sport/soccer/2026/11/14/live-republic-of-ireland-v-austria-updates-heimir-hallgrimssons-side-in-linz-for-nations-league-clash/",
+   "날짜": "2026-11-14"
+  },
+  {
+   "팀": "원정",
+   "선수": "벨딘 호자(Veldin Hodza)",
+   "포지션": "확인 안 됨",
+   "주전": "11/14 출전",
+   "상태": "의심",
+   "사유": "11/14 이스라엘전 67분 두 번째 경고로 퇴장 — 정지 징계 여부·경기 수 기사에 없음(통상 1경기 정지이나 미확인)",
+   "출처": "https://www.jpost.com/sports/article-914992",
+   "날짜": "2026-11-14"
+  },
+  {
+   "팀": "원정",
+   "선수": "크레슈니크 하이리지(Kreshnik Hajrizi)",
+   "포지션": "DF",
+   "주전": "확인 안 됨",
+   "상태": "오래됨",
+   "사유": "5월 수술 후 완전 회복 못 해 네이션스리그 4경기 모두 결장 예상(9월 프리뷰 기준)",
+   "출처": "https://www.sportsmole.co.uk/football/kosovo/uefa-nations-league/preview/kosovo-vs-republic-of-ireland-prediction-team-news-lineups_605624.html",
+   "날짜": "2026-09"
+  },
+  {
+   "팀": "홈",
+   "선수": "네이선 콜린스(주장)",
+   "포지션": "CB",
+   "주전": true,
+   "상태": "확정(결장)",
+   "사유": "11/14 린츠 마지막 분 무릎 부상, 브렌트퍼드로 복귀해 정밀검사. 기존 '의심' 항목 갱신",
+   "출처": "https://www.irishtimes.com/sport/soccer/2026/11/16/ireland-captain-nathan-collins-ruled-out-for-kosovo-game/ ; https://www.irishnews.com/sport/soccer/republic-of-ireland-skipper-nathan-collins-ruled-out-of-nations-league-finale-v-kosovo-F77AANHLU5GJ5G4A3CA2MUV4MI/",
+   "날짜": "2026-11-16"
+  },
+  {
+   "팀": "홈",
+   "선수": "세이머스 콜먼",
+   "포지션": "RB/코치 하이브리드",
+   "주전": false,
+   "상태": "확정(불참)",
+   "사유": "소집 합류했으나 코소보전 불참",
+   "출처": "https://www.irishtimes.com/sport/soccer/2026/11/16/ireland-captain-nathan-collins-ruled-out-for-kosovo-game/",
+   "날짜": "2026-11-16"
+  }
  ],
  "직전경기": {
   "홈": "11/14 오스트리아 1-0 아일랜드(원정, 린츠 라이프아이젠 아레나). 사샤 칼라이지치 78분 코너 후 교체 투입 득점. 아일랜드 선발: 켈러허; 도라 오쇼, 콜린스(주장), 스케일스; 아밴와, 매닝; 몰룸비, 아자즈; 모일런, 이다; 패럿. 교체 69분 오브라이언·베일·오그벤(→매닝·이다·모일런), 78분 로월(→아밴와). 슈미트 1회 경고(오쇼 태클), 아일랜드 경고 보고 없음. 감독 헤이미르 할그림손: '최소 무승부는 받을 만했다', 심판 판정 불만. 4일 휴식(11/14→11/17 실제 3일 간격).",
   "원정": "11/14 코소보 0-0 이스라엘(홈, 프리슈티나 파딜 보크리 스타디움). 코소보 호자 67분 두 번째 경고 퇴장(10명으로 종료). 관중이 이스라엘 국가 야유. 선발 11명은 확인 안 됨(일부 기사에 유벤투스 제그로바 선발이라는 제목 있음: goal.com). 3일 간격으로 17일 원정."
  },
  "최근5경기": {
-  "홈": ["11/14 오스트리아 0-1 패(원정, 네이션스리그)", "10/04 이스라엘 1-1 무(세르비아 바치카 토폴라 중립, 파렛 PK 39분, 페레츠 47분)", "10/01 오스트리아 2-2 무(홈, 패럿 2골 후 오스트리아 동점; expressandstar 제목 기준. Irish News 사진설명 '2-goal'은 불일치)", "09/27 이스라엘 3-0 승(헝가리 데브레첸 제3국, 이스라엘이 형식상 홈)", "09/24 코소보 0-1 패(원정, 무리키 후반 골)"],
-  "원정": ["11/14 이스라엘 0-0 무(홈)", "10/04 오스트리아 (홈) 무 — 점수 확인 안 됨(sportsmole: 양팀 승점 1)", "09/24 아일랜드공화국 1-0 승(홈, 무리키 결승골)", "그 밖 2경기 확인 안 됨 (이스라엘 원정 0-0이라는 기사 있음, 날짜 불명)"]
+  "홈": [
+   "11/14 오스트리아 0-1 패(원정, 네이션스리그)",
+   "10/04 이스라엘 1-1 무(세르비아 바치카 토폴라 중립, 파렛 PK 39분, 페레츠 47분)",
+   "10/01 오스트리아 2-2 무(홈, 패럿 2골 후 오스트리아 동점; expressandstar 제목 기준. Irish News 사진설명 '2-goal'은 불일치)",
+   "09/27 이스라엘 3-0 승(헝가리 데브레첸 제3국, 이스라엘이 형식상 홈)",
+   "09/24 코소보 0-1 패(원정, 무리키 후반 골)"
+  ],
+  "원정": [
+   "11/14 이스라엘 0-0 무(홈)",
+   "10/04 오스트리아 (홈) 무 — 점수 확인 안 됨(sportsmole: 양팀 승점 1)",
+   "09/24 아일랜드공화국 1-0 승(홈, 무리키 결승골)",
+   "그 밖 2경기 확인 안 됨 (이스라엘 원정 0-0이라는 기사 있음, 날짜 불명)"
+  ]
  },
- "맞대결": ["2026-09-24 코소보 1-0 아일랜드공화국 (프리슈티나 파딜 보크리 스타디움, 베다트 무리키 후반 결승골; 11v11 https://www.11v11.com/matches/kosovo-v-republic-of-ireland-24-september-2026-394911/)"],
- "감독": {"홈": "헤이미르 할그림손(Heimir Hallgrímsson), 교체 없음. 11/11 조수 존 오셰어: '(선수들) 모두 괜찮다'(Irish News 11/11)", "원정": "프랑코 포다(Franco Foda)"},
+ "맞대결": [
+  "2026-09-24 코소보 1-0 아일랜드공화국 (프리슈티나 파딜 보크리 스타디움, 베다트 무리키 후반 결승골; 11v11 https://www.11v11.com/matches/kosovo-v-republic-of-ireland-24-september-2026-394911/)"
+ ],
+ "감독": {
+  "홈": "헤이미르 할그림손(Heimir Hallgrímsson), 교체 없음. 11/11 조수 존 오셰어: '(선수들) 모두 괜찮다'(Irish News 11/11)",
+  "원정": "프랑코 포다(Franco Foda)"
+ },
  "일정": "아일랜드 11/14 린츠 원정 후 11/17 더블린 홈(3일 간격, 선발 대부분 피로 가능). 코소보 11/14 프리슈티나 홈 후 11/17 더블린 원정(3일 간격, 호자 퇴장 포함 10명 소화).",
  "사실": [
   "아일랜드 11월 소집 24명: GK 켈러허·오리어리·트래버스, DF 콜린스·오쇼·이건·키칭·던·오브라이언·아밴와·매닝·스케일스, MF 몰룸비·나이트·코벤트리·로월·베일·아자즈, FW 패럿·이다·캐넌·모일런·오그벤·바타 (https://www.irishexaminer.com/sport/soccer/arid-41933583.html, 2026-11-05)",
@@ -30,9 +121,39 @@
   "콜린스는 11/14 이전 4경기 종아리 부상 결장 후 복귀, 오쇼도 이스라엘전 결장 후 복귀(Irish Times 2026-11-14)",
   "오스트리아는 부상 8명(핵심 6명)에도 아일랜드를 1-0으로 이겨 승격 확정(Irish Times 2026-11-14)",
   "무리키는 코소보 역대 최다 득점자·핵심 공격수(월드컵 예선 3월 소집 때부터 명단), 11월 소집 명단은 확인 안 됨",
-  "11/11 Irish News: 아일랜드 훈련 전원 참가, 부상 보고 없음"
+  "11/11 Irish News: 아일랜드 훈련 전원 참가, 부상 보고 없음",
+  "대체: QPR 지미 던 매치데이 명단 합류, 제이크 오브라이언 선발 유력, 존 이건·던 경쟁 (Irish News 11/16). 압완카 쥐 증상 회복 출전 가능, 그 외 부상 우려 없음 (Irish Times 11/16)",
+  "할그림손 11/16: \"It is clear we need to win the game, a draw will do nothing for us.\" 코소보도 오스트리아만큼 강할 것 (Irish Times 2026-11-16)",
+  "걸린 것(Irish Times 11/16): 승리 시 B3조 2위 → 3월 승격 플레이오프 + 다음 달 유로2028 예선 조추첨 2번 포트 / 무승부 3위 / 패배+이스라엘의 오스트리아전 승리 시 4위·강등 플레이오프. 이스라엘-오스트리아 경기도 같은 날 진행"
  ],
- "확인안됨": ["코소보 11월 소집 명단·부상자", "코소보 선발 11명(이스라엘전)", "호자 출전 정지 여부", "콜린스 11/15 검사 결과", "심판·날씨", "코소보 5경기 중 2경기 결과·정확한 순위표(득실차)", "아일랜드 부상 결과 갱신(11/15~16)"],
- "출처": ["https://www.irishexaminer.com/sport/soccer/arid-41933583.html", "https://www.irishnews.com/sport/soccer/republic-of-ireland-squad-fully-fit-as-they-chase-double-to-top-nations-league-group-VKJBST2BIFCLVIS7WNRDQMGMQ4/", "https://www.irishtimes.com/sport/soccer/2026/11/14/live-republic-of-ireland-v-austria-updates-heimir-hallgrimssons-side-in-linz-for-nations-league-clash/", "https://www.rte.ie/sport/soccer/2026/1114/1599243-refereeing-calls-a-source-of-irritation-after-linz-loss/", "https://www.jpost.com/sports/article-914992", "https://www.washingtonpost.com/sports/soccer/2026/11/14/kosovo-israel-protests-gaza/04acbb72-e048-11f1-912c-4fbb80d73f7f_story.html", "https://www.11v11.com/matches/kosovo-v-republic-of-ireland-24-september-2026-394911/"],
- "배당": "보지 않음"
+ "확인안됨": [
+  "코소보 11월 소집 명단·부상자",
+  "코소보 선발 11명(이스라엘전)",
+  "호자 출전 정지 여부",
+  "콜린스 11/15 검사 결과",
+  "심판·날씨",
+  "코소보 5경기 중 2경기 결과·정확한 순위표(득실차)",
+  "아일랜드 부상 결과 갱신(11/15~16)",
+  "코소보 호자 징계, 코소보 소집명단·부상 (11/16 아일랜드 매체에도 없음)",
+  "할그림손 예상 선발"
+ ],
+ "출처": [
+  "https://www.irishexaminer.com/sport/soccer/arid-41933583.html",
+  "https://www.irishnews.com/sport/soccer/republic-of-ireland-squad-fully-fit-as-they-chase-double-to-top-nations-league-group-VKJBST2BIFCLVIS7WNRDQMGMQ4/",
+  "https://www.irishtimes.com/sport/soccer/2026/11/14/live-republic-of-ireland-v-austria-updates-heimir-hallgrimssons-side-in-linz-for-nations-league-clash/",
+  "https://www.rte.ie/sport/soccer/2026/1114/1599243-refereeing-calls-a-source-of-irritation-after-linz-loss/",
+  "https://www.jpost.com/sports/article-914992",
+  "https://www.washingtonpost.com/sports/soccer/2026/11/14/kosovo-israel-protests-gaza/04acbb72-e048-11f1-912c-4fbb80d73f7f_story.html",
+  "https://www.11v11.com/matches/kosovo-v-republic-of-ireland-24-september-2026-394911/"
+ ],
+ "배당": "보지 않음",
+ "정정": [
+  "콜린스 상태 '의심' → 11/16 확정 결장(위 결장 항목 참조)"
+ ],
+ "갱신_1117": [
+  "콜린스 확정 결장(무릎), 던 합류 — Irish Times/Irish News 2026-11-16",
+  "콜먼 불참, 압완카 가용, 그 외 부상 없음 — 2026-11-16",
+  "할그림손 '무승부는 의미 없다' 인용 및 순위 시나리오 — 2026-11-16",
+  "코소보 쪽 새 보도 없음 — 검색처: irishtimes.com, irishnews.com, balkanweb.com, 일반 검색"
+ ]
 }

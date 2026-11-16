@@ -1,0 +1,46 @@
+{
+ "번호": 4513,
+ "홈": "미국", "원정": "아이티",
+ "리그": "CONCACAF 네이션스리그 2026/27 8강 2차전 (1차전 11/14 마이애미)",
+ "수집시각": "2026-11-17 KST",
+ "구장": "TQL Stadium, 신시내티, 미국 — 미국 자국 개최(아이티는 치안 문제로 홈경기를 미국 마이애미에서 치러 두 경기 모두 미국 땅). 현지 11/17 19:00 ET (= KST 11/18 09:00)",
+ "순위와걸린것": "두 경기 합계 득점으로 승자 결정, 승자는 2027년 3월 LA(SoFi) 네이션스리그 파이널스 진출. 원정골 규정은 Fox Sports 기사에 언급 없음. 연장·승부차기 규정은 확인 안 됨. 1차전 미국 6-0 아이티 → 합계 미국 6골 앞선 상태. (출처: https://foxsports.com/stories/soccer/usmnt-nations-league-haiti-schedule-miami-cincinnati, 2026-11 / https://seasonticketholderny.substack.com/p/six-goals-and-a-goodbye-usmnt-routs, 2026-11-14)",
+ "결장": [
+  {"팀": "홈", "선수": "Timothy Tillman(골반)", "포지션": "미드필더", "주전": false, "상태": "확정", "사유": "아이티 두 경기 모두 불참 보도", "출처": "https://www.si.com/soccer/usmnt-injuries-doubtful-ruled-out-concacaf-nations-league-quarterfinals", "날짜": "2026-11-03"},
+  {"팀": "홈", "선수": "Haji Wright(대퇴사두)", "포지션": "공격수", "주전": false, "상태": "확정", "사유": "11월 말 복귀 가능성, 25인 명단에 없음", "출처": "https://www.si.com/soccer/usmnt-injuries-doubtful-ruled-out-concacaf-nations-league-quarterfinals", "날짜": "2026-11-03"},
+  {"팀": "홈", "선수": "Diego Luna(반월판), Alex Zendejas(내전근), Patrick Agyemang(아킬레스)", "포지션": "MF/MF/FW", "주전": false, "상태": "확정", "사유": "부상, 25인 명단에 없음", "출처": "https://www.si.com/soccer/usmnt-injuries-doubtful-ruled-out-concacaf-nations-league-quarterfinals", "날짜": "2026-11-03"},
+  {"팀": "홈", "선수": "Weston McKennie(내전근)", "포지션": "미드필더", "주전": true, "상태": "복귀", "사유": "11/3 시점 의심이었으나 11/4 명단 포함, 1차전 선발 출전 후 81분 교체", "출처": "https://www.ussoccer.com/stories/2026/11/usmnt-vs-haiti-match-recap-highlights-concacaf-nations-league-miami-florida", "날짜": "2026-11-15"},
+  {"팀": "홈", "선수": "Cavan Sullivan(발목)", "포지션": "공격수", "주전": false, "상태": "의심", "사유": "복귀했으나 휴식 가능성 언급(11/3), 25인 명단 포함, 1차전 미출전", "출처": "https://www.si.com/soccer/usmnt-injuries-doubtful-ruled-out-concacaf-nations-league-quarterfinals", "날짜": "2026-11-03"},
+  {"팀": "원정", "선수": "아이티 결장자", "포지션": "", "주전": null, "상태": "확인 안 됨", "사유": "아이티 소집 명단·부상 정보를 찾지 못함", "출처": "", "날짜": ""}
+ ],
+ "직전경기": {
+  "홈": "11/14 아이티 0-6 미국(원정 표기, 마이애미 Nu Stadium, 관중 21,597). 득점 Trusty 10', Hall 52', Pulisic 62'(PK)·63', McKennie 68', Balogun 82'. 70' Joseph(아이티) 골 오프사이드 무효. 선발 XI: Kochen; Freeman, Richards, Trusty, A.Robinson; Berhalter, Adams(C); McKennie, Tillman(Malik), Pulisic; Hall. 교체: 66' Balogun(Berhalter), Reynolds(Hall); 81' Mehmeti(McKennie), Albert(Pulisic); 86' Ellis(Malik Tillman). 경고: Robinson 6', Berhalter 40'(미국) / Casimir 40'(아이티). 퇴장 없음. 월드컵 스쿼드 선수 9명 선발. (출처: https://www.ussoccer.com/stories/2026/11/usmnt-vs-haiti-match-recap-highlights-concacaf-nations-league-miami-florida, 2026-11-15; https://www.espn.com/soccer/report/_/gameId/401929710)",
+  "원정": "11/14 아이티 0-6 미국. 선발 XI: A.Pierre; K.Pierre, Arcus(C), Nwadike, Experience; Jean-Jacques, L.Pierre; Casimir, Isidor, Deedson; Joseph. 교체: 62' Simon, Providence; 81' Dany Jean, Fortune. 퇴장 없음. (출처 동일)"
+ },
+ "최근5경기": {"홈": ["11/14 아이티 0-6 미국(원정 표기, 마이애미)", "그 이전 4경기는 확인 안 됨(9~10월 A매치 결과 미수집)"], "원정": ["11/14 아이티 0-6 미국(홈 표기, 마이애미)", "조별리그: 4경기 중 3승, 조 2위 그룹 최고 성적으로 8강 진출(출처 SI 2026, 날짜 미확인)"]},
+ "맞대결": ["2026-11-14 아이티 0-6 미국 (마이애미, 네이션스리그 8강 1차전)", "2025-06 골드컵 조별리그 미국 2-1 아이티 (Arlington)"],
+ "감독": {
+  "홈": "마우리시오 포체티노 — 11/18 맨체스터 유나이티드 감독 부임 예정(ESPN 보도: 약 1000만 달러 방출 조항, 미 축구협회와 합의). 이 2차전이 미국 대표팀 마지막 경기. 2차전 로테이션 발언은 찾지 못함. 인용: 미국에 '놀라운 미래가 있다', 떠나는 것은 커리어에서 가장 어려운 결정(출처 https://seasonticketholderny.substack.com/p/six-goals-and-a-goodbye-usmnt-routs, 2026-11-14)",
+  "원정": "아이티 감독 이름·발언 확인 안 됨"
+ },
+ "일정": "1차전 11/14 16:30 ET 마이애미 → 2차전 11/17 19:00 ET 신시내티, 휴식 3일, 마이애미→신시내티 국내 이동. 11월 말 MLS 플레이오프가 11/18부터 시작 가능(MLS 소속 선수 소집 영향 가능, SI 10/7).",
+ "사실": [
+  "25인 소집 명단: GK Freese, Kochen, Schwake / DF Baker-Whiting, Campbell, Dest, Freeman, Pierre, Reynolds, Richards, A.Robinson, Trusty / MF Adams, Albert, Berhalter, Castañeda, McKennie, Mehmeti, Reyna, M.Tillman / FW Balogun, Ellis, Hall, Pulisic, C.Sullivan (https://ussoccer.com/stories/2026/11/usmnt/nations-league-roster-vs-haiti-miami-cincinnati, 2026-11-04)",
+  "1차전 선발 중 1차전 미출전 명단 인원: Dest, Reyna, Castañeda, Campbell, Baker-Whiting, Pierre, Freese, Schwake, C.Sullivan (1차전 선발·교체 명단에 없음)",
+  "Pulisic 1차전 2골로 통산 35골, 미국 역대 득점 4위 (ESPN/MLS 2026-11-14)",
+  "미국은 TQL Stadium에서 패한 적 없음 (substack 2026-11-14)",
+  "아이티 홈경기 개최지 마이애미: 치안 문제로 Concacaf 예외 허가 (https://foxsports.com/stories/soccer/usmnt-nations-league-haiti-schedule-miami-cincinnati)",
+  "승자는 8강 후 준결승에서 캐나다-과테말라 승자와 대결 예정(캐나다 3-2 과테말라 1차전)"
+ ],
+ "확인안됨": ["아이티 소집 명단·결장·감독 이름·발언", "2차전 예상 선발·로테이션 발언", "합계 동률 시 연장/승부차기 규정 및 원정골 규정", "양 팀 최근 5경기 중 11/14 이외", "심판·날씨"],
+ "출처": [
+  "https://www.ussoccer.com/stories/2026/11/usmnt-vs-haiti-match-recap-highlights-concacaf-nations-league-miami-florida",
+  "https://www.espn.com/soccer/report/_/gameId/401929710",
+  "https://ussoccer.com/stories/2026/11/usmnt/nations-league-roster-vs-haiti-miami-cincinnati",
+  "https://www.si.com/soccer/usmnt-injuries-doubtful-ruled-out-concacaf-nations-league-quarterfinals",
+  "https://foxsports.com/stories/soccer/usmnt-nations-league-haiti-schedule-miami-cincinnati",
+  "https://seasonticketholderny.substack.com/p/six-goals-and-a-goodbye-usmnt-routs",
+  "https://www.pulzo.com/deportes/futbol/jamaica-vence-3-2-a-mexico-en-kingston-resumen-y-claves-del-partido-de-liga-de-naciones-concacaf-PP5356334A"
+ ],
+ "배당": "보지 않음"
+}

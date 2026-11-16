@@ -1,38 +1,226 @@
 {
  "번호": 4489,
- "홈": "폴란드", "원정": "스웨덴",
+ "홈": "폴란드",
+ "원정": "스웨덴",
  "리그": "UEFA 네이션스리그 2026-27 리그B 4조 6차전(최종전), 11/17 20:45 CET = 11/18 04:45 KST",
- "수집시각": "2026-11-16 KST",
+ "수집시각": "2026-11-17 KST (갱신)",
  "구장": "타르친스키 아레나, 브로츠와프, 폴란드 — 홈팀 자국(중립 아님) (https://sport.rp.pl/pilka-nozna/art45491081-liga-narodow-mecz-ze-szwecja-bedzie-dla-pilkarzy-jana-urbana-proba-charakteru , 2026-11-15; TheScore도 동일)",
  "순위와걸린것": "리그B 4조 5경기 후(rp.pl 11/15): 1 스웨덴 승점 13(10-5) · 2 보스니아 8(8-6) · 3 폴란드 4(8-6) · 4 루마니아 3(5-14). 스웨덴은 이미 승격 확정. 폴란드는 3위로 안전하나 스웨덴전 승리가 잔류 확정에 필요; 못 이기고 루마니아가 보스니아를 이기면 3월 플레이오프(강등 방지) 가능성. (TheScore 전적 표기: 스웨덴 4-1-0, 폴란드 1-1-3)",
  "결장": [
-  {"팀": "홈", "선수": "마티 캐시", "포지션": "우측 수비", "주전": "확인 안 됨", "상태": "확정", "사유": "뇌진탕, 소집 이탈, 브로츠와프 못 뜀 / 아르카디우시 피르카 대체 예상", "출처": "https://sport.rp.pl/pilka-nozna/art45491081-liga-narodow-mecz-ze-szwecja-bedzie-dla-pilkarzy-jana-urbana-proba-charakteru", "날짜": "2026-11-15"},
-  {"팀": "홈", "선수": "야쿱 키비오르", "포지션": "센터백", "주전": "확인 안 됨", "상태": "확정(경고 누적 출전정지)", "사유": "루마니아전 경고", "출처": "https://sport.rp.pl/pilka-nozna/art45491081-liga-narodow-mecz-ze-szwecja-bedzie-dla-pilkarzy-jana-urbana-proba-charakteru", "날짜": "2026-11-15"},
-  {"팀": "홈", "선수": "마르친 불카", "포지션": "골키퍼", "주전": "확인 안 됨(스웨덴 보도: 1순위 GK)", "상태": "확정(부상)", "사유": "부상(인대 보도는 스웨덴 매체, 미확정)", "출처": "https://sport.rp.pl/pilka-nozna/art45491081-liga-narodow-mecz-ze-szwecja-bedzie-dla-pilkarzy-jana-urbana-proba-charakteru", "날짜": "2026-11-15"},
-  {"팀": "홈", "선수": "카미우 그라바라", "포지션": "골키퍼", "주전": "확인 안 됨", "상태": "확정(부상)", "사유": "부상. 드롱고프스키 선발 가능, 대안 아브라모비치(데뷔)·코할스키", "출처": "https://sport.rp.pl/pilka-nozna/art45491081-liga-narodow-mecz-ze-szwecja-bedzie-dla-pilkarzy-jana-urbana-proba-charakteru", "날짜": "2026-11-15"},
-  {"팀": "홈", "선수": "프셰므스와프 프란코프스키", "포지션": "우측", "주전": "확인 안 됨", "상태": "확정(부상)", "사유": "루마니아전 전 부상, 피르카 대체 소집", "출처": "https://sport.interia.pl/pilka-nozna/reprezentacja-polski/news-wielkie-oslabienie-szwedow-przed-meczem-z-polska-to-koniec-p,nId,23572817", "날짜": "2026-11 (미표기)"},
-  {"팀": "홈", "선수": "피오트르 지엘린스키", "포지션": "미드필더", "주전": true, "상태": "의심", "사유": "발 부상, 화요일 회복 불명", "출처": "https://sport.rp.pl/pilka-nozna/art45491081-liga-narodow-mecz-ze-szwecja-bedzie-dla-pilkarzy-jana-urbana-proba-charakteru", "날짜": "2026-11-15"},
-  {"팀": "홈", "선수": "얀 베드나레크", "포지션": "수비", "주전": "확인 안 됨", "상태": "복귀", "사유": "출전 가능", "출처": "https://sport.rp.pl/pilka-nozna/art45491081-liga-narodow-mecz-ze-szwecja-bedzie-dla-pilkarzy-jana-urbana-proba-charakteru", "날짜": "2026-11-15"},
-  {"팀": "원정", "선수": "파트리크 월레마르크", "포지션": "윙어", "주전": "확인 안 됨", "상태": "확정(소집 이탈)", "사유": "대표팀 훈련 중 부상, 소속 레흐 포즈난 발표", "출처": "https://sport.interia.pl/pilka-nozna/reprezentacja-polski/news-wielkie-oslabienie-szwedow-przed-meczem-z-polska-to-koniec-p,nId,23572817", "날짜": "2026-11 (미표기)"},
-  {"팀": "원정", "선수": "베스포르트 제넬리", "포지션": "확인 안 됨", "주전": "확인 안 됨", "상태": "확정(불출전)", "사유": "Interia 요약: 폴란드전 불출전", "출처": "https://sport.interia.pl/pilka-nozna/reprezentacja-polski/news-wielkie-oslabienie-szwedow-przed-meczem-z-polska-to-koniec-p,nId,23572817", "날짜": "2026-11 (미표기, 요약 단계 확인)"},
-  {"팀": "원정", "선수": "칼 스타르펠트", "포지션": "센터백", "주전": "확인 안 됨", "상태": "의심(불출전 유력)", "사유": "치료 약 6주 보도", "출처": "https://sport.interia.pl/pilka-nozna/reprezentacja-polski/news-wielkie-oslabienie-szwedow-przed-meczem-z-polska-to-koniec-p,nId,23572817", "날짜": "2026-11 (미표기, 검색요약만)"}
+  {
+   "팀": "홈",
+   "선수": "마티 캐시",
+   "포지션": "우측 수비",
+   "주전": "확인 안 됨",
+   "상태": "확정",
+   "사유": "뇌진탕, 소집 이탈, 브로츠와프 못 뜀 / 아르카디우시 피르카 대체 예상",
+   "출처": "https://sport.rp.pl/pilka-nozna/art45491081-liga-narodow-mecz-ze-szwecja-bedzie-dla-pilkarzy-jana-urbana-proba-charakteru",
+   "날짜": "2026-11-15"
+  },
+  {
+   "팀": "홈",
+   "선수": "야쿱 키비오르",
+   "포지션": "센터백",
+   "주전": "확인 안 됨",
+   "상태": "확정(경고 누적 출전정지)",
+   "사유": "루마니아전 경고",
+   "출처": "https://sport.rp.pl/pilka-nozna/art45491081-liga-narodow-mecz-ze-szwecja-bedzie-dla-pilkarzy-jana-urbana-proba-charakteru",
+   "날짜": "2026-11-15"
+  },
+  {
+   "팀": "홈",
+   "선수": "마르친 불카",
+   "포지션": "골키퍼",
+   "주전": "확인 안 됨(스웨덴 보도: 1순위 GK)",
+   "상태": "확정(부상)",
+   "사유": "부상(인대 보도는 스웨덴 매체, 미확정)",
+   "출처": "https://sport.rp.pl/pilka-nozna/art45491081-liga-narodow-mecz-ze-szwecja-bedzie-dla-pilkarzy-jana-urbana-proba-charakteru",
+   "날짜": "2026-11-15"
+  },
+  {
+   "팀": "홈",
+   "선수": "카미우 그라바라",
+   "포지션": "골키퍼",
+   "주전": "확인 안 됨",
+   "상태": "확정(부상)",
+   "사유": "부상. 드롱고프스키 선발 가능, 대안 아브라모비치(데뷔)·코할스키",
+   "출처": "https://sport.rp.pl/pilka-nozna/art45491081-liga-narodow-mecz-ze-szwecja-bedzie-dla-pilkarzy-jana-urbana-proba-charakteru",
+   "날짜": "2026-11-15"
+  },
+  {
+   "팀": "홈",
+   "선수": "프셰므스와프 프란코프스키",
+   "포지션": "우측",
+   "주전": "확인 안 됨",
+   "상태": "확정(부상)",
+   "사유": "루마니아전 전 부상, 피르카 대체 소집",
+   "출처": "https://sport.interia.pl/pilka-nozna/reprezentacja-polski/news-wielkie-oslabienie-szwedow-przed-meczem-z-polska-to-koniec-p,nId,23572817",
+   "날짜": "2026-11 (미표기)"
+  },
+  {
+   "팀": "홈",
+   "선수": "피오트르 지엘린스키",
+   "포지션": "미드필더",
+   "주전": true,
+   "상태": "의심",
+   "사유": "발 부상, 화요일 회복 불명",
+   "출처": "https://sport.rp.pl/pilka-nozna/art45491081-liga-narodow-mecz-ze-szwecja-bedzie-dla-pilkarzy-jana-urbana-proba-charakteru",
+   "날짜": "2026-11-15"
+  },
+  {
+   "팀": "홈",
+   "선수": "얀 베드나레크",
+   "포지션": "수비",
+   "주전": "확인 안 됨",
+   "상태": "복귀",
+   "사유": "출전 가능",
+   "출처": "https://sport.rp.pl/pilka-nozna/art45491081-liga-narodow-mecz-ze-szwecja-bedzie-dla-pilkarzy-jana-urbana-proba-charakteru",
+   "날짜": "2026-11-15"
+  },
+  {
+   "팀": "원정",
+   "선수": "파트리크 월레마르크",
+   "포지션": "윙어",
+   "주전": "확인 안 됨",
+   "상태": "확정(소집 이탈)",
+   "사유": "대표팀 훈련 중 부상, 소속 레흐 포즈난 발표",
+   "출처": "https://sport.interia.pl/pilka-nozna/reprezentacja-polski/news-wielkie-oslabienie-szwedow-przed-meczem-z-polska-to-koniec-p,nId,23572817",
+   "날짜": "2026-11 (미표기)"
+  },
+  {
+   "팀": "원정",
+   "선수": "베스포르트 제넬리",
+   "포지션": "확인 안 됨",
+   "주전": "확인 안 됨",
+   "상태": "확정(불출전)",
+   "사유": "Interia 요약: 폴란드전 불출전",
+   "출처": "https://sport.interia.pl/pilka-nozna/reprezentacja-polski/news-wielkie-oslabienie-szwedow-przed-meczem-z-polska-to-koniec-p,nId,23572817",
+   "날짜": "2026-11 (미표기, 요약 단계 확인)"
+  },
+  {
+   "팀": "원정",
+   "선수": "칼 스타르펠트",
+   "포지션": "센터백",
+   "주전": "확인 안 됨",
+   "상태": "의심(불출전 유력)",
+   "사유": "치료 약 6주 보도",
+   "출처": "https://sport.interia.pl/pilka-nozna/reprezentacja-polski/news-wielkie-oslabienie-szwedow-przed-meczem-z-polska-to-koniec-p,nId,23572817",
+   "날짜": "2026-11 (미표기, 검색요약만)"
+  },
+  {
+   "팀": "홈",
+   "선수": "카미우 그라바라",
+   "포지션": "골키퍼",
+   "주전": "확인 안 됨",
+   "상태": "확정(부상)",
+   "사유": "폴란드 매체 사전 보도에서도 부상 결장으로 표기",
+   "출처": "https://www.polsatsport.pl/ (검색 요약만, 개별 기사 미열람)",
+   "날짜": "2026-11-16~17"
+  },
+  {
+   "팀": "홈",
+   "선수": "야쿱 키비오르",
+   "포지션": "센터백",
+   "주전": "확인 안 됨",
+   "상태": "확정(정지)",
+   "사유": "출전 정지(11/15 기사와 일치, 두 번째 출처 검색요약)",
+   "출처": "검색요약(폴란드 사전 프리뷰 모음)",
+   "날짜": "2026-11-16~17"
+  },
+  {
+   "팀": "홈",
+   "선수": "마티 캐시",
+   "포지션": "우측 수비",
+   "주전": "확인 안 됨",
+   "상태": "확정",
+   "사유": "건강 문제, 두 번째 출처(검색요약)에서도 결장 계열로 표기",
+   "출처": "검색요약",
+   "날짜": "2026-11-16~17"
+  },
+  {
+   "팀": "홈",
+   "선수": "피오트르 지엘린스키",
+   "포지션": "미드필더",
+   "주전": true,
+   "상태": "의심(출처 엇갈림)",
+   "사유": "검색요약 한 곳: '질병으로 출전 불가'(발 부상과 사유 다름). betside 예상 선발(11/16 15:08 갱신)에는 지엘린스키 포함 — 예상 선발이라 확정 아님",
+   "출처": "https://betside.pl/polska-szwecja-przewidywane-sklady-17-11/",
+   "날짜": "2026-11-16"
+  },
+  {
+   "팀": "원정",
+   "선수": "루카스 베리발",
+   "포지션": "확인 안 됨",
+   "주전": "확인 안 됨",
+   "상태": "의심(단일 출처)",
+   "사유": "폴란드 사전 프리뷰 요약: 스웨덴 결장 명단",
+   "출처": "검색요약(개별 기사 URL 미확인)",
+   "날짜": "2026-11-16~17"
+  },
+  {
+   "팀": "원정",
+   "선수": "파트리크 월레마르크",
+   "포지션": "윙어",
+   "주전": "확인 안 됨",
+   "상태": "확정(11/16 기사로 두 번째 확인)",
+   "사유": "폴란드 사전 프리뷰도 결장 표기",
+   "출처": "검색요약",
+   "날짜": "2026-11-16~17"
+  }
  ],
  "직전경기": {
   "홈": "11/14(토) 루마니아 2-1 폴란드 (부쿠레슈티 원정). 폴란드 첫 유효슈팅 62분 (rp.pl, 2026-11-15)",
   "원정": "11/14 직전 경기 결과 확인 안 됨 (검색에서 못 찾음). 5경기 후 승점 13 = 4승1무"
  },
  "최근5경기": {
-  "홈": ["11/14 루마니아 2-1 폴란드(원정)", "9/28 폴란드 1-3 스웨덴 (솔나, 스웨덴 홈 개최로 표기: '3-1 in Solna')", "나머지 확인 안 됨. 네이션스리그 폴란드 전적 1승1무3패(TheScore)"],
-  "원정": ["9/28 스웨덴 3-1 폴란드(솔나, 홈)", "10/2 보스니아 1-1 스웨덴 (제니차, 괴케레스 득점, 알라이보비치 후반 동점)", "10/5 루마니아 0-1 스웨덴", "나머지 확인 안 됨. 네이션스리그 4승1무0패(TheScore)"]
+  "홈": [
+   "11/14 루마니아 2-1 폴란드(원정)",
+   "9/28 폴란드 1-3 스웨덴 (솔나, 스웨덴 홈 개최로 표기: '3-1 in Solna')",
+   "나머지 확인 안 됨. 네이션스리그 폴란드 전적 1승1무3패(TheScore)"
+  ],
+  "원정": [
+   "9/28 스웨덴 3-1 폴란드(솔나, 홈)",
+   "10/2 보스니아 1-1 스웨덴 (제니차, 괴케레스 득점, 알라이보비치 후반 동점)",
+   "10/5 루마니아 0-1 스웨덴",
+   "나머지 확인 안 됨. 네이션스리그 4승1무0패(TheScore)"
+  ]
  },
- "맞대결": ["2026-09-28 스웨덴 3-1 폴란드 (솔나) — 이번 대회 첫 맞대결(TheScore·Flashscore 요약). 2026 WC 플레이오프 결승 폴란드-스웨덴에서 이삭·훈·쿨루세프스키·홀름 부상 보도도 있음(Flashscore, 날짜 미확인)"],
- "감독": {"홈": "얀 우르반 — rp.pl 11/15 인용: \"Mogę nie dotrwać do eliminacji Euro\"(유로 예선까지 못 갈 수도), \"Wolę przegrać teraz, niż w eliminacjach\"(예선보다 지금 지는 게 낫다). 교체 사실 확인 안 됨", "원정": "그레이엄 포터 (Interia 요약이 폴란드 감독으로 잘못 적은 부분은 무시)"},
+ "맞대결": [
+  "2026-09-28 스웨덴 3-1 폴란드 (솔나) — 이번 대회 첫 맞대결(TheScore·Flashscore 요약). 2026 WC 플레이오프 결승 폴란드-스웨덴에서 이삭·훈·쿨루세프스키·홀름 부상 보도도 있음(Flashscore, 날짜 미확인)"
+ ],
+ "감독": {
+  "홈": "얀 우르반 — rp.pl 11/15 인용: \"Mogę nie dotrwać do eliminacji Euro\"(유로 예선까지 못 갈 수도), \"Wolę przegrać teraz, niż w eliminacjach\"(예선보다 지금 지는 게 낫다). 교체 사실 확인 안 됨",
+  "원정": "그레이엄 포터 (Interia 요약이 폴란드 감독으로 잘못 적은 부분은 무시) / 11/17까지 포터의 로테이션 예고·기자회견 인용은 검색에서 찾지 못함"
+ },
  "일정": "폴란드 11/14 → 11/17 3일 휴식(국내 이동). 스웨덴 직전 경기·이동 확인 안 됨.",
  "사실": [
   "폴란드는 11/14 경기에서 선발 변경 논쟁: 베네디차크 교체 출전 후 레반도프스키 대신 선발 여부 논란 (rp.pl, 2026-11-15)",
-  "TheScore 'Previous meeting: Sweden won 3-1 on Sept 28, 2026'"
+  "TheScore 'Previous meeting: Sweden won 3-1 on Sept 28, 2026'",
+  "스웨덴 11월 소집(TV4 11/4): 이삭·예위케레스·린델뢰프·쿨루셉스키(2년 만에 복귀) 포함, 신규 안트비·니에 / 에밀 홀름 부상 제외, 베이모 대체 (https://www.tv4.se/artikel/4KzdExJuykyJJwc29jKNL/klart-blagults-trupp-till-nations-league-avgoerandet , 2026-11-04). 기사 자체 서술: 11/14 보스니아전 승리가 승격에 충분",
+  "betside 예상 선발(예상일 뿐, 2026-11-16 15:08 갱신): 폴란드 드롱고프스키·쿠비아크·베드나레크·포툴스키·스코라시·노박·잘레프스키·심샤놉스키·지엘린스키·레굴라·레반도프스키 / 스웨덴 요한손·엘랑가·스벤손·예위케레스·라르손·라게르비엘케·아야리·린델뢰프·이삭·나나시·구드문드손 (https://betside.pl/polska-szwecja-przewidywane-sklady-17-11/). 스웨덴 로테이션 언급 없음",
+  "폴란드 11/16 사전 프리뷰 요약: 키비오르 정지·그라바라 부상·캐시 건강문제, 폴란드는 강등 직행 회피가 걸림 (검색요약, 개별 URL 미확인)"
  ],
- "확인안됨": ["스웨덴 11/14 직전 경기 결과·선발", "스웨덴 11월 공식 소집 명단·결장 전체(Isak·Kulusevski 등 11월 상태)", "심판·날씨", "폴란드 최근 5경기 전체"],
- "출처": ["https://sport.rp.pl/pilka-nozna/art45491081-liga-narodow-mecz-ze-szwecja-bedzie-dla-pilkarzy-jana-urbana-proba-charakteru", "https://sport.interia.pl/pilka-nozna/reprezentacja-polski/news-wielkie-oslabienie-szwedow-przed-meczem-z-polska-to-koniec-p,nId,23572817", "https://www.thescore.com/natleagueb/event/96949", "https://www.flashscore.com/news/soccer-uefa-nations-league-emil-holm-latest-to-withdraw-from-sweden-squad-with-thigh-injury-ahead-of-poland/E7lB03tI/"],
- "배당": "보지 않음"
+ "확인안됨": [
+  "스웨덴 11/14 직전 경기 결과·선발",
+  "스웨덴 11월 공식 소집 명단·결장 전체(Isak·Kulusevski 등 11월 상태)",
+  "심판·날씨",
+  "폴란드 최근 5경기 전체",
+  "우르반 11/16~17 경기 전 기자회견 인용(검색에서 못 찾음)",
+  "포터 11/16~17 기자회견·로테이션 예고(못 찾음)",
+  "11/14 스웨덴-보스니아 결과·선발(검색에서 못 찾음; rp.pl 11/15는 스웨덴 승점 13·승격 확정으로 서술)"
+ ],
+ "출처": [
+  "https://sport.rp.pl/pilka-nozna/art45491081-liga-narodow-mecz-ze-szwecja-bedzie-dla-pilkarzy-jana-urbana-proba-charakteru",
+  "https://sport.interia.pl/pilka-nozna/reprezentacja-polski/news-wielkie-oslabienie-szwedow-przed-meczem-z-polska-to-koniec-p,nId,23572817",
+  "https://www.thescore.com/natleagueb/event/96949",
+  "https://www.flashscore.com/news/soccer-uefa-nations-league-emil-holm-latest-to-withdraw-from-sweden-squad-with-thigh-injury-ahead-of-poland/E7lB03tI/"
+ ],
+ "배당": "보지 않음",
+ "갱신_1117": [
+  "스웨덴 로테이션·승격 확정 후 휴식 발언: 포터 기자회견 보도 검색에서 찾지 못함 (검색처: tv4.se, fotbolldirekt.se, flashscore, 폴란드 매체 검색)",
+  "스웨덴 결장 추가 후보: 루카스 베리발(단일 출처 검색요약), 월레마르크 재확인",
+  "폴란드 결장 두 번째 출처(검색요약): 키비오르 정지, 그라바라 부상, 캐시 건강문제, 지엘린스키 질병/발 부상 사유 엇갈림",
+  "예상 선발 사이트(betside, 11/16)는 이삭·지엘린스키 포함 — 예상치라 결장 정보와 충돌, 확정 라인업 아님",
+  "조 순위 변동 없음(11/16~17 경기 없음, 이 경기가 최종전)"
+ ]
 }

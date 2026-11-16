@@ -1,25 +1,70 @@
 {
  "번호": 4471,
- "홈": "우크라이나", "원정": "조지아",
+ "홈": "우크라이나",
+ "원정": "조지아",
  "리그": "UEFA 네이션스리그 2026/27 리그B 2조 6차전(최종전)",
- "수집시각": "2026-11-16 KST",
+ "수집시각": "2026-11-17 KST (갱신)",
  "구장": "코시체 풋볼 아레나(Košice Football Arena), 코시체, 슬로바키아 — 우크라이나 '명목상 홈'이며 자국이 아닌 제3국 경기장(중립 성격). 11/17 21:45 키이우 시각 = 11/18 04:45 KST. (출처: https://fakty.com.ua/ua/sport/futbol/20261013-ukrayina-gruziya-de-ta-koly-vidbudetsya-zaklyuchnyj-match-ligy-natsij/ 2026-10-13, https://espreso.tv/futbol-ispaniya-priymae-angliyu-ukraina-grae-z-gruzieyu-rozklad-ta-rezultati-matchiv-virishalnogo-turu-ligi-natsiy 2026-11-15, https://football.ua/nationsleague/592045-matosha-rozsudit-match-ukrajina-gruzija-u-lizi-nacijj.html 2026-11-15). 우크라이나의 앞선 명목상 홈 2경기는 트르나바(슬로바키아)에서 치름(10/2 0-3 북아일랜드, 10/5 1-2 헝가리).",
  "순위와걸린것": "B2조 5경기 후: 1 북아일랜드 11점(3승2무, +5) / 2 헝가리 10점(3승1무1패, +3) / 3 우크라이나 4점(1승1무3패, 2득6실, -4) / 4 조지아 2점(2무3패, 0득4실, -4). 위키 상태 표기: 우크라이나 'League B 잔류(3위)', 조지아 '강등 플레이오프 진출권(4위)'. 4위는 3월 2027 리그C 2위와 강등 플레이오프. 보도에 따르면 우크라이나는 무승부만 해도 3위(리그B 잔류) 유지, 패하면 강등 플레이오프(출처: https://ukrfootball.ua/exclusive/yaksho-prograyemo-i-gruziyi-poproshayemosya-z-malderoyu-fedorchuk-ociniv-zbirnu-ukrayini-proti-pivnichnoyi-irlandiyi 2026-11-15; https://en.wikipedia.org/wiki/2026%E2%80%9327_UEFA_Nations_League_B 2026-11 확인). 상위 2위 진입은 우크라이나 수학적으로 불가(헝가리 10점). 우크라이나 승점 4 vs 조지아 2: 조지아가 이기면 5점으로 역전. 동시에 헝가리-북아일랜드 최종전이 같은 날.",
  "결장": [
-  {"팀": "홈", "선수": "우크라이나 결장자 공식 발표", "포지션": "-", "주전": false, "상태": "확인 안 됨", "사유": "11/4 소집 25명 명단 기사에 부상·결장 언급 없음. 11/14 북아일랜드전 후 기사에도 결장 언급 없음(단 사이드바 제목에 '포노마렌코 부상' 문구가 있으나 본문 미확인)", "출처": "https://news.liga.net/en/society/news/the-ukrainian-national-team-has-announced-its-roster-for-the-decisive-nations-league-matches-one-player-is-making-his-debut", "날짜": "2026-11-04"},
-  {"팀": "홈", "선수": "올렉산드르 주브코프(AEK)", "포지션": "미드필더", "주전": false, "상태": "확인 안 됨", "사유": "명단에서 제외, 샤파렌코·바나트로 교체 편입(사유 기재 없음)", "출처": "https://news.liga.net/en/society/news/the-ukrainian-national-team-has-made-changes-to-its-roster-for-the-nations-league-matches-heres-who-made-the-cut", "날짜": "2026-11-05"},
-  {"팀": "원정", "선수": "조지아 11월 소집 명단·결장", "포지션": "-", "주전": false, "상태": "확인 안 됨", "사유": "2026년 11월 조지아 명단/부상 기사를 찾지 못함(검색된 'Sagnol 23인 명단' 기사는 날짜가 2024년 것으로 보여 사용 안 함)", "출처": "", "날짜": ""}
+  {
+   "팀": "홈",
+   "선수": "우크라이나 결장자 공식 발표",
+   "포지션": "-",
+   "주전": false,
+   "상태": "확인 안 됨",
+   "사유": "11/4 소집 25명 명단 기사에 부상·결장 언급 없음. 11/14 북아일랜드전 후 기사에도 결장 언급 없음(단 사이드바 제목에 '포노마렌코 부상' 문구가 있으나 본문 미확인)",
+   "출처": "https://news.liga.net/en/society/news/the-ukrainian-national-team-has-announced-its-roster-for-the-decisive-nations-league-matches-one-player-is-making-his-debut",
+   "날짜": "2026-11-04"
+  },
+  {
+   "팀": "홈",
+   "선수": "올렉산드르 주브코프(AEK)",
+   "포지션": "미드필더",
+   "주전": false,
+   "상태": "확인 안 됨",
+   "사유": "명단에서 제외, 샤파렌코·바나트로 교체 편입(사유 기재 없음)",
+   "출처": "https://news.liga.net/en/society/news/the-ukrainian-national-team-has-made-changes-to-its-roster-for-the-nations-league-matches-heres-who-made-the-cut",
+   "날짜": "2026-11-05"
+  },
+  {
+   "팀": "원정",
+   "선수": "조지아 11월 소집 명단·결장",
+   "포지션": "-",
+   "주전": false,
+   "상태": "확인 안 됨",
+   "사유": "2026년 11월 조지아 명단/부상 기사를 찾지 못함(검색된 'Sagnol 23인 명단' 기사는 날짜가 2024년 것으로 보여 사용 안 함)",
+   "출처": "",
+   "날짜": ""
+  }
  ],
  "직전경기": {
   "홈": "11/14 북아일랜드 1-0 우크라이나(원정, 벨파스트 윈저 파크). 테리 데블린 68분 결승골(코너킥). 전반 23분 프라이스 슛 후 도널리 득점 오프사이드 취소. 우크라이나 3연패. 우크라이나 선발(평점표 기준): GK 트루빈; 미콜렌코·마트비옌코·사라피·자바르니; 야르몰류크·오체레트코·수다코프·카슈추크(A매치 데뷔); 야렘추크·시칸. 교체: 크라스노피르·신추크(72'), 나자리나(81'), 도우빅(90+1'). (출처: https://sport.unian.ua/football/zbirna-ukrajini-zdobula-vazhlivu-peremogu-u-lizi-naciy-13560015.html 검색결과, https://ukrfootball.ua/exclusive/yaksho-prograyemo-i-gruziyi-poproshayemosya-z-malderoyu-fedorchuk-ociniv-zbirnu-ukrayini-proti-pivnichnoyi-irlandiyi, 2026-11-15)",
   "원정": "11/14 조지아 0-2 헝가리(홈, 트빌리시 미헤일 메스키 스타디움). 라샤 드발리 자책골 73', 바르가 85'. (출처: https://112.ua/en/ugorsina-peremogla-gruziu-20-i-stala-liderom-grupi-ligi-nacij-uefa-202627-198222, https://en.wikipedia.org/wiki/2026%E2%80%9327_UEFA_Nations_League_B 2026-11-14/15). 휴식: 양 팀 모두 11/14→11/17, 3일."
  },
  "최근5경기": {
-  "홈": ["11/14 북아일랜드 1-0 우크라이나(원정)", "10/5 우크라이나 1-2 헝가리(트르나바, 명목 홈)", "10/2 우크라이나 0-3 북아일랜드(트르나바, 명목 홈)", "9/28 조지아 0-0 우크라이나(트빌리시, 원정)", "9/25 헝가리 0-1 우크라이나(부다페스트, 원정)"],
-  "원정": ["11/14 조지아 0-2 헝가리(홈)", "10/5 북아일랜드 0-0 조지아(원정)", "10/2 헝가리 1-0 조지아(원정)", "9/28 조지아 0-0 우크라이나(홈)", "9/25 조지아 0-1 북아일랜드(홈)"]
+  "홈": [
+   "11/14 북아일랜드 1-0 우크라이나(원정)",
+   "10/5 우크라이나 1-2 헝가리(트르나바, 명목 홈)",
+   "10/2 우크라이나 0-3 북아일랜드(트르나바, 명목 홈)",
+   "9/28 조지아 0-0 우크라이나(트빌리시, 원정)",
+   "9/25 헝가리 0-1 우크라이나(부다페스트, 원정)"
+  ],
+  "원정": [
+   "11/14 조지아 0-2 헝가리(홈)",
+   "10/5 북아일랜드 0-0 조지아(원정)",
+   "10/2 헝가리 1-0 조지아(원정)",
+   "9/28 조지아 0-0 우크라이나(홈)",
+   "9/25 조지아 0-1 북아일랜드(홈)"
+  ]
  },
- "맞대결": ["2026-09-28 조지아 0-0 우크라이나, 보리스 파이차제 디나모 아레나, 트빌리시 (우크라이나 GK 트루빈 경기 MOM; 출처 https://www.flashscore.com/news/georgia-ukraine-match-report-uefa-nations-league-28-09/EPwlzTEl/, https://en.wikipedia.org/wiki/2026%E2%80%9327_UEFA_Nations_League_B)"],
- "감독": {"홈": "안드레아 말데라(Andrea Maldera). 11/4 명단 발표. 전문가 페도르추크: 조지아에 지면 말데라의 고별전이 될 것(의견, 2026-11-15, ukrfootball). 말데라는 11월 전 회견에서 리그B 잔류가 1차 목표라고 발언(ukrfootball 검색결과, 날짜 11월 초).", "원정": "라마즈 스바나제(Ramaz Svanadze) — 9월 28일 플래시스코어 기사에서 '첫 경기를 맡은 감독'으로 표기(https://www.flashscore.com/news/georgia-ukraine-match-report-uefa-nations-league-28-09/EPwlzTEl/). 일부 FotMob 페이지는 Willy Sagnol로 표기 — 엇갈림, 확인 안 됨."},
+ "맞대결": [
+  "2026-09-28 조지아 0-0 우크라이나, 보리스 파이차제 디나모 아레나, 트빌리시 (우크라이나 GK 트루빈 경기 MOM; 출처 https://www.flashscore.com/news/georgia-ukraine-match-report-uefa-nations-league-28-09/EPwlzTEl/, https://en.wikipedia.org/wiki/2026%E2%80%9327_UEFA_Nations_League_B)"
+ ],
+ "감독": {
+  "홈": "안드레아 말데라(Andrea Maldera). 11/4 명단 발표. 전문가 페도르추크: 조지아에 지면 말데라의 고별전이 될 것(의견, 2026-11-15, ukrfootball). 말데라는 11월 전 회견에서 리그B 잔류가 1차 목표라고 발언(ukrfootball 검색결과, 날짜 11월 초).",
+  "원정": "라마즈 스바나제(Ramaz Svanadze) — 9월 28일 플래시스코어 기사에서 '첫 경기를 맡은 감독'으로 표기(https://www.flashscore.com/news/georgia-ukraine-match-report-uefa-nations-league-28-09/EPwlzTEl/). 일부 FotMob 페이지는 Willy Sagnol로 표기 — 엇갈림, 확인 안 됨."
+ },
  "일정": "우크라이나·조지아 모두 11/14 경기 후 11/17 최종전(3일 휴식). 우크라이나 명단 11/4 발표(25인), 신규: 카슈추크 데뷔. 11/14 벨파스트 원정 후 코시체 이동.",
  "사실": [
   "우크라이나 11월 25인 명단: GK 트루빈·리즈니크·예르마코프; DF 마트비옌코·본다르·사라피·크루신스키·크룹스키·미하프코·자바르니·미콜렌코; MF 오체레트코·나자리나·안드리옙스키·나자렌코·바르폴로메예프·야르몰류크·수다코프·주브코프(이후 제외)·신추크·카슈추크; FW 크라스노피르·포노마렌코·시칸·야렘추크. 예비: 도우빅·바나트·브라슈코·본다렌코·투티에로프 등 (출처 liga.net 2026-11-04). 11/5 변경: 샤파렌코·바나트 편입, 주브코프 제외.",
@@ -28,7 +73,27 @@
   "주심: 마르틴 마토샤(슬로베니아), 보조 마테이 주니치·알렉산다르 카살로비치, VAR 알렌 보로샤크·아스미르 사그르코비치 (https://football.ua/nationsleague/592045-matosha-rozsudit-match-ukrajina-gruzija-u-lizi-nacijj.html 2026-11-15)",
   "킥오프 11/17 21:45 키이우(= 11/18 04:45 KST)."
  ],
- "확인안됨": ["조지아 2026년 11월 소집 명단·결장·감독 확정(스바나제 vs 사그놀 엇갈림)", "우크라이나 결장·징계(11/14 경기 경고누적 포함) 공식 정보", "코시체 날씨", "포노마렌코 부상 여부(본문 미확인)", "우크라이나 11/14 후 최종 소집 변동"],
- "출처": ["https://fakty.com.ua/ua/sport/futbol/20261013-ukrayina-gruziya-de-ta-koly-vidbudetsya-zaklyuchnyj-match-ligy-natsij/", "https://espreso.tv/futbol-ispaniya-priymae-angliyu-ukraina-grae-z-gruzieyu-rozklad-ta-rezultati-matchiv-virishalnogo-turu-ligi-natsiy", "https://football.ua/nationsleague/592045-matosha-rozsudit-match-ukrajina-gruzija-u-lizi-nacijj.html", "https://en.wikipedia.org/wiki/2026%E2%80%9327_UEFA_Nations_League_B", "https://ukrfootball.ua/exclusive/yaksho-prograyemo-i-gruziyi-poproshayemosya-z-malderoyu-fedorchuk-ociniv-zbirnu-ukrayini-proti-pivnichnoyi-irlandiyi", "https://news.liga.net/en/society/news/the-ukrainian-national-team-has-announced-its-roster-for-the-decisive-nations-league-matches-one-player-is-making-his-debut", "https://news.liga.net/en/society/news/the-ukrainian-national-team-has-made-changes-to-its-roster-for-the-nations-league-matches-heres-who-made-the-cut", "https://112.ua/en/ugorsina-peremogla-gruziu-20-i-stala-liderom-grupi-ligi-nacij-uefa-202627-198222", "https://www.flashscore.com/news/georgia-ukraine-match-report-uefa-nations-league-28-09/EPwlzTEl/"],
- "배당": "보지 않음"
+ "확인안됨": [
+  "조지아 2026년 11월 소집 명단·결장·감독 확정(스바나제 vs 사그놀 엇갈림)",
+  "우크라이나 결장·징계(11/14 경기 경고누적 포함) 공식 정보",
+  "코시체 날씨",
+  "포노마렌코 부상 여부(본문 미확인)",
+  "우크라이나 11/14 후 최종 소집 변동"
+ ],
+ "출처": [
+  "https://fakty.com.ua/ua/sport/futbol/20261013-ukrayina-gruziya-de-ta-koly-vidbudetsya-zaklyuchnyj-match-ligy-natsij/",
+  "https://espreso.tv/futbol-ispaniya-priymae-angliyu-ukraina-grae-z-gruzieyu-rozklad-ta-rezultati-matchiv-virishalnogo-turu-ligi-natsiy",
+  "https://football.ua/nationsleague/592045-matosha-rozsudit-match-ukrajina-gruzija-u-lizi-nacijj.html",
+  "https://en.wikipedia.org/wiki/2026%E2%80%9327_UEFA_Nations_League_B",
+  "https://ukrfootball.ua/exclusive/yaksho-prograyemo-i-gruziyi-poproshayemosya-z-malderoyu-fedorchuk-ociniv-zbirnu-ukrayini-proti-pivnichnoyi-irlandiyi",
+  "https://news.liga.net/en/society/news/the-ukrainian-national-team-has-announced-its-roster-for-the-decisive-nations-league-matches-one-player-is-making-his-debut",
+  "https://news.liga.net/en/society/news/the-ukrainian-national-team-has-made-changes-to-its-roster-for-the-nations-league-matches-heres-who-made-the-cut",
+  "https://112.ua/en/ugorsina-peremogla-gruziu-20-i-stala-liderom-grupi-ligi-nacij-uefa-202627-198222",
+  "https://www.flashscore.com/news/georgia-ukraine-match-report-uefa-nations-league-28-09/EPwlzTEl/"
+ ],
+ "배당": "보지 않음",
+ "갱신_1117": [
+  "새 기자회견·결장 변동 보도 못 찾음 — 검색처: sport.ua, tsn.ua, obozrevatel.com (11/16~17 기사 없음; 나온 기사는 9/28·10/1 것)",
+  "조지아 감독·소집 명단 여전히 확인 안 됨"
+ ]
 }

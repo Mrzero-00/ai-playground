@@ -1,35 +1,127 @@
 {
  "번호": 4463,
- "홈": "이스라엘", "원정": "오스트리아",
+ "홈": "이스라엘",
+ "원정": "오스트리아",
  "리그": "UEFA 네이션스리그 2026-27 리그B 3조 최종(6)라운드",
- "수집시각": "2026-11-16 KST",
+ "수집시각": "2026-11-17 KST (갱신)",
  "구장": "Nagyerdei Stadion, 데브레첸, 헝가리 — 이스라엘 홈 경기이나 제3국(중립 대체 구장). 이스라엘 홈 2경기(9/27 vs 아일랜드, 10/1 vs 코소보) 모두 같은 구장. 킥오프 현지 20:45 CET(=KST 04:45) 추정; ORF 보도는 20.15로 적어 엇갈림(확인 필요)",
  "순위와걸린것": "3조 순위(위키 11/14 기준, 5경기): 오스트리아 승점11 (3승2무, 이미 조 1위·리그A 승격 확정), 코소보 6 (승격 플레이오프 자리), 아일랜드 5 (잔류), 이스라엘 3 (0승3무2패, 강등 플레이오프 자리·아직 탈락 확정 아님). 오스트리아는 11/14 아일랜드전 1-0 승리로 1위 확정. 이스라엘은 이 경기 결과에 따라 순위 변동 여지(이스라엘 3점, 아일랜드 5점)",
  "결장": [
-  {"팀": "원정(오스트리아)", "선수": "Xaver Schlager", "포지션": "MF", "주전": true, "상태": "확정", "사유": "허벅지 근육 부상, 일요일 캠프 이탈", "출처": "https://sport.orf.at/stories/3164963/", "날짜": "2026-11-15"},
-  {"팀": "원정(오스트리아)", "선수": "Alexander Prass", "포지션": "MF/DF", "주전": "확인 안 됨", "상태": "확정", "사유": "허벅지 근육 부상", "출처": "https://sport.orf.at/stories/3164963/", "날짜": "2026-11-15"},
-  {"팀": "원정(오스트리아)", "선수": "Marco Grüll", "포지션": "공격", "주전": "확인 안 됨", "상태": "확정", "사유": "종아리 문제(11/7 슈투트가르트전 67분 교체), 이스라엘전 결장 보도", "출처": "https://www.tt.com/artikel/30946442/keine-guten-nachrichten-fuer-das-oefb-team-zwei-spieler-fallen-verletzt-aus", "날짜": "2026-11-08"},
-  {"팀": "원정(오스트리아)", "선수": "Carney Chukwuemeka", "포지션": "MF", "주전": "확인 안 됨", "상태": "확정", "사유": "근육 부상(도르트문트), 대표팀 불참 보도", "출처": "https://www.tt.com/artikel/30946442/keine-guten-nachrichten-fuer-das-oefb-team-zwei-spieler-fallen-verletzt-aus", "날짜": "2026-11-08"},
-  {"팀": "원정(오스트리아)", "선수": "Alaba, Wöber, Veratschnig, Wanner, Wimmer, Grillitsch", "포지션": "다수", "주전": "Alaba 등 일부", "상태": "확정", "사유": "11월 소집 전부터 부상 이유로 가용 불가(tt.com 보도)", "출처": "https://www.tt.com/artikel/30946442/keine-guten-nachrichten-fuer-das-oefb-team-zwei-spieler-fallen-verletzt-aus", "날짜": "2026-11-08"},
-  {"팀": "홈(이스라엘)", "선수": "11월 결장자", "포지션": "-", "주전": "-", "상태": "확인 안 됨", "사유": "11월 이스라엘 결장 소식 못 찾음. (9월 기준 Lemkin, Rotman, Blorian 부상 — 오래됨)", "출처": "https://www.sportsmole.co.uk/football/austria/uefa-nations-league/preview/austria-vs-israel-prediction-team-news-lineups_605620.html", "날짜": "2026-09-22 (오래됨)"}
+  {
+   "팀": "원정(오스트리아)",
+   "선수": "Xaver Schlager",
+   "포지션": "MF",
+   "주전": true,
+   "상태": "확정",
+   "사유": "허벅지 근육 부상, 일요일 캠프 이탈",
+   "출처": "https://sport.orf.at/stories/3164963/",
+   "날짜": "2026-11-15"
+  },
+  {
+   "팀": "원정(오스트리아)",
+   "선수": "Alexander Prass",
+   "포지션": "MF/DF",
+   "주전": "확인 안 됨",
+   "상태": "확정",
+   "사유": "허벅지 근육 부상",
+   "출처": "https://sport.orf.at/stories/3164963/",
+   "날짜": "2026-11-15"
+  },
+  {
+   "팀": "원정(오스트리아)",
+   "선수": "Marco Grüll",
+   "포지션": "공격",
+   "주전": "확인 안 됨",
+   "상태": "확정",
+   "사유": "종아리 문제(11/7 슈투트가르트전 67분 교체), 이스라엘전 결장 보도",
+   "출처": "https://www.tt.com/artikel/30946442/keine-guten-nachrichten-fuer-das-oefb-team-zwei-spieler-fallen-verletzt-aus",
+   "날짜": "2026-11-08"
+  },
+  {
+   "팀": "원정(오스트리아)",
+   "선수": "Carney Chukwuemeka",
+   "포지션": "MF",
+   "주전": "확인 안 됨",
+   "상태": "확정",
+   "사유": "근육 부상(도르트문트), 대표팀 불참 보도",
+   "출처": "https://www.tt.com/artikel/30946442/keine-guten-nachrichten-fuer-das-oefb-team-zwei-spieler-fallen-verletzt-aus",
+   "날짜": "2026-11-08"
+  },
+  {
+   "팀": "원정(오스트리아)",
+   "선수": "Alaba, Wöber, Veratschnig, Wanner, Wimmer, Grillitsch",
+   "포지션": "다수",
+   "주전": "Alaba 등 일부",
+   "상태": "확정",
+   "사유": "11월 소집 전부터 부상 이유로 가용 불가(tt.com 보도)",
+   "출처": "https://www.tt.com/artikel/30946442/keine-guten-nachrichten-fuer-das-oefb-team-zwei-spieler-fallen-verletzt-aus",
+   "날짜": "2026-11-08"
+  },
+  {
+   "팀": "홈(이스라엘)",
+   "선수": "11월 결장자",
+   "포지션": "-",
+   "주전": "-",
+   "상태": "확인 안 됨",
+   "사유": "11월 이스라엘 결장 소식 못 찾음. (9월 기준 Lemkin, Rotman, Blorian 부상 — 오래됨)",
+   "출처": "https://www.sportsmole.co.uk/football/austria/uefa-nations-league/preview/austria-vs-israel-prediction-team-news-lineups_605620.html",
+   "날짜": "2026-09-22 (오래됨)"
+  }
  ],
  "직전경기": {
   "홈": "11/14 코소보 0-0 이스라엘 (원정, 프리슈티나 Fadil Vokrri). 선발(5-4-1): Peretz(GK) / Dasa, Shlomo, D.Peretz, Nachmias / Abada, Azoulay, Gloukh, Toklomati / Yehoshua, Stoinov(?). 교체 62' Gandelman(Toklomati), 62' Feingold(Dasa), 69' Turgeman(Azoulay), 76' Shua(Nachmias). 이스라엘 경고: Dasa 26', Feingold 62', Gandelman 74', Shlomo 90'. 코소보 Hodza 66' 퇴장(경고누적). 출처 https://www.t-online.de/sport/live-ticker/fussball/nations-league/sdc_fm-56998/kosovo-israel-nations-league-im-liveticker.html (2026-11-14). 이스라엘 출전정지 해당 여부는 확인 안 됨(경고 누적 규정 미확인)",
   "원정": "11/14 오스트리아 1-0 아일랜드 (홈, 린츠 Raiffeisen Arena, 20:45), 득점 Sasa Kalajdzic (ORF), 주심 Irfan Peljto. 로테이션 기용 보도(tt.com 헤드라인 '로테이션'). 출처 https://sport.orf.at/stories/3164963/ , https://www.sportschau.de/live-und-ergebnisse/fussball/uefa-nations-league-b/ma11904694/oesterreich_irland/info (2026-11-14/15). 선발 11명은 확인 안 됨"
  },
  "최근5경기": {
-  "홈": ["11/14 코소보 0-0 이스라엘 (원정)", "10/4 아일랜드 1-1 이스라엘 (세르비아 Bačka Topola, 무관중, 이스라엘 원정 취급)", "10/1 이스라엘 0-0 코소보 (데브레첸)", "9/27 이스라엘 0-3 아일랜드 (데브레첸)", "9/24 오스트리아 3-1 이스라엘 (린츠)"],
-  "원정": ["11/14 오스트리아 1-0 아일랜드 (린츠)", "10/? 오스트리아 vs 코소보 (두 번째 코소보전, 상세 확인 안 됨; 9월말 3-1 승 보도)", "10/1 아일랜드 2-2 오스트리아 (더블린, 오스트리아 0-2 뒤 동점)", "9/27~28경 오스트리아 3-1 코소보 (일정·장소 확인 안 됨)", "9/24 오스트리아 3-1 이스라엘 (린츠)"]
+  "홈": [
+   "11/14 코소보 0-0 이스라엘 (원정)",
+   "10/4 아일랜드 1-1 이스라엘 (세르비아 Bačka Topola, 무관중, 이스라엘 원정 취급)",
+   "10/1 이스라엘 0-0 코소보 (데브레첸)",
+   "9/27 이스라엘 0-3 아일랜드 (데브레첸)",
+   "9/24 오스트리아 3-1 이스라엘 (린츠)"
+  ],
+  "원정": [
+   "11/14 오스트리아 1-0 아일랜드 (린츠)",
+   "10/? 오스트리아 vs 코소보 (두 번째 코소보전, 상세 확인 안 됨; 9월말 3-1 승 보도)",
+   "10/1 아일랜드 2-2 오스트리아 (더블린, 오스트리아 0-2 뒤 동점)",
+   "9/27~28경 오스트리아 3-1 코소보 (일정·장소 확인 안 됨)",
+   "9/24 오스트리아 3-1 이스라엘 (린츠)"
+  ]
  },
- "맞대결": ["9/24 오스트리아 3-1 이스라엘, 린츠 Raiffeisen Arena, 관중 15,200 (후반 늦게 역전/추가골, 플래시스코어 '늦은 구원' 기사; Gregoritsch 부상 교체 보도). 출처 https://www.vol.at/oesterreich-gewinnt-gegen-israel/10493150"],
- "감독": {"홈": "확인 안 됨 (이름 미확인)", "원정": "Ralf Rangnick. 11/15 발언: '새 얼굴이 분명 있을 것, 의미 있는 경기에서 다른 선수들에게 기회를 주되 이기고 싶다'(sport.orf.at 2026-11-15)"},
+ "맞대결": [
+  "9/24 오스트리아 3-1 이스라엘, 린츠 Raiffeisen Arena, 관중 15,200 (후반 늦게 역전/추가골, 플래시스코어 '늦은 구원' 기사; Gregoritsch 부상 교체 보도). 출처 https://www.vol.at/oesterreich-gewinnt-gegen-israel/10493150"
+ ],
+ "감독": {
+  "홈": "확인 안 됨 (이름 미확인)",
+  "원정": "Ralf Rangnick. 11/15 발언: '새 얼굴이 분명 있을 것, 의미 있는 경기에서 다른 선수들에게 기회를 주되 이기고 싶다'(sport.orf.at 2026-11-15)"
+ },
  "일정": "오스트리아: 11/14 아일랜드전 후 3일 휴식(11/17), 린츠→데브레첸 이동(비교적 짧음). 이스라엘: 11/14 코소보전(프리슈티나) 후 3일 휴식. 두 팀 모두 11/14 경기 후 3일.",
  "사실": [
   "Wikipedia 2026-27 UEFA Nations League B 3조: 이스라엘 홈경기가 헝가리 데브레첸 (2026-11-14 기준)",
   "오스트리아 Rangnick: Alaba 미소집(부상, 소속팀 없음 보도 9월), Arnautovic 대표팀 은퇴, Sabitzer 휴식(9월 보도)",
   "아일랜드 10/4 대 이스라엘 경기가 세르비아 Bačka Topola 무관중으로 열렸음(위키 표)"
  ],
- "확인안됨": ["이스라엘 감독 이름·11월 소집 명단·결장", "오스트리아 11월 최종 소집 명단 전체", "정확한 킥오프 시각(20:15 vs 20:45 CET)", "이스라엘 출전정지자", "심판·날씨", "오스트리아 vs 코소보 두 번째 경기 상세"],
- "출처": ["https://en.wikipedia.org/wiki/2026–27_UEFA_Nations_League_B", "https://sport.orf.at/stories/3164963/", "https://www.tt.com/artikel/30946442/keine-guten-nachrichten-fuer-das-oefb-team-zwei-spieler-fallen-verletzt-aus", "https://www.t-online.de/sport/live-ticker/fussball/nations-league/sdc_fm-56998/kosovo-israel-nations-league-im-liveticker.html", "https://www.sportschau.de/live-und-ergebnisse/fussball/uefa-nations-league-b/ma11904694/oesterreich_irland/info", "https://www.vol.at/oesterreich-gewinnt-gegen-israel/10493150", "https://www.sportsmole.co.uk/football/austria/uefa-nations-league/preview/austria-vs-israel-prediction-team-news-lineups_605620.html"],
- "배당": "보지 않음"
+ "확인안됨": [
+  "이스라엘 감독 이름·11월 소집 명단·결장",
+  "오스트리아 11월 최종 소집 명단 전체",
+  "정확한 킥오프 시각(20:15 vs 20:45 CET)",
+  "이스라엘 출전정지자",
+  "심판·날씨",
+  "오스트리아 vs 코소보 두 번째 경기 상세"
+ ],
+ "출처": [
+  "https://en.wikipedia.org/wiki/2026–27_UEFA_Nations_League_B",
+  "https://sport.orf.at/stories/3164963/",
+  "https://www.tt.com/artikel/30946442/keine-guten-nachrichten-fuer-das-oefb-team-zwei-spieler-fallen-verletzt-aus",
+  "https://www.t-online.de/sport/live-ticker/fussball/nations-league/sdc_fm-56998/kosovo-israel-nations-league-im-liveticker.html",
+  "https://www.sportschau.de/live-und-ergebnisse/fussball/uefa-nations-league-b/ma11904694/oesterreich_irland/info",
+  "https://www.vol.at/oesterreich-gewinnt-gegen-israel/10493150",
+  "https://www.sportsmole.co.uk/football/austria/uefa-nations-league/preview/austria-vs-israel-prediction-team-news-lineups_605620.html"
+ ],
+ "배당": "보지 않음",
+ "갱신_1117": [
+  "새 기자회견·예상 선발·결장 변동 보도 못 찾음 — 검색처: tt.com, sport.orf.at, flashscore.de, weekend.at, vienna.at (검색 결과에 11/16~17 기사 없음)",
+  "이스라엘 감독 이름 후보: Ran Ben Shimon (검색 스니펫 'Ran Ben Shimon welcomes Ralf Rangnick', 베팅 프리뷰 사이트 발췌, 기사 날짜 확인 안 됨, 단일 출처 — 확인 필요) https://www.sportsmole.co.uk/football/austria/uefa-nations-league/preview/austria-vs-israel-prediction-team-news-lineups_605620.html",
+  "킥오프 보도 1건: 17 Nov 19:45 BST(=20:45 CET=KST 04:45), Nagyerdei Stadion, Debrecen — 기존 20:45 추정과 일치 (프리뷰 스니펫, 날짜 확인 안 됨)"
+ ]
 }

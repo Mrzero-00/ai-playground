@@ -1,0 +1,45 @@
+{
+ "번호": 4507,
+ "홈": "우루과이", "원정": "도미니카공화국",
+ "리그": "남자 국제친선경기 (FIFA 11월 A매치 기간; 도미니카공화국 측은 2027 CONCACAF 골드컵 예선 대비 준비경기로 보도)",
+ "수집시각": "2026-11-17 KST",
+ "구장": "Estadio Domingo Burgueño Miguel(Campus de Maldonado), 말도나도, 우루과이 — 우루과이 자국 개최(중립 아님). 현지 11/17(화) 20:30 (KST 11/18 08:30), 입장권 매진(La Diaria). 출처: https://libero.pe/futbol-internacional/2026/11/16/uruguay-vs-republica-dominicana-en-vivo-gratis-partido-amistoso-internacional-via-auf-tv-436592 , https://ladiaria.com.uy/deporte/articulo/2026/11/con-entradas-agotadas-uruguay-enfrentara-a-republica-dominicana-en-maldonado/ (2026-11)",
+ "순위와걸린것": "친선경기. 걸린 순위 없음. 우루과이는 포를란(Diego Forlán) 임시 감독의 2026년 마지막 경기(El Observador 제목: '2026 despedida'). 인포바에(EFE) 헤드라인은 '2026이 빛보다 그림자가 많았던 해'로 표현.",
+ "결장": [
+  {"팀": "홈", "선수": "Nahitan Nández", "포지션": "미드필더", "주전": null, "상태": "확정", "사유": "부상 (소집 제외)", "출처": "https://www.montevideo.com.uy/Deportes/Seleccion-AUF-anuncio-convocados-de-Diego-Forlan-para-amistosos-con-retornos-y-sorpresas-uc981257", "날짜": "2026-11-06"},
+  {"팀": "홈", "선수": "Brian Rodríguez", "포지션": "공격수", "주전": null, "상태": "확정", "사유": "부상 (소집 제외)", "출처": "https://www.montevideo.com.uy/Deportes/Seleccion-AUF-anuncio-convocados-de-Diego-Forlan-para-amistosos-con-retornos-y-sorpresas-uc981257", "날짜": "2026-11-06"},
+  {"팀": "홈", "선수": "Manuel Ugarte", "포지션": "미드필더", "주전": true, "상태": "의심", "사유": "Yahoo Noticias만 부상자로 기재, Subrayado·El Observador·Montevideo Portal·La Diaria는 미기재(출처 엇갈림)", "출처": "https://es-us.noticias.yahoo.com/deportes/forl%C3%A1n-anunci%C3%B3-lista-convocados-uruguay-151900804.html", "날짜": "2026-11-06"},
+  {"팀": "홈", "선수": "Thiago Cardozo", "포지션": "확인 안 됨", "주전": null, "상태": "확인 안 됨", "사유": "명단에 없음, 사유 미기재", "출처": "https://www.montevideo.com.uy/Deportes/Seleccion-AUF-anuncio-convocados-de-Diego-Forlan-para-amistosos-con-retornos-y-sorpresas-uc981257", "날짜": "2026-11-06"},
+  {"팀": "홈", "선수": "Facundo Merentiel", "포지션": "공격수", "주전": null, "상태": "확정", "사유": "보카 주니어스의 11/21 코파 수다메리카나 결승 때문에 소집 제외로 보도(Yahoo; 이름은 'Merentiel'로만 표기됨)", "출처": "https://es-us.noticias.yahoo.com/deportes/forl%C3%A1n-anunci%C3%B3-lista-convocados-uruguay-151900804.html", "날짜": "2026-11-06"},
+  {"팀": "원정", "선수": "Júnior Firpo", "포지션": "수비수", "주전": null, "상태": "확정", "사유": "부상", "출처": "https://www.infobae.com/america/agencias/2026/11/08/diaz-morschel-y-romero-destacan-en-la-seleccion-dominicana-para-el-amistoso-con-uruguay/", "날짜": "2026-11-08"},
+  {"팀": "원정", "선수": "Juan Carlos López", "포지션": "확인 안 됨", "주전": null, "상태": "확정", "사유": "부상", "출처": "https://www.infobae.com/america/agencias/2026/11/08/diaz-morschel-y-romero-destacan-en-la-seleccion-dominicana-para-el-amistoso-con-uruguay/", "날짜": "2026-11-08"},
+  {"팀": "원정", "선수": "Jimmy Kaparos", "포지션": "확인 안 됨", "주전": null, "상태": "확정", "사유": "부상", "출처": "https://www.infobae.com/america/agencias/2026/11/08/diaz-morschel-y-romero-destacan-en-la-seleccion-dominicana-para-el-amistoso-con-uruguay/", "날짜": "2026-11-08"}
+ ],
+ "소집명단": {
+  "우루과이(28명, 2026-11-06 AUF 발표)": "GK 4명(Ignacio de Arruabarrena[Arouca], Sebastián Jaume[Albion] 등 — La Diaria는 'Diego Jaume'로 표기, 불일치). 복귀: Federico Valverde(전 소집 부상 제외), Nicolás de la Cruz(Flamengo), Agustín Canobbio(Fluminense). 신규: Bruno Damiani(Philadelphia Union). 전체 28명 명단은 확인 안 됨. 출처: https://www.subrayado.com.uy/diego-forlan-publico-la-lista-convocados-los-partidos-uruguay-argentina-y-republica-dominicana-n1022849 , https://ladiaria.com.uy/deporte/articulo/2026/11/se-confirmo-la-lista-de-forlan-para-los-amistosos-con-argentina-y-republica-dominicana/",
+  "도미니카공화국": "Mariano Díaz(Alavés), Heinz Morschel(Vizela), Dorny Romero(Bolívar), Edison Azcona, Edgar Pujol, Xavier Valdez 포함. 감독 Marcelo Neveleff(아르헨티나). 전체 명단은 확인 안 됨. 출처: https://www.infobae.com/america/agencias/2026/11/08/diaz-morschel-y-romero-destacan-en-la-seleccion-dominicana-para-el-amistoso-con-uruguay/"
+ },
+ "직전경기": {
+  "홈": "11/13 우루과이 2-1 아르헨티나 (원정, La Bombonera, 부에노스아이레스). 득점 Leonardo Balerdi 자책골 48', Maxi Araújo 53'; 아르헨티나 Julián Álvarez 73'(Prestianni 어시스트). 선발: Fiermarín; Varela, R. Araújo, Olivera, Piquerez; Canobbio, Bentancur, Torreira; de Arrascaeta, D. Núñez, M. Araújo. 카드·부상 교체 확인 안 됨. 출처: https://clarosports.com/futbol/argentina-vs-uruguay-en-vivo-goles-y-resultados-del-partido-del-partido-amistoso-hoy-13-de-noviembre (2026-11-13)",
+  "원정": "도미니카공화국 직전 경기: Libero(2026-11-16)는 '니카라과전 2-1 승(CONCACAF 네이션스리그)'을 마지막 경기로 기재 — 날짜 확인 안 됨. 11/13 경기 여부 확인 안 됨."
+ },
+ "최근5경기": {
+  "홈": ["11/13 아르헨티나전 2-1 승(원정)", "포를란 부임 후 5경기 3승 1무 1패(Libero 2026-11-16, 상대·날짜 세부 확인 안 됨)"],
+  "원정": ["최근 5경기 3승 2패, 9득점 12실점(Libero 2026-11-16), 마지막 경기 니카라과 2-1 승 — 상대·날짜 세부 확인 안 됨"]
+ },
+ "맞대결": ["2025-10-10 우루과이 1-0 도미니카공화국 (쿠알라룸푸르 Bukit Jalil, 친선, 골 Ignacio Laquintana; 당시 감독 비엘사, 17명 소집된 대체 전력) — https://rpp.pe/futbol/futbol-mundial/seleccion-de-uruguay-vencio-1-0-a-republica-dominicana-con-gol-de-ignacio-laquinta-marcelo-biesa-noticia-1658845"],
+ "감독": {
+  "홈": "디에고 포를란(Diego Forlán), 비엘사 이탈 후 2027년 3월까지 임시 감독(El Observador 보도 요약). 42명 예비명단에서 26~28명 소집이라는 보도. 이번 경기 로테이션 발언 확인 안 됨. (El Observador 원문은 403으로 직접 확인 못 함)",
+  "원정": "마르셀로 네벨레프(Marcelo Neveleff). 발언 확인 안 됨."
+ },
+ "일정": "우루과이 11/13(부에노스아이레스) → 11/17(말도나도) 4일 휴식, 리오데라플라타 인접. 도미니카공화국은 11월 중순 우루과이 캠프 합류(Infobae EFE 11/08 본문은 11/27로 적혀 있으나 나머지 다수 출처는 11/17 — 날짜 불일치, 다수 출처 11/17).",
+ "사실": [
+  "예상 선발(Libero 2026-11-16, 단순 예상): 우루과이 Fiermarín; Varela, R. Araújo, Olivera, Piquerez; Canobbio, Torreira, Bentancur, M. Araújo; D. Núñez, de Arrascaeta. 도미니카공화국 Valdez; Báez, Pujol, de Lucas, Bretón; D. Flores, Rosario; Romero, Morschel, Reyes, Mariano Díaz.",
+  "FIFA 랭킹: 우루과이 20위, 도미니카공화국 135위 (El Nacional DO 인용)",
+  "중계 AUF TV",
+  "심판·날씨 확인 안 됨"
+ ],
+ "확인안됨": ["우루과이 28명 전체 명단", "11/13 카드·부상 교체", "포를란 로테이션 발언", "도미니카공화국 직전 경기 날짜·세부 5경기", "도미니카공화국 전체 명단·감독 발언", "Ugarte 부상 여부(출처 엇갈림)", "심판·날씨"],
+ "출처": ["https://clarosports.com/futbol/argentina-vs-uruguay-en-vivo-goles-y-resultados-del-partido-del-partido-amistoso-hoy-13-de-noviembre", "https://libero.pe/futbol-internacional/2026/11/16/uruguay-vs-republica-dominicana-en-vivo-gratis-partido-amistoso-internacional-via-auf-tv-436592", "https://www.montevideo.com.uy/Deportes/Seleccion-AUF-anuncio-convocados-de-Diego-Forlan-para-amistosos-con-retornos-y-sorpresas-uc981257", "https://es-us.noticias.yahoo.com/deportes/forl%C3%A1n-anunci%C3%B3-lista-convocados-uruguay-151900804.html", "https://ladiaria.com.uy/deporte/articulo/2026/11/con-entradas-agotadas-uruguay-enfrentara-a-republica-dominicana-en-maldonado/", "https://www.infobae.com/america/agencias/2026/11/08/diaz-morschel-y-romero-destacan-en-la-seleccion-dominicana-para-el-amistoso-con-uruguay/"],
+ "배당": "보지 않음"
+}

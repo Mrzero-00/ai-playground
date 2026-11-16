@@ -1,0 +1,45 @@
+{
+ "번호": 4501,
+ "홈": "에콰도르", "원정": "볼리비아",
+ "리그": "남자 국제친선경기 (FIFA 11월 A매치 기간)",
+ "수집시각": "2026-11-17 KST",
+ "구장": "Estadio Monumental Banco Pichincha, 과야킬, 에콰도르 — 에콰도르 자국 개최(중립 아님). 현지 11/17(화) 18:30 (KST 11/18 08:30). 출처: https://www.primicias.ec/deportes/seleccion/ecuador-partidos-amistosos-marcelo-gallardo-costa-rica-bolivia-fecha-fifa-dondever-tv-134940/ (2026-10) · https://www.elcomercio.com/deportes/futbol/ecuador-gallardo-caicedo-victoria-costa-rica/ (2026-11-13)",
+ "순위와걸린것": "친선경기. 순위·승격·강등 걸린 것 없음. 에콰도르는 가야르도(Marcelo Gallardo) 감독 체제 첫 승 직후(11/13 코스타리카전 2-0). 볼리비아는 친선 4연패 중(보도).",
+ "결장": [
+  {"팀": "홈", "선수": "(공식 결장·부상 제외 발표 확인 안 됨)", "포지션": "-", "주전": null, "상태": "확인 안 됨", "사유": "11/8 소집 기사에 결장·제외 언급 없음", "출처": "https://www.primicias.ec/deportes/seleccion/lista-convocados-marcelo-gallardo-fecha-fifa-noviembre-costa-rica-bolivia-136362/", "날짜": "2026-11-08"},
+  {"팀": "홈", "선수": "모이세스 카이세도, 피에로 잉카피에, 곤살로 플라타", "포지션": "미드필더/수비수/공격수", "주전": true, "상태": "복귀", "사유": "신체 문제를 극복하고 소집에 복귀했다고 보도(상세 내용 없음)", "출처": "https://www.elcomercio.com/deportes/futbol/ecuador-gallardo-caicedo-victoria-costa-rica/", "날짜": "2026-11-13"},
+  {"팀": "원정", "선수": "Robson Matheus", "포지션": "확인 안 됨", "주전": null, "상태": "의심", "사유": "어깨 부상으로 La Verde에서 제외됐다는 헤드라인(Red Uno 연관 제목, 본문 미확인, 단일 출처)", "출처": "https://www.reduno.com.bo/deportes/villegas-rompe-el-silencio-tras-la-derrota-ante-peru-creamos-situaciones-20261114194830", "날짜": "2026-11-14"}
+ ],
+ "소집명단": {
+  "에콰도르(29명, 2026-11-08 가야르도 발표)": {
+   "GK": ["Gonzalo Valle", "Hernán Galíndez", "Moisés Ramírez"],
+   "DF": ["Ángelo Preciado", "Félix Torres", "Jackson Porozo", "Pervis Estupiñán", "Piero Hincapié", "Willian Pacho", "Bryan Ramírez"],
+   "MF": ["Alan Franco", "Denil Castillo", "Jordy Alcívar", "Kendry Páez", "Martín Tello", "Moisés Caicedo", "Óscar Zambrano", "Pedro Vite", "Jeremy Sarmiento", "Anthony Valencia"],
+   "FW": ["Alan Minda", "Gonzalo Plata", "John Mercado", "John Yeboah", "Jordy Caicedo", "Juan Riquelme Angulo", "Kenny Arroyo", "Kevin Rodríguez", "Nilson Angulo"],
+   "출처": "https://www.primicias.ec/deportes/seleccion/lista-convocados-marcelo-gallardo-fecha-fifa-noviembre-costa-rica-bolivia-136362/"
+  },
+  "볼리비아": "11월 소집 명단 확인 안 됨 (검색에서 2026년 명단 기사 못 찾음; 2024년 기사만 나옴)"
+ },
+ "직전경기": {
+  "홈": "11/13 에콰도르 2-0 코스타리카 (홈, Estadio Olímpico Atahualpa, 키토). 득점 Jordy Caicedo 21~22' (Hincapié 어시스트), Moisés Caicedo 페널티킥 82~83'(매체별 분 상이). 코스타리카 Diego Mesén 70분경 퇴장(El Universo). 슈팅 13(유효 8) 대 1(Vistazo). 가야르도 부임 후 첫 승(직전 아시아 투어 한국 0-3 패, 일본·파나마 무승부 후 PK 패). 출처: https://www.vistazo.com/deportes/2026-11-13-ecuador-vence-dos-goles-costa-rica-amistoso-atahualpa-CB11320651 , https://www.eluniverso.com/deportes/futbol/en-vivo-ecuador-vs-costa-rica-por-la-fecha-fifa-de-noviembre-en-el-estadio-olimpico-atahualpa-nota/ (2026-11-13). 선발 예상(사전 보도, 확정 아님): Galíndez; Preciado, Pacho, Hincapié, Estupiñán; M. Caicedo, Vite; Yeboah, N. Angulo; Plata; K. Rodríguez/J. Caicedo — https://www.primicias.ec/deportes/seleccion/alineacion-ecuador-costa-rica-fecha-fifa-noviembre-estadio-atahualpa-136934/ (2026-11-13). 실제 선발 11명 확인 안 됨.",
+  "원정": "11/13 페루 2-0 볼리비아 (원정, Estadio Alejandro Villanueva 'Matute', 리마). 득점 Gianluca Lapadula(PK), Maxloren Castro(중거리). 볼리비아 점유·기회 더 많았으나 무득점(볼리비아 매체 보도). Terceros 65'경 경고. 볼리비아는 직전 아르헨티나 0-4 패 포함 친선 4연패. 출처: https://www.infobae.com/peru/deportes/2026/11/13/peru-vs-bolivia-en-vivo-hoy-minuto-a-minuto-partido-amistoso-matute-fecha-fifa-2026-goles-resumen-resultado/ , https://www.reduno.com.bo/deportes/villegas-rompe-el-silencio-tras-la-derrota-ante-peru-creamos-situaciones-20261114194830 (2026-11-13/14). 선발 11명 확인 안 됨."
+ },
+ "최근5경기": {
+  "홈": ["11/13 코스타리카 2-0 승(홈)", "10월 아시아 투어: 일본전 무승부 후 PK 패, 파나마전 무승부 후 PK 패, 한국전 0-3 패(날짜·장소 세부 확인 안 됨, primicias 기사 2026-10-16 기준)"],
+  "원정": ["11/13 페루 0-2 패(원정)", "아르헨티나 0-4 패(날짜 확인 안 됨)", "친선 4연패 중(보도, 상대·날짜 세부 확인 안 됨)"]
+ },
+ "맞대결": ["이번 친선 직전 맞대결 확인 안 됨 (과거 2024-11 월드컵 예선은 별개, 점수 이번 수집에서 미확인)"],
+ "감독": {
+  "홈": "마르셀로 가야르도(Marcelo Gallardo, 아르헨티나). 11/13 후 '좋은 시작', '점점 나아졌다', 과야킬에서도 이어가길 바란다는 취지 발언(El Universo/diez.bo, 2026-11-13~14). 로테이션·실험 발언 확인 안 됨. https://www.eluniverso.com/deportes/futbol/marcelo-gallardo-apunta-a-mantener-el-buen-nivel-ante-bolivia-esperemos-que-en-guayaquil-podamos-seguir-concretando-nota/ , https://diez.bo/futbol/ecuador-ya-muestra-la-mano-de-gallardo-y-pone-la-mira-en-bolivia_1794756936",
+  "원정": "Óscar Villegas. 페루전 후 '기회를 만들었지만 마무리 못 했다', 전환 수비에서 마크와 멀어져 고전했다고 발언(Red Uno, 2026-11-14). 로테이션 발언 확인 안 됨."
+ },
+ "일정": "에콰도르 11/13(키토, 고지대) → 11/17(과야킬) 4일 휴식, 국내 이동. 볼리비아 11/13(리마) → 11/17(과야킬) 4일 휴식, 해외 이동.",
+ "사실": [
+  "에콰도르 홈 경기 개최지는 2026년 11월 키토·과야킬 순환 (Teleamazonas, https://www.teleamazonas.com/deportes/futbol/la-tri/fecha-amistosos-ecuador-quito-guayaquil-130553/ , 2026-10)",
+  "중계 Teleamazonas 공개 (laprensa.com.ec)",
+  "심판·날씨 확인 안 됨"
+ ],
+ "확인안됨": ["두 팀 11/13 실제 선발 11명", "볼리비아 11월 소집 명단 전체", "공식 결장 목록(양 팀)", "감독 로테이션 발언", "직전 맞대결 기록", "최근 5경기 세부(날짜·상대·점수) 일부", "심판·날씨", "Robson Matheus 부상 본문 확인"],
+ "출처": ["https://www.primicias.ec/deportes/seleccion/lista-convocados-marcelo-gallardo-fecha-fifa-noviembre-costa-rica-bolivia-136362/", "https://www.vistazo.com/deportes/2026-11-13-ecuador-vence-dos-goles-costa-rica-amistoso-atahualpa-CB11320651", "https://www.elcomercio.com/deportes/futbol/ecuador-gallardo-caicedo-victoria-costa-rica/", "https://www.infobae.com/peru/deportes/2026/11/13/peru-vs-bolivia-en-vivo-hoy-minuto-a-minuto-partido-amistoso-matute-fecha-fifa-2026-goles-resumen-resultado/", "https://www.reduno.com.bo/deportes/villegas-rompe-el-silencio-tras-la-derrota-ante-peru-creamos-situaciones-20261114194830", "https://diez.bo/futbol/ecuador-ya-muestra-la-mano-de-gallardo-y-pone-la-mira-en-bolivia_1794756936"],
+ "배당": "보지 않음"
+}

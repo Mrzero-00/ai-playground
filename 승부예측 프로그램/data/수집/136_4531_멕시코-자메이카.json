@@ -1,0 +1,48 @@
+{
+ "번호": 4531,
+ "홈": "멕시코", "원정": "자메이카",
+ "리그": "CONCACAF 네이션스리그 2026/27 8강 2차전 (1차전 11/14 킹스턴)",
+ "수집시각": "2026-11-17 KST",
+ "구장": "Estadio BBVA(Estadio Monterrey), 몬테레이, 멕시코 — 멕시코 자국 개최(중립 아님). 현지 11/17 20:30 CT (= KST 11/18 11:30)",
+ "순위와걸린것": "1차전 자메이카 3-2 멕시코(킹스턴 National Stadium). 합계 자메이카 1골 앞섬 → 멕시코는 2골 차 승리 시 합계 승(보도: 'México tiene que ganar por dos goles'). 승자는 네이션스리그 파이널스(2027년 3월) 진출, 8강 승자는 2027 골드컵 자동 출전, 패자는 골드컵 예선. 원정골·연장·승부차기 규정은 확인 안 됨(Concacaf 기사에 언급 없음). (출처: https://es.concacaf.com/competitions/nations-league/news/jamaica-derroto-a-mexico-en-la-ida-de-los-cuartos-de-final-de-la-liga-de-naciones, 2026-11-14; https://jamaica-gleaner.com/article/sports/20261107/injuries-rock-boyz-speid-explains-selection-decisions-jamaica-prepare, 2026-11-07)",
+ "결장": [
+  {"팀": "원정", "선수": "Leon Bailey, Ian Fray, Di'Shon Bernard", "포지션": "FW/DF/DF", "주전": true, "상태": "확정", "사유": "최근 부상 복귀 후 경기력 우려로 명단 제외(Speid)", "출처": "https://jamaica-gleaner.com/article/sports/20261107/injuries-rock-boyz-speid-explains-selection-decisions-jamaica-prepare", "날짜": "2026-11-07"},
+  {"팀": "원정", "선수": "Rumarn Burrell(QPR), Kaheem Parris, Ephron Mason-Clark(훈련 중 부상으로 이탈)", "포지션": "FW", "주전": false, "상태": "확정", "사유": "부상", "출처": "https://jamaica-gleaner.com/article/sports/20261107/injuries-rock-boyz-speid-explains-selection-decisions-jamaica-prepare", "날짜": "2026-11-07"},
+  {"팀": "원정", "선수": "Demarai Gray, Shamar Nicholson, Bobby De Cordova-Reid, Mekhi Gray, Dujuan Richards, Bailey Cadamarteri, Ethan Pinnock", "포지션": "", "주전": null, "상태": "확정", "사유": "명단 제외(일부는 선수 출전시간 관리/기용 판단, 부상 여부 개별 확인 안 됨). Cameron Archer는 자메이카 대표 선택 안 함", "출처": "https://www.clarosports.com/futbol/seleccion-mexicana/convocatoria-jamaica-mexico-nations-league/", "날짜": "2026-11"},
+  {"팀": "홈", "선수": "César Montes", "포지션": "수비수", "주전": true, "상태": "의심", "사유": "Montes 부상으로 Dagoberto Espinoza 호출됐다는 보도 있으나 최종 28인 명단에는 Montes 포함, 상태 불명", "출처": "https://planoinformativo.com/planodeportivo/345673/mexico-busca-su-primera-victoria-con-rafa-marquez-las-novedades-y-ausencias-ante-jamaica", "날짜": "2026-11-05"},
+  {"팀": "홈", "선수": "Luis Chávez, Berterame, Hirving Lozano, Dagoberto Espinoza, Everardo López, Denzel García, Jeremy Márquez, Jorge Sánchez, Alan Cervantes", "포지션": "", "주전": null, "상태": "확정", "사유": "감독 결정으로 9~10월 첫 명단 대비 제외", "출처": "https://planoinformativo.com/planodeportivo/345673/mexico-busca-su-primera-victoria-con-rafa-marquez-las-novedades-y-ausencias-ante-jamaica", "날짜": "2026-11-05"},
+  {"팀": "홈", "선수": "Víctor Guzmán, Orbelín Pineda", "포지션": "MF", "주전": null, "상태": "확정", "사유": "11/14 리그(Querétaro vs Monterrey) 일정과 겹쳐 제외(2차전 이용 가능 여부는 확인 안 됨)", "출처": "https://planoinformativo.com/planodeportivo/345673/mexico-busca-su-primera-victoria-con-rafa-marquez-las-novedades-y-ausencias-ante-jamaica", "날짜": "2026-11-05"},
+  {"팀": "홈", "선수": "Hugo Camberos", "포지션": "", "주전": null, "상태": "확정", "사유": "U-20 대표팀 차출", "출처": "https://planoinformativo.com/planodeportivo/345673/mexico-busca-su-primera-victoria-con-rafa-marquez-las-novedades-y-ausencias-ante-jamaica", "날짜": "2026-11-05"}
+ ],
+ "직전경기": {
+  "홈": "11/14 자메이카 3-2 멕시코(원정, 킹스턴). 득점: 자메이카 Gallardo 자책골 28'(코너킥 후), Cephas 46'(Dixon 패스), King 63' PK(Gallardo 파울), 멕시코 Gilberto Mora 70'(Sandoval 패스), Quiñones 81' PK(Sandoval 파울). 자메이카가 멕시코에 3골 넣은 것은 처음(Concacaf). 멕시코 선발 XI·경고·퇴장은 확인된 출처를 못 찾음(퇴장 보도 없음). 멕시코는 앞선 친선(미국전·칠레전)에도 패해 3연패. 라파 마르케스 체제 첫 4경기 2무 2패(3득점 7실점) 후 1차전 패배. (출처: https://es.concacaf.com/competitions/nations-league/news/jamaica-derroto-a-mexico-en-la-ida-de-los-cuartos-de-final-de-la-liga-de-naciones, https://www.pulzo.com/deportes/futbol/jamaica-vence-3-2-a-mexico-en-kingston-resumen-y-claves-del-partido-de-liga-de-naciones-concacaf-PP5356334A, https://www.clarosports.com/futbol/seleccion-mexicana/jamaica-vs-mexico-en-vivo-marcador-y-minuto-a-minuto-de-los-cuartos-de-final-de-la-nations-league-hoy-14-de-noviembre/, 2026-11-14/15)",
+  "원정": "11/14 자메이카 3-2 멕시코(홈 표기, 킹스턴). 자메이카 FIFA 랭킹 66위(Pulzo). 조별리그 최종전 Honduras 1-1(Campbell 27', Palma 51'), 조 2위(승점 7, Guatemala와 승점 동률·골득실 차) — 8강 직전 11/9(월) 경기(Caribbean National Weekly)."
+ },
+ "최근5경기": {"홈": ["11/14 자메이카 3-2 멕시코(원정)", "미국과 친선 패(10월 초 추정, 점수·날짜 확인 안 됨)", "칠레와 친선 패(점수·날짜 확인 안 됨)", "마르케스 체제 첫 4경기 2무 2패, 3득점 7실점(plano informativo 11/5 기준)"], "원정": ["11/14 자메이카 3-2 멕시코(홈)", "조별리그 최종 Honduras 1-1", "9/25 자메이카 3-2 과테말라(홈, 네이션스리그)", "그 외 확인 안 됨"]},
+ "맞대결": ["2026-11-14 자메이카 3-2 멕시코 (킹스턴, 네이션스리그 8강 1차전)", "2023-03 멕시코 2-2 자메이카 (Azteca, 네이션스리그)", "2022-06 자메이카 1-1 멕시코 (킹스턴, 네이션스리그)"],
+ "감독": {
+  "홈": "라파엘(라파) 마르케스 — 대표팀 감독 첫 공식 시리즈(8강). 11/5 보도: '페이지를 넘기자', 11월 최고 선수 소집 약속(nmas). 2차전 관련 기자회견·로테이션 발언은 찾지 못함. 11/9 리비에라마야에서 소집 훈련 시작.",
+  "원정": "루돌프 스페이드(Rudolph Speid), 임시 감독. 발언: '플레이오프 경기는 23명 한 명 한 명을 확신해야 한다'(11/7 Gleaner). 2차전 기자회견은 찾지 못함."
+ },
+ "일정": "1차전 11/14 19:00 CT 킹스턴 → 2차전 11/17 20:30 CT 몬테레이, 휴식 3일. 자메이카는 킹스턴→멕시코 장거리 이동. 멕시코시티 대신 몬테레이 개최에 대한 클라우디오 수아레스의 비판 보도(Publimetro 11/4).",
+ "사실": [
+  "멕시코 28인 소집: GK Rangel, García, Padilla / DF Montes, Vásquez, Huescas, K.Álvarez, Gallardo, Reyes, Campillo, Orozco Chiquete, M.Chávez / MF Romo, Mora, O.Vargas, Lira, Sandoval, Montaño, Fidalgo, Violante, E.Sánchez / FW Vega, A.González, Alvarado, Quiñones, Giménez, Corona, A.León (https://planoinformativo.com/planodeportivo/345673/..., 2026-11-05)",
+  "Julián Quiñones 복귀: 월드컵 2026에서 4골 (Plano Informativo 11/5)",
+  "자메이카 23인 소집: Denzel Hall(Rotherham), Tyrese Hall(Tottenham) 신규(https://www.clarosports.com/futbol/seleccion-mexicana/convocatoria-jamaica-mexico-nations-league/, 2026-11)",
+  "1차전 같은 날 결과: 미국 6-0 아이티, 캐나다 3-2 과테말라, 퀴라소 0-0 파나마(Pulzo 11/14)",
+  "1차전 멕시코는 한때 0-3로 뒤짐(28' 자책, 46', 63' PK) 이후 70'·81' 두 골 추격"
+ ],
+ "확인안됨": ["1차전 멕시코·자메이카 선발 XI, 경고·퇴장", "2차전 마르케스 기자회견·예상 선발·로테이션 발언", "Montes 부상 상태, Guzmán·Pineda 2차전 합류 여부", "합계 동률 시 규정(원정골·연장·승부차기)", "멕시코 최근 5경기 상세 점수", "자메이카 2차전 소집 변동·부상 추가", "심판·날씨"],
+ "출처": [
+  "https://es.concacaf.com/competitions/nations-league/news/jamaica-derroto-a-mexico-en-la-ida-de-los-cuartos-de-final-de-la-liga-de-naciones",
+  "https://www.pulzo.com/deportes/futbol/jamaica-vence-3-2-a-mexico-en-kingston-resumen-y-claves-del-partido-de-liga-de-naciones-concacaf-PP5356334A",
+  "https://www.clarosports.com/futbol/seleccion-mexicana/jamaica-vs-mexico-en-vivo-marcador-y-minuto-a-minuto-de-los-cuartos-de-final-de-la-nations-league-hoy-14-de-noviembre/",
+  "https://www.clarosports.com/futbol/seleccion-mexicana/convocatoria-jamaica-mexico-nations-league/",
+  "https://planoinformativo.com/planodeportivo/345673/mexico-busca-su-primera-victoria-con-rafa-marquez-las-novedades-y-ausencias-ante-jamaica",
+  "https://jamaica-gleaner.com/article/sports/20261107/injuries-rock-boyz-speid-explains-selection-decisions-jamaica-prepare",
+  "https://www.caribbeannationalweekly.com/posts/reggae-boyz-earn-mexico-showdown-with-hard-fought-honduras-draw",
+  "https://www.nmas.com.mx/deportes/rafa-marquez-llama-a-pasar-pagina-promete-mejor-equipo-contra-jamaica-concacaf-nations-league/",
+  "https://record.com.mx/historia/mexico-problemas-jamaica-golpea-tri-evita-tragedia-2026111502570280024"
+ ],
+ "배당": "보지 않음"
+}

@@ -3,7 +3,7 @@
  "홈": "덴마크",
  "원정": "노르웨이",
  "리그": "UEFA 네이션스리그 2026/27 리그A 4조 6차전(최종전)",
- "수집시각": "2026-11-16 KST",
+ "수집시각": "2026-11-17 KST (갱신)",
  "구장": "텔리아 파르켄(Telia Parken), 코펜하겐, 덴마크 — 홈팀 자국(중립 아님). 11/17 20:45 CET = 11/18 04:45 KST (출처: https://en.wikipedia.org/wiki/2026%E2%80%9327_UEFA_Nations_League_A 2026-11-15 기준, https://espreso.tv/futbol-ispaniya-priymae-angliyu-ukraina-grae-z-gruzieyu-rozklad-ta-rezultati-matchiv-virishalnogo-turu-ligi-natsiy 2026-11-15)",
  "순위와걸린것": "A4조 5경기 후: 1 포르투갈 12점(8강 확정) / 2 덴마크 9점(3승2패, 11득8실, +3) / 3 노르웨이 6점(2승3패, 9-9) / 4 웨일스 3점(강등 플레이오프 확정). 위키: 덴마크·노르웨이 모두 직접 강등 면제(X). 상위 2팀 8강(2027년 3월 2차전). 보도(TNT 프리뷰, 베팅 사이트 아님 부분만 인용): 노르웨이가 이기면 9점 동률이며 맞대결 우위로 2위 — 덴마크는 무승부만 해도 2위. 9월 24일 노르웨이 3-2 덴마크(오슬로)로 노르웨이가 상대전적 앞섬. 같은 날 웨일스-포르투갈(카디프).",
  "결장": [
@@ -62,8 +62,8 @@
    "선수": "엘링 홀란",
    "포지션": "FW",
    "주전": true,
-   "상태": "확인 안 됨",
-   "사유": "소집 명단 포함. 웨일스전 뒤 '덴마크전 동기부여를 찾기 어렵다'고 발언(Complete Sports 보도)",
+   "상태": "출전 예상(공식 확정 아님)",
+   "사유": "소집 명단 포함. 웨일스전 뒤 '덴마크전 동기부여를 찾기 어렵다'고 발언(Complete Sports 보도) | 11/15 Complete Sports 인용: \"Right now, I can't quite find the motivation for the match against Denmark at Parken. But it's going to be a good game.\" 일정 과밀(맨시티 풀럼·나폴리·아스널전) 언급. Sports Mole(11/15): 웨일스전 득점, 이번에도 선발 예상. 부상·결장 보도 없음",
    "출처": "https://www.completesports.com/nations-league-haaland-struggling-for-motivation-ahead-of-denmark-clash/",
    "날짜": "2026-11-15 경"
   }
@@ -107,7 +107,10 @@
   "노르웨이 11월 전체 명단·결장",
   "심판·날씨",
   "크리스텐센 11월 명단 기사의 정확한 날짜",
-  "11/14 덴마크 선발 11명"
+  "11/14 덴마크 선발 11명",
+  "양 팀 11/16~17 기자회견 인용",
+  "8강 진출 조건(노르웨이 승리 vs 3골 차 승리) 공식 타이브레이크",
+  "홀란 선발 공식 확인"
  ],
  "출처": [
   "https://en.wikipedia.org/wiki/2026%E2%80%9327_UEFA_Nations_League_A",
@@ -120,5 +123,12 @@
   "https://www.skysports.com/football/denmark-vs-wales/table/554008",
   "https://espreso.tv/futbol-ispaniya-priymae-angliyu-ukraina-grae-z-gruzieyu-rozklad-ta-rezultati-matchiv-virishalnogo-turu-ligi-natsiy"
  ],
- "배당": "보지 않음"
+ "배당": "보지 않음",
+ "갱신_1117": [
+  "홀란 발언 원문 확인: \"Right now, I can't quite find the motivation for the match against Denmark at Parken. But it's going to be a good game.\" 웨일스전(11/14) 뒤, '끝없는 일정'(맨시티 풀럼·나폴리·아스널)을 이유로 듦. 출전 여부는 기사에 없음 (https://www.completesports.com/nations-league-haaland-struggling-for-motivation-ahead-of-denmark-clash/ , 2026-11-15)",
+  "Sports Mole 프리뷰(2026-11-15 14:52): 홀란 웨일스전 득점, 이번에도 최전방 예상. 양 팀 부상·징계 명단 없음. 덴마크 리메르: 포르투갈전 승리를 'perfect'라 표현 (https://www.sportsmole.co.uk/football/denmark/preview/denmark-vs-norway-prediction-team-news-lineups_609154.html)",
+  "걸린 것 출처 엇갈림: Sports Mole는 '덴마크는 패하지만 않으면 8강, 노르웨이는 3골 차 승리가 필요'라고 적음. 11/16 수집본의 'TNT 프리뷰: 노르웨이 승리 시 승점 9 동률+맞대결 우위로 2위'와 다름. 9/24 노르웨이 3-2 덴마크(오슬로, 홀란 2골; Flashscore)는 양쪽 동일. 타이브레이커 공식 문서는 못 찾음 — 확인 안 됨",
+  "양 팀 기자회견 인용(리메르·솔바켄) 11/16~17분은 검색에서 찾지 못함 — 검색처: flashscore, sportsmole, worldsoccertalk, sn.dk",
+  "조 순위 변동 없음(최종전 전 덴마크 2위 승점 9, 노르웨이 3위 승점 6) (Sports Mole 2026-11-15)"
+ ]
 }

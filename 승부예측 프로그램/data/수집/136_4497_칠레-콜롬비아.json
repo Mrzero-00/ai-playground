@@ -1,0 +1,44 @@
+{
+ "번호": 4497,
+ "홈": "칠레", "원정": "콜롬비아",
+ "리그": "국제친선경기(남자 A매치, 2연전 중 2차전)",
+ "수집시각": "2026-11-17 KST",
+ "구장": "에스타디오 나시오날, 산티아고, 칠레 — 홈팀 자국 개최(중립 아님). 킥오프 현지 11/17 20:00(칠레 시각, T13) = 콜롬비아 시각 18:00(publimetro.co)",
+ "순위와걸린것": "친선. 대회 순위 없음. 2연전 2차전(1차전 11/13 콜롬비아 칼리 에스타디오 올림피코 파스쿠알 게레로, 8월 10일 콜롬비아 지진 피해 지원 자선 경기 — clarosports.com 2026-11-11). 칠레는 임시 감독 니콜라스 코르도바의 마지막 경기들이며 새 감독이 2027년 준비를 맡을 예정(emol.com 2026-11-07).",
+ "결장": [
+  {"팀": "홈", "선수": "벤하민 쿠스세비치", "포지션": "수비수(토론토 FC)", "주전": "확인 안 됨", "상태": "확정", "사유": "오른발목 염좌, 회복 기간이 소집 기간 초과로 협회가 발표, 대체 선수 미발표", "출처": "https://www.emol.com/noticias/Deportes/2026/11/07/1216427/seleccion-chilena-ausencia-colombia-amistoso.html", "날짜": "2026-11-07"},
+  {"팀": "홈", "선수": "마르셀리노 누녜스", "포지션": "미드필더", "주전": "확인 안 됨", "상태": "확정", "사유": "북중미 투어 중 스스로 대표팀에서 빠져 이번 소집 제외", "출처": "https://www.emol.com/noticias/Deportes/2026/11/07/1216427/seleccion-chilena-ausencia-colombia-amistoso.html", "날짜": "2026-11-07"},
+  {"팀": "원정", "선수": "루이스 디아스", "포지션": "공격수", "주전": true, "상태": "확정", "사유": "11월 소집 명단에서 제외('Sin Luis Díaz' 헤드라인). 사유는 본문 미확인", "출처": "https://cambiocolombia.com/deportes/articulo/2026/11/sin-luis-diaz-y-con-caras-nuevas-la-lista-de-lorenzo-para-cerrar-el-ano-de-la-seleccion-colombia-contra-chile", "날짜": "2026-11"},
+  {"팀": "원정", "선수": "하밍톤 캄파스", "포지션": "미드필더", "주전": "확인 안 됨", "상태": "의심", "사유": "소집 명단에는 있으나 한 검색 요약에서 '오스카르 코르테스가 캄파스를 대체해 소집'이라는 보도(원문 미확인, 일자 불명). publimetro 11/6 명단에는 캄파스 포함", "출처": "https://www.publimetro.co/deportes/2026/11/06/convocatoria-de-la-seleccion-colombia-para-los-ultimos-partidos-del-ano/", "날짜": "2026-11-06"}
+ ],
+ "직전경기": {
+  "홈": "11/13 칠레 원정, 칼리, 콜롬비아전(1차전). 점수·선발은 확인 안 됨(검색에서 사후 기사 발견 못 함). 예상 선발(clarosports 11/11): 비구로욱스; 울로아, 비야그라, P.디아스, 수아소; 피사로, 로욜라; M.구티에레스, 에체베리아, 오소리오, 타피아.",
+  "원정": "11/13 콜롬비아 홈, 칼리, 칠레전(1차전), 현지 19:00. 점수·선발은 확인 안 됨. 예상 선발(clarosports 11/11): 바르가스; 무뇨스, D.산체스, 루쿠미, 카발; 푸에르타, 레르마; 아리아스, 아스프리야, 데오사, L.수아레스."
+ },
+ "최근5경기": {
+  "홈": ["2026-10-06 멕시코 상대 승(북미 투어, 점수 확인 안 됨, publimetro/radioagricultura 요약)", "북미 투어에서 캐나다·미국에 패(점수·일자 확인 안 됨, radioagricultura 2026-11-04)", "2026-03-27 칠레 vs 카보베르데 친선 일정 존재(결과 확인 안 됨)"],
+  "원정": ["확인 안 됨 (11/13 칠레전 외 최근 경기 일자별 결과 미수집)"]
+ },
+ "맞대결": ["2026-11-13 콜롬비아 vs 칠레 (칼리, 1차전) — 결과 확인 안 됨", "2024-10-15 콜롬비아 4-0 칠레 (바랑키야, 월드컵 예선) — winsports.co 기사 목록 및 radionacional.co 제목 기준"],
+ "감독": {
+  "홈": "니콜라스 코르도바(임시 감독). 11/4 26명 소집 발표, 로테이션·실험 발언은 확인 못 함 (https://www.emol.com/noticias/Deportes/2026/11/04/1216126/chile-nomina-colombia-cordova.html 접속 시도 안 함, radioagricultura 요약 기준).",
+  "원정": "네스토르 로렌소. 26명 소집, 11/7 칼리에서 소집 시작. 아틀레티코 나시오날 차출을 둘러싸고 루카스 곤살레스 감독과 마찰이 있었다는 언급(clarosports 2026-11-11, 상세 미확인). 로테이션 발언 인용은 확인 못 함."
+ },
+ "일정": "양 팀 모두 11/13 칼리 경기 후 4일 휴식. 콜롬비아는 칼리→산티아고 이동(국경 간 이동), 칠레는 칼리→산티아고 복귀 이동. 칠레는 직전 북미 투어 후 소집.",
+ "사실": [
+  "칠레 소집 26명 발표(4일), 쿠스세비치 낙마로 25명(7일): GK 비구로욱스·코르테스·브라보, DF P.디아스·마리판·로만·비야그라·파운데스·수아소·울로아, MF 에체베리아·알라르콘·로욜라·멘데스·C.페레스·피사로·아르세·라이히무트, FW 세페다·M.구티에레스·몬테스·오소리오·E.라모스·브레레톤·타피아 (https://www.emol.com/noticias/Deportes/2026/11/07/1216427/seleccion-chilena-ausencia-colombia-amistoso.html, 2026-11-07)",
+  "칠레 이번 소집에 마리판·알라르콘·E.라모스 포함, 모랄레스·살리나스·세풀베다·L.에르난데스는 직전 소집 대비 제외 (emol, 2026-11-07)",
+  "콜롬비아 소집 26명: GK 킨타나·바르가스·바스케스, DF 아리살라·D.무뇨스·D.산체스·오캄포·루쿠미·카발·안드라데·벨라스케스, MF 아르실라·푸에르타·캄파스·아리아스·렌히포·솔리스·레르마·데오사·오로스코·메나·아스프리야, FW 두란·L.수아레스·페레아·모스케라 (https://www.publimetro.co/deportes/2026/11/06/convocatoria-de-la-seleccion-colombia-para-los-ultimos-partidos-del-ano/, 2026-11-06)",
+  "콜롬비아 소집 명단에 루이스 디아스 불포함 (cambiocolombia.com 헤드라인, 2026-11)"
+ ],
+ "확인안됨": ["11/13 콜롬비아-칠레 결과·선발·득점자·퇴장·부상 교체", "콜롬비아 최근 5경기", "칠레 최근 5경기 점수와 일자", "코르도바·로렌소 경기 전 기자회견 인용", "루이스 디아스 제외 사유", "캄파스 소집 변동 여부(오스카르 코르테스 대체 보도 검증)", "심판·날씨", "11/13 경기 출장 정지자"],
+ "출처": [
+  "https://www.emol.com/noticias/Deportes/2026/11/07/1216427/seleccion-chilena-ausencia-colombia-amistoso.html",
+  "https://www.publimetro.co/deportes/2026/11/06/convocatoria-de-la-seleccion-colombia-para-los-ultimos-partidos-del-ano/",
+  "https://www.radioagricultura.cl/deportes/la-roja-confirma-nomina-para-enfrentar-a-colombia-revisa-los-26-convocados-de-nicolas-cordova_20261104/",
+  "https://www.clarosports.com/colombia/seleccion-colombiana/colombia-vs-chile-en-vivo-horario-alineaciones-y-donde-ver-el-partido-amistoso-de-la-seleccion/",
+  "https://cambiocolombia.com/deportes/articulo/2026/11/sin-luis-diaz-y-con-caras-nuevas-la-lista-de-lorenzo-para-cerrar-el-ano-de-la-seleccion-colombia-contra-chile",
+  "https://www.t13.cl/noticia/deportes13/cuando-hora-juega-roja-frente-colombia-por-fecha-fifa-10-11-2026"
+ ],
+ "배당": "보지 않음"
+}

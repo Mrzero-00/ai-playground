@@ -1,0 +1,46 @@
+{
+ "번호": 4336,
+ "홈": "아르헨티나", "원정": "코스타리카",
+ "리그": "국제친선경기(남자 A매치)",
+ "수집시각": "2026-11-17 KST",
+ "구장": "에스타디오 마리오 알베르토 켐페스, 코르도바, 아르헨티나 — 홈팀 자국 개최(중립 아님). AFA가 10/16 발표(442.perfil.com 보도). 킥오프는 매체별로 엇갈림: 현지 11/17 저녁(KST 11/18 08:00 과제 기준), 영국 시각 23:00 표기 매체도 있음(footballpredictions.com)",
+ "순위와걸린것": "친선. 대회 순위 없음. 메시 대표팀 은퇴 후 첫 11월 소집(두 경기 모두 'Messi 없는 첫 소집'으로 보도). 코스타리카는 브라이언 루이스(Bryan Ruiz) 감독 공식 데뷔 시리즈(에콰도르전 + 이 경기).",
+ "결장": [
+  {"팀": "홈", "선수": "크리스티안 로메로", "포지션": "수비수", "주전": true, "상태": "확정", "사유": "부상으로 소집 제외", "출처": "https://442.perfil.com/noticias/amp/seleccion-argentina/grandes-ausencias-en-la-primera-lista-de-lionel-scaloni-tras-el-retiro-de-lionel-messi-de-la-seleccion-argentina.phtml", "날짜": "2026-11-03"},
+  {"팀": "홈", "선수": "라우타로 마르티네스", "포지션": "공격수", "주전": true, "상태": "확정", "사유": "부상 회복 중, 11월 A매치 기간 뒤에나 복귀 가능하다는 보도", "출처": "https://442.perfil.com/noticias/amp/seleccion-argentina/grandes-ausencias-en-la-primera-lista-de-lionel-scaloni-tras-el-retiro-de-lionel-messi-de-la-seleccion-argentina.phtml", "날짜": "2026-11-03"},
+  {"팀": "홈", "선수": "니콜라스 곤살레스", "포지션": "공격수", "주전": false, "상태": "확정", "사유": "부상 회복 중으로 제외", "출처": "https://442.perfil.com/noticias/amp/seleccion-argentina/grandes-ausencias-en-la-primera-lista-de-lionel-scaloni-tras-el-retiro-de-lionel-messi-de-la-seleccion-argentina.phtml", "날짜": "2026-11-03"},
+  {"팀": "홈", "선수": "레안드로 파레데스", "포지션": "미드필더", "주전": "확인 안 됨", "상태": "확정", "사유": "2026 월드컵 사건에 따른 FIFA 징계 이행 중", "출처": "https://442.perfil.com/noticias/amp/seleccion-argentina/grandes-ausencias-en-la-primera-lista-de-lionel-scaloni-tras-el-retiro-de-lionel-messi-de-la-seleccion-argentina.phtml", "날짜": "2026-11-03"},
+  {"팀": "홈", "선수": "나우엘 몰리나", "포지션": "수비수", "주전": "확인 안 됨", "상태": "확정", "사유": "2026 월드컵 사건에 따른 FIFA 징계 이행 중", "출처": "https://442.perfil.com/noticias/amp/seleccion-argentina/grandes-ausencias-en-la-primera-lista-de-lionel-scaloni-tras-el-retiro-de-lionel-messi-de-la-seleccion-argentina.phtml", "날짜": "2026-11-03"},
+  {"팀": "홈", "선수": "로드리고 데 파울", "포지션": "미드필더", "주전": "확인 안 됨", "상태": "확정", "사유": "부상 아님, 인터 마이애미 소속, 명단 제외(9~10월 창에서는 마지막 경기만 합류)", "출처": "https://442.perfil.com/noticias/amp/seleccion-argentina/grandes-ausencias-en-la-primera-lista-de-lionel-scaloni-tras-el-retiro-de-lionel-messi-de-la-seleccion-argentina.phtml", "날짜": "2026-11-03"},
+  {"팀": "홈", "선수": "지오바니 로 셀소", "포지션": "미드필더", "주전": false, "상태": "확정", "사유": "소집 제외, 베티스에서 이번 시즌 4경기만 출전", "출처": "https://442.perfil.com/noticias/amp/seleccion-argentina/grandes-ausencias-en-la-primera-lista-de-lionel-scaloni-tras-el-retiro-de-lionel-messi-de-la-seleccion-argentina.phtml", "날짜": "2026-11-03"},
+  {"팀": "홈", "선수": "에밀리아노 마르티네스(디부)", "포지션": "골키퍼", "주전": true, "상태": "의심", "사유": "10/17부터 부상으로 빠졌으나 명단에는 포함됨. 출전 여부는 단일 보도 기준 불투명. 'Dibu 복귀, 코스타리카전 선발' 제목의 헤드라인(crhoy.com)이 있으나 본문 확인 못 함", "출처": "https://442.perfil.com/noticias/amp/seleccion-argentina/grandes-ausencias-en-la-primera-lista-de-lionel-scaloni-tras-el-retiro-de-lionel-messi-de-la-seleccion-argentina.phtml", "날짜": "2026-11-03"},
+  {"팀": "원정", "선수": "케일러 나바스", "포지션": "골키퍼", "주전": true, "상태": "확정", "사유": "무릎 불편으로 소집 제외(루이스 감독이 Fox 인터뷰에서 설명)", "출처": "https://observador.cr/bryan-ruiz-define-convocatoria-para-enfrentar-a-ecuador-y-argentina-vuelve-manfred-ugalde/", "날짜": "2026-11-06"},
+  {"팀": "원정", "선수": "디에고 메센", "포지션": "센터백", "주전": "확인 안 됨", "상태": "의심", "사유": "출장 정지라는 단일 출처(footballpredictions.com, 베팅·예측 사이트의 팀뉴스 칸). 공식 확인 못 함", "출처": "https://footballpredictions.com/footballpredictions/internationalfriendliespredictions/argentina-vs-costa-rica-prediction-17-11-2026/", "날짜": "2026-11 (일자 불명)"},
+  {"팀": "원정", "선수": "알렉시스 감보아", "포지션": "센터백", "주전": "확인 안 됨", "상태": "의심", "사유": "부상으로 결장 가능성이라는 단일 출처(위와 동일 사이트)", "출처": "https://footballpredictions.com/footballpredictions/internationalfriendliespredictions/argentina-vs-costa-rica-prediction-17-11-2026/", "날짜": "2026-11 (일자 불명)"}
+ ],
+ "직전경기": {
+  "홈": "11/13 라 봄보네라(부에노스아이레스) 우루과이전 홈 경기, 현지 20:00. 점수·선발은 확인 안 됨(검색에서 사후 기사 발견 못 함). 단일 비공식 출처(footballpredictions.com)는 '아르헨티나 1-2 우루과이 패'로 적었으나 날짜·득점자 없어 미확인.",
+  "원정": "11/13 에콰도르전 원정, 키토 에스타디오 올림피코 아타왈파, 현지 19:00. 점수·선발은 확인 안 됨. 단일 비공식 출처(footballpredictions.com)는 '에콰도르 2-0 코스타리카'로 적었으나 미확인."
+ },
+ "최근5경기": {"홈": ["확인 안 됨 (11/13 우루과이전 홈, 위 참조)"], "원정": ["확인 안 됨 (11/13 에콰도르전 원정; 감독 데뷔 전 네이션스리그 경기로 니카라과전 3-0, 아이티전 2-0 승 — 출처 primicias.ec 보도 요약, 일자 불명)"]},
+ "맞대결": ["2024-03-27 아르헨티나 3-1 코스타리카 (미국 로스앤젤레스, 친선) — footballpredictions.com 기재, 유일하게 확인된 맞대결"],
+ "감독": {
+  "홈": "리오넬 스칼로니. 메시 은퇴 후 첫 소집, 신인 아론 안셀미노·마리아노 트로일로 소집(442.perfil.com, 2026-11-03). 28명 소집 후 명단 변경 가능성 언급. 로테이션·실험 발언 인용은 확인 못 함.",
+  "원정": "브라이언 루이스(Bryan Ruiz). 11/13 에콰도르전이 공식 데뷔. 소집 시 '선수가 100% 헌신해야 하고, 경기 아이디어에 맞는 선수를 고르려 했다'(observador.cr, 2026-11-06). 만프레드 우갈데 복귀, 23명 소집(국내 16·해외 7)."
+ },
+ "일정": "아르헨티나: 11/13 홈 우루과이전 후 4일 휴식, 같은 나라 내 이동(부에노스아이레스→코르도바). 코스타리카: 11/13 키토 경기 후 코르도바로 이동(observador.cr, 2026-11-06), 4일 휴식, 남미 내 두 도시 이동.",
+ "사실": [
+  "아르헨티나 소집 28명, 11/3 발표 (https://442.perfil.com/noticias/amp/seleccion-argentina/grandes-ausencias-en-la-primera-lista-de-lionel-scaloni-tras-el-retiro-de-lionel-messi-de-la-seleccion-argentina.phtml, 2026-11-03)",
+  "코스타리카 소집 23명 중 국내 16·해외 7, 골키퍼 파트릭 세케이라·아브라함 마드리스·바이론 모라, 측면수비 케나이 미리에(코펜하겐) (https://observador.cr/bryan-ruiz-define-convocatoria-para-enfrentar-a-ecuador-y-argentina-vuelve-manfred-ugalde/, 2026-11-06)",
+  "footballpredictions.com 표기: 아르헨티나 예상 4-3-3, 소울레·마스탄투오노·엔소 페르난데스가 선발 경쟁 중이라는 보도, 코스타리카 예상 4-1-4-1 (예측 사이트, 판단 부분은 채택하지 않음)"
+ ],
+ "확인안됨": ["11/13 아르헨티나-우루과이 결과·선발·퇴장·부상 교체", "11/13 에콰도르-코스타리카 결과·선발", "코스타리카 23명 전체 명단(이미지로 게시)", "아르헨티나 28명 전체 명단 중 일부", "양 팀 최근 5경기 일자별 결과", "심판·날씨", "공식 킥오프 시각(매체별 상이)", "스칼로니 로테이션 발언"],
+ "출처": [
+  "https://442.perfil.com/noticias/amp/seleccion-argentina/grandes-ausencias-en-la-primera-lista-de-lionel-scaloni-tras-el-retiro-de-lionel-messi-de-la-seleccion-argentina.phtml",
+  "https://observador.cr/bryan-ruiz-define-convocatoria-para-enfrentar-a-ecuador-y-argentina-vuelve-manfred-ugalde/",
+  "https://www.primicias.ec/deportes/futbol/costa-rica-viaje-sudamerica-partidos-amistosos-ecuador-argentina-136943/",
+  "https://footballpredictions.com/footballpredictions/internationalfriendliespredictions/argentina-vs-costa-rica-prediction-17-11-2026/",
+  "https://morungexpress.com/argentina-to-wrap-up-2026-with-home-friendlies-against-uruguay-costa-rica"
+ ],
+ "배당": "보지 않음 (footballpredictions.com 은 예측 사이트이나 팀뉴스·이력 사실만 인용, 확률·예측 부분은 읽어도 적지 않음)"
+}

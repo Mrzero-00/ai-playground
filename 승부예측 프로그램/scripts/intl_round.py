@@ -41,18 +41,26 @@ def cmd_cards(a):
         if not b:
             print(f"{no} {r['홈']}-{r['원정']}: 기준선 없음 — data/intl/names.json 에 팀명을 추가한다"); continue
         t = toto.get(matchkey.key(r))
+        v = ib.venue(r["홈"], r["원정"], r["시각"], refresh=a.refresh)      # ESPN 점수판의 경기장(예정 경기 포함)
         cards[no] = {"홈": r["홈"], "원정": r["원정"], "h": f(b), "n": f(n), "시각": r["시각"], "리그": r["리그"],
-                     "toto": [t["회차"], t["번호"]] if t else None}
+                     "toto": [t["회차"], t["번호"]] if t else None, "개최지": v}
         h, aw = b["en"]
         txt = [f"## {no} {r['시각']} {r['리그']} — {r['홈']}({h}) vs {r['원정']}({aw})",
                f"Elo {b['elo_h']:.0f} vs {b['elo_a']:.0f} (경기 수 {b['n_h']}·{b['n_a']})",
                "기준선(홈팀 자국 개최): 승 %s / 무 %s / 패 %s" % tuple(f(b)),
-               "기준선(중립 구장일 때): 승 %s / 무 %s / 패 %s" % tuple(f(n))]
+               "기준선(중립 구장일 때): 승 %s / 무 %s / 패 %s" % tuple(f(n)),
+               "예상점수(Elo 득점식) — 자국 개최 %.1f:%.1f · 중립 %.1f:%.1f  (예상점수 칸에는 고른 기준선 쪽 값을 그대로 적는다)"
+               % (*ib.goals(b["elo_h"] - b["elo_a"] + ib.HOME), *ib.goals(b["elo_h"] - b["elo_a"]))]
+        if v:
+            txt.append(f"개최지(ESPN 점수판): {v['city']}, {v['country']} → " + ("**홈팀 자국이 아니다 — 중립 기준선 후보**(수집 JSON 의 구장과 대조)" if v["neutral"] else "홈팀 자국"))
+        else:
+            txt.append("개최지(ESPN 점수판): 확인 안 됨 — 수집 JSON 의 구장으로 판단")
         for team in (h, aw):
             txt.append(f"{team} 최근 8경기(Elo 에 반영된 것, 날짜는 한국 시각일 수 있음):")
             txt += ["  " + x for x in ib.recent(team)]
         open(os.path.join(CARD, f"{a.round}_{no}.md"), "w", encoding="utf-8").write("\n".join(txt) + "\n")
-        print(f"{no} {r['시각'][-11:]} {r['홈']}-{r['원정']}: 자국 {f(b)} · 중립 {f(n)}" + (f" · {t['회차']} {t['번호']}번" if t else ""))
+        print(f"{no} {r['시각'][-11:]} {r['홈']}-{r['원정']}: 자국 {f(b)} · 중립 {f(n)}" + (f" · {t['회차']} {t['번호']}번" if t else "")
+              + (f" · ★중립 추정({v['city']}, {v['country']})" if v and v["neutral"] else "" if v else " · 개최지 미확인"))
     json.dump(cards, open(path, "w", encoding="utf-8"), ensure_ascii=False, indent=1)
     print(f"→ data/카드/{a.round}.json · data/카드/{a.round}_<번호>.md ({len(cards)}경기)")
     return 0
@@ -130,7 +138,8 @@ def cmd_apply(a):
 def main():
     ap = argparse.ArgumentParser()
     s = ap.add_subparsers(dest="c", required=True)
-    p = s.add_parser("cards"); p.add_argument("round"); p.set_defaults(f=cmd_cards)
+    p = s.add_parser("cards"); p.add_argument("round")
+    p.add_argument("--refresh", action="store_true", help="ESPN 경기장 캐시를 다시 받는다"); p.set_defaults(f=cmd_cards)
     p = s.add_parser("apply"); p.add_argument("round"); p.add_argument("nos", nargs="*"); p.set_defaults(f=cmd_apply)
     a = ap.parse_args()
     return a.f(a)

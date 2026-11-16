@@ -1,0 +1,1806 @@
+{
+"202611": {
+"Vietnam|Taiwan|2026-11-11": {
+"city": "Nam Dinh",
+"country": "Vietnam",
+"neutral": false,
+"id": "401930244"
+},
+"New Zealand|India|2026-11-12": {
+"city": "Auckland",
+"country": "New Zealand",
+"neutral": false,
+"id": "401906458"
+},
+"Uzbekistan|Russia|2026-11-12": {
+"city": "Tashkent",
+"country": "Uzbekistan",
+"neutral": false,
+"id": "401930962"
+},
+"Lithuania|Suriname|2026-11-12": {
+"city": "Kaunas",
+"country": "Lithuania",
+"neutral": false,
+"id": "401933115"
+},
+"Malta|Eswatini|2026-11-12": {
+"city": "Attard",
+"country": "Malta",
+"neutral": false,
+"id": "401931296"
+},
+"Singapore|Paraguay|2026-11-13": {
+"city": "Singapore",
+"country": "Singapore",
+"neutral": false,
+"id": "401916338"
+},
+"United Arab Emirates|Honduras|2026-11-13": {
+"city": "Abu Dhabi",
+"country": "United Arab Emirates",
+"neutral": false,
+"id": "401931957"
+},
+"Saudi Arabia|South Korea|2026-11-13": {
+"city": "Doha",
+"country": "Qatar",
+"neutral": true,
+"id": "401931476"
+},
+"Qatar|Australia|2026-11-13": {
+"city": "Ar-Rayyan",
+"country": "Qatar",
+"neutral": false,
+"id": "401919978"
+},
+"Iraq|Lebanon|2026-11-13": {
+"city": "Basra",
+"country": "Iraq",
+"neutral": false,
+"id": "401933636"
+},
+"Kuwait|Syria|2026-11-13": {
+"city": "Jaber Al-Ahmad International Stadium",
+"country": "Kuwait",
+"neutral": false,
+"id": "401931978"
+},
+"Jordan|Indonesia|2026-11-13": {
+"city": "Amman",
+"country": "Jordan",
+"neutral": false,
+"id": "401919975"
+},
+"Argentina|Uruguay|2026-11-13": {
+"city": "Buenos Aires",
+"country": "Argentina",
+"neutral": false,
+"id": "401930876"
+},
+"Colombia|Chile|2026-11-14": {
+"city": "Cali",
+"country": "Colombia",
+"neutral": false,
+"id": "401921325"
+},
+"Ecuador|Costa Rica|2026-11-14": {
+"city": "Quito",
+"country": "Ecuador",
+"neutral": false,
+"id": "401930898"
+},
+"Peru|Bolivia|2026-11-14": {
+"city": "Lima",
+"country": "Peru",
+"neutral": false,
+"id": "401930878"
+},
+"Tahiti|Cook Islands|2026-11-14": {
+"city": "",
+"country": "Tahiti",
+"neutral": false,
+"id": "401933864"
+},
+"Bahrain|Yemen|2026-11-14": {
+"city": "Guangzhou",
+"country": "China",
+"neutral": true,
+"id": "401930879"
+},
+"Japan|Brazil|2026-11-14": {
+"city": "Singapore",
+"country": "Singapore",
+"neutral": true,
+"id": "401916337"
+},
+"China|Malaysia|2026-11-14": {
+"city": "Zhaoqing",
+"country": "China",
+"neutral": false,
+"id": "401930236"
+},
+"Taiwan|Kyrgyzstan|2026-11-14": {
+"city": "Nam Dinh",
+"country": "Vietnam",
+"neutral": true,
+"id": "401930243"
+},
+"Palestine|Iran|2026-11-14": {
+"city": "Basra",
+"country": "Iraq",
+"neutral": true,
+"id": "401932237"
+},
+"New Zealand|India|2026-11-15": {
+"city": "Christchurch",
+"country": "New Zealand",
+"neutral": false,
+"id": "401906463"
+},
+"Suriname|Eswatini|2026-11-15": {
+"city": "Den Bosch",
+"country": "Netherlands",
+"neutral": true,
+"id": "401933837"
+},
+"Andorra|Azerbaijan|2026-11-16": {
+"city": "Encamp",
+"country": "Andorra",
+"neutral": false,
+"id": "401914292"
+},
+"Tahiti|Cook Islands|2026-11-17": {
+"city": "",
+"country": "Tahiti",
+"neutral": false,
+"id": "401933879"
+},
+"Malaysia|Yemen|2026-11-17": {
+"city": "Zhaoqing",
+"country": "China",
+"neutral": true,
+"id": "401930237"
+},
+"Singapore|Brazil|2026-11-17": {
+"city": "Singapore",
+"country": "Singapore",
+"neutral": false,
+"id": "401916335"
+},
+"China|Bahrain|2026-11-17": {
+"city": "Zhaoqing",
+"country": "China",
+"neutral": false,
+"id": "401930880"
+},
+"Kyrgyzstan|Vietnam|2026-11-17": {
+"city": "Nam Dinh",
+"country": "Vietnam",
+"neutral": true,
+"id": "401930242"
+},
+"Lebanon|Palestine|2026-11-17": {
+"city": "Basra",
+"country": "Iraq",
+"neutral": true,
+"id": "401933635"
+},
+"Japan|Paraguay|2026-11-17": {
+"city": "Singapore",
+"country": "Singapore",
+"neutral": true,
+"id": "401916336"
+},
+"Qatar|South Korea|2026-11-17": {
+"city": "Ar-Rayyan",
+"country": "Qatar",
+"neutral": false,
+"id": "401931477"
+},
+"United Arab Emirates|Syria|2026-11-17": {
+"city": "Al Ain",
+"country": "United Arab Emirates",
+"neutral": false,
+"id": "401932718"
+},
+"Saudi Arabia|Uzbekistan|2026-11-17": {
+"city": "Doha",
+"country": "Qatar",
+"neutral": true,
+"id": "401931495"
+},
+"Jordan|Australia|2026-11-17": {
+"city": "Ar-Rayyan",
+"country": "Qatar",
+"neutral": true,
+"id": "401919974"
+},
+"Russia|Venezuela|2026-11-17": {
+"city": "Krasnodar",
+"country": "Russia",
+"neutral": false,
+"id": "401930978"
+},
+"Iraq|Iran|2026-11-17": {
+"city": "Basra",
+"country": "Iraq",
+"neutral": false,
+"id": "401933615"
+},
+"Kuwait|Honduras|2026-11-17": {
+"city": "Jaber Al-Ahmad International Stadium",
+"country": "Kuwait",
+"neutral": false,
+"id": "401931956"
+},
+"Argentina|Costa Rica|2026-11-17": {
+"city": "Córdoba",
+"country": "Argentina",
+"neutral": false,
+"id": "401930895"
+},
+"Chile|Colombia|2026-11-17": {
+"city": "Santiago",
+"country": "Chile",
+"neutral": false,
+"id": "401921304"
+},
+"Ecuador|Bolivia|2026-11-17": {
+"city": "Quito",
+"country": "Ecuador",
+"neutral": false,
+"id": "401930899"
+},
+"Uruguay|Dominican Republic|2026-11-17": {
+"city": "Maldonado",
+"country": "Uruguay",
+"neutral": false,
+"id": "401932215"
+},
+"Spain|Chile|2026-11-28": {
+"city": "León",
+"country": "Spain",
+"neutral": false,
+"id": "401932719"
+},
+"Armenia|Cyprus|2026-11-12": {
+"city": "Yerevan",
+"country": "Armenia",
+"neutral": false,
+"id": "401861146"
+},
+"Turkey|Belgium|2026-11-12": {
+"city": "Izmir",
+"country": "Turkey",
+"neutral": false,
+"id": "401861145"
+},
+"Albania|Finland|2026-11-12": {
+"city": "Tirana",
+"country": "Albania",
+"neutral": false,
+"id": "401861147"
+},
+"Czech Republic|Spain|2026-11-12": {
+"city": "Prague",
+"country": "Czech Republic",
+"neutral": false,
+"id": "401861148"
+},
+"England|Croatia|2026-11-12": {
+"city": "London",
+"country": "England",
+"neutral": false,
+"id": "401861150"
+},
+"Italy|France|2026-11-12": {
+"city": "Milano",
+"country": "Italy",
+"neutral": false,
+"id": "401861151"
+},
+"Montenegro|Latvia|2026-11-12": {
+"city": "Podgorica",
+"country": "Montenegro",
+"neutral": false,
+"id": "401861152"
+},
+"San Marino|Belarus|2026-11-12": {
+"city": "Serravalle",
+"country": "San Marino",
+"neutral": false,
+"id": "401861149"
+},
+"Moldova|Kazakhstan|2026-11-13": {
+"city": "Chisinau",
+"country": "Moldova",
+"neutral": false,
+"id": "401861162"
+},
+"Andorra|Gibraltar|2026-11-13": {
+"city": "Encamp",
+"country": "Andorra",
+"neutral": false,
+"id": "401861155"
+},
+"Bulgaria|Iceland|2026-11-13": {
+"city": "Plovdiv",
+"country": "Bulgaria",
+"neutral": false,
+"id": "401861157"
+},
+"Liechtenstein|Azerbaijan|2026-11-13": {
+"city": "Vaduz",
+"country": "Liechtenstein",
+"neutral": false,
+"id": "401861153"
+},
+"Luxembourg|Estonia|2026-11-13": {
+"city": "Luxembourg City",
+"country": "Luxembourg",
+"neutral": false,
+"id": "401861154"
+},
+"Netherlands|Greece|2026-11-13": {
+"city": "Amsterdam",
+"country": "Netherlands",
+"neutral": false,
+"id": "401861159"
+},
+"Scotland|North Macedonia|2026-11-13": {
+"city": "Glasgow",
+"country": "Scotland",
+"neutral": false,
+"id": "401861161"
+},
+"Serbia|Germany|2026-11-13": {
+"city": "Belgrade",
+"country": "Serbia",
+"neutral": false,
+"id": "401861158"
+},
+"Slovakia|Faroe Islands|2026-11-13": {
+"city": "Kosice",
+"country": "Slovakia",
+"neutral": false,
+"id": "401861160"
+},
+"Slovenia|Switzerland|2026-11-13": {
+"city": "Maribor",
+"country": "Slovenia",
+"neutral": false,
+"id": "401861156"
+},
+"Kosovo|Israel|2026-11-14": {
+"city": "Prishtina",
+"country": "Kosovo",
+"neutral": false,
+"id": "401861163"
+},
+"Georgia|Hungary|2026-11-14": {
+"city": "Tbilisi",
+"country": "Georgia",
+"neutral": false,
+"id": "401861164"
+},
+"Norway|Wales|2026-11-14": {
+"city": "Oslo",
+"country": "Norway",
+"neutral": false,
+"id": "401861165"
+},
+"Austria|Republic of Ireland|2026-11-14": {
+"city": "Linz",
+"country": "Austria",
+"neutral": false,
+"id": "401861170"
+},
+"Northern Ireland|Ukraine|2026-11-14": {
+"city": "Belfast",
+"country": "Northern Ireland",
+"neutral": false,
+"id": "401861169"
+},
+"Portugal|Denmark|2026-11-14": {
+"city": "Braga",
+"country": "Portugal",
+"neutral": false,
+"id": "401861167"
+},
+"Romania|Poland|2026-11-14": {
+"city": "Bucuresti",
+"country": "Romania",
+"neutral": false,
+"id": "401861168"
+},
+"Sweden|Bosnia and Herzegovina|2026-11-14": {
+"city": "Stockholm",
+"country": "Sweden",
+"neutral": false,
+"id": "401861166"
+},
+"Cyprus|Montenegro|2026-11-15": {
+"city": "Kolossi",
+"country": "Cyprus",
+"neutral": false,
+"id": "401861172"
+},
+"Latvia|Armenia|2026-11-15": {
+"city": "Riga",
+"country": "Latvia",
+"neutral": false,
+"id": "401861171"
+},
+"Belarus|Albania|2026-11-15": {
+"city": "Budapest",
+"country": "Hungary",
+"neutral": true,
+"id": "401861173"
+},
+"Finland|San Marino|2026-11-15": {
+"city": "Helsinki",
+"country": "Finland",
+"neutral": false,
+"id": "401861174"
+},
+"Belgium|Italy|2026-11-15": {
+"city": "Brussels",
+"country": "Belgium",
+"neutral": false,
+"id": "401861176"
+},
+"Croatia|Czech Republic|2026-11-15": {
+"city": "Osijek",
+"country": "Croatia",
+"neutral": false,
+"id": "401861178"
+},
+"France|Turkey|2026-11-15": {
+"city": "Bordeaux",
+"country": "France",
+"neutral": false,
+"id": "401861177"
+},
+"Spain|England|2026-11-15": {
+"city": "Madrid",
+"country": "Spain",
+"neutral": false,
+"id": "401861175"
+},
+"Faroe Islands|Moldova|2026-11-16": {
+"city": "Tórshavn",
+"country": "Faroe Islands",
+"neutral": false,
+"id": "401861180"
+},
+"Kazakhstan|Slovakia|2026-11-16": {
+"city": "Astana",
+"country": "Kazakhstan",
+"neutral": false,
+"id": "401861181"
+},
+"Estonia|Bulgaria|2026-11-16": {
+"city": "Tallinn",
+"country": "Estonia",
+"neutral": false,
+"id": "401861183"
+},
+"Iceland|Luxembourg|2026-11-16": {
+"city": "Reykjavik",
+"country": "Iceland",
+"neutral": false,
+"id": "401861182"
+},
+"Lithuania|Liechtenstein|2026-11-16": {
+"city": "Kaunas",
+"country": "Lithuania",
+"neutral": false,
+"id": "401861184"
+},
+"Germany|Netherlands|2026-11-16": {
+"city": "Berlin",
+"country": "Germany",
+"neutral": false,
+"id": "401861185"
+},
+"Gibraltar|Malta|2026-11-16": {
+"city": "Gibraltar",
+"country": "Gibraltar",
+"neutral": false,
+"id": "401861179"
+},
+"Greece|Serbia|2026-11-16": {
+"city": "Volos",
+"country": "Greece",
+"neutral": false,
+"id": "401861188"
+},
+"North Macedonia|Slovenia|2026-11-16": {
+"city": "Skopje",
+"country": "North Macedonia",
+"neutral": false,
+"id": "401861187"
+},
+"Switzerland|Scotland|2026-11-16": {
+"city": "St. Gallen",
+"country": "Switzerland",
+"neutral": false,
+"id": "401861186"
+},
+"Bosnia and Herzegovina|Romania|2026-11-17": {
+"city": "Zenica",
+"country": "Bosnia and Herzegovina",
+"neutral": false,
+"id": "401861196"
+},
+"Denmark|Norway|2026-11-17": {
+"city": "Copenhagen",
+"country": "Denmark",
+"neutral": false,
+"id": "401861194"
+},
+"Hungary|Northern Ireland|2026-11-17": {
+"city": "Budapest",
+"country": "Hungary",
+"neutral": false,
+"id": "401861191"
+},
+"Israel|Austria|2026-11-17": {
+"city": "Debrecen",
+"country": "Hungary",
+"neutral": true,
+"id": "401861193"
+},
+"Poland|Sweden|2026-11-17": {
+"city": "Wroclaw",
+"country": "Poland",
+"neutral": false,
+"id": "401861195"
+},
+"Republic of Ireland|Kosovo|2026-11-17": {
+"city": "Dublin",
+"country": "",
+"neutral": false,
+"id": "401861192"
+},
+"Ukraine|Georgia|2026-11-17": {
+"city": "Kosice",
+"country": "Slovakia",
+"neutral": true,
+"id": "401861190"
+},
+"Wales|Portugal|2026-11-17": {
+"city": "Cardiff",
+"country": "Wales",
+"neutral": false,
+"id": "401861189"
+},
+"Barbados|Guadeloupe|2026-11-12": {
+"city": "Stade Roger Zami",
+"country": "Guadeloupe",
+"neutral": true,
+"id": "401929778"
+},
+"Bonaire|Cuba|2026-11-12": {
+"city": "Havana",
+"country": "Cuba",
+"neutral": true,
+"id": "401929777"
+},
+"Cayman Islands|Guyana|2026-11-12": {
+"city": "Leonora",
+"country": "Guyana",
+"neutral": true,
+"id": "401929797"
+},
+"Aruba|Martinique|2026-11-12": {
+"city": "Oranjestad",
+"country": "Aruba",
+"neutral": false,
+"id": "401929779"
+},
+"Antigua and Barbuda|Trinidad and Tobago|2026-11-12": {
+"city": "North Sound",
+"country": "Antigua and Barbuda",
+"neutral": false,
+"id": "401929796"
+},
+"Curaçao|Panama|2026-11-13": {
+"city": "Willemstad",
+"country": "Curaçao",
+"neutral": false,
+"id": "401929776"
+},
+"Bermuda|Saint Lucia|2026-11-13": {
+"city": "Stade Roger Zami",
+"country": "Guadeloupe",
+"neutral": true,
+"id": "401929714"
+},
+"Grenada|Saint Kitts and Nevis|2026-11-13": {
+"city": "Havana",
+"country": "Cuba",
+"neutral": true,
+"id": "401929713"
+},
+"Puerto Rico|Dominica|2026-11-13": {
+"city": "Leonora",
+"country": "Guyana",
+"neutral": true,
+"id": "401929795"
+},
+"Saint Martin|El Salvador|2026-11-13": {
+"city": "Basseterre",
+"country": "Saint Kitts and Nevis",
+"neutral": true,
+"id": "401929712"
+},
+"Montserrat|Nicaragua|2026-11-14": {
+"city": "Santiago",
+"country": "Dominican Republic",
+"neutral": true,
+"id": "401929775"
+},
+"Guatemala|Canada|2026-11-14": {
+"city": "Estadio Cementos Progreso",
+"country": "Guatemala",
+"neutral": false,
+"id": "401929711"
+},
+"Sint Maarten|French Guiana|2026-11-14": {
+"city": "Arnos Vale Stadium",
+"country": "",
+"neutral": false,
+"id": "401929774"
+},
+"Haiti|United States|2026-11-14": {
+"city": "Miami, Florida",
+"country": "United States",
+"neutral": true,
+"id": "401929710"
+},
+"Saint Vincent and the Grenadines|Belize|2026-11-15": {
+"city": "Arnos Vale Stadium",
+"country": "",
+"neutral": false,
+"id": "401929773"
+},
+"Jamaica|Mexico|2026-11-15": {
+"city": "Sabina Park",
+"country": "Jamaica",
+"neutral": false,
+"id": "401929772"
+},
+"Panama|Curaçao|2026-11-15": {
+"city": "Panama City",
+"country": "Panama",
+"neutral": false,
+"id": "401929709"
+},
+"Cuba|Grenada|2026-11-16": {
+"city": "Havana",
+"country": "Cuba",
+"neutral": false,
+"id": "401929707"
+},
+"Guadeloupe|Bermuda|2026-11-16": {
+"city": "Stade Roger Zami",
+"country": "Guadeloupe",
+"neutral": false,
+"id": "401929771"
+},
+"Guyana|Puerto Rico|2026-11-16": {
+"city": "Leonora",
+"country": "Guyana",
+"neutral": false,
+"id": "401929708"
+},
+"Martinique|Aruba|2026-11-17": {
+"city": "Stade Pierre-Aliker",
+"country": "Martinique",
+"neutral": false,
+"id": "401929706"
+},
+"Trinidad and Tobago|Antigua and Barbuda|2026-11-17": {
+"city": "Port of Spain",
+"country": "Trinidad and Tobago",
+"neutral": false,
+"id": "401929705"
+},
+"Canada|Guatemala|2026-11-17": {
+"city": "Toronto",
+"country": "Canada",
+"neutral": false,
+"id": "401929770"
+},
+"Belize|Sint Maarten|2026-11-17": {
+"city": "Arnos Vale Stadium",
+"country": "",
+"neutral": false,
+"id": "401929704"
+},
+"Dominica|Cayman Islands|2026-11-17": {
+"city": "Leonora",
+"country": "Guyana",
+"neutral": true,
+"id": "401929769"
+},
+"Saint Kitts and Nevis|Bonaire|2026-11-17": {
+"city": "Havana",
+"country": "Cuba",
+"neutral": true,
+"id": "401929767"
+},
+"Saint Lucia|Barbados|2026-11-17": {
+"city": "Stade Roger Zami",
+"country": "Guadeloupe",
+"neutral": true,
+"id": "401929768"
+},
+"French Guiana|Saint Vincent and the Grenadines|2026-11-18": {
+"city": "Arnos Vale Stadium",
+"country": "",
+"neutral": false,
+"id": "401929765"
+},
+"United States|Haiti|2026-11-18": {
+"city": "Cincinnati, Ohio",
+"country": "United States",
+"neutral": false,
+"id": "401929766"
+},
+"El Salvador|Saint Martin|2026-11-18": {
+"city": "San Salvador",
+"country": "El Salvador",
+"neutral": false,
+"id": "401929764"
+},
+"Mexico|Jamaica|2026-11-18": {
+"city": "Guadalupe",
+"country": "Mexico",
+"neutral": false,
+"id": "401929763"
+},
+"Nicaragua|Montserrat|2026-11-18": {
+"city": "Estadio Nacional de Fútbol",
+"country": "Nicaragua",
+"neutral": false,
+"id": "401929703"
+},
+"Ghana|Somalia|2026-11-12": {
+"city": "",
+"country": "",
+"neutral": false,
+"id": "401927214"
+},
+"DR Congo|Sierra Leone|2026-11-12": {
+"city": "Kinshasa",
+"country": "Congo",
+"neutral": false,
+"id": "401927211"
+},
+"Equatorial Guinea|Zimbabwe|2026-11-12": {
+"city": "Yaoundé",
+"country": "Cameroon",
+"neutral": true,
+"id": "401927210"
+},
+"Madagascar|Guinea-Bissau|2026-11-12": {
+"city": "Meknès",
+"country": "Morocco",
+"neutral": true,
+"id": "401927184"
+},
+"Guinea|Eritrea|2026-11-12": {
+"city": "Conakry",
+"country": "Guinea",
+"neutral": false,
+"id": "401927189"
+},
+"Benin|Central African Republic|2026-11-12": {
+"city": "Abidjan",
+"country": "Ivory Coast",
+"neutral": true,
+"id": "401927209"
+},
+"Cameroon|Namibia|2026-11-12": {
+"city": "Japoma",
+"country": "Cameroon",
+"neutral": false,
+"id": "401927207"
+},
+"Ivory Coast|Gambia|2026-11-12": {
+"city": "Bouaké",
+"country": "Ivory Coast",
+"neutral": false,
+"id": "401927213"
+},
+"Senegal|Sudan|2026-11-12": {
+"city": "Dakar",
+"country": "Senegal",
+"neutral": false,
+"id": "401927202"
+},
+"Comoros|Congo|2026-11-13": {
+"city": "Iconi",
+"country": "Comoros",
+"neutral": false,
+"id": "401927206"
+},
+"Mozambique|Ethiopia|2026-11-13": {
+"city": "Maputo",
+"country": "Mozambique",
+"neutral": false,
+"id": "401927187"
+},
+"Zambia|Burundi|2026-11-13": {
+"city": "Ndola",
+"country": "Zambia",
+"neutral": false,
+"id": "401927203"
+},
+"Burkina Faso|Mauritania|2026-11-13": {
+"city": "Ouagadougou",
+"country": "Burkina Faso",
+"neutral": false,
+"id": "401927208"
+},
+"Cape Verde|Liberia|2026-11-13": {
+"city": "Praia",
+"country": "Cape Verde",
+"neutral": false,
+"id": "401927186"
+},
+"Gabon|Lesotho|2026-11-13": {
+"city": "Franceville",
+"country": "Gabon",
+"neutral": false,
+"id": "401927192"
+},
+"Nigeria|Tanzania|2026-11-13": {
+"city": "Uyo",
+"country": "Nigeria",
+"neutral": false,
+"id": "401927183"
+},
+"South Africa|Kenya|2026-11-13": {
+"city": "Johannesburg",
+"country": "South Africa",
+"neutral": false,
+"id": "401927212"
+},
+"Tunisia|Libya|2026-11-13": {
+"city": "Sfax",
+"country": "Tunisia",
+"neutral": false,
+"id": "401927205"
+},
+"Egypt|Malawi|2026-11-13": {
+"city": "Cairo",
+"country": "Egypt",
+"neutral": false,
+"id": "401927190"
+},
+"Mali|Rwanda|2026-11-13": {
+"city": "Bamako",
+"country": "Mali",
+"neutral": false,
+"id": "401927185"
+},
+"Morocco|Niger|2026-11-13": {
+"city": "Casablanca",
+"country": "Morocco",
+"neutral": false,
+"id": "401927191"
+},
+"Uganda|Botswana|2026-11-14": {
+"city": "Hoima",
+"country": "Uganda",
+"neutral": false,
+"id": "401927188"
+},
+"Algeria|Togo|2026-11-14": {
+"city": "Tizi Ouzou",
+"country": "Algeria",
+"neutral": false,
+"id": "401927204"
+},
+"Angola|South Sudan|2026-11-14": {
+"city": "Estádio 11 de Novembro",
+"country": "Angola",
+"neutral": false,
+"id": "401927215"
+},
+"Namibia|Cameroon|2026-11-16": {
+"city": "Gaborone",
+"country": "Botswana",
+"neutral": true,
+"id": "401927170"
+},
+"Sudan|Senegal|2026-11-16": {
+"city": "Juba National Stadium",
+"country": "South Sudan",
+"neutral": false,
+"id": "401927135"
+},
+"Zimbabwe|Equatorial Guinea|2026-11-16": {
+"city": "Harare",
+"country": "Zimbabwe",
+"neutral": false,
+"id": "401927173"
+},
+"Somalia|Ghana|2026-11-16": {
+"city": "",
+"country": "Ghana",
+"neutral": true,
+"id": "401927177"
+},
+"Central African Republic|Benin|2026-11-16": {
+"city": "Japoma",
+"country": "Cameroon",
+"neutral": true,
+"id": "401927172"
+},
+"Eritrea|Guinea|2026-11-16": {
+"city": "Cairo",
+"country": "Egypt",
+"neutral": true,
+"id": "401927176"
+},
+"Burundi|Zambia|2026-11-17": {
+"city": "Bujumbura",
+"country": "Burundi",
+"neutral": false,
+"id": "401927169"
+},
+"Ethiopia|Mozambique|2026-11-17": {
+"city": "Bahir Dar",
+"country": "Ethiopia",
+"neutral": false,
+"id": "401927168"
+},
+"Lesotho|Gabon|2026-11-17": {
+"city": "Polokwane",
+"country": "South Africa",
+"neutral": true,
+"id": "401927181"
+},
+"Malawi|Egypt|2026-11-17": {
+"city": "Lilongwe",
+"country": "Malawi",
+"neutral": false,
+"id": "401927179"
+},
+"South Sudan|Angola|2026-11-17": {
+"city": "Juba National Stadium",
+"country": "South Sudan",
+"neutral": false,
+"id": "401927178"
+},
+"Tanzania|Nigeria|2026-11-17": {
+"city": "Amaan Stadium",
+"country": "Tanzania",
+"neutral": false,
+"id": "401927165"
+},
+"Gambia|Ivory Coast|2026-11-17": {
+"city": "Kanifing",
+"country": "Gambia",
+"neutral": false,
+"id": "401927182"
+},
+"Guinea-Bissau|Madagascar|2026-11-17": {
+"city": "Bissau",
+"country": "Guinea-Bissau",
+"neutral": false,
+"id": "401927166"
+},
+"Kenya|South Africa|2026-11-17": {
+"city": "Nairobi",
+"country": "Kenya",
+"neutral": false,
+"id": "401927175"
+},
+"Libya|Tunisia|2026-11-17": {
+"city": "Tripoli",
+"country": "Libya",
+"neutral": false,
+"id": "401927137"
+},
+"Sierra Leone|DR Congo|2026-11-17": {
+"city": "Casablanca",
+"country": "Morocco",
+"neutral": true,
+"id": "401927174"
+},
+"Togo|Algeria|2026-11-17": {
+"city": "Stade de Kégué",
+"country": "Togo",
+"neutral": false,
+"id": "401927136"
+},
+"Botswana|Uganda|2026-11-17": {
+"city": "Gaborone",
+"country": "Botswana",
+"neutral": false,
+"id": "401927138"
+},
+"Congo|Comoros|2026-11-17": {
+"city": "Brazzaville",
+"country": "Congo",
+"neutral": false,
+"id": "401927139"
+},
+"Liberia|Cape Verde|2026-11-17": {
+"city": "Monrovia",
+"country": "Liberia",
+"neutral": false,
+"id": "401927167"
+},
+"Mauritania|Burkina Faso|2026-11-17": {
+"city": "Nouakchott",
+"country": "Mauritania",
+"neutral": false,
+"id": "401927171"
+},
+"Rwanda|Mali|2026-11-17": {
+"city": "Kigali",
+"country": "Rwanda",
+"neutral": false,
+"id": "401927134"
+},
+"Niger|Morocco|2026-11-17": {
+"city": "Rabat",
+"country": "Morocco",
+"neutral": true,
+"id": "401927180"
+}
+},
+"202610": {
+"Maldives|Lebanon|2026-10-01": {
+"city": "Bishkek",
+"country": "Kyrgyzstan",
+"neutral": true,
+"id": "401919420"
+},
+"Uzbekistan|Syria|2026-10-01": {
+"city": "Tashkent",
+"country": "Uzbekistan",
+"neutral": false,
+"id": "401921570"
+},
+"South Korea|Venezuela|2026-10-02": {
+"city": "Ulsan",
+"country": "South Korea",
+"neutral": false,
+"id": "401902634"
+},
+"China|Palestine|2026-10-02": {
+"city": "Chongqing",
+"country": "China",
+"neutral": false,
+"id": "401914141"
+},
+"DR Congo|Uganda|2026-10-02": {
+"city": "",
+"country": "",
+"neutral": false,
+"id": "401918509"
+},
+"Mauritius|Sri Lanka|2026-10-02": {
+"city": "Saint Pierre",
+"country": "Mauritius",
+"neutral": false,
+"id": "401923178"
+},
+"Colombia|Paraguay|2026-10-03": {
+"city": "Harrison, New Jersey",
+"country": "United States",
+"neutral": true,
+"id": "401913267"
+},
+"Fiji|Vanuatu|2026-10-03": {
+"city": "Suva",
+"country": "Fiji",
+"neutral": false,
+"id": "401927444"
+},
+"Sri Lanka|Djibouti|2026-10-03": {
+"city": "",
+"country": "",
+"neutral": false,
+"id": "401912238"
+},
+"India|Brazil|2026-10-03": {
+"city": "Kolkata",
+"country": "India",
+"neutral": false,
+"id": "401903233"
+},
+"Russia|Namibia|2026-10-03": {
+"city": "Ekaterinburg",
+"country": "Russia",
+"neutral": false,
+"id": "401917862"
+},
+"Canada|Peru|2026-10-03": {
+"city": "Montreal",
+"country": "Canada",
+"neutral": false,
+"id": "401900325"
+},
+"Ivory Coast|Cameroon|2026-10-03": {
+"city": "Abidjan",
+"country": "Ivory Coast",
+"neutral": false,
+"id": "401917861"
+},
+"Tunisia|Mali|2026-10-03": {
+"city": "Hammadi Agrebi Stadium",
+"country": "Tunisia",
+"neutral": false,
+"id": "401916228"
+},
+"Argentina|Burkina Faso|2026-10-04": {
+"city": "Buenos Aires",
+"country": "Argentina",
+"neutral": false,
+"id": "401921544"
+},
+"United States|Mexico|2026-10-04": {
+"city": "Glendale, Arizona",
+"country": "United States",
+"neutral": false,
+"id": "401905202"
+},
+"Comoros|Senegal|2026-10-04": {
+"city": "Marseille",
+"country": "France",
+"neutral": true,
+"id": "401922038"
+},
+"Kyrgyzstan|Lebanon|2026-10-04": {
+"city": "Bishkek",
+"country": "Kyrgyzstan",
+"neutral": false,
+"id": "401921339"
+},
+"Egypt|South Africa|2026-10-04": {
+"city": "Cairo",
+"country": "Egypt",
+"neutral": false,
+"id": "401916425"
+},
+"Morocco|Mali|2026-10-04": {
+"city": "Tanger",
+"country": "Morocco",
+"neutral": false,
+"id": "401922273"
+},
+"Bolivia|Gambia|2026-10-04": {
+"city": "Santa Cruz",
+"country": "Bolivia",
+"neutral": false,
+"id": "401925303"
+},
+"Uganda|DR Congo|2026-10-05": {
+"city": "Johannesburg",
+"country": "South Africa",
+"neutral": true,
+"id": "401918508"
+},
+"Mauritius|Sri Lanka|2026-10-05": {
+"city": "Saint Pierre",
+"country": "Mauritius",
+"neutral": false,
+"id": "401912454"
+},
+"Rwanda|Kenya|2026-10-05": {
+"city": "Kigali",
+"country": "Rwanda",
+"neutral": false,
+"id": "401928087"
+},
+"Liechtenstein|Gibraltar|2026-10-05": {
+"city": "Vaduz",
+"country": "Liechtenstein",
+"neutral": false,
+"id": "401896386"
+},
+"South Korea|Uzbekistan|2026-10-06": {
+"city": "Gyeonggi-do",
+"country": "South Korea",
+"neutral": false,
+"id": "401902245"
+},
+"China|Tajikistan|2026-10-06": {
+"city": "Chongqing",
+"country": "China",
+"neutral": false,
+"id": "401914140"
+},
+"India|Uruguay|2026-10-06": {
+"city": "Kolkata",
+"country": "India",
+"neutral": false,
+"id": "401914357"
+},
+"Russia|Nigeria|2026-10-06": {
+"city": "Nizhny Novgorod",
+"country": "Russia",
+"neutral": false,
+"id": "401917360"
+},
+"Algeria|Niger|2026-10-06": {
+"city": "Tizi Ouzou",
+"country": "Algeria",
+"neutral": false,
+"id": "401917261"
+},
+"Jordan|Venezuela|2026-10-06": {
+"city": "Amman",
+"country": "Jordan",
+"neutral": false,
+"id": "401919976"
+},
+"Argentina|Benin|2026-10-06": {
+"city": "Buenos Aires",
+"country": "Argentina",
+"neutral": false,
+"id": "401921408"
+},
+"Colombia|Peru|2026-10-06": {
+"city": "Miami, Florida",
+"country": "United States",
+"neutral": true,
+"id": "401905332"
+},
+"United States|Canada|2026-10-07": {
+"city": "Saint Paul, Minnesota",
+"country": "United States",
+"neutral": false,
+"id": "401905188"
+},
+"Mexico|Chile|2026-10-07": {
+"city": "Los Angeles, California",
+"country": "United States",
+"neutral": true,
+"id": "401903298"
+},
+"Azerbaijan|Liechtenstein|2026-10-01": {
+"city": "Baku",
+"country": "Azerbaijan",
+"neutral": false,
+"id": "401861093"
+},
+"Denmark|Portugal|2026-10-01": {
+"city": "Copenhagen",
+"country": "Denmark",
+"neutral": false,
+"id": "401861096"
+},
+"Germany|Serbia|2026-10-01": {
+"city": "München",
+"country": "Germany",
+"neutral": false,
+"id": "401861097"
+},
+"Greece|Netherlands|2026-10-01": {
+"city": "Thessaloniki",
+"country": "Greece",
+"neutral": false,
+"id": "401861098"
+},
+"Israel|Kosovo|2026-10-01": {
+"city": "Debrecen",
+"country": "Hungary",
+"neutral": true,
+"id": "401861095"
+},
+"Malta|Gibraltar|2026-10-01": {
+"city": "Attard",
+"country": "Malta",
+"neutral": false,
+"id": "401861099"
+},
+"Republic of Ireland|Austria|2026-10-01": {
+"city": "Dublin",
+"country": "",
+"neutral": false,
+"id": "401861094"
+},
+"Wales|Norway|2026-10-01": {
+"city": "Cardiff",
+"country": "Wales",
+"neutral": false,
+"id": "401861100"
+},
+"Kazakhstan|Moldova|2026-10-02": {
+"city": "Astana",
+"country": "Kazakhstan",
+"neutral": false,
+"id": "401861101"
+},
+"Cyprus|Armenia|2026-10-02": {
+"city": "Nicosia",
+"country": "Cyprus",
+"neutral": false,
+"id": "401861104"
+},
+"Latvia|Montenegro|2026-10-02": {
+"city": "Riga",
+"country": "Latvia",
+"neutral": false,
+"id": "401861105"
+},
+"Belgium|Turkey|2026-10-02": {
+"city": "Liege",
+"country": "Belgium",
+"neutral": false,
+"id": "401861109"
+},
+"Bosnia and Herzegovina|Sweden|2026-10-02": {
+"city": "Zenica",
+"country": "Bosnia and Herzegovina",
+"neutral": false,
+"id": "401861107"
+},
+"Faroe Islands|Slovakia|2026-10-02": {
+"city": "Tórshavn",
+"country": "Faroe Islands",
+"neutral": false,
+"id": "401861110"
+},
+"France|Italy|2026-10-02": {
+"city": "Saint-Denis",
+"country": "France",
+"neutral": false,
+"id": "401861103"
+},
+"Hungary|Georgia|2026-10-02": {
+"city": "Budapest",
+"country": "Hungary",
+"neutral": false,
+"id": "401861102"
+},
+"Poland|Romania|2026-10-02": {
+"city": "Warsaw",
+"country": "Poland",
+"neutral": false,
+"id": "401861108"
+},
+"Ukraine|Northern Ireland|2026-10-02": {
+"city": "Trnava",
+"country": "Slovakia",
+"neutral": true,
+"id": "401861106"
+},
+"Finland|Albania|2026-10-03": {
+"city": "Helsinki",
+"country": "Finland",
+"neutral": false,
+"id": "401861111"
+},
+"Belarus|San Marino|2026-10-03": {
+"city": "Budapest",
+"country": "Hungary",
+"neutral": true,
+"id": "401861114"
+},
+"Croatia|England|2026-10-03": {
+"city": "Rijeka",
+"country": "Croatia",
+"neutral": false,
+"id": "401861113"
+},
+"Estonia|Luxembourg|2026-10-03": {
+"city": "Tallinn",
+"country": "Estonia",
+"neutral": false,
+"id": "401861115"
+},
+"Iceland|Bulgaria|2026-10-03": {
+"city": "Reykjavik",
+"country": "Iceland",
+"neutral": false,
+"id": "401861112"
+},
+"North Macedonia|Scotland|2026-10-03": {
+"city": "Skopje",
+"country": "North Macedonia",
+"neutral": false,
+"id": "401861116"
+},
+"Spain|Czech Republic|2026-10-03": {
+"city": "Oviedo",
+"country": "Spain",
+"neutral": false,
+"id": "401861118"
+},
+"Switzerland|Slovenia|2026-10-03": {
+"city": "Luzern",
+"country": "Switzerland",
+"neutral": false,
+"id": "401861117"
+},
+"Azerbaijan|Lithuania|2026-10-04": {
+"city": "Baku",
+"country": "Azerbaijan",
+"neutral": false,
+"id": "401861119"
+},
+"Kosovo|Austria|2026-10-04": {
+"city": "Prishtina",
+"country": "Kosovo",
+"neutral": false,
+"id": "401861121"
+},
+"Malta|Andorra|2026-10-04": {
+"city": "Attard",
+"country": "Malta",
+"neutral": false,
+"id": "401861120"
+},
+"Greece|Germany|2026-10-04": {
+"city": "Thessaloniki",
+"country": "Greece",
+"neutral": false,
+"id": "401861123"
+},
+"Netherlands|Serbia|2026-10-04": {
+"city": "Eindhoven",
+"country": "Netherlands",
+"neutral": false,
+"id": "401861122"
+},
+"Portugal|Norway|2026-10-04": {
+"city": "Porto",
+"country": "Portugal",
+"neutral": false,
+"id": "401861126"
+},
+"Republic of Ireland|Israel|2026-10-04": {
+"city": "Backa Topola",
+"country": "Serbia",
+"neutral": true,
+"id": "401861124"
+},
+"Wales|Denmark|2026-10-04": {
+"city": "Cardiff",
+"country": "Wales",
+"neutral": false,
+"id": "401861125"
+},
+"Cyprus|Latvia|2026-10-05": {
+"city": "Nicosia",
+"country": "Cyprus",
+"neutral": false,
+"id": "401861127"
+},
+"Bosnia and Herzegovina|Poland|2026-10-05": {
+"city": "Zenica",
+"country": "Bosnia and Herzegovina",
+"neutral": false,
+"id": "401861133"
+},
+"France|Belgium|2026-10-05": {
+"city": "Saint-Denis",
+"country": "France",
+"neutral": false,
+"id": "401861129"
+},
+"Italy|Turkey|2026-10-05": {
+"city": "Bologna",
+"country": "Italy",
+"neutral": false,
+"id": "401861131"
+},
+"Montenegro|Armenia|2026-10-05": {
+"city": "Podgorica",
+"country": "Montenegro",
+"neutral": false,
+"id": "401861130"
+},
+"Northern Ireland|Georgia|2026-10-05": {
+"city": "Belfast",
+"country": "Northern Ireland",
+"neutral": false,
+"id": "401861132"
+},
+"Romania|Sweden|2026-10-05": {
+"city": "Bucuresti",
+"country": "Romania",
+"neutral": false,
+"id": "401861128"
+},
+"Ukraine|Hungary|2026-10-05": {
+"city": "Trnava",
+"country": "Slovakia",
+"neutral": true,
+"id": "401861134"
+},
+"Kazakhstan|Faroe Islands|2026-10-06": {
+"city": "Astana",
+"country": "Kazakhstan",
+"neutral": false,
+"id": "401861135"
+},
+"Albania|San Marino|2026-10-06": {
+"city": "Tirana",
+"country": "Albania",
+"neutral": false,
+"id": "401861140"
+},
+"Belarus|Finland|2026-10-06": {
+"city": "Budapest",
+"country": "Hungary",
+"neutral": true,
+"id": "401861138"
+},
+"Croatia|Spain|2026-10-06": {
+"city": "Split",
+"country": "Croatia",
+"neutral": false,
+"id": "401861137"
+},
+"England|Czech Republic|2026-10-06": {
+"city": "London",
+"country": "England",
+"neutral": false,
+"id": "401861142"
+},
+"Estonia|Iceland|2026-10-06": {
+"city": "Tallinn",
+"country": "Estonia",
+"neutral": false,
+"id": "401861136"
+},
+"Luxembourg|Bulgaria|2026-10-06": {
+"city": "Luxembourg City",
+"country": "Luxembourg",
+"neutral": false,
+"id": "401861141"
+},
+"Moldova|Slovakia|2026-10-06": {
+"city": "Chisinau",
+"country": "Moldova",
+"neutral": false,
+"id": "401861144"
+},
+"Scotland|Slovenia|2026-10-06": {
+"city": "Glasgow",
+"country": "Scotland",
+"neutral": false,
+"id": "401861143"
+},
+"Switzerland|North Macedonia|2026-10-06": {
+"city": "Luzern",
+"country": "Switzerland",
+"neutral": false,
+"id": "401861139"
+},
+"British Virgin Islands|Montserrat|2026-10-01": {
+"city": "Providenciales",
+"country": "Turks and Caicos Islands",
+"neutral": true,
+"id": "401900601"
+},
+"Dominica|Guyana|2026-10-01": {
+"city": "Mayagüez",
+"country": "Puerto Rico",
+"neutral": true,
+"id": "401900600"
+},
+"Curaçao|Trinidad and Tobago|2026-10-01": {
+"city": "Willemstad",
+"country": "Curaçao",
+"neutral": false,
+"id": "401900595"
+},
+"Anguilla|Antigua and Barbuda|2026-10-01": {
+"city": "North Sound",
+"country": "Antigua and Barbuda",
+"neutral": true,
+"id": "401900599"
+},
+"Cayman Islands|Puerto Rico|2026-10-02": {
+"city": "Mayagüez",
+"country": "Puerto Rico",
+"neutral": true,
+"id": "401900598"
+},
+"Dominican Republic|Haiti|2026-10-02": {
+"city": "Santo Domingo",
+"country": "Dominican Republic",
+"neutral": false,
+"id": "401900594"
+},
+"Nicaragua|Costa Rica|2026-10-02": {
+"city": "Estadio Nacional de Fútbol",
+"country": "Nicaragua",
+"neutral": false,
+"id": "401900596"
+},
+"Saint Lucia|Guadeloupe|2026-10-02": {
+"city": "BFA Technical Centre",
+"country": "Barbados",
+"neutral": true,
+"id": "401900593"
+},
+"Saint Kitts and Nevis|Cuba|2026-10-02": {
+"city": "Port of Spain",
+"country": "Trinidad and Tobago",
+"neutral": true,
+"id": "401900591"
+},
+"Suriname|Guatemala|2026-10-02": {
+"city": "Franklin Essed Stadion",
+"country": "Suriname",
+"neutral": false,
+"id": "401900603"
+},
+"Barbados|Bermuda|2026-10-03": {
+"city": "BFA Technical Centre",
+"country": "Barbados",
+"neutral": false,
+"id": "401900592"
+},
+"Bonaire|Grenada|2026-10-03": {
+"city": "Port of Spain",
+"country": "Trinidad and Tobago",
+"neutral": true,
+"id": "401900590"
+},
+"Martinique|Honduras|2026-10-03": {
+"city": "Stade Pierre-Aliker",
+"country": "Martinique",
+"neutral": false,
+"id": "401900604"
+},
+"El Salvador|Jamaica|2026-10-03": {
+"city": "San Salvador",
+"country": "El Salvador",
+"neutral": false,
+"id": "401900602"
+},
+"Sint Maarten|Saint Vincent and the Grenadines|2026-10-03": {
+"city": "FFB Stadium",
+"country": "Belize",
+"neutral": true,
+"id": "401900588"
+},
+"Belize|French Guiana|2026-10-04": {
+"city": "FFB Stadium",
+"country": "Belize",
+"neutral": false,
+"id": "401900589"
+},
+"Guyana|Dominica|2026-10-04": {
+"city": "Mayagüez",
+"country": "Puerto Rico",
+"neutral": true,
+"id": "401900584"
+},
+"Turks and Caicos Islands|British Virgin Islands|2026-10-04": {
+"city": "Providenciales",
+"country": "Turks and Caicos Islands",
+"neutral": false,
+"id": "401900587"
+},
+"Puerto Rico|Cayman Islands|2026-10-04": {
+"city": "Mayagüez",
+"country": "Puerto Rico",
+"neutral": false,
+"id": "401900583"
+},
+"Trinidad and Tobago|Curaçao|2026-10-04": {
+"city": "Port of Spain",
+"country": "Trinidad and Tobago",
+"neutral": false,
+"id": "401900574"
+},
+"Aruba|Anguilla|2026-10-04": {
+"city": "North Sound",
+"country": "Antigua and Barbuda",
+"neutral": true,
+"id": "401900586"
+},
+"Costa Rica|Haiti|2026-10-05": {
+"city": "Estadio Nacional de Costa Rica",
+"country": "Costa Rica",
+"neutral": false,
+"id": "401900575"
+},
+"Nicaragua|Dominican Republic|2026-10-05": {
+"city": "Estadio Nacional de Fútbol",
+"country": "Nicaragua",
+"neutral": false,
+"id": "401900573"
+},
+"Guadeloupe|Saint Lucia|2026-10-05": {
+"city": "BFA Technical Centre",
+"country": "Barbados",
+"neutral": true,
+"id": "401900579"
+},
+"Cuba|Saint Kitts and Nevis|2026-10-05": {
+"city": "Port of Spain",
+"country": "Trinidad and Tobago",
+"neutral": true,
+"id": "401900577"
+},
+"Martinique|El Salvador|2026-10-05": {
+"city": "Stade Pierre-Aliker",
+"country": "Martinique",
+"neutral": false,
+"id": "401900580"
+},
+"Bermuda|Barbados|2026-10-06": {
+"city": "BFA Technical Centre",
+"country": "Barbados",
+"neutral": true,
+"id": "401900578"
+},
+"Grenada|Bonaire|2026-10-06": {
+"city": "Port of Spain",
+"country": "Trinidad and Tobago",
+"neutral": true,
+"id": "401900576"
+},
+"Guatemala|Suriname|2026-10-06": {
+"city": "Estadio Cementos Progreso",
+"country": "Guatemala",
+"neutral": false,
+"id": "401900581"
+},
+"Honduras|Jamaica|2026-10-06": {
+"city": "Estadio Nacional Chelato Uclés",
+"country": "Honduras",
+"neutral": false,
+"id": "401900582"
+},
+"Montserrat|Turks and Caicos Islands|2026-10-06": {
+"city": "Providenciales",
+"country": "Turks and Caicos Islands",
+"neutral": true,
+"id": "401900572"
+},
+"Saint Martin|Bahamas|2026-10-06": {
+"city": "Christiansted",
+"country": "US Virgin Islands",
+"neutral": true,
+"id": "401900570"
+},
+"Saint Vincent and the Grenadines|Sint Maarten|2026-10-06": {
+"city": "FFB Stadium",
+"country": "Belize",
+"neutral": true,
+"id": "401900568"
+},
+"Antigua and Barbuda|Aruba|2026-10-06": {
+"city": "North Sound",
+"country": "Antigua and Barbuda",
+"neutral": false,
+"id": "401900571"
+},
+"French Guiana|Belize|2026-10-07": {
+"city": "FFB Stadium",
+"country": "Belize",
+"neutral": true,
+"id": "401900569"
+},
+"Guinea|Kenya|2026-10-01": {
+"city": "Conakry",
+"country": "Guinea",
+"neutral": false,
+"id": "401919997"
+},
+"Angola|Malawi|2026-10-06": {
+"city": "Estádio 11 de Novembro",
+"country": "Angola",
+"neutral": false,
+"id": "401919990"
+}
+}
+}

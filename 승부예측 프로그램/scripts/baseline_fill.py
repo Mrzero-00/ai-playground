@@ -153,7 +153,15 @@ def main():
     names = sb.load_names(); cache = {}
     now = dt.datetime.now(sb.KST)
     n = skip_lg = 0
+    SOC_TAGS = ("pi-rating 기준선 자동", "국가대표 Elo 기준선 자동")
     for r in rows:
+        # 2026-11-17: --refresh 가 축구·국가대표 행을 되찾지 못했다(농구만 됐다) — Elo 에 새 결과를 먹인 뒤에도
+        # 아직 안 치른 자동 기준선 행이 옛 값으로 남았다(136회 11/18 오전 6경기). 결과가 없는 자동 행만 비우고 다시 채운다.
+        if (getattr(a, "refresh", False) and r["종목"] == "축구" and r.get("순수_승") and r.get("깊이") == "기준선"
+                and not (r.get("결과") or "").strip() and any(t in (r.get("핵심근거") or "") for t in SOC_TAGS)
+                and (not a.round or r["회차"] == str(a.round))):
+            r["순수_승"] = r["순수_무"] = r["순수_패"] = ""
+            r["핵심근거"] = " / ".join(x.strip() for x in r["핵심근거"].split(" / ") if not any(t in x for t in SOC_TAGS))
         if r["종목"] != "축구" or r.get("순수_승") or (a.round and r["회차"] != str(a.round)):
             continue
         if not a.all and r.get("결과") not in ("승", "무", "패", "", "예정"):
@@ -165,7 +173,15 @@ def main():
             if intl:
                 # 국가대표 Elo(2026-11-12). 경기일 '전'까지의 결과만 쓴다. 중립 여부는 기록에 없어 홈으로 둔다.
                 t = (r.get("시각") or "").strip()
-                b = ib.baseline(r["홈"], r["원정"], date=t[:10] if len(t) >= 10 and t[4] == "-" else _match_date(r))
+                # 2026-11-17: ESPN 점수판의 경기장 나라가 홈팀 나라와 다르면 중립 기준선을 쓴다(실패하면 홈).
+                try:
+                    v = ib.venue(r["홈"], r["원정"], t)
+                except Exception:
+                    v = None
+                b = ib.baseline(r["홈"], r["원정"], neutral=bool(v and v["neutral"]),
+                                date=t[:10] if len(t) >= 10 and t[4] == "-" else _match_date(r))
+                if b and v and v["neutral"]:
+                    r["비고"] = ((r.get("비고") or "") + f" | 중립 기준선(ESPN 경기장: {v['city']}, {v['country']})").strip(" |")
             else:
                 b = sb.row_baseline(r, names, cache, now)
         except Exception:
@@ -174,7 +190,7 @@ def main():
             continue
         if intl:
             r["핵심근거"] = (r.get("핵심근거") or "") or (f"국가대표 Elo 기준선 자동({dt.date.today()}, Elo {b['elo_h']:.0f}-{b['elo_a']:.0f})"
-                                                     " — 선수단·결장·중립 여부 반영 없음, 방향 기록용")
+                                                     " — 선수단·결장 반영 없음(개최지는 ESPN 경기장으로 자국/중립 판정), 방향 기록용")
         r["순수_승"], r["순수_무"], r["순수_패"] = round(b["승"] * 100, 1), round(b["무"] * 100, 1), round(b["패"] * 100, 1)
         # 1·2순위 차가 10%p 미만이면 기준선이 **방향을 형성하지 못한** 것이다 (2026-10-23 125회 회고).
         # 실측: 깊이=기준선 × 차<10%p 29건 17.2% · 차 20%p+ 57.9%. 확률의 절대값은 비단조라 못 쓰지만

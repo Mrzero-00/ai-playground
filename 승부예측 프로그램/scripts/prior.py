@@ -226,7 +226,8 @@ def cmd_report(a):
                 paired("   └ 리그", [x for x in now if x[0].get("종목") == "축구" and not ib.is_intl(x[0])])
         except Exception:
             pass
-        nb = sum(1 for g in gs if _day(g) >= "2026-11-02") - len(now)
+        _mk = __import__("matchkey").key      # 같은 경기를 두 번 세지 않는다(전에는 회차 중복까지 세어 158 로 찍혔다)
+        nb = len({_mk(g) for g in gs if _day(g) >= "2026-11-02"} - {_mk(x[0]) for x in now})
         if nb:
             print(f"   (11-02 이후 분석 {nb}경기는 재현 가능한 기준선이 없어 빠졌다 — "
                   "유럽대항전·컵·농구·배구·야구·이름 매핑 없는 국가대표. 이 경기들은 방향 적중률만 따로 본다)")

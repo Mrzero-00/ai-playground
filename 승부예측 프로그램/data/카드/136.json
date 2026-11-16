@@ -14,24 +14,34 @@
   ],
   "시각": "11-17 10:00",
   "리그": "CONCACAF 네이션스리그",
-  "toto": null
+  "toto": null,
+  "개최지": {
+   "city": "Toronto",
+   "country": "Canada",
+   "neutral": false
+  }
  },
  "4447": {
   "홈": "중국",
   "원정": "바레인",
   "h": [
-   54.2,
-   27.1,
-   18.7
+   53.0,
+   27.5,
+   19.5
   ],
   "n": [
-   38.8,
-   31.1,
-   30.0
+   37.6,
+   31.3,
+   31.1
   ],
   "시각": "11-17 21:00",
   "리그": "남자축구 국제친선경기",
-  "toto": null
+  "toto": null,
+  "개최지": {
+   "city": "Zhaoqing",
+   "country": "China",
+   "neutral": false
+  }
  },
  "4451": {
   "홈": "일본",
@@ -48,7 +58,12 @@
   ],
   "시각": "11-17 22:10",
   "리그": "남자축구 국제친선경기",
-  "toto": null
+  "toto": null,
+  "개최지": {
+   "city": "Singapore",
+   "country": "Singapore",
+   "neutral": true
+  }
  },
  "4455": {
   "홈": "카타르",
@@ -68,7 +83,12 @@
   "toto": [
    "승무패69",
    "8"
-  ]
+  ],
+  "개최지": {
+   "city": "Ar-Rayyan",
+   "country": "Qatar",
+   "neutral": false
+  }
  },
  "4463": {
   "홈": "이스라엘",
@@ -85,7 +105,12 @@
   ],
   "시각": "11-18 04:45",
   "리그": "UEFA 네이션스리그",
-  "toto": null
+  "toto": null,
+  "개최지": {
+   "city": "Debrecen",
+   "country": "Hungary",
+   "neutral": true
+  }
  },
  "4467": {
   "홈": "보스니아 헤르체고비나",
@@ -105,7 +130,12 @@
   "toto": [
    "승무패69",
    "9"
-  ]
+  ],
+  "개최지": {
+   "city": "Zenica",
+   "country": "Bosnia and Herzegovina",
+   "neutral": false
+  }
  },
  "4471": {
   "홈": "우크라이나",
@@ -125,7 +155,12 @@
   "toto": [
    "승무패69",
    "10"
-  ]
+  ],
+  "개최지": {
+   "city": "Kosice",
+   "country": "Slovakia",
+   "neutral": true
+  }
  },
  "4475": {
   "홈": "덴마크",
@@ -145,7 +180,12 @@
   "toto": [
    "승무패69",
    "11"
-  ]
+  ],
+  "개최지": {
+   "city": "Copenhagen",
+   "country": "Denmark",
+   "neutral": false
+  }
  },
  "4479": {
   "홈": "웨일스",
@@ -162,7 +202,12 @@
   ],
   "시각": "11-18 04:45",
   "리그": "UEFA 네이션스리그",
-  "toto": null
+  "toto": null,
+  "개최지": {
+   "city": "Cardiff",
+   "country": "Wales",
+   "neutral": false
+  }
  },
  "4485": {
   "홈": "헝가리",
@@ -182,7 +227,12 @@
   "toto": [
    "승무패69",
    "12"
-  ]
+  ],
+  "개최지": {
+   "city": "Budapest",
+   "country": "Hungary",
+   "neutral": false
+  }
  },
  "4489": {
   "홈": "폴란드",
@@ -202,7 +252,12 @@
   "toto": [
    "승무패69",
    "13"
-  ]
+  ],
+  "개최지": {
+   "city": "Wroclaw",
+   "country": "Poland",
+   "neutral": false
+  }
  },
  "4493": {
   "홈": "아일랜드공화국",
@@ -222,7 +277,8 @@
   "toto": [
    "승무패69",
    "14"
-  ]
+  ],
+  "개최지": null
  },
  "4336": {
   "홈": "아르헨티나",
@@ -239,7 +295,12 @@
   ],
   "시각": "11-18 08:00",
   "리그": "남자축구 국제친선경기",
-  "toto": null
+  "toto": null,
+  "개최지": {
+   "city": "Córdoba",
+   "country": "Argentina",
+   "neutral": false
+  }
  },
  "4497": {
   "홈": "칠레",
@@ -256,7 +317,12 @@
   ],
   "시각": "11-18 08:00",
   "리그": "남자축구 국제친선경기",
-  "toto": null
+  "toto": null,
+  "개최지": {
+   "city": "Santiago",
+   "country": "Chile",
+   "neutral": false
+  }
  },
  "4501": {
   "홈": "에콰도르",
@@ -273,7 +339,12 @@
   ],
   "시각": "11-18 08:30",
   "리그": "남자축구 국제친선경기",
-  "toto": null
+  "toto": null,
+  "개최지": {
+   "city": "Quito",
+   "country": "Ecuador",
+   "neutral": false
+  }
  },
  "4507": {
   "홈": "우루과이",
@@ -290,7 +361,12 @@
   ],
   "시각": "11-18 08:30",
   "리그": "남자축구 국제친선경기",
-  "toto": null
+  "toto": null,
+  "개최지": {
+   "city": "Maldonado",
+   "country": "Uruguay",
+   "neutral": false
+  }
  },
  "4513": {
   "홈": "미국",
@@ -307,7 +383,12 @@
   ],
   "시각": "11-18 09:00",
   "리그": "CONCACAF 네이션스리그",
-  "toto": null
+  "toto": null,
+  "개최지": {
+   "city": "Cincinnati, Ohio",
+   "country": "United States",
+   "neutral": false
+  }
  },
  "4531": {
   "홈": "멕시코",
@@ -324,6 +405,11 @@
   ],
   "시각": "11-18 11:30",
   "리그": "CONCACAF 네이션스리그",
-  "toto": null
+  "toto": null,
+  "개최지": {
+   "city": "Guadalupe",
+   "country": "Mexico",
+   "neutral": false
+  }
  }
 }

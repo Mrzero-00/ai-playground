@@ -69,6 +69,27 @@ def main():
     p = ib.probs(0.0)
     check("intl: 확률 합 1 · 동률이면 대칭", abs(sum(p) - 1) < 1e-9 and abs(p[0] - p[2]) < 1e-9)
 
+    check("intl: 중립 판정 — 제3국만 중립", ib._neutral("Hungary", "Israel") and not ib._neutral("Congo", "DR Congo")
+          and not ib._neutral("England", "Wales") and not ib._neutral("", "Germany"))
+    gh, ga = ib.goals(0.0)
+    check("intl: 득점식 — Elo 동률이면 양쪽 기대 득점이 같다", abs(gh - ga) < 0.01 and ib.goals(300)[0] > ib.goals(300)[1])
+
+    # 2026-11-17: 다리판단을 글머리로만 읽는다 — "가능 — 제외 기준 (a)~(d) 해당 없음" 을 제외로 읽은 적이 있다
+    import leg_flags as lf
+    check("leg_flags: '가능 — 제외 기준 …' 은 가능", lf.parse("가능 — 제외 기준 (a)~(d) 해당 없음")[:2] == ("가능", ""))
+    check("leg_flags: 제외 사유는 첫 문장에서만", lf.parse("제외권고 — (e) 감독이 로테이션 예고. 다만 (a)(d) 는 해당 없음")[:2] == ("제외", "e"))
+    check("leg_flags: 판정 없는 글은 버린다", lf.parse("확신 낮음") is None and lf.parse("") is None)
+
+    import matchkey
+    check("matchkey: 승무패 4자 약칭 = 프로토 전체 이름",
+          matchkey.key({"시각": "2026-11-17 04:45", "홈": "보스니아", "원정": "루마니아"})
+          == matchkey.key({"시각": "11-17 04:45", "홈": "보스니아 헤르체고비나", "원정": "루마니아"}))
+    check("matchkey: 같은 팀이라도 시각이 다르면 다른 경기",
+          matchkey.key({"시각": "11-17 04:45", "홈": "독일", "원정": "네덜란드"}) != matchkey.key({"시각": "11-14 04:45", "홈": "독일", "원정": "네덜란드"}))
+
+    import toto_marks as tm
+    check("toto_marks: 복수 마킹 읽기", tm.parse("1:승, 5:승/무,13:패/승") == {"1": ["승"], "5": ["승", "무"], "13": ["패", "승"]})
+
     print(f"\n{'전부 통과' if not FAIL else f'실패 {len(FAIL)}건: ' + ', '.join(FAIL)}")
     return 1 if FAIL else 0
 

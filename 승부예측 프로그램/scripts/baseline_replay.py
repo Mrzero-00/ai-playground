@@ -65,8 +65,29 @@ def build(all_=False):
     have = {(r["회차"], r["번호"]) for r in old}
     names, cache, add, miss = sb.load_names(), {}, [], 0
     today = dt.date.today().isoformat()
-    rows = [g for g in csv.DictReader(open(LOG, encoding="utf-8-sig"))
-            if g.get("종목") == "축구" and (g["회차"], g["번호"]) not in have]
+    allrows = [g for g in csv.DictReader(open(LOG, encoding="utf-8-sig")) if (g["회차"], g["번호"]) not in have]
+    rows = [g for g in allrows if g.get("종목") == "축구"]
+    # 2026-11-17: NBA 도 경기일 전 상태로 재현한다(nba_baseline.team_ratings(as_of) — baseline_fill 과 같은 호출).
+    try:
+        import baseline_fill as bf
+        nbc = {}
+        for g in allrows:
+            if g.get("리그") != "NBA":
+                continue
+            d = bf._match_date(g)
+            if not d:
+                miss += 1; continue
+            if d not in nbc:
+                with contextlib.redirect_stdout(io.StringIO()), contextlib.redirect_stderr(io.StringIO()):
+                    nbc[d] = bf.nb.team_ratings(d)
+            b = bf.nb.auto_baseline(bf.nb.espn_name(bf.T.en_name(g["홈"])), bf.nb.espn_name(bf.T.en_name(g["원정"])), d, ratings=nbc[d])
+            if not b:
+                miss += 1; continue
+            ph = b["p_home"]
+            add.append({"회차": g["회차"], "번호": g["번호"], "승": f"{ph:.1f}", "무": "0.0", "패": f"{100 - ph:.1f}",
+                        "1순위": "승" if ph >= 50 else "패", "계산일": today})
+    except Exception as ex:
+        print(f"(NBA 재현 건너뜀: {ex})")
     for g in rows:
         with contextlib.redirect_stdout(io.StringIO()), contextlib.redirect_stderr(io.StringIO()):
             try:

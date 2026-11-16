@@ -205,6 +205,8 @@ python3 scripts/replay.py 승무패 --md         # 지금 로직이면 과거를
 `leg_flags.py report`(분석가의 다리 가능/제외 판정이 맞았나) · `leg_flags.py motive`(동기 가설 장부, 결과 자동 채움).
 승무패 회차는 `round_log.py results 승무패NN` 이 프로토 회차의 결과·시장 값을 가져온다.
 `result_log.py pending` 은 분석한 경기(심층·가벼움)만 보여 준다(전부는 `--all`).
+`toto_marks.py report`(승무패 마킹 안별 채점) · `hold_log.py report`(내지 않은 조합의 결과)도 같이 본다. 추천할 때 마킹 안은 `toto_marks.py add`, 조건은 채웠지만 내지 않은 조합은 `hold_log.py add` 로 등록한다.
+`safe_picks.py --round` 는 시장·배당이 6시간 넘게 묵었으면 스스로 다시 받는다. 분석을 시작할 때 `direction_review.py due` 를 본다.
 그다음 `postmatch.py` → `process_grade.py --all` → `result_log.py pending/add/checklist` →
 `calib_report.py` → `factor_fit.py report` → `baseline_replay.py` → `prior.py report`(**★ 11-02 이후 줄만** 본 지표) → `replay.py 승무패`.
 **적중·실패를 둘 다 해부한다.** 실패는 가능/부분/불가, 적중은 근거대로/운.

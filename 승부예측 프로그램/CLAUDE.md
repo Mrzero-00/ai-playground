@@ -43,6 +43,9 @@ python3 scripts/baseline_replay.py      # 실제 기준선을 새 경기에 깐�
 python3 scripts/prior.py report         # ★ 줄(11-02 이후)만 본 지표. 그 앞은 시장을 본 분석이다
 python3 scripts/leg_flags.py report      # 다리 가능/제외 판정의 성적 (2026-11-17)
 python3 scripts/leg_flags.py motive      # 동기 가설 장부 — 결과 자동 채움
+python3 scripts/toto_marks.py report     # 승무패 마킹 안별 채점 (추천할 때 toto_marks.py add 로 등록)
+python3 scripts/hold_log.py report       # 조건은 채웠지만 내지 않은 조합 — 기권이 값을 했나
+python3 scripts/direction_review.py due  # 주간 방향 점검 차례인가(11/09 차례를 놓쳤다)
 ```
 - 2026-11-17 측정 보강: `baseline_replay` 가 국가대표 Elo 를 경기 전날 상태로 재현해 ★ 줄이 27 → 73경기가 됐다(63.0%, 기준선 대비 −2.7p ±5.5). 같은 경기를 가리는 키를 `matchkey.py` 로 통일했다 — 승무패는 팀명을 4자로 잘라 프로토 회차와 따로 세어지고 있었다.
 - **규칙은 큰 표본으로만 바꾼다**: 우리 기록 수십 경기에서 좋은 칸을 찾아 문턱을 옮기지 않는다(추천 규칙이 5번 바뀌는 동안 어느 것도 30다리를 못 채웠다). 새 선별 아이디어는 `baseline_lab.py --select`(5대 리그 7시즌)에서 **잔차**가 갈리는지 먼저 본다 — 적중률이 아니라 잔차다.
@@ -339,6 +342,7 @@ python3 scripts/leg_flags.py motive      # 동기 가설 장부 — 결과 자�
 
 ## 대화 인계 (사용자 지시 2026-11-17) — `대화인계.md`
 > "다른 PC에서도 동일한 대화를 기억하도록 해 주고, 분석·회고·추천 때마다 깃허브에 푸시만 잘해 줘."
+- 시작할 때 `python3 scripts/direction_review.py due` 도 본다 — 자동화를 없앤 뒤 주간 점검을 한 번 건너뛰었다.
 - 대화 기억은 PC마다 따로다. **분석·회고·추천을 시작할 때 `git pull` 다음에 `대화인계.md` 를 먼저 읽는다.**
 - **끝낼 때 `대화인계.md` 를 고친 뒤 커밋·푸시한다**: 사용자가 대화에서 말한 의견·가설·결정(구매 여부 포함), 진행 중인 회차, 다음에 할 일. 끝난 항목은 지운다.
 - 규칙·측정값은 이 파일과 `분석규칙.md` 가 원본이고, `대화인계.md` 는 대화에서만 오간 것을 담는다.

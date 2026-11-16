@@ -408,6 +408,45 @@ def cmd_backtest(a):
     return 0
 
 
+STALE_H = 6      # 남은 경기의 시장·배당 값이 이보다 묵었으면 다시 받는다
+
+
+def _fresh_market(a):
+    """남은 경기의 시장 확률·베트맨 배당이 묵었으면 `round_log.py market` 으로 다시 받는다 (2026-11-17).
+
+    후보 판정(시장 60%+·배당 1.2+)과 합계 배당이 전부 이 값에 걸려 있는데, 136회는 11/16 08:06 한 번 찍힌 값으로
+    11/17 재분석·추천 판단까지 했다(하루 묵은 포르투갈 1.36·한국 1.42 를 그대로 보고했다).
+    받지 못하면 조합 표 위에 경고를 남긴다. --no-refresh 로 끈다.
+    """
+    import datetime as _dt, subprocess
+    now = _dt.datetime.now()
+    ages = []
+    for r in csv.DictReader(open(LOG, encoding="utf-8-sig")):
+        if r["회차"] != str(a.round) or (r.get("결과") or "").strip() or not r.get("시장_승"):
+            continue
+        t = (r.get("시장시각") or "").split(" (")[0].strip()
+        try:
+            d = _dt.datetime.strptime(f"{now.year}-{t[-11:]}", "%Y-%m-%d %H:%M")
+        except ValueError:
+            continue
+        if d > now + _dt.timedelta(days=1):
+            d = d.replace(year=now.year - 1)
+        ages.append((now - d).total_seconds() / 3600)
+    if not ages or max(ages) < STALE_H:
+        return
+    if getattr(a, "no_refresh", False):
+        print(f"⚠ 남은 경기의 시장·배당 값이 최대 {max(ages):.0f}시간 묵었다(갱신 끔) — 후보·합계 배당이 실제와 다를 수 있다.")
+        return
+    r = subprocess.run([sys.executable, os.path.join(os.path.dirname(os.path.abspath(__file__)), "round_log.py"),
+                        "market", str(a.round)], capture_output=True, text=True)
+    tail = [x for x in (r.stdout + r.stderr).strip().splitlines() if "시장 확률" in x]
+    if tail:
+        print(f"(시장·배당 값이 최대 {max(ages):.0f}시간 묵어 다시 받음 — {tail[-1].strip()})")
+    else:
+        print(f"⚠ 시장·배당 값이 최대 {max(ages):.0f}시간 묵었는데 다시 받지 못했다 — 후보·합계 배당이 실제와 다를 수 있다. "
+              f"`python3 scripts/round_log.py market {a.round}` 를 다시 돌린다.")
+
+
 def cmd_pick(a):
     c = dict(DEF)
     if a.relax:
@@ -415,6 +454,7 @@ def cmd_pick(a):
     for k in ("mp", "odds", "draw"):
         if getattr(a, k) is not None:
             c[k] = getattr(a, k)
+    _fresh_market(a)
     G = rows(round_=a.round)
     if not G:
         print(f"{a.round}회에 조건을 볼 수 있는 분석 경기가 없다 "
@@ -541,6 +581,7 @@ def main():
     ap.add_argument("--backtest", action="store_true", help="근거 숫자를 다시 잰다")
     ap.add_argument("--forward", action="store_true", help="채택 이후 구간만으로 선별 성적을 잰다(전진 시험)")
     ap.add_argument("--md", action="store_true")
+    ap.add_argument("--no-refresh", dest="no_refresh", action="store_true", help="묵은 시장·배당 값을 다시 받지 않는다")
     ap.add_argument("--relax", action="store_true", help="시장 55%%+ · 내 무<26%% 로 완화")
     ap.add_argument("--mp", type=float, help="시장 1순위 확률 하한")
     ap.add_argument("--odds", type=float, help="배당 하한")

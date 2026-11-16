@@ -143,8 +143,10 @@ def main():
     jp = os.path.join(ROOT, "data", f"경기후_{rnd}.json")
     store = json.load(open(jp, encoding="utf-8")) if os.path.exists(jp) else {}
     now = dt.datetime.now(M.KST).strftime("%Y-%m-%d %H:%M")
+    import intl_baseline as ib
     for r in rows:
-        if r["번호"] in store:
+        # 2026-11-17: 국가대표 경기는 event 를 못 찾아 빈 채로 저장돼 있었다(심층 53경기 슈팅 자료 0) — 그런 행은 다시 찾는다.
+        if r["번호"] in store and (store[r["번호"]].get("event") or not ib.is_intl(r)):
             continue
         if r.get("리그") == "NBA":
             ko = M.kickoff(r["시각"], dt.datetime.now(M.KST))
@@ -173,6 +175,12 @@ def main():
                     if eid:
                         break
             eh, ea = aliases(r["홈"])[0], aliases(r["원정"])[0]
+            if not eid and ib.is_intl(r):
+                # 국가대표는 클럽 팀명표·리그 풀에 없다. ESPN 국가대표 점수판(intl_baseline.espn_venues)에서 event 를 찾는다.
+                try:
+                    eid = (ib.venue(r["홈"], r["원정"], r["시각"], want_id=True) or {}).get("id") or None
+                except Exception:
+                    eid = None
         g = {"경기": f"{r['홈']} - {r['원정']}", "점수": r["점수"], "event": eid, "수집": now, "홈": {}, "원정": {}}
         if eid:
             j = summary(eid) or {}

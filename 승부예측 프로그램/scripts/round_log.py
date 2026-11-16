@@ -490,7 +490,7 @@ def cmd_results(a):
                        and nsp(p["홈"]).startswith(nsp(r["홈"])) and nsp(p["원정"]).startswith(nsp(r["원정"]))), None)
             if not tw:
                 continue
-            if not r.get("시장_승") and tw.get("시장_승"):
+            if tw.get("시장_승") and (not r.get("시장_승") or (not r.get("결과") and tw.get("시장시각") != r.get("시장시각"))):
                 for k in ("시장_승", "시장_무", "시장_패", "시장시각"):
                     r[k] = tw.get(k, "")
                 m += 1

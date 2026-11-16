@@ -64,6 +64,18 @@ def probs(dr, b=None, c=None):
     return ph, 1 - ph - pa, pa
 
 
+GOAL = (0.151, 0.705, 0.149, -0.763)   # 기대 득점: 홈 λ = exp(a + b·dr/400), 원정 λ = exp(c + d·dr/400) — 2006~2019 포아송 적합
+
+
+def goals(dr):
+    """Elo 차(홈 이점 포함) → (홈 기대 득점, 원정 기대 득점). 2026-11-17.
+    시험 2020~ 6,579경기 평균 오차: 총득점 1.41골 · 득실차 1.32골(평균만 쓰면 1.44 · 1.66).
+    우리 국가대표 53경기에서 분석가 어림(1.42 · 1.47)과 사실상 같다(1.38 · 1.45) — 더 맞히려는 것이 아니라
+    예상점수를 사람 어림이 아닌 재현 가능한 값으로 두려는 것이다."""
+    a, b, c, d = GOAL
+    return math.exp(a + b * dr / 400), math.exp(c + d * dr / 400)
+
+
 _G = []
 
 
@@ -276,9 +288,7 @@ def espn_sync():
                 near.append((dd, pair))
                 adr = (c.get("venue") or {}).get("address") or {}
                 vc = ESPN_ALIAS.get(adr.get("country", ""), adr.get("country", ""))
-                uk = {"England", "Scotland", "Wales", "Northern Ireland"}
-                # 'Congo' ↔ 'DR Congo' 처럼 나라 이름이 서로 포함되면 같은 나라로 본다(중립으로 잘못 넣는 쪽이 더 나쁘다)
-                neu = bool(vc) and vc != h and vc not in h and h not in vc and not (vc in uk | {"United Kingdom"} and h in uk)
+                neu = _neutral(vc, h)
                 new.append(dict(zip(head, [e["date"][:10], h, a, side["home"]["score"], side["away"]["score"], tour,
                                            adr.get("city", ""), vc, "TRUE" if neu else "FALSE"])))
     rows = sorted(old + new, key=lambda r: r["date"])
@@ -293,6 +303,75 @@ def espn_sync():
     if fail:
         print("  조회 실패:", ", ".join(fail))
     return 0
+
+
+VENUES = os.path.join(ROOT, "data", "intl", "venues.json")
+_UK = {"England", "Scotland", "Wales", "Northern Ireland"}
+
+
+def _neutral(vc, h):
+    """경기장 나라 vc 가 홈팀 h 의 나라가 아닌가. 'Congo'↔'DR Congo' 처럼 서로 포함되면 같은 나라로 본다."""
+    return bool(vc) and vc != h and vc not in h and h not in vc and not (vc in _UK | {"United Kingdom"} and h in _UK)
+
+
+def espn_venues(months, refresh=False):
+    """ESPN 점수판의 (홈, 원정, 날짜) → 경기장. 예정 경기도 나온다. data/intl/venues.json 에 달 단위로 쌓는다.
+    {"YYYYMM": {"Home|Away|YYYY-MM-DD": {"city","country","neutral"}}}"""
+    import subprocess
+    cache = json.load(open(VENUES, encoding="utf-8")) if os.path.exists(VENUES) else {}
+    known = {g[1] for g in games()} | {g[2] for g in games()}
+    for ym in months:
+        if ym in cache and not refresh:
+            continue
+        got = {}
+        for code in ESPN_LEAGUES:
+            out = subprocess.run(["curl", "-s", "--compressed", "-m", "30",
+                                  f"https://site.api.espn.com/apis/site/v2/sports/soccer/{code}/scoreboard?dates={ym}&limit=400"],
+                                 capture_output=True).stdout
+            try:
+                events = json.loads(out).get("events", [])
+            except ValueError:
+                continue
+            for e in events:
+                c = e["competitions"][0]
+                side = {t["homeAway"]: t for t in c["competitors"]}
+                if "home" not in side or "away" not in side:
+                    continue
+                h, a = (_espn_name(side[k]["team"]["displayName"], known) for k in ("home", "away"))
+                adr = (c.get("venue") or {}).get("address") or {}
+                vc = ESPN_ALIAS.get(adr.get("country", ""), adr.get("country", ""))
+                if h and a:      # 경기장 나라가 비어도 event id 는 남긴다(postmatch 가 쓴다)
+                    got[f"{h}|{a}|{e['date'][:10]}"] = {"city": adr.get("city", ""), "country": vc, "neutral": _neutral(vc, h),
+                                                        "id": e.get("id", "")}
+        if got:
+            cache[ym] = got
+    json.dump(cache, open(VENUES, "w", encoding="utf-8"), ensure_ascii=False, indent=0)
+    return cache
+
+
+def venue(home_ko, away_ko, kst, refresh=False, want_id=False):
+    """한글 팀명·한국 시각('YYYY-MM-DD' 또는 'MM-DD HH:MM') → {"city","country","neutral"} 또는 None.
+    ESPN 날짜는 UTC 라 한국 날짜와 그 전날을 본다."""
+    import datetime as dt
+    h, a = name(home_ko), name(away_ko)
+    t = (kst or "").strip()
+    d = t[:10] if t[:2] == "20" else f"{YEAR}-{t[:5]}"
+    try:
+        d0 = dt.date.fromisoformat(d)
+    except ValueError:
+        return None
+    if not h or not a:
+        return None
+    days = [d0, d0 - dt.timedelta(days=1)]
+    try:
+        cache = espn_venues(sorted({x.strftime("%Y%m") for x in days}), refresh)
+    except Exception:
+        return None
+    for x in days:
+        v = (cache.get(x.strftime("%Y%m")) or {}).get(f"{h}|{a}|{x.isoformat()}")
+        if v:
+            return v if v.get("country") or want_id else None
+    return None
 
 
 def name(ko):

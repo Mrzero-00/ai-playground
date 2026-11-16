@@ -45,6 +45,19 @@ launchctl load ~/Library/LaunchAgents/com.coin-trend.paper.plist
 안전장치: 예산(`BUDGET`)만 굴림 · 봇이 산 수량만 매도 · `live/STOP` 파일이 있으면 정지 · 최고점 대비 `HALT_DD`(기본 45%) 하락 시 전량 매도 후 정지.
 launchd `com.coin-trend.live` 가 매일 09:07 실행 (13:07·21:07 재시도).
 
+## ML 거르기 모의 매매
+
+사전 등록 실험 [ML.md](ML.md): 로지스틱 회귀가 '5일 뒤 오를 확률'을 내고 0.5 이하면 앙상블 비중을 0 으로 끈다(L-A).
+표본 외 샤프 1.43 → 1.77, MDD -26% → -18%. 실전 전 3개월 모의 병행.
+
+```bash
+python3 scripts/fetch_ml.py   # 바이낸스 현물·선물·펀딩, ECB 환율 백필 → data/ml/
+python3 scripts/ml.py         # 워크포워드 실험 재현
+python3 scripts/paper_ml.py   # 오늘 몫 모의 매매 (장부 paper_ml/), --report 로 성과
+```
+
+launchd `com.coin-trend.paper-ml` 이 09:12 실행 (13:12·21:12 재시도).
+
 ## 운영 리포트
 
 `scripts/report.py` — 실전·모의 장부, 오늘 신호(이평선별 거리), 슬리피지, 수집 현황을 정적 페이지로 만들어 Vercel 프로젝트 `coin-report` 에 올린다.

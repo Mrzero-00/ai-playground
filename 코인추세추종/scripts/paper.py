@@ -69,9 +69,10 @@ def fill(market, side, krw=None, qty=None):
     return got_krw / got_qty, got_qty, got_krw, mid
 
 
-def load_state():
-    if STATE.exists():
-        return json.loads(STATE.read_text())
+def load_state(dir_=DIR):
+    state = dir_ / "state.json"
+    if state.exists():
+        return json.loads(state.read_text())
     return {"start": None, "last_run": None,
             "sleeves": {m: {"cash": CAPITAL / len(MARKETS), "qty": 0.0, "target": 0.0, "start_px": None} for m in MARKETS}}
 
@@ -85,9 +86,11 @@ def append(path, header, row):
         w.writerow(row)
 
 
-def run():
-    DIR.mkdir(exist_ok=True)
-    st = load_state()
+def run(dir_=DIR, target_fn=None):
+    """target_fn(market, dates, px) → 목표 비중. 없으면 앙상블 신호. 장부는 dir_ 에 따로 쌓인다."""
+    STATE, TRADES, EQUITY = dir_ / "state.json", dir_ / "trades.csv", dir_ / "equity.csv"
+    dir_.mkdir(exist_ok=True)
+    st = load_state(dir_)
     now = datetime.now(KST)
     today = now.strftime("%Y-%m-%d")
     print(f"--- {now.isoformat(timespec='seconds')}")
@@ -102,7 +105,7 @@ def run():
     for m in MARKETS:
         s = st["sleeves"][m]
         dates, px = closes(m)
-        target = signal(px)
+        target = target_fn(m, dates, px) if target_fn else signal(px)
         if s["start_px"] is None:
             s["start_px"] = px[-1]
         if target != s["target"]:
@@ -144,7 +147,8 @@ def run():
     print(f"총 평가액 {total:,.0f}원 (원금 {CAPITAL:,}원, {(total/CAPITAL-1)*100:+.2f}%)")
 
 
-def report():
+def report(dir_=DIR):
+    TRADES, EQUITY = dir_ / "trades.csv", dir_ / "equity.csv"
     if not EQUITY.exists():
         print("아직 기록이 없다.")
         return

@@ -95,6 +95,10 @@ def build():
     paper_eq = daily(ROOT / "paper/equity.csv", ["평가액", "보유시_평가액"])
     live_tr = rows(ROOT / "live/trades.csv")
     paper_tr = rows(ROOT / "paper/trades.csv")
+    ml_eq = daily(ROOT / "paper_ml/equity.csv", ["평가액", "보유시_평가액"])
+    ml_tr = rows(ROOT / "paper_ml/trades.csv")
+    ml_log = ROOT / "paper_ml/logs/paper_ml.log"
+    ml_lines = [l for l in ml_log.read_text().splitlines() if "× [p=" in l][-2:] if ml_log.exists() else []
     live_st = json.loads((ROOT / "live/state.json").read_text()) if (ROOT / "live/state.json").exists() else {}
     stop = (ROOT / "live/STOP").read_text().strip() if (ROOT / "live/STOP").exists() else None
     sig = signals()
@@ -108,6 +112,9 @@ def build():
     if paper_eq:
         v, h = paper_eq[-1][1], paper_eq[-1][2]
         cards.append(("모의 평가액", f"{v:,.0f}원", f"원금 대비 {pct(v / 1e6 - 1)} · 그냥 보유 {pct(h / 1e6 - 1)}"))
+    if ml_eq:
+        v = ml_eq[-1][1]
+        cards.append(("ML 거르기 모의", f"{v:,.0f}원", f"원금 대비 {pct(v / 1e6 - 1)} · {ml_eq[0][0]} 시작, 3개월 병행 검증"))
     s_live = slip_avg(paper_tr, "중간가대비_불리")
     cards.append(("모의 평균 슬리피지", "—" if s_live is None else f"{s_live:+.3f}%", f"백테스트 가정 {SLIP_ASSUMED:.2f}% · 거래 {len(paper_tr)}회"))
     cards.append(("실전 거래", f"{len(live_tr)}회", "정지 상태: " + (stop if stop else "정상 가동")))
@@ -121,7 +128,7 @@ def build():
     sig_head = "".join(f"<th>SMA{n}</th>" for n in SMAS)
 
     # 실전·모의를 각자 시작값 100 으로 맞춰 같은 축에 그린다
-    days = sorted(set(d for d, *_ in live_eq) | set(d for d, *_ in paper_eq))
+    days = sorted(set(d for d, *_ in live_eq) | set(d for d, *_ in paper_eq) | set(d for d, *_ in ml_eq))
     norm = lambda eq, i: (lambda m: [m[d] / eq[0][i] * 100 for d in days if d in m])({r[0]: r[i] for r in eq})
     series, labels, colors = [], [], []
     if live_eq:
@@ -129,6 +136,8 @@ def build():
     if paper_eq:
         series.append(norm(paper_eq, 1)); labels.append("모의"); colors.append("var(--c2)")
         series.append(norm(paper_eq, 2)); labels.append("그냥 보유"); colors.append("var(--c3)")
+    if ml_eq:
+        series.append(norm(ml_eq, 1)); labels.append("ML 거르기 모의"); colors.append("var(--c4)")
     eq_chart = chart([[v * 1e4 for v in s] for s in series], labels, colors) if series else ""
 
     def trade_table(tr, cols):
@@ -144,8 +153,8 @@ def build():
 <html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="robots" content="noindex,nofollow"><title>코인 추세추종 리포트</title>
 <style>
-:root{{--bg:#f7f7f5;--fg:#1c1c1c;--muted:#6b6b6b;--card:#fff;--line:#e3e3df;--up:#c0392b;--down:#2763c4;--c1:#e0761f;--c2:#3a7bd5;--c3:#9a9a9a}}
-@media (prefers-color-scheme:dark){{:root{{--bg:#141414;--fg:#ececec;--muted:#9a9a9a;--card:#1f1f1f;--line:#333;--up:#ff6b5a;--down:#6ea2ff;--c1:#ff9a3c;--c2:#6ea2ff;--c3:#777}}}}
+:root{{--bg:#f7f7f5;--fg:#1c1c1c;--muted:#6b6b6b;--card:#fff;--line:#e3e3df;--up:#c0392b;--down:#2763c4;--c1:#e0761f;--c2:#3a7bd5;--c3:#9a9a9a;--c4:#2a9d6b}}
+@media (prefers-color-scheme:dark){{:root{{--bg:#141414;--fg:#ececec;--muted:#9a9a9a;--card:#1f1f1f;--line:#333;--up:#ff6b5a;--down:#6ea2ff;--c1:#ff9a3c;--c2:#6ea2ff;--c3:#777;--c4:#4cc28d}}}}
 *{{box-sizing:border-box}}body{{margin:0;background:var(--bg);color:var(--fg);font:15px/1.55 -apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo",sans-serif}}
 main{{max-width:880px;margin:0 auto;padding:24px 16px 48px}}h1{{font-size:22px;margin:0 0 4px}}h2{{font-size:16px;margin:32px 0 10px}}
 .muted,.s{{color:var(--muted);font-size:13px}}.cards{{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:10px;margin-top:18px}}
@@ -173,9 +182,15 @@ th,td{{padding:7px 9px;border-bottom:1px solid var(--line);text-align:right;whit
 <h2>모의 거래</h2>
 {trade_table(paper_tr, ["시각", "마켓", "구분", "목표비중_후", "체결가", "원화", "중간가대비_불리", "종가대비_불리"])}
 
+<h2>ML 거르기 모의 (ML.md L-A)</h2>
+<p class="muted">앙상블 비중 × [로지스틱 회귀의 '5일 뒤 오를 확률' &gt; 0.5]. 사전 등록 6개 중 유일하게 통과, 실전 전 3개월 병행 검증 중.</p>
+{"".join(f'<p class="muted">{html.escape(l)}</p>' for l in ml_lines)}
+{trade_table(ml_tr, ["시각", "마켓", "구분", "목표비중_전", "목표비중_후", "체결가", "원화", "중간가대비_불리"])}
+
 <h2>백테스트 기준선 (표본 외 2023~)</h2>
 <table><tr><th>방식</th><th>연복리</th><th>샤프</th><th>MDD</th></tr>
 <tr><td>앙상블 (현행)</td><td>+43%</td><td>1.43</td><td>-26%</td></tr>
+<tr><td>ML 거르기 L-A (워크포워드)</td><td>+49%</td><td>1.77</td><td>-18%</td></tr>
 <tr><td>BTC+ETH 그냥 보유</td><td>+31%</td><td>0.82</td><td>-57%</td></tr></table>
 <p class="muted">실전·모의가 이 숫자에서 크게 벗어나면 비용 가정이나 실행 방식을 다시 본다. 몇 달은 쌓여야 비교가 의미 있다.</p>
 

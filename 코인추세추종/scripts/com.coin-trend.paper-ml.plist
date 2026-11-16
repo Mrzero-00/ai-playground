@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+  <key>Label</key><string>com.coin-trend.paper-ml</string>
+  <key>ProgramArguments</key>
+  <array>
+    <string>/usr/bin/python3</string>
+    <string>/Users/sonsang-il/autoCoin/코인추세추종/scripts/paper_ml.py</string>
+  </array>
+  <key>WorkingDirectory</key><string>/Users/sonsang-il/autoCoin/코인추세추종</string>
+  <!-- ML 거르기 모의(ML.md L-A). 09:12 실행, 13:12·21:12 재시도. 같은 날 두 번은 건너뛴다 -->
+  <key>StartCalendarInterval</key>
+  <array>
+    <dict><key>Hour</key><integer>9</integer><key>Minute</key><integer>12</integer></dict>
+    <dict><key>Hour</key><integer>13</integer><key>Minute</key><integer>12</integer></dict>
+    <dict><key>Hour</key><integer>21</integer><key>Minute</key><integer>12</integer></dict>
+  </array>
+  <key>StandardOutPath</key><string>/Users/sonsang-il/autoCoin/코인추세추종/paper_ml/logs/paper_ml.log</string>
+  <key>StandardErrorPath</key><string>/Users/sonsang-il/autoCoin/코인추세추종/paper_ml/logs/paper_ml.err</string>
+</dict>
+</plist>

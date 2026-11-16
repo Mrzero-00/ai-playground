@@ -108,6 +108,23 @@ def compare(start):
     return f'{svg}<div class="muted">{d[0]["date"]} ~ {d[-1]["date"]}</div>{table}'
 
 
+def futures_table():
+    path = ROOT / "paper_futures/equity.csv"
+    if not path.exists():
+        return '<p class="muted">09:15 첫 실행 뒤부터 기록이 쌓인다.</p>'
+    last = {(r["날짜"], r["방식"], r["마켓"]): r for r in csv.DictReader(path.open())}
+    day = max(k[0] for k in last)
+    names = {"F0": "롱만", "F1": "대칭 롱/숏", "F2": "롱 + 전부 아래면 숏", "F3": "2배 롱"}
+    body = ""
+    for v, label in names.items():
+        rs = [last[(day, v, s)] for s in ("BTC", "ETH") if (day, v, s) in last]
+        val = sum(float(r["평가액"]) for r in rs)
+        fund = sum(float(r["펀딩누적"]) for r in rs)
+        tgt = " / ".join(f'{float(r["목표"]):+.2f}' for r in rs)
+        body += f"<tr><td>{v} {label}</td><td>{tgt}</td><td>{val:,.2f}</td><td>{pct(val / 10000 - 1)}</td><td>{fund:+.2f}</td></tr>"
+    return f'<div class="scroll"><table><tr><th>방식</th><th>목표 BTC / ETH</th><th>평가액 USDT</th><th>수익률</th><th>펀딩 누적(+ 냄)</th></tr>{body}</table></div><div class="muted">{day} 기준</div>'
+
+
 def pct(v, digits=2):
     return "—" if v is None else f"{v * 100:+.{digits}f}%"
 
@@ -209,6 +226,10 @@ th,td{{padding:7px 9px;border-bottom:1px solid var(--line);text-align:right;whit
 <p class="muted">앙상블 비중 × [로지스틱 회귀의 '5일 뒤 오를 확률' &gt; 0.5]. 사전 등록 6개 중 유일하게 통과, 실전 전 3개월 병행 검증 중. 2027-02-17 판정: 모의 앙상블보다 수익률·MDD 나쁘지 않음 · 슬리피지 0.05% 이내 · 빠진 날 없음 → 셋 다 만족하면 실전 전환.</p>
 {"".join(f'<p class="muted">{html.escape(l)}</p>' for l in ml_lines)}
 {trade_table(ml_tr, ["시각", "마켓", "구분", "목표비중_전", "목표비중_후", "체결가", "원화", "중간가대비_불리"])}
+
+<h2>선물 모의 (FUTURES.md, 바이낸스 무기한, 방식마다 10,000 USDT)</h2>
+{futures_table()}
+<p class="muted">백테스트 표본 외(2023~)에서 F1~F3 모두 F0 보다 샤프가 높지 않았다(F0 0.86 · F1 0.65 · F2 0.83 · F3 0.86). 실제 펀딩·체결 기록용. 실전 검토는 현물 3개월 검증 뒤.</p>
 
 <h2>전략 비교: 2025-01 에 100만원을 넣었다면</h2>
 {compare("2025-01-01")}

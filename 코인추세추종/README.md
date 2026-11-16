@@ -58,6 +58,18 @@ python3 scripts/paper_ml.py   # 오늘 몫 모의 매매 (장부 paper_ml/), --r
 
 launchd `com.coin-trend.paper-ml` 이 09:12 실행 (13:12·21:12 재시도).
 
+## 선물 모의 매매
+
+사전 등록 [FUTURES.md](FUTURES.md): 바이낸스 무기한 실제 가격·펀딩으로 롱만·대칭·롱+숏·2배 롱 4개를 백테스트하고, 4개 모두 모의로 돌린다.
+표본 외에서 어느 것도 롱만보다 낫지 않았고, 롱만도 업비트 현물보다 나빴다(펀딩 연 5.5%). 기록용.
+
+```bash
+python3 scripts/futures_backtest.py [편도비용%]
+python3 scripts/paper_futures.py [--report]   # 장부 paper_futures/
+```
+
+launchd `com.coin-trend.paper-futures` 가 09:15 실행 (13:15·21:15 재시도).
+
 ## 운영 리포트
 
 `scripts/report.py` — 실전·모의 장부, 오늘 신호(이평선별 거리), 슬리피지, 수집 현황을 정적 페이지로 만들어 Vercel 프로젝트 `coin-report` 에 올린다.

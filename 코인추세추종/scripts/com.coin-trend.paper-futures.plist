@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+  <key>Label</key><string>com.coin-trend.paper-futures</string>
+  <key>ProgramArguments</key>
+  <array>
+    <string>/usr/bin/python3</string>
+    <string>/Users/sonsang-il/autoCoin/코인추세추종/scripts/paper_futures.py</string>
+  </array>
+  <key>WorkingDirectory</key><string>/Users/sonsang-il/autoCoin/코인추세추종</string>
+  <!-- 선물 모의(FUTURES.md F0~F3). 09:15 실행, 13:15·21:15 재시도. 같은 날 두 번은 건너뛴다 -->
+  <key>StartCalendarInterval</key>
+  <array>
+    <dict><key>Hour</key><integer>9</integer><key>Minute</key><integer>15</integer></dict>
+    <dict><key>Hour</key><integer>13</integer><key>Minute</key><integer>15</integer></dict>
+    <dict><key>Hour</key><integer>21</integer><key>Minute</key><integer>15</integer></dict>
+  </array>
+  <key>StandardOutPath</key><string>/Users/sonsang-il/autoCoin/코인추세추종/paper_futures/logs/paper_futures.log</string>
+  <key>StandardErrorPath</key><string>/Users/sonsang-il/autoCoin/코인추세추종/paper_futures/logs/paper_futures.err</string>
+</dict>
+</plist>

@@ -17,4 +17,5 @@ Python 3.9 + pandas. 데이터는 업비트 공개 API(키 불필요) 일봉, `d
 - 실행 위치는 워크트리 `/Users/sonsang-il/autoCoin/코인추세추종` (브랜치 `autoCoin`). launchd plist 가 이 경로를 가리키니 옮기면 plist 도 고친다.
 - launchd: `com.coin-trend.paper`(09:05 모의) · `com.coin-trend.live`(09:07 실전) · `com.coin-trend.collect`(10분 수집) · `com.coin-trend.paper-ml`(09:12 ML 거르기 모의, ML.md) · `com.coin-trend.paper-futures`(09:15 선물 모의, FUTURES.md) · `com.coin-trend.report`(09:20 리포트 → https://coin-report-green.vercel.app).
 - `.env`(키·예산·LIVE), `live/`·`paper/`·`paper_ml/`·`paper_futures/`(장부), `data/`, `report/` 는 커밋하지 않는다.
+- Vercel `coin-report` 는 Git 연결 없이 CLI 로만 배포한다. `vercel link` 가 저장소를 자동 연결하면 `vercel git disconnect` 로 끊는다(푸시마다 저장소 전체 Preview 가 생긴다).
 - 긴급 정지: `touch live/STOP`.

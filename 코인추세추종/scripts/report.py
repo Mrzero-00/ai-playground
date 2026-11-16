@@ -206,7 +206,7 @@ th,td{{padding:7px 9px;border-bottom:1px solid var(--line);text-align:right;whit
 {trade_table(paper_tr, ["시각", "마켓", "구분", "목표비중_후", "체결가", "원화", "중간가대비_불리", "종가대비_불리"])}
 
 <h2>ML 거르기 모의 (ML.md L-A)</h2>
-<p class="muted">앙상블 비중 × [로지스틱 회귀의 '5일 뒤 오를 확률' &gt; 0.5]. 사전 등록 6개 중 유일하게 통과, 실전 전 3개월 병행 검증 중.</p>
+<p class="muted">앙상블 비중 × [로지스틱 회귀의 '5일 뒤 오를 확률' &gt; 0.5]. 사전 등록 6개 중 유일하게 통과, 실전 전 3개월 병행 검증 중. 2027-02-17 판정: 모의 앙상블보다 수익률·MDD 나쁘지 않음 · 슬리피지 0.05% 이내 · 빠진 날 없음 → 셋 다 만족하면 실전 전환.</p>
 {"".join(f'<p class="muted">{html.escape(l)}</p>' for l in ml_lines)}
 {trade_table(ml_tr, ["시각", "마켓", "구분", "목표비중_전", "목표비중_후", "체결가", "원화", "중간가대비_불리"])}
 

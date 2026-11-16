@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+  <key>Label</key><string>com.coin-trend.report</string>
+  <key>ProgramArguments</key>
+  <array>
+    <string>/usr/bin/python3</string>
+    <string>/Users/sonsang-il/autoCoin/코인추세추종/scripts/report.py</string>
+  </array>
+  <key>WorkingDirectory</key><string>/Users/sonsang-il/autoCoin/코인추세추종</string>
+  <!-- 실전 봇(09:07) 뒤 09:20 리포트 생성·배포, 13:20·21:20 갱신 -->
+  <key>StartCalendarInterval</key>
+  <array>
+    <dict><key>Hour</key><integer>9</integer><key>Minute</key><integer>20</integer></dict>
+    <dict><key>Hour</key><integer>13</integer><key>Minute</key><integer>20</integer></dict>
+    <dict><key>Hour</key><integer>21</integer><key>Minute</key><integer>20</integer></dict>
+  </array>
+  <key>StandardOutPath</key><string>/Users/sonsang-il/autoCoin/코인추세추종/live/logs/report.log</string>
+  <key>StandardErrorPath</key><string>/Users/sonsang-il/autoCoin/코인추세추종/live/logs/report.err</string>
+</dict>
+</plist>

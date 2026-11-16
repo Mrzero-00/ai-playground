@@ -45,6 +45,15 @@ launchctl load ~/Library/LaunchAgents/com.coin-trend.paper.plist
 안전장치: 예산(`BUDGET`)만 굴림 · 봇이 산 수량만 매도 · `live/STOP` 파일이 있으면 정지 · 최고점 대비 `HALT_DD`(기본 45%) 하락 시 전량 매도 후 정지.
 launchd `com.coin-trend.live` 가 매일 09:07 실행 (13:07·21:07 재시도).
 
+## 운영 리포트
+
+`scripts/report.py` — 실전·모의 장부, 오늘 신호(이평선별 거리), 슬리피지, 수집 현황을 정적 페이지로 만들어 Vercel 프로젝트 `coin-report` 에 올린다.
+https://coin-report-green.vercel.app · launchd `com.coin-trend.report` 가 09:20·13:20·21:20 갱신. `report/` 는 커밋하지 않는다(잔고가 들어 있음).
+
+```bash
+python3 scripts/report.py --no-deploy   # 로컬에서 report/index.html 만 생성
+```
+
 ## 데이터 수집기 (머신러닝 준비)
 
 `scripts/collect.py` — 나중에 과거분을 받을 수 없는 데이터를 10분마다 쌓는다. launchd `com.coin-trend.collect`.

@@ -13,7 +13,7 @@ Python 3.9 + pandas. 데이터는 업비트 공개 API(키 불필요) 일봉, `d
 - 실전 순서: 백테스트 → 모의 매매 3개월 → 소액 실전. 레버리지는 현물 전략이 실전 검증된 뒤에만 검토.
 
 ## 운영
-- 실행 위치는 워크트리 `/Users/sonsang-il/autoCoin` (브랜치 `autoCoin`). launchd plist 가 이 경로를 가리키니 옮기면 plist 도 고친다.
-- launchd: `com.coin-trend.paper`(09:05 모의) · `com.coin-trend.live`(09:07 실전) · `com.coin-trend.collect`(10분 수집).
-- `.env`(키·예산·LIVE), `live/`·`paper/`(장부), `data/` 는 커밋하지 않는다.
+- 실행 위치는 워크트리 `/Users/sonsang-il/autoCoin/코인추세추종` (브랜치 `autoCoin`). launchd plist 가 이 경로를 가리키니 옮기면 plist 도 고친다.
+- launchd: `com.coin-trend.paper`(09:05 모의) · `com.coin-trend.live`(09:07 실전) · `com.coin-trend.collect`(10분 수집) · `com.coin-trend.report`(09:20 리포트 → https://coin-report-green.vercel.app).
+- `.env`(키·예산·LIVE), `live/`·`paper/`(장부), `data/`, `report/` 는 커밋하지 않는다.
 - 긴급 정지: `touch live/STOP`.

@@ -97,7 +97,7 @@ def build(minn):
         # 어떤 요인도 다시 채택될 수 없었다. 요인을 주장한 경기 안에서만 시간 순으로 가른다.
         if not d:
             continue
-        dup = (_day(g), g.get("홈"), g.get("원정"))
+        dup = __import__("matchkey").key(g)      # 승무패(팀명 4자)↔프로토도 한 경기로 (2026-11-17)
         if dup in seen_games:          # 같은 경기가 두 회차에 실리면 한 번만
             continue
         seen_games.add(dup)

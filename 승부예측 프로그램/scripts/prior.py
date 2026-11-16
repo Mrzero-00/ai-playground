@@ -163,7 +163,7 @@ def cmd_report(a):
     for g in gs:
         me = _top(g, "순수")
         key = (g.get("회차"), g.get("번호"))
-        dup = (_day(g), g.get("홈"), g.get("원정"))
+        dup = __import__("matchkey").key(g)      # 승무패(팀명 4자)↔프로토도 한 경기로 (2026-11-17)
         if dup in seen:                  # 같은 경기가 두 회차에 실리면 한 번만
             continue
         base = (real.get(key) or {}).get("1순위")
@@ -174,7 +174,7 @@ def cmd_report(a):
         print("비교 가능한 경기 없음 — predict_engine.py run 으로 기준선을 먼저 만든다"); return 1
     keep = [x for x in xs if x[1] == x[2]]
     moved = [x for x in xs if x[1] != x[2]]
-    print(f"분석 경기 {len(xs)}건 — **실제 기준선(soccer_baseline 재현) 대비** · 축구 리그 경기만 (시장은 참고)\n")
+    print(f"분석 경기 {len(xs)}건 — **실제 기준선(soccer_baseline·intl_baseline 재현) 대비** · 축구 리그·국가대표 (시장은 참고)\n")
     print(f"{'구분':<26} {'경기':>5} {'내 분석':>8} {'기준선':>8} {'개선폭':>8} {'시장':>8}")
     print("-" * 70)
     def line(lab, b):
@@ -218,10 +218,18 @@ def cmd_report(a):
         print("\n-- ★ 11-02 이후를 종목별로")
         for sp in sorted({x[0].get("종목", "") for x in now}):
             paired("   " + sp, [x for x in now if x[0].get("종목", "") == sp])
+        try:
+            import intl_baseline as ib
+            it = [x for x in now if ib.is_intl(x[0])]
+            if it:
+                paired("   └ 국가대표(Elo)", it)
+                paired("   └ 리그", [x for x in now if x[0].get("종목") == "축구" and not ib.is_intl(x[0])])
+        except Exception:
+            pass
         nb = sum(1 for g in gs if _day(g) >= "2026-11-02") - len(now)
         if nb:
             print(f"   (11-02 이후 분석 {nb}경기는 재현 가능한 기준선이 없어 빠졌다 — "
-                  "유럽대항전·컵·농구·배구·야구. 이 경기들은 방향 적중률만 따로 본다)")
+                  "유럽대항전·컵·농구·배구·야구·이름 매핑 없는 국가대표. 이 경기들은 방향 적중률만 따로 본다)")
     if moved:
         print("\n-- 개입을 회차별로")
         d = collections.defaultdict(lambda: [0, 0, 0])

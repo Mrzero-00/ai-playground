@@ -148,7 +148,9 @@ def results(rnd=None, only=None):
         pm = post.get((r["회차"], r["번호"]), {})
         ev = " ".join(f"{k} {v}" for k, v in pm.items()
                       if k in ("홈xG", "원정xG", "홈슈팅", "원정슈팅", "홈유효", "원정유효", "홈퇴장", "원정퇴장") and v)
-        out.append({"회차": r["회차"], "번호": r["번호"], "경기": f"{r['홈']} vs {r['원정']}",
+        out.append({"깊이": (r.get("깊이") or "").strip(),
+                    "_경기키": ((r.get("시각") or "")[-11:], r["홈"][:4], r["원정"][:4]),
+                    "회차": r["회차"], "번호": r["번호"], "경기": f"{r['홈']} vs {r['원정']}",
                     "종목": r.get("종목", ""), "리그": r.get("리그", ""),
                     "내1순위": t, "내확률": f"{p:.0f}", "실제": r["결과"], "결과구분": kind,
                     "4분면": quad.get((r["회차"], r["번호"]), ""),
@@ -159,7 +161,23 @@ def results(rnd=None, only=None):
 
 def cmd_pending(a):
     done = {(x["회차"], x["번호"]) for x in logs()}
-    xs = [m for m in results(a.round, a.only) if (m["회차"], m["번호"]) not in done]
+    every = results(a.round, a.only)
+    xs = [m for m in every if (m["회차"], m["번호"]) not in done]
+    # 2026-11-17: 기본은 분석한 경기(심층·가벼움)만 보여 준다. 자동 기준선 행은 해부할 근거가 없는데
+    # 대기 957건 중 820건을 차지해 밀린 심층 122건이 묻혀 있었다. 같은 경기가 다른 회차(승무패↔프로토)로
+    # 이미 해부됐으면 그것도 뺀다. 전부 보려면 --all.
+    if not a.all:
+        done_keys = {m["_경기키"] for m in results() if (m["회차"], m["번호"]) in done}
+        hidden = len(xs)
+        seen = set()
+        keep = []
+        for m in xs:
+            if m["깊이"] not in ("심층", "가벼움") or m["_경기키"] in done_keys or m["_경기키"] in seen:
+                continue
+            seen.add(m["_경기키"]); keep.append(m)
+        xs = keep
+        if hidden - len(xs):
+            print(f"(분석 없는 기준선 행·다른 회차로 이미 해부한 경기 {hidden - len(xs)}건은 숨김 — 전부 보려면 --all)")
     if not xs:
         print("해부할 경기가 없다.")
         return 0
@@ -298,7 +316,8 @@ def main():
     ap = argparse.ArgumentParser()
     sub = ap.add_subparsers(dest="cmd", required=True)
     p = sub.add_parser("pending"); p.add_argument("--round")
-    p.add_argument("--only", choices=("적중", "실패")); p.set_defaults(f=cmd_pending)
+    p.add_argument("--only", choices=("적중", "실패")); p.add_argument("--all", action="store_true")
+    p.set_defaults(f=cmd_pending)
     p = sub.add_parser("add")
     p.add_argument("--round", required=True); p.add_argument("--no", required=True)
     p.add_argument("--요인", required=True); p.add_argument("--판정", required=True)

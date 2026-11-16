@@ -791,6 +791,17 @@ def cmd_add(a):
         if (r.get("깊이") or "").strip() in ("", "기준선"):
             r["깊이"] = "심층"
         game = f"{r['홈']}-{r['원정']}"
+        # 2026-11-17: 다리판단(조합에 써도 되는가)을 장부로 남긴다 — safe_picks 가 읽고 leg_flags 가 채점한다.
+        if e.get("다리판단"):
+            try:
+                import leg_flags
+                leg_flags.record(r["회차"], r["번호"], game, e["다리판단"], when=now)
+                if e.get("동기쪽") in ("홈", "원정") and not r["회차"].startswith("승무패"):
+                    why = next((f.get("내용", "") for f in e.get("요인", []) if f.get("유형") == "동기"), "")
+                    my = (e.get("최종") or {}).get("승" if e["동기쪽"] == "홈" else "패")
+                    leg_flags.record_motive(r["회차"], r["번호"], game, e["동기쪽"], why, my)
+            except Exception as ex:
+                print(f"  (다리판단 기록 실패: {ex})")
         base = {"회차": r["회차"], "번호": r["번호"], "경기": game, "기록시각": now}
         for f in e.get("요인", []):
             f = norm_factor(f)

@@ -475,8 +475,34 @@ def cmd_results(a):
             pk = argmax(r, pre)
             r[col] = "" if pk is None or r["결과"] == "적특" else int(pk == r["결과"])
         n += 1
+    # 2026-11-17: 승무패 회차는 베트맨 결과가 늦거나 비어 채점에서 자주 빠졌다(승무패69: 7경기 종료·결과 0).
+    # 같은 경기가 프로토 회차에 이미 채점돼 있으면 결과·점수를, 시장 칸이 비어 있으면 시장 확률도 가져온다
+    # (심층으로 기록된 승무패 83경기 중 62경기의 시장 칸이 비어 있었다).
+    m = 0
+    if str(a.round).startswith("승무패"):
+        nsp = lambda x: (x or "").replace(" ", "")
+        proto = [p for p in rows if not p["회차"].startswith("승무패")]
+        for r in rows:
+            if r["회차"] != str(a.round):
+                continue
+            t = (r.get("시각") or "")[-11:]
+            tw = next((p for p in proto if (p.get("시각") or "")[-11:] == t and t
+                       and nsp(p["홈"]).startswith(nsp(r["홈"])) and nsp(p["원정"]).startswith(nsp(r["원정"]))), None)
+            if not tw:
+                continue
+            if not r.get("시장_승") and tw.get("시장_승"):
+                for k in ("시장_승", "시장_무", "시장_패", "시장시각"):
+                    r[k] = tw.get(k, "")
+                m += 1
+            if not r.get("결과") and tw.get("결과") in ("승", "무", "패"):
+                r["결과"], r["점수"] = tw["결과"], tw.get("점수", "")
+                n += 1
+            if r.get("결과") in ("승", "무", "패"):
+                for pre, col in (("순수", "순수적중"), ("시장", "시장적중"), ("보정", "보정적중")):
+                    pk = argmax(r, pre)
+                    r[col] = "" if pk is None else int(pk == r["결과"])
     save(rows)
-    print(f"{a.round}회: 결과 {n}경기 채점")
+    print(f"{a.round}회: 결과 {n}경기 채점" + (f" · 시장 확률 {m}경기를 프로토 회차에서 가져옴" if m else ""))
 
 
 def rps(p, res):

@@ -444,6 +444,17 @@ def cmd_pick(a):
     DEEP = ("심층",)
     deep = [g for g in sel if (g["depth"] or "").strip() in DEEP]
     shallow = [g for g in sel if g not in deep]
+    # 2026-11-17: 분석가의 다리판단(근거 JSON → data/다리판단.csv)을 읽는다. 제외권고 다리는 표에 ✗ 로 남기고
+    # 조합에서 뺀다 — 전에는 제외한 다리가 그대로 조합 목록에 올라왔다. 확률은 건드리지 않는다.
+    try:
+        import leg_flags as _lf
+        _flags = _lf.latest()
+    except Exception:
+        _flags = {}
+    for g in sel:
+        f = _flags.get((g["row"]["회차"], g["row"]["번호"]))
+        g["excl"] = (f or {}).get("사유", "") or "제외" if f and f["판정"] == "제외" else ""
+    excl = [g for g in deep if g["excl"]]
     head = (f"### {a.round}회 정배 후보 — 시장 1순위 {c['mp']:.0f}%+ · 배당 {c['odds']}+"
             + (" · 1순위 일치" if c["agree"] else "") + f"  (무<{c['draw']:.0f}% 는 표시만: ●)")
     if a.md:
@@ -464,7 +475,8 @@ def cmd_pick(a):
             print(f"{r['번호']:>5} {(r['홈']+' vs '+r['원정'])[:29]:<30}{g['mt']:>4}"
                   f"{g['od'][g['mt']]:>7.2f}{g['mp']:>6.1f}%{g['my'][g['mt']]:>6.1f}%"
                   f"{g['my']['무']:>6.1f}%  {g['dl'].strftime('%m-%d %H:%M') if g['dl'] else '?'}"
-                  f"{'  ●' if g['low_draw'] else ''}{'  ⚠리그오프셋없음' if g['nooff'] else ''}")
+                  f"{'  ●' if g['low_draw'] else ''}{'  ⚠리그오프셋없음' if g['nooff'] else ''}"
+                  f"{'  ✗다리제외(' + g['excl'] + ')' if g['excl'] else ''}")
     nb = sum(1 for g in sel if g["nooff"])
     print(f"\n후보 {len(sel)}/{len(G)}경기" +
           (f"  ·  ⚠ 그중 {nb}경기는 리그 강도 오프셋이 없는 팀이 끼여 무 확률이 불완전하다" if nb else ""))
@@ -472,6 +484,9 @@ def cmd_pick(a):
           (", ".join(g["row"]["번호"] for g in deep) or "없음"))
     print(f"  └ 기준선만(추천 불가, 심층 필요) {len(shallow)}경기: " +
           (", ".join(g["row"]["번호"] for g in shallow) or "없음"))
+    if excl:
+        print(f"  ✗ 다리 제외권고(조합에서 뺀다, 확률은 그대로) {len(excl)}경기: "
+              + ", ".join(f"{g['row']['번호']}({g['excl']})" for g in excl) + " — 성적은 leg_flags.py report")
     two = [g for g in shallow if g["od"][g["mt"]] >= 1.34]
     if two:
         print("  ★ 심층 우선순위 — 배당 1.34+ (둘이면 2폴더로 합계 1.8 을 넘는다): "
@@ -489,7 +504,7 @@ def cmd_pick(a):
     for g in sel:
         grp[g["dl"]].append(g)
     for d in sorted(grp, key=lambda x: (x is None, x)):
-        gs = [g for g in grp[d] if g in deep]   # 심층만 조합에 넣는다
+        gs = [g for g in grp[d] if g in deep and not g["excl"]]   # 심층이고 제외권고가 아닌 다리만
         label = d.strftime("%m-%d %H:%M") if d else "마감 미상"
         if len(gs) < 2:
             tot = len([g for g in grp[d]])

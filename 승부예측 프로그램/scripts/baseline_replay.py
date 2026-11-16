@@ -10,8 +10,11 @@
 
 무엇:
   전체경기기록의 축구 행마다 soccer_baseline.row_baseline(킥오프 2시간 전 cutoff — 사후 누수 없음)을
-  계산해 data/기준선재현.csv 에 남긴다. soccer_baseline 이 다루는 리그만 나온다(유럽대항전·컵·A매치는
+  계산해 data/기준선재현.csv 에 남긴다. soccer_baseline 이 다루는 리그만 나온다(유럽대항전·컵은
   euro_baseline 이 현재 상태만 내서 과거를 누수 없이 재현할 수 없다 — 빈칸으로 둔다).
+  국가대표 경기는 intl_baseline(Elo)을 **경기 전날까지의 결과로** 다시 깐다(2026-11-17 — 11-02 이후 분석
+  236경기 중 209경기가 재현 기준선이 없어 본 지표에서 빠져 있었다). 개최지는 홈으로 둔다 — 분석가의
+  중립 교정은 '개입'으로 잡힌다.
 
   python3 scripts/baseline_replay.py            # 새로 생긴 행만 추가
   python3 scripts/baseline_replay.py --all      # 전부 다시 계산(기준선 모델을 고친 뒤)
@@ -39,9 +42,25 @@ def load():
     return out
 
 
+def _eve(g):
+    """경기 전날 'YYYY-MM-DD'. 시각 칸은 한국 시각이고 원자료는 현지 날짜라, 전날로 끊어야 그 경기 자신이 안 들어간다."""
+    t = (g.get("시각") or "").strip()
+    if len(t) >= 10 and t[4] == "-":
+        d = t[:10]
+    elif len(t) >= 5 and t[2] == "-":
+        d = ("2026-" if t[:2] >= "10" else "2027-") + t[:5]
+    else:
+        return None
+    try:
+        return (dt.date.fromisoformat(d) - dt.timedelta(days=1)).isoformat()
+    except ValueError:
+        return None
+
+
 def build(all_=False):
     sys.path.insert(0, os.path.join(ROOT, "scripts"))
     import soccer_baseline as sb
+    import intl_baseline as ib
     old = [] if all_ or not os.path.exists(OUT) else list(csv.DictReader(open(OUT, encoding="utf-8-sig")))
     have = {(r["회차"], r["번호"]) for r in old}
     names, cache, add, miss = sb.load_names(), {}, [], 0
@@ -54,6 +73,11 @@ def build(all_=False):
                 b = sb.row_baseline(g, names, cache)
             except (Exception, SystemExit):
                 b = None
+            if not b and ib.is_intl(g) and _eve(g):
+                try:
+                    b = ib.baseline(g["홈"], g["원정"], date=_eve(g))
+                except Exception:
+                    b = None
         if not b:
             miss += 1
             continue
@@ -83,7 +107,7 @@ def report():
          if g.get("종목") == "축구" and g.get("결과") in L and (g["회차"], g["번호"]) in base]
     seen, X = set(), []
     for g in G:                      # 같은 경기가 두 회차에 실리면 한 번만 센다
-        k = ((g.get("시각") or "")[-11:], g["홈"], g["원정"])
+        k = __import__("matchkey").key(g)
         if k in seen:
             continue
         seen.add(k); X.append(g)

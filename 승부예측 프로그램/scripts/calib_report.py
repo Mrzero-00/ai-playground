@@ -14,6 +14,9 @@
     python3 scripts/calib_report.py --save       # 회차별분석/확률정합_<날짜>.md 로 저장
 """
 import argparse, collections, csv, datetime as dt, math, os, re, sys
+import sys as _sys, os as _os
+_sys.path.insert(0, _os.path.dirname(_os.path.abspath(__file__)))
+import matchkey
 
 ROOT = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..")
 SIDES = ("승", "무", "패")
@@ -30,7 +33,7 @@ def dedupe(rs):
     """
     keep = {}
     for r in rs:
-        k = (r.get("종목"), r.get("홈"), r.get("원정"), (r.get("시각") or "")[:5])
+        k = matchkey.key(r)      # 승무패(팀명 4자)와 프로토 회차의 같은 경기도 하나로 (2026-11-17)
         prev = keep.get(k)
         # 2026-11-11: 회차를 문자열로 비교해 '승무패63' > '126' 이 참이 됐고, 같은 경기면 늘 승무패 행
         # (깊이 빈칸·기준선)이 남아 심층 분석 행이 빠졌다. 분석이 깊은 행을 먼저, 그다음 늦은 회차.

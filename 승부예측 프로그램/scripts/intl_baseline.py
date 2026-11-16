@@ -204,6 +204,97 @@ def sync():
     return 0
 
 
+ESPN_LEAGUES = {   # ESPN 대회 코드 → 원자료의 tournament 이름(kfac 가 읽는다)
+    "fifa.friendly": "Friendly", "uefa.nations": "UEFA Nations League",
+    "concacaf.nations.league": "CONCACAF Nations League", "caf.nations_qual": "African Cup of Nations qualification",
+    "caf.nations": "African Cup of Nations", "afc.asian.cup": "AFC Asian Cup", "afc.cupq": "AFC Asian Cup qualification",
+    "conmebol.america": "Copa América", "uefa.euro": "UEFA Euro", "uefa.euroq": "UEFA Euro qualification",
+    "concacaf.gold": "Gold Cup", "fifa.world": "FIFA World Cup",
+    "fifa.worldq.afc": "FIFA World Cup qualification", "fifa.worldq.caf": "FIFA World Cup qualification",
+    "fifa.worldq.conmebol": "FIFA World Cup qualification", "fifa.worldq.concacaf": "FIFA World Cup qualification",
+    "fifa.worldq.uefa": "FIFA World Cup qualification", "fifa.worldq.ofc": "FIFA World Cup qualification",
+}
+ESPN_ALIAS = {"Türkiye": "Turkey", "Czechia": "Czech Republic", "Congo DR": "DR Congo",
+              "Bosnia-Herzegovina": "Bosnia and Herzegovina", "Kyrgyz Republic": "Kyrgyzstan", "USA": "United States",
+              "Korea Republic": "South Korea", "Korea DPR": "North Korea", "Cape Verde Islands": "Cape Verde",
+              "Curacao": "Curaçao", "Côte d'Ivoire": "Ivory Coast", "The Gambia": "Gambia", "Macau": "Macau",
+              "Chinese Taipei": "Taiwan", "Timor-Leste": "Timor-Leste", "Eswatini": "Eswatini", "Swaziland": "Eswatini",
+              "Brunei Darussalam": "Brunei", "IR Iran": "Iran", "China PR": "China", "Comoros Islands": "Comoros",
+              "St Kitts and Nevis": "Saint Kitts and Nevis"}
+
+
+def _espn_name(n, known):
+    n = ESPN_ALIAS.get(n, n)
+    if n not in known and n.startswith("St. "):
+        n = "Saint " + n[4:]
+    return n if n in known else None
+
+
+def espn_sync():
+    """원자료가 끝난 뒤의 A매치 결과를 ESPN 점수판에서 extra.csv 로 채운다 (2026-11-17).
+
+    --sync 는 베트맨에 팔린 경기만 옮긴다 — 팔리지 않은 A매치(아프리카·북중미 하위 조 등)는 Elo 에 안 들어가
+    상대 팀 레이팅이 한 달 묵었다. ESPN 은 날짜가 UTC, 원자료는 현지 날짜, 우리 기록은 한국 시각이라
+    같은 팀 쌍이 ±2일 안에 이미 있으면 같은 경기로 보고 넣지 않는다(손으로 고친 중립 값이 남는다).
+    중립은 경기장 나라가 홈팀 나라와 다를 때 TRUE. Elo 에 없는 팀명은 건너뛰고 끝에 알린다.
+    """
+    import datetime as dt, subprocess
+    src = list(csv.DictReader(open(SRC, encoding="utf-8")))
+    last = max(r["date"] for r in src)
+    known = {r["home_team"] for r in src} | {r["away_team"] for r in src}
+    head = ["date", "home_team", "away_team", "home_score", "away_score", "tournament", "city", "country", "neutral"]
+    old = list(csv.DictReader(open(EXTRA, encoding="utf-8"))) if os.path.exists(EXTRA) else []
+    day = dt.date.fromisoformat
+    near = [(day(r["date"]), frozenset((r["home_team"], r["away_team"])))
+            for r in old + [r for r in src if r["date"] >= last[:8] + "01"]]
+    months, d = [], day(last[:8] + "01")
+    while d <= dt.date.today():
+        months.append(d.strftime("%Y%m")); d = (d.replace(day=28) + dt.timedelta(days=4)).replace(day=1)
+    new, skip, fail = [], set(), []
+    for code, tour in ESPN_LEAGUES.items():
+        for ym in months:
+            out = subprocess.run(["curl", "-s", "--compressed", "-m", "30",
+                                  f"https://site.api.espn.com/apis/site/v2/sports/soccer/{code}/scoreboard?dates={ym}&limit=400"],
+                                 capture_output=True).stdout
+            try:
+                events = json.loads(out).get("events", [])
+            except ValueError:
+                fail.append(f"{code} {ym}"); continue
+            for e in events:
+                c = e["competitions"][0]
+                if not e["status"]["type"].get("completed") or e["date"][:10] <= last:
+                    continue
+                side = {t["homeAway"]: t for t in c["competitors"]}
+                if "home" not in side or "away" not in side:
+                    continue
+                h, a = (_espn_name(side[k]["team"]["displayName"], known) for k in ("home", "away"))
+                if not h or not a:
+                    skip.update(side[k]["team"]["displayName"] for k, v in (("home", h), ("away", a)) if not v); continue
+                dd, pair = day(e["date"][:10]), frozenset((h, a))
+                if any(p == pair and abs((dd - x).days) <= 2 for x, p in near):
+                    continue
+                near.append((dd, pair))
+                adr = (c.get("venue") or {}).get("address") or {}
+                vc = ESPN_ALIAS.get(adr.get("country", ""), adr.get("country", ""))
+                uk = {"England", "Scotland", "Wales", "Northern Ireland"}
+                # 'Congo' ↔ 'DR Congo' 처럼 나라 이름이 서로 포함되면 같은 나라로 본다(중립으로 잘못 넣는 쪽이 더 나쁘다)
+                neu = bool(vc) and vc != h and vc not in h and h not in vc and not (vc in uk | {"United Kingdom"} and h in uk)
+                new.append(dict(zip(head, [e["date"][:10], h, a, side["home"]["score"], side["away"]["score"], tour,
+                                           adr.get("city", ""), vc, "TRUE" if neu else "FALSE"])))
+    rows = sorted(old + new, key=lambda r: r["date"])
+    with open(EXTRA, "w", encoding="utf-8", newline="") as f:
+        w = csv.DictWriter(f, fieldnames=head); w.writeheader(); w.writerows(rows)
+    _G.clear()
+    print(f"extra.csv(ESPN): 새로 {len(new)}경기 · 누적 {len(rows)}경기 (원자료 마지막 {last}, 조회 {len(ESPN_LEAGUES)}개 대회 × {len(months)}달)")
+    if new:
+        print("  중립으로 넣은 경기: " + (", ".join(f"{r['home_team']}-{r['away_team']}({r['country']})" for r in new if r["neutral"] == "TRUE") or "없음"))
+    if skip:
+        print("  Elo 에 없는 이름(건너뜀 — ESPN_ALIAS 에 추가):", ", ".join(sorted(skip)))
+    if fail:
+        print("  조회 실패:", ", ".join(fail))
+    return 0
+
+
 def name(ko):
     m = json.load(open(NAMES, encoding="utf-8")) if os.path.exists(NAMES) else {}
     ko = ko.strip()
@@ -268,12 +359,15 @@ def main():
     ap.add_argument("--backtest", action="store_true"); ap.add_argument("--fit", action="store_true")
     ap.add_argument("--update", action="store_true"); ap.add_argument("--neutral", action="store_true")
     ap.add_argument("--sync", action="store_true")
+    ap.add_argument("--espn", action="store_true", help="베트맨에 안 팔린 A매치 결과까지 ESPN 에서 채운다")
     ap.add_argument("--date")
     a = ap.parse_args()
     if a.update:
         urllib.request.urlretrieve(URL, SRC); print("받음:", SRC); return 0
     if a.sync:
         return sync()
+    if a.espn:
+        return espn_sync()
     if a.fit:
         return fit()
     if a.backtest:

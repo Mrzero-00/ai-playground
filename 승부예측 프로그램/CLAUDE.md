@@ -46,8 +46,10 @@ python3 scripts/leg_flags.py motive      # 동기 가설 장부 — 결과 자�
 python3 scripts/leg_flags.py rotation N  # 국가대표: 직전 경기 대비 선발 변경 수(예고 vs 실제)
 python3 scripts/toto_marks.py report     # 승무패 마킹 안별 채점 (추천할 때 toto_marks.py add 로 등록)
 python3 scripts/hold_log.py report       # 조건은 채웠지만 내지 않은 조합 — 기권이 값을 했나
+python3 scripts/judge_log.py report       # 계산식 vs 내 판단 — 갈린 경기·확신별·다리 의견 (2026-11-17)
 python3 scripts/direction_review.py due  # 주간 방향 점검 차례인가(11/09 차례를 놓쳤다)
 ```
+- **내 판단 장부(사용자 결정 2026-11-17)**: 추천은 계산식(기준선)과 규칙으로 낸다. 결장 선수의 팀 내 비중·동기·로테이션을 읽고 내린 **Claude 의 판단은 추천에 섞지 않고 `data/내판단.csv` 에 따로 쌓는다**(`judge_log.py add/show/report`). 심층 분석한 경기는 전부, 경기 시작 전에 방향·확신·다리 의견(넣음/뺌)·이유를 적는다 — 분석가가 근거 JSON `내판단` 에 적으면 `integrity.py add` 가 옮기고, 메인 세션이 `judge_log.py show <회차>` 로 보고 생각이 다르면 `add` 로 덧쓴다(마지막 줄이 유효). 추천 표 아래에 계산식과 갈린 경기·다리 의견이 다른 경기를 참고로 붙인다. 판정 약속: 갈린 30경기에서 18-12 이상이면 추천 반영을 검토한다.
 - 2026-11-17 측정 보강: `baseline_replay` 가 국가대표 Elo 를 경기 전날 상태로 재현해 ★ 줄이 27 → 73경기가 됐고, 같은 날 NBA·UEFA 대항전 재현까지 붙여 113경기다(69.0%, 기준선 대비 −1.8p ±3.5 — 경기 키를 팀명 앞 2자로 고친 뒤 값). 같은 경기를 가리는 키를 `matchkey.py` 로 통일했다 — 승무패는 팀명을 4자로 잘라 프로토 회차와 따로 세어지고 있었다.
 - **규칙은 큰 표본으로만 바꾼다**: 우리 기록 수십 경기에서 좋은 칸을 찾아 문턱을 옮기지 않는다(추천 규칙이 5번 바뀌는 동안 어느 것도 30다리를 못 채웠다). 새 선별 아이디어는 `baseline_lab.py --select`(5대 리그 7시즌)에서 **잔차**가 갈리는지 먼저 본다 — 적중률이 아니라 잔차다.
 - `safe_picks.py --round` 를 돌릴 때마다 **정배 전부**(통과·탈락)가 `data/선별후보.csv` 에 자동으로 남는다. 탈락한 정배가 대조군이다.

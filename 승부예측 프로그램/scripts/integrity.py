@@ -807,6 +807,17 @@ def cmd_add(a):
                     leg_flags.record_motive(r["회차"], r["번호"], game, e["동기쪽"], why, my)
             except Exception as ex:
                 print(f"  (다리판단 기록 실패: {ex})")
+        # 2026-11-17: 분석가의 '내판단'(계산식과 별개로 사실을 읽고 내린 방향)을 장부로 옮긴다 — judge_log 가 채점한다.
+        jd = e.get("내판단")
+        if isinstance(jd, dict) and jd.get("방향") and not r["회차"].startswith("승무패"):
+            try:
+                import judge_log
+                ok, msg = judge_log.record(r["회차"], r["번호"], jd.get("방향"), jd.get("확신", "낮음"), jd.get("다리", "") or "",
+                                           jd.get("이유", ""), src="분석가", probs=e.get("최종"))
+                if not ok and "같다" not in msg:
+                    print(f"  (내판단 미기록: {msg})")
+            except Exception as ex:
+                print(f"  (내판단 기록 실패: {ex})")
         base = {"회차": r["회차"], "번호": r["번호"], "경기": game, "기록시각": now}
         for f in e.get("요인", []):
             f = norm_factor(f)

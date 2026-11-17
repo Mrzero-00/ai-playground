@@ -199,6 +199,11 @@ python3 scripts/replay.py 승무패 --md         # 지금 로직이면 과거를
 - `round_log.py pure` 가 근거 없는 심층 경기를 ⚠ 로 알린다.
 **표본을 버리지 않는다** — 추천하지 않을 경기도 방향과 확률을 남긴다.
 
+**내 판단은 따로 적는다 (사용자 결정 2026-11-17)** — 추천은 계산식(기준선)과 규칙으로 내고, 사실을 읽고 내린
+Claude 의 방향·확신·다리 의견(넣음/뺌)은 경기 전에 `python3 scripts/judge_log.py add <회차> <번호> <방향> <확신> [--leg] --why`
+로 `data/내판단.csv` 에 남긴다(근거 JSON 의 `내판단` 은 `integrity.py add` 가 옮긴다). 심층 분석한 경기는 전부 적고,
+추천 표 아래에 `judge_log.py show <회차>` 의 갈린 경기를 참고로 붙인다. 회고 때 `judge_log.py report`.
+
 ### 5. 회고 (결과가 난 뒤)
 **추천 성적부터 본다**: `grade_all.py`(추천 다리 채점 + 조합 단위 성공률·회수율) →
 `safe_picks.py --forward`(선별 통과 vs 탈락, 채택 이후 구간만) →

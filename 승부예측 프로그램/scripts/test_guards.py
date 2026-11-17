@@ -93,6 +93,13 @@ def main():
     import toto_marks as tm
     check("toto_marks: 복수 마킹 읽기", tm.parse("1:승, 5:승/무,13:패/승") == {"1": ["승"], "5": ["승", "무"], "13": ["패", "승"]})
 
+    import judge_log as jl, datetime as _dt
+    _now = _dt.datetime(2026, 11, 17, 14, 0)
+    check("judge_log: 시작 전 경기", jl.kickoff("11-17 23:00", _now) > _now)
+    check("judge_log: 시작한 경기", jl.kickoff("11-17 10:00", _now) < _now)
+    check("judge_log: 해 넘김(12월에 1월 경기)", jl.kickoff("01-02 04:00", _dt.datetime(2026, 12, 30, 9, 0)).year == 2027)
+    check("judge_log: 형식 오류는 기록하지 않는다", jl.record("136", "4455", "한국", "중간")[0] is False)
+
     print(f"\n{'전부 통과' if not FAIL else f'실패 {len(FAIL)}건: ' + ', '.join(FAIL)}")
     return 1 if FAIL else 0
 

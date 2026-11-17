@@ -43,11 +43,12 @@ python3 scripts/baseline_replay.py      # 실제 기준선을 새 경기에 깐�
 python3 scripts/prior.py report         # ★ 줄(11-02 이후)만 본 지표. 그 앞은 시장을 본 분석이다
 python3 scripts/leg_flags.py report      # 다리 가능/제외 판정의 성적 (2026-11-17)
 python3 scripts/leg_flags.py motive      # 동기 가설 장부 — 결과 자동 채움
+python3 scripts/leg_flags.py rotation N  # 국가대표: 직전 경기 대비 선발 변경 수(예고 vs 실제)
 python3 scripts/toto_marks.py report     # 승무패 마킹 안별 채점 (추천할 때 toto_marks.py add 로 등록)
 python3 scripts/hold_log.py report       # 조건은 채웠지만 내지 않은 조합 — 기권이 값을 했나
 python3 scripts/direction_review.py due  # 주간 방향 점검 차례인가(11/09 차례를 놓쳤다)
 ```
-- 2026-11-17 측정 보강: `baseline_replay` 가 국가대표 Elo 를 경기 전날 상태로 재현해 ★ 줄이 27 → 73경기가 됐다(63.0%, 기준선 대비 −2.7p ±5.5). 같은 경기를 가리는 키를 `matchkey.py` 로 통일했다 — 승무패는 팀명을 4자로 잘라 프로토 회차와 따로 세어지고 있었다.
+- 2026-11-17 측정 보강: `baseline_replay` 가 국가대표 Elo 를 경기 전날 상태로 재현해 ★ 줄이 27 → 73경기가 됐고, 같은 날 NBA·UEFA 대항전 재현까지 붙여 116경기다(67.2%, 기준선 대비 −2.6p ±3.8). 같은 경기를 가리는 키를 `matchkey.py` 로 통일했다 — 승무패는 팀명을 4자로 잘라 프로토 회차와 따로 세어지고 있었다.
 - **규칙은 큰 표본으로만 바꾼다**: 우리 기록 수십 경기에서 좋은 칸을 찾아 문턱을 옮기지 않는다(추천 규칙이 5번 바뀌는 동안 어느 것도 30다리를 못 채웠다). 새 선별 아이디어는 `baseline_lab.py --select`(5대 리그 7시즌)에서 **잔차**가 갈리는지 먼저 본다 — 적중률이 아니라 잔차다.
 - `safe_picks.py --round` 를 돌릴 때마다 **정배 전부**(통과·탈락)가 `data/선별후보.csv` 에 자동으로 남는다. 탈락한 정배가 대조군이다.
 - `pick_table.py --save` 는 **2폴더 미만·합계 1.8 미만 조합을 저장하지 않는다**(전에는 경고만 했다). 한 다리가 두 조합에 들어가면 조합 칸을 ` | ` 로 잇는다(전에는 덮어써서 조합 단위 채점이 불가능했다).

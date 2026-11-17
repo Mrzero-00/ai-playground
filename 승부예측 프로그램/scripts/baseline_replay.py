@@ -10,8 +10,8 @@
 
 무엇:
   전체경기기록의 축구 행마다 soccer_baseline.row_baseline(킥오프 2시간 전 cutoff — 사후 누수 없음)을
-  계산해 data/기준선재현.csv 에 남긴다. soccer_baseline 이 다루는 리그만 나온다(유럽대항전·컵은
-  euro_baseline 이 현재 상태만 내서 과거를 누수 없이 재현할 수 없다 — 빈칸으로 둔다).
+  계산해 data/기준선재현.csv 에 남긴다. soccer_baseline 이 다루는 리그가 나온다(국내 컵은 빈칸).
+  UEFA 대항전은 euro_baseline 을 킥오프 2시간 전 cutoff 로 재현한다(2026-11-17).
   국가대표 경기는 intl_baseline(Elo)을 **경기 전날까지의 결과로** 다시 깐다(2026-11-17 — 11-02 이후 분석
   236경기 중 209경기가 재현 기준선이 없어 본 지표에서 빠져 있었다). 개최지는 홈으로 둔다 — 분석가의
   중립 교정은 '개입'으로 잡힌다.
@@ -88,7 +88,33 @@ def build(all_=False):
                         "1순위": "승" if ph >= 50 else "패", "계산일": today})
     except Exception as ex:
         print(f"(NBA 재현 건너뜀: {ex})")
+    # 2026-11-17: UEFA 대항전(챔스·유로파·컨퍼런스)도 재현한다 — euro_baseline.state(cutoff) 가 킥오프 2시간 전
+    # 상태의 통합 pi-rating 을 낸다(전에는 '현재 상태만 낸다'고 잘못 적어 31경기가 본 지표 밖에 있었다).
+    eb = teams = None
+    try:
+        import euro_baseline as eb
+        with contextlib.redirect_stdout(io.StringIO()), contextlib.redirect_stderr(io.StringIO()):
+            teams = eb.teams_recent()
+    except (Exception, SystemExit) as ex:
+        print(f"(유럽대항전 재현 건너뜀: {ex})"); eb = None
+    now = dt.datetime.now(sb.KST)
     for g in rows:
+        with contextlib.redirect_stdout(io.StringIO()), contextlib.redirect_stderr(io.StringIO()):
+            b = None
+            lg = g.get("리그") or ""
+            if eb and lg.startswith("UEFA") and any(k in lg for k in ("챔피언스", "유로파", "컨퍼런스")):
+                try:
+                    ko = sb.kickoff(g.get("시각", ""), now)
+                    h, a_ = sb.match_team(g["홈"], teams, names), sb.match_team(g["원정"], teams, names)
+                    if ko and h and a_:
+                        b, _ = eb.predict_pair(h, a_, cutoff=ko - dt.timedelta(hours=2))
+                except (Exception, SystemExit):
+                    b = None
+        if b:
+            p = {k: b[k] * 100 for k in L}
+            add.append({"회차": g["회차"], "번호": g["번호"], **{k: f"{p[k]:.1f}" for k in L},
+                        "1순위": max(p, key=p.get), "계산일": today})
+            continue
         with contextlib.redirect_stdout(io.StringIO()), contextlib.redirect_stderr(io.StringIO()):
             try:
                 b = sb.row_baseline(g, names, cache)

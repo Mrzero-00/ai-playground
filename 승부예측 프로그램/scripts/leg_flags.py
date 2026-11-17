@@ -18,6 +18,7 @@
 import argparse, csv, datetime as dt, glob, json, math, os, re, sys
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+sys.path.insert(0, os.path.join(ROOT, "scripts"))
 LOG = os.path.join(ROOT, "전체경기기록.csv")
 OUT = os.path.join(ROOT, "data", "다리판단.csv")
 MOT = os.path.join(ROOT, "data", "동기가설.csv")
@@ -198,12 +199,101 @@ def cmd_motive(a):
     return 0
 
 
+ROT = os.path.join(ROOT, "data", "선발변화.csv")
+RCOLS = ["회차", "번호", "경기", "팀", "쪽", "내1순위팀", "직전경기", "변경수", "로테이션예고", "판정", "사유", "결과", "1순위적중"]
+ROT_WORDS = ("로테이션", "대폭", "바꾸", "바꾼", "교체 예고", "어린 선수", "실험")
+
+
+def _starters(eid):
+    """ESPN 요약의 (홈 선발, 원정 선발, 홈 팀명, 원정 팀명). 실패하면 None."""
+    import postmatch
+    j = postmatch.summary(eid) or {}
+    out = {}
+    for ro in j.get("rosters", []):
+        st = {p["athlete"]["displayName"] for p in ro.get("roster", []) if p.get("starter")}
+        if len(st) >= 11:
+            out[ro.get("homeAway")] = (st, (ro.get("team") or {}).get("displayName", ""))
+    return out if len(out) == 2 else None
+
+
+def cmd_rotation(a):
+    """국가대표 경기에서 각 팀이 **직전 경기 대비 선발을 몇 명 바꿨나**를 ESPN 명단으로 센다 (2026-11-17).
+
+    다리 제외 기준 (a)(e)(f) 는 '로테이션을 할 것이다'에 서 있다. 예고·순위 확정이 실제 선발 변경으로
+    이어졌는지, 그리고 많이 바꾼 1순위 팀이 덜 이겼는지를 재야 기준을 남길지 버릴지 정할 수 있다.
+    직전 경기는 ESPN 점수판 캐시(data/intl/venues.json)에서 그 팀의 바로 앞 경기를 찾는다."""
+    import intl_baseline as ib
+    cache = json.load(open(ib.VENUES, encoding="utf-8")) if os.path.exists(ib.VENUES) else {}
+    ev = []          # (날짜, 홈, 원정, id)
+    for m in cache.values():
+        for k, v in m.items():
+            h, aw, d = k.split("|")
+            if v.get("id"):
+                ev.append((d, h, aw, v["id"]))
+    ev.sort()
+    F = latest()
+    ev_json = {}
+    for g in csv.DictReader(open(os.path.join(ROOT, "data", "근거기록.csv"), encoding="utf-8-sig")):
+        if g["회차"] == str(a.round) and g.get("유형") == "감독" and any(w in (g.get("내용") or "") for w in ROT_WORDS):
+            ev_json.setdefault(g["번호"], set()).add(g.get("팀") or "")
+    old = [r for r in (csv.DictReader(open(ROT, encoding="utf-8-sig")) if os.path.exists(ROT) else []) if r["회차"] != str(a.round)]
+    new = []
+    for g in csv.DictReader(open(LOG, encoding="utf-8-sig")):
+        if g["회차"] != str(a.round) or g.get("결과") not in L or not ib.is_intl(g):
+            continue
+        v = ib.venue(g["홈"], g["원정"], g["시각"], want_id=True)
+        if not v or not v.get("id"):
+            continue
+        cur = _starters(v["id"])
+        if not cur:
+            continue
+        me, _ = _top(g, "순수")
+        fav = {"승": "홈", "패": "원정"}.get(me, "")
+        f = F.get((g["회차"], g["번호"]), {})
+        for side, key in (("홈", "home"), ("원정", "away")):
+            team = ib.name(g[side])
+            mine = next((i for i, e in enumerate(ev) if e[3] == v["id"]), None)
+            prev = next((e for e in reversed(ev[:mine] if mine is not None else ev) if team in (e[1], e[2]) and e[3] != v["id"]), None)
+            ps = _starters(prev[3]) if prev else None
+            if not ps:
+                continue
+            pst = ps["home"][0] if prev[1] == team else ps["away"][0]
+            new.append({"회차": g["회차"], "번호": g["번호"], "경기": f"{g['홈']}-{g['원정']}", "팀": g[side], "쪽": side,
+                        "내1순위팀": "1" if fav == side else "", "직전경기": f"{prev[0]} {prev[1]}-{prev[2]}",
+                        "변경수": 11 - len(cur[key][0] & pst),
+                        "로테이션예고": "1" if side in ev_json.get(g["번호"], set()) else "",
+                        "판정": f.get("판정", ""), "사유": f.get("사유", ""), "결과": g["결과"],
+                        "1순위적중": "" if fav != side else int(me == g["결과"])})
+    with open(ROT, "w", encoding="utf-8-sig", newline="") as fh:
+        w = csv.DictWriter(fh, fieldnames=RCOLS); w.writeheader(); w.writerows(old + new)
+    allr = old + new
+    print(f"{a.round}회 선발 변화 {len(new)}팀 기록 → data/선발변화.csv (누적 {len(allr)}팀)\n")
+    for r in new:
+        print(f"  {r['번호']} {r['팀']:<10} 변경 {int(r['변경수']):>2}명" + ("  ★1순위" if r["내1순위팀"] else "")
+              + ("  [감독 로테이션 발언]" if r["로테이션예고"] else "") + (f"  [제외 {r['사유']}]" if r["판정"] == "제외" and r["내1순위팀"] else "")
+              + (f"  → {'적중' if r['1순위적중'] == 1 else '실패'}" if r["내1순위팀"] else ""))
+    fav = [r for r in allr if r["내1순위팀"]]
+    print("\n-- 누적: 1순위 팀의 선발 변경 수와 적중")
+    for lab, f_ in (("변경 0~2명", lambda n: n <= 2), ("변경 3~5명", lambda n: 3 <= n <= 5), ("변경 6명 이상", lambda n: n >= 6)):
+        sub = [r for r in fav if f_(int(r["변경수"]))]
+        if sub:
+            h = sum(int(r["1순위적중"]) for r in sub)
+            print(f"  {lab:<12}{len(sub):>3}경기  적중 {h}/{len(sub)}")
+    said = [r for r in allr if r["로테이션예고"]]
+    rest = [r for r in allr if not r["로테이션예고"]]
+    avg = lambda x: sum(int(r["변경수"]) for r in x) / len(x) if x else float("nan")
+    print(f"-- 감독이 로테이션을 말한 팀 {len(said)}곳 평균 {avg(said):.1f}명 변경 · 말하지 않은 팀 {len(rest)}곳 평균 {avg(rest):.1f}명")
+    print("판정 약속: 1순위 팀 30경기에서 '변경 6명 이상'의 적중률이 '0~2명'보다 낮지 않으면 로테이션 계열 제외 기준 (a)(e)(f) 를 폐기한다.")
+    return 0
+
+
 def main():
     ap = argparse.ArgumentParser()
     s = ap.add_subparsers(dest="c", required=True)
     s.add_parser("backfill").set_defaults(f=cmd_backfill)
     p = s.add_parser("report"); p.add_argument("--list", action="store_true"); p.set_defaults(f=cmd_report)
     s.add_parser("motive").set_defaults(f=cmd_motive)
+    p = s.add_parser("rotation"); p.add_argument("round"); p.set_defaults(f=cmd_rotation)
     a = ap.parse_args()
     return a.f(a)
 

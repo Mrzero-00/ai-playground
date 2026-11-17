@@ -105,7 +105,7 @@ def games(prefer=None):
     for g in csv.DictReader(open(LOG, encoding="utf-8-sig")):
         if g.get("결과") not in L:
             continue
-        grp.setdefault(((g.get("시각") or "")[-11:-6], g["홈"][:4], g["원정"][:4]), []).append(g)
+        grp.setdefault(__import__("matchkey").key(g), []).append(g)
     return [next((g for g in v if prefer and prefer(g)), v[0]) for v in grp.values()]
 
 

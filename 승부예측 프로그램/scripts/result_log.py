@@ -149,7 +149,7 @@ def results(rnd=None, only=None):
         ev = " ".join(f"{k} {v}" for k, v in pm.items()
                       if k in ("홈xG", "원정xG", "홈슈팅", "원정슈팅", "홈유효", "원정유효", "홈퇴장", "원정퇴장") and v)
         out.append({"깊이": (r.get("깊이") or "").strip(),
-                    "_경기키": ((r.get("시각") or "")[-11:], r["홈"][:4], r["원정"][:4]),
+                    "_경기키": __import__("matchkey").key(r),
                     "회차": r["회차"], "번호": r["번호"], "경기": f"{r['홈']} vs {r['원정']}",
                     "종목": r.get("종목", ""), "리그": r.get("리그", ""),
                     "내1순위": t, "내확률": f"{p:.0f}", "실제": r["결과"], "결과구분": kind,

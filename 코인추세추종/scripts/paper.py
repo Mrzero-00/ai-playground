@@ -31,14 +31,19 @@ def get(url):
 
 
 def closes(market):
-    """마감된 일봉 종가를 오래된 순으로. 진행 중인 오늘 봉은 뺀다."""
+    """마감된 일봉 종가를 오래된 순으로. 일봉은 09:00 KST 에 바뀌니 진행 중인 봉(날짜 = 9시간 전의 날짜)부터는 뺀다.
+    방금 닫힌 봉이 응답에 없으면 예외를 낸다 — 하루 늦은 종가로 매매하지 않으려고."""
     rows, to = {}, ""
     for _ in range(2):
         batch = get(f"https://api.upbit.com/v1/candles/days?market={market}&count=200{to}")
         for c in batch:
             rows[c["candle_date_time_kst"][:10]] = c["trade_price"]
         to = f"&to={batch[-1]['candle_date_time_utc']}"
-    dates = sorted(rows)[:-1]
+    cur = datetime.now(KST) - timedelta(hours=9)
+    dates = [d for d in sorted(rows) if d < cur.strftime("%Y-%m-%d")]
+    want = (cur - timedelta(days=1)).strftime("%Y-%m-%d")
+    if not dates or dates[-1] != want:
+        raise RuntimeError(f"{market} 일봉이 덜 올라왔다: 마지막 마감 봉 {dates[-1] if dates else '없음'}, 있어야 할 봉 {want}")
     return dates, [rows[d] for d in dates]
 
 

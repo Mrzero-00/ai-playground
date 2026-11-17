@@ -19,3 +19,6 @@ Python 3.9 + pandas. 데이터는 업비트 공개 API(키 불필요) 일봉, `d
 - `.env`(키·예산·LIVE), `live/`·`paper/`·`paper_ml/`·`paper_futures/`(장부), `data/`, `report/` 는 커밋하지 않는다.
 - Vercel `coin-report` 는 Git 연결 없이 CLI 로만 배포한다. `vercel link` 가 저장소를 자동 연결하면 `vercel git disconnect` 로 끊는다(푸시마다 저장소 전체 Preview 가 생긴다).
 - 긴급 정지: `touch live/STOP`.
+- `scripts/live.py` 를 고치면 `python3 scripts/test_live.py`(가짜 거래소, 실제 주문 없음)를 통과시킨 뒤에 올린다. 주문을 다시 보내는 재시도는 넣지 않는다 — 주문은 고유 번호를 장부에 먼저 적고, 결과는 그 번호로 조회해서 맞춘다.
+- 실전 증액·감액은 `live.py --deposit / --withdraw` 로만 한다. `.env` 의 `BUDGET` 이나 `live/state.json` 을 손으로 고치지 않는다(손실 한도 최고점·수익률 지수가 어긋난다).
+- 알림은 보내지 않는다(사용자 뜻). 이상 여부는 리포트 맨 위 상태 줄로만 드러낸다. 새 launchd 작업을 만들면 `report.py` 의 `health()` 에도 넣는다.

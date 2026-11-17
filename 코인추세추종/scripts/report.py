@@ -5,10 +5,10 @@ launchd com.coin-trend.report 가 실전 봇(09:07) 뒤 09:20 에 돈다 (13:20�
   python3 scripts/report.py --no-deploy
 """
 import csv, html, json, os, subprocess, sys
-from datetime import datetime
+from datetime import datetime, timedelta
 from pathlib import Path
 
-from live import BUDGET
+from live import history
 from paper import KST, MARKETS, SMAS, closes, signal
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -125,13 +125,51 @@ def futures_table():
     return f'<div class="scroll"><table><tr><th>방식</th><th>목표 BTC / ETH</th><th>평가액 USDT</th><th>수익률</th><th>펀딩 누적(+ 냄)</th></tr>{body}</table></div><div class="muted">{day} 기준</div>'
 
 
+def health(now, live_st, col_last):
+    """작업마다 (이름, 정상 여부, 설명). 알림은 보내지 않으니 봇이 살아 있는지는 이 줄로 본다."""
+    today = now.strftime("%Y-%m-%d")
+    # 09:15 작업까지 끝난 뒤부터 오늘 몫을 기대한다
+    due = today if (now.hour, now.minute) >= (9, 16) else (now - timedelta(days=1)).strftime("%Y-%m-%d")
+    out = []
+    for name, folder in [("실전", "live"), ("모의", "paper"), ("ML 모의", "paper_ml"), ("선물 모의", "paper_futures")]:
+        st = ROOT / folder / "state.json"
+        last = json.loads(st.read_text()).get("last_run") if st.exists() else None
+        err = ROOT / folder / "logs" / f"{folder}.err"
+        erred = err.exists() and err.stat().st_size > 0 and datetime.fromtimestamp(err.stat().st_mtime, KST).strftime("%Y-%m-%d") == today
+        why = []
+        if not last or last < due:
+            why.append(f"마지막 실행 {last or '없음'}" + (", 오늘 오류 기록 있음" if erred else ""))
+        if folder == "live":
+            why += live_st.get("check", {}).get("notes", [])
+            why += [f"{m} 주문 확인이 끝나지 않음" for m, s in live_st.get("sleeves", {}).items() if s.get("pending")]
+            if (ROOT / "live/STOP").exists():
+                why.append("정지 상태(STOP 파일)")
+        out.append((name, not why, " · ".join(why) or f"{last} 실행" + (" (오류 뒤 재시도로 끝남)" if erred else "")))
+
+    try:
+        age = (now - datetime.strptime(col_last[:16], "%Y-%m-%d %H:%M").replace(tzinfo=KST)).total_seconds() / 60
+    except ValueError:
+        age = None
+    out.append(("수집", age is not None and age <= 25 and "수집 완료" in col_last, col_last))
+
+    log = ROOT / "data/collect/logs/push_data.log"
+    line = log.read_text().strip().splitlines()[-1] if log.exists() and log.stat().st_size else "기록 없음"
+    try:
+        fresh = now - datetime.fromisoformat(line.split()[1]) < timedelta(hours=26)
+    except (IndexError, ValueError):
+        fresh = False
+    out.append(("데이터 푸시", fresh and "푸시 완료" in line, line.lstrip("- ")))
+    return out
+
+
 def pct(v, digits=2):
     return "—" if v is None else f"{v * 100:+.{digits}f}%"
 
 
 def build():
     now = datetime.now(KST)
-    live_eq = daily(ROOT / "live/equity.csv", ["평가액"])
+    live_hist = history()  # (날짜, 평가액, 넣은 돈, 입출금 뺀 지수)
+    live_eq = [(d, idx) for d, _, _, idx in live_hist]
     paper_eq = daily(ROOT / "paper/equity.csv", ["평가액", "보유시_평가액"])
     live_tr = rows(ROOT / "live/trades.csv")
     paper_tr = rows(ROOT / "paper/trades.csv")
@@ -144,11 +182,18 @@ def build():
     sig = signals()
     col_last, col_kinds = collector()
 
+    checks = health(now, live_st, col_last)
+    pills = "".join(f'<span class="pill {"ok" if ok else "bad"}" title="{html.escape(d)}">{n} {"정상" if ok else "확인 필요"}</span>' for n, ok, d in checks)
+    issues = "".join(f"<li><b>{n}</b> — {html.escape(d)}</li>" for n, ok, d in checks if not ok)
+    health_html = f'<div class="health">{pills}</div>' + (
+        f'<ul class="issues">{issues}</ul>' if issues else
+        f'<p class="muted">작업이 모두 제때 돌았다{"." if "check" not in live_st else ", 실전 장부와 업비트 계좌도 맞는다."}</p>')
+    flows = rows(ROOT / "live/flows.csv")
+
     cards = []
-    if live_eq:
-        start = BUDGET
-        v = live_eq[-1][1]
-        cards.append(("실전 평가액", f"{v:,.0f}원", f"시작 대비 {pct(v / start - 1)} · 최대 하락 {pct(mdd([r[1] for r in live_eq]), 1)}"))
+    if live_hist:
+        _, v, b, _ = live_hist[-1]
+        cards.append(("실전 평가액", f"{v:,.0f}원", f"넣은 돈 {b:,.0f}원 대비 {pct(v / b - 1)} · 최대 하락 {pct(mdd([r[1] for r in live_eq]), 1)}"))
     if paper_eq:
         v, h = paper_eq[-1][1], paper_eq[-1][2]
         cards.append(("모의 평가액", f"{v:,.0f}원", f"원금 대비 {pct(v / 1e6 - 1)} · 그냥 보유 {pct(h / 1e6 - 1)}"))
@@ -193,8 +238,8 @@ def build():
 <html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="robots" content="noindex,nofollow"><title>코인 추세추종 리포트</title>
 <style>
-:root{{--bg:#f7f7f5;--fg:#1c1c1c;--muted:#6b6b6b;--card:#fff;--line:#e3e3df;--up:#c0392b;--down:#2763c4;--c1:#e0761f;--c2:#3a7bd5;--c3:#9a9a9a;--c4:#2a9d6b}}
-@media (prefers-color-scheme:dark){{:root{{--bg:#141414;--fg:#ececec;--muted:#9a9a9a;--card:#1f1f1f;--line:#333;--up:#ff6b5a;--down:#6ea2ff;--c1:#ff9a3c;--c2:#6ea2ff;--c3:#777;--c4:#4cc28d}}}}
+:root{{--bg:#f7f7f5;--fg:#1c1c1c;--muted:#6b6b6b;--card:#fff;--line:#e3e3df;--up:#c0392b;--down:#2763c4;--c1:#e0761f;--c2:#3a7bd5;--c3:#9a9a9a;--c4:#2a9d6b;--ok:#2a9d6b;--bad:#c0392b}}
+@media (prefers-color-scheme:dark){{:root{{--bg:#141414;--fg:#ececec;--muted:#9a9a9a;--card:#1f1f1f;--line:#333;--up:#ff6b5a;--down:#6ea2ff;--c1:#ff9a3c;--c2:#6ea2ff;--c3:#777;--c4:#4cc28d;--ok:#4cc28d;--bad:#ff6b5a}}}}
 *{{box-sizing:border-box}}body{{margin:0;background:var(--bg);color:var(--fg);font:15px/1.55 -apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo",sans-serif}}
 main{{max-width:880px;margin:0 auto;padding:24px 16px 48px}}h1{{font-size:22px;margin:0 0 4px}}h2{{font-size:16px;margin:32px 0 10px}}
 .muted,.s{{color:var(--muted);font-size:13px}}.cards{{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:10px;margin-top:18px}}
@@ -204,9 +249,15 @@ th,td{{padding:7px 9px;border-bottom:1px solid var(--line);text-align:right;whit
 .scroll{{overflow-x:auto}}.up{{color:var(--up)}}.down{{color:var(--down)}}
 .chart{{width:100%;background:var(--card);border:1px solid var(--line);border-radius:10px}}.chart text{{fill:var(--muted);font-size:11px}}
 .legend{{display:flex;gap:14px;font-size:13px;color:var(--muted);margin-top:6px}}.legend i{{display:inline-block;width:10px;height:3px;margin-right:5px;vertical-align:middle}}
+.health{{display:flex;flex-wrap:wrap;gap:6px;margin-top:14px}}.pill{{font-size:12px;padding:3px 10px;border-radius:99px;border:1px solid var(--line);background:var(--card)}}
+.pill.ok::before{{content:"● ";color:var(--ok)}}.pill.bad{{border-color:var(--bad);color:var(--bad);font-weight:600}}.pill.bad::before{{content:"▲ "}}
+.issues{{margin:8px 0 0;padding-left:18px;font-size:13px}}.health+.muted{{margin:8px 0 0}}
+.banner{{background:#b93226;color:#fff;padding:10px 14px;border-radius:10px;margin-bottom:14px;font-weight:600}}
 </style></head><body><main>
+<div id="stale" class="banner" hidden></div>
 <h1>코인 추세추종 리포트</h1>
 <div class="muted">업비트 BTC·ETH · SMA 20·50·100·200 앙상블 · 갱신 {now:%Y-%m-%d %H:%M} KST</div>
+{health_html}
 <div class="cards">{card_html}</div>
 
 <h2>오늘 신호 ({sig[0]['date']} 종가 기준)</h2>
@@ -218,6 +269,8 @@ th,td{{padding:7px 9px;border-bottom:1px solid var(--line);text-align:right;whit
 
 <h2>실전 거래</h2>
 {trade_table(live_tr, ["시각", "마켓", "구분", "목표비중_전", "목표비중_후", "체결가", "원화", "수수료", "상태"])}
+
+{f'<h2>실전 입출금</h2>{trade_table(flows, ["시각", "금액", "넣은돈_합계", "직전_평가액"])}' if flows else ""}
 
 <h2>모의 거래</h2>
 {trade_table(paper_tr, ["시각", "마켓", "구분", "목표비중_후", "체결가", "원화", "중간가대비_불리", "종가대비_불리"])}
@@ -248,7 +301,10 @@ th,td{{padding:7px 9px;border-bottom:1px solid var(--line);text-align:right;whit
 <h2>ML 데이터 수집</h2>
 <div class="scroll"><table><tr><th>항목</th><th>쌓인 날</th><th>용량</th></tr>{col_rows}</table></div>
 <p class="muted">최근 로그: {html.escape(col_last)}</p>
-</main></body></html>"""
+</main>
+<script>(function(){{var h=(Date.now()-{int(now.timestamp() * 1000)})/36e5;if(h>15){{var e=document.getElementById("stale");e.hidden=false;
+e.textContent="이 리포트는 "+Math.floor(h)+"시간째 갱신되지 않았다. 하루 세 번(09:20·13:20·21:20) 갱신되는 페이지다. 맥이 꺼져 있다면 봇도 매매하지 못하고 있다.";}}}})();</script>
+</body></html>"""
     OUT.mkdir(exist_ok=True)
     (OUT / "index.html").write_text(page)
     print(f"{now:%Y-%m-%d %H:%M} 리포트 생성 {OUT / 'index.html'}")

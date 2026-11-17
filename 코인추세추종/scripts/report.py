@@ -60,7 +60,7 @@ def collector():
     log = base / "logs" / "collect.log"
     last = log.read_text().strip().splitlines()[-1] if log.exists() else "기록 없음"
     kinds = {}
-    for d in sorted(p for p in base.iterdir() if p.is_dir() and p.name != "logs") if base.exists() else []:
+    for d in sorted(p for p in base.iterdir() if p.is_dir() and p.name != "logs" and not p.name.startswith(".")) if base.exists() else []:
         files = sorted(d.glob("*.csv.gz"))
         kinds[d.name] = {"days": len(files), "mb": sum(f.stat().st_size for f in files) / 1e6}
     return last, kinds

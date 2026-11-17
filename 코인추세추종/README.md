@@ -92,3 +92,5 @@ python3 scripts/report.py --no-deploy   # 로컬에서 report/index.html 만 생
 | tickers | 업비트 원화마켓 전 종목 24시간 시세 | 1시간 |
 
 저장 위치 `data/collect/<항목>/<날짜>.csv.gz`, 로그 `data/collect/logs/`. 맥이 잠들면 그 사이는 빈다(체결은 7일 안이면 복구).
+
+`data/collect` 는 별도 git 저장소로, 비공개 [Mrzero-00/autocoin](https://github.com/Mrzero-00/autocoin) 에 하루가 끝난 파일만 매일 푸시한다(`scripts/push_data.py`, launchd `com.coin-trend.push-data` 09:30).

@@ -5,9 +5,11 @@
     다른 PC·새 세션에는 그 도구가 없어 같은 일을 다시 만들어야 했다.
 
   python3 scripts/intl_round.py cards 136            # 남은 국가대표 경기의 기준선 카드 → data/카드/136_<번호>.md · data/카드/136.json
+  python3 scripts/intl_round.py skeleton 136 [번호 …] # 근거 JSON 뼈대(기준선·최종·선택지·예상점수는 기계가 채움) → data/근거/
   python3 scripts/intl_round.py apply 136 [번호 …]   # data/근거/136_<번호>_*.json → 전체경기기록(순수·깊이=심층) + 정합성 등급
                                                      # 같은 경기가 진행 중인 승무패 회차에 있으면 그쪽에도 복사해 적용한다
-순서: intl_baseline.py --update && --sync → cards → 수집가(브리프/수집가_국가대표.md) → 분석가(브리프/분석가_국가대표.md) → apply
+순서: intl_baseline.py --update && --sync && --espn → cards → 수집가(브리프/수집가_국가대표.md, 경기 2개당 1명)
+      → skeleton → 분석가(브리프/분석가_국가대표.md, **경기 4~5개당 1명**) → apply
 카드에는 자국 개최 기준선과 중립 기준선이 둘 다 있다. 분석가는 개최지를 보고 하나를 고르고 `최종` 은 그 기준선 그대로다.
 """
 import argparse, csv, glob, json, os, shutil, subprocess, sys, tempfile
@@ -63,6 +65,52 @@ def cmd_cards(a):
               + (f" · ★중립 추정({v['city']}, {v['country']})" if v and v["neutral"] else "" if v else " · 개최지 미확인"))
     json.dump(cards, open(path, "w", encoding="utf-8"), ensure_ascii=False, indent=1)
     print(f"→ data/카드/{a.round}.json · data/카드/{a.round}_<번호>.md ({len(cards)}경기)")
+    return 0
+
+
+def cmd_skeleton(a):
+    """근거 JSON 뼈대를 미리 쓴다 — 기준선·최종·선택지·예상점수·기권·무포켓은 카드에서 기계로 채운다 (2026-11-17).
+
+    국가대표는 최종 = 기준선이라 분석가가 숫자를 옮겨 적을 이유가 없다(옮기다 합이 99.9 가 되는 일도 있었다).
+    분석가는 개최지가 맞는지만 확인하고 요인·뉴스위험·다리판단·동기쪽·미확인·결론만 채운다.
+    개최지는 ESPN 경기장으로 자국/중립을 미리 고른다(카드에 근거가 찍힌다). 이미 있는 근거 파일은 건드리지 않는다."""
+    path = os.path.join(CARD, f"{a.round}.json")
+    if not os.path.exists(path):
+        print(f"data/카드/{a.round}.json 없음 — intl_round.py cards {a.round} 를 먼저 돌린다"); return 1
+    cards = json.load(open(path, encoding="utf-8"))
+    import datetime as dt
+    today = dt.date.today().isoformat()
+    n = 0
+    for no, c in cards.items():
+        if a.nos and no not in a.nos:
+            continue
+        out = os.path.join(ROOT, "data", "근거", f"{a.round}_{no}_{c['홈'].replace(' ', '')}-{c['원정'].replace(' ', '')}.json")
+        if glob.glob(os.path.join(ROOT, "data", "근거", f"{a.round}_{no}_*.json")):
+            continue
+        v = c.get("개최지")
+        neu = bool(v and v.get("neutral"))
+        b = list(c["n"] if neu else c["h"])
+        b[2] = round(100 - b[0] - b[1], 1)          # 반올림 합 맞춤
+        s3 = sorted(b, reverse=True)
+        gap = round(s3[0] - s3[1], 1)
+        bl = ib.baseline(c["홈"], c["원정"], neutral=neu)
+        gh, ga = ib.goals(bl["elo_h"] - bl["elo_a"] + (0 if neu else ib.HOME)) if bl else (0, 0)
+        src = ("intl_baseline card (중립 교정: ESPN 경기장 %s, %s)" % (v["city"], v["country"]) if neu
+               else "intl_baseline card (자국 개최%s)" % ("" if v else " — 개최지 미확인, 수집 JSON 으로 확인할 것"))
+        d = {"번호": int(no), "홈": c["홈"], "원정": c["원정"], "리그": c["리그"], "분석시각": f"{today} KST",
+             "기준선": {"승": b[0], "무": b[1], "패": b[2], "출처": src},
+             "점검표확인": [f"G1: 1·2순위 차 {gap}p — {'해당(기권)' if gap < 10 else '해당 없음'}",
+                        f"기준선 1순위 55%+: {'해당' if s3[0] >= 55 else '해당 없음'} (확률은 기준선 그대로)",
+                        "결장 '의심'을 보정에 쓰지 않았다", "휴식일 차로 감점하지 않았다", "성적 폼을 1순위 가산에 쓰지 않았다",
+                        "'비기면 되는 팀'을 무 가산 근거로 쓰지 않았다",
+                        "개최지: " + ("제3국(중립 기준선)" if neu else "홈팀 자국" if v else "미확인 — 분석가가 수집 JSON 으로 채운다")],
+             "요인": [], "최종": {"승": b[0], "무": b[1], "패": b[2]}, "예상점수": f"{gh:.1f}:{ga:.1f}",
+             "선택지": [{"번호": int(no), "선택": k, "확률": b[i], "계산": "기준선"} for i, k in enumerate("승무패")],
+             "뉴스위험": "", "기권": gap < 10, "무포켓": b[1] == s3[1] and gap < 30, "확신도": "",
+             "다리판단": "", "미확인": [], "결론": "", "깊이": "심층"}
+        json.dump([d], open(out, "w", encoding="utf-8"), ensure_ascii=False, indent=1)
+        n += 1
+    print(f"근거 뼈대 {n}경기 → data/근거/{a.round}_<번호>_*.json (요인·뉴스위험·다리판단·동기쪽·미확인·결론·확신도는 분석가가 채운다)")
     return 0
 
 
@@ -140,6 +188,7 @@ def main():
     s = ap.add_subparsers(dest="c", required=True)
     p = s.add_parser("cards"); p.add_argument("round")
     p.add_argument("--refresh", action="store_true", help="ESPN 경기장 캐시를 다시 받는다"); p.set_defaults(f=cmd_cards)
+    p = s.add_parser("skeleton"); p.add_argument("round"); p.add_argument("nos", nargs="*"); p.set_defaults(f=cmd_skeleton)
     p = s.add_parser("apply"); p.add_argument("round"); p.add_argument("nos", nargs="*"); p.set_defaults(f=cmd_apply)
     a = ap.parse_args()
     return a.f(a)

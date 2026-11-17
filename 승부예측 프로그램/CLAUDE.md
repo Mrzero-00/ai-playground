@@ -103,7 +103,7 @@ python3 scripts/direction_review.py due  # 주간 방향 점검 차례인가(11/
 **채택한 조정**: 사전확률 = **자체 기준선**(`soccer_baseline`·`euro_baseline`·`kbo/mlb_pitching`·`nba_baseline`).
 국가대표 경기는 `intl_baseline`(2026-11-12 신설, Elo — 시험 6,461경기 방향 60.5%·잔차 −0.3p, `baseline_fill` 이 자동 사용).
 국가대표 분석 전에 `intl_baseline.py --update && python3 scripts/intl_baseline.py --sync` 로 직전 A매치 결과를 Elo 에 먹인다(2026-11-16 — 원자료가 한 달 늦다).
-`--espn` 은 베트맨에 안 팔린 A매치까지 ESPN 점수판에서 채운다(2026-11-17). 국가대표 회차의 카드·적용은 `intl_round.py cards/apply`, 에이전트 지시문은 `브리프/` 에 있다.
+`--espn` 은 베트맨에 안 팔린 A매치까지 ESPN 점수판에서 채운다(2026-11-17). 국가대표 회차의 카드·뼈대·적용은 `intl_round.py cards/skeleton/apply`, 에이전트 지시문은 `브리프/` 에 있다. **국가대표 분석가(opus)는 4~5경기당 1명**(2026-11-17 사용자 승인 — 최종 = 기준선이라 숫자는 뼈대가 채우고 분석가는 요인·다리판단만 쓴다. 리그 경기는 종전대로 경기당 1명).
 시장은 옆에 적기만 한다. 기준선이 없으면 **확률을 만들지 않고 빈칸으로 둔다 — 시장 복사 금지**.
 판정 지표도 시장 대비가 아니라 **자체 기준선 대비 개선폭**(`prior.py report`). 측정 519경기: 기준선 46.8% → 분석 53.8%(+6.9p).
 

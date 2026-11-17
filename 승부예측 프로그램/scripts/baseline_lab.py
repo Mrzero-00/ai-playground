@@ -11,6 +11,8 @@ REFIT 경기마다 **그때까지의 경기만으로** 다시 맞춘다. 예열(
     python3 scripts/baseline_lab.py                 # 등록된 변형 전부 비교
     python3 scripts/baseline_lab.py --leagues eng.1,esp.1
     python3 scripts/baseline_lab.py --fd            # 5대 리그 7시즌: 골 vs 골+슈팅, 마감 시장 눈금
+    python3 scripts/baseline_lab.py --xg            # 5대 리그 7시즌: 골·슈팅·xG 혼합 (Understat 경기별 xG)
+    python3 scripts/baseline_lab.py --lineup        # 5대 리그 7시즌: 선발 명단 특징(주전 비율·득점 관여·선수 레이팅)
     python3 scripts/baseline_lab.py --select        # 선별 신호가 시장 정배의 잔차를 가르는가
 
 측정 결과 (2026-11-11)
@@ -27,6 +29,12 @@ REFIT 경기마다 **그때까지의 경기만으로** 다시 맞춘다. 예열(
     즉 '무 확률이 낮은 정배'는 그냥 더 센 정배이고 배당도 그만큼 낮다. 모델−시장 격차도 U 자로 들쭉날쭉하다.
   · 정배 자체는 시장이 말한 것보다 조금 더 맞는다. 60~70% 구간 +3.5p(z=+3.01, n=1,691),
     70%+ +0.9p, 50~60% +0.3p. 베트맨 실측(경기결과 정배 회수 96% > 기대값 0.90)과 같은 방향이다.
+
+측정 결과 (2026-11-17, 5대 리그 11,142경기)
+  · xG 는 슈팅에 더할 것이 없다. 현행 52.98% → 골·슈팅·xG 3등분 53.07%(+0.09p, 2SE 0.25), xG 만 52.96%.
+  · 실제 선발 명단도 방향을 못 바꾼다. 주전 비율 −0.01p(2SE 0.21) · 득점 관여 −0.01p · 선수 레이팅 −0.24p.
+    정보는 실재한다((결과−모델)~주전 비율 차 t=+4.6). 다만 크기가 승 확률 4%p 안팎이고 시장이 이미 안다(잔여 t=+1.2).
+    EPL 한 리그에서는 전 변형이 +0.2~0.4p 로 보였다 — 한 리그로 판정하지 않는다.
 """
 import argparse, math, os, sys
 
@@ -176,6 +184,197 @@ def shot_rater(w=0.5, k_on=0.30, k_off=0.03, lam=None):
     return rate
 
 
+US_LG = {"E0": "EPL", "SP1": "La_liga", "D1": "Bundesliga", "I1": "Serie_A", "F1": "Ligue_1"}
+
+
+def attach_xg(data):
+    """football-data 경기에 Understat 경기별 xG(data/understat/hist/<리그>_<시즌>.json)를 붙인다 → g["hxg"], g["axg"].
+    팀명 표를 손으로 만들지 않는다 — 같은 날짜(±1일)·같은 점수인 경기끼리 이름을 투표로 잇는다.
+    반환: {리그: (붙은 경기, 전체)}"""
+    import json, glob, datetime as dt, collections
+    cov = {}
+    for div, gs in data.items():
+        us = []
+        for f in glob.glob(os.path.join(sb.ROOT, "data", "understat", "hist", f"{US_LG.get(div, '?')}_*.json")):
+            for x in json.load(open(f, encoding="utf-8"))["dates"]:
+                if x.get("isResult") and x.get("xG", {}).get("h") not in (None, ""):
+                    us.append((dt.datetime.strptime(x["datetime"][:10], "%Y-%m-%d").date(), x["h"]["title"], x["a"]["title"],
+                               int(x["goals"]["h"]), int(x["goals"]["a"]), float(x["xG"]["h"]), float(x["xG"]["a"])))
+        by = collections.defaultdict(list)
+        for u in us:
+            for k in (-1, 0, 1):
+                by[u[0] + dt.timedelta(days=k)].append(u)
+        vote = collections.defaultdict(collections.Counter)
+        for g in gs:
+            c = [u for u in by.get(g["t"].date(), []) if (u[3], u[4]) == (g["hg"], g["ag"])]
+            if len(c) == 1:
+                vote[g["home"]][c[0][1]] += 1; vote[g["away"]][c[0][2]] += 1
+        nm = {k: v.most_common(1)[0][0] for k, v in vote.items()}
+        n = 0
+        for g in gs:
+            for u in by.get(g["t"].date(), []):
+                if (u[1], u[2]) == (nm.get(g["home"]), nm.get(g["away"])):
+                    g["hxg"], g["axg"] = u[5], u[6]; n += 1; break
+        cov[div] = (n, len(gs))
+    return cov
+
+
+def xg_rater(w=0.5, ws=0.0, k_on=0.30, k_off=0.03, lam=None):
+    """골·xG·슈팅 대용치의 혼합으로 pi 를 굴린다. w = 골 비중, ws = 슈팅 대용치 비중, 나머지가 xG.
+    xG 가 없는 경기는 현행(골50+슈팅50)으로 굴린다."""
+    inner = pi_rater(lam=lam)
+
+    def rate(games):
+        gs = []
+        for g in games:
+            g2 = dict(g)
+            shots = None not in (g.get("hs"), g.get("as"), g.get("hst"), g.get("ast"))
+            ph = k_on * g["hst"] + k_off * max(g["hs"] - g["hst"], 0) if shots else g["hg"]
+            pa = k_on * g["ast"] + k_off * max(g["as"] - g["ast"], 0) if shots else g["ag"]
+            if g.get("hxg") is not None:
+                g2["hg"] = w * g["hg"] + ws * ph + (1 - w - ws) * g["hxg"]
+                g2["ag"] = w * g["ag"] + ws * pa + (1 - w - ws) * g["axg"]
+            else:
+                g2["hg"] = 0.5 * g["hg"] + 0.5 * ph
+                g2["ag"] = 0.5 * g["ag"] + 0.5 * pa
+            gs.append(g2)
+        return inner(gs)
+    return rate
+
+
+XG_VARIANTS = {
+    "현행 (골50+슈팅50)": shot_rater(0.5),
+    "골만": pi_rater(),
+    "골 70 + xG 30": xg_rater(0.7),
+    "골 50 + xG 50": xg_rater(0.5),
+    "골 30 + xG 70": xg_rater(0.3),
+    "xG 만": xg_rater(0.0),
+    "골 34 + 슈팅 33 + xG 33": xg_rater(0.34, 0.33),
+    "골 30 + 슈팅 20 + xG 50": xg_rater(0.3, 0.2),
+    "골 50 + xG 50, λ.07": xg_rater(0.5, lam=0.07),
+    "골 30 + xG 70, λ.07": xg_rater(0.3, lam=0.07),
+}
+
+
+ESPN_LG = {"E0": "eng.1", "SP1": "esp.1", "D1": "ger.1", "I1": "ita.1", "F1": "fra.1"}
+
+
+def attach_lineups(data):
+    """football-data 경기에 ESPN 선발 명단(data/lineups/<code>.json, lineup_hist.py)을 붙인다 → g["LH"], g["LA"].
+    각 원소 = [선수id, 선발 1/0, 골, 도움]. 팀명은 날짜(±1일)·점수 투표로 잇는다. 반환: {리그: (붙은 경기, 전체)}"""
+    import json, datetime as dt, collections
+    cov = {}
+    for div, gs in data.items():
+        try:
+            evs = json.load(open(os.path.join(sb.ROOT, "data", "lineups", f"{ESPN_LG.get(div, '?')}.json"), encoding="utf-8"))["events"].values()
+        except (OSError, ValueError):
+            cov[div] = (0, len(gs)); continue
+        by = collections.defaultdict(list)
+        for e in evs:
+            if "H" not in e or "A" not in e:
+                continue
+            d = dt.datetime.strptime(e["t"][:10], "%Y-%m-%d").date()
+            for k in (-1, 0, 1):
+                by[d + dt.timedelta(days=k)].append(e)
+        vote = collections.defaultdict(collections.Counter)
+        for g in gs:
+            c = [e for e in by.get(g["t"].date(), []) if (e["hg"], e["ag"]) == (g["hg"], g["ag"])]
+            if len(c) == 1:
+                vote[g["home"]][c[0]["h"]] += 1; vote[g["away"]][c[0]["a"]] += 1
+        nm = {k: v.most_common(1)[0][0] for k, v in vote.items()}
+        n = 0
+        for g in gs:
+            for e in by.get(g["t"].date(), []):
+                if (e["h"], e["a"]) == (nm.get(g["home"]), nm.get(g["away"])):
+                    if sum(p[1] for p in e["H"]) == 11 and sum(p[1] for p in e["A"]) == 11:
+                        g["LH"], g["LA"] = e["H"], e["A"]; n += 1
+                    break
+        cov[div] = (n, len(gs))
+    return cov
+
+
+def _ols_multi(X, y):
+    import numpy as np
+    A = np.column_stack([np.ones(len(X)), np.array(X, dtype=float)])
+    return np.linalg.lstsq(A, np.array(y, dtype=float), rcond=None)[0]
+
+
+def lineup_rater(cols=("reg",), n_reg=8, n_gi=15, lam_p=0.05, refit=100, min_fit=400, base=None):
+    """현행 기준선 pred 에 '오늘 선발' 특징을 얹는다. 특징은 전부 경기 전 값이고, 계수는 그때까지의 경기로만 맞춘다.
+      reg  주전 비율 — 최근 n_reg 경기 선발 횟수의 합 / 그 팀 상위 11명의 합 (1 = 평소 베스트 11)
+      gi   득점 관여 — 최근 n_gi 경기 팀 골+도움 중 오늘 선발이 올린 몫
+      ppi  선수 레이팅 — 팀 레이팅이 설명 못 한 득실차를 선발 11명에게 나눠 쌓은 값. 오늘 선발 평균 − 평소 선발 평균
+    특징 값은 (홈 − 원정). pred' = pred + Σβ·특징 / b."""
+    import collections
+    base = base or shot_rater(0.5)
+
+    def rate(games):
+        preds = base(games)
+        last = collections.defaultdict(lambda: collections.deque(maxlen=max(n_reg, n_gi)))   # 팀 → [(선발 집합, {pid: 골+도움})]
+        r = collections.defaultdict(float)
+        rows, beta, since, out = [], None, 0, []
+
+        def feats(team, xi):
+            hist = list(last[team])
+            if len(hist) < 4:
+                return None
+            f = {}
+            h = hist[-n_reg:]
+            cnt = collections.Counter(p for st, _ in h for p in st)
+            top = sum(sorted(cnt.values(), reverse=True)[:11])
+            f["reg"] = sum(cnt.get(p, 0) for p in xi) / top if top else 1.0
+            gi = collections.Counter()
+            for _, d in hist[-n_gi:]:
+                gi.update(d)
+            tot = sum(gi.values())
+            f["gi"] = sum(gi.get(p, 0) for p in xi) / tot if tot >= 5 else None
+            typ = sum(r[p] * c for p, c in cnt.items()) / max(sum(cnt.values()), 1)
+            f["ppi"] = sum(r[p] for p in xi) / 11 - typ
+            return f
+
+        for g, pr in zip(games, preds):
+            lh, la = g.get("LH"), g.get("LA")
+            x = None
+            if pr is not None and lh and la:
+                xh, xa = [p[0] for p in lh if p[1]], [p[0] for p in la if p[1]]
+                fh, fa = feats(g["home"], xh), feats(g["away"], xa)
+                if fh and fa and all(fh[c] is not None and fa[c] is not None for c in cols):
+                    x = [fh[c] - fa[c] for c in cols]
+            adj = pr
+            if x is not None and beta is not None and beta[1] > 0.2:
+                adj = pr + sum(b * v for b, v in zip(beta[2:], x)) / beta[1]
+            out.append(adj)
+            gd = g["hg"] - g["ag"]
+            if x is not None:
+                rows.append(([pr] + x, gd)); since += 1
+                if len(rows) >= min_fit and (beta is None or since >= refit):
+                    beta = _ols_multi([a for a, _ in rows], [b for _, b in rows]); since = 0
+            if lh and la:
+                if pr is not None and beta is not None:
+                    err = max(-3.0, min(3.0, gd - (beta[0] + beta[1] * pr)))
+                    for p in lh:
+                        if p[1]: r[p[0]] += lam_p * err
+                    for p in la:
+                        if p[1]: r[p[0]] -= lam_p * err
+                for team, L in ((g["home"], lh), (g["away"], la)):
+                    last[team].append(({p[0] for p in L if p[1]}, {p[0]: p[2] + p[3] for p in L if p[2] + p[3]}))
+        rate.beta = beta
+        return out
+    return rate
+
+
+LINEUP_VARIANTS = {
+    "현행 (골50+슈팅50)": shot_rater(0.5),
+    "+ 주전 비율": lineup_rater(("reg",)),
+    "+ 주전 비율(최근 5)": lineup_rater(("reg",), n_reg=5),
+    "+ 주전 비율(최근 12)": lineup_rater(("reg",), n_reg=12),
+    "+ 득점 관여": lineup_rater(("gi",)),
+    "+ 선수 레이팅": lineup_rater(("ppi",)),
+    "+ 주전 비율 + 득점 관여": lineup_rater(("reg", "gi")),
+    "+ 셋 다": lineup_rater(("reg", "gi", "ppi")),
+}
+
+
 FD_VARIANTS = {
     "골만 (옛 기준선)": pi_rater(),
     "골 70 + 슈팅 30": shot_rater(0.7),
@@ -248,11 +447,23 @@ def main(variants=None):
     ap.add_argument("--leagues", default="")
     ap.add_argument("--by-league", action="store_true")
     ap.add_argument("--fd", action="store_true", help="football-data 5대 리그 7시즌(슈팅·마감 배당 포함)으로 잰다")
+    ap.add_argument("--xg", action="store_true", help="5대 리그 7시즌에 Understat 경기별 xG 를 붙여 골·슈팅·xG 혼합을 잰다")
+    ap.add_argument("--lineup", action="store_true", help="5대 리그 7시즌에 ESPN 선발 명단을 붙여 '오늘 선발' 특징이 기준선에 값을 더하는지")
     ap.add_argument("--select", action="store_true", help="선별 신호(무 확률·모델−시장 격차)가 시장 정배의 잔차를 가르는지")
     a = ap.parse_args()
     if a.select:
         return cmd_select()
-    if a.fd:
+    if a.lineup:
+        variants = variants or LINEUP_VARIANTS
+        data = load_fd()
+        for c, (n, m) in attach_lineups(data).items():
+            print(f"  선발 연결 {c}: {n}/{m}")
+    elif a.xg:
+        variants = variants or XG_VARIANTS
+        data = load_fd()
+        for c, (n, m) in attach_xg(data).items():
+            print(f"  xG 연결 {c}: {n}/{m}")
+    elif a.fd:
         variants = variants or FD_VARIANTS
         data = load_fd()
     else:

@@ -1116,6 +1116,16 @@
   "venue": "올드 트래퍼드",
   "venue_qid": "Q83457"
  },
+ "멕시코": {
+  "checked": "2026-11-18",
+  "elev": 2064,
+  "lat": 23,
+  "lon": -102,
+  "src": "Wikidata Q96→구단 · Open-Meteo 고도",
+  "team_qid": "Q96",
+  "venue": "멕시코(구단 좌표 — 구장 미확인)",
+  "venue_qid": ""
+ },
  "멜버른 빅토리": {
   "checked": "2026-10-23",
   "elev": 8,
@@ -1164,6 +1174,16 @@
   "src": "Wikidata Q2758→구단 · Open-Meteo 고도",
   "team_qid": "Q2758",
   "venue": "묀헨글라트바흐(구단 좌표 — 구장 미확인)",
+  "venue_qid": ""
+ },
+ "미국": {
+  "checked": "2026-11-18",
+  "elev": 576,
+  "lat": 39.8282,
+  "lon": -98.5795,
+  "src": "Wikidata Q30→구단 · Open-Meteo 고도",
+  "team_qid": "Q30",
+  "venue": "미국(구단 좌표 — 구장 미확인)",
   "venue_qid": ""
  },
  "미네소타 유나이티드FC": {
@@ -2235,6 +2255,16 @@
   "src": "못찾음",
   "venue": null
  },
+ "에콰도르": {
+  "checked": "2026-11-18",
+  "elev": 2729,
+  "lat": -0.1077,
+  "lon": -78.4891,
+  "src": "Wikidata Q987584→Q1369320 · Open-Meteo 고도",
+  "team_qid": "Q987584",
+  "venue": "Estadio Rodrigo Paz Delgado",
+  "venue_qid": "Q1369320"
+ },
  "엑셀시오르 로테르담": {
   "checked": "2026-10-25",
   "elev": 0,
@@ -2415,6 +2445,16 @@
   "team_qid": "Q218883",
   "venue": "사이타마 스타디움 2002",
   "venue_qid": "Q482446"
+ },
+ "우루과이": {
+  "checked": "2026-11-18",
+  "elev": 24,
+  "lat": -34.8944,
+  "lon": -56.1528,
+  "src": "Wikidata Q134916→Q498245 · Open-Meteo 고도",
+  "team_qid": "Q134916",
+  "venue": "에스타디오 센테나리오",
+  "venue_qid": "Q498245"
  },
  "우리카드 우리WON": {
   "checked": "2026-10-24",

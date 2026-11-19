@@ -20,8 +20,9 @@ LATE = {"keltner": "indicators", "stoch": "indicators", "aroon": "indicators", "
         "cci": "indicators", "hull": "indicators", "trix": "indicators", "obv": "indicators", "cmf": "indicators", "mfi": "indicators", "mayer": "others", "mvrv": "others",
         "tod": "intraday", "tom": "others", "rotation": "rotation",
         "squeeze": "indicators", "stable": "others", "macro": "others",
-        "exflow": "others", "actaddr": "others", "voltarget": "others"}
-STAGES.update({k: (m, None if m in ("intraday", "rotation") else k) for k, m in LATE.items()})  # 봉인을 연 뒤에 등록 — 개발 판정만, 참고용(RESEARCH.md 루프 절차 e)
+        "exflow": "others", "actaddr": "others", "voltarget": "others",
+        "pairs": "pairs", "arfc": "others", "dvol": "others"}
+STAGES.update({k: (m, None if m in ("intraday", "rotation", "pairs") else k) for k, m in LATE.items()})  # 봉인을 연 뒤에 등록 — 개발 판정만, 참고용(RESEARCH.md 루프 절차 e)
 WORKERS = 8
 
 

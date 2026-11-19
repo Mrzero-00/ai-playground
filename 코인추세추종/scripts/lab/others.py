@@ -1,10 +1,11 @@
-"""2단계 2차: 변동성 돌파·펀딩비·김치 프리미엄, 4차(참고용): 공포·탐욕 지수·요일, 5차(참고용): 메이어 배수·MVRV, 6차(참고용): 월말·월초, 7차(참고용): 스테이블코인 공급·미국 증시 추세, 8차(참고용): 거래소 순유입·활성 주소·변동성 목표 (RESEARCH.md 등록). 모두 일 단위(09:00 KST = 00:00 UTC 마감).
+"""2단계 2차: 변동성 돌파·펀딩비·김치 프리미엄, 4차(참고용): 공포·탐욕 지수·요일, 5차(참고용): 메이어 배수·MVRV, 6차(참고용): 월말·월초, 7차(참고용): 스테이블코인 공급·미국 증시 추세, 8차(참고용): 거래소 순유입·활성 주소·변동성 목표, 9차(참고용): 자기회귀 예측·옵션 내재변동성 (RESEARCH.md 등록). 모두 일 단위(09:00 KST = 00:00 UTC 마감).
 모드: 선물 롱숏, 선물 롱만, 현물 롱만(업비트 원화). 봉인 구간은 읽지 않는다.
   python3 scripts/lab/others.py --fetch-fng   # 공포·탐욕 지수 전부 → data/ml/fng.csv (읽을 때 자른다)
   python3 scripts/lab/others.py --fetch-mvrv  # Coin Metrics 커뮤니티 MVRV 전부 → data/ml/mvrv.csv
   python3 scripts/lab/others.py --fetch-stable  # DefiLlama 스테이블코인 유통량(전체·USDT) → data/ml/stable.csv
   python3 scripts/lab/others.py --fetch-macro   # FRED S&P 500·나스닥 종가 → data/ml/macro.csv
   python3 scripts/lab/others.py --fetch-onchain # Coin Metrics 커뮤니티 거래소 유입·유출·활성 주소 → data/ml/onchain.csv
+  python3 scripts/lab/others.py --fetch-dvol    # Deribit DVOL(BTC·ETH 30일 내재변동성) 일봉 → data/ml/dvol.csv
 """
 import io, json, sys, urllib.request
 
@@ -230,6 +231,56 @@ def s_voltarget(d, p, sym):
     return (base * size).fillna(0.0)
 
 
+def s_arfc(d, p, sym):
+    """날마다 지난 W 일 로그수익으로 AR(p) 를 OLS 로 다시 맞춰 다음 날 수익의 부호를 낸다."""
+    r = np.log(d.close).diff().to_numpy()
+    k, W = p["p"], p["W"]
+    lags = np.column_stack([np.r_[np.full(i + 1, np.nan), r[:-(i + 1)]] for i in range(k)])  # lags[t, i] = r[t-1-i]
+    X = np.column_stack([np.ones(len(r)), lags])
+    out = np.zeros(len(r))
+    for t in range(W + k + 1, len(r)):
+        rows = slice(t - W + 1, t + 1)
+        beta = np.linalg.lstsq(X[rows], r[rows], rcond=None)[0]
+        f = beta[0] + beta[1:] @ r[t - np.arange(k)]  # 다음 날 예측: r[t], r[t-1], ...
+        out[t] = np.sign(f)
+    return pd.Series(out, index=d.index)
+
+
+def fetch_dvol():
+    rows, end = [], int(pd.Timestamp.now(tz="UTC").timestamp() * 1000)
+    for cur in SYMBOLS:
+        start = int(pd.Timestamp("2021-01-01", tz="UTC").timestamp() * 1000)
+        while start < end:
+            stop = min(start + 900 * 86400 * 1000, end)
+            j = json.loads(get(f"https://www.deribit.com/api/v2/public/get_volatility_index_data?currency={cur}&start_timestamp={start}&end_timestamp={stop}&resolution=1D"))
+            rows += [(pd.Timestamp(x[0], unit="ms").normalize(), cur, x[4]) for x in j["result"]["data"]]
+            start = stop
+    d = pd.DataFrame(rows, columns=["date", "asset", "dvol"]).drop_duplicates(["date", "asset"]).sort_values(["asset", "date"])
+    d.to_csv(ML / "dvol.csv", index=False)
+    print(f"dvol.csv {len(d)}줄", d.groupby("asset").date.agg(["min", "max"]).astype(str).to_dict("index"))
+
+
+def dvol(sym):
+    f = pd.read_csv(ML / "dvol.csv", parse_dates=["date"])
+    s = f[f.asset == sym].set_index("date").dvol
+    s.index = s.index + pd.Timedelta(days=1)  # D 날짜 값은 D+1 봉 신호부터 (하루 늦게)
+    return s[s.index <= last_day()]
+
+
+def s_dvol(d, p, sym):
+    dv = dvol(sym).reindex(d.index)
+    if p["rule"] == "스트레치":
+        hit = (dv >= (1 + p["s"]) * dv.rolling(10).mean()).astype(int).to_numpy()
+        return pd.Series(hold(hit, p["H"]), index=d.index)
+    rv = np.log(d.close).diff().rolling(p["n"]).std() * np.sqrt(365)
+    vrp = (dv / 100) ** 2 - rv ** 2
+    if p["rule"] == "VRP 부호":
+        return np.sign(vrp).fillna(0.0)
+    z = ((vrp - vrp.rolling(p["W"]).mean()) / vrp.rolling(p["W"]).std()).to_numpy()
+    with np.errstate(invalid="ignore"):
+        return pd.Series(np.where(z > p["th"], 1.0, np.where(z < -p["th"], -1.0, 0.0)), index=d.index)
+
+
 def vbreak_day(o, h, l, c, p):
     """일봉 기준 목표가·거르기·크기. → (롱 목표가, 숏 목표가, 롱 가능, 숏 가능, 크기)"""
     rng = (h - l).shift(1)
@@ -318,6 +369,13 @@ FAMILIES = {
     "voltarget": dict(name="변동성 목표", fn=s_voltarget, default=dict(base="보유", target=0.4, n=60),
                       params=grid(base=["보유", "앙상블"], target=[0.4, 0.6, 0.8], n=[10, 30, 60]),
                       sources=["Moreira·Muir (2017, Journal of Finance) Volatility-Managed Portfolios", "Harvey 외 (2018, Journal of Portfolio Management) The Impact of Volatility Targeting", "Moskowitz·Ooi·Pedersen (2012) — 연 40% 변동성 목표"]),
+    "arfc": dict(name="자기회귀 수익 예측", fn=s_arfc, default=dict(p=1, W=365), params=grid(p=[1, 2, 5, 10], W=[90, 180, 365, 730]),
+                 sources=["Box·Jenkins (1970) AR 모형", "Catania·Grassi·Ravazzolo (2019, International Journal of Forecasting) Forecasting cryptocurrencies under model and parameter instability — 짧은 창으로 다시 추정"]),
+    "dvol": dict(name="옵션 내재변동성", fn=s_dvol, default=dict(rule="VRP 부호", n=30, W="-", th="-", s="-", H="-"),
+                 params=grid(rule=["VRP 부호"], n=[7, 30], W=["-"], th=["-"], s=["-"], H=["-"])
+                 + grid(rule=["VRP z"], n=[30], W=[90, 180], th=[1.0, 2.0], s=["-"], H=["-"])
+                 + grid(rule=["스트레치"], n=["-"], W=["-"], th=["-"], s=[0.05, 0.1, 0.2], H=[5, 10]),
+                 sources=["Bollerslev·Tauchen·Zhou (2009, Review of Financial Studies) Expected Stock Returns and Variance Risk Premia", "Connors·Alvarez (2009) Short Term Trading Strategies That Work — VIX 스트레치 매수", "Deribit DVOL (30일 내재변동성, 2021-03-24~)"]),
 }
 
 
@@ -367,3 +425,5 @@ if __name__ == "__main__":
         fetch_macro()
     if "--fetch-onchain" in sys.argv:
         fetch_onchain()
+    if "--fetch-dvol" in sys.argv:
+        fetch_dvol()

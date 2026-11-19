@@ -16,9 +16,9 @@ STAGES.update({k: ("indicators", k) for k in ["tsmom", "macross", "donchian", "m
 STAGES.update({k: ("others", k) for k in ["vbreak", "funding", "kimchi"]})
 STAGES["reversal"] = ("indicators", "reversal")
 STAGES["patterns"] = ("patterns", None)
-LATE = ["keltner", "stoch", "aroon", "kama", "heikin", "fng", "dow"]  # 봉인을 연 뒤에 등록 — 개발 판정만, 참고용(RESEARCH.md 루프 절차 e)
-STAGES.update({k: ("indicators", k) for k in LATE[:5]})
-STAGES.update({k: ("others", k) for k in LATE[5:]})
+LATE = {"keltner": "indicators", "stoch": "indicators", "aroon": "indicators", "kama": "indicators", "heikin": "indicators", "fng": "others", "dow": "others",
+        "cci": "indicators", "hull": "indicators", "trix": "indicators", "obv": "indicators", "cmf": "indicators", "mfi": "indicators", "mayer": "others", "mvrv": "others"}
+STAGES.update({k: (m, k) for k, m in LATE.items()})  # 봉인을 연 뒤에 등록 — 개발 판정만, 참고용(RESEARCH.md 루프 절차 e)
 WORKERS = 8
 
 

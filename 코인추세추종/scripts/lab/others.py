@@ -1,6 +1,7 @@
-"""2단계 2차: 변동성 돌파·펀딩비·김치 프리미엄, 4차(참고용): 공포·탐욕 지수·요일 (RESEARCH.md 등록). 모두 일 단위(09:00 KST = 00:00 UTC 마감).
+"""2단계 2차: 변동성 돌파·펀딩비·김치 프리미엄, 4차(참고용): 공포·탐욕 지수·요일, 5차(참고용): 메이어 배수·MVRV (RESEARCH.md 등록). 모두 일 단위(09:00 KST = 00:00 UTC 마감).
 모드: 선물 롱숏, 선물 롱만, 현물 롱만(업비트 원화). 봉인 구간은 읽지 않는다.
   python3 scripts/lab/others.py --fetch-fng   # 공포·탐욕 지수 전부 → data/ml/fng.csv (읽을 때 자른다)
+  python3 scripts/lab/others.py --fetch-mvrv  # Coin Metrics 커뮤니티 MVRV 전부 → data/ml/mvrv.csv
 """
 import json, sys, urllib.request
 
@@ -8,7 +9,7 @@ import numpy as np
 import pandas as pd
 
 from common import ML, SYMBOLS, combine, day_codes, days, last_day, perp, positions, to_daily, upbit
-from indicators import MODES, grid, machine
+from indicators import MODES, grid, machine, sma
 
 
 def daily_funding(sym):
@@ -90,6 +91,39 @@ def s_dow(d, p, sym):
     return pd.Series((d.index + pd.Timedelta(days=1)).dayofweek.isin(DOW[p["day"]]).astype(float), index=d.index)
 
 
+def s_mayer(d, p, sym):
+    ma = sma(d.close, 200)
+    mm = (d.close / ma).to_numpy()
+    with np.errstate(invalid="ignore"):
+        out = (mm < 2.4).astype(float) if p["rule"] == "2.4 아래 보유" else machine(len(mm), mm <= p["lo"], np.zeros(len(mm), bool), mm >= p["exit"], np.zeros(len(mm), bool))
+    return pd.Series(out, index=d.index).where(ma.notna(), 0.0)
+
+
+def fetch_mvrv():
+    url = "https://community-api.coinmetrics.io/v4/timeseries/asset-metrics?assets=btc,eth&metrics=CapMVRVCur&frequency=1d&page_size=10000&start_time=2015-01-01"
+    rows = []
+    while url:
+        j = json.load(urllib.request.urlopen(urllib.request.Request(url, headers={"User-Agent": "coin-trend-lab"}), timeout=30))
+        rows += [(r["time"][:10], r["asset"].upper(), float(r["CapMVRVCur"])) for r in j["data"] if r.get("CapMVRVCur")]
+        url = j.get("next_page_url")
+    d = pd.DataFrame(rows, columns=["date", "asset", "mvrv"]).sort_values(["asset", "date"])
+    d.to_csv(ML / "mvrv.csv", index=False)
+    print(f"mvrv.csv {len(d)}줄", d.groupby("asset").date.agg(["min", "max"]).to_dict("index"))
+
+
+def mvrv(sym):
+    f = pd.read_csv(ML / "mvrv.csv", parse_dates=["date"])
+    s = f[f.asset == sym].set_index("date").mvrv
+    s.index = s.index + pd.Timedelta(days=1)  # D 날짜 값은 D+1 봉 신호부터 (하루 늦게)
+    return s[s.index <= last_day()]
+
+
+def s_mvrv(d, p, sym):
+    v = mvrv(sym).reindex(d.index).ffill().to_numpy(float)
+    with np.errstate(invalid="ignore"):
+        return pd.Series(machine(len(v), v <= p["lo"], np.zeros(len(v), bool), v >= p["exit"], np.zeros(len(v), bool)), index=d.index)
+
+
 def vbreak_day(o, h, l, c, p):
     """일봉 기준 목표가·거르기·크기. → (롱 목표가, 숏 목표가, 롱 가능, 숏 가능, 크기)"""
     rng = (h - l).shift(1)
@@ -159,6 +193,11 @@ FAMILIES = {
                 sources=["alternative.me Crypto Fear & Greed Index (2018-02-01~)", "Your One Trade of the Year (Medium) — 10 이하 매수, 35·50·65 위 매도", "Glassnode 인용 — 25 미만 뒤 30일 수익"]),
     "dow": dict(name="요일 효과", fn=s_dow, default=dict(day="월"), params=grid(day=list(DOW)),
                 sources=["Caporale·Plastun (2019, Finance Research Letters) The day of the week effect in the cryptocurrency market — 비트코인 월요일"]),
+    "mayer": dict(name="메이어 배수", fn=s_mayer, default=dict(rule="저평가", lo=0.8, exit=2.4),
+                  params=grid(rule=["저평가"], lo=[0.8, 0.9, 1.0], exit=[1.2, 1.5, 2.4]) + grid(rule=["2.4 아래 보유"], lo=["-"], exit=["-"]),
+                  sources=["Trace Mayer, Mayer Multiple — 종가 ÷ 200일 평균, 2.4 아래면 사 모은다", "Glassnode — 0.8 과매도, 2.4 과매수"]),
+    "mvrv": dict(name="MVRV", fn=s_mvrv, default=dict(lo=1.0, exit=3.5), params=grid(lo=[0.8, 1.0, 1.2], exit=[1.5, 2.4, 3.5]),
+                 sources=["Murad Mahmudov·David Puell (2018) MVRV", "Glassnode — 1 아래 바닥, 3.5 이상 꼭대기", "Coin Metrics 커뮤니티 API CapMVRVCur"]),
 }
 
 
@@ -197,5 +236,8 @@ def task(arg):
     return cfgs, np.array(G), np.array(T), np.array(N)
 
 
-if __name__ == "__main__" and "--fetch-fng" in sys.argv:
-    fetch_fng()
+if __name__ == "__main__":
+    if "--fetch-fng" in sys.argv:
+        fetch_fng()
+    if "--fetch-mvrv" in sys.argv:
+        fetch_mvrv()

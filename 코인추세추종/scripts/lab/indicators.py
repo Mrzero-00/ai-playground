@@ -247,6 +247,75 @@ def s_heikin(d, p):
     return pd.Series(out, index=d.index)
 
 
+# ---------- 5차 (봉인 해제 뒤 추가 — 참고용) ----------
+
+def volume(d):
+    """바이낸스는 거래량, 업비트 일봉은 수량이 없어 거래대금 ÷ 종가."""
+    return d.volume if "volume" in d else d.value / d.close
+
+
+def wma(x, n):
+    v, w = np.asarray(x, float), np.arange(1, n + 1, dtype=float)
+    out = np.full(len(v), np.nan)
+    if len(v) >= n:
+        out[n - 1:] = sliding_window_view(v, n) @ w / w.sum()
+    return pd.Series(out, index=x.index)
+
+
+def s_cci(d, p):
+    n, tp = p["n"], ((d.high + d.low + d.close) / 3)
+    w = sliding_window_view(tp.to_numpy(), n)
+    mad = np.r_[np.full(n - 1, np.nan), np.abs(w - w.mean(1, keepdims=True)).mean(1)]
+    cci = ((tp - sma(tp, n)) / (0.015 * mad)).to_numpy()
+    with np.errstate(invalid="ignore"):
+        if p["rule"] == "0선":
+            out = np.sign(np.nan_to_num(cci))
+        elif p["rule"] == "돌파":
+            out = machine(len(cci), cci > 100, cci < -100, cci < 100, cci > -100)
+        else:
+            out = machine(len(cci), cci < -100, cci > 100, cci > 0, cci < 0)
+    return pd.Series(out, index=d.index)
+
+
+def s_hull(d, p):
+    n = p["n"]
+    h = wma(2 * wma(d.close, n // 2) - wma(d.close, n), int(round(np.sqrt(n))))
+    return (np.sign(h.diff()) if p["rule"] == "기울기" else np.sign(d.close - h)).where(h.notna(), 0.0)
+
+
+def s_trix(d, p):
+    n = p["n"]
+    t = ema(ema(ema(d.close, n), n), n).pct_change()
+    out = np.sign(t) if p["rule"] == "0선" else np.sign(t - ema(t, 9))
+    return warm(out.fillna(0.0), 3 * n)
+
+
+def s_obv(d, p):
+    obv = (np.sign(d.close.diff()).fillna(0.0) * volume(d)).cumsum()
+    return np.sign(obv - sma(obv, p["n"])).where(obv.rolling(p["n"]).count() >= p["n"], 0.0)
+
+
+def s_cmf(d, p):
+    rng = (d.high - d.low).replace(0, np.nan)
+    v = volume(d)
+    cmf = ((((d.close - d.low) - (d.high - d.close)) / rng).fillna(0.0) * v).rolling(p["n"]).sum() / v.rolling(p["n"]).sum()
+    th = p["th"]
+    return pd.Series(np.where(cmf > th, 1.0, np.where(cmf < -th, -1.0, 0.0)), index=d.index)
+
+
+def s_mfi(d, p):
+    n, tp = p["n"], (d.high + d.low + d.close) / 3
+    mf, dtp = tp * volume(d), tp.diff()
+    pos, neg = mf.where(dtp > 0, 0.0).rolling(n).sum(), mf.where(dtp < 0, 0.0).rolling(n).sum()
+    mfi = (100 - 100 / (1 + pos / neg.replace(0, np.nan))).mask((neg == 0) & (pos > 0), 100.0)
+    if p["rule"] == "모멘텀":
+        return np.sign(mfi - 50)
+    lo, hi = map(int, p["band"].split("/"))
+    m = mfi.to_numpy()
+    with np.errstate(invalid="ignore"):
+        return pd.Series(machine(len(m), m < lo, m > hi, m > 50, m < 50), index=d.index)
+
+
 def grid(**kw):
     return [dict(zip(kw, v)) for v in itertools.product(*kw.values())]
 
@@ -292,6 +361,19 @@ FAMILIES = {
                  sources=["Perry Kaufman, Smarter Trading (1995) — KAMA(10, 2, 30) (StockCharts ChartSchool)"]),
     "heikin": dict(name="하이킨아시", fn=s_heikin, default=dict(m=1),
                    params=grid(m=[1, 2, 3]), sources=["Dan Valcu (2004, Technical Analysis of Stocks & Commodities) Using the Heikin-Ashi Technique"]),
+    "cci": dict(name="CCI", fn=s_cci, default=dict(n=20, rule="돌파"), params=grid(n=[14, 20, 40], rule=["돌파", "0선", "평균회귀"]),
+                sources=["Donald Lambert (1980, Commodities) Commodity Channel Index — 20, ±100", "StockCharts ChartSchool CCI"]),
+    "hull": dict(name="헐 이동평균", fn=s_hull, default=dict(n=20, rule="기울기"), params=grid(n=[9, 16, 20, 55, 100], rule=["기울기", "종가교차"]),
+                 sources=["Alan Hull (2005) — 기울기로 방향을 본다", "TA-Lib 기본 20, Capital.com 16"]),
+    "trix": dict(name="TRIX", fn=s_trix, default=dict(n=15, rule="신호선"), params=grid(n=[9, 12, 15, 18, 30], rule=["0선", "신호선"]),
+                 sources=["Jack Hutson (1983, TASC) Good TRIX — 15, 신호선 9 (StockCharts ChartSchool)"]),
+    "obv": dict(name="OBV", fn=s_obv, default=dict(n=20), params=grid(n=[10, 20, 50, 100]),
+                sources=["Joseph Granville (1963) On-Balance Volume", "누적 지표에 이동평균 기준선 (TradingView)"]),
+    "cmf": dict(name="차이킨 머니 플로", fn=s_cmf, default=dict(n=21, th=0.0), params=grid(n=[10, 21, 50], th=[0.0, 0.05, 0.1]),
+                sources=["Marc Chaikin, Chaikin Money Flow — Fidelity 21일, 0선 위 강세"]),
+    "mfi": dict(name="머니 플로 지수", fn=s_mfi, default=dict(n=14, rule="평균회귀", band="20/80"),
+                params=grid(n=[7, 14, 21], rule=["모멘텀"], band=["-"]) + grid(n=[7, 14, 21], rule=["평균회귀"], band=["20/80", "10/90"]),
+                sources=["Gene Quong·Avrum Soudack (1989, TASC) Money Flow Index — 14, 80/20"]),
 }
 MODES = ["선물 롱숏", "선물 롱만", "현물 롱만"]
 

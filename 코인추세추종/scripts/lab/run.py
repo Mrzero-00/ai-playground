@@ -11,7 +11,8 @@ import pandas as pd
 
 import common as C
 
-STAGES = {"triangle": "triangle_grid"}  # 등록 순서 = 실행 순서. 단계 이름 → 모듈
+STAGES = {"triangle": ("triangle_grid", None)}  # 등록 순서 = 실행 순서. 단계 이름 → (모듈, 방법 키)
+STAGES.update({k: ("indicators", k) for k in ["tsmom", "macross", "donchian", "macd", "rsi", "bollinger", "supertrend", "ichimoku", "psar", "adx"]})
 WORKERS = 8
 
 
@@ -27,12 +28,19 @@ def status(stage, **kw):
     p.write_text(json.dumps(s, ensure_ascii=False))
 
 
+def stage_mod(stage):
+    name, key = STAGES[stage]
+    m = importlib.import_module(name)
+    return m if key is None else m.Family(key)
+
+
 def compute(stage, mod):
     out, tasks = C.OUT / stage, mod.tasks()
+    fn = importlib.import_module(STAGES[stage][0]).task  # 모듈 함수여야 프로세스로 넘길 수 있다
     status(stage, state="running", pid=os.getpid(), started=now(), done=0, total=len(tasks), finished=None, error=None)
     parts = {}
     with Pool(WORKERS) as pool:
-        for k, (cfgs, G, T, N) in enumerate(pool.imap_unordered(mod.task, tasks), 1):
+        for k, (cfgs, G, T, N) in enumerate(pool.imap_unordered(fn, tasks), 1):
             parts.setdefault(cfgs[0][mod.CHUNK] if mod.CHUNK else "all", []).append((cfgs, G, T, N))
             status(stage, done=k)
             print(f"{now()} {k}/{len(tasks)}", flush=True)
@@ -63,7 +71,7 @@ def analyze(stage, mod):
     btc = C.perp("BTC", "1d").close
     bear = (btc < btc.rolling(200).mean()).shift(1).reindex(D).fillna(False).to_numpy()[dev]  # 전날 종가가 200일선 아래
     years = pd.DatetimeIndex(D[dev]).year
-    res = {"stage": stage, "name": mod.NAME, "sources": mod.SOURCES, "grid": {**mod.SIG, **mod.TRADE}, "default": mod.DEFAULT,
+    res = {"stage": stage, "name": mod.NAME, "sources": mod.SOURCES, "grid": mod.GRID, "default": mod.DEFAULT,
            "cells": sum(len(c[0]) for c in chunks), "made": now(), "window": [C.BLOCKS[0][0], C.BLOCKS[-1][1]], "units": []}
     for u in mod.UNITS:
         sub = []
@@ -132,7 +140,7 @@ def analyze(stage, mod):
 
 
 def main(stage, only_analyze=False):
-    mod = importlib.import_module(STAGES[stage])
+    mod = stage_mod(stage)
     try:
         if not only_analyze:
             compute(stage, mod)

@@ -10,6 +10,7 @@ NAME = "삼각수렴"
 SOURCES = ["Bulkowski thepatternsite.com (대칭·상승·하락 삼각형, 상승·하락 쐐기)", "StockCharts ChartSchool 대칭 삼각형", "TRIANGLE.md"]
 SIG = dict(tf=["1d", "4h", "1h"], K=[2, 3, 5], W=[20, 40, 60, 90], shrink=[0.4, 0.6, 0.8], flat=[0.1, 0.2])
 TRADE = dict(target=[0.5, 1.0, 2.0], filt=["없음", "방향", "거래량", "꼭지", "엄격"], entry=["돌파", "되돌림", "실패"], side=["양쪽", "롱만", "숏만"])
+GRID = {**SIG, **TRADE}
 DEFAULT = dict(tf="1d", K=3, W=40, shrink=0.6, flat=0.1, target=1.0, filt="없음", entry="돌파", side="양쪽")
 UNITS = [{"name": "선물", "bench": "F0", "where": None}]
 CHUNK = "tf"  # 결과를 봉 단위로 나눠 저장

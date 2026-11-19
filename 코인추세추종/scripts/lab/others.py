@@ -1,16 +1,17 @@
-"""2단계 2차: 변동성 돌파·펀딩비·김치 프리미엄, 4차(참고용): 공포·탐욕 지수·요일, 5차(참고용): 메이어 배수·MVRV, 6차(참고용): 월말·월초, 7차(참고용): 스테이블코인 공급·미국 증시 추세 (RESEARCH.md 등록). 모두 일 단위(09:00 KST = 00:00 UTC 마감).
+"""2단계 2차: 변동성 돌파·펀딩비·김치 프리미엄, 4차(참고용): 공포·탐욕 지수·요일, 5차(참고용): 메이어 배수·MVRV, 6차(참고용): 월말·월초, 7차(참고용): 스테이블코인 공급·미국 증시 추세, 8차(참고용): 거래소 순유입·활성 주소·변동성 목표 (RESEARCH.md 등록). 모두 일 단위(09:00 KST = 00:00 UTC 마감).
 모드: 선물 롱숏, 선물 롱만, 현물 롱만(업비트 원화). 봉인 구간은 읽지 않는다.
   python3 scripts/lab/others.py --fetch-fng   # 공포·탐욕 지수 전부 → data/ml/fng.csv (읽을 때 자른다)
   python3 scripts/lab/others.py --fetch-mvrv  # Coin Metrics 커뮤니티 MVRV 전부 → data/ml/mvrv.csv
   python3 scripts/lab/others.py --fetch-stable  # DefiLlama 스테이블코인 유통량(전체·USDT) → data/ml/stable.csv
   python3 scripts/lab/others.py --fetch-macro   # FRED S&P 500·나스닥 종가 → data/ml/macro.csv
+  python3 scripts/lab/others.py --fetch-onchain # Coin Metrics 커뮤니티 거래소 유입·유출·활성 주소 → data/ml/onchain.csv
 """
 import io, json, sys, urllib.request
 
 import numpy as np
 import pandas as pd
 
-from common import ML, SYMBOLS, combine, day_codes, days, last_day, perp, positions, to_daily, upbit
+from common import ML, SYMBOLS, combine, day_codes, days, ensemble, last_day, perp, positions, to_daily, upbit
 from indicators import MODES, grid, machine, sma
 
 
@@ -183,6 +184,52 @@ def s_macro(d, p, sym):
     return (2 * up - 1).fillna(0.0)
 
 
+ONCHAIN = {"FlowInExNtv": "inflow", "FlowOutExNtv": "outflow", "AdrActCnt": "active"}
+
+
+def fetch_onchain():
+    url = ("https://community-api.coinmetrics.io/v4/timeseries/asset-metrics?assets=btc,eth&metrics=" + ",".join(ONCHAIN)
+           + "&frequency=1d&page_size=10000&start_time=2015-01-01")
+    rows = []
+    while url:
+        j = json.loads(get(url))
+        rows += [{"date": r["time"][:10], "asset": r["asset"].upper(), **{v: float(r[k]) if r.get(k) else np.nan for k, v in ONCHAIN.items()}} for r in j["data"]]
+        url = j.get("next_page_url")
+    d = pd.DataFrame(rows).sort_values(["asset", "date"])
+    d.to_csv(ML / "onchain.csv", index=False)
+    print(f"onchain.csv {len(d)}줄", d.groupby("asset").date.agg(["min", "max"]).to_dict("index"))
+
+
+def onchain(sym, col):
+    f = pd.read_csv(ML / "onchain.csv", parse_dates=["date"])
+    s = f[f.asset == sym].set_index("date")[col]
+    s.index = s.index + pd.Timedelta(days=1)  # D 날짜 값은 D+1 봉 신호부터 (하루 늦게)
+    return s[s.index <= last_day()]
+
+
+def s_exflow(d, p, sym):
+    net = (onchain(sym, "inflow") - onchain(sym, "outflow")).reindex(d.index).rolling(p["L"]).sum()
+    x = net if p["rule"] == "0선" else (net - net.rolling(365).mean()) / net.rolling(365).std()
+    th = 0.0 if p["rule"] == "0선" else float(p["rule"].split()[1])
+    v = x.to_numpy()
+    with np.errstate(invalid="ignore"):
+        return pd.Series(np.where(v < -th, 1.0, np.where(v > th, -1.0, 0.0)), index=d.index)
+
+
+def s_actaddr(d, p, sym):
+    s, l = map(int, p["sl"].split("/"))
+    a = onchain(sym, "active").reindex(d.index)
+    fast, slow = a.rolling(s).mean(), a.rolling(l).mean()
+    return (2 * (fast > slow).astype(float) - 1).where(slow.notna(), 0.0)
+
+
+def s_voltarget(d, p, sym):
+    vol = d.close.pct_change().rolling(p["n"]).std() * np.sqrt(365)
+    size = (p["target"] / vol).clip(upper=1.0)
+    base = 1.0 if p["base"] == "보유" else ensemble(d.close)
+    return (base * size).fillna(0.0)
+
+
 def vbreak_day(o, h, l, c, p):
     """일봉 기준 목표가·거르기·크기. → (롱 목표가, 숏 목표가, 롱 가능, 숏 가능, 크기)"""
     rng = (h - l).shift(1)
@@ -264,6 +311,13 @@ FAMILIES = {
                    sources=["Griffin·Shams (2020, Journal of Finance) Is Bitcoin Really Untethered? — 테더 발행과 비트코인 수익", "반론: Wei (2018, Economics Letters), Lyons·Viswanath-Natraj (VoxEU) — 발행이 가격을 움직인다는 증거 없음", "DefiLlama 스테이블코인 유통량"]),
     "macro": dict(name="미국 증시 추세", fn=s_macro, default=dict(index="S&P 500", n=200), params=grid(index=list(MACRO), n=[20, 50, 100, 200]),
                   sources=["Adrian·Iyer·Qureshi (2022, IMF 블로그) Crypto Prices Move More in Sync With Stocks — 비트코인·S&P 500 수익 상관 0.01→0.36", "CoinDesk (2025) S&P 500 200일선 회복이 비트코인에 순풍", "FRED SP500·NASDAQCOM"]),
+    "exflow": dict(name="거래소 순유입", fn=s_exflow, default=dict(L=1, rule="0선"), params=grid(L=[1, 7, 30], rule=["0선", "z 1", "z 2"]),
+                   sources=["Hoang·Baur (SSRN 3902504) — 거래소 잔고 일 변화가 현재·미래 수익과 음의 관계 (CryptoQuant 20개 거래소, 2016~2021)", "Chi·Chu·Hao (2024, arXiv 2411.06327) — ETH 순유입은 ETH 수익을 음으로 예측, BTC 는 대체로 예측력 없음", "Coin Metrics 커뮤니티 FlowInExNtv·FlowOutExNtv"]),
+    "actaddr": dict(name="활성 주소 모멘텀", fn=s_actaddr, default=dict(sl="30/365"), params=grid(sl=["7/30", "30/90", "30/365", "90/365"]),
+                    sources=["Glassnode Active Address Momentum — 30일 평균이 365일 평균 위면 확장", "CryptoSlate (2024) — 30일이 365일 아래로, 활동 수축", "Peterson (2018) Metcalfe's Law as a Model for Bitcoin's Value", "Coin Metrics 커뮤니티 AdrActCnt"]),
+    "voltarget": dict(name="변동성 목표", fn=s_voltarget, default=dict(base="보유", target=0.4, n=60),
+                      params=grid(base=["보유", "앙상블"], target=[0.4, 0.6, 0.8], n=[10, 30, 60]),
+                      sources=["Moreira·Muir (2017, Journal of Finance) Volatility-Managed Portfolios", "Harvey 외 (2018, Journal of Portfolio Management) The Impact of Volatility Targeting", "Moskowitz·Ooi·Pedersen (2012) — 연 40% 변동성 목표"]),
 }
 
 
@@ -311,3 +365,5 @@ if __name__ == "__main__":
         fetch_stable()
     if "--fetch-macro" in sys.argv:
         fetch_macro()
+    if "--fetch-onchain" in sys.argv:
+        fetch_onchain()

@@ -1,11 +1,14 @@
-"""2단계 2차: 변동성 돌파·펀딩비·김치 프리미엄 (RESEARCH.md 2단계 2차 등록). 모두 일 단위(09:00 KST = 00:00 UTC 마감).
+"""2단계 2차: 변동성 돌파·펀딩비·김치 프리미엄, 4차(참고용): 공포·탐욕 지수·요일 (RESEARCH.md 등록). 모두 일 단위(09:00 KST = 00:00 UTC 마감).
 모드: 선물 롱숏, 선물 롱만, 현물 롱만(업비트 원화). 봉인 구간은 읽지 않는다.
+  python3 scripts/lab/others.py --fetch-fng   # 공포·탐욕 지수 전부 → data/ml/fng.csv (읽을 때 자른다)
 """
+import json, sys, urllib.request
+
 import numpy as np
 import pandas as pd
 
 from common import ML, SYMBOLS, combine, day_codes, days, last_day, perp, positions, to_daily, upbit
-from indicators import MODES, grid
+from indicators import MODES, grid, machine
 
 
 def daily_funding(sym):
@@ -56,6 +59,35 @@ def s_kimchi(d, p, sym):
     if p["rule"] == "부호전환":  # 음수에서 양수로 바뀐 날부터 H 일 롱
         return pd.Series(hold(((pr > 0) & (pr.shift(1) <= 0)).astype(int).to_numpy(), p["H"]), index=d.index)
     return pd.Series(hold(np.where(pr > p["th"], -1, 0), p["H"]), index=d.index)  # 과열: th 넘으면 H 일 숏
+
+
+def fetch_fng():
+    url = "https://api.alternative.me/fng/?limit=0&format=json&date_format=world"
+    rows = json.load(urllib.request.urlopen(urllib.request.Request(url, headers={"User-Agent": "coin-trend-lab"}), timeout=30))["data"]
+    d = pd.DataFrame({"date": pd.to_datetime([r["timestamp"] for r in rows], format="%d-%m-%Y"), "value": [int(r["value"]) for r in rows]})
+    d.sort_values("date").to_csv(ML / "fng.csv", index=False)
+    print(f"fng.csv {len(d)}줄 {d.date.min().date()} ~ {d.date.max().date()}")
+
+
+def fng():
+    """공포·탐욕 지수. 날짜 D 값은 D 00:00 UTC 에 나온다 — D 일봉 마감 때 안다."""
+    f = pd.read_csv(ML / "fng.csv", parse_dates=["date"], index_col="date").value
+    return f[f.index <= last_day()]
+
+
+def s_fng(d, p, sym):
+    v = fng().reindex(d.index).ffill().to_numpy(float)
+    lo, ex = p["lo"], p["exit"]
+    with np.errstate(invalid="ignore"):
+        return pd.Series(machine(len(v), v <= lo, v >= 100 - lo, v >= ex, v <= 100 - ex), index=d.index)
+
+
+DOW = {"월": [0], "화": [1], "수": [2], "목": [3], "금": [4], "토": [5], "일": [6], "평일만": [0, 1, 2, 3, 4], "주말만": [5, 6]}
+
+
+def s_dow(d, p, sym):
+    """봉 t 종가에 다음 봉(t+1)의 요일을 보고 정한다."""
+    return pd.Series((d.index + pd.Timedelta(days=1)).dayofweek.isin(DOW[p["day"]]).astype(float), index=d.index)
 
 
 def vbreak_day(o, h, l, c, p):
@@ -123,6 +155,10 @@ FAMILIES = {
                    params=grid(rule=["z역추세"], W=[30, 90, 180], th=[1.0, 1.5, 2.0], H=[1, 3, 7]) + grid(rule=["부호전환"], W=["-"], th=["-"], H=[7, 30])
                    + grid(rule=["과열"], W=["-"], th=[0.03, 0.05, 0.10], H=[3, 7]),
                    sources=["CryptoQuant — 한국 프리미엄 3% 넘는 과열 뒤 단기 조정", "CryptoSlate — 프리미엄이 음수→양수로 바뀐 뒤 7·30일 수익"]),
+    "fng": dict(name="공포·탐욕 지수 역발상", fn=s_fng, default=dict(lo=10, exit=35), params=grid(lo=[10, 20, 25], exit=[35, 50, 65]),
+                sources=["alternative.me Crypto Fear & Greed Index (2018-02-01~)", "Your One Trade of the Year (Medium) — 10 이하 매수, 35·50·65 위 매도", "Glassnode 인용 — 25 미만 뒤 30일 수익"]),
+    "dow": dict(name="요일 효과", fn=s_dow, default=dict(day="월"), params=grid(day=list(DOW)),
+                sources=["Caporale·Plastun (2019, Finance Research Letters) The day of the week effect in the cryptocurrency market — 비트코인 월요일"]),
 }
 
 
@@ -159,3 +195,7 @@ def task(arg):
             cfgs.append(dict(tf="1d", mode=mode, **p))
             G.append(g), T.append(t), N.append(c)
     return cfgs, np.array(G), np.array(T), np.array(N)
+
+
+if __name__ == "__main__" and "--fetch-fng" in sys.argv:
+    fetch_fng()

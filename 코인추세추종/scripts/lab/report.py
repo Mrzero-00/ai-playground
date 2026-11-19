@@ -66,7 +66,7 @@ def unit_section(res, u, i):
     best, dflt = g["최고 칸"], g["기본값"]
     return f"""
 <section class="unit" id="{e(res['stage'])}-{i}">
-  <div class="unit-head"><h3>{e(res['name'])} · {e(u['name'])}</h3>{pill(u['passed'])}</div>
+  <div class="unit-head"><h3>{e(res['name'])} · {e(u['name'])}</h3>{pill(u['passed'], '통과 · 참고용' if res.get('late') else '통과')}</div>
   <p class="lede">{u['cells']:,}칸을 돌렸다. 워크포워드 샤프 <b>{num(u['wf']['샤프'])}</b>, 같은 구간 기준선 {e(u['bench'])} <b>{num(u['bench_stats']['샤프'])}</b>.
   격자 칸 중 시험 구간 샤프가 0 보다 큰 칸 <b>{g['양수 비율'] * 100:.0f}%</b>, 기준선보다 높은 칸 <b>{g['기준선 초과 비율'] * 100:.1f}%</b>.</p>
   <div class="grid2">
@@ -116,17 +116,19 @@ def build():
         progress += f"<li><b>{e(name)}</b> {e(state)}{e(prog)} <small>{e(st.get('updated', ''))}</small></li>"
     sections = ""
     for res in done:
+        late = res.get("late", False)
         for i, u in enumerate(res["units"]):
             curves[f"{res['stage']}:{i}"] = u["curve"]
-            overview += (f"<tr><th><a href=\"#{e(res['stage'])}-{i}\">{e(res['name'])}</a> <small>{e(u['name'])}</small></th><td>{u['cells']:,}</td>"
+            overview += (f"<tr><th><a href=\"#{e(res['stage'])}-{i}\">{e(res['name'])}</a> <small>{e(u['name'])}{' · 참고용' if late else ''}</small></th><td>{u['cells']:,}</td>"
                          f"<td>{num(u['wf']['샤프'])} <small>/ {num(u['bench_stats']['샤프'])}</small></td><td>{pct(u['wf']['MDD'])}</td>"
-                         f"<td>{num(u['wf_hard']['샤프'])}</td><td>{u['grid']['양수 비율'] * 100:.0f}%</td><td>{pill(u['passed'])}</td></tr>")
+                         f"<td>{num(u['wf_hard']['샤프'])}</td><td>{u['grid']['양수 비율'] * 100:.0f}%</td><td>{pill(u['passed'], '통과 · 참고용' if late else '통과')}</td></tr>")
             md.append(f"| {res['name']} | {u['name']} | {u['cells']:,} | {num(u['wf']['샤프'])} ({u['bench']} {num(u['bench_stats']['샤프'])}) | {pct(u['wf']['MDD'])} | "
-                      f"{num(u['wf_hard']['샤프'])} | {u['grid']['양수 비율'] * 100:.0f}% | {'통과' if u['passed'] else '기각'} |")
+                      f"{num(u['wf_hard']['샤프'])} | {u['grid']['양수 비율'] * 100:.0f}% | {'통과' if u['passed'] else '기각'}{' (참고용)' if late else ''} |")
             sections += unit_section(res, u, i)
         srcs = "".join(f"<li>{e(s)}</li>" for s in res["sources"])
         grid = "".join(f"<tr><th>{e(LABEL.get(k, k))}</th><td>{e(' · '.join(TF.get(str(v), str(v)) for v in vals))}</td></tr>" for k, vals in res["grid"].items())
-        sections = sections.replace(f'<section class="unit" id="{res["stage"]}-0">', f"""<section class="stage"><h2>{e(res['name'])}</h2>
+        late_note = '<p class="note">봉인 해제 뒤 추가 — 참고용. 봉인 구간을 이미 연 뒤에 등록해 개발 판정만 했다. 통과해도 최종 후보가 될 수 없다.</p>' if late else ""
+        sections = sections.replace(f'<section class="unit" id="{res["stage"]}-0">', f"""<section class="stage"><h2>{e(res['name'])}</h2>{late_note}
   <div class="grid2"><div><h4>출처</h4><ul class="src">{srcs}</ul></div><div><h4>격자 ({res['cells']:,}칸)</h4><div class="scroll"><table class="gridt"><tbody>{grid}</tbody></table></div></div></div></section>
 <section class="unit" id="{res['stage']}-0">""", 1)
     hold, hp = "", C.OUT / "holdout.json"
@@ -144,8 +146,10 @@ def build():
                 f"<p class=\"note\">개발 단계를 통과한 것만, 2025-06-30 까지의 데이터로 고른 칸을 고정해 한 번 돌렸다. 경로 가 = 단독(샤프 > 기준선), 나 = 현물 봇 보완(섞은 샤프 > 현물 봇).</p>"
                 f"<div class=\"scroll\"><table class=\"num\"><thead><tr><th>방법</th><th>고정한 칸</th><th>샤프 / 기준선</th><th>연복리</th><th>MDD</th><th>거래</th><th>참고</th><th>판정</th></tr></thead><tbody>{rows}</tbody></table></div>{charts}</section>")
     total = sum(r["cells"] for r in done)
-    passed = [f"{r['name']} · {u['name']}" for r in done for u in r["units"] if u["passed"]]
-    head = (f"지금까지 {len(done)}개 방법, {total:,}칸을 시험했다. " + (f"개발 단계 통과: {', '.join(passed)}." if passed else "개발 단계를 통과한 방법은 아직 없다.")) if done else "첫 단계를 돌리는 중이다."
+    passed = [f"{r['name']} · {u['name']}" for r in done for u in r["units"] if u["passed"] and not r.get("late")]
+    late_ok = [f"{r['name']} · {u['name']}" for r in done for u in r["units"] if u["passed"] and r.get("late")]
+    head = (f"지금까지 {len(done)}개 방법, {total:,}칸을 시험했다. " + (f"개발 단계 통과: {', '.join(passed)}." if passed else "개발 단계를 통과한 방법은 아직 없다.")
+            + (f" 봉인 해제 뒤 추가(참고용) 개발 통과: {', '.join(late_ok)}." if late_ok else "")) if done else "첫 단계를 돌리는 중이다."
     seal = f"열림 ({json.loads(C.SEAL.read_text())['at'][:16]})" if C.SEAL.exists() else "닫힘 — 2025-07-01 이후 데이터는 마지막에 한 번만 연다"
     page = TEMPLATE.replace("__NOW__", now).replace("__HEAD__", e(head)).replace("__SEAL__", e(seal)).replace("__PROGRESS__", progress) \
         .replace("__OVERVIEW__", overview or '<tr><td colspan="7">아직 끝난 단계가 없다.</td></tr>').replace("__SECTIONS__", hold + sections) \

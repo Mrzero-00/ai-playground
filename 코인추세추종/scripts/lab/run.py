@@ -16,6 +16,9 @@ STAGES.update({k: ("indicators", k) for k in ["tsmom", "macross", "donchian", "m
 STAGES.update({k: ("others", k) for k in ["vbreak", "funding", "kimchi"]})
 STAGES["reversal"] = ("indicators", "reversal")
 STAGES["patterns"] = ("patterns", None)
+LATE = ["keltner", "stoch", "aroon", "kama", "heikin", "fng", "dow"]  # 봉인을 연 뒤에 등록 — 개발 판정만, 참고용(RESEARCH.md 루프 절차 e)
+STAGES.update({k: ("indicators", k) for k in LATE[:5]})
+STAGES.update({k: ("others", k) for k in LATE[5:]})
 WORKERS = 8
 
 
@@ -74,7 +77,7 @@ def analyze(stage, mod):
     btc = C.perp("BTC", "1d").close
     bear = (btc < btc.rolling(200).mean()).shift(1).reindex(D).fillna(False).to_numpy()[dev]  # 전날 종가가 200일선 아래
     years = pd.DatetimeIndex(D[dev]).year
-    res = {"stage": stage, "name": mod.NAME, "sources": mod.SOURCES, "grid": mod.GRID, "default": mod.DEFAULT,
+    res = {"stage": stage, "late": stage in LATE, "name": mod.NAME, "sources": mod.SOURCES, "grid": mod.GRID, "default": mod.DEFAULT,
            "cells": sum(len(c[0]) for c in chunks), "made": now(), "window": [C.BLOCKS[0][0], C.BLOCKS[-1][1]], "units": []}
     for u in mod.UNITS:
         sub = []
@@ -153,7 +156,7 @@ def holdout():
     main4 = ["1 샤프·MDD", "2 0.25% 비용", "3 거래 30회", "4 격자 절반·기본값"]
     for stage, (name, key) in STAGES.items():
         p = C.OUT / stage / "summary.json"
-        if not p.exists():
+        if stage in LATE or not p.exists():
             continue
         res = json.loads(p.read_text())
         for u in res["units"]:

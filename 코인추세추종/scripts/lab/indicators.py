@@ -5,6 +5,7 @@ import itertools
 
 import numpy as np
 import pandas as pd
+from numpy.lib.stride_tricks import sliding_window_view
 
 from common import SYMBOLS, combine, day_codes, days, perp, positions, to_daily, upbit
 
@@ -170,6 +171,82 @@ def s_reversal(d, p):
     return s
 
 
+# ---------- 4차 (봉인 해제 뒤 추가 — 참고용) ----------
+
+def warm(s, n):
+    """처음 n 봉은 0 (지표가 아직 다 차지 않았다)."""
+    s = s.copy()
+    s.iloc[:n] = 0.0
+    return s
+
+
+def s_keltner(d, p):
+    mid = ema(d.close, p["n"])
+    a = wilder(true_range(d), p["atr"])
+    up, dn, m, c = (mid + p["mult"] * a).to_numpy(), (mid - p["mult"] * a).to_numpy(), mid.to_numpy(), d.close.to_numpy()
+    if p["rule"] == "돌파":
+        out = machine(len(c), c > up, c < dn, c < m, c > m)
+    else:
+        out = machine(len(c), c < dn, c > up, c >= m, c <= m)
+    return warm(pd.Series(out, index=d.index), max(p["n"], p["atr"]))
+
+
+def s_stoch(d, p):
+    ll, hh = d.low.rolling(p["n"]).min(), d.high.rolling(p["n"]).max()
+    k = sma(100 * (d.close - ll) / (hh - ll).replace(0, np.nan), 3)  # 느린 %K
+    dd = sma(k, 3)
+    if p["rule"] == "교차":
+        return np.sign(k - dd)
+    lo, hi = map(int, p["band"].split("/"))
+    kv = k.to_numpy()
+    with np.errstate(invalid="ignore"):
+        return pd.Series(machine(len(kv), kv < lo, kv > hi, kv > 50, kv < 50), index=d.index)
+
+
+def s_aroon(d, p):
+    n = p["n"]
+    since = lambda x, f: np.r_[np.full(n, np.nan), f(sliding_window_view(x, n + 1)[:, ::-1], axis=1)]  # 가장 최근 최고(최저)가 뒤 지난 봉
+    up = 100 * (n - since(d.high.to_numpy(), np.argmax)) / n
+    dn = 100 * (n - since(d.low.to_numpy(), np.argmin)) / n
+    with np.errstate(invalid="ignore"):
+        if p["rule"] == "교차":
+            out = np.sign(up - dn)
+        else:
+            out = np.where((up >= 70) & (dn <= 30), 1, np.where((dn >= 70) & (up <= 30), -1, 0))
+    return pd.Series(out, index=d.index)
+
+
+def s_kama(d, p):
+    n, c = p["er"], d.close.to_numpy()
+    er = (d.close.diff(n).abs() / d.close.diff().abs().rolling(n).sum()).to_numpy()
+    fast, slow = 2 / (2 + 1), 2 / (p["slow"] + 1)
+    sc = (np.nan_to_num(er) * (fast - slow) + slow) ** 2
+    k = np.full(len(c), np.nan)
+    if len(c) > n:
+        k[n] = c[n]
+        for i in range(n + 1, len(c)):
+            k[i] = k[i - 1] + sc[i] * (c[i] - k[i - 1])
+    k = pd.Series(k, index=d.index)
+    out = np.sign(d.close - k) if p["rule"] == "종가교차" else np.sign(k.diff())
+    return out.fillna(0.0)
+
+
+def s_heikin(d, p):
+    hc = ((d.open + d.high + d.low + d.close) / 4).to_numpy()
+    ho = np.empty(len(hc))
+    ho[0] = (d.open.iloc[0] + d.close.iloc[0]) / 2
+    for i in range(1, len(hc)):
+        ho[i] = (ho[i - 1] + hc[i - 1]) / 2
+    color, m = np.sign(hc - ho), p["m"]
+    out, pos = np.zeros(len(hc)), 0.0
+    for i in range(m - 1, len(hc)):
+        w = color[i - m + 1:i + 1]
+        if w[0] != 0 and (w == w[0]).all():
+            pos = w[0]
+        out[i] = pos
+    return pd.Series(out, index=d.index)
+
+
 def grid(**kw):
     return [dict(zip(kw, v)) for v in itertools.product(*kw.values())]
 
@@ -202,6 +279,19 @@ FAMILIES = {
                      params=grid(L=[1, 2, 3, 5, 7], q=[0, 1, 2]), sources=["Jegadeesh (1990) 단기 반전", "코인 일·주 단위 반전 (Liu·Tsyvinski 2021 은 반대로 모멘텀을 보고)"]),
     "adx": dict(name="ADX·DMI", fn=s_adx, default=dict(n=14, thr=25),
                 params=grid(n=[7, 14, 21], thr=[15, 20, 25, 30]), sources=["J. Welles Wilder (1978) 14, 추세 기준 25"]),
+    "keltner": dict(name="켈트너 채널", fn=s_keltner, default=dict(n=20, atr=10, mult=2.0, rule="돌파"),
+                    params=grid(n=[10, 20, 50], atr=[10, 20], mult=[1.5, 2.0, 2.5], rule=["돌파", "평균회귀"]),
+                    sources=["Linda Raschke 현대식 켈트너 채널 (가운데 EMA, 폭 ATR)", "StockCharts ChartSchool 기본 20·2.0·10"]),
+    "stoch": dict(name="스토캐스틱", fn=s_stoch, default=dict(n=14, rule="교차", band="-"),
+                  params=grid(n=[5, 14, 21], rule=["교차"], band=["-"]) + grid(n=[5, 14, 21], rule=["평균회귀"], band=["20/80", "25/75"]),
+                  sources=["George Lane 스토캐스틱 14·3·3, 과매수 80·과매도 20 (StockCharts ChartSchool)"]),
+    "aroon": dict(name="아룬", fn=s_aroon, default=dict(n=25, rule="교차"),
+                  params=grid(n=[14, 25, 50], rule=["교차", "강한"]), sources=["Tushar Chande (1995, Technical Analysis of Stocks & Commodities) 25"]),
+    "kama": dict(name="카우프만 적응 이동평균 (KAMA)", fn=s_kama, default=dict(er=10, slow=30, rule="종가교차"),
+                 params=grid(er=[5, 10, 20], slow=[20, 30, 50], rule=["종가교차", "기울기"]),
+                 sources=["Perry Kaufman, Smarter Trading (1995) — KAMA(10, 2, 30) (StockCharts ChartSchool)"]),
+    "heikin": dict(name="하이킨아시", fn=s_heikin, default=dict(m=1),
+                   params=grid(m=[1, 2, 3]), sources=["Dan Valcu (2004, Technical Analysis of Stocks & Commodities) Using the Heikin-Ashi Technique"]),
 }
 MODES = ["선물 롱숏", "선물 롱만", "현물 롱만"]
 

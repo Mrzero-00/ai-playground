@@ -387,6 +387,37 @@ def s_elder(d, p):
     return warm(out.fillna(0.0) if p["blue"] == "셋값" else out.ffill().fillna(0.0), 3 * sl)
 
 
+def s_chandelier(d, p):
+    """샹들리에 청산(everget 식): 손절은 유리한 쪽으로만 움직이고, 종가가 전 봉의 반대 손절을 넘으면 방향을 바꾼다."""
+    n, a = p["n"], p["k"] * wilder(true_range(d), p["n"])
+    ls, ss = (d.high.rolling(n).max() - a).to_numpy(), (d.low.rolling(n).min() + a).to_numpy()
+    c, out, side = d.close.to_numpy(), np.zeros(len(d)), 0
+    for i in range(n, len(c)):
+        if c[i - 1] > ls[i - 1]:
+            ls[i] = max(ls[i], ls[i - 1])
+        if c[i - 1] < ss[i - 1]:
+            ss[i] = min(ss[i], ss[i - 1])
+        side = 1 if c[i] > ss[i - 1] else -1 if c[i] < ls[i - 1] else side
+        out[i] = side
+    return pd.Series(out, index=d.index)
+
+
+def s_kalman(d, p):
+    """국소 선형 추세(수준 잡음 0, 기울기 잡음 ÷ 관측 잡음 = q)를 로그 종가에 앞방향으로만 거른다."""
+    y, q = np.log(d.close.to_numpy(float)), p["q"]
+    F, Q = np.array([[1.0, 1.0], [0.0, 1.0]]), np.array([[0.0, 0.0], [0.0, q]])
+    x, P = np.array([y[0], 0.0]), np.eye(2)
+    lv, sl = np.zeros(len(y)), np.zeros(len(y))
+    for t in range(len(y)):
+        if t:
+            x, P = F @ x, F @ P @ F.T + Q
+        K = P[:, 0] / (P[0, 0] + 1.0)
+        x, P = x + K * (y[t] - x[0]), P - np.outer(K, P[0])
+        lv[t], sl[t] = x
+    out = np.sign(sl) if p["rule"] == "기울기" else np.where(y > lv, 1.0, -1.0)
+    return warm(pd.Series(out, index=d.index), 100)
+
+
 def grid(**kw):
     return [dict(zip(kw, v)) for v in itertools.product(*kw.values())]
 
@@ -455,6 +486,10 @@ FAMILIES = {
     "elder": dict(name="엘더 임펄스", fn=s_elder, default=dict(ema=13, macd="12/26/9", blue="셋값"),
                   params=grid(ema=[13, 26], macd=["12/26/9", "24/52/18"], blue=["셋값", "유지"]),
                   sources=["Alexander Elder, Come Into My Trading Room (2002) — EMA 13 기울기 + MACD 히스토그램 기울기", "StockCharts ChartSchool Elder Impulse System — 녹색·빨강·파랑, 조심해 들고 빨리 나간다"]),
+    "chandelier": dict(name="샹들리에 청산", fn=s_chandelier, default=dict(n=22, k=3.0), params=grid(n=[10, 22, 50], k=[2.0, 3.0, 4.0]),
+                       sources=["Chuck LeBeau (System Traders Club), Alexander Elder, Come Into My Trading Room (2002) — 22봉, ATR 3배", "TradingView Chandelier Exit (everget) — 방향 뒤집기, 한쪽으로만 움직이는 손절"]),
+    "kalman": dict(name="칼만 필터 추세", fn=s_kalman, default=dict(q=1e-4, rule="기울기"), params=grid(q=[1e-3, 1e-4, 1e-5, 1e-6], rule=["기울기", "가격대비"]),
+                   sources=["Kalman (1960); Harvey (1989) Forecasting, Structural Time Series Models and the Kalman Filter — 국소 선형 추세", "Benhamou (2018, arXiv 1808.03297) Trend without hiccups: a Kalman filter approach"]),
 }
 MODES = ["선물 롱숏", "선물 롱만", "현물 롱만"]
 

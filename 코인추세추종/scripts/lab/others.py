@@ -1,4 +1,4 @@
-"""2단계 2차: 변동성 돌파·펀딩비·김치 프리미엄, 4차(참고용): 공포·탐욕 지수·요일, 5차(참고용): 메이어 배수·MVRV, 6차(참고용): 월말·월초, 7차(참고용): 스테이블코인 공급·미국 증시 추세, 8차(참고용): 거래소 순유입·활성 주소·변동성 목표, 9차(참고용): 자기회귀 예측·옵션 내재변동성, 10차(참고용): 코인베이스 프리미엄·테이커 매수 비중, 11차(참고용): 위키백과 관심·VIX·달러 추세·해시 리본 (RESEARCH.md 등록). 모두 일 단위(09:00 KST = 00:00 UTC 마감).
+"""2단계 2차: 변동성 돌파·펀딩비·김치 프리미엄, 4차(참고용): 공포·탐욕 지수·요일, 5차(참고용): 메이어 배수·MVRV, 6차(참고용): 월말·월초, 7차(참고용): 스테이블코인 공급·미국 증시 추세, 8차(참고용): 거래소 순유입·활성 주소·변동성 목표, 9차(참고용): 자기회귀 예측·옵션 내재변동성, 10차(참고용): 코인베이스 프리미엄·테이커 매수 비중, 11차(참고용): 위키백과 관심·VIX·달러 추세·해시 리본, 12차(참고용): 숨은 마르코프 국면·미국 순유동성 (RESEARCH.md 등록). 모두 일 단위(09:00 KST = 00:00 UTC 마감).
 모드: 선물 롱숏, 선물 롱만, 현물 롱만(업비트 원화). 봉인 구간은 읽지 않는다.
   python3 scripts/lab/others.py --fetch-fng   # 공포·탐욕 지수 전부 → data/ml/fng.csv (읽을 때 자른다)
   python3 scripts/lab/others.py --fetch-mvrv  # Coin Metrics 커뮤니티 MVRV 전부 → data/ml/mvrv.csv
@@ -10,6 +10,7 @@
   python3 scripts/lab/others.py --fetch-wiki      # Wikimedia 영어 위키 Bitcoin·Ethereum 일 조회수(사람) → data/ml/wiki.csv
   python3 scripts/lab/others.py --fetch-risk      # FRED VIX·넓은 달러 지수 → data/ml/risk.csv
   python3 scripts/lab/others.py --fetch-hashrate  # Coin Metrics 커뮤니티 BTC 해시레이트 → data/ml/hashrate.csv
+  python3 scripts/lab/others.py --fetch-liquidity # FRED 연준 총자산·재무부 일반계정·역레포 → data/ml/liquidity.csv
 """
 import io, json, sys, time, urllib.request
 
@@ -412,6 +413,78 @@ def s_hashrib(d, p, sym):
     return pd.Series(hold(trig, p["H"]), index=d.index)
 
 
+def hmm_forward(pi, A, B):
+    alpha, c = np.zeros(B.shape), np.zeros(len(B))
+    a = pi * B[0]
+    for t in range(len(B)):
+        if t:
+            a = (alpha[t - 1] @ A) * B[t]
+        c[t] = max(a.sum(), 1e-300)
+        alpha[t] = a / c[t]
+    return alpha, c
+
+
+def hmm_pdf(x, mu, var):
+    return np.exp(-(x[:, None] - mu) ** 2 / (2 * var)) / np.sqrt(2 * np.pi * var) + 1e-300
+
+
+def hmm_fit(x, K, iters=60):
+    """정규분포 숨은 마르코프 모형 EM(바움-웰치). 상태는 평균 오름차순으로 돌려준다."""
+    mu, var, pi = np.quantile(x, (np.arange(K) + 0.5) / K), np.full(K, x.var()), np.full(K, 1 / K)
+    A = np.full((K, K), 0.05 / (K - 1))
+    np.fill_diagonal(A, 0.95)
+    for _ in range(iters):
+        B = hmm_pdf(x, mu, var)
+        alpha, c = hmm_forward(pi, A, B)
+        beta = np.ones(B.shape)
+        for t in range(len(x) - 2, -1, -1):
+            beta[t] = A @ (B[t + 1] * beta[t + 1]) / c[t + 1]
+        g = alpha * beta
+        g /= g.sum(1, keepdims=True)
+        xi = A * (alpha[:-1].T @ (B[1:] * beta[1:] / c[1:, None]))
+        A, pi, w = xi / xi.sum(1, keepdims=True), g[0], g.sum(0)
+        mu = g.T @ x / w
+        var = np.maximum((g * (x[:, None] - mu) ** 2).sum(0) / w, 1e-3 * x.var())
+    o = np.argsort(mu)
+    return pi[o], A[np.ix_(o, o)], mu[o], var[o]
+
+
+def s_hmm(d, p, sym):
+    """지난 W 일 로그수익으로 30일마다 다시 추정하고, 그날까지의 앞방향 상태 확률만 쓴다."""
+    x, W, K = np.log(d.close).diff().to_numpy(), p["W"], p["K"]
+    out = np.zeros(len(x))
+    for r in range(W, len(x), 30):
+        pi, A, mu, var = hmm_fit(x[r - W + 1:r + 1], K)
+        end = min(r + 30, len(x))
+        pr = hmm_forward(pi, A, hmm_pdf(x[r - W + 1:end], mu, var))[0][W - 1:]  # 날 r .. end-1
+        if K == 2:
+            out[r:end] = np.where(pr[:, 1] > 0.5, 1.0, -1.0)
+        else:
+            s = pr.argmax(1)
+            out[r:end] = np.where(s == K - 1, 1.0, np.where(s == 0, -1.0, 0.0))
+    return pd.Series(out, index=d.index)
+
+
+LIQ = {"walcl": "WALCL", "tga": "WTREGEN", "rrp": "RRPONTSYD"}
+
+
+def netliq():
+    """순유동성 = 연준 총자산 − 재무부 일반계정 − 역레포(십억 → 백만), 수요일 값. H.4.1 은 목요일 오후 — 이틀 늦게 금요일 봉부터."""
+    f = pd.read_csv(ML / "liquidity.csv", parse_dates=["date"], index_col="date")
+    w = f.walcl.dropna()
+    net = w - f.tga.reindex(w.index) - f.rrp.ffill().reindex(w.index).fillna(0.0) * 1000
+    net.index = net.index + pd.Timedelta(days=2)
+    return net[net.index <= last_day()]
+
+
+def s_netliq(d, p, sym):
+    net, n = netliq(), p["n"]
+    ref = net.rolling(n).mean() if p["rule"] == "평균위" else net.shift(n)
+    up = (net > ref).astype(float).where(ref.notna())
+    up = up.reindex(up.index.union(d.index)).ffill().reindex(d.index)
+    return (2 * up - 1).fillna(0.0)
+
+
 def vbreak_day(o, h, l, c, p):
     """일봉 기준 목표가·거르기·크기. → (롱 목표가, 숏 목표가, 롱 가능, 숏 가능, 크기)"""
     rng = (h - l).shift(1)
@@ -519,6 +592,10 @@ FAMILIES = {
     "hashrib": dict(name="해시 리본", fn=s_hashrib, default=dict(rule="국면", sl="30/60", H="-"),
                     params=grid(rule=["국면"], sl=["30/60", "14/28", "60/120"], H=["-"]) + grid(rule=["매수신호"], sl=["30/60"], H=[30, 90, 180]),
                     sources=["Charles Edwards (Capriole, 2019) Hash Ribbons — 30·60일 해시레이트 평균, 회복 뒤 가격 10 > 20일 평균이면 매수", "LookIntoBitcoin·Glassnode Hash Ribbons 차트", "Coin Metrics 커뮤니티 HashRate (BTC)"]),
+    "hmm": dict(name="숨은 마르코프 국면", fn=s_hmm, default=dict(W=730, K=2), params=grid(W=[365, 730, 1095], K=[2, 3]),
+                sources=["Hamilton (1989, Econometrica) 국면 전환 모형", "Koki·Leonardos·Piliouras (2022, arXiv 2011.03741) Exploring the Predictability of Cryptocurrencies via Bayesian Hidden Markov Models", "Cortese·Kolm (2023, Digital Finance) — 코인 수익은 강세·중립·약세 3국면"]),
+    "netliq": dict(name="미국 순유동성", fn=s_netliq, default=dict(rule="평균위", n=13), params=grid(rule=["평균위", "변화"], n=[4, 13, 26, 52]),
+                   sources=["Arthur Hayes·Lyn Alden 등 — 연준 순유동성(총자산 − TGA − 역레포)과 비트코인", "TFTC US Liquidity — 수요일 기준", "Eco3min — 상관은 큰 국면 방향에서 드러난다", "FRED WALCL·WTREGEN·RRPONTSYD"]),
 }
 
 
@@ -578,3 +655,5 @@ if __name__ == "__main__":
         fetch_macro(RISK, "risk.csv")
     if "--fetch-hashrate" in sys.argv:
         fetch_hashrate()
+    if "--fetch-liquidity" in sys.argv:
+        fetch_macro(LIQ, "liquidity.csv")

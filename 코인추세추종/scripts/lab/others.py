@@ -1,4 +1,4 @@
-"""2단계 2차: 변동성 돌파·펀딩비·김치 프리미엄, 4차(참고용): 공포·탐욕 지수·요일, 5차(참고용): 메이어 배수·MVRV, 6차(참고용): 월말·월초, 7차(참고용): 스테이블코인 공급·미국 증시 추세, 8차(참고용): 거래소 순유입·활성 주소·변동성 목표, 9차(참고용): 자기회귀 예측·옵션 내재변동성, 10차(참고용): 코인베이스 프리미엄·테이커 매수 비중, 11차(참고용): 위키백과 관심·VIX·달러 추세·해시 리본, 12차(참고용): 숨은 마르코프 국면·미국 순유동성, 13차(참고용): 메트칼프 가치 괴리, 14차(참고용): 허스트 국면 전환·미국 실질금리 (RESEARCH.md 등록). 모두 일 단위(09:00 KST = 00:00 UTC 마감).
+"""2단계 2차: 변동성 돌파·펀딩비·김치 프리미엄, 4차(참고용): 공포·탐욕 지수·요일, 5차(참고용): 메이어 배수·MVRV, 6차(참고용): 월말·월초, 7차(참고용): 스테이블코인 공급·미국 증시 추세, 8차(참고용): 거래소 순유입·활성 주소·변동성 목표, 9차(참고용): 자기회귀 예측·옵션 내재변동성, 10차(참고용): 코인베이스 프리미엄·테이커 매수 비중, 11차(참고용): 위키백과 관심·VIX·달러 추세·해시 리본, 12차(참고용): 숨은 마르코프 국면·미국 순유동성, 13차(참고용): 메트칼프 가치 괴리, 14차(참고용): 허스트 국면 전환·미국 실질금리, 16차(참고용): 거래소 보유량 추세 (RESEARCH.md 등록). 모두 일 단위(09:00 KST = 00:00 UTC 마감).
 모드: 선물 롱숏, 선물 롱만, 현물 롱만(업비트 원화). 봉인 구간은 읽지 않는다.
   python3 scripts/lab/others.py --fetch-fng   # 공포·탐욕 지수 전부 → data/ml/fng.csv (읽을 때 자른다)
   python3 scripts/lab/others.py --fetch-mvrv  # Coin Metrics 커뮤니티 MVRV 전부 → data/ml/mvrv.csv
@@ -13,6 +13,7 @@
   python3 scripts/lab/others.py --fetch-liquidity # FRED 연준 총자산·재무부 일반계정·역레포 → data/ml/liquidity.csv
   python3 scripts/lab/others.py --fetch-cap       # Coin Metrics 커뮤니티 BTC·ETH 시가총액 → data/ml/cap.csv
   python3 scripts/lab/others.py --fetch-realyield # FRED 10년 TIPS 실질금리 → data/ml/realyield.csv
+  python3 scripts/lab/others.py --fetch-exsupply  # Coin Metrics 커뮤니티 BTC·ETH 거래소 보유량 → data/ml/exsupply.csv
 """
 import io, json, sys, time, urllib.request
 
@@ -545,6 +546,29 @@ def s_realyield(d, p, sym):
     return (2 * dn - 1).fillna(0.0)
 
 
+def fetch_exsupply():
+    url = "https://community-api.coinmetrics.io/v4/timeseries/asset-metrics?assets=btc,eth&metrics=SplyExNtv&frequency=1d&page_size=10000&start_time=2015-01-01"
+    rows = []
+    while url:
+        j = json.loads(get(url))
+        rows += [(r["time"][:10], r["asset"].upper(), float(r["SplyExNtv"])) for r in j["data"] if r.get("SplyExNtv")]
+        url = j.get("next_page_url")
+    d = pd.DataFrame(rows, columns=["date", "asset", "exsupply"]).sort_values(["asset", "date"])
+    d.to_csv(ML / "exsupply.csv", index=False)
+    print(f"exsupply.csv {len(d)}줄", d.groupby("asset").date.agg(["min", "max"]).to_dict("index"))
+
+
+def s_exsupply(d, p, sym):
+    """코인별 거래소 보유량이 n 일 평균 아래(평균아래) 또는 n 일 전보다 적으면(변화) +1, 아니면 −1. D 날짜 값은 D+1 봉 신호부터."""
+    f = pd.read_csv(ML / "exsupply.csv", parse_dates=["date"])
+    x = f[f.asset == sym].set_index("date").exsupply
+    x.index = x.index + pd.Timedelta(days=1)
+    x = x[x.index <= last_day()]
+    ref = x.rolling(p["n"]).mean() if p["rule"] == "평균아래" else x.shift(p["n"])
+    dn = (x < ref).astype(float).where(ref.notna()).reindex(d.index)
+    return (2 * dn - 1).fillna(0.0)
+
+
 def vbreak_day(o, h, l, c, p):
     """일봉 기준 목표가·거르기·크기. → (롱 목표가, 숏 목표가, 롱 가능, 숏 가능, 크기)"""
     rng = (h - l).shift(1)
@@ -664,6 +688,8 @@ FAMILIES = {
     "metcalfe": dict(name="메트칼프 가치 괴리", fn=s_metcalfe, default=dict(W=730, beta=2, band="-0.25/1.0"),
                      params=grid(W=[365, 730], beta=[2, "자유"], band=["-0.25/1.0", "-0.25/0.25", "-0.5/0.5"]),
                      sources=["Peterson (2018) Metcalfe's Law as a Model for Bitcoin's Value — 시가총액 ∝ 활성 주소²", "Wheatley 외 (2019, Royal Society Open Science) Are Bitcoin bubbles predictable? — 일반화 메트칼프(지수 약 1.69)", "Rob_Maths, BTC – Metcalfe's Law (Deviation) (TradingView, 2025) — 730일 로그-로그 회귀, 1.0 위 고평가·−0.25 아래 저평가", "Coin Metrics 커뮤니티 CapMrktCurUSD·AdrActCnt"]),
+    "exsupply": dict(name="거래소 보유량 추세", fn=s_exsupply, default=dict(rule="평균아래", n=120), params=grid(rule=["평균아래", "변화"], n=[60, 120, 240, 365]),
+                     sources=["Glassnode — 거래소 잔고 감소는 장기 보관으로 옮기는 신호, 2020-03 이후 가장 길고 큰 감소 (CoinDesk·CryptoSlate·K33 보도)", "반론: 거래소 집계가 불완전하고 포크·지갑 정리 같은 다른 이유도 있다", "Hoang·Baur (SSRN 3902504) — 거래소 잔고 일 변화와 수익의 음의 관계", "Coin Metrics 커뮤니티 SplyExNtv"]),
 }
 
 
@@ -729,3 +755,5 @@ if __name__ == "__main__":
         fetch_cap()
     if "--fetch-realyield" in sys.argv:
         fetch_macro(REAL, "realyield.csv")
+    if "--fetch-exsupply" in sys.argv:
+        fetch_exsupply()

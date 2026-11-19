@@ -612,6 +612,53 @@ def s_mama(d, p):
     return warm(pd.Series(out, index=d.index), 50)
 
 
+KST = {"일": ((10, 15, 20, 30), (10, 10, 10, 15)), "주": ((10, 13, 15, 20), (10, 13, 15, 20)), "월": ((9, 12, 18, 24), (6, 6, 6, 9))}
+
+
+def s_kst(d, p):
+    """프링 KST: ROC 네 개를 각각 단순평균으로 다듬어 1·2·3·4 가중합, 신호선 9 SMA. 묶음 봉 수(신호선 포함)에 배율 일 1·주 7·월 30."""
+    (rocs, sms), m, c = KST[p["set"]], {"일": 1, "주": 7, "월": 30}[p["set"]], d.close
+    k = sum((i + 1) * sma(c / c.shift(r * m) - 1, s * m) for i, (r, s) in enumerate(zip(rocs, sms)))
+    x = k - sma(k, 9 * m) if p["rule"] == "신호선" else k
+    return pd.Series(np.where(x > 0, 1.0, -1.0), index=d.index).where(x.notna(), 0.0)
+
+
+def s_klinger(d, p):
+    """클링거 거래량 오실레이터: KO = EMA(VF, 빠름) − EMA(VF, 느림), 신호선 EMA. 원식 VF = 거래량 × |2 dm/cm − 1| × 추세, 단순 VF = 거래량 × hlc3 방향."""
+    f, sl, g = map(int, p["speed"].split("/"))
+    v, hlc = volume(d).to_numpy(float), (d.high + d.low + d.close).diff().to_numpy()
+    with np.errstate(invalid="ignore", divide="ignore"):
+        if p["vf"] == "단순":
+            vf = v * np.where(hlc >= 0, 1.0, -1.0)
+        else:
+            t, dm = np.where(hlc > 0, 1.0, -1.0), (d.high - d.low).to_numpy(float)
+            cm = dm.copy()
+            for i in range(1, len(dm)):
+                cm[i] = cm[i - 1] + dm[i] if t[i] == t[i - 1] else dm[i - 1] + dm[i]
+            vf = v * np.abs(2 * np.where(cm > 0, dm / cm, 0.0) - 1) * t
+    vf = pd.Series(vf, index=d.index)
+    ko = ema(vf, f) - ema(vf, sl)
+    x = ko - ema(ko, g) if p["rule"] == "신호선" else ko
+    return warm(pd.Series(np.where(x > 0, 1.0, -1.0), index=d.index), sl)
+
+
+def s_frama(d, p):
+    """에일러스 FRAMA(2005): 프랙탈 차원 D = (log(N1+N2) − log N3)/log 2, α = exp(−4.6(D−1)) 를 0.01~1 로. 종가는 종가 > FRAMA, 기울기는 FRAMA 상승이면 +1."""
+    n, h = p["N"], p["N"] // 2
+    hi, lo, pr = d.high, d.low, ((d.high + d.low) / 2).to_numpy(float)
+    n1 = ((hi.rolling(h).max() - lo.rolling(h).min()) / h).to_numpy()
+    n2 = ((hi.shift(h).rolling(h).max() - lo.shift(h).rolling(h).min()) / h).to_numpy()
+    n3 = ((hi.rolling(n).max() - lo.rolling(n).min()) / n).to_numpy()
+    f, dim = pr.copy(), 0.0  # 처음 N 봉은 가격 그대로 (원문)
+    for i in range(n, len(pr)):
+        if n1[i] > 0 and n2[i] > 0 and n3[i] > 0:
+            dim = (np.log(n1[i] + n2[i]) - np.log(n3[i])) / np.log(2)
+        a = min(max(np.exp(-4.6 * (dim - 1)), 0.01), 1.0)
+        f[i] = a * pr[i] + (1 - a) * f[i - 1]
+    out = np.where(d.close.to_numpy() > f, 1.0, -1.0) if p["rule"] == "종가" else np.where(f > np.r_[np.inf, f[:-1]], 1.0, -1.0)
+    return warm(pd.Series(out, index=d.index), n)
+
+
 def grid(**kw):
     return [dict(zip(kw, v)) for v in itertools.product(*kw.values())]
 
@@ -706,6 +753,13 @@ FAMILIES = {
     "mama": dict(name="MESA 적응 이동평균 (MAMA)", fn=s_mama, default=dict(limits="0.5/0.05", rule="교차"),
                  params=grid(limits=["0.5/0.05", "0.5/0.01", "0.25/0.025", "0.1/0.01"], rule=["교차", "종가"]),
                  sources=["John Ehlers (2001-09, Technical Analysis of Stocks & Commodities) MAMA — The Mother of Adaptive Moving Averages — 빠름 0.5·느림 0.05, FAMA = α/2, 교차가 신호", "TA-Lib MAMA·LuxAlgo MAMA/FAMA 정리"]),
+    "kst": dict(name="노우 슈어 싱 (KST)", fn=s_kst, default=dict(set="일", rule="신호선"), params=grid(set=["일", "주", "월"], rule=["신호선", "0선"]),
+                sources=["Martin J. Pring, Know Sure Thing — ROC 네 개 평균의 1·2·3·4 가중합, 신호선 9", "StockCharts ChartSchool Pring's KST — 일봉 10·15·20·30/10·10·10·15, 주봉 10·13·15·20/10·13·15·20, 월봉 9·12·18·24/6·6·6·9, 신호선 교차가 가장 믿을 만하다"]),
+    "klinger": dict(name="클링거 거래량 오실레이터", fn=s_klinger, default=dict(vf="원식", speed="34/55/13", rule="신호선"),
+                    params=grid(vf=["원식", "단순"], speed=["34/55/13", "13/21/8"], rule=["신호선", "0선"]),
+                    sources=["Stephen J. Klinger (1997, Technical Analysis of Stocks & Commodities) — KO = EMA34(VF) − EMA55(VF), 신호선 EMA13", "TradingView 도움말 Klinger Oscillator — 신호선 교차·0선", "LuxAlgo Klinger Volume Oscillator — abs(2 dm/cm − 1)", "TradingView 내장 스크립트 — hlc3 방향 × 거래량 단순형, 단타용 13·21·8"]),
+    "frama": dict(name="프랙탈 적응 이동평균 (FRAMA)", fn=s_frama, default=dict(N=16, rule="종가"), params=grid(N=[16, 32, 64, 128], rule=["종가", "기울기"]),
+                  sources=["John Ehlers (2005-10, Technical Analysis of Stocks & Commodities) FRAMA — Fractal Adaptive Moving Average — D = (log(N1+N2) − log N3)/log 2, α = exp(−4.6(D−1)) 0.01~1, N 16"]),
 }
 MODES = ["선물 롱숏", "선물 롱만", "현물 롱만"]
 

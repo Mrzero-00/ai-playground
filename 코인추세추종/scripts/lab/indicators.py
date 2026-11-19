@@ -162,6 +162,14 @@ def s_adx(d, p):
     return np.sign(pdi - ndi).where(adx > p["thr"], 0.0).where(d.close.rolling(2 * n).count() >= 2 * n, 0.0)
 
 
+def s_reversal(d, p):
+    r = d.close / d.close.shift(p["L"]) - 1
+    s = -np.sign(r)
+    if p["q"]:
+        s = s.where(r.abs() > p["q"] * d.close.pct_change().rolling(60).std() * np.sqrt(p["L"]), 0.0)  # q 표준편차보다 크게 움직였을 때만
+    return s
+
+
 def grid(**kw):
     return [dict(zip(kw, v)) for v in itertools.product(*kw.values())]
 
@@ -190,6 +198,8 @@ FAMILIES = {
                      sources=["호소다 고이치 9/26/52/26", "코인용 20/60/120/30 (24시간 시장, TradingView 글들)"]),
     "psar": dict(name="파라볼릭 SAR", fn=s_psar, default=dict(step=0.02, max=0.2),
                  params=grid(step=[0.01, 0.02, 0.03], max=[0.1, 0.2, 0.3]), sources=["J. Welles Wilder (1978) 가속 0.02 · 최대 0.2"]),
+    "reversal": dict(name="단기 반전", fn=s_reversal, default=dict(L=1, q=0),
+                     params=grid(L=[1, 2, 3, 5, 7], q=[0, 1, 2]), sources=["Jegadeesh (1990) 단기 반전", "코인 일·주 단위 반전 (Liu·Tsyvinski 2021 은 반대로 모멘텀을 보고)"]),
     "adx": dict(name="ADX·DMI", fn=s_adx, default=dict(n=14, thr=25),
                 params=grid(n=[7, 14, 21], thr=[15, 20, 25, 30]), sources=["J. Welles Wilder (1978) 14, 추세 기준 25"]),
 }

@@ -1,0 +1,161 @@
+"""2단계 2차: 변동성 돌파·펀딩비·김치 프리미엄 (RESEARCH.md 2단계 2차 등록). 모두 일 단위(09:00 KST = 00:00 UTC 마감).
+모드: 선물 롱숏, 선물 롱만, 현물 롱만(업비트 원화). 봉인 구간은 읽지 않는다.
+"""
+import numpy as np
+import pandas as pd
+
+from common import ML, SYMBOLS, combine, day_codes, days, last_day, perp, positions, to_daily, upbit
+from indicators import MODES, grid
+
+
+def daily_funding(sym):
+    """날짜 D = D 00:00 UTC 다음 펀딩부터 D+1 00:00 UTC 펀딩까지의 합 — D 일봉 마감 때 다 알 수 있다."""
+    f = pd.read_csv(ML / f"funding_{sym}.csv", parse_dates=["time"])
+    s = f.groupby((f.time - pd.Timedelta(seconds=1)).dt.tz_localize(None).dt.normalize()).rate.sum()
+    return s[s.index <= last_day()]
+
+
+def premium(sym):
+    """김치 프리미엄 = 업비트 원화 종가 ÷ (바이낸스 현물 USDT 종가 × 그날 ECB 원/달러) − 1. 두 일봉 모두 00:00 UTC 마감."""
+    up = upbit(sym).close
+    sp = pd.read_csv(ML / f"spot_{sym}.csv", parse_dates=["date"], index_col="date").close
+    fx = pd.read_csv(ML / "usdkrw.csv", parse_dates=["date"], index_col="date").krw
+    sp, fx = sp[sp.index <= last_day()], fx[fx.index <= last_day()]
+    fx = fx.reindex(fx.index.union(up.index)).ffill().reindex(up.index)  # 주말·휴일은 직전 영업일 환율
+    return up / (sp.reindex(up.index) * fx) - 1
+
+
+def hold(trigger, H):
+    """신호(-1/0/1)가 나면 H 봉 동안 든다. 새 신호가 오면 다시 센다."""
+    out, pos, left = np.zeros(len(trigger)), 0, 0
+    for i, t in enumerate(trigger):
+        if t != 0:
+            pos, left = t, H
+        out[i] = pos if left > 0 else 0
+        left = max(left - 1, 0)
+    return out
+
+
+def contrarian(x, p):
+    """x 의 z 점수(최근 W 일)가 th 를 넘으면 반대로 H 일."""
+    z = (x - x.rolling(p["W"]).mean()) / x.rolling(p["W"]).std()
+    return hold(np.where(z > p["th"], -1, np.where(z < -p["th"], 1, 0)), p["H"])
+
+
+def s_funding(d, p, sym):
+    f = daily_funding(sym).reindex(d.index).fillna(0.0)
+    if p["rule"] == "z역추세":
+        return pd.Series(contrarian(f, p), index=d.index)
+    return (f.rolling(p["W"]).mean() < 0).astype(float)  # 음수평균: 최근 W 일 평균 펀딩이 음수면 롱
+
+
+def s_kimchi(d, p, sym):
+    pr = premium(sym).reindex(d.index)
+    if p["rule"] == "z역추세":
+        return pd.Series(contrarian(pr, p), index=d.index)
+    if p["rule"] == "부호전환":  # 음수에서 양수로 바뀐 날부터 H 일 롱
+        return pd.Series(hold(((pr > 0) & (pr.shift(1) <= 0)).astype(int).to_numpy(), p["H"]), index=d.index)
+    return pd.Series(hold(np.where(pr > p["th"], -1, 0), p["H"]), index=d.index)  # 과열: th 넘으면 H 일 숏
+
+
+def vbreak_day(o, h, l, c, p):
+    """일봉 기준 목표가·거르기·크기. → (롱 목표가, 숏 목표가, 롱 가능, 숏 가능, 크기)"""
+    rng = (h - l).shift(1)
+    k = (1 - (o - c).abs() / (h - l)).rolling(20).mean().shift(1) if p["k"] == "노이즈" else p["k"]
+    lt, st = o + k * rng, o - k * rng
+    if p["ma"]:
+        ma = c.rolling(p["ma"]).mean().shift(1)  # 어제까지의 종가 평균
+        okl, oks = o > ma, o < ma
+    else:
+        okl = oks = pd.Series(True, index=o.index)
+    size = (0.02 / (rng / c.shift(1))).clip(upper=1.0) if p["size"] == "변동성 조절" else pd.Series(1.0, index=o.index)
+    return lt, st, okl, oks, size
+
+
+def vbreak(sym, p, market, mode):
+    """래리 윌리엄스 변동성 돌파: 그날 목표가에 닿으면 그 가격에 들어가 그날 종가(다음 날 시가)에 정리. → 일별 (수익, 회전, 거래)."""
+    n = len(days())
+    if market == "spot":
+        d = upbit(sym)
+        lt, _, okl, _, size = vbreak_day(d.open, d.high, d.low, d.close, p)
+        hit = ((d.high >= lt) & okl & lt.notna()).to_numpy()
+        sz = size.fillna(0).to_numpy()
+        r = np.where(hit, sz * (d.close.to_numpy() / lt.to_numpy() - 1), 0.0)
+        return to_daily(day_codes(d.index), n, np.nan_to_num(r), np.where(hit, 2 * sz, 0.0), hit.astype(float))
+    d, h1 = perp(sym, "1d"), perp(sym, "1h")
+    lt, st, okl, oks, size = vbreak_day(d.open, d.high, d.low, d.close, p)
+    day = h1.index.normalize()
+    hl = (h1.high.to_numpy() >= lt.reindex(day).to_numpy()) & okl.reindex(day).fillna(False).to_numpy()
+    hs = (h1.low.to_numpy() <= st.reindex(day).to_numpy()) & oks.reindex(day).fillna(False).to_numpy()
+    if mode == "선물 롱만":
+        hs[:] = False
+    fund, code = h1.fund.to_numpy(), day_codes(d.index)
+    r, turn, cnt = np.zeros(len(d)), np.zeros(len(d)), np.zeros(len(d))
+    starts = np.r_[0, np.flatnonzero(day[1:] != day[:-1]) + 1, len(h1)]
+    pos_of = {t: i for i, t in enumerate(d.index)}
+    for a, b in zip(starts[:-1], starts[1:]):
+        i = pos_of.get(day[a])
+        if i is None or not np.isfinite(size.iloc[i]):
+            continue
+        jl = a + np.argmax(hl[a:b]) if hl[a:b].any() else None
+        js = a + np.argmax(hs[a:b]) if hs[a:b].any() else None
+        if jl is not None and js is not None:
+            if jl == js:
+                continue  # 같은 시간에 둘 다 닿았다 — 순서를 모르니 건너뛴다
+            js, jl = (js, None) if js < jl else (None, jl)
+        if jl is None and js is None:
+            continue
+        side, j, px = (1, jl, lt.iloc[i]) if jl is not None else (-1, js, st.iloc[i])
+        sz = float(size.iloc[i])
+        r[i] = sz * (side * (d.close.iloc[i] / px - 1) - side * fund[j:b].sum())
+        turn[i], cnt[i] = 2 * sz, 1
+    return to_daily(code, n, r, turn, cnt)
+
+
+FAMILIES = {
+    "vbreak": dict(name="변동성 돌파", default=dict(k=0.5, ma=0, size="1배"),
+                   params=grid(k=[0.3, 0.4, 0.5, 0.6, 0.7, "노이즈"], ma=[0, 3, 5, 10, 20], size=["1배", "변동성 조절"]),
+                   sources=["Larry Williams 변동성 돌파 (시가 + k × 전날 고저폭, k 0.5)", "국내 업비트 봇 변형: 이동평균 거르기, 노이즈 비율 k, 변동성 조절(목표 2%)"]),
+    "funding": dict(name="펀딩비 역추세", fn=s_funding, default=dict(rule="z역추세", W=30, th=2.0, H=1),
+                    params=grid(rule=["z역추세"], W=[30, 90, 180], th=[1.0, 1.5, 2.0], H=[1, 3, 7]) + grid(rule=["음수평균"], W=[7, 30, 90], th=["-"], H=["-"]),
+                    sources=["BitMEX Research, XBTUSD Funding Mean Reversion Strategy — 극단 펀딩 뒤 반대 방향", "K33 Research — 30일 평균 펀딩이 음수일 때 뒤 90일 수익"]),
+    "kimchi": dict(name="김치 프리미엄", fn=s_kimchi, default=dict(rule="과열", W="-", th=0.03, H=7),
+                   params=grid(rule=["z역추세"], W=[30, 90, 180], th=[1.0, 1.5, 2.0], H=[1, 3, 7]) + grid(rule=["부호전환"], W=["-"], th=["-"], H=[7, 30])
+                   + grid(rule=["과열"], W=["-"], th=[0.03, 0.05, 0.10], H=[3, 7]),
+                   sources=["CryptoQuant — 한국 프리미엄 3% 넘는 과열 뒤 단기 조정", "CryptoSlate — 프리미엄이 음수→양수로 바뀐 뒤 7·30일 수익"]),
+}
+
+
+class Family:
+    CHUNK = "tf"
+
+    def __init__(self, key):
+        f = FAMILIES[key]
+        self.key, self.NAME, self.SOURCES, self.DEFAULT = key, f["name"], f["sources"], dict(tf="1d", mode="선물 롱숏", **f["default"])
+        self.GRID = {"tf": ["1d"], "mode": MODES, **{k: list(dict.fromkeys(p[k] for p in f["params"])) for k in f["params"][0]}}
+        self.UNITS = [{"name": m, "bench": "현물봇" if m == "현물 롱만" else "F0", "where": (lambda c, m=m: c["mode"] == m)} for m in MODES]
+
+    def default(self, unit):
+        return {**self.DEFAULT, "mode": unit["name"]}
+
+    def tasks(self):
+        return [(self.key, "perp"), (self.key, "spot")]
+
+
+def task(arg):
+    key, market = arg
+    f, n = FAMILIES[key], len(days())
+    modes = ["선물 롱숏", "선물 롱만"] if market == "perp" else ["현물 롱만"]
+    data = None if key == "vbreak" else {s: (perp(s, "1d") if market == "perp" else upbit(s)) for s in SYMBOLS}
+    cfgs, G, T, N = [], [], [], []
+    for p in f["params"]:
+        sig = None if key == "vbreak" else {s: f["fn"](d, p, s).fillna(0.0).clip(-1, 1) for s, d in data.items()}
+        for mode in modes:
+            if key == "vbreak":
+                per = [vbreak(s, p, market, mode) for s in SYMBOLS]
+            else:
+                per = [to_daily(day_codes(data[s].index), n, *positions(data[s], sig[s] if mode == "선물 롱숏" else sig[s].clip(lower=0), funding=market == "perp")) for s in SYMBOLS]
+            g, t, c = combine(per)
+            cfgs.append(dict(tf="1d", mode=mode, **p))
+            G.append(g), T.append(t), N.append(c)
+    return cfgs, np.array(G), np.array(T), np.array(N)

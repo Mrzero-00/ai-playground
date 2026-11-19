@@ -13,6 +13,8 @@ import common as C
 
 STAGES = {"triangle": ("triangle_grid", None)}  # 등록 순서 = 실행 순서. 단계 이름 → (모듈, 방법 키)
 STAGES.update({k: ("indicators", k) for k in ["tsmom", "macross", "donchian", "macd", "rsi", "bollinger", "supertrend", "ichimoku", "psar", "adx"]})
+STAGES.update({k: ("others", k) for k in ["vbreak", "funding", "kimchi"]})
+STAGES["reversal"] = ("indicators", "reversal")
 WORKERS = 8
 
 

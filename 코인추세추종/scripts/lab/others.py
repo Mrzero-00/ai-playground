@@ -1,4 +1,4 @@
-"""2단계 2차: 변동성 돌파·펀딩비·김치 프리미엄, 4차(참고용): 공포·탐욕 지수·요일, 5차(참고용): 메이어 배수·MVRV, 6차(참고용): 월말·월초, 7차(참고용): 스테이블코인 공급·미국 증시 추세, 8차(참고용): 거래소 순유입·활성 주소·변동성 목표, 9차(참고용): 자기회귀 예측·옵션 내재변동성, 10차(참고용): 코인베이스 프리미엄·테이커 매수 비중 (RESEARCH.md 등록). 모두 일 단위(09:00 KST = 00:00 UTC 마감).
+"""2단계 2차: 변동성 돌파·펀딩비·김치 프리미엄, 4차(참고용): 공포·탐욕 지수·요일, 5차(참고용): 메이어 배수·MVRV, 6차(참고용): 월말·월초, 7차(참고용): 스테이블코인 공급·미국 증시 추세, 8차(참고용): 거래소 순유입·활성 주소·변동성 목표, 9차(참고용): 자기회귀 예측·옵션 내재변동성, 10차(참고용): 코인베이스 프리미엄·테이커 매수 비중, 11차(참고용): 위키백과 관심·VIX·달러 추세·해시 리본 (RESEARCH.md 등록). 모두 일 단위(09:00 KST = 00:00 UTC 마감).
 모드: 선물 롱숏, 선물 롱만, 현물 롱만(업비트 원화). 봉인 구간은 읽지 않는다.
   python3 scripts/lab/others.py --fetch-fng   # 공포·탐욕 지수 전부 → data/ml/fng.csv (읽을 때 자른다)
   python3 scripts/lab/others.py --fetch-mvrv  # Coin Metrics 커뮤니티 MVRV 전부 → data/ml/mvrv.csv
@@ -7,6 +7,9 @@
   python3 scripts/lab/others.py --fetch-onchain # Coin Metrics 커뮤니티 거래소 유입·유출·활성 주소 → data/ml/onchain.csv
   python3 scripts/lab/others.py --fetch-dvol    # Deribit DVOL(BTC·ETH 30일 내재변동성) 일봉 → data/ml/dvol.csv
   python3 scripts/lab/others.py --fetch-coinbase  # Coinbase Exchange BTC-USD·ETH-USD 일봉 종가 → data/ml/coinbase.csv
+  python3 scripts/lab/others.py --fetch-wiki      # Wikimedia 영어 위키 Bitcoin·Ethereum 일 조회수(사람) → data/ml/wiki.csv
+  python3 scripts/lab/others.py --fetch-risk      # FRED VIX·넓은 달러 지수 → data/ml/risk.csv
+  python3 scripts/lab/others.py --fetch-hashrate  # Coin Metrics 커뮤니티 BTC 해시레이트 → data/ml/hashrate.csv
 """
 import io, json, sys, time, urllib.request
 
@@ -167,14 +170,14 @@ def s_stable(d, p, sym):
 MACRO = {"S&P 500": "SP500", "나스닥": "NASDAQCOM"}
 
 
-def fetch_macro():
+def fetch_macro(series=MACRO, out="macro.csv"):
     cols = {}
-    for name, sid in MACRO.items():
+    for name, sid in series.items():
         f = pd.read_csv(io.BytesIO(get(f"https://fred.stlouisfed.org/graph/fredgraph.csv?id={sid}")), parse_dates=["observation_date"], index_col="observation_date")
         cols[name] = pd.to_numeric(f[sid], errors="coerce")
     d = pd.DataFrame(cols).rename_axis("date")
-    d.to_csv(ML / "macro.csv")
-    print(f"macro.csv {len(d)}줄 {d.index.min().date()} ~ {d.index.max().date()}")
+    d.to_csv(ML / out)
+    print(f"{out} {len(d)}줄 {d.index.min().date()} ~ {d.index.max().date()}")
 
 
 def s_macro(d, p, sym):
@@ -324,6 +327,91 @@ def s_taker(d, p, sym):
     return pd.Series(sgn * np.where(z > p["th"], 1.0, np.where(z < -p["th"], -1.0, 0.0)), index=d.index)
 
 
+WIKI = {"BTC": "Bitcoin", "ETH": "Ethereum"}
+
+
+def fetch_wiki():
+    rows = []
+    for sym, art in WIKI.items():
+        j = json.loads(get(f"https://wikimedia.org/api/rest_v1/metrics/pageviews/per-article/en.wikipedia/all-access/user/{art}/daily/20150701/{pd.Timestamp.now():%Y%m%d}"))
+        rows += [(pd.Timestamp(x["timestamp"][:8]), sym, x["views"]) for x in j["items"]]
+    d = pd.DataFrame(rows, columns=["date", "asset", "views"]).sort_values(["asset", "date"])
+    d.to_csv(ML / "wiki.csv", index=False)
+    print(f"wiki.csv {len(d)}줄", d.groupby("asset").date.agg(["min", "max"]).astype(str).to_dict("index"))
+
+
+def wiki(sym):
+    f = pd.read_csv(ML / "wiki.csv", parse_dates=["date"])
+    s = f[f.asset == sym].set_index("date").views
+    s.index = s.index + pd.Timedelta(days=1)  # D 날짜 조회수는 D+1 봉 신호부터 (하루 늦게)
+    return s[s.index <= last_day()]
+
+
+def s_wiki(d, p, sym):
+    s, l = map(int, p["sl"].split("/"))
+    v = wiki(sym).reindex(d.index)
+    a = v.rolling(s).mean() / v.rolling(l).mean()
+    up = np.where(a > 1, 1.0, -1.0)
+    if p["rule"] == "조건부":  # 관심이 늘 때만 지금 추세(종가 vs l 일 평균) 방향
+        out = np.where(a > 1, np.where(d.close > d.close.rolling(l).mean(), 1.0, -1.0), 0.0)
+    else:
+        out = up if p["rule"] == "추세" else -up
+    return pd.Series(out, index=d.index).where(a.notna(), 0.0)
+
+
+RISK = {"VIX": "VIXCLS", "달러": "DTWEXBGS"}
+
+
+def s_riskoff(d, p, sym):
+    """지수가 n 거래일 평균 아래면 위험 선호(+1). VIX 는 D 종가, 달러 지수는 하루 늦게."""
+    x = pd.read_csv(ML / "risk.csv", parse_dates=["date"], index_col="date")[p["index"]].dropna()
+    if p["index"] == "달러":
+        x.index = x.index + pd.Timedelta(days=1)
+    x = x[x.index <= last_day()]
+    m = x.rolling(p["n"]).mean()
+    up = (x < m).astype(float).where(m.notna())
+    up = up.reindex(up.index.union(d.index)).ffill().reindex(d.index)  # 주말·휴일은 직전 거래일
+    return (2 * up - 1).fillna(0.0)
+
+
+def fetch_hashrate():
+    url = "https://community-api.coinmetrics.io/v4/timeseries/asset-metrics?assets=btc&metrics=HashRate&frequency=1d&page_size=10000&start_time=2015-01-01"
+    rows = []
+    while url:
+        j = json.loads(get(url))
+        rows += [(r["time"][:10], float(r["HashRate"])) for r in j["data"] if r.get("HashRate")]
+        url = j.get("next_page_url")
+    d = pd.DataFrame(rows, columns=["date", "hashrate"]).drop_duplicates("date").sort_values("date")
+    d.to_csv(ML / "hashrate.csv", index=False)
+    print(f"hashrate.csv {len(d)}줄 {d.date.min()} ~ {d.date.max()}")
+
+
+def hashrate():
+    s = pd.read_csv(ML / "hashrate.csv", parse_dates=["date"], index_col="date").hashrate
+    s.index = s.index + pd.Timedelta(days=1)  # D 날짜 값은 D+1 봉 신호부터 (하루 늦게)
+    return s[s.index <= last_day()]
+
+
+def s_hashrib(d, p, sym):
+    """BTC 해시레이트(두 마켓 모두). 국면: s 일 평균 > l 일 평균이면 1. 매수신호: 항복(30 < 60)이 끝난 뒤 처음 가격 10 > 20 평균인 날부터 H 일."""
+    hr = hashrate().reindex(d.index)
+    if p["rule"] == "국면":
+        s, l = map(int, p["sl"].split("/"))
+        slow = hr.rolling(l).mean()
+        return (hr.rolling(s).mean() > slow).astype(float).where(slow.notna(), 0.0)
+    cap = (hr.rolling(30).mean() < hr.rolling(60).mean()).to_numpy()
+    mom = (sma(d.close, 10) > sma(d.close, 20)).to_numpy()
+    trig, was, armed = np.zeros(len(d), dtype=int), False, False
+    for i in range(len(d)):
+        if cap[i]:
+            was, armed = True, False
+        elif was:
+            was, armed = False, True
+        if armed and mom[i]:
+            trig[i], armed = 1, False
+    return pd.Series(hold(trig, p["H"]), index=d.index)
+
+
 def vbreak_day(o, h, l, c, p):
     """일봉 기준 목표가·거르기·크기. → (롱 목표가, 숏 목표가, 롱 가능, 숏 가능, 크기)"""
     rng = (h - l).shift(1)
@@ -424,6 +512,13 @@ FAMILIES = {
                    sources=["CryptoQuant Coinbase Premium Index — 코인베이스 USD 와 바이낸스 USDT 가격 차이, 양수면 미국 매수세", "CryptoQuant (2026-07) — 지수가 14일 평균을 되찾은 뒤 반등", "Yae·Tian (2021) Sequential Learning, Asset Allocation, and Bitcoin Returns — 수요 대리 변수의 변화가 다음 날 수익을 예측", "Coinbase Exchange 일봉 BTC-USD·ETH-USD"]),
     "taker": dict(name="테이커 매수 비중", fn=s_taker, default=dict(L=1, th=0.0, rule="추세"), params=grid(L=[1, 3, 7, 14], th=[0.0, 1.0], rule=["추세", "역추세"]),
                   sources=["CryptoQuant Taker Buy Sell Ratio — 1 넘으면 공격적 매수 우세", "Koutmos·Wei (2023, Review of Quantitative Finance and Accounting) — 주문 흐름 불균형이 수익을 그레인저 인과", "반론: arXiv 2109.02776 — 일 단위 주문 불균형은 다음 기간 수익 방향을 예측 못 한다", "바이낸스 무기한 일봉 taker_buy_quote ÷ quote_volume"]),
+    "wiki": dict(name="위키백과 관심", fn=s_wiki, default=dict(sl="7/30", rule="추세"), params=grid(sl=["7/30", "7/90", "30/180"], rule=["추세", "역추세", "조건부"]),
+                 sources=["Kristoufek (2013, Scientific Reports) BitCoin meets Google Trends and Wikipedia — 관심 증가는 추세 위에서 더 오르고 아래에서 더 내린다", "Liu·Tsyvinski (2021, Review of Financial Studies) Risks and Returns of Cryptocurrency — 관심이 뒤 수익을 예측", "반론: Urquhart (2018, Economics Letters) What causes the attention of Bitcoin?", "Wikimedia 조회수 API (영어 위키, 사람 조회)"]),
+    "riskoff": dict(name="VIX·달러 추세", fn=s_riskoff, default=dict(index="VIX", n=50), params=grid(index=list(RISK), n=[20, 50, 100, 200]),
+                    sources=["Empirical Economics (2026, s00181-026-02897-3) — 비트코인과 VIX 음의 관계", "IMF WP 2023/213 — 위험회피 때 코인·주식 동조", "CryptoSlate — BTC·달러 지수 30일 상관 약 −0.45", "FRED VIXCLS·DTWEXBGS"]),
+    "hashrib": dict(name="해시 리본", fn=s_hashrib, default=dict(rule="국면", sl="30/60", H="-"),
+                    params=grid(rule=["국면"], sl=["30/60", "14/28", "60/120"], H=["-"]) + grid(rule=["매수신호"], sl=["30/60"], H=[30, 90, 180]),
+                    sources=["Charles Edwards (Capriole, 2019) Hash Ribbons — 30·60일 해시레이트 평균, 회복 뒤 가격 10 > 20일 평균이면 매수", "LookIntoBitcoin·Glassnode Hash Ribbons 차트", "Coin Metrics 커뮤니티 HashRate (BTC)"]),
 }
 
 
@@ -477,3 +572,9 @@ if __name__ == "__main__":
         fetch_dvol()
     if "--fetch-coinbase" in sys.argv:
         fetch_coinbase()
+    if "--fetch-wiki" in sys.argv:
+        fetch_wiki()
+    if "--fetch-risk" in sys.argv:
+        fetch_macro(RISK, "risk.csv")
+    if "--fetch-hashrate" in sys.argv:
+        fetch_hashrate()

@@ -378,6 +378,15 @@ def s_alligator(d, p):
     return warm(pd.Series(out, index=d.index), (3 * 13 + 8) * k)
 
 
+def s_elder(d, p):
+    """엘더 임펄스: EMA 와 MACD 히스토그램이 둘 다 오르면 +1, 둘 다 내리면 −1. 엇갈리면 0(셋값) 또는 앞 방향(유지)."""
+    f, sl, k = map(int, p["macd"].split("/"))
+    m = ema(d.close, f) - ema(d.close, sl)
+    e, h = ema(d.close, p["ema"]).diff(), (m - ema(m, k)).diff()
+    out = pd.Series(np.where((e > 0) & (h > 0), 1.0, np.where((e < 0) & (h < 0), -1.0, np.nan)), index=d.index)
+    return warm(out.fillna(0.0) if p["blue"] == "셋값" else out.ffill().fillna(0.0), 3 * sl)
+
+
 def grid(**kw):
     return [dict(zip(kw, v)) for v in itertools.product(*kw.values())]
 
@@ -443,6 +452,9 @@ FAMILIES = {
                    sources=["Botes·Siepman (2010, Technical Analysis of Stocks & Commodities 28:1) The Vortex Indicator — 예시 14, 피보나치 기간 권장, 교차에 들고 반대 교차에 정리"]),
     "alligator": dict(name="앨리게이터", fn=s_alligator, default=dict(scale=1, rule="정렬"), params=grid(scale=[1, 2, 3], rule=["정렬", "입술·턱", "종가·턱"]),
                       sources=["Bill Williams, Trading Chaos (1995) — 중간가 SMMA 13·8·5 를 8·5·3 봉 앞으로, 얽히면 쉬고 벌어지면 든다", "StockCharts ChartSchool Alligator"]),
+    "elder": dict(name="엘더 임펄스", fn=s_elder, default=dict(ema=13, macd="12/26/9", blue="셋값"),
+                  params=grid(ema=[13, 26], macd=["12/26/9", "24/52/18"], blue=["셋값", "유지"]),
+                  sources=["Alexander Elder, Come Into My Trading Room (2002) — EMA 13 기울기 + MACD 히스토그램 기울기", "StockCharts ChartSchool Elder Impulse System — 녹색·빨강·파랑, 조심해 들고 빨리 나간다"]),
 }
 MODES = ["선물 롱숏", "선물 롱만", "현물 롱만"]
 

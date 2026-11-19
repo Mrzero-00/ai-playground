@@ -142,7 +142,53 @@ def analyze(stage, mod):
     return res
 
 
+def holdout():
+    """봉인 구간을 연다(RESEARCH.md 원칙 4, 한 번만). 개발 단계를 통과한 판정 단위만, 개발 구간 전부로 고른 칸을 고정해 돌린다."""
+    C.open_seal()
+    D = C.days()
+    m = D >= C.DEV_END + pd.Timedelta(days=1)
+    bn = {k: C.bench(k) for k in ["F0", "현물봇"]}
+    net = lambda g, t, c: (g - np.float32(c) * t)[m]
+    out = {"opened": json.loads(C.SEAL.read_text())["at"], "window": [str(D[m][0].date()), str(D[-1].date())], "units": []}
+    main4 = ["1 샤프·MDD", "2 0.25% 비용", "3 거래 30회", "4 격자 절반·기본값"]
+    for stage, (name, key) in STAGES.items():
+        p = C.OUT / stage / "summary.json"
+        if not p.exists():
+            continue
+        res = json.loads(p.read_text())
+        for u in res["units"]:
+            if not u["passed"]:
+                continue
+            cfg = u["seal_pick"]["cfg"]
+            m_ = importlib.import_module(name)
+            if name in ("triangle_grid", "patterns"):
+                arg = tuple(cfg[k] for k in m_.SIG)
+            elif name == "indicators":
+                arg = (key, cfg["tf"], "spot" if cfg["mode"] == "현물 롱만" else "perp")
+            else:
+                arg = (key, "spot" if cfg["mode"] == "현물 롱만" else "perp")
+            cfgs, G, T, N = m_.task(arg)
+            i = cfgs.index(cfg)
+            route = "가" if all(u["criteria"][k] for k in main4) else "나"
+            r = {c: net(G[i], T[i], c) for c in (C.COST, C.COST_HARD)}
+            b = {c: net(*bn[u["bench"]][:2], c) for c in (C.COST, C.COST_HARD)}
+            sp = {c: net(*bn["현물봇"][:2], c) for c in (C.COST, C.COST_HARD)}
+            s_, bs, ss = C.stats(r[C.COST], int(N[i][m].sum())), C.stats(b[C.COST]), C.stats(sp[C.COST])
+            mix = C.stats(0.5 * r[C.COST] + 0.5 * sp[C.COST])
+            ok = (s_["샤프"] or -9) > bs["샤프"] if route == "가" else mix["샤프"] > ss["샤프"]
+            out["units"].append({"stage": stage, "name": res["name"], "unit": u["name"], "bench": u["bench"], "route": route, "cfg": cfg, "passed": bool(ok),
+                                 "전략": s_, "전략_0.25": C.stats(r[C.COST_HARD]), "기준선": bs, "기준선_0.25": C.stats(b[C.COST_HARD]), "현물봇": ss, "섞음": mix,
+                                 "curve": {"dates": [str(x.date()) for x in D[m][::3]], "전략": np.cumprod(1 + r[C.COST])[::3].round(4).tolist(),
+                                           "기준선": np.cumprod(1 + b[C.COST])[::3].round(4).tolist(), "현물봇": np.cumprod(1 + sp[C.COST])[::3].round(4).tolist()}})
+            print(f"봉인 {res['name']} · {u['name']} ({route}): {'최종 후보' if ok else '탈락'}  샤프 {s_['샤프']} / 기준선 {bs['샤프']:.2f}, 섞음 {mix['샤프']:.2f} / 현물 봇 {ss['샤프']:.2f}")
+    (C.OUT / "holdout.json").write_text(json.dumps(out, ensure_ascii=False, indent=1, default=str))
+
+
 def main(stage, only_analyze=False):
+    if stage == "holdout":
+        if (C.OUT / "holdout.json").exists():
+            sys.exit("봉인 구간은 이미 열었다(한 번만). data/lab/holdout.json")
+        return holdout()
     mod = stage_mod(stage)
     try:
         if not only_analyze:

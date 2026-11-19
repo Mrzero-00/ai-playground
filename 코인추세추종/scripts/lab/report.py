@@ -129,12 +129,26 @@ def build():
         sections = sections.replace(f'<section class="unit" id="{res["stage"]}-0">', f"""<section class="stage"><h2>{e(res['name'])}</h2>
   <div class="grid2"><div><h4>출처</h4><ul class="src">{srcs}</ul></div><div><h4>격자 ({res['cells']:,}칸)</h4><div class="scroll"><table class="gridt"><tbody>{grid}</tbody></table></div></div></div></section>
 <section class="unit" id="{res['stage']}-0">""", 1)
+    hold, hp = "", C.OUT / "holdout.json"
+    if hp.exists():
+        h = json.loads(hp.read_text())
+        rows = ""
+        for i, u in enumerate(h["units"]):
+            curves[f"holdout:{i}"] = u["curve"]
+            extra = f"섞음 {num(u['섞음']['샤프'])} / 현물 봇 {num(u['현물봇']['샤프'])}" if u["route"] == "나" else f"0.25% {num(u['전략_0.25']['샤프'])} / {num(u['기준선_0.25']['샤프'])}"
+            rows += (f"<tr><th>{e(u['name'])} <small>{e(u['unit'])} · 경로 {e(u['route'])}</small></th><td class=\"cfg\">{e(cfg_text(u['cfg']))}</td>"
+                     f"<td>{num(u['전략']['샤프'])} <small>/ {num(u['기준선']['샤프'])}</small></td><td>{pct(u['전략']['연복리'])}</td><td>{pct(u['전략']['MDD'])}</td>"
+                     f"<td>{u['전략']['거래']}</td><td>{e(extra)}</td><td>{pill(u['passed'], '최종 후보', '탈락')}</td></tr>")
+        charts = "".join(f"<h4>{e(u['name'])} · {e(u['unit'])}</h4><div class=\"chart\" id=\"ch{i}\" data-key=\"holdout:{i}\"></div>" for i, u in enumerate(h["units"]))
+        hold = (f"<section class=\"card\"><h4 style=\"margin-top:0\">봉인 구간 판정 ({e(h['window'][0])} ~ {e(h['window'][1])}, 연 날 {e(h['opened'][:16])})</h4>"
+                f"<p class=\"note\">개발 단계를 통과한 것만, 2025-06-30 까지의 데이터로 고른 칸을 고정해 한 번 돌렸다. 경로 가 = 단독(샤프 > 기준선), 나 = 현물 봇 보완(섞은 샤프 > 현물 봇).</p>"
+                f"<div class=\"scroll\"><table class=\"num\"><thead><tr><th>방법</th><th>고정한 칸</th><th>샤프 / 기준선</th><th>연복리</th><th>MDD</th><th>거래</th><th>참고</th><th>판정</th></tr></thead><tbody>{rows}</tbody></table></div>{charts}</section>")
     total = sum(r["cells"] for r in done)
     passed = [f"{r['name']} · {u['name']}" for r in done for u in r["units"] if u["passed"]]
     head = (f"지금까지 {len(done)}개 방법, {total:,}칸을 시험했다. " + (f"개발 단계 통과: {', '.join(passed)}." if passed else "개발 단계를 통과한 방법은 아직 없다.")) if done else "첫 단계를 돌리는 중이다."
     seal = f"열림 ({json.loads(C.SEAL.read_text())['at'][:16]})" if C.SEAL.exists() else "닫힘 — 2025-07-01 이후 데이터는 마지막에 한 번만 연다"
     page = TEMPLATE.replace("__NOW__", now).replace("__HEAD__", e(head)).replace("__SEAL__", e(seal)).replace("__PROGRESS__", progress) \
-        .replace("__OVERVIEW__", overview or '<tr><td colspan="7">아직 끝난 단계가 없다.</td></tr>').replace("__SECTIONS__", sections) \
+        .replace("__OVERVIEW__", overview or '<tr><td colspan="7">아직 끝난 단계가 없다.</td></tr>').replace("__SECTIONS__", hold + sections) \
         .replace("__DATA__", json.dumps(curves, ensure_ascii=False))
     (C.OUT / "report.html").write_text(page)
     (C.OUT / "report.json").write_text(json.dumps(reported, ensure_ascii=False))

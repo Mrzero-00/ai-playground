@@ -487,6 +487,45 @@ def s_clenow(d, p):
     return pd.Series(out, index=d.index)
 
 
+def s_stc(d, p):
+    """샤프 추세 주기: MACD 에 주기 봉 스토캐스틱 + 0.5 평활을 두 번. 문턱은 25 상향·75 하향 교차, 50선은 50 위아래."""
+    f, s = map(int, p["fs"].split("/"))
+    n = p["cycle"]
+
+    def cycle(x):
+        lo = pd.Series(x).rolling(n).min().to_numpy()
+        rg = pd.Series(x).rolling(n).max().to_numpy() - lo
+        out, k, sm = np.full(len(x), np.nan), np.nan, np.nan
+        for i in range(len(x)):
+            if rg[i] > 0:  # 폭이 0 이거나 아직 없으면 앞 값
+                k = (x[i] - lo[i]) / rg[i] * 100
+            if not np.isnan(k):
+                sm = k if np.isnan(sm) else sm + 0.5 * (k - sm)
+            out[i] = sm
+        return out
+
+    stc = cycle(cycle((ema(d.close, f) - ema(d.close, s)).to_numpy()))
+    prev, no = np.r_[np.nan, stc[:-1]], np.zeros(len(stc), bool)
+    with np.errstate(invalid="ignore"):
+        out = np.where(stc > 50, 1.0, -1.0) if p["rule"] == "50선" else machine(len(stc), (prev <= 25) & (stc > 25), (prev >= 75) & (stc < 75), no, no)
+    return warm(pd.Series(out, index=d.index), 3 * s)
+
+
+def s_fisher(d, p):
+    """에일러스 피셔 변환(2002): 중간가를 n 봉 폭으로 −1~1 에 맞춰 0.33·0.67 평활, 0.5 ln((1+v)/(1−v)) + 0.5 × 전 값."""
+    n, mid = p["n"], (d.high + d.low) / 2
+    hi, lo, x = mid.rolling(n).max().to_numpy(), mid.rolling(n).min().to_numpy(), mid.to_numpy()
+    F, v, f = np.zeros(len(x)), 0.0, 0.0
+    for i in range(len(x)):
+        if hi[i] - lo[i] > 0:
+            v = 0.33 * 2 * ((x[i] - lo[i]) / (hi[i] - lo[i]) - 0.5) + 0.67 * v
+            v = 0.999 if v > 0.99 else -0.999 if v < -0.99 else v
+            f = 0.5 * np.log((1 + v) / (1 - v)) + 0.5 * f
+        F[i] = f
+    out = np.where(F > np.r_[0.0, F[:-1]], 1.0, -1.0) if p["rule"] == "교차" else np.where(F > 0, 1.0, -1.0)
+    return warm(pd.Series(out, index=d.index), 2 * n)
+
+
 def grid(**kw):
     return [dict(zip(kw, v)) for v in itertools.product(*kw.values())]
 
@@ -567,6 +606,11 @@ FAMILIES = {
                       sources=["John Ehlers, Gaussian and Other Low Lag Filters (MESA) — N 극 가우시안 필터", "Donovan Wall, Gaussian Channel [DW] (TradingView) — hlc3, 극 4·기간 144·배수 1.414", "SM-021 Gaussian Channel Strategy (TradingView) — 필터 상승 + 위 띠 위면 롱, 위 띠 아래면 청산"]),
     "clenow": dict(name="클레나우 회귀 모멘텀", fn=s_clenow, default=dict(n=90, r=0.0), params=grid(n=[30, 60, 90, 120], r=[0.0, 0.3, 0.5, 0.7]),
                    sources=["Andreas Clenow, Stocks on the Move (2015) — 로그 가격 90일 회귀 기울기 × R²", "quant-investing.com — Clenow 모멘텀 정리", "반론: Chris Chow (2018) How (Not) to Invest: Clenow Momentum — 5일 뒤 수익과 상관 없음"]),
+    "stc": dict(name="샤프 추세 주기 (STC)", fn=s_stc, default=dict(fs="23/50", cycle=10, rule="문턱"),
+                params=grid(fs=["23/50", "12/26", "46/100"], cycle=[10, 20], rule=["문턱", "50선"]),
+                sources=["Doug Schaff (1999) Schaff Trend Cycle — EMA 23·50 MACD 에 10봉 스토캐스틱 두 번, 0.5 평활", "LuxAlgo·Barchart·NexusFi — 25 상향 돌파 상승, 75 하향 돌파 하락, 0·100 에 붙으면 추세 지속"]),
+    "fisher": dict(name="피셔 변환", fn=s_fisher, default=dict(n=10, rule="교차"), params=grid(n=[10, 20, 50, 100], rule=["교차", "0선"]),
+                   sources=["John Ehlers (2002-11, Technical Analysis of Stocks & Commodities) Using the Fisher Transform — 10봉, 0.33·0.67 평활, 신호선 = 전 봉", "MotiveWave·TC2000 Fisher Transform — 신호선 교차가 추세 전환"]),
 }
 MODES = ["선물 롱숏", "선물 롱만", "현물 롱만"]
 

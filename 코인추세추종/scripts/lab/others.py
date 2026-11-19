@@ -1,9 +1,11 @@
-"""2단계 2차: 변동성 돌파·펀딩비·김치 프리미엄, 4차(참고용): 공포·탐욕 지수·요일, 5차(참고용): 메이어 배수·MVRV, 6차(참고용): 월말·월초 (RESEARCH.md 등록). 모두 일 단위(09:00 KST = 00:00 UTC 마감).
+"""2단계 2차: 변동성 돌파·펀딩비·김치 프리미엄, 4차(참고용): 공포·탐욕 지수·요일, 5차(참고용): 메이어 배수·MVRV, 6차(참고용): 월말·월초, 7차(참고용): 스테이블코인 공급·미국 증시 추세 (RESEARCH.md 등록). 모두 일 단위(09:00 KST = 00:00 UTC 마감).
 모드: 선물 롱숏, 선물 롱만, 현물 롱만(업비트 원화). 봉인 구간은 읽지 않는다.
   python3 scripts/lab/others.py --fetch-fng   # 공포·탐욕 지수 전부 → data/ml/fng.csv (읽을 때 자른다)
   python3 scripts/lab/others.py --fetch-mvrv  # Coin Metrics 커뮤니티 MVRV 전부 → data/ml/mvrv.csv
+  python3 scripts/lab/others.py --fetch-stable  # DefiLlama 스테이블코인 유통량(전체·USDT) → data/ml/stable.csv
+  python3 scripts/lab/others.py --fetch-macro   # FRED S&P 500·나스닥 종가 → data/ml/macro.csv
 """
-import json, sys, urllib.request
+import io, json, sys, urllib.request
 
 import numpy as np
 import pandas as pd
@@ -131,6 +133,56 @@ def s_mvrv(d, p, sym):
         return pd.Series(machine(len(v), v <= p["lo"], np.zeros(len(v), bool), v >= p["exit"], np.zeros(len(v), bool)), index=d.index)
 
 
+def get(url):
+    # FRED 는 낯선 User-Agent 를 응답 없이 붙잡아 둔다 — curl 이름으로 받는다
+    return urllib.request.urlopen(urllib.request.Request(url, headers={"User-Agent": "curl/8.7.1"}), timeout=60).read()
+
+
+def fetch_stable():
+    cols = {}
+    for name, q in (("전체", ""), ("USDT", "?stablecoin=1")):
+        rows = json.loads(get("https://stablecoins.llama.fi/stablecoincharts/all" + q))
+        cols[name] = pd.Series({pd.Timestamp(int(r["date"]), unit="s"): r["totalCirculatingUSD"]["peggedUSD"] for r in rows})
+    d = pd.DataFrame(cols).rename_axis("date")
+    d.to_csv(ML / "stable.csv")
+    print(f"stable.csv {len(d)}줄 {d.index.min().date()} ~ {d.index.max().date()}")
+
+
+def stable(coin):
+    s = pd.read_csv(ML / "stable.csv", parse_dates=["date"], index_col="date")[coin]
+    s.index = s.index + pd.Timedelta(days=1)  # D 날짜 값은 D+1 봉 신호부터 (하루 늦게)
+    return s[s.index <= last_day()]
+
+
+def s_stable(d, p, sym):
+    v = stable(p["coin"]).reindex(d.index).ffill()
+    g = (v / v.shift(p["L"]) - 1).to_numpy()
+    with np.errstate(invalid="ignore"):
+        return pd.Series(np.where(g > p["th"], 1.0, np.where(g < -p["th"], -1.0, 0.0)), index=d.index)
+
+
+MACRO = {"S&P 500": "SP500", "나스닥": "NASDAQCOM"}
+
+
+def fetch_macro():
+    cols = {}
+    for name, sid in MACRO.items():
+        f = pd.read_csv(io.BytesIO(get(f"https://fred.stlouisfed.org/graph/fredgraph.csv?id={sid}")), parse_dates=["observation_date"], index_col="observation_date")
+        cols[name] = pd.to_numeric(f[sid], errors="coerce")
+    d = pd.DataFrame(cols).rename_axis("date")
+    d.to_csv(ML / "macro.csv")
+    print(f"macro.csv {len(d)}줄 {d.index.min().date()} ~ {d.index.max().date()}")
+
+
+def s_macro(d, p, sym):
+    """미국 종가(20~21시 UTC)는 같은 날 코인 일봉 마감(다음 날 00:00 UTC) 전에 나온다."""
+    x = pd.read_csv(ML / "macro.csv", parse_dates=["date"], index_col="date")[p["index"]].dropna()
+    x = x[x.index <= last_day()]
+    up = (x > x.rolling(p["n"]).mean()).astype(float).where(x.rolling(p["n"]).mean().notna())
+    up = up.reindex(up.index.union(d.index)).ffill().reindex(d.index)  # 주말·휴일은 직전 거래일
+    return (2 * up - 1).fillna(0.0)
+
+
 def vbreak_day(o, h, l, c, p):
     """일봉 기준 목표가·거르기·크기. → (롱 목표가, 숏 목표가, 롱 가능, 숏 가능, 크기)"""
     rng = (h - l).shift(1)
@@ -207,6 +259,11 @@ FAMILIES = {
                   sources=["Trace Mayer, Mayer Multiple — 종가 ÷ 200일 평균, 2.4 아래면 사 모은다", "Glassnode — 0.8 과매도, 2.4 과매수"]),
     "mvrv": dict(name="MVRV", fn=s_mvrv, default=dict(lo=1.0, exit=3.5), params=grid(lo=[0.8, 1.0, 1.2], exit=[1.5, 2.4, 3.5]),
                  sources=["Murad Mahmudov·David Puell (2018) MVRV", "Glassnode — 1 아래 바닥, 3.5 이상 꼭대기", "Coin Metrics 커뮤니티 API CapMVRVCur"]),
+    "stable": dict(name="스테이블코인 공급 증가", fn=s_stable, default=dict(coin="USDT", L=30, th=0.0),
+                   params=grid(coin=["전체", "USDT"], L=[7, 14, 30, 60, 90], th=[0.0, 0.01, 0.03]),
+                   sources=["Griffin·Shams (2020, Journal of Finance) Is Bitcoin Really Untethered? — 테더 발행과 비트코인 수익", "반론: Wei (2018, Economics Letters), Lyons·Viswanath-Natraj (VoxEU) — 발행이 가격을 움직인다는 증거 없음", "DefiLlama 스테이블코인 유통량"]),
+    "macro": dict(name="미국 증시 추세", fn=s_macro, default=dict(index="S&P 500", n=200), params=grid(index=list(MACRO), n=[20, 50, 100, 200]),
+                  sources=["Adrian·Iyer·Qureshi (2022, IMF 블로그) Crypto Prices Move More in Sync With Stocks — 비트코인·S&P 500 수익 상관 0.01→0.36", "CoinDesk (2025) S&P 500 200일선 회복이 비트코인에 순풍", "FRED SP500·NASDAQCOM"]),
 }
 
 
@@ -250,3 +307,7 @@ if __name__ == "__main__":
         fetch_fng()
     if "--fetch-mvrv" in sys.argv:
         fetch_mvrv()
+    if "--fetch-stable" in sys.argv:
+        fetch_stable()
+    if "--fetch-macro" in sys.argv:
+        fetch_macro()

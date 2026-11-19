@@ -316,6 +316,48 @@ def s_mfi(d, p):
         return pd.Series(machine(len(m), m < lo, m > hi, m > 50, m < 50), index=d.index)
 
 
+def linreg_end(x, n):
+    """n 봉 선형회귀 직선의 마지막 봉 값 (Pine linreg(x, n, 0))."""
+    v = x.to_numpy(float)
+    out = np.full(len(v), np.nan)
+    if len(v) >= n:
+        w = sliding_window_view(v, n)
+        t = np.arange(n) - (n - 1) / 2
+        out[n - 1:] = w.mean(axis=1) + (w @ t) / (t @ t) * (n - 1) / 2
+    return pd.Series(out, index=x.index)
+
+
+def s_squeeze(d, p):
+    """TTM 스퀴즈: 볼린저(n, 2)가 켈트너(SMA n ± 배수 × TR 평균) 안이었다가 풀린 첫 봉에 모멘텀 방향으로 든다."""
+    n = p["n"]
+    mid, sd = sma(d.close, n), d.close.rolling(n).std()
+    w = p["mult"] * sma(true_range(d), n)
+    on = ((mid + 2 * sd < mid + w) & (mid - 2 * sd > mid - w)).to_numpy()
+    mom = linreg_end(d.close - ((d.high.rolling(n).max() + d.low.rolling(n).min()) / 2 + mid) / 2, n).to_numpy()
+    out, pos, held = np.zeros(len(mom)), 0, 0
+    for i in range(2, len(mom)):
+        if not np.isfinite(mom[i - 2]):
+            continue
+        up, dn = mom[i] > mom[i - 1], mom[i] < mom[i - 1]
+        if pos != 0:
+            held += 1
+            if p["exit"] == "2봉약화":
+                stop = (dn and mom[i - 1] < mom[i - 2]) if pos == 1 else (up and mom[i - 1] > mom[i - 2])
+            elif p["exit"] == "0선":
+                stop = mom[i] * pos <= 0
+            else:
+                stop = held >= 10
+            if stop:
+                pos = 0
+        if on[i - 1] and not on[i]:
+            if mom[i] > 0 and up:
+                pos, held = 1, 0
+            elif mom[i] < 0 and dn:
+                pos, held = -1, 0
+        out[i] = pos
+    return pd.Series(out, index=d.index)
+
+
 def grid(**kw):
     return [dict(zip(kw, v)) for v in itertools.product(*kw.values())]
 
@@ -374,6 +416,9 @@ FAMILIES = {
     "mfi": dict(name="머니 플로 지수", fn=s_mfi, default=dict(n=14, rule="평균회귀", band="20/80"),
                 params=grid(n=[7, 14, 21], rule=["모멘텀"], band=["-"]) + grid(n=[7, 14, 21], rule=["평균회귀"], band=["20/80", "10/90"]),
                 sources=["Gene Quong·Avrum Soudack (1989, TASC) Money Flow Index — 14, 80/20"]),
+    "squeeze": dict(name="TTM 스퀴즈", fn=s_squeeze, default=dict(n=20, mult=1.5, exit="2봉약화"),
+                    params=grid(n=[10, 20, 30], mult=[1.0, 1.5, 2.0], exit=["2봉약화", "0선", "10봉"]),
+                    sources=["John Carter, Mastering the Trade (2005) — TTM Squeeze, 두 봉 색이 바뀌면 청산", "StockCharts ChartSchool TTM Squeeze — 기본 (20, 2.0, 20, 1.5, 20), 8~10봉 간다"]),
 }
 MODES = ["선물 롱숏", "선물 롱만", "현물 롱만"]
 

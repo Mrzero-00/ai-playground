@@ -358,6 +358,26 @@ def s_squeeze(d, p):
     return pd.Series(out, index=d.index)
 
 
+def s_vortex(d, p):
+    """보텍스: VI± = VM± 의 n 봉 합 ÷ TR 의 n 봉 합. 교차는 VI+ − VI− 의 부호, 차이는 ±0.1 밖에서만."""
+    n, tr = p["n"], true_range(d).rolling(p["n"]).sum()
+    x = ((d.high - d.low.shift(1)).abs().rolling(n).sum() - (d.low - d.high.shift(1)).abs().rolling(n).sum()) / tr
+    if p["rule"] == "교차":
+        return np.sign(x).fillna(0.0)
+    return pd.Series(np.where(x > 0.1, 1.0, np.where(x < -0.1, -1.0, 0.0)), index=d.index)
+
+
+def s_alligator(d, p):
+    """앨리게이터: 중간가 SMMA 턱 13·이빨 8·입술 5 를 8·5·3 봉 앞으로 민다(봉 t 에 t − 밀기 값). 배율은 기간·밀기 모두에."""
+    k, med = p["scale"], (d.high + d.low) / 2
+    jaw, teeth, lips = (wilder(med, n * k).shift(s * k) for n, s in ((13, 8), (8, 5), (5, 3)))
+    if p["rule"] == "정렬":
+        out = np.where((lips > teeth) & (teeth > jaw), 1.0, np.where((lips < teeth) & (teeth < jaw), -1.0, 0.0))
+    else:
+        out = np.where((lips if p["rule"] == "입술·턱" else d.close) > jaw, 1.0, -1.0)
+    return warm(pd.Series(out, index=d.index), (3 * 13 + 8) * k)
+
+
 def grid(**kw):
     return [dict(zip(kw, v)) for v in itertools.product(*kw.values())]
 
@@ -419,6 +439,10 @@ FAMILIES = {
     "squeeze": dict(name="TTM 스퀴즈", fn=s_squeeze, default=dict(n=20, mult=1.5, exit="2봉약화"),
                     params=grid(n=[10, 20, 30], mult=[1.0, 1.5, 2.0], exit=["2봉약화", "0선", "10봉"]),
                     sources=["John Carter, Mastering the Trade (2005) — TTM Squeeze, 두 봉 색이 바뀌면 청산", "StockCharts ChartSchool TTM Squeeze — 기본 (20, 2.0, 20, 1.5, 20), 8~10봉 간다"]),
+    "vortex": dict(name="보텍스 지표", fn=s_vortex, default=dict(n=14, rule="교차"), params=grid(n=[7, 14, 21, 34, 55], rule=["교차", "차이"]),
+                   sources=["Botes·Siepman (2010, Technical Analysis of Stocks & Commodities 28:1) The Vortex Indicator — 예시 14, 피보나치 기간 권장, 교차에 들고 반대 교차에 정리"]),
+    "alligator": dict(name="앨리게이터", fn=s_alligator, default=dict(scale=1, rule="정렬"), params=grid(scale=[1, 2, 3], rule=["정렬", "입술·턱", "종가·턱"]),
+                      sources=["Bill Williams, Trading Chaos (1995) — 중간가 SMMA 13·8·5 를 8·5·3 봉 앞으로, 얽히면 쉬고 벌어지면 든다", "StockCharts ChartSchool Alligator"]),
 }
 MODES = ["선물 롱숏", "선물 롱만", "현물 롱만"]
 

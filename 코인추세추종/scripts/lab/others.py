@@ -1,4 +1,4 @@
-"""2단계 2차: 변동성 돌파·펀딩비·김치 프리미엄, 4차(참고용): 공포·탐욕 지수·요일, 5차(참고용): 메이어 배수·MVRV, 6차(참고용): 월말·월초, 7차(참고용): 스테이블코인 공급·미국 증시 추세, 8차(참고용): 거래소 순유입·활성 주소·변동성 목표, 9차(참고용): 자기회귀 예측·옵션 내재변동성 (RESEARCH.md 등록). 모두 일 단위(09:00 KST = 00:00 UTC 마감).
+"""2단계 2차: 변동성 돌파·펀딩비·김치 프리미엄, 4차(참고용): 공포·탐욕 지수·요일, 5차(참고용): 메이어 배수·MVRV, 6차(참고용): 월말·월초, 7차(참고용): 스테이블코인 공급·미국 증시 추세, 8차(참고용): 거래소 순유입·활성 주소·변동성 목표, 9차(참고용): 자기회귀 예측·옵션 내재변동성, 10차(참고용): 코인베이스 프리미엄·테이커 매수 비중 (RESEARCH.md 등록). 모두 일 단위(09:00 KST = 00:00 UTC 마감).
 모드: 선물 롱숏, 선물 롱만, 현물 롱만(업비트 원화). 봉인 구간은 읽지 않는다.
   python3 scripts/lab/others.py --fetch-fng   # 공포·탐욕 지수 전부 → data/ml/fng.csv (읽을 때 자른다)
   python3 scripts/lab/others.py --fetch-mvrv  # Coin Metrics 커뮤니티 MVRV 전부 → data/ml/mvrv.csv
@@ -6,8 +6,9 @@
   python3 scripts/lab/others.py --fetch-macro   # FRED S&P 500·나스닥 종가 → data/ml/macro.csv
   python3 scripts/lab/others.py --fetch-onchain # Coin Metrics 커뮤니티 거래소 유입·유출·활성 주소 → data/ml/onchain.csv
   python3 scripts/lab/others.py --fetch-dvol    # Deribit DVOL(BTC·ETH 30일 내재변동성) 일봉 → data/ml/dvol.csv
+  python3 scripts/lab/others.py --fetch-coinbase  # Coinbase Exchange BTC-USD·ETH-USD 일봉 종가 → data/ml/coinbase.csv
 """
-import io, json, sys, urllib.request
+import io, json, sys, time, urllib.request
 
 import numpy as np
 import pandas as pd
@@ -281,6 +282,48 @@ def s_dvol(d, p, sym):
         return pd.Series(np.where(z > p["th"], 1.0, np.where(z < -p["th"], -1.0, 0.0)), index=d.index)
 
 
+def fetch_coinbase():
+    rows, end = [], pd.Timestamp.now().normalize()
+    for sym in SYMBOLS:
+        start = pd.Timestamp("2017-01-01")
+        while start < end:
+            stop = min(start + pd.Timedelta(days=299), end)  # 한 번에 300봉까지
+            j = json.loads(get(f"https://api.exchange.coinbase.com/products/{sym}-USD/candles?granularity=86400&start={start:%Y-%m-%dT%H:%M:%SZ}&end={stop:%Y-%m-%dT%H:%M:%SZ}"))
+            rows += [(pd.Timestamp(x[0], unit="s"), sym, x[4]) for x in j]  # [시각, 저, 고, 시, 종, 거래량]
+            start = stop + pd.Timedelta(days=1)
+            time.sleep(0.2)
+    d = pd.DataFrame(rows, columns=["date", "asset", "close"]).drop_duplicates(["date", "asset"]).sort_values(["asset", "date"])
+    d.to_csv(ML / "coinbase.csv", index=False)
+    print(f"coinbase.csv {len(d)}줄", d.groupby("asset").date.agg(["min", "max"]).astype(str).to_dict("index"))
+
+
+def cbprem(sym):
+    """코인베이스 프리미엄 = 코인베이스 USD 종가 ÷ 바이낸스 현물 USDT 종가 − 1. 두 일봉 모두 00:00 UTC 마감 — D 일봉 신호에 D 값."""
+    f = pd.read_csv(ML / "coinbase.csv", parse_dates=["date"])
+    cb = f[f.asset == sym].set_index("date").close
+    sp = pd.read_csv(ML / f"spot_{sym}.csv", parse_dates=["date"], index_col="date").close
+    pr = (cb / sp.reindex(cb.index) - 1).dropna()
+    return pr[pr.index <= last_day()]
+
+
+def s_cbprem(d, p, sym):
+    pr = cbprem(sym).reindex(d.index).ffill()
+    if p["rule"] == "부호":
+        return np.sign(pr.rolling(p["L"]).mean()).fillna(0.0)
+    m = pr.rolling(p["n"]).mean()
+    return (2 * (pr > m).astype(float) - 1).where(m.notna(), 0.0)
+
+
+def s_taker(d, p, sym):
+    """바이낸스 무기한 L 일 테이커 매수 금액 ÷ 거래대금의 365일 z 점수. 추세는 그 방향, 역추세는 반대."""
+    f = pd.read_csv(ML / f"perp_{sym}.csv", parse_dates=["date"], index_col="date")
+    f = f[f.index <= last_day()]
+    r = f.taker_buy_quote.rolling(p["L"]).sum() / f.quote_volume.rolling(p["L"]).sum()
+    z = ((r - r.rolling(365).mean()) / r.rolling(365).std()).reindex(d.index)
+    sgn = 1.0 if p["rule"] == "추세" else -1.0
+    return pd.Series(sgn * np.where(z > p["th"], 1.0, np.where(z < -p["th"], -1.0, 0.0)), index=d.index)
+
+
 def vbreak_day(o, h, l, c, p):
     """일봉 기준 목표가·거르기·크기. → (롱 목표가, 숏 목표가, 롱 가능, 숏 가능, 크기)"""
     rng = (h - l).shift(1)
@@ -376,6 +419,11 @@ FAMILIES = {
                  + grid(rule=["VRP z"], n=[30], W=[90, 180], th=[1.0, 2.0], s=["-"], H=["-"])
                  + grid(rule=["스트레치"], n=["-"], W=["-"], th=["-"], s=[0.05, 0.1, 0.2], H=[5, 10]),
                  sources=["Bollerslev·Tauchen·Zhou (2009, Review of Financial Studies) Expected Stock Returns and Variance Risk Premia", "Connors·Alvarez (2009) Short Term Trading Strategies That Work — VIX 스트레치 매수", "Deribit DVOL (30일 내재변동성, 2021-03-24~)"]),
+    "cbprem": dict(name="코인베이스 프리미엄", fn=s_cbprem, default=dict(rule="부호", L=1, n="-"),
+                   params=grid(rule=["부호"], L=[1, 3, 7, 14], n=["-"]) + grid(rule=["평균교차"], L=["-"], n=[7, 14, 30]),
+                   sources=["CryptoQuant Coinbase Premium Index — 코인베이스 USD 와 바이낸스 USDT 가격 차이, 양수면 미국 매수세", "CryptoQuant (2026-07) — 지수가 14일 평균을 되찾은 뒤 반등", "Yae·Tian (2021) Sequential Learning, Asset Allocation, and Bitcoin Returns — 수요 대리 변수의 변화가 다음 날 수익을 예측", "Coinbase Exchange 일봉 BTC-USD·ETH-USD"]),
+    "taker": dict(name="테이커 매수 비중", fn=s_taker, default=dict(L=1, th=0.0, rule="추세"), params=grid(L=[1, 3, 7, 14], th=[0.0, 1.0], rule=["추세", "역추세"]),
+                  sources=["CryptoQuant Taker Buy Sell Ratio — 1 넘으면 공격적 매수 우세", "Koutmos·Wei (2023, Review of Quantitative Finance and Accounting) — 주문 흐름 불균형이 수익을 그레인저 인과", "반론: arXiv 2109.02776 — 일 단위 주문 불균형은 다음 기간 수익 방향을 예측 못 한다", "바이낸스 무기한 일봉 taker_buy_quote ÷ quote_volume"]),
 }
 
 
@@ -427,3 +475,5 @@ if __name__ == "__main__":
         fetch_onchain()
     if "--fetch-dvol" in sys.argv:
         fetch_dvol()
+    if "--fetch-coinbase" in sys.argv:
+        fetch_coinbase()

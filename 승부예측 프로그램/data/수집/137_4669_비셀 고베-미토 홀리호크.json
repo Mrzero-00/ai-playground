@@ -1,18 +1,95 @@
-{"번호": 4669, "홈": "비셀 고베", "원정": "미토 홀리호크", "리그": "일본 J1리그", "수집시각": "2026-11-18 KST",
+{
+ "번호": 4669,
+ "홈": "비셀 고베",
+ "원정": "미토 홀리호크",
+ "리그": "일본 J1리그",
+ "수집시각": "2026-11-19 KST (갱신)",
  "구장": "미사키 공원 구기장 (카드 INPUTS 기준, 출처 카드)",
- "순위": {"홈": "5위 14경기 8승3무3패 GD+9 승점27 (팀노트 팩트시트 2026-11-18)", "원정": "19위 14경기 2승3무9패 GD-14 승점9 (팀노트 팩트시트 2026-11-18)"},
+ "순위": {
+  "홈": "5위 14경기 8승3무3패 GD+9 승점27 (팀노트 팩트시트 2026-11-18)",
+  "원정": "19위 14경기 2승3무9패 GD-14 승점9 (팀노트 팩트시트 2026-11-18)"
+ },
  "결장": [
-  {"팀": "원정", "선수": "Arata Watanabe (渡邉新太)", "포지션": "FW 주장", "사유": "좌무릎 내측측부인대 손상, 9/26 훈련 중 부상", "상태": "의심", "비중": "확인 안 됨(복귀 여부 11월 보도 못 찾음)", "출처": "https://www.footballchannel.jp/?p=1031139", "날짜": "2026-10-12"},
-  {"팀": "원정", "선수": "Osanari Kawazura (河面旺成)", "포지션": "DF", "사유": "좌비복근 근육파열, 10/4 훈련 중 부상", "상태": "의심", "비중": "확인 안 됨(복귀 여부 11월 보도 못 찾음)", "출처": "https://soccer-king.jp/news/japan/jl/20261012/2215762.html", "날짜": "2026-10-12"}
+  {
+   "팀": "원정",
+   "선수": "Arata Watanabe (渡邉新太)",
+   "포지션": "FW 주장",
+   "사유": "좌무릎 내측측부인대 손상, 9/26 훈련 중 부상",
+   "상태": "의심",
+   "비중": "확인 안 됨(복귀 여부 11월 보도 못 찾음)",
+   "출처": "https://www.footballchannel.jp/?p=1031139",
+   "날짜": "2026-10-12"
+  },
+  {
+   "팀": "원정",
+   "선수": "Osanari Kawazura (河面旺成)",
+   "포지션": "DF",
+   "사유": "좌비복근 근육파열, 10/4 훈련 중 부상",
+   "상태": "의심",
+   "비중": "확인 안 됨(복귀 여부 11월 보도 못 찾음)",
+   "출처": "https://soccer-king.jp/news/japan/jl/20261012/2215762.html",
+   "날짜": "2026-10-12"
+  }
  ],
  "대표차출": [],
- "감독": [{"팀": "홈", "내용": "Michael Skibbe (팀노트 팩트시트)", "출처": "팀노트", "날짜": "2026-11-18"}, {"팀": "원정", "내용": "Naoki Mori (팀노트 팩트시트)", "출처": "팀노트", "날짜": "2026-11-18"}],
+ "감독": [
+  {
+   "팀": "홈",
+   "내용": "Michael Skibbe (팀노트 팩트시트)",
+   "출처": "팀노트",
+   "날짜": "2026-11-18"
+  },
+  {
+   "팀": "원정",
+   "내용": "Naoki Mori (팀노트 팩트시트)",
+   "출처": "팀노트",
+   "날짜": "2026-11-18"
+  }
+ ],
  "예상선발": [],
  "최근경기": {
-  "홈": ["10-18 Fagiano Okayama 0-3 Vissel Kobe(원정승)", "10-21 Kawasaki Frontale 2-1 Vissel Kobe", "10-24 홈 0-0 Machida Zelvia", "10-31 홈 3-1 Nagoya Grampus", "11-08 홈 2-2 Urawa Red Diamonds (ESPN, 카드)"],
-  "원정": ["10-17 홈 0-1 Urawa Red Diamonds", "10-21 Fagiano Okayama 2-0 Mito", "10-25 원정 FC Tokyo 6-0 Mito", "10-31 홈 0-3 Sanfrecce Hiroshima", "11-08 원정 JEF United Chiba 1-0 Mito (ESPN, 카드)"]},
- "일정": ["경기 2026-11-20 19:00 KST; 양 팀 직전 리그전 11-08, 휴식 약 12일(카드 INPUTS)"],
+  "홈": [
+   "10-18 Fagiano Okayama 0-3 Vissel Kobe(원정승)",
+   "10-21 Kawasaki Frontale 2-1 Vissel Kobe",
+   "10-24 홈 0-0 Machida Zelvia",
+   "10-31 홈 3-1 Nagoya Grampus",
+   "11-08 홈 2-2 Urawa Red Diamonds (ESPN, 카드)"
+  ],
+  "원정": [
+   "10-17 홈 0-1 Urawa Red Diamonds",
+   "10-21 Fagiano Okayama 2-0 Mito",
+   "10-25 원정 FC Tokyo 6-0 Mito",
+   "10-31 홈 0-3 Sanfrecce Hiroshima",
+   "11-08 원정 JEF United Chiba 1-0 Mito (ESPN, 카드)"
+  ]
+ },
+ "일정": [
+  "경기 2026-11-20 19:00 KST; 양 팀 직전 리그전 11-08, 휴식 약 12일(카드 INPUTS)"
+ ],
  "맞대결": [],
- "사실": ["카드 직전 선발 고베 4-3-3 Gonda, Thuler, Yamakawa, Diego, Sakai, Iwamoto, Sasaki, Ideguchi, Osako, Erik, Muto (teamdb 2026-11-18)", "카드 직전 선발 미토 4-4-2 Slowik, Itakura, Fofana, Osaki, Tamura, Senba, Funabashi, Nishihara, Tada, Okumura, Nemoto (teamdb 2026-11-18)", "날씨(카드): 강수0%, 바람15.4~23.5km/h, 6~8℃"],
- "확인안됨": ["고베 부상·출장정지·대표차출(11월 보도 검색에서 못 찾음)", "미토 와타나베·카와즈라의 11월 현재 복귀 여부", "11월 A매치 차출 선수", "예상 선발(현지 매체)", "감독 기자회견", "맞대결 기록", "구장 공식 확인(카드 값만)"],
- "출처": ["https://www.footballchannel.jp/?p=1031139", "https://soccer-king.jp/news/japan/jl/20261012/2215762.html", "https://www.jleague.jp/sp/match/j1/2026/112004/preview/ (정보 없음)", "팀노트·lcard_4669.md"]}
+ "사실": [
+  "카드 직전 선발 고베 4-3-3 Gonda, Thuler, Yamakawa, Diego, Sakai, Iwamoto, Sasaki, Ideguchi, Osako, Erik, Muto (teamdb 2026-11-18)",
+  "카드 직전 선발 미토 4-4-2 Slowik, Itakura, Fofana, Osaki, Tamura, Senba, Funabashi, Nishihara, Tada, Okumura, Nemoto (teamdb 2026-11-18)",
+  "날씨(카드): 강수0%, 바람15.4~23.5km/h, 6~8℃"
+ ],
+ "확인안됨": [
+  "고베 부상·출장정지·대표차출(11월 보도 검색에서 못 찾음)",
+  "미토 와타나베·카와즈라의 11월 현재 복귀 여부",
+  "11월 A매치 차출 선수",
+  "예상 선발(현지 매체)",
+  "감독 기자회견",
+  "맞대결 기록",
+  "구장 공식 확인(카드 값만)"
+ ],
+ "출처": [
+  "https://www.footballchannel.jp/?p=1031139",
+  "https://soccer-king.jp/news/japan/jl/20261012/2215762.html",
+  "https://www.jleague.jp/sp/match/j1/2026/112004/preview/ (정보 없음)",
+  "팀노트·lcard_4669.md"
+ ],
+ "갱신_1119": [
+  "미토 와타나베 신타·가와즈라: 11월 복귀 보도 없음, 최신은 기존 10/12 보도뿐 (https://soccer-king.jp/news/japan/jl/20261012/2215762.html)",
+  "고베 GK 김승규 부상(대표 합숙 중, 전치 6~8주, 올시즌 복귀 어려움) 기사 1건 검색됨 — 기사에 연월 명시 없어 2026-11 건인지 확인 안 됨 (goal.com 김승규 기사, 날짜 확인 안 됨)",
+  "고베 부상·출장정지·대표 복귀, 스키베·모리 감독 코멘트, 예상 선발: 11/18~19 새 보도 없음 — 검색처: jleague.jp, soccer-king.jp, footballchannel.jp, goal.com, yahoo 스포나비(상세 없음)"
+ ]
+}

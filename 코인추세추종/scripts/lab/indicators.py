@@ -659,6 +659,62 @@ def s_frama(d, p):
     return warm(pd.Series(out, index=d.index), n)
 
 
+def s_vidya(d, p):
+    """챈드 VIDYA(1995): VIDYA = α|CMO| × 종가 + (1 − α|CMO|) × VIDYA₋₁, α = 2/(EMA+1), CMO = (상승 합 − 하락 합)/(상승 합 + 하락 합)."""
+    c, n, e = d.close, p["cmo"], p["ema"]
+    dl = c.diff()
+    up, dn = dl.clip(lower=0).rolling(n).sum(), (-dl).clip(lower=0).rolling(n).sum()
+    k = (2 / (e + 1) * ((up - dn) / (up + dn)).abs()).fillna(0.0).to_numpy()
+    x = c.to_numpy(float)
+    v = x.copy()
+    for i in range(1, len(x)):
+        v[i] = k[i] * x[i] + (1 - k[i]) * v[i - 1]
+    out = np.where(x > v, 1.0, -1.0) if p["rule"] == "종가" else np.where(v > np.r_[np.inf, v[:-1]], 1.0, -1.0)
+    return warm(pd.Series(out, index=d.index), max(n, e))
+
+
+def s_qqe(d, p):
+    """QQE: F = EMA5(RSI n), DAR = EMA_w(EMA_w(|ΔF|)) × 배수, w = 2n − 1. 롱 밴드 F − DAR 는 위로만, 숏 밴드 F + DAR 는 아래로만.
+    F 가 앞 숏 밴드 위로 가면 상승, 앞 롱 밴드 아래로 가면 하락. 같은쪽은 F 가 50 의 같은 쪽일 때만."""
+    n, w = p["n"], 2 * p["n"] - 1
+    f = ema(rsi(d.close, n), 5)
+    dar, F = (ema(ema(f.diff().abs(), w), w) * p["m"]).to_numpy(), f.to_numpy()
+    lb, sb, tr = np.full(len(F), np.nan), np.full(len(F), np.nan), np.zeros(len(F))
+    for i in range(1, len(F)):
+        tr[i] = tr[i - 1]
+        if np.isnan(F[i]) or np.isnan(dar[i]):
+            continue
+        lo, hi = F[i] - dar[i], F[i] + dar[i]
+        lb[i] = max(lb[i - 1], lo) if F[i - 1] > lb[i - 1] and F[i] > lb[i - 1] else lo
+        sb[i] = min(sb[i - 1], hi) if F[i - 1] < sb[i - 1] and F[i] < sb[i - 1] else hi
+        if F[i] > sb[i - 1]:
+            tr[i] = 1.0
+        elif F[i] < lb[i - 1]:
+            tr[i] = -1.0
+    if p["rule"] == "같은쪽":
+        tr = np.where((tr > 0) & (F > 50) | (tr < 0) & (F < 50), tr, 0.0)
+    return warm(pd.Series(tr, index=d.index), 3 * w)
+
+
+def s_force(d, p):
+    """엘더 포스 인덱스: FI = (종가 − 전 종가) × 거래량. 0선은 EMA(FI, n) 부호.
+    눌림목은 종가 22 EMA 가 오르는 동안 FI(2) 가 음수(음전)이거나 음수 다음 다시 양수(재양전)면 롱, 22 EMA 가 내리면 청산. 숏은 거꾸로."""
+    c = d.close
+    fi = c.diff() * volume(d)
+    if p["rule"] == "0선":
+        x = ema(fi, p["n"])
+        return warm(pd.Series(np.where(x > 0, 1.0, -1.0), index=d.index), p["n"])
+    t = ema(c, 22)
+    up, dn = (t > t.shift()).to_numpy(), (t < t.shift()).to_numpy()
+    f2 = ema(fi, 2).to_numpy()
+    neg, pos = f2 < 0, f2 > 0
+    if p["entry"] == "음전":
+        el, es = neg, pos
+    else:
+        el, es = pos & np.r_[False, neg[:-1]], neg & np.r_[False, pos[:-1]]
+    return warm(pd.Series(machine(len(c), up & el, dn & es, dn, up), index=d.index), 22)
+
+
 def grid(**kw):
     return [dict(zip(kw, v)) for v in itertools.product(*kw.values())]
 
@@ -760,6 +816,13 @@ FAMILIES = {
                     sources=["Stephen J. Klinger (1997, Technical Analysis of Stocks & Commodities) — KO = EMA34(VF) − EMA55(VF), 신호선 EMA13", "TradingView 도움말 Klinger Oscillator — 신호선 교차·0선", "LuxAlgo Klinger Volume Oscillator — abs(2 dm/cm − 1)", "TradingView 내장 스크립트 — hlc3 방향 × 거래량 단순형, 단타용 13·21·8"]),
     "frama": dict(name="프랙탈 적응 이동평균 (FRAMA)", fn=s_frama, default=dict(N=16, rule="종가"), params=grid(N=[16, 32, 64, 128], rule=["종가", "기울기"]),
                   sources=["John Ehlers (2005-10, Technical Analysis of Stocks & Commodities) FRAMA — Fractal Adaptive Moving Average — D = (log(N1+N2) − log N3)/log 2, α = exp(−4.6(D−1)) 0.01~1, N 16"]),
+    "vidya": dict(name="VIDYA (가변 지수 동적 평균)", fn=s_vidya, default=dict(cmo=9, ema=20, rule="종가"), params=grid(cmo=[9, 20], ema=[12, 20, 50, 100], rule=["종가", "기울기"]),
+                  sources=["Tushar Chande (1992, Technical Analysis of Stocks & Commodities; 1995-10 CMO 판) VIDYA — α|CMO| 로 EMA 속도를 바꾼다", "MetaTrader 5 도움말 VIDYA — CMO = (UpSum − DnSum)/(UpSum + DnSum)", "TradingView 공개 스크립트 VIDYA (Chande) — CMO 9"]),
+    "qqe": dict(name="QQE (정량·정성 추정)", fn=s_qqe, default=dict(n=14, m=4.236, rule="추세선"), params=grid(n=[14, 20], m=[2.618, 4.236], rule=["추세선", "같은쪽"]),
+                sources=["LuxAlgo QQE 정리 — F = EMA5(RSI14), DAR = EMA_w(EMA_w(|ΔF|)) × 4.236, w = 2n − 1, 추세선 교차·50선 같은 쪽", "빠른 선 배수 2.618 변형", "TradingView 공개 스크립트 — RSI 20 예"]),
+    "force": dict(name="포스 인덱스", fn=s_force, default=dict(rule="0선", n=13, entry="-"),
+                  params=grid(rule=["0선"], n=[2, 13, 50, 100], entry=["-"]) + grid(rule=["눌림목"], n=["-"], entry=["음전", "재양전"]),
+                  sources=["Alexander Elder, Trading for a Living (1993) — Force Index = (종가 − 전 종가) × 거래량, 13 EMA", "StockCharts ChartSchool Force Index — 0선, 100 봉 중장기 추세, 22일 EMA 가 오를 때 2일 FI 음수는 눌림목 매수"]),
 }
 MODES = ["선물 롱숏", "선물 롱만", "현물 롱만"]
 

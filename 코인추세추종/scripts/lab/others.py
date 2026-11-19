@@ -1,4 +1,4 @@
-"""2단계 2차: 변동성 돌파·펀딩비·김치 프리미엄, 4차(참고용): 공포·탐욕 지수·요일, 5차(참고용): 메이어 배수·MVRV, 6차(참고용): 월말·월초, 7차(참고용): 스테이블코인 공급·미국 증시 추세, 8차(참고용): 거래소 순유입·활성 주소·변동성 목표, 9차(참고용): 자기회귀 예측·옵션 내재변동성, 10차(참고용): 코인베이스 프리미엄·테이커 매수 비중, 11차(참고용): 위키백과 관심·VIX·달러 추세·해시 리본, 12차(참고용): 숨은 마르코프 국면·미국 순유동성, 13차(참고용): 메트칼프 가치 괴리, 14차(참고용): 허스트 국면 전환·미국 실질금리, 16차(참고용): 거래소 보유량 추세 (RESEARCH.md 등록). 모두 일 단위(09:00 KST = 00:00 UTC 마감).
+"""2단계 2차: 변동성 돌파·펀딩비·김치 프리미엄, 4차(참고용): 공포·탐욕 지수·요일, 5차(참고용): 메이어 배수·MVRV, 6차(참고용): 월말·월초, 7차(참고용): 스테이블코인 공급·미국 증시 추세, 8차(참고용): 거래소 순유입·활성 주소·변동성 목표, 9차(참고용): 자기회귀 예측·옵션 내재변동성, 10차(참고용): 코인베이스 프리미엄·테이커 매수 비중, 11차(참고용): 위키백과 관심·VIX·달러 추세·해시 리본, 12차(참고용): 숨은 마르코프 국면·미국 순유동성, 13차(참고용): 메트칼프 가치 괴리, 14차(참고용): 허스트 국면 전환·미국 실질금리, 16차(참고용): 거래소 보유량 추세, 17차(참고용): NVT 시그널 (RESEARCH.md 등록). 모두 일 단위(09:00 KST = 00:00 UTC 마감).
 모드: 선물 롱숏, 선물 롱만, 현물 롱만(업비트 원화). 봉인 구간은 읽지 않는다.
   python3 scripts/lab/others.py --fetch-fng   # 공포·탐욕 지수 전부 → data/ml/fng.csv (읽을 때 자른다)
   python3 scripts/lab/others.py --fetch-mvrv  # Coin Metrics 커뮤니티 MVRV 전부 → data/ml/mvrv.csv
@@ -14,6 +14,7 @@
   python3 scripts/lab/others.py --fetch-cap       # Coin Metrics 커뮤니티 BTC·ETH 시가총액 → data/ml/cap.csv
   python3 scripts/lab/others.py --fetch-realyield # FRED 10년 TIPS 실질금리 → data/ml/realyield.csv
   python3 scripts/lab/others.py --fetch-exsupply  # Coin Metrics 커뮤니티 BTC·ETH 거래소 보유량 → data/ml/exsupply.csv
+  python3 scripts/lab/others.py --fetch-txvol     # blockchain.com BTC 추정 거래액(USD) → data/ml/txvol.csv
 """
 import io, json, sys, time, urllib.request
 
@@ -569,6 +570,30 @@ def s_exsupply(d, p, sym):
     return (2 * dn - 1).fillna(0.0)
 
 
+def fetch_txvol():
+    j = json.loads(get("https://api.blockchain.info/charts/estimated-transaction-volume-usd?timespan=all&format=json&sampled=false"))
+    d = pd.DataFrame([(pd.Timestamp(r["x"], unit="s").strftime("%Y-%m-%d"), float(r["y"])) for r in j["values"]], columns=["date", "txvol"])
+    d = d.drop_duplicates("date", keep="last").sort_values("date")
+    d.to_csv(ML / "txvol.csv", index=False)
+    print(f"txvol.csv {len(d)}줄 {d.date.min()} ~ {d.date.max()}")
+
+
+def s_nvt(d, p, sym):
+    """BTC NVT 시그널(두 마켓 모두) = 시가총액 ÷ 거래액 ma 일 평균. 고정: NVTS ≤ lo 롱, ≥ hi 청산. 동적: 730일 z ≤ −lo 롱, ≥ hi 청산. 롱만."""
+    cap = pd.read_csv(ML / "cap.csv", parse_dates=["date"])
+    cap = cap[cap.asset == "BTC"].set_index("date").cap
+    tx = pd.read_csv(ML / "txvol.csv", parse_dates=["date"], index_col="date").txvol
+    v = (cap / tx.rolling(f"{p['ma']}D").mean()).dropna()  # 빠진 날(하루씩 몇 번)은 건너뛰고 지난 ma 일 평균
+    v.index = v.index + pd.Timedelta(days=1)  # D 날짜 값은 D+1 봉 신호부터
+    v = v[v.index <= last_day()]
+    x = v if p["rule"] == "고정" else (v - v.rolling("730D", min_periods=700).mean()) / v.rolling("730D", min_periods=700).std()
+    lo, hi = (p["lo"], p["hi"]) if p["rule"] == "고정" else (-p["lo"], p["hi"])
+    a, no = x.to_numpy(), np.zeros(len(x), bool)
+    with np.errstate(invalid="ignore"):
+        out = machine(len(a), a <= lo, no, a >= hi, no)
+    return pd.Series(out, index=x.index).reindex(d.index).fillna(0.0)
+
+
 def vbreak_day(o, h, l, c, p):
     """일봉 기준 목표가·거르기·크기. → (롱 목표가, 숏 목표가, 롱 가능, 숏 가능, 크기)"""
     rng = (h - l).shift(1)
@@ -690,6 +715,9 @@ FAMILIES = {
                      sources=["Peterson (2018) Metcalfe's Law as a Model for Bitcoin's Value — 시가총액 ∝ 활성 주소²", "Wheatley 외 (2019, Royal Society Open Science) Are Bitcoin bubbles predictable? — 일반화 메트칼프(지수 약 1.69)", "Rob_Maths, BTC – Metcalfe's Law (Deviation) (TradingView, 2025) — 730일 로그-로그 회귀, 1.0 위 고평가·−0.25 아래 저평가", "Coin Metrics 커뮤니티 CapMrktCurUSD·AdrActCnt"]),
     "exsupply": dict(name="거래소 보유량 추세", fn=s_exsupply, default=dict(rule="평균아래", n=120), params=grid(rule=["평균아래", "변화"], n=[60, 120, 240, 365]),
                      sources=["Glassnode — 거래소 잔고 감소는 장기 보관으로 옮기는 신호, 2020-03 이후 가장 길고 큰 감소 (CoinDesk·CryptoSlate·K33 보도)", "반론: 거래소 집계가 불완전하고 포크·지갑 정리 같은 다른 이유도 있다", "Hoang·Baur (SSRN 3902504) — 거래소 잔고 일 변화와 수익의 음의 관계", "Coin Metrics 커뮤니티 SplyExNtv"]),
+    "nvt": dict(name="NVT 시그널", fn=s_nvt, default=dict(ma=90, rule="고정", lo=45, hi=150),
+                params=grid(ma=[28, 90], rule=["고정"], lo=[45, 60], hi=[100, 150]) + grid(ma=[28, 90], rule=["동적"], lo=[0.5, 1.0], hi=[1, 2]),
+                sources=["Dmitry Kalichkin (2018) Rethinking NVT Ratio — 시가총액 ÷ 거래액 90일 평균", "Willy Woo (Woobull, 2018-02) NVT Signal — 150 위 과매수, 45 아래 과매도", "Capriole Dynamic Range NVT Signal — 2년 평균 − 0.5σ 저평가, + 2σ 고평가", "Coin Metrics 커뮤니티 CapMrktCurUSD (BTC), blockchain.com estimated-transaction-volume-usd"]),
 }
 
 
@@ -757,3 +785,5 @@ if __name__ == "__main__":
         fetch_macro(REAL, "realyield.csv")
     if "--fetch-exsupply" in sys.argv:
         fetch_exsupply()
+    if "--fetch-txvol" in sys.argv:
+        fetch_txvol()

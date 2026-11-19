@@ -15,6 +15,7 @@ STAGES = {"triangle": ("triangle_grid", None)}  # 등록 순서 = 실행 순서.
 STAGES.update({k: ("indicators", k) for k in ["tsmom", "macross", "donchian", "macd", "rsi", "bollinger", "supertrend", "ichimoku", "psar", "adx"]})
 STAGES.update({k: ("others", k) for k in ["vbreak", "funding", "kimchi"]})
 STAGES["reversal"] = ("indicators", "reversal")
+STAGES["patterns"] = ("patterns", None)
 WORKERS = 8
 
 

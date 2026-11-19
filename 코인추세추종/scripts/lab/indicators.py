@@ -418,6 +418,75 @@ def s_kalman(d, p):
     return warm(pd.Series(out, index=d.index), 100)
 
 
+def s_tdseq(d, p):
+    """TD 시퀀셜 단순형: 셋업 9(종가 vs 4봉 전 종가), 카운트다운 13(종가 vs 2봉 전 저·고가). 매수 완성 +1, 매도 −1."""
+    c, lo, hi = d.close.to_numpy(), d.low.to_numpy(), d.high.to_numpy()
+    trig, bs, ss, bc, sc = np.zeros(len(c)), 0, 0, -1, -1  # bc·sc: 카운트다운 센 수, -1 은 안 세는 중
+    for i in range(4, len(c)):
+        bs, ss = (bs + 1 if c[i] < c[i - 4] else 0), (ss + 1 if c[i] > c[i - 4] else 0)
+        setup = 1 if bs == 9 else -1 if ss == 9 else 0
+        if setup == 1:
+            bc, sc = max(bc, 0), -1
+        elif setup == -1:
+            sc, bc = max(sc, 0), -1
+        if bc >= 0 and c[i] <= lo[i - 2]:
+            bc += 1
+        if sc >= 0 and c[i] >= hi[i - 2]:
+            sc += 1
+        if p["signal"] == "셋업9":
+            trig[i] = setup
+        elif bc == 13 or sc == 13:
+            trig[i] = 1 if bc == 13 else -1
+            bc, sc = (-1, sc) if bc == 13 else (bc, -1)
+    if p["dir"] == "추세":
+        trig = -trig
+    if p["hold"] == "반대신호":
+        return pd.Series(trig, index=d.index).replace(0.0, np.nan).ffill().fillna(0.0)
+    out, pos, left = np.zeros(len(trig)), 0.0, 0
+    for i, t in enumerate(trig):
+        if t:
+            pos, left = t, p["hold"]
+        out[i] = pos if left > 0 else 0.0
+        left = max(left - 1, 0)
+    return pd.Series(out, index=d.index)
+
+
+def gauss(x, per, poles=4):
+    """에일러스 N 극 가우시안 필터 = 같은 α 의 1극 필터를 N 번 (Gaussian Channel [DW])."""
+    beta = (1 - np.cos(2 * np.pi / per)) / (2 ** (1 / poles) - 1)
+    a = -beta + np.sqrt(beta ** 2 + 2 * beta)
+    for _ in range(poles):
+        x = x.ewm(alpha=a, adjust=False).mean()
+    return x
+
+
+def s_gausschan(d, p):
+    """가우시안 채널: 필터 ± 필터한 TR × 배수. 상단돌파는 위 띠 아래에서, 필터까지는 필터 반대편에서 청산."""
+    P, c = p["P"], d.close
+    f = gauss((d.high + d.low + d.close) / 3, P)
+    if p["rule"] == "기울기":
+        return warm(np.sign(f.diff()).fillna(0.0), 2 * P)
+    w = gauss(true_range(d).fillna(d.high - d.low), P) * p["mult"]
+    up, dn = (f.diff() > 0).to_numpy(), (f.diff() < 0).to_numpy()
+    hb, lb = (c > f + w).to_numpy(), (c < f - w).to_numpy()
+    ex_l, ex_s = (~hb, ~lb) if p["rule"] == "상단돌파" else ((c < f).to_numpy(), (c > f).to_numpy())
+    return warm(pd.Series(machine(len(c), up & hb, dn & lb, ex_l, ex_s), index=d.index), 2 * P)
+
+
+def s_clenow(d, p):
+    """로그 종가를 n 봉 시간에 회귀: R² ≥ r 이면 기울기 부호, 아니면 0."""
+    n, y = p["n"], np.log(d.close.to_numpy(float))
+    out = np.zeros(len(y))
+    w = sliding_window_view(y, n)
+    t = np.arange(n) - (n - 1) / 2
+    b = (w @ t) / (t @ t)
+    sst = ((w - w.mean(axis=1, keepdims=True)) ** 2).sum(axis=1)
+    with np.errstate(invalid="ignore", divide="ignore"):
+        r2 = np.where(sst > 0, b ** 2 * (t @ t) / sst, 0.0)
+    out[n - 1:] = np.where(r2 >= p["r"], np.sign(b), 0.0)
+    return pd.Series(out, index=d.index)
+
+
 def grid(**kw):
     return [dict(zip(kw, v)) for v in itertools.product(*kw.values())]
 
@@ -490,6 +559,14 @@ FAMILIES = {
                        sources=["Chuck LeBeau (System Traders Club), Alexander Elder, Come Into My Trading Room (2002) — 22봉, ATR 3배", "TradingView Chandelier Exit (everget) — 방향 뒤집기, 한쪽으로만 움직이는 손절"]),
     "kalman": dict(name="칼만 필터 추세", fn=s_kalman, default=dict(q=1e-4, rule="기울기"), params=grid(q=[1e-3, 1e-4, 1e-5, 1e-6], rule=["기울기", "가격대비"]),
                    sources=["Kalman (1960); Harvey (1989) Forecasting, Structural Time Series Models and the Kalman Filter — 국소 선형 추세", "Benhamou (2018, arXiv 1808.03297) Trend without hiccups: a Kalman filter approach"]),
+    "tdseq": dict(name="TD 시퀀셜", fn=s_tdseq, default=dict(signal="셋업9", dir="역추세", hold="반대신호"),
+                  params=grid(signal=["셋업9", "카운트다운13"], dir=["역추세", "추세"], hold=[4, 9, "반대신호"]),
+                  sources=["Tom DeMark, The New Science of Technical Analysis (1994) — 셋업 9(4봉 전 종가), 카운트다운 13(2봉 전 저·고가)", "LuxAlgo·NexusFi TD Sequential 정리 — 지친 추세의 반전 신호"]),
+    "gausschan": dict(name="가우시안 채널", fn=s_gausschan, default=dict(P=144, rule="상단돌파", mult=1.414),
+                      params=grid(P=[89, 144, 233], rule=["상단돌파", "필터까지"], mult=[1.414, 2.0]) + grid(P=[89, 144, 233], rule=["기울기"], mult=["-"]),
+                      sources=["John Ehlers, Gaussian and Other Low Lag Filters (MESA) — N 극 가우시안 필터", "Donovan Wall, Gaussian Channel [DW] (TradingView) — hlc3, 극 4·기간 144·배수 1.414", "SM-021 Gaussian Channel Strategy (TradingView) — 필터 상승 + 위 띠 위면 롱, 위 띠 아래면 청산"]),
+    "clenow": dict(name="클레나우 회귀 모멘텀", fn=s_clenow, default=dict(n=90, r=0.0), params=grid(n=[30, 60, 90, 120], r=[0.0, 0.3, 0.5, 0.7]),
+                   sources=["Andreas Clenow, Stocks on the Move (2015) — 로그 가격 90일 회귀 기울기 × R²", "quant-investing.com — Clenow 모멘텀 정리", "반론: Chris Chow (2018) How (Not) to Invest: Clenow Momentum — 5일 뒤 수익과 상관 없음"]),
 }
 MODES = ["선물 롱숏", "선물 롱만", "현물 롱만"]
 

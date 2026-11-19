@@ -1,4 +1,4 @@
-"""2단계 2차: 변동성 돌파·펀딩비·김치 프리미엄, 4차(참고용): 공포·탐욕 지수·요일, 5차(참고용): 메이어 배수·MVRV, 6차(참고용): 월말·월초, 7차(참고용): 스테이블코인 공급·미국 증시 추세, 8차(참고용): 거래소 순유입·활성 주소·변동성 목표, 9차(참고용): 자기회귀 예측·옵션 내재변동성, 10차(참고용): 코인베이스 프리미엄·테이커 매수 비중, 11차(참고용): 위키백과 관심·VIX·달러 추세·해시 리본, 12차(참고용): 숨은 마르코프 국면·미국 순유동성 (RESEARCH.md 등록). 모두 일 단위(09:00 KST = 00:00 UTC 마감).
+"""2단계 2차: 변동성 돌파·펀딩비·김치 프리미엄, 4차(참고용): 공포·탐욕 지수·요일, 5차(참고용): 메이어 배수·MVRV, 6차(참고용): 월말·월초, 7차(참고용): 스테이블코인 공급·미국 증시 추세, 8차(참고용): 거래소 순유입·활성 주소·변동성 목표, 9차(참고용): 자기회귀 예측·옵션 내재변동성, 10차(참고용): 코인베이스 프리미엄·테이커 매수 비중, 11차(참고용): 위키백과 관심·VIX·달러 추세·해시 리본, 12차(참고용): 숨은 마르코프 국면·미국 순유동성, 13차(참고용): 메트칼프 가치 괴리 (RESEARCH.md 등록). 모두 일 단위(09:00 KST = 00:00 UTC 마감).
 모드: 선물 롱숏, 선물 롱만, 현물 롱만(업비트 원화). 봉인 구간은 읽지 않는다.
   python3 scripts/lab/others.py --fetch-fng   # 공포·탐욕 지수 전부 → data/ml/fng.csv (읽을 때 자른다)
   python3 scripts/lab/others.py --fetch-mvrv  # Coin Metrics 커뮤니티 MVRV 전부 → data/ml/mvrv.csv
@@ -11,6 +11,7 @@
   python3 scripts/lab/others.py --fetch-risk      # FRED VIX·넓은 달러 지수 → data/ml/risk.csv
   python3 scripts/lab/others.py --fetch-hashrate  # Coin Metrics 커뮤니티 BTC 해시레이트 → data/ml/hashrate.csv
   python3 scripts/lab/others.py --fetch-liquidity # FRED 연준 총자산·재무부 일반계정·역레포 → data/ml/liquidity.csv
+  python3 scripts/lab/others.py --fetch-cap       # Coin Metrics 커뮤니티 BTC·ETH 시가총액 → data/ml/cap.csv
 """
 import io, json, sys, time, urllib.request
 
@@ -485,6 +486,38 @@ def s_netliq(d, p, sym):
     return (2 * up - 1).fillna(0.0)
 
 
+def fetch_cap():
+    url = "https://community-api.coinmetrics.io/v4/timeseries/asset-metrics?assets=btc,eth&metrics=CapMrktCurUSD&frequency=1d&page_size=10000&start_time=2015-01-01"
+    rows = []
+    while url:
+        j = json.loads(get(url))
+        rows += [(r["time"][:10], r["asset"].upper(), float(r["CapMrktCurUSD"])) for r in j["data"] if r.get("CapMrktCurUSD")]
+        url = j.get("next_page_url")
+    d = pd.DataFrame(rows, columns=["date", "asset", "cap"]).sort_values(["asset", "date"])
+    d.to_csv(ML / "cap.csv", index=False)
+    print(f"cap.csv {len(d)}줄", d.groupby("asset").date.agg(["min", "max"]).to_dict("index"))
+
+
+def s_metcalfe(d, p, sym):
+    """괴리 = ln 시가총액 − (a + b × ln 활성 주소 30일 평균), a·b 는 지난 W 일 회귀(b 2 고정 또는 자유).
+    아래 문턱 이하면 롱으로 들어 위 문턱까지, 위 문턱 이상이면 숏으로 들어 아래 문턱까지."""
+    f = pd.read_csv(ML / "cap.csv", parse_dates=["date"])
+    cap = f[f.asset == sym].set_index("date").cap
+    cap.index = cap.index + pd.Timedelta(days=1)  # D 날짜 값은 D+1 봉 신호부터 (하루 늦게)
+    xy = pd.concat({"y": np.log(cap[cap.index <= last_day()]), "x": np.log(onchain(sym, "active").rolling(30).mean())}, axis=1).dropna()
+    W, y, x = p["W"], xy.y, xy.x
+    if p["beta"] == 2:
+        dev = (y - 2 * x) - (y - 2 * x).rolling(W).mean()
+    else:
+        mx, my = x.rolling(W).mean(), y.rolling(W).mean()
+        b = ((x * y).rolling(W).mean() - mx * my) / x.rolling(W).var(ddof=0)
+        dev = y - (my + b * (x - mx))
+    lo, hi = map(float, p["band"].split("/"))
+    v = dev.reindex(d.index).to_numpy()
+    with np.errstate(invalid="ignore"):
+        return pd.Series(machine(len(v), v <= lo, v >= hi, v >= hi, v <= lo), index=d.index)
+
+
 def vbreak_day(o, h, l, c, p):
     """일봉 기준 목표가·거르기·크기. → (롱 목표가, 숏 목표가, 롱 가능, 숏 가능, 크기)"""
     rng = (h - l).shift(1)
@@ -596,6 +629,9 @@ FAMILIES = {
                 sources=["Hamilton (1989, Econometrica) 국면 전환 모형", "Koki·Leonardos·Piliouras (2022, arXiv 2011.03741) Exploring the Predictability of Cryptocurrencies via Bayesian Hidden Markov Models", "Cortese·Kolm (2023, Digital Finance) — 코인 수익은 강세·중립·약세 3국면"]),
     "netliq": dict(name="미국 순유동성", fn=s_netliq, default=dict(rule="평균위", n=13), params=grid(rule=["평균위", "변화"], n=[4, 13, 26, 52]),
                    sources=["Arthur Hayes·Lyn Alden 등 — 연준 순유동성(총자산 − TGA − 역레포)과 비트코인", "TFTC US Liquidity — 수요일 기준", "Eco3min — 상관은 큰 국면 방향에서 드러난다", "FRED WALCL·WTREGEN·RRPONTSYD"]),
+    "metcalfe": dict(name="메트칼프 가치 괴리", fn=s_metcalfe, default=dict(W=730, beta=2, band="-0.25/1.0"),
+                     params=grid(W=[365, 730], beta=[2, "자유"], band=["-0.25/1.0", "-0.25/0.25", "-0.5/0.5"]),
+                     sources=["Peterson (2018) Metcalfe's Law as a Model for Bitcoin's Value — 시가총액 ∝ 활성 주소²", "Wheatley 외 (2019, Royal Society Open Science) Are Bitcoin bubbles predictable? — 일반화 메트칼프(지수 약 1.69)", "Rob_Maths, BTC – Metcalfe's Law (Deviation) (TradingView, 2025) — 730일 로그-로그 회귀, 1.0 위 고평가·−0.25 아래 저평가", "Coin Metrics 커뮤니티 CapMrktCurUSD·AdrActCnt"]),
 }
 
 
@@ -657,3 +693,5 @@ if __name__ == "__main__":
         fetch_hashrate()
     if "--fetch-liquidity" in sys.argv:
         fetch_macro(LIQ, "liquidity.csv")
+    if "--fetch-cap" in sys.argv:
+        fetch_cap()

@@ -1,0 +1,164 @@
+{
+ "번호": 11,
+ "홈": "Racing Santander",
+ "원정": "Real Sociedad",
+ "리그": "라리가 13라운드",
+ "수집시각": "2026-11-19 KST",
+ "구장": "El Sardinero, 현지 2026-11-22(일) 16:15 (KST 11/23 00:15) (https://www.comuniate.com/partido/26/9/13/racing-real-sociedad)",
+ "순위": {
+  "홈": "10위 12경기 4승2무6패 승점14 GD-13 (카드 teamdb, 2026-11-19)",
+  "원정": "5위 12경기 7승1무4패 승점22 GD+1 (카드 teamdb, 2026-11-19)"
+ },
+ "결장": [
+  {
+   "팀": "홈",
+   "선수": "Álvaro Mantilla",
+   "포지션": "D",
+   "사유": "오른쪽 무릎 전방십자인대 파열, 수술 예정",
+   "상태": "확정",
+   "비중": "카드: xG+xA 6%, 81분/경기",
+   "출처": "https://www.comuniate.com/noticias/39196/belocian-reaparece-y-el-racing-encara-el-duelo-ante-la-real-sociedad-con-varias-ausencias",
+   "날짜": "2026-11-18"
+  },
+  {
+   "팀": "홈",
+   "선수": "Andrés Martín",
+   "포지션": "M",
+   "사유": "근육(햄스트링) 부상, 12월 초 복귀",
+   "상태": "확정",
+   "비중": "카드: 16%, 62분/경기, 선발",
+   "출처": "https://www.comuniate.com/noticias/39196/belocian-reaparece-y-el-racing-encara-el-duelo-ante-la-real-sociedad-con-varias-ausencias",
+   "날짜": "2026-11-18"
+  },
+  {
+   "팀": "홈",
+   "선수": "Maguette Gueye",
+   "포지션": "",
+   "사유": "근육 불편(comuniate 경기 페이지 표기); 11/18 훈련 기사엔 언급 없음",
+   "상태": "의심",
+   "비중": "확인 안 됨",
+   "출처": "https://www.comuniate.com/partido/26/9/13/racing-real-sociedad",
+   "날짜": "2026-11-19"
+  },
+  {
+   "팀": "홈",
+   "선수": "Pablo Ramón, Yassir Zabiri",
+   "포지션": "D, F",
+   "사유": "경고 누적 경계(1차 수집, asesoriasfantasy 11/17). 출장정지 아님",
+   "상태": "의심",
+   "비중": "Zabiri 카드: xG+xA 23%",
+   "출처": "https://asesoriasfantasy.com/?p=13844",
+   "날짜": "2026-11-17"
+  },
+  {
+   "팀": "원정",
+   "선수": "Ander Barrenetxea",
+   "포지션": "M",
+   "사유": "햄스트링 근육 부상(경기 페이지: 3월까지; 11/17 기사: 기한 미정)",
+   "상태": "확정",
+   "비중": "카드: 8%, 56분/경기",
+   "출처": "https://www.elgoldigital.com/futbol/real-sociedad/mamadou-sarr-real-sociedad-vuelta-grupo-racing-laliga",
+   "날짜": "2026-11-17"
+  },
+  {
+   "팀": "원정",
+   "선수": "Jon Odriozola",
+   "포지션": "D",
+   "사유": "전방십자인대(왼쪽), 복귀 기한 미정",
+   "상태": "확정",
+   "비중": "확인 안 됨",
+   "출처": "https://www.elgoldigital.com/futbol/real-sociedad/mamadou-sarr-real-sociedad-vuelta-grupo-racing-laliga",
+   "날짜": "2026-11-17"
+  },
+  {
+   "팀": "원정",
+   "선수": "Mamadou Sarr",
+   "포지션": "D",
+   "사유": "왼쪽 가자미근 근육 부상, 주 후반 단체훈련 복귀 예상, 일요일(Racing전)·11/26 Crystal Palace전 출전 가능성 거론",
+   "상태": "의심",
+   "비중": "확인 안 됨",
+   "출처": "https://www.elgoldigital.com/futbol/real-sociedad/mamadou-sarr-real-sociedad-vuelta-grupo-racing-laliga",
+   "날짜": "2026-11-17"
+  },
+  {
+   "팀": "원정",
+   "선수": "Luka Sučić",
+   "포지션": "M",
+   "사유": "편도염으로 별도 훈련, 11/17(화) 복귀 예정",
+   "상태": "복귀",
+   "비중": "카드: 10%, 78분/경기; 공격형 MF로 이동, Elche·Mestalla·Lillestrøm전 득점",
+   "출처": "https://www.elgoldigital.com/futbol/real-sociedad/mamadou-sarr-real-sociedad-vuelta-grupo-racing-laliga",
+   "날짜": "2026-11-17"
+  },
+  {
+   "팀": "원정",
+   "선수": "Jon Aramburu, Yangel Herrera",
+   "포지션": "D, M",
+   "사유": "경고 누적 경계(1차 수집)",
+   "상태": "의심",
+   "비중": "Aramburu 직전 선발",
+   "출처": "https://asesoriasfantasy.com/?p=13844",
+   "날짜": "2026-11-17"
+  }
+ ],
+ "대표차출": [
+  "Racing: Belocian(프랑스 유스) 11/18 훈련 복귀; Giuliashvili, Zabiri, Pablo García 11/18 기준 대표팀 소속, 목요일(11/19) 합류 예정 (comuniate 39196)",
+  "Real Sociedad: 11/17 화 복귀 Marrero·Zubeldia·Aihen Muñoz·Pacheco·Turrientes(바스크 선발팀 토요일 경기 후 하루 휴식 추가); 11/18 수 Oyarzabal(스페인 마드리드 소집 후); 11/20 금 Yangel Herrera·Aramburu·Óskarsson·Kubo·Ochieng·Jon Martín (elgoldigital 11/17). 따라서 일부 선수는 Racing전 전 단체훈련 2회(금·토)뿐",
+  "11/16 기사: 월요일 1군 8명만 훈련, 16명 불가(소집·부상 포함 추정)"
+ ],
+ "감독": [
+  {
+   "팀": "홈",
+   "내용": "José Alberto 지휘, 11/18 훈련. 기자회견 발언 확인 못 함",
+   "출처": "https://www.comuniate.com/noticias/39196/belocian-reaparece-y-el-racing-encara-el-duelo-ante-la-real-sociedad-con-varias-ausencias",
+   "날짜": "2026-11-18"
+  },
+  {
+   "팀": "원정",
+   "내용": "Pellegrino Matarazzo. 대표팀 휴식기 직전 선수단에 5일 휴가를 줬다(elgoldigital 제목, 본문 미열람); 금·토 2회 훈련 후 일요일 Santander 원정",
+   "출처": "https://www.noticiasdegipuzkoa.eus/reala/2026/11/18/oyarzabal-vuelve-zubieta-matarazzo-convoca-11771641.html",
+   "날짜": "2026-11-18"
+  }
+ ],
+ "예상선발": [],
+ "최근경기": {
+  "홈": [
+   "카드: 10-24 홈 2-1 Espanyol / 11-01 홈 0-3 Real Madrid / 11-07 원정 2-1 Málaga"
+  ],
+  "원정": [
+   "카드: 10-25 홈 2-1 Levante / 11-01 원정 1-2 Athletic / 11-08 홈 1-0 Rayo"
+  ]
+ },
+ "일정": [
+  "Real Sociedad: 11/26(목) 21:00 UEFA 유로파리그 5차전 Crystal Palace 원정(Selhurst Park) — Racing전 4일 뒤 (https://www.realsociedad.eus/en/equipo/jornada/europa-league/5 및 UEFA 일정 검색결과, 2026-11-19)",
+  "Racing: UEFA 경기 없음(1부 복귀 시즌, 일정 항목에서 확인 못 함 — 확정 아님)",
+  "11/21~22 Racing 주주총회 개최 공고(realracingclub.es, 날짜 11/21-22)"
+ ],
+ "맞대결": [
+  "확인 안 됨(Racing 1부 복귀 후 첫 맞대결)"
+ ],
+ "걸린것": [
+  "Racing 10위 승점14, Real Sociedad 5위 승점22",
+  "Real Sociedad 유로파리그 11/26 Crystal Palace 원정 앞둔 일정"
+ ],
+ "사실": [
+  "comuniate 경기 페이지: 2026-11-22 16:15 현지 시작, 일부 검색 요약은 20:00으로 표기(불일치, 경기 페이지 우선)",
+  "Racing 홈 3승2무1패 11득11실; Real Sociedad 원정 3승3패 13득13실 (comuniate 경기 페이지, 2026-11-19 열람)",
+  "asesoriasfantasy 11/17 기준 Racing 홈 표기 3-2-1, Sociedad 원정 3-0-3로 일치"
+ ],
+ "확인안됨": [
+  "공식 소집명단·기자회견(José Alberto·Matarazzo)",
+  "Gueye 최신 상태",
+  "Sarr·Sučić 11/18 이후 훈련 복귀 확인",
+  "예상 선발 최신본",
+  "Matarazzo가 Palace전 앞두고 로테이션을 예고했는지"
+ ],
+ "출처": [
+  "https://www.comuniate.com/partido/26/9/13/racing-real-sociedad",
+  "https://www.comuniate.com/noticias/39196/belocian-reaparece-y-el-racing-encara-el-duelo-ante-la-real-sociedad-con-varias-ausencias",
+  "https://www.elgoldigital.com/futbol/real-sociedad/mamadou-sarr-real-sociedad-vuelta-grupo-racing-laliga",
+  "https://www.noticiasdegipuzkoa.eus/reala/2026/11/18/oyarzabal-vuelve-zubieta-matarazzo-convoca-11771641.html",
+  "https://www.realsociedad.eus/en/equipo/jornada/europa-league/5",
+  "https://asesoriasfantasy.com/?p=13844"
+ ]
+}

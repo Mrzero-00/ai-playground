@@ -1,0 +1,15 @@
+# 노팅엄F
+
+<!-- FACTS:START -->
+## 팩트시트 (자동 수집 2026-11-19) — 조사 전 반드시 읽고, 아래 사실과 다른 뉴스 요약은 '미확인'으로 둔다
+- 출처: 위키 '2026–27 Nottingham Forest F.C. season'(season), ESPN 있음
+- 감독: Oliver Glasner
+- 리그 순위: 16위 10경기 2승3무5패 GD-4 승점9 (Nottingham Forest)
+- 2026 여름 이적(위키 이적 표, 앞 8줄씩): IN 23 July 2026 · CM · Xaver Schlager · RB Leipzig · Free transfer / IN 11 August 2026 · CB · Ousmane Diomande · Sporting CP · £34,300,000 / IN 15 August 2026 · GK · Steven Benda · Fulham · Free transfer / IN 27 August 2026 · CF · Liam Delap · Chelsea · £50,000,000 / IN 31 August 2026 · RB · Daniel Muñoz · Crystal Palace · £22,000,000 / IN 23 June 2026 · CM · Grady McDonnell · Club Brugge · Free transfer / IN 3 July 2026 · LB · Kasen Brown · Manchester City · Free transfer / IN 6 July 2026 · CM · Boyd Fraser · Heart of Midlothian · Undisclosed / OUT 30 June 2026 · CB · David Carmo · Olympiacos · Undisclosed / OUT 2 July 2026 · CM · Elliot Anderson · Manchester City · £116,000,000 / OUT 17 August 2026 · CF · Taiwo Awoniyi · Coventry City · £9,000,000 / OUT 21 August 2026 · LB · Omar Richards · Aris · Undisclosed
+- 최근 경기(ESPN, 최대 28일): 2026-10-11 Crystal Palace 3-1 Nottingham Forest / 2026-10-18 Nottingham Forest 0-1 Arsenal / 2026-10-23 Ipswich Town 1-1 Nottingham Forest / 2026-10-31 Brentford 2-0 Nottingham Forest / 2026-11-07 Nottingham Forest 3-1 Manchester City
+<!-- FACTS:END -->
+<!-- INPUTS:START -->
+## 입력(자동 수집 2026-11-19) — xG·휴식일·라인업·환경(이동거리·고도·날씨)은 이 숫자를 쓴다
+- 2026-11-22 00:00 vs 본머스: 휴식 13.9일?(국내리그 ESPN 미제공 — 직접 확인) · 직전 11-08 홈 vs Manchester City 3-1 승 [english premier league] · xG 시즌9경기 xG1.86/xGA1.1 npxGD+0.68 · 최근5 1.91/1.11 (+0.8) · 홈-0.0/원정1.22 · xPts16.6 vs 승점6 · 직전 선발 3-4-2-1 Matz Sels, Nikola Milenkovic, Murillo, Jair Cunha, Ryan Yates, Xaver Schlager, Neco Williams, Daniel Muñoz, Liam Delap, Morgan Gibbs-White, James McAtee · 구장 본머스(구단 좌표 — 구장 미확인) · 이동 252km · 고도 12m(차 -7m) · 10.7℃ 강수0mm(6%) 바람16.9km/h
+<!-- INPUTS:END -->
+

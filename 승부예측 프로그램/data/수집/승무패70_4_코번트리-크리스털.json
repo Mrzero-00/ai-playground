@@ -1,0 +1,35 @@
+{"번호": 4, "홈": "Coventry City", "원정": "Crystal Palace", "리그": "Premier League", "수집시각": "2026-11-19 KST",
+ "구장": "Coventry Building Society Arena(카드: 리코 아레나) — onsidearena 페이지에는 구장 미기재",
+ "킥오프": "2026-11-21(토) 15:00 UK (= KST 11/22 00:00) (https://onsidearena.com/match/coventry-city-vs-crystal-palace-gw11-105 , 2026-11) ; 같은 페이지에 '15:00 UTC' 표기도 있음(UK 시각으로 읽음)",
+ "순위": {"홈": "17위 9점 10경기 3승0무7패 GD-9 (soccernews, 2026-11-19, 1차 수집 json)", "원정": "20위(최하위) 7점 10경기 2승1무7패 GD-14 (soccernews, 2026-11-19, 1차 수집 json)"},
+ "결장": [
+  {"팀": "원정", "선수": "Jean-Philippe Mateta", "포지션": "F", "사유": "퇴장(Tottenham전 2-0 패, VAR로 옐로→레드) 항소 기각, 3경기 출장정지 — Liverpool 원정·Coventry 원정(11/21)·Hull 홈(11/29) 결장", "상태": "확정", "비중": "카드: 시즌 xG+xA 비중 15%, 선발(S)", "출처": "https://citizen.digital/article/palaces-mateta-banned-for-three-games-after-red-card-appeal-fails-n393326 ; https://www.flashscore.com/news/mateta-to-serve-three-match-ban-after-appeal-against-red-card-was-rejected/neywuHqC/ (검색요약, 열람 날짜 2026-11-19; 보도일 미확인) ; onsidearena: 'suspended until 2 December' 표기(일자 상이)", "날짜": "2026-11-19"},
+  {"팀": "원정", "선수": "Jørgen Strand Larsen", "포지션": "F", "사유": "발목", "상태": "의심(출전 확률 75% 표기)", "비중": "확인 안 됨", "출처": "https://onsidearena.com/match/coventry-city-vs-crystal-palace-gw11-105", "날짜": "2026-11"},
+  {"팀": "원정", "선수": "Chadi Riad", "포지션": "D", "사유": "무릎", "상태": "확정(복귀일 미상)", "비중": "", "출처": "https://onsidearena.com/match/coventry-city-vs-crystal-palace-gw11-105", "날짜": "2026-11"},
+  {"팀": "원정", "선수": "Ismaila Sarr", "포지션": "", "사유": "사타구니", "상태": "복귀(11/21 복귀 예상 표기)", "비중": "", "출처": "https://onsidearena.com/match/coventry-city-vs-crystal-palace-gw11-105", "날짜": "2026-11"},
+  {"팀": "원정", "선수": "Takehiro Tomiyasu", "포지션": "D", "사유": "종아리", "상태": "복귀(11/21 복귀 예상 표기)", "비중": "", "출처": "https://onsidearena.com/match/coventry-city-vs-crystal-palace-gw11-105", "날짜": "2026-11"},
+  {"팀": "원정", "선수": "Quinten Timber", "포지션": "M", "사유": "햄스트링", "상태": "의심(75% 출전 표기, Squawka 검색요약)", "비중": "카드 직전 선발", "출처": "https://www.skysports.com/football/coventry-vs-c-palace/preview/112639 는 2009년 페이지라 무관 ; 근거는 onsidearena 검색요약(2026-11)", "날짜": "2026-11"},
+  {"팀": "홈", "선수": "Bobby Thomas", "포지션": "D", "사유": "종아리", "상태": "의심(출전 확률 50% 표기)", "비중": "카드: 시즌 xG+xA 6%", "출처": "https://onsidearena.com/match/coventry-city-vs-crystal-palace-gw11-105 ; https://theanalyst.com/articles/opta-best-fpl-picks-gameweek-11-2026-27", "날짜": "2026-11-18"},
+  {"팀": "홈", "선수": "Onyeka", "포지션": "", "사유": "사타구니", "상태": "의심(50%)", "비중": "", "출처": "https://onsidearena.com/match/coventry-city-vs-crystal-palace-gw11-105", "날짜": "2026-11"},
+  {"팀": "홈", "선수": "Amenda(calf), Woolfenden(knee), Wright(thigh), Eccles(ankle)", "포지션": "", "사유": "각 부상", "상태": "확정(복귀일 미상)", "비중": "", "출처": "https://onsidearena.com/match/coventry-city-vs-crystal-palace-gw11-105", "날짜": "2026-11"},
+  {"팀": "홈", "선수": "Dovin", "포지션": "", "사유": "not in squad(사유 미기재)", "상태": "확정", "비중": "", "출처": "https://onsidearena.com/match/coventry-city-vs-crystal-palace-gw11-105", "날짜": "2026-11"},
+  {"팀": "원정", "선수": "Uche", "포지션": "", "사유": "Getafe 복귀(임대 종료)", "상태": "확정", "비중": "", "출처": "https://onsidearena.com/match/coventry-city-vs-crystal-palace-gw11-105", "날짜": "2026-11"}
+ ],
+ "대표차출": ["Palace·Coventry 차출 선수 목록: 확인 안 됨"],
+ "감독": [
+  {"팀": "원정", "내용": "Crystal Palace 공식 X 계정 2026-11-16 게시: 'We are pleased to confirm the appointment of Thomas Frank as Manager'. 53세 덴마크인, 계약 2028-29 시즌 종료까지. 전임 Pierre Sage는 16경기 만에 경질(보도: 11/12). 첫 경기는 'this Saturday' Coventry 원정으로 기사에 명시(기사 발행 11/17 → 11/21 토). soccernews 기사는 Frank가 약 9개월 전 Tottenham에서 해임됐고 Brentford 7년 지휘 경력이 있다고 서술", "출처": "https://www.soccernews.com/struggling-crystal-palace-confirm-frank-as-new-manager/408268/ ; https://cyprus-mail.com/2026/11/12/palace-manager-sage-sacked-with-club-bottom-of-premier-league ; https://theanalyst.com/articles/opta-best-fpl-picks-gameweek-11-2026-27", "날짜": "2026-11-17"},
+  {"팀": "홈", "내용": "Frank Lampard (팩트시트·카드 기준). 이번 경기 전 기자회견 발언: 확인 안 됨", "출처": "팩트시트_승무패70 / 기준선 카드", "날짜": "2026-11-19"},
+  {"팀": "원정", "내용": "Frank 취임 후 기자회견·기용 발언: 확인 안 됨. 검색에서 Palace 감독 관련해 서로 다른 보도가 섞여 나옴(2026-06-15 Pierre Sage 선임 보도 다수, 이후 Sage 경질·Frank 선임)", "출처": "https://www.skysports.com/football/news/11706/13552705/crystal-palace-pierre-sage-appointed-new-manager-as-he-leaves-rc-lens-to-replace-oliver-glasner-at-selhurst-park", "날짜": "2026-06-15"}
+ ],
+ "예상선발": [
+  {"팀": "홈", "내용": "Coventry 5-4-1 모델 예상(onsidearena, 공식 아님): Rushworth; Dasilva, van Ewijk, Pinnock, Mfuni; Rudoni, Yirenkyi, Sakamoto, Torp, Gboho; Awoniyi. Squawka 예상 포메이션은 3-4-2-1(검색요약)"},
+  {"팀": "원정", "내용": "Palace 5-4-1 모델 예상(onsidearena, 공식 아님): Henderson; Richards, Mitchell, Disasi, Canvot, Mingueza; Wharton, Kamada, Yeremy(Pino), Timber; Strand Larsen. (Mateta 출장정지 보도와 별개로 예상에 이름이 없음.) 공식 라인업은 킥오프 약 1시간 전"}
+ ],
+ "최근경기": {"홈": ["2026-10-24 홈 vs Fulham 0-1", "2026-10-31 홈 vs Sunderland 3-1", "2026-11-06(카드: 11-07) 원정 vs Everton 1-3 (ESPN 카드)"], "원정": ["2026-10-25 홈 vs Newcastle 0-2", "2026-10-31 원정 vs Tottenham 0-2", "2026-11-08 홈 vs Liverpool 1-3 (ESPN 카드)"]},
+ "일정": ["Palace: 2026-11-26(목) UEL 홈 Real Sociedad 20:00 UK (footballwebpages 검색요약; soccernews 기사에도 Coventry전 5일 뒤 홈 UEL 언급)", "Palace: 2026-11-29 홈 Hull (citizen.digital 검색요약)", "Coventry: GW13 Ipswich 홈 (theanalyst, 2026-11-18); 11/24~26 유럽 경기 없음(UEL/UECL 참가 보도 확인 안 됨)", "A매치 기간(11/9~11/18) 직후 첫 경기, 양 팀 모두 휴식 약 2주(카드: Coventry 14.8일, 국내 직전 11/7~8)"],
+ "맞대결": ["이번 시즌 이전 맞대결: 확인 안 됨. (Sky Sports preview/112639 는 2009 챔피언십 경기 페이지로 무관)"],
+ "걸린것": ["Palace 최하위 20위(승점 7), 17위 Coventry(승점 9)와 2점 차; Coventry는 18위 Man Utd(8점)와 1점 차 (soccernews, 2026-11-19)", "Palace 신임 감독 첫 경기(검색 결과 기준)", "Palace 리그 7패, 최근 5경기 W L L L L (soccernews 1차 수집)"],
+ "사실": ["Palace 최근: 11/8 Liverpool전 1-3 패(카드). Sage 재임 기간 보도: Europa League 1승 + 리그 10경기 7패에서 11/12 경질(검색요약, 일부 수치 미교차)", "킥오프 보도 15:00 UK 일치(onsidearena, 검색요약)"],
+ "확인안됨": ["Mateta 출장정지 보도일·3경기 대상 경기 목록 원문(검색요약만 확인, onsidearena는 'until 2 December'로 표기)", "Strand Larsen·Timber 상태 원문 출처(onsidearena 모델 페이지만)", "Coventry 공식 부상 목록·Lampard 기자회견", "Frank 첫 기자회견 발언·예상 포메이션", "대표팀 차출 선수 복귀 상태", "맞대결 최근 기록"],
+ "출처": ["https://www.soccernews.com/struggling-crystal-palace-confirm-frank-as-new-manager/408268/", "https://onsidearena.com/match/coventry-city-vs-crystal-palace-gw11-105", "https://citizen.digital/article/palaces-mateta-banned-for-three-games-after-red-card-appeal-fails-n393326", "https://www.flashscore.com/news/mateta-to-serve-three-match-ban-after-appeal-against-red-card-was-rejected/neywuHqC/", "https://cyprus-mail.com/2026/11/12/palace-manager-sage-sacked-with-club-bottom-of-premier-league", "https://theanalyst.com/articles/opta-best-fpl-picks-gameweek-11-2026-27", "https://www.soccernews.com/soccer-stats/english-premier-league/league-table/2026-27/"]
+}

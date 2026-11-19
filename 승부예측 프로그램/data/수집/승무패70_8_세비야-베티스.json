@@ -1,0 +1,175 @@
+{
+ "번호": 8,
+ "홈": "Sevilla",
+ "원정": "Real Betis",
+ "리그": "라리가 13라운드(세비야 더비)",
+ "수집시각": "2026-11-19 KST",
+ "구장": "Ramón Sánchez-Pizjuán, 현지 2026-11-21(토) 18:30 (KST 11/22 02:30) (https://www.comuniate.com/cuando-juega/4/betis, 2026-11-19)",
+ "순위": {
+  "홈": "6위 12경기 5승3무4패 승점18 GD-2 (카드 teamdb, 2026-11-19)",
+  "원정": "4위 12경기 8승2무2패 승점26 GD+5 (카드 teamdb, 2026-11-19)"
+ },
+ "결장": [
+  {
+   "팀": "홈",
+   "선수": "Miguel Sierra",
+   "포지션": "",
+   "사유": "어깨 탈구(1차 수집: 1월중순 복귀)",
+   "상태": "확정",
+   "비중": "확인 안 됨",
+   "출처": "https://www.comuniate.com/noticias/39053/fofana-se-reincorpora-al-grupo-y-apunta-al-derbi-ante-el-betis",
+   "날짜": "2026-11-17"
+  },
+  {
+   "팀": "홈",
+   "선수": "Marcao",
+   "포지션": "",
+   "사유": "대퇴사두(1차 수집 표기)",
+   "상태": "확정",
+   "비중": "확인 안 됨",
+   "출처": "https://www.comuniate.com/noticias/39053/fofana-se-reincorpora-al-grupo-y-apunta-al-derbi-ante-el-betis",
+   "날짜": "2026-11-17"
+  },
+  {
+   "팀": "홈",
+   "선수": "Youssouf Fofana",
+   "포지션": "M",
+   "사유": "며칠 별도 훈련 후 11/17 단체훈련 복귀, 출전 가능성 거론",
+   "상태": "의심",
+   "비중": "카드: xG+xA 13%, 78분/경기",
+   "출처": "https://www.comuniate.com/noticias/39053/fofana-se-reincorpora-al-grupo-y-apunta-al-derbi-ante-el-betis",
+   "날짜": "2026-11-17"
+  },
+  {
+   "팀": "홈",
+   "선수": "Rubén Vargas",
+   "포지션": "",
+   "사유": "스위스 대표팀에서 몸 불편으로 조기 복귀, 11/17 단체훈련 불참, 구단 '약간의 희망'",
+   "상태": "의심",
+   "비중": "직전 선발(11/06 Alavés전) 명단에 있음",
+   "출처": "https://www.comuniate.com/noticias/39053/fofana-se-reincorpora-al-grupo-y-apunta-al-derbi-ante-el-betis",
+   "날짜": "2026-11-17"
+  },
+  {
+   "팀": "홈",
+   "선수": "Peque",
+   "포지션": "M",
+   "사유": "햄스트링으로 Alavés전 결장, 정상 훈련 복귀, 더비 출전 노림",
+   "상태": "복귀",
+   "비중": "카드: 6%, 55분/경기",
+   "출처": "https://www.comuniate.com/noticias/39053/fofana-se-reincorpora-al-grupo-y-apunta-al-derbi-ante-el-betis",
+   "날짜": "2026-11-17"
+  },
+  {
+   "팀": "홈",
+   "선수": "Isaac Romero",
+   "포지션": "F",
+   "사유": "'단체훈련 합류' 제목 기사(comuniate 39044) — 본문 미열람",
+   "상태": "복귀",
+   "비중": "직전 선발(Alavés전)",
+   "출처": "https://www.comuniate.com/noticias/39044/isaac-romero-se-suma-al-grupo-y-fofana-continua-al-margen-antes-del-derbi",
+   "날짜": "2026-11-1x(제목만 확인)"
+  },
+  {
+   "팀": "원정",
+   "선수": "Dani Ceballos",
+   "포지션": "M",
+   "사유": "햄스트링 근육 불편(검사상 부상 아님으로 보도), 11/17·11/18 단체훈련 불참, 목·금 훈련 소화해야 출전. 다른 보도: 소집 어렵고 선발 아님",
+   "상태": "의심",
+   "비중": "확인 안 됨",
+   "출처": "https://www.elgoldigital.com/futbol/real-betis-balompie/dani-ceballos-entrenamiento-betis-derbi-sevilla",
+   "날짜": "2026-11-18"
+  },
+  {
+   "팀": "원정",
+   "선수": "Rodrigo Riquelme",
+   "포지션": "F",
+   "사유": "인두염, 단체훈련 불참; 토요일 출전엔 지장 없을 전망",
+   "상태": "의심",
+   "비중": "확인 안 됨",
+   "출처": "https://www.comuniate.com/noticias/39051/dos-nuevas-bajas-en-el-entrenamiento-del-betis-antes-del-derbi",
+   "날짜": "2026-11-17"
+  },
+  {
+   "팀": "원정",
+   "선수": "José Antonio Morante",
+   "포지션": "",
+   "사유": "고관절 타박, 11/17 불참",
+   "상태": "의심",
+   "비중": "확인 안 됨",
+   "출처": "https://www.elgoldigital.com/futbol/real-betis-balompie/dani-ceballos-entrenamiento-betis-derbi-sevilla",
+   "날짜": "2026-11-18"
+  },
+  {
+   "팀": "원정",
+   "선수": "Cucho Hernández",
+   "포지션": "F",
+   "사유": "10/17 바르셀로나전부터 부상, 11/16(월) 단체훈련 일부 소화",
+   "상태": "의심",
+   "비중": "1차 수집: 가자미근 출전확률 67%(asesoriasfantasy, 11/09 저장)",
+   "출처": "https://www.elgoldigital.com/futbol/real-betis-balompie/dani-ceballos-entrenamiento-betis-derbi-sevilla",
+   "날짜": "2026-11-18"
+  }
+ ],
+ "대표차출": [
+  "Betis 복귀 완료: Álvaro Valles, Marc Roca (스페인, 11/17 확인)",
+  "Betis 아직 미복귀: Abde, Parrott, Ángel Ortiz, Deossa, Fidalgo, Facundo Bernal (11/17 기준, 출처 comuniate 39051)",
+  "Sevilla: 대표팀 차출자 전원 복귀 안 됨, 11/17 훈련에서 Stassin 만 복귀 확인; Vargas 조기 복귀(스위스)"
+ ],
+ "감독": [
+  {
+   "팀": "홈",
+   "내용": "Luis García Plaza. 스포츠디렉터 Navarro: '아직 재계약 논의 안 함, 지금은 더비만 중요', '12라운드 지나 매우 만족' (1차 수집의 'Almeyda' 표기는 2025-11 기사에서 온 것으로 보이며 2026-11 보도와 맞지 않음)",
+   "출처": "https://www.elgoldigital.com/futbol/sevilla-fc/garcia-plaza-renovacion-sevilla-navarro-derbi-betis",
+   "날짜": "2026-11-12"
+  },
+  {
+   "팀": "원정",
+   "내용": "Manuel Pellegrini, 11/17 훈련 지휘. 이번이 Ceballos의 'Pellegrini 첫 더비' 제목 보도(기사 본문 미열람). 기자회견 발언 확인 못 함",
+   "출처": "https://www.comuniate.com/noticias/39051/dos-nuevas-bajas-en-el-entrenamiento-del-betis-antes-del-derbi",
+   "날짜": "2026-11-17"
+  }
+ ],
+ "예상선발": [],
+ "최근경기": {
+  "홈": [
+   "카드: 10-26 홈 2-0 Osasuna / 11-01 원정 1-3 Getafe / 11-06(ESPN 표기, laliga 11-07) 홈 0-0 Alavés"
+  ],
+  "원정": [
+   "카드: 10-25 원정 0-0 Celta / 10-31 홈 2-1 Málaga / 11-08 원정 2-0 Elche"
+  ]
+ },
+ "일정": [
+  "Betis: 11/24(화) 21:00 UEFA 챔피언스리그 5차전 Slovan Bratislava 원정 (https://www.comuniate.com/cuando-juega/4/betis ; UEFA 페이지 es.uefa.com/uefachampionsleague/clubs/52265--real-betis/matches/ , 2026-11-19); 그 뒤 11/28(토) 14:00 라리가 J14 Rayo Vallecano 홈, 12/06 Atlético 원정",
+  "Sevilla: UEFA 경기 없음으로 보임(comuniate 일정에서 UEFA 항목 미확인, 확정 아님) — 11/12 기사에 더비 외 다음 경기 언급 없음"
+ ],
+ "맞대결": [
+  "확인 안 됨(이번 시즌 첫 더비)"
+ ],
+ "걸린것": [
+  "세비야 더비, 순위 6위 vs 4위 승점 8 차(카드 기준)",
+  "Betis 주중 UCL 원정(11/24)이 더비 3일 후",
+  "Sevilla 감독 재계약 미정 상태에서 더비 우선 발언(11/12)"
+ ],
+ "사실": [
+  "Betis는 2026-27 UEFA 챔피언스리그 리그 페이즈 참가 중 (es.uefa.com 페이지 2026-11-19)",
+  "Sevilla 더비 시각: 현지 토 18:30 (comuniate 11/17, elgoldigital 11/18)"
+ ],
+ "확인안됨": [
+  "공식 소집명단·기자회견(García Plaza·Pellegrini 더비 전 발언)",
+  "Isaac Romero 본문",
+  "Sevilla UEFA 불참 공식 확인",
+  "Marcao·Sierra 상세 사유 재확인(1차 수집 값 인용)",
+  "Isco·Antony·Bellerín 등 올 시즌 상태(검색 결과가 2025-26 시즌 기사뿐이라 사용 안 함)",
+  "예상 선발 현지 매체 최신본"
+ ],
+ "출처": [
+  "https://www.comuniate.com/noticias/39051/dos-nuevas-bajas-en-el-entrenamiento-del-betis-antes-del-derbi",
+  "https://www.elgoldigital.com/futbol/real-betis-balompie/dani-ceballos-entrenamiento-betis-derbi-sevilla",
+  "https://comuniate.com/noticias/39053/fofana-se-reincorpora-al-grupo-y-apunta-al-derbi-ante-el-betis",
+  "https://www.elgoldigital.com/futbol/sevilla-fc/garcia-plaza-renovacion-sevilla-navarro-derbi-betis",
+  "https://www.comuniate.com/cuando-juega/4/betis",
+  "https://es.uefa.com/uefachampionsleague/clubs/52265--real-betis/matches/",
+  "https://www.comuniate.com/noticias/39044/isaac-romero-se-suma-al-grupo-y-fofana-continua-al-margen-antes-del-derbi"
+ ]
+}

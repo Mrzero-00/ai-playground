@@ -94,6 +94,14 @@
   "venue": "AFAS 스타디온",
   "venue_qid": "Q291590"
  },
+ "A빌라": {
+  "checked": "2026-11-19",
+  "eng": [
+   "Aston Villa"
+  ],
+  "src": "못찾음",
+  "venue": null
+ },
  "CF몽레알": {
   "checked": "2026-10-23",
   "elev": 37,
@@ -796,6 +804,15 @@
   "venue": "뉴캐슬 국제 스포츠 센터",
   "venue_qid": "Q1188325"
  },
+ "뉴캐슬U": {
+  "checked": "2026-11-19",
+  "eng": [
+   "Newcastle United",
+   "Newcastle"
+  ],
+  "src": "못찾음",
+  "venue": null
+ },
  "다롄 잉보": {
   "checked": "2026-10-24",
   "eng": "['Dalian Yingbo', 'Dalian']",
@@ -934,6 +951,12 @@
   "venue": "캄포스 데 스포르트 데 엘 사르디네로",
   "venue_qid": "Q195391"
  },
+ "라싱산탄": {
+  "checked": "2026-11-19",
+  "eng": "Racing Santander",
+  "src": "못찾음",
+  "venue": null
+ },
  "라요 바예카노": {
   "checked": "2026-10-23",
   "elev": 642,
@@ -943,6 +966,16 @@
   "team_qid": "Q10300",
   "venue": "캄포 데 푸트볼 데 바예카스",
   "venue_qid": "Q983806"
+ },
+ "라요바예": {
+  "checked": "2026-11-19",
+  "eng": [
+   "Rayo Vallecano",
+   "Rayo",
+   "Vallecano"
+  ],
+  "src": "못찾음",
+  "venue": null
  },
  "랏차부리": {
   "checked": "2026-10-27",
@@ -1003,6 +1036,15 @@
   "team_qid": "Q391353",
   "venue": "아메리카 퍼스트 필드",
   "venue_qid": "Q1514798"
+ },
+ "레알마드": {
+  "checked": "2026-11-19",
+  "eng": [
+   "Real Madrid CF",
+   "Real Madrid"
+  ],
+  "src": "못찾음",
+  "venue": null
  },
  "렉섬": {
   "checked": "2026-10-17",
@@ -1395,6 +1437,16 @@
   "team_qid": "Q131371",
   "venue": "TD 가든",
   "venue_qid": "Q432105"
+ },
+ "본머스": {
+  "checked": "2026-11-19",
+  "elev": 12,
+  "lat": 50.72,
+  "lon": -1.88,
+  "src": "Wikidata Q170478→구단 · Open-Meteo 고도",
+  "team_qid": "Q170478",
+  "venue": "본머스(구단 좌표 — 구장 미확인)",
+  "venue_qid": ""
  },
  "볼로냐": {
   "checked": "2026-10-24",
@@ -2295,6 +2347,14 @@
   "venue": "엘체(구단 좌표 — 구장 미확인)",
   "venue_qid": ""
  },
+ "오사수나": {
+  "checked": "2026-11-19",
+  "eng": [
+   "Osasuna"
+  ],
+  "src": "못찾음",
+  "venue": null
+ },
  "오스틴FC": {
   "checked": "2026-10-25",
   "eng": "Austin FC",
@@ -2869,6 +2929,16 @@
   "venue": "Stadio Giuseppe Sinigaglia",
   "venue_qid": "Q115372"
  },
+ "코번트리": {
+  "checked": "2026-11-19",
+  "elev": 104,
+  "lat": 52.4481,
+  "lon": -1.4956,
+  "src": "Wikidata Q19580→Q842077 · Open-Meteo 고도",
+  "team_qid": "Q19580",
+  "venue": "리코 아레나",
+  "venue_qid": "Q842077"
+ },
  "코번트리 시티": {
   "checked": "2026-10-23",
   "elev": 104,
@@ -3026,6 +3096,16 @@
   "team_qid": "Q2768",
   "venue": "스타디오 올림피코 디 토리노",
   "venue_qid": "Q214629"
+ },
+ "토트넘": {
+  "checked": "2026-11-19",
+  "elev": 13,
+  "lat": 51.6044,
+  "lon": -0.0664,
+  "src": "Wikidata Q18741→Q55074091 · Open-Meteo 고도",
+  "team_qid": "Q18741",
+  "venue": "토트넘 홋스퍼 스타디움",
+  "venue_qid": "Q55074091"
  },
  "토트넘 홋스퍼": {
   "checked": "2026-10-30",
@@ -3338,6 +3418,12 @@
   "team_qid": "Q19477",
   "venue": "KC 스타디움",
   "venue_qid": "Q630160"
+ },
+ "헐시티": {
+  "checked": "2026-11-19",
+  "eng": "Hull City",
+  "src": "못찾음",
+  "venue": null
  },
  "헤타페": {
   "checked": "2026-10-25",

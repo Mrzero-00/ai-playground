@@ -1,0 +1,132 @@
+{
+ "번호": 5,
+ "홈": "Tottenham",
+ "원정": "Ipswich Town",
+ "리그": "프리미어리그",
+ "수집시각": "2026-11-19 KST",
+ "구장": "Tottenham Hotspur Stadium, 2026-11-21 15:00 UK (Sports Mole 2026-11-18)",
+ "순위": {
+  "홈": "11위 승점12 10경기 3승3무4패 GD-1 (soccernews, 2026-11-19)",
+  "원정": "14위 승점11 10경기 3승2무5패 GD-5, 18위와 3점 차 (soccernews, 2026-11-19)"
+ },
+ "결장": [
+  {
+   "팀": "홈",
+   "선수": "Mathys Tel",
+   "포지션": "F",
+   "사유": "발목(11/7 Leeds전 부상)",
+   "상태": "의심",
+   "비중": "확인 안 됨",
+   "출처": "https://www.sportsmole.co.uk/football/spurs/injury-news/injuries-and-suspensions/savio-tel-mudryk-updates-spurs-injury-suspension-list-vs-ipswich_609268.html",
+   "날짜": "2026-11-18"
+  },
+  {
+   "팀": "홈",
+   "선수": "Mykhaylo Mudryk",
+   "포지션": "F",
+   "사유": "발목(훈련 중)",
+   "상태": "의심",
+   "비중": "확인 안 됨",
+   "출처": "https://www.sportsmole.co.uk/football/spurs/injury-news/injuries-and-suspensions/savio-tel-mudryk-updates-spurs-injury-suspension-list-vs-ipswich_609268.html",
+   "날짜": "2026-11-18"
+  },
+  {
+   "팀": "홈",
+   "선수": "Savio",
+   "포지션": "M",
+   "사유": "근육",
+   "상태": "의심",
+   "비중": "확인 안 됨",
+   "출처": "https://www.sportsmole.co.uk/football/spurs/injury-news/injuries-and-suspensions/savio-tel-mudryk-updates-spurs-injury-suspension-list-vs-ipswich_609268.html",
+   "날짜": "2026-11-18"
+  },
+  {
+   "팀": "홈",
+   "선수": "Lucas Bergvall",
+   "포지션": "M",
+   "사유": "근육 표기(본문은 무릎 언급, 불일치)",
+   "상태": "의심",
+   "비중": "확인 안 됨",
+   "출처": "https://www.sportsmole.co.uk/football/spurs/injury-news/injuries-and-suspensions/savio-tel-mudryk-updates-spurs-injury-suspension-list-vs-ipswich_609268.html",
+   "날짜": "2026-11-18"
+  },
+  {
+   "팀": "홈",
+   "선수": "Xavi Simons",
+   "포지션": "M",
+   "사유": "중증 무릎(4월 부상)",
+   "상태": "확정",
+   "비중": "확인 안 됨",
+   "출처": "https://www.sportsmole.co.uk/football/spurs/injury-news/injuries-and-suspensions/savio-tel-mudryk-updates-spurs-injury-suspension-list-vs-ipswich_609268.html",
+   "날짜": "2026-11-18"
+  },
+  {
+   "팀": "홈",
+   "선수": "Wilson Odobert",
+   "포지션": "W",
+   "사유": "중증 무릎, 2026년 말 전 복귀 예상",
+   "상태": "확정",
+   "비중": "확인 안 됨",
+   "출처": "https://www.sportsmole.co.uk/football/spurs/injury-news/injuries-and-suspensions/savio-tel-mudryk-updates-spurs-injury-suspension-list-vs-ipswich_609268.html",
+   "날짜": "2026-11-18"
+  }
+ ],
+ "대표차출": [
+  "확인 안 됨"
+ ],
+ "감독": [
+  {
+   "팀": "토트넘",
+   "내용": "Roberto De Zerbi; Tel 업데이트는 경기 전 기자회견 예정이나 내용 미확인 (Sports Mole)",
+   "출처": "https://www.sportsmole.co.uk/football/spurs/injury-news/injuries-and-suspensions/savio-tel-mudryk-updates-spurs-injury-suspension-list-vs-ipswich_609268.html",
+   "날짜": "2026-11-18"
+  },
+  {
+   "팀": "입스위치",
+   "내용": "Gary O'Neil (팩트시트). 검색에서 McKenna 시대 기사가 섞여 나옴(이전 시즌)",
+   "출처": "팩트시트_승무패70.md",
+   "날짜": "2026-11-19"
+  }
+ ],
+ "예상선발": [],
+ "최근경기": {
+  "홈": [
+   "10-24 원정 2-0 Chelsea",
+   "10-31 홈 2-0 Crystal Palace",
+   "11-07 원정 0-1 Leeds (ESPN/카드)"
+  ],
+  "원정": [
+   "10-23 홈 1-1 Forest",
+   "10-31 원정 2-2 Hull",
+   "11-08 홈 1-2 Bournemouth (ESPN/카드)"
+  ]
+ },
+ "일정": [
+  "Ipswich: GW12 Aston Villa 언급, GW13 원정 Coventry (theanalyst 2026-11-18, 1차 수집)",
+  "UEFA 대항전 11/24~26 토트넘·입스위치 경기 확인 안 됨"
+ ],
+ "맞대결": [],
+ "걸린것": [
+  "두 팀 중위권, Ipswich와 Tottenham 승점 1점 차 (soccernews)"
+ ],
+ "사실": [
+  "Sports Mole 2026-11-18 11:45 기준 Tottenham 출장정지 없음, 예상 선발 미게재.",
+  "Livescore(Hotspur HQ/Evening Standard 인용, 날짜 불명): Savio·Maddison·Bergvall·Adarabioyo가 11/21 복귀 예정이라 보도. Sports Mole과 달리 Maddison·Adarabioyo는 결장 목록에 없음 — 양쪽 기록.",
+  "Livescore 요약: Sandro Tonali·Kudus·Porro·Marmoush는 시즌 초 완전한 몸이 아니었고 Udogie는 출전 들쭉날쭉(날짜 불명)."
+ ],
+ "확인안됨": [
+  "Ipswich 부상·징계 목록(검색에서 이번 시즌 자료 못 찾음)",
+  "De Zerbi·O'Neil 기자회견",
+  "예상 선발",
+  "맞대결 최근 기록",
+  "Tottenham 선수 시즌 선발 수·비중",
+  "Ipswich 대표 차출",
+  "3addedminutes 원문(403)"
+ ],
+ "출처": [
+  "https://www.sportsmole.co.uk/football/spurs/injury-news/injuries-and-suspensions/savio-tel-mudryk-updates-spurs-injury-suspension-list-vs-ipswich_609268.html",
+  "https://www.livescore.com/en/news/football/premier-league/tottenhams-4-massive-injury-returns-will-leave-roberto-de-zerbi-with-no-excuse-hotspur-hq/",
+  "https://www.soccernews.com/soccer-stats/english-premier-league/league-table/2026-27/",
+  "https://www.sportsmole.co.uk/football/ipswich-town/injury-news/"
+ ]
+}

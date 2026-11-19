@@ -1,0 +1,211 @@
+{
+ "번호": 9,
+ "홈": "Real Madrid",
+ "원정": "Celta Vigo",
+ "리그": "라리가",
+ "수집시각": "2026-11-19 KST",
+ "구장": "Santiago Bernabéu, 2026-11-21 21:00 (현지) (comuniate)",
+ "순위": {
+  "홈": "2위 12경기 10승0무2패 GD+21 승점30 (teamdb 카드, 2026-11-19)",
+  "원정": "11위 12경기 2승7무3패 GD0 승점13 (팩트시트, 2026-11-19)"
+ },
+ "결장": [
+  {
+   "팀": "홈",
+   "선수": "Aurélien Tchouaméni",
+   "포지션": "MF",
+   "사유": "오른쪽 내전근 이상, 11/10 프랑스 대표팀 이탈, 11/12 개별훈련, 공식 부상 보고 없음",
+   "상태": "의심",
+   "비중": "확인 안 됨(comuniate 페이지: 이번 시즌 7/12 선발)",
+   "출처": "https://www.sportaragon.com/futbol-aragon/lesion-tchouameni-llegara-celta-liga/20261118125656163321.html",
+   "날짜": "2026-11-18"
+  },
+  {
+   "팀": "홈",
+   "선수": "Kylian Mbappé",
+   "포지션": "F",
+   "사유": "프랑스 대표팀 이탈리아전 결장, 햄스트링 불편",
+   "상태": "의심",
+   "비중": "카드: xG+xA 32%",
+   "출처": "https://www.sportaragon.com/futbol-aragon/lesion-tchouameni-llegara-celta-liga/20261118125656163321.html",
+   "날짜": "2026-11-18"
+  },
+  {
+   "팀": "홈",
+   "선수": "Rodrygo",
+   "포지션": "F",
+   "사유": "전방십자인대 파열/수술 장기 결장",
+   "상태": "확정",
+   "비중": "확인 안 됨",
+   "출처": "https://www.sportaragon.com/futbol-aragon/lesion-tchouameni-llegara-celta-liga/20261118125656163321.html",
+   "날짜": "2026-11-18"
+  },
+  {
+   "팀": "홈",
+   "선수": "Raúl Asencio",
+   "포지션": "D",
+   "사유": "경골 골절/수술 장기 결장(~1월)",
+   "상태": "확정",
+   "비중": "확인 안 됨",
+   "출처": "https://www.sportaragon.com/futbol-aragon/lesion-tchouameni-llegara-celta-liga/20261118125656163321.html",
+   "날짜": "2026-11-18"
+  },
+  {
+   "팀": "홈",
+   "선수": "Ferland Mendy",
+   "포지션": "D",
+   "사유": "대퇴직근 힘줄 수술 뒤 회복, 13라운드 출전 가능 추정",
+   "상태": "복귀",
+   "비중": "",
+   "출처": "https://www.sportaragon.com/futbol-aragon/lesion-tchouameni-llegara-celta-liga/20261118125656163321.html",
+   "날짜": "2026-11-18"
+  },
+  {
+   "팀": "홈",
+   "선수": "Vinícius Júnior",
+   "포지션": "F",
+   "사유": "출장정지 복귀(이번 경기 출전 가능)",
+   "상태": "복귀",
+   "비중": "카드: xG+xA 12%",
+   "출처": "https://www.jornadaperfecta.com/blog/alineaciones-real-madrid-celta-j13-26-27/",
+   "날짜": "2026-11-18"
+  },
+  {
+   "팀": "홈",
+   "선수": "Bernardo Silva",
+   "포지션": "M",
+   "사유": "A매치 기간 불편, 출전 가능 예상",
+   "상태": "의심",
+   "비중": "",
+   "출처": "https://www.jornadaperfecta.com/blog/alineaciones-real-madrid-celta-j13-26-27/",
+   "날짜": "2026-11-18"
+  },
+  {
+   "팀": "원정",
+   "선수": "Borja Iglesias",
+   "포지션": "F",
+   "사유": "왼 가자미근 근건 파열, 마르카 보도로 이번 경기 결장",
+   "상태": "확정",
+   "비중": "확인 안 됨",
+   "출처": "https://www.comuniate.com/noticias/39015/celta-partes-medicos-actualizados",
+   "날짜": "2026-11-15"
+  },
+  {
+   "팀": "원정",
+   "선수": "Miguel Román",
+   "포지션": "",
+   "사유": "오른 무릎 관절경, 복귀 못 함",
+   "상태": "확정",
+   "비중": "확인 안 됨",
+   "출처": "https://www.comuniate.com/noticias/39015/celta-partes-medicos-actualizados",
+   "날짜": "2026-11-15"
+  },
+  {
+   "팀": "원정",
+   "선수": "Carl Starfelt",
+   "포지션": "D",
+   "사유": "반막양근 근건 파열, 개별훈련, 복귀 미확정",
+   "상태": "의심",
+   "비중": "확인 안 됨",
+   "출처": "https://www.comuniate.com/noticias/39015/celta-partes-medicos-actualizados",
+   "날짜": "2026-11-15"
+  },
+  {
+   "팀": "원정",
+   "선수": "Álvaro Núñez",
+   "포지션": "D",
+   "사유": "왼 내전근 섬유 파열, 개별훈련",
+   "상태": "의심",
+   "비중": "페이지: 4/12 선발",
+   "출처": "https://www.comuniate.com/noticias/39015/celta-partes-medicos-actualizados",
+   "날짜": "2026-11-15"
+  },
+  {
+   "팀": "원정",
+   "선수": "Jones El-Abdellaoui",
+   "포지션": "",
+   "사유": "왼 무릎 관절경, 개별훈련 중",
+   "상태": "의심",
+   "비중": "",
+   "출처": "https://www.comuniate.com/noticias/39015/celta-partes-medicos-actualizados",
+   "날짜": "2026-11-15"
+  }
+ ],
+ "대표차출": [
+  "Tchouaméni 11/10 프랑스 소집 중 이탈(S, 11/18)",
+  "Mbappé 프랑스-이탈리아전 결장(S)",
+  "Endrick는 싱가포르 경기에서 복귀(J, 11/18; 어느 대표팀인지 확인 안 됨)",
+  "Celta 차출 선수: 확인 안 됨"
+ ],
+ "감독": [
+  {
+   "팀": "홈",
+   "내용": "José Mourinho(2026-27 감독, 8월 Real Sociedad전 전 기자회견 등 realmadrid.com 보도). 이번 경기 전 기자회견 발언: 확인 안 됨. 카드 위 teamdb 팀노트에 감독 없음",
+   "출처": "https://www.jornadaperfecta.com/blog/alineaciones-real-madrid-celta-j13-26-27/",
+   "날짜": "2026-11-18"
+  },
+  {
+   "팀": "원정",
+   "내용": "Claudio Giráldez(팩트시트). 11/15 comuniate 기사는 감독명 미기재",
+   "출처": "https://www.comuniate.com/noticias/39015/celta-partes-medicos-actualizados",
+   "날짜": "2026-11-15"
+  }
+ ],
+ "예상선발": [
+  {
+   "팀": "홈",
+   "내용": "Courtois; Dumfries, Konaté, Huijsen, Cucurella; Camavinga, Valverde, Bellingham; Güler, Mbappé, Vinícius (Codere 예상 — 날짜 미확인, 앞 일부는 jornadaperfecta와 다름)"
+  },
+  {
+   "팀": "홈",
+   "내용": "jornadaperfecta 서술: Militão가 Konaté 대신, Carreras 좌측백, Güler 중원 이동·Camavinga 짝, 우측 Brahim 유력(Endrick 가능), Bellingham·Mbappé 공격, 남은 한 자리 Diomande/Vinícius 경쟁 (2026-11-18)"
+  },
+  {
+   "팀": "원정",
+   "내용": "Radu; J.Rodríguez, Cáceres, M.Alonso; Rueda, Antañón, Febas, Carreira; Aspas, Durán, Driouech (Codere 예상); jornadaperfecta: Swedberg 선발 유력·Aspas 벤치 유력(11-18)"
+  }
+ ],
+ "최근경기": {
+  "홈": [
+   "10-25 원정 Barcelona 2-1 승",
+   "11-01 원정 Racing Santander 3-0 승",
+   "11-07 원정 Valencia 3-0 승(이상 카드). jornadaperfecta: 리그 5연승 중, 6연승 도전"
+  ],
+  "원정": [
+   "10-18 홈 Alavés 2-1",
+   "10-25 홈 Betis 0-0",
+   "10-31 원정 Rayo 0-3 패",
+   "11-08 홈 Levante 0-0",
+   "11-14 원정 Salamanca 5-0 승(코파, 카드 INPUTS)"
+  ]
+ },
+ "일정": [
+  "Real Madrid 11/24~26 UEFA 경기: 확인 안 됨",
+  "Celta: 이후 Bournemouth·Olympique Lyon전(UEL 추정, 날짜 확인 안 됨, J 11-18)"
+ ],
+ "맞대결": [
+  "확인 안 됨(새 시즌 자료 없음)"
+ ],
+ "걸린것": [
+  "Real Madrid 리그 5연승 중 (J, 11-18)",
+  "Celta 12경기 7무, 최근 리그 3경기 무득점 포함 1승1무1패"
+ ],
+ "사실": [
+  "경기 시각: 2026-11-21 21:00 Bernabéu, 라리가 13라운드 (https://www.comuniate.com/partido/26/8/13/real-madrid-celta)",
+  "Madrid 감독 Mourinho 외 다수 출처 일치(S, J)"
+ ],
+ "확인안됨": [
+  "Mourinho 이번 경기 전 기자회견",
+  "Tchouaméni·Mbappé 공식 부상 보고",
+  "Real Madrid 11/24~26 일정",
+  "맞대결 기록",
+  "공식 선발"
+ ],
+ "출처": [
+  "https://www.jornadaperfecta.com/blog/alineaciones-real-madrid-celta-j13-26-27/",
+  "https://www.sportaragon.com/futbol-aragon/lesion-tchouameni-llegara-celta-liga/20261118125656163321.html",
+  "https://www.comuniate.com/noticias/39015/celta-partes-medicos-actualizados",
+  "https://www.comuniate.com/partido/26/8/13/real-madrid-celta",
+  "https://www.realmadrid.com/es-ES/noticias/futbol/primer-equipo/ruedas-de-prensa/rueda-prensa-mourinho-pre-rm-rayo-j5-liga-11-09-2026"
+ ]
+}

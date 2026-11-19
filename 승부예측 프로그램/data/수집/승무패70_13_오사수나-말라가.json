@@ -1,0 +1,192 @@
+{
+ "번호": 13,
+ "홈": "Osasuna",
+ "원정": "Málaga",
+ "리그": "라리가 13R",
+ "수집시각": "2026-11-19 KST",
+ "구장": "El Sadar (Pamplona) — 2026-11-22 일 18:30 현지(KST 11/23 02:30; 일부 보도 20:00 표기, 상충)",
+ "순위": {
+  "홈": "16위 12경기 3승3무6패 GD-11 승점12 (카드 2026-11-19)",
+  "원정": "20위 12경기 0승5무7패 GD-14 승점5 (카드)"
+ },
+ "결장": [
+  {
+   "팀": "홈",
+   "선수": "Aimar Oroz",
+   "포지션": "MF",
+   "사유": "좌 대퇴이두근 부상 재발, 11/17 단체훈련 복귀",
+   "상태": "복귀",
+   "비중": "9경기 결장 후 복귀 시점 11/22 예상",
+   "출처": "https://www.comuniate.com/noticias/39048/budimir-vuelve-al-grupo-y-aimar-oroz-repite-con-sus-companeros-en-osasuna",
+   "날짜": "2026-11-17"
+  },
+  {
+   "팀": "홈",
+   "선수": "Romain Del Castillo",
+   "포지션": "",
+   "사유": "11/17 단체훈련 불참",
+   "상태": "의심",
+   "비중": "",
+   "출처": "https://www.comuniate.com/noticias/39048/budimir-vuelve-al-grupo-y-aimar-oroz-repite-con-sus-companeros-en-osasuna",
+   "날짜": "2026-11-17"
+  },
+  {
+   "팀": "홈",
+   "선수": "Diego Rico",
+   "포지션": "LB",
+   "사유": "11/17 단체훈련 불참",
+   "상태": "의심",
+   "비중": "",
+   "출처": "https://www.comuniate.com/noticias/39048/budimir-vuelve-al-grupo-y-aimar-oroz-repite-con-sus-companeros-en-osasuna",
+   "날짜": "2026-11-17"
+  },
+  {
+   "팀": "홈",
+   "선수": "Aitor Fernández",
+   "포지션": "GK",
+   "사유": "11/17 단체훈련 불참(직전 선발 GK)",
+   "상태": "의심",
+   "비중": "직전 경기 선발 GK",
+   "출처": "https://www.comuniate.com/noticias/39048/budimir-vuelve-al-grupo-y-aimar-oroz-repite-con-sus-companeros-en-osasuna",
+   "날짜": "2026-11-17"
+  },
+  {
+   "팀": "홈",
+   "선수": "Jorge Herrando",
+   "포지션": "CB",
+   "사유": "10월 내전근 중증 부상 보도, 최근 상태 확인 안 됨",
+   "상태": "의심",
+   "비중": "",
+   "출처": "https://www.comuniate.com/noticias/38895/arrasate-confirma-tres-bajas-ante-el-athletic-y-da-pistas-sobre-moi-gomez-torro-y-los-cambios-en-el-once",
+   "날짜": "2026-11-06"
+  },
+  {
+   "팀": "원정",
+   "선수": "Adam Aznou",
+   "포지션": "DB",
+   "사유": "리그 출장정지, 모로코 U23 차출",
+   "상태": "확정",
+   "비중": "카드 직전 선발 좌측",
+   "출처": "https://www.comuniate.com/noticias/39038/buenas-noticias-en-el-entrenamiento-del-malaga",
+   "날짜": "2026-11-16"
+  },
+  {
+   "팀": "원정",
+   "선수": "Rafita Garrido",
+   "포지션": "",
+   "사유": "부상 치료 중",
+   "상태": "확정",
+   "비중": "카드 직전 선발",
+   "출처": "https://www.comuniate.com/noticias/39038/buenas-noticias-en-el-entrenamiento-del-malaga",
+   "날짜": "2026-11-16"
+  },
+  {
+   "팀": "원정",
+   "선수": "Julen Lobete / Aarón Ochoa",
+   "포지션": "",
+   "사유": "부상 치료 중(장기)",
+   "상태": "확정",
+   "비중": "",
+   "출처": "https://www.comuniate.com/noticias/39038/buenas-noticias-en-el-entrenamiento-del-malaga",
+   "날짜": "2026-11-16"
+  },
+  {
+   "팀": "원정",
+   "선수": "Ramón Enríquez",
+   "포지션": "",
+   "사유": "개별 훈련, 부하 관리, 가용 미정",
+   "상태": "의심",
+   "비중": "카드 직전 선발",
+   "출처": "https://www.comuniate.com/noticias/39038/buenas-noticias-en-el-entrenamiento-del-malaga",
+   "날짜": "2026-11-16"
+  },
+  {
+   "팀": "원정",
+   "선수": "Juan Cruz / Carlos Puga",
+   "포지션": "",
+   "사유": "부분 단체훈련 복귀",
+   "상태": "복귀",
+   "비중": "",
+   "출처": "https://www.comuniate.com/noticias/39038/buenas-noticias-en-el-entrenamiento-del-malaga",
+   "날짜": "2026-11-16"
+  },
+  {
+   "팀": "원정",
+   "선수": "Dani Lorenzo / José Salinas",
+   "포지션": "",
+   "사유": "정상 훈련",
+   "상태": "복귀",
+   "비중": "",
+   "출처": "https://www.comuniate.com/noticias/39038/buenas-noticias-en-el-entrenamiento-del-malaga",
+   "날짜": "2026-11-16"
+  },
+  {
+   "팀": "원정",
+   "선수": "Cajuste, Murillo",
+   "포지션": "",
+   "사유": "장기 부상(10/3 기사)",
+   "상태": "확정",
+   "비중": "",
+   "출처": "https://www.comuniate.com/noticias/38225/el-paron-le-da-aire-al-malaga-funes-recupera-efectivos-antes-de-recibir-al-espanyol",
+   "날짜": "2026-10-03"
+  }
+ ],
+ "대표차출": [
+  "Osasuna Ante Budimir: 크로아티아 차출 후 11/17 정상 훈련 합류(comuniate 2026-11-17)",
+  "Málaga Aznou 모로코 U23 차출, 11/16 훈련 불참",
+  "나머지 확인 안 됨"
+ ],
+ "감독": [
+  {
+   "팀": "홈",
+   "내용": "Jagoba Arrasate(10/12 부임). 11/6: Oroz·Herrando·Del Castillo 휴식기 후 복귀 기대 발언",
+   "출처": "https://www.comuniate.com/noticias/38895/arrasate-confirma-tres-bajas-ante-el-athletic-y-da-pistas-sobre-moi-gomez-torro-y-los-cambios-en-el-once",
+   "날짜": "2026-11-06"
+  },
+  {
+   "팀": "원정",
+   "내용": "Juan Francisco Funes. 11/16 기사: 여러 선수 부재로 명단 제한",
+   "출처": "https://www.comuniate.com/noticias/39038/buenas-noticias-en-el-entrenamiento-del-malaga",
+   "날짜": "2026-11-16"
+  }
+ ],
+ "예상선발": [
+  "확인 안 됨"
+ ],
+ "최근경기": {
+  "홈": [
+   "10-26 원정 Sevilla 0-2",
+   "11-02 원정 Deportivo 1-2",
+   "11-07/08 홈 Athletic 1-1(카드)"
+  ],
+  "원정": [
+   "10-23 원정 Alavés 1-1",
+   "10-31 원정 Betis 1-2",
+   "11-07 홈 Racing Santander 1-2(카드)"
+  ]
+ },
+ "일정": [
+  "두 팀 11/24~26 UEFA 경기 확인 안 됨"
+ ],
+ "맞대결": [
+  "확인 안 됨"
+ ],
+ "걸린것": [
+  "Málaga 20위 승점5 무승, Osasuna 16위 승점12"
+ ],
+ "사실": [
+  "Osasuna 11/17 Budimir·Oroz 정상 훈련"
+ ],
+ "확인안됨": [
+  "Osasuna 11/17 이후 보도",
+  "Herrando 최신 상태",
+  "예상 선발",
+  "UEFA 일정",
+  "맞대결"
+ ],
+ "출처": [
+  "https://www.comuniate.com/noticias/39048/budimir-vuelve-al-grupo-y-aimar-oroz-repite-con-sus-companeros-en-osasuna",
+  "https://www.comuniate.com/noticias/39038/buenas-noticias-en-el-entrenamiento-del-malaga",
+  "https://www.comuniate.com/noticias/38895/arrasate-confirma-tres-bajas-ante-el-athletic-y-da-pistas-sobre-moi-gomez-torro-y-los-cambios-en-el-once"
+ ]
+}

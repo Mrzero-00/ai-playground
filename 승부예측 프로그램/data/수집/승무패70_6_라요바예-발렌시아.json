@@ -1,0 +1,159 @@
+{
+ "번호": 6,
+ "홈": "Rayo Vallecano",
+ "원정": "Valencia",
+ "리그": "라리가 13R",
+ "수집시각": "2026-11-19 KST",
+ "구장": "Estadio de Vallecas (Madrid) — 2026-11-21 토 16:15 현지(KST 11/22 00:15), elgoldigital 2026-11-17",
+ "순위": {
+  "홈": "14위 11경기 3승3무5패 GD-6 승점12 (카드 teamdb 2026-11-19)",
+  "원정": "19위 12경기 2승3무7패 GD-12 승점9, 강등권 (카드 teamdb; elgoldigital 2026-11-17 19위)"
+ },
+ "결장": [
+  {
+   "팀": "원정",
+   "선수": "José Luis Gayà",
+   "포지션": "LB",
+   "사유": "출장정지(Real Madrid전 0-3 퇴장)",
+   "상태": "확정",
+   "비중": "주전 좌측 수비",
+   "출처": "https://www.elgoldigital.com/futbol/valencia-cf/lesionados-valencia-sadiq-danjuma-rayo/",
+   "날짜": "2026-11-17"
+  },
+  {
+   "팀": "원정",
+   "선수": "Jesús Vázquez",
+   "포지션": "LB",
+   "사유": "부상(Real Madrid전 교체 투입 후 우측 내전근)",
+   "상태": "확정",
+   "비중": "확인 안 됨",
+   "출처": "https://www.elgoldigital.com/futbol/valencia-cf/lesionados-valencia-sadiq-danjuma-rayo/",
+   "날짜": "2026-11-17"
+  },
+  {
+   "팀": "원정",
+   "선수": "David Otorbi",
+   "포지션": "MF",
+   "사유": "우측 허벅지 햄스트링 2등급 파열, 복귀 11월 말 추정",
+   "상태": "확정",
+   "비중": "카드: 시즌 선발 일부, xG+xA 11%",
+   "출처": "https://www.elgoldigital.com/futbol/valencia-cf/lesionados-valencia-sadiq-danjuma-rayo/",
+   "날짜": "2026-11-17"
+  },
+  {
+   "팀": "원정",
+   "선수": "Arnaut Danjuma",
+   "포지션": "W",
+   "사유": "근육 불편, 단체훈련 못 함, 가용 여부 미정(다른 elgoldigital 기사는 복귀 11월 말 추정)",
+   "상태": "의심",
+   "비중": "카드: xG+xA 13%, 76분/경기",
+   "출처": "https://www.elgoldigital.com/futbol/valencia-cf/lesionados-valencia-sadiq-danjuma-rayo/",
+   "날짜": "2026-11-17"
+  },
+  {
+   "팀": "원정",
+   "선수": "Umar Sadiq",
+   "포지션": "FW",
+   "사유": "무릎 타박에서 회복, 훈련 소화, 명단 포함·선발 유력 보도",
+   "상태": "복귀",
+   "비중": "카드: xG 2.1, 45분/경기",
+   "출처": "https://www.elgoldigital.com/futbol/valencia-cf/lesionados-valencia-sadiq-danjuma-rayo/",
+   "날짜": "2026-11-17"
+  },
+  {
+   "팀": "홈",
+   "선수": "Isi Palazón",
+   "포지션": "W",
+   "사유": "8월 말 근육 부상 2주(이후 복귀 여부 최신 확인 안 됨)",
+   "상태": "의심",
+   "비중": "",
+   "출처": "https://www.futbolfantasy.com/laliga/noticias/150030-san-jose-confirma-la-baja-de-isi-para-dos-semanas",
+   "날짜": "2026-08-29"
+  },
+  {
+   "팀": "홈",
+   "선수": "Luiz Felipe",
+   "포지션": "CB",
+   "사유": "중증 부상(comuniate 보도, 시점 불명확)",
+   "상태": "확정",
+   "비중": "",
+   "출처": "https://www.comuniate.com/noticias/38512/benat-recupera-a-isi-y-kumbulla-descarta-a-ratiu-y-confirma-la-grave-lesion-de-luiz-felipe",
+   "날짜": "확인 안 됨"
+  },
+  {
+   "팀": "홈",
+   "선수": "Pedro Díaz / Abdul Mumin",
+   "포지션": "",
+   "사유": "11/12 훈련 부재 부상자 명단(이름 중복 시즌 혼선 가능)",
+   "상태": "의심",
+   "비중": "",
+   "출처": "comuniate 검색요약",
+   "날짜": "2026-11-12"
+  }
+ ],
+ "대표차출": [
+  "Valencia GK Stole Dimitrievski: 북마케도니아 A매치에서 스코틀랜드 1-2·슬로베니아 0-3 패, 4일 5실점 (elgoldigital 2026-11-17)",
+  "Rayo 차출 선수·복귀 시점 확인 안 됨"
+ ],
+ "감독": [
+  {
+   "팀": "원정",
+   "내용": "Javier Aguirre(9/23 부임). 빌드업·공격 생산성 재정비 중. Rioja 좌측·Maffeo 좌측 이동 가능성 언급(Gayà 정지·Vázquez 부상 대안)",
+   "출처": "https://www.elgoldigital.com/futbol/valencia-cf/lesionados-valencia-sadiq-danjuma-rayo/",
+   "날짜": "2026-11-17"
+  },
+  {
+   "팀": "원정",
+   "내용": "EFE 11/15: 휴식기 후 Rayo·Osasuna(강등 직접 경쟁)전 중요하다고 언급",
+   "출처": "검색요약(원문 미열람)",
+   "날짜": "2026-11-15"
+  },
+  {
+   "팀": "홈",
+   "내용": "Beñat San José 감독 유지(팩트시트). 이번 경기 전 기자회견 확인 안 됨",
+   "출처": "카드",
+   "날짜": "2026-11-19"
+  }
+ ],
+ "예상선발": [
+  "확인 안 됨(Valencia: Maffeo 또는 Rioja 좌측 가능, Sadiq 선발 유력 — elgoldigital 2026-11-17)"
+ ],
+ "최근경기": {
+  "홈": [
+   "10-19 Getafe 1-1",
+   "10-24 홈 Elche 0-3",
+   "10-31 홈 Celta 3-0",
+   "11-08 원정 Real Sociedad 0-1 (카드, ESPN)"
+  ],
+  "원정": [
+   "10-24 홈 Villarreal 1-2",
+   "11-01 원정 Elche 1-0",
+   "11-07 홈 Real Madrid 0-3 (Gayà 퇴장)",
+   "11-11 Tavernes de la Valldigna 6-0 (컵 1R, 카드)"
+  ]
+ },
+ "일정": [
+  "두 팀 11/24~26 UEFA 대항전 경기 확인 안 됨(검색에서 관련 보도 없음, 카드에도 없음)"
+ ],
+ "맞대결": [
+  "확인 안 됨"
+ ],
+ "걸린것": [
+  "Valencia 강등권 19위, Rayo 14위. 통계 일부 보도에서 Rayo 14위와 Valencia 승점 3 차(카드 승점 12 vs 9)"
+ ],
+ "사실": [
+  "경기는 A매치 휴식기 후 첫 리그전 (elgoldigital 2026-11-17)"
+ ],
+ "확인안됨": [
+  "Rayo 11/17 이후 훈련·결장 최신 보도",
+  "Rayo 소속 대표 차출",
+  "예상 선발(홈)",
+  "맞대결 기록",
+  "UEFA 일정"
+ ],
+ "출처": [
+  "https://www.elgoldigital.com/futbol/valencia-cf/lesionados-valencia-sadiq-danjuma-rayo/",
+  "https://www.futbolfantasy.com/laliga/noticias/150030-san-jose-confirma-la-baja-de-isi-para-dos-semanas",
+  "https://www.comuniate.com/noticias/38512/benat-recupera-a-isi-y-kumbulla-descarta-a-ratiu-y-confirma-la-grave-lesion-de-luiz-felipe"
+ ]
+}

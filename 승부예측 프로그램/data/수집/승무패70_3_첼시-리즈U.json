@@ -1,0 +1,144 @@
+{
+ "번호": 3,
+ "홈": "Chelsea",
+ "원정": "Leeds United",
+ "리그": "프리미어리그",
+ "수집시각": "2026-11-19 KST",
+ "구장": "Stamford Bridge, 2026-11-21 15:00 UK (Sports Mole 2026-11-18)",
+ "순위": {
+  "홈": "5위 승점16 10경기 5승1무4패 GD+3 (soccernews, 2026-11-19)",
+  "원정": "9위 승점14 10경기 3승5무2패 GD+2 (soccernews, 2026-11-19)"
+ },
+ "결장": [
+  {
+   "팀": "홈",
+   "선수": "Maxence Lacroix",
+   "포지션": "CB",
+   "사유": "햄스트링",
+   "상태": "확정",
+   "비중": "확인 안 됨",
+   "출처": "https://www.sportsmole.co.uk/football/chelsea/injury-news/injuries-and-suspensions/caicedo-pedro-lacroix-latest-chelsea-injury-suspension-list-vs-leeds_609269.html",
+   "날짜": "2026-11-18"
+  },
+  {
+   "팀": "홈",
+   "선수": "Reece James",
+   "포지션": "RB",
+   "사유": "무릎 수술",
+   "상태": "확정",
+   "비중": "확인 안 됨",
+   "출처": "https://www.sportsmole.co.uk/football/chelsea/injury-news/injuries-and-suspensions/caicedo-pedro-lacroix-latest-chelsea-injury-suspension-list-vs-leeds_609269.html",
+   "날짜": "2026-11-18"
+  },
+  {
+   "팀": "홈",
+   "선수": "Jorrel Hato",
+   "포지션": "D",
+   "사유": "허리",
+   "상태": "의심",
+   "비중": "확인 안 됨",
+   "출처": "https://www.sportsmole.co.uk/football/chelsea/injury-news/injuries-and-suspensions/caicedo-pedro-lacroix-latest-chelsea-injury-suspension-list-vs-leeds_609269.html",
+   "날짜": "2026-11-18"
+  },
+  {
+   "팀": "홈",
+   "선수": "João Pedro",
+   "포지션": "F",
+   "사유": "허벅지(10/23부터 결장 보도 1건)",
+   "상태": "의심",
+   "비중": "확인 안 됨",
+   "출처": "https://www.sportsmole.co.uk/football/chelsea/injury-news/injuries-and-suspensions/caicedo-pedro-lacroix-latest-chelsea-injury-suspension-list-vs-leeds_609269.html",
+   "날짜": "2026-11-18"
+  },
+  {
+   "팀": "홈",
+   "선수": "Jamie Gittens",
+   "포지션": "W",
+   "사유": "발목(잉글랜드 U21 중 부상)",
+   "상태": "의심",
+   "비중": "확인 안 됨",
+   "출처": "https://www.sportsmole.co.uk/football/chelsea/injury-news/injuries-and-suspensions/caicedo-pedro-lacroix-latest-chelsea-injury-suspension-list-vs-leeds_609269.html",
+   "날짜": "2026-11-18"
+  },
+  {
+   "팀": "홈",
+   "선수": "Moisés Caicedo",
+   "포지션": "M",
+   "사유": "에콰도르 경기 중 부상(내용 미특정)",
+   "상태": "의심",
+   "비중": "확인 안 됨",
+   "출처": "https://www.sportsmole.co.uk/football/chelsea/injury-news/injuries-and-suspensions/caicedo-pedro-lacroix-latest-chelsea-injury-suspension-list-vs-leeds_609269.html",
+   "날짜": "2026-11-18"
+  },
+  {
+   "팀": "홈",
+   "선수": "Josh Acheampong",
+   "포지션": "D",
+   "사유": "근육",
+   "상태": "의심",
+   "비중": "확인 안 됨",
+   "출처": "https://www.sportsmole.co.uk/football/chelsea/injury-news/injuries-and-suspensions/caicedo-pedro-lacroix-latest-chelsea-injury-suspension-list-vs-leeds_609269.html",
+   "날짜": "2026-11-18"
+  }
+ ],
+ "대표차출": [
+  "Caicedo(Ecuador)·Gittens(England U21) A매치 중 부상 (Sports Mole 2026-11-18)",
+  "Leeds 1군 13명 A매치 합류 후 복귀 (1차 수집 검색요약, 확인 안 됨)",
+  "Leeds Joe Rodon: 웨일스 대표 소집 보도 (검색요약, 날짜 불명)"
+ ],
+ "감독": [
+  {
+   "팀": "첼시",
+   "내용": "Xabi Alonso (팩트시트)",
+   "출처": "팩트시트_승무패70.md",
+   "날짜": "2026-11-19"
+  },
+  {
+   "팀": "리즈",
+   "내용": "Daniel Farke (팩트시트)",
+   "출처": "팩트시트_승무패70.md",
+   "날짜": "2026-11-19"
+  }
+ ],
+ "예상선발": [],
+ "최근경기": {
+  "홈": [
+   "10-24 홈 0-2 Tottenham",
+   "10-31 홈 2-0 Man Utd",
+   "11-08 원정 0-1 Sunderland (ESPN/카드)"
+  ],
+  "원정": [
+   "10-25 원정 0-0 Sunderland",
+   "10-31 원정 0-2 Bournemouth",
+   "11-07 홈 1-0 Tottenham (ESPN/카드)"
+  ]
+ },
+ "일정": [
+  "Chelsea: 이후 원정 Nottingham Forest (11/27, 검색요약 1건)",
+  "UEFA 대항전 11/24~26 첼시·리즈 경기 확인 안 됨 (두 팀 모두 11/24~26 목록에 없음: 11v11/footballwebpages 1차 수집)"
+ ],
+ "맞대결": [],
+ "걸린것": [
+  "Chelsea 5위, 4위 Liverpool과 2점 차 (soccernews 2026-11-19)",
+  "Leeds 9위, 8위 Brentford와 승점 동률 14 (soccernews)"
+ ],
+ "사실": [
+  "Chelsea 부상 목록: Sports Mole 2026-11-18 11:49 기준, 출장정지 없음. 예상 선발 미게재.",
+  "상충 보도: Yorkshire Post 검색요약은 Reece James가 턱 골절 후 마스크 훈련·21일 출전 가능이라 적음. 같은 요약은 Martinez 턱 골절 등 다른 시점 내용이 섞여 있어(Rosenior 감독 언급 포함) 날짜 불명, Sports Mole(11/18)은 무릎 수술 결장. 양쪽 기록.",
+  "상충 보도: João Pedro — 검색요약 한 건은 11/27 Forest전까지 기다릴 수 있다고, 다른 건은 Leeds전 의심으로 보도(날짜 불명). Sports Mole은 큰 의심·복귀 가능성 낮음."
+ ],
+ "확인안됨": [
+  "Leeds 공식 부상·결장 목록(Stach 약 50% 보도, Okafor 우려는 1차 수집 검색요약뿐, 원문 미확인)",
+  "Alonso·Farke 경기 전 기자회견(날짜·내용)",
+  "예상 선발",
+  "맞대결 최근 기록",
+  "Chelsea 선수 시즌 선발 수·비중",
+  "Yorkshire Evening Post·3addedminutes 원문(403)"
+ ],
+ "출처": [
+  "https://www.sportsmole.co.uk/football/chelsea/injury-news/injuries-and-suspensions/caicedo-pedro-lacroix-latest-chelsea-injury-suspension-list-vs-leeds_609269.html",
+  "https://www.soccernews.com/soccer-stats/english-premier-league/league-table/2026-27/",
+  "https://www.yorkshirepost.co.uk/sport/football/chelsea-leeds-united-argentina-emiliano-martinez-injury-boost-9356197 (403, 검색요약만)",
+  "https://www.3addedminutes.com/sport/football/chelsea-fc/pedro-acheampong-hato-chelsea-injury-news-return-dates-leeds-9355175 (403, 검색요약만)"
+ ]
+}

@@ -1,0 +1,164 @@
+{
+ "번호": 2,
+ "홈": "Bournemouth",
+ "원정": "Nottingham Forest",
+ "리그": "EPL",
+ "수집시각": "2026-11-19 KST",
+ "구장": "Vitality Stadium, 토 11/21 15:00 UTC (FotMob)",
+ "순위": {
+  "홈": "7위 15점 10경기 4승3무3패 GD+2 (https://www.soccernews.com/soccer-stats/english-premier-league/league-table/2026-27/, 2026-11-19)",
+  "원정": "16위 9점 10경기 2승3무5패 GD-4 (https://www.soccernews.com/soccer-stats/english-premier-league/league-table/2026-27/, 2026-11-19)"
+ },
+ "결장": [
+  {
+   "팀": "홈",
+   "선수": "Juanlu Sánchez",
+   "포지션": "D",
+   "사유": "발목, 11월 말",
+   "상태": "확정",
+   "비중": "",
+   "출처": "https://www.fotmob.com/matches/afc-bournemouth-vs-nottingham-forest/2y4tjb",
+   "날짜": "2026-11"
+  },
+  {
+   "팀": "홈",
+   "선수": "Julián Araujo",
+   "포지션": "D",
+   "사유": "허벅지, 11월 말",
+   "상태": "확정",
+   "비중": "",
+   "출처": "https://www.fotmob.com/matches/afc-bournemouth-vs-nottingham-forest/2y4tjb",
+   "날짜": "2026-11"
+  },
+  {
+   "팀": "홈",
+   "선수": "Alex Tóth",
+   "포지션": "M",
+   "사유": "햄스트링, 2027-02 초",
+   "상태": "확정",
+   "비중": "",
+   "출처": "https://www.fotmob.com/matches/afc-bournemouth-vs-nottingham-forest/2y4tjb",
+   "날짜": "2026-11"
+  },
+  {
+   "팀": "홈",
+   "선수": "Veljko Milosavljević",
+   "포지션": "D",
+   "사유": "타박",
+   "상태": "의심",
+   "비중": "",
+   "출처": "https://www.fotmob.com/matches/afc-bournemouth-vs-nottingham-forest/2y4tjb",
+   "날짜": "2026-11"
+  },
+  {
+   "팀": "홈",
+   "선수": "Rayan",
+   "포지션": "M",
+   "사유": "발목",
+   "상태": "의심",
+   "비중": "",
+   "출처": "1차 수집(Squawka 검색요약, 원문 403) 2026-11",
+   "날짜": "2026-11"
+  },
+  {
+   "팀": "원정",
+   "선수": "Neco Williams",
+   "포지션": "D",
+   "사유": "웨일스 경기 중 부상, Bellamy가 부상 확인(기사 402로 본문 미열람)",
+   "상태": "의심",
+   "비중": "",
+   "출처": "https://www.nottinghamforest.news/2026/11/16/reluctant-craig-bellamy-confirms-clear-neco-williams-injury-in-blow-for-nottingham-forest/",
+   "날짜": "2026-11-16"
+  },
+  {
+   "팀": "원정",
+   "선수": "Xaver Schlager",
+   "포지션": "M",
+   "사유": "허벅지, 치료차 오스트리아 대표팀에서 복귀",
+   "상태": "의심",
+   "비중": "",
+   "출처": "https://dave.sport/news/nottingham-forest-injury-update-schlager-ndoye-williams/",
+   "날짜": "2026-11"
+  },
+  {
+   "팀": "원정",
+   "선수": "Nicolò Savona",
+   "포지션": "D",
+   "사유": "무릎, 11월 말",
+   "상태": "확정",
+   "비중": "",
+   "출처": "https://www.fotmob.com/matches/afc-bournemouth-vs-nottingham-forest/2y4tjb",
+   "날짜": "2026-11"
+  },
+  {
+   "팀": "원정",
+   "선수": "Nicolás Domínguez",
+   "포지션": "M",
+   "사유": "타박, 12월 말",
+   "상태": "확정",
+   "비중": "",
+   "출처": "https://www.fotmob.com/matches/afc-bournemouth-vs-nottingham-forest/2y4tjb",
+   "날짜": "2026-11"
+  }
+ ],
+ "대표차출": [
+  "Forest Ndoye(스위스) 합의 하 조기 복귀, 신규 부상 아님(dave.sport 요약, 2026-11)",
+  "Schlager(오스트리아) 허벅지로 복귀(dave.sport)"
+ ],
+ "감독": [
+  {
+   "팀": "홈",
+   "내용": "Marco Rose (FotMob·위키 팩트시트)",
+   "출처": "https://www.fotmob.com/matches/afc-bournemouth-vs-nottingham-forest/2y4tjb",
+   "날짜": "2026-11-19"
+  },
+  {
+   "팀": "원정",
+   "내용": "Oliver Glasner. 10/26 '압박 받는 감독' 거론(extratimetalk)",
+   "출처": "https://extratimetalk.com/premier-league-managers-running-out-of-time/",
+   "날짜": "2026-10-26"
+  }
+ ],
+ "예상선발": [
+  "Bournemouth 4-2-3-1: Petrović; Smith, Hill, Silva, Truffert; Adams, Christie; Gannon-Doak, Kluivert, Tavernier; Evanilson (FotMob)",
+  "Forest 3-4-2-1: Sels; Cunha, Milenković, Murillo; Muñoz, Yates, Sangaré, Netz; McAtee, Gibbs-White; Delap (FotMob)"
+ ],
+ "최근경기": {
+  "홈": [
+   "FotMob 표기 최근 5: 11-08 Ipswich 원정 2-1 W, 10-31 홈 Leeds 2-0 W, 10-25 원정 Man Utd 3-0 W (ESPN 카드와 일치); FotMob이 Sparta Prague 3-1 원정(UEL)·Villa 3-0 도 나열 — 날짜 미확인, ESPN 카드의 10-18 Sunderland 2-0과 상충 가능"
+  ],
+  "원정": [
+   "10-23 원정 Ipswich 1-1 D",
+   "10-31 원정 Brentford 0-2 L",
+   "11-07 홈 Man City 3-1 W (ESPN 카드)"
+  ]
+ },
+ "일정": [
+  "Bournemouth 11/26 UEL 원정 Celta Vigo 17:45 UK (1차 수집, footballwebpages 검색요약)",
+  "Forest 이후 홈 Chelsea (theanalyst 2026-11-18)"
+ ],
+ "맞대결": [
+  "FotMob H2H: Bournemouth 8승 Forest 3승 6무(기간 미표기)",
+  "Squawka 프리뷰: Forest는 Bournemouth 상대 10경기 무승(1차 수집, 검색요약)"
+ ],
+ "걸린것": [
+  "Forest 승점 9, 17위 Coventry와 동률, 강등권(18위 8점)과 1점 차(https://www.soccernews.com/soccer-stats/english-premier-league/league-table/2026-27/)",
+  "Bournemouth 5위 Chelsea와 1점 차(1차 수집)"
+ ],
+ "사실": [
+  "FotMob: Bournemouth 최근 8경기 전 대회 연승(페이지 문구, 날짜 미확인)"
+ ],
+ "확인안됨": [
+  "Williams 부상 정도·출전 여부",
+  "Schlager·Rayan·Milosavljević 최종 출전",
+  "Forest 정식 부상 목록(Squawka 403)",
+  "FotMob 연승 문구와 ESPN 카드 최근 결과 불일치 원인"
+ ],
+ "출처": [
+  "https://www.fotmob.com/matches/afc-bournemouth-vs-nottingham-forest/2y4tjb",
+  "https://www.soccernews.com/soccer-stats/english-premier-league/league-table/2026-27/",
+  "https://dave.sport/news/nottingham-forest-injury-update-schlager-ndoye-williams/",
+  "https://extratimetalk.com/premier-league-managers-running-out-of-time/",
+  "https://www.nottinghamforest.news/2026/11/16/reluctant-craig-bellamy-confirms-clear-neco-williams-injury-in-blow-for-nottingham-forest/"
+ ]
+}

@@ -1,0 +1,162 @@
+{
+ "번호": 14,
+ "홈": "Getafe",
+ "원정": "Atlético Madrid",
+ "리그": "라리가",
+ "수집시각": "2026-11-19 KST",
+ "구장": "Coliseum (Getafe), 2026-11-22 21:00 (현지)(https://www.comuniate.com/partido/26/4/13/getafe-atletico)",
+ "순위": {
+  "홈": "15위 12경기 3승3무6패 GD-10 승점12 (teamdb, 2026-11-19)",
+  "원정": "3위 12경기 9승1무2패 GD+13 승점28 (teamdb, 2026-11-19)"
+ },
+ "결장": [
+  {
+   "팀": "홈",
+   "선수": "Nemanja Gudelj",
+   "포지션": "M",
+   "사유": "누적 경고 출장정지",
+   "상태": "확정",
+   "비중": "카드: 80분/경기 선발급",
+   "출처": "https://comuniate.com/noticias/39201/getafe-atletico-previa-alineaciones-probables-y-consejos-fantasy-jornada-13-de-laliga",
+   "날짜": "2026-11-18"
+  },
+  {
+   "팀": "홈",
+   "선수": "Christantus Uche",
+   "포지션": "F",
+   "사유": "십자인대·반월판 파열, 4월 복귀",
+   "상태": "확정",
+   "비중": "확인 안 됨",
+   "출처": "https://www.comuniate.com/partido/26/4/13/getafe-atletico",
+   "날짜": "2026-11"
+  },
+  {
+   "팀": "홈",
+   "선수": "Juanmi Jiménez",
+   "포지션": "",
+   "사유": "부상, 경과 관찰",
+   "상태": "확정",
+   "비중": "확인 안 됨",
+   "출처": "https://www.comuniate.com/partido/26/4/13/getafe-atletico",
+   "날짜": "2026-11"
+  },
+  {
+   "팀": "홈",
+   "선수": "Zaid Romero",
+   "포지션": "D",
+   "사유": "부상 복귀 단계, 예상선발 50%(Valiu 대체 가능)",
+   "상태": "의심",
+   "비중": "확인 안 됨",
+   "출처": "https://comuniate.com/noticias/39201/getafe-atletico-previa-alineaciones-probables-y-consejos-fantasy-jornada-13-de-laliga",
+   "날짜": "2026-11-18"
+  },
+  {
+   "팀": "원정",
+   "선수": "Cristian Romero",
+   "포지션": "D",
+   "사유": "근육 부상, 팀 훈련 미합류; 기사: UCL 대비 휴식 예상",
+   "상태": "의심",
+   "비중": "확인 안 됨",
+   "출처": "https://comuniate.com/noticias/39201/getafe-atletico-previa-alineaciones-probables-y-consejos-fantasy-jornada-13-de-laliga",
+   "날짜": "2026-11-18"
+  },
+  {
+   "팀": "원정",
+   "선수": "Marc Pubill",
+   "포지션": "D",
+   "사유": "발목 불편(G는 결장, Q는 의심)",
+   "상태": "의심",
+   "비중": "카드 직전 선발 포함",
+   "출처": "https://comuniate.com/noticias/39201/getafe-atletico-previa-alineaciones-probables-y-consejos-fantasy-jornada-13-de-laliga",
+   "날짜": "2026-11-18"
+  },
+  {
+   "팀": "원정",
+   "선수": "Ademola Lookman",
+   "포지션": "F",
+   "사유": "무릎 염좌, 1~2월 복귀",
+   "상태": "확정",
+   "비중": "카드: xG+xA 9%",
+   "출처": "https://www.comuniate.com/partido/26/4/13/getafe-atletico",
+   "날짜": "2026-11"
+  },
+  {
+   "팀": "원정",
+   "선수": "Julián Álvarez",
+   "포지션": "F",
+   "사유": "대표팀 장거리 이동 뒤 컨디션 의문",
+   "상태": "의심",
+   "비중": "카드: 44분/경기",
+   "출처": "https://comuniate.com/noticias/39201/getafe-atletico-previa-alineaciones-probables-y-consejos-fantasy-jornada-13-de-laliga",
+   "날짜": "2026-11-18"
+  }
+ ],
+ "대표차출": [
+  "Atlético: Giuliano Simeone·Baena·Kang-In Lee 대표팀 뒤 선발 여부 미확정; Julián Álvarez 이동 부담(G, 11-18)",
+  "Getafe 대표팀 차출 선수 회복 불명(G)"
+ ],
+ "감독": [
+  {
+   "팀": "홈",
+   "내용": "José Bordalás",
+   "출처": "https://comuniate.com/noticias/39201/getafe-atletico-previa-alineaciones-probables-y-consejos-fantasy-jornada-13-de-laliga",
+   "날짜": "2026-11-18"
+  },
+  {
+   "팀": "원정",
+   "내용": "Diego Simeone(G, 팩트시트). 이번 경기 전 기자회견: 확인 안 됨",
+   "출처": "https://comuniate.com/noticias/39201/getafe-atletico-previa-alineaciones-probables-y-consejos-fantasy-jornada-13-de-laliga",
+   "날짜": "2026-11-18"
+  }
+ ],
+ "예상선발": [
+  {
+   "팀": "홈",
+   "내용": "Soria; Carvajal, Djené, Valiu(또는 Zaid Romero), Mojica; Mangala, A.García(또는 M.Martín), Terrats; Satriano, Ünal, Boselli (comuniate 2026-11-18)"
+  },
+  {
+   "팀": "원정",
+   "내용": "Oblak; Grimaldo, Le Normand, Hancko, Llorente; Koke, Barrios; G.Simeone, Baena, Kang-In Lee; Jonathan David (같은 출처; 공격 3자리 미정, Julián 경쟁)"
+  }
+ ],
+ "최근경기": {
+  "홈": [
+   "10-25 원정 Athletic 0-4 패",
+   "11-01 홈 Sevilla 3-1 승",
+   "11-08/09 원정 Villarreal 0-2 패(팩트시트·카드)"
+  ],
+  "원정": [
+   "10-24 홈 Deportivo 1-0 승",
+   "10-31 원정 Levante 2-0 승",
+   "11-08/09 홈 Barcelona 1-2 패"
+  ]
+ },
+ "일정": [
+  "Atlético: UCL 5라운드 vs Viking FK, 2026-11-25 21:00 Metropolitano (foresportia 예측사이트 일정; esmadrid 공식 행사표가 Viking 5R 확인, 날짜 확인 필요). 직전 UCL 4R 11/3 Bayern전 홈",
+  "Getafe 11/24~26: 확인 안 됨"
+ ],
+ "맞대결": [
+  "확인 안 됨(2026-27 이전 자료만 발견)"
+ ],
+ "걸린것": [
+  "Getafe 강등권과 승점 차: 확인 안 됨 (15위 승점12)",
+  "Atlético 직전 리그 Barcelona전 패배"
+ ],
+ "사실": [
+  "comuniate 13라운드 페이지·기사 모두 2026-11-22 21:00, 2026-27 시즌 확인 (날짜 11-18)"
+ ],
+ "확인안됨": [
+  "Atlético 결장자 출처 간 불일치(Pubill 결장 vs 의심)",
+  "Mourinho급 기자회견 없음: Simeone·Bordalás 이번 경기 전 발언",
+  "공식 부상 보고",
+  "맞대결",
+  "Getafe 11/24~26 일정"
+ ],
+ "출처": [
+  "https://comuniate.com/noticias/39201/getafe-atletico-previa-alineaciones-probables-y-consejos-fantasy-jornada-13-de-laliga",
+  "https://www.comuniate.com/partido/26/4/13/getafe-atletico",
+  "https://www.esmadrid.com/pt/node/109514",
+  "https://www.foresportia.com/es/pronostico/champions-league/club-atletico-de-madrid-viking-2026-11-25/",
+  "https://www.futbolfantasy.com/laliga/noticias/135915-posibles-alineaciones-y-previa-fantasy-del-getafe-atletico"
+ ]
+}

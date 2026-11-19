@@ -208,6 +208,7 @@
  "디트로이트 타이거스": "Tigers",
  "디트로이트 피스톤스": "Detroit Pistons",
  "라싱 산탄데르": "Racing Santander",
+ "라싱산탄": "Racing Santander",
  "라요 바예카노": "Rayo",
  "라요바예": [
   "Rayo Vallecano",
@@ -224,6 +225,10 @@
   "Levante"
  ],
  "레알 마드리드": "Real Madrid CF",
+ "레알마드": [
+  "Real Madrid CF",
+  "Real Madrid"
+ ],
  "레알 베티스": "Real Betis",
  "레알 소시에다드": "Real Sociedad",
  "레알 솔트레이크": "Real Salt Lake",
@@ -245,6 +250,10 @@
   "Liverpool"
  ],
  "리즈 유나이티드": "Leeds",
+ "리즈U": [
+  "Leeds United",
+  "Leeds"
+ ],
  "리투아니아": "Lithuania",
  "리히텐슈타인": "Liechtenstein",
  "릴OSC": "Lille",

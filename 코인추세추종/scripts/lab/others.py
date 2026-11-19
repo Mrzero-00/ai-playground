@@ -1,4 +1,4 @@
-"""2단계 2차: 변동성 돌파·펀딩비·김치 프리미엄, 4차(참고용): 공포·탐욕 지수·요일, 5차(참고용): 메이어 배수·MVRV (RESEARCH.md 등록). 모두 일 단위(09:00 KST = 00:00 UTC 마감).
+"""2단계 2차: 변동성 돌파·펀딩비·김치 프리미엄, 4차(참고용): 공포·탐욕 지수·요일, 5차(참고용): 메이어 배수·MVRV, 6차(참고용): 월말·월초 (RESEARCH.md 등록). 모두 일 단위(09:00 KST = 00:00 UTC 마감).
 모드: 선물 롱숏, 선물 롱만, 현물 롱만(업비트 원화). 봉인 구간은 읽지 않는다.
   python3 scripts/lab/others.py --fetch-fng   # 공포·탐욕 지수 전부 → data/ml/fng.csv (읽을 때 자른다)
   python3 scripts/lab/others.py --fetch-mvrv  # Coin Metrics 커뮤니티 MVRV 전부 → data/ml/mvrv.csv
@@ -89,6 +89,13 @@ DOW = {"월": [0], "화": [1], "수": [2], "목": [3], "금": [4], "토": [5], "
 def s_dow(d, p, sym):
     """봉 t 종가에 다음 봉(t+1)의 요일을 보고 정한다."""
     return pd.Series((d.index + pd.Timedelta(days=1)).dayofweek.isin(DOW[p["day"]]).astype(float), index=d.index)
+
+
+def s_tom(d, p, sym):
+    """봉 t 종가에 다음 날(t+1)이 달의 마지막 k 일 또는 첫 m 일이면 1."""
+    nxt = d.index + pd.Timedelta(days=1)
+    left = nxt.days_in_month - nxt.day  # 달 끝까지 남은 날 (마지막 날 = 0)
+    return pd.Series(((left < p["k"]) | (nxt.day <= p["m"])).astype(float), index=d.index)
 
 
 def s_mayer(d, p, sym):
@@ -193,6 +200,8 @@ FAMILIES = {
                 sources=["alternative.me Crypto Fear & Greed Index (2018-02-01~)", "Your One Trade of the Year (Medium) — 10 이하 매수, 35·50·65 위 매도", "Glassnode 인용 — 25 미만 뒤 30일 수익"]),
     "dow": dict(name="요일 효과", fn=s_dow, default=dict(day="월"), params=grid(day=list(DOW)),
                 sources=["Caporale·Plastun (2019, Finance Research Letters) The day of the week effect in the cryptocurrency market — 비트코인 월요일"]),
+    "tom": dict(name="월말·월초 효과", fn=s_tom, default=dict(k=1, m=3), params=grid(k=[1, 2, 4], m=[0, 1, 3]),
+                sources=["Lakonishok·Smidt (1988) — 마지막 거래일 + 첫 3거래일", "Kumar (2022, Managerial Finance) — BTC·ETH 월말·월초 수익이 높다"]),
     "mayer": dict(name="메이어 배수", fn=s_mayer, default=dict(rule="저평가", lo=0.8, exit=2.4),
                   params=grid(rule=["저평가"], lo=[0.8, 0.9, 1.0], exit=[1.2, 1.5, 2.4]) + grid(rule=["2.4 아래 보유"], lo=["-"], exit=["-"]),
                   sources=["Trace Mayer, Mayer Multiple — 종가 ÷ 200일 평균, 2.4 아래면 사 모은다", "Glassnode — 0.8 과매도, 2.4 과매수"]),

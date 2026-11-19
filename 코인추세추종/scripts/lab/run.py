@@ -26,7 +26,8 @@ LATE = {"keltner": "indicators", "stoch": "indicators", "aroon": "indicators", "
         "elder": "indicators", "wiki": "others", "riskoff": "others", "hashrib": "others",
         "chandelier": "indicators", "kalman": "indicators", "hmm": "others", "netliq": "others",
         "tdseq": "indicators", "gausschan": "indicators", "clenow": "indicators", "metcalfe": "others",
-        "stc": "indicators", "fisher": "indicators", "hurst": "others", "realyield": "others"}
+        "stc": "indicators", "fisher": "indicators", "hurst": "others", "realyield": "others",
+        "coppock": "indicators", "chop": "indicators", "renko": "indicators", "mama": "indicators"}
 STAGES.update({k: (m, None if m in ("intraday", "rotation", "pairs") else k) for k, m in LATE.items()})  # 봉인을 연 뒤에 등록 — 개발 판정만, 참고용(RESEARCH.md 루프 절차 e)
 WORKERS = 8
 

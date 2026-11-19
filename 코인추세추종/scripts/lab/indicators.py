@@ -526,6 +526,92 @@ def s_fisher(d, p):
     return warm(pd.Series(out, index=d.index), 2 * n)
 
 
+def s_coppock(d, p):
+    """코폭 곡선: WMA(ROC(14s) + ROC(11s), 10s). 0선은 부호, 바닥반등은 0 아래에서 꺾여 오르면 롱·0 위에서 꺾여 내리면 숏, 기울기는 오르내림."""
+    s, c = p["scale"], d.close
+    cc = wma((c / c.shift(14 * s) - 1) + (c / c.shift(11 * s) - 1), 10 * s).to_numpy()
+    c1, c2, no = np.r_[np.nan, cc[:-1]], np.r_[np.nan, np.nan, cc[:-2]], np.zeros(len(cc), bool)
+    with np.errstate(invalid="ignore"):
+        if p["rule"] == "0선":
+            out = np.where(cc > 0, 1.0, -1.0)
+        elif p["rule"] == "기울기":
+            out = np.where(cc > c1, 1.0, -1.0)
+        else:
+            out = machine(len(cc), (cc < 0) & (cc > c1) & (c1 <= c2), (cc > 0) & (cc < c1) & (c1 >= c2), no, no)
+    return warm(pd.Series(out, index=d.index), 24 * s)
+
+
+def s_chop(d, p):
+    """초피니스 지수(Dreiss): 100 log10(n 봉 TR 합 ÷ (최고 − 최저)) ÷ log10(n). 문턱 아래(추세장)면 n 봉 수익 부호, 아니면 0(추세만) 또는 앞 포지션(유지)."""
+    n = p["n"]
+    rg = (d.high.rolling(n).max() - d.low.rolling(n).min()).replace(0, np.nan)
+    chop = (100 * np.log10(true_range(d).rolling(n).sum() / rg) / np.log10(n)).to_numpy()
+    mom = np.sign(d.close / d.close.shift(n) - 1).to_numpy()
+    with np.errstate(invalid="ignore"):
+        out = pd.Series(np.where(chop < p["th"], mom, np.nan if p["rule"] == "유지" else 0.0), index=d.index)
+    return warm((out.ffill() if p["rule"] == "유지" else out).fillna(0.0), n)
+
+
+def s_renko(d, p):
+    """렌코: 로그 종가로 벽돌을 쌓는다. 같은 방향 1 벽돌이면 더하고, 마지막 벽돌 끝에서 반대로 '반전' 벽돌이면 방향을 바꾼다. 신호 = 마지막 벽돌 방향.
+    벽돌 크기는 ln(1 + p) 또는 k × ATR(14) ÷ 종가 — 마지막 벽돌을 그린 봉 값으로 고정."""
+    x, r = np.log(d.close.to_numpy(float)), p["rev"]
+    if p["size"].endswith("%"):
+        bs = np.full(len(x), np.log(1 + float(p["size"][:-1]) / 100))
+    else:
+        bs = (float(p["size"].split("×")[1]) * wilder(true_range(d), 14) / d.close).to_numpy()
+    out, ref, b, dr = np.zeros(len(x)), x[14], bs[14], 0
+    for i in range(15, len(x)):
+        new = True
+        if dr >= 0 and x[i] >= ref + b:
+            ref, dr = ref + np.floor((x[i] - ref) / b) * b, 1
+        elif dr <= 0 and x[i] <= ref - b:
+            ref, dr = ref - np.floor((ref - x[i]) / b) * b, -1
+        elif dr == 1 and x[i] <= ref - r * b:
+            ref, dr = ref - (r - 1) * b - np.floor((ref - (r - 1) * b - x[i]) / b) * b, -1
+        elif dr == -1 and x[i] >= ref + r * b:
+            ref, dr = ref + (r - 1) * b + np.floor((x[i] - ref - (r - 1) * b) / b) * b, 1
+        else:
+            new = False
+        if new:
+            b = bs[i]
+        out[i] = dr
+    return pd.Series(out, index=d.index)
+
+
+def s_mama(d, p):
+    """에일러스 MAMA(2001): 호모다인 판별기로 잰 위상 변화율로 α 를 빠름~느림 한계 사이에서 바꾼다. FAMA 는 α/2.
+    교차는 MAMA > FAMA 면 +1, 종가는 종가 > MAMA 면 +1 (아니면 −1)."""
+    fast, slow = map(float, p["limits"].split("/"))
+    pr = ((d.high + d.low) / 2).to_numpy(float)
+    n = len(pr)
+    sm, det, I1, Q1, I2, Q2, Re, Im, per, ph = (np.zeros(n) for _ in range(10))
+    mama, fama = pr.copy(), pr.copy()
+
+    def hil(a, i):
+        return 0.0962 * a[i] + 0.5769 * a[i - 2] - 0.5769 * a[i - 4] - 0.0962 * a[i - 6]
+
+    for i in range(6, n):
+        sm[i] = (4 * pr[i] + 3 * pr[i - 1] + 2 * pr[i - 2] + pr[i - 3]) / 10
+        adj = 0.075 * per[i - 1] + 0.54
+        det[i] = hil(sm, i) * adj
+        Q1[i], I1[i] = hil(det, i) * adj, det[i - 3]
+        jI, jQ = hil(I1, i) * adj, hil(Q1, i) * adj
+        I2[i] = 0.2 * (I1[i] - jQ) + 0.8 * I2[i - 1]
+        Q2[i] = 0.2 * (Q1[i] + jI) + 0.8 * Q2[i - 1]
+        Re[i] = 0.2 * (I2[i] * I2[i - 1] + Q2[i] * Q2[i - 1]) + 0.8 * Re[i - 1]
+        Im[i] = 0.2 * (I2[i] * Q2[i - 1] - Q2[i] * I2[i - 1]) + 0.8 * Im[i - 1]
+        P = 360 / np.degrees(np.arctan(Im[i] / Re[i])) if Im[i] != 0 and Re[i] != 0 else per[i - 1]
+        P = min(max(min(max(P, 0.67 * per[i - 1]), 1.5 * per[i - 1]), 6.0), 50.0)
+        per[i] = 0.2 * P + 0.8 * per[i - 1]
+        ph[i] = np.degrees(np.arctan(Q1[i] / I1[i])) if I1[i] != 0 else ph[i - 1]
+        a = max(fast / max(ph[i - 1] - ph[i], 1.0), slow)
+        mama[i] = a * pr[i] + (1 - a) * mama[i - 1]
+        fama[i] = 0.5 * a * mama[i] + (1 - 0.5 * a) * fama[i - 1]
+    out = np.where(mama > fama, 1.0, -1.0) if p["rule"] == "교차" else np.where(d.close.to_numpy() > mama, 1.0, -1.0)
+    return warm(pd.Series(out, index=d.index), 50)
+
+
 def grid(**kw):
     return [dict(zip(kw, v)) for v in itertools.product(*kw.values())]
 
@@ -611,6 +697,15 @@ FAMILIES = {
                 sources=["Doug Schaff (1999) Schaff Trend Cycle — EMA 23·50 MACD 에 10봉 스토캐스틱 두 번, 0.5 평활", "LuxAlgo·Barchart·NexusFi — 25 상향 돌파 상승, 75 하향 돌파 하락, 0·100 에 붙으면 추세 지속"]),
     "fisher": dict(name="피셔 변환", fn=s_fisher, default=dict(n=10, rule="교차"), params=grid(n=[10, 20, 50, 100], rule=["교차", "0선"]),
                    sources=["John Ehlers (2002-11, Technical Analysis of Stocks & Commodities) Using the Fisher Transform — 10봉, 0.33·0.67 평활, 신호선 = 전 봉", "MotiveWave·TC2000 Fisher Transform — 신호선 교차가 추세 전환"]),
+    "coppock": dict(name="코폭 곡선", fn=s_coppock, default=dict(scale=30, rule="바닥반등"), params=grid(scale=[1, 7, 30], rule=["0선", "바닥반등", "기울기"]),
+                    sources=["Edwin Coppock (Barron's, 1962) — 월봉 ROC 14 + ROC 11 의 10봉 가중평균, 0 아래에서 고개를 들면 매수", "TA-Lib COPPOCK·StockCharts ChartSchool Coppock Curve — 0선 교차를 매수·매도로 쓰기도, 일봉 (20,10,10)", "MotiveWave Coppock Curve — 일봉 294·231·210(월봉 × 21)"]),
+    "chop": dict(name="초피니스 지수", fn=s_chop, default=dict(n=14, th=38.2, rule="추세만"), params=grid(n=[14, 28, 56], th=[38.2, 50, 61.8], rule=["추세만", "유지"]),
+                 sources=["E.W. \"Bill\" Dreiss, Choppiness Index — 100 log10(Σ TR ÷ 범위) ÷ log10(n), 기본 14", "LuxAlgo·Barchart·TradingView Choppiness Index — 38.2 아래 추세장, 61.8 위 횡보장, 방향은 없다"]),
+    "renko": dict(name="렌코", fn=s_renko, default=dict(size="ATR×1", rev=2), params=grid(size=["2%", "4%", "8%", "ATR×1", "ATR×2", "ATR×3"], rev=[1, 2]),
+                  sources=["Steve Nison, Beyond Candlesticks (1994) — 렌가(벽돌) 차트", "LuxAlgo·NexusFi·CrossTrade Renko — 벽돌 크기 고정폭 또는 ATR(14), 방향 전환은 2 벽돌"]),
+    "mama": dict(name="MESA 적응 이동평균 (MAMA)", fn=s_mama, default=dict(limits="0.5/0.05", rule="교차"),
+                 params=grid(limits=["0.5/0.05", "0.5/0.01", "0.25/0.025", "0.1/0.01"], rule=["교차", "종가"]),
+                 sources=["John Ehlers (2001-09, Technical Analysis of Stocks & Commodities) MAMA — The Mother of Adaptive Moving Averages — 빠름 0.5·느림 0.05, FAMA = α/2, 교차가 신호", "TA-Lib MAMA·LuxAlgo MAMA/FAMA 정리"]),
 }
 MODES = ["선물 롱숏", "선물 롱만", "현물 롱만"]
 

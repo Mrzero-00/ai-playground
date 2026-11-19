@@ -208,6 +208,17 @@
 
 칸 수: 거래소 순유입 9 × 3 = 27, 활성 주소 4 × 3 = 12, 변동성 목표 18 × 3 = 54. 합계 93칸, 판정 단위 9개(참고용). 누적 판정 단위 114개.
 
+### 2단계 9차 등록 (2026-11-20, 봉인 해제 뒤 추가 — 참고용) — 돌리기 전에 고정
+통계적 예측(페어 평균회귀·자기회귀)과 옵션 시장의 내재변동성. 개발 판정만 한다. 모두 일 단위.
+
+| 단계 | 방법 | 출처 | 규칙 | 격자 | 기본값 |
+|---|---|---|---|---|---|
+| pairs | BTC·ETH 페어 트레이딩 (`pairs.py`) | Gatev·Goetzmann·Rouwenhorst (2006, Review of Financial Studies) — 12개월 형성, 2σ 에 열고 수렴에 닫는다; Engle·Granger (1987) 공적분 헤지 비율; Fil·Kristoufek (2020, IEEE Access) — 코인 페어는 일 단위 평균회귀가 약하다 | 스프레드 = ln ETH − β ln BTC. β = 1(비율) 또는 지난 W 일 로그가격 OLS 기울기. z = 스프레드의 W 일 z 점수. z > th 면 ETH 숏·BTC 롱, z < −th 면 반대(각 마켓 ±1, 달러 중립). z 가 0 을 지나면 닫는다. 선물 롱숏만(판정 단위 하나, 기준선 F0, 나 경로 포함) | W 30·90·180·365 × th 1·1.5·2 × β 1·OLS | 365, 2, OLS |
+| arfc | 자기회귀 수익 예측 (`others.py`) | Box·Jenkins (1970) AR 모형; Catania·Grassi·Ravazzolo (2019, International Journal of Forecasting) — 코인은 파라미터가 시간에 따라 바뀌니 짧은 창으로 다시 추정 | 날마다 지난 W 일 로그수익으로 AR(p) 를 OLS 로 다시 맞추고 다음 날 수익을 예측. 예측 > 0 이면 +1, < 0 이면 −1 | p 1·2·5·10 × W 90·180·365·730 | 1, 365 |
+| dvol | 옵션 내재변동성 (`others.py`) | Bollerslev·Tauchen·Zhou (2009, Review of Financial Studies) — 변동성 위험 프리미엄(내재 − 실현 분산)이 크면 뒤 수익이 높다; Connors·Alvarez (2009) Short Term Trading Strategies That Work — VIX 가 10일 평균보다 크게 뛰면 매수. 데이터 Deribit DVOL(30일 내재변동성, BTC·ETH 각각, 2021-03-24~) | VRP = (DVOL/100)² − (지난 n 일 실현 변동성, 연환산)². VRP 부호: VRP > 0 +1, < 0 −1. VRP z: VRP 의 W 일 z 점수 > th +1, < −th −1, 아니면 0. 스트레치: DVOL ≥ (1+s) × DVOL 10일 평균이면 H 일 롱. D 일봉 신호에는 D−1 날짜 DVOL(하루 늦게) | VRP 부호 n 7·30, VRP z (n 30) W 90·180 × th 1·2, 스트레치 s 5%·10%·20% × H 5·10 | VRP 부호, 30 |
+
+칸 수: 페어 24 × 1 = 24, 자기회귀 16 × 3 = 48, 내재변동성 12 × 3 = 36. 합계 108칸, 판정 단위 7개(참고용). 누적 판정 단위 121개.
+
 ## 루프 절차 (매시간, Claude 세션 크론)
 1. `python3 scripts/lab/status.py` 로 상태를 본다.
 2. 실행 중인 단계가 있으면 진행률만 한 줄로 남기고 끝낸다.

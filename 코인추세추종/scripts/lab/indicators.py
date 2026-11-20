@@ -715,6 +715,61 @@ def s_force(d, p):
     return warm(pd.Series(machine(len(c), up & el, dn & es, dn, up), index=d.index), 22)
 
 
+def s_wavetrend(d, p):
+    """LazyBear 웨이브트렌드: ci = (ap − EMA(ap, n1)) ÷ (0.015 × EMA(|ap − esa|, n1)), WT1 = EMA(ci, n2), WT2 = WT1 의 4 봉 SMA.
+    과열은 −lv 아래에서 WT1 이 WT2 를 위로 넘으면 롱, +lv 위에서 아래로 넘으면 숏, 반대 신호까지 유지."""
+    n1, n2 = p["n1"], p["n2"]
+    ap = (d.high + d.low + d.close) / 3
+    esa = ema(ap, n1)
+    w1 = ema((ap - esa) / (0.015 * ema((ap - esa).abs(), n1)).replace(0, np.nan), n2)
+    a, b = w1.to_numpy(), sma(w1, 4).to_numpy()
+    if p["rule"] == "교차":
+        out = np.where(a > b, 1.0, -1.0)
+    elif p["rule"] == "0선":
+        out = np.where(a > 0, 1.0, -1.0)
+    else:
+        lv = {"과열60": 60, "과열53": 53}[p["rule"]]
+        with np.errstate(invalid="ignore"):
+            up = (a > b) & np.r_[False, a[:-1] <= b[:-1]]
+            dn = (a < b) & np.r_[False, a[:-1] >= b[:-1]]
+            el, es = up & (a < -lv), dn & (a > lv)
+        out = machine(len(a), el, es, es, el)
+    return warm(pd.Series(out, index=d.index), n1 + n2)
+
+
+def swma(x):
+    """1·2·2·1 대칭 가중 평균 (에일러스)."""
+    return (x + 2 * x.shift(1) + 2 * x.shift(2) + x.shift(3)) / 6
+
+
+def s_rvi(d, p):
+    """에일러스 RVI(2002): (종 − 시) 대칭 평균의 n 봉 합 ÷ (고 − 저) 대칭 평균의 n 봉 합, 신호선은 RVI 의 대칭 평균."""
+    n = p["n"]
+    r = swma(d.close - d.open).rolling(n).sum() / swma(d.high - d.low).rolling(n).sum().replace(0, np.nan)
+    x = r - swma(r) if p["rule"] == "신호선" else r
+    return warm(pd.Series(np.where(x > 0, 1.0, -1.0), index=d.index), n + 6)
+
+
+def s_vpci(d, p):
+    """도마이어 VPCI(2007) = (VWMA_L − SMA_L) × (VWMA_S ÷ SMA_S) × (거래량 SMA_S ÷ SMA_L). MACD확인은 MACD 히스토그램과 VPCI 부호가 같을 때만."""
+    s, l = map(int, p["sl"].split("/"))
+    c, v = d.close, volume(d)
+
+    def vw(n):
+        return (c * v).rolling(n).sum() / v.rolling(n).sum()
+
+    x = (vw(l) - sma(c, l)) * (vw(s) / sma(c, s)) * (sma(v, s) / sma(v, l))
+    if p["rule"] == "0선":
+        out = np.where(x > 0, 1.0, -1.0)
+    elif p["rule"] == "신호선":
+        out = np.where(x > sma(x, s), 1.0, -1.0)
+    else:
+        m = ema(c, 12) - ema(c, 26)
+        h = m - ema(m, 9)
+        out = np.where((h > 0) & (x > 0), 1.0, np.where((h < 0) & (x < 0), -1.0, 0.0))
+    return warm(pd.Series(out, index=d.index), max(l, 35))
+
+
 def grid(**kw):
     return [dict(zip(kw, v)) for v in itertools.product(*kw.values())]
 
@@ -823,6 +878,12 @@ FAMILIES = {
     "force": dict(name="포스 인덱스", fn=s_force, default=dict(rule="0선", n=13, entry="-"),
                   params=grid(rule=["0선"], n=[2, 13, 50, 100], entry=["-"]) + grid(rule=["눌림목"], n=["-"], entry=["음전", "재양전"]),
                   sources=["Alexander Elder, Trading for a Living (1993) — Force Index = (종가 − 전 종가) × 거래량, 13 EMA", "StockCharts ChartSchool Force Index — 0선, 100 봉 중장기 추세, 22일 EMA 가 오를 때 2일 FI 음수는 눌림목 매수"]),
+    "wavetrend": dict(name="웨이브트렌드", fn=s_wavetrend, default=dict(n1=10, n2=21, rule="교차"), params=grid(n1=[10, 20], n2=[21, 42], rule=["교차", "0선", "과열60", "과열53"]),
+                      sources=["LazyBear, WaveTrend Oscillator (TradingView) — 채널 10·평균 21, WT2 = WT1 의 4 SMA, ±60·±53", "Medium·ProRealCode·LuxAlgo 정리 — −60 아래 교차 매수, +60 위 교차 매도"]),
+    "rvi": dict(name="상대 활력 지수 (RVI)", fn=s_rvi, default=dict(n=10, rule="신호선"), params=grid(n=[5, 10, 20, 40], rule=["신호선", "0선"]),
+                sources=["John Ehlers (2002-01, Technical Analysis of Stocks & Commodities) Relative Vigor Index — (종 − 시) ÷ (고 − 저), 1·2·2·1 대칭 가중, n 10, 신호선 교차", "MetaTrader·TradingView RVGI 같은 식"]),
+    "vpci": dict(name="거래량-가격 확인 지표 (VPCI)", fn=s_vpci, default=dict(sl="5/20", rule="0선"), params=grid(sl=["5/20", "10/50"], rule=["0선", "신호선", "MACD확인"]),
+                 sources=["Buff Dormeier (2007-07, Technical Analysis of Stocks & Commodities) Volume Price Confirmation Indicator — VPC × VPR × VM, MACD 교차 확인", "MetaStock Traders' Tips 10·50, 커뮤니티 5·20 (LuxAlgo 정리)"]),
 }
 MODES = ["선물 롱숏", "선물 롱만", "현물 롱만"]
 

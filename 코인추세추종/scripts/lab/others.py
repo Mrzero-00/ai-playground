@@ -1,4 +1,4 @@
-"""2단계 2차: 변동성 돌파·펀딩비·김치 프리미엄, 4차(참고용): 공포·탐욕 지수·요일, 5차(참고용): 메이어 배수·MVRV, 6차(참고용): 월말·월초, 7차(참고용): 스테이블코인 공급·미국 증시 추세, 8차(참고용): 거래소 순유입·활성 주소·변동성 목표, 9차(참고용): 자기회귀 예측·옵션 내재변동성, 10차(참고용): 코인베이스 프리미엄·테이커 매수 비중, 11차(참고용): 위키백과 관심·VIX·달러 추세·해시 리본, 12차(참고용): 숨은 마르코프 국면·미국 순유동성, 13차(참고용): 메트칼프 가치 괴리, 14차(참고용): 허스트 국면 전환·미국 실질금리, 16차(참고용): 거래소 보유량 추세, 17차(참고용): NVT 시그널 (RESEARCH.md 등록). 모두 일 단위(09:00 KST = 00:00 UTC 마감).
+"""2단계 2차: 변동성 돌파·펀딩비·김치 프리미엄, 4차(참고용): 공포·탐욕 지수·요일, 5차(참고용): 메이어 배수·MVRV, 6차(참고용): 월말·월초, 7차(참고용): 스테이블코인 공급·미국 증시 추세, 8차(참고용): 거래소 순유입·활성 주소·변동성 목표, 9차(참고용): 자기회귀 예측·옵션 내재변동성, 10차(참고용): 코인베이스 프리미엄·테이커 매수 비중, 11차(참고용): 위키백과 관심·VIX·달러 추세·해시 리본, 12차(참고용): 숨은 마르코프 국면·미국 순유동성, 13차(참고용): 메트칼프 가치 괴리, 14차(참고용): 허스트 국면 전환·미국 실질금리, 16차(참고용): 거래소 보유량 추세, 17차(참고용): NVT 시그널, 18차(참고용): 미국 신용 스프레드 (RESEARCH.md 등록). 모두 일 단위(09:00 KST = 00:00 UTC 마감).
 모드: 선물 롱숏, 선물 롱만, 현물 롱만(업비트 원화). 봉인 구간은 읽지 않는다.
   python3 scripts/lab/others.py --fetch-fng   # 공포·탐욕 지수 전부 → data/ml/fng.csv (읽을 때 자른다)
   python3 scripts/lab/others.py --fetch-mvrv  # Coin Metrics 커뮤니티 MVRV 전부 → data/ml/mvrv.csv
@@ -15,6 +15,7 @@
   python3 scripts/lab/others.py --fetch-realyield # FRED 10년 TIPS 실질금리 → data/ml/realyield.csv
   python3 scripts/lab/others.py --fetch-exsupply  # Coin Metrics 커뮤니티 BTC·ETH 거래소 보유량 → data/ml/exsupply.csv
   python3 scripts/lab/others.py --fetch-txvol     # blockchain.com BTC 추정 거래액(USD) → data/ml/txvol.csv
+  python3 scripts/lab/others.py --fetch-credit    # FRED Moody's Baa − 10년 국채 스프레드 → data/ml/credit.csv
 """
 import io, json, sys, time, urllib.request
 
@@ -547,6 +548,20 @@ def s_realyield(d, p, sym):
     return (2 * dn - 1).fillna(0.0)
 
 
+CREDIT = {"신용 스프레드": "BAA10Y"}
+
+
+def s_credit(d, p, sym):
+    """Baa 회사채 − 10년 국채 스프레드가 n 거래일 평균 아래(평균아래) 또는 n 거래일 전보다 낮으면(변화) +1(위험 선호). 하루 늦게."""
+    x = pd.read_csv(ML / "credit.csv", parse_dates=["date"], index_col="date")["신용 스프레드"].dropna()
+    x.index = x.index + pd.Timedelta(days=1)
+    x = x[x.index <= last_day()]
+    ref = x.rolling(p["n"]).mean() if p["rule"] == "평균아래" else x.shift(p["n"])
+    dn = (x < ref).astype(float).where(ref.notna())
+    dn = dn.reindex(dn.index.union(d.index)).ffill().reindex(d.index)  # 주말·휴일은 직전 거래일
+    return (2 * dn - 1).fillna(0.0)
+
+
 def fetch_exsupply():
     url = "https://community-api.coinmetrics.io/v4/timeseries/asset-metrics?assets=btc,eth&metrics=SplyExNtv&frequency=1d&page_size=10000&start_time=2015-01-01"
     rows = []
@@ -718,6 +733,8 @@ FAMILIES = {
     "nvt": dict(name="NVT 시그널", fn=s_nvt, default=dict(ma=90, rule="고정", lo=45, hi=150),
                 params=grid(ma=[28, 90], rule=["고정"], lo=[45, 60], hi=[100, 150]) + grid(ma=[28, 90], rule=["동적"], lo=[0.5, 1.0], hi=[1, 2]),
                 sources=["Dmitry Kalichkin (2018) Rethinking NVT Ratio — 시가총액 ÷ 거래액 90일 평균", "Willy Woo (Woobull, 2018-02) NVT Signal — 150 위 과매수, 45 아래 과매도", "Capriole Dynamic Range NVT Signal — 2년 평균 − 0.5σ 저평가, + 2σ 고평가", "Coin Metrics 커뮤니티 CapMrktCurUSD (BTC), blockchain.com estimated-transaction-volume-usd"]),
+    "credit": dict(name="미국 신용 스프레드 추세", fn=s_credit, default=dict(rule="평균아래", n=50), params=grid(rule=["평균아래", "변화"], n=[20, 50, 100, 200]),
+                   sources=["Gilchrist·Zakrajšek (2012, American Economic Review) Credit Spreads and Business Cycle Fluctuations", "LookIntoBitcoin — Bitcoin Cycles vs High Yield Credit Cycles", "CryptoSlate (2025) — 스프레드가 좁아지면 위험자산 선호, 반론: 2025-10 뒤 어긋남", "FRED BAA10Y (ICE 하이일드 OAS 는 FRED 에 최근 3년만)"]),
 }
 
 
@@ -787,3 +804,5 @@ if __name__ == "__main__":
         fetch_exsupply()
     if "--fetch-txvol" in sys.argv:
         fetch_txvol()
+    if "--fetch-credit" in sys.argv:
+        fetch_macro(CREDIT, "credit.csv")

@@ -1,4 +1,4 @@
-"""2단계 2차: 변동성 돌파·펀딩비·김치 프리미엄, 4차(참고용): 공포·탐욕 지수·요일, 5차(참고용): 메이어 배수·MVRV, 6차(참고용): 월말·월초, 7차(참고용): 스테이블코인 공급·미국 증시 추세, 8차(참고용): 거래소 순유입·활성 주소·변동성 목표, 9차(참고용): 자기회귀 예측·옵션 내재변동성, 10차(참고용): 코인베이스 프리미엄·테이커 매수 비중, 11차(참고용): 위키백과 관심·VIX·달러 추세·해시 리본, 12차(참고용): 숨은 마르코프 국면·미국 순유동성, 13차(참고용): 메트칼프 가치 괴리, 14차(참고용): 허스트 국면 전환·미국 실질금리, 16차(참고용): 거래소 보유량 추세, 17차(참고용): NVT 시그널, 18차(참고용): 미국 신용 스프레드 (RESEARCH.md 등록). 모두 일 단위(09:00 KST = 00:00 UTC 마감).
+"""2단계 2차: 변동성 돌파·펀딩비·김치 프리미엄, 4차(참고용): 공포·탐욕 지수·요일, 5차(참고용): 메이어 배수·MVRV, 6차(참고용): 월말·월초, 7차(참고용): 스테이블코인 공급·미국 증시 추세, 8차(참고용): 거래소 순유입·활성 주소·변동성 목표, 9차(참고용): 자기회귀 예측·옵션 내재변동성, 10차(참고용): 코인베이스 프리미엄·테이커 매수 비중, 11차(참고용): 위키백과 관심·VIX·달러 추세·해시 리본, 12차(참고용): 숨은 마르코프 국면·미국 순유동성, 13차(참고용): 메트칼프 가치 괴리, 14차(참고용): 허스트 국면 전환·미국 실질금리, 16차(참고용): 거래소 보유량 추세, 17차(참고용): NVT 시그널, 18차(참고용): 미국 신용 스프레드, 19차(참고용): 52주 최고가 근접 (RESEARCH.md 등록). 모두 일 단위(09:00 KST = 00:00 UTC 마감).
 모드: 선물 롱숏, 선물 롱만, 현물 롱만(업비트 원화). 봉인 구간은 읽지 않는다.
   python3 scripts/lab/others.py --fetch-fng   # 공포·탐욕 지수 전부 → data/ml/fng.csv (읽을 때 자른다)
   python3 scripts/lab/others.py --fetch-mvrv  # Coin Metrics 커뮤니티 MVRV 전부 → data/ml/mvrv.csv
@@ -548,6 +548,12 @@ def s_realyield(d, p, sym):
     return (2 * dn - 1).fillna(0.0)
 
 
+def s_high52(d, p, sym):
+    """조지·황 52주 최고가 근접: 종가 ÷ 지난 N 일 최고가 ≥ th 면 +1, 아니면 −1."""
+    hi = d.high.rolling(p["N"]).max()
+    return pd.Series(np.where(d.close / hi >= p["th"], 1.0, -1.0), index=d.index).where(hi.notna(), 0.0)
+
+
 CREDIT = {"신용 스프레드": "BAA10Y"}
 
 
@@ -735,6 +741,8 @@ FAMILIES = {
                 sources=["Dmitry Kalichkin (2018) Rethinking NVT Ratio — 시가총액 ÷ 거래액 90일 평균", "Willy Woo (Woobull, 2018-02) NVT Signal — 150 위 과매수, 45 아래 과매도", "Capriole Dynamic Range NVT Signal — 2년 평균 − 0.5σ 저평가, + 2σ 고평가", "Coin Metrics 커뮤니티 CapMrktCurUSD (BTC), blockchain.com estimated-transaction-volume-usd"]),
     "credit": dict(name="미국 신용 스프레드 추세", fn=s_credit, default=dict(rule="평균아래", n=50), params=grid(rule=["평균아래", "변화"], n=[20, 50, 100, 200]),
                    sources=["Gilchrist·Zakrajšek (2012, American Economic Review) Credit Spreads and Business Cycle Fluctuations", "LookIntoBitcoin — Bitcoin Cycles vs High Yield Credit Cycles", "CryptoSlate (2025) — 스프레드가 좁아지면 위험자산 선호, 반론: 2025-10 뒤 어긋남", "FRED BAA10Y (ICE 하이일드 OAS 는 FRED 에 최근 3년만)"]),
+    "high52": dict(name="52주 최고가 근접", fn=s_high52, default=dict(N=365, th=0.9), params=grid(N=[180, 365], th=[0.7, 0.8, 0.9, 0.95]),
+                   sources=["George·Hwang (2004, Journal of Finance) The 52-Week High and Momentum Investing", "Liu·Liu·Ma (2011) — 16개국 중 10곳 유효, 비용 뒤 대부분 사라짐", "Quantpedia 52-Weeks High Effect — 코인 연구는 찾지 못함"]),
 }
 
 

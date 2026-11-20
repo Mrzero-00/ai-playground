@@ -770,6 +770,39 @@ def s_vpci(d, p):
     return warm(pd.Series(out, index=d.index), max(l, 35))
 
 
+def s_nvi(d, p):
+    """포스백 NVI: 거래량이 전 봉보다 줄어든 봉만 수익률을 쌓는다(시작 1000). 부호·롱만은 NVI 대 m EMA, 빠른선은 NVI 9 EMA 대 m EMA."""
+    v, r = volume(d), d.close.pct_change().fillna(0.0)
+    nvi = 1000 * (1 + r.where(v < v.shift(), 0.0)).cumprod()
+    a = ema(nvi, 9) if p["rule"] == "빠른선" else nvi
+    out = np.where(a > ema(nvi, p["m"]), 1.0, 0.0 if p["rule"] == "롱만" else -1.0)
+    return warm(pd.Series(out, index=d.index), p["m"])
+
+
+def s_connors(d, p):
+    """코너스 RSI(2): 종가 > SMA(t) 이고 RSI(2) < lo 면 롱, 종가 > SMA(5) 면 청산. 숏은 거꾸로. 추세이탈은 SMA(t) 반대편 종가에도 청산."""
+    c, t, lo = d.close, sma(d.close, p["t"]), p["lo"]
+    r, m5 = rsi(c, 2), sma(c, 5)
+    el, es = ((c > t) & (r < lo)).to_numpy(), ((c < t) & (r > 100 - lo)).to_numpy()
+    xl, xs = (c > m5).to_numpy(), (c < m5).to_numpy()
+    if p["exit"] == "5일선+추세이탈":
+        xl, xs = xl | (c < t).to_numpy(), xs | (c > t).to_numpy()
+    return warm(pd.Series(machine(len(c), el, es, xl, xs), index=d.index), p["t"])
+
+
+def s_uo(d, p):
+    """윌리엄스 얼티밋 오실레이터: BP = 종가 − min(저가, 전 종가), TR = max(고가, 전 종가) − min(저가, 전 종가), UO = 100 (4 A₁ + 2 A₂ + A₃)/7."""
+    n = list(map(int, p["len"].split("/")))
+    pc = d.close.shift()
+    tl, th = pd.concat([d.low, pc], axis=1).min(axis=1), pd.concat([d.high, pc], axis=1).max(axis=1)
+    bp, tr = d.close - tl, (th - tl).replace(0, np.nan)
+    a = [bp.rolling(k).sum() / tr.rolling(k).sum() for k in n]
+    u = (100 * (4 * a[0] + 2 * a[1] + a[2]) / 7).to_numpy()
+    with np.errstate(invalid="ignore"):
+        out = np.where(u > 50, 1.0, -1.0) if p["rule"] == "50선" else machine(len(u), u < 30, u > 70, u > 50, u < 50)
+    return warm(pd.Series(out, index=d.index), n[2])
+
+
 def grid(**kw):
     return [dict(zip(kw, v)) for v in itertools.product(*kw.values())]
 
@@ -884,6 +917,13 @@ FAMILIES = {
                 sources=["John Ehlers (2002-01, Technical Analysis of Stocks & Commodities) Relative Vigor Index — (종 − 시) ÷ (고 − 저), 1·2·2·1 대칭 가중, n 10, 신호선 교차", "MetaTrader·TradingView RVGI 같은 식"]),
     "vpci": dict(name="거래량-가격 확인 지표 (VPCI)", fn=s_vpci, default=dict(sl="5/20", rule="0선"), params=grid(sl=["5/20", "10/50"], rule=["0선", "신호선", "MACD확인"]),
                  sources=["Buff Dormeier (2007-07, Technical Analysis of Stocks & Commodities) Volume Price Confirmation Indicator — VPC × VPR × VM, MACD 교차 확인", "MetaStock Traders' Tips 10·50, 커뮤니티 5·20 (LuxAlgo 정리)"]),
+    "nvi": dict(name="음의 거래량 지수 (NVI)", fn=s_nvi, default=dict(m=255, rule="부호"), params=grid(m=[100, 255], rule=["부호", "롱만", "빠른선"]),
+                sources=["Norman Fosback, Stock Market Logic (1976) — NVI 가 255일 EMA 위면 강세장 확률 96%, 아래면 약세장 53%", "StockCharts ChartSchool NVI — 휩소가 많아 9 EMA 와 255 EMA 교차"]),
+    "connors": dict(name="코너스 RSI(2)", fn=s_connors, default=dict(lo=10, t=200, exit="5일선"),
+                    params=grid(lo=[5, 10], t=[100, 200], exit=["5일선", "5일선+추세이탈"]),
+                    sources=["Larry Connors·Cesar Alvarez, Short Term Trading Strategies That Work (2008) — 200일선 위 RSI(2) < 10 매수, 5일선 위 청산", "StockCharts ChartSchool RSI(2) — 숏은 거꾸로, 엄격한 5"]),
+    "uo": dict(name="얼티밋 오실레이터", fn=s_uo, default=dict(len="7/14/28", rule="평균회귀"), params=grid(len=["7/14/28", "4/8/16", "14/28/56"], rule=["평균회귀", "50선"]),
+               sources=["Larry Williams (1976, 1985 Technical Analysis of Stocks & Commodities) Ultimate Oscillator — 7·14·28, 가중 4·2·1, 70·30", "LuxAlgo·Capital.com·Barchart 정리 — 4·8·16, 14·28·56 설정"]),
 }
 MODES = ["선물 롱숏", "선물 롱만", "현물 롱만"]
 

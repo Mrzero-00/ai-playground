@@ -145,6 +145,21 @@ def build():
         hold = (f"<section class=\"card\"><h4 style=\"margin-top:0\">봉인 구간 판정 ({e(h['window'][0])} ~ {e(h['window'][1])}, 연 날 {e(h['opened'][:16])})</h4>"
                 f"<p class=\"note\">개발 단계를 통과한 것만, 2025-06-30 까지의 데이터로 고른 칸을 고정해 한 번 돌렸다. 경로 가 = 단독(샤프 > 기준선), 나 = 현물 봇 보완(섞은 샤프 > 현물 봇).</p>"
                 f"<div class=\"scroll\"><table class=\"num\"><thead><tr><th>방법</th><th>고정한 칸</th><th>샤프 / 기준선</th><th>연복리</th><th>MDD</th><th>거래</th><th>참고</th><th>판정</th></tr></thead><tbody>{rows}</tbody></table></div>{charts}</section>")
+    dsr, dp = "", C.OUT / "dsr.json"
+    if dp.exists():  # 다중 검정 보정 (RESEARCH.md '다중 검정 보정 등록', scripts/lab/dsr.py)
+        z, a = json.loads(dp.read_text()), 52 ** 0.5
+        fam = "".join(f"<tr><th>{e(k)}</th><td>{f['N']}</td><td>{f['초과']['N_eff']:.0f}</td><td>{f['초과']['SR0'] * a:.2f}</td><td>{f['절대']['SR0'] * a:.2f}</td></tr>"
+                      for k, f in z["families"].items())
+        rows = "".join(f"<tr><th>{e(r['name'])} <small>{e(r['unit'])}{' · 참고용' if r['late'] else ''}</small></th><td>{num(r['절대']['연 SR'])}</td><td>{num(r['절대']['DSR'])}</td>"
+                       f"<td>{num(r['초과']['연 SR'])}</td><td>{num(r['초과']['PSR'])}</td><td>{num(r['초과']['DSR'])}</td><td>{pill(r['보정 통과'], '보정 통과', '운과 구분 안 됨')}</td></tr>"
+                       for r in sorted((r for r in z["units"] if r["passed"]), key=lambda r: -r["초과"]["DSR"]))
+        best = max(z["units"], key=lambda r: r["초과"]["DSR"])
+        dsr = (f"<section class=\"card\"><h4 style=\"margin-top:0\">다중 검정 보정 — 디플레이티드 샤프 ({e(z['made'][:16])})</h4>"
+               f"<p class=\"note\">판정 단위 {len(z['units'])}개를 시험했으니 실력이 없어도 몇 개는 운으로 기준을 넘는다. 워크포워드 주간 수익 {z['T']}개로, 같은 모드 안에서 운으로 나올 가장 큰 샤프(SR0)를 빼고도 "
+               f"기준선보다 나을 확률(초과 DSR)이 0.95 를 넘는지 본다(Bailey·López de Prado 2014). 초과는 전략 − 기준선 주간 수익이라, 덜 들고 있어 샤프만 높은 방법은 낮게 나온다. 개발·봉인 판정은 바꾸지 않는다. "
+               f"전체에서 초과 DSR 이 가장 높은 단위는 {e(best['name'])} · {e(best['unit'])} ({num(best['초과']['DSR'])}).</p>"
+               f"<div class=\"scroll\"><table class=\"num\"><thead><tr><th>모드 묶음</th><th>시험 수</th><th>유효 시험 수(초과)</th><th>운으로 나올 최고 초과 샤프(연)</th><th>운으로 나올 최고 샤프(연)</th></tr></thead><tbody>{fam}</tbody></table></div>"
+               f"<div class=\"scroll\"><table class=\"num\"><thead><tr><th>개발 통과 단위</th><th>샤프(주간→연)</th><th>절대 DSR</th><th>초과 샤프(연)</th><th>초과 PSR</th><th>초과 DSR</th><th>보정</th></tr></thead><tbody>{rows}</tbody></table></div></section>")
     total = sum(r["cells"] for r in done)
     passed = [f"{r['name']} · {u['name']}" for r in done for u in r["units"] if u["passed"] and not r.get("late")]
     late_ok = [f"{r['name']} · {u['name']}" for r in done for u in r["units"] if u["passed"] and r.get("late")]
@@ -152,7 +167,7 @@ def build():
             + (f" 봉인 해제 뒤 추가(참고용) 개발 통과: {', '.join(late_ok)}." if late_ok else "")) if done else "첫 단계를 돌리는 중이다."
     seal = f"열림 ({json.loads(C.SEAL.read_text())['at'][:16]})" if C.SEAL.exists() else "닫힘 — 2025-07-01 이후 데이터는 마지막에 한 번만 연다"
     page = TEMPLATE.replace("__NOW__", now).replace("__HEAD__", e(head)).replace("__SEAL__", e(seal)).replace("__PROGRESS__", progress) \
-        .replace("__OVERVIEW__", overview or '<tr><td colspan="7">아직 끝난 단계가 없다.</td></tr>').replace("__SECTIONS__", hold + sections) \
+        .replace("__OVERVIEW__", overview or '<tr><td colspan="7">아직 끝난 단계가 없다.</td></tr>').replace("__SECTIONS__", hold + dsr + sections) \
         .replace("__DATA__", json.dumps(curves, ensure_ascii=False))
     (C.OUT / "report.html").write_text(page)
     (C.OUT / "report.json").write_text(json.dumps(reported, ensure_ascii=False))

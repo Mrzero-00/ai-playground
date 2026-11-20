@@ -323,6 +323,19 @@ VIDYA·QQE·포스 인덱스는 1일·4시간 선물 + 1일 현물(`indicators.p
 
 칸 수: VIDYA 16 × 5 = 80, QQE 8 × 5 = 40, 포스 인덱스 6 × 5 = 30, NVT 시그널 16 × 3 = 48. 합계 198칸, 판정 단위 12개(참고용). 누적 판정 단위 217개.
 
+### 2단계 18차 등록 (2026-11-20, 봉인 해제 뒤 추가 — 참고용) — 돌리기 전에 고정
+코인 차트에서 많이 쓰는 채널 오실레이터 하나(웨이브트렌드), 봉 안에서 종가가 시가보다 얼마나 힘 있게 닫히는지 하나(상대 활력 지수 RVI), 거래량 가중 평균과 단순 평균의 차이 하나(VPCI — 16차 클링거·17차 포스 인덱스에 이은 거래량 확인), 신용시장 위험 선호 하나(미국 회사채 신용 스프레드 추세 — 14차 실질금리와 같은 거시 방식). 개발 판정만 한다.
+웨이브트렌드·RVI·VPCI 는 1일·4시간 선물 + 1일 현물(`indicators.py`), 신용 스프레드는 일 단위만(`others.py`).
+
+| 단계 | 방법 | 출처 | 규칙 | 격자 | 기본값 |
+|---|---|---|---|---|---|
+| wavetrend | 웨이브트렌드 | LazyBear (TradingView, WaveTrend Oscillator) — ap = (고+저+종)/3, esa = EMA(ap, n1), d = EMA(abs(ap − esa), n1), ci = (ap − esa) ÷ (0.015 × d), WT1 = EMA(ci, n2), WT2 = WT1 의 4 봉 SMA, 채널 10·평균 21, 과매수·과매도 ±60(보조 ±53); −60 아래에서 WT1 이 WT2 를 위로 넘으면 매수, +60 위에서 아래로 넘으면 매도 (Medium·ProRealCode·LuxAlgo 정리) | 교차: WT1 > WT2 면 +1, 아니면 −1. 0선: WT1 > 0 이면 +1, 아니면 −1. 과열 lv: WT1 이 WT2 를 위로 넘는 봉에 WT1 < −lv 면 롱에 들어가 반대 신호까지, WT2 를 아래로 넘는 봉에 WT1 > +lv 면 숏에 들어가 반대 신호까지. 처음 n1 + n2 봉은 0 | 채널 n1 10·20 × 평균 n2 21·42 × 교차·0선·과열60·과열53 | 10, 21, 교차 |
+| rvi | 상대 활력 지수 (RVI) | John Ehlers (2002-01, Technical Analysis of Stocks & Commodities) Relative Vigor Index — 분자 = (종 − 시) 의 1·2·2·1 대칭 가중 평균, 분모 = (고 − 저) 의 같은 평균, RVI = 분자 n 봉 합 ÷ 분모 n 봉 합, 신호선 = RVI 의 1·2·2·1 대칭 가중 평균, 기본 n 10 (MetaTrader·TradingView RVGI 같은 식); 신호선 교차로 산다·판다 (Tradingpedia·Capital.com 정리) | 신호선: RVI > 신호선이면 +1, 아니면 −1. 0선: RVI > 0 이면 +1, 아니면 −1. 처음 n + 6 봉은 0 | n 5·10·20·40 × 신호선·0선 | 10, 신호선 |
+| vpci | 거래량-가격 확인 지표 (VPCI) | Buff Dormeier (2007-07, Technical Analysis of Stocks & Commodities) Volume Price Confirmation Indicator — VPC = VWMA_L − SMA_L, VPR = VWMA_S ÷ SMA_S, VM = 거래량 SMA_S ÷ 거래량 SMA_L, VPCI = VPC × VPR × VM; 원문은 MACD 교차를 VPCI 로 확인·거부; MetaStock Traders' Tips 10·50, 커뮤니티 5·20; 흔한 규칙은 0선과 자기 평균 교차 (LuxAlgo 정리) | 0선: VPCI > 0 이면 +1, 아니면 −1. 신호선: VPCI > VPCI 의 S 봉 SMA 면 +1, 아니면 −1. MACD확인: MACD(12·26) > 9 신호선이고 VPCI > 0 이면 +1, MACD < 신호선이고 VPCI < 0 이면 −1, 아니면 0. 처음 max(L, 35) 봉은 0 | S/L 5/20·10/50 × 0선·신호선·MACD확인 | 5/20, 0선 |
+| credit | 미국 신용 스프레드 추세 | Gilchrist·Zakrajšek (2012, American Economic Review) Credit Spreads and Business Cycle Fluctuations — 회사채 스프레드는 위험 선호·경기를 앞서 보여 준다; LookIntoBitcoin, Bitcoin Cycles vs High Yield Credit Cycles — 비트코인 주기와 하이일드 신용 주기가 함께 간다; CryptoSlate (2025) — 스프레드가 좁아지면 위험자산 선호; 반론: 2025-10 뒤 스프레드는 좁은데 비트코인은 크게 내렸다(같은 보도). 데이터: FRED BAA10Y (Moody's Baa 회사채 수익률 − 10년 국채, 1986~). ICE 하이일드 OAS(BAMLH0A0HYM2)는 FRED 에 최근 3년만 있어 못 쓴다 | 스프레드가 n 거래일 평균 아래(평균아래) 또는 n 거래일 전보다 낮으면(변화) +1(위험 선호), 아니면 −1. D 날짜 값은 D+1 봉 신호부터, 주말·휴일은 직전 거래일 값 | 평균아래·변화 × n 20·50·100·200 | 평균아래, 50 |
+
+칸 수: 웨이브트렌드 16 × 5 = 80, RVI 8 × 5 = 40, VPCI 6 × 5 = 30, 신용 스프레드 8 × 3 = 24. 합계 174칸, 판정 단위 12개(참고용). 누적 판정 단위 229개.
+
 ## 루프 절차 (매시간, Claude 세션 크론)
 1. `python3 scripts/lab/status.py` 로 상태를 본다.
 2. 실행 중인 단계가 있으면 진행률만 한 줄로 남기고 끝낸다.

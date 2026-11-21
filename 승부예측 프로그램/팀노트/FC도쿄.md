@@ -1,15 +1,15 @@
 # FC도쿄 (J1)
 
 <!-- FACTS:START -->
-## 팩트시트 (자동 수집 2026-10-31) — 조사 전 반드시 읽고, 아래 사실과 다른 뉴스 요약은 '미확인'으로 둔다
+## 팩트시트 (자동 수집 2026-11-21) — 조사 전 반드시 읽고, 아래 사실과 다른 뉴스 요약은 '미확인'으로 둔다
 - 출처: 위키 'FC Tokyo'(club), ESPN 있음
 - 감독: Rikizo Matsuhashi
-- 리그 순위: 2위 12경기 8승3무1패 GD+19 승점27 (FC Tokyo)
-- 최근 경기(ESPN, 최대 28일): 2026-09-19 FC Tokyo 1-0 Nagoya Grampus / 2026-10-10 FC Tokyo 3-0 Urawa Red Diamonds / 2026-10-17 Tokyo Verdy 1969 0-4 FC Tokyo / 2026-10-21 FC Tokyo 0-0 Kashiwa Reysol / 2026-10-25 FC Tokyo 6-0 Mito Hollyhock
+- 리그 순위: 1위 14경기 10승3무1패 GD+25 승점33 (FC Tokyo)
+- 최근 경기(ESPN, 최대 28일): 2026-10-17 Tokyo Verdy 1969 0-4 FC Tokyo / 2026-10-21 FC Tokyo 0-0 Kashiwa Reysol / 2026-10-25 FC Tokyo 6-0 Mito Hollyhock / 2026-10-31 Fagiano Okayama 0-4 FC Tokyo / 2026-11-07 FC Tokyo 2-0 Kashima Antlers
 <!-- FACTS:END -->
 <!-- INPUTS:START -->
-## 입력(자동 수집 2026-10-31) — xG·휴식일·라인업·환경(이동거리·고도·날씨)은 이 숫자를 쓴다
-- 10-31 14:00 vs 파지아노 오카야마: 휴식 5.9일?(국내리그 ESPN 미제공 — 직접 확인)(7일 1경기) · 직전 10-25 홈 vs Mito Hollyhock 6-0 승 [jpn.1] · xG - · 선발 4-4-2 Kim Seung-Gyu, Hayato Inamura, Alexander Scholz, Kashifu Bangunagande, Hirokazu Ishikara, Takahiro Koh, Shuto Nagano, Soma Anzai, Kein Sato, Motoki Nagakura, Teruhito Nakagawa · 직전 대비 교체 1명(Kyota Tokiwa) · 구장 오카야마 현 종합 운동장 육상 경기장 · 이동 521km · 고도 10m(차 -56m) · 22.1℃ 강수0mm(0%) 바람10.2km/h
+## 입력(자동 수집 2026-11-21) — xG·휴식일·라인업·환경(이동거리·고도·날씨)은 이 숫자를 쓴다
+- 11-21 15:00 vs 세레소 오사카: 휴식 14.0일?(국내리그 ESPN 미제공 — 직접 확인) · 직전 11-07 홈 vs Kashima Antlers 2-0 승 [jpn.1] · xG - · 직전 선발 4-4-2 Kim Seung-Gyu, Hayato Inamura, Alexander Scholz, Kashifu Bangunagande, Rio Omori, Takahiro Koh, Shuto Nagano, Soma Anzai, Kota Tawaratsumida, Motoki Nagakura, Teruhito Nakagawa · 구장 요도코 벚꽃 스타디움 · 이동 383km · 고도 9m(차 -57m) · 11.1℃ 강수0mm(53%) 바람12.7km/h
 <!-- INPUTS:END -->
 
 ## 성향

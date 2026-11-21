@@ -1,16 +1,16 @@
 # 교토 상가FC
 
 <!-- FACTS:START -->
-## 팩트시트 (자동 수집 2026-10-31) — 조사 전 반드시 읽고, 아래 사실과 다른 뉴스 요약은 '미확인'으로 둔다
+## 팩트시트 (자동 수집 2026-11-21) — 조사 전 반드시 읽고, 아래 사실과 다른 뉴스 요약은 '미확인'으로 둔다
 - 출처: 위키 'Kyoto Sanga FC'(club), ESPN 있음
 - 감독: Ranko Popović
-- 리그 순위: 16위 12경기 2승4무6패 GD-8 승점10 (Kyoto Sanga)
-- 최근 경기(ESPN, 최대 28일): 2026-09-19 Fagiano Okayama 1-2 Kyoto Sanga / 2026-10-10 Kyoto Sanga 0-1 Machida Zelvia / 2026-10-17 Sanfrecce Hiroshima 3-0 Kyoto Sanga / 2026-10-21 Kyoto Sanga 2-2 Kashima Antlers / 2026-10-24 Gamba Osaka 2-2 Kyoto Sanga
+- 리그 순위: 12위 14경기 4승4무6패 GD-4 승점16 (Kyoto Sanga)
+- 최근 경기(ESPN, 최대 28일): 2026-10-17 Sanfrecce Hiroshima 3-0 Kyoto Sanga / 2026-10-21 Kyoto Sanga 2-2 Kashima Antlers / 2026-10-24 Gamba Osaka 2-2 Kyoto Sanga / 2026-10-31 Kyoto Sanga 2-0 Shimizu S-Pulse / 2026-11-07 Nagoya Grampus 0-2 Kyoto Sanga
 <!-- FACTS:END -->
 
 <!-- INPUTS:START -->
-## 입력(자동 수집 2026-11-02) — xG·휴식일·라인업·환경(이동거리·고도·날씨)은 이 숫자를 쓴다
-- 11-03 21:15 vs 꽁안 하노이: 휴식 7.1일 · 직전 10-27 홈 vs Newcastle Jets 5-2 승 [league stage] · xG - · 직전 선발 3-4-2-1 Halls, Weverton, Takaaki Shichi, Hisashi Appiah Tawiah, João Pedro Mendes, Shimpei Fukuoka, Kyo Sato, Yoon Sung-Jun, Papagaio, Marco Túlio, Everton Maceió · 구장 ? · 이동 ?(구장 미확인) · 고도 ?m · 날씨 -
+## 입력(자동 수집 2026-11-21) — xG·휴식일·라인업·환경(이동거리·고도·날씨)은 이 숫자를 쓴다
+- 11-21 14:00 vs 우라와 레드: 휴식 14.0일?(국내리그 ESPN 미제공 — 직접 확인) · 직전 11-07 원정 vs Nagoya Grampus 2-0 승 [jpn.1] · xG - · 선발 3-4-2-1 Halls, Yoshinori Suzuki, Takaaki Shichi, Hisashi Appiah Tawiah, João Pedro Mendes, Shimpei Fukuoka, Kyo Sato, Yoon Sung-Jun, Papagaio, Haruki Arai, Alex Negueba · 직전 대비 교체 0명() · 구장 교토시(구단 좌표 — 구장 미확인) · 이동 371km · 고도 51m(차 +49m) · 11.1℃ 강수0mm(0%) 바람8.6km/h
 <!-- INPUTS:END -->
 
 - 2026-10-13 조사: 2025 J1 3위(38경기 19승11무8패 득점62·실점40, 득실+22, 강팀). 2026시즌 란코 포포비치 신임감독 체제로 선수단·코칭스태프 대폭 개편, 현재 14위(8경기 2승2무4패 득점11·실점15, 득실-4) — 저득점·무승 흐름. 핵심MF 미츠키 사이토 좌측 무릎 전방십자인대+반월판 파열, 8/17 수술, 9~10개월 장기결장(시즌아웃급). 공격수 라파엘 엘리아스 직전 마치다전 29분 교체 후 이번 경기 결장 가능성 높음(대체: 알렉스 소우자). ACLE MD1(9/15) 대전 하나시티즌(한국)에 홈에서 0-1 패. 출처: [starnewskorea](https://www.starnewskorea.com/sports/2026/09/15/2026091521252630537), [sportsgambler.com](https://www.sportsgambler.com/betting-tips/football/kyoto-sanga-vs-machida-zelvia-prediction-lineups-odds-2026-10-10/), [jleague.jp](https://www.jleague.jp/en/news/article/34838/)

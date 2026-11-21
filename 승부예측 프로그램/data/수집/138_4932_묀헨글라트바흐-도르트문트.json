@@ -1,0 +1,146 @@
+{
+  "번호": 4932,
+  "홈": "보루시아 묀헨글라트바흐",
+  "원정": "보루시아 도르트문트",
+  "리그": "독일 분데스리가 2026-27 10라운드",
+  "수집시각": "2026-11-21 KST (킥오프 2026-11-21 15:30 CET = 23:30 KST. bundesliga.com 표는 14:30으로 표기, UTC 표기로 보임). 마지막 수집 기사는 11/20 21:30 기준",
+  "구장": "보루시아 파르크(Stadion im Borussia-Park, 묀헨글라트바흐). 심판 Robert Hartmann (Stats Zone 기재, 단일 출처)",
+  "순위": {
+    "기준": "2026-11-20 경기(바이에른-쾰른 1-1)까지 반영된 위키피디아 표",
+    "글라트바흐": "18위(최하위), 9경기 1승 1무 7패, 득 12 실 25, 득실차 -13, 승점 4. 15위 쾰른(10점)과 승점 5 차이는 Sports Mole 기재(위키 표 기준 14위 쾰른 10점, 15위 아우크스부르크 9점이라 표현이 엇갈림)",
+    "도르트문트": "2위, 9경기 6승 3무 0패, 득 16 실 7, 득실차 +9, 승점 21. 실점 7은 리그 최소(Sports Mole, Stats Zone)",
+    "참고": "1위 바이에른 22점(10경기, 11/20 쾰른과 1-1). 도르트문트가 이기면 24점"
+  },
+  "결장": [
+    {"선수": "이타쿠라 고(Ko Itakura)", "팀": "글라트바흐", "포지션": "센터백", "사유": "함부르크전(11/6) 경고 누적 퇴장(옐로-레드) 징계", "상태": "확정", "출처": "gladbachtotal, bmg-news, Sports Mole, Stats Zone, torfabrik 보도(Blessin 확인)", "날짜": "2026-11-19~20", "팀 내 비중": "Sports Mole가 핵심 센터백으로 표기, 선발 횟수 확인 안 됨"},
+    {"선수": "팀 클라인디엔스트(Tim Kleindienst)", "팀": "글라트바흐", "포지션": "스트라이커(주장)", "사유": "근섬유 파열(Sports Mole)", "상태": "확정(1~2주 뒤 복귀 예상: BILD 인용 headtopics)", "출처": "Sports Mole, bmg-news, headtopics(BILD)", "날짜": "2026-11-19~20", "팀 내 비중": "확인 안 됨"},
+    {"선수": "루카스 울리히(Lukas Ullrich)", "팀": "글라트바흐", "포지션": "좌측 수비", "사유": "쇄골 골절, 올해 남은 기간 결장(gladbachtotal)", "상태": "확정", "출처": "gladbachtotal, Sports Mole, Stats Zone", "날짜": "2026-11-19~20", "팀 내 비중": "확인 안 됨"},
+    {"선수": "하시오카 다이키(Daiki Hashioka)", "팀": "글라트바흐", "포지션": "수비수", "사유": "근육 문제(gladbachtotal)", "상태": "확정", "출처": "gladbachtotal, Stats Zone, headtopics(BILD)", "날짜": "2026-11-19~20", "팀 내 비중": "확인 안 됨"},
+    {"선수": "얀 레슈친스키(Jan Leszczynski)", "팀": "글라트바흐", "포지션": "미확인", "사유": "부상(사유 미기재)", "상태": "확정", "출처": "Stats Zone, headtopics(BILD)", "날짜": "2026-11-19~20", "팀 내 비중": "확인 안 됨"},
+    {"선수": "후고 볼린(Hugo Bolin)", "팀": "글라트바흐", "포지션": "미확인", "사유": "사유 미기재", "상태": "엇갈림: 결장 목록에 포함(BILD, headtopics), 1~2주 뒤 복귀 / Sports Mole 예상선발에는 포함", "출처": "headtopics(BILD), bmg-news, Sports Mole", "날짜": "2026-11-19~20", "팀 내 비중": "확인 안 됨"},
+    {"선수": "콘테(Conte)", "팀": "글라트바흐", "포지션": "미확인(풀네임 확인 안 됨)", "사유": "부상", "상태": "의심", "출처": "Stats Zone", "날짜": "2026-11-20", "팀 내 비중": "확인 안 됨"},
+    {"선수": "레오폴트(Leopold)", "팀": "글라트바흐", "포지션": "미확인(풀네임 확인 안 됨)", "사유": "부상", "상태": "확정(Stats Zone 단일 출처)", "출처": "Stats Zone", "날짜": "2026-11-20", "팀 내 비중": "확인 안 됨"},
+    {"선수": "세루 기라시(Serhou Guirassy)", "팀": "도르트문트", "포지션": "센터 포워드", "사유": "근육 문제(허벅지 또는 긴장, 매체별 표현 상이). 엘버스베르크전(11/7) 또는 베티스전(11/4) 도중 부상이라는 보도가 엇갈림. 대표팀 불참", "상태": "의심(Kovac 11/19: '50:50이라 말하지 않겠지만 지켜보겠다', 결장도 배제 못함). 11/20 저녁 Ruhr Nachrichten: 구단 출발 때 목격 안 됨, 풀 선발명단 미공개 -> 결장 가능성 보도, 최종 확인 안 됨", "출처": "fussballdaten(11/19, 11/20 21:30), fussballtransfers, Yahoo Sports, ligainsider(11/20 20:03)", "날짜": "2026-11-19~20", "팀 내 비중": "ligainsider 기준 2026-27 시즌 8경기 출전(평균 평점 3.12). 부상 시 파비우 시우바(Fabio Silva) 선발 예상"},
+    {"선수": "발데마르 안톤(Waldemar Anton)", "팀": "도르트문트", "포지션": "센터백", "사유": "엘버스베르크전 이후 근육 문제, 대표팀 불참", "상태": "의심 -> 복귀 쪽(11/20 Ruhr Nachrichten: 원정팀과 함께 묀헨글라트바흐로 이동, 구단은 완전 소화에 낙관). 출전 최종 확정 안 됨", "출처": "fussballdaten(11/20 21:30), sport.de 제목(원문 못 읽음)", "날짜": "2026-11-19~20", "팀 내 비중": "예상선발(Sports Mole, Stats Zone)에 3백 한 축으로 포함"},
+    {"선수": "카니 추쿠에메카(Carney Chukwuemeka)", "팀": "도르트문트", "포지션": "미드필더", "사유": "근육 부상(베티스전 11/4 또는 엘버스베르크전, 매체별 상이). 오스트리아 대표팀 불참이라는 보도는 fussballdaten 11/20 기재 그대로(국적 확인 안 됨)", "상태": "의심(Stats Zone) / 당분간 결장(fussballdaten 11/20)", "출처": "fussballdaten, Stats Zone", "날짜": "2026-11-19~20", "팀 내 비중": "확인 안 됨"},
+    {"선수": "사무엘레 이나시오(Samuele Inácio)", "팀": "도르트문트", "포지션": "미확인(18~19세)", "사유": "이탈리아 U21 소집 중 반월판(메니스쿠스) 부상, 수개월 결장(bvb 보도 기반 검색 요약, fussballdaten)", "상태": "확정", "출처": "fussballdaten, fussballtransfers, Stats Zone", "날짜": "2026-11-19~20", "팀 내 비중": "확인 안 됨"},
+    {"선수": "엠레 잔(Emre Can)", "팀": "도르트문트", "포지션": "미드필더", "사유": "십자인대 부상, 복귀 근접하나 토요일은 불가(Sports Mole)", "상태": "확정", "출처": "Sports Mole, Stats Zone, Yahoo Sports", "날짜": "2026-11-19", "팀 내 비중": "확인 안 됨"},
+    {"선수": "콘스탄텔리아스(Giannis Konstantelias) / 레르마(Justin Lerma)", "팀": "도르트문트", "포지션": "미드필더 계열(확인 안 됨)", "사유": "콘스탄텔리아스 십자인대 파열, 레르마 근육 부상", "상태": "확정", "출처": "Yahoo Sports(Kovac PK), Stats Zone", "날짜": "2026-11-19", "팀 내 비중": "확인 안 됨"}
+  ],
+  "대표차출": [
+    "도르트문트: 코바치 PK(11/19) '대표팀 소집에서 돌아온 선수는 거의 전원 컨디션 양호, 이나시오만 문제'. 기라시·안톤·추쿠에메카는 부상으로 대표팀 불참(소집 해제).",
+    "도르트문트: 이나시오는 이탈리아 U21 소집 중 부상(메니스쿠스).",
+    "글라트바흐: 블레신 PK(11/19) '휴식기에 대표 소집 선수가 적어 더 큰 훈련 인원으로 훈련했다'. 11/12 친선 슈탄다르 리에주전 승(ESPN 1-0, gladbachtotal 2-0으로 엇갈림).",
+    "글라트바흐 복귀: 카스트롭(어깨 부상 회복, 좌측 가능), 디크스(훈련 공백 만회, 센터백 선발 예정: gladbachtotal), 니콜라스 골키퍼 부상 복귀(bmg-news) vs 골키퍼 바츠 선발 가능(gladbachtotal) 엇갈림.",
+    "대표차출로 늦게 복귀한 선수 명단은 확인 안 됨."
+  ],
+  "감독": {
+    "글라트바흐_블레신": [
+      "11/19(목) PK: 도르트문트는 독일 최고 팀 중 하나, 코바치는 '압도적(überragend)'. '좋은 날엔 누구든 이길 수 있다. 상대 방심도 필요하다'. 경기는 어렵지만 불가능하지 않다(bvbwld).",
+      "선발 공개 거부, 골키퍼 결정 코멘트 거부(gladbachtotal).",
+      "BILD 인용(headtopics): 가용 선수가 줄었다, 확실한 결장은 5명(클라인디엔스트, 볼린, 레슈친스키, 하시오카, 울리히). 공격 후보 4명 중 1명은 벤치. 60분 즈음 신선한 교체 선수가 승부를 가른다는 구상. 공격 후보: 모햐(17세, 주전 예상), 호노라, 퀸, 플레크, 하크, 마치노. 하크는 벤치 후보.",
+      "디크스 훈련 공백 완전 만회, 헤롤드는 3백 우측 센터백으로 장기 구상(gladbachtotal).",
+      "블레신은 6경기 지휘 2승 3패(Sports Mole 기재, 나머지 1경기 결과 확인 안 됨)."
+    ],
+    "도르트문트_코바치": [
+      "11/19(목) PK(호헨부셰이): 안톤·기라시·추쿠에메카 상태 '오늘 내일 훈련 지켜본다', 배제된 것 없다. '50:50이라 말하고 싶지 않지만 지켜보겠다'. 이나시오만 문제 있는 상태로 복귀(Yahoo Sports, fussballtransfers, fussballdaten).",
+      "경기 목표는 묀헨글라트바흐에서 이기는 것(Yahoo Sports). '글라트바흐는 최하위일 만큼 나쁘지 않다', '적응할 시간이 없다'(fussballdaten 11/20).",
+      "최근 분데스리가 도르트문트 득점이 전부 후반에 나왔고 전반 조기 득점을 바란다는 취지(tribuna 검색 요약, 원문 403으로 못 읽음).",
+      "로테이션 구체 언급: 확인 안 됨. 11/19 PK 전문(bvb.de 라이브 페이지)은 크기 문제로 못 읽음.",
+      "일정: 3일 뒤 UCL 원정 아스널전(11/24). 이 점과 로테이션 연결 보도는 확인 안 됨. 베리만(Veerman)·라이어슨이 많은 출전 시간을 소화했다는 언급(allfootballapp 검색 요약, 원문 못 읽음)."
+    ]
+  },
+  "예상선발": {
+    "Sports Mole(11/19 게재)": {
+      "글라트바흐(3-4-3)": "니콜라스; 디크스, 잔더, 키아로디아; 스캘리, 우노, 노이하우스, 카스트롭; 볼린, 리드베리, 모햐",
+      "도르트문트(3-4-3)": "코벨; 가두, 안톤, 슐로터베크; 바이어, 벨링엄, 은메차, 스벤손; 카레차스, 자비처; 시우바"
+    },
+    "Stats Zone(11/20)": {
+      "글라트바흐(3-4-3)": "니콜라스; 디크스, 잔더, 키아로디아; 스캘리, 우노, 노이하우스, 카스트롭; 하크, 마치노, 모햐",
+      "도르트문트(3-4-3)": "코벨; 가두, 안톤, 슐로터베크; 라이어슨, 벨링엄, 은메차, 스벤손; 카레차스, 바이어; 기라시"
+    },
+    "gladbachtotal(11/19 17:32, 추측 표기)": "바츠; 잔더, 디크스, 헤롤드; 스캘리, 우노, 노이하우스, 카스트롭; 퀸, 모햐; 마치노. 벤치 키아로디아·호노라·플레크·응게팍, 슈퇴거 가능",
+    "bmg-news(11/20)": "니콜라스 골문 복귀, 3백 변동 없이 디크스 중앙, 카스트롭 좌, 스캘리 우, 노이하우스+우노 더블 피벗. 공격은 미정(호노라 가짜 9번 가능 등 필자 추측)",
+    "공식 선발": "확인 안 됨(발표는 킥오프 약 1시간 전)"
+  },
+  "최근경기": {
+    "글라트바흐(ESPN, 새 순으로)": [
+      "2026-11-12 슈탄다르 리에주 1-0(ESPN) / 2-0(gladbachtotal) 친선, 홈 표기. 엇갈림",
+      "2026-11-06 함부르크 3-1 글라트바흐 (리그, 원정, 패)",
+      "2026-10-31 글라트바흐 0-0 파더보른 (리그, 홈, 무)",
+      "2026-10-27 글라트바흐 2-0 카를스루어 (DFB-포칼, 홈, 승)",
+      "2026-10-23 슈투트가르트 2-3 글라트바흐 (리그, 원정, 승. 시즌 유일한 승)",
+      "2026-10-18 글라트바흐 1-2 호펜하임 (리그, 홈, 패)",
+      "2026-10-11 쾰른 2-1 글라트바흐 (리그, 원정, 패)"
+    ],
+    "도르트문트(ESPN, 새 순으로)": [
+      "2026-11-07 도르트문트 2-1 엘버스베르크 (리그, 홈, 승)",
+      "2026-11-04 도르트문트 2-1 레알 베티스 (UCL, 홈, 승)",
+      "2026-10-31 바이에른 2-2 도르트문트 (리그, 원정, 무)",
+      "2026-10-27 도르트문트 3-2 브레멘 (DFB-포칼, 홈, 승)",
+      "2026-10-24 도르트문트 1-0 프랑크푸르트 (리그. ESPN은 프랑크푸르트를 앞에 표기하나 위키피디아 홈 목록·Stats Zone 원정 서술과 대조해 홈 승으로 읽음, 방향 확인 안 됨)",
+      "참고: 2026-10-20 사바 1-2 도르트문트(UCL, 원정 승), 2026-10-17 우니온 0-0 도르트문트, 2026-10-14 보되/글림트 1-0 도르트문트(ESPN 표기, 방향 확인 안 됨, 위키피디아 UCL 4경기 3승 1패와는 정합하는 읽기이나 확정 아님)"
+    ],
+    "리그 폼 문자열": "Sports Mole(나열 순서 불명): 글라트바흐 L L L W D L / 도르트문트 W D D W D W (Sports Mole 자체가 일관성 문제를 일부 보였음, 날짜 없음)"
+  },
+  "일정": {
+    "글라트바흐": "직전 공식전 2026-11-06 함부르크전(리그), 이후 11/12 친선. 다음: 11/27(금) 브레멘 원정 (bundesliga.com 19:30 표기, fcbayern.com은 20:30 표기로 엇갈림, UTC/현지 구분 확인 안 됨). 유럽대회 없음.",
+    "도르트문트": "직전 공식전 2026-11-07 엘버스베르크전(리그). 주중: 2026-11-24(화) 21:00 CET UCL 5차전 아스널 vs 도르트문트(에미레이츠, 아스널 구단 페이지 영국 20:00, 여러 출처 일치. Sport Flash만 시간 미정 표기). 다음 리그: 11/29(일) 레버쿠젠 홈 (bundesliga.com 18:30 표기, 다른 페이지는 15:30/11-28로 엇갈림. 확인 필요).",
+    "UCL 리그 페이즈 4경기 후(위키 11/4 기준)": "도르트문트 4경기 3승 1패 승점 9 득 7 실 5, 12위"
+  },
+  "맞대결": [
+    "2026-05-03 글라트바흐 1-0 도르트문트 (리그, 홈. 도르트문트 현재 리그 무패 행진 직전 마지막 패, Stats Zone)",
+    "그 이전 5경기: 도르트문트가 직전 6경기 중 5승(Stats Zone), 개별 스코어는 확인 안 됨",
+    "통산(1995/96 이후 분데스리가 56경기): 도르트문트 33승 8무 글라트바흐 15승, 경기당 3.14골 (Stats Zone)",
+    "글라트바흐 홈 28경기 12승 6무 10패. 최근 홈 7경기 4승 1무 2패, 2019-05-18 0-2 패 이후 7경기 모두 득점(Stats Zone)",
+    "최대 점수차: 도르트문트 6-0(2022-02-20, 홈), 글라트바흐 5-1(1996-09-21, 홈)",
+    "최근 5번 개별 일자·스코어는 위 2026-05-03 외 확인 안 됨"
+  ],
+  "걸린것": [
+    "글라트바흐: 최하위(승점 4), 안전권과 승점 5 차이(Sports Mole). 리그 홈 4경기 1무 3패로 승 없음(Sports Mole 일부 서술은 '홈에서 한 번 이겼다'와 충돌, 출처 내 엇갈림). 블레신 부임 후 6경기.",
+    "도르트문트: 승점 21, 바이에른(22)을 1점 추격. 리그 무패(6승 3무). 3일 뒤 UCL 아스널 원정. 최근 13시즌 중 9라운드 기준 최고 승점 타이(Sports Mole)."
+  ],
+  "사실": [
+    "글라트바흐 실점 25는 리그 최다, 득점 12. 도르트문트 실점 7은 리그 최소, 득점 16(상위 7팀 중 적은 편, Stats Zone).",
+    "도르트문트 원정 리그 5경기 무패(3승 2무), 직전 두 원정은 우니온 0-0, 바이에른 2-2(Stats Zone). Sports Mole는 원정 승점 8/12로 기재.",
+    "도르트문트 최근 분데스리가 득점이 모두 후반에 나왔다는 서술(tribuna 요약, 원문 미확인).",
+    "글라트바흐의 올 시즌 유일한 리그 승은 10/23 슈투트가르트전 3-2 원정(ESPN 일치). 첫 6경기 승리 없음 서술은 Stats Zone.",
+    "10대 선수: 모햐 17세 주전 예상, 플레크 19세(전 BVB 유스) 벤치 후보 및 친정 상대 출전 희망(bvbwld).",
+    "중계: Sky(독일), ESPN+(미국), 영국 방송 없음(Stats Zone, 같은 매치 11/21 15:30).",
+    "11/20 바이에른 1-1 쾰른: 케인 20분 교체(발목), 올리세 후반 시작 교체(bundesliga.com 보고). 도르트문트 순위 경쟁에 영향."
+  ],
+  "확인안됨": [
+    "kicker.de 기사·라인업 직접 확인 못함.",
+    "도르트문트 11/20 최종 소집 명단(기라시 포함 여부). 11/21 당일 공식 선발.",
+    "도르트문트 로테이션 구체 언급, 코바치 PK 전문(bvb.de 페이지 용량 문제로 일부 못 읽음).",
+    "글라트바흐 골키퍼 선발(니콜라스 vs 바츠), 볼린 결장 여부.",
+    "Conte·Leopold 풀네임과 부상 사유. 이타쿠라 퇴장 경기(11/6 함부르크)의 정확한 사유 분 단위.",
+    "팀 내 선발 횟수/출전 비중 수치(기라시 8경기 외).",
+    "도르트문트의 UCL 보되/글림트 경기 결과 방향, 프랑크푸르트전 홈/원정 표기 방향.",
+    "11/12 친선 슈탄다르 리에주전 스코어(1-0 vs 2-0).",
+    "심판 Hartmann은 Stats Zone 단일 출처."
+  ],
+  "출처": [
+    "https://www.sportsmole.co.uk/football/borussia-monchengladbach/preview/borussia-mbach-vs-dortmund-prediction-team-news-lineups_609317.html",
+    "https://www.thestatszone.com/borussia-monchengladbach-vs-borussia-dortmund-preview-team-news-prediction-240547",
+    "https://www.gladbachtotal.de/aufstellung-gladbach-vs-bvb-moegliche-startelf-der-fohlen-im-borussenduell/",
+    "https://bmg-news.de/gladbach-dortmund-aufstellung/",
+    "https://de.headtopics.com/news/blessin-hat-uberangebot-gladbachs-offensive-kehrt-zuruck-90035770",
+    "https://bvbwld.de/2026/11/19/koennen-jeden-gegner-schlagen-gladbach-coach-blessin-fordert-den-bvb-heraus",
+    "https://www.fussballdaten.de/news/top-talent-droht-auszufallen-bvb-verletzungsupdate-gladbach/",
+    "https://www.fussballdaten.de/news/bvb-kader-gegen-gladbach-klarheit-guirassy-chukwuemeka-anton/",
+    "https://www.fussballtransfers.com/a6075833421521104321-kovac-gibt-personal-update",
+    "https://sports.yahoo.com/articles/team-news-four-doubts-ahead-162100214.html",
+    "https://www.ligainsider.de/serhou-guirassy_10454/bvb-abreise-von-guirassy-keine-spur-420963/",
+    "https://sport.sky.de/fussball/artikel/niko-kovac-gibt-personalupdate-vor-borussenduell-dortmund-gegen-gladbach/13613922/34828",
+    "https://tribuna.com/de/news/2026-11-20-kein-tor-vor-der-pause-zuletzt-kovac-hofft-auf-besseren-start-in-gladbach/",
+    "https://www.espn.com/soccer/team/results/_/id/124",
+    "https://www.espn.com/soccer/team/results/_/id/268",
+    "https://en.wikipedia.org/wiki/2026%E2%80%9327_Bundesliga",
+    "https://en.wikipedia.org/wiki/2026%E2%80%9327_UEFA_Champions_League_league_phase",
+    "https://www.bundesliga.com/de/bundesliga/spieltag/2026-2027/10",
+    "https://www.bundesliga.com/de/bundesliga/spieltag/2026-2027/11",
+    "https://www.bundesliga.com/de/bundesliga/news/fc-bayern-muenchen-1-fc-koeln-spieltag-10-spielbericht-highlights-40057",
+    "https://help.arsenal.com/support/solutions/articles/101000593887-champions-league-group-phase"
+  ]
+}

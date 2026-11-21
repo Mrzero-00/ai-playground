@@ -1,11 +1,11 @@
 # 밴쿠버 화이트캡스FC
 
 <!-- FACTS:START -->
-## 팩트시트 (자동 수집 2026-10-28) — 조사 전 반드시 읽고, 아래 사실과 다른 뉴스 요약은 '미확인'으로 둔다
+## 팩트시트 (자동 수집 2026-11-21) — 조사 전 반드시 읽고, 아래 사실과 다른 뉴스 요약은 '미확인'으로 둔다
 - 출처: 위키 ''(없음), ESPN 있음
 - 감독: 미확인
-- 리그 순위: 1위 31경기 16승7무8패 GD+31 승점55 (Vancouver Whitecaps)
-- 최근 경기(ESPN, 최대 28일): 2026-10-07 Chicago Fire FC 3-1 Vancouver Whitecaps / 2026-10-11 LAFC 1-1 Vancouver Whitecaps / 2026-10-15 St. Louis CITY SC 0-0 Vancouver Whitecaps / 2026-10-18 Austin FC 1-2 Vancouver Whitecaps / 2026-10-25 Colorado Rapids 1-0 Vancouver Whitecaps
+- 리그 순위: 1위 34경기 19승7무8패 GD+40 승점64 (Vancouver Whitecaps)
+- 최근 경기(ESPN, 최대 28일): 2026-10-18 Austin FC 1-2 Vancouver Whitecaps / 2026-10-25 Colorado Rapids 1-0 Vancouver Whitecaps / 2026-10-29 Vancouver Whitecaps 4-1 San Diego FC / 2026-11-01 Vancouver Whitecaps 5-1 Seattle Sounders FC / 2026-11-07 CF Montréal 0-2 Vancouver Whitecaps
 <!-- FACTS:END -->
 <!-- INPUTS:START -->
 ## 입력(자동 수집 2026-10-30) — xG·휴식일·라인업·환경(이동거리·고도·날씨)은 이 숫자를 쓴다

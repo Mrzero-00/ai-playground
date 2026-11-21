@@ -1,16 +1,16 @@
 # 릴OSC (리그앙)
 
 <!-- FACTS:START -->
-## 팩트시트 (자동 수집 2026-10-30) — 조사 전 반드시 읽고, 아래 사실과 다른 뉴스 요약은 '미확인'으로 둔다
+## 팩트시트 (자동 수집 2026-11-21) — 조사 전 반드시 읽고, 아래 사실과 다른 뉴스 요약은 '미확인'으로 둔다
 - 출처: 위키 '2026–27 Lille OSC season'(season), ESPN 있음
 - 감독: Davide Ancelotti
-- 리그 순위: 3위 8경기 4승3무1패 GD+5 승점15 (Lille)
+- 리그 순위: 2위 10경기 6승3무1패 GD+7 승점21 (Lille)
 - 2026 여름 이적(위키 이적 표, 앞 8줄씩): IN FW · Ayase Ueda · Feyenoord · €15,000,000 · 31 August 2026 / IN LW/RW · Ichem Ferrah · Pisa · Undisclosed · 7 August 2026 / OUT LW/RW · Ichem Ferrah · Pisa · Undisclosed · 7 August 2026
-- 최근 경기(ESPN, 최대 28일): 2026-09-13 Lille 2-0 Troyes / 2026-09-20 Nice 2-1 Lille / 2026-10-10 Lille 1-0 Le Havre AC / 2026-10-17 Lille 1-1 Brest / 2026-10-25 AS Monaco 1-1 Lille
+- 최근 경기(ESPN, 최대 28일): 2026-10-10 Lille 1-0 Le Havre AC / 2026-10-17 Lille 1-1 Brest / 2026-10-25 AS Monaco 1-1 Lille / 2026-10-30 Lille 1-0 Lens / 2026-11-08 Stade Rennais 1-2 Lille
 <!-- FACTS:END -->
 <!-- INPUTS:START -->
-## 입력(자동 수집 2026-11-02) — xG·휴식일·라인업·환경(이동거리·고도·날씨)은 이 숫자를 쓴다
-- 11-04 05:00 vs FK보되 글림트: 휴식 13.1일?(국내리그 ESPN 미제공 — 직접 확인) · 직전 10-22 홈 vs Galatasaray 2-4 패 [uefa.champions] · xG 시즌9경기 xG1.5/xGA1.42 npxGD-0.01 · 최근5 1.61/1.17 (+0.29) · 홈0.76/원정-0.96 · xPts13.2 vs 승점18 · 직전 선발 4-3-3 Berke Özer, Alexsandro, Nathan Ngoy, Calvin Verdonk, Maxima Goffi, Nabil Bentaleb, Benjamin André, Ngal'ayel Mukau, Hákon Haraldsson, Soriba Diaoune, Dilane Bakwa · 구장 Aspmyra Stadion · 이동 1955km · 고도 19m(차 -24m) · 8.8℃ 강수1.4mm(100%) 바람45.7km/h · ⚠ 장거리 원정 1955km, 비 1.4mm(100%), 강풍 45.7km/h
+## 입력(자동 수집 2026-11-21) — xG·휴식일·라인업·환경(이동거리·고도·날씨)은 이 숫자를 쓴다
+- 11-22 04:45 vs 올랭피크 리옹: 휴식 13.2일?(국내리그 ESPN 미제공 — 직접 확인) · 직전 11-08 원정 vs Stade Rennais 2-1 승 [ligue 1] · xG 시즌9경기 xG1.5/xGA1.42 npxGD-0.01 · 최근5 1.61/1.17 (+0.29) · 홈0.76/원정-0.96 · xPts13.2 vs 승점18 · 직전 선발 4-3-3 Berke Özer, Alexsandro, Tanguy Nianzou, Calvin Verdonk, Nathan Ngoy, Nabil Bentaleb, Benjamin André, Ngal'ayel Mukau, Hákon Haraldsson, Soriba Diaoune, Ethan Mbappé · 구장 스타드 피에르 모루아 · 이동 558km · 고도 43m(차 -129m) · 3.6℃ 강수0mm(0%) 바람8.6km/h
 <!-- INPUTS:END -->
 
 ## 성향

@@ -1,0 +1,129 @@
+{
+  "수집시각": "2026-11-21 KST",
+  "비고": "킥오프 전 시점 수집. 접근 가능했던 출처는 주로 Sports Mole(기사 날짜 명시). BBC/Sky/구단 공식/Marca/AS는 접근 불가 또는 해당 기사 검색 안 됨. 예상선발은 모두 매체 예상이며 확정 라인업 아님.",
+  "경기": [
+    {
+      "번호": 1, "홈": "아스톤 빌라", "원정": "선덜랜드",
+      "새결장": [
+        {"선수":"Matty Cash","팀":"아스톤 빌라","상태":"확정","내용":"폴란드 대표팀 소집 중 뇌진탕, 결장. Emery가 11/20(금) 기자회견에서 확인","출처":"https://www.sportsmole.co.uk/football/aston-villa/injury-news/news/emery-confirms-aston-villa-regular-to-miss-sunderland-game-through-injury_609515.html","날짜":"2026-11-20"},
+        {"선수":"Amadou Onana, Matteo Ruggeri","팀":"아스톤 빌라","상태":"확정","내용":"계속 결장(무릎/허벅지 또는 햄스트링 - 기사별 표기 상이)","출처":"https://www.sportsmole.co.uk/football/aston-villa/injury-news/team-news/aston-villa-vs-sunderland-injury-suspension-list-predicted-xis_609376.html","날짜":"2026-11-20"},
+        {"선수":"Aaron Wan-Bissaka","팀":"아스톤 빌라","상태":"복귀","내용":"6경기 결장 후 복귀 가능. 11/19 프리뷰는 '준비됐을 것', 11/20 팀뉴스 기사는 '의심(허벅지)'로 표기, 엇갈림. Cash 대신 우측 풀백 예상(Sports Mole, Emery는 이름 언급 안 함)","출처":"https://www.sportsmole.co.uk/football/aston-villa/preview/aston-villa-vs-sunderland-prediction-team-news-lineups_609375.html","날짜":"2026-11-19~20"},
+        {"선수":"Johan Manzambi","팀":"아스톤 빌라","상태":"복귀","내용":"종아리 문제에서 회복, 예상선발 포함","출처":"https://www.sportsmole.co.uk/football/aston-villa/preview/aston-villa-vs-sunderland-prediction-team-news-lineups_609375.html","날짜":"2026-11-19"},
+        {"선수":"Granit Xhaka(종아리), Brian Brobbey(허벅지), Romaine Mundle(무릎), Habib Diarra(허벅지), Daniel Ballard(허벅지)","팀":"선덜랜드","상태":"확정","내용":"5명 결장","출처":"https://www.sportsmole.co.uk/football/aston-villa/injury-news/team-news/aston-villa-vs-sunderland-injury-suspension-list-predicted-xis_609376.html","날짜":"2026-11-20"},
+        {"선수":"Omar Alderete","팀":"선덜랜드","상태":"복귀","내용":"1경기 출장정지 끝나 복귀, 예상선발 포함","출처":"https://www.sportsmole.co.uk/football/aston-villa/preview/aston-villa-vs-sunderland-prediction-team-news-lineups_609375.html","날짜":"2026-11-19"}
+      ],
+      "감독회견": "Emery(11/20 금): Cash 뇌진탕 확인, 나머지 선수는 'ready', 부상 때문에 큰 변화는 없다는 취지(Sports Mole 요약). Le Bris 11/20~21 회견 내용은 찾지 못함.",
+      "예상선발": "빌라(Sports Mole 예상, 11/20): Suzuki; Harwood-Bellis, Lindelof, Torres, Maatsen; Kamara, Goretzka; Alysson, McGinn, Manzambi; Jackson. 선덜랜드(Sports Mole): Roefs; Hume, Mukiele, Alderete, Reinildo; Ahoka, Sadiki; Meunier, Le Fee, Talbi; Isidor",
+      "로테이션": "Emery의 직접 로테이션 발언은 확인 안 됨. Sports Mole 기자 해설: 빌라는 화요일(11/24) UCL 갈라타사라이 원정을 앞두고 '선발 균형을 맞춰야 한다'. 빌라는 4경기 무승(맨유전 4-4 무, 2골 리드 두 번 날림), 리그 10위. 12/13까지 7경기 일정(선덜랜드, 갈라타사라이, 입스위치, 에버턴, 팰리스, PSG, 코번트리).",
+      "기타": "예상선발에 일부 주전급(Wan-Bissaka 제외 시) 포함 - 기자 예상일 뿐.",
+      "확인안됨": ["Le Bris 기자회견 내용","Emery가 로테이션을 직접 언급했는지","Wan-Bissaka 최종 상태","확정 라인업"]
+    },
+    {
+      "번호": 2, "홈": "본머스", "원정": "노팅엄 포리스트",
+      "새결장": [
+        {"선수":"Alex Toth(허벅지/햄스트링), Juanlu Sanchez(발목)","팀":"본머스","상태":"확정","내용":"결장","출처":"https://www.sportsmole.co.uk/football/bournemouth/injury-news/team-news/bournemouth-vs-nottm-forest-injury-suspension-list-predicted-xis_609374.html","날짜":"2026-11-20"},
+        {"선수":"Julian Araujo","팀":"본머스","상태":"의심","내용":"허벅지. 팀뉴스 기사는 '의심', 11/21 Sports Mole GW11 종합표는 'Out'으로 표기(엇갈림). Rose는 Araujo가 결장할 가능성 높다고 발언한 것으로 요약됨(11/19)","출처":"https://www.sportsmole.co.uk/football/bournemouth/injury-news/news/rose-reveals-scott-start-plan-ahead-of-nottingham-forest-clash_609440.html","날짜":"2026-11-19~20"},
+        {"선수":"Rayan","팀":"본머스","상태":"의심","내용":"가벼운 타박, 우측 공격 선발 예상(Sports Mole 프리뷰 요약)","출처":"https://www.sportsmole.co.uk/football/bournemouth/injury-news/team-news/bournemouth-vs-nottm-forest-injury-suspension-list-predicted-xis_609374.html","날짜":"2026-11-20"},
+        {"선수":"Alex Scott","팀":"본머스","상태":"복귀","내용":"10월 초 허벅지 부상 후 복귀, 입스위치전 명단 복귀, 포리스트전 선발은 확정 아님. Rose: '앞으로 3경기 중 한 경기는 반드시 선발'","출처":"https://www.sportsmole.co.uk/football/bournemouth/injury-news/news/rose-reveals-scott-start-plan-ahead-of-nottingham-forest-clash_609440.html","날짜":"2026-11-19"},
+        {"선수":"Junior Kroupi","팀":"본머스","상태":"복귀","내용":"Rose: '더 많은 출전 시간, 심지어 선발도 준비됨'","출처":"https://www.sportsmole.co.uk/football/bournemouth/injury-news/news/rose-reveals-scott-start-plan-ahead-of-nottingham-forest-clash_609440.html","날짜":"2026-11-19"},
+        {"선수":"Nicolas Dominguez(햄스트링/근육), Callum Hudson-Odoi(사타구니)","팀":"노팅엄 포리스트","상태":"확정","내용":"결장. Hudson-Odoi는 신규 부상","출처":"https://www.sportsmole.co.uk/football/bournemouth/injury-news/team-news/bournemouth-vs-nottm-forest-injury-suspension-list-predicted-xis_609374.html","날짜":"2026-11-20"},
+        {"선수":"Nicolo Savona","팀":"노팅엄 포리스트","상태":"의심","내용":"무릎. 팀뉴스 기사 '의심'(훈련 복귀, 명단 복귀 가능성), 11/21 종합표는 'Out' (엇갈림)","출처":"https://www.sportsmole.co.uk/football/premier-league/","날짜":"2026-11-20"},
+        {"선수":"Neco Williams(발목), Xaver Schlager(허벅지/햄스트링)","팀":"노팅엄 포리스트","상태":"의심","내용":"두 명 모두 의심. 단 Sports Mole 예상선발에는 둘 다 포함","출처":"https://www.sportsmole.co.uk/football/bournemouth/injury-news/team-news/bournemouth-vs-nottm-forest-injury-suspension-list-predicted-xis_609374.html","날짜":"2026-11-20"}
+      ],
+      "감독회견": "본머스 감독은 Marco Rose(11/19 Sports Mole 기사): Scott·Kroupi 출전 시간 언급(위). 포리스트 감독은 Glasner로 표기, 이번 경기 회견은 찾지 못함.",
+      "예상선발": "본머스(Sports Mole 예상, 11/20): Petrovic; Smith, Hill, Silva, Truffert; Adams, Cook; Rayan, Kluivert, Tavernier; Evanilson. 포리스트: Sels; Cunha, Milenkovic, Murillo; Munoz, McAtee, Schlager, Williams; Ndoye, Gibbs-White; Delap",
+      "로테이션": "언급 확인 안 됨(본머스는 다음 Celta Vigo 유로파 원정과 Fulham 원정 예정이라는 일정 언급만 있음)",
+      "기타": "포리스트 16위(강등권 +1점), 직전 원정 2연패(팰리스, 브렌트포드).",
+      "확인안됨": ["Glasner 회견 내용","Savona/Araujo 최종 상태","확정 라인업"]
+    },
+    {
+      "번호": 3, "홈": "첼시", "원정": "리즈 유나이티드",
+      "새결장": [
+        {"선수":"Joao Pedro","팀":"첼시","상태":"확정","내용":"허벅지, 10/17 에버턴전 이후 결장 중. Alonso(11/20): 'He's not going to be available for Leeds.' (11/18 Sports Mole 목록은 '약간의 복귀 가능성'이었음)","출처":"https://www.sportsmole.co.uk/football/chelsea/injury-news/news/two-fit-three-sidelined-alonso-reveals-mixed-chelsea-injury-update_609501.html","날짜":"2026-11-20"},
+        {"선수":"Maxence Lacroix(햄스트링), Jorrel Hato(허리), Reece James(무릎 수술 후, 수주 후 복귀)","팀":"첼시","상태":"확정","내용":"결장","출처":"https://www.sportsmole.co.uk/football/chelsea/injury-news/news/two-fit-three-sidelined-alonso-reveals-mixed-chelsea-injury-update_609501.html","날짜":"2026-11-20"},
+        {"선수":"Moises Caicedo","팀":"첼시","상태":"복귀","내용":"에콰도르 대표팀 중 우려 있었으나 출전 가능 판정(Alonso 회견 요약)","출처":"https://www.sportsmole.co.uk/football/chelsea/injury-news/news/two-fit-three-sidelined-alonso-reveals-mixed-chelsea-injury-update_609501.html","날짜":"2026-11-20"},
+        {"선수":"Josh Acheampong","팀":"첼시","상태":"복귀","내용":"경미한 문제 후 명단 복귀","출처":"https://www.sportsmole.co.uk/football/chelsea/injury-news/news/two-fit-three-sidelined-alonso-reveals-mixed-chelsea-injury-update_609501.html","날짜":"2026-11-20"},
+        {"선수":"Jamie Gittens","팀":"첼시","상태":"의심","내용":"발목, 6주 결장 중이나 1군 훈련 합류. 11/18 목록은 '복귀 가능', 11/20 Alonso 요약은 결장 6주로 서술(엇갈림). 팀뉴스 기사는 결장 처리","출처":"https://www.sportsmole.co.uk/football/chelsea/injury-news/news/two-fit-three-sidelined-alonso-reveals-mixed-chelsea-injury-update_609501.html","날짜":"2026-11-20"},
+        {"선수":"Emiliano Martinez","팀":"첼시","상태":"복귀","내용":"턱 골절(10월 에버턴전) 후 명단 가능, 선발 GK는 Alonso가 미발표(Penders와 경쟁). Sports Mole 예상은 Martinez","출처":"https://www.sportsmole.co.uk/football/chelsea/news/penders-or-martinez-alonso-gives-update-on-chelsea-goalkeepers-amid-dilemma_609518.html","날짜":"2026-11-20"},
+        {"선수":"Mateo Joseph","팀":"리즈","상태":"확정","내용":"무릎 장기 결장(회복 진행 중)","출처":"https://www.sportsmole.co.uk/football/chelsea/preview/chelsea-vs-leeds-prediction-team-news-lineups_609370.html","날짜":"2026-11-19~20"},
+        {"선수":"Anton Stach","팀":"리즈","상태":"의심","내용":"발가락 골절/부상, 스퍼스전 결장. 의심","출처":"https://www.sportsmole.co.uk/football/chelsea/injury-news/team-news/chelsea-vs-leeds-injury-suspension-list-predicted-xis_609372.html","날짜":"2026-11-20"},
+        {"선수":"Joe Rodon","팀":"리즈","상태":"복귀","내용":"장기 부상에서 최근 회복, 복귀 가능성(Sports Mole 프리뷰)","출처":"https://www.sportsmole.co.uk/football/chelsea/preview/chelsea-vs-leeds-prediction-team-news-lineups_609370.html","날짜":"2026-11-19~20"}
+      ],
+      "감독회견": "Alonso(11/20): Pedro 결장 확인; '일부 선수는 더 나서야 한다'며 불만 시사; Pedro 대체로 Welbeck(경험)·Emegha(힘) 둘 다 준비됨, Emegha 선발 가능성(60분 정도 소화할 수 있다는 기자 해설). 리즈 Farke 회견은 찾지 못함(프리뷰에 직접 인용 없음).",
+      "예상선발": "첼시(Sports Mole 예상, 11/20): Martinez; Acheampong, Fofana, Colwill; Neto, Caicedo, Henderson, Palestra; Estevao, Rogers, Palmer (Alonso 회견 후 기사는 Emegha 선발 가능성을 시사하므로 예상과 다를 수 있음). 리즈: Trafford; Justin, Elvedi, Muharemovic; Bogle, Tanaka, Ampadu, Gudmundsson; Wilson, Okafor; Calvert-Lewin (Farke가 Calvert-Lewin+Nmecha 투톱을 유지할 수 있다는 서술이 같은 프리뷰에 있어 예상선발과 불일치)",
+      "로테이션": "첼시/리즈 UCL 연계 언급 없음(확인 안 됨). 첼시는 4패/10경기, 5위. 리즈 직전 스퍼스 1-0 승(5경기 무승 끝).",
+      "기타": "첼시는 홈 리즈전 10경기 무패(8승2무), 리즈는 1999년 이후 스탬퍼드 브리지 승리 없음. 리즈 원정 5경기 승점 5.",
+      "확인안됨": ["Farke 회견 및 Stach 최종 상태","Alonso가 선발 GK·원톱을 확정했는지","확정 라인업"]
+    },
+    {
+      "번호": 4, "홈": "코번트리", "원정": "크리스털 팰리스",
+      "새결장": [
+        {"선수":"Jean-Philippe Mateta","팀":"크리스털 팰리스","상태":"확정","내용":"토트넘전 퇴장으로 3경기 징계 중 2번째 경기, 결장","출처":"https://www.sportsmole.co.uk/football/crystal-palace/injury-news/news/need-to-be-careful-frank-gives-first-injury-update-as-crystal-palace-manager_609429.html","날짜":"2026-11-19"},
+        {"선수":"Takehiro Tomiyasu","팀":"크리스털 팰리스","상태":"확정","내용":"종아리, 9경기 결장. Frank: 다음 주 훈련 복귀 예정, 이번 경기 불가","출처":"https://www.sportsmole.co.uk/football/crystal-palace/injury-news/news/need-to-be-careful-frank-gives-first-injury-update-as-crystal-palace-manager_609429.html","날짜":"2026-11-19"},
+        {"선수":"Ismaila Sarr","팀":"크리스털 팰리스","상태":"확정","내용":"사타구니. Frank: 훈련 복귀 'touch and go', 이번 경기 불가","출처":"https://www.sportsmole.co.uk/football/crystal-palace/injury-news/news/need-to-be-careful-frank-gives-first-injury-update-as-crystal-palace-manager_609429.html","날짜":"2026-11-19"},
+        {"선수":"Chadi Riad","팀":"크리스털 팰리스","상태":"확정","내용":"무릎, 2027년까지 결장","출처":"https://www.sportsmole.co.uk/football/coventry-city/relegation-battle/preview/coventry-vs-crystal-palace-prediction-team-news-lineups_609359.html","날짜":"2026-11-19"},
+        {"선수":"Jorgen Strand Larsen","팀":"크리스털 팰리스","상태":"의심","내용":"발목, 노르웨이 대표팀 소집 이탈. 이번 주 훈련 모습 목격되었으나 Frank 회견에서 언급 없음","출처":"https://www.sportsmole.co.uk/football/crystal-palace/injury-news/news/need-to-be-careful-frank-gives-first-injury-update-as-crystal-palace-manager_609429.html","날짜":"2026-11-19"},
+        {"선수":"Aurele Amenda(종아리), Haji Wright(허벅지/대퇴), Josh Eccles(발목), Luke Woolfenden(무릎), Ephron Mason-Clark(무릎)","팀":"코번트리","상태":"확정","내용":"결장 쪽(Sports Mole 11/19 프리뷰는 Eccles·Woolfenden을 '막판 체력 테스트'로 표기, 11/21 종합표는 Out - 엇갈림)","출처":"https://www.sportsmole.co.uk/football/premier-league/","날짜":"2026-11-19~21"},
+        {"선수":"Bobby Thomas(종아리), Caleb Yirenkyi, Frank Onyeka(사타구니)","팀":"코번트리","상태":"의심","내용":"의심. Onyeka는 프리뷰에서 결장 예상으로 표기","출처":"https://www.sportsmole.co.uk/football/coventry-city/relegation-battle/preview/coventry-vs-crystal-palace-prediction-team-news-lineups_609359.html","날짜":"2026-11-19"}
+      ],
+      "감독회견": "Thomas Frank: 11/16(월) 팰리스 감독 부임(Pierre Sage는 11/11 해임), 이번이 첫 경기. 팰리스는 최하위권(10경기 7패, 리그 4연패). 'I know it'll be difficult'이나 선수단을 믿는다고 발언. 코번트리 Lampard 11/20~21 회견은 찾지 못함.",
+      "예상선발": "코번트리(Sports Mole 11/19): Rushworth; Van Ewijk, Mfuni, Pinnock, Dasilva; Torp, Grimes; Sakamoto, Rudoni, Gboho; Awoniyi. 팰리스: Henderson; Richards, Disasi, Lerma; Mingueza, Wharton, Timber, Mitchell; Kamada, Pino; Nketiah",
+      "로테이션": "언급 없음",
+      "기타": "팰리스는 코번트리 원정에서 2012년 이후 승리 없음. 코번트리 17위, 팰리스 승리 시 최대 16위. Squawka 프리뷰(접근 불가, 검색 요약만 확인)와 Sports Mole 명단 상이: Squawka 요약은 Sarr·Tomiyasu 부상, Strand Larsen 의심.",
+      "확인안됨": ["Lampard 회견","Strand Larsen 출전 여부","Eccles/Woolfenden 최종","확정 라인업"]
+    },
+    {
+      "번호": 5, "홈": "토트넘", "원정": "입스위치",
+      "새결장": [
+        {"선수":"James Maddison","팀":"토트넘","상태":"복귀","내용":"De Zerbi 11/20 회견 요약: Maddison, Bergvall, Savio 모두 입스위치전 출전 가능(Sports Mole). 11/19 기사는 의심","출처":"https://www.sportsmole.co.uk/football/spurs/injury-news/news/watch-injured-spurs-duo-return-to-training-before-ipswich-battle_609503.html","날짜":"2026-11-20"},
+        {"선수":"Lucas Bergvall(무릎), Savio(근육)","팀":"토트넘","상태":"복귀","내용":"팀 훈련 영상 공개(11/20), 최근 리그 4경기 결장 후 출전 가능","출처":"https://www.sportsmole.co.uk/football/spurs/injury-news/news/watch-injured-spurs-duo-return-to-training-before-ipswich-battle_609503.html","날짜":"2026-11-20"},
+        {"선수":"Mathys Tel","팀":"토트넘","상태":"확정","내용":"리즈전 Bogle 태클로 발목 부상, 2~3주 더 필요, 향후 4경기 결장 가능(12/6 아스널전 포함)","출처":"https://www.sportsmole.co.uk/football/spurs/injury-news/news/watch-injured-spurs-duo-return-to-training-before-ipswich-battle_609503.html","날짜":"2026-11-20"},
+        {"선수":"Tosin Adarabioyo","팀":"토트넘","상태":"확정","내용":"종아리 회복 중, 서두르지 않음","출처":"https://www.sportsmole.co.uk/football/spurs/injury-news/news/watch-injured-spurs-duo-return-to-training-before-ipswich-battle_609503.html","날짜":"2026-11-20"},
+        {"선수":"Mykhaylo Mudryk","팀":"토트넘","상태":"확정","내용":"아직 준비 안 됨(발목)","출처":"https://www.sportsmole.co.uk/football/spurs/injury-news/news/watch-injured-spurs-duo-return-to-training-before-ipswich-battle_609503.html","날짜":"2026-11-20"},
+        {"선수":"Xavi Simons(무릎), Wilson Odobert(무릎)","팀":"토트넘","상태":"확정","내용":"장기 결장","출처":"https://www.sportsmole.co.uk/football/spurs/injury-news/team-news/tottenham-vs-ipswich-injury-suspension-list-predicted-xis_609456.html","날짜":"2026-11-20"},
+        {"선수":"Martin Dubravka","팀":"토트넘","상태":"의심","내용":"무릎. 11/19~20 Sports Mole 의심 표기, De Zerbi 회견 요약에는 언급 없음(확인 안 됨). 예상 GK는 Kinsky","출처":"https://www.sportsmole.co.uk/football/spurs/predicted-lineups/is-maddison-back-predicted-tottenham-xi-vs-ipswich_609441.html","날짜":"2026-11-19"}
+      ],
+      "감독회견": "De Zerbi(11/20): Maddison/Bergvall/Savio 가능, Tel 2~3주, Adarabioyo 서두르지 않음, Mudryk 미준비(Sports Mole 요약). 입스위치 감독 회견·부상자는 찾지 못함.",
+      "예상선발": "토트넘(Sports Mole 11/19~20, 4-2-3-1): Kinsky; Porro, Van Hecke, Van de Ven, Robertson; Tonali, Fernandes; Kudus, Gray, Marmoush; Solanke (Maddison 가능해 변동 여지, Gray 기용 기사 해설). 입스위치: Walton; Greaves, O'Shea, Diop; Ouattara, Lukic, Palacios, Davis; Maeda, Enciso; Emersonn",
+      "로테이션": "언급 없음",
+      "기타": "토트넘 11위(7위 본머스와 승점 3차이), 직전 리즈전 0-1 패(Sports Mole 일부 기사는 '3연승이 리즈전에서 끊김'). 입스위치는 14위, 결장 보고 없음.",
+      "확인안됨": ["입스위치 감독 회견·부상 최신","Dubravka 상태","Mudryk/Tel 이외 새 부상","확정 라인업"]
+    },
+    {
+      "번호": 6, "홈": "라요 바예카노", "원정": "발렌시아",
+      "새결장": [
+        {"선수":"José Luis Gayà","팀":"발렌시아","상태":"확정","내용":"직접 퇴장 징계로 결장","출처":"https://www.comuniate.com/partido/26/7/13/rayo-vallecano-valencia","날짜":"2026-11-21"},
+        {"선수":"Jesús Vázquez","팀":"발렌시아","상태":"확정","내용":"근육 부상, 결장(11/16 기사는 '결장 가능성 높음')","출처":"https://www.elgoldigital.com/futbol/valencia-cf/lesionados-valencia-sadiq-danjuma-rayo/","날짜":"2026-11-17"},
+        {"선수":"David Otorbi","팀":"발렌시아","상태":"확정","내용":"허벅지 햄스트링 2도 파열, 결장, 복귀 11월 말 예상","출처":"https://www.elgoldigital.com/futbol/valencia-cf/lesionados-valencia-sadiq-danjuma-rayo/","날짜":"2026-11-17"},
+        {"선수":"Arnaut Danjuma","팀":"발렌시아","상태":"의심","내용":"오른쪽 허벅지 불편, 11/16~17 팀 훈련 불참, 정밀검사 대기, 'seriamente comprometida'(Comuniate 11/17). El Gol Digital 일부 기사(날짜 불명)는 회복해 명단 포함·선발 가능성이라고 서술(엇갈림). 최종 확인 안 됨","출처":"https://www.comuniate.com/noticias/39054/danjuma-no-entrena-y-queda-pendiente-de-pruebas-por-molestias-en-el-muslo-derecho","날짜":"2026-11-17"},
+        {"선수":"Umar Sadiq","팀":"발렌시아","상태":"복귀","내용":"무릎 타박 후 팀 훈련 복귀, 명단·선발 가능성","출처":"https://www.elgoldigital.com/futbol/valencia-cf/lesionados-valencia-sadiq-danjuma-rayo/","날짜":"2026-11-17"},
+        {"선수":"Diego López(십자인대, 1월), Sergi Canós(무릎, 11월 중)","팀":"발렌시아","상태":"확정","내용":"장기 결장 / Canós는 일부 훈련 합류","출처":"https://www.comuniate.com/partido/26/7/13/rayo-vallecano-valencia","날짜":"2026-11-21"},
+        {"선수":"Batalla(정강이 골절, 1월), Luiz Felipe(십자인대, 5월), Óscar Valentín(무릎 타박)","팀":"라요","상태":"확정","내용":"결장","출처":"https://www.comuniate.com/partido/26/7/13/rayo-vallecano-valencia","날짜":"2026-11-21"},
+        {"선수":"Jozhua Vertrouwd(근육 불편), Álvaro García(햄스트링 근육)","팀":"라요","상태":"의심","내용":"의심. Álvaro García는 12경기 중 10경기 선발","출처":"https://www.comuniate.com/partido/26/7/13/rayo-vallecano-valencia","날짜":"2026-11-21"}
+      ],
+      "감독회견": "Íñigo Pérez(라요)와 Aguirre(발렌시아)의 이번 주 회견은 찾지 못함. 11/11 Aguirre 발언으로 Rioja 좌측 풀백 옵션이 있고, 훈련에서는 Maffeo 좌측 풀백, Arnau Martínez 우측, Rioja 전진 배치(11/17 Comuniate).",
+      "예상선발": "공식·매체 이름 단위 예상 확인 안 됨(Comuniate 페이지에 라인업 없음). Comuniate 기준 발렌시아 선수단 24명 명단(11/21 표시): Dimitrievski, Van Oevelen, Rivero / Foulquier, De Haas, Iker Córdoba, Tárrega, Copete, Arnau Martínez, Maffeo, Diakhaby / Pepelu, Ugrinic, Dieng, Guerra, Rioja, Guido Rodríguez, Elliot, Mayol, Sato / Raba, Hugo Duro, Otorbi, Sadiq, Danjuma, Blázquez (명단에 Otorbi·Danjuma 포함이나 날짜·확정 여부 불명).",
+      "로테이션": "언급 확인 안 됨",
+      "기타": "Comuniate 표기 킥오프 11/21 16:15(스페인 현지) = KST 11/22 00:15. 순위: 라요 14위(승점 4), 발렌시아 20위(승점 1) - 검색 요약 수치로 날짜 불확실, 신뢰도 낮음.",
+      "확인안됨": ["Marca/AS 확인 불가(접근 불가)","Danjuma 최종 출전","Íñigo Pérez 회견·라요 소집 명단","확정 라인업"]
+    },
+    {
+      "번호": 7, "홈": "뉴캐슬", "원정": "아스널",
+      "새결장": [
+        {"선수":"Bukayo Saka","팀":"아스널","상태":"확정","내용":"대퇴사두근 부상, 10/21 바이에른 UCL 2-2전. Arteta(11/20 기자회견): '약 8주 부상', 현재 4주 경과. 도르트문트(UCL), 맨시티, 브렌트포드, 토트넘, 레알 마드리드 결장 예상, 복귀 목표 12/20 맨유전(Sports Mole 요약; 11/18 기사는 12/2 브렌트포드 복귀 가능성으로 표기, 엇갈림)","출처":"https://www.sportsmole.co.uk/football/arsenal/injury-news/news/advantage-man-city-arteta-delivers-double-blow-in-arsenal-injury-update_609472.html","날짜":"2026-11-20"},
+        {"선수":"Martin Zubimendi","팀":"아스널","상태":"확정","내용":"스페인 대표팀(잉글랜드전 2-3) 중 햄스트링 부상. Arteta: '스캔에서 부상 확인, 몇 주 결장'. 약 한 달 결장 예상. 11/18 Sports Mole는 '큰 의심(평가 대기)'였으나 11/20 회견으로 결장 확정","출처":"https://www.sportsmole.co.uk/football/arsenal/injury-news/news/advantage-man-city-arteta-delivers-double-blow-in-arsenal-injury-update_609472.html","날짜":"2026-11-20"},
+        {"선수":"Max Dowman","팀":"아스널","상태":"확정","내용":"EFL컵 Fleetwood전 퇴장, 3경기 징계의 마지막 경기. 11/24 도르트문트전부터 출전 가능","출처":"https://www.sportsmole.co.uk/football/arsenal/injury-news/news/advantage-man-city-arteta-delivers-double-blow-in-arsenal-injury-update_609472.html","날짜":"2026-11-20"},
+        {"선수":"Joelinton(허벅지), Ewen Jaouen(GK, 햄스트링/허벅지)","팀":"뉴캐슬","상태":"확정","내용":"결장. Jaouen 복귀 12/12 입스위치전 목표(11/7 기사)","출처":"https://www.sportsmole.co.uk/football/arsenal/injury-news/team-news/newcastle-vs-arsenal-injury-suspension-list-predicted-xis_609377.html","날짜":"2026-11-20"},
+        {"선수":"Nico Gonzalez, Joe Willock","팀":"뉴캐슬","상태":"복귀","내용":"질병에서 회복, 출전 가능 예상","출처":"https://www.sportsmole.co.uk/football/arsenal/preview/newcastle-vs-arsenal-prediction-team-news-lineups_609363.html","날짜":"2026-11-20"},
+        {"선수":"Matias Fernandez-Pardo","팀":"뉴캐슬","상태":"복귀","내용":"질병 회복, Wissa 대신 선발 가능","출처":"https://www.sportsmole.co.uk/football/arsenal/preview/newcastle-vs-arsenal-prediction-team-news-lineups_609363.html","날짜":"2026-11-20"},
+        {"선수":"Jacob Ramsey","팀":"뉴캐슬","상태":"복귀","내용":"Sports Mole 프리뷰(11/20): 에버턴전 퇴장 1경기 징계 끝나 복귀. 반면 11/7 Sports Mole 부상 목록은 'Ramsey 11/21 아스널전 결장'으로 표기(엇갈림)","출처":"https://www.sportsmole.co.uk/football/arsenal/preview/newcastle-vs-arsenal-prediction-team-news-lineups_609363.html","날짜":"2026-11-20"},
+        {"선수":"Tino Livramento","팀":"뉴캐슬","상태":"확인 안 됨","내용":"11/7 Sports Mole 기사: 무릎 부상, 복귀일 불명. 11/18~21 Newcastle 팀뉴스·GW11 종합표 어디에도 언급 없음 - 현재 상태 확인 안 됨","출처":"https://www.sportsmole.co.uk/football/newcastle-united/injury-news/injuries-and-suspensions/livramento-fernandez-pardo-newcastle-injury-suspension-list-vs-fulham_608448.html","날짜":"2026-11-07"}
+      ],
+      "감독회견": "Arteta(11/20): Saka 8주, Zubimendi 몇 주 결장 확인(위). 팀뉴스 유출 방지로 선수 FPL 자기 팀 선택 금지 조치 발표. Jaissle(뉴캐슬) 11/20~21 회견 내용은 찾지 못함(프리뷰에는 'Fulham 무승부는 올바른 방향의 한 걸음'이라는 이전 발언만).",
+      "예상선발": "아스널(Sports Mole 11/20): Raya; Timber, Konsa, Gabriel, Calafiori; Guimaraes, Rice; Madueke, Odegaard, Tzolis; Havertz (Konsa가 Saliba보다, Havertz가 Gyokeres보다 앞선다는 예상). 뉴캐슬: Hornicek; Dedic, Thiaw, Burn, Hall; Steur, Gonzalez; Murphy, Fernandez-Pardo, Barnes; Osula",
+      "로테이션": "11/24 도르트문트(UCL) 앞 로테이션에 대한 Arteta 직접 발언은 확인 안 됨. Sports Mole: Zubimendi는 이번 시즌 PL 선발 없고 원래 이번 경기 제외 예상이었음. Arteta는 Hull전과 같은 스쿼드로 간다는 서술(Sports Mole). 아스널 PL 선두 5점 차.",
+      "기타": "킥오프 현지 17:30 = KST 02:30. 예상선발에 Saliba·Gyokeres 벤치 가능(기자 예상).",
+      "확인안됨": ["Livramento 현재 상태","Arteta 도르트문트 로테이션 발언","Jaissle 회견","Ramsey 징계 상태(출처 상충)","확정 라인업"]
+    }
+  ]
+}

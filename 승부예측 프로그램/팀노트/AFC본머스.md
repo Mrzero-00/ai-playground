@@ -8,8 +8,8 @@
 - 최근 경기(ESPN, 최대 28일): 2026-10-10 Chelsea 5-1 AFC Bournemouth / 2026-10-18 AFC Bournemouth 2-0 Sunderland / 2026-10-25 Manchester United 0-3 AFC Bournemouth / 2026-10-31 AFC Bournemouth 2-0 Leeds United / 2026-11-08 Ipswich Town 1-2 AFC Bournemouth
 <!-- FACTS:END -->
 <!-- INPUTS:START -->
-## 입력(자동 수집 2026-11-19) — xG·휴식일·라인업·환경(이동거리·고도·날씨)은 이 숫자를 쓴다
-- 2026-11-22 00:00 vs 노팅엄F: 휴식 13.0일?(국내리그 ESPN 미제공 — 직접 확인) · 직전 11-08 원정 vs Ipswich Town 2-1 승 [english premier league] · xG 시즌9경기 xG2.02/xGA1.14 npxGD+0.88 · 최근5 2.2/0.92 (+1.29) · 홈1.35/원정0.28 · xPts16.6 vs 승점12 · 직전 선발 4-2-3-1 Djordje Petrovic, António Silva, James Hill, Adrien Truffert, Adam Smith, Justin Kluivert, Ryan Christie, Tyler Adams, Evanilson, Marcus Tavernier, Rayan · 구장 본머스(구단 좌표 — 구장 미확인) · 이동 252km · 고도 12m(차 -7m) · 10.7℃ 강수0mm(6%) 바람16.9km/h
+## 입력(자동 수집 2026-11-21) — xG·휴식일·라인업·환경(이동거리·고도·날씨)은 이 숫자를 쓴다
+- 11-22 00:00 vs 노팅엄 포리스트: 휴식 13.0일?(국내리그 ESPN 미제공 — 직접 확인) · 직전 11-08 원정 vs Ipswich Town 2-1 승 [english premier league] · xG 시즌9경기 xG2.02/xGA1.14 npxGD+0.88 · 최근5 2.2/0.92 (+1.29) · 홈1.35/원정0.28 · xPts16.6 vs 승점12 · 직전 선발 4-2-3-1 Djordje Petrovic, António Silva, James Hill, Adrien Truffert, Adam Smith, Justin Kluivert, Ryan Christie, Tyler Adams, Evanilson, Marcus Tavernier, Rayan · 구장 딘 코트 · 이동 250km · 고도 36m(차 +17m) · 11.0℃ 강수0mm(11%) 바람10.4km/h
 <!-- INPUTS:END -->
 
 ## 성향

@@ -1,0 +1,7856 @@
+{
+ "5057": {
+  "번호": "5057",
+  "경기": "SSC나폴리 - 토리노",
+  "리그": "이탈리아 세리에A",
+  "시각": "11-22 04:45",
+  "수집": "11-21 13:07",
+  "홈": {
+   "팀": "SSC나폴리",
+   "eng": "Napoli",
+   "직전": "11-08 홈 vs Lazio 1-1 무 [italian serie a]",
+   "휴식일": 13.3,
+   "휴식일주의": "ESPN에 없는 리그일 수 있음(21일 내 경기 없음) — 실제 휴식일은 더 짧을 수 있음",
+   "최근7일경기": 0,
+   "직전event": "401874810",
+   "xg": {
+    "n": 10,
+    "xg": 2.09,
+    "xga": 1.16,
+    "npxgd": 0.77,
+    "l5_xg": 2.4,
+    "l5_xga": 1.01,
+    "l5_npxgd": 1.09,
+    "home_xgd": 1.25,
+    "away_xgd": 0.45,
+    "xpts": 19.9,
+    "pts": 14
+   },
+   "xg_src": "Understat Serie_A Napoli",
+   "직전선발": [
+    "Vanja Milinkovic-Savic",
+    "Amir Rrahmani",
+    "Rafa Marín",
+    "Sam Beukema",
+    "Scott McTominay",
+    "Billy Gilmour",
+    "Mathías Olivera",
+    "Antonio Vergara",
+    "Rasmus Højlund",
+    "Noa Lang",
+    "Kevin De Bruyne"
+   ],
+   "직전포메이션": "3-4-2-1"
+  },
+  "원정": {
+   "팀": "토리노",
+   "eng": "Torino",
+   "직전": "11-07 홈 vs Lecce 1-1 무 [italian serie a]",
+   "휴식일": 14.2,
+   "휴식일주의": "ESPN에 없는 리그일 수 있음(21일 내 경기 없음) — 실제 휴식일은 더 짧을 수 있음",
+   "최근7일경기": 0,
+   "직전event": "401874811",
+   "xg": {
+    "n": 10,
+    "xg": 1.25,
+    "xga": 1.46,
+    "npxgd": -0.21,
+    "l5_xg": 1.49,
+    "l5_xga": 1.39,
+    "l5_npxgd": 0.1,
+    "home_xgd": -0.14,
+    "away_xgd": -0.29,
+    "xpts": 12.5,
+    "pts": 13
+   },
+   "xg_src": "Understat Serie_A Torino",
+   "직전선발": [
+    "Lucas Perri",
+    "Adrian Ismajli",
+    "Pietro Comuzzo",
+    "Saúl Coco",
+    "Kian Fitz-Jim",
+    "Nikola Vlasic",
+    "Daniel Bragança",
+    "Alessio Cacciamani",
+    "Rafik Belghali",
+    "Giovanni Simeone",
+    "Sandro Kulenovic"
+   ],
+   "직전포메이션": "3-5-2"
+  },
+  "환경": {
+   "구장": "스타디오 디에고 아르만도 마라도나",
+   "구장고도": 35,
+   "원정홈": "스타디오 올림피코 디 토리노",
+   "원정홈고도": 243,
+   "이동km": 709,
+   "고도차": -208,
+   "날씨": {
+    "기온": 17.2,
+    "습도": 74,
+    "강수mm": 0,
+    "강수확률": 0,
+    "풍속": 5.4,
+    "출처": "Open-Meteo forecast 11-21 13:08"
+   },
+   "출처": [
+    "Wikidata Q2641→Q82709 · Open-Meteo 고도",
+    "Wikidata Q2768→Q214629 · Open-Meteo 고도"
+   ],
+   "주의": []
+  },
+  "라인업": "미발표(킥오프 15.6h 전)",
+  "event": "401875067"
+ },
+ "4927": {
+  "번호": "4927",
+  "경기": "우니온 베를린 - RB라이프치히",
+  "리그": "독일 분데스리가",
+  "시각": "11-21 23:30",
+  "수집": "11-21 13:06",
+  "홈": {
+   "팀": "우니온 베를린",
+   "eng": "Union Berlin",
+   "직전": "11-09 원정 vs SC Freiburg 0-2 패 [german bundesliga]",
+   "휴식일": 12.9,
+   "휴식일주의": "ESPN에 없는 리그일 수 있음(21일 내 경기 없음) — 실제 휴식일은 더 짧을 수 있음",
+   "최근7일경기": 0,
+   "직전event": "401884741",
+   "xg": {
+    "n": 8,
+    "xg": 1.09,
+    "xga": 2.2,
+    "npxgd": -1.02,
+    "l5_xg": 0.86,
+    "l5_xga": 1.78,
+    "l5_npxgd": -0.77,
+    "home_xgd": -0.18,
+    "away_xgd": -2.41,
+    "xpts": 7.0,
+    "pts": 7
+   },
+   "xg_src": "Understat Bundesliga Union Berlin",
+   "직전선발": [
+    "Frederik Ronnow",
+    "Marvin Friedrich",
+    "Zeno Van Den Bosch",
+    "Rani Khedira",
+    "Derrick Köhn",
+    "Janik Haberer",
+    "András Schäfer",
+    "Michel Aebischer",
+    "Kastriot Imeri",
+    "Livan Burcu",
+    "Tim Skarke"
+   ],
+   "직전포메이션": "4-1-3-2"
+  },
+  "원정": {
+   "팀": "RB라이프치히",
+   "eng": "Leipzig",
+   "직전": "11-07 홈 vs FC Augsburg 5-2 승 [german bundesliga]",
+   "휴식일": 14.0,
+   "휴식일주의": "ESPN에 없는 리그일 수 있음(21일 내 경기 없음) — 실제 휴식일은 더 짧을 수 있음",
+   "최근7일경기": 0,
+   "직전event": "401884744",
+   "xg": {
+    "n": 8,
+    "xg": 2.63,
+    "xga": 1.65,
+    "npxgd": 0.88,
+    "l5_xg": 2.65,
+    "l5_xga": 2.13,
+    "l5_npxgd": 0.37,
+    "home_xgd": 2.38,
+    "away_xgd": -0.61,
+    "xpts": 16.3,
+    "pts": 15
+   },
+   "xg_src": "Understat Bundesliga RasenBallsport Leipzig",
+   "직전선발": [
+    "Maarten Vandevoordt",
+    "Castello Lukeba",
+    "Willi Orbán",
+    "David Raum",
+    "Ridle Baku",
+    "Christopher Nkunku",
+    "Ezechiel Banzuzi",
+    "Neil El Aynaoui",
+    "Rômulo",
+    "Tidiam Gomis",
+    "Brajan Gruda"
+   ],
+   "직전포메이션": "4-2-3-1"
+  },
+  "환경": {
+   "구장": "Stadion An der Alten Försterei",
+   "구장고도": 37,
+   "원정홈": "라이프치히(구단 좌표 — 구장 미확인)",
+   "원정홈고도": 127,
+   "이동km": 149,
+   "고도차": -90,
+   "날씨": {
+    "기온": 6.0,
+    "습도": 80,
+    "강수mm": 0,
+    "강수확률": 20,
+    "풍속": 18.4,
+    "출처": "Open-Meteo forecast 11-21 13:07"
+   },
+   "출처": [
+    "Wikidata Q141971→Q749172 · Open-Meteo 고도",
+    "Wikidata Q2079→구단 · Open-Meteo 고도"
+   ],
+   "주의": []
+  },
+  "라인업": "미발표(킥오프 10.4h 전)",
+  "event": "401884732"
+ },
+ "4932": {
+  "번호": "4932",
+  "경기": "묀헨글라트바흐 - 도르트문트",
+  "리그": "독일 분데스리가",
+  "시각": "11-21 23:30",
+  "수집": "11-21 13:06",
+  "홈": {
+   "팀": "묀헨글라트바흐",
+   "eng": "Gladbach",
+   "직전": "11-07 원정 vs Hamburg SV 1-3 패 [german bundesliga]",
+   "휴식일": 14.8,
+   "휴식일주의": "ESPN에 없는 리그일 수 있음(21일 내 경기 없음) — 실제 휴식일은 더 짧을 수 있음",
+   "최근7일경기": 0,
+   "직전event": "401884739",
+   "xg": {
+    "n": 8,
+    "xg": 1.66,
+    "xga": 2.37,
+    "npxgd": -0.9,
+    "l5_xg": 1.78,
+    "l5_xga": 2.0,
+    "l5_npxgd": -0.52,
+    "home_xgd": -0.73,
+    "away_xgd": -1.07,
+    "xpts": 7.9,
+    "pts": 4
+   },
+   "xg_src": "Understat Bundesliga Borussia M.Gladbach",
+   "직전선발": [
+    "Daniel Batz",
+    "Philipp Sander",
+    "Fabio Chiarodia",
+    "Kou Itakura",
+    "Florian Neuhaus",
+    "Zento Uno",
+    "Lukas Ullrich",
+    "Joe Scally",
+    "Shuto Machino",
+    "Wael Mohya",
+    "Robin Hack"
+   ],
+   "직전포메이션": "3-4-2-1"
+  },
+  "원정": {
+   "팀": "도르트문트",
+   "eng": "Borussia Dortmund",
+   "직전": "11-07 홈 vs SV Elversberg 2-1 승 [german bundesliga]",
+   "휴식일": 14.0,
+   "휴식일주의": "ESPN에 없는 리그일 수 있음(21일 내 경기 없음) — 실제 휴식일은 더 짧을 수 있음",
+   "최근7일경기": 0,
+   "직전event": "401884745",
+   "xg": {
+    "n": 8,
+    "xg": 1.82,
+    "xga": 1.33,
+    "npxgd": 0.58,
+    "l5_xg": 1.61,
+    "l5_xga": 1.41,
+    "l5_npxgd": 0.35,
+    "home_xgd": 1.42,
+    "away_xgd": -0.26,
+    "xpts": 14.1,
+    "pts": 18
+   },
+   "xg_src": "Understat Bundesliga Borussia Dortmund",
+   "직전선발": [
+    "Gregor Kobel",
+    "Nico Schlotterbeck",
+    "Waldemar Anton",
+    "Daniel Svensson",
+    "Kouakou Gadou",
+    "Joey Veerman",
+    "Felix Nmecha",
+    "Jobe Bellingham",
+    "Fábio Silva",
+    "Carney Chukwuemeka",
+    "Konstantinos Karetsas"
+   ],
+   "직전포메이션": "4-3-3"
+  },
+  "환경": {
+   "구장": "묀헨글라트바흐(구단 좌표 — 구장 미확인)",
+   "구장고도": 74,
+   "원정홈": "지그날 이두나 파크(구단 좌표 — 구장 미확인)",
+   "원정홈고도": 90,
+   "이동km": 78,
+   "고도차": -16,
+   "날씨": {
+    "기온": 7.1,
+    "습도": 72,
+    "강수mm": 0,
+    "강수확률": 0,
+    "풍속": 13.0,
+    "출처": "Open-Meteo forecast 11-21 13:07"
+   },
+   "출처": [
+    "Wikidata Q2758→구단 · Open-Meteo 고도",
+    "Wikidata Q150928→구단 · Open-Meteo 고도"
+   ],
+   "주의": []
+  },
+  "라인업": "미발표(킥오프 10.4h 전)",
+  "event": "401884731"
+ },
+ "4686": {
+  "번호": "4686",
+  "경기": "바이에른 뮌헨 - 쾰른",
+  "리그": "독일 분데스리가",
+  "시각": "11-21 04:30",
+  "수집": "11-21 13:06",
+  "홈": {
+   "팀": "바이에른 뮌헨",
+   "eng": "Bayern",
+   "직전": "11-07 원정 vs Mainz 2-1 승 [german bundesliga]",
+   "휴식일": 13.2,
+   "휴식일주의": "ESPN에 없는 리그일 수 있음(21일 내 경기 없음) — 실제 휴식일은 더 짧을 수 있음",
+   "최근7일경기": 0,
+   "직전event": "401884740",
+   "xg": {
+    "n": 8,
+    "xg": 3.71,
+    "xga": 0.89,
+    "npxgd": 2.63,
+    "l5_xg": 4.1,
+    "l5_xga": 0.92,
+    "l5_npxgd": 2.88,
+    "home_xgd": 3.08,
+    "away_xgd": 2.18,
+    "xpts": 22.2,
+    "pts": 18
+   },
+   "xg_src": "Understat Bundesliga Bayern Munich",
+   "직전선발": [
+    "Manuel Neuer",
+    "Jonathan Tah",
+    "Dayot Upamecano",
+    "Josip Stanisic",
+    "Konrad Laimer",
+    "Lennart Karl",
+    "Aleksandar Pavlovic",
+    "Joshua Kimmich",
+    "Harry Kane",
+    "Nathaniel Brown",
+    "Michael Olise"
+   ],
+   "직전포메이션": "4-2-3-1"
+  },
+  "원정": {
+   "팀": "쾰른",
+   "eng": "Koln",
+   "휴식일": null,
+   "직전": "-",
+   "최근7일경기": null,
+   "휴식일주의": "35일 내 경기 없음 — ESPN 미제공 리그(체코·폴란드·헝가리·불가리아·키프로스·이스라엘·핀란드·크로아티아·세르비아·동남아 등)이면 에이전트가 직접 확인",
+   "xg": null
+  },
+  "환경": {
+   "구장": "알리안츠 아레나",
+   "구장고도": 491,
+   "원정홈": "쾰른(구단 좌표 — 구장 미확인)",
+   "원정홈고도": 55,
+   "이동km": 453,
+   "고도차": 436,
+   "날씨": {
+    "기온": 8.4,
+    "습도": 66,
+    "강수mm": 0.1,
+    "강수확률": 63,
+    "풍속": 32.9,
+    "출처": "Open-Meteo forecast 11-21 13:06"
+   },
+   "출처": [
+    "Wikidata Q15789→Q127429 · Open-Meteo 고도",
+    "Wikidata Q365→구단 · Open-Meteo 고도"
+   ],
+   "주의": [
+    "강풍 32.9km/h"
+   ]
+  },
+  "라인업": "미발표",
+  "event": null
+ },
+ "4692": {
+  "번호": "4692",
+  "경기": "트루아AC - 르아브르AC",
+  "리그": "프랑스 리그1",
+  "시각": "11-21 04:45",
+  "수집": "11-21 13:06",
+  "홈": {
+   "팀": "트루아AC",
+   "eng": "Troyes",
+   "직전": "11-08 원정 vs Paris Saint-Germain 0-1 패 [ligue 1]",
+   "휴식일": 13.0,
+   "휴식일주의": "ESPN에 없는 리그일 수 있음(21일 내 경기 없음) — 실제 휴식일은 더 짧을 수 있음",
+   "최근7일경기": 0,
+   "직전event": "401876407",
+   "xg": {
+    "n": 9,
+    "xg": 1.24,
+    "xga": 1.6,
+    "npxgd": -0.36,
+    "l5_xg": 1.23,
+    "l5_xga": 1.26,
+    "l5_npxgd": 0.13,
+    "home_xgd": -0.0,
+    "away_xgd": -0.8,
+    "xpts": 10.1,
+    "pts": 8
+   },
+   "xg_src": "Understat Ligue_1 Troyes",
+   "선발": [
+    "Hillel Konaté",
+    "Ismael Boura",
+    "Adrien Monfray",
+    "Dermane Karim",
+    "Anis Ouzenadji",
+    "Yvann Titi",
+    "Mouhamed Diop",
+    "Antoine Mille",
+    "Kandet Diawara",
+    "Merwan Ifnaoui",
+    "Jeremy Le Douaron"
+   ],
+   "포메이션": "4-1-4-1",
+   "직전선발": [
+    "Hillel Konaté",
+    "Michel Diaz",
+    "Adrien Monfray",
+    "Ismael Boura",
+    "Lucas Maronnier",
+    "Mouhamed Diop",
+    "Antoine Mille",
+    "Dermane Karim",
+    "Kandet Diawara",
+    "Merwan Ifnaoui",
+    "Renaud Ripart"
+   ],
+   "직전포메이션": "4-5-1",
+   "교체": 3,
+   "빠진": [
+    "Michel Diaz",
+    "Lucas Maronnier",
+    "Renaud Ripart"
+   ]
+  },
+  "원정": {
+   "팀": "르아브르AC",
+   "eng": "Le Havre",
+   "직전": "11-09 홈 vs Lorient 0-2 패 [ligue 1]",
+   "휴식일": 12.1,
+   "휴식일주의": "ESPN에 없는 리그일 수 있음(21일 내 경기 없음) — 실제 휴식일은 더 짧을 수 있음",
+   "최근7일경기": 0,
+   "직전event": "401876409",
+   "xg": {
+    "n": 9,
+    "xg": 1.49,
+    "xga": 2.03,
+    "npxgd": -0.54,
+    "l5_xg": 1.8,
+    "l5_xga": 2.17,
+    "l5_npxgd": -0.37,
+    "home_xgd": -0.69,
+    "away_xgd": -0.36,
+    "xpts": 9.1,
+    "pts": 2
+   },
+   "xg_src": "Understat Ligue_1 Le Havre",
+   "선발": [
+    "Arnaud Bodart",
+    "Ayumu Seko",
+    "Ahmed Touba",
+    "Vincent Sasso",
+    "Junior Mwanga",
+    "Simon Ebonog",
+    "Amir Richardson",
+    "Enzo Koffi",
+    "Kaito Mizuta",
+    "Josh Maja",
+    "Rayan Fofana"
+   ],
+   "포메이션": "3-5-2",
+   "직전선발": [
+    "Arnaud Bodart",
+    "Ahmed Touba",
+    "Enzo Koffi",
+    "Vincent Sasso",
+    "Junior Mwanga",
+    "Simon Ebonog",
+    "Mbwana Samatta",
+    "Djibril Ouziad",
+    "Josh Maja",
+    "Kaito Mizuta",
+    "Rayan Fofana"
+   ],
+   "직전포메이션": "3-4-2-1",
+   "교체": 2,
+   "빠진": [
+    "Mbwana Samatta",
+    "Djibril Ouziad"
+   ]
+  },
+  "환경": {
+   "구장": "Stade de l'Aube",
+   "구장고도": 104,
+   "원정홈": "Stade Océane",
+   "원정홈고도": 9,
+   "이동km": 316,
+   "고도차": 95,
+   "날씨": {
+    "기온": 9.5,
+    "습도": 86,
+    "강수mm": 0,
+    "강수확률": 50,
+    "풍속": 17.5,
+    "출처": "Open-Meteo forecast 11-21 13:06"
+   },
+   "출처": [
+    "Wikidata Q501693→Q2001732 · Open-Meteo 고도",
+    "Wikidata Q328658→Q219462 · Open-Meteo 고도"
+   ],
+   "주의": []
+  },
+  "라인업": "발표",
+  "event": "401876395"
+ },
+ "4696": {
+  "번호": "4696",
+  "경기": "아틀레틱 빌바오 - RCD에스파뇰",
+  "리그": "스페인 라리가",
+  "시각": "11-21 05:00",
+  "수집": "11-21 13:06",
+  "홈": {
+   "팀": "아틀레틱 빌바오",
+   "eng": "Athletic Bilbao",
+   "직전": "11-08 원정 vs Osasuna 1-1 무 [laliga]",
+   "휴식일": 13.1,
+   "휴식일주의": "ESPN에 없는 리그일 수 있음(21일 내 경기 없음) — 실제 휴식일은 더 짧을 수 있음",
+   "최근7일경기": 0,
+   "직전event": "401882811",
+   "xg": {
+    "n": 10,
+    "xg": 1.76,
+    "xga": 1.37,
+    "npxgd": 0.24,
+    "l5_xg": 1.55,
+    "l5_xga": 1.2,
+    "l5_npxgd": -0.1,
+    "home_xgd": 1.13,
+    "away_xgd": -1.09,
+    "xpts": 17.9,
+    "pts": 15
+   },
+   "xg_src": "Understat La_liga Athletic Club",
+   "선발": [
+    "Unai Simón",
+    "Aymeric Laporte",
+    "Yeray",
+    "Yuri Berchiche",
+    "Hugo Rincón",
+    "Oihan Sancet",
+    "Peio Canales",
+    "Beñat Prados",
+    "Iñaki Williams",
+    "Nico Williams",
+    "Álex Berenguer"
+   ],
+   "포메이션": "4-2-3-1",
+   "직전선발": [
+    "Unai Simón",
+    "Aymeric Laporte",
+    "Dani Vivian",
+    "Yuri Berchiche",
+    "Hugo Rincón",
+    "Robert Navarro",
+    "Beñat Gerenabarrena",
+    "Peio Canales",
+    "Iñaki Williams",
+    "Nico Williams",
+    "Álex Berenguer"
+   ],
+   "직전포메이션": "4-2-3-1",
+   "교체": 3,
+   "빠진": [
+    "Dani Vivian",
+    "Robert Navarro",
+    "Beñat Gerenabarrena"
+   ]
+  },
+  "원정": {
+   "팀": "RCD에스파뇰",
+   "eng": "Espanyol",
+   "직전": "11-08 홈 vs Deportivo 0-0 무 [laliga]",
+   "휴식일": 13.2,
+   "휴식일주의": "ESPN에 없는 리그일 수 있음(21일 내 경기 없음) — 실제 휴식일은 더 짧을 수 있음",
+   "최근7일경기": 0,
+   "직전event": "401882813",
+   "xg": {
+    "n": 11,
+    "xg": 1.13,
+    "xga": 1.47,
+    "npxgd": -0.34,
+    "l5_xg": 0.81,
+    "l5_xga": 1.43,
+    "l5_npxgd": -0.63,
+    "home_xgd": 0.05,
+    "away_xgd": -0.67,
+    "xpts": 13.4,
+    "pts": 11
+   },
+   "xg_src": "Understat La_liga Espanyol",
+   "선발": [
+    "Ángel Fortuño",
+    "Leandro Cabrera",
+    "Quilindschy Hartman",
+    "Clemens Riedel",
+    "Alejandro Santiago",
+    "Omar El Hilali",
+    "Pol Lozano",
+    "Rafael Bauza",
+    "Roger Hinojo",
+    "Roberto Fernández",
+    "Pere Milla"
+   ],
+   "포메이션": "5-3-2",
+   "직전선발": [
+    "Ángel Fortuño",
+    "Leandro Cabrera",
+    "Quilindschy Hartman",
+    "Omar El Hilali",
+    "Pol Lozano",
+    "Edu Expósito",
+    "Cala",
+    "Alejandro Santiago",
+    "Tyrhys Dolan",
+    "Roberto Fernández",
+    "Pere Milla"
+   ],
+   "직전포메이션": "3-4-1-2",
+   "교체": 3,
+   "빠진": [
+    "Edu Expósito",
+    "Cala",
+    "Tyrhys Dolan"
+   ]
+  },
+  "환경": {
+   "구장": "산 마메스",
+   "구장고도": 20,
+   "원정홈": "에스타디 코르네야-엘 프라트",
+   "원정홈고도": 18,
+   "이동km": 465,
+   "고도차": 2,
+   "날씨": {
+    "기온": 13.5,
+    "습도": 65,
+    "강수mm": 0,
+    "강수확률": 0,
+    "풍속": 9.2,
+    "출처": "Open-Meteo forecast 11-21 13:06"
+   },
+   "출처": [
+    "Wikidata Q8687→Q182864 · Open-Meteo 고도",
+    "Wikidata Q8780→Q473223 · Open-Meteo 고도"
+   ],
+   "주의": []
+  },
+  "라인업": "발표",
+  "event": "401882805"
+ },
+ "4738": {
+  "번호": "4738",
+  "경기": "오클랜드FC - 멜버른 빅토리",
+  "리그": "호주 A리그",
+  "시각": "11-21 13:00",
+  "수집": "11-21 13:06",
+  "홈": {
+   "팀": "오클랜드FC",
+   "eng": "Auckland FC",
+   "직전": "11-07 홈 vs Wellington Phoenix 0-0 무 [aus.1]",
+   "휴식일": 14.0,
+   "휴식일주의": "ESPN에 없는 리그일 수 있음(21일 내 경기 없음) — 실제 휴식일은 더 짧을 수 있음",
+   "최근7일경기": 0,
+   "직전event": "401892143",
+   "xg": null,
+   "선발": [
+    "Michael Woud",
+    "Nando Pijnaker",
+    "Ronan Wynne",
+    "Francis de Vries",
+    "Hiroki Sakai",
+    "Lachlan Bayliss",
+    "Felipe Gallegos",
+    "Daniel Normann",
+    "Sam Cosgrove",
+    "Lachlan Brook",
+    "Logan Rogerson"
+   ],
+   "포메이션": "4-2-3-1",
+   "직전선발": [
+    "Michael Woud",
+    "Nando Pijnaker",
+    "Ronan Wynne",
+    "Francis de Vries",
+    "Hiroki Sakai",
+    "Lachlan Bayliss",
+    "Felipe Gallegos",
+    "Daniel Normann",
+    "Sam Cosgrove",
+    "Logan Rogerson",
+    "Callan Elliot"
+   ],
+   "직전포메이션": "4-2-3-1",
+   "교체": 1,
+   "빠진": [
+    "Callan Elliot"
+   ]
+  },
+  "원정": {
+   "팀": "멜버른 빅토리",
+   "eng": "Melbourne Victory",
+   "직전": "11-08 원정 vs Adelaide United FC 2-2 무 [aus.1]",
+   "휴식일": 12.9,
+   "휴식일주의": "ESPN에 없는 리그일 수 있음(21일 내 경기 없음) — 실제 휴식일은 더 짧을 수 있음",
+   "최근7일경기": 0,
+   "직전event": "401892139",
+   "xg": null,
+   "선발": [
+    "Jack Duncan",
+    "Jason Davidson",
+    "Brendan Hamill",
+    "Franco Lino",
+    "Harrison Shillington",
+    "Denis Genreau",
+    "Jordi Valadon",
+    "Louis D'Arrigo",
+    "Harrison Sawyer",
+    "Keegan Jelacic",
+    "Clarismario Rodrigues"
+   ],
+   "포메이션": "4-2-3-1",
+   "직전선발": [
+    "Jack Duncan",
+    "Jason Davidson",
+    "Philipp Ziereis",
+    "Franco Lino",
+    "Brendan Hamill",
+    "Matthew Grimaldi",
+    "Louis D'Arrigo",
+    "Jordi Valadon",
+    "Charles Nduka",
+    "Keegan Jelacic",
+    "Clarismario Rodrigues"
+   ],
+   "직전포메이션": "4-2-3-1",
+   "교체": 3,
+   "빠진": [
+    "Philipp Ziereis",
+    "Matthew Grimaldi",
+    "Charles Nduka"
+   ]
+  },
+  "환경": {
+   "구장": "마운트 스마트 스타디움",
+   "구장고도": 23,
+   "원정홈": "멜버른 렉탱귤러 스타디움",
+   "원정홈고도": 8,
+   "이동km": 2627,
+   "고도차": 15,
+   "날씨": {
+    "기온": 17.7,
+    "습도": 59,
+    "강수mm": 0.3,
+    "강수확률": 1,
+    "풍속": 13.9,
+    "출처": "Open-Meteo forecast 11-21 13:06"
+   },
+   "출처": [
+    "Wikidata Q123717355→Q1426996 · Open-Meteo 고도",
+    "Wikidata Q316789→Q1381223 · Open-Meteo 고도"
+   ],
+   "주의": [
+    "장거리 원정 2627km"
+   ]
+  },
+  "라인업": "발표",
+  "event": "401892137"
+ },
+ "4742": {
+  "번호": "4742",
+  "경기": "도쿄 베르디 - 나고야 그램퍼스",
+  "리그": "일본 J1리그",
+  "시각": "11-21 14:00",
+  "수집": "11-21 13:06",
+  "홈": {
+   "팀": "도쿄 베르디",
+   "eng": "Verdy",
+   "직전": "11-07 원정 vs Shimizu S-Pulse 1-0 승 [jpn.1]",
+   "휴식일": 14.0,
+   "휴식일주의": "ESPN에 없는 리그일 수 있음(21일 내 경기 없음) — 실제 휴식일은 더 짧을 수 있음",
+   "최근7일경기": 0,
+   "직전event": "401877557",
+   "xg": null,
+   "선발": [
+    "Matheus Vidotto",
+    "Maaya Sako",
+    "Naoki Hayashi",
+    "Yosuke Uchida",
+    "Shuhei Mizoguchi",
+    "Issei Kumatoriya",
+    "Yuta Arai",
+    "Rei Hirakawa",
+    "Koki Morita",
+    "Itsuki Someno",
+    "Kazunari Ichimi"
+   ],
+   "포메이션": "4-4-2",
+   "직전선발": [
+    "Matheus Vidotto",
+    "Cho Yu-Min",
+    "Naoki Hayashi",
+    "Shuhei Mizoguchi",
+    "Yosuke Uchida",
+    "Rei Hirakawa",
+    "Koki Morita",
+    "Yuta Arai",
+    "Kanya Fujimoto",
+    "Itsuki Someno",
+    "Kazunari Ichimi"
+   ],
+   "직전포메이션": "4-4-2",
+   "교체": 2,
+   "빠진": [
+    "Cho Yu-Min",
+    "Kanya Fujimoto"
+   ]
+  },
+  "원정": {
+   "팀": "나고야 그램퍼스",
+   "eng": "Nagoya Grampus",
+   "직전": "11-07 홈 vs Kyoto Sanga 0-2 패 [jpn.1]",
+   "휴식일": 14.0,
+   "휴식일주의": "ESPN에 없는 리그일 수 있음(21일 내 경기 없음) — 실제 휴식일은 더 짧을 수 있음",
+   "최근7일경기": 0,
+   "직전event": "401877536",
+   "xg": null,
+   "선발": [
+    "Daniel Schmidt",
+    "Teruki Hara",
+    "Sho Inagaki",
+    "Tomoki Takamine",
+    "Haruya Fujii",
+    "Takuya Uchida",
+    "Katsuhiro Nakayama",
+    "Tsukasa Morishima",
+    "Ryuji Izumi",
+    "Yudai Kimura",
+    "Kensuke Nagai"
+   ],
+   "포메이션": "4-4-2",
+   "직전선발": [
+    "Daniel Schmidt",
+    "Haruya Fujii",
+    "Yota Sato",
+    "Teruki Hara",
+    "Tomoki Takamine",
+    "Sho Inagaki",
+    "Katsuhiro Nakayama",
+    "Ryuji Izumi",
+    "Yuya Yamagishi",
+    "Yudai Kimura",
+    "Takuya Uchida"
+   ],
+   "직전포메이션": "3-4-2-1",
+   "교체": 2,
+   "빠진": [
+    "Yota Sato",
+    "Yuya Yamagishi"
+   ]
+  },
+  "환경": {
+   "구장": "아지노모토 스타디움",
+   "구장고도": 66,
+   "원정홈": "나고야시 미즈호공원 육상경기장",
+   "원정홈고도": 6,
+   "이동km": 242,
+   "고도차": 60,
+   "날씨": {
+    "기온": 13.6,
+    "습도": 40,
+    "강수mm": 0,
+    "강수확률": 0,
+    "풍속": 6.4,
+    "출처": "Open-Meteo forecast 11-21 13:06"
+   },
+   "출처": [
+    "Wikidata Q620499→Q412824 · Open-Meteo 고도",
+    "Wikidata Q249662→Q1190418 · Open-Meteo 고도"
+   ],
+   "주의": []
+  },
+  "라인업": "발표",
+  "event": "401877533"
+ },
+ "4746": {
+  "번호": "4746",
+  "경기": "FC마치다 젤비아 - V바렌 나가사키",
+  "리그": "일본 J1리그",
+  "시각": "11-21 14:00",
+  "수집": "11-21 13:06",
+  "홈": {
+   "팀": "FC마치다 젤비아",
+   "eng": "Machida",
+   "직전": "11-08 홈 vs Sanfrecce Hiroshima 0-0 무 [jpn.1]",
+   "휴식일": 13.0,
+   "휴식일주의": "ESPN에 없는 리그일 수 있음(21일 내 경기 없음) — 실제 휴식일은 더 짧을 수 있음",
+   "최근7일경기": 0,
+   "직전event": "401877559",
+   "xg": null,
+   "선발": [
+    "Kosei Tani",
+    "Gen Shoji",
+    "Kim Min-Tae",
+    "Henry Mochizuki",
+    "Takuma Nishimura",
+    "Hotaka Nakamura",
+    "Yuki Soma",
+    "Hiroyuki Mae",
+    "Neta Lavi",
+    "Takahiro Akimoto",
+    "Koki Ogawa"
+   ],
+   "포메이션": "3-4-2-1",
+   "직전선발": [
+    "Kosei Tani",
+    "Kim Min-Tae",
+    "Thomas Ouwejan",
+    "Gen Shoji",
+    "Neta Lavi",
+    "Hiroyuki Mae",
+    "Takahiro Akimoto",
+    "Hotaka Nakamura",
+    "Koki Ogawa",
+    "Yuki Soma",
+    "Takuma Nishimura"
+   ],
+   "직전포메이션": "3-4-2-1",
+   "교체": 1,
+   "빠진": [
+    "Thomas Ouwejan"
+   ]
+  },
+  "원정": {
+   "팀": "V바렌 나가사키",
+   "eng": "V-Varen Nagasaki",
+   "직전": "11-07 원정 vs Avispa Fukuoka 1-1 무 [jpn.1]",
+   "휴식일": 14.0,
+   "휴식일주의": "ESPN에 없는 리그일 수 있음(21일 내 경기 없음) — 실제 휴식일은 더 짧을 수 있음",
+   "최근7일경기": 0,
+   "직전event": "401877535",
+   "xg": null,
+   "선발": [
+    "Masaaki Goto",
+    "Kanta Doi",
+    "Hijiri Onaga",
+    "Yusei Egawa",
+    "Yuto Iwasaki",
+    "Hotaru Yamaguchi",
+    "Norman Campbell",
+    "Matheus Jesus",
+    "Shunya Yoneda",
+    "Harumu Nabeshima",
+    "Thiago Santana"
+   ],
+   "포메이션": "3-4-2-1",
+   "직전선발": [
+    "Masaaki Goto",
+    "Ikki Arai",
+    "Yusei Egawa",
+    "Kanta Doi",
+    "Motoki Hasegawa",
+    "Hotaru Yamaguchi",
+    "Shunya Yoneda",
+    "Hijiri Onaga",
+    "Ryogo Yamasaki",
+    "Kenshin Yasuda",
+    "Matheus Jesus"
+   ],
+   "직전포메이션": "3-4-2-1",
+   "교체": 4,
+   "빠진": [
+    "Ikki Arai",
+    "Motoki Hasegawa",
+    "Ryogo Yamasaki",
+    "Kenshin Yasuda"
+   ]
+  },
+  "환경": {
+   "구장": "마치다시(구단 좌표 — 구장 미확인)",
+   "구장고도": 83,
+   "원정홈": "Nagasaki Athletic Stadium",
+   "원정홈고도": 12,
+   "이동km": 915,
+   "고도차": 71,
+   "날씨": {
+    "기온": 13.6,
+    "습도": 40,
+    "강수mm": 0,
+    "강수확률": 0,
+    "풍속": 4.8,
+    "출처": "Open-Meteo forecast 11-21 13:06"
+   },
+   "출처": [
+    "Wikidata Q210628→구단 · Open-Meteo 고도",
+    "Wikidata Q3029309→Q6958603 · Open-Meteo 고도"
+   ],
+   "주의": [
+    "장거리 원정 915km"
+   ]
+  },
+  "라인업": "발표",
+  "event": "401877552"
+ },
+ "4750": {
+  "번호": "4750",
+  "경기": "교토 상가FC - 우라와 레드",
+  "리그": "일본 J1리그",
+  "시각": "11-21 14:00",
+  "수집": "11-21 13:06",
+  "홈": {
+   "팀": "교토 상가FC",
+   "eng": "Kyoto",
+   "직전": "11-07 원정 vs Nagoya Grampus 2-0 승 [jpn.1]",
+   "휴식일": 14.0,
+   "휴식일주의": "ESPN에 없는 리그일 수 있음(21일 내 경기 없음) — 실제 휴식일은 더 짧을 수 있음",
+   "최근7일경기": 0,
+   "직전event": "401877536",
+   "xg": null,
+   "선발": [
+    "Halls",
+    "Yoshinori Suzuki",
+    "Takaaki Shichi",
+    "Hisashi Appiah Tawiah",
+    "João Pedro Mendes",
+    "Shimpei Fukuoka",
+    "Kyo Sato",
+    "Yoon Sung-Jun",
+    "Papagaio",
+    "Haruki Arai",
+    "Alex Negueba"
+   ],
+   "포메이션": "3-4-2-1",
+   "직전선발": [
+    "Halls",
+    "Yoshinori Suzuki",
+    "Takaaki Shichi",
+    "Hisashi Appiah Tawiah",
+    "João Pedro Mendes",
+    "Shimpei Fukuoka",
+    "Kyo Sato",
+    "Yoon Sung-Jun",
+    "Papagaio",
+    "Haruki Arai",
+    "Alex Negueba"
+   ],
+   "직전포메이션": "4-2-3-1",
+   "교체": 0,
+   "빠진": []
+  },
+  "원정": {
+   "팀": "우라와 레드",
+   "eng": "Urawa Red Diamonds",
+   "직전": "11-08 원정 vs Vissel Kobe 2-2 무 [jpn.1]",
+   "휴식일": 13.0,
+   "휴식일주의": "ESPN에 없는 리그일 수 있음(21일 내 경기 없음) — 실제 휴식일은 더 짧을 수 있음",
+   "최근7일경기": 0,
+   "직전event": "401877554",
+   "xg": null,
+   "선발": [
+    "Shusaku Nishikawa",
+    "Yuta Miyamoto",
+    "Kenta Nemoto",
+    "Kotaro Hayashi",
+    "Danilo Boza",
+    "Tatsuki Seko",
+    "Hayate Ueki",
+    "Ryoma Watanabe",
+    "Hiiro Komori",
+    "Takuro Kaneko",
+    "Matheus Sávio"
+   ],
+   "포메이션": "4-3-3",
+   "직전선발": [
+    "Shusaku Nishikawa",
+    "Kenta Nemoto",
+    "Danilo Boza",
+    "Shuta Sasa",
+    "Kotaro Hayashi",
+    "Samuel Gustafsson",
+    "Ryoma Watanabe",
+    "Kaito Yasui",
+    "Hiiro Komori",
+    "Matheus Sávio",
+    "Takuro Kaneko"
+   ],
+   "직전포메이션": "4-3-3",
+   "교체": 3,
+   "빠진": [
+    "Shuta Sasa",
+    "Samuel Gustafsson",
+    "Kaito Yasui"
+   ]
+  },
+  "환경": {
+   "구장": "교토시(구단 좌표 — 구장 미확인)",
+   "구장고도": 51,
+   "원정홈": "사이타마 스타디움 2002",
+   "원정홈고도": 2,
+   "이동km": 371,
+   "고도차": 49,
+   "날씨": {
+    "기온": 11.1,
+    "습도": 42,
+    "강수mm": 0,
+    "강수확률": 0,
+    "풍속": 8.6,
+    "출처": "Open-Meteo forecast 11-21 13:06"
+   },
+   "출처": [
+    "Wikidata Q34600→구단 · Open-Meteo 고도",
+    "Wikidata Q218883→Q482446 · Open-Meteo 고도"
+   ],
+   "주의": []
+  },
+  "라인업": "발표",
+  "event": "401877550"
+ },
+ "4754": {
+  "번호": "4754",
+  "경기": "산프레체 히로시마 - 요코하마 F마리노스",
+  "리그": "일본 J1리그",
+  "시각": "11-21 14:00",
+  "수집": "11-21 13:06",
+  "홈": {
+   "팀": "산프레체 히로시마",
+   "eng": "Sanfrecce Hiroshima",
+   "직전": "11-08 원정 vs Machida Zelvia 0-0 무 [jpn.1]",
+   "휴식일": 13.0,
+   "휴식일주의": "ESPN에 없는 리그일 수 있음(21일 내 경기 없음) — 실제 휴식일은 더 짧을 수 있음",
+   "최근7일경기": 0,
+   "직전event": "401877559",
+   "xg": null,
+   "선발": [
+    "Hayato Araki",
+    "Shuto Nakano",
+    "Shun Ayukawa",
+    "Hayao Kawabe",
+    "Naoto Arai",
+    "Kim Ju-Sung",
+    "Akito Suzuki",
+    "Shunki Higashi",
+    "Keisuke Osako",
+    "Taishi Matsumoto",
+    "Takuma Asano"
+   ],
+   "포메이션": "3-4-2-1",
+   "직전선발": [
+    "Keisuke Osako",
+    "Hayato Araki",
+    "Kim Ju-Sung",
+    "Shuto Nakano",
+    "Yotaro Nakajima",
+    "Hayao Kawabe",
+    "Shunki Higashi",
+    "Naoto Arai",
+    "Shun Ayukawa",
+    "Akito Suzuki",
+    "Takuma Asano"
+   ],
+   "직전포메이션": "3-4-2-1",
+   "교체": 1,
+   "빠진": [
+    "Yotaro Nakajima"
+   ]
+  },
+  "원정": {
+   "팀": "요코하마 F마리노스",
+   "eng": "Marinos",
+   "직전": "11-07 홈 vs Fagiano Okayama 1-1 무 [jpn.1]",
+   "휴식일": 14.0,
+   "휴식일주의": "ESPN에 없는 리그일 수 있음(21일 내 경기 없음) — 실제 휴식일은 더 짧을 수 있음",
+   "최근7일경기": 0,
+   "직전event": "401877558",
+   "xg": null,
+   "직전선발": [
+    "Hiroki Iikura",
+    "Kosei Suwama",
+    "Jeisson Quiñones",
+    "Toichi Suzuki",
+    "Takuto Kimura",
+    "Daiya Tono",
+    "Kosuke Matsumura",
+    "Riku Yamane",
+    "Kaina Tanimura",
+    "Ryo Miyaichi",
+    "Tomoki Kondo"
+   ],
+   "직전포메이션": "4-2-3-1"
+  },
+  "환경": {
+   "구장": "히로시마 광역공원 육상 경기장",
+   "구장고도": 154,
+   "원정홈": "Marinos del Crucero General Belgrano train station(구단 좌표 — 구장 미확인)",
+   "원정홈고도": 29,
+   "이동km": 18997,
+   "고도차": 125,
+   "날씨": {
+    "기온": 8.7,
+    "습도": 62,
+    "강수mm": 0,
+    "강수확률": 37,
+    "풍속": 6.9,
+    "출처": "Open-Meteo forecast 11-21 13:06"
+   },
+   "출처": [
+    "Wikidata Q630279→Q1366020 · Open-Meteo 고도",
+    "Wikidata Q5843636→구단 · Open-Meteo 고도"
+   ],
+   "주의": [
+    "장거리 원정 18997km"
+   ]
+  },
+  "라인업": "발표",
+  "event": "401877531"
+ },
+ "4758": {
+  "번호": "4758",
+  "경기": "블라우블리츠 아키타 - 몬테디오 야마가타",
+  "리그": "일본 J2리그",
+  "시각": "11-21 14:00",
+  "수집": "11-21 13:06",
+  "홈": {
+   "팀": "블라우블리츠 아키타",
+   "eng": "Blaublitz Akita",
+   "휴식일": null,
+   "직전": "-",
+   "최근7일경기": null,
+   "휴식일주의": "35일 내 경기 없음 — ESPN 미제공 리그(체코·폴란드·헝가리·불가리아·키프로스·이스라엘·핀란드·크로아티아·세르비아·동남아 등)이면 에이전트가 직접 확인",
+   "xg": null
+  },
+  "원정": {
+   "팀": "몬테디오 야마가타",
+   "eng": "Montedio Yamagata",
+   "휴식일": null,
+   "직전": "-",
+   "최근7일경기": null,
+   "휴식일주의": "35일 내 경기 없음 — ESPN 미제공 리그(체코·폴란드·헝가리·불가리아·키프로스·이스라엘·핀란드·크로아티아·세르비아·동남아 등)이면 에이전트가 직접 확인",
+   "xg": null
+  },
+  "환경": {
+   "구장": "Soyu Stadium",
+   "구장고도": 8,
+   "원정홈": "ND Soft Stadium Yamagata",
+   "원정홈고도": 128,
+   "이동km": 156,
+   "고도차": -120,
+   "날씨": {
+    "기온": 6.2,
+    "습도": 59,
+    "강수mm": 0,
+    "강수확률": 84,
+    "풍속": 13.7,
+    "출처": "Open-Meteo forecast 11-21 13:06"
+   },
+   "출처": [
+    "Wikidata Q882425→Q4701236 · Open-Meteo 고도",
+    "Wikidata Q1045524→Q3496105 · Open-Meteo 고도"
+   ],
+   "주의": [
+    "비 0mm(84%)"
+   ]
+  },
+  "라인업": "미발표(킥오프 0.9h 전)",
+  "event": null
+ },
+ "4762": {
+  "번호": "4762",
+  "경기": "도치기 시티FC - 알비렉스 니가타",
+  "리그": "일본 J2리그",
+  "시각": "11-21 14:00",
+  "수집": "11-21 13:06",
+  "홈": {
+   "팀": "도치기 시티FC",
+   "eng": "Tochigi City",
+   "휴식일": null,
+   "직전": "-",
+   "최근7일경기": null,
+   "휴식일주의": "35일 내 경기 없음 — ESPN 미제공 리그(체코·폴란드·헝가리·불가리아·키프로스·이스라엘·핀란드·크로아티아·세르비아·동남아 등)이면 에이전트가 직접 확인",
+   "xg": null
+  },
+  "원정": {
+   "팀": "알비렉스 니가타",
+   "eng": "Albirex Niigata",
+   "휴식일": null,
+   "직전": "-",
+   "최근7일경기": null,
+   "휴식일주의": "35일 내 경기 없음 — ESPN 미제공 리그(체코·폴란드·헝가리·불가리아·키프로스·이스라엘·핀란드·크로아티아·세르비아·동남아 등)이면 에이전트가 직접 확인",
+   "xg": null
+  },
+  "환경": {
+   "구장": "Tochigi City Stadium(구단 좌표 — 구장 미확인)",
+   "구장고도": 54,
+   "원정홈": "니가타 스타디움 빅 스완",
+   "원정홈고도": 1,
+   "이동km": 175,
+   "고도차": 53,
+   "날씨": {
+    "기온": 12.8,
+    "습도": 45,
+    "강수mm": 0,
+    "강수확률": 2,
+    "풍속": 13.0,
+    "출처": "Open-Meteo forecast 11-21 13:06"
+   },
+   "출처": [
+    "Wikidata Q11535173→구단 · Open-Meteo 고도",
+    "Wikidata Q4712581→Q494749 · Open-Meteo 고도"
+   ],
+   "주의": []
+  },
+  "라인업": "미발표(킥오프 0.9h 전)",
+  "event": null
+ },
+ "4766": {
+  "번호": "4766",
+  "경기": "요코하마FC - 콘사도레 삿포로",
+  "리그": "일본 J2리그",
+  "시각": "11-21 14:00",
+  "수집": "11-21 13:06",
+  "홈": {
+   "팀": "요코하마FC",
+   "eng": "Yokohama FC",
+   "직전": "11-07 홈 vs Fagiano Okayama 1-1 무 [jpn.1]",
+   "휴식일": 14.0,
+   "휴식일주의": "ESPN에 없는 리그일 수 있음(21일 내 경기 없음) — 실제 휴식일은 더 짧을 수 있음",
+   "최근7일경기": 0,
+   "직전event": "401877558",
+   "xg": null,
+   "직전선발": [
+    "Hiroki Iikura",
+    "Kosei Suwama",
+    "Jeisson Quiñones",
+    "Toichi Suzuki",
+    "Takuto Kimura",
+    "Daiya Tono",
+    "Kosuke Matsumura",
+    "Riku Yamane",
+    "Kaina Tanimura",
+    "Ryo Miyaichi",
+    "Tomoki Kondo"
+   ],
+   "직전포메이션": "4-2-3-1"
+  },
+  "원정": {
+   "팀": "콘사도레 삿포로",
+   "eng": "Consadole Sapporo",
+   "휴식일": null,
+   "직전": "-",
+   "최근7일경기": null,
+   "휴식일주의": "35일 내 경기 없음 — ESPN 미제공 리그(체코·폴란드·헝가리·불가리아·키프로스·이스라엘·핀란드·크로아티아·세르비아·동남아 등)이면 에이전트가 직접 확인",
+   "xg": null
+  },
+  "환경": {
+   "구장": "닛빠쯔 미쯔자와 스타디움",
+   "구장고도": 46,
+   "원정홈": "삿포로 돔",
+   "원정홈고도": 84,
+   "이동km": 853,
+   "고도차": -38,
+   "날씨": {
+    "기온": 13.8,
+    "습도": 42,
+    "강수mm": 0,
+    "강수확률": 0,
+    "풍속": 8.7,
+    "출처": "Open-Meteo forecast 11-21 13:06"
+   },
+   "출처": [
+    "Wikidata Q1062259→Q1749770 · Open-Meteo 고도",
+    "Wikidata Q586787→Q494860 · Open-Meteo 고도"
+   ],
+   "주의": [
+    "장거리 원정 853km"
+   ]
+  },
+  "라인업": "미발표(킥오프 0.9h 전)",
+  "event": null
+ },
+ "4770": {
+  "번호": "4770",
+  "경기": "반포레 고후 - 반라우레 하치노헤FC",
+  "리그": "일본 J2리그",
+  "시각": "11-21 14:00",
+  "수집": "11-21 13:06",
+  "홈": {
+   "팀": "반포레 고후",
+   "eng": "Ventforet Kofu",
+   "휴식일": null,
+   "직전": "-",
+   "최근7일경기": null,
+   "휴식일주의": "35일 내 경기 없음 — ESPN 미제공 리그(체코·폴란드·헝가리·불가리아·키프로스·이스라엘·핀란드·크로아티아·세르비아·동남아 등)이면 에이전트가 직접 확인",
+   "xg": null
+  },
+  "원정": {
+   "팀": "반라우레 하치노헤FC",
+   "eng": "Vanraure Hachinohe",
+   "휴식일": null,
+   "직전": "-",
+   "최근7일경기": null,
+   "휴식일주의": "35일 내 경기 없음 — ESPN 미제공 리그(체코·폴란드·헝가리·불가리아·키프로스·이스라엘·핀란드·크로아티아·세르비아·동남아 등)이면 에이전트가 직접 확인",
+   "xg": null
+  },
+  "환경": {
+   "구장": "JIT Recycle Ink Stadium",
+   "구장고도": 257,
+   "원정홈": "Prifoods Stadium",
+   "원정홈고도": 5,
+   "이동km": 607,
+   "고도차": 252,
+   "날씨": {
+    "기온": 12.2,
+    "습도": 40,
+    "강수mm": 0,
+    "강수확률": 0,
+    "풍속": 6.9,
+    "출처": "Open-Meteo forecast 11-21 13:06"
+   },
+   "출처": [
+    "Wikidata Q1061696→Q11469670 · Open-Meteo 고도",
+    "Wikidata Q11351958→Q28682232 · Open-Meteo 고도"
+   ],
+   "주의": []
+  },
+  "라인업": "미발표(킥오프 0.9h 전)",
+  "event": null
+ },
+ "4774": {
+  "번호": "4774",
+  "경기": "카탈레 도야마 - 오이타 트리니타",
+  "리그": "일본 J2리그",
+  "시각": "11-21 14:00",
+  "수집": "11-21 13:06",
+  "홈": {
+   "팀": "카탈레 도야마",
+   "eng": "Kataller Toyama",
+   "휴식일": null,
+   "직전": "-",
+   "최근7일경기": null,
+   "휴식일주의": "35일 내 경기 없음 — ESPN 미제공 리그(체코·폴란드·헝가리·불가리아·키프로스·이스라엘·핀란드·크로아티아·세르비아·동남아 등)이면 에이전트가 직접 확인",
+   "xg": null
+  },
+  "원정": {
+   "팀": "오이타 트리니타",
+   "eng": "Oita Trinita",
+   "휴식일": null,
+   "직전": "-",
+   "최근7일경기": null,
+   "휴식일주의": "35일 내 경기 없음 — ESPN 미제공 리그(체코·폴란드·헝가리·불가리아·키프로스·이스라엘·핀란드·크로아티아·세르비아·동남아 등)이면 에이전트가 직접 확인",
+   "xg": null
+  },
+  "환경": {
+   "구장": "Toyama Athletic Stadium",
+   "구장고도": 41,
+   "원정홈": "오이타 스포츠 공원 종합경기장",
+   "원정홈고도": 146,
+   "이동km": 632,
+   "고도차": -105,
+   "날씨": {
+    "기온": 7.7,
+    "습도": 79,
+    "강수mm": 1.1,
+    "강수확률": 98,
+    "풍속": 17.4,
+    "출처": "Open-Meteo forecast 11-21 13:06"
+   },
+   "출처": [
+    "Wikidata Q1140017→Q7830567 · Open-Meteo 고도",
+    "Wikidata Q385074→Q482581 · Open-Meteo 고도"
+   ],
+   "주의": [
+    "비 1.1mm(98%)"
+   ]
+  },
+  "라인업": "미발표(킥오프 0.9h 전)",
+  "event": null
+ },
+ "4778": {
+  "번호": "4778",
+  "경기": "주빌로 이와타 - RB오미야 아르디자",
+  "리그": "일본 J2리그",
+  "시각": "11-21 14:00",
+  "수집": "11-21 13:06",
+  "홈": {
+   "팀": "주빌로 이와타",
+   "eng": "Jubilo Iwata",
+   "휴식일": null,
+   "직전": "-",
+   "최근7일경기": null,
+   "휴식일주의": "35일 내 경기 없음 — ESPN 미제공 리그(체코·폴란드·헝가리·불가리아·키프로스·이스라엘·핀란드·크로아티아·세르비아·동남아 등)이면 에이전트가 직접 확인",
+   "xg": null
+  },
+  "원정": {
+   "팀": "RB오미야 아르디자",
+   "eng": "Omiya Ardija",
+   "휴식일": null,
+   "직전": "-",
+   "최근7일경기": null,
+   "휴식일주의": "35일 내 경기 없음 — ESPN 미제공 리그(체코·폴란드·헝가리·불가리아·키프로스·이스라엘·핀란드·크로아티아·세르비아·동남아 등)이면 에이전트가 직접 확인",
+   "xg": null
+  },
+  "환경": {
+   "구장": "야마하 스타디움",
+   "구장고도": 14,
+   "원정홈": "사이타마시 오미야 공원 축구장",
+   "원정홈고도": 11,
+   "이동km": 207,
+   "고도차": 3,
+   "날씨": {
+    "기온": 11.7,
+    "습도": 46,
+    "강수mm": 0,
+    "강수확률": 0,
+    "풍속": 17.1,
+    "출처": "Open-Meteo forecast 11-21 13:06"
+   },
+   "출처": [
+    "Wikidata Q855401→Q1369275 · Open-Meteo 고도",
+    "Wikidata Q385496→Q1189715 · Open-Meteo 고도"
+   ],
+   "주의": []
+  },
+  "라인업": "미발표(킥오프 0.9h 전)",
+  "event": null
+ },
+ "4782": {
+  "번호": "4782",
+  "경기": "후지에다 MYFC - FC이마바리",
+  "리그": "일본 J2리그",
+  "시각": "11-21 14:00",
+  "수집": "11-21 13:06",
+  "홈": {
+   "팀": "후지에다 MYFC",
+   "eng": "Fujieda MYFC",
+   "휴식일": null,
+   "직전": "-",
+   "최근7일경기": null,
+   "휴식일주의": "35일 내 경기 없음 — ESPN 미제공 리그(체코·폴란드·헝가리·불가리아·키프로스·이스라엘·핀란드·크로아티아·세르비아·동남아 등)이면 에이전트가 직접 확인",
+   "xg": null
+  },
+  "원정": {
+   "팀": "FC이마바리",
+   "eng": "FC Imabari",
+   "휴식일": null,
+   "직전": "-",
+   "최근7일경기": null,
+   "휴식일주의": "35일 내 경기 없음 — ESPN 미제공 리그(체코·폴란드·헝가리·불가리아·키프로스·이스라엘·핀란드·크로아티아·세르비아·동남아 등)이면 에이전트가 직접 확인",
+   "xg": null
+  },
+  "환경": {
+   "구장": "Fujieda Soccer Stadium",
+   "구장고도": 66,
+   "원정홈": "Arigato Service Dream Stadium",
+   "원정홈고도": 92,
+   "이동km": 493,
+   "고도차": -26,
+   "날씨": {
+    "기온": 12.0,
+    "습도": 42,
+    "강수mm": 0,
+    "강수확률": 0,
+    "풍속": 14.5,
+    "출처": "Open-Meteo forecast 11-21 13:06"
+   },
+   "출처": [
+    "Wikidata Q1342155→Q11624378 · Open-Meteo 고도",
+    "Wikidata Q11198999→Q24869364 · Open-Meteo 고도"
+   ],
+   "주의": []
+  },
+  "라인업": "미발표(킥오프 0.9h 전)",
+  "event": null
+ },
+ "4786": {
+  "번호": "4786",
+  "경기": "사간 도스 - 베갈타 센다이",
+  "리그": "일본 J2리그",
+  "시각": "11-21 14:00",
+  "수집": "11-21 13:06",
+  "홈": {
+   "팀": "사간 도스",
+   "eng": "Sagan Tosu",
+   "휴식일": null,
+   "직전": "-",
+   "최근7일경기": null,
+   "휴식일주의": "35일 내 경기 없음 — ESPN 미제공 리그(체코·폴란드·헝가리·불가리아·키프로스·이스라엘·핀란드·크로아티아·세르비아·동남아 등)이면 에이전트가 직접 확인",
+   "xg": null
+  },
+  "원정": {
+   "팀": "베갈타 센다이",
+   "eng": "Vegalta Sendai",
+   "휴식일": null,
+   "직전": "-",
+   "최근7일경기": null,
+   "휴식일주의": "35일 내 경기 없음 — ESPN 미제공 리그(체코·폴란드·헝가리·불가리아·키프로스·이스라엘·핀란드·크로아티아·세르비아·동남아 등)이면 에이전트가 직접 확인",
+   "xg": null
+  },
+  "환경": {
+   "구장": "도스 스타디움",
+   "구장고도": 22,
+   "원정홈": "센다이 스타디움",
+   "원정홈고도": 28,
+   "이동km": 1083,
+   "고도차": -6,
+   "날씨": {
+    "기온": 11.9,
+    "습도": 58,
+    "강수mm": 0.5,
+    "강수확률": 14,
+    "풍속": 8.9,
+    "출처": "Open-Meteo forecast 11-21 13:06"
+   },
+   "출처": [
+    "Wikidata Q1051238→Q1060615 · Open-Meteo 고도",
+    "Wikidata Q1044651→Q1320435 · Open-Meteo 고도"
+   ],
+   "주의": [
+    "장거리 원정 1083km"
+   ]
+  },
+  "라인업": "미발표(킥오프 0.9h 전)",
+  "event": null
+ },
+ "4790": {
+  "번호": "4790",
+  "경기": "테게바자로 미야자키 - 이와키FC",
+  "리그": "일본 J2리그",
+  "시각": "11-21 14:00",
+  "수집": "11-21 13:06",
+  "홈": {
+   "팀": "테게바자로 미야자키",
+   "eng": "Tegevajaro Miyazaki",
+   "휴식일": null,
+   "직전": "-",
+   "최근7일경기": null,
+   "휴식일주의": "35일 내 경기 없음 — ESPN 미제공 리그(체코·폴란드·헝가리·불가리아·키프로스·이스라엘·핀란드·크로아티아·세르비아·동남아 등)이면 에이전트가 직접 확인",
+   "xg": null
+  },
+  "원정": {
+   "팀": "이와키FC",
+   "eng": "Iwaki FC",
+   "휴식일": null,
+   "직전": "-",
+   "최근7일경기": null,
+   "휴식일주의": "35일 내 경기 없음 — ESPN 미제공 리그(체코·폴란드·헝가리·불가리아·키프로스·이스라엘·핀란드·크로아티아·세르비아·동남아 등)이면 에이전트가 직접 확인",
+   "xg": null
+  },
+  "환경": {
+   "구장": "Ichigo Miyazaki Shintomi Football Stadium",
+   "구장고도": 7,
+   "원정홈": "하와이안즈 스타디움 이와키(이와키 그린필드)",
+   "원정홈고도": 53,
+   "이동km": 1019,
+   "고도차": -46,
+   "날씨": {
+    "기온": 14.3,
+    "습도": 54,
+    "강수mm": 0,
+    "강수확률": 0,
+    "풍속": 17.0,
+    "출처": "Open-Meteo forecast 11-21 13:06"
+   },
+   "출처": [
+    "Wikidata Q11232186→Q106128932 · Open-Meteo 고도",
+    "수동(수집가 교차확인 3곳: 이와키FC 공식 스타디움 페이지·이와키시 공식·위키 JA) — 이전 값은 클럽하우스 Iwaki FC Park 좌표로 실제 구장과 3.9km 차이"
+   ],
+   "주의": [
+    "장거리 원정 1019km"
+   ]
+  },
+  "라인업": "미발표(킥오프 0.9h 전)",
+  "event": null
+ },
+ "4794": {
+  "번호": "4794",
+  "경기": "전북 현대모터스 - FC서울",
+  "리그": "K리그1",
+  "시각": "11-21 14:00",
+  "수집": "11-21 13:06",
+  "홈": {
+   "팀": "전북 현대모터스",
+   "eng": "Jeonbuk Motors",
+   "직전": "11-03 홈 vs Johor Darul Ta'zim 2-0 승 [league stage]",
+   "휴식일": 17.8,
+   "휴식일주의": "ESPN에 없는 리그일 수 있음(21일 내 경기 없음) — 실제 휴식일은 더 짧을 수 있음",
+   "최근7일경기": 0,
+   "직전event": "401912617",
+   "xg": null,
+   "직전선발": [
+    "Song Bum-Keun",
+    "Yeong-Bin Kim",
+    "Ji-Su Park",
+    "Choi Woo-Jin",
+    "Yeon Je-Un",
+    "Kang Sang-Yun",
+    "Kim Jin-Gyu",
+    "Maeng Seong-Ung",
+    "Bruno Rodrigues",
+    "Italo",
+    "Lee Dong-Jun"
+   ],
+   "직전포메이션": "4-2-3-1"
+  },
+  "원정": {
+   "팀": "FC서울",
+   "eng": "FC Seoul",
+   "직전": "11-04 홈 vs The Cong-Viettel FC 3-0 승 [afc.cup]",
+   "휴식일": 16.8,
+   "휴식일주의": "ESPN에 없는 리그일 수 있음(21일 내 경기 없음) — 실제 휴식일은 더 짧을 수 있음",
+   "최근7일경기": 0,
+   "직전event": "401912768",
+   "xg": null,
+   "직전선발": [
+    "Young-Wook Cho",
+    "Hwang Do-Yun",
+    "Park Soo-Il",
+    "Sang-Min Lee",
+    "Juan Antonio Ros",
+    "Anderson Oliveira",
+    "Moon Seon-Min",
+    "Kim Jin-Su",
+    "Baek Jong-Beom",
+    "Leonardo Ruiz",
+    "Hrvoje Babec"
+   ],
+   "직전포메이션": "4-1-4-1"
+  },
+  "환경": {
+   "구장": "전주월드컵경기장",
+   "구장고도": 9,
+   "원정홈": "서울월드컵경기장",
+   "원정홈고도": 16,
+   "이동km": 190,
+   "고도차": -7,
+   "날씨": {
+    "기온": 4.9,
+    "습도": 53,
+    "강수mm": 0,
+    "강수확률": 24,
+    "풍속": 12.8,
+    "출처": "Open-Meteo forecast 11-21 13:06"
+   },
+   "출처": [
+    "Wikidata Q483152→Q562072 · Open-Meteo 고도",
+    "Wikidata Q482406→Q175477 · Open-Meteo 고도"
+   ],
+   "주의": []
+  },
+  "라인업": "미발표(킥오프 0.9h 전)",
+  "event": null
+ },
+ "4802": {
+  "번호": "4802",
+  "경기": "포항 스틸러스 - FC안양",
+  "리그": "K리그1",
+  "시각": "11-21 14:00",
+  "수집": "11-21 13:06",
+  "홈": {
+   "팀": "포항 스틸러스",
+   "eng": "Pohang Steelers",
+   "직전": "11-04 홈 vs Gamba Osaka 3-3 무 [league stage]",
+   "휴식일": 16.8,
+   "휴식일주의": "ESPN에 없는 리그일 수 있음(21일 내 경기 없음) — 실제 휴식일은 더 짧을 수 있음",
+   "최근7일경기": 0,
+   "직전event": "401912614",
+   "xg": null,
+   "직전선발": [
+    "Hwang In-Jae",
+    "Jeon Min-Gwang",
+    "Si-Woo Jin",
+    "Park Chan-Yong",
+    "Kento Nishiya",
+    "Kim Seung-Ho",
+    "Kim Dong-Jin",
+    "Kim Ye-Sung",
+    "An Jae-Jun",
+    "Jakob Tranziska",
+    "Jung Han-Min"
+   ],
+   "직전포메이션": "3-4-3"
+  },
+  "원정": {
+   "팀": "FC안양",
+   "eng": "Anyang",
+   "휴식일": null,
+   "직전": "-",
+   "최근7일경기": null,
+   "휴식일주의": "35일 내 경기 없음 — ESPN 미제공 리그(체코·폴란드·헝가리·불가리아·키프로스·이스라엘·핀란드·크로아티아·세르비아·동남아 등)이면 에이전트가 직접 확인",
+   "xg": null
+  },
+  "환경": {
+   "구장": "포항스틸야드",
+   "구장고도": 18,
+   "원정홈": "서울월드컵경기장",
+   "원정홈고도": 16,
+   "이동km": 282,
+   "고도차": 2,
+   "날씨": {
+    "기온": 5.6,
+    "습도": 47,
+    "강수mm": 0,
+    "강수확률": 0,
+    "풍속": 26.9,
+    "출처": "Open-Meteo forecast 11-21 13:06"
+   },
+   "출처": [
+    "Wikidata Q169985→Q485061 · Open-Meteo 고도",
+    "Wikidata Q482406→Q175477 · Open-Meteo 고도"
+   ],
+   "주의": []
+  },
+  "라인업": "미발표(킥오프 0.9h 전)",
+  "event": null
+ },
+ "4810": {
+  "번호": "4810",
+  "경기": "수원 삼성블루윙즈 - 경남FC",
+  "리그": "K리그2",
+  "시각": "11-21 14:00",
+  "수집": "11-21 13:06",
+  "홈": {
+   "팀": "수원 삼성블루윙즈",
+   "eng": "Suwon Samsung",
+   "휴식일": null,
+   "직전": "-",
+   "최근7일경기": null,
+   "휴식일주의": "35일 내 경기 없음 — ESPN 미제공 리그(체코·폴란드·헝가리·불가리아·키프로스·이스라엘·핀란드·크로아티아·세르비아·동남아 등)이면 에이전트가 직접 확인",
+   "xg": null
+  },
+  "원정": {
+   "팀": "경남FC",
+   "eng": "Gyeongnam",
+   "휴식일": null,
+   "직전": "-",
+   "최근7일경기": null,
+   "휴식일주의": "35일 내 경기 없음 — ESPN 미제공 리그(체코·폴란드·헝가리·불가리아·키프로스·이스라엘·핀란드·크로아티아·세르비아·동남아 등)이면 에이전트가 직접 확인",
+   "xg": null
+  },
+  "환경": {
+   "구장": "수원월드컵경기장",
+   "구장고도": 56,
+   "원정홈": "창원축구센터",
+   "원정홈고도": 68,
+   "이동km": 274,
+   "고도차": -12,
+   "날씨": {
+    "기온": 1.3,
+    "습도": 49,
+    "강수mm": 0,
+    "강수확률": 0,
+    "풍속": 16.4,
+    "출처": "Open-Meteo forecast 11-21 13:06"
+   },
+   "출처": [
+    "Wikidata Q482449→Q494761 · Open-Meteo 고도",
+    "Wikidata Q425690→Q493801 · Open-Meteo 고도"
+   ],
+   "주의": []
+  },
+  "라인업": "미발표(킥오프 0.9h 전)",
+  "event": null
+ },
+ "4814": {
+  "번호": "4814",
+  "경기": "부산 아이파크 - 충북청주 프로축구단",
+  "리그": "K리그2",
+  "시각": "11-21 14:00",
+  "수집": "11-21 13:06",
+  "홈": {
+   "팀": "부산 아이파크",
+   "eng": "Busan",
+   "휴식일": null,
+   "직전": "-",
+   "최근7일경기": null,
+   "휴식일주의": "35일 내 경기 없음 — ESPN 미제공 리그(체코·폴란드·헝가리·불가리아·키프로스·이스라엘·핀란드·크로아티아·세르비아·동남아 등)이면 에이전트가 직접 확인",
+   "xg": null
+  },
+  "원정": {
+   "팀": "충북청주 프로축구단",
+   "eng": "Chungbuk Cheongju",
+   "휴식일": null,
+   "직전": "-",
+   "최근7일경기": null,
+   "휴식일주의": "35일 내 경기 없음 — ESPN 미제공 리그(체코·폴란드·헝가리·불가리아·키프로스·이스라엘·핀란드·크로아티아·세르비아·동남아 등)이면 에이전트가 직접 확인",
+   "xg": null
+  },
+  "환경": {
+   "구장": "부산구덕운동장",
+   "구장고도": 30,
+   "원정홈": "청주종합경기장",
+   "원정홈고도": 67,
+   "이동km": 219,
+   "고도차": -37,
+   "날씨": {
+    "기온": 6.7,
+    "습도": 45,
+    "강수mm": 0,
+    "강수확률": 0,
+    "풍속": 13.5,
+    "출처": "Open-Meteo forecast 11-21 13:06"
+   },
+   "출처": [
+    "수동 — 구덕운동장(부산 서구). 2024-06 부터 홈구장. Wikidata 가 부산아시아드주경기장으로 낡아 있었음(부산시 체육시설관리사업소·국제뉴스 2026-10-23·네이트스포츠 교차)",
+    "Wikidata Q626785→Q5091647 · Open-Meteo 고도"
+   ],
+   "주의": []
+  },
+  "라인업": "미발표(킥오프 0.9h 전)",
+  "event": null
+ },
+ "4822": {
+  "번호": "4822",
+  "경기": "센트럴코스트 매리너스 - 퍼스 글로리",
+  "리그": "호주 A리그",
+  "시각": "11-21 15:00",
+  "수집": "11-21 13:06",
+  "홈": {
+   "팀": "센트럴코스트 매리너스",
+   "eng": "Central Coast Mariners",
+   "직전": "11-06 원정 vs Sydney FC 1-4 패 [aus.1]",
+   "휴식일": 14.9,
+   "휴식일주의": "ESPN에 없는 리그일 수 있음(21일 내 경기 없음) — 실제 휴식일은 더 짧을 수 있음",
+   "최근7일경기": 0,
+   "직전event": "401892144",
+   "xg": null,
+   "직전선발": [
+    "Andrew Redmayne",
+    "Noah Mccann",
+    "Diesel Herrington",
+    "Lucas Mauragis",
+    "Storm Roux",
+    "Haine Eames",
+    "Chris Donnell",
+    "Ali Auglah",
+    "Arthur De Lima",
+    "Oliver Lavale",
+    "Bailey Brandtman"
+   ],
+   "직전포메이션": "4-4-2"
+  },
+  "원정": {
+   "팀": "퍼스 글로리",
+   "eng": "Perth Glory",
+   "직전": "11-07 홈 vs Newcastle Jets 2-1 승 [aus.1]",
+   "휴식일": 13.8,
+   "휴식일주의": "ESPN에 없는 리그일 수 있음(21일 내 경기 없음) — 실제 휴식일은 더 짧을 수 있음",
+   "최근7일경기": 0,
+   "직전event": "401892141",
+   "xg": null,
+   "직전선발": [
+    "Daniel Solsky",
+    "Lachlan Jackson",
+    "Cher Deng",
+    "Sam Sutton",
+    "Tadiwanashe Kuzamba",
+    "William Freney",
+    "Lucas Scicluna",
+    "Stefan Colakovski",
+    "Jaiden Kucharski",
+    "Sebastian Despotovski",
+    "Pieter Jacobsz"
+   ],
+   "직전포메이션": "4-4-2"
+  },
+  "환경": {
+   "구장": "센트럴코스트 스타디움",
+   "구장고도": 6,
+   "원정홈": "퍼스 오벌",
+   "원정홈고도": 18,
+   "이동km": 3307,
+   "고도차": -12,
+   "날씨": {
+    "기온": 26.3,
+    "습도": 64,
+    "강수mm": 0.1,
+    "강수확률": 78,
+    "풍속": 13.8,
+    "출처": "Open-Meteo forecast 11-21 13:06"
+   },
+   "출처": [
+    "Wikidata Q762294→Q966081 · Open-Meteo 고도",
+    "Wikidata Q852033→Q978904 · Open-Meteo 고도"
+   ],
+   "주의": [
+    "장거리 원정 3307km",
+    "비 0.1mm(78%)"
+   ]
+  },
+  "라인업": "미발표(킥오프 1.9h 전)",
+  "event": "401892136"
+ },
+ "4826": {
+  "번호": "4826",
+  "경기": "가와사키 프론탈레 - 아비스파 후쿠오카",
+  "리그": "일본 J1리그",
+  "시각": "11-21 15:00",
+  "수집": "11-21 13:06",
+  "홈": {
+   "팀": "가와사키 프론탈레",
+   "eng": "Kawasaki Frontale",
+   "직전": "11-07 원정 vs Kashiwa Reysol 1-2 패 [jpn.1]",
+   "휴식일": 14.0,
+   "휴식일주의": "ESPN에 없는 리그일 수 있음(21일 내 경기 없음) — 실제 휴식일은 더 짧을 수 있음",
+   "최근7일경기": 0,
+   "직전event": "401877560",
+   "xg": null,
+   "직전선발": [
+    "Svend Brodersen",
+    "Yuichi Maruyama",
+    "Pedro Romano",
+    "Asahi Sasaki",
+    "Reon Yamahara",
+    "Yasuto Wakisaka",
+    "Yuto Ozeki",
+    "Kento Tachibanada",
+    "Kyosuke Mochiyama",
+    "Marcinho",
+    "Tatsuya Ito"
+   ],
+   "직전포메이션": "4-2-3-1"
+  },
+  "원정": {
+   "팀": "아비스파 후쿠오카",
+   "eng": "Avispa Fukuoka",
+   "직전": "11-07 홈 vs V-Varen Nagasaki 1-1 무 [jpn.1]",
+   "휴식일": 14.0,
+   "휴식일주의": "ESPN에 없는 리그일 수 있음(21일 내 경기 없음) — 실제 휴식일은 더 짧을 수 있음",
+   "최근7일경기": 0,
+   "직전event": "401877535",
+   "xg": null,
+   "직전선발": [
+    "Takumi Nagaishi",
+    "Kenedeiebusu Mikuni",
+    "Teppei Oka",
+    "Takumi Kamijma",
+    "Tomoya Miki",
+    "Keiya Shiihashi",
+    "Yu Hashimoto",
+    "Masato Yuzawa",
+    "Werik",
+    "Shintaro Nago",
+    "Shu Morooka"
+   ],
+   "직전포메이션": "3-4-2-1"
+  },
+  "환경": {
+   "구장": "도도로키 육상 경기장",
+   "구장고도": 10,
+   "원정홈": "아랍 아메리카 대학교 경기장",
+   "원정홈고도": 29,
+   "이동km": 870,
+   "고도차": -19,
+   "날씨": {
+    "기온": 14.0,
+    "습도": 41,
+    "강수mm": 0,
+    "강수확률": 0,
+    "풍속": 3.7,
+    "출처": "Open-Meteo forecast 11-21 13:07"
+   },
+   "출처": [
+    "Wikidata Q874016→Q1190230 · Open-Meteo 고도",
+    "Wikidata Q791164→Q1366106 · Open-Meteo 고도"
+   ],
+   "주의": [
+    "장거리 원정 870km"
+   ]
+  },
+  "라인업": "미발표(킥오프 1.9h 전)",
+  "event": "401877551"
+ },
+ "4830": {
+  "번호": "4830",
+  "경기": "세레소 오사카 - FC도쿄",
+  "리그": "일본 J1리그",
+  "시각": "11-21 15:00",
+  "수집": "11-21 13:06",
+  "홈": {
+   "팀": "세레소 오사카",
+   "eng": "Cerezo",
+   "직전": "11-08 원정 vs Gamba Osaka 3-2 승 [jpn.1]",
+   "휴식일": 13.0,
+   "휴식일주의": "ESPN에 없는 리그일 수 있음(21일 내 경기 없음) — 실제 휴식일은 더 짧을 수 있음",
+   "최근7일경기": 0,
+   "직전event": "401877555",
+   "xg": null,
+   "직전선발": [
+    "Kosuke Nakamura",
+    "Rikito Inoue",
+    "Dion Cools",
+    "Ayumu Ohata",
+    "Hayato Okuda",
+    "Shunta Tanaka",
+    "Jackson Irvine",
+    "Yumeki Yokoyama",
+    "Lucas Fernandes",
+    "Satoki Uejo",
+    "Soromon Sakuragawa"
+   ],
+   "직전포메이션": "4-4-2"
+  },
+  "원정": {
+   "팀": "FC도쿄",
+   "eng": "FC Tokyo",
+   "직전": "11-07 홈 vs Kashima Antlers 2-0 승 [jpn.1]",
+   "휴식일": 14.0,
+   "휴식일주의": "ESPN에 없는 리그일 수 있음(21일 내 경기 없음) — 실제 휴식일은 더 짧을 수 있음",
+   "최근7일경기": 0,
+   "직전event": "401877556",
+   "xg": null,
+   "직전선발": [
+    "Kim Seung-Gyu",
+    "Hayato Inamura",
+    "Alexander Scholz",
+    "Kashifu Bangunagande",
+    "Rio Omori",
+    "Takahiro Koh",
+    "Shuto Nagano",
+    "Soma Anzai",
+    "Kota Tawaratsumida",
+    "Motoki Nagakura",
+    "Teruhito Nakagawa"
+   ],
+   "직전포메이션": "4-4-2"
+  },
+  "환경": {
+   "구장": "요도코 벚꽃 스타디움",
+   "구장고도": 9,
+   "원정홈": "아지노모토 스타디움",
+   "원정홈고도": 66,
+   "이동km": 383,
+   "고도차": -57,
+   "날씨": {
+    "기온": 11.1,
+    "습도": 50,
+    "강수mm": 0,
+    "강수확률": 53,
+    "풍속": 12.7,
+    "출처": "Open-Meteo forecast 11-21 13:07"
+   },
+   "출처": [
+    "Wikidata Q855809→Q3070472 · Open-Meteo 고도",
+    "Wikidata Q856619→Q412824 · Open-Meteo 고도"
+   ],
+   "주의": []
+  },
+  "라인업": "미발표(킥오프 1.9h 전)",
+  "event": "401877549"
+ },
+ "4839": {
+  "번호": "4839",
+  "경기": "감바 오사카 - 파지아노 오카야마",
+  "리그": "일본 J1리그",
+  "시각": "11-21 16:00",
+  "수집": "11-21 13:06",
+  "홈": {
+   "팀": "감바 오사카",
+   "eng": "Gamba Osaka",
+   "직전": "11-08 홈 vs Cerezo Osaka 2-3 패 [jpn.1]",
+   "휴식일": 13.0,
+   "휴식일주의": "ESPN에 없는 리그일 수 있음(21일 내 경기 없음) — 실제 휴식일은 더 짧을 수 있음",
+   "최근7일경기": 0,
+   "직전event": "401877555",
+   "xg": null,
+   "직전선발": [
+    "Masaaki Higashiguchi",
+    "Shota Fukuoka",
+    "Shinnosuke Nakatani",
+    "Ryo Hatsuse",
+    "Takeru Kishimoto",
+    "Takashi Usami",
+    "Tokuma Suzuki",
+    "Shuto Abe",
+    "Issam Jebali",
+    "Kohshiro Sumi",
+    "Ryoya Yamashita"
+   ],
+   "직전포메이션": "4-2-3-1"
+  },
+  "원정": {
+   "팀": "파지아노 오카야마",
+   "eng": "Fagiano Okayama",
+   "직전": "11-07 원정 vs Yokohama F. Marinos 1-1 무 [jpn.1]",
+   "휴식일": 14.1,
+   "휴식일주의": "ESPN에 없는 리그일 수 있음(21일 내 경기 없음) — 실제 휴식일은 더 짧을 수 있음",
+   "최근7일경기": 0,
+   "직전event": "401877558",
+   "xg": null,
+   "직전선발": [
+    "Lennart Moser",
+    "Yugo Tatsuta",
+    "Yoshitake Suzuki",
+    "Soichiro Mori",
+    "Eiji Miyamoto",
+    "Oberdan",
+    "Towa Yamane",
+    "Haruka Motoyama",
+    "Noah Browne",
+    "Ataru Esaka",
+    "Kota Kawano"
+   ],
+   "직전포메이션": "3-4-2-1"
+  },
+  "환경": {
+   "구장": "시립 스이타 사커 스타디움",
+   "구장고도": 42,
+   "원정홈": "오카야마 현 종합 운동장 육상 경기장",
+   "원정홈고도": 10,
+   "이동km": 149,
+   "고도차": 32,
+   "날씨": {
+    "기온": 10.6,
+    "습도": 46,
+    "강수mm": 0,
+    "강수확률": 0,
+    "풍속": 8.9,
+    "출처": "Open-Meteo forecast 11-21 13:07"
+   },
+   "출처": [
+    "Wikidata Q738423→Q16714657 · Open-Meteo 고도",
+    "Wikidata Q595489→Q5363497 · Open-Meteo 고도"
+   ],
+   "주의": []
+  },
+  "라인업": "미발표(킥오프 2.9h 전)",
+  "event": "401877532"
+ },
+ "4852": {
+  "번호": "4852",
+  "경기": "강원FC - 대전 하나시티즌",
+  "리그": "K리그1",
+  "시각": "11-21 16:30",
+  "수집": "11-21 13:06",
+  "홈": {
+   "팀": "강원FC",
+   "eng": "Gangwon FC",
+   "직전": "11-05 원정 vs Kuching City 0-2 패 [afc.cup]",
+   "휴식일": 15.8,
+   "휴식일주의": "ESPN에 없는 리그일 수 있음(21일 내 경기 없음) — 실제 휴식일은 더 짧을 수 있음",
+   "최근7일경기": 0,
+   "직전event": "401912756",
+   "xg": null,
+   "직전선발": [
+    "Kim Yu-Sung",
+    "Seong-Yun Kang",
+    "Eun-Seok Ko",
+    "Hong Chul",
+    "Kim Do-Hyun",
+    "Kim Dong-Hyun",
+    "Yi-Seok Kim",
+    "Cho Won-Woo",
+    "Kang Yun-Gu",
+    "Lee Yong-Jae",
+    "Gun-Hee Kim"
+   ],
+   "직전포메이션": "4-4-2"
+  },
+  "원정": {
+   "팀": "대전 하나시티즌",
+   "eng": "Daejeon Citizen",
+   "직전": "11-03 원정 vs Kashiwa Reysol 0-2 패 [league stage]",
+   "휴식일": 17.9,
+   "휴식일주의": "ESPN에 없는 리그일 수 있음(21일 내 경기 없음) — 실제 휴식일은 더 짧을 수 있음",
+   "최근7일경기": 0,
+   "직전event": "401912604",
+   "xg": null,
+   "직전선발": [
+    "Lee Chang-Geun",
+    "Jo Seong-Kwon",
+    "Kim Min-Deok",
+    "Kyu-hyun Park",
+    "Jinya Kim",
+    "Lee Soon-Min",
+    "Kim Bong-Soo",
+    "Jeong Jae-Hee",
+    "João Victor",
+    "Kim Jun-beom",
+    "Diogo"
+   ],
+   "직전포메이션": "4-4-2"
+  },
+  "환경": {
+   "구장": "춘천송암스포츠타운",
+   "구장고도": 84,
+   "원정홈": "대전월드컵경기장",
+   "원정홈고도": 63,
+   "이동km": 169,
+   "고도차": 21,
+   "날씨": {
+    "기온": 0.0,
+    "습도": 45,
+    "강수mm": 0,
+    "강수확률": 0,
+    "풍속": 14.8,
+    "출처": "Open-Meteo forecast 11-21 13:07"
+   },
+   "출처": [
+    "Wikidata Q484569→Q5116244 · Open-Meteo 고도",
+    "Wikidata Q484584→Q482598 · Open-Meteo 고도"
+   ],
+   "주의": [
+    "기온 0.0℃"
+   ]
+  },
+  "라인업": "미발표(킥오프 3.4h 전)",
+  "event": null
+ },
+ "4860": {
+  "번호": "4860",
+  "경기": "인천 유나이티드 - 울산 HDFC",
+  "리그": "K리그1",
+  "시각": "11-21 16:30",
+  "수집": "11-21 13:06",
+  "홈": {
+   "팀": "인천 유나이티드",
+   "eng": "Incheon United",
+   "휴식일": null,
+   "직전": "-",
+   "최근7일경기": null,
+   "휴식일주의": "35일 내 경기 없음 — ESPN 미제공 리그(체코·폴란드·헝가리·불가리아·키프로스·이스라엘·핀란드·크로아티아·세르비아·동남아 등)이면 에이전트가 직접 확인",
+   "xg": null
+  },
+  "원정": {
+   "팀": "울산 HDFC",
+   "eng": "Ulsan",
+   "휴식일": null,
+   "직전": "-",
+   "최근7일경기": null,
+   "휴식일주의": "35일 내 경기 없음 — ESPN 미제공 리그(체코·폴란드·헝가리·불가리아·키프로스·이스라엘·핀란드·크로아티아·세르비아·동남아 등)이면 에이전트가 직접 확인",
+   "xg": null
+  },
+  "환경": {
+   "구장": "인천축구전용경기장",
+   "구장고도": 17,
+   "원정홈": "울산문수축구경기장",
+   "원정홈고도": 43,
+   "이동km": 317,
+   "고도차": -26,
+   "날씨": {
+    "기온": 1.7,
+    "습도": 48,
+    "강수mm": 0,
+    "강수확률": 0,
+    "풍속": 22.4,
+    "출처": "Open-Meteo forecast 11-21 13:07"
+   },
+   "출처": [
+    "Wikidata Q482562→Q493545 · Open-Meteo 고도",
+    "Wikidata Q129673→Q482601 · Open-Meteo 고도"
+   ],
+   "주의": []
+  },
+  "라인업": "미발표(킥오프 3.4h 전)",
+  "event": null
+ },
+ "4868": {
+  "번호": "4868",
+  "경기": "김포FC - 수원FC",
+  "리그": "K리그2",
+  "시각": "11-21 16:30",
+  "수집": "11-21 13:06",
+  "홈": {
+   "팀": "김포FC",
+   "eng": "Gimpo",
+   "휴식일": null,
+   "직전": "-",
+   "최근7일경기": null,
+   "휴식일주의": "35일 내 경기 없음 — ESPN 미제공 리그(체코·폴란드·헝가리·불가리아·키프로스·이스라엘·핀란드·크로아티아·세르비아·동남아 등)이면 에이전트가 직접 확인",
+   "xg": null
+  },
+  "원정": {
+   "팀": "수원FC",
+   "eng": "Suwon FC",
+   "휴식일": null,
+   "직전": "-",
+   "최근7일경기": null,
+   "휴식일주의": "35일 내 경기 없음 — ESPN 미제공 리그(체코·폴란드·헝가리·불가리아·키프로스·이스라엘·핀란드·크로아티아·세르비아·동남아 등)이면 에이전트가 직접 확인",
+   "xg": null
+  },
+  "환경": {
+   "구장": "김포솔터축구장",
+   "구장고도": 10,
+   "원정홈": "수원종합운동장",
+   "원정홈고도": 69,
+   "이동km": 44,
+   "고도차": -59,
+   "날씨": {
+    "기온": 0.8,
+    "습도": 45,
+    "강수mm": 0,
+    "강수확률": 0,
+    "풍속": 17.4,
+    "출처": "Open-Meteo forecast 11-21 13:07"
+   },
+   "출처": [
+    "수동(2026-10-24 수집가 교차4곳 — Wikidata P115 가 고양종합운동장으로 낡음)",
+    "Wikidata Q3455793→Q483975 · Open-Meteo 고도"
+   ],
+   "주의": []
+  },
+  "라인업": "미발표(킥오프 3.4h 전)",
+  "event": null
+ },
+ "4872": {
+  "번호": "4872",
+  "경기": "성남FC - 용인FC",
+  "리그": "K리그2",
+  "시각": "11-21 16:30",
+  "수집": "11-21 13:06",
+  "홈": {
+   "팀": "성남FC",
+   "eng": "Seongnam FC",
+   "휴식일": null,
+   "직전": "-",
+   "최근7일경기": null,
+   "휴식일주의": "35일 내 경기 없음 — ESPN 미제공 리그(체코·폴란드·헝가리·불가리아·키프로스·이스라엘·핀란드·크로아티아·세르비아·동남아 등)이면 에이전트가 직접 확인",
+   "xg": null
+  },
+  "원정": {
+   "팀": "용인FC",
+   "eng": "Yongin",
+   "휴식일": null,
+   "직전": "-",
+   "최근7일경기": null,
+   "휴식일주의": "35일 내 경기 없음 — ESPN 미제공 리그(체코·폴란드·헝가리·불가리아·키프로스·이스라엘·핀란드·크로아티아·세르비아·동남아 등)이면 에이전트가 직접 확인",
+   "xg": null
+  },
+  "환경": {
+   "구장": "탄천종합운동장",
+   "구장고도": 33,
+   "원정홈": "용인축구센터",
+   "원정홈고도": 128,
+   "이동km": 34,
+   "고도차": -95,
+   "날씨": {
+    "기온": 0.7,
+    "습도": 51,
+    "강수mm": 0,
+    "강수확률": 0,
+    "풍속": 15.3,
+    "출처": "Open-Meteo forecast 11-21 13:07"
+   },
+   "출처": [
+    "Wikidata Q482540→Q497095 · Open-Meteo 고도",
+    "Wikidata Q9213551→Q2888622 · Open-Meteo 고도"
+   ],
+   "주의": []
+  },
+  "라인업": "미발표(킥오프 3.4h 전)",
+  "event": null
+ },
+ "4876": {
+  "번호": "4876",
+  "경기": "브리즈번 로어 - 시드니FC",
+  "리그": "호주 A리그",
+  "시각": "11-21 17:40",
+  "수집": "11-21 13:06",
+  "홈": {
+   "팀": "브리즈번 로어",
+   "eng": "Brisbane Roar",
+   "직전": "11-08 원정 vs Macarthur FC 2-1 승 [aus.1]",
+   "휴식일": 13.2,
+   "휴식일주의": "ESPN에 없는 리그일 수 있음(21일 내 경기 없음) — 실제 휴식일은 더 짧을 수 있음",
+   "최근7일경기": 0,
+   "직전event": "401892140",
+   "xg": null,
+   "직전선발": [
+    "George Plusnin",
+    "Tom Aldred",
+    "Joel King",
+    "Milorad Stajic",
+    "Tyrese Francois",
+    "Nam Tae-Hee",
+    "Noah Maieroni",
+    "Sabit Ngor",
+    "Tate Russell",
+    "Justin Vidic",
+    "Virgiliu Postolachi"
+   ],
+   "직전포메이션": "3-5-2"
+  },
+  "원정": {
+   "팀": "시드니FC",
+   "eng": "Sydney FC",
+   "직전": "11-06 홈 vs Central Coast Mariners FC 4-1 승 [aus.1]",
+   "휴식일": 15.0,
+   "휴식일주의": "ESPN에 없는 리그일 수 있음(21일 내 경기 없음) — 실제 휴식일은 더 짧을 수 있음",
+   "최근7일경기": 0,
+   "직전event": "401892144",
+   "xg": null,
+   "직전선발": [
+    "Harrison Devenish-Meares",
+    "Jordan Courtney-Perkins",
+    "Alexandar Popovic",
+    "Ben Garuccio",
+    "Rhyan Grant",
+    "Takahiro Sekine",
+    "Wataru Kamijo",
+    "Rhys Youlley",
+    "Oriola Sunday",
+    "Akol Akon",
+    "Al Hassan Toure"
+   ],
+   "직전포메이션": "4-2-3-1"
+  },
+  "환경": {
+   "구장": "선콥 스타디움",
+   "구장고도": 19,
+   "원정홈": "시드니 풋볼 스타디움",
+   "원정홈고도": 38,
+   "이동km": 734,
+   "고도차": -19,
+   "날씨": {
+    "기온": 22.5,
+    "습도": 71,
+    "강수mm": 0,
+    "강수확률": 13,
+    "풍속": 6.8,
+    "출처": "Open-Meteo forecast 11-21 13:07"
+   },
+   "출처": [
+    "Wikidata Q839997→Q643328 · Open-Meteo 고도",
+    "Wikidata Q330143→Q1053447 · Open-Meteo 고도"
+   ],
+   "주의": []
+  },
+  "라인업": "미발표(킥오프 4.6h 전)",
+  "event": "401892135"
+ },
+ "4880": {
+  "번호": "4880",
+  "경기": "밀월 - 퀸즈파크 레인저스",
+  "리그": "잉글랜드 챔피언십",
+  "시각": "11-21 21:30",
+  "수집": "11-21 13:06",
+  "홈": {
+   "팀": "밀월",
+   "eng": "Millwall",
+   "직전": "11-08 원정 vs West Bromwich Albion 0-3 패 [eng.2]",
+   "휴식일": 13.9,
+   "휴식일주의": "ESPN에 없는 리그일 수 있음(21일 내 경기 없음) — 실제 휴식일은 더 짧을 수 있음",
+   "최근7일경기": 0,
+   "직전event": "401880162",
+   "xg": null,
+   "직전선발": [
+    "Max Crocombe",
+    "Jake Cooper",
+    "Caleb Taylor",
+    "Zak Sturge",
+    "Jordi Osei-Tutu",
+    "Luke Cundle",
+    "Derek Mazou-Sacko",
+    "Jenson Metcalfe",
+    "Josh Coburn",
+    "Kyrell Lisbie",
+    "Camiel Neghli"
+   ],
+   "직전포메이션": "4-2-3-1"
+  },
+  "원정": {
+   "팀": "퀸즈파크 레인저스",
+   "eng": "Queens Park Rangers",
+   "직전": "11-08 홈 vs Lincoln City 2-1 승 [eng.2]",
+   "휴식일": 13.9,
+   "휴식일주의": "ESPN에 없는 리그일 수 있음(21일 내 경기 없음) — 실제 휴식일은 더 짧을 수 있음",
+   "최근7일경기": 0,
+   "직전event": "401880164",
+   "xg": null,
+   "직전선발": [
+    "Pierce Charles",
+    "Ronnie Edwards",
+    "Jimmy Dunne",
+    "Boy Kemper",
+    "Kealey Adamson",
+    "Harvey Vale",
+    "Glen Kamara",
+    "Jonathan Varane",
+    "Richard Kone",
+    "Paul Smyth",
+    "Kwame Poku"
+   ],
+   "직전포메이션": "4-2-3-1"
+  },
+  "환경": {
+   "구장": "더 덴",
+   "구장고도": 9,
+   "원정홈": "로프터스 로드",
+   "원정홈고도": 11,
+   "이동km": 13,
+   "고도차": -2,
+   "날씨": {
+    "기온": 8.1,
+    "습도": 73,
+    "강수mm": 0,
+    "강수확률": 0,
+    "풍속": 9.4,
+    "출처": "Open-Meteo forecast 11-21 13:07"
+   },
+   "출처": [
+    "Wikidata Q19487→Q908481 · Open-Meteo 고도",
+    "Wikidata Q18723→Q31670 · Open-Meteo 고도"
+   ],
+   "주의": []
+  },
+  "라인업": "미발표(킥오프 8.4h 전)",
+  "event": "401880156"
+ },
+ "4884": {
+  "번호": "4884",
+  "경기": "노리치 시티 - 카디프 시티",
+  "리그": "잉글랜드 챔피언십",
+  "시각": "11-21 21:30",
+  "수집": "11-21 13:06",
+  "홈": {
+   "팀": "노리치 시티",
+   "eng": "Norwich City",
+   "직전": "11-07 원정 vs Bristol City 5-0 승 [eng.2]",
+   "휴식일": 14.0,
+   "휴식일주의": "ESPN에 없는 리그일 수 있음(21일 내 경기 없음) — 실제 휴식일은 더 짧을 수 있음",
+   "최근7일경기": 0,
+   "직전event": "401880170",
+   "xg": null,
+   "직전선발": [
+    "Daniel Grimshaw",
+    "Harry Darling",
+    "Ruairi McConville",
+    "Benjamin Chrisene",
+    "Jack Stacey",
+    "Paris Maghoma",
+    "Jacob Wright",
+    "Sam Field",
+    "Mathias Kvistgaarden",
+    "Anthony Musaba",
+    "Andre Brooks"
+   ],
+   "직전포메이션": "4-2-3-1"
+  },
+  "원정": {
+   "팀": "카디프 시티",
+   "eng": "Cardiff",
+   "직전": "11-08 홈 vs Burnley 5-4 승 [eng.2]",
+   "휴식일": 13.9,
+   "휴식일주의": "ESPN에 없는 리그일 수 있음(21일 내 경기 없음) — 실제 휴식일은 더 짧을 수 있음",
+   "최근7일경기": 0,
+   "직전event": "401880169",
+   "xg": null,
+   "직전선발": [
+    "Nathan Trott",
+    "Krystian Bielik",
+    "William Fish",
+    "Joel Bagan",
+    "Perry Ng",
+    "Rubin Colwill",
+    "Cian Ashford",
+    "Alex Robertson",
+    "Jack Moylan",
+    "Chris Willock",
+    "Ollie Tanner"
+   ],
+   "직전포메이션": "4-2-3-1"
+  },
+  "환경": {
+   "구장": "캐로 로드",
+   "구장고도": 5,
+   "원정홈": "카디프 시티 스타디움",
+   "원정홈고도": 11,
+   "이동km": 334,
+   "고도차": -6,
+   "날씨": {
+    "기온": 5.2,
+    "습도": 80,
+    "강수mm": 0,
+    "강수확률": 0,
+    "풍속": 2.9,
+    "출처": "Open-Meteo forecast 11-21 13:07"
+   },
+   "출처": [
+    "Wikidata Q18721→Q123017 · Open-Meteo 고도",
+    "Wikidata Q18662→Q867902 · Open-Meteo 고도"
+   ],
+   "주의": []
+  },
+  "라인업": "미발표(킥오프 8.4h 전)",
+  "event": "401880155"
+ },
+ "4888": {
+  "번호": "4888",
+  "경기": "사우샘프턴 - 더비 카운티",
+  "리그": "잉글랜드 챔피언십",
+  "시각": "11-21 21:30",
+  "수집": "11-21 13:06",
+  "홈": {
+   "팀": "사우샘프턴",
+   "eng": "Southampton FC",
+   "직전": "11-08 원정 vs Preston North End 0-1 패 [eng.2]",
+   "휴식일": 13.9,
+   "휴식일주의": "ESPN에 없는 리그일 수 있음(21일 내 경기 없음) — 실제 휴식일은 더 짧을 수 있음",
+   "최근7일경기": 0,
+   "직전event": "401880165",
+   "xg": null,
+   "직전선발": [
+    "Daniel Peretz",
+    "Keven Schlotterbeck",
+    "Jack Stephens",
+    "Welington",
+    "James Bree",
+    "Finn Azaz",
+    "James Ward-Prowse",
+    "Flynn Downes",
+    "Lewis Dobbin",
+    "Léo Scienza",
+    "Kuryu Matsuki"
+   ],
+   "직전포메이션": "4-2-3-1"
+  },
+  "원정": {
+   "팀": "더비 카운티",
+   "eng": "Derby County",
+   "직전": "11-07 홈 vs Bolton Wanderers 3-1 승 [eng.2]",
+   "휴식일": 14.7,
+   "휴식일주의": "ESPN에 없는 리그일 수 있음(21일 내 경기 없음) — 실제 휴식일은 더 짧을 수 있음",
+   "최근7일경기": 0,
+   "직전event": "401880167",
+   "xg": null,
+   "직전선발": [
+    "Jacob Widell Zetterström",
+    "Dion Sanderson",
+    "Shane Duffy",
+    "Jack Robinson",
+    "Ryan Nyambe",
+    "Bobby Clark",
+    "David Ozoh",
+    "Lewis Travis",
+    "Carlton Morris",
+    "Mohammed Fuseini",
+    "Rhian Brewster"
+   ],
+   "직전포메이션": "4-2-3-1"
+  },
+  "환경": {
+   "구장": "세인트 메리스 스타디움",
+   "구장고도": 18,
+   "원정홈": "프라이드 파크 스타디움",
+   "원정홈고도": 51,
+   "이동km": 223,
+   "고도차": -33,
+   "날씨": {
+    "기온": 10.3,
+    "습도": 78,
+    "강수mm": 0,
+    "강수확률": 0,
+    "풍속": 10.1,
+    "출처": "Open-Meteo forecast 11-21 13:07"
+   },
+   "출처": [
+    "Wikidata Q18732→Q567339 · Open-Meteo 고도",
+    "Wikidata Q19470→Q201612 · Open-Meteo 고도"
+   ],
+   "주의": []
+  },
+  "라인업": "미발표(킥오프 8.4h 전)",
+  "event": "401880153"
+ },
+ "4894": {
+  "번호": "4894",
+  "경기": "맨체스터 시티 - 풀럼",
+  "리그": "잉글랜드 프리미어리그",
+  "시각": "11-21 21:30",
+  "수집": "11-21 13:06",
+  "홈": {
+   "팀": "맨체스터 시티",
+   "eng": "Manchester City",
+   "직전": "11-08 원정 vs Nottingham Forest 1-3 패 [english premier league]",
+   "휴식일": 13.8,
+   "휴식일주의": "ESPN에 없는 리그일 수 있음(21일 내 경기 없음) — 실제 휴식일은 더 짧을 수 있음",
+   "최근7일경기": 0,
+   "직전event": "401878757",
+   "xg": {
+    "n": 9,
+    "xg": 2.4,
+    "xga": 1.28,
+    "npxgd": 1.2,
+    "l5_xg": 2.64,
+    "l5_xga": 1.49,
+    "l5_npxgd": 1.3,
+    "home_xgd": 1.3,
+    "away_xgd": 1.08,
+    "xpts": 19.1,
+    "pts": 21
+   },
+   "xg_src": "Understat EPL Manchester City",
+   "직전선발": [
+    "Gianluigi Donnarumma",
+    "Marc Guéhi",
+    "Rúben Dias",
+    "Josko Gvardiol",
+    "Abdukodir Khusanov",
+    "Rayan Cherki",
+    "Elliot Anderson",
+    "Enzo Fernández",
+    "Erling Haaland",
+    "Jérémy Doku",
+    "Iliman Ndiaye"
+   ],
+   "직전포메이션": "4-2-3-1"
+  },
+  "원정": {
+   "팀": "풀럼",
+   "eng": "Fulham",
+   "직전": "11-08 홈 vs Newcastle United 1-1 무 [english premier league]",
+   "휴식일": 13.9,
+   "휴식일주의": "ESPN에 없는 리그일 수 있음(21일 내 경기 없음) — 실제 휴식일은 더 짧을 수 있음",
+   "최근7일경기": 0,
+   "직전event": "401879241",
+   "xg": {
+    "n": 9,
+    "xg": 1.71,
+    "xga": 1.61,
+    "npxgd": 0.18,
+    "l5_xg": 1.82,
+    "l5_xga": 1.23,
+    "l5_npxgd": 0.74,
+    "home_xgd": 0.27,
+    "away_xgd": 0.11,
+    "xpts": 12.9,
+    "pts": 9
+   },
+   "xg_src": "Understat EPL Fulham",
+   "직전선발": [
+    "Bernd Leno",
+    "Calvin Bassey",
+    "David Affengruber",
+    "Antonee Robinson",
+    "Timothy Castagne",
+    "Josh King",
+    "Shea Charles",
+    "Sander Berge",
+    "Gonzalo García",
+    "Alex Iwobi",
+    "Oscar Bobb"
+   ],
+   "직전포메이션": "4-2-3-1"
+  },
+  "환경": {
+   "구장": "시티 오브 맨체스터 스타디움",
+   "구장고도": 57,
+   "원정홈": "크레이븐 코티지",
+   "원정홈고도": 11,
+   "이동km": 260,
+   "고도차": 46,
+   "날씨": {
+    "기온": 6.4,
+    "습도": 75,
+    "강수mm": 0,
+    "강수확률": 0,
+    "풍속": 4.7,
+    "출처": "Open-Meteo forecast 11-21 13:07"
+   },
+   "출처": [
+    "Wikidata Q50602→Q48159 · Open-Meteo 고도",
+    "Wikidata Q18708→Q318043 · Open-Meteo 고도"
+   ],
+   "주의": []
+  },
+  "라인업": "미발표(킥오프 8.4h 전)",
+  "event": "401879233"
+ },
+ "4900": {
+  "번호": "4900",
+  "경기": "알라베스 - 데포르티보 아코루냐",
+  "리그": "스페인 라리가",
+  "시각": "11-21 22:00",
+  "수집": "11-21 13:06",
+  "홈": {
+   "팀": "알라베스",
+   "eng": "Alaves",
+   "직전": "11-11 원정 vs Anaitasuna 6-1 승 [first round]",
+   "휴식일": 10.8,
+   "최근7일경기": 0,
+   "직전event": "401928514",
+   "xg": {
+    "n": 11,
+    "xg": 1.43,
+    "xga": 1.39,
+    "npxgd": 0.11,
+    "l5_xg": 1.03,
+    "l5_xga": 1.82,
+    "l5_npxgd": -0.79,
+    "home_xgd": 0.32,
+    "away_xgd": -0.13,
+    "xpts": 16.2,
+    "pts": 12
+   },
+   "xg_src": "Understat La_liga Alaves",
+   "직전선발": [
+    "Adrián Rodríguez",
+    "Xanet Oláiz",
+    "Nicolás Valentini",
+    "Jonny",
+    "Carlos Protesoni",
+    "Carles Aleñá",
+    "Denis Suárez",
+    "Hugo Novoa",
+    "Ángel Pérez",
+    "Mariano Díaz",
+    "Miguel Rodríguez"
+   ],
+   "직전포메이션": "3-1-4-2"
+  },
+  "원정": {
+   "팀": "데포르티보 아코루냐",
+   "eng": "Deportivo",
+   "직전": "11-08 원정 vs Espanyol 0-0 무 [laliga]",
+   "휴식일": 13.9,
+   "휴식일주의": "ESPN에 없는 리그일 수 있음(21일 내 경기 없음) — 실제 휴식일은 더 짧을 수 있음",
+   "최근7일경기": 0,
+   "직전event": "401882813",
+   "xg": {
+    "n": 10,
+    "xg": 1.44,
+    "xga": 1.46,
+    "npxgd": -0.01,
+    "l5_xg": 1.63,
+    "l5_xga": 1.19,
+    "l5_npxgd": 0.29,
+    "home_xgd": 0.06,
+    "away_xgd": -0.09,
+    "xpts": 13.4,
+    "pts": 11
+   },
+   "xg_src": "Understat La_liga Deportivo La Coruna",
+   "직전선발": [
+    "Leo Román",
+    "Miguel Loureiro",
+    "José María Giménez",
+    "Giacomo Quagliata",
+    "Adrià Altimira",
+    "Luismi Cruz",
+    "Mario Soriano Carreno",
+    "Lorenzo Amatucci",
+    "Bil Nsongo",
+    "Yeremay Hernández",
+    "David Mella"
+   ],
+   "직전포메이션": "4-2-3-1"
+  },
+  "환경": {
+   "구장": "에스타디오 데 멘디소로차",
+   "구장고도": 531,
+   "원정홈": "에스타디오 데 리아소르",
+   "원정홈고도": 23,
+   "이동km": 469,
+   "고도차": 508,
+   "날씨": {
+    "기온": 12.0,
+    "습도": 84,
+    "강수mm": 1.6,
+    "강수확률": 100,
+    "풍속": 12.4,
+    "출처": "Open-Meteo forecast 11-21 13:07"
+   },
+   "출처": [
+    "Wikidata Q223620→Q1369390 · Open-Meteo 고도",
+    "Wikidata Q8760→Q22130 · Open-Meteo 고도"
+   ],
+   "주의": [
+    "비 1.6mm(100%)"
+   ]
+  },
+  "라인업": "미발표(킥오프 8.9h 전)",
+  "event": "401882806"
+ },
+ "4904": {
+  "번호": "4904",
+  "경기": "코모1907 - 칼리아리",
+  "리그": "이탈리아 세리에A",
+  "시각": "11-21 23:00",
+  "수집": "11-21 13:06",
+  "홈": {
+   "팀": "코모1907",
+   "eng": "Como",
+   "직전": "11-09 원정 vs Internazionale 0-2 패 [italian serie a]",
+   "휴식일": 12.9,
+   "휴식일주의": "ESPN에 없는 리그일 수 있음(21일 내 경기 없음) — 실제 휴식일은 더 짧을 수 있음",
+   "최근7일경기": 0,
+   "직전event": "401874808",
+   "xg": {
+    "n": 10,
+    "xg": 2.22,
+    "xga": 1.37,
+    "npxgd": 0.78,
+    "l5_xg": 2.13,
+    "l5_xga": 1.16,
+    "l5_npxgd": 0.82,
+    "home_xgd": 1.43,
+    "away_xgd": 0.34,
+    "xpts": 19.6,
+    "pts": 23
+   },
+   "xg_src": "Understat Serie_A Como",
+   "직전선발": [
+    "Robert Sánchez",
+    "Marc-Oliver Kempf",
+    "Jacobo Ramón",
+    "Álex Valle",
+    "Yan Couto",
+    "Nico Paz",
+    "Luis Milla",
+    "Máximo Perrone",
+    "Tasos Douvikas",
+    "Martin Baturina",
+    "Lucas Da Cunha"
+   ],
+   "직전포메이션": "4-2-3-1"
+  },
+  "원정": {
+   "팀": "칼리아리",
+   "eng": "Cagliari",
+   "직전": "11-07 홈 vs Frosinone 1-0 승 [italian serie a]",
+   "휴식일": 14.0,
+   "휴식일주의": "ESPN에 없는 리그일 수 있음(21일 내 경기 없음) — 실제 휴식일은 더 짧을 수 있음",
+   "최근7일경기": 0,
+   "직전event": "401874791",
+   "xg": {
+    "n": 10,
+    "xg": 1.31,
+    "xga": 1.98,
+    "npxgd": -0.74,
+    "l5_xg": 1.53,
+    "l5_xga": 2.2,
+    "l5_npxgd": -0.67,
+    "home_xgd": -1.13,
+    "away_xgd": -0.49,
+    "xpts": 10.4,
+    "pts": 13
+   },
+   "xg_src": "Understat Serie_A Cagliari",
+   "직전선발": [
+    "Elia Caprile",
+    "Juan Rodríguez",
+    "Raphael Kofler",
+    "Nicola Grandu",
+    "Zé Pedro",
+    "Alessandro Romano",
+    "Alessandro Deiola",
+    "Michel Adopo",
+    "Paul Mendy",
+    "Daniel Maldini",
+    "Yael Trepy"
+   ],
+   "직전포메이션": "4-3-3"
+  },
+  "환경": {
+   "구장": "Stadio Giuseppe Sinigaglia",
+   "구장고도": 201,
+   "원정홈": "유니폴 도무스",
+   "원정홈고도": 1,
+   "이동km": 735,
+   "고도차": 200,
+   "날씨": {
+    "기온": 15.1,
+    "습도": 60,
+    "강수mm": 0,
+    "강수확률": 0,
+    "풍속": 5.1,
+    "출처": "Open-Meteo forecast 11-21 13:07"
+   },
+   "출처": [
+    "Wikidata Q1120838→Q115372 · Open-Meteo 고도",
+    "Wikidata Q1900→Q30880646 · Open-Meteo 고도"
+   ],
+   "주의": []
+  },
+  "라인업": "미발표(킥오프 9.9h 전)",
+  "event": "401875056"
+ },
+ "4910": {
+  "번호": "4910",
+  "경기": "SS라치오 - US레체",
+  "리그": "이탈리아 세리에A",
+  "시각": "11-21 23:00",
+  "수집": "11-21 13:06",
+  "홈": {
+   "팀": "SS라치오",
+   "eng": "Lazio",
+   "직전": "11-08 원정 vs Napoli 1-1 무 [italian serie a]",
+   "휴식일": 13.1,
+   "휴식일주의": "ESPN에 없는 리그일 수 있음(21일 내 경기 없음) — 실제 휴식일은 더 짧을 수 있음",
+   "최근7일경기": 0,
+   "직전event": "401874810",
+   "xg": {
+    "n": 10,
+    "xg": 1.93,
+    "xga": 1.29,
+    "npxgd": 0.48,
+    "l5_xg": 2.05,
+    "l5_xga": 1.07,
+    "l5_npxgd": 0.68,
+    "home_xgd": 0.6,
+    "away_xgd": 0.37,
+    "xpts": 17.5,
+    "pts": 28
+   },
+   "xg_src": "Understat Serie_A Lazio",
+   "직전선발": [
+    "Christos Mandas",
+    "Oliver Provstgaard",
+    "Josip Sutalo",
+    "Nuno Tavares",
+    "Romano Floriani",
+    "Reda Belahyane",
+    "Kenneth Taylor",
+    "Davide Frattesi",
+    "Andrea Pinamonti",
+    "Tijjani Noslin",
+    "Gustav Isaksen"
+   ],
+   "직전포메이션": "4-3-3"
+  },
+  "원정": {
+   "팀": "US레체",
+   "eng": "Lecce",
+   "직전": "11-07 원정 vs Torino 1-1 무 [italian serie a]",
+   "휴식일": 14.0,
+   "휴식일주의": "ESPN에 없는 리그일 수 있음(21일 내 경기 없음) — 실제 휴식일은 더 짧을 수 있음",
+   "최근7일경기": 0,
+   "직전event": "401874811",
+   "xg": {
+    "n": 10,
+    "xg": 1.56,
+    "xga": 2.44,
+    "npxgd": -0.81,
+    "l5_xg": 1.86,
+    "l5_xga": 1.92,
+    "l5_npxgd": 0.09,
+    "home_xgd": -1.1,
+    "away_xgd": -0.52,
+    "xpts": 8.2,
+    "pts": 9
+   },
+   "xg_src": "Understat Serie_A Lecce",
+   "직전선발": [
+    "Wladimiro Falcone",
+    "Kialonda Gaspar",
+    "Tiago Gabriel",
+    "Danilo Veiga",
+    "Youssef Maleh",
+    "Mohamed Kaba",
+    "Oumar Ngom",
+    "Antonino Gallo",
+    "Ali Dembélé",
+    "Amar Ahmed",
+    "Nikola Stulic"
+   ],
+   "직전포메이션": "3-5-2"
+  },
+  "환경": {
+   "구장": "스타디오 올림피코",
+   "구장고도": 17,
+   "원정홈": "스타디오 비아 델 마레",
+   "원정홈고도": 36,
+   "이동km": 512,
+   "고도차": -19,
+   "날씨": {
+    "기온": 18.9,
+    "습도": 60,
+    "강수mm": 0,
+    "강수확률": 0,
+    "풍속": 9.0,
+    "출처": "Open-Meteo forecast 11-21 13:07"
+   },
+   "출처": [
+    "Wikidata Q2609→Q159884 · Open-Meteo 고도",
+    "Wikidata Q13391→Q684727 · Open-Meteo 고도"
+   ],
+   "주의": []
+  },
+  "라인업": "미발표(킥오프 9.9h 전)",
+  "event": "401874981"
+ },
+ "4916": {
+  "번호": "4916",
+  "경기": "바이어04 레버쿠젠 - 파더보른07",
+  "리그": "독일 분데스리가",
+  "시각": "11-21 23:30",
+  "수집": "11-21 13:06",
+  "홈": {
+   "팀": "바이어04 레버쿠젠",
+   "eng": "Bayer Leverkusen",
+   "직전": "11-08 원정 vs FC Cologne 2-1 승 [german bundesliga]",
+   "휴식일": 13.0,
+   "휴식일주의": "ESPN에 없는 리그일 수 있음(21일 내 경기 없음) — 실제 휴식일은 더 짧을 수 있음",
+   "최근7일경기": 0,
+   "직전event": "401884738",
+   "xg": {
+    "n": 8,
+    "xg": 2.14,
+    "xga": 1.63,
+    "npxgd": 0.61,
+    "l5_xg": 1.85,
+    "l5_xga": 2.11,
+    "l5_npxgd": -0.11,
+    "home_xgd": 1.12,
+    "away_xgd": 0.09,
+    "xpts": 13.8,
+    "pts": 13
+   },
+   "xg_src": "Understat Bundesliga Bayer Leverkusen",
+   "직전선발": [
+    "Mark Flekken",
+    "Facundo Medina",
+    "Edmond Tapsoba",
+    "Miguel Gutiérrez",
+    "Jarell Quansah",
+    "Malik Tillman",
+    "Aleix García",
+    "Ezequiel Fernández",
+    "Patrik Schick",
+    "Ibrahim Maza",
+    "Afonso Moreira"
+   ],
+   "직전포메이션": "4-2-3-1"
+  },
+  "원정": {
+   "팀": "파더보른07",
+   "eng": "Paderborn",
+   "직전": "11-07 홈 vs Eintracht Frankfurt 2-2 무 [german bundesliga]",
+   "휴식일": 14.0,
+   "휴식일주의": "ESPN에 없는 리그일 수 있음(21일 내 경기 없음) — 실제 휴식일은 더 짧을 수 있음",
+   "최근7일경기": 0,
+   "직전event": "401884737",
+   "xg": {
+    "n": 8,
+    "xg": 1.09,
+    "xga": 1.83,
+    "npxgd": -0.64,
+    "l5_xg": 1.4,
+    "l5_xga": 1.75,
+    "l5_npxgd": -0.19,
+    "home_xgd": -0.08,
+    "away_xgd": -1.2,
+    "xpts": 7.7,
+    "pts": 9
+   },
+   "xg_src": "Understat Bundesliga Paderborn",
+   "직전선발": [
+    "Nahuel Nicolas Noll",
+    "Tjark Scheller",
+    "Mattes Hansen",
+    "Jano Horst",
+    "Gabriel Vidovic",
+    "Tom Baack",
+    "Santiago Castaneda",
+    "Raphael Obermair",
+    "Laurin Curda",
+    "Stefano Marino",
+    "Ruben Müller"
+   ],
+   "직전포메이션": "3-5-2"
+  },
+  "환경": {
+   "구장": "바이아레나",
+   "구장고도": 44,
+   "원정홈": "Home Deluxe Arena",
+   "원정홈고도": 105,
+   "이동km": 141,
+   "고도차": -61,
+   "날씨": {
+    "기온": 7.9,
+    "습도": 71,
+    "강수mm": 0,
+    "강수확률": 2,
+    "풍속": 9.4,
+    "출처": "Open-Meteo forecast 11-21 13:07"
+   },
+   "출처": [
+    "Wikidata Q104761→Q156630 · Open-Meteo 고도",
+    "Wikidata Q160532→Q567402 · Open-Meteo 고도"
+   ],
+   "주의": []
+  },
+  "라인업": "미발표(킥오프 10.4h 전)",
+  "event": "401884735"
+ },
+ "4922": {
+  "번호": "4922",
+  "경기": "프랑크푸르트 - TSG1899 호펜하임",
+  "리그": "독일 분데스리가",
+  "시각": "11-21 23:30",
+  "수집": "11-21 13:06",
+  "홈": {
+   "팀": "프랑크푸르트",
+   "eng": "Frankfurt",
+   "직전": "11-07 원정 vs SC Paderborn 07 2-2 무 [german bundesliga]",
+   "휴식일": 14.0,
+   "휴식일주의": "ESPN에 없는 리그일 수 있음(21일 내 경기 없음) — 실제 휴식일은 더 짧을 수 있음",
+   "최근7일경기": 0,
+   "직전event": "401884737",
+   "xg": {
+    "n": 8,
+    "xg": 1.91,
+    "xga": 2.23,
+    "npxgd": -0.21,
+    "l5_xg": 1.69,
+    "l5_xga": 2.38,
+    "l5_npxgd": -0.68,
+    "home_xgd": 0.32,
+    "away_xgd": -0.75,
+    "xpts": 10.0,
+    "pts": 11
+   },
+   "xg_src": "Understat Bundesliga Eintracht Frankfurt",
+   "직전선발": [
+    "Noah Atubolu",
+    "Lilian Brassier",
+    "Robin Koch",
+    "Elias Baum",
+    "Ansgar Knauff",
+    "Can Uzun",
+    "Noël Aséko",
+    "Raphael Onyedika",
+    "Jonathan Burkardt",
+    "Farès Chaïbi",
+    "Ritsu Doan"
+   ],
+   "직전포메이션": "4-2-3-1"
+  },
+  "원정": {
+   "팀": "TSG1899 호펜하임",
+   "eng": "TSG Hoffenheim",
+   "직전": "11-09 홈 vs Schalke 04 2-1 승 [german bundesliga]",
+   "휴식일": 12.8,
+   "휴식일주의": "ESPN에 없는 리그일 수 있음(21일 내 경기 없음) — 실제 휴식일은 더 짧을 수 있음",
+   "최근7일경기": 0,
+   "직전event": "401884742",
+   "xg": {
+    "n": 8,
+    "xg": 2.02,
+    "xga": 1.54,
+    "npxgd": 0.3,
+    "l5_xg": 1.83,
+    "l5_xga": 1.06,
+    "l5_npxgd": 0.62,
+    "home_xgd": 0.47,
+    "away_xgd": 0.13,
+    "xpts": 13.3,
+    "pts": 9
+   },
+   "xg_src": "Understat Bundesliga Hoffenheim",
+   "직전선발": [
+    "Oliver Baumann",
+    "Koki Machida",
+    "Ozan Kabak",
+    "Mats Rots",
+    "Vladimír Coufal",
+    "Fisnik Asllani",
+    "Wouter Burger",
+    "Leon Avdullahu",
+    "Tim Lemperle",
+    "Alexander Prass",
+    "Andrej Kramaric"
+   ],
+   "직전포메이션": "4-2-3-1"
+  },
+  "환경": {
+   "구장": "코메르츠방크 아레나",
+   "구장고도": 124,
+   "원정홈": "라인 네카어 아레나",
+   "원정홈고도": 182,
+   "이동km": 94,
+   "고도차": -58,
+   "날씨": {
+    "기온": 7.0,
+    "습도": 77,
+    "강수mm": 0,
+    "강수확률": 0,
+    "풍속": 6.0,
+    "출처": "Open-Meteo forecast 11-21 13:07"
+   },
+   "출처": [
+    "Wikidata Q38245→Q157273 · Open-Meteo 고도",
+    "Wikidata Q22707→Q129870 · Open-Meteo 고도"
+   ],
+   "주의": []
+  },
+  "라인업": "미발표(킥오프 10.4h 전)",
+  "event": "401884734"
+ },
+ "4937": {
+  "번호": "4937",
+  "경기": "엘버스베르크 - SC프라이부르크",
+  "리그": "독일 분데스리가",
+  "시각": "11-21 23:30",
+  "수집": "11-21 13:06",
+  "홈": {
+   "팀": "엘버스베르크",
+   "eng": "Elversberg",
+   "직전": "11-07 원정 vs Borussia Dortmund 1-2 패 [german bundesliga]",
+   "휴식일": 14.0,
+   "휴식일주의": "ESPN에 없는 리그일 수 있음(21일 내 경기 없음) — 실제 휴식일은 더 짧을 수 있음",
+   "최근7일경기": 0,
+   "직전event": "401884745",
+   "xg": {
+    "n": 8,
+    "xg": 1.56,
+    "xga": 2.47,
+    "npxgd": -0.94,
+    "l5_xg": 1.4,
+    "l5_xga": 2.25,
+    "l5_npxgd": -0.88,
+    "home_xgd": -0.99,
+    "away_xgd": -0.89,
+    "xpts": 6.2,
+    "pts": 13
+   },
+   "xg_src": "Understat Bundesliga Elversberg",
+   "직전선발": [
+    "Nicolas Kristof",
+    "Maximilian Rohr",
+    "Lukas Finn Pinckert",
+    "Lasse Günther",
+    "Luca Sirch",
+    "Francis-Ikechukwu Onyeka",
+    "Lukasz Poreba",
+    "Felix Keidel",
+    "David Mokwa",
+    "Maurice Krattenmacher",
+    "Lukas Petkov"
+   ],
+   "직전포메이션": "4-2-3-1"
+  },
+  "원정": {
+   "팀": "SC프라이부르크",
+   "eng": "SC Freiburg",
+   "직전": "11-09 홈 vs 1. FC Union Berlin 2-0 승 [german bundesliga]",
+   "휴식일": 12.9,
+   "휴식일주의": "ESPN에 없는 리그일 수 있음(21일 내 경기 없음) — 실제 휴식일은 더 짧을 수 있음",
+   "최근7일경기": 0,
+   "직전event": "401884741",
+   "xg": {
+    "n": 8,
+    "xg": 1.73,
+    "xga": 1.29,
+    "npxgd": 0.44,
+    "l5_xg": 1.63,
+    "l5_xga": 1.67,
+    "l5_npxgd": -0.04,
+    "home_xgd": 0.57,
+    "away_xgd": 0.31,
+    "xpts": 14.2,
+    "pts": 16
+   },
+   "xg_src": "Understat Bundesliga Freiburg",
+   "직전선발": [
+    "Mio Backhaus",
+    "Philipp Lienhart",
+    "Matthias Ginter",
+    "Jordy Makengo",
+    "Philipp Treu",
+    "Yuito Suzuki",
+    "Yannick Engelhardt",
+    "Maximilian Eggestein",
+    "Igor Matanovic",
+    "Derry Scherhant",
+    "Niklas Beste"
+   ],
+   "직전포메이션": "4-2-3-1"
+  },
+  "환경": {
+   "구장": "Waldstadion an der Kaiserlinde",
+   "구장고도": 355,
+   "원정홈": "드라이잠슈타디온",
+   "원정홈고도": 309,
+   "이동km": 158,
+   "고도차": 46,
+   "날씨": {
+    "기온": 6.4,
+    "습도": 73,
+    "강수mm": 0,
+    "강수확률": 0,
+    "풍속": 3.1,
+    "출처": "Open-Meteo forecast 11-21 13:07"
+   },
+   "출처": [
+    "Wikidata Q692691→Q474858 · Open-Meteo 고도",
+    "Wikidata Q106394→Q311458 · Open-Meteo 고도"
+   ],
+   "주의": []
+  },
+  "라인업": "미발표(킥오프 10.4h 전)",
+  "event": "401884728"
+ },
+ "4942": {
+  "번호": "4942",
+  "경기": "볼턴 원더러스 - 포츠머스",
+  "리그": "잉글랜드 챔피언십",
+  "시각": "11-22 00:00",
+  "수집": "11-21 13:07",
+  "홈": {
+   "팀": "볼턴 원더러스",
+   "eng": "Bolton",
+   "직전": "11-15 원정 vs Derby County 0-7 패 [second round]",
+   "휴식일": 6.1,
+   "최근7일경기": 1,
+   "직전event": "401931852",
+   "xg": null
+  },
+  "원정": {
+   "팀": "포츠머스",
+   "eng": "Portsmouth FC",
+   "직전": "11-07 홈 vs Stoke City 1-2 패 [eng.2]",
+   "휴식일": 14.1,
+   "휴식일주의": "ESPN에 없는 리그일 수 있음(21일 내 경기 없음) — 실제 휴식일은 더 짧을 수 있음",
+   "최근7일경기": 0,
+   "직전event": "401880166",
+   "xg": null,
+   "직전선발": [
+    "Nicolas Schmid",
+    "Madiodio Dia",
+    "Regan Poole",
+    "Jayden Meghoma",
+    "Terry Devlin",
+    "Odin Bailey",
+    "Marlon Pack",
+    "Ebrima Adams",
+    "Tyrese Shade",
+    "Abu Kamara",
+    "Adrian Segecic"
+   ],
+   "직전포메이션": "4-2-3-1"
+  },
+  "환경": {
+   "구장": "리복 스타디움",
+   "구장고도": 125,
+   "원정홈": "프래턴 파크",
+   "원정홈고도": 7,
+   "이동km": 325,
+   "고도차": 118,
+   "날씨": {
+    "기온": 6.3,
+    "습도": 80,
+    "강수mm": 0,
+    "강수확률": 0,
+    "풍속": 16.2,
+    "출처": "Open-Meteo forecast 11-21 13:07"
+   },
+   "출처": [
+    "Wikidata Q19451→Q242772 · Open-Meteo 고도",
+    "Wikidata Q19604→Q619531 · Open-Meteo 고도"
+   ],
+   "주의": []
+  },
+  "라인업": "미발표(킥오프 10.9h 전)",
+  "event": "401880160"
+ },
+ "4946": {
+  "번호": "4946",
+  "경기": "링컨 시티 - 렉섬",
+  "리그": "잉글랜드 챔피언십",
+  "시각": "11-22 00:00",
+  "수집": "11-21 13:07",
+  "홈": {
+   "팀": "링컨 시티",
+   "eng": "Lincoln City",
+   "직전": "11-08 원정 vs Queens Park Rangers 1-2 패 [eng.2]",
+   "휴식일": 14.0,
+   "휴식일주의": "ESPN에 없는 리그일 수 있음(21일 내 경기 없음) — 실제 휴식일은 더 짧을 수 있음",
+   "최근7일경기": 0,
+   "직전event": "401880164",
+   "xg": null,
+   "직전선발": [
+    "George Wickens",
+    "Sonny Bradley",
+    "Ayodeji Elerewe",
+    "Adam Reach",
+    "Daniel Oyegoke",
+    "Yunus Konak",
+    "Conor McGrandles",
+    "Dom Jefferies",
+    "Recco Hackett-Fairchild",
+    "Mikkel Ladefoged",
+    "Freddie Draper"
+   ],
+   "직전포메이션": "4-4-2"
+  },
+  "원정": {
+   "팀": "렉섬",
+   "eng": "Wrexham",
+   "직전": "11-07 홈 vs Wolverhampton Wanderers 1-1 무 [eng.2]",
+   "휴식일": 14.1,
+   "휴식일주의": "ESPN에 없는 리그일 수 있음(21일 내 경기 없음) — 실제 휴식일은 더 짧을 수 있음",
+   "최근7일경기": 0,
+   "직전event": "401880161",
+   "xg": null,
+   "직전선발": [
+    "Anthony Patterson",
+    "Joe Worrall",
+    "Callum Doyle",
+    "Max Cleworth",
+    "Oliver Rathbone",
+    "George Dobson",
+    "Benjamin Whiteman",
+    "Jacques Ekomie",
+    "Issa Kaboré",
+    "Kieffer Moore",
+    "Lewis O'Brien"
+   ],
+   "직전포메이션": "3-5-1-1"
+  },
+  "환경": {
+   "구장": "Sincil Bank",
+   "구장고도": 7,
+   "원정홈": "레이스코스 그라운드",
+   "원정홈고도": 89,
+   "이동km": 165,
+   "고도차": -82,
+   "날씨": {
+    "기온": 5.0,
+    "습도": 84,
+    "강수mm": 0,
+    "강수확률": 0,
+    "풍속": 6.8,
+    "출처": "Open-Meteo forecast 11-21 13:07"
+   },
+   "출처": [
+    "Wikidata Q18519→Q619105 · Open-Meteo 고도",
+    "Wikidata Q18529→Q1202579 · Open-Meteo 고도"
+   ],
+   "주의": []
+  },
+  "라인업": "미발표(킥오프 10.9h 전)",
+  "event": "401880158"
+ },
+ "4950": {
+  "번호": "4950",
+  "경기": "미들즈브러 - 브리스틀 시티",
+  "리그": "잉글랜드 챔피언십",
+  "시각": "11-22 00:00",
+  "수집": "11-21 13:07",
+  "홈": {
+   "팀": "미들즈브러",
+   "eng": "Middlesbrough",
+   "직전": "11-08 원정 vs Watford 0-0 무 [eng.2]",
+   "휴식일": 14.0,
+   "휴식일주의": "ESPN에 없는 리그일 수 있음(21일 내 경기 없음) — 실제 휴식일은 더 짧을 수 있음",
+   "최근7일경기": 0,
+   "직전event": "401880163",
+   "xg": null,
+   "직전선발": [
+    "Radek Vítek",
+    "Adilson Malanda",
+    "Ashley Phillips",
+    "Sam Byram",
+    "Callum Brittain",
+    "Aidan Morris",
+    "Riley McGree",
+    "Sebastian Berhalter",
+    "David Strelec",
+    "Jeremy Sarmiento",
+    "Amario Cozier-Duberry"
+   ],
+   "직전포메이션": "4-3-3"
+  },
+  "원정": {
+   "팀": "브리스틀 시티",
+   "eng": "Bristol City",
+   "직전": "11-07 홈 vs Norwich City 0-5 패 [eng.2]",
+   "휴식일": 14.1,
+   "휴식일주의": "ESPN에 없는 리그일 수 있음(21일 내 경기 없음) — 실제 휴식일은 더 짧을 수 있음",
+   "최근7일경기": 0,
+   "직전event": "401880170",
+   "xg": null,
+   "직전선발": [
+    "Bradley Collins",
+    "Lisav Eissat",
+    "Robert Dickie",
+    "Cameron Pring",
+    "George Tanner",
+    "Jason Knight",
+    "Adam Randell",
+    "Joe Williams",
+    "Lorent Tolaj",
+    "Scott Twine",
+    "Rio Cardines"
+   ],
+   "직전포메이션": "4-2-3-1"
+  },
+  "환경": {
+   "구장": "리버사이드 스타디움",
+   "구장고도": 21,
+   "원정홈": "애슈턴 게이트 스타디움",
+   "원정홈고도": 11,
+   "이동km": 361,
+   "고도차": 10,
+   "날씨": {
+    "기온": 3.8,
+    "습도": 76,
+    "강수mm": 0,
+    "강수확률": 0,
+    "풍속": 2.2,
+    "출처": "Open-Meteo forecast 11-21 13:07"
+   },
+   "출처": [
+    "Wikidata Q18661→Q822886 · Open-Meteo 고도",
+    "Wikidata Q19456→Q726370 · Open-Meteo 고도"
+   ],
+   "주의": []
+  },
+  "라인업": "미발표(킥오프 10.9h 전)",
+  "event": "401880157"
+ },
+ "4956": {
+  "번호": "4956",
+  "경기": "셰필드 유나이티드 - 왓포드",
+  "리그": "잉글랜드 챔피언십",
+  "시각": "11-22 00:00",
+  "수집": "11-21 13:07",
+  "홈": {
+   "팀": "셰필드 유나이티드",
+   "eng": "Sheffield United",
+   "직전": "11-08 원정 vs Charlton Athletic 1-2 패 [eng.2]",
+   "휴식일": 14.0,
+   "휴식일주의": "ESPN에 없는 리그일 수 있음(21일 내 경기 없음) — 실제 휴식일은 더 짧을 수 있음",
+   "최근7일경기": 0,
+   "직전event": "401880168",
+   "xg": null,
+   "직전선발": [
+    "Michael Cooper",
+    "Liam Kitching",
+    "Japhet Tanganga",
+    "Harrison Burrows",
+    "Hamza Choudhury",
+    "Kalvin Phillips",
+    "Sydie Peck",
+    "Romelle Donovan",
+    "Tahith Chong",
+    "Ben Brereton Díaz",
+    "Jordan Ayew"
+   ],
+   "직전포메이션": "4-4-2"
+  },
+  "원정": {
+   "팀": "왓포드",
+   "eng": "Watford",
+   "직전": "11-08 홈 vs Middlesbrough 0-0 무 [eng.2]",
+   "휴식일": 14.0,
+   "휴식일주의": "ESPN에 없는 리그일 수 있음(21일 내 경기 없음) — 실제 휴식일은 더 짧을 수 있음",
+   "최근7일경기": 0,
+   "직전event": "401880163",
+   "xg": null,
+   "직전선발": [
+    "Federico Ravaglia",
+    "Matthew Pollock",
+    "Branimir Mlacic",
+    "Kévin Keben",
+    "Jordan Zemura",
+    "Krépin Diatta",
+    "Martín Payero",
+    "Iker Bravo",
+    "Edo Kayembe",
+    "Mamadou Doumbia",
+    "Amin Nabizada"
+   ],
+   "직전포메이션": "5-3-2"
+  },
+  "환경": {
+   "구장": "브레이몰 레인",
+   "구장고도": 76,
+   "원정홈": "비커리지 로드",
+   "원정홈고도": 72,
+   "이동km": 205,
+   "고도차": 4,
+   "날씨": {
+    "기온": 4.8,
+    "습도": 81,
+    "강수mm": 0,
+    "강수확률": 0,
+    "풍속": 3.2,
+    "출처": "Open-Meteo forecast 11-21 13:07"
+   },
+   "출처": [
+    "Wikidata Q19607→Q897533 · Open-Meteo 고도",
+    "Wikidata Q2714→Q10626 · Open-Meteo 고도"
+   ],
+   "주의": []
+  },
+  "라인업": "미발표(킥오프 10.9h 전)",
+  "event": "401880154"
+ },
+ "4960": {
+  "번호": "4960",
+  "경기": "스토크 시티 - 버밍엄 시티",
+  "리그": "잉글랜드 챔피언십",
+  "시각": "11-22 00:00",
+  "수집": "11-21 13:07",
+  "홈": {
+   "팀": "스토크 시티",
+   "eng": "Stoke",
+   "직전": "11-07 원정 vs Portsmouth 2-1 승 [eng.2]",
+   "휴식일": 14.1,
+   "휴식일주의": "ESPN에 없는 리그일 수 있음(21일 내 경기 없음) — 실제 휴식일은 더 짧을 수 있음",
+   "최근7일경기": 0,
+   "직전event": "401880166",
+   "xg": null,
+   "직전선발": [
+    "Viktor Johansson",
+    "Bosun Lawal",
+    "Luke Graham",
+    "Ben Wilmot",
+    "Ethan Galbraith",
+    "Djibril Soumaré",
+    "Ben Johnson",
+    "Junior Tchamadeu",
+    "Róbert Bozeník",
+    "Million Manhoef",
+    "Jack McGlynn"
+   ],
+   "직전포메이션": "3-4-3"
+  },
+  "원정": {
+   "팀": "버밍엄 시티",
+   "eng": "Birmingham",
+   "직전": "11-08 홈 vs Swansea City 2-1 승 [eng.2]",
+   "휴식일": 14.0,
+   "휴식일주의": "ESPN에 없는 리그일 수 있음(21일 내 경기 없음) — 실제 휴식일은 더 짧을 수 있음",
+   "최근7일경기": 0,
+   "직전event": "401880172",
+   "xg": null,
+   "직전선발": [
+    "Ryan Allsop",
+    "Christoph Klarer",
+    "Phil Neumann",
+    "Alex Cochrane",
+    "Ethan Laird",
+    "Max Bird",
+    "Jhon Solis",
+    "Tomoki Iwata",
+    "Jay Stansfield",
+    "Liam Millar",
+    "Patrick Roberts"
+   ],
+   "직전포메이션": "4-2-3-1"
+  },
+  "환경": {
+   "구장": "브리타니아 스타디움",
+   "구장고도": 128,
+   "원정홈": "세인트 앤드루스",
+   "원정홈고도": 130,
+   "이동km": 61,
+   "고도차": -2,
+   "날씨": {
+    "기온": 6.2,
+    "습도": 75,
+    "강수mm": 0,
+    "강수확률": 0,
+    "풍속": 12.6,
+    "출처": "Open-Meteo forecast 11-21 13:07"
+   },
+   "출처": [
+    "Wikidata Q18736→Q500922 · Open-Meteo 고도",
+    "Wikidata Q19444→Q819179 · Open-Meteo 고도"
+   ],
+   "주의": []
+  },
+  "라인업": "미발표(킥오프 10.9h 전)",
+  "event": "401880152"
+ },
+ "4964": {
+  "번호": "4964",
+  "경기": "스완지 시티 - 웨스트브로미치 앨비언",
+  "리그": "잉글랜드 챔피언십",
+  "시각": "11-22 00:00",
+  "수집": "11-21 13:07",
+  "홈": {
+   "팀": "스완지 시티",
+   "eng": "Swansea",
+   "직전": "11-08 원정 vs Birmingham City 1-2 패 [eng.2]",
+   "휴식일": 14.0,
+   "휴식일주의": "ESPN에 없는 리그일 수 있음(21일 내 경기 없음) — 실제 휴식일은 더 짧을 수 있음",
+   "최근7일경기": 0,
+   "직전event": "401880172",
+   "xg": null,
+   "직전선발": [
+    "Lawrence Vigouroux",
+    "Jenson Seelt",
+    "Ben Cabango",
+    "Josh Tymon",
+    "Filip Lissah",
+    "Jay Fulton",
+    "Marko Stamenic",
+    "Gonçalo Franco",
+    "Ross Stewart",
+    "Eom Ji-Sung",
+    "Moussa Yeo"
+   ],
+   "직전포메이션": "4-3-3"
+  },
+  "원정": {
+   "팀": "웨스트브로미치 앨비언",
+   "eng": "West Brom",
+   "직전": "11-08 홈 vs Millwall 3-0 승 [eng.2]",
+   "휴식일": 14.0,
+   "휴식일주의": "ESPN에 없는 리그일 수 있음(21일 내 경기 없음) — 실제 휴식일은 더 짧을 수 있음",
+   "최근7일경기": 0,
+   "직전event": "401880162",
+   "xg": null,
+   "직전선발": [
+    "Max O'Leary",
+    "Nathaniel Phillips",
+    "Chris Mepham",
+    "Callum Styles",
+    "Brayann Pereira",
+    "Ousmane Diakite",
+    "Jayson Molumby",
+    "Isaac Price",
+    "Rabby Nzingoula",
+    "Jimmy Morgan",
+    "Aune Heggebo"
+   ],
+   "직전포메이션": "4-4-2"
+  },
+  "환경": {
+   "구장": "리버티 스타디움",
+   "구장고도": 17,
+   "원정홈": "더 호손스",
+   "원정홈고도": 167,
+   "이동km": 166,
+   "고도차": -150,
+   "날씨": {
+    "기온": 10.5,
+    "습도": 77,
+    "강수mm": 0,
+    "강수확률": 0,
+    "풍속": 16.6,
+    "출처": "Open-Meteo forecast 11-21 13:07"
+   },
+   "출처": [
+    "Wikidata Q18659→Q580480 · Open-Meteo 고도",
+    "Wikidata Q18744→Q31678 · Open-Meteo 고도"
+   ],
+   "주의": []
+  },
+  "라인업": "미발표(킥오프 10.9h 전)",
+  "event": "401880151"
+ },
+ "4968": {
+  "번호": "4968",
+  "경기": "웨스트햄 유나이티드 - 프레스턴 노스엔드",
+  "리그": "잉글랜드 챔피언십",
+  "시각": "11-22 00:00",
+  "수집": "11-21 13:07",
+  "홈": {
+   "팀": "웨스트햄 유나이티드",
+   "eng": "West Ham United",
+   "직전": "11-08 원정 vs Blackburn Rovers 1-2 패 [eng.2]",
+   "휴식일": 14.0,
+   "휴식일주의": "ESPN에 없는 리그일 수 있음(21일 내 경기 없음) — 실제 휴식일은 더 짧을 수 있음",
+   "최근7일경기": 0,
+   "직전event": "401880171",
+   "xg": null,
+   "직전선발": [
+    "Mads Hermansen",
+    "Max Kilman",
+    "Konstantinos Mavropanos",
+    "Ezra Mayers",
+    "Joël Veltman",
+    "Arne Engels",
+    "Divine Mukasa",
+    "Edvin Austbø",
+    "Jarrod Bowen",
+    "Joël Piroe",
+    "Mohamadou Kanté"
+   ],
+   "직전포메이션": "4-4-1-1"
+  },
+  "원정": {
+   "팀": "프레스턴 노스엔드",
+   "eng": "Preston",
+   "직전": "11-08 홈 vs Southampton 1-0 승 [eng.2]",
+   "휴식일": 14.0,
+   "휴식일주의": "ESPN에 없는 리그일 수 있음(21일 내 경기 없음) — 실제 휴식일은 더 짧을 수 있음",
+   "최근7일경기": 0,
+   "직전event": "401880165",
+   "xg": null,
+   "직전선발": [
+    "Lee Nicholls",
+    "Liam Lindsay",
+    "Andrew Hughes",
+    "Odeluga Offiah",
+    "Jordan Thompson",
+    "Andy Moran",
+    "Andrija Vukcevic",
+    "Stanley Mills",
+    "Callum Lang",
+    "Thierry Small",
+    "Alfie Devine"
+   ],
+   "직전포메이션": "3-4-3"
+  },
+  "환경": {
+   "구장": "런던 스타디움",
+   "구장고도": 10,
+   "원정홈": "프레스턴(구단 좌표 — 구장 미확인)",
+   "원정홈고도": 45,
+   "이동km": 306,
+   "고도차": -35,
+   "날씨": {
+    "기온": 9.4,
+    "습도": 75,
+    "강수mm": 0,
+    "강수확률": 0,
+    "풍속": 8.6,
+    "출처": "Open-Meteo forecast 11-21 13:07"
+   },
+   "출처": [
+    "Wikidata Q18747→Q172190 · Open-Meteo 고도",
+    "Wikidata Q184090→구단 · Open-Meteo 고도"
+   ],
+   "주의": []
+  },
+  "라인업": "미발표(킥오프 10.9h 전)",
+  "event": "401880150"
+ },
+ "4974": {
+  "번호": "4974",
+  "경기": "울버햄튼 원더러스 - 찰턴 애슬레틱",
+  "리그": "잉글랜드 챔피언십",
+  "시각": "11-22 00:00",
+  "수집": "11-21 13:07",
+  "홈": {
+   "팀": "울버햄튼 원더러스",
+   "eng": "Wolverhampton",
+   "직전": "11-07 원정 vs Wrexham 1-1 무 [eng.2]",
+   "휴식일": 14.1,
+   "휴식일주의": "ESPN에 없는 리그일 수 있음(21일 내 경기 없음) — 실제 휴식일은 더 짧을 수 있음",
+   "최근7일경기": 0,
+   "직전event": "401880161",
+   "xg": null,
+   "직전선발": [
+    "José Sá",
+    "Ladislav Krejcí",
+    "Nasser Djiga",
+    "Toti Gomes",
+    "Jackson Tchatchoua",
+    "Fernando López",
+    "Marshall Munetsi",
+    "André",
+    "Adam Armstrong",
+    "Mateus Mané",
+    "Rodrigo Gomes"
+   ],
+   "직전포메이션": "4-2-3-1"
+  },
+  "원정": {
+   "팀": "찰턴 애슬레틱",
+   "eng": "Charlton",
+   "직전": "11-08 홈 vs Sheffield United 2-1 승 [eng.2]",
+   "휴식일": 14.0,
+   "휴식일주의": "ESPN에 없는 리그일 수 있음(21일 내 경기 없음) — 실제 휴식일은 더 짧을 수 있음",
+   "최근7일경기": 0,
+   "직전event": "401880168",
+   "xg": null,
+   "직전선발": [
+    "William Mannion",
+    "Billy Koumetio",
+    "Tyler Bindon",
+    "Conor Coventry",
+    "Amari'i Bell",
+    "Dan McNamara",
+    "Joe Rankin-Costello",
+    "Alan Nwamba",
+    "Tyreece Campbell",
+    "Millenic Alli",
+    "Charlie Kelman"
+   ],
+   "직전포메이션": "4-1-4-1"
+  },
+  "환경": {
+   "구장": "몰리뉴 스타디움",
+   "구장고도": 135,
+   "원정홈": "더 밸리",
+   "원정홈고도": 7,
+   "이동km": 192,
+   "고도차": 128,
+   "날씨": {
+    "기온": 6.9,
+    "습도": 75,
+    "강수mm": 0,
+    "강수확률": 0,
+    "풍속": 11.2,
+    "출처": "Open-Meteo forecast 11-21 13:08"
+   },
+   "출처": [
+    "Wikidata Q19500→Q380823 · Open-Meteo 고도",
+    "Wikidata Q19462→Q958319 · Open-Meteo 고도"
+   ],
+   "주의": []
+  },
+  "라인업": "미발표(킥오프 10.9h 전)",
+  "event": "401880149"
+ },
+ "4980": {
+  "번호": "4980",
+  "경기": "애스턴 빌라 - 선덜랜드",
+  "리그": "잉글랜드 프리미어리그",
+  "시각": "11-22 00:00",
+  "수집": "11-21 13:07",
+  "홈": {
+   "팀": "애스턴 빌라",
+   "eng": "Aston Villa",
+   "직전": "11-09 원정 vs Manchester United 4-4 무 [english premier league]",
+   "휴식일": 12.9,
+   "휴식일주의": "ESPN에 없는 리그일 수 있음(21일 내 경기 없음) — 실제 휴식일은 더 짧을 수 있음",
+   "최근7일경기": 0,
+   "직전event": "401879240",
+   "xg": {
+    "n": 9,
+    "xg": 1.31,
+    "xga": 2.01,
+    "npxgd": -0.79,
+    "l5_xg": 1.7,
+    "l5_xga": 1.8,
+    "l5_npxgd": -0.24,
+    "home_xgd": -1.06,
+    "away_xgd": -0.44,
+    "xpts": 9.3,
+    "pts": 12
+   },
+   "xg_src": "Understat EPL Aston Villa",
+   "직전선발": [
+    "Zion Suzuki",
+    "Pau Torres",
+    "Victor Lindelöf",
+    "Ian Maatsen",
+    "Taylor Harwood-Bellis",
+    "John McGinn",
+    "Leon Goretzka",
+    "Boubacar Kamara",
+    "Nicolas Jackson",
+    "Johan Manzambi",
+    "Alysson"
+   ],
+   "직전포메이션": "4-2-3-1"
+  },
+  "원정": {
+   "팀": "선덜랜드",
+   "eng": "Sunderland",
+   "직전": "11-08 홈 vs Chelsea 1-0 승 [english premier league]",
+   "휴식일": 13.0,
+   "휴식일주의": "ESPN에 없는 리그일 수 있음(21일 내 경기 없음) — 실제 휴식일은 더 짧을 수 있음",
+   "최근7일경기": 0,
+   "직전event": "401879239",
+   "xg": {
+    "n": 9,
+    "xg": 1.52,
+    "xga": 1.88,
+    "npxgd": -0.53,
+    "l5_xg": 1.34,
+    "l5_xga": 2.15,
+    "l5_npxgd": -0.96,
+    "home_xgd": -0.05,
+    "away_xgd": -0.92,
+    "xpts": 11.6,
+    "pts": 5
+   },
+   "xg_src": "Understat EPL Sunderland",
+   "직전선발": [
+    "Robin Roefs",
+    "Luke O'Nien",
+    "Nordi Mukiele",
+    "Reinildo Mandava",
+    "Thomas Meunier",
+    "Enzo Le Fée",
+    "Noah Sadiki",
+    "Granit Xhaka",
+    "Brian Brobbey",
+    "Chemsdine Talbi",
+    "Trai Hume"
+   ],
+   "직전포메이션": "4-2-3-1"
+  },
+  "환경": {
+   "구장": "빌라 파크",
+   "구장고도": 101,
+   "원정홈": "스타디움 오브 라이트",
+   "원정홈고도": 47,
+   "이동km": 269,
+   "고도차": 54,
+   "날씨": {
+    "기온": 7.3,
+    "습도": 73,
+    "강수mm": 0,
+    "강수확률": 0,
+    "풍속": 8.3,
+    "출처": "Open-Meteo forecast 11-21 13:08"
+   },
+   "출처": [
+    "Wikidata Q18711→Q175339 · Open-Meteo 고도",
+    "Wikidata Q18739→Q31969 · Open-Meteo 고도"
+   ],
+   "주의": []
+  },
+  "라인업": "미발표(킥오프 10.9h 전)",
+  "event": "401878756"
+ },
+ "4985": {
+  "번호": "4985",
+  "경기": "AFC본머스 - 노팅엄 포리스트",
+  "리그": "잉글랜드 프리미어리그",
+  "시각": "11-22 00:00",
+  "수집": "11-21 13:07",
+  "홈": {
+   "팀": "AFC본머스",
+   "eng": "AFC Bournemouth",
+   "직전": "11-08 원정 vs Ipswich Town 2-1 승 [english premier league]",
+   "휴식일": 13.0,
+   "휴식일주의": "ESPN에 없는 리그일 수 있음(21일 내 경기 없음) — 실제 휴식일은 더 짧을 수 있음",
+   "최근7일경기": 0,
+   "직전event": "401878759",
+   "xg": {
+    "n": 9,
+    "xg": 2.02,
+    "xga": 1.14,
+    "npxgd": 0.88,
+    "l5_xg": 2.2,
+    "l5_xga": 0.92,
+    "l5_npxgd": 1.29,
+    "home_xgd": 1.35,
+    "away_xgd": 0.28,
+    "xpts": 16.6,
+    "pts": 12
+   },
+   "xg_src": "Understat EPL Bournemouth",
+   "직전선발": [
+    "Djordje Petrovic",
+    "António Silva",
+    "James Hill",
+    "Adrien Truffert",
+    "Adam Smith",
+    "Justin Kluivert",
+    "Ryan Christie",
+    "Tyler Adams",
+    "Evanilson",
+    "Marcus Tavernier",
+    "Rayan"
+   ],
+   "직전포메이션": "4-2-3-1"
+  },
+  "원정": {
+   "팀": "노팅엄 포리스트",
+   "eng": "Nottingham",
+   "직전": "11-08 홈 vs Manchester City 3-1 승 [english premier league]",
+   "휴식일": 13.9,
+   "휴식일주의": "ESPN에 없는 리그일 수 있음(21일 내 경기 없음) — 실제 휴식일은 더 짧을 수 있음",
+   "최근7일경기": 0,
+   "직전event": "401878757",
+   "xg": {
+    "n": 9,
+    "xg": 1.86,
+    "xga": 1.1,
+    "npxgd": 0.68,
+    "l5_xg": 1.91,
+    "l5_xga": 1.11,
+    "l5_npxgd": 0.8,
+    "home_xgd": -0.0,
+    "away_xgd": 1.22,
+    "xpts": 16.6,
+    "pts": 6
+   },
+   "xg_src": "Understat EPL Nottingham Forest",
+   "직전선발": [
+    "Matz Sels",
+    "Nikola Milenkovic",
+    "Murillo",
+    "Jair Cunha",
+    "Ryan Yates",
+    "Xaver Schlager",
+    "Neco Williams",
+    "Daniel Muñoz",
+    "Liam Delap",
+    "Morgan Gibbs-White",
+    "James McAtee"
+   ],
+   "직전포메이션": "3-4-2-1"
+  },
+  "환경": {
+   "구장": "딘 코트",
+   "구장고도": 36,
+   "원정홈": "시티 그라운드",
+   "원정홈고도": 19,
+   "이동km": 250,
+   "고도차": 17,
+   "날씨": {
+    "기온": 11.0,
+    "습도": 83,
+    "강수mm": 0,
+    "강수확률": 11,
+    "풍속": 10.4,
+    "출처": "Open-Meteo forecast 11-21 13:08"
+   },
+   "출처": [
+    "Wikidata Q19568→Q619094 · Open-Meteo 고도",
+    "Wikidata Q19490→Q593446 · Open-Meteo 고도"
+   ],
+   "주의": []
+  },
+  "라인업": "미발표(킥오프 10.9h 전)",
+  "event": "401879238"
+ },
+ "4990": {
+  "번호": "4990",
+  "경기": "첼시 - 리즈 유나이티드",
+  "리그": "잉글랜드 프리미어리그",
+  "시각": "11-22 00:00",
+  "수집": "11-21 13:07",
+  "홈": {
+   "팀": "첼시",
+   "eng": "Chelsea",
+   "직전": "11-08 원정 vs Sunderland 0-1 패 [english premier league]",
+   "휴식일": 13.0,
+   "휴식일주의": "ESPN에 없는 리그일 수 있음(21일 내 경기 없음) — 실제 휴식일은 더 짧을 수 있음",
+   "최근7일경기": 0,
+   "직전event": "401879239",
+   "xg": {
+    "n": 9,
+    "xg": 1.68,
+    "xga": 1.66,
+    "npxgd": -0.06,
+    "l5_xg": 1.42,
+    "l5_xga": 1.42,
+    "l5_npxgd": -0.15,
+    "home_xgd": 0.25,
+    "away_xgd": -0.44,
+    "xpts": 12.5,
+    "pts": 16
+   },
+   "xg_src": "Understat EPL Chelsea",
+   "직전선발": [
+    "Mike Penders",
+    "Levi Colwill",
+    "Wesley Fofana",
+    "Pep Chavarría",
+    "Marco Palestra",
+    "Romeo Lavia",
+    "Jordan Henderson",
+    "Moisés Caicedo",
+    "Pedro Neto",
+    "Morgan Rogers",
+    "Cole Palmer"
+   ],
+   "직전포메이션": "4-3-2-1"
+  },
+  "원정": {
+   "팀": "리즈 유나이티드",
+   "eng": "Leeds",
+   "직전": "11-07 홈 vs Tottenham Hotspur 1-0 승 [english premier league]",
+   "휴식일": 14.1,
+   "휴식일주의": "ESPN에 없는 리그일 수 있음(21일 내 경기 없음) — 실제 휴식일은 더 짧을 수 있음",
+   "최근7일경기": 0,
+   "직전event": "401878758",
+   "xg": {
+    "n": 9,
+    "xg": 1.32,
+    "xga": 1.37,
+    "npxgd": -0.05,
+    "l5_xg": 1.15,
+    "l5_xga": 1.4,
+    "l5_npxgd": -0.25,
+    "home_xgd": 0.33,
+    "away_xgd": -0.35,
+    "xpts": 11.8,
+    "pts": 11
+   },
+   "xg_src": "Understat EPL Leeds",
+   "직전선발": [
+    "James Trafford",
+    "Nico Elvedi",
+    "Tarik Muharemovic",
+    "James Justin",
+    "Ao Tanaka",
+    "Ethan Ampadu",
+    "Gabriel Gudmundsson",
+    "Jayden Bogle",
+    "Dominic Calvert-Lewin",
+    "Lukas Nmecha",
+    "Sean Longstaff"
+   ],
+   "직전포메이션": "3-4-2-1"
+  },
+  "환경": {
+   "구장": "스탬퍼드 브리지",
+   "구장고도": 13,
+   "원정홈": "엘런드 로드",
+   "원정홈고도": 43,
+   "이동km": 272,
+   "고도차": -30,
+   "날씨": {
+    "기온": 7.0,
+    "습도": 73,
+    "강수mm": 0,
+    "강수확률": 0,
+    "풍속": 10.1,
+    "출처": "Open-Meteo forecast 11-21 13:08"
+   },
+   "출처": [
+    "Wikidata Q9616→Q171458 · Open-Meteo 고도",
+    "Wikidata Q1128631→Q619505 · Open-Meteo 고도"
+   ],
+   "주의": []
+  },
+  "라인업": "미발표(킥오프 10.9h 전)",
+  "event": "401879236"
+ },
+ "4995": {
+  "번호": "4995",
+  "경기": "코번트리 시티 - 크리스털 팰리스",
+  "리그": "잉글랜드 프리미어리그",
+  "시각": "11-22 00:00",
+  "수집": "11-21 13:07",
+  "홈": {
+   "팀": "코번트리 시티",
+   "eng": "Coventry City",
+   "직전": "11-07 원정 vs Everton 1-3 패 [english premier league]",
+   "휴식일": 14.8,
+   "휴식일주의": "ESPN에 없는 리그일 수 있음(21일 내 경기 없음) — 실제 휴식일은 더 짧을 수 있음",
+   "최근7일경기": 0,
+   "직전event": "401879242",
+   "xg": {
+    "n": 9,
+    "xg": 1.02,
+    "xga": 1.55,
+    "npxgd": -0.45,
+    "l5_xg": 0.98,
+    "l5_xga": 1.34,
+    "l5_npxgd": -0.36,
+    "home_xgd": -0.32,
+    "away_xgd": -0.61,
+    "xpts": 8.9,
+    "pts": 9
+   },
+   "xg_src": "Understat EPL Coventry",
+   "직전선발": [
+    "Carl Rushworth",
+    "Ethan Pinnock",
+    "Stephen Mfuni",
+    "Jay Da Silva",
+    "Milan van Ewijk",
+    "Jack Rudoni",
+    "Victor Torp",
+    "Caleb Yirenkyi",
+    "Taiwo Awoniyi",
+    "Yann Gboho",
+    "Tatsuhiro Sakamoto"
+   ],
+   "직전포메이션": "4-2-3-1"
+  },
+  "원정": {
+   "팀": "크리스털 팰리스",
+   "eng": "Crystal Palace",
+   "직전": "11-08 홈 vs Liverpool 1-3 패 [english premier league]",
+   "휴식일": 13.0,
+   "휴식일주의": "ESPN에 없는 리그일 수 있음(21일 내 경기 없음) — 실제 휴식일은 더 짧을 수 있음",
+   "최근7일경기": 0,
+   "직전event": "401879243",
+   "xg": {
+    "n": 9,
+    "xg": 1.4,
+    "xga": 2.34,
+    "npxgd": -0.94,
+    "l5_xg": 1.23,
+    "l5_xga": 2.42,
+    "l5_npxgd": -1.19,
+    "home_xgd": -0.88,
+    "away_xgd": -0.98,
+    "xpts": 8.2,
+    "pts": 7
+   },
+   "xg_src": "Understat EPL Crystal Palace",
+   "직전선발": [
+    "Dean Henderson",
+    "Axel Disasi",
+    "Jefferson Lerma",
+    "Chris Richards",
+    "Quinten Timber",
+    "Adam Wharton",
+    "Tyrick Mitchell",
+    "Óscar Mingueza",
+    "Jørgen Strand Larsen",
+    "Yéremy Pino",
+    "Daichi Kamada"
+   ],
+   "직전포메이션": "3-4-2-1"
+  },
+  "환경": {
+   "구장": "리코 아레나",
+   "구장고도": 104,
+   "원정홈": "셀허스트 파크",
+   "원정홈고도": 55,
+   "이동km": 152,
+   "고도차": 49,
+   "날씨": {
+    "기온": 6.0,
+    "습도": 68,
+    "강수mm": 0,
+    "강수확률": 0,
+    "풍속": 12.2,
+    "출처": "Open-Meteo forecast 11-21 13:08"
+   },
+   "출처": [
+    "Wikidata Q19580→Q842077 · Open-Meteo 고도",
+    "Wikidata Q19467→Q1066373 · Open-Meteo 고도"
+   ],
+   "주의": []
+  },
+  "라인업": "미발표(킥오프 10.9h 전)",
+  "event": "401879235"
+ },
+ "5000": {
+  "번호": "5000",
+  "경기": "토트넘 홋스퍼 - 입스위치 타운",
+  "리그": "잉글랜드 프리미어리그",
+  "시각": "11-22 00:00",
+  "수집": "11-21 13:07",
+  "홈": {
+   "팀": "토트넘 홋스퍼",
+   "eng": "Tottenham",
+   "직전": "11-07 원정 vs Leeds United 0-1 패 [english premier league]",
+   "휴식일": 14.1,
+   "휴식일주의": "ESPN에 없는 리그일 수 있음(21일 내 경기 없음) — 실제 휴식일은 더 짧을 수 있음",
+   "최근7일경기": 0,
+   "직전event": "401878758",
+   "xg": {
+    "n": 9,
+    "xg": 1.5,
+    "xga": 1.31,
+    "npxgd": 0.28,
+    "l5_xg": 1.89,
+    "l5_xga": 0.86,
+    "l5_npxgd": 1.02,
+    "home_xgd": 0.53,
+    "away_xgd": -0.05,
+    "xpts": 13.7,
+    "pts": 12
+   },
+   "xg_src": "Understat EPL Tottenham",
+   "직전선발": [
+    "Antonín Kinsky",
+    "Micky van de Ven",
+    "Jan Paul van Hecke",
+    "Andy Robertson",
+    "Pedro Porro",
+    "Mateus Fernandes",
+    "Archie Gray",
+    "Sandro Tonali",
+    "Omar Marmoush",
+    "Mathys Tel",
+    "Mohammed Kudus"
+   ],
+   "직전포메이션": "4-3-3"
+  },
+  "원정": {
+   "팀": "입스위치 타운",
+   "eng": "Ipswich",
+   "직전": "11-08 홈 vs AFC Bournemouth 1-2 패 [english premier league]",
+   "휴식일": 13.0,
+   "휴식일주의": "ESPN에 없는 리그일 수 있음(21일 내 경기 없음) — 실제 휴식일은 더 짧을 수 있음",
+   "최근7일경기": 0,
+   "직전event": "401878759",
+   "xg": {
+    "n": 9,
+    "xg": 1.36,
+    "xga": 2.16,
+    "npxgd": -0.8,
+    "l5_xg": 1.25,
+    "l5_xga": 2.35,
+    "l5_npxgd": -1.25,
+    "home_xgd": -0.54,
+    "away_xgd": -1.01,
+    "xpts": 9.3,
+    "pts": 11
+   },
+   "xg_src": "Understat EPL Ipswich",
+   "직전선발": [
+    "Christian Walton",
+    "Dara O'Shea",
+    "Issa Diop",
+    "Leif Davis",
+    "Abdoul Ouattara",
+    "Julio Enciso",
+    "Florentino",
+    "Exequiel Palacios",
+    "Emersonn",
+    "Jaden Philogene",
+    "Daizen Maeda"
+   ],
+   "직전포메이션": "4-2-3-1"
+  },
+  "환경": {
+   "구장": "토트넘 홋스퍼 스타디움",
+   "구장고도": 13,
+   "원정홈": "포트먼 로드",
+   "원정홈고도": 8,
+   "이동km": 97,
+   "고도차": 5,
+   "날씨": {
+    "기온": 6.7,
+    "습도": 75,
+    "강수mm": 0,
+    "강수확률": 0,
+    "풍속": 10.4,
+    "출처": "Open-Meteo forecast 11-21 13:08"
+   },
+   "출처": [
+    "Wikidata Q18741→Q55074091 · Open-Meteo 고도",
+    "Wikidata Q9653→Q619558 · Open-Meteo 고도"
+   ],
+   "주의": []
+  },
+  "라인업": "미발표(킥오프 10.9h 전)",
+  "event": "401878754"
+ },
+ "5005": {
+  "번호": "5005",
+  "경기": "라요 바예카노 - 발렌시아",
+  "리그": "스페인 라리가",
+  "시각": "11-22 00:15",
+  "수집": "11-21 13:07",
+  "홈": {
+   "팀": "라요 바예카노",
+   "eng": "Rayo",
+   "직전": "11-09 원정 vs Real Sociedad 0-1 패 [laliga]",
+   "휴식일": 13.0,
+   "휴식일주의": "ESPN에 없는 리그일 수 있음(21일 내 경기 없음) — 실제 휴식일은 더 짧을 수 있음",
+   "최근7일경기": 0,
+   "직전event": "401882810",
+   "xg": {
+    "n": 10,
+    "xg": 1.4,
+    "xga": 1.75,
+    "npxgd": -0.05,
+    "l5_xg": 1.62,
+    "l5_xga": 1.31,
+    "l5_npxgd": 0.46,
+    "home_xgd": -0.12,
+    "away_xgd": 0.03,
+    "xpts": 12.1,
+    "pts": 12
+   },
+   "xg_src": "Understat La_liga Rayo Vallecano",
+   "직전선발": [
+    "Emil Audero",
+    "Mujaid Sadick",
+    "Florian Lejeune",
+    "Adrià Pedrosa",
+    "Andrei Ratiu",
+    "Pedro Díaz",
+    "Pathé Ciss",
+    "Unai López",
+    "Sergio Camello",
+    "Giorgi Tsitaishvili",
+    "Jorge de Frutos"
+   ],
+   "직전포메이션": "4-2-3-1"
+  },
+  "원정": {
+   "팀": "발렌시아",
+   "eng": "Valencia",
+   "직전": "11-11 원정 vs Tavernes de la Valldigna 6-0 승 [first round]",
+   "휴식일": 10.8,
+   "최근7일경기": 0,
+   "직전event": "401928504",
+   "xg": {
+    "n": 11,
+    "xg": 1.09,
+    "xga": 1.58,
+    "npxgd": -0.48,
+    "l5_xg": 1.57,
+    "l5_xga": 1.41,
+    "l5_npxgd": 0.17,
+    "home_xgd": -0.58,
+    "away_xgd": -0.38,
+    "xpts": 12.5,
+    "pts": 9
+   },
+   "xg_src": "Understat La_liga Valencia",
+   "직전선발": [
+    "Kayne Van Oevelen",
+    "Copete",
+    "Arnau Martínez",
+    "Luis Rioja",
+    "Dimitri Foulquier",
+    "Filip Ugrinic",
+    "Harvey Elliott",
+    "Dani Raba",
+    "Ryunosuke Sato",
+    "Hugo Duro",
+    "Aimar Blázquez"
+   ],
+   "직전포메이션": "4-4-2"
+  },
+  "환경": {
+   "구장": "캄포 데 푸트볼 데 바예카스",
+   "구장고도": 642,
+   "원정홈": "에스타디오 데 메스타야",
+   "원정홈고도": 20,
+   "이동km": 299,
+   "고도차": 622,
+   "날씨": {
+    "기온": 13.7,
+    "습도": 70,
+    "강수mm": 0,
+    "강수확률": 10,
+    "풍속": 3.1,
+    "출처": "Open-Meteo forecast 11-21 13:08"
+   },
+   "출처": [
+    "Wikidata Q10300→Q983806 · Open-Meteo 고도",
+    "Wikidata Q10333→Q202762 · Open-Meteo 고도"
+   ],
+   "주의": []
+  },
+  "라인업": "미발표(킥오프 11.1h 전)",
+  "event": "401882799"
+ },
+ "5009": {
+  "번호": "5009",
+  "경기": "NEC네이메헌 - PSV에인트호번",
+  "리그": "네덜란드 에레디비시",
+  "시각": "11-22 00:30",
+  "수집": "11-21 13:07",
+  "홈": {
+   "팀": "NEC네이메헌",
+   "eng": "NEC Nijmegen",
+   "직전": "11-09 원정 vs FC Utrecht 3-2 승 [ned.1]",
+   "휴식일": 12.9,
+   "휴식일주의": "ESPN에 없는 리그일 수 있음(21일 내 경기 없음) — 실제 휴식일은 더 짧을 수 있음",
+   "최근7일경기": 0,
+   "직전event": "401875549",
+   "xg": null,
+   "직전선발": [
+    "Gonzalo Crettaz",
+    "Ahmetcan Kaplan",
+    "Deveron Fonville",
+    "Gabi Brás",
+    "Noé Lebreton",
+    "Darko Nejasmic",
+    "Mitchel Bakker",
+    "Kevin Kers",
+    "Bryan Linssen",
+    "Dusan Tadic",
+    "Tjaronn Chery"
+   ],
+   "직전포메이션": "3-4-2-1"
+  },
+  "원정": {
+   "팀": "PSV에인트호번",
+   "eng": "PSV",
+   "직전": "11-09 원정 vs SC Cambuur 5-2 승 [ned.1]",
+   "휴식일": 13.0,
+   "휴식일주의": "ESPN에 없는 리그일 수 있음(21일 내 경기 없음) — 실제 휴식일은 더 짧을 수 있음",
+   "최근7일경기": 0,
+   "직전event": "401875553",
+   "xg": null,
+   "직전선발": [
+    "Matej Kovár",
+    "Armando Obispo",
+    "Lutsharel Geertruida",
+    "Filip Kostic",
+    "Sergiño Dest",
+    "Sven Mijnans",
+    "Mauro Júnior",
+    "Kodai Sano",
+    "Guus Til",
+    "Ruben Van Bommel",
+    "Esmir Bajraktarevic"
+   ],
+   "직전포메이션": "4-2-3-1"
+  },
+  "환경": {
+   "구장": "Stadion de Goffert",
+   "구장고도": 23,
+   "원정홈": "필립스 스타디온",
+   "원정홈고도": 15,
+   "이동km": 49,
+   "고도차": 8,
+   "날씨": {
+    "기온": 7.6,
+    "습도": 86,
+    "강수mm": 0,
+    "강수확률": 6,
+    "풍속": 9.0,
+    "출처": "Open-Meteo forecast 11-21 13:08"
+   },
+   "출처": [
+    "Wikidata Q318348→Q720983 · Open-Meteo 고도",
+    "Wikidata Q11938→Q500972 · Open-Meteo 고도"
+   ],
+   "주의": []
+  },
+  "라인업": "미발표(킥오프 11.4h 전)",
+  "event": "401875541"
+ },
+ "5013": {
+  "번호": "5013",
+  "경기": "OGC니스 - 파리 생제르맹",
+  "리그": "프랑스 리그1",
+  "시각": "11-22 01:15",
+  "수집": "11-21 13:07",
+  "홈": {
+   "팀": "OGC니스",
+   "eng": "Nice",
+   "직전": "11-09 원정 vs Angers 2-0 승 [ligue 1]",
+   "휴식일": 13.0,
+   "휴식일주의": "ESPN에 없는 리그일 수 있음(21일 내 경기 없음) — 실제 휴식일은 더 짧을 수 있음",
+   "최근7일경기": 0,
+   "직전event": "401876412",
+   "xg": {
+    "n": 9,
+    "xg": 1.4,
+    "xga": 1.88,
+    "npxgd": -0.4,
+    "l5_xg": 1.82,
+    "l5_xga": 1.82,
+    "l5_npxgd": 0.0,
+    "home_xgd": 0.07,
+    "away_xgd": -0.98,
+    "xpts": 9.6,
+    "pts": 14
+   },
+   "xg_src": "Understat Ligue_1 Nice",
+   "직전선발": [
+    "Yehvann Diouf",
+    "Youssouf Ndayishimiye",
+    "Mohamed Abdelmoneim",
+    "Alidu Seidu",
+    "Hicham Boudaoui",
+    "Djibril Coulibaly",
+    "Niels Nkounkou",
+    "Jonathan Clauss",
+    "Elye Wahi",
+    "Mohamed Amoura",
+    "Sofiane Diop"
+   ],
+   "직전포메이션": "3-4-2-1"
+  },
+  "원정": {
+   "팀": "파리 생제르맹",
+   "eng": "Paris Saint-Germain",
+   "직전": "11-08 홈 vs Troyes 1-0 승 [ligue 1]",
+   "휴식일": 13.8,
+   "휴식일주의": "ESPN에 없는 리그일 수 있음(21일 내 경기 없음) — 실제 휴식일은 더 짧을 수 있음",
+   "최근7일경기": 0,
+   "직전event": "401876407",
+   "xg": {
+    "n": 9,
+    "xg": 2.44,
+    "xga": 1.39,
+    "npxgd": 0.8,
+    "l5_xg": 3.04,
+    "l5_xga": 1.51,
+    "l5_npxgd": 1.07,
+    "home_xgd": 0.53,
+    "away_xgd": 1.01,
+    "xpts": 18.1,
+    "pts": 20
+   },
+   "xg_src": "Understat Ligue_1 Paris Saint Germain",
+   "직전선발": [
+    "Matvei Safonov",
+    "Willian Pacho",
+    "Illia Zabarnyi",
+    "Lucas Hernández",
+    "Warren Zaïre-Emery",
+    "Vitinha",
+    "Fabián Ruiz",
+    "Senny Mayulu",
+    "Ferran Torres",
+    "Mika Godts",
+    "Désiré Doué"
+   ],
+   "직전포메이션": "4-3-3"
+  },
+  "환경": {
+   "구장": "니스(구단 좌표 — 구장 미확인)",
+   "구장고도": 12,
+   "원정홈": "파르크 데 프랭스",
+   "원정홈고도": 32,
+   "이동km": 689,
+   "고도차": -20,
+   "날씨": {
+    "기온": 15.9,
+    "습도": 53,
+    "강수mm": 0,
+    "강수확률": 0,
+    "풍속": 7.9,
+    "출처": "Open-Meteo forecast 11-21 13:08"
+   },
+   "출처": [
+    "Wikidata Q33959→구단 · Open-Meteo 고도",
+    "Wikidata Q483020→Q193431 · Open-Meteo 고도"
+   ],
+   "주의": []
+  },
+  "라인업": "미발표(킥오프 12.1h 전)",
+  "event": "401876398"
+ },
+ "5019": {
+  "번호": "5019",
+  "경기": "파르마 - AS로마",
+  "리그": "이탈리아 세리에A",
+  "시각": "11-22 02:00",
+  "수집": "11-21 13:07",
+  "홈": {
+   "팀": "파르마",
+   "eng": "Parma",
+   "직전": "11-08 홈 vs Bologna 1-2 패 [italian serie a]",
+   "휴식일": 14.0,
+   "휴식일주의": "ESPN에 없는 리그일 수 있음(21일 내 경기 없음) — 실제 휴식일은 더 짧을 수 있음",
+   "최근7일경기": 0,
+   "직전event": "401874974",
+   "xg": {
+    "n": 9,
+    "xg": 0.89,
+    "xga": 1.93,
+    "npxgd": -1.04,
+    "l5_xg": 0.92,
+    "l5_xga": 1.68,
+    "l5_npxgd": -0.76,
+    "home_xgd": -0.61,
+    "away_xgd": -1.57,
+    "xpts": 6.6,
+    "pts": 5
+   },
+   "xg_src": "Understat Serie_A Parma Calcio 1913",
+   "직전선발": [
+    "Giovanni Daffara",
+    "Mariano Troilo",
+    "Abdoulaye Ndiaye",
+    "Enrico Del Prato",
+    "Mandela Keita",
+    "Giovanni Fabbian",
+    "Vincent Sierro",
+    "Emanuele Valeri",
+    "Benjamin Cremaschi",
+    "Simone Lontani",
+    "José Romero"
+   ],
+   "직전포메이션": "3-5-2"
+  },
+  "원정": {
+   "팀": "AS로마",
+   "eng": "AS Roma",
+   "직전": "11-08 홈 vs Sassuolo 3-0 승 [italian serie a]",
+   "휴식일": 13.9,
+   "휴식일주의": "ESPN에 없는 리그일 수 있음(21일 내 경기 없음) — 실제 휴식일은 더 짧을 수 있음",
+   "최근7일경기": 0,
+   "직전event": "401874803",
+   "xg": {
+    "n": 10,
+    "xg": 2.76,
+    "xga": 1.49,
+    "npxgd": 1.35,
+    "l5_xg": 2.31,
+    "l5_xga": 1.87,
+    "l5_npxgd": 0.59,
+    "home_xgd": 1.8,
+    "away_xgd": 0.9,
+    "xpts": 20.8,
+    "pts": 24
+   },
+   "xg_src": "Understat Serie_A Roma",
+   "직전선발": [
+    "Devis Vásquez",
+    "Evan Ndicka",
+    "Mario Hermoso",
+    "Leonardo Balerdi",
+    "Manu Koné",
+    "Bryan Cristante",
+    "Wesley",
+    "Nahuel Molina",
+    "Donyell Malen",
+    "Rodrigo Mora",
+    "Matìas Soulè"
+   ],
+   "직전포메이션": "3-4-2-1"
+  },
+  "환경": {
+   "구장": "스타디오 엔니오 타르디니",
+   "구장고도": 56,
+   "원정홈": "스타디오 올림피코",
+   "원정홈고도": 17,
+   "이동km": 361,
+   "고도차": 39,
+   "날씨": {
+    "기온": 8.3,
+    "습도": 97,
+    "강수mm": 0,
+    "강수확률": 0,
+    "풍속": 3.7,
+    "출처": "Open-Meteo forecast 11-21 13:08"
+   },
+   "출처": [
+    "Wikidata Q2693→Q610546 · Open-Meteo 고도",
+    "Wikidata Q2739→Q159884 · Open-Meteo 고도"
+   ],
+   "주의": []
+  },
+  "라인업": "미발표(킥오프 12.9h 전)",
+  "event": "401874967"
+ },
+ "5025": {
+  "번호": "5025",
+  "경기": "뉴캐슬 유나이티드 - 아스널",
+  "리그": "잉글랜드 프리미어리그",
+  "시각": "11-22 02:30",
+  "수집": "11-21 13:07",
+  "홈": {
+   "팀": "뉴캐슬 유나이티드",
+   "eng": "Newcastle United",
+   "직전": "11-08 원정 vs Fulham 1-1 무 [english premier league]",
+   "휴식일": 14.1,
+   "휴식일주의": "ESPN에 없는 리그일 수 있음(21일 내 경기 없음) — 실제 휴식일은 더 짧을 수 있음",
+   "최근7일경기": 0,
+   "직전event": "401879241",
+   "xg": {
+    "n": 8,
+    "xg": 1.25,
+    "xga": 1.89,
+    "npxgd": -0.55,
+    "l5_xg": 1.32,
+    "l5_xga": 1.84,
+    "l5_npxgd": -0.52,
+    "home_xgd": -0.84,
+    "away_xgd": -0.26,
+    "xpts": 7.4,
+    "pts": 11
+   },
+   "xg_src": "Understat EPL Newcastle United",
+   "직전선발": [
+    "Lukás Hornícek",
+    "Dan Burn",
+    "Malick Thiaw",
+    "Lewis Hall",
+    "Amar Dedic",
+    "Yoane Wissa",
+    "Nico González",
+    "Sean Steur",
+    "William Osula",
+    "Harvey Barnes",
+    "Jacob Murphy"
+   ],
+   "직전포메이션": "4-2-3-1"
+  },
+  "원정": {
+   "팀": "아스널",
+   "eng": "Arsenal",
+   "직전": "11-08 홈 vs Hull City 1-0 승 [english premier league]",
+   "휴식일": 14.1,
+   "휴식일주의": "ESPN에 없는 리그일 수 있음(21일 내 경기 없음) — 실제 휴식일은 더 짧을 수 있음",
+   "최근7일경기": 0,
+   "직전event": "401878760",
+   "xg": {
+    "n": 9,
+    "xg": 1.76,
+    "xga": 1.04,
+    "npxgd": 0.72,
+    "l5_xg": 1.53,
+    "l5_xga": 1.2,
+    "l5_npxgd": 0.33,
+    "home_xgd": 1.59,
+    "away_xgd": 0.02,
+    "xpts": 17.0,
+    "pts": 24
+   },
+   "xg_src": "Understat EPL Arsenal",
+   "직전선발": [
+    "David Raya",
+    "Gabriel Magalhães",
+    "Ezri Konsa",
+    "Riccardo Calafiori",
+    "Jurriën Timber",
+    "Martin Ødegaard",
+    "Declan Rice",
+    "Bruno Guimarães",
+    "Kai Havertz",
+    "Christos Tzolis",
+    "Noni Madueke"
+   ],
+   "직전포메이션": "4-2-3-1"
+  },
+  "환경": {
+   "구장": "세인트 제임스 파크",
+   "구장고도": 71,
+   "원정홈": "아스널 스타디움(구단 좌표 — 구장 미확인)",
+   "원정홈고도": 32,
+   "이동km": 393,
+   "고도차": 39,
+   "날씨": {
+    "기온": 1.9,
+    "습도": 92,
+    "강수mm": 0,
+    "강수확률": 0,
+    "풍속": 5.8,
+    "출처": "Open-Meteo forecast 11-21 13:08"
+   },
+   "출처": [
+    "Wikidata Q18716→Q191774 · Open-Meteo 고도",
+    "Wikidata Q205309→구단 · Open-Meteo 고도"
+   ],
+   "주의": []
+  },
+  "라인업": "미발표(킥오프 13.4h 전)",
+  "event": "401879232"
+ },
+ "5030": {
+  "번호": "5030",
+  "경기": "세비야 - 레알 베티스",
+  "리그": "스페인 라리가",
+  "시각": "11-22 02:30",
+  "수집": "11-21 13:07",
+  "홈": {
+   "팀": "세비야",
+   "eng": "Sevilla",
+   "직전": "11-07 홈 vs Alavés 0-0 무 [laliga]",
+   "휴식일": 14.9,
+   "휴식일주의": "ESPN에 없는 리그일 수 있음(21일 내 경기 없음) — 실제 휴식일은 더 짧을 수 있음",
+   "최근7일경기": 0,
+   "직전event": "401882809",
+   "xg": {
+    "n": 11,
+    "xg": 1.23,
+    "xga": 1.54,
+    "npxgd": -0.38,
+    "l5_xg": 1.38,
+    "l5_xga": 2.01,
+    "l5_npxgd": -0.48,
+    "home_xgd": -0.64,
+    "away_xgd": -0.17,
+    "xpts": 13.3,
+    "pts": 17
+   },
+   "xg_src": "Understat La_liga Sevilla",
+   "직전선발": [
+    "Odisseas Vlachodimos",
+    "Enrique Salas",
+    "Arouna Sangante",
+    "Gabriel Suazo",
+    "Juan Iglesias",
+    "Isaac Romero",
+    "Lucien Agoumé",
+    "Youssouf Fofana",
+    "Lucas Stassin",
+    "Felix Correia",
+    "Rubén Vargas"
+   ],
+   "직전포메이션": "4-2-3-1"
+  },
+  "원정": {
+   "팀": "레알 베티스",
+   "eng": "Real Betis",
+   "직전": "11-13 원정 vs CD Artistico Navalcarnero 3-2 승 [first round]",
+   "휴식일": 9.0,
+   "최근7일경기": 0,
+   "직전event": "401928551",
+   "xg": {
+    "n": 11,
+    "xg": 1.85,
+    "xga": 1.74,
+    "npxgd": 0.11,
+    "l5_xg": 1.64,
+    "l5_xga": 1.65,
+    "l5_npxgd": -0.16,
+    "home_xgd": 0.16,
+    "away_xgd": 0.06,
+    "xpts": 16.1,
+    "pts": 23
+   },
+   "xg_src": "Understat La_liga Real Betis",
+   "직전선발": [
+    "Diego Conde",
+    "Valentín Gómez",
+    "Diego Llorente",
+    "Junior Firpo",
+    "Héctor Bellerín",
+    "Giovani Lo Celso",
+    "Dani Ceballos",
+    "Pablo Fornals",
+    "Aitor Ruibal",
+    "Rodrigo Riquelme",
+    "Antony"
+   ],
+   "직전포메이션": "4-2-3-1"
+  },
+  "환경": {
+   "구장": "에스타디오 라몬 산체스 피스후안",
+   "구장고도": 8,
+   "원정홈": "에스타디오 베니토 비야마린",
+   "원정홈고도": 4,
+   "이동km": 3,
+   "고도차": 4,
+   "날씨": {
+    "기온": 19.0,
+    "습도": 73,
+    "강수mm": 0,
+    "강수확률": 9,
+    "풍속": 8.9,
+    "출처": "Open-Meteo forecast 11-21 13:08"
+   },
+   "출처": [
+    "Wikidata Q10329→Q275429 · Open-Meteo 고도",
+    "Wikidata Q8723→Q126844 · Open-Meteo 고도"
+   ],
+   "주의": []
+  },
+  "라인업": "미발표(킥오프 13.4h 전)",
+  "event": "401882797"
+ },
+ "5034": {
+  "번호": "5034",
+  "경기": "샬케04 - VfB슈투트가르트",
+  "리그": "독일 분데스리가",
+  "시각": "11-22 02:30",
+  "수집": "11-21 13:07",
+  "홈": {
+   "팀": "샬케04",
+   "eng": "Schalke",
+   "직전": "11-09 원정 vs TSG Hoffenheim 1-2 패 [german bundesliga]",
+   "휴식일": 13.0,
+   "휴식일주의": "ESPN에 없는 리그일 수 있음(21일 내 경기 없음) — 실제 휴식일은 더 짧을 수 있음",
+   "최근7일경기": 0,
+   "직전event": "401884742",
+   "xg": {
+    "n": 8,
+    "xg": 1.03,
+    "xga": 2.31,
+    "npxgd": -1.18,
+    "l5_xg": 0.59,
+    "l5_xga": 1.8,
+    "l5_npxgd": -1.05,
+    "home_xgd": -1.27,
+    "away_xgd": -1.09,
+    "xpts": 5.8,
+    "pts": 6
+   },
+   "xg_src": "Understat Bundesliga Schalke 04",
+   "직전선발": [
+    "Loris Karius",
+    "Hasan Kurucay",
+    "Nikola Katic",
+    "Robin Gosens",
+    "Mert Can Ayhan",
+    "Kenan Karaman",
+    "Satoshi Tanaka",
+    "Soufian El-Faouzi",
+    "Hwang Hee-Chan",
+    "Adil Aouchiche",
+    "Dejan Ljubicic"
+   ],
+   "직전포메이션": "4-2-3-1"
+  },
+  "원정": {
+   "팀": "VfB슈투트가르트",
+   "eng": "VfB Stuttgart",
+   "직전": "11-08 홈 vs Werder Bremen 1-0 승 [german bundesliga]",
+   "휴식일": 14.0,
+   "휴식일주의": "ESPN에 없는 리그일 수 있음(21일 내 경기 없음) — 실제 휴식일은 더 짧을 수 있음",
+   "최근7일경기": 0,
+   "직전event": "401884743",
+   "xg": {
+    "n": 8,
+    "xg": 2.3,
+    "xga": 2.57,
+    "npxgd": -0.27,
+    "l5_xg": 2.19,
+    "l5_xga": 2.13,
+    "l5_npxgd": 0.06,
+    "home_xgd": -0.48,
+    "away_xgd": -0.15,
+    "xpts": 10.2,
+    "pts": 9
+   },
+   "xg_src": "Understat Bundesliga VfB Stuttgart",
+   "직전선발": [
+    "Dennis Seimen",
+    "Jeff Chabot",
+    "Ramon Hendriks",
+    "Luca Jaquez",
+    "Yanik Spalt",
+    "Grischa Prömel",
+    "Maximilian Mittelstädt",
+    "Jamie Leweling",
+    "Deniz Undav",
+    "Chris Führich",
+    "Bilal El Khannouss"
+   ],
+   "직전포메이션": "3-4-2-1"
+  },
+  "환경": {
+   "구장": "펠틴스 아레나",
+   "구장고도": 50,
+   "원정홈": "MHP아레나",
+   "원정홈고도": 219,
+   "이동km": 344,
+   "고도차": -169,
+   "날씨": {
+    "기온": 5.4,
+    "습도": 83,
+    "강수mm": 0,
+    "강수확률": 0,
+    "풍속": 10.1,
+    "출처": "Open-Meteo forecast 11-21 13:08"
+   },
+   "출처": [
+    "Wikidata Q32494→Q150961 · Open-Meteo 고도",
+    "Wikidata Q4512→Q152349 · Open-Meteo 고도"
+   ],
+   "주의": []
+  },
+  "라인업": "미발표(킥오프 13.4h 전)",
+  "event": "401884729"
+ },
+ "5039": {
+  "번호": "5039",
+  "경기": "페예노르트 - 엑셀시오르 로테르담",
+  "리그": "네덜란드 에레디비시",
+  "시각": "11-22 02:45",
+  "수집": "11-21 13:07",
+  "홈": {
+   "팀": "페예노르트",
+   "eng": "Feyenoord",
+   "직전": "11-08 원정 vs Heerenveen 3-5 패 [ned.1]",
+   "휴식일": 13.3,
+   "휴식일주의": "ESPN에 없는 리그일 수 있음(21일 내 경기 없음) — 실제 휴식일은 더 짧을 수 있음",
+   "최근7일경기": 0,
+   "직전event": "401875551",
+   "xg": null,
+   "직전선발": [
+    "Tjark Ernst",
+    "Mika Mármol",
+    "Tsuyoshi Watanabe",
+    "Javi López",
+    "Givairo Read",
+    "Charles Vanhoutte",
+    "Oussama Targhaline",
+    "Gjivai Zechiël",
+    "Nacho Ferri",
+    "Luciano Valente",
+    "Anis Hadj Moussa"
+   ],
+   "직전포메이션": "4-3-3"
+  },
+  "원정": {
+   "팀": "엑셀시오르 로테르담",
+   "eng": "Excelsior",
+   "직전": "11-08 홈 vs Go Ahead Eagles 0-1 패 [ned.1]",
+   "휴식일": 13.9,
+   "휴식일주의": "ESPN에 없는 리그일 수 있음(21일 내 경기 없음) — 실제 휴식일은 더 짧을 수 있음",
+   "최근7일경기": 0,
+   "직전event": "401875554",
+   "xg": null,
+   "직전선발": [
+    "Stijn van Gassel",
+    "Jan Plug",
+    "Casper Widell",
+    "Kasey Bos",
+    "Rick Meissen",
+    "Noah Naujoks",
+    "Irakli Yegoian",
+    "Lennard Hartjes",
+    "Mario Dominguez",
+    "Ágúst Þorsteinsson",
+    "Aymen Sliti"
+   ],
+   "직전포메이션": "4-2-3-1"
+  },
+  "환경": {
+   "구장": "스타디온 페예노르트",
+   "구장고도": 3,
+   "원정홈": "Stadion Woudestein",
+   "원정홈고도": 0,
+   "이동km": 3,
+   "고도차": 3,
+   "날씨": {
+    "기온": 8.1,
+    "습도": 75,
+    "강수mm": 0,
+    "강수확률": 0,
+    "풍속": 8.3,
+    "출처": "Open-Meteo forecast 11-21 13:08"
+   },
+   "출처": [
+    "Wikidata Q134241→Q330298 · Open-Meteo 고도",
+    "Wikidata Q370712→Q2298643 · Open-Meteo 고도"
+   ],
+   "주의": []
+  },
+  "라인업": "미발표(킥오프 13.6h 전)",
+  "event": "401875543"
+ },
+ "5045": {
+  "번호": "5045",
+  "경기": "위트레흐트 - SC캄뷔르",
+  "리그": "네덜란드 에레디비시",
+  "시각": "11-22 02:45",
+  "수집": "11-21 13:07",
+  "홈": {
+   "팀": "위트레흐트",
+   "eng": "Utrecht",
+   "직전": "11-09 홈 vs NEC Nijmegen 2-3 패 [ned.1]",
+   "휴식일": 12.9,
+   "휴식일주의": "ESPN에 없는 리그일 수 있음(21일 내 경기 없음) — 실제 휴식일은 더 짧을 수 있음",
+   "최근7일경기": 0,
+   "직전event": "401875549",
+   "xg": null,
+   "직전선발": [
+    "Vasilios Barkas",
+    "Nikolas Panagiotou",
+    "Matisse Didden",
+    "Per Kloosterboer",
+    "Niklas Vesterlund",
+    "Joris van Overeem",
+    "Dani de Wit",
+    "Marius Broholm",
+    "Artem Stepanov",
+    "Yoann Cathline",
+    "Ángel Alarcón"
+   ],
+   "직전포메이션": "4-3-3"
+  },
+  "원정": {
+   "팀": "SC캄뷔르",
+   "eng": "Cambuur",
+   "직전": "11-09 홈 vs PSV Eindhoven 2-5 패 [ned.1]",
+   "휴식일": 13.1,
+   "휴식일주의": "ESPN에 없는 리그일 수 있음(21일 내 경기 없음) — 실제 휴식일은 더 짧을 수 있음",
+   "최근7일경기": 0,
+   "직전event": "401875553",
+   "xg": null,
+   "직전선발": [
+    "Thijs Jansen",
+    "Billy Van Duijl",
+    "Ismaël Baouf",
+    "Morgan Costarelli",
+    "Devid Eugene Bouah",
+    "Nicky Souren",
+    "Rafik El Arguioui",
+    "Mathieu Maertens",
+    "Nicolas Binder",
+    "Ilyes Hamache",
+    "Jason Ceka"
+   ],
+   "직전포메이션": "4-3-3"
+  },
+  "환경": {
+   "구장": "위트레흐트(구단 좌표 — 구장 미확인)",
+   "구장고도": 10,
+   "원정홈": "캄뷔르 스타디움",
+   "원정홈고도": 4,
+   "이동km": 132,
+   "고도차": 6,
+   "날씨": {
+    "기온": 7.9,
+    "습도": 81,
+    "강수mm": 0,
+    "강수확률": 3,
+    "풍속": 8.6,
+    "출처": "Open-Meteo forecast 11-21 13:08"
+   },
+   "출처": [
+    "Wikidata Q803→구단 · Open-Meteo 고도",
+    "Wikidata Q875120→Q1028392 · Open-Meteo 고도"
+   ],
+   "주의": []
+  },
+  "라인업": "미발표(킥오프 13.6h 전)",
+  "event": "401875544"
+ },
+ "5053": {
+  "번호": "5053",
+  "경기": "뉴잉글랜드 레벌루션 - 필라델피아 유니언",
+  "리그": "미국 메이저리그사커",
+  "시각": "11-22 04:00",
+  "수집": "11-21 13:07",
+  "홈": {
+   "팀": "뉴잉글랜드 레벌루션",
+   "eng": "New England Revolution",
+   "직전": "11-08 원정 vs Orlando City SC 0-1 패 [usa.1]",
+   "휴식일": 13.9,
+   "휴식일주의": "ESPN에 없는 리그일 수 있음(21일 내 경기 없음) — 실제 휴식일은 더 짧을 수 있음",
+   "최근7일경기": 0,
+   "직전event": "761940",
+   "xg": null,
+   "직전선발": [
+    "Matt Turner",
+    "Mamadou Fofana",
+    "Ethan Kohler",
+    "William Sands",
+    "Ilay Feingold",
+    "Carles Gil",
+    "Jackson Yueill",
+    "Matt Polster",
+    "Dor Turgeman",
+    "Dániel Gazdag",
+    "Luca Langoni"
+   ],
+   "직전포메이션": "4-2-3-1"
+  },
+  "원정": {
+   "팀": "필라델피아 유니언",
+   "eng": "Philadelphia Union",
+   "직전": "11-08 홈 vs Toronto FC 4-1 승 [usa.1]",
+   "휴식일": 13.9,
+   "휴식일주의": "ESPN에 없는 리그일 수 있음(21일 내 경기 없음) — 실제 휴식일은 더 짧을 수 있음",
+   "최근7일경기": 0,
+   "직전event": "761941",
+   "xg": null,
+   "직전선발": [
+    "Andre Blake",
+    "Nathan Harriel",
+    "Neil Pierre",
+    "Kai Wagner",
+    "Frankie Westfield",
+    "Jovan Lukic",
+    "Danley Jean Jacques",
+    "Indiana Vassilev",
+    "Cavan Sullivan",
+    "Quinn Sullivan",
+    "Bruno Damiani"
+   ],
+   "직전포메이션": "4-4-2"
+  },
+  "환경": {
+   "구장": "질레트 스타디움",
+   "구장고도": 89,
+   "원정홈": "PPL 파크",
+   "원정홈고도": 10,
+   "이동km": 427,
+   "고도차": 79,
+   "날씨": {
+    "기온": 17.0,
+    "습도": 45,
+    "강수mm": 0,
+    "강수확률": 0,
+    "풍속": 10.0,
+    "출처": "Open-Meteo forecast 11-21 13:08"
+   },
+   "출처": [
+    "Wikidata Q309095→Q373355 · Open-Meteo 고도",
+    "Wikidata Q689874→Q1637843 · Open-Meteo 고도"
+   ],
+   "주의": []
+  },
+  "라인업": "미발표(킥오프 14.9h 전)",
+  "event": "401933733"
+ },
+ "5063": {
+  "번호": "5063",
+  "경기": "RC랑스 - 툴루즈",
+  "리그": "프랑스 리그1",
+  "시각": "11-22 04:45",
+  "수집": "11-21 13:07",
+  "홈": {
+   "팀": "RC랑스",
+   "eng": "Lens",
+   "직전": "11-09 홈 vs Marseille 1-2 패 [ligue 1]",
+   "휴식일": 13.0,
+   "휴식일주의": "ESPN에 없는 리그일 수 있음(21일 내 경기 없음) — 실제 휴식일은 더 짧을 수 있음",
+   "최근7일경기": 0,
+   "직전event": "401876404",
+   "xg": {
+    "n": 9,
+    "xg": 1.87,
+    "xga": 1.51,
+    "npxgd": 0.19,
+    "l5_xg": 1.16,
+    "l5_xga": 1.37,
+    "l5_npxgd": -0.21,
+    "home_xgd": 0.77,
+    "away_xgd": -0.27,
+    "xpts": 13.7,
+    "pts": 13
+   },
+   "xg_src": "Understat Ligue_1 Lens",
+   "직전선발": [
+    "Robin Risser",
+    "Samson Baidoo",
+    "Jean-Clair Todibo",
+    "Jonathan Gradit",
+    "Amadou Haidara",
+    "Yassine Titraoui",
+    "Matthieu Udol",
+    "Saud Abdulhamid",
+    "Thorgan Hazard",
+    "Florian Sotoca",
+    "Florian Thauvin"
+   ],
+   "직전포메이션": "3-4-2-1"
+  },
+  "원정": {
+   "팀": "툴루즈",
+   "eng": "Toulouse",
+   "직전": "11-07 홈 vs Strasbourg 3-1 승 [ligue 1]",
+   "휴식일": 15.0,
+   "휴식일주의": "ESPN에 없는 리그일 수 있음(21일 내 경기 없음) — 실제 휴식일은 더 짧을 수 있음",
+   "최근7일경기": 0,
+   "직전event": "401876405",
+   "xg": {
+    "n": 9,
+    "xg": 1.84,
+    "xga": 1.32,
+    "npxgd": 0.35,
+    "l5_xg": 1.76,
+    "l5_xga": 1.15,
+    "l5_npxgd": 0.3,
+    "home_xgd": 0.86,
+    "away_xgd": -0.06,
+    "xpts": 16.2,
+    "pts": 10
+   },
+   "xg_src": "Understat Ligue_1 Toulouse",
+   "직전선발": [
+    "Guillaume Restes",
+    "Rasmus Nicolaisen",
+    "Mark McKenzie",
+    "Christ Tapé",
+    "Ismail Diallo",
+    "Niko Sigur",
+    "Cristian Cásseres Jr.",
+    "Sion Oppong",
+    "Thomas Jørgensen",
+    "Casper Tengstedt",
+    "Santiago Hidalgo"
+   ],
+   "직전포메이션": "4-4-2"
+  },
+  "환경": {
+   "구장": "스타드 펠릭스 볼라르트",
+   "구장고도": 42,
+   "원정홈": "스타디움 뮈니시팔",
+   "원정홈고도": 140,
+   "이동km": 769,
+   "고도차": -98,
+   "날씨": {
+    "기온": 6.1,
+    "습도": 80,
+    "강수mm": 0,
+    "강수확률": 0,
+    "풍속": 9.0,
+    "출처": "Open-Meteo forecast 11-21 13:08"
+   },
+   "출처": [
+    "Wikidata Q191843→Q854122 · Open-Meteo 고도",
+    "Wikidata Q19518→Q738044 · Open-Meteo 고도"
+   ],
+   "주의": []
+  },
+  "라인업": "미발표(킥오프 15.6h 전)",
+  "event": "401876403"
+ },
+ "5067": {
+  "번호": "5067",
+  "경기": "릴OSC - 올랭피크 리옹",
+  "리그": "프랑스 리그1",
+  "시각": "11-22 04:45",
+  "수집": "11-21 13:07",
+  "홈": {
+   "팀": "릴OSC",
+   "eng": "Lille",
+   "직전": "11-08 원정 vs Stade Rennais 2-1 승 [ligue 1]",
+   "휴식일": 13.2,
+   "휴식일주의": "ESPN에 없는 리그일 수 있음(21일 내 경기 없음) — 실제 휴식일은 더 짧을 수 있음",
+   "최근7일경기": 0,
+   "직전event": "401876406",
+   "xg": {
+    "n": 9,
+    "xg": 1.5,
+    "xga": 1.42,
+    "npxgd": -0.01,
+    "l5_xg": 1.61,
+    "l5_xga": 1.17,
+    "l5_npxgd": 0.29,
+    "home_xgd": 0.76,
+    "away_xgd": -0.96,
+    "xpts": 13.2,
+    "pts": 18
+   },
+   "xg_src": "Understat Ligue_1 Lille",
+   "직전선발": [
+    "Berke Özer",
+    "Alexsandro",
+    "Tanguy Nianzou",
+    "Calvin Verdonk",
+    "Nathan Ngoy",
+    "Nabil Bentaleb",
+    "Benjamin André",
+    "Ngal'ayel Mukau",
+    "Hákon Haraldsson",
+    "Soriba Diaoune",
+    "Ethan Mbappé"
+   ],
+   "직전포메이션": "4-3-3"
+  },
+  "원정": {
+   "팀": "올랭피크 리옹",
+   "eng": "Olympique Lyonnais",
+   "휴식일": null,
+   "직전": "-",
+   "최근7일경기": null,
+   "휴식일주의": "35일 내 경기 없음 — ESPN 미제공 리그(체코·폴란드·헝가리·불가리아·키프로스·이스라엘·핀란드·크로아티아·세르비아·동남아 등)이면 에이전트가 직접 확인",
+   "xg": {
+    "n": 9,
+    "xg": 1.78,
+    "xga": 1.12,
+    "npxgd": 0.67,
+    "l5_xg": 1.94,
+    "l5_xga": 1.06,
+    "l5_npxgd": 0.88,
+    "home_xgd": 1.7,
+    "away_xgd": -0.63,
+    "xpts": 15.6,
+    "pts": 17
+   },
+   "xg_src": "Understat Ligue_1 Lyon"
+  },
+  "환경": {
+   "구장": "스타드 피에르 모루아",
+   "구장고도": 43,
+   "원정홈": "스타드 드 제를랑",
+   "원정홈고도": 172,
+   "이동km": 558,
+   "고도차": -129,
+   "날씨": {
+    "기온": 3.6,
+    "습도": 84,
+    "강수mm": 0,
+    "강수확률": 0,
+    "풍속": 8.6,
+    "출처": "Open-Meteo forecast 11-21 13:08"
+   },
+   "출처": [
+    "Wikidata Q19516→Q1410402 · Open-Meteo 고도",
+    "Wikidata Q3924852→Q1980 · Open-Meteo 고도"
+   ],
+   "주의": []
+  },
+  "라인업": "미발표(킥오프 15.6h 전)",
+  "event": null
+ },
+ "5071": {
+  "번호": "5071",
+  "경기": "AS모나코 - AJ오세르",
+  "리그": "프랑스 리그1",
+  "시각": "11-22 04:45",
+  "수집": "11-21 13:07",
+  "홈": {
+   "팀": "AS모나코",
+   "eng": "AS Monaco",
+   "직전": "11-09 원정 vs Le Mans 1-1 무 [ligue 1]",
+   "휴식일": 13.1,
+   "휴식일주의": "ESPN에 없는 리그일 수 있음(21일 내 경기 없음) — 실제 휴식일은 더 짧을 수 있음",
+   "최근7일경기": 0,
+   "직전event": "401876408",
+   "xg": {
+    "n": 9,
+    "xg": 1.14,
+    "xga": 1.43,
+    "npxgd": -0.12,
+    "l5_xg": 1.13,
+    "l5_xga": 1.55,
+    "l5_npxgd": -0.12,
+    "home_xgd": 0.57,
+    "away_xgd": -0.67,
+    "xpts": 10.9,
+    "pts": 15
+   },
+   "xg_src": "Understat Ligue_1 Monaco",
+   "직전선발": [
+    "Lukas Hradecky",
+    "Eric Dier",
+    "Sadibou Sané",
+    "Názinho",
+    "Vanderson",
+    "Aleksandr Golovin",
+    "Lamine Camara",
+    "Denis Zakaria",
+    "Matthis Abline",
+    "Mathys Detourbet",
+    "Mamadou Coulibaly"
+   ],
+   "직전포메이션": "4-2-3-1"
+  },
+  "원정": {
+   "팀": "AJ오세르",
+   "eng": "Auxerre",
+   "직전": "11-08 홈 vs Paris FC 0-1 패 [ligue 1]",
+   "휴식일": 14.1,
+   "휴식일주의": "ESPN에 없는 리그일 수 있음(21일 내 경기 없음) — 실제 휴식일은 더 짧을 수 있음",
+   "최근7일경기": 0,
+   "직전event": "401876411",
+   "xg": {
+    "n": 9,
+    "xg": 1.27,
+    "xga": 2.13,
+    "npxgd": -0.7,
+    "l5_xg": 1.07,
+    "l5_xga": 1.76,
+    "l5_npxgd": -0.54,
+    "home_xgd": 0.3,
+    "away_xgd": -1.49,
+    "xpts": 9.2,
+    "pts": 10
+   },
+   "xg_src": "Understat Ligue_1 Auxerre",
+   "직전선발": [
+    "Paul Nardi",
+    "Sinaly Diomande",
+    "Telli Siwe",
+    "Axel Tuanzebe",
+    "Fredrik Oppegard",
+    "Marvin Senaya",
+    "Naouirou Ahamada",
+    "Pierre Ekwah",
+    "Danny Namaso",
+    "Romain Faivre",
+    "Cameron Archer"
+   ],
+   "직전포메이션": "5-4-1"
+  },
+  "환경": {
+   "구장": "스타드 루이 되",
+   "구장고도": 20,
+   "원정홈": "Stade de l'Abbé-Deschamps",
+   "원정홈고도": 97,
+   "이동km": 540,
+   "고도차": -77,
+   "날씨": {
+    "기온": 14.5,
+    "습도": 81,
+    "강수mm": 0,
+    "강수확률": 0,
+    "풍속": 8.3,
+    "출처": "Open-Meteo forecast 11-21 13:08"
+   },
+   "출처": [
+    "Wikidata Q180305→Q318851 · Open-Meteo 고도",
+    "Wikidata Q182876→Q1347183 · Open-Meteo 고도"
+   ],
+   "주의": []
+  },
+  "라인업": "미발표(킥오프 15.6h 전)",
+  "event": "401876399"
+ },
+ "5077": {
+  "번호": "5077",
+  "경기": "RC스트라스부르 - 스타드 브레스투아29",
+  "리그": "프랑스 리그1",
+  "시각": "11-22 04:45",
+  "수집": "11-21 13:07",
+  "홈": {
+   "팀": "RC스트라스부르",
+   "eng": "Strasbourg",
+   "직전": "11-07 원정 vs Toulouse 1-3 패 [ligue 1]",
+   "휴식일": 15.0,
+   "휴식일주의": "ESPN에 없는 리그일 수 있음(21일 내 경기 없음) — 실제 휴식일은 더 짧을 수 있음",
+   "최근7일경기": 0,
+   "직전event": "401876405",
+   "xg": {
+    "n": 9,
+    "xg": 1.4,
+    "xga": 1.73,
+    "npxgd": -0.16,
+    "l5_xg": 1.26,
+    "l5_xga": 1.37,
+    "l5_npxgd": -0.1,
+    "home_xgd": 0.42,
+    "away_xgd": -0.63,
+    "xpts": 9.4,
+    "pts": 10
+   },
+   "xg_src": "Understat Ligue_1 Strasbourg",
+   "직전선발": [
+    "Filip Jørgensen",
+    "Karim Coulibaly",
+    "Ismael Doukoure",
+    "Oso",
+    "Lucas Høgsberg",
+    "Samir El Mourabet",
+    "Giovanni Reyna",
+    "Dário Essugo",
+    "Conrad Harder",
+    "Martial Godo",
+    "Gessime Yassine"
+   ],
+   "직전포메이션": "4-3-3"
+  },
+  "원정": {
+   "팀": "스타드 브레스투아29",
+   "eng": "Brest",
+   "직전": "11-09 홈 vs Lyon 2-0 승 [ligue 1]",
+   "휴식일": 13.1,
+   "휴식일주의": "ESPN에 없는 리그일 수 있음(21일 내 경기 없음) — 실제 휴식일은 더 짧을 수 있음",
+   "최근7일경기": 0,
+   "직전event": "401876410",
+   "xg": {
+    "n": 8,
+    "xg": 2.22,
+    "xga": 1.21,
+    "npxgd": 0.91,
+    "l5_xg": 1.7,
+    "l5_xga": 1.21,
+    "l5_npxgd": 0.34,
+    "home_xgd": 1.25,
+    "away_xgd": 0.57,
+    "xpts": 15.5,
+    "pts": 9
+   },
+   "xg_src": "Understat Ligue_1 Brest",
+   "직전선발": [
+    "Egil Selvik",
+    "Gautier Lloris",
+    "Lucas Tousart",
+    "Bradley Locko",
+    "Kenny Lala",
+    "Kamory Doumbia",
+    "Hugo Magnetti",
+    "Joris Chotard",
+    "Ludovic Ajorque",
+    "Mama Baldé",
+    "Noah Edjouma"
+   ],
+   "직전포메이션": "4-2-3-1"
+  },
+  "환경": {
+   "구장": "스타드 드 라 메노",
+   "구장고도": 148,
+   "원정홈": "브레스트(구단 좌표 — 구장 미확인)",
+   "원정홈고도": 55,
+   "이동km": 902,
+   "고도차": 93,
+   "날씨": {
+    "기온": 6.7,
+    "습도": 80,
+    "강수mm": 0,
+    "강수확률": 0,
+    "풍속": 4.7,
+    "출처": "Open-Meteo forecast 11-21 13:08"
+   },
+   "출처": [
+    "Wikidata Q126334→Q374883 · Open-Meteo 고도",
+    "Wikidata Q12193→구단 · Open-Meteo 고도"
+   ],
+   "주의": [
+    "장거리 원정 902km"
+   ]
+  },
+  "라인업": "미발표(킥오프 15.6h 전)",
+  "event": "401876396"
+ },
+ "5081": {
+  "번호": "5081",
+  "경기": "레알 마드리드 - RC셀타데비고",
+  "리그": "스페인 라리가",
+  "시각": "11-22 05:00",
+  "수집": "11-21 13:07",
+  "홈": {
+   "팀": "레알 마드리드",
+   "eng": "Real Madrid CF",
+   "직전": "11-08 원정 vs Valencia 3-0 승 [laliga]",
+   "휴식일": 14.0,
+   "휴식일주의": "ESPN에 없는 리그일 수 있음(21일 내 경기 없음) — 실제 휴식일은 더 짧을 수 있음",
+   "최근7일경기": 0,
+   "직전event": "401882808",
+   "xg": {
+    "n": 11,
+    "xg": 2.58,
+    "xga": 1.09,
+    "npxgd": 1.29,
+    "l5_xg": 1.83,
+    "l5_xga": 1.32,
+    "l5_npxgd": 0.36,
+    "home_xgd": 1.53,
+    "away_xgd": 1.09,
+    "xpts": 25.0,
+    "pts": 27
+   },
+   "xg_src": "Understat La_liga Real Madrid",
+   "직전선발": [
+    "Thibaut Courtois",
+    "Dean Huijsen",
+    "Ibrahima Konaté",
+    "Marc Cucurella",
+    "Federico Valverde",
+    "Jude Bellingham",
+    "Aurélien Tchouaméni",
+    "Bernardo Silva",
+    "Kylian Mbappé",
+    "Yan Diomande",
+    "Arda Güler"
+   ],
+   "직전포메이션": "4-2-3-1"
+  },
+  "원정": {
+   "팀": "RC셀타데비고",
+   "eng": "RC Celta de Vigo",
+   "직전": "11-14 원정 vs Salamanca UDS 5-0 승 [first round]",
+   "휴식일": 8.0,
+   "최근7일경기": 0,
+   "직전event": "401928487",
+   "xg": {
+    "n": 11,
+    "xg": 0.98,
+    "xga": 1.23,
+    "npxgd": -0.26,
+    "l5_xg": 1.07,
+    "l5_xga": 1.02,
+    "l5_npxgd": -0.09,
+    "home_xgd": -0.33,
+    "away_xgd": -0.17,
+    "xpts": 12.9,
+    "pts": 12
+   },
+   "xg_src": "Understat La_liga Celta Vigo",
+   "직전선발": [
+    "Altay Bayindir",
+    "Yoel Lago",
+    "Abdoulaye Faye",
+    "Hugo Burcio",
+    "Aleix Febas",
+    "Andrés Antañón",
+    "Javi Galán",
+    "Frank Germain Jonathan Miller",
+    "Ferran Jutglà",
+    "Ángel Arcos",
+    "Hugo González"
+   ],
+   "직전포메이션": "3-4-2-1"
+  },
+  "환경": {
+   "구장": "시우다드 레알 마드리드",
+   "구장고도": 666,
+   "원정홈": "에스타디오 데 발라이도스",
+   "원정홈고도": 13,
+   "이동km": 469,
+   "고도차": 653,
+   "날씨": {
+    "기온": 11.8,
+    "습도": 83,
+    "강수mm": 1.6,
+    "강수확률": 80,
+    "풍속": 4.8,
+    "출처": "Open-Meteo forecast 11-21 13:09"
+   },
+   "출처": [
+    "Wikidata Q1246437→Q616283 · Open-Meteo 고도",
+    "Wikidata Q8749→Q1326578 · Open-Meteo 고도"
+   ],
+   "주의": [
+    "비 1.6mm(80%)"
+   ]
+  },
+  "라인업": "미발표(킥오프 15.9h 전)",
+  "event": "401882798"
+ },
+ "5087": {
+  "번호": "5087",
+  "경기": "텔스타 - PEC즈볼러",
+  "리그": "네덜란드 에레디비시",
+  "시각": "11-22 05:00",
+  "수집": "11-21 13:07",
+  "홈": {
+   "팀": "텔스타",
+   "eng": "Telstar",
+   "직전": "11-08 원정 vs Fortuna Sittard 2-2 무 [ned.1]",
+   "휴식일": 14.2,
+   "휴식일주의": "ESPN에 없는 리그일 수 있음(21일 내 경기 없음) — 실제 휴식일은 더 짧을 수 있음",
+   "최근7일경기": 0,
+   "직전event": "401875555",
+   "xg": null,
+   "직전선발": [
+    "Ronald Koeman",
+    "Abdelnour Soualhia",
+    "Sem Valk",
+    "Marvin Peersman",
+    "Gabi Caschili",
+    "Tyrone Owusu",
+    "Isaiah Ahmed",
+    "Nils Rossen",
+    "Nökkvi Thórisson",
+    "Patrick Brouwer",
+    "Ar'jany Martha"
+   ],
+   "직전포메이션": "4-2-3-1"
+  },
+  "원정": {
+   "팀": "PEC즈볼러",
+   "eng": "Zwolle",
+   "직전": "11-01 홈 vs ADO Den Haag 1-0 승 [ned.1]",
+   "휴식일": 20.4,
+   "휴식일주의": "ESPN에 없는 리그일 수 있음(21일 내 경기 없음) — 실제 휴식일은 더 짧을 수 있음",
+   "최근7일경기": 0,
+   "직전event": "401875560",
+   "xg": null,
+   "직전선발": [
+    "Jasper Schendelaar",
+    "Nick Viergever",
+    "Simon Graves",
+    "Damian Van Der Haar",
+    "Olivier Aertssen",
+    "Ryan Thomas",
+    "Tobias Sommer",
+    "Gilles Van Der Wal",
+    "Sydney van Hooijdonk",
+    "Dylan Mbayo",
+    "Younes Namli"
+   ],
+   "직전포메이션": "4-3-3"
+  },
+  "환경": {
+   "구장": "BUKO Stadion",
+   "구장고도": 6,
+   "원정홈": "즈볼러(구단 좌표 — 구장 미확인)",
+   "원정홈고도": 7,
+   "이동km": 99,
+   "고도차": -1,
+   "날씨": {
+    "기온": 5.6,
+    "습도": 88,
+    "강수mm": 0,
+    "강수확률": 2,
+    "풍속": 4.3,
+    "출처": "Open-Meteo forecast 11-21 13:09"
+   },
+   "출처": [
+    "Wikidata Q1071713→Q1851894 · Open-Meteo 고도",
+    "Wikidata Q793→구단 · Open-Meteo 고도"
+   ],
+   "주의": []
+  },
+  "라인업": "미발표(킥오프 15.9h 전)",
+  "event": "401875539"
+ },
+ "5091": {
+  "번호": "5091",
+  "경기": "흐로닝언 - SC헤이렌베인",
+  "리그": "네덜란드 에레디비시",
+  "시각": "11-22 05:00",
+  "수집": "11-21 13:07",
+  "홈": {
+   "팀": "흐로닝언",
+   "eng": "Groningen",
+   "직전": "11-09 원정 vs AZ Alkmaar 3-4 패 [ned.1]",
+   "휴식일": 13.2,
+   "휴식일주의": "ESPN에 없는 리그일 수 있음(21일 내 경기 없음) — 실제 휴식일은 더 짧을 수 있음",
+   "최근7일경기": 0,
+   "직전event": "401875548",
+   "xg": null,
+   "직전선발": [
+    "Etienne Vaessen",
+    "Marco Rente",
+    "Thijmen Blokzijl",
+    "Márk Csinger",
+    "Hans Hateboer",
+    "Thom Van Bergen",
+    "Pelle Clement",
+    "Tika De Jonge",
+    "Brynjólfur Willumsson",
+    "Jacob Ondrejka",
+    "Jorg Schreuders"
+   ],
+   "직전포메이션": "4-2-3-1"
+  },
+  "원정": {
+   "팀": "SC헤이렌베인",
+   "eng": "Heerenveen",
+   "직전": "11-08 홈 vs Feyenoord Rotterdam 5-3 승 [ned.1]",
+   "휴식일": 13.4,
+   "휴식일주의": "ESPN에 없는 리그일 수 있음(21일 내 경기 없음) — 실제 휴식일은 더 짧을 수 있음",
+   "최근7일경기": 0,
+   "직전event": "401875551",
+   "xg": null,
+   "직전선발": [
+    "Bernt Klaverboer",
+    "Maas Willemsen",
+    "Sam Kersten",
+    "Vasilios Zagaritis",
+    "Oliver Braude",
+    "Levi Smans",
+    "Nolhan Courtens",
+    "Marcus Linday",
+    "Dylan Vente",
+    "Maxence Rivera",
+    "Jacob Trenskow"
+   ],
+   "직전포메이션": "4-2-3-1"
+  },
+  "환경": {
+   "구장": "흐로닝언(구단 좌표 — 구장 미확인)",
+   "구장고도": 12,
+   "원정홈": "티알프",
+   "원정홈고도": 10,
+   "이동km": 52,
+   "고도차": 2,
+   "날씨": {
+    "기온": 3.7,
+    "습도": 86,
+    "강수mm": 0,
+    "강수확률": 3,
+    "풍속": 11.9,
+    "출처": "Open-Meteo forecast 11-21 13:09"
+   },
+   "출처": [
+    "Wikidata Q749→구단 · Open-Meteo 고도",
+    "Wikidata Q599521→Q1371953 · Open-Meteo 고도"
+   ],
+   "주의": []
+  },
+  "라인업": "미발표(킥오프 15.9h 전)",
+  "event": "401875546"
+ },
+ "5095": {
+  "번호": "5095",
+  "경기": "FC댈러스 - 포틀랜드 팀버스",
+  "리그": "미국 메이저리그사커",
+  "시각": "11-22 06:00",
+  "수집": "11-21 13:07",
+  "홈": {
+   "팀": "FC댈러스",
+   "eng": "FC Dallas",
+   "직전": "11-08 홈 vs Colorado Rapids 3-1 승 [usa.1]",
+   "휴식일": 13.9,
+   "휴식일주의": "ESPN에 없는 리그일 수 있음(21일 내 경기 없음) — 실제 휴식일은 더 짧을 수 있음",
+   "최근7일경기": 0,
+   "직전event": "761943",
+   "xg": null,
+   "직전선발": [
+    "Daniel",
+    "Osaze Urhoghide",
+    "Shaq Moore",
+    "Sebastien Ibeagha",
+    "Kaick",
+    "Joaquín Valiente",
+    "Ramiro",
+    "Bernard Kamungo",
+    "Herman Johansson",
+    "Daniel Job",
+    "Petar Musa"
+   ],
+   "직전포메이션": "3-5-2"
+  },
+  "원정": {
+   "팀": "포틀랜드 팀버스",
+   "eng": "Portland Timbers",
+   "직전": "11-08 원정 vs Austin FC 2-0 승 [usa.1]",
+   "휴식일": 13.9,
+   "휴식일주의": "ESPN에 없는 리그일 수 있음(21일 내 경기 없음) — 실제 휴식일은 더 짧을 수 있음",
+   "최근7일경기": 0,
+   "직전event": "761942",
+   "xg": null,
+   "직전선발": [
+    "James Pantemis",
+    "Joel Waterman",
+    "Finn Surman",
+    "Ian Smith",
+    "Ronald Hernández",
+    "José Caicedo",
+    "David Da Costa",
+    "Eric Izoita",
+    "Vincent Janssen",
+    "Kristoffer Velde",
+    "Ariel Lassiter"
+   ],
+   "직전포메이션": "4-3-3"
+  },
+  "환경": {
+   "구장": "FC 댈러스 스타디움",
+   "구장고도": 190,
+   "원정홈": "프로비던스 파크",
+   "원정홈고도": 34,
+   "이동km": 2597,
+   "고도차": 156,
+   "날씨": {
+    "기온": 22.8,
+    "습도": 53,
+    "강수mm": 0,
+    "강수확률": 3,
+    "풍속": 23.1,
+    "출처": "Open-Meteo forecast 11-21 13:09"
+   },
+   "출처": [
+    "Wikidata Q642291→Q1140457 · Open-Meteo 고도",
+    "Wikidata Q16025275→Q262291 · Open-Meteo 고도"
+   ],
+   "주의": [
+    "장거리 원정 2597km"
+   ]
+  },
+  "라인업": "미발표(킥오프 16.9h 전)",
+  "event": "401933732"
+ },
+ "5099": {
+  "번호": "5099",
+  "경기": "인터 마이애미CF - 콜럼버스 크루",
+  "리그": "미국 메이저리그사커",
+  "시각": "11-22 08:00",
+  "수집": "11-21 13:07",
+  "홈": {
+   "팀": "인터 마이애미CF",
+   "eng": "Inter Miami CF",
+   "직전": "11-08 홈 vs Charlotte FC 3-3 무 [usa.1]",
+   "휴식일": 14.1,
+   "휴식일주의": "ESPN에 없는 리그일 수 있음(21일 내 경기 없음) — 실제 휴식일은 더 짧을 수 있음",
+   "최근7일경기": 0,
+   "직전event": "761938",
+   "xg": null,
+   "직전선발": [
+    "Dayne St. Clair",
+    "Micael",
+    "Casemiro",
+    "Sergio Reguilón",
+    "Ian Fray",
+    "David Ayala",
+    "Telasco Segovia",
+    "Rodrigo De Paul",
+    "Luis Suárez",
+    "Germán Berterame",
+    "Lionel Messi"
+   ],
+   "직전포메이션": "4-3-3"
+  },
+  "원정": {
+   "팀": "콜럼버스 크루",
+   "eng": "Columbus Crew",
+   "직전": "11-08 원정 vs Chicago Fire FC 4-3 승 [usa.1]",
+   "휴식일": 14.1,
+   "휴식일주의": "ESPN에 없는 리그일 수 있음(21일 내 경기 없음) — 실제 휴식일은 더 짧을 수 있음",
+   "최근7일경기": 0,
+   "직전event": "761935",
+   "xg": null,
+   "직전선발": [
+    "Patrick Schulte",
+    "Sean Zawadzki",
+    "Malte Amundsen",
+    "Steven Moreira",
+    "Sékou Tidiany Bangoura",
+    "Dylan Chambost",
+    "Anass Zaroury",
+    "Mohamed Farsi",
+    "Gonzalo Tapia",
+    "Santiago Rodríguez",
+    "Taha Habroune"
+   ],
+   "직전포메이션": "3-4-3"
+  },
+  "환경": {
+   "구장": "인터 마이애미 CF 스타디움",
+   "구장고도": 5,
+   "원정홈": "로우어닷컴 필드",
+   "원정홈고도": 218,
+   "이동km": 1554,
+   "고도차": -213,
+   "날씨": {
+    "기온": 21.7,
+    "습도": 92,
+    "강수mm": 0,
+    "강수확률": 47,
+    "풍속": 8.8,
+    "출처": "Open-Meteo forecast 11-21 13:09"
+   },
+   "출처": [
+    "Wikidata Q16844931→Q65240568 · Open-Meteo 고도",
+    "Wikidata Q457163→Q65045869 · Open-Meteo 고도"
+   ],
+   "주의": [
+    "장거리 원정 1554km"
+   ]
+  },
+  "라인업": "미발표(킥오프 18.9h 전)",
+  "event": "401933739"
+ },
+ "5119": {
+  "번호": "5119",
+  "경기": "웰링턴 피닉스 - 맥아서FC",
+  "리그": "호주 A리그",
+  "시각": "11-22 11:00",
+  "수집": "11-21 13:07",
+  "홈": {
+   "팀": "웰링턴 피닉스",
+   "eng": "Wellington Phoenix",
+   "직전": "11-07 원정 vs Auckland FC 0-0 무 [aus.1]",
+   "휴식일": 14.9,
+   "휴식일주의": "ESPN에 없는 리그일 수 있음(21일 내 경기 없음) — 실제 휴식일은 더 짧을 수 있음",
+   "최근7일경기": 0,
+   "직전event": "401892143",
+   "xg": null,
+   "직전선발": [
+    "Henry Gray",
+    "Lukas Kelly-Heald",
+    "Bill Tuiloma",
+    "James McGarry",
+    "Matthew Sheridan",
+    "Alex Rufer",
+    "Max Anderson",
+    "Kazuki Nagasawa",
+    "Bryce Duke",
+    "Rafael Durán",
+    "Corban Piper"
+   ],
+   "직전포메이션": "4-4-2"
+  },
+  "원정": {
+   "팀": "맥아서FC",
+   "eng": "Macarthur FC",
+   "직전": "11-08 홈 vs Brisbane Roar FC 1-2 패 [aus.1]",
+   "휴식일": 13.9,
+   "휴식일주의": "ESPN에 없는 리그일 수 있음(21일 내 경기 없음) — 실제 휴식일은 더 짧을 수 있음",
+   "최근7일경기": 0,
+   "직전event": "401892140",
+   "xg": null,
+   "직전선발": [
+    "Alex Robinson",
+    "Nathan Paull",
+    "Tatsuki Nara",
+    "Connor Pain",
+    "Callum Talbot",
+    "Dean Bosnjak",
+    "Liam Rose",
+    "Dylan Rose",
+    "Apostolos Stamatelopoulos",
+    "Musa Toure",
+    "Luke Vickery"
+   ],
+   "직전포메이션": "4-2-3-1"
+  },
+  "환경": {
+   "구장": "웰링턴 리저널 스타디움",
+   "구장고도": 12,
+   "원정홈": "캠벨타운 스타디움",
+   "원정홈고도": 58,
+   "이동km": 2247,
+   "고도차": -46,
+   "날씨": {
+    "기온": 19.5,
+    "습도": 57,
+    "강수mm": 0,
+    "강수확률": 0,
+    "풍속": 15.9,
+    "출처": "Open-Meteo forecast 11-21 13:09"
+   },
+   "출처": [
+    "Wikidata Q815890→Q1348677 · Open-Meteo 고도",
+    "Wikidata Q59773416→Q5028227 · Open-Meteo 고도"
+   ],
+   "주의": [
+    "장거리 원정 2247km"
+   ]
+  },
+  "라인업": "미발표(킥오프 21.9h 전)",
+  "event": "401892134"
+ },
+ "5131": {
+  "번호": "5131",
+  "경기": "김천상무 프로축구단 - 제주 SKFC",
+  "리그": "K리그1",
+  "시각": "11-22 14:00",
+  "수집": "11-21 13:07",
+  "홈": {
+   "팀": "김천상무 프로축구단",
+   "eng": "Gimcheon",
+   "휴식일": null,
+   "직전": "-",
+   "최근7일경기": null,
+   "휴식일주의": "35일 내 경기 없음 — ESPN 미제공 리그(체코·폴란드·헝가리·불가리아·키프로스·이스라엘·핀란드·크로아티아·세르비아·동남아 등)이면 에이전트가 직접 확인",
+   "xg": null
+  },
+  "원정": {
+   "팀": "제주 SKFC",
+   "eng": "Jeju",
+   "휴식일": null,
+   "직전": "-",
+   "최근7일경기": null,
+   "휴식일주의": "35일 내 경기 없음 — ESPN 미제공 리그(체코·폴란드·헝가리·불가리아·키프로스·이스라엘·핀란드·크로아티아·세르비아·동남아 등)이면 에이전트가 직접 확인",
+   "xg": null
+  },
+  "환경": {
+   "구장": "상주시민운동장",
+   "구장고도": 73,
+   "원정홈": "제주월드컵경기장",
+   "원정홈고도": 70,
+   "이동km": 385,
+   "고도차": 3,
+   "날씨": {
+    "기온": 6.2,
+    "습도": 57,
+    "강수mm": 0,
+    "강수확률": 0,
+    "풍속": 14.0,
+    "출처": "Open-Meteo forecast 11-21 13:09"
+   },
+   "출처": [
+    "Wikidata Q484536→Q7418025 · Open-Meteo 고도",
+    "Wikidata Q482617→Q482585 · Open-Meteo 고도"
+   ],
+   "주의": []
+  },
+  "라인업": "미발표(킥오프 24.9h 전)",
+  "event": null
+ },
+ "5139": {
+  "번호": "5139",
+  "경기": "광주FC - 부천FC 1995",
+  "리그": "K리그1",
+  "시각": "11-22 14:00",
+  "수집": "11-21 13:07",
+  "홈": {
+   "팀": "광주FC",
+   "eng": "Gwangju",
+   "휴식일": null,
+   "직전": "-",
+   "최근7일경기": null,
+   "휴식일주의": "35일 내 경기 없음 — ESPN 미제공 리그(체코·폴란드·헝가리·불가리아·키프로스·이스라엘·핀란드·크로아티아·세르비아·동남아 등)이면 에이전트가 직접 확인",
+   "xg": null
+  },
+  "원정": {
+   "팀": "부천FC 1995",
+   "eng": "Bucheon FC 1995",
+   "휴식일": null,
+   "직전": "-",
+   "최근7일경기": null,
+   "휴식일주의": "35일 내 경기 없음 — ESPN 미제공 리그(체코·폴란드·헝가리·불가리아·키프로스·이스라엘·핀란드·크로아티아·세르비아·동남아 등)이면 에이전트가 직접 확인",
+   "xg": null
+  },
+  "환경": {
+   "구장": "광주월드컵경기장",
+   "구장고도": 57,
+   "원정홈": "부천종합운동장",
+   "원정홈고도": 46,
+   "이동km": 263,
+   "고도차": 11,
+   "날씨": {
+    "기온": 8.2,
+    "습도": 57,
+    "강수mm": 0,
+    "강수확률": 0,
+    "풍속": 7.0,
+    "출처": "Open-Meteo forecast 11-21 13:09"
+   },
+   "출처": [
+    "Wikidata Q168364→Q494758 · Open-Meteo 고도",
+    "Wikidata Q4982682→Q4982684 · Open-Meteo 고도"
+   ],
+   "주의": []
+  },
+  "라인업": "미발표(킥오프 24.9h 전)",
+  "event": null
+ },
+ "5147": {
+  "번호": "5147",
+  "경기": "대구FC - 김해FC 2008",
+  "리그": "K리그2",
+  "시각": "11-22 14:00",
+  "수집": "11-21 13:07",
+  "홈": {
+   "팀": "대구FC",
+   "eng": "Daegu FC",
+   "휴식일": null,
+   "직전": "-",
+   "최근7일경기": null,
+   "휴식일주의": "35일 내 경기 없음 — ESPN 미제공 리그(체코·폴란드·헝가리·불가리아·키프로스·이스라엘·핀란드·크로아티아·세르비아·동남아 등)이면 에이전트가 직접 확인",
+   "xg": null
+  },
+  "원정": {
+   "팀": "김해FC 2008",
+   "eng": "Gimhae",
+   "휴식일": null,
+   "직전": "-",
+   "최근7일경기": null,
+   "휴식일주의": "35일 내 경기 없음 — ESPN 미제공 리그(체코·폴란드·헝가리·불가리아·키프로스·이스라엘·핀란드·크로아티아·세르비아·동남아 등)이면 에이전트가 직접 확인",
+   "xg": null
+  },
+  "환경": {
+   "구장": "대구iM뱅크파크",
+   "구장고도": 37,
+   "원정홈": "김해종합운동장",
+   "원정홈고도": 93,
+   "이동km": 74,
+   "고도차": -56,
+   "날씨": {
+    "기온": 6.3,
+    "습도": 52,
+    "강수mm": 0,
+    "강수확률": 0,
+    "풍속": 10.7,
+    "출처": "Open-Meteo forecast 11-21 13:09"
+   },
+   "출처": [
+    "Wikidata Q483044→Q59556849 · Open-Meteo 고도",
+    "Wikidata Q495864→Q109546499 · Open-Meteo 고도"
+   ],
+   "주의": []
+  },
+  "라인업": "미발표(킥오프 24.9h 전)",
+  "event": null
+ },
+ "5151": {
+  "번호": "5151",
+  "경기": "전남 드래곤즈 - 안산 그리너스",
+  "리그": "K리그2",
+  "시각": "11-22 14:00",
+  "수집": "11-21 13:07",
+  "홈": {
+   "팀": "전남 드래곤즈",
+   "eng": "Jeonnam",
+   "휴식일": null,
+   "직전": "-",
+   "최근7일경기": null,
+   "휴식일주의": "35일 내 경기 없음 — ESPN 미제공 리그(체코·폴란드·헝가리·불가리아·키프로스·이스라엘·핀란드·크로아티아·세르비아·동남아 등)이면 에이전트가 직접 확인",
+   "xg": null
+  },
+  "원정": {
+   "팀": "안산 그리너스",
+   "eng": "Ansan",
+   "휴식일": null,
+   "직전": "-",
+   "최근7일경기": null,
+   "휴식일주의": "35일 내 경기 없음 — ESPN 미제공 리그(체코·폴란드·헝가리·불가리아·키프로스·이스라엘·핀란드·크로아티아·세르비아·동남아 등)이면 에이전트가 직접 확인",
+   "xg": null
+  },
+  "환경": {
+   "구장": "광양축구전용구장",
+   "구장고도": 5,
+   "원정홈": "안산와스타디움",
+   "원정홈고도": 10,
+   "이동km": 278,
+   "고도차": -5,
+   "날씨": {
+    "기온": 9.2,
+    "습도": 46,
+    "강수mm": 0,
+    "강수확률": 0,
+    "풍속": 15.7,
+    "출처": "Open-Meteo forecast 11-21 13:09"
+   },
+   "출처": [
+    "Wikidata Q482566→Q488404 · Open-Meteo 고도",
+    "Wikidata Q27952107→Q4770503 · Open-Meteo 고도"
+   ],
+   "주의": []
+  },
+  "라인업": "미발표(킥오프 24.9h 전)",
+  "event": null
+ },
+ "5127": {
+  "번호": "5127",
+  "경기": "도쿠시마 보르티스 - 쇼난 벨마레",
+  "리그": "일본 J2리그",
+  "시각": "11-22 14:00",
+  "수집": "11-21 13:07",
+  "홈": {
+   "팀": "도쿠시마 보르티스",
+   "eng": "Tokushima Vortis",
+   "휴식일": null,
+   "직전": "-",
+   "최근7일경기": null,
+   "휴식일주의": "35일 내 경기 없음 — ESPN 미제공 리그(체코·폴란드·헝가리·불가리아·키프로스·이스라엘·핀란드·크로아티아·세르비아·동남아 등)이면 에이전트가 직접 확인",
+   "xg": null
+  },
+  "원정": {
+   "팀": "쇼난 벨마레",
+   "eng": "Shonan Bellmare",
+   "휴식일": null,
+   "직전": "-",
+   "최근7일경기": null,
+   "휴식일주의": "35일 내 경기 없음 — ESPN 미제공 리그(체코·폴란드·헝가리·불가리아·키프로스·이스라엘·핀란드·크로아티아·세르비아·동남아 등)이면 에이전트가 직접 확인",
+   "xg": null
+  },
+  "환경": {
+   "구장": "Pocarisweat Stadium",
+   "구장고도": 3,
+   "원정홈": "Shonan BMW Stadium Hiratsuka",
+   "원정홈고도": 9,
+   "이동km": 451,
+   "고도차": -6,
+   "날씨": {
+    "기온": 11.0,
+    "습도": 50,
+    "강수mm": 0,
+    "강수확률": 2,
+    "풍속": 25.9,
+    "출처": "Open-Meteo forecast 11-21 13:09"
+   },
+   "출처": [
+    "Wikidata Q513145→Q7206284 · Open-Meteo 고도",
+    "Wikidata Q692856→Q1071188 · Open-Meteo 고도"
+   ],
+   "주의": []
+  },
+  "라인업": "미발표(킥오프 24.9h 전)",
+  "event": null
+ },
+ "5168": {
+  "번호": "5168",
+  "경기": "파주 프런티어 - 천안 시티FC",
+  "리그": "K리그2",
+  "시각": "11-22 16:30",
+  "수집": "11-21 13:07",
+  "홈": {
+   "팀": "파주 프런티어",
+   "eng": "Paju",
+   "휴식일": null,
+   "직전": "-",
+   "최근7일경기": null,
+   "휴식일주의": "35일 내 경기 없음 — ESPN 미제공 리그(체코·폴란드·헝가리·불가리아·키프로스·이스라엘·핀란드·크로아티아·세르비아·동남아 등)이면 에이전트가 직접 확인",
+   "xg": null
+  },
+  "원정": {
+   "팀": "천안 시티FC",
+   "eng": "Cheonan",
+   "휴식일": null,
+   "직전": "-",
+   "최근7일경기": null,
+   "휴식일주의": "35일 내 경기 없음 — ESPN 미제공 리그(체코·폴란드·헝가리·불가리아·키프로스·이스라엘·핀란드·크로아티아·세르비아·동남아 등)이면 에이전트가 직접 확인",
+   "xg": null
+  },
+  "환경": {
+   "구장": "파주스타디움",
+   "구장고도": 25,
+   "원정홈": "탄천종합운동장",
+   "원정홈고도": 33,
+   "이동km": 48,
+   "고도차": -8,
+   "날씨": {
+    "기온": 3.8,
+    "습도": 61,
+    "강수mm": 0,
+    "강수확률": 0,
+    "풍속": 8.4,
+    "출처": "Open-Meteo forecast 11-21 13:09"
+   },
+   "출처": [
+    "Wikidata Q7125327→Q7125325 · Open-Meteo 고도",
+    "Wikidata Q482540→Q497095 · Open-Meteo 고도"
+   ],
+   "주의": []
+  },
+  "라인업": "미발표(킥오프 27.4h 전)",
+  "event": null
+ },
+ "5172": {
+  "번호": "5172",
+  "경기": "서울 이랜드 - 충남아산 프로축구단",
+  "리그": "K리그2",
+  "시각": "11-22 16:30",
+  "수집": "11-21 13:07",
+  "홈": {
+   "팀": "서울 이랜드",
+   "eng": "Seoul E-Land",
+   "휴식일": null,
+   "직전": "-",
+   "최근7일경기": null,
+   "휴식일주의": "35일 내 경기 없음 — ESPN 미제공 리그(체코·폴란드·헝가리·불가리아·키프로스·이스라엘·핀란드·크로아티아·세르비아·동남아 등)이면 에이전트가 직접 확인",
+   "xg": null
+  },
+  "원정": {
+   "팀": "충남아산 프로축구단",
+   "eng": "Asan",
+   "휴식일": null,
+   "직전": "-",
+   "최근7일경기": null,
+   "휴식일주의": "35일 내 경기 없음 — ESPN 미제공 리그(체코·폴란드·헝가리·불가리아·키프로스·이스라엘·핀란드·크로아티아·세르비아·동남아 등)이면 에이전트가 직접 확인",
+   "xg": null
+  },
+  "환경": {
+   "구장": "목동운동장",
+   "구장고도": 20,
+   "원정홈": "이순신종합운동장",
+   "원정홈고도": 23,
+   "이동km": 83,
+   "고도차": -3,
+   "날씨": {
+    "기온": 4.4,
+    "습도": 53,
+    "강수mm": 0,
+    "강수확률": 0,
+    "풍속": 4.8,
+    "출처": "Open-Meteo forecast 11-21 13:09"
+   },
+   "출처": [
+    "Wikidata Q16261725→Q6895259 · Open-Meteo 고도",
+    "수동 — 이순신종합운동장(아산시 남성1길 170). 기존 Wikidata 구단좌표가 인도네시아 Aceh(5.297,96.03)로 오매칭"
+   ],
+   "주의": []
+  },
+  "라인업": "미발표(킥오프 27.4h 전)",
+  "event": null
+ },
+ "5176": {
+  "번호": "5176",
+  "경기": "트벤테 - 빌럼II",
+  "리그": "네덜란드 에레디비시",
+  "시각": "11-22 20:15",
+  "수집": "11-21 13:07",
+  "홈": {
+   "팀": "트벤테",
+   "eng": "FC Twente",
+   "직전": "11-08 홈 vs Ajax Amsterdam 2-2 무 [ned.1]",
+   "휴식일": 13.9,
+   "휴식일주의": "ESPN에 없는 리그일 수 있음(21일 내 경기 없음) — 실제 휴식일은 더 짧을 수 있음",
+   "최근7일경기": 0,
+   "직전event": "401875550",
+   "xg": null,
+   "직전선발": [
+    "Joel Drommel",
+    "Ruud Nijstad",
+    "Robin Pröpper",
+    "Aske Adelgaard",
+    "Bart van Rooij",
+    "Younes Taha",
+    "Daouda Weidmann",
+    "Ramiz Zerrouki",
+    "Wout Weghorst",
+    "Sondre Ørjasaeter",
+    "Daan Rots"
+   ],
+   "직전포메이션": "4-2-3-1"
+  },
+  "원정": {
+   "팀": "빌럼II",
+   "eng": "Willem II",
+   "휴식일": null,
+   "직전": "-",
+   "최근7일경기": null,
+   "휴식일주의": "35일 내 경기 없음 — ESPN 미제공 리그(체코·폴란드·헝가리·불가리아·키프로스·이스라엘·핀란드·크로아티아·세르비아·동남아 등)이면 에이전트가 직접 확인",
+   "xg": null
+  },
+  "환경": {
+   "구장": "더 흐롤스 페스터",
+   "구장고도": 29,
+   "원정홈": "Koning Willem II Stadion",
+   "원정홈고도": 20,
+   "이동km": 144,
+   "고도차": 9,
+   "날씨": {
+    "기온": 6.4,
+    "습도": 82,
+    "강수mm": 0,
+    "강수확률": 0,
+    "풍속": 7.6,
+    "출처": "Open-Meteo forecast 11-21 13:09"
+   },
+   "출처": [
+    "Wikidata Q19603→Q727389 · Open-Meteo 고도",
+    "Wikidata Q332664→Q1408176 · Open-Meteo 고도"
+   ],
+   "주의": []
+  },
+  "라인업": "미발표(킥오프 31.1h 전)",
+  "event": "401875545"
+ },
+ "5182": {
+  "번호": "5182",
+  "경기": "유벤투스 - 베네치아",
+  "리그": "이탈리아 세리에A",
+  "시각": "11-22 20:30",
+  "수집": "11-21 13:07",
+  "홈": {
+   "팀": "유벤투스",
+   "eng": "Juventus FC",
+   "직전": "11-09 원정 vs Fiorentina 2-2 무 [italian serie a]",
+   "휴식일": 13.7,
+   "휴식일주의": "ESPN에 없는 리그일 수 있음(21일 내 경기 없음) — 실제 휴식일은 더 짧을 수 있음",
+   "최근7일경기": 0,
+   "직전event": "401875003",
+   "xg": {
+    "n": 10,
+    "xg": 1.49,
+    "xga": 0.59,
+    "npxgd": 0.91,
+    "l5_xg": 1.14,
+    "l5_xga": 0.75,
+    "l5_npxgd": 0.39,
+    "home_xgd": 0.92,
+    "away_xgd": 0.89,
+    "xpts": 20.3,
+    "pts": 17
+   },
+   "xg_src": "Understat Serie_A Juventus",
+   "직전선발": [
+    "Guglielmo Vicario",
+    "Jhon Lucumí",
+    "Bremer",
+    "Juan Cabal",
+    "Pierre Kalulu",
+    "Douglas Luiz",
+    "Teun Koopmeiners",
+    "Jérémie Boga",
+    "Weston McKennie",
+    "Nick Woltemade",
+    "Randal Kolo Muani"
+   ],
+   "직전포메이션": "4-4-2"
+  },
+  "원정": {
+   "팀": "베네치아",
+   "eng": "Venezia",
+   "직전": "11-07 홈 vs Udinese 2-1 승 [italian serie a]",
+   "휴식일": 15.7,
+   "휴식일주의": "ESPN에 없는 리그일 수 있음(21일 내 경기 없음) — 실제 휴식일은 더 짧을 수 있음",
+   "최근7일경기": 0,
+   "직전event": "401874815",
+   "xg": {
+    "n": 10,
+    "xg": 1.57,
+    "xga": 2.25,
+    "npxgd": -0.53,
+    "l5_xg": 1.33,
+    "l5_xga": 2.03,
+    "l5_npxgd": -0.39,
+    "home_xgd": -0.63,
+    "away_xgd": -0.43,
+    "xpts": 10.1,
+    "pts": 3
+   },
+   "xg_src": "Understat Serie_A Venezia",
+   "직전선발": [
+    "Filip Stankovic",
+    "Matías Moreno",
+    "Juan Jesus",
+    "Redouane Halhal",
+    "Toma Basic",
+    "Enrique Perez",
+    "Simon Sohm",
+    "Pasquale Mazzocchi",
+    "Antoine Hainaut",
+    "Akor Adams",
+    "John Yeboah"
+   ],
+   "직전포메이션": "3-5-2"
+  },
+  "환경": {
+   "구장": "유벤투스 스타디움(구단 좌표 — 구장 미확인)",
+   "구장고도": 281,
+   "원정홈": "스타디오 피에르 루이지 펜초",
+   "원정홈고도": 1,
+   "이동km": 371,
+   "고도차": 280,
+   "날씨": {
+    "기온": 8.0,
+    "습도": 93,
+    "강수mm": 2.2,
+    "강수확률": 75,
+    "풍속": 4.0,
+    "출처": "Open-Meteo forecast 11-21 13:09"
+   },
+   "출처": [
+    "Wikidata Q62149→구단 · Open-Meteo 고도",
+    "Wikidata Q501245→Q588926 · Open-Meteo 고도"
+   ],
+   "주의": [
+    "비 2.2mm(75%)"
+   ]
+  },
+  "라인업": "미발표(킥오프 31.4h 전)",
+  "event": "401875008"
+ },
+ "5188": {
+  "번호": "5188",
+  "경기": "번리 - 블랙번 로버스",
+  "리그": "잉글랜드 챔피언십",
+  "시각": "11-22 21:00",
+  "수집": "11-21 13:07",
+  "홈": {
+   "팀": "번리",
+   "eng": "Burnley",
+   "직전": "11-08 원정 vs Cardiff City 4-5 패 [eng.2]",
+   "휴식일": 14.9,
+   "휴식일주의": "ESPN에 없는 리그일 수 있음(21일 내 경기 없음) — 실제 휴식일은 더 짧을 수 있음",
+   "최근7일경기": 0,
+   "직전event": "401880169",
+   "xg": null,
+   "직전선발": [
+    "Grégoire Coudert",
+    "Igor Julio",
+    "Hjalmar Ekdal",
+    "Lucas Pires",
+    "Kyle Walker",
+    "Marcus Edwards",
+    "Reo Hatate",
+    "Josh Laurent",
+    "Andreas Hountondji",
+    "Jaydon Banel",
+    "Largie Ramazani"
+   ],
+   "직전포메이션": "4-2-3-1"
+  },
+  "원정": {
+   "팀": "블랙번 로버스",
+   "eng": "Blackburn",
+   "직전": "11-08 홈 vs West Ham United 2-1 승 [eng.2]",
+   "휴식일": 14.9,
+   "휴식일주의": "ESPN에 없는 리그일 수 있음(21일 내 경기 없음) — 실제 휴식일은 더 짧을 수 있음",
+   "최근7일경기": 0,
+   "직전event": "401880171",
+   "xg": null,
+   "직전선발": [
+    "Balazs Toth",
+    "Sean McLoughlin",
+    "Hayden Carter",
+    "Harry Pickering",
+    "Gady Beyuku",
+    "Todd Cantwell",
+    "Kristi Montgomery",
+    "Sam Morsy",
+    "Andri Gudjohnsen",
+    "Oladapo Afolayan",
+    "Jayden Fevrier"
+   ],
+   "직전포메이션": "4-2-3-1"
+  },
+  "환경": {
+   "구장": "터프 무어",
+   "구장고도": 121,
+   "원정홈": "이우드 파크",
+   "원정홈고도": 113,
+   "이동km": 18,
+   "고도차": 8,
+   "날씨": {
+    "기온": 6.3,
+    "습도": 71,
+    "강수mm": 0,
+    "강수확률": 0,
+    "풍속": 17.6,
+    "출처": "Open-Meteo forecast 11-21 13:09"
+   },
+   "출처": [
+    "Wikidata Q19458→Q683112 · Open-Meteo 고도",
+    "Wikidata Q19446→Q245085 · Open-Meteo 고도"
+   ],
+   "주의": []
+  },
+  "라인업": "미발표(킥오프 31.9h 전)",
+  "event": "401880159"
+ },
+ "5192": {
+  "번호": "5192",
+  "경기": "바르셀로나 - 비야레알",
+  "리그": "스페인 라리가",
+  "시각": "11-22 22:00",
+  "수집": "11-21 13:07",
+  "홈": {
+   "팀": "바르셀로나",
+   "eng": "Barcelona",
+   "직전": "11-09 원정 vs Atlético Madrid 2-1 승 [laliga]",
+   "휴식일": 13.7,
+   "휴식일주의": "ESPN에 없는 리그일 수 있음(21일 내 경기 없음) — 실제 휴식일은 더 짧을 수 있음",
+   "최근7일경기": 0,
+   "직전event": "401882816",
+   "xg": {
+    "n": 11,
+    "xg": 3.75,
+    "xga": 1.12,
+    "npxgd": 2.29,
+    "l5_xg": 3.08,
+    "l5_xga": 1.07,
+    "l5_npxgd": 2.01,
+    "home_xgd": 2.48,
+    "away_xgd": 2.05,
+    "xpts": 27.8,
+    "pts": 30
+   },
+   "xg_src": "Understat La_liga Barcelona",
+   "직전선발": [
+    "Joan García",
+    "Gerard Martín",
+    "Pau Cubarsí",
+    "Marc Bernal",
+    "João Cancelo",
+    "Brian Fariñas",
+    "Pedri",
+    "Fermín López",
+    "Anthony Gordon",
+    "Lamine Yamal",
+    "Raphinha"
+   ],
+   "직전포메이션": "4-1-4-1"
+  },
+  "원정": {
+   "팀": "비야레알",
+   "eng": "Villarreal",
+   "직전": "11-09 홈 vs Getafe 2-0 승 [laliga]",
+   "휴식일": 13.8,
+   "휴식일주의": "ESPN에 없는 리그일 수 있음(21일 내 경기 없음) — 실제 휴식일은 더 짧을 수 있음",
+   "최근7일경기": 0,
+   "직전event": "401882807",
+   "xg": {
+    "n": 11,
+    "xg": 2.23,
+    "xga": 1.34,
+    "npxgd": 0.82,
+    "l5_xg": 1.85,
+    "l5_xga": 0.86,
+    "l5_npxgd": 1.14,
+    "home_xgd": 0.87,
+    "away_xgd": 0.79,
+    "xpts": 19.6,
+    "pts": 12
+   },
+   "xg_src": "Understat La_liga Villarreal",
+   "직전선발": [
+    "Péter Gulácsi",
+    "Renato Veiga",
+    "Logan Costa",
+    "Carlos Romero",
+    "Santiago Mouriño",
+    "Alberto Moleiro",
+    "Pape Gueye",
+    "Carlos Macià",
+    "Georges Mikautadze",
+    "Tani Oluwaseyi",
+    "Tajon Buchanan"
+   ],
+   "직전포메이션": "4-2-3-1"
+  },
+  "환경": {
+   "구장": "캄 노우",
+   "구장고도": 44,
+   "원정홈": "Ciudad Deportiva Villarreal CF",
+   "원정홈고도": 46,
+   "이동km": 248,
+   "고도차": -2,
+   "날씨": {
+    "기온": 18.6,
+    "습도": 39,
+    "강수mm": 0,
+    "강수확률": 0,
+    "풍속": 27.1,
+    "출처": "Open-Meteo forecast 11-21 13:09"
+   },
+   "출처": [
+    "Wikidata Q7156→Q159848 · Open-Meteo 고도",
+    "Wikidata Q1094113→Q2438875 · Open-Meteo 고도"
+   ],
+   "주의": []
+  },
+  "라인업": "미발표(킥오프 32.9h 전)",
+  "event": "401882804"
+ },
+ "5198": {
+  "번호": "5198",
+  "경기": "AFC아약스 - ADO덴하흐",
+  "리그": "네덜란드 에레디비시",
+  "시각": "11-22 22:30",
+  "수집": "11-21 13:07",
+  "홈": {
+   "팀": "AFC아약스",
+   "eng": "AFC Ajax",
+   "직전": "11-08 원정 vs FC Twente 2-2 무 [ned.1]",
+   "휴식일": 14.0,
+   "휴식일주의": "ESPN에 없는 리그일 수 있음(21일 내 경기 없음) — 실제 휴식일은 더 짧을 수 있음",
+   "최근7일경기": 0,
+   "직전event": "401875550",
+   "xg": null,
+   "직전선발": [
+    "Marc-André ter Stegen",
+    "Dies Janse",
+    "Aaron Bouwman",
+    "Owen Wijndal",
+    "Lucas Rosa",
+    "Jorthy Mokio",
+    "Youri Baas",
+    "Yves Bissouma",
+    "Tolu Arokodare",
+    "Oscar Gloukh",
+    "Davy Klaassen"
+   ],
+   "직전포메이션": "4-2-3-1"
+  },
+  "원정": {
+   "팀": "ADO덴하흐",
+   "eng": "Den Haag",
+   "직전": "11-08 홈 vs Sparta Rotterdam 3-1 승 [ned.1]",
+   "휴식일": 14.8,
+   "휴식일주의": "ESPN에 없는 리그일 수 있음(21일 내 경기 없음) — 실제 휴식일은 더 짧을 수 있음",
+   "최근7일경기": 0,
+   "직전event": "401875552",
+   "xg": null,
+   "직전선발": [
+    "Kilian Nikiema",
+    "Matteo Waem",
+    "Pascal Mulder",
+    "Milan Hokke",
+    "Illaijh De Ruijter",
+    "Evan Rottier",
+    "Mylian Jimenez",
+    "Juho Kilo",
+    "Nigel Thomas",
+    "Jalen Hawkins",
+    "Daryl van Mieghem"
+   ],
+   "직전포메이션": "4-2-3-1"
+  },
+  "환경": {
+   "구장": "암스테르담 아레나",
+   "구장고도": 17,
+   "원정홈": "헤이그(구단 좌표 — 구장 미확인)",
+   "원정홈고도": 12,
+   "이동km": 50,
+   "고도차": 5,
+   "날씨": {
+    "기온": 7.6,
+    "습도": 77,
+    "강수mm": 0,
+    "강수확률": 0,
+    "풍속": 8.3,
+    "출처": "Open-Meteo forecast 11-21 13:09"
+   },
+   "출처": [
+    "Wikidata Q81888→Q207109 · Open-Meteo 고도",
+    "Wikidata Q36600→구단 · Open-Meteo 고도"
+   ],
+   "주의": []
+  },
+  "라인업": "미발표(킥오프 33.4h 전)",
+  "event": "401875547"
+ },
+ "5204": {
+  "번호": "5204",
+  "경기": "스파르타 로테르담 - AZ알크마르",
+  "리그": "네덜란드 에레디비시",
+  "시각": "11-22 22:30",
+  "수집": "11-21 13:07",
+  "홈": {
+   "팀": "스파르타 로테르담",
+   "eng": "Sparta",
+   "직전": "11-08 원정 vs ADO Den Haag 1-3 패 [ned.1]",
+   "휴식일": 14.8,
+   "휴식일주의": "ESPN에 없는 리그일 수 있음(21일 내 경기 없음) — 실제 휴식일은 더 짧을 수 있음",
+   "최근7일경기": 0,
+   "직전event": "401875552",
+   "xg": null,
+   "직전선발": [
+    "Michael Brouwer",
+    "Bruno Martins Indi",
+    "Marvin Young",
+    "Bas Kuipers",
+    "Lushendry Martes",
+    "Shunsuke Mito",
+    "Teo Quintero",
+    "Cedric Hatenboer",
+    "Milan Zonneveld",
+    "Isaac Babadi",
+    "Mitchell van Bergen"
+   ],
+   "직전포메이션": "4-2-3-1"
+  },
+  "원정": {
+   "팀": "AZ알크마르",
+   "eng": "AZ Alkmaar",
+   "직전": "11-09 홈 vs FC Groningen 4-3 승 [ned.1]",
+   "휴식일": 13.9,
+   "휴식일주의": "ESPN에 없는 리그일 수 있음(21일 내 경기 없음) — 실제 휴식일은 더 짧을 수 있음",
+   "최근7일경기": 0,
+   "직전event": "401875548",
+   "xg": null,
+   "직전선발": [
+    "Jari De Busser",
+    "Wesley Hoedt",
+    "Wouter Goes",
+    "Mateo Chávez",
+    "Elijah Dijkstra",
+    "Valdemar Byskov",
+    "Peer Koopmeiners",
+    "Dave Kwakman",
+    "Mexx Meerdink",
+    "Ro-Zangelo Daal",
+    "Ayoub Oufkir"
+   ],
+   "직전포메이션": "4-2-3-1"
+  },
+  "환경": {
+   "구장": "Sparta Stadion Het Kasteel",
+   "구장고도": 5,
+   "원정홈": "AFAS 스타디온",
+   "원정홈고도": 1,
+   "이동km": 80,
+   "고도차": 4,
+   "날씨": {
+    "기온": 7.3,
+    "습도": 71,
+    "강수mm": 0,
+    "강수확률": 0,
+    "풍속": 10.4,
+    "출처": "Open-Meteo forecast 11-21 13:09"
+   },
+   "출처": [
+    "Wikidata Q209895→Q668094 · Open-Meteo 고도",
+    "Wikidata Q191264→Q291590 · Open-Meteo 고도"
+   ],
+   "주의": []
+  },
+  "라인업": "미발표(킥오프 33.4h 전)",
+  "event": "401875540"
+ },
+ "5208": {
+  "번호": "5208",
+  "경기": "헐 시티 - 브라이턴&호브 앨비언",
+  "리그": "잉글랜드 프리미어리그",
+  "시각": "11-22 23:00",
+  "수집": "11-21 13:07",
+  "홈": {
+   "팀": "헐 시티",
+   "eng": "Hull",
+   "직전": "11-08 원정 vs Arsenal 0-1 패 [english premier league]",
+   "휴식일": 15.0,
+   "휴식일주의": "ESPN에 없는 리그일 수 있음(21일 내 경기 없음) — 실제 휴식일은 더 짧을 수 있음",
+   "최근7일경기": 0,
+   "직전event": "401878760",
+   "xg": {
+    "n": 9,
+    "xg": 1.1,
+    "xga": 1.74,
+    "npxgd": -0.63,
+    "l5_xg": 1.07,
+    "l5_xga": 1.96,
+    "l5_npxgd": -0.89,
+    "home_xgd": -0.79,
+    "away_xgd": -0.43,
+    "xpts": 8.3,
+    "pts": 11
+   },
+   "xg_src": "Understat EPL Hull",
+   "직전선발": [
+    "Konstantinos Tzolakis",
+    "John Egan",
+    "Nobel Mendy",
+    "Semi Ajayi",
+    "Elliot Stroud",
+    "Lewie Coyle",
+    "Lucas Gourna-Douath",
+    "Regan Slater",
+    "Tim Iroegbunam",
+    "Oliver McBurnie",
+    "Mohamed-Ali Cho"
+   ],
+   "직전포메이션": "5-3-2"
+  },
+  "원정": {
+   "팀": "브라이턴&호브 앨비언",
+   "eng": "Brighton & Hove Albion",
+   "직전": "11-08 홈 vs Brentford 2-0 승 [english premier league]",
+   "휴식일": 14.0,
+   "휴식일주의": "ESPN에 없는 리그일 수 있음(21일 내 경기 없음) — 실제 휴식일은 더 짧을 수 있음",
+   "최근7일경기": 0,
+   "직전event": "401879244",
+   "xg": {
+    "n": 9,
+    "xg": 2.19,
+    "xga": 1.56,
+    "npxgd": 0.54,
+    "l5_xg": 1.78,
+    "l5_xga": 1.34,
+    "l5_npxgd": 0.44,
+    "home_xgd": 1.55,
+    "away_xgd": -0.27,
+    "xpts": 15.9,
+    "pts": 19
+   },
+   "xg_src": "Understat EPL Brighton",
+   "직전선발": [
+    "Bart Verbruggen",
+    "Lewis Dunk",
+    "Luka Vuskovic",
+    "Olivier Boscagli",
+    "Costinha",
+    "Yasin Ayari",
+    "Chema Andrés",
+    "Pascal Gross",
+    "Charalambos Kostoulas",
+    "Maxim De Cuyper",
+    "Diego Gómez"
+   ],
+   "직전포메이션": "4-2-3-1"
+  },
+  "환경": {
+   "구장": "KC 스타디움",
+   "구장고도": 3,
+   "원정홈": "팔머 스타디움",
+   "원정홈고도": 81,
+   "이동km": 321,
+   "고도차": -78,
+   "날씨": {
+    "기온": 8.8,
+    "습도": 57,
+    "강수mm": 0,
+    "강수확률": 0,
+    "풍속": 8.6,
+    "출처": "Open-Meteo forecast 11-21 13:09"
+   },
+   "출처": [
+    "Wikidata Q19477→Q630160 · Open-Meteo 고도",
+    "Wikidata Q19453→Q619409 · Open-Meteo 고도"
+   ],
+   "주의": []
+  },
+  "라인업": "미발표(킥오프 33.9h 전)",
+  "event": "401879234"
+ },
+ "5213": {
+  "번호": "5213",
+  "경기": "볼로냐 - 우디네세",
+  "리그": "이탈리아 세리에A",
+  "시각": "11-22 23:00",
+  "수집": "11-21 13:07",
+  "홈": {
+   "팀": "볼로냐",
+   "eng": "Bologna",
+   "직전": "11-08 원정 vs Parma 2-1 승 [italian serie a]",
+   "휴식일": 14.9,
+   "휴식일주의": "ESPN에 없는 리그일 수 있음(21일 내 경기 없음) — 실제 휴식일은 더 짧을 수 있음",
+   "최근7일경기": 0,
+   "직전event": "401874974",
+   "xg": {
+    "n": 10,
+    "xg": 1.75,
+    "xga": 1.47,
+    "npxgd": 0.27,
+    "l5_xg": 2.06,
+    "l5_xga": 1.74,
+    "l5_npxgd": 0.32,
+    "home_xgd": 0.43,
+    "away_xgd": 0.12,
+    "xpts": 16.7,
+    "pts": 14
+   },
+   "xg_src": "Understat Serie_A Bologna",
+   "직전선발": [
+    "Lukasz Skorupski",
+    "Nicoló Casale",
+    "Arthur Theate",
+    "Matteo Darmian",
+    "Tommaso Pobega",
+    "Lewis Ferguson",
+    "Juan Miranda",
+    "Nadir Zortea",
+    "Jens Odgaard",
+    "Nicolò Cambiaghi",
+    "Federico Bernardeschi"
+   ],
+   "직전포메이션": "3-4-3"
+  },
+  "원정": {
+   "팀": "우디네세",
+   "eng": "Udinese",
+   "직전": "11-07 원정 vs Venezia 1-2 패 [italian serie a]",
+   "휴식일": 15.8,
+   "휴식일주의": "ESPN에 없는 리그일 수 있음(21일 내 경기 없음) — 실제 휴식일은 더 짧을 수 있음",
+   "최근7일경기": 0,
+   "직전event": "401874815",
+   "xg": {
+    "n": 10,
+    "xg": 1.22,
+    "xga": 2.49,
+    "npxgd": -1.19,
+    "l5_xg": 1.02,
+    "l5_xga": 2.85,
+    "l5_npxgd": -1.68,
+    "home_xgd": -1.35,
+    "away_xgd": -0.95,
+    "xpts": 7.6,
+    "pts": 5
+   },
+   "xg_src": "Understat Serie_A Udinese",
+   "직전선발": [
+    "Maduka Okoye",
+    "Matteo Palma",
+    "Oumar Solet",
+    "James Abankwah",
+    "Jesper Karlström",
+    "Jakub Piotrowski",
+    "Hassane Kamara",
+    "Mërgim Vojvoda",
+    "Keinan Davis",
+    "Jurgen Ekkelenkamp",
+    "Nicolò Zaniolo"
+   ],
+   "직전포메이션": "3-4-2-1"
+  },
+  "환경": {
+   "구장": "스타디오 레나토 달라라",
+   "구장고도": 65,
+   "원정홈": "프리울리 경기장",
+   "원정홈고도": 112,
+   "이동km": 230,
+   "고도차": -47,
+   "날씨": {
+    "기온": 9.0,
+    "습도": 96,
+    "강수mm": 10.9,
+    "강수확률": 88,
+    "풍속": 13.5,
+    "출처": "Open-Meteo forecast 11-21 13:09"
+   },
+   "출처": [
+    "Wikidata Q1893→Q757182 · Open-Meteo 고도",
+    "Wikidata Q2798→Q640031 · Open-Meteo 고도"
+   ],
+   "주의": [
+    "비 10.9mm(88%)"
+   ]
+  },
+  "라인업": "미발표(킥오프 33.9h 전)",
+  "event": "401875047"
+ },
+ "5217": {
+  "번호": "5217",
+  "경기": "US사수올로 - 제노아",
+  "리그": "이탈리아 세리에A",
+  "시각": "11-22 23:00",
+  "수집": "11-21 13:07",
+  "홈": {
+   "팀": "US사수올로",
+   "eng": "Sassuolo",
+   "직전": "11-08 원정 vs AS Roma 0-3 패 [italian serie a]",
+   "휴식일": 14.8,
+   "휴식일주의": "ESPN에 없는 리그일 수 있음(21일 내 경기 없음) — 실제 휴식일은 더 짧을 수 있음",
+   "최근7일경기": 0,
+   "직전event": "401874803",
+   "xg": {
+    "n": 9,
+    "xg": 1.54,
+    "xga": 2.19,
+    "npxgd": -0.4,
+    "l5_xg": 1.36,
+    "l5_xga": 2.62,
+    "l5_npxgd": -0.81,
+    "home_xgd": -0.62,
+    "away_xgd": -0.23,
+    "xpts": 9.4,
+    "pts": 8
+   },
+   "xg_src": "Understat Serie_A Sassuolo",
+   "직전선발": [
+    "Arijanet Muric",
+    "Jay Idzes",
+    "Duje Caleta-Car",
+    "Sebastian Walukiewicz",
+    "Sulemana",
+    "Kristian Thorstvedt",
+    "Nemanja Matic",
+    "Josh Doig",
+    "Simone Cinquegrano",
+    "Armand Laurienté",
+    "Sebastiano Esposito"
+   ],
+   "직전포메이션": "3-5-2"
+  },
+  "원정": {
+   "팀": "제노아",
+   "eng": "Genoa",
+   "직전": "11-08 홈 vs AC Milan 1-2 패 [italian serie a]",
+   "휴식일": 14.0,
+   "휴식일주의": "ESPN에 없는 리그일 수 있음(21일 내 경기 없음) — 실제 휴식일은 더 짧을 수 있음",
+   "최근7일경기": 0,
+   "직전event": "401875018",
+   "xg": {
+    "n": 10,
+    "xg": 1.04,
+    "xga": 1.45,
+    "npxgd": -0.48,
+    "l5_xg": 1.11,
+    "l5_xga": 1.32,
+    "l5_npxgd": -0.21,
+    "home_xgd": -0.52,
+    "away_xgd": -0.42,
+    "xpts": 10.5,
+    "pts": 13
+   },
+   "xg_src": "Understat Serie_A Genoa",
+   "직전선발": [
+    "Justin Bijlow",
+    "Leo Østigard",
+    "Johan Vásquez",
+    "Alessandro Marcandalli",
+    "Hamed Traoré",
+    "Samuel Wiafe",
+    "Mikael Ellertsson",
+    "Kingsley Ehizibue",
+    "Milutin Osmajic",
+    "Vitinha",
+    "Junior Messias"
+   ],
+   "직전포메이션": "3-4-2-1"
+  },
+  "환경": {
+   "구장": "마페이 스타디움 - 치타 델 트리콜로레",
+   "구장고도": 43,
+   "원정홈": "스타디오 루이지 페라리스",
+   "원정홈고도": 23,
+   "이동km": 138,
+   "고도차": 20,
+   "날씨": {
+    "기온": 7.4,
+    "습도": 97,
+    "강수mm": 4.9,
+    "강수확률": 100,
+    "풍속": 16.6,
+    "출처": "Open-Meteo forecast 11-21 13:09"
+   },
+   "출처": [
+    "Wikidata Q8603→Q1887221 · Open-Meteo 고도",
+    "Wikidata Q2074→Q271568 · Open-Meteo 고도"
+   ],
+   "주의": [
+    "비 4.9mm(100%)"
+   ]
+  },
+  "라인업": "미발표(킥오프 33.9h 전)",
+  "event": "401874960"
+ },
+ "5221": {
+  "번호": "5221",
+  "경기": "파리FC - 앙제SCO",
+  "리그": "프랑스 리그1",
+  "시각": "11-22 23:00",
+  "수집": "11-21 13:07",
+  "홈": {
+   "팀": "파리FC",
+   "eng": "Paris FC",
+   "직전": "11-08 원정 vs AJ Auxerre 1-0 승 [ligue 1]",
+   "휴식일": 14.8,
+   "휴식일주의": "ESPN에 없는 리그일 수 있음(21일 내 경기 없음) — 실제 휴식일은 더 짧을 수 있음",
+   "최근7일경기": 0,
+   "직전event": "401876411",
+   "xg": {
+    "n": 9,
+    "xg": 2.44,
+    "xga": 1.39,
+    "npxgd": 0.8,
+    "l5_xg": 3.04,
+    "l5_xga": 1.51,
+    "l5_npxgd": 1.07,
+    "home_xgd": 0.53,
+    "away_xgd": 1.01,
+    "xpts": 18.1,
+    "pts": 20
+   },
+   "xg_src": "Understat Ligue_1 Paris Saint Germain",
+   "직전선발": [
+    "Kevin Trapp",
+    "Diego Coppola",
+    "Otavio",
+    "Hamari Traoré",
+    "Pierre Lees-Melou",
+    "Maxime López",
+    "Moses Simon",
+    "Rudy Matondo",
+    "Lassine Sinayoko",
+    "Pablo Pagis",
+    "Ilan Kebbal"
+   ],
+   "직전포메이션": "3-4-2-1"
+  },
+  "원정": {
+   "팀": "앙제SCO",
+   "eng": "Angers",
+   "직전": "11-09 홈 vs Nice 0-2 패 [ligue 1]",
+   "휴식일": 13.9,
+   "휴식일주의": "ESPN에 없는 리그일 수 있음(21일 내 경기 없음) — 실제 휴식일은 더 짧을 수 있음",
+   "최근7일경기": 0,
+   "직전event": "401876412",
+   "xg": {
+    "n": 9,
+    "xg": 1.36,
+    "xga": 2.07,
+    "npxgd": -0.61,
+    "l5_xg": 1.25,
+    "l5_xga": 2.45,
+    "l5_npxgd": -1.02,
+    "home_xgd": -0.1,
+    "away_xgd": -1.25,
+    "xpts": 8.9,
+    "pts": 8
+   },
+   "xg_src": "Understat Ligue_1 Angers",
+   "직전선발": [
+    "Anthony Lopes",
+    "Jordan Lefort",
+    "Ousmane Camara",
+    "Joseph Kalulu Kyatengwa",
+    "Carlens Arcus",
+    "Branco van den Boomen",
+    "Haris Belkebla",
+    "Yassin Belkhdim",
+    "Prosper Peter",
+    "Amine Sbaï",
+    "Jim Allevinah"
+   ],
+   "직전포메이션": "4-2-3-1"
+  },
+  "환경": {
+   "구장": "Stade Charléty",
+   "구장고도": 57,
+   "원정홈": "Stade Raymond Kopa",
+   "원정홈고도": 45,
+   "이동km": 261,
+   "고도차": 12,
+   "날씨": {
+    "기온": 8.1,
+    "습도": 86,
+    "강수mm": 0.6,
+    "강수확률": 85,
+    "풍속": 11.2,
+    "출처": "Open-Meteo forecast 11-21 13:10"
+   },
+   "출처": [
+    "Wikidata Q1051013→Q541391 · Open-Meteo 고도",
+    "Wikidata Q845137→Q387213 · Open-Meteo 고도"
+   ],
+   "주의": [
+    "비 0.6mm(85%)"
+   ]
+  },
+  "라인업": "미발표(킥오프 33.9h 전)",
+  "event": "401876397"
+ },
+ "5227": {
+  "번호": "5227",
+  "경기": "아우크스부르크 - FSV마인츠05",
+  "리그": "독일 분데스리가",
+  "시각": "11-22 23:30",
+  "수집": "11-21 13:07",
+  "홈": {
+   "팀": "아우크스부르크",
+   "eng": "Augsburg",
+   "직전": "11-07 원정 vs RB Leipzig 2-5 패 [german bundesliga]",
+   "휴식일": 15.0,
+   "휴식일주의": "ESPN에 없는 리그일 수 있음(21일 내 경기 없음) — 실제 휴식일은 더 짧을 수 있음",
+   "최근7일경기": 0,
+   "직전event": "401884744",
+   "xg": {
+    "n": 8,
+    "xg": 2.16,
+    "xga": 2.44,
+    "npxgd": -0.26,
+    "l5_xg": 1.89,
+    "l5_xga": 2.66,
+    "l5_npxgd": -0.74,
+    "home_xgd": 0.13,
+    "away_xgd": -0.91,
+    "xpts": 9.2,
+    "pts": 9
+   },
+   "xg_src": "Understat Bundesliga Augsburg",
+   "직전선발": [
+    "Finn Dahmen",
+    "Jeffrey Gouweleeuw",
+    "Chrislain Matsima",
+    "Yannik Keitel",
+    "Fabian Rieder",
+    "Han-Noah Massengo",
+    "Hennes Behrens",
+    "Robin Fellhauer",
+    "Rodrigo Ribeiro",
+    "Arijon Ibrahimovic",
+    "Anton Kade"
+   ],
+   "직전포메이션": "3-4-2-1"
+  },
+  "원정": {
+   "팀": "FSV마인츠05",
+   "eng": "Mainz",
+   "직전": "11-07 홈 vs Bayern Munich 1-2 패 [german bundesliga]",
+   "휴식일": 15.0,
+   "휴식일주의": "ESPN에 없는 리그일 수 있음(21일 내 경기 없음) — 실제 휴식일은 더 짧을 수 있음",
+   "최근7일경기": 0,
+   "직전event": "401884740",
+   "xg": {
+    "n": 8,
+    "xg": 2.26,
+    "xga": 1.62,
+    "npxgd": 0.9,
+    "l5_xg": 2.2,
+    "l5_xga": 1.98,
+    "l5_npxgd": 0.83,
+    "home_xgd": 0.09,
+    "away_xgd": 1.72,
+    "xpts": 14.5,
+    "pts": 10
+   },
+   "xg_src": "Understat Bundesliga Mainz 05",
+   "직전선발": [
+    "Robin Zentner",
+    "Fabio Gruber",
+    "Kacper Potulski",
+    "Danny da Costa",
+    "Lee Jae-Sung",
+    "Nadiem Amiri",
+    "Kaishu Sano",
+    "Silvan Widmer",
+    "Anthony Caci",
+    "Sheraldo Becker",
+    "Ransford-Yeboah Königsdörffer"
+   ],
+   "직전포메이션": "3-5-2"
+  },
+  "환경": {
+   "구장": "WWK 아레나",
+   "구장고도": 504,
+   "원정홈": "메바 아레나",
+   "원정홈고도": 133,
+   "이동km": 268,
+   "고도차": 371,
+   "날씨": {
+    "기온": 4.4,
+    "습도": 70,
+    "강수mm": 0,
+    "강수확률": 23,
+    "풍속": 10.3,
+    "출처": "Open-Meteo forecast 11-21 13:10"
+   },
+   "출처": [
+    "Wikidata Q15755→Q167418 · Open-Meteo 고도",
+    "Wikidata Q105254→Q392494 · Open-Meteo 고도"
+   ],
+   "주의": []
+  },
+  "라인업": "미발표(킥오프 34.4h 전)",
+  "event": "401884733"
+ }
+}

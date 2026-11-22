@@ -68,6 +68,23 @@ SPORTS = ("축구",)          # 검증된 종목만. 농구·배구는 사용자
 
 DEF = dict(mp=60.0, odds=1.2, draw=24.0, agree=True)
 
+# 2026-11-23(137·138회 회고): 리그 범위가 코드에 없어 J1 다리(137회 고베·가시마)가 후보로 올라왔다.
+# 사용자 결정(2026-10-19): 클럽 축구 다리는 5대 리그 + K리그1 만. UEFA 대항전·국가대표는 그대로 둔다.
+# 우리 기록 시장 60%+ 정배(중복 제거): 지정 93경기 80.6%(시장 말 대비 +11.4p) · 비지정 클럽 115경기 65.2%(−3.3p) —
+# 차 14.7p, z≈2.3. 확률·기록은 그대로 두고 조합에서만 뺀다(표에 ✗ 로 남는다).
+# AFC 대항전은 팀 소속 리그를 여기서 못 가려 범위 밖으로 둔다(K리그1 팀 경기면 사람이 확인해 넣는다).
+SCOPE = ("프리미어리그", "EPL", "라리가", "세리에A", "분데스리가", "리그1", "K리그1")
+NON_CLUB = ("UEFA", "네이션스", "친선", "월드컵", "예선", "아시안컵")
+
+
+def in_scope(league):
+    lg = league or ""
+    if lg.startswith("AFC"):
+        return False
+    if any(x in lg for x in NON_CLUB):
+        return True
+    return any(x in lg for x in SCOPE) and "K리그2" not in lg and "리그2" not in lg.replace("K리그", "")
+
 
 def no_offset_leagues(round_):
     """euro_baseline 의 리그 강도 오프셋 표에 없는 리그(=보정 0 으로 처리됨) 팀이 끼인 경기 번호.
@@ -494,6 +511,8 @@ def cmd_pick(a):
     for g in sel:
         f = _flags.get((g["row"]["회차"], g["row"]["번호"]))
         g["excl"] = (f or {}).get("사유", "") or "제외" if f and f["판정"] == "제외" else ""
+        if not g["excl"] and not in_scope(g["row"].get("리그")):
+            g["excl"] = "리그 범위 밖"
     excl = [g for g in deep if g["excl"]]
     head = (f"### {a.round}회 정배 후보 — 시장 1순위 {c['mp']:.0f}%+ · 배당 {c['odds']}+"
             + (" · 1순위 일치" if c["agree"] else "") + f"  (무<{c['draw']:.0f}% 는 표시만: ●)")
@@ -527,7 +546,7 @@ def cmd_pick(a):
     if excl:
         print(f"  ✗ 다리 제외권고(조합에서 뺀다, 확률은 그대로) {len(excl)}경기: "
               + ", ".join(f"{g['row']['번호']}({g['excl']})" for g in excl) + " — 성적은 leg_flags.py report")
-    two = [g for g in shallow if g["od"][g["mt"]] >= 1.34]
+    two = [g for g in shallow if g["od"][g["mt"]] >= 1.34 and g["excl"] != "리그 범위 밖"]
     if two:
         print("  ★ 심층 우선순위 — 배당 1.34+ (둘이면 2폴더로 합계 1.8 을 넘는다): "
               + ", ".join(g["row"]["번호"] for g in sorted(two, key=lambda g: -g["mp"])))

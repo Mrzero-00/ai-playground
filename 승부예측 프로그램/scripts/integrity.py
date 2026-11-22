@@ -795,6 +795,20 @@ def cmd_add(a):
         # '이동 0' 이라는 사실은 보정메모(총 이동 0.0%p)와 요인 기록에 이미 남는다.
         if (r.get("깊이") or "").strip() in ("", "기준선"):
             r["깊이"] = "심층"
+        # 2026-11-23(138회 회고): baseline_fill 이 먼저 만든 행은 핵심근거에 '기준선 자동 — 뉴스·결장 반영 없음'
+        # 꼬리표가 남아, 심층 경기인데 result_log 해부 화면에 '반영 없음'으로 찍혔다. 꼬리표를 걷고 근거 요약을 넣는다.
+        tags = [x.strip() for x in (r.get("핵심근거") or "").split(" / ") if x.strip() and "기준선 자동" not in x]
+        b, f_ = e.get("기준선") or {}, e.get("최종") or {}
+        try:
+            s = f"근거 JSON 심층({now[:10]}): 기준선 {'/'.join(f'{float(b[k]):.1f}' for k in '승무패')} → 최종 {'/'.join(f'{float(f_[k]):.1f}' for k in '승무패')}"
+        except (KeyError, TypeError, ValueError):
+            s = f"근거 JSON 심층({now[:10]})"
+        jd_ = e.get("내판단") if isinstance(e.get("내판단"), dict) else {}
+        if jd_.get("이유"):
+            s += f" · {jd_['이유'][:150]}"
+        if not any(x.startswith("근거 JSON 심층") for x in tags):
+            tags.insert(0, s)
+        r["핵심근거"] = " / ".join(tags)
         game = f"{r['홈']}-{r['원정']}"
         # 2026-11-17: 다리판단(조합에 써도 되는가)을 장부로 남긴다 — safe_picks 가 읽고 leg_flags 가 채점한다.
         if e.get("다리판단"):
@@ -822,12 +836,14 @@ def cmd_add(a):
         for f in e.get("요인", []):
             f = norm_factor(f)
             ev.append({**base, "구분": "요인", **{k: f.get(k, "") for k in ("유형", "팀", "선수", "등급", "상태", "영향", "내용", "출처", "날짜", "검색처")}})
-        snaps.append({"회차": r["회차"], "번호": r["번호"], "경기": game, "기록시각": now,
-                      "단계": "재분석" if "재분석" in os.path.basename(a.file) or "갱신" in os.path.basename(a.file) else "초기",
-                      "근거파일": os.path.relpath(a.file, ROOT) if os.path.isabs(a.file) else a.file, "정합성": g,
-                      "기준선": json.dumps(e.get("기준선"), ensure_ascii=False), "최종": json.dumps(e.get("최종"), ensure_ascii=False),
-                      "선택지": json.dumps(e.get("선택지"), ensure_ascii=False), "시장": json.dumps(market_now(r), ensure_ascii=False),
-                      "결과": "", "점수": ""})
+        # 2026-11-23: 결과가 난 뒤 재등록(등급 재판정 등)하면 경기 후 시각의 스냅샷이 붙었다 — 경기 전 예측만 남긴다.
+        if not (r.get("결과") or "").strip():
+            snaps.append({"회차": r["회차"], "번호": r["번호"], "경기": game, "기록시각": now,
+                          "단계": "재분석" if "재분석" in os.path.basename(a.file) or "갱신" in os.path.basename(a.file) else "초기",
+                          "근거파일": os.path.relpath(a.file, ROOT) if os.path.isabs(a.file) else a.file, "정합성": g,
+                          "기준선": json.dumps(e.get("기준선"), ensure_ascii=False), "최종": json.dumps(e.get("최종"), ensure_ascii=False),
+                          "선택지": json.dumps(e.get("선택지"), ensure_ascii=False), "시장": json.dumps(market_now(r), ensure_ascii=False),
+                          "결과": "", "점수": ""})
         ev.append({**base, "구분": "요약", "기준선": json.dumps(e.get("기준선"), ensure_ascii=False),
                    "득점모델": json.dumps(e.get("득점모델"), ensure_ascii=False), "최종": json.dumps(e.get("최종"), ensure_ascii=False),
                    "선택지": json.dumps(e.get("선택지"), ensure_ascii=False), "결론": e.get("결론", ""),

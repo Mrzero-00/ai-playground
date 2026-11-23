@@ -1,0 +1,125 @@
+{
+ "번호": 8,
+ "홈": "Como 1907",
+ "원정": "AEK Athens",
+ "리그": "UEFA 챔피언스리그",
+ "수집시각": "2026-11-23 KST",
+ "구장": "Stadio Giuseppe Sinigaglia, Como — 2026-11-24 20:00 현지 (Sky Sports)",
+ "UCL순위": {
+  "홈": "확인 안 됨(Sky Sports 순위 미열람; 팩트시트 5위 기재는 세리에A 순위로 보임)",
+  "원정": "4경기 1승0무3패 승점3 (Squawka 요약, 순위 미확인)"
+ },
+ "리그순위": {
+  "홈": "세리에A 5위 12경기 8승2무2패 승점26 (카드, 2026-11-23)",
+  "원정": "확인 안 됨"
+ },
+ "결장": [
+  {
+   "팀": "홈",
+   "선수": "Jesus Rodriguez",
+   "포지션": "",
+   "사유": "부상, 오래 결장 'quite serious' (Fabregas)",
+   "상태": "의심",
+   "비중": "",
+   "출처": "https://www.livescore.com/en/news/football/serie-a/fabregas-no-crisis-at-manchester-united-but-como-have-new-injury-problems-football-italia/",
+   "날짜": "미상(Man Utd전 직전 = 10월 하순 추정, 기사에 날짜 없음)"
+  },
+  {
+   "팀": "홈",
+   "선수": "Trevoh Chalobah",
+   "포지션": "",
+   "사유": "부상 최소 2주 (당시)",
+   "상태": "의심",
+   "비중": "",
+   "출처": "동상",
+   "날짜": "미상"
+  },
+  {
+   "팀": "홈",
+   "선수": "Moise Kean",
+   "포지션": "F",
+   "사유": "부상 (당시 Man Utd전 결장)",
+   "상태": "의심",
+   "비중": "",
+   "출처": "동상",
+   "날짜": "미상"
+  },
+  {
+   "팀": "홈",
+   "선수": "Assane Diao",
+   "포지션": "M",
+   "사유": "허벅지 (당시)",
+   "상태": "의심",
+   "비중": "",
+   "출처": "동상",
+   "날짜": "미상"
+  }
+ ],
+ "감독": [
+  {
+   "팀": "홈",
+   "내용": "Cesc Fàbregas (팩트시트). 시즌 전 UCL 명단 16~17명 한정 발언",
+   "출처": "https://www.beinsports.com/en-us/soccer/serie-a/articles/fabregas-como-squad-will-be-limited-for-champions-league-campaign-2026-07-28",
+   "날짜": "2026-07-28"
+  },
+  {
+   "팀": "원정",
+   "내용": "Matias Almeyda (FotMob 요약, 현재 여부 미확인); 팩트시트에는 감독 공란",
+   "출처": "https://www.fotmob.com/teams/8563/squad/aek-athens",
+   "날짜": "미상"
+  }
+ ],
+ "예상선발": [
+  "Squawka 예상 Como 4-2-3-1: Butez, Valle, Kempf, Jacobo Ramon, Yan Couto, Milla, Perrone, Caqueret, Paz, da Cunha, Douvikas (비공식; 페이지 403, 검색요약)",
+  "AEK 4-4-2, GK Brignoli (Squawka 요약; UEFA 페이지는 AEK GK로 Strakosha·Balamotis 표기 — 엇갈림, Brignoli는 Como GK로도 언급됨, 혼동 가능)"
+ ],
+ "직전경기": {
+  "홈": "2026-11-21 홈 Cagliari 2-0 (Sky Sports·카드). 직전 선발: Butez, Kempf, Ramón, Kaiki, Couto, Da Cunha, Milla, Ricci, Douvikas, Baturina, Liberali",
+  "원정": "Sky Sports 최근: 1-0 at Kalamata, 2-1 vs Levadiakos(홈), 2-3 vs Real Madrid(홈, UCL), 0-2 at Panathinaikos — 날짜 확인 안 됨, 가장 최근이 Kalamata 1-0 (리그/컵 불명)"
+ },
+ "다음경기": {
+  "홈": "확인 안 됨",
+  "원정": "확인 안 됨"
+ },
+ "최근경기": {
+  "홈": [
+   "11-21 Cagliari 2-0 (H)",
+   "11-08 Inter 0-2 (A)",
+   "UCL Lens 9-1(A) 표기(Sky Sports; 날짜 미상)",
+   "11-01 Venezia 1-0 (H)",
+   "10-27 Torino 3-1 (A)"
+  ],
+  "원정": [
+   "Kalamata 1-0 (A)",
+   "Levadiakos 2-1 (H)",
+   "Real Madrid 2-3 (H)",
+   "Panathinaikos 0-2 (A)",
+   "Panetolikos 5-0 (H)",
+   "Man City 1-5 (A) — Sky Sports 순서, 날짜 미확인"
+  ]
+ },
+ "맞대결": [],
+ "걸린것": [
+  "Como UCL 데뷔 시즌 (FourFourTwo 제목)"
+ ],
+ "사실": [
+  "Sky Sports: https://www.skysports.com/football/como-vs-aek-athens/577671 킥오프 11-24 20:00",
+  "UEFA 명단·선발 미공개, 킥오프 60분 전 공개 예정"
+ ],
+ "확인안됨": [
+  "현재 시점 양 팀 결장(위 Como 4명은 날짜 불명 옛 보도라 현재 상태 미확인)",
+  "Nico Paz 현황(5월 기사 무릎, 카드에는 핵심 선수로 올라 있음 — 현재 출장 여부 확인 안 됨)",
+  "UCL 명단 등록",
+  "AEK 직전 경기 날짜·감독 확정·기자회견",
+  "UCL 순위·남은 상대",
+  "원정 이동"
+ ],
+ "출처": [
+  "https://www.skysports.com/football/como-vs-aek-athens/577671",
+  "https://www.uefa.com/uefachampionsleague/match/2049633--como-vs-aek-athens/lineups/",
+  "https://www.livescore.com/en/news/football/serie-a/fabregas-no-crisis-at-manchester-united-but-como-have-new-injury-problems-football-italia/",
+  "https://www.squawka.com/ca/?p=24784",
+  "https://www.beinsports.com/en-us/soccer/serie-a/articles/fabregas-como-squad-will-be-limited-for-champions-league-campaign-2026-07-28",
+  "https://www.fotmob.com/teams/8563/squad/aek-athens"
+ ]
+}

@@ -1,0 +1,82 @@
+{
+ "번호": 13,
+ "홈": "Lille OSC",
+ "원정": "Bayern Munich",
+ "리그": "UEFA 챔피언스리그",
+ "수집시각": "2026-11-23 KST",
+ "구장": "Stade Pierre-Mauroy (Lille) — Squawka 프리뷰 기재, 2026-11-25 수(현지) 개최",
+ "UCL순위": {
+  "홈": "확인 안 됨(팩트시트에 Lille 항목 없음, 11/03 Bodo/Glimt 0-0 Lille 기재)",
+  "원정": "확인 안 됨(팩트시트: 바이에른 UCL 4라운드 뒤 순위 미기재; 최근 UCL: 10-21 Bayern 2-2 Arsenal, 11-03 Atletico 0-2 Bayern)"
+ },
+ "리그순위": {
+  "홈": "Ligue 1 3위 11경기 6승3무2패 승점21 (teamdb 카드 2026-11-23); 팩트시트는 2위 10경기 승점21",
+  "원정": "Bundesliga 2위 10경기 6승4무0패 승점22 (카드·팩트시트 2026-11-23)"
+ },
+ "결장": [],
+ "감독": [
+  {
+   "팀": "홈",
+   "내용": "팩트시트: Davide Ancelotti. 기자회견 확인 안 됨",
+   "출처": "팩트시트_승무패71.md",
+   "날짜": "2026-11-23"
+  },
+  {
+   "팀": "원정",
+   "내용": "Vincent Kompany (팩트시트). 기자회견 확인 안 됨",
+   "출처": "팩트시트_승무패71.md",
+   "날짜": "2026-11-23"
+  }
+ ],
+ "예상선발": [],
+ "직전경기": {
+  "홈": "2026-11-21 홈 Lille 0-1 Lyon (ESPN 카드, 4-3-3, 직전 선발: Özer, Alexsandro, Nianzou, Perraud, Ngoy, Bentaleb, André, Mukau, Haraldsson, Diaoune, Bakwa; 경기당 선발 교체 3.0). 휴식일 계산 근거: 11-21→11-25",
+  "원정": "2026-11-20 홈 Bayern 1-1 FC Cologne (ESPN 카드, 선발: Urbig, Tah, Upamecano, Stanisic, Laimer, Karl, Pavlovic, Kimmich, Kane, Brown, Olise; 경기당 선발 교체 4.4). 휴식일: 11-20→11-25"
+ },
+ "다음경기": {
+  "홈": "확인 안 됨",
+  "원정": "확인 안 됨"
+ },
+ "최근경기": {
+  "홈": [
+   "10-25 원정 AS Monaco 1-1 Lille",
+   "10-30 홈 Lille 1-0 Lens",
+   "11-03 UCL Bodo/Glimt 0-0 Lille",
+   "11-08 원정 Rennes 1-2 Lille",
+   "11-21 홈 Lille 0-1 Lyon"
+  ],
+  "원정": [
+   "10-21 UCL Bayern 2-2 Arsenal",
+   "10-31 홈 Bayern 2-2 Dortmund",
+   "11-03 UCL Atletico 0-2 Bayern",
+   "11-07 원정 Mainz 1-2 Bayern(카드 표기 2-1, 방향 엇갈림 주의)",
+   "11-20 홈 Bayern 1-1 Cologne"
+  ]
+ },
+ "맞대결": [
+  "확인 안 됨. UEFA 사이트에 2024-25 Bayern-Lille 경기 페이지(match/2009539)는 존재하나 스코어 열람 못 함"
+ ],
+ "걸린것": [
+  "확인 안 됨"
+ ],
+ "사실": [
+  "Squawka 프리뷰(2026-11 열람, 날짜 미확인): 양 팀 이번 주 새 팀 뉴스 없음으로 기재 — 단일 출처, 공식 확인 아님 (https://www.squawka.com/us/?p=102845 검색 요약, 직접 열람 403)",
+  "같은 프리뷰: Bayern 예상 4-2-3-1, Neuer·Kane·Olise 포함 / Bayern 폼 W D D W 중 11-03 Atletico 2-0 승 / Lille 3연패 뒤 Bodo/Glimt 0-0 (프리뷰 기재; Lille 카드와 일부 불일치 — 카드는 11-08 Rennes 2-1 승)",
+  "UEFA 라인업은 킥오프 60분 전 공개 (bundesliga.com 매치페이지)",
+  "teamdb 카드 직전 선발에 GK Jonas Urbig(Bayern, 11-20) — Neuer 선발 여부 확인 안 됨, 프리뷰 예상선발과 엇갈림"
+ ],
+ "확인안됨": [
+  "Lille·Bayern 부상·결장·출장정지 선수 명단(공식 보도 못 찾음)",
+  "UCL 등록 명단",
+  "UCL 리그 순위·승점(공식)",
+  "기자회견 발언(11/24~25 예정)",
+  "Bayern 11-07 Mainz 스코어 표기 엇갈림"
+ ],
+ "출처": [
+  "https://www.squawka.com/us/?p=102845 (검색결과 요약만)",
+  "https://www.uefa.com/uefachampionsleague/match/2049639--lille-vs-bayern-munchen/lineups/",
+  "https://www.bundesliga.com/en/champions-league/matchday/2026-2027/5/losc-lille-metropole-vs-fc-bayern-muenchen/lineup",
+  "t71card_13.md",
+  "팩트시트_승무패71.md"
+ ]
+}

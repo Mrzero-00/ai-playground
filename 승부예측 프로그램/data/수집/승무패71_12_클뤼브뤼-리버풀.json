@@ -1,0 +1,188 @@
+{
+ "번호": 12,
+ "홈": "Club Brugge",
+ "원정": "Liverpool",
+ "리그": "UEFA 챔피언스리그",
+ "수집시각": "2026-11-23 KST",
+ "구장": "Jan Breydelstadion (2026-11-25, 킥오프 20:00/21:00 출처 엇갈림)",
+ "UCL순위": {
+  "홈": "팩트시트 9위 4경기 3승1패 승점9 GD+4 / sportsmole: 리버풀보다 한 계단 아래, 득점 열세",
+  "원정": "팩트시트 UCL 4경기 기록(11/4 Fenerbahce 3-2 패 포함). 팩트시트 4위·승점21은 EPL"
+ },
+ "리그순위": {
+  "홈": "벨기에 2위 12경기 31점, 1위 Union SG 32점(voetbalkrant 2026-11-20)",
+  "원정": "EPL 4위 11경기 6승3무2패 승점21, 1위권과 1점 차 (sportsmole 2026-11-22)"
+ },
+ "결장": [
+  {
+   "팀": "원정",
+   "선수": "Cody Gakpo",
+   "포지션": "MF/FW",
+   "사유": "네덜란드 대표 차출 중 종아리 부상, 11/29 에버턴전 복귀 가능",
+   "상태": "확정",
+   "비중": "xG+xA 13%",
+   "출처": "https://www.sportsmole.co.uk/football/liverpool/champions-league/injuries-and-suspensions/gakpo-gravenberch-latest-liverpool-injury-suspension-list-vs-club-brugge_609620.html",
+   "날짜": "2026-11-23"
+  },
+  {
+   "팀": "원정",
+   "선수": "Ryan Gravenberch",
+   "포지션": "MF",
+   "사유": "뒤꿈치 부상, 맨유전 불가였고 브뤼헤전 복귀 가능(큰 의심)",
+   "상태": "의심",
+   "비중": "확인 안 됨",
+   "출처": "https://www.sportsmole.co.uk/football/liverpool/champions-league/injuries-and-suspensions/gakpo-gravenberch-latest-liverpool-injury-suspension-list-vs-club-brugge_609620.html",
+   "날짜": "2026-11-23"
+  },
+  {
+   "팀": "원정",
+   "선수": "Hugo Ekitike",
+   "포지션": "FW",
+   "사유": "아킬레스건 장기부상, 1/2 복귀 목표",
+   "상태": "확정",
+   "비중": "확인 안 됨",
+   "출처": "https://www.sportsmole.co.uk/football/liverpool/champions-league/injuries-and-suspensions/gakpo-gravenberch-latest-liverpool-injury-suspension-list-vs-club-brugge_609620.html",
+   "날짜": "2026-11-23"
+  },
+  {
+   "팀": "원정",
+   "선수": "Giovanni Leoni",
+   "포지션": "CB",
+   "사유": "무릎 장기부상, 1/2 복귀 가능",
+   "상태": "확정",
+   "비중": "확인 안 됨",
+   "출처": "https://www.sportsmole.co.uk/football/liverpool/champions-league/injuries-and-suspensions/gakpo-gravenberch-latest-liverpool-injury-suspension-list-vs-club-brugge_609620.html",
+   "날짜": "2026-11-23"
+  },
+  {
+   "팀": "원정",
+   "선수": "Conor Bradley",
+   "포지션": "RB",
+   "사유": "1월 무릎 부상, 팀 훈련 복귀 단계",
+   "상태": "확정",
+   "비중": "확인 안 됨",
+   "출처": "https://www.sportsmole.co.uk/football/liverpool/champions-league/injuries-and-suspensions/gakpo-gravenberch-latest-liverpool-injury-suspension-list-vs-club-brugge_609620.html",
+   "날짜": "2026-11-23"
+  },
+  {
+   "팀": "원정",
+   "선수": "Dominik Szoboszlai",
+   "포지션": "MF",
+   "사유": "네덜란드어 보도: 브뤼헤전 복귀 예상 안 됨(sportsmole과 voetbalfocus는 문제없다고 상충). 11/22 맨유전 골·선발",
+   "상태": "의심",
+   "비중": "xG+xA 13%",
+   "출처": "https://www.voetbalprimeur.be/nieuws/2161238/liverpool-geeft-blessureupdate-voor-club-brugge.html",
+   "날짜": "2026-11"
+  },
+  {
+   "팀": "원정",
+   "선수": "Jeremie Frimpong",
+   "포지션": "RB",
+   "사유": "그룹 훈련 복귀 보도",
+   "상태": "복귀",
+   "비중": "확인 안 됨",
+   "출처": "https://voetbalfocus.be/liverpool-opkikker-club-brugge-frimpong-gravenberch/",
+   "날짜": "2026-11"
+  },
+  {
+   "팀": "홈",
+   "선수": "Jorne Spileers",
+   "포지션": "CB",
+   "사유": "벨기에 U21 차출 중 부상(종류 미공개), 최근 주전",
+   "상태": "의심",
+   "비중": "Mechele와 CB 짝",
+   "출처": "https://www.voetbalkrant.com/nieuws/2026-11-20/club-brugge-ziet-basisspeler-met-blessure-terugkeren-op-slechtst-mogelijke-moment-voor-hem",
+   "날짜": "2026-11-20"
+  },
+  {
+   "팀": "홈",
+   "선수": "Nicolò Tresoldi",
+   "포지션": "ST",
+   "사유": "독일 U21 차출 중 경미한 뇌진탕, 가용 예상. 17경기 14골",
+   "상태": "복귀",
+   "비중": "팀 주포",
+   "출처": "https://www.daveockop.com/latest-news/club-brugge-star-suffers-concussion-days-before-liverpool-clash/",
+   "날짜": "2026-11-15"
+  },
+  {
+   "팀": "홈",
+   "선수": "Jan Virgili",
+   "포지션": "확인 안 됨",
+   "사유": "사타구니 부상(FotMob 단독)",
+   "상태": "의심",
+   "비중": "확인 안 됨",
+   "출처": "https://www.fotmob.com/matches/club-brugge-vs-liverpool/2dyl8a",
+   "날짜": "2026-11"
+  },
+  {
+   "팀": "홈",
+   "선수": "Joel Ordóñez",
+   "포지션": "확인 안 됨",
+   "사유": "발 부상(FotMob 단독)",
+   "상태": "의심",
+   "비중": "확인 안 됨",
+   "출처": "https://www.fotmob.com/matches/club-brugge-vs-liverpool/2dyl8a",
+   "날짜": "2026-11"
+  }
+ ],
+ "감독": [
+  {
+   "팀": "홈",
+   "내용": "Ivan Leko (팩트시트), 11월 발언 확인 안 됨",
+   "출처": "팩트시트_승무패71.md",
+   "날짜": "2026-11-23"
+  },
+  {
+   "팀": "원정",
+   "내용": "Andoni Iraola. 11/22 선발 변경: 직전 선발에 Araujo·Jacquet·Kerkez 포함(teamdb)",
+   "출처": "teamdb 카드",
+   "날짜": "2026-11-22"
+  }
+ ],
+ "예상선발": [],
+ "직전경기": {
+  "홈": "2026-11-21 Mechelen 원정 5-1 승(voetbalkrant 'matchday 12'; 투 기사 간 홈/원정 표기 상충: daveockop는 홈 Mechelen전 11/21)",
+  "원정": "2026-11-22 EPL 홈 맨유 4-0 승 (Szoboszlai, Wirtz, Ngumoha, Muñoz), 상대 8분 10명"
+ },
+ "다음경기": {
+  "홈": "확인 안 됨",
+  "원정": "11/29 에버턴(머지사이드 더비, 힐 디킨슨 스타디움)"
+ },
+ "최근경기": {
+  "홈": [
+   "2026-10-13 Inter 3-4 Club Brugge(UCL)",
+   "2026-10-21 Club Brugge 3-0 Lens",
+   "2026-11-04 PSV 1-2 Club Brugge",
+   "2026-11-21 Mechelen전 5-1"
+  ],
+  "원정": [
+   "2026-11-01 Arsenal 0-1(홈)",
+   "2026-11-04 Fenerbahce 3-2 Liverpool(UCL)",
+   "2026-11-08 Crystal Palace 원정 3-1",
+   "2026-11-22 Man Utd 4-0"
+  ]
+ },
+ "맞대결": [],
+ "걸린것": [
+  "UCL 리그페이즈 5라운드"
+ ],
+ "사실": [
+  "Liverpool 징계 결장 없음(sportsmole)",
+  "11/22 맨유전은 상대가 8분 이후 10명이었다(sky)"
+ ],
+ "확인안됨": [
+  "Brugge 공식 소집·기자회견",
+  "Liverpool 11/25 기자회견",
+  "킥오프 시각(20:00 vs 21:00)",
+  "UCL 등록 명단",
+  "Gravenberch·Szoboszlai 최종 가용"
+ ],
+ "출처": [
+  "https://www.sportsmole.co.uk/football/liverpool/champions-league/injuries-and-suspensions/gakpo-gravenberch-latest-liverpool-injury-suspension-list-vs-club-brugge_609620.html",
+  "https://www.voetbalkrant.com/nieuws/2026-11-20/club-brugge-ziet-basisspeler-met-blessure-terugkeren-op-slechtst-mogelijke-moment-voor-hem",
+  "https://www.daveockop.com/latest-news/club-brugge-star-suffers-concussion-days-before-liverpool-clash/",
+  "https://www.voetbalprimeur.be/nieuws/2161238/liverpool-geeft-blessureupdate-voor-club-brugge.html",
+  "https://voetbalfocus.be/liverpool-opkikker-club-brugge-frimpong-gravenberch/",
+  "https://www.fotmob.com/matches/club-brugge-vs-liverpool/2dyl8a"
+ ]
+}

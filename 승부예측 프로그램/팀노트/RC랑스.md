@@ -8,7 +8,7 @@
 - 최근 경기(ESPN, 최대 28일): 2026-10-09 Lens 2-1 Lyon / 2026-10-17 Troyes 1-3 Lens / 2026-10-24 Lens 2-1 Paris FC / 2026-10-30 Lille 1-0 Lens / 2026-11-08 Lens 1-2 Marseille
 <!-- FACTS:END -->
 <!-- INPUTS:START -->
-## 입력(자동 수집 2026-11-21) — xG·휴식일·라인업·환경(이동거리·고도·날씨)은 이 숫자를 쓴다
-- 11-22 04:45 vs 툴루즈: 휴식 13.0일?(국내리그 ESPN 미제공 — 직접 확인) · 직전 11-09 홈 vs Marseille 1-2 패 [ligue 1] · xG 시즌9경기 xG1.87/xGA1.51 npxGD+0.19 · 최근5 1.16/1.37 (-0.21) · 홈0.77/원정-0.27 · xPts13.7 vs 승점13 · 직전 선발 3-4-2-1 Robin Risser, Samson Baidoo, Jean-Clair Todibo, Jonathan Gradit, Amadou Haidara, Yassine Titraoui, Matthieu Udol, Saud Abdulhamid, Thorgan Hazard, Florian Sotoca, Florian Thauvin · 구장 스타드 펠릭스 볼라르트 · 이동 769km · 고도 42m(차 -98m) · 6.1℃ 강수0mm(0%) 바람9.0km/h
+## 입력(자동 수집 2026-11-23) — xG·휴식일·라인업·환경(이동거리·고도·날씨)은 이 숫자를 쓴다
+- 2026-11-25 05:00 vs 라이프치: 휴식 20.0일?(국내리그 ESPN 미제공 — 직접 확인) · 직전 11-05 홈 vs Como 1-9 패 [uefa.champions] · xG 시즌9경기 xG1.87/xGA1.51 npxGD+0.19 · 최근5 1.16/1.37 (-0.21) · 홈0.77/원정-0.27 · xPts13.7 vs 승점13 · 직전 선발 3-4-2-1 Robin Risser, Samson Baidoo, Kyllian Antonio, Ruben Aguilar, Amadou Haidara, Michaël Cuisance, Matthieu Udol, Michal Skoras, Franjo Ivanovic, Thorgan Hazard, Florian Thauvin · 구장 레드불 아레나 · 이동 676km · 고도 117m(차 +75m) · 0.3℃ 강수0mm(0%) 바람2.8km/h
 <!-- INPUTS:END -->
 

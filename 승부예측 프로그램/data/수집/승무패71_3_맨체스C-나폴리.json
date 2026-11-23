@@ -1,0 +1,162 @@
+{
+ "번호": 3,
+ "홈": "Manchester City",
+ "원정": "Napoli",
+ "리그": "UEFA 챔피언스리그",
+ "수집시각": "2026-11-23 KST",
+ "구장": "Etihad Stadium, Manchester",
+ "UCL순위": {
+  "홈": "확인 안 됨(팩트시트: 맨체스C 3위 10경기 승점21, 4라운드 뒤)",
+  "원정": "확인 안 됨(팩트시트: 나폴리 8위? 카드 기준 리그전 순위와 별개 — UCL 순위 미확인)"
+ },
+ "리그순위": {
+  "홈": "EPL 3위 11경기 7승1무3패 승점22 (teamdb 2026-11-23)",
+  "원정": "세리에A 8위 12경기 5승3무4패 승점18 (teamdb 2026-11-23)"
+ },
+ "결장": [
+  {
+   "팀": "홈",
+   "선수": "Antoine Semenyo",
+   "포지션": "FW",
+   "사유": "무릎/다리 부상(10/17부터 약 8주)",
+   "상태": "확정",
+   "비중": "확인 안 됨",
+   "출처": "https://www.sportsmole.co.uk/football/man-city/injury-news/news/man-city-games-semenyo-will-miss-as-maresca-confirms-major-injury-blow_607235.html",
+   "날짜": "2026-11-23"
+  },
+  {
+   "팀": "홈",
+   "선수": "Matheus Nunes",
+   "포지션": "",
+   "사유": "미공개 부상",
+   "상태": "의심",
+   "비중": "확인 안 됨",
+   "출처": "https://www.thesportsbank.net/football/manchester-city/nunes-enzo-fernandez/",
+   "날짜": "2026-11-23"
+  },
+  {
+   "팀": "원정",
+   "선수": "Alisson Santos",
+   "포지션": "",
+   "사유": "부상",
+   "상태": "확정",
+   "비중": "확인 안 됨",
+   "출처": "https://khelnow.com/football/manchester-city-vs-napoli-preview-champions-league-202611",
+   "날짜": "2026-11-23"
+  },
+  {
+   "팀": "원정",
+   "선수": "Benoit Badiashile",
+   "포지션": "",
+   "사유": "부상",
+   "상태": "확정",
+   "비중": "확인 안 됨",
+   "출처": "https://khelnow.com/football/manchester-city-vs-napoli-preview-champions-league-202611",
+   "날짜": "2026-11-23"
+  },
+  {
+   "팀": "원정",
+   "선수": "Stanislav Lobotka",
+   "포지션": "MF",
+   "사유": "부상",
+   "상태": "확정",
+   "비중": "확인 안 됨",
+   "출처": "https://khelnow.com/football/manchester-city-vs-napoli-preview-champions-league-202611",
+   "날짜": "2026-11-23"
+  },
+  {
+   "팀": "원정",
+   "선수": "Giovanni Di Lorenzo",
+   "포지션": "DF",
+   "사유": "부상",
+   "상태": "확정",
+   "비중": "확인 안 됨",
+   "출처": "https://khelnow.com/football/manchester-city-vs-napoli-preview-champions-league-202611",
+   "날짜": "2026-11-23"
+  },
+  {
+   "팀": "원정",
+   "선수": "Alex Meret",
+   "포지션": "GK",
+   "사유": "부상",
+   "상태": "확정",
+   "비중": "확인 안 됨(카드 직전 선발 GK는 Milinkovic-Savic)",
+   "출처": "https://khelnow.com/football/manchester-city-vs-napoli-preview-champions-league-202611",
+   "날짜": "2026-11-23"
+  },
+  {
+   "팀": "원정",
+   "선수": "Alessandro Buongiorno",
+   "포지션": "DF",
+   "사유": "컨디션",
+   "상태": "의심",
+   "비중": "확인 안 됨",
+   "출처": "https://khelnow.com/football/manchester-city-vs-napoli-preview-champions-league-202611",
+   "날짜": "2026-11-23"
+  }
+ ],
+ "감독": [
+  {
+   "팀": "홈",
+   "내용": "Enzo Maresca. 11/21 Fulham 1-1 무 뒤 Napoli전 메시지·초반 실점 습관 언급. UCL 전 기자회견은 확인 안 됨",
+   "출처": "https://cityxtra.co.uk/news/enzo-maresca-sends-crucial-napoli-message-to-manchester-city-squad-after-damaging-fulham-draw",
+   "날짜": "2026-11-22"
+  },
+  {
+   "팀": "원정",
+   "내용": "Massimiliano Allegri(팩트시트). 기자회견 확인 안 됨",
+   "출처": "팩트시트_승무패71.md",
+   "날짜": "2026-11-23"
+  }
+ ],
+ "예상선발": [],
+ "직전경기": {
+  "홈": "2026-11-21 홈 Fulham 1-1 (Enzo Fernandez 85분 교체 투입, Khusanov 선발; 카드 선발 교체 수 3.2)",
+  "원정": "2026-11-21 홈 Torino 1-0 (3-5-1-1, 카드 직전 선발 기준)"
+ },
+ "다음경기": {
+  "홈": "확인 안 됨",
+  "원정": "확인 안 됨"
+ },
+ "최근경기": {
+  "홈": [
+   "10-24 Aston Villa 1-2 L",
+   "10-31 Brighton 0-1 L",
+   "11-04 UCL Leipzig 3-2 W(원정 RB Leipzig 2-3 Man City)",
+   "11-07 Nottingham Forest 1-3 L",
+   "11-21 Fulham 1-1 D"
+  ],
+  "원정": [
+   "10-20 UCL Napoli 4-3 Bodo/Glimt",
+   "11-01 Juventus 0-2 L",
+   "11-04 UCL FC Porto 4-1 Napoli",
+   "11-08 Lazio 1-1 D",
+   "11-21 Torino 1-0 W"
+  ]
+ },
+ "맞대결": [
+  "khelnow: 과거 5회 맨시티 3승 나폴리 1승 1무 (2025-09-18 리그 페이즈 포함 여부 확인 안 됨)"
+ ],
+ "걸린것": [
+  "UCL 리그 페이즈 5라운드(팩트시트 기준 맨시티 UCL 3위 승점21, 나폴리 승점 확인 안 됨)"
+ ],
+ "사실": [
+  "경기일: 현지 11/24(화) Etihad, KST 11/25 05:00 (khelnow는 날짜 표기 불일치)",
+  "Man City 직전 UCL 3-2 RB Leipzig, Napoli 직전 UCL 1-4 FC Porto (khelnow 2026-11)",
+  "검색 결과 상당수는 2025-09 경기 기사라 제외"
+ ],
+ "확인안됨": [
+  "UCL 등록 명단",
+  "UEFA 누적 경고·출장정지",
+  "Haaland 현재 상태(최근 확정 보도 없음)",
+  "양 팀 UCL 순위 최신",
+  "예상 선발",
+  "다음 경기 상대"
+ ],
+ "출처": [
+  "https://khelnow.com/football/manchester-city-vs-napoli-preview-champions-league-202611",
+  "https://www.sportsmole.co.uk/football/man-city/injury-news/news/man-city-games-semenyo-will-miss-as-maresca-confirms-major-injury-blow_607235.html",
+  "https://www.thesportsbank.net/football/manchester-city/nunes-enzo-fernandez/",
+  "https://cityxtra.co.uk/news/enzo-maresca-sends-crucial-napoli-message-to-manchester-city-squad-after-damaging-fulham-draw"
+ ]
+}

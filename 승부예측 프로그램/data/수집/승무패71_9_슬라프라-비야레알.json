@@ -1,0 +1,146 @@
+{
+ "번호": 9,
+ "홈": "Slavia Prague",
+ "원정": "Villarreal",
+ "리그": "UEFA 챔피언스리그",
+ "수집시각": "2026-11-23 KST",
+ "구장": "Fortuna Arena(Eden Arena), Prague — 2026-11-25 17:45 GMT (starting11)",
+ "UCL순위": {
+  "홈": "34위 4경기 0승1무3패 GD-4 승점1 (팩트시트 2026-11-23)",
+  "원정": "카드·검색: 4경기 승점3 1승3패 GD-6 (검색 요약, 순위 숫자는 확인 안 됨)"
+ },
+ "리그순위": {
+  "홈": "확인 안 됨 (2026-27 체코 1부 순위 검색 실패; 검색 결과는 2025-26 시즌뿐)",
+  "원정": "라리가 10위 13경기 4승3무6패 GD+1 승점15 (teamdb 2026-11-23)"
+ },
+ "결장": [
+  {
+   "팀": "원정",
+   "선수": "Mouriño",
+   "포지션": "DF",
+   "사유": "옐로 3장 누적 출장정지",
+   "상태": "의심",
+   "비중": "확인 안 됨",
+   "출처": "https://starting11.com/fixtures/slavia-praha-vs-villarreal",
+   "날짜": "2026-11-23"
+  },
+  {
+   "팀": "원정",
+   "선수": "Gerard Moreno",
+   "포지션": "FW",
+   "사유": "근육 부상",
+   "상태": "의심",
+   "비중": "카드: xG+xA 11%",
+   "출처": "https://starting11.com/fixtures/slavia-praha-vs-villarreal",
+   "날짜": "2026-11-23"
+  },
+  {
+   "팀": "원정",
+   "선수": "Ilias Akhomach",
+   "포지션": "FW",
+   "사유": "근육 부상",
+   "상태": "의심",
+   "비중": "카드: 6%",
+   "출처": "https://starting11.com/fixtures/slavia-praha-vs-villarreal",
+   "날짜": "2026-11-23"
+  },
+  {
+   "팀": "원정",
+   "선수": "Diatta",
+   "포지션": "MF",
+   "사유": "근육 부상",
+   "상태": "의심",
+   "비중": "",
+   "출처": "https://starting11.com/fixtures/slavia-praha-vs-villarreal",
+   "날짜": "2026-11-23"
+  },
+  {
+   "팀": "원정",
+   "선수": "Foyth",
+   "포지션": "DF",
+   "사유": "근육 부상",
+   "상태": "의심",
+   "비중": "",
+   "출처": "https://starting11.com/fixtures/slavia-praha-vs-villarreal",
+   "날짜": "2026-11-23"
+  },
+  {
+   "팀": "원정",
+   "선수": "Tajon Buchanan",
+   "포지션": "MF",
+   "사유": "근육 부상(다른 검색 요약에만, 위 starting11 본문엔 없음)",
+   "상태": "의심",
+   "비중": "카드: 7%",
+   "출처": "WebSearch 요약 starting11",
+   "날짜": "2026-11-23"
+  }
+ ],
+ "감독": [
+  {
+   "팀": "홈",
+   "내용": "Jindřich Trpišovský (팩트시트). 기자회견 확인 안 됨",
+   "출처": "팩트시트_승무패71.md",
+   "날짜": "2026-11-23"
+  },
+  {
+   "팀": "원정",
+   "내용": "Iñigo Pérez (팩트시트). 기자회견 확인 안 됨",
+   "출처": "팩트시트_승무패71.md",
+   "날짜": "2026-11-23"
+  }
+ ],
+ "예상선발": [
+  "Slavia(Squawka 예측 4-2-3-1, 날짜 불명): Nikola Zima? 표기 그대로 — N. Domchak, O. Kubiak, D. Zima, T. Holes, T. Vlcek, M. Sadilek, D. Moses, D. Sturm, M. Suleiman, E. Ayaosi, W. Nowak (출처 squawka.com/ca/?p=25080, 날짜·신뢰도 불명)",
+  "Villarreal 예측: GK Gulácsi (같은 출처)"
+ ],
+ "직전경기": {
+  "홈": "체코 리그 직전 경기 날짜·스코어 확인 안 됨",
+  "원정": "2026-11-22 Barcelona 원정 2-3 패 (teamdb/ESPN, 선발 교체 수 평균 4.0; 직전 선발 Gulácsi, Veiga, Navarro, Romero, Freeman, Gueye, Comesaña, Oluwaseyi, Buchanan, Mikautadze, Moleiro)"
+ },
+ "다음경기": {
+  "홈": "체코 리그 경기 UCL 3일 뒤 (starting11, 상대 확인 안 됨)",
+  "원정": "리그 경기 3일 뒤 (starting11, 상대 확인 안 됨)"
+ },
+ "최근경기": {
+  "홈": [
+   "2026-10-13 Sabah FK 2-0 Slavia",
+   "2026-10-20 Fenerbahce 2-2 Slavia",
+   "2026-11-04 Slavia 1-2 Arsenal (UCL, 팩트시트)",
+   "체코 리그 최근 5경기 확인 안 됨 (검색 결과 L L D L 언급뿐, 출처 불명)"
+  ],
+  "원정": [
+   "09-17 원정 3-1W",
+   "09-20 홈 3-1W",
+   "10-24 원정 2-1W",
+   "10-30 홈 0-1L Espanyol",
+   "11-08 홈 2-0 Getafe",
+   "11-22 원정 2-3 Barcelona (teamdb)"
+  ]
+ },
+ "맞대결": [
+  "2017-18 유로파리그 맞대결 존재(검색 결과, 상세 확인 안 됨)"
+ ],
+ "걸린것": [
+  "Slavia UCL 4경기 승점1(34위) — 팩트시트",
+  "Villarreal 승점 3 4경기 (검색 요약)"
+ ],
+ "사실": [
+  "starting11: 두 팀 모두 UCL 3일 뒤 리그 경기, 로테이션 가능 표기(출처 자체가 '보고된 가용성, 확정 아님' 명시)",
+  "starting11: Slavia 결장 없음 보고",
+  "상충: 다른 검색 요약은 'Sin bajas confirmadas'(결장 확정 없음) 언급"
+ ],
+ "확인안됨": [
+  "Slavia 체코 리그 순위·최근 5경기·직전 경기 날짜",
+  "기자회견",
+  "공식 UCL 명단 등록",
+  "Villarreal 결장 출처 이중 확인(단일 집계 사이트뿐)",
+  "Mouriño 등 이름은 풀네임·역할 미확인"
+ ],
+ "출처": [
+  "https://starting11.com/fixtures/slavia-praha-vs-villarreal",
+  "https://www.squawka.com/ca/?p=25080",
+  "https://www.uefa.com/uefachampionsleague/match/2049641--slavia-praha-vs-villarreal/lineups/",
+  "팩트시트_승무패71.md",
+  "t71card_9.md"
+ ]
+}

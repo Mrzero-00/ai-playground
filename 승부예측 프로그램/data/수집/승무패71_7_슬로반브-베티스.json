@@ -1,0 +1,77 @@
+{
+ "번호": 7,
+ "홈": "Slovan Bratislava",
+ "원정": "Real Betis",
+ "리그": "UEFA 챔피언스리그",
+ "수집시각": "2026-11-23 KST",
+ "구장": "Tehelné pole (Národný futbalový štadión), Bratislava — 2026-11-24 20:00 현지 (Sky Sports)",
+ "UCL순위": {
+  "홈": "36위 4경기 0승0무4패 득1실17 GD-16 승점0 (Sky Sports, 11-18 기준)",
+  "원정": "11위 4경기 3승0무1패 득8실6 GD+2 승점9 (Sky Sports, 11-18 기준; 9~24위 플레이오프권)"
+ },
+ "리그순위": {
+  "홈": "확인 안 됨",
+  "원정": "라리가 4위 13경기 8승3무2패 승점27 (카드/팩트시트, 2026-11-23)"
+ },
+ "결장": [],
+ "감독": [
+  {
+   "팀": "홈",
+   "내용": "Yaya Touré (팩트시트 기재)",
+   "출처": "팩트시트_승무패71.md",
+   "날짜": "2026-11-23"
+  },
+  {
+   "팀": "원정",
+   "내용": "Manuel Pellegrini (팩트시트 기재). 경기 전 기자회견 확인 안 됨",
+   "출처": "팩트시트_승무패71.md",
+   "날짜": "2026-11-23"
+  }
+ ],
+ "예상선발": [
+  "Squawka 예상: Betis 4-2-3-1 (Ezzalzouli 포함), 비공식 — https://www.squawka.com/ca/?p=24787 (검색 요약만, 페이지 403)"
+ ],
+ "직전경기": {
+  "홈": "11-03 LASK Linz 4-0 Slovan(UCL). 주말 리그 경기 확인 안 됨",
+  "원정": "2026-11-21 Sevilla 원정 1-1 (카드 ESPN; 슈팅 6(3):25(6)), 선발 교체수 3.6. 11-04 Dortmund 2-1 Betis(UCL, 팩트시트·Squawka 일치)"
+ },
+ "다음경기": {
+  "홈": "확인 안 됨",
+  "원정": "확인 안 됨"
+ },
+ "최근경기": {
+  "홈": [
+   "UCL 10-14 Slovan 0-3 Stuttgart",
+   "10-20 Roma 4-0 Slovan",
+   "11-03 LASK 4-0 Slovan (팩트시트)"
+  ],
+  "원정": [
+   "10-31 홈 Málaga 2-1",
+   "11-08 원정 Elche 2-0",
+   "11-21 원정 Sevilla 1-1 (teamdb 카드)"
+  ]
+ },
+ "맞대결": [],
+ "걸린것": [
+  "Slovan 4연패 0점 최하위 36위(Sky Sports)",
+  "Betis 11위 9점 플레이오프권"
+ ],
+ "사실": [
+  "UEFA 경기 페이지 GK 등 명단 미공개, 선발은 킥오프 60분 전 공개 (Bundesliga.com/UEFA 페이지, 검색 요약)",
+  "Sky Sports 순위: https://www.skysports.com/football/sk-slovan-bratislava-vs-real-betis/table/577677 (2026-11-18 갱신)"
+ ],
+ "확인안됨": [
+  "양 팀 부상·결장·출장정지 (현재자 보도 못 찾음)",
+  "UCL 등록 명단",
+  "감독 기자회견",
+  "직전 Slovan 리그 경기",
+  "Betis 11-21 Sevilla전 선발 이탈 선수(카드 직전 선발: Valles, Natan, Bartra, Fran García, Bellerín, Isco, Roca, Fornals, Ruibal, Ezzalzouli, Antony)",
+  "검색이 오래된 Betis 부상 기사(2024~2026 초)만 반환 — 현재 사실로 쓰지 않음"
+ ],
+ "출처": [
+  "https://www.skysports.com/football/sk-slovan-bratislava-vs-real-betis/table/577677",
+  "https://www.uefa.com/uefachampionsleague/match/2049632--s-bratislava-vs-real-betis/matchinfo/",
+  "https://www.bundesliga.com/en/champions-league/matchday/2026-2027/5/sk-slovan-bratislava-vs-real-betis-balompie-sevilla/lineup",
+  "https://www.squawka.com/ca/?p=24787"
+ ]
+}

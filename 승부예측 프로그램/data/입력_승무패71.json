@@ -1,0 +1,1283 @@
+{
+ "1": {
+  "번호": "1",
+  "경기": "보되글림 - LASK",
+  "리그": "UEFA 챔피언스리그",
+  "시각": "2026-11-25 02:45",
+  "수집": "11-23 09:13",
+  "홈": {
+   "팀": "보되글림",
+   "eng": "Bodo/Glimt",
+   "직전": "11-04 홈 vs Lille 0-0 무 [uefa.champions]",
+   "휴식일": 20.9,
+   "휴식일주의": "ESPN에 없는 리그일 수 있음(21일 내 경기 없음) — 실제 휴식일은 더 짧을 수 있음",
+   "최근7일경기": 0,
+   "직전event": "401915384",
+   "xg": null,
+   "직전선발": [
+    "Nikita Haykin",
+    "Haitam Aleesami",
+    "Odin Bjørtuft",
+    "Fredrik André Bjørkan",
+    "Fredrik Sjøvold",
+    "Patrick Berg",
+    "Sondre Brunstad Fet",
+    "Sondre Auklend",
+    "Andreas Helmersen",
+    "Jens Petter Hauge",
+    "Ole Didrik Blomberg"
+   ],
+   "직전포메이션": "4-3-3"
+  },
+  "원정": {
+   "팀": "LASK",
+   "eng": "LASK Linz",
+   "직전": "11-04 홈 vs Slovan Bratislava 4-0 승 [uefa.champions]",
+   "휴식일": 20.9,
+   "휴식일주의": "ESPN에 없는 리그일 수 있음(21일 내 경기 없음) — 실제 휴식일은 더 짧을 수 있음",
+   "최근7일경기": 0,
+   "직전event": "401915385",
+   "xg": null,
+   "직전선발": [
+    "Lukas Jungwirth",
+    "Alemão",
+    "Andrés Andrade",
+    "Xavier Mbuyamba",
+    "Melayro Bogarde",
+    "Sascha Horvath",
+    "Robert Ljubicic",
+    "Yvan Dibango",
+    "Kasper Jørgensen",
+    "Samuel Adeniran",
+    "Moses Usor"
+   ],
+   "직전포메이션": "3-1-4-2"
+  },
+  "환경": {
+   "구장": "Aspmyra Stadion",
+   "구장고도": 19,
+   "원정홈": "린처 슈타다온",
+   "원정홈고도": 326,
+   "이동km": 2111,
+   "고도차": -307,
+   "날씨": {
+    "기온": -1.4,
+    "습도": 70,
+    "강수mm": 0,
+    "강수확률": 0,
+    "풍속": 11.2,
+    "출처": "Open-Meteo forecast 11-23 09:13"
+   },
+   "출처": [
+    "Wikidata Q478167→Q376674 · Open-Meteo 고도",
+    "Wikidata Q392310→Q686798 · Open-Meteo 고도"
+   ],
+   "주의": [
+    "장거리 원정 2111km",
+    "기온 -1.4℃"
+   ]
+  },
+  "라인업": "미발표(킥오프 41.5h 전)",
+  "event": "401915380"
+ },
+ "2": {
+  "번호": "2",
+  "경기": "갈라타사 - A빌라",
+  "리그": "UEFA 챔피언스리그",
+  "시각": "2026-11-25 02:45",
+  "수집": "11-23 09:13",
+  "홈": {
+   "팀": "갈라타사",
+   "eng": "Galatasaray",
+   "직전": "11-04 홈 vs VfB Stuttgart 2-0 승 [uefa.champions]",
+   "휴식일": 21.0,
+   "휴식일주의": "ESPN에 없는 리그일 수 있음(21일 내 경기 없음) — 실제 휴식일은 더 짧을 수 있음",
+   "최근7일경기": 0,
+   "직전event": "401915311",
+   "xg": null,
+   "직전선발": [
+    "Ugurcan Çakir",
+    "Abdülkerim Bardakçi",
+    "Davinson Sánchez",
+    "Ismail Jakobs",
+    "Roland Sallai",
+    "Alexey Batrakov",
+    "Mario Lemina",
+    "Lucas Torreira",
+    "Victor Osimhen",
+    "Baris Alper Yilmaz",
+    "Yunus Akgün"
+   ],
+   "직전포메이션": "4-2-3-1"
+  },
+  "원정": {
+   "팀": "A빌라",
+   "eng": "Aston Villa",
+   "직전": "11-04 원정 vs Barcelona 0-3 패 [uefa.champions]",
+   "휴식일": 20.9,
+   "휴식일주의": "ESPN에 없는 리그일 수 있음(21일 내 경기 없음) — 실제 휴식일은 더 짧을 수 있음",
+   "최근7일경기": 0,
+   "직전event": "401915387",
+   "xg": {
+    "n": 9,
+    "xg": 1.31,
+    "xga": 2.01,
+    "npxgd": -0.79,
+    "l5_xg": 1.7,
+    "l5_xga": 1.8,
+    "l5_npxgd": -0.24,
+    "home_xgd": -1.06,
+    "away_xgd": -0.44,
+    "xpts": 9.3,
+    "pts": 12
+   },
+   "xg_src": "Understat EPL Aston Villa",
+   "직전선발": [
+    "Zion Suzuki",
+    "Pau Torres",
+    "Victor Lindelöf",
+    "Ian Maatsen",
+    "Matty Cash",
+    "Johan Manzambi",
+    "Boubacar Kamara",
+    "João Gomes",
+    "Nicolas Jackson",
+    "Emiliano Buendía",
+    "John McGinn"
+   ],
+   "직전포메이션": "4-2-3-1"
+  },
+  "환경": {
+   "구장": "튀르크 텔레콤 아레나",
+   "구장고도": 72,
+   "원정홈": "빌라 파크",
+   "원정홈고도": 101,
+   "이동km": 2642,
+   "고도차": -29,
+   "날씨": {
+    "기온": 6.2,
+    "습도": 64,
+    "강수mm": 0,
+    "강수확률": 0,
+    "풍속": 1.8,
+    "출처": "Open-Meteo forecast 11-23 09:14"
+   },
+   "출처": [
+    "Wikidata Q495299→Q81492 · Open-Meteo 고도",
+    "Wikidata Q18711→Q175339 · Open-Meteo 고도"
+   ],
+   "주의": [
+    "장거리 원정 2642km"
+   ]
+  },
+  "라인업": "미발표(킥오프 41.5h 전)",
+  "event": "401915300"
+ },
+ "3": {
+  "번호": "3",
+  "경기": "맨체스C - 나폴리",
+  "리그": "UEFA 챔피언스리그",
+  "시각": "2026-11-25 05:00",
+  "수집": "11-23 09:13",
+  "홈": {
+   "팀": "맨체스C",
+   "eng": "Manchester City",
+   "직전": "11-05 원정 vs RB Leipzig 3-2 승 [uefa.champions]",
+   "휴식일": 20.0,
+   "휴식일주의": "ESPN에 없는 리그일 수 있음(21일 내 경기 없음) — 실제 휴식일은 더 짧을 수 있음",
+   "최근7일경기": 0,
+   "직전event": "401915306",
+   "xg": {
+    "n": 9,
+    "xg": 2.4,
+    "xga": 1.28,
+    "npxgd": 1.2,
+    "l5_xg": 2.64,
+    "l5_xga": 1.49,
+    "l5_npxgd": 1.3,
+    "home_xgd": 1.3,
+    "away_xgd": 1.08,
+    "xpts": 19.1,
+    "pts": 21
+   },
+   "xg_src": "Understat EPL Manchester City",
+   "직전선발": [
+    "Gianluigi Donnarumma",
+    "Marc Guéhi",
+    "Abdukodir Khusanov",
+    "Elliot Anderson",
+    "Nico O'Reilly",
+    "Matheus Nunes",
+    "Rayan Cherki",
+    "Enzo Fernández",
+    "Iliman Ndiaye",
+    "Phil Foden",
+    "Erling Haaland"
+   ],
+   "직전포메이션": "4-1-4-1"
+  },
+  "원정": {
+   "팀": "나폴리",
+   "eng": "Napoli",
+   "직전": "11-05 원정 vs FC Porto 1-4 패 [uefa.champions]",
+   "휴식일": 20.0,
+   "휴식일주의": "ESPN에 없는 리그일 수 있음(21일 내 경기 없음) — 실제 휴식일은 더 짧을 수 있음",
+   "최근7일경기": 0,
+   "직전event": "401915301",
+   "xg": {
+    "n": 10,
+    "xg": 2.09,
+    "xga": 1.16,
+    "npxgd": 0.77,
+    "l5_xg": 2.4,
+    "l5_xga": 1.01,
+    "l5_npxgd": 1.09,
+    "home_xgd": 1.25,
+    "away_xgd": 0.45,
+    "xpts": 19.9,
+    "pts": 14
+   },
+   "xg_src": "Understat Serie_A Napoli",
+   "직전선발": [
+    "Alex Meret",
+    "Amir Rrahmani",
+    "Rafa Marín",
+    "Sam Beukema",
+    "Scott McTominay",
+    "Frank Anguissa",
+    "Kevin De Bruyne",
+    "Antonio Vergara",
+    "Matteo Politano",
+    "Billy Gilmour",
+    "Rasmus Højlund"
+   ],
+   "직전포메이션": "3-5-1-1"
+  },
+  "환경": {
+   "구장": "시티 오브 맨체스터 스타디움",
+   "구장고도": 57,
+   "원정홈": "스타디오 디에고 아르만도 마라도나",
+   "원정홈고도": 35,
+   "이동km": 1866,
+   "고도차": 22,
+   "날씨": {
+    "기온": 5.8,
+    "습도": 88,
+    "강수mm": 0.9,
+    "강수확률": 58,
+    "풍속": 16.9,
+    "출처": "Open-Meteo forecast 11-23 09:14"
+   },
+   "출처": [
+    "Wikidata Q50602→Q48159 · Open-Meteo 고도",
+    "Wikidata Q2641→Q82709 · Open-Meteo 고도"
+   ],
+   "주의": [
+    "장거리 원정 1866km"
+   ]
+  },
+  "라인업": "미발표(킥오프 43.8h 전)",
+  "event": "401915379"
+ },
+ "4": {
+  "번호": "4",
+  "경기": "아스널 - 도르트문",
+  "리그": "UEFA 챔피언스리그",
+  "시각": "2026-11-25 05:00",
+  "수집": "11-23 09:13",
+  "홈": {
+   "팀": "아스널",
+   "eng": "Arsenal",
+   "직전": "11-05 원정 vs Slavia Prague 2-1 승 [uefa.champions]",
+   "휴식일": 20.0,
+   "휴식일주의": "ESPN에 없는 리그일 수 있음(21일 내 경기 없음) — 실제 휴식일은 더 짧을 수 있음",
+   "최근7일경기": 0,
+   "직전event": "401915381",
+   "xg": {
+    "n": 9,
+    "xg": 1.76,
+    "xga": 1.04,
+    "npxgd": 0.72,
+    "l5_xg": 1.53,
+    "l5_xga": 1.2,
+    "l5_npxgd": 0.33,
+    "home_xgd": 1.59,
+    "away_xgd": 0.02,
+    "xpts": 17.0,
+    "pts": 24
+   },
+   "xg_src": "Understat EPL Arsenal",
+   "직전선발": [
+    "David Raya",
+    "Gabriel Magalhães",
+    "Ezri Konsa",
+    "Piero Hincapié",
+    "Ben White",
+    "Mikel Merino",
+    "Declan Rice",
+    "Martín Zubimendi",
+    "Viktor Gyökeres",
+    "Eberechi Eze",
+    "Noni Madueke"
+   ],
+   "직전포메이션": "4-2-3-1"
+  },
+  "원정": {
+   "팀": "도르트문",
+   "eng": "Borussia Dortmund",
+   "직전": "11-05 홈 vs Real Betis 2-1 승 [uefa.champions]",
+   "휴식일": 20.0,
+   "휴식일주의": "ESPN에 없는 리그일 수 있음(21일 내 경기 없음) — 실제 휴식일은 더 짧을 수 있음",
+   "최근7일경기": 0,
+   "직전event": "401915304",
+   "xg": {
+    "n": 8,
+    "xg": 1.82,
+    "xga": 1.33,
+    "npxgd": 0.58,
+    "l5_xg": 1.61,
+    "l5_xga": 1.41,
+    "l5_npxgd": 0.35,
+    "home_xgd": 1.42,
+    "away_xgd": -0.26,
+    "xpts": 14.1,
+    "pts": 18
+   },
+   "xg_src": "Understat Bundesliga Borussia Dortmund",
+   "직전선발": [
+    "Gregor Kobel",
+    "Nico Schlotterbeck",
+    "Ramy Bensebaini",
+    "Waldemar Anton",
+    "Felix Nmecha",
+    "Joey Veerman",
+    "Daniel Svensson",
+    "Julian Ryerson",
+    "Serhou Guirassy",
+    "Fábio Silva",
+    "Jobe Bellingham"
+   ],
+   "직전포메이션": "3-4-2-1"
+  },
+  "환경": {
+   "구장": "아스널 스타디움(구단 좌표 — 구장 미확인)",
+   "구장고도": 32,
+   "원정홈": "지그날 이두나 파크(구단 좌표 — 구장 미확인)",
+   "원정홈고도": 90,
+   "이동km": 522,
+   "고도차": -58,
+   "날씨": {
+    "기온": 5.0,
+    "습도": 81,
+    "강수mm": 0,
+    "강수확률": 0,
+    "풍속": 14.0,
+    "출처": "Open-Meteo forecast 11-23 09:14"
+   },
+   "출처": [
+    "Wikidata Q205309→구단 · Open-Meteo 고도",
+    "Wikidata Q150928→구단 · Open-Meteo 고도"
+   ],
+   "주의": []
+  },
+  "라인업": "미발표(킥오프 43.8h 전)",
+  "event": "401915295"
+ },
+ "5": {
+  "번호": "5",
+  "경기": "페예노르 - 포르투",
+  "리그": "UEFA 챔피언스리그",
+  "시각": "2026-11-25 05:00",
+  "수집": "11-23 09:13",
+  "홈": {
+   "팀": "페예노르",
+   "eng": "Feyenoord Rotterdam",
+   "직전": "11-04 홈 vs Internazionale 0-3 패 [uefa.champions]",
+   "휴식일": 21.0,
+   "휴식일주의": "ESPN에 없는 리그일 수 있음(21일 내 경기 없음) — 실제 휴식일은 더 짧을 수 있음",
+   "최근7일경기": 0,
+   "직전event": "401915307",
+   "xg": null,
+   "직전선발": [
+    "Tjark Ernst",
+    "Mika Mármol",
+    "Thijs Kraaijeveld",
+    "Javi López",
+    "Givairo Read",
+    "Charles Vanhoutte",
+    "Oussama Targhaline",
+    "Gjivai Zechiël",
+    "Nacho Ferri",
+    "Luciano Valente",
+    "Anis Hadj Moussa"
+   ],
+   "직전포메이션": "4-3-3"
+  },
+  "원정": {
+   "팀": "포르투",
+   "eng": "FC Porto",
+   "직전": "11-05 홈 vs Napoli 4-1 승 [uefa.champions]",
+   "휴식일": 20.0,
+   "휴식일주의": "ESPN에 없는 리그일 수 있음(21일 내 경기 없음) — 실제 휴식일은 더 짧을 수 있음",
+   "최근7일경기": 0,
+   "직전event": "401915301",
+   "xg": null,
+   "직전선발": [
+    "Diogo Costa",
+    "Jakub Kiwior",
+    "Jan Bednarek",
+    "Martim Fernandes",
+    "Alberto Costa",
+    "Pablo Rosario",
+    "Gabri Veiga",
+    "Victor Froholdt",
+    "André Silva",
+    "Borja Sainz",
+    "Pepê"
+   ],
+   "직전포메이션": "4-3-3"
+  },
+  "환경": {
+   "구장": "스타디온 페예노르트",
+   "구장고도": 3,
+   "원정홈": "이스타디우 두 드라강",
+   "원정홈고도": 128,
+   "이동km": 1554,
+   "고도차": -125,
+   "날씨": {
+    "기온": 1.1,
+    "습도": 85,
+    "강수mm": 0,
+    "강수확률": 0,
+    "풍속": 19.1,
+    "출처": "Open-Meteo forecast 11-23 09:14"
+   },
+   "출처": [
+    "Wikidata Q134241→Q330298 · Open-Meteo 고도",
+    "Wikidata Q128446→Q271454 · Open-Meteo 고도"
+   ],
+   "주의": [
+    "장거리 원정 1554km"
+   ]
+  },
+  "라인업": "미발표(킥오프 43.8h 전)",
+  "event": "401915294"
+ },
+ "6": {
+  "번호": "6",
+  "경기": "라이프치 - RC랑스",
+  "리그": "UEFA 챔피언스리그",
+  "시각": "2026-11-25 05:00",
+  "수집": "11-23 09:13",
+  "홈": {
+   "팀": "라이프치",
+   "eng": "RB Leipzig",
+   "직전": "11-05 홈 vs Manchester City 2-3 패 [uefa.champions]",
+   "휴식일": 20.0,
+   "휴식일주의": "ESPN에 없는 리그일 수 있음(21일 내 경기 없음) — 실제 휴식일은 더 짧을 수 있음",
+   "최근7일경기": 0,
+   "직전event": "401915306",
+   "xg": null,
+   "직전선발": [
+    "Maarten Vandevoordt",
+    "Castello Lukeba",
+    "Willi Orbán",
+    "David Raum",
+    "Ridle Baku",
+    "Christoph Baumgartner",
+    "Ezechiel Banzuzi",
+    "Neil El Aynaoui",
+    "Rômulo",
+    "Antonio Nusa",
+    "Brajan Gruda"
+   ],
+   "직전포메이션": "4-3-3"
+  },
+  "원정": {
+   "팀": "RC랑스",
+   "eng": "Lens",
+   "직전": "11-05 홈 vs Como 1-9 패 [uefa.champions]",
+   "휴식일": 20.0,
+   "휴식일주의": "ESPN에 없는 리그일 수 있음(21일 내 경기 없음) — 실제 휴식일은 더 짧을 수 있음",
+   "최근7일경기": 0,
+   "직전event": "401915305",
+   "xg": {
+    "n": 9,
+    "xg": 1.87,
+    "xga": 1.51,
+    "npxgd": 0.19,
+    "l5_xg": 1.16,
+    "l5_xga": 1.37,
+    "l5_npxgd": -0.21,
+    "home_xgd": 0.77,
+    "away_xgd": -0.27,
+    "xpts": 13.7,
+    "pts": 13
+   },
+   "xg_src": "Understat Ligue_1 Lens",
+   "직전선발": [
+    "Robin Risser",
+    "Samson Baidoo",
+    "Kyllian Antonio",
+    "Ruben Aguilar",
+    "Amadou Haidara",
+    "Michaël Cuisance",
+    "Matthieu Udol",
+    "Michal Skoras",
+    "Franjo Ivanovic",
+    "Thorgan Hazard",
+    "Florian Thauvin"
+   ],
+   "직전포메이션": "3-4-2-1"
+  },
+  "환경": {
+   "구장": "레드불 아레나",
+   "구장고도": 117,
+   "원정홈": "스타드 펠릭스 볼라르트",
+   "원정홈고도": 42,
+   "이동km": 676,
+   "고도차": 75,
+   "날씨": {
+    "기온": 0.3,
+    "습도": 85,
+    "강수mm": 0,
+    "강수확률": 0,
+    "풍속": 2.8,
+    "출처": "Open-Meteo forecast 11-23 09:15"
+   },
+   "출처": [
+    "Wikidata Q702455→Q210466 · Open-Meteo 고도",
+    "Wikidata Q191843→Q854122 · Open-Meteo 고도"
+   ],
+   "주의": []
+  },
+  "라인업": "미발표(킥오프 43.8h 전)",
+  "event": "401915299"
+ },
+ "7": {
+  "번호": "7",
+  "경기": "슬로반브 - 베티스",
+  "리그": "UEFA 챔피언스리그",
+  "시각": "2026-11-25 05:00",
+  "수집": "11-23 09:13",
+  "홈": {
+   "팀": "슬로반브",
+   "eng": "Slovan Bratislava",
+   "직전": "11-04 원정 vs LASK Linz 0-4 패 [uefa.champions]",
+   "휴식일": 21.0,
+   "휴식일주의": "ESPN에 없는 리그일 수 있음(21일 내 경기 없음) — 실제 휴식일은 더 짧을 수 있음",
+   "최근7일경기": 0,
+   "직전event": "401915385",
+   "xg": null,
+   "직전선발": [
+    "Aleksander Popovic",
+    "Svetozar Markovic",
+    "Kevin Wimmer",
+    "Sahmkou Camara",
+    "Alen Mustafic",
+    "Cristian Martínez",
+    "Samuel Kozlovsky",
+    "César Blackman",
+    "Andraz Sporar",
+    "Suleiman Camara",
+    "Alexej Maros"
+   ],
+   "직전포메이션": "3-4-2-1"
+  },
+  "원정": {
+   "팀": "베티스",
+   "eng": "Real Betis",
+   "직전": "11-05 원정 vs Borussia Dortmund 1-2 패 [uefa.champions]",
+   "휴식일": 20.0,
+   "휴식일주의": "ESPN에 없는 리그일 수 있음(21일 내 경기 없음) — 실제 휴식일은 더 짧을 수 있음",
+   "최근7일경기": 0,
+   "직전event": "401915304",
+   "xg": {
+    "n": 11,
+    "xg": 1.85,
+    "xga": 1.74,
+    "npxgd": 0.11,
+    "l5_xg": 1.64,
+    "l5_xga": 1.65,
+    "l5_npxgd": -0.16,
+    "home_xgd": 0.16,
+    "away_xgd": 0.06,
+    "xpts": 16.1,
+    "pts": 23
+   },
+   "xg_src": "Understat La_liga Real Betis",
+   "직전선발": [
+    "Álvaro Valles",
+    "Natan",
+    "Diego Llorente",
+    "Valentín Gómez",
+    "Ángel Ortiz",
+    "Nelson Deossa",
+    "Dani Ceballos",
+    "Facundo Bernal",
+    "Troy Parrott",
+    "Abde Ezzalzouli",
+    "Antony"
+   ],
+   "직전포메이션": "4-2-3-1"
+  },
+  "환경": {
+   "구장": "Štadión Pasienky",
+   "구장고도": 135,
+   "원정홈": "에스타디오 베니토 비야마린",
+   "원정홈고도": 4,
+   "이동km": 2224,
+   "고도차": 131,
+   "날씨": {
+    "기온": -0.2,
+    "습도": 78,
+    "강수mm": 0,
+    "강수확률": 0,
+    "풍속": 3.1,
+    "출처": "Open-Meteo forecast 11-23 09:15"
+   },
+   "출처": [
+    "Wikidata Q192253→Q392305 · Open-Meteo 고도",
+    "Wikidata Q8723→Q126844 · Open-Meteo 고도"
+   ],
+   "주의": [
+    "장거리 원정 2224km",
+    "기온 -0.2℃"
+   ]
+  },
+  "라인업": "미발표(킥오프 43.8h 전)",
+  "event": "401915297"
+ },
+ "8": {
+  "번호": "8",
+  "경기": "코모1907 - AEK아테",
+  "리그": "UEFA 챔피언스리그",
+  "시각": "2026-11-25 05:00",
+  "수집": "11-23 09:13",
+  "홈": {
+   "팀": "코모1907",
+   "eng": "Como",
+   "직전": "11-05 원정 vs Lens 9-1 승 [uefa.champions]",
+   "휴식일": 20.0,
+   "휴식일주의": "ESPN에 없는 리그일 수 있음(21일 내 경기 없음) — 실제 휴식일은 더 짧을 수 있음",
+   "최근7일경기": 0,
+   "직전event": "401915305",
+   "xg": {
+    "n": 10,
+    "xg": 2.22,
+    "xga": 1.37,
+    "npxgd": 0.78,
+    "l5_xg": 2.13,
+    "l5_xga": 1.16,
+    "l5_npxgd": 0.82,
+    "home_xgd": 1.43,
+    "away_xgd": 0.34,
+    "xpts": 19.6,
+    "pts": 23
+   },
+   "xg_src": "Understat Serie_A Como",
+   "직전선발": [
+    "Jean Butez",
+    "Marc-Oliver Kempf",
+    "Jacobo Ramón",
+    "Álex Valle",
+    "Yan Couto",
+    "Nico Paz",
+    "Luis Milla",
+    "Máximo Perrone",
+    "Tasos Douvikas",
+    "Maxence Caqueret",
+    "Lucas Da Cunha"
+   ],
+   "직전포메이션": "4-2-3-1"
+  },
+  "원정": {
+   "팀": "AEK아테",
+   "eng": "AEK아테",
+   "직전": "11-05 홈 vs Real Madrid 2-3 패 [uefa.champions]",
+   "휴식일": 20.1,
+   "휴식일주의": "ESPN에 없는 리그일 수 있음(21일 내 경기 없음) — 실제 휴식일은 더 짧을 수 있음",
+   "최근7일경기": 0,
+   "직전event": "401915383",
+   "xg": null,
+   "직전선발": [
+    "Alberto Brignoli",
+    "Filipe Relvas",
+    "Harold Moukoudi",
+    "Stavros Pilios",
+    "Lazaros Rota",
+    "Kaan Kairinen",
+    "Kervin Arriaga",
+    "Lovro Majer",
+    "Aboubakary Koita",
+    "Mijat Gacinovic",
+    "Luka Jovic"
+   ],
+   "직전포메이션": "4-4-2"
+  },
+  "환경": {
+   "구장": "Stadio Giuseppe Sinigaglia",
+   "구장고도": 201,
+   "원정홈": null,
+   "원정홈고도": null,
+   "이동km": null,
+   "고도차": null,
+   "날씨": {
+    "기온": 8.1,
+    "습도": 91,
+    "강수mm": 0.4,
+    "강수확률": 41,
+    "풍속": 2.5,
+    "출처": "Open-Meteo forecast 11-23 09:15"
+   },
+   "출처": [
+    "Wikidata Q1120838→Q115372 · Open-Meteo 고도",
+    "못찾음"
+   ],
+   "주의": []
+  },
+  "라인업": "미발표(킥오프 43.8h 전)",
+  "event": "401915296"
+ },
+ "9": {
+  "번호": "9",
+  "경기": "슬라프라 - 비야레알",
+  "리그": "UEFA 챔피언스리그",
+  "시각": "2026-11-26 02:45",
+  "수집": "11-23 09:13",
+  "홈": {
+   "팀": "슬라프라",
+   "eng": "Slavia Prague",
+   "직전": "11-05 홈 vs Arsenal 1-2 패 [uefa.champions]",
+   "휴식일": 20.9,
+   "휴식일주의": "ESPN에 없는 리그일 수 있음(21일 내 경기 없음) — 실제 휴식일은 더 짧을 수 있음",
+   "최근7일경기": 0,
+   "직전event": "401915381",
+   "xg": null,
+   "직전선발": [
+    "Nazar Domchak",
+    "David Zima",
+    "Tomás Holes",
+    "Oskar Kubiak",
+    "Tomás Vlcek",
+    "Mubarak Suleiman",
+    "Michal Sadílek",
+    "David Moses",
+    "Wiktor Nowak",
+    "Danijel Sturm",
+    "Emmanuel Dennis Ayaosi"
+   ],
+   "직전포메이션": "4-2-3-1"
+  },
+  "원정": {
+   "팀": "비야레알",
+   "eng": "Villarreal",
+   "직전": "11-04 홈 vs Paris Saint-Germain 0-6 패 [uefa.champions]",
+   "휴식일": 21.9,
+   "휴식일주의": "ESPN에 없는 리그일 수 있음(21일 내 경기 없음) — 실제 휴식일은 더 짧을 수 있음",
+   "최근7일경기": 0,
+   "직전event": "401915309",
+   "xg": {
+    "n": 11,
+    "xg": 2.23,
+    "xga": 1.34,
+    "npxgd": 0.82,
+    "l5_xg": 1.85,
+    "l5_xga": 0.86,
+    "l5_npxgd": 1.14,
+    "home_xgd": 0.87,
+    "away_xgd": 0.79,
+    "xpts": 19.6,
+    "pts": 12
+   },
+   "xg_src": "Understat La_liga Villarreal",
+   "직전선발": [
+    "Péter Gulácsi",
+    "Renato Veiga",
+    "Santiago Mouriño",
+    "Carlos Romero",
+    "Alex Freeman",
+    "Carlos Macià",
+    "Santi Comesaña",
+    "Pape Gueye",
+    "Ayoze Pérez",
+    "Tajon Buchanan",
+    "Nicolas Pépé"
+   ],
+   "직전포메이션": "4-2-3-1"
+  },
+  "환경": {
+   "구장": null,
+   "구장고도": null,
+   "원정홈": "Ciudad Deportiva Villarreal CF",
+   "원정홈고도": 46,
+   "이동km": null,
+   "고도차": null,
+   "날씨": null,
+   "출처": [
+    "못찾음",
+    "Wikidata Q1094113→Q2438875 · Open-Meteo 고도"
+   ],
+   "주의": []
+  },
+  "라인업": "미발표(킥오프 65.5h 전)",
+  "event": "401915293"
+ },
+ "10": {
+  "번호": "10",
+  "경기": "인테르 - 슈투트가",
+  "리그": "UEFA 챔피언스리그",
+  "시각": "2026-11-26 05:00",
+  "수집": "11-23 09:13",
+  "홈": {
+   "팀": "인테르",
+   "eng": "Internazionale",
+   "직전": "11-04 원정 vs Feyenoord Rotterdam 3-0 승 [uefa.champions]",
+   "휴식일": 22.0,
+   "휴식일주의": "ESPN에 없는 리그일 수 있음(21일 내 경기 없음) — 실제 휴식일은 더 짧을 수 있음",
+   "최근7일경기": 0,
+   "직전event": "401915307",
+   "xg": null,
+   "직전선발": [
+    "Josep Martínez",
+    "Manuel Akanji",
+    "Carlos Augusto",
+    "Yann Bisseck",
+    "Piotr Zielinski",
+    "Nicolò Barella",
+    "Hakan Çalhanoglu",
+    "Federico Dimarco",
+    "Djed Spence",
+    "Marcus Thuram",
+    "Pio Esposito"
+   ],
+   "직전포메이션": "3-5-2"
+  },
+  "원정": {
+   "팀": "슈투트가",
+   "eng": "VfB Stuttgart",
+   "직전": "11-04 원정 vs Galatasaray 0-2 패 [uefa.champions]",
+   "휴식일": 22.1,
+   "휴식일주의": "ESPN에 없는 리그일 수 있음(21일 내 경기 없음) — 실제 휴식일은 더 짧을 수 있음",
+   "최근7일경기": 0,
+   "직전event": "401915311",
+   "xg": {
+    "n": 8,
+    "xg": 2.3,
+    "xga": 2.57,
+    "npxgd": -0.27,
+    "l5_xg": 2.19,
+    "l5_xga": 2.13,
+    "l5_npxgd": 0.06,
+    "home_xgd": -0.48,
+    "away_xgd": -0.15,
+    "xpts": 10.2,
+    "pts": 9
+   },
+   "xg_src": "Understat Bundesliga VfB Stuttgart",
+   "직전선발": [
+    "Fabian Bredlow",
+    "Jeff Chabot",
+    "Maximilian Mittelstädt",
+    "Ramon Hendriks",
+    "Atakan Karazor",
+    "Grischa Prömel",
+    "Bilal El Khannouss",
+    "Chris Führich",
+    "Jamie Leweling",
+    "Ermedin Demirovic",
+    "Deniz Undav"
+   ],
+   "직전포메이션": "3-4-1-2"
+  },
+  "환경": {
+   "구장": "스타디오 주세페 메아차",
+   "구장고도": 139,
+   "원정홈": "MHP아레나",
+   "원정홈고도": 219,
+   "이동km": 369,
+   "고도차": -80,
+   "날씨": {
+    "기온": 7.2,
+    "습도": 95,
+    "강수mm": 8.4,
+    "강수확률": 98,
+    "풍속": 6.5,
+    "출처": "Open-Meteo forecast 11-23 09:16"
+   },
+   "출처": [
+    "Wikidata Q631→Q133566 · Open-Meteo 고도",
+    "Wikidata Q4512→Q152349 · Open-Meteo 고도"
+   ],
+   "주의": [
+    "비 8.4mm(98%)"
+   ]
+  },
+  "라인업": "미발표(킥오프 67.8h 전)",
+  "event": "401915376"
+ },
+ "11": {
+  "번호": "11",
+  "경기": "스포르CP - 맨체스U",
+  "리그": "UEFA 챔피언스리그",
+  "시각": "2026-11-26 05:00",
+  "수집": "11-23 09:13",
+  "홈": {
+   "팀": "스포르CP",
+   "eng": "Sporting CP",
+   "직전": "11-04 원정 vs Shakhtar Donetsk 1-0 승 [uefa.champions]",
+   "휴식일": 22.1,
+   "휴식일주의": "ESPN에 없는 리그일 수 있음(21일 내 경기 없음) — 실제 휴식일은 더 짧을 수 있음",
+   "최근7일경기": 0,
+   "직전event": "401915310",
+   "xg": null,
+   "직전선발": [
+    "Rui Silva",
+    "Eduardo Felicíssimo",
+    "Gonçalo Inácio",
+    "Eduardo Quaresma",
+    "Sergi Altimira",
+    "Silas Andersen",
+    "Issa Doumbia",
+    "Maxi Araújo",
+    "Geny Catamo",
+    "Fotis Ioannidis",
+    "Luis Suárez"
+   ],
+   "직전포메이션": "3-4-1-2"
+  },
+  "원정": {
+   "팀": "맨체스U",
+   "eng": "Manchester United",
+   "직전": "11-04 홈 vs AS Roma 3-2 승 [uefa.champions]",
+   "휴식일": 22.0,
+   "휴식일주의": "ESPN에 없는 리그일 수 있음(21일 내 경기 없음) — 실제 휴식일은 더 짧을 수 있음",
+   "최근7일경기": 0,
+   "직전event": "401915308",
+   "xg": {
+    "n": 9,
+    "xg": 1.64,
+    "xga": 1.78,
+    "npxgd": -0.14,
+    "l5_xg": 1.26,
+    "l5_xga": 2.1,
+    "l5_npxgd": -0.69,
+    "home_xgd": -0.2,
+    "away_xgd": -0.09,
+    "xpts": 10.8,
+    "pts": 7
+   },
+   "xg_src": "Understat EPL Manchester United",
+   "직전선발": [
+    "Senne Lammens",
+    "Ayden Heaven",
+    "Harry Maguire",
+    "Diogo Dalot",
+    "Leny Yoro",
+    "Bruno Fernandes",
+    "Kobbie Mainoo",
+    "Carlos Baleba",
+    "Bryan Mbeumo",
+    "Matheus Cunha",
+    "Amad Diallo"
+   ],
+   "직전포메이션": "4-2-3-1"
+  },
+  "환경": {
+   "구장": "이스타디우 조제 알발라드",
+   "구장고도": 78,
+   "원정홈": "올드 트래퍼드",
+   "원정홈고도": 18,
+   "이동km": 1716,
+   "고도차": 60,
+   "날씨": {
+    "기온": 12.5,
+    "습도": 83,
+    "강수mm": 0.2,
+    "강수확률": 5,
+    "풍속": 5.8,
+    "출처": "Open-Meteo forecast 11-23 09:16"
+   },
+   "출처": [
+    "Wikidata Q75729→Q287359 · Open-Meteo 고도",
+    "Wikidata Q18656→Q83457 · Open-Meteo 고도"
+   ],
+   "주의": [
+    "장거리 원정 1716km"
+   ]
+  },
+  "라인업": "미발표(킥오프 67.8h 전)",
+  "event": "401915373"
+ },
+ "12": {
+  "번호": "12",
+  "경기": "클뤼브뤼 - 리버풀",
+  "리그": "UEFA 챔피언스리그",
+  "시각": "2026-11-26 05:00",
+  "수집": "11-23 09:13",
+  "홈": {
+   "팀": "클뤼브뤼",
+   "eng": "Club Brugge",
+   "직전": "11-05 원정 vs PSV Eindhoven 2-1 승 [uefa.champions]",
+   "휴식일": 21.0,
+   "휴식일주의": "ESPN에 없는 리그일 수 있음(21일 내 경기 없음) — 실제 휴식일은 더 짧을 수 있음",
+   "최근7일경기": 0,
+   "직전event": "401915303",
+   "xg": null,
+   "직전선발": [
+    "Yann Sommer",
+    "Brandon Mechele",
+    "Jorne Spileers",
+    "Freddie Potts",
+    "Joaquin Seys",
+    "Kyriani Sabbe",
+    "Hans Vanaken",
+    "Hugo Vetlesen",
+    "Jan Virgili",
+    "Carlos Forbs",
+    "Nicolo Tresoldi"
+   ],
+   "직전포메이션": "4-1-4-1"
+  },
+  "원정": {
+   "팀": "리버풀",
+   "eng": "Liverpool",
+   "직전": "11-05 원정 vs Fenerbahce 2-3 패 [uefa.champions]",
+   "휴식일": 21.1,
+   "휴식일주의": "ESPN에 없는 리그일 수 있음(21일 내 경기 없음) — 실제 휴식일은 더 짧을 수 있음",
+   "최근7일경기": 0,
+   "직전event": "401915382",
+   "xg": {
+    "n": 9,
+    "xg": 1.45,
+    "xga": 1.28,
+    "npxgd": 0.17,
+    "l5_xg": 1.22,
+    "l5_xga": 1.11,
+    "l5_npxgd": 0.11,
+    "home_xgd": -0.09,
+    "away_xgd": 0.49,
+    "xpts": 13.4,
+    "pts": 15
+   },
+   "xg_src": "Understat EPL Liverpool",
+   "직전선발": [
+    "Alisson Becker",
+    "Virgil van Dijk",
+    "Jérémy Jacquet",
+    "Kostas Tsimikas",
+    "Joe Gomez",
+    "Dominik Szoboszlai",
+    "Alexis Mac Allister",
+    "Trey Nyoni",
+    "Bradley Barcola",
+    "Rio Ngumoha",
+    "Víctor Muñoz"
+   ],
+   "직전포메이션": "4-2-3-1"
+  },
+  "환경": {
+   "구장": null,
+   "구장고도": null,
+   "원정홈": "안필드",
+   "원정홈고도": 66,
+   "이동km": null,
+   "고도차": null,
+   "날씨": null,
+   "출처": [
+    "못찾음",
+    "Wikidata Q1130849→Q45671 · Open-Meteo 고도"
+   ],
+   "주의": []
+  },
+  "라인업": "미발표(킥오프 67.8h 전)",
+  "event": "401915292"
+ },
+ "13": {
+  "번호": "13",
+  "경기": "릴OSC - 바이뮌헨",
+  "리그": "UEFA 챔피언스리그",
+  "시각": "2026-11-26 05:00",
+  "수집": "11-23 09:13",
+  "홈": {
+   "팀": "릴OSC",
+   "eng": "Lille",
+   "직전": "11-04 원정 vs Bodo/Glimt 0-0 무 [uefa.champions]",
+   "휴식일": 22.0,
+   "휴식일주의": "ESPN에 없는 리그일 수 있음(21일 내 경기 없음) — 실제 휴식일은 더 짧을 수 있음",
+   "최근7일경기": 0,
+   "직전event": "401915384",
+   "xg": {
+    "n": 9,
+    "xg": 1.5,
+    "xga": 1.42,
+    "npxgd": -0.01,
+    "l5_xg": 1.61,
+    "l5_xga": 1.17,
+    "l5_npxgd": 0.29,
+    "home_xgd": 0.76,
+    "away_xgd": -0.96,
+    "xpts": 13.2,
+    "pts": 18
+   },
+   "xg_src": "Understat Ligue_1 Lille",
+   "직전선발": [
+    "Berke Özer",
+    "Isaac Cossier",
+    "Tanguy Nianzou",
+    "Calvin Verdonk",
+    "Nathan Ngoy",
+    "Maurits Kjaergaard",
+    "Benjamin André",
+    "Ngal'ayel Mukau",
+    "Hákon Haraldsson",
+    "Soriba Diaoune",
+    "Dilane Bakwa"
+   ],
+   "직전포메이션": "4-3-3"
+  },
+  "원정": {
+   "팀": "바이뮌헨",
+   "eng": "Bayern Munich",
+   "직전": "11-04 원정 vs Atlético Madrid 2-0 승 [uefa.champions]",
+   "휴식일": 22.0,
+   "휴식일주의": "ESPN에 없는 리그일 수 있음(21일 내 경기 없음) — 실제 휴식일은 더 짧을 수 있음",
+   "최근7일경기": 0,
+   "직전event": "401915386",
+   "xg": {
+    "n": 8,
+    "xg": 3.71,
+    "xga": 0.89,
+    "npxgd": 2.63,
+    "l5_xg": 4.1,
+    "l5_xga": 0.92,
+    "l5_npxgd": 2.88,
+    "home_xgd": 3.08,
+    "away_xgd": 2.18,
+    "xpts": 22.2,
+    "pts": 18
+   },
+   "xg_src": "Understat Bundesliga Bayern Munich",
+   "직전선발": [
+    "Manuel Neuer",
+    "Jonathan Tah",
+    "Dayot Upamecano",
+    "Josip Stanisic",
+    "Konrad Laimer",
+    "Lennart Karl",
+    "Tom Bischof",
+    "Joshua Kimmich",
+    "Harry Kane",
+    "Alphonso Davies",
+    "Michael Olise"
+   ],
+   "직전포메이션": "4-2-3-1"
+  },
+  "환경": {
+   "구장": "스타드 피에르 모루아",
+   "구장고도": 43,
+   "원정홈": "알리안츠 아레나",
+   "원정홈고도": 491,
+   "이동km": 669,
+   "고도차": -448,
+   "날씨": {
+    "기온": -0.1,
+    "습도": 78,
+    "강수mm": 0,
+    "강수확률": 10,
+    "풍속": 13.2,
+    "출처": "Open-Meteo forecast 11-23 09:17"
+   },
+   "출처": [
+    "Wikidata Q19516→Q1410402 · Open-Meteo 고도",
+    "Wikidata Q15789→Q127429 · Open-Meteo 고도"
+   ],
+   "주의": [
+    "기온 -0.1℃"
+   ]
+  },
+  "라인업": "미발표(킥오프 67.8h 전)",
+  "event": "401915377"
+ },
+ "14": {
+  "번호": "14",
+  "경기": "SH도네츠 - 페네르SK",
+  "리그": "UEFA 챔피언스리그",
+  "시각": "2026-11-26 05:00",
+  "수집": "11-23 09:13",
+  "홈": {
+   "팀": "SH도네츠",
+   "eng": "Shakhtar Donetsk",
+   "직전": "11-04 홈 vs Sporting CP 0-1 패 [uefa.champions]",
+   "휴식일": 22.1,
+   "휴식일주의": "ESPN에 없는 리그일 수 있음(21일 내 경기 없음) — 실제 휴식일은 더 짧을 수 있음",
+   "최근7일경기": 0,
+   "직전event": "401915310",
+   "xg": null,
+   "직전선발": [
+    "Dmytro Riznyk",
+    "Mykola Matviyenko",
+    "Valeriy Bondar",
+    "Yehor Nazaryna",
+    "Pedrinho",
+    "Vinícius Tobias",
+    "Marlon Gomes",
+    "Oleh Ocheretko",
+    "Gleiker Mendoza",
+    "Alisson Santana",
+    "Kauã Elias"
+   ],
+   "직전포메이션": "4-1-4-1"
+  },
+  "원정": {
+   "팀": "페네르SK",
+   "eng": "Fenerbahce",
+   "직전": "11-05 홈 vs Liverpool 3-2 승 [uefa.champions]",
+   "휴식일": 21.1,
+   "휴식일주의": "ESPN에 없는 리그일 수 있음(21일 내 경기 없음) — 실제 휴식일은 더 짧을 수 있음",
+   "최근7일경기": 0,
+   "직전event": "401915382",
+   "xg": null,
+   "직전선발": [
+    "Ederson",
+    "Kojo Peprah Oppong",
+    "Milan Skriniar",
+    "Archie Brown",
+    "Nélson Semedo",
+    "Ismail Yüksek",
+    "N'Golo Kanté",
+    "Matteo Guendouzi",
+    "Romelu Lukaku",
+    "Irfan Can Kahveci",
+    "Mason Greenwood"
+   ],
+   "직전포메이션": "4-3-3"
+  },
+  "환경": {
+   "구장": "돈바스 아레나",
+   "구장고도": 185,
+   "원정홈": "쉬크뤼 사라졸루 스타디움",
+   "원정홈고도": 4,
+   "이동km": 1045,
+   "고도차": 181,
+   "날씨": {
+    "기온": -0.4,
+    "습도": 82,
+    "강수mm": 0,
+    "강수확률": 21,
+    "풍속": 17.7,
+    "출처": "Open-Meteo forecast 11-23 09:17"
+   },
+   "출처": [
+    "Wikidata Q172969→Q180479 · Open-Meteo 고도",
+    "Wikidata Q6601875→Q222865 · Open-Meteo 고도"
+   ],
+   "주의": [
+    "장거리 원정 1045km",
+    "기온 -0.4℃"
+   ]
+  },
+  "라인업": "미발표(킥오프 67.8h 전)",
+  "event": "401915375"
+ }
+}

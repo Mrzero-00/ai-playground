@@ -1,0 +1,165 @@
+{
+ "번호": 2,
+ "홈": "Galatasaray",
+ "원정": "Aston Villa",
+ "리그": "UEFA 챔피언스리그",
+ "수집시각": "2026-11-23 KST",
+ "구장": "RAMS Park, 이스탄불 (출처: starting11 페이지 표기; 경기일 11/24, starting11 은 날짜를 9/8로 잘못 표기)",
+ "UCL순위": {
+  "홈": "확인 안 됨(팩트시트에 UCL 순위 없음; 4경기 중 1-4 Barcelona(10/13)·4-2 Lille 원정·2-0 Stuttgart(11/3) 확인)",
+  "원정": "확인 안 됨(UCL 경기: 6-0 Fenerbahce·3-1 Viking·0-3 Barcelona(11/3))"
+ },
+ "리그순위": {
+  "홈": "Süper Lig 1위 12경기 10승1무1패 GD+13 승점31 (팩트시트)",
+  "원정": "EPL 12위 11경기 3승5무3패 GD-3 승점14 (teamdb 카드, 2026-11-23)"
+ },
+ "결장": [
+  {
+   "팀": "홈",
+   "선수": "Victor Osimhen",
+   "포지션": "FW",
+   "사유": "좌무릎 부상(Stuttgart전 11/3), 수술 보도",
+   "상태": "의심",
+   "비중": "확인 안 됨",
+   "출처": "https://www.24saatgazetesi.com/galatasarayda-osimhenin-donus-tarihi-belli-oldu-leaodan-kotu-haber",
+   "날짜": "2026-11-06 경 (검색 요약, 본문 403; 최신 상태 확인 안 됨)"
+  },
+  {
+   "팀": "홈",
+   "선수": "Rafael Leão",
+   "포지션": "FW/LW",
+   "사유": "부상, Samsunspor·Aston Villa·Beşiktaş전 결장 예상 보도",
+   "상태": "의심",
+   "비중": "확인 안 됨",
+   "출처": "https://www.24saatgazetesi.com/galatasarayda-osimhenin-donus-tarihi-belli-oldu-leaodan-kotu-haber",
+   "날짜": "2026-11-06 경"
+  },
+  {
+   "팀": "홈",
+   "선수": "Günay Güvenç",
+   "포지션": "GK",
+   "사유": "근육 부상",
+   "상태": "의심",
+   "비중": "확인 안 됨",
+   "출처": "https://starting11.com/fixtures/galatasaray-vs-aston-villa",
+   "날짜": "불명"
+  },
+  {
+   "팀": "원정",
+   "선수": "Amadou Onana",
+   "포지션": "MF",
+   "사유": "무릎 장기 부상",
+   "상태": "확정",
+   "비중": "확인 안 됨",
+   "출처": "https://www.livescore.com/en/news/football/premier-league/aston-villa-vs-sunderland-early-injury-news-as-6-ruled-out-and-4-doubts-claret-villans/",
+   "날짜": "11/21 Sunderland전 전 (livescore: 시즌 아웃 표기, readastonvilla: unlikely)"
+  },
+  {
+   "팀": "원정",
+   "선수": "Matteo Ruggeri",
+   "포지션": "DF",
+   "사유": "햄스트링, 12월 복귀 예상",
+   "상태": "확정",
+   "비중": "확인 안 됨",
+   "출처": "https://www.livescore.com/en/news/football/premier-league/aston-villa-vs-sunderland-early-injury-news-as-6-ruled-out-and-4-doubts-claret-villans/",
+   "날짜": "2026-11 (일자 불명)"
+  },
+  {
+   "팀": "원정",
+   "선수": "Matty Cash",
+   "포지션": "RB",
+   "사유": "폴란드 대표팀 뇌진탕",
+   "상태": "의심",
+   "비중": "확인 안 됨",
+   "출처": "https://readastonvilla.com/2026/11/19/aston-villa-sunderland-injury-news-team-news/",
+   "날짜": "2026-11-19 (11/21 Sunderland 전; 카드 직전선발 11명에 Cash 없음)"
+  },
+  {
+   "팀": "원정",
+   "선수": "Aaron Wan-Bissaka",
+   "포지션": "RB",
+   "사유": "허벅지",
+   "상태": "복귀",
+   "비중": "확인 안 됨",
+   "출처": "https://readastonvilla.com/2026/11/19/aston-villa-sunderland-injury-news-team-news/",
+   "날짜": "2026-11-19 (11/21 선발 출전 — teamdb 카드)"
+  },
+  {
+   "팀": "원정",
+   "선수": "Johan Manzambi",
+   "포지션": "MF",
+   "사유": "스위스 대표팀 차출 중 종아리 이탈",
+   "상태": "복귀",
+   "비중": "xG+xA 15%(카드)",
+   "출처": "https://readastonvilla.com/2026/11/19/aston-villa-sunderland-injury-news-team-news/",
+   "날짜": "2026-11-19 (11/21 선발 출전 — teamdb 카드)"
+  }
+ ],
+ "감독": [
+  {
+   "팀": "홈",
+   "내용": "Okan Buruk (팩트시트). 이번 경기 기자회견 확인 안 됨",
+   "출처": "팩트시트_승무패71.md",
+   "날짜": "2026-11-23"
+  },
+  {
+   "팀": "원정",
+   "내용": "Unai Emery (팩트시트). 11/21 이전 'Aaron is close' 발언(livescore). 이번 경기 기자회견 확인 안 됨",
+   "출처": "https://www.livescore.com/en/news/football/premier-league/aston-villa-vs-sunderland-early-injury-news-as-6-ruled-out-and-4-doubts-claret-villans/",
+   "날짜": "일자 불명"
+  }
+ ],
+ "예상선발": [
+  "Villa 11/21 선발(ESPN, 카드): Zion Suzuki; Pau Torres, Harwood-Bellis, Maatsen, Wan-Bissaka; Buendía, Kamara, Goretzka; Jackson, Manzambi, Alysson (4-2-3-1). 이 경기 예상선발 기사는 확인 안 됨"
+ ],
+ "직전경기": {
+  "홈": "11/21~22 Süper Lig 경기 — 상대·스코어 검색 실패, 확인 안 됨",
+  "원정": "2026-11-21 홈 vs Sunderland 0-0, 슈팅 19:7 (ESPN 카드). 선발 교체 수 경기당 1.8"
+ },
+ "다음경기": {
+  "홈": "확인 안 됨(Beşiktaş 전 언급은 있으나 날짜 미확인)",
+  "원정": "확인 안 됨"
+ },
+ "최근경기": {
+  "홈": [
+   "2026-11-03 Galatasaray 2-0 VfB Stuttgart (UCL)",
+   "2026-10-21 Lille 2-4 Galatasaray (UCL)",
+   "2026-10-13 Galatasaray 1-4 Barcelona (UCL)"
+  ],
+  "원정": [
+   "2026-11-21 Aston Villa 0-0 Sunderland",
+   "2026-11-08 Man United 4-4 Aston Villa",
+   "2026-11-03 Barcelona 3-0 Aston Villa (UCL)",
+   "2026-10-31 Aston Villa 1-1 Fulham",
+   "2026-10-24 Aston Villa 2-1 Man City",
+   "2026-10-21 Aston Villa 3-1 Viking (UCL)"
+  ]
+ },
+ "맞대결": [
+  "확인 안 됨"
+ ],
+ "걸린것": [
+  "확인 안 됨(UCL 순위·승점 차 검색 못 함)"
+ ],
+ "사실": [
+  "Villa teamdb: 시즌 xG 1.31/xGA 2.01, EPL 12위 승점14",
+  "Kamara 는 UCL 11/21 선발 명단에 포함(카드). 1월 보도의 시즌 아웃 표기(sportsmole 2026-01-28)와 상충 — 현재 출전 사실 우선, 재확인 필요",
+  "Aston Villa 선발 GK 가 Zion Suzuki 로 카드에 표기됨(Villa GK 확인 필요)",
+  "일부 검색 결과는 2025·2026 초 기사와 혼재 — 위 날짜 표기 항목만 유효"
+ ],
+ "확인안됨": [
+  "Galatasaray 최신 결장 명단(Osimhen·Leão 11/6 이후 상태)",
+  "Galatasaray 직전 리그 경기",
+  "UCL 순위",
+  "기자회견",
+  "UCL 등록 명단"
+ ],
+ "출처": [
+  "https://www.uefa.com/uefachampionsleague/match/2049631--galatasaray-vs-aston-villa/lineups/",
+  "https://www.24saatgazetesi.com/galatasarayda-osimhenin-donus-tarihi-belli-oldu-leaodan-kotu-haber",
+  "https://starting11.com/fixtures/galatasaray-vs-aston-villa",
+  "https://readastonvilla.com/2026/11/19/aston-villa-sunderland-injury-news-team-news/",
+  "https://www.livescore.com/en/news/football/premier-league/aston-villa-vs-sunderland-early-injury-news-as-6-ruled-out-and-4-doubts-claret-villans/",
+  "https://www.sportsmole.co.uk/football/aston-villa/injury-news/news/emery-reveals-injury-recovery-timelines-of-aston-villa-trio_590834.html"
+ ]
+}

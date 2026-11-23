@@ -9,7 +9,7 @@
 - 최근 경기(ESPN, 최대 28일): 2026-10-10 SC Paderborn 07 0-2 VfB Stuttgart / 2026-10-17 Hamburg SV 1-0 VfB Stuttgart / 2026-10-23 VfB Stuttgart 2-3 Borussia Mönchengladbach / 2026-10-31 Bayer Leverkusen 2-4 VfB Stuttgart / 2026-11-07 VfB Stuttgart 1-0 Werder Bremen
 <!-- FACTS:END -->
 <!-- INPUTS:START -->
-## 입력(자동 수집 2026-11-21) — xG·휴식일·라인업·환경(이동거리·고도·날씨)은 이 숫자를 쓴다
-- 11-22 02:30 vs 샬케04: 휴식 14.0일?(국내리그 ESPN 미제공 — 직접 확인) · 직전 11-08 홈 vs Werder Bremen 1-0 승 [german bundesliga] · xG 시즌8경기 xG2.3/xGA2.57 npxGD-0.27 · 최근5 2.19/2.13 (+0.06) · 홈-0.48/원정-0.15 · xPts10.2 vs 승점9 · 직전 선발 3-4-2-1 Dennis Seimen, Jeff Chabot, Ramon Hendriks, Luca Jaquez, Yanik Spalt, Grischa Prömel, Maximilian Mittelstädt, Jamie Leweling, Deniz Undav, Chris Führich, Bilal El Khannouss · 구장 펠틴스 아레나 · 이동 344km · 고도 50m(차 -169m) · 5.4℃ 강수0mm(0%) 바람10.1km/h
+## 입력(자동 수집 2026-11-23) — xG·휴식일·라인업·환경(이동거리·고도·날씨)은 이 숫자를 쓴다
+- 2026-11-26 05:00 vs 인테르: 휴식 22.1일?(국내리그 ESPN 미제공 — 직접 확인) · 직전 11-04 원정 vs Galatasaray 0-2 패 [uefa.champions] · xG 시즌8경기 xG2.3/xGA2.57 npxGD-0.27 · 최근5 2.19/2.13 (+0.06) · 홈-0.48/원정-0.15 · xPts10.2 vs 승점9 · 직전 선발 3-4-1-2 Fabian Bredlow, Jeff Chabot, Maximilian Mittelstädt, Ramon Hendriks, Atakan Karazor, Grischa Prömel, Bilal El Khannouss, Chris Führich, Jamie Leweling, Ermedin Demirovic, Deniz Undav · 구장 스타디오 주세페 메아차 · 이동 369km · 고도 139m(차 -80m) · 7.2℃ 강수8.4mm(98%) 바람6.5km/h · ⚠ 비 8.4mm(98%)
 <!-- INPUTS:END -->
 

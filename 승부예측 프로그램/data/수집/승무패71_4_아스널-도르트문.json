@@ -1,0 +1,119 @@
+{
+ "번호": 4,
+ "홈": "Arsenal",
+ "원정": "Borussia Dortmund",
+ "리그": "UEFA 챔피언스리그",
+ "수집시각": "2026-11-23 KST",
+ "구장": "Emirates Stadium, London",
+ "UCL순위": {
+  "홈": "확인 안 됨(팩트시트 아스널 1위 승점 확인: 리그 페이즈 4경기 뒤 상위)",
+  "원정": "확인 안 됨(팩트시트 도르트문 2위 9경기 승점21은 분데스리가 아닌 표기 혼재, 확인 필요)"
+ },
+ "리그순위": {
+  "홈": "EPL 1위 11경기 9승1무1패 승점28 (teamdb 2026-11-23)",
+  "원정": "분데스리가 1위 10경기 7승3무0패 승점24 (teamdb 2026-11-23)"
+ },
+ "결장": [
+  {
+   "팀": "홈",
+   "선수": "David Raya",
+   "포지션": "GK",
+   "사유": "11/21 Newcastle전 69분 교체, 어깨/팔 부상, 11/22 MRI 결과 확인 안 됨",
+   "상태": "의심",
+   "비중": "카드 직전 선발 GK",
+   "출처": "https://www.sportsmole.co.uk/football/arsenal/injury-news/news/not-good-news-arteta-issues-raya-update-after-injury-scare_609593.html",
+   "날짜": "2026-11-22"
+  },
+  {
+   "팀": "홈",
+   "선수": "Bukayo Saka",
+   "포지션": "MF/FW",
+   "사유": "Bayern Munich전 대퇴사두근 부상, Arteta '추가 4주' 언급",
+   "상태": "확정",
+   "비중": "카드 xG+xA 18%",
+   "출처": "https://www.sportsmole.co.uk/football/arsenal/injury-news/news/advantage-man-city-arteta-delivers-double-blow-in-arsenal-injury-update_609472.html",
+   "날짜": "2026-11-23"
+  },
+  {
+   "팀": "홈",
+   "선수": "Martin Zubimendi",
+   "포지션": "MF",
+   "사유": "스페인 대표팀 잉글랜드전 교체, Arteta 부정적 업데이트, 상태 상세 확인 안 됨",
+   "상태": "의심",
+   "비중": "확인 안 됨",
+   "출처": "https://www.sportsmole.co.uk/football/arsenal/injury-news/news/advantage-man-city-arteta-delivers-double-blow-in-arsenal-injury-update_609472.html",
+   "날짜": "2026-11-23"
+  },
+  {
+   "팀": "홈",
+   "선수": "William Saliba",
+   "포지션": "CB",
+   "사유": "부상 업데이트 제목만 확인(AFTV), 내용 확인 안 됨",
+   "상태": "의심",
+   "비중": "확인 안 됨",
+   "출처": "https://aftv.co.uk/match-centre/mikel-arteta-names-what-arsenal-must-fix-after-dortmund-loss-as-william-saliba-injury-update-emerges/",
+   "날짜": "확인 안 됨(8월 친선 후 기사로 추정)"
+  }
+ ],
+ "감독": [
+  {
+   "팀": "홈",
+   "내용": "Mikel Arteta: Raya 'not good news', Saka 4주 추가 결장 언급. UCL 전 기자회견은 확인 안 됨",
+   "출처": "https://www.sportsmole.co.uk/football/arsenal/injury-news/news/not-good-news-arteta-issues-raya-update-after-injury-scare_609593.html",
+   "날짜": "2026-11-22"
+  },
+  {
+   "팀": "원정",
+   "내용": "Niko Kovač(팩트시트). 결장·기자회견 확인 안 됨",
+   "출처": "팩트시트_승무패71.md",
+   "날짜": "2026-11-23"
+  }
+ ],
+ "예상선발": [],
+ "직전경기": {
+  "홈": "2026-11-21 원정 Newcastle 2-2 (Kepa가 Raya 대신 마무리; 카드 선발 교체 수 2.4)",
+  "원정": "2026-11-21 원정 Borussia Mönchengladbach 1-0 W (3-4-2-1, 카드)"
+ },
+ "다음경기": {
+  "홈": "2026-11-29 홈 Manchester City (EPL)",
+  "원정": "확인 안 됨"
+ },
+ "최근경기": {
+  "홈": [
+   "11-01 Liverpool 1-0 W",
+   "11-04 UCL Slavia Prague 1-2 Arsenal W",
+   "11-07 Hull City 1-0 W(카드)",
+   "11-21 Newcastle 2-2 D"
+  ],
+  "원정": [
+   "10-31 Bayern 2-2 D",
+   "11-04 UCL Dortmund 2-1 Real Betis W",
+   "11-07 SV Elversberg 2-1 W",
+   "11-21 Gladbach 1-0 W"
+  ]
+ },
+ "맞대결": [
+  "2026-08 프리시즌 Emirates Cup: 도르트문트 3-2 승(독일 매체 보도, 친선)"
+ ],
+ "걸린것": [
+  "UCL 리그 페이즈 5라운드",
+  "11/29 맨시티전이 다음 EPL"
+ ],
+ "사실": [
+  "경기일: 현지 11/24(화) Emirates, KST 11/25 05:00",
+  "Arsenal 직전 UCL 2-1 Slavia Prague(11/04), 10/21 Bayern 2-2 Arsenal"
+ ],
+ "확인안됨": [
+  "Dortmund 결장자 전부(Schlotterbeck·Can 장기 무릎 부상 보도는 8월자라 현재 상태 확인 안 됨)",
+  "Raya MRI 결과",
+  "Saliba 현재 상태",
+  "UCL 등록·누적 경고",
+  "양 팀 UCL 순위",
+  "예상 선발"
+ ],
+ "출처": [
+  "https://www.sportsmole.co.uk/football/arsenal/injury-news/news/not-good-news-arteta-issues-raya-update-after-injury-scare_609593.html",
+  "https://www.sportsmole.co.uk/football/arsenal/injury-news/news/advantage-man-city-arteta-delivers-double-blow-in-arsenal-injury-update_609472.html",
+  "https://aftv.co.uk/match-centre/mikel-arteta-names-what-arsenal-must-fix-after-dortmund-loss-as-william-saliba-injury-update-emerges/"
+ ]
+}

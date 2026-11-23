@@ -1,0 +1,197 @@
+{
+ "번호": 5,
+ "홈": "Feyenoord Rotterdam",
+ "원정": "FC Porto",
+ "리그": "UEFA 챔피언스리그",
+ "수집시각": "2026-11-23 KST",
+ "구장": "Stadion Feijenoord (De Kuip), 킥오프 2026-11-24 20:00 GMT (11-25 05:00 KST)",
+ "UCL순위": {
+  "홈": "32위 4경기 1승0무3패 GD-7 승점3 (팩트시트, 2026-11-23)",
+  "원정": "1위 11경기 11승0무0패는 국내 리그 / UCL: 4경기 승점3 GD-1 (starting11 요약 문구, 2026-11-23; 팩트시트 UCL 줄은 리그 줄과 혼재 — 확인 필요)"
+ },
+ "리그순위": {
+  "홈": "확인 안 됨",
+  "원정": "1위 11경기 11승0무0패 GD+22 승점33 (팩트시트)"
+ },
+ "결장": [
+  {
+   "팀": "홈",
+   "선수": "St. Juste",
+   "포지션": "DEF",
+   "사유": "Leg injury",
+   "상태": "확정",
+   "비중": "확인 안 됨",
+   "출처": "https://starting11.com/fixtures/feyenoord-vs-fc-porto",
+   "날짜": "2026-11-23"
+  },
+  {
+   "팀": "홈",
+   "선수": "Nieuwkoop",
+   "포지션": "DEF",
+   "사유": "Knee injury",
+   "상태": "확정",
+   "비중": "확인 안 됨",
+   "출처": "https://starting11.com/fixtures/feyenoord-vs-fc-porto",
+   "날짜": "2026-11-23"
+  },
+  {
+   "팀": "홈",
+   "선수": "Beelen",
+   "포지션": "DEF",
+   "사유": "Broken leg",
+   "상태": "확정",
+   "비중": "확인 안 됨",
+   "출처": "https://starting11.com/fixtures/feyenoord-vs-fc-porto",
+   "날짜": "2026-11-23"
+  },
+  {
+   "팀": "홈",
+   "선수": "Bos",
+   "포지션": "DEF",
+   "사유": "Knee injury",
+   "상태": "확정",
+   "비중": "확인 안 됨",
+   "출처": "https://starting11.com/fixtures/feyenoord-vs-fc-porto",
+   "날짜": "2026-11-23"
+  },
+  {
+   "팀": "홈",
+   "선수": "Moder",
+   "포지션": "MID",
+   "사유": "Knee injury",
+   "상태": "확정",
+   "비중": "확인 안 됨",
+   "출처": "https://starting11.com/fixtures/feyenoord-vs-fc-porto",
+   "날짜": "2026-11-23"
+  },
+  {
+   "팀": "홈",
+   "선수": "Wessels",
+   "포지션": "DEF",
+   "사유": "Inactive",
+   "상태": "확정",
+   "비중": "확인 안 됨",
+   "출처": "https://starting11.com/fixtures/feyenoord-vs-fc-porto",
+   "날짜": "2026-11-23"
+  },
+  {
+   "팀": "홈",
+   "선수": "Hadj-Moussa",
+   "포지션": "FWD",
+   "사유": "Ankle injury",
+   "상태": "의심",
+   "비중": "확인 안 됨",
+   "출처": "https://starting11.com/fixtures/feyenoord-vs-fc-porto",
+   "날짜": "2026-11-23"
+  },
+  {
+   "팀": "홈",
+   "선수": "Smal",
+   "포지션": "DEF",
+   "사유": "Ankle injury",
+   "상태": "의심",
+   "비중": "확인 안 됨",
+   "출처": "https://starting11.com/fixtures/feyenoord-vs-fc-porto",
+   "날짜": "2026-11-23"
+  },
+  {
+   "팀": "원정",
+   "선수": "Prpić",
+   "포지션": "DEF",
+   "사유": "Off the roster",
+   "상태": "확정",
+   "비중": "확인 안 됨",
+   "출처": "https://starting11.com/fixtures/feyenoord-vs-fc-porto",
+   "날짜": "2026-11-23"
+  },
+  {
+   "팀": "원정",
+   "선수": "William",
+   "포지션": "FWD",
+   "사유": "Ankle injury",
+   "상태": "확정",
+   "비중": "확인 안 됨",
+   "출처": "https://starting11.com/fixtures/feyenoord-vs-fc-porto",
+   "날짜": "2026-11-23"
+  },
+  {
+   "팀": "원정",
+   "선수": "Mec",
+   "포지션": "FWD",
+   "사유": "Off the roster",
+   "상태": "확정",
+   "비중": "확인 안 됨",
+   "출처": "https://starting11.com/fixtures/feyenoord-vs-fc-porto",
+   "날짜": "2026-11-23"
+  },
+  {
+   "팀": "원정",
+   "선수": "Smalling",
+   "포지션": "DEF",
+   "사유": "Knee injury",
+   "상태": "확정",
+   "비중": "확인 안 됨",
+   "출처": "https://starting11.com/fixtures/feyenoord-vs-fc-porto",
+   "날짜": "2026-11-23"
+  }
+ ],
+ "감독": [
+  {
+   "팀": "원정",
+   "내용": "Francesco Farioli (팩트시트)",
+   "출처": "회차별분석/팩트시트_승무패71.md",
+   "날짜": "2026-11-23"
+  },
+  {
+   "팀": "홈",
+   "내용": "확인 안 됨 (팩트시트 공란)",
+   "출처": "회차별분석/팩트시트_승무패71.md",
+   "날짜": "2026-11-23"
+  }
+ ],
+ "예상선발": [],
+ "직전경기": {
+  "홈": "UCL 2026-11-03 홈 vs Internazionale 0-3 패 (팩트시트). 이후 국내 리그 경기 확인 안 됨 — 11-08 Heerenveen-Feyenoord 페이지만 발견(스코어 미확인)",
+  "원정": "UCL 2026-11-04 홈 vs Napoli 4-1 승 (팩트시트 11-04/입력 11-05 혼재). 11-08 Guimarães-Porto 일정 확인(스코어 미확인), 11-22 경기 확인 안 됨"
+ },
+ "다음경기": {
+  "홈": "확인 안 됨",
+  "원정": "2026-11-29 FC Porto v Sporting CP (footballwebpages 일정)"
+ },
+ "최근경기": {
+  "홈": [
+   "2026-10-14 Feyenoord 3-2 Como",
+   "2026-10-21 Real Betis 1-0 Feyenoord",
+   "2026-11-03 Feyenoord 0-3 Internazionale"
+  ],
+  "원정": [
+   "2026-10-14 Real Betis 3-2 Porto",
+   "2026-10-20 Porto 0-1 PSV",
+   "2026-11-04 Porto 4-1 Napoli"
+  ]
+ },
+ "맞대결": [],
+ "걸린것": [
+  "UCL 리그 페이즈 5라운드 (한 소스 기준 Feyenoord 승점3·Porto 승점3로 표기, 팩트시트와 상이)"
+ ],
+ "사실": [
+  "starting11: 양 팀 정지(출장정지) 없음 (2026-11-23)",
+  "starting11 예상 XI 이름 없음, 공식 라인업 킥오프 약 60분 전",
+  "Squawka 예상: Feyenoord 4-3-3 Ferri·Hadj Moussa 포함, Porto 4-3-3 Diogo Costa·Gabri Veiga·André Silva (날짜 불명)",
+  "입력 파일: 이동 1554km, 1.1℃ 강수0mm 바람19.1km/h"
+ ],
+ "확인안됨": [
+  "기자회견 발언",
+  "UCL 등록 명단",
+  "11-22 전후 국내 리그 결과",
+  "홈 감독 이름",
+  "결장 선수 비중·시즌 선발 여부",
+  "starting11은 '보고된 가용성'이며 확정 팀시트 아님"
+ ],
+ "출처": [
+  "https://starting11.com/fixtures/feyenoord-vs-fc-porto",
+  "https://www.squawka.com/us/?p=99642",
+  "https://www.footballwebpages.co.uk/portuguese-primeira-liga/fixtures-results/november",
+  "회차별분석/팩트시트_승무패71.md"
+ ]
+}

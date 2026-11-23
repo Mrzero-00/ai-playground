@@ -1,16 +1,16 @@
 # SK슬로반 브라티슬라바
 
 <!-- FACTS:START -->
-## 팩트시트 (자동 수집 2026-11-02) — 조사 전 반드시 읽고, 아래 사실과 다른 뉴스 요약은 '미확인'으로 둔다
+## 팩트시트 (자동 수집 2026-11-23) — 조사 전 반드시 읽고, 아래 사실과 다른 뉴스 요약은 '미확인'으로 둔다
 - 출처: 위키 '2026–27 ŠK Slovan Bratislava season'(season), ESPN 있음
 - 감독: Yaya Touré
-- 리그 순위: 36위 3경기 0승0무3패 GD-12 승점0 (Slovan Bratislava)
+- 리그 순위: 36위 4경기 0승0무4패 GD-16 승점0 (Slovan Bratislava)
 - 2026 여름 이적(위키 이적 표, 앞 8줄씩): IN 20 May 2026 · GK · Aleksandar Popović · DAC Dunajská Streda · Free transfer / IN 25 May 2026 · DF · Samuel Kozlovský · Widzew Łódź · Free transfer / IN 30 June 2026 · MF · Kelvin Ofori · Olimpija Ljubljana · Loan return / IN 30 June 2026 · MF · Filip Lichý · Košice · Loan return / IN 30 June 2026 · DF · Jurij Medveděv · Tatran Prešov · Loan return / IN 30 June 2026 · MF · Alen Mustafić · Komárno · Loan return / IN 19 July 2026 · MF · Cristian Martínez · Ironi Kiryat Shmona · €700,000 / IN 3 August 2026 · MF · Suleiman Camara · Racing Santander · €1,000,000 / OUT 15 June 2026 · MF · Maxim Mateáš · Košice · Undisclosed / OUT 30 June 2026 · DF · Sidoine Fogning · Boavista · Loan return / OUT 30 June 2026 · DF · Guram Kashia · colspan="2" |End of contract / OUT 30 June 2026 · rowspan="2" |MF · rowspan="2" · rowspan="2" |Filip Lichý · colspan="2" |End of contract
-- 최근 경기(ESPN, 최대 28일): 2026-10-14 Slovan Bratislava 0-3 VfB Stuttgart / 2026-10-20 AS Roma 4-0 Slovan Bratislava
+- 최근 경기(ESPN, 최대 28일): 2026-10-14 Slovan Bratislava 0-3 VfB Stuttgart / 2026-10-20 AS Roma 4-0 Slovan Bratislava / 2026-11-03 LASK Linz 4-0 Slovan Bratislava
 <!-- FACTS:END -->
 <!-- INPUTS:START -->
-## 입력(자동 수집 2026-11-02) — xG·휴식일·라인업·환경(이동거리·고도·날씨)은 이 숫자를 쓴다
-- 11-04 05:00 vs LASK: 휴식 14.0일?(국내리그 ESPN 미제공 — 직접 확인) · 직전 10-21 원정 vs AS Roma 0-4 패 [uefa.champions] · xG - · 직전 선발 4-1-4-1 Dominik Takac, Svetozar Markovic, Kenan Bajric, Peter Pokorny, Sandro Cruz, César Blackman, Artur Gajdos, Rahim Ibrahim, Suleiman Camara, Tigran Barseghyan, Nino Marcelli · 구장 린처 슈타다온 · 이동 213km · 고도 326m(차 +191m) · 6.2℃ 강수0mm(0%) 바람7.8km/h
+## 입력(자동 수집 2026-11-23) — xG·휴식일·라인업·환경(이동거리·고도·날씨)은 이 숫자를 쓴다
+- 2026-11-25 05:00 vs 베티스: 휴식 21.0일?(국내리그 ESPN 미제공 — 직접 확인) · 직전 11-04 원정 vs LASK Linz 0-4 패 [uefa.champions] · xG - · 직전 선발 3-4-2-1 Aleksander Popovic, Svetozar Markovic, Kevin Wimmer, Sahmkou Camara, Alen Mustafic, Cristian Martínez, Samuel Kozlovsky, César Blackman, Andraz Sporar, Suleiman Camara, Alexej Maros · 구장 Štadión Pasienky · 이동 2224km · 고도 135m(차 +131m) · -0.2℃ 강수0mm(0%) 바람3.1km/h · ⚠ 장거리 원정 2224km, 기온 -0.2℃
 <!-- INPUTS:END -->
 
 ---

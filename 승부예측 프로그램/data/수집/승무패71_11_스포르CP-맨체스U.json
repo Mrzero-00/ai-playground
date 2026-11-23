@@ -1,0 +1,169 @@
+{
+ "번호": 11,
+ "홈": "Sporting CP",
+ "원정": "Manchester United",
+ "리그": "UEFA 챔피언스리그",
+ "수집시각": "2026-11-23 KST",
+ "구장": "Estádio José Alvalade (경기 2026-11-25 현지, KST 11/26 05:00)",
+ "UCL순위": {
+  "홈": "UCL 4경기 3승 승점9 (starting11 요약, 2026-11)",
+  "원정": "UCL 4경기 2승2패 승점6 (starting11 요약, 2026-11). 팩트시트의 '3위/19위'는 자국리그 표기"
+ },
+ "리그순위": {
+  "홈": "팩트시트: 3위 11경기 7승3무1패 GD+13 승점24",
+  "원정": "EPL 19위 11경기 1승5무5패 승점8, 안전권과 1점 차 (sportsmole 2026-11-22)"
+ },
+ "결장": [
+  {
+   "팀": "홈",
+   "선수": "Zeno Debast",
+   "포지션": "CB",
+   "사유": "부상(종류 미공개), 몇 주 결장 보도",
+   "상태": "의심",
+   "비중": "확인 안 됨",
+   "출처": "https://www.beinsports.com/en-us/soccer/primeira-liga/articles/injuries-give-paulo-fonseca-no-respite-at-sporting-2026-11-19",
+   "날짜": "2026-11-19"
+  },
+  {
+   "팀": "홈",
+   "선수": "Flávio Gonçalves",
+   "포지션": "확인 안 됨(포르투갈 U20)",
+   "사유": "A대표/U20 차출 중 신체 문제, 심각하지 않다고 보도",
+   "상태": "의심",
+   "비중": "확인 안 됨",
+   "출처": "https://www.abola.pt/noticias/soam-os-alarmes-em-alvalade-o-tempo-de-paragem-de-ioannidis-e-flavio-goncalves-2026111620110954108",
+   "날짜": "2026-11-16"
+  },
+  {
+   "팀": "홈",
+   "선수": "Fotis Ioannidis",
+   "포지션": "FW",
+   "사유": "그리스 대표팀 차출 중 신체 문제, 심각하지 않다고 보도",
+   "상태": "의심",
+   "비중": "확인 안 됨",
+   "출처": "https://www.abola.pt/noticias/soam-os-alarmes-em-alvalade-o-tempo-de-paragem-de-ioannidis-e-flavio-goncalves-2026111620110954108",
+   "날짜": "2026-11-16"
+  },
+  {
+   "팀": "홈",
+   "선수": "Nuno Santos",
+   "포지션": "확인 안 됨",
+   "사유": "의무팀 관리 중",
+   "상태": "의심",
+   "비중": "확인 안 됨",
+   "출처": "https://www.beinsports.com/en-us/soccer/primeira-liga/articles/injuries-give-paulo-fonseca-no-respite-at-sporting-2026-11-19",
+   "날짜": "2026-11-19"
+  },
+  {
+   "팀": "원정",
+   "선수": "Carlos Baleba",
+   "포지션": "MF",
+   "사유": "11/3 로마전 51분 허벅지 근육 부상, 카릭 '수 주'",
+   "상태": "확정",
+   "비중": "확인 안 됨",
+   "출처": "https://www.abola.pt/noticias/atencao-sporting-reforco-de-euro76-m-do-man-united-falha-visita-a-alvalade-2026110616430294668",
+   "날짜": "2026-11-06"
+  },
+  {
+   "팀": "원정",
+   "선수": "Leny Yoro",
+   "포지션": "CB",
+   "사유": "11/22 리버풀전 8분 직접 퇴장(최종수비 득점기회 저지). 출장정지 경기수 보도 못 찾음. EPL 퇴장 정지가 UCL에 적용되는지 확인 안 됨",
+   "상태": "의심",
+   "비중": "11/22 직전 선발 CB",
+   "출처": "https://www.skysports.com/football/news/13611979/liverpool-4-0-man-utd-mauricio-pochettino-endures-nightmare-start-as-leny-yoros-early-red-card-sparks-collapse",
+   "날짜": "2026-11-22"
+  },
+  {
+   "팀": "원정",
+   "선수": "Benjamin Sesko",
+   "포지션": "FW",
+   "사유": "리버풀전 앞서 결장 예상 보도(사유 미확인), UCL 경기 가용성 확인 안 됨",
+   "상태": "의심",
+   "비중": "확인 안 됨",
+   "출처": "https://sports.yahoo.com/articles/shaw-baleba-rashford-man-utd-201817836.html",
+   "날짜": "2026-11"
+  },
+  {
+   "팀": "원정",
+   "선수": "Luke Shaw",
+   "포지션": "LB",
+   "사유": "10월 중순부터 결장, 리버풀전 복귀 목표 보도(복귀 여부 확인 안 됨)",
+   "상태": "의심",
+   "비중": "확인 안 됨",
+   "출처": "https://sports.yahoo.com/articles/shaw-baleba-rashford-man-utd-201817836.html",
+   "날짜": "2026-11"
+  },
+  {
+   "팀": "원정",
+   "선수": "Marcus Rashford",
+   "포지션": "FW/MF",
+   "사유": "월드컵 이후 고관절 문제, 11/22 복귀 예상 보도. 11/22 이후 상태는 sportsmole 헤드라인 '후속 부상 업데이트'만 확인",
+   "상태": "의심",
+   "비중": "확인 안 됨",
+   "출처": "https://sports.yahoo.com/articles/shaw-baleba-rashford-man-utd-201817836.html",
+   "날짜": "2026-11"
+  }
+ ],
+ "감독": [
+  {
+   "팀": "홈",
+   "내용": "Paulo Fonseca 11/4 부임, 모레이렌스전 1-0이 데뷔, 금요일 기자회견 예정(기사 시점 기준)",
+   "출처": "https://www.beinsports.com/en-us/soccer/primeira-liga/articles/injuries-give-paulo-fonseca-no-respite-at-sporting-2026-11-19",
+   "날짜": "2026-11-19"
+  },
+  {
+   "팀": "원정",
+   "내용": "Mauricio Pochettino 11/18 부임 후 첫 경기 리버풀전 0-4. '6분 뒤 경기가 완전히 바뀌었다, 너무 아프다' 발언. 전임 Carrick 11/12까지",
+   "출처": "https://www.skysports.com/football/news/13611979/liverpool-4-0-man-utd-mauricio-pochettino-endures-nightmare-start-as-leny-yoros-early-red-card-sparks-collapse",
+   "날짜": "2026-11-22"
+  }
+ ],
+ "예상선발": [],
+ "직전경기": {
+  "홈": "11/21(토) 포르투갈컵 4라운드 vs União da Serra (경기 결과·로테이션 확인 안 됨, abola 일정 기준 11/21). 그 전: 모레이렌스 1-0(리그, 11/4 이후 첫 경기)",
+  "원정": "2026-11-22 EPL 원정 리버풀 0-4 패, 8분 Yoro 퇴장, 선발 Lammens, de Ligt, Yoro, Martínez, Dalot, Fernandes, Mainoo, Tielemans, Cunha, Dorgu, Mbeumo (teamdb 카드). 후반 Maguire 투입 5백 전환"
+ },
+ "다음경기": {
+  "홈": "FC Porto(리그, 일자 확인 안 됨)",
+  "원정": "11/28 토 홈 브렌트퍼드전(Pochettino 홈 첫 경기, sportsmole)"
+ },
+ "최근경기": {
+  "홈": [
+   "2026-10-13 Lens 0-2 Sporting CP(팩트시트)",
+   "2026-10-21 Sporting CP 2-3 LASK(팩트시트)",
+   "2026-11-03 Shakhtar 0-1 Sporting CP(팩트시트)"
+  ],
+  "원정": [
+   "2026-10-31 Chelsea 원정 0-2",
+   "2026-11-03 Man Utd 3-2 Roma(UCL)",
+   "2026-11-08 Aston Villa 홈 4-4",
+   "2026-11-22 Liverpool 원정 0-4"
+  ]
+ },
+ "맞대결": [],
+ "걸린것": [
+  "UCL 리그페이즈 5라운드"
+ ],
+ "사실": [
+  "Sporting CP 인터내셔널 19명 모두 훈련 복귀(beinsports 2026-11-19)",
+  "맨유 Dorgu는 덴마크 대표 차출 후 체력 점검으로 복귀(yahoo)",
+  "Yoro 퇴장은 EPL 역대 맨유 최단 퇴장(sky 2026-11-22)",
+  "11/22 리버풀전 후 Pochettino 5백 변경 사용(sportsmole)"
+ ],
+ "확인안됨": [
+  "Yoro 정지 경기수와 UCL 적용 여부",
+  "맨유 UCL 순위 정확한 표",
+  "Sporting 공식 소집 명단",
+  "Sporting 직전 컵경기 결과",
+  "UCL 등록 명단"
+ ],
+ "출처": [
+  "https://www.beinsports.com/en-us/soccer/primeira-liga/articles/injuries-give-paulo-fonseca-no-respite-at-sporting-2026-11-19",
+  "https://www.abola.pt/noticias/soam-os-alarmes-em-alvalade-o-tempo-de-paragem-de-ioannidis-e-flavio-goncalves-2026111620110954108",
+  "https://www.abola.pt/noticias/atencao-sporting-reforco-de-euro76-m-do-man-united-falha-visita-a-alvalade-2026110616430294668",
+  "https://www.skysports.com/football/news/13611979/liverpool-4-0-man-utd-mauricio-pochettino-endures-nightmare-start-as-leny-yoros-early-red-card-sparks-collapse",
+  "https://www.sportsmole.co.uk/football/liverpool/result/mauricio-mauled-in-man-utd-debut-as-liverpool-demolish-10-man-red-devils_609619.html",
+  "https://sports.yahoo.com/articles/shaw-baleba-rashford-man-utd-201817836.html"
+ ]
+}

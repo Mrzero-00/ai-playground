@@ -1,0 +1,216 @@
+{
+ "번호": 6,
+ "홈": "RB Leipzig",
+ "원정": "RC Lens",
+ "리그": "UEFA 챔피언스리그",
+ "수집시각": "2026-11-23 KST",
+ "구장": "Red Bull Arena, 킥오프 2026-11-24 20:00 GMT (11-25 05:00 KST)",
+ "UCL순위": {
+  "홈": "확인 안 됨 (팩트시트 UCL 순위 칸이 리그 줄로 대체: 4위 10경기 7승0무3패 GD+18 승점21)",
+  "원정": "확인 안 됨 (팩트시트: 11위 10경기 4승1무5패 GD+2 승점13 — 리그 줄 혼재)"
+ },
+ "리그순위": {
+  "홈": "Bundesliga 상세 확인 안 됨",
+  "원정": "Ligue 1 11위 11경기 4승2무5패 GD+2 승점14 (teamdb 카드, 2026-11-23)"
+ },
+ "결장": [
+  {
+   "팀": "홈",
+   "선수": "Guiu",
+   "포지션": "FWD",
+   "사유": "Hamstring",
+   "상태": "확정",
+   "비중": "확인 안 됨",
+   "출처": "https://starting11.com/fixtures/rb-leipzig-vs-lens",
+   "날짜": "2026-11-23"
+  },
+  {
+   "팀": "홈",
+   "선수": "Ouédraogo",
+   "포지션": "MID",
+   "사유": "Shoulder",
+   "상태": "확정",
+   "비중": "확인 안 됨",
+   "출처": "https://starting11.com/fixtures/rb-leipzig-vs-lens",
+   "날짜": "2026-11-23"
+  },
+  {
+   "팀": "홈",
+   "선수": "Zingerle",
+   "포지션": "GK",
+   "사유": "Off the roster",
+   "상태": "확정",
+   "비중": "확인 안 됨",
+   "출처": "https://starting11.com/fixtures/rb-leipzig-vs-lens",
+   "날짜": "2026-11-23"
+  },
+  {
+   "팀": "홈",
+   "선수": "Finkgräfe",
+   "포지션": "DEF",
+   "사유": "Thigh",
+   "상태": "의심",
+   "비중": "확인 안 됨",
+   "출처": "https://starting11.com/fixtures/rb-leipzig-vs-lens",
+   "날짜": "2026-11-23"
+  },
+  {
+   "팀": "원정",
+   "선수": "Nawrocki",
+   "포지션": "DEF",
+   "사유": "Jumper's knee",
+   "상태": "확정",
+   "비중": "확인 안 됨",
+   "출처": "https://starting11.com/fixtures/rb-leipzig-vs-lens",
+   "날짜": "2026-11-23"
+  },
+  {
+   "팀": "원정",
+   "선수": "Sima",
+   "포지션": "FWD",
+   "사유": "Muscle bruise",
+   "상태": "확정",
+   "비중": "확인 안 됨",
+   "출처": "https://starting11.com/fixtures/rb-leipzig-vs-lens",
+   "날짜": "2026-11-23"
+  },
+  {
+   "팀": "원정",
+   "선수": "Édouard",
+   "포지션": "FWD",
+   "사유": "Groin",
+   "상태": "확정",
+   "비중": "확인 안 됨",
+   "출처": "https://starting11.com/fixtures/rb-leipzig-vs-lens",
+   "날짜": "2026-11-23"
+  },
+  {
+   "팀": "원정",
+   "선수": "Ganiou",
+   "포지션": "DEF",
+   "사유": "Jumper's knee",
+   "상태": "확정",
+   "비중": "확인 안 됨",
+   "출처": "https://starting11.com/fixtures/rb-leipzig-vs-lens",
+   "날짜": "2026-11-23"
+  },
+  {
+   "팀": "원정",
+   "선수": "Gradit",
+   "포지션": "DEF",
+   "사유": "Injury",
+   "상태": "확정",
+   "비중": "확인 안 됨",
+   "출처": "https://starting11.com/fixtures/rb-leipzig-vs-lens",
+   "날짜": "2026-11-23"
+  },
+  {
+   "팀": "원정",
+   "선수": "Ivanović",
+   "포지션": "FWD",
+   "사유": "Concussion",
+   "상태": "확정",
+   "비중": "확인 안 됨",
+   "출처": "https://starting11.com/fixtures/rb-leipzig-vs-lens",
+   "날짜": "2026-11-23"
+  },
+  {
+   "팀": "원정",
+   "선수": "Bulatović",
+   "포지션": "MID",
+   "사유": "Neck",
+   "상태": "확정",
+   "비중": "확인 안 됨",
+   "출처": "https://starting11.com/fixtures/rb-leipzig-vs-lens",
+   "날짜": "2026-11-23"
+  },
+  {
+   "팀": "원정",
+   "선수": "Jourdren",
+   "포지션": "GK",
+   "사유": "Off the roster",
+   "상태": "확정",
+   "비중": "확인 안 됨",
+   "출처": "https://starting11.com/fixtures/rb-leipzig-vs-lens",
+   "날짜": "2026-11-23"
+  },
+  {
+   "팀": "원정",
+   "선수": "Diarra",
+   "포지션": "FWD",
+   "사유": "Off the roster",
+   "상태": "확정",
+   "비중": "확인 안 됨",
+   "출처": "https://starting11.com/fixtures/rb-leipzig-vs-lens",
+   "날짜": "2026-11-23"
+  },
+  {
+   "팀": "원정",
+   "선수": "Aguilar",
+   "포지션": "DEF",
+   "사유": "Muscle",
+   "상태": "의심",
+   "비중": "확인 안 됨",
+   "출처": "https://starting11.com/fixtures/rb-leipzig-vs-lens",
+   "날짜": "2026-11-23"
+  }
+ ],
+ "감독": [
+  {
+   "팀": "홈",
+   "내용": "Martín Demichelis (팩트시트)",
+   "출처": "회차별분석/팩트시트_승무패71.md",
+   "날짜": "2026-11-23"
+  },
+  {
+   "팀": "원정",
+   "내용": "Didier Digard (팩트시트)",
+   "출처": "회차별분석/팩트시트_승무패71.md",
+   "날짜": "2026-11-23"
+  }
+ ],
+ "예상선발": [],
+ "직전경기": {
+  "홈": "UCL 11-04/05 홈 vs Man City 2-3 패. 국내: 2026-11-07 Leipzig 5-2 Augsburg (DFB datencenter MD9 목록). 11-22 경기 확인 안 됨",
+  "원정": "2026-11-21 홈 vs Toulouse 1-1, 슈팅 22(8):9(5), 3-4-2-1 (teamdb 카드 ESPN). 직전 선발: Risser, Baidoo, Chavez, Todibo, Cuisance, Titraoui, Udol, Aguilar, Thauvin, Sotoca, Soares"
+ },
+ "다음경기": {
+  "홈": "확인 안 됨",
+  "원정": "확인 안 됨"
+ },
+ "최근경기": {
+  "홈": [
+   "2026-11-04 Leipzig 2-3 Man City (UCL)",
+   "2026-11-07 Leipzig 5-2 Augsburg"
+  ],
+  "원정": [
+   "2026-10-30 Lille 1-0 Lens",
+   "2026-11-08 Lens 1-2 Marseille",
+   "2026-11-21 Lens 1-1 Toulouse"
+  ]
+ },
+ "맞대결": [
+  "2026-10-21 Club Brugge 3-0 Lens (UCL, 팩트시트) — 맞대결 아님. Leipzig-Lens 직접 전적 확인 안 됨"
+ ],
+ "걸린것": [
+  "UCL 리그 페이즈 5라운드"
+ ],
+ "사실": [
+  "starting11: 양 팀 출장정지 없음 (2026-11-23)",
+  "starting11 Lens 직전 3일 전 리그 경기 언급",
+  "카드 xG: Leipzig 시즌8경기 2.63/1.65, Lens 시즌9경기 1.87/1.51",
+  "입력 파일: 이동 676km, 0.3℃, 바람2.8km/h",
+  "팩트시트상 Lens는 Como에 1-9 패(11-05)로 표기 (입력 파일, 단 시즌 문맥 확인 안 됨)"
+ ],
+ "확인안됨": [
+  "기자회견 발언",
+  "UCL 등록 명단",
+  "Leipzig 11-22 전후 리그 결과·Leipzig 현재 부상 최신(Nkunku·Baumgartner 등)",
+  "starting11은 '보고된 가용성'이며 확정 팀시트 아님; 영문 페이지 일부 날짜(9월) 불일치"
+ ],
+ "출처": [
+  "https://starting11.com/fixtures/rb-leipzig-vs-lens",
+  "https://datencenter.dfb.de/en/data-center/bundesliga/2026-2027/9/2419402",
+  "회차별분석/팩트시트_승무패71.md"
+ ]
+}

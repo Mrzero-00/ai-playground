@@ -1,0 +1,80 @@
+{
+ "번호": 14,
+ "홈": "Shakhtar Donetsk",
+ "원정": "Fenerbahce",
+ "리그": "UEFA 챔피언스리그",
+ "수집시각": "2026-11-23 KST",
+ "구장": "Stamford Bridge, London (Chelsea 홈구장) — Shakhtar 2026-27 UCL 홈경기 개최지. 개최 도시: 런던. 경기일 현지 2026-11-25 수 21:00(Sky Italia 표기)",
+ "UCL순위": {
+  "홈": "Squawka: 4점(팩트시트: 21위 4경기 1승1무2패 GD0 승점4)",
+  "원정": "Squawka: 5점(팩트시트: 19위 4경기 1승2무1패 GD-5 승점5)"
+ },
+ "리그순위": {
+  "홈": "확인 안 됨",
+  "원정": "확인 안 됨"
+ },
+ "결장": [],
+ "감독": [
+  {
+   "팀": "홈",
+   "내용": "Arda Turan (팩트시트·beIN Sports 2026-11-03 보도)",
+   "출처": "https://beinsports.com.tr/haber/arda-turana-fenerbahce-maci-oncesi-buyuk-sok",
+   "날짜": "2026-11-03"
+  },
+  {
+   "팀": "원정",
+   "내용": "확인 안 됨 (팩트시트 공란)",
+   "출처": "",
+   "날짜": ""
+  }
+ ],
+ "예상선발": [],
+ "직전경기": {
+  "홈": "UCL 2026-11-03 Shakhtar 0-1 Sporting CP. 이후 국내 리그 경기 확인 안 됨",
+  "원정": "UCL 2026-11-04 Fenerbahce 3-2 Liverpool. 이후 국내 리그 경기 확인 안 됨"
+ },
+ "다음경기": {
+  "홈": "확인 안 됨",
+  "원정": "확인 안 됨"
+ },
+ "최근경기": {
+  "홈": [
+   "10-14 Shakhtar 3-1 AEK Athens",
+   "10-21 Inter 1-0 Shakhtar",
+   "11-03 Shakhtar 0-1 Sporting CP"
+  ],
+  "원정": [
+   "10-14 Aston Villa 6-0 Fenerbahce",
+   "10-20 Fenerbahce 2-2 Slavia Prague",
+   "11-04 Fenerbahce 3-2 Liverpool"
+  ]
+ },
+ "맞대결": [
+  "확인 안 됨 (과거 2022 UCL 예선 맞대결 페이지만 검색됨)"
+ ],
+ "걸린것": [
+  "확인 안 됨"
+ ],
+ "사실": [
+  "Shakhtar는 2026-27 UCL 홈경기를 Stamford Bridge(런던)에서 치른다고 8월 21일 발표 (https://shakhtar.com/en/news/2026/august/21_news/21_shakhtar_stamford_bridge/ , https://www.aljazeera.com/sports/2026/8/21/ukraines-shakhtar-donetsk-to-play-champions-league-home-games-at-chelsea). 승인 상태는 출처마다 엇갈림(규제 승인 대기 vs UEFA·구청 승인)",
+  "Sky Italia: 5라운드 Shakhtar-Fenerbahce 2026-11-25 수 21:00 (https://sport.sky.it/calcio/champions-league/partite/2026/giornata-5/shakhtar-donetsk-fenerbahce)",
+  "Squawka 프리뷰: Fenerbahce 예상선발에 Mason Greenwood(UCL 4골·슈팅 23·유효 9). 팀 뉴스 날짜 미확인 (직접 열람 403)",
+  "beIN Sports 2026-11-03 보도: Shakhtar 0-1 Sporting 뒤 다음 상대가 Fenerbahce"
+ ],
+ "확인안됨": [
+  "양 팀 부상·결장·출장정지 (공식·현지 보도 못 찾음; Turkish gazetebirlik 결장 목록은 2026-02-26 Nottingham Forest전 것이라 제외)",
+  "UCL 등록 명단",
+  "국내 리그 순위·최근 경기",
+  "Fenerbahce 감독 이름",
+  "기자회견",
+  "맞대결 기록"
+ ],
+ "출처": [
+  "https://shakhtar.com/en/news/2026/august/21_news/21_shakhtar_stamford_bridge/",
+  "https://www.aljazeera.com/sports/2026/8/21/ukraines-shakhtar-donetsk-to-play-champions-league-home-games-at-chelsea",
+  "https://sport.sky.it/calcio/champions-league/partite/2026/giornata-5/shakhtar-donetsk-fenerbahce",
+  "https://beinsports.com.tr/haber/arda-turana-fenerbahce-maci-oncesi-buyuk-sok",
+  "https://www.uefa.com/uefachampionsleague/match/2049640--shakhtar-vs-fenerbahce/lineups/",
+  "팩트시트_승무패71.md"
+ ]
+}

@@ -178,6 +178,33 @@ def build():
                  f"<p class=\"note\">미트레이드 글의 RSI 30/70·5/20 골든크로스·볼린저 20/2 돌파(손절 2·3%)와 티스토리 글의 하이킨아시 + EMA 200 + 스토캐스틱 RSI(익절·손절 두 해석, 롱만·롱숏). 칸 = 연복리 · 작은 글씨 샤프, 편도 0.10%. ✓ 는 판정 통과(현물 봇보다 샤프 높고 MDD 5%p 이내 · 0.25% 에서도 · 거래 30회+). "
                  f"같은 기간 현물 봇 {b10['연복리'] * 100:+.0f}% · 샤프 {b10['샤프']:.2f} · MDD {b10['MDD'] * 100:.0f}%, 그냥 보유 {bh['연복리'] * 100:+.0f}% · 샤프 {bh['샤프']:.2f}. 칸에 마우스를 올리면 MDD·거래 수·거래당 수익(비용 전).</p>"
                  f"<div class=\"scroll\"><table class=\"num\"><thead><tr><th>규칙</th>{''.join(f'<th>{t}</th>' for t in tfs)}</tr></thead><tbody>{rows}</tbody></table></div></section>")
+    reg, rp = "", C.OUT / "regime.json"
+    if rp.exists():  # 장 판별·전환 감지 (RESEARCH.md '장 판별·전환 감지 등록', scripts/lab/regime.py)
+        z = json.loads(rp.read_text())
+        g = "확인 (다른 코인 10개)"
+        pc = lambda x: "—" if x is None else f"{x * 100:.0f}%"
+        a3, a2 = z["A3"][g], z["A2"][g]["30%"]
+        names = [n for n in a2 if a2[n]]
+        rowsA = "".join(f"<tr><th>{e(n)}</th><td>{pc(a3[n]['균형 정확도']) if n in a3 else '—'}</td><td>{pc(a3[n]['전환 뒤 30일']) if n in a3 else '—'}</td>"
+                        f"<td>{pc(a2[n]['균형 정확도'])}</td><td>{pc(a2[n]['전환 뒤 30일'])}</td><td>{pc(z['hold'][g][n]['연복리'])}</td><td>{num(z['hold'][g][n]['샤프'])}</td><td>{pc(z['hold'][g][n]['MDD'])}</td></tr>" for n in names)
+        for n in ("사후 라벨 λ 30% (미래를 본 상한)", "그냥 보유"):
+            h = z["hold"][g][n]
+            rowsA += f"<tr><th>{e(n)}</th><td>—</td><td>—</td><td>—</td><td>—</td><td>{pc(h['연복리'])}</td><td>{num(h['샤프'])}</td><td>{pc(h['MDD'])}</td></tr>"
+        b = z["B"][g]["30%"]
+        def brow(side, n, r):
+            mult = "—" if r["배수"] is None else f"{r['배수']:.2f}"
+            lead = "—" if r["선행중앙"] is None else f"{r['선행중앙']:.0f}일"
+            head = "바닥 (하락→상승)" if side == "바닥" else "꼭대기 (상승→하락)"
+            return (f"<tr><th>{head} · {e(n)}</th><td>{r['켜짐']:,}</td><td>{pc(r['적중률'])}</td><td>{pc(r['기준'])}</td><td>{mult}</td>"
+                    f"<td>{r['잡음']}/{r['전환']}</td><td>{lead}</td></tr>")
+        rowsB = "".join(brow(side, n, r) for side in ("바닥", "꼭대기") for n, r in b[side].items())
+        cand = ", ".join(z["후보"]) or "없음"
+        reg = (f"<section class=\"card\"><h4 style=\"margin-top:0\">장 판별·전환 감지 — 확인용 코인 10개 (BNB·XRP·ADA·LTC·TRX·ETC·LINK·DOGE·XLM·SOL)</h4>"
+               f"<p class=\"note\">정답은 지나고 나서 본 장(2상태: 고점·저점에서 30% 움직임, 3상태: 앞뒤 30일 수익). 판별기는 그날까지의 자료만, 등록한 기본값 그대로. 3상태는 늘 '상승'만 찍으면 균형 정확도 33%. "
+               f"목표(3상태 균형 정확도 90%)에 닿은 판별기는 없다. '상승일 때만 보유'는 코인별 중앙값, 편도 0.10%.</p>"
+               f"<div class=\"scroll\"><table class=\"num\"><thead><tr><th>판별기</th><th>3상태 균형 정확도</th><th>3상태 전환 뒤 30일</th><th>2상태 균형 정확도</th><th>2상태 전환 뒤 30일</th><th>상승일 때만 보유 연복리</th><th>샤프</th><th>MDD</th></tr></thead><tbody>{rowsA}</tbody></table></div>"
+               f"<p class=\"note\">전환 신호(30% 기준): 적중 = 켜진 날이 새 장 시작 45일 안, 헛경보 = 아직 옛 장. 기준 = 같은 실시간 상태의 아무 날. 선행 = 처음 적중한 날이 30% 확인보다 며칠 먼저. 후보 조건(적중률 ≥ 기준 × 1.5 · 잡은 비율 ≥ 50% · 선행 ≥ 0): {e(cand)}.</p>"
+               f"<div class=\"scroll\"><table class=\"num\"><thead><tr><th>신호</th><th>켜짐</th><th>적중률</th><th>기준</th><th>배수</th><th>잡은 전환</th><th>선행 중앙</th></tr></thead><tbody>{rowsB}</tbody></table></div></section>")
     total = sum(r["cells"] for r in done)
     passed = [f"{r['name']} · {u['name']}" for r in done for u in r["units"] if u["passed"] and not r.get("late")]
     late_ok = [f"{r['name']} · {u['name']}" for r in done for u in r["units"] if u["passed"] and r.get("late")]
@@ -185,7 +212,7 @@ def build():
             + (f" 봉인 해제 뒤 추가(참고용) 개발 통과: {', '.join(late_ok)}." if late_ok else "")) if done else "첫 단계를 돌리는 중이다."
     seal = f"열림 ({json.loads(C.SEAL.read_text())['at'][:16]})" if C.SEAL.exists() else "닫힘 — 2025-07-01 이후 데이터는 마지막에 한 번만 연다"
     page = TEMPLATE.replace("__NOW__", now).replace("__HEAD__", e(head)).replace("__SEAL__", e(seal)).replace("__PROGRESS__", progress) \
-        .replace("__OVERVIEW__", overview or '<tr><td colspan="7">아직 끝난 단계가 없다.</td></tr>').replace("__SECTIONS__", hold + short + dsr + sections) \
+        .replace("__OVERVIEW__", overview or '<tr><td colspan="7">아직 끝난 단계가 없다.</td></tr>').replace("__SECTIONS__", hold + reg + short + dsr + sections) \
         .replace("__DATA__", json.dumps(curves, ensure_ascii=False))
     (C.OUT / "report.html").write_text(page)
     (C.OUT / "report.json").write_text(json.dumps(reported, ensure_ascii=False))

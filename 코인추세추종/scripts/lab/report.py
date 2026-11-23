@@ -160,6 +160,24 @@ def build():
                f"전체에서 초과 DSR 이 가장 높은 단위는 {e(best['name'])} · {e(best['unit'])} ({num(best['초과']['DSR'])}).</p>"
                f"<div class=\"scroll\"><table class=\"num\"><thead><tr><th>모드 묶음</th><th>시험 수</th><th>유효 시험 수(초과)</th><th>운으로 나올 최고 초과 샤프(연)</th><th>운으로 나올 최고 샤프(연)</th></tr></thead><tbody>{fam}</tbody></table></div>"
                f"<div class=\"scroll\"><table class=\"num\"><thead><tr><th>개발 통과 단위</th><th>샤프(주간→연)</th><th>절대 DSR</th><th>초과 샤프(연)</th><th>초과 PSR</th><th>초과 DSR</th><th>보정</th></tr></thead><tbody>{rows}</tbody></table></div></section>")
+    short, sp = "", C.OUT / "shortterm.json"
+    if sp.exists():  # 단타 글 전략 (RESEARCH.md '단타 글 전략 등록', scripts/lab/shortterm.py)
+        z = json.loads(sp.read_text())
+        tfs = ["1분", "3분", "5분", "15분", "30분", "1시간", "2시간", "4시간", "12시간", "1일"]
+        by = {}
+        for c in z["cells"]:
+            by.setdefault((c["rule"], c["param"], c["mode"]), {})[c["tf"]] = c
+        def cell(c):
+            a = c["0.10%"]["전체"]
+            mark = " ✓" if c["통과"] else ""
+            return f"<td title=\"샤프 {a['샤프']:.2f} · MDD {a['MDD'] * 100:.0f}% · 거래 {c['거래']:,} · 거래당 {(c['거래당'] or 0) * 100:.2f}%\">{a['연복리'] * 100:+.0f}%<small> {a['샤프']:.2f}</small>{mark}</td>"
+        rows = "".join(f"<tr><th>{e(k[0])} <small>{e(k[1])} · {e(k[2])}</small></th>{''.join(cell(v[t]) for t in tfs)}</tr>" for k, v in by.items())
+        bm = z["bench"]
+        b10, bh = bm["현물 봇 0.10%"]["전체"], bm["그냥 보유"]["전체"]
+        short = (f"<section class=\"card\"><h4 style=\"margin-top:0\">단타 글 전략 — 봉 길이 10가지 ({e(z['window'][0])} ~ {e(z['window'][1])}, 바이낸스 현물 1분봉)</h4>"
+                 f"<p class=\"note\">미트레이드 글의 RSI 30/70·5/20 골든크로스·볼린저 20/2 돌파(손절 2·3%)와 티스토리 글의 하이킨아시 + EMA 200 + 스토캐스틱 RSI(익절·손절 두 해석, 롱만·롱숏). 칸 = 연복리 · 작은 글씨 샤프, 편도 0.10%. ✓ 는 판정 통과(현물 봇보다 샤프 높고 MDD 5%p 이내 · 0.25% 에서도 · 거래 30회+). "
+                 f"같은 기간 현물 봇 {b10['연복리'] * 100:+.0f}% · 샤프 {b10['샤프']:.2f} · MDD {b10['MDD'] * 100:.0f}%, 그냥 보유 {bh['연복리'] * 100:+.0f}% · 샤프 {bh['샤프']:.2f}. 칸에 마우스를 올리면 MDD·거래 수·거래당 수익(비용 전).</p>"
+                 f"<div class=\"scroll\"><table class=\"num\"><thead><tr><th>규칙</th>{''.join(f'<th>{t}</th>' for t in tfs)}</tr></thead><tbody>{rows}</tbody></table></div></section>")
     total = sum(r["cells"] for r in done)
     passed = [f"{r['name']} · {u['name']}" for r in done for u in r["units"] if u["passed"] and not r.get("late")]
     late_ok = [f"{r['name']} · {u['name']}" for r in done for u in r["units"] if u["passed"] and r.get("late")]
@@ -167,7 +185,7 @@ def build():
             + (f" 봉인 해제 뒤 추가(참고용) 개발 통과: {', '.join(late_ok)}." if late_ok else "")) if done else "첫 단계를 돌리는 중이다."
     seal = f"열림 ({json.loads(C.SEAL.read_text())['at'][:16]})" if C.SEAL.exists() else "닫힘 — 2025-07-01 이후 데이터는 마지막에 한 번만 연다"
     page = TEMPLATE.replace("__NOW__", now).replace("__HEAD__", e(head)).replace("__SEAL__", e(seal)).replace("__PROGRESS__", progress) \
-        .replace("__OVERVIEW__", overview or '<tr><td colspan="7">아직 끝난 단계가 없다.</td></tr>').replace("__SECTIONS__", hold + dsr + sections) \
+        .replace("__OVERVIEW__", overview or '<tr><td colspan="7">아직 끝난 단계가 없다.</td></tr>').replace("__SECTIONS__", hold + short + dsr + sections) \
         .replace("__DATA__", json.dumps(curves, ensure_ascii=False))
     (C.OUT / "report.html").write_text(page)
     (C.OUT / "report.json").write_text(json.dumps(reported, ensure_ascii=False))

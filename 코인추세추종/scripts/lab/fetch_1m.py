@@ -25,8 +25,11 @@ def fetch(sym):
     path = ML / f"spot1m_{sym}.csv"
     since = START
     if path.exists():
-        with path.open() as f:
-            last = f.readlines()[-1].split(",")[0]
+        lines = path.read_text().splitlines(keepends=True)
+        if lines and (not lines[-1].endswith("\n") or len(lines[-1].split(",")) != 6):  # 끊긴 마지막 줄은 버린다
+            lines = lines[:-1]
+            path.write_text("".join(lines))
+        last = lines[-1].split(",")[0]
         if last != "time":
             since = int(datetime.strptime(last, "%Y-%m-%d %H:%M").replace(tzinfo=timezone.utc).timestamp() * 1000) + 60_000
     new = not path.exists()

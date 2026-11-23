@@ -125,13 +125,39 @@ def futures_table():
     return f'<div class="scroll"><table><tr><th>방식</th><th>목표 BTC / ETH</th><th>평가액 USDT</th><th>수익률</th><th>펀딩 누적(+ 냄)</th></tr>{body}</table></div><div class="muted">{day} 기준</div>'
 
 
+def cand_table():
+    """연구 최종 후보 선물 모의(RESEARCH.md 후보 모의 등록) — 같은 날 선물 모의 F0 와 나란히."""
+    path = ROOT / "paper_cand/equity.csv"
+    if not path.exists():
+        return '<p class="muted">09:16 첫 실행 뒤부터 기록이 쌓인다.</p>'
+    last = {(r["날짜"], r["방식"], r["마켓"]): r for r in csv.DictReader(path.open())}
+    start, day = min(k[0] for k in last), max(k[0] for k in last)
+    fp = ROOT / "paper_futures/equity.csv"
+    f0 = {(r["날짜"], r["마켓"]): r for r in csv.DictReader(fp.open()) if r["방식"] == "F0"} if fp.exists() else {}
+    names = {"C1": "볼린저 50/1.5 돌파 롱만", "C2": "7일 평균 펀딩 음수면 롱"}
+    body = ""
+    for v, label in names.items():
+        rs = [last[(day, v, s)] for s in ("BTC", "ETH") if (day, v, s) in last]
+        val = sum(float(r["평가액"]) for r in rs)
+        tgt = " / ".join(f'{float(r["목표"]):+.0f}' for r in rs)
+        body += f"<tr><td>{v} {label}</td><td>{tgt}</td><td>{val:,.2f}</td><td>{pct(val / 10000 - 1)}</td></tr>"
+    a = [f0.get((start, s)) for s in ("BTC", "ETH")]
+    b = [f0.get((day, s)) for s in ("BTC", "ETH")]
+    if all(a) and all(b):
+        r0 = sum(float(r["평가액"]) for r in b) / sum(float(r["평가액"]) for r in a) - 1
+        tgt = " / ".join(f'{float(r["목표"]):+.2f}' for r in b)
+        body += f"<tr><td>F0 기준선 (같은 기간)</td><td>{tgt}</td><td>—</td><td>{pct(r0)}</td></tr>"
+    return (f'<div class="scroll"><table><tr><th>후보</th><th>목표 BTC / ETH</th><th>평가액 USDT</th><th>수익률</th></tr>{body}</table></div>'
+            f'<div class="muted">{start} ~ {day}</div>')
+
+
 def health(now, live_st, col_last):
     """작업마다 (이름, 정상 여부, 설명). 알림은 보내지 않으니 봇이 살아 있는지는 이 줄로 본다."""
     today = now.strftime("%Y-%m-%d")
     # 09:15 작업까지 끝난 뒤부터 오늘 몫을 기대한다
     due = today if (now.hour, now.minute) >= (9, 16) else (now - timedelta(days=1)).strftime("%Y-%m-%d")
     out = []
-    for name, folder in [("실전", "live"), ("모의", "paper"), ("ML 모의", "paper_ml"), ("선물 모의", "paper_futures")]:
+    for name, folder in [("실전", "live"), ("모의", "paper"), ("ML 모의", "paper_ml"), ("선물 모의", "paper_futures"), ("후보 모의", "paper_cand")]:
         st = ROOT / folder / "state.json"
         last = json.loads(st.read_text()).get("last_run") if st.exists() else None
         err = ROOT / folder / "logs" / f"{folder}.err"
@@ -283,6 +309,10 @@ th,td{{padding:7px 9px;border-bottom:1px solid var(--line);text-align:right;whit
 <h2>선물 모의 (FUTURES.md, 바이낸스 무기한, 방식마다 10,000 USDT)</h2>
 {futures_table()}
 <p class="muted">백테스트 표본 외(2023~)에서 F1~F3 모두 F0 보다 샤프가 높지 않았다(F0 0.86 · F1 0.65 · F2 0.83 · F3 0.86). 실제 펀딩·체결 기록용. 실전 검토는 현물 3개월 검증 뒤.</p>
+
+<h2>연구 후보 모의 (RESEARCH.md 후보 모의 등록, 방식마다 10,000 USDT)</h2>
+{cand_table()}
+<p class="muted">83개 방법 중 봉인 구간까지 통과한 2개. 다중 검정 보정으로는 운과 구분되지 않아 모의로 앞으로 검증한다. 중간 점검 2027-02-24(운영만), 판정 2027-05-24: F0 이상 수익 · MDD 5%p 이내 · 체결 불리 0.05% 이내 · 빠진 날 없음.</p>
 
 <h2>전략 비교: 2025-01 에 100만원을 넣었다면</h2>
 {compare("2025-01-01")}

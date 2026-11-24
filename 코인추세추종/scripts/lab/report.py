@@ -218,15 +218,15 @@ def build():
     loop2, lp2 = "", C.OUT / "regime_loop2.json"
     if lp2.exists():  # 장 판별 루프 2 (RESEARCH.md '장 판별 루프 2 등록', scripts/lab/regime_loop2.py)
         z = json.loads(lp2.read_text())
-        rs = [(int(k), n, v["찾기"][n]["균형 정확도"], r["균형 정확도"]) for k, v in z["iters"].items() for n, r in v["확인"].items()]
-        rs.sort(key=lambda t: (t[0], -t[3]))
-        rows = "".join(f"<tr><th>{k}회차 · {e(n)}</th><td>{a * 100:.1f}%</td><td>{b * 100:.1f}%</td></tr>" for k, n, a, b in rs)
+        rs = [(int(k), n, v.get("2011~2017", {}).get(n, {}).get("균형 정확도"), v["찾기"][n]["균형 정확도"], r["균형 정확도"]) for k, v in z["iters"].items() for n, r in v["확인"].items()]
+        rs.sort(key=lambda t: (t[0], -t[4]))
+        rows = "".join(f"<tr><th>{k}회차 · {e(n)}</th><td>{'—' if o is None else f'{o * 100:.1f}%'}</td><td>{a * 100:.1f}%</td><td>{b * 100:.1f}%</td></tr>" for k, n, o, a, b in rs)
         tz, rw = z.get("test"), z["iters"].get("4", {}).get("무작위 걸음")
         test = (f"확인 최고 {e(tz['판별기'])} 로 새 시험 기간(2017년 이전)을 한 번 열었다: 균형 {tz['균형 정확도'] * 100:.1f}%." if tz else "새 시험 기간은 아직 열지 않았다.")
         rwt = f" 정답 정의에서 계산한 위치 규칙은 예측할 거리가 없는 무작위 걸음에서도 {rw * 100:.1f}% 가 나온다." if rw else ""
         loop2 = (f"<section class=\"card\"><h4 style=\"margin-top:0\">장 판별 루프 2 — 10회, BTC·ETH, Coin Metrics 종가 2010~</h4>"
-                 f"<p class=\"note\">찾기 2018~2021, 확인 2022 ~ 2026-11, 새 시험 BTC 2011~2017·ETH 2016~2017(처음 보는 기간). 종가만 쓰는 판별기, 2상태(30%) 균형 정확도. 80% 에 닿은 판별기는 없다. {test}{rwt}</p>"
-                 f"<div class=\"scroll\"><table class=\"num\"><thead><tr><th>판별기</th><th>찾기</th><th>확인</th></tr></thead><tbody>{rows}</tbody></table></div></section>")
+                 f"<p class=\"note\">찾기 2018~2021, 확인 2022 ~ 2026-11, 새 시험 BTC 2011~2017·ETH 2016~2017(처음 보는 기간). 종가만 쓰는 판별기(13회차부터 온체인도), 2상태(30%) 균형 정확도. 11회차부터는 세 기간 모두 80% 가 성공 조건(사용자 요청으로 횟수 제한 없이 매시간). 80% 에 닿은 판별기는 아직 없다. {test}{rwt}</p>"
+                 f"<div class=\"scroll\"><table class=\"num\"><thead><tr><th>판별기</th><th>2011~2017</th><th>찾기 2018~2021</th><th>확인 2022~2026</th></tr></thead><tbody>{rows}</tbody></table></div></section>")
     total = sum(r["cells"] for r in done)
     passed = [f"{r['name']} · {u['name']}" for r in done for u in r["units"] if u["passed"] and not r.get("late")]
     late_ok = [f"{r['name']} · {u['name']}" for r in done for u in r["units"] if u["passed"] and r.get("late")]

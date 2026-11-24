@@ -308,6 +308,17 @@ ITERS = {0: base, 1: iter1, 2: iter2, 3: iter3, 4: iter4, 5: iter5, 6: iter6, 7:
          13: iter13, 14: iter14, 15: iter15}
 
 
+def iter16(c):
+    mm = (c / sma(c, 200)).to_numpy()
+    e = np.where(ens(c) > 0.5, 1, -1)
+    with np.errstate(invalid="ignore"):
+        other = np.where(mm >= 2.4, -1, np.where(mm <= 0.8, 1, e))
+    return {"위치 + 애매하면 메이어 배수": ambiguous(c, other)}
+
+
+ITERS[16] = iter16
+
+
 def evaluate(fn, span):
     pool = {}
     for s in SYMS:

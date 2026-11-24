@@ -236,7 +236,76 @@ def iter12(c):
             "위치·달력 확률 평균": np.where(np.isnan(pm), 0, np.where(pm > 0.5, 1, -1))}
 
 
-ITERS = {0: base, 1: iter1, 2: iter2, 3: iter3, 4: iter4, 5: iter5, 6: iter6, 7: iter7, 8: iter8, 9: iter9, 10: iter10, 11: iter11, 12: iter12}
+_CHAIN = {}
+
+
+def chain(sym):
+    if sym not in _CHAIN:
+        d = pd.read_csv(C.ML / f"cmchain_{sym}.csv", parse_dates=["date"], index_col="date")
+        d.index = d.index + pd.Timedelta(days=1)  # D 날짜 값은 D+1 부터 (하루 늦게)
+        _CHAIN[sym] = d
+    return _CHAIN[sym]
+
+
+def which(c):
+    """종가 줄이 어느 코인인지 (첫 날짜로)."""
+    return "BTC" if c.index[0].year == 2010 else "ETH"
+
+
+def ambiguous(c, other):
+    pr = drift_prob(c)
+    return np.where(np.isnan(pr), 0, np.where(pr > 0.6, 1, np.where(pr < 0.4, -1, other)))
+
+
+def iter13(c):
+    mv = chain(which(c)).CapMVRVCur.reindex(c.index).ffill().to_numpy()
+    e = np.where(ens(c) > 0.5, 1, -1)
+    other = np.where(mv >= 3.5, -1, np.where(mv <= 1, 1, e))
+    return {"위치 + 애매하면 MVRV": ambiguous(c, other)}
+
+
+def hash_recovery(idx):
+    """해시 리본 회복 뒤 가격 10 > 20 평균인 첫날 (BTC 해시레이트·BTC 가격)."""
+    hr = chain("BTC").HashRate.reindex(idx).ffill()
+    px = load("BTC").close.reindex(idx).ffill()
+    cap = (hr.rolling(30).mean() < hr.rolling(60).mean()).to_numpy()
+    mom = (sma(px, 10) > sma(px, 20)).to_numpy()
+    sig, was, armed = np.zeros(len(idx), bool), False, False
+    for i in range(len(idx)):
+        if cap[i]:
+            was, armed = True, False
+        elif was:
+            was, armed = False, True
+        if armed and mom[i]:
+            sig[i], armed = True, False
+    return sig
+
+
+def iter14(c):
+    base8 = iter8(c)["표류 + 애매하면 앙상블"].copy()
+    x = c.to_numpy()
+    sig = hash_recovery(c.index)
+    recent = pd.Series(sig, index=c.index).rolling(30, min_periods=1).max().astype(bool).to_numpy()
+    ctx, hi, lo = 0, x[0], x[0]
+    for i in range(len(x)):
+        hi, lo = max(hi, x[i]), min(lo, x[i])
+        if ctx >= 0 and x[i] <= hi * 0.7:
+            ctx, lo = -1, x[i]
+        elif ctx <= 0 and x[i] >= lo * 1.3:
+            ctx, hi = 1, x[i]
+        if ctx == -1 and recent[i]:
+            base8[i] = 1
+    return {"8회차 + 하락 맥락 해시 리본 회복": base8}
+
+
+def iter15(c):
+    a = chain(which(c)).AdrActCnt.reindex(c.index).ffill()
+    other = np.where(a.rolling(30).mean() > a.rolling(365).mean(), 1, -1)
+    return {"위치 + 애매하면 활성 주소 추세": ambiguous(c, other)}
+
+
+ITERS = {0: base, 1: iter1, 2: iter2, 3: iter3, 4: iter4, 5: iter5, 6: iter6, 7: iter7, 8: iter8, 9: iter9, 10: iter10, 11: iter11, 12: iter12,
+         13: iter13, 14: iter14, 15: iter15}
 
 
 def evaluate(fn, span):

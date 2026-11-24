@@ -1,5 +1,5 @@
 """장 판별 루프 (RESEARCH.md '장 판별 루프 등록'). 회차마다 판별기를 바꾸거나 더해 2상태(λ 30%) 균형 정확도를 잰다.
-찾기 BTC·ETH, 확인 다른 코인 10개를 보고, 시험 코인 12개는 --test 로 한 번만 연다.
+BTC·ETH 만, 기간으로 나눈다: 찾기 ~2021, 확인 2022 ~ 2024-06, 시험 2024-07 ~ 는 --test 로 한 번만 연다.
 사용법: python3 scripts/lab/regime_loop.py <회차>          → data/lab/regime_loop.json 에 그 회차를 쌓는다
         python3 scripts/lab/regime_loop.py --test <판별기 이름>
 """
@@ -12,9 +12,10 @@ import pandas as pd
 
 import common as C
 from indicators import sma
-from regime import DEV, VAL, WARM, acc_stats, adx, classifiers, label3, lam_label, lam_realtime, load, near_change
+from regime import DEV, WARM, acc_stats, adx, classifiers, label3, lam_label, lam_realtime, load, near_change
 
-TEST = ["ATOM", "ALGO", "VET", "NEO", "ZEC", "DASH", "BAT", "AVAX", "DOT", "UNI", "FIL", "XTZ"]
+# 2회차 뒤 사용자 요청: BTC·ETH 만, 기간으로 나눈다
+SPANS = {"찾기": ("2018-01-01", "2021-12-31"), "확인": ("2022-01-01", "2024-06-30"), "시험": ("2024-07-01", "2026-11-22")}
 OUT = C.OUT / "regime_loop.json"
 
 
@@ -76,20 +77,41 @@ def iter2(d, base):
     return out
 
 
-ITERS = {1: iter1, 2: iter2}
+def weinstein(d, weeks):
+    """주봉(일요일 마감) 종가 vs weeks 주 SMA 와 그 기울기. 위·오름 = 1, 아래·내림 = −1, 나머지 유지. 그 주가 끝난 다음 날부터."""
+    w = d.close.resample("W-SUN").last()
+    m = w.rolling(weeks).mean()
+    raw = np.where((w > m) & (m > m.shift()), 1, np.where((w < m) & (m < m.shift()), -1, 0))
+    st = pd.Series(hold(raw, 0), index=w.index + pd.Timedelta(days=1))
+    return st.reindex(d.index, method="ffill").fillna(0).astype(int).to_numpy()
 
 
-def evaluate(names_fn, syms):
-    """판별기마다 묶음 전체 날짜를 모아 2상태 λ 30% 지표, 3상태가 있으면 3상태 균형 정확도."""
+def iter3(d, base):
+    return {"와인스타인 30주선": (None, weinstein(d, 30)), "와인스타인 10주선": (None, weinstein(d, 10))}
+
+
+def iter4(d, base):
+    c = d.close
+    def vote(ns):
+        return hold(np.sign(sum(np.sign(c / c.shift(n) - 1).fillna(0) for n in ns)).astype(int).to_numpy(), 0)
+    return {"모멘텀 합의 21·63·126·252": (None, vote((21, 63, 126, 252))), "모멘텀 합의 63·126·252": (None, vote((63, 126, 252)))}
+
+
+ITERS = {1: iter1, 2: iter2, 3: iter3, 4: iter4}
+
+
+def evaluate(names_fn, span):
+    """BTC·ETH 의 span 기간 날짜를 모아 2상태 λ 30% 지표, 3상태가 있으면 3상태 균형 정확도. 판별기·라벨은 전 기간으로 계산하고 날짜만 고른다."""
     pool2, pool3 = {}, {}
-    for s in syms:
+    for s in DEV:
         d = load(s)
         x = d.close.to_numpy()
         lab = lam_label(x, 0.3)
         near = near_change(lab)
         l3, ok3 = label3(d.close)
-        ok3 = ok3 & (np.arange(len(x)) >= WARM)
-        ok = np.arange(len(x)) >= WARM
+        inside = np.asarray((d.index >= SPANS[span][0]) & (d.index <= SPANS[span][1])) & (np.arange(len(x)) >= WARM)
+        ok3 = ok3 & inside
+        ok = inside
         for name, (p3, p2) in names_fn(d).items():
             pool2.setdefault(name, []).append((np.asarray(p2)[ok], lab[ok], near[ok]))
             if p3 is not None:
@@ -124,7 +146,7 @@ def main():
         k = next(int(i) for i, v in store["iters"].items() if name in v["확인"])
         def only(d):
             return {name: fn_for(k)(d)[name]}
-        r = evaluate(only, TEST)[name]
+        r = evaluate(only, "시험")[name]
         store["test"] = {"판별기": name, "회차": k, "열린 때": datetime.now().isoformat(timespec="seconds"), **r}
         OUT.write_text(json.dumps(store, ensure_ascii=False, indent=1))
         print(f"시험 묶음 {name}: 균형 {r['균형 정확도'] * 100:.1f}% 정확도 {r['정확도'] * 100:.1f}% 전환 뒤 30일 {r['전환 뒤 30일'] * 100:.0f}%")
@@ -133,7 +155,7 @@ def main():
     def new_only(d):
         base = classifiers(d)
         return ITERS[k](d, base) if k else base
-    res = {"찾기": evaluate(new_only, DEV), "확인": evaluate(new_only, VAL), "made": datetime.now().isoformat(timespec="seconds")}
+    res = {"찾기": evaluate(new_only, "찾기"), "확인": evaluate(new_only, "확인"), "made": datetime.now().isoformat(timespec="seconds")}
     store["iters"][str(k)] = res
     OUT.write_text(json.dumps(store, ensure_ascii=False, indent=1))
     for g in ("찾기", "확인"):

@@ -9,6 +9,7 @@ import live, paper
 
 KST = paper.KST
 BTC, ETH = "KRW-BTC", "KRW-ETH"
+REAL_CLOSES4H, REAL_SIGNAL4H = live.closes4h, live.signal4h  # Bot 이 가짜로 바꾸기 전의 진짜 함수
 
 
 class Clock(datetime):
@@ -75,7 +76,9 @@ class Bot:
     def __init__(self, krw=1_000_000, budget=200_000):
         self.ex = Upbit(krw)
         self.target = {BTC: 0.0, ETH: 0.0}
+        self.target4 = {BTC: 0.0, ETH: 0.0}  # 4시간봉으로 본 비중 (장중 확인)
         self.broken = set()  # 시세 조회가 실패하는 마켓
+        self.broken4 = set()  # 4시간봉 조회가 실패하는 마켓
         d = Path(tempfile.mkdtemp())
         live.DIR, live.STATE, live.TRADES, live.EQUITY, live.STOP, live.FLOWS = d, d / "state.json", d / "trades.csv", d / "equity.csv", d / "STOP", d / "flows.csv"
         live.CFG["UPBIT_ACCESS_KEY"] = live.CFG["UPBIT_SECRET_KEY"] = "dummy"  # 혹시 새어 나가도 인증에서 막힌다
@@ -84,6 +87,8 @@ class Bot:
         live.fill = lambda m, side, krw=None, qty=None: (self.ex.px[m], qty or krw / self.ex.px[m], krw or qty * self.ex.px[m], self.ex.px[m])
         live.closes = self.closes
         live.signal = lambda px: px[0]
+        live.closes4h = self.closes4h
+        live.signal4h = lambda px: px[0]
         live.time.sleep = lambda s: None
         live.datetime = Clock
         Clock.t = datetime(2026, 12, 1, 9, 7, tzinfo=KST)
@@ -92,6 +97,11 @@ class Bot:
         if m in self.broken:
             raise OSError("시세 조회 실패 (가정)")
         return ["어제"], [self.target[m]]
+
+    def closes4h(self, m):
+        if m in self.broken4:
+            raise OSError("4시간봉 조회 실패 (가정)")
+        return ["방금"], [self.target4[m]]
 
     def run(self, next_day=True, hours=0):
         Clock.t += timedelta(days=1) if next_day else timedelta(hours=hours)
@@ -252,6 +262,152 @@ def test_halt_on_drawdown():
     st = b.run(next_day=False, hours=4)
     assert b.ex.count(ETH, "ask") == 1 and live.STOP.exists() and st["sleeves"][ETH]["qty"] == 0
     b.matches()
+
+
+def test_intraday_buys_but_never_sells():
+    """하루 몫 뒤 4시간 확인: 4시간봉 비중이 더 높으면 사고, 낮으면 그대로 둔다. 같은 칸에서는 한 번만. 다음 09:07 이 다시 맞춘다."""
+    b = Bot()
+    b.target = {BTC: 0.25, ETH: 0.5}
+    b.run()  # 12-02 09:07 하루 몫
+    b.target4 = {BTC: 0.75, ETH: 0.0}
+    st = b.run(next_day=False, hours=4)  # 13:07
+    assert b.ex.count(BTC, "bid") == 2 and b.ex.count(ETH) == 1 and b.ex.count(ETH, "ask") == 0
+    assert st["sleeves"][BTC]["target"] == 0.75 and st["sleeves"][ETH]["target"] == 0.5 and st["intraday"] == "2026-12-02 13"
+    b.matches()
+    assert [r["사유"] for r in csv.DictReader(live.TRADES.open())] == ["신호", "신호", "장중 매수"]
+    b.target4 = {BTC: 1.0, ETH: 1.0}
+    b.run(next_day=False, hours=0)  # 같은 칸에서 또 돌아도 주문 없음
+    assert b.ex.count(BTC) == 2 and b.ex.count(ETH) == 1
+    st = b.run(next_day=False, hours=12)  # 01:07 — 날짜는 넘어갔지만 같은 매매일
+    assert st["intraday"] == "2026-12-03 01" and st["sleeves"][BTC]["target"] == st["sleeves"][ETH]["target"] == 1.0
+    b.matches()
+    st = b.run(next_day=False, hours=8)  # 12-03 09:07 하루 몫: 일봉 신호대로 다시 줄인다
+    assert st["last_run"] == "2026-12-03" and st["sleeves"][BTC]["target"] == 0.25 and st["sleeves"][ETH]["target"] == 0.5
+    assert b.ex.count(BTC, "ask") == 1 and b.ex.count(ETH, "ask") == 1
+    b.matches()
+    b.run(next_day=False, hours=1)  # 10:07 은 09시 칸 — 장중 확인을 하지 않는다
+    assert b.ex.count(BTC, "bid") == 3 and b.ex.count(ETH, "bid") == 2
+
+
+def test_intraday_waits_for_the_daily_run():
+    """하루 몫이 끝나지 않았으면 장중 확인을 하지 않는다. 09:00 뒤의 실행은 하루 몫을 다시 한다."""
+    b = Bot()
+    b.target = {BTC: 0.5, ETH: 0.5}
+    b.target4 = {BTC: 1.0, ETH: 1.0}
+    b.broken = {ETH}
+    st = b.run()  # 12-02 09:07: ETH 실패
+    assert st["last_run"] != "2026-12-02"
+    st = b.run(next_day=False, hours=16)  # 12-03 01:07: 전날 몫이 안 끝났다
+    assert b.ex.count(BTC) == 1 and b.ex.count(ETH) == 0 and "intraday" not in st
+    b.broken = set()
+    st = b.run(next_day=False, hours=12)  # 12-03 13:07: 장중 확인이 아니라 하루 몫
+    assert st["last_run"] == "2026-12-03" and st["sleeves"][ETH]["target"] == 0.5 and "intraday" not in st
+    assert b.ex.count(BTC) == 1 and b.ex.count(ETH) == 1
+    st = b.run(next_day=False, hours=4)  # 17:07: 이제 장중 확인
+    assert st["intraday"] == "2026-12-03 17" and st["sleeves"][BTC]["target"] == 1.0
+    b.matches()
+
+
+def test_intraday_failure_is_noted_and_orders_nothing():
+    """4시간봉을 못 받은 마켓은 사지 않고 상태 줄에 남긴다. 다른 마켓은 처리하고, 다음 칸에서 다시 본다."""
+    b = Bot()
+    b.target = {BTC: 0.25, ETH: 0.25}
+    b.run()
+    b.target4 = {BTC: 1.0, ETH: 1.0}
+    b.broken4 = {BTC}
+    st = b.run(next_day=False, hours=4)
+    assert b.ex.count(BTC) == 1 and b.ex.count(ETH) == 2 and any("KRW-BTC 실패(장중)" in n for n in st["check"]["notes"])
+    b.broken4 = set()
+    st = b.run(next_day=False, hours=4)  # 17:07
+    assert b.ex.count(BTC) == 2 and st["check"]["notes"] == []
+    b.matches()
+
+
+def test_intraday_off_switch_and_stop():
+    b = Bot()
+    b.target = {BTC: 0.25, ETH: 0.25}
+    b.run()
+    b.target4 = {BTC: 1.0, ETH: 1.0}
+    (live.DIR / "NO_INTRADAY").write_text("")
+    st = b.run(next_day=False, hours=4)
+    assert b.ex.count(BTC) == 1 and "intraday" not in st
+    (live.DIR / "NO_INTRADAY").unlink()
+    live.STOP.write_text("정지")
+    b.run(next_day=False, hours=4)
+    assert b.ex.count(BTC) == 1 and b.ex.count(ETH) == 1
+
+
+def test_intraday_skips_late_wakeup():
+    """칸이 시작한 지 1시간이 넘은 뒤에 돈 실행(잠자기에서 늦게 깸)은 사지 않고, 다음 칸에서 본다."""
+    b = Bot()
+    b.target = {BTC: 0.25, ETH: 0.25}
+    b.run()
+    b.target4 = {BTC: 1.0, ETH: 1.0}
+    st = b.run(next_day=False, hours=5.5)  # 14:37 — 13시 칸이 시작한 지 1시간 37분
+    assert b.ex.count(BTC) == 1 and "intraday" not in st
+    st = b.run(next_day=False, hours=2.5)  # 17:07
+    assert b.ex.count(BTC) == 2 and st["intraday"] == "2026-12-02 17"
+    b.matches()
+
+
+def test_intraday_no_buy_at_loss_limit():
+    """손실 한도에 닿았으면 장중에는 사지 않는다(전량 매도·정지는 다음 09:07 이 한다)."""
+    b = Bot()
+    b.target = {BTC: 1.0, ETH: 0.5}
+    b.run()
+    b.ex.px = {m: p * 0.2 for m, p in b.ex.px.items()}
+    b.target4 = {BTC: 1.0, ETH: 1.0}
+    b.run(next_day=False, hours=4)
+    assert b.ex.count(ETH) == 1 and not live.STOP.exists()
+
+
+def test_intraday_response_lost_is_settled_not_repeated():
+    """장중 주문의 응답을 못 받았다 → 다음 실행이 주문 번호로 찾아 장부에 넣고, 같은 주문을 다시 내지 않는다."""
+    b = Bot()
+    b.target = {BTC: 0.25, ETH: 0.25}
+    b.run()
+    b.target4 = {BTC: 0.75, ETH: 0.0}
+    b.ex.fault[BTC] = "timeout"
+    st = b.run(next_day=False, hours=4)
+    assert st["sleeves"][BTC]["pending"] and b.ex.count(BTC) == 2
+    st = b.run(next_day=False, hours=4)  # 17:07
+    assert "pending" not in st["sleeves"][BTC] and st["sleeves"][BTC]["target"] == 0.75 and b.ex.count(BTC) == 2
+    b.matches()
+
+
+def test_slot_and_4h_signal():
+    """4시간 칸(01·05·09·13·17·21시)과 4시간봉 신호(120·300·600·1200개 평균)."""
+    slot = lambda h, mi: live.slot_of(datetime(2026, 12, 2, h, mi, tzinfo=KST))[0]
+    assert slot(13, 7) == "2026-12-02 13" and slot(12, 59) == "2026-12-02 09" and slot(0, 30) == "2026-12-01 21" and slot(1, 0) == "2026-12-02 01"
+    assert REAL_SIGNAL4H([1.0] * 1199 + [2.0]) == 1.0 and REAL_SIGNAL4H([2.0] * 1199 + [1.0]) == 0.0
+    assert REAL_SIGNAL4H([100.0] * 1080 + [10.0] * 119 + [20.0]) == 0.25  # 120개 평균(10.08)만 넘는다
+
+
+def test_stale_4h_candles_raise():
+    """방금 닫힌 4시간봉이 응답에 없으면 신호를 내지 않고, 진행 중인 봉은 쓰지 않는다."""
+    real_get, real_dt, real_sleep = live.get, live.datetime, live.time.sleep
+    live.datetime, live.time.sleep = Clock, lambda s: None
+    Clock.t = datetime(2026, 12, 2, 13, 7, tzinfo=KST)
+    fmt = "%Y-%m-%dT%H:%M:%S"
+
+    def feed(last):  # last = 가장 새 봉의 시작 시각. 200개씩 새 것부터 준다
+        cs = [{"candle_date_time_kst": (last - timedelta(hours=4 * i)).strftime(fmt), "candle_date_time_utc": (last - timedelta(hours=4 * i + 9)).strftime(fmt),
+               "trade_price": float(i)} for i in range(1400)]
+        calls = iter(range(0, 1400, 200))
+        return lambda url: cs[(i := next(calls)):i + 200]
+
+    try:
+        live.get = feed(datetime(2026, 12, 2, 13, 0))  # 13시 봉은 진행 중
+        times, px = REAL_CLOSES4H(BTC)
+        assert times[-1] == "2026-12-02T09:00:00" and px[-1] == 1.0 and len(px) == 1399
+        live.get = feed(datetime(2026, 12, 2, 5, 0))  # 09시 봉이 아직 없다
+        try:
+            REAL_CLOSES4H(BTC)
+            raise AssertionError("예외가 나야 한다")
+        except RuntimeError as e:
+            assert "덜 올라왔다" in str(e)
+    finally:
+        live.get, live.datetime, live.time.sleep = real_get, real_dt, real_sleep
 
 
 def test_stale_candles_raise():

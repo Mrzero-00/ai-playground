@@ -12,7 +12,7 @@ from paper import KST, MARKETS, SMAS, closes, signal
 from report import collector, health
 
 MARK = DIR / "brief.json"  # 마지막으로 내보낸 브리핑의 시각과 그때 상태
-RETRY = [(13, 7), (21, 7)]  # 실전 봇이 실패한 마켓을 다시 하는 시각 (launchd)
+RETRY = [(13, 7), (17, 7), (21, 7)]  # 실전 봇이 실패한 마켓을 다시 하는 시각 (launchd)
 
 
 def why(m):

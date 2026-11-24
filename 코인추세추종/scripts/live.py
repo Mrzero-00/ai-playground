@@ -12,6 +12,13 @@
   - 봇 평가액이 최고점 대비 HALT_DD 이상 빠지면 전량 매도하고 STOP 파일을 만든다.
     백테스트 최대 하락(표본 외 -26%, 전체 -41%)을 넘는 건 전략이 깨졌다는 신호로 본다.
 
+판단 시각 (RESEARCH.md '4시간마다 확인'·'살 때만 빠르게', 2026-11-24 사용자 결정)
+  - 09:07 하루 몫: 마감 일봉으로 비중을 정해 사고판다(전과 같다).
+  - 13:07·17:07·21:07·01:07·05:07 장중 확인: 마감 4시간봉으로 본 비중이 지금 목표보다 높으면 그만큼 사기만 한다.
+    줄이는 일은 다음 09:07 이 한다. 4시간 칸마다 한 번만, 칸이 시작한 뒤 1시간 안에만 확인한다(늦게 깬 실행은 건너뛴다).
+    live/NO_INTRADAY 파일이 있으면 장중 확인을 하지 않는다.
+  - 하루 몫이 실패했으면 그 뒤 실행은 장중 확인 대신 하루 몫을 다시 한다.
+
 설정 (.env, 이 프로젝트 폴더)
   UPBIT_ACCESS_KEY=...
   UPBIT_SECRET_KEY=...
@@ -21,18 +28,18 @@
 
 사용법
   python3 scripts/live.py --check            # 키·잔고·주문 권한 확인 (실제 주문 없음)
-  python3 scripts/live.py                    # 오늘 몫 실행 (하루 한 번, 09:00 KST 이후)
+  python3 scripts/live.py                    # 오늘 몫 실행 (하루 한 번, 09:00 KST 이후). 끝난 뒤에 돌리면 장중 확인
   python3 scripts/live.py --report           # 누적 성과
   python3 scripts/live.py --deposit 300000   # 봇이 굴리는 돈을 늘린다 (다음 실행 때 비중에 맞춰 산다)
   python3 scripts/live.py --withdraw 100000  # 줄인다 (다음 실행 때 필요한 만큼 판다)
 """
 import base64, csv, hashlib, hmac, json, os, sys, time, traceback, urllib.error, urllib.request, uuid
-from datetime import datetime
+from datetime import datetime, timedelta
 from decimal import ROUND_DOWN, Decimal
 from pathlib import Path
 from urllib.parse import unquote, urlencode
 
-from paper import FEE, KST, MARKETS, closes, fill, signal
+from paper import FEE, KST, MARKETS, SMAS, closes, fill, get, signal
 
 ROOT = Path(__file__).resolve().parent.parent
 DIR = ROOT / "live"
@@ -166,6 +173,38 @@ def mid(m):
     return fill(m, "buy", krw=1)[3]
 
 
+def slot_of(now):
+    """now 가 속한 4시간 칸(01·05·09·13·17·21시 시작, 업비트 4시간봉과 같다). (칸 이름, 칸 시작 시각)"""
+    start = (now - timedelta(hours=1)).replace(minute=0, second=0, microsecond=0)
+    start = start - timedelta(hours=start.hour % 4) + timedelta(hours=1)
+    return start.strftime("%Y-%m-%d %H"), start
+
+
+def closes4h(market):
+    """마감된 4시간봉 종가를 오래된 순으로(200일치 = 1200개 이상). 진행 중인 봉은 뺀다.
+    방금 닫힌 봉이 응답에 없으면 예외를 낸다 — 늦은 가격으로 매매하지 않으려고."""
+    rows, to = {}, ""
+    for _ in range(7):
+        batch = get(f"{API}/v1/candles/minutes/240?market={market}&count=200{to}")
+        for c in batch:
+            rows[c["candle_date_time_kst"]] = c["trade_price"]
+        to = f"&to={batch[-1]['candle_date_time_utc']}"
+        time.sleep(0.15)
+    _, start = slot_of(datetime.now(KST))
+    want = (start - timedelta(hours=4)).strftime("%Y-%m-%dT%H:%M:%S")
+    times = [t for t in sorted(rows) if t < start.strftime("%Y-%m-%dT%H:%M:%S")]
+    if not times or times[-1] != want:
+        raise RuntimeError(f"{market} 4시간봉이 덜 올라왔다: 마지막 마감 봉 {times[-1] if times else '없음'}, 있어야 할 봉 {want}")
+    if len(times) < 6 * max(SMAS):
+        raise RuntimeError(f"{market} 4시간봉이 {len(times)}개뿐이다 ({6 * max(SMAS)}개 필요)")
+    return times, [rows[t] for t in times]
+
+
+def signal4h(px):
+    """4시간 종가가 위에 있는 이동평균 개수 / 4. 기간은 하루 몫과 같다(20·50·100·200일 = 4시간봉 120·300·600·1200개)."""
+    return sum(px[-1] > sum(px[-6 * n:]) / (6 * n) for n in SMAS) / len(SMAS)
+
+
 def apply(st, m, p, qty, funds, fee, state):
     """체결 결과를 장부에 반영하고 거래 기록을 남긴다. p = 주문 기록."""
     s = st["sleeves"][m]
@@ -272,6 +311,59 @@ def reconcile(st):
     return notes
 
 
+def intraday(st, now):
+    """하루 몫이 끝난 뒤의 4시간 확인. 4시간봉으로 본 비중이 지금 목표보다 높으면 그만큼 사기만 한다(줄이는 일은 다음 09:07).
+    4시간 칸마다 한 번. 하루 몫이 끝나지 않은 매매일(09:00 에 바뀐다)에는 하지 않는다."""
+    slot, start = slot_of(now)
+    day = (now - timedelta(hours=9)).strftime("%Y-%m-%d")
+    if start.hour == 9 or st["last_run"] != day or st.get("intraday") == slot:
+        print("09:00 이전이거나 오늘 이미 실행함. 건너뜀.")
+        return
+    if (DIR / "NO_INTRADAY").exists():
+        print("NO_INTRADAY 파일이 있어 장중 확인을 하지 않는다.")
+        return
+    if now - start > timedelta(hours=1):  # 잠자기에서 늦게 깬 실행: 몇 시간 묵은 4시간봉으로 사지 않는다
+        print(f"{slot[-2:]}시 칸이 시작한 지 1시간이 넘어 이번 장중 확인은 건너뜀.")
+        return
+    failed = {}
+
+    def fail(m):
+        failed[m] = str(sys.exc_info()[1])[:200]
+        print(f"{m} 실패: {failed[m]}")
+        print(f"--- {now.isoformat(timespec='seconds')} {m} (장중)\n{traceback.format_exc()}", file=sys.stderr)
+
+    for m in MARKETS:  # 지난 실행이 남긴 주문 기록부터 확인한다
+        if LIVE and st["sleeves"][m].get("pending"):
+            try:
+                settle(st, m)
+            except Exception:
+                fail(m)
+    notes = reconcile(st) if LIVE else []
+    value = sum(s["cash"] + s["qty"] * mid(m) for m, s in st["sleeves"].items())
+    if value < st["peak"] * (1 - HALT_DD):
+        print("손실 한도에 닿아 장중에는 사지 않는다. 다음 09:07 실행이 처리한다.")
+    else:
+        for m in MARKETS:
+            s = st["sleeves"][m]
+            if m in failed:
+                continue
+            try:
+                _, px = closes4h(m)
+                target = signal4h(px)
+                if target > s["target"]:
+                    trade(st, m, target, px[-1], now, "장중 매수")
+                else:
+                    print(f"{m} 장중 확인 {slot[-2:]}시: 4시간봉 비중 {target:.2f}, 지금 {s['target']:.2f} — 유지")
+            except Exception:
+                fail(m)
+            save_state(st)
+    st["intraday"] = slot
+    st["check"] = {"at": now.isoformat(timespec="seconds"), "notes": notes + [f"{m} 실패(장중): {e}" for m, e in failed.items()]}
+    save_state(st)
+    if failed:
+        sys.exit(1)
+
+
 def run():
     DIR.mkdir(exist_ok=True)
     now = datetime.now(KST)
@@ -286,7 +378,7 @@ def run():
         print(".env 에 UPBIT_ACCESS_KEY / UPBIT_SECRET_KEY 가 없다.")
         return
     if now.hour < 9 or st["last_run"] == today:
-        print("09:00 이전이거나 오늘 이미 실행함. 건너뜀.")
+        intraday(st, now)  # 하루 몫이 끝났으면 4시간 확인(사기만), 아니면 건너뜀
         return
     failed = {}
 

@@ -9,12 +9,16 @@
     <string>/Users/sonsang-il/autoCoin/코인추세추종/scripts/live.py</string>
   </array>
   <key>WorkingDirectory</key><string>/Users/sonsang-il/autoCoin/코인추세추종</string>
-  <!-- 09:05 실행, 13:05·21:05 는 놓쳤을 때 재시도. 잠자기 중이면 깨어날 때 실행되고, 같은 날 두 번 돌아도 paper.py 가 건너뛴다 -->
+  <!-- 09:07 하루 몫(사고판다). 13:07·17:07·21:07·01:07·05:07 은 장중 확인(4시간봉으로 사기만) — 하루 몫이 실패했으면 그 대신 하루 몫을 다시 한다.
+       잠자기 중이면 깨어날 때 실행되는데, 칸이 시작한 지 1시간이 넘었으면 live.py 가 장중 확인을 건너뛴다 -->
   <key>StartCalendarInterval</key>
   <array>
     <dict><key>Hour</key><integer>9</integer><key>Minute</key><integer>7</integer></dict>
     <dict><key>Hour</key><integer>13</integer><key>Minute</key><integer>7</integer></dict>
+    <dict><key>Hour</key><integer>17</integer><key>Minute</key><integer>7</integer></dict>
     <dict><key>Hour</key><integer>21</integer><key>Minute</key><integer>7</integer></dict>
+    <dict><key>Hour</key><integer>1</integer><key>Minute</key><integer>7</integer></dict>
+    <dict><key>Hour</key><integer>5</integer><key>Minute</key><integer>7</integer></dict>
   </array>
   <key>StandardOutPath</key><string>/Users/sonsang-il/autoCoin/코인추세추종/live/logs/live.log</string>
   <key>StandardErrorPath</key><string>/Users/sonsang-il/autoCoin/코인추세추종/live/logs/live.err</string>

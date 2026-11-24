@@ -97,7 +97,62 @@ def iter4(d, base):
     return {"모멘텀 합의 21·63·126·252": (None, vote((21, 63, 126, 252))), "모멘텀 합의 63·126·252": (None, vote((63, 126, 252)))}
 
 
-ITERS = {1: iter1, 2: iter2, 3: iter3, 4: iter4}
+_PAIR = {}
+
+
+def pair_states():
+    """BTC·ETH 의 앙상블(> 0.5)·실시간 λ 20% 판별을 같은 날짜로 맞춘다."""
+    if not _PAIR:
+        frames = {}
+        for s in DEV:
+            d = load(s)
+            b = classifiers(d)
+            frames[s] = pd.DataFrame({"앙상블": b["앙상블 비중"][1], "λ20": b["실시간 λ 20%"][1]}, index=d.index)
+        _PAIR.update(frames)
+    return _PAIR
+
+
+def iter5(d, base):
+    ps = pair_states()
+    btc = ps["BTC"].reindex(d.index).fillna(0)
+    out = {"BTC 기준 앙상블": (None, btc["앙상블"].astype(int).to_numpy()), "BTC 기준 실시간 λ 20%": (None, btc["λ20"].astype(int).to_numpy())}
+    both = pd.concat([ps["BTC"], ps["ETH"]], axis=1, keys=["B", "E"]).reindex(d.index).fillna(0)
+    for k in ("앙상블", "λ20"):
+        agree = np.where(both["B"][k] == both["E"][k], both["B"][k], 0).astype(int)
+        out[f"두 코인 동시 {'앙상블' if k == '앙상블' else '실시간 λ 20%'}"] = (None, hold(agree, 0))
+    return out
+
+
+def dow(d, k):
+    """다우 구조: 상승 중 직전 스윙 저점을 종가가 깨면 하락, 하락 중 직전 스윙 고점을 넘으면 상승. 고점·저점이 함께 높아지면(낮아지면) 상승(하락)으로 시작."""
+    lo, hi, c = d.low.to_numpy(), d.high.to_numpy(), d.close.to_numpy()
+    n = len(c)
+    out, st, sl, sh = np.zeros(n, int), 0, [], []
+    for t in range(n):
+        j = t - k
+        if j - k >= 0:
+            if lo[j] == lo[j - k:j + k + 1].min():
+                sl.append(lo[j])
+            if hi[j] == hi[j - k:j + k + 1].max():
+                sh.append(hi[j])
+        if st == 0 and len(sl) >= 2 and len(sh) >= 2:
+            if sl[-1] > sl[-2] and sh[-1] > sh[-2]:
+                st = 1
+            elif sl[-1] < sl[-2] and sh[-1] < sh[-2]:
+                st = -1
+        elif st == 1 and sl and c[t] < sl[-1]:
+            st = -1
+        elif st == -1 and sh and c[t] > sh[-1]:
+            st = 1
+        out[t] = st
+    return out
+
+
+def iter6(d, base):
+    return {"다우 구조 10일 스윙": (None, dow(d, 5)), "다우 구조 20일 스윙": (None, dow(d, 10))}
+
+
+ITERS = {1: iter1, 2: iter2, 3: iter3, 4: iter4, 5: iter5, 6: iter6}
 
 
 def evaluate(names_fn, span):

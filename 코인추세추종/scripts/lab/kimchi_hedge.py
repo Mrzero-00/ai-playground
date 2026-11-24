@@ -75,7 +75,6 @@ def simulate(D, h, cost):
             f_pl = q * F[i] * fund[i]
             usd += -q * (F[i] - F[i - 1]) + f_pl
         eq = krw + q * P[i] + usd * X[i]
-        pure.append((eq - eq_prev - fx_exp * (X[i] - X[i - 1])) / eq_prev)
         fpl.append(f_pl * X[i] / eq_prev)
         if h[i] == 1 and q == 0:                              # 들어간다
             eq = split(eq, i)
@@ -88,7 +87,8 @@ def simulate(D, h, cost):
             nq = 0.5 * eq / P[i]
             usd = 0.5 * eq / X[i] - cost * abs(nq - q) * (P[i] / X[i] + F[i])
             q, ref, resized = nq, F[i], resized + 1
-        eq = krw + q * P[i] + usd * X[i]
+        eq = krw + q * P[i] + usd * X[i]                      # 그날 거래·이동 비용까지 뺀 평가액
+        pure.append((eq - eq_prev - fx_exp * (X[i] - X[i - 1])) / eq_prev)
         E.append(eq)
         eq_prev = eq
     return pd.Series(E, index=idx[m]), pd.Series(pure, index=idx[m]), pd.Series(fpl, index=idx[m]), resized

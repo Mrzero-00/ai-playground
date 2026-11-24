@@ -179,7 +179,23 @@ def iter5(F):
     return {"BTC 주도 z 평균": {s: grade(z) for s, z in lead.items()}, "BTC 주도 z 평균 + 문턱 여유": {s: hyst(z) for s, z in lead.items()}}
 
 
-ITERS = {0: iter0, 1: iter1, 2: iter2, 3: iter3, 4: iter4, 5: iter5}
+def f_outside(c, s):
+    """2회차 입력 + 반감기 주기 위치(sin·cos) + MVRV(로그) + 메이어 배수(로그)."""
+    from regime_loop2 import HALVINGS, chain
+    X = f_multi(c, s)
+    last = pd.Series(HALVINGS.searchsorted(c.index, side="right") - 1, index=c.index)
+    phase = 2 * np.pi * (c.index - HALVINGS[last.to_numpy()]).days / 1461
+    X["h_sin"], X["h_cos"] = np.sin(phase), np.cos(phase)
+    X["mvrv"] = np.log(chain(s).CapMVRVCur.reindex(c.index).ffill())
+    X["mayer"] = np.log(c / sma(c, 200))
+    return X
+
+
+def iter6(F):
+    return {"여러 길이 + 가격 밖 정보 로지스틱": walk_forward(F, f_outside, logit)}
+
+
+ITERS = {0: iter0, 1: iter1, 2: iter2, 3: iter3, 4: iter4, 5: iter5, 6: iter6}
 
 
 # ---------- 채점 ----------

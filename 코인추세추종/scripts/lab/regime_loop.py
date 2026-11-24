@@ -49,7 +49,34 @@ def iter1(d, base):
     return {"투표 4 (동률 유지)": (None, hold(votes, 1)), "투표 4 + 3일 확인": (None, confirm(votes, 3))}
 
 
-ITERS = {1: iter1}
+def stage_switch(x, ma, thr):
+    """상승 → 하락: 고점 대비 −thr 이고 종가 < ma. 하락 → 상승: 저점 대비 +thr 이고 종가 > ma. thr 는 숫자나 날마다 다른 배열."""
+    n = len(x)
+    thr = np.broadcast_to(np.asarray(thr, float), (n,))
+    out, st, hi, lo = np.zeros(n, int), 0, x[0], x[0]
+    for i in range(n):
+        hi, lo = max(hi, x[i]), min(lo, x[i])
+        t = thr[i]
+        if np.isnan(t) or np.isnan(ma[i]):
+            out[i] = st
+            continue
+        if st >= 0 and x[i] <= hi * (1 - t) and x[i] < ma[i]:
+            st, lo = -1, x[i]
+        elif st <= 0 and x[i] >= lo * (1 + t) and x[i] > ma[i]:
+            st, hi = 1, x[i]
+        out[i] = st
+    return out
+
+
+def iter2(d, base):
+    x, m50 = d.close.to_numpy(), sma(d.close, 50).to_numpy()
+    vol = (d.close.pct_change().rolling(30).std() * np.sqrt(30) * 2).to_numpy()
+    out = {f"낙폭 {t:.0%} + 50일선": (None, stage_switch(x, m50, t)) for t in (0.10, 0.15, 0.20)}
+    out["변동성 2σ + 50일선"] = (None, stage_switch(x, m50, vol))
+    return out
+
+
+ITERS = {1: iter1, 2: iter2}
 
 
 def evaluate(names_fn, syms):

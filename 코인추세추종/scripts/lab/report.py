@@ -227,6 +227,18 @@ def build():
         loop2 = (f"<section class=\"card\"><h4 style=\"margin-top:0\">장 판별 루프 2 — 10회, BTC·ETH, Coin Metrics 종가 2010~</h4>"
                  f"<p class=\"note\">찾기 2018~2021, 확인 2022 ~ 2026-11, 새 시험 BTC 2011~2017·ETH 2016~2017(처음 보는 기간). 종가만 쓰는 판별기(13회차부터 온체인도), 2상태(30%) 균형 정확도. 11회차부터는 세 기간 모두 80% 가 성공 조건(사용자 요청으로 횟수 제한 없이 매시간). 80% 에 닿은 판별기는 아직 없다. {test}{rwt}</p>"
                  f"<div class=\"scroll\"><table class=\"num\"><thead><tr><th>판별기</th><th>2011~2017</th><th>찾기 2018~2021</th><th>확인 2022~2026</th></tr></thead><tbody>{rows}</tbody></table></div></section>")
+    strat, sp2 = "", C.OUT / "regime_strategy.json"
+    if sp2.exists():  # 장별 매매 전략 1차 (RESEARCH.md '장별 매매 전략 1차 등록', scripts/lab/regime_strategy.py)
+        z = json.loads(sp2.read_text())
+        ps = list(z["periods"])
+        def sc(r):
+            a = r["0.10%"]
+            return f"<td>{a['연복리'] * 100:+.0f}%<small> {a['샤프']:.2f} · {a['MDD'] * 100:.0f}%</small></td>"
+        rows = "".join(f"<tr><th>{e(k)} {e(nm)}</th>{''.join(sc(z['periods'][p][k]) for p in ps)}<td>{pill(z['판정'].get(k)) if k in z['판정'] else '—'}</td></tr>" for k, nm in z["names"].items())
+        strat = (f"<section class=\"card\"><h4 style=\"margin-top:0\">장별 매매 전략 1차 — 잠정 채택 장 판별법(루프 2 25회차) + 장마다 다른 전략</h4>"
+                 f"<p class=\"note\">BTC·ETH 반반, Coin Metrics 종가, 편도 0.10%. 칸 = 연복리 · 작은 글씨 샤프·MDD. 판정은 세 기간 모두 현물 봇보다 샤프가 높고 MDD 5%p 이내·0.25% 에서도·거래 30회+. "
+                 f"통과 없음 — 2022~2026 에 장만 따르기가 −1%·MDD −61% 로 현물 봇(+17%·−30%)보다 크게 나빴다. 날짜 정확도는 큰 움직임과 작은 움직임을 같은 무게로 세서 매매 성과와 어긋난다.</p>"
+                 f"<div class=\"scroll\"><table class=\"num\"><thead><tr><th>전략</th>{''.join(f'<th>{e(p)}</th>' for p in ps)}<th>판정</th></tr></thead><tbody>{rows}</tbody></table></div></section>")
     total = sum(r["cells"] for r in done)
     passed = [f"{r['name']} · {u['name']}" for r in done for u in r["units"] if u["passed"] and not r.get("late")]
     late_ok = [f"{r['name']} · {u['name']}" for r in done for u in r["units"] if u["passed"] and r.get("late")]
@@ -234,7 +246,7 @@ def build():
             + (f" 봉인 해제 뒤 추가(참고용) 개발 통과: {', '.join(late_ok)}." if late_ok else "")) if done else "첫 단계를 돌리는 중이다."
     seal = f"열림 ({json.loads(C.SEAL.read_text())['at'][:16]})" if C.SEAL.exists() else "닫힘 — 2025-07-01 이후 데이터는 마지막에 한 번만 연다"
     page = TEMPLATE.replace("__NOW__", now).replace("__HEAD__", e(head)).replace("__SEAL__", e(seal)).replace("__PROGRESS__", progress) \
-        .replace("__OVERVIEW__", overview or '<tr><td colspan="7">아직 끝난 단계가 없다.</td></tr>').replace("__SECTIONS__", hold + loop2 + loop + reg + short + dsr + sections) \
+        .replace("__OVERVIEW__", overview or '<tr><td colspan="7">아직 끝난 단계가 없다.</td></tr>').replace("__SECTIONS__", hold + strat + loop2 + loop + reg + short + dsr + sections) \
         .replace("__DATA__", json.dumps(curves, ensure_ascii=False))
     (C.OUT / "report.html").write_text(page)
     (C.OUT / "report.json").write_text(json.dumps(reported, ensure_ascii=False))

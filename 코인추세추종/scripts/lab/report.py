@@ -239,6 +239,8 @@ def build():
                  f"<p class=\"note\">BTC·ETH 반반, Coin Metrics 종가, 편도 0.10%. 칸 = 연복리 · 작은 글씨 샤프·MDD. 판정은 세 기간 모두 현물 봇보다 샤프가 높고 MDD 5%p 이내·0.25% 에서도·거래 30회+. "
                  f"통과 없음 — 2022~2026 에 장만 따르기가 −1%·MDD −61% 로 현물 봇(+17%·−30%)보다 크게 나빴다. 날짜 정확도는 큰 움직임과 작은 움직임을 같은 무게로 세서 매매 성과와 어긋난다.</p>"
                  f"<div class=\"scroll\"><table class=\"num\"><thead><tr><th>전략</th>{''.join(f'<th>{e(p)}</th>' for p in ps)}<th>판정</th></tr></thead><tbody>{rows}</tbody></table></div></section>")
+    import report_regime3  # 3상태 장 판별 루프 (scripts/lab/regime3.py)
+    r3 = report_regime3.section()
     total = sum(r["cells"] for r in done)
     passed = [f"{r['name']} · {u['name']}" for r in done for u in r["units"] if u["passed"] and not r.get("late")]
     late_ok = [f"{r['name']} · {u['name']}" for r in done for u in r["units"] if u["passed"] and r.get("late")]
@@ -246,7 +248,7 @@ def build():
             + (f" 봉인 해제 뒤 추가(참고용) 개발 통과: {', '.join(late_ok)}." if late_ok else "")) if done else "첫 단계를 돌리는 중이다."
     seal = f"열림 ({json.loads(C.SEAL.read_text())['at'][:16]})" if C.SEAL.exists() else "닫힘 — 2025-07-01 이후 데이터는 마지막에 한 번만 연다"
     page = TEMPLATE.replace("__NOW__", now).replace("__HEAD__", e(head)).replace("__SEAL__", e(seal)).replace("__PROGRESS__", progress) \
-        .replace("__OVERVIEW__", overview or '<tr><td colspan="7">아직 끝난 단계가 없다.</td></tr>').replace("__SECTIONS__", hold + strat + loop2 + loop + reg + short + dsr + sections) \
+        .replace("__OVERVIEW__", overview or '<tr><td colspan="7">아직 끝난 단계가 없다.</td></tr>').replace("__SECTIONS__", hold + r3 + strat + loop2 + loop + reg + short + dsr + sections) \
         .replace("__DATA__", json.dumps(curves, ensure_ascii=False))
     (C.OUT / "report.html").write_text(page)
     (C.OUT / "report.json").write_text(json.dumps(reported, ensure_ascii=False))

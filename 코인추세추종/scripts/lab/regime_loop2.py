@@ -435,6 +435,17 @@ def iter25(c):
 ITERS.update({24: iter24, 25: iter25})
 
 
+def iter26(c):
+    cal = halving_calendar(c.index)
+    mu = np.where(cal == -1, np.log(0.2) / 365, np.log(10) / 1060)
+    var = np.log(c).diff().rolling(365).var().to_numpy()
+    pr = context_prob(c.to_numpy(), mu, var)
+    return {"반감기 달력 표류 확률": np.where(np.isnan(pr), 0, np.where(pr > 0.5, 1, -1))}
+
+
+ITERS[26] = iter26
+
+
 def evaluate(fn, span):
     pool = {}
     for s in SYMS:

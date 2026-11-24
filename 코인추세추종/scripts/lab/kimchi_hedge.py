@@ -25,7 +25,8 @@ def data(sym, fx):
     idx = idx[idx <= END]
     f = fx.reindex(idx, method="ffill")
     prem = up[idx] / (sp[idx] * f) - 1
-    return dict(prem=prem, up=up[idx].pct_change(), fut=d.close.pct_change().reindex(idx), fund=d.fund.reindex(idx).fillna(0.0), fxr=f.pct_change().fillna(0.0), fclose=d.close.reindex(idx))
+    return dict(prem=prem, up=up[idx].pct_change(), fut=d.close.pct_change().reindex(idx), fund=d.fund.reindex(idx).fillna(0.0), fxr=f.pct_change().fillna(0.0), fclose=d.close.reindex(idx).ffill(),
+                upc=up[idx], fxl=f)
 
 
 def state(prem, rule):
@@ -50,15 +51,36 @@ def state(prem, rule):
     return out
 
 
-def returns(D, h, cost):
-    """(원화 기준 전체, 환율을 뺀 프리미엄 + 펀딩) 일 수익 — 총자금 대비."""
-    hs = pd.Series(h, index=D["prem"].index)
-    held = hs.shift().fillna(0.0)
-    c = cost * 0.5 * 2 * hs.diff().abs().shift().fillna(0.0)  # 두 다리, 각각 총자금의 절반
-    up, fut, fund, fxr = D["up"].fillna(0.0), D["fut"].fillna(0.0), D["fund"], D["fxr"]
-    total = 0.5 * held * (up - (fut - fund) * (1 + fxr)) + 0.5 * fxr - c
-    pure = 0.5 * held * (up - fut - fxr + fund) - c
-    return total, pure, 0.5 * held * fund
+def simulate(D, h, cost):
+    """수량 고정: 들어갈 때 총자금을 절반씩 나눠 원화 전부로 현물을 사고 같은 수량을 숏, 나올 때 둘 다 정리.
+    돌려주는 것: 날마다 (원화 평가액, 환율을 뺀 수익, 펀딩 수익) — START 에 평가액 1 로 시작."""
+    idx = D["prem"].index
+    m = np.where(idx >= START)[0]
+    P, F, X, fund = D["upc"].to_numpy(), D["fclose"].to_numpy(), D["fxl"].to_numpy(), D["fund"].to_numpy()
+    krw, usd, q = 0.5, 0.5 / X[m[0]], 0.0                  # 업비트 원화 · 바이낸스 USDT · 코인 수량 (평가액 1 = 시작 자금)
+    eq_prev, E, pure, fpl = 1.0, [], [], []
+    for i in m:
+        fx_exp = usd + q * P[i - 1] / X[i - 1]               # 전날의 달러 노출: USDT 잔고 + 헤지한 현물의 달러 값
+        f_pl = 0.0
+        if q:
+            f_pl = q * F[i] * fund[i]                        # 펀딩(숏이 받는다)
+            usd += -q * (F[i] - F[i - 1]) + f_pl             # 숏 손익(USDT)
+        eq = krw + q * P[i] + usd * X[i]
+        pure.append((eq - eq_prev - fx_exp * (X[i] - X[i - 1])) / eq_prev)
+        fpl.append(f_pl * X[i] / eq_prev)
+        if h[i] == 1 and q == 0:                             # 들어간다: 절반씩 다시 나누고 원화 전부로 현물, 같은 수량 숏
+            krw, usd = 0.5 * eq, 0.5 * eq / X[i]
+            q = krw * (1 - cost) / P[i]
+            krw = 0.0
+            usd -= cost * q * F[i]
+        elif h[i] == 0 and q > 0:                            # 나온다
+            krw = q * P[i] * (1 - cost)
+            usd -= cost * q * F[i]
+            q = 0.0
+        eq = krw + q * P[i] + usd * X[i]
+        E.append(eq)
+        eq_prev = eq
+    return pd.Series(E, index=idx[m]), pd.Series(pure, index=idx[m]), pd.Series(fpl, index=idx[m])
 
 
 def stats(r):
@@ -78,8 +100,8 @@ def main():
             T, P, F, hold, trips, runup = [], [], [], [], 0, 0.0
             for s, D in DD.items():
                 h = state(D["prem"], k)
-                t, p, f = returns(D, h, cost)
-                T.append(t); P.append(p); F.append(f)
+                e, p, f = simulate(D, h, cost)
+                T.append(e); P.append(p); F.append(f)
                 m = D["prem"].index >= START
                 hs = pd.Series(h, index=D["prem"].index)
                 hold.append(float(hs[m].mean()))
@@ -92,7 +114,11 @@ def main():
                         runup = max(runup, fc[i] / entry - 1)
                     if h[i] == 0:
                         entry = None
-            t, p, f = mean(T), mean(P), mean(F)
+            eq = pd.concat(T, axis=1).mean(axis=1)                 # 코인 몫 반반(따로 굴린다)
+            t = eq.pct_change().fillna(eq.iloc[0] - 1)
+            wgt = pd.concat(T, axis=1).shift().fillna(1.0)         # 전날 평가액으로 가중
+            p = (pd.concat(P, axis=1) * wgt).sum(axis=1) / wgt.sum(axis=1)
+            f = (pd.concat(F, axis=1) * wgt).sum(axis=1) / wgt.sum(axis=1)
             row[cn] = {"원화": stats(t), "환율 뺀": stats(p), "기간": {pn: stats(R.cut(p, a, b)) for pn, (a, b) in PERIODS.items()},
                        "해": {y: float((1 + R.cut(t, f"{y}-01-01", f"{y}-12-31")).prod() - 1) for y in YEARS},
                        "해 환율 뺀": {y: float((1 + R.cut(p, f"{y}-01-01", f"{y}-12-31")).prod() - 1) for y in YEARS},

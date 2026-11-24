@@ -368,6 +368,58 @@ def iter19(c):
 
 ITERS.update({17: iter17, 18: iter18, 19: iter19})
 
+DN_HOT, UP_COLD = 1 - 0.7 ** 0.25, 1.3 ** 0.25 - 1  # 8.5%, 6.8% — '마지막 극값일 확률' 25% 문턱
+
+
+def shifted(c, hot=None, cold=None):
+    """4회차 규칙에서 hot 인 날은 하락 문턱을 8.5% 로, cold 인 날은 반등 문턱을 6.8% 로 당긴다. 나머지는 16.3% / 14.0%."""
+    x = c.to_numpy()
+    n = len(x)
+    hot = np.zeros(n, bool) if hot is None else np.asarray(hot, bool)
+    cold = np.zeros(n, bool) if cold is None else np.asarray(cold, bool)
+    out, ctx, hi, lo = np.zeros(n, int), 0, x[0], x[0]
+    for i in range(n):
+        hi, lo = max(hi, x[i]), min(lo, x[i])
+        if ctx >= 0 and x[i] <= hi * 0.7:
+            ctx, lo = -1, x[i]
+        elif ctx <= 0 and x[i] >= lo * 1.3:
+            ctx, hi = 1, x[i]
+        if ctx == 1:
+            out[i] = 1 if x[i] > hi * (1 - (DN_HOT if hot[i] else DOWN_T)) else -1
+        elif ctx == -1:
+            out[i] = 1 if x[i] >= lo * (1 + (UP_COLD if cold[i] else UP_T)) else -1
+    return out
+
+
+def heat(c):
+    mv = chain(which(c)).CapMVRVCur.reindex(c.index).ffill().to_numpy()
+    mm = (c / sma(c, 200)).to_numpy()
+    with np.errstate(invalid="ignore"):
+        return (mv >= 3.5) | (mm >= 2.4), (mv <= 1) | (mm <= 0.8)
+
+
+def iter20(c):
+    hot, _ = heat(c)
+    return {"과열이면 하락 문턱 8.5%": shifted(c, hot=hot)}
+
+
+def iter21(c):
+    _, cold = heat(c)
+    return {"저평가면 반등 문턱 6.8%": shifted(c, cold=cold)}
+
+
+def iter22(c):
+    hot, cold = heat(c)
+    return {"과열·저평가 문턱 둘 다": shifted(c, hot=hot, cold=cold)}
+
+
+def iter23(c):
+    cal = halving_calendar(c.index)
+    return {"반감기 달력으로 문턱 당김": shifted(c, hot=cal == -1, cold=cal == 1)}
+
+
+ITERS.update({20: iter20, 21: iter21, 22: iter22, 23: iter23})
+
 
 def evaluate(fn, span):
     pool = {}

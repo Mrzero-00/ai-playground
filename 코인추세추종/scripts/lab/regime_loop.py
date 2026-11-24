@@ -152,7 +152,55 @@ def iter6(d, base):
     return {"다우 구조 10일 스윙": (None, dow(d, 5)), "다우 구조 20일 스윙": (None, dow(d, 10))}
 
 
-ITERS = {1: iter1, 2: iter2, 3: iter3, 4: iter4, 5: iter5, 6: iter6}
+def speed_vote(d, base):
+    m3 = iter4(d, base)["모멘텀 합의 63·126·252"][1]
+    v = np.sign(np.asarray(base["200일선"][1]) + weinstein(d, 30) + np.asarray(base["실시간 λ 20%"][1]) + np.asarray(m3))
+    return hold(v.astype(int), 0)
+
+
+def iter7(d, base):
+    return {"속도 투표 4": (None, speed_vote(d, base))}
+
+
+def iter8(d, base):
+    ma = (d.close / sma(d.close, 200)).to_numpy()
+    out = {}
+    for b in (0.05, 0.10):
+        raw = np.where(ma > 1 + b, 1, np.where(ma < 1 - b, -1, 0))
+        raw = np.where(np.isnan(ma), 0, raw)
+        out[f"200일선 띠 ±{b:.0%}"] = (None, hold(raw.astype(int), 0))
+    return out
+
+
+def iter9(d, base):
+    slow, fast = weinstein(d, 30), np.asarray(base["실시간 λ 20%"][1])
+    c, m50 = d.close.to_numpy(), sma(d.close, 50).to_numpy()
+    out, st = np.zeros(len(c), int), 0
+    for i in range(len(c)):
+        if i and slow[i] != slow[i - 1] and slow[i] != 0:
+            st = slow[i]  # 30주선이 바뀌면 따른다
+        if fast[i] != 0 and fast[i] != st and ((fast[i] == -1 and c[i] < m50[i]) or (fast[i] == 1 and c[i] > m50[i])):
+            st = fast[i]  # 빠른 예외
+        if st == 0:
+            st = slow[i]
+        out[i] = st
+    return {"30주선 닻 + λ 20% 예외": (None, out)}
+
+
+_VOTE = {}
+
+
+def iter10(d, base):
+    if not _VOTE:
+        for s in DEV:
+            dd = load(s)
+            _VOTE[s] = pd.Series(speed_vote(dd, classifiers(dd)), index=dd.index)
+    both = pd.concat([_VOTE["BTC"], _VOTE["ETH"]], axis=1).reindex(d.index).fillna(0).to_numpy()
+    agree = np.where(both[:, 0] == both[:, 1], both[:, 0], 0).astype(int)
+    return {"속도 투표 4 + 두 코인 동시": (None, hold(agree, 0))}
+
+
+ITERS = {1: iter1, 2: iter2, 3: iter3, 4: iter4, 5: iter5, 6: iter6, 7: iter7, 8: iter8, 9: iter9, 10: iter10}
 
 
 def evaluate(names_fn, span):

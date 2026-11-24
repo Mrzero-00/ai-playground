@@ -215,6 +215,18 @@ def build():
         loop = (f"<section class=\"card\"><h4 style=\"margin-top:0\">장 판별 루프 — 10회, BTC·ETH, 2상태(30%) 균형 정확도</h4>"
                 f"<p class=\"note\">목표: 확인 기간(2022 ~ 2024-06) 80% 이상, 시험 기간에서도 80% 이상. 찾기 2018-08 ~ 2021. 회차마다 바꾼 이유는 RESEARCH.md. 80% 에 닿은 판별기는 없다. {test}</p>"
                 f"<div class=\"scroll\"><table class=\"num\"><thead><tr><th>판별기</th><th>찾기</th><th>확인</th></tr></thead><tbody>{rows}</tbody></table></div></section>")
+    loop2, lp2 = "", C.OUT / "regime_loop2.json"
+    if lp2.exists():  # 장 판별 루프 2 (RESEARCH.md '장 판별 루프 2 등록', scripts/lab/regime_loop2.py)
+        z = json.loads(lp2.read_text())
+        rs = [(int(k), n, v["찾기"][n]["균형 정확도"], r["균형 정확도"]) for k, v in z["iters"].items() for n, r in v["확인"].items()]
+        rs.sort(key=lambda t: (t[0], -t[3]))
+        rows = "".join(f"<tr><th>{k}회차 · {e(n)}</th><td>{a * 100:.1f}%</td><td>{b * 100:.1f}%</td></tr>" for k, n, a, b in rs)
+        tz, rw = z.get("test"), z["iters"].get("4", {}).get("무작위 걸음")
+        test = (f"확인 최고 {e(tz['판별기'])} 로 새 시험 기간(2017년 이전)을 한 번 열었다: 균형 {tz['균형 정확도'] * 100:.1f}%." if tz else "새 시험 기간은 아직 열지 않았다.")
+        rwt = f" 정답 정의에서 계산한 위치 규칙은 예측할 거리가 없는 무작위 걸음에서도 {rw * 100:.1f}% 가 나온다." if rw else ""
+        loop2 = (f"<section class=\"card\"><h4 style=\"margin-top:0\">장 판별 루프 2 — 10회, BTC·ETH, Coin Metrics 종가 2010~</h4>"
+                 f"<p class=\"note\">찾기 2018~2021, 확인 2022 ~ 2026-11, 새 시험 BTC 2011~2017·ETH 2016~2017(처음 보는 기간). 종가만 쓰는 판별기, 2상태(30%) 균형 정확도. 80% 에 닿은 판별기는 없다. {test}{rwt}</p>"
+                 f"<div class=\"scroll\"><table class=\"num\"><thead><tr><th>판별기</th><th>찾기</th><th>확인</th></tr></thead><tbody>{rows}</tbody></table></div></section>")
     total = sum(r["cells"] for r in done)
     passed = [f"{r['name']} · {u['name']}" for r in done for u in r["units"] if u["passed"] and not r.get("late")]
     late_ok = [f"{r['name']} · {u['name']}" for r in done for u in r["units"] if u["passed"] and r.get("late")]
@@ -222,7 +234,7 @@ def build():
             + (f" 봉인 해제 뒤 추가(참고용) 개발 통과: {', '.join(late_ok)}." if late_ok else "")) if done else "첫 단계를 돌리는 중이다."
     seal = f"열림 ({json.loads(C.SEAL.read_text())['at'][:16]})" if C.SEAL.exists() else "닫힘 — 2025-07-01 이후 데이터는 마지막에 한 번만 연다"
     page = TEMPLATE.replace("__NOW__", now).replace("__HEAD__", e(head)).replace("__SEAL__", e(seal)).replace("__PROGRESS__", progress) \
-        .replace("__OVERVIEW__", overview or '<tr><td colspan="7">아직 끝난 단계가 없다.</td></tr>').replace("__SECTIONS__", hold + loop + reg + short + dsr + sections) \
+        .replace("__OVERVIEW__", overview or '<tr><td colspan="7">아직 끝난 단계가 없다.</td></tr>').replace("__SECTIONS__", hold + loop2 + loop + reg + short + dsr + sections) \
         .replace("__DATA__", json.dumps(curves, ensure_ascii=False))
     (C.OUT / "report.html").write_text(page)
     (C.OUT / "report.json").write_text(json.dumps(reported, ensure_ascii=False))

@@ -173,7 +173,13 @@ def iter4(F):
     return {"지난 30일 z + 문턱 여유": {s: hyst(ztrail(f["c"], 30)) for s, f in F.items()}}
 
 
-ITERS = {0: iter0, 1: iter1, 2: iter2, 3: iter3, 4: iter4}
+def iter5(F):
+    zb = ztrail(F["BTC"]["c"], 30)
+    lead = {s: (ztrail(f["c"], 30) if s == "BTC" else (ztrail(f["c"], 30) + zb.reindex(f["c"].index)) / 2) for s, f in F.items()}
+    return {"BTC 주도 z 평균": {s: grade(z) for s, z in lead.items()}, "BTC 주도 z 평균 + 문턱 여유": {s: hyst(z) for s, z in lead.items()}}
+
+
+ITERS = {0: iter0, 1: iter1, 2: iter2, 3: iter3, 4: iter4, 5: iter5}
 
 
 # ---------- 채점 ----------

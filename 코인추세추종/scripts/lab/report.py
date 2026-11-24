@@ -243,6 +243,8 @@ def build():
     r3 = report_regime3.section()
     import report_futures  # 장별 매매 전략 2차 — 선물 (scripts/lab/regime_futures.py)
     fut = report_futures.section()
+    import report_hybrid  # 현물 봇 + 하락장 선물 숏 조합 (scripts/lab/hybrid.py)
+    hyb = report_hybrid.section()
     total = sum(r["cells"] for r in done)
     passed = [f"{r['name']} · {u['name']}" for r in done for u in r["units"] if u["passed"] and not r.get("late")]
     late_ok = [f"{r['name']} · {u['name']}" for r in done for u in r["units"] if u["passed"] and r.get("late")]
@@ -250,7 +252,7 @@ def build():
             + (f" 봉인 해제 뒤 추가(참고용) 개발 통과: {', '.join(late_ok)}." if late_ok else "")) if done else "첫 단계를 돌리는 중이다."
     seal = f"열림 ({json.loads(C.SEAL.read_text())['at'][:16]})" if C.SEAL.exists() else "닫힘 — 2025-07-01 이후 데이터는 마지막에 한 번만 연다"
     page = TEMPLATE.replace("__NOW__", now).replace("__HEAD__", e(head)).replace("__SEAL__", e(seal)).replace("__PROGRESS__", progress) \
-        .replace("__OVERVIEW__", overview or '<tr><td colspan="7">아직 끝난 단계가 없다.</td></tr>').replace("__SECTIONS__", hold + fut + r3 + strat + loop2 + loop + reg + short + dsr + sections) \
+        .replace("__OVERVIEW__", overview or '<tr><td colspan="7">아직 끝난 단계가 없다.</td></tr>').replace("__SECTIONS__", hold + hyb + fut + r3 + strat + loop2 + loop + reg + short + dsr + sections) \
         .replace("__DATA__", json.dumps(curves, ensure_ascii=False))
     (C.OUT / "report.html").write_text(page)
     (C.OUT / "report.json").write_text(json.dumps(reported, ensure_ascii=False))

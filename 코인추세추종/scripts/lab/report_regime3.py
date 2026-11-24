@@ -69,7 +69,7 @@ def section():
         for n, r in v["methods"].items():
             rc = r["2022~2026"]["상태별"]
             rows += (f"<tr><th>{k}회차 · {e(n)}</th>" + "".join(f"<td>{pc(r[pn]['일치'])}</td>" for pn in PERIODS)
-                     + f"<td>{pc(r['최저 일치'])}</td><td>{rc['1'] * 100:.0f} · {rc['0'] * 100:.0f} · {rc['-1'] * 100:.0f}%</td><td>{pc(r['2022~2026']['5단계'])}</td></tr>")
+                     + f"<td>{pc(r['최저 일치'])}</td><td>{rc['1'] * 100:.0f} · {rc['0'] * 100:.0f} · {rc['-1'] * 100:.0f}%</td><td>{pc(r['2022~2026']['5단계'])}</td><td>{pc(r.get('최저 여유 정답 일치'))}</td></tr>")
     one = next(iter(z["iters"]["0"]["methods"].values()))
     share = " · ".join(f"{pn} {one[pn]['정답 비율']['1'] * 100:.0f}/{one[pn]['정답 비율']['0'] * 100:.0f}/{one[pn]['정답 비율']['-1'] * 100:.0f}%" for pn in PERIODS)
     body = (f'<section class="card"><h4 style="margin-top:0">3상태 장 판별 루프 — 상승·하락·횡보 + 정도 5단계 (BTC·ETH)</h4>'
@@ -87,7 +87,7 @@ def section():
         for s, ch in z["chart"].items():
             body += f'<h4>{e(s)}</h4><div class="chart">{svg(ch, s)}</div>'
     body += ('<div class="scroll"><table class="num"><thead><tr><th>판별기</th>' + "".join(f"<th>{pn}</th>" for pn in PERIODS)
-             + f'<th>세 기간 최저</th><th>상승 · 횡보 · 하락 맞힌 비율 (2022~2026)</th><th>5단계 일치 (2022~2026)</th></tr></thead><tbody>{rows}</tbody></table></div>')
+             + f'<th>세 기간 최저</th><th>상승 · 횡보 · 하락 맞힌 비율 (2022~2026)</th><th>5단계 일치 (2022~2026)</th><th>보조: 여유를 둔 정답, 세 기간 최저</th></tr></thead><tbody>{rows}</tbody></table></div>')
     if z.get("use"):
         srcs = list(z["use"])
         head = "".join(f'<th>{e(src)}<br><small>상승 / 횡보 / 하락</small></th>' for src in srcs)

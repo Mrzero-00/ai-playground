@@ -31,6 +31,23 @@ def grade(z):
         return np.where(z >= 2, 2, np.where(z >= 1, 1, np.where(z <= -2, -2, np.where(z <= -1, -1, 0)))).astype(int)
 
 
+def hyst(z, enter=1.0, leave=0.5):
+    """문턱에 여유: |z| ≥ enter 면 추세로 들어가고, |z| < leave 로 내려와야 횡보로. 반대쪽 문턱을 넘으면 바로 바꾼다. 강한 장은 |z| ≥ 2."""
+    z = np.asarray(z, float)
+    out, st = np.zeros(len(z), int), 0
+    for i, v in enumerate(z):
+        if np.isnan(v):
+            st = 0
+        elif v >= enter:
+            st = 1
+        elif v <= -enter:
+            st = -1
+        elif (st == 1 and v < leave) or (st == -1 and v > -leave):
+            st = 0
+        out[i] = st * (2 if abs(v) >= 2 else 1) if st else 0
+    return out
+
+
 def ztrail(c, n):
     lr = np.log(c)
     return (lr - lr.shift(n)) / (lr.diff().rolling(n).std() * np.sqrt(n))
@@ -48,7 +65,7 @@ def frames():
         c = load(s).close
         lr = np.log(c)
         zc = (lr.shift(-H) - lr.shift(H)) / (lr.diff().rolling(2 * H).std().shift(-H) * np.sqrt(2 * H))
-        out[s] = dict(c=c, zc=zc, lab=grade(zc), known=zc.notna().to_numpy(), valid=zc.notna().to_numpy() & (np.arange(len(c)) >= WARM))
+        out[s] = dict(c=c, zc=zc, lab=grade(zc), lab_h=hyst(zc), known=zc.notna().to_numpy(), valid=zc.notna().to_numpy() & (np.arange(len(c)) >= WARM))
     return out
 
 
@@ -152,7 +169,11 @@ def iter3(F):
     return {"여러 길이 + 변동성·위치 로지스틱": walk_forward(F, f_volpos, logit)}
 
 
-ITERS = {0: iter0, 1: iter1, 2: iter2, 3: iter3}
+def iter4(F):
+    return {"지난 30일 z + 문턱 여유": {s: hyst(ztrail(f["c"], 30)) for s, f in F.items()}}
+
+
+ITERS = {0: iter0, 1: iter1, 2: iter2, 3: iter3, 4: iter4}
 
 
 # ---------- 채점 ----------
@@ -160,18 +181,21 @@ ITERS = {0: iter0, 1: iter1, 2: iter2, 3: iter3}
 def score(F, preds):
     res = {}
     for pn, (a, b) in PERIODS.items():
-        P, L = [], []
+        P, L, LH = [], [], []
         for s, f in F.items():
             idx = f["c"].index
             m = f["valid"] & np.asarray((idx >= a) & (idx <= b))
             P.append(preds[s][m])
             L.append(f["lab"][m])
-        p, l = np.concatenate(P), np.concatenate(L)
+            LH.append(f["lab_h"][m])
+        p, l, lh = np.concatenate(P), np.concatenate(L), np.sign(np.concatenate(LH))
         p3, l3 = np.sign(p), np.sign(l)
         rec = {str(k): float((p3[l3 == k] == k).mean()) for k in (1, 0, -1)}
         res[pn] = {"일치": float((p3 == l3).mean()), "상태별": rec, "5단계": float((p == l).mean()), "한 단계 이내": float((np.abs(p - l) <= 1).mean()),
-                   "정답 비율": {str(k): float((l3 == k).mean()) for k in (1, 0, -1)}, "날": int(len(l))}
-    res["최저 일치"] = min(v["일치"] for v in res.values())
+                   "정답 비율": {str(k): float((l3 == k).mean()) for k in (1, 0, -1)}, "날": int(len(l)),
+                   "여유 정답 일치": float((p3 == lh).mean()), "여유 정답 상태별": {str(k): float((p3[lh == k] == k).mean()) for k in (1, 0, -1)}}
+    res["최저 일치"] = min(res[pn]["일치"] for pn in PERIODS)
+    res["최저 여유 정답 일치"] = min(res[pn]["여유 정답 일치"] for pn in PERIODS)
     res["성공"] = bool(res["최저 일치"] >= 0.8 and all(r >= 0.5 for pn in PERIODS for r in res[pn]["상태별"].values()))
     return res
 
@@ -184,6 +208,9 @@ def run(k):
     store["iters"][str(k)] = {"made": datetime.now().isoformat(timespec="seconds"), "methods": {n: score(F, p) for n, p in preds.items()}}
     cache.update(preds)
     pd.to_pickle(cache, PRED)
+    for v in store["iters"].values():
+        for n in v["methods"]:
+            v["methods"][n] = score(F, cache[n])
     OUT.write_text(json.dumps(store, ensure_ascii=False, indent=1))
     one = next(iter(store["iters"][str(k)]["methods"].values()))
     if k == 0:
@@ -192,7 +219,9 @@ def run(k):
     for n, r in store["iters"][str(k)]["methods"].items():
         v = [r[pn]["일치"] for pn in PERIODS]
         rc = r["2022~2026"]["상태별"]
-        print(f"   {n:26s} {v[0] * 100:5.1f}% / {v[1] * 100:5.1f}% / {v[2] * 100:5.1f}%  | {rc['1'] * 100:3.0f}·{rc['0'] * 100:3.0f}·{rc['-1'] * 100:3.0f}% | {r['2022~2026']['5단계'] * 100:3.0f}% {'★ 성공' if r['성공'] else ''}")
+        h = [r[pn]["여유 정답 일치"] for pn in PERIODS]
+        print(f"   {n:26s} {v[0] * 100:5.1f}% / {v[1] * 100:5.1f}% / {v[2] * 100:5.1f}%  | {rc['1'] * 100:3.0f}·{rc['0'] * 100:3.0f}·{rc['-1'] * 100:3.0f}% | {r['2022~2026']['5단계'] * 100:3.0f}% {'★ 성공' if r['성공'] else ''}"
+              f"  (여유 정답 {h[0] * 100:.1f} / {h[1] * 100:.1f} / {h[2] * 100:.1f}%)")
     best = max(((n, r["최저 일치"], i) for i, v in store["iters"].items() for n, r in v["methods"].items() if n != "늘 횡보"), key=lambda t: t[1])
     print(f"지금까지 세 기간 최저 일치율 최고: {best[2]}회차 {best[0]} {best[1] * 100:.1f}%")
 

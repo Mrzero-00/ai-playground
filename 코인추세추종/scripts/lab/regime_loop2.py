@@ -86,7 +86,44 @@ def iter3(c):
     return {f"마르코프 2상태 {w}일": s_hmm(d, {"W": w, "K": 2}, None).astype(int).to_numpy() for w in (365, 730)}
 
 
-ITERS = {0: base, 1: iter1, 2: iter2, 3: iter3}
+DOWN_T, UP_T = 1 - 0.7 ** 0.5, 1.3 ** 0.5 - 1  # 16.3%, 14.0% — 정답 λ 30% 에서 계산
+
+
+def bayes_rw(x, lam=0.3, dn=DOWN_T, up=UP_T):
+    """맥락은 실시간 λ 확인으로, 맥락 안에서는 기준 극값과의 거리로. 상승 맥락: 낙폭 < dn 이면 상승. 하락 맥락: 반등 ≥ up 이면 상승."""
+    n = len(x)
+    out, ctx, hi, lo = np.zeros(n, int), 0, x[0], x[0]
+    for i in range(n):
+        hi, lo = max(hi, x[i]), min(lo, x[i])
+        if ctx >= 0 and x[i] <= hi * (1 - lam):
+            ctx, lo = -1, x[i]
+        elif ctx <= 0 and x[i] >= lo * (1 + lam):
+            ctx, hi = 1, x[i]
+        if ctx == 1:
+            out[i] = 1 if x[i] > hi * (1 - dn) else -1
+        elif ctx == -1:
+            out[i] = 1 if x[i] >= lo * (1 + up) else -1
+    return out
+
+
+def iter4(c):
+    return {"정답에서 계산한 문턱 (−16.3% / +14.0%)": bayes_rw(c.to_numpy())}
+
+
+def random_walk_check(n_paths=200, n=2000, vol=0.04, seed=0):
+    """예측할 거리가 없을 때(표류 0 무작위 걸음) 같은 규칙의 균형 정확도."""
+    rng = np.random.default_rng(seed)
+    p_all, l_all = [], []
+    for _ in range(n_paths):
+        x = np.exp(np.cumsum(rng.normal(0, vol, n)))
+        lab = lam_label(x, 0.3)
+        p = bayes_rw(x)
+        p_all.append(p[WARM:]); l_all.append(lab[WARM:])
+    p, l = np.concatenate(p_all), np.concatenate(l_all)
+    return acc_stats(p, l, np.zeros(len(l), bool), (1, -1))["균형 정확도"]
+
+
+ITERS = {0: base, 1: iter1, 2: iter2, 3: iter3, 4: iter4}
 
 
 def evaluate(fn, span):
@@ -124,6 +161,11 @@ def main():
     for name in res["확인"]:
         a, b = res["찾기"][name], res["확인"][name]
         print(f"   {name:24s} {a['균형 정확도'] * 100:5.1f}% / {b['균형 정확도'] * 100:5.1f}%  상승 {b['상태별'][1] * 100:3.0f}% 하락 {b['상태별'][-1] * 100:3.0f}% 전환 뒤 30일 {b['전환 뒤 30일'] * 100:3.0f}%")
+    if k == 4:
+        rw = random_walk_check()
+        store["iters"]["4"]["무작위 걸음"] = rw
+        OUT.write_text(json.dumps(store, ensure_ascii=False, indent=1))
+        print(f"   (참고) 같은 규칙, 무작위 걸음 경로 200개: 균형 {rw * 100:.1f}%")
     best = max(((n, r["균형 정확도"], i) for i, v in store["iters"].items() for n, r in v["확인"].items()), key=lambda t: t[1])
     print(f"지금까지 확인 최고: {best[2]}회차 {best[0]} {best[1] * 100:.1f}%")
 

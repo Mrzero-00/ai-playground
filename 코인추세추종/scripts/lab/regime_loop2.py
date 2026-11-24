@@ -123,7 +123,72 @@ def random_walk_check(n_paths=200, n=2000, vol=0.04, seed=0):
     return acc_stats(p, l, np.zeros(len(l), bool), (1, -1))["균형 정확도"]
 
 
-ITERS = {0: base, 1: iter1, 2: iter2, 3: iter3, 4: iter4}
+L_DN, L_UP = np.log(1 / 0.7), np.log(1.3)
+
+
+def p_upper_first(u, l, mu, var):
+    """표류 mu·분산 var 브라운 운동이 위 u 거리에 아래 l 거리보다 먼저 닿을 확률. mu ≈ 0 이면 l/(u+l)."""
+    k = 2 * mu / var if var > 0 else 0.0
+    if abs(k * (u + l)) < 1e-8:
+        return l / (u + l)
+    return (1 - np.exp(-k * l)) / (1 - np.exp(-k * (u + l)))
+
+
+def context_prob(x, mu=None, var=None):
+    """날마다 '정답이 상승일' 확률. 맥락은 실시간 λ 30%. 상승 맥락: 고점 M 을 M×0.7 보다 먼저 다시 넘을 확률. 하락 맥락: 저점 m 을 다시 깨기보다 m×1.3 에 먼저 닿을 확률."""
+    n = len(x)
+    pr, ctx, hi, lo = np.full(n, np.nan), 0, x[0], x[0]
+    for i in range(n):
+        hi, lo = max(hi, x[i]), min(lo, x[i])
+        if ctx >= 0 and x[i] <= hi * (1 - 0.3):
+            ctx, lo = -1, x[i]
+        elif ctx <= 0 and x[i] >= lo * (1 + 0.3):
+            ctx, hi = 1, x[i]
+        m, v = (0.0, 1.0) if mu is None else (mu[i], var[i])
+        if np.isnan(m) or np.isnan(v):
+            m, v = 0.0, 1.0
+        if ctx == 1:
+            a = np.log(hi / x[i])
+            pr[i] = p_upper_first(a, max(L_DN - a, 1e-9), m, v)
+        elif ctx == -1:
+            a = np.log(x[i] / lo)
+            pr[i] = p_upper_first(max(L_UP - a, 1e-9), a, m, v)
+    return pr
+
+
+def iter5(c):
+    r = np.log(c).diff()
+    out = {}
+    for w in (365, 90):
+        pr = context_prob(c.to_numpy(), r.rolling(w).mean().to_numpy(), r.rolling(365).var().to_numpy())
+        out[f"표류 넣은 확률 (표류 {w}일)"] = np.where(np.isnan(pr), 0, np.where(pr > 0.5, 1, -1))
+    return out
+
+
+def iter6(c):
+    pr = context_prob(c.to_numpy())
+    e = np.where(ens(c) > 0.5, 1, -1)
+    out = np.where(np.isnan(pr), 0, np.where(pr > 0.6, 1, np.where(pr < 0.4, -1, e)))
+    return {"위치 + 애매하면 앙상블": out}
+
+
+_P7 = {}
+
+
+def iter7(c):
+    if not _P7:
+        for s in SYMS:
+            cc = load(s).close
+            _P7[s] = pd.DataFrame({"st": bayes_rw(cc.to_numpy()), "p": context_prob(cc.to_numpy())}, index=cc.index)
+    own = pd.DataFrame({"st": bayes_rw(c.to_numpy()), "p": context_prob(c.to_numpy())}, index=c.index)
+    btc = _P7["BTC"].reindex(c.index)
+    is_btc = own["st"].equals(_P7["BTC"].reindex(c.index)["st"]) and len(c) == len(_P7["BTC"])
+    lead = own["st"] if is_btc else np.where(btc["st"].notna() & (btc["st"] != own["st"]), btc["st"].fillna(0), own["st"])
+    pm = (own["p"] + btc["p"].fillna(own["p"])) / 2
+    return {"BTC 주도 (엇갈리면 BTC)": np.asarray(lead, int), "두 코인 확률 평균": np.where(pm.isna(), 0, np.where(pm > 0.5, 1, -1))}
+
+
+ITERS = {0: base, 1: iter1, 2: iter2, 3: iter3, 4: iter4, 5: iter5, 6: iter6, 7: iter7}
 
 
 def evaluate(fn, span):

@@ -421,6 +421,20 @@ def iter23(c):
 ITERS.update({20: iter20, 21: iter21, 22: iter22, 23: iter23})
 
 
+def iter24(c):
+    cal = halving_calendar(c.index)
+    hot, cold = heat(c)
+    return {"달력 + 과열로 문턱 당김": shifted(c, hot=(cal == -1) | hot, cold=(cal == 1) | cold)}
+
+
+def iter25(c):
+    cal = halving_calendar(c.index, top=12, bottom=30)
+    return {"반감기 달력(+12 ~ +30개월)으로 문턱 당김": shifted(c, hot=cal == -1, cold=cal == 1)}
+
+
+ITERS.update({24: iter24, 25: iter25})
+
+
 def evaluate(fn, span):
     pool = {}
     for s in SYMS:

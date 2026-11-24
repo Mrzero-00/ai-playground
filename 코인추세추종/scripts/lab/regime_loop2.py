@@ -213,7 +213,30 @@ def iter10(c):
     return {"확률 평균 (위치·표류·앙상블)": np.where(np.isnan(pm), 0, np.where(pm > 0.5, 1, -1))}
 
 
-ITERS = {0: base, 1: iter1, 2: iter2, 3: iter3, 4: iter4, 5: iter5, 6: iter6, 7: iter7, 8: iter8, 9: iter9, 10: iter10}
+HALVINGS = pd.to_datetime(["2008-11-28", "2012-11-28", "2016-07-09", "2020-05-11", "2024-04-20"])  # 2008 은 첫 반감기 4년 전 가상
+
+
+def halving_calendar(idx, top=15, bottom=27):
+    """마지막 반감기 + top 개월 ~ + bottom 개월은 하락(−1), 나머지 상승(1)."""
+    out = np.ones(len(idx), int)
+    for h in HALVINGS:
+        a, b = h + pd.DateOffset(months=top), h + pd.DateOffset(months=bottom)
+        out[np.asarray((idx >= a) & (idx < b))] = -1
+    return out
+
+
+def iter11(c):
+    return {"반감기 달력 (+15개월 ~ +27개월 하락)": halving_calendar(c.index)}
+
+
+def iter12(c):
+    pr, cal = drift_prob(c), halving_calendar(c.index)
+    pm = (pr + (cal == 1)) / 2
+    return {"위치 + 애매하면 반감기 달력": np.where(np.isnan(pr), 0, np.where(pr > 0.6, 1, np.where(pr < 0.4, -1, cal))),
+            "위치·달력 확률 평균": np.where(np.isnan(pm), 0, np.where(pm > 0.5, 1, -1))}
+
+
+ITERS = {0: base, 1: iter1, 2: iter2, 3: iter3, 4: iter4, 5: iter5, 6: iter6, 7: iter7, 8: iter8, 9: iter9, 10: iter10, 11: iter11, 12: iter12}
 
 
 def evaluate(fn, span):
@@ -245,12 +268,20 @@ def main():
         return
     k = int(sys.argv[1])
     res = {"찾기": evaluate(ITERS[k], "찾기"), "확인": evaluate(ITERS[k], "확인"), "made": datetime.now().isoformat(timespec="seconds")}
+    if k >= 11:  # 연장: 세 기간 모두 80% 가 성공 조건
+        res["2011~2017"] = evaluate(ITERS[k], "시험")
     store["iters"][str(k)] = res
     OUT.write_text(json.dumps(store, ensure_ascii=False, indent=1))
-    print(f"== {k}회차  (찾기 / 확인 균형 정확도, 확인의 전환 뒤 30일)")
-    for name in res["확인"]:
-        a, b = res["찾기"][name], res["확인"][name]
-        print(f"   {name:24s} {a['균형 정확도'] * 100:5.1f}% / {b['균형 정확도'] * 100:5.1f}%  상승 {b['상태별'][1] * 100:3.0f}% 하락 {b['상태별'][-1] * 100:3.0f}% 전환 뒤 30일 {b['전환 뒤 30일'] * 100:3.0f}%")
+    if k >= 11:
+        print(f"== {k}회차  (2011~2017 / 찾기 2018~2021 / 확인 2022~2026 균형 정확도)")
+        for name in res["확인"]:
+            v = [res[g][name]["균형 정확도"] for g in ("2011~2017", "찾기", "확인")]
+            print(f"   {name:28s} {v[0] * 100:5.1f}% / {v[1] * 100:5.1f}% / {v[2] * 100:5.1f}%  {'★ 세 기간 모두 80% 이상' if min(v) >= 0.8 else ''}")
+    else:
+        print(f"== {k}회차  (찾기 / 확인 균형 정확도, 확인의 전환 뒤 30일)")
+        for name in res["확인"]:
+            a, b = res["찾기"][name], res["확인"][name]
+            print(f"   {name:24s} {a['균형 정확도'] * 100:5.1f}% / {b['균형 정확도'] * 100:5.1f}%  상승 {b['상태별'][1] * 100:3.0f}% 하락 {b['상태별'][-1] * 100:3.0f}% 전환 뒤 30일 {b['전환 뒤 30일'] * 100:3.0f}%")
     if k == 4:
         rw = random_walk_check()
         store["iters"]["4"]["무작위 걸음"] = rw

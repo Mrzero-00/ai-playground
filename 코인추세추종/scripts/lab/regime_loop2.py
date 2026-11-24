@@ -319,6 +319,56 @@ def iter16(c):
 ITERS[16] = iter16
 
 
+def contexts(x):
+    """실시간 λ 30% 맥락과 그 맥락 기준 극값(상승 맥락은 저점, 하락 맥락은 고점)의 날짜 인덱스."""
+    n = len(x)
+    ctx, ref = np.zeros(n, int), np.zeros(n, int)
+    c, hi, lo, hi_i, lo_i, r = 0, x[0], x[0], 0, 0, 0
+    for i in range(n):
+        if x[i] > hi:
+            hi, hi_i = x[i], i
+        if x[i] < lo:
+            lo, lo_i = x[i], i
+        if c >= 0 and x[i] <= hi * 0.7:
+            c, r, lo, lo_i = -1, hi_i, x[i], i
+        elif c <= 0 and x[i] >= lo * 1.3:
+            c, r, hi, hi_i = 1, lo_i, x[i], i
+        ctx[i], ref[i] = c, r
+    return ctx, ref
+
+
+def iter17(c):
+    ctx, ref = contexts(c.to_numpy())
+    age = np.arange(len(c)) - ref
+    e = np.where(ens(c) > 0.5, 1, -1)
+    other = np.where((ctx == 1) & (age > 1060), -1, np.where((ctx == -1) & (age > 365), 1, e))
+    return {"위치 + 애매하면 장 나이": ambiguous(c, other)}
+
+
+def iter18(c):
+    ch = chain(which(c))
+    mv = ch.CapMVRVCur.reindex(c.index).ffill().to_numpy()
+    mm = (c / sma(c, 200)).to_numpy()
+    a = ch.AdrActCnt.reindex(c.index).ffill()
+    with np.errstate(invalid="ignore"):
+        v = (np.where(mv >= 3.5, -1, np.where(mv <= 1, 1, 0)) + np.where(mm >= 2.4, -1, np.where(mm <= 0.8, 1, 0))
+             + np.where(a.rolling(30).mean() > a.rolling(365).mean(), 1, -1) + np.where(ens(c) > 0.5, 1, -1))
+    e = np.where(ens(c) > 0.5, 1, -1)
+    return {"위치 + 애매하면 온체인·과열 합의": ambiguous(c, np.where(v > 0, 1, np.where(v < 0, -1, e)))}
+
+
+def iter19(c):
+    nq = pd.read_csv(C.ML / "macro.csv", parse_dates=["date"], index_col="date")["나스닥"].dropna()
+    up = (nq > nq.rolling(200).mean()).astype(float).where(nq.rolling(200).mean().notna())
+    up.index = up.index + pd.Timedelta(days=1)
+    up = up.reindex(up.index.union(c.index)).ffill().reindex(c.index)
+    other = np.where(up.to_numpy() == 1, 1, -1)
+    return {"위치 + 애매하면 나스닥 200일선": ambiguous(c, other)}
+
+
+ITERS.update({17: iter17, 18: iter18, 19: iter19})
+
+
 def evaluate(fn, span):
     pool = {}
     for s in SYMS:

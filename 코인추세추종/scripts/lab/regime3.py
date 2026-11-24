@@ -195,7 +195,16 @@ def iter6(F):
     return {"여러 길이 + 가격 밖 정보 로지스틱": walk_forward(F, f_outside, logit)}
 
 
-ITERS = {0: iter0, 1: iter1, 2: iter2, 3: iter3, 4: iter4, 5: iter5, 6: iter6}
+def boost():
+    from sklearn.ensemble import GradientBoostingClassifier
+    return GradientBoostingClassifier(random_state=0)
+
+
+def iter7(F):
+    return {"여러 길이 부스팅": walk_forward(F, f_multi, boost), "여러 길이 + 가격 밖 정보 부스팅": walk_forward(F, f_outside, boost)}
+
+
+ITERS = {0: iter0, 1: iter1, 2: iter2, 3: iter3, 4: iter4, 5: iter5, 6: iter6, 7: iter7}
 
 
 # ---------- 채점 ----------

@@ -188,7 +188,32 @@ def iter7(c):
     return {"BTC 주도 (엇갈리면 BTC)": np.asarray(lead, int), "두 코인 확률 평균": np.where(pm.isna(), 0, np.where(pm > 0.5, 1, -1))}
 
 
-ITERS = {0: base, 1: iter1, 2: iter2, 3: iter3, 4: iter4, 5: iter5, 6: iter6, 7: iter7}
+def drift_prob(c, w=365):
+    r = np.log(c).diff()
+    return context_prob(c.to_numpy(), r.rolling(w).mean().to_numpy(), r.rolling(365).var().to_numpy())
+
+
+def iter8(c):
+    pr, e = drift_prob(c), np.where(ens(c) > 0.5, 1, -1)
+    return {"표류 + 애매하면 앙상블": np.where(np.isnan(pr), 0, np.where(pr > 0.6, 1, np.where(pr < 0.4, -1, e)))}
+
+
+def iter9(c):
+    pr = context_prob(c.to_numpy())
+    r = np.log(c).diff()
+    dn = np.sqrt((r.clip(upper=0) ** 2).rolling(60).mean())
+    up = np.sqrt((r.clip(lower=0) ** 2).rolling(60).mean())
+    v = np.where(dn < up, 1, -1)
+    return {"위치 + 애매하면 변동성 비율": np.where(np.isnan(pr), 0, np.where(pr > 0.6, 1, np.where(pr < 0.4, -1, v)))}
+
+
+def iter10(c):
+    p1, p2, w = context_prob(c.to_numpy()), drift_prob(c), ens(c).to_numpy()
+    pm = (p1 + p2 + w) / 3
+    return {"확률 평균 (위치·표류·앙상블)": np.where(np.isnan(pm), 0, np.where(pm > 0.5, 1, -1))}
+
+
+ITERS = {0: base, 1: iter1, 2: iter2, 3: iter3, 4: iter4, 5: iter5, 6: iter6, 7: iter7, 8: iter8, 9: iter9, 10: iter10}
 
 
 def evaluate(fn, span):

@@ -18,7 +18,9 @@ PERIODS = R.PERIODS
 YEARS = R.YEARS
 COSTS = {"0.10%": 0.001, "0.25%": 0.0025}
 NAMES = {"C0": "현물 봇 100% (기준)", "C1": "현물 봇 100% + 쉬는 돈으로 숏 (이론값)", "C2": "현물 80% + 숏 전용 20%", "C3": "현물 70% + 숏 전용 30%",
-         "C4": "현물 50% + 숏 전용 50%", "보유": "업비트 현물 그냥 보유", "숏만": "숏 다리만 (USDT, 원화 환산)"}
+         "C4": "현물 50% + 숏 전용 50%", "보유": "업비트 현물 그냥 보유", "숏만": "숏 다리만 (USDT, 원화 환산)",
+         "B0": "바이낸스 현물 봇만 (원화 환산)", "B1": "바이낸스 현물 봇 + 쉬는 돈으로 선물 숏 (한 거래소)"}
+SPOT_COST = {"0.10%": 0.0015, "0.25%": 0.003}  # 바이낸스 현물: 수수료 0.10% + 슬리피지 0.05% / 0.20%
 
 
 def build(cost):
@@ -41,6 +43,25 @@ def build(cost):
         over.append(R.daily(d, pos.to_numpy(), cost) + pos.abs().shift().fillna(0.0) * f)
     mean = lambda parts: R.cut(pd.concat(parts, axis=1).fillna(0.0).mean(axis=1), START, END)
     return {"bot": mean(bot), "hold": mean(hold), "sleeve": mean(sleeve), "over": R.cut(pd.concat([b.add(o, fill_value=0.0) for b, o in zip(bot, over)], axis=1).fillna(0.0).mean(axis=1), START, END)}
+
+
+def build_binance(cost, spot_cost):
+    """두 다리 모두 바이낸스: 현물 봇(USDT 종가) + 쉬는 돈 (1 − w) 만큼 선물 숏. 계좌 전체가 USDT 라 원/달러를 날마다 곱한다."""
+    fx = pd.read_csv(C.ML / "usdkrw.csv", parse_dates=["date"], index_col="date").krw.astype(float)
+    fxr = fx.reindex(pd.date_range("2019-09-01", END)).ffill().pct_change().fillna(0.0)
+    bot, both = [], []
+    for s in R.SYMS:
+        c = pd.read_csv(C.ML / f"spot_{s}.csv", parse_dates=["date"], index_col="date").close.astype(float)
+        c = c[c.index <= END]
+        w = sum((c > sma(c, n)).astype(float) for n in (20, 50, 100, 200)) / 4
+        b = (w.shift() * c.pct_change() - spot_cost * w.diff().abs().shift()).fillna(0.0)
+        d = R.load(s)
+        sh = pd.Series(np.minimum(np.sign(hyst(ztrail(d.close, 30))), 0).astype(float), index=d.index)
+        pos = sh * (1 - w.reindex(d.index).ffill().fillna(0.0))
+        bot.append(b)
+        both.append(b.add(R.daily(d, pos.to_numpy(), cost), fill_value=0.0))
+    krw = lambda parts: (lambda u: (1 + u) * (1 + fxr.reindex(u.index).fillna(0.0)) - 1)(R.cut(pd.concat(parts, axis=1).fillna(0.0).mean(axis=1), START, END))
+    return {"B0": krw(bot), "B1": krw(both)}
 
 
 def split(bot, sleeve, share):
@@ -70,7 +91,7 @@ def main():
     for cn, cost in COSTS.items():
         L = build(cost)
         series[cn] = {"C0": L["bot"], "C1": L["over"], "C2": split(L["bot"], L["sleeve"], 0.8), "C3": split(L["bot"], L["sleeve"], 0.7),
-                      "C4": split(L["bot"], L["sleeve"], 0.5), "보유": L["hold"], "숏만": L["sleeve"]}
+                      "C4": split(L["bot"], L["sleeve"], 0.5), "보유": L["hold"], "숏만": L["sleeve"], **build_binance(cost, SPOT_COST[cn])}
     for k in NAMES:
         r = series["0.10%"][k]
         row = {"전체": stats(r), "기간": {pn: stats(R.cut(r, a, b)) for pn, (a, b) in PERIODS.items()},
@@ -79,7 +100,7 @@ def main():
                "0.25%": {"전체": stats(series["0.25%"][k]), **{pn: stats(R.cut(series["0.25%"][k], a, b)) for pn, (a, b) in PERIODS.items()}}}
         out["rows"][k] = row
     c0 = out["rows"]["C0"]
-    for k in ("C1", "C2", "C3", "C4"):
+    for k in ("C1", "C2", "C3", "C4", "B1"):
         row = out["rows"][k]
         crit = {"1 샤프·MDD": all(row["기간"][pn]["샤프"] > c0["기간"][pn]["샤프"] and row["기간"][pn]["MDD"] >= c0["기간"][pn]["MDD"] - 0.05 for pn in PERIODS),
                 "2 0.25% 비용": all(row["0.25%"][pn]["샤프"] > c0["0.25%"][pn]["샤프"] for pn in PERIODS)}

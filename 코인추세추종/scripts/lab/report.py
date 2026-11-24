@@ -205,6 +205,16 @@ def build():
                f"<div class=\"scroll\"><table class=\"num\"><thead><tr><th>판별기</th><th>3상태 균형 정확도</th><th>3상태 전환 뒤 30일</th><th>2상태 균형 정확도</th><th>2상태 전환 뒤 30일</th><th>상승일 때만 보유 연복리</th><th>샤프</th><th>MDD</th></tr></thead><tbody>{rowsA}</tbody></table></div>"
                f"<p class=\"note\">전환 신호(30% 기준): 적중 = 켜진 날이 새 장 시작 45일 안, 헛경보 = 아직 옛 장. 기준 = 같은 실시간 상태의 아무 날. 선행 = 처음 적중한 날이 30% 확인보다 며칠 먼저. 후보 조건(적중률 ≥ 기준 × 1.5 · 잡은 비율 ≥ 50% · 선행 ≥ 0): {e(cand)}.</p>"
                f"<div class=\"scroll\"><table class=\"num\"><thead><tr><th>신호</th><th>켜짐</th><th>적중률</th><th>기준</th><th>배수</th><th>잡은 전환</th><th>선행 중앙</th></tr></thead><tbody>{rowsB}</tbody></table></div></section>")
+    loop, lp = "", C.OUT / "regime_loop.json"
+    if lp.exists():  # 장 판별 루프 (RESEARCH.md '장 판별 루프 등록', scripts/lab/regime_loop.py)
+        z = json.loads(lp.read_text())
+        rs = sorted(((int(k), n, v["찾기"][n]["균형 정확도"], r["균형 정확도"]) for k, v in z["iters"].items() for n, r in v["확인"].items()), key=lambda t: (t[0], -t[3]))
+        rows = "".join(f"<tr><th>{k}회차 · {e(n)}</th><td>{a * 100:.1f}%</td><td>{b * 100:.1f}%</td></tr>" for k, n, a, b in rs)
+        tz = z.get("test")
+        test = (f"확인 기간 최고 {e(tz['판별기'])} 로 시험 기간(2024-07 ~)을 한 번 열었다: 균형 정확도 {tz['균형 정확도'] * 100:.1f}% — 동전 던지기보다 낮다." if tz else "시험 기간은 아직 열지 않았다.")
+        loop = (f"<section class=\"card\"><h4 style=\"margin-top:0\">장 판별 루프 — 10회, BTC·ETH, 2상태(30%) 균형 정확도</h4>"
+                f"<p class=\"note\">목표: 확인 기간(2022 ~ 2024-06) 80% 이상, 시험 기간에서도 80% 이상. 찾기 2018-08 ~ 2021. 회차마다 바꾼 이유는 RESEARCH.md. 80% 에 닿은 판별기는 없다. {test}</p>"
+                f"<div class=\"scroll\"><table class=\"num\"><thead><tr><th>판별기</th><th>찾기</th><th>확인</th></tr></thead><tbody>{rows}</tbody></table></div></section>")
     total = sum(r["cells"] for r in done)
     passed = [f"{r['name']} · {u['name']}" for r in done for u in r["units"] if u["passed"] and not r.get("late")]
     late_ok = [f"{r['name']} · {u['name']}" for r in done for u in r["units"] if u["passed"] and r.get("late")]
@@ -212,7 +222,7 @@ def build():
             + (f" 봉인 해제 뒤 추가(참고용) 개발 통과: {', '.join(late_ok)}." if late_ok else "")) if done else "첫 단계를 돌리는 중이다."
     seal = f"열림 ({json.loads(C.SEAL.read_text())['at'][:16]})" if C.SEAL.exists() else "닫힘 — 2025-07-01 이후 데이터는 마지막에 한 번만 연다"
     page = TEMPLATE.replace("__NOW__", now).replace("__HEAD__", e(head)).replace("__SEAL__", e(seal)).replace("__PROGRESS__", progress) \
-        .replace("__OVERVIEW__", overview or '<tr><td colspan="7">아직 끝난 단계가 없다.</td></tr>').replace("__SECTIONS__", hold + reg + short + dsr + sections) \
+        .replace("__OVERVIEW__", overview or '<tr><td colspan="7">아직 끝난 단계가 없다.</td></tr>').replace("__SECTIONS__", hold + loop + reg + short + dsr + sections) \
         .replace("__DATA__", json.dumps(curves, ensure_ascii=False))
     (C.OUT / "report.html").write_text(page)
     (C.OUT / "report.json").write_text(json.dumps(reported, ensure_ascii=False))

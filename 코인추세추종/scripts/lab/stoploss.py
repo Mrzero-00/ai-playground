@@ -39,23 +39,26 @@ def prep(sym):
     def on_grid(x):
         return pd.Series(x.to_numpy(), index=known).reindex(g.index, method="ffill").to_numpy()
 
-    P = dict(g=g, px=g.to_numpy(), lp=np.log(g).to_numpy(), nine=nine, wd=wd, up=up,
-             atr20=on_grid(tr.ewm(alpha=1 / 20, adjust=False).mean()), atr22=on_grid(tr.ewm(alpha=1 / 22, adjust=False).mean()),
+    P = dict(g=g, px=g.to_numpy(), lp=np.log(g).to_numpy(), nine=nine, mins=np.asarray(mins), wd=wd, up=up,
              low10=on_grid(day.low.rolling(10).min()), low20=on_grid(day.low.rolling(20).min()))
+    for n in (10, 20, 22, 40):  # 10·40 은 turtle_grid.py 가 쓴다
+        P[f"atr{n}"] = on_grid(tr.ewm(alpha=1 / n, adjust=False).mean())
     for nb in (2, 8, 48):
         P[f"sig{nb}"] = np.log(g).diff(nb).rolling(1440).std().shift().to_numpy()
     P["일봉 종가 차이"] = float((pd.Series(day.close.to_numpy(), index=known).reindex(g.index).dropna() / g - 1).abs().max())
     return P
 
 
-def simulate(P, kind=None, k=None, aux=None, re="R1"):
-    """30분 격자의 비중과 손절한 자리. kind None 이면 지금 봇."""
+def simulate(P, kind=None, k=None, aux=None, re="R1", step=30, start=0):
+    """30분 격자의 비중과 손절한 자리. kind None 이면 지금 봇. step = 손절 확인 간격(분, 09:00 기준). C1 의 k 는 ATR 배수(없으면 2).
+    start = 봇을 켜는 자리(그 앞은 비중 0 — 그날부터 새로 넣은 돈으로 볼 때)."""
     px, lp, nine, wd, up = P["px"], P["lp"], P["nine"], P["wd"], P["up"]
+    due = P["mins"] % step == 0
     a = P[aux] if aux else None
     out, stops = np.zeros(len(px)), []
     x = avg = hi = last = 0.0
     opened, stopped = 0, False
-    for i in range(len(px)):
+    for i in range(start, len(px)):
         p = px[i]
         if x > 0.0 and p > hi:
             hi = p
@@ -72,12 +75,14 @@ def simulate(P, kind=None, k=None, aux=None, re="R1"):
                 x = today
             last = today
         elif x > 0.0:
-            if kind == "A":
+            if not due[i]:
+                hit = False
+            elif kind == "A":
                 hit = p <= avg * (1 - k)
             elif kind == "B":
                 hit = p <= hi * (1 - k)
             elif kind == "C1":
-                hit = p <= avg - 2 * a[i]
+                hit = p <= avg - (k or 2) * a[i]
             elif kind == "C2":
                 hit = p <= hi - 3 * a[i]
             elif kind == "D":

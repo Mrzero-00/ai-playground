@@ -9,7 +9,7 @@ import live, paper
 
 KST = paper.KST
 BTC, ETH = "KRW-BTC", "KRW-ETH"
-REAL_CLOSES4H, REAL_SIGNAL4H = live.closes4h, live.signal4h  # Bot 이 가짜로 바꾸기 전의 진짜 함수
+REAL_CLOSES4H, REAL_SIGNAL4H, REAL_ATR20 = live.closes4h, live.signal4h, live.atr20  # Bot 이 가짜로 바꾸기 전의 진짜 함수
 
 
 class Clock(datetime):
@@ -77,8 +77,11 @@ class Bot:
         self.ex = Upbit(krw)
         self.target = {BTC: 0.0, ETH: 0.0}
         self.target4 = {BTC: 0.0, ETH: 0.0}  # 4시간봉으로 본 비중 (장중 확인)
+        self.before = {}  # 전날의 일 단위 비중 (없으면 오늘과 같다) — 손절 뒤 다시 살지 볼 때 쓴다
+        self.atr = {BTC: 5_000_000.0, ETH: 200_000.0}  # 손절선 = 평균 매수가 − 2 × ATR
         self.broken = set()  # 시세 조회가 실패하는 마켓
         self.broken4 = set()  # 4시간봉 조회가 실패하는 마켓
+        self.broken_atr = set()  # ATR 용 일봉 조회가 실패하는 마켓
         d = Path(tempfile.mkdtemp())
         live.DIR, live.STATE, live.TRADES, live.EQUITY, live.STOP, live.FLOWS = d, d / "state.json", d / "trades.csv", d / "equity.csv", d / "STOP", d / "flows.csv"
         live.CFG["UPBIT_ACCESS_KEY"] = live.CFG["UPBIT_SECRET_KEY"] = "dummy"  # 혹시 새어 나가도 인증에서 막힌다
@@ -86,7 +89,8 @@ class Bot:
         live.private = self.ex
         live.fill = lambda m, side, krw=None, qty=None: (self.ex.px[m], qty or krw / self.ex.px[m], krw or qty * self.ex.px[m], self.ex.px[m])
         live.closes = self.closes
-        live.signal = lambda px: px[0]
+        live.signal = lambda px: px[-1]
+        live.atr20 = self.atr20
         live.closes4h = self.closes4h
         live.signal4h = lambda px: px[0]
         live.time.sleep = lambda s: None
@@ -96,7 +100,12 @@ class Bot:
     def closes(self, m):
         if m in self.broken:
             raise OSError("시세 조회 실패 (가정)")
-        return ["어제"], [self.target[m]]
+        return ["그제", "어제"], [self.before.get(m, self.target[m]), self.target[m]]
+
+    def atr20(self, m):
+        if m in self.broken_atr:
+            raise OSError("일봉 조회 실패 (가정)")
+        return self.atr[m]
 
     def closes4h(self, m):
         if m in self.broken4:
@@ -351,14 +360,19 @@ def test_intraday_skips_late_wakeup():
 
 
 def test_intraday_no_buy_at_loss_limit():
-    """손실 한도에 닿았으면 장중에는 사지 않는다(전량 매도·정지는 다음 09:07 이 한다)."""
+    """손실 한도에 닿았으면 장중에는 사지 않는다(전량 매도·정지는 다음 09:07 이 한다). 손절로 파는 것은 막지 않는다."""
     b = Bot()
     b.target = {BTC: 1.0, ETH: 0.5}
     b.run()
     b.ex.px = {m: p * 0.2 for m, p in b.ex.px.items()}
     b.target4 = {BTC: 1.0, ETH: 1.0}
-    b.run(next_day=False, hours=4)
-    assert b.ex.count(ETH) == 1 and not live.STOP.exists()
+    (live.DIR / "NO_STOPLOSS").write_text("")
+    b.run(next_day=False, hours=4)  # 13:07 손절을 꺼 두면 아무 주문도 없다
+    assert b.ex.count(ETH) == 1 and b.ex.count(BTC) == 1 and not live.STOP.exists()
+    (live.DIR / "NO_STOPLOSS").unlink()
+    b.run(next_day=False, hours=4)  # 17:07 손절은 팔고, 사지는 않는다
+    assert b.ex.count(ETH, "bid") == 1 and b.ex.count(ETH, "ask") == 1 and b.ex.count(BTC, "ask") == 1 and not live.STOP.exists()
+    b.matches()
 
 
 def test_intraday_response_lost_is_settled_not_repeated():
@@ -373,6 +387,174 @@ def test_intraday_response_lost_is_settled_not_repeated():
     st = b.run(next_day=False, hours=4)  # 17:07
     assert "pending" not in st["sleeves"][BTC] and st["sleeves"][BTC]["target"] == 0.75 and b.ex.count(BTC) == 2
     b.matches()
+
+
+def test_stop_loss_sells_all_then_waits_for_a_new_buy_signal():
+    """가격 ≤ 평균 매수가 − 2 × ATR 이면 그 코인을 전부 판다. 그 뒤로는 장중에도 하루 몫에도 사지 않다가, 일 단위 비중이 전날보다 높아지는 날 다시 산다."""
+    b = Bot()
+    b.target = {BTC: 0.5, ETH: 0.5}
+    st = b.run()  # 12-02 09:07 매수. BTC 평균 매수가 1억, ATR 500만 → 손절선 9,000만
+    assert abs(st["sleeves"][BTC]["avg"] - 100_000_000) < 1
+    b.ex.px[BTC] = 90_000_001.0
+    b.run(next_day=False, hours=0.5)  # 09:37 손절선 바로 위 — 유지
+    assert b.ex.count(BTC, "ask") == 0
+    b.ex.px[BTC] = 89_999_999.0
+    st = b.run(next_day=False, hours=0.5)  # 10:07 손절선 아래 → BTC 만 전부 판다
+    s = st["sleeves"][BTC]
+    assert b.ex.count(BTC, "ask") == 1 and b.ex.count(ETH, "ask") == 0 and s["qty"] == 0 and s["target"] == 0 and s["stopped"] and "avg" not in s
+    assert [r["사유"] for r in csv.DictReader(live.TRADES.open())][-1] == "손절"
+    b.matches()
+    b.target4 = {BTC: 1.0, ETH: 0.5}
+    st = b.run(next_day=False, hours=3)  # 13:07 4시간봉 비중이 높아도 쉬는 마켓은 사지 않는다
+    assert b.ex.count(BTC, "bid") == 1 and st["intraday"] == "2026-12-02 13"
+    st = b.run(next_day=False, hours=20)  # 12-03 09:07 일 단위 비중이 전날과 같다 → 계속 쉰다
+    s = st["sleeves"][BTC]
+    assert b.ex.count(BTC, "bid") == 1 and st["last_run"] == "2026-12-03" and s["stopped"] and s["target"] == 0 and s["done"] == "2026-12-03"
+    b.before, b.target = {BTC: 0.5}, {BTC: 0.25, ETH: 0.5}
+    st = b.run()  # 12-04 비중이 줄었다 → 계속 쉰다
+    assert b.ex.count(BTC, "bid") == 1 and st["sleeves"][BTC]["stopped"]
+    b.before, b.target = {BTC: 0.25}, {BTC: 0.5, ETH: 0.5}
+    st = b.run()  # 12-05 비중이 전날보다 늘었다 → 다시 산다. 평균 매수가는 새로 잡는다
+    s = st["sleeves"][BTC]
+    assert b.ex.count(BTC, "bid") == 2 and "stopped" not in s and s["target"] == 0.5 and abs(s["avg"] / 89_999_999 - 1) < 1e-4  # 가짜 거래소가 수량을 8자리로 끊어 조금 어긋난다
+    b.matches()
+
+
+def test_average_entry_price_follows_buys_only():
+    """평균 매수가: 살 때마다 수량 가중 평균, 일부만 팔면 그대로, 다 팔면 지운다. 09:07 하루 몫 실행은 손절을 보지 않는다."""
+    b = Bot()
+    b.target = {BTC: 0.25, ETH: 0.0}
+    b.run()  # 1억에 산다
+    b.ex.px[BTC] = 120_000_000.0
+    b.target4 = {BTC: 0.75, ETH: 0.0}
+    st = b.run(next_day=False, hours=4)  # 13:07 장중 매수는 1.2억에
+    s = st["sleeves"][BTC]
+    cost = sum(float(r["원화"]) for r in csv.DictReader(live.TRADES.open()))
+    assert abs(s["avg"] / (cost / s["qty"]) - 1) < 1e-4 and 100_000_000 < s["avg"] < 120_000_000
+    avg = s["avg"]
+    b.ex.px[BTC] = 80_000_000.0  # 손절선(평균 매수가 − 1,000만)보다 한참 아래지만 09:07 은 하루 몫 차례다
+    b.target = {BTC: 0.5, ETH: 0.0}
+    st = b.run(next_day=False, hours=20)  # 12-03 09:07 일 단위 비중대로 일부만 판다 — 손절이 아니다
+    s = st["sleeves"][BTC]
+    assert s["avg"] == avg and "stopped" not in s and s["qty"] > 0 and [r["사유"] for r in csv.DictReader(live.TRADES.open())][-1] == "신호"
+    st = b.run(next_day=False, hours=0.5)  # 09:37 이제 손절을 본다
+    s = st["sleeves"][BTC]
+    assert s["qty"] == 0 and "avg" not in s and s["stopped"] and [r["사유"] for r in csv.DictReader(live.TRADES.open())][-1] == "손절"
+    b.matches()
+
+
+def test_stop_loss_response_lost_is_settled_and_still_rests():
+    """손절 주문의 응답을 못 받았다 → 다음 실행이 주문 번호로 찾아 반영한다. 다시 팔지 않고, 쉬는 표시도 남는다."""
+    b = Bot()
+    b.target = {BTC: 0.5, ETH: 0.0}
+    b.run()
+    b.ex.px[BTC] = 80_000_000.0
+    b.ex.fault[BTC] = "timeout"
+    st = b.run(next_day=False, hours=0.5)
+    s = st["sleeves"][BTC]
+    assert s["pending"]["reason"] == "손절" and b.ex.count(BTC, "ask") == 1 and "stopped" not in s
+    st = b.run(next_day=False, hours=0.5)
+    s = st["sleeves"][BTC]
+    assert "pending" not in s and s["qty"] == 0 and s["stopped"] and b.ex.count(BTC, "ask") == 1
+    b.matches()
+
+
+def test_stop_check_failure_is_noted_and_checked_again():
+    """ATR 을 못 받은 마켓은 팔지 않고 상태 줄에 남긴다. 다른 마켓은 처리하고, 30분 뒤에 다시 본다."""
+    b = Bot()
+    b.target = {BTC: 0.5, ETH: 0.5}
+    b.run()
+    b.ex.px = {BTC: 80_000_000.0, ETH: 3_000_000.0}
+    b.broken_atr = {BTC}
+    st = b.run(next_day=False, hours=0.5)
+    assert b.ex.count(BTC, "ask") == 0 and b.ex.count(ETH, "ask") == 1 and any("KRW-BTC 실패(장중)" in n for n in st["check"]["notes"])
+    b.broken_atr = set()
+    st = b.run(next_day=False, hours=0.5)
+    assert b.ex.count(BTC, "ask") == 1 and st["check"]["notes"] == []
+    b.matches()
+
+
+def test_stop_loss_off_switch():
+    b = Bot()
+    b.target = {BTC: 0.5, ETH: 0.0}
+    b.run()
+    b.ex.px[BTC] = 80_000_000.0
+    (live.DIR / "NO_STOPLOSS").write_text("")
+    b.run(next_day=False, hours=0.5)
+    assert b.ex.count(BTC, "ask") == 0
+    (live.DIR / "NO_STOPLOSS").unlink()
+    live.STOP.write_text("정지")
+    b.run(next_day=False, hours=0.5)
+    assert b.ex.count(BTC, "ask") == 0
+    live.STOP.unlink()
+    b.run(next_day=False, hours=0.5)
+    assert b.ex.count(BTC, "ask") == 1
+
+
+def test_idle_runs_ask_for_nothing():
+    """가진 코인이 없고 살 차례도 아니면 ATR·계좌를 부르지 않고 장부도 그대로 둔다."""
+    b = Bot()
+    b.run()  # 비중 0
+
+    def boom(*a, **k):
+        raise AssertionError("할 일이 없는 실행이 거래소를 불렀다")
+
+    live.atr20 = live.private = live.fill = boom
+    before = live.STATE.read_text()
+    b.run(next_day=False, hours=0.5)  # 09:37
+    b.run(next_day=False, hours=0.5)  # 10:07
+    assert live.STATE.read_text() == before
+
+
+def test_dry_run_stop_loss_sends_nothing():
+    b = Bot()
+    live.LIVE = False
+    b.target = {BTC: 0.5, ETH: 0.0}
+    b.run()
+    b.ex.px[BTC] = 80_000_000.0
+    st = b.run(next_day=False, hours=0.5)
+    assert b.ex.posts == [] and st["sleeves"][BTC]["qty"] == 0 and st["sleeves"][BTC]["stopped"]
+    assert [r["사유"] for r in csv.DictReader(live.TRADES.open())] == ["신호", "손절"]
+
+
+def test_daily_run_is_tried_once_per_4h_slot():
+    """하루 몫이 실패하면 같은 4시간 칸의 다음 실행(30분 뒤)은 다시 하지 않고, 다음 칸의 첫 실행이 다시 한다. 그 사이에도 손절은 본다."""
+    b = Bot()
+    b.target = {BTC: 0.5, ETH: 0.5}
+    b.broken = {ETH}
+    b.run()  # 12-02 09:07 BTC 는 사고 ETH 는 실패
+    b.broken = set()
+    st = b.run(next_day=False, hours=0.5)  # 09:37 하루 몫을 다시 하지 않는다
+    assert b.ex.count(ETH) == 0 and st["last_run"] != "2026-12-02"
+    b.ex.px[BTC] = 80_000_000.0
+    st = b.run(next_day=False, hours=0.5)  # 10:07 하루 몫이 안 끝났어도 손절은 본다
+    assert b.ex.count(BTC, "ask") == 1 and st["sleeves"][BTC]["stopped"] and b.ex.count(ETH) == 0
+    st = b.run(next_day=False, hours=3)  # 13:07 다음 칸의 첫 실행이 하루 몫을 다시 한다
+    assert st["last_run"] == "2026-12-02" and b.ex.count(ETH, "bid") == 1 and b.ex.count(BTC, "bid") == 1
+    b.matches()
+
+
+def test_atr20_is_wilder_average_of_closed_daily_bars():
+    """ATR: 진행 중인 일봉은 빼고, 마감 봉의 참 범위를 와일더 방식(앞 값 + (참 범위 − 앞 값) ÷ 20)으로 평균한다."""
+    real_get, real_dt = live.get, live.datetime
+    live.datetime = Clock
+    Clock.t = datetime(2026, 12, 2, 13, 7, tzinfo=KST)
+
+    def candles(n):  # 새 것부터. 12-02 봉은 진행 중, 12-01 봉만 고가가 높다
+        return [{"candle_date_time_kst": (datetime(2026, 12, 2) - timedelta(days=i)).strftime("%Y-%m-%dT09:00:00"),
+                 "high_price": 150.0 if i == 1 else 999.0 if i == 0 else 110.0, "low_price": 100.0, "trade_price": 105.0} for i in range(n)]
+
+    try:
+        live.get = lambda url: candles(200)
+        assert abs(REAL_ATR20(BTC) - 12.0) < 1e-9  # 참 범위가 줄곧 10 이다가 마지막 마감 봉만 50 → 10 + (50 − 10) ÷ 20
+        live.get = lambda url: candles(50)
+        try:
+            REAL_ATR20(BTC)
+            raise AssertionError("예외가 나야 한다")
+        except RuntimeError as e:
+            assert "ATR" in str(e)
+    finally:
+        live.get, live.datetime = real_get, real_dt
 
 
 def test_slot_and_4h_signal():

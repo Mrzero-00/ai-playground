@@ -6,7 +6,7 @@
     팔 때도 봇이 직접 산 수량까지만 판다.
   - 주문은 보내기 전에 고유 번호와 함께 장부에 적는다. 주문 뒤에 봇이 죽어도 다음 실행이
     그 번호로 업비트에 물어 장부를 맞춘다 — 같은 주문을 두 번 내지 않는다.
-  - 마켓 하나가 실패해도 다른 마켓은 처리한다. 실패한 마켓은 다음 실행(13:07·21:07)에서 다시 한다.
+  - 마켓 하나가 실패해도 다른 마켓은 처리한다. 실패한 마켓은 다음 4시간 칸의 첫 실행(13·17·21시 7분)에서 다시 한다.
   - 실행할 때마다 장부와 실제 계좌를 견줘 모자라면 적어 둔다(리포트 상태 줄에 뜬다).
   - live/STOP 파일이 있으면 아무것도 하지 않는다(긴급 정지).
   - 봇 평가액이 최고점 대비 HALT_DD 이상 빠지면 전량 매도하고 STOP 파일을 만든다.
@@ -17,7 +17,13 @@
   - 13:07·17:07·21:07·01:07·05:07 장중 확인: 마감 4시간봉으로 본 비중이 지금 목표보다 높으면 그만큼 사기만 한다.
     줄이는 일은 다음 09:07 이 한다. 4시간 칸마다 한 번만, 칸이 시작한 뒤 1시간 안에만 확인한다(늦게 깬 실행은 건너뛴다).
     live/NO_INTRADAY 파일이 있으면 장중 확인을 하지 않는다.
-  - 하루 몫이 실패했으면 그 뒤 실행은 장중 확인 대신 하루 몫을 다시 한다.
+  - 하루 몫이 실패했으면 다음 4시간 칸(13·17·21시)의 첫 실행이 하루 몫을 다시 한다(칸마다 한 번).
+
+손절 (RESEARCH.md '손절 규칙 — 여러 형태'·'터틀식 손절 — 값 바꿔 보기', 2026-11-26 사용자 결정)
+  - 30분마다(매시 7분·37분, 09:07 하루 몫 실행은 빼고) 가진 코인마다 본다: 지금 가격 ≤ 평균 매수가 − 2 × ATR(20일)이면 그 코인을 전부 판다.
+    평균 매수가는 산 가격의 수량 가중 평균(일부만 팔아도 그대로, 다 팔면 지운다). ATR 은 마감 일봉의 와일더 평균.
+  - 손절한 마켓은 쉰다: 장중 매수도 하지 않고, 09:07 하루 몫에서도 일 단위 비중이 전날보다 높아지는 날까지 사지 않는다.
+  - live/NO_STOPLOSS 파일이 있으면 손절 확인을 하지 않는다(쉬는 중인 마켓은 그대로 쉰다).
 
 설정 (.env, 이 프로젝트 폴더)
   UPBIT_ACCESS_KEY=...
@@ -28,7 +34,7 @@
 
 사용법
   python3 scripts/live.py --check            # 키·잔고·주문 권한 확인 (실제 주문 없음)
-  python3 scripts/live.py                    # 오늘 몫 실행 (하루 한 번, 09:00 KST 이후). 끝난 뒤에 돌리면 장중 확인
+  python3 scripts/live.py                    # 오늘 몫 실행 (하루 한 번, 09:00 KST 이후). 끝난 뒤에 돌리면 손절·장중 확인
   python3 scripts/live.py --report           # 누적 성과
   python3 scripts/live.py --deposit 300000   # 봇이 굴리는 돈을 늘린다 (다음 실행 때 비중에 맞춰 산다)
   python3 scripts/live.py --withdraw 100000  # 줄인다 (다음 실행 때 필요한 만큼 판다)
@@ -46,6 +52,7 @@ DIR = ROOT / "live"
 STATE, TRADES, EQUITY, STOP, FLOWS = DIR / "state.json", DIR / "trades.csv", DIR / "equity.csv", DIR / "STOP", DIR / "flows.csv"
 API = "https://api.upbit.com"
 MIN_ORDER = 5000  # 업비트 최소 주문 금액
+STOP_ATR, ATR_DAYS = 2, 20  # 손절선 = 평균 매수가 − STOP_ATR × ATR(ATR_DAYS 일). 터틀의 2N — 백테스트에서 고른 값이 아니다
 TRADE_COLS = ["시각", "모드", "마켓", "구분", "사유", "목표비중_전", "목표비중_후", "신호종가", "중간가", "체결가", "수량", "원화", "수수료", "상태", "주문번호"]
 
 
@@ -205,10 +212,30 @@ def signal4h(px):
     return sum(px[-1] > sum(px[-6 * n:]) / (6 * n) for n in SMAS) / len(SMAS)
 
 
+def atr20(market):
+    """마감된 일봉의 와일더 ATR(ATR_DAYS 일). 진행 중인 봉(날짜 = 9시간 전의 날짜)은 뺀다."""
+    cur = (datetime.now(KST) - timedelta(hours=9)).strftime("%Y-%m-%d")
+    rows = sorted((c["candle_date_time_kst"][:10], c["high_price"], c["low_price"], c["trade_price"])
+                  for c in get(f"{API}/v1/candles/days?market={market}&count=200"))
+    rows = [r for r in rows if r[0] < cur]
+    if len(rows) < 5 * ATR_DAYS:
+        raise RuntimeError(f"{market} 일봉이 {len(rows)}개뿐이라 ATR 을 낼 수 없다")
+    atr = rows[0][1] - rows[0][2]
+    for (_, hi, lo, _), (_, _, _, prev) in zip(rows[1:], rows):
+        atr += (max(hi - lo, abs(hi - prev), abs(lo - prev)) - atr) / ATR_DAYS
+    return atr
+
+
 def apply(st, m, p, qty, funds, fee, state):
     """체결 결과를 장부에 반영하고 거래 기록을 남긴다. p = 주문 기록."""
     s = st["sleeves"][m]
     sign = 1 if p["side"] == "매수" else -1
+    if sign > 0 and qty:  # 평균 매수가(손절선의 기준): 산 가격의 수량 가중 평균
+        s["avg"] = (s["avg"] * s["qty"] + funds) / (s["qty"] + qty) if s.get("avg") and s["qty"] > 0 else funds / qty
+    elif p["target"] == 0:
+        s.pop("avg", None)
+    if p["reason"] == "손절":  # 응답을 못 받아 다음 실행이 반영하더라도 쉬는 표시가 남게 여기서 적는다
+        s["stopped"] = p["at"]
     s["qty"] = max(round(s["qty"] + sign * qty, 8), 0.0)
     s["cash"] -= sign * funds + fee
     avg = funds / qty if qty else 0
@@ -311,19 +338,39 @@ def reconcile(st):
     return notes
 
 
+def stop_loss(st, m, price, now):
+    """터틀식 손절: 지금 가격 ≤ 평균 매수가 − STOP_ATR × ATR 이면 그 코인을 전부 판다. 팔았으면 True."""
+    s = st["sleeves"][m]
+    if not s.get("avg"):
+        print(f"{m} 평균 매수가 기록이 없어 손절 확인을 건너뜀")
+        return False
+    line = s["avg"] - STOP_ATR * atr20(m)
+    if price > line:
+        print(f"{m} 손절 확인: 지금 {price:,.0f}원 > 손절선 {line:,.0f}원 (평균 매수가 {s['avg']:,.0f}원) — 유지")
+        return False
+    print(f"{m} 지금 {price:,.0f}원 ≤ 손절선 {line:,.0f}원 (평균 매수가 {s['avg']:,.0f}원 − {STOP_ATR} × ATR) → 전부 판다")
+    trade(st, m, 0.0, None, now, "손절")
+    s["stopped"] = s.get("stopped") or now.isoformat(timespec="seconds")  # 최소 주문 미만이라 주문 없이 끝났어도 쉰다
+    return True
+
+
 def intraday(st, now):
-    """하루 몫이 끝난 뒤의 4시간 확인. 4시간봉으로 본 비중이 지금 목표보다 높으면 그만큼 사기만 한다(줄이는 일은 다음 09:07).
-    4시간 칸마다 한 번. 하루 몫이 끝나지 않은 매매일(09:00 에 바뀐다)에는 하지 않는다."""
+    """하루 몫 차례가 아닌 실행(30분마다). 가진 코인의 손절을 먼저 보고, 4시간 칸의 첫 실행이면 4시간봉으로 살지 본다.
+    4시간봉으로 본 비중이 지금 목표보다 높으면 그만큼 사기만 한다(줄이는 일은 다음 09:07). 4시간 칸마다 한 번,
+    하루 몫이 끝난 매매일(09:00 에 바뀐다)에만. 손절은 하루 몫이 끝났는지와 상관없이 본다."""
     slot, start = slot_of(now)
     day = (now - timedelta(hours=9)).strftime("%Y-%m-%d")
-    if start.hour == 9 or st["last_run"] != day or st.get("intraday") == slot:
-        print("09:00 이전이거나 오늘 이미 실행함. 건너뜀.")
-        return
-    if (DIR / "NO_INTRADAY").exists():
-        print("NO_INTRADAY 파일이 있어 장중 확인을 하지 않는다.")
-        return
-    if now - start > timedelta(hours=1):  # 잠자기에서 늦게 깬 실행: 몇 시간 묵은 4시간봉으로 사지 않는다
-        print(f"{slot[-2:]}시 칸이 시작한 지 1시간이 넘어 이번 장중 확인은 건너뜀.")
+    skip = ("09시 칸은 하루 몫 차례" if start.hour == 9 else "하루 몫이 끝나지 않음" if st["last_run"] != day
+            else "이 칸은 이미 확인함" if st.get("intraday") == slot else "NO_INTRADAY 파일이 있음" if (DIR / "NO_INTRADAY").exists()
+            else f"{slot[-2:]}시 칸이 시작한 지 1시간이 넘음" if now - start > timedelta(hours=1) else "")  # 늦게 깬 실행은 묵은 4시간봉으로 사지 않는다
+    guard = not (DIR / "NO_STOPLOSS").exists()
+
+    def held(m):
+        return guard and st["sleeves"][m]["qty"] > 0 and st["sleeves"][m]["target"] > 0
+
+    pend = [m for m in MARKETS if LIVE and st["sleeves"][m].get("pending")]
+    if skip and not pend and not any(map(held, MARKETS)):
+        print(f"할 일 없음: 사는 확인은 건너뜀({skip}), 손절을 볼 코인 없음.")
         return
     failed = {}
 
@@ -332,32 +379,39 @@ def intraday(st, now):
         print(f"{m} 실패: {failed[m]}")
         print(f"--- {now.isoformat(timespec='seconds')} {m} (장중)\n{traceback.format_exc()}", file=sys.stderr)
 
-    for m in MARKETS:  # 지난 실행이 남긴 주문 기록부터 확인한다
-        if LIVE and st["sleeves"][m].get("pending"):
-            try:
-                settle(st, m)
-            except Exception:
-                fail(m)
+    for m in pend:  # 지난 실행이 남긴 주문 기록부터 확인한다
+        try:
+            settle(st, m)
+        except Exception:
+            fail(m)
     notes = reconcile(st) if LIVE else []
-    value = sum(s["cash"] + s["qty"] * mid(m) for m, s in st["sleeves"].items())
-    if value < st["peak"] * (1 - HALT_DD):
+    price = {m: mid(m) for m in MARKETS}
+    halted = sum(s["cash"] + s["qty"] * price[m] for m, s in st["sleeves"].items()) < st["peak"] * (1 - HALT_DD)
+    if halted and not skip:
         print("손실 한도에 닿아 장중에는 사지 않는다. 다음 09:07 실행이 처리한다.")
-    else:
-        for m in MARKETS:
-            s = st["sleeves"][m]
-            if m in failed:
-                continue
-            try:
+    for m in MARKETS:
+        s = st["sleeves"][m]
+        if m in failed:
+            continue
+        try:
+            if held(m) and stop_loss(st, m, price[m], now):
+                pass
+            elif skip or halted:
+                pass
+            elif s.get("stopped"):
+                print(f"{m} 손절 뒤 쉬는 중 — 장중에는 사지 않는다")
+            else:
                 _, px = closes4h(m)
                 target = signal4h(px)
                 if target > s["target"]:
                     trade(st, m, target, px[-1], now, "장중 매수")
                 else:
                     print(f"{m} 장중 확인 {slot[-2:]}시: 4시간봉 비중 {target:.2f}, 지금 {s['target']:.2f} — 유지")
-            except Exception:
-                fail(m)
-            save_state(st)
-    st["intraday"] = slot
+        except Exception:
+            fail(m)
+        save_state(st)
+    if not skip:
+        st["intraday"] = slot
     st["check"] = {"at": now.isoformat(timespec="seconds"), "notes": notes + [f"{m} 실패(장중): {e}" for m, e in failed.items()]}
     save_state(st)
     if failed:
@@ -377,9 +431,12 @@ def run():
     if LIVE and not CFG.get("UPBIT_ACCESS_KEY"):
         print(".env 에 UPBIT_ACCESS_KEY / UPBIT_SECRET_KEY 가 없다.")
         return
-    if now.hour < 9 or st["last_run"] == today:
-        intraday(st, now)  # 하루 몫이 끝났으면 4시간 확인(사기만), 아니면 건너뜀
+    slot, _ = slot_of(now)
+    if now.hour < 9 or st["last_run"] == today or st.get("daily_try") == slot:
+        intraday(st, now)  # 하루 몫 차례가 아니다: 손절 확인, 4시간 칸의 첫 실행이면 살지도 본다
         return
+    st["daily_try"] = slot  # 하루 몫은 4시간 칸마다 한 번만 해 본다(실패하면 다음 칸에서 다시)
+    save_state(st)
     failed = {}
 
     def fail(m):
@@ -413,6 +470,15 @@ def run():
             else:
                 _, px = closes(m)
                 target = signal(px)
+                if s.get("stopped"):  # 손절 뒤에는 일 단위 비중이 전날보다 높아지는 날까지 쉰다
+                    before = signal(px[:-1])
+                    if target <= before:
+                        print(f"{m} 손절 뒤 쉬는 중 (일 단위 비중 {target:.2f}, 전날 {before:.2f}) — 비중이 늘어나는 날 다시 산다")
+                        s["done"] = today
+                        save_state(st)
+                        continue
+                    print(f"{m} 일 단위 비중이 {before:.2f}→{target:.2f} 로 늘어 손절 뒤 쉬던 것을 끝낸다")
+                    del s["stopped"]
                 if target != s["target"]:
                     trade(st, m, target, px[-1], now, "신호")
                 elif s.get("rebalance"):

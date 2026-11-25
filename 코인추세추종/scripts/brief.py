@@ -7,7 +7,7 @@
 import csv, json, sys
 from datetime import datetime
 
-from live import DIR, EQUITY, LIVE, MIN_ORDER, STOP, TRADES, history, load_state
+from live import DIR, EQUITY, LIVE, MIN_ORDER, STOP, STOP_ATR, TRADES, atr20, history, load_state
 from paper import KST, MARKETS, SMAS, closes, signal
 from report import collector, health
 
@@ -82,6 +82,8 @@ def brief(new=False):
                               + ("" if t["사유"] == "신호" else f"({t['사유']})") for t in mine)
         elif m in prev and prev[m] != s["target"]:
             head = f"비중 {prev[m]:.2f}→{s['target']:.2f}, 차이가 최소 주문({MIN_ORDER:,}원) 미만이라 주문 없음"
+        elif s.get("stopped"):
+            head = f"손절 뒤 쉬는 중, 주문 없음 (신호 {w['target']:.2f}, 장부 {s['target']:.2f})"
         else:
             head = f"비중 {s['target']:.2f} 유지, 주문 없음"
         body.append(f"{m}  {head}")
@@ -94,6 +96,15 @@ def brief(new=False):
         nxt = [f"{up[1]}일선 {up[0]:,.0f}원(종가보다 {(up[0] / w['close'] - 1) * 100:.1f}% 위)을 넘어 닫히면 매수해 비중 {(k + 1) / len(SMAS):.2f}" if up else "",
                f"{down[1]}일선 {down[0]:,.0f}원({(1 - down[0] / w['close']) * 100:.1f}% 아래) 밑으로 닫히면 매도해 비중 {(k - 1) / len(SMAS):.2f}" if down else ""]
         body.append("  다음 변화  " + " / ".join(x for x in nxt if x))
+        if s.get("stopped"):
+            body.append(f"  손절  {mmdd(s['stopped'])} {s['stopped'][11:16]} 에 손절해 쉬는 중 — 일 단위 비중이 전날보다 높아지는 날 09:07 에 다시 산다(그때까지 위의 매수는 하지 않는다)")
+        elif s.get("avg") and s["qty"] > 0:
+            try:
+                line = s["avg"] - STOP_ATR * atr20(m)
+                gap = f"종가보다 {(1 - line / w['close']) * 100:.1f}% 아래" if line < w["close"] else "종가가 이미 그 아래"
+                body.append(f"  손절선  {line:,.0f}원 (평균 매수가 {s['avg']:,.0f}원 − {STOP_ATR} × ATR, {gap}) — 30분마다 보고 닿으면 전부 판다")
+            except Exception as e:
+                body.append(f"  손절선을 계산하지 못함: {str(e)[:80]}")
         if s.get("rebalance"):
             body.append("  입출금 반영 대기 — 다음 실행에서 비중에 맞춰 사고판다")
         short.append((m, w, mine))
@@ -133,8 +144,12 @@ def brief(new=False):
         note = (f"비중 {float(t['목표비중_전']):g}→{float(t['목표비중_후']):g}" + (f", {moved(w)}" if day and w and moved(w) else "")) if t["사유"] == "신호" else t["사유"]
         bits.append(("" if day else f"{mmdd(t['시각'])} ") + f"{coin(t['마켓'])} {t['구분']} {float(t['원화']):,.0f}원 @{float(t['체결가']):,.0f} ({note})")
     idle = [(m, w) for m, w, mine in short if not mine and m not in undone]  # 오늘 처리했고 주문이 없던 마켓
+    rest = [m for m, _ in idle if st["sleeves"][m].get("stopped")]  # 손절 뒤 쉬는 마켓: 신호와 상관없이 비중 0
+    idle = [(m, w) for m, w in idle if m not in rest]
     if not trades and not undone:
         bits.append("매매 없음")
+    if rest:
+        bits.append(f"{'·'.join(map(coin, rest))} 손절 뒤 쉬는 중")
     if len(idle) > 1 and len({tuple(w["above"]) for _, w in idle}) == 1:
         bits.append(f"{'·'.join(coin(m) for m, _ in idle)} 종가가 {where(idle[0][1]['above'])} → 비중 {idle[0][1]['target']:g} 유지")
     else:

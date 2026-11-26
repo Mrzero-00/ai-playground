@@ -777,7 +777,22 @@ def r37(ctx):
     return out
 
 
-ROUNDS = {3: r3, 5: r5, 6: r6, 8: r8, 9: r9, 10: r10, 11: r11, 13: r13, 14: r14, 16: r16, 17: r17, 18: r18, 19: r19, 21: r21, 22: r22, 23: r23, 25: r25, 29: r29, 32: r32, 33: r33, 34: r34, 35: r35, 37: r37}  # 회차 → 함수(ctx) → {규칙 이름: test_rule 결과}
+def r41(ctx):
+    """테더(USDT) 발행: 지난 7일 증가율의 3년 이동 백분위(하루 늦춤) ≥ 90 · ≥ 90 × 그 코인 7일 내림 · ≤ 10."""
+    days = ctx["days"]
+    u = pd.read_csv(C.ML / "stable.csv", parse_dates=["date"], index_col="date")["USDT"].astype(float)
+    u = u.reindex(pd.date_range(u.index.min(), days[-1])).ffill().shift(1)
+    g = rolling_pct(u / u.shift(7) - 1).reindex(days)
+    dn7 = {s: ctx["closes"][s] / ctx["closes"][s].shift(7) - 1 < 0 for s in P1.SYMS}
+    rules = {"USDT 발행 급증(7일 상위 10%)": {s: (g >= 90).fillna(False) for s in P1.SYMS},
+             "USDT 발행 급증 × 7일 내림": {s: ((g >= 90) & dn7[s]).fillna(False) for s in P1.SYMS},
+             "USDT 발행 정체 · 상환(하위 10%)": {s: (g <= 10).fillna(False) for s in P1.SYMS}}
+    out = {k: test_rule(ctx, on) for k, on in rules.items()}
+    ctx["dir"] = {f"{k} · {h}일": test_dir(ctx, on, h) for k, on in rules.items() for h in (30, 60)}
+    return out
+
+
+ROUNDS = {3: r3, 5: r5, 6: r6, 8: r8, 9: r9, 10: r10, 11: r11, 13: r13, 14: r14, 16: r16, 17: r17, 18: r18, 19: r19, 21: r21, 22: r22, 23: r23, 25: r25, 29: r29, 32: r32, 33: r33, 34: r34, 35: r35, 37: r37, 41: r41}  # 회차 → 함수(ctx) → {규칙 이름: test_rule 결과}
 
 
 # ---------- 봇 백테스트 회차 ----------

@@ -719,7 +719,38 @@ def r34(ctx):
     return {"나스닥 약세장": r}
 
 
-ROUNDS = {3: r3, 5: r5, 6: r6, 8: r8, 9: r9, 10: r10, 11: r11, 13: r13, 14: r14, 16: r16, 17: r17, 18: r18, 19: r19, 21: r21, 22: r22, 23: r23, 25: r25, 29: r29, 32: r32, 33: r33, 34: r34}  # 회차 → 함수(ctx) → {규칙 이름: test_rule 결과}
+def r35(ctx):
+    """코인 시장 폭: 바이낸스 현물 24개(PAXG 제외)의 오름 ÷ (오름 + 내림), 10일 지수 평균. 0.40 아래 → 10일 안에 0.615 위 = 스러스트."""
+    days = ctx["days"]
+    rets = {}
+    for f in sorted(C.ML.glob("spot_*.csv")):
+        sym = f.stem[5:]
+        if sym == "PAXG":
+            continue
+        c = pd.read_csv(f, parse_dates=["date"], index_col="date").close.astype(float)
+        rets[sym] = np.sign(c.diff()).reindex(days)
+    R = pd.DataFrame(rets)
+    adv, dec = (R > 0).sum(1), (R < 0).sum(1)
+    n = R.notna().sum(1)
+    ratio = (adv / (adv + dec)).where(n >= 10)
+    ema = ratio.ewm(span=10, adjust=False).mean().where(n >= 10)
+    e = ema.to_numpy()
+    thrust = np.zeros(len(e), bool)
+    for i in range(len(e)):
+        if e[i] > 0.615 and np.nanmin(e[max(0, i - 10):i] if i else [np.nan]) < 0.40 and not (i and e[i - 1] > 0.615):
+            thrust[i] = True
+    th = pd.Series(thrust, index=days)
+    on30 = hold_after(th, 30)
+    ctx["스러스트 날"] = [d.strftime("%Y-%m-%d") for d in th[th].index]
+    print("   스러스트 날:", ", ".join(ctx["스러스트 날"]) or "없음", f"· 코인 10개 이상인 첫날 {n[n >= 10].index[0].date()}")
+    rules = {"스러스트 뒤 30일": on30, "폭 평균 ≥ 0.615": ema >= 0.615, "폭 평균 ≤ 0.40": ema <= 0.40}
+    rules = {k: {s: v.fillna(False) for s in P1.SYMS} for k, v in rules.items()}
+    out = {k: test_rule(ctx, on) for k, on in rules.items()}
+    ctx["dir"] = {f"{k} · {h}일": test_dir(ctx, on, h) for k, on in rules.items() for h in (30, 60)}
+    return out
+
+
+ROUNDS = {3: r3, 5: r5, 6: r6, 8: r8, 9: r9, 10: r10, 11: r11, 13: r13, 14: r14, 16: r16, 17: r17, 18: r18, 19: r19, 21: r21, 22: r22, 23: r23, 25: r25, 29: r29, 32: r32, 33: r33, 34: r34, 35: r35}  # 회차 → 함수(ctx) → {규칙 이름: test_rule 결과}
 
 
 # ---------- 봇 백테스트 회차 ----------

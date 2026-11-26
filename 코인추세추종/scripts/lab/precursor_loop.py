@@ -833,7 +833,36 @@ def r42(ctx):
     return out
 
 
-ROUNDS = {3: r3, 5: r5, 6: r6, 8: r8, 9: r9, 10: r10, 11: r11, 13: r13, 14: r14, 16: r16, 17: r17, 18: r18, 19: r19, 21: r21, 22: r22, 23: r23, 25: r25, 29: r29, 32: r32, 33: r33, 34: r34, 35: r35, 37: r37, 41: r41, 42: r42}  # 회차 → 함수(ctx) → {규칙 이름: test_rule 결과}
+def m2_rules(days):
+    """미국 M2: 그 달 1일 + 55일부터 쓴다. 전년 대비 · 3개월 증가율의 3년 이동 백분위."""
+    m = pd.read_csv(C.ML / "m2.csv", parse_dates=["date"], index_col="date").m2.astype(float)
+    yoy, q = m / m.shift(12) - 1, m / m.shift(3) - 1
+    def avail(x):
+        x = x.dropna()
+        x.index = x.index + pd.Timedelta(days=55)
+        return x.reindex(pd.date_range(x.index.min(), days[-1])).ffill()
+    py, pq = rolling_pct(avail(yoy)).reindex(days), rolling_pct(avail(q)).reindex(days)
+    return {"M2 전년 대비 상위 30%": py >= 70, "M2 전년 대비 하위 30%": py <= 30, "M2 3개월 상위 30%": pq >= 70, "M2 3개월 하위 30%": pq <= 30}
+
+
+def r44(ctx):
+    """미국 M2 증가율(상 · 하위 30%): 업비트 두 코인 + BTC 2014 ~ 2017."""
+    R = {k: v.fillna(False) for k, v in m2_rules(ctx["days"]).items()}
+    rules = {k: {s: v for s in P1.SYMS} for k, v in R.items()}
+    out = {k: test_rule(ctx, on) for k, on in rules.items()}
+    ctx["dir"] = {f"{k} · {h}일": test_dir(ctx, on, h) for k, on in rules.items() for h in (30, 60)}
+    c = pd.read_csv(C.ML / "cmprice_BTC.csv", parse_dates=["date"], index_col="date").close.astype(float)
+    c = c.reindex(pd.date_range(c.index.min(), "2026-11-25")).ffill()
+    fv = P1.forward_grade(c)
+    print("== BTC 2014 ~ 2017(처음 보는 기간): 켜진 날 · 다섯 장 배수 · 뒤 30 · 60일 오른 비율(평소)")
+    for k, on in m2_rules(c.index).items():
+        r = eval_new(on.fillna(False), c, fv)
+        print(f"   {k:20s} {r['켜진 날']:4d}일 · " + " ".join(f"{t} ×{r[t]:.2f}" if r[t] is not None else f"{t} -" for t in P1.TYPES.values())
+              + f" · 30일 {(r['30일 오름'] or 0) * 100:4.1f}%({r['30일 평소'] * 100:4.1f}) · 60일 {(r['60일 오름'] or 0) * 100:4.1f}%({r['60일 평소'] * 100:4.1f})")
+    return out
+
+
+ROUNDS = {3: r3, 5: r5, 6: r6, 8: r8, 9: r9, 10: r10, 11: r11, 13: r13, 14: r14, 16: r16, 17: r17, 18: r18, 19: r19, 21: r21, 22: r22, 23: r23, 25: r25, 29: r29, 32: r32, 33: r33, 34: r34, 35: r35, 37: r37, 41: r41, 42: r42, 44: r44}  # 회차 → 함수(ctx) → {규칙 이름: test_rule 결과}
 
 
 # ---------- 봇 백테스트 회차 ----------

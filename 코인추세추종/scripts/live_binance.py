@@ -773,9 +773,9 @@ def check():
     r = private("GET", SPOT, "/sapi/v1/account/apiRestrictions")
     need = {"enableReading": "읽기", "enableSpotAndMarginTrading": "현물 거래", "enableFutures": "선물", "permitsUniversalTransfer": "지갑 간 이체"}
     for k, nm in need.items():
-        print(f"권한 {nm}: {'켜짐' if r.get(k) else '꺼짐 — 켜야 한다'}")
+        print(f"권한 {nm}: {'켜짐' if r.get(k) else '꺼짐 — 켜야 한다'}" + ("" if r.get(k) or k != "enableFutures" else " (선물 계정을 연 뒤에 만든 키여야 하고, 포트폴리오 마진은 꺼져 있어야 한다)"))
     print(f"권한 출금: {'켜짐 — 끄는 것이 안전하다' if r.get('enableWithdrawals') else '꺼짐 (좋다)'}")
-    print(f"IP 제한: {'있음 (좋다)' if r.get('ipRestrict') else '없음 — 이 컴퓨터 IP 로 묶는 것이 안전하다(선물 권한은 IP 제한이 있어야 켜진다)'}")
+    print(f"IP 제한: {'있음 (좋다)' if r.get('ipRestrict') else '없음 — 바이낸스는 IP 제한이 없는 키에 읽기 말고는 권한을 주지 않는다. 이 컴퓨터의 공인 IP 로 묶는다'}")
     bal = spot_balances()
     print("현물 지갑:", {k: sum(v) for k, v in bal.items() if k in ("USDT", "BNB", *COINS)})
     wallet, free = fut_wallet()

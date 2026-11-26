@@ -1327,7 +1327,36 @@ def b43(ctx):
     return res
 
 
-BOT_ROUNDS = {4: b4, 20: b20, 24: b24, 26: b26, 27: b27, 28: b28, 30: b30, 36: b36, 38: b38, 39: b39, 40: b40, 43: b43}  # 회차 → 함수(ctx) → {이름: {구간: {비용: 잔고·샤프·MDD}}, 판정}
+def b45(ctx):
+    """미국 M2 3개월 증가 둔화(하위 30%)면 비중 × 0.5: 업비트 두 코인과 BTC 달러 2014 ~ 2017."""
+    low = m2_rules(ctx["days"])["M2 3개월 하위 30%"].fillna(False).astype(bool)
+    ctx["on"] = {s: low for s in P1.SYMS}
+    res = bot_test(ctx, {"지금 봇 (하루 한 번)": lambda w, o: w, "M2 둔화면 절반": lambda w, o: w.where(~o, w * 0.5)})
+    c = pd.read_csv(C.ML / "cmprice_BTC.csv", parse_dates=["date"], index_col="date").close.astype(float)
+    c = c.reindex(pd.date_range(c.index.min(), "2017-12-31")).ffill()
+    low2 = m2_rules(c.index)["M2 3개월 하위 30%"].fillna(False).astype(bool)
+    w0 = bot_weights(c)
+    old = {}
+    for name, w in (("지금 봇 (하루 한 번)", w0), ("M2 둔화면 절반", w0.where(~low2, w0 * 0.5))):
+        row = {}
+        for cn, cost in BOT_COSTS.items():
+            r = (w.shift() * c.pct_change() - cost * w.diff().abs().shift()).fillna(0.0)
+            r = r[r.index >= "2014-01-01"]
+            eq = (1 + r).cumprod()
+            row[cn] = {"잔고": float(SEED * eq.iloc[-1]), "샤프": float(r.mean() / r.std() * np.sqrt(365)), "MDD": float((eq / eq.cummax() - 1).min())}
+        old[name] = row
+    b, a = old["지금 봇 (하루 한 번)"], old["M2 둔화면 절반"]
+    row = res["M2 둔화면 절반"]
+    row["2014~2017"], res["지금 봇 (하루 한 번)"]["2014~2017"] = a, b
+    row["2014~2017 통과"] = bool(a["0.10%"]["샤프"] > b["0.10%"]["샤프"] and a["0.10%"]["MDD"] >= b["0.10%"]["MDD"] and a["0.25%"]["샤프"] > b["0.25%"]["샤프"])
+    row["둘 다 통과"] = bool(row.get("통과") and row["2014~2017 통과"])
+    print(f"   M2 둔화인 날 비율: 2014 ~ 2017 {low2['2014':'2017'].mean() * 100:.0f}% · 2020 ~ {low[low.index >= '2020-01-01'].mean() * 100:.0f}%")
+    print("   2014 ~ 2017 (BTC 달러): " + " | ".join(f"{n} {r['0.10%']['잔고'] / 1e4:,.0f}만 · {r['0.10%']['샤프']:.3f} ({r['0.25%']['샤프']:.3f}) · {r['0.10%']['MDD'] * 100:.1f}%" for n, r in old.items())
+          + f" → {'통과' if row['2014~2017 통과'] else '기각'} · 둘 다 {'통과' if row['둘 다 통과'] else '아님'}")
+    return res
+
+
+BOT_ROUNDS = {4: b4, 20: b20, 24: b24, 26: b26, 27: b27, 28: b28, 30: b30, 36: b36, 38: b38, 39: b39, 40: b40, 43: b43, 45: b45}  # 회차 → 함수(ctx) → {이름: {구간: {비용: 잔고·샤프·MDD}}, 판정}
 
 
 def run_bot(k, ctx, store):

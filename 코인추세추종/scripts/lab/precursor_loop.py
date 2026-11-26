@@ -143,7 +143,58 @@ def r6(ctx):
     return out
 
 
-ROUNDS = {3: r3, 5: r5, 6: r6}  # 회차 → 함수(ctx) → {규칙 이름: test_rule 결과}
+RATES = ("기준금리", "2년물", "10년물", "장단기 금리차")  # 금리는 %p 변화, 나머지는 % 변화
+
+
+def assets():
+    """거래일 자료: FRED 여섯과 금(PAXG 종가, 코인과 같은 날 마감)."""
+    a = pd.read_csv(C.ML / "assets.csv", parse_dates=["date"], index_col="date").astype(float)
+    out = {k: a[k].dropna() for k in a.columns}
+    out["금"] = pd.read_csv(C.ML / "spot_PAXG.csv", parse_dates=["date"], index_col="date").close.astype(float)
+    return out
+
+
+def change(x, n, rate):
+    return x - x.shift(n) if rate else x / x.shift(n) - 1
+
+
+def correlations(ctx, A):
+    """서술: 코인 날마다 수익과 자산 날마다 변화의 순위 상관(같은 날, 전체·해마다), 30일 간격 30일 변화끼리의 순위 상관."""
+    out = {}
+    for s in P1.SYMS:
+        c = ctx["closes"][s].dropna()
+        rc = c.pct_change()
+        for k, x in A.items():
+            dx = change(x, 1, k in RATES)
+            j = pd.concat([rc, dx], axis=1, join="inner").dropna()
+            j = j[j.index >= "2018-01-01"]
+            yrs = {str(y): float(g.iloc[:, 0].corr(g.iloc[:, 1], method="spearman")) for y, g in j.groupby(j.index.year) if len(g) > 50}
+            m = pd.concat([c, x], axis=1, join="inner").dropna()
+            m = m[m.index >= "2018-01-01"].iloc[::21]  # 약 30일(21거래일) 간격
+            m30 = pd.concat([m.iloc[:, 0].pct_change(), change(m.iloc[:, 1], 1, k in RATES)], axis=1).dropna()
+            out.setdefault(s, {})[k] = {"날마다": float(j.iloc[:, 0].corr(j.iloc[:, 1], method="spearman")), "해마다": yrs,
+                                        "30일": float(m30.iloc[:, 0].corr(m30.iloc[:, 1], method="spearman")), "날 수": int(len(j))}
+    return out
+
+
+def r8(ctx):
+    A = assets()
+    ctx["상관"] = correlations(ctx, A)
+    out = {}
+    for k, x in A.items():
+        lag = 0 if k == "금" else 1  # 미국 자료는 하루 늦춰 쓴다(발표가 늦은 것이 있다)
+        xs = x.shift(lag)
+        ch = P1.expanding_pct(P1.cal(change(P1.cal(xs, ctx["days"]), 30, k in RATES), ctx["days"]))
+        above = P1.cal((xs > xs.rolling(200).mean()).astype(float).where(xs.rolling(200).mean().notna()), ctx["days"])
+        unit = "%p" if k in RATES else "%"
+        out[f"{k} 30일 급등(상위 10%)"] = test_rule(ctx, {s: ch >= 90 for s in P1.SYMS})
+        out[f"{k} 30일 급락(하위 10%)"] = test_rule(ctx, {s: ch <= 10 for s in P1.SYMS})
+        out[f"{k} 200일 평균 위"] = test_rule(ctx, {s: above == 1.0 for s in P1.SYMS})
+        out[f"{k} 200일 평균 아래"] = test_rule(ctx, {s: above == 0.0 for s in P1.SYMS})
+    return out
+
+
+ROUNDS = {3: r3, 5: r5, 6: r6, 8: r8}  # 회차 → 함수(ctx) → {규칙 이름: test_rule 결과}
 
 
 # ---------- 봇 백테스트 회차 ----------
@@ -227,6 +278,12 @@ def run(k):
         if w:
             won[name] = w
     store["rounds"][str(k)] = {"made": datetime.now().isoformat(timespec="seconds"), "rules": rules, "성공": won}
+    if "상관" in ctx:
+        store["rounds"][str(k)]["상관"] = ctx["상관"]
+        print("== 상관(순위, 2018 ~): 코인 날마다 수익 대 자산 날마다 변화 · 30일 간격 30일 변화끼리 · 해마다(날마다)")
+        for s, d in ctx["상관"].items():
+            for a, v in d.items():
+                print(f"   {s} · {a:8s} 날마다 {v['날마다']:+.2f} · 30일 {v['30일']:+.2f} · " + " ".join(f"{y[2:]} {c:+.2f}" for y, c in v["해마다"].items()))
     OUT.write_text(json.dumps(store, ensure_ascii=False, indent=1))
     print("성공한 규칙:", won or "없음")
 

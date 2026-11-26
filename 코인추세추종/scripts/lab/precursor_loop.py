@@ -310,7 +310,17 @@ def r14(ctx):
     return out
 
 
-ROUNDS = {3: r3, 5: r5, 6: r6, 8: r8, 9: r9, 10: r10, 11: r11, 13: r13, 14: r14}  # 회차 → 함수(ctx) → {규칙 이름: test_rule 결과}
+def r16(ctx):
+    """짧은 시계열 모멘텀(Liu · Tsyvinski 2021): 지난 1 · 2 · 3 · 4주 수익이 그 코인 자기 과거의 상위 · 하위 10%."""
+    out = {}
+    for w in (1, 2, 3, 4):
+        m = {s: P1.expanding_pct(ctx["closes"][s] / ctx["closes"][s].shift(7 * w) - 1) for s in P1.SYMS}
+        out[f"지난 {w}주 수익 상위 10%"] = test_rule(ctx, {s: m[s] >= 90 for s in P1.SYMS})
+        out[f"지난 {w}주 수익 하위 10%"] = test_rule(ctx, {s: m[s] <= 10 for s in P1.SYMS})
+    return out
+
+
+ROUNDS = {3: r3, 5: r5, 6: r6, 8: r8, 9: r9, 10: r10, 11: r11, 13: r13, 14: r14, 16: r16}  # 회차 → 함수(ctx) → {규칙 이름: test_rule 결과}
 
 
 # ---------- 봇 백테스트 회차 ----------

@@ -83,7 +83,17 @@ def show(name, res):
     return w
 
 
-ROUNDS = {}  # 회차 → 함수(ctx) → {규칙 이름: test_rule 결과}
+def r3(ctx):
+    """조용함(볼린저 폭 백분위 ≤ 30) + 방향 단서 하나(백분위 ≥ 70 또는 ≤ 30)."""
+    out = {}
+    for k in ("fund", "taker_s", "kimchi", "fng", "spx"):
+        for side, f in (("높음", lambda x: x >= 70), ("낮음", lambda x: x <= 30)):
+            on = {s: (ctx["pct"][s]["bbw"] <= 30) & f(ctx["pct"][s][k]) for s in P1.SYMS}
+            out[f"조용함 + {ctx['names'][k]} {side}"] = test_rule(ctx, on)
+    return out
+
+
+ROUNDS = {3: r3}  # 회차 → 함수(ctx) → {규칙 이름: test_rule 결과}
 
 
 def run(k):

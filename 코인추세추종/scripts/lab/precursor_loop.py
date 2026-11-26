@@ -385,7 +385,41 @@ def r19(ctx):
     return out
 
 
-ROUNDS = {3: r3, 5: r5, 6: r6, 8: r8, 9: r9, 10: r10, 11: r11, 13: r13, 14: r14, 16: r16, 17: r17, 18: r18, 19: r19}  # 회차 → 함수(ctx) → {규칙 이름: test_rule 결과}
+def r21(ctx):
+    """약한 상승 신호 다섯(+1씩): 2주 모멘텀 · 상대 강도 · 관심 × 오름 · 순유동성 200일 위 · 2년물 200일 아래. 3년 이동 백분위."""
+    PCT_FN[0] = rolling_pct
+    try:
+        c2 = context()
+        days = c2["days"]
+        _, _, nq = stock_state("나스닥", days)
+        v = pd.read_csv(C.ML / "wiki_views.csv", parse_dates=["date"])
+        lq = pd.read_csv(C.ML / "liquidity.csv", parse_dates=["date"], index_col="date").astype(float)
+        lq = lq.reindex(pd.date_range(lq.index.min(), days[-1])).ffill()
+        net = (lq.walcl - lq.tga - lq.rrp.fillna(0.0) * 1000).shift(7)
+        liq_up = (net > net.rolling(200).mean()).astype(float).where(net.rolling(200).mean().notna()).reindex(days)
+        y2 = pd.read_csv(C.ML / "assets.csv", parse_dates=["date"], index_col="date")["2년물"].dropna().astype(float).shift(1)
+        rate_dn = P1.cal((y2 < y2.rolling(200).mean()).astype(float).where(y2.rolling(200).mean().notna()), days)
+        score = {}
+        for s in P1.SYMS:
+            c = c2["closes"][s]
+            mom = rolling_pct(c / c.shift(14) - 1) >= 70
+            rel = rolling_pct(c / c.shift(30) - 1 - (nq / nq.shift(30) - 1)) >= 70
+            att = []
+            for lang in ("영문", "한국어"):
+                x = v[v.article == WIKI[s][lang]].set_index("date").views.astype(float).reindex(days).shift(1)
+                att.append(rolling_pct(x.rolling(7).mean() / x.rolling(90).mean()))
+            attn = ((att[0] + att[1]) / 2 >= 70) & (c / c.shift(7) - 1 > 0)
+            parts = [mom, rel, attn, liq_up == 1.0, rate_dn == 1.0]
+            score[s] = sum(pd.Series(x, index=days).fillna(False).astype(int) for x in parts)
+        out = {f"합계 ≥ {k}": test_rule(c2, {s: score[s] >= k for s in P1.SYMS}) for k in (3, 4)}
+        out["합계 = 5"] = test_rule(c2, {s: score[s] == 5 for s in P1.SYMS})
+        out["합계 ≤ 1 (참고)"] = test_rule(c2, {s: score[s] <= 1 for s in P1.SYMS})
+    finally:
+        PCT_FN[0] = P1.expanding_pct
+    return out
+
+
+ROUNDS = {3: r3, 5: r5, 6: r6, 8: r8, 9: r9, 10: r10, 11: r11, 13: r13, 14: r14, 16: r16, 17: r17, 18: r18, 19: r19, 21: r21}  # 회차 → 함수(ctx) → {규칙 이름: test_rule 결과}
 
 
 # ---------- 봇 백테스트 회차 ----------

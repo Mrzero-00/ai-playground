@@ -629,7 +629,31 @@ def b20(ctx):
     return out
 
 
-BOT_ROUNDS = {4: b4, 20: b20}  # 회차 → 함수(ctx) → {이름: {구간: {비용: 잔고·샤프·MDD}}, 판정}
+def hold_after(on, n=60):
+    """처음 켜진 날부터 n 일 동안 켜짐. 끝나면 다시 켜질 수 있다."""
+    out, left = np.zeros(len(on), bool), 0
+    for i, v in enumerate(on.to_numpy()):
+        if left == 0 and v:
+            left = n
+        if left:
+            out[i] = True
+            left -= 1
+    return pd.Series(out, index=on.index)
+
+
+def b24(ctx):
+    """퍼엘 < 0.5(BTC, 하루 늦춤) 바닥 매수: A 켜진 날 비중 최소 0.5, B 처음 켜진 날부터 60일 동안 최소 0.5."""
+    iss = pd.read_csv(C.ML / "issuance_BTC.csv", parse_dates=["date"], index_col="date").iss_usd.astype(float)
+    pu = (iss / iss.rolling(365).mean()).shift(1).reindex(ctx["days"])
+    on = (pu < 0.5).fillna(False)
+    ctx["on"] = {s: on for s in P1.SYMS}
+    print("   퍼엘 < 0.5 인 날(2020 ~):", int(on[on.index >= "2020-01-01"].sum()), "· 시기:", ", ".join(sorted({d.strftime("%Y-%m") for d in on[on & (on.index >= "2020-01-01")].index})))
+    res = bot_test(ctx, {"지금 봇 (하루 한 번)": lambda w, o: w, "A 퍼엘 < 0.5 인 날 최소 0.5": lambda w, o: w.where(~o, np.maximum(w, 0.5)),
+                         "B 켜진 뒤 60일 최소 0.5": lambda w, o: w.where(~hold_after(o).reindex(w.index).fillna(False), np.maximum(w, 0.5))})
+    return res
+
+
+BOT_ROUNDS = {4: b4, 20: b20, 24: b24}  # 회차 → 함수(ctx) → {이름: {구간: {비용: 잔고·샤프·MDD}}, 판정}
 
 
 def run_bot(k, ctx, store):

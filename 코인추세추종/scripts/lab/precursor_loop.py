@@ -473,7 +473,87 @@ def r22(ctx):
     return out
 
 
-ROUNDS = {3: r3, 5: r5, 6: r6, 8: r8, 9: r9, 10: r10, 11: r11, 13: r13, 14: r14, 16: r16, 17: r17, 18: r18, 19: r19, 21: r21, 22: r22}  # 회차 → 함수(ctx) → {규칙 이름: test_rule 결과}
+NEW = ("2014-01-01", "2017-12-31")  # 23회차: 처음 보는 기간(BTC)
+
+
+def eval_new(on, c, fv):
+    """새 기간에서 켜진 날 수, 다섯 장 배수, 뒤 30 · 60일 오른 비율(평소)."""
+    m = (c.index >= NEW[0]) & (c.index <= NEW[1])
+    o = on.reindex(c.index).fillna(False).astype(bool)
+    f = fv.reindex(c.index)
+    ok = m & f.notna()
+    r = {"켜진 날": int((ok & o).sum())}
+    for g, nm in P1.TYPES.items():
+        p_, q_ = (f[ok & o] == g).mean() if (ok & o).any() else np.nan, (f[ok] == g).mean()
+        r[nm] = float(p_ / q_) if q_ > 0 and not np.isnan(p_) else None
+    for h in (30, 60):
+        up = (c.shift(-h) / c - 1 > 0)[m & c.shift(-h).notna()]
+        oo = o.reindex(up.index)
+        r[f"{h}일 오름"] = float(up[oo].mean()) if oo.any() else None
+        r[f"{h}일 평소"] = float(up.mean())
+    return r
+
+
+def r23(ctx):
+    """BTC 2014 ~ 2017(처음 보는 기간)에서 규칙 11개를 다시. Coin Metrics 달러 종가 · 발행량, FRED(2010 ~), 3년 이동 백분위."""
+    c = pd.read_csv(C.ML / "cmprice_BTC.csv", parse_dates=["date"], index_col="date").close.astype(float)
+    days = pd.date_range(c.index.min(), "2026-11-25")
+    c = c.reindex(days).ffill()
+    fv = P1.forward_grade(c)
+    sd20, m20 = c.rolling(20).std(), c.rolling(20).mean()
+    quiet = rolling_pct(4 * sd20 / m20) <= 30
+    nqa = pd.read_csv(C.ML / "macro.csv", parse_dates=["date"], index_col="date")["나스닥"].dropna().astype(float)
+    nq = P1.cal(nqa, days)
+    above = P1.cal((nqa > nqa.rolling(200).mean()).astype(float).where(nqa.rolling(200).mean().notna()), days)
+    up20 = P1.cal((nqa.pct_change(20) > 0).astype(float).where(nqa.pct_change(20).notna()), days)
+    rel = rolling_pct(c / c.shift(30) - 1 - (nq / nq.shift(30) - 1))
+    iss = pd.read_csv(C.ML / "issuance_BTC.csv", parse_dates=["date"], index_col="date").iss_usd.astype(float)
+    puell = (iss / iss.rolling(365).mean()).shift(1).reindex(days)
+    a = pd.read_csv(C.ML / "assets_long.csv", parse_dates=["date"], index_col="date").astype(float)
+    ff = a["기준금리"].dropna().shift(1)
+    ff_jump = rolling_pct(P1.cal(ff, days) - P1.cal(ff, days).shift(30)) >= 90
+    y2 = a["2년물"].dropna().shift(1)
+    y2_dn = P1.cal((y2 < y2.rolling(200).mean()).astype(float).where(y2.rolling(200).mean().notna()), days) == 1.0
+    oil = P1.cal(a["유가"].dropna().shift(1), days)
+    oil_jump = rolling_pct(oil / oil.shift(30) - 1) >= 90
+    lq = pd.read_csv(C.ML / "liquidity.csv", parse_dates=["date"], index_col="date").astype(float)
+    lq = lq.reindex(pd.date_range(lq.index.min(), days[-1])).ffill()
+    net = (lq.walcl - lq.tga - lq.rrp.fillna(0.0) * 1000).shift(7).reindex(days)
+    liq_jump = rolling_pct(net / net.shift(30) - 1) >= 90
+    v = pd.read_csv(C.ML / "wiki_views.csv", parse_dates=["date"])
+    x = v[v.article == "en:Bitcoin"].set_index("date").views.astype(float).reindex(days).shift(1)
+    attn = rolling_pct(x.rolling(7).mean() / x.rolling(90).mean()) >= 90
+    stock_bear = (above == 0.0) & (up20 == 0.0)
+    rules = {  # 이름 → (켜진 날, 주장: 장 이름 또는 '30일 오름' 같은 방향)
+        "R1 조용함 + 상대 강도 ≥ 70": (quiet & (rel >= 70), "대상승"),
+        "R2 지난 2주 수익 상위 10%": (rolling_pct(c / c.shift(14) - 1) >= 90, "상승"),
+        "R3 지난 3주 수익 상위 10%": (rolling_pct(c / c.shift(21) - 1) >= 90, "상승"),
+        "R4 퍼엘 < 0.5": (puell < 0.5, "60일 오름"),
+        "R5 나스닥 200일 아래 · 20일 내림": (stock_bear, "대하락"),
+        "R6 조용함 + 나스닥 200일 아래 · 20일 내림": (quiet & stock_bear, "대하락"),
+        "R7 기준금리 30일 급등": (ff_jump, "30일 내림"),
+        "R8 2년물 200일 평균 아래": (y2_dn, "대상승"),
+        "R9 미국 순유동성 30일 급증": (liq_jump, "60일 오름"),
+        "R10 유가 30일 급등": (oil_jump, "60일 오름"),
+        "R11 영문 관심 급증": (attn, "60일 오름")}
+    out = {}
+    for name, (on, claim) in rules.items():
+        r = eval_new(on.fillna(False), c, fv)
+        r["주장"] = claim
+        if r["켜진 날"] < 100:
+            r["새 기간"] = "표본 부족"
+        elif claim in ("30일 오름", "60일 오름", "30일 내림", "60일 내림"):
+            h = claim[:3]
+            d = (r[f"{h} 오름"] or 0) - r[f"{h} 평소"]
+            r["새 기간"] = "통과" if (d > 0.10 if "오름" in claim else d < -0.10) else "실패"
+        else:
+            opp = ("하락", "대하락") if claim in ("대상승", "상승") else ("대상승", "상승")
+            r["새 기간"] = "통과" if (r[claim] or 0) > 1.5 and all((r[o] or 0) < 1.2 for o in opp) else "실패"
+        out[name] = r
+    return out
+
+
+ROUNDS = {3: r3, 5: r5, 6: r6, 8: r8, 9: r9, 10: r10, 11: r11, 13: r13, 14: r14, 16: r16, 17: r17, 18: r18, 19: r19, 21: r21, 22: r22, 23: r23}  # 회차 → 함수(ctx) → {규칙 이름: test_rule 결과}
 
 
 # ---------- 봇 백테스트 회차 ----------
@@ -584,6 +664,14 @@ def run(k):
         OUT.write_text(json.dumps(store, ensure_ascii=False, indent=1))
         return
     rules = ROUNDS[k](ctx)
+    if k == 23:
+        print(f"== {k}회차 — BTC {NEW[0]} ~ {NEW[1]}(처음 보는 기간): 켜진 날 · 다섯 장 배수 · 뒤 30 · 60일 오른 비율(평소) · 주장 → 새 기간")
+        for n, r in rules.items():
+            print(f"   {n:34s} {r['켜진 날']:4d}일 · " + " ".join(f"{t} ×{r[t]:.2f}" if r[t] is not None else f"{t} -" for t in P1.TYPES.values())
+                  + f" · 30일 {(r['30일 오름'] or 0) * 100:4.1f}%({r['30일 평소'] * 100:4.1f}) · 60일 {(r['60일 오름'] or 0) * 100:4.1f}%({r['60일 평소'] * 100:4.1f}) · {r['주장']} → {r['새 기간']}")
+        store["rounds"][str(k)] = {"made": datetime.now().isoformat(timespec="seconds"), "new": rules}
+        OUT.write_text(json.dumps(store, ensure_ascii=False, indent=1))
+        return
     if k == 22:
         run_dir(k, rules, store)
         OUT.write_text(json.dumps(store, ensure_ascii=False, indent=1))

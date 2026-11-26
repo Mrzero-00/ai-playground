@@ -1158,7 +1158,55 @@ def b39(ctx):
     return res
 
 
-BOT_ROUNDS = {4: b4, 20: b20, 24: b24, 26: b26, 27: b27, 28: b28, 30: b30, 36: b36, 38: b38, 39: b39}  # 회차 → 함수(ctx) → {이름: {구간: {비용: 잔고·샤프·MDD}}, 판정}
+def epu_level(days):
+    e = pd.read_csv(C.ML / "epu.csv", parse_dates=["date"], index_col="date").epu.astype(float)
+    e = e.reindex(pd.date_range(e.index.min(), days[-1])).ffill().shift(1)
+    return rolling_pct(e.rolling(30).mean()).reindex(days)
+
+
+def b40(ctx):
+    """불확실성 낮을 때 줄이기의 이웃: 문턱 ≤ 5 · 10 · 20 × 비중 × 0.25 · 0.5 · 0.75."""
+    lv = epu_level(ctx["days"])
+    c = pd.read_csv(C.ML / "cmprice_BTC.csv", parse_dates=["date"], index_col="date").close.astype(float)
+    c = c.reindex(pd.date_range(c.index.min(), "2017-12-31")).ffill()
+    lv2 = epu_level(c.index)
+    w0 = bot_weights(c)
+    ctx["on"] = {s: pd.Series(False, index=ctx["days"]) for s in P1.SYMS}
+    variants = {"지금 봇 (하루 한 번)": lambda w, o: w}
+    old = {"지금 봇 (하루 한 번)": w0}
+    for q in (5, 10, 20):
+        for k in (0.25, 0.5, 0.75):
+            low = (lv <= q).fillna(False)
+            name = f"낮음 ≤ {q} · 비중 × {k:g}"
+            variants[name] = (lambda l, k_: (lambda w, o: w.where(~l.reindex(w.index).fillna(False), w * k_)))(low, k)
+            old[name] = w0.where(~(lv2 <= q).fillna(False), w0 * k)
+    res = bot_test(ctx, variants)
+    old_s = {}
+    for name, w in old.items():
+        row = {}
+        for cn, cost in BOT_COSTS.items():
+            r = (w.shift() * c.pct_change() - cost * w.diff().abs().shift()).fillna(0.0)
+            r = r[r.index >= "2014-01-01"]
+            eq = (1 + r).cumprod()
+            row[cn] = {"잔고": float(SEED * eq.iloc[-1]), "샤프": float(r.mean() / r.std() * np.sqrt(365)), "MDD": float((eq / eq.cummax() - 1).min())}
+        old_s[name] = row
+    b = old_s["지금 봇 (하루 한 번)"]
+    n_both = 0
+    print("== 2014 ~ 2017 (BTC 달러): 잔고 · 샤프 · MDD → 이 기간 · 둘 다")
+    for name, row in res.items():
+        a = old_s[name]
+        row["2014~2017"] = a
+        if not name.startswith("지금"):
+            row["2014~2017 통과"] = bool(a["0.10%"]["샤프"] > b["0.10%"]["샤프"] and a["0.10%"]["MDD"] >= b["0.10%"]["MDD"] and a["0.25%"]["샤프"] > b["0.25%"]["샤프"])
+            row["둘 다 통과"] = bool(row.get("통과") and row["2014~2017 통과"])
+            n_both += row["둘 다 통과"]
+        print(f"   {name:24s} {a['0.10%']['잔고'] / 1e4:7,.0f}만 · {a['0.10%']['샤프']:.3f} · {a['0.10%']['MDD'] * 100:5.1f}%"
+              + ("" if name.startswith("지금") else f" → {'통과' if row['2014~2017 통과'] else '기각'} · 둘 다 {'통과' if row['둘 다 통과'] else '아님'}"))
+    print(f"   9칸 중 둘 다 통과 {n_both}칸")
+    return res
+
+
+BOT_ROUNDS = {4: b4, 20: b20, 24: b24, 26: b26, 27: b27, 28: b28, 30: b30, 36: b36, 38: b38, 39: b39, 40: b40}  # 회차 → 함수(ctx) → {이름: {구간: {비용: 잔고·샤프·MDD}}, 판정}
 
 
 def run_bot(k, ctx, store):

@@ -580,7 +580,45 @@ def r25(ctx):
     return out
 
 
-ROUNDS = {3: r3, 5: r5, 6: r6, 8: r8, 9: r9, 10: r10, 11: r11, 13: r13, 14: r14, 16: r16, 17: r17, 18: r18, 19: r19, 21: r21, 22: r22, 23: r23, 25: r25}  # 회차 → 함수(ctx) → {규칙 이름: test_rule 결과}
+def hurst_rs(x, sizes=(8, 16, 32, 64, 128)):
+    """R/S 허스트 지수: 조각 크기마다 (범위 ÷ 표준편차)의 평균, log 크기에 대한 log R/S 기울기."""
+    rs = []
+    for n in sizes:
+        ch = x[: len(x) // n * n].reshape(-1, n)
+        y = ch - ch.mean(1, keepdims=True)
+        z = np.cumsum(y, 1)
+        sd = ch.std(1)
+        ok = sd > 0
+        rs.append(np.mean((z.max(1) - z.min(1))[ok] / sd[ok]) if ok.any() else np.nan)
+    rs = np.array(rs)
+    return np.polyfit(np.log(sizes), np.log(rs), 1)[0] if np.isfinite(rs).all() else np.nan
+
+
+def r29(ctx):
+    """허스트 지수(지난 128일 R/S) × 지난 30일 방향."""
+    PCT_FN[0] = rolling_pct
+    try:
+        c2 = context()
+        rules = {}
+        for s in P1.SYMS:
+            c = c2["closes"][s]
+            lr = np.log(c).diff()
+            h = lr.rolling(128).apply(lambda a: hurst_rs(a) if np.isfinite(a).all() else np.nan, raw=True)
+            hp = rolling_pct(h)
+            up, dn = c / c.shift(30) - 1 > 0, c / c.shift(30) - 1 < 0
+            for name, on in (("H ≥ 0.6 × 30일 오름", (h >= 0.6) & up), ("H ≥ 0.6 × 30일 내림", (h >= 0.6) & dn), ("H ≤ 0.4", h <= 0.4),
+                             ("H 상위 10% × 30일 오름", (hp >= 90) & up), ("H 상위 10% × 30일 내림", (hp >= 90) & dn), ("H 하위 10%", hp <= 10)):
+                rules.setdefault(name, {})[s] = on.fillna(False)
+            ctx.setdefault("허스트 요약", {})[s] = {"중앙값": float(h.median()), "0.6 이상 비율": float((h >= 0.6).mean()), "0.4 이하 비율": float((h <= 0.4).mean())}
+        out = {n: test_rule(c2, on) for n, on in rules.items()}
+        ctx["dir"] = {f"{n} · {hh}일": test_dir(c2, on, hh) for n, on in rules.items() for hh in (30, 60)}
+    finally:
+        PCT_FN[0] = P1.expanding_pct
+    print("   허스트 요약:", ctx["허스트 요약"])
+    return out
+
+
+ROUNDS = {3: r3, 5: r5, 6: r6, 8: r8, 9: r9, 10: r10, 11: r11, 13: r13, 14: r14, 16: r16, 17: r17, 18: r18, 19: r19, 21: r21, 22: r22, 23: r23, 25: r25, 29: r29}  # 회차 → 함수(ctx) → {규칙 이름: test_rule 결과}
 
 
 # ---------- 봇 백테스트 회차 ----------

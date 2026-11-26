@@ -879,7 +879,41 @@ def r46(ctx):
     return out
 
 
-ROUNDS = {3: r3, 5: r5, 6: r6, 8: r8, 9: r9, 10: r10, 11: r11, 13: r13, 14: r14, 16: r16, 17: r17, 18: r18, 19: r19, 21: r21, 22: r22, 23: r23, 25: r25, 29: r29, 32: r32, 33: r33, 34: r34, 35: r35, 37: r37, 41: r41, 42: r42, 44: r44, 46: r46}  # 회차 → 함수(ctx) → {규칙 이름: test_rule 결과}
+def bear_corr(c, days):
+    """나스닥 약세장(200거래일선 아래 · 20거래일 내림)과 지난 90일 코인 · 나스닥 일 수익 상관(나스닥 거래일끼리)."""
+    nqa = pd.read_csv(C.ML / "macro.csv", parse_dates=["date"], index_col="date")["나스닥"].dropna().astype(float)
+    bear = P1.cal(((nqa < nqa.rolling(200).mean()) & (nqa.pct_change(20) < 0)).astype(float), days) == 1.0
+    cr = c.reindex(nqa.index).pct_change()
+    corr = nqa.pct_change().rolling(90, min_periods=60).corr(cr)
+    return bear, P1.cal(corr, days)
+
+
+def r48(ctx):
+    """주식 약세장 × 상관 ≥ 0.2 / < 0.2."""
+    rules = {"약세장 × 상관 ≥ 0.2": {}, "약세장 × 상관 < 0.2": {}}
+    for s in P1.SYMS:
+        bear, corr = bear_corr(ctx["closes"][s], ctx["days"])
+        rules["약세장 × 상관 ≥ 0.2"][s] = (bear & (corr >= 0.2)).fillna(False)
+        rules["약세장 × 상관 < 0.2"][s] = (bear & (corr < 0.2)).fillna(False)
+        yr = corr.groupby(corr.index.year).mean()
+        print(f"   {s} 상관(해마다 평균): " + " ".join(f"{y} {v:+.2f}" for y, v in yr.items() if y >= 2018))
+    out = {k: test_rule(ctx, on) for k, on in rules.items()}
+    ctx["dir"] = {f"{k} · {h}일": test_dir(ctx, on, h) for k, on in rules.items() for h in (30, 60)}
+    c = pd.read_csv(C.ML / "cmprice_BTC.csv", parse_dates=["date"], index_col="date").close.astype(float)
+    c = c.reindex(pd.date_range(c.index.min(), "2026-11-25")).ffill()
+    fv = P1.forward_grade(c)
+    bear, corr = bear_corr(c, c.index)
+    yr = corr.groupby(corr.index.year).mean()
+    print("   BTC(달러) 상관(해마다 평균): " + " ".join(f"{y} {v:+.2f}" for y, v in yr.items() if 2014 <= y <= 2017))
+    print("== BTC 2014 ~ 2017(처음 보는 기간): 켜진 날 · 다섯 장 배수 · 뒤 30 · 60일 오른 비율(평소)")
+    for k, on in (("약세장 × 상관 ≥ 0.2", bear & (corr >= 0.2)), ("약세장 × 상관 < 0.2", bear & (corr < 0.2))):
+        r = eval_new(on.fillna(False), c, fv)
+        print(f"   {k:20s} {r['켜진 날']:4d}일 · " + " ".join(f"{t} ×{r[t]:.2f}" if r[t] is not None else f"{t} -" for t in P1.TYPES.values())
+              + f" · 30일 {(r['30일 오름'] or 0) * 100:4.1f}%({r['30일 평소'] * 100:4.1f}) · 60일 {(r['60일 오름'] or 0) * 100:4.1f}%({r['60일 평소'] * 100:4.1f})")
+    return out
+
+
+ROUNDS = {3: r3, 5: r5, 6: r6, 8: r8, 9: r9, 10: r10, 11: r11, 13: r13, 14: r14, 16: r16, 17: r17, 18: r18, 19: r19, 21: r21, 22: r22, 23: r23, 25: r25, 29: r29, 32: r32, 33: r33, 34: r34, 35: r35, 37: r37, 41: r41, 42: r42, 44: r44, 46: r46, 48: r48}  # 회차 → 함수(ctx) → {규칙 이름: test_rule 결과}
 
 
 # ---------- 봇 백테스트 회차 ----------

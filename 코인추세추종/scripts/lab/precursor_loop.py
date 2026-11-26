@@ -680,7 +680,22 @@ def b24(ctx):
     return res
 
 
-BOT_ROUNDS = {4: b4, 20: b20, 24: b24}  # 회차 → 함수(ctx) → {이름: {구간: {비용: 잔고·샤프·MDD}}, 판정}
+def b26(ctx):
+    """퍼엘 바닥 매수의 이웃: 들고 있는 날 30 · 60 · 90 × 최소 비중 0.25 · 0.5 · 1."""
+    iss = pd.read_csv(C.ML / "issuance_BTC.csv", parse_dates=["date"], index_col="date").iss_usd.astype(float)
+    on = ((iss / iss.rolling(365).mean()).shift(1).reindex(ctx["days"]) < 0.5).fillna(False)
+    ctx["on"] = {s: on for s in P1.SYMS}
+    variants = {"지금 봇 (하루 한 번)": lambda w, o: w}
+    for n in (30, 60, 90):
+        h = hold_after(on, n)
+        for m in (0.25, 0.5, 1.0):
+            variants[f"{n}일 · 최소 {m:g}"] = (lambda h_, m_: (lambda w, o: w.where(~h_.reindex(w.index).fillna(False), np.maximum(w, m_))))(h, m)
+    res = bot_test(ctx, variants)
+    print(f"   9칸 중 통과 {sum(1 for n, r in res.items() if r.get('통과'))}칸")
+    return res
+
+
+BOT_ROUNDS = {4: b4, 20: b20, 24: b24, 26: b26}  # 회차 → 함수(ctx) → {이름: {구간: {비용: 잔고·샤프·MDD}}, 판정}
 
 
 def run_bot(k, ctx, store):

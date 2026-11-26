@@ -862,7 +862,24 @@ def r44(ctx):
     return out
 
 
-ROUNDS = {3: r3, 5: r5, 6: r6, 8: r8, 9: r9, 10: r10, 11: r11, 13: r13, 14: r14, 16: r16, 17: r17, 18: r18, 19: r19, 21: r21, 22: r22, 23: r23, 25: r25, 29: r29, 32: r32, 33: r33, 34: r34, 35: r35, 37: r37, 41: r41, 42: r42, 44: r44}  # 회차 → 함수(ctx) → {규칙 이름: test_rule 결과}
+def r46(ctx):
+    """변동성 위험 프리미엄: (DVOL/100)² − (지난 30일 실현 변동성 연 환산)², 하루 늦춤, 3년 이동 백분위 ≥ 70 · ≤ 30."""
+    days = ctx["days"]
+    rules = {"VRP 높음(상위 30%)": {}, "VRP 낮음(하위 30%)": {}}
+    for s in P1.SYMS:
+        dv = P1.per_asset("dvol.csv", s, "dvol").reindex(days) / 100
+        rv = np.log(ctx["closes"][s]).diff().rolling(30).std() * np.sqrt(365)
+        vrp = (dv ** 2 - rv ** 2).shift(1)
+        pc = rolling_pct(vrp)
+        rules["VRP 높음(상위 30%)"][s] = (pc >= 70).fillna(False)
+        rules["VRP 낮음(하위 30%)"][s] = (pc <= 30).fillna(False)
+        print(f"   {s}: VRP 값이 있는 첫날 {vrp.first_valid_index().date()} · 백분위 첫날 {pc.first_valid_index().date()}")
+    out = {k: test_rule(ctx, on) for k, on in rules.items()}
+    ctx["dir"] = {f"{k} · {h}일": test_dir(ctx, on, h) for k, on in rules.items() for h in (30, 60)}
+    return out
+
+
+ROUNDS = {3: r3, 5: r5, 6: r6, 8: r8, 9: r9, 10: r10, 11: r11, 13: r13, 14: r14, 16: r16, 17: r17, 18: r18, 19: r19, 21: r21, 22: r22, 23: r23, 25: r25, 29: r29, 32: r32, 33: r33, 34: r34, 35: r35, 37: r37, 41: r41, 42: r42, 44: r44, 46: r46}  # 회차 → 함수(ctx) → {규칙 이름: test_rule 결과}
 
 
 # ---------- 봇 백테스트 회차 ----------

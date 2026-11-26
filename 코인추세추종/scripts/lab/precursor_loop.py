@@ -53,11 +53,17 @@ def context():
     return ctx
 
 
+EXCLUDE = []  # 42회차: 검증 기간에서 뺄 구간들
+
+
 def period_mask(idx, pn):
     d = idx.strftime("%Y-%m-%d")
     if pn == "찾기":
         return (d >= P1.FIND[0]) & (d <= P1.FIND[1])
-    return np.any([(d >= a) & (d <= b) for a, b in P1.HOLD], axis=0)
+    m = np.any([(d >= a) & (d <= b) for a, b in P1.HOLD], axis=0)
+    for a, b in EXCLUDE:
+        m &= ~((d >= a) & (d <= b))
+    return m
 
 
 def test_rule(ctx, on, labels="fv"):
@@ -792,7 +798,42 @@ def r41(ctx):
     return out
 
 
-ROUNDS = {3: r3, 5: r5, 6: r6, 8: r8, 9: r9, 10: r10, 11: r11, 13: r13, 14: r14, 16: r16, 17: r17, 18: r18, 19: r19, 21: r21, 22: r22, 23: r23, 25: r25, 29: r29, 32: r32, 33: r33, 34: r34, 35: r35, 37: r37, 41: r41}  # 회차 → 함수(ctx) → {규칙 이름: test_rule 결과}
+def r42(ctx):
+    """검증 기간에서 2019-02-01 ~ 06-30 을 빼고 18 · 19 · 22 · 41회차를 다시: 상승 쪽 성공(다섯 장 · 방향)이 남는지."""
+    EXCLUDE[:] = [("2019-02-01", "2019-06-30")]
+    try:
+        out = {"다섯 장": {}, "방향": {}}
+        for k in (18, 19, 41):
+            sub = {}
+            res = ROUNDS[k](sub if k == 41 else ctx) if k != 41 else None
+            if k == 41:
+                c41 = context()
+                res = r41(c41)
+                for n, r in c41["dir"].items():
+                    out["방향"][f"[41] {n}"] = r
+            for n, r in res.items():
+                out["다섯 장"][f"[{k}] {n}"] = r
+        for n, r in r22(ctx).items():
+            out["방향"][n] = r
+    finally:
+        EXCLUDE[:] = []
+    up5 = {n: [t for t in success(r) if t in UP] for n, r in out["다섯 장"].items() if any(t in UP for t in success(r))}
+    dn5 = {n: [t for t in success(r) if t in DOWN] for n, r in out["다섯 장"].items() if any(t in DOWN for t in success(r))}
+    updir = {n: dir_success(r) for n, r in out["방향"].items() if dir_success(r) == "오름"}
+    dndir = {n: dir_success(r) for n, r in out["방향"].items() if dir_success(r) == "내림"}
+    print(f"== 42회차 — 검증 기간에서 2019-02 ~ 06 을 뺀 뒤: 다섯 장 규칙 {len(out['다섯 장'])}개 · 방향 칸 {len(out['방향'])}개")
+    print(f"   상승 쪽 다섯 장 성공 {len(up5)}개:", up5 or "없음")
+    print(f"   하락 쪽 다섯 장 성공 {len(dn5)}개:", list(dn5) or "없음")
+    print(f"   방향 오름 성공 {len(updir)}칸:")
+    for n in updir:
+        r = out["방향"][n]
+        print(f"     {n:60s} {r['찾기']['오른 비율'] * 100:4.1f}%(평소 {r['찾기']['평소'] * 100:4.1f}, {r['찾기']['켜진 날']}일) | {r['검증']['오른 비율'] * 100:4.1f}%(평소 {r['검증']['평소'] * 100:4.1f}, {r['검증']['켜진 날']}일)")
+    print(f"   방향 내림 성공 {len(dndir)}칸:", list(dndir) or "없음")
+    out["요약"] = {"상승 다섯 장": up5, "하락 다섯 장": list(dn5), "방향 오름": list(updir), "방향 내림": list(dndir)}
+    return out
+
+
+ROUNDS = {3: r3, 5: r5, 6: r6, 8: r8, 9: r9, 10: r10, 11: r11, 13: r13, 14: r14, 16: r16, 17: r17, 18: r18, 19: r19, 21: r21, 22: r22, 23: r23, 25: r25, 29: r29, 32: r32, 33: r33, 34: r34, 35: r35, 37: r37, 41: r41, 42: r42}  # 회차 → 함수(ctx) → {규칙 이름: test_rule 결과}
 
 
 # ---------- 봇 백테스트 회차 ----------
@@ -1259,8 +1300,8 @@ def run(k):
         OUT.write_text(json.dumps(store, ensure_ascii=False, indent=1))
         return
     rules = ROUNDS[k](ctx)
-    if k in (33, 34):  # 나스닥 회차: 결과 꼴이 달라 출력은 회차 함수가 했다
-        store["rounds"][str(k)] = {"made": datetime.now().isoformat(timespec="seconds"), "nasdaq": rules}
+    if k in (33, 34, 42):  # 결과 꼴이 달라 출력은 회차 함수가 했다
+        store["rounds"][str(k)] = {"made": datetime.now().isoformat(timespec="seconds"), ("nasdaq" if k != 42 else "다시"): rules}
         OUT.write_text(json.dumps(store, ensure_ascii=False, indent=1))
         return
     if k == 23:

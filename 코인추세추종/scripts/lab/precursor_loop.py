@@ -380,7 +380,9 @@ def r19(ctx):
     finally:
         PCT_FN[0] = P1.expanding_pct
     for fam in ("공포·탐욕", "상대 강도"):
-        cells = [n for n in out if fam in n]
+        cells = [n for n in out if fam in n and isinstance(out[n], dict)]  # 22회차가 규칙만 모을 때는 건너뛴다
+        if not cells:
+            continue
         print(f"   {fam}: 9칸 중 대상승 성공 {sum('대상승' in success(out[n]) for n in cells)}칸")
     return out
 
@@ -419,7 +421,59 @@ def r21(ctx):
     return out
 
 
-ROUNDS = {3: r3, 5: r5, 6: r6, 8: r8, 9: r9, 10: r10, 11: r11, 13: r13, 14: r14, 16: r16, 17: r17, 18: r18, 19: r19, 21: r21}  # 회차 → 함수(ctx) → {규칙 이름: test_rule 결과}
+def test_dir(ctx, on, h):
+    """방향만: 기간마다 켜진 날 수, 켜진 날 뒤 h 일에 오른 비율, 평소 오른 비율."""
+    res = {}
+    for pn in ("찾기", "검증"):
+        hit, base = [], []
+        for s in P1.SYMS:
+            c = ctx["closes"][s]
+            up = (c.shift(-h) / c - 1).dropna() > 0
+            up = up[(up.index >= "2018-01-01") & period_mask(up.index, pn)]
+            o = on[s].reindex(up.index).fillna(False).astype(bool)
+            hit.append(up[o].to_numpy())
+            base.append(up.to_numpy())
+        hh, bb = np.concatenate(hit), np.concatenate(base)
+        res[pn] = {"켜진 날": int(len(hh)), "오른 비율": float(hh.mean()) if len(hh) else None, "평소": float(bb.mean())}
+    return res
+
+
+def dir_success(res):
+    if any(res[pn]["켜진 날"] < 100 for pn in res):
+        return None
+    d = [res[pn]["오른 비율"] - res[pn]["평소"] for pn in res]
+    return "오름" if all(x > 0.10 for x in d) else ("내림" if all(x < -0.10 for x in d) else None)
+
+
+def r22(ctx):
+    """18회차 대상 + 19 · 21회차 규칙을 뒤 30 · 60일 부호로. test_rule 을 잠시 바꿔 규칙(켜진 날)만 모은다."""
+    masks = []
+    real = globals()["test_rule"]
+    globals()["test_rule"] = lambda cx, on, labels="fv": (masks.append(on), len(masks) - 1)[1]
+    try:
+        PCT_FN[0] = rolling_pct
+        c2 = context()
+        names = {}
+        for k in (3, 5, 6, 8, 9, 11, 13, 14, 16, 17, 19, 21):
+            PCT_FN[0] = rolling_pct
+            for name, idx in ROUNDS[k](c2).items():
+                names[f"[{k}] {name}"] = idx
+    finally:
+        globals()["test_rule"] = real
+        PCT_FN[0] = P1.expanding_pct
+    out, won = {}, {}
+    for name, idx in names.items():
+        for h in (30, 60):
+            r = test_dir(c2, masks[idx], h)
+            out[f"{name} · {h}일"] = r
+            w = dir_success(r)
+            if w:
+                won[f"{name} · {h}일"] = w
+    c2["방향 성공"] = won
+    return out
+
+
+ROUNDS = {3: r3, 5: r5, 6: r6, 8: r8, 9: r9, 10: r10, 11: r11, 13: r13, 14: r14, 16: r16, 17: r17, 18: r18, 19: r19, 21: r21, 22: r22}  # 회차 → 함수(ctx) → {규칙 이름: test_rule 결과}
 
 
 # ---------- 봇 백테스트 회차 ----------
@@ -507,6 +561,21 @@ def run_bot(k, ctx, store):
     store["rounds"][str(k)] = {"made": datetime.now().isoformat(timespec="seconds"), "bot": res}
 
 
+def run_dir(k, rules, store):
+    won = {n: dir_success(r) for n, r in rules.items() if dir_success(r)}
+    print(f"== {k}회차 — 방향만: 규칙 {len(rules) // 2}개 × 30 · 60일 = {len(rules)}칸, 방향 성공 {len(won)}칸")
+    for n, w in won.items():
+        r = rules[n]
+        print(f"   {w} · {n:58s} 오른 비율 {r['찾기']['오른 비율'] * 100:4.1f}% (평소 {r['찾기']['평소'] * 100:4.1f}%, {r['찾기']['켜진 날']}일) | {r['검증']['오른 비율'] * 100:4.1f}% (평소 {r['검증']['평소'] * 100:4.1f}%, {r['검증']['켜진 날']}일)")
+    near = sorted(((min(r[pn]["오른 비율"] - r[pn]["평소"] for pn in r), n) for n, r in rules.items()
+                   if all(r[pn]["켜진 날"] >= 100 for pn in r) and n not in won), reverse=True)[:8]
+    print("   오름 쪽 가까운 것(두 기간 중 작은 쪽 차이):")
+    for d, n in near:
+        r = rules[n]
+        print(f"     {n:58s} +{d * 100:4.1f}%p · {r['찾기']['오른 비율'] * 100:4.1f}% | {r['검증']['오른 비율'] * 100:4.1f}%")
+    store["rounds"][str(k)] = {"made": datetime.now().isoformat(timespec="seconds"), "dir": rules, "성공": won}
+
+
 def run(k):
     ctx = context()
     store = json.loads(OUT.read_text()) if OUT.exists() else {"rounds": {}}
@@ -515,6 +584,10 @@ def run(k):
         OUT.write_text(json.dumps(store, ensure_ascii=False, indent=1))
         return
     rules = ROUNDS[k](ctx)
+    if k == 22:
+        run_dir(k, rules, store)
+        OUT.write_text(json.dumps(store, ensure_ascii=False, indent=1))
+        return
     print(f"== {k}회차 — 규칙이 켜진 날에서 뒤 30일 장이 나온 배수(켜졌을 때 ÷ 평소), 찾는 기간 | 검증 기간")
     won = {}
     for name, res in rules.items():

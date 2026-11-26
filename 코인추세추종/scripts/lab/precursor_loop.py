@@ -274,7 +274,43 @@ def r11(ctx):
     return out
 
 
-ROUNDS = {3: r3, 5: r5, 6: r6, 8: r8, 9: r9, 10: r10, 11: r11}  # 회차 → 함수(ctx) → {규칙 이름: test_rule 결과}
+def r13(ctx):
+    """레버리지 · 청산 대리: 무기한 ÷ 현물 거래대금(7일), 펀딩비 극단 × 지난 7일 가격 방향."""
+    out, lev = {}, {}
+    for s in P1.SYMS:
+        pq = pd.read_csv(C.ML / f"perp_{s}.csv", parse_dates=["date"], index_col="date").quote_volume.astype(float).reindex(ctx["days"])
+        sq = pd.read_csv(C.ML / f"spot_{s}.csv", parse_dates=["date"], index_col="date").quote_volume.astype(float).reindex(ctx["days"])
+        lev[s] = P1.expanding_pct((pq / sq).rolling(7).mean())
+    up7 = {s: ctx["closes"][s] / ctx["closes"][s].shift(7) - 1 for s in P1.SYMS}
+    f = {s: ctx["pct"][s]["fund"] for s in P1.SYMS}
+    out["레버리지 거래 비중 높음(상위 10%)"] = test_rule(ctx, {s: lev[s] >= 90 for s in P1.SYMS})
+    out["레버리지 거래 비중 낮음(하위 10%)"] = test_rule(ctx, {s: lev[s] <= 10 for s in P1.SYMS})
+    out["펀딩비 상위 10% × 7일 내림(롱 몰린 채 밀림)"] = test_rule(ctx, {s: (f[s] >= 90) & (up7[s] < 0) for s in P1.SYMS})
+    out["펀딩비 하위 10% × 7일 오름(숏 스퀴즈)"] = test_rule(ctx, {s: (f[s] <= 10) & (up7[s] > 0) for s in P1.SYMS})
+    out["레버리지 비중 높음 × 조용함"] = test_rule(ctx, {s: (lev[s] >= 90) & (ctx["pct"][s]["bbw"] <= 30) for s in P1.SYMS})
+    return out
+
+
+def r14(ctx):
+    """4시간봉 매수세: 판단 직전 4시간봉(UTC 20 ~ 24시)의 테이커 매수 비율, 지난 24시간 거래대금 ÷ 지난 30일 하루 평균 × 24시간 가격 방향."""
+    out, last, surge, move = {}, {}, {}, {}
+    for s in P1.SYMS:
+        h = pd.read_csv(C.ML / f"perp4ht_{s}.csv", parse_dates=["time"]).set_index("time").astype(float)
+        day = h.index.normalize()  # UTC 날짜 = 코인 일봉 날짜(09:00 KST 마감)
+        lb = h[h.index.hour == 20]
+        last[s] = P1.expanding_pct((lb.taker_buy_quote / lb.quote_volume).set_axis(lb.index.normalize()).reindex(ctx["days"]))
+        qd = h.quote_volume.groupby(day).sum().reindex(ctx["days"])
+        surge[s] = P1.expanding_pct(qd / qd.shift(1).rolling(30).mean())
+        cd = h.close.groupby(day).last().reindex(ctx["days"])
+        move[s] = cd / cd.shift(1) - 1
+    out["직전 4시간 매수세 강함(상위 10%)"] = test_rule(ctx, {s: last[s] >= 90 for s in P1.SYMS})
+    out["직전 4시간 매수세 약함(하위 10%)"] = test_rule(ctx, {s: last[s] <= 10 for s in P1.SYMS})
+    out["24시간 거래 급증 × 오름"] = test_rule(ctx, {s: (surge[s] >= 90) & (move[s] > 0) for s in P1.SYMS})
+    out["24시간 거래 급증 × 내림"] = test_rule(ctx, {s: (surge[s] >= 90) & (move[s] < 0) for s in P1.SYMS})
+    return out
+
+
+ROUNDS = {3: r3, 5: r5, 6: r6, 8: r8, 9: r9, 10: r10, 11: r11, 13: r13, 14: r14}  # 회차 → 함수(ctx) → {규칙 이름: test_rule 결과}
 
 
 # ---------- 봇 백테스트 회차 ----------

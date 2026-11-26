@@ -442,7 +442,26 @@ def b4(ctx):
     return bot_test(ctx, {"지금 봇 (하루 한 번)": lambda w, on: w, "A 켜진 날 늘리지 않음": no_raise, "B 켜진 날 비중 0": lambda w, on: w.where(~on, 0.0)})
 
 
-BOT_ROUNDS = {4: b4}  # 회차 → 함수(ctx) → {이름: {구간: {비용: 잔고·샤프·MDD}}, 판정}
+def b20(ctx):
+    """상승 쪽 두 규칙(3년 이동 백분위)이 켜진 날 비중을 최소 0.5(A) · 1(B)로."""
+    PCT_FN[0] = rolling_pct
+    try:
+        c2 = context()
+        _, _, nq = stock_state("나스닥", c2["days"])
+        rules = {"조용함 + 탐욕": {s: (c2["pct"][s]["bbw"] <= 30) & (c2["pct"][s]["fng"] >= 70) for s in P1.SYMS},
+                 "조용함 + 상대 강도": {s: (c2["pct"][s]["bbw"] <= 30) & (rolling_pct(c2["closes"][s] / c2["closes"][s].shift(30) - 1 - (nq / nq.shift(30) - 1)) >= 70) for s in P1.SYMS}}
+    finally:
+        PCT_FN[0] = P1.expanding_pct
+    out = {}
+    for rn, on in rules.items():
+        c2["on"] = on
+        res = bot_test(c2, {"지금 봇 (하루 한 번)": lambda w, on: w, f"{rn} · A 최소 0.5": lambda w, on: w.where(~on, np.maximum(w, 0.5)),
+                            f"{rn} · B 비중 1": lambda w, on: w.where(~on, 1.0)})
+        out.update(res)
+    return out
+
+
+BOT_ROUNDS = {4: b4, 20: b20}  # 회차 → 함수(ctx) → {이름: {구간: {비용: 잔고·샤프·MDD}}, 판정}
 
 
 def run_bot(k, ctx, store):

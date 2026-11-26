@@ -553,7 +553,34 @@ def r23(ctx):
     return out
 
 
-ROUNDS = {3: r3, 5: r5, 6: r6, 8: r8, 9: r9, 10: r10, 11: r11, 13: r13, 14: r14, 16: r16, 17: r17, 18: r18, 19: r19, 21: r21, 22: r22, 23: r23}  # 회차 → 함수(ctx) → {규칙 이름: test_rule 결과}
+def r25(ctx):
+    """MVRV-Z(시가총액 − 실현 시가총액) ÷ 처음부터 쌓인 시가총액 표준편차 · SSR(코인 시가총액 ÷ 스테이블코인 시가총액). 하루 늦춤, 3년 이동 백분위."""
+    PCT_FN[0] = rolling_pct
+    try:
+        c2 = context()
+        days = c2["days"]
+        st = pd.read_csv(C.ML / "stable.csv", parse_dates=["date"], index_col="date")["전체"].astype(float)
+        st = st.reindex(pd.date_range(st.index.min(), days[-1])).ffill()
+        rules = {}
+        for s in P1.SYMS:
+            cap = P1.per_asset("cap.csv", s, "cap")
+            mv = P1.per_asset("mvrv.csv", s, "mvrv").reindex(cap.index)
+            z = ((cap - cap / mv) / cap.expanding(365).std()).shift(1).reindex(days)
+            ssr = (cap.reindex(st.index) / st).shift(1).reindex(days)
+            ssr_n = ssr / ssr.rolling(200).mean()
+            zp, sp, snp = rolling_pct(z), rolling_pct(ssr), rolling_pct(ssr_n)
+            for name, on in (("MVRV-Z > 7", z > 7), ("MVRV-Z < 0", z < 0), ("MVRV-Z 상위 10%", zp >= 90), ("MVRV-Z 하위 10%", zp <= 10),
+                             ("SSR 낮음(하위 10%, 대기 자금 많음)", sp <= 10), ("SSR 높음(상위 10%)", sp >= 90),
+                             ("SSR ÷ 200일 평균 하위 10%", snp <= 10), ("SSR ÷ 200일 평균 상위 10%", snp >= 90)):
+                rules.setdefault(name, {})[s] = on.fillna(False)
+        out = {n: test_rule(c2, on) for n, on in rules.items()}
+        ctx["dir"] = {f"{n} · {h}일": test_dir(c2, on, h) for n, on in rules.items() for h in (30, 60)}
+    finally:
+        PCT_FN[0] = P1.expanding_pct
+    return out
+
+
+ROUNDS = {3: r3, 5: r5, 6: r6, 8: r8, 9: r9, 10: r10, 11: r11, 13: r13, 14: r14, 16: r16, 17: r17, 18: r18, 19: r19, 21: r21, 22: r22, 23: r23, 25: r25}  # 회차 → 함수(ctx) → {규칙 이름: test_rule 결과}
 
 
 # ---------- 봇 백테스트 회차 ----------
@@ -707,6 +734,13 @@ def run(k):
         if w:
             won[name] = w
     store["rounds"][str(k)] = {"made": datetime.now().isoformat(timespec="seconds"), "rules": rules, "성공": won}
+    if "dir" in ctx:  # 25회차부터: 방향(뒤 30 · 60일 부호)도 같이
+        dw = {n: dir_success(r) for n, r in ctx["dir"].items() if dir_success(r)}
+        store["rounds"][str(k)].update(dir=ctx["dir"], 방향성공=dw)
+        print("== 방향(뒤 30 · 60일 오른 비율, 평소) 찾기 | 검증")
+        for n, r in ctx["dir"].items():
+            f, v = r["찾기"], r["검증"]
+            print(f"   {n:40s} {(f['오른 비율'] or 0) * 100:4.1f}%({f['평소'] * 100:4.1f}, {f['켜진 날']}일) | {(v['오른 비율'] or 0) * 100:4.1f}%({v['평소'] * 100:4.1f}, {v['켜진 날']}일)" + (f"  ★ 방향 {dw[n]}" if n in dw else ""))
     if "상관" in ctx:
         store["rounds"][str(k)]["상관"] = ctx["상관"]
         print("== 상관(순위, 2018 ~): 코인 날마다 수익 대 자산 날마다 변화 · 30일 간격 30일 변화끼리 · 해마다(날마다)")

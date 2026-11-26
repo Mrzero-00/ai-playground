@@ -254,7 +254,27 @@ def r10(ctx, L=30, K=20, SEP=10, LAG=60):
     return out
 
 
-ROUNDS = {3: r3, 5: r5, 6: r6, 8: r8, 9: r9, 10: r10}  # 회차 → 함수(ctx) → {규칙 이름: test_rule 결과}
+def r11(ctx):
+    """유동성: 미국 순유동성(WALCL − TGA − 역레포 × 1,000, 7일 늦춤) · 스테이블코인 시가총액(하루 늦춤)."""
+    days = ctx["days"]
+    lq = pd.read_csv(C.ML / "liquidity.csv", parse_dates=["date"], index_col="date").astype(float)
+    full = pd.date_range(lq.index.min(), days[-1])
+    lq = lq.reindex(full).ffill()
+    net = (lq.walcl - lq.tga - lq.rrp.fillna(0.0) * 1000).shift(7)
+    st = pd.read_csv(C.ML / "stable.csv", parse_dates=["date"], index_col="date")["전체"].astype(float)
+    st = st.reindex(pd.date_range(st.index.min(), days[-1])).ffill().shift(1)
+    out = {}
+    for name, x in (("미국 순유동성", net), ("스테이블코인 시가총액", st)):
+        ch = P1.expanding_pct((x / x.shift(30) - 1).reindex(days))
+        above = (x > x.rolling(200).mean()).astype(float).where(x.rolling(200).mean().notna()).reindex(days)
+        out[f"{name} 30일 급증(상위 10%)"] = test_rule(ctx, {s: ch >= 90 for s in P1.SYMS})
+        out[f"{name} 30일 급감(하위 10%)"] = test_rule(ctx, {s: ch <= 10 for s in P1.SYMS})
+        out[f"{name} 200일 평균 위"] = test_rule(ctx, {s: above == 1.0 for s in P1.SYMS})
+        out[f"{name} 200일 평균 아래"] = test_rule(ctx, {s: above == 0.0 for s in P1.SYMS})
+    return out
+
+
+ROUNDS = {3: r3, 5: r5, 6: r6, 8: r8, 9: r9, 10: r10, 11: r11}  # 회차 → 함수(ctx) → {규칙 이름: test_rule 결과}
 
 
 # ---------- 봇 백테스트 회차 ----------

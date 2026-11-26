@@ -704,7 +704,22 @@ def r33(ctx):
     return out
 
 
-ROUNDS = {3: r3, 5: r5, 6: r6, 8: r8, 9: r9, 10: r10, 11: r11, 13: r13, 14: r14, 16: r16, 17: r17, 18: r18, 19: r19, 21: r21, 22: r22, 23: r23, 25: r25, 29: r29, 32: r32, 33: r33}  # 회차 → 함수(ctx) → {규칙 이름: test_rule 결과}
+def r34(ctx):
+    """나스닥 약세장(200거래일선 아래 · 지난 20거래일 내림) 뒤 21 · 42거래일."""
+    x = pd.read_csv(C.ML / "macro.csv", parse_dates=["date"], index_col="date")["나스닥"].dropna().astype(float)
+    bear = (x < x.rolling(200).mean()) & (x.pct_change(20) < 0)
+    r = nasdaq_test(bear, x)
+    for h in (21, 42):
+        rs = [r[f"{h}거래일 {hn}"] for hn in HALVES]
+        ok = all(q["켜진 날"] >= 200 and q["오른 비율"] is not None for q in rs)
+        d = [q["오른 비율"] - q["평소"] for q in rs] if ok else []
+        r[f"{h}거래일 판단"] = "이어짐" if ok and all(v < -0.05 for v in d) else ("되돌림" if ok and all(v > 0.05 for v in d) else "없음")
+    print("   나스닥 약세장 " + " | ".join(f"{k}: {(r[k]['오른 비율'] or 0) * 100:4.1f}%(평소 {r[k]['평소'] * 100:4.1f}, {r[k]['켜진 날']}일)" for k in r if "확인" not in k and "판단" not in k)
+          + f" | 21 {r['21거래일 판단']} · 42 {r['42거래일 판단']}")
+    return {"나스닥 약세장": r}
+
+
+ROUNDS = {3: r3, 5: r5, 6: r6, 8: r8, 9: r9, 10: r10, 11: r11, 13: r13, 14: r14, 16: r16, 17: r17, 18: r18, 19: r19, 21: r21, 22: r22, 23: r23, 25: r25, 29: r29, 32: r32, 33: r33, 34: r34}  # 회차 → 함수(ctx) → {규칙 이름: test_rule 결과}
 
 
 # ---------- 봇 백테스트 회차 ----------

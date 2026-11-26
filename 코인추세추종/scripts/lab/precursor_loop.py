@@ -1109,7 +1109,56 @@ def b38(ctx):
     return res
 
 
-BOT_ROUNDS = {4: b4, 20: b20, 24: b24, 26: b26, 27: b27, 28: b28, 30: b30, 36: b36, 38: b38}  # 회차 → 함수(ctx) → {이름: {구간: {비용: 잔고·샤프·MDD}}, 판정}
+def dd_sim(closes, start, cost, limit=None):
+    """코인들(반반, 날마다 맞춤)의 봇. limit 이 있으면 비중 × min(1, 1 − 전날 낙폭 ÷ limit). 시작일부터 평가액을 새로 잰다."""
+    W = {s: bot_weights(c) for s, c in closes.items()}
+    R = {s: c.pct_change() for s, c in closes.items()}
+    idx = sorted(set().union(*[c.index for c in closes.values()]))
+    idx = [d for d in idx if d >= pd.Timestamp(start)]
+    eq, peak, prev = 1.0, 1.0, {s: 0.0 for s in closes}
+    out = []
+    for d in idx:
+        scale = 1.0 if limit is None else max(0.0, min(1.0, 1 - (1 - eq / peak) / limit))
+        r = []
+        for s in closes:
+            w = W[s].get(d, np.nan)
+            w = 0.0 if np.isnan(w) else w * scale  # 오늘 정한 비중(내일 수익에 쓰인다)
+            ret = R[s].get(d, np.nan)
+            r.append(prev[s] * (0.0 if np.isnan(ret) else ret) - cost * abs(w - prev[s]))
+            prev[s] = w
+        day = float(np.mean(r))
+        eq *= 1 + day
+        peak = max(peak, eq)
+        out.append(day)
+    return pd.Series(out, index=idx)
+
+
+def summ(r):
+    eq = (1 + r).cumprod()
+    return {"잔고": float(SEED * eq.iloc[-1]), "샤프": float(r.mean() / r.std() * np.sqrt(365)), "MDD": float((eq / eq.cummax() - 1).min())}
+
+
+def b39(ctx):
+    """낙폭에 맞춰 줄이기: 봇 비중 × min(1, 1 − 낙폭 ÷ 0.45)."""
+    up = {s: ctx["closes"][s].dropna() for s in P1.SYMS}
+    up = {s: c[c.index <= BOT_END] for s, c in up.items()}
+    c = pd.read_csv(C.ML / "cmprice_BTC.csv", parse_dates=["date"], index_col="date").close.astype(float)
+    btc = {"BTC": c.reindex(pd.date_range(c.index.min(), "2017-12-31")).ffill()}
+    res = {}
+    for name, lim in (("지금 봇 (하루 한 번)", None), ("낙폭에 맞춰 줄이기(한도 45%)", 0.45)):
+        row = {sn: {cn: summ(dd_sim(up, st, cost, lim)) for cn, cost in BOT_COSTS.items()} for sn, st in BOT_STARTS.items()}
+        row["2014~2017"] = {cn: summ(dd_sim(btc, "2014-01-01", cost, lim)) for cn, cost in BOT_COSTS.items()}
+        res[name] = row
+    b, a = res["지금 봇 (하루 한 번)"], res["낙폭에 맞춰 줄이기(한도 45%)"]
+    ok = lambda periods: all(a[p]["0.10%"]["샤프"] > b[p]["0.10%"]["샤프"] and a[p]["0.10%"]["MDD"] >= b[p]["0.10%"]["MDD"] and a[p]["0.25%"]["샤프"] > b[p]["0.25%"]["샤프"] for p in periods)
+    a["통과"], a["2014~2017 통과"] = ok(list(BOT_STARTS)), ok(["2014~2017"])
+    a["둘 다 통과"] = a["통과"] and a["2014~2017 통과"]
+    print("   2014 ~ 2017 (BTC 달러): " + " | ".join(f"{n} {r['2014~2017']['0.10%']['잔고'] / 1e4:,.0f}만 · {r['2014~2017']['0.10%']['샤프']:.2f} · {r['2014~2017']['0.10%']['MDD'] * 100:.1f}%" for n, r in res.items())
+          + f" → {'통과' if a['2014~2017 통과'] else '기각'} · 둘 다 {'통과' if a['둘 다 통과'] else '아님'}")
+    return res
+
+
+BOT_ROUNDS = {4: b4, 20: b20, 24: b24, 26: b26, 27: b27, 28: b28, 30: b30, 36: b36, 38: b38, 39: b39}  # 회차 → 함수(ctx) → {이름: {구간: {비용: 잔고·샤프·MDD}}, 판정}
 
 
 def run_bot(k, ctx, store):

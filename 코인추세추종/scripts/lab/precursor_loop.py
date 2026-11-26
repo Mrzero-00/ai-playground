@@ -122,7 +122,28 @@ def r5(ctx):
     return out
 
 
-ROUNDS = {3: r3, 5: r5}  # 회차 → 함수(ctx) → {규칙 이름: test_rule 결과}
+WIKI = {"BTC": {"영문": "en:Bitcoin", "한국어": "ko:비트코인"}, "ETH": {"영문": "en:Ethereum", "한국어": "ko:이더리움"}}
+
+
+def r6(ctx):
+    """대중의 관심: 위키백과 조회수 7일 ÷ 90일 평균의 백분위. 하루치는 공개가 몇 시간 늦어 전날 값까지만 쓴다."""
+    v = pd.read_csv(C.ML / "wiki_views.csv", parse_dates=["date"])
+    out = {}
+    for lang in ("영문", "한국어"):
+        att, up7 = {}, {}
+        for s in P1.SYMS:
+            x = v[v.article == WIKI[s][lang]].set_index("date").views.astype(float).reindex(ctx["days"]).shift(1)
+            att[s] = P1.expanding_pct(x.rolling(7).mean() / x.rolling(90).mean())
+            c = ctx["closes"][s]
+            up7[s] = c / c.shift(7) - 1
+        out[f"{lang} 관심 급증(상위 10%)"] = test_rule(ctx, {s: att[s] >= 90 for s in P1.SYMS})
+        out[f"{lang} 관심 낮음(하위 10%)"] = test_rule(ctx, {s: att[s] <= 10 for s in P1.SYMS})
+        out[f"{lang} 관심 급증 × 7일 오름"] = test_rule(ctx, {s: (att[s] >= 90) & (up7[s] > 0) for s in P1.SYMS})
+        out[f"{lang} 관심 급증 × 7일 내림"] = test_rule(ctx, {s: (att[s] >= 90) & (up7[s] < 0) for s in P1.SYMS})
+    return out
+
+
+ROUNDS = {3: r3, 5: r5, 6: r6}  # 회차 → 함수(ctx) → {규칙 이름: test_rule 결과}
 
 
 # ---------- 봇 백테스트 회차 ----------

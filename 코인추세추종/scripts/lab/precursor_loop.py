@@ -365,7 +365,27 @@ def r18(ctx):
     return out
 
 
-ROUNDS = {3: r3, 5: r5, 6: r6, 8: r8, 9: r9, 10: r10, 11: r11, 13: r13, 14: r14, 16: r16, 17: r17, 18: r18}  # 회차 → 함수(ctx) → {규칙 이름: test_rule 결과}
+def r19(ctx):
+    """문턱 이웃: 조용함(볼린저 폭 ≤ 20 · 30 · 40) × 공포·탐욕 / 나스닥 대비 상대 강도(≥ 60 · 70 · 80), 3년 이동 백분위."""
+    PCT_FN[0] = rolling_pct
+    try:
+        c2 = context()
+        _, _, nq = stock_state("나스닥", c2["days"])
+        rel = {s: rolling_pct(c2["closes"][s] / c2["closes"][s].shift(30) - 1 - (nq / nq.shift(30) - 1)) for s in P1.SYMS}
+        out = {}
+        for q in (20, 30, 40):
+            for g in (60, 70, 80):
+                out[f"조용함 ≤ {q} + 공포·탐욕 ≥ {g}"] = test_rule(c2, {s: (c2["pct"][s]["bbw"] <= q) & (c2["pct"][s]["fng"] >= g) for s in P1.SYMS})
+                out[f"조용함 ≤ {q} + 상대 강도 ≥ {g}"] = test_rule(c2, {s: (c2["pct"][s]["bbw"] <= q) & (rel[s] >= g) for s in P1.SYMS})
+    finally:
+        PCT_FN[0] = P1.expanding_pct
+    for fam in ("공포·탐욕", "상대 강도"):
+        cells = [n for n in out if fam in n]
+        print(f"   {fam}: 9칸 중 대상승 성공 {sum('대상승' in success(out[n]) for n in cells)}칸")
+    return out
+
+
+ROUNDS = {3: r3, 5: r5, 6: r6, 8: r8, 9: r9, 10: r10, 11: r11, 13: r13, 14: r14, 16: r16, 17: r17, 18: r18, 19: r19}  # 회차 → 함수(ctx) → {규칙 이름: test_rule 결과}
 
 
 # ---------- 봇 백테스트 회차 ----------

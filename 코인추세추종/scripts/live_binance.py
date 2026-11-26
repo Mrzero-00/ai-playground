@@ -36,6 +36,7 @@ RESEARCH.md '현물 봇 + 하락장 선물 숏 조합' 의 B1 을 그대로 옮�
   python3 scripts/live_binance.py                    # 오늘 몫 실행 (UTC 하루 한 번, 09:00 KST 이후)
   python3 scripts/live_binance.py --report           # 누적 성과
   python3 scripts/live_binance.py --deposit 100      # 봇이 굴리는 USDT 를 늘린다 (다음 실행이 비중에 맞춘다)
+  python3 scripts/live_binance.py --deposit 9 --futures  # 선물 지갑에 이미 있는 USDT 를 맡긴다 (증거금으로 적고 이체 없음)
   python3 scripts/live_binance.py --withdraw 50      # 줄인다
 """
 import csv, hashlib, hmac, json, math, os, sys, time, traceback, urllib.error, urllib.request, uuid
@@ -613,7 +614,9 @@ def rebalance(st, c, w, bear, reason):
         if usdt >= r["s_min"]:
             spot_order(st, c, "BUY", mk_p(), usdt=usdt)
     # 4) 하락장이면 쉬는 돈을 선물 지갑으로 보내고 숏을 잡는다
-    if want > s["short"]:
+    if want > s["short"] and (want - s["short"] < r["f_min"] or (want - s["short"]) * mk < r["f_notional"]):
+        print(f"{c} 숏 추가 {want - s['short']:.3f} 개({(want - s['short']) * mk:,.2f} USDT)가 바이낸스 최소({r['f_notional']:.0f} USDT) 미만이라 그대로 둔다")
+    elif want > s["short"]:
         prepare_futures(c)  # 양방향 모드면 여기서 멈춘다 — 증거금을 보내기 전에
         need = s["short"] * s["entry"] + (want - s["short"]) * mk * (1 + BUF) - s["margin"]
         if need > 0:
@@ -720,8 +723,9 @@ def run():
         sys.exit(1)
 
 
-def flow(amount):
-    """봇이 굴리는 USDT 를 늘리거나(+) 줄인다(-). 장부만 고치고, 매매는 다음 실행이 목표 비중에 맞춰 한다."""
+def flow(amount, in_futures=False):
+    """봇이 굴리는 USDT 를 늘리거나(+) 줄인다(-). 장부만 고치고, 매매는 다음 실행이 목표 비중에 맞춰 한다.
+    in_futures: 맡기는 USDT 가 현물 지갑이 아니라 선물 지갑에 이미 있다 — 몫마다 선물 증거금으로 적는다(이체 없음)."""
     if not STATE.exists():
         print("아직 장부가 없다. 처음에는 .env 의 BINANCE_BUDGET 으로 시작한다.")
         return
@@ -731,11 +735,20 @@ def flow(amount):
         return
     values = {c: value(s, sum(spot_book(c)) / 2, mark(c)) for c, s in st["sleeves"].items()}
     total = sum(values.values())
+    if in_futures:
+        if amount < 0:
+            print("--futures 는 입금에만 쓴다.")
+            return
+        if LIVE:
+            spare = fut_wallet()[0] - sum(s["margin"] for s in st["sleeves"].values())
+            if spare + 0.005 < amount:
+                print(f"선물 지갑에 장부 밖의 USDT 가 {spare:,.4f} 뿐이라 {amount:,.2f} 를 맡길 수 없다.")
+                return
     if amount < 0 and total + amount < 10 * len(COINS):
         print(f"봇 평가액이 {total:,.2f} USDT 라 {-amount:,.2f} 를 뺄 수 없다. 전부 빼려면 touch live_binance/STOP 뒤 직접 정리한다.")
         return
     for c, s in st["sleeves"].items():
-        s["cash"] += amount / len(COINS) if amount > 0 or total <= 0 else amount * values[c] / total
+        s["margin" if in_futures else "cash"] += amount / len(COINS) if amount > 0 or total <= 0 else amount * values[c] / total
         s["rebalance"] = True
     st["peak"] = st["peak"] * (total + amount) / total if total > 0 else total + amount  # 최고점 대비 낙폭 비율은 그대로 둔다
     st["budget"] += amount
@@ -743,7 +756,9 @@ def flow(amount):
     append(FLOWS, ["시각", "금액", "넣은돈_합계", "직전_평가액"], [iso(), round(amount, 4), round(st["budget"], 4), round(total, 4)])
     save_state(st)
     print(f"{'입금' if amount > 0 else '출금'} {abs(amount):,.2f} USDT 반영. 넣은 돈 {st['budget']:,.2f}, 봇 평가액 {total + amount:,.2f} USDT.")
-    if amount > 0:
+    if in_futures:
+        print("선물 지갑에 있던 USDT 를 몫마다 증거금으로 적었다(이체 없음). 다음 실행 때 목표 비중에 맞춘다.")
+    elif amount > 0:
         print("바이낸스 현물 지갑에 그만큼 USDT 가 있어야 한다. 다음 실행 때 목표 비중에 맞춘다.")
     elif min(s["cash"] for s in st["sleeves"].values()) < 0:
         print("현물 지갑 현금이 모자라 다음 실행 때 숏을 갚거나 코인을 팔아 채운다. 그 실행이 끝난 뒤에 꺼낸다.")
@@ -834,6 +849,6 @@ if __name__ == "__main__":
             assert amount > 0
         except (IndexError, ValueError, AssertionError):
             sys.exit(f"사용법: python3 scripts/live_binance.py {cmd} 금액(USDT)")
-        flow(amount if cmd == "--deposit" else -amount)
+        flow(amount if cmd == "--deposit" else -amount, in_futures="--futures" in args)
     else:
         {"--check": check, "--report": report, "--status": status}.get(cmd, run)()

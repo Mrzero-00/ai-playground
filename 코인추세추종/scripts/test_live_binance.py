@@ -549,6 +549,35 @@ def test_signal_uses_four_moving_averages():
     assert lb.signal(px) == 1.0 and lb.signal(px[:-1] + [50.0]) == 0.0
 
 
+def test_deposit_already_in_futures_wallet_moves_nothing():
+    b = Bot()
+    b.w, b.g = {"BTC": 0.0, "ETH": 0.0}, {"BTC": -1, "ETH": -1}
+    b.run()
+    b.ex.W += 9.24  # 예전부터 선물 지갑에 있던 돈
+    n, x = len(b.ex.posts), len(b.ex.xfers)
+    lb.flow(9.24, in_futures=True)
+    st = b.st
+    assert abs(st["budget"] - 1009.24) < 1e-9 and not lb.STATE.read_text().count('"cash": -')
+    b.matches()
+    lb.flow(100, in_futures=True)  # 선물 지갑에 장부 밖의 돈이 그만큼 없으면 거절
+    assert abs(b.st["budget"] - 1009.24) < 1e-9
+    st = b.run(days=0, hours=4)
+    b.matches()
+    # 몫마다 4.62 늘어 ETH 숏 목표가 0.002 개(4 USDT) 늘지만 최소 명목 20 USDT 미만이라 주문도 이체도 없다
+    assert len(b.ex.posts) == n and len(b.ex.xfers) == x and st["check"]["notes"] == []
+
+
+def test_small_short_increase_sends_no_margin():
+    b = Bot()
+    b.w, b.g = {"BTC": 0.0, "ETH": 0.5}, {"BTC": -1, "ETH": -1}
+    b.run()
+    x = len(b.ex.xfers)
+    b.w = {"BTC": 0.0, "ETH": 0.47}  # 비중이 조금 줄어 숏을 조금 늘려야 한다(최소 명목 미만)
+    st = b.run()
+    b.matches()
+    assert b.ex.count("fut", "ETH", "SELL") == 1 and len(b.ex.xfers) == x
+
+
 if __name__ == "__main__":
     tests = [(k, v) for k, v in list(globals().items()) if k.startswith("test_")]
     for name, fn in tests:

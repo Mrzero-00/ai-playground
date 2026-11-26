@@ -695,11 +695,49 @@ def b26(ctx):
     return res
 
 
-BOT_ROUNDS = {4: b4, 20: b20, 24: b24, 26: b26}  # 회차 → 함수(ctx) → {이름: {구간: {비용: 잔고·샤프·MDD}}, 판정}
+def b27(ctx):
+    """BTC 2014 ~ 2017(Coin Metrics 달러 종가, 한 코인): 봇 대 퍼엘 바닥 매수(B = 60일 · 0.5 판정, 26회차 9칸은 참고)."""
+    c = pd.read_csv(C.ML / "cmprice_BTC.csv", parse_dates=["date"], index_col="date").close.astype(float)
+    c = c.reindex(pd.date_range(c.index.min(), "2017-12-31")).ffill()
+    iss = pd.read_csv(C.ML / "issuance_BTC.csv", parse_dates=["date"], index_col="date").iss_usd.astype(float)
+    on = ((iss / iss.rolling(365).mean()).shift(1).reindex(c.index) < 0.5).fillna(False)
+    print("   퍼엘 < 0.5 인 날(2014 ~ 2017):", int(on["2014":].sum()), "· 시기:", ", ".join(sorted({d.strftime("%Y-%m") for d in on[on & (on.index >= "2014-01-01")].index})))
+    w0 = bot_weights(c)
+    variants = {"지금 봇 (하루 한 번)": w0}
+    for n in (30, 60, 90):
+        h = hold_after(on, n)
+        for m in (0.25, 0.5, 1.0):
+            variants[f"{n}일 · 최소 {m:g}" + (" (판정)" if (n, m) == (60, 0.5) else "")] = w0.where(~h, np.maximum(w0, m))
+    out = {}
+    for name, w in variants.items():
+        row = {}
+        for cn, cost in BOT_COSTS.items():
+            r = (w.shift() * c.pct_change() - cost * w.diff().abs().shift()).fillna(0.0)
+            r = r[r.index >= "2014-01-01"]
+            eq = (1 + r).cumprod()
+            row[cn] = {"잔고": float(SEED * eq.iloc[-1]), "샤프": float(r.mean() / r.std() * np.sqrt(365)), "MDD": float((eq / eq.cummax() - 1).min())}
+        out[name] = {"2014~2017": row}
+    b = out["지금 봇 (하루 한 번)"]["2014~2017"]
+    for name, row in out.items():
+        if name.startswith("지금"):
+            continue
+        a = row["2014~2017"]
+        row["통과"] = bool(a["0.10%"]["샤프"] > b["0.10%"]["샤프"] and a["0.10%"]["MDD"] >= b["0.10%"]["MDD"] and a["0.25%"]["샤프"] > b["0.25%"]["샤프"])
+    print("== 27회차 — BTC 2014-01 ~ 2017-12, 100만원, 잔고 0.10% (0.25%) · 샤프 (0.25%) · MDD")
+    for name, row in out.items():
+        a = row["2014~2017"]
+        print(f"   {name:24s} {a['0.10%']['잔고'] / 1e4:8,.0f}만 ({a['0.25%']['잔고'] / 1e4:8,.0f}만) · {a['0.10%']['샤프']:.2f} ({a['0.25%']['샤프']:.2f}) · {a['0.10%']['MDD'] * 100:5.1f}% {'통과' if row.get('통과') else ('기각' if '통과' in row else '')}")
+    return out
+
+
+BOT_ROUNDS = {4: b4, 20: b20, 24: b24, 26: b26, 27: b27}  # 회차 → 함수(ctx) → {이름: {구간: {비용: 잔고·샤프·MDD}}, 판정}
 
 
 def run_bot(k, ctx, store):
     res = BOT_ROUNDS[k](ctx)
+    if k == 27:  # 한 기간 · 한 코인이라 따로 찍었다
+        store["rounds"][str(k)] = {"made": datetime.now().isoformat(timespec="seconds"), "bot": res}
+        return
     print(f"== {k}회차 — 봇 백테스트, 100만원, 잔고 0.10% (0.25%) · 샤프 · MDD, 2020~ | 2023~")
     for name, row in res.items():
         cells = " | ".join(f"{row[sn]['0.10%']['잔고'] / 1e4:6,.0f}만 ({row[sn]['0.25%']['잔고'] / 1e4:6,.0f}만) · {row[sn]['0.10%']['샤프']:.2f} ({row[sn]['0.25%']['샤프']:.2f}) · {row[sn]['0.10%']['MDD'] * 100:5.1f}%" for sn in BOT_STARTS)

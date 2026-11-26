@@ -53,7 +53,8 @@ def expanding_pct(x):
     return pd.Series(out, index=x.index)
 
 
-def features(sym, days, macro):
+def raw_features(sym, days, macro):
+    """지표 원값(백분위로 바꾸기 전). 업비트 일봉 종가 c 와 함께."""
     u = pd.read_csv(C.ROOT / "data" / f"KRW-{sym}.csv", parse_dates=["date"], index_col="date").astype(float).reindex(days)
     c, lr = u.close, np.log(u.close)
     sp = pd.read_csv(C.ML / f"spot_{sym}.csv", parse_dates=["date"], index_col="date").close.astype(float).reindex(days)
@@ -74,6 +75,11 @@ def features(sym, days, macro):
          "dvol": per_asset("dvol.csv", sym, "dvol").reindex(days), "mvrv": np.log(per_asset("mvrv.csv", sym, "mvrv").reindex(days)),
          "netflow": (oc.inflow - oc.outflow).rolling(7).sum() / exs, "active": oc.active.rolling(7).mean() / oc.active.rolling(90).mean(),
          "spx": macro["spx"], "vix": macro["vix"], "credit": macro["credit"], "real": macro["real"]}
+    return c, X
+
+
+def features(sym, days, macro):
+    c, X = raw_features(sym, days, macro)
     return c, {k: expanding_pct(v) for k, v in X.items()}
 
 
@@ -91,12 +97,15 @@ def grade(z):
     return np.where(z >= 2, 2, np.where(z >= 1, 1, np.where(z <= -2, -2, np.where(z <= -1, -1, 0))))
 
 
-def events(sym, c):
-    """여유 정답의 구간(14일 넘게) 시작일. 자료 맨 앞 구간은 사건이 아니다."""
-    lr = np.log(c)
-    zc = (lr.shift(-H) - lr.shift(H)) / (lr.diff().rolling(2 * H).std().shift(-H) * np.sqrt(2 * H))
-    ok = zc.notna()
-    h = pd.Series(hyst(zc[ok]), index=zc[ok].index)
+def events(sym, c, label=None):
+    """여유 정답의 구간(14일 넘게) 시작일. 자료 맨 앞 구간은 사건이 아니다. label = 날마다 −2 ~ 2 를 주는 함수(없으면 변동성 기준)."""
+    if label is None:
+        lr = np.log(c)
+        zc = (lr.shift(-H) - lr.shift(H)) / (lr.diff().rolling(2 * H).std().shift(-H) * np.sqrt(2 * H))
+        ok = zc.notna()
+        h = pd.Series(hyst(zc[ok]), index=zc[ok].index)
+    else:
+        h = label(c)
     sgn = np.sign(h)
     rid = (sgn != sgn.shift()).cumsum()
     out = []
@@ -115,18 +124,12 @@ def forward_grade(c):
     return pd.Series(np.where(zf.notna(), grade(zf), np.nan), index=c.index)
 
 
-def main():
-    days = pd.date_range("2017-09-25", "2026-11-25")
-    macro = macro_series(days)
-    ev, P, FG, last = [], {}, {}, {}
-    for s in SYMS:
-        c, P[s] = features(s, days, macro)
-        e, last[s] = events(s, c.dropna())
-        ev += e
-        FG[s] = forward_grade(c)
+def analyze(ev, P, FG, names, codes=None):
+    """사건마다 전날 지표 백분위를 붙이고, 동떨어진 사건을 빼고, 장 × 지표마다 양상·검증·쓸모를 낸다. codes = 장 이름 → 뒤 30일 장 값."""
+    codes = codes or {n: g for g, n in TYPES.items()}
     for e in ev:
         t = e["시작"] - pd.Timedelta(days=1)
-        e["값"] = {k: (None if np.isnan(v := P[e["코인"]][k].get(t, np.nan)) else float(v)) for k in NAMES}
+        e["값"] = {k: (None if np.isnan(v := P[e["코인"]][k].get(t, np.nan)) else float(v)) for k in names}
         e["기간"] = "찾기" if FIND[0] <= str(e["시작"].date()) <= FIND[1] else ("검증" if any(a <= str(e["시작"].date()) <= b for a, b in HOLD) else "밖")
     find = [e for e in ev if e["기간"] == "찾기"]
 
@@ -134,10 +137,10 @@ def main():
     outliers = []
     for ty in TYPES.values():
         grp = [e for e in find if e["장"] == ty]
-        med = {k: np.median([e["값"][k] for e in grp if e["값"][k] is not None] or [np.nan]) for k in NAMES}
-        mad = {k: 1.4826 * np.median([abs(e["값"][k] - med[k]) for e in grp if e["값"][k] is not None] or [np.nan]) for k in NAMES}
+        med = {k: np.median([e["값"][k] for e in grp if e["값"][k] is not None] or [np.nan]) for k in names}
+        mad = {k: 1.4826 * np.median([abs(e["값"][k] - med[k]) for e in grp if e["값"][k] is not None] or [np.nan]) for k in names}
         for e in grp:
-            have = [k for k in NAMES if e["값"][k] is not None and mad[k] > 0]
+            have = [k for k in names if e["값"][k] is not None and mad[k] > 0]
             far = [k for k in have if abs(e["값"][k] - med[k]) > 3 * mad[k]]
             if have and len(far) >= len(have) / 2:
                 e["동떨어짐"] = far
@@ -147,7 +150,7 @@ def main():
 
     rows = []
     for ty in TYPES.values():
-        for k in NAMES:
+        for k in names:
             v = np.array([e["값"][k] for e in find if e["장"] == ty and e["값"][k] is not None])
             if len(v) == 0:
                 continue
@@ -158,10 +161,10 @@ def main():
             hv = np.array([e["값"][k] for e in hold if e["장"] == ty and e["값"][k] is not None])
             hs = float(np.mean(hv > 50) if up else np.mean(hv < 50)) if len(hv) else None
             check = "검증 못 함" if len(hv) < 3 else ("검증 통과" if hs >= 0.6 else "검증 실패")
-            row = {"장": ty, "지표": k, "이름": NAMES[k], "n": len(v), "중앙 백분위": med, "쪽": "위" if up else "아래", "같은 쪽": share,
+            row = {"장": ty, "지표": k, "이름": names[k], "n": len(v), "중앙 백분위": med, "쪽": "위" if up else "아래", "같은 쪽": share,
                    "통과": bool(ok), "검증 n": int(len(hv)), "검증 같은 쪽": hs, "검증": check if ok else None}
             if ok:  # 쓸모 확인: 그 구간에 있던 모든 날에서 뒤 30일이 그 장이었던 비율 대 평소
-                code = [g for g, n in TYPES.items() if n == ty][0]
+                code = codes[ty]
                 zone, base = [], []
                 for s in SYMS:
                     p, fg = P[s][k], FG[s]
@@ -171,6 +174,20 @@ def main():
                 zb, bb = np.concatenate(zone), np.concatenate(base)
                 row["쓸모"] = {"구간 날": int(len(zb)), "구간에서 그 장": float(zb.mean()) if len(zb) else None, "평소 그 장": float(bb.mean())}
             rows.append(row)
+
+    return find, hold, outliers, rows
+
+
+def main():
+    days = pd.date_range("2017-09-25", "2026-11-25")
+    macro = macro_series(days)
+    ev, P, FG, last = [], {}, {}, {}
+    for s in SYMS:
+        c, P[s] = features(s, days, macro)
+        e, last[s] = events(s, c.dropna())
+        ev += e
+        FG[s] = forward_grade(c)
+    find, hold, outliers, rows = analyze(ev, P, FG, NAMES)
 
     out = {"made": datetime.now().isoformat(timespec="seconds"), "names": NAMES, "정답 끝": {s: str(d.date()) for s, d in last.items()},
            "사건": [{**{k: v for k, v in e.items() if k != "시작"}, "시작": str(e["시작"].date())} for e in ev], "양상": rows}

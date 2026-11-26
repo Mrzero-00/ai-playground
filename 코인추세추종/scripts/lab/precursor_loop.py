@@ -990,7 +990,63 @@ def b30(ctx):
     return res
 
 
-BOT_ROUNDS = {4: b4, 20: b20, 24: b24, 26: b26, 27: b27, 28: b28, 30: b30}  # 회차 → 함수(ctx) → {이름: {구간: {비용: 잔고·샤프·MDD}}, 판정}
+def b36(ctx, H_=30, STEP=30, MIN_TRAIN=500):
+    """메타 라벨링: 봇 비중 > 0 인 날, 뒤 30일 봇 수익 > 0 일 확률(HistGradientBoosting, 워크포워드). < 0.4 면 그날 비중 0."""
+    from sklearn.ensemble import HistGradientBoostingClassifier
+    PCT_FN[0] = rolling_pct
+    try:
+        c2 = context()
+        days = c2["days"]
+        _, _, nq = stock_state("나스닥", days)
+        iss = pd.read_csv(C.ML / "issuance_BTC.csv", parse_dates=["date"], index_col="date").iss_usd.astype(float)
+        puell = (iss / iss.rolling(365).mean()).shift(1).reindex(days)
+        a = pd.read_csv(C.ML / "assets_long.csv", parse_dates=["date"], index_col="date").astype(float)
+        oil = P1.cal(a["유가"].dropna().shift(1), days)
+        lq = pd.read_csv(C.ML / "liquidity.csv", parse_dates=["date"], index_col="date").astype(float)
+        lq = lq.reindex(pd.date_range(lq.index.min(), days[-1])).ffill()
+        net = (lq.walcl - lq.tga - lq.rrp.fillna(0.0) * 1000).shift(7).reindex(days)
+        rows = []
+        for s in P1.SYMS:
+            c = c2["closes"][s]
+            cc = c.dropna()
+            w = bot_weights(cc).reindex(days)
+            br = (w.shift() * c.pct_change()).fillna(0.0)
+            fwd = (1 + br).rolling(H_).apply(np.prod, raw=True).shift(-H_) - 1
+            X = pd.DataFrame({k: v for k, v in c2["pct"][s].items()}, index=days)
+            X["puell"], X["w"] = puell, w
+            X["rel"] = rolling_pct(c / c.shift(30) - 1 - (nq / nq.shift(30) - 1))
+            X["liq30"] = rolling_pct(net / net.shift(30) - 1)
+            X["oil30"] = rolling_pct(oil / oil.shift(30) - 1)
+            X["_y"] = (fwd > 0).astype(float).where(fwd.notna() & c.shift(-H_).notna())
+            X["_s"] = s
+            rows.append(X[(w > 0) & c.notna()])
+        A = pd.concat(rows).rename_axis("date").reset_index().sort_values("date", kind="stable").reset_index(drop=True)
+        cols = [k for k in A.columns if not k.startswith("_") and k != "date"]
+        prob = {s: pd.Series(np.nan, index=days) for s in P1.SYMS}
+        dates = np.sort(A.date.unique())
+        start = np.searchsorted(dates, np.datetime64("2018-01-01"))
+        for i in range(start, len(dates), STEP):
+            d = dates[i]
+            nxt = dates[i + STEP] if i + STEP < len(dates) else dates[-1] + np.timedelta64(1, "D")
+            tr = (A.date.to_numpy() <= d - np.timedelta64(H_, "D")) & A._y.notna().to_numpy()
+            te = (A.date.to_numpy() >= d) & (A.date.to_numpy() < nxt)
+            if tr.sum() < MIN_TRAIN or not te.any():
+                continue
+            m = HistGradientBoostingClassifier(random_state=0).fit(A.loc[tr, cols].to_numpy(float), A.loc[tr, "_y"].to_numpy(int))
+            pr = m.predict_proba(A.loc[te, cols].to_numpy(float))[:, list(m.classes_).index(1)]
+            for s in P1.SYMS:
+                k = (A.loc[te, "_s"] == s).to_numpy()
+                prob[s].loc[pd.DatetimeIndex(A.loc[te, "date"].to_numpy()[k])] = pr[k]
+    finally:
+        PCT_FN[0] = P1.expanding_pct
+    ctx["on"] = {s: (prob[s] < 0.4).fillna(False) for s in P1.SYMS}
+    for s in P1.SYMS:
+        p_ = prob[s][prob[s].index >= "2020-01-01"]
+        print(f"   {s}: 보유일 중 예측한 날 {int(p_.notna().sum())} · 확률 < 0.4 로 비중 0 이 된 날 {int((p_ < 0.4).sum())}")
+    return bot_test(ctx, {"지금 봇 (하루 한 번)": lambda w, o: w, "메타 라벨링(확률 < 0.4 면 0)": lambda w, o: w.where(~o, 0.0)})
+
+
+BOT_ROUNDS = {4: b4, 20: b20, 24: b24, 26: b26, 27: b27, 28: b28, 30: b30, 36: b36}  # 회차 → 함수(ctx) → {이름: {구간: {비용: 잔고·샤프·MDD}}, 판정}
 
 
 def run_bot(k, ctx, store):

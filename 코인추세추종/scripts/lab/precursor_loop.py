@@ -96,10 +96,80 @@ def r3(ctx):
 ROUNDS = {3: r3}  # 회차 → 함수(ctx) → {규칙 이름: test_rule 결과}
 
 
+# ---------- 봇 백테스트 회차 ----------
+
+BOT_END, SEED = "2026-11-22", 1_000_000
+BOT_STARTS = {"2020~": "2020-01-01", "2023~": "2023-01-01"}
+BOT_COSTS = {"0.10%": 0.001, "0.25%": 0.0025}
+
+
+def bot_weights(c):
+    return sum((c > c.rolling(n).mean()).astype(float) for n in (20, 50, 100, 200)) / 4
+
+
+def bot_test(ctx, variants):
+    """variants[이름] = 함수(w, on) → 새 비중(날마다). on = 규칙이 켜진 날. 업비트 현물 봇(하루 한 번, 두 코인 날마다 반반)."""
+    out = {}
+    for name, fn in variants.items():
+        row = {}
+        for sn, st in BOT_STARTS.items():
+            row[sn] = {}
+            for cn, cost in BOT_COSTS.items():
+                parts = []
+                for s in P1.SYMS:
+                    c = ctx["closes"][s].dropna()
+                    c = c[c.index <= BOT_END]
+                    w = fn(bot_weights(c), ctx["on"][s].reindex(c.index).fillna(False).astype(bool))
+                    r = (w.shift() * c.pct_change() - cost * w.diff().abs().shift()).fillna(0.0)
+                    parts.append(r[r.index >= st])
+                r = pd.concat(parts, axis=1).fillna(0.0).mean(axis=1)
+                eq = (1 + r).cumprod()
+                row[sn][cn] = {"잔고": float(SEED * eq.iloc[-1]), "샤프": float(r.mean() / r.std() * np.sqrt(365)), "MDD": float((eq / eq.cummax() - 1).min())}
+        out[name] = row
+    base = out[next(iter(out))]
+    for name, row in list(out.items())[1:]:
+        row["판정"] = {"샤프 > 봇 (두 구간)": all(row[sn]["0.10%"]["샤프"] > base[sn]["0.10%"]["샤프"] for sn in BOT_STARTS),
+                     "MDD 나쁘지 않음": all(row[sn]["0.10%"]["MDD"] >= base[sn]["0.10%"]["MDD"] for sn in BOT_STARTS),
+                     "0.25% 에서도": all(row[sn]["0.25%"]["샤프"] > base[sn]["0.25%"]["샤프"] for sn in BOT_STARTS)}
+        row["통과"] = all(row["판정"].values())
+    return out
+
+
+def no_raise(w, on):
+    """켜진 날에는 비중을 늘리지 않는다(줄이는 것은 그대로)."""
+    out, prev = w.copy(), 0.0
+    for i, (v, o) in enumerate(zip(w.to_numpy(), on.to_numpy())):
+        x = min(v, prev) if o and not np.isnan(v) else v
+        out.iloc[i] = x
+        prev = 0.0 if np.isnan(x) else x
+    return out
+
+
+def b4(ctx):
+    ctx["on"] = {s: (ctx["pct"][s]["bbw"] <= 30) & (ctx["pct"][s]["spx"] <= 30) for s in P1.SYMS}
+    return bot_test(ctx, {"지금 봇 (하루 한 번)": lambda w, on: w, "A 켜진 날 늘리지 않음": no_raise, "B 켜진 날 비중 0": lambda w, on: w.where(~on, 0.0)})
+
+
+BOT_ROUNDS = {4: b4}  # 회차 → 함수(ctx) → {이름: {구간: {비용: 잔고·샤프·MDD}}, 판정}
+
+
+def run_bot(k, ctx, store):
+    res = BOT_ROUNDS[k](ctx)
+    print(f"== {k}회차 — 봇 백테스트, 100만원, 잔고 0.10% (0.25%) · 샤프 · MDD, 2020~ | 2023~")
+    for name, row in res.items():
+        cells = " | ".join(f"{row[sn]['0.10%']['잔고'] / 1e4:6,.0f}만 ({row[sn]['0.25%']['잔고'] / 1e4:6,.0f}만) · {row[sn]['0.10%']['샤프']:.2f} ({row[sn]['0.25%']['샤프']:.2f}) · {row[sn]['0.10%']['MDD'] * 100:5.1f}%" for sn in BOT_STARTS)
+        print(f"   {name:24s} {cells} {'통과' if row.get('통과') else ('기각' if '통과' in row else '')}")
+    store["rounds"][str(k)] = {"made": datetime.now().isoformat(timespec="seconds"), "bot": res}
+
+
 def run(k):
     ctx = context()
-    rules = ROUNDS[k](ctx)
     store = json.loads(OUT.read_text()) if OUT.exists() else {"rounds": {}}
+    if k in BOT_ROUNDS:
+        run_bot(k, ctx, store)
+        OUT.write_text(json.dumps(store, ensure_ascii=False, indent=1))
+        return
+    rules = ROUNDS[k](ctx)
     print(f"== {k}회차 — 규칙이 켜진 날에서 뒤 30일 장이 나온 배수(켜졌을 때 ÷ 평소), 찾는 기간 | 검증 기간")
     won = {}
     for name, res in rules.items():

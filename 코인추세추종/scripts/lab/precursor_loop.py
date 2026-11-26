@@ -320,7 +320,20 @@ def r16(ctx):
     return out
 
 
-ROUNDS = {3: r3, 5: r5, 6: r6, 8: r8, 9: r9, 10: r10, 11: r11, 13: r13, 14: r14, 16: r16}  # 회차 → 함수(ctx) → {규칙 이름: test_rule 결과}
+def r17(ctx):
+    """퍼엘 배수: BTC 하루 발행량 달러 가치 ÷ 365일 평균(하루 늦춤), 두 코인에 같이."""
+    iss = pd.read_csv(C.ML / "issuance_BTC.csv", parse_dates=["date"], index_col="date").iss_usd.astype(float)
+    puell = (iss / iss.rolling(365).mean()).shift(1)
+    pu = puell.reindex(ctx["days"])
+    pp = P1.expanding_pct(pu)
+    ctx["퍼엘 최근"] = {str(d.date()): float(v) for d, v in pu.dropna().tail(3).items()}
+    return {"퍼엘 < 0.5 (출처: 큰 바닥)": test_rule(ctx, {s: pu < 0.5 for s in P1.SYMS}),
+            "퍼엘 > 4 (출처: 큰 꼭대기)": test_rule(ctx, {s: pu > 4 for s in P1.SYMS}),
+            "퍼엘 하위 10%": test_rule(ctx, {s: pp <= 10 for s in P1.SYMS}),
+            "퍼엘 상위 10%": test_rule(ctx, {s: pp >= 90 for s in P1.SYMS})}
+
+
+ROUNDS = {3: r3, 5: r5, 6: r6, 8: r8, 9: r9, 10: r10, 11: r11, 13: r13, 14: r14, 16: r16, 17: r17}  # 회차 → 함수(ctx) → {규칙 이름: test_rule 결과}
 
 
 # ---------- 봇 백테스트 회차 ----------

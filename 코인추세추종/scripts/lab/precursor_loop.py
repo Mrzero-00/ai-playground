@@ -93,7 +93,36 @@ def r3(ctx):
     return out
 
 
-ROUNDS = {3: r3}  # 회차 → 함수(ctx) → {규칙 이름: test_rule 결과}
+def stock_state(col, days):
+    """주가 지수(거래일)의 200거래일선 위·아래와 지난 20거래일 변화, 달력 날짜로(빈 날은 앞 값)."""
+    m = pd.read_csv(C.ML / "macro.csv", parse_dates=["date"], index_col="date")[col].dropna().astype(float)
+    above = (m > m.rolling(200).mean()).where(m.rolling(200).mean().notna())
+    up = (m.pct_change(20) > 0).where(m.pct_change(20).notna())
+    return P1.cal(above.astype(float), days), P1.cal(up.astype(float), days), P1.cal(m, days)
+
+
+def r5(ctx):
+    days = ctx["days"]
+    out, rules = {}, {}
+    for col, nm in (("S&P 500", "S&P 500"), ("나스닥", "나스닥")):
+        above, up, _ = stock_state(col, days)
+        for a_v, a_n in ((1.0, "200일선 위"), (0.0, "200일선 아래")):
+            for u_v, u_n in ((1.0, "20일 오름"), (0.0, "20일 내림")):
+                rules[f"{nm} {a_n} · {u_n}"] = {s: (above == a_v) & (up == u_v) for s in P1.SYMS}
+    _, _, nq = stock_state("나스닥", days)
+    for side, f in (("높음", lambda x: x >= 70), ("낮음", lambda x: x <= 30)):
+        rel = {s: P1.expanding_pct(ctx["closes"][s] / ctx["closes"][s].shift(30) - 1 - (nq / nq.shift(30) - 1)) for s in P1.SYMS}
+        rules[f"코인 상대 강도(나스닥 대비) {side}"] = {s: f(rel[s]) for s in P1.SYMS}
+    v = pd.read_csv(C.ML / "risk.csv", parse_dates=["date"], index_col="date").VIX.dropna().astype(float)
+    vj = P1.expanding_pct(P1.cal(v - v.shift(5), days))
+    rules["VIX 급등(5일 변화 상위 10%)"] = {s: vj >= 90 for s in P1.SYMS}
+    for name, on in rules.items():
+        out[name] = test_rule(ctx, on)
+        out[f"조용함 + {name}"] = test_rule(ctx, {s: on[s] & (ctx["pct"][s]["bbw"] <= 30) for s in P1.SYMS})
+    return out
+
+
+ROUNDS = {3: r3, 5: r5}  # 회차 → 함수(ctx) → {규칙 이름: test_rule 결과}
 
 
 # ---------- 봇 백테스트 회차 ----------

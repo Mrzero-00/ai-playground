@@ -194,7 +194,25 @@ def r8(ctx):
     return out
 
 
-ROUNDS = {3: r3, 5: r5, 6: r6, 8: r8}  # 회차 → 함수(ctx) → {규칙 이름: test_rule 결과}
+def r9(ctx):
+    """조용함 뒤 첫 밴드 밖 종가(2차 '다' 와 같은 사건), 그날 거래대금 ≥ 지난 90일 평균 × 1.5 면 거래량 확인. 돌파한 날부터 5일 켜짐."""
+    out, on = {}, {}
+    for s in P1.SYMS:
+        c = ctx["closes"][s].dropna()
+        v = pd.read_csv(C.ROOT / "data" / f"KRW-{s}.csv", parse_dates=["date"], index_col="date").value.astype(float).reindex(c.index)
+        vr = v / v.shift(1).rolling(90).mean()
+        for e in P2.breakouts(c, ctx["pct"][s]["bbw"].reindex(c.index)):
+            conf = bool(vr.get(e["날"], np.nan) >= 1.5)
+            span = pd.date_range(e["날"], periods=5)
+            for key in (f"{e['방향']} 돌파", f"{e['방향']} 돌파 + 거래량 확인" if conf else None):
+                if key:
+                    on.setdefault(key, {x: pd.Series(False, index=ctx["days"]) for x in P1.SYMS})[s].loc[span.intersection(ctx["days"])] = True
+    for key in ("위 돌파 + 거래량 확인", "아래 돌파 + 거래량 확인", "위 돌파", "아래 돌파"):
+        out[key] = test_rule(ctx, on[key])
+    return out
+
+
+ROUNDS = {3: r3, 5: r5, 6: r6, 8: r8, 9: r9}  # 회차 → 함수(ctx) → {규칙 이름: test_rule 결과}
 
 
 # ---------- 봇 백테스트 회차 ----------

@@ -785,7 +785,9 @@ def check():
     for c in COINS:
         p = position(c)
         print(f"{c}USDT 선물: 마진 {p.get('marginType')} · 레버리지 {p.get('leverage')} · 포지션 {p.get('positionAmt')} (숏을 처음 잡을 때 봇이 격리 · 1배로 맞춘다)")
-    if STATE.exists() and not reconcile(st):
+    if not LIVE:
+        print("드라이런이라 장부(가상 돈)를 계좌와 견주지 않는다. BINANCE_LIVE=1 이면 실전 장부와 견준다.")
+    elif STATE.exists() and not reconcile(st):
         print("장부와 계좌: 맞음")
     if STOP.exists():
         print("STOP 파일 있음:", STOP.read_text().strip())

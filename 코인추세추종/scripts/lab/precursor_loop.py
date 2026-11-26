@@ -730,7 +730,59 @@ def b27(ctx):
     return out
 
 
-BOT_ROUNDS = {4: b4, 20: b20, 24: b24, 26: b26, 27: b27}  # 회차 → 함수(ctx) → {이름: {구간: {비용: 잔고·샤프·MDD}}, 판정}
+def macro_jumps(days):
+    """미국 순유동성(7일 늦춤) · 유가(하루 늦춤) 30일 변화의 3년 이동 백분위 ≥ 90."""
+    a = pd.read_csv(C.ML / "assets_long.csv", parse_dates=["date"], index_col="date").astype(float)
+    oil = P1.cal(a["유가"].dropna().shift(1), days)
+    lq = pd.read_csv(C.ML / "liquidity.csv", parse_dates=["date"], index_col="date").astype(float)
+    lq = lq.reindex(pd.date_range(lq.index.min(), days[-1])).ffill()
+    net = (lq.walcl - lq.tga - lq.rrp.fillna(0.0) * 1000).shift(7).reindex(days)
+    L_ = (rolling_pct(net / net.shift(30) - 1) >= 90).fillna(False)
+    O_ = (rolling_pct(oil / oil.shift(30) - 1) >= 90).fillna(False)
+    return {"L 유동성": L_, "O 유가": O_, "L 또는 O": L_ | O_}
+
+
+def b28(ctx):
+    """유동성 · 유가 급등 뒤 60일 최소 0.5: 업비트 두 코인(2020 ~ · 2023 ~)과 BTC 달러(2014 ~ 2017)."""
+    J = macro_jumps(ctx["days"])
+    variants = {"지금 봇 (하루 한 번)": lambda w, o: w}
+    for name, on in J.items():
+        h = hold_after(on, 60)
+        variants[f"{name} 뒤 60일 최소 0.5"] = (lambda h_: (lambda w, o: w.where(~h_.reindex(w.index).fillna(False), np.maximum(w, 0.5))))(h)
+    ctx["on"] = {s: pd.Series(False, index=ctx["days"]) for s in P1.SYMS}
+    res = bot_test(ctx, variants)
+    c = pd.read_csv(C.ML / "cmprice_BTC.csv", parse_dates=["date"], index_col="date").close.astype(float)
+    c = c.reindex(pd.date_range(c.index.min(), "2017-12-31")).ffill()
+    J2 = macro_jumps(c.index)
+    w0 = bot_weights(c)
+    old = {}
+    for name in ["지금 봇 (하루 한 번)"] + [f"{n} 뒤 60일 최소 0.5" for n in J2]:
+        w = w0 if name.startswith("지금") else w0.where(~hold_after(J2[name.split(" 뒤")[0]], 60), np.maximum(w0, 0.5))
+        row = {}
+        for cn, cost in BOT_COSTS.items():
+            r = (w.shift() * c.pct_change() - cost * w.diff().abs().shift()).fillna(0.0)
+            r = r[r.index >= "2014-01-01"]
+            eq = (1 + r).cumprod()
+            row[cn] = {"잔고": float(SEED * eq.iloc[-1]), "샤프": float(r.mean() / r.std() * np.sqrt(365)), "MDD": float((eq / eq.cummax() - 1).min())}
+        old[name] = row
+    b = old["지금 봇 (하루 한 번)"]
+    for name, row in res.items():
+        if name.startswith("지금"):
+            continue
+        a = old[name]
+        row["2014~2017"] = a
+        row["2014~2017 통과"] = bool(a["0.10%"]["샤프"] > b["0.10%"]["샤프"] and a["0.10%"]["MDD"] >= b["0.10%"]["MDD"] and a["0.25%"]["샤프"] > b["0.25%"]["샤프"])
+        row["둘 다 통과"] = bool(row.get("통과") and row["2014~2017 통과"])
+    res["지금 봇 (하루 한 번)"]["2014~2017"] = b
+    print("== 2014 ~ 2017 (BTC 달러): 잔고 0.10% (0.25%) · 샤프 (0.25%) · MDD")
+    for name, row in res.items():
+        a = row["2014~2017"]
+        print(f"   {name:26s} {a['0.10%']['잔고'] / 1e4:7,.0f}만 ({a['0.25%']['잔고'] / 1e4:7,.0f}만) · {a['0.10%']['샤프']:.2f} ({a['0.25%']['샤프']:.2f}) · {a['0.10%']['MDD'] * 100:5.1f}%"
+              + ("" if name.startswith("지금") else f" · 이 기간 {'통과' if row['2014~2017 통과'] else '기각'} · 둘 다 {'통과' if row['둘 다 통과'] else '아님'}"))
+    return res
+
+
+BOT_ROUNDS = {4: b4, 20: b20, 24: b24, 26: b26, 27: b27, 28: b28}  # 회차 → 함수(ctx) → {이름: {구간: {비용: 잔고·샤프·MDD}}, 판정}
 
 
 def run_bot(k, ctx, store):

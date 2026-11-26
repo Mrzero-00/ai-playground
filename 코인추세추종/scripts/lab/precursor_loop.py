@@ -14,6 +14,24 @@ import precursor as P1
 import precursor2 as P2
 
 OUT = C.OUT / "precursor_loop.json"
+PCT_FN = [P1.expanding_pct]  # 18회차부터 바꿔 끼울 수 있다
+
+
+def pct_of(x):
+    return PCT_FN[0](x)
+
+
+def rolling_pct(x, window=1095, minimum=365):
+    """지난 3년(달력 1,095일) 값 안에서의 백분위(0 ~ 100), 값이 365개 이상일 때."""
+    def f(a):
+        v = a[-1]
+        if np.isnan(v):
+            return np.nan
+        a = a[~np.isnan(a)]
+        if len(a) < minimum:
+            return np.nan
+        return ((a < v).sum() + (a <= v).sum()) / 2 / len(a) * 100
+    return x.rolling(window, min_periods=1).apply(f, raw=True)
 UP, DOWN = ("대상승", "상승"), ("하락", "대하락")
 CODE = {n: g for g, n in P1.TYPES.items()}
 
@@ -30,7 +48,7 @@ def context():
     for s in P1.SYMS:
         X = {**raw[s], **P2.new_raw(s, days, raw[s], closes[s], closes)}
         ctx["raw"][s] = X
-        ctx["pct"][s] = {k: (X[k] if k in P2.RAW else P1.expanding_pct(X[k])) for k in names}
+        ctx["pct"][s] = {k: (X[k] if k in P2.RAW else pct_of(X[k])) for k in names}
         ctx["fv"][s], ctx["fa"][s] = P1.forward_grade(closes[s]), P2.forward_abs(closes[s])
     return ctx
 
@@ -111,10 +129,10 @@ def r5(ctx):
                 rules[f"{nm} {a_n} · {u_n}"] = {s: (above == a_v) & (up == u_v) for s in P1.SYMS}
     _, _, nq = stock_state("나스닥", days)
     for side, f in (("높음", lambda x: x >= 70), ("낮음", lambda x: x <= 30)):
-        rel = {s: P1.expanding_pct(ctx["closes"][s] / ctx["closes"][s].shift(30) - 1 - (nq / nq.shift(30) - 1)) for s in P1.SYMS}
+        rel = {s: pct_of(ctx["closes"][s] / ctx["closes"][s].shift(30) - 1 - (nq / nq.shift(30) - 1)) for s in P1.SYMS}
         rules[f"코인 상대 강도(나스닥 대비) {side}"] = {s: f(rel[s]) for s in P1.SYMS}
     v = pd.read_csv(C.ML / "risk.csv", parse_dates=["date"], index_col="date").VIX.dropna().astype(float)
-    vj = P1.expanding_pct(P1.cal(v - v.shift(5), days))
+    vj = pct_of(P1.cal(v - v.shift(5), days))
     rules["VIX 급등(5일 변화 상위 10%)"] = {s: vj >= 90 for s in P1.SYMS}
     for name, on in rules.items():
         out[name] = test_rule(ctx, on)
@@ -133,7 +151,7 @@ def r6(ctx):
         att, up7 = {}, {}
         for s in P1.SYMS:
             x = v[v.article == WIKI[s][lang]].set_index("date").views.astype(float).reindex(ctx["days"]).shift(1)
-            att[s] = P1.expanding_pct(x.rolling(7).mean() / x.rolling(90).mean())
+            att[s] = pct_of(x.rolling(7).mean() / x.rolling(90).mean())
             c = ctx["closes"][s]
             up7[s] = c / c.shift(7) - 1
         out[f"{lang} 관심 급증(상위 10%)"] = test_rule(ctx, {s: att[s] >= 90 for s in P1.SYMS})
@@ -184,7 +202,7 @@ def r8(ctx):
     for k, x in A.items():
         lag = 0 if k == "금" else 1  # 미국 자료는 하루 늦춰 쓴다(발표가 늦은 것이 있다)
         xs = x.shift(lag)
-        ch = P1.expanding_pct(P1.cal(change(P1.cal(xs, ctx["days"]), 30, k in RATES), ctx["days"]))
+        ch = pct_of(P1.cal(change(P1.cal(xs, ctx["days"]), 30, k in RATES), ctx["days"]))
         above = P1.cal((xs > xs.rolling(200).mean()).astype(float).where(xs.rolling(200).mean().notna()), ctx["days"])
         unit = "%p" if k in RATES else "%"
         out[f"{k} 30일 급등(상위 10%)"] = test_rule(ctx, {s: ch >= 90 for s in P1.SYMS})
@@ -265,7 +283,7 @@ def r11(ctx):
     st = st.reindex(pd.date_range(st.index.min(), days[-1])).ffill().shift(1)
     out = {}
     for name, x in (("미국 순유동성", net), ("스테이블코인 시가총액", st)):
-        ch = P1.expanding_pct((x / x.shift(30) - 1).reindex(days))
+        ch = pct_of((x / x.shift(30) - 1).reindex(days))
         above = (x > x.rolling(200).mean()).astype(float).where(x.rolling(200).mean().notna()).reindex(days)
         out[f"{name} 30일 급증(상위 10%)"] = test_rule(ctx, {s: ch >= 90 for s in P1.SYMS})
         out[f"{name} 30일 급감(하위 10%)"] = test_rule(ctx, {s: ch <= 10 for s in P1.SYMS})
@@ -280,7 +298,7 @@ def r13(ctx):
     for s in P1.SYMS:
         pq = pd.read_csv(C.ML / f"perp_{s}.csv", parse_dates=["date"], index_col="date").quote_volume.astype(float).reindex(ctx["days"])
         sq = pd.read_csv(C.ML / f"spot_{s}.csv", parse_dates=["date"], index_col="date").quote_volume.astype(float).reindex(ctx["days"])
-        lev[s] = P1.expanding_pct((pq / sq).rolling(7).mean())
+        lev[s] = pct_of((pq / sq).rolling(7).mean())
     up7 = {s: ctx["closes"][s] / ctx["closes"][s].shift(7) - 1 for s in P1.SYMS}
     f = {s: ctx["pct"][s]["fund"] for s in P1.SYMS}
     out["레버리지 거래 비중 높음(상위 10%)"] = test_rule(ctx, {s: lev[s] >= 90 for s in P1.SYMS})
@@ -298,9 +316,9 @@ def r14(ctx):
         h = pd.read_csv(C.ML / f"perp4ht_{s}.csv", parse_dates=["time"]).set_index("time").astype(float)
         day = h.index.normalize()  # UTC 날짜 = 코인 일봉 날짜(09:00 KST 마감)
         lb = h[h.index.hour == 20]
-        last[s] = P1.expanding_pct((lb.taker_buy_quote / lb.quote_volume).set_axis(lb.index.normalize()).reindex(ctx["days"]))
+        last[s] = pct_of((lb.taker_buy_quote / lb.quote_volume).set_axis(lb.index.normalize()).reindex(ctx["days"]))
         qd = h.quote_volume.groupby(day).sum().reindex(ctx["days"])
-        surge[s] = P1.expanding_pct(qd / qd.shift(1).rolling(30).mean())
+        surge[s] = pct_of(qd / qd.shift(1).rolling(30).mean())
         cd = h.close.groupby(day).last().reindex(ctx["days"])
         move[s] = cd / cd.shift(1) - 1
     out["직전 4시간 매수세 강함(상위 10%)"] = test_rule(ctx, {s: last[s] >= 90 for s in P1.SYMS})
@@ -314,7 +332,7 @@ def r16(ctx):
     """짧은 시계열 모멘텀(Liu · Tsyvinski 2021): 지난 1 · 2 · 3 · 4주 수익이 그 코인 자기 과거의 상위 · 하위 10%."""
     out = {}
     for w in (1, 2, 3, 4):
-        m = {s: P1.expanding_pct(ctx["closes"][s] / ctx["closes"][s].shift(7 * w) - 1) for s in P1.SYMS}
+        m = {s: pct_of(ctx["closes"][s] / ctx["closes"][s].shift(7 * w) - 1) for s in P1.SYMS}
         out[f"지난 {w}주 수익 상위 10%"] = test_rule(ctx, {s: m[s] >= 90 for s in P1.SYMS})
         out[f"지난 {w}주 수익 하위 10%"] = test_rule(ctx, {s: m[s] <= 10 for s in P1.SYMS})
     return out
@@ -325,7 +343,7 @@ def r17(ctx):
     iss = pd.read_csv(C.ML / "issuance_BTC.csv", parse_dates=["date"], index_col="date").iss_usd.astype(float)
     puell = (iss / iss.rolling(365).mean()).shift(1)
     pu = puell.reindex(ctx["days"])
-    pp = P1.expanding_pct(pu)
+    pp = pct_of(pu)
     ctx["퍼엘 최근"] = {str(d.date()): float(v) for d, v in pu.dropna().tail(3).items()}
     return {"퍼엘 < 0.5 (출처: 큰 바닥)": test_rule(ctx, {s: pu < 0.5 for s in P1.SYMS}),
             "퍼엘 > 4 (출처: 큰 꼭대기)": test_rule(ctx, {s: pu > 4 for s in P1.SYMS}),
@@ -333,7 +351,21 @@ def r17(ctx):
             "퍼엘 상위 10%": test_rule(ctx, {s: pp >= 90 for s in P1.SYMS})}
 
 
-ROUNDS = {3: r3, 5: r5, 6: r6, 8: r8, 9: r9, 10: r10, 11: r11, 13: r13, 14: r14, 16: r16, 17: r17}  # 회차 → 함수(ctx) → {규칙 이름: test_rule 결과}
+def r18(ctx):
+    """3 · 5 · 6 · 8 · 9 · 11 · 13 · 14 · 16 · 17회차 규칙 전부를 지난 3년 백분위로 다시."""
+    PCT_FN[0] = rolling_pct
+    try:
+        c2 = context()
+        out = {}
+        for k in (3, 5, 6, 8, 9, 11, 13, 14, 16, 17):
+            for name, res in ROUNDS[k](c2).items():
+                out[f"[{k}] {name}"] = res
+    finally:
+        PCT_FN[0] = P1.expanding_pct
+    return out
+
+
+ROUNDS = {3: r3, 5: r5, 6: r6, 8: r8, 9: r9, 10: r10, 11: r11, 13: r13, 14: r14, 16: r16, 17: r17, 18: r18}  # 회차 → 함수(ctx) → {규칙 이름: test_rule 결과}
 
 
 # ---------- 봇 백테스트 회차 ----------

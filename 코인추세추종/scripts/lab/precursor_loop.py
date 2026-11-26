@@ -645,6 +645,8 @@ def bot_test(ctx, variants):
                     c = ctx["closes"][s].dropna()
                     c = c[c.index <= BOT_END]
                     w = fn(bot_weights(c), ctx["on"][s].reindex(c.index).fillna(False).astype(bool))
+                    if name == "변동성 맞춤":  # 30회차: 비중을 그 코인 종가의 변동성으로 맞춘다
+                        w = vol_scaled(bot_weights(c), c)
                     r = (w.shift() * c.pct_change() - cost * w.diff().abs().shift()).fillna(0.0)
                     parts.append(r[r.index >= st])
                 r = pd.concat(parts, axis=1).fillna(0.0).mean(axis=1)
@@ -820,7 +822,43 @@ def b28(ctx):
     return res
 
 
-BOT_ROUNDS = {4: b4, 20: b20, 24: b24, 26: b26, 27: b27, 28: b28}  # 회차 → 함수(ctx) → {이름: {구간: {비용: 잔고·샤프·MDD}}, 판정}
+def vol_scaled(w, c):
+    """봇 비중 × min(1, 목표 ÷ 지난 30일 실현 변동성). 목표 = 봇이 들고 있던 날들의 실현 변동성 평균(전날까지)."""
+    rv = np.log(c).diff().rolling(30).std() * np.sqrt(365)
+    held = rv.where(w > 0)
+    target = held.expanding().mean().shift(1)
+    return (w * np.minimum(1.0, target / rv)).fillna(0.0).where(w.notna())
+
+
+def b30(ctx):
+    """변동성에 맞춘 비중: 업비트 두 코인(2020 ~ · 2023 ~)과 BTC 달러(2014 ~ 2017)."""
+    ctx["on"] = {s: pd.Series(False, index=ctx["days"]) for s in P1.SYMS}
+    closes = {s: ctx["closes"][s].dropna() for s in P1.SYMS}
+    res = bot_test(ctx, {"지금 봇 (하루 한 번)": lambda w, o: w, "변동성 맞춤": lambda w, o: w})
+    c = pd.read_csv(C.ML / "cmprice_BTC.csv", parse_dates=["date"], index_col="date").close.astype(float)
+    c = c.reindex(pd.date_range(c.index.min(), "2017-12-31")).ffill()
+    w0 = bot_weights(c)
+    old = {}
+    for name, w in (("지금 봇 (하루 한 번)", w0), ("변동성 맞춤", vol_scaled(w0, c))):
+        row = {}
+        for cn, cost in BOT_COSTS.items():
+            r = (w.shift() * c.pct_change() - cost * w.diff().abs().shift()).fillna(0.0)
+            r = r[r.index >= "2014-01-01"]
+            eq = (1 + r).cumprod()
+            row[cn] = {"잔고": float(SEED * eq.iloc[-1]), "샤프": float(r.mean() / r.std() * np.sqrt(365)), "MDD": float((eq / eq.cummax() - 1).min())}
+        old[name] = row
+    b, a = old["지금 봇 (하루 한 번)"], old["변동성 맞춤"]
+    res["지금 봇 (하루 한 번)"]["2014~2017"] = b
+    res["변동성 맞춤"]["2014~2017"] = a
+    res["변동성 맞춤"]["2014~2017 통과"] = bool(a["0.10%"]["샤프"] > b["0.10%"]["샤프"] and a["0.10%"]["MDD"] >= b["0.10%"]["MDD"] and a["0.25%"]["샤프"] > b["0.25%"]["샤프"])
+    print("== 2014 ~ 2017 (BTC 달러): 잔고 0.10% (0.25%) · 샤프 (0.25%) · MDD")
+    for name, row in old.items():
+        print(f"   {name:24s} {row['0.10%']['잔고'] / 1e4:7,.0f}만 ({row['0.25%']['잔고'] / 1e4:7,.0f}만) · {row['0.10%']['샤프']:.2f} ({row['0.25%']['샤프']:.2f}) · {row['0.10%']['MDD'] * 100:5.1f}%")
+    print("   2014 ~ 2017 판정:", "통과" if res["변동성 맞춤"]["2014~2017 통과"] else "기각")
+    return res
+
+
+BOT_ROUNDS = {4: b4, 20: b20, 24: b24, 26: b26, 27: b27, 28: b28, 30: b30}  # 회차 → 함수(ctx) → {이름: {구간: {비용: 잔고·샤프·MDD}}, 판정}
 
 
 def run_bot(k, ctx, store):

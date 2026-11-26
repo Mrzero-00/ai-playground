@@ -212,7 +212,49 @@ def r9(ctx):
     return out
 
 
-ROUNDS = {3: r3, 5: r5, 6: r6, 8: r8, 9: r9}  # 회차 → 함수(ctx) → {규칙 이름: test_rule 결과}
+def r10(ctx, L=30, K=20, SEP=10, LAG=60):
+    """직전 30일 경로(첫날 0, 그 30일 일 변동성으로 나눔)가 가장 닮은 과거 20개(60일 넘게 앞선, 서로 10일 넘게 떨어진)의 뒤 30일 장 다수결."""
+    shapes, dates, labels, owner = [], [], [], []
+    for s in P1.SYMS:
+        lr = np.log(ctx["closes"][s].dropna())
+        a = lr.to_numpy()
+        for i in range(L, len(a)):
+            w = a[i - L + 1:i + 1] - a[i - L + 1]
+            sd = np.std(np.diff(a[i - L:i + 1]))
+            if sd > 0:
+                shapes.append(w / sd)
+                dates.append(lr.index[i])
+                labels.append(ctx["fv"][s].get(lr.index[i], np.nan))
+                owner.append(s)
+    X, D, Y, O = np.array(shapes), pd.DatetimeIndex(dates), np.array(labels, float), np.array(owner)
+    dn = D.to_numpy().astype("datetime64[D]").astype(np.int64)
+    vote = {s: pd.Series(np.nan, index=ctx["days"]) for s in P1.SYMS}
+    share = {g: {s: pd.Series(np.nan, index=ctx["days"]) for s in P1.SYMS} for g in (2, 1, -1, -2)}
+    for q in np.flatnonzero(D >= "2018-01-01"):
+        pool = np.flatnonzero((dn <= dn[q] - LAG) & ~np.isnan(Y))
+        if len(pool) < 365:
+            continue
+        order = pool[np.argsort(((X[pool] - X[q]) ** 2).sum(1))]
+        picked = []
+        for j in order:
+            if all(abs(dn[j] - dn[m]) > SEP for m in picked):
+                picked.append(j)
+                if len(picked) == K:
+                    break
+        y = Y[picked].astype(int)
+        cnt = np.bincount(y + 2, minlength=5)
+        top = np.flatnonzero(cnt == cnt.max())
+        vote[O[q]].loc[D[q]] = top[0] - 2 if len(top) == 1 else np.nan
+        for g in share:
+            share[g][O[q]].loc[D[q]] = cnt[g + 2] / K
+    out = {}
+    for g, nm in ((2, "대상승"), (1, "상승"), (-1, "하락"), (-2, "대하락")):
+        out[f"닮은 과거 다수결 {nm}"] = test_rule(ctx, {s: vote[s] == g for s in P1.SYMS})
+        out[f"닮은 과거 20개 중 {nm} 절반 이상"] = test_rule(ctx, {s: share[g][s] >= 0.5 for s in P1.SYMS})
+    return out
+
+
+ROUNDS = {3: r3, 5: r5, 6: r6, 8: r8, 9: r9, 10: r10}  # 회차 → 함수(ctx) → {규칙 이름: test_rule 결과}
 
 
 # ---------- 봇 백테스트 회차 ----------

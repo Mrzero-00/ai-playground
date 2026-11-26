@@ -672,7 +672,39 @@ def r32(ctx, H_=60, STEP=30, MIN_TRAIN=500):
     return out
 
 
-ROUNDS = {3: r3, 5: r5, 6: r6, 8: r8, 9: r9, 10: r10, 11: r11, 13: r13, 14: r14, 16: r16, 17: r17, 18: r18, 19: r19, 21: r21, 22: r22, 23: r23, 25: r25, 29: r29, 32: r32}  # 회차 → 함수(ctx) → {규칙 이름: test_rule 결과}
+HALVES = {"1991~2007": ("1991-01-01", "2007-12-31"), "2008~2025": ("2008-01-01", "2025-12-31")}
+
+
+def nasdaq_test(on, x, gap=0.05, min_days=200):
+    """나스닥(거래일): 켜진 날 뒤 21 · 42거래일 오른 비율 대 평소, 두 반쪽."""
+    res = {}
+    for h in (21, 42):
+        up = (x.shift(-h) / x - 1 > 0).where(x.shift(-h).notna())
+        for hn, (a, b) in HALVES.items():
+            m = up.notna() & (up.index >= a) & (up.index <= b)
+            o = on.reindex(up.index).fillna(False).astype(bool)
+            res[f"{h}거래일 {hn}"] = {"켜진 날": int((m & o).sum()), "오른 비율": float(up[m & o].mean()) if (m & o).any() else None, "평소": float(up[m].mean())}
+    for h in (21, 42):
+        rs = [res[f"{h}거래일 {hn}"] for hn in HALVES]
+        res[f"{h}거래일 확인"] = bool(all(r["켜진 날"] >= min_days and r["오른 비율"] is not None and r["오른 비율"] - r["평소"] > gap for r in rs))
+    return res
+
+
+def r33(ctx):
+    """나스닥 '조용함 + 겁 없음': 볼린저 폭 3년 백분위 ≤ 30 × VIX 3년 백분위 ≤ 30."""
+    x = pd.read_csv(C.ML / "macro.csv", parse_dates=["date"], index_col="date")["나스닥"].dropna().astype(float)
+    vix = pd.read_csv(C.ML / "risk.csv", parse_dates=["date"], index_col="date").VIX.dropna().astype(float).reindex(x.index).ffill()
+    bw = 4 * x.rolling(20).std() / x.rolling(20).mean()
+    quiet = rolling_pct(bw, window=756, minimum=252) <= 30  # 거래일로 3년 · 1년
+    calm = rolling_pct(vix, window=756, minimum=252) <= 30
+    out = {"조용함 + 겁 없음": nasdaq_test(quiet & calm, x), "조용함만": nasdaq_test(quiet, x), "겁 없음만": nasdaq_test(calm, x)}
+    for n, r in out.items():
+        print(f"   {n:12s} " + " | ".join(f"{k}: {(r[k]['오른 비율'] or 0) * 100:4.1f}%(평소 {r[k]['평소'] * 100:4.1f}, {r[k]['켜진 날']}일)" for k in r if "확인" not in k)
+              + f" | 확인 21 {'예' if r['21거래일 확인'] else '아니오'} · 42 {'예' if r['42거래일 확인'] else '아니오'}")
+    return out
+
+
+ROUNDS = {3: r3, 5: r5, 6: r6, 8: r8, 9: r9, 10: r10, 11: r11, 13: r13, 14: r14, 16: r16, 17: r17, 18: r18, 19: r19, 21: r21, 22: r22, 23: r23, 25: r25, 29: r29, 32: r32, 33: r33}  # 회차 → 함수(ctx) → {규칙 이름: test_rule 결과}
 
 
 # ---------- 봇 백테스트 회차 ----------
@@ -950,6 +982,10 @@ def run(k):
         OUT.write_text(json.dumps(store, ensure_ascii=False, indent=1))
         return
     rules = ROUNDS[k](ctx)
+    if k in (33, 34):  # 나스닥 회차: 결과 꼴이 달라 출력은 회차 함수가 했다
+        store["rounds"][str(k)] = {"made": datetime.now().isoformat(timespec="seconds"), "nasdaq": rules}
+        OUT.write_text(json.dumps(store, ensure_ascii=False, indent=1))
+        return
     if k == 23:
         print(f"== {k}회차 — BTC {NEW[0]} ~ {NEW[1]}(처음 보는 기간): 켜진 날 · 다섯 장 배수 · 뒤 30 · 60일 오른 비율(평소) · 주장 → 새 기간")
         for n, r in rules.items():

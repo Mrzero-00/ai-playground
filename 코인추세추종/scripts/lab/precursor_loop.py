@@ -618,7 +618,61 @@ def r29(ctx):
     return out
 
 
-ROUNDS = {3: r3, 5: r5, 6: r6, 8: r8, 9: r9, 10: r10, 11: r11, 13: r13, 14: r14, 16: r16, 17: r17, 18: r18, 19: r19, 21: r21, 22: r22, 23: r23, 25: r25, 29: r29}  # 회차 → 함수(ctx) → {규칙 이름: test_rule 결과}
+def r32(ctx, H_=60, STEP=30, MIN_TRAIN=500):
+    """모든 지표를 한꺼번에: HistGradientBoosting(기본값)으로 뒤 60일 오름 확률을 워크포워드로."""
+    from sklearn.ensemble import HistGradientBoostingClassifier
+    PCT_FN[0] = rolling_pct
+    try:
+        c2 = context()
+        days = c2["days"]
+        _, _, nq = stock_state("나스닥", days)
+        iss = pd.read_csv(C.ML / "issuance_BTC.csv", parse_dates=["date"], index_col="date").iss_usd.astype(float)
+        puell = (iss / iss.rolling(365).mean()).shift(1).reindex(days)
+        J = macro_jumps(days)  # (≥ 90 여부) — 값 자체가 필요해 다시 계산한다
+        a = pd.read_csv(C.ML / "assets_long.csv", parse_dates=["date"], index_col="date").astype(float)
+        oil = P1.cal(a["유가"].dropna().shift(1), days)
+        lq = pd.read_csv(C.ML / "liquidity.csv", parse_dates=["date"], index_col="date").astype(float)
+        lq = lq.reindex(pd.date_range(lq.index.min(), days[-1])).ffill()
+        net = (lq.walcl - lq.tga - lq.rrp.fillna(0.0) * 1000).shift(7).reindex(days)
+        rows = []
+        for s in P1.SYMS:
+            c = c2["closes"][s]
+            X = pd.DataFrame({k: v for k, v in c2["pct"][s].items()}, index=days)
+            X["puell"] = puell
+            X["rel"] = rolling_pct(c / c.shift(30) - 1 - (nq / nq.shift(30) - 1))
+            X["liq30"] = rolling_pct(net / net.shift(30) - 1)
+            X["oil30"] = rolling_pct(oil / oil.shift(30) - 1)
+            y = (c.shift(-H_) / c - 1 > 0).astype(float).where(c.shift(-H_).notna() & c.notna())
+            X["_y"], X["_s"] = y, s
+            rows.append(X[c.notna()])
+        A = pd.concat(rows).rename_axis("date").reset_index().sort_values("date", kind="stable").reset_index(drop=True)
+        cols = [k for k in A.columns if not k.startswith("_") and k != "date"]
+        prob = {s: pd.Series(np.nan, index=days) for s in P1.SYMS}
+        dates = np.sort(A.date.unique())
+        start = np.searchsorted(dates, np.datetime64("2018-01-01"))
+        for i in range(start, len(dates), STEP):
+            d = dates[i]
+            tr = A.date.to_numpy() <= d - np.timedelta64(H_, "D")
+            tr &= A._y.notna().to_numpy()
+            te = (A.date.to_numpy() >= d) & (A.date.to_numpy() < dates[min(i + STEP, len(dates) - 1)] if i + STEP < len(dates) else A.date.to_numpy() >= d)
+            if tr.sum() < MIN_TRAIN or not te.any():
+                continue
+            m = HistGradientBoostingClassifier(random_state=0).fit(A.loc[tr, cols].to_numpy(float), A.loc[tr, "_y"].to_numpy(int))
+            pr = m.predict_proba(A.loc[te, cols].to_numpy(float))[:, list(m.classes_).index(1)] if 1 in m.classes_ else np.zeros(te.sum())
+            for s in P1.SYMS:
+                k = (A.loc[te, "_s"] == s).to_numpy()
+                prob[s].loc[pd.DatetimeIndex(A.loc[te, "date"].to_numpy()[k])] = pr[k]
+        rules = {"오를 확률 ≥ 0.6": {s: prob[s] >= 0.6 for s in P1.SYMS}, "오를 확률 ≤ 0.4": {s: prob[s] <= 0.4 for s in P1.SYMS}}
+        out = {n: test_rule(c2, on) for n, on in rules.items()}
+        ctx["dir"] = {f"{n} · {h}일": test_dir(c2, on, h) for n, on in rules.items() for h in (30, 60)}
+        first = min(prob[s].first_valid_index() for s in P1.SYMS)
+        print(f"   예측이 있는 첫날 {first.date()} · 예측한 날 " + " · ".join(f"{s} {int(prob[s].notna().sum())}" for s in P1.SYMS))
+    finally:
+        PCT_FN[0] = P1.expanding_pct
+    return out
+
+
+ROUNDS = {3: r3, 5: r5, 6: r6, 8: r8, 9: r9, 10: r10, 11: r11, 13: r13, 14: r14, 16: r16, 17: r17, 18: r18, 19: r19, 21: r21, 22: r22, 23: r23, 25: r25, 29: r29, 32: r32}  # 회차 → 함수(ctx) → {규칙 이름: test_rule 결과}
 
 
 # ---------- 봇 백테스트 회차 ----------

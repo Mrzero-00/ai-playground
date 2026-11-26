@@ -33,12 +33,12 @@ def load(sym):
     return d
 
 
-def box(d, g):
-    """T4: 추세 상태면 그 방향, 횡보장이면 볼린저(20, 2) 하단 아래 롱·상단 위 숏, 중간선 청산."""
+def box(d, g, start=0):
+    """T4: 추세 상태면 그 방향, 횡보장이면 볼린저(20, 2) 하단 아래 롱·상단 위 숏, 중간선 청산. start 앞은 포지션 0(그 자리에서 새로 시작)."""
     c = d.close.to_numpy()
     m, sd = sma(d.close, 20).to_numpy(), d.close.rolling(20).std().to_numpy()
     out, pos, was_trend = np.zeros(len(c)), 0, False
-    for i in range(len(c)):
+    for i in range(start, len(c)):
         if g[i] != 0:
             pos, was_trend = int(np.sign(g[i])), True
         else:

@@ -259,6 +259,8 @@ def build():
     sl = report_stoploss.section()
     import report_turtle  # 터틀식 손절 — 값 바꿔 보기 (scripts/lab/turtle_grid.py)
     tg = report_turtle.section()
+    import report_start2026  # 2026년에 시작했다면 — 현물 대 선물 (scripts/lab/start2026.py)
+    s26 = report_start2026.section()
     total = sum(r["cells"] for r in done)
     passed = [f"{r['name']} · {u['name']}" for r in done for u in r["units"] if u["passed"] and not r.get("late")]
     late_ok = [f"{r['name']} · {u['name']}" for r in done for u in r["units"] if u["passed"] and r.get("late")]
@@ -266,7 +268,7 @@ def build():
             + (f" 봉인 해제 뒤 추가(참고용) 개발 통과: {', '.join(late_ok)}." if late_ok else "")) if done else "첫 단계를 돌리는 중이다."
     seal = f"열림 ({json.loads(C.SEAL.read_text())['at'][:16]})" if C.SEAL.exists() else "닫힘 — 2025-07-01 이후 데이터는 마지막에 한 번만 연다"
     page = TEMPLATE.replace("__NOW__", now).replace("__HEAD__", e(head)).replace("__SEAL__", e(seal)).replace("__PROGRESS__", progress) \
-        .replace("__OVERVIEW__", overview or '<tr><td colspan="7">아직 끝난 단계가 없다.</td></tr>').replace("__SECTIONS__", hold + tg + sl + fsell + fast + four + win + kim + hyb + fut + r3 + strat + loop2 + loop + reg + short + dsr + sections) \
+        .replace("__OVERVIEW__", overview or '<tr><td colspan="7">아직 끝난 단계가 없다.</td></tr>').replace("__SECTIONS__", hold + s26 + tg + sl + fsell + fast + four + win + kim + hyb + fut + r3 + strat + loop2 + loop + reg + short + dsr + sections) \
         .replace("__DATA__", json.dumps(curves, ensure_ascii=False))
     (C.OUT / "report.html").write_text(page)
     (C.OUT / "report.json").write_text(json.dumps(reported, ensure_ascii=False))

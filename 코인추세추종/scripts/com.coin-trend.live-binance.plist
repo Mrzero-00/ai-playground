@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+  <key>Label</key><string>com.coin-trend.live-binance</string>
+  <key>ProgramArguments</key>
+  <array>
+    <string>/usr/bin/python3</string>
+    <string>/Users/sonsang-il/autoCoin/코인추세추종/scripts/live_binance.py</string>
+  </array>
+  <key>WorkingDirectory</key><string>/Users/sonsang-il/autoCoin/코인추세추종</string>
+  <!-- 09:07 하루 몫(바이낸스 일봉은 00:00 UTC = 09:00 KST 에 닫힌다). 실패한 코인이 있으면 13:07 · 17:07 · 21:07 에 다시 한다.
+       하루 몫이 끝난 뒤의 실행은 '이미 끝났다' 만 적고 끝난다. .env 에 BINANCE_LIVE=1 과 키가 없으면 드라이런(live_binance/dry) -->
+  <key>StartCalendarInterval</key>
+  <array>
+    <dict><key>Hour</key><integer>9</integer><key>Minute</key><integer>7</integer></dict>
+    <dict><key>Hour</key><integer>13</integer><key>Minute</key><integer>7</integer></dict>
+    <dict><key>Hour</key><integer>17</integer><key>Minute</key><integer>7</integer></dict>
+    <dict><key>Hour</key><integer>21</integer><key>Minute</key><integer>7</integer></dict>
+  </array>
+  <key>StandardOutPath</key><string>/Users/sonsang-il/autoCoin/코인추세추종/live_binance/logs/live_binance.log</string>
+  <key>StandardErrorPath</key><string>/Users/sonsang-il/autoCoin/코인추세추종/live_binance/logs/live_binance.err</string>
+</dict>
+</plist>

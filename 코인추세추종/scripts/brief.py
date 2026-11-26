@@ -1,11 +1,11 @@
-"""실전 매매 브리핑. Claude 세션 루프가 이 출력을 읽어 알림으로 보낸다. 주문을 내지 않고 장부도 고치지 않는다.
+"""실전 매매 브리핑(업비트 봇이 사용자 결정으로 멈춰 있으면 바이낸스 봇). Claude 세션 루프가 이 출력을 읽어 알림으로 보낸다. 주문을 내지 않고 장부도 고치지 않는다.
 첫 줄은 알림용 한 줄(200자 이내), 그 아래는 마켓별 근거·주문 내역·평가액·작업 상태.
 사용법:
   python3 scripts/brief.py         # 지금 상태
   python3 scripts/brief.py --new   # 지난번에 내보낸 뒤로 달라진 게 없으면 아무것도 출력하지 않는다 (루프용)
 """
 import csv, json, sys
-from datetime import datetime
+from datetime import datetime, timezone
 
 from live import DIR, EQUITY, LIVE, MIN_ORDER, STOP, STOP_ATR, TRADES, atr20, history, load_state
 from paper import KST, MARKETS, SMAS, closes, signal
@@ -138,7 +138,7 @@ def brief(new=False):
         bits.append("오늘 몫은 09:07 실행 예정")
     if bad:
         live_note = "(정지)" if STOP.exists() else f"({'·'.join(map(coin, undone))} 미처리)" if undone else ""
-        bits.append("확인 필요: " + ", ".join(name + (live_note if name == "실전" else "") for name, _ in bad))
+        bits.append("확인 필요: " + ", ".join(name + (live_note if name == "업비트 실전" else "") for name, _ in bad))
     for t in trades:
         day, w = t["시각"][:10] == today, whys.get(t["마켓"])
         note = (f"비중 {float(t['목표비중_전']):g}→{float(t['목표비중_후']):g}" + (f", {moved(w)}" if day and w and moved(w) else "")) if t["사유"] == "신호" else t["사유"]
@@ -162,5 +162,79 @@ def brief(new=False):
         MARK.write_text(json.dumps({"at": now.isoformat(timespec="seconds"), "sig": sig}, ensure_ascii=False))
 
 
+def brief_binance(new=False):
+    """바이낸스 봇 브리핑(업비트 봇을 사용자 결정으로 멈춘 뒤). 장부를 읽기만 한다."""
+    import live_binance as LB
+    now = datetime.now(KST)
+    today = now.strftime("%Y-%m-%d")
+    day = now.astimezone(timezone.utc).strftime("%Y-%m-%d")  # 바이낸스 매매일 = UTC 날짜
+    mode = "실전" if LB.LIVE else "드라이런"
+    st = json.loads(LB.STATE.read_text()) if LB.STATE.exists() else None
+    mark_path = LB.DIR / "brief.json"
+    mark = json.loads(mark_path.read_text()) if mark_path.exists() else {}
+    all_tr = list(csv.DictReader(LB.TRADES.open())) if LB.TRADES.exists() else []
+    trades = [t for t in all_tr if t["시각"][:10] == today or t["시각"] > mark.get("at", "9")]
+    hl = health(now, {}, collector()[0])
+    bad = [(name, desc) for name, ok, desc in hl if not ok]
+    undone = now.hour >= 9 and not LB.STOP.exists() and (not st or st.get("last_run") != day)
+    sig = [today, st and st.get("last_run"), st and st.get("check", {}).get("notes"),
+           [c for c in LB.COINS if st and st["sleeves"][c].get("pending")], LB.STOP.exists(), len(all_tr), [name for name, _ in bad]]
+    if new and sig == mark.get("sig"):
+        return
+
+    body, bits, plan = [], [], {}
+    for c in LB.COINS:
+        mine = [t for t in trades if t["코인"] == c]
+        try:
+            sd, sp = LB.day_closes(LB.SPOT, "/api/v3/klines", c, 400)
+            _, fp = LB.day_closes(LB.FAPI, "/fapi/v1/klines", c, 1000)
+        except Exception as e:
+            body.append(f"{c}  신호 근거를 불러오지 못함: {str(e)[:100]}")
+            continue
+        w, g, z = signal(sp), LB.regime(fp), LB.zs(fp)[-1]
+        plan[c] = (w, g)
+        s = st["sleeves"][c] if st else None
+        head = " · ".join(("" if t["시각"][:10] == today else f"{mmdd(t['시각'])} ") + t["구분"] for t in mine) if mine else "주문 없음"
+        body.append(f"{c}  {head}" + (" — 오늘 몫 아직 안 됨" if undone else ""))
+        above = [n for n in SMAS if sp[-1] > sum(sp[-n:]) / n]
+        body.append(f"  현물 근거  {mmdd(sd[-1])} 종가 {sp[-1]:,.2f} — {where(above)} → 현물 비중 {w:.2f}")
+        exit_ = ("z 가 −0.5 위로 올라오면 하락장이 끝나 숏을 갚는다" if g < 0 else
+                 "z 가 −1 이하로 내려가면 하락장 → 숏" + (", +0.5 아래로 오면 횡보장" if g > 0 else ""))
+        body.append(f"  장 근거  선물 지난 30일 z {z:+.2f} → {LB.REGIME_NAME[g]} ({exit_})")
+        if s:
+            body.append(f"  장부  현금 {s['cash']:,.2f} · 코인 {s['qty']:.6f} · 증거금 {s['margin']:,.2f} · 숏 {s['short']:.3f}"
+                        + (f" @ {s['entry']:,.2f}" if s["short"] else "") + (f" · 펀딩 누적 {s.get('funding', 0):+.4f}" if s.get("funding") else "")
+                        + (" · 확인 안 된 주문/이체 있음" if s.get("pending") else ""))
+        if not mine:
+            bits.append(f"{c} 현물 {w:g}" + (f" + 숏({LB.REGIME_NAME[g]})" if g < 0 else f"({LB.REGIME_NAME[g]})"))
+    if trades:
+        body.append(f"주문·이체 {len(trades)}건")
+        for t in trades:
+            body.append(f"  {mmdd(t['시각'])} {t['시각'][11:16]} {t['코인']} {t['구분']}({t['사유']}) {float(t['수량']):.6g} @ {float(t['가격']):,.2f} = {float(t['USDT']):,.2f} USDT · 수수료 {float(t['수수료']):.4f}")
+            if not t["구분"].endswith("지갑으로"):
+                bits.append(("" if t["시각"][:10] == today else f"{mmdd(t['시각'])} ") + f"{t['코인']} {t['구분'].split(' (')[0]} {float(t['USDT']):,.0f} USDT")
+    h = LB.history()
+    money = ""
+    if h:
+        d, v, b, idx = h[-1]
+        body.append(f"평가액 {v:,.2f} USDT (넣은 돈 {b:,.2f} 대비 {(v / b - 1) * 100:+.2f}%)" + ("" if d == day else f" — {d} 기준"))
+        money = f"평가 {v:,.0f} USDT({(v / b - 1) * 100:+.2f}%)"
+    if LB.STOP.exists():
+        body.append(f"정지 상태: {LB.STOP.read_text().strip()}")
+    body.append("확인 필요\n" + "\n".join(f"  {name}: {desc}" for name, desc in bad) if bad else f"작업 {len(hl)}개 모두 정상")
+    after = [f"{hh}:22" for hh, mm in RETRY if (now.hour, now.minute) < (hh, mm)]
+    if undone and after:
+        body.append(f"다음 확인: {after[0]}")
+    lead = (["오늘 몫은 09:07 실행 예정"] if now.hour < 9 else []) + (["확인 필요: " + ", ".join(n for n, _ in bad)] if bad else [])
+    line = f"{now.month}/{now.day} 바이낸스 {mode}: " + " / ".join(lead + bits + ([money] if money else []))
+    print(line if len(line) <= 200 else line[:199] + "…")
+    print()
+    print("\n".join(body))
+    if new:
+        mark_path.parent.mkdir(parents=True, exist_ok=True)
+        mark_path.write_text(json.dumps({"at": now.isoformat(timespec="seconds"), "sig": sig}, ensure_ascii=False))
+
+
 if __name__ == "__main__":
-    brief(new="--new" in sys.argv)
+    upbit_off = STOP.exists() and "사용자 결정" in STOP.read_text()  # 2026-11-26 업비트 봇을 멈추고 바이낸스로 옮겼다
+    (brief_binance if upbit_off else brief)(new="--new" in sys.argv)

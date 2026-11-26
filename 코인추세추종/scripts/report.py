@@ -8,6 +8,7 @@ import csv, html, json, os, subprocess, sys
 from datetime import datetime, timedelta
 from pathlib import Path
 
+import live_binance as LB
 from live import history
 from paper import KST, MARKETS, SMAS, closes, signal
 
@@ -151,13 +152,51 @@ def cand_table():
             f'<div class="muted">{start} ~ {day}</div>')
 
 
+def binance():
+    """바이낸스 봇 장부 (실전이면 live_binance, 아니면 드라이런 장부): (이름, 장부, 기록, 거래)."""
+    st = json.loads(LB.STATE.read_text()) if LB.STATE.exists() else {}
+    return "바이낸스 " + ("실전" if LB.LIVE else "드라이런"), st, LB.history(), rows(LB.TRADES)
+
+
+def binance_html(st, tr):
+    if not st:
+        return '<p class="muted">아직 장부가 없다. 다음 09:07 에 시작한다.</p>'
+    body = ""
+    for c, s in st["sleeves"].items():
+        sig = s.get("signal", {})
+        g = sig.get("regime")
+        w = "—" if s.get("w") is None else f"{s['w']:.2f}"
+        body += (f'<tr><td>{c}</td><td>{w}</td><td>{LB.REGIME_NAME.get(g, "—")}</td>'
+                 f'<td>{s["qty"]:.6f}</td><td>{s["short"]:.3f}</td><td>{s["cash"]:,.2f}</td><td>{s["margin"]:,.2f}</td><td>{s.get("funding", 0):+.4f}</td></tr>')
+    table = (f'<div class="scroll"><table><tr><th>코인</th><th>현물 비중</th><th>장</th><th>현물 수량</th><th>숏 수량</th><th>현금 USDT</th>'
+             f'<th>증거금 USDT</th><th>펀딩 누적</th></tr>{body}</table></div>')
+    cols = ["시각", "코인", "구분", "사유", "가격", "수량", "USDT", "수수료", "상태"]
+    rows_ = "".join("<tr>" + "".join(f"<td>{html.escape(str(t.get(k, '')))}</td>" for k in cols) + "</tr>" for t in reversed(tr[-30:]))
+    trades = f'<div class="scroll"><table><tr>{"".join(f"<th>{k}</th>" for k in cols)}</tr>{rows_}</table></div>' if tr else '<p class="muted">아직 거래 없음.</p>'
+    return table + "<p class=\"muted\">현물 비중 = 바이낸스 현물 종가가 위에 있는 이동평균(20·50·100·200일) 수 ÷ 4. 장 = 선물 종가 지난 30일 z + 문턱 여유. 하락장이면 쉬는 돈 (1 − 비중) 만큼 1배 숏.</p>" + trades
+
+
 def health(now, live_st, col_last):
     """작업마다 (이름, 정상 여부, 설명). 알림은 보내지 않으니 봇이 살아 있는지는 이 줄로 본다."""
     today = now.strftime("%Y-%m-%d")
     # 09:15 작업까지 끝난 뒤부터 오늘 몫을 기대한다
     due = today if (now.hour, now.minute) >= (9, 16) else (now - timedelta(days=1)).strftime("%Y-%m-%d")
     out = []
-    for name, folder in [("실전", "live"), ("모의", "paper"), ("ML 모의", "paper_ml"), ("선물 모의", "paper_futures"), ("후보 모의", "paper_cand")]:
+    _, bst, _, _ = binance()
+    last = bst.get("last_run")  # 매매일 = UTC 날짜 (09:00 KST 에 바뀐다)
+    err = LB.BASE / "logs" / "live_binance.err"
+    erred = err.exists() and err.stat().st_size > 0 and datetime.fromtimestamp(err.stat().st_mtime, KST).strftime("%Y-%m-%d") == today
+    why = [f"마지막 실행 {last or '없음'}" + (", 오늘 오류 기록 있음" if erred else "")] if not last or last < due else []
+    why += bst.get("check", {}).get("notes", [])
+    why += [f"{c} 주문·이체 확인이 끝나지 않음" for c, s in bst.get("sleeves", {}).items() if s.get("pending")]
+    if LB.STOP.exists():
+        why.append("정지 상태(STOP 파일)")
+    out.append(("바이낸스", not why, " · ".join(why) or f"{last} 실행 ({'실전' if LB.LIVE else '드라이런'})" + (" (오류 뒤 재시도로 끝남)" if erred else "")))
+    for name, folder in [("업비트 실전", "live"), ("모의", "paper"), ("ML 모의", "paper_ml"), ("선물 모의", "paper_futures"), ("후보 모의", "paper_cand")]:
+        stop = ROOT / folder / "STOP"
+        if folder == "live" and stop.exists() and "사용자 결정" in stop.read_text():  # 일부러 멈춘 것은 문제가 아니다
+            out.append((name, True, "정지 — " + stop.read_text().strip()[:60]))
+            continue
         st = ROOT / folder / "state.json"
         last = json.loads(st.read_text()).get("last_run") if st.exists() else None
         err = ROOT / folder / "logs" / f"{folder}.err"
@@ -217,6 +256,10 @@ def build():
     flows = rows(ROOT / "live/flows.csv")
 
     cards = []
+    bname, bst, bhist, btr = binance()
+    if bhist:
+        _, v, b, _ = bhist[-1]
+        cards.append((f"{bname} 평가액", f"{v:,.2f} USDT", f"넣은 돈 {b:,.2f} 대비 {pct(v / b - 1)} · 최대 하락 {pct(mdd([r[3] for r in bhist]), 1)}"))
     if live_hist:
         _, v, b, _ = live_hist[-1]
         cards.append(("실전 평가액", f"{v:,.0f}원", f"넣은 돈 {b:,.0f}원 대비 {pct(v / b - 1)} · 최대 하락 {pct(mdd([r[1] for r in live_eq]), 1)}"))
@@ -282,11 +325,14 @@ th,td{{padding:7px 9px;border-bottom:1px solid var(--line);text-align:right;whit
 </style></head><body><main>
 <div id="stale" class="banner" hidden></div>
 <h1>코인 추세추종 리포트</h1>
-<div class="muted">업비트 BTC·ETH · SMA 20·50·100·200 앙상블 · 갱신 {now:%Y-%m-%d %H:%M} KST</div>
+<div class="muted">바이낸스 BTC·ETH 현물 봇 + 하락장 숏 · 업비트 봇은 2026-11-26 정지 · 갱신 {now:%Y-%m-%d %H:%M} KST</div>
 {health_html}
 <div class="cards">{card_html}</div>
 
-<h2>오늘 신호 ({sig[0]['date']} 종가 기준)</h2>
+<h2>{bname} — 현물 봇 + 하락장 숏 (2026-11-26 사용자 결정으로 업비트에서 옮김)</h2>
+{binance_html(bst, btr)}
+
+<h2>업비트 신호 ({sig[0]['date']} 종가 기준, 업비트 봇은 정지)</h2>
 <div class="scroll"><table><tr><th>마켓</th><th>종가</th>{sig_head}<th>목표 비중</th></tr>{sig_rows}</table></div>
 <p class="muted">각 이평선 대비 종가 위치. 위에 있는 이평선 수 ÷ 4 가 목표 비중. 0 에 가까운 칸이 다음에 뒤집힐 후보.</p>
 
